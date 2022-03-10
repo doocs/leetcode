@@ -26,7 +26,7 @@
 <pre>addNum(1)
 addNum(2)
 findMedian() -&gt; 1.5
-addNum(3)
+addNum(3) 
 findMedian() -&gt; 2</pre>
 
 <p><strong>进阶:</strong></p>

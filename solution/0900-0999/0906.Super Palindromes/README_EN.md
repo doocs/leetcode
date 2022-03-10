@@ -32,7 +32,7 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 	<li><code>1 &lt;= left.length, right.length &lt;= 18</code></li>
 	<li><code>left</code> and <code>right</code> consist of only digits.</li>
 	<li><code>left</code> and <code>right</code> cannot have leading zeros.</li>
-	<li><code>left</code> and <code>right</code> represent integers in the range <code>[1, 10<sup>18</sup>]</code>.</li>
+	<li><code>left</code> and <code>right</code> represent integers in the range <code>[1, 10<sup>18</sup> - 1]</code>.</li>
 	<li><code>left</code> is less than or equal to <code>right</code>.</li>
 </ul>
 

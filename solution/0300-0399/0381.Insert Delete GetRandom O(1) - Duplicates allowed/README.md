@@ -6,39 +6,51 @@
 
 <!-- 这里写题目描述 -->
 
-<p>设计一个支持在<em>平均&nbsp;</em>时间复杂度&nbsp;<strong>O(1)&nbsp;</strong>下<strong>，&nbsp;</strong>执行以下操作的数据结构。</p>
+<p><code>RandomizedCollection</code> 是一种包含数字集合(可能是重复的)的数据结构。它应该支持插入和删除特定元素，以及删除随机元素。</p>
 
-<p><strong>注意: 允许出现重复元素。</strong></p>
+<p>实现 <code>RandomizedCollection</code> 类:</p>
 
-<ol>
-	<li><code>insert(val)</code>：向集合中插入元素 val。</li>
-	<li><code>remove(val)</code>：当 val 存在时，从集合中移除一个 val。</li>
-	<li><code>getRandom</code>：从现有集合中随机获取一个元素。每个元素被返回的概率应该与其在集合中的数量呈线性相关。</li>
-</ol>
+<ul>
+	<li><code>RandomizedCollection()</code>初始化空的 <code>RandomizedCollection</code> 对象。</li>
+	<li><code>bool insert(int val)</code>&nbsp;将一个 <code>val</code> 项插入到集合中，即使该项已经存在。如果该项不存在，则返回 <code>true</code> ，否则返回 <code>false</code> 。</li>
+	<li><code>bool remove(int val)</code>&nbsp;如果存在，从集合中移除一个 <code>val</code> 项。如果该项存在，则返回 <code>true</code> ，否则返回 <code>false</code> 。注意，如果 <code>val</code> 在集合中出现多次，我们只删除其中一个。</li>
+	<li><code>int getRandom()</code> 从当前的多个元素集合中返回一个随机元素。每个元素被返回的概率与集合中包含的相同值的数量 <strong>线性相关</strong> 。</li>
+</ul>
 
-<p><strong>示例:</strong></p>
+<p>您必须实现类的函数，使每个函数的 <strong>平均</strong> 时间复杂度为 <code>O(1)</code> 。</p>
 
-<pre>// 初始化一个空的集合。
-RandomizedCollection collection = new RandomizedCollection();
+<p><strong>注意：</strong>生成测试用例时，只有在 <code>RandomizedCollection</code> 中 <strong>至少有一项</strong> 时，才会调用 <code>getRandom</code> 。</p>
 
-// 向集合中插入 1 。返回 true 表示集合不包含 1 。
-collection.insert(1);
+<p>&nbsp;</p>
 
-// 向集合中插入另一个 1 。返回 false 表示集合包含 1 。集合现在包含 [1,1] 。
-collection.insert(1);
+<p><strong>示例 1:</strong></p>
 
-// 向集合中插入 2 ，返回 true 。集合现在包含 [1,1,2] 。
-collection.insert(2);
+<pre>
+<strong>输入</strong>
+["RandomizedCollection", "insert", "insert", "insert", "getRandom", "remove", "getRandom"]
+[[], [1], [1], [2], [], [1], []]
+<strong>输出</strong>
+[null, true, false, true, 2, true, 1]
 
-// getRandom 应当有 2/3 的概率返回 1 ，1/3 的概率返回 2 。
-collection.getRandom();
-
-// 从集合中删除 1 ，返回 true 。集合现在包含 [1,2] 。
-collection.remove(1);
-
-// getRandom 应有相同概率返回 1 和 2 。
-collection.getRandom();
+<strong>解释</strong>
+RandomizedCollection collection = new RandomizedCollection();// 初始化一个空的集合。
+collection.insert(1);// 向集合中插入 1 。返回 true 表示集合不包含 1 。
+collection.insert(1);// 向集合中插入另一个 1 。返回 false 表示集合包含 1 。集合现在包含 [1,1] 。
+collection.insert(2);// 向集合中插入 2 ，返回 true 。集合现在包含 [1,1,2] 。
+collection.getRandom();// getRandom 应当有 2/3 的概率返回 1 ，1/3 的概率返回 2 。
+collection.remove(1);// 从集合中删除 1 ，返回 true 。集合现在包含 [1,2] 。
+collection.getRandom();// getRandom 应有相同概率返回 1 和 2 。
 </pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>-2<sup>31</sup>&nbsp;&lt;= val &lt;= 2<sup>31</sup>&nbsp;- 1</code></li>
+	<li><code>insert</code>,&nbsp;<code>remove</code>&nbsp;和&nbsp;<code>getRandom</code>&nbsp;最多 <strong>总共</strong> 被调用&nbsp;<code>2 * 10<sup>5</sup></code>&nbsp;次</li>
+	<li>当调用 <code>getRandom</code> 时，数据结构中 <strong>至少有一个</strong> 元素</li>
+</ul>
 
 ## 解法
 

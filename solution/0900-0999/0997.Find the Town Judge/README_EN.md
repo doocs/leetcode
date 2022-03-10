@@ -4,65 +4,52 @@
 
 ## Description
 
-<p>In a town, there are <code>N</code> people labelled from&nbsp;<code>1</code> to <code>N</code>.&nbsp; There is a rumor that one of these people is secretly the town judge.</p>
+<p>In a town, there are <code>n</code> people labeled from <code>1</code> to <code>n</code>. There is a rumor that one of these people is secretly the town judge.</p>
 
-<p>If the&nbsp;town judge exists, then:</p>
+<p>If the town judge exists, then:</p>
 
 <ol>
 	<li>The town judge trusts nobody.</li>
 	<li>Everybody (except for the town judge) trusts the town judge.</li>
-	<li>There is exactly one person that satisfies properties 1 and 2.</li>
+	<li>There is exactly one person that satisfies properties <strong>1</strong> and <strong>2</strong>.</li>
 </ol>
 
-<p>You are given <code>trust</code>, an array of pairs <code>trust[i] = [a, b]</code> representing that the person labelled <code>a</code> trusts the person labelled <code>b</code>.</p>
+<p>You are given an array <code>trust</code> where <code>trust[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> representing that the person labeled <code>a<sub>i</sub></code> trusts the person labeled <code>b<sub>i</sub></code>.</p>
 
-<p>If the town judge exists and can be identified, return the label of the town judge.&nbsp; Otherwise, return <code>-1</code>.</p>
+<p>Return <em>the label of the town judge if the town judge exists and can be identified, or return </em><code>-1</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
-<pre><strong>Input:</strong> N = 2, trust = [[1,2]]
-
+<pre>
+<strong>Input:</strong> n = 2, trust = [[1,2]]
 <strong>Output:</strong> 2
+</pre>
 
-</pre><p><strong>Example 2:</strong></p>
+<p><strong>Example 2:</strong></p>
 
-<pre><strong>Input:</strong> N = 3, trust = [[1,3],[2,3]]
-
+<pre>
+<strong>Input:</strong> n = 3, trust = [[1,3],[2,3]]
 <strong>Output:</strong> 3
+</pre>
 
-</pre><p><strong>Example 3:</strong></p>
+<p><strong>Example 3:</strong></p>
 
-<pre><strong>Input:</strong> N = 3, trust = [[1,3],[2,3],[3,1]]
-
+<pre>
+<strong>Input:</strong> n = 3, trust = [[1,3],[2,3],[3,1]]
 <strong>Output:</strong> -1
-
-</pre><p><strong>Example 4:</strong></p>
-
-<pre><strong>Input:</strong> N = 3, trust = [[1,2],[2,3]]
-
-<strong>Output:</strong> -1
-
-</pre><p><strong>Example 5:</strong></p>
-
-<pre><strong>Input:</strong> N = 4, trust = [[1,3],[1,4],[2,3],[2,4],[4,3]]
-
-<strong>Output:</strong> 3
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= N &lt;= 1000</code></li>
-	<li><code>0 &lt;= trust.length &lt;= 10^4</code></li>
+	<li><code>1 &lt;= n &lt;= 1000</code></li>
+	<li><code>0 &lt;= trust.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>trust[i].length == 2</code></li>
-	<li><code>trust[i]</code> are all different</li>
-	<li><code>trust[i][0] != trust[i][1]</code></li>
-	<li><code>1 &lt;= trust[i][0], trust[i][1] &lt;= N</code></li>
+	<li>All the pairs of <code>trust</code> are <strong>unique</strong>.</li>
+	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
+	<li><code>1 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n</code></li>
 </ul>
 
 ## Solutions

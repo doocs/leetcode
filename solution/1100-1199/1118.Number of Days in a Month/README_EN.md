@@ -4,48 +4,26 @@
 
 ## Description
 
-<p>Given a year <code>Y</code> and a month <code>M</code>, return how many days there are in that month.</p>
+<p>Given a year <code>year</code> and a month <code>month</code>, return <em>the number of days of that month</em>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>Y = <span id="example-input-1-1">1992</span>, M = <span id="example-input-1-2">7</span>
-
-<strong>Output: </strong><span id="example-output-1">31</span>
-
+<pre><strong>Input:</strong> year = 1992, month = 7
+<strong>Output:</strong> 31
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> year = 2000, month = 2
+<strong>Output:</strong> 29
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> year = 1900, month = 2
+<strong>Output:</strong> 28
 </pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>Y = <span id="example-input-2-1">2000</span>, M = <span id="example-input-2-2">2</span>
-
-<strong>Output: </strong><span id="example-output-2">29</span>
-
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>Y = <span id="example-input-3-1">1900</span>, M = <span id="example-input-3-2">2</span>
-
-<strong>Output: </strong><span id="example-output-3">28</span>
-
-</pre>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>1583 &lt;= Y &lt;= 2100</code></li>
-	<li><code>1 &lt;= M &lt;= 12</code></li>
-</ol>
+<ul>
+	<li><code>1583 &lt;= year &lt;= 2100</code></li>
+	<li><code>1 &lt;= month &lt;= 12</code></li>
+</ul>
 
 ## Solutions
 

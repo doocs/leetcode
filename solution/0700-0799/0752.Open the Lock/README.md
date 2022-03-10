@@ -6,61 +6,54 @@
 
 <!-- 这里写题目描述 -->
 
-<p>你有一个带有四个圆形拨轮的转盘锁。每个拨轮都有10个数字： <code>&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;</code> 。每个拨轮可以自由旋转：例如把 <code>&#39;9&#39;</code> 变为&nbsp; <code>&#39;0&#39;</code><font color="#333333" face="Helvetica Neue, Helvetica, Arial, sans-serif"><span style="background-color:#ffffff; font-size:14px">，</span></font><code>&#39;0&#39;</code> 变为 <code>&#39;9&#39;</code> 。每次旋转都只能旋转一个拨轮的一位数字。</p>
+<p>你有一个带有四个圆形拨轮的转盘锁。每个拨轮都有10个数字： <code>'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'</code> 。每个拨轮可以自由旋转：例如把 <code>'9'</code> 变为&nbsp;<code>'0'</code>，<code>'0'</code> 变为 <code>'9'</code> 。每次旋转都只能旋转一个拨轮的一位数字。</p>
 
-<p>锁的初始数字为 <code>&#39;0000&#39;</code> ，一个代表四个拨轮的数字的字符串。</p>
+<p>锁的初始数字为 <code>'0000'</code> ，一个代表四个拨轮的数字的字符串。</p>
 
 <p>列表 <code>deadends</code> 包含了一组死亡数字，一旦拨轮的数字和列表里的任何一个元素相同，这个锁将会被永久锁定，无法再被旋转。</p>
 
-<p>字符串 <code>target</code> 代表可以解锁的数字，你需要给出最小的旋转次数，如果无论如何不能解锁，返回 -1。</p>
+<p>字符串 <code>target</code> 代表可以解锁的数字，你需要给出解锁需要的最小旋转次数，如果无论如何不能解锁，返回 <code>-1</code> 。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入：</strong>deadends = [&quot;0201&quot;,&quot;0101&quot;,&quot;0102&quot;,&quot;1212&quot;,&quot;2002&quot;], target = &quot;0202&quot;
+<strong>输入：</strong>deadends = ["0201","0101","0102","1212","2002"], target = "0202"
 <strong>输出：</strong>6
 <strong>解释：</strong>
-可能的移动序列为 &quot;0000&quot; -&gt; &quot;1000&quot; -&gt; &quot;1100&quot; -&gt; &quot;1200&quot; -&gt; &quot;1201&quot; -&gt; &quot;1202&quot; -&gt; &quot;0202&quot;。
-注意 &quot;0000&quot; -&gt; &quot;0001&quot; -&gt; &quot;0002&quot; -&gt; &quot;0102&quot; -&gt; &quot;0202&quot; 这样的序列是不能解锁的，
-因为当拨动到 &quot;0102&quot; 时这个锁就会被锁定。
+可能的移动序列为 "0000" -&gt; "1000" -&gt; "1100" -&gt; "1200" -&gt; "1201" -&gt; "1202" -&gt; "0202"。
+注意 "0000" -&gt; "0001" -&gt; "0002" -&gt; "0102" -&gt; "0202" 这样的序列是不能解锁的，
+因为当拨动到 "0102" 时这个锁就会被锁定。
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong> deadends = [&quot;8888&quot;], target = &quot;0009&quot;
+<strong>输入:</strong> deadends = ["8888"], target = "0009"
 <strong>输出：</strong>1
-<strong>解释：</strong>
-把最后一位反向旋转一次即可 &quot;0000&quot; -&gt; &quot;0009&quot;。
+<strong>解释：</strong>把最后一位反向旋转一次即可 "0000" -&gt; "0009"。
 </pre>
 
 <p><strong>示例 3:</strong></p>
 
 <pre>
-<strong>输入:</strong> deadends = [&quot;8887&quot;,&quot;8889&quot;,&quot;8878&quot;,&quot;8898&quot;,&quot;8788&quot;,&quot;8988&quot;,&quot;7888&quot;,&quot;9888&quot;], target = &quot;8888&quot;
+<strong>输入:</strong> deadends = ["8887","8889","8878","8898","8788","8988","7888","9888"], target = "8888"
 <strong>输出：</strong>-1
-<strong>解释：
-</strong>无法旋转到目标数字且不被锁定。
-</pre>
-
-<p><strong>示例 4:</strong></p>
-
-<pre>
-<strong>输入:</strong> deadends = [&quot;0000&quot;], target = &quot;8888&quot;
-<strong>输出：</strong>-1
+<strong>解释：</strong>无法旋转到目标数字且不被锁定。
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>死亡列表 <code>deadends</code> 的长度范围为 <code>[1, 500]</code>。</li>
-	<li>目标数字 <code>target</code> 不会在 <code>deadends</code> 之中。</li>
-	<li>每个 <code>deadends</code> 和 <code>target</code> 中的字符串的数字会在 10,000 个可能的情况 <code>&#39;0000&#39;</code> 到 <code>&#39;9999&#39;</code> 中产生。</li>
-</ol>
+<ul>
+	<li><code>1 &lt;=&nbsp;deadends.length &lt;= 500</code></li>
+	<li><code><font face="monospace">deadends[i].length == 4</font></code></li>
+	<li><code><font face="monospace">target.length == 4</font></code></li>
+	<li><code>target</code> <strong>不在</strong> <code>deadends</code> 之中</li>
+	<li><code>target</code> 和 <code>deadends[i]</code> 仅由若干位数字组成</li>
+</ul>
 
 ## 解法
 
@@ -83,29 +76,29 @@ BFS 最小步数模型。
 3. 每次搜索时，优先选择元素数量较少的队列进行搜索扩展，如果在扩展过程中，搜索到另一个方向已经访问过的节点，说明找到了最短路径；
 4. 只要其中一个队列为空，说明当前方向的搜索已经进行不下去了，说明起点到终点不连通，无需继续搜索。
 
-   ```python
-   while q1 and q2:
-       if len(q1) <= len(q2):
-           # 优先选择较少元素的队列进行扩展
-           extend(m1, m2, q1)
-       else:
-           extend(m2, m1, q2)
+    ```python
+    while q1 and q2:
+        if len(q1) <= len(q2):
+            # 优先选择较少元素的队列进行扩展
+            extend(m1, m2, q1)
+        else:
+            extend(m2, m1, q2)
 
-   def extend(m1, m2, q):
-       # 新一轮扩展
-       for _ in range(len(q), 0, -1):
-           p = q.popleft()
-           step = m1[p]
-           for t in next(p):
-               if t in m1:
-                   # 此前已经访问过
-                   continue
-               if t in m2:
-                   # 另一个方向已经搜索过，说明找到了一条最短的连通路径
-                   return step + 1 + m2[t]
-               q.append(t)
-               m1[t] = step + 1
-   ```
+    def extend(m1, m2, q):
+        # 新一轮扩展
+        for _ in range(len(q), 0, -1):
+            p = q.popleft()
+            step = m1[p]
+            for t in next(p):
+                if t in m1:
+                    # 此前已经访问过
+                    continue
+                if t in m2:
+                    # 另一个方向已经搜索过，说明找到了一条最短的连通路径
+                    return step + 1 + m2[t]
+                q.append(t)
+                m1[t] = step + 1
+    ```
 
 **方法三：A\*算法**
 

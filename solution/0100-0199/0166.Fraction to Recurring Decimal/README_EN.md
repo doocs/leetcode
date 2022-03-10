@@ -14,21 +14,26 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> numerator = 1, denominator = 2
-<strong>Output:</strong> "0.5"
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> numerator = 2, denominator = 1
-<strong>Output:</strong> "2"
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> numerator = 2, denominator = 3
-<strong>Output:</strong> "0.(6)"
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> numerator = 4, denominator = 333
-<strong>Output:</strong> "0.(012)"
-</pre><p><strong>Example 5:</strong></p>
-<pre><strong>Input:</strong> numerator = 1, denominator = 5
-<strong>Output:</strong> "0.2"
+
+<pre>
+<strong>Input:</strong> numerator = 1, denominator = 2
+<strong>Output:</strong> &quot;0.5&quot;
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> numerator = 2, denominator = 1
+<strong>Output:</strong> &quot;2&quot;
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> numerator = 4, denominator = 333
+<strong>Output:</strong> &quot;0.(012)&quot;
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

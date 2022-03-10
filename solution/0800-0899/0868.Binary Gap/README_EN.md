@@ -24,33 +24,18 @@ Note that &quot;<u>1</u>01<u>1</u>0&quot; is not a valid pair since there is a 1
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 5
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> 5 in binary is &quot;101&quot;.
+<strong>Input:</strong> n = 8
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> 8 in binary is &quot;1000&quot;.
+There are not any adjacent pairs of 1&#39;s in the binary representation of 8, so we return 0.
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 6
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> 6 in binary is &quot;110&quot;.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 8
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> 8 in binary is &quot;1000&quot;.
-There aren&#39;t any adjacent pairs of 1&#39;s in the binary representation of 8, so we return 0.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 1
-<strong>Output:</strong> 0
+<strong>Input:</strong> n = 5
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> 5 in binary is &quot;101&quot;.
 </pre>
 
 <p>&nbsp;</p>

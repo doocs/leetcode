@@ -13,7 +13,7 @@
 <strong>Input:</strong> heightMap = [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> After the rain, water is trapped between the blocks.
-We have two small pounds 1 and 3 units trapped.
+We have two small ponds 1 and 3 units trapped.
 The total volume of water trapped is 4.
 </pre>
 

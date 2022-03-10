@@ -6,6 +6,8 @@
 
 <p>Given an integer <code>n</code>, return all the numbers in the range <code>[1, n]</code> sorted in lexicographical order.</p>
 
+<p>You must write an algorithm that runs in&nbsp;<code>O(n)</code>&nbsp;time and uses <code>O(1)</code> extra space.&nbsp;</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <pre><strong>Input:</strong> n = 13
@@ -20,9 +22,6 @@
 <ul>
 	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
-
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong> Could you optimize your solution to use <code>O(n)</code> runtime and <code>O(1)</code> space?</p>
 
 ## Solutions
 

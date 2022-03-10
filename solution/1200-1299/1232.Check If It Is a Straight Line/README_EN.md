@@ -39,10 +39,15 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;=&nbsp;coordinates.length &lt;= 1000</code></li>
-	<li><code>coordinates[i].length == 2</code></li>
-	<li><code>-10^4 &lt;=&nbsp;coordinates[i][0],&nbsp;coordinates[i][1] &lt;= 10^4</code></li>
-	<li><code>coordinates</code>&nbsp;contains no duplicate point.</li>
+
+    <li><code>2 &lt;=&nbsp;coordinates.length &lt;= 1000</code></li>
+
+    <li><code>coordinates[i].length == 2</code></li>
+
+    <li><code>-10^4 &lt;=&nbsp;coordinates[i][0],&nbsp;coordinates[i][1] &lt;= 10^4</code></li>
+
+    <li><code>coordinates</code>&nbsp;contains no duplicate point.</li>
+
 </ul>
 
 ## Solutions

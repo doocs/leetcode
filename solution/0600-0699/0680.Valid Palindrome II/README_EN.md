@@ -4,49 +4,38 @@
 
 ## Description
 
-<p>
+<p>Given a string <code>s</code>, return <code>true</code> <em>if the </em><code>s</code><em> can be palindrome after deleting <strong>at most one</strong> character from it</em>.</p>
 
-Given a non-empty string <code>s</code>, you may delete <b>at most</b> one character. Judge whether you can make it a palindrome.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> "aba"
-
-<b>Output:</b> True
-
+<strong>Input:</strong> s = &quot;aba&quot;
+<strong>Output:</strong> true
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> "abca"
-
-<b>Output:</b> True
-
-<b>Explanation:</b> You could delete the character 'c'.
-
+<strong>Input:</strong> s = &quot;abca&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> You could delete the character &#39;c&#39;.
 </pre>
 
-</p>
+<p><strong>Example 3:</strong></p>
 
-<p><b>Note:</b><br>
+<pre>
+<strong>Input:</strong> s = &quot;abc&quot;
+<strong>Output:</strong> false
+</pre>
 
-<ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>The string will only contain lowercase characters a-z.
-
-The maximum length of the string is 50000.</li>
-
-</ol>
-
-</p>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s</code> consists of lowercase English letters.</li>
+</ul>
 
 ## Solutions
 

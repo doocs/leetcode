@@ -21,7 +21,7 @@
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
-	<li><code>2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
 ## Solutions
@@ -75,16 +75,16 @@ class BinaryIndexedTree:
     def __init__(self, n):
         self.n = n
         self.c = [0] * (n + 1)
-    
+
     @staticmethod
     def lowbit(x):
         return x & -x
-    
+
     def update(self, x, delta):
         while x <= self.n:
             self.c[x] += delta
             x += BinaryIndexedTree.lowbit(x)
-    
+
     def query(self, x):
         s = 0
         while x > 0:

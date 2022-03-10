@@ -8,24 +8,32 @@
 
 <p>The encoding rule is: <code>k[encoded_string]</code>, where the <code>encoded_string</code> inside the square brackets is being repeated exactly <code>k</code> times. Note that <code>k</code> is guaranteed to be a positive integer.</p>
 
-<p>You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.</p>
+<p>You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc.</p>
 
-<p>Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, <code>k</code>. For example, there won&#39;t be input like <code>3a</code> or <code>2[4]</code>.</p>
+<p>Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, <code>k</code>. For example, there will not be input like <code>3a</code> or <code>2[4]</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> s = "3[a]2[bc]"
-<strong>Output:</strong> "aaabcbc"
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> s = "3[a2[c]]"
-<strong>Output:</strong> "accaccacc"
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> s = "2[abc]3[cd]ef"
-<strong>Output:</strong> "abcabccdcdcdef"
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> s = "abc3[cd]xyz"
-<strong>Output:</strong> "abccdcdcdxyz"
+
+<pre>
+<strong>Input:</strong> s = &quot;3[a]2[bc]&quot;
+<strong>Output:</strong> &quot;aaabcbc&quot;
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;3[a2[c]]&quot;
+<strong>Output:</strong> &quot;accaccacc&quot;
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;2[abc]3[cd]ef&quot;
+<strong>Output:</strong> &quot;abcabccdcdcdef&quot;
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

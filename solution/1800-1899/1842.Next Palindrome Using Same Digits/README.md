@@ -6,57 +6,45 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a numeric string <code>num</code>, representing a very large <strong>palindrome</strong>.</p>
+<p>给你一个很长的数字回文串 <code>num</code> ，返回 <strong>大于</strong> <code>num</code>、<strong>由相同数字重新组合而成的最小</strong> 回文串。</p>
 
-<p>Return<em> the <strong>smallest palindrome larger than </strong></em><code>num</code><em> that can be created by rearranging its digits. If no such palindrome exists, return an empty string </em><code>&quot;&quot;</code>.</p>
+<p>如果不存在这样的回文串，则返回空串 <code>""</code>。</p>
 
-<p>A <strong>palindrome</strong> is a number that reads the same backward as forward.</p>
+<p><strong>回文串</strong> 是正读和反读都一样的字符串。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input:</strong> num = &quot;1221&quot;
-
-<strong>Output:</strong> &quot;2112&quot;
-
-<strong>Explanation:</strong>&nbsp;The next palindrome larger than &quot;1221&quot; is &quot;2112&quot;.
-
-</pre>
-
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-
-<strong>Input:</strong> num = &quot;32123&quot;
-
-<strong>Output:</strong> &quot;&quot;
-
-<strong>Explanation:</strong>&nbsp;No palindromes larger than &quot;32123&quot; can be made by rearranging the digits.
-
+<b>输入：</b>num = "1221"
+<b>输出：</b>"2112"
+<b>解释：</b>下个比<b> </b>"1221" 大的回文串是 "2112"。
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong>示例 2：</strong></p>
 
 <pre>
-
-<strong>Input:</strong> num = &quot;45544554&quot;
-
-<strong>Output:</strong> &quot;54455445&quot;
-
-<strong>Explanation:</strong> The next palindrome larger than &quot;45544554&quot; is &quot;54455445&quot;.
-
+<b>输入：</b>num = "32123"
+<b>输出：</b>""
+<b>解释：</b>不存在通过重组 "32123" 的数字可得、比 "32123" 还大的回文串。
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 3：</strong></p>
 
-<p><strong>Constraints:</strong></p>
+<pre>
+<b>输入：</b>num = "45544554"
+<b>输出：</b>"54455445"
+<b>解释：</b>下个比 "45544554" 还要大的回文串是 "54455445"。
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= num.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>num</code> is a <strong>palindrome</strong>.</li>
+	<li><code>1 <= num.length <= 10<sup>5</sup></code></li>
+	<li><code>num</code> 是回文串。</li>
 </ul>
 
 ## 解法

@@ -6,40 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数数组&nbsp;<code>A</code>，只有可以将其划分为三个和相等的非空部分时才返回&nbsp;<code>true</code>，否则返回 <code>false</code>。</p>
+<p>给你一个整数数组 <code>arr</code>，只有可以将其划分为三个和相等的 <strong>非空</strong> 部分时才返回 <code>true</code>，否则返回 <code>false</code>。</p>
 
-<p>形式上，如果可以找出索引&nbsp;<code>i+1 &lt; j</code>&nbsp;且满足&nbsp;<code>A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1]</code>&nbsp;就可以将数组三等分。</p>
+<p>形式上，如果可以找出索引 <code>i + 1 < j</code> 且满足 <code>(arr[0] + arr[1] + ... + arr[i] == arr[i + 1] + arr[i + 2] + ... + arr[j - 1] == arr[j] + arr[j + 1] + ... + arr[arr.length - 1])</code> 就可以将数组三等分。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>[0,2,1,-6,6,-7,9,1,2,0,1]
+<pre>
+<strong>输入：</strong>arr = [0,2,1,-6,6,-7,9,1,2,0,1]
 <strong>输出：</strong>true
 <strong>解释：</strong>0 + 2 + 1 = -6 + 6 - 7 + 9 + 1 = 2 + 0 + 1
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>[0,2,1,-6,6,7,9,-1,2,0,1]
+<pre>
+<strong>输入：</strong>arr = [0,2,1,-6,6,7,9,-1,2,0,1]
 <strong>输出：</strong>false
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>[3,3,6,5,-2,2,5,1,-9,4]
+<pre>
+<strong>输入：</strong>arr = [3,3,6,5,-2,2,5,1,-9,4]
 <strong>输出：</strong>true
 <strong>解释：</strong>3 + 3 = 6 = 5 - 2 + 2 + 5 + 1 - 9 + 4
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>3 &lt;= A.length &lt;= 50000</code></li>
-	<li><code>-10^4&nbsp;&lt;= A[i] &lt;= 10^4</code></li>
-</ol>
+<ul>
+	<li><code>3 <= arr.length <= 5 * 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> <= arr[i] <= 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 

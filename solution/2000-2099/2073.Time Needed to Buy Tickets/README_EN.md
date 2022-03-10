@@ -18,7 +18,7 @@
 <pre>
 <strong>Input:</strong> tickets = [2,3,2], k = 2
 <strong>Output:</strong> 6
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - In the first pass, everyone in the line buys a ticket and the line becomes [1, 2, 1].
 - In the second pass, everyone in the line buys a ticket and the line becomes [0, 1, 0].
 The person at&nbsp;position 2 has successfully bought 2 tickets and it took 3 + 3 = 6 seconds.

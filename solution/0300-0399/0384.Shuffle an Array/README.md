@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数数组 nums ，设计算法来打乱一个没有重复元素的数组。</p>
+<p>给你一个整数数组 <code>nums</code> ，设计算法来打乱一个没有重复元素的数组。打乱后，数组的所有排列应该是&nbsp;<strong>等可能</strong>&nbsp;的。</p>
 
 <p>实现 <code>Solution</code> class:</p>
 
@@ -16,9 +16,9 @@
 	<li><code>int[] shuffle()</code> 返回数组随机打乱后的结果</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入</strong>
@@ -34,13 +34,13 @@ solution.reset();      // 重设数组到它的初始状态 [1, 2, 3] 。返回 
 solution.shuffle();    // 随机返回数组 [1, 2, 3] 打乱后的结果。例如，返回 [1, 3, 2]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 200</code></li>
-	<li><code>-10<sup>6</sup> <= nums[i] <= 10<sup>6</sup></code></li>
+	<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>nums</code> 中的所有元素都是 <strong>唯一的</strong></li>
 	<li>最多可以调用 <code>5 * 10<sup>4</sup></code> 次 <code>reset</code> 和 <code>shuffle</code></li>
 </ul>

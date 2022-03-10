@@ -4,11 +4,13 @@
 
 ## Description
 
-<p>You are given an <code>image</code> that is represented by a binary matrix with <code>0</code> as a white pixel and <code>1</code> as a black pixel.</p>
+<p>You are given an <code>m x n</code> binary matrix <code>image</code> where <code>0</code> represents a white pixel and <code>1</code> represents a black pixel.</p>
 
 <p>The black pixels are connected (i.e., there is only one black region). Pixels are connected horizontally and vertically.</p>
 
-<p>Given two integers <code>x</code> and <code>y</code> that represent the location of one of the black pixels, return <em>the area of the smallest (axis-aligned) rectangle that encloses all black pixels</em>.</p>
+<p>Given two integers <code>x</code> and <code>y</code> that represents the location of one of the black pixels, return <em>the area of the smallest (axis-aligned) rectangle that encloses all black pixels</em>.</p>
+
+<p>You must write an algorithm with less than <code>O(mn)</code> runtime complexity</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

@@ -6,24 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定两个字符串 <em>s</em> 和 <em>t</em> ，编写一个函数来判断 <em>t</em> 是否是 <em>s</em> 的字母异位词。</p>
+<p>给定两个字符串 <code><em>s</em></code> 和 <code><em>t</em></code> ，编写一个函数来判断 <code><em>t</em></code> 是否是 <code><em>s</em></code> 的字母异位词。</p>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p><strong>注意：</strong>若 <code><em>s</em></code> 和 <code><em>t</em></code><em> </em>中每个字符出现的次数都相同，则称 <code><em>s</em></code> 和 <code><em>t</em></code><em> </em>互为字母异位词。</p>
 
-<pre><strong>输入:</strong> <em>s</em> = &quot;anagram&quot;, <em>t</em> = &quot;nagaram&quot;
+<p> </p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> <em>s</em> = "anagram", <em>t</em> = "nagaram"
 <strong>输出:</strong> true
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入:</strong> <em>s</em> = &quot;rat&quot;, <em>t</em> = &quot;car&quot;
+<pre>
+<strong>输入:</strong> <em>s</em> = "rat", <em>t</em> = "car"
 <strong>输出: </strong>false</pre>
 
-<p><strong>说明:</strong><br>
-你可以假设字符串只包含小写字母。</p>
+<p> </p>
 
-<p><strong>进阶:</strong><br>
-如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p>
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 <= s.length, t.length <= 5 * 10<sup>4</sup></code></li>
+	<li><code>s</code> 和 <code>t</code> 仅包含小写字母</li>
+</ul>
+
+<p> </p>
+
+<p><strong>进阶: </strong>如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p>
 
 ## 解法
 

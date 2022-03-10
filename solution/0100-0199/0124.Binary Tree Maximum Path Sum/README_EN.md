@@ -8,7 +8,7 @@
 
 <p>The <strong>path sum</strong> of a path is the sum of the node&#39;s values in the path.</p>
 
-<p>Given the <code>root</code> of a binary tree, return <em>the maximum <strong>path sum</strong> of any path</em>.</p>
+<p>Given the <code>root</code> of a binary tree, return <em>the maximum <strong>path sum</strong> of any <strong>non-empty</strong> path</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

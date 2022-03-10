@@ -18,15 +18,22 @@
 +---------------+---------+
 There is no primary key for this table, it may have duplicate rows.
 The action column is an ENUM type of (&#39;view&#39;, &#39;like&#39;, &#39;reaction&#39;, &#39;comment&#39;, &#39;report&#39;, &#39;share&#39;).
-The extra column has optional information about the action such as a reason for report or a type of reaction. </pre>
+The extra column has optional information about the action, such as a reason for the report or a type of reaction.
+</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the number of posts reported yesterday for each report reason. Assume today is <strong>2019-07-05</strong>.</p>
+<p>Write an SQL query that reports the number of posts reported yesterday for each report reason. Assume today is <code>2019-07-05</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Actions table:
 +---------+---------+-------------+--------+--------+
 | user_id | post_id | action_date | action | extra  |
@@ -45,15 +52,15 @@ Actions table:
 | 5       | 5       | 2019-07-04  | view   | null   |
 | 5       | 5       | 2019-07-04  | report | racism |
 +---------+---------+-------------+--------+--------+
-
-Result table:
+<strong>Output:</strong> 
 +---------------+--------------+
 | report_reason | report_count |
 +---------------+--------------+
 | spam          | 1            |
 | racism        | 2            |
-+---------------+--------------+ 
-Note that we only care about report reasons with non zero number of reports.</pre>
++---------------+--------------+
+<strong>Explanation:</strong> Note that we only care about report reasons with non-zero number of reports.
+</pre>
 
 ## Solutions
 

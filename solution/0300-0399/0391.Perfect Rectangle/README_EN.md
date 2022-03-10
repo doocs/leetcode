@@ -26,14 +26,6 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perfectrec3-plane.jpg" style="width: 300px; height: 294px;" />
-<pre>
-<strong>Input:</strong> rectangles = [[1,1,3,3],[3,1,4,2],[1,3,2,4],[3,2,4,4]]
-<strong>Output:</strong> false
-<strong>Explanation:</strong> Because there is a gap in the top center.
-</pre>
-
-<p><strong>Example 4:</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perfecrrec4-plane.jpg" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> rectangles = [[1,1,3,3],[3,1,4,2],[1,3,2,4],[2,2,4,4]]

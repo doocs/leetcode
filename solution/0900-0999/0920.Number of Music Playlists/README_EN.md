@@ -4,80 +4,45 @@
 
 ## Description
 
-<p>Your music player contains <code>N</code>&nbsp;different songs and she wants to listen to <code>L</code><strong> </strong>(not necessarily different) songs during your trip. &nbsp;You&nbsp;create&nbsp;a playlist so&nbsp;that:</p>
+<p>Your music player contains <code>n</code> different songs. You want to listen to <code>goal</code> songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that:</p>
 
 <ul>
-	<li>Every song is played at least once</li>
-	<li>A song can only be played again only if&nbsp;<code>K</code>&nbsp;other songs have been played</li>
+	<li>Every song is played <strong>at least once</strong>.</li>
+	<li>A song can only be played again only if <code>k</code> other songs have been played.</li>
 </ul>
 
-<p>Return the number of possible playlists.&nbsp; <strong>As the answer can be very large, return it modulo <code>10^9 + 7</code></strong>.</p>
-
+<p>Given <code>n</code>, <code>goal</code>, and <code>k</code>, return <em>the number of possible playlists that you can create</em>. Since the answer can be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 <p>&nbsp;</p>
-
-<div>
-
-<div>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>N = <span id="example-input-1-1">3</span>, L = <span id="example-input-1-2">3</span>, K = <span id="example-input-1-3">1</span>
-
-<strong>Output: </strong><span id="example-output-1">6
-
-<strong>Explanation</strong>: </span><span>There are 6 possible playlists. [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1].</span>
-
+<strong>Input:</strong> n = 3, goal = 3, k = 1
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], and [3, 2, 1].
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>N = <span id="example-input-2-1">2</span>, L = <span id="example-input-2-2">3</span>, K = <span id="example-input-2-3">0</span>
-
-<strong>Output: </strong><span id="example-output-2">6
-
-</span><span id="example-output-1"><strong>Explanation</strong>: </span><span>There are 6 possible playlists. [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 2, 1], [2, 1, 2], [1, 2, 2]</span>
-
+<strong>Input:</strong> n = 2, goal = 3, k = 0
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> There are 6 possible playlists: [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 2, 1], [2, 1, 2], and [1, 2, 2].
 </pre>
-
-<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>N = <span id="example-input-3-1">2</span>, L = <span id="example-input-3-2">3</span>, K = <span id="example-input-3-3">1</span>
-
-<strong>Output: </strong><span id="example-output-3">2
-
-<strong>Explanation</strong>: </span><span>There are 2 possible playlists. [1, 2, 1], [2, 1, 2]</span>
-
+<strong>Input:</strong> n = 2, goal = 3, k = 1
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> There are 2 possible playlists: [1, 2, 1] and [2, 1, 2].
 </pre>
 
-</div>
-
-</div>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>0 &lt;= K &lt; N &lt;= L &lt;= 100</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
+<ul>
+	<li><code>0 &lt;= k &lt; n &lt;= goal &lt;= 100</code></li>
+</ul>
 
 ## Solutions
 

@@ -36,7 +36,7 @@ Each row contains information about the score of one student from California Uni
 
 <p>There is a competition between New York University and California University. The competition is held between the same number of students from both universities. The university that has more <strong>excellent students</strong> wins the competition. If the two universities have the same number of <strong>excellent students</strong>, the competition ends in a draw.</p>
 
-<p>An excellent student is a student that scored <code>90%</code> or more in the exam.</p>
+<p>An <strong>excellent student</strong> is a student that scored <code>90%</code> or more in the exam.</p>
 
 <p>Write an SQL query to report:</p>
 
@@ -73,6 +73,8 @@ California table:
 +---------------------+
 | New York University |
 +---------------------+
+<strong>Explanation:</strong>
+New York University has 1 excellent student, and California University has 0 excellent students.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -99,6 +101,8 @@ California table:
 +-----------------------+
 | California University |
 +-----------------------+
+<strong>Explanation:</strong>
+New York University has 0 excellent students, and California University has 1 excellent student.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -125,6 +129,8 @@ California table:
 +-----------+
 | No Winner |
 +-----------+
+<strong>Explanation:</strong>
+Both New York University and California University have 1 excellent student.
 </pre>
 
 ## Solutions

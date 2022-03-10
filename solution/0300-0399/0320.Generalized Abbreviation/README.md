@@ -6,24 +6,30 @@
 
 <!-- 这里写题目描述 -->
 
-<p>单词的 <strong>广义缩写词</strong> 可以通过下述步骤构造：先取任意数量的不重叠的子字符串，再用它们各自的长度进行替换。
+<p>单词的 <strong>广义缩写词</strong> 可以通过下述步骤构造：先取任意数量的 <strong>不重叠、不相邻</strong> 的子字符串，再用它们各自的长度进行替换。</p>
 
-例如：
+<ul>
+	<li>例如，<code>"abcde"</code> 可以缩写为：
 
--   <code>"abcde"</code> 可以缩写为 <code>"a3e"</code>（<code>"bcd"</code> 变为 <code>"3"</code> ）
--   <code>"1bcd1"</code>（<code>"a"</code> 和 <code>"e"</code> 都变为 <code>"1"</code>）
--   <code>"5"</code>（<code>"abcde"</code> 变为 <code>"5"</code>）
+    <ul>
+    	<li><code>"a3e"</code>（<code>"bcd"</code> 变为 <code>"3"</code> ）</li>
+    	<li><code>"1bcd1"</code>（<code>"a"</code> 和 <code>"e"</code> 都变为 <code>"1"</code>）<meta charset="UTF-8" /></li>
+    	<li><code>"5"</code>&nbsp;(<code>"abcde"</code>&nbsp;变为&nbsp;<code>"5"</code>)</li>
+    	<li><code>"abcde"</code>&nbsp;(没有子字符串被代替)</li>
+    </ul>
+    </li>
+    <li>然而，这些缩写是 <strong>无效的</strong> ：
+    <ul>
+    	<li><code>"23"</code>（<code>"ab"</code> 变为 <code>"2"</code> ，<code>"cde"</code> 变为 <code>"3"</code> ）是无效的，因为被选择的字符串是相邻的</li>
+    	<li><meta charset="UTF-8" /><code>"22de"</code>&nbsp;(<code>"ab"</code> 变为&nbsp;<code>"2"</code>&nbsp;，&nbsp;<code>"bc"</code>&nbsp;变为&nbsp;<code>"2"</code>) &nbsp;是无效的，因为被选择的字符串是重叠的</li>
+    </ul>
+    </li>
 
-但是，这些缩写是无效的：
+</ul>
 
--   <code>"23"</code>（<code>"ab"</code> 变为 <code>"2"</code> ，<code>"cde"</code> 变为 <code>"3"</code> ），选择的子串是相邻的。
--   <code>"22de"</code>（<code>"ab"</code> 变为 <code>"2"</code> ，<code>"bc"</code> 变为 <code>"2"</code> ），选择的子串重叠了。
+<p>给你一个字符串&nbsp;<code>word</code> ，返回&nbsp;<em>一个由</em>&nbsp;<code>word</code> 的<em>所有可能 <strong>广义缩写词</strong> 组成的列表</em>&nbsp;。按 <strong>任意顺序</strong> 返回答案。</p>
 
-</p>
-
-<p>给你一个字符串 <code>word</code> ，返回一个由所有可能 <strong>广义缩写词</strong> 组成的列表。按 <strong>任意顺序</strong> 返回答案。</p>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -39,12 +45,12 @@
 <strong>输出：</strong>["1","a"]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= word.length <= 15</code></li>
+	<li><code>1 &lt;= word.length &lt;= 15</code></li>
 	<li><code>word</code> 仅由小写英文字母组成</li>
 </ul>
 

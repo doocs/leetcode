@@ -4,50 +4,47 @@
 
 ## Description
 
-<p>Normally, the factorial of a positive integer <code>n</code>&nbsp;is the product of all positive integers less than or equal to <code>n</code>.&nbsp; For example, <code>factorial(10) = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1</code>.</p>
+<p>The <strong>factorial</strong> of a positive integer <code>n</code> is the product of all positive integers less than or equal to <code>n</code>.</p>
 
-<p>We instead make a <em>clumsy factorial:</em>&nbsp;using the integers in decreasing order, we&nbsp;swap out the multiply operations for a fixed rotation of operations:&nbsp;multiply (*), divide (/), add (+) and subtract (-) in this order.</p>
+<ul>
+	<li>For example, <code>factorial(10) = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1</code>.</li>
+</ul>
 
-<p>For example, <code>clumsy(10) = 10 * 9 / 8 + 7 - 6 * 5 / 4 + 3 - 2 * 1</code>.&nbsp; However, these operations are still applied using the usual order of operations of arithmetic: we do all multiplication and division steps before any addition or subtraction steps, and multiplication and division steps are processed left to right.</p>
+<p>We make a <strong>clumsy factorial</strong> using the integers in decreasing order by swapping out the multiply operations for a fixed rotation of operations with multiply <code>&#39;*&#39;</code>, divide <code>&#39;/&#39;</code>, add <code>&#39;+&#39;</code>, and subtract <code>&#39;-&#39;</code> in this order.</p>
 
-<p>Additionally, the division that we use is <em>floor division</em>&nbsp;such that&nbsp;<code>10 * 9 / 8</code>&nbsp;equals&nbsp;<code>11</code>.&nbsp; This guarantees the result is&nbsp;an integer.</p>
+<ul>
+	<li>For example, <code>clumsy(10) = 10 * 9 / 8 + 7 - 6 * 5 / 4 + 3 - 2 * 1</code>.</li>
+</ul>
 
-<p><code><font face="sans-serif, Arial, Verdana, Trebuchet MS">Implement the&nbsp;</font>clumsy</code>&nbsp;function&nbsp;as defined above: given an integer <code>N</code>, it returns the clumsy factorial of <code>N</code>.</p>
+<p>However, these operations are still applied using the usual order of operations of arithmetic. We do all multiplication and division steps before any addition or subtraction steps, and multiplication and division steps are processed left to right.</p>
+
+<p>Additionally, the division that we use is floor division such that <code>10 * 9 / 8 = 90 / 8 = 11</code>.</p>
+
+<p>Given an integer <code>n</code>, return <em>the clumsy factorial of </em><code>n</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>4
-
-<strong>Output:</strong>&nbsp;7
-
+<strong>Input:</strong> n = 4
+<strong>Output:</strong> 7
 <strong>Explanation:</strong> 7 = 4 * 3 / 2 + 1
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">10
-
-</span><strong>Output: </strong><span id="example-output-1">12
-
-</span><strong>Explanation: </strong>12 = 10 * 9 / 8 + 7 - 6 * 5 / 4 + 3 - 2 * 1
-
+<strong>Input:</strong> n = 10
+<strong>Output:</strong> 12
+<strong>Explanation:</strong> 12 = 10 * 9 / 8 + 7 - 6 * 5 / 4 + 3 - 2 * 1
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>1 &lt;= N &lt;= 10000</code></li>
-	<li><code>-2^31 &lt;= answer &lt;= 2^31 - 1</code>&nbsp; (The answer is guaranteed to fit within a 32-bit integer.)</li>
-</ol>
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
+</ul>
 
 ## Solutions
 

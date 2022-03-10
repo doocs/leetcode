@@ -4,53 +4,32 @@
 
 ## Description
 
-<p>
+<p>Given the <code>root</code> of a binary tree, return the most frequent <strong>subtree sum</strong>. If there is a tie, return all the values with the highest frequency in any order.</p>
 
-Given the root of a tree, you are asked to find the most frequent subtree sum. The subtree sum of a node is defined as the sum of all the node values formed by the subtree rooted at that node (including the node itself). So what is the most frequent subtree sum value? If there is a tie, return all the values with the highest frequency in any order.
+<p>The <strong>subtree sum</strong> of a node is defined as the sum of all the node values formed by the subtree rooted at that node (including the node itself).</p>
 
-</p>
-
-<p><b>Examples 1</b><br>
-
-Input:
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/images/freq1-tree.jpg" style="width: 207px; height: 183px;" />
 <pre>
-
-  5
-
- /  \
-
-2   -3
-
+<strong>Input:</strong> root = [5,2,-3]
+<strong>Output:</strong> [2,-3,4]
 </pre>
 
-return [2, -3, 4], since all the values happen only once, return all of them in any order.
-
-</p>
-
-<p><b>Examples 2</b><br>
-
-Input:
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/images/freq2-tree.jpg" style="width: 207px; height: 183px;" />
 <pre>
-
-  5
-
- /  \
-
-2   -5
-
+<strong>Input:</strong> root = [5,2,-5]
+<strong>Output:</strong> [2]
 </pre>
 
-return [2], since 2 happens twice, however -5 only occur once.
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
-
-<p><b>Note:</b>
-
-You may assume the sum of values in any subtree is in the range of 32-bit signed integer.
-
-</p>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.</li>
+	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+</ul>
 
 ## Solutions
 

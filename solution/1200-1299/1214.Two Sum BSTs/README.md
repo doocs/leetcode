@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给出两棵二叉搜索树，请你从两棵树中各找出一个节点，使得这两个节点的值之和等于目标值&nbsp;<code>Target</code>。</p>
+<p>给出两棵二叉搜索树的根节点&nbsp;<meta charset="UTF-8" /><code>root1</code>&nbsp;和<meta charset="UTF-8" />&nbsp;<code>root2</code>&nbsp;，请你从两棵树中各找出一个节点，使得这两个节点的值之和等于目标值&nbsp;<code>Target</code>。</p>
 
 <p>如果可以找到返回&nbsp;<code>True</code>，否则返回&nbsp;<code>False</code>。</p>
 
@@ -14,28 +14,30 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_1_a2.png" style="height: 140px; width: 150px;"><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_1_b.png" style="height: 136px; width: 150px;"></strong></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/ex1.png" style="height: 169px; width: 369px;" /></p>
 
-<pre><strong>输入：</strong>root1 = [2,1,4], root2 = [1,0,3], target = 5
+<pre>
+<strong>输入：</strong>root1 = [2,1,4], root2 = [1,0,3], target = 5
 <strong>输出：</strong>true
 <strong>解释：</strong>2 加 3 和为 5 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_2_a.png" style="height: 137px; width: 150px;"><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_2_b.png" style="height: 168px; width: 150px;"></strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/ex2.png" style="height: 290px; width: 453px;" /></p>
 
-<pre><strong>输入：</strong>root1 = [0,-10,10], root2 = [5,1,7,0,2], target = 18
+<pre>
+<strong>输入：</strong>root1 = [0,-10,10], root2 = [5,1,7,0,2], target = 18
 <strong>输出：</strong>false</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>每棵树上最多有&nbsp;<code>5000</code>&nbsp;个节点。</li>
-	<li><code>-10^9 &lt;= target, node.val &lt;= 10^9</code></li>
-</ol>
+<ul>
+	<li>每棵树上节点数在<meta charset="UTF-8" />&nbsp;<code>[1, 5000]</code>&nbsp;范围内。<meta charset="UTF-8" /></li>
+	<li><code>-10<sup>9</sup>&nbsp;&lt;= Node.val, target &lt;= 10<sup>9</sup></code></li>
+</ul>
 
 ## 解法
 

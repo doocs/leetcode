@@ -6,7 +6,7 @@
 
 <p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>
 
-<p>Find whether the largest element in the array is at least twice as much as every other number in the array. If it is, return <em>the index of the largest element</em>, otherwise, return <code>-1</code>.</p>
+<p>Determine whether the largest element in the array is <strong>at least twice</strong> as much as every other number in the array. If it is, return <em>the <strong>index</strong> of the largest element, or return </em><code>-1</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -14,8 +14,8 @@
 <pre>
 <strong>Input:</strong> nums = [3,6,1,0]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> 6 is the largest integer and for every other number in the array x,
-6 is more than twice as big as x.
+<strong>Explanation:</strong> 6 is the largest integer.
+For every other number in the array x, 6 is at least twice as big as x.
 The index of value 6 is 1, so we return 1.
 </pre>
 
@@ -24,7 +24,14 @@ The index of value 6 is 1, so we return 1.
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4]
 <strong>Output:</strong> -1
-<strong>Explanation:</strong> 4 is not at least as big as twice the value of 3, so we return -1.
+<strong>Explanation:</strong> 4 is less than twice the value of 3, so we return -1.</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> 1 is trivially at least twice the value as any other number because there are no other numbers.
 </pre>
 
 <p>&nbsp;</p>

@@ -8,18 +8,19 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> nums = [2,1,2]
+
+<pre>
+<strong>Input:</strong> nums = [2,1,2]
 <strong>Output:</strong> 5
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> nums = [1,2,1]
-<strong>Output:</strong> 0
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> nums = [3,2,3,4]
-<strong>Output:</strong> 10
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> nums = [3,6,2,3]
-<strong>Output:</strong> 8
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,1]
+<strong>Output:</strong> 0
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

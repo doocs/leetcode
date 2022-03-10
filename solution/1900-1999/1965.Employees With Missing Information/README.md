@@ -6,51 +6,42 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Employees</code></p>
+<p>表: <code>Employees</code></p>
 
-<pre>
-+-------------+---------+
+<pre>+-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | employee_id | int     |
 | name        | varchar |
 +-------------+---------+
-employee_id is the primary key for this table.
-Each row of this table indicates the name of the employee whose ID is employee_id.
+employee_id 是这个表的主键。
+每一行表示雇员的id 和他的姓名。
 </pre>
 
-<p>&nbsp;</p>
+<p>表: <code>Salaries</code></p>
 
-<p>Table: <code>Salaries</code></p>
-
-<pre>
-+-------------+---------+
+<pre>+-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | employee_id | int     |
 | salary      | int     |
 +-------------+---------+
-employee_id is the primary key for this table.
-Each row of this table indicates the salary of the employee whose ID is employee_id.
+employee_id is 这个表的主键。
+每一行表示雇员的id 和他的薪水。
 </pre>
 
-<p>&nbsp;</p>
-
-<p>Write an SQL query to report the IDs of all the employees with <strong>missing information</strong>. The information of an employee is missing if:</p>
+<p>写出一个查询语句，找到所有丢失信息的雇员id。当满足下面一个条件时，就被认为是雇员的信息丢失：</p>
 
 <ul>
-	<li>The employee&#39;s <strong>name</strong> is missing, or</li>
-	<li>The employee&#39;s <strong>salary</strong> is missing.</li>
+	<li>雇员的姓名丢失了，或者</li>
+	<li>雇员的薪水信息丢失了，或者</li>
 </ul>
 
-<p>Return the result table ordered by <code>employee_id</code> <strong>in ascending order</strong>.</p>
+<p>返回这些雇员的id，从小到大排序。</p>
 
-<p>The query result format is in the following example:</p>
+<p>查询结果格式如下面的例子所示：</p>
 
-<p>&nbsp;</p>
-
-<pre>
-Employees table:
+<pre>Employees table:
 +-------------+----------+
 | employee_id | name     |
 +-------------+----------+
@@ -74,10 +65,10 @@ Result table:
 | 1           |
 | 2           |
 +-------------+
+雇员1，2，4，5 都工作在这个公司。
 
-Employees 1, 2, 4, and 5 are working at this company.
-The name of employee 1 is missing.
-The salary of employee 2 is missing.
+1号雇员的姓名丢失了。
+2号雇员的薪水信息丢失了。
 </pre>
 
 ## 解法

@@ -49,7 +49,7 @@ stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
 
 <ul>
 	<li><code>-10<sup>7</sup> <= x <= 10<sup>7</sup></code></li>
-	<li>最多调用 <code>104</code> 次 <code>push</code>、<code>pop</code>、<code>top</code>、<code>peekMax</code> 和 <code>popMax</code></li>
+	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>push</code>、<code>pop</code>、<code>top</code>、<code>peekMax</code> 和 <code>popMax</code></li>
 	<li>调用 <code>pop</code>、<code>top</code>、<code>peekMax</code> 或 <code>popMax</code> 时，栈中 <strong>至少存在一个元素</strong></li>
 </ul>
 

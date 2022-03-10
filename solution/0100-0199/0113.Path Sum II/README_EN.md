@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return all <strong>root-to-leaf</strong> paths where each path&#39;s sum equals <code>targetSum</code>.</p>
+<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return <em>all <strong>root-to-leaf</strong> paths where the sum of the node values in the path equals </em><code>targetSum</code><em>. Each path should be returned as a list of the node <strong>values</strong>, not node references</em>.</p>
 
-<p>A <strong>leaf</strong> is a node with no children.</p>
+<p>A <strong>root-to-leaf</strong> path is a path starting from the root and ending at any leaf node. A <strong>leaf</strong> is a node with no children.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -14,6 +14,9 @@
 <pre>
 <strong>Input:</strong> root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
 <strong>Output:</strong> [[5,4,11,2],[5,8,4,5]]
+<strong>Explanation:</strong> There are two paths whose sum equals targetSum:
+5 + 4 + 11 + 2 = 22
+5 + 8 + 4 + 5 = 22
 </pre>
 
 <p><strong>Example 2:</strong></p>

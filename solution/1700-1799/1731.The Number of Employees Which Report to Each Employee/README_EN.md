@@ -27,11 +27,13 @@ This table contains information about the employees and the id of the manager th
 
 <p>Return the result table ordered by <code>employee_id</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Employees table:
 +-------------+---------+------------+-----+
 | employee_id | name    | reports_to | age |
@@ -41,14 +43,13 @@ Employees table:
 | 4           | Bob     | 9          | 36  |
 | 2           | Winston | null       | 37  |
 +-------------+---------+------------+-----+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+-------+---------------+-------------+
 | employee_id | name  | reports_count | average_age |
 +-------------+-------+---------------+-------------+
 | 9           | Hercy | 2             | 39          |
 +-------------+-------+---------------+-------------+
-Hercy has 2 people report directly to him, Alice and Bob. Their average age is (41+36)/2 = 38.5, which is 39 after rounding it to the nearest integer.
+<strong>Explanation:</strong> Hercy has 2 people report directly to him, Alice and Bob. Their average age is (41+36)/2 = 38.5, which is 39 after rounding it to the nearest integer.
 </pre>
 
 ## Solutions

@@ -29,16 +29,18 @@
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入: </strong>&quot;HOH&quot;
-<strong>输出: </strong>&quot;HHO&quot;
-<strong>解释:</strong> &quot;HOH&quot; 和 &quot;OHH&quot; 依然都是有效解。
+<pre>
+<strong>输入: </strong>water = "HOH"
+<strong>输出: </strong>"HHO"
+<strong>解释:</strong> "HOH" 和 "OHH" 依然都是有效解。
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入: </strong>&quot;OOHHHH&quot;
-<strong>输出: </strong>&quot;HHOHHO&quot;
-<strong>解释:</strong> &quot;HOHHHO&quot;, &quot;OHHHHO&quot;, &quot;HHOHOH&quot;, &quot;HOHHOH&quot;, &quot;OHHHOH&quot;, &quot;HHOOHH&quot;, &quot;HOHOHH&quot; 和 &quot;OHHOHH&quot; 依然都是有效解。
+<pre>
+<strong>输入: </strong>water = "OOHHHH"
+<strong>输出: </strong>"HHOHHO"
+<strong>解释:</strong> "HOHHHO", "OHHHHO", "HHOHOH", "HOHHOH", "OHHHOH", "HHOOHH", "HOHOHH" 和 "OHHOHH" 依然都是有效解。
 </pre>
 
 <p>&nbsp;</p>
@@ -46,9 +48,11 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>输入字符串的总长将会是 3<em>n</em>, 1 &le;&nbsp;<em>n</em>&nbsp;&le; 50；</li>
-	<li>输入字符串中的 &ldquo;H&rdquo; 总数将会是 2n 。</li>
-	<li>输入字符串中的 &ldquo;O&rdquo; 总数将会是 n 。</li>
+	<li><code>3 * n == water.length</code></li>
+	<li><code>1 &lt;= n &lt;= 20</code></li>
+	<li><code>water[i] == 'O' or 'H'</code></li>
+	<li>输入字符串&nbsp;<code>water</code>&nbsp;中的 <font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'H'</span></span></font></font>&nbsp;总数将会是 <code>2 * n</code> 。</li>
+	<li>输入字符串&nbsp;<code>water</code>&nbsp;中的 <font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'O'</span></span></font></font>&nbsp;总数将会是 <code>n</code> 。</li>
 </ul>
 
 ## 解法

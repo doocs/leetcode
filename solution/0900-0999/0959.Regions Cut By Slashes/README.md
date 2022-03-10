@@ -54,8 +54,6 @@
 	<li><code>grid[i][j]</code> 是&nbsp;<code>'/'</code>、<code>'\'</code>、或&nbsp;<code>' '</code></li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

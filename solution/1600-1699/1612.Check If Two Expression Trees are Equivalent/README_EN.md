@@ -10,8 +10,6 @@
 
 <p>Two binary expression trees are equivalent if they <strong>evaluate to the same value</strong> regardless of what the variables are set to.</p>
 
-<p><strong>Follow up:</strong> What will you change in your solution if the tree also supports the <code>&#39;-&#39;</code> operator (i.e. subtraction)?</p>
-
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -47,6 +45,9 @@
 	<li><code>Node.val</code> is <code>&#39;+&#39;</code> or a lower-case English letter.</li>
 	<li>It&#39;s <strong>guaranteed</strong> that the tree given is a valid binary expression tree.</li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> What will you change in your solution if the tree also supports the <code>&#39;-&#39;</code> operator (i.e. subtraction)?</p>
 
 ## Solutions
 

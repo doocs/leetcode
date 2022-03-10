@@ -6,20 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>请设计一个类，使该类的构造函数能够接收一个单词列表。然后再实现一个方法，该方法能够分别接收两个单词 <em>word1</em>&nbsp;和&nbsp;<em>word2，</em>并返回列表中这两个单词之间的最短距离。您的方法将被以不同的参数调用&nbsp;<em>多次</em>。</p>
+<p>请设计一个类，使该类的构造函数能够接收一个字符串数组。然后再实现一个方法，该方法能够分别接收两个单词<em>，</em>并返回列表中这两个单词之间的最短距离。</p>
 
-<p><strong>示例:</strong><br>
-假设 words = <code>[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]</code></p>
+<p>实现&nbsp;<code>WordDistanc</code>&nbsp;类:</p>
 
-<pre><strong>输入:</strong> <em>word1</em> = <code>&ldquo;coding&rdquo;</code>, <em>word2</em> = <code>&ldquo;practice&rdquo;</code>
-<strong>输出:</strong> 3
-</pre>
+<ul>
+	<li><code>WordDistance(String[] wordsDict)</code>&nbsp;用字符串数组 <code>wordsDict</code> 初始化对象。</li>
+	<li><code>int shortest(String word1, String word2)</code>&nbsp;返回数组 <code>worddict</code> 中 <code>word1</code> 和 <code>word2</code> 之间的最短距离。</li>
+</ul>
 
-<pre><strong>输入:</strong> <em>word1</em> = <code>&quot;makes&quot;</code>, <em>word2</em> = <code>&quot;coding&quot;</code>
-<strong>输出:</strong> 1</pre>
+<p>&nbsp;</p>
 
-<p><strong>注意:</strong><br>
-你可以假设 <em>word1</em> <strong>不等于</strong> <em>word2</em>, 并且 <em>word1</em> 和 <em>word2</em> 都在列表里。</p>
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> 
+["WordDistance", "shortest", "shortest"]
+[[["practice", "makes", "perfect", "coding", "makes"]], ["coding", "practice"], ["makes", "coding"]]
+<strong>输出:</strong>
+[null, 3, 1]
+
+<b>解释：</b>
+WordDistance wordDistance = new WordDistance(["practice", "makes", "perfect", "coding", "makes"]);
+wordDistance.shortest("coding", "practice"); // 返回 3
+wordDistance.shortest("makes", "coding");    // 返回 1</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>注意:</strong><meta charset="UTF-8" /></p>
+
+<ul>
+	<li><code>1 &lt;= wordsDict.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= wordsDict[i].length &lt;= 10</code></li>
+	<li><code>wordsDict[i]</code>&nbsp;由小写英文字母组成</li>
+	<li><code>word1</code>&nbsp;和&nbsp;<code>word2</code>&nbsp;在数组&nbsp;<code>wordsDict</code>&nbsp;中</li>
+	<li><code>word1 != word2</code></li>
+	<li>&nbsp;<code>shortest</code>&nbsp;操作次数不大于&nbsp;<code>5000</code>&nbsp;</li>
+</ul>
 
 ## 解法
 

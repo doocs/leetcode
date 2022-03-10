@@ -6,26 +6,34 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个数组 <em>nums</em> 和一个目标值 <em>k</em>，找到和等于<em> k </em>的最长子数组长度。如果不存在任意一个符合要求的子数组，则返回 0。</p>
+<p>给定一个数组 <code><em>nums</em></code> 和一个目标值 <code><em>k</em></code>，找到和等于<em> <code>k</code> </em>的最长连续子数组长度。如果不存在任意一个符合要求的子数组，则返回 <code>0</code>。</p>
 
-<p><strong>注意:</strong><br>
-&nbsp;<em>nums</em> 数组的总和是一定在 32 位有符号整数范围之内的。</p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入: </strong><em>nums</em> = <code>[1, -1, 5, -2, 3]</code>, <em>k</em> = <code>3</code>
+<pre>
+<strong>输入: </strong><em>nums</em> = <code>[1,-1,5,-2,3]</code>, <em>k</em> = <code>3</code>
 <strong>输出: </strong>4 
 <strong>解释: </strong>子数组 <code>[1, -1, 5, -2]</code> 和等于 3，且长度最长。
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入: </strong><em>nums</em> = <code>[-2, -1, 2, 1]</code>, <em>k</em> = <code>1</code>
+<pre>
+<strong>输入: </strong><em>nums</em> = <code>[-2,-1,2,1]</code>, <em>k</em> = <code>1</code>
 <strong>输出: </strong>2 <strong>
 解释: </strong>子数组<code> [-1, 2]</code> 和等于 1，且长度最长。</pre>
 
-<p><strong>进阶:</strong><br>
-你能使时间复杂度在 O(<em>n</em>) 内完成此题吗?</p>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>5</sup></code></li>
+	<li><code>-10<sup>4</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup>&nbsp;&lt;= k &lt;= 10<sup>9</sup></code></li>
+</ul>
 
 ## 解法
 

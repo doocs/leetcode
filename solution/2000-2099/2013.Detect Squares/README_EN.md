@@ -52,7 +52,7 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 <ul>
 	<li><code>point.length == 2</code></li>
 	<li><code>0 &lt;= x, y &lt;= 1000</code></li>
-	<li>At most <code>5000</code> calls <strong>in total</strong> will be made to <code>add</code> and <code>count</code>.</li>
+	<li>At most <code>3000</code> calls <strong>in total</strong> will be made to <code>add</code> and <code>count</code>.</li>
 </ul>
 
 ## Solutions

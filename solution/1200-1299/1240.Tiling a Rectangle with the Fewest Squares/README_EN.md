@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given a rectangle of size&nbsp;<code>n</code>&nbsp;x <code><font face="monospace">m</font></code>, find the minimum number of integer-sided squares that tile the rectangle.</p>
+<p>Given a rectangle of size <code>n</code> x <code>m</code>, return <em>the minimum number of integer-sided squares that tile the rectangle</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -40,8 +40,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 13</code></li>
-	<li><code>1 &lt;= m&nbsp;&lt;=&nbsp;13</code></li>
+	<li><code>1 &lt;= n, m &lt;= 13</code></li>
 </ul>
 
 ## Solutions

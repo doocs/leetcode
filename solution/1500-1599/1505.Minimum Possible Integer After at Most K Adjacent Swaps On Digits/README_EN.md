@@ -4,11 +4,9 @@
 
 ## Description
 
-<p>Given a string <code>num</code> representing <strong>the digits</strong> of&nbsp;a very large integer and an integer <code>k</code>.</p>
+<p>You are given a string <code>num</code> representing <strong>the digits</strong> of a very large integer and an integer <code>k</code>. You are allowed to swap any two adjacent digits of the integer <strong>at most</strong> <code>k</code> times.</p>
 
-<p>You are allowed to swap any two adjacent digits of the integer <strong>at most</strong> <code>k</code> times.</p>
-
-<p>Return <em>the minimum integer</em> you can obtain also as a string.</p>
+<p>Return <em>the minimum integer you can obtain also as a string</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,27 +33,13 @@
 <strong>Explanation:</strong> We can keep the number without any swaps.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = &quot;22&quot;, k = 22
-<strong>Output:</strong> &quot;22&quot;
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = &quot;9438957234785635408&quot;, k = 23
-<strong>Output:</strong> &quot;0345989723478563548&quot;
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= num.length &lt;= 30000</code></li>
-	<li><code>num</code> contains <strong>digits</strong> only and doesn&#39;t have <strong>leading zeros</strong>.</li>
-	<li><code>1 &lt;= k &lt;= 10^9</code></li>
+	<li><code>1 &lt;= num.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>num</code> consists of only <strong>digits</strong> and does not contain <strong>leading zeros</strong>.</li>
+	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## Solutions

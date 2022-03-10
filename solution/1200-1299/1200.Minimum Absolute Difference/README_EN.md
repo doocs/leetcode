@@ -4,14 +4,14 @@
 
 ## Description
 
-<p>Given an&nbsp;array&nbsp;of <strong>distinct</strong>&nbsp;integers <code>arr</code>, find all pairs of elements with the minimum absolute difference of any two elements.&nbsp;</p>
+<p>Given an array of <strong>distinct</strong> integers <code>arr</code>, find all pairs of elements with the minimum absolute difference of any two elements.</p>
 
 <p>Return a list of pairs in ascending order(with respect to pairs), each pair <code>[a, b]</code> follows</p>
 
 <ul>
 	<li><code>a, b</code> are from <code>arr</code></li>
 	<li><code>a &lt; b</code></li>
-	<li><code>b - a</code>&nbsp;equals to the minimum absolute difference of any two elements in <code>arr</code></li>
+	<li><code>b - a</code> equals to the minimum absolute difference of any two elements in <code>arr</code></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -40,8 +40,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= arr.length &lt;= 10^5</code></li>
-	<li><code>-10^6 &lt;= arr[i] &lt;= 10^6</code></li>
+	<li><code>2 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>6</sup> &lt;= arr[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## Solutions

@@ -12,8 +12,7 @@
 <pre>
 <strong>Input:</strong> data = [1,0,1,0,1]
 <strong>Output:</strong> 1
-<strong>Explanation: </strong>
-There are 3 ways to group all 1&#39;s together:
+<strong>Explanation:</strong> There are 3 ways to group all 1&#39;s together:
 [1,1,1,0,0] using 1 swap.
 [0,1,1,1,0] using 2 swaps.
 [0,0,1,1,1] using 1 swap.
@@ -25,8 +24,7 @@ The minimum is 1.
 <pre>
 <strong>Input:</strong> data = [0,0,0,1,0]
 <strong>Output:</strong> 0
-<strong>Explanation: </strong>
-Since there is only one 1 in the array, no swaps needed.
+<strong>Explanation:</strong> Since there is only one 1 in the array, no swaps are needed.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -34,15 +32,7 @@ Since there is only one 1 in the array, no swaps needed.
 <pre>
 <strong>Input:</strong> data = [1,0,1,0,1,0,0,1,1,0,1]
 <strong>Output:</strong> 3
-<strong>Explanation: </strong>
-One possible solution that uses 3 swaps is [0,0,0,0,0,1,1,1,1,1,1].
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> data = [1,0,1,0,1,0,1,1,1,0,1,0,0,1,1,1,0,0,1,1,1,0,1,0,1,1,0,0,0,1,1,1,1,0,0,1]
-<strong>Output:</strong> 8
+<strong>Explanation:</strong> One possible solution that uses 3 swaps is [0,0,0,0,0,1,1,1,1,1,1].
 </pre>
 
 <p>&nbsp;</p>
@@ -50,7 +40,7 @@ One possible solution that uses 3 swaps is [0,0,0,0,0,1,1,1,1,1,1].
 
 <ul>
 	<li><code>1 &lt;= data.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>data[i]</code>&nbsp;is <code>0</code> or <code>1</code>.</li>
+	<li><code>data[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
 ## Solutions

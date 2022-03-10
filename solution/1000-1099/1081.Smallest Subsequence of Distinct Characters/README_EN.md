@@ -4,9 +4,7 @@
 
 ## Description
 
-<p>Return the lexicographically smallest subsequence of <code>s</code> that contains all the distinct characters of <code>s</code> exactly once.</p>
-
-<p><strong>Note:</strong> This question is the same as 316:&nbsp;<a href="https://leetcode.com/problems/remove-duplicate-letters/" target="_blank">https://leetcode.com/problems/remove-duplicate-letters/</a></p>
+<p>Given a string <code>s</code>, return <em>the lexicographically smallest subsequence of</em> <code>s</code> <em>that contains all the distinct characters of</em> <code>s</code> <em>exactly once</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -30,6 +28,9 @@
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Note:</strong> This question is the same as 316: <a href="https://leetcode.com/problems/remove-duplicate-letters/" target="_blank">https://leetcode.com/problems/remove-duplicate-letters/</a>
 
 ## Solutions
 

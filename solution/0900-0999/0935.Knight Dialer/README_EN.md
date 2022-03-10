@@ -36,20 +36,6 @@
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 3
-<strong>Output:</strong> 46
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 4
-<strong>Output:</strong> 104
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
 <strong>Input:</strong> n = 3131
 <strong>Output:</strong> 136006598
 <strong>Explanation:</strong> Please take care of the mod.

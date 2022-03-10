@@ -6,49 +6,51 @@
 
 <!-- 这里写题目描述 -->
 
-<p>对于一棵深度小于 <code>5</code> 的树，可以用一组三位十进制整数来表示。</p>
+<p>对于一棵深度小于&nbsp;<code>5</code>&nbsp;的树，可以用一组三位十进制整数来表示。对于每个整数：</p>
 
-<p>对于每个整数：</p>
+<ul>
+	<li>百位上的数字表示这个节点的深度 <code>d</code>，<code>1 &lt;= d&nbsp;&lt;= 4</code>。</li>
+	<li>十位上的数字表示这个节点在当前层所在的位置 <code>P</code>， <code>1 &lt;= p&nbsp;&lt;= 8</code>。位置编号与一棵满二叉树的位置编号相同。</li>
+	<li>个位上的数字表示这个节点的权值 <code>v</code>，<code>0 &lt;= v&nbsp;&lt;= 9</code>。</li>
+</ul>
 
-<ol>
-	<li>百位上的数字表示这个节点的深度 <code>D</code>，<code>1 <= D <= 4</code>。</li>
-	<li>十位上的数字表示这个节点在当前层所在的位置 <code>P</code>， <code>1 <= P <= 8</code>。位置编号与一棵满二叉树的位置编号相同。</li>
-	<li>个位上的数字表示这个节点的权值 <code>V</code>，<code>0 <= V <= 9</code>。</li>
-</ol>
+<p>给定一个包含三位整数的&nbsp;<strong>升序&nbsp;</strong>数组&nbsp;<code>nums</code>&nbsp;，表示一棵深度小于 <code>5</code> 的二叉树，请你返回 <em>从根到所有叶子结点的路径之和&nbsp;</em>。</p>
 
-<p>给定一个包含三位整数的<code>升序</code>数组，表示一棵深度小于 5 的二叉树，请你返回从根到所有叶子结点的路径之和。</p>
+<p><strong>保证&nbsp;</strong>给定的数组表示一个有效的连接二叉树。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入:</strong> [113, 215, 221]
-<strong>输出:</strong> 12
-<strong>解释:</strong> 
-这棵树形状如下:
-    3
-   / \
-  5   1
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-1-tree.jpg" /></p>
 
+<pre>
+<strong>输入:</strong> nums = [113, 215, 221]
+<strong>输出:</strong> 12
+<strong>解释:</strong> 列表所表示的树如上所示。
 路径和 = (3 + 5) + (3 + 1) = 12.
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入:</strong> [113, 221]
-<strong>输出:</strong> 4
-<strong>解释:</strong> 
-这棵树形状如下: 
-    3
-     \
-      1
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-2-tree.jpg" /></p>
 
+<pre>
+<strong>输入:</strong> nums = [113, 221]
+<strong>输出:</strong> 4
+<strong>解释:</strong> 列表所表示的树如上所示。
 路径和 = (3 + 1) = 4.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 15</code></li>
+	<li><code>110 &lt;= nums[i] &lt;= 489</code></li>
+	<li><code>nums</code>&nbsp;表示深度小于&nbsp;<code>5</code> 的有效二叉树</li>
+</ul>
 
 ## 解法
 

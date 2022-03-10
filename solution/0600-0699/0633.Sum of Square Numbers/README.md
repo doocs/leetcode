@@ -12,33 +12,18 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>c = 5
+<pre>
+<strong>输入：</strong>c = 5
 <strong>输出：</strong>true
 <strong>解释：</strong>1 * 1 + 2 * 2 = 5
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>c = 3
+<pre>
+<strong>输入：</strong>c = 3
 <strong>输出：</strong>false
 </pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>c = 4
-<strong>输出：</strong>true
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>c = 2
-<strong>输出：</strong>true
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>c = 1
-<strong>输出：</strong>true</pre>
 
 <p>&nbsp;</p>
 

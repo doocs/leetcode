@@ -43,15 +43,6 @@ We can create &quot;sandwich&quot; since we have the ingredient &quot;meat&quot;
 We can create &quot;burger&quot; since we have the ingredient &quot;meat&quot; and can create the ingredients &quot;bread&quot; and &quot;sandwich&quot;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> recipes = [&quot;bread&quot;], ingredients = [[&quot;yeast&quot;,&quot;flour&quot;]], supplies = [&quot;yeast&quot;]
-<strong>Output:</strong> []
-<strong>Explanation:</strong>
-We cannot create any recipes using only the ingredient &quot;yeast&quot;.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

@@ -42,14 +42,6 @@
 <strong>Explanation:</strong> There is no subsequence repeated 2 times. Empty string is returned.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;bbabbabbbbabaababab&quot;, k = 3
-<strong>Output:</strong> &quot;bbbb&quot;
-<strong>Explanation:</strong> The longest subsequence &quot;bbbb&quot; is repeated 3 times in &quot;<u>bb</u>a<u>bb</u>a<u>bbbb</u>a<u>b</u>aa<u>b</u>a<u>b</u>a<u>b</u>&quot;.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

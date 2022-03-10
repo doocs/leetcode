@@ -6,14 +6,10 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数数组 <code>nums</code> 和一个正整数 <code>k</code>，请你判断是否可以把这个数组划分成一些由 <code>k</code> 个连续数字组成的集合。<br />
-如果可以，请返回 <code>True</code>；否则，返回 <code>False</code>。</p>
+<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和一个正整数&nbsp;<code>k</code>，请你判断是否可以把这个数组划分成一些由&nbsp;<code>k</code>&nbsp;个连续数字组成的集合。<br />
+如果可以，请返回 <code>true</code>；否则，返回 <code>false</code>。</p>
 
-<p> </p>
-
-<p><strong>注意：</strong>此题目与 846 重复：<a href="https://leetcode-cn.com/problems/hand-of-straights/" target="_blank">https://leetcode-cn.com/problems/hand-of-straights/</a></p>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -46,15 +42,18 @@
 <strong>解释：</strong>数组不能分成几个大小为 3 的子数组。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 10^5</code></li>
-	<li><code>1 <= nums[i] <= 10^9</code></li>
-	<li><code>1 <= k <= nums.length</code></li>
+	<li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>此题目与 846 重复：<a href="https://leetcode-cn.com/problems/hand-of-straights/" target="_blank">https://leetcode-cn.com/problems/hand-of-straights/</a></p>
 
 ## 解法
 

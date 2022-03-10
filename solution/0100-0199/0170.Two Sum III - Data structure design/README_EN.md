@@ -39,7 +39,7 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 <ul>
 	<li><code>-10<sup>5</sup> &lt;= number &lt;= 10<sup>5</sup></code></li>
 	<li><code>-2<sup>31</sup> &lt;= value &lt;= 2<sup>31</sup> - 1</code></li>
-	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>add</code> and <code>find</code>.</li>
+	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>add</code> and <code>find</code>.</li>
 </ul>
 
 ## Solutions

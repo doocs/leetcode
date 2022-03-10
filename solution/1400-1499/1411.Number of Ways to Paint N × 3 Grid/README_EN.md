@@ -20,27 +20,6 @@
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 2
-<strong>Output:</strong> 54
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 3
-<strong>Output:</strong> 246
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 7
-<strong>Output:</strong> 106494
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
 <strong>Input:</strong> n = 5000
 <strong>Output:</strong> 30228214
 </pre>
@@ -50,7 +29,6 @@
 
 <ul>
 	<li><code>n == grid.length</code></li>
-	<li><code>grid[i].length == 3</code></li>
 	<li><code>1 &lt;= n &lt;= 5000</code></li>
 </ul>
 

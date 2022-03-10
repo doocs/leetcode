@@ -9,8 +9,11 @@
 <p>A garden is <strong>valid</strong> if it meets these conditions:</p>
 
 <ul>
-	<li>The garden has at least two flowers.</li>
-	<li>The first and the last flower of the garden have the same beauty value.</li>
+
+    <li>The garden has at least two flowers.</li>
+
+    <li>The first and the last flower of the garden have the same beauty value.</li>
+
 </ul>
 
 <p>As the appointed gardener, you have the ability to <strong>remove</strong> any (possibly none) flowers from the garden. You want to remove flowers in a way that makes the remaining garden <strong>valid</strong>. The beauty of the garden is the sum of the beauty of all the remaining flowers.</p>
@@ -58,9 +61,13 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= flowers.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt;= flowers[i] &lt;= 10<sup>4</sup></code></li>
-	<li>It is possible to create a valid garden by removing some (possibly none) flowers.</li>
+
+    <li><code>2 &lt;= flowers.length &lt;= 10<sup>5</sup></code></li>
+
+    <li><code>-10<sup>4</sup> &lt;= flowers[i] &lt;= 10<sup>4</sup></code></li>
+
+    <li>It is possible to create a valid garden by removing some (possibly none) flowers.</li>
+
 </ul>
 
 ## Solutions

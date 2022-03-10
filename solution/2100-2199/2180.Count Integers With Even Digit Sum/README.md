@@ -72,7 +72,7 @@ function countEven(num: number): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **...**

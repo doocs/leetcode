@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given the root of a binary tree, find the largest subtree, which is also&nbsp;a Binary Search Tree (BST), where the largest means subtree has the largest number of nodes.</p>
+<p>Given the root of a binary tree, find the largest subtree, which is also a Binary Search Tree (BST), where the largest means subtree has the largest number of nodes.</p>
 
 <p>A <strong>Binary Search Tree (BST)</strong> is a tree in which all the nodes follow the below-mentioned properties:</p>
 
@@ -13,9 +13,7 @@
 	<li>The right subtree values are greater than the value of their parent (root) node&#39;s value.</li>
 </ul>
 
-<p><b>Note:</b>&nbsp;A subtree must include all of its descendants.</p>
-
-<p><b>Follow up:</b>&nbsp;Can you figure out ways to solve it with O(n) time complexity?</p>
+<p><strong>Note:</strong> A subtree must include all of its descendants.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -41,6 +39,9 @@
 	<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Can you figure out ways to solve it with <code>O(n)</code> time complexity?</p>
 
 ## Solutions
 

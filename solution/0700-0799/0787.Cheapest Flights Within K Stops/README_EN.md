@@ -4,32 +4,26 @@
 
 ## Description
 
-<p>There are <code>n</code> cities connected by&nbsp;<code>m</code> flights. Each flight starts from city&nbsp;<code>u</code> and arrives at&nbsp;<code>v</code> with a price <code>w</code>.</p>
+<p>There are <code>n</code> cities connected by some number of flights. You are given an array <code>flights</code> where <code>flights[i] = [from<sub>i</sub>, to<sub>i</sub>, price<sub>i</sub>]</code> indicates that there is a flight from city <code>from<sub>i</sub></code> to city <code>to<sub>i</sub></code> with cost <code>price<sub>i</sub></code>.</p>
 
-<p>Now given all the cities and flights, together with starting city <code>src</code> and the destination&nbsp;<code>dst</code>, your task is to find the cheapest price from <code>src</code> to <code>dst</code> with up to <code>k</code> stops. If there is no such route, output <code>-1</code>.</p>
+<p>You are also given three integers <code>src</code>, <code>dst</code>, and <code>k</code>, return <em><strong>the cheapest price</strong> from </em><code>src</code><em> to </em><code>dst</code><em> with at most </em><code>k</code><em> stops. </em>If there is no such route, return<em> </em><code>-1</code>.</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/images/995.png" style="height: 360px; width: 492px;" />
 <pre>
-<strong>Example 1:</strong>
-<strong>Input:</strong> 
-n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]]
-src = 0, dst = 2, k = 1
+<strong>Input:</strong> n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1
 <strong>Output:</strong> 200
-<strong>Explanation:</strong> 
-The graph looks like this:
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/images/995.png" style="height:180px; width:246px" />
+<strong>Explanation:</strong> The graph is shown.
+The cheapest price from city <code>0</code> to city <code>2</code> with at most 1 stop costs 200, as marked red in the picture.
+</pre>
 
-The cheapest price from city <code>0</code> to city <code>2</code> with at most 1 stop costs 200, as marked red in the picture.</pre>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/images/995.png" style="height: 360px; width: 492px;" />
 <pre>
-<strong>Example 2:</strong>
-<strong>Input:</strong> 
-n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]]
-src = 0, dst = 2, k = 0
+<strong>Input:</strong> n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 0
 <strong>Output:</strong> 500
-<strong>Explanation:</strong> 
-The graph looks like this:
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/images/995.png" style="height:180px; width:246px" />
-
+<strong>Explanation:</strong> The graph is shown.
 The cheapest price from city <code>0</code> to city <code>2</code> with at most 0 stop costs 500, as marked blue in the picture.
 </pre>
 
@@ -37,12 +31,15 @@ The cheapest price from city <code>0</code> to city <code>2</code> with at most 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of&nbsp;nodes&nbsp;<code>n</code> will be&nbsp;in range <code>[1, 100]</code>, with nodes labeled from <code>0</code> to <code>n</code><code> - 1</code>.</li>
-	<li>The&nbsp;size of <code>flights</code> will be&nbsp;in range <code>[0, n * (n - 1) / 2]</code>.</li>
-	<li>The format of each flight will be <code>(src, </code><code>dst</code><code>, price)</code>.</li>
-	<li>The price of each flight will be in the range <code>[1, 10000]</code>.</li>
-	<li><code>k</code> is in the range of <code>[0, n - 1]</code>.</li>
-	<li>There&nbsp;will&nbsp;not&nbsp;be&nbsp;any&nbsp;duplicated&nbsp;flights or&nbsp;self&nbsp;cycles.</li>
+	<li><code>1 &lt;= n &lt;= 100</code></li>
+	<li><code>0 &lt;= flights.length &lt;= (n * (n - 1) / 2)</code></li>
+	<li><code>flights[i].length == 3</code></li>
+	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt; n</code></li>
+	<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>
+	<li><code>1 &lt;= price<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
+	<li>There will not be any multiple flights between two cities.</li>
+	<li><code>0 &lt;= src, dst, k &lt; n</code></li>
+	<li><code>src != dst</code></li>
 </ul>
 
 ## Solutions

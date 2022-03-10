@@ -84,14 +84,6 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 <strong>Explanation:</strong> After calling your read method, buf should contain &quot;abcdABCD1234&quot;. We read a total of 12 characters from the file, so return 12.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> file = &quot;leetcode&quot;, n = 5
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> After calling your read method, buf should contain &quot;leetc&quot;. We read a total of 5 characters from the file, so return 5.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

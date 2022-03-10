@@ -6,11 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一种规律 <code>pattern</code> 和一个字符串 <code>str</code>，请你判断 <code>str</code> 是否遵循其相同的规律。</p>
+<p>给你一种规律&nbsp;<code>pattern</code>&nbsp;和一个字符串&nbsp;<code>s</code>，请你判断&nbsp;<code>s</code>&nbsp;是否和<em>&nbsp;</em><code>pattern</code>&nbsp;的规律<strong>相匹配</strong>。</p>
 
-<p>这里我们指的是 <strong>完全遵循</strong>，例如 <code>pattern</code> 里的每个字母和字符串 <code>str</code><strong> </strong>中每个 <strong>非空</strong> 单词之间，存在着 <strong>双射</strong> 的对应规律。<strong>双射</strong> 意味着映射双方一一对应，不会存在两个字符映射到同一个字符串，也不会存在一个字符分别映射到两个不同的字符串。</p>
+<p>如果存在单个字符到字符串的 <strong>双射映射</strong> ，那么字符串<meta charset="UTF-8" />&nbsp;<code>s</code>&nbsp;匹配<meta charset="UTF-8" />&nbsp;<code>pattern</code>&nbsp;，即：如果<meta charset="UTF-8" /><code>pattern</code>&nbsp;中的每个字符都被它映射到的字符串替换，那么最终的字符串则为 <code>s</code> 。<strong>双射</strong> 意味着映射双方一一对应，不会存在两个字符映射到同一个字符串，也不会存在一个字符分别映射到两个不同的字符串。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -18,8 +18,8 @@
 <strong>输入：</strong>pattern = "abab", s = "redblueredblue"
 <strong>输出：</strong>true
 <strong>解释：</strong>一种可能的映射如下：
-'a' -> "red"
-'b' -> "blue"</pre>
+'a' -&gt; "red"
+'b' -&gt; "blue"</pre>
 
 <p><strong>示例 2：</strong></p>
 
@@ -27,34 +27,22 @@
 <strong>输入：</strong>pattern = "aaaa", s = "asdasdasdasd"
 <strong>输出：</strong>true
 <strong>解释：</strong>一种可能的映射如下：
-'a' -> "asd"
+'a' -&gt; "asd"
 </pre>
 
 <p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>pattern = "abab", s = "asdasdasdasd"
-<strong>输出：</strong>true
-<strong>解释：</strong>一种可能的映射如下：
-'a' -> "a"
-'b' -> "sdasd"
-注意 'a' 和 'b' 不能同时映射到 "asd"，因为这里的映射是一种双射。
-</pre>
-
-<p><strong>示例 4：</strong></p>
 
 <pre>
 <strong>输入：</strong>pattern = "aabb", s = "xyzabcxzyabc"
 <strong>输出：</strong>false
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= pattern.length <= 20</code></li>
-	<li><code>0 <= s.length <= 50</code></li>
+	<li><code>1 &lt;= pattern.length, s.length &lt;= 20</code></li>
 	<li><code>pattern</code> 和 <code>s</code> 由小写英文字母组成</li>
 </ul>
 

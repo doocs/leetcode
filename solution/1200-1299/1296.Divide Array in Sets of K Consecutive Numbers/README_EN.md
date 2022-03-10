@@ -4,8 +4,9 @@
 
 ## Description
 
-<p>Given an array of integers <code>nums</code> and a positive integer <code>k</code>, find whether it&#39;s possible to divide this array into sets of <code>k</code> consecutive numbers<br />
-Return <code>True</code> if it is possible.<strong> </strong>Otherwise, return <code>False</code>.</p>
+<p>Given an array of integers <code>nums</code> and a positive integer <code>k</code>, check whether it is possible to divide this array into sets of <code>k</code> consecutive numbers.</p>
+
+<p>Return <code>true</code> <em>if it is possible</em>.<strong> </strong>Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -25,13 +26,6 @@ Return <code>True</code> if it is possible.<strong> </strong>Otherwise, return <
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [3,3,2,2,1,1], k = 3
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 4:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4], k = 3

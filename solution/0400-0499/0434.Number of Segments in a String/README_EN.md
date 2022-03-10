@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given a string <code>s</code>, return <em>the number of segments in the string</em>.&nbsp;</p>
+<p>Given a string <code>s</code>, return <em>the number of segments in the string</em>.</p>
 
 <p>A <strong>segment</strong> is defined to be a contiguous sequence of <strong>non-space characters</strong>.</p>
 
@@ -24,26 +24,12 @@
 <strong>Output:</strong> 1
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;love live! mu&#39;sic forever&quot;
-<strong>Output:</strong> 4
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;&quot;
-<strong>Output:</strong> 0
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>0 &lt;= s.length &lt;= 300</code></li>
-	<li><code>s</code> consists of lower-case and upper-case English letters, digits or one of the following characters <code>&quot;!@#$%^&amp;*()_+-=&#39;,.:&quot;</code>.</li>
+	<li><code>s</code> consists of lowercase and uppercase English letters, digits, or one of the following characters <code>&quot;!@#$%^&amp;*()_+-=&#39;,.:&quot;</code>.</li>
 	<li>The only space character in <code>s</code> is <code>&#39; &#39;</code>.</li>
 </ul>
 

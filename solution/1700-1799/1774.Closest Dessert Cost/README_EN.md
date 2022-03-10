@@ -58,13 +58,6 @@ Total: 3 + 4 + 10 + 0 = 17. You cannot make a dessert with a total cost of 18.
 <strong>Explanation:</strong> It is possible to make desserts with cost 8 and 10. Return 8 as it is the lower cost.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> baseCosts = [10], toppingCosts = [1], target = 1
-<strong>Output:</strong> 10
-<strong>Explanation:</strong> Notice that you don&#39;t have to have any toppings, but you must have exactly one base.</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

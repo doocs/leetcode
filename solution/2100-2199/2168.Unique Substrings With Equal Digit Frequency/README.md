@@ -6,32 +6,34 @@
 
 <!-- 这里写题目描述 -->
 
-Given a digit string <code>s</code>, return <em>the number of <strong>unique substrings </strong>of </em><code>s</code><em> where every digit appears the same number of times.</em>
+给你一个由数字组成的字符串&nbsp;<code>s</code>，返回<em>&nbsp;</em><code>s</code><em>&nbsp;</em>中<strong>独特子字符串数量</strong>，其中的每一个数字出现的频率都相同<i>。</i>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例1:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;1212&quot;
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> The substrings that meet the requirements are &quot;1&quot;, &quot;2&quot;, &quot;12&quot;, &quot;21&quot;, &quot;1212&quot;.
-Note that although the substring &quot;12&quot; appears twice, it is only counted once.
+<strong>输入:</strong> s = "1212"
+<strong>输出:</strong> 5
+<strong>解释:</strong> 符合要求的子串有 "1", "2", "12", "21", "1212".
+要注意，尽管"12"在s中出现了两次，但在计数的时候只计算一次。
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例&nbsp;2:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;12321&quot;
-<strong>Output:</strong> 9
-<strong>Explanation:</strong> The substrings that meet the requirements are &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;12&quot;, &quot;23&quot;, &quot;32&quot;, &quot;21&quot;, &quot;123&quot;, &quot;321&quot;.
+<strong>输入:</strong> s = "12321"
+<strong>输出:</strong> 9
+<strong>解释:</strong> 符合要求的子串有 "1", "2", "3", "12", "23", "32", "21", "123", "321".
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>解释:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-	<li><code>s</code> consists of digits.</li>
+	<li><code>s</code>&nbsp;只包含阿拉伯数字.</li>
 </ul>
 
 ## 解法

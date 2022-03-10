@@ -6,20 +6,20 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个不含重复元素的整数数组 <code>nums</code> 。一个以此数组直接递归构建的 <strong>最大二叉树</strong> 定义如下：</p>
+<p>给定一个不重复的整数数组&nbsp;<code>nums</code> 。&nbsp;<strong>最大二叉树</strong>&nbsp;可以用下面的算法从&nbsp;<code>nums</code> 递归地构建:</p>
 
 <ol>
-	<li>二叉树的根是数组 <code>nums</code> 中的最大元素。</li>
-	<li>左子树是通过数组中 <strong>最大值左边部分</strong> 递归构造出的最大二叉树。</li>
-	<li>右子树是通过数组中 <strong>最大值右边部分</strong> 递归构造出的最大二叉树。</li>
+	<li>创建一个根节点，其值为&nbsp;<code>nums</code> 中的最大值。</li>
+	<li>递归地在最大值&nbsp;<strong>左边</strong>&nbsp;的&nbsp;<strong>子数组前缀上</strong>&nbsp;构建左子树。</li>
+	<li>递归地在最大值 <strong>右边</strong> 的&nbsp;<strong>子数组后缀上</strong>&nbsp;构建右子树。</li>
 </ol>
 
-<p>返回有给定数组 <code>nums</code> 构建的 <strong>最大二叉树 </strong>。</p>
+<p>返回&nbsp;<em><code>nums</code> 构建的 </em><strong><em>最大二叉树</em> </strong>。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0654.Maximum%20Binary%20Tree/images/tree1.jpg" style="width: 302px; height: 421px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0654.Maximum%20Binary%20Tree/images/tree1.jpg" />
 <pre>
 <strong>输入：</strong>nums = [3,2,1,6,0,5]
 <strong>输出：</strong>[6,3,5,null,2,0,null,null,1]
@@ -36,19 +36,19 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0654.Maximum%20Binary%20Tree/images/tree2.jpg" style="width: 182px; height: 301px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0654.Maximum%20Binary%20Tree/images/tree2.jpg" />
 <pre>
 <strong>输入：</strong>nums = [3,2,1]
 <strong>输出：</strong>[3,null,2,null,1]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 1000</code></li>
-	<li><code>0 <= nums[i] <= 1000</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 	<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
 

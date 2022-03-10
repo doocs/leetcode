@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>On a campus represented as a 2D grid, there are <code>N</code> workers and <code>M</code> bikes, with <code>N &lt;= M</code>. Each worker and bike is a 2D coordinate on this grid.</p>
+<p>On a campus represented as a 2D grid, there are <code>n</code> workers and <code>m</code> bikes, with <code>n &lt;= m</code>. Each worker and bike is a 2D coordinate on this grid.</p>
 
-<p>We assign one unique bike to each worker so that the sum of the Manhattan distances between each worker and their assigned bike is minimized.</p>
+<p>We assign one unique bike to each worker so that the sum of the <strong>Manhattan distances</strong> between each worker and their assigned bike is minimized.</p>
 
-<p>The Manhattan distance between two points <code>p1</code> and <code>p2</code> is <code>Manhattan(p1, p2) = |p1.x - p2.x| + |p1.y - p2.y|</code>.</p>
+<p>Return <code>the minimum possible sum of Manhattan distances between each worker and their assigned bike</code>.</p>
 
-<p>Return <em>the minimum possible sum of Manhattan distances between each worker and their assigned bike</em>.</p>
+<p>The <strong>Manhattan distance</strong> between two points <code>p1</code> and <code>p2</code> is <code>Manhattan(p1, p2) = |p1.x - p2.x| + |p1.y - p2.y|</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -42,9 +42,9 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>N == workers.length</code></li>
-	<li><code>M == bikes.length</code></li>
-	<li><code>1 &lt;= N &lt;= M &lt;= 10</code></li>
+	<li><code>n == workers.length</code></li>
+	<li><code>m == bikes.length</code></li>
+	<li><code>1 &lt;= n &lt;= m &lt;= 10</code></li>
 	<li><code>workers[i].length == 2</code></li>
 	<li><code>bikes[i].length == 2</code></li>
 	<li><code>0 &lt;= workers[i][0], workers[i][1], bikes[i][0], bikes[i][1] &lt; 1000</code></li>

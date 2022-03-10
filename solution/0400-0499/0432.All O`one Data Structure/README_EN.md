@@ -44,11 +44,8 @@ allOne.getMinKey(); // return &quot;leet&quot;
 	<li><code>1 &lt;= key.length &lt;= 10</code></li>
 	<li><code>key</code> consists of lowercase English letters.</li>
 	<li>It is guaranteed that for each call to <code>dec</code>, <code>key</code> is existing in the data structure.</li>
-	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>inc</code>, <code>dec</code>, <code>getMaxKey</code>, and <code>getMinKey</code>.</li>
+	<li>At most <code>5 * 10<sup>4</sup></code>&nbsp;calls will be made to <code>inc</code>, <code>dec</code>, <code>getMaxKey</code>, and <code>getMinKey</code>.</li>
 </ul>
-
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong> Could you apply all the operations in <code>O(1)</code> time complexity?</p>
 
 ## Solutions
 

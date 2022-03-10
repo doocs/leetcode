@@ -6,11 +6,13 @@
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>servers</code> and <code>tasks</code> of lengths <code>n</code>​​​​​​ and <code>m</code>​​​​​​ respectively. <code>servers[i]</code> is the <strong>weight</strong> of the <code>i<sup>​​​​​​th</sup></code>​​​​ server, and <code>tasks[j]</code> is the <strong>time needed</strong> to process the <code>j<sup>​​​​​​th</sup></code>​​​​ task <strong>in seconds</strong>.</p>
 
-<p>You are running a simulation system that will shut down after all tasks are processed. Each server can only process one task at a time. You will be able to process the <code>j<sup>th</sup></code> task starting from the <code>j<sup>th</sup></code> second beginning with the <code>0<sup>th</sup></code> task at second <code>0</code>. To process task <code>j</code>, you assign it to the server with the <strong>smallest weight</strong> that is free, and in case of a tie, choose the server with the <strong>smallest index</strong>. If a free server gets assigned task <code>j</code> at second <code>t</code>,​​​​​​ it will be free again at the second <code>t + tasks[j]</code>.</p>
+<p>Tasks are assigned to the servers using a <strong>task queue</strong>. Initially, all servers are free, and the queue is <strong>empty</strong>.</p>
 
-<p>If there are no free servers, you must wait until one is free and execute the free tasks <strong>as soon as possible</strong>. If <strong>multiple</strong> tasks need to be assigned, assign them in order of <strong>increasing index</strong>.</p>
+<p>At second <code>j</code>, the <code>j<sup>th</sup></code> task is <strong>inserted</strong> into the queue (starting with the <code>0<sup>th</sup></code> task being inserted at second <code>0</code>). As long as there are free servers and the queue is not empty, the task in the front of the queue will be assigned to a free server with the <strong>smallest weight</strong>, and in case of a tie, it is assigned to a free server with the <strong>smallest index</strong>.</p>
 
-<p>You may assign multiple tasks at the same second if there are multiple free servers.</p>
+<p>If there are no free servers and the queue is not empty, we wait until a server becomes free and immediately assign the next task. If multiple servers become free at the same time, then multiple tasks from the queue will be assigned <strong>in order of insertion</strong> following the weight and index priorities above.</p>
+
+<p>A server that is assigned task <code>j</code> at second <code>t</code> will be free again at second <code>t + tasks[j]</code>.</p>
 
 <p>Build an array <code>ans</code>​​​​ of length <code>m</code>, where <code>ans[j]</code> is the <strong>index</strong> of the server the <code>j<sup>​​​​​​th</sup></code> task will be assigned to.</p>
 

@@ -43,7 +43,7 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= k &lt;= 10^9</code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

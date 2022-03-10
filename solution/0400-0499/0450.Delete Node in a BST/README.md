@@ -15,38 +15,51 @@
 	<li>如果找到了，删除它。</li>
 </ol>
 
-<p><strong>说明：</strong> 要求算法时间复杂度为&nbsp;O(h)，h 为树的高度。</p>
+<p>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1:</strong></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_1.jpg" style="width: 800px;" /></p>
 
 <pre>
-root = [5,3,6,2,4,null,7]
-key = 3
-
-    5
-   / \
-  3   6
- / \   \
-2   4   7
-
-给定需要删除的节点值是 3，所以我们首先找到 3 这个节点，然后删除它。
-
+<strong>输入：</strong>root = [5,3,6,2,4,null,7], key = 3
+<strong>输出：</strong>[5,4,6,2,null,null,7]
+<strong>解释：</strong>给定需要删除的节点值是 3，所以我们首先找到 3 这个节点，然后删除它。
 一个正确的答案是 [5,4,6,2,null,null,7], 如下图所示。
-
-    5
-   / \
-  4   6
- /     \
-2       7
-
 另一个正确答案是 [5,2,6,null,4,null,7]。
 
-    5
-   / \
-  2   6
-   \   \
-    4   7
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_supp.jpg" style="width: 350px;" />
 </pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> root = [5,3,6,2,4,null,7], key = 0
+<strong>输出:</strong> [5,3,6,2,4,null,7]
+<strong>解释:</strong> 二叉树不包含值为 0 的节点
+</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> root = [], key = 0
+<strong>输出:</strong> []</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li>节点数的范围&nbsp;<code>[0, 10<sup>4</sup>]</code>.</li>
+	<li><code>-10<sup>5</sup>&nbsp;&lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+	<li>节点值唯一</li>
+	<li><code>root</code>&nbsp;是合法的二叉搜索树</li>
+	<li><code>-10<sup>5</sup>&nbsp;&lt;= key &lt;= 10<sup>5</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong> 要求算法时间复杂度为&nbsp;O(h)，h 为树的高度。</p>
 
 ## 解法
 

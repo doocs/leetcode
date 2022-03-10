@@ -6,44 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a binary array <code>nums</code> containing only the integers <code>0</code> and <code>1</code>. Return<em> the number of <strong>subarrays</strong> in nums that have <strong>more</strong> </em><code>1</code>&#39;<em>s than </em><code>0</code><em>&#39;s. Since the answer may be very large, return it <strong>modulo</strong> </em><code>10<sup>9</sup> + 7</code>.</p>
+<p>给你一个只包含 <code>0</code> 和 <code>1</code> 的数组 <code>nums</code>，请返回 <code>1</code> 的数量 <strong>大于 </strong><code>0</code> 的数量的子数组的个数。由于答案可能很大，请返回答案对&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;<strong>取余</strong>&nbsp;的结果。</p>
 
-<p>A <strong>subarray</strong> is a contiguous sequence of elements within an array.</p>
+<p>一个 <strong>子数组</strong> 指的是原数组中连续的一个子序列。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [0,1,1,0,1]
-<strong>Output:</strong> 9
-<strong>Explanation:</strong>
-The subarrays of size 1 that have more ones than zeros are: [1], [1], [1]
-The subarrays of size 2 that have more ones than zeros are: [1,1]
-The subarrays of size 3 that have more ones than zeros are: [0,1,1], [1,1,0], [1,0,1]
-The subarrays of size 4 that have more ones than zeros are: [1,1,0,1]
-The subarrays of size 5 that have more ones than zeros are: [0,1,1,0,1]
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> nums = [0,1,1,0,1]
+<strong>输出:</strong> 9
+<strong>解释:</strong>
+长度为 1 的、1 的数量大于 0 的数量的子数组有: [1], [1], [1]
+长度为 2 的、1 的数量大于 0 的数量的子数组有: [1,1]
+长度为 3 的、1 的数量大于 0 的数量的子数组有: [0,1,1], [1,1,0], [1,0,1]
+长度为 4 的、1 的数量大于 0 的数量的子数组有: [1,1,0,1]
+长度为 5 的、1 的数量大于 0 的数量的子数组有: [0,1,1,0,1]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [0]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
-No subarrays have more ones than zeros.
+<pre><strong>输入:</strong> nums = [0]
+<strong>输出:</strong> 0
+<strong>解释:</strong>
+没有子数组的 1 的数量大于 0 的数量。
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong>示例 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [1]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong>
-The subarrays of size 1 that have more ones than zeros are: [1]
+<pre><strong>输入:</strong> nums = [1]
+<strong>输出:</strong> 1
+<strong>解释:</strong>
+长度为 1 的、1 的数量大于 0 的数量的子数组有: [1]
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

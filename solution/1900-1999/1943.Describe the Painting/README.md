@@ -20,11 +20,13 @@
 
 <ul>
 	<li>比方说，这幅画由&nbsp;<code>segments = [[1,4,5],[1,7,7]]</code>&nbsp;组成，那么它可以表示为&nbsp;<code>painting = [[1,4,12],[4,7,7]]</code>&nbsp;，因为：
-	<ul>
-		<li><code>[1,4)</code>&nbsp;由颜色&nbsp;<code>{5,7}</code>&nbsp;组成（和为&nbsp;<code>12</code>），分别来自第一个线段和第二个线段。</li>
-		<li><code>[4,7)</code>&nbsp;由颜色 <code>{7}</code>&nbsp;组成，来自第二个线段。</li>
-	</ul>
-	</li>
+
+    <ul>
+    	<li><code>[1,4)</code>&nbsp;由颜色&nbsp;<code>{5,7}</code>&nbsp;组成（和为&nbsp;<code>12</code>），分别来自第一个线段和第二个线段。</li>
+    	<li><code>[4,7)</code>&nbsp;由颜色 <code>{7}</code>&nbsp;组成，来自第二个线段。</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>请你返回二维数组&nbsp;<code>painting</code>&nbsp;，它表示最终绘画的结果（<strong>没有</strong>&nbsp;被涂色的部分不出现在结果中）。你可以按 <strong>任意顺序</strong> 返回最终数组的结果。</p>

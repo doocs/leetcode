@@ -32,19 +32,12 @@
 <strong>Output:</strong> false
 </pre>
 
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/images/1503_ex4.png" style="width: 470px; height: 191px;" />
-<pre>
-<strong>Input:</strong> n = 6, leftChild = [1,-1,-1,4,-1,-1], rightChild = [2,-1,-1,5,-1,-1]
-<strong>Output:</strong> false
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li><code>n == leftChild.length == rightChild.length</code></li>
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
-	<li><code>leftChild.length == rightChild.length == n</code></li>
 	<li><code>-1 &lt;= leftChild[i], rightChild[i] &lt;= n - 1</code></li>
 </ul>
 

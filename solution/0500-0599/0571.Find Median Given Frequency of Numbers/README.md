@@ -6,28 +6,54 @@
 
 <!-- 这里写题目描述 -->
 
-<p><code>Numbers</code> 表保存数字的值及其频率。</p>
+<p><code>Numbers</code> 表：</p>
 
-<pre>+----------+-------------+
-|  Number  |  Frequency  |
-+----------+-------------|
-|  0       |  7          |
-|  1       |  1          |
-|  2       |  3          |
-|  3       |  1          |
-+----------+-------------+
-</pre>
+<pre>
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| num         | int  |
+| frequency   | int  |
++-------------+------+
+num 是这张表的主键。这张表的每一行表示某个数字在该数据库中的出现频率。</pre>
 
-<p>在此表中，数字为 <code>0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3</code>，所以中位数是 <code>(0 + 0) / 2 = 0</code>。</p>
+<p>&nbsp;</p>
+<a href="https://baike.baidu.com/item/%E4%B8%AD%E4%BD%8D%E6%95%B0/3087401" target="_blank"><strong>中位数</strong></a> 是将数据样本中半数较高值和半数较低值分隔开的值。
 
-<pre>+--------+
-| median |
-+--------|
-| 0.0000 |
+<p>编写一个 SQL 查询，解压 <code>Numbers</code> 表，报告数据库中所有数字的 <strong>中位数</strong> 。结果四舍五入至 <strong>一位小数</strong> 。</p>
+
+<p>查询结果如下例所示。</p>
+
+<p>&nbsp;</p>
+
+<div class="top-view__1vxA">
+<div class="original__bRMd">
+<div>
+<p><strong>示例：</strong></p>
+
+<pre>
+<strong>输入：</strong> 
+Numbers 表：
++-----+-----------+
+| num | frequency |
++-----+-----------+
+| 0   | 7         |
+| 1   | 1         |
+| 2   | 3         |
+| 3   | 1         |
++-----+-----------+
+<strong>输出：</strong>
 +--------+
+| median |
++--------+
+| 0.0    |
++--------+
+<strong>解释：</strong>
+如果解压这个 Numbers 表，可以得到 [0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3] ，所以中位数是 (0 + 0) / 2 = 0 。
 </pre>
-
-<p>请编写一个查询来查找所有数字的中位数并将结果命名为 <code>median</code> 。</p>
+</div>
+</div>
+</div>
 
 ## 解法
 

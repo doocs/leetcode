@@ -14,9 +14,9 @@
 
 <p>注意，测试期间，同一个键可以在不同时刻被多次按下，而每次的持续时间都可能不同。</p>
 
-<p>请返回按键 <strong>持续时间最长</strong> 的键，如果有多个这样的键，则返回 <strong>按字母顺序排列最大</strong> 的那个键。</p>
+<p>请返回单次按键 <strong>持续时间最长</strong> 的键，如果有多个这样的键，则返回 <strong>按字母顺序排列最大</strong> 的那个键。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -45,16 +45,16 @@
 按下 'a' ，持续时间 62 - 46 = 16
 按键持续时间最长的键是 'a' ，持续时间 16</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>releaseTimes.length == n</code></li>
 	<li><code>keysPressed.length == n</code></li>
-	<li><code>2 <= n <= 1000</code></li>
-	<li><code>1 <= releaseTimes[i] <= 10<sup>9</sup></code></li>
-	<li><code>releaseTimes[i] < releaseTimes[i+1]</code></li>
+	<li><code>2 &lt;= n &lt;= 1000</code></li>
+	<li><code>1 &lt;= releaseTimes[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>releaseTimes[i] &lt; releaseTimes[i+1]</code></li>
 	<li><code>keysPressed</code> 仅由小写英文字母组成</li>
 </ul>
 

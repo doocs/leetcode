@@ -87,7 +87,7 @@ class Solution:
 class Solution {
     private int[] counter;
     private char[][] board;
-    
+
     public List<String> findWords(char[][] board, String[] words) {
         counter = new int[26];
         this.board = board;

@@ -11,53 +11,43 @@
 <p>在比较时，字母是依序循环出现的。举个例子：</p>
 
 <ul>
-	<li>如果目标字母 <code>target = &#39;z&#39;</code> 并且字符列表为&nbsp;<code>letters = [&#39;a&#39;, &#39;b&#39;]</code>，则答案返回&nbsp;<code>&#39;a&#39;</code></li>
+	<li>如果目标字母 <code>target = 'z'</code> 并且字符列表为&nbsp;<code>letters = ['a', 'b']</code>，则答案返回&nbsp;<code>'a'</code></li>
 </ul>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong>
-letters = [&quot;c&quot;, &quot;f&quot;, &quot;j&quot;]
-target = &quot;a&quot;
-<strong>输出:</strong> &quot;c&quot;
+<pre>
+<strong>输入: </strong>letters = ["c", "f", "j"]，target = "a"
+<strong>输出:</strong> "c"
+</pre>
 
-<strong>输入:</strong>
-letters = [&quot;c&quot;, &quot;f&quot;, &quot;j&quot;]
-target = &quot;c&quot;
-<strong>输出:</strong> &quot;f&quot;
+<p><strong>示例 2:</strong></p>
 
-<strong>输入:</strong>
-letters = [&quot;c&quot;, &quot;f&quot;, &quot;j&quot;]
-target = &quot;d&quot;
-<strong>输出:</strong> &quot;f&quot;
+<pre>
+<strong>输入:</strong> letters = ["c","f","j"], target = "c"
+<strong>输出:</strong> "f"
+</pre>
 
-<strong>输入:</strong>
-letters = [&quot;c&quot;, &quot;f&quot;, &quot;j&quot;]
-target = &quot;g&quot;
-<strong>输出:</strong> &quot;j&quot;
+<p><strong>示例 3:</strong></p>
 
-<strong>输入:</strong>
-letters = [&quot;c&quot;, &quot;f&quot;, &quot;j&quot;]
-target = &quot;j&quot;
-<strong>输出:</strong> &quot;c&quot;
-
-<strong>输入:</strong>
-letters = [&quot;c&quot;, &quot;f&quot;, &quot;j&quot;]
-target = &quot;k&quot;
-<strong>输出:</strong> &quot;c&quot;
+<pre>
+<strong>输入:</strong> letters = ["c","f","j"], target = "d"
+<strong>输出:</strong> "f"
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>letters</code>长度范围在<code>[2, 10000]</code>区间内。</li>
-	<li><code>letters</code> 仅由小写字母组成，最少包含两个不同的字母。</li>
-	<li>目标字母<code>target</code> 是一个小写字母。</li>
-</ol>
+<ul>
+	<li><code>2 &lt;= letters.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>letters[i]</code>&nbsp;是一个小写字母</li>
+	<li><code>letters</code> 按非递减顺序排序</li>
+	<li><code>letters</code> 最少包含两个不同的字母</li>
+	<li><code>target</code> 是一个小写字母</li>
+</ul>
 
 ## 解法
 

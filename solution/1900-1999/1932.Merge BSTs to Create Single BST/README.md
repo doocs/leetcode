@@ -77,6 +77,7 @@
 	<li><code>n == trees.length</code></li>
 	<li><code>1 <= n <= 5 * 10<sup>4</sup></code></li>
 	<li>每棵树中节点数目在范围 <code>[1, 3]</code> 内。</li>
+	<li>输入数据的每个节点可能有子节点但不存在子节点的子节点</li>
 	<li><code>trees</code> 中不存在两棵树根节点值相同的情况。</li>
 	<li>输入中的所有树都是 <strong>有效的二叉树搜索树</strong> 。</li>
 	<li><code>1 <= TreeNode.val <= 5 * 10<sup>4</sup></code>.</li>

@@ -6,19 +6,23 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二进制字符串&nbsp;<code>S</code>（一个仅由若干&nbsp;&#39;0&#39; 和 &#39;1&#39; 构成的字符串）和一个正整数&nbsp;<code>N</code>，如果对于从 <code>1</code> 到 <code>N</code> 的每个整数 <code>X</code>，其二进制表示都是&nbsp;<code>S</code> 的子串，就返回 <code>true</code>，否则返回 <code>false</code>。</p>
+<p>给定一个二进制字符串&nbsp;<code>s</code>&nbsp;和一个正整数&nbsp;<code>n</code>，如果对于&nbsp;<code>[1, n]</code>&nbsp;范围内的每个整数，<em>其二进制表示都是&nbsp;<code>s</code> 的 <strong>子字符串</strong> ，就返回 <code>true</code>，否则返回 <code>false</code>&nbsp;</em>。</p>
+
+<p><strong>子字符串</strong>&nbsp;是字符串中连续的字符序列。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>S = &quot;0110&quot;, N = 3
+<pre>
+<strong>输入：</strong>s = "0110", n = 3
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>S = &quot;0110&quot;, N = 4
+<pre>
+<strong>输入：</strong>s = "0110", n = 4
 <strong>输出：</strong>false
 </pre>
 
@@ -26,10 +30,11 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= S.length &lt;= 1000</code></li>
-	<li><code>1 &lt;= N &lt;= 10^9</code></li>
-</ol>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s[i]</code>&nbsp;不是&nbsp;<code>'0'</code>&nbsp;就是&nbsp;<code>'1'</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
+</ul>
 
 ## 解法
 

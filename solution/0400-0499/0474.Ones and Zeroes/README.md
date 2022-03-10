@@ -9,12 +9,12 @@
 <p>给你一个二进制字符串数组 <code>strs</code> 和两个整数 <code>m</code> 和 <code>n</code> 。</p>
 
 <div class="MachineTrans-Lines">
-<p class="MachineTrans-lang-zh-CN">请你找出并返回 <code>strs</code> 的最大子集的大小，该子集中 <strong>最多</strong> 有 <code>m</code> 个 <code>0</code> 和 <code>n</code> 个 <code>1</code> 。</p>
+<p class="MachineTrans-lang-zh-CN">请你找出并返回 <code>strs</code> 的最大子集的长度，该子集中 <strong>最多</strong> 有 <code>m</code> 个 <code>0</code> 和 <code>n</code> 个 <code>1</code> 。</p>
 
 <p class="MachineTrans-lang-zh-CN">如果 <code>x</code> 的所有元素也是 <code>y</code> 的元素，集合 <code>x</code> 是集合 <code>y</code> 的 <strong>子集</strong> 。</p>
 </div>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -33,15 +33,15 @@
 <strong>解释：</strong>最大的子集是 {"0", "1"} ，所以答案是 2 。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= strs.length <= 600</code></li>
-	<li><code>1 <= strs[i].length <= 100</code></li>
-	<li><code>strs[i]</code> 仅由 <code>'0'</code> 和 <code>'1'</code> 组成</li>
-	<li><code>1 <= m, n <= 100</code></li>
+	<li><code>1 &lt;= strs.length &lt;= 600</code></li>
+	<li><code>1 &lt;= strs[i].length &lt;= 100</code></li>
+	<li><code>strs[i]</code>&nbsp;仅由&nbsp;<code>'0'</code> 和&nbsp;<code>'1'</code> 组成</li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
 
 ## 解法

@@ -14,22 +14,24 @@
 | fruit         | enum    | 
 | sold_num      | int     | 
 +---------------+---------+
-(sale_date,fruit) is the primary key for this table.
+(sale_date, fruit) is the primary key for this table.
 This table contains the sales of &quot;apples&quot; and &quot;oranges&quot; sold each day.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to&nbsp;report the&nbsp;difference between number of <strong>apples</strong> and <strong>oranges</strong> sold each day.</p>
+<p>Write an SQL query to report the difference between the number of <strong>apples</strong> and <strong>oranges</strong> sold each day.</p>
 
-<p>Return the result table <strong>ordered</strong> by sale_date in format (&#39;YYYY-MM-DD&#39;).</p>
+<p>Return the result table <strong>ordered</strong> by <code>sale_date</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Sales</code> table:
+<strong>Input:</strong> 
+Sales table:
 +------------+------------+-------------+
 | sale_date  | fruit      | sold_num    |
 +------------+------------+-------------+
@@ -42,8 +44,7 @@ This table contains the sales of &quot;apples&quot; and &quot;oranges&quot; sold
 | 2020-05-04 | apples     | 15          |
 | 2020-05-04 | oranges    | 16          |
 +------------+------------+-------------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+--------------+
 | sale_date  | diff         |
 +------------+--------------+
@@ -52,7 +53,7 @@ Result table:
 | 2020-05-03 | 20           |
 | 2020-05-04 | -1           |
 +------------+--------------+
-
+<strong>Explanation:</strong> 
 Day 2020-05-01, 10 apples and 8 oranges were sold (Difference  10 - 8 = 2).
 Day 2020-05-02, 15 apples and 15 oranges were sold (Difference 15 - 15 = 0).
 Day 2020-05-03, 20 apples and 0 oranges were sold (Difference 20 - 0 = 20).

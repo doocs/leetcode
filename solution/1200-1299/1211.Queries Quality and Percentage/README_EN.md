@@ -35,13 +35,19 @@ The <code>rating</code> column has a value from <strong>1</strong> to <strong>5<
 <p>The percentage of all queries with rating less than 3.</p>
 </blockquote>
 
-<p>Write an SQL query to find each&nbsp;<code>query_name</code>, the <code>quality</code> and <code>poor_query_percentage</code>.</p>
+<p>Write an SQL query to find each <code>query_name</code>, the <code>quality</code> and <code>poor_query_percentage</code>.</p>
 
 <p>Both <code>quality</code> and <code>poor_query_percentage</code> should be <strong>rounded to 2 decimal places</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Queries table:
 +------------+-------------------+----------+--------+
 | query_name | result            | position | rating |
@@ -53,15 +59,14 @@ Queries table:
 | Cat        | Siamese           | 3        | 3      |
 | Cat        | Sphynx            | 7        | 4      |
 +------------+-------------------+----------+--------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+---------+-----------------------+
 | query_name | quality | poor_query_percentage |
 +------------+---------+-----------------------+
 | Dog        | 2.50    | 33.33                 |
 | Cat        | 0.66    | 33.33                 |
 +------------+---------+-----------------------+
-
+<strong>Explanation:</strong> 
 Dog queries quality is ((5 / 1) + (5 / 2) + (1 / 200)) / 3 = 2.50
 Dog queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 

@@ -12,28 +12,6 @@
 
 <p> </p>
 
-<p><strong>示例 1:</strong></p>
-
-<pre>
-<strong>输入:</strong> "()())()"
-<strong>输出:</strong> ["()()()", "(())()"]
-</pre>
-
-<p><strong>示例 2:</strong></p>
-
-<pre>
-<strong>输入:</strong> "(a)())()"
-<strong>输出:</strong> ["(a)()()", "(a())()"]
-</pre>
-
-<p><strong>示例 3:</strong></p>
-
-<pre>
-<strong>输入:</strong> ")("
-<strong>输出: </strong>[""]</pre>
-
-<p> </p>
-
 <p><strong>示例 1：</strong></p>
 
 <pre>

@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given an <code>m x n</code> matrix <code>board</code> containing <code>&#39;X&#39;</code> and <code>&#39;O&#39;</code>, <em>capture all regions surrounded by</em> <code>&#39;X&#39;</code>.</p>
+<p>Given an <code>m x n</code> matrix <code>board</code> containing <code>&#39;X&#39;</code> and <code>&#39;O&#39;</code>, <em>capture all regions that are 4-directionally&nbsp;surrounded by</em> <code>&#39;X&#39;</code>.</p>
 
 <p>A region is <strong>captured</strong> by flipping all <code>&#39;O&#39;</code>s into <code>&#39;X&#39;</code>s in that surrounded region.</p>
 
@@ -218,7 +218,10 @@ function solve(board: string[][]): void {
     const n = board[0].length;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if ((i == 0 || i == m - 1 || j == 0 || j == n - 1) && board[i][j] == 'O') {
+            if (
+                (i == 0 || i == m - 1 || j == 0 || j == n - 1) &&
+                board[i][j] == 'O'
+            ) {
                 dfs(i, j);
             }
         }
@@ -232,7 +235,7 @@ function solve(board: string[][]): void {
             }
         }
     }
-};
+}
 ```
 
 Union find:
@@ -279,7 +282,7 @@ function solve(board: string[][]): void {
             }
         }
     }
-};
+}
 ```
 
 ### **C++**

@@ -6,27 +6,36 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定数组&nbsp;<code>nums</code>&nbsp;由正整数组成，找到三个互不重叠的子数组的最大和。</p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，找出三个长度为 <code>k</code> 、互不重叠、且全部数字和（<code>3 * k</code> 项）最大的子数组，并返回这三个子数组。</p>
 
-<p>每个子数组的长度为<code>k</code>，我们要使这<code>3*k</code>个项的和最大化。</p>
+<p>以下标的数组形式返回结果，数组中的每一项分别指示每个子数组的起始位置（下标从 <strong>0</strong> 开始）。如果有多个结果，返回字典序最小的一个。</p>
 
-<p>返回每个区间起始索引的列表（索引从 0 开始）。如果有多个结果，返回字典序最小的一个。</p>
+<p>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> [1,2,1,2,6,7,5,1], 2
-<strong>输出:</strong> [0, 3, 5]
-<strong>解释:</strong> 子数组 [1, 2], [2, 6], [7, 5] 对应的起始索引为 [0, 3, 5]。
-我们也可以取 [2, 1], 但是结果 [1, 3, 5] 在字典序上更大。
+<strong>输入：</strong>nums = [1,2,1,2,6,7,5,1], k = 2
+<strong>输出：</strong>[0,3,5]
+<strong>解释：</strong>子数组 [1, 2], [2, 6], [7, 5] 对应的起始下标为 [0, 3, 5]。
+也可以取 [2, 1], 但是结果 [1, 3, 5] 在字典序上更大。
 </pre>
 
-<p><strong>注意:</strong></p>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [1,2,1,2,1,2,1,2,1], k = 2
+<strong>输出：</strong>[0,2,4]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>nums.length</code>的范围在<code>[1, 20000]</code>之间。</li>
-	<li><code>nums[i]</code>的范围在<code>[1, 65535]</code>之间。</li>
-	<li><code>k</code>的范围在<code>[1, floor(nums.length / 3)]</code>之间。</li>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;&nbsp;2<sup>16</sup></code></li>
+	<li><code>1 &lt;= k &lt;= floor(nums.length / 3)</code></li>
 </ul>
 
 ## 解法

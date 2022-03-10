@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_1.jpg" style="width: 202px; height: 324px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_1.jpg" style="width: 125px; height: 200px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3]
 <strong>Output:</strong> [1,3,2]
@@ -28,20 +28,6 @@
 <strong>Output:</strong> [1]
 </pre>
 
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_5.jpg" style="width: 202px; height: 202px;" />
-<pre>
-<strong>Input:</strong> root = [1,2]
-<strong>Output:</strong> [2,1]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_4.jpg" style="width: 202px; height: 202px;" />
-<pre>
-<strong>Input:</strong> root = [1,null,2]
-<strong>Output:</strong> [1,2]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -51,12 +37,7 @@
 </ul>
 
 <p>&nbsp;</p>
-
-<p><strong>Follow up:</strong></p>
-
-<p>Recursive solution is trivial, could you do it iteratively?</p>
-
-<p>&nbsp;</p>
+<strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?
 
 ## Solutions
 

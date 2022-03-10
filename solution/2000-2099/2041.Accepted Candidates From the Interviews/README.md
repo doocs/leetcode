@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Candidates</code></p>
+<p>表：<code>Candidates</code></p>
 
 <pre>
 +--------------+----------+
@@ -17,13 +17,13 @@
 | years_of_exp | int      |
 | interview_id | int      |
 +--------------+----------+
-candidate_id is the primary key column for this table.
-Each row of this table indicates the name of a candidate, their number of years of experience, and their interview ID.
+candidate_id 是这个表的主键。
+该表的每一行都表示候选人的姓名、工作年限以及面试 ID 。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>Table: <code>Rounds</code></p>
+<p>表：<code>Rounds</code></p>
 
 <pre>
 +--------------+------+
@@ -33,23 +33,24 @@ Each row of this table indicates the name of a candidate, their number of years 
 | round_id     | int  |
 | score        | int  |
 +--------------+------+
-(interview_id, round_id) is the primary key column for this table.
-Each row of this table indicates the score of one round of an interview.
+(interview_id, round_id）是本表的主键。
+本表的每一行都表示一轮面试的分数
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the candidates who have <strong>at least two</strong> years of experience and the sum of the score of their interview rounds is <strong>strictly greater than <code>16</code></strong>.</p>
+<p>编写一个 SQL 查询，查询出至少有两年工作经验、且面试分数之和 <strong>严格大于 <code>15</code>&nbsp;</strong>的候选人的 ID<strong> 。</strong></p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p>可以以 <strong>任何顺序 </strong>返回结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果的格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>输入：</strong>
 Candidates table:
 +--------------+---------+--------------+--------------+
 | candidate_id | name    | years_of_exp | interview_id |
@@ -76,17 +77,17 @@ Rounds table:
 | 107          | 2        | 3     |
 | 101          | 1        | 8     |
 +--------------+----------+-------+
-<strong>Output:</strong> 
+<strong>输出：</strong>
 +--------------+
 | candidate_id |
 +--------------+
 | 9            |
 +--------------+
-<strong>Explanation:</strong> 
-- Candidate 11: The total score is 16, and they have one year of experience. We do not include them in the result table because of their years of experience.
-- Candidate 9: The total score is 22, and they have six years of experience. We include them in the result table.
-- Candidate 6: The total score is 10, and they have ten years of experience. We do not include them in the result table because the score is not good enough.
-- Candidate 8: The total score is 6, and they have zero years of experience. We do not include them in the result table because of their years of experience and the score.
+<strong>解释：</strong>
+- 候选人 11 ：总分是 16 ，1 年工作经验。由于工作年限，不列入结果表。
+- 候选人 9 ：总分是 22 ，6 年工作经验。列入结果表。
+- 候选人 6 ：总分是 10 ，10 年工作经验。由于分数不足，不列入结果表。
+- 候选人 8 ：总分是 6 ，0 年工作经验。由于工作年限和分数，不列入结果表。
 </pre>
 
 ## 解法

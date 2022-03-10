@@ -41,14 +41,7 @@
 <pre>
 <strong>Input:</strong> path = &quot;/home//foo/&quot;
 <strong>Output:</strong> &quot;/home/foo&quot;
-<strong>Explanation: </strong>In the canonical path, multiple consecutive slashes are replaced by a single one.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> path = &quot;/a/./b/../../c/&quot;
-<strong>Output:</strong> &quot;/c&quot;
+<strong>Explanation:</strong> In the canonical path, multiple consecutive slashes are replaced by a single one.
 </pre>
 
 <p>&nbsp;</p>

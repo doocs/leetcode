@@ -41,20 +41,6 @@
 <strong>Output:</strong> 3
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;1+(<u>2</u>*3)/(2-1)&quot;
-<strong>Output:</strong> 1
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;<u>1</u>&quot;
-<strong>Output:</strong> 0
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

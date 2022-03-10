@@ -36,10 +36,10 @@
 
 <pre>
 <strong>输入</strong>
-["ValidWordAbbr", "isUnique", "isUnique", "isUnique", "isUnique"]
-[[["deer", "door", "cake", "card"]], ["dear"], ["cart"], ["cane"], ["make"]]
+["ValidWordAbbr", "isUnique", "isUnique", "isUnique", "isUnique", "isUnique"]
+[[["deer", "door", "cake", "card"]], ["dear"], ["cart"], ["cane"], ["make"], ["cake"]]
 <strong>输出
-</strong>[null, false, true, false, true]
+</strong>[null, false, true, false, true, true]
 
 <strong>解释</strong>
 ValidWordAbbr validWordAbbr = new ValidWordAbbr(["deer", "door", "cake", "card"]);

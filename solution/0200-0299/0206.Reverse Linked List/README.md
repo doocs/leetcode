@@ -6,15 +6,47 @@
 
 <!-- 这里写题目描述 -->
 
-<p>反转一个单链表。</p>
+给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。
 
-<p><strong>示例:</strong></p>
+<div class="original__bRMd">
+<div>
+<p> </p>
 
-<pre><strong>输入:</strong> 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
-<strong>输出:</strong> 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</pre>
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0206.Reverse%20Linked%20List/images/rev1ex1.jpg" style="width: 542px; height: 222px;" />
+<pre>
+<strong>输入：</strong>head = [1,2,3,4,5]
+<strong>输出：</strong>[5,4,3,2,1]
+</pre>
 
-<p><strong>进阶:</strong><br>
-你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0206.Reverse%20Linked%20List/images/rev1ex2.jpg" style="width: 182px; height: 222px;" />
+<pre>
+<strong>输入：</strong>head = [1,2]
+<strong>输出：</strong>[2,1]
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>head = []
+<strong>输出：</strong>[]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>链表中节点的数目范围是 <code>[0, 5000]</code></li>
+	<li><code>-5000 <= Node.val <= 5000</code></li>
+</ul>
+
+<p> </p>
+
+<p><strong>进阶：</strong>链表可以选用迭代或递归方式完成反转。你能否用两种方法解决这道题？</p>
+</div>
+</div>
 
 ## 解法
 

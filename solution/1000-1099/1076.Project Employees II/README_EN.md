@@ -15,6 +15,7 @@
 +-------------+---------+
 (project_id, employee_id) is the primary key of this table.
 employee_id is a foreign key to <code>Employee</code> table.
+Each row of this table indicates that the employee with employee_id is working on the project with project_id.
 </pre>
 
 <p>&nbsp;</p>
@@ -30,17 +31,22 @@ employee_id is a foreign key to <code>Employee</code> table.
 | experience_years | int     |
 +------------------+---------+
 employee_id is the primary key of this table.
+Each row of this table contains information about one employee.
 </pre>
 
 <p>&nbsp;</p>
 
 <p>Write an SQL query that reports all the <strong>projects</strong> that have the most employees.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Project table:
 +-------------+-------------+
 | project_id  | employee_id |
@@ -51,7 +57,6 @@ Project table:
 | 2           | 1           |
 | 2           | 4           |
 +-------------+-------------+
-
 Employee table:
 +-------------+--------+------------------+
 | employee_id | name   | experience_years |
@@ -61,14 +66,14 @@ Employee table:
 | 3           | John   | 1                |
 | 4           | Doe    | 2                |
 +-------------+--------+------------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+
 | project_id  |
 +-------------+
 | 1           |
 +-------------+
-The first project has 3 employees while the second one has 2.</pre>
+<strong>Explanation:</strong> The first project has 3 employees while the second one has 2.
+</pre>
 
 ## Solutions
 

@@ -6,38 +6,63 @@
 
 <!-- 这里写题目描述 -->
 
-<p>从 <code>survey_log</code> 表中获得回答率最高的问题，<code>survey_log</code> 表包含这些列<strong>：id</strong>, <strong>action</strong>, <strong>question_id</strong>, <strong>answer_id</strong>, <strong>q_num</strong>, <strong>timestamp</strong>。</p>
+<p><code>SurveyLog</code> 表：</p>
 
-<p>id 表示用户 id；action 有以下几种值：&quot;show&quot;，&quot;answer&quot;，&quot;skip&quot;；当 action 值为 &quot;answer&quot; 时 answer_id 非空，而 action 值为 &quot;show&quot; 或者 &quot;skip&quot; 时 answer_id 为空；q_num 表示当前会话中问题的编号。</p>
+<div class="original__bRMd">
+<div>
+<pre>
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| action      | ENUM |
+| question_id | int  |
+| answer_id   | int  |
+| q_num       | int  |
+| timestamp   | int  |
++-------------+------+
+这张表没有主键，其中可能包含重复项。
+action 是一个 ENUM 数据，可以是 "show"、"answer" 或者 "skip" 。
+这张表的每一行表示：ID = id 的用户对 question_id 的问题在 timestamp 时间进行了 action 操作。
+如果用户对应的操作是 "answer" ，answer_id 将会是对应答案的 id ，否则，值为 null 。
+q_num 是该问题在当前会话中的数字顺序。
+</pre>
 
-<p>请编写 SQL 查询来找到具有最高回答率的问题。</p>
+<p>&nbsp;</p>
+
+<p><strong>回答率</strong> 是指：同一问题编号中回答次数占显示次数的比率。</p>
+
+<p>编写一个 SQL 查询以报告 <strong>回答率</strong> 最高的问题。如果有多个问题具有相同的最大 <strong>回答率</strong> ，返回 <code>question_id</code> 最小的那个。</p>
+
+<p>查询结果如下例所示。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入：</strong>
-+------+-----------+--------------+------------+-----------+------------+
-| id   | action    | question_id  | answer_id  | q_num     | timestamp  |
-+------+-----------+--------------+------------+-----------+------------+
-| 5    | show      | 285          | null       | 1         | 123        |
-| 5    | answer    | 285          | 124124     | 1         | 124        |
-| 5    | show      | 369          | null       | 2         | 125        |
-| 5    | skip      | 369          | null       | 2         | 126        |
-+------+-----------+--------------+------------+-----------+------------+
+<pre>
+<strong>输入：</strong>
+SurveyLog table:
++----+--------+-------------+-----------+-------+-----------+
+| id | action | question_id | answer_id | q_num | timestamp |
++----+--------+-------------+-----------+-------+-----------+
+| 5  | show   | 285         | null      | 1     | 123       |
+| 5  | answer | 285         | 124124    | 1     | 124       |
+| 5  | show   | 369         | null      | 2     | 125       |
+| 5  | skip   | 369         | null      | 2     | 126       |
++----+--------+-------------+-----------+-------+-----------+
 <strong>输出：</strong>
-+-------------+
-| survey_log  |
-+-------------+
-|    285      |
-+-------------+
++------------+
+| survey_log |
++------------+
+| 285        |
++------------+
 <strong>解释：</strong>
-问题 285 的回答率为 1/1，而问题 369 回答率为 0/1，因此输出 285 。
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>回答率最高的含义是：同一问题编号中回答数占显示数的比例最高。</p>
+问题 285 显示 1 次、回答 1 次。回答率为 1.0 。
+问题 369 显示 1 次、回答 0 次。回答率为 0.0 。
+问题 285 回答率最高。</pre>
+</div>
+</div>
 
 ## 解法
 

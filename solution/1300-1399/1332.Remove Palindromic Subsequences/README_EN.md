@@ -42,8 +42,10 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
--   `1 <= s.length <= 1000`
--   `s` is either `'a'` or `'b'`
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s[i]</code> is either <code>&#39;a&#39;</code> or <code>&#39;b&#39;</code>.</li>
+</ul>
 
 ## Solutions
 

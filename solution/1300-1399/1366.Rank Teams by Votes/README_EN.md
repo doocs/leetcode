@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>In a special ranking system,&nbsp;each voter gives a rank from highest to lowest to all teams participated in the competition.</p>
+<p>In a special ranking system, each voter gives a rank from highest to lowest to all teams participated in the competition.</p>
 
 <p>The ordering of teams is decided by who received the most position-one votes. If two or more teams tie in the first position, we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved. If two or more teams are still tied after considering all positions, we rank them alphabetically based on their team letter.</p>
 
@@ -40,36 +40,16 @@ As most of the voters ranked C second, team C is the second team and team B is t
 <strong>Explanation:</strong> Only one voter so his votes are used for the ranking.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> votes = [&quot;BCA&quot;,&quot;CAB&quot;,&quot;CBA&quot;,&quot;ABC&quot;,&quot;ACB&quot;,&quot;BAC&quot;]
-<strong>Output:</strong> &quot;ABC&quot;
-<strong>Explanation:</strong> 
-Team A was ranked first by 2 voters, second by 2 voters and third by 2 voters.
-Team B was ranked first by 2 voters, second by 2 voters and third by 2 voters.
-Team C was ranked first by 2 voters, second by 2 voters and third by 2 voters.
-There is a tie and we rank teams ascending by their IDs.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> votes = [&quot;M&quot;,&quot;M&quot;,&quot;M&quot;,&quot;M&quot;]
-<strong>Output:</strong> &quot;M&quot;
-<strong>Explanation:</strong> Only team M in the competition so it has the first rank.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= votes.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= votes[i].length &lt;= 26</code></li>
-	<li><code>votes[i].length ==&nbsp;votes[j].length</code> for&nbsp;<code>0 &lt;= i, j &lt; votes.length</code>.</li>
-	<li><code>votes[i][j]</code> is an English <strong>upper-case</strong> letter.</li>
+	<li><code>votes[i].length == votes[j].length</code> for <code>0 &lt;= i, j &lt; votes.length</code>.</li>
+	<li><code>votes[i][j]</code> is an English <strong>uppercase</strong> letter.</li>
 	<li>All characters of <code>votes[i]</code> are unique.</li>
-	<li>All the characters&nbsp;that occur&nbsp;in <code>votes[0]</code> <strong>also&nbsp;occur</strong>&nbsp;in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
+	<li>All the characters that occur in <code>votes[0]</code> <strong>also occur</strong> in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
 </ul>
 
 ## Solutions

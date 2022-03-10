@@ -6,48 +6,54 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个 R 行 C 列的整数矩阵&nbsp;<code>A</code>。矩阵上的路径从&nbsp;<code>[0,0]</code>&nbsp;开始，在&nbsp;<code>[R-1,C-1]</code>&nbsp;结束。</p>
+<p>给定一个 <code>m x n</code> 的整数矩阵&nbsp;<code>grid</code>，返回从 <code>(0,0)</code> 开始到 <code>(m - 1, n - 1)</code> 在四个基本方向上移动的路径的最大 <strong>分数</strong> 。</p>
 
-<p>路径沿四个基本方向（上、下、左、右）展开，从一个已访问单元格移动到任一相邻的未访问单元格。</p>
+<p>一条路径的 <strong>分数</strong> 是该路径上的最小值。</p>
 
-<p>路径的得分是该路径上的 <strong>最小</strong> 值。例如，路径 8 &rarr;&nbsp; 4 &rarr;&nbsp; 5 &rarr;&nbsp; 9 的值为 4 。</p>
-
-<p>找出所有路径中得分 <strong>最高</strong> 的那条路径，返回其&nbsp;<strong>得分</strong>。</p>
+<ul>
+	<li>例如，路径 <code>8 → 4 → 5 → 9</code> 的得分为 <code>4</code> 。</li>
+</ul>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex1.jpeg" style="height: 59px; width: 70px;"></strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/maxgrid1.jpg" /></p>
 
-<pre><strong>输入：</strong>[[5,4,5],[1,2,6],[7,4,6]]
+<pre>
+<strong>输入：</strong>grid = [[5,4,5],[1,2,6],[7,4,6]]
 <strong>输出：</strong>4
-<strong>解释： </strong>
-得分最高的路径用黄色突出显示。 
+<strong>解释：</strong>得分最高的路径用黄色突出显示。 
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex2.jpeg" style="height: 39px; width: 134px;"></strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/maxgrid2.jpg" /></p>
 
-<pre><strong>输入：</strong>[[2,2,1,2,2,2],[1,2,2,2,1,2]]
+<pre>
+<strong>输入：</strong>grid = [[2,2,1,2,2,2],[1,2,2,2,1,2]]
 <strong>输出：</strong>2</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex3.jpeg"></strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/maxgrid3.jpg" /></p>
 
-<pre><strong>输入：</strong>[[3,4,6,3,4],[0,2,1,1,7],[8,8,3,2,7],[3,2,4,9,8],[4,1,2,0,0],[4,6,5,4,3]]
+<pre>
+<strong>输入：</strong>grid = [[3,4,6,3,4],[0,2,1,1,7],[8,8,3,2,7],[3,2,4,9,8],[4,1,2,0,0],[4,6,5,4,3]]
 <strong>输出：</strong>3</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= R, C&nbsp;&lt;= 100</code></li>
-	<li><code>0 &lt;= A[i][j] &lt;= 10^9</code></li>
-</ol>
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>0 &lt;= grid[i][j] &lt;= 10<sup>9</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
 
 ## 解法
 

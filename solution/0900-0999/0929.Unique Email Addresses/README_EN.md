@@ -24,7 +24,7 @@
 
 <p>It is possible to use both of these rules at the same time.</p>
 
-<p>Given an array of strings <code>emails</code> where we send one email to each <code>email[i]</code>, return <em>the number of different addresses that actually receive mails</em>.</p>
+<p>Given an array of strings <code>emails</code> where we send one email to each <code>emails[i]</code>, return <em>the number of different addresses that actually receive mails</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -48,10 +48,11 @@
 <ul>
 	<li><code>1 &lt;= emails.length &lt;= 100</code></li>
 	<li><code>1 &lt;= emails[i].length &lt;= 100</code></li>
-	<li><code>email[i]</code> consist of lowercase English letters, <code>&#39;+&#39;</code>, <code>&#39;.&#39;</code> and <code>&#39;@&#39;</code>.</li>
+	<li><code>emails[i]</code> consist of lowercase English letters, <code>&#39;+&#39;</code>, <code>&#39;.&#39;</code> and <code>&#39;@&#39;</code>.</li>
 	<li>Each <code>emails[i]</code> contains exactly one <code>&#39;@&#39;</code> character.</li>
 	<li>All local and domain names are non-empty.</li>
 	<li>Local names do not start with a <code>&#39;+&#39;</code> character.</li>
+	<li>Domain names end with the <code>&quot;.com&quot;</code> suffix.</li>
 </ul>
 
 ## Solutions

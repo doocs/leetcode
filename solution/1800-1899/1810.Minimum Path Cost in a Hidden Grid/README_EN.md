@@ -59,7 +59,7 @@ The robot is initially standing on cell (0, 1), denoted by the 3.
 - master.isTarget() returns true.
 - master.move(&#39;L&#39;) doesn&#39;t move the robot and returns -1.
 - master.move(&#39;R&#39;) moves the robot to the cell (1, 1) and returns 1.
-We now know that the target is the cell (0, 1), and the minimum total cost to reach it is 2. </pre>
+We now know that the target is the cell (1, 0), and the minimum total cost to reach it is 2. </pre>
 
 <p><strong>Example 2:</strong></p>
 

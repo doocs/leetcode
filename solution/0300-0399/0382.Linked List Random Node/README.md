@@ -6,23 +6,53 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个单链表，随机选择链表的一个节点，并返回相应的节点值。保证每个节点<strong>被选的概率一样</strong>。</p>
+<p>给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点<strong> 被选中的概率一样</strong> 。</p>
 
-<p><strong>进阶:</strong><br />
-如果链表十分大且长度未知，如何解决这个问题？你能否使用常数级空间复杂度实现？</p>
+<p>实现 <code>Solution</code> 类：</p>
 
-<p><strong>示例:</strong></p>
+<ul>
+	<li><code>Solution(ListNode head)</code> 使用整数数组初始化对象。</li>
+	<li><code>int getRandom()</code> 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。</li>
+</ul>
 
+<p>&nbsp;</p>
+
+<p><strong>示例：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0382.Linked%20List%20Random%20Node/images/getrand-linked-list.jpg" style="width: 302px; height: 62px;" />
 <pre>
-// 初始化一个单链表 [1,2,3].
-ListNode head = new ListNode(1);
-head.next = new ListNode(2);
-head.next.next = new ListNode(3);
-Solution solution = new Solution(head);
+<strong>输入</strong>
+["Solution", "getRandom", "getRandom", "getRandom", "getRandom", "getRandom"]
+[[[1, 2, 3]], [], [], [], [], []]
+<strong>输出</strong>
+[null, 1, 3, 2, 2, 3]
 
-// getRandom()方法应随机返回1,2,3中的一个，保证每个元素被返回的概率相等。
-solution.getRandom();
-</pre>
+<strong>解释</strong>
+Solution solution = new Solution([1, 2, 3]);
+solution.getRandom(); // 返回 1
+solution.getRandom(); // 返回 3
+solution.getRandom(); // 返回 2
+solution.getRandom(); // 返回 2
+solution.getRandom(); // 返回 3
+// getRandom() 方法应随机返回 1、2、3 中的一个，每个元素被返回的概率相等。</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>链表中的节点数在范围 <code>[1, 10<sup>4</sup>]</code> 内</li>
+	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
+	<li>至多调用&nbsp;<code>getRandom</code> 方法 <code>10<sup>4</sup></code> 次</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong></p>
+
+<ul>
+	<li>如果链表非常大且长度未知，该怎么处理？</li>
+	<li>你能否在不使用额外空间的情况下解决此问题？</li>
+</ul>
 
 ## 解法
 

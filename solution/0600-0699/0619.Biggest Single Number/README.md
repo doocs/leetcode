@@ -6,34 +6,84 @@
 
 <!-- 这里写题目描述 -->
 
-<p>表&nbsp;<code>my_numbers</code>&nbsp;的 <strong>num</strong>&nbsp;字段包含很多数字，其中包括很多重复的数字。</p>
+<p><code>MyNumbers</code> 表：</p>
 
-<p>你能写一个 SQL 查询语句，找到只出现过一次的数字中，最大的一个数字吗？</p>
-
-<pre>+---+
-|num|
-+---+
-| 8 |
-| 8 |
-| 3 |
-| 3 |
-| 1 |
-| 4 |
-| 5 |
-| 6 | 
+<div class="original__bRMd">
+<div>
+<pre>
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| num         | int  |
++-------------+------+
+这张表没有主键。可能包含重复数字。
+这张表的每一行都含有一个整数。
 </pre>
 
-<p>对于上面给出的样例数据，你的查询语句应该返回如下结果：</p>
+<p>&nbsp;</p>
 
-<pre>+---+
-|num|
-+---+
-| 6 |
+<p><strong>单一数字</strong> 是在 <code>MyNumbers</code> 表中只出现一次的数字。</p>
+
+<p>请你编写一个 SQL 查询来报告最大的 <strong>单一数字</strong> 。如果不存在 <strong>单一数字</strong> ，查询需报告 <code>null</code> 。</p>
+
+<p>查询结果如下例所示。</p>
+<ptable> </ptable>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+MyNumbers 表：
++-----+
+| num |
++-----+
+| 8   |
+| 8   |
+| 3   |
+| 3   |
+| 1   |
+| 4   |
+| 5   |
+| 6   |
++-----+
+<strong>输出：</strong>
++-----+
+| num |
++-----+
+| 6   |
++-----+
+<strong>解释：</strong>单一数字有 1、4、5 和 6 。
+6 是最大的单一数字，返回 6 。
 </pre>
 
-<p><strong>注意：</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<p>如果没有只出现一次的数字，输出&nbsp;<strong>null</strong>&nbsp;。</p>
+<pre>
+<strong>输入：</strong>
+MyNumbers table:
++-----+
+| num |
++-----+
+| 8   |
+| 8   |
+| 7   |
+| 7   |
+| 3   |
+| 3   |
+| 3   |
++-----+
+<strong>输出：</strong>
++------+
+| num  |
++------+
+| null |
++------+
+<strong>解释：</strong>输入的表中不存在单一数字，所以返回 null 。
+</pre>
+</div>
+</div>
 
 <p>&nbsp;</p>
 

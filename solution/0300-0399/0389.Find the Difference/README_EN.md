@@ -26,27 +26,13 @@
 <strong>Output:</strong> &quot;y&quot;
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;a&quot;, t = &quot;aa&quot;
-<strong>Output:</strong> &quot;a&quot;
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;ae&quot;, t = &quot;aea&quot;
-<strong>Output:</strong> &quot;a&quot;
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>0 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>t.length == s.length + 1</code></li>
-	<li><code>s</code> and <code>t</code> consist of lower-case English letters.</li>
+	<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
 </ul>
 
 ## Solutions

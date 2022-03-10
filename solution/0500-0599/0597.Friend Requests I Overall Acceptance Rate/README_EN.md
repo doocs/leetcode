@@ -41,16 +41,18 @@ This table contains the ID of the user who sent the request, the ID of the user 
 <p><strong>Note that:</strong></p>
 
 <ul>
-	<li>The accepted requests are not necessarily from the table <code>friend_request</code>. In this case, you just need to simply count the total accepted requests (no matter whether they are in the original requests), and divide it by the number of requests to get the acceptance rate.</li>
+	<li>The accepted requests are not necessarily from the table <code>friend_request</code>. In this case, Count the total accepted requests (no matter whether they are in the original requests), and divide it by the number of requests to get the acceptance rate.</li>
 	<li>It is possible that a sender sends multiple requests to the same receiver, and a request could be accepted more than once. In this case, the &lsquo;duplicated&rsquo; requests or acceptances are only counted once.</li>
 	<li>If there are no requests at all, you should return 0.00 as the <code>accept_rate</code>.</li>
 </ul>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 FriendRequest table:
 +-----------+------------+--------------+
 | sender_id | send_to_id | request_date |
@@ -61,7 +63,6 @@ FriendRequest table:
 | 2         | 3          | 2016/06/02   |
 | 3         | 4          | 2016/06/09   |
 +-----------+------------+--------------+
-
 RequestAccepted table:
 +--------------+-------------+-------------+
 | requester_id | accepter_id | accept_date |
@@ -72,18 +73,19 @@ RequestAccepted table:
 | 3            | 4           | 2016/06/09  |
 | 3            | 4           | 2016/06/10  |
 +--------------+-------------+-------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+
 | accept_rate |
 +-------------+
 | 0.8         |
 +-------------+
+<strong>Explanation:</strong> 
 There are 4 unique accepted requests, and there are 5 requests in total. So the rate is 0.80.
 </pre>
 
 <p>&nbsp;</p>
-<strong>Follow up:</strong>
+<p><strong>Follow up:</strong></p>
+
 <ul>
 	<li>Could you write a query to return the acceptance rate for every month?</li>
 	<li>Could you write a query to return the cumulative acceptance rate for every day?</li>

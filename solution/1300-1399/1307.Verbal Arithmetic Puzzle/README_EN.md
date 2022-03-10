@@ -4,18 +4,18 @@
 
 ## Description
 
-<p>Given an equation, represented by <code>words</code> on left side and the <code>result</code> on right side.</p>
+<p>Given an equation, represented by <code>words</code> on the left side and the <code>result</code> on the right side.</p>
 
-<p>You need to check if the equation is solvable&nbsp;under the following rules:</p>
+<p>You need to check if the equation is solvable under the following rules:</p>
 
 <ul>
 	<li>Each character is decoded as one digit (0 - 9).</li>
-	<li>Every pair of different characters they must map to different digits.</li>
-	<li>Each <code>words[i]</code> and <code>result</code>&nbsp;are decoded as one number <strong>without</strong> leading zeros.</li>
-	<li>Sum of numbers on left side (<code>words</code>) will equal to the number on right side (<code>result</code>).&nbsp;</li>
+	<li>Every pair of different characters must map to different digits.</li>
+	<li>Each <code>words[i]</code> and <code>result</code> are decoded as one number <strong>without</strong> leading zeros.</li>
+	<li>Sum of numbers on the left side (<code>words</code>) will equal to the number on the right side (<code>result</code>).</li>
 </ul>
 
-<p>Return <code>True</code>&nbsp;if the equation is solvable otherwise&nbsp;return&nbsp;<code>False</code>.</p>
+<p>Return <code>true</code> <em>if the equation is solvable, otherwise return</em> <code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,13 +35,6 @@ Such that: &quot;SEND&quot; + &quot;MORE&quot; = &quot;MONEY&quot; ,  9567 + 108
 Such that: &quot;SIX&quot; + &quot;SEVEN&quot; + &quot;SEVEN&quot; = &quot;TWENTY&quot; ,  650 + 68782 + 68782 = 138214</pre>
 
 <p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> words = [&quot;THIS&quot;,&quot;IS&quot;,&quot;TOO&quot;], result = &quot;FUNNY&quot;
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 4:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;LEET&quot;,&quot;CODE&quot;], result = &quot;POINT&quot;

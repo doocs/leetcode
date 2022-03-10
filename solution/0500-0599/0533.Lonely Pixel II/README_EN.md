@@ -4,75 +4,44 @@
 
 ## Description
 
-<p>Given a picture consisting of black and white pixels, and a positive integer N, find the number of black pixels located at some specific row <b>R</b> and column <b>C</b> that align with all the following rules:</p>
+<p>Given an <code>m x n</code> <code>picture</code> consisting of black <code>&#39;B&#39;</code> and white <code>&#39;W&#39;</code> pixels and an integer target, return <em>the number of <b>black</b> lonely pixels</em>.</p>
 
-<ol>
+<p>A black lonely pixel is a character <code>&#39;B&#39;</code> that located at a specific position <code>(r, c)</code> where:</p>
 
-<li> Row R and column C both contain exactly N black pixels.</li>
+<ul>
+	<li>Row <code>r</code> and column <code>c</code> both contain exactly <code>target</code> black pixels.</li>
+	<li>For all rows that have a black pixel at column <code>c</code>, they should be exactly the same as row <code>r</code>.</li>
+</ul>
 
-<li> For all rows that have a black pixel at column C, they should be exactly the same as row R</li>
-
-</ol>
-
-<p>The picture is represented by a 2D char array consisting of 'B' and 'W', which means black and white pixels respectively. </p>
-
-<p><b>Example:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0533.Lonely%20Pixel%20II/images/pixel2-1-grid.jpg" style="width: 493px; height: 333px;" />
 <pre>
-
-<b>Input:</b>                                            
-
-[['W', 'B', 'W', 'B', 'B', 'W'],    
-
- ['W', 'B', 'W', 'B', 'B', 'W'],    
-
- ['W', 'B', 'W', 'B', 'B', 'W'],    
-
- ['W', 'W', 'B', 'W', 'B', 'W']] 
-
-
-
-N = 3
-
-<b>Output:</b> 6
-
-<b>Explanation:</b> All the bold 'B' are the black pixels we need (all 'B's at column 1 and 3).
-
-        0    1    2    3    4    5         column index                                            
-
-0    [['W', <b>'B'</b>, 'W', <b>'B'</b>, 'B', 'W'],    
-
-1     ['W', <b>'B'</b>, 'W', <b>'B'</b>, 'B', 'W'],    
-
-2     ['W', <b>'B'</b>, 'W', <b>'B'</b>, 'B', 'W'],    
-
-3     ['W', 'W', 'B', 'W', 'B', 'W']]    
-
-row index
-
-
-
-Take 'B' at row R = 0 and column C = 1 as an example:
-
-Rule 1, row R = 0 and column C = 1 both have exactly N = 3 black pixels. 
-
-Rule 2, the rows have black pixel at column C = 1 are row 0, row 1 and row 2. They are exactly the same as row R = 0.
-
-
-
+<strong>Input:</strong> picture = [[&quot;W&quot;,&quot;B&quot;,&quot;W&quot;,&quot;B&quot;,&quot;B&quot;,&quot;W&quot;],[&quot;W&quot;,&quot;B&quot;,&quot;W&quot;,&quot;B&quot;,&quot;B&quot;,&quot;W&quot;],[&quot;W&quot;,&quot;B&quot;,&quot;W&quot;,&quot;B&quot;,&quot;B&quot;,&quot;W&quot;],[&quot;W&quot;,&quot;W&quot;,&quot;B&quot;,&quot;W&quot;,&quot;B&quot;,&quot;W&quot;]], target = 3
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> All the green &#39;B&#39; are the black pixels we need (all &#39;B&#39;s at column 1 and 3).
+Take &#39;B&#39; at row r = 0 and column c = 1 as an example:
+ - Rule 1, row r = 0 and column c = 1 both have exactly target = 3 black pixels. 
+ - Rule 2, the rows have black pixel at column c = 1 are row 0, row 1 and row 2. They are exactly the same as row r = 0.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0533.Lonely%20Pixel%20II/images/pixel2-2-grid.jpg" style="width: 253px; height: 253px;" />
+<pre>
+<strong>Input:</strong> picture = [[&quot;W&quot;,&quot;W&quot;,&quot;B&quot;],[&quot;W&quot;,&quot;W&quot;,&quot;B&quot;],[&quot;W&quot;,&quot;W&quot;,&quot;B&quot;]], target = 1
+<strong>Output:</strong> 0
+</pre>
 
-<p><b>Note:</b><br>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<ol>
-
-<li>The range of width and height of the input 2D array is [1,200].</li>
-
-</ol>
-
-</p>
+<ul>
+	<li><code>m ==&nbsp;picture.length</code></li>
+	<li><code>n ==&nbsp;picture[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 200</code></li>
+	<li><code>picture[i][j]</code> is <code>&#39;W&#39;</code> or <code>&#39;B&#39;</code>.</li>
+	<li><code>1 &lt;= target &lt;= min(m, n)</code></li>
+</ul>
 
 ## Solutions
 

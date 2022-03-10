@@ -70,7 +70,7 @@ class Solution:
             if s[i] == '|':
                 r = i
             right[i] = r
-            
+
         ans = [0] * len(queries)
         for k, (l, r) in enumerate(queries):
             i, j = right[l], left[r]

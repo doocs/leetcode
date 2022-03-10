@@ -41,7 +41,6 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 	<li>All the values of <code>bricks</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

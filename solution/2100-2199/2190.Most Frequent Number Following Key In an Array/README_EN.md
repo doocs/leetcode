@@ -9,7 +9,7 @@
 <p>For every unique integer <code>target</code> in <code>nums</code>, <strong>count</strong> the number of times <code>target</code> immediately follows an occurrence of <code>key</code> in <code>nums</code>. In other words, count the number of indices <code>i</code> such that:</p>
 
 <ul>
-	<li><code>0 &lt;= i &lt;= n - 2</code>,</li>
+	<li><code>0 &lt;= i &lt;= nums.length - 2</code>,</li>
 	<li><code>nums[i] == key</code> and,</li>
 	<li><code>nums[i + 1] == target</code>.</li>
 </ul>
@@ -44,7 +44,6 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 	<li>The test cases will be generated such that the answer is unique.</li>
 </ul>
-
 
 ## Solutions
 

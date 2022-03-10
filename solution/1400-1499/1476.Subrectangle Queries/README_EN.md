@@ -19,105 +19,59 @@
 </ul>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input</strong>
-
 [&quot;SubrectangleQueries&quot;,&quot;getValue&quot;,&quot;updateSubrectangle&quot;,&quot;getValue&quot;,&quot;getValue&quot;,&quot;updateSubrectangle&quot;,&quot;getValue&quot;,&quot;getValue&quot;]
-
 [[[[1,2,1],[4,3,4],[3,2,1],[1,1,1]]],[0,2],[0,0,3,2,5],[0,2],[3,1],[3,0,3,2,10],[3,1],[0,2]]
-
 <strong>Output</strong>
-
 [null,1,null,5,5,null,10,5]
-
 <strong>Explanation</strong>
-
 SubrectangleQueries subrectangleQueries = new SubrectangleQueries([[1,2,1],[4,3,4],[3,2,1],[1,1,1]]);  
-
 // The initial rectangle (4x3) looks like:
-
 // 1 2 1
-
 // 4 3 4
-
 // 3 2 1
-
 // 1 1 1
-
 subrectangleQueries.getValue(0, 2); // return 1
-
 subrectangleQueries.updateSubrectangle(0, 0, 3, 2, 5);
-
 // After this update the rectangle looks like:
-
 // 5 5 5
-
 // 5 5 5
-
 // 5 5 5
-
 // 5 5 5 
-
 subrectangleQueries.getValue(0, 2); // return 5
-
 subrectangleQueries.getValue(3, 1); // return 5
-
 subrectangleQueries.updateSubrectangle(3, 0, 3, 2, 10);
-
 // After this update the rectangle looks like:
-
 // 5   5   5
-
 // 5   5   5
-
 // 5   5   5
-
 // 10  10  10 
-
 subrectangleQueries.getValue(3, 1); // return 10
-
 subrectangleQueries.getValue(0, 2); // return 5
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input</strong>
-
 [&quot;SubrectangleQueries&quot;,&quot;getValue&quot;,&quot;updateSubrectangle&quot;,&quot;getValue&quot;,&quot;getValue&quot;,&quot;updateSubrectangle&quot;,&quot;getValue&quot;]
-
 [[[[1,1,1],[2,2,2],[3,3,3]]],[0,0],[0,0,2,2,100],[0,0],[2,2],[1,1,2,2,20],[2,2]]
-
 <strong>Output</strong>
-
 [null,1,null,100,100,null,20]
-
 <strong>Explanation</strong>
-
 SubrectangleQueries subrectangleQueries = new SubrectangleQueries([[1,1,1],[2,2,2],[3,3,3]]);
-
 subrectangleQueries.getValue(0, 0); // return 1
-
 subrectangleQueries.updateSubrectangle(0, 0, 2, 2, 100);
-
 subrectangleQueries.getValue(0, 0); // return 100
-
 subrectangleQueries.getValue(2, 2); // return 100
-
 subrectangleQueries.updateSubrectangle(1, 1, 2, 2, 20);
-
 subrectangleQueries.getValue(2, 2); // return 20
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>

@@ -6,34 +6,38 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定两个字符串<code>s1, s2</code>，找到使两个字符串相等所需删除字符的ASCII值的最小和。</p>
+<p>给定两个字符串<code>s1</code>&nbsp;和&nbsp;<code>s2</code>，返回 <em>使两个字符串相等所需删除字符的&nbsp;<strong>ASCII&nbsp;</strong>值的最小和&nbsp;</em>。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> s1 = &quot;sea&quot;, s2 = &quot;eat&quot;
+<strong>输入:</strong> s1 = "sea", s2 = "eat"
 <strong>输出:</strong> 231
-<strong>解释:</strong> 在 &quot;sea&quot; 中删除 &quot;s&quot; 并将 &quot;s&quot; 的值(115)加入总和。
-在 &quot;eat&quot; 中删除 &quot;t&quot; 并将 116 加入总和。
+<strong>解释:</strong> 在 "sea" 中删除 "s" 并将 "s" 的值(115)加入总和。
+在 "eat" 中删除 "t" 并将 116 加入总和。
 结束时，两个字符串相等，115 + 116 = 231 就是符合条件的最小和。
 </pre>
 
 <p><strong>示例&nbsp;2:</strong></p>
 
 <pre>
-<strong>输入:</strong> s1 = &quot;delete&quot;, s2 = &quot;leet&quot;
+<strong>输入:</strong> s1 = "delete", s2 = "leet"
 <strong>输出:</strong> 403
-<strong>解释:</strong> 在 &quot;delete&quot; 中删除 &quot;dee&quot; 字符串变成 &quot;let&quot;，
-将 100[d]+101[e]+101[e] 加入总和。在 &quot;leet&quot; 中删除 &quot;e&quot; 将 101[e] 加入总和。
-结束时，两个字符串都等于 &quot;let&quot;，结果即为 100+101+101+101 = 403 。
-如果改为将两个字符串转换为 &quot;lee&quot; 或 &quot;eet&quot;，我们会得到 433 或 417 的结果，比答案更大。
+<strong>解释:</strong> 在 "delete" 中删除 "dee" 字符串变成 "let"，
+将 100[d]+101[e]+101[e] 加入总和。在 "leet" 中删除 "e" 将 101[e] 加入总和。
+结束时，两个字符串都等于 "let"，结果即为 100+101+101+101 = 403 。
+如果改为将两个字符串转换为 "lee" 或 "eet"，我们会得到 433 或 417 的结果，比答案更大。
 </pre>
 
-<p><strong>注意:</strong></p>
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
-	<li><code>0 &lt; s1.length, s2.length &lt;= 1000</code>。</li>
-	<li>所有字符串中的字符ASCII值在<code>[97, 122]</code>之间。</li>
+	<li><code>0 &lt;= s1.length, s2.length &lt;= 1000</code></li>
+	<li><code>s1</code>&nbsp;和&nbsp;<code>s2</code>&nbsp;由小写英文字母组成</li>
 </ul>
 
 ## 解法

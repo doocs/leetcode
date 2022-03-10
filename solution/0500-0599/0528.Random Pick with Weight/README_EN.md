@@ -4,11 +4,13 @@
 
 ## Description
 
-<p>You are given an array of positive integers <code>w</code> where <code>w[i]</code> describes the weight of <code>i</code><sup><code>th</code>&nbsp;</sup>index (0-indexed).</p>
+<p>You are given a <strong>0-indexed</strong> array of positive integers <code>w</code> where <code>w[i]</code> describes the <strong>weight</strong> of the <code>i<sup>th</sup></code> index.</p>
 
-<p>We need to call the function&nbsp;<code>pickIndex()</code> which <strong>randomly</strong> returns an integer in the range <code>[0, w.length - 1]</code>.&nbsp;<code>pickIndex()</code>&nbsp;should return the integer&nbsp;proportional to its weight in the <code>w</code> array. For example, for <code>w = [1, 3]</code>, the probability of picking the index <code>0</code> is <code>1 / (1 + 3)&nbsp;= 0.25</code> (i.e 25%)&nbsp;while the probability of picking the index <code>1</code> is <code>3 / (1 + 3)&nbsp;= 0.75</code> (i.e 75%).</p>
+<p>You need to implement the function <code>pickIndex()</code>, which <strong>randomly</strong> picks an index in the range <code>[0, w.length - 1]</code> (<strong>inclusive</strong>) and returns it. The <strong>probability</strong> of picking an index <code>i</code> is <code>w[i] / sum(w)</code>.</p>
 
-<p>More formally, the probability of picking index <code>i</code> is <code>w[i] / sum(w)</code>.</p>
+<ul>
+	<li>For example, if <code>w = [1, 3]</code>, the probability of picking index <code>0</code> is <code>1 / (1 + 3) = 0.25</code> (i.e., <code>25%</code>), and the probability of picking index <code>1</code> is <code>3 / (1 + 3) = 0.75</code> (i.e., <code>75%</code>).</li>
+</ul>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -22,7 +24,7 @@
 
 <strong>Explanation</strong>
 Solution solution = new Solution([1]);
-solution.pickIndex(); // return 0. Since there is only one single element on the array the only option is to return the first element.
+solution.pickIndex(); // return 0. The only option is to return 0 since there is only one element in w.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -36,13 +38,14 @@ solution.pickIndex(); // return 0. Since there is only one single element on the
 
 <strong>Explanation</strong>
 Solution solution = new Solution([1, 3]);
-solution.pickIndex(); // return 1. It&#39;s returning the second element (index = 1) that has probability of 3/4.
+solution.pickIndex(); // return 1. It is returning the second element (index = 1) that has a probability of 3/4.
 solution.pickIndex(); // return 1
 solution.pickIndex(); // return 1
 solution.pickIndex(); // return 1
-solution.pickIndex(); // return 0. It&#39;s returning the first element (index = 0) that has probability of 1/4.
+solution.pickIndex(); // return 0. It is returning the first element (index = 0) that has a probability of 1/4.
 
-Since this is a randomization problem, multiple answers are allowed so the following outputs can be considered correct :
+Since this is a randomization problem, multiple answers are allowed.
+All of the following outputs can be considered correct:
 [null,1,1,1,1,0]
 [null,1,1,1,1,1]
 [null,1,1,1,0,0]
@@ -56,9 +59,9 @@ and so on.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= w.length &lt;= 10000</code></li>
-	<li><code>1 &lt;= w[i] &lt;= 10^5</code></li>
-	<li><code>pickIndex</code>&nbsp;will be called at most <code>10000</code> times.</li>
+	<li><code>1 &lt;= w.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= w[i] &lt;= 10<sup>5</sup></code></li>
+	<li><code>pickIndex</code> will be called at most <code>10<sup>4</sup></code> times.</li>
 </ul>
 
 ## Solutions

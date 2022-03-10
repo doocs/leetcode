@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Write an efficient algorithm that searches for a value in an <code>m x n</code> matrix. This matrix has the following properties:</p>
+<p>Write an efficient algorithm that searches for a value <code>target</code> in an <code>m x n</code> integer matrix <code>matrix</code>. This matrix has the following properties:</p>
 
 <ul>
 	<li>Integers in each row are sorted from left to right.</li>

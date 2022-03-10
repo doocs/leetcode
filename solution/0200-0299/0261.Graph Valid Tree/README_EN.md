@@ -27,7 +27,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= 2000 &lt;= n</code></li>
+	<li><code>1 &lt;= n &lt;= 2000</code></li>
 	<li><code>0 &lt;= edges.length &lt;= 5000</code></li>
 	<li><code>edges[i].length == 2</code></li>
 	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; n</code></li>

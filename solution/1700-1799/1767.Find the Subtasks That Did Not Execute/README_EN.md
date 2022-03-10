@@ -14,7 +14,7 @@
 | subtasks_count | int     |
 +----------------+---------+
 task_id is the primary key for this table.
-Each row in this table indicates that task_id was divided into subtasks_count subtasks labelled from 1 to subtasks_count.
+Each row in this table indicates that task_id was divided into subtasks_count subtasks labeled from 1 to subtasks_count.
 It is guaranteed that 2 &lt;= subtasks_count &lt;= 20.
 </pre>
 
@@ -39,11 +39,13 @@ It is <strong>guaranteed</strong> that subtask_id &lt;= subtasks_count for each 
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Tasks table:
 +---------+----------------+
 | task_id | subtasks_count |
@@ -52,7 +54,6 @@ Tasks table:
 | 2       | 2              |
 | 3       | 4              |
 +---------+----------------+
-
 Executed table:
 +---------+------------+
 | task_id | subtask_id |
@@ -63,8 +64,7 @@ Executed table:
 | 3       | 3          |
 | 3       | 4          |
 +---------+------------+
-
-Result table:
+<strong>Output:</strong> 
 +---------+------------+
 | task_id | subtask_id |
 +---------+------------+
@@ -73,6 +73,7 @@ Result table:
 | 2       | 1          |
 | 2       | 2          |
 +---------+------------+
+<strong>Explanation:</strong> 
 Task 1 was divided into 3 subtasks (1, 2, 3). Only subtask 2 was executed successfully, so we include (1, 1) and (1, 3) in the answer.
 Task 2 was divided into 2 subtasks (1, 2). No subtask was executed successfully, so we include (2, 1) and (2, 2) in the answer.
 Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were executed successfully.

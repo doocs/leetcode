@@ -31,8 +31,9 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li>The answer for the given input will fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 
 ## Solutions

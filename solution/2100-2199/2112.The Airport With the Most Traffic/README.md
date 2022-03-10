@@ -17,12 +17,12 @@
 | flights_count     | int  |
 +-------------------+------+
 (departure_airport, arrival_airport) is the primary key column for this table.
-Each row of this table indicates that there were flights_count that departed from departure_airport and arrived at arrival_airport.
+Each row of this table indicates that there were flights_count flights that departed from departure_airport and arrived at arrival_airport.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the ID of the airport with the <strong>most traffic</strong>. The airport with the most traffic is the airport that has the largest number of flights that either departed from or arrived at the airport. If there is more than one airport with the most traffic, report them all.</p>
+<p>Write an SQL query to report the ID of the airport with the <strong>most traffic</strong>. The airport with the most traffic is the airport that has the largest total number of flights that either departed from or arrived at the airport. If there is more than one airport with the most traffic, report them all.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
@@ -48,9 +48,9 @@ Flights table:
 | 2          |
 +------------+
 <strong>Explanation:</strong> 
-Airport 1 was engaged with 9 flights.
-Airport 2 was engaged with 14 flights.
-Airport 4 was engaged with 5 flights.
+Airport 1 was engaged with 9 flights (4 departures, 5 arrivals).
+Airport 2 was engaged with 14 flights (10 departures, 4 arrivals).
+Airport 4 was engaged with 5 flights (5 arrivals).
 The airport with the most traffic is airport 2.
 </pre>
 
@@ -78,12 +78,12 @@ Flights table:
 | 4          |
 +------------+
 <strong>Explanation:</strong> 
-Airport 1 was engaged with 9 flights.
-Airport 2 was engaged with 9 flights.
-Airport 3 was engaged with 9 flights.
-Airport 4 was engaged with 9 flights.
-Airport 5 was engaged with 7 flights.
-Airport 6 was engaged with 7 flights.
+Airport 1 was engaged with 9 flights (4 departures, 5 arrivals).
+Airport 2 was engaged with 9 flights (5 departures, 4 arrivals).
+Airport 3 was engaged with 9 flights (5 departures, 4 arrivals).
+Airport 4 was engaged with 9 flights (4 departures, 5 arrivals).
+Airport 5 was engaged with 7 flights (7 departures).
+Airport 6 was engaged with 7 flights (7 arrivals).
 The airports with the most traffic are airports 1, 2, 3, and 4.
 </pre>
 

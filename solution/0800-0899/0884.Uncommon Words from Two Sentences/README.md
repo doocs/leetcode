@@ -6,13 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定两个句子&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;。&nbsp;（<em>句子</em>是一串由空格分隔的单词。每个<em>单词</em>仅由小写字母组成。）</p>
+<p><strong>句子</strong> 是一串由空格分隔的单词。每个 <strong>单词</strong><em> </em>仅由小写字母组成。</p>
 
-<p>如果一个单词在其中一个句子中只出现一次，在另一个句子中却没有出现，那么这个单词就是<em>不常见的</em>。</p>
+<p>如果某个单词在其中一个句子中恰好出现一次，在另一个句子中却 <strong>没有出现</strong> ，那么这个单词就是 <strong>不常见的</strong><em> </em>。</p>
 
-<p>返回所有不常用单词的列表。</p>
-
-<p>您可以按任何顺序返回列表。</p>
+<p>给你两个 <strong>句子</strong> <code>s1</code> 和 <code>s2</code> ，返回所有 <strong>不常用单词</strong> 的列表。返回列表中单词可以按 <strong>任意顺序</strong> 组织。</p>
 
 <p>&nbsp;</p>
 
@@ -21,14 +19,16 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>A = &quot;this apple is sweet&quot;, B = &quot;this apple is sour&quot;
-<strong>输出：</strong>[&quot;sweet&quot;,&quot;sour&quot;]
+<pre>
+<strong>输入：</strong>s1 = "this apple is sweet", s2 = "this apple is sour"
+<strong>输出：</strong>["sweet","sour"]
 </pre>
 
-<p><strong>示例&nbsp;2：</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>A = &quot;apple apple&quot;, B = &quot;banana&quot;
-<strong>输出：</strong>[&quot;banana&quot;]
+<pre>
+<strong>输入：</strong>s1 = "apple apple", s2 = "banana"
+<strong>输出：</strong>["banana"]
 </pre>
 
 <p>&nbsp;</p>
@@ -36,10 +36,10 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-    <li><code>1 &lt;= s1.length, s2.length &lt;= 200</code></li>
-    <li><code>s1</code> 和 <code>s2</code> 由小写英文字母和空格组成</li>
-    <li><code>s1</code> 和 <code>s2</code> 都不含前导或尾随空格</li>
-    <li><code>s1</code> 和 <code>s2</code> 中的所有单词间均由单个空格分隔</li>
+	<li><code>1 &lt;= s1.length, s2.length &lt;= 200</code></li>
+	<li><code>s1</code> 和 <code>s2</code> 由小写英文字母和空格组成</li>
+	<li><code>s1</code> 和 <code>s2</code> 都不含前导或尾随空格</li>
+	<li><code>s1</code> 和 <code>s2</code> 中的所有单词间均由单个空格分隔</li>
 </ul>
 
 ## 解法

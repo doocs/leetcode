@@ -29,7 +29,6 @@ All buckets have 2 gallons of water in them so return 2.
 <strong>Explanation:</strong> Pour 0.5 gallons of water from buckets[1] to buckets[0].
 0.5 * 50% = 0.25 gallons are spilled and buckets[0] only receives 0.5 - 0.25 = 0.25 gallons of water.
 Now, buckets = [2.25, 3.5, 6].
-
 Pour 2.5 gallons of water from buckets[2] to buckets[0].
 2.5 * 50% = 1.25 gallons are spilled and buckets[0] only receives 2.5 - 1.25 = 1.25 gallons of water.
 All buckets have 3.5 gallons of water in them so return 3.5.

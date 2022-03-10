@@ -34,23 +34,10 @@ M             1000</pre>
 <pre>
 <strong>Input:</strong> num = 3
 <strong>Output:</strong> &quot;III&quot;
+<strong>Explanation:</strong> 3 is represented as 3 ones.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = 4
-<strong>Output:</strong> &quot;IV&quot;
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = 9
-<strong>Output:</strong> &quot;IX&quot;
-</pre>
-
-<p><strong>Example 4:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 58
@@ -58,7 +45,7 @@ M             1000</pre>
 <strong>Explanation:</strong> L = 50, V = 5, III = 3.
 </pre>
 
-<p><strong>Example 5:</strong></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 1994

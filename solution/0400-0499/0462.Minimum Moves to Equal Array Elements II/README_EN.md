@@ -8,6 +8,8 @@
 
 <p>In one move, you can increment or decrement an element of the array by <code>1</code>.</p>
 
+<p>Test cases are designed so that the answer will fit in a <strong>32-bit</strong> integer.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 

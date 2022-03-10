@@ -14,8 +14,8 @@
 | arrival_time | int  |
 +--------------+------+
 bus_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a bus at the Leetcode station.
-There will be no two buses that arrive at the same time.
+Each row of this table contains information about the arrival time of a bus at the LeetCode station.
+No two buses will arrive at the same time.
 </pre>
 
 <p>&nbsp;</p>
@@ -30,12 +30,12 @@ There will be no two buses that arrive at the same time.
 | arrival_time | int  |
 +--------------+------+
 passenger_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a passenger at the Leetcode station.
+Each row of this table contains information about the arrival time of a passenger at the LeetCode station.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Buses and passengers arrive at the Leetcode station. If a bus arrives at the station at a time <code>t<sub>bus</sub></code> and a passenger arrived at a time <code>t<sub>passenger</sub></code> where <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code> and the passenger did not catch any bus, the passenger will use that bus.</p>
+<p>Buses and passengers arrive at the LeetCode station. If a bus arrives at the station at time <code>t<sub>bus</sub></code> and a passenger arrived at time <code>t<sub>passenger</sub></code> where <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code> and the passenger did not catch any bus, the passenger will use that bus.</p>
 
 <p>Write an SQL query to report the number of users that used each bus.</p>
 

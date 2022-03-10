@@ -10,6 +10,8 @@
 
 <p>Note that the relative order inside both the even and odd groups should remain as it was in the input.</p>
 
+<p>You must solve the problem&nbsp;in <code>O(1)</code>&nbsp;extra space complexity and <code>O(n)</code> time complexity.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0328.Odd%20Even%20Linked%20List/images/oddeven-linked-list.jpg" style="width: 300px; height: 123px;" />
@@ -29,12 +31,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the linked list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+	<li><code>n ==&nbsp;</code>number of nodes in the linked list</li>
+	<li><code>0 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>-10<sup>6</sup> &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
-
-<p>&nbsp;</p>
-<strong>Follow up:</strong> Could you solve it in <code>O(1)</code> space complexity and <code>O(nodes)</code> time complexity?
 
 ## Solutions
 

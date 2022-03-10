@@ -53,14 +53,18 @@ Each row of this table contains the information of each seller.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the names of all sellers who did not make any sales in 2020.</p>
+<p>Write an SQL query to report the names of all sellers who did not make any sales in <code>2020</code>.</p>
 
 <p>Return the result table ordered by <code>seller_name</code> in <strong>ascending order</strong>.</p>
 
 <p>The query result format is in the following example.</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
 <pre>
-<code>Customer</code> table:
+<strong>Input:</strong> 
+Customer table:
 +--------------+---------------+
 | customer_id  | customer_name |
 +--------------+---------------+
@@ -68,8 +72,7 @@ Each row of this table contains the information of each seller.
 | 102          | Bob           |
 | 103          | Charlie       |
 +--------------+---------------+
-
-<code>Orders</code> table:
+Orders table:
 +-------------+------------+--------------+-------------+-------------+
 | order_id    | sale_date  | order_cost   | customer_id | seller_id   |
 +-------------+------------+--------------+-------------+-------------+
@@ -79,8 +82,7 @@ Each row of this table contains the information of each seller.
 | 4           | 2020-09-13 | 1000         | 103         | 2           |
 | 5           | 2019-02-11 | 700          | 101         | 2           |
 +-------------+------------+--------------+-------------+-------------+
-
-<code>Seller</code> table:
+Seller table:
 +-------------+-------------+
 | seller_id   | seller_name |
 +-------------+-------------+
@@ -88,13 +90,13 @@ Each row of this table contains the information of each seller.
 | 2           | Elizabeth   |
 | 3           | Frank       |
 +-------------+-------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+
-| <code>seller_name </code>|
+| seller_name |
 +-------------+
 | Frank       |
 +-------------+
+<strong>Explanation:</strong> 
 Daniel made 1 sale in March 2020.
 Elizabeth made 2 sales in 2020 and 1 sale in 2019.
 Frank made 1 sale in 2019 but no sales in 2020.

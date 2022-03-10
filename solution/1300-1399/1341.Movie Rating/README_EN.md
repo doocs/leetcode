@@ -17,6 +17,8 @@ movie_id is the primary key for this table.
 title is the name of the movie.
 </pre>
 
+<p>&nbsp;</p>
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -29,7 +31,9 @@ title is the name of the movie.
 user_id is the primary key for this table.
 </pre>
 
-<p>Table: <code>Movie_Rating</code></p>
+<p>&nbsp;</p>
+
+<p>Table: <code>MovieRating</code></p>
 
 <pre>
 +---------------+---------+
@@ -47,20 +51,20 @@ created_at is the user&#39;s review date.
 
 <p>&nbsp;</p>
 
-<p>Write the following SQL query:</p>
+<p>Write an SQL query to:</p>
 
 <ul>
-	<li>Find the name of the user who has rated the greatest number of movies.
-	<p>In case of a tie, return&nbsp;lexicographically smaller user name.</p>
-	</li>
-	<li>Find the movie name with the <em><strong>highest average</strong></em> rating in&nbsp;<strong>February&nbsp;2020</strong>.
-	<p>In case of a tie, return lexicographically smaller movie name.</p>
-	</li>
+	<li>Find the name of the user who has rated the greatest number of movies. In case of a tie, return the lexicographically smaller user name.</li>
+	<li>Find the movie name with the <strong>highest average</strong> rating in <code>February 2020</code>. In case of a tie, return the lexicographically smaller movie name.</li>
 </ul>
 
-<p>The query is returned in 2 rows, the query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Movies table:
 +-------------+--------------+
 | movie_id    |  title       |
@@ -69,7 +73,6 @@ Movies table:
 | 2           | Frozen 2     |
 | 3           | Joker        |
 +-------------+--------------+
-
 Users table:
 +-------------+--------------+
 | user_id     |  name        |
@@ -79,8 +82,7 @@ Users table:
 | 3           | Maria        |
 | 4           | James        |
 +-------------+--------------+
-
-Movie_Rating table:
+MovieRating table:
 +-------------+--------------+--------------+-------------+
 | movie_id    | user_id      | rating       | created_at  |
 +-------------+--------------+--------------+-------------+
@@ -94,17 +96,16 @@ Movie_Rating table:
 | 3           | 1            | 3            | 2020-02-22  | 
 | 3           | 2            | 4            | 2020-02-25  | 
 +-------------+--------------+--------------+-------------+
-
-Result table:
+<strong>Output:</strong> 
 +--------------+
 | results      |
 +--------------+
 | Daniel       |
 | Frozen 2     |
 +--------------+
-
-Daniel and Monica have rated 3 movies (&quot;Avengers&quot;, &quot;Frozen 2&quot; and &quot;Joker&quot;) but Daniel is&nbsp;smaller lexicographically.
-Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is&nbsp;smaller lexicographically.
+<strong>Explanation:</strong> 
+Daniel and Monica have rated 3 movies (&quot;Avengers&quot;, &quot;Frozen 2&quot; and &quot;Joker&quot;) but Daniel is smaller lexicographically.
+Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smaller lexicographically.
 </pre>
 
 ## Solutions

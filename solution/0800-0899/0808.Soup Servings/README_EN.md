@@ -4,44 +4,45 @@
 
 ## Description
 
-<p>There are two types of soup: type A and type B. Initially we have <code>N</code> ml of each type of soup. There are four kinds of operations:</p>
+<p>There are two types of soup: <strong>type A</strong> and <strong>type B</strong>. Initially, we have <code>n</code> ml of each type of soup. There are four kinds of operations:</p>
 
 <ol>
-	<li>Serve&nbsp;100 ml of soup A and 0 ml of soup B</li>
-	<li>Serve&nbsp;75 ml of soup A and 25&nbsp;ml of soup B</li>
-	<li>Serve 50 ml of soup A and 50 ml of soup B</li>
-	<li>Serve 25&nbsp;ml of soup A and 75&nbsp;ml of soup B</li>
+	<li>Serve <code>100</code> ml of <strong>soup A</strong> and <code>0</code> ml of <strong>soup B</strong>,</li>
+	<li>Serve <code>75</code> ml of <strong>soup A</strong> and <code>25</code> ml of <strong>soup B</strong>,</li>
+	<li>Serve <code>50</code> ml of <strong>soup A</strong> and <code>50</code> ml of <strong>soup B</strong>, and</li>
+	<li>Serve <code>25</code> ml of <strong>soup A</strong> and <code>75</code> ml of <strong>soup B</strong>.</li>
 </ol>
 
-<p>When we serve some soup, we give it to someone and we no longer have it.&nbsp; Each turn,&nbsp;we will choose from the four operations with equal probability 0.25. If the remaining volume of soup is not enough to complete the operation, we will serve&nbsp;as much as we can.&nbsp; We stop once we no longer have some quantity of both types of soup.</p>
+<p>When we serve some soup, we give it to someone, and we no longer have it. Each turn, we will choose from the four operations with an equal probability <code>0.25</code>. If the remaining volume of soup is not enough to complete the operation, we will serve as much as possible. We stop once we no longer have some quantity of both types of soup.</p>
 
-<p>Note that we do not have the operation where all 100 ml&#39;s of soup B are used first.&nbsp;&nbsp;</p>
+<p><strong>Note</strong> that we do not have an operation where all <code>100</code> ml&#39;s of <strong>soup B</strong> are used first.</p>
 
-<p>Return the probability that soup A will be empty&nbsp;first, plus half the probability that A and B become empty at the same time.</p>
+<p>Return <em>the probability that <strong>soup A</strong> will be empty first, plus half the probability that <strong>A</strong> and <strong>B</strong> become empty at the same time</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Example:</strong>
-
-<strong>Input:</strong> N = 50
-
-<strong>Output:</strong> 0.625
-
-<strong>Explanation:</strong> 
-
-If we choose the first two operations, A will become empty first. For the third operation, A and B will become empty at the same time. For the fourth operation, B will become empty first. So the total probability of A becoming empty first plus half the probability that A and B become empty at the same time, is 0.25 * (1 + 1 + 0.5 + 0) = 0.625.
-
-
-
+<strong>Input:</strong> n = 50
+<strong>Output:</strong> 0.62500
+<strong>Explanation:</strong> If we choose the first two operations, A will become empty first.
+For the third operation, A and B will become empty at the same time.
+For the fourth operation, B will become empty first.
+So the total probability of A becoming empty first plus half the probability that A and B become empty at the same time, is 0.25 * (1 + 1 + 0.5 + 0) = 0.625.
 </pre>
 
-<p><strong>Notes: </strong></p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 100
+<strong>Output:</strong> 0.71875
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= N &lt;= 10^9</code>.&nbsp;</li>
-	<li>Answers within&nbsp;<code>10^-6</code>&nbsp;of the true value will be accepted as correct.</li>
+	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

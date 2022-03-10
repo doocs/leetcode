@@ -36,12 +36,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;=&nbsp;distance.length &lt;= 500</code></li>
-	<li><code>1 &lt;=&nbsp;distance[i] &lt;= 500</code></li>
+	<li><code>1 &lt;=&nbsp;distance.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;=&nbsp;distance[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
-
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong> Could you write a one-pass algorithm with <code>O(1)</code> extra space?</p>
 
 ## Solutions
 

@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>Given two equal-size strings <code>s</code> and <code>t</code>. In one step you can choose <strong>any character</strong> of <code>t</code> and replace it with <strong>another character</strong>.</p>
+<p>You are given two strings of the same length <code>s</code> and <code>t</code>. In one step you can choose <strong>any character</strong> of <code>t</code> and replace it with <strong>another character</strong>.</p>
 
-<p>Return <em>the minimum number of steps</em> to make <code>t</code>&nbsp;an anagram of <code>s</code>.</p>
+<p>Return <em>the minimum number of steps</em> to make <code>t</code> an anagram of <code>s</code>.</p>
 
-<p>An&nbsp;<strong>Anagram</strong>&nbsp;of a&nbsp;string&nbsp;is a string that contains the same characters with a different (or the same) ordering.</p>
+<p>An <strong>Anagram</strong> of a string is a string that contains the same characters with a different (or the same) ordering.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,27 +35,13 @@
 <strong>Explanation:</strong> &quot;anagram&quot; and &quot;mangaar&quot; are anagrams. 
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;xxyyzz&quot;, t = &quot;xxyyzz&quot;
-<strong>Output:</strong> 0
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;friend&quot;, t = &quot;family&quot;
-<strong>Output:</strong> 4
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 50000</code></li>
+	<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>s.length == t.length</code></li>
-	<li><code>s</code> and <code>t</code> contain lower-case English letters only.</li>
+	<li><code>s</code> and <code>t</code> consist of lowercase English letters only.</li>
 </ul>
 
 ## Solutions

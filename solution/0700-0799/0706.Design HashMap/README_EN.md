@@ -45,9 +45,6 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>put</code>, <code>get</code>, and <code>remove</code>.</li>
 </ul>
 
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong> Please do not use the built-in HashMap library.</p>
-
 ## Solutions
 
 <!-- tabs:start -->

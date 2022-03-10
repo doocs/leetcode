@@ -23,13 +23,15 @@ from_id != to_id
 
 <p>Write an SQL query to report the number of calls and the total call duration between each pair of distinct persons <code>(person1, person2)</code> where <code>person1 &lt; person2</code>.</p>
 
-<p>Return the result table in any order.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Calls table:
 +---------+-------+----------+
 | from_id | to_id | duration |
@@ -42,8 +44,7 @@ Calls table:
 | 3       | 4     | 200      |
 | 4       | 3     | 499      |
 +---------+-------+----------+
-
-Result table:
+<strong>Output:</strong> 
 +---------+---------+------------+----------------+
 | person1 | person2 | call_count | total_duration |
 +---------+---------+------------+----------------+
@@ -51,6 +52,7 @@ Result table:
 | 1       | 3       | 1          | 20             |
 | 3       | 4       | 4          | 999            |
 +---------+---------+------------+----------------+
+<strong>Explanation:</strong> 
 Users 1 and 2 had 2 calls and the total duration is 70 (59 + 11).
 Users 1 and 3 had 1 call and the total duration is 20.
 Users 3 and 4 had 4 calls and the total duration is 999 (100 + 200 + 200 + 499).

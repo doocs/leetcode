@@ -6,39 +6,38 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Orders</code></p>
+<p>活动表: <code>Orders</code></p>
 
-<pre>
-+-------------+------+
+<pre>+-------------+------+
 | Column Name | Type |
 +-------------+------+
 | order_id    | int  | 
 | customer_id | int  |
 | order_type  | int  | 
 +-------------+------+
-order_id is the primary key column for this table.
-Each row of this table indicates the ID of an order, the ID of the customer who ordered it, and the order type.
-The orders could be of type 0 or type 1.
+order_id是此表的主键列。
+此表的每一行都表示订单的ID、订购该订单的客户的ID以及订单类型。
+订单可以是类型0或类型1。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all the orders based on the following criteria:</p>
+<p>编写SQL查询以根据以下条件报告所有订单：</p>
 
 <ul>
-	<li>If a customer has <strong>at least one</strong> order of type <code>0</code>, do <strong>not</strong> report any order of type <code>1</code> from that customer.</li>
-	<li>Otherwise, report all the orders of the customer.</li>
+	<li>如果客户至少有一个类型为0的订单，则不要报告该客户的任何类型为1的订单。</li>
+	<li>否则，报告客户的所有订单。</li>
 </ul>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p>按任意顺序返回结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> 
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> 
 Orders table:
 +----------+-------------+------------+
 | order_id | customer_id | order_type |
@@ -52,7 +51,7 @@ Orders table:
 | 31       | 4           | 1          |
 | 32       | 4           | 1          |
 +----------+-------------+------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +----------+-------------+------------+
 | order_id | customer_id | order_type |
 +----------+-------------+------------+
@@ -63,11 +62,11 @@ Orders table:
 | 11       | 2           | 0          |
 | 22       | 3           | 0          |
 +----------+-------------+------------+
-<strong>Explanation:</strong> 
-Customer 1 has two orders of type 0. We return both of them.
-Customer 2 has one order of type 0 and one order of type 1. We only return the order of type 0.
-Customer 3 has one order of type 0 and one order of type 1. We only return the order of type 0.
-Customer 4 has two orders of type 1. We return both of them.
+<strong>解释:</strong> 
+客户1有两个类型为0的订单。我们两个都返回。
+客户2的订单类型为0，订单类型为1。我们只返回类型为0的订单。
+客户3的订单类型为0，订单类型为1。我们只返回类型为0的订单。
+客户4有两个类型1的订单。我们两个都返回。
 </pre>
 
 ## 解法

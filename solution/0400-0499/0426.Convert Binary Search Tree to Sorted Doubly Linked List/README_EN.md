@@ -32,21 +32,6 @@
 <strong>Output:</strong> [1,2,3]
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = []
-<strong>Output:</strong> []
-<strong>Explanation:</strong> Input is an empty tree. Output is also an empty Linked List.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1]
-<strong>Output:</strong> [1]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

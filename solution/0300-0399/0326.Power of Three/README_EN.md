@@ -10,18 +10,26 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> n = 27
+
+<pre>
+<strong>Input:</strong> n = 27
 <strong>Output:</strong> true
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> n = 0
-<strong>Output:</strong> false
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> n = 9
-<strong>Output:</strong> true
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> n = 45
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 0
 <strong>Output:</strong> false
 </pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 9
+<strong>Output:</strong> true
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

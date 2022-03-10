@@ -8,9 +8,9 @@
 
 <p>给你一个二叉搜索树的根节点 <code>root</code> ，返回 <strong>树中任意两不同节点值之间的最小差值</strong> 。</p>
 
-<p><strong>注意：</strong>本题与 530：<a href="https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/">https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/</a> 相同</p>
+<p>差值是一个正数，其数值等于两值之差的绝对值。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <div class="original__bRMd">
 <div>
@@ -28,15 +28,18 @@
 <strong>输出：</strong>1
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>树中节点数目在范围 <code>[2, 100]</code> 内</li>
-	<li><code>0 <= Node.val <= 10<sup>5</sup></code></li>
-	<li>差值是一个正数，其数值等于两值之差的绝对值</li>
+	<li>树中节点的数目范围是 <code>[2, 100]</code></li>
+	<li><code>0 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与 530：<a href="https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/">https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/</a> 相同</p>
 </div>
 </div>
 

@@ -4,22 +4,16 @@
 
 ## Description
 
-Given a list of pairs of equivalent words <code>synonyms</code> and a sentence <code>text</code>, Return all possible synonymous sentences <strong>sorted lexicographically</strong>.
+<p>You are given a list of equivalent string pairs <code>synonyms</code> where <code>synonyms[i] = [s<sub>i</sub>, t<sub>i</sub>]</code> indicates that <code>s<sub>i</sub></code> and <code>t<sub>i</sub></code> are equivalent strings. You are also given a sentence <code>text</code>.</p>
+
+<p>Return <em>all possible synonymous sentences <strong>sorted lexicographically</strong></em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:
-</strong>synonyms = [[&quot;happy&quot;,&quot;joy&quot;],[&quot;sad&quot;,&quot;sorrow&quot;],[&quot;joy&quot;,&quot;cheerful&quot;]],
-text = &quot;I am happy today but was sad yesterday&quot;
-<strong>Output:
-</strong>[&quot;I am cheerful today but was sad yesterday&quot;,
-&quot;I am cheerful today but was sorrow yesterday&quot;,
-&quot;I am happy today but was sad yesterday&quot;,
-&quot;I am happy today but was sorrow yesterday&quot;,
-&quot;I am joy today but was sad yesterday&quot;,
-&quot;I am joy today but was sorrow yesterday&quot;]
+<strong>Input:</strong> synonyms = [[&quot;happy&quot;,&quot;joy&quot;],[&quot;sad&quot;,&quot;sorrow&quot;],[&quot;joy&quot;,&quot;cheerful&quot;]], text = &quot;I am happy today but was sad yesterday&quot;
+<strong>Output:</strong> [&quot;I am cheerful today but was sad yesterday&quot;,&quot;I am cheerful today but was sorrow yesterday&quot;,&quot;I am happy today but was sad yesterday&quot;,&quot;I am happy today but was sorrow yesterday&quot;,&quot;I am joy today but was sad yesterday&quot;,&quot;I am joy today but was sorrow yesterday&quot;]
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -29,29 +23,16 @@ text = &quot;I am happy today but was sad yesterday&quot;
 <strong>Output:</strong> [&quot;I am happy today but was sad yesterday&quot;,&quot;I am joy today but was sad yesterday&quot;]
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> synonyms = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;],[&quot;e&quot;,&quot;f&quot;]], text = &quot;a c e&quot;
-<strong>Output:</strong> [&quot;a c e&quot;,&quot;a c f&quot;,&quot;a d e&quot;,&quot;a d f&quot;,&quot;b c e&quot;,&quot;b c f&quot;,&quot;b d e&quot;,&quot;b d f&quot;]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> synonyms = [[&quot;a&quot;,&quot;QrbCl&quot;]], text = &quot;d QrbCl ya ya NjZQ&quot;
-<strong>Output:</strong> [&quot;d QrbCl ya ya NjZQ&quot;,&quot;d a ya ya NjZQ&quot;]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;=&nbsp;synonyms.length &lt;= 10</code></li>
+	<li><code>0 &lt;= synonyms.length &lt;= 10</code></li>
 	<li><code>synonyms[i].length == 2</code></li>
-	<li><code>synonyms[i][0] != synonyms[i][1]</code></li>
-	<li>All words consist of at most <code>10</code> English letters only.</li>
-	<li><code>text</code>&nbsp;is a single space separated sentence of at most <code>10</code> words.</li>
+	<li><code>1 &lt;= s<sub>i</sub>.length,<sub> </sub>t<sub>i</sub>.length &lt;= 10</code></li>
+	<li><code>s<sub>i</sub> != t<sub>i</sub></code></li>
+	<li><code>text</code> consists of at most <code>10</code> words.</li>
+	<li>The words of <code>text</code> are separated by single spaces.</li>
 </ul>
 
 ## Solutions

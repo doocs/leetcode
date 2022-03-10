@@ -14,26 +14,24 @@
 	<li>如果液滴最终可以通过向左流动而下降，则向左流动。</li>
 	<li>否则，如果液滴最终可以通过向右流动而下降，则向右流动。</li>
 	<li>否则，在当前的位置上升。</li>
-	<li>这里，&ldquo;最终下降&rdquo; 的意思是液滴如果按此方向移动的话，最终可以下降到一个较低的水平。而且，&ldquo;水平&rdquo;的意思是当前列的地形的高度加上水的高度。
-	<p>&nbsp;</p>
-
-    <p>我们可以假定在数组两侧的边界外有无限高的地形。而且，不能有部分水在多于 1 个的网格块上均匀分布 - 每个单位的水必须要位于一个块中。</p>
-    </li>
-
+	<li>这里，“最终下降” 的意思是液滴如果按此方向移动的话，最终可以下降到一个较低的水平。而且，“水平”的意思是当前列的地形的高度加上水的高度。</li>
 </ul>
 
-<p>&nbsp;</p>
+<p>我们可以假定在数组两侧的边界外有无限高的地形。而且，不能有部分水在多于 1 个的网格块上均匀分布 - 每个单位的水必须要位于一个块中。</p>
+
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>heights = [2,1,1,2,1,2,2], V = 4, K = 3
+<pre>
+<strong>输入：</strong>heights = [2,1,1,2,1,2,2], V = 4, K = 3
 <strong>输出：</strong>[2,2,2,3,2,2,2]
 <strong>解释：</strong>
 #       #
 #       #
 ##  # ###
 #########
- 0123456    &lt;- 索引
+ 0123456    <- 索引
 
 第一个水滴降落在索引 K = 3 上：
 
@@ -46,7 +44,7 @@
 当向左或向右移动时，水可以移动到相同或更低的高度。When moving left or right, the water can only move to the same level or a lower level.
 （从水平上看，意思是该列的地形高度加上水的高度）
 由于向左移动可以最终下落，因此向左移动。
-（一个水滴 &ldquo;下落&rdquo; 的意思是可以相比之前可以进入更低的高度）
+（一个水滴 “下落” 的意思是可以相比之前可以进入更低的高度）
 
 #       #
 #       #
@@ -115,34 +113,30 @@
  0123456 
 </pre>
 
-<p>&nbsp;</p>
-
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>heights = [1,2,3,4], V = 2, K = 2
+<pre>
+<strong>输入：</strong>heights = [1,2,3,4], V = 2, K = 2
 <strong>输出：</strong>[2,3,3,4]
 <strong>解释：</strong>
 最后的水滴落在索引 1 位置，因为继续向左移动不会使其下降到更低的高度。
 </pre>
 
-<p>&nbsp;</p>
-
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>heights = [3,1,3], V = 5, K = 1
+<pre>
+<strong>输入：</strong>heights = [3,1,3], V = 5, K = 1
 <strong>输出：</strong>[4,4,4]
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>注：</strong></p>
 
-<p>&nbsp;</p>
-
 <ol>
-	<li><code>heights</code> 的长度为&nbsp;<code>[1, 100]</code>&nbsp;，并且每个数的范围为<code>[0, 99]</code>。</li>
-	<li><code>V</code> 的范围&nbsp;<code>[0, 2000]</code>。</li>
-	<li><code>K</code>&nbsp;的范围&nbsp;<code>[0, heights.length - 1]</code>。</li>
+	<li><code>heights</code> 的长度为 <code>[1, 100]</code> ，并且每个数的范围为<code>[0, 99]</code>。</li>
+	<li><code>V</code> 的范围 <code>[0, 2000]</code>。</li>
+	<li><code>K</code> 的范围 <code>[0, heights.length - 1]</code>。</li>
 </ol>
 
 ## 解法

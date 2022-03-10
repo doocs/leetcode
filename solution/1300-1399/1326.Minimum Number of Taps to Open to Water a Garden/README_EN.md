@@ -6,7 +6,7 @@
 
 <p>There is a one-dimensional garden on the x-axis. The garden starts at the point <code>0</code> and ends at the point <code>n</code>. (i.e The length of the garden is <code>n</code>).</p>
 
-<p>There are&nbsp;<code>n + 1</code> taps located&nbsp;at points <code>[0, 1, ..., n]</code> in the garden.</p>
+<p>There are <code>n + 1</code> taps located at points <code>[0, 1, ..., n]</code> in the garden.</p>
 
 <p>Given an integer <code>n</code> and an integer array <code>ranges</code> of length <code>n + 1</code> where <code>ranges[i]</code> (0-indexed) means the <code>i-th</code> tap can water the area <code>[i - ranges[i], i + ranges[i]]</code> if it was open.</p>
 
@@ -35,32 +35,11 @@ Opening Only the second tap will water the whole garden [0,5]
 <strong>Explanation:</strong> Even if you activate all the four taps you cannot water the whole garden.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 7, ranges = [1,2,1,0,2,1,0,1]
-<strong>Output:</strong> 3
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 8, ranges = [4,0,0,0,0,0,0,0,4]
-<strong>Output:</strong> 2
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 8, ranges = [4,0,0,0,4,0,0,0,4]
-<strong>Output:</strong> 1
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10^4</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>ranges.length == n + 1</code></li>
 	<li><code>0 &lt;= ranges[i] &lt;= 100</code></li>
 </ul>

@@ -131,9 +131,9 @@ function pancakeSort(arr: number[]): number[] {
         ans.push(n);
     }
     return ans;
-};
+}
 
-function reverse (nums: Array<number>, end: number): void {
+function reverse(nums: Array<number>, end: number): void {
     for (let i = 0, j = end; i < j; i++, j--) {
         [nums[i], nums[j]] = [nums[j], nums[i]];
     }

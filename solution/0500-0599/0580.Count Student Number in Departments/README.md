@@ -6,61 +6,74 @@
 
 <!-- 这里写题目描述 -->
 
-<p>一所大学有 2 个数据表，分别是&nbsp;<em><strong>student</strong></em>&nbsp;和&nbsp;<em><strong>department</strong></em>&nbsp;，这两个表保存着每个专业的学生数据和院系数据。</p>
+<p>表:&nbsp;<code>Student</code></p>
 
-<p>写一个查询语句，查询&nbsp;<em><strong>department&nbsp;</strong></em>表中每个专业的学生人数 （即使没有学生的专业也需列出）。</p>
-
-<p>将你的查询结果按照学生人数降序排列。 如果有两个或两个以上专业有相同的学生数目，将这些部门按照部门名字的字典序从小到大排列。</p>
-
-<p><strong><em>student</em></strong> 表格如下：</p>
-
-<pre>| Column Name  | Type      |
-|--------------|-----------|
-| student_id   | Integer   |
-| student_name | String    |
-| gender       | Character |
-| dept_id      | Integer   |
+<pre>
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| student_id   | int     |
+| student_name | varchar |
+| gender       | varchar |
+| dept_id      | int     |
++--------------+---------+
+Student_id是该表的主键。
+dept_id是Department表中dept_id的外键。
+该表的每一行都表示学生的姓名、性别和所属系的id。
 </pre>
 
-<p>其中， student_id 是学生的学号， student_name 是学生的姓名， gender 是学生的性别， dept_id 是学生所属专业的专业编号。</p>
+<p>&nbsp;</p>
 
-<p><strong><em>department</em></strong> 表格如下：</p>
+<p>表:&nbsp;<code>Department</code></p>
 
-<pre>| Column Name | Type    |
-|-------------|---------|
-| dept_id     | Integer |
-| dept_name   | String  |
-</pre>
+<pre>
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| dept_id     | int     |
+| dept_name   | varchar |
++-------------+---------+
+Dept_id是该表的主键。
+该表的每一行包含一个部门的id和名称。</pre>
 
-<p>dept_id 是专业编号， dept_name 是专业名字。</p>
+<p>&nbsp;</p>
 
-<p>这里是一个示例输入：<br>
-<strong><em>student</em></strong>&nbsp;表格：</p>
+<p>编写一个SQL查询，为&nbsp;<code>Department</code>&nbsp;表中的所有部门(甚至是没有当前学生的部门)报告各自的部门名称和每个部门的学生人数。</p>
 
-<pre>| student_id | student_name | gender | dept_id |
-|------------|--------------|--------|---------|
+<p>按 <code>student_number</code> <strong>降序&nbsp;</strong>返回结果表。如果是平局，则按 <code>dept_name</code> 的&nbsp; <strong>字母顺序&nbsp;</strong>排序。</p>
+
+<p>查询结果格式如下所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> 
+Student 表:
++------------+--------------+--------+---------+
+| student_id | student_name | gender | dept_id |
++------------+--------------+--------+---------+
 | 1          | Jack         | M      | 1       |
 | 2          | Jane         | F      | 1       |
 | 3          | Mark         | M      | 2       |
-</pre>
-
-<p><strong><em>department</em></strong> 表格：</p>
-
-<pre>| dept_id | dept_name   |
-|---------|-------------|
++------------+--------------+--------+---------+
+Department 表:
++---------+-------------+
+| dept_id | dept_name   |
++---------+-------------+
 | 1       | Engineering |
 | 2       | Science     |
 | 3       | Law         |
-</pre>
-
-<p>示例输出为：</p>
-
-<pre>| dept_name   | student_number |
-|-------------|----------------|
++---------+-------------+
+<strong>输出:</strong> 
++-------------+----------------+
+| dept_name   | student_number |
++-------------+----------------+
 | Engineering | 2              |
 | Science     | 1              |
 | Law         | 0              |
-</pre>
++-------------+----------------+</pre>
 
 ## 解法
 

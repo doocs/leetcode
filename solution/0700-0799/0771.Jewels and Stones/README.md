@@ -6,27 +6,34 @@
 
 <!-- 这里写题目描述 -->
 
-<p>&nbsp;给定字符串<code>J</code>&nbsp;代表石头中宝石的类型，和字符串&nbsp;<code>S</code>代表你拥有的石头。&nbsp;<code>S</code>&nbsp;中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。</p>
+<p>&nbsp;给你一个字符串 <code>jewels</code>&nbsp;代表石头中宝石的类型，另有一个字符串 <code>stones</code> 代表你拥有的石头。&nbsp;<code>stones</code>&nbsp;中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。</p>
 
-<p><code>J</code>&nbsp;中的字母不重复，<code>J</code>&nbsp;和&nbsp;<code>S</code>中的所有字符都是字母。字母区分大小写，因此<code>&quot;a&quot;</code>和<code>&quot;A&quot;</code>是不同类型的石头。</p>
+<p>字母区分大小写，因此 <code>"a"</code> 和 <code>"A"</code> 是不同类型的石头。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入:</strong> J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;
-<strong>输出:</strong> 3
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>jewels = "aA", stones = "aAAbbbb"
+<strong>输出：</strong>3
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> J = &quot;z&quot;, S = &quot;ZZ&quot;
-<strong>输出:</strong> 0
-</pre>
+<pre>
+<strong>输入：</strong>jewels = "z", stones = "ZZ"
+<strong>输出：</strong>0<strong>
+</strong></pre>
 
-<p><strong>注意:</strong></p>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>S</code>&nbsp;和&nbsp;<code>J</code>&nbsp;最多含有50个字母。</li>
-	<li>&nbsp;<code>J</code>&nbsp;中的字符不重复。</li>
+	<li><code>1 &lt;=&nbsp;jewels.length, stones.length &lt;= 50</code></li>
+	<li><code>jewels</code> 和 <code>stones</code> 仅由英文字母组成</li>
+	<li><code>jewels</code> 中的所有字符都是 <strong>唯一的</strong></li>
 </ul>
 
 ## 解法

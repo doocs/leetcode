@@ -8,7 +8,7 @@
 
 <ul>
 	<li><code>0 &lt;= i, j, k, l &lt; n</code></li>
-	<li><code>nums1[i] + nums2[j] + nums3[k] + nums[l] == 0</code></li>
+	<li><code>nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0</code></li>
 </ul>
 
 <p>&nbsp;</p>

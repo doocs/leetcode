@@ -4,121 +4,54 @@
 
 ## Description
 
-<p>
+<p>A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.</p>
 
-A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.
+<p>The world is modeled as an <code>m x n</code> binary grid <code>isInfected</code>, where <code>isInfected[i][j] == 0</code> represents uninfected cells, and <code>isInfected[i][j] == 1</code> represents cells contaminated with the virus. A wall (and only one wall) can be installed between any two <strong>4-directionally</strong> adjacent cells, on the shared boundary.</p>
 
-</p><p>
+<p>Every night, the virus spreads to all neighboring cells in all four directions unless blocked by a wall. Resources are limited. Each day, you can install walls around only one region (i.e., the affected area (continuous block of infected cells) that threatens the most uninfected cells the following night). There <strong>will never be a tie</strong>.</p>
 
-The world is modeled as a 2-D array of cells, where <code>0</code> represents uninfected cells, and <code>1</code> represents cells contaminated with the virus. A wall (and only one wall) can be installed <b>between any two 4-directionally adjacent cells</b>, on the shared boundary.
+<p>Return <em>the number of walls used to quarantine all the infected regions</em>. If the world will become fully infected, return the number of walls used.</p>
 
-</p><p>
-
-Every night, the virus spreads to all neighboring cells in all four directions unless blocked by a wall.
-
-Resources are limited. Each day, you can install walls around only one region -- the affected area (continuous block of infected cells) that threatens the most uninfected cells the following night. There will never be a tie.
-
-</p><p>
-
-Can you save the day? If so, what is the number of walls required? If not, and the world becomes fully infected, return the number of walls used.
-
-</p><p>
-
-<p><b>Example 1:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0749.Contain%20Virus/images/virus11-grid.jpg" style="width: 500px; height: 255px;" />
 <pre>
-
-<b>Input:</b> grid = 
-
-[[0,1,0,0,0,0,0,1],
-
- [0,1,0,0,0,0,0,1],
-
- [0,0,0,0,0,0,0,1],
-
- [0,0,0,0,0,0,0,0]]
-
-<b>Output:</b> 10
-
-<b>Explanation:</b>
-
-There are 2 contaminated regions.
-
+<strong>Input:</strong> isInfected = [[0,1,0,0,0,0,0,1],[0,1,0,0,0,0,0,1],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0]]
+<strong>Output:</strong> 10
+<strong>Explanation:</strong> There are 2 contaminated regions.
 On the first day, add 5 walls to quarantine the viral region on the left. The board after the virus spreads is:
-
-
-
-[[0,1,0,0,0,0,1,1],
-
- [0,1,0,0,0,0,1,1],
-
- [0,0,0,0,0,0,1,1],
-
- [0,0,0,0,0,0,0,1]]
-
-
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0749.Contain%20Virus/images/virus12edited-grid.jpg" style="width: 500px; height: 257px;" />
 On the second day, add 5 walls to quarantine the viral region on the right. The virus is fully contained.
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0749.Contain%20Virus/images/virus13edited-grid.jpg" style="width: 500px; height: 261px;" />
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0749.Contain%20Virus/images/virus2-grid.jpg" style="width: 653px; height: 253px;" />
 <pre>
-
-<b>Input:</b> grid = 
-
-[[1,1,1],
-
- [1,0,1],
-
- [1,1,1]]
-
-<b>Output:</b> 4
-
-<b>Explanation:</b> Even though there is only one cell saved, there are 4 walls built.
-
+<strong>Input:</strong> isInfected = [[1,1,1],[1,0,1],[1,1,1]]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> Even though there is only one cell saved, there are 4 walls built.
 Notice that walls are only built on the shared boundary of two different cells.
-
 </pre>
 
-</p>
-
-<p><b>Example 3:</b><br />
+<p><strong>Example 3:</strong></p>
 
 <pre>
-
-<b>Input:</b> grid = 
-
-[[1,1,1,0,0,0,0,0,0],
-
- [1,0,1,0,1,1,1,1,1],
-
- [1,1,1,0,0,0,0,0,0]]
-
-<b>Output:</b> 13
-
-<b>Explanation:</b> The region on the left only builds two new walls.
-
+<strong>Input:</strong> isInfected = [[1,1,1,0,0,0,0,0,0],[1,0,1,0,1,1,1,1,1],[1,1,1,0,0,0,0,0,0]]
+<strong>Output:</strong> 13
+<strong>Explanation:</strong> The region on the left only builds two new walls.
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br>
-
-<ol>
-
-<li>The number of rows and columns of <code>grid</code> will each be in the range <code>[1, 50]</code>.</li>
-
-<li>Each <code>grid[i][j]</code> will be either <code>0</code> or <code>1</code>.</li>
-
-<li>Throughout the described process, there is always a contiguous viral region that will infect <b>strictly more</b> uncontaminated squares in the next round.</li>
-
-</ol>
-
-</p>
+<ul>
+	<li><code>m ==&nbsp;isInfected.length</code></li>
+	<li><code>n ==&nbsp;isInfected[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 50</code></li>
+	<li><code>isInfected[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li>There is always a contiguous viral region throughout the described process that will <strong>infect strictly more uncontaminated squares</strong> in the next round.</li>
+</ul>
 
 ## Solutions
 

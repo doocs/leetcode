@@ -6,25 +6,23 @@
 
 <!-- 这里写题目描述 -->
 
-<div class="title__3Vvk">运用你所掌握的数据结构，设计和实现一个  <a href="https://baike.baidu.com/item/LRU" target="_blank">LRU (最近最少使用) 缓存机制</a> 。</div>
+<div class="title__3Vvk">请你设计并实现一个满足&nbsp; <a href="https://baike.baidu.com/item/LRU" target="_blank">LRU (最近最少使用) 缓存</a> 约束的数据结构。</div>
+
+<div class="title__3Vvk">实现 <code>LRUCache</code> 类：</div>
 
 <div class="original__bRMd">
 <div>
-<p>实现 <code>LRUCache</code> 类：</p>
-
 <ul>
-	<li><code>LRUCache(int capacity)</code> 以正整数作为容量 <code>capacity</code> 初始化 LRU 缓存</li>
+	<li><code>LRUCache(int capacity)</code> 以 <strong>正整数</strong> 作为容量&nbsp;<code>capacity</code> 初始化 LRU 缓存</li>
 	<li><code>int get(int key)</code> 如果关键字 <code>key</code> 存在于缓存中，则返回关键字的值，否则返回 <code>-1</code> 。</li>
-	<li><code>void put(int key, int value)</code> 如果关键字已经存在，则变更其数据值；如果关键字不存在，则插入该组「关键字-值」。当缓存容量达到上限时，它应该在写入新数据之前删除最久未使用的数据值，从而为新的数据值留出空间。</li>
+	<li><code>void put(int key, int value)</code>&nbsp;如果关键字&nbsp;<code>key</code> 已经存在，则变更其数据值&nbsp;<code>value</code> ；如果不存在，则向缓存中插入该组&nbsp;<code>key-value</code> 。如果插入操作导致关键字数量超过&nbsp;<code>capacity</code> ，则应该 <strong>逐出</strong> 最久未使用的关键字。</li>
 </ul>
 
-<p> </p>
+<p>函数 <code>get</code> 和 <code>put</code> 必须以 <code>O(1)</code> 的平均时间复杂度运行。</p>
 </div>
 </div>
 
-<p><strong>进阶</strong>：你是否可以在 <code>O(1)</code> 时间复杂度内完成这两种操作？</p>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例：</strong></p>
 
@@ -48,15 +46,15 @@ lRUCache.get(3);    // 返回 3
 lRUCache.get(4);    // 返回 4
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= capacity <= 3000</code></li>
-	<li><code>0 <= key <= 3000</code></li>
-	<li><code>0 <= value <= 10<sup>4</sup></code></li>
-	<li>最多调用 <code>3 * 10<sup>4</sup></code> 次 <code>get</code> 和 <code>put</code></li>
+	<li><code>1 &lt;= capacity &lt;= 3000</code></li>
+	<li><code>0 &lt;= key &lt;= 10000</code></li>
+	<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
+	<li>最多调用 <code>2 * 10<sup>5</sup></code> 次 <code>get</code> 和 <code>put</code></li>
 </ul>
 
 ## 解法

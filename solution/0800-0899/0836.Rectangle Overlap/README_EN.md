@@ -28,8 +28,7 @@
 	<li><code>rect1.length == 4</code></li>
 	<li><code>rect2.length == 4</code></li>
 	<li><code>-10<sup>9</sup> &lt;= rec1[i], rec2[i] &lt;= 10<sup>9</sup></code></li>
-	<li><code>rec1[0] &lt;= rec1[2]</code> and <code>rec1[1] &lt;= rec1[3]</code></li>
-	<li><code>rec2[0] &lt;= rec2[2]</code> and <code>rec2[1] &lt;= rec2[3]</code></li>
+	<li><code>rec1</code> and <code>rec2</code> represent a valid rectangle with a non-zero area.</li>
 </ul>
 
 ## Solutions

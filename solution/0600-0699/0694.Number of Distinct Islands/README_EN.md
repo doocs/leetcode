@@ -35,7 +35,6 @@
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -80,7 +79,7 @@ class Solution {
         n = grid[0].length;
         this.grid = grid;
         Set<String> paths = new HashSet<>();
-        
+
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {

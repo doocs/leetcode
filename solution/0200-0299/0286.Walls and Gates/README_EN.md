@@ -29,20 +29,6 @@
 <strong>Output:</strong> [[-1]]
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> rooms = [[2147483647]]
-<strong>Output:</strong> [[2147483647]]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> rooms = [[0]]
-<strong>Output:</strong> [[0]]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

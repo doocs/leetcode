@@ -65,6 +65,7 @@ It can be shown that it is not possible to obtain a palindrome in less than 2 mo
 ### **TypeScript**
 
 ```ts
+
 ```
 
 ### **...**

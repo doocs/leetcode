@@ -18,7 +18,7 @@ Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= timePoints &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>2 &lt;= timePoints.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>timePoints[i]</code> is in the format <strong>&quot;HH:MM&quot;</strong>.</li>
 </ul>
 

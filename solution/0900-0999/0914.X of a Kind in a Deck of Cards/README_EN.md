@@ -30,30 +30,6 @@
 <strong>Explanation</strong>: No possible partition.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> deck = [1]
-<strong>Output:</strong> false
-<strong>Explanation</strong>: No possible partition.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> deck = [1,1]
-<strong>Output:</strong> true
-<strong>Explanation</strong>: Possible partition [1,1].
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> deck = [1,1,2,2,2,2]
-<strong>Output:</strong> true
-<strong>Explanation</strong>: Possible partition [1,1],[2,2],[2,2].
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

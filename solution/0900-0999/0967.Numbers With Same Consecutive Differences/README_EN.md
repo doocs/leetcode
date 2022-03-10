@@ -26,20 +26,6 @@
 <strong>Output:</strong> [10,12,21,23,32,34,43,45,54,56,65,67,76,78,87,89,98]
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 2, k = 0
-<strong>Output:</strong> [11,22,33,44,55,66,77,88,99]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 2, k = 2
-<strong>Output:</strong> [13,20,24,31,35,42,46,53,57,64,68,75,79,86,97]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

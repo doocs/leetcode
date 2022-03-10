@@ -18,6 +18,8 @@
 	<li>For example, it could never contain two consecutive commas, such as <code>&quot;1,,3&quot;</code>.</li>
 </ul>
 
+<p><strong>Note:&nbsp;</strong>You are not allowed to reconstruct the tree.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <pre><strong>Input:</strong> preorder = "9,3,4,#,#,1,#,#,2,#,6,#,#"
@@ -34,11 +36,8 @@
 
 <ul>
 	<li><code>1 &lt;= preorder.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>preoder</code> consist of integers in the range <code>[0, 100]</code> and <code>&#39;#&#39;</code> separated by commas <code>&#39;,&#39;</code>.</li>
+	<li><code>preorder</code> consist of integers in the range <code>[0, 100]</code> and <code>&#39;#&#39;</code> separated by commas <code>&#39;,&#39;</code>.</li>
 </ul>
-
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong> Find an algorithm without reconstructing the tree.</p>
 
 ## Solutions
 

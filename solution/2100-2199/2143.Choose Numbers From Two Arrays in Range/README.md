@@ -6,60 +6,60 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of length <code>n</code>.</p>
+<p>给你两个 <strong>下标从 0 开始</strong>，长度为 <code>n</code> 的整数数组 <code>nums1</code> 和 <code>nums2</code>。</p>
 
-<p>A range <code>[l, r]</code> (<strong>inclusive</strong>) where <code>0 &lt;= l &lt;= r &lt; n</code> is <strong>balanced</strong> if:</p>
+<p>如果一个区间 <code>[l, r]</code> （<strong>包含左右端点</strong>，<code>0 &lt;= l &lt;= r &lt; n</code>）满足下列条件，那么这个区间就是 <strong>平衡</strong> 的：</p>
 
 <ul>
-	<li>For every <code>i</code> in the range <code>[l, r]</code>, you pick either <code>nums1[i]</code> or <code>nums2[i]</code>.</li>
-	<li>The sum of the numbers you pick from <code>nums1</code> equals to the sum of the numbers you pick from <code>nums2</code> (the sum is considered to be <code>0</code> if you pick no numbers from an array).</li>
+	<li>对每个在区间 <code>[l, r]</code> 范围内的 <code>i</code>，你需要选取&nbsp;<code>nums1[i]</code> 或者&nbsp;<code>nums2[i]</code>；</li>
+	<li>从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等。（如果你没有从某个数组中选取任何数字，那么数字和被视为 <code>0</code>）。</li>
 </ul>
 
-<p>Two <strong>balanced</strong> ranges from <code>[l<sub>1</sub>, r<sub>1</sub>]</code> and <code>[l<sub>2</sub>, r<sub>2</sub>]</code> are considered to be <strong>different</strong> if at least one of the following is true:</p>
+<p>如果两个 <strong>平衡</strong> 的区间 <code>[l<sub>1</sub>, r<sub>1</sub>]</code> 和 <code>[l<sub>2</sub>, r<sub>2</sub>]</code> 满足下列条件之一，那么它们就是 <strong>不同</strong> 的：</p>
 
 <ul>
 	<li><code>l<sub>1</sub> != l<sub>2</sub></code></li>
 	<li><code>r<sub>1</sub> != r<sub>2</sub></code></li>
-	<li><code>nums1[i]</code> is picked in the first range, and <code>nums2[i]</code> is picked in the second range or <strong>vice versa</strong> for at least one <code>i</code>.</li>
+	<li>两个区间中的数字选取情况不同（也就是说，存在至少一个 <code>i</code>，使得在第一个区间中，<code>nums1[i]</code> 被选中, 而在第二个区间中，<code>nums2[i]</code> 被选中，或者相反的情况）。</li>
 </ul>
 
-<p>Return <em>the number of <strong>different</strong> ranges that are balanced. </em>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code><em>.</em></p>
+<p>请返回 <strong>不同</strong> 的平衡的区间数目。由于答案可能很大，请返回答案 <strong>模 </strong><code>10<sup>9</sup>+7</code> 的结果。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums1 = [1,2,5], nums2 = [2,6,3]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The balanced ranges are:
-- [0, 1] where we choose nums2[0], and nums1[1].
-  The sum of the numbers chosen from nums1 equals the sum of the numbers chosen from nums2: 2 = 2.
-- [0, 2] where we choose nums1[0], nums2[1], and nums1[2].
-  The sum of the numbers chosen from nums1 equals the sum of the numbers chosen from nums2: 1 + 5 = 6.
-- [0, 2] where we choose nums1[0], nums1[1], and nums2[2].
-  The sum of the numbers chosen from nums1 equals the sum of the numbers chosen from nums2: 1 + 2 = 3.
-Note that the second and third balanced ranges are different.
-In the second balanced range, we choose nums2[1] and in the third balanced range, we choose nums1[1].
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> nums1 = [1,2,5], nums2 = [2,6,3]
+<strong>输出:</strong> 3
+<strong>解释:</strong> 平衡的区间有:
+- [0, 1], 我们选取 nums2[0] 和 nums2[1]。
+  从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 2 = 2.
+- [0, 2], 我们选取 nums1[0], nums2[1] 和 nums1[2]。
+  从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 1 + 5 = 6。
+- [0, 2], 我们选取 nums1[0], nums1[1] 和 nums2[2]。
+  从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 1 + 2 = 3。
+注意第二个区间和第三个区间时不同的。
+因为在第二个平衡的区间中，我们选取了 nums2[1]，但是在第三个平衡的区间中，我们选取了 nums1[1]。
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums1 = [0,1], nums2 = [1,0]
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> The balanced ranges are:
-- [0, 0] where we choose nums1[0].
-  The sum of the numbers chosen from nums1 equals the sum of the numbers chosen from nums2: 0 = 0.
-- [1, 1] where we choose nums2[1].
-  The sum of the numbers chosen from nums1 equals the sum of the numbers chosen from nums2: 0 = 0.
-- [0, 1] where we choose nums1[0] and nums2[1].
-  The sum of the numbers chosen from nums1 equals the sum of the numbers chosen from nums2: 0 = 0.
-- [0, 1] where we choose nums2[0] and nums1[1].
-  The sum of the numbers chosen from nums1 equals the sum of the numbers chosen from nums2: 1 = 1.
+<pre><strong>输入:</strong> nums1 = [0,1], nums2 = [1,0]
+<strong>输出:</strong> 4
+<strong>解释:</strong> 平衡的区间有:
+- [0, 0], 我们选取 nums1[0]。
+  从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 0 = 0。
+- [1, 1], 我们选取 nums2[1]。
+  从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 0 = 0。
+- [0, 1], 我们选取 nums1[0] 和 nums2[1]。
+  从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 0 = 0。
+- [0, 1], 我们选取 nums2[0] 和 nums1[1]。
+  从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 1 = 1。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>n == nums1.length == nums2.length</code></li>

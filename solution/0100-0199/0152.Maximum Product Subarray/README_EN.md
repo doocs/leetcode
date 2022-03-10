@@ -6,7 +6,7 @@
 
 <p>Given an integer array <code>nums</code>, find a contiguous non-empty subarray within the array that has the largest product, and return <em>the product</em>.</p>
 
-<p>It is <strong>guaranteed</strong> that the answer will fit in a <strong>32-bit</strong> integer.</p>
+<p>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
 
 <p>A <strong>subarray</strong> is a contiguous subsequence of the array.</p>
 

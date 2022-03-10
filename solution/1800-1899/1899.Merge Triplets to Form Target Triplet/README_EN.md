@@ -10,10 +10,12 @@
 
 <ul>
 	<li>Choose two indices (<strong>0-indexed</strong>) <code>i</code> and <code>j</code> (<code>i != j</code>) and <strong>update</strong> <code>triplets[j]</code> to become <code>[max(a<sub>i</sub>, a<sub>j</sub>), max(b<sub>i</sub>, b<sub>j</sub>), max(c<sub>i</sub>, c<sub>j</sub>)]</code>.
-	<ul>
-		<li>For example, if <code>triplets[i] = [2, 5, 3]</code> and <code>triplets[j] = [1, 7, 5]</code>, <code>triplets[j]</code> will be updated to <code>[max(2, 1), max(5, 7), max(3, 5)] = [2, 7, 5]</code>.</li>
-	</ul>
-	</li>
+
+    <ul>
+    	<li>For example, if <code>triplets[i] = [2, 5, 3]</code> and <code>triplets[j] = [1, 7, 5]</code>, <code>triplets[j]</code> will be updated to <code>[max(2, 1), max(5, 7), max(3, 5)] = [2, 7, 5]</code>.</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>Return <code>true</code> <em>if it is possible to obtain the </em><code>target</code><em> <strong>triplet</strong> </em><code>[x, y, z]</code><em> as an<strong> element</strong> of </em><code>triplets</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
@@ -24,7 +26,7 @@
 <pre>
 <strong>Input:</strong> triplets = [[2,5,3],[1,8,4],[1,7,5]], target = [2,7,5]
 <strong>Output:</strong> true
-<strong>Explanation</strong><strong>:</strong> Perform the following operations:
+<strong>Explanation:</strong> Perform the following operations:
 - Choose the first and last triplets [<u>[2,5,3]</u>,[1,8,4],<u>[1,7,5]</u>]. Update the last triplet to be [max(2,1), max(5,7), max(3,5)] = [2,7,5]. triplets = [[2,5,3],[1,8,4],<u>[2,7,5]</u>]
 The target triplet [2,7,5] is now an element of triplets.
 </pre>
@@ -32,9 +34,9 @@ The target triplet [2,7,5] is now an element of triplets.
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> triplets = [[1,3,4],[2,5,8]], target = [2,5,8]
-<strong>Output:</strong> true
-<strong>Explanation:</strong> The target triplet [2,5,8] is already an element of triplets.
+<strong>Input:</strong> triplets = [[3,4,5],[4,5,6]], target = [3,2,5]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> It is impossible to have [3,2,5] as an element because there is no 2 in any of the triplets.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -46,14 +48,6 @@ The target triplet [2,7,5] is now an element of triplets.
 - Choose the first and third triplets [<u>[2,5,3]</u>,[2,3,4],<u>[1,2,5]</u>,[5,2,3]]. Update the third triplet to be [max(2,1), max(5,2), max(3,5)] = [2,5,5]. triplets = [[2,5,3],[2,3,4],<u>[2,5,5]</u>,[5,2,3]].
 - Choose the third and fourth triplets [[2,5,3],[2,3,4],<u>[2,5,5]</u>,<u>[5,2,3]</u>]. Update the fourth triplet to be [max(2,5), max(5,2), max(5,3)] = [5,5,5]. triplets = [[2,5,3],[2,3,4],[2,5,5],<u>[5,5,5]</u>].
 The target triplet [5,5,5] is now an element of triplets.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> triplets = [[3,4,5],[4,5,6]], target = [3,2,5]
-<strong>Output:</strong> false
-<strong>Explanation:</strong> It is impossible to have [3,2,5] as an element because there is no 2 in any of the triplets.
 </pre>
 
 <p>&nbsp;</p>

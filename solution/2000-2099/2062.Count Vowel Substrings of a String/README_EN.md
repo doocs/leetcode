@@ -41,14 +41,7 @@
 - &quot;cu<strong><u>aieuo</u></strong>uac&quot;
 - &quot;cu<strong><u>aieuou</u></strong>ac&quot;
 - &quot;cu<strong><u>aieuoua</u></strong>c&quot;
-- &quot;cua<strong><u>ieuoua</u></strong>c&quot;</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> word = &quot;bbaeixoubb&quot;
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The only substrings that contain all five vowels also contain consonants, so there are no vowel substrings.
+- &quot;cua<strong><u>ieuoua</u></strong>c&quot;
 </pre>
 
 <p>&nbsp;</p>

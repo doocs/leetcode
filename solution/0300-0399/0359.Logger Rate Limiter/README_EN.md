@@ -32,8 +32,7 @@ logger.shouldPrintMessage(2, &quot;bar&quot;);  // return true, next allowed tim
 logger.shouldPrintMessage(3, &quot;foo&quot;);  // 3 &lt; 11, return false
 logger.shouldPrintMessage(8, &quot;bar&quot;);  // 8 &lt; 12, return false
 logger.shouldPrintMessage(10, &quot;foo&quot;); // 10 &lt; 11, return false
-logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, next allowed timestamp for &quot;foo&quot; is
-                                      // 11 + 10 = 21
+logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, next allowed timestamp for &quot;foo&quot; is 11 + 10 = 21
 </pre>
 
 <p>&nbsp;</p>

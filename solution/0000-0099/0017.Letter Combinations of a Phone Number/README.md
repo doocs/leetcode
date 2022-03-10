@@ -6,13 +6,13 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个仅包含数字 <code>2-9</code> 的字符串，返回所有它能表示的字母组合。答案可以按 <strong>任意顺序</strong> 返回。</p>
+<p>给定一个仅包含数字&nbsp;<code>2-9</code>&nbsp;的字符串，返回所有它能表示的字母组合。答案可以按 <strong>任意顺序</strong> 返回。</p>
 
 <p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/images/17_telephone_keypad.png" style="width: 200px;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/images/200px-telephone-keypad2svg.png" style="width: 200px;" /></p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -35,12 +35,12 @@
 <strong>输出：</strong>["a","b","c"]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= digits.length <= 4</code></li>
+	<li><code>0 &lt;= digits.length &lt;= 4</code></li>
 	<li><code>digits[i]</code> 是范围 <code>['2', '9']</code> 的一个数字。</li>
 </ul>
 
@@ -229,28 +229,28 @@ const map = {
     '6': ['m', 'n', 'o'],
     '7': ['p', 'q', 'r', 's'],
     '8': ['t', 'u', 'v'],
-    '9': ['w', 'x', 'y', 'z']
-}
+    '9': ['w', 'x', 'y', 'z'],
+};
 
 function letterCombinations(digits: string): string[] {
-    const n = digits.length
+    const n = digits.length;
     if (n === 0) {
-        return []
+        return [];
     }
     const dfs = (i: number, ss: string[]) => {
         if (i === n) {
-            return ss
+            return ss;
         }
-        const t = []
+        const t = [];
         for (const c of map[digits[i]]) {
             for (const s of ss) {
-                t.push(s + c)
+                t.push(s + c);
             }
         }
-        return dfs(i + 1, t)
-    }
-    return dfs(1, map[digits[0]])
-};
+        return dfs(i + 1, t);
+    };
+    return dfs(1, map[digits[0]]);
+}
 ```
 
 ### **Rust**

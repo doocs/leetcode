@@ -136,11 +136,11 @@ class StreamRank {
     public StreamRank() {
         tree = new BinaryIndexedTree(50010);
     }
-    
+
     public void track(int x) {
         tree.update(x + 1, 1);
     }
-    
+
     public int getRankOfNumber(int x) {
         return tree.query(x + 1);
     }
@@ -194,11 +194,11 @@ public:
     StreamRank() {
         tree = new BinaryIndexedTree(50010);
     }
-    
+
     void track(int x) {
         tree->update(x + 1, 1);
     }
-    
+
     int getRankOfNumber(int x) {
         return tree->query(x + 1);
     }

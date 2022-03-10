@@ -6,45 +6,60 @@
 
 <!-- 这里写题目描述 -->
 
-<p>你是个房地产开发商，想要选择一片<em>空地 </em>建一栋大楼。你想把这栋大楼够造在一个距离周边设施都比较方便的地方，通过调研，你希望从它出发能在&nbsp;<strong>最短的距离和&nbsp;</strong>内抵达周边全部的建筑物。请你计算出这个最佳的选址到周边全部建筑物的&nbsp;<strong>最短距离和</strong>。</p>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<p>你只能通过向上、下、左、右四个方向上移动。</p>
-
-<p>给你一个由 0、1 和 2 组成的二维网格，其中：</p>
+<p>给你一个 <code>m × n</code> 的网格，值为 <code>0</code> 、 <code>1</code> 或 <code>2</code> ，其中:</p>
 
 <ul>
-	<li><strong>0</strong>&nbsp;代表你可以自由通过和选择建造的空地</li>
-	<li><strong>1</strong> 代表你无法通行的建筑物</li>
-	<li><strong>2</strong>&nbsp;代表你无法通行的障碍物</li>
+	<li>每一个 <code>0</code> 代表一块你可以自由通过的 <strong>空地</strong>&nbsp;</li>
+	<li>每一个 <code>1</code> 代表一个你不能通过的 <strong>建筑</strong></li>
+	<li>每个 <code>2</code> 标记一个你不能通过的 <strong>障碍</strong>&nbsp;</li>
 </ul>
+
+<p>你想要在一块空地上建造一所房子，在 <strong>最短的总旅行距离</strong> 内到达所有的建筑。你只能上下左右移动。</p>
+
+<p>返回到该房子的 <strong>最短旅行距离</strong> 。如果根据上述规则无法建造这样的房子，则返回 <code>-1</code> 。</p>
+
+<p><strong>总旅行距离&nbsp;</strong>是朋友们家到聚会地点的距离之和。</p>
+
+<p>使用 <strong>曼哈顿距离</strong>&nbsp;计算距离，其中距离 <code>(p1, p2) = |p2.x - p1.x | + | p2.y - p1.y |</code> 。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例&nbsp; 1：</strong></p>
 
-<pre><strong>输入：</strong>[[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/images/buildings-grid.jpg" /></p>
 
-1 - 0 - 2 - 0 - 1
-|   |   |   |   |
-0 - 0 - 0 - 0 - 0
-|   |   |   |   |
-0 - 0 - 1 - 0 - 0
+<pre>
+<strong>输入：</strong>grid = [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
 <strong>输出：</strong>7 
-<strong>解析：
-</strong>给定<code>三个建筑物 (0,0)、</code><code>(0,4) 和</code> <code>(2,2) 以及一个</code>位于 <code>(0,2) 的障碍物。
-由于总距离之和 3+3+1=7 最优，所以位置</code> <code>(1,2)</code> 是符合要求的最优地点，故返回7。
+<strong>解析：</strong>给定<code>三个建筑物 (0,0)、</code><code>(0,4) 和</code> <code>(2,2) 以及一个</code>位于 <code>(0,2) 的障碍物。
+由于总距离之和 3+3+1=7 最优，所以位置</code> <code>(1,2)</code> 是符合要求的最优地点。
+故返回7。
+</pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre>
+<strong>输入:</strong> grid = [[1,0]]
+<strong>输出:</strong> 1
+</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> grid = [[1]]
+<strong>输出:</strong> -1
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>注意：</strong></p>
+<p><strong>提示:</strong></p>
 
 <ul>
-	<li>题目数据保证至少存在一栋建筑物，如果无法按照上述规则返回建房地点，则请你返回&nbsp;-1。</li>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 50</code></li>
+	<li><code>grid[i][j]</code>&nbsp;是&nbsp;<code>0</code>,&nbsp;<code>1</code>&nbsp;或&nbsp;<code>2</code></li>
+	<li><code>grid</code>&nbsp;中 <strong>至少</strong>&nbsp;有 <strong>一幢</strong> 建筑</li>
 </ul>
 
 ## 解法

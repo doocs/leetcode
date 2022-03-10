@@ -25,9 +25,9 @@
 <strong>Input:</strong> head = [5,2,6,3,9,1,7,3,8,4]
 <strong>Output:</strong> [5,6,2,3,9,1,4,8,3,7]
 <strong>Explanation:</strong>
-- The length of the first group is 1, which is odd, hence no reversal occurrs.
+- The length of the first group is 1, which is odd, hence no reversal occurs.
 - The length of the second group is 2, which is even, hence the nodes are reversed.
-- The length of the third group is 3, which is odd, hence no reversal occurrs.
+- The length of the third group is 3, which is odd, hence no reversal occurs.
 - The length of the last group is 4, which is even, hence the nodes are reversed.
 </pre>
 
@@ -37,27 +37,20 @@
 <strong>Input:</strong> head = [1,1,0,6]
 <strong>Output:</strong> [1,0,1,6]
 <strong>Explanation:</strong>
-- The length of the first group is 1. No reversal occurrs.
+- The length of the first group is 1. No reversal occurs.
 - The length of the second group is 2. The nodes are reversed.
-- The length of the last group is 1. No reversal occurrs.
+- The length of the last group is 1. No reversal occurs.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/eg3.png" style="width: 139px; height: 114px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/ex3.png" style="width: 348px; height: 114px;" />
 <pre>
-<strong>Input:</strong> head = [2,1]
-<strong>Output:</strong> [2,1]
+<strong>Input:</strong> head = [1,1,0,6,5]
+<strong>Output:</strong> [1,0,1,5,6]
 <strong>Explanation:</strong>
-- The length of the first group is 1. No reversal occurrs.
-- The length of the last group is 1. No reversal occurrs.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> head = [8]
-<strong>Output:</strong> [8]
-<strong>Explanation:</strong> There is only one group whose length is 1. No reversal occurrs.
+- The length of the first group is 1. No reversal occurs.
+- The length of the second group is 2. The nodes are reversed.
+- The length of the last group is 2. The nodes are reversed.
 </pre>
 
 <p>&nbsp;</p>

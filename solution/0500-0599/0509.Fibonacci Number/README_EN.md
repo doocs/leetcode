@@ -129,12 +129,12 @@ var fib = function (n) {
 ```ts
 function fib(n: number): number {
     let a = 0;
-    let b = 1
+    let b = 1;
     for (let i = 0; i < n; i++) {
-        [a, b] = [b, a + b]
+        [a, b] = [b, a + b];
     }
-    return a
-};
+    return a;
+}
 ```
 
 ```ts
@@ -142,8 +142,8 @@ function fib(n: number): number {
     if (n < 2) {
         return n;
     }
-    return fib(n - 1) + fib(n - 2)
-};
+    return fib(n - 1) + fib(n - 2);
+}
 ```
 
 ### **Rust**

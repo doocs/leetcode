@@ -37,8 +37,7 @@
 SnakeGame snakeGame = new SnakeGame(3, 2, [[1, 2], [0, 1]]);
 snakeGame.move(&quot;R&quot;); // return 0
 snakeGame.move(&quot;D&quot;); // return 0
-snakeGame.move(&quot;R&quot;); // return 1, snake eats the first piece of food. The second piece of food appears
-// at (0, 1).
+snakeGame.move(&quot;R&quot;); // return 1, snake eats the first piece of food. The second piece of food appears at (0, 1).
 snakeGame.move(&quot;U&quot;); // return 1
 snakeGame.move(&quot;L&quot;); // return 2, snake eats the second food. No more food appears.
 snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides with border

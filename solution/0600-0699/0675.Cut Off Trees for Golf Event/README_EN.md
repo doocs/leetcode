@@ -164,7 +164,7 @@ class Solution {
         int b = start % n;
         int c = end / n;
         int d = end % n;
-        return Math.abs(a - c) + Math.abs(b - d); 
+        return Math.abs(a - c) + Math.abs(b - d);
     }
 }
 ```

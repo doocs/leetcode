@@ -4,7 +4,9 @@
 
 ## Description
 
-<p>Given a non-negative integer <code>num</code>, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.</p>
+<p>Given an integer <code>num</code>, return <em>the number of steps to reduce it to zero</em>.</p>
+
+<p>In one step, if the current number is even, you have to divide it by <code>2</code>, otherwise, you have to subtract <code>1</code> from it.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -44,7 +46,7 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= num &lt;= 10^6</code></li>
+	<li><code>0 &lt;= num &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## Solutions

@@ -12,17 +12,42 @@
 
 <p>&nbsp;</p>
 
-<p><strong>进阶：</strong></p>
+<p><strong>示例1：</strong></p>
 
-<p>如果输入链表不能修改该如何处理？换句话说，你不能对列表中的节点进行翻转。</p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0445.Add%20Two%20Numbers%20II/images/1626420025-fZfzMX-image.png" style="width: 302px; " /></p>
+
+<pre>
+<strong>输入：</strong>l1 = [7,2,4,3], l2 = [5,6,4]
+<strong>输出：</strong>[7,8,0,7]
+</pre>
+
+<p><strong>示例2：</strong></p>
+
+<pre>
+<strong>输入：</strong>l1 = [2,4,3], l2 = [5,6,4]
+<strong>输出：</strong>[8,0,7]
+</pre>
+
+<p><strong>示例3：</strong></p>
+
+<pre>
+<strong>输入：</strong>l1 = [0], l2 = [0]
+<strong>输出：</strong>[0]
+</pre>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>提示：</strong></p>
 
-<pre><strong>输入：</strong>(7 -&gt; 2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
-<strong>输出：</strong>7 -&gt; 8 -&gt; 0 -&gt; 7
-</pre>
+<ul>
+	<li>链表的长度范围为<code> [1, 100]</code></li>
+	<li><code>0 &lt;= node.val &lt;= 9</code></li>
+	<li>输入数据保证链表代表的数字无前导 0</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>如果输入链表不能翻转该如何解决？</p>
 
 ## 解法
 

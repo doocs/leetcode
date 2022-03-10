@@ -219,28 +219,28 @@ const map = {
     '6': ['m', 'n', 'o'],
     '7': ['p', 'q', 'r', 's'],
     '8': ['t', 'u', 'v'],
-    '9': ['w', 'x', 'y', 'z']
-}
+    '9': ['w', 'x', 'y', 'z'],
+};
 
 function letterCombinations(digits: string): string[] {
-    const n = digits.length
+    const n = digits.length;
     if (n === 0) {
-        return []
+        return [];
     }
     const dfs = (i: number, ss: string[]) => {
         if (i === n) {
-            return ss
+            return ss;
         }
-        const t = []
+        const t = [];
         for (const c of map[digits[i]]) {
             for (const s of ss) {
-                t.push(s + c)
+                t.push(s + c);
             }
         }
-        return dfs(i + 1, t)
-    }
-    return dfs(1, map[digits[0]])
-};
+        return dfs(i + 1, t);
+    };
+    return dfs(1, map[digits[0]]);
+}
 ```
 
 ### **Rust**

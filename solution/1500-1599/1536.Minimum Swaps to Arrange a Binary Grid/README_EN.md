@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given an <code>n&nbsp;x n</code>&nbsp;binary <code>grid</code>, in one step you can choose two <strong>adjacent rows</strong> of the grid and swap them.</p>
+<p>Given an <code>n x n</code> binary <code>grid</code>, in one step you can choose two <strong>adjacent rows</strong> of the grid and swap them.</p>
 
 <p>A grid is said to be <strong>valid</strong> if all the cells above the main diagonal are <strong>zeros</strong>.</p>
 
@@ -39,10 +39,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == grid.length</code></li>
-	<li><code>n == grid[i].length</code></li>
-	<li><code>1 &lt;= n&nbsp;&lt;= 200</code></li>
-	<li><code>grid[i][j]</code> is <code>0</code> or <code>1</code></li>
+	<li><code>n == grid.length</code> <code>== grid[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 200</code></li>
+	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code></li>
 </ul>
 
 ## Solutions

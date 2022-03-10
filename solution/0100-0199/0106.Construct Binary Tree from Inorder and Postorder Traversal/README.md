@@ -6,24 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>根据一棵树的中序遍历与后序遍历构造二叉树。</p>
+<p>给定两个整数数组 <code>inorder</code> 和 <code>postorder</code> ，其中 <code>inorder</code> 是二叉树的中序遍历， <code>postorder</code> 是同一棵树的后序遍历，请你构造并返回这颗&nbsp;<em>二叉树</em>&nbsp;。</p>
 
-<p><strong>注意:</strong><br>
-你可以假设树中没有重复的元素。</p>
+<p>&nbsp;</p>
 
-<p>例如，给出</p>
-
-<pre>中序遍历 inorder =&nbsp;[9,3,15,20,7]
-后序遍历 postorder = [9,15,7,20,3]</pre>
-
-<p>返回如下的二叉树：</p>
-
-<pre>    3
-   / \
-  9  20
-    /  \
-   15   7
+<p><strong>示例 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/images/tree.jpg" />
+<pre>
+<b>输入：</b>inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+<b>输出：</b>[3,9,20,null,null,15,7]
 </pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<b>输入：</b>inorder = [-1], postorder = [-1]
+<b>输出：</b>[-1]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= inorder.length &lt;= 3000</code></li>
+	<li><code>postorder.length == inorder.length</code></li>
+	<li><code>-3000 &lt;= inorder[i], postorder[i] &lt;= 3000</code></li>
+	<li><code>inorder</code>&nbsp;和&nbsp;<code>postorder</code>&nbsp;都由 <strong>不同</strong> 的值组成</li>
+	<li><code>postorder</code>&nbsp;中每一个值都在&nbsp;<code>inorder</code>&nbsp;中</li>
+	<li><code>inorder</code>&nbsp;<strong>保证</strong>是树的中序遍历</li>
+	<li><code>postorder</code>&nbsp;<strong>保证</strong>是树的后序遍历</li>
+</ul>
 
 ## 解法
 

@@ -25,10 +25,16 @@ The state column is an enum of type [&quot;approved&quot;, &quot;declined&quot;]
 
 <p>Write an SQL query to find for each month and country, the number of transactions and their total amount, the number of approved transactions and their total amount.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Transactions</code> table:
+<strong>Input:</strong> 
+Transactions table:
 +------+---------+----------+--------+------------+
 | id   | country | state    | amount | trans_date |
 +------+---------+----------+--------+------------+
@@ -37,8 +43,7 @@ The state column is an enum of type [&quot;approved&quot;, &quot;declined&quot;]
 | 123  | US      | approved | 2000   | 2019-01-01 |
 | 124  | DE      | approved | 2000   | 2019-01-07 |
 +------+---------+----------+--------+------------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+---------+-------------+----------------+--------------------+-----------------------+
 | month    | country | trans_count | approved_count | trans_total_amount | approved_total_amount |
 +----------+---------+-------------+----------------+--------------------+-----------------------+

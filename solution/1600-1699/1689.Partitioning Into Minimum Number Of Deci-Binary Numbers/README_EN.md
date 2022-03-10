@@ -9,41 +9,29 @@
 <p>Given a string <code>n</code> that represents a positive decimal integer, return <em>the <strong>minimum</strong> number of positive <strong>deci-binary</strong> numbers needed so that they sum up to </em><code>n</code><em>.</em></p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = &quot;32&quot;
-
 <strong>Output:</strong> 3
-
 <strong>Explanation:</strong> 10 + 11 + 11 = 32
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = &quot;82734&quot;
-
 <strong>Output:</strong> 8
-
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = &quot;27346209830709182346&quot;
-
 <strong>Output:</strong> 9
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>

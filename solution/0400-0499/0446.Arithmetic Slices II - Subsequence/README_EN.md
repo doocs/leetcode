@@ -19,7 +19,7 @@
 	<li>For example, <code>[2,5,10]</code> is a subsequence of <code>[1,2,1,<strong><u>2</u></strong>,4,1,<u><strong>5</strong></u>,<u><strong>10</strong></u>]</code>.</li>
 </ul>
 
-<p>The answer is guaranteed to fit in <strong>32-bit</strong> integer.</p>
+<p>The test cases are generated so that the answer fits in <strong>32-bit</strong> integer.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

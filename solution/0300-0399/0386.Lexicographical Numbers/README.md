@@ -6,13 +6,33 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个整数&nbsp;<em>n</em>, 返回从&nbsp;<em>1&nbsp;</em>到&nbsp;<em>n&nbsp;</em>的字典顺序。</p>
+<p>给你一个整数 <code>n</code> ，按字典序返回范围 <code>[1, n]</code> 内所有整数。</p>
 
-<p>例如，</p>
+<p>你必须设计一个时间复杂度为 <code>O(n)</code> 且使用 <code>O(1)</code> 额外空间的算法。</p>
 
-<p>给定 <em>n</em> =1 3，返回 [1,10,11,12,13,2,3,4,5,6,7,8,9] 。</p>
+<p>&nbsp;</p>
 
-<p>请尽可能的优化算法的时间复杂度和空间复杂度。 输入的数据&nbsp;<em>n&nbsp;</em>小于等于&nbsp;5,000,000。</p>
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 13
+<strong>输出：</strong>[1,10,11,12,13,2,3,4,5,6,7,8,9]
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 2
+<strong>输出：</strong>[1,2]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 

@@ -6,59 +6,58 @@
 
 <!-- 这里写题目描述 -->
 
-<p>房间中有 <code>n</code> 个灯泡，编号从 <code>0</code> 到 <code>n-1</code> ，自左向右排成一行。最开始的时候，所有的灯泡都是 <strong>关</strong> 着的。</p>
+<p>给你一个长度为 <code>n</code> 、下标从 <strong>0</strong> 开始的二进制字符串 <code>target</code> 。你自己有另一个长度为 <code>n</code> 的二进制字符串 <code>s</code> ，最初每一位上都是 0 。你想要让 <code>s</code> 和 <code>target</code> 相等。</p>
 
-<p>请你设法使得灯泡的开关状态和 <code>target</code> 描述的状态一致，其中 <code>target[i]</code> 等于 <code>1</code> 第 <code>i</code> 个灯泡是开着的，等于 <code>0</code> 意味着第 <code>i</code> 个灯是关着的。</p>
+<p>在一步操作，你可以选择下标 <code>i</code>（<code>0 &lt;= i &lt; n</code>）并翻转在 <strong>闭区间</strong> <code>[i, n - 1]</code> 内的所有位。翻转意味着 <code>'0'</code> 变为 <code>'1'</code> ，而 <code>'1'</code> 变为 <code>'0'</code> 。</p>
 
-<p>有一个开关可以用于翻转灯泡的状态，翻转操作定义如下：</p>
-
-<ul>
-	<li>选择当前配置下的任意一个灯泡（下标为 <code>i</code> ）</li>
-	<li>翻转下标从 <code>i</code> 到 <code>n-1</code> 的每个灯泡</li>
-</ul>
-
-<p>翻转时，如果灯泡的状态为 <code>0</code> 就变为 <code>1</code>，为 <code>1</code> 就变为 <code>0</code> 。</p>
-
-<p>返回达成 <code>target</code> 描述的状态所需的 <strong>最少</strong> 翻转次数。</p>
+<div class="original__bRMd">
+<div>
+<p>返回使<em> </em><code>s</code><em> </em>与<em> </em><code>target</code> 相等需要的最少翻转次数。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>target = &quot;10111&quot;
+<pre>
+<strong>输入：</strong>target = "10111"
 <strong>输出：</strong>3
-<strong>解释：</strong>初始配置 &quot;00000&quot;.
-从第 3 个灯泡（下标为 2）开始翻转 &quot;00000&quot; -&gt; &quot;00111&quot;
-从第 1 个灯泡（下标为 0）开始翻转 &quot;00111&quot; -&gt; &quot;11000&quot;
-从第 2 个灯泡（下标为 1）开始翻转 &quot;11000&quot; -&gt; &quot;10111&quot;
-至少需要翻转 3 次才能达成 target 描述的状态</pre>
+<strong>解释：</strong>最初，s = "00000" 。
+选择下标 i = 2: "00<em><strong>000</strong></em>" -&gt; "00<em><strong>111</strong></em>"
+选择下标 i = 0: "<em><strong>00111</strong></em>" -&gt; "<em><strong>11000</strong></em>"
+选择下标 i = 1: "1<em><strong>1000</strong></em>" -&gt; "1<em><strong>0111</strong></em>"
+要达成目标，需要至少 3 次翻转。
+</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>target = &quot;101&quot;
+<pre>
+<strong>输入：</strong>target = "101"
 <strong>输出：</strong>3
-<strong>解释：</strong>&quot;000&quot; -&gt; &quot;111&quot; -&gt; &quot;100&quot; -&gt; &quot;101&quot;.
+<strong>解释：</strong>最初，s = "000" 。
+选择下标 i = 0: "<em><strong>000</strong></em>" -&gt; "<em><strong>111</strong></em>"
+选择下标 i = 1: "1<em><strong>11</strong></em>" -&gt; "1<em><strong>00</strong></em>"
+选择下标 i = 2: "10<em><strong>0</strong></em>" -&gt; "10<em><strong>1</strong></em>"
+要达成目标，需要至少 3 次翻转。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>target = &quot;00000&quot;
+<pre>
+<strong>输入：</strong>target = "00000"
 <strong>输出：</strong>0
+<strong>解释：</strong>由于 s 已经等于目标，所以不需要任何操作
 </pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>target = &quot;001011101&quot;
-<strong>输出：</strong>5
-</pre>
+</div>
+</div>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= target.length &lt;= 10^5</code></li>
-	<li><code>target[i] == &#39;0&#39;</code> 或者 <code>target[i] == &#39;1&#39;</code></li>
+	<li><code>n == target.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>target[i]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
 ## 解法

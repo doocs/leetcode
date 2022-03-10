@@ -43,11 +43,11 @@ merging them into one sorted list:
 
 <ul>
 	<li><code>k == lists.length</code></li>
-	<li><code>0 &lt;= k &lt;= 10^4</code></li>
+	<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= lists[i].length &lt;= 500</code></li>
-	<li><code>-10^4 &lt;= lists[i][j] &lt;= 10^4</code></li>
+	<li><code>-10<sup>4</sup> &lt;= lists[i][j] &lt;= 10<sup>4</sup></code></li>
 	<li><code>lists[i]</code> is sorted in <strong>ascending order</strong>.</li>
-	<li>The sum of <code>lists[i].length</code> won&#39;t exceed <code>10^4</code>.</li>
+	<li>The sum of <code>lists[i].length</code> will not exceed <code>10<sup>4</sup></code>.</li>
 </ul>
 
 ## Solutions

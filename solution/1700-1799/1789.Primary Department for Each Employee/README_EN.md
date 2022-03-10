@@ -26,13 +26,15 @@ primary_flag is an ENUM of type (&#39;Y&#39;, &#39;N&#39;). If the flag is &#39;
 
 <p>Write an SQL query to report all the employees with their primary department. For employees who belong to one department, report their only department.</p>
 
-<p>Return the result table in any order.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Employee table:
 +-------------+---------------+--------------+
 | employee_id | department_id | primary_flag |
@@ -45,8 +47,7 @@ Employee table:
 | 4           | 3             | Y            |
 | 4           | 4             | N            |
 +-------------+---------------+--------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+---------------+
 | employee_id | department_id |
 +-------------+---------------+
@@ -55,12 +56,12 @@ Result table:
 | 3           | 3             |
 | 4           | 3             |
 +-------------+---------------+
+<strong>Explanation:</strong> 
 - The Primary department for employee 1 is 1.
 - The Primary department for employee 2 is 1.
 - The Primary department for employee 3 is 3.
-- The Primary department for employee 4 is 3.</pre>
-
-<p>&nbsp;</p>
+- The Primary department for employee 4 is 3.
+</pre>
 
 ## Solutions
 

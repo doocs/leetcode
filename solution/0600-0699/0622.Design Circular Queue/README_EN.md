@@ -20,6 +20,8 @@
 	<li><code>boolean isFull()</code> Checks whether the circular queue is full or not.</li>
 </ul>
 
+<p>You must solve the problem without using the built-in queue data structure in your programming language.&nbsp;</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -51,9 +53,6 @@ myCircularQueue.Rear();     // return 4
 	<li><code>0 &lt;= value &lt;= 1000</code></li>
 	<li>At most <code>3000</code> calls will be made to&nbsp;<code>enQueue</code>, <code>deQueue</code>,&nbsp;<code>Front</code>,&nbsp;<code>Rear</code>,&nbsp;<code>isEmpty</code>, and&nbsp;<code>isFull</code>.</li>
 </ul>
-
-<p>&nbsp;</p>
-<strong>Follow up:</strong>&nbsp;Could you solve the problem without using the built-in queue?&nbsp;
 
 ## Solutions
 

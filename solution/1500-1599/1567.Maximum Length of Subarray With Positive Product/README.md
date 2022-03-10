@@ -16,35 +16,26 @@
 
 <p><strong>示例&nbsp; 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,-2,-3,4]
+<pre>
+<strong>输入：</strong>nums = [1,-2,-3,4]
 <strong>输出：</strong>4
 <strong>解释：</strong>数组本身乘积就是正数，值为 24 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [0,1,-2,-3,-4]
+<pre>
+<strong>输入：</strong>nums = [0,1,-2,-3,-4]
 <strong>输出：</strong>3
 <strong>解释：</strong>最长乘积为正数的子数组为 [1,-2,-3] ，乘积为 6 。
 注意，我们不能把 0 也包括到子数组中，因为这样乘积为 0 ，不是正数。</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>nums = [-1,-2,-3,0,1]
+<pre>
+<strong>输入：</strong>nums = [-1,-2,-3,0,1]
 <strong>输出：</strong>2
 <strong>解释：</strong>乘积为正数的最长子数组是 [-1,-2] 或者 [-2,-3] 。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>nums = [-1,2]
-<strong>输出：</strong>1
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>nums = [1,2,3,5,-6,4,0,10]
-<strong>输出：</strong>4
 </pre>
 
 <p>&nbsp;</p>
@@ -55,6 +46,8 @@
 	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
 	<li><code>-10^9 &lt;= nums[i]&nbsp;&lt;= 10^9</code></li>
 </ul>
+
+<p>&nbsp;</p>
 
 ## 解法
 

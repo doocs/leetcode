@@ -56,6 +56,9 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Follow-up:</strong> Could you find a solution with <code>O(n)</code> time complexity?</p>
+
 ## Solutions
 
 <!-- tabs:start -->

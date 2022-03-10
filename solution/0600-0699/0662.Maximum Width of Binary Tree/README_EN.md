@@ -37,14 +37,6 @@
 <strong>Explanation:</strong> The maximum width existing in the second level with the length 2 (3,2).
 </pre>
 
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0662.Maximum%20Width%20of%20Binary%20Tree/images/width4-tree.jpg" style="width: 500px; height: 244px;" />
-<pre>
-<strong>Input:</strong> root = [1,3,2,5,null,null,9,6,null,null,7]
-<strong>Output:</strong> 8
-<strong>Explanation:</strong> The maximum width existing in the fourth level with the length 8 (6,null,null,null,null,null,null,7).
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

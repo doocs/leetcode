@@ -44,7 +44,7 @@ The maximum number of employees that can be invited to the meeting is 3.
 <strong>Output:</strong> 4
 <strong>Explanation:</strong>
 The above figure shows how the company will invite employees 0, 1, 3, and 4, and seat them at the round table.
-Employee 2 cannot be invited because the two spots next to their favorite employee 0 are taken.
+Employee 2 cannot be invited because the two spots next to their favorite employee 1 are taken.
 So the company leaves them out of the meeting.
 The maximum number of employees that can be invited to the meeting is 4.
 </pre>

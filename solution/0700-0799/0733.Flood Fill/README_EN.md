@@ -4,59 +4,42 @@
 
 ## Description
 
-<p>
+<p>An image is represented by an <code>m x n</code> integer grid <code>image</code> where <code>image[i][j]</code> represents the pixel value of the image.</p>
 
-An <code>image</code> is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).
+<p>You are also given three integers <code>sr</code>, <code>sc</code>, and <code>newColor</code>. You should perform a <strong>flood fill</strong> on the image starting from the pixel <code>image[sr][sc]</code>.</p>
 
-</p><p>
+<p>To perform a <strong>flood fill</strong>, consider the starting pixel, plus any pixels connected <strong>4-directionally</strong> to the starting pixel of the same color as the starting pixel, plus any pixels connected <strong>4-directionally</strong> to those pixels (also with the same color), and so on. Replace the color of all of the aforementioned pixels with <code>newColor</code>.</p>
 
-Given a coordinate <code>(sr, sc)</code> representing the starting pixel (row and column) of the flood fill, and a pixel value <code>newColor</code>, "flood fill" the image.
+<p>Return <em>the modified image after performing the flood fill</em>.</p>
 
-</p><p>
-
-To perform a "flood fill", consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color as the starting pixel), and so on. Replace the color of all of the aforementioned pixels with the newColor.
-
-</p><p>
-
-At the end, return the modified image.
-
-</p>
-
-<p><b>Example 1:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0733.Flood%20Fill/images/flood1-grid.jpg" style="width: 613px; height: 253px;" />
 <pre>
-
-<b>Input:</b> 
-
-image = [[1,1,1],[1,1,0],[1,0,1]]
-
-sr = 1, sc = 1, newColor = 2
-
-<b>Output:</b> [[2,2,2],[2,2,0],[2,0,1]]
-
-<b>Explanation:</b> 
-
-From the center of the image (with position (sr, sc) = (1, 1)), all pixels connected 
-
-by a path of the same color as the starting pixel are colored with the new color.
-
-Note the bottom corner is not colored 2, because it is not 4-directionally connected
-
-to the starting pixel.
-
+<strong>Input:</strong> image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, newColor = 2
+<strong>Output:</strong> [[2,2,2],[2,2,0],[2,0,1]]
+<strong>Explanation:</strong> From the center of the image with position (sr, sc) = (1, 1) (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color.
+Note the bottom corner is not colored 2, because it is not 4-directionally connected to the starting pixel.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b>
+<pre>
+<strong>Input:</strong> image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, newColor = 2
+<strong>Output:</strong> [[2,2,2],[2,2,2]]
+</pre>
 
-<li>The length of <code>image</code> and <code>image[0]</code> will be in the range <code>[1, 50]</code>.</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>The given starting pixel will satisfy <code>0 <= sr < image.length</code> and <code>0 <= sc < image[0].length</code>.</li>
-
-<li>The value of each color in <code>image[i][j]</code> and <code>newColor</code> will be an integer in <code>[0, 65535]</code>.</li>
-
-</p>
+<ul>
+	<li><code>m == image.length</code></li>
+	<li><code>n == image[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 50</code></li>
+	<li><code>0 &lt;= image[i][j], newColor &lt; 2<sup>16</sup></code></li>
+	<li><code>0 &lt;= sr &lt;&nbsp;m</code></li>
+	<li><code>0 &lt;= sc &lt;&nbsp;n</code></li>
+</ul>
 
 ## Solutions
 

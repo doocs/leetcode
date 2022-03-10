@@ -43,21 +43,7 @@
 <pre>
 <strong>Input:</strong> version1 = &quot;0.1&quot;, version2 = &quot;1.1&quot;
 <strong>Output:</strong> -1
-<strong>Explanation:</strong>&nbsp;version1&#39;s revision 0 is &quot;0&quot;, while version2&#39;s revision 0 is &quot;1&quot;. 0 &lt; 1, so version1 &lt; version2.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> version1 = &quot;1.0.1&quot;, version2 = &quot;1&quot;
-<strong>Output:</strong> 1
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> version1 = &quot;7.5.2.4&quot;, version2 = &quot;7.5.3&quot;
-<strong>Output:</strong> -1
+<strong>Explanation:</strong> version1&#39;s revision 0 is &quot;0&quot;, while version2&#39;s revision 0 is &quot;1&quot;. 0 &lt; 1, so version1 &lt; version2.
 </pre>
 
 <p>&nbsp;</p>

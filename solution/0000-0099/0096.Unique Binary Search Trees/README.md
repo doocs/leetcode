@@ -6,20 +6,31 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个整数 <em>n</em>，求以&nbsp;1 ...&nbsp;<em>n</em>&nbsp;为节点组成的二叉搜索树有多少种？</p>
+<p>给你一个整数 <code>n</code> ，求恰由 <code>n</code> 个节点组成且节点值从 <code>1</code> 到 <code>n</code> 互不相同的 <strong>二叉搜索树</strong> 有多少种？返回满足题意的二叉搜索树的种数。</p>
 
-<p><strong>示例:</strong></p>
+<p> </p>
 
-<pre><strong>输入:</strong> 3
-<strong>输出:</strong> 5
-<strong>解释:
-</strong>给定 <em>n</em> = 3, 一共有 5 种不同结构的二叉搜索树:
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/images/uniquebstn3.jpg" style="width: 600px; height: 148px;" />
+<pre>
+<strong>输入：</strong>n = 3
+<strong>输出：</strong>5
+</pre>
 
-   1         3     3      2      1
-    \       /     /      / \      \
-     3     2     1      1   3      2
-    /     /       \                 \
-   2     1         2                 3</pre>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 1
+<strong>输出：</strong>1
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= n <= 19</code></li>
+</ul>
 
 ## 解法
 

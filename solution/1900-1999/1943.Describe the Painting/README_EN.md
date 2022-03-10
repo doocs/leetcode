@@ -18,11 +18,13 @@
 
 <ul>
 	<li>For example, the painting created with <code>segments = [[1,4,5],[1,7,7]]</code> can be described by <code>painting = [[1,4,12],[4,7,7]]</code> because:
-	<ul>
-		<li><code>[1,4)</code> is colored <code>{5,7}</code> (with a sum of <code>12</code>) from both the first and second segments.</li>
-		<li><code>[4,7)</code> is colored <code>{7}</code> from only the second segment.</li>
-	</ul>
-	</li>
+
+    <ul>
+    	<li><code>[1,4)</code> is colored <code>{5,7}</code> (with a sum of <code>12</code>) from both the first and second segments.</li>
+    	<li><code>[4,7)</code> is colored <code>{7}</code> from only the second segment.</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>Return <em>the 2D array </em><code>painting</code><em> describing the finished painting (excluding any parts that are <strong>not </strong>painted). You may return the segments in <strong>any order</strong></em>.</p>

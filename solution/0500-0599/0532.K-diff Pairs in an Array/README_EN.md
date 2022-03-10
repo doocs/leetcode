@@ -6,15 +6,15 @@
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of <b>unique</b> k-diff pairs in the array</em>.</p>
 
-<p>A <b>k-diff</b> pair is&nbsp;an integer pair <code>(nums[i], nums[j])</code>, where the following are true:</p>
+<p>A <strong>k-diff</strong> pair is an integer pair <code>(nums[i], nums[j])</code>, where the following are true:</p>
 
 <ul>
 	<li><code>0 &lt;= i, j &lt; nums.length</code></li>
 	<li><code>i != j</code></li>
-	<li><code>|nums[i] - nums[j]| == k</code></li>
+	<li><code>nums[i] - nums[j] == k</code></li>
 </ul>
 
-<p><strong>Notice</strong>&nbsp;that <code>|val|</code> denotes the absolute value of <code>val</code>.</p>
+<p><strong>Notice</strong> that <code>|val|</code> denotes the absolute value of <code>val</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -40,20 +40,6 @@ Although we have two 1s in the input, we should only return the number of <stron
 <strong>Input:</strong> nums = [1,3,1,5,4], k = 0
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> There is one 0-diff pair in the array, (1, 1).
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,2,4,4,3,3,0,9,2,3], k = 3
-<strong>Output:</strong> 2
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [-1,-2,-3], k = 1
-<strong>Output:</strong> 2
 </pre>
 
 <p>&nbsp;</p>

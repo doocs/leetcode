@@ -42,7 +42,6 @@
 	<li><code>grid[i][j]</code> is either <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or <code>&#39; &#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

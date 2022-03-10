@@ -43,9 +43,6 @@ myHashSet.contains(2); // return False, (already removed)</pre>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>add</code>, <code>remove</code>, and <code>contains</code>.</li>
 </ul>
 
-<p>&nbsp;</p>
-<strong>Follow up:</strong> Could you solve the problem without using the built-in HashSet library?
-
 ## Solutions
 
 <!-- tabs:start -->

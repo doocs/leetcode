@@ -6,21 +6,33 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个整数数组和一个整数&nbsp;<strong>k，</strong>你需要找到该数组中和为&nbsp;<strong>k&nbsp;</strong>的连续的子数组的个数。</p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，请你统计并返回该数组中和为&nbsp;<code>k</code><strong>&nbsp;</strong>的连续子数组的个数。</p>
 
-<p><strong>示例 1 :</strong></p>
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong>nums = [1,1,1], k = 2
-<strong>输出:</strong> 2 , [1,1] 与 [1,1] 为两种不同的情况。
+<strong>输入：</strong>nums = [1,1,1], k = 2
+<strong>输出：</strong>2
 </pre>
 
-<p><strong>说明 :</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<ol>
-	<li>数组的长度为 [1, 20,000]。</li>
-	<li>数组中元素的范围是 [-1000, 1000] ，且整数&nbsp;<strong>k&nbsp;</strong>的范围是&nbsp;[-1e7, 1e7]。</li>
-</ol>
+<pre>
+<strong>输入：</strong>nums = [1,2,3], k = 3
+<strong>输出：</strong>2
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+	<li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li>
+</ul>
 
 ## 解法
 

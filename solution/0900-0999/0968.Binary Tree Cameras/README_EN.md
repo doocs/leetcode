@@ -4,58 +4,34 @@
 
 ## Description
 
-<p>Given a binary tree, we install cameras on the nodes of the tree.&nbsp;</p>
+<p>You are given the <code>root</code> of a binary tree. We install cameras on the tree nodes where each camera at a node can monitor its parent, itself, and its immediate children.</p>
 
-<p>Each camera at&nbsp;a node can monitor <strong>its parent, itself, and its immediate children</strong>.</p>
-
-<p>Calculate the minimum number of cameras needed to monitor all nodes of the tree.</p>
+<p>Return <em>the minimum number of cameras needed to monitor all nodes of the tree</em>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0968.Binary%20Tree%20Cameras/images/bst_cameras_01.png" style="width: 138px; height: 163px;" />
-
-<div>
-
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[0,0,null,0,0]</span>
-
-<strong>Output: </strong><span id="example-output-1">1</span>
-
-<strong>Explanation: </strong>One camera is enough to monitor all nodes if placed as shown.
-
+<strong>Input:</strong> root = [0,0,null,0,0]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> One camera is enough to monitor all nodes if placed as shown.
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
-
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0968.Binary%20Tree%20Cameras/images/bst_cameras_02.png" style="width: 139px; height: 312px;" />
-
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[0,0,null,0,null,0,null,null,0]</span>
-
-<strong>Output: </strong><span id="example-output-2">2
-
-<strong>Explanation:</strong> At least two cameras are needed to monitor all nodes of the tree. The above image shows one of the valid configurations of camera placement.</span>
-
+<strong>Input:</strong> root = [0,0,null,0,null,0,null,null,0]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> At least two cameras are needed to monitor all nodes of the tree. The above image shows one of the valid configurations of camera placement.
 </pre>
 
-<p><br />
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Note:</strong></p>
-
-<ol>
-	<li>The number of nodes in the given tree will be in the range&nbsp;<code>[1, 1000]</code>.</li>
-	<li><strong>Every</strong> node has value 0.</li>
-</ol>
-
-</div>
-
-</div>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
+	<li><code>Node.val == 0</code></li>
+</ul>
 
 ## Solutions
 

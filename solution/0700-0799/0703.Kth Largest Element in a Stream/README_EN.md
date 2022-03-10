@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>Design a class to find&nbsp;the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
+<p>Design a class to find the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
 
-<p>Implement&nbsp;<code>KthLargest</code>&nbsp;class:</p>
+<p>Implement <code>KthLargest</code> class:</p>
 
 <ul>
-	<li><code>KthLargest(int k, int[] nums)</code>&nbsp;Initializes the object with the integer <code>k</code> and the stream of integers <code>nums</code>.</li>
-	<li><code>int add(int val)</code>&nbsp;Returns the element representing the <code>k<sup>th</sup></code> largest element in the stream.</li>
+	<li><code>KthLargest(int k, int[] nums)</code> Initializes the object with the integer <code>k</code> and the stream of integers <code>nums</code>.</li>
+	<li><code>int add(int val)</code> Appends the integer <code>val</code> to the stream and returns the element representing the <code>k<sup>th</sup></code> largest element in the stream.</li>
 </ul>
 
 <p>&nbsp;</p>

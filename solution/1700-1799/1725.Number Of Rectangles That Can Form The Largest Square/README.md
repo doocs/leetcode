@@ -12,7 +12,7 @@
 
 <p>设 <code>maxLen</code> 为可以从矩形数组 <code>rectangles</code> 切分得到的 <strong>最大正方形</strong> 的边长。</p>
 
-<p>返回可以切出边长为<em> </em><code>maxLen</code> 的正方形的矩形 <strong>数目</strong> 。</p>
+<p>请你统计有多少个矩形能够切出边长为<em> </em><code>maxLen</code> 的正方形，并返回矩形 <strong>数目</strong> 。</p>
 
 <p> </p>
 

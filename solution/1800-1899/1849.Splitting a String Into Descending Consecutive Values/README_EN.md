@@ -43,15 +43,6 @@ The values are in descending order with adjacent values differing by 1.
 <strong>Explanation:</strong> There is no valid way to split s.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;10009998&quot;
-<strong>Output:</strong> true
-<strong>Explanation:</strong> s can be split into [&quot;100&quot;, &quot;099&quot;, &quot;98&quot;] with numerical values [100,99,98].
-The values are in descending order with adjacent values differing by 1.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

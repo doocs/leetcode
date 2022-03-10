@@ -23,7 +23,7 @@
 <pre>
 <strong>Input:</strong> k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 
 <strong>Output:</strong> [1] 
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 All of the servers start out available.
 The first 3 requests are handled by the first 3 servers in order.
 Request 3 comes in. Server 0 is busy, so it&#39;s assigned to the next available server, which is 1.
@@ -36,7 +36,7 @@ Servers 0 and 2 handled one request each, while server 1 handled two requests. H
 <pre>
 <strong>Input:</strong> k = 3, arrival = [1,2,3,4], load = [1,2,1,2]
 <strong>Output:</strong> [0]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The first 3 requests are handled by first 3 servers.
 Request 3 comes in. It is handled by server 0 since the server is available.
 Server 0 handled two requests, while servers 1 and 2 handled one request each. Hence server 0 is the busiest server.
@@ -47,21 +47,7 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 <pre>
 <strong>Input:</strong> k = 3, arrival = [1,2,3], load = [10,12,11]
 <strong>Output:</strong> [0,1,2]
-<strong>Explanation: </strong>Each server handles a single request, so they are all considered the busiest.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> k = 3, arrival = [1,2,3,4,8,9,10], load = [5,2,10,3,1,2,2]
-<strong>Output:</strong> [1]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> k = 1, arrival = [1], load = [1]
-<strong>Output:</strong> [0]
+<strong>Explanation:</strong> Each server handles a single request, so they are all considered the busiest.
 </pre>
 
 <p>&nbsp;</p>

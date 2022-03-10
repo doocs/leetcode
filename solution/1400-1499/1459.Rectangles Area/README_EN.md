@@ -19,7 +19,7 @@ Each point is represented as a 2D coordinate (x_value, y_value).</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all possible <strong>axis-aligned</strong> rectangles with <strong>non-zero area</strong> that can be formed by any two points in the <code>Points</code> table.</p>
+<p>Write an SQL query to report all possible <strong>axis-aligned</strong> rectangles with a <strong>non-zero area</strong> that can be formed by any two points from the <code>Points</code> table.</p>
 
 <p>Each row in the result should contain three columns <code>(p1, p2, area)</code> where:</p>
 
@@ -28,13 +28,15 @@ Each point is represented as a 2D coordinate (x_value, y_value).</pre>
 	<li><code>area</code> is the area of the rectangle and must be <strong>non-zero</strong>.</li>
 </ul>
 
-<p>Report the query in descending order by <code>area</code> first, then in ascending order by <code>p1</code>&#39;s <code>id</code> if there is a tie, then in ascending order by <code>p2</code>&#39;s <code>id</code> if there is another tie.</p>
+<p>Return the result table <strong>ordered</strong> by <code>area</code> <strong>in descending order</strong>. If there is a tie, order them by <code>p1</code> <strong>in ascending order</strong>. If there is still a tie, order them by <code>p2</code> <strong>in ascending order</strong>.</p>
 
-<p>The query result format is in the following table:</p>
+<p>The query result format is in the following table.</p>
 
 <p>&nbsp;</p>
-
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1459.Rectangles%20Area/images/rect.png" style="width: 303px; height: 500px;" />
 <pre>
+<strong>Input:</strong> 
 Points table:
 +----------+-------------+-------------+
 | id       | x_value     | y_value     |
@@ -43,16 +45,14 @@ Points table:
 | 2        | 4           | 8           |
 | 3        | 2           | 10          |
 +----------+-------------+-------------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+-------------+-------------+
 | p1       | p2          | area        |
 +----------+-------------+-------------+
 | 2        | 3           | 4           |
 | 1        | 2           | 2           |
 +----------+-------------+-------------+
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1459.Rectangles%20Area/images/rect.png" style="width: 200px; height: 330px;" />
+<strong>Explanation:</strong> 
 The rectangle formed by p1 = 2 and p2 = 3 has an area equal to |4-2| * |8-10| = 4.
 The rectangle formed by p1 = 1 and p2 = 2 has an area equal to |2-4| * |7-8| = 2.
 Note that the rectangle formed by p1 = 1 and p2 = 3 is invalid because the area is 0.

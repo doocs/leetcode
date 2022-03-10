@@ -6,12 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个无序的数组&nbsp;<code>nums</code>, 将该数字&nbsp;<strong>原地&nbsp;</strong>重排后使得&nbsp;<code>nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]...</code>。</p>
+<p>给你一个的整数数组&nbsp;<code>nums</code>, 将该数组重新排序后使&nbsp;<code>nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]...</code>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p>输入数组总是有一个有效的答案。</p>
 
-<pre><strong>输入:</strong> <code>nums = [3,5,2,1,6,4]</code>
-<strong>输出:</strong> 一个可能的解答是 [3,5,1,6,2,4]</pre>
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入：</strong><code>nums = [3,5,2,1,6,4]</code>
+<strong>输出：</strong>[3,5,1,6,2,4]
+<strong>解释：</strong>[1,6,2,5,3,4]也是有效的答案</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<b>输入：</b>nums = [6,6,5,6,3,8]
+<b>输出：</b>[6,6,5,6,3,8]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<p><meta charset="UTF-8" /></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li>
+	<p>输入的&nbsp;<code>nums</code> 保证至少有一个答案。</p>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><b>进阶：</b>你能在&nbsp;<code>O(n)</code>&nbsp;时间复杂度下解决这个问题吗？</p>
 
 ## 解法
 

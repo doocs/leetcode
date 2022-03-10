@@ -17,8 +17,8 @@
 | capacity     | int  |
 +--------------+------+
 bus_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a bus at the Leetcode station and its capacity (i.e., the number of empty seats it has).
-There will be no two buses that arrive at the same time and capacity will be a positive integer.
+Each row of this table contains information about the arrival time of a bus at the LeetCode station and its capacity (the number of empty seats it has).
+No two buses will arrive at the same time and all bus capacities will be positive integers.
 </pre>
 
 <p>&nbsp;</p>
@@ -33,12 +33,12 @@ There will be no two buses that arrive at the same time and capacity will be a p
 | arrival_time | int  |
 +--------------+------+
 passenger_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a passenger at the Leetcode station.
+Each row of this table contains information about the arrival time of a passenger at the LeetCode station.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Buses and passengers arrive at the Leetcode station. If a bus arrives at the station at a time <code>t<sub>bus</sub></code> and a passenger arrived at a time <code>t<sub>passenger</sub></code> where <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code> and the passenger did not catch any bus, the passenger will use that bus. In addition, each bus has a capacity. If at the moment the bus arrives at the station there are more passengers waiting than its capacity <code>capacity</code>, only <code>capacity</code> passengers will use the bus.</p>
+<p>Buses and passengers arrive at the LeetCode station. If a bus arrives at the station at a time <code>t<sub>bus</sub></code> and a passenger arrived at a time <code>t<sub>passenger</sub></code> where <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code> and the passenger did not catch any bus, the passenger will use that bus. In addition, each bus has a capacity. If at the moment the bus arrives at the station there are more passengers waiting than its capacity <code>capacity</code>, only <code>capacity</code> passengers will use the bus.</p>
 
 <p>Write an SQL query to report the number of users that used each bus.</p>
 

@@ -6,21 +6,32 @@
 
 <!-- 这里写题目描述 -->
 
-<p>你需要找到由两个 n 位数的乘积组成的最大回文数。</p>
+<p>给定一个整数 n ，返回 <em>可表示为两个 <code>n</code>&nbsp;位整数乘积的 <strong>最大回文整数</strong></em> 。因为答案可能非常大，所以返回它对 <code>1337</code> <strong>取余</strong> 。</p>
 
-<p>由于结果会很大，你只需返回最大回文数 mod 1337得到的结果。</p>
+<p>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1:</strong></p>
 
-<p>输入: 2</p>
+<pre>
+<b>输入：</b>n = 2
+<b>输出：</b>987
+<strong>解释：</strong>99 x 91 = 9009, 9009 % 1337 = 987
+</pre>
 
-<p>输出: 987</p>
+<p><strong>示例 2:</strong></p>
 
-<p>解释: 99 x 91 = 9009, 9009 % 1337 = 987</p>
+<pre>
+<strong>输入：</strong> n = 1
+<strong>输出：</strong> 9
+</pre>
 
-<p><strong>说明:</strong></p>
+<p>&nbsp;</p>
 
-<p>n 的取值范围为&nbsp;[1,8]。</p>
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 8</code></li>
+</ul>
 
 ## 解法
 

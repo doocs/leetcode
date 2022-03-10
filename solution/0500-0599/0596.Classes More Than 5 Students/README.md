@@ -6,43 +6,58 @@
 
 <!-- 这里写题目描述 -->
 
-<p>有一个<code>courses</code> 表 ，有: <strong>student&nbsp;(学生) </strong>和 <strong>class (课程)</strong>。</p>
+<p>表:&nbsp;<code>Courses</code></p>
 
-<p>请列出所有超过或等于5名学生的课。</p>
-
-<p>例如，表：</p>
-
-<pre>+---------+------------+
-| student | class      |
-+---------+------------+
-| A       | Math       |
-| B       | English    |
-| C       | Math       |
-| D       | Biology    |
-| E       | Math       |
-| F       | Computer   |
-| G       | Math       |
-| H       | Math       |
-| I       | Math       |
-+---------+------------+
-</pre>
-
-<p>应该输出:</p>
-
-<pre>+---------+
-| class   |
-+---------+
-| Math    |
-+---------+
+<pre>
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| student     | varchar |
+| class       | varchar |
++-------------+---------+
+(student, class)是该表的主键列。
+该表的每一行表示学生的名字和他们注册的班级。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>提示：</strong></p>
+<p>编写一个SQL查询来报告 <strong>至少有5个学生</strong> 的所有类。</p>
 
-<ul>
-	<li>学生在每个课中不应被重复计算。</li>
-</ul>
+<p>以 <strong>任意顺序 </strong>返回结果表。</p>
+
+<p>查询结果格式如下所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> 
+Courses table:
++---------+----------+
+| student | class    |
++---------+----------+
+| A       | Math     |
+| B       | English  |
+| C       | Math     |
+| D       | Biology  |
+| E       | Math     |
+| F       | Computer |
+| G       | Math     |
+| H       | Math     |
+| I       | Math     |
++---------+----------+
+<strong>输出:</strong> 
++---------+ 
+| class &nbsp; | 
++---------+ 
+| Math &nbsp; &nbsp;| 
++---------+
+<strong>解释: </strong>
+-数学课有6个学生，所以我们包括它。
+-英语课有1名学生，所以我们不包括它。
+-生物课有1名学生，所以我们不包括它。
+-计算机课有1个学生，所以我们不包括它。</pre>
 
 ## 解法
 

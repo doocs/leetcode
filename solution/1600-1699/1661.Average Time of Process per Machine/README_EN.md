@@ -32,11 +32,15 @@ The &#39;start&#39; timestamp will always be before the &#39;end&#39; timestamp 
 
 <p>The resulting table should have the <code>machine_id</code> along with the <strong>average time</strong> as <code>processing_time</code>, which should be <strong>rounded to 3 decimal places</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Activity table:
 +------------+------------+---------------+-----------+
 | machine_id | process_id | activity_type | timestamp |
@@ -54,8 +58,7 @@ Activity table:
 | 2          | 1          | start         | 2.500     |
 | 2          | 1          | end           | 5.000     |
 +------------+------------+---------------+-----------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+-----------------+
 | machine_id | processing_time |
 +------------+-----------------+
@@ -63,7 +66,7 @@ Result table:
 | 1          | 0.995           |
 | 2          | 1.456           |
 +------------+-----------------+
-
+<strong>Explanation:</strong> 
 There are 3 machines running 2 processes each.
 Machine 0&#39;s average time is ((1.520 - 0.712) + (4.120 - 3.140)) / 2 = 0.894
 Machine 1&#39;s average time is ((1.550 - 0.550) + (1.420 - 0.430)) / 2 = 0.995

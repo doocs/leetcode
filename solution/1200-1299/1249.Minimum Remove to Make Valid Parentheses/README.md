@@ -6,9 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个由 <code>&#39;(&#39;</code>、<code>&#39;)&#39;</code> 和小写字母组成的字符串 <code>s</code>。</p>
+<p>给你一个由 <code>'('</code>、<code>')'</code> 和小写字母组成的字符串 <code>s</code>。</p>
 
-<p>你需要从字符串中删除最少数目的 <code>&#39;(&#39;</code> 或者 <code>&#39;)&#39;</code>&nbsp;（可以删除任意位置的括号)，使得剩下的「括号字符串」有效。</p>
+<p>你需要从字符串中删除最少数目的 <code>'('</code> 或者 <code>')'</code>&nbsp;（可以删除任意位置的括号)，使得剩下的「括号字符串」有效。</p>
 
 <p>请返回任意一个合法字符串。</p>
 
@@ -24,28 +24,25 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;lee(t(c)o)de)&quot;
-<strong>输出：</strong>&quot;lee(t(c)o)de&quot;
-<strong>解释：</strong>&quot;lee(t(co)de)&quot; , &quot;lee(t(c)ode)&quot; 也是一个可行答案。
+<pre>
+<strong>输入：</strong>s = "lee(t(c)o)de)"
+<strong>输出：</strong>"lee(t(c)o)de"
+<strong>解释：</strong>"lee(t(co)de)" , "lee(t(c)ode)" 也是一个可行答案。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;a)b(c)d&quot;
-<strong>输出：</strong>&quot;ab(c)d&quot;
+<pre>
+<strong>输入：</strong>s = "a)b(c)d"
+<strong>输出：</strong>"ab(c)d"
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;))((&quot;
-<strong>输出：</strong>&quot;&quot;
+<pre>
+<strong>输入：</strong>s = "))(("
+<strong>输出：</strong>""
 <strong>解释：</strong>空字符串也是有效的
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>s = &quot;(a(b(c)d)&quot;
-<strong>输出：</strong>&quot;a(b(c)d)&quot;
 </pre>
 
 <p>&nbsp;</p>
@@ -53,8 +50,8 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
-	<li><code>s[i]</code>&nbsp;可能是&nbsp;<code>&#39;(&#39;</code>、<code>&#39;)&#39;</code>&nbsp;或英文小写字母</li>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s[i]</code>&nbsp;可能是&nbsp;<code>'('</code>、<code>')'</code>&nbsp;或英文小写字母</li>
 </ul>
 
 ## 解法

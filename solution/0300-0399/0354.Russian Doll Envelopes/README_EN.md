@@ -32,9 +32,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= envelopes.length &lt;= 5000</code></li>
+	<li><code>1 &lt;= envelopes.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>envelopes[i].length == 2</code></li>
-	<li><code>1 &lt;= w<sub>i</sub>, h<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= w<sub>i</sub>, h<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions

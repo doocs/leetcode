@@ -43,7 +43,7 @@ Each row of this table contains the name of one subject in the school.
 | subject_name | varchar |
 +--------------+---------+
 There is no primary key for this table. It may contain duplicates.
-Each student from the Students table takes every course from Subjects table.
+Each student from the Students table takes every course from the Subjects table.
 Each row of this table indicates that a student with ID student_id attended the exam of subject_name.
 </pre>
 
@@ -51,11 +51,15 @@ Each row of this table indicates that a student with ID student_id attended the 
 
 <p>Write an SQL query to find the number of times each student attended each exam.</p>
 
-<p>Order the result table by <code>student_id</code> and <code>subject_name</code>.</p>
+<p>Return the result table ordered by <code>student_id</code> and <code>subject_name</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Students table:
 +------------+--------------+
 | student_id | student_name |
@@ -89,7 +93,7 @@ Examinations table:
 | 2          | Math         |
 | 1          | Math         |
 +------------+--------------+
-Result table:
+<strong>Output:</strong> 
 +------------+--------------+--------------+----------------+
 | student_id | student_name | subject_name | attended_exams |
 +------------+--------------+--------------+----------------+
@@ -106,11 +110,12 @@ Result table:
 | 13         | John         | Physics      | 1              |
 | 13         | John         | Programming  | 1              |
 +------------+--------------+--------------+----------------+
+<strong>Explanation:</strong> 
 The result table should contain all students and all subjects.
-Alice attended Math exam 3 times, Physics exam 2 times and Programming exam 1 time.
-Bob attended Math exam 1 time, Programming exam 1 time and didn&#39;t attend the Physics exam.
-Alex didn&#39;t attend any exam.
-John attended Math exam 1 time, Physics exam 1 time and Programming exam 1 time.
+Alice attended the Math exam 3 times, the Physics exam 2 times, and the Programming exam 1 time.
+Bob attended the Math exam 1 time, the Programming exam 1 time, and did not attend the Physics exam.
+Alex did not attend any exams.
+John attended the Math exam 1 time, the Physics exam 1 time, and the Programming exam 1 time.
 </pre>
 
 ## Solutions

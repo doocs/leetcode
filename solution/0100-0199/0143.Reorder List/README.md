@@ -6,18 +6,45 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个单链表&nbsp;<em>L</em>：<em>L</em><sub>0</sub>&rarr;<em>L</em><sub>1</sub>&rarr;&hellip;&rarr;<em>L</em><sub><em>n</em>-1</sub>&rarr;<em>L</em><sub>n ，</sub><br>
-将其重新排列后变为： <em>L</em><sub>0</sub>&rarr;<em>L</em><sub><em>n</em></sub>&rarr;<em>L</em><sub>1</sub>&rarr;<em>L</em><sub><em>n</em>-1</sub>&rarr;<em>L</em><sub>2</sub>&rarr;<em>L</em><sub><em>n</em>-2</sub>&rarr;&hellip;</p>
+<p>给定一个单链表 <code>L</code><em> </em>的头节点 <code>head</code> ，单链表 <code>L</code> 表示为：</p>
 
-<p>你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
+<pre>
+L<sub>0</sub> → L<sub>1</sub> → … → L<sub>n - 1</sub> → L<sub>n</sub>
+</pre>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p>请将其重新排列后变为：</p>
 
-<pre>给定链表 1-&gt;2-&gt;3-&gt;4, 重新排列为 1-&gt;4-&gt;2-&gt;3.</pre>
+<pre>
+L<sub>0</sub> → L<sub>n</sub> → L<sub>1</sub> → L<sub>n - 1</sub> → L<sub>2</sub> → L<sub>n - 2</sub> → …</pre>
 
-<p><strong>示例 2:</strong></p>
+<p>不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
 
-<pre>给定链表 1-&gt;2-&gt;3-&gt;4-&gt;5, 重新排列为 1-&gt;5-&gt;2-&gt;4-&gt;3.</pre>
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0143.Reorder%20List/images/1626420311-PkUiGI-image.png" style="width: 240px; " /></p>
+
+<pre>
+<strong>输入：</strong>head = [1,2,3,4]
+<strong>输出：</strong>[1,4,2,3]</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0143.Reorder%20List/images/1626420320-YUiulT-image.png" style="width: 320px; " /></p>
+
+<pre>
+<strong>输入：</strong>head = [1,2,3,4,5]
+<strong>输出：</strong>[1,5,2,4,3]</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>链表的长度范围为 <code>[1, 5 * 10<sup>4</sup>]</code></li>
+	<li><code>1 &lt;= node.val &lt;= 1000</code></li>
+</ul>
 
 ## 解法
 

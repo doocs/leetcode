@@ -6,78 +6,47 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个单词集合 <strong>（没有重复）</strong>，找出其中所有的 <a href="https://en.wikipedia.org/wiki/Word_square">单词方块</a><strong>&nbsp;</strong>。</p>
+<p>给定一个单词集合&nbsp;<code>words</code> <strong>（没有重复）</strong>，找出并返回其中所有的 <a href="https://en.wikipedia.org/wiki/Word_square">单词方块</a><strong>&nbsp;</strong>。&nbsp;<code>words</code>&nbsp;中的同一个单词可以被 <strong>多次</strong> 使用。你可以按 <strong>任意顺序</strong> 返回答案。</p>
 
-<p>一个单词序列形成了一个有效的单词方块的意思是指从第 k 行和第 k 列 (0 &le; <em>k</em> &lt; max(行数, 列数)) 来看都是相同的字符串。</p>
+<p>一个单词序列形成了一个有效的 <strong>单词方块</strong> 的意思是指从第 <code>k</code> 行和第 <code>k</code> 列 &nbsp;<code>0 &lt;= k &lt; max(numRows, numColumns)</code> 来看都是相同的字符串。</p>
 
-<p>例如，单词序列&nbsp;<code>[&quot;ball&quot;,&quot;area&quot;,&quot;lead&quot;,&quot;lady&quot;]</code>&nbsp;形成了一个单词方块，因为每个单词从水平方向看和从竖直方向看都是相同的。</p>
-
-<pre>b a l l
-a r e a
-l e a d
-l a d y
-</pre>
-
-<p><strong>注意：</strong></p>
-
-<ol>
-	<li>单词个数大于等于 1 且不超过&nbsp;500。</li>
-	<li>所有的单词长度都相同。</li>
-	<li>单词长度大于等于 1 且不超过&nbsp;5。</li>
-	<li>每个单词只包含小写英文字母&nbsp;<code>a-z</code>。</li>
-</ol>
+<ul>
+	<li>例如，单词序列&nbsp;<code>["ball","area","lead","lady"]</code>&nbsp;形成了一个单词方块，因为每个单词从水平方向看和从竖直方向看都是相同的。</li>
+</ul>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>
-[&quot;area&quot;,&quot;lead&quot;,&quot;wall&quot;,&quot;lady&quot;,&quot;ball&quot;]
-
-<strong>输出：</strong>
-[
-  [ &quot;wall&quot;,
-    &quot;area&quot;,
-    &quot;lead&quot;,
-    &quot;lady&quot;
-  ],
-  [ &quot;ball&quot;,
-    &quot;area&quot;,
-    &quot;lead&quot;,
-    &quot;lady&quot;
-  ]
-]
-
+<pre>
+<strong>输入：</strong>words = ["area","lead","wall","lady","ball"]
+<strong>输出:</strong> [["ball","area","lead","lady"],
+["wall","area","lead","lady"]]
 <strong>解释：</strong>
 输出包含两个单词方块，输出的顺序不重要，只需要保证每个单词方块内的单词顺序正确即可。 
 </pre>
-
-<p>&nbsp;</p>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>
-[&quot;abat&quot;,&quot;baba&quot;,&quot;atan&quot;,&quot;atal&quot;]
-
-<strong>输出：</strong>
-[
-  [ &quot;baba&quot;,
-    &quot;abat&quot;,
-    &quot;baba&quot;,
-    &quot;atan&quot;
-  ],
-  [ &quot;baba&quot;,
-    &quot;abat&quot;,
-    &quot;baba&quot;,
-    &quot;atal&quot;
-  ]
-]
-
+<pre>
+<strong>输入：</strong>words = ["abat","baba","atan","atal"]
+<strong>输出：</strong>[["baba","abat","baba","atal"],
+["baba","abat","baba","atan"]]
 <strong>解释：</strong>
 输出包含两个单词方块，输出的顺序不重要，只需要保证每个单词方块内的单词顺序正确即可。 
 </pre>
 
 <p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 4</code></li>
+	<li><code>words[i]</code>&nbsp;长度相同</li>
+	<li><code>words[i]</code>&nbsp;只由小写英文字母组成</li>
+	<li><code>words[i]</code>&nbsp;都 <strong>各不相同</strong></li>
+</ul>
 
 ## 解法
 

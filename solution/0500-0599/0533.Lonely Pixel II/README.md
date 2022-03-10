@@ -6,48 +6,46 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一幅由黑色像素和白色像素组成的图像，&nbsp;与一个正整数N, 找到位于某行&nbsp;<strong>R</strong>&nbsp;和某列&nbsp;<strong>C</strong>&nbsp;中且符合下列规则的黑色像素的数量:</p>
+<p>给你一个大小为 <code>m x n</code> 的二维字符数组 <code>picture</code> ，表示一张黑白图像，数组中的 <code>'B'</code> 表示黑色像素，<code>'W'</code> 表示白色像素。另给你一个整数 <code>target</code> ，请你找出并返回符合规则的 <strong>黑色</strong> 孤独像素的数量。</p>
 
-<ol>
-	<li>行R 和列C都恰好包括N个黑色像素。</li>
-	<li>列C中所有黑色像素所在的行必须和行R完全相同。</li>
-</ol>
+<p>黑色孤独像素是指位于某一特定位置 <code>(r, c)</code> 的字符 <code>'B'</code> ，其中：</p>
 
-<p>图像由一个由&lsquo;B&rsquo;和&lsquo;W&rsquo;组成二维字符数组表示, &lsquo;B&rsquo;和&lsquo;W&rsquo;分别代表黑色像素和白色像素。</p>
+<ul>
+	<li>行 <code>r</code> 和列 <code>c</code> 中的黑色像素恰好有 <code>target</code> 个。</li>
+	<li>列 <code>c</code> 中所有黑色像素所在的行必须和行 <code>r</code> 完全相同。</li>
+</ul>
 
-<p><strong>示例:</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入:</strong>                                            
-[[&#39;W&#39;, &#39;B&#39;, &#39;W&#39;, &#39;B&#39;, &#39;B&#39;, &#39;W&#39;],    
- [&#39;W&#39;, &#39;B&#39;, &#39;W&#39;, &#39;B&#39;, &#39;B&#39;, &#39;W&#39;],    
- [&#39;W&#39;, &#39;B&#39;, &#39;W&#39;, &#39;B&#39;, &#39;B&#39;, &#39;W&#39;],    
- [&#39;W&#39;, &#39;W&#39;, &#39;B&#39;, &#39;W&#39;, &#39;B&#39;, &#39;W&#39;]] 
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0533.Lonely%20Pixel%20II/images/pixel2-1-grid.jpg" style="width: 493px; height: 333px;" />
+<pre>
+<strong>输入：</strong>picture = [["W","B","W","B","B","W"],["W","B","W","B","B","W"],["W","B","W","B","B","W"],["W","W","B","W","B","W"]], target = 3
+<strong>输出：</strong>6
+<strong>解释：</strong>所有绿色的 'B' 都是我们所求的像素(第 1 列和第 3 列的所有 'B' )
+以行 r = 0 和列 c = 1 的 'B' 为例：
+- 规则 1 ，行 r = 0 和列 c = 1 都恰好有 target = 3 个黑色像素 
+- 规则 2 ，列 c = 1 的黑色像素分别位于行 0，行 1 和行 2。和行 r = 0 完全相同。
+</pre>
 
-N = 3
-<strong>输出:</strong> 6
-<strong>解析:</strong> 所有粗体的&#39;B&#39;都是我们所求的像素(第1列和第3列的所有&#39;B&#39;).
-        0    1    2    3    4    5         列号                                          
-0    [[&#39;W&#39;, <strong>&#39;B&#39;</strong>, &#39;W&#39;, <strong>&#39;B&#39;</strong>, &#39;B&#39;, &#39;W&#39;],    
-1     [&#39;W&#39;, <strong>&#39;B&#39;</strong>, &#39;W&#39;, <strong>&#39;B&#39;</strong>, &#39;B&#39;, &#39;W&#39;],    
-2     [&#39;W&#39;, <strong>&#39;B&#39;</strong>, &#39;W&#39;, <strong>&#39;B&#39;</strong>, &#39;B&#39;, &#39;W&#39;],    
-3     [&#39;W&#39;, &#39;W&#39;, &#39;B&#39;, &#39;W&#39;, &#39;B&#39;, &#39;W&#39;]]    
-行号
-
-以R = 0行和C = 1列的&#39;B&#39;为例:
-规则 1，R = 0行和C = 1列都恰好有N = 3个黑色像素. 
-规则 2，在C = 1列的黑色像素分别位于0，1和2行。它们都和R = 0行完全相同。
-
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0533.Lonely%20Pixel%20II/images/pixel2-2-grid.jpg" style="width: 253px; height: 253px;" />
+<pre>
+<strong>输入：</strong>picture = [["W","W","B"],["W","W","B"],["W","W","B"]], target = 1
+<strong>输出：</strong>0
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>注意:</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li>输入二维数组行和列的范围是 [1,200]。</li>
-</ol>
-
-<p>&nbsp;</p>
+<ul>
+	<li><code>m ==&nbsp;picture.length</code></li>
+	<li><code>n ==&nbsp;picture[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 200</code></li>
+	<li><code>picture[i][j]</code> 为 <code>'W'</code> 或 <code>'B'</code></li>
+	<li><code>1 &lt;= target &lt;= min(m, n)</code></li>
+</ul>
 
 ## 解法
 

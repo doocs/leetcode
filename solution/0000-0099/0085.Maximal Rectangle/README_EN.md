@@ -18,29 +18,15 @@
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> matrix = []
+<strong>Input:</strong> matrix = [[&quot;0&quot;]]
 <strong>Output:</strong> 0
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> matrix = [[&quot;0&quot;]]
-<strong>Output:</strong> 0
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
 <strong>Input:</strong> matrix = [[&quot;1&quot;]]
 <strong>Output:</strong> 1
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> matrix = [[&quot;0&quot;,&quot;0&quot;]]
-<strong>Output:</strong> 0
 </pre>
 
 <p>&nbsp;</p>
@@ -49,7 +35,7 @@
 <ul>
 	<li><code>rows == matrix.length</code></li>
 	<li><code>cols == matrix[i].length</code></li>
-	<li><code>0 &lt;= row, cols &lt;= 200</code></li>
+	<li><code>1 &lt;= row, cols &lt;= 200</code></li>
 	<li><code>matrix[i][j]</code> is <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 

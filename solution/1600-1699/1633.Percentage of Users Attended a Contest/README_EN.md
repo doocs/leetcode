@@ -34,16 +34,18 @@ Each row of this table contains the id of a user and the contest they registered
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the percentage of the users registered in each contest rounded to two decimals.</p>
+<p>Write an SQL query to find the percentage of the users registered in each contest rounded to <strong>two decimals</strong>.</p>
 
 <p>Return the result table ordered by <code>percentage</code> in <strong>descending order</strong>. In case of a tie, order it by <code>contest_id</code> in <strong>ascending order</strong>.</p>
 
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Users</code> table:
+<strong>Input:</strong> 
+Users table:
 +---------+-----------+
 | user_id | user_name |
 +---------+-----------+
@@ -51,8 +53,7 @@ Each row of this table contains the id of a user and the contest they registered
 | 2       | Bob       |
 | 7       | Alex      |
 +---------+-----------+
-
-<code>Register</code> table:
+Register table:
 +------------+---------+
 | contest_id | user_id |
 +------------+---------+
@@ -69,8 +70,7 @@ Each row of this table contains the id of a user and the contest they registered
 | 207        | 2       |
 | 210        | 7       |
 +------------+---------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+------------+
 | contest_id | percentage |
 +------------+------------+
@@ -80,6 +80,7 @@ Result table:
 | 215        | 66.67      |
 | 207        | 33.33      |
 +------------+------------+
+<strong>Explanation:</strong> 
 All the users registered in contests 208, 209, and 210. The percentage is 100% and we sort them in the answer table by contest_id in ascending order.
 Alice and Alex registered in contest 215 and the percentage is ((2/3) * 100) = 66.67%
 Bob registered in contest 207 and the percentage is ((1/3) * 100) = 33.33%
