@@ -95,10 +95,10 @@ class Solution:
     def maximumGood(self, statements: List[List[int]]) -> int:
         def check(k):
             cnt = 0
-            for i in range(n):
+            for i, s in enumerate(statements):
                 if (k >> i) & 1:
                     for j in range(n):
-                        if statements[i][j] < 2 and ((k >> j) & 1) != statements[i][j]:
+                        if s[j] < 2 and ((k >> j) & 1) != s[j]:
                             return 0
                     cnt += 1
             return cnt
@@ -111,7 +111,6 @@ class Solution:
 
 ```java
 class Solution {
-
     private int n;
     private int[][] statements;
 
@@ -130,10 +129,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             if (((k >> i) & 1) == 1) {
                 for (int j = 0; j < n; ++j) {
-                    if (
-                        statements[i][j] < 2 &&
-                        ((k >> j) & 1) != statements[i][j]
-                    ) {
+                    if (statements[i][j] < 2 && ((k >> j) & 1) != statements[i][j]) {
                         return 0;
                     }
                 }
@@ -143,7 +139,6 @@ class Solution {
         return cnt;
     }
 }
-
 ```
 
 ### **C++**
@@ -187,10 +182,10 @@ func maximumGood(statements [][]int) int {
 	n := len(statements)
 	check := func(k int) int {
 		cnt := 0
-		for i := 0; i < n; i++ {
+        for i, s := range statements {
 			if ((k >> i) & 1) == 1 {
 				for j := 0; j < n; j++ {
-					if statements[i][j] < 2 && ((k>>j)&1) != statements[i][j] {
+					if s[j] < 2 && ((k>>j)&1) != s[j] {
 						return 0
 					}
 				}

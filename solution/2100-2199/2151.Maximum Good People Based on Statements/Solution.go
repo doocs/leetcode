@@ -2,10 +2,10 @@ func maximumGood(statements [][]int) int {
 	n := len(statements)
 	check := func(k int) int {
 		cnt := 0
-		for i := 0; i < n; i++ {
+        for i, s := range statements {
 			if ((k >> i) & 1) == 1 {
 				for j := 0; j < n; j++ {
-					if statements[i][j] < 2 && ((k>>j)&1) != statements[i][j] {
+					if s[j] < 2 && ((k>>j)&1) != s[j] {
 						return 0
 					}
 				}

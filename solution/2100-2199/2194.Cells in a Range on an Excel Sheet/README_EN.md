@@ -58,13 +58,54 @@ The red arrow denotes the order in which the cells should be presented.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def cellsInRange(self, s: str) -> List[str]:
+        return [chr(i) + str(j) for i in range(ord(s[0]), ord(s[-2]) + 1) for j in range(int(s[1]), int(s[-1]) + 1)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> cellsInRange(String s) {
+        List<String> ans = new ArrayList<>();
+        for (char i = s.charAt(0); i <= s.charAt(3); ++i) {
+            for (char j = s.charAt(1); j <= s.charAt(4); ++j) {
+                ans.add(i + "" + j);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> cellsInRange(string s) {
+        vector<string> ans;
+        for (char i = s[0]; i <= s[3]; ++i)
+            for (char j = s[1]; j <= s[4]; ++j)
+                ans.push_back({i, j});
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func cellsInRange(s string) []string {
+	var ans []string
+	for i := s[0]; i <= s[3]; i++ {
+		for j := s[1]; j <= s[4]; j++ {
+			ans = append(ans, string(i)+string(j))
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
