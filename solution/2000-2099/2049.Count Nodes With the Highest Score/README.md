@@ -58,11 +58,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-第一步可以将 `parents` 数组转为相对好处理的邻接矩阵
+第一步可以将 `parents` 数组转为相对好处理的邻接矩阵。
 
-接下来，观察样例 1 中的 `Removed 2`，删除一个节点可能产生若干子树，或者整棵树除掉以该节点为根的子树后剩下的部分
+接下来，观察样例 1 中的 `Removed 2`，删除一个节点可能产生若干子树，或者整棵树除掉以该节点为根的子树后剩下的部分。
 
-总结出规律后，递归处理即可
+总结出规律后，递归处理即可。
 
 <!-- tabs:start -->
 
@@ -184,6 +184,80 @@ function countHighestScoreNodes(parents: number[]): number {
     }
     dfs(0);
     return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int ans;
+    long long maxScore;
+    int n;
+
+    int countHighestScoreNodes(vector<int>& parents) {
+        ans = 0;
+        maxScore = 0;
+        n = parents.size();
+        unordered_map<int, vector<int>> g;
+        for (int i = 1; i < n; ++i) g[parents[i]].push_back(i);
+        dfs(0, g);
+        return ans;
+    }
+
+    int dfs(int u, unordered_map<int, vector<int>>& g) {
+        int size = 1;
+        long long score = 1;
+        for (int v : g[u])
+        {
+            int t = dfs(v, g);
+            size += t;
+            score *= t;
+        }
+        if (u > 0) score *= (n - size);
+        if (score > maxScore)
+        {
+            maxScore = score;
+            ans = 1;
+        }
+        else if (score == maxScore) ++ans;
+        return size;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countHighestScoreNodes(parents []int) int {
+	n := len(parents)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		p := parents[i]
+		g[p] = append(g[p], i)
+	}
+	maxScore, ans := 0, 0
+	var dfs func(int) int
+	dfs = func(u int) int {
+		size, score := 1, 1
+		for _, v := range g[u] {
+			t := dfs(v)
+			size += t
+			score *= t
+		}
+		if u > 0 {
+			score *= n - size
+		}
+		if score > maxScore {
+			maxScore, ans = score, 1
+		} else if score == maxScore {
+			ans++
+		}
+		return size
+	}
+	dfs(0)
+	return ans
 }
 ```
 
