@@ -9,17 +9,15 @@ class Node:
 
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
+        ans = []
         if root is None:
-            return []
+            return ans
         q = deque([root])
-        res = []
         while q:
-            n = len(q)
             t = []
-            for _ in range(n):
-                node = q.popleft()
-                t.append(node.val)
-                if node.children:
-                    q.extend(node.children)
-            res.append(t)
-        return res
+            for _ in range(len(q), 0, -1):
+                root = q.popleft()
+                t.append(root.val)
+                q.extend(root.children)
+            ans.append(t)
+        return ans

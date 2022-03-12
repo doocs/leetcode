@@ -60,22 +60,21 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
+        ans = []
         if root is None:
-            return []
+            return ans
         q = deque([root])
-        res = []
         while q:
-            n = len(q)
             t = []
-            for _ in range(n):
-                node = q.popleft()
-                t.append(node.val)
-                if node.children:
-                    q.extend(node.children)
-            res.append(t)
-        return res
+            for _ in range(len(q), 0, -1):
+                root = q.popleft()
+                t.append(root.val)
+                q.extend(root.children)
+            ans.append(t)
+        return ans
 ```
 
 ### **Java**
@@ -104,24 +103,22 @@ class Node {
 
 class Solution {
     public List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> ans = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
         Deque<Node> q = new ArrayDeque<>();
-        List<List<Integer>> res = new ArrayList<>();
         q.offer(root);
         while (!q.isEmpty()) {
             List<Integer> t = new ArrayList<>();
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                Node node = q.poll();
-                t.add(node.val);
-                if (node.children != null) {
-                    q.addAll(node.children);
-                }
+            for (int n = q.size(); n > 0; --n) {
+                root = q.poll();
+                t.add(root.val);
+                q.addAll(root.children);
             }
-            res.add(t);
+            ans.add(t);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -148,6 +145,85 @@ class Solution {
             dfs(child, level, res);
         }
     }
+}
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<vector<int>> levelOrder(Node* root) {
+        vector<vector<int>> ans;
+        if (!root) return ans;
+        queue<Node*> q{{root}};
+        while (!q.empty())
+        {
+            vector<int> t;
+            for (int n = q.size(); n > 0; --n)
+            {
+                root = q.front();
+                q.pop();
+                t.push_back(root->val);
+                for (auto& child : root->children) q.push(child);
+            }
+            ans.push_back(t);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func levelOrder(root *Node) [][]int {
+	var ans [][]int
+	if root == nil {
+		return ans
+	}
+	q := []*Node{root}
+	for len(q) > 0 {
+		var t []int
+		for n := len(q); n > 0; n-- {
+			root = q[0]
+			q = q[1:]
+			t = append(t, root.Val)
+			for _, child := range root.Children {
+				q = append(q, child)
+			}
+		}
+		ans = append(ans, t)
+	}
+	return ans
 }
 ```
 
