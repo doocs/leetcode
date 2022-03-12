@@ -195,6 +195,64 @@ func preorder(root *Node) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const res = [];
+    const stack = [root];
+    while (stack.length !== 0) {
+        const root = stack.pop();
+        if (root != null) {
+            res.push(root.val);
+            stack.push(...root.children.reverse());
+        }
+    }
+    return res;
+}
+```
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const res = [];
+    const dfs = (root: Node | null) => {
+        if (root == null) {
+            return;
+        }
+        res.push(root.val);
+        for (const node of root.children) {
+            dfs(node);
+        }
+    };
+    dfs(root);
+    return res;
+}
+```
+
 ### **...**
 
 ```
