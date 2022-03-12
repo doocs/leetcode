@@ -156,6 +156,36 @@ func longestPrefix(s string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function longestPrefix(s: string): string {
+    const n = s.length;
+    for (let i = n - 1; i >= 0; i--) {
+        if (s.slice(0, i) === s.slice(n - i, n)) {
+            return s.slice(0, i);
+        }
+    }
+    return '';
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn longest_prefix(s: String) -> String {
+        let n = s.len();
+        for i in (0..n).rev() {
+            if s[0..i] == s[n - i..n] {
+                return s[0..i].to_string();
+            }
+        }
+        String::new()
+    }
+}
+```
+
 ### **...**
 
 ```
