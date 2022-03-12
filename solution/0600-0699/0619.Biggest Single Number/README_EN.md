@@ -89,7 +89,7 @@ SELECT
 FROM (SELECT
   num,
   COUNT(*)
-FROM biggestsinglenumber
+FROM mynumbers
 GROUP BY num
 HAVING COUNT(*) = 1) a;
 ```
