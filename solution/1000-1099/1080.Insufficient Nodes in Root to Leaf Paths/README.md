@@ -51,6 +51,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+递归遍历整棵树，如果到达叶子结点且路径和小于 limit，直接返回 null 表示删除。如果左右子树都被删除，说明经过当前结点的路径和也一定小于 limit，同样需要删除
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +60,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def sufficientSubset(self, root: TreeNode, limit: int) -> TreeNode:
+        if root is None:
+            return None
 
+        limit -= root.val
+        if root.left is None and root.right is None:
+            return None if limit > 0 else root
+
+        root.left = self.sufficientSubset(root.left, limit)
+        root.right = self.sufficientSubset(root.right, limit)
+
+        if root.left is None and root.right is None:
+            return None
+        return root
 ```
 
 ### **Java**
@@ -66,7 +82,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public TreeNode sufficientSubset(TreeNode root, int limit) {
+        if (root == null) {
+            return null;
+        }
+        limit -= root.val;
+        if (root.left == null && root.right == null) {
+            return limit > 0 ? null : root;
+        }
+        root.left = sufficientSubset(root.left, limit);
+        root.right = sufficientSubset(root.right, limit);
+        return root.left == null && root.right == null ? null : root;
+    }
+}
+```
 
+### **Go**
+
+```go
+func sufficientSubset(root *TreeNode, limit int) *TreeNode {
+	if root == nil {
+		return nil
+	}
+
+	limit -= root.Val
+	if root.Left == nil && root.Right == nil {
+		if limit > 0 {
+			return nil
+		}
+		return root
+	}
+
+	root.Left = sufficientSubset(root.Left, limit)
+	root.Right = sufficientSubset(root.Right, limit)
+
+	if root.Left == nil && root.Right == nil {
+		return nil
+	}
+	return root
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    TreeNode* sufficientSubset(TreeNode* root, int limit) {
+        if (root == nullptr) return nullptr;
+
+        limit -= root->val;
+        if (root->left == nullptr && root->right == nullptr)
+            return limit > 0 ? nullptr : root;
+
+        root->left = sufficientSubset(root->left, limit);
+        root->right = sufficientSubset(root->right, limit);
+
+        if (root->left == nullptr && root->right == nullptr)
+            return nullptr;
+        return root;
+    }
+};
 ```
 
 ### **...**
