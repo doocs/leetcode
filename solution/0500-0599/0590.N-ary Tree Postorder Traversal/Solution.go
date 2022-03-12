@@ -7,17 +7,16 @@
  */
 
 func postorder(root *Node) []int {
-	if root == nil {
-		return []int{}
-	}
-	var stk []*Node
 	var ans []int
-	stk = append(stk, root)
+	if root == nil {
+		return ans
+	}
+	stk := []*Node{root}
 	for len(stk) > 0 {
-		node := stk[len(stk)-1]
+		root = stk[len(stk)-1]
 		stk = stk[:len(stk)-1]
-		ans = append([]int{node.Val}, ans...)
-		for _, child := range node.Children {
+		ans = append([]int{root.Val}, ans...)
+		for _, child := range root.Children {
 			stk = append(stk, child)
 		}
 	}

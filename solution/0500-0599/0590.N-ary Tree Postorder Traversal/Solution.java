@@ -19,19 +19,17 @@ class Node {
 
 class Solution {
     public List<Integer> postorder(Node root) {
+        LinkedList<Integer> ans = new LinkedList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
         Deque<Node> stk = new ArrayDeque<>();
-        stk.offerLast(root);
-        LinkedList<Integer> ans = new LinkedList<>();
+        stk.offer(root);
         while (!stk.isEmpty()) {
-            Node node = stk.pollLast();
-            ans.addFirst(node.val);
-            if (node.children != null) {
-                for (Node child : node.children) {
-                    stk.offerLast(child);
-                }
+            root = stk.pollLast();
+            ans.addFirst(root.val);
+            for (Node child : root.children) {
+                stk.offer(child);
             }
         }
         return ans;

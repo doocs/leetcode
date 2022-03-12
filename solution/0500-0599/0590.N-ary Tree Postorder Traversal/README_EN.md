@@ -73,18 +73,18 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
-        if root is None:
-            return []
-        stk = [root]
         ans = []
+        if root is None:
+            return ans
+        stk = [root]
         while stk:
             node = stk.pop()
             ans.append(node.val)
-            if node.children:
-                for child in node.children:
-                    stk.append(child)
+            for child in node.children:
+                stk.append(child)
         return ans[::-1]
 ```
 
@@ -154,61 +154,17 @@ class Node {
 
 class Solution {
     public List<Integer> postorder(Node root) {
+        LinkedList<Integer> ans = new LinkedList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
         Deque<Node> stk = new ArrayDeque<>();
-        stk.offerLast(root);
-        LinkedList<Integer> ans = new LinkedList<>();
+        stk.offer(root);
         while (!stk.isEmpty()) {
-            Node node = stk.pollLast();
-            ans.addFirst(node.val);
-            if (node.children != null) {
-                for (Node child : node.children) {
-                    stk.offerLast(child);
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
-
-```java
-/*
-// Definition for a Node.
-class Node {
-    public int val;
-    public List<Node> children;
-
-    public Node() {}
-
-    public Node(int _val) {
-        val = _val;
-    }
-
-    public Node(int _val, List<Node> _children) {
-        val = _val;
-        children = _children;
-    }
-};
-*/
-
-class Solution {
-    public List<Integer> postorder(Node root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        Deque<Node> stk = new ArrayDeque<>();
-        stk.offerLast(root);
-        LinkedList<Integer> ans = new LinkedList<>();
-        while (!stk.isEmpty()) {
-            Node node = stk.pollLast();
-            ans.addFirst(node.val);
-            if (node.children != null) {
-                for (Node child : node.children) {
-                    stk.offerLast(child);
-                }
+            root = stk.pollLast();
+            ans.addFirst(root.val);
+            for (Node child : root.children) {
+                stk.offer(child);
             }
         }
         return ans;
@@ -279,17 +235,15 @@ public:
 class Solution {
 public:
     vector<int> postorder(Node* root) {
-        if (!root) return {};
-        stack<Node*> stk;
-        stk.push(root);
         vector<int> ans;
+        if (!root) return ans;
+        stack<Node*> stk{{root}};
         while (!stk.empty())
         {
-            auto& node = stk.top();
+            root = stk.top();
+            ans.push_back(root->val);
             stk.pop();
-            ans.push_back(node->val);
-            for (auto& child : node->children)
-                stk.push(child);
+            for (Node* child : root->children) stk.push(child);
         }
         reverse(ans.begin(), ans.end());
         return ans;
@@ -335,17 +289,16 @@ func postorder(root *Node) []int {
  */
 
 func postorder(root *Node) []int {
-	if root == nil {
-		return []int{}
-	}
-	var stk []*Node
 	var ans []int
-	stk = append(stk, root)
+	if root == nil {
+		return ans
+	}
+	stk := []*Node{root}
 	for len(stk) > 0 {
-		node := stk[len(stk)-1]
+		root = stk[len(stk)-1]
 		stk = stk[:len(stk)-1]
-		ans = append([]int{node.Val}, ans...)
-		for _, child := range node.Children {
+		ans = append([]int{root.Val}, ans...)
+		for _, child := range root.Children {
 			stk = append(stk, child)
 		}
 	}
