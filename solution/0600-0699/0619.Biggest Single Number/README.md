@@ -96,14 +96,13 @@ MyNumbers table:
 ### **SQL**
 
 ```sql
-SELECT
-  MAX(a.num) nums
-FROM (SELECT
-  num,
-  COUNT(*)
-FROM mynumbers
-GROUP BY num
-HAVING COUNT(*) = 1) a;
+SELECT MAX(a.num) AS num
+FROM (
+	SELECT num
+	FROM MyNumbers
+	GROUP BY num
+	HAVING count(*) = 1
+) a;
 ```
 
 <!-- tabs:end -->
