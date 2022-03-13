@@ -145,6 +145,34 @@ function maxProfit(prices: number[]): number {
 }
 ```
 
+拆解分析：
+
+```ts
+function maxProfit(prices: number[]): number {
+    const n = prices.length;
+    let res = 0;
+    let max = prices[0];
+    let min = prices[0];
+    for (let i = 1; i < n; i++) {
+        const price = prices[i];
+        // 如果今天的价格比最高点要低，则交易之前的最大差值，再买入今天的
+        if (price < max) {
+            res += max - min;
+            max = price;
+            min = price;
+        } else {
+            // 非小于，更新最高点
+            max = price;
+        }
+    }
+    // 防止漏算最后一笔交易
+    if (min < max) {
+        res += max - min;
+    }
+    return res;
+}
+```
+
 ### **C++**
 
 贪心：
@@ -246,6 +274,20 @@ public class Solution {
             f2 = Math.Max(f2, f1 + prices[i]);
         }
         return f2;
+    }
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut res = 0;
+        for i in 1..prices.len() {
+            res += 0.max(prices[i] - prices[i - 1]);
+        }
+        res
     }
 }
 ```

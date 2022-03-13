@@ -122,6 +122,29 @@ function maxProfit(prices: number[]): number {
 }
 ```
 
+```ts
+function maxProfit(prices: number[]): number {
+    const n = prices.length;
+    let res = 0;
+    let max = prices[0];
+    let min = prices[0];
+    for (let i = 1; i < n; i++) {
+        const price = prices[i];
+        if (price < max) {
+            res += max - min;
+            max = price;
+            min = price;
+        } else {
+            max = price;
+        }
+    }
+    if (min < max) {
+        res += max - min;
+    }
+    return res;
+}
+```
+
 ### **C++**
 
 Greedy:
@@ -223,6 +246,20 @@ public class Solution {
             f2 = Math.Max(f2, f1 + prices[i]);
         }
         return f2;
+    }
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut res = 0;
+        for i in 1..prices.len() {
+            res += 0.max(prices[i] - prices[i - 1]);
+        }
+        res
     }
 }
 ```
