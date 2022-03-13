@@ -54,19 +54,49 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划求解。
+**方法一：动态规划**
 
 定义 `dp[i]` 为以 `nums[i]` 结尾的最长子序列的长度，`dp[i]` 初始化为 1(`i∈[0, n)`)。即题目求的是 `dp[i]` （`i ∈[0, n-1]`）的最大值。
 
-状态转移方程为：
+状态转移方程为：`dp[i] = max(dp[j]) + 1`，其中 `0≤j<i` 且 `nums[j]<nums[i]`。
 
-`dp[i] = max(dp[j]) + 1`，其中 `0≤j<i` 且 `nums[j]<nums[i]`。
+时间复杂度 O(n²)。
+
+**方法二：树状数组**
+
+树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
+
+1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
+1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
+
+这两个操作的时间复杂度均为 `O(log n)`。当数的范围比较大时，需要进行离散化，即先进行去重并排序，然后对每个数字进行编号。
+
+本题我们使用树状数组 `tree[x]` 来维护以 x 结尾的最长上升子序列的长度。
+
+时间复杂度 O(nlogn)。
+
+```python
+def update(x, val):
+    while x <= n:
+        c[x] = max(c[x], val)
+        x += lowbit(x)
+
+
+def query(x):
+    s = 0
+    while x > 0:
+        s = max(s, c[x])
+        x -= lowbit(x)
+    return s
+```
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+动态规划：
 
 ```python
 class Solution:
@@ -80,9 +110,50 @@ class Solution:
         return max(dp)
 ```
 
+树状数组：
+
+```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    @staticmethod
+    def lowbit(x):
+        return x & -x
+
+    def update(self, x, val):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], val)
+            x += BinaryIndexedTree.lowbit(x)
+
+    def query(self, x):
+        s = 0
+        while x:
+            s = max(s, self.c[x])
+            x -= BinaryIndexedTree.lowbit(x)
+        return s
+
+
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        s = sorted(set(nums))
+        m = {v: i for i, v in enumerate(s, 1)}
+        tree = BinaryIndexedTree(len(m))
+        ans = 1
+        for v in nums:
+            x = m[v]
+            t = tree.query(x - 1) + 1
+            ans = max(ans, t)
+            tree.update(x, t)
+        return ans
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+动态规划：
 
 ```java
 class Solution {
@@ -104,7 +175,66 @@ class Solution {
 }
 ```
 
+树状数组：
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        TreeSet<Integer> ts = new TreeSet();
+        for (int v : nums) {
+            ts.add(v);
+        }
+        int idx = 1;
+        Map<Integer, Integer> m = new HashMap<>();
+        for (int v : ts) {
+            m.put(v, idx++);
+        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
+        int ans = 1;
+        for (int v : nums) {
+            int x = m.get(v);
+            int t = tree.query(x - 1) + 1;
+            ans = Math.max(ans, t);
+            tree.update(x, t);
+        }
+        return ans;
+    }
+}
+
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int val) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], val);
+            x += lowbit(x);
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s = Math.max(s, c[x]);
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    public static int lowbit(int x) {
+        return x & -x;
+    }
+}
+```
+
 ### **TypeScript**
+
+动态规划：
 
 ```ts
 function lengthOfLIS(nums: number[]): number {
@@ -122,6 +252,8 @@ function lengthOfLIS(nums: number[]): number {
 ```
 
 ### **C++**
+
+动态规划：
 
 ```cpp
 class Solution {
@@ -141,7 +273,63 @@ public:
 };
 ```
 
+树状数组：
+
+```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+
+    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+
+    void update(int x, int val) {
+        while (x <= n)
+        {
+            c[x] = max(c[x], val);
+            x += lowbit(x);
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0)
+        {
+            s = max(s, c[x]);
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    int lowbit(int x) {
+        return x & -x;
+    }
+};
+
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        set<int> s(nums.begin(), nums.end());
+        int idx = 1;
+        unordered_map<int, int> m;
+        for (int v : s) m[v] = idx++;
+        BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
+        int ans = 1;
+        for (int v : nums)
+        {
+            int x = m[v];
+            int t = tree->query(x - 1) + 1;
+            ans = max(ans, t);
+            tree->update(x, t);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
+
+动态规划：
 
 ```go
 func lengthOfLIS(nums []int) int {
@@ -166,6 +354,71 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+树状数组：
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, val int) {
+	for x <= this.n {
+		if this.c[x] < val {
+			this.c[x] = val
+		}
+		x += this.lowbit(x)
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		if s < this.c[x] {
+			s = this.c[x]
+		}
+		x -= this.lowbit(x)
+	}
+	return s
+}
+
+func lengthOfLIS(nums []int) int {
+	s := make(map[int]bool)
+	for _, v := range nums {
+		s[v] = true
+	}
+	var t []int
+	for v, _ := range s {
+		t = append(t, v)
+	}
+	sort.Ints(t)
+	m := make(map[int]int)
+	for i, v := range t {
+		m[v] = i + 1
+	}
+	ans := 1
+	tree := newBinaryIndexedTree(len(m))
+	for _, v := range nums {
+		x := m[v]
+		t := tree.query(x-1) + 1
+		if ans < t {
+			ans = t
+		}
+		tree.update(x, t)
+	}
+	return ans
 }
 ```
 

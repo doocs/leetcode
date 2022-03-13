@@ -1,23 +1,60 @@
-func lengthOfLIS(nums []int) int {
-	n := len(nums)
-	dp := make([]int, n)
-	dp[0] = 1
-	res := 1
-	for i := 1; i < n; i++ {
-		dp[i] = 1
-		for j := 0; j < i; j++ {
-			if nums[j] < nums[i] {
-				dp[i] = max(dp[i], dp[j]+1)
-			}
-		}
-		res = max(res, dp[i])
-	}
-	return res
+type BinaryIndexedTree struct {
+	n int
+	c []int
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, val int) {
+	for x <= this.n {
+		if this.c[x] < val {
+			this.c[x] = val
+		}
+		x += this.lowbit(x)
 	}
-	return b
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		if s < this.c[x] {
+			s = this.c[x]
+		}
+		x -= this.lowbit(x)
+	}
+	return s
+}
+
+func lengthOfLIS(nums []int) int {
+	s := make(map[int]bool)
+	for _, v := range nums {
+		s[v] = true
+	}
+	var t []int
+	for v, _ := range s {
+		t = append(t, v)
+	}
+	sort.Ints(t)
+	m := make(map[int]int)
+	for i, v := range t {
+		m[v] = i + 1
+	}
+	ans := 1
+	tree := newBinaryIndexedTree(len(m))
+	for _, v := range nums {
+		x := m[v]
+		t := tree.query(x-1) + 1
+		if ans < t {
+			ans = t
+		}
+		tree.update(x, t)
+	}
+	return ans
 }

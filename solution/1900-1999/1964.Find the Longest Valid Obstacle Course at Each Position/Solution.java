@@ -1,7 +1,7 @@
 class Solution {
-    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+    public int lengthOfLIS(int[] nums) {
         TreeSet<Integer> ts = new TreeSet();
-        for (int v : obstacles) {
+        for (int v : nums) {
             ts.add(v);
         }
         int idx = 1;
@@ -10,13 +10,12 @@ class Solution {
             m.put(v, idx++);
         }
         BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
-        int n = obstacles.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int v = obstacles[i];
+        int ans = 1;
+        for (int v : nums) {
             int x = m.get(v);
-            ans[i] = tree.query(x) + 1;
-            tree.update(x, ans[i]);
+            int t = tree.query(x - 1) + 1;
+            ans = Math.max(ans, t);
+            tree.update(x, t);
         }
         return ans;
     }
