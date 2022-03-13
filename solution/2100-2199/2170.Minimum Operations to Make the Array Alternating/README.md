@@ -86,7 +86,7 @@ class Solution {
     private int n;
 
     public int minimumOperations(int[] nums) {
-        this.nums = nums;    
+        this.nums = nums;
         n = nums.length;
         int ans = Integer.MAX_VALUE;
         for (int[] e1 : get(0)) {

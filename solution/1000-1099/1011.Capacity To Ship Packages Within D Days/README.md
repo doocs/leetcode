@@ -45,7 +45,7 @@
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>weights = [1,2,3,1,1], D = 4
+<strong>输入：</strong>weights = [1,2,3,1,1], days = 4
 <strong>输出：</strong>3
 <strong>解释：</strong>
 第 1 天：1

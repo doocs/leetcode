@@ -1,33 +1,20 @@
 ﻿class Solution {
 public:
     bool validUtf8(vector<int>& data) {
-        const unsigned modeContinue = 0xc0 ;
-        
-        int conti = 0 ;
-        for (auto it = data.begin(); it < data.end(); ++it)
+        int n = 0;
+        for (int& v : data)
         {
-            
-            if (0 == conti) // 首字节
+            if (n > 0)
             {
-                if (*it < 0x80)
-                    continue ;
-                else if (*it < 0xe0)
-                    conti = 1 ;
-                else if (*it < 0xf0)
-                    conti = 2 ;
-                else if (*it < 0xf8)
-                    conti = 3 ;
-                else
-                    return false ;
+                if (v >> 6 != 0b10) return false;
+                --n;
             }
-            else // 后续字节
-            {
-                --conti ;
-                if ((*it & modeContinue) != 0x80)
-                    return false ;
-            }
+            else if (v >> 7 == 0) n = 0;
+            else if (v >> 5 == 0b110) n = 1;
+            else if (v >> 4 == 0b1110) n = 2;
+            else if (v >> 3 == 0b11110) n = 3;
+            else return false; 
         }
-        
-        return 0 == conti ;
+        return n == 0;
     }
 };

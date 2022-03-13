@@ -4,31 +4,32 @@
 
 ## Description
 
-<p>Given two strings <b>s1</b> and <b>s2</b>, write a function to return true if <b>s2</b> contains the permutation of <b>s1</b>. In other words, one of the first string&#39;s permutations is the <b>substring</b> of the second string.</p>
+<p>Given two strings <code>s1</code> and <code>s2</code>, return <code>true</code><em> if </em><code>s2</code><em> contains a permutation of </em><code>s1</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
+
+<p>In other words, return <code>true</code> if one of <code>s1</code>&#39;s permutations is the substring of <code>s2</code>.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<b>Input: </b>s1 = &quot;ab&quot; s2 = &quot;eidbaooo&quot;
-<b>Output: </b>True
-<b>Explanation:</b> s2 contains one permutation of s1 (&quot;ba&quot;).
+<strong>Input:</strong> s1 = &quot;ab&quot;, s2 = &quot;eidbaooo&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> s2 contains one permutation of s1 (&quot;ba&quot;).
 </pre>
 
-<p><b>Example 2:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-<b>Input:</b>s1= &quot;ab&quot; s2 = &quot;eidboaoo&quot;
-<b>Output:</b> False
+<strong>Input:</strong> s1 = &quot;ab&quot;, s2 = &quot;eidboaoo&quot;
+<strong>Output:</strong> false
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The input strings only contain lower case letters.</li>
-	<li>The length of both given strings is in range [1, 10,000].</li>
+	<li><code>1 &lt;= s1.length, s2.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
 
 ## Solutions

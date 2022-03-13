@@ -28,12 +28,12 @@
 <strong>Explanation:</strong> One possible scenario applied on s1 is:
 &quot;great&quot; --&gt; &quot;gr/eat&quot; // divide at random index.
 &quot;gr/eat&quot; --&gt; &quot;gr/eat&quot; // random decision is not to swap the two substrings and keep them in order.
-&quot;gr/eat&quot; --&gt; &quot;g/r / e/at&quot; // apply the same algorithm recursively on both substrings. divide at ranom index each of them.
+&quot;gr/eat&quot; --&gt; &quot;g/r / e/at&quot; // apply the same algorithm recursively on both substrings. divide at random index each of them.
 &quot;g/r / e/at&quot; --&gt; &quot;r/g / e/at&quot; // random decision was to swap the first substring and to keep the second substring in the same order.
 &quot;r/g / e/at&quot; --&gt; &quot;r/g / e/ a/t&quot; // again apply the algorithm recursively, divide &quot;at&quot; to &quot;a/t&quot;.
 &quot;r/g / e/ a/t&quot; --&gt; &quot;r/g / e/ a/t&quot; // random decision is to keep both substrings in the same order.
-The algorithm stops now and the result string is &quot;rgeat&quot; which is s2.
-As there is one possible scenario that led s1 to be scrambled to s2, we return true.
+The algorithm stops now, and the result string is &quot;rgeat&quot; which is s2.
+As one possible scenario led s1 to be scrambled to s2, we return true.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -56,7 +56,7 @@ As there is one possible scenario that led s1 to be scrambled to s2, we return t
 <ul>
 	<li><code>s1.length == s2.length</code></li>
 	<li><code>1 &lt;= s1.length &lt;= 30</code></li>
-	<li><code>s1</code> and <code>s2</code> consist of lower-case English letters.</li>
+	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
 
 ## Solutions

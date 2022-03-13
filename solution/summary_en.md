@@ -2162,6 +2162,7 @@
     -   [2099.Find Subsequence of Length K With the Largest Sum](/solution/2000-2099/2099.Find%20Subsequence%20of%20Length%20K%20With%20the%20Largest%20Sum/README_EN.md)
 
 -   2100-2199
+
     -   [2100.Find Good Days to Rob the Bank](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README_EN.md)
     -   [2101.Detonate the Maximum Bombs](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md)
     -   [2102.Sequentially Ordinal Rank Tracker](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README_EN.md)
@@ -2261,3 +2262,10 @@
     -   [2196.Create Binary Tree From Descriptions](/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README_EN.md)
     -   [2197.Replace Non-Coprime Numbers in Array](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md)
     -   [2198.Number of Single Divisor Triplets](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README_EN.md)
+    -   [2199.Finding the Topic of Each Post](/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README_EN.md)
+
+-   2200-2299
+    -   [2200.Find All K-Distant Indices in an Array](/solution/2200-2299/2200.Find%20All%20K-Distant%20Indices%20in%20an%20Array/README_EN.md)
+    -   [2201.Count Artifacts That Can Be Extracted](/solution/2200-2299/2201.Count%20Artifacts%20That%20Can%20Be%20Extracted/README_EN.md)
+    -   [2202.Maximize the Topmost Element After K Moves](/solution/2200-2299/2202.Maximize%20the%20Topmost%20Element%20After%20K%20Moves/README_EN.md)
+    -   [2203.Minimum Weighted Subgraph With the Required Paths](/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README_EN.md)
