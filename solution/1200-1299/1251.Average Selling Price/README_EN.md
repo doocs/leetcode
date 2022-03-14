@@ -89,7 +89,7 @@ Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 ```sql
 SELECT p.product_id,
        Round(( Sum(u.units * p.price) + 0.0 ) / ( Sum(units) + 0.0 ), 2)
-       avg_price
+       average_price
 FROM   Prices p
        INNER JOIN UnitsSold u
                ON p.product_id = u.product_id
