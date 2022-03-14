@@ -65,6 +65,52 @@ class Solution:
         return ans
 ```
 
+```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
+        self.d = [0] * (n + 1)
+
+    @staticmethod
+    def lowbit(x):
+        return x & -x
+
+    def update(self, x, val, cnt):
+        while x <= self.n:
+            if self.c[x] < val:
+                self.c[x] = val
+                self.d[x] = cnt
+            elif self.c[x] == val:
+                self.d[x] += cnt
+            x += BinaryIndexedTree.lowbit(x)
+
+    def query(self, x):
+        val = cnt = 0
+        while x:
+            if self.c[x] > val:
+                val = self.c[x]
+                cnt = self.d[x]
+            elif self.c[x] == val:
+                cnt += self.d[x]
+            x -= BinaryIndexedTree.lowbit(x)
+        return val, cnt
+
+
+class Solution:
+    def findNumberOfLIS(self, nums: List[int]) -> int:
+        s = sorted(set(nums))
+        m = {v: i for i, v in enumerate(s, 1)}
+        n = len(m)
+        tree = BinaryIndexedTree(n)
+        ans = 0
+        for v in nums:
+            x = m[v]
+            val, cnt = tree.query(x - 1)
+            tree.update(x, val + 1, max(cnt, 1))
+        return tree.query(n)[1]
+```
+
 ### **Java**
 
 ```java
@@ -94,6 +140,73 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int findNumberOfLIS(int[] nums) {
+        TreeSet<Integer> ts = new TreeSet();
+        for (int v : nums) {
+            ts.add(v);
+        }
+        int idx = 1;
+        Map<Integer, Integer> m = new HashMap<>();
+        for (int v : ts) {
+            m.put(v, idx++);
+        }
+        int n = m.size();
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        for (int v : nums) {
+            int x = m.get(v);
+            int[] t = tree.query(x - 1);
+            tree.update(x, t[0] + 1, Math.max(t[1], 1));
+        }
+        return tree.query(n)[1];
+    }
+}
+
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+    private int[] d;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+        d = new int[n + 1];
+    }
+
+    public void update(int x, int val, int cnt) {
+        while (x <= n) {
+            if (c[x] < val) {
+                c[x] = val;
+                d[x] = cnt;
+            } else if (c[x] == val) {
+                d[x] += cnt;
+            }
+            x += lowbit(x);
+        }
+    }
+
+    public int[] query(int x) {
+        int val = 0;
+        int cnt = 0;
+        while (x > 0) {
+            if (val < c[x]) {
+                val = c[x];
+                cnt = d[x];
+            } else if (val == c[x]) {
+                cnt += d[x];
+            }
+            x -= lowbit(x);
+        }
+        return new int[]{val, cnt};
+    }
+
+    public static int lowbit(int x) {
+        return x & -x;
     }
 }
 ```
@@ -129,6 +242,68 @@ public:
 };
 ```
 
+```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+    vector<int> d;
+
+    BinaryIndexedTree(int _n): n(_n), c(_n + 1), d(n + 1){}
+
+    void update(int x, int val, int cnt) {
+        while (x <= n)
+        {
+            if (c[x] < val)
+            {
+                c[x] = val;
+                d[x] = cnt;
+            }
+            else if (c[x] == val) d[x] += cnt;
+            x += lowbit(x);
+        }
+    }
+
+    vector<int> query(int x) {
+        int val = 0, cnt = 0;
+        while (x > 0)
+        {
+            if (val < c[x])
+            {
+                val = c[x];
+                cnt = d[x];
+            }
+            else if (val == c[x]) cnt += d[x];
+            x -= lowbit(x);
+        }
+        return {val, cnt};
+    }
+
+    int lowbit(int x) {
+        return x & -x;
+    }
+};
+
+class Solution {
+public:
+    int findNumberOfLIS(vector<int>& nums) {
+        set<int> s(nums.begin(), nums.end());
+        int idx = 1;
+        unordered_map<int, int> m;
+        for (int v : s) m[v] = idx++;
+        int n = m.size();
+        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
+        for (int v : nums)
+        {
+            int x = m[v];
+            auto t = tree->query(x - 1);
+            tree->update(x, t[0] + 1, max(t[1], 1));
+        }
+        return tree->query(n)[1];
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -156,6 +331,81 @@ func findNumberOfLIS(nums []int) int {
 		}
 	}
 	return ans
+}
+```
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+	d []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	d := make([]int, n+1)
+	return &BinaryIndexedTree{n, c, d}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, val, cnt int) {
+	for x <= this.n {
+		if this.c[x] < val {
+			this.c[x] = val
+			this.d[x] = cnt
+		} else if this.c[x] == val {
+			this.d[x] += cnt
+		}
+		x += this.lowbit(x)
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) []int {
+	var val, cnt int
+	for x > 0 {
+		if val < this.c[x] {
+			val = this.c[x]
+			cnt = this.d[x]
+		} else if val == this.c[x] {
+			cnt += this.d[x]
+		}
+		x -= this.lowbit(x)
+	}
+	return []int{val, cnt}
+}
+
+func findNumberOfLIS(nums []int) int {
+	s := make(map[int]bool)
+	for _, v := range nums {
+		s[v] = true
+	}
+	var t []int
+	for v, _ := range s {
+		t = append(t, v)
+	}
+	sort.Ints(t)
+	m := make(map[int]int)
+	for i, v := range t {
+		m[v] = i + 1
+	}
+	n := len(m)
+	tree := newBinaryIndexedTree(n)
+	for _, v := range nums {
+		x := m[v]
+		t := tree.query(x - 1)
+		tree.update(x, t[0]+1, max(t[1], 1))
+	}
+	return tree.query(n)[1]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
