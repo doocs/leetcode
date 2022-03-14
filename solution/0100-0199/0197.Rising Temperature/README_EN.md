@@ -58,13 +58,23 @@ In 2015-01-04, the temperature was higher than the previous day (20 -&gt; 30).
 
 ### **SQL**
 
-```
+```sql
 select w1.Id
 from
     Weather w1,
     Weather w2
 where
     DATEDIFF(w1.RecordDate, w2.RecordDate) = 1 and w1.Temperature > w2.Temperature
+```
+
+```sql
+SELECT
+	w2.id AS Id 
+FROM
+	weather AS w1
+	JOIN weather AS w2 ON DATE_ADD( w1.recordDate, INTERVAL 1 DAY) = w2.recordDate 
+WHERE
+	w1.temperature < w2.temperature
 ```
 
 <!-- tabs:end -->
