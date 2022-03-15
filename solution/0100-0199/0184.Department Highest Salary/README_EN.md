@@ -82,7 +82,7 @@ Department table:
 
 ### **SQL**
 
-```
+```sql
 SELECT
 	Department.NAME AS Department,
 	Employee.NAME AS Employee,
@@ -96,6 +96,26 @@ WHERE
     IN (SELECT DepartmentId, max( Salary )
         FROM Employee
         GROUP BY DepartmentId )
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+	d.NAME AS Department,
+	e1.NAME AS Employee,
+	e1.salary AS Salary 
+FROM
+	Employee AS e1
+	JOIN Department AS d ON e1.departmentId = d.id 
+WHERE
+	e1.salary = (
+	SELECT
+		MAX( Salary ) 
+	FROM
+		Employee AS e2 
+	WHERE
+		e2.departmentId = d.id 
+	)
 ```
 
 <!-- tabs:end -->
