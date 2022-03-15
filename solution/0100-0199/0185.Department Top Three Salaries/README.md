@@ -102,7 +102,7 @@ Department  表:
 
 ### **SQL**
 
-```
+```sql
 SELECT
 	Department.NAME AS Department,
 	Employee.NAME AS Employee,
