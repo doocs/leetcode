@@ -58,6 +58,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+简单 DFS。可以预先算出按位或的最大值 mx，然后 DFS 搜索按位或结果等于 mx 的所有子集数。也可以在 DFS 搜索中逐渐更新 mx 与对应的子集数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -80,6 +82,25 @@ class Solution:
             dfs(i + 1, t)
             dfs(i + 1, t | nums[i])
 
+        dfs(0, 0)
+        return ans
+```
+
+```python
+class Solution:
+    def countMaxOrSubsets(self, nums: List[int]) -> int:
+        def dfs(u, t):
+            nonlocal ans, mx
+            if u == len(nums):
+                if t > mx:
+                    mx, ans = t, 1
+                elif t == mx:
+                    ans += 1
+                return
+            dfs(u + 1, t | nums[u])
+            dfs(u + 1, t)
+
+        ans = mx = 0
         dfs(0, 0)
         return ans
 ```
@@ -113,6 +134,34 @@ class Solution {
         }
         dfs(i + 1, t);
         dfs(i + 1, t | nums[i]);
+    }
+}
+```
+
+```java
+class Solution {
+    private int mx;
+    private int ans;
+    private int[] nums;
+
+    public int countMaxOrSubsets(int[] nums) {
+        this.nums = nums;
+        dfs(0, 0);
+        return ans;    
+    }
+
+    private void dfs(int u, int t) {
+        if (u == nums.length) {
+            if (t > mx) {
+                mx = t;
+                ans = 1;
+            } else if (t == mx) {
+                ++ans;
+            }
+            return;
+        }
+        dfs(u + 1, t);
+        dfs(u + 1, t | nums[u]);
     }
 }
 ```
@@ -194,6 +243,34 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int mx;
+    int ans;
+
+    int countMaxOrSubsets(vector<int>& nums) {
+        dfs(0, 0, nums);
+        return ans;    
+    }
+
+    void dfs(int u, int t, vector<int>& nums) {
+        if (u == nums.size())
+        {
+            if (t > mx)
+            {
+                mx = t;
+                ans = 1;
+            }
+            else if (t == mx) ++ans;
+            return;
+        }
+        dfs(u + 1, t, nums);
+        dfs(u + 1, t | nums[u], nums);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -215,6 +292,27 @@ func countMaxOrSubsets(nums []int) int {
 		dfs(i+1, t|nums[i])
 	}
 
+	dfs(0, 0)
+	return ans
+}
+```
+
+```go
+func countMaxOrSubsets(nums []int) int {
+	mx, ans := 0, 0
+	var dfs func(u, t int)
+	dfs = func(u, t int) {
+		if u == len(nums) {
+			if t > mx {
+				mx, ans = t, 1
+			} else if t == mx {
+				ans++
+			}
+			return
+		}
+		dfs(u+1, t)
+		dfs(u+1, t|nums[u])
+	}
 	dfs(0, 0)
 	return ans
 }
