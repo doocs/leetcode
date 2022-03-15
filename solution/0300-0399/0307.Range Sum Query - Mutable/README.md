@@ -56,6 +56,8 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树状数组**
+
 树状数组。
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
@@ -64,6 +66,8 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
 
 这两个操作的时间复杂度均为 `O(log n)`。
+
+**方法二：线段树**
 
 <!-- tabs:start -->
 
@@ -106,6 +110,73 @@ class NumArray:
 
     def sumRange(self, left: int, right: int) -> int:
         return self.tree.query(right + 1) - self.tree.query(left)
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# obj.update(index,val)
+# param_2 = obj.sumRange(left,right)
+```
+
+```python
+class Node:
+    def __init__(self):
+        self.l = 0
+        self.r = 0
+        self.v = 0
+
+class SegmentTree:
+    def __init__(self, nums):
+        n = len(nums)
+        self.tr = [Node() for _ in range(4 * n)]
+        self.build(1, 1, n)
+        for i, v in enumerate(nums, 1):
+            self.modify(1, i, v)
+        
+    def build(self, u, l, r):
+        self.tr[u].l = l
+        self.tr[u].r = r
+        if l == r:
+            return
+        mid = (l + r) >> 1
+        self.build(u << 1, l, mid)
+        self.build(u << 1 | 1, mid + 1, r)
+
+    def modify(self, u, x, v):
+        if self.tr[u].l == x and self.tr[u].r == x:
+            self.tr[u].v = v
+            return
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        if x <= mid:
+            self.modify(u << 1, x, v)
+        else:
+            self.modify(u << 1 | 1, x, v)
+        self.pushup(u)
+    
+    def pushup(self, u):
+        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
+
+    def query(self, u, l, r):
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].v
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        v = 0
+        if l <= mid:
+            v = self.query(u << 1, l, r)
+        if r > mid:
+            v += self.query(u << 1 | 1, l, r)
+        return v
+
+class NumArray:
+
+    def __init__(self, nums: List[int]):
+        self.tree = SegmentTree(nums)
+
+    def update(self, index: int, val: int) -> None:
+        self.tree.modify(1, index + 1, val)
+
+    def sumRange(self, left: int, right: int) -> int:
+        return self.tree.query(1, left + 1, right + 1)
 
 
 # Your NumArray object will be instantiated and called as such:
@@ -178,6 +249,97 @@ class NumArray {
  */
 ```
 
+```java
+class Node {
+    int l;
+    int r;
+    int v;
+}
+
+class SegmentTree {
+    private Node[] tr;
+
+    public SegmentTree(int[] nums) {
+        int n = nums.length;
+        tr = new Node[4 * n];
+        for (int i = 0; i < tr.length; ++i) {
+            tr[i] = new Node();
+        }
+        build(1, 1, n);
+        for (int i = 0; i < n; ++i) {
+            modify(1, i + 1, nums[i]);
+        }
+    }
+
+    public void build(int u, int l, int r) {
+        tr[u].l = l;
+        tr[u].r = r;
+        if (l == r) {
+            return;
+        }
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    public void modify(int u, int x, int v) {
+        if (tr[u].l == x && tr[u].r == x) {
+            tr[u].v = v;
+            return;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        if (x <= mid) {
+            modify(u << 1, x, v);
+        } else {
+            modify(u << 1 | 1, x, v);
+        }
+        pushup(u);
+    }
+
+    public void pushup(int u) {
+        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
+    }
+
+    public int query(int u, int l, int r) {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            return tr[u].v;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        int v = 0;
+        if (l <= mid) {
+            v = query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += query(u << 1 | 1, l, r);
+        }
+        return v;
+    }
+}
+
+class NumArray {
+    private SegmentTree tree;
+
+    public NumArray(int[] nums) {
+        tree = new SegmentTree(nums);
+    }
+    
+    public void update(int index, int val) {
+        tree.modify(1, index + 1, val);
+    }
+    
+    public int sumRange(int left, int right) {
+        return tree.query(1, left + 1, right + 1);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * obj.update(index,val);
+ * int param_2 = obj.sumRange(left,right);
+ */
+```
+
 ### **C++**
 
 ```cpp
@@ -229,6 +391,86 @@ public:
 
     int sumRange(int left, int right) {
         return tree->query(right + 1) - tree->query(left);
+    }
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray* obj = new NumArray(nums);
+ * obj->update(index,val);
+ * int param_2 = obj->sumRange(left,right);
+ */
+```
+
+```cpp
+class Node {
+public:
+    int l;
+    int r;
+    int v;
+};
+
+class SegmentTree {
+public:
+    vector<Node*> tr;
+
+    SegmentTree(vector<int>& nums) {
+        int n = nums.size();
+        tr.resize(4 * n);
+        for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
+        build(1, 1, n);
+        for (int i = 0; i < n; ++i) modify(1, i + 1, nums[i]);
+    }
+
+    void build(int u, int l, int r) {
+        tr[u]->l = l;
+        tr[u]->r = r;
+        if (l == r) return;
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    void modify(int u, int x, int v) {
+        if (tr[u]->l == x && tr[u]->r == x)
+        {
+            tr[u]->v = v;
+            return;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        if (x <= mid) modify(u << 1, x, v);
+        else modify(u << 1 | 1, x, v);
+        pushup(u);
+    }
+
+    void pushup(int u) {
+        tr[u]->v = tr[u << 1]->v + tr[u << 1 | 1]->v;
+    }
+
+    int query(int u, int l, int r) {
+        if (tr[u]->l >= l && tr[u]->r <= r) return tr[u]->v;
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        int v = 0;
+        if (l <= mid) v = query(u << 1, l, r);
+        if (r > mid) v += query(u << 1 | 1, l, r);
+        return v;
+    }
+};
+
+class NumArray {
+public:
+    SegmentTree* tree;
+
+    NumArray(vector<int>& nums) {
+        tree = new SegmentTree(nums);
+    }
+    
+    void update(int index, int val) {
+        return tree->modify(1, index + 1, val);
+    }
+    
+    int sumRange(int left, int right) {
+        return tree->query(1, left + 1, right + 1);
     }
 };
 
