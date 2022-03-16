@@ -69,6 +69,18 @@ lfu.get(4);      // 返回 4
 
 <!-- 这里可写通用的实现逻辑 -->
 
+和 [LRU 缓存](/solution/0100-0199/0146.Lru%20Cache/README.md) 类似的思路，用 `map<key, node>` 和 `map<freq, list<node>>` 存储不同使用频率的节点
+
+对于 `get` 操作，判断 key 是否存在哈希表中：
+
+- 若不存在，返回 -1
+- 若存在，增加节点的使用频率，返回节点值
+
+对于 `put` 操作，同样判断 key 是否存在哈希表中：
+
+- 若不存在，首先判断缓存容量是否足够，不够的话需要先删除使用次数最少的节点。然后再创建新节点，插入使用频率为 1 的双链表
+- 若存在，修改原节点的值，增加节点的使用频率
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -84,7 +96,247 @@ lfu.get(4);      // 返回 4
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class LFUCache {
 
+    private final Map<Integer, Node> map;
+    private final Map<Integer, DoublyLinkedList> freqMap;
+    private final int capacity;
+    private int minFreq;
+
+    public LFUCache(int capacity) {
+        this.capacity = capacity;
+        map = new HashMap<>(capacity, 1);
+        freqMap = new HashMap<>();
+    }
+
+    public int get(int key) {
+        if (capacity == 0) {
+            return -1;
+        }
+        if (!map.containsKey(key)) {
+            return -1;
+        }
+        Node node = map.get(key);
+        incrFreq(node);
+        return node.value;
+    }
+
+    public void put(int key, int value) {
+        if (capacity == 0) {
+            return;
+        }
+        if (map.containsKey(key)) {
+            Node node = map.get(key);
+            node.value = value;
+            incrFreq(node);
+            return;
+        }
+        if (map.size() == capacity) {
+            DoublyLinkedList list = freqMap.get(minFreq);
+            map.remove(list.removeLast().key);
+        }
+        Node node = new Node(key, value);
+        addNode(node);
+        map.put(key, node);
+        minFreq = 1;
+    }
+
+    private void incrFreq(Node node) {
+        int freq = node.freq;
+        DoublyLinkedList list = freqMap.get(freq);
+        list.remove(node);
+        if (list.isEmpty()) {
+            freqMap.remove(freq);
+            if (freq == minFreq) {
+                minFreq++;
+            }
+        }
+        node.freq++;
+        addNode(node);
+    }
+
+    private void addNode(Node node) {
+        int freq = node.freq;
+        DoublyLinkedList list = freqMap.getOrDefault(freq, new DoublyLinkedList());
+        list.addFirst(node);
+        freqMap.put(freq, list);
+    }
+
+    private static class Node {
+        int key;
+        int value;
+        int freq;
+        Node prev;
+        Node next;
+
+        Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+            this.freq = 1;
+        }
+    }
+
+    private static class DoublyLinkedList {
+
+        private final Node head;
+        private final Node tail;
+
+        public DoublyLinkedList() {
+            head = new Node(-1, -1);
+            tail = new Node(-1, -1);
+            head.next = tail;
+            tail.prev = head;
+        }
+
+        public void addFirst(Node node) {
+            node.prev = head;
+            node.next = head.next;
+            head.next.prev = node;
+            head.next = node;
+        }
+
+        public Node remove(Node node) {
+            node.next.prev = node.prev;
+            node.prev.next = node.next;
+            node.next = null;
+            node.prev = null;
+            return node;
+        }
+
+        public Node removeLast() {
+            return remove(tail.prev);
+        }
+
+        public boolean isEmpty() {
+            return head.next == tail;
+        }
+    }
+}
+```
+
+### **Go**
+
+```go
+type LFUCache struct {
+	cache    map[int]*node
+	freqMap  map[int]*list
+	minFreq  int
+	capacity int
+}
+
+func Constructor(capacity int) LFUCache {
+	return LFUCache{
+		cache:    make(map[int]*node),
+		freqMap:  make(map[int]*list),
+		capacity: capacity,
+	}
+}
+
+func (this *LFUCache) Get(key int) int {
+	if this.capacity == 0 {
+		return -1
+	}
+
+	n, ok := this.cache[key]
+	if !ok {
+		return -1
+	}
+
+	this.incrFreq(n)
+	return n.val
+}
+
+func (this *LFUCache) Put(key int, value int) {
+	if this.capacity == 0 {
+		return
+	}
+
+	n, ok := this.cache[key]
+	if ok {
+		n.val = value
+		this.incrFreq(n)
+		return
+	}
+
+	if len(this.cache) == this.capacity {
+		l := this.freqMap[this.minFreq]
+		delete(this.cache, l.removeBack().key)
+	}
+	n = &node{key: key, val: value, freq: 1}
+	this.addNode(n)
+	this.cache[key] = n
+	this.minFreq = 1
+}
+
+func (this *LFUCache) incrFreq(n *node) {
+	l := this.freqMap[n.freq]
+	l.remove(n)
+	if l.empty() {
+		delete(this.freqMap, n.freq)
+		if n.freq == this.minFreq {
+			this.minFreq++
+		}
+	}
+	n.freq++
+	this.addNode(n)
+}
+
+func (this *LFUCache) addNode(n *node) {
+	l, ok := this.freqMap[n.freq]
+	if !ok {
+		l = newList()
+		this.freqMap[n.freq] = l
+	}
+	l.pushFront(n)
+}
+
+type node struct {
+	key  int
+	val  int
+	freq int
+	prev *node
+	next *node
+}
+
+type list struct {
+	head *node
+	tail *node
+}
+
+func newList() *list {
+	head := new(node)
+	tail := new(node)
+	head.next = tail
+	tail.prev = head
+	return &list{
+		head: head,
+		tail: tail,
+	}
+}
+
+func (l *list) pushFront(n *node) {
+	n.prev = l.head
+	n.next = l.head.next
+	l.head.next.prev = n
+	l.head.next = n
+}
+
+func (l *list) remove(n *node) {
+	n.prev.next = n.next
+	n.next.prev = n.prev
+	n.next = nil
+	n.prev = nil
+}
+
+func (l *list) removeBack() *node {
+	n := l.tail.prev
+	l.remove(n)
+	return n
+}
+
+func (l *list) empty() bool {
+	return l.head.next == l.tail
+}
 ```
 
 ### **...**
