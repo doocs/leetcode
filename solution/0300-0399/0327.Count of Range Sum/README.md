@@ -50,7 +50,11 @@
 
 这两个操作的时间复杂度均为 `O(log n)`。
 
-本题中，对于每个下标 j，以 j 为右端点的下标对的数量，就等于 `preSum[1..j]` 中的所有整数，出现在区间 `[preSum[j] - upper, preSum[j] - lower]` 的次数。我们可以用树状数组，从左到右扫描前缀和数组，每遇到一个前缀和 s，就在树状数组中查询区间 `[preSum[j] - upper, preSum[j] - lower]` 内的整数的数量，随后将 s 更新至树状数组。
+本题中，对于每个下标 j，以 j 为右端点的下标对的数量，就等于 `preSum[1..j]` 中的所有整数，出现在区间 `[preSum[j] - upper, preSum[j] - lower]` 的次数。
+
+> `lower <= preSum[j] - preSum[i - 1] <= upper`，变形得 `preSum[j] - upper <= preSum[i - 1] <= preSum[j] - lower`。
+
+我们可以用树状数组，从左到右扫描前缀和数组，每遇到一个前缀和 s，就在树状数组中查询区间 `[preSum[j] - upper, preSum[j] - lower]` 内的整数的数量，随后将 s 更新至树状数组。
 
 <!-- tabs:start -->
 
