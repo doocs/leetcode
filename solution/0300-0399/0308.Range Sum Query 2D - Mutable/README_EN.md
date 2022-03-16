@@ -55,6 +55,8 @@ numMatrix.sumRegion(2, 1, 4, 3); // return 10 (i.e. sum of the right red rectang
 
 ## Solutions
 
+Binary Indexed Tree or Segment Tree.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -100,6 +102,74 @@ class NumMatrix:
 
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
         return sum(tree.query(col2 + 1) - tree.query(col1) for tree in self.trees[row1: row2 + 1])
+
+
+# Your NumMatrix object will be instantiated and called as such:
+# obj = NumMatrix(matrix)
+# obj.update(row,col,val)
+# param_2 = obj.sumRegion(row1,col1,row2,col2)
+```
+
+```python
+class Node:
+    def __init__(self):
+        self.l = 0
+        self.r = 0
+        self.v = 0
+
+class SegmentTree:
+    def __init__(self, nums):
+        n = len(nums)
+        self.tr = [Node() for _ in range(4 * n)]
+        self.build(1, 1, n)
+        for i, v in enumerate(nums):
+            self.modify(1, i + 1, v)
+
+    def build(self, u, l, r):
+        self.tr[u].l = l
+        self.tr[u].r = r
+        if l == r:
+            return
+        mid = (l + r) >> 1
+        self.build(u << 1, l, mid)
+        self.build(u << 1 | 1, mid + 1, r)
+
+    def modify(self, u, x, v):
+        if self.tr[u].l == x and self.tr[u].r == x:
+            self.tr[u].v = v
+            return
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        if x <= mid:
+            self.modify(u << 1, x, v)
+        else:
+            self.modify(u << 1 | 1, x, v)
+        self.pushup(u)
+        
+    def pushup(self, u):
+        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
+    
+    def query(self, u, l, r):
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].v
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        v = 0
+        if l <= mid:
+            v = self.query(u << 1, l, r)
+        if r > mid:
+            v += self.query(u << 1 | 1, l, r)
+        return v
+
+class NumMatrix:
+
+    def __init__(self, matrix: List[List[int]]):
+        self.trees = [SegmentTree(row) for row in matrix]
+
+    def update(self, row: int, col: int, val: int) -> None:
+        tree = self.trees[row]
+        tree.modify(1, col + 1, val)
+
+    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
+        return sum(self.trees[row].query(1, col1 + 1, col2 + 1) for row in range(row1, row2 + 1))
 
 
 # Your NumMatrix object will be instantiated and called as such:
@@ -181,6 +251,107 @@ class NumMatrix {
  */
 ```
 
+```java
+class Node {
+    int l;
+    int r;
+    int v;
+}
+
+class SegmentTree {
+    private Node[] tr;
+    
+    public SegmentTree(int[] nums) {
+        int n = nums.length;
+        tr = new Node[4 * n];
+        for (int i = 0; i < tr.length; ++i) {
+            tr[i] = new Node();
+        }
+        build(1, 1, n);
+        for (int i = 0; i < n; ++i) {
+            modify(1, i + 1, nums[i]);
+        }
+    }
+
+    public void build(int u, int l, int r) {
+        tr[u].l = l;
+        tr[u].r = r;
+        if (l == r) {
+            return;
+        }
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    public void modify(int u, int x, int v) {
+        if (tr[u].l == x && tr[u].r == x) {
+            tr[u].v = v;
+            return;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        if (x <= mid) {
+            modify(u << 1, x, v);
+        } else {
+            modify(u << 1 | 1, x, v);
+        }
+        pushup(u);
+    }
+
+    public void pushup(int u) {
+        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
+    }
+
+    public int query(int u, int l, int r) {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            return tr[u].v;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        int v = 0;
+        if (l <= mid) {
+            v = query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += query(u << 1 | 1, l, r);
+        }
+        return v;
+    }
+}
+
+class NumMatrix {
+    private SegmentTree[] trees;
+
+    public NumMatrix(int[][] matrix) {
+        int m = matrix.length;
+        trees = new SegmentTree[m];
+        for (int i = 0; i < m; ++i) {
+            trees[i] = new SegmentTree(matrix[i]);
+        }
+    }
+    
+    public void update(int row, int col, int val) {
+        SegmentTree tree = trees[row];
+        tree.modify(1, col + 1, val);
+    }
+    
+    public int sumRegion(int row1, int col1, int row2, int col2) {
+        int s = 0;
+        for (int row = row1; row <= row2; ++row) {
+            SegmentTree tree = trees[row];
+            s += tree.query(1, col1 + 1, col2 + 1);
+        }
+        return s;
+    }
+}
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix obj = new NumMatrix(matrix);
+ * obj.update(row,col,val);
+ * int param_2 = obj.sumRegion(row1,col1,row2,col2);
+ */
+```
+
 ### **C++**
 
 ```cpp
@@ -242,6 +413,91 @@ public:
             BinaryIndexedTree* tree = trees[i];
             s += tree->query(col2 + 1) - tree->query(col1);
         }
+        return s;
+    }
+};
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix* obj = new NumMatrix(matrix);
+ * obj->update(row,col,val);
+ * int param_2 = obj->sumRegion(row1,col1,row2,col2);
+ */
+```
+
+```cpp
+class Node {
+public:
+    int l;
+    int r;
+    int v;
+};
+
+class SegmentTree {
+public:
+    vector<Node*> tr;
+
+    SegmentTree(vector<int>& nums) {
+        int n = nums.size();
+        tr.resize(4 * n);
+        for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
+        build(1, 1, n);
+        for (int i = 0; i < n; ++i) modify(1, i + 1, nums[i]);
+    }
+
+    void build(int u, int l, int r) {
+        tr[u]->l = l;
+        tr[u]->r = r;
+        if (l == r) return;
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    void modify(int u, int x, int v) {
+        if (tr[u]->l == x && tr[u]->r == x)
+        {
+            tr[u]->v = v;
+            return;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        if (x <= mid) modify(u << 1, x, v);
+        else modify(u << 1 | 1, x, v);
+        pushup(u);
+    }
+
+    void pushup(int u) {
+        tr[u]->v = tr[u << 1]->v + tr[u << 1 | 1]->v;
+    }
+
+    int query(int u, int l, int r) {
+        if (tr[u]->l >= l && tr[u]->r <= r) return tr[u]->v;
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        int v = 0;
+        if (l <= mid) v = query(u << 1, l, r);
+        if (r > mid) v += query(u << 1 | 1, l, r);
+        return v;
+    }
+};
+
+class NumMatrix {
+public:
+    vector<SegmentTree*> trees;
+
+    NumMatrix(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        trees.resize(m);
+        for (int i = 0; i < m; ++i) trees[i] = new SegmentTree(matrix[i]);
+    }
+    
+    void update(int row, int col, int val) {
+        SegmentTree* tree = trees[row];
+        tree->modify(1, col + 1, val);
+    }
+    
+    int sumRegion(int row1, int col1, int row2, int col2) {
+        int s = 0;
+        for (int row = row1; row <= row2; ++row) s += trees[row]->query(1, col1 + 1, col2 + 1);
         return s;
     }
 };
