@@ -60,12 +60,12 @@ We have three movies with odd-numbered IDs: 1, 3, and 5. The movie with ID = 3 i
 
 ### **SQL**
 
-```
+```sql
 SELECT *
 FROM cinema
 WHERE description NOT LIKE '%boring%'
-        AND mod(id,2)=1
-ORDER BY  rating desc;
+        AND mod(id, 2) = 1
+ORDER BY rating desc;
 ```
 
 <!-- tabs:end -->
