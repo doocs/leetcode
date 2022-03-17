@@ -222,7 +222,7 @@ func max(a, b int) int {
 
 ### **C#**
 
-```cpp
+```cs
 public class Solution {
     public int[][] Merge(int[][] intervals) {
         var res = new List<int[]>();
