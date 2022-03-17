@@ -41,13 +41,53 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestWord(self, words: List[str]) -> str:
+        cnt, ans = 0, ''
+        s = set(words)
+        for w in s:
+            n = len(w)
+            if all(w[:i] in s for i in range(1, n)):
+                if cnt < n:
+                    cnt, ans = n, w
+                elif cnt == n and w < ans:
+                    ans = w
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private Set<String> s;
 
+    public String longestWord(String[] words) {
+        s = new HashSet<>(Arrays.asList(words));
+        int cnt = 0;
+        String ans = "";
+        for (String w : s) {
+            int n = w.length();
+            if (check(w)) {
+                if (cnt < n) {
+                    cnt = n;
+                    ans = w;
+                } else if (cnt == n && w.compareTo(ans) < 0) {
+                    ans = w;
+                }
+            }
+        }
+        return ans;
+    }
+
+    private boolean check(String word) {
+        for (int i = 1, n = word.length(); i < n; ++i) {
+            if (!s.contains(word.substring(0, i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -98,6 +138,72 @@ impl Solution {
         }
         String::new()
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string longestWord(vector<string>& words) {
+        unordered_set<string> s(words.begin(), words.end());
+        int cnt = 0;
+        string ans = "";
+        for (auto w : s)
+        {
+            int n = w.size();
+            if (check(w, s))
+            {
+                if (cnt < n)
+                {
+                    cnt = n;
+                    ans = w;
+                }
+                else if (cnt == n && w < ans) ans = w;
+            }
+        }
+        return ans;
+    }
+
+    bool check(string& word, unordered_set<string>& s) {
+        for (int i = 1, n = word.size(); i < n; ++i)
+            if (!s.count(word.substr(0, i)))
+                return false;
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestWord(words []string) string {
+	s := make(map[string]bool)
+	for _, w := range words {
+		s[w] = true
+	}
+	cnt := 0
+	ans := ""
+	check := func(word string) bool {
+		for i, n := 1, len(word); i < n; i++ {
+			if !s[word[:i]] {
+				return false
+			}
+		}
+		return true
+	}
+	for w, _ := range s {
+		n := len(w)
+		if check(w) {
+			if cnt < n {
+				cnt, ans = n, w
+			} else if cnt == n && w < ans {
+				ans = w
+			}
+		}
+	}
+	return ans
 }
 ```
 
