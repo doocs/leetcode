@@ -46,7 +46,32 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“排序 + 双指针”实现。
+若是使用三层嵌套循环，必然会导致程序超时，可行但不可用，需要更合适的方法。
+
+因为不是返回对应的索引，所以可以对数组进行排序。
+
+1. 对 `nums` 进行排序。
+2. 遍历数组，并以当前遍历位置作为分割线，在右侧数组当中（不包括分割元素在内），寻找两个可以组成 `0 - nums[i]` 的值，将该题转换为**两数之和**。
+
+**优化：**
+
+- 当 `nums[i] > 0` 时，其后续的数值都比 `nums[i]` 大，那么就不可能存在两个数值一起组合为 0，可以提前结束遍历。
+- 若当前遍历数值与上一个数值一致（`nums[i] == nums[i - 1]`），可直接跳过（去重复）。
+- 相比两数之和，与其不同的是：**目标数组是有序的**。可使用**二分查找**或**头尾指针**快速搜索目标。
+
+**重复问题：**
+
+最简易的方式便是使用哈希表。还有一种技巧：**双指针**
+
+能够使用双指针（头尾指针）是搜索目标因为**数组是有序的**，当移动指针时，数值的变化可预测的。
+
+> 此处头尾指针使用 `l` 与 `r` 表示。
+
+当找到目标值之后，`l` 与 `r` 都需要进行移动，并且是**移动到不等于组合时的值**。如 `nums[l] == 0`，那么 `l` 需要移动至 `nums[l] != 0` 的位置，`r` 同理。
+
+为什么要同时移动两个指针，不会导致错过答案吗？并不会，比如当前组合是 `[-1, 0, 1]`，当 `l` 移动到了非 0 的位置时，那么 `r = 1` 是不可能在当前位置再次组合出一个不重复的答案。
+
+> 需注意，该技巧需要与第二条优化一起使用。
 
 <!-- tabs:start -->
 
@@ -237,7 +262,7 @@ public class ThreeSumComparer: IEqualityComparer<IList<int>>
     {
         return left[0] == right[0] && left[1] == right[1] && left[2] == right[2];
     }
-    
+
     public int GetHashCode(IList<int> obj)
     {
         return (obj[0] ^ obj[1] ^ obj[2]).GetHashCode();
@@ -248,7 +273,7 @@ public class Solution {
     public IList<IList<int>> ThreeSum(int[] nums) {
         Array.Sort(nums);
         var results = new HashSet<IList<int>>(new ThreeSumComparer());
-        
+
         var cIndex = Array.BinarySearch(nums, 0);
         if (cIndex < 0) cIndex = ~cIndex;
         while (cIndex < nums.Length)
@@ -276,7 +301,7 @@ public class Solution {
                         step /= 2;
                     }
                 }
-                
+
                 if (nums[aIndex] + nums[bIndex] + c > 0)
                 {
                     var step = 1;
@@ -295,7 +320,7 @@ public class Solution {
                         step /= 2;
                     }
                 }
-                
+
                 if (nums[aIndex] + nums[bIndex] + c == 0)
                 {
                     var list = new List<int> { nums[aIndex], nums[bIndex], c };
@@ -314,7 +339,7 @@ public class Solution {
             }
             ++cIndex;
         }
-        
+
         return results.ToList();
     }
 }
