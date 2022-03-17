@@ -23,8 +23,8 @@
 <p><strong>限制：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
-	<li><code>1 &lt;= nums[i]&nbsp;&lt;= 10^6</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums[i]&nbsp;&lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## 解法
@@ -36,10 +36,10 @@
 -   存在，即 `return` 返回。
 -   不存在，记录元素，继续遍历。
 
-_复杂度_：
+*复杂度*：
 
--   时间 **_O(N)_**
--   空间 **_O(N)_**
+-   时间 ***O(N)***
+-   空间 ***O(N)***
 
 **双指针**
 
@@ -52,10 +52,10 @@ _复杂度_：
 
 > 因为数组是有序的，指针变动对值的影响可预测。
 
-_复杂度_：
+*复杂度*：
 
--   时间 **_O(N)_**
--   空间 **_O(1)_**
+-   时间 ***O(N)***
+-   空间 ***O(1)***
 
 ```txt
 TWO-SUM(A,t)
