@@ -36,11 +36,13 @@
 
 ## Solutions
 
-Binary Indexed Tree.
+Binary Indexed Tree or Segment Tree.
 
 <!-- tabs:start -->
 
 ### **Python3**
+
+Binary Index Tree:
 
 ```python
 class BinaryIndexedTree:
@@ -86,7 +88,77 @@ class Solution:
         return ans
 ```
 
+Segment Tree:
+
+```python
+class Node:
+    def __init__(self):
+        self.l = 0
+        self.r = 0
+        self.v = 0
+    
+class SegmentTree:
+    def __init__(self, n):
+        self.tr = [Node() for _ in range(4 * n)]
+        self.build(1, 1, n)
+    
+    def build(self, u, l, r):
+        self.tr[u].l = l
+        self.tr[u].r = r
+        if l == r:
+            return
+        mid = (l + r) >> 1
+        self.build(u << 1, l, mid)
+        self.build(u << 1 | 1, mid + 1, r)
+    
+    def modify(self, u, x, v):
+        if self.tr[u].l == x and self.tr[u].r == x:
+            self.tr[u].v += v
+            return
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        if x <= mid:
+            self.modify(u << 1, x, v)
+        else:
+            self.modify(u << 1 | 1, x, v)
+        self.pushup(u)
+    
+    def pushup(self, u):
+        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
+    
+    def query(self, u, l, r):
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].v
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        v = 0
+        if l <= mid:
+            v += self.query(u << 1, l, r)
+        if r > mid:
+            v += self.query(u << 1 | 1, l, r)
+        return v
+
+class Solution:
+    def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
+        s = [0]
+        for x in nums:
+            s.append(s[-1] + x)
+        alls = set()
+        for v in s:
+            alls.add(v)
+            alls.add(v - lower)
+            alls.add(v - upper)
+        m = {v: i for i, v in enumerate(sorted(alls), 1)}
+        tree = SegmentTree(len(m))
+        ans = 0
+        for v in s:
+            l, r = m[v - upper], m[v - lower]
+            ans += tree.query(1, l, r)
+            tree.modify(1, m[v], 1)
+        return ans
+```
+
 ### **Java**
+
+Binary Indexed Tree:
 
 ```java
 class Solution {
@@ -146,6 +218,102 @@ class BinaryIndexedTree {
 
     public static int lowbit(int x) {
         return x & -x;
+    }
+}
+```
+
+Segment Tree:
+
+```java
+class Solution {
+    public int countRangeSum(int[] nums, int lower, int upper) {
+        int n = nums.length;
+        long[] preSum = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            preSum[i + 1] = preSum[i] + nums[i];
+        }
+        TreeSet<Long> ts = new TreeSet<>();
+        for (long s : preSum) {
+            ts.add(s);
+            ts.add(s - upper);
+            ts.add(s - lower);
+        }
+        Map<Long, Integer> m = new HashMap<>();
+        int idx = 1;
+        for (long s : ts) {
+            m.put(s, idx++);
+        }
+        int ans = 0;
+        SegmentTree tree = new SegmentTree(m.size());
+        for (long s : preSum) {
+            int l = m.get(s - upper);
+            int r = m.get(s - lower);
+            ans += tree.query(1, l, r);
+            tree.modify(1, m.get(s), 1);
+        }
+        return ans;
+    }
+}
+
+class Node {
+    int l;
+    int r;
+    int v;
+}
+
+class SegmentTree {
+    private Node[] tr;
+
+    public SegmentTree(int n) {
+        tr = new Node[4 * n];
+        for (int i = 0; i < tr.length; ++i) {
+            tr[i] = new Node();
+        }
+        build(1, 1, n);
+    }
+
+    public void build(int u, int l, int r) {
+        tr[u].l = l;
+        tr[u].r = r;
+        if (l == r) {
+            return;
+        }
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    public void modify(int u, int x, int v) {
+        if (tr[u].l == x && tr[u].r == x) {
+            tr[u].v += v;
+            return;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        if (x <= mid) {
+            modify(u << 1, x, v);
+        } else {
+            modify(u << 1 | 1, x, v);
+        }
+        pushup(u);
+    }
+
+    public void pushup(int u) {
+        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
+    }
+
+    public int query(int u, int l, int r) {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            return tr[u].v;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        int v = 0;
+        if (l <= mid) {
+            v += query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += query(u << 1 | 1, l, r);
+        }
+        return v;
     }
 }
 ```
