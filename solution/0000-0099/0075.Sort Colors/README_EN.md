@@ -116,6 +116,30 @@ function sortColors(nums: number[]): void {
 }
 ```
 
+```ts
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+function sortColors(nums: number[]): void {
+    const n = nums.length;
+    let l = -1;
+    let r = n;
+    let i = 0;
+    while (i < r) {
+        if (nums[i] === 2) {
+            r--;
+            [nums[r], nums[i]] = [nums[i], nums[r]];
+        } else {
+            if (nums[i] === 0) {
+                l++;
+                [nums[l], nums[i]] = [nums[i], nums[l]];
+            }
+            i++;
+        }
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -161,21 +185,11 @@ func sortColors(nums []int) {
 ```rust
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {
-        let len = nums.len();
-        if len < 2 {
-            return;
-        }
-
         let mut l = 0;
-        let mut r = len - 1;
+        let mut r = nums.len() - 1;
         let mut i = 0;
         while i <= r {
             match nums[i] {
-                0 => {
-                    nums.swap(i, l);
-                    l += 1;
-                    i += 1;
-                }
                 2 => {
                     nums.swap(i, r);
                     match r {
@@ -183,8 +197,37 @@ impl Solution {
                         _ => r -= 1,
                     }
                 }
-                _ => i += 1,
+                n => {
+                    if n == 0 {
+                        nums.swap(i, l);
+                        l += 1;
+                    } 
+                    i += 1;
+                }
             }
+        }
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn sort_colors(nums: &mut Vec<i32>) {
+        let mut count = [0, 0, 0];
+        for num in nums.iter() {
+            count[*num as usize] += 1;
+        }
+        count[1] += count[0];
+        count[2] += count[1];
+
+        for i in 0..count[0] {
+            nums[i] = 0;
+        }
+        for i in count[0]..count[1] {
+            nums[i] = 1;
+        }
+        for i in count[1]..count[2] {
+            nums[i] = 2;
         }
     }
 }
