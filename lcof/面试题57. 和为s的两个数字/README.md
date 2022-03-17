@@ -23,8 +23,8 @@
 <p><strong>限制：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
-	<li><code>1 &lt;= nums[i]&nbsp;&lt;= 10^6</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums[i]&nbsp;&lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## 解法
