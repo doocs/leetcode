@@ -224,6 +224,130 @@ func listOfDepth(tree *TreeNode) []*ListNode {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
+    const res = [];
+    if (tree == null) {
+        return res;
+    }
+    const queue = [tree];
+    while (queue.length !== 0) {
+        const n = queue.length;
+        const dummy = new ListNode();
+        let cur = dummy;
+        for (let i = 0; i < n; i++) {
+            const { val, left, right } = queue.shift();
+            left && queue.push(left);
+            right && queue.push(right);
+            cur.next = new ListNode(val);
+            cur = cur.next;
+        }
+        res.push(dummy.next);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn list_of_depth(tree: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<Box<ListNode>>> {
+        let mut res = vec![];
+        if tree.is_none() {
+            return res;
+        }
+        let mut q = VecDeque::new();
+        q.push_back(tree);
+        while !q.is_empty() {
+            let n = q.len();
+            let mut demmy = Some(Box::new(ListNode::new(0)));
+            let mut cur = &mut demmy;
+            for _ in 0..n {
+                if let Some(node) = q.pop_front().unwrap() {
+                    let mut node = node.borrow_mut();
+                    if node.left.is_some() {
+                        q.push_back(node.left.take());
+                    }
+                    if node.right.is_some() {
+                        q.push_back(node.right.take());
+                    }
+                    cur.as_mut().unwrap().next = Some(Box::new(ListNode::new(node.val)));
+                    cur = &mut cur.as_mut().unwrap().next;
+                }
+            }
+            res.push(demmy.as_mut().unwrap().next.take());
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
