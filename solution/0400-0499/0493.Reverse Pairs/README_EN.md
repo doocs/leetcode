@@ -26,11 +26,13 @@
 
 ## Solutions
 
-Merge Sort or Binary Indexed Tree.
+Merge Sort or Binary Indexed Tree or Segment Tree.
 
 <!-- tabs:start -->
 
 ### **Python3**
+
+Merge Sort:
 
 ```python
 class Solution:
@@ -69,6 +71,8 @@ class Solution:
 
         return merge_sort(nums, 0, len(nums) - 1)
 ```
+
+Binary Indexed Tree:
 
 ```python
 class BinaryIndexedTree:
@@ -109,7 +113,75 @@ class Solution:
         return ans
 ```
 
+Segment Tree:
+
+```python
+class Node:
+    def __init__(self):
+        self.l = 0
+        self.r = 0
+        self.v = 0
+
+class SegmentTree:
+    def __init__(self, n):
+        self.tr = [Node() for _ in range(4 * n)]
+        self.build(1, 1, n)
+    
+    def build(self, u, l, r):
+        self.tr[u].l = l
+        self.tr[u].r = r
+        if l == r:
+            return
+        mid = (l + r) >> 1
+        self.build(u << 1, l, mid)
+        self.build(u << 1 | 1, mid + 1, r)
+    
+    def modify(self, u, x, v):
+        if self.tr[u].l == x and self.tr[u].r == x:
+            self.tr[u].v += 1
+            return
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        if x <= mid:
+            self.modify(u << 1, x, v)
+        else:
+            self.modify(u << 1 | 1, x, v)
+        self.pushup(u)
+    
+    def pushup(self, u):
+        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
+    
+    def query(self, u, l, r):
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].v
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        v = 0
+        if l <= mid:
+            v += self.query(u << 1, l, r)
+        if r > mid:
+            v += self.query(u << 1 | 1, l, r)
+        return v
+
+
+class Solution:
+    def reversePairs(self, nums: List[int]) -> int:
+        s = set()
+        for num in nums:
+            s.add(num)
+            s.add(num * 2)
+        alls = sorted(s)
+        m = {v: i for i, v in enumerate(alls, 1)}
+        tree = SegmentTree(len(m))
+        ans = 0
+        for v in nums[::-1]:
+            x = m[v]
+            ans += tree.query(1, 1, x - 1)
+            tree.modify(1, m[v * 2], 1)
+        return ans
+```
+
 ### **Java**
+
+Merge Sort:
 
 ```java
 class Solution {
@@ -156,6 +228,8 @@ class Solution {
     }
 }
 ```
+
+Binary Indexed Tree:
 
 ```java
 class Solution {
@@ -212,7 +286,98 @@ class BinaryIndexedTree {
 }
 ```
 
+Segment Tree:
+
+```java
+class Solution {
+    public int reversePairs(int[] nums) {
+        TreeSet<Long> ts = new TreeSet<>();
+        for (int num : nums) {
+            ts.add((long) num);
+            ts.add((long) num * 2);
+        }
+        Map<Long, Integer> m = new HashMap<>();
+        int idx = 0;
+        for (long num : ts) {
+            m.put(num, ++idx);
+        }
+        SegmentTree tree = new SegmentTree(m.size());
+        int ans = 0;
+        for (int i = nums.length - 1; i >= 0; --i) {
+            int x = m.get((long) nums[i]);
+            ans += tree.query(1, 1, x - 1);
+            tree.modify(1, m.get((long) nums[i] * 2), 1);
+        }
+        return ans;
+    }
+}
+
+class Node {
+    int l;
+    int r;
+    int v;
+}
+
+class SegmentTree {
+    private Node[] tr;
+
+    public SegmentTree(int n) {
+        tr = new Node[4 * n];
+        for (int i = 0; i < tr.length; ++i) {
+            tr[i] = new Node();
+        }
+        build(1, 1, n);
+    }
+
+    public void build(int u, int l, int r) {
+        tr[u].l = l;
+        tr[u].r = r;
+        if (l == r) {
+            return;
+        }
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    public void modify(int u, int x, int v) {
+        if (tr[u].l == x && tr[u].r == x) {
+            tr[u].v += v;
+            return;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        if (x <= mid) {
+            modify(u << 1, x, v);
+        } else {
+            modify(u << 1 | 1, x, v);
+        }
+        pushup(u);
+    }
+
+    public void pushup(int u) {
+        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
+    }
+
+    public int query(int u, int l, int r) {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            return tr[u].v;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        int v = 0;
+        if (l <= mid) {
+            v += query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += query(u << 1 | 1, l, r);
+        }
+        return v;
+    }
+}
+```
+
 ### **C++**
+
+Merge Sort:
 
 ```cpp
 class Solution {
@@ -255,6 +420,8 @@ private:
     }
 };
 ```
+
+Binary Indexed Tree:
 
 ```cpp
 class BinaryIndexedTree {
@@ -305,6 +472,85 @@ public:
         {
             ans += tree->query(m[nums[i]] - 1);
             tree->update(m[nums[i] * 2ll], 1);
+        }
+        return ans;
+    }
+};
+```
+
+Segment Tree:
+
+```cpp
+class Node {
+public:
+    int l;
+    int r;
+    int v;
+};
+
+class SegmentTree {
+public:
+    vector<Node*> tr;
+
+    SegmentTree(int n) {
+        tr.resize(4 * n);
+        for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
+        build(1, 1, n);
+    }
+
+    void build(int u, int l, int r) {
+        tr[u]->l = l;
+        tr[u]->r = r;
+        if (l == r) return;
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    void modify(int u, int x, int v) {
+        if (tr[u]->l == x && tr[u]->r == x)
+        {
+            tr[u]->v += v;
+            return;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        if (x <= mid) modify(u << 1, x, v);
+        else modify(u << 1 | 1, x, v);
+        pushup(u);
+    }
+
+    void pushup(int u) {
+        tr[u]->v = tr[u << 1]->v + tr[u << 1 | 1]->v;
+    }
+
+    int query(int u, int l, int r) {
+        if (tr[u]->l >= l && tr[u]->r <= r) return tr[u]->v;
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        int v = 0;
+        if (l <= mid) v = query(u << 1, l, r);
+        if (r > mid) v += query(u << 1 | 1, l, r);
+        return v;
+    }
+};
+
+class Solution {
+public:
+    int reversePairs(vector<int>& nums) {
+        set<long long> s;
+        for (int num : nums)
+        {
+            s.insert(num);
+            s.insert(num * 2ll);
+        }
+        unordered_map<long long, int> m;
+        int idx = 0;
+        for (long long num : s) m[num] = ++idx;
+        SegmentTree* tree = new SegmentTree(m.size());
+        int ans = 0;
+        for (int i = nums.size() - 1; i >= 0; --i)
+        {
+            ans += tree->query(1, 1, m[nums[i]] - 1);
+            tree->modify(1, m[nums[i] * 2ll], 1);
         }
         return ans;
     }
