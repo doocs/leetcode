@@ -95,22 +95,59 @@ class Solution {
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
-        
+
         int n = matrix.size();
         if(n <= 1)return ;
-        
+
         //先做转置
         for(int i = 0 ; i < n ; i++){
             for(int j = i;j < n ;j++){
                 swap(matrix[i][j],matrix[j][i]);
             }
         }
-        
+
         //再做水平互换
         for(int i = 0 ; i < n ; i++){
             for(int j = 0;j < n/2;j++){
                 swap(matrix[i][j],matrix[i][n-1-j]);
             }
+        }
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function (matrix) {
+    const n = matrix.length
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j <= i; j++) {
+            [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+        }
+    }
+    for (let i = 0, j = n - 1; i < j; i++, j--) {
+        for (let k = 0; k < n; k++) {
+            [matrix[k][i], matrix[k][j]] = [matrix[k][j], matrix[k][i]];
+        }
+    }
+};
+```
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function (matrix) {
+    matrix.reverse();
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < i; j++) {
+            [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
         }
     }
 };
