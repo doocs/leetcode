@@ -77,6 +77,31 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+
+        int n = matrix.size();
+        if(n <= 1)return ;
+        
+        for(int i = 0 ; i < n ; i++){
+            for(int j = i;j < n ;j++){
+                swap(matrix[i][j],matrix[j][i]);
+            }
+        }
+        
+        for(int i = 0 ; i < n ; i++){
+            for(int j = 0;j < n/2;j++){
+                swap(matrix[i][j],matrix[i][n-1-j]);
+            }
+        }
+    }
+};
+```
+
 ### **TypeScript**
 
 ```ts
@@ -92,6 +117,25 @@ function rotate(matrix: number[][]): void {
             matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];
             matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i];
             matrix[j][n - 1 - i] = tmp;
+        }
+    }
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn rotate(matrix: &mut Vec<Vec<i32>>) {
+        let n = matrix.len();
+        for i in 0..n / 2 {
+            for j in i..n - i - 1 {
+                let t = matrix[i][j];
+                matrix[i][j] = matrix[n - j - 1][i];
+                matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+                matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
+                matrix[j][n - i - 1] = t;
+            }
         }
     }
 }
