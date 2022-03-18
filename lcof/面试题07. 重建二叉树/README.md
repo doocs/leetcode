@@ -224,6 +224,74 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 }
 ```
 
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
+    if (inorder.length === 0) {
+        return null;
+    }
+    const val = preorder[0];
+    const i = inorder.indexOf(val);
+    return new TreeNode(
+        val,
+        buildTree(preorder.slice(1, i + 1), inorder.slice(0, i)),
+        buildTree(preorder.slice(i + 1), inorder.slice(i + 1)),
+    );
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+        if inorder.is_empty() {
+            return None;
+        }
+        let val = preorder[0];
+        let i = inorder.iter().position(|num| *num == val).unwrap();
+        Some(Rc::new(RefCell::new(TreeNode {
+            val,
+            left: Self::build_tree(preorder[1..i + 1].to_vec(), inorder[..i].to_vec()),
+            right: Self::build_tree(preorder[i + 1..].to_vec(), inorder[i + 1..].to_vec()),
+        })))
+    }
+}
+```
+
 ### **...**
 
 ```
