@@ -45,15 +45,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-本题可以用树状数组解决。
-
-树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
-
-1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
-1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
-
-这两个操作的时间复杂度均为 `O(log n)`。
-
 对于本题，我们先用 pos 记录每个数在 nums2 中的位置，然后依次对 nums1 中的每个元素进行处理。
 
 考虑**以当前数字作为三元组中间数字**的好三元组的数目。第一个数字需要是之前已经遍历过的，并且在 nums2 中的位置比当前数字更靠前的；第三个数字需要是当前还没有遍历过的，并且在 nums2 中的位置比当前数字更靠后的。
@@ -66,13 +57,24 @@
 1. ...
 1. 最后是 2，此时 nums2 中出现情况为 `[4,1,0,2,3]`，2 之前有值的个数是 4，2 之后没有值的个数是 0。因此以 2 为中间数字能形成 0 个好三元组。
 
-我们可以用树状数组来更新 nums2 中各个位置数字的出现情况，快速算出每个数字左侧 1 的个数，以及右侧 0 的个数。
+我们可以用**树状数组**或**线段树**来更新 nums2 中各个位置数字的出现情况，快速算出每个数字左侧 1 的个数，以及右侧 0 的个数。
+
+树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
+
+1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
+1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
+
+这两个操作的时间复杂度均为 `O(log n)`。
+
+> 本题 Python3 线段树代码 TLE。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+树状数组：
 
 ```python
 class BinaryIndexedTree:
@@ -112,9 +114,74 @@ class Solution:
         return ans
 ```
 
+线段树：
+
+```python
+class Node:
+    def __init__(self):
+        self.l = 0
+        self.r = 0
+        self.v = 0
+
+class SegmentTree:
+    def __init__(self, n):
+        self.tr = [Node() for _ in range(4 * n)]
+        self.build(1, 1, n)
+        
+    def build(self, u, l, r):
+        self.tr[u].l = l
+        self.tr[u].r = r
+        if l == r:
+            return
+        mid = (l + r) >> 1
+        self.build(u << 1, l, mid)
+        self.build(u << 1 | 1, mid + 1, r)
+
+    def modify(self, u, x, v):
+        if self.tr[u].l == x and self.tr[u].r == x:
+            self.tr[u].v += v
+            return
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        if x <= mid:
+            self.modify(u << 1, x, v)
+        else:
+            self.modify(u << 1 | 1, x, v)
+        self.pushup(u)
+    
+    def pushup(self, u):
+        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
+
+    def query(self, u, l, r):
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].v
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        v = 0
+        if l <= mid:
+            v += self.query(u << 1, l, r)
+        if r > mid:
+            v += self.query(u << 1 | 1, l, r)
+        return v
+
+class Solution:
+    def goodTriplets(self, nums1: List[int], nums2: List[int]) -> int:
+        pos = {v: i for i, v in enumerate(nums2, 1)}
+        ans = 0
+        n = len(nums1)
+        tree = SegmentTree(n)
+        for num in nums1:
+            p = pos[num]
+            left = tree.query(1, 1, p)
+            right = n - p - (tree.query(1, 1, n) - tree.query(1, 1, p))
+            ans += left * right
+            tree.modify(1, p, 1)
+        return ans
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+树状数组：
 
 ```java
 class Solution {
@@ -168,7 +235,95 @@ class BinaryIndexedTree {
 }
 ```
 
+线段树：
+
+```java
+class Solution {
+    public long goodTriplets(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int[] pos = new int[n];
+        SegmentTree tree = new SegmentTree(n);
+        for (int i = 0; i < n; ++i) {
+            pos[nums2[i]] = i + 1;
+        }
+        long ans = 0;
+        for (int num : nums1) {
+            int p = pos[num];
+            long left = tree.query(1, 1, p);
+            long right = n - p - (tree.query(1, 1, n) - tree.query(1, 1, p));
+            ans += left * right;
+            tree.modify(1, p, 1);
+        }
+        return ans;
+    }
+}
+
+class Node {
+    int l;
+    int r;
+    int v;
+}
+
+class SegmentTree {
+    private Node[] tr;
+
+    public SegmentTree(int n) {
+        tr = new Node[4 * n];
+        for (int i = 0; i < tr.length; ++i) {
+            tr[i] = new Node();
+        }
+        build(1, 1, n);
+    }
+
+    public void build(int u, int l, int r) {
+        tr[u].l = l;
+        tr[u].r = r;
+        if (l == r) {
+            return;
+        }
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    public void modify(int u, int x, int v) {
+        if (tr[u].l == x && tr[u].r == x) {
+            tr[u].v += v;
+            return;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        if (x <= mid) {
+            modify(u << 1, x, v);
+        } else {
+            modify(u << 1 | 1, x, v);
+        }
+        pushup(u);
+    }
+
+    public void pushup(int u) {
+        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
+    }
+
+    public int query(int u, int l, int r) {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            return tr[u].v;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        int v = 0;
+        if (l <= mid) {
+            v += query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += query(u << 1 | 1, l, r);
+        }
+        return v;
+    }
+}
+```
+
 ### **C++**
+
+树状数组：
 
 ```cpp
 class BinaryIndexedTree {
@@ -216,6 +371,82 @@ public:
             int right = n - p - (tree->query(n) - tree->query(p));
             ans += 1ll * left * right;
             tree->update(p, 1);
+        }
+        return ans;
+    }
+};
+```
+
+线段树：
+
+```cpp
+class Node {
+public:
+    int l;
+    int r;
+    int v;
+};
+
+class SegmentTree {
+public:
+    vector<Node*> tr;
+
+    SegmentTree(int n) {
+        tr.resize(4 * n);
+        for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
+        build(1, 1, n);
+    }
+
+    void build(int u, int l, int r) {
+        tr[u]->l = l;
+        tr[u]->r = r;
+        if (l == r) return;
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+    }
+
+    void modify(int u, int x, int v) {
+        if (tr[u]->l == x && tr[u]->r == x)
+        {
+            tr[u]->v += v;
+            return;
+        }
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        if (x <= mid) modify(u << 1, x, v);
+        else modify(u << 1 | 1, x, v);
+        pushup(u);
+    }
+
+    void pushup(int u) {
+        tr[u]->v = tr[u << 1]->v + tr[u << 1 | 1]->v;
+    }
+
+    int query(int u, int l, int r) {
+        if (tr[u]->l >= l && tr[u]->r <= r) return tr[u]->v;
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        int v = 0;
+        if (l <= mid) v += query(u << 1, l, r);
+        if (r > mid) v += query(u << 1 | 1, l, r);
+        return v;
+    }
+};
+
+class Solution {
+public:
+    long long goodTriplets(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        vector<int> pos(n);
+        for (int i = 0; i < n; ++i) pos[nums2[i]] = i + 1;
+        SegmentTree* tree = new SegmentTree(n);
+        long long ans = 0;
+        for (int& num : nums1)
+        {
+            int p = pos[num];
+            int left = tree->query(1, 1, p);
+            int right = n - p - (tree->query(1, 1, n) - tree->query(1, 1, p));
+            ans += 1ll * left * right;
+            tree->modify(1, p, 1);
         }
         return ans;
     }
