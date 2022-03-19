@@ -157,22 +157,20 @@ func find(nums []int, left, right int) int {
 function findMagicIndex(nums: number[]): number {
     const n = nums.length;
     const find = (l: number, r: number): number => {
-        if (l > r) {
+        if (l > r || nums[r] < 0) {
             return -1;
         }
         const mid = l + Math.floor((r - l) / 2);
-        const l_res = find(l, mid - 1);
-        if (l_res !== -1) {
-            return l_res;
+        if (nums[mid] >= l) {
+            const res = find(l, mid - 1);
+            if (res !== -1) {
+                return res;
+            }
         }
         if (nums[mid] === mid) {
             return mid;
         }
-        const r_res = find(mid + 1, r);
-        if (r_res !== -1) {
-            return r_res;
-        }
-        return -1;
+        return find(mid + 1, r);
     };
     return find(0, n - 1);
 }
@@ -197,22 +195,20 @@ function findMagicIndex(nums: number[]): number {
 ```rust
 impl Solution {
     fn find(nums: &Vec<i32>, l: usize, r: usize) -> i32 {
-        if l >= r {
+        if l >= r || nums[r - 1] < 0 {
             return -1;
         }
         let mid = l + (r - l) / 2;
-        let l_res = Self::find(nums, l, mid);
-        if l_res != -1 {
-            return l_res;
+        if nums[mid] >= l as i32 {
+            let res = Self::find(nums, l, mid);
+            if res != -1 {
+                return res;
+            }
         }
         if nums[mid] == mid as i32 {
             return mid as i32;
         }
-        let r_res = Self::find(nums, mid + 1, r);
-        if r_res != -1 {
-            return r_res;
-        }
-        -1
+        Self::find(nums, mid + 1, r)
     }
 
     pub fn find_magic_index(nums: Vec<i32>) -> i32 {
