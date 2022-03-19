@@ -52,36 +52,103 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedDict
 
+
+class MyCalendarTwo:
+
+    def __init__(self):
+        self.sd = SortedDict()
+
+    def book(self, start: int, end: int) -> bool:
+        if start not in self.sd:
+            self.sd[start] = 0
+        if end not in self.sd:
+            self.sd[end] = 0
+        self.sd[start] += 1
+        self.sd[end] -= 1
+        s = 0
+        for v in self.sd.values():
+            s += v
+            if s > 2:
+                self.sd[start] -= 1
+                self.sd[end] += 1
+                return False
+        return True
+
+
+# Your MyCalendarTwo object will be instantiated and called as such:
+# obj = MyCalendarTwo()
+# param_1 = obj.book(start,end)
 ```
 
 ### **Java**
 
 ```java
 class MyCalendarTwo {
-    List<int[]> calendar;
-    List<int[]> duplicationList;
+    private Map<Integer, Integer> tm = new TreeMap<>();
 
-    MyCalendarTwo() {
-        calendar = new ArrayList<>();
-        duplicationList = new ArrayList<>();
+    public MyCalendarTwo() {
+
     }
-
+    
     public boolean book(int start, int end) {
-        for (int[] item : duplicationList) {
-            if (item[0] < end && item[1] > start) {
+        tm.put(start, tm.getOrDefault(start, 0) + 1);
+        tm.put(end, tm.getOrDefault(end, 0) - 1);
+        int s = 0;
+        for (int v : tm.values()) {
+            s += v;
+            if (s > 2) {
+                tm.put(start, tm.get(start) - 1);
+                tm.put(end, tm.get(end) + 1);
                 return false;
             }
         }
-        for (int[] item : calendar) {
-            if (item[0] < end && item[1] > start) {
-                duplicationList.add(new int[]{Math.max(start, item[0]), Math.min(end, item[1])});
-            }
-        }
-        calendar.add(new int[]{start, end});
         return true;
     }
 }
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */
+```
+
+### **C++**
+
+```cpp
+class MyCalendarTwo {
+public:
+    map<int, int> m;
+
+    MyCalendarTwo() {
+
+    }
+    
+    bool book(int start, int end) {
+        ++m[start];
+        --m[end];
+        int s = 0;
+        for (auto& [k, v] : m)
+        {
+            s += v;
+            if (s > 2)
+            {
+                --m[start];
+                ++m[end];
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo* obj = new MyCalendarTwo();
+ * bool param_1 = obj->book(start,end);
+ */
 ```
 
 ### **...**
