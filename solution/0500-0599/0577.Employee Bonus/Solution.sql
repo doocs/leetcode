@@ -1,5 +1,5 @@
 SELECT 
-    e.empid, b.bonus
+    e.name, b.bonus
 FROM
     Employee e
         LEFT JOIN
