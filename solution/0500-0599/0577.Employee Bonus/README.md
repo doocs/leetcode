@@ -53,7 +53,7 @@ empId 是这张表单的主关键字
 
 ```sql
 SELECT 
-    e.empid, b.bonus
+    e.name, b.bonus
 FROM
     Employee e
         LEFT JOIN
