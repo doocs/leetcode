@@ -143,6 +143,53 @@ func addStrings(num1 string, num2 string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function addStrings(num1: string, num2: string): string {
+    const res = [];
+    let i = num1.length - 1;
+    let j = num2.length - 1;
+    let isOver = false;
+    while (i >= 0 || j >= 0 || isOver) {
+        const x = Number(num1[i--]) || 0;
+        const y = Number(num2[j--]) || 0;
+        const sum = x + y + (isOver ? 1 : 0);
+        isOver = sum >= 10;
+        res.push(sum % 10);
+    }
+    return res.reverse().join('');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn add_strings(num1: String, num2: String) -> String {
+        let mut res = vec![];
+        let s1 = num1.as_bytes();
+        let s2 = num2.as_bytes();
+        let (mut i, mut j) = (s1.len(), s2.len());
+        let mut is_over = false;
+        while i != 0 || j != 0 || is_over {
+            let mut sum = if is_over { 1 } else { 0 };
+            if i != 0 {
+                sum += (s1[i - 1] - b'0') as i32;
+                i -= 1;
+            }
+            if j != 0 {
+                sum += (s2[j - 1] - b'0') as i32;
+                j -= 1;
+            }
+            is_over = sum >= 10;
+            res.push((sum % 10).to_string());
+        }
+        res.into_iter().rev().collect()
+    }
+}
+```
+
 ### **...**
 
 ```
