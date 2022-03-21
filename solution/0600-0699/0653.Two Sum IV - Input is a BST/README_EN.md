@@ -127,6 +127,40 @@ function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
 }
 ```
 
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function findTarget(root: TreeNode | null, k: number): boolean {
+    if (root == null) {
+      return false;
+    }
+    const set = new Set<number>();
+    const dfs = (root: TreeNode | null) => {
+        if (root == null) {
+          return false;
+        }
+        if (set.has(root.val)) {
+          return true;
+        }
+        set.add(k - root.val);
+        return dfs(root.left) || dfs(root.right);
+    };
+    return dfs(root);
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -184,6 +218,51 @@ func findTarget(root *TreeNode, k int) bool {
 		return find(root.Left, k) || find(root.Right, k)
 	}
 	return find(root, k)
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::{HashSet, VecDeque};
+impl Solution {
+    pub fn find_target(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> bool {
+        let mut set = HashSet::new();
+        let mut q = VecDeque::new();
+        q.push_back(root);
+        while let Some(node) = q.pop_front() {
+            if let Some(node) = node {
+                let mut node = node.as_ref().borrow_mut();
+                if set.contains(&node.val) {
+                    return true;
+                }
+                set.insert(k - node.val);
+                q.push_back(node.left.take());
+                q.push_back(node.right.take());
+            }
+        }
+        false
+    }
 }
 ```
 
