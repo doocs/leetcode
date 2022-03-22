@@ -77,13 +77,101 @@ Thus, Bob wins, so return false.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def winnerOfGame(self, colors: str) -> bool:
+        a = b = 0
+        cnt1 = cnt2 = 0
+        for c in colors:
+            if c == 'A':
+                a += 1
+                if a > 2:
+                    cnt1 += 1
+                b = 0
+            else:
+                b += 1
+                if b > 2:
+                    cnt2 += 1
+                a = 0
+        return cnt1 > cnt2
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean winnerOfGame(String colors) {
+        int a = 0, b = 0;
+        int cnt1 = 0, cnt2 = 0;
+        for (char c : colors.toCharArray()) {
+            if (c == 'A') {
+                ++a;
+                if (a > 2) {
+                    ++cnt1;
+                }
+                b = 0;
+            } else {
+                ++b;
+                if (b > 2) {
+                    ++cnt2;
+                }
+                a = 0;
+            }
+        }
+        return cnt1 > cnt2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool winnerOfGame(string colors) {
+        int a = 0, b = 0;
+        int cnt1 = 0, cnt2 = 0;
+        for (char& c : colors)
+        {
+            if (c == 'A')
+            {
+                ++a;
+                if (a > 2) ++cnt1;
+                b = 0;
+            }
+            else
+            {
+                ++b;
+                if (b > 2) ++cnt2;
+                a = 0;
+            }
+        }
+        return cnt1 > cnt2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func winnerOfGame(colors string) bool {
+	var a, b, cnt1, cnt2 int
+	for _, c := range colors {
+		if c == 'A' {
+			a++
+			if a > 2 {
+				cnt1++
+			}
+			b = 0
+		} else {
+			b++
+			if b > 2 {
+				cnt2++
+			}
+			a = 0
+		}
+	}
+	return cnt1 > cnt2
+}
 ```
 
 ### **...**

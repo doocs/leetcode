@@ -75,6 +75,8 @@ ABBBB<strong><em>B</em></strong>BBAA -&gt; ABBBBBBAA
 
 <!-- 这里可写通用的实现逻辑 -->
 
+统计字符串中连续出现 3 个 'A' 或 3 个 'B' 的个数，分别记为 cnt1, cnt2。只要 cnt1 大于 cnt2，返回 true，否则返回 false。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -82,7 +84,22 @@ ABBBB<strong><em>B</em></strong>BBAA -&gt; ABBBBBBAA
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def winnerOfGame(self, colors: str) -> bool:
+        a = b = 0
+        cnt1 = cnt2 = 0
+        for c in colors:
+            if c == 'A':
+                a += 1
+                if a > 2:
+                    cnt1 += 1
+                b = 0
+            else:
+                b += 1
+                if b > 2:
+                    cnt2 += 1
+                a = 0
+        return cnt1 > cnt2
 ```
 
 ### **Java**
@@ -90,7 +107,80 @@ ABBBB<strong><em>B</em></strong>BBAA -&gt; ABBBBBBAA
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean winnerOfGame(String colors) {
+        int a = 0, b = 0;
+        int cnt1 = 0, cnt2 = 0;
+        for (char c : colors.toCharArray()) {
+            if (c == 'A') {
+                ++a;
+                if (a > 2) {
+                    ++cnt1;
+                }
+                b = 0;
+            } else {
+                ++b;
+                if (b > 2) {
+                    ++cnt2;
+                }
+                a = 0;
+            }
+        }
+        return cnt1 > cnt2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool winnerOfGame(string colors) {
+        int a = 0, b = 0;
+        int cnt1 = 0, cnt2 = 0;
+        for (char& c : colors)
+        {
+            if (c == 'A')
+            {
+                ++a;
+                if (a > 2) ++cnt1;
+                b = 0;
+            }
+            else
+            {
+                ++b;
+                if (b > 2) ++cnt2;
+                a = 0;
+            }
+        }
+        return cnt1 > cnt2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func winnerOfGame(colors string) bool {
+	var a, b, cnt1, cnt2 int
+	for _, c := range colors {
+		if c == 'A' {
+			a++
+			if a > 2 {
+				cnt1++
+			}
+			b = 0
+		} else {
+			b++
+			if b > 2 {
+				cnt2++
+			}
+			a = 0
+		}
+	}
+	return cnt1 > cnt2
+}
 ```
 
 ### **...**
