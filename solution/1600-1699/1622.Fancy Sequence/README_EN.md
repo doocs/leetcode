@@ -59,106 +59,110 @@ Segment Tree.
 ### **Python3**
 
 ```python
-
 MOD = int(1e9 + 7)
 
 
-class SegmentTree:
+class Node:
     def __init__(self, l, r):
-        self.l = l
-        self.r = r
-        self.v = 0
         self.left = None
         self.right = None
+        self.l = l
+        self.r = r
+        self.mid = (l + r) >> 1
+        self.v = 0
         self.add = 0
         self.mul = 1
 
-    @property
-    def mid(self):
-        return (self.l + self.r) >> 1
 
-    @property
-    def _left(self):
-        if self.left is None:
-            self.left = SegmentTree(self.l, self.mid)
-        return self.left
+class SegmentTree:
+    def __init__(self):
+        self.root = Node(1, int(1e5 + 1))
 
-    @property
-    def _right(self):
-        if self.right is None:
-            self.right = SegmentTree(self.mid + 1, self.r)
-        return self.right
-
-    def pushup(self):
-        self.v = self._left.v + self._right.v
-        self.v %= MOD
-
-    def modify_add(self, l, r, inc):
-        if self.l >= l and self.r <= r:
-            self.v = (self.v + (self.r - self.l + 1) * inc) % MOD
-            self.add += inc
+    def modifyAdd(self, l, r, inc, node=None):
+        if l > r:
             return
-        self.pushdown()
-        if l <= self.mid:
-            self._left.modify_add(l, r, inc)
-        if r > self.mid:
-            self._right.modify_add(l, r, inc)
-        self.pushup()
-
-    def modify_mul(self, l, r, m):
-        if self.l >= l and self.r <= r:
-            self.v = (self.v * m) % MOD
-            self.add = (self.add * m) % MOD
-            self.mul = (self.mul * m) % MOD
+        if node is None:
+            node = self.root
+        if node.l >= l and node.r <= r:
+            node.v = (node.v + (node.r - node.l + 1) * inc) % MOD
+            node.add += inc
             return
-        self.pushdown()
-        if l <= self.mid:
-            self._left.modify_mul(l, r, m)
-        if r > self.mid:
-            self._right.modify_mul(l, r, m)
-        self.pushup()
+        self.pushdown(node)
+        if l <= node.mid:
+            self.modifyAdd(l, r, inc, node.left)
+        if r > node.mid:
+            self.modifyAdd(l, r, inc, node.right)
+        self.pushup(node)
 
-    def query(self, l, r):
-        if self.l >= l and self.r <= r:
-            return self.v
-        self.pushdown()
+    def modifyMul(self, l, r, m, node=None):
+        if l > r:
+            return
+        if node is None:
+            node = self.root
+        if node.l >= l and node.r <= r:
+            node.v = (node.v * m) % MOD
+            node.add = (node.add * m) % MOD
+            node.mul = (node.mul * m) % MOD
+            return
+        self.pushdown(node)
+        if l <= node.mid:
+            self.modifyMul(l, r, m, node.left)
+        if r > node.mid:
+            self.modifyMul(l, r, m, node.right)
+        self.pushup(node)
+
+    def query(self, l, r, node=None):
+        if l > r:
+            return 0
+        if node is None:
+            node = self.root
+        if node.l >= l and node.r <= r:
+            return node.v
+        self.pushdown(node)
         v = 0
-        if l <= self.mid:
-            v += self._left.query(l, r)
-        if r > self.mid:
-            v += self._right.query(l, r)
-        return v % MOD
+        if l <= node.mid:
+            v = (v + self.query(l, r, node.left)) % MOD
+        if r > node.mid:
+            v = (v + self.query(l, r, node.right)) % MOD
+        return v
 
-    def pushdown(self):
-        left, right = self._left, self._right
-        if self.add or self.mul != 1:
-            left.v = (left.v * self.mul +
-                      (left.r - left.l + 1) * self.add) % MOD
-            right.v = (right.v * self.mul +
-                       (right.r - right.l + 1) * self.add) % MOD
-            left.add = (left.add * self.mul + self.add) % MOD
-            right.add = (right.add * self.mul + self.add) % MOD
-            left.mul = (left.mul * self.mul) % MOD
-            right.mul = (right.mul * self.mul) % MOD
-            self.add = 0
-            self.mul = 1
+    def pushup(self, node):
+        node.v = (node.left.v + node.right.v) % MOD
+
+    def pushdown(self, node):
+        if node.left is None:
+            node.left = Node(node.l, node.mid)
+        if node.right is None:
+            node.right = Node(node.mid + 1, node.r)
+        left, right = node.left, node.right
+        if node.add != 0 or node.mul != 1:
+            left.v = (left.v * node.mul +
+                      (left.r - left.l + 1) * node.add) % MOD
+            right.v = (right.v * node.mul +
+                       (right.r - right.l + 1) * node.add) % MOD
+            left.add = (left.add * node.mul + node.add) % MOD
+            right.add = (right.add * node.mul + node.add) % MOD
+            left.mul = (left.mul * node.mul) % MOD
+            right.mul = (right.mul * node.mul) % MOD
+            node.add = 0
+            node.mul = 1
 
 
 class Fancy:
 
     def __init__(self):
         self.n = 0
-        self.tree = SegmentTree(0, 10**5 + 1)
+        self.tree = SegmentTree()
 
     def append(self, val: int) -> None:
         self.n += 1
-        self.tree.modify_add(self.n, self.n, val)
+        self.tree.modifyAdd(self.n, self.n, val)
 
     def addAll(self, inc: int) -> None:
-        self.tree.modify_add(1, self.n, inc)
+        self.tree.modifyAdd(1, self.n, inc)
 
     def multAll(self, m: int) -> None:
-        self.tree.modify_mul(1, self.n, m)
+        self.tree.modifyMul(1, self.n, m)
 
     def getIndex(self, idx: int) -> int:
         return -1 if idx >= self.n else self.tree.query(idx + 1, idx + 1)
@@ -175,12 +179,131 @@ class Fancy:
 ### **Java**
 
 ```java
+class Node {
+    Node left;
+    Node right;
+    int l;
+    int r;
+    int mid;
+    long v;
+    long add;
+    long mul = 1;
+
+    public Node(int l, int r) {
+        this.l = l;
+        this.r = r;
+        this.mid = (l + r) >> 1;
+    }
+}
+
+class SegmentTree {
+    private Node root = new Node(1, (int) 1e5 + 1);
+    private static final int MOD = (int) 1e9 + 7;
+
+    public SegmentTree() {
+
+    }
+
+    public void modifyAdd(int l, int r, int inc) {
+        modifyAdd(l, r, inc, root);
+    }
+
+    public void modifyAdd(int l, int r, int inc, Node node) {
+        if (l > r) {
+            return;
+        }
+        if (node.l >= l && node.r <= r) {
+            node.v = (node.v + (node.r - node.l + 1) * inc) % MOD;
+            node.add = (node.add + inc) % MOD;
+            return;
+        }
+        pushdown(node);
+        if (l <= node.mid) {
+            modifyAdd(l, r, inc, node.left);
+        }
+        if (r > node.mid) {
+            modifyAdd(l, r, inc, node.right);
+        }
+        pushup(node);
+    }
+
+    public void modifyMul(int l, int r, int m) {
+        modifyMul(l, r, m, root);
+    }
+
+    public void modifyMul(int l, int r, int m, Node node) {
+        if (l > r) {
+            return;
+        }
+        if (node.l >= l && node.r <= r) {
+            node.v = (node.v * m) % MOD;
+            node.add = (node.add * m) % MOD;
+            node.mul = (node.mul * m) % MOD;
+            return;
+        }
+        pushdown(node);
+        if (l <= node.mid) {
+            modifyMul(l, r, m, node.left);
+        }
+        if (r > node.mid) {
+            modifyMul(l, r, m, node.right);
+        }
+        pushup(node);
+    }
+
+    public int query(int l, int r) {
+        return query(l, r, root);
+    }
+
+    public int query(int l, int r, Node node) {
+        if (l > r) {
+            return 0;
+        }
+        if (node.l >= l && node.r <= r) {
+            return (int) node.v;
+        }
+        pushdown(node);
+        int v = 0;
+        if (l <= node.mid) {
+            v = (v + query(l, r, node.left)) % MOD;
+        }
+        if (r > node.mid) {
+            v = (v + query(l, r, node.right)) % MOD;
+        }
+        return v;
+    }
+
+    public void pushup(Node node) {
+        node.v = (node.left.v + node.right.v) % MOD;
+    }
+
+    public void pushdown(Node node) {
+        if (node.left == null) {
+            node.left = new Node(node.l, node.mid);
+        }
+        if (node.right == null) {
+            node.right = new Node(node.mid + 1, node.r);
+        }
+        if (node.add != 0 || node.mul != 1) {
+            Node left = node.left, right = node.right;
+            left.v = (left.v * node.mul + (left.r - left.l + 1) * node.add) % MOD;
+            right.v = (right.v * node.mul + (right.r - right.l + 1) * node.add) % MOD;
+            left.add = (left.add * node.mul + node.add) % MOD;
+            right.add = (right.add * node.mul + node.add) % MOD;
+            left.mul = (left.mul * node.mul) % MOD;
+            right.mul = (right.mul * node.mul) % MOD;
+            node.add = 0;
+            node.mul = 1;
+        }
+    }
+}
+
 class Fancy {
     private int n;
-    private SegmentTree tree;
+    private SegmentTree tree = new SegmentTree();
 
     public Fancy() {
-        tree = new SegmentTree(1, (int) 1e5 + 1);
+
     }
     
     public void append(int val) {
@@ -201,118 +324,6 @@ class Fancy {
     }
 }
 
-class SegmentTree {
-    private int l;
-    private int r;
-    private SegmentTree left;
-    private SegmentTree right;
-    private long v;
-    private long add;
-    private long mul = 1;
-    private static final int MOD = (int) 1e9 + 7;
-
-    public SegmentTree(int l, int r) {
-        this.l = l;
-        this.r = r;
-    }
-
-    public void pushup() {
-        v = (left().v + right().v) % MOD;
-    }
-
-    public int mid() {
-        return (l + r) >> 1;
-    }
-
-    public SegmentTree left() {
-        if (left == null) {
-            left = new SegmentTree(l, mid());
-        }
-        return left;
-    }
-
-    public SegmentTree right() {
-        if (right == null) {
-            right = new SegmentTree(mid() + 1, r);
-        }
-        return right;
-    }
-
-    public void modifyAdd(int l, int r, int inc) {
-        if (l > r) {
-            return;
-        }
-        if (this.l >= l && this.r <= r) {
-            v = (v + (this.r - this.l + 1) * inc) % MOD;
-            add = (add + inc) % MOD;
-            return;
-        }
-        pushdown();
-        int mid = mid();
-        if (l <= mid) {
-            left().modifyAdd(l, r, inc);
-        }
-        if (r > mid) {
-            right().modifyAdd(l, r, inc);
-        }
-        pushup();
-    }
-
-    public void modifyMul(int l, int r, int m) {
-        if (l > r) {
-            return;
-        }
-        if (this.l >= l && this.r <= r) {
-            v = (v * m) % MOD;
-            add = (add * m) % MOD;
-            mul = (mul * m) % MOD;
-            return;
-        }
-        pushdown();
-        int mid = mid();
-        if (l <= mid) {
-            left().modifyMul(l, r, m);
-        }
-        if (r > mid) {
-            right().modifyMul(l, r, m);
-        }
-        pushup();
-    }
-
-    public int query(int l, int r) {
-        if (l > r) {
-            return 0;
-        }
-        if (this.l >= l && this.r <= r) {
-            return (int) v;
-        }
-        pushdown();
-        int mid = mid();
-        long v = 0;
-        if (l <= mid) {
-            v += left().query(l, r);
-        }
-        if (r > mid) {
-            v += right().query(l, r);
-        }
-        return (int) v % MOD;
-    }
-
-    public void pushdown() {
-        SegmentTree left = left(), right = right();
-        if (add != 0 || mul != 1) {
-            left.v = (left.v * mul + (left.r - left.l + 1) * add) % MOD;
-            right.v = (right.v * mul + (right.r - right.l + 1) * add) % MOD;
-            left.add = (left.add * mul + add) % MOD;
-            right.add = (right.add * mul + add) % MOD;
-            left.mul = (left.mul * mul) % MOD;
-            right.mul = (right.mul * mul) % MOD;
-            add = 0;
-            mul = 1;
-        }
-    }
-}
-
 /**
  * Your Fancy object will be instantiated and called as such:
  * Fancy obj = new Fancy();
@@ -328,101 +339,111 @@ class SegmentTree {
 ```cpp
 const int MOD = 1e9 + 7;
 
-class SegmentTree {
-private:
+class Node {
+public:
+    Node* left;
+    Node* right;
     int l;
     int r;
-    SegmentTree* left;
-    SegmentTree* right;
+    int mid;
     long long v;
     long long add;
     long long mul;
-    
-public:
-    SegmentTree(int l, int r) {
+
+    Node(int l, int r) {
         this->l = l;
         this->r = r;
-        this->left = nullptr;
-        this->right = nullptr;
-        this->v = 0;
-        this->add = 0;
-        this->mul = 1;
+        this->mid = (l + r) >> 1;
+        this->left = this->right = nullptr;
+        v = add = 0;
+        mul = 1;
+    }
+};
+
+class SegmentTree {
+private:
+    Node* root;
+
+public:
+    SegmentTree() {
+        root = new Node(1, 1e5 + 1);
     }
 
     void modifyAdd(int l, int r, int inc) {
+        modifyAdd(l, r, inc, root);
+    }
+
+    void modifyAdd(int l, int r, int inc, Node* node) {
         if (l > r) return;
-        if (this->l >= l && this->r <= r)
+        if (node->l >= l && node->r <= r)
         {
-            v = (v + (this->r - this->l + 1) * inc) % MOD;
-            add = (add + inc) % MOD;
+            node->v = (node->v + (node->r - node->l + 1) * inc) % MOD;
+            node->add = (node->add + inc) % MOD;
             return;
         }
-        pushdown();
-        int mid = _mid();
-        if (l <= mid) _left()->modifyAdd(l, r, inc);
-        if (r > mid) _right()->modifyAdd(l, r, inc);
-        pushup();
+        pushdown(node);
+        if (l <= node->mid) modifyAdd(l, r, inc, node->left);
+        if (r > node->mid) modifyAdd(l, r, inc, node->right);
+        pushup(node);
     }
 
     void modifyMul(int l, int r, int m) {
+        modifyMul(l, r, m, root);
+    }
+
+    void modifyMul(int l, int r, int m, Node* node) {
         if (l > r) return;
-        if (this->l >= l && this->r <= r)
+        if (node->l >= l && node->r <= r)
         {
-            v = (v * m) % MOD;
-            add = (add * m) % MOD;
-            mul = (mul * m) % MOD;
+            node->v = (node->v * m) % MOD;
+            node->add = (node->add * m) % MOD;
+            node->mul = (node->mul * m) % MOD;
             return;
         }
-        pushdown();
-        int mid = _mid();
-        if (l <= mid) _left()->modifyMul(l, r, m);
-        if (r > mid) _right()->modifyMul(l, r, m);
-        pushup();
+        pushdown(node);
+        if (l <= node->mid) modifyMul(l, r, m, node->left);
+        if (r > node->mid) modifyMul(l, r, m, node->right);
+        pushup(node);
     }
 
     int query(int l, int r) {
+        return query(l, r, root);
+    }
+
+    int query(int l, int r, Node* node) {
         if (l > r) return 0;
-        if (this->l >= l && this->r <= r) return v;
-        pushdown();
-        int mid = _mid();
+        if (node->l >= l && node->r <= r) return node->v;
+        pushdown(node);
         int v = 0;
-        if (l <= mid) v = (v +  _left()->query(l, r)) % MOD;
-        if (r > mid) v = (v + _right()->query(l, r)) % MOD;
+        if (l <= node->mid) v = (v + query(l, r, node->left)) % MOD;
+        if (r > node->mid) v = (v + query(l, r, node->right)) % MOD;
         return v;
     }
 
-    int _mid() {
-        return (l + r) >> 1;
+    void pushup(Node* node) {
+        node->v = (node->left->v + node->right->v) % MOD;
     }
 
-    SegmentTree* _left() {
-        if (!left) left = new SegmentTree(l, _mid());
-        return left;
-    }
-
-    SegmentTree* _right() {
-        if (!right) right = new SegmentTree(_mid() + 1, r);
-        return right;
-    }
-
-    void pushup() {
-        v = (_left()->v + _right()->v) % MOD;
-    }
-
-    void pushdown() {
-        if (add != 0 || mul != 1)
+    void pushdown(Node* node) {
+        if (!node->left) node->left = new Node(node->l, node->mid);
+        if (!node->right) node->right = new Node(node->mid + 1, node->r);
+        if (node->add || node->mul != 1)
         {
-            _left()->v = (_left()->v * mul + (_left()->r - _left()->l + 1) * add) % MOD;
-            _right()->v = (_right()->v * mul + (_right()->r - _right()->l + 1) * add) % MOD;
-            _left()->add = (_left()->add * mul + add) % MOD;
-            _right()->add = (_right()->add * mul + add) % MOD;
-            _left()->mul = (_left()->mul * mul) % MOD;
-            _right()->mul = (_right()->mul * mul) % MOD;
-            add = 0;
-            mul = 1;
+            long add = node->add, mul = node->mul;
+            Node* left = node->left;
+            Node* right = node->right;
+            left->v = (left->v * mul + (left->r - left->l + 1) * add) % MOD;
+            right->v = (right->v * mul + (right->r - right->l + 1) * add) % MOD;
+            left->add = (left->add * mul + add) % MOD;
+            right->add = (right->add * mul + add) % MOD;
+            left->mul = (left->mul * mul) % MOD;
+            right->mul = (right->mul * mul) % MOD;
+            node->add = 0;
+            node->mul = 1;
         }
     }
 };
+
 
 class Fancy {
 public:
@@ -430,25 +451,25 @@ public:
     SegmentTree* tree;
 
     Fancy() {
-        this-> n = 0;
-        tree = new SegmentTree(1, 1e5 + 1);
+        n = 0;
+        tree = new SegmentTree();
     }
     
     void append(int val) {
-        ++this->n;
-        tree->modifyAdd(this->n, this->n, val);
+        ++n;
+        tree->modifyAdd(n, n, val);
     }
     
     void addAll(int inc) {
-        tree->modifyAdd(1, this->n, inc);
+        tree->modifyAdd(1, n, inc);
     }
     
     void multAll(int m) {
-        tree->modifyMul(1, this->n, m);
+        tree->modifyMul(1, n, m);
     }
     
     int getIndex(int idx) {
-        return idx >= this-> n ? -1 : tree->query(idx + 1, idx + 1);
+        return idx >= n ? -1 : tree->query(idx + 1, idx + 1);
     }
 };
 
