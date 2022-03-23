@@ -57,7 +57,8 @@
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-这个题比较有意思，最后规律是左边向左的车辆可以出去，右边向右的车辆可以出去，中间不是S的都出不来
+
+这个题比较有意思，最后规律是左边向左的车辆可以出去，右边向右的车辆可以出去，中间不是 S 的都出不来。
 
 <!-- tabs:start -->
 
@@ -86,15 +87,15 @@ class Solution:
 ```java
 class Solution {
     public int countCollisions(String directions) {
-        int l = 0, r = directions.length() -1, count = 0;
-        while (l <= r && directions.substring(l, l+1).equals("L")) {
+        int l = 0, r = directions.length() - 1, count = 0;
+        while (l <= r && directions.substring(l, l + 1).equals("L")) {
             l++;
         }
-        while (l <= r && directions.substring(r, r+1).equals("R")) {
+        while (l <= r && directions.substring(r, r + 1).equals("R")) {
             r--;
         }
-        for (int i = l; i <=r; i++) {
-            if (!directions.substring(i, i+1).equals("S")) count += 1;
+        for (int i = l; i <= r; i++) {
+            if (!directions.substring(i, i + 1).equals("S")) count += 1;
         }
         return count;
     }

@@ -15,4 +15,4 @@ class Solution:
             elif nums[i] > nums[i+1] and nums[i] > nums[i-1]:
                 count += 1
                 continue
-        return count 
+        return count
