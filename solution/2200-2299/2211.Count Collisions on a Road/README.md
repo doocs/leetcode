@@ -109,7 +109,7 @@ class Solution {
 
 ### **C++**
 
-```
+```cpp
 class Solution {
 public:
     int countCollisions(string directions) {
