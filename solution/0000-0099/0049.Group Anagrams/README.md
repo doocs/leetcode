@@ -107,6 +107,17 @@ function groupAnagrams(strs: string[]): string[][] {
 }
 ```
 
+```ts
+function groupAnagrams(strs: string[]): string[][] {
+    const map = new Map<string, string[]>();
+    for (const str of strs) {
+        const k = str.split('').sort().join('');
+        map.set(k, (map.get(k) ?? []).concat([str]));
+    }
+    return [...map.values()];
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -147,6 +158,28 @@ func groupAnagrams(strs []string) [][]string {
 		res = append(res, v)
 	}
 	return res
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
+        let mut map = HashMap::new();
+        for s in strs {
+            let key = {
+                let mut arr = s.chars().collect::<Vec<char>>();
+                arr.sort();
+                arr.iter().collect::<String>()
+            };
+            let val = map.entry(key).or_insert(vec![]);
+            val.push(s);
+        }
+        map.into_iter().map(|(_, v)| v).collect()
+    }
 }
 ```
 
