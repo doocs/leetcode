@@ -54,15 +54,51 @@ There are 0 hills and valleys so we return 0.
 <!-- tabs:start -->
 
 ### **Python3**
+First make the consecutive duplicate value to be unique with the side values.
 
 ```python
-
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
+        count = 0
+        pt = 0
+        while pt < len(nums)-1:
+            if nums[pt] == nums[pt+1]:
+                nums.pop(pt)
+                continue
+            else:
+                pt += 1
+        for i in range(1, len(nums)-1):
+            if nums[i] < nums[i+1] and nums[i-1] > nums[i]:
+                count += 1
+                continue
+            elif nums[i] > nums[i+1] and nums[i] > nums[i-1]:
+                count += 1
+                continue
+        return count 
 ```
 
 ### **Java**
+Use two pointers to solve the problem
 
 ```java
-
+class Solution {
+    public int countHillValley(int[] nums) {
+        int count = 0;
+        for(int i = 1,j = 0; i < nums.length-1; i++) {
+            if(nums[i] == nums[i+1]) {
+                continue;
+            }
+            if(nums[i] > nums[j] && nums[i] > nums[i+1]) {
+                count++;
+            }
+            if(nums[i] < nums[j] && nums[i] < nums[i+1]){
+                count++;
+            }
+            j = i;
+        }
+        return count;
+    }
+}
 ```
 
 ### **TypeScript**
