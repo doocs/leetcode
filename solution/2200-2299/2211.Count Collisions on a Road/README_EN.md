@@ -57,13 +57,37 @@ No cars will collide with each other. Thus, the total number of collisions that 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countCollisions(self, directions: str) -> int:
+        l, r = 0, len(directions)-1
+        while l <= r and directions[l] == 'L':
+            l += 1
+        while l <= r and directions[r] == 'R':
+            r -= 1
+        count = 0
+        for i in range(l, r+1):
+            count += directions[i] != 'S'
+        return count
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int countCollisions(String directions) {
+        int l = 0, r = directions.length() -1, count = 0;
+        while (l <= r && directions.substring(l, l+1).equals("L")) {
+            l++;
+        }
+        while (l <= r && directions.substring(r, r+1).equals("R")) {
+            r--;
+        }
+        for (int i = l; i <=r; i++) {
+            if (!directions.substring(i, i+1).equals("S")) count += 1;
+        }
+        return count;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -72,10 +96,26 @@ No cars will collide with each other. Thus, the total number of collisions that 
 
 ```
 
-### **...**
+### **C++**
 
-```
+```cpp
+class Solution {
+public:
+    int countCollisions(string directions) {
+        int l = 0, r = directions.size() -1, count = 0;
+        while (l <= r && directions[l] == 'L') {
+            l++;
+        }
+        while (l <= r && directions[r] == 'R') {
+            r--;
+        }
+        for (int i = l; i <=r; i++) {
+            count += directions[i] != 'S';
+        }
+        return count;
 
+    }
+};
 ```
 
 <!-- tabs:end -->

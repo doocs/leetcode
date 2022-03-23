@@ -56,6 +56,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先处理数组 `nums`，把连续的都变成一个，比如 `[6, 6, 5, 5, 4, 1]`，转换为 `[6, 5, 4, 1]` 之后，再进行比较。
+
+优化：
+
+可以使用双指针的方式，忽略相邻重复的元素，而无需改动原数组。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +69,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
+        count = 0
+        pt = 0
+        while pt < len(nums)-1:
+            if nums[pt] == nums[pt+1]:
+                nums.pop(pt)
+                continue
+            else:
+                pt += 1
+        for i in range(1, len(nums)-1):
+            if nums[i] < nums[i+1] and nums[i-1] > nums[i]:
+                count += 1
+                continue
+            elif nums[i] > nums[i+1] and nums[i] > nums[i-1]:
+                count += 1
+                continue
+        return count 
 ```
 
 ### **Java**
@@ -71,7 +94,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countHillValley(int[] nums) {
+        int count = 0;
+        for(int i = 1,j = 0; i < nums.length-1; i++) {
+            if(nums[i] == nums[i+1]) {
+                continue;
+            }
+            if(nums[i] > nums[j] && nums[i] > nums[i+1]) {
+                count++;
+            }
+            if(nums[i] < nums[j] && nums[i] < nums[i+1]){
+                count++;
+            }
+            j = i;
+        }
+        return count;
+    }
+}
 ```
 
 ### **TypeScript**
