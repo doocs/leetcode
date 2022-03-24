@@ -45,6 +45,7 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 </ul>
 
 ## Solutions
+
 The first step is to count the number of times each number appears in the array. Since the question asks for pairs of numbers that are part of putting two equal elements together, in other words to see if each number occurs an even number of times.
 
 <!-- tabs:start -->
@@ -54,11 +55,8 @@ The first step is to count the number of times each number appears in the array.
 ```python
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
-        dic = Counter(nums)
-        for num in dic:
-            if dic[num] % 2 != 0:
-                return False
-        return True
+        cnt = Counter(nums)
+        return all(v % 2 == 0 for v in cnt.values())
 ```
 
 ### **Java**
