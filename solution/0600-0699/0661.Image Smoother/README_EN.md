@@ -57,6 +57,85 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 
 ```
 
+### **TypeScript**
+
+```ts
+function imageSmoother(img: number[][]): number[][] {
+    const m = img.length;
+    const n = img[0].length;
+    const locations = [
+        [-1, -1],
+        [-1, 0],
+        [-1, 1],
+        [0, -1],
+        [0, 0],
+        [0, 1],
+        [1, -1],
+        [1, 0],
+        [1, 1],
+    ];
+
+    const res = [];
+    for (let i = 0; i < m; i++) {
+        res.push([]);
+        for (let j = 0; j < n; j++) {
+            let sum = 0;
+            let count = 0;
+            for (const [y, x] of locations) {
+                if ((img[i + y] || [])[j + x] != null) {
+                    sum += img[i + y][j + x];
+                    count++;
+                }
+            }
+            res[i].push(Math.floor(sum / count));
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn image_smoother(img: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let m = img.len();
+        let n = img[0].len();
+        let locations = [
+            [-1, -1],
+            [-1, 0],
+            [-1, 1],
+            [0, -1],
+            [0, 0],
+            [0, 1],
+            [1, -1],
+            [1, 0],
+            [1, 1],
+        ];
+
+        let mut res = vec![];
+        for i in 0..m {
+            res.push(vec![]);
+            for j in 0..n {
+                let mut sum = 0;
+                let mut count = 0;
+                for [y, x] in locations.iter() {
+                    let i = i as i32 + y;
+                    let j = j as i32 + x;
+                    if i < 0 || i == m as i32 || j < 0 || j == n as i32 {
+                        continue;
+                    }
+                    count += 1;
+                    sum += img[i as usize][j as usize];
+                }
+                res[i].push(sum / count);
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
