@@ -48,13 +48,48 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 ### **Python3**
 
 ```python
-
+class Solution:
+    def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:
+        m, n = len(img), len(img[0])
+        ans = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                s = cnt = 0
+                for x in range(i - 1, i + 2):
+                    for y in range(j - 1, j + 2):
+                        if 0 <= x < m and 0 <= y < n:
+                            cnt += 1
+                            s += img[x][y]
+                ans[i][j] = s // cnt
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[][] imageSmoother(int[][] img) {
+        int m = img.length;
+        int n = img[0].length;
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int s = 0;
+                int cnt = 0;
+                for (int x = i - 1; x <= i + 1; ++x) {
+                    for (int y = j - 1; y <= j + 1; ++y) {
+                        if (x >= 0 && x < m && y >= 0 && y < n) {
+                            ++cnt;
+                            s += img[x][y];
+                        }
+                    }
+                }
+                ans[i][j] = s / cnt;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -133,6 +168,61 @@ impl Solution {
         }
         res
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> imageSmoother(vector<vector<int>>& img) {
+        int m = img.size(), n = img[0].size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int s = 0, cnt = 0;
+                for (int x = i - 1; x <= i + 1; ++x)
+                {
+                    for (int y = j - 1; y <= j + 1; ++y)
+                    {
+                        if (x < 0 || x >= m || y < 0 || y >= n) continue;
+                        ++cnt;
+                        s += img[x][y];
+                    }
+                }
+                ans[i][j] = s / cnt;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func imageSmoother(img [][]int) [][]int {
+	m, n := len(img), len(img[0])
+	ans := make([][]int, m)
+	for i, row := range img {
+		ans[i] = make([]int, n)
+		for j := range row {
+			s, cnt := 0, 0
+			for x := i - 1; x <= i+1; x++ {
+				for y := j - 1; y <= j+1; y++ {
+					if x >= 0 && x < m && y >= 0 && y < n {
+						cnt++
+						s += img[x][y]
+					}
+				}
+			}
+			ans[i][j] = s / cnt
+		}
+	}
+	return ans
 }
 ```
 
