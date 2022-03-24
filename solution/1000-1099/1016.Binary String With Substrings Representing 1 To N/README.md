@@ -40,6 +40,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+4（100）存在的话，2（10）一定存在。`n` 存在的话，`n >> 1` 也一定存在，所以只需要判断 `[n/2+1, n]` 范围的数字
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +49,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def queryString(self, s: str, n: int) -> bool:
+        for i in range(n, n // 2, -1):
+            if bin(i)[2:] not in s:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -55,7 +62,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean queryString(String s, int n) {
+        for (int i = n; i > n / 2; i--) {
+            if (!s.contains(Integer.toBinaryString(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **Go**
+
+```go
+func queryString(s string, n int) bool {
+	for i := n; i > n/2; i-- {
+		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
+			return false
+		}
+	}
+	return true
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool queryString(string s, int n) {
+        for (int i = n; i > n / 2; --i) {
+            string b = bitset<32>(i).to_string();
+            b = b.substr(b.find_first_not_of('0'));
+            if (s.find(b) == string::npos) return false;
+        }
+        return true;
+    }
+};
 ```
 
 ### **...**
