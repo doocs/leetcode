@@ -129,9 +129,7 @@ class SegmentTree:
             root.mx = max(root.mx, left.rmx + right.lmx)
 
     def pushup(self, u):
-        root = tr[u]
-        left, right = tr[u << 1], tr[u << 1 | 1]
-        self._pushup(root, left, right)
+        self._pushup(tr[u], tr[u << 1], tr[u << 1 | 1])
 
 
 class Solution:

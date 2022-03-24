@@ -58,7 +58,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-这个题比较有意思，最后规律是左边向左的车辆可以出去，右边向右的车辆可以出去，中间不是 S 的都出不来。
+-   去除前缀为 `L` 的字符；
+-   去除后缀为 `R` 的字符；
+-   剩余的字符串中，除了 `S` 以外的字符，都会贡献一次碰撞次数。
 
 <!-- tabs:start -->
 
@@ -69,15 +71,8 @@
 ```python
 class Solution:
     def countCollisions(self, directions: str) -> int:
-        l, r = 0, len(directions)-1
-        while l <= r and directions[l] == 'L':
-            l += 1
-        while l <= r and directions[r] == 'R':
-            r -= 1
-        count = 0
-        for i in range(l, r+1):
-            count += directions[i] != 'S'
-        return count
+        d = directions.lstrip('L').rstrip('R')
+        return len(d) - d.count('S')
 ```
 
 ### **Java**
@@ -87,17 +82,23 @@ class Solution:
 ```java
 class Solution {
     public int countCollisions(String directions) {
-        int l = 0, r = directions.length() - 1, count = 0;
-        while (l <= r && directions.substring(l, l + 1).equals("L")) {
-            l++;
+        char[] ds = directions.toCharArray();
+        int n = ds.length;
+        int l = 0;
+        int r = n - 1;
+        while (l < n && ds[l] == 'L') {
+            ++l;
         }
-        while (l <= r && directions.substring(r, r + 1).equals("R")) {
-            r--;
+        while (r >= 0 && ds[r] == 'R') {
+            --r;
         }
-        for (int i = l; i <= r; i++) {
-            if (!directions.substring(i, i + 1).equals("S")) count += 1;
+        int ans = 0;
+        for (int i = l; i <= r; ++i) {
+            if (ds[i] != 'S') {
+                ++ans;
+            }
         }
-        return count;
+        return ans;
     }
 }
 ```
@@ -105,7 +106,24 @@ class Solution {
 ### **TypeScript**
 
 ```ts
-
+function countCollisions(directions: string): number {
+    const n = directions.length;
+    let l = 0,
+        r = n - 1;
+    while (l < n && directions[l] == 'L') {
+        ++l;
+    }
+    while (r >= 0 && directions[r] == 'R') {
+        --r;
+    }
+    let ans = 0;
+    for (let i = l; i <= r; ++i) {
+        if (directions[i] != 'S') {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **C++**
@@ -128,6 +146,22 @@ public:
 
     }
 };
+```
+
+### **Go**
+
+```go
+func countCollisions(directions string) int {
+	d := strings.TrimLeft(directions, "L")
+	d = strings.TrimRight(d, "R")
+	return len(d) - strings.Count(d, "S")
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->
