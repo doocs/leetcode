@@ -62,11 +62,8 @@ nums 可以划分成 (2, 2) ，(3, 3) 和 (2, 2) ，满足所有要求。
 ```python
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
-        dic = Counter(nums)
-        for num in dic:
-            if dic[num] % 2 != 0:
-                return False
-        return True
+        cnt = Counter(nums)
+        return all(v % 2 == 0 for v in cnt.values())
 ```
 
 ### **Java**
