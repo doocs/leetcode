@@ -51,6 +51,7 @@ nums 可以划分成 (2, 2) ，(3, 3) 和 (2, 2) ，满足所有要求。
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+首先统计数组里面每个数字出现的次数。因为题目要求的数对属于将两个相等的元素放在一起，所以换句话说就是看每个数字出现的次数是不是偶数次。
 
 <!-- tabs:start -->
 
@@ -59,7 +60,18 @@ nums 可以划分成 (2, 2) ，(3, 3) 和 (2, 2) ，满足所有要求。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def divideArray(self, nums: List[int]) -> bool:
+        dic = {}
+        for num in nums:
+            if num in dic:
+                dic[num] += 1
+            else:
+                dic[num] = 1
+        for num in dic:
+            if dic[num] % 2 != 0:
+                return False
+        return True
 ```
 
 ### **Java**

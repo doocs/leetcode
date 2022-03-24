@@ -21,7 +21,7 @@
 <pre>
 <strong>Input:</strong> nums = [3,2,3,2,2,2]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There are 6 elements in nums, so they should be divided into 6 / 2 = 3 pairs.
 If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy all the conditions.
 </pre>
@@ -31,7 +31,7 @@ If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy al
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4]
 <strong>Output:</strong> false
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy every condition.
 </pre>
 
@@ -45,13 +45,25 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 </ul>
 
 ## Solutions
+The first step is to count the number of times each number appears in the array. Since the question asks for pairs of numbers that are part of putting two equal elements together, in other words to see if each number occurs an even number of times.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def divideArray(self, nums: List[int]) -> bool:
+        dic = {}
+        for num in nums:
+            if num in dic:
+                dic[num] += 1
+            else:
+                dic[num] = 1
+        for num in dic:
+            if dic[num] % 2 != 0:
+                return False
+        return True
 ```
 
 ### **Java**
