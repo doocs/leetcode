@@ -410,7 +410,7 @@ func (t *segmentTree) pushup(x, l, m, r int) {
 		if t.lmx[lch] == m-l+1 {
 			t.lmx[x] += t.lmx[rch]
 		}
-		if t.rmx[rch] == r-(m+1)-1 {
+		if t.rmx[rch] == r-m {
 			t.rmx[x] += t.rmx[lch]
 		}
 		t.mx[x] = max(t.mx[x], t.rmx[lch]+t.lmx[rch])
