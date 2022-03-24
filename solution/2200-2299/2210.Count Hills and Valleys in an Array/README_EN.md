@@ -60,22 +60,26 @@ First make the consecutive duplicate value to be unique with the side values.
 ```python
 class Solution:
     def countHillValley(self, nums: List[int]) -> int:
-        count = 0
-        pt = 0
-        while pt < len(nums)-1:
-            if nums[pt] == nums[pt+1]:
-                nums.pop(pt)
+        arr = [nums[0]]
+        for v in nums[1:]:
+            if v != arr[-1]:
+                arr.append(v)
+        return sum((arr[i] < arr[i - 1]) == (arr[i] < arr[i + 1]) for i in range(1, len(arr) - 1))
+```
+
+```python
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
+        ans = j = 0
+        for i in range(1, len(nums) - 1):
+            if nums[i] == nums[i + 1]:
                 continue
-            else:
-                pt += 1
-        for i in range(1, len(nums)-1):
-            if nums[i] < nums[i+1] and nums[i-1] > nums[i]:
-                count += 1
-                continue
-            elif nums[i] > nums[i+1] and nums[i] > nums[i-1]:
-                count += 1
-                continue
-        return count
+            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
+                ans += 1
+            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
+                ans += 1
+            j = i
+        return ans
 ```
 
 ### **Java**
@@ -85,21 +89,61 @@ Use two pointers to solve the problem
 ```java
 class Solution {
     public int countHillValley(int[] nums) {
-        int count = 0;
-        for (int i = 1, j = 0; i < nums.length - 1; i++) {
+        int ans = 0;
+        for (int i = 1, j = 0; i < nums.length - 1; ++i) {
             if (nums[i] == nums[i + 1]) {
                 continue;
             }
             if (nums[i] > nums[j] && nums[i] > nums[i + 1]) {
-                count++;
+                ++ans;
             }
             if (nums[i] < nums[j] && nums[i] < nums[i + 1]) {
-                count++;
+                ++ans;
             }
             j = i;
         }
-        return count;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countHillValley(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 1, j = 0; i < nums.size() - 1; ++i)
+        {
+            if (nums[i] == nums[i + 1]) continue;
+            if (nums[i] > nums[j] && nums[i] > nums[i + 1]) ++ans;
+            if (nums[i] < nums[j] && nums[i] < nums[i + 1]) ++ans;
+            j = i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countHillValley(nums []int) int {
+	ans := 0
+	for i, j := 1, 0; i < len(nums)-1; i++ {
+		if nums[i] == nums[i+1] {
+			continue
+		}
+		if nums[i] > nums[j] && nums[i] > nums[i+1] {
+			ans++
+		}
+		if nums[i] < nums[j] && nums[i] < nums[i+1] {
+			ans++
+		}
+		j = i
+	}
+	return ans
 }
 ```
 
