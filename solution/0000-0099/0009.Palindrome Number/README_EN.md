@@ -81,6 +81,43 @@ class Solution {
 }
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function (x) {
+    let str = x + '';
+    let left = 0,
+        right = str.length - 1;
+    while (left < right) {
+        if (str[left] != str[right]) return false;
+        left++;
+        right--;
+    }
+    return true;
+};
+```
+
+### **Go**
+
+```go
+func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
+	result := 0
+	y := x
+	for y != 0 {
+		result = result * 10 + y%10
+		y /= 10
+	}
+	return result == x
+}
+```
+
 ### **...**
 
 ```
