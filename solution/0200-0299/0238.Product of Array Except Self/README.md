@@ -127,6 +127,14 @@ function productExceptSelf(nums: number[]): number[] {
 }
 ```
 
+```ts
+function productExceptSelf(nums: number[]): number[] {
+    return nums.map((_, i) =>
+        nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1),
+    );
+}
+```
+
 ### **Go**
 
 利用前缀和思想，分别求出 `i` 左右两侧的乘积
@@ -202,6 +210,26 @@ impl Solution {
             .enumerate()
             .map(|(i, x)| x * dp_right[i])
             .collect()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut l = 1;
+        let mut r = 1;
+        let mut res = vec![0; n];
+        for i in 0..n {
+            res[i] = l;
+            l *= nums[i];
+        }
+        for i in (0..n).rev() {
+            res[i] *= r;
+            r *= nums[i];
+        }
+        res
     }
 }
 ```
