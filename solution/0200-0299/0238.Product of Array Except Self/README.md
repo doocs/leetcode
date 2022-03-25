@@ -111,6 +111,22 @@ var productExceptSelf = function (nums) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function productExceptSelf(nums: number[]): number[] {
+    let dpLeft = Array(nums.length).fill(1);
+    let dpRight = Array(nums.length).fill(1);
+    for (let i = 1; i < nums.length; i++) {
+        dpLeft[i] = dpLeft[i - 1] * nums[i - 1];
+    }
+    for (let i = nums.length - 2; i >= 0; i--) {
+        dpRight[i] = dpRight[i + 1] * nums[i + 1];
+    }
+    return dpLeft.map((x, i) => x * dpRight[i]);
+}
+```
+
 ### **Go**
 
 利用前缀和思想，分别求出 `i` 左右两侧的乘积
@@ -137,6 +153,56 @@ func productExceptSelf(nums []int) []int {
 	}
 
 	return ans
+}
+```
+
+### **C++**
+
+```cpp
+class Solution
+{
+public:
+    vector<int> productExceptSelf(vector<int> &nums)
+    {
+        vector<int> dpLeft(nums.size(), 1);
+        vector<int> dpRight(nums.size(), 1);
+        for (int i = 1; i < nums.size(); i++)
+        {
+            dpLeft[i] = dpLeft[i - 1] * nums[i - 1];
+        }
+        for (int i = nums.size() - 2; i >= 0; i--)
+        {
+            dpRight[i] = dpRight[i + 1] * nums[i + 1];
+        }
+        vector<int> result;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            result.push_back(dpLeft[i] * dpRight[i]);
+        }
+        return result;
+    }
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
+        let mut dp_left = vec![1_i32; nums.len()];
+        let mut dp_right = vec![1_i32; nums.len()];
+        for i in 1..nums.len() {
+            dp_left[i] = dp_left[i - 1] * nums[i - 1];
+        }
+        for i in (0..(nums.len() - 1)).rev() {
+            dp_right[i] = dp_right[i + 1] * nums[i + 1];
+        }
+        dp_left
+            .into_iter()
+            .enumerate()
+            .map(|(i, x)| x * dp_right[i])
+            .collect()
+    }
 }
 ```
 
