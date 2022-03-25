@@ -2258,3 +2258,4 @@
   - [2211.Count Collisions on a Road](/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README.md)
   - [2212.Maximum Points in an Archery Competition](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md)
   - [2213.Longest Substring of One Repeating Character](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md)
+  - [2214.Minimum Health to Beat Game](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md)
