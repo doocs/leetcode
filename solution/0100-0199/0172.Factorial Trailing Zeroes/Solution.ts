@@ -1,8 +1,8 @@
 function trailingZeroes(n: number): number {
-    let count = 0;
+    let ans = 0;
     while (n > 0) {
         n = Math.floor(n / 5);
-        count += n;
+        ans += n;
     }
-    return count;
+    return ans;
 }

@@ -51,7 +51,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-统计 5 的个数
+题目实际上是求 1~n 中有多少个 5 个因数。
+
+我们以 130 为例来分析：
+
+1. 第 1 次除以 5，得到 26，表示存在 26 个包含因数 5 的数；
+1. 第 2 次除以 5，得到 5，表示存在 5 个包含因数 5² 的数；
+1. 第 3 次除以 5，得到 1，表示存在 1 个包含因数 5³ 的数；
+1. 累加得到从 1~n 中所有 5 的因数的个数。
 
 <!-- tabs:start -->
 
@@ -60,7 +67,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def trailingZeroes(self, n: int) -> int:
+        ans = 0
+        while n:
+            n //= 5
+            ans += n
+        return ans
 ```
 
 ### **Java**
@@ -68,19 +81,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int trailingZeroes(int n) {
+        int ans = 0;
+        while (n > 0) {
+            n /= 5;
+            ans += n;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function trailingZeroes(n: number): number {
-    let count = 0;
+    let ans = 0;
     while (n > 0) {
         n = Math.floor(n / 5);
-        count += n;
+        ans += n;
     }
-    return count;
+    return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        int ans = 0;
+        for (int i = 5; i <= n; i *= 5) ans += n / i;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func trailingZeroes(n int) int {
+	ans := 0
+	for n > 0 {
+		n /= 5
+		ans += n
+	}
+	return ans
 }
 ```
 
