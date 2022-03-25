@@ -94,6 +94,93 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function readBinaryWatch(turnedOn: number): string[] {
+    if (turnedOn === 0) {
+        return ['0:00'];
+    }
+    const n = 10;
+    const res = [];
+    const bitArr = new Array(10).fill(false);
+    const createTime = () => {
+        return [
+            bitArr.slice(0, 4).reduce((p, v) => (p << 1) | Number(v), 0),
+            bitArr.slice(4).reduce((p, v) => (p << 1) | Number(v), 0),
+        ];
+    };
+    const helper = (i: number, count: number) => {
+        if (i + count > n || count === 0) {
+            return;
+        }
+        bitArr[i] = true;
+        if (count === 1) {
+            const [h, m] = createTime();
+            if (h < 12 && m < 60) {
+                res.push(`${h}:${m < 10 ? '0' + m : m}`);
+            }
+        }
+        helper(i + 1, count - 1);
+        bitArr[i] = false;
+        helper(i + 1, count);
+    };
+    helper(0, turnedOn);
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn create_time(bit_arr: &[bool; 10]) -> (i32, i32) {
+        let mut h = 0;
+        let mut m = 0;
+        for i in 0..4 {
+            h <<= 1;
+            h |= if bit_arr[i] { 1 } else { 0 };
+        }
+        for i in 4..10 {
+            m <<= 1;
+            m |= if bit_arr[i] { 1 } else { 0 };
+        }
+
+        (h, m)
+    }
+
+    fn helper(res: &mut Vec<String>, bit_arr: &mut [bool; 10], i: usize, count: usize) {
+        if i + count > 10 || count == 0 {
+            return;
+        }
+        bit_arr[i] = true;
+        if count == 1 {
+            let (h, m) = Self::create_time(bit_arr);
+            if h < 12 && m < 60 {
+                if m < 10 {
+                    res.push(format!("{}:0{}", h, m));
+                } else {
+                    res.push(format!("{}:{}", h, m));
+                }
+            }
+        }
+        Self::helper(res, bit_arr, i + 1, count - 1);
+        bit_arr[i] = false;
+        Self::helper(res, bit_arr, i + 1, count);
+    }
+
+    pub fn read_binary_watch(turned_on: i32) -> Vec<String> {
+        if turned_on == 0 {
+            return vec![String::from("0:00")];
+        }
+        let mut res = vec![];
+        let mut bit_arr = [false; 10];
+        Self::helper(&mut res, &mut bit_arr, 0, turned_on as usize);
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
