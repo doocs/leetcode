@@ -49,18 +49,51 @@ The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interv
 
 ## Solutions
 
+Greedy.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def twoCitySchedCost(self, costs: List[List[int]]) -> int:
+        costs.sort(key=lambda x: x[0] - x[1])
+        n = len(costs) >> 1
+        return sum(costs[i][0] + costs[i + n][1] for i in range(n))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int twoCitySchedCost(int[][] costs) {
+        Arrays.sort(costs, (a, b) -> {
+            return a[0] - a[1] - (b[0] - b[1]);
+        });
+        int ans = 0;
+        int n = costs.length >> 1;
+        for (int i = 0; i < n; ++i) {
+            ans += costs[i][0] + costs[i + n][1];
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func twoCitySchedCost(costs [][]int) int {
+	sort.Slice(costs, func(i, j int) bool {
+		return costs[i][0]-costs[i][1] < costs[j][0]-costs[j][1]
+	})
+	ans, n := 0, len(costs)>>1
+	for i := 0; i < n; i++ {
+		ans += costs[i][0] + costs[i+n][1]
+	}
+	return ans
+}
 ```
 
 ### **C++**

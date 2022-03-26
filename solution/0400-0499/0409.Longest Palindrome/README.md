@@ -48,6 +48,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+> 一个回文字符串，最多存在一个出现奇数次数的字符，
+
+先统计所有字符出现的次数，通用的方式是哈希表。题目已说明只存在大小写字母（52 种可能），也可以使用数组来存储。
+
+而后，可分两种方式：
+
+- 布尔变量
+    - 累加出现次数为偶数的数值。
+    - 对于奇数，第一次出现，完整累加；后续出现，则需要对次数 `-1` 去奇，再累加。
+- 计数器
+    - 记录奇数出现的次数，最后的结果回文长度由 `s.length - count` 得知。
+    - 如果只存在一个奇数，那么可以直接返回 `s.length`.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -102,6 +115,25 @@ function longestPalindrome(s: string): number {
 }
 ```
 
+```ts
+function longestPalindrome(s: string): number {
+    const map = new Map();
+    for (const c of s) {
+        map.set(c, (map.get(c) ?? 0) + 1);
+    }
+    let hasOdd = false;
+    let res = 0;
+    for (const v of map.values()) {
+        res += v;
+        if (v & 1) {
+            hasOdd = true;
+            res--;
+        }
+    }
+    return res + (hasOdd ? 1 : 0);
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -135,6 +167,31 @@ func longestPalindrome(s string) int {
 		return n
 	}
 	return n - oddCnt + 1
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn longest_palindrome(s: String) -> i32 {
+        let mut map: HashMap<char, i32> = HashMap::new();
+        for c in s.chars() {
+            map.insert(c, map.get(&c).unwrap_or(&0) + 1);
+        }
+        let mut has_odd = false;
+        let mut res = 0;
+        for v in map.values() {
+            res += v;
+            if v % 2 == 1 {
+                has_odd = true;
+                res -= 1;
+            }
+        }
+        res + if has_odd { 1 } else { 0 }
+    }
 }
 ```
 

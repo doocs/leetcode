@@ -45,7 +45,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历字符串，将每个字符串按照字符字典序排序后得到一个新的字符串，将相同的新字符串放在哈希表的同一个 key 对应 value 列表中。
+1. 遍历字符串，对每个字符串按照**字符字典序**排序，得到一个新的字符串。
+2. 以新字符串为 `key`，`[str]` 为 `value`，存入哈希表当中（`HashMap<String, List<String>>`）。
+3. 后续遍历得到相同 `key` 时，将其加入到对应的 `value` 当中即可。
+
+以 `strs = ["eat", "tea", "tan", "ate", "nat", "bat"]` 为例，遍历结束时，哈希表的状况：
 
 | key     | value                   |
 | ------- | ----------------------- |
@@ -53,7 +57,7 @@
 | `"ant"` | `["tan", "nat"] `       |
 | `"abt"` | `["bat"] `              |
 
-最后返回哈希表的 value 列表即可。
+最后返回哈希表的 `value` 列表即可。
 
 <!-- tabs:start -->
 
@@ -107,6 +111,17 @@ function groupAnagrams(strs: string[]): string[][] {
 }
 ```
 
+```ts
+function groupAnagrams(strs: string[]): string[][] {
+    const map = new Map<string, string[]>();
+    for (const str of strs) {
+        const k = str.split('').sort().join('');
+        map.set(k, (map.get(k) ?? []).concat([str]));
+    }
+    return [...map.values()];
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -147,6 +162,28 @@ func groupAnagrams(strs []string) [][]string {
 		res = append(res, v)
 	}
 	return res
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
+        let mut map = HashMap::new();
+        for s in strs {
+            let key = {
+                let mut arr = s.chars().collect::<Vec<char>>();
+                arr.sort();
+                arr.iter().collect::<String>()
+            };
+            let val = map.entry(key).or_insert(vec![]);
+            val.push(s);
+        }
+        map.into_iter().map(|(_, v)| v).collect()
+    }
 }
 ```
 

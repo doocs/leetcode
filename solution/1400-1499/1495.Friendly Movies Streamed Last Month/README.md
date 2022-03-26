@@ -93,26 +93,31 @@ TVProgram</code> 表:
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-
+```sql
+SELECT DISTINCT
+    title
+FROM
+    Content
+        INNER JOIN
+    TVProgram ON Content.content_id = TVProgram.content_id
+WHERE
+    content_type = 'Movies'
+        AND kids_content = 'Y'
+        AND program_date BETWEEN '2020-06-01' AND '2020-06-30';
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-
-```
-
-```
+```sql
+SELECT DISTINCT
+    title
+FROM
+    Content
+        INNER JOIN
+    TVProgram ON Content.content_id = TVProgram.content_id
+WHERE
+    kids_content = 'Y'
+        AND (MONTH(program_date) , YEAR(program_date)) = (6 , 2020);
+```    
 
 <!-- tabs:end -->

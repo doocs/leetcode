@@ -32,13 +32,56 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def queryString(self, s: str, n: int) -> bool:
+        for i in range(n, n // 2, -1):
+            if bin(i)[2:] not in s:
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean queryString(String s, int n) {
+        for (int i = n; i > n / 2; i--) {
+            if (!s.contains(Integer.toBinaryString(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **Go**
+
+```go
+func queryString(s string, n int) bool {
+	for i := n; i > n/2; i-- {
+		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
+			return false
+		}
+	}
+	return true
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool queryString(string s, int n) {
+        for (int i = n; i > n / 2; --i) {
+            string b = bitset<32>(i).to_string();
+            b = b.substr(b.find_first_not_of('0'));
+            if (s.find(b) == string::npos) return false;
+        }
+        return true;
+    }
+};
 ```
 
 ### **...**

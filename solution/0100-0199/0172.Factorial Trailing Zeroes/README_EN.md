@@ -49,25 +49,66 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def trailingZeroes(self, n: int) -> int:
+        ans = 0
+        while n:
+            n //= 5
+            ans += n
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int trailingZeroes(int n) {
+        int ans = 0;
+        while (n > 0) {
+            n /= 5;
+            ans += n;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function trailingZeroes(n: number): number {
-    let count = 0;
+    let ans = 0;
     while (n > 0) {
         n = Math.floor(n / 5);
-        count += n;
+        ans += n;
     }
-    return count;
+    return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        int ans = 0;
+        for (int i = 5; i <= n; i *= 5) ans += n / i;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func trailingZeroes(n int) int {
+	ans := 0
+	for n > 0 {
+		n /= 5
+		ans += n
+	}
+	return ans
 }
 ```
 

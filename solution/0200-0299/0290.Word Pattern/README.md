@@ -47,6 +47,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**朴素解法：**
+
+给对应的字符打上印记，使用该字符首次出现的索引位置作为印记值，使用哈希表记录。
+
+而后，将字符串转换为对应的索引数组，如 `pattern  = "abbac"`，转换后为 `[0, 1, 1, 0, 4]`。对于字符串 `s` 同理。
+
+> 需注意，`pattern` 以 `char` 为 `key`；而 `s` 则是以 `' '` 作为分割符，转换为字符串数组之后，以成员 `String` 为 `key`。
+
+对比两个索引数组，在所有成员一一对应的情况下，才能表示两者规律一致。
+
+优化：
+
+转换为索引数组方便理解，但是太浪费。
+
+可以选择再次遍历字符串，以 `key` 取值对比即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -124,6 +140,32 @@ function wordPattern(pattern: string, s: string): boolean {
 }
 ```
 
+```ts
+function wordPattern(pattern: string, s: string): boolean {
+    const n = pattern.length;
+    const cs = s.split(' ');
+    if (n !== cs.length) {
+        return false;
+    }
+    const map1 = new Map<string, number>();
+    const map2 = new Map<string, number>();
+    for (let i = 0; i < n; i++) {
+        const c1 = pattern[i];
+        const c2 = cs[i];
+        if (!map1.has(c1)) {
+            map1.set(c1, i);
+        }
+        if (!map2.has(c2)) {
+            map2.set(c2, i);
+        }
+        if (map1.get(c1) !== map2.get(c2)) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -174,6 +216,39 @@ func wordPattern(pattern string, s string) bool {
 		c2str[k], str2c[v] = v, k
 	}
 	return true
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn word_pattern(pattern: String, s: String) -> bool {
+        let cs1: Vec<char> = pattern.chars().collect();
+        let cs2: Vec<&str> = s.split_whitespace().collect();
+        let n = cs1.len();
+        if n != cs2.len() {
+            return false;
+        }
+        let mut map1 = HashMap::new();
+        let mut map2 = HashMap::new();
+        for i in 0..n {
+            let c = cs1[i];
+            let s = cs2[i];
+            if !map1.contains_key(&c) {
+                map1.insert(c, i);
+            }
+            if !map2.contains_key(&s) {
+                map2.insert(s, i);
+            }
+            if map1.get(&c) != map2.get(&s) {
+                return false
+            }
+        }
+        true
+    }
 }
 ```
 

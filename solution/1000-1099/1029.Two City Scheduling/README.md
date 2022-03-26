@@ -55,6 +55,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+选出 `aCost - bCost` 最小的 N 个人，让他们飞往 a 市，其余人飞往 b 市。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +66,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def twoCitySchedCost(self, costs: List[List[int]]) -> int:
+        costs.sort(key=lambda x: x[0] - x[1])
+        n = len(costs) >> 1
+        return sum(costs[i][0] + costs[i + n][1] for i in range(n))
 ```
 
 ### **Java**
@@ -70,7 +78,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int twoCitySchedCost(int[][] costs) {
+        Arrays.sort(costs, (a, b) -> {
+            return a[0] - a[1] - (b[0] - b[1]);
+        });
+        int ans = 0;
+        int n = costs.length >> 1;
+        for (int i = 0; i < n; ++i) {
+            ans += costs[i][0] + costs[i + n][1];
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func twoCitySchedCost(costs [][]int) int {
+	sort.Slice(costs, func(i, j int) bool {
+		return costs[i][0]-costs[i][1] < costs[j][0]-costs[j][1]
+	})
+	ans, n := 0, len(costs)>>1
+	for i := 0; i < n; i++ {
+		ans += costs[i][0] + costs[i+n][1]
+	}
+	return ans
+}
 ```
 
 ### **C++**

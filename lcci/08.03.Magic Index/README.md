@@ -30,6 +30,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**线性查找：**
+
+遍历数组，当 `A[i] = i` 时直接返回即可。
+
+**优化：**
+
+在遍历的基础，进行可能的 "跳跃"，结束时执行 `i = max(A[i], i + 1)`，而不再单纯 `i++`。
+
+可行性证明：
+
+因为数组是**有序**的，若 `A[i] != i`，那么就可以将 `A[i]` 以下的可能全部排除，直接将 `i` 设定为 `A[i]`。
+
+若是考虑最糟的状况（所有元素都为负数），则该优化与遍历无差别。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -148,6 +162,89 @@ func find(nums []int, left, right int) int {
 		return mid
 	}
 	return find(nums, mid+1, right)
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMagicIndex(nums: number[]): number {
+    const n = nums.length;
+    const find = (l: number, r: number): number => {
+        if (l > r || nums[r] < 0) {
+            return -1;
+        }
+        const mid = l + Math.floor((r - l) / 2);
+        if (nums[mid] >= l) {
+            const res = find(l, mid - 1);
+            if (res !== -1) {
+                return res;
+            }
+        }
+        if (nums[mid] === mid) {
+            return mid;
+        }
+        return find(mid + 1, r);
+    };
+    return find(0, n - 1);
+}
+```
+
+```ts
+function findMagicIndex(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    while (i < n) {
+        if (nums[i] === i) {
+            return i;
+        }
+        i = Math.max(nums[i], i + 1);
+    }
+    return -1;
+}
+```
+
+## **Rust**
+
+```rust
+impl Solution {
+    fn find(nums: &Vec<i32>, l: usize, r: usize) -> i32 {
+        if l >= r || nums[r - 1] < 0 {
+            return -1;
+        }
+        let mid = l + (r - l) / 2;
+        if nums[mid] >= l as i32 {
+            let res = Self::find(nums, l, mid);
+            if res != -1 {
+                return res;
+            }
+        }
+        if nums[mid] == mid as i32 {
+            return mid as i32;
+        }
+        Self::find(nums, mid + 1, r)
+    }
+
+    pub fn find_magic_index(nums: Vec<i32>) -> i32 {
+        Self::find(&nums, 0, nums.len())
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_magic_index(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut i = 0 as i32;
+        while (i as usize) < n {
+            let num = nums[i as usize];
+            if num == i {
+                return i;
+            }
+            i = num.max(i + 1);
+        }
+        -1
+    }
 }
 ```
 

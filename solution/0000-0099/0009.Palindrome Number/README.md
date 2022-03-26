@@ -91,6 +91,85 @@ class Solution {
 }
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function (x) {
+    let str = x + '';
+    let left = 0,
+        right = str.length - 1;
+    while (left < right) {
+        if (str[left] != str[right]) return false;
+        left++;
+        right--;
+    }
+    return true;
+};
+```
+
+### **Go**
+
+```go
+func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
+	result := 0
+	y := x
+	for y != 0 {
+		result = result * 10 + y%10
+		y /= 10
+	}
+	return result == x
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_palindrome(x: i32) -> bool {
+        if x < 0 {
+            return false;
+        }
+        let s = x.to_string();
+        let bs = s.as_bytes();
+        let n = bs.len();
+        let mut l = 0;
+        let mut r = n - 1;
+        while l < r {
+            if bs[l] != bs[r] {
+                return false;
+            }
+            l += 1;
+            r -= 1;
+        }
+        true
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn is_palindrome(mut x: i32) -> bool {
+        if x < 0 || (x % 10 == 0 && x != 0) {
+            return false;
+        }
+        let mut y = 0;
+        while x > y {
+            y *= 10;
+            y += x % 10;
+            x /= 10;
+        }
+        x == y || x == y / 10
+    }
+}
+```
+
 ### **...**
 
 ```

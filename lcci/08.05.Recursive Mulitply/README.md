@@ -31,6 +31,59 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+~~**最佳方案：**~~
+
+~~直接返回 `A * B`~~
+
+正常递归，叠加总和
+
+```txt
+MULTIPLY(A, B)
+    if A == 0 || B == 0
+        return 0
+    A + multiply(A, B - 1)
+```
+
+优化 1：
+
+由数值较小的数字决定递归层次
+
+```txt
+MULTIPLY(A, B)
+    if A == 0 || B == 0
+        return 0
+    return max(A, B) + multiply(max(A, B), min(A, B) - 1)
+```
+
+优化 2：
+
+使用位移减少递归层次
+
+```txt
+MULTIPLY(A, B)
+    return (B % 1 == 1 ? A : 0) + (B > 1 ? MULTIPLY(A + A, B >> 1) : 0)
+```
+
+可进一步，转换为循环，虽然并不符合递归主题。
+
+> A 与 B 皆为**正整数**，初始值不会为 0，所以终止条件是 `B != 1`
+
+```txt
+MULTIPLY(A, B)
+    T = min(A, B)
+    A = max(A, B)
+    B = T
+    r = 0
+    while B != 1 {
+        if B % 2 == 1 {
+            r = r + A
+        }
+        A = A + A
+        B = B >> 1
+    }
+    return res + A
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,6 +100,41 @@
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function multiply(A: number, B: number): number {
+    if (A === 0 || B === 0) {
+        return 0;
+    }
+    const [max, min] = [Math.max(A, B), Math.min(A, B)];
+    return max + multiply(max, min - 1);
+}
+```
+
+```ts
+function multiply(A: number, B: number): number {
+    const max = Math.max(A, B);
+    const min = Math.min(A, B);
+    const helper = (a: number, b: number) =>
+        (b & 1 ? a : 0) + (b > 1 ? helper(a + a, b >> 1) : 0);
+    return helper(max, min);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn multiply(a: i32, b: i32) -> i32 {
+        if a == 0 || b == 0 {
+            return 0;
+        }
+        a.max(b) + Self::multiply(a.max(b), a.min(b) - 1)
+    }
+}
 ```
 
 ### **...**

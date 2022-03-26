@@ -151,6 +151,89 @@ func find(nums []int, left, right int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function findMagicIndex(nums: number[]): number {
+    const n = nums.length;
+    const find = (l: number, r: number): number => {
+        if (l > r || nums[r] < 0) {
+            return -1;
+        }
+        const mid = l + Math.floor((r - l) / 2);
+        if (nums[mid] >= l) {
+            const res = find(l, mid - 1);
+            if (res !== -1) {
+                return res;
+            }
+        }
+        if (nums[mid] === mid) {
+            return mid;
+        }
+        return find(mid + 1, r);
+    };
+    return find(0, n - 1);
+}
+```
+
+```ts
+function findMagicIndex(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    while (i < n) {
+        if (nums[i] === i) {
+            return i;
+        }
+        i = Math.max(nums[i], i + 1);
+    }
+    return -1;
+}
+```
+
+## **Rust**
+
+```rust
+impl Solution {
+    fn find(nums: &Vec<i32>, l: usize, r: usize) -> i32 {
+        if l >= r || nums[r - 1] < 0 {
+            return -1;
+        }
+        let mid = l + (r - l) / 2;
+        if nums[mid] >= l as i32 {
+            let res = Self::find(nums, l, mid);
+            if res != -1 {
+                return res;
+            }
+        }
+        if nums[mid] == mid as i32 {
+            return mid as i32;
+        }
+        Self::find(nums, mid + 1, r)
+    }
+
+    pub fn find_magic_index(nums: Vec<i32>) -> i32 {
+        Self::find(&nums, 0, nums.len())
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_magic_index(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut i = 0 as i32;
+        while (i as usize) < n {
+            let num = nums[i as usize];
+            if num == i {
+                return i;
+            }
+            i = num.max(i + 1);
+        }
+        -1
+    }
+}
+```
+
 ### **...**
 
 ```

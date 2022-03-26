@@ -60,7 +60,11 @@ Activity table:
 ### **SQL**
 
 ```sql
-
+SELECT 
+    player_id, MIN(event_date) first_login
+FROM
+    Activity
+GROUP BY player_id;
 ```
 
 <!-- tabs:end -->
