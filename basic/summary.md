@@ -1,4 +1,4 @@
--   基础算法通关
+-   [基础算法通关](/basic/README.md)
     -   排序算法
         -   [冒泡排序](/basic/sorting/BubbleSort/README.md)
         -   [插入排序](/basic/sorting/InsertionSort/README.md)
