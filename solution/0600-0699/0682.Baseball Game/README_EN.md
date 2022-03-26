@@ -165,6 +165,55 @@ func calPoints(ops []string) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function calPoints(ops: string[]): number {
+    const stack = [];
+    for (const op of ops) {
+        const n = stack.length;
+        if (op === '+') {
+            stack.push(stack[n - 1] + stack[n - 2]);
+        } else if (op === 'D') {
+            stack.push(stack[n - 1] * 2);
+        } else if (op === 'C') {
+            stack.pop();
+        } else {
+            stack.push(Number(op));
+        }
+    }
+    return stack.reduce((p, v) => p + v);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn cal_points(ops: Vec<String>) -> i32 {
+        let mut stack = vec![];
+        for op in ops {
+            match op.as_str() {
+                "+" => {
+                    let n = stack.len();
+                    stack.push(stack[n - 1] + stack[n - 2]);
+                }
+                "D" => {
+                    stack.push(stack.last().unwrap() * 2);
+                }
+                "C" => {
+                    stack.pop();
+                }
+                n => {
+                    stack.push(n.parse::<i32>().unwrap());
+                }
+            }
+        }
+        stack.into_iter().sum()
+    }
+}
+```
+
 ### **...**
 
 ```
