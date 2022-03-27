@@ -62,7 +62,19 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def halveArray(self, nums: List[int]) -> int:
+        s = sum(nums) / 2
+        h = []
+        for v in nums:
+            heappush(h, -v)
+        ans = 0
+        while s > 0:
+            t = -heappop(h) / 2
+            s -= t
+            heappush(h, -t)
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -70,13 +82,53 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int halveArray(int[] nums) {
+        long s = 0;
+        PriorityQueue<Double> q = new PriorityQueue<>(Collections.reverseOrder()); 
+        for (int v : nums) {
+            q.offer(v * 1.0);
+            s += v;
+        }
+        double d = s / 2.0;
+        int ans = 0;
+        while (d > 0) {
+            double t = q.poll();
+            d -= t / 2.0;
+            q.offer(t / 2.0);
+            ++ans;
+        }
+        return ans;
+    }
+}
 ```
 
-### **TypeScript**
+### **C++**
 
-```ts
-
+```cpp
+class Solution {
+public:
+    int halveArray(vector<int>& nums) {
+        priority_queue<double> q;
+        long long s = 0;
+        for (int& v : nums)
+        {
+            s += v;
+            q.push(v);
+        }
+        double d = s / 2.0;
+        int ans = 0;
+        while (d > 0)
+        {
+            double t = q.top() / 2;
+            q.pop();
+            d -= t;
+            q.push(t);
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
@@ -103,6 +155,18 @@ type hp struct{ sort.IntSlice }
 func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 func (hp) Push(interface{})     {}
 func (hp) Pop() (_ interface{}) { return }
+```
+
+
+### **TypeScript**
+
+```ts
+
+```
+
+### **...**
+
+```
 
 ```
 
