@@ -82,6 +82,79 @@
 
 ```
 
+### **TypeScript**
+
+```ts
+function missingRolls(rolls: number[], mean: number, n: number): number[] {
+    const len = rolls.length + n;
+    const sum = rolls.reduce((p, v) => p + v);
+    const max = n * 6;
+    const min = n;
+    if ((sum + max) / len < mean || (sum + min) / len > mean) {
+        return [];
+    }
+
+    const res = new Array(n);
+    for (let i = min; i <= max; i++) {
+        if ((sum + i) / len === mean) {
+            const num = Math.floor(i / n);
+            res.fill(num);
+            let count = i - n * num;
+            let j = 0;
+            while (count != 0) {
+                if (res[j] === 6) {
+                    j++;
+                } else {
+                    res[j]++;
+                    count--;
+                }
+            }
+            break;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn missing_rolls(rolls: Vec<i32>, mean: i32, n: i32) -> Vec<i32> {
+        let n = n as usize;
+        let mean = mean as usize;
+        let len = rolls.len() + n;
+        let sum: i32 = rolls.iter().sum();
+        let sum = sum as usize;
+        let max = n * 6;
+        let min = n;
+        if (sum + max) < mean * len || (sum + min) > mean * len {
+            return vec![];
+        }
+
+        let mut res = vec![0; n];
+        for i in min..=max {
+            if (sum + i) / len == mean {
+                let num = i / n;
+                res.fill(num as i32);
+                let mut count = i - n * num;
+                let mut j = 0;
+                while count != 0 {
+                    if res[j] == 6 {
+                        j += 1;
+                    } else {
+                        res[j] += 1;
+                        count -= 1;
+                    }
+                }
+                break;
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
