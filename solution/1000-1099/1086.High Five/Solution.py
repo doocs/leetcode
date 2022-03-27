@@ -9,6 +9,6 @@ class Solution:
         for i, scores in enumerate(s):
             if scores is None:
                 continue
-            avg = sum(heapq.nlargest(5, scores)) // 5
+            avg = sum(nlargest(5, scores)) // 5
             res.append([i, avg])
         return res

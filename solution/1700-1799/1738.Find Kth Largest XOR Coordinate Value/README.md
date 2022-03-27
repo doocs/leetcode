@@ -72,7 +72,7 @@ class Solution:
             for j in range(n):
                 s[i + 1][j + 1] = s[i + 1][j] ^ s[i][j + 1] ^ s[i][j] ^ matrix[i][j]
                 ans.append(s[i + 1][j + 1])
-        return heapq.nlargest(k, ans)[-1]
+        return nlargest(k, ans)[-1]
 ```
 
 ### **Java**

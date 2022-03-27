@@ -237,7 +237,7 @@ class Solution:
         q = [(f(start), start)]
         dist = {start: 0}
         while q:
-            _, state = heapq.heappop(q)
+            _, state = heappop(q)
             if state == target:
                 return dist[state]
             for t in next(state):
@@ -245,7 +245,7 @@ class Solution:
                     continue
                 if t not in dist or dist[t] > dist[state] + 1:
                     dist[t] = dist[state] + 1
-                    heapq.heappush(q, (dist[t] + f(t), t))
+                    heappush(q, (dist[t] + f(t), t))
         return -1
 ```
 

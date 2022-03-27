@@ -56,10 +56,10 @@ class Solution:
         hp = []
         for num, freq in counter.items():
             if len(hp) == k:
-                heapq.heappush(hp, (freq, num))
-                heapq.heappop(hp)
+                heappush(hp, (freq, num))
+                heappop(hp)
             else:
-                heapq.heappush(hp, (freq, num))
+                heappush(hp, (freq, num))
         return [t[1] for t in hp]
 ```
 

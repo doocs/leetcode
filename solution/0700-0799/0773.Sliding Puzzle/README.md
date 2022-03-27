@@ -162,7 +162,7 @@ class Solution:
         q = [(f(start), start)]
         dist = {start: 0}
         while q:
-            _, state = heapq.heappop(q)
+            _, state = heappop(q)
             if state == end:
                 return dist[state]
             p1 = state.index('0')
@@ -177,7 +177,7 @@ class Solution:
                     s[p1], s[p2] = s[p2], s[p1]
                     if next not in dist or dist[next] > dist[state] + 1:
                         dist[next] = dist[state] + 1
-                        heapq.heappush(q, (dist[next] + f(next), next))
+                        heappush(q, (dist[next] + f(next), next))
         return -1
 ```
 

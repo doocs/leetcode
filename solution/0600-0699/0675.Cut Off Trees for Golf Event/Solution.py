@@ -7,7 +7,7 @@ class Solution:
             q = [(f(i, j, x, y), i, j)]
             dist = {i * n + j: 0}
             while q:
-                _, i, j = heapq.heappop(q)
+                _, i, j = heappop(q)
                 step = dist[i * n + j]
                 if (i, j) == (x, y):
                     return step
@@ -16,7 +16,7 @@ class Solution:
                     if 0 <= c < m and 0 <= d < n and forest[c][d] > 0:
                         if c * n + d not in dist or dist[c * n + d] > step + 1:
                             dist[c * n + d] = step + 1
-                            heapq.heappush(q, (dist[c * n + d] + f(c, d, x, y), c, d))
+                            heappush(q, (dist[c * n + d] + f(c, d, x, y), c, d))
             return -1
 
         m, n = len(forest), len(forest[0])

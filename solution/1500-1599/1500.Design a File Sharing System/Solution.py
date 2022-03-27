@@ -7,7 +7,7 @@ class FileSharing:
 
     def join(self, ownedChunks: List[int]) -> int:
         if self.reused:
-            userID = heapq.heappop(self.reused)
+            userID = heappop(self.reused)
         else:
             self.cur += 1
             userID = self.cur
@@ -15,7 +15,7 @@ class FileSharing:
         return userID
 
     def leave(self, userID: int) -> None:
-        heapq.heappush(self.reused, userID)
+        heappush(self.reused, userID)
         self.user_chunks.pop(userID)
 
     def request(self, userID: int, chunkID: int) -> List[int]:

@@ -46,11 +46,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-from collections import deque
-
-
 class MaxQueue:
-
     def __init__(self):
         self.p = deque()
         self.q = deque()

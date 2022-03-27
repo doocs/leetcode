@@ -73,10 +73,10 @@ class Solution:
         pq = []
         s = 0
         for d, e in courses:
-            heapq.heappush(pq, -d)
+            heappush(pq, -d)
             s += d
             if s > e:
-                s += heapq.heappop(pq)
+                s += heappop(pq)
         return len(pq)
 ```
 

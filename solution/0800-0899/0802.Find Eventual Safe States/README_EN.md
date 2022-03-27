@@ -55,7 +55,7 @@ class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
         n = len(graph)
         outDegree = [len(vs) for vs in graph]
-        revGraph = [[] for _ in range(n)]
+        revGraph = defaultdict(list)
         for u, vs in enumerate(graph):
             for v in vs:
                 revGraph[v].append(u)

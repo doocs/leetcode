@@ -54,7 +54,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        vals = Counter(deck).values()
+        return reduce(gcd, vals) >= 2
 ```
 
 ### **Java**
@@ -62,7 +65,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean hasGroupsSizeX(int[] deck) {
+        int[] counter = new int[10000];
+        for (int d : deck) {
+            ++counter[d];
+        }
+        int g = -1;
+        for (int v : counter) {
+            if (v > 0) {
+                g = g == -1 ? v : gcd(g, v);
+            }
+        }
+        return g >= 2;
+    }
 
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool hasGroupsSizeX(vector<int>& deck) {
+        vector<int> counter(10000);
+        for (int& d : deck) ++counter[d];
+        int g = -1;
+        for (int& v : counter)
+            if (v > 0)
+                g = g == -1 ? v : gcd(g, v);
+        return g >= 2;
+    }
+
+    int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func hasGroupsSizeX(deck []int) bool {
+	counter := make([]int, 10000)
+	for _, d := range deck {
+		counter[d]++
+	}
+	var gcd func(a, b int) int
+	gcd = func(a, b int) int {
+		if b == 0 {
+			return a
+		}
+		return gcd(b, a%b)
+	}
+	g := -1
+	for _, v := range counter {
+		if v > 0 {
+			if g == -1 {
+				g = v
+			} else {
+				g = gcd(g, v)
+			}
+		}
+	}
+	return g >= 2
+}
 ```
 
 ### **...**

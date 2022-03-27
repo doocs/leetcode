@@ -140,8 +140,8 @@ class Solution:
             p[find(a)] = find(b)
         mp = defaultdict(list)
         for i, c in enumerate(s):
-            heapq.heappush(mp[find(i)], c)
-        return ''.join(heapq.heappop(mp[find(i)]) for i in range(n))
+            heappush(mp[find(i)], c)
+        return ''.join(heappop(mp[find(i)]) for i in range(n))
 ```
 
 ### **Java**
