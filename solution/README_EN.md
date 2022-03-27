@@ -1058,6 +1058,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1047](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string)  |  [Remove All Adjacent Duplicates In String](/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README_EN.md)  |  `Stack`,`String`  |  Easy  |    |
 |  [1048](https://leetcode.com/problems/longest-string-chain)  |  [Longest String Chain](/solution/1000-1099/1048.Longest%20String%20Chain/README_EN.md)  |  `Array`,`Hash Table`,`Two Pointers`,`String`,`Dynamic Programming`  |  Medium  |    |
 |  [1049](https://leetcode.com/problems/last-stone-weight-ii)  |  [Last Stone Weight II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
+|  [1050](https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times)  |  [Actors and Directors Who Cooperated At Least Three Times](/solution/1000-1099/1050.Actors%20and%20Directors%20Who%20Cooperated%20At%20Least%20Three%20Times/README_EN.md)  |  `Database`  |  Easy  |    |
 |  [1051](https://leetcode.com/problems/height-checker)  |  [Height Checker](/solution/1000-1099/1051.Height%20Checker/README_EN.md)  |  `Array`,`Counting Sort`,`Sorting`  |  Easy  |    |
 |  [1052](https://leetcode.com/problems/grumpy-bookstore-owner)  |  [Grumpy Bookstore Owner](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |    |
 |  [1053](https://leetcode.com/problems/previous-permutation-with-one-swap)  |  [Previous Permutation With One Swap](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |    |
@@ -2222,6 +2223,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2212](https://leetcode.com/problems/maximum-points-in-an-archery-competition)  |  [Maximum Points in an Archery Competition](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README_EN.md)  |  `Bit Manipulation`,`Recursion`,`Array`,`Enumeration`  |  Medium  |    |
 |  [2213](https://leetcode.com/problems/longest-substring-of-one-repeating-character)  |  [Longest Substring of One Repeating Character](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md)  |  `Segment Tree`,`Array`,`String`,`Ordered Set`  |  Hard  |    |
 |  [2214](https://leetcode.com/problems/minimum-health-to-beat-game)  |  [Minimum Health to Beat Game](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README_EN.md)  |    |  Medium  |  🔒  |
+|  [2215](https://leetcode.com/problems/find-the-difference-of-two-arrays)  |  [Find the Difference of Two Arrays](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README_EN.md)  |  `Hash Table`  |  Easy  |    |
+|  [2216](https://leetcode.com/problems/minimum-deletions-to-make-array-beautiful)  |  [Minimum Deletions to Make Array Beautiful](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README_EN.md)  |  `Greedy`,`Dynamic Programming`  |  Medium  |    |
+|  [2217](https://leetcode.com/problems/find-palindrome-with-fixed-length)  |  [Find Palindrome With Fixed Length](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README_EN.md)  |  `Math`  |  Medium  |    |
+|  [2218](https://leetcode.com/problems/maximum-value-of-k-coins-from-piles)  |  [Maximum Value of K Coins From Piles](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 
 ## Copyright
 

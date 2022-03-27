@@ -1060,6 +1060,7 @@
 |  [1047](https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string)  |  [删除字符串中的所有相邻重复项](/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README.md)  |  `栈`,`字符串`  |  简单  |    |
 |  [1048](https://leetcode-cn.com/problems/longest-string-chain)  |  [最长字符串链](/solution/1000-1099/1048.Longest%20String%20Chain/README.md)  |  `数组`,`哈希表`,`双指针`,`字符串`,`动态规划`  |  中等  |    |
 |  [1049](https://leetcode-cn.com/problems/last-stone-weight-ii)  |  [最后一块石头的重量 II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md)  |  `数组`,`动态规划`  |  中等  |    |
+|  [1050](https://leetcode-cn.com/problems/actors-and-directors-who-cooperated-at-least-three-times)  |  [合作过至少三次的演员和导演](/solution/1000-1099/1050.Actors%20and%20Directors%20Who%20Cooperated%20At%20Least%20Three%20Times/README.md)  |  `数据库`  |  简单  |    |
 |  [1051](https://leetcode-cn.com/problems/height-checker)  |  [高度检查器](/solution/1000-1099/1051.Height%20Checker/README.md)  |  `数组`,`计数排序`,`排序`  |  简单  |    |
 |  [1052](https://leetcode-cn.com/problems/grumpy-bookstore-owner)  |  [爱生气的书店老板](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README.md)  |  `数组`,`滑动窗口`  |  中等  |    |
 |  [1053](https://leetcode-cn.com/problems/previous-permutation-with-one-swap)  |  [交换一次的先前排列](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md)  |  `贪心`,`数组`  |  中等  |    |
@@ -2224,6 +2225,10 @@
 |  [2212](https://leetcode-cn.com/problems/maximum-points-in-an-archery-competition)  |  [射箭比赛中的最大得分](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md)  |  `位运算`,`递归`,`数组`,`枚举`  |  中等  |    |
 |  [2213](https://leetcode-cn.com/problems/longest-substring-of-one-repeating-character)  |  [由单个字符重复的最长子字符串](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md)  |  `线段树`,`数组`,`字符串`,`有序集合`  |  困难  |    |
 |  [2214](https://leetcode-cn.com/problems/minimum-health-to-beat-game)  |  [Minimum Health to Beat Game](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md)  |    |  中等  |  🔒  |
+|  [2215](https://leetcode-cn.com/problems/find-the-difference-of-two-arrays)  |  [找出两数组的不同](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README.md)  |  `哈希表`  |  简单  |    |
+|  [2216](https://leetcode-cn.com/problems/minimum-deletions-to-make-array-beautiful)  |  [美化数组的最少删除数](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README.md)  |  `贪心`,`动态规划`  |  中等  |    |
+|  [2217](https://leetcode-cn.com/problems/find-palindrome-with-fixed-length)  |  [找到指定长度的回文数](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README.md)  |  `数学`  |  中等  |    |
+|  [2218](https://leetcode-cn.com/problems/maximum-value-of-k-coins-from-piles)  |  [从栈中取出 K 个硬币的最大面值和](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md)  |  `动态规划`  |  困难  |    |
 
 ## 版权
 

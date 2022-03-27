@@ -55,13 +55,39 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
+        m = len(rolls)
+        s = (n + m) * mean - sum(rolls)
+        if s > n * 6 or s < n:
+            return []
+        ans = [s // n] * n
+        for i in range(s % n):
+            ans[i] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] missingRolls(int[] rolls, int mean, int n) {
+        int m = rolls.length;
+        int s = (n + m) * mean;
+        for (int v : rolls) {
+            s -= v;
+        }
+        if (s > n * 6 || s < n) {
+            return new int[0];
+        }
+        int[] ans = new int[n];
+        Arrays.fill(ans, s / n);
+        for (int i = 0; i < s % n; ++i) {
+            ++ans[i];
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -134,6 +160,46 @@ impl Solution {
         }
         res
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
+        int m = rolls.size();
+        int s = (n + m) * mean;
+        for (int& v : rolls) s -= v;
+        if (s > n * 6 || s < n) return {};
+        vector<int> ans(n, s / n);
+        for (int i = 0; i < s % n; ++i) ++ans[i];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func missingRolls(rolls []int, mean int, n int) []int {
+	m := len(rolls)
+	s := (n + m) * mean
+	for _, v := range rolls {
+		s -= v
+	}
+	if s > n*6 || s < n {
+		return []int{}
+	}
+	ans := make([]int, n)
+	for i, j := 0, 0; i < n; i, j = i+1, j+1 {
+		ans[i] = s / n
+		if j < s%n {
+			ans[i]++
+		}
+	}
+	return ans
 }
 ```
 

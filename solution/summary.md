@@ -2259,3 +2259,7 @@
   - [2212.Maximum Points in an Archery Competition](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md)
   - [2213.Longest Substring of One Repeating Character](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md)
   - [2214.Minimum Health to Beat Game](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md)
+  - [2215.Find the Difference of Two Arrays](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README.md)
+  - [2216.Minimum Deletions to Make Array Beautiful](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README.md)
+  - [2217.Find Palindrome With Fixed Length](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README.md)
+  - [2218.Maximum Value of K Coins From Piles](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md)
