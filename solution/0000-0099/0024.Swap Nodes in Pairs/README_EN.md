@@ -206,6 +206,72 @@ def swap_pairs(head)
 end
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function swapPairs(head: ListNode | null): ListNode | null {
+    const dummy = new ListNode(0, head);
+    let cur = dummy;
+    while (cur.next != null && cur.next.next != null) {
+        const a = cur.next;
+        const b = cur.next.next;
+        [a.next, b.next, cur.next] = [b.next, a, b];
+        cur = cur.next.next;
+    }
+    return dummy.next;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut dummy = Some(Box::new(ListNode { val: 0, next: head }));
+        let mut cur = dummy.as_mut().unwrap();
+        while cur.next.is_some() && cur.next.as_ref().unwrap().next.is_some() {
+            cur.next = {
+                let mut b = cur.next.as_mut().unwrap().next.take();
+                cur.next.as_mut().unwrap().next = b.as_mut().unwrap().next.take();
+                let a = cur.next.take();
+                b.as_mut().unwrap().next = a;
+                b
+            };
+            cur = cur.next.as_mut().unwrap().next.as_mut().unwrap();
+        }
+        dummy.unwrap().next
+    }
+}
+```
+
 ### **...**
 
 ```
