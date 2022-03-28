@@ -45,8 +45,21 @@
 ```python
 class Solution:
     def hasAlternatingBits(self, n: int) -> bool:
-        n = (n ^ (n >> 1)) + 1
-        return (n & (n - 1)) == 0
+        prev = -1
+        while n:
+            curr = n & 1
+            if prev == curr:
+                return False
+            prev = curr
+            n >>= 1
+        return True
+```
+
+```python
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        n ^= (n >> 1)
+        return (n & (n + 1)) == 0
 ```
 
 ### **Java**
@@ -54,13 +67,47 @@ class Solution:
 ```java
 class Solution {
     public boolean hasAlternatingBits(int n) {
-        n = (n ^ (n >> 1)) + 1;
-        return (n & (n - 1)) == 0;
+        int prev = -1;
+        while (n != 0) {
+            int curr = n & 1;
+            if (prev == curr) {
+                return false;
+            }
+            prev = curr;
+            n >>= 1;
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        n ^= (n >> 1);
+        return (n & (n + 1)) == 0;
     }
 }
 ```
 
 ### **C++**
+
+```cpp
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        int prev = -1;
+        while (n)
+        {
+            int curr = n & 1;
+            if (prev == curr) return false;
+            prev = curr;
+            n >>= 1;
+        }
+        return true;
+    }
+};
+```
 
 ```cpp
 class Solution {
@@ -98,6 +145,30 @@ impl Solution {
         let t = n ^ (n >> 1);
         (t & (t + 1)) == 0
     }
+}
+```
+
+### **Go**
+
+```go
+func hasAlternatingBits(n int) bool {
+	prev := -1
+	for n != 0 {
+		curr := n & 1
+		if prev == curr {
+			return false
+		}
+		prev = curr
+		n >>= 1
+	}
+	return true
+}
+```
+
+```go
+func hasAlternatingBits(n int) bool {
+	n ^= (n >> 1)
+	return (n & (n + 1)) == 0
 }
 ```
 
