@@ -96,7 +96,7 @@ class Node:
 
 class SegmentTree:
     def __init__(self, n):
-        self.tr = [Node() for _ in range(4 * n)]
+        self.tr = [Node() for _ in range(n << 2)]
         self.build(1, 1, n)
         
     def build(self, u, l, r):
@@ -118,9 +118,6 @@ class SegmentTree:
         else:
             self.modify(u << 1 | 1, x, v)
         self.pushup(u)
-    
-    def pushup(self, u):
-        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
 
     def query(self, u, l, r):
         if self.tr[u].l >= l and self.tr[u].r <= r:
@@ -132,6 +129,9 @@ class SegmentTree:
         if r > mid:
             v += self.query(u << 1 | 1, l, r)
         return v
+
+    def pushup(self, u):
+        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
 
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
@@ -431,6 +431,8 @@ public:
 ```
 
 ### **Go**
+
+Binary Indexed Tree:
 
 ```go
 type BinaryIndexedTree struct {

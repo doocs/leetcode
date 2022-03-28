@@ -69,11 +69,20 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 
 **方法二：线段树**
 
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
+
+-   线段树的每个节点代表一个区间；
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 `[1, N]`；
+-   线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
+-   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+树状数组：
 
 ```python
 class BinaryIndexedTree:
@@ -118,6 +127,8 @@ class NumArray:
 # param_2 = obj.sumRange(left,right)
 ```
 
+线段树：
+
 ```python
 class Node:
     def __init__(self):
@@ -127,20 +138,20 @@ class Node:
 
 class SegmentTree:
     def __init__(self, nums):
+        self.nums = nums
         n = len(nums)
-        self.tr = [Node() for _ in range(4 * n)]
+        self.tr = [Node() for _ in range(n << 2)]
         self.build(1, 1, n)
-        for i, v in enumerate(nums, 1):
-            self.modify(1, i, v)
-        
+
     def build(self, u, l, r):
-        self.tr[u].l = l
-        self.tr[u].r = r
+        self.tr[u].l, self.tr[u].r = l, r
         if l == r:
+            self.tr[u].v = self.nums[l - 1]
             return
         mid = (l + r) >> 1
         self.build(u << 1, l, mid)
         self.build(u << 1 | 1, mid + 1, r)
+        self.pushup(u)
 
     def modify(self, u, x, v):
         if self.tr[u].l == x and self.tr[u].r == x:
@@ -153,19 +164,19 @@ class SegmentTree:
             self.modify(u << 1 | 1, x, v)
         self.pushup(u)
     
-    def pushup(self, u):
-        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
-
     def query(self, u, l, r):
         if self.tr[u].l >= l and self.tr[u].r <= r:
             return self.tr[u].v
         mid = (self.tr[u].l + self.tr[u].r) >> 1
         v = 0
         if l <= mid:
-            v = self.query(u << 1, l, r)
+            v += self.query(u << 1, l, r)
         if r > mid:
             v += self.query(u << 1 | 1, l, r)
         return v
+
+    def pushup(self, u):
+        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
 
 class NumArray:
 
@@ -188,6 +199,8 @@ class NumArray:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+树状数组：
 
 ```java
 class BinaryIndexedTree {
@@ -249,6 +262,8 @@ class NumArray {
  */
 ```
 
+线段树：
+
 ```java
 class Node {
     int l;
@@ -258,28 +273,29 @@ class Node {
 
 class SegmentTree {
     private Node[] tr;
+    private int[] nums;
 
     public SegmentTree(int[] nums) {
+        this.nums = nums;
         int n = nums.length;
-        tr = new Node[4 * n];
+        tr = new Node[n << 2];
         for (int i = 0; i < tr.length; ++i) {
             tr[i] = new Node();
         }
         build(1, 1, n);
-        for (int i = 0; i < n; ++i) {
-            modify(1, i + 1, nums[i]);
-        }
     }
 
     public void build(int u, int l, int r) {
         tr[u].l = l;
         tr[u].r = r;
         if (l == r) {
+            tr[u].v = nums[l - 1];
             return;
         }
         int mid = (l + r) >> 1;
         build(u << 1, l, mid);
         build(u << 1 | 1, mid + 1, r);
+        pushup(u);
     }
 
     public void modify(int u, int x, int v) {
@@ -296,10 +312,6 @@ class SegmentTree {
         pushup(u);
     }
 
-    public void pushup(int u) {
-        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
-    }
-
     public int query(int u, int l, int r) {
         if (tr[u].l >= l && tr[u].r <= r) {
             return tr[u].v;
@@ -307,12 +319,16 @@ class SegmentTree {
         int mid = (tr[u].l + tr[u].r) >> 1;
         int v = 0;
         if (l <= mid) {
-            v = query(u << 1, l, r);
+            v += query(u << 1, l, r);
         }
         if (r > mid) {
             v += query(u << 1 | 1, l, r);
         }
         return v;
+    }
+
+    public void pushup(int u) {
+        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
     }
 }
 
@@ -341,6 +357,8 @@ class NumArray {
 ```
 
 ### **C++**
+
+树状数组：
 
 ```cpp
 class BinaryIndexedTree {
@@ -402,6 +420,8 @@ public:
  */
 ```
 
+线段树：
+
 ```cpp
 class Node {
 public:
@@ -413,22 +433,28 @@ public:
 class SegmentTree {
 public:
     vector<Node*> tr;
+    vector<int> nums;
 
     SegmentTree(vector<int>& nums) {
+        this->nums = nums;
         int n = nums.size();
-        tr.resize(4 * n);
+        tr.resize(n << 2);
         for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
         build(1, 1, n);
-        for (int i = 0; i < n; ++i) modify(1, i + 1, nums[i]);
     }
 
     void build(int u, int l, int r) {
         tr[u]->l = l;
         tr[u]->r = r;
-        if (l == r) return;
+        if (l == r)
+        {
+            tr[u]->v = nums[l - 1];
+            return;
+        }
         int mid = (l + r) >> 1;
         build(u << 1, l, mid);
         build(u << 1 | 1, mid + 1, r);
+        pushup(u);
     }
 
     void modify(int u, int x, int v) {
@@ -443,17 +469,17 @@ public:
         pushup(u);
     }
 
-    void pushup(int u) {
-        tr[u]->v = tr[u << 1]->v + tr[u << 1 | 1]->v;
-    }
-
     int query(int u, int l, int r) {
         if (tr[u]->l >= l && tr[u]->r <= r) return tr[u]->v;
         int mid = (tr[u]->l + tr[u]->r) >> 1;
         int v = 0;
-        if (l <= mid) v = query(u << 1, l, r);
+        if (l <= mid) v += query(u << 1, l, r);
         if (r > mid) v += query(u << 1 | 1, l, r);
         return v;
+    }
+
+    void pushup(int u) {
+        tr[u]->v = tr[u << 1]->v + tr[u << 1 | 1]->v;
     }
 };
 
@@ -483,6 +509,8 @@ public:
 ```
 
 ### **Go**
+
+树状数组：
 
 ```go
 type BinaryIndexedTree struct {
