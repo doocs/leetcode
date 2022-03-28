@@ -67,7 +67,7 @@ class TimeMap:
         if key not in self.ktv:
             return ''
         tv = self.ktv[key]
-        i = bisect.bisect_right(tv, (timestamp, chr(127)))
+        i = bisect_right(tv, (timestamp, chr(127)))
         return tv[i - 1][1] if i else ''
 
 

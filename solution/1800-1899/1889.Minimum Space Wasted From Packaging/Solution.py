@@ -8,7 +8,7 @@ class Solution:
                 continue
             t = last = 0
             for b in box:
-                idx = bisect.bisect_right(packages, b, lo=last)
+                idx = bisect_right(packages, b, lo=last)
                 t += (idx - last) * b
                 last = idx
             res = min(res, t)

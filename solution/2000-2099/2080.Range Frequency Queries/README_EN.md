@@ -62,7 +62,7 @@ class RangeFreqQuery:
         if value not in self.mp:
             return 0
         arr = self.mp[value]
-        l, r = bisect.bisect_right(arr, left - 1), bisect.bisect_right(arr, right)
+        l, r = bisect_right(arr, left - 1), bisect_right(arr, right)
         return r - l
 
 

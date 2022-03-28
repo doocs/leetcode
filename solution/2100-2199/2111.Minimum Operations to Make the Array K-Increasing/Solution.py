@@ -3,7 +3,7 @@ class Solution:
         def lis(arr):
             t = []
             for x in arr:
-                idx = bisect.bisect_right(t, x)
+                idx = bisect_right(t, x)
                 if idx == len(t):
                     t.append(x)
                 else:

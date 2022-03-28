@@ -83,7 +83,7 @@ class TimeMap:
             return ''
         tv = self.ktv[key]
         # #查找第一个大于timestamp的
-        i = bisect.bisect_right(tv, (timestamp, chr(127)))
+        i = bisect_right(tv, (timestamp, chr(127)))
         return tv[i - 1][1] if i else ''
 
 
