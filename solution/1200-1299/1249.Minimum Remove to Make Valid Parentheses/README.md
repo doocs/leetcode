@@ -58,6 +58,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+主体分为两步：
+
+1. 遍历字符串 `s`，统计其中**成对**的括号数量。流程：
+   1. 从前往后遍历 `s`，统计 `(` 的数量。
+   2. 当遇到 `)` 时，对比当前 `(` 记录的数量，在 `)` 统计数量不超过 `(` 时才可算有效的数据。
+	> `)` 有效的前提：在其前方存在对应的 `(`。
+2. 再次遍历，生成返回值。流程：
+   1. 准备一变量，记录加入返回值当中 `(` 的数量。
+   2. 遍历字符串 `s`，流程：
+      - 遇到 `(`
+        - 确定当前还缺少成对括号时（查看成对统计数据），才让其加入，并使 `(` 统计数量 + 1。
+      - 遇到 `)`
+        - 确定前方存在 `(`（查看 `(` 统计数量）时，才让其加入，并删减 `(` 统计数据与成对数量（-1 操作）。
+      - 其他字符串正常加入。
+
+疑问：为什么要同时调整 `(` 统计数据与成对数量？
+
+- 需要确保前方存在可用的 `(`，才能安心放入 `)`。
+- 而删减成对数量是防止放入过量的 `(`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,6 +94,89 @@
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function minRemoveToMakeValid(s: string): string {
+    let left = 0;
+    let right = 0;
+    for (const c of s) {
+        if (c === '(') {
+            left++;
+        } else if (c === ')') {
+            if (right < left) {
+                right++;
+            }
+        }
+    }
+
+    let hasLeft = 0;
+    let res = '';
+    for (const c of s) {
+        if (c === '(') {
+            if (hasLeft < right) {
+                hasLeft++;
+                res += c;
+            }
+        } else if (c === ')') {
+            if (hasLeft != 0 && right !== 0) {
+                right--;
+                hasLeft--;
+                res += c;
+            }
+        } else {
+            res += c;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_remove_to_make_valid(s: String) -> String {
+        let bs = s.as_bytes();
+        let mut right = {
+            let mut left = 0;
+            let mut right = 0;
+            for c in bs.iter() {
+                match c {
+                    &b'(' => left += 1,
+                    &b')' if right < left => right += 1,
+                    _ => {}
+                }
+            }
+            right
+        };
+        let mut has_left = 0;
+        let mut res = vec![];
+        for c in bs.iter() {
+            match c {
+                &b'(' => {
+                    if has_left < right {
+                        has_left += 1;
+                        res.push(*c);
+                    }
+                }
+                &b')' => {
+                    if has_left != 0 && right != 0 {
+                        right -= 1;
+                        has_left -= 1;
+                        res.push(*c);
+                    }
+                }
+                _ => {
+                    res.push(*c);
+                }
+            }
+        }
+        String::from_utf8_lossy(&res).to_string()
+    }
+}
 ```
 
 ### **...**

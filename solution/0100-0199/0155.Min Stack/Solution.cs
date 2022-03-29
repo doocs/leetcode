@@ -3,7 +3,7 @@ using System.Collections.Generic;
 public class MinStack {
     private Stack<int> _stack = new Stack<int>();
     private Stack<int> _minStack = new Stack<int>();
-    
+
     public void Push(int x) {
         _stack.Push(x);
         if (GetMin() >= x) _minStack.Push(x);
