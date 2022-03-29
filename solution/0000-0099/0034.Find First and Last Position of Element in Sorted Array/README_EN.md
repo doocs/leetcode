@@ -99,6 +99,14 @@ class Solution:
         return [l, left]
 ```
 
+```python
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        l = bisect_left(nums, target)
+        r = bisect_left(nums, target + 1)
+        return [-1, -1] if l == len(nums) or l >= r else [l, r - 1]
+```
+
 ### **Java**
 
 ```java
@@ -137,6 +145,29 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int l = search(nums, target);
+        int r = search(nums, target + 1);
+        return l == nums.length || l >= r ? new int[]{-1, -1} : new int[]{l, r - 1};
+    }
+
+    private int search(int[] nums, int target) {
+        int left = 0, right = nums.length;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -169,6 +200,18 @@ public:
             }
         }
         return vector<int>{l, left};
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int l = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+        int r = lower_bound(nums.begin(), nums.end(), target + 1) - nums.begin();
+        if (l == nums.size() || l >= r) return {-1, -1};
+        return {l, r - 1};
     }
 };
 ```
@@ -212,6 +255,35 @@ var searchRange = function (nums, target) {
 };
 ```
 
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function (nums, target) {
+    function search(target) {
+        let left = 0,
+            right = nums.length;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+    const l = search(target);
+    const r = search(target + 1);
+    if (l == nums.length || l >= r) {
+        return [-1, -1];
+    }
+    return [l, r - 1];
+};
+```
+
 ### **Go**
 
 ```go
@@ -242,6 +314,28 @@ func searchRange(nums []int, target int) []int {
 		}
 	}
 	return []int{l, left}
+}
+```
+
+```go
+func searchRange(nums []int, target int) []int {
+	search := func(target int) int {
+		left, right := 0, len(nums)
+		for left < right {
+			mid := (left + right) >> 1
+			if nums[mid] >= target {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		return left
+	}
+	l, r := search(target), search(target+1)
+	if l == len(nums) || l >= r {
+		return []int{-1, -1}
+	}
+	return []int{l, r - 1}
 }
 ```
 
