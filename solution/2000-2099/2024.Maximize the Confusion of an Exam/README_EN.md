@@ -153,6 +153,56 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maxConsecutiveAnswers(answerKey: string, k: number): number {
+    const n = answerKey.length;
+    const getMaxCount = (target: 'T' | 'F'): number => {
+        let l = 0;
+        let u = k;
+        for (const c of answerKey) {
+            if (c !== target) {
+                u--;
+            }
+            if (u < 0 && answerKey[l++] !== target) {
+                u++;
+            }
+        }
+        return n - l;
+    };
+    return Math.max(getMaxCount('T'), getMaxCount('F'));
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_consecutive_answers(answer_key: String, k: i32) -> i32 {
+        let bs = answer_key.as_bytes();
+        let n = bs.len();
+        let get_max_count = |target| {
+            let mut l = 0;
+            let mut u = k;
+            for b in bs.iter() {
+                if b != &target {
+                    u -= 1;
+                }
+                if u < 0 {
+                    if bs[l] != target {
+                        u += 1;
+                    }
+                    l += 1;
+                }
+            }
+            n - l
+        };
+        get_max_count(b'T').max(get_max_count(b'F')) as i32
+    }
+}
+```
+
 ### **...**
 
 ```
