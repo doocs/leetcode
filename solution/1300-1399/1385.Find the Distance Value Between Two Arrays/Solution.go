@@ -1,16 +1,18 @@
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
-	res := 0
-	for _, a := range arr1 {
-		exist := false
-		for _, b := range arr2 {
-			if math.Abs(float64(a-b)) <= float64(d) {
-				exist = true
-				break
+	check := func(arr []int, a int) bool {
+		for _, b := range arr {
+			if -d <= a-b && a-b <= d {
+				return false
 			}
 		}
-		if !exist {
-			res++
+		return true
+	}
+
+	ans := 0
+	for _, a := range arr1 {
+		if check(arr2, a) {
+			ans++
 		}
 	}
-	return res
+	return ans
 }

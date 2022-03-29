@@ -64,7 +64,7 @@
 
 思路同 [1004. 最大连续 1 的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
 
-维护一个单调变长的窗口。这种窗口经常出现在寻求“最大窗口”的问题中：因为要求的是”最大“，所以我们没有必要缩短窗口，于是代码就少了缩短窗口的部分；从另一个角度讲，本题里的 K 是资源数，一旦透支，窗口就不能再增长了。
+维护一个单调变长的窗口。这种窗口经常出现在寻求“最大窗口”的问题中：因为要求的是“最大”，所以我们没有必要缩短窗口，于是代码就少了缩短窗口的部分；从另一个角度讲，本题里的 K 是资源数，一旦透支，窗口就不能再增长了。
 
 -   l 是窗口左端点，负责移动起始位置
 -   r 是窗口右端点，负责扩展窗口
@@ -130,7 +130,7 @@ public:
         return max(get('T', k, answerKey), get('F', k, answerKey));
     }
 
-    int get(char c, int k, string answerKey) {
+    int get(char c, int k, string& answerKey) {
         int l = 0, r = 0;
         while (r < answerKey.size())
         {

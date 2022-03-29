@@ -110,7 +110,7 @@ public:
         return max(get('T', k, answerKey), get('F', k, answerKey));
     }
 
-    int get(char c, int k, string answerKey) {
+    int get(char c, int k, string& answerKey) {
         int l = 0, r = 0;
         while (r < answerKey.size())
         {

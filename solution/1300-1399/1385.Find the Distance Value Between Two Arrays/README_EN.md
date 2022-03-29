@@ -57,7 +57,10 @@ For arr1[2]=8 we have:
 
 ## Solutions
 
-Brute-force.
+**Method 1: Brute-force**
+
+
+**Method 2: Binary search**
 
 <!-- tabs:start -->
 
@@ -66,16 +69,20 @@ Brute-force.
 ```python
 class Solution:
     def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
-        res = 0
-        for a in arr1:
-            exist = False
-            for b in arr2:
-                if abs(a - b) <= d:
-                    exist = True
-                    break
-            if not exist:
-                res += 1
-        return res
+        return sum(all(abs(a - b) > d for b in arr2) for a in arr1)
+```
+
+```python
+class Solution:
+    def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+        def check(a):
+            idx = bisect_left(arr2, a - d)
+            if idx != len(arr2) and arr2[idx] <= a + d:
+                return False
+            return True
+
+        arr2.sort()
+        return sum(check(a) for a in arr1)
 ```
 
 ### **Java**
@@ -83,20 +90,53 @@ class Solution:
 ```java
 class Solution {
     public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
-        int res = 0;
+        int ans = 0;
         for (int a : arr1) {
-            boolean exist = false;
-            for (int b : arr2) {
-                if (Math.abs(a - b) <= d) {
-                    exist = true;
-                    break;
-                }
-            }
-            if (!exist) {
-                ++res;
+            if (check(arr2, a, d)) {
+                ++ans;
             }
         }
-        return res;
+        return ans;
+    }
+
+    private boolean check(int[] arr, int a, int d) {
+        for (int b : arr) {
+            if (Math.abs(a - b) <= d) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
+    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+        Arrays.sort(arr2);
+        int ans = 0;
+        for (int a : arr1) {
+            if (check(arr2, a, d)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private boolean check(int[] arr, int a, int d) {
+        int left = 0, right = arr.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arr[mid] >= a - d) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (left != arr.length && arr[left] <= a + d) {
+            return false;
+        }
+        return true;
     }
 }
 ```
@@ -107,18 +147,37 @@ class Solution {
 class Solution {
 public:
     int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
-        int res = 0;
-        for (auto& a : arr1) {
-            bool exist = false;
-            for (auto& b : arr2) {
-                if (abs(a - b) <= d) {
-                    exist = true;
-                    break;
-                }
-            }
-            if (!exist) ++res;
-        }
-        return res;
+        int ans = 0;
+        for (int& a : arr1)
+            ans += check(arr2, a, d);
+        return ans;
+    }
+    
+    bool check(vector<int>& arr, int a, int d) {
+        for (int& b : arr)
+            if (abs(a - b) <= d)
+                return false;
+        return true;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+        sort(arr2.begin(), arr2.end());
+        int ans = 0;
+        for (int& a : arr1)
+            if (check(arr2, a, d))
+                ++ans;
+        return ans;
+    }
+
+    bool check(vector<int>& arr, int a, int d) {
+        int idx = lower_bound(arr.begin(), arr.end(), a - d) - arr.begin();
+        if (idx != arr.size() && arr[idx] <= a + d) return false;
+        return true;
     }
 };
 ```
@@ -127,20 +186,50 @@ public:
 
 ```go
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
-	res := 0
-	for _, a := range arr1 {
-		exist := false
-		for _, b := range arr2 {
-			if math.Abs(float64(a-b)) <= float64(d) {
-				exist = true
-				break
+	check := func(arr []int, a int) bool {
+		for _, b := range arr {
+			if -d <= a-b && a-b <= d {
+				return false
 			}
 		}
-		if !exist {
-			res++
+		return true
+	}
+
+	ans := 0
+	for _, a := range arr1 {
+		if check(arr2, a) {
+			ans++
 		}
 	}
-	return res
+	return ans
+}
+```
+
+```go
+func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
+	sort.Ints(arr2)
+	check := func(a int) bool {
+		left, right := 0, len(arr2)
+		for left < right {
+			mid := (left + right) >> 1
+			if arr2[mid] >= a-d {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		if left != len(arr2) && arr2[left] <= a+d {
+			return false
+		}
+		return true
+	}
+	ans := 0
+	for _, a := range arr1 {
+		if check(a) {
+			ans++
+		}
+	}
+	return ans
 }
 ```
 
