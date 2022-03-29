@@ -50,11 +50,10 @@ class Solution:
         left, right = 1, n
         while left < right:
             mid = (left + right + 1) >> 1
-            s = ((1 + mid) * mid) >> 1
-            if n < s:
-                right = mid - 1
-            else:
+            if (1 + mid) * mid // 2 <= n:
                 left = mid
+            else:
+                right = mid - 1
         return left
 ```
 
@@ -73,12 +72,11 @@ class Solution {
     public int arrangeCoins(int n) {
         long left = 1, right = n;
         while (left < right) {
-            long mid = (left + right + 1) >> 1;
-            long s = ((1 + mid) * mid) >> 1;
-            if (n < s) {
-                right = mid - 1;
-            } else {
+            long mid = (left + right + 1) >>> 1;
+            if ((1 + mid) * mid / 2 <= n) {
                 left = mid;
+            } else {
+                right = mid - 1;
             }
         }
         return (int) left;
@@ -98,9 +96,8 @@ public:
         while (left < right)
         {
             LL mid = left + right + 1 >> 1;
-            LL s = (1 + mid) * mid >> 1;
-            if (n < s) right = mid - 1;
-            else left = mid;
+            if ((1 + mid) * mid / 2 <= n) left = mid;
+            else right = mid - 1;
         }
         return left;
     }
@@ -114,11 +111,10 @@ func arrangeCoins(n int) int {
 	left, right := 1, n
 	for left < right {
 		mid := (left + right + 1) >> 1
-		s := (1 + mid) * mid >> 1
-		if n < s {
-			right = mid - 1
-		} else {
+		if (1+mid)*mid/2 <= n {
 			left = mid
+		} else {
+			right = mid - 1
 		}
 	}
 	return left

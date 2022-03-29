@@ -6,13 +6,12 @@ class Solution {
         int left = 0, right = arr.length;
         while (left < right) {
             int mid = (left + right) >> 1;
-            int cur = mid == arr.length ? Integer.MAX_VALUE : arr[mid];
-            if (cur - mid - 1 < k) {
-                left = mid + 1;
-            } else {
+            if (arr[mid] - mid - 1 >= k) {
                 right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        return k - (arr[left - 1] - (left - 1) - 1) + arr[left - 1];
+        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1);
     }
 }

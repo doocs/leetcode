@@ -41,6 +41,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二分查找**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,12 +56,12 @@ class Solution:
             return k
         left, right = 0, len(arr)
         while left < right:
-            mid = (left + right) // 2
-            if arr[mid] - mid - 1 < k:
-                left = mid + 1
-            else:
+            mid = (left + right) >> 1
+            if arr[mid] - mid - 1 >= k:
                 right = mid
-        return k - (arr[left - 1] - (left - 1) - 1) + arr[left - 1]
+            else:
+                left = mid + 1
+        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1)
 ```
 
 ### **Java**
@@ -75,15 +77,53 @@ class Solution {
         int left = 0, right = arr.length;
         while (left < right) {
             int mid = (left + right) >> 1;
-            int cur = mid == arr.length ? Integer.MAX_VALUE : arr[mid];
-            if (cur - mid - 1 < k) {
-                left = mid + 1;
-            } else {
+            if (arr[mid] - mid - 1 >= k) {
                 right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        return k - (arr[left - 1] - (left - 1) - 1) + arr[left - 1];
+        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        if (arr[0] > k) return k;
+        int left = 0, right = arr.size();
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (arr[mid] - mid - 1 >= k) right = mid;
+            else left = mid + 1;
+        }
+        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findKthPositive(arr []int, k int) int {
+	if arr[0] > k {
+		return k
+	}
+	left, right := 0, len(arr)
+	for left < right {
+		mid := (left + right) >> 1
+		if arr[mid]-mid-1 >= k {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return arr[left-1] + k - (arr[left-1] - (left - 1) - 1)
 }
 ```
 

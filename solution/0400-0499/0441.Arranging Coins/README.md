@@ -40,7 +40,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-1. 数学推导
+**方法一：数学推导**
 
 `(1 + x) * x / 2 <= n`，求解 x。
 
@@ -48,7 +48,7 @@
 
 由于 2n 可能溢出，故转换为 `x <= sqrt(2) * sqrt(n + 1/8) - 1/2`。
 
-2. 二分查找
+**方法二：二分查找**
 
 <!-- tabs:start -->
 
@@ -68,11 +68,10 @@ class Solution:
         left, right = 1, n
         while left < right:
             mid = (left + right + 1) >> 1
-            s = ((1 + mid) * mid) >> 1
-            if n < s:
-                right = mid - 1
-            else:
+            if (1 + mid) * mid // 2 <= n:
                 left = mid
+            else:
+                right = mid - 1
         return left
 ```
 
@@ -93,12 +92,11 @@ class Solution {
     public int arrangeCoins(int n) {
         long left = 1, right = n;
         while (left < right) {
-            long mid = (left + right + 1) >> 1;
-            long s = ((1 + mid) * mid) >> 1;
-            if (n < s) {
-                right = mid - 1;
-            } else {
+            long mid = (left + right + 1) >>> 1;
+            if ((1 + mid) * mid / 2 <= n) {
                 left = mid;
+            } else {
+                right = mid - 1;
             }
         }
         return (int) left;
@@ -118,9 +116,8 @@ public:
         while (left < right)
         {
             LL mid = left + right + 1 >> 1;
-            LL s = (1 + mid) * mid >> 1;
-            if (n < s) right = mid - 1;
-            else left = mid;
+            if ((1 + mid) * mid / 2 <= n) left = mid;
+            else right = mid - 1;
         }
         return left;
     }
@@ -134,11 +131,10 @@ func arrangeCoins(n int) int {
 	left, right := 1, n
 	for left < right {
 		mid := (left + right + 1) >> 1
-		s := (1 + mid) * mid >> 1
-		if n < s {
-			right = mid - 1
-		} else {
+		if (1+mid)*mid/2 <= n {
 			left = mid
+		} else {
+			right = mid - 1
 		}
 	}
 	return left
