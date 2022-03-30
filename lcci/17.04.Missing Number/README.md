@@ -26,7 +26,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-利用异或的特性，`res = res ^ x ^ x`。对同一个值异或两次，结果等于它本身。最后异或的结果，就是只出现一次的数字，即数组中缺失的整数。
+1. 排序
+    - 排序 `nums`，检查 `nums[i] == i`，返回条件不成立的 `i`。
+    - 若全部符合条件，则返回 `nums.length`。
+2. 数学
+   - 遍历 `nums`，统计总和，并记录其中的最大值。
+   - 若最大值与 `nums.length` 一致，使用高斯算法（`(n + 1) * n / 2`）计算总和，与遍历总和相减，得到结果。
+   - 不一致，则缺失的就是 `nums.length`。
+3. 位运算
+   - 利用异或的特性，`res = res ^ x ^ x`。对同一个值异或两次，结果等于它本身。最后异或的结果，就是只出现一次的数字，即数组中缺失的整数。
 
 <!-- tabs:start -->
 
@@ -88,6 +96,55 @@ public:
         return res;
     }
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn missing_number(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len() as i32;
+        for i in 0..n {
+            if i != nums[i as usize] {
+                return i;
+            }
+        }
+        n
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut sum = 0;
+        let mut max = 0;
+        for num in nums {
+            sum += num;
+            max = max.max(num);
+        }
+        if max == n {
+            ((1 + max) * max / 2) - sum
+        } else {
+            n
+        }
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let mut res = 0;
+        let n = nums.len();
+        for i in 0..n {
+            res ^= nums[i] ^ (i + 1) as i32;
+        }
+        res
+    }
+}
 ```
 
 ### **...**
