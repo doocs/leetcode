@@ -168,6 +168,81 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
+    const n = preorder.length;
+    if (n === 0) {
+        return null;
+    }
+    const val = preorder[0];
+    const index = inorder.indexOf(val);
+    return new TreeNode(
+        val,
+        buildTree(preorder.slice(1, index + 1), inorder.slice(0, index)),
+        buildTree(preorder.slice(index + 1), inorder.slice(index + 1)),
+    );
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn to_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+        if preorder.is_empty() {
+            return None;
+        }
+        let val = preorder[0];
+        let index = inorder.iter().position(|&v| v == val).unwrap();
+        Some(Rc::new(RefCell::new(TreeNode {
+            val,
+            left: Self::to_tree(&preorder[1..index + 1], &inorder[..index]),
+            right: Self::to_tree(&preorder[index + 1..], &inorder[index + 1..]),
+        })))
+    }
+
+    pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+        Self::to_tree(&preorder[..], &inorder[..])
+    }
+}
+```
+
 ### **...**
 
 ```

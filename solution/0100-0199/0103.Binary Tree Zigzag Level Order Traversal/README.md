@@ -264,6 +264,102 @@ var zigzagLevelOrder = function (root) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function zigzagLevelOrder(root: TreeNode | null): number[][] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    let isDesc = false;
+    const queue = [root];
+    while (queue.length !== 0) {
+        const arr = queue.slice().map(() => {
+            const { val, left, right } = queue.shift();
+            left && queue.push(left);
+            right && queue.push(right);
+            return val;
+        });
+        res.push(isDesc ? arr.reverse() : arr);
+        isDesc = !isDesc;
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn zigzag_level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+        let mut res = vec![];
+        if root.is_none() {
+            return res;
+        }
+        let mut is_desc = false;
+        let mut q = VecDeque::new();
+        q.push_back(root);
+        while !q.is_empty() {
+            let mut arr = vec![];
+            for _ in 0..q.len() {
+                if let Some(node) = q.pop_front().unwrap() {
+                    let mut node = node.borrow_mut();
+                    arr.push(node.val);
+                    if node.left.is_some() {
+                        q.push_back(node.left.take());
+                    }
+                    if node.right.is_some() {
+                        q.push_back(node.right.take());
+                    }
+                }
+            }
+            if is_desc {
+                arr.reverse();
+            }
+            is_desc = !is_desc;
+            res.push(arr);
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
