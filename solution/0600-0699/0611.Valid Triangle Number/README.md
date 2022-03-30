@@ -40,7 +40,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双指针加二分，先枚举两条边，然后利用二分查找定位第三条边。
+**方法一：排序 + 二分查找**
+
+一个有效三角形需要满足：**任意两边之和大于第三边**。即：`a + b > c`①, `a + c > b`②, `b + c > a`③。
+
+如果我们将边按从小到大顺序排列，即 `a < b < c`，那么显然 ②③ 成立，我们只需要确保 ① 也成立，就可以形成一个有效三角形。
+
+我们在 `[0, n-3]` 范围内枚举 i，在 `[i+1, n-2]` 范围内枚举 j，在 `[j+1, n-1]` 范围内进行二分查找，找出第一个大于等于 `nums[i]+nums[j]` 的下标 left，那么在 `[j+1, left-1]` 范围内的 k 满足条件，将其累加到结果 ans。
+
+时间复杂度 O(n²logn)。
 
 <!-- tabs:start -->
 
@@ -51,19 +59,12 @@
 ```python
 class Solution:
     def triangleNumber(self, nums: List[int]) -> int:
-        n = len(nums)
         nums.sort()
-        ans = 0
+        ans, n = 0, len(nums)
         for i in range(n - 2):
             for j in range(i + 1, n - 1):
-                left, right = j + 1, n
-                while left < right:
-                    mid = left + (right - left) // 2
-                    if nums[mid] < nums[i] + nums[j]:
-                        left = mid + 1
-                    else:
-                        right = mid
-                ans += left - j - 1
+                k = bisect_left(nums, nums[i] + nums[j], lo=j + 1) - 1
+                ans += k - j
         return ans
 ```
 
@@ -89,6 +90,30 @@ class Solution {
             }
         }
         return res;
+    }
+}
+```
+
+```java
+class Solution {
+    public int triangleNumber(int[] nums) {
+        Arrays.sort(nums);
+        int ans = 0;
+        for (int i = 0, n = nums.length; i < n - 2; ++i) {
+            for (int j = i + 1; j < n - 1; ++j) {
+                int left = j + 1, right = n;
+                while (left < right) {
+                    int mid = (left + right) >> 1;
+                    if (nums[mid] >= nums[i] + nums[j]) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+                ans += left - j - 1;
+            }
+        }
+        return ans;
     }
 }
 ```
@@ -120,18 +145,17 @@ function triangleNumber(nums: number[]): number {
 
 ```go
 func triangleNumber(nums []int) int {
-	n := len(nums)
 	sort.Ints(nums)
 	ans := 0
-	for i := 0; i < n-2; i++ {
+	for i, n := 0, len(nums); i < n-2; i++ {
 		for j := i + 1; j < n-1; j++ {
 			left, right := j+1, n
 			for left < right {
-				mid := int(uint(left+right) >> 1)
-				if nums[mid] < nums[i]+nums[j] {
-					left = mid + 1
-				} else {
+				mid := (left + right) >> 1
+				if nums[mid] >= nums[i]+nums[j] {
 					right = mid
+				} else {
+					left = mid + 1
 				}
 			}
 			ans += left - j - 1
@@ -148,20 +172,13 @@ class Solution {
 public:
     int triangleNumber(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int n = nums.size();
-        int ans = 0;
-        for (int i = 0; i < n - 2; ++i) {
-            for (int j = i + 1; j < n - 1; ++j) {
-                int left = j + 1, right = n;
-                while (left < right) {
-                    int mid = left + right >> 1;
-                    if (nums[mid] < nums[i] + nums[j]) {
-                        left = mid + 1;
-                    } else {
-                        right = mid;
-                    }
-                }
-                ans += left - j - 1;
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n - 2; ++i)
+        {
+            for (int j = i + 1; j < n - 1; ++j)
+            {
+                int k = lower_bound(nums.begin() + j + 1, nums.end(), nums[i] + nums[j]) - nums.begin() - 1;
+                ans += k - j;
             }
         }
         return ans;
