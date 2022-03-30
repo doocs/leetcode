@@ -70,16 +70,9 @@
 ```python
 class Solution:
     def chalkReplacer(self, chalk: List[int], k: int) -> int:
-        pre_sum = list(itertools.accumulate(chalk))
-        k %= pre_sum[-1]
-        left, right = 0, len(chalk) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            if pre_sum[mid] > k:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        s = list(accumulate(chalk))
+        k %= s[-1]
+        return bisect_right(s, k)
 ```
 
 ### **Java**
@@ -116,21 +109,10 @@ class Solution {
 public:
     int chalkReplacer(vector<int>& chalk, int k) {
         int n = chalk.size();
-        vector<long long> preSum(n + 1);
-        for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + chalk[i];
-        }
-        k %= preSum[n];
-        int left = 0, right = n - 1;
-        while (left < right) {
-            int mid = left + (right - left >> 1);
-            if (preSum[mid + 1] > k) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
+        vector<long long> s(n, chalk[0]);
+        for (int i = 1; i < n; ++i) s[i] = s[i - 1] + chalk[i];
+        k %= s[n - 1];
+        return upper_bound(s.begin(), s.end(), k) - s.begin();
     }
 };
 ```
@@ -140,15 +122,15 @@ public:
 ```go
 func chalkReplacer(chalk []int, k int) int {
 	n := len(chalk)
-	preSum := make([]int, n+1)
+	s := make([]int, n+1)
 	for i := 0; i < n; i++ {
-		preSum[i+1] = preSum[i] + chalk[i]
+		s[i+1] = s[i] + chalk[i]
 	}
-	k %= preSum[n]
+	k %= s[n]
 	left, right := 0, n-1
 	for left < right {
-		mid := left + ((right - left) >> 1)
-		if preSum[mid+1] > k {
+		mid := (left + right) >> 1
+		if s[mid+1] > k {
 			right = mid
 		} else {
 			left = mid + 1
