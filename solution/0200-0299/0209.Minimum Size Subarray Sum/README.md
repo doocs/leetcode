@@ -56,11 +56,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“前缀和 + 二分查找”，先求出数组的前缀和 `preSum`，然后根据 `preSum[i] - preSum[j] >= target` => `preSum[i] >= preSum[j] + target`，对 `preSum[i]` 进行二分查找，然后更新最小长度即可。时间复杂度 `O(n logn)`。
+**方法一：前缀和 + 二分查找**
 
-也可以用“滑动窗口”。
+先求出数组的前缀和 `s`，然后根据 `s[j] - s[i] >= target` => `s[j] >= s[i] + target`，找出最小的一个 j，使得 `s[j]` 满足大于等于 `s[i] + target`，然后更新最小长度即可。
 
-使用指针 left, right 分别表示子数组的开始位置和结束位置，维护变量 sum 表示子数组 `nums[left...right]` 元素之和。初始时 left, right 均指向 0。每一次迭代，将 `nums[right]` 加到 sum，如果此时 `sum >= target`，更新最小长度即可。然后将 sum 减去 `nums[left]`，接着 left 指针右移直至 `sum < target`。每一次迭代最后，将 right 指针右移。时间复杂度 `O(n)`。
+时间复杂度 `O(n logn)`。
+
+**方法二：滑动窗口**
+
+使用指针 left, right 分别表示子数组的开始位置和结束位置，维护变量 sum 表示子数组 `nums[left...right]` 元素之和。初始时 left, right 均指向 0。每一次迭代，将 `nums[right]` 加到 sum，如果此时 `sum >= target`，更新最小长度即可。然后将 sum 减去 `nums[left]`，接着 left 指针右移直至 `sum < target`。每一次迭代最后，将 right 指针右移。
+
+时间复杂度 `O(n)`。
 
 <!-- tabs:start -->
 
@@ -68,31 +74,23 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-“前缀和 + 二分查找”。
+前缀和 + 二分查找：
 
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        s = [0] + list(accumulate(nums))
         n = len(nums)
-        pre_sum = [0] * (n + 1)
-        for i in range(1, n + 1):
-            pre_sum[i] = pre_sum[i - 1] + nums[i - 1]
-        res = n + 1
-        for i in range(1, n + 1):
-            t = pre_sum[i - 1] + target
-            left, right = 0, n
-            while left < right:
-                mid = (left + right) >> 1
-                if pre_sum[mid] >= t:
-                    right = mid
-                else:
-                    left = mid + 1
-            if pre_sum[left] - pre_sum[i - 1] >= target:
-                res = min(res, left - i + 1)
-        return 0 if res == n + 1 else res
+        ans = n + 1
+        for i, v in enumerate(s):
+            t = v + target
+            j = bisect_left(s, t)
+            if j != n + 1:
+                ans = min(ans, j - i)
+        return 0 if ans == n + 1 else ans
 ```
 
-“滑动窗口”。
+滑动窗口：
 
 ```python
 class Solution:
@@ -114,38 +112,38 @@ class Solution:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-“前缀和 + 二分查找”。
+前缀和 + 二分查找：
 
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int[] preSum = new int[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            preSum[i] = preSum[i - 1] +nums[i - 1];
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
         }
-        int res = n + 1;
-        for (int i = 1; i <= n; ++i) {
-            int t = preSum[i - 1] + target;
-            int left = 0, right = n;
+        int ans = n + 1;
+        for (int i = 0; i < n; ++i) {
+            int t = s[i] + target;
+            int left = 0, right = n + 1;
             while (left < right) {
                 int mid = (left + right) >> 1;
-                if (preSum[mid] >= t) {
+                if (s[mid] >= t) {
                     right = mid;
                 } else {
                     left = mid + 1;
                 }
             }
-            if (preSum[left] - preSum[i - 1] >= target) {
-                res = Math.min(res, left - i + 1);
+            if (left != n + 1) {
+                ans = Math.min(ans, left - i);
             }
         }
-        return res == n + 1 ? 0 : res;
+        return ans == n + 1 ? 0 : ans;
     }
 }
 ```
 
-“滑动窗口”。
+滑动窗口：
 
 ```java
 class Solution {
@@ -168,6 +166,33 @@ class Solution {
 
 ### **C++**
 
+前缀和 + 二分查找：
+
+```cpp
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int n = nums.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+        int ans = n + 1;
+        for (int i = 0; i < n; ++i)
+        {
+            int t = s[i] + target;
+            auto p = lower_bound(s.begin(), s.end(), t);
+            if (p != s.end())
+            {
+                int j = p - s.begin();
+                ans = min(ans, j - i);
+            }
+        }
+        return ans == n + 1 ? 0 : ans;
+    }
+};
+```
+
+滑动窗口：
+
 ```cpp
 class Solution {
 public:
@@ -189,7 +214,43 @@ public:
 };
 ```
 
+### **Go**
+
+前缀和 + 二分查找：
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+	n := len(nums)
+	s := make([]int, n+1)
+	for i, v := range nums {
+		s[i+1] = s[i] + v
+	}
+	ans := n + 1
+	for i, v := range s {
+		t := v + target
+		left, right := 0, n+1
+		for left < right {
+			mid := (left + right) >> 1
+			if s[mid] >= t {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		if left != n+1 && ans > left-i {
+			ans = left - i
+		}
+	}
+	if ans == n+1 {
+		return 0
+	}
+	return ans
+}
+```
+
 ### **C#**
+
+滑动窗口：
 
 ```cs
 public class Solution {

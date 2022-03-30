@@ -43,35 +43,31 @@
 
 ## Solutions
 
+**Method 1: PreSum & Binary search**
+
+**Method 2: Slide window**
+
 <!-- tabs:start -->
 
 ### **Python3**
 
-Presum and binary search.
+PreSum & Binary search:
 
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        s = [0] + list(accumulate(nums))
         n = len(nums)
-        pre_sum = [0] * (n + 1)
-        for i in range(1, n + 1):
-            pre_sum[i] = pre_sum[i - 1] + nums[i - 1]
-        res = n + 1
-        for i in range(1, n + 1):
-            t = pre_sum[i - 1] + target
-            left, right = 0, n
-            while left < right:
-                mid = (left + right) >> 1
-                if pre_sum[mid] >= t:
-                    right = mid
-                else:
-                    left = mid + 1
-            if pre_sum[left] - pre_sum[i - 1] >= target:
-                res = min(res, left - i + 1)
-        return 0 if res == n + 1 else res
+        ans = n + 1
+        for i, v in enumerate(s):
+            t = v + target
+            j = bisect_left(s, t)
+            if j != n + 1:
+                ans = min(ans, j - i)
+        return 0 if ans == n + 1 else ans
 ```
 
-Slide window.
+Slide window:
 
 ```python
 class Solution:
@@ -91,38 +87,38 @@ class Solution:
 
 ### **Java**
 
-Presum and binary search.
+Presum & binary search:
 
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int[] preSum = new int[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            preSum[i] = preSum[i - 1] +nums[i - 1];
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
         }
-        int res = n + 1;
-        for (int i = 1; i <= n; ++i) {
-            int t = preSum[i - 1] + target;
-            int left = 0, right = n;
+        int ans = n + 1;
+        for (int i = 0; i < n; ++i) {
+            int t = s[i] + target;
+            int left = 0, right = n + 1;
             while (left < right) {
                 int mid = (left + right) >> 1;
-                if (preSum[mid] >= t) {
+                if (s[mid] >= t) {
                     right = mid;
                 } else {
                     left = mid + 1;
                 }
             }
-            if (preSum[left] - preSum[i - 1] >= target) {
-                res = Math.min(res, left - i + 1);
+            if (left != n + 1) {
+                ans = Math.min(ans, left - i);
             }
         }
-        return res == n + 1 ? 0 : res;
+        return ans == n + 1 ? 0 : ans;
     }
 }
 ```
 
-Slide window.
+Slide window:
 
 ```java
 class Solution {
@@ -145,6 +141,33 @@ class Solution {
 
 ### **C++**
 
+Presum & binary search:
+
+```cpp
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int n = nums.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+        int ans = n + 1;
+        for (int i = 0; i < n; ++i)
+        {
+            int t = s[i] + target;
+            auto p = lower_bound(s.begin(), s.end(), t);
+            if (p != s.end())
+            {
+                int j = p - s.begin();
+                ans = min(ans, j - i);
+            }
+        }
+        return ans == n + 1 ? 0 : ans;
+    }
+};
+```
+
+Slide window:
+
 ```cpp
 class Solution {
 public:
@@ -166,7 +189,43 @@ public:
 };
 ```
 
+### **Go**
+
+Presum & binary search:
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+	n := len(nums)
+	s := make([]int, n+1)
+	for i, v := range nums {
+		s[i+1] = s[i] + v
+	}
+	ans := n + 1
+	for i, v := range s {
+		t := v + target
+		left, right := 0, n+1
+		for left < right {
+			mid := (left + right) >> 1
+			if s[mid] >= t {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		if left != n+1 && ans > left-i {
+			ans = left - i
+		}
+	}
+	if ans == n+1 {
+		return 0
+	}
+	return ans
+}
+```
+
 ### **C#**
+
+Slide window:
 
 ```cs
 public class Solution {
