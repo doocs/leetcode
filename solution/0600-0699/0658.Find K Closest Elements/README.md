@@ -46,6 +46,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+将 arr 中的所有元素按照与 x 的距离从小到大进行排列。取前 k 个 排序后返回。
+
+时间复杂度 O(nlogn)。
+
+**方法二：二分查找**
+
+查找大小为 k 的所有窗口的左边界。
+
+时间复杂度 O(logn)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +65,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        arr.sort(key=lambda v: (abs(v - x), x))
+        return sorted(arr[:k])
+```
 
+```python
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        left, right = 0, len(arr) - k
+        while left < right:
+            mid = (left + right) >> 1
+            if x - arr[mid] <= arr[mid + k] - x:
+                right = mid
+            else:
+                left = mid + 1
+        return arr[left: left + k]
 ```
 
 ### **Java**
@@ -63,43 +91,113 @@
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
-        List<Integer> res = new ArrayList<>();
-        if (arr.length < k) {
-            for (int item : arr) {
-                res.add(item);
-            }
-            return res;
-        }
-        int left = 0, right = arr.length - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (arr[mid] > x) {
-                right = mid - 1;
-            } else {
-                left = mid;
-            }
-        }
-        int left1 = 0;
-        int right1 = arr.length - 1;
-        if (left >= k) {
-            left1 = left - k;
-        }
-        if (arr.length - 1 - left >= k) {
-            right1 = left + k;
-        }
-        while (right1 - left1 >= k) {
-            if (Math.abs(arr[left1] - x) > Math.abs(arr[right1] -x)) {
-                left1++;
-            } else {
-                right1--;
-            }
-        }
-        while (left1 <= right1) {
-            res.add(arr[left1]);
-            left1++;
-        }
-        return res;
+        List<Integer> ans = Arrays.stream(arr).boxed().sorted((a, b) -> {
+            int v = Math.abs(a - x) - Math.abs(b - x);
+            return v == 0 ? a - b : v;
+        }).collect(Collectors.toList());
+        ans = ans.subList(0, k);
+        Collections.sort(ans);
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        int left = 0;
+        int right = arr.length - k;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (x - arr[mid] <= arr[mid + k] - x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = left; i < left + k; ++i) {
+            ans.add(arr[i]);
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+int target;
+
+class Solution {
+public:
+    static bool cmp(int& a ,int& b) {
+        int v = abs(a - target) - abs(b - target);
+        return v == 0 ? a < b : v < 0;
+    }
+
+    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+        target = x;
+        sort(arr.begin(), arr.end(), cmp);
+        vector<int> ans(arr.begin(), arr.begin() + k);
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+        int left = 0, right = arr.size() - k;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (x - arr[mid] <= arr[mid + k] - x) right = mid;
+            else left = mid + 1;
+        }
+        return vector<int>(arr.begin() + left, arr.begin() + left + k);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findClosestElements(arr []int, k int, x int) []int {
+	sort.Slice(arr, func(i, j int) bool {
+		v := abs(arr[i]-x) - abs(arr[j]-x)
+		if v == 0 {
+			return arr[i] < arr[j]
+		}
+		return v < 0
+	})
+	ans := arr[:k]
+	sort.Ints(ans)
+	return ans
+}
+
+func abs(x int) int {
+	if x >= 0 {
+		return x
+	}
+	return -x
+}
+```
+
+```go
+func findClosestElements(arr []int, k int, x int) []int {
+	left, right := 0, len(arr)-k
+	for left < right {
+		mid := (left + right) >> 1
+		if x-arr[mid] <= arr[mid+k]-x {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return arr[left : left+k]
 }
 ```
 
