@@ -85,6 +85,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：有序集合 + 优先队列**
+
+题目求的是最繁忙的服务器列表，因此可以想到用**哈希表**记录每个服务器处理的任务数，然后获取所有处理了最大任务数 mx 的服务器列表即可。关键的问题就在于，求出每个任务分配给了哪台服务器处理。
+
+我们用 有序集合 free 存放所有的空闲服务器，优先队列 busy 存放正在处理请求的服务器的处理结束时间和对应的服务器编号，即二元组 `(end, server)`，优先队列满足队首元素的处理结束时间最小，用一个哈希表 cnt 记录每台服务器处理的任务数。
+
+当第 i 个请求到达时，如果 busy 不为空，我们循环判断 busy 队首的任务结束时间是否小于等于当前请求的到达时间 `arrival[i]`，即 start。如果是，说明队首任务在此时刻已经处理结束，可以从 busy 队列中移出，循环判断。
+
+接下来，如果 free 为空，说明当前没有空闲服务器能够处理第 i 个请求，直接 continue 丢弃；否则，查找 free 中大于等于 `i % k` 的第一个服务器，如果查找成功，那么由该服务器来处理该请求，否则，由 free 的第一个服务器（编号最小）来处理。假设该服务器是 server, 那么 `cnt[server]` 加 1，同时将二元组 `(end, server)` 放入优先队列 busy 中，并且将该 server 中有序集合 free 中移出。
+
+最后，只需要获取 cnt 中的最大值 mx，找出处理了 mx 个任务数的服务器列表，即为答案。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -92,7 +104,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Solution:
+    def busiestServers(self, k: int, arrival: List[int], load: List[int]) -> List[int]:
+        free = SortedList(range(k))
+        busy = []
+        cnt = [0] * k
+        for i, (start, t) in enumerate(zip(arrival, load)):
+            while busy and busy[0][0] <= start:
+                free.add(busy[0][1])
+                heappop(busy)
+            if not free:
+                continue
+            j = free.bisect_left(i % k)
+            if j == len(free):
+                j = 0
+            server = free[j]
+            cnt[server] += 1
+            heappush(busy, (start + t, server))
+            free.remove(server)
+
+        mx = max(cnt)
+        return [i for i, v in enumerate(cnt) if v == mx]
 ```
 
 ### **Java**
@@ -100,7 +135,96 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> busiestServers(int k, int[] arrival, int[] load) {
+        int[] cnt = new int[k];
+        PriorityQueue<int[]> busy = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        TreeSet<Integer> free = new TreeSet<>();
+        for (int i = 0; i < k; ++i) {
+            free.add(i);
+        }
+        for (int i = 0; i < arrival.length; ++i) {
+            int start = arrival[i];
+            int end = start + load[i];
+            while (!busy.isEmpty() && busy.peek()[0] <= start) {
+                free.add(busy.poll()[1]);
+            }
+            if (free.isEmpty()) {
+                continue;
+            }
+            Integer server = free.ceiling(i % k);
+            if (server == null) {
+                server = free.first();
+            }
+            ++cnt[server];
+            busy.offer(new int[]{end, server});
+            free.remove(server);
+        }
+        int mx = 0;
+        for (int v : cnt) {
+            mx = Math.max(mx, v);
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < k; ++i) {
+            if (cnt[i] == mx) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func busiestServers(k int, arrival, load []int) []int {
+	free := redblacktree.NewWithIntComparator()
+	for i := 0; i < k; i++ {
+		free.Put(i, nil)
+	}
+	busy := hp{}
+	cnt := make([]int, k)
+	for i, t := range arrival {
+		for len(busy) > 0 && busy[0].end <= t {
+			free.Put(busy[0].server, nil)
+			heap.Pop(&busy)
+		}
+		if free.Size() == 0 {
+			continue
+		}
+		p, _ := free.Ceiling(i % k)
+		if p == nil {
+			p = free.Left()
+		}
+		server := p.Key.(int)
+		cnt[server]++
+		heap.Push(&busy, pair{t + load[i], server})
+		free.Remove(server)
+	}
+	mx := 0
+	for _, v := range cnt {
+		if v > mx {
+			mx = v
+		}
+	}
+	var ans []int
+	for i, v := range cnt {
+		if v == mx {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+
+type pair struct{ end, server int }
+type hp []pair
+
+func (h hp) Len() int            { return len(h) }
+func (h hp) Less(i, j int) bool  { return h[i].end < h[j].end }
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**

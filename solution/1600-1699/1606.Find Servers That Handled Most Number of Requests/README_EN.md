@@ -68,13 +68,125 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Solution:
+    def busiestServers(self, k: int, arrival: List[int], load: List[int]) -> List[int]:
+        free = SortedList(range(k))
+        busy = []
+        cnt = [0] * k
+        for i, (start, t) in enumerate(zip(arrival, load)):
+            while busy and busy[0][0] <= start:
+                free.add(busy[0][1])
+                heappop(busy)
+            if not free:
+                continue
+            j = free.bisect_left(i % k)
+            if j == len(free):
+                j = 0
+            server = free[j]
+            cnt[server] += 1
+            heappush(busy, (start + t, server))
+            free.remove(server)
+
+        mx = max(cnt)
+        return [i for i, v in enumerate(cnt) if v == mx]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> busiestServers(int k, int[] arrival, int[] load) {
+        int[] cnt = new int[k];
+        PriorityQueue<int[]> busy = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        TreeSet<Integer> free = new TreeSet<>();
+        for (int i = 0; i < k; ++i) {
+            free.add(i);
+        }
+        for (int i = 0; i < arrival.length; ++i) {
+            int start = arrival[i];
+            int end = start + load[i];
+            while (!busy.isEmpty() && busy.peek()[0] <= start) {
+                free.add(busy.poll()[1]);
+            }
+            if (free.isEmpty()) {
+                continue;
+            }
+            Integer server = free.ceiling(i % k);
+            if (server == null) {
+                server = free.first();
+            }
+            ++cnt[server];
+            busy.offer(new int[]{end, server});
+            free.remove(server);
+        }
+        int mx = 0;
+        for (int v : cnt) {
+            mx = Math.max(mx, v);
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < k; ++i) {
+            if (cnt[i] == mx) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func busiestServers(k int, arrival, load []int) []int {
+	free := redblacktree.NewWithIntComparator()
+	for i := 0; i < k; i++ {
+		free.Put(i, nil)
+	}
+	busy := hp{}
+	cnt := make([]int, k)
+	for i, t := range arrival {
+		for len(busy) > 0 && busy[0].end <= t {
+			free.Put(busy[0].server, nil)
+			heap.Pop(&busy)
+		}
+		if free.Size() == 0 {
+			continue
+		}
+		p, _ := free.Ceiling(i % k)
+		if p == nil {
+			p = free.Left()
+		}
+		server := p.Key.(int)
+		cnt[server]++
+		heap.Push(&busy, pair{t + load[i], server})
+		free.Remove(server)
+	}
+	mx := 0
+	for _, v := range cnt {
+		if v > mx {
+			mx = v
+		}
+	}
+	var ans []int
+	for i, v := range cnt {
+		if v == mx {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+
+type pair struct{ end, server int }
+type hp []pair
+
+func (h hp) Len() int            { return len(h) }
+func (h hp) Less(i, j int) bool  { return h[i].end < h[j].end }
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**
