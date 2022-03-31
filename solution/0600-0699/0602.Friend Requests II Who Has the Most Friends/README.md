@@ -75,12 +75,12 @@ SELECT
     ids AS id, COUNT(*) cnt
 FROM
     (SELECT 
-        request_id AS ids
+        requester_id AS ids
     FROM
-        request_accepted UNION ALL SELECT 
+        RequestAccepted UNION ALL SELECT 
         accepter_id
     FROM
-        request_accepted) t
+        RequestAccepted) t
 GROUP BY ids
 ORDER BY cnt DESC
 LIMIT 1;
