@@ -54,10 +54,10 @@ Binary search.
 ```python
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        left, right = 1, max(piles)
+        left, right = 1, int(1e9)
         while left < right:
             mid = (left + right) >> 1
-            s = sum([(pile + mid - 1) // mid for pile in piles])
+            s = sum((x + mid - 1) // mid for x in piles)
             if s <= h:
                 right = mid
             else:
@@ -70,16 +70,12 @@ class Solution:
 ```java
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        int mx = 0;
-        for (int pile : piles) {
-            mx = Math.max(mx, pile);
-        }
-        int left = 1, right = mx;
+        int left = 1, right = (int) 1e9;
         while (left < right) {
             int mid = (left + right) >>> 1;
             int s = 0;
-            for (int pile : piles) {
-                s += (pile + mid - 1) / mid;
+            for (int x : piles) {
+                s += (x + mid - 1) / mid;
             }
             if (s <= h) {
                 right = mid;
@@ -98,12 +94,12 @@ class Solution {
 class Solution {
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
-        int left = 1, right = *max_element(piles.begin(), piles.end());
+        int left = 1, right = 1e9;
         while (left < right)
         {
-            int mid = left + right >> 1;
+            int mid = (left + right) >> 1;
             int s = 0;
-            for (int pile : piles) s += (pile + mid - 1) / mid;
+            for (int& x : piles)  s += (x + mid - 1) / mid;
             if (s <= h) right = mid;
             else left = mid + 1;
         }
@@ -116,16 +112,12 @@ public:
 
 ```go
 func minEatingSpeed(piles []int, h int) int {
-	mx := 0
-	for _, pile := range piles {
-		mx = max(mx, pile)
-	}
-	left, right := 1, mx
+	left, right := 1, int(1e9)
 	for left < right {
 		mid := (left + right) >> 1
 		s := 0
-		for _, pile := range piles {
-			s += (pile + mid - 1) / mid
+		for _, x := range piles {
+			s += (x + mid - 1) / mid
 		}
 		if s <= h {
 			right = mid
@@ -134,13 +126,6 @@ func minEatingSpeed(piles []int, h int) int {
 		}
 	}
 	return left
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

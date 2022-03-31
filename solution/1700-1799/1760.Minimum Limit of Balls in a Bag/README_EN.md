@@ -75,7 +75,7 @@ class Solution:
         left, right = 1, max(nums)
         while left < right:
             mid = (left + right) >> 1
-            ops = sum([(num - 1) // mid for num in nums])
+            ops = sum((num - 1) // mid for num in nums)
             if ops <= maxOperations:
                 right = mid
             else:
@@ -88,7 +88,7 @@ class Solution:
 ```java
 class Solution {
     public int minimumSize(int[] nums, int maxOperations) {
-        int left = 1, right = 1000000000;
+        int left = 1, right = (int) 1e9;
         while (left < right) {
             int mid = (left + right) >>> 1;
             long ops = 0;
@@ -112,18 +112,14 @@ class Solution {
 class Solution {
 public:
     int minimumSize(vector<int>& nums, int maxOperations) {
-        int left = 1, right = *max_element(nums.begin(), nums.end());
-        while (left < right) {
-            int mid = left + (right - left >> 1);
+        int left = 1, right = 1e9;
+        while (left < right)
+        {
+            int mid = left + ((right - left) >> 1);
             long long ops = 0;
-            for (int num : nums) {
-                ops += (num - 1) / mid;
-            }
-            if (ops <= maxOperations) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+            for (int num : nums) ops += (num - 1) / mid;
+            if (ops <= maxOperations) right = mid;
+            else left = mid + 1;
         }
         return left;
     }
@@ -134,7 +130,7 @@ public:
 
 ```go
 func minimumSize(nums []int, maxOperations int) int {
-	left, right := 1, max(nums)
+	left, right := 1, int(1e9)
 	for left < right {
 		mid := (left + right) >> 1
 		var ops int
@@ -148,16 +144,6 @@ func minimumSize(nums []int, maxOperations int) int {
 		}
 	}
 	return left
-}
-
-func max(nums []int) int {
-	res := 0
-	for _, num := range nums {
-		if res < num {
-			res = num
-		}
-	}
-	return res
 }
 ```
 

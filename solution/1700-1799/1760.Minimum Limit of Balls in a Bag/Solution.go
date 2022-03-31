@@ -1,5 +1,5 @@
 func minimumSize(nums []int, maxOperations int) int {
-	left, right := 1, max(nums)
+	left, right := 1, int(1e9)
 	for left < right {
 		mid := (left + right) >> 1
 		var ops int
@@ -13,14 +13,4 @@ func minimumSize(nums []int, maxOperations int) int {
 		}
 	}
 	return left
-}
-
-func max(nums []int) int {
-	res := 0
-	for _, num := range nums {
-		if res < num {
-			res = num
-		}
-	}
-	return res
 }
