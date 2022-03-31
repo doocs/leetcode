@@ -3,7 +3,7 @@ class Solution {
         Arrays.sort(position);
         int left = 1, right = position[position.length - 1];
         while (left < right) {
-            int mid = (left + right + 1) >> 1;
+            int mid = (left + right + 1) >>> 1;
             if (check(position, mid, m)) {
                 left = mid;
             } else {
@@ -14,12 +14,13 @@ class Solution {
     }
 
     private boolean check(int[] position, int f, int m) {
-        int pre = position[0];
+        int prev = position[0];
         int cnt = 1;
         for (int i = 1; i < position.length; ++i) {
-            if (position[i] - pre >= f) {
+            int curr = position[i];
+            if (curr - prev >= f) {
+                prev = curr;
                 ++cnt;
-                pre = position[i];
             }
         }
         return cnt >= m;

@@ -46,9 +46,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
 
-先排序，然后二分枚举相邻两球之间的间距，只需要统计当前间距下能放下多少个小球，记为 cnt，若 `cnt >= m`，说明此间距符合条件。继续二分查找，最终找到符合条件的最大间距。
+先对 position 进行排序。
+
+然后二分枚举磁力值（相邻两球的最小间距），统计当前最小磁力值下能放下多少个小球，记为 cnt。若 `cnt >= m`，说明此磁力值符合条件。继续二分查找，最终找到符合条件的最大磁力值。
 
 <!-- tabs:start -->
 
@@ -59,20 +61,20 @@
 ```python
 class Solution:
     def maxDistance(self, position: List[int], m: int) -> int:
-        position.sort()
-
         def check(f):
-            pre = position[0]
+            prev = position[0]
             cnt = 1
-            for pos in position[1:]:
-                if pos - pre >= f:
+            for curr in position[1:]:
+                if curr - prev >= f:
+                    prev = curr
                     cnt += 1
-                    pre = pos
             return cnt >= m
 
+        position.sort()
         left, right = 1, position[-1]
         while left < right:
             mid = (left + right + 1) >> 1
+
             if check(mid):
                 left = mid
             else:
@@ -90,7 +92,7 @@ class Solution {
         Arrays.sort(position);
         int left = 1, right = position[position.length - 1];
         while (left < right) {
-            int mid = (left + right + 1) >> 1;
+            int mid = (left + right + 1) >>> 1;
             if (check(position, mid, m)) {
                 left = mid;
             } else {
@@ -101,12 +103,13 @@ class Solution {
     }
 
     private boolean check(int[] position, int f, int m) {
-        int pre = position[0];
+        int prev = position[0];
         int cnt = 1;
         for (int i = 1; i < position.length; ++i) {
-            if (position[i] - pre >= f) {
+            int curr = position[i];
+            if (curr - prev >= f) {
+                prev = curr;
                 ++cnt;
-                pre = position[i];
             }
         }
         return cnt >= m;
@@ -122,7 +125,8 @@ public:
     int maxDistance(vector<int>& position, int m) {
         sort(position.begin(), position.end());
         int left = 1, right = position[position.size() - 1];
-        while (left < right) {
+        while (left < right)
+        {
             int mid = (left + right + 1) >> 1;
             if (check(position, mid, m)) left = mid;
             else right = mid - 1;
@@ -131,17 +135,21 @@ public:
     }
 
     bool check(vector<int>& position, int f, int m) {
-        int pre = position[0];
+        int prev = position[0];
         int cnt = 1;
-        for (int i = 1; i < position.size(); ++i) {
-            if (position[i] - pre >= f) {
+        for (int i = 1; i < position.size(); ++i)
+        {
+            int curr = position[i];
+            if (curr - prev >= f)
+            {
+                prev = curr;
                 ++cnt;
-                pre = position[i];
             }
         }
         return cnt >= m;
     }
 };
+
 ```
 
 ### **Go**
@@ -150,9 +158,19 @@ public:
 func maxDistance(position []int, m int) int {
 	sort.Ints(position)
 	left, right := 1, position[len(position)-1]
+	check := func(f int) bool {
+		prev, cnt := position[0], 1
+		for _, curr := range position[1:] {
+			if curr-prev >= f {
+				prev = curr
+				cnt++
+			}
+		}
+		return cnt >= m
+	}
 	for left < right {
 		mid := (left + right + 1) >> 1
-		if check(position, mid, m) {
+		if check(mid) {
 			left = mid
 		} else {
 			right = mid - 1
@@ -160,17 +178,44 @@ func maxDistance(position []int, m int) int {
 	}
 	return left
 }
+```
 
-func check(position []int, f, m int) bool {
-	pre, cnt := position[0], 1
-	for i := 1; i < len(position); i++ {
-		if position[i]-pre >= f {
-			cnt++
-			pre = position[i]
-		}
-	}
-	return cnt >= m
-}
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} position
+ * @param {number} m
+ * @return {number}
+ */
+var maxDistance = function (position, m) {
+    position.sort((a, b) => {
+        return a - b;
+    });
+    let left = 1,
+        right = position[position.length - 1];
+    const check = function (f) {
+        let prev = position[0];
+        let cnt = 1;
+        for (let i = 1; i < position.length; ++i) {
+            const curr = position[i];
+            if (curr - prev >= f) {
+                prev = curr;
+                ++cnt;
+            }
+        }
+        return cnt >= m;
+    };
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+};
 ```
 
 ### **...**
