@@ -71,7 +71,19 @@ RequestAccepted 表：
 ### **SQL**
 
 ```sql
-
+SELECT 
+    ids AS id, COUNT(*) cnt
+FROM
+    (SELECT 
+        request_id AS ids
+    FROM
+        request_accepted UNION ALL SELECT 
+        accepter_id
+    FROM
+        request_accepted) t
+GROUP BY ids
+ORDER BY cnt DESC
+LIMIT 1;
 ```
 
 <!-- tabs:end -->
