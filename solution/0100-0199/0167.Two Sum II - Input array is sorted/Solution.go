@@ -1,13 +1,14 @@
 func twoSum(numbers []int, target int) []int {
-	left, right := 0, len(numbers)-1
-	for left < right {
-		if numbers[left]+numbers[right] == target {
-			return []int{left + 1, right + 1}
+	i, j := 1, len(numbers)
+	for i < j {
+		x := numbers[i-1] + numbers[j-1]
+		if x == target {
+			return []int{i, j}
 		}
-		if numbers[left]+numbers[right] < target {
-			left++
+		if x < target {
+			i++
 		} else {
-			right--
+			j--
 		}
 	}
 	return []int{-1, -1}
