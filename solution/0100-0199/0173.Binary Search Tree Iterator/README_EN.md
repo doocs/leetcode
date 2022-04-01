@@ -413,6 +413,252 @@ BSTIterator.prototype.hasNext = function () {
  */
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class BSTIterator {
+    private data: number[];
+    private index: number;
+
+    constructor(root: TreeNode | null) {
+        this.index = 0;
+        this.data = [];
+        const dfs = (root: TreeNode | null) => {
+            if (root == null) {
+                return;
+            }
+            const { val, left, right } = root;
+            dfs(left);
+            this.data.push(val);
+            dfs(right);
+        };
+        dfs(root);
+    }
+
+    next(): number {
+        return this.data[this.index++];
+    }
+
+    hasNext(): boolean {
+        return this.index < this.data.length;
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * var obj = new BSTIterator(root)
+ * var param_1 = obj.next()
+ * var param_2 = obj.hasNext()
+ */
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class BSTIterator {
+    private stack: TreeNode[];
+
+    constructor(root: TreeNode | null) {
+        this.stack = [];
+        const dfs = (root: TreeNode | null) => {
+            if (root == null) {
+                return;
+            }
+            this.stack.push(root);
+            dfs(root.left);
+        };
+        dfs(root);
+    }
+
+    next(): number {
+        const { val, right } = this.stack.pop();
+        if (right) {
+            let cur = right;
+            while (cur != null) {
+                this.stack.push(cur);
+                cur = cur.left;
+            }
+        }
+        return val;
+    }
+
+    hasNext(): boolean {
+        return this.stack.length !== 0;
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * var obj = new BSTIterator(root)
+ * var param_1 = obj.next()
+ * var param_2 = obj.hasNext()
+ */
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+struct BSTIterator {
+    vals: Vec<i32>,
+    index: usize,
+}
+
+use std::rc::Rc;
+use std::cell::RefCell;
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl BSTIterator {
+    fn inorder(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+        if let Some(node) = root {
+            let node = node.as_ref().borrow();
+            Self::inorder(&node.left, res);
+            res.push(node.val);
+            Self::inorder(&node.right, res);
+        }
+    }
+
+    fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
+        let mut vals = vec![];
+        Self::inorder(&root, &mut vals);
+        BSTIterator {
+            vals,
+            index: 0,
+        }
+    }
+
+    fn next(&mut self) -> i32 {
+        self.index += 1;
+        self.vals[self.index - 1]
+    }
+
+    fn has_next(&self) -> bool {
+        self.index != self.vals.len()
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * let obj = BSTIterator::new(root);
+ * let ret_1: i32 = obj.next();
+ * let ret_2: bool = obj.has_next();
+ */
+```
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+struct BSTIterator {
+    stack: Vec<Option<Rc<RefCell<TreeNode>>>>,
+}
+
+use std::rc::Rc;
+use std::cell::RefCell;
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl BSTIterator {
+    fn dfs(
+        mut root: Option<Rc<RefCell<TreeNode>>>,
+        stack: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
+    ) {
+        if root.is_some() {
+            let left = root.as_mut().unwrap().borrow_mut().left.take();
+            stack.push(root);
+            Self::dfs(left, stack);
+        }
+    }
+
+    fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
+        let mut stack = vec![];
+        Self::dfs(root, &mut stack);
+        BSTIterator { stack }
+    }
+
+    fn next(&mut self) -> i32 {
+        let node = self.stack.pop().unwrap().unwrap();
+        let mut node = node.borrow_mut();
+        if node.right.is_some() {
+            Self::dfs(node.right.take(), &mut self.stack)
+        }
+        node.val
+    }
+
+    fn has_next(&self) -> bool {
+        self.stack.len() != 0
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * let obj = BSTIterator::new(root);
+ * let ret_1: i32 = obj.next();
+ * let ret_2: bool = obj.has_next();
+ */
+```
+
 ### **...**
 
 ```
