@@ -48,13 +48,46 @@ Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        s1, s2 = set(nums1), set(nums2)
+        return [list(s1 - s2), list(s2 - s1)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+        Set<Integer> s1 = convert(nums1);
+        Set<Integer> s2 = convert(nums2);
+        
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        for (int v : s1) {
+            if (!s2.contains(v)) {
+                l1.add(v);
+            }
+        }
+        for (int v : s2) {
+            if (!s1.contains(v)) {
+                l2.add(v);
+            }
+        }
+        ans.add(l1);
+        ans.add(l2);
+        return ans;
+    }
 
+    private Set<Integer> convert(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int v : nums) {
+            s.add(v);
+        }
+        return s;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -75,6 +108,52 @@ var findDifference = function(nums1, nums2) {
     }
     return [Array.from(ans1), Array.from(ans2)];
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> s1(nums1.begin(), nums1.end());
+        unordered_set<int> s2(nums2.begin(), nums2.end());
+        vector<vector<int>> ans(2);
+        for (int v : s1)
+            if (!s2.count(v))
+                ans[0].push_back(v);
+        for (int v : s2)
+            if (!s1.count(v))
+                ans[1].push_back(v);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findDifference(nums1 []int, nums2 []int) [][]int {
+	s1, s2 := make(map[int]bool), make(map[int]bool)
+	for _, v := range nums1 {
+		s1[v] = true
+	}
+	for _, v := range nums2 {
+		s2[v] = true
+	}
+	ans := make([][]int, 2)
+	for v := range s1 {
+		if !s2[v] {
+			ans[0] = append(ans[0], v)
+		}
+	}
+	for v := range s2 {
+		if !s1[v] {
+			ans[1] = append(ans[1], v)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
