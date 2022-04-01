@@ -60,7 +60,19 @@ The person with id 3 is a friend of people 1, 2, and 4, so he has three friends 
 ### **SQL**
 
 ```sql
-
+SELECT 
+    ids AS id, COUNT(*) num
+FROM
+    (SELECT 
+        requester_id AS ids
+    FROM
+        RequestAccepted UNION ALL SELECT 
+        accepter_id
+    FROM
+        RequestAccepted) t
+GROUP BY ids
+ORDER BY num DESC
+LIMIT 1;
 ```
 
 <!-- tabs:end -->
