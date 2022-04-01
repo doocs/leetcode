@@ -61,7 +61,7 @@ The person with id 3 is a friend of people 1, 2, and 4, so he has three friends 
 
 ```sql
 SELECT 
-    ids AS id, COUNT(*) cnt
+    ids AS id, COUNT(*) num
 FROM
     (SELECT 
         requester_id AS ids
@@ -71,7 +71,7 @@ FROM
     FROM
         RequestAccepted) t
 GROUP BY ids
-ORDER BY cnt DESC
+ORDER BY num DESC
 LIMIT 1;
 ```
 
