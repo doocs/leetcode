@@ -3,8 +3,8 @@ func smallestDivisor(nums []int, threshold int) int {
 	for left < right {
 		mid := (left + right) >> 1
 		s := 0
-		for _, num := range nums {
-			s += (num + mid - 1) / mid
+		for _, v := range nums {
+			s += (v + mid - 1) / mid
 		}
 		if s <= threshold {
 			right = mid

@@ -64,12 +64,10 @@
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        left, right = 1, 1000000
+        left, right = 1, 10**6
         while left < right:
             mid = (left + right) >> 1
-            s = 0
-            for num in nums:
-                s += (num + mid - 1) // mid
+            s = sum((v + mid - 1) // mid for v in nums)
             if s <= threshold:
                 right = mid
             else:
@@ -88,8 +86,8 @@ class Solution {
         while (left < right) {
             int mid = (left + right) >> 1;
             int s = 0;
-            for (int num : nums) {
-                s += (num + mid - 1) / mid;
+            for (int v : nums) {
+                s += (v + mid - 1) / mid;
             }
             if (s <= threshold) {
                 right = mid;
@@ -108,18 +106,14 @@ class Solution {
 class Solution {
 public:
     int smallestDivisor(vector<int>& nums, int threshold) {
-        int left = 1, right = 1000000;
-        while (left < right) {
-            int mid = left + right >> 1;
+        int left = 1, right = 1e6;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
             int s = 0;
-            for (int& num : nums) {
-                s += (num + mid - 1) / mid;
-            }
-            if (s <= threshold) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+            for (int& v : nums) s += (v + mid - 1) / mid;
+            if (s <= threshold) right = mid;
+            else left = mid + 1;
         }
         return left;
     }
@@ -134,8 +128,8 @@ func smallestDivisor(nums []int, threshold int) int {
 	for left < right {
 		mid := (left + right) >> 1
 		s := 0
-		for _, num := range nums {
-			s += (num + mid - 1) / mid
+		for _, v := range nums {
+			s += (v + mid - 1) / mid
 		}
 		if s <= threshold {
 			right = mid
@@ -144,6 +138,55 @@ func smallestDivisor(nums []int, threshold int) int {
 		}
 	}
 	return left
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} threshold
+ * @return {number}
+ */
+var smallestDivisor = function (nums, threshold) {
+    let left = 1,
+        right = 1000000;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let s = 0;
+        for (let v of nums) {
+            s += Math.ceil(v / mid);
+        }
+        if (s <= threshold) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
+```
+
+### **TypeScript**
+
+```ts
+function smallestDivisor(nums: number[], threshold: number): number {
+    let left = 1,
+        right = 1000000;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let s = 0;
+        for (let v of nums) {
+            s += Math.ceil(v / mid);
+        }
+        if (s <= threshold) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 }
 ```
 
