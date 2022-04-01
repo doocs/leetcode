@@ -52,18 +52,15 @@
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        l, r = 0, len(nums) - 1
-        while l < r:
-            mid = (l + r) >> 1
-            cnt = 0
-            for e in nums:
-                if e <= mid:
-                    cnt += 1
-            if cnt <= mid:
-                l = mid + 1
+        left, right = 1, len(nums) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            cnt = sum(v <= mid for v in nums)
+            if cnt > mid:
+                right = mid
             else:
-                r = mid
-        return l
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -71,17 +68,22 @@ class Solution:
 ```java
 class Solution {
     public int findDuplicate(int[] nums) {
-        int l = 1, r = nums.length - 1;
-        while (l < r) {
-            int mid = (l + r) >>> 1;
+        int left = 1, right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
             int cnt = 0;
-            for (int e : nums) {
-                if (e <= mid) ++cnt;
+            for (int v : nums) {
+                if (v <= mid) {
+                    ++cnt;
+                }
             }
-            if (cnt <= mid) l = mid + 1;
-            else r = mid;
+            if (cnt > mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return l;
+        return left;
     }
 }
 ```
@@ -92,19 +94,95 @@ class Solution {
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        int l = 0, r = nums.size() - 1;
-        while (l < r) {
-            int mid = l + ((r - l) >> 1);
+        int left = 1, right = nums.size() - 1;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
             int cnt = 0;
-            for (auto e : nums) {
-                if (e <= mid) ++cnt;
-            }
-            if (cnt <= mid) l = mid + 1;
-            else r = mid;
+            for (int& v : nums)
+                if (v <= mid)
+                    ++cnt;
+            if (cnt > mid) right = mid;
+            else left = mid + 1;
         }
-        return l;
+        return left;
     }
 };
+```
+
+### **Go**
+
+```go
+func findDuplicate(nums []int) int {
+	left, right := 1, len(nums)-1
+	for left < right {
+		mid := (left + right) >> 1
+		cnt := 0
+		for _, v := range nums {
+			if v <= mid {
+				cnt++
+			}
+		}
+		if cnt > mid {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findDuplicate = function (nums) {
+    let left = 1,
+        right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let cnt = 0;
+        for (let v of nums) {
+            if (v <= mid) {
+                ++cnt;
+            }
+        }
+        if (cnt > mid) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
+```
+
+### **TypeScript**
+
+```ts
+function findDuplicate(nums: number[]): number {
+    let left = 1,
+        right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let cnt = 0;
+        for (let v of nums) {
+            if (v <= mid) {
+                ++cnt;
+            }
+        }
+        if (cnt > mid) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
 ```
 
 ### **...**
