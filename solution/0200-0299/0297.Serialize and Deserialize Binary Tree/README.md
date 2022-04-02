@@ -305,6 +305,173 @@ const rdeserialize = dataList => {
  */
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+    return JSON.stringify(root);
+}
+
+/*
+ * Decodes your encoded data to tree.
+ */
+function deserialize(data: string): TreeNode | null {
+    return JSON.parse(data);
+}
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+    if (root == null) {
+        return '#';
+    }
+    const { val, left, right } = root;
+    return `${val},${serialize(left)},${serialize(right)}`;
+}
+
+/*
+ * Decodes your encoded data to tree.
+ */
+function deserialize(data: string): TreeNode | null {
+    const n = data.length;
+    if (n === 1) {
+        return null;
+    }
+    const vals = data.split(',').reverse();
+    const renew = () => {
+        const val = vals.pop();
+        if (val == null || val === '#') {
+            return null;
+        }
+        return new TreeNode(Number(val), renew(), renew());
+    };
+    return renew();
+}
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+struct Codec {
+
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl Codec {
+    fn new() -> Self {
+        Codec {}
+    }
+
+    fn serialize(&self, root: Option<Rc<RefCell<TreeNode>>>) -> String {
+        if root.is_none() {
+            return String::from("#");
+        }
+        let mut node = root.as_ref().unwrap().borrow_mut();
+        let left = node.left.take();
+        let right = node.right.take();
+        format!(
+            "{},{},{}",
+            self.serialize(right),
+            self.serialize(left),
+            node.val
+        )
+    }
+
+    fn deserialize(&self, data: String) -> Option<Rc<RefCell<TreeNode>>> {
+        if data.len() == 1 {
+            return None;
+        }
+        Self::renew(&mut data.split(",").collect())
+    }
+
+    fn renew(vals: &mut Vec<&str>) -> Option<Rc<RefCell<TreeNode>>> {
+        let val = vals.pop().unwrap_or("#");
+        if val == "#" {
+            return None;
+        }
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: val.parse().unwrap(),
+            left: Self::renew(vals),
+            right: Self::renew(vals),
+        })))
+    }
+}
+
+/**
+ * Your Codec object will be instantiated and called as such:
+ * let obj = Codec::new();
+ * let data: String = obj.serialize(strs);
+ * let ans: Option<Rc<RefCell<TreeNode>>> = obj.deserialize(data);
+ */
+```
+
 ### **...**
 
 ```
