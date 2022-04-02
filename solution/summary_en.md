@@ -1228,7 +1228,6 @@
   - [1202.Smallest String With Swaps](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md)
   - [1203.Sort Items by Groups Respecting Dependencies](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md)
   - [1204.Last Person to Fit in the Bus](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Bus/README_EN.md)
-  - [1204.Last Person to Fit in the Elevator](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Elevator/README_EN.md)
   - [1205.Monthly Transactions II](/solution/1200-1299/1205.Monthly%20Transactions%20II/README_EN.md)
   - [1206.Design Skiplist](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
   - [1207.Unique Number of Occurrences](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README_EN.md)
