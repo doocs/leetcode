@@ -1,13 +1,13 @@
 func countNegatives(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	i, j, cnt := 0, n-1, 0
-	for i < m && j >= 0 {
+	ans := 0
+	for i, j := m-1, 0; i >= 0 && j < n; {
 		if grid[i][j] < 0 {
-			cnt += (m - i)
-			j--
+			ans += n - j
+			i--
 		} else {
-			i++
+			j++
 		}
 	}
-	return cnt
+	return ans
 }

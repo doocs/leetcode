@@ -52,6 +52,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+用哈希表 m 记录 arr 每个元素 v 及其对应的下标 i。
+
+遍历 arr 每个元素 v，若能在哈希表中找到 `v*2`，且下标值与当前 v 的下标值不相等，说明找到了满足条件的元素，返回 true。否则遍历结束返回 false。
+
+**方法二：排序 + 二分查找**
+
+首先对 arr 排序。
+
+然后遍历 arr 每个元素 v，二分查找 arr 中是否存在 `v*2` 元素，是则返回 true。
+
+注意，元素可能为 0，这种情况下，`v*2` 的值同样为 0，二分查找可能会找到同个位置的元素，与题意不符。因此，可以预先统计 arr 中元素 0 的个数，若超过 1 个，可提前返回 true。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,11 +75,20 @@
 ```python
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
-        map = defaultdict(int)
-        for i, num in enumerate(arr):
-            map[num] = i
-        for i, num in enumerate(arr):
-            if num << 1 in map and i != map[num << 1]:
+        m = {v: i for i, v in enumerate(arr)}
+        return any(v << 1 in m and m[v << 1] != i for i, v in enumerate(arr))
+```
+
+```python
+class Solution:
+    def checkIfExist(self, arr: List[int]) -> bool:
+        if arr.count(0) > 1:
+            return True
+        arr.sort()
+        n = len(arr)
+        for v in arr:
+            idx = bisect_left(arr, v * 2)
+            if v != 0 and idx != n and arr[idx] == v * 2:
                 return True
         return False
 ```
@@ -77,13 +100,41 @@ class Solution:
 ```java
 class Solution {
     public boolean checkIfExist(int[] arr) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < arr.length; i++) {
-            map.put(arr[i], i);
+        Map<Integer, Integer> m = new HashMap<>();
+        int n = arr.length;
+        for (int i = 0; i < n; ++i) {
+            m.put(arr[i], i);
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (map.containsKey(arr[i] << 1) && i != map.get(arr[i] << 1))
+        for (int i = 0; i < n; ++i) {
+            if (m.containsKey(arr[i] << 1) && m.get(arr[i] << 1) != i) {
                 return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        int cnt = 0;
+        for (int v : arr) {
+            if (v == 0) {
+                ++cnt;
+                if (cnt > 1) {
+                    return true;
+                }
+            }
+        }
+        Arrays.sort(arr);
+        for (int v : arr) {
+            if (v != 0) {
+                int idx = Arrays.binarySearch(arr, v * 2);
+                if (idx >= 0) {
+                    return true;
+                }
+            }
         }
         return false;
     }
@@ -94,15 +145,45 @@ class Solution {
 
 ```ts
 function checkIfExist(arr: number[]): boolean {
-    for (let i = arr.length - 1; i >= 0; --i) {
-        let cur = arr[i];
-        let t1 = 2 * cur;
-        if (arr.includes(t1) && arr.indexOf(t1) != i) {
+    const s = new Set();
+    for (const v of arr) {
+        if (s.has(v << 1) || s.has(v / 2)) {
             return true;
         }
-        let t2 = cur >> 1;
-        if (cur % 2 == 0 && arr.includes(t2) && arr.indexOf(t2) != i) {
-            return true;
+        s.add(v);
+    }
+    return false;
+}
+```
+
+```ts
+function checkIfExist(arr: number[]): boolean {
+    let cnt = 0;
+    for (const v of arr) {
+        if (v == 0) {
+            ++cnt;
+            if (cnt > 1) {
+                return true;
+            }
+        }
+    }
+    const n = arr.length;
+    arr.sort((a, b) => a - b);
+    for (const v of arr) {
+        if (v != 0) {
+            let left = 0,
+                right = n;
+            while (left < right) {
+                const mid = (left + right) >> 1;
+                if (arr[mid] >= v * 2) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (left != n && arr[left] == v * 2) {
+                return true;
+            }
         }
     }
     return false;
@@ -115,18 +196,142 @@ function checkIfExist(arr: number[]): boolean {
 class Solution {
 public:
     bool checkIfExist(vector<int>& arr) {
-        unordered_map<int, int> map;
-        for (int i = 0; i < arr.size(); ++i) {
-            map[arr[i]] = i;
-        }
-        for (int i = 0; i < arr.size(); ++i) {
-            if (map.find(arr[i] * 2) != map.end() && i != map[arr[i] * 2]) {
+        unordered_map<int, int> m;
+        int n = arr.size();
+        for (int i = 0; i < n; ++i) m[arr[i]] = i;
+        for (int i = 0; i < n; ++i)
+            if (m.count(arr[i] * 2) && m[arr[i] * 2] != i)
                 return true;
-            }
+        return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        int cnt = 0;
+        for (int& v : arr) if (v == 0) ++cnt;
+        if (cnt > 1) return true;
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        for (int& v : arr)
+        {
+            if (v == 0) continue;
+            int idx = lower_bound(arr.begin(), arr.end(), v * 2) - arr.begin();
+            if (idx != n && arr[idx] == v * 2) return true;
         }
         return false;
     }
 };
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var checkIfExist = function (arr) {
+    const s = new Set();
+    for (const v of arr) {
+        if (s.has(v << 1) || s.has(v / 2)) {
+            return true;
+        }
+        s.add(v);
+    }
+    return false;
+};
+```
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var checkIfExist = function (arr) {
+    let cnt = 0;
+    for (const v of arr) {
+        if (v == 0) {
+            ++cnt;
+            if (cnt > 1) {
+                return true;
+            }
+        }
+    }
+    const n = arr.length;
+    arr.sort((a, b) => a - b);
+    for (const v of arr) {
+        if (v != 0) {
+            let left = 0,
+                right = n;
+            while (left < right) {
+                const mid = (left + right) >> 1;
+                if (arr[mid] >= v * 2) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (left != n && arr[left] == v * 2) {
+                return true;
+            }
+        }
+    }
+    return false;
+};
+```
+
+### **Go**
+
+```go
+func checkIfExist(arr []int) bool {
+	m := make(map[int]int)
+	for i, v := range arr {
+		m[v] = i
+	}
+	for i, v := range arr {
+		if j, ok := m[v*2]; ok && j != i {
+			return true
+		}
+	}
+	return false
+}
+```
+
+```go
+func checkIfExist(arr []int) bool {
+	cnt := 0
+	for _, v := range arr {
+		if v == 0 {
+			cnt++
+			if cnt > 1 {
+				return true
+			}
+		}
+	}
+	sort.Ints(arr)
+	n := len(arr)
+	for _, v := range arr {
+		if v != 0 {
+			left, right := 0, n
+			for left < right {
+				mid := (left + right) >> 1
+				if arr[mid] >= v*2 {
+					right = mid
+				} else {
+					left = mid + 1
+				}
+			}
+			if right != n && arr[left] == v*2 {
+				return true
+			}
+		}
+	}
+	return false
+}
 ```
 
 ### **...**

@@ -1,14 +1,10 @@
 function checkIfExist(arr: number[]): boolean {
-    for (let i = arr.length - 1; i >= 0; --i) {
-        let cur = arr[i];
-        let t1 = 2 * cur;
-        if (arr.includes(t1) && arr.indexOf(t1) != i) {
+    const s = new Set();
+    for (const v of arr) {
+        if (s.has(v << 1) || s.has(v / 2)) {
             return true;
         }
-        let t2 = cur >> 1;
-        if (cur % 2 == 0 && arr.includes(t2) && arr.indexOf(t2) != i) {
-            return true;
-        }
+        s.add(v);
     }
     return false;
 }

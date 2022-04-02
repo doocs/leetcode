@@ -1,16 +1,13 @@
 function countNegatives(grid: number[][]): number {
-    let m = grid.length,
+    const m = grid.length,
         n = grid[0].length;
-    let i = 0,
-        j = n - 1;
     let ans = 0;
-    while (i < m && j > -1) {
-        let cur = grid[i][j];
-        if (cur < 0) {
-            j--;
-            ans += m - i;
+    for (let i = m - 1, j = 0; i >= 0 && j < n; ) {
+        if (grid[i][j] < 0) {
+            ans += n - j;
+            --i;
         } else {
-            i++;
+            ++j;
         }
     }
     return ans;
