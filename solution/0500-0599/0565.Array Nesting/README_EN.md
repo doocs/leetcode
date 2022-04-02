@@ -22,7 +22,7 @@
 <pre>
 <strong>Input:</strong> nums = [5,4,0,3,1,6,2]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 nums[0] = 5, nums[1] = 4, nums[2] = 0, nums[3] = 3, nums[4] = 1, nums[5] = 6, nums[6] = 2.
 One of the longest sets s[k]:
 s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}
@@ -51,13 +51,99 @@ s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}
 ### **Python3**
 
 ```python
-
+class Solution:
+    def arrayNesting(self, nums: List[int]) -> int:
+        n = len(nums)
+        vis = [False] * n
+        res = 0
+        for i in range(n):
+            if vis[i]:
+                continue
+            cur, m = nums[i], 1
+            vis[cur] = True
+            while nums[cur] != nums[i]:
+                cur = nums[cur]
+                m += 1
+                vis[cur] = True
+            res = max(res, m)
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int arrayNesting(int[] nums) {
+        int n = nums.length;
+        boolean[] vis = new boolean[n];
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (vis[i]) {
+                continue;
+            }
+            int cur = nums[i], m = 1;
+            vis[cur] = true;
+            while (nums[cur] != nums[i]) {
+                cur = nums[cur];
+                m++;
+                vis[cur] = true;
+            }
+            res = Math.max(res, m);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int arrayNesting(vector<int>& nums) {
+        int n = nums.size();
+        vector<bool> vis(n);
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) continue;
+            int cur = nums[i], m = 1;
+            vis[cur] = true;
+            while (nums[cur] != nums[i]) {
+                cur = nums[cur];
+                ++m;
+                vis[cur] = true;
+            }
+            res = max(res, m);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrayNesting(nums []int) int {
+	n := len(nums)
+	vis := make([]bool, n)
+	ans := 0
+	for i := 0; i < n; i++ {
+		if vis[i] {
+			continue
+		}
+		cur, m := nums[i], 1
+		vis[cur] = true
+		for nums[cur] != nums[i] {
+			cur = nums[cur]
+			m++
+			vis[cur] = true
+		}
+		if m > ans {
+			ans = m
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
