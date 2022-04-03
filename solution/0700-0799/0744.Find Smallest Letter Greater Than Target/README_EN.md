@@ -102,6 +102,23 @@ function nextGreatestLetter(letters: string[], target: string): string {
 }
 ```
 
+```ts
+function nextGreatestLetter(letters: string[], target: string): string {
+    const n = letters.length;
+    let l = 0;
+    let r = n;
+    while (l < r) {
+        const mid = (l + r) >>> 1;
+        if (target < letters[mid]) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return letters[l % n];
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -136,6 +153,40 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 		}
 	}
 	return letters[left%len(letters)]
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        for c in letters.iter() {
+            if c > &target {
+                return *c;
+            }
+        }
+        letters[0]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        let n = letters.len();
+        let mut l = 0;
+        let mut r = n;
+        while l < r {
+            let mid = l + r >> 1;
+            if letters[mid] <= target {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        letters[l % n]
+    }
 }
 ```
 
