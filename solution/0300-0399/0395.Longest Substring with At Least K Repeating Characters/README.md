@@ -85,7 +85,6 @@ class Solution:
                     maxLength = max(maxLength, right-left)
 
         return maxLength
-
 ```
 
 ### **Java**
@@ -93,13 +92,13 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-public class Solution {
-    public static int longestSubstring(String s, int k) {
+class Solution {
+    public int longestSubstring(String s, int k) {
         int maxLength = 0;
         int n = s.length();
 
-        for (int i=1; i<27; i++) {
-            HashMap<Character, Integer> counter = new HashMap<>();
+        for (int i = 1; i < 27; i++) {
+            Map<Character, Integer> counter = new HashMap<>();
             int left = 0;
             int right = 0;
             int unique = 0;
@@ -108,40 +107,33 @@ public class Solution {
             while (right < n) {
                 if (unique <= i) {
                     char r = s.charAt(right);
-                    if (counter.containsKey(r))
-                        counter.put(r, counter.get(r) + 1);
-                    else
-                        counter.put(r, 1);
-                    
-                    if (counter.get(r) == 1)
+                    counter.put(r, counter.getOrDefault(r, 0) + 1);
+                    if (counter.get(r) == 1) {
                         unique += 1;
-                    if (counter.get(r) == k)
+                    }
+                    if (counter.get(r) == k) {
                         kCount += 1;
-                    
+                    }
                     right += 1;
                 } else {
                     char l = s.charAt(left);
-                    if (counter.containsKey(l))
-                        counter.put(l, counter.get(l) - 1);
-                    else
-                        counter.put(l, 1);
-
-                    if (counter.get(l) == 0)
+                    counter.put(l, counter.getOrDefault(l, 2) - 1);
+                    if (counter.get(l) == 0) {
                         unique -= 1;
-                    if (counter.get(l) == k-1)
+                    }
+                    if (counter.get(l) == k - 1) {
                         kCount -= 1;
-
+                    }
                     left += 1;
                 }
-
-                if (unique == i && kCount == i)
+                if (unique == i && kCount == i) {
                     maxLength = Math.max(maxLength, right - left);
+                }
             }
         }
         return maxLength;
     }
 }
-
 ```
 
 ### **...**
