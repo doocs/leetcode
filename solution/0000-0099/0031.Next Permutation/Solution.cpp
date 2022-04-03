@@ -1,5 +1,5 @@
 class Solution {
-    public:
+public:
         void nextPermutation(vector < int > & nums) {
             int i, j;
             int n = nums.size();
