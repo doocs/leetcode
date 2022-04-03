@@ -64,27 +64,27 @@ Note that if the number of students is odd, there is no need to change the last 
 ```sql
 SELECT
 	s1.id,
-	COALESCE ( s2.student, s1.student ) AS student 
+	COALESCE ( s2.student, s1.student ) AS student
 FROM
 	seat s1
-	LEFT JOIN seat s2 ON ( s1.id + 1 ) ^ 1 - 1 = s2.id 
+	LEFT JOIN seat s2 ON ( s1.id + 1 ) ^ 1 - 1 = s2.id
 ORDER BY
 	s1.id;
 ```
 
 ```sql
-SELECT 
+SELECT
     id + (
-        CASE 
+        CASE
             WHEN id % 2 = 1 AND id != (SELECT MAX(id) FROM seat) THEN 1
 			WHEN id % 2 = 0 THEN -1
 			ELSE 0
 		END
-    ) AS id, 
+    ) AS id,
     student
-FROM 
+FROM
     seat
-ORDER BY 
+ORDER BY
 	id;
 ```
 

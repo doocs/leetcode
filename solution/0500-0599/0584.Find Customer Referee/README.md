@@ -45,7 +45,7 @@
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     name
 FROM
     Customer

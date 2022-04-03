@@ -61,7 +61,7 @@ class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         Set<Integer> s1 = convert(nums1);
         Set<Integer> s2 = convert(nums2);
-        
+
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> l1 = new ArrayList<>();
         List<Integer> l2 = new ArrayList<>();
@@ -98,8 +98,9 @@ class Solution {
  * @param {number[]} nums2
  * @return {number[][]}
  */
-var findDifference = function(nums1, nums2) {
-    let ans1 = new Set(nums1), ans2 = new Set(nums2);
+var findDifference = function (nums1, nums2) {
+    let ans1 = new Set(nums1),
+        ans2 = new Set(nums2);
     for (let num of nums1) {
         ans2.delete(num);
     }

@@ -305,7 +305,7 @@ var countNegatives = function (grid) {
  * @param {number[][]} grid
  * @return {number}
  */
-var countNegatives = function(grid) {
+var countNegatives = function (grid) {
     const n = grid[0].length;
     let ans = 0;
     for (let row of grid) {

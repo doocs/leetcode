@@ -242,7 +242,7 @@ public:
     void build(int u, int l, int r) {
         tr[u]->l = l;
         tr[u]->r = r;
-        if (l != r) 
+        if (l != r)
         {
             int mid = (l + r) >> 1;
             build(u << 1, l, mid);

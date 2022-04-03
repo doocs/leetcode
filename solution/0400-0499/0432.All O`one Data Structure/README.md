@@ -153,7 +153,7 @@ class AllOne {
         root.next = root;
         root.prev = root;
     }
-    
+
     public void inc(String key) {
         if (!nodes.containsKey(key)) {
             if (root.next == root || root.next.cnt > 1) {
@@ -177,7 +177,7 @@ class AllOne {
             }
         }
     }
-    
+
     public void dec(String key) {
         Node curr = nodes.get(key);
         if (curr.cnt == 1) {
@@ -197,11 +197,11 @@ class AllOne {
             curr.remove();
         }
     }
-    
+
     public String getMaxKey() {
         return root.prev.keys.iterator().next();
     }
-    
+
     public String getMinKey() {
         return root.next.keys.iterator().next();
     }

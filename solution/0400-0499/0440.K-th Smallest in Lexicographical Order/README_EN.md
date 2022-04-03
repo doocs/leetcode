@@ -101,7 +101,7 @@ class Solution {
 class Solution {
 public:
     int n;
-    
+
     int findKthNumber(int n, int k) {
         this->n = n;
         --k;

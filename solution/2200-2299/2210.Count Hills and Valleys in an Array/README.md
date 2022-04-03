@@ -63,16 +63,16 @@
 上述处理的数组方式，不论是删除元素还是新开数组，都会造成复杂度的提升。而实际上，只需要忽略相邻重复元素即可，无需改动原数组。
 
 ```txt
-COUNT_HILL_VALLEY(A) 
+COUNT_HILL_VALLEY(A)
     n = A.length
     r = 0
     p = A[0]
     for i = 1 in n - 1
         c = A[i]
         q = A[i + 1]
-        if c == q 
+        if c == q
             continue
-        if c > prev && c > q || c < prev && c < q 
+        if c > prev && c > q || c < prev && c < q
             r += 1
         p = c
     return r

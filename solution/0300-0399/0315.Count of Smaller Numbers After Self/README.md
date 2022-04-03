@@ -130,7 +130,7 @@ class SegmentTree:
     def __init__(self, n):
         self.tr = [Node() for _ in range(n << 2)]
         self.build(1, 1, n)
-        
+
     def build(self, u, l, r):
         self.tr[u].l = l
         self.tr[u].r = r

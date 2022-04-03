@@ -59,7 +59,7 @@ Result 表：
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     player_id, MIN(event_date) first_login
 FROM
     Activity

@@ -67,7 +67,7 @@ SELECT
 	c.Name AS Customers
 FROM
 	customers AS c
-	LEFT JOIN orders AS o ON c.Id  = o.CustomerId 
+	LEFT JOIN orders AS o ON c.Id  = o.CustomerId
 WHERE
 	o.CustomerId IS NULL
 ```

@@ -47,7 +47,7 @@
 
 **朴素解法：**
 
-使用哈希表，记录所有连续长度为 10 的子字符串出现次数（字符串为 Key，次数为 Value），当出现一次以上时，将其加入返回列表当中。  
+使用哈希表，记录所有连续长度为 10 的子字符串出现次数（字符串为 Key，次数为 Value），当出现一次以上时，将其加入返回列表当中。
 
 <!-- tabs:start -->
 
@@ -187,7 +187,7 @@ public class Solution {
                 moreThanOnce.Add(bits);
             }
         }
-        
+
         var results = new List<string>();
         foreach (var item in moreThanOnce)
         {

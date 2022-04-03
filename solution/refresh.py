@@ -4,9 +4,9 @@ import re
 from urllib.parse import unquote
 
 with open(
-        './result.json',
-        'r',
-        encoding='utf-8',
+    './result.json',
+    'r',
+    encoding='utf-8',
 ) as f:
     data = json.loads(f.read())
 
@@ -33,9 +33,9 @@ for question in data:
     for url in pattern.findall(cn_content) or []:
         image_name = os.path.basename(url)
         new_url = (
-                'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
-                + str(question['relative_path_cn']).replace("README.md", "images/")
-                + image_name
+            'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
+            + str(question['relative_path_cn']).replace("README.md", "images/")
+            + image_name
         )
         cn_content = cn_content.replace(url, new_url)
 
@@ -52,9 +52,9 @@ for question in data:
     for url in pattern.findall(en_content) or []:
         image_name = os.path.basename(url)
         new_url = (
-                'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
-                + str(question['relative_path_cn']).replace("README.md", "images/")
-                + image_name
+            'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
+            + str(question['relative_path_cn']).replace("README.md", "images/")
+            + image_name
         )
         en_content = en_content.replace(url, new_url)
 

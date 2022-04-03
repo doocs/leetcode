@@ -69,10 +69,10 @@ where
 
 ```sql
 SELECT
-	w2.id AS Id 
+	w2.id AS Id
 FROM
 	weather AS w1
-	JOIN weather AS w2 ON DATE_ADD( w1.recordDate, INTERVAL 1 DAY) = w2.recordDate 
+	JOIN weather AS w2 ON DATE_ADD( w1.recordDate, INTERVAL 1 DAY) = w2.recordDate
 WHERE
 	w1.temperature < w2.temperature
 ```

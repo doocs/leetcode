@@ -201,7 +201,7 @@ impl Solution {
                     if n == 0 {
                         nums.swap(i, l);
                         l += 1;
-                    } 
+                    }
                     i += 1;
                 }
             }

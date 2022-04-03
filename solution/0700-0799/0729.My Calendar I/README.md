@@ -155,7 +155,7 @@ public:
     MyCalendar() {
 
     }
-    
+
     bool book(int start, int end) {
         ++m[start];
         --m[end];

@@ -75,10 +75,8 @@ class SegmentTree:
             node.right = Node(node.mid + 1, node.r)
         left, right = node.left, node.right
         if node.add != 0 or node.mul != 1:
-            left.v = (left.v * node.mul +
-                      (left.r - left.l + 1) * node.add) % MOD
-            right.v = (right.v * node.mul +
-                       (right.r - right.l + 1) * node.add) % MOD
+            left.v = (left.v * node.mul + (left.r - left.l + 1) * node.add) % MOD
+            right.v = (right.v * node.mul + (right.r - right.l + 1) * node.add) % MOD
             left.add = (left.add * node.mul + node.add) % MOD
             right.add = (right.add * node.mul + node.add) % MOD
             left.mul = (left.mul * node.mul) % MOD
@@ -88,7 +86,6 @@ class SegmentTree:
 
 
 class Fancy:
-
     def __init__(self):
         self.n = 0
         self.tree = SegmentTree()

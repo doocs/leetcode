@@ -61,7 +61,6 @@ class SegmentTree:
 
 
 class MyCalendarThree:
-
     def __init__(self):
         self.tree = SegmentTree()
 

@@ -100,7 +100,7 @@ class BinaryIndexedTree:
     def __init__(self, n):
         self.n = n
         self.c = [0] * (n + 1)
-    
+
     @staticmethod
     def lowbit(x):
         return x & -x
@@ -109,7 +109,7 @@ class BinaryIndexedTree:
         while x <= self.n:
             self.c[x] += delta
             x += BinaryIndexedTree.lowbit(x)
-    
+
     def query(self, x):
         s = 0
         while x:
