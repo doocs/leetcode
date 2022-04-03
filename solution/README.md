@@ -50,7 +50,6 @@
 |  [0037](https://leetcode-cn.com/problems/sudoku-solver)  |  [解数独](/solution/0000-0099/0037.Sudoku%20Solver/README.md)  |  `数组`,`回溯`,`矩阵`  |  困难  |    |
 |  [0038](https://leetcode-cn.com/problems/count-and-say)  |  [外观数列](/solution/0000-0099/0038.Count%20and%20Say/README.md)  |  `字符串`  |  中等  |    |
 |  [0039](https://leetcode-cn.com/problems/combination-sum)  |  [组合总和](/solution/0000-0099/0039.Combination%20Sum/README.md)  |  `数组`,`回溯`  |  中等  |    |
-|  [0040](https://leetcode-cn.com/problems/combination-sum-ii)  |  [组合总和 II](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)  |  `数组`,`回溯`  |  中等  |    |
 |  [0041](https://leetcode-cn.com/problems/first-missing-positive)  |  [缺失的第一个正数](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)  |  `数组`,`哈希表`  |  困难  |    |
 |  [0042](https://leetcode-cn.com/problems/trapping-rain-water)  |  [接雨水](/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)  |  `栈`,`数组`,`双指针`,`动态规划`,`单调栈`  |  困难  |    |
 |  [0043](https://leetcode-cn.com/problems/multiply-strings)  |  [字符串相乘](/solution/0000-0099/0043.Multiply%20Strings/README.md)  |  `数学`,`字符串`,`模拟`  |  中等  |    |
@@ -140,7 +139,6 @@
 |  [0127](https://leetcode-cn.com/problems/word-ladder)  |  [单词接龙](/solution/0100-0199/0127.Word%20Ladder/README.md)  |  `广度优先搜索`,`哈希表`,`字符串`  |  困难  |    |
 |  [0128](https://leetcode-cn.com/problems/longest-consecutive-sequence)  |  [最长连续序列](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README.md)  |  `并查集`,`数组`,`哈希表`  |  中等  |    |
 |  [0129](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers)  |  [求根节点到叶节点数字之和](/solution/0100-0199/0129.Sum%20Root%20to%20Leaf%20Numbers/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |    |
-|  [0130](https://leetcode-cn.com/problems/surrounded-regions)  |  [被围绕的区域](/solution/0100-0199/0130.Surrounded%20Regions/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`数组`,`矩阵`  |  中等  |    |
 |  [0131](https://leetcode-cn.com/problems/palindrome-partitioning)  |  [分割回文串](/solution/0100-0199/0131.Palindrome%20Partitioning/README.md)  |  `字符串`,`动态规划`,`回溯`  |  中等  |    |
 |  [0132](https://leetcode-cn.com/problems/palindrome-partitioning-ii)  |  [分割回文串 II](/solution/0100-0199/0132.Palindrome%20Partitioning%20II/README.md)  |  `字符串`,`动态规划`  |  困难  |    |
 |  [0133](https://leetcode-cn.com/problems/clone-graph)  |  [克隆图](/solution/0100-0199/0133.Clone%20Graph/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`哈希表`  |  中等  |    |
@@ -827,7 +825,6 @@
 |  [0814](https://leetcode-cn.com/problems/binary-tree-pruning)  |  [二叉树剪枝](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |    |
 |  [0815](https://leetcode-cn.com/problems/bus-routes)  |  [公交路线](/solution/0800-0899/0815.Bus%20Routes/README.md)  |  `广度优先搜索`,`数组`,`哈希表`  |  困难  |    |
 |  [0816](https://leetcode-cn.com/problems/ambiguous-coordinates)  |  [模糊坐标](/solution/0800-0899/0816.Ambiguous%20Coordinates/README.md)  |  `字符串`,`回溯`  |  中等  |    |
-|  [0817](https://leetcode-cn.com/problems/linked-list-components)  |  [链表组件](/solution/0800-0899/0817.Linked%20List%20Components/README.md)  |  `哈希表`,`链表`  |  中等  |    |
 |  [0818](https://leetcode-cn.com/problems/race-car)  |  [赛车](/solution/0800-0899/0818.Race%20Car/README.md)  |  `动态规划`  |  困难  |    |
 |  [0819](https://leetcode-cn.com/problems/most-common-word)  |  [最常见的单词](/solution/0800-0899/0819.Most%20Common%20Word/README.md)  |  `哈希表`,`字符串`,`计数`  |  简单  |    |
 |  [0820](https://leetcode-cn.com/problems/short-encoding-of-words)  |  [单词的压缩编码](/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README.md)  |  `字典树`,`数组`,`哈希表`,`字符串`  |  中等  |    |
@@ -920,7 +917,6 @@
 |  [0907](https://leetcode-cn.com/problems/sum-of-subarray-minimums)  |  [子数组的最小值之和](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)  |  `栈`,`数组`,`动态规划`,`单调栈`  |  中等  |    |
 |  [0908](https://leetcode-cn.com/problems/smallest-range-i)  |  [最小差值 I](/solution/0900-0999/0908.Smallest%20Range%20I/README.md)  |  `数组`,`数学`  |  简单  |    |
 |  [0909](https://leetcode-cn.com/problems/snakes-and-ladders)  |  [蛇梯棋](/solution/0900-0999/0909.Snakes%20and%20Ladders/README.md)  |  `广度优先搜索`,`数组`,`矩阵`  |  中等  |    |
-|  [0910](https://leetcode-cn.com/problems/smallest-range-ii)  |  [最小差值 II](/solution/0900-0999/0910.Smallest%20Range%20II/README.md)  |  `贪心`,`数组`,`数学`,`排序`  |  中等  |    |
 |  [0911](https://leetcode-cn.com/problems/online-election)  |  [在线选举](/solution/0900-0999/0911.Online%20Election/README.md)  |  `设计`,`数组`,`哈希表`,`二分查找`  |  中等  |    |
 |  [0912](https://leetcode-cn.com/problems/sort-an-array)  |  [排序数组](/solution/0900-0999/0912.Sort%20an%20Array/README.md)  |  `数组`,`分治`,`桶排序`,`计数排序`,`基数排序`,`排序`,`堆（优先队列）`,`归并排序`  |  中等  |    |
 |  [0913](https://leetcode-cn.com/problems/cat-and-mouse)  |  [猫和老鼠](/solution/0900-0999/0913.Cat%20and%20Mouse/README.md)  |  `广度优先搜索`,`图`,`记忆化搜索`,`数学`,`动态规划`,`博弈`  |  困难  |    |
@@ -1298,7 +1294,6 @@
 |  [1285](https://leetcode-cn.com/problems/find-the-start-and-end-number-of-continuous-ranges)  |  [找到连续区间的开始和结束数字](/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  [1286](https://leetcode-cn.com/problems/iterator-for-combination)  |  [字母组合迭代器](/solution/1200-1299/1286.Iterator%20for%20Combination/README.md)  |  `设计`,`字符串`,`回溯`,`迭代器`  |  中等  |    |
 |  [1287](https://leetcode-cn.com/problems/element-appearing-more-than-25-in-sorted-array)  |  [有序数组中出现次数超过25%的元素](/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%25%20In%20Sorted%20Array/README.md)  |  `数组`  |  简单  |    |
-|  [1288](https://leetcode-cn.com/problems/remove-covered-intervals)  |  [删除被覆盖区间](/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md)  |  `数组`,`排序`  |  中等  |    |
 |  [1289](https://leetcode-cn.com/problems/minimum-falling-path-sum-ii)  |  [下降路径最小和  II](/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/README.md)  |  `数组`,`动态规划`,`矩阵`  |  困难  |    |
 |  [1290](https://leetcode-cn.com/problems/convert-binary-number-in-a-linked-list-to-integer)  |  [二进制链表转整数](/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/README.md)  |  `链表`,`数学`  |  简单  |    |
 |  [1291](https://leetcode-cn.com/problems/sequential-digits)  |  [顺次数](/solution/1200-1299/1291.Sequential%20Digits/README.md)  |  `枚举`  |  中等  |    |
@@ -1309,7 +1304,6 @@
 |  [1296](https://leetcode-cn.com/problems/divide-array-in-sets-of-k-consecutive-numbers)  |  [划分数组为连续数字的集合](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README.md)  |  `贪心`,`数组`,`哈希表`,`排序`  |  中等  |    |
 |  [1297](https://leetcode-cn.com/problems/maximum-number-of-occurrences-of-a-substring)  |  [子串的最大出现次数](/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  中等  |    |
 |  [1298](https://leetcode-cn.com/problems/maximum-candies-you-can-get-from-boxes)  |  [你能从盒子里获得的最大糖果数](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README.md)  |  `广度优先搜索`,`数组`  |  困难  |    |
-|  [1299](https://leetcode-cn.com/problems/replace-elements-with-greatest-element-on-right-side)  |  [将每个元素替换为右侧最大元素](/solution/1200-1299/1299.Replace%20Elements%20with%20Greatest%20Element%20on%20Right%20Side/README.md)  |  `数组`  |  简单  |    |
 |  [1300](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target)  |  [转变数组后最接近目标值的数组和](/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README.md)  |  `数组`,`二分查找`,`排序`  |  中等  |    |
 |  [1301](https://leetcode-cn.com/problems/number-of-paths-with-max-score)  |  [最大得分的路径数目](/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README.md)  |  `数组`,`动态规划`,`矩阵`  |  困难  |    |
 |  [1302](https://leetcode-cn.com/problems/deepest-leaves-sum)  |  [层数最深叶子节点的和](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`二叉树`  |  中等  |    |
@@ -2224,11 +2218,20 @@
 |  [2211](https://leetcode-cn.com/problems/count-collisions-on-a-road)  |  [统计道路上的碰撞次数](/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README.md)  |  `栈`,`字符串`  |  中等  |    |
 |  [2212](https://leetcode-cn.com/problems/maximum-points-in-an-archery-competition)  |  [射箭比赛中的最大得分](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md)  |  `位运算`,`递归`,`数组`,`枚举`  |  中等  |    |
 |  [2213](https://leetcode-cn.com/problems/longest-substring-of-one-repeating-character)  |  [由单个字符重复的最长子字符串](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md)  |  `线段树`,`数组`,`字符串`,`有序集合`  |  困难  |    |
-|  [2214](https://leetcode-cn.com/problems/minimum-health-to-beat-game)  |  [Minimum Health to Beat Game](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md)  |    |  中等  |  🔒  |
-|  [2215](https://leetcode-cn.com/problems/find-the-difference-of-two-arrays)  |  [找出两数组的不同](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README.md)  |  `哈希表`  |  简单  |    |
-|  [2216](https://leetcode-cn.com/problems/minimum-deletions-to-make-array-beautiful)  |  [美化数组的最少删除数](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README.md)  |  `贪心`,`动态规划`  |  中等  |    |
-|  [2217](https://leetcode-cn.com/problems/find-palindrome-with-fixed-length)  |  [找到指定长度的回文数](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README.md)  |  `数学`  |  中等  |    |
-|  [2218](https://leetcode-cn.com/problems/maximum-value-of-k-coins-from-piles)  |  [从栈中取出 K 个硬币的最大面值和](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md)  |  `动态规划`  |  困难  |    |
+|  [2214](https://leetcode-cn.com/problems/minimum-health-to-beat-game)  |  [Minimum Health to Beat Game](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md)  |  `贪心`,`数组`,`前缀和`  |  中等  |  🔒  |
+|  [2215](https://leetcode-cn.com/problems/find-the-difference-of-two-arrays)  |  [找出两数组的不同](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README.md)  |  `数组`,`哈希表`  |  简单  |    |
+|  [2216](https://leetcode-cn.com/problems/minimum-deletions-to-make-array-beautiful)  |  [美化数组的最少删除数](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README.md)  |  `栈`,`贪心`,`数组`  |  中等  |    |
+|  [2217](https://leetcode-cn.com/problems/find-palindrome-with-fixed-length)  |  [找到指定长度的回文数](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README.md)  |  `数组`,`数学`  |  中等  |    |
+|  [2218](https://leetcode-cn.com/problems/maximum-value-of-k-coins-from-piles)  |  [从栈中取出 K 个硬币的最大面值和](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md)  |  `数组`,`动态规划`,`前缀和`  |  困难  |    |
+|  [2219](https://leetcode-cn.com/problems/maximum-sum-score-of-array)  |  [Maximum Sum Score of Array](/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README.md)  |    |  中等  |  🔒  |
+|  [2220](https://leetcode-cn.com/problems/minimum-bit-flips-to-convert-number)  |  [转换数字的最少位翻转次数](/solution/2200-2299/2220.Minimum%20Bit%20Flips%20to%20Convert%20Number/README.md)  |    |  简单  |    |
+|  [2221](https://leetcode-cn.com/problems/find-triangular-sum-of-an-array)  |  [数组的三角和](/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README.md)  |    |  中等  |    |
+|  [2222](https://leetcode-cn.com/problems/number-of-ways-to-select-buildings)  |  [选择建筑的方案数](/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README.md)  |    |  中等  |    |
+|  [2223](https://leetcode-cn.com/problems/sum-of-scores-of-built-strings)  |  [构造字符串的总得分和](/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README.md)  |    |  困难  |    |
+|  [2224](https://leetcode-cn.com/problems/minimum-number-of-operations-to-convert-time)  |  [转化时间需要的最少操作数](/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README.md)  |    |  简单  |    |
+|  [2225](https://leetcode-cn.com/problems/find-players-with-zero-or-one-losses)  |  [找出输掉零场或一场比赛的玩家](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README.md)  |  `图`  |  中等  |    |
+|  [2226](https://leetcode-cn.com/problems/maximum-candies-allocated-to-k-children)  |  [每个小孩最多能分到多少糖果](/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README.md)  |  `数组`,`二分查找`  |  中等  |    |
+|  [2227](https://leetcode-cn.com/problems/encrypt-and-decrypt-strings)  |  [加密解密字符串](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README.md)  |  `哈希表`,`字符串`  |  困难  |    |
 
 ## 版权
 
