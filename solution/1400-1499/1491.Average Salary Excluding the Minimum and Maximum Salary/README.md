@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历 `salary`，做三件事：
+
+- 记录总和
+- 记录最小值
+- 记录最大值
+
+然后进行对应的计算，注意进行类型转换即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,6 +79,25 @@
 
 ```java
 
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn average(salary: Vec<i32>) -> f64 {
+        let n = salary.len() as i32;
+        let mut min = i32::MAX;
+        let mut max = i32::MIN;
+        let mut sum = 0;
+        for &num in salary.iter() {
+            min = min.min(num);
+            max = max.max(num);
+            sum += num;
+        }
+        f64::from(sum - min - max) / f64::from(n - 2)
+    }
+}
 ```
 
 ### **...**
