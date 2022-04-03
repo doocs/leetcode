@@ -72,7 +72,19 @@ COUNT(A){
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minDeletion(self, nums: List[int]) -> int:
+        n = len(nums)
+        i = ans = 0
+        while i < n - 1:
+            if nums[i] == nums[i + 1]:
+                ans += 1
+                i += 1
+            else:
+                i += 2
+        if (n - ans) % 2:
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -80,7 +92,23 @@ COUNT(A){
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minDeletion(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                ++ans;
+            } else {
+                ++i;
+            }
+        }
+        if ((n - ans) % 2 == 1) {
+            ++ans;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -126,6 +154,47 @@ impl Solution {
         }
         res as i32
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDeletion(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                ++ans;
+            } else {
+                ++i;
+            }
+        }
+        if ((n - ans) % 2) ++ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDeletion(nums []int) int {
+	n := len(nums)
+	ans := 0
+	for i := 0; i < n-1; i++ {
+		if nums[i] == nums[i+1] {
+			ans++
+		} else {
+			i++
+		}
+	}
+	if (n-ans)%2 == 1 {
+		ans++
+	}
+	return ans
 }
 ```
 
