@@ -1,14 +1,16 @@
-function nextGreatestLetter(letters: string[], target: string): string {
-    let left = 0,
-        right = letters.length;
-    let x = target.charCodeAt(0);
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        if (x < letters[mid].charCodeAt(0)) {
-            right = mid;
-        } else {
-            left = mid + 1;
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        let n = letters.len();
+        let mut l = 0;
+        let mut r = n;
+        while l < r {
+            let mid = l + r >> 1;
+            if letters[mid] <= target {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
         }
+        letters[l % n]
     }
-    return letters[left % letters.length];
 }
