@@ -47,6 +47,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+不需要修改数组，只统计不符合规则的元素数量即可。
+
+```txt
+COUNT(A){
+	n = A.length
+	i = 0
+	r = 0
+	while i < n - 1
+		if nums[i] == nums[i + 1]
+			r += 1
+			i += 1
+		else
+			i += 2
+	return r
+```
+
+完成统计后，计算删除元素之后的数组长度是否为奇数，若为奇数，还需要进行一次删除（返回值 + 1）。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +86,47 @@
 ### **TypeScript**
 
 ```ts
+function minDeletion(nums: number[]): number {
+    const n = nums.length;
+    let res = 0;
+    let i = 0;
+    while (i < n - 1) {
+        if (nums[i] === nums[i + 1]) {
+            i++;
+            res++;
+        } else {
+            i += 2;
+        }
+    }
+    if ((n - res) % 2 === 1) {
+        res++;
+    }
+    return res;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_deletion(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut res = 0;
+        let mut i = 0;
+        while i < n - 1 {
+            if nums[i] == nums[i + 1] {
+                res += 1;
+                i += 1;
+            } else {
+                i += 2;
+            }
+        }
+        if (n - res) % 2 == 1 {
+            res += 1;
+        }
+        res as i32
+    }
+}
 ```
 
 ### **...**
