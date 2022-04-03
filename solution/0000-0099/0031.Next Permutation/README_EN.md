@@ -76,7 +76,6 @@ class Solution {
         void nextPermutation(vector < int > & nums) {
             int i, j;
             int n = nums.size();
-            int a = 0;
 
             for (i = n - 2; i >= 0; i--) {
                 if (nums[i] < nums[i + 1]) {
