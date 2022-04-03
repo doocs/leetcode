@@ -4,10 +4,10 @@
  * @return {boolean}
  */
 var searchMatrix = function (matrix, target) {
-    const m = matrix.length;
-    const n = matrix[0].length;
-    let left = 0;
-    let right = m * n - 1;
+    const m = matrix.length,
+        n = matrix[0].length;
+    let left = 0,
+        right = m * n - 1;
     while (left < right) {
         const mid = (left + right + 1) >> 1;
         const x = Math.floor(mid / n);
