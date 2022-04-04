@@ -53,12 +53,12 @@ class Solution:
         n = len(citations)
         left, right = 0, n
         while left < right:
-            mid = (left + right) >> 1
-            if citations[mid] >= n - mid:
-                right = mid
+            mid = (left + right + 1) >> 1
+            if citations[n - mid] >= mid:
+                left = mid
             else:
-                left = mid + 1
-        return n - left
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
@@ -69,14 +69,14 @@ class Solution {
         int n = citations.length;
         int left = 0, right = n;
         while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (citations[mid] >= n - mid) {
-                right = mid;
+            int mid = (left + right + 1) >> 1;
+            if (citations[n - mid] >= mid) {
+                left = mid;
             } else {
-                left = mid + 1;
+                right = mid - 1;
             }
         }
-        return n - left;
+        return left;
     }
 }
 ```
@@ -89,15 +89,13 @@ public:
     int hIndex(vector<int>& citations) {
         int n = citations.size();
         int left = 0, right = n;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (citations[mid] >= n - mid) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+        while (left < right)
+        {
+            int mid = (left + right + 1) >> 1;
+            if (citations[n - mid] >= mid) left = mid;
+            else right = mid - 1;
         }
-        return n - left;
+        return left;
     }
 };
 ```
@@ -109,14 +107,33 @@ func hIndex(citations []int) int {
 	n := len(citations)
 	left, right := 0, n
 	for left < right {
-		mid := (left + right) >> 1
-		if citations[mid] >= n-mid {
-			right = mid
+		mid := (left + right + 1) >> 1
+		if citations[n-mid] >= mid {
+			left = mid
 		} else {
-			left = mid + 1
+			right = mid - 1
 		}
 	}
-	return n - left
+	return left
+}
+```
+
+### **TypeScript**
+
+```ts
+function hIndex(citations: number[]): number {
+    const n = citations.length;
+    let left = 0,
+        right = n;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (citations[n - mid] >= mid) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
 }
 ```
 

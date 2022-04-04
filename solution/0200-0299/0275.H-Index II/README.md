@@ -46,7 +46,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
+
+二分枚举 h，获取满足条件的最大 h。由于要满足 h 篇论文至少被引用 h 次，因此 `citations[n - mid] >= mid`。
+
+时间复杂度 O(logn)。
 
 <!-- tabs:start -->
 
@@ -60,12 +64,12 @@ class Solution:
         n = len(citations)
         left, right = 0, n
         while left < right:
-            mid = (left + right) >> 1
-            if citations[mid] >= n - mid:
-                right = mid
+            mid = (left + right + 1) >> 1
+            if citations[n - mid] >= mid:
+                left = mid
             else:
-                left = mid + 1
-        return n - left
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
@@ -98,15 +102,13 @@ public:
     int hIndex(vector<int>& citations) {
         int n = citations.size();
         int left = 0, right = n;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (citations[mid] >= n - mid) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+        while (left < right)
+        {
+            int mid = (left + right + 1) >> 1;
+            if (citations[n - mid] >= mid) left = mid;
+            else right = mid - 1;
         }
-        return n - left;
+        return left;
     }
 };
 ```
@@ -118,14 +120,33 @@ func hIndex(citations []int) int {
 	n := len(citations)
 	left, right := 0, n
 	for left < right {
-		mid := (left + right) >> 1
-		if citations[mid] >= n-mid {
-			right = mid
+		mid := (left + right + 1) >> 1
+		if citations[n-mid] >= mid {
+			left = mid
 		} else {
-			left = mid + 1
+			right = mid - 1
 		}
 	}
-	return n - left
+	return left
+}
+```
+
+### **TypeScript**
+
+```ts
+function hIndex(citations: number[]): number {
+    const n = citations.length;
+    let left = 0,
+        right = n;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (citations[n - mid] >= mid) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
 }
 ```
 
