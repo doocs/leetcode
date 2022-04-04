@@ -67,7 +67,7 @@
     -   若满足 `nums[mid] < target <= nums[n - 1]`，那么我们搜索范围可以缩小为 `[mid + 1, right]`；
     -   否则，在 `[left, mid]` 中查找。
 
-二分查找终止条件是 `l >= r`，若结束后发现 `nums[left]` 与 `target` 不等，说明数组中不存在值为 `target` 的元素，返回 -1，否则返回下标 left。
+二分查找终止条件是 `left >= right`，若结束后发现 `nums[left]` 与 `target` 不等，说明数组中不存在值为 `target` 的元素，返回 -1，否则返回下标 left。
 
 <!-- tabs:start -->
 

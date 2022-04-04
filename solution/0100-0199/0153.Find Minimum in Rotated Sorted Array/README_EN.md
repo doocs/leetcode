@@ -62,16 +62,16 @@
 ```python
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        l, r = 0, len(nums) - 1
-        if nums[l] < nums[r]:
+        if nums[0] <= nums[-1]:
             return nums[0]
-        while l < r:
-            m = (l + r) >> 1
-            if nums[m] > nums[r]:
-                l = m + 1
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if nums[0] <= nums[mid]:
+                left = mid + 1
             else:
-                r = m
-        return nums[l]
+                right = mid
+        return nums[left]
 ```
 
 ### **Java**
@@ -79,14 +79,20 @@ class Solution:
 ```java
 class Solution {
     public int findMin(int[] nums) {
-        int l = 0, r = nums.length - 1;
-        if (nums[l] < nums[r]) return nums[0];
-        while (l < r) {
-            int m = (l + r) >>> 1;
-            if (nums[m] > nums[r]) l = m + 1;
-            else r = m;
+        int n = nums.length;
+        if (nums[0] <= nums[n - 1]) {
+            return nums[0];
         }
-        return nums[l];
+        int left = 0, right = n - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[0] <= nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return nums[left];
     }
 }
 ```
@@ -97,14 +103,16 @@ class Solution {
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int l = 0, r = nums.size() - 1;
-        if (nums[l] < nums[r]) return nums[0];
-        while (l < r) {
-            int m = (l + r) >> 1;
-            if (nums[m] > nums[r]) l = m + 1;
-            else r = m;
+        int n = nums.size();
+        if (nums[0] <= nums[n - 1]) return nums[0];
+        int left = 0, right = n - 1;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (nums[0] <= nums[mid]) left = mid + 1;
+            else right = mid;
         }
-        return nums[l];
+        return nums[left];
     }
 };
 ```
@@ -113,19 +121,20 @@ public:
 
 ```go
 func findMin(nums []int) int {
-    l, r := 0, len(nums) - 1
-    if nums[l] < nums[r] {
-        return nums[0]
-    }
-    for l < r {
-        m := (l + r) >> 1
-        if nums[m] > nums[r] {
-            l = m + 1
-        } else {
-            r = m
-        }
-    }
-    return nums[l]
+	n := len(nums)
+	if nums[0] <= nums[n-1] {
+		return nums[0]
+	}
+	left, right := 0, n-1
+	for left < right {
+		mid := (left + right) >> 1
+		if nums[0] <= nums[mid] {
+			left = mid + 1
+		} else {
+			right = mid
+		}
+	}
+	return nums[left]
 }
 ```
 
@@ -166,6 +175,28 @@ impl Solution {
         }
         nums[l]
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMin(nums: number[]): number {
+    const n = nums.length;
+    if (nums[0] <= nums[n - 1]) {
+        return nums[0];
+    }
+    let left = 0,
+        right = n - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[0] <= nums[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return nums[left];
 }
 ```
 
