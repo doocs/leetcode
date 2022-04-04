@@ -171,6 +171,102 @@ func quickSort(nums []int, left, right, k int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    const n = nums.length;
+    const swap = (i: number, j: number) => {
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    };
+    const sort = (l: number, r: number) => {
+        if (l + 1 > k || l >= r) {
+            return;
+        }
+        swap(l, l + Math.floor(Math.random() * (r - l)));
+        const num = nums[l];
+        let mark = l;
+        for (let i = l + 1; i < r; i++) {
+            if (nums[i] > num) {
+                mark++;
+                swap(i, mark);
+            }
+        }
+        swap(l, mark);
+
+        sort(l, mark);
+        sort(mark + 1, r);
+    };
+    sort(0, n);
+    return nums[k - 1];
+}
+```
+
+### **Rust**
+
+```rust
+use rand::Rng;
+
+impl Solution {
+    fn sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) {
+        if l + 1 > k || l >= r {
+            return;
+        }
+        nums.swap(l, rand::thread_rng().gen_range(l, r));
+        let num = nums[l];
+        let mut mark = l;
+        for i in l..r {
+            if nums[i] > num {
+                mark += 1;
+                nums.swap(i, mark);
+            }
+        }
+        nums.swap(l, mark);
+
+        Self::sort(nums, l, mark, k);
+        Self::sort(nums, mark + 1, r, k);
+    }
+
+    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
+        let n = nums.len();
+        let k = k as usize;
+        Self::sort(&mut nums, 0, n, k);
+        nums[k - 1]
+    }
+}
+```
+
+```rust
+use rand::Rng;
+
+impl Solution {
+    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
+        let k = k as usize;
+        let n = nums.len();
+        let mut l = 0;
+        let mut r = n;
+        while l <= k - 1 && l < r {
+            nums.swap(l, rand::thread_rng().gen_range(l, r));
+            let num = nums[l];
+            let mut mark = l;
+            for i in l..r {
+                if nums[i] > num {
+                    mark += 1;
+                    nums.swap(i, mark);
+                }
+            }
+            nums.swap(l, mark);
+            if mark + 1 <= k {
+                l = mark + 1;
+            } else {
+                r = mark;
+            }
+        }
+        nums[k - 1]
+    }
+}
+```
+
 ### **...**
 
 ```
