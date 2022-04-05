@@ -329,6 +329,71 @@ function postorderTraversal(root: TreeNode | null): number[] {
 }
 ```
 
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function postorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) {
+        return [];
+    }
+    const { val, left, right } = root;
+    return [...postorderTraversal(left), ...postorderTraversal(right), val];
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function postorderTraversal(root: TreeNode | null): number[] {
+    const res = [];
+    while (root != null) {
+        const { val, left, right } = root;
+        if (right == null) {
+            res.push(val);
+            root = left;
+        } else {
+            let next = right;
+            while (next.left != null && next.left != root) {
+                next = next.left;
+            }
+            if (next.left == null) {
+                res.push(val);
+                next.left = root;
+                root = right;
+            } else {
+                next.left = null;
+                root = left;
+            }
+        }
+    }
+    return res.reverse();
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -413,6 +478,94 @@ func postorderTraversal(root *TreeNode) []int {
 		}
 	}
 	return ans
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+        if root.is_none() {
+            return;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        Self::dfs(&node.left, res);
+        Self::dfs(&node.right, res);
+        res.push(node.val);
+    }
+
+    pub fn postorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut res = vec![];
+        Self::dfs(&root, &mut res);
+        res
+    }
+}
+```
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn postorder_traversal(mut root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut res = vec![];
+        let mut stack = vec![];
+        while root.is_some() || !stack.is_empty() {
+            if root.is_some() {
+                let next = root.as_mut().unwrap().borrow_mut().left.take();
+                stack.push(root);
+                root = next;
+            } else  {
+                root = stack.pop().unwrap();
+                let next = root.as_mut().unwrap().borrow_mut().right.take();
+                if next.is_some() {
+                    stack.push(root);
+                } else {
+                    res.push(root.as_ref().unwrap().borrow().val);
+                }
+                root = next;
+            }
+        }
+        res
+    }
 }
 ```
 
