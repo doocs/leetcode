@@ -140,6 +140,40 @@ func frequencySort(s string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function frequencySort(s: string): string {
+    const map = new Map<string, number>();
+    for (const c of s) {
+        map.set(c, (map.get(c) ?? 0) + 1);
+    }
+    return [...map.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([k, v]) => k.padStart(v, k))
+        .join('');
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn frequency_sort(s: String) -> String {
+        let mut map = HashMap::new();
+        for c in s.chars() {
+            map.insert(c, map.get(&c).unwrap_or(&0) + 1);
+        }
+        let mut arr = map.into_iter().collect::<Vec<(char, i32)>>();
+        arr.sort_unstable_by(|(_, a), (_, b)| b.cmp(&a));
+        arr.into_iter()
+            .map(|(c, v)| vec![c; v as usize].into_iter().collect::<String>())
+            .collect()
+    }
+}
+```
+
 ### **...**
 
 ```
