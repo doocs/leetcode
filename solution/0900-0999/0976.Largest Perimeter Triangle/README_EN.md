@@ -45,6 +45,67 @@
 
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestPerimeter(vector<int>& A) {
+        priority_queue<int> q(A.begin(), A.end()) ; // 大顶堆
+
+        int a, b, c ;
+        b = q.top() ;
+        q.pop() ;
+        c = q.top() ;
+        q.pop() ;
+        while ( !q.empty() )
+        {
+            a = b ;
+            b = c ;
+            c = q.top() ;
+            q.pop() ;
+            if ( b + c > a )
+                return a + b + c ;
+        }
+        return 0 ;
+    }
+};
+```
+
+### **TypeScript**
+
+```ts
+function largestPerimeter(nums: number[]): number {
+    const n = nums.length;
+    nums.sort((a, b) => b - a);
+    for (let i = 2; i < n; i++) {
+        const [a, b, c] = [nums[i - 2], nums[i - 1], nums[i]];
+        if (a < b + c) {
+            return a + b + c;
+        }
+    }
+    return 0;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn largest_perimeter(mut nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        nums.sort_unstable_by(|a, b| b.cmp(&a));
+        for i in 2..n {
+            let (a, b, c) = (nums[i - 2], nums[i - 1], nums[i]);
+            if a < b + c {
+                return a + b + c;
+            }
+        }
+        0
+    }
+}
+```
+
 ### **...**
 
 ```
