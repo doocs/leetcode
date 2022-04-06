@@ -12,16 +12,16 @@
  * }
  */
 
-const dfs = (root1: TreeNode | null, root2: TreeNode | null) => {
-    if (root1 == root2) {
-        return true;
+function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
+    const n = postorder.length;
+    if (n == 0) {
+        return null;
     }
-    if (root1 == null || root2 == null || root1.val != root2.val) {
-        return false;
-    }
-    return dfs(root1.left, root2.right) && dfs(root1.right, root2.left);
-};
-
-function isSymmetric(root: TreeNode | null): boolean {
-    return dfs(root.left, root.right);
+    const val = postorder[n - 1];
+    const index = inorder.indexOf(val);
+    return new TreeNode(
+        val,
+        buildTree(inorder.slice(0, index), postorder.slice(0, index)),
+        buildTree(inorder.slice(index + 1), postorder.slice(index, n - 1)),
+    );
 }
