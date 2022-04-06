@@ -100,7 +100,7 @@ class Solution {
 
 ### **TypeScript**
 
-```
+```ts
 function maxProfit(prices: number[]): number {
     const n = prices.length;
     let dp = Array.from({ length: n }, v => new Array(3).fill(0));
