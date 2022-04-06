@@ -42,7 +42,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划。假设 `dp[i][j]` 表示到达网格 `(i,j)` 的最小数字和，先初始化 dp 第一列和第一行的所有值，然后利用递推公式：`dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]` 求得 dp。
+**方法一：动态规划**
+
+假设 `dp[i][j]` 表示到达网格 `(i,j)` 的最小数字和，先初始化 dp 第一列和第一行的所有值，然后利用递推公式：`dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]` 求得 dp。
 
 最后返回 `dp[m - 1][n - 1]` 即可。
 
@@ -107,15 +109,13 @@ function minPathSum(grid: number[][]): number {
     for (let j = 1; j < n; ++j) {
         dp[0][j] = dp[0][j - 1] + grid[0][j];
     }
-    // dp
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
-            let cur = grid[i][j];
-            dp[i][j] = cur + Math.min(dp[i - 1][j], dp[i][j - 1]);
+            dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
         }
     }
     return dp[m - 1][n - 1];
-}
+};
 ```
 
 ### **C++**
@@ -204,6 +204,33 @@ public class Solution {
         return dp[m- 1, n - 1];
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var minPathSum = function (grid) {
+    let m = grid.length,
+        n = grid[0].length;
+    let dp = Array.from({ length: m }, v => new Array(n).fill(0));
+    dp[0][0] = grid[0][0];
+    for (let i = 1; i < m; ++i) {
+        dp[i][0] = dp[i - 1][0] + grid[i][0];
+    }
+    for (let j = 1; j < n; ++j) {
+        dp[0][j] = dp[0][j - 1] + grid[0][j];
+    }
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+        }
+    }
+    return dp[m - 1][n - 1];
+};
 ```
 
 ### **...**

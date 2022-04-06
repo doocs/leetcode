@@ -9,12 +9,10 @@ function minPathSum(grid: number[][]): number {
     for (let j = 1; j < n; ++j) {
         dp[0][j] = dp[0][j - 1] + grid[0][j];
     }
-    // dp
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
-            let cur = grid[i][j];
-            dp[i][j] = cur + Math.min(dp[i - 1][j], dp[i][j - 1]);
+            dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
         }
     }
     return dp[m - 1][n - 1];
-}
+};
