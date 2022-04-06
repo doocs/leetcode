@@ -80,6 +80,24 @@ func rotateString(s string, goal string) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function rotateString(s: string, goal: string): boolean {
+    return s.length === goal.length && (goal + goal).includes(s);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn rotate_string(s: String, goal: String) -> bool {
+        s.len() == goal.len() && (s.clone() + &s).contains(&goal)
+    }
+}
+```
+
 ### **...**
 
 ```
