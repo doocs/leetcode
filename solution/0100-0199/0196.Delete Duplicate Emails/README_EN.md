@@ -55,22 +55,27 @@ Person table:
 ### **SQL**
 
 ```sql
-delete from Person
-where Id not in (
-        select min(Id)
-        from (
-                select *
-                from Person
-            ) as p
-        group by p.Email
-    )
+DELETE
+FROM
+    Person
+WHERE
+    Id NOT IN (
+    SELECT
+        MIN( Id )
+    FROM
+        ( SELECT * FROM Person ) AS p
+    GROUP BY
+        p.Email
+    );
 ```
 
 ```sql
-# Write your MySQL query statement below
-DELETE p1
-FROM Person p1, Person p2
-WHERE p1.email = p2.email and p1.id > p2.id
+DELETE p2
+FROM
+    person AS p1
+    JOIN person AS p2 ON p1.email = p2.email
+WHERE
+    p1.id < p2.id;
 ```
 
 <!-- tabs:end -->

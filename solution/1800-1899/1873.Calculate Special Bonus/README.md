@@ -69,7 +69,30 @@ employee_id 是这个表的主键。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
+SELECT
+    employee_id,
+    CASE
+        WHEN employee_id % 2 = 0
+        OR LEFT(name, 1) = 'M' THEN 0
+        ELSE salary
+    END AS bonus
+FROM
+    employees;
+```
 
+MySQL
+
+```sql
+SELECT
+    employee_id,
+    IF(
+        employee_id % 2 = 0
+        OR LEFT(name, 1) = 'M',
+        0,
+        salary
+    ) AS bonus
+FROM
+    employees;
 ```
 
 <!-- tabs:end -->
