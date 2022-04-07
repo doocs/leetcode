@@ -1,4 +1,4 @@
-Class Solution{
+class Solution{
 public:
     int threeSumMulti(vector<int>& A, int target) {
         unordered_map<int, long> c;
