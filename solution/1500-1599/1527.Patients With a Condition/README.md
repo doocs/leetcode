@@ -59,7 +59,15 @@ Bob 和 George 都患有代码以 DIAB1 开头的疾病。
 ### **SQL**
 
 ```sql
-
+SELECT
+    patient_id,
+    patient_name,
+    conditions
+FROM
+    patients
+WHERE
+    conditions LIKE 'DIAB1%'
+    OR conditions LIKE '% DIAB1%';
 ```
 
 <!-- tabs:end -->
