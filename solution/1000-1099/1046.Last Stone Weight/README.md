@@ -58,13 +58,55 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lastStoneWeight(int[] stones) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b)-> b - a);
 
+        for(int i=0;i<stones.length;i++){
+            pq.add(stones[i]);
+        }
+        
+        while (pq.size()>1){
+            int x = pq.peek();
+            pq.poll();
+            int y = pq.peek();
+            pq.poll();
+            
+            if(x != y)
+                pq.add(x-y);
+        }
+        
+        return pq.isEmpty()?0:pq.peek();
+    }
+}
 ```
 
-### **...**
+### **C++**
 
-```
+```cpp
+class Solution {
+public:
+    int lastStoneWeight(vector<int>& stones) {
+        priority_queue<int> pq;
+        int n = stones.size();
+        
+        for(int i=0;i<n;i++){
+            pq.push(stones[i]);
+        }
 
+        while (pq.size() > 1){
+            int x = pq.top();
+            pq.pop();
+            int y = pq.top();
+            pq.pop();
+
+            if(x != y)
+                pq.push(x-y);
+        }
+
+        return pq.empty()?0:pq.top();
+    }
+};
 ```
 
 <!-- tabs:end -->
