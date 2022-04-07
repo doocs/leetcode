@@ -202,12 +202,16 @@ func preorder(root *Node) []int {
 
 function preorder(root: Node | null): number[] {
     const res = [];
+    if (root == null) {
+        return res;
+    }
     const stack = [root];
     while (stack.length !== 0) {
-        const root = stack.pop();
-        if (root != null) {
-            res.push(root.val);
-            stack.push(...root.children.reverse());
+        const { val, children } = stack.pop();
+        res.push(val);
+        const n = children.length;
+        for (let i = n - 1; i >= 0; i--) {
+            stack.push(children[i]);
         }
     }
     return res;
@@ -228,18 +232,16 @@ function preorder(root: Node | null): number[] {
  */
 
 function preorder(root: Node | null): number[] {
-    const res = [];
-    const dfs = (root: Node | null) => {
-        if (root == null) {
-            return;
-        }
-        res.push(root.val);
-        for (const node of root.children) {
-            dfs(node);
-        }
-    };
-    dfs(root);
-    return res;
+    if (root == null) {
+        return [];
+    }
+    const { val, children } = root;
+    return [
+        val,
+        ...children
+            .map(node => preorder(node))
+            .reduce((p, v) => p.concat(v), []),
+    ];
 }
 ```
 
