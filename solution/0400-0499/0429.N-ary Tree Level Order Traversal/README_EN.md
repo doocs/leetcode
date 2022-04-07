@@ -192,6 +192,72 @@ func levelOrder(root *Node) [][]int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function levelOrder(root: Node | null): number[][] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    const queue = [root];
+    while (queue.length !== 0) {
+        const n = queue.length;
+        const vals = [];
+        for (let i = 0; i < n; i++) {
+            const { val, children } = queue.shift();
+            vals.push(val);
+            queue.push(...children);
+        }
+        res.push(vals);
+    }
+    return res;
+}
+```
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function levelOrder(root: Node | null): number[][] {
+    const res = [];
+    const dfs = (root: Node | null, depth: number) => {
+        if (root == null) {
+            return;
+        }
+        if (res.length <= depth) {
+            res.push([]);
+        }
+        const { val, children } = root;
+        res[depth].push(val);
+        children.forEach(node => dfs(node, depth + 1));
+    };
+    dfs(root, 0);
+    return res;
+}
+```
+
 ### **...**
 
 ```
