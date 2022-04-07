@@ -52,7 +52,15 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        h = [-s for s in stones]
+        heapify(h)
+        while len(h) > 1:
+            y, x = -heappop(h), -heappop(h)
+            if x != y:
+                heappush(h, x - y)
+        return 0 if not h else -h[0]
 ```
 
 ### **Java**
@@ -94,6 +102,44 @@ public:
         return pq.empty() ? 0 : pq.top();
     }
 };
+```
+
+### **Go**
+
+```go
+func lastStoneWeight(stones []int) int {
+	q := &hp{stones}
+	heap.Init(q)
+	for q.Len() > 1 {
+		x, y := q.pop(), q.pop()
+		if x != y {
+			q.push(x - y)
+		}
+	}
+	if q.Len() > 0 {
+		return q.IntSlice[0]
+	}
+	return 0
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) push(v int) { heap.Push(h, v) }
+func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->
