@@ -53,7 +53,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestDivisibleSubset(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        n = len(nums)
+        f, p = [0] * n, [0] * n
+        for i in range(n):
+            l, pre = 1, i
+            for j in range(n):
+                if nums[i] % nums[j] == 0 and f[j] + 1 > l:
+                    l = f[j] + 1
+                    pre = j
+            f[i] = l
+            p[i] = pre
+        max_len, max_index = 0, 0
+        for i, v in enumerate(f):
+            if max_len < v:
+                max_len = v
+                max_index = i
+        ans = []
+        while len(ans) < max_len:
+            ans.append(nums[max_index])
+            max_index = p[max_index]
+        return ans[::-1]
 ```
 
 ### **Java**
@@ -61,7 +83,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<Integer> largestDivisibleSubset(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int[] f = new int[n], p = new int[n];
+        for (int i = 0; i < n; i++) {
+            int l = 1, pre = i;
+            for (int j = 0; j < i; j++) {
+                if (nums[i] % nums[j] == 0 && f[j] + 1 > l) {
+                    l = f[j] + 1;
+                    pre = j;
+                }
+            }
+            f[i] = l;
+            p[i] = pre;
+        }
+        int maxLen = 0, maxIndex = 0;
+        for (int i = 0; i < n; i++) {
+            if (f[i] > maxLen) {
+                maxLen = f[i];
+                maxIndex = i;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        while (ans.size() < maxLen) {
+            ans.add(nums[maxIndex]);
+            maxIndex = p[maxIndex];
+        }
+        Collections.reverse(ans);
+        return ans;
+    }
+}
 ```
 
 ### **...**
