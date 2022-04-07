@@ -50,12 +50,12 @@ class Solution:
         while left < right:
             mid = (left + right) >> 1
             if nums[0] <= nums[mid]:
-                if nums[0] <= target and target <= nums[mid]:
+                if nums[0] <= target <= nums[mid]:
                     right = mid
                 else:
                     left = mid + 1
             else:
-                if nums[mid] < target and target <= nums[n - 1]:
+                if nums[mid] < target <= nums[n - 1]:
                     left = mid + 1
                 else:
                     right = mid
