@@ -59,13 +59,114 @@ Note that strs[0] &gt; strs[1] - the array strs is not necessarily in lexicograp
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minDeletionSize(self, strs: List[str]) -> int:
+        n = len(strs[0])
+        dp = [1] * n
+        for i in range(1, n):
+            for j in range(i):
+                if all(s[j] <= s[i] for s in strs):
+                    dp[i] = max(dp[i], dp[j] + 1)
+        return n - max(dp)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int n = strs[0].length();
+        int[] dp = new int[n];
+        Arrays.fill(dp, 1);
+        int mx = 1;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (check(i, j, strs)) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            mx = Math.max(mx, dp[i]);
+        }
+        return n - mx;
+    }
 
+    private boolean check(int i, int j, String[] strs) {
+        for (String s : strs) {
+            if (s.charAt(i) < s.charAt(j)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDeletionSize(vector<string>& strs) {
+        int n = strs[0].size();
+        vector<int> dp(n, 1);
+        int mx = 1;
+        for (int i = 1; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                if (check(i, j, strs))
+                {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+            }
+            mx = max(mx, dp[i]);
+        }
+        return n - mx;
+    }
+
+    bool check(int i, int j, vector<string>& strs) {
+        for (string& s : strs)
+            if (s[i] < s[j])
+                return false;
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDeletionSize(strs []string) int {
+	n := len(strs[0])
+	dp := make([]int, n)
+	mx := 1
+	dp[0] = 1
+	check := func(i, j int) bool {
+		for _, s := range strs {
+			if s[i] < s[j] {
+				return false
+			}
+		}
+		return true
+	}
+	for i := 1; i < n; i++ {
+		dp[i] = 1
+		for j := 0; j < i; j++ {
+			if check(i, j) {
+				dp[i] = max(dp[i], dp[j]+1)
+			}
+		}
+		mx = max(mx, dp[i])
+	}
+	return n - mx
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

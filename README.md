@@ -67,6 +67,7 @@
 -   [摘樱桃](/solution/0700-0799/0741.Cherry%20Pickup/README.md) - 线性 DP、数字三角形模型
 -   [摘樱桃 II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md) - 线性 DP、数字三角形模型
 -   [最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md) - 线性 DP、最长上升子序列模型
+-   [删列造序 III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md) - 线性 DP、最长上升子序列模型
 
 
 ### 4. 高级数据结构
