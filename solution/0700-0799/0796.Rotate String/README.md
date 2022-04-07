@@ -52,9 +52,7 @@
 ```python
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
-        if len(s) != len(goal):
-            return False
-        return goal in s + s
+        return len(s) == len(goal) and goal in s + s
 ```
 
 ### **Java**
@@ -64,10 +62,7 @@ class Solution:
 ```java
 class Solution {
     public boolean rotateString(String s, String goal) {
-        if (s.length() != goal.length()) {
-            return false;
-        }
-        return (s + s).contains(goal);
+        return s.length() == goal.length() && (s + s).contains(goal);
     }
 }
 ```
@@ -78,10 +73,7 @@ class Solution {
 class Solution {
 public:
     bool rotateString(string s, string goal) {
-        if (s.size() != goal.size()) {
-            return false;
-        }
-        return !!strstr((s + s).data(), goal.data());
+        return s.size() == goal.size() && strstr((s + s).data(), goal.data());
     }
 };
 ```
@@ -90,10 +82,7 @@ public:
 
 ```go
 func rotateString(s string, goal string) bool {
-	if len(s) != len(goal) {
-		return false
-	}
-	return strings.Contains(s+s, goal)
+	return len(s) == len(goal) && strings.Contains(s+s, goal)
 }
 ```
 

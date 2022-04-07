@@ -36,6 +36,7 @@
 
 -   [在排序数组中查找元素的第一个和最后一个位置](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md) - 二分查找
 -   [准时到达的列车最小时速](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md) - 二分查找
+-   [找到需要补充粉笔的学生编号](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md) - 二分查找
 -   [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md) - 二分查找
 
 ### 2. 搜索
@@ -65,6 +66,8 @@
 -   [最小路径和](/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md) - 线性 DP、数字三角形模型
 -   [摘樱桃](/solution/0700-0799/0741.Cherry%20Pickup/README.md) - 线性 DP、数字三角形模型
 -   [摘樱桃 II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md) - 线性 DP、数字三角形模型
+-   [最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md) - 线性 DP、最长上升子序列模型
+
 
 ### 4. 高级数据结构
 

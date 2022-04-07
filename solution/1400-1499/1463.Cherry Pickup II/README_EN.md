@@ -58,6 +58,8 @@ Total of cherries: 17 + 11 = 28.
 
 ## Solutions
 
+Use dynammic programming, define `dp[i][j1][j2]`: The maximum cherries that both robots can take starting on the ith row, and column j1 and j2 of Robot 1 and 2 respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

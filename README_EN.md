@@ -35,6 +35,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 
 -   [Find First and Last Position of Element in Sorted Array](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README_EN.md) - Binary search
 -   [Minimum Speed to Arrive on Time](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README_EN.md) - Binary search
+-   [Find the Student that Will Replace the Chalk](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md) - Binary search
 -   [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md) - Binary search
 
 #### 2. Search
@@ -64,6 +65,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Minimum Path Sum](/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md) - Linear problem
 -   [Cherry Pickup](/solution/0700-0799/0741.Cherry%20Pickup/README_EN.md) - Linear problem
 -   [Cherry Pickup II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md) - Linear problem
+-   [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md) - Linear problem
 
 ### 4. Advanced Data Structures
 
