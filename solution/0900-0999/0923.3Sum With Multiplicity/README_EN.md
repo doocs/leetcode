@@ -61,7 +61,7 @@ and two 2s from [2,2,2,2] in 6 ways.
 ### **C++**
 
 ```cpp
-Class Solution{
+class Solution{
 public:
     int threeSumMulti(vector<int>& A, int target) {
         unordered_map<int, long> c;
