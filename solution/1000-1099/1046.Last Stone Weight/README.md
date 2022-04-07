@@ -58,13 +58,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int lastStoneWeight(int[] stones) {
+        Queue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder());
+        for (int stone : stones) {
+            queue.offer(stone);
+        }
+        while (queue.size() > 1) {
+            int x = queue.poll();
+            int y = queue.poll();
+            if (x != y) {
+                queue.offer(x - y);
+            }
+        }
+        return queue.isEmpty() ? 0 : queue.poll();
+    }
+}
 ```
 
-### **...**
+### **C++**
 
-```
-
+```cpp
+class Solution {
+public:
+    int lastStoneWeight(vector<int>& stones) {
+        priority_queue<int> pq(stones.begin(), stones.end());
+        while (pq.size() > 1) {
+            int x = pq.top();
+            pq.pop();
+            int y = pq.top();
+            pq.pop();
+            if (x != y)
+                pq.push(x-y);
+        }
+        return pq.empty() ? 0 : pq.top();
+    }
+};
 ```
 
 <!-- tabs:end -->
