@@ -71,11 +71,11 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 ### **C++**
 
 ```cpp
-class Solution{
+class Solution {
 public:
-    int threeSumMulti(vector<int>& A, int target) {
+    int threeSumMulti(vector<int>& arr, int target) {
         unordered_map<int, long> c;
-        for (int a : A) c[a]++;
+        for (int a : arr) c[a]++;
         long res = 0;
         for (auto it : c)
             for (auto it2 : c) {
