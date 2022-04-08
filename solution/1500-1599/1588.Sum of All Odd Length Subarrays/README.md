@@ -143,6 +143,51 @@ func sumOddLengthSubarrays(arr []int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function sumOddLengthSubarrays(arr: number[]): number {
+    const n = arr.length;
+    let res = 0;
+    for (let i = 1; i <= n; i += 2) {
+        let sum = 0;
+        for (let j = 0; j < i; j++) {
+            sum += arr[j];
+        }
+        res += sum;
+        for (let j = i; j < n; j++) {
+            sum -= arr[j - i];
+            sum += arr[j];
+            res += sum;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sum_odd_length_subarrays(arr: Vec<i32>) -> i32 {
+        let n = arr.len();
+        let mut res = 0;
+        let mut i = 1;
+        while i <= n {
+            let mut sum: i32 = arr[0..i].iter().sum();
+            res += sum;
+            for j in i..n {
+                sum -= arr[j - i];
+                sum += arr[j];
+                res += sum;
+            }
+            i += 2;
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
