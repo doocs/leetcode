@@ -68,7 +68,7 @@
 -   [摘樱桃 II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md) - 线性 DP、数字三角形模型
 -   [最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md) - 线性 DP、最长上升子序列模型
 -   [删列造序 III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md) - 线性 DP、最长上升子序列模型
-
+-   [俄罗斯套娃信封问题](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md) - 线性 DP、最长上升子序列模型、贪心优化
 
 ### 4. 高级数据结构
 

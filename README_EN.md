@@ -67,6 +67,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Cherry Pickup II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md) - Linear problem
 -   [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md) - Linear problem, LIS
 -   [Delete Columns to Make Sorted III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md) - Linear problem, LIS
+-   [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md) - Linear problem, LIS
 
 ### 4. Advanced Data Structures
 
