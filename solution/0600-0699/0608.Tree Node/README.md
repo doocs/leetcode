@@ -52,19 +52,15 @@
 	<li>节点 &#39;2&#39; 是内部节点，因为它有父节点 &#39;1&#39; ，也有孩子节点 &#39;4&#39; 和 &#39;5&#39; 。</li>
 	<li>节点 &#39;3&#39;, &#39;4&#39; 和 &#39;5&#39; 都是叶子节点，因为它们都有父节点同时没有孩子节点。</li>
 	<li>样例中树的形态如下：
-	<p>&nbsp;</p>
-
-    <pre>			  1
+		<p>&nbsp;</p>
+    	<pre>			  1
     		/   \
-                      2       3
-                    /   \
-                  4       5
-
-</pre>
-
-    <p>&nbsp;</p>
+          2       3
+		/   \
+	   4     5
+		</pre>
+    	<p>&nbsp;</p>
     </li>
-
 </ul>
 
 <p><strong>注意</strong></p>
@@ -80,7 +76,18 @@
 ### **SQL**
 
 ```sql
-
+SELECT id,
+    (
+        CASE
+            WHEN p_id IS NULL THEN 'Root'
+            WHEN id IN (
+                SELECT p_id
+                FROM tree
+            ) THEN 'Inner'
+            ELSE 'Leaf'
+        END
+    ) AS type
+FROM tree;
 ```
 
 <!-- tabs:end -->
