@@ -64,6 +64,24 @@ class Solution:
         return max(dp)
 ```
 
+Greedy & Binary search:
+
+```python
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        d = [nums[0]]
+        for x in nums[1:]:
+            if x > d[-1]:
+                d.append(x)
+            else:
+                idx = bisect_left(d, x)
+                if idx == len(d):
+                    idx = 0
+                d[idx] = x
+        return len(d)
+```
+
 Binary Indexed Tree:
 
 ```python
@@ -123,6 +141,37 @@ class Solution {
             res = Math.max(res, dp[i]);
         }
         return res;
+    }
+}
+```
+
+Greedy & Binary search:
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        int[] d = new int[n + 1];
+        d[1] = nums[0];
+        int size = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > d[size]) {
+                d[++size] = nums[i];
+            } else {
+                int left = 1, right = size;
+                while (left < right) {
+                    int mid = (left + right) >> 1;
+                    if (d[mid] >= nums[i]) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+                int p = d[left] >= nums[i] ? left : 1;
+                d[p] = nums[i];
+            }
+        }
+        return size;
     }
 }
 ```
@@ -203,6 +252,35 @@ function lengthOfLIS(nums: number[]): number {
 }
 ```
 
+Greedy & Binary search:
+
+```ts
+function lengthOfLIS(nums: number[]): number {
+    const n = nums.length;
+    let d = new Array(n + 1);
+    d[1] = nums[0];
+    let size = 1;
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] > d[size]) {
+            d[++size] = nums[i];
+        } else {
+            let left = 1, right = size;
+            while (left < right) {
+                const mid = (left + right) >> 1;
+                if (d[mid] >= nums[i]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            const p = d[left] >= nums[i] ? left : 1;
+            d[p] = nums[i];
+        }
+    }
+    return size;
+};
+```
+
 ### **C++**
 
 Dynamic programming:
@@ -221,6 +299,29 @@ public:
             }
         }
         return *max_element(dp.begin(), dp.end());
+    }
+};
+```
+
+Greedy & Binary search:
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> d{nums[0]};
+        for (int i = 1; i < n; ++i)
+        {
+            if (nums[i] > d[d.size() - 1]) d.push_back(nums[i]);
+            else
+            {
+                int idx = lower_bound(d.begin(), d.end(), nums[i]) - d.begin();
+                if (idx == d.size()) idx = 0;
+                d[idx] = nums[i];
+            }
+        }
+        return d.size();
     }
 };
 ```
@@ -306,6 +407,38 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+Greedy & Binary search:
+
+```go
+func lengthOfLIS(nums []int) int {
+	n := len(nums)
+	d := make([]int, n+1)
+	d[1] = nums[0]
+	size := 1
+	for _, x := range nums[1:] {
+		if x > d[size] {
+			size++
+			d[size] = x
+		} else {
+			left, right := 1, size
+			for left < right {
+				mid := (left + right) >> 1
+				if d[mid] >= x {
+					right = mid
+				} else {
+					left = mid + 1
+				}
+			}
+			if d[left] < x {
+				left = 1
+			}
+			d[left] = x
+		}
+	}
+	return size
 }
 ```
 

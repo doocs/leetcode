@@ -62,7 +62,26 @@
 
 时间复杂度 O(n²)。
 
-**方法二：树状数组**
+**方法二：贪心 + 二分查找**
+
+维护一个数组 `d[i]`，表示长度为 i 的最长上升子序列末尾元素的最小值，初始值 `d[1]=nums[0]`。
+
+直观上，`d[i]` 是单调递增数组。
+
+证明：假设存在 `d[j] ≥ d[i]`，且 `j < i`，我们考虑从长度为 i 的最长上升子序列的末尾删除 `i - j` 个元素，那么这个序列长度变为 j，且第 j 个元素 `d[j]` 必然小于 `d[i]`，由于前面假设 `d[j] ≥ d[i]`，产生了矛盾，因此数组 d 是单调递增数组。
+
+算法思路：
+
+设当前求出的最长上升子序列的长度为 size，初始 `size=1`，从前往后遍历数组 nums，在遍历到 `nums[i]` 时：
+
+-   若 `nums[i] > d[size]`，则直接将 `nums[i]` 加入到数组 d 的末尾，并且更新 size 自增；
+-   否则，在数组 d 中二分查找（前面证明 d 是一个单调递增数组），找到第一个大于等于 nums[i] 的位置 idx，更新 `d[idx] = nums[i]`。
+
+最终返回 size。
+
+时间复杂度 O(nlogn)。
+
+**方法三：树状数组**
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
@@ -108,6 +127,24 @@ class Solution:
                 if nums[j] < nums[i]:
                     dp[i] = max(dp[i], dp[j] + 1)
         return max(dp)
+```
+
+贪心 + 二分查找：
+
+```python
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        d = [nums[0]]
+        for x in nums[1:]:
+            if x > d[-1]:
+                d.append(x)
+            else:
+                idx = bisect_left(d, x)
+                if idx == len(d):
+                    idx = 0
+                d[idx] = x
+        return len(d)
 ```
 
 树状数组：
@@ -171,6 +208,37 @@ class Solution {
             res = Math.max(res, dp[i]);
         }
         return res;
+    }
+}
+```
+
+贪心 + 二分查找：
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        int[] d = new int[n + 1];
+        d[1] = nums[0];
+        int size = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > d[size]) {
+                d[++size] = nums[i];
+            } else {
+                int left = 1, right = size;
+                while (left < right) {
+                    int mid = (left + right) >> 1;
+                    if (d[mid] >= nums[i]) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+                int p = d[left] >= nums[i] ? left : 1;
+                d[p] = nums[i];
+            }
+        }
+        return size;
     }
 }
 ```
@@ -251,6 +319,35 @@ function lengthOfLIS(nums: number[]): number {
 }
 ```
 
+贪心 + 二分查找：
+
+```ts
+function lengthOfLIS(nums: number[]): number {
+    const n = nums.length;
+    let d = new Array(n + 1);
+    d[1] = nums[0];
+    let size = 1;
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] > d[size]) {
+            d[++size] = nums[i];
+        } else {
+            let left = 1, right = size;
+            while (left < right) {
+                const mid = (left + right) >> 1;
+                if (d[mid] >= nums[i]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            const p = d[left] >= nums[i] ? left : 1;
+            d[p] = nums[i];
+        }
+    }
+    return size;
+};
+```
+
 ### **C++**
 
 动态规划：
@@ -269,6 +366,29 @@ public:
             }
         }
         return *max_element(dp.begin(), dp.end());
+    }
+};
+```
+
+贪心 + 二分查找：
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> d{nums[0]};
+        for (int i = 1; i < n; ++i)
+        {
+            if (nums[i] > d[d.size() - 1]) d.push_back(nums[i]);
+            else
+            {
+                int idx = lower_bound(d.begin(), d.end(), nums[i]) - d.begin();
+                if (idx == d.size()) idx = 0;
+                d[idx] = nums[i];
+            }
+        }
+        return d.size();
     }
 };
 ```
@@ -354,6 +474,38 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+贪心 + 二分查找：
+
+```go
+func lengthOfLIS(nums []int) int {
+	n := len(nums)
+	d := make([]int, n+1)
+	d[1] = nums[0]
+	size := 1
+	for _, x := range nums[1:] {
+		if x > d[size] {
+			size++
+			d[size] = x
+		} else {
+			left, right := 1, size
+			for left < right {
+				mid := (left + right) >> 1
+				if d[mid] >= x {
+					right = mid
+				} else {
+					left = mid + 1
+				}
+			}
+			if d[left] < x {
+				left = 1
+			}
+			d[left] = x
+		}
+	}
+	return size
 }
 ```
 
