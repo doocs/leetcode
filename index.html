@@ -43,6 +43,9 @@
         '/solution/.*/summary.md': '/solution/summary.md',
         '/basic/.*/summary.md': '/basic/summary.md'
       },
+      contributors: {
+        ignores: ['/README.md', "/README_EN.md", "/solution/README.md", "/solution/README_EN.md", "/summary.md"]
+      },
       darklightTheme: {
         defaultTheme: 'light',
         siteFont: 'Source Sans Pro,Helvetica Neue,Arial,sans-serif',
@@ -121,6 +124,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-contributors@latest/dist/contributors.min.js"></script>
 </body>
 
 </html>
