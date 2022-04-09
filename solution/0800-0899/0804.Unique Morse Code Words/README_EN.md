@@ -93,6 +93,48 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+const codes = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."]
+
+function uniqueMorseRepresentations(words: string[]): number {
+    return new Set(
+        words.map(word => {
+            return word
+                .split('')
+                .map(c => codes[c.charCodeAt(0) - 'a'.charCodeAt(0)])
+                .join('');
+        }),
+    ).size;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn unique_morse_representations(words: Vec<String>) -> i32 {
+        const codes: [&str; 26] = [
+            ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",
+            "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-",
+            "-.--", "--..",
+        ];
+        words
+            .iter()
+            .map(|word| {
+                word.as_bytes()
+                    .iter()
+                    .map(|v| codes[(v - b'a') as usize])
+                    .collect::<String>()
+            })
+            .collect::<HashSet<String>>()
+            .len() as i32
+    }
+}
+```
+
 ### **...**
 
 ```
