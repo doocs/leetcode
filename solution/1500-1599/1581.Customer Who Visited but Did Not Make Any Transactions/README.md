@@ -88,26 +88,19 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+SELECT customer_id,
+    COUNT(*) AS count_no_trans
+FROM Visits
+WHERE visit_id NOT IN (
+        SELECT visit_id
+        FROM Transactions
+    )
+GROUP BY customer_id;
 ```
 
 <!-- tabs:end -->
