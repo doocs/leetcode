@@ -50,6 +50,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：逆向计算**
+
+从 `(tx, ty)` 开始逆向计算，判断是否可以到达状态 `(sx, sy)`。由于逆向计算是将 tx, ty 中的较大值减少，因此当 `tx > ty` 时可以直接将 tx 的值更新为 `tx % ty`，当 `tx < ty` 时可以将 ty 的值更新为 `ty % tx`。逆向计算需要满足 `tx > sx && ty > sy && tx != ty`。
+
+当条件不成立时，根据此时 tx 和 ty 判断是否可以从起点转换到终点。
+
+-   如果 `tx == sx && ty == sy`，说明此时已经到达起点状态，返回 true；
+-   如果 `tx == sx`，若 `ty > sy && (ty - sy) % tx == 0`，返回 true，否则返回 false；
+-   如果 `ty == sy`，若 `tx > sx && (tx - sx) % ty == 0`，返回 true，否则返回 false；
+-   如果 `tx ≠ sx && ty ≠ sy`，则不可以从起点转换到终点。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +68,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reachingPoints(self, sx: int, sy: int, tx: int, ty: int) -> bool:
+        while tx > sx and ty > sy and tx != ty:
+            if tx > ty:
+                tx %= ty
+            else:
+                ty %= tx
+        if tx == sx and ty == sy:
+            return True
+        if tx == sx:
+            return ty > sy and (ty - sy) % tx == 0
+        if ty == sy:
+            return tx > sx and (tx - sx) % ty == 0
+        return False
 ```
 
 ### **Java**
@@ -65,7 +89,70 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean reachingPoints(int sx, int sy, int tx, int ty) {
+        while (tx > sx && ty > sy && tx != ty) {
+            if (tx > ty) {
+                tx %= ty;
+            } else {
+                ty %= tx;
+            }
+        }
+        if (tx == sx && ty == sy) {
+            return true;
+        }
+        if (tx == sx) {
+            return ty > sy && (ty - sy) % tx == 0;
+        }
+        if (ty == sy) {
+            return tx > sx && (tx - sx) % ty == 0;
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool reachingPoints(int sx, int sy, int tx, int ty) {
+        while (tx > sx && ty > sy && tx != ty)
+        {
+            if (tx > ty) tx %= ty;
+            else ty %= tx;
+        }
+        if (tx == sx && ty == sy) return true;
+        if (tx == sx) return ty > sy && (ty - sy) % tx == 0;
+        if (ty == sy) return tx > sx && (tx - sx) % ty == 0;
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reachingPoints(sx int, sy int, tx int, ty int) bool {
+	for tx > sx && ty > sy && tx != ty {
+		if tx > ty {
+			tx %= ty
+		} else {
+			ty %= tx
+		}
+	}
+	if tx == sx && ty == sy {
+		return true
+	}
+	if tx == sx {
+		return ty > sy && (ty-sy)%tx == 0
+	}
+	if ty == sy {
+		return tx > sx && (tx-sx)%ty == 0
+	}
+	return false
+}
 ```
 
 ### **...**
