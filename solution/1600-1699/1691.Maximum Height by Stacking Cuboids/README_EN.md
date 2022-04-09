@@ -62,13 +62,120 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxHeight(self, cuboids: List[List[int]]) -> int:
+        for c in cuboids:
+            c.sort()
+        cuboids.sort()
+        n = len(cuboids)
+        dp = [0] * n
+        for i in range(n):
+            for j in range(i):
+                if cuboids[j][1] <= cuboids[i][1] and cuboids[j][2] <= cuboids[i][2]:
+                    dp[i] = max(dp[i], dp[j])
+            dp[i] += cuboids[i][2]
+        return max(dp)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxHeight(int[][] cuboids) {
+        for (int[] c : cuboids) {
+            Arrays.sort(c);
+        }
+        Arrays.sort(cuboids, (a, b) -> {
+            if (a[0] != b[0]) {
+                return a[0] - b[0];
+            }
+            if (a[1] != b[1]) {
+                return a[1] - b[1];
+            }
+            return a[2] - b[2];
+        });
+        int n = cuboids.length;
+        int[] dp = new int[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2]) {
+                    dp[i] = Math.max(dp[i], dp[j]);
+                }
+            }
+            dp[i] += cuboids[i][2];
+            ans = Math.max(ans, dp[i]);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxHeight(vector<vector<int>>& cuboids) {
+        for (auto& c : cuboids) sort(c.begin(), c.end());
+        sort(cuboids.begin(), cuboids.end());
+        int n = cuboids.size();
+        vector<int> dp(n);
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                if (cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2])
+                {
+                    dp[i] = max(dp[i], dp[j]);
+                }
+            }
+            dp[i] += cuboids[i][2];
+            ans = max(ans, dp[i]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxHeight(cuboids [][]int) int {
+	for _, c := range cuboids {
+		sort.Ints(c)
+	}
+	sort.Slice(cuboids, func(i, j int) bool {
+		if cuboids[i][0] != cuboids[j][0] {
+			return cuboids[i][0] < cuboids[j][0]
+		}
+		if cuboids[i][1] != cuboids[j][1] {
+			return cuboids[i][1] < cuboids[j][1]
+		}
+		return cuboids[i][2] < cuboids[j][2]
+	})
+	n := len(cuboids)
+	dp := make([]int, n)
+	ans := 0
+	for i := 0; i < n; i++ {
+		for j := 0; j < i; j++ {
+			if cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2] {
+				dp[i] = max(dp[i], dp[j])
+			}
+		}
+		dp[i] += cuboids[i][2]
+		ans = max(ans, dp[i])
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
