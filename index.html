@@ -44,7 +44,7 @@
         '/basic/.*/summary.md': '/basic/summary.md'
       },
       contributors: {
-        ignores: ['/README.md', "/README_EN.md", "/solution/README.md", "/solution/README_EN.md", "/summary.md"]
+        ignores: ['/README.md', '/README_EN.md', '/solution/README.md', '/solution/README_EN.md', '/summary.md']
       },
       darklightTheme: {
         defaultTheme: 'light',
@@ -75,25 +75,27 @@
         tabHeadings: true
       },
       plugins: [
-        function (hook, vm) {
-          hook.beforeEach(function (html) {
-            const en = vm.route.file.indexOf('README_EN') > -1
-            const userContent = /githubusercontent\.com/.test(vm.route.file)
-            const url = userContent ? vm.route.file
+        (hook, vm) => {
+
+          const isEn = () => vm.route.file.includes('README_EN')
+
+          hook.beforeEach((html) => {
+            const {file} =  vm.route
+            const userContent = /githubusercontent\.com/.test(file)
+            const url = userContent ? file
               .replace('raw.githubusercontent.com', 'github.com')
-              .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + vm.route.file
+              .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + file
 
             const github = `[GitHub](${url})`
             const gitee = `[Gitee](${url.replace("github", "gitee")})`
-            const editHtml = en ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
+            const editHtml = isEn() ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
             return editHtml + html
           })
 
-          hook.afterEach(function (html) {
-            const en = vm.route.file.indexOf('README_EN') != -1
-            const copyright = en ? '. All Rights Reserved' : ' 版权所有'
+          hook.afterEach((html) => {
+            const copyright = isEn() ? '. All Rights Reserved' : ' 版权所有'
             const currentYear = new Date().getFullYear()
-            const footer = `<footer><span>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
+            const footer = `<footer>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
             return html + footer
           })
         },
@@ -124,7 +126,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-contributors@latest/dist/contributors.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-contributors@latest/dist/index.min.js"></script>
 </body>
 
 </html>
