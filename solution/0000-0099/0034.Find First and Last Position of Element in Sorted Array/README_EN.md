@@ -88,42 +88,6 @@ class Solution:
 ```java
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        if (nums.length == 0) {
-            return new int[]{-1, -1};
-        }
-        // find first position
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (nums[mid] >= target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        if (nums[left] != target) {
-            return new int[]{-1, -1};
-        }
-        int l = left;
-
-        // find last position
-        right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (nums[mid] <= target) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return new int[]{l, left};
-    }
-}
-```
-
-```java
-class Solution {
-    public int[] searchRange(int[] nums, int target) {
         int l = search(nums, target);
         int r = search(nums, target + 1);
         return l == nums.length || l >= r ? new int[]{-1, -1} : new int[]{l, r - 1};
@@ -167,43 +131,6 @@ public:
  * @return {number[]}
  */
 var searchRange = function (nums, target) {
-    if (nums.length == 0) {
-        return [-1, -1];
-    }
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    if (nums[left] != target) {
-        return [-1, -1];
-    }
-    let l = left;
-    right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (nums[mid] <= target) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return [l, left];
-};
-```
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var searchRange = function (nums, target) {
     function search(target) {
         let left = 0,
             right = nums.length;
@@ -219,45 +146,11 @@ var searchRange = function (nums, target) {
     }
     const l = search(target);
     const r = search(target + 1);
-    if (l == nums.length || l >= r) {
-        return [-1, -1];
-    }
-    return [l, r - 1];
+    return l == nums.length || l >= r ? [-1, -1] : [l, r - 1];
 };
 ```
 
 ### **Go**
-
-```go
-func searchRange(nums []int, target int) []int {
-	if len(nums) == 0 {
-		return []int{-1, -1}
-	}
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
-		if nums[mid] >= target {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	if nums[left] != target {
-		return []int{-1, -1}
-	}
-	l := left
-	right = len(nums) - 1
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if nums[mid] <= target {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return []int{l, left}
-}
-```
 
 ```go
 func searchRange(nums []int, target int) []int {
@@ -328,6 +221,29 @@ impl Solution {
         }
         vec![-1, -1]
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function searchRange(nums: number[], target: number): number[] {
+    function search(target) {
+        let left = 0,
+            right = nums.length;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+    const l = search(target);
+    const r = search(target + 1);
+    return l == nums.length || l >= r ? [-1, -1] : [l, r - 1];
 }
 ```
 

@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var searchRange = function (nums, target) {
+function searchRange(nums: number[], target: number): number[] {
     function search(target) {
         let left = 0,
             right = nums.length;
@@ -20,4 +15,4 @@ var searchRange = function (nums, target) {
     const l = search(target);
     const r = search(target + 1);
     return l == nums.length || l >= r ? [-1, -1] : [l, r - 1];
-};
+}

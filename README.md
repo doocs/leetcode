@@ -38,6 +38,7 @@
 -   [准时到达的列车最小时速](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md) - 二分查找
 -   [找到需要补充粉笔的学生编号](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md) - 二分查找
 -   [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md) - 二分查找
+<!-- 排序算法、待补充 -->
 
 ### 2. 搜索
 
@@ -59,6 +60,7 @@
 -   [迷宫](/solution/0400-0499/0490.The%20Maze/README.md) - DFS、连通性模型、Flood Fill 算法
 -   [单词搜索](/solution/0000-0099/0079.Word%20Search/README.md) - DFS、搜索顺序、回溯
 -   [黄金矿工](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md) - DFS、搜索顺序、回溯
+<!-- DFS 待补充 -->
 
 ### 3. 动态规划（DP）
 
@@ -71,6 +73,7 @@
 -   [删列造序 III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md) - 线性 DP、最长上升子序列模型
 -   [俄罗斯套娃信封问题](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md) - 线性 DP、最长上升子序列模型、贪心优化
 -   [堆叠长方体的最大高度](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md) - 排序、线性 DP、最长上升子序列模型
+<!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
 ### 4. 高级数据结构
 
@@ -99,7 +102,7 @@
 -   [由单个字符重复的最长子字符串](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md) - 线段树、动态最大子段和模型
 -   [矩形面积 II](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md) - 线段树、离散化、扫描线
 
-<!--
+<!-- 待补充
 ### 5. 图论
 
 ### 6. 数学知识
