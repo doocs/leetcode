@@ -2273,3 +2273,8 @@
   - [2227.Encrypt and Decrypt Strings](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README.md)
   - [2228.Users With Two Purchases Within Seven Days](/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README.md)
   - [2229.Check if an Array Is Consecutive](/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README.md)
+  - [2230.The Users That Are Eligible for Discount](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)
+  - [2231.Largest Number After Digit Swaps by Parity](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README.md)
+  - [2232.Minimize Result by Adding Parentheses to Expression](/solution/2200-2299/2232.Minimize%20Result%20by%20Adding%20Parentheses%20to%20Expression/README.md)
+  - [2233.Maximum Product After K Increments](/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README.md)
+  - [2234.Maximum Total Beauty of the Gardens](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README.md)
