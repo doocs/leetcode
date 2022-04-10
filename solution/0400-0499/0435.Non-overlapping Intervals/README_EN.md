@@ -51,8 +51,6 @@ Greedy.
 ```python
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-        if not intervals:
-            return 0
         intervals.sort(key=lambda x: x[1])
         ans, t = 0, intervals[0][1]
         for s, e in intervals[1:]:
@@ -63,14 +61,25 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        intervals.sort()
+        d = [intervals[0][1]]
+        for s, e in intervals[1:]:
+            if s >= d[-1]:
+                d.append(e)
+            else:
+                idx = bisect_left(d, s)
+                d[idx] = min(d[idx], e)
+        return len(intervals) - len(d)
+```
+
 ### **Java**
 
 ```java
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
-        if (intervals == null || intervals.length == 0) {
-            return 0;
-        }
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
         int t = intervals[0][1], ans = 0;
         for (int i = 1; i < intervals.length; ++i) {
@@ -85,16 +94,49 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> {
+            if (a[0] != b[0]) {
+                return a[0] - b[0];
+            }
+            return a[1] - b[1];
+        });
+        int n = intervals.length;
+        int[] d = new int[n + 1];
+        d[1] = intervals[0][1];
+        int size = 1;
+        for (int i = 1; i < n; ++i) {
+            int s = intervals[i][0], e = intervals[i][1];
+            if (s >= d[size]) {
+                d[++size] = e;
+            } else {
+                int left = 1, right = size;
+                while (left < right) {
+                    int mid = (left + right) >> 1;
+                    if (d[mid] >= s) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+                d[left] = Math.min(d[left], e);
+            }
+        }
+        return n - size;
+    }
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function eraseOverlapIntervals(intervals: number[][]): number {
-    let n = intervals.length;
-    if (n == 0) return 0;
     intervals.sort((a, b) => a[1] - b[1]);
     let end = intervals[0][1],
         ans = 0;
-    for (let i = 1; i < n; ++i) {
+    for (let i = 1; i < intervals.length; ++i) {
         let cur = intervals[i];
         if (end > cur[0]) {
             ans++;
@@ -112,7 +154,6 @@ function eraseOverlapIntervals(intervals: number[][]): number {
 class Solution {
 public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
-        if (intervals.empty()) return 0;
         sort(intervals.begin(), intervals.end(), [](const auto &a, const auto &b) { return a[1] < b[1]; });
         int ans = 0, t = intervals[0][1];
         for (int i = 1; i < intervals.size(); ++i)
@@ -129,9 +170,6 @@ public:
 
 ```go
 func eraseOverlapIntervals(intervals [][]int) int {
-	if intervals == nil || len(intervals) == 0 {
-		return 0
-	}
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][1] < intervals[j][1]
 	})

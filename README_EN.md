@@ -66,6 +66,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Cherry Pickup](/solution/0700-0799/0741.Cherry%20Pickup/README_EN.md) - Linear problem
 -   [Cherry Pickup II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md) - Linear problem
 -   [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md) - Linear problem, LIS
+-   [Non-overlapping Intervals](/solution/0400-0499/0435.Non-overlapping%20Intervals/README_EN.md) - Linear problem, LIS, Greedy
 -   [Delete Columns to Make Sorted III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md) - Linear problem, LIS
 -   [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md) - Linear problem, LIS
 -   [Maximum Height by Stacking Cuboids](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README_EN.md) - Sort, Linear problem, LIS
