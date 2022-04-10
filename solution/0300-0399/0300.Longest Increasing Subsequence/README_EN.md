@@ -69,7 +69,6 @@ Greedy & Binary search:
 ```python
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        n = len(nums)
         d = [nums[0]]
         for x in nums[1:]:
             if x > d[-1]:
@@ -414,8 +413,7 @@ Greedy & Binary search:
 
 ```go
 func lengthOfLIS(nums []int) int {
-	n := len(nums)
-	d := make([]int, n+1)
+	d := make([]int, len(nums)+1)
 	d[1] = nums[0]
 	size := 1
 	for _, x := range nums[1:] {
