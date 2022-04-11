@@ -31,7 +31,7 @@ for question in data:
     ).replace("\n\n    <ul>", "\n    <ul>")
 
     for url in pattern.findall(cn_content) or []:
-        image_name = os.path.basename(url)
+        image_name = os.path.basename(url).replace('.PNG', '.png').replace('.JPG', '.jpg')
         new_url = (
             'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
             + str(question['relative_path_cn']).replace("README.md", "images/")
@@ -50,7 +50,7 @@ for question in data:
     ).replace("\n\n    <ul>", "\n    <ul>")
 
     for url in pattern.findall(en_content) or []:
-        image_name = os.path.basename(url)
+        image_name = os.path.basename(url).replace('.PNG', '.png').replace('.JPG', '.jpg')
         new_url = (
             'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
             + str(question['relative_path_cn']).replace("README.md", "images/")
