@@ -73,6 +73,7 @@
 -   [删列造序 III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md) - 线性 DP、最长上升子序列模型
 -   [俄罗斯套娃信封问题](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md) - 线性 DP、最长上升子序列模型、贪心优化
 -   [堆叠长方体的最大高度](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md) - 排序、线性 DP、最长上升子序列模型
+-   [无矛盾的最佳球队](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README.md) - 排序、线性 DP、最长上升子序列模型
 <!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
 ### 4. 高级数据结构
