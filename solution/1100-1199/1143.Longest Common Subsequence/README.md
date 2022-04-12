@@ -63,6 +63,8 @@
 
 ![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1143.Longest%20Common%20Subsequence/images/CodeCogsEqn.gif)
 
+时间复杂度 O(mn)。
+
 <!-- tabs:start -->
 
 ### **Python3**
