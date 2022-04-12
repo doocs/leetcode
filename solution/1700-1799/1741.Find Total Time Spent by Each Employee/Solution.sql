@@ -1,4 +1,3 @@
-# Write your MySQL query statement below
 SELECT
     event_day AS day,
     emp_id,
