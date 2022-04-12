@@ -76,6 +76,7 @@
 -   [无矛盾的最佳球队](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README.md) - 排序、线性 DP、最长上升子序列模型
 -   [最长公共子序列](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md) - 线性 DP、最长公共子序列模型
 -   [两个字符串的最小 ASCII 删除和](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README.md) - 线性 DP、最长公共子序列模型
+-   [两个字符串的删除操作](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README.md) - 线性 DP、最长公共子序列模型
 <!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
 ### 4. 高级数据结构
