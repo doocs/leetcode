@@ -68,6 +68,45 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function sortByBits(arr: number[]): number[] {
+    const countOnes = (num: number) => {
+        let count = 0;
+        while (num !== 0) {
+            num &= num - 1;
+            count++;
+        }
+        return count;
+    };
+    return arr.sort((a, b) => {
+        let res = countOnes(a) - countOnes(b);
+        if (res === 0) {
+            return a - b;
+        }
+        return res;
+    });
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sort_by_bits(mut arr: Vec<i32>) -> Vec<i32> {
+        arr.sort_unstable_by(|a, b| {
+            let res = a.count_ones().cmp(&b.count_ones());
+            if res == std::cmp::Ordering::Equal {
+                return a.cmp(&b);
+            }
+            res
+        });
+        arr
+    }
+}
+```
+
 ### **...**
 
 ```
