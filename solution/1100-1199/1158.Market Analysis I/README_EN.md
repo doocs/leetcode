@@ -111,7 +111,29 @@ Items table:
 ### **SQL**
 
 ```sql
+SELECT user_id AS buyer_id,
+    join_date,
+    COUNT(order_id) AS orders_in_2019
+FROM users AS u
+    LEFT JOIN orders AS o ON u.user_id = o.buyer_id
+    AND YEAR(order_date) = 2019
+GROUP BY user_id;
+```
 
+```sql
+SELECT
+    user_id AS buyer_id,
+    join_date,
+    (
+        SELECT
+            COUNT(*)
+        FROM
+            orders AS o
+        WHERE
+            u.user_id = o.buyer_id AND YEAR(order_date) = 2019
+    ) AS orders_in_2019
+FROM
+    users AS u;
 ```
 
 <!-- tabs:end -->
