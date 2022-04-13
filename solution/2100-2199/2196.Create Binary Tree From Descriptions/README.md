@@ -63,7 +63,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
+        g = defaultdict(TreeNode)
+        vis = set()
+        for p, c, left in descriptions:
+            if p not in g:
+                g[p] = TreeNode(p)
+            if c not in g:
+                g[c] = TreeNode(c)
+            if left:
+                g[p].left = g[c]
+            else:
+                g[p].right = g[c]
+            vis.add(c)
+        for v, node in g.items():
+            if v not in vis:
+                return node
 ```
 
 ### **Java**
@@ -71,7 +93,48 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode createBinaryTree(int[][] descriptions) {
+        Map<Integer, TreeNode> m = new HashMap<>();
+        Set<Integer> vis = new HashSet<>();
+        for (int[] d : descriptions) {
+            int p = d[0], c = d[1], isLeft = d[2];
+            if (!m.containsKey(p)) {
+                m.put(p, new TreeNode(p));
+            }
+            if (!m.containsKey(c)) {
+                m.put(c, new TreeNode(c));
+            }
+            if (isLeft == 1) {
+                m.get(p).left = m.get(c);
+            } else {
+                m.get(p).right = m.get(c);
+            }
+            vis.add(c);
+        }
+        for (Map.Entry<Integer, TreeNode> entry : m.entrySet()) {
+            if (!vis.contains(entry.getKey())) {
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -185,6 +248,82 @@ impl Solution {
         }
         None
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* createBinaryTree(vector<vector<int>>& descriptions) {
+        unordered_map<int, TreeNode*> m;
+        unordered_set<int> vis;
+        for (auto& d : descriptions)
+        {
+            int p = d[0], c = d[1], left = d[2];
+            if (!m.count(p)) m[p] = new TreeNode(p);
+            if (!m.count(c)) m[c] = new TreeNode(c);
+            if (left) m[p]->left = m[c];
+            else m[p]->right = m[c];
+            vis.insert(c);
+        }
+        for (auto& [v, node] : m)
+        {
+            if (!vis.count(v)) return node;
+        }
+        return nullptr;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func createBinaryTree(descriptions [][]int) *TreeNode {
+	m := make(map[int]*TreeNode)
+	vis := make(map[int]bool)
+	for _, d := range descriptions {
+		p, c, left := d[0], d[1], d[2]
+		if m[p] == nil {
+			m[p] = &TreeNode{Val: p}
+		}
+		if m[c] == nil {
+			m[c] = &TreeNode{Val: c}
+		}
+		if left == 1 {
+			m[p].Left = m[c]
+		} else {
+			m[p].Right = m[c]
+		}
+		vis[c] = true
+	}
+
+	for v, node := range m {
+		if !vis[v] {
+			return node
+		}
+	}
+	return nil
 }
 ```
 
