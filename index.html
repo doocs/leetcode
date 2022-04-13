@@ -25,8 +25,13 @@
   <div id="app">LeetCode & Coding Interview Guide @Doocs</div>
   <script>
     const isEn = () => location.hash.includes('README_EN');
+    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
+    const sidebar = () => isRoot() ? false : (isEn() ?  'summary_en.md' : 'summary.md');
+    
     window.addEventListener('hashchange', () => {
-      window.$docsify.loadSidebar = isEn() ?  'summary_en.md' : 'summary.md'
+      window.$docsify.loadSidebar = sidebar();
+      window.$docsify.pagination.previousText = isEn() ? 'PREVIOUS' : '上一题';
+      window.$docsify.pagination.nextText = isEn() ? 'NEXT' : '下一题';
     });
 
     window.$docsify = {
@@ -36,7 +41,7 @@
       search: [
         '/', '/solution/', '/lcof/', '/lcof2/', '/lcci/', '/lcs/', '/lcp/', '/basic/'
       ],
-      loadSidebar: isEn() ?  'summary_en.md' : 'summary.md',
+      loadSidebar: sidebar(),
       auto2top: true,
       subMaxLevel: 2,
       alias: {
@@ -80,8 +85,8 @@
         }
       },
       pagination: {
-        previousText: '上一题',
-        nextText: '下一题',
+        previousText: isEn() ? 'PREVIOUS' : '上一题',
+        nextText: isEn() ? 'NEXT' : '下一题',
         crossChapter: true,
         crossChapterText: true
       },

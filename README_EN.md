@@ -38,7 +38,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Find the Student that Will Replace the Chalk](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md) - Binary search
 -   [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md) - Binary search
 
-#### 2. Search
+### 2. Search
 
 -   [Flood Fill](/solution/0700-0799/0733.Flood%20Fill/README_EN.md) - BFS, DFS, Flood fill
 -   [Number of Islands](/solution/0200-0299/0200.Number%20of%20Islands/README_EN.md) - BFS, Flood fill
