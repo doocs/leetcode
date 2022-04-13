@@ -316,6 +316,11 @@ class LCSpider:
         """generate summary files"""
         summary_cn = ''
         summary_en = ''
+
+        with open('./result.json', 'r', encoding='utf-8') as f:
+            result = f.read()
+            result = json.loads(result)
+        m = {int(item['frontend_question_id']):item for item in result}
         for file in os.listdir('./'):
             if os.path.isdir("./" + file) and file != '__pycache__':
                 summary_cn += f'\n- {file}\n'
@@ -323,7 +328,13 @@ class LCSpider:
                 for sub in os.listdir('./' + file):
                     sub = sub.replace('`', ' ')
                     enc = quote(sub)
-                    summary_cn += f'  - [{sub}](/solution/{file}/{enc}/README.md)\n'
+
+                    data = m.get(int(sub[:4]))
+                    sub_cn = sub
+                    if data:
+                        sub_cn = sub[:5] + data['title_cn']
+
+                    summary_cn += f'  - [{sub_cn}](/solution/{file}/{enc}/README.md)\n'
                     summary_en += f'  - [{sub}](/solution/{file}/{enc}/README_EN.md)\n'
 
         # generate summary.md
