@@ -55,16 +55,10 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 class RandomizedSet:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.m = {}
         self.l = []
 
     def insert(self, val: int) -> bool:
-        """
-        Inserts a value to the set. Returns true if the set did not already contain the specified element.
-        """
         if val in self.m:
             return False
         self.m[val] = len(self.l)
@@ -72,24 +66,17 @@ class RandomizedSet:
         return True
 
     def remove(self, val: int) -> bool:
-        """
-        Removes a value from the set. Returns true if the set contained the specified element.
-        """
         if val not in self.m:
             return False
         idx = self.m[val]
-        last_idx = len(self.l) - 1
-        self.m[self.l[last_idx]] = idx
-        self.m.pop(val)
-        self.l[idx] = self.l[last_idx]
+        self.l[idx] = self.l[-1]
+        self.m[self.l[-1]] = idx
         self.l.pop()
+        self.m.pop(val)
         return True
 
     def getRandom(self) -> int:
-        """
-        Get a random element from the set.
-        """
-        return random.choice(self.l)
+        return choice(self.l)
 
 
 # Your RandomizedSet object will be instantiated and called as such:
@@ -103,18 +90,14 @@ class RandomizedSet:
 
 ```java
 class RandomizedSet {
-    private Map<Integer, Integer> m;
-    private List<Integer> l;
-    private Random rnd;
+    private Map<Integer, Integer> m = new HashMap<>();
+    private List<Integer> l = new ArrayList<>();
+    private Random rnd = new Random();
 
-    /** Initialize your data structure here. */
     public RandomizedSet() {
-        m = new HashMap<>();
-        l = new ArrayList<>();
-        rnd = new Random();
-    }
 
-    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    }
+    
     public boolean insert(int val) {
         if (m.containsKey(val)) {
             return false;
@@ -123,22 +106,19 @@ class RandomizedSet {
         l.add(val);
         return true;
     }
-
-    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    
     public boolean remove(int val) {
         if (!m.containsKey(val)) {
             return false;
         }
         int idx = m.get(val);
-        int lastIdx = l.size() - 1;
-        m.put(l.get(lastIdx), idx);
+        l.set(idx, l.get(l.size() - 1));
+        m.put(l.get(l.size() - 1), idx);
+        l.remove(l.size() - 1);
         m.remove(val);
-        l.set(idx, l.get(lastIdx));
-        l.remove(lastIdx);
         return true;
     }
-
-    /** Get a random element from the set. */
+    
     public int getRandom() {
         int idx = rnd.nextInt(l.size());
         return l.get(idx);
@@ -158,35 +138,31 @@ class RandomizedSet {
 
 ```cpp
 class RandomizedSet {
+private:
     unordered_map<int, int> mp;
     vector<int> nums;
 public:
     RandomizedSet() {
 
     }
-
+    
     bool insert(int val) {
-        if (mp.count(val))
-            return false;
-
+        if (mp.count(val)) return false;
         mp[val] = nums.size();
         nums.push_back(val);
         return true;
     }
-
+    
     bool remove(int val) {
-        if (!mp.count(val))
-            return false;
-
-        int removeIndex = mp[val];
-        nums[removeIndex] = nums.back();
-        mp[nums.back()] = removeIndex;
-
+        if (!mp.count(val)) return false;
+        int idx = mp[val];
+        nums[idx] = nums.back();
+        mp[nums.back()] = idx;
         mp.erase(val);
         nums.pop_back();
         return true;
     }
-
+    
     int getRandom() {
         return nums[rand() % nums.size()];
     }
@@ -201,6 +177,50 @@ public:
  */
 ```
 
+### **Go**
+
+```go
+type RandomizedSet struct {
+	m map[int]int
+	l []int
+}
+
+func Constructor() RandomizedSet {
+	return RandomizedSet{map[int]int{}, []int{}}
+}
+
+func (this *RandomizedSet) Insert(val int) bool {
+	if _, ok := this.m[val]; ok {
+		return false
+	}
+	this.m[val] = len(this.l)
+	this.l = append(this.l, val)
+	return true
+}
+
+func (this *RandomizedSet) Remove(val int) bool {
+	if _, ok := this.m[val]; !ok {
+		return false
+	}
+	idx := this.m[val]
+	this.l[idx] = this.l[len(this.l)-1]
+	this.m[this.l[len(this.l)-1]] = idx
+	this.l = this.l[:len(this.l)-1]
+	delete(this.m, val)
+	return true
+}
+
+func (this *RandomizedSet) GetRandom() int {
+	return this.l[rand.Intn(len(this.l))]
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Insert(val);
+ * param_2 := obj.Remove(val);
+ * param_3 := obj.GetRandom();
+ */
 ```
 
 ### **...**
@@ -210,4 +230,3 @@ public:
 ```
 
 <!-- tabs:end -->
-```
