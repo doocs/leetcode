@@ -132,7 +132,7 @@ class RandomizedSet {
     public RandomizedSet() {
 
     }
-    
+
     public boolean insert(int val) {
         if (m.containsKey(val)) {
             return false;
@@ -141,7 +141,7 @@ class RandomizedSet {
         l.add(val);
         return true;
     }
-    
+
     public boolean remove(int val) {
         if (!m.containsKey(val)) {
             return false;
@@ -153,7 +153,7 @@ class RandomizedSet {
         m.remove(val);
         return true;
     }
-    
+
     public int getRandom() {
         int idx = rnd.nextInt(l.size());
         return l.get(idx);
@@ -180,14 +180,14 @@ public:
     RandomizedSet() {
 
     }
-    
+
     bool insert(int val) {
         if (mp.count(val)) return false;
         mp[val] = nums.size();
         nums.push_back(val);
         return true;
     }
-    
+
     bool remove(int val) {
         if (!mp.count(val)) return false;
         int idx = mp[val];
@@ -197,7 +197,7 @@ public:
         nums.pop_back();
         return true;
     }
-    
+
     int getRandom() {
         return nums[rand() % nums.size()];
     }
@@ -255,6 +255,105 @@ func (this *RandomizedSet) GetRandom() int {
  * param_1 := obj.Insert(val);
  * param_2 := obj.Remove(val);
  * param_3 := obj.GetRandom();
+ */
+```
+
+### **TypeScript**
+
+```ts
+class RandomizedSet {
+    public map: Map<number, number>;
+    public arr: number[];
+    public index: number;
+
+    constructor() {
+        this.map = new Map();
+        this.arr = new Array(2 * 10 ** 5).fill(0);
+        this.index = -1;
+    }
+
+    insert(val: number): boolean {
+        const { map, arr } = this;
+        if (map.has(val)) {
+            return false;
+        }
+        this.index++;
+        arr[this.index] = val;
+        map.set(val, this.index);
+        return true;
+    }
+
+    remove(val: number): boolean {
+        const { arr, map, index } = this;
+        if (!map.has(val)) {
+            return false;
+        }
+        const i = map.get(val);
+        [arr[i], arr[index]] = [arr[index], arr[i]];
+        map.set(arr[i], i);
+        map.delete(arr[index]);
+        this.index--;
+        return true;
+    }
+
+    getRandom(): number {
+        const i = Math.floor(Math.random() * (this.index + 1));
+        return this.arr[i];
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * var obj = new RandomizedSet()
+ * var param_1 = obj.insert(val)
+ * var param_2 = obj.remove(val)
+ * var param_3 = obj.getRandom()
+ */
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+use rand::Rng;
+
+struct RandomizedSet {
+    list: HashSet<i32>
+}
+
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl RandomizedSet {
+
+    fn new() -> Self {
+        Self {
+            list: HashSet::new()
+        }
+    }
+
+    fn insert(&mut self, val: i32) -> bool {
+        self.list.insert(val)
+    }
+
+    fn remove(&mut self, val: i32) -> bool {
+        self.list.remove(&val)
+    }
+
+    fn get_random(&self) -> i32 {
+        let i = rand::thread_rng().gen_range(0, self.list.len());
+        *self.list.iter().collect::<Vec<&i32>>()[i]
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * let obj = RandomizedSet::new();
+ * let ret_1: bool = obj.insert(val);
+ * let ret_2: bool = obj.remove(val);
+ * let ret_3: i32 = obj.get_random();
  */
 ```
 
