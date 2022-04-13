@@ -58,7 +58,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minBitFlips(self, start: int, goal: int) -> int:
+        t = start ^ goal
+        ans = 0
+        while t:
+            ans += t & 1
+            t >>= 1
+        return ans
 ```
 
 ### **Java**
@@ -66,7 +73,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        int t = start ^ goal;
+        int ans = 0;
+        while (t != 0) {
+            ans += t & 1;
+            t >>= 1;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minBitFlips(int start, int goal) {
+        int t = start ^ goal;
+        int ans = 0;
+        while (t)
+        {
+            ans += t & 1;
+            t >>= 1;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minBitFlips(start int, goal int) int {
+	t := start ^ goal
+	ans := 0
+	for t != 0 {
+		ans += t & 1
+		t >>= 1
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

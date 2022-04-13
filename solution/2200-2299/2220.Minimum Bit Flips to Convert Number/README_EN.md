@@ -50,13 +50,62 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minBitFlips(self, start: int, goal: int) -> int:
+        t = start ^ goal
+        ans = 0
+        while t:
+            ans += t & 1
+            t >>= 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        int t = start ^ goal;
+        int ans = 0;
+        while (t != 0) {
+            ans += t & 1;
+            t >>= 1;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minBitFlips(int start, int goal) {
+        int t = start ^ goal;
+        int ans = 0;
+        while (t)
+        {
+            ans += t & 1;
+            t >>= 1;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minBitFlips(start int, goal int) int {
+	t := start ^ goal
+	ans := 0
+	for t != 0 {
+		ans += t & 1
+		t >>= 1
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

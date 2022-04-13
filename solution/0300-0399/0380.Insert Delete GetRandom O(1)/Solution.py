@@ -1,5 +1,4 @@
 class RandomizedSet:
-
     def __init__(self):
         self.m = {}
         self.l = []

@@ -8,4 +8,4 @@ class Solution:
                 arr.append(s)
         arr.sort()
         MOD = 10**9 + 7
-        return sum(arr[left - 1: right]) % MOD
+        return sum(arr[left - 1 : right]) % MOD

@@ -10,7 +10,7 @@
  * }
  */
 
- function mergeNodes(head: ListNode | null): ListNode | null {
+function mergeNodes(head: ListNode | null): ListNode | null {
     let dummy = new ListNode(-1);
     let p = dummy;
     let sum = 0;
@@ -27,4 +27,4 @@
         head = head.next;
     }
     return dummy.next;
-};
+}
