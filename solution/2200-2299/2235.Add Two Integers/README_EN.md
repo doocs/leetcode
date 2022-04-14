@@ -37,19 +37,46 @@ Given two integers <code>num1</code> and <code>num2</code>, return <em>the <stro
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sum(self, num1: int, num2: int) -> int:
+        return num1 + num2
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function sum(num1: number, num2: number): number {
+    return num1 + num2;
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sum(num1 int, num2 int) int {
+	return num1 + num2
+}
 ```
 
 ### **...**
