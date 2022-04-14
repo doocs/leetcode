@@ -1,0 +1,40 @@
+name: Preview Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "12"
+          check-latest: true
+      
+      - name: Build
+        run: |
+          npm install --global surge
+      - name: Upload surge service
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=https://doocs-leetcode-preview-pr-${{ github.event.pull_request.number }}.surge.sh
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          
+      - name: Upload status comment
+        uses: actions-cool/maintain-one-comment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            🎊 PR Preview has been successfully built and deployed to https://doocs-leetcode-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
+            <img width="300" src="https://user-images.githubusercontent.com/507615/90250366-88233900-de6e-11ea-95a5-84f0762ffd39.png">
+            <!-- Sticky Pull Request Comment -->
+          body-include: '<!-- Sticky Pull Request Comment -->'
+          number: ${{ github.event.pull_request.number }}
