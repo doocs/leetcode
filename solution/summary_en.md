@@ -2278,3 +2278,5 @@
   - [2232.Minimize Result by Adding Parentheses to Expression](/solution/2200-2299/2232.Minimize%20Result%20by%20Adding%20Parentheses%20to%20Expression/README_EN.md)
   - [2233.Maximum Product After K Increments](/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README_EN.md)
   - [2234.Maximum Total Beauty of the Gardens](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README_EN.md)
+  - [2235.Add Two Integers](/solution/2200-2299/2235.Add%20Two%20Integers/README_EN.md)
+  - [2236.Root Equals Sum of Children](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README_EN.md)
