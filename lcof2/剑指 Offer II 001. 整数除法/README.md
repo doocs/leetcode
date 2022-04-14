@@ -29,7 +29,7 @@
 
 <pre>
 <strong>输入：</strong>a = 7, b = -3
-<strong>输出：</strong><span style="white-space: pre-wrap;">0</span>
+<strong>输出：</strong><span style="white-space: pre-wrap;">-2</span>
 <strong><span style="white-space: pre-wrap;">解释：</span></strong>7/-3 = truncate(-2.33333..) = -2</pre>
 
 <p><strong>示例 3：</strong></p>
