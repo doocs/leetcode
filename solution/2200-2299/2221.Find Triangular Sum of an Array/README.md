@@ -59,7 +59,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def triangularSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        for i in range(n, 0, -1):
+            for j in range(i - 1):
+                nums[j] = (nums[j] + nums[j + 1]) % 10
+        return nums[0]
 ```
 
 ### **Java**
@@ -67,7 +73,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int triangularSum(int[] nums) {
+        int n = nums.length;
+        for (int i = n; i >= 0; --i) {
+            for (int j = 0; j < i - 1; ++j) {
+                nums[j] = (nums[j] + nums[j + 1]) % 10;
+            }
+        }
+        return nums[0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int triangularSum(vector<int>& nums) {
+        int n = nums.size();
+        for (int i = n; i >= 0; --i)
+            for (int j = 0; j < i - 1; ++j)
+                nums[j] = (nums[j] + nums[j + 1]) % 10;
+        return nums[0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func triangularSum(nums []int) int {
+	n := len(nums)
+	for i := n; i >= 0; i-- {
+		for j := 0; j < i-1; j++ {
+			nums[j] = (nums[j] + nums[j+1]) % 10
+		}
+	}
+	return nums[0]
+}
 ```
 
 ### **TypeScript**
