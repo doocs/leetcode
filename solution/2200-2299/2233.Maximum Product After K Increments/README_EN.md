@@ -6,7 +6,7 @@
 
 <p>You are given an array of non-negative integers <code>nums</code> and an integer <code>k</code>. In one operation, you may choose <strong>any</strong> element from <code>nums</code> and <strong>increment</strong> it by <code>1</code>.</p>
 
-<p>Return<em> the <strong>maximum</strong> <strong>product</strong> of </em><code>nums</code><em> after <strong>at most</strong> </em><code>k</code><em> operations. </em>Since the answer may be very large, return it <b>modulo</b> <code>10<sup>9</sup> + 7</code>.</p>
+<p>Return<em> the <strong>maximum</strong> <strong>product</strong> of </em><code>nums</code><em> after <strong>at most</strong> </em><code>k</code><em> operations. </em>Since the answer may be very large, return it <b>modulo</b> <code>10<sup>9</sup> + 7</code>. Note that you should maximize the product before taking the modulo.&nbsp;</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -39,7 +39,6 @@ Note that there may be other ways to increment nums to have the maximum product.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -64,7 +63,7 @@ Note that there may be other ways to increment nums to have the maximum product.
  * @param {number} k
  * @return {number}
  */
-var maximumProduct = function(nums, k) {
+var maximumProduct = function (nums, k) {
     const n = nums.length;
     let pq = new MinPriorityQueue();
     for (let i = 0; i < n; i++) {
@@ -76,7 +75,7 @@ var maximumProduct = function(nums, k) {
     let ans = 1;
     const limit = 10 ** 9 + 7;
     for (let i = 0; i < n; i++) {
-        ans = ans * pq.dequeue().element % limit;
+        ans = (ans * pq.dequeue().element) % limit;
     }
     return ans;
 };

@@ -84,11 +84,11 @@ function maxProfit(prices: number[]): number {
         dp[i] = [
             Math.max(dp[i - 1][0], dp[i - 1][2]),
             Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]),
-            dp[i - 1][1] + prices[i]
+            dp[i - 1][1] + prices[i],
         ];
     }
     return Math.max(dp[n - 1][0], dp[n - 1][2]);
-};
+}
 ```
 
 ### **C++**

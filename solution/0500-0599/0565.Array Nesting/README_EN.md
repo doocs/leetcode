@@ -22,7 +22,7 @@
 <pre>
 <strong>Input:</strong> nums = [5,4,0,3,1,6,2]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 nums[0] = 5, nums[1] = 4, nums[2] = 0, nums[3] = 3, nums[4] = 1, nums[5] = 6, nums[6] = 2.
 One of the longest sets s[k]:
 s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}

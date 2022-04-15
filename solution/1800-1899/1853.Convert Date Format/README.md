@@ -8,7 +8,8 @@
 
 <p>表: <code>Days</code></p>
 
-<pre>+-------------+------+
+<pre>
++-------------+------+
 | Column Name | Type |
 +-------------+------+
 | day         | date |
@@ -16,17 +17,21 @@
 day 是这个表的主键。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>给定一个<code>Days</code>表，请你编写SQL查询语句，将<code>Days</code>表中的每一个日期转化为<code>"day_name, month_name day, year"</code>格式的字符串。</p>
 
-<p>返回的结果表不计顺序。</p>
+<p>返回的结果表 <strong>不计顺序</strong> 。</p>
 
-<p> </p>
+<p>查询结果格式如下例所示。</p>
 
-<p>例如：</p>
+<p>&nbsp;</p>
 
-<pre>Days table:
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Days table:
 +------------+
 | day        |
 +------------+
@@ -34,8 +39,7 @@ day 是这个表的主键。
 | 2021-08-09 |
 | 2020-06-26 |
 +------------+
-
-Result table:
+<strong>输出：</strong>
 +-------------------------+
 | day                     |
 +-------------------------+
@@ -43,8 +47,7 @@ Result table:
 | Monday, August 9, 2021  |
 | Friday, June 26, 2020   |
 +-------------------------+
-请注意，输出对大小写敏感。
-</pre>
+<strong>解释：</strong>请注意，输出对大小写敏感。</pre>
 
 ## 解法
 

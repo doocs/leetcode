@@ -143,5 +143,5 @@ WHERE
             o.sales_id = s.sales_id AND c.name = 'RED'
     );
 ```
-    
+
 <!-- tabs:end -->

@@ -13,6 +13,8 @@
 	<li>Replace <code>c</code> with <code>values[i]</code> in the string.</li>
 </ol>
 
+<p>Note that in case a character of the string is <strong>not present</strong> in <code>keys</code>, the encryption process cannot be carried out, and an empty string <code>&quot;&quot;</code> is returned.</p>
+
 <p>A string is <strong>decrypted</strong> with the following process:</p>
 
 <ol>

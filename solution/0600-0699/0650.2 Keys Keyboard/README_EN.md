@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>There is only one character <code>&#39;A&#39;</code> on the screen of a notepad. You can perform two operations on this notepad for each step:</p>
+<p>There is only one character <code>&#39;A&#39;</code> on the screen of a notepad. You can perform one of two operations on this notepad for each step:</p>
 
 <ul>
 	<li>Copy All: You can copy all the characters present on the screen (a partial copy is not allowed).</li>
@@ -19,7 +19,7 @@
 <pre>
 <strong>Input:</strong> n = 3
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> Intitally, we have one character &#39;A&#39;.
+<strong>Explanation:</strong> Initially, we have one character &#39;A&#39;.
 In step 1, we use Copy All operation.
 In step 2, we use Paste operation to get &#39;AA&#39;.
 In step 3, we use Paste operation to get &#39;AAA&#39;.

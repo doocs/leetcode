@@ -35,7 +35,7 @@
 <pre>
 <strong>Input:</strong> n = 89
 <strong>Output:</strong> true
-<strong>Explanation:</strong> We get 68 after rotating 89, 86 is a valid number and 86 != 89.
+<strong>Explanation:</strong> We get 68 after rotating 89, 68 is a valid number and 68 != 89.
 </pre>
 
 <p><strong>Example 3:</strong></p>

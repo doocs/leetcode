@@ -49,7 +49,7 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 	<li><code>0 &lt;= index &lt; nums.length</code></li>
 	<li><code>-100 &lt;= val &lt;= 100</code></li>
 	<li><code>0 &lt;= left &lt;= right &lt; nums.length</code></li>
-	<li>调用 <code>pdate</code> 和 <code>sumRange</code> 方法次数不大于&nbsp;<code>3 * 10<sup>4</sup></code>&nbsp;</li>
+	<li>调用 <code>update</code> 和 <code>sumRange</code> 方法次数不大于&nbsp;<code>3 * 10<sup>4</sup></code>&nbsp;</li>
 </ul>
 
 ## 解法

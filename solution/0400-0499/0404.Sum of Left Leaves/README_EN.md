@@ -4,7 +4,9 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary tree, return the sum of all left leaves.</p>
+<p>Given the <code>root</code> of a binary tree, return <em>the sum of all left leaves.</em></p>
+
+<p>A <strong>leaf</strong> is a node with no children. A <strong>left leaf</strong> is a leaf that is the left child of another node.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

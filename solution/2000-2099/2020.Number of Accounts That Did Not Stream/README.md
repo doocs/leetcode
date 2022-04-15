@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Subscriptions</code></p>
+<p>表: <code>Subscriptions</code></p>
 
 <pre>
 +-------------+------+
@@ -16,14 +16,13 @@
 | start_date  | date |
 | end_date    | date |
 +-------------+------+
-account_id is the primary key column for this table.
-Each row of this table indicates the start and end dates of an account&#39;s subscription.
-Note that always start_date &lt; end_date.
-</pre>
+account_id 是此表的主键列。
+此表的每一行都表示帐户订阅的开始和结束日期。
+请注意，始终开始日期 &lt; 结束日期。</pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Streams</code></p>
+<p>表: <code>Streams</code></p>
 
 <pre>
 +-------------+------+
@@ -33,22 +32,21 @@ Note that always start_date &lt; end_date.
 | account_id  | int  |
 | stream_date | date |
 +-------------+------+
-session_id is the primary key column for this table.
-account_id is a foreign key from the Subscriptions table.
-Each row of this table contains information about the account and the date associated with a stream session.
-</pre>
+session_id是该表的主键列。
+account_id是订阅表中的外键。
+此表的每一行都包含与会话相关联的帐户和日期的信息。</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of accounts that bought a subscription in <code>2021</code> but did not have any stream session.</p>
-
-<p>The query result format is in the following example.</p>
+<p>编写SQL查询以报告在 <code>2021</code> 购买订阅但没有任何会话的帐 户数。<br />
+查询结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>输入:</strong> 
 Subscriptions table:
 +------------+------------+------------+
 | account_id | start_date | end_date   |
@@ -71,15 +69,14 @@ Streams table:
 | 19         | 4          | 2020-12-31  |
 | 13         | 5          | 2021-01-05  |
 +------------+------------+-------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +----------------+
 | accounts_count |
 +----------------+
 | 2              |
 +----------------+
-<strong>Explanation:</strong> Users 4 and 9 did not stream in 2021.
-User 11 did not subscribe in 2021.
-</pre>
+<strong>解释：</strong>用户 4 和 9 在 2021 没有会话。
+用户 11 在 2021 没有订阅。</pre>
 
 ## 解法
 

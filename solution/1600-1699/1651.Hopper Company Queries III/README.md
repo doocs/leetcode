@@ -15,9 +15,8 @@
 | driver_id   | int     |
 | join_date   | date    |
 +-------------+---------+
-driver_id is the primary key for this table.
-Each row of this table contains the driver&#39;s ID and the date they joined the Hopper company.
-</pre>
+driver_id是该表的主键。
+该表的每一行均包含驾驶员的ID以及他们加入Hopper公司的日期。</pre>
 
 <p>&nbsp;</p>
 
@@ -31,9 +30,9 @@ Each row of this table contains the driver&#39;s ID and the date they joined the
 | user_id      | int     |
 | requested_at | date    |
 +--------------+---------+
-ride_id is the primary key for this table.
-Each row of this table contains the ID of a ride, the user&#39;s ID that requested it, and the day they requested it.
-There may be some ride requests in this table that were not accepted.
+ride_id是该表的主键。 
+该表的每一行均包含行程ID(ride_id)，用户ID(user_id)以及该行程的日期(requested_at)。 
+该表中可能有一些不被接受的乘车请求。
 </pre>
 
 <p>&nbsp;</p>
@@ -49,26 +48,24 @@ There may be some ride requests in this table that were not accepted.
 | ride_distance | int     |
 | ride_duration | int     |
 +---------------+---------+
-ride_id is the primary key for this table.
-Each row of this table contains some information about an accepted ride.
-It is guaranteed that each accepted ride exists in the Rides table.
-</pre>
+ride_id是该表的主键。 
+该表的每一行都包含已接受的行程信息。 
+表中的行程信息都在“<code>Rides</code>”表中存在。</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to compute the <code>average_ride_distance</code> and <code>average_ride_duration</code> of every 3-month window starting from <strong>January - March 2020</strong> to <strong>October - December 2020</strong>. Round <code>average_ride_distance</code> and <code>average_ride_duration</code> to the nearest <strong>two decimal places</strong>.</p>
+<p>编写SQL查询以计算从&nbsp;<strong>2020年1月至3月至2020年10月至12月&nbsp;</strong>的每三个月窗口的&nbsp;<code>average_ride_distance</code>&nbsp;和&nbsp;<code>average_ride_duration</code>&nbsp;。将&nbsp;<code>average_ride_distance</code>&nbsp;和&nbsp;<code>average_ride_duration</code>&nbsp;四舍五入至 <strong>小数点后两位</strong> 。<br />
+通过将三个月的总&nbsp;<code>ride_distance</code>&nbsp;相加并除以 <code>3</code> 来计算&nbsp;<code>average_ride_distance</code>&nbsp;。<code>average_ride_duration</code>&nbsp;的计算方法与此类似。<br />
+返回按&nbsp;<code>month</code>&nbsp;升序排列的结果表，其中&nbsp;<code>month</code>&nbsp;是起始月份的编号（一月为 1，二月为 2 ...）。</p>
 
-<p>The <code>average_ride_distance</code> is calculated by summing up the total <code>ride_distance</code> values from the three months and dividing it by <code>3</code>. The <code>average_ride_duration</code> is calculated in a similar way.</p>
-
-<p>Return the result table ordered by <code>month</code> in ascending order, where <code>month</code> is the starting month&#39;s number (January is <code>1</code>, February is <code>2</code>, etc.).</p>
-
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>输入:</strong> 
 Drivers table:
 +-----------+------------+
 | driver_id | join_date  |
@@ -117,7 +114,7 @@ AcceptedRides table:
 | 12      | 8         | 38            | 34            |
 | 14      | 1         | 90            | 74            |
 +---------+-----------+---------------+---------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +-------+-----------------------+-----------------------+
 | month | average_ride_distance | average_ride_duration |
 +-------+-----------------------+-----------------------+
@@ -132,18 +129,17 @@ AcceptedRides table:
 | 9     | 54.33                 | 64.33                 |
 | 10    | 56.33                 | 77.00                 |
 +-------+-----------------------+-----------------------+
-<strong>Explanation:</strong> 
-By the end of January --&gt; average_ride_distance = (0+0+63)/3=21, average_ride_duration = (0+0+38)/3=12.67
-By the end of February --&gt; average_ride_distance = (0+63+0)/3=21, average_ride_duration = (0+38+0)/3=12.67
-By the end of March --&gt; average_ride_distance = (63+0+0)/3=21, average_ride_duration = (38+0+0)/3=12.67
-By the end of April --&gt; average_ride_distance = (0+0+73)/3=24.33, average_ride_duration = (0+0+96)/3=32.00
-By the end of May --&gt; average_ride_distance = (0+73+100)/3=57.67, average_ride_duration = (0+96+28)/3=41.33
-By the end of June --&gt; average_ride_distance = (73+100+119)/3=97.33, average_ride_duration = (96+28+68)/3=64.00
-By the end of July --&gt; average_ride_distance = (100+119+0)/3=73.00, average_ride_duration = (28+68+0)/3=32.00
-By the end of August --&gt; average_ride_distance = (119+0+0)/3=39.67, average_ride_duration = (68+0+0)/3=22.67
-By the end of Septemeber --&gt; average_ride_distance = (0+0+163)/3=54.33, average_ride_duration = (0+0+193)/3=64.33
-By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_ride_duration = (0+193+38)/3=77.00
-</pre>
+<strong>解释:</strong> 
+到1月底--&gt;平均骑行距离=（0+0+63）/3=21，平均骑行持续时间=（0+0+38）/3=12.67
+到2月底--&gt;平均骑行距离=（0+63+0）/3=21，平均骑行持续时间=（0+38+0）/3=12.67
+到3月底--&gt;平均骑行距离=（63+0+0）/3=21，平均骑行持续时间=（38+0+0）/3=12.67
+到4月底--&gt;平均骑行距离=（0+0+73）/3=24.33，平均骑行持续时间=（0+0+96）/3=32.00
+到5月底--&gt;平均骑行距离=（0+73+100）/3=57.67，平均骑行持续时间=（0+96+28）/3=41.33
+到6月底--&gt;平均骑行距离=（73+100+119）/3=97.33，平均骑行持续时间=（96+28+68）/3=64.00
+到7月底--&gt;平均骑行距离=（100+119+0）/3=73.00，平均骑行持续时间=（28+68+0）/3=32.00
+到8月底--&gt;平均骑行距离=（119+0+0）/3=39.67，平均骑行持续时间=（68+0+0）/3=22.67
+9月底--&gt;平均骑行距离=（0+0+163）/3=54.33，平均骑行持续时间=（0+0+193）/3=64.33
+到10月底--&gt;平均骑行距离=（0+163+6）/3=56.33，平均骑行持续时间=（0+193+38）/3=77.00</pre>
 
 ## 解法
 

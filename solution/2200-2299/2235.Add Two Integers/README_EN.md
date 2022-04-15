@@ -5,6 +5,7 @@
 ## Description
 
 Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -28,7 +29,6 @@ Given two integers <code>num1</code> and <code>num2</code>, return <em>the <stro
 <ul>
 	<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
 </ul>
-
 
 ## Solutions
 

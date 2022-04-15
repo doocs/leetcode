@@ -8,7 +8,8 @@
 
 <p>表: <code>Employees</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | employee_id | int     |
@@ -35,9 +36,15 @@ employee_id 是这个表的主键.
 
 <p>返回的结果表按照&nbsp;<code>team_id</code>&nbsp;<b>升序排列。</b>如果相同，则按照&nbsp;<code>employee_id</code>&nbsp;<strong>升序排列</strong>。</p>
 
-<p>查询结果格式如下例：</p>
+<p>查询结果格式如下例。</p>
 
-<pre>Employees 表:
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Employees 表:
 +-------------+---------+--------+
 | employee_id | name    | salary |
 +-------------+---------+--------+
@@ -47,8 +54,7 @@ employee_id 是这个表的主键.
 | 8           | Juan    | 6100   |
 | 9           | Kannon  | 7400   |
 +-------------+---------+--------+
-
-Result 表:
+<strong>输出：</strong>
 +-------------+---------+--------+---------+
 | employee_id | name    | salary | team_id |
 +-------------+---------+--------+---------+
@@ -57,7 +63,7 @@ Result 表:
 | 7           | Addilyn | 7400   | 2       |
 | 9           | Kannon  | 7400   | 2       |
 +-------------+---------+--------+---------+
-
+<strong>解释：</strong>
 Meir (employee_id=2) 和 Michael (employee_id=3) 在同一个队伍中，因为他们的工资都是3000。
 Addilyn (employee_id=7) 和 Kannon (employee_id=9) 在同一个队伍中，因为他们的工资都是7400。
 Juan (employee_id=8) 不在任何一个队伍中，因为他的工资为6100，是独一无二的（即：没有人和他的工资相同）。

@@ -39,7 +39,6 @@
 	<li><code>1 &lt;= num &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -67,7 +66,7 @@
 ```ts
 function largestInteger(num: number): number {
     let arrs = String(num).split('').map(Number);
-    let odds = [];  // 奇数
+    let odds = []; // 奇数
     let evens = [];
     for (let i of arrs) {
         if ((i & 1) == 1) {
@@ -80,10 +79,10 @@ function largestInteger(num: number): number {
     evens.sort((a, b) => a - b);
     let ans = [];
     for (let i of arrs) {
-        ans.push((i & 1) == 1 ? (odds.pop()) : (evens.pop()));
+        ans.push((i & 1) == 1 ? odds.pop() : evens.pop());
     }
     return Number(ans.join(''));
-};
+}
 ```
 
 ### **...**

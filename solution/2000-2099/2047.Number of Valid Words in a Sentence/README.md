@@ -11,7 +11,7 @@
 <p>如果一个 token 同时满足下述条件，则认为这个 token 是一个有效单词：</p>
 
 <ul>
-	<li>仅由小写字母、连字符和/或标点（不含数字）组成。</li>
+	<li>仅由小写字母、连字符和/或标点（不含数字）组成。</li>
 	<li><strong>至多一个</strong> 连字符 <code>'-'</code> 。如果存在，连字符两侧应当都存在小写字母（<code>"a-b"</code> 是一个有效单词，但 <code>"-ab"</code> 和 <code>"ab-"</code> 不是有效单词）。</li>
 	<li><strong>至多一个 </strong>标点符号。如果存在，标点符号应当位于 token 的 <strong>末尾</strong> 。</li>
 </ul>
@@ -47,14 +47,6 @@
 <strong>输出：</strong>5
 <strong>解释：</strong>句子中的有效单词是 "alice"、"and"、"bob"、"are" 和 "playing"
 "stone-game10" 不是有效单词，因为它含有数字
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>sentence = "<em><strong>he</strong></em> <em><strong>bought</strong></em> 2 <em><strong>pencils,</strong></em> 3 <em><strong>erasers,</strong></em> <em><strong>and</strong></em> 1  <em><strong>pencil-sharpener.</strong></em>"
-<strong>输出：</strong>6
-<strong>解释：</strong>句子中的有效单词是 "he"、"bought"、"pencils,"、"erasers,"、"and" 和 "pencil-sharpener."
 </pre>
 
 <p>&nbsp;</p>

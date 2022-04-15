@@ -14,29 +14,17 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>arr = [1,2,3]
+<pre>
+<strong>输入：</strong>arr = [1,2,3]
 <strong>输出：</strong>2
 <strong>解释：</strong>1 和 2 被计算次数因为 2 和 3 在数组 arr 里。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>arr = [1,1,3,3,5,5,7,7]
+<pre>
+<strong>输入：</strong>arr = [1,1,3,3,5,5,7,7]
 <strong>输出：</strong>0
 <strong>解释：</strong>所有的数都不算, 因为数组里没有 2、4、6、8。
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>arr = [1,3,2,3,5,0]
-<strong>输出：</strong>3
-<strong>解释：</strong>0、1、2 被计算了因为 1、2、3 在数组里。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>arr = [1,1,2,2]
-<strong>输出：</strong>2
-<strong>解释：</strong>两个 1 被计算了因为有 2 在数组里。
 </pre>
 
 <p>&nbsp;</p>

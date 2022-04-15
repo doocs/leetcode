@@ -16,7 +16,7 @@
 
 <p>如果字符串 <code>s</code> 有效，则返回 <code>true</code>；否则，返回 <code>false</code>。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -24,7 +24,7 @@
 <strong>输入：</strong>s = "aabcbc"
 <strong>输出：</strong>true
 <strong>解释：</strong>
-"" -> "<strong>abc</strong>" -> "a<strong>abc</strong>bc"
+"" -&gt; "<strong>abc</strong>" -&gt; "a<strong>abc</strong>bc"
 因此，"aabcbc" 有效。</pre>
 
 <p><strong>示例 2：</strong></p>
@@ -33,7 +33,7 @@
 <strong>输入：</strong>s = "abcabcababcc"
 <strong>输出：</strong>true
 <strong>解释：</strong>
-"" -> "<strong>abc</strong>" -> "abc<strong>abc</strong>" -> "abcabc<strong>abc</strong>" -> "abcabcab<strong>abc</strong>c"
+"" -&gt; "<strong>abc</strong>" -&gt; "abc<strong>abc</strong>" -&gt; "abcabc<strong>abc</strong>" -&gt; "abcabcab<strong>abc</strong>c"
 因此，"abcabcababcc" 有效。</pre>
 
 <p><strong>示例 3：</strong></p>
@@ -43,19 +43,12 @@
 <strong>输出：</strong>false
 <strong>解释：</strong>执行操作无法得到 "abccba" 。</pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "cababc"
-<strong>输出：</strong>false
-<strong>解释：</strong>执行操作无法得到 "cababc" 。</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= s.length <= 2 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= s.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>s</code> 由字母 <code>'a'</code>、<code>'b'</code> 和 <code>'c'</code> 组成</li>
 </ul>
 

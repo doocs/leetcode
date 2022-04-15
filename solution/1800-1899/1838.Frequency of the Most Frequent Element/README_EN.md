@@ -78,7 +78,7 @@ class Solution:
                 if j < n and nums[j] * cnt - (s[j + 1] - s[i]) <= k:
                     return True
             return False
-        
+
         nums.sort()
         n = len(nums)
         s = [0] + list(accumulate(nums))

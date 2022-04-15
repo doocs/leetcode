@@ -100,7 +100,7 @@ class Solution {
 class Solution {
 public:
     const int MAX_WIDTH = 100;
-    
+
     vector<int> numberOfLines(vector<int>& widths, string s) {
         int last = 0, row = 1;
         for (char c : s)

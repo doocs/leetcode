@@ -136,7 +136,7 @@ class Solution {
                             if (y1 >= 0 && y1 < n && y2 >= 0 && y2 < n && valid[i - 1][y1][y2]) {
                                 dp[i][j1][j2] = Math.max(dp[i][j1][j2], dp[i - 1][y1][y2] + t);
                                 ok = true;
-                            }       
+                            }
                         }
                     }
                     valid[i][j1][j2] = ok;

@@ -16,7 +16,7 @@
 <strong>Output:</strong> [101,111,121,131,141,999]
 <strong>Explanation:</strong>
 The first few palindromes of length 3 are:
-101, 111, 121, 131, 141, 151, 161, 171, 181, 191, 201, ...
+101, 111, 121, 131, 141, 151, 161, 171, 181, 191, 202, ...
 The 90<sup>th</sup> palindrome of length 3 is 999.
 </pre>
 
@@ -57,6 +57,7 @@ The first six palindromes of length 4 are:
 
 <!-- tabs:end -->
 <!-- tabs:end -->
+
 ### **TypeScript**
 
 ```ts

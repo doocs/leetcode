@@ -6,21 +6,26 @@
 
 <!-- 这里写题目描述 -->
 
-<p>表1: <code>Person</code></p>
+<p>表: <code>Person</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | 列名         | 类型     |
 +-------------+---------+
 | PersonId    | int     |
 | FirstName   | varchar |
 | LastName    | varchar |
 +-------------+---------+
-PersonId 是上表主键
+personId是该表的主键列。
+该表包含一些人的ID和他们的姓和名的信息。
 </pre>
 
-<p>表2: <code>Address</code></p>
+<p>&nbsp;</p>
 
-<pre>+-------------+---------+
+<p>表: <code>Address</code></p>
+
+<pre>
++-------------+---------+
 | 列名         | 类型    |
 +-------------+---------+
 | AddressId   | int     |
@@ -28,17 +33,48 @@ PersonId 是上表主键
 | City        | varchar |
 | State       | varchar |
 +-------------+---------+
-AddressId 是上表主键
+addressId是该表的主键列。
+该表的每一行都包含一个ID = PersonId的人的城市和州的信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询，满足条件：无论 person 是否有地址信息，都需要基于上述两表提供&nbsp;person 的以下信息：</p>
+<p>编写一个SQL查询来报告 <code>Person</code> 表中每个人的姓、名、城市和状态。如果 <code>personId</code> 的地址不在&nbsp;<code>Address</code>&nbsp;表中，则报告为空 &nbsp;<code>null</code>&nbsp;。</p>
+
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
+
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 
-<pre>FirstName, LastName, City, State
-</pre>
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> 
+Person表:
++----------+----------+-----------+
+| personId | lastName | firstName |
++----------+----------+-----------+
+| 1        | Wang     | Allen     |
+| 2        | Alice    | Bob       |
++----------+----------+-----------+
+Address表:
++-----------+----------+---------------+------------+
+| addressId | personId | city          | state      |
++-----------+----------+---------------+------------+
+| 1         | 2        | New York City | New York   |
+| 2         | 3        | Leetcode      | California |
++-----------+----------+---------------+------------+
+<strong>输出:</strong> 
++-----------+----------+---------------+----------+
+| firstName | lastName | city          | state    |
++-----------+----------+---------------+----------+
+| Allen     | Wang     | Null          | Null     |
+| Bob       | Alice    | New York City | New York |
++-----------+----------+---------------+----------+
+<strong>解释:</strong> 
+地址表中没有 personId = 1 的地址，所以它们的城市和州返回null。
+addressId = 1 包含了 personId = 2 的地址信息。</pre>
 
 ## 解法
 

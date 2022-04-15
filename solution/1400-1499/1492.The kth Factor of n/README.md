@@ -16,37 +16,26 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>n = 12, k = 3
+<pre>
+<strong>输入：</strong>n = 12, k = 3
 <strong>输出：</strong>3
 <strong>解释：</strong>因子列表包括 [1, 2, 3, 4, 6, 12]，第 3 个因子是 3 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>n = 7, k = 2
+<pre>
+<strong>输入：</strong>n = 7, k = 2
 <strong>输出：</strong>7
 <strong>解释：</strong>因子列表包括 [1, 7] ，第 2 个因子是 7 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>n = 4, k = 4
+<pre>
+<strong>输入：</strong>n = 4, k = 4
 <strong>输出：</strong>-1
 <strong>解释：</strong>因子列表包括 [1, 2, 4] ，只有 3 个因子，所以我们应该返回 -1 。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>n = 1, k = 1
-<strong>输出：</strong>1
-<strong>解释：</strong>因子列表包括 [1] ，第 1 个因子为 1 。
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>n = 1000, k = 3
-<strong>输出：</strong>4
-<strong>解释：</strong>因子列表包括 [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000] 。
 </pre>
 
 <p>&nbsp;</p>

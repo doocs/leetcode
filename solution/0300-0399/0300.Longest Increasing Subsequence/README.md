@@ -330,7 +330,8 @@ function lengthOfLIS(nums: number[]): number {
         if (nums[i] > d[size]) {
             d[++size] = nums[i];
         } else {
-            let left = 1, right = size;
+            let left = 1,
+                right = size;
             while (left < right) {
                 const mid = (left + right) >> 1;
                 if (d[mid] >= nums[i]) {
@@ -344,7 +345,7 @@ function lengthOfLIS(nums: number[]): number {
         }
     }
     return size;
-};
+}
 ```
 
 ### **C++**
