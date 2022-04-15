@@ -19,6 +19,71 @@ sub_folders = [
 cn_graph_url = 'https://leetcode-cn.com/graphql'
 difficulty = dict(Easy='简单', Medium='中等', Hard='困难')
 
+"""
+{
+    "sub_folder":"2200-2299",
+    "question_id":"2385",
+    "frontend_question_id":"2237",
+    "paid_only":true,
+    "paid_only_cn":true,
+    "category":"Algorithms",
+    "url_cn":"https://leetcode-cn.com/problems/count-positions-on-street-with-required-brightness",
+    "url_en":"https://leetcode.com/problems/count-positions-on-street-with-required-brightness",
+    "relative_path_cn":"/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README.md",
+    "relative_path_en":"/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README_EN.md",
+    "title_cn":"Count Positions on Street With Required Brightness",
+    "title_en":"Count Positions on Street With Required Brightness",
+    "question_title_slug":"count-positions-on-street-with-required-brightness",
+    "content_en":"Description",
+    "content_cn":"问题描述[此处省略]",
+    "tags_en":[
+
+    ],
+    "tags_cn":[
+
+    ],
+    "difficulty_en":"Medium",
+    "difficulty_cn":"中等",
+    "code_snippets":[
+        {
+            "lang":"C++",
+            "langSlug":"cpp",
+            "code":"class Solution {
+public:
+    int meetRequirement(int n, vector<vector<int>>& lights, vector<int>& requirement) {
+        
+    }
+};",
+            "__typename":"CodeSnippetNode"
+        },
+        {
+            "lang":"Java",
+            "langSlug":"java",
+            "code":"class Solution {
+    public int meetRequirement(int n, int[][] lights, int[] requirement) {
+
+    }
+}",
+            "__typename":"CodeSnippetNode"
+        }
+    ],
+    "md_table_row_cn":[
+        "[2237](https://leetcode-cn.com/problems/count-positions-on-street-with-required-brightness)",
+        "[Count Positions on Street With Required Brightness](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README.md)",
+        "",
+        "中等",
+        "🔒"
+    ],
+    "md_table_row_en":[
+        "[2237](https://leetcode.com/problems/count-positions-on-street-with-required-brightness)",
+        "[Count Positions on Street With Required Brightness](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README_EN.md)",
+        "",
+        "Medium",
+        "🔒"
+    ]
+}
+"""
+
 
 class Spider:
     def __init__(self, cookie_cn: str, cookie_en: str):
