@@ -2280,3 +2280,5 @@
   - [2234.Maximum Total Beauty of the Gardens](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README_EN.md)
   - [2235.Add Two Integers](/solution/2200-2299/2235.Add%20Two%20Integers/README_EN.md)
   - [2236.Root Equals Sum of Children](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README_EN.md)
+  - [2237.Count Positions on Street With Required Brightness](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README_EN.md)
+  - [2238.Number of Times a Driver Was a Passenger](/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README_EN.md)

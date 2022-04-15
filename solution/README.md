@@ -416,7 +416,7 @@
 |  [0403](https://leetcode-cn.com/problems/frog-jump)  |  [青蛙过河](/solution/0400-0499/0403.Frog%20Jump/README.md)  |  `数组`,`动态规划`  |  困难  |    |
 |  [0404](https://leetcode-cn.com/problems/sum-of-left-leaves)  |  [左叶子之和](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`二叉树`  |  简单  |    |
 |  [0405](https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal)  |  [数字转换为十六进制数](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md)  |  `位运算`,`数学`  |  简单  |    |
-|  [0406](https://leetcode-cn.com/problems/queue-reconstruction-by-height)  |  [根据身高重建队列](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |    |
+|  [0406](https://leetcode-cn.com/problems/queue-reconstruction-by-height)  |  [根据身高重建队列](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README.md)  |  `贪心`,`树状数组`,`线段树`,`数组`,`排序`  |  中等  |    |
 |  [0407](https://leetcode-cn.com/problems/trapping-rain-water-ii)  |  [接雨水 II](/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README.md)  |  `广度优先搜索`,`数组`,`矩阵`,`堆（优先队列）`  |  困难  |    |
 |  [0408](https://leetcode-cn.com/problems/valid-word-abbreviation)  |  [有效单词缩写](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README.md)  |  `双指针`,`字符串`  |  简单  |  🔒  |
 |  [0409](https://leetcode-cn.com/problems/longest-palindrome)  |  [最长回文串](/solution/0400-0499/0409.Longest%20Palindrome/README.md)  |  `贪心`,`哈希表`,`字符串`  |  简单  |    |
@@ -849,7 +849,7 @@
 |  [0836](https://leetcode-cn.com/problems/rectangle-overlap)  |  [矩形重叠](/solution/0800-0899/0836.Rectangle%20Overlap/README.md)  |  `几何`,`数学`  |  简单  |    |
 |  [0837](https://leetcode-cn.com/problems/new-21-game)  |  [新 21 点](/solution/0800-0899/0837.New%2021%20Game/README.md)  |  `数学`,`动态规划`,`滑动窗口`,`概率与统计`  |  中等  |    |
 |  [0838](https://leetcode-cn.com/problems/push-dominoes)  |  [推多米诺](/solution/0800-0899/0838.Push%20Dominoes/README.md)  |  `双指针`,`字符串`,`动态规划`  |  中等  |    |
-|  [0839](https://leetcode-cn.com/problems/similar-string-groups)  |  [相似字符串组](/solution/0800-0899/0839.Similar%20String%20Groups/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`字符串`  |  困难  |    |
+|  [0839](https://leetcode-cn.com/problems/similar-string-groups)  |  [相似字符串组](/solution/0800-0899/0839.Similar%20String%20Groups/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`数组`,`字符串`  |  困难  |    |
 |  [0840](https://leetcode-cn.com/problems/magic-squares-in-grid)  |  [矩阵中的幻方](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)  |  `数组`,`数学`,`矩阵`  |  中等  |    |
 |  [0841](https://leetcode-cn.com/problems/keys-and-rooms)  |  [钥匙和房间](/solution/0800-0899/0841.Keys%20and%20Rooms/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`  |  中等  |    |
 |  [0842](https://leetcode-cn.com/problems/split-array-into-fibonacci-sequence)  |  [将数组拆分成斐波那契序列](/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README.md)  |  `字符串`,`回溯`  |  中等  |    |
@@ -923,6 +923,7 @@
 |  [0910](https://leetcode-cn.com/problems/smallest-range-ii)  |  [最小差值 II](/solution/0900-0999/0910.Smallest%20Range%20II/README.md)  |  `贪心`,`数组`,`数学`,`排序`  |  中等  |    |
 |  [0911](https://leetcode-cn.com/problems/online-election)  |  [在线选举](/solution/0900-0999/0911.Online%20Election/README.md)  |  `设计`,`数组`,`哈希表`,`二分查找`  |  中等  |    |
 |  [0912](https://leetcode-cn.com/problems/sort-an-array)  |  [排序数组](/solution/0900-0999/0912.Sort%20an%20Array/README.md)  |  `数组`,`分治`,`桶排序`,`计数排序`,`基数排序`,`排序`,`堆（优先队列）`,`归并排序`  |  中等  |    |
+|  [0913](https://leetcode-cn.com/problems/cat-and-mouse)  |  [猫和老鼠](/solution/0900-0999/0913.Cat%20and%20Mouse/README.md)  |  `广度优先搜索`,`图`,`记忆化搜索`,`数学`,`动态规划`,`博弈`  |  困难  |    |
 |  [0914](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards)  |  [卡牌分组](/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README.md)  |  `数组`,`哈希表`,`数学`,`计数`,`数论`  |  简单  |    |
 |  [0915](https://leetcode-cn.com/problems/partition-array-into-disjoint-intervals)  |  [分割数组](/solution/0900-0999/0915.Partition%20Array%20into%20Disjoint%20Intervals/README.md)  |  `数组`  |  中等  |    |
 |  [0916](https://leetcode-cn.com/problems/word-subsets)  |  [单词子集](/solution/0900-0999/0916.Word%20Subsets/README.md)  |  `数组`,`哈希表`,`字符串`  |  中等  |    |
@@ -998,6 +999,7 @@
 |  [0986](https://leetcode-cn.com/problems/interval-list-intersections)  |  [区间列表的交集](/solution/0900-0999/0986.Interval%20List%20Intersections/README.md)  |  `数组`,`双指针`  |  中等  |    |
 |  [0987](https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree)  |  [二叉树的垂序遍历](/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`哈希表`,`二叉树`  |  困难  |    |
 |  [0988](https://leetcode-cn.com/problems/smallest-string-starting-from-leaf)  |  [从叶结点开始的最小字符串](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README.md)  |  `树`,`深度优先搜索`,`字符串`,`二叉树`  |  中等  |    |
+|  [0989](https://leetcode-cn.com/problems/add-to-array-form-of-integer)  |  [数组形式的整数加法](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README.md)  |  `数组`,`数学`  |  简单  |    |
 |  [0990](https://leetcode-cn.com/problems/satisfiability-of-equality-equations)  |  [等式方程的可满足性](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README.md)  |  `并查集`,`图`,`数组`,`字符串`  |  中等  |    |
 |  [0991](https://leetcode-cn.com/problems/broken-calculator)  |  [坏了的计算器](/solution/0900-0999/0991.Broken%20Calculator/README.md)  |  `贪心`,`数学`  |  中等  |    |
 |  [0992](https://leetcode-cn.com/problems/subarrays-with-k-different-integers)  |  [K 个不同整数的子数组](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README.md)  |  `数组`,`哈希表`,`计数`,`滑动窗口`  |  困难  |    |
@@ -2230,7 +2232,7 @@
 |  [2219](https://leetcode-cn.com/problems/maximum-sum-score-of-array)  |  [Maximum Sum Score of Array](/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README.md)  |  `数组`,`前缀和`  |  中等  |  🔒  |
 |  [2220](https://leetcode-cn.com/problems/minimum-bit-flips-to-convert-number)  |  [转换数字的最少位翻转次数](/solution/2200-2299/2220.Minimum%20Bit%20Flips%20to%20Convert%20Number/README.md)  |  `位运算`  |  简单  |    |
 |  [2221](https://leetcode-cn.com/problems/find-triangular-sum-of-an-array)  |  [数组的三角和](/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/README.md)  |  `数组`,`数学`,`组合数学`,`模拟`  |  中等  |    |
-|  [2222](https://leetcode-cn.com/problems/number-of-ways-to-select-buildings)  |  [选择建筑的方案数](/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README.md)  |    |  中等  |    |
+|  [2222](https://leetcode-cn.com/problems/number-of-ways-to-select-buildings)  |  [选择建筑的方案数](/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README.md)  |  `字符串`,`动态规划`,`前缀和`  |  中等  |    |
 |  [2223](https://leetcode-cn.com/problems/sum-of-scores-of-built-strings)  |  [构造字符串的总得分和](/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README.md)  |  `字符串`,`二分查找`,`字符串匹配`,`后缀数组`,`哈希函数`,`滚动哈希`  |  困难  |    |
 |  [2224](https://leetcode-cn.com/problems/minimum-number-of-operations-to-convert-time)  |  [转化时间需要的最少操作数](/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README.md)  |  `贪心`,`字符串`  |  简单  |    |
 |  [2225](https://leetcode-cn.com/problems/find-players-with-zero-or-one-losses)  |  [找出输掉零场或一场比赛的玩家](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README.md)  |  `数组`,`哈希表`,`计数`,`排序`  |  中等  |    |
@@ -2245,6 +2247,8 @@
 |  [2234](https://leetcode-cn.com/problems/maximum-total-beauty-of-the-gardens)  |  [花园的最大总美丽值](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README.md)  |  `贪心`,`数组`,`双指针`,`二分查找`,`排序`  |  困难  |    |
 |  [2235](https://leetcode-cn.com/problems/add-two-integers)  |  [两整数相加](/solution/2200-2299/2235.Add%20Two%20Integers/README.md)  |  `数学`  |  简单  |    |
 |  [2236](https://leetcode-cn.com/problems/root-equals-sum-of-children)  |  [判断根结点是否等于子结点之和](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README.md)  |  `树`,`二叉树`  |  简单  |    |
+|  [2237](https://leetcode-cn.com/problems/count-positions-on-street-with-required-brightness)  |  [Count Positions on Street With Required Brightness](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README.md)  |    |  中等  |  🔒  |
+|  [2238](https://leetcode-cn.com/problems/number-of-times-a-driver-was-a-passenger)  |  [Number of Times a Driver Was a Passenger](/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
