@@ -53,8 +53,8 @@
 
 遍历数组：
 
--   出现递减，将 `increase` 置为 `false`；
--   出现递增，将 `decrease` 置为 `false`；
+-   出现递减，将 `incr` 置为 `false`；
+-   出现递增，将 `decr` 置为 `false`；
 -   既非递增也非递减，提前返回 `false`；
 -   遍历结束，若出现递增或递减，返回 `true`。
 
@@ -66,16 +66,16 @@
 
 ```python
 class Solution:
-    def isMonotonic(self, A: List[int]) -> bool:
-        increase = decrease = True
-        for i in range(1, len(A)):
-            if not increase and not decrease:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        incr = decr = True
+        for i, v in enumerate(nums[1:]):
+            if not incr and not decr:
                 return False
-            if A[i] < A[i - 1]:
-                increase = False
-            elif A[i] > A[i - 1]:
-                decrease = False
-        return increase or decrease
+            if v < nums[i]:
+                incr = False
+            elif v > nums[i]:
+                decr = False
+        return incr or decr
 ```
 
 ### **Java**
@@ -84,16 +84,84 @@ class Solution:
 
 ```java
 class Solution {
-    public boolean isMonotonic(int[] A) {
-        boolean increase = true, decrease = true;
-        for (int i = 1, n = A.length; i < n; ++i) {
-            if (!increase && !decrease) return false;
-            if (A[i] < A[i - 1]) decrease = false;
-            else if (A[i] > A[i - 1]) increase = false;
+    public boolean isMonotonic(int[] nums) {
+        boolean incr = true, decr = true;
+        for (int i = 1; i < nums.length; ++i) {
+            if (!incr && !decr) {
+                return false;
+            }
+            if (nums[i] < nums[i - 1]) {
+                incr = false;
+            } else if (nums[i] > nums[i - 1]) {
+                decr = false;
+            }
         }
-        return increase || decrease;
+        return incr || decr;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isMonotonic(vector<int>& nums) {
+        bool incr = true;
+        bool decr = true;
+        for (int i = 1; i < nums.size(); ++i)
+        {
+            if (!incr && !decr) return false;
+            if (nums[i] < nums[i - 1]) incr = false;
+            if (nums[i] > nums[i - 1]) decr = false;
+        }
+        return incr || decr;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isMonotonic(nums []int) bool {
+	incr, decr := true, true
+	for i, v := range nums[1:] {
+		if !incr && !decr {
+			return false
+		}
+		if v < nums[i] {
+			incr = false
+		} else if v > nums[i] {
+			decr = false
+		}
+	}
+	return incr || decr
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isMonotonic = function (nums) {
+    let incr = true;
+    let decr = true;
+    for (let i = 1; i < nums.length; ++i) {
+        if (!incr && !decr) {
+            return false;
+        }
+        if (nums[i] < nums[i - 1]) {
+            incr = false;
+        }
+        if (nums[i] > nums[i - 1]) {
+            decr = false;
+        }
+    }
+    return incr || decr;
+};
 ```
 
 ### **...**
