@@ -90,6 +90,7 @@ class Spider:
         self.cookie_cn = cookie_cn
         self.cookie_en = cookie_en
         self.session = requests.session()
+        self.raw_data = {}
 
     def get_all_questions(self) -> List:
         """获取所有题目"""
@@ -192,6 +193,7 @@ class Spider:
         url_cn = f'https://leetcode-cn.com/problems/{question_title_slug}'
         url_en = f'https://leetcode.com/problems/{question_title_slug}'
         frontend_question_id = str(question['stat']['frontend_question_id']).zfill(4)
+        self.raw_data[frontend_question_id] = question_detail
         no = int(frontend_question_id) // 100
         question_title_en = question['stat']['question__title']
         question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
@@ -251,6 +253,10 @@ class Spider:
         item['md_table_row_en'] = [col1_en, col2_en, col3_en, col4_en, col5_en]
         return item
 
+    def save(self):
+        with open('./raw.json', 'w', encoding='utf-8') as f:
+            f.write(json.dumps(self.raw_data))
+
     def run(self):
         questions = self.get_all_questions()
         details = [self.handle(question) for question in questions]
@@ -259,4 +265,5 @@ class Spider:
         ]
         details += [self.handle(question) for question in failed_questions]
         details = [detail for detail in details if detail]
+        self.save()
         return details
