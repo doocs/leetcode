@@ -38,7 +38,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def exchangeBits(self, num: int) -> int:
+        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >> 1)
 ```
 
 ### **Java**
@@ -48,9 +50,7 @@
 ```java
 class Solution {
     public int exchangeBits(int num) {
-        int t1 = num >> 1;
-    	int t2 = num << 1;
-    	return t1 & 0x55555555 | t2 & 0xaaaaaaaa;
+        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
     }
 }
 ```
@@ -73,6 +73,25 @@ impl Solution {
         }
         res
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int exchangeBits(int num) {
+        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func exchangeBits(num int) int {
+	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
 }
 ```
 
