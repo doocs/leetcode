@@ -60,6 +60,10 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：差分数组**
+
+时间复杂度 O(n)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +71,19 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def meetRequirement(self, n: int, lights: List[List[int]], requirement: List[int]) -> int:
+        d = [0] * 100010
+        for p, r in lights:
+            i, j = max(0, p - r), min(n - 1, p + r)
+            d[i] += 1
+            d[j + 1] -= 1
+        s = ans = 0
+        for i, r in enumerate(requirement):
+            s += d[i]
+            if s >= r:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -75,7 +91,85 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int meetRequirement(int n, int[][] lights, int[] requirement) {
+        int[] d = new int[100010];
+        for (int[] e : lights) {
+            int i = Math.max(0, e[0] - e[1]);
+            int j = Math.min(n - 1, e[0] + e[1]);
+            ++d[i];
+            --d[j + 1];
+        }
+        int s = 0;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            s += d[i];
+            if (s >= requirement[i]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int meetRequirement(int n, vector<vector<int>>& lights, vector<int>& requirement) {
+        vector<int> d(100010);
+        for (auto& e : lights)
+        {
+            int i = max(0, e[0] - e[1]), j = min(n - 1, e[0] + e[1]);
+            ++d[i];
+            --d[j + 1];
+        }
+        int s = 0, ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            s += d[i];
+            if (s >= requirement[i]) ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func meetRequirement(n int, lights [][]int, requirement []int) int {
+	d := make([]int, 100010)
+	for _, e := range lights {
+		i, j := max(0, e[0]-e[1]), min(n-1, e[0]+e[1])
+		d[i]++
+		d[j+1]--
+	}
+	var s, ans int
+	for i, r := range requirement {
+		s += d[i]
+		if s >= r {
+			ans++
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
