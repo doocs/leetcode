@@ -37,7 +37,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-递归将左子树、右子树转换为左、右链表 left 和 right。然后将左链表 left 的最后一个结点的 right 指针指向 root，root 的 right 指针指向右链表 right，并将 root 的 left 指针值为空。
+**方法一：中序遍历**
+
+中序遍历过程中改变指针指向。
+
+时间复杂度 O(n)。
 
 同[面试题 17.12. BiNode](/lcci/17.12.BiNode/README.md)。
 
@@ -56,20 +60,20 @@
 #         self.right = right
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        if root is None:
-            return None
-        left = self.increasingBST(root.left)
-        right = self.increasingBST(root.right)
-        if left is None:
-            root.right = right
-            return root
-        res = left
-        while left and left.right:
-            left = left.right
-        left.right = root
-        root.right = right
-        root.left = None
-        return res
+        def dfs(root):
+            if root is None:
+                return
+            nonlocal prev
+            dfs(root.left)
+            prev.right = root
+            root.left = None
+            prev = root
+            dfs(root.right)
+
+        dummy = TreeNode(val=0, right=root)
+        prev = dummy
+        dfs(root)
+        return dummy.right
 ```
 
 ### **Java**
@@ -93,21 +97,90 @@ class Solution:
  * }
  */
 class Solution {
+    private TreeNode prev;
     public TreeNode increasingBST(TreeNode root) {
-        if (root == null) return null;
-        TreeNode left = increasingBST(root.left);
-        TreeNode right = increasingBST(root.right);
-        if (left == null) {
-            root.right = right;
-            return root;
-        }
-        TreeNode res = left;
-        while (left != null && left.right != null) left = left.right;
-        left.right = root;
-        root.right = right;
-        root.left = null;
-        return res;
+        TreeNode dummy = new TreeNode(0, null, root);
+        prev = dummy;
+        dfs(root);
+        return dummy.right;
     }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        prev.right = root;
+        root.left = null;
+        prev = root;
+        dfs(root.right);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* prev;
+
+    TreeNode* increasingBST(TreeNode* root) {
+        TreeNode* dummy = new TreeNode(0, nullptr, root);
+        prev = dummy;
+        dfs(root);
+        return dummy->right;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->left);
+        prev->right = root;
+        root->left = nullptr;
+        prev = root;
+        dfs(root->right);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func increasingBST(root *TreeNode) *TreeNode {
+	dummy := &TreeNode{Val: 0, Right: root}
+	prev := dummy
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		prev.Right = root
+		root.Left = nil
+		prev = root
+		dfs(root.Right)
+	}
+	dfs(root)
+	return dummy.Right
 }
 ```
 
