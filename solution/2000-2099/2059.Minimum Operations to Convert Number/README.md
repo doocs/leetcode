@@ -89,7 +89,7 @@ while q1 and q2:
         extend(m2, m1, q2)
 def extend(m1, m2, q):
     # 新一轮扩展
-    for _ in range(len(q), 0, -1):
+    for _ in range(len(q)):
         p = q.popleft()
         step = m1[p]
         for t in next(p):
@@ -147,7 +147,7 @@ class Solution:
         ans = 0
         while q:
             ans += 1
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 x = q.popleft()
                 for y in next(x):
                     if y == goal:
@@ -172,7 +172,7 @@ class Solution:
             return res
 
         def extend(m1, m2, q):
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 x = q.popleft()
                 step = m1[x]
                 for y in next(x):

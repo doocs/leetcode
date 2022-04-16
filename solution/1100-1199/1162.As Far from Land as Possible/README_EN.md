@@ -53,7 +53,7 @@ class Solution:
         valid = False
         while q:
             ans += 1
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 i, j = q.popleft()
                 for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                     x, y = i + a, b + j

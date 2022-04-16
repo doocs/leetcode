@@ -13,7 +13,7 @@ class Solution:
             return res
 
         def extend(m1, m2, q):
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 p = q.popleft()
                 step = m1[p]
                 for t in next(p):

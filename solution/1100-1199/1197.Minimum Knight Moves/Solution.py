@@ -4,7 +4,7 @@ class Solution:
         ans = 0
         vis = set([(0, 0)])
         while q:
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 i, j = q.popleft()
                 if (i, j) == (x, y):
                     return ans

@@ -126,7 +126,7 @@ class Solution:
         ans = 0
         while q:
             ans += 1
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 x = q.popleft()
                 setb(x)
                 for y in next():
