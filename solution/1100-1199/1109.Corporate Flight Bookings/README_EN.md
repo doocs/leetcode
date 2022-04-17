@@ -64,9 +64,7 @@ class Solution:
             delta[first - 1] += seats
             if last < n:
                 delta[last] -= seats
-        for i in range(n - 1):
-            delta[i + 1] += delta[i]
-        return delta
+        return list(accumulate(delta))
 ```
 
 ```python
@@ -180,15 +178,13 @@ class BinaryIndexedTree {
  */
 var corpFlightBookings = function (bookings, n) {
     let delta = new Array(n).fill(0);
-    for (let book of bookings) {
-        let [start, end, num] = book;
-        start -= 1;
-        delta[start] += num;
+    for (let [start, end, num] of bookings) {
+        delta[start - 1] += num;
         if (end != n) {
             delta[end] -= num;
         }
     }
-    for (let i = 1; i < n; i++) {
+    for (let i = 1; i < n; ++i) {
         delta[i] += delta[i - 1];
     }
     return delta;
