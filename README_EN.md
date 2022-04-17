@@ -74,6 +74,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Longest Common Subsequence](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md) - Linear problem, LCS
 -   [Minimum ASCII Delete Sum for Two Strings](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md) - Linear problem, LCS
 -   [Delete Operation for Two Strings](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README_EN.md) - Linear problem, LCS
+-   [Target Sum](/solution/0400-0499/0494.Target%20Sum/README_EN.md) - 0-1 Knapsack
 
 ### 4. Advanced Data Structures
 
