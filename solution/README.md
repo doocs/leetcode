@@ -2249,6 +2249,14 @@
 |  [2236](https://leetcode-cn.com/problems/root-equals-sum-of-children)  |  [判断根结点是否等于子结点之和](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README.md)  |  `树`,`二叉树`  |  简单  |    |
 |  [2237](https://leetcode-cn.com/problems/count-positions-on-street-with-required-brightness)  |  [Count Positions on Street With Required Brightness](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README.md)  |    |  中等  |  🔒  |
 |  [2238](https://leetcode-cn.com/problems/number-of-times-a-driver-was-a-passenger)  |  [Number of Times a Driver Was a Passenger](/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README.md)  |    |  中等  |  🔒  |
+|  [2239](https://leetcode-cn.com/problems/find-closest-number-to-zero)  |  [找到最接近 0 的数字](/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README.md)  |    |  简单  |    |
+|  [2240](https://leetcode-cn.com/problems/number-of-ways-to-buy-pens-and-pencils)  |  [买钢笔和铅笔的方案数](/solution/2200-2299/2240.Number%20of%20Ways%20to%20Buy%20Pens%20and%20Pencils/README.md)  |    |  中等  |    |
+|  [2241](https://leetcode-cn.com/problems/design-an-atm-machine)  |  [设计一个 ATM 机器](/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README.md)  |    |  中等  |    |
+|  [2242](https://leetcode-cn.com/problems/maximum-score-of-a-node-sequence)  |  [节点序列的最大得分](/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README.md)  |    |  困难  |    |
+|  [2243](https://leetcode-cn.com/problems/calculate-digit-sum-of-a-string)  |  [计算字符串的数字和](/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README.md)  |    |  简单  |    |
+|  [2244](https://leetcode-cn.com/problems/minimum-rounds-to-complete-all-tasks)  |  [完成所有任务需要的最少轮数](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README.md)  |    |  中等  |    |
+|  [2245](https://leetcode-cn.com/problems/maximum-trailing-zeros-in-a-cornered-path)  |  [转角路径的乘积中最多能有几个尾随零](/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README.md)  |    |  中等  |    |
+|  [2246](https://leetcode-cn.com/problems/longest-path-with-different-adjacent-characters)  |  [相邻字符不同的最长路径](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README.md)  |    |  困难  |    |
 
 ## 版权
 
