@@ -7,13 +7,12 @@ class Solution {
         if (s % 2 != 0) {
             return false;
         }
-        int m = nums.length;
         int n = s >> 1;
         boolean[] dp = new boolean[n + 1];
         dp[0] = true;
-        for (int i = 1; i <= m; ++i) {
-            for (int j = n; j >= nums[i - 1]; --j) {
-                dp[j] = dp[j] || dp[j - nums[i - 1]];
+        for (int v : nums) {
+            for (int j = n; j >= v; --j) {
+                dp[j] = dp[j] || dp[j - v];
             }
         }
         return dp[n];

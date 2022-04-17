@@ -79,6 +79,7 @@
 -   [两个字符串的删除操作](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README.md) - 线性 DP、最长公共子序列模型
 -   [目标和](/solution/0400-0499/0494.Target%20Sum/README.md) - 0-1 背包问题
 -   [分割等和子集](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README.md) - 0-1 背包问题
+-   [最后一块石头的重量 II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md) - 0-1 背包问题
 <!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
 ### 4. 高级数据结构

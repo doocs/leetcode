@@ -61,11 +61,11 @@ class Solution:
         s = sum(nums)
         if s < target or (s - target) % 2 != 0:
             return 0
-        m, n = len(nums) + 1, (s - target) // 2 + 1
-        dp = [[0] * n for _ in range(m)]
+        m, n = len(nums), (s - target) // 2
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
         dp[0][0] = 1
-        for i in range(1, m):
-            for j in range(n):
+        for i in range(1, m + 1):
+            for j in range(n + 1):
                 dp[i][j] = dp[i - 1][j]
                 if nums[i - 1] <= j:
                     dp[i][j] += dp[i - 1][j - nums[i - 1]]
@@ -78,12 +78,12 @@ class Solution:
         s = sum(nums)
         if s < target or (s - target) % 2 != 0:
             return 0
-        m, n = len(nums) + 1, (s - target) // 2 + 1
-        dp = [0] * n
+        n = (s - target) // 2
+        dp = [0] * (n + 1)
         dp[0] = 1
-        for i in range(1, m):
-            for j in range(n - 1, nums[i - 1] - 1, -1):
-                dp[j] += dp[j - nums[i - 1]]
+        for v in nums:
+            for j in range(n, v - 1, -1):
+                dp[j] += dp[j - v]
         return dp[-1]
 ```
 
@@ -143,13 +143,12 @@ class Solution {
         if (s < target || (s - target) % 2 != 0) {
             return 0;
         }
-        int m = nums.length;
         int n = (s - target) / 2;
         int[] dp = new int[n + 1];
         dp[0] = 1;
-        for (int i = 1; i <= m; ++i) {
-            for (int j = n; j >= nums[i - 1]; --j) {
-                dp[j] += dp[j - nums[i - 1]];
+        for (int v : nums) {
+            for (int j = n; j >= v; --j) {
+                dp[j] += dp[j - v];
             }
         }
         return dp[n];
@@ -163,8 +162,7 @@ class Solution {
 class Solution {
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
-        int s = 0;
-        for (int& v : nums) s += v;
+        int s = accumulate(nums.begin(), nums.end(), 0);
         if (s < target || (s - target) % 2 != 0) return 0;
         int m = nums.size(), n = (s - target) / 2;
         vector<vector<int>> dp(m + 1, vector<int>(n + 1));
@@ -186,19 +184,14 @@ public:
 class Solution {
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
-        int s = 0;
-        for (int& v : nums) s += v;
+        int s = accumulate(nums.begin(), nums.end(), 0);
         if (s < target || (s - target) % 2 != 0) return 0;
-        int m = nums.size(), n = (s - target) / 2;
+        int n = (s - target) / 2;
         vector<int> dp(n + 1);
         dp[0] = 1;
-        for (int i = 1; i <= m; ++i)
-        {
-            for (int j = n; j >= nums[i - 1]; --j)
-            {
-                dp[j] += dp[j - nums[i - 1]];
-            }
-        }
+        for (int& v : nums)
+            for (int j = n; j >= v; --j)
+                dp[j] += dp[j - v];
         return dp[n];
     }
 };
@@ -242,12 +235,12 @@ func findTargetSumWays(nums []int, target int) int {
 	if s < target || (s-target)%2 != 0 {
 		return 0
 	}
-	m, n := len(nums), (s-target)/2
+	n := (s - target) / 2
 	dp := make([]int, n+1)
 	dp[0] = 1
-	for i := 1; i <= m; i++ {
-		for j := n; j >= nums[i-1]; j-- {
-			dp[j] += dp[j-nums[i-1]]
+	for _, v := range nums {
+		for j := n; j >= v; j-- {
+			dp[j] += dp[j-v]
 		}
 	}
 	return dp[n]

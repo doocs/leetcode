@@ -79,12 +79,12 @@ class Solution:
         s = sum(nums)
         if s % 2 != 0:
             return False
-        m, n = len(nums), s >> 1
+        n = s >> 1
         dp = [False] * (n + 1)
         dp[0] = True
-        for i in range(1, m + 1):
-            for j in range(n, nums[i - 1] - 1, -1):
-                dp[j] = dp[j] or dp[j - nums[i - 1]]
+        for v in nums:
+            for j in range(n, v - 1, -1):
+                dp[j] = dp[j] or dp[j - v]
         return dp[-1]
 ```
 
@@ -151,13 +151,12 @@ class Solution {
         if (s % 2 != 0) {
             return false;
         }
-        int m = nums.length;
         int n = s >> 1;
         boolean[] dp = new boolean[n + 1];
         dp[0] = true;
-        for (int i = 1; i <= m; ++i) {
-            for (int j = n; j >= nums[i - 1]; --j) {
-                dp[j] = dp[j] || dp[j - nums[i - 1]];
+        for (int v : nums) {
+            for (int j = n; j >= v; --j) {
+                dp[j] = dp[j] || dp[j - v];
             }
         }
         return dp[n];
@@ -171,8 +170,7 @@ class Solution {
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
-        int s = 0;
-        for (int& v : nums) s += v;
+        int s = accumulate(nums.begin(), nums.end(), 0);
         if (s % 2 != 0) return false;
         int m = nums.size(), n = s >> 1;
         vector<vector<bool>> dp(m + 1, vector<bool>(n + 1));
@@ -194,15 +192,14 @@ public:
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
-        int s = 0;
-        for (int& v : nums) s += v;
+        int s = accumulate(nums.begin(), nums.end(), 0);
         if (s % 2 != 0) return false;
-        int m = nums.size(), n = s >> 1;
+        int n = s >> 1;
         vector<bool> dp(n + 1);
         dp[0] = true;
-        for (int i = 1; i <= m; ++i)
-            for (int j = n; j >= nums[i - 1]; --j)
-                dp[j] = dp[j] || dp[j - nums[i - 1]];
+        for (int& v : nums)
+            for (int j = n; j >= v; --j)
+                dp[j] = dp[j] || dp[j - v];
         return dp[n];
     }
 };
@@ -246,12 +243,12 @@ func canPartition(nums []int) bool {
 	if s%2 != 0 {
 		return false
 	}
-	m, n := len(nums), s>>1
+	n := s >> 1
 	dp := make([]bool, n+1)
 	dp[0] = true
-	for i := 1; i <= m; i++ {
-		for j := n; j >= nums[i-1]; j-- {
-			dp[j] = dp[j] || dp[j-nums[i-1]]
+	for _, v := range nums {
+		for j := n; j >= v; j-- {
+			dp[j] = dp[j] || dp[j-v]
 		}
 	}
 	return dp[n]

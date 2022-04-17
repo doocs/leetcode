@@ -1,19 +1,21 @@
 func lastStoneWeightII(stones []int) int {
-	sum := 0
-	for _, stone := range stones {
-		sum += stone
+	s := 0
+	for _, v := range stones {
+		s += v
 	}
-	n := sum / 2
-	dp := make([]bool, n+1)
-	dp[0] = true
-	for _, stone := range stones {
-		for j := n; j >= stone; j-- {
-			dp[j] = dp[j] || dp[j-stone]
+	n := s >> 1
+	dp := make([]int, n+1)
+	for _, v := range stones {
+		for j := n; j >= v; j-- {
+			dp[j] = max(dp[j], dp[j-v]+v)
 		}
 	}
-	for j := n; ; j-- {
-		if dp[j] {
-			return sum - j - j
-		}
+	return s - dp[n]*2
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
+	return b
 }

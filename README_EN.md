@@ -76,6 +76,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Delete Operation for Two Strings](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README_EN.md) - Linear problem, LCS
 -   [Target Sum](/solution/0400-0499/0494.Target%20Sum/README_EN.md) - 0-1 Knapsack problem
 -   [Partition Equal Subset Sum](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README_EN.md) - 0-1 Knapsack problem
+-   [Last Stone Weight II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md) - 0-1 Knapsack problem
 
 ### 4. Advanced Data Structures
 
