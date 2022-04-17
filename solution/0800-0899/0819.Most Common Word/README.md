@@ -99,6 +99,51 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function mostCommonWord(paragraph: string, banned: string[]): string {
+    const s = paragraph.toLocaleLowerCase();
+    const map = new Map<string, number>();
+    const set = new Set<string>(banned);
+    for (const word of s.split(/[^A-z]/)) {
+        if (word === '' || set.has(word)) {
+            continue;
+        }
+        map.set(word, (map.get(word) ?? 0) + 1);
+    }
+    return [...map.entries()].reduce(
+        (r, v) => (v[1] > r[1] ? v : r),
+        ['', 0],
+    )[0];
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::{HashMap, HashSet};
+impl Solution {
+    pub fn most_common_word(mut paragraph: String, banned: Vec<String>) -> String {
+        paragraph.make_ascii_lowercase();
+        let banned: HashSet<&str> = banned.iter().map(String::as_str).collect();
+        let mut map = HashMap::new();
+        for word in paragraph.split(|c| !matches!(c, 'a'..='z')) {
+            if word.is_empty() || banned.contains(word) {
+                continue;
+            }
+            let val = map.get(&word).unwrap_or(&0) + 1;
+            map.insert(word, val);
+        }
+        map.into_iter()
+            .max_by_key(|&(_, v)| v)
+            .unwrap()
+            .0
+            .to_string()
+    }
+}
+```
+
 ### **...**
 
 ```
