@@ -1,5 +1,7 @@
 class Solution:
-    def meetRequirement(self, n: int, lights: List[List[int]], requirement: List[int]) -> int:
+    def meetRequirement(
+        self, n: int, lights: List[List[int]], requirement: List[int]
+    ) -> int:
         d = [0] * 100010
         for p, r in lights:
             i, j = max(0, p - r), min(n - 1, p + r)

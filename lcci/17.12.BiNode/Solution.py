@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def convertBiNode(self, root: TreeNode) -> TreeNode:
         def dfs(root):
