@@ -48,7 +48,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def decode(self, encoded: List[int]) -> List[int]:
+        n = len(encoded) + 1
+        a = b = 0
+        for i in range(0, n - 1, 2):
+            a ^= encoded[i]
+        for i in range(n + 1):
+            b ^= i
+        ans = [a ^ b]
+        for e in encoded[::-1]:
+            ans.append(ans[-1] ^ e)
+        return ans[::-1]
 ```
 
 ### **Java**
@@ -56,7 +67,66 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    public int[] decode(int[] encoded) {
+        int n = encoded.length + 1;
+        int[] ans = new int[n];
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i < n - 1; i += 2) {
+            a ^= encoded[i];
+        }
+        for (int i = 0; i < n + 1; ++i) {
+            b ^= i;
+        }
+        ans[n - 1] = a ^ b;
+        for (int i = n - 2; i >= 0; --i) {
+            ans[i] = ans[i + 1] ^ encoded[i];
+        }
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> decode(vector<int>& encoded) {
+        int n = encoded.size() + 1;
+        vector<int> ans(n);
+        int a = 0, b = 0;
+        for (int i = 0; i < n - 1; i += 2) a ^= encoded[i];
+        for (int i = 0; i < n + 1; ++i) b ^= i;
+        ans[n - 1] = a ^ b;
+        for (int i = n - 2; i >= 0; --i) ans[i] = ans[i + 1] ^ encoded[i];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func decode(encoded []int) []int {
+	n := len(encoded) + 1
+	ans := make([]int, n)
+	a, b := 0, 0
+	for i := 0; i < n-1; i += 2 {
+		a ^= encoded[i]
+	}
+	for i := 0; i < n+1; i++ {
+		b ^= i
+	}
+	ans[n-1] = a ^ b
+	for i := n - 2; i >= 0; i-- {
+		ans[i] = ans[i+1] ^ encoded[i]
+	}
+	return ans
+}
 ```
 
 ### **...**
