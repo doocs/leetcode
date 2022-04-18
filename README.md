@@ -81,6 +81,7 @@
 -   [分割等和子集](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README.md) - 0-1 背包问题
 -   [最后一块石头的重量 II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md) - 0-1 背包问题
 -   [零钱兑换](/solution/0300-0399/0322.Coin%20Change/README.md) - 完全背包问题
+-   [组合总和 Ⅳ](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md) - 完全背包问题
 <!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
 ### 4. 高级数据结构
