@@ -55,6 +55,20 @@ Similar to the idea of ​​a complete backpack, there is no limit to the numbe
 ```python
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
+        m, n = len(coins), amount
+        dp = [[n + 1] * (n + 1) for _ in range(m + 1)]
+        dp[0][0] = 0
+        for i in range(1, m + 1):
+            for j in range(n + 1):
+                dp[i][j] = dp[i - 1][j]
+                if j >= coins[i - 1]:
+                    dp[i][j] = min(dp[i][j], dp[i][j - coins[i - 1]] + 1)
+        return -1 if dp[-1][-1] > n else dp[-1][-1]
+```
+
+```python
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
         dp = [amount + 1] * (amount + 1)
         dp[0] = 0
         for coin in coins:
@@ -64,28 +78,6 @@ class Solution:
 ```
 
 ### **Java**
-
-```java
-class Solution {
-    public int coinChange(int[] coins, int amount) {
-        int m = coins.length;
-        int[][] dp = new int[m + 1][amount + 1];
-        for (int i = 0; i <= m; ++i) {
-            Arrays.fill(dp[i], amount + 1);
-        }
-        dp[0][0] = 0;
-        for (int i = 1; i <= m; ++i) {
-            int v = coins[i - 1];
-            for (int j = 0; j <= amount; ++j) {
-                for (int k = 0; k * v <= j; ++k) {
-                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - k * v] + k);
-                }
-            }
-        }
-        return dp[m][amount] > amount ? - 1 : dp[m][amount];
-    }
-}
-```
 
 ```java
 class Solution {
@@ -187,6 +179,27 @@ func min(a, b int) int {
 	}
 	return b
 }
+```
+
+### **TypeScript**
+
+```ts
+function coinChange(coins: number[], amount: number): number {
+    let dp = new Array(amount + 1).fill(amount + 1);
+    dp[0] = 0;
+    for (const coin of coins) {
+        for (let j = coin; j <= amount; ++j) {
+            dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+        }
+    }
+    return dp[amount] > amount ? -1 : dp[amount];
+}
+```
+
+### **....**
+
+```
+
 ```
 
 <!-- tabs:end -->

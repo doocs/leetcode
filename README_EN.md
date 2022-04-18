@@ -77,6 +77,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Target Sum](/solution/0400-0499/0494.Target%20Sum/README_EN.md) - 0-1 Knapsack problem
 -   [Partition Equal Subset Sum](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README_EN.md) - 0-1 Knapsack problem
 -   [Last Stone Weight II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md) - 0-1 Knapsack problem
+-   [Coin Change](/solution/0300-0399/0322.Coin%20Change/README_EN.md) -Unbounded Knapsack problem
 
 ### 4. Advanced Data Structures
 
