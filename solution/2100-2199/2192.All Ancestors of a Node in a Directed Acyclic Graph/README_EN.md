@@ -57,18 +57,161 @@ The above diagram represents the input graph.
 
 ## Solutions
 
+BFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+        g = defaultdict(list)
+        for u, v in edges:
+            g[v].append(u)
+        ans = []
+        for i in range(n):
+            if not g[i]:
+                ans.append([])
+                continue
+            q = deque([i])
+            vis = [False] * n
+            vis[i] = True
+            t = []
+            while q:
+                for _ in range(len(q)):
+                    v = q.popleft()
+                    for u in g[v]:
+                        if not vis[u]:
+                            vis[u] = True
+                            q.append(u)
+                            t.append(u)
+            ans.append(sorted(t))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Integer>> getAncestors(int n, int[][] edges) {
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            g[e[1]].add(e[0]);
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            List<Integer> t = new ArrayList<>();
+            if (g[i].isEmpty()) {
+                ans.add(t);
+                continue;
+            }
+            Deque<Integer> q = new ArrayDeque<>();
+            q.offer(i);
+            boolean[] vis = new boolean[n];
+            vis[i] = true;
+            while (!q.isEmpty()) {
+                for (int j = q.size(); j > 0; --j) {
+                    int v = q.poll();
+                    for (int u : g[v]) {
+                        if (!vis[u]) {
+                            vis[u] = true;
+                            q.offer(u);
+                            t.add(u);
+                        }
+                    }
+                }
+            }
+            Collections.sort(t);
+            ans.add(t);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) g[e[1]].push_back(e[0]);
+        vector<vector<int>> ans;
+        for (int i = 0; i < n; ++i)
+        {
+            vector<int> t;
+            if (g[i].empty())
+            {
+                ans.push_back(t);
+                continue;
+            }
+            queue<int> q{{i}};
+            vector<bool> vis(n);
+            vis[i] = true;
+            while (!q.empty())
+            {
+                for (int j = q.size(); j > 0; --j)
+                {
+                    int v = q.front();
+                    q.pop();
+                    for (int u : g[v])
+                    {
+                        if (vis[u]) continue;
+                        vis[u] = true;
+                        q.push(u);
+                        t.push_back(u);
+                    }
+                }
+            }
+            sort(t.begin(), t.end());
+            ans.push_back(t);
+        }
+        return ans;
+    }
+};
+```
+
+###  **Go**
+
+```go
+func getAncestors(n int, edges [][]int) [][]int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		g[e[1]] = append(g[e[1]], e[0])
+	}
+	var ans [][]int
+	for i := 0; i < n; i++ {
+		var t []int
+		if len(g[i]) == 0 {
+			ans = append(ans, t)
+			continue
+		}
+		q := []int{i}
+		vis := make([]bool, n)
+		vis[i] = true
+		for len(q) > 0 {
+			for j := len(q); j > 0; j-- {
+				v := q[0]
+				q = q[1:]
+				for _, u := range g[v] {
+					if !vis[u] {
+						vis[u] = true
+						q = append(q, u)
+						t = append(t, u)
+					}
+				}
+			}
+		}
+		sort.Ints(t)
+		ans = append(ans, t)
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
