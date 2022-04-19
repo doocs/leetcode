@@ -36,45 +36,43 @@
 
 class Solution {
     public String minWindow(String s, String t) {
-        int m = s.length(), n = t.length();
-        if (n > m) {
-            return "";
+        String res = "";
+        int n = s.length(), m = t.length();
+        if (n<m) return res;
+        int hit=0;
+        int left=0;
+        int[] arrays = new int[26+26];
+        //建立数组
+        for (int i=0; i<m; i++)
+            changeArray(t.charAt(i), arrays, false);
+
+        for (int i=0; i<n; i++){
+            changeArray(s.charAt(i), arrays, true);
+
+            if (getArrOne(s.charAt(i), arrays)<=0) hit++;//命中
+
+            while (hit==m && getArrOne(s.charAt(left), arrays)>0)
+                changeArray(s.charAt(left++), arrays, false);
+
+            if (hit==m)
+                if (res.equals("")) res = s.substring(left, i+1);
+                else res = res.length()<i-left+1? res:s.substring(left, i+1);
+
         }
-        Map<Character, Integer> need = new HashMap<>();
-        Map<Character, Integer> window = new HashMap<>();
-        int needCount = 0, windowCount = 0;
-        for (char ch : t.toCharArray()) {
-            if (!need.containsKey(ch)) {
-                needCount++;
-            }
-            need.merge(ch, 1, Integer::sum);
+
+        return res;
+    }
+    void changeArray(char one, int[] array, boolean flag){
+        if (flag){
+            if (one >= 'a') array[one-'a']++;
+            else array[one-'A'+26]++;
+        }else {
+            if (one >= 'a') array[one-'a']--;
+            else array[one-'A'+26]--;
         }
-        int start = 0, minLen = Integer.MAX_VALUE;
-        int left = 0, right = 0;
-        while (right < m) {
-            char ch = s.charAt(right++);
-            if (need.containsKey(ch)) {
-                int val = window.getOrDefault(ch, 0) + 1;
-                if (val == need.get(ch)) {
-                    windowCount++;
-                }
-                window.put(ch, val);
-            }
-            while (windowCount == needCount) {
-                if (right - left < minLen) {
-                    minLen = right - left;
-                    start = left;
-                }
-                ch = s.charAt(left++);
-                if (need.containsKey(ch)) {
-                    int val = window.get(ch);
-                    if (val == need.get(ch)) {
-                        windowCount--;
-                    }
-                    window.put(ch, val - 1);
-                }
-            }
-        }
-        return minLen == Integer.MAX_VALUE ? "" : s.substring(start, start + minLen);
+    }
+    int getArrOne(char one, int[] array){
+        if (one >= 'a') return array[one-'a'];
+        else return array[one-'A'+26];
     }
 }
