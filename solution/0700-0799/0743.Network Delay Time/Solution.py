@@ -1,30 +1,21 @@
 class Solution:
-    def networkDelayTime(self, times: List[List[int]], N: int, K: int) -> int:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        N = 110
+        INF = 0x3f3f
+        g = [[INF] * N for _ in range(N)]
+        for u, v, w in times:
+            g[u][v] = w
+        dist = [INF] * N
+        dist[k] = 0
+        vis = [False] * N
+        for i in range(n):
+            t = -1
+            for j in range(1, n + 1):
+                if not vis[j] and (t == -1 or dist[t] > dist[j]):
+                    t = j
+            vis[t] = True
+            for j in range(1, n + 1):
+                dist[j] = min(dist[j], dist[t] + g[t][j])
 
-        # Build N+1 because index is from 1-N
-        travel_times = [[] for _ in range(N + 1)]
-
-        # Build the array of travel times to reduce cost of searching later
-        for time in times:
-            origin, dest, time_travel = time
-            travel_times[origin].append((dest, time_travel))
-
-        # Store the shortest amount of time to reach i-th node
-        visited_times = [float('inf') for x in range(N + 1)]
-        visited_times[0] = 0
-        visited_times[K] = 0
-
-        # Store next traverse in line
-        visited_queue = deque([K])
-
-        # BFS
-        while visited_queue:
-            cur_node = visited_queue.popleft()
-            for time in travel_times[cur_node]:
-                dest, time_travel = time
-                if time_travel + visited_times[cur_node] < visited_times[dest]:
-                    visited_times[dest] = time_travel + visited_times[cur_node]
-                    visited_queue.append(dest)
-
-        # Only return the max if all were traversed. Return -1 otherwise
-        return max(visited_times) if max(visited_times) != float('inf') else -1
+        ans = max(dist[1: n + 1])
+        return -1 if ans == INF else ans

@@ -55,6 +55,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：朴素 Dijkstra 算法**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,35 +65,26 @@
 
 ```python
 class Solution:
-    def networkDelayTime(self, times: List[List[int]], N: int, K: int) -> int:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        N = 110
+        INF = 0x3f3f
+        g = [[INF] * N for _ in range(N)]
+        for u, v, w in times:
+            g[u][v] = w
+        dist = [INF] * N
+        dist[k] = 0
+        vis = [False] * N
+        for i in range(n):
+            t = -1
+            for j in range(1, n + 1):
+                if not vis[j] and (t == -1 or dist[t] > dist[j]):
+                    t = j
+            vis[t] = True
+            for j in range(1, n + 1):
+                dist[j] = min(dist[j], dist[t] + g[t][j])
 
-        # Build N+1 because index is from 1-N
-        travel_times = [[] for _ in range(N + 1)]
-
-        # Build the array of travel times to reduce cost of searching later
-        for time in times:
-            origin, dest, time_travel = time
-            travel_times[origin].append((dest, time_travel))
-
-        # Store the shortest amount of time to reach i-th node
-        visited_times = [float('inf') for x in range(N + 1)]
-        visited_times[0] = 0
-        visited_times[K] = 0
-
-        # Store next traverse in line
-        visited_queue = deque([K])
-
-        # BFS
-        while visited_queue:
-            cur_node = visited_queue.popleft()
-            for time in travel_times[cur_node]:
-                dest, time_travel = time
-                if time_travel + visited_times[cur_node] < visited_times[dest]:
-                    visited_times[dest] = time_travel + visited_times[cur_node]
-                    visited_queue.append(dest)
-
-        # Only return the max if all were traversed. Return -1 otherwise
-        return max(visited_times) if max(visited_times) != float('inf') else -1
+        ans = max(dist[1: n + 1])
+        return -1 if ans == INF else ans
 ```
 
 ### **Java**
@@ -100,60 +93,43 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int INF = 0x3f3f3f3f;
+    private static final int N = 110;
+    private static final int INF = 0x3f3f;
 
     public int networkDelayTime(int[][] times, int n, int k) {
-        List<List<Pair>> graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            graph.add(new ArrayList<>());
+        int[][] g = new int[N][N];
+        for (int i = 0; i < N; ++i) {
+            Arrays.fill(g[i], INF);
         }
-        for (int[] t : times) {
-            int from = t[0] - 1, to = t[1] - 1, time = t[2];
-            graph.get(from).add(new Pair(to, time));
+        for (int[] e : times) {
+            g[e[0]][e[1]] = e[2];
         }
-
-        List<Integer> dis = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            dis.add(INF);
-        }
-        dis.set(k - 1, 0);
-
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.offer(k - 1);
-        while (!queue.isEmpty()) {
-            int from = queue.poll();
-            for (Pair e : graph.get(from)) {
-                int to = e.first, time = e.second;
-                if (time + dis.get(from) < dis.get(to)) {
-                    dis.set(to, time + dis.get(from));
-                    queue.offer(to);
+        int[] dist = new int[N];
+        Arrays.fill(dist, INF);
+        dist[k] = 0;
+        boolean[] vis = new boolean[N];
+        for (int i = 0; i < n; ++i) {
+            int t = -1;
+            for (int j = 1; j <= n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
+                    t = j;
                 }
             }
+            vis[t] = true;
+            for (int j = 1; j <= n; ++j) {
+                dist[j] = Math.min(dist[j], dist[t] + g[t][j]);
+            }
         }
-
-        int ans = Integer.MIN_VALUE;
-        for (int d : dis) {
-            ans = Math.max(ans, d);
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans = Math.max(ans, dist[i]);
         }
-
         return ans == INF ? -1 : ans;
-    }
-
-    static class Pair {
-        private int first;
-        private int second;
-
-        public Pair(int first, int second) {
-            this.first = first;
-            this.second = second;
-        }
     }
 }
 ```
 
 ### **Go**
-
-Dijkstra
 
 ```go
 const Inf = 0x3f3f3f3f
@@ -222,6 +198,42 @@ func max(x, y int) int {
 	}
 	return y
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int N = 110;
+    int INF = 0x3f3f;
+
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<vector<int>> g(N, vector<int>(N, INF));
+        for (auto& e : times) g[e[0]][e[1]] = e[2];
+        vector<int> dist(N, INF);
+        dist[k] = 0;
+        vector<bool> vis(N);
+        for (int i = 0; i < n; ++i)
+        {
+            int t = -1;
+            for (int j = 1; j <= n; ++j)
+            {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j]))
+                {
+                    t = j;
+                }
+            }
+            vis[t] = true;
+            for (int j = 1; j <= n; ++j)
+            {
+                dist[j] = min(dist[j], dist[t] + g[t][j]);
+            }
+        }
+        int ans = *max_element(dist.begin() + 1, dist.begin() + 1 + n);
+        return ans == INF ? -1 : ans;
+    }
+};
 ```
 
 ### **...**
