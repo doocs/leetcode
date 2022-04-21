@@ -59,6 +59,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：堆优化 Dijkstra 算法**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +68,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProbability(self, n: int, edges: List[List[int]], succProb: List[float], start: int, end: int) -> float:
+        g = defaultdict(list)
+        for (a, b), s in zip(edges, succProb):
+            g[a].append((b, s))
+            g[b].append((a, s))
+        q = [(-1, start)]
+        d = [0] * n
+        d[start] = 1
+        while q:
+            w, u = heappop(q)
+            w = -w
+            if d[u] > w:
+                continue
+            for v, t in g[u]:
+                if d[v] < d[u] * t:
+                    d[v] = d[u] * t
+                    heappush(q, (-d[v], v))
+        return d[end]
 ```
 
 ### **Java**
@@ -74,7 +94,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
+        List<Pair<Integer, Double>>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int i = 0; i < edges.length; ++i) {
+            int a = edges[i][0], b = edges[i][1];
+            double s = succProb[i];
+            g[a].add(new Pair<>(b, s));
+            g[b].add(new Pair<>(a, s));
+        }
+        PriorityQueue<Pair<Double, Integer>> q = new PriorityQueue<>(Comparator.comparingDouble(Pair::getKey));
+        double[] d = new double[n];
+        d[start] = 1.0;
+        q.offer(new Pair<>(-1.0, start));
+        while (!q.isEmpty()) {
+            Pair<Double, Integer> p = q.poll();
+            double w = p.getKey();
+            w *= -1;
+            int u = p.getValue();
+            for (Pair<Integer, Double> ne : g[u]) {
+                int v = ne.getKey();
+                double t = ne.getValue();
+                if (d[v] < d[u] * t) {
+                    d[v] = d[u] * t;
+                    q.offer(new Pair<>(-d[v], v));
+                }
+            }
+        }
+        return d[end];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
+        vector<vector<pair<int, double>>> g(n);
+        for (int i = 0; i < edges.size(); ++i)
+        {
+            int a = edges[i][0], b = edges[i][1];
+            double s = succProb[i];
+            g[a].push_back({b, s});
+            g[b].push_back({a, s});
+        }
+        vector<double> d(n);
+        d[start] = 1.0;
+        queue<pair<double, int>> q;
+        q.push({1.0, start});
+        while (!q.empty())
+        {
+            auto p = q.front();
+            q.pop();
+            double w = p.first;
+            int u = p.second;
+            if (d[u] > w) continue;
+            for (auto& e : g[u])
+            {
+                int v = e.first;
+                double t = e.second;
+                if (d[v] < d[u] * t)
+                {
+                    d[v] = d[u] * t;
+                    q.push({d[v], v});
+                }
+            }
+        }
+        return d[end];
+    }
+};
 ```
 
 ### **...**
