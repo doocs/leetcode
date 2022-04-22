@@ -125,7 +125,7 @@ private:
     vector<int> Next(string str)
     {
         vector<int> n(str.length()) ;
-        n[0] = -1 ; 
+        n[0] = -1 ;
         int i = 0, pre = -1 ;
         int len = str.length() ;
         while (i < len)
@@ -146,9 +146,9 @@ public:
     int strStr(string haystack, string needle) {
         if (0 == needle.length())
             return 0 ;
-        
+
         vector<int> n(Next(needle)) ;
-        
+
         int len = haystack.length() - needle.length() + 1 ;
         for (int i = 0; i < len; ++i)
         {
@@ -170,7 +170,7 @@ public:
             if (j >= needle.length())
                 return k-j ;
         }
-        
+
         return -1 ;
     }
 };
@@ -272,6 +272,74 @@ function strStr(haystack: string, needle: string): number {
         }
     }
     return -1;
+}
+```
+
+```ts
+function strStr(haystack: string, needle: string): number {
+    const m = haystack.length;
+    const n = needle.length;
+    const next = new Array(n).fill(0);
+    let j = 0;
+    for (let i = 1; i < n; i++) {
+        while (j > 0 && needle[i] !== needle[j]) {
+            j = next[j - 1];
+        }
+        if (needle[i] === needle[j]) {
+            j++;
+        }
+        next[i] = j;
+    }
+    j = 0;
+    for (let i = 0; i < m; i++) {
+        while (j > 0 && haystack[i] !== needle[j]) {
+            j = next[j - 1];
+        }
+        if (haystack[i] === needle[j]) {
+            j++;
+        }
+        if (j === n) {
+            return i - n + 1;
+        }
+    }
+    return -1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn str_str(haystack: String, needle: String) -> i32 {
+        let haystack = haystack.as_bytes();
+        let needle = needle.as_bytes();
+        let m = haystack.len();
+        let n = needle.len();
+        let mut next = vec![0; n];
+        let mut j = 0;
+        for i in 1..n {
+            while j > 0 && needle[i] != needle[j] {
+                j = next[j - 1];
+            }
+            if needle[i] == needle[j] {
+                j += 1;
+            }
+            next[i] = j;
+        }
+        j = 0;
+        for i in 0..m {
+            while j > 0 && haystack[i] != needle[j] {
+                j = next[j - 1];
+            }
+            if haystack[i] == needle[j] {
+                j += 1;
+            }
+            if j == n {
+                return (i - n + 1) as i32;
+            }
+        }
+        -1
+    }
 }
 ```
 
