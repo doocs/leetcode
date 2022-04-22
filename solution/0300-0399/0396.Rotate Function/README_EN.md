@@ -53,13 +53,80 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxRotateFunction(self, nums: List[int]) -> int:
+        f = sum(i * v for i, v in enumerate(nums))
+        n, s = len(nums), sum(nums)
+        ans = f
+        for i in range(1, n):
+            f = f + s - n * nums[n - i]
+            ans = max(ans, f)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxRotateFunction(int[] nums) {
+        int f = 0;
+        int s = 0;
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            f += i * nums[i];
+            s += nums[i];
+        }
+        int ans = f;
+        for (int i = 1; i < n; ++i) {
+            f = f + s - n * nums[n - i];
+            ans = Math.max(ans, f);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxRotateFunction(vector<int>& nums) {
+        int f = 0, s = 0, n = nums.size();
+        for (int i = 0; i < n; ++i)
+        {
+            f += i * nums[i];
+            s += nums[i];
+        }
+        int ans = f;
+        for (int i = 1; i < n; ++i)
+        {
+            f = f + s - n * nums[n - i];
+            ans = max(ans, f);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxRotateFunction(nums []int) int {
+	f, s, n := 0, 0, len(nums)
+	for i, v := range nums {
+		f += i * v
+		s += v
+	}
+	ans := f
+	for i := 1; i < n; i++ {
+		f = f + s - n*nums[n-i]
+		if ans < f {
+			ans = f
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
