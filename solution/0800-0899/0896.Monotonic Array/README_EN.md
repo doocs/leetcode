@@ -49,15 +49,15 @@
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
-        incr = decr = True
+        isIncr = isDecr = False
         for i, v in enumerate(nums[1:]):
-            if not incr and not decr:
-                return False
             if v < nums[i]:
-                incr = False
+                isIncr = True
             elif v > nums[i]:
-                decr = False
-        return incr or decr
+                isDecr = True
+            if isIncr and isDecr:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -65,18 +65,18 @@ class Solution:
 ```java
 class Solution {
     public boolean isMonotonic(int[] nums) {
-        boolean incr = true, decr = true;
+        boolean isIncr = false, isDecr = false;
         for (int i = 1; i < nums.length; ++i) {
-            if (!incr && !decr) {
+            if (nums[i] < nums[i - 1]) {
+                isIncr = true;
+            } else if (nums[i] > nums[i - 1]) {
+                isDecr = true;
+            }
+            if (isIncr && isDecr) {
                 return false;
             }
-            if (nums[i] < nums[i - 1]) {
-                incr = false;
-            } else if (nums[i] > nums[i - 1]) {
-                decr = false;
-            }
         }
-        return incr || decr;
+        return true;
     }
 }
 ```
@@ -87,15 +87,15 @@ class Solution {
 class Solution {
 public:
     bool isMonotonic(vector<int>& nums) {
-        bool incr = true;
-        bool decr = true;
+        bool isIncr = false;
+        bool isDecr = false;
         for (int i = 1; i < nums.size(); ++i)
         {
-            if (!incr && !decr) return false;
-            if (nums[i] < nums[i - 1]) incr = false;
-            if (nums[i] > nums[i - 1]) decr = false;
+            if (nums[i] < nums[i - 1]) isIncr = true;
+            if (nums[i] > nums[i - 1]) isDecr = true;
+            if (isIncr && isDecr) return false;
         }
-        return incr || decr;
+        return true;
     }
 };
 ```
@@ -104,18 +104,18 @@ public:
 
 ```go
 func isMonotonic(nums []int) bool {
-	incr, decr := true, true
+	isIncr, isDecr := false, false
 	for i, v := range nums[1:] {
-		if !incr && !decr {
+		if v < nums[i] {
+			isIncr = true
+		} else if v > nums[i] {
+			isDecr = true
+		}
+		if isIncr && isDecr {
 			return false
 		}
-		if v < nums[i] {
-			incr = false
-		} else if v > nums[i] {
-			decr = false
-		}
 	}
-	return incr || decr
+	return true
 }
 ```
 
@@ -127,20 +127,20 @@ func isMonotonic(nums []int) bool {
  * @return {boolean}
  */
 var isMonotonic = function (nums) {
-    let incr = true;
-    let decr = true;
+    let isIncr = false;
+    let isDecr = false;
     for (let i = 1; i < nums.length; ++i) {
-        if (!incr && !decr) {
-            return false;
-        }
         if (nums[i] < nums[i - 1]) {
-            incr = false;
+            isIncr = true;
         }
         if (nums[i] > nums[i - 1]) {
-            decr = false;
+            isDecr = true;
+        }
+        if (isIncr && isDecr) {
+            return false;
         }
     }
-    return incr || decr;
+    return true;
 };
 ```
 
@@ -173,17 +173,17 @@ function isMonotonic(nums: number[]): boolean {
 impl Solution {
     pub fn is_monotonic(nums: Vec<i32>) -> bool {
         let n = nums.len();
-        let mut isOrder = false;
-        let mut isDecs = false;
+        let mut is_order = false;
+        let mut is_decs = false;
         for i in 1..n {
             let pre = nums[i - 1];
             let cur = nums[i];
             if pre < cur {
-                isOrder = true;
+                is_order = true;
             } else if pre > cur {
-                isDecs = true;
+                is_decs = true;
             }
-            if isOrder && isDecs {
+            if is_order && is_decs {
                 return false;
             }
         }

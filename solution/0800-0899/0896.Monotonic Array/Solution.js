@@ -3,18 +3,18 @@
  * @return {boolean}
  */
 var isMonotonic = function (nums) {
-    let incr = true;
-    let decr = true;
+    let isIncr = false;
+    let isDecr = false;
     for (let i = 1; i < nums.length; ++i) {
-        if (!incr && !decr) {
-            return false;
-        }
         if (nums[i] < nums[i - 1]) {
-            incr = false;
+            isIncr = true;
         }
         if (nums[i] > nums[i - 1]) {
-            decr = false;
+            isDecr = true;
+        }
+        if (isIncr && isDecr) {
+            return false;
         }
     }
-    return incr || decr;
+    return true;
 };

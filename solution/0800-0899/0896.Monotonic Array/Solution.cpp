@@ -1,14 +1,14 @@
 class Solution {
 public:
     bool isMonotonic(vector<int>& nums) {
-        bool incr = true;
-        bool decr = true;
+        bool isIncr = false;
+        bool isDecr = false;
         for (int i = 1; i < nums.size(); ++i)
         {
-            if (!incr && !decr) return false;
-            if (nums[i] < nums[i - 1]) incr = false;
-            if (nums[i] > nums[i - 1]) decr = false;
+            if (nums[i] < nums[i - 1]) isIncr = true;
+            if (nums[i] > nums[i - 1]) isDecr = true;
+            if (isIncr && isDecr) return false;
         }
-        return incr || decr;
+        return true;
     }
 };
