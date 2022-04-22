@@ -1,32 +1,30 @@
 class Solution {
 public:
-    vector<int> p;
-
     int minimumEffortPath(vector<vector<int>>& heights) {
         int m = heights.size(), n = heights[0].size();
-        p.resize(m * n);
-        for (int i = 0; i < p.size(); ++i) p[i] = i;
-        vector<vector<int>> edges;
-        for (int i = 0; i < m; ++i)
+        vector<vector<int>> dist(m, vector<int>(n, 0x3f3f3f3f));
+        dist[0][0] = 0;
+        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> q;
+        q.push({0, 0, 0});
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty())
         {
-            for (int j = 0; j < n; ++j)
+            auto [t, i, j] = q.top();
+            q.pop();
+            for (int k = 0; k < 4; ++k)
             {
-                if (i < m - 1) edges.push_back({abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
-                if (j < n - 1) edges.push_back({abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n)
+                {
+                    int nd = max(t, abs(heights[x][y] - heights[i][j]));
+                    if (nd < dist[x][y])
+                    {
+                        dist[x][y] = nd;
+                        q.push({nd, x, y});
+                    }
+                }
             }
         }
-        sort(edges.begin(), edges.end());
-        for (auto& e : edges)
-        {
-            int i = e[1], j = e[2];
-            p[find(i)] = find(j);
-            if (find(0) == find(m * n - 1)) return e[0];
-        }
-        return 0;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        return dist[m - 1][n - 1];
     }
 };

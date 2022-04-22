@@ -1,39 +1,29 @@
 class Solution {
-    private int[] p;
-
     public int minimumEffortPath(int[][] heights) {
         int m = heights.length;
         int n = heights[0].length;
-        p = new int[m * n];
-        for (int i = 0; i < p.length; ++i) {
-            p[i] = i;
-        }
-        List<int[]> edges = new ArrayList<>();
+        int[][] dist = new int[m][n];
         for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (i < m - 1) {
-                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
-                }
-                if (j < n - 1) {
-                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
+            Arrays.fill(dist[i], 0x3f3f3f3f);
+        }
+        dist[0][0] = 0;
+        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        q.offer(new int[]{0, 0, 0});
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int t = p[0], i = p[1], j = p[2];
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n) {
+                    int nd = Math.max(t, Math.abs(heights[x][y] - heights[i][j]));
+                    if (nd < dist[x][y]) {
+                        dist[x][y] = nd;
+                        q.offer(new int[]{nd, x, y});
+                    }
                 }
             }
         }
-        Collections.sort(edges, Comparator.comparingInt(a -> a[0]));
-        for (int[] e : edges) {
-            int i = e[1], j = e[2];
-            p[find(i)] = find(j);
-            if (find(0) == find(m * n - 1)) {
-                return e[0];
-            }
-        }
-        return 0;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
+        return dist[m - 1][n - 1];
     }
 }
