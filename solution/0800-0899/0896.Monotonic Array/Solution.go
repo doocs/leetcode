@@ -1,14 +1,14 @@
 func isMonotonic(nums []int) bool {
-	incr, decr := true, true
+	isIncr, isDecr := false, false
 	for i, v := range nums[1:] {
-		if !incr && !decr {
+		if v < nums[i] {
+			isIncr = true
+		} else if v > nums[i] {
+			isDecr = true
+		}
+		if isIncr && isDecr {
 			return false
 		}
-		if v < nums[i] {
-			incr = false
-		} else if v > nums[i] {
-			decr = false
-		}
 	}
-	return incr || decr
+	return true
 }
