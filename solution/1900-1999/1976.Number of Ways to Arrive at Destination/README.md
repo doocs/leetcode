@@ -52,6 +52,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：朴素 Dijkstra 算法**
+
+在求最短路的过程中顺便记录到达某个点最短路径的方案数。松弛优化时，如果发现有更优的路径，则方案数也赋值最优路径的前驱的方案数。如果发现与最优的路径长度相同，则累加当前前驱的方案数。
+
+由于图有可能非常稠密，所以采用朴素的 Dijkstra 算法。
+
+时间复杂度 O(n²)。
+
+> 注意：最短路的长度可能会 超过 32 位整数的范围。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +69,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countPaths(self, n: int, roads: List[List[int]]) -> int:
+        INF = float('inf')
+        MOD = 10**9 + 7
+        g = [[INF] * n for _ in range(n)]
+        for u, v, t in roads:
+            g[u][v] = t
+            g[v][u] = t
+        g[0][0] = 0
+        dist = [INF] * n
+        w = [0] * n
+        dist[0] = 0
+        w[0] = 1
+        vis = [False] * n
+        for _ in range(n):
+            t = -1
+            for i in range(n):
+                if not vis[i] and (t == -1 or dist[i] < dist[t]):
+                    t = i
+            vis[t] = True
+            for i in range(n):
+                if i == t:
+                    continue
+                ne = dist[t] + g[t][i]
+                if dist[i] > ne:
+                    dist[i] = ne
+                    w[i] = w[t]
+                elif dist[i] == ne:
+                    w[i] += w[t]
+        return w[-1] % MOD
 ```
 
 ### **Java**
@@ -67,7 +106,149 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final long INF = Long.MAX_VALUE / 2;
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int countPaths(int n, int[][] roads) {
+        long[][] g = new long[n][n];
+        long[] dist = new long[n];
+        long[] w = new long[n];
+        boolean[] vis = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            Arrays.fill(g[i], INF);
+            Arrays.fill(dist, INF);
+        }
+        for (int[] r : roads) {
+            int u = r[0], v = r[1], t = r[2];
+            g[u][v] = t;
+            g[v][u] = t;
+        }
+        g[0][0] = 0;
+        dist[0] = 0;
+        w[0] = 1;
+        for (int i = 0; i < n; ++i) {
+            int t = -1;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[j] < dist[t])) {
+                    t = j;
+                }
+            }
+            vis[t] = true;
+            for (int j = 0; j < n; ++j) {
+                if (j == t) {
+                    continue;
+                }
+                long ne = dist[t] + g[t][j];
+                if (dist[j] > ne) {
+                    dist[j] = ne;
+                    w[j] = w[t];
+                } else if (dist[j] == ne) {
+                    w[j] = (w[j] + w[t]) % MOD;
+                }
+            }
+        }
+        return (int) w[n - 1];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+typedef long long ll;
+
+class Solution {
+public:
+    const ll INF = LLONG_MAX / 2;
+    const int MOD = 1e9 + 7;
+
+    int countPaths(int n, vector<vector<int>>& roads) {
+        vector<vector<ll>> g(n, vector<ll>(n, INF));
+        vector<ll> dist(n, INF);
+        vector<ll> w(n);
+        vector<bool> vis(n);
+        for (auto& r : roads)
+        {
+            int u = r[0], v = r[1], t = r[2];
+            g[u][v] = t;
+            g[v][u] = t;
+        }
+        g[0][0] = 0;
+        dist[0] = 0;
+        w[0] = 1;
+        for (int i = 0; i < n; ++i)
+        {
+            int t = -1;
+            for (int j = 0; j < n; ++j)
+            {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) t = j;
+            }
+            vis[t] = true;
+            for (int j = 0; j < n; ++j)
+            {
+                if (t == j) continue;
+                ll ne = dist[t] + g[t][j];
+                if (dist[j] > ne)
+                {
+                    dist[j] = ne;
+                    w[j] = w[t];
+                }
+                else if (dist[j] == ne) w[j] = (w[j] + w[t]) % MOD;
+            }
+        }
+        return w[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPaths(n int, roads [][]int) int {
+	const inf = math.MaxInt64 / 2
+	const mod = int(1e9) + 7
+	g := make([][]int, n)
+	dist := make([]int, n)
+	w := make([]int, n)
+	vis := make([]bool, n)
+	for i := range g {
+		g[i] = make([]int, n)
+		dist[i] = inf
+		for j := range g[i] {
+			g[i][j] = inf
+		}
+	}
+	for _, r := range roads {
+		u, v, t := r[0], r[1], r[2]
+		g[u][v], g[v][u] = t, t
+	}
+	g[0][0] = 0
+	dist[0] = 0
+	w[0] = 1
+	for i := 0; i < n; i++ {
+		t := -1
+		for j := 0; j < n; j++ {
+			if !vis[j] && (t == -1 || dist[t] > dist[j]) {
+				t = j
+			}
+		}
+		vis[t] = true
+		for j := 0; j < n; j++ {
+			if j == t {
+				continue
+			}
+			ne := dist[t] + g[t][j]
+			if dist[j] > ne {
+				dist[j] = ne
+				w[j] = w[t]
+			} else if dist[j] == ne {
+				w[j] = (w[j] + w[t]) % mod
+			}
+		}
+	}
+	return w[n-1]
+}
 ```
 
 ### **...**
