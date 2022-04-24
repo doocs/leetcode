@@ -87,9 +87,17 @@ public class Solution {
 
 ```ts
 function reverseWords(s: string): string {
-    let words: string[] = s.trim().split(/\s+/g);
-    words.reverse();
-    return words.join(' ');
+    return s.trim().split(/\s+/).reverse().join(' ');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn reverse_words(s: String) -> String {
+        s.split_whitespace().rev().collect::<Vec<&str>>().join(" ")
+    }
 }
 ```
 
