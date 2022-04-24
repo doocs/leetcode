@@ -63,7 +63,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        ans, j = 0, -1
+        for i in range(32):
+            if n & 1:
+                if j != -1:
+                    ans = max(ans, i - j)
+                j = i
+            n >>= 1
+        return ans
 ```
 
 ### **Java**
@@ -71,7 +80,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int binaryGap(int n) {
+        int ans = 0;
+        for (int i = 0, j = -1; n != 0; ++i, n >>= 1) {
+            if ((n & 1) == 1) {
+                if (j != -1) {
+                    ans = Math.max(ans, i - j);
+                }
+                j = i;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -113,6 +135,43 @@ impl Solution {
         }
         res
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int binaryGap(int n) {
+        int ans = 0;
+        for (int i = 0, j = -1; n; ++i, n >>= 1)
+        {
+            if (n & 1)
+            {
+                if (j != -1) ans = max(ans, i - j);
+                j = i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func binaryGap(n int) int {
+	ans := 0
+	for i, j := 0, -1; n != 0; i, n = i+1, n>>1 {
+		if (n & 1) == 1 {
+			if j != -1 && ans < i-j {
+				ans = i - j
+			}
+			j = i
+		}
+	}
+	return ans
 }
 ```
 

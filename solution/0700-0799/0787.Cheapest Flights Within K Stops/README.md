@@ -58,13 +58,28 @@ src = 0, dst = 2, k = 0
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS + 记忆化搜索。
+**方法一：Bellman Ford 算法**
+
+**方法二：DFS + 记忆化搜索**
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+        INF = 0x3f3f3f3f
+        dist = [INF] * n
+        dist[src] = 0
+        for _ in range(k + 1):
+            backup = dist.copy()
+            for f, t, p in flights:
+                dist[t] = min(dist[t], backup[f] + p)
+        return -1 if dist[dst] == INF else dist[dst]
+```
 
 ```python
 from functools import lru_cache
@@ -94,6 +109,27 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    private static final int INF = 0x3f3f3f3f;
+
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+        int[] dist = new int[n];
+        int[] backup = new int[n];
+        Arrays.fill(dist, INF);
+        dist[src] = 0;
+        for (int i = 0; i < k + 1; ++i) {
+            System.arraycopy(dist, 0, backup, 0, n);
+            for (int[] e : flights) {
+                int f = e[0], t = e[1], p = e[2];
+                dist[t] = Math.min(dist[t], backup[f] + p);
+            }
+        }
+        return dist[dst] == INF ? -1 : dist[dst];
+    }
+}
+```
 
 ```java
 class Solution {
@@ -144,6 +180,28 @@ class Solution {
 ```cpp
 class Solution {
 public:
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        const int inf = 0x3f3f3f3f;
+        vector<int> dist(n, inf);
+        vector<int> backup;
+        dist[src] = 0;
+        for (int i = 0; i < k + 1; ++i)
+        {
+            backup = dist;
+            for (auto& e : flights)
+            {
+                int f = e[0], t = e[1], p = e[2];
+                dist[t] = min(dist[t], backup[f] + p);
+            }
+        }
+        return dist[dst] == inf ? -1 : dist[dst];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
     vector<vector<int>> memo;
     vector<vector<int>> g;
     int dst;
@@ -174,6 +232,36 @@ public:
 ```
 
 ### **Go**
+
+```go
+func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
+	const inf = 0x3f3f3f3f
+	dist := make([]int, n)
+	backup := make([]int, n)
+	for i := range dist {
+		dist[i] = inf
+	}
+	dist[src] = 0
+	for i := 0; i < k+1; i++ {
+		copy(backup, dist)
+		for _, e := range flights {
+			f, t, p := e[0], e[1], e[2]
+			dist[t] = min(dist[t], backup[f]+p)
+		}
+	}
+	if dist[dst] == inf {
+		return -1
+	}
+	return dist[dst]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
