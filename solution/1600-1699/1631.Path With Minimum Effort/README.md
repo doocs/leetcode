@@ -129,6 +129,8 @@ d[find(a)] = distance
 
 **方法三：堆优化版 Dijkstra 算法**
 
+时间复杂度 O(mlogn)。
+
 <!-- tabs:start -->
 
 ### **Python3**
