@@ -57,7 +57,15 @@
 
 **方法一：朴素 Dijkstra 算法**
 
+时间复杂度 O(n²)。
+
 **方法二：堆优化 Dijkstra 算法**
+
+时间复杂度 O(nlogm)。
+
+**方法三：Bellman Ford 算法**
+
+时间复杂度 O(nm)。
 
 <!-- tabs:start -->
 
@@ -111,6 +119,20 @@ class Solution:
                     heappush(q, (dist[v], v))
 
         ans = max(dist[1: n + 1])
+        return -1 if ans == INF else ans
+```
+
+```python
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        INF = 0x3f3f
+        dist = [INF] * n
+        dist[k - 1] = 0
+        for _ in range(n):
+            backup = dist[:]
+            for u, v, w in times:
+                dist[v - 1] = min(dist[v - 1], dist[u - 1] + w)
+        ans = max(dist)
         return -1 if ans == INF else ans
 ```
 
@@ -192,6 +214,31 @@ class Solution {
         }
         int ans = 0;
         for (int i = 1; i <= n; ++i) {
+            ans = Math.max(ans, dist[i]);
+        }
+        return ans == INF ? -1 : ans;
+    }
+}
+```
+
+```java
+class Solution {
+    private static final int INF = 0x3f3f;
+
+    public int networkDelayTime(int[][] times, int n, int k) {
+        int[] dist = new int[n];
+        int[] backup = new int[n];
+        Arrays.fill(dist, INF);
+        dist[k - 1] = 0;
+        for (int i = 0; i < n; ++i) {
+            System.arraycopy(dist, 0, backup, 0, n);
+            for (int[] t : times) {
+                int u = t[0] - 1, v = t[1] - 1, w = t[2];
+                dist[v] = Math.min(dist[v], backup[u] + w);
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
             ans = Math.max(ans, dist[i]);
         }
         return ans == INF ? -1 : ans;
@@ -326,6 +373,47 @@ func max(x, y int) int {
 }
 ```
 
+```go
+func networkDelayTime(times [][]int, n int, k int) int {
+	const inf = 0x3f3f
+	dist := make([]int, n)
+	backup := make([]int, n)
+	for i := range dist {
+		dist[i] = inf
+	}
+	dist[k-1] = 0
+	for i := 0; i < n; i++ {
+		copy(backup, dist)
+		for _, e := range times {
+			u, v, w := e[0]-1, e[1]-1, e[2]
+			dist[v] = min(dist[v], backup[u]+w)
+		}
+	}
+	ans := 0
+	for _, v := range dist {
+		ans = max(ans, v)
+	}
+	if ans == inf {
+		return -1
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -358,6 +446,29 @@ public:
         }
         int ans = *max_element(dist.begin() + 1, dist.begin() + 1 + n);
         return ans == INF ? -1 : ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int inf = 0x3f3f;
+
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<int> dist(n, inf);
+        dist[k - 1] = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            vector<int> backup = dist;
+            for (auto& e : times)
+            {
+                int u = e[0] - 1, v = e[1] - 1, w = e[2];
+                dist[v] = min(dist[v], backup[u] + w);
+            }
+        }
+        int ans = *max_element(dist.begin(), dist.end());
+        return ans == inf ? -1 : ans;
     }
 };
 ```
