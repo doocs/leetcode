@@ -111,9 +111,11 @@
 -   [由单个字符重复的最长子字符串](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md) - 线段树、动态最大子段和模型
 -   [矩形面积 II](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md) - 线段树、离散化、扫描线
 
-<!-- 待补充
 ### 5. 图论
 
+-   [网络延迟时间](/solution/0700-0799/0743.Network%20Delay%20Time/README.md) - 最短路、Dijkstra 算法、Bellman Ford 算法、SPFA 算法
+
+<!-- 待补充
 ### 6. 数学知识
  -->
 

@@ -107,9 +107,11 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Longest Substring of One Repeating Character](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md) - Segment Tree
 -   [Rectangle Area II](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md) - Segment Tree, Discretization, Line Sweep
 
-<!--
 ### 5. Graph Theory
 
+-   [Network Delay Time](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md) - Shortest Path, Dijkstra, Bellman Ford, SPFA
+
+<!--
 ### 6. Mathematical Knowledge
  -->
 
