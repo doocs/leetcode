@@ -2290,3 +2290,8 @@
   - [2244.Minimum Rounds to Complete All Tasks](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README_EN.md)
   - [2245.Maximum Trailing Zeros in a Cornered Path](/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README_EN.md)
   - [2246.Longest Path With Different Adjacent Characters](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md)
+  - [2247.Maximum Cost of Trip With K Highways](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README_EN.md)
+  - [2248.Intersection of Multiple Arrays](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README_EN.md)
+  - [2249.Count Lattice Points Inside a Circle](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README_EN.md)
+  - [2250.Count Number of Rectangles Containing Each Point](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md)
+  - [2251.Number of Flowers in Full Bloom](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md)

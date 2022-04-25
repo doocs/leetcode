@@ -2290,3 +2290,8 @@
   - [2244.完成所有任务需要的最少轮数](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README.md)
   - [2245.转角路径的乘积中最多能有几个尾随零](/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README.md)
   - [2246.相邻字符不同的最长路径](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README.md)
+  - [2247.Maximum Cost of Trip With K Highways](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README.md)
+  - [2248.多个数组求交集](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README.md)
+  - [2249.统计圆内格点数目](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README.md)
+  - [2250.统计包含每个点的矩形数目](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README.md)
+  - [2251.花期内花的数目](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md)
