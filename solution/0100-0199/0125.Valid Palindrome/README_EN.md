@@ -117,6 +117,80 @@ private:
 };
 ```
 
+### **C#**
+
+```cs
+using System.Linq;
+
+public class Solution {
+    public bool IsPalindrome(string s) {
+        var chars = s.Where(ch => char.IsLetterOrDigit(ch)).Select(char.ToLower).ToList();
+        var i = 0;
+        var j = chars.Count - 1;
+        for (; i < j; ++i, --j)
+        {
+            if (chars[i] != chars[j]) return false;
+        }
+        return true;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+const isPalindrome1 = function (s) {
+    let arr1 = [],
+        arr2 = [];
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
+            arr1.push(s[i].toLowerCase());
+        }
+        if ((s[i] >= '0' && s[i] <= '9') || (s[i] >= 'a' && s[i] <= 'z')) {
+            arr1.push(s[i]);
+        }
+    }
+    arr2 = [...arr1];
+    arr2.reverse();
+    return arr1.join('') === arr2.join('');
+};
+
+const isPalindrome = function (s) {
+    function isNumOrAl(a) {
+        if (
+            (a >= 'A' && a <= 'Z') ||
+            (a >= '0' && a <= '9') ||
+            (a >= 'a' && a <= 'z')
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (s.length === 0) {
+        return true;
+    }
+    let i = 0,
+        j = s.length - 1;
+    while (i < j) {
+        while (i < j && !isNumOrAl(s[i])) {
+            i++;
+        }
+        while (i < j && !isNumOrAl(s[j])) {
+            j--;
+        }
+        if (s[i].toLowerCase() !== s[j].toLowerCase()) {
+            return false;
+        } else {
+            i++;
+            j--;
+        }
+    }
+    return true;
+};
+```
+
 ### **TypeScript**
 
 ```ts
@@ -138,6 +212,35 @@ function isPalindrome(s: string): boolean {
         }
     }
     return true;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_palindrome(s: String) -> bool {
+        let s = s.to_lowercase();
+        let s = s.as_bytes();
+        let n = s.len();
+        let (mut l, mut r) = (0, n - 1);
+        while l < r {
+            while l < r && !s[l].is_ascii_alphanumeric() {
+                l += 1;
+            }
+            while l < r && !s[r].is_ascii_alphanumeric() {
+                r -= 1;
+            }
+            if s[l] != s[r] {
+                return false;
+            }
+            l += 1;
+            if r != 0 {
+                r -= 1;
+            }
+        }
+        true
+    }
 }
 ```
 
