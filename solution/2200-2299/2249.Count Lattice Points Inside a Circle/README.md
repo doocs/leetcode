@@ -65,7 +65,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countLatticePoints(self, circles: List[List[int]]) -> int:
+        ans = 0
+        imx = max(x + r for x, _, r in circles)
+        jmx = max(y + r for _, y, r in circles)
+        for i in range(imx + 1):
+            for j in range(jmx + 1):
+                for x, y, r in circles:
+                    x, y = x - i, y - j
+                    if x * x + y * y <= r * r:
+                        ans += 1
+                        break
+        return ans
 ```
 
 ### **Java**
@@ -121,6 +133,53 @@ function countLatticePoints(circles: number[][]): number {
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countLatticePoints(vector<vector<int>>& circles) {
+        int ans = 0;
+        for (int i = 0; i <= 200; ++i)
+        {
+            for (int j = 0; j <= 200; ++j)
+            {
+                for (auto& c : circles)
+                {
+                    int x = c[0] - i, y = c[1] - j, r = c[2];
+                    if (x * x + y * y <= r * r)
+                    {
+                        ++ans;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countLatticePoints(circles [][]int) int {
+	ans := 0
+	for i := 0; i <= 200; i++ {
+		for j := 0; j <= 200; j++ {
+			for _, c := range circles {
+				x, y, r := c[0]-i, c[1]-j, c[2]
+				if x*x+y*y <= r*r {
+					ans++
+					break
+				}
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
