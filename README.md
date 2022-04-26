@@ -115,6 +115,8 @@
 
 -   [网络延迟时间](/solution/0700-0799/0743.Network%20Delay%20Time/README.md) - 最短路、Dijkstra 算法、Bellman Ford 算法、SPFA 算法
 -   [连接所有点的最小费用](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md) - 最小生成树、Prim 算法、Kruskal 算法
+-   [最低成本联通所有城市](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md) - 最小生成树、Kruskal 算法
+-   [水资源分配优化](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md) - 最小生成树、Kruskal 算法
 
 <!-- 待补充
 ### 6. 数学知识
