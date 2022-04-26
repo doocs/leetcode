@@ -140,7 +140,11 @@ public class Solution {
 ### **JavaScript**
 
 ```js
-const isPalindrome1 = function (s) {
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function (s) {
     let arr1 = [],
         arr2 = [];
     for (let i = 0; i < s.length; i++) {
@@ -155,8 +159,14 @@ const isPalindrome1 = function (s) {
     arr2.reverse();
     return arr1.join('') === arr2.join('');
 };
+```
 
-const isPalindrome = function (s) {
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function (s) {
     function isNumOrAl(a) {
         if (
             (a >= 'A' && a <= 'Z') ||
@@ -213,6 +223,16 @@ function isPalindrome(s: string): boolean {
         }
     }
     return true;
+}
+```
+
+```ts
+function isPalindrome(s: string): boolean {
+    const isAlphanumeric = (c: string) => {
+        return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+    };
+    const cs = s.toLocaleLowerCase().split('').filter(isAlphanumeric);
+    return cs.join('') === cs.reverse().join('');
 }
 ```
 
