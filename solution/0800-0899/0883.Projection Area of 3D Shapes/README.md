@@ -68,6 +68,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+根据题意：
+
+-   xy 表示 grid 中大于 0 的元素个数
+-   yz 表示 grid 每一行的最大值之和
+-   zx 表示 grid 每一列的最大值之和
+
+遍历 grid，更新 xy, yz, zx。遍历结束返回 `xy + yz + zx`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,7 +83,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def projectionArea(self, grid: List[List[int]]) -> int:
+        xy = sum(v > 0 for row in grid for v in row)
+        yz = sum(max(row) for row in grid)
+        zx = sum(max(col) for col in zip(*grid))
+        return xy + yz + zx
 ```
 
 ### **Java**
@@ -83,7 +96,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int projectionArea(int[][] grid) {
+        int xy = 0, yz = 0, zx = 0;
+        for (int i = 0, n = grid.length; i < n; ++i) {
+            int maxYz = 0;
+            int maxZx = 0;
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] > 0) {
+                    ++xy;
+                }
+                maxYz = Math.max(maxYz, grid[i][j]);
+                maxZx = Math.max(maxZx, grid[j][i]);
+            }
+            yz += maxYz;
+            zx += maxZx;
+        }
+        return xy + yz + zx;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -130,6 +161,58 @@ impl Solution {
         }
         res + y_max.iter().sum::<i32>() + x_max.iter().sum::<i32>()
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int projectionArea(vector<vector<int>>& grid) {
+        int xy = 0, yz = 0, zx = 0;
+        for (int i = 0, n = grid.size(); i < n; ++i)
+        {
+            int maxYz = 0, maxZx = 0;
+            for (int j = 0; j < n; ++j)
+            {
+                xy += grid[i][j] > 0;
+                maxYz = max(maxYz, grid[i][j]);
+                maxZx = max(maxZx, grid[j][i]);
+            }
+            yz += maxYz;
+            zx += maxZx;
+        }
+        return xy + yz + zx;
+    }
+};
+```
+
+### **Go**
+
+```go
+func projectionArea(grid [][]int) int {
+	xy, yz, zx := 0, 0, 0
+	for i, row := range grid {
+		maxYz, maxZx := 0, 0
+		for j, v := range row {
+			if v > 0 {
+				xy++
+			}
+			maxYz = max(maxYz, v)
+			maxZx = max(maxZx, grid[j][i])
+		}
+		yz += maxYz
+		zx += maxZx
+	}
+	return xy + yz + zx
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 

@@ -53,13 +53,36 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def projectionArea(self, grid: List[List[int]]) -> int:
+        xy = sum(v > 0 for row in grid for v in row)
+        yz = sum(max(row) for row in grid)
+        zx = sum(max(col) for col in zip(*grid))
+        return xy + yz + zx
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int projectionArea(int[][] grid) {
+        int xy = 0, yz = 0, zx = 0;
+        for (int i = 0, n = grid.length; i < n; ++i) {
+            int maxYz = 0;
+            int maxZx = 0;
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] > 0) {
+                    ++xy;
+                }
+                maxYz = Math.max(maxYz, grid[i][j]);
+                maxZx = Math.max(maxZx, grid[j][i]);
+            }
+            yz += maxYz;
+            zx += maxZx;
+        }
+        return xy + yz + zx;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -106,6 +129,58 @@ impl Solution {
         }
         res + y_max.iter().sum::<i32>() + x_max.iter().sum::<i32>()
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int projectionArea(vector<vector<int>>& grid) {
+        int xy = 0, yz = 0, zx = 0;
+        for (int i = 0, n = grid.size(); i < n; ++i)
+        {
+            int maxYz = 0, maxZx = 0;
+            for (int j = 0; j < n; ++j)
+            {
+                xy += grid[i][j] > 0;
+                maxYz = max(maxYz, grid[i][j]);
+                maxZx = max(maxZx, grid[j][i]);
+            }
+            yz += maxYz;
+            zx += maxZx;
+        }
+        return xy + yz + zx;
+    }
+};
+```
+
+### **Go**
+
+```go
+func projectionArea(grid [][]int) int {
+	xy, yz, zx := 0, 0, 0
+	for i, row := range grid {
+		maxYz, maxZx := 0, 0
+		for j, v := range row {
+			if v > 0 {
+				xy++
+			}
+			maxYz = max(maxYz, v)
+			maxZx = max(maxZx, grid[j][i])
+		}
+		yz += maxYz
+		zx += maxZx
+	}
+	return xy + yz + zx
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
