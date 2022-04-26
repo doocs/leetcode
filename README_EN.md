@@ -109,7 +109,8 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 
 ### 5. Graph Theory
 
--   [Network Delay Time](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md) - Shortest Path, Dijkstra, Bellman Ford, SPFA
+-   [Network Delay Time](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md) - Shortest Path, Dijkstra's algorithm, Bellman Ford's algorithm, SPFA
+-   [Min Cost to Connect All Points](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md) - Minimum Spanning Tree, Prim's algorithm, Kruskal's algorithm
 
 <!--
 ### 6. Mathematical Knowledge

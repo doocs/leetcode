@@ -114,6 +114,7 @@
 ### 5. 图论
 
 -   [网络延迟时间](/solution/0700-0799/0743.Network%20Delay%20Time/README.md) - 最短路、Dijkstra 算法、Bellman Ford 算法、SPFA 算法
+-   [连接所有点的最小费用](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md) - 最小生成树、Prim 算法、Kruskal 算法
 
 <!-- 待补充
 ### 6. 数学知识
