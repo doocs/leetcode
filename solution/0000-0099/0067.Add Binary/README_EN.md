@@ -149,20 +149,23 @@ func addBinary(a string, b string) string {
 
 ```ts
 function addBinary(a: string, b: string): string {
+    const n = Math.max(a.length, b.length);
     const res = [];
-    let i = a.length - 1;
-    let j = b.length - 1;
     let isOver = false;
-    while (i >= 0 || j >= 0 || isOver) {
-        let sum = Number(a[i] || 0) + Number(b[j] || 0) + (isOver ? 1 : 0);
+    for (let i = 0; i < n || isOver; i++) {
+        let val = isOver ? 1 : 0;
         isOver = false;
-        if (sum > 1) {
-            isOver = true;
-            sum -= 2;
+        if (a[a.length - i - 1] === '1') {
+            val++;
         }
-        res.push(sum);
-        i--;
-        j--;
+        if (b[b.length - i - 1] === '1') {
+            val++;
+        }
+        if (val > 1) {
+            isOver = true;
+            val -= 2;
+        }
+        res.push(val);
     }
     return res.reverse().join('');
 }
@@ -173,31 +176,28 @@ function addBinary(a: string, b: string): string {
 ```rust
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
-        let mut res = String::new();
-        let a = a.as_bytes();
-        let b = b.as_bytes();
-        let mut i = a.len();
-        let mut j = b.len();
+        let n = a.len().max(b.len());
+        let (a, b) = (a.as_bytes(), b.as_bytes());
+        let mut res = vec![];
         let mut is_over = false;
-        while i != 0 || j != 0 || is_over {
-            let mut sum = if is_over { b'1' } else { b'0' };
-            if i != 0 {
-                sum += a[i - 1] - b'0';
-                i -= 1;
+        let mut i = 0;
+        while i < n || is_over {
+            let mut val = if is_over { 1 } else { 0 };
+            is_over = false;
+            if a.get(a.len() - i - 1).unwrap_or(&b'0') == &b'1' {
+                val += 1;
             }
-            if j != 0 {
-                sum += b[j - 1] - b'0';
-                j -= 1;
+            if b.get(b.len() - i - 1).unwrap_or(&b'0') == &b'1' {
+                val += 1;
             }
-            is_over = if sum > b'1' {
-                sum -= b'2' - b'0';
-                true
-            } else {
-                false
-            };
-            res.push(char::from(sum));
+            if val > 1 {
+                is_over = true;
+                val -= 2;
+            }
+            i += 1;
+            res.push(char::from(b'0' + val));
         }
-        res.chars().rev().collect()
+        res.iter().rev().collect()
     }
 }
 ```
