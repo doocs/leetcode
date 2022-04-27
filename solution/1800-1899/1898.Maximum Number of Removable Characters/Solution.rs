@@ -32,7 +32,7 @@ impl Solution {
         }
 
         if check(right) {
-            return  right as i32;
+            return right as i32;
         }
         left as i32
     }
