@@ -65,8 +65,8 @@ class Solution:
         left = set()
         right = set()
 
-        self.getSubSeqSum(0, 0, nums[:n//2], left)
-        self.getSubSeqSum(0, 0, nums[n//2:], right)
+        self.getSubSeqSum(0, 0, nums[:n // 2], left)
+        self.getSubSeqSum(0, 0, nums[n // 2:], right)
 
         result = float('inf')
         right = sorted(right)
@@ -80,19 +80,17 @@ class Solution:
                 result = min(result, abs(remaining - right[idx]))
 
             if idx > 0:
-                result = min(result, abs(remaining - right[idx-1]))
+                result = min(result, abs(remaining - right[idx - 1]))
 
         return result
 
-    def getSubSeqSum(self, i: int, curr: int, arr: List[int], result: set()) -> set():
+    def getSubSeqSum(self, i: int, curr: int, arr: List[int], result: Set[int]):
         if i == len(arr):
             result.add(curr)
             return
 
-        self.getSubSeqSum(i+1, curr, arr, result)
-        self.getSubSeqSum(i+1, curr+arr[i], arr, result)
-
-
+        self.getSubSeqSum(i + 1, curr, arr, result)
+        self.getSubSeqSum(i + 1, curr + arr[i], arr, result)
 ```
 
 ### **Java**
