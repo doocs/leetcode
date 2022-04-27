@@ -81,7 +81,7 @@ class Solution:
         ans = 0
         while q:
             ans += 1
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 i, j = q.popleft()
                 for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
                     x, y = i + a, j + b

@@ -69,7 +69,7 @@ while q1 and q2:
 
 def extend(m1, m2, q):
     # 新一轮扩展
-    for _ in range(len(q), 0, -1):
+    for _ in range(len(q)):
         p = q.popleft()
         step = m1[p]
         for t in next(p):
@@ -99,7 +99,7 @@ class Solution:
         ans = 1
         while q:
             ans += 1
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 s = q.popleft()
                 s = list(s)
                 for i in range(len(s)):
@@ -123,7 +123,7 @@ class Solution:
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         def extend(m1, m2, q):
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 s = q.popleft()
                 step = m1[s]
                 s = list(s)

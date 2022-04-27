@@ -49,9 +49,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划 - 最长上升子序列模型。
+**方法一：动态规划**
 
-将所有球员先按照年龄从小到大排序（年龄相同，则按照分数从小到大排），然后在分数数组中求解最长上升子序列和的最大值即可。
+最长上升子序列模型。
+
+将所有球员先按照年龄从小到大排序（年龄相同，则按照分数从小到大排），然后在分数数组中求解最长上升子序列和的最大值即可。最长上升子序列朴素做法，时间复杂度 O(n²)。
 
 类似题型：洛谷 “[P2782 友好城市](https://www.luogu.com.cn/problem/P2782)”。
 
@@ -64,16 +66,15 @@
 ```python
 class Solution:
     def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
-        nums = list(zip(scores, ages))
-        nums.sort(key=lambda x: (x[1], x[0]))
-        dp = [num[0] for num in nums]
-        res, n = 0, len(ages)
+        nums = list(zip(ages, scores))
+        nums.sort()
+        n = len(nums)
+        dp = [num[1] for num in nums]
         for i in range(n):
             for j in range(i):
-                if nums[j][0] <= nums[i][0]:
-                    dp[i] = max(dp[i], dp[j] + nums[i][0])
-            res = max(res, dp[i])
-        return res
+                if nums[i][1] >= nums[j][1]:
+                    dp[i] = max(dp[i], dp[j] + nums[i][1])
+        return max(dp)
 ```
 
 ### **Java**
@@ -86,23 +87,23 @@ class Solution {
         int n = ages.length;
         int[][] nums = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            nums[i] = new int[]{scores[i], ages[i]};
+            nums[i] = new int[]{ages[i], scores[i]};
         }
         Arrays.sort(nums, (a, b) -> {
-            return a[1] == b[1] ? a[0] - b[0] : a[1] - b[1];
+            return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0];
         });
         int[] dp = new int[n];
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            dp[i] = nums[i][0];
+            dp[i] = nums[i][1];
             for (int j = 0; j < i; ++j) {
-                if (nums[j][0] <= nums[i][0]) {
-                    dp[i] = Math.max(dp[i], dp[j] + nums[i][0]);
+                if (nums[i][1] >= nums[j][1]) {
+                    dp[i] = Math.max(dp[i], dp[j] + nums[i][1]);
                 }
             }
-            res = Math.max(res, dp[i]);
+            ans = Math.max(ans, dp[i]);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -112,26 +113,22 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int bestTeamScore(vector<int> &scores, vector<int> &ages) {
-        vector<pair<int, int>> nums;
+    int bestTeamScore(vector<int>& scores, vector<int>& ages) {
         int n = ages.size();
-        for (int i = 0; i < n; ++i) nums.push_back({scores[i], ages[i]});
-        sort(nums.begin(), nums.end(), [](auto &a, auto &b) {
-            return a.second == b.second ? a.first < b.first : a.second < b.second;
-        });
+        vector<vector<int>> nums(n);
+        for (int i = 0; i < n; ++i) nums[i] = {ages[i], scores[i]};
+        sort(nums.begin(), nums.end());
         vector<int> dp(n);
-        int res = 0;
         for (int i = 0; i < n; ++i)
         {
-            dp[i] = nums[i].first;
+            dp[i] = nums[i][1];
             for (int j = 0; j < i; ++j)
             {
-                if (nums[j].first <= nums[i].first)
-                    dp[i] = max(dp[i], dp[j] + nums[i].first);
+                if (nums[i][1] >= nums[j][1])
+                    dp[i] = max(dp[i], dp[j] + nums[i][1]);
             }
-            res = max(res, dp[i]);
         }
-        return res;
+        return *max_element(dp.begin(), dp.end());
     }
 };
 ```
@@ -141,28 +138,28 @@ public:
 ```go
 func bestTeamScore(scores []int, ages []int) int {
 	n := len(ages)
-	var nums [][]int
-	for i := 0; i < n; i++ {
-		nums = append(nums, []int{scores[i], ages[i]})
+	nums := make([][]int, n)
+	for i, age := range ages {
+		nums[i] = []int{age, scores[i]}
 	}
 	sort.Slice(nums, func(i, j int) bool {
-		if nums[i][1] == nums[j][1] {
+		if nums[i][0] != nums[j][0] {
 			return nums[i][0] < nums[j][0]
 		}
 		return nums[i][1] < nums[j][1]
 	})
 	dp := make([]int, n)
-	res := 0
-	for i := 0; i < n; i++ {
-		dp[i] = nums[i][0]
+	ans := 0
+	for i, num := range nums {
+		dp[i] = num[1]
 		for j := 0; j < i; j++ {
-			if nums[j][0] <= nums[i][0] {
-				dp[i] = max(dp[i], dp[j]+nums[i][0])
+			if num[1] >= nums[j][1] {
+				dp[i] = max(dp[i], dp[j]+num[1])
 			}
 		}
-		res = max(res, dp[i])
+		ans = max(ans, dp[i])
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {
@@ -171,6 +168,33 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} scores
+ * @param {number[]} ages
+ * @return {number}
+ */
+var bestTeamScore = function (scores, ages) {
+    const nums = ages.map((age, i) => [age, scores[i]]);
+    nums.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]));
+    const n = nums.length;
+    let dp = new Array(n);
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        dp[i] = nums[i][1];
+        for (let j = 0; j < i; ++j) {
+            if (nums[i][1] >= nums[j][1]) {
+                dp[i] = Math.max(dp[i], dp[j] + nums[i][1]);
+            }
+        }
+        ans = Math.max(ans, dp[i]);
+    }
+    return ans;
+};
 ```
 
 ### **...**

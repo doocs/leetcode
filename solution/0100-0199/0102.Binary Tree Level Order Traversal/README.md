@@ -240,6 +240,99 @@ var levelOrder = function (root) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function levelOrder(root: TreeNode | null): number[][] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    const queue = [root];
+    while (queue.length != 0) {
+        const n = queue.length;
+        res.push(
+            new Array(n).fill(null).map(() => {
+                const { val, left, right } = queue.shift();
+                left && queue.push(left);
+                right && queue.push(right);
+                return val;
+            }),
+        );
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+        let mut res = vec![];
+        if root.is_none() {
+            return res;
+        }
+        let mut queue: VecDeque<Option<Rc<RefCell<TreeNode>>>> = vec![root].into_iter().collect();
+        while !queue.is_empty() {
+            let n = queue.len();
+            res.push(
+                (0..n)
+                    .into_iter()
+                    .map(|_| {
+                        let mut node = queue.pop_front().unwrap();
+                        let mut node = node.as_mut().unwrap().borrow_mut();
+                        if node.left.is_some() {
+                            queue.push_back(node.left.take());
+                        }
+                        if node.right.is_some() {
+                            queue.push_back(node.right.take());
+                        }
+                        node.val
+                    })
+                    .collect(),
+            );
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```

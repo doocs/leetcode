@@ -48,6 +48,17 @@
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        n = len(matrix[0])
+        for row in matrix:
+            idx = bisect_left(row, target)
+            if idx != n and row[idx] == target:
+                return True
+        return False
+```
+
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
         i, j = m - 1, 0
         while i >= 0 and j < n:
@@ -61,6 +72,20 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        for (int[] row : matrix) {
+            int idx = Arrays.binarySearch(row, target);
+            if (idx >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -83,6 +108,28 @@ class Solution {
 ```
 
 ### **TypeScript**
+
+```ts
+function searchMatrix(matrix: number[][], target: number): boolean {
+    const n = matrix[0].length;
+    for (const row of matrix) {
+        let left = 0,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (row[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (left != n && row[left] == target) {
+            return true;
+        }
+    }
+    return false;
+}
+```
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
@@ -109,6 +156,21 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int n = matrix[0].size();
+        for (auto& row : matrix)
+        {
+            int idx = lower_bound(row.begin(), row.end(), target) - row.begin();
+            if (idx != n && row[idx] == target) return true;
+        }
+        return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int m = matrix.size(), n = matrix[0].size();
         int i = m - 1, j = 0;
         while (i >= 0 && j < n)
@@ -123,6 +185,27 @@ public:
 ```
 
 ### **Go**
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	n := len(matrix[0])
+	for _, row := range matrix {
+		left, right := 0, n
+		for left < right {
+			mid := (left + right) >> 1
+			if row[mid] >= target {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		if left != n && row[left] == target {
+			return true
+		}
+	}
+	return false
+}
+```
 
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
@@ -190,6 +273,35 @@ impl Solution {
         false
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var searchMatrix = function (matrix, target) {
+    const n = matrix[0].length;
+    for (const row of matrix) {
+        let left = 0,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (row[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (left != n && row[left] == target) {
+            return true;
+        }
+    }
+    return false;
+};
 ```
 
 ### **...**

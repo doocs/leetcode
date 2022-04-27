@@ -6,42 +6,26 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个字符串&nbsp;<code>s</code>&nbsp;，字符串的「能量」定义为：只包含一种字符的最长非空子字符串的长度。</p>
+<p>给你一个字符串&nbsp;<code>s</code>&nbsp;，字符串的<strong>「能量」</strong>定义为：只包含一种字符的最长非空子字符串的长度。</p>
 
-<p>请你返回字符串的能量。</p>
+<p>请你返回字符串 <code>s</code> 的 <strong>能量</strong>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;leetcode&quot;
+<pre>
+<strong>输入：</strong>s = "leetcode"
 <strong>输出：</strong>2
-<strong>解释：</strong>子字符串 &quot;ee&quot; 长度为 2 ，只包含字符 &#39;e&#39; 。
+<strong>解释：</strong>子字符串 "ee" 长度为 2 ，只包含字符 'e' 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;abbcccddddeeeeedcba&quot;
+<pre>
+<strong>输入：</strong>s = "abbcccddddeeeeedcba"
 <strong>输出：</strong>5
-<strong>解释：</strong>子字符串 &quot;eeeee&quot; 长度为 5 ，只包含字符 &#39;e&#39; 。
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>s = &quot;triplepillooooow&quot;
-<strong>输出：</strong>5
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>s = &quot;hooraaaaaaaaaaay&quot;
-<strong>输出：</strong>11
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>s = &quot;tourist&quot;
-<strong>输出：</strong>1
+<strong>解释：</strong>子字符串 "eeeee" 长度为 5 ，只包含字符 'e' 。
 </pre>
 
 <p>&nbsp;</p>

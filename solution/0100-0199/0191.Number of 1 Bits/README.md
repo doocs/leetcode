@@ -65,7 +65,39 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-`n & (n - 1)` 会消除 n 中最后一位中的 1。
+朴素解法：一位一位数。
+
+```txt
+HAMMING-WEIGHT(n)
+    r = 0
+    while n != 0
+        r += n & 1
+        n >>= 1
+    r
+```
+
+利用 `n & (n - 1)` 消除 `n` 中最后一位 1 这一特点，优化过程：
+
+```txt
+HAMMING-WEIGHT(n)
+    r = 0
+    while n != 0
+        n &= n - 1
+        r += 1
+    r
+```
+
+以 5 为例，演示推演过程：
+
+```txt
+[0, 1, 0, 1] // 5
+[0, 1, 0, 0] // 5 - 1 = 4
+[0, 1, 0, 0] // 5 & 4 = 4
+
+[0, 1, 0, 0] // 4
+[0, 0, 1, 1] // 4 - 1 = 3
+[0, 0, 0, 0] // 4 & 3 = 0
+```
 
 同 [剑指 Offer 15. 二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
 
@@ -148,6 +180,42 @@ var hammingWeight = function (n) {
     }
     return ans;
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn hammingWeight(n: u32) -> i32 {
+        n.count_ones() as i32
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn hammingWeight(mut n: u32) -> i32 {
+        let mut res = 0;
+        while n != 0 {
+            res += n & 1;
+            n >>= 1;
+        }
+        res as i32
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn hammingWeight(mut n: u32) -> i32 {
+        let mut res = 0;
+        while n != 0 {
+            n &= (n - 1);
+            res += 1;
+        }
+        res
+    }
+}
 ```
 
 ### **...**

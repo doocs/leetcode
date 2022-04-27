@@ -66,13 +66,24 @@ customer_number 为 '3' 的顾客有两个订单，比顾客 '1' 或者 '2' 都�
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     customer_number
 FROM
     Orders
 GROUP BY customer_number
 ORDER BY COUNT(customer_number) DESC
 LIMIT 1;
+```
+
+SQL Server
+
+```sql
+SELECT TOP 1
+    customer_number
+FROM
+    orders
+GROUP BY customer_number
+ORDER BY COUNT(customer_number) DESC;
 ```
 
 <!-- tabs:end -->

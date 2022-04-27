@@ -2,7 +2,7 @@ class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         def bfs(q, vis):
             while q:
-                for _ in range(len(q), 0, -1):
+                for _ in range(len(q)):
                     i, j = q.popleft()
                     for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
                         x, y = i + a, j + b

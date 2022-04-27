@@ -610,6 +610,138 @@ func numIslands(grid [][]byte) int {
 }
 ```
 
+### **Rust**
+
+DFS - Flood Fill 算法：
+
+```rust
+const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
+
+impl Solution {
+    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
+        fn dfs(grid: &mut Vec<Vec<char>>, i: usize, j: usize) {
+            grid[i][j] = '0';
+            for k in 0..4 {
+                let x = i as i32 + DIRS[k];
+                let y = j as i32 + DIRS[k + 1];
+                if x >= 0
+                    && (x as usize) < grid.len()
+                    && y >= 0
+                    && (y as usize) < grid[0].len()
+                    && grid[x as usize][y as usize] == '1'
+                {
+                    dfs(grid, x as usize, y as usize);
+                }
+            }
+        }
+
+        let mut grid = grid;
+        let mut ans = 0;
+        for i in 0..grid.len() {
+            for j in 0..grid[0].len() {
+                if grid[i][j] == '1' {
+                    dfs(&mut grid, i, j);
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+BFS - Flood Fill 算法：
+
+```rust
+use std::collections::VecDeque;
+
+const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
+
+impl Solution {
+    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
+        fn bfs(grid: &mut Vec<Vec<char>>, i: usize, j: usize) {
+            grid[i][j] = '0';
+            let mut queue = VecDeque::from([(i, j)]);
+            while !queue.is_empty() {
+                let (i, j) = queue.pop_front().unwrap();
+                for k in 0..4 {
+                    let x = i as i32 + DIRS[k];
+                    let y = j as i32 + DIRS[k + 1];
+                    if x >= 0
+                        && (x as usize) < grid.len()
+                        && y >= 0
+                        && (y as usize) < grid[0].len()
+                        && grid[x as usize][y as usize] == '1'
+                    {
+                        grid[x as usize][y as usize] = '0';
+                        queue.push_back((x as usize, y as usize));
+                    }
+                }
+            }
+        }
+
+        let mut grid = grid;
+        let mut ans = 0;
+        for i in 0..grid.len() {
+            for j in 0..grid[0].len() {
+                if grid[i][j] == '1' {
+                    bfs(&mut grid, i, j);
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+并查集：
+
+```rust
+const DIRS: [usize; 3] = [1, 0, 1];
+
+impl Solution {
+    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut p: Vec<i32> = (0..(m * n) as i32).collect();
+
+        fn find(p: &mut Vec<i32>, x: usize) -> i32 {
+            if p[x] != x as i32 {
+                p[x] = find(p, p[x] as usize);
+            }
+            p[x]
+        }
+
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] == '1' {
+                    for k in 0..2 {
+                        let x = i + DIRS[k];
+                        let y = j + DIRS[k + 1];
+                        if x < m && y < n && grid[x][y] == '1' {
+                            let f1 = find(&mut p, x * n + y);
+                            let f2 = find(&mut p, i * n + j);
+                            p[f1 as usize] = f2;
+                        }
+                    }
+                }
+            }
+        }
+
+        let mut ans = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] == '1' && p[i * n + j] == (i * n + j) as i32 {
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
 ### **...**
 
 ```

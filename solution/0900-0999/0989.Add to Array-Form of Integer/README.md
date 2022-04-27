@@ -121,6 +121,46 @@ function addToArrayForm(num: number[], k: number): number[] {
 }
 ```
 
+```ts
+function addToArrayForm(num: number[], k: number): number[] {
+    const n = num.length;
+    const res = [];
+    let sum = 0;
+    for (let i = 0; i < n || sum !== 0 || k !== 0; i++) {
+        sum += num[n - i - 1] ?? 0;
+        sum += k % 10;
+        res.push(sum % 10);
+        k = Math.floor(k / 10);
+        sum = Math.floor(sum / 10);
+    }
+    return res.reverse();
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn add_to_array_form(num: Vec<i32>, mut k: i32) -> Vec<i32> {
+        let n = num.len();
+        let mut res = vec![];
+        let mut i = 0;
+        let mut sum = 0;
+        while i < n || sum != 0 || k != 0 {
+            sum += num.get(n - i - 1).unwrap_or(&0);
+            sum += k % 10;
+            res.push(sum % 10);
+
+            i += 1;
+            k /= 10;
+            sum /= 10;
+        }
+        res.reverse();
+        res
+    }
+}
+```
+
 ### **...**
 
 ```

@@ -48,7 +48,7 @@ The simplest solution is to judge after sort, but because `H` cannot be greater 
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
         n = len(citations)
-        cnt = [0 for i in range(n + 1)]
+        cnt = [0] * (n + 1)
         for c in citations:
             if c <= n:
                 cnt[c] += 1

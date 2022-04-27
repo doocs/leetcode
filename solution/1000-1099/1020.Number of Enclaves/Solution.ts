@@ -32,7 +32,8 @@ function numEnclaves(grid: number[][]): number {
 
 // BFS
 function numEnclaves(grid: number[][]): number {
-    const m = grid.length, n = grid[0].length;
+    const m = grid.length,
+        n = grid[0].length;
     let ans = 0;
     let queue = [];
     // 统计全部1, 临边的1加入队列
@@ -49,7 +50,12 @@ function numEnclaves(grid: number[][]): number {
         }
     }
 
-    let directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+    let directions = [
+        [-1, 0],
+        [1, 0],
+        [0, -1],
+        [0, 1],
+    ];
     while (queue.length) {
         let nextQueue = [];
         for (let [x, y] of queue) {
@@ -65,4 +71,4 @@ function numEnclaves(grid: number[][]): number {
         }
     }
     return ans;
-};
+}

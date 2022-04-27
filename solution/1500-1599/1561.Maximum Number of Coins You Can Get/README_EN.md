@@ -55,18 +55,59 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 
 ## Solutions
 
+Greedy.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxCoins(self, piles: List[int]) -> int:
+        piles.sort()
+        return sum(piles[-2 : len(piles) // 3 - 1 : -2])
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxCoins(int[] piles) {
+        Arrays.sort(piles);
+        int ans = 0;
+        for (int i = piles.length - 2; i >= piles.length / 3; i -= 2) {
+            ans += piles[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxCoins(vector<int>& piles) {
+        sort(piles.begin(), piles.end());
+        int ans = 0;
+        for (int i = piles.size() - 2; i >= (int) piles.size() / 3; i -= 2) ans += piles[i];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxCoins(piles []int) int {
+	sort.Ints(piles)
+	ans, n := 0, len(piles)
+	for i := n - 2; i >= n/3; i -= 2 {
+		ans += piles[i]
+	}
+	return ans
+}
 ```
 
 ### **...**

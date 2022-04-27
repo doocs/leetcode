@@ -1,7 +1,7 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         def extend(m1, m2, q):
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 s = q.popleft()
                 step = m1[s]
                 s = list(s)

@@ -46,27 +46,14 @@
 <strong>解释：</strong>你可以直接从下标 0 处跳到下标 7 处，也就是数组的最后一个元素处。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>arr = [6,1,9]
-<strong>输出：</strong>2
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>arr = [11,22,7,7,7,7,7,7,7,22,13]
-<strong>输出：</strong>3
-</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
+<meta charset="UTF-8" />
 
 <ul>
-	<li><code>1 &lt;= arr.length &lt;= 5 * 10^4</code></li>
-	<li><code>-10^8 &lt;= arr[i] &lt;= 10^8</code></li>
+	<li><code>1 &lt;= arr.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>-10<sup>8</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
 ## 解法

@@ -83,6 +83,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：BFS**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -90,7 +92,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxCandies(self, status: List[int], candies: List[int], keys: List[List[int]], containedBoxes: List[List[int]], initialBoxes: List[int]) -> int:
+        q = deque([i for i in initialBoxes if status[i] == 1])
+        ans = sum(candies[i] for i in initialBoxes if status[i] == 1)
+        has = set(initialBoxes)
+        took = {i for i in initialBoxes if status[i] == 1}
 
+        while q:
+            i = q.popleft()
+            for k in keys[i]:
+                status[k] = 1
+                if k in has and k not in took:
+                    ans += candies[k]
+                    took.add(k)
+                    q.append(k)
+            for j in containedBoxes[i]:
+                has.add(j)
+                if status[j] and j not in took:
+                    ans += candies[j]
+                    took.add(j)
+                    q.append(j)
+        return ans
 ```
 
 ### **Java**
@@ -98,7 +121,135 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxCandies(int[] status, int[] candies, int[][] keys, int[][] containedBoxes, int[] initialBoxes) {
+        int ans = 0;
+        int n = status.length;
+        boolean[] has = new boolean[n];
+        boolean[] took = new boolean[n];
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i : initialBoxes) {
+            has[i] = true;
+            if (status[i] == 1) {
+                ans += candies[i];
+                took[i] = true;
+                q.offer(i);
+            }
+        }
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            for (int k : keys[i]) {
+                status[k] = 1;
+                if (has[k] && !took[k]) {
+                    ans += candies[k];
+                    took[k] = true;
+                    q.offer(k);
+                }
+            }
+            for (int j : containedBoxes[i]) {
+                has[j] = true;
+                if (status[j] == 1 && !took[j]) {
+                    ans += candies[j];
+                    took[j] = true;
+                    q.offer(j);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxCandies(vector<int>& status, vector<int>& candies, vector<vector<int>>& keys, vector<vector<int>>& containedBoxes, vector<int>& initialBoxes) {
+        int ans = 0;
+        int n = status.size();
+        vector<bool> has(n);
+        vector<bool> took(n);
+        queue<int> q;
+        for (int& i : initialBoxes)
+        {
+            has[i] = true;
+            if (status[i])
+            {
+                ans += candies[i];
+                took[i] = true;
+                q.push(i);
+            }
+        }
+        while (!q.empty())
+        {
+            int i = q.front();
+            q.pop();
+            for (int k : keys[i])
+            {
+                status[k] = 1;
+                if (has[k] && !took[k])
+                {
+                    ans += candies[k];
+                    took[k] = true;
+                    q.push(k);
+                }
+            }
+            for (int j : containedBoxes[i])
+            {
+                has[j] = true;
+                if (status[j] && !took[j])
+                {
+                    ans += candies[j];
+                    took[j] = true;
+                    q.push(j);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]int, initialBoxes []int) int {
+	ans := 0
+	n := len(status)
+	has := make([]bool, n)
+	took := make([]bool, n)
+	var q []int
+	for _, i := range initialBoxes {
+		has[i] = true
+		if status[i] == 1 {
+			ans += candies[i]
+			took[i] = true
+			q = append(q, i)
+		}
+	}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		for _, k := range keys[i] {
+			status[k] = 1
+			if has[k] && !took[k] {
+				ans += candies[k]
+				took[k] = true
+				q = append(q, k)
+			}
+		}
+		for _, j := range containedBoxes[i] {
+			has[j] = true
+			if status[j] == 1 && !took[j] {
+				ans += candies[j]
+				took[j] = true
+				q = append(q, j)
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

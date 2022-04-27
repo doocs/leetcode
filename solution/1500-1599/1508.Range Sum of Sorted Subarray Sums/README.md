@@ -50,6 +50,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+按照题意生成 arr 数组，排序后，对 `[left-1, right-1]` 范围的所有元素求和，得到结果。
+
+时间复杂度 O(n²logn)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +63,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
+        arr = []
+        for i in range(n):
+            s = 0
+            for j in range(i, n):
+                s += nums[j]
+                arr.append(s)
+        arr.sort()
+        MOD = 10**9 + 7
+        return sum(arr[left - 1: right]) % MOD
 ```
 
 ### **Java**
@@ -65,7 +81,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int rangeSum(int[] nums, int n, int left, int right) {
+        int[] arr = new int[n * (n + 1) / 2];
+        int idx = 0;
+        for (int i = 0; i < n; ++i) {
+            int s = 0;
+            for (int j = i; j < n; ++j) {
+                s += nums[j];
+                arr[idx++] = s;
+            }
+        }
+        Arrays.sort(arr);
+        int ans = 0;
+        for (int i = left - 1; i < right; ++i) {
+            ans = (ans + arr[i]) % MOD;
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+func rangeSum(nums []int, n int, left int, right int) int {
+	var arr []int
+	for i := 0; i < n; i++ {
+		s := 0
+		for j := i; j < n; j++ {
+			s += nums[j]
+			arr = append(arr, s)
+		}
+	}
+	sort.Ints(arr)
+	mod := int(1e9) + 7
+	ans := 0
+	for i := left - 1; i < right; i++ {
+		ans = (ans + arr[i]) % mod
+	}
+	return ans
+}
 ```
 
 ### **...**

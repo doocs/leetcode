@@ -48,30 +48,146 @@
 
 ```python
 class Solution:
-    def isMonotonic(self, A: List[int]) -> bool:
-        increase = decrease = True
-        for i in range(1, len(A)):
-            if not increase and not decrease:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        isIncr = isDecr = False
+        for i, v in enumerate(nums[1:]):
+            if v < nums[i]:
+                isIncr = True
+            elif v > nums[i]:
+                isDecr = True
+            if isIncr and isDecr:
                 return False
-            if A[i] < A[i - 1]:
-                increase = False
-            elif A[i] > A[i - 1]:
-                decrease = False
-        return increase or decrease
+        return True
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public boolean isMonotonic(int[] A) {
-        boolean increase = true, decrease = true;
-        for (int i = 1, n = A.length; i < n; ++i) {
-            if (!increase && !decrease) return false;
-            if (A[i] < A[i - 1]) decrease = false;
-            else if (A[i] > A[i - 1]) increase = false;
+    public boolean isMonotonic(int[] nums) {
+        boolean isIncr = false, isDecr = false;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] < nums[i - 1]) {
+                isIncr = true;
+            } else if (nums[i] > nums[i - 1]) {
+                isDecr = true;
+            }
+            if (isIncr && isDecr) {
+                return false;
+            }
         }
-        return increase || decrease;
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isMonotonic(vector<int>& nums) {
+        bool isIncr = false;
+        bool isDecr = false;
+        for (int i = 1; i < nums.size(); ++i)
+        {
+            if (nums[i] < nums[i - 1]) isIncr = true;
+            if (nums[i] > nums[i - 1]) isDecr = true;
+            if (isIncr && isDecr) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isMonotonic(nums []int) bool {
+	isIncr, isDecr := false, false
+	for i, v := range nums[1:] {
+		if v < nums[i] {
+			isIncr = true
+		} else if v > nums[i] {
+			isDecr = true
+		}
+		if isIncr && isDecr {
+			return false
+		}
+	}
+	return true
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isMonotonic = function (nums) {
+    let isIncr = false;
+    let isDecr = false;
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] < nums[i - 1]) {
+            isIncr = true;
+        }
+        if (nums[i] > nums[i - 1]) {
+            isDecr = true;
+        }
+        if (isIncr && isDecr) {
+            return false;
+        }
+    }
+    return true;
+};
+```
+
+### **TypeScript**
+
+```ts
+function isMonotonic(nums: number[]): boolean {
+    const n = nums.length;
+    let isOrder = false;
+    let isDecs = false;
+    for (let i = 1; i < n; i++) {
+        const pre = nums[i - 1];
+        const cur = nums[i];
+        if (pre < cur) {
+            isOrder = true;
+        } else if (pre > cur) {
+            isDecs = true;
+        }
+        if (isOrder && isDecs) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_monotonic(nums: Vec<i32>) -> bool {
+        let n = nums.len();
+        let mut is_order = false;
+        let mut is_decs = false;
+        for i in 1..n {
+            let pre = nums[i - 1];
+            let cur = nums[i];
+            if pre < cur {
+                is_order = true;
+            } else if pre > cur {
+                is_decs = true;
+            }
+            if is_order && is_decs {
+                return false;
+            }
+        }
+        true
     }
 }
 ```

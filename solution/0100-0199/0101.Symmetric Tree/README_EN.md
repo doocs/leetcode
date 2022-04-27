@@ -137,13 +137,113 @@ public:
  * }
  */
 
-function isSymmetric(root: TreeNode | null): boolean {
-    function dfs(root1, root2) {
-        if (!root1 && !root2) return true;
-        if (!root1 || !root2 || root1.val != root2.val) return false;
-        return dfs(root1.left, root2.right) && dfs(root1.right, root2.left);
+const dfs = (root1: TreeNode | null, root2: TreeNode | null) => {
+    if (root1 == root2) {
+        return true;
     }
-    return dfs(root, root);
+    if (root1 == null || root2 == null || root1.val != root2.val) {
+        return false;
+    }
+    return dfs(root1.left, root2.right) && dfs(root1.right, root2.left);
+};
+
+function isSymmetric(root: TreeNode | null): boolean {
+    return dfs(root.left, root.right);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root1: &Option<Rc<RefCell<TreeNode>>>, root2: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if root1.is_none() && root2.is_none() {
+            return true;
+        }
+        if root1.is_none() || root2.is_none() {
+            return false;
+        }
+        let node1 = root1.as_ref().unwrap().borrow();
+        let node2 = root2.as_ref().unwrap().borrow();
+        node1.val == node2.val
+            && Self::dfs(&node1.left, &node2.right)
+            && Self::dfs(&node1.right, &node2.left)
+    }
+
+    pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        let node = root.as_ref().unwrap().borrow();
+        Self::dfs(&node.left, &node.right)
+    }
+}
+```
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        let root = root.unwrap();
+        let mut node = root.as_ref().borrow_mut();
+        let mut queue = VecDeque::new();
+        queue.push_back([node.left.take(), node.right.take()]);
+        while let Some([root1, root2]) = queue.pop_front() {
+            if root1.is_none() && root2.is_none() {
+                continue;
+            }
+            if root1.is_none() || root2.is_none() {
+                return false;
+            }
+            if let (Some(node1), Some(node2)) = (root1, root2) {
+                let mut node1 = node1.as_ref().borrow_mut();
+                let mut node2 = node2.as_ref().borrow_mut();
+                if node1.val != node2.val {
+                    return false;
+                }
+                queue.push_back([node1.left.take(), node2.right.take()]);
+                queue.push_back([node1.right.take(), node2.left.take()]);
+            }
+        }
+        true
+    }
 }
 ```
 

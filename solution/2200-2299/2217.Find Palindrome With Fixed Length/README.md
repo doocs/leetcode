@@ -19,7 +19,7 @@
 <b>输出：</b>[101,111,121,131,141,999]
 <strong>解释：</strong>
 长度为 3 的最小回文数依次是：
-101, 111, 121, 131, 141, 151, 161, 171, 181, 191, 201, ...
+101, 111, 121, 131, 141, 151, 161, 171, 181, 191, 202, ...
 第 90 个长度为 3 的回文数是 999 。
 </pre>
 
@@ -68,7 +68,57 @@
 ### **TypeScript**
 
 ```ts
+function kthPalindrome(queries: number[], intLength: number): number[] {
+    const isOdd = intLength % 2 === 1;
+    const bestNum = 10 ** ((intLength >> 1) + (isOdd ? 1 : 0) - 1);
+    const max = bestNum * 9;
+    return queries.map(v => {
+        if (v > max) {
+            return -1;
+        }
+        const num = bestNum + v - 1;
+        return Number(
+            num +
+                (num + '')
+                    .split('')
+                    .reverse()
+                    .slice(isOdd ? 1 : 0)
+                    .join(''),
+        );
+    });
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn kth_palindrome(queries: Vec<i32>, int_length: i32) -> Vec<i64> {
+        let is_odd = int_length & 1 == 1;
+        let best_num = i32::pow(10, (int_length / 2 + if is_odd { 0 } else { -1 }) as u32);
+        let max = best_num * 9;
+        queries
+            .iter()
+            .map(|&num| {
+                if num > max {
+                    return -1;
+                }
+                let num = best_num + num - 1;
+                format!(
+                    "{}{}",
+                    num,
+                    num.to_string()
+                        .chars()
+                        .rev()
+                        .skip(if is_odd { 1 } else { 0 })
+                        .collect::<String>()
+                )
+                .parse()
+                .unwrap()
+            })
+            .collect()
+    }
+}
 ```
 
 ### **...**

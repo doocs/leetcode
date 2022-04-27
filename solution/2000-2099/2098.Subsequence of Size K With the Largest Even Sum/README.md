@@ -6,41 +6,41 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given an integer array <code>nums</code> and an integer <code>k</code>. Find the <strong>largest even sum</strong> of any subsequence of <code>nums</code> that has a length of <code>k</code>.</p>
-
-<p>Return <em>this sum, or </em><code>-1</code><em> if such a sum does not exist</em>.</p>
-
-<p>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> 。找出&nbsp;<code>nums</code> 长度为 <code>k</code> 的所有子序列中的 <strong>最大偶数和</strong> 。<br />
+返回<strong>此总和</strong>，如果此总和不存在，则返回 <code>-1</code>。<br />
+<strong>子序列</strong> 是一个数组，可以通过删除一些元素或不删除任何元素而从另一个数组派生，而不改变其余元素的顺序。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [4,1,5,3,1], k = 3
-<strong>Output:</strong> 12
-<strong>Explanation:</strong>
-The subsequence with the largest possible even sum is [4,5,3]. It has a sum of 4 + 5 + 3 = 12.
+<strong>输入:</strong> nums = [4,1,5,3,1], k = 3
+<strong>输出:</strong> 12
+<strong>解释:</strong>
+具有最大可能偶数和的子序列是[4,5,3]。它的和为 4 + 5 + 3 = 12
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [4,6,2], k = 3
-<strong>Output:</strong> 12
-<strong>Explanation:</strong>
-The subsequence with the largest possible even sum is [4,6,2]. It has a sum of 4 + 6 + 2 = 12.
+<strong>输入:</strong> nums = [4,6,2], k = 3
+<strong>输出:</strong> 12
+<strong>解释:</strong>
+具有最大可能偶数和的子序列是[4,6,2]。它的和为 4 + 6 + 2 = 12
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong>示例 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,3,5], k = 1
-<strong>Output:</strong> -1
-<strong>Explanation:</strong>
-No subsequence of nums with length 1 has an even sum.
+<strong>输入:</strong> nums = [1,3,5], k = 1
+<strong>输出:</strong> -1
+<strong>解释:</strong>
+长度为 1 的 NUM 的子序列没有偶数和。
 </pre>
 
 <p>&nbsp;</p>
+
 <p><strong>Constraints:</strong></p>
 
 <ul>

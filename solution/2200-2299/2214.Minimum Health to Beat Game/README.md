@@ -63,7 +63,6 @@ Note that you did not use your armor ability.
 	<li><code>0 &lt;= armor &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

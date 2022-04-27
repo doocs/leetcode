@@ -348,6 +348,117 @@ public class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
+    const n = lists.length;
+    const dfs = (start: number, end: number) => {
+        if (end - start <= 1) {
+            return lists[start] ?? null;
+        }
+
+        const mid = (start + end) >> 1;
+        let left = dfs(start, mid);
+        let right = dfs(mid, end);
+
+        const dummy = new ListNode();
+        let cur = dummy;
+        while (left || right) {
+            let next: ListNode;
+            if (
+                (left ?? { val: Infinity }).val <
+                (right ?? { val: Infinity }).val
+            ) {
+                next = left;
+                left = left.next;
+            } else {
+                next = right;
+                right = right.next;
+            }
+            cur.next = next;
+            cur = next;
+        }
+        return dummy.next;
+    };
+    return dfs(0, n);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_k_lists(mut lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
+        let n = lists.len();
+        Self::dfs(&mut lists, 0, n)
+    }
+
+    fn dfs(
+        lists: &mut Vec<Option<Box<ListNode>>>,
+        start: usize,
+        end: usize,
+    ) -> Option<Box<ListNode>> {
+        if end - start <= 1 {
+            if lists.get(start).is_some() {
+                return lists[start].take();
+            }
+            return None;
+        }
+        let mid = start + (end - start) / 2;
+        let mut left = Self::dfs(lists, start, mid);
+        let mut right = Self::dfs(lists, mid, end);
+        let mut dummy = Box::new(ListNode::new(0));
+        let mut cur = &mut dummy;
+        while left.is_some() || right.is_some() {
+            let mut next = None;
+            if left.is_some()
+                && (right.is_none() || left.as_ref().unwrap().val < right.as_ref().unwrap().val)
+            {
+                let t = left.as_mut().unwrap().next.take();
+                next = left.take();
+                left = t;
+            } else {
+                let t = right.as_mut().unwrap().next.take();
+                next = right.take();
+                right = t;
+            }
+            cur.next = next;
+            cur = cur.next.as_mut().unwrap();
+        }
+        dummy.next
+    }
+}
+```
+
 ### **...**
 
 ```

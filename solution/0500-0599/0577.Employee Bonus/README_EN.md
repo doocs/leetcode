@@ -81,7 +81,7 @@ Bonus table:
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     e.name, b.bonus
 FROM
     Employee e

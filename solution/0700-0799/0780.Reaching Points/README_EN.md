@@ -49,13 +49,89 @@ One series of moves that transforms the starting point to the target is:
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reachingPoints(self, sx: int, sy: int, tx: int, ty: int) -> bool:
+        while tx > sx and ty > sy and tx != ty:
+            if tx > ty:
+                tx %= ty
+            else:
+                ty %= tx
+        if tx == sx and ty == sy:
+            return True
+        if tx == sx:
+            return ty > sy and (ty - sy) % tx == 0
+        if ty == sy:
+            return tx > sx and (tx - sx) % ty == 0
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean reachingPoints(int sx, int sy, int tx, int ty) {
+        while (tx > sx && ty > sy && tx != ty) {
+            if (tx > ty) {
+                tx %= ty;
+            } else {
+                ty %= tx;
+            }
+        }
+        if (tx == sx && ty == sy) {
+            return true;
+        }
+        if (tx == sx) {
+            return ty > sy && (ty - sy) % tx == 0;
+        }
+        if (ty == sy) {
+            return tx > sx && (tx - sx) % ty == 0;
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool reachingPoints(int sx, int sy, int tx, int ty) {
+        while (tx > sx && ty > sy && tx != ty)
+        {
+            if (tx > ty) tx %= ty;
+            else ty %= tx;
+        }
+        if (tx == sx && ty == sy) return true;
+        if (tx == sx) return ty > sy && (ty - sy) % tx == 0;
+        if (ty == sy) return tx > sx && (tx - sx) % ty == 0;
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reachingPoints(sx int, sy int, tx int, ty int) bool {
+	for tx > sx && ty > sy && tx != ty {
+		if tx > ty {
+			tx %= ty
+		} else {
+			ty %= tx
+		}
+	}
+	if tx == sx && ty == sy {
+		return true
+	}
+	if tx == sx {
+		return ty > sy && (ty-sy)%tx == 0
+	}
+	if ty == sy {
+		return tx > sx && (tx-sx)%ty == 0
+	}
+	return false
+}
 ```
 
 ### **...**

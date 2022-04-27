@@ -61,14 +61,6 @@
 - 最后一组长度为 1 ，没有发生反转。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>head = [8]
-<strong>输出：</strong>[8]
-<strong>解释：</strong>只有一个长度为 1 的组，没有发生反转。
-</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

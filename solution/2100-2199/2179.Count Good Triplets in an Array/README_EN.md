@@ -100,7 +100,7 @@ class SegmentTree:
     def __init__(self, n):
         self.tr = [Node() for _ in range(4 * n)]
         self.build(1, 1, n)
-        
+
     def build(self, u, l, r):
         self.tr[u].l = l
         self.tr[u].r = r
@@ -120,7 +120,7 @@ class SegmentTree:
         else:
             self.modify(u << 1 | 1, x, v)
         self.pushup(u)
-    
+
     def pushup(self, u):
         self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
 

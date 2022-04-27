@@ -71,13 +71,184 @@ We return 32 since it is the longest absolute path to a file.
 ### **Python3**
 
 ```python
+class Solution:
+    def lengthLongestPath(self, input: str) -> int:
+        i, n = 0, len(input)
+        ans = 0
+        stk = []
+        while i < n:
+            ident = 0
+            while input[i] == '\t':
+                ident += 1
+                i += 1
 
+            cur, isFile = 0, False
+            while i < n and input[i] != '\n':
+                cur += 1
+                if input[i] == '.':
+                    isFile = True
+                i += 1
+            i += 1
+
+            # popd
+            while len(stk) > 0 and len(stk) > ident:
+                stk.pop()
+
+            if len(stk) > 0:
+                cur += stk[-1] + 1
+
+            # pushd
+            if not isFile:
+                stk.append(cur)
+                continue
+
+            ans = max(ans, cur)
+
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int lengthLongestPath(String input) {
+        int i = 0;
+        int n = input.length();
+        int ans = 0;
+        Deque<Integer> stack = new ArrayDeque<>();
+        while (i < n) {
+            int ident = 0;
+            for (; input.charAt(i) == '\t'; i++) {
+                ident++;
+            }
 
+            int cur = 0;
+            boolean isFile = false;
+            for (; i < n && input.charAt(i) != '\n'; i++) {
+                cur++;
+                if (input.charAt(i) == '.') {
+                    isFile = true;
+                }
+            }
+            i++;
+
+            // popd
+            while (!stack.isEmpty() && stack.size() > ident) {
+                stack.pop();
+            }
+
+            if (stack.size() > 0) {
+                cur += stack.peek() + 1;
+            }
+
+            // pushd
+            if (!isFile) {
+                stack.push(cur);
+                continue;
+            }
+
+            ans = Math.max(ans, cur);
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+func lengthLongestPath(input string) int {
+	i, n := 0, len(input)
+	ans := 0
+	var stk []int
+	for i < n {
+		ident := 0
+		for ; input[i] == '\t'; i++ {
+			ident++
+		}
+
+		cur, isFile := 0, false
+		for ; i < n && input[i] != '\n'; i++ {
+			cur++
+			if input[i] == '.' {
+				isFile = true
+			}
+		}
+		i++
+
+		// popd
+		for len(stk) > 0 && len(stk) > ident {
+			stk = stk[:len(stk)-1]
+		}
+
+		if len(stk) > 0 {
+			cur += stk[len(stk)-1] + 1
+		}
+
+		// pushd
+		if !isFile {
+			stk = append(stk, cur)
+			continue
+		}
+
+		ans = max(ans, cur)
+	}
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthLongestPath(string input) {
+        int i = 0, n = input.size();
+        int ans = 0;
+        stack<int> stk;
+        while (i < n) {
+            int ident = 0;
+            for (; input[i] == '\t'; ++i) {
+                ++ident;
+            }
+
+            int cur = 0;
+            bool isFile = false;
+            for (; i < n && input[i] != '\n'; ++i) {
+                ++cur;
+                if (input[i] == '.') {
+                    isFile = true;
+                }
+            }
+            ++i;
+
+            // popd
+            while (!stk.empty() && stk.size() > ident) {
+                stk.pop();
+            }
+
+            if (stk.size() > 0) {
+                cur += stk.top() + 1;
+            }
+
+            // pushd
+            if (!isFile) {
+                stk.push(cur);
+                continue;
+            }
+
+            ans = max(ans, cur);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**

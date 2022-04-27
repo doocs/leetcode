@@ -85,22 +85,19 @@ Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+SELECT
+    u.name,
+    SUM(t.amount) AS balance
+FROM
+    users AS u
+    JOIN transactions AS t ON u.account = t.account
+GROUP BY
+    name
+HAVING
+    SUM(t.amount) > 10000;
 ```
 
 <!-- tabs:end -->

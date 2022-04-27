@@ -52,7 +52,7 @@ empId 是这张表单的主关键字
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     e.name, b.bonus
 FROM
     Employee e

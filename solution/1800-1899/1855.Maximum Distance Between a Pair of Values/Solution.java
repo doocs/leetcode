@@ -1,6 +1,6 @@
 class Solution {
     public int maxDistance(int[] nums1, int[] nums2) {
-        int res = 0;
+        int ans = 0;
         int m = nums1.length, n = nums2.length;
         for (int i = 0; i < m; ++i) {
             int left = i, right = n - 1;
@@ -12,8 +12,8 @@ class Solution {
                     right = mid - 1;
                 }
             }
-            res = Math.max(res, left - i);
+            ans = Math.max(ans, left - i);
         }
-        return res;
+        return ans;
     }
 }

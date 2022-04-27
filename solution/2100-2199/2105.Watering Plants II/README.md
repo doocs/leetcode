@@ -25,7 +25,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>plants = [2,2,3,3], capacityA = 5, capacityB = 5
+<pre>
+<strong>输入：</strong>plants = [2,2,3,3], capacityA = 5, capacityB = 5
 <strong>输出：</strong>1
 <strong>解释：</strong>
 - 最初，Alice 和 Bob 的水罐中各有 5 单元水。
@@ -36,7 +37,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>plants = [2,2,3,3], capacityA = 3, capacityB = 4
+<pre>
+<strong>输入：</strong>plants = [2,2,3,3], capacityA = 3, capacityB = 4
 <strong>输出：</strong>2
 <strong>解释：</strong>
 - 最初，Alice 的水罐中有 3 单元水，Bob 的水罐中有 4 单元水。
@@ -47,35 +49,13 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>plants = [5], capacityA = 10, capacityB = 8
+<pre>
+<strong>输入：</strong>plants = [5], capacityA = 10, capacityB = 8
 <strong>输出：</strong>0
 <strong>解释：</strong>
 - 只有一株植物
 - Alice 的水罐有 10 单元水，Bob 的水罐有 8 单元水。因此 Alice 的水罐中水更多，她会给这株植物浇水。
 所以，两人浇灌所有植物过程中重新灌满水罐的次数 = 0 。</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>plants = [1,2,4,4,5], capacityA = 6, capacityB = 5
-<strong>输出：</strong>2
-<strong>解释：</strong>
-- 最初，Alice 的水罐中有 6 单元水，Bob 的水罐中有 5 单元水。
-- Alice 给植物 0 浇水，Bob 给植物 4 浇水。
-- Alice 和 Bob 现在分别剩下 5 单元和 0 单元水。
-- Alice 有足够的水给植物 1 ，所以她直接浇水。Bob 的水不够给植物 3 ，所以他先重新装满水，再浇水。
-- Alice 和 Bob 现在分别剩下 3 单元和 1 单元水。
-- 由于 Alice 的水更多，所以由她给植物 2 浇水。然而，她水罐里的水不够给植物 2 ，所以她先重新装满水，再浇水。 
-所以，两人浇灌所有植物过程中重新灌满水罐的次数 = 0 + 0 + 1 + 1 + 0 = 2 。</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>plants = [2,2,5,2,2], capacityA = 5, capacityB = 5
-<strong>输出：</strong>1
-<strong>解释：</strong>
-Alice 和 Bob 都会到达中间的植物，并且此时他俩剩下的水量相同，所以 Alice 会给这株植物浇水。
-由于她到达时只剩下 1 单元水，所以需要重新灌满水罐。
-这是唯一一次需要重新灌满水罐的情况。所以，两人浇灌所有植物过程中重新灌满水罐的次数 = 1 。
-</pre>
 
 <p>&nbsp;</p>
 

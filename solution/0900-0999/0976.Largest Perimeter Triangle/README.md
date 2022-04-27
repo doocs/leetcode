@@ -40,6 +40,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+> 三角形由三条边组成，且满足 <var>C</var> >= <var>B</var> && <var>C</var> >= <var>A</var> && <var>C</var> < <var>A</var> + <var>B</var>
+
+贪心策略，尽可能使用长边来组成三角形。
+
+1. 对 `nums` 排序（从大到小）。
+2. 遍历 `nums`，以三个元素一组，进行条件判断，如滑动窗口一般。
+3. 当找到满足条件的三个元素时直接返回即可。
+4. 否则，在遍历结束时返回 0。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,6 +65,67 @@
 
 ```java
 
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestPerimeter(vector<int>& A) {
+        priority_queue<int> q(A.begin(), A.end()) ; // 大顶堆
+
+        int a, b, c ;
+        b = q.top() ;
+        q.pop() ;
+        c = q.top() ;
+        q.pop() ;
+        while ( !q.empty() )
+        {
+            a = b ;
+            b = c ;
+            c = q.top() ;
+            q.pop() ;
+            if ( b + c > a )
+                return a + b + c ;
+        }
+        return 0 ;
+    }
+};
+```
+
+### **TypeScript**
+
+```ts
+function largestPerimeter(nums: number[]): number {
+    const n = nums.length;
+    nums.sort((a, b) => b - a);
+    for (let i = 2; i < n; i++) {
+        const [a, b, c] = [nums[i - 2], nums[i - 1], nums[i]];
+        if (a < b + c) {
+            return a + b + c;
+        }
+    }
+    return 0;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn largest_perimeter(mut nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        nums.sort_unstable_by(|a, b| b.cmp(&a));
+        for i in 2..n {
+            let (a, b, c) = (nums[i - 2], nums[i - 1], nums[i]);
+            if a < b + c {
+                return a + b + c;
+            }
+        }
+        0
+    }
+}
 ```
 
 ### **...**

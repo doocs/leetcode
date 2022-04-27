@@ -40,7 +40,7 @@ We cannot form the target &quot;basicbasic&quot; from cutting letters from the g
 	<li><code>n == stickers.length</code></li>
 	<li><code>1 &lt;= n &lt;= 50</code></li>
 	<li><code>1 &lt;= stickers[i].length &lt;= 10</code></li>
-	<li><code>1 &lt;= target &lt;= 15</code></li>
+	<li><code>1 &lt;= target.length &lt;= 15</code></li>
 	<li><code>stickers[i]</code> and <code>target</code> consist of lowercase English letters.</li>
 </ul>
 

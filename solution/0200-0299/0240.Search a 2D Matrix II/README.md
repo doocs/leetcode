@@ -47,13 +47,44 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-从左下角（或右上角）开始查找即可。
+**方法一：二分查找**
+
+由于每一行升序排列，因此可以对每一行执行二分查找。
+
+时间复杂度 O(mlogn)。
+
+**方法二：从左下角或右上角搜索**
+
+这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 target 的大小关系：
+
+-   若 `matrix[i][j] == target`，说明找到了目标值，直接返回 true。
+-   若 `matrix[i][j] > target`，说明这一行从当前位置开始往右的所有元素均大于 target，应该让 i 指针往上移动，即 `i--`。
+-   若 `matrix[i][j] < target`，说明这一列从当前位置开始往上的所有元素均小于 target，应该让 j 指针往右移动，即 `j++`。
+
+若搜索结束依然找不到 target，返回 false。
+
+时间复杂度 O(m + n)。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+二分查找：
+
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        n = len(matrix[0])
+        for row in matrix:
+            idx = bisect_left(row, target)
+            if idx != n and row[idx] == target:
+                return True
+        return False
+```
+
+从左下角或右上角搜索：
 
 ```python
 class Solution:
@@ -73,6 +104,24 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+二分查找：
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        for (int[] row : matrix) {
+            int idx = Arrays.binarySearch(row, target);
+            if (idx >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+从左下角或右上角搜索：
 
 ```java
 class Solution {
@@ -96,6 +145,32 @@ class Solution {
 
 ### **TypeScript**
 
+二分查找：
+
+```ts
+function searchMatrix(matrix: number[][], target: number): boolean {
+    const n = matrix[0].length;
+    for (const row of matrix) {
+        let left = 0,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (row[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (left != n && row[left] == target) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+从左下角或右上角搜索：
+
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
     let m = matrix.length,
@@ -117,6 +192,25 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 
 ### **C++**
 
+二分查找：
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int n = matrix[0].size();
+        for (auto& row : matrix)
+        {
+            int idx = lower_bound(row.begin(), row.end(), target) - row.begin();
+            if (idx != n && row[idx] == target) return true;
+        }
+        return false;
+    }
+};
+```
+
+从左下角或右上角搜索：
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +229,31 @@ public:
 ```
 
 ### **Go**
+
+二分查找：
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	n := len(matrix[0])
+	for _, row := range matrix {
+		left, right := 0, n
+		for left < right {
+			mid := (left + right) >> 1
+			if row[mid] >= target {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		if left != n && row[left] == target {
+			return true
+		}
+	}
+	return false
+}
+```
+
+从左下角或右上角搜索：
 
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
@@ -202,6 +321,35 @@ impl Solution {
         false
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var searchMatrix = function (matrix, target) {
+    const n = matrix[0].length;
+    for (const row of matrix) {
+        let left = 0,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (row[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (left != n && row[left] == target) {
+            return true;
+        }
+    }
+    return false;
+};
 ```
 
 ### **...**

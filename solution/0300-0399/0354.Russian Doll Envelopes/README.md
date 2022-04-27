@@ -43,9 +43,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-排序 + [最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)。
+按 w 进行升序排序，若 w 相同则按 h 降序排序。然后问题转换为求 h 数组的最长递增子序列长度。参考 [300. 最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)。
 
-按 w 进行升序排序，若 w 相同则按 h 降序排序。然后问题转换为求 h 数组的最长递增子序列长度。
+**方法一：贪心 + 二分查找**
+
+时间复杂度 O(nlogn)。
 
 <!-- tabs:start -->
 
@@ -56,19 +58,17 @@
 ```python
 class Solution:
     def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
-        if not envelopes:
-            return 0
         envelopes.sort(key=lambda x: (x[0], -x[1]))
-        nums = [x[1] for x in envelopes]
-        n = len(nums)
-        dp = [1] * n
-        res = 1
-        for i in range(1, n):
-            for j in range(i):
-                if nums[j] < nums[i]:
-                    dp[i] = max(dp[i], dp[j] + 1)
-            res = max(res, dp[i])
-        return res
+        d = [envelopes[0][1]]
+        for _, h in envelopes[1:]:
+            if h > d[-1]:
+                d.append(h)
+            else:
+                idx = bisect_left(d, h)
+                if idx == len(d):
+                    idx = 0
+                d[idx] = h
+        return len(d)
 ```
 
 ### **Java**
@@ -78,24 +78,99 @@ class Solution:
 ```java
 class Solution {
     public int maxEnvelopes(int[][] envelopes) {
-        int n;
-        if (envelopes == null || (n = envelopes.length) == 0) return 0;
         Arrays.sort(envelopes, (a, b) -> {
             return a[0] == b[0] ? b[1] - a[1] : a[0] - b[0];
         });
-        int[] dp = new int[n];
-        Arrays.fill(dp, 1);
-        int res = 1;
+        int n = envelopes.length;
+        int[] d = new int[n + 1];
+        d[1] = envelopes[0][1];
+        int size = 1;
         for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (envelopes[j][1] < envelopes[i][1]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+            int x = envelopes[i][1];
+            if (x > d[size]) {
+                d[++size] = x;
+            } else {
+                int left = 1, right = size;
+                while (left < right) {
+                    int mid = (left + right) >> 1;
+                    if (d[mid] >= x) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
                 }
+                int p = d[left] >= x ? left : 1;
+                d[p] = x;
             }
-            res = Math.max(res, dp[i]);
         }
-        return res;
+        return size;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxEnvelopes(vector<vector<int>>& envelopes) {
+        sort(envelopes.begin(), envelopes.end(), [](const auto& e1, const auto& e2) {
+            return e1[0] < e2[0] || (e1[0] == e2[0] && e1[1] > e2[1]);
+        });
+        int n = envelopes.size();
+        vector<int> d{envelopes[0][1]};
+        for (int i = 1; i < n; ++i)
+        {
+            int x = envelopes[i][1];
+            if (x > d[d.size() - 1]) d.push_back(x);
+            else
+            {
+                int idx = lower_bound(d.begin(), d.end(), x) - d.begin();
+                if (idx == d.size()) idx = 0;
+                d[idx] = x;
+            }
+        }
+        return d.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxEnvelopes(envelopes [][]int) int {
+	sort.Slice(envelopes, func(i, j int) bool {
+		if envelopes[i][0] != envelopes[j][0] {
+			return envelopes[i][0] < envelopes[j][0]
+		}
+		return envelopes[j][1] < envelopes[i][1]
+	})
+	n := len(envelopes)
+	d := make([]int, n+1)
+	d[1] = envelopes[0][1]
+	size := 1
+	for _, e := range envelopes[1:] {
+		x := e[1]
+		if x > d[size] {
+			size++
+			d[size] = x
+		} else {
+			left, right := 1, size
+			for left < right {
+				mid := (left + right) >> 1
+				if d[mid] >= x {
+					right = mid
+				} else {
+					left = mid + 1
+				}
+			}
+			if d[left] < x {
+				left = 1
+			}
+			d[left] = x
+		}
+	}
+	return size
 }
 ```
 

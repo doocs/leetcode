@@ -6,43 +6,25 @@
 
 <!-- 这里写题目描述 -->
 
-<p>假设你是一位顺风车司机，车上最初有&nbsp;<code>capacity</code>&nbsp;个空座位可以用来载客。由于道路的限制，车&nbsp;<strong>只能&nbsp;</strong>向一个方向行驶（也就是说，<strong>不允许掉头或改变方向</strong>，你可以将其想象为一个向量）。</p>
+<p>车上最初有&nbsp;<code>capacity</code>&nbsp;个空座位。车&nbsp;<strong>只能&nbsp;</strong>向一个方向行驶（也就是说，<strong>不允许掉头或改变方向</strong>）</p>
 
-<p>这儿有一份乘客行程计划表&nbsp;<code>trips[][]</code>，其中&nbsp;<code>trips[i] = [num_passengers, start_location, end_location]</code>&nbsp;包含了第 <code>i</code> 组乘客的行程信息：</p>
+<p>给定整数&nbsp;<code>capacity</code>&nbsp;和一个数组 <code>trips</code> , &nbsp;<code>trip[i] = [numPassengers<sub>i</sub>, from<sub>i</sub>, to<sub>i</sub>]</code>&nbsp;表示第 <code>i</code> 次旅行有&nbsp;<code>numPassengers<sub>i</sub></code>&nbsp;乘客，接他们和放他们的位置分别是&nbsp;<code>from<sub>i</sub></code>&nbsp;和&nbsp;<code>to<sub>i</sub></code>&nbsp;。这些位置是从汽车的初始位置向东的公里数。</p>
 
-<ul>
-	<li>必须接送的乘客数量；</li>
-	<li>乘客的上车地点；</li>
-	<li>以及乘客的下车地点。</li>
-</ul>
-
-<p>这些给出的地点位置是从你的&nbsp;<strong>初始&nbsp;</strong>出发位置向前行驶到这些地点所需的距离（它们一定在你的行驶方向上）。</p>
-
-<p>请你根据给出的行程计划表和车子的座位数，来判断你的车是否可以顺利完成接送所有乘客的任务（当且仅当你可以在所有给定的行程中接送所有乘客时，返回&nbsp;<code>true</code>，否则请返回 <code>false</code>）。</p>
+<p>当且仅当你可以在所有给定的行程中接送所有乘客时，返回&nbsp;<code>true</code>，否则请返回 <code>false</code>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>trips = [[2,1,5],[3,3,7]], capacity = 4
+<pre>
+<strong>输入：</strong>trips = [[2,1,5],[3,3,7]], capacity = 4
 <strong>输出：</strong>false
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>trips = [[2,1,5],[3,3,7]], capacity = 5
-<strong>输出：</strong>true
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>trips = [[2,1,5],[3,5,7]], capacity = 3
-<strong>输出：</strong>true
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>trips = [[3,2,7],[3,7,9],[8,3,9]], capacity = 11
+<pre>
+<strong>输入：</strong>trips = [[2,1,5],[3,3,7]], capacity = 5
 <strong>输出：</strong>true
 </pre>
 
@@ -51,12 +33,11 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>你可以假设乘客会自觉遵守 &ldquo;<strong>先下后上</strong>&rdquo; 的良好素质</li>
-	<li><code>trips.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= trips.length &lt;= 1000</code></li>
 	<li><code>trips[i].length == 3</code></li>
-	<li><code>1 &lt;= trips[i][0] &lt;= 100</code></li>
-	<li><code>0 &lt;= trips[i][1] &lt; trips[i][2] &lt;= 1000</code></li>
-	<li><code>1 &lt;=&nbsp;capacity &lt;= 100000</code></li>
+	<li><code>1 &lt;= numPassengers<sub>i</sub>&nbsp;&lt;= 100</code></li>
+	<li><code>0 &lt;= from<sub>i</sub>&nbsp;&lt; to<sub>i</sub>&nbsp;&lt;= 1000</code></li>
+	<li><code>1 &lt;= capacity &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## 解法
@@ -78,12 +59,7 @@ class Solution:
         for num, start, end in trips:
             delta[start] += num
             delta[end] -= num
-        cur = 0
-        for num in delta:
-            cur += num
-            if cur > capacity:
-                return False
-        return True
+        return all(s <= capacity for s in accumulate(delta))
 ```
 
 ### **Java**
@@ -120,18 +96,17 @@ class Solution {
  * @return {boolean}
  */
 var carPooling = function (trips, capacity) {
-    let delta = new Array();
-    for (let trip of trips) {
-        let [num, start, end] = trip;
-        delta[start] = (delta[start] || 0) + num;
-        delta[end] = (delta[end] || 0) - num;
+    let delta = new Array(1001).fill(0);
+    for (let [num, start, end] of trips) {
+        delta[start] += num;
+        delta[end] -= num;
     }
-    let total = 0;
-    for (let i = 0; i < delta.length; i++) {
-        let cur = delta[i];
-        if (cur == undefined) continue;
-        total += cur;
-        if (total > capacity) return false;
+    let s = 0;
+    for (let num of delta) {
+        s += num;
+        if (s > capacity) {
+            return false;
+        }
     }
     return true;
 };

@@ -1,7 +1,4 @@
 func eraseOverlapIntervals(intervals [][]int) int {
-	if intervals == nil || len(intervals) == 0 {
-		return 0
-	}
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][1] < intervals[j][1]
 	})

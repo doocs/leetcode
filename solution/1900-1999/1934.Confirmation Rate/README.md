@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Signups</code></p>
+<p>表: <code>Signups</code></p>
 
 <pre>
 +----------------+----------+
@@ -15,13 +15,13 @@
 | user_id        | int      |
 | time_stamp     | datetime |
 +----------------+----------+
-user_id is the primary key for this table.
-Each row contains information about the signup time for the user with ID user_id.
+User_id是该表的主键。
+每一行都包含ID为user_id的用户的注册时间信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Confirmations</code></p>
+<p>表: <code>Confirmations</code></p>
 
 <pre>
 +----------------+----------+
@@ -31,28 +31,27 @@ Each row contains information about the signup time for the user with ID user_id
 | time_stamp     | datetime |
 | action         | ENUM     |
 +----------------+----------+
-(user_id, time_stamp) is the primary key for this table.
-user_id is a foreign key with a reference to the Signups table.
-action is an ENUM of the type (&#39;confirmed&#39;, &#39;timeout&#39;)
-Each row of this table indicates that the user with ID user_id requested a confirmation message at time_stamp and that confirmation message was either confirmed (&#39;confirmed&#39;) or expired without confirming (&#39;timeout&#39;).
+(user_id, time_stamp)是该表的主键。
+user_id是一个引用到注册表的外键。
+action是类型为('confirmed'， 'timeout')的ENUM
+该表的每一行都表示ID为user_id的用户在time_stamp请求了一条确认消息，该确认消息要么被确认('confirmed')，要么被过期('timeout')。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>The <strong>confirmation rate</strong> of a user is the number of <code>&#39;confirmed&#39;</code> messages divided by the total number of requested confirmation messages. The confirmation rate of a user that did not request any confirmation messages is <code>0</code>. Round the confirmation rate to <strong>two decimal</strong> places.</p>
+<p>用户的 <strong>确认率</strong>&nbsp;是 <code>'confirmed'</code>&nbsp;消息的数量除以请求的确认消息的总数。没有请求任何确认消息的用户的确认率为&nbsp;<code>0</code> 。确认率四舍五入到 <strong>小数点后两位</strong> 。</p>
 
-<p>Write an SQL query to find the <strong>confirmation rate</strong> of each user.</p>
-
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is in the following example.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p>编写一个SQL查询来查找每个用户的 确认率 。<br />
+<br />
+以 任意顺序&nbsp;返回结果表。<br />
+<br />
+查询结果格式如下所示。<br />
+<br />
+<strong>示例1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Signups table:
+<b>输入：</b>
+Signups 表:
 +---------+---------------------+
 | user_id | time_stamp          |
 +---------+---------------------+
@@ -61,7 +60,7 @@ Signups table:
 | 2       | 2020-07-29 23:09:44 |
 | 6       | 2020-12-09 10:39:37 |
 +---------+---------------------+
-Confirmations table:
+Confirmations 表:
 +---------+---------------------+-----------+
 | user_id | time_stamp          | action    |
 +---------+---------------------+-----------+
@@ -73,7 +72,7 @@ Confirmations table:
 | 2       | 2021-01-22 00:00:00 | confirmed |
 | 2       | 2021-02-28 23:59:59 | timeout   |
 +---------+---------------------+-----------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +---------+-------------------+
 | user_id | confirmation_rate |
 +---------+-------------------+
@@ -82,12 +81,11 @@ Confirmations table:
 | 7       | 1.00              |
 | 2       | 0.50              |
 +---------+-------------------+
-<strong>Explanation:</strong> 
-User 6 did not request any confirmation messages. The confirmation rate is 0.
-User 3 made 2 requests and both timed out. The confirmation rate is 0.
-User 7 made 3 requests and all were confirmed. The confirmation rate is 1.
-User 2 made 2 requests where one was confirmed and the other timed out. The confirmation rate is 1 / 2 = 0.5.
-</pre>
+<strong>解释:
+</strong>用户 6 没有请求任何确认消息。确认率为 0。
+用户 3 进行了 2 次请求，都超时了。确认率为 0。
+用户 7 提出了 3 个请求，所有请求都得到了确认。确认率为 1。
+用户 2 做了 2 个请求，其中一个被确认，另一个超时。确认率为 1 / 2 = 0.5。</pre>
 
 ## 解法
 

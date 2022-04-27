@@ -66,11 +66,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分法。
+**方法一：二分查找**
 
-以“二分”的方式枚举速度值，找到满足条件的最小速度。
+二分枚举速度值，找到满足条件的最小速度。
 
-以下是二分查找的两个模板：
+以下是二分查找的两个通用模板：
 
 模板 1：
 
@@ -267,6 +267,44 @@ func minSpeedOnTime(dist []int, hour float64) int {
 		return left
 	}
 	return -1
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_speed_on_time(dist: Vec<i32>, hour: f64) -> i32 {
+        let n = dist.len();
+
+        let check = |speed| {
+            let mut cur = 0.;
+            for (i, &d) in dist.iter().enumerate() {
+                if i == n - 1 {
+                    cur += d as f64 / speed as f64;
+                } else {
+                    cur += (d as f64 / speed as f64).ceil();
+                }
+            }
+            cur <= hour
+        };
+
+        let mut left = 1;
+        let mut right = 1e7 as i32;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if !check(mid) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        if check(left) {
+            return left;
+        }
+        -1
+    }
 }
 ```
 

@@ -96,7 +96,7 @@ class MyCalendarTwo {
     public MyCalendarTwo() {
 
     }
-    
+
     public boolean book(int start, int end) {
         tm.put(start, tm.getOrDefault(start, 0) + 1);
         tm.put(end, tm.getOrDefault(end, 0) - 1);
@@ -130,7 +130,7 @@ public:
     MyCalendarTwo() {
 
     }
-    
+
     bool book(int start, int end) {
         ++m[start];
         --m[end];

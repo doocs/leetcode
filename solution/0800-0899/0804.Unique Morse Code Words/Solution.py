@@ -28,10 +28,5 @@ class Solution:
             "-.--",
             "--..",
         ]
-        s = set()
-        for word in words:
-            t = []
-            for c in word:
-                t.append(codes[ord(c) - ord('a')])
-            s.add(''.join(t))
+        s = {''.join([codes[ord(c) - ord('a')] for c in word]) for word in words}
         return len(s)

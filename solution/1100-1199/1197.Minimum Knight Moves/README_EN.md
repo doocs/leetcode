@@ -50,7 +50,7 @@ class Solution:
         ans = 0
         vis = set([(0, 0)])
         while q:
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 i, j = q.popleft()
                 if (i, j) == (x, y):
                     return ans
@@ -69,7 +69,7 @@ Two-end BFS:
 class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
         def extend(m1, m2, q):
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 i, j = q.popleft()
                 step = m1[(i, j)]
                 for a, b in [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]]:

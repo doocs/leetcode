@@ -6,14 +6,36 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个<strong>非负</strong>整数 n，计算各位数字都不同的数字 x 的个数，其中 0 &le; x &lt; 10<sup>n&nbsp;</sup>。</p>
+给你一个整数 <code>n</code> ，统计并返回各位数字都不同的数字 <code>x</code> 的个数，其中 <code>0 &lt;= x &lt; 10<sup>n</sup></code><sup>&nbsp;</sup>。
 
-<p><strong>示例:</strong></p>
+<div class="original__bRMd">
+<div>
+<p>&nbsp;</p>
 
-<pre><strong>输入: </strong>2
-<strong>输出: </strong>91 
-<strong>解释: </strong>答案应为除去 <code>11,22,33,44,55,66,77,88,99 </code>外，在 [0,100) 区间内的所有数字。
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 2
+<strong>输出：</strong>91
+<strong>解释：</strong>答案应为除去 <code>11、22、33、44、55、66、77、88、99 </code>外，在 0 ≤ x &lt; 100 范围内的所有数字。 
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 0
+<strong>输出：</strong>1
+</pre>
+</div>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 &lt;= n &lt;= 8</code></li>
+</ul>
 
 ## 解法
 
@@ -26,7 +48,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countNumbersWithUniqueDigits(self, n: int) -> int:
+        if n == 0:
+            return 1
+        if n == 1:
+            return 10
+        ans, cur = 10, 9
+        for i in range(n - 1):
+            cur *= (9 - i)
+            ans += cur
+        return ans
 ```
 
 ### **Java**
@@ -34,7 +66,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1) {
+            return 10;
+        }
+        int ans = 10;
+        for (int i = 0, cur = 9; i < n - 1; ++i) {
+            cur *= (9 - i);
+            ans += cur;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) return 1;
+        if (n == 1) return 10;
+        int ans = 10;
+        for (int i = 0, cur = 9; i < n - 1; ++i)
+        {
+            cur *= (9 - i);
+            ans += cur;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countNumbersWithUniqueDigits(n int) int {
+	if n == 0 {
+		return 1
+	}
+	if n == 1 {
+		return 10
+	}
+	ans := 10
+	for i, cur := 0, 9; i < n-1; i++ {
+		cur *= (9 - i)
+		ans += cur
+	}
+	return ans
+}
 ```
 
 ### **...**

@@ -47,14 +47,6 @@
 <strong>解释：</strong>不存在重复 2 次的最长子序列。返回空字符串。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "bbabbabbbbabaababab", k = 3
-<strong>输出：</strong>"bbbb"
-<strong>解释：</strong>在 "<strong><em>bb</em></strong>a<em><strong>bb</strong></em>a<em><strong>bbbb</strong></em>a<em><strong>b</strong></em>aa<em><strong>b</strong></em>a<em><strong>b</strong></em>a<em><strong>b</strong></em>" 中重复 3 次的最长子序列是 "bbbb" 。
-</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

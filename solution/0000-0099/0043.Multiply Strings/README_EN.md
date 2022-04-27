@@ -143,21 +143,20 @@ function addString(s1: string, s2: string): string {
 
 ```ts
 function multiply(num1: string, num2: string): string {
-    const res = ['0'];
     if (num1 === '0' || num2 === '0') {
-        return res.join('');
+        return '0';
     }
 
     const n = num1.length;
     const m = num2.length;
+    const res = [];
     for (let i = 0; i < n; i++) {
-        const num = Number(num1[n - 1 - i]);
+        const a = Number(num1[n - i - 1]);
         let sum = 0;
-        for (let j = 0; j < m || sum != 0; j++) {
-            sum +=
-                (Number(num2[m - 1 - j]) || 0) * num +
-                (Number(res[i + j]) || 0);
-            res[i + j] = `${sum % 10}`;
+        for (let j = 0; j < m || sum !== 0; j++) {
+            const b = Number(num2[m - j - 1] ?? 0);
+            sum += a * b + (res[i + j] ?? 0);
+            res[i + j] = sum % 10;
             sum = Math.floor(sum / 10);
         }
     }
@@ -174,29 +173,28 @@ impl Solution {
         if num1 == "0" || num2 == "0" {
             return String::from("0");
         }
-        let mut res = vec![0];
-        let num1 = num1.as_bytes();
-        let num2 = num2.as_bytes();
-        let n = num1.len();
-        let m = num2.len();
+        let (num1, num2) = (num1.as_bytes(), num2.as_bytes());
+        let (n, m) = (num1.len(), num2.len());
+        let mut res = vec![];
         for i in 0..n {
-            let num = num1[n - i - 1] - b'0';
+            let a = num1[n - i - 1] - b'0';
             let mut sum = 0;
             let mut j = 0;
             while j < m || sum != 0 {
                 if i + j == res.len() {
-                    res.push(0);
+                    res.push(0)
                 }
-                sum += num * (num2.get(m - j - 1).unwrap_or(&b'0') - b'0') + res[i + j];
+                let b = num2.get(m - j - 1).unwrap_or(&b'0') - b'0';
+                sum += a * b + res[i + j];
                 res[i + j] = sum % 10;
                 sum /= 10;
                 j += 1;
             }
         }
-        res.iter()
+        res.into_iter()
             .rev()
-            .map(|num| num.to_string())
-            .collect::<String>()
+            .map(|v| char::from(v + b'0'))
+            .collect()
     }
 }
 ```

@@ -1,6 +1,6 @@
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
-        res, n = 0, len(nums2)
+        ans, n = 0, len(nums2)
         for i, num in enumerate(nums1):
             left, right = i, n - 1
             while left < right:
@@ -9,5 +9,5 @@ class Solution:
                     left = mid
                 else:
                     right = mid - 1
-            res = max(res, left - i)
-        return res
+            ans = max(ans, left - i)
+        return ans

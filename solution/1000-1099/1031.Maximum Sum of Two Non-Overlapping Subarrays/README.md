@@ -21,21 +21,24 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>A = [0,6,5,2,2,5,1,9,4], L = 1, M = 2
+<pre>
+<strong>输入：</strong>A = [0,6,5,2,2,5,1,9,4], L = 1, M = 2
 <strong>输出：</strong>20
 <strong>解释：</strong>子数组的一种选择中，[9] 长度为 1，[6,5] 长度为 2。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>A = [3,8,1,3,2,1,8,9,0], L = 3, M = 2
+<pre>
+<strong>输入：</strong>A = [3,8,1,3,2,1,8,9,0], L = 3, M = 2
 <strong>输出：</strong>29
 <strong>解释：</strong>子数组的一种选择中，[3,8,1] 长度为 3，[8,9] 长度为 2。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>A = [2,1,5,6,0,9,5,0,3,8], L = 4, M = 3
+<pre>
+<strong>输入：</strong>A = [2,1,5,6,0,9,5,0,3,8], L = 4, M = 3
 <strong>输出：</strong>31
 <strong>解释：</strong>子数组的一种选择中，[5,6,0,9] 长度为 4，[0,3,8] 长度为 3。</pre>
 
@@ -43,12 +46,12 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>L &gt;= 1</code></li>
 	<li><code>M &gt;= 1</code></li>
 	<li><code>L + M &lt;= A.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= A[i] &lt;= 1000</code></li>
-</ol>
+</ul>
 
 ## 解法
 

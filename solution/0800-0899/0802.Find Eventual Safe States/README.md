@@ -6,24 +6,24 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在有向图中，以某个节点为起始节点，从该点出发，每一步沿着图中的一条有向边行走。如果到达的节点是终点（即它没有连出的有向边），则停止。</p>
+<p>有一个有 <code>n</code> 个节点的有向图，节点按 <code>0</code> 到 <code>n - 1</code> 编号。图由一个 <strong>索引从 0 开始</strong> 的 2D 整数数组&nbsp;<code>graph</code>表示，&nbsp;<code>graph[i]</code>是与节点 <code>i</code> 相邻的节点的整数数组，这意味着从节点 <code>i</code> 到&nbsp;<code>graph[i]</code>中的每个节点都有一条边。</p>
 
-<p>对于一个起始节点，如果从该节点出发，<strong>无论每一步选择沿哪条有向边行走</strong>，最后必然在有限步内到达终点，则将该起始节点称作是 <strong>安全</strong> 的。</p>
+<p>如果一个节点没有连出的有向边，则它是 <strong>终端节点</strong> 。如果没有出边，则节点为终端节点。如果从该节点开始的所有可能路径都通向一个 <strong>终端节点</strong> ，则该节点为 <strong>安全节点</strong> 。</p>
 
-<p>返回一个由图中所有安全的起始节点组成的数组作为答案。答案数组中的元素应当按 <strong>升序</strong> 排列。</p>
-
-<p>该有向图有 <code>n</code> 个节点，按 <code>0</code> 到 <code>n - 1</code> 编号，其中 <code>n</code> 是&nbsp;<code>graph</code>&nbsp;的节点数。图以下述形式给出：<code>graph[i]</code> 是编号 <code>j</code> 节点的一个列表，满足 <code>(i, j)</code> 是图的一条有向边。</p>
+<p>返回一个由图中所有 <strong>安全节点</strong> 组成的数组作为答案。答案数组中的元素应当按 <strong>升序</strong> 排列。</p>
 
 <p>&nbsp;</p>
 
-<div class="original__bRMd">
-<div>
 <p><strong>示例 1：</strong></p>
-<img alt="Illustration of graph" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/images/picture1.png" style="height: 171px; width: 600px;" />
+
+<p><img alt="Illustration of graph" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/images/picture1.png" /></p>
+
 <pre>
 <strong>输入：</strong>graph = [[1,2],[2,3],[5],[0],[5],[],[]]
 <strong>输出：</strong>[2,4,5,6]
 <strong>解释：</strong>示意图如上。
+节点5和节点6是终端节点，因为它们都没有出边。
+从节点2、4、5和6开始的所有路径都指向节点5或6。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -31,6 +31,8 @@
 <pre>
 <strong>输入：</strong>graph = [[1,2,3,4],[1,2],[3,4],[0,4],[]]
 <strong>输出：</strong>[4]
+<strong>解释:</strong>
+只有节点4是终端节点，从节点4开始的所有路径都通向节点4。
 </pre>
 
 <p>&nbsp;</p>
@@ -45,8 +47,6 @@
 	<li>图中可能包含自环。</li>
 	<li>图中边的数目在范围 <code>[1, 4 * 10<sup>4</sup>]</code> 内。</li>
 </ul>
-</div>
-</div>
 
 ## 解法
 

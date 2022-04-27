@@ -47,13 +47,47 @@ Backtracking
 ### **Python3**
 
 ```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        def dfs(u, t):
+            if u == len(nums):
+                ans.append(t[:])
+                return
+            t.append(nums[u])
+            dfs(u + 1, t)
+            t.pop()
+            dfs(u + 1, t)
 
+        ans = []
+        dfs(0, [])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<List<Integer>> ans;
+    private int[] nums;
 
+    public List<List<Integer>> subsets(int[] nums) {
+        ans = new ArrayList<>();
+        this.nums = nums;
+        dfs(0, new ArrayList<>());
+        return ans;
+    }
+
+    private void dfs(int u, List<Integer> t) {
+        if (u == nums.length) {
+            ans.add(new ArrayList<>(t));
+            return;
+        }
+        t.add(nums[u]);
+        dfs(u + 1, t);
+        t.remove(t.size() - 1);
+        dfs(u + 1, t);
+    }
+}
 ```
 
 ### **JavaScript**
@@ -150,6 +184,57 @@ impl Solution {
         Self::dfs(&nums, 0, &mut res, &mut vec![]);
         res
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> t;
+        vector<vector<int>> ans;
+        dfs(0, t, nums, ans);
+        return ans;
+    }
+
+    void dfs(int u, vector<int>& t, vector<int>& nums, vector<vector<int>>& ans) {
+        if (u == nums.size())
+        {
+            ans.push_back(t);
+            return;
+        }
+        t.push_back(nums[u]);
+        dfs(u + 1, t, nums, ans);
+        t.pop_back();
+        dfs(u + 1, t, nums, ans);
+    }
+};
+```
+
+### **Go**
+
+```go
+func subsets(nums []int) [][]int {
+	var ans [][]int
+	var dfs func(u int, t []int)
+	dfs = func(u int, t []int) {
+		if u == len(nums) {
+			cp := make([]int, len(t))
+			copy(cp, t)
+			ans = append(ans, cp)
+			return
+		}
+		t = append(t, nums[u])
+		dfs(u+1, t)
+		t = t[:len(t)-1]
+		dfs(u+1, t)
+
+	}
+	var t []int
+	dfs(0, t)
+	return ans
 }
 ```
 

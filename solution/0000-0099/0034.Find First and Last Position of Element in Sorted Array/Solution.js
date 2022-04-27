@@ -19,8 +19,5 @@ var searchRange = function (nums, target) {
     }
     const l = search(target);
     const r = search(target + 1);
-    if (l == nums.length || l >= r) {
-        return [-1, -1];
-    }
-    return [l, r - 1];
+    return l == nums.length || l >= r ? [-1, -1] : [l, r - 1];
 };

@@ -1,50 +1,35 @@
 class Solution {
-    private static final int INF = 0x3f3f3f3f;
+    private static final int N = 110;
+    private static final int INF = 0x3f3f;
 
     public int networkDelayTime(int[][] times, int n, int k) {
-        List<List<Pair>> graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            graph.add(new ArrayList<>());
+        int[][] g = new int[N][N];
+        for (int i = 0; i < N; ++i) {
+            Arrays.fill(g[i], INF);
         }
-        for (int[] t : times) {
-            int from = t[0] - 1, to = t[1] - 1, time = t[2];
-            graph.get(from).add(new Pair(to, time));
+        for (int[] e : times) {
+            g[e[0]][e[1]] = e[2];
         }
-
-        List<Integer> dis = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            dis.add(INF);
-        }
-        dis.set(k - 1, 0);
-
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.offer(k - 1);
-        while (!queue.isEmpty()) {
-            int from = queue.poll();
-            for (Pair e : graph.get(from)) {
-                int to = e.first, time = e.second;
-                if (time + dis.get(from) < dis.get(to)) {
-                    dis.set(to, time + dis.get(from));
-                    queue.offer(to);
+        int[] dist = new int[N];
+        Arrays.fill(dist, INF);
+        dist[k] = 0;
+        boolean[] vis = new boolean[N];
+        for (int i = 0; i < n; ++i) {
+            int t = -1;
+            for (int j = 1; j <= n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
+                    t = j;
                 }
             }
+            vis[t] = true;
+            for (int j = 1; j <= n; ++j) {
+                dist[j] = Math.min(dist[j], dist[t] + g[t][j]);
+            }
         }
-
-        int ans = Integer.MIN_VALUE;
-        for (int d : dis) {
-            ans = Math.max(ans, d);
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans = Math.max(ans, dist[i]);
         }
-
         return ans == INF ? -1 : ans;
-    }
-
-    static class Pair {
-        private int first;
-        private int second;
-
-        public Pair(int first, int second) {
-            this.first = first;
-            this.second = second;
-        }
     }
 }

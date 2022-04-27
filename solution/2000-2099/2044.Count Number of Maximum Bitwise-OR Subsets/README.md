@@ -147,7 +147,7 @@ class Solution {
     public int countMaxOrSubsets(int[] nums) {
         this.nums = nums;
         dfs(0, 0);
-        return ans;    
+        return ans;
     }
 
     private void dfs(int u, int t) {
@@ -251,7 +251,7 @@ public:
 
     int countMaxOrSubsets(vector<int>& nums) {
         dfs(0, 0, nums);
-        return ans;    
+        return ans;
     }
 
     void dfs(int u, int t, vector<int>& nums) {

@@ -61,7 +61,6 @@ Note that you did not use your armor ability.
 	<li><code>0 &lt;= armor &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

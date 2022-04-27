@@ -1,7 +1,6 @@
-# Write your MySQL query statement below
 SELECT
     user_id,
-    max(time_stamp) AS last_stamp
+    MAX(time_stamp) AS last_stamp
 FROM
     Logins
 WHERE YEAR(time_stamp) = 2020

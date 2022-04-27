@@ -12,4 +12,4 @@ function minSteps(s: string, t: string): number {
         ans += Math.abs(count1[i] - count2[i]);
     }
     return ans;
-};
+}

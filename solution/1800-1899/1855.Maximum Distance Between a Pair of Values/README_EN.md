@@ -51,6 +51,8 @@ The maximum distance is 2 with pair (2,4).
 
 ## Solutions
 
+Binary search.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +60,7 @@ The maximum distance is 2 with pair (2,4).
 ```python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
-        res, n = 0, len(nums2)
+        ans, n = 0, len(nums2)
         for i, num in enumerate(nums1):
             left, right = i, n - 1
             while left < right:
@@ -67,8 +69,8 @@ class Solution:
                     left = mid
                 else:
                     right = mid - 1
-            res = max(res, left - i)
-        return res
+            ans = max(ans, left - i)
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +78,7 @@ class Solution:
 ```java
 class Solution {
     public int maxDistance(int[] nums1, int[] nums2) {
-        int res = 0;
+        int ans = 0;
         int m = nums1.length, n = nums2.length;
         for (int i = 0; i < m; ++i) {
             int left = i, right = n - 1;
@@ -88,9 +90,9 @@ class Solution {
                     right = mid - 1;
                 }
             }
-            res = Math.max(res, left - i);
+            ans = Math.max(ans, left - i);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -101,7 +103,7 @@ class Solution {
 class Solution {
 public:
     int maxDistance(vector<int>& nums1, vector<int>& nums2) {
-        int res = 0;
+        int ans = 0;
         int m = nums1.size(), n = nums2.size();
         for (int i = 0; i < m; ++i) {
             int left = i, right = n - 1;
@@ -113,9 +115,9 @@ public:
                     right = mid - 1;
                 }
             }
-            res = max(res, left - i);
+            ans = max(ans, left - i);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -124,7 +126,7 @@ public:
 
 ```go
 func maxDistance(nums1 []int, nums2 []int) int {
-	res, n := 0, len(nums2)
+	ans, n := 0, len(nums2)
 	for i, num := range nums1 {
 		left, right := i, n-1
 		for left < right {
@@ -135,11 +137,11 @@ func maxDistance(nums1 []int, nums2 []int) int {
 				right = mid - 1
 			}
 		}
-		if res < left-i {
-			res = left - i
+		if ans < left-i {
+			ans = left - i
 		}
 	}
-	return res
+	return ans
 }
 ```
 
@@ -152,7 +154,7 @@ func maxDistance(nums1 []int, nums2 []int) int {
  * @return {number}
  */
 var maxDistance = function (nums1, nums2) {
-    let res = 0;
+    let ans = 0;
     let m = nums1.length;
     let n = nums2.length;
     for (let i = 0; i < m; ++i) {
@@ -166,10 +168,34 @@ var maxDistance = function (nums1, nums2) {
                 right = mid - 1;
             }
         }
-        res = Math.max(res, left - i);
+        ans = Math.max(ans, left - i);
     }
-    return res;
+    return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function maxDistance(nums1: number[], nums2: number[]): number {
+    let ans = 0;
+    let m = nums1.length;
+    let n = nums2.length;
+    for (let i = 0; i < m; ++i) {
+        let left = i;
+        let right = n - 1;
+        while (left < right) {
+            const mid = (left + right + 1) >> 1;
+            if (nums2[mid] >= nums1[i]) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        ans = Math.max(ans, left - i);
+    }
+    return ans;
+}
 ```
 
 ### **...**

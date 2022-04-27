@@ -89,6 +89,53 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function freqAlphabets(s: string): string {
+    const n = s.length;
+    const res = [];
+    let i = 0;
+    while (i < n) {
+        let code: string;
+        if (s[i + 2] === '#') {
+            code = s.slice(i, i + 2);
+            i += 3;
+        } else {
+            code = s[i];
+            i += 1;
+        }
+        res.push(code);
+    }
+    return res.map(v => String.fromCharCode(96 + Number(v))).join('');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn freq_alphabets(s: String) -> String {
+        let s = s.as_bytes();
+        let n = s.len();
+        let mut res = String::new();
+        let mut i = 0;
+        while i < n {
+            let code: u8;
+            if s.get(i + 2).is_some() && s[i + 2] == b'#' {
+                code = (s[i] - b'0') * 10 + s[i + 1];
+                i += 3;
+            } else {
+                code = s[i];
+                i += 1;
+            }
+            res.push(char::from(97 + code - b'1'));
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```

@@ -83,7 +83,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def restoreMatrix(self, rowSum: List[int], colSum: List[int]) -> List[List[int]]:
+        m, n = len(rowSum), len(colSum)
+        ans = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                x = min(rowSum[i], colSum[j])
+                ans[i][j] = x
+                rowSum[i] -= x
+                colSum[j] -= x
+        return ans
 ```
 
 ### **Java**
@@ -91,7 +101,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[][] restoreMatrix(int[] rowSum, int[] colSum) {
+        int m = rowSum.length;
+        int n = colSum.length;
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int x = Math.min(rowSum[i], colSum[j]);
+                ans[i][j] = x;
+                rowSum[i] -= x;
+                colSum[j] -= x;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> restoreMatrix(vector<int>& rowSum, vector<int>& colSum) {
+        int m = rowSum.size(), n = colSum.size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int x = min(rowSum[i], colSum[j]);
+                ans[i][j] = x;
+                rowSum[i] -= x;
+                colSum[j] -= x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func restoreMatrix(rowSum []int, colSum []int) [][]int {
+	m, n := len(rowSum), len(colSum)
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	for i := range rowSum {
+		for j := range colSum {
+			x := min(rowSum[i], colSum[j])
+			ans[i][j] = x
+			rowSum[i] -= x
+			colSum[j] -= x
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

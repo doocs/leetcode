@@ -8,4 +8,4 @@ function minimumRemoval(beans: number[]): number {
         ans = Math.min(sum - num * (n - i), ans);
     }
     return ans;
-};
+}

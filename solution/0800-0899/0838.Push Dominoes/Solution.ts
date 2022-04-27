@@ -4,7 +4,7 @@ function pushDominoes(dominoes: string): string {
         L: -1,
         R: 1,
         '.': 0,
-    }
+    };
     let ans = new Array(n).fill(0);
     let visited = new Array(n).fill(0);
     let queue = [];
@@ -31,9 +31,11 @@ function pushDominoes(dominoes: string): string {
         }
         queue = nextLevel;
     }
-    return ans.map(d => {
-        if (!d) return '.';
-        else if (d < 0) return 'L';
-        else return 'R';
-    }).join('');
-};
+    return ans
+        .map(d => {
+            if (!d) return '.';
+            else if (d < 0) return 'L';
+            else return 'R';
+        })
+        .join('');
+}

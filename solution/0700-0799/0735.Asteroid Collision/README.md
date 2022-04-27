@@ -12,7 +12,7 @@
 
 <p>找出碰撞后剩下的所有行星。碰撞规则：两个行星相互碰撞，较小的行星会爆炸。如果两颗行星大小相同，则两颗行星都会爆炸。两颗移动方向相同的行星，永远不会发生碰撞。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -35,20 +35,13 @@
 <strong>输出：</strong>[10]
 <b>解释：</b>2 和 -5 发生碰撞后剩下 -5 。10 和 -5 发生碰撞后剩下 10 。</pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>asteroids = [-2,-1,1,2]
-<strong>输出：</strong>[-2,-1,1,2]
-<b>解释</b><strong>：</strong>-2 和 -1 向左移动，而 1 和 2 向右移动。 由于移动方向相同的行星不会发生碰撞，所以最终没有行星发生碰撞。 </pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>2 <= asteroids.length <= 10<sup>4</sup></code></li>
-	<li><code>-1000 <= asteroids[i] <= 1000</code></li>
+	<li><code>2 &lt;= asteroids.length&nbsp;&lt;= 10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= asteroids[i] &lt;= 1000</code></li>
 	<li><code>asteroids[i] != 0</code></li>
 </ul>
 

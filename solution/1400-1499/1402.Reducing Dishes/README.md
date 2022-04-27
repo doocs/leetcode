@@ -18,28 +18,25 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>satisfaction = [-1,-8,0,5,-9]
+<pre>
+<strong>输入：</strong>satisfaction = [-1,-8,0,5,-9]
 <strong>输出：</strong>14
 <strong>解释：</strong>去掉第二道和最后一道菜，最大的喜爱时间系数和为 (-1*1 + 0*2 + 5*3 = 14) 。每道菜都需要花费 1 单位时间完成。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>satisfaction = [4,3,2]
+<pre>
+<strong>输入：</strong>satisfaction = [4,3,2]
 <strong>输出：</strong>20
 <strong>解释：</strong>按照原来顺序相反的时间做菜 (2*1 + 3*2 + 4*3 = 20)
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>satisfaction = [-1,-4,-5]
+<pre>
+<strong>输入：</strong>satisfaction = [-1,-4,-5]
 <strong>输出：</strong>0
 <strong>解释：</strong>大家都不喜欢这些菜，所以不做任何菜可以获得最大的喜爱时间系数。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>satisfaction = [-2,5,-1,0,3,-3]
-<strong>输出：</strong>35
 </pre>
 
 <p>&nbsp;</p>
@@ -49,7 +46,7 @@
 <ul>
 	<li><code>n == satisfaction.length</code></li>
 	<li><code>1 &lt;= n &lt;= 500</code></li>
-	<li><code>-10^3 &lt;=&nbsp;satisfaction[i] &lt;= 10^3</code></li>
+	<li><code>-1000 &lt;= satisfaction[i] &lt;= 1000</code></li>
 </ul>
 
 ## 解法

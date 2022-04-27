@@ -147,7 +147,7 @@ class SegmentTree:
         else:
             self.modify(u << 1 | 1, x, v)
         self.pushup(u)
-    
+
     def query(self, u, l, r):
         if self.tr[u].l >= l and self.tr[u].r <= r:
             return self.tr[u].v
@@ -266,7 +266,7 @@ class Node {
 class SegmentTree {
     private Node[] tr;
     private int[] nums;
-    
+
     public SegmentTree(int[] nums) {
         int n = nums.length;
         tr = new Node[n << 2];
@@ -334,12 +334,12 @@ class NumMatrix {
             trees[i] = new SegmentTree(matrix[i]);
         }
     }
-    
+
     public void update(int row, int col, int val) {
         SegmentTree tree = trees[row];
         tree.modify(1, col + 1, val);
     }
-    
+
     public int sumRegion(int row1, int col1, int row2, int col2) {
         int s = 0;
         for (int row = row1; row <= row2; ++row) {
@@ -505,12 +505,12 @@ public:
         trees.resize(m);
         for (int i = 0; i < m; ++i) trees[i] = new SegmentTree(matrix[i]);
     }
-    
+
     void update(int row, int col, int val) {
         SegmentTree* tree = trees[row];
         tree->modify(1, col + 1, val);
     }
-    
+
     int sumRegion(int row1, int col1, int row2, int col2) {
         int s = 0;
         for (int row = row1; row <= row2; ++row) s += trees[row]->query(1, col1 + 1, col2 + 1);

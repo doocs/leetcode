@@ -4,7 +4,7 @@
  * @return {number}
  */
 var maxDistance = function (nums1, nums2) {
-    let res = 0;
+    let ans = 0;
     let m = nums1.length;
     let n = nums2.length;
     for (let i = 0; i < m; ++i) {
@@ -18,7 +18,7 @@ var maxDistance = function (nums1, nums2) {
                 right = mid - 1;
             }
         }
-        res = Math.max(res, left - i);
+        ans = Math.max(ans, left - i);
     }
-    return res;
+    return ans;
 };

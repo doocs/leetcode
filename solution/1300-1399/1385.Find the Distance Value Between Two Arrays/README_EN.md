@@ -59,7 +59,6 @@ For arr1[2]=8 we have:
 
 **Method 1: Brute-force**
 
-
 **Method 2: Binary search**
 
 <!-- tabs:start -->
@@ -152,7 +151,7 @@ public:
             ans += check(arr2, a, d);
         return ans;
     }
-    
+
     bool check(vector<int>& arr, int a, int d) {
         for (int& b : arr)
             if (abs(a - b) <= d)

@@ -57,13 +57,60 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        primes = {2, 3, 5, 7, 11, 13, 17, 19}
+        return sum(i.bit_count() in primes for i in range(left, right + 1))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static Set<Integer> primes = new HashSet<>(Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19));
 
+    public int countPrimeSetBits(int left, int right) {
+        int ans = 0;
+        for (int i = left; i <= right; ++i) {
+            if (primes.contains(Integer.bitCount(i))) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    unordered_set<int> primes{2, 3, 5, 7, 11, 13, 17, 19};
+
+    int countPrimeSetBits(int left, int right) {
+        int ans = 0;
+        for (int i = left; i <= right; ++i)
+            if (primes.count(__builtin_popcount(i)))
+                ++ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPrimeSetBits(left int, right int) int {
+	primes := map[int]bool{2: true, 3: true, 5: true, 7: true, 11: true, 13: true, 17: true, 19: true}
+	ans := 0
+	for i := left; i <= right; i++ {
+		if primes[bits.OnesCount(uint(i))] {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

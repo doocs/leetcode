@@ -28,12 +28,12 @@ class Solution:
 
                     if counter[l] == 0:
                         unique -= 1
-                    if counter[l] == k-1:
+                    if counter[l] == k - 1:
                         kCount -= 1
 
                     left += 1
 
                 if unique == i and kCount == i:
-                    maxLength = max(maxLength, right-left)
+                    maxLength = max(maxLength, right - left)
 
         return maxLength

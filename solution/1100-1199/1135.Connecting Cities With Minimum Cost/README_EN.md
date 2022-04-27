@@ -48,28 +48,23 @@
 ```python
 class Solution:
     def minimumCost(self, n: int, connections: List[List[int]]) -> int:
-        p = list(range(n))
-        connections.sort(key=lambda x: x[2])
-        res = 0
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        def union(a, b):
-            pa, pb = find(a - 1), find(b - 1)
-            if pa == pb:
-                return False
-            p[pa] = pb
-            return True
-
-        for c1, c2, cost in connections:
-            if union(c1, c2):
-                n -= 1
-                res += cost
-                if n == 1:
-                    return res
+        connections.sort(key=lambda x: x[2])
+        p = list(range(n))
+        ans = 0
+        for x, y, cost in connections:
+            x, y = x - 1, y - 1
+            if find(x) == find(y):
+                continue
+            p[find(x)] = find(y)
+            ans += cost
+            n -= 1
+            if n == 1:
+                return ans
         return -1
 ```
 
@@ -80,19 +75,21 @@ class Solution {
     private int[] p;
 
     public int minimumCost(int n, int[][] connections) {
+        Arrays.sort(connections, Comparator.comparingInt(a -> a[2]));
         p = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        Arrays.sort(connections, (a, b) -> a[2] - b[2]);
-        int res = 0;
+        int ans = 0;
         for (int[] e : connections) {
-            if (union(e[0], e[1])) {
-                res += e[2];
-                --n;
-                if (n == 1) {
-                    return res;
-                }
+            int x = e[0] - 1, y = e[1] - 1, cost = e[2];
+            if (find(x) == find(y)) {
+                continue;
+            }
+            p[find(x)] = find(y);
+            ans += cost;
+            if (--n == 1) {
+                return ans;
             }
         }
         return -1;
@@ -104,15 +101,6 @@ class Solution {
         }
         return p[x];
     }
-
-    private boolean union(int a, int b) {
-        int pa = find(a - 1), pb = find(b - 1);
-        if (pa == pb) {
-            return false;
-        }
-        p[pa] = pb;
-        return true;
-    }
 }
 ```
 
@@ -123,23 +111,18 @@ class Solution {
 public:
     vector<int> p;
 
-    int minimumCost(int n, vector<vector<int>> &connections) {
+    int minimumCost(int n, vector<vector<int>>& connections) {
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        auto cmp = [](auto &a, auto &b)
+        sort(connections.begin(), connections.end(), [](auto& a, auto& b) {return a[2] < b[2];});
+        int ans = 0;
+        for (auto& e : connections)
         {
-            return a[2] < b[2];
-        };
-        sort(connections.begin(), connections.end(), cmp);
-        int res = 0;
-        for (auto e : connections)
-        {
-            if (unite(e[0], e[1]))
-            {
-                res += e[2];
-                --n;
-                if (n == 1) return res;
-            }
+            int x = e[0] - 1, y = e[1] - 1, cost = e[2];
+            if (find(x) == find(y)) continue;
+            p[find(x)] = find(y);
+            ans += cost;
+            if (--n == 1) return ans;
         }
         return -1;
     }
@@ -148,56 +131,41 @@ public:
         if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
-
-    bool unite(int a, int b) {
-        int pa = find(a - 1), pb = find(b - 1);
-        if (pa == pb) return false;
-        p[pa] = pb;
-        return true;
-    }
 };
 ```
 
 ### **Go**
 
 ```go
-var p []int
-
 func minimumCost(n int, connections [][]int) int {
-	p = make([]int, n)
-	for i := 0; i < len(p); i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
 	sort.Slice(connections, func(i, j int) bool {
 		return connections[i][2] < connections[j][2]
 	})
-	res := 0
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	ans := 0
 	for _, e := range connections {
-		if union(e[0], e[1]) {
-			res += e[2]
-			n--
-			if n == 1 {
-				return res
-			}
+		x, y, cost := e[0]-1, e[1]-1, e[2]
+		if find(x) == find(y) {
+			continue
+		}
+		p[find(x)] = find(y)
+		ans += cost
+		n--
+		if n == 1 {
+			return ans
 		}
 	}
 	return -1
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
-}
-
-func union(a, b int) bool {
-	pa, pb := find(a-1), find(b-1)
-	if pa == pb {
-		return false
-	}
-	p[pa] = pb
-	return true
 }
 ```
 

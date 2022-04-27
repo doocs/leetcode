@@ -8,7 +8,8 @@
 
 <p>表：<code>DailySales</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | date_id     | date    |
@@ -20,17 +21,21 @@
 该表包含日期、产品的名称，以及售给的领导和合伙人的编号。
 名称只包含小写英文字母。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>写一条 SQL 语句，使得对于每一个 <code>date_id</code> 和 <code>make_name</code>，返回<strong>不同</strong>的 <code>lead_id</code> 以及<strong>不同</strong>的 <code>partner_id</code> 的数量。</p>
+<p>写一条 SQL 语句，使得对于每一个&nbsp;<code>date_id</code>&nbsp;和&nbsp;<code>make_name</code>，返回<strong>不同</strong>的&nbsp;<code>lead_id</code>&nbsp;以及<strong>不同</strong>的&nbsp;<code>partner_id</code>&nbsp;的数量。</p>
 
-<p>按任意顺序返回结果表。</p>
+<p>按 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>查询结果格式如下示例所示：</p>
+<p>查询结果格式如下示例所示。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<pre>DailySales 表：
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入：</strong>
+DailySales 表：
 +-----------+-----------+---------+------------+
 | date_id   | make_name | lead_id | partner_id |
 +-----------+-----------+---------+------------+
@@ -45,7 +50,7 @@
 | 2020-12-7 | honda     | 1       | 2          |
 | 2020-12-7 | honda     | 2       | 1          |
 +-----------+-----------+---------+------------+
-结果表：
+<strong>输出：</strong>
 +-----------+-----------+--------------+-----------------+
 | date_id   | make_name | unique_leads | unique_partners |
 +-----------+-----------+--------------+-----------------+
@@ -54,10 +59,9 @@
 | 2020-12-8 | honda     | 2            | 2               |
 | 2020-12-7 | honda     | 3            | 2               |
 +-----------+-----------+--------------+-----------------+
+<strong>解释：</strong>
 在 2020-12-8，丰田（toyota）有领导者 = [0, 1] 和合伙人 = [0, 1, 2] ，同时本田（honda）有领导者 = [1, 2] 和合伙人 = [1, 2]。
 在 2020-12-7，丰田（toyota）有领导者 = [0] 和合伙人 = [1, 2] ，同时本田（honda）有领导者 = [0, 1, 2] 和合伙人 = [1, 2]。</pre>
-
-<p> </p>
 
 ## 解法
 
@@ -68,7 +72,13 @@
 ### **SQL**
 
 ```sql
-
+SELECT date_id,
+    make_name,
+    COUNT(DISTINCT lead_id) AS unique_leads,
+    COUNT(DISTINCT partner_id) AS unique_partners
+FROM DailySales
+GROUP BY date_id,
+    make_name;
 ```
 
 <!-- tabs:end -->

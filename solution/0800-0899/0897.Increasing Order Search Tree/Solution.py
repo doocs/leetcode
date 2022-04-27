@@ -6,17 +6,17 @@
 #         self.right = right
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        if root is None:
-            return None
-        left = self.increasingBST(root.left)
-        right = self.increasingBST(root.right)
-        if left is None:
-            root.right = right
-            return root
-        res = left
-        while left and left.right:
-            left = left.right
-        left.right = root
-        root.right = right
-        root.left = None
-        return res
+        def dfs(root):
+            if root is None:
+                return
+            nonlocal prev
+            dfs(root.left)
+            prev.right = root
+            root.left = None
+            prev = root
+            dfs(root.right)
+
+        dummy = TreeNode(val=0, right=root)
+        prev = dummy
+        dfs(root)
+        return dummy.right

@@ -53,6 +53,29 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+方法一：遍历
+
+遍历 `letters`，返回第一个满足 `letters[i] > target` 条件的元素。若是遍历结束还未找到，则返回 `letters[0]`
+
+> 至少存在两个不同的字母，所以不会返回 `target`
+
+方法二：二分
+
+利用 `letters` 有序的特点，可以使用二分来快速查找。
+
+在返回值方面相比传统二分不一样，需要对结果进行取余操作：`letters[l % letters.length]`
+
+为什么？如题描述，字母是重复出现的，当索引过界时，不是没有结果，而是需要返回前面的元素。
+
+一个容易理解的版本，使用减法：
+
+```c
+if (l < n) {
+    return letters[l];
+}
+return letters[l - n];
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -112,6 +135,23 @@ function nextGreatestLetter(letters: string[], target: string): string {
 }
 ```
 
+```ts
+function nextGreatestLetter(letters: string[], target: string): string {
+    const n = letters.length;
+    let l = 0;
+    let r = n;
+    while (l < r) {
+        const mid = (l + r) >>> 1;
+        if (target < letters[mid]) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return letters[l % n];
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -146,6 +186,40 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 		}
 	}
 	return letters[left%len(letters)]
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        for c in letters.iter() {
+            if c > &target {
+                return *c;
+            }
+        }
+        letters[0]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        let n = letters.len();
+        let mut l = 0;
+        let mut r = n;
+        while l < r {
+            let mid = l + r >> 1;
+            if letters[mid] <= target {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        letters[l % n]
+    }
 }
 ```
 

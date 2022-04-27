@@ -77,7 +77,7 @@ class Solution:
         ans = -1
         while q:
             ans += 1
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 i, j = q.popleft()
                 for a, b in dirs:
                     x, y = i + a, j + b

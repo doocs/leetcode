@@ -8,21 +8,23 @@
  * }
  */
 class Solution {
+    private TreeNode prev;
+    
     public TreeNode convertBiNode(TreeNode root) {
-        if (root == null) return null;
-        TreeNode left = convertBiNode(root.left);
-        TreeNode right = convertBiNode(root.right);
-        if (left == null) {
-            root.right = right;
-            return root;
+        TreeNode dummy = new TreeNode(0, null, root);
+        prev = dummy;
+        dfs(root);
+        return dummy.right;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
         }
-        TreeNode res = left;
-        while (left != null && left.right != null) {
-            left = left.right;
-        }
-        left.right = root;
-        root.right = right;
+        dfs(root.left);
+        prev.right = root;
         root.left = null;
-        return res;
+        prev = root;
+        dfs(root.right);
     }
 }
