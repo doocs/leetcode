@@ -57,11 +57,25 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“哈希表 + 动态列表”实现。
+**方法一：哈希表 + 动态列表**
 
 哈希表存放每个元素的值和对应的下标，而动态列表在每个下标位置存放每个元素。由动态列表实现元素的随机返回。
 
 注意，在 `remove()` 实现上，将列表的最后一个元素设置到待删元素的位置上，然后删除最后一个元素，这样在删除元素的时候，不需要挪动一大批元素，从而实现 `O(1)` 时间内操作。
+
+操作细节：
+
+1. **插入**
+
+    每次添加新数值时，先使用哈希表判断该数值是否存在，存在则直接返回 false。不存在则进行插入操作，只要将该数值添加到数组尾部即可，并将该数值和其下标的映射存入哈希表。
+
+2. **删除**
+
+    删除同样需使用哈希表判断是否存在，若不存在则返回 false。存在则进行删除操作，在哈希表中删除时间复杂度为 O(1)，但是在数值中删除比较麻烦。若只是直接删除，则为了保证数组内存连续性需将删除数值后面的数值均前移一位，时间复杂度为 O(n)。比较好的处理方式是，用数组的最后一个数值去填充需要删除的数值的内存，其他数值在数组中的位置保持不变，并将这个拿来填充的数值的下标更新即可，最后只要删除数组最后一个数值，同样可以保证时间复杂度为 O(1)。
+
+3. **随机返回**
+
+    只要随机生成数组下标范围内一个随机下标值，返回该数组下标内的数值即可。
 
 <!-- tabs:start -->
 
@@ -73,16 +87,10 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 class RandomizedSet:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.m = {}
         self.l = []
 
     def insert(self, val: int) -> bool:
-        """
-        Inserts a value to the set. Returns true if the set did not already contain the specified element.
-        """
         if val in self.m:
             return False
         self.m[val] = len(self.l)
@@ -90,24 +98,17 @@ class RandomizedSet:
         return True
 
     def remove(self, val: int) -> bool:
-        """
-        Removes a value from the set. Returns true if the set contained the specified element.
-        """
         if val not in self.m:
             return False
         idx = self.m[val]
-        last_idx = len(self.l) - 1
-        self.m[self.l[last_idx]] = idx
-        self.m.pop(val)
-        self.l[idx] = self.l[last_idx]
+        self.l[idx] = self.l[-1]
+        self.m[self.l[-1]] = idx
         self.l.pop()
+        self.m.pop(val)
         return True
 
     def getRandom(self) -> int:
-        """
-        Get a random element from the set.
-        """
-        return random.choice(self.l)
+        return choice(self.l)
 
 
 # Your RandomizedSet object will be instantiated and called as such:
@@ -115,6 +116,7 @@ class RandomizedSet:
 # param_1 = obj.insert(val)
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
+
 ```
 
 ### **Java**
@@ -123,18 +125,14 @@ class RandomizedSet:
 
 ```java
 class RandomizedSet {
-    private Map<Integer, Integer> m;
-    private List<Integer> l;
-    private Random rnd;
+    private Map<Integer, Integer> m = new HashMap<>();
+    private List<Integer> l = new ArrayList<>();
+    private Random rnd = new Random();
 
-    /** Initialize your data structure here. */
     public RandomizedSet() {
-        m = new HashMap<>();
-        l = new ArrayList<>();
-        rnd = new Random();
+
     }
 
-    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     public boolean insert(int val) {
         if (m.containsKey(val)) {
             return false;
@@ -144,21 +142,18 @@ class RandomizedSet {
         return true;
     }
 
-    /** Removes a value from the set. Returns true if the set contained the specified element. */
     public boolean remove(int val) {
         if (!m.containsKey(val)) {
             return false;
         }
         int idx = m.get(val);
-        int lastIdx = l.size() - 1;
-        m.put(l.get(lastIdx), idx);
+        l.set(idx, l.get(l.size() - 1));
+        m.put(l.get(l.size() - 1), idx);
+        l.remove(l.size() - 1);
         m.remove(val);
-        l.set(idx, l.get(lastIdx));
-        l.remove(lastIdx);
         return true;
     }
 
-    /** Get a random element from the set. */
     public int getRandom() {
         int idx = rnd.nextInt(l.size());
         return l.get(idx);
@@ -176,20 +171,9 @@ class RandomizedSet {
 
 ### **C++**
 
-1. 插入
-
-每次添加新数值时，先使用哈希表判断该数值是否存在，存在则直接返回 false。不存在则进行插入操作，只要将该数值添加到数组尾部即可，并将该数值和其下标的映射存入哈希表。
-
-2. 删除
-
-删除同样需使用哈希表判断是否存在，若不存在则返回 false。存在则进行删除操作，在哈希表中删除时间复杂度为 O(1)，但是在数值中删除比较麻烦。若只是直接删除，则为了保证数组内存连续性需将删除数值后面的数值均前移一位，时间复杂度为 O(n)。比较好的处理方式是，用数组的最后一个数值去填充需要删除的数值的内存，其他数值在数组中的位置保持不变，并将这个拿来填充的数值的下标更新即可，最后只要删除数组最后一个数值，同样可以保证时间复杂度为 O(1)。
-
-3. 随机返回
-
-只要随机生成数组下标范围内一个随机下标值，返回该数组下标内的数值即可。
-
 ```cpp
 class RandomizedSet {
+private:
     unordered_map<int, int> mp;
     vector<int> nums;
 public:
@@ -198,22 +182,17 @@ public:
     }
 
     bool insert(int val) {
-        if (mp.count(val))
-            return false;
-
+        if (mp.count(val)) return false;
         mp[val] = nums.size();
         nums.push_back(val);
         return true;
     }
 
     bool remove(int val) {
-        if (!mp.count(val))
-            return false;
-
-        int removeIndex = mp[val];
-        nums[removeIndex] = nums.back();
-        mp[nums.back()] = removeIndex;
-
+        if (!mp.count(val)) return false;
+        int idx = mp[val];
+        nums[idx] = nums.back();
+        mp[nums.back()] = idx;
         mp.erase(val);
         nums.pop_back();
         return true;
@@ -230,6 +209,151 @@ public:
  * bool param_1 = obj->insert(val);
  * bool param_2 = obj->remove(val);
  * int param_3 = obj->getRandom();
+ */
+```
+
+### **Go**
+
+```go
+type RandomizedSet struct {
+	m map[int]int
+	l []int
+}
+
+func Constructor() RandomizedSet {
+	return RandomizedSet{map[int]int{}, []int{}}
+}
+
+func (this *RandomizedSet) Insert(val int) bool {
+	if _, ok := this.m[val]; ok {
+		return false
+	}
+	this.m[val] = len(this.l)
+	this.l = append(this.l, val)
+	return true
+}
+
+func (this *RandomizedSet) Remove(val int) bool {
+	if _, ok := this.m[val]; !ok {
+		return false
+	}
+	idx := this.m[val]
+	this.l[idx] = this.l[len(this.l)-1]
+	this.m[this.l[len(this.l)-1]] = idx
+	this.l = this.l[:len(this.l)-1]
+	delete(this.m, val)
+	return true
+}
+
+func (this *RandomizedSet) GetRandom() int {
+	return this.l[rand.Intn(len(this.l))]
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Insert(val);
+ * param_2 := obj.Remove(val);
+ * param_3 := obj.GetRandom();
+ */
+```
+
+### **TypeScript**
+
+```ts
+class RandomizedSet {
+    public map: Map<number, number>;
+    public arr: number[];
+    public index: number;
+
+    constructor() {
+        this.map = new Map();
+        this.arr = new Array(2 * 10 ** 5).fill(0);
+        this.index = -1;
+    }
+
+    insert(val: number): boolean {
+        const { map, arr } = this;
+        if (map.has(val)) {
+            return false;
+        }
+        this.index++;
+        arr[this.index] = val;
+        map.set(val, this.index);
+        return true;
+    }
+
+    remove(val: number): boolean {
+        const { arr, map, index } = this;
+        if (!map.has(val)) {
+            return false;
+        }
+        const i = map.get(val);
+        [arr[i], arr[index]] = [arr[index], arr[i]];
+        map.set(arr[i], i);
+        map.delete(arr[index]);
+        this.index--;
+        return true;
+    }
+
+    getRandom(): number {
+        const i = Math.floor(Math.random() * (this.index + 1));
+        return this.arr[i];
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * var obj = new RandomizedSet()
+ * var param_1 = obj.insert(val)
+ * var param_2 = obj.remove(val)
+ * var param_3 = obj.getRandom()
+ */
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+use rand::Rng;
+
+struct RandomizedSet {
+    list: HashSet<i32>
+}
+
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl RandomizedSet {
+
+    fn new() -> Self {
+        Self {
+            list: HashSet::new()
+        }
+    }
+
+    fn insert(&mut self, val: i32) -> bool {
+        self.list.insert(val)
+    }
+
+    fn remove(&mut self, val: i32) -> bool {
+        self.list.remove(&val)
+    }
+
+    fn get_random(&self) -> i32 {
+        let i = rand::thread_rng().gen_range(0, self.list.len());
+        *self.list.iter().collect::<Vec<&i32>>()[i]
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * let obj = RandomizedSet::new();
+ * let ret_1: bool = obj.insert(val);
+ * let ret_2: bool = obj.remove(val);
+ * let ret_3: i32 = obj.get_random();
  */
 ```
 

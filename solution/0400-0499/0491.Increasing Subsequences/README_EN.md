@@ -38,13 +38,115 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def findSubsequences(self, nums: List[int]) -> List[List[int]]:
+        def dfs(u, last, t):
+            if u == len(nums):
+                if len(t) > 1:
+                    ans.append(t[:])
+                return
+            if nums[u] >= last:
+                t.append(nums[u])
+                dfs(u + 1, nums[u], t)
+                t.pop()
+            if nums[u] != last:
+                dfs(u + 1, last, t)
 
+        ans = []
+        dfs(0, -1000, [])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] nums;
+    private List<List<Integer>> ans;
 
+    public List<List<Integer>> findSubsequences(int[] nums) {
+        this.nums = nums;
+        ans = new ArrayList<>();
+        dfs(0, -1000, new ArrayList<>());
+        return ans;
+    }
+
+    private void dfs(int u, int last, List<Integer> t) {
+        if (u == nums.length) {
+            if (t.size() > 1) {
+                ans.add(new ArrayList<>(t));
+            }
+            return;
+        }
+        if (nums[u] >= last) {
+            t.add(nums[u]);
+            dfs(u + 1, nums[u], t);
+            t.remove(t.size() - 1);
+        }
+        if (nums[u] != last) {
+            dfs(u + 1, last, t);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> findSubsequences(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> t;
+        dfs(0, -1000, t, nums, ans);
+        return ans;
+    }
+
+    void dfs(int u, int last, vector<int>& t, vector<int>& nums, vector<vector<int>>& ans) {
+        if (u == nums.size())
+        {
+            if (t.size() > 1) ans.push_back(t);
+            return;
+        }
+        if (nums[u] >= last)
+        {
+            t.push_back(nums[u]);
+            dfs(u + 1, nums[u], t, nums, ans);
+            t.pop_back();
+        }
+        if (nums[u] != last) dfs(u + 1, last, t, nums, ans);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findSubsequences(nums []int) [][]int {
+	var ans [][]int
+	var dfs func(u, last int, t []int)
+	dfs = func(u, last int, t []int) {
+		if u == len(nums) {
+			if len(t) > 1 {
+				cp := make([]int, len(t))
+				copy(cp, t)
+				ans = append(ans, cp)
+			}
+			return
+		}
+		if nums[u] >= last {
+			t = append(t, nums[u])
+			dfs(u+1, nums[u], t)
+			t = t[:len(t)-1]
+		}
+		if nums[u] != last {
+			dfs(u+1, last, t)
+		}
+	}
+	var t []int
+	dfs(0, -1000, t)
+	return ans
+}
 ```
 
 ### **...**

@@ -38,7 +38,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-快速排序 partition 实现。
+一种简易的解法，将数组排序之后，即可轻易得知结果，复杂度由排序算法决定。
+
+优化：
+
+并不是所有时候，都需要整个数组进入有序状态，只需要**局部有序**，或者说，从大到小排序，只要 `[0..k)` 位置的元素有序，那么就能确定结果，此处使用**快速排序**。
+
+快速排序有一特点，每一次循环结束时，能够确定的是：`partition` 一定处于它该处于的索引位置。从而根据它得知，结果值是在左数组还是在右数组当中，然后对那一数组进行排序即可。
+
+> `partition` 便是快速排序中选择的比较样本。
 
 <!-- tabs:start -->
 
@@ -168,6 +176,102 @@ func quickSort(nums []int, left, right, k int) int {
 		return quickSort(nums, j+1, right, k)
 	}
 	return quickSort(nums, left, j, k)
+}
+```
+
+### **TypeScript**
+
+```ts
+function findKthLargest(nums: number[], k: number): number {
+    const n = nums.length;
+    const swap = (i: number, j: number) => {
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    };
+    const sort = (l: number, r: number) => {
+        if (l + 1 > k || l >= r) {
+            return;
+        }
+        swap(l, l + Math.floor(Math.random() * (r - l)));
+        const num = nums[l];
+        let mark = l;
+        for (let i = l + 1; i < r; i++) {
+            if (nums[i] > num) {
+                mark++;
+                swap(i, mark);
+            }
+        }
+        swap(l, mark);
+
+        sort(l, mark);
+        sort(mark + 1, r);
+    };
+    sort(0, n);
+    return nums[k - 1];
+}
+```
+
+### **Rust**
+
+```rust
+use rand::Rng;
+
+impl Solution {
+    fn sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) {
+        if l + 1 > k || l >= r {
+            return;
+        }
+        nums.swap(l, rand::thread_rng().gen_range(l, r));
+        let num = nums[l];
+        let mut mark = l;
+        for i in l..r {
+            if nums[i] > num {
+                mark += 1;
+                nums.swap(i, mark);
+            }
+        }
+        nums.swap(l, mark);
+
+        Self::sort(nums, l, mark, k);
+        Self::sort(nums, mark + 1, r, k);
+    }
+
+    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
+        let n = nums.len();
+        let k = k as usize;
+        Self::sort(&mut nums, 0, n, k);
+        nums[k - 1]
+    }
+}
+```
+
+```rust
+use rand::Rng;
+
+impl Solution {
+    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
+        let k = k as usize;
+        let n = nums.len();
+        let mut l = 0;
+        let mut r = n;
+        while l <= k - 1 && l < r {
+            nums.swap(l, rand::thread_rng().gen_range(l, r));
+            let num = nums[l];
+            let mut mark = l;
+            for i in l..r {
+                if nums[i] > num {
+                    mark += 1;
+                    nums.swap(i, mark);
+                }
+            }
+            nums.swap(l, mark);
+            if mark + 1 <= k {
+                l = mark + 1;
+            } else {
+                r = mark;
+            }
+        }
+        nums[k - 1]
+    }
 }
 ```
 

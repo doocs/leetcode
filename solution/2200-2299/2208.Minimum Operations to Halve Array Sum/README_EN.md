@@ -77,7 +77,7 @@ class Solution:
 class Solution {
     public int halveArray(int[] nums) {
         long s = 0;
-        PriorityQueue<Double> q = new PriorityQueue<>(Collections.reverseOrder()); 
+        PriorityQueue<Double> q = new PriorityQueue<>(Collections.reverseOrder());
         for (int v : nums) {
             q.offer(v * 1.0);
             s += v;

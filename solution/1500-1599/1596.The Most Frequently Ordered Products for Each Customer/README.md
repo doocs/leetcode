@@ -19,7 +19,7 @@ customer_id 是该表主键
 该表包含所有顾客的信息
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>表：<code>Orders</code></p>
 
@@ -36,7 +36,7 @@ order_id 是该表主键
 该表包含顾客 customer_id 的订单信息
 没有顾客会在一天内订购相同的商品<strong> 多于一次</strong></pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>表：<code>Products</code></p>
 
@@ -52,18 +52,23 @@ product_id 是该表主键
 该表包含了所有商品的信息
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>写一个 SQL 语句，找到每一个顾客最经常订购的商品。</p>
 
-<p>结果表单应该有每一位至少下过一次单的顾客 <code>customer_id</code> , 他最经常订购的商品的 <code>product_id</code> 和 <code>product_name</code>。</p>
+<p>结果表单应该有每一位至少下过一次单的顾客 <code>customer_id</code>&nbsp;,&nbsp;他最经常订购的商品的&nbsp;<code>product_id</code>&nbsp;和&nbsp;<code>product_name</code>。</p>
 
 <p>返回结果<strong> 没有顺序要求</strong>。</p>
 
-<p>查询结果格式如下例所示：</p>
+<p>查询结果格式如下例所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<code>Customers</code>
+<code><strong>输入：</strong>
+Customers表：</code>
 +-------------+-------+
 | customer_id | name  |
 +-------------+-------+
@@ -73,8 +78,7 @@ product_id 是该表主键
 | 4           | Jerry |
 | 5           | John  |
 +-------------+-------+
-
-<code>Orders</code>
+<code>Orders表：</code>
 +----------+------------+-------------+------------+
 | order_id | order_date | customer_id | product_id |
 +----------+------------+-------------+------------+
@@ -89,8 +93,7 @@ product_id 是该表主键
 | 9        | 2020-08-07 | 2           | 3          |
 | 10       | 2020-07-15 | 1           | 2          |
 +----------+------------+-------------+------------+
-
-<code>Products</code>
+<code>Products表：</code>
 +------------+--------------+-------+
 | product_id | product_name | price |
 +------------+--------------+-------+
@@ -99,7 +102,7 @@ product_id 是该表主键
 | 3          | screen       | 600   |
 | 4          | hard disk    | 450   |
 +------------+--------------+-------+
-Result 表：
+<strong>输出：</strong>
 +-------------+------------+--------------+
 | customer_id | product_id | product_name |
 +-------------+------------+--------------+
@@ -110,13 +113,12 @@ Result 表：
 | 3           | 3          | screen       |
 | 4           | 1          | keyboard     |
 +-------------+------------+--------------+
-
+<strong>解释：</strong>
 Alice (customer 1) 三次订购鼠标, 一次订购键盘, 所以鼠标是 Alice 最经常订购的商品.
 Bob (customer 2) 一次订购键盘, 一次订购鼠标, 一次订购显示器, 所以这些都是 Bob 最经常订购的商品.
 Tom (customer 3) 只两次订购显示器, 所以显示器是 Tom 最经常订购的商品.
 Jerry (customer 4) 只一次订购键盘, 所以键盘是 Jerry 最经常订购的商品.
-John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在结果表中.
-</pre>
+John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在结果表中.</pre>
 
 ## 解法
 

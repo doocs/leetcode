@@ -1,5 +1,5 @@
 func maxDistance(nums1 []int, nums2 []int) int {
-	res, n := 0, len(nums2)
+	ans, n := 0, len(nums2)
 	for i, num := range nums1 {
 		left, right := i, n-1
 		for left < right {
@@ -10,9 +10,9 @@ func maxDistance(nums1 []int, nums2 []int) int {
 				right = mid - 1
 			}
 		}
-		if res < left-i {
-			res = left - i
+		if ans < left-i {
+			ans = left - i
 		}
 	}
-	return res
+	return ans
 }

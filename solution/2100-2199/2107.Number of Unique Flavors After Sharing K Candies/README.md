@@ -6,47 +6,48 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> integer array <code>candies</code>, where <code>candies[i]</code> represents the flavor of the <code>i<sup>th</sup></code> candy. Your mom wants you to share these candies with your little sister by giving her <code>k</code> <strong>consecutive</strong> candies, but you want to keep as many flavors of candies as possible.</p>
-
-<p>Return <em>the <strong>maximum</strong> number of <strong>unique</strong> flavors of candy you can keep after sharing </em><em> with your sister.</em></p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> candies = [1,<u>2,2,3</u>,4,3], k = 3
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> 
-Give the candies in the range [1, 3] (inclusive) with flavors [2,2,3].
-You can eat candies with flavors [1,4,3].
-There are 3 unique flavors, so return 3.
-</pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> candies = [2,2,2,<u>2,3</u>,3], k = 2
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> 
-Give the candies in the range [3, 4] (inclusive) with flavors [2,3].
-You can eat candies with flavors [2,2,2,3].
-There are 2 unique flavors, so return 2.
-Note that you can also share the candies with flavors [2,2] and eat the candies with flavors [2,2,3,3].
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> candies = [2,4,5], k = 0
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> 
-You do not have to give any candies.
-You can eat the candies with flavors [2,4,5].
-There are 3 unique flavors, so return 3.
-</pre>
+<p>您将获得一个 <strong>从0开始的</strong> 整数数组 <code>candies</code> ，其中 <code>`candies[i]`</code>表示第 <code>i</code> 个糖果的味道。你妈妈想让你和你妹妹分享这些糖果，给她 <code>k</code> 个 <strong>连续 </strong>的糖果，但你想保留尽可能多的糖果口味。<br />
+在与妹妹分享后，返回 <strong>最多</strong> 可保留的 <strong>独特</strong> 口味的糖果。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入:</strong> candies = [1,<u>2,2,3</u>,4,3], k = 3
+<strong>输出:</strong> 3
+<strong>解释:</strong>
+将[1,3]（含[2,2,3]）范围内的糖果加入[2,2,3]口味。
+你可以吃各种口味的糖果[1,4,3]。
+有3种独特的口味，所以返回3。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> candies = [2,2,2,<u>2,3</u>,3], k = 2
+<strong>输出:</strong> 2
+<strong>解释:</strong>
+在[3,4]范围内（含[2,3]）的糖果中加入[2,3]口味。
+你可以吃各种口味的糖果[2,2,2,3]。
+有两种独特的口味，所以返回2。
+请注意，你也可以分享口味为[2,2]的糖果，吃口味为[2,2,3,3]的糖果。
+</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> candies = [2,4,5], k = 0
+<strong>输出:</strong> 3
+<strong>解释:</strong>
+你不必给任何糖果。
+你可以吃各种口味的糖果[2,4,5]。
+有3种独特的口味，所以返回3。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= candies.length &lt;= 10<sup>5</sup></code></li>

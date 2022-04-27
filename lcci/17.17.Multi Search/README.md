@@ -159,7 +159,7 @@ private:
 
 public:
     Trie() : children(26), idx(-1) {}
-    
+
     void insert(string word, int i) {
         Trie* node = this;
         for (char c : word)
@@ -170,7 +170,7 @@ public:
         }
         node->idx = i;
     }
-    
+
     vector<int> search(string word) {
         Trie* node = this;
         vector<int> res;

@@ -85,21 +85,77 @@ class Solution {
 }
 ```
 
+### **Go**
+
+```go
+func lengthOfLastWord(s string) int {
+	if len(s) == 0 {
+		return 0
+	}
+	space := []byte(" ")[0]
+	for len(s) != 0 && s[len(s)-1] == space {
+		s = s[:len(s)-1]
+	}
+	ret := 0
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] != space {
+			ret++
+		} else {
+			return ret
+		}
+	}
+	return ret
+}
+```
+
+### **JavaScript**
+
+```js
+var lengthOfLastWord = function (s) {
+    s = s.trim();
+    return s.length - s.lastIndexOf(' ') - 1;
+};
+
+var lengthOfLastWord2 = function (s) {
+    let res = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== ' ' && (i === 0 || s[i - 1] === ' ')) {
+            res = 1;
+        } else if (s[i] !== ' ') {
+            res++;
+        }
+    }
+    return res;
+};
+```
+
+### **TypeScript**
+
+```ts
+function lengthOfLastWord(s: string): number {
+    s = s.trimEnd();
+    const n = s.length;
+    const index = s.lastIndexOf(' ');
+    if (index !== -1) {
+        return n - index - 1;
+    }
+    return n;
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
         let s = s.trim_end();
-        if s.len() == 0 {
-            return 0;
-        }
+        let n = s.len();
         for (i, c) in s.char_indices().rev() {
             if c == ' ' {
-                return (s.len() - i - 1) as i32;
+                return (n - i - 1) as i32;
             }
         }
-        s.len() as i32
+        n as i32
     }
 }
 ```

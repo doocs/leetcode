@@ -81,7 +81,7 @@ class Solution:
                     vis = set()
                     while q:
                         d += 1
-                        for _ in range(len(q), 0, -1):
+                        for _ in range(len(q)):
                             r, c = q.popleft()
                             for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                                 x, y = r + a, c + b

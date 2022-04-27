@@ -55,7 +55,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-简单动态规划，`dp[i]` 表示总和为 `i` 的元素组合的个数。
+**方法一：动态规划**
+
+类似完全背包问题，每个整数可以选择多次。但这里需要考虑整数的顺序，只要出现顺序不同，就视为一种方案。因此可以将 nums 放在内层循环中。
+
+`dp[i]` 表示总和为 `i` 的元素组合的个数。
 
 <!-- tabs:start -->
 
@@ -131,6 +135,28 @@ func combinationSum4(nums []int, target int) int {
 	}
 	return dp[target]
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var combinationSum4 = function (nums, target) {
+    const dp = new Array(target + 1).fill(0);
+    dp[0] = 1;
+    for (let i = 1; i <= target; ++i) {
+        for (let v of nums) {
+            if (i >= v) {
+                dp[i] += dp[i - v];
+            }
+        }
+    }
+    return dp[target];
+};
 ```
 
 ### **...**

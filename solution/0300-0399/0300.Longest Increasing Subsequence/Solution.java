@@ -1,52 +1,26 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        TreeSet<Integer> ts = new TreeSet();
-        for (int v : nums) {
-            ts.add(v);
+        int n = nums.length;
+        int[] d = new int[n + 1];
+        d[1] = nums[0];
+        int size = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > d[size]) {
+                d[++size] = nums[i];
+            } else {
+                int left = 1, right = size;
+                while (left < right) {
+                    int mid = (left + right) >> 1;
+                    if (d[mid] >= nums[i]) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+                int p = d[left] >= nums[i] ? left : 1;
+                d[p] = nums[i];
+            }
         }
-        int idx = 1;
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int v : ts) {
-            m.put(v, idx++);
-        }
-        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
-        int ans = 1;
-        for (int v : nums) {
-            int x = m.get(v);
-            int t = tree.query(x - 1) + 1;
-            ans = Math.max(ans, t);
-            tree.update(x, t);
-        }
-        return ans;
-    }
-}
-
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        c = new int[n + 1];
-    }
-
-    public void update(int x, int val) {
-        while (x <= n) {
-            c[x] = Math.max(c[x], val);
-            x += lowbit(x);
-        }
-    }
-
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s = Math.max(s, c[x]);
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
+        return size;
     }
 }

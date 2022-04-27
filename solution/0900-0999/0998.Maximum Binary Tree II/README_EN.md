@@ -26,7 +26,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree1.JPG" style="width: 376px; height: 235px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree1.jpg" style="width: 376px; height: 235px;" />
 <pre>
 <strong>Input:</strong> root = [4,1,3,null,null,2], val = 5
 <strong>Output:</strong> [5,4,null,1,3,null,null,2]
@@ -34,7 +34,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree21.JPG" style="width: 358px; height: 156px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree21.jpg" style="width: 358px; height: 156px;" />
 <pre>
 <strong>Input:</strong> root = [5,2,4,null,1], val = 3
 <strong>Output:</strong> [5,2,4,null,1,null,3]
@@ -42,7 +42,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree3.JPG" style="width: 404px; height: 180px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree3.jpg" style="width: 404px; height: 180px;" />
 <pre>
 <strong>Input:</strong> root = [5,2,3,null,1], val = 4
 <strong>Output:</strong> [5,2,4,null,1,3]

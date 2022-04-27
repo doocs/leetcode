@@ -85,7 +85,7 @@ class Solution:
 class Solution {
     public int halveArray(int[] nums) {
         long s = 0;
-        PriorityQueue<Double> q = new PriorityQueue<>(Collections.reverseOrder()); 
+        PriorityQueue<Double> q = new PriorityQueue<>(Collections.reverseOrder());
         for (int v : nums) {
             q.offer(v * 1.0);
             s += v;
@@ -156,7 +156,6 @@ func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 func (hp) Push(interface{})     {}
 func (hp) Pop() (_ interface{}) { return }
 ```
-
 
 ### **TypeScript**
 

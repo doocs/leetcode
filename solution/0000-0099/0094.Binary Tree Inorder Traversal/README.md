@@ -6,12 +6,12 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二叉树的根节点 <code>root</code> ，返回它的 <strong>中序</strong> 遍历。</p>
+<p>给定一个二叉树的根节点 <code>root</code> ，返回 <em>它的 <strong>中序</strong>&nbsp;遍历</em> 。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_1.jpg" style="width: 202px; height: 324px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_1.jpg" style="height: 200px; width: 125px;" />
 <pre>
 <strong>输入：</strong>root = [1,null,2,3]
 <strong>输出：</strong>[1,3,2]
@@ -31,32 +31,18 @@
 <strong>输出：</strong>[1]
 </pre>
 
-<p><strong>示例 4：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_5.jpg" style="width: 202px; height: 202px;" />
-<pre>
-<strong>输入：</strong>root = [1,2]
-<strong>输出：</strong>[2,1]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/images/inorder_4.jpg" style="width: 202px; height: 202px;" />
-<pre>
-<strong>输入：</strong>root = [1,null,2]
-<strong>输出：</strong>[1,2]
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li>树中节点数目在范围 <code>[0, 100]</code> 内</li>
-	<li><code>-100 <= Node.val <= 100</code></li>
+	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>进阶:</strong> 递归算法很简单，你可以通过迭代算法完成吗？</p>
+<p><strong>进阶:</strong>&nbsp;递归算法很简单，你可以通过迭代算法完成吗？</p>
 
 ## 解法
 

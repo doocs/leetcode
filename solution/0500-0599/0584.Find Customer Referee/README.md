@@ -45,12 +45,23 @@
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     name
 FROM
     Customer
 WHERE
     referee_id != 2 OR referee_id IS NULL;
+```
+
+MySQL 可使用 `IFNULL()`：
+
+```sql
+SELECT
+    name
+FROM
+    customer
+WHERE
+    IFNULL(referee_id, 0) != 2;
 ```
 
 <!-- tabs:end -->

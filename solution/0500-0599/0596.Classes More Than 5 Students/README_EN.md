@@ -65,11 +65,11 @@ Courses table:
 
 ```sql
 SELECT
-	class 
+	class
 FROM
-	courses 
+	courses
 GROUP BY
-	class 
+	class
 HAVING
 	COUNT( class ) >= 5
 ```

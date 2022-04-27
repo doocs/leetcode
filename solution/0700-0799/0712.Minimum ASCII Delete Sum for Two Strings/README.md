@@ -44,6 +44,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+类似[1143. 最长公共子序列](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)。
+
+定义 `dp[i][j]` 表示使得 `s1[0:i-1]` 和 `s2[0:j-1]` 两个字符串相等所需删除的字符的 ASCII 值的最小值。
+
+时间复杂度 O(mn)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +59,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumDeleteSum(self, s1: str, s2: str) -> int:
+        m, n = len(s1), len(s2)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(1, m + 1):
+            dp[i][0] = dp[i - 1][0] + ord(s1[i - 1])
+        for j in range(1, n + 1):
+            dp[0][j] = dp[0][j - 1] + ord(s2[j - 1])
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if s1[i - 1] == s2[j - 1]:
+                    dp[i][j] = dp[i - 1][j - 1]
+                else:
+                    dp[i][j] = min(dp[i - 1][j] + ord(s1[i - 1]),
+                                   dp[i][j - 1] + ord(s2[j - 1]))
+        return dp[-1][-1]
 ```
 
 ### **Java**
@@ -59,7 +82,86 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumDeleteSum(String s1, String s2) {
+        int m = s1.length(), n = s2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; ++i) {
+            dp[i][0] = dp[i - 1][0] + s1.codePointAt(i - 1);
+        }
+        for (int j = 1; j <= n; ++j) {
+            dp[0][j] = dp[0][j - 1] + s2.codePointAt(j - 1);
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = Math.min(dp[i - 1][j] + s1.codePointAt(i - 1), dp[i][j - 1] + s2.codePointAt(j - 1));
+                }
+            }
+        }
+        return dp[m][n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumDeleteSum(string s1, string s2) {
+        int m = s1.size(), n = s2.size();
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+        for (int i = 1; i <= m; ++i) dp[i][0] = dp[i - 1][0] + s1[i - 1];
+        for (int j = 1; j <= n; ++j) dp[0][j] = dp[0][j - 1] + s2[j - 1];
+        for (int i = 1; i <= m; ++i)
+        {
+            for (int j = 1; j <= n; ++j)
+            {
+                if (s1[i - 1] == s2[j - 1]) dp[i][j] = dp[i - 1][j - 1];
+                else dp[i][j] = min(dp[i - 1][j] + s1[i - 1], dp[i][j - 1] + s2[j - 1]);
+            }
+        }
+        return dp[m][n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumDeleteSum(s1 string, s2 string) int {
+	m, n := len(s1), len(s2)
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+	}
+	for i := 1; i <= m; i++ {
+		dp[i][0] = dp[i-1][0] + int(s1[i-1])
+	}
+	for j := 1; j <= n; j++ {
+		dp[0][j] = dp[0][j-1] + int(s2[j-1])
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if s1[i-1] == s2[j-1] {
+				dp[i][j] = dp[i-1][j-1]
+			} else {
+				dp[i][j] = min(dp[i-1][j]+int(s1[i-1]), dp[i][j-1]+int(s2[j-1]))
+			}
+		}
+	}
+	return dp[m][n]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

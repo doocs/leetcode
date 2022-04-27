@@ -34,6 +34,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+计算 `low` 与 `high` 之间的差值，折半得解。由于包括边界在内，两个边界数有一个为奇数，那么需要对折半结果 + 1。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,6 +52,16 @@
 
 ```java
 
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_odds(low: i32, high: i32) -> i32 {
+        (high - low) / 2 + if low & 1 == 1 || high & 1 == 1 { 1 } else { 0 }
+    }
+}
 ```
 
 ### **...**

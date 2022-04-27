@@ -84,7 +84,7 @@ Department 表:
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     department.dept_name, COUNT(student.dept_id) student_number
 FROM
     Student

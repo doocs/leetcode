@@ -26,7 +26,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/1.JPG" style="width: 575px; height: 109px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/1.jpg" style="width: 575px; height: 109px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[1,1,1,1]]
 <strong>Output:</strong> 2
@@ -36,7 +36,7 @@ Hence total number of pyramidal and inverse pyramidal plots is 2 + 0 = 2.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/2.JPG" style="width: 502px; height: 120px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/2.jpg" style="width: 502px; height: 120px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,1],[1,1,1]]
 <strong>Output:</strong> 2
@@ -45,7 +45,7 @@ Hence the total number of plots is 1 + 1 = 2.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/3.JPG" style="width: 676px; height: 148px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/3.jpg" style="width: 676px; height: 148px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,1,0],[1,1,1,1,1],[1,1,1,1,1],[0,1,0,0,1]]
 <strong>Output:</strong> 13

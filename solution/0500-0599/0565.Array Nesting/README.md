@@ -37,6 +37,8 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 
 <!-- 这里可写通用的实现逻辑 -->
 
+嵌套数组最终一定会形成一个环，在枚举 `S[i]` 的过程中，可以用 `vis` 数组剪枝，避免重复枚举同一个环
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -44,7 +46,22 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def arrayNesting(self, nums: List[int]) -> int:
+        n = len(nums)
+        vis = [False] * n
+        res = 0
+        for i in range(n):
+            if vis[i]:
+                continue
+            cur, m = nums[i], 1
+            vis[cur] = True
+            while nums[cur] != nums[i]:
+                cur = nums[cur]
+                m += 1
+                vis[cur] = True
+            res = max(res, m)
+        return res
 ```
 
 ### **Java**
@@ -52,7 +69,78 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int arrayNesting(int[] nums) {
+        int n = nums.length;
+        boolean[] vis = new boolean[n];
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (vis[i]) {
+                continue;
+            }
+            int cur = nums[i], m = 1;
+            vis[cur] = true;
+            while (nums[cur] != nums[i]) {
+                cur = nums[cur];
+                m++;
+                vis[cur] = true;
+            }
+            res = Math.max(res, m);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int arrayNesting(vector<int>& nums) {
+        int n = nums.size();
+        vector<bool> vis(n);
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) continue;
+            int cur = nums[i], m = 1;
+            vis[cur] = true;
+            while (nums[cur] != nums[i]) {
+                cur = nums[cur];
+                ++m;
+                vis[cur] = true;
+            }
+            res = max(res, m);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrayNesting(nums []int) int {
+	n := len(nums)
+	vis := make([]bool, n)
+	ans := 0
+	for i := 0; i < n; i++ {
+		if vis[i] {
+			continue
+		}
+		cur, m := nums[i], 1
+		vis[cur] = true
+		for nums[cur] != nums[i] {
+			cur = nums[cur]
+			m++
+			vis[cur] = true
+		}
+		if m > ans {
+			ans = m
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

@@ -46,6 +46,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：两次遍历**
+
+两次遍历，找出每个字符左侧和右侧最近的 c，算出最短距离。
+
+**方法二：BFS**
+
+在字符串 s 中找出所有字符 c 对应的下标，并放入队列 q。
+
+BFS 向左右两边扩散，找出最短距离。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +63,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        n = len(s)
+        ans = [0] * n
+        j = float('inf')
+        for i, ch in enumerate(s):
+            if ch == c:
+                j = i
+            ans[i] = abs(i - j)
+        j = float('inf')
+        for i in range(n - 1, -1, -1):
+            if s[i] == c:
+                j = i
+            ans[i] = min(ans[i], abs(i - j))
+        return ans
+```
 
+```python
+class Solution:
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        q = deque([i for i, ch in enumerate(s) if ch == c])
+        ans = [0 if ch == c else -1 for ch in s]
+        d = 0
+        while q:
+            d += 1
+            for _ in range(len(q)):
+                i = q.popleft()
+                for j in (i - 1, i + 1):
+                    if 0 <= j < len(s) and ans[j] == -1:
+                        ans[j] = d
+                        q.append(j)
+        return ans
 ```
 
 ### **Java**
@@ -61,7 +102,56 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] shortestToChar(String s, char c) {
+        int n = s.length();
+        int[] ans = new int[n];
+        for (int i = 0, j = Integer.MAX_VALUE; i < n; ++i) {
+            if (s.charAt(i) == c) {
+                j = i;
+            }
+            ans[i] = Math.abs(i - j);
+        }
+        for (int i = n - 1, j = Integer.MAX_VALUE; i >= 0; --i) {
+            if (s.charAt(i) == c) {
+                j = i;
+            }
+            ans[i] = Math.min(ans[i], Math.abs(i - j));
+        }
+        return ans;
+    }
+}
+```
 
+```java
+class Solution {
+    public int[] shortestToChar(String s, char c) {
+        Deque<Integer> q = new ArrayDeque<>();
+        int n = s.length();
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == c) {
+                q.offer(i);
+                ans[i] = 0;
+            }
+        }
+        int d = 0;
+        while (!q.isEmpty()) {
+            ++d;
+            for (int t = q.size(); t > 0; --t) {
+                int i = q.poll();
+                for (int j : Arrays.asList(i - 1, i + 1)) {
+                    if (j >= 0 && j < n && ans[j] == -1) {
+                        ans[j] = d;
+                        q.offer(j);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -81,6 +171,174 @@ function shortestToChar(s: string, c: string): number[] {
         ans[i] = Math.min(Math.abs(pre - i), ans[i]);
     }
     return ans;
+}
+```
+
+```ts
+function shortestToChar(s: string, c: string): number[] {
+    const n = s.length;
+    const idxs = [];
+    for (let i = 0; i < n; i++) {
+        if (s[i] === c) {
+            idxs.push(i);
+        }
+    }
+    idxs.push(Infinity);
+
+    const res = new Array(n);
+    let i = 0;
+    for (let j = 0; j < n; j++) {
+        if (Math.abs(idxs[i] - j) > Math.abs(idxs[i + 1] - j)) {
+            i++;
+        }
+        res[j] = Math.abs(idxs[i] - j);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn shortest_to_char(s: String, c: char) -> Vec<i32> {
+        let c = c as u8;
+        let s = s.as_bytes();
+        let n = s.len();
+        let mut res = vec![i32::MAX; n];
+        let mut pre = i32::MAX;
+        for i in 0..n {
+            if s[i] == c {
+                pre = i as i32;
+            }
+            res[i] = i32::abs(i as i32 - pre);
+        }
+        pre = i32::MAX;
+        for i in (0..n).rev() {
+            if s[i] == c {
+                pre = i as i32;
+            }
+            res[i] = res[i].min(i32::abs(i as i32 - pre));
+        }
+        res
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> shortestToChar(string s, char c) {
+        int n = s.size();
+        vector<int> ans(n);
+        for (int i = 0, j = INT_MAX; i < n; ++i)
+        {
+            if (s[i] == c) j = i;
+            ans[i] = abs(i - j);
+        }
+        for (int i = n - 1, j = INT_MAX; i >= 0; --i)
+        {
+            if (s[i] == c) j = i;
+            ans[i] = min(ans[i], abs(i - j));
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> shortestToChar(string s, char c) {
+        int n = s.size();
+        vector<int> ans(n, -1);
+        queue<int> q;
+        for (int i = 0; i < n; ++i)
+        {
+            if (s[i] == c)
+            {
+                q.push(i);
+                ans[i] = 0;
+            }
+        }
+        int d = 0;
+        while (!q.empty())
+        {
+            ++d;
+            for (int t = q.size(); t > 0; --t)
+            {
+                int i = q.front();
+                q.pop();
+                vector<int> dirs{i - 1, i + 1};
+                for (int& j : dirs)
+                {
+                    if (j >= 0 && j < n && ans[j] == -1)
+                    {
+                        ans[j] = d;
+                        q.push(j);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shortestToChar(s string, c byte) []int {
+	n := len(s)
+	ans := make([]int, n)
+	for i, j := 0, -10000; i < n; i++ {
+		if s[i] == c {
+			j = i
+		}
+		ans[i] = i - j
+	}
+	for i, j := n-1, 10000; i >= 0; i-- {
+		if s[i] == c {
+			j = i
+		}
+		if j-i < ans[i] {
+			ans[i] = j - i
+		}
+	}
+	return ans
+}
+```
+
+```go
+func shortestToChar(s string, c byte) []int {
+	n := len(s)
+	var q []int
+	ans := make([]int, n)
+	for i := range s {
+		ans[i] = -1
+		if s[i] == c {
+			q = append(q, i)
+			ans[i] = 0
+		}
+	}
+
+	d := 0
+	for len(q) > 0 {
+		d++
+		for t := len(q); t > 0; t-- {
+			i := q[0]
+			q = q[1:]
+			for _, j := range []int{i - 1, i + 1} {
+				if j >= 0 && j < n && ans[j] == -1 {
+					ans[j] = d
+					q = append(q, j)
+				}
+			}
+		}
+	}
+	return ans
 }
 ```
 

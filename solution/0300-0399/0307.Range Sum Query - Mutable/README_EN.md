@@ -137,7 +137,7 @@ class SegmentTree:
         else:
             self.modify(u << 1 | 1, x, v)
         self.pushup(u)
-    
+
     def query(self, u, l, r):
         if self.tr[u].l >= l and self.tr[u].r <= r:
             return self.tr[u].v
@@ -310,11 +310,11 @@ class NumArray {
     public NumArray(int[] nums) {
         tree = new SegmentTree(nums);
     }
-    
+
     public void update(int index, int val) {
         tree.modify(1, index + 1, val);
     }
-    
+
     public int sumRange(int left, int right) {
         return tree.query(1, left + 1, right + 1);
     }
@@ -462,11 +462,11 @@ public:
     NumArray(vector<int>& nums) {
         tree = new SegmentTree(nums);
     }
-    
+
     void update(int index, int val) {
         return tree->modify(1, index + 1, val);
     }
-    
+
     int sumRange(int left, int right) {
         return tree->query(1, left + 1, right + 1);
     }

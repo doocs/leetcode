@@ -41,6 +41,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+排序数组，然后两个相邻元素是否相同即可。
+
+**方法二：哈希表**
+
+遍历元素并记录，当第二次出现时，直接返回 `true`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -133,6 +141,32 @@ public class Solution {
 var containsDuplicate = function (nums) {
     return new Set(nums).size !== nums.length;
 };
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+        nums.iter().collect::<HashSet<&i32>>().len() != nums.len()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn contains_duplicate(mut nums: Vec<i32>) -> bool {
+        nums.sort();
+        let n = nums.len();
+        for i in 1..n {
+            if nums[i - 1] == nums[i] {
+                return true
+            }
+        }
+        false
+    }
+}
 ```
 
 ### **...**

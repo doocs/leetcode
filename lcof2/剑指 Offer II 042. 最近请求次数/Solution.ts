@@ -9,7 +9,7 @@ class RecentCounter {
     ping(t: number): number {
         while (this.stack.length && this.stack[0] + 3000 < t) {
             this.cnt--;
-            this.stack.shift()
+            this.stack.shift();
         }
         this.cnt++;
         this.stack.push(t);

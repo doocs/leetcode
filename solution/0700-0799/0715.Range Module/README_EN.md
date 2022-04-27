@@ -221,15 +221,15 @@ class RangeModule {
     public RangeModule() {
 
     }
-    
+
     public void addRange(int left, int right) {
         tree.modify(left, right - 1, 1);
     }
-    
+
     public boolean queryRange(int left, int right) {
         return tree.query(left, right - 1);
     }
-    
+
     public void removeRange(int left, int right) {
         tree.modify(left, right - 1, -1);
     }
@@ -319,15 +319,15 @@ public:
     RangeModule() {
         tree = new SegmentTree();
     }
-    
+
     void addRange(int left, int right) {
         tree->modify(left, right - 1, 1);
     }
-    
+
     bool queryRange(int left, int right) {
         return tree->query(left, right - 1);
     }
-    
+
     void removeRange(int left, int right) {
         tree->modify(left, right - 1, -1);
     }

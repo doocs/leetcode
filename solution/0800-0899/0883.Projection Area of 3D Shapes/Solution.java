@@ -1,26 +1,19 @@
 class Solution {
     public int projectionArea(int[][] grid) {
-        int n = grid.length;
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
+        int xy = 0, yz = 0, zx = 0;
+        for (int i = 0, n = grid.length; i < n; ++i) {
+            int maxYz = 0;
+            int maxZx = 0;
             for (int j = 0; j < n; ++j) {
-                res += grid[i][j] > 0 ? 1 : 0;
+                if (grid[i][j] > 0) {
+                    ++xy;
+                }
+                maxYz = Math.max(maxYz, grid[i][j]);
+                maxZx = Math.max(maxZx, grid[j][i]);
             }
+            yz += maxYz;
+            zx += maxZx;
         }
-        for (int i = 0; i < n; ++i) {
-            int max = 0;
-            for (int j = 0; j < n; ++j) {
-                max = Math.max(max, grid[i][j]);
-            }
-            res += max;
-        }
-        for (int j = 0; j < n; ++j) {
-            int max = 0;
-            for (int i = 0; i < n; ++i) {
-                max = Math.max(max, grid[i][j]);
-            }
-            res += max;
-        }
-        return res;
+        return xy + yz + zx;
     }
 }

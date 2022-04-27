@@ -3,13 +3,17 @@
  * @return {number}
  */
 var findMin = function (nums) {
-    let l = 0,
-        r = nums.length - 1;
-    while (l < r) {
-        const m = (l + r) >> 1;
-        if (nums[m] > nums[r]) l = m + 1;
-        else if (nums[m] < nums[r]) r = m;
-        else --r;
+    let left = 0,
+        right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else if (nums[mid] < nums[right]) {
+            right = mid;
+        } else {
+            --right;
+        }
     }
-    return nums[l];
+    return nums[left];
 };

@@ -71,13 +71,13 @@ RequestAccepted 表：
 ### **SQL**
 
 ```sql
-SELECT 
+SELECT
     ids AS id, COUNT(*) num
 FROM
-    (SELECT 
+    (SELECT
         requester_id AS ids
     FROM
-        RequestAccepted UNION ALL SELECT 
+        RequestAccepted UNION ALL SELECT
         accepter_id
     FROM
         RequestAccepted) t

@@ -174,6 +174,45 @@ var maxArea = function (height) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function maxArea(height: number[]): number {
+    const n = height.length;
+    let res = 0;
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = n - 1; j >= 0; j--) {
+            if (height[i] * (j - i) < res) {
+                break;
+            }
+            res = Math.max(res, Math.min(height[i], height[j]) * (j - i));
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_area(height: Vec<i32>) -> i32 {
+        let mut i = 0;
+        let mut j = height.len() - 1;
+        let mut res = 0;
+        while i < j {
+            res = res.max(height[i].min(height[j]) * (j - i) as i32);
+            if height[i] <= height[j] {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```

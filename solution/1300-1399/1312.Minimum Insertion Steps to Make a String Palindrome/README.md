@@ -17,39 +17,25 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = &quot;zzazz&quot;
+<strong>输入：</strong>s = "zzazz"
 <strong>输出：</strong>0
-<strong>解释：</strong>字符串 &quot;zzazz&quot; 已经是回文串了，所以不需要做任何插入操作。
+<strong>解释：</strong>字符串 "zzazz" 已经是回文串了，所以不需要做任何插入操作。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = &quot;mbadm&quot;
+<strong>输入：</strong>s = "mbadm"
 <strong>输出：</strong>2
-<strong>解释：</strong>字符串可变为 &quot;mbdadbm&quot; 或者 &quot;mdbabdm&quot; 。
+<strong>解释：</strong>字符串可变为 "mbdadbm" 或者 "mdbabdm" 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = &quot;leetcode&quot;
+<strong>输入：</strong>s = "leetcode"
 <strong>输出：</strong>5
-<strong>解释：</strong>插入 5 个字符后字符串变为 &quot;leetcodocteel&quot; 。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = &quot;g&quot;
-<strong>输出：</strong>0
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = &quot;no&quot;
-<strong>输出：</strong>1
+<strong>解释：</strong>插入 5 个字符后字符串变为 "leetcodocteel" 。
 </pre>
 
 <p>&nbsp;</p>

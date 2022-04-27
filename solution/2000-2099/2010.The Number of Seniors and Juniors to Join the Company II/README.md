@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Candidates</code></p>
+<p>表: <code>Candidates</code></p>
 
 <pre>
 +-------------+------+
@@ -16,32 +16,31 @@
 | experience  | enum |
 | salary      | int  |
 +-------------+------+
-employee_id is the primary key column for this table.
-experience is an enum with one of the values (&#39;Senior&#39;, &#39;Junior&#39;).
-Each row of this table indicates the id of a candidate, their monthly salary, and their experience.
-The salary of each candidate is guaranteed to be <strong>unique</strong>.</pre>
+employee_id是此表的主键列。
+经验是一个枚举，其中包含一个值（“高级”、“初级”）。
+此表的每一行都显示候选人的id、月薪和经验。
+每个候选人的工资保证是 <strong>唯一</strong> 的。</pre>
 
 <p>&nbsp;</p>
 
-<p>A company wants to hire new employees. The budget of the company for the salaries is <code>$70000</code>. The company&#39;s criteria for hiring are:</p>
+<p>一家公司想雇佣新员工。公司的工资预算是 7 万美元。公司的招聘标准是：</p>
 
 <ol>
-	<li>Keep hiring the senior with the smallest salary until you cannot hire any more seniors.</li>
-	<li>Use the remaining budget to hire the junior with the smallest salary.</li>
-	<li>Keep hiring the junior with the smallest salary until you cannot hire any more juniors.</li>
+	<li>继续雇佣薪水最低的高级职员，直到你不能再雇佣更多的高级职员。</li>
+	<li>用剩下的预算雇佣薪水最低的初级职员。</li>
+	<li>继续以最低的工资雇佣初级职员，直到你不能再雇佣更多的初级职员。</li>
 </ol>
 
-<p>Write an SQL query to find the ids of seniors and juniors hired under the mentioned criteria.</p>
-
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is in the following example.</p>
+<p>编写一个SQL查询，查找根据上述条件雇用职员的 ID。<br />
+按 <strong>任意顺序 </strong>返回结果表。<br />
+查询结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>输入:</strong>
 Candidates table:
 +-------------+------------+--------+
 | employee_id | experience | salary |
@@ -53,7 +52,7 @@ Candidates table:
 | 13          | Senior     | 50000  |
 | 4           | Junior     | 40000  |
 +-------------+------------+--------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +-------------+
 | employee_id |
 +-------------+
@@ -62,15 +61,15 @@ Candidates table:
 | 1           |
 | 9           |
 +-------------+
-<strong>Explanation:</strong> 
-We can hire 2 seniors with IDs (11, 2). Since the budget is $70000 and the sum of their salaries is $36000, we still have $34000 but they are not enough to hire the senior candidate with ID 13.
-We can hire 2 juniors with IDs (1, 9). Since the remaining budget is $34000 and the sum of their salaries is $25000, we still have $9000 but they are not enough to hire the junior candidate with ID 4.
+<strong>解释:</strong> 
+我们可以雇佣2名具有ID（11,2）的高级员工。由于预算是7万美元，他们的工资总额是3.6万美元，我们还有3.4万美元，但他们不足以雇佣ID为 13 的高级职员。
+我们可以雇佣2名ID为（1,9）的初级员工。由于剩余预算为3.4万美元，他们的工资总额为2.5万美元，我们还有9000美元，但他们不足以雇佣ID为 4 的初级员工。
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>输入:</strong>
 Candidates table:
 +-------------+------------+--------+
 | employee_id | experience | salary |
@@ -82,7 +81,7 @@ Candidates table:
 | 13          | Senior     | 90000  |
 | 4           | Junior     | 30000  |
 +-------------+------------+--------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +-------------+
 | employee_id |
 +-------------+
@@ -90,10 +89,9 @@ Candidates table:
 | 1           |
 | 4           |
 +-------------+
-<strong>Explanation:</strong> 
-We cannot hire any seniors with the current budget as we need at least $80000 to hire one senior.
-We can hire all three juniors with the remaining budget.
-</pre>
+<strong>解释:</strong> 
+我们不能用目前的预算雇佣任何高级员工，因为我们需要至少 80000 美元来雇佣一名高级员工。
+我们可以用剩下的预算雇佣三名初级员工。</pre>
 
 ## 解法
 

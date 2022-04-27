@@ -8,7 +8,8 @@
 
 <p>表: <code>SchoolA</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | student_id    | int     |
@@ -19,11 +20,12 @@ student_id 是表的主键
 所有student_name在表中都是独一无二的
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>表: <code>SchoolB</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | student_id    | int     |
@@ -34,11 +36,12 @@ student_id 是表的主键
 所有student_name在表中都是独一无二的
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>表: <code>SchoolC</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | student_id    | int     |
@@ -49,7 +52,7 @@ student_id 是表的主键
 所有student_name在表中都是独一无二的
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>有一个国家只有三所学校，这个国家的每一个学生只会注册<strong>一所学校</strong>。</p>
 
@@ -68,25 +71,27 @@ student_id 是表的主键
 
 <p>查询结果接受<strong>任何顺序。</strong></p>
 
-<p> </p>
+<p>查询结果格式如下例。</p>
 
-<p>查询结果格式样例：</p>
+<p>&nbsp;</p>
 
-<pre><code>SchoolA</code> table:
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<code><strong>输入：</strong>
+SchoolA</code> table:
 +------------+--------------+
 | student_id | student_name |
 +------------+--------------+
 | 1          | Alice        |
 | 2          | Bob          |
 +------------+--------------+
-
 <code>SchoolB</code> table:
 +------------+--------------+
 | student_id | student_name |
 +------------+--------------+
 | 3          | Tom          |
 +------------+--------------+
-
 <code>SchoolC</code> table:
 +------------+--------------+
 | student_id | student_name |
@@ -95,23 +100,21 @@ student_id 是表的主键
 | 2          | Jerry        |
 | 10         | Alice        |
 +------------+--------------+
-
-预期结果:
+<strong>输出：</strong>
 +----------+----------+----------+
 | member_A | member_B | member_C |
 +----------+----------+----------+
 | Alice    | Tom      | Jerry    |
 | Bob      | Tom      | Alice    |
 +----------+----------+----------+
-
+<strong>解释：</strong>
 让我们看看有哪些可能的组合：
 - (Alice, Tom, Tom) --&gt; 不适用，因为member_B（Tom）和member_C（Tom）有相同的名字和ID
 - (Alice, Tom, Jerry) --&gt; 可能的组合
 - (Alice, Tom, Alice) --&gt; 不适用，因为member_A和member_C有相同的名字
 - (Bob, Tom, Tom) --&gt; 不适用，因为member_B和member_C有相同的名字和ID
 - (Bob, Tom, Jerry) --&gt; 不适用，因为member_A和member_C有相同的ID
-- (Bob, Tom, Alice) --&gt; 可能的组合.
-</pre>
+- (Bob, Tom, Alice) --&gt; 可能的组合.</pre>
 
 ## 解法
 

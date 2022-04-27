@@ -18,44 +18,35 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e1.jpg" style="height: 321px; width: 441px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e1.jpg" style="height: 321px; width: 441px;" /></p>
 
-<pre><strong>输入：</strong>n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], labels = &quot;abaedcd&quot;
+<pre>
+<strong>输入：</strong>n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], labels = "abaedcd"
 <strong>输出：</strong>[2,1,1,1,1,1,1]
-<strong>解释：</strong>节点 0 的标签为 &#39;a&#39; ，以 &#39;a&#39; 为根节点的子树中，节点 2 的标签也是 &#39;a&#39; ，因此答案为 2 。注意树中的每个节点都是这棵子树的一部分。
-节点 1 的标签为 &#39;b&#39; ，节点 1 的子树包含节点 1、4 和 5，但是节点 4、5 的标签与节点 1 不同，故而答案为 1（即，该节点本身）。
+<strong>解释：</strong>节点 0 的标签为 'a' ，以 'a' 为根节点的子树中，节点 2 的标签也是 'a' ，因此答案为 2 。注意树中的每个节点都是这棵子树的一部分。
+节点 1 的标签为 'b' ，节点 1 的子树包含节点 1、4 和 5，但是节点 4、5 的标签与节点 1 不同，故而答案为 1（即，该节点本身）。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e2.jpg" style="height: 321px; width: 381px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e2.jpg" style="height: 321px; width: 381px;" /></p>
 
-<pre><strong>输入：</strong>n = 4, edges = [[0,1],[1,2],[0,3]], labels = &quot;bbbb&quot;
+<pre>
+<strong>输入：</strong>n = 4, edges = [[0,1],[1,2],[0,3]], labels = "bbbb"
 <strong>输出：</strong>[4,2,1,1]
 <strong>解释：</strong>节点 2 的子树中只有节点 2 ，所以答案为 1 。
 节点 3 的子树中只有节点 3 ，所以答案为 1 。
-节点 1 的子树中包含节点 1 和 2 ，标签都是 &#39;b&#39; ，因此答案为 2 。
-节点 0 的子树中包含节点 0、1、2 和 3，标签都是 &#39;b&#39;，因此答案为 4 。
+节点 1 的子树中包含节点 1 和 2 ，标签都是 'b' ，因此答案为 2 。
+节点 0 的子树中包含节点 0、1、2 和 3，标签都是 'b'，因此答案为 4 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e3.jpg" style="height: 321px; width: 381px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e3.jpg" style="height: 321px; width: 381px;" /></p>
 
-<pre><strong>输入：</strong>n = 5, edges = [[0,1],[0,2],[1,3],[0,4]], labels = &quot;aabab&quot;
+<pre>
+<strong>输入：</strong>n = 5, edges = [[0,1],[0,2],[1,3],[0,4]], labels = "aabab"
 <strong>输出：</strong>[3,2,1,1,1]
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>n = 6, edges = [[0,1],[0,2],[1,3],[3,4],[4,5]], labels = &quot;cbabaa&quot;
-<strong>输出：</strong>[1,2,1,1,2,1]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>n = 7, edges = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]], labels = &quot;aaabaaa&quot;
-<strong>输出：</strong>[6,5,4,1,3,2,1]
 </pre>
 
 <p>&nbsp;</p>

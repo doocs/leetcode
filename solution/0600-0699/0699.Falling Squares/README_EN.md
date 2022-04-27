@@ -292,7 +292,7 @@ public:
     }
 
     int query(int l, int r) {
-        return query(l, r, root); 
+        return query(l, r, root);
     }
 
     int query(int l, int r, Node* node) {
@@ -302,7 +302,7 @@ public:
         int v = 0;
         if (l <= node->mid) v = max(v, query(l, r, node->left));
         if (r > node->mid) v = max(v, query(l, r, node->right));
-        return v; 
+        return v;
     }
 
     void pushup(Node* node) {

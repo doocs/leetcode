@@ -38,9 +38,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-题目可以转换为 `0-1` 背包问题，在 m 个数字中选出一些数字（每个数字只能使用一次），这些数字之和恰好等于 `s / 2`（s 表示所有数字之和）。
+**方法一：动态规划**
 
-也可以用 DFS + 记忆化搜索。
+题目可以转换为 `0-1` 背包问题。
+
+设整数数组总和为 `s`，要使得数组分割成两个元素和相等的子数组，需要满足 s 能够被 2 整除。在此前提下，我们可以将问题抽象为： 从数组中选出若干个数，使得选出的元素之和为 `s/2`。显然这是一个 `0-1` 背包问题。
+
+定义 `dp[i][j]` 表示是否可以从前 i 个数中选出若干个数，使得所选元素之和为 j。
 
 <!-- tabs:start -->
 
@@ -48,29 +52,26 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+动态规划——`0-1` 背包朴素做法：
+
 ```python
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         s = sum(nums)
         if s % 2 != 0:
             return False
-
-        m, n = len(nums), (s >> 1) + 1
-        dp = [[False] * n for _ in range(m)]
-        for i in range(m):
-            dp[i][0] = True
-        if nums[0] < n:
-            dp[0][nums[0]] = True
-
-        for i in range(1, m):
-            for j in range(n):
+        m, n = len(nums), s >> 1
+        dp = [[False] * (n + 1) for _ in range(m + 1)]
+        dp[0][0] = True
+        for i in range(1, m + 1):
+            for j in range(n + 1):
                 dp[i][j] = dp[i - 1][j]
-                if not dp[i][j] and nums[i] <= j:
-                    dp[i][j] = dp[i - 1][j - nums[i]]
+                if not dp[i][j] and nums[i - 1] <= j:
+                    dp[i][j] = dp[i - 1][j - nums[i - 1]]
         return dp[-1][-1]
 ```
 
-空间优化：
+动态规划——`0-1` 背包空间优化：
 
 ```python
 class Solution:
@@ -78,16 +79,12 @@ class Solution:
         s = sum(nums)
         if s % 2 != 0:
             return False
-
-        m, n = len(nums), (s >> 1) + 1
-        dp = [False] * n
+        n = s >> 1
+        dp = [False] * (n + 1)
         dp[0] = True
-        if nums[0] < n:
-            dp[nums[0]] = True
-
-        for i in range(1, m):
-            for j in range(n - 1, nums[i] - 1, -1):
-                dp[j] = dp[j] or dp[j - nums[i]]
+        for v in nums:
+            for j in range(n, v - 1, -1):
+                dp[j] = dp[j] or dp[j - v]
         return dp[-1]
 ```
 
@@ -121,24 +118,48 @@ class Solution:
 class Solution {
     public boolean canPartition(int[] nums) {
         int s = 0;
-        for (int x : nums) {
-            s += x;
+        for (int v : nums) {
+            s += v;
         }
         if (s % 2 != 0) {
             return false;
         }
-        int m = nums.length, n = (s >> 1) + 1;
-        boolean[] dp = new boolean[n];
-        dp[0] = true;
-        if (nums[0] < n) {
-            dp[nums[0]] = true;
-        }
-        for (int i = 1; i < m; ++i) {
-            for (int j = n - 1; j >= nums[i]; --j) {
-                dp[j] = dp[j] || dp[j - nums[i]];
+        int m = nums.length;
+        int n = s >> 1;
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                dp[i][j] = dp[i - 1][j];
+                if (!dp[i][j] && nums[i - 1] <= j) {
+                    dp[i][j] = dp[i - 1][j - nums[i - 1]];
+                }
             }
         }
-        return dp[n - 1];
+        return dp[m][n];
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean canPartition(int[] nums) {
+        int s = 0;
+        for (int v : nums) {
+            s += v;
+        }
+        if (s % 2 != 0) {
+            return false;
+        }
+        int n = s >> 1;
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for (int v : nums) {
+            for (int j = n; j >= v; --j) {
+                dp[j] = dp[j] || dp[j - v];
+            }
+        }
+        return dp[n];
     }
 }
 ```
@@ -149,21 +170,37 @@ class Solution {
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
-        int s = 0;
-        for (int x : nums) s += x;
+        int s = accumulate(nums.begin(), nums.end(), 0);
         if (s % 2 != 0) return false;
-        int m = nums.size(), n = (s >> 1) + 1;
-        vector<bool> dp(n);
-        dp[0] = true;
-        if (nums[0] < n) dp[nums[0]] = true;
-        for (int i = 1; i < m; ++i)
+        int m = nums.size(), n = s >> 1;
+        vector<vector<bool>> dp(m + 1, vector<bool>(n + 1));
+        dp[0][0] = true;
+        for (int i = 1; i <= m; ++i)
         {
-            for (int j = n - 1; j >= nums[i]; --j)
+            for (int j = 0; j <= n; ++j)
             {
-                dp[j] = dp[j] || dp[j - nums[i]];
+                dp[i][j] = dp[i - 1][j];
+                if (!dp[i][j] && nums[i - 1] <= j) dp[i][j] = dp[i - 1][j - nums[i - 1]];
             }
         }
-        return dp[n - 1];
+        return dp[m][n];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        if (s % 2 != 0) return false;
+        int n = s >> 1;
+        vector<bool> dp(n + 1);
+        dp[0] = true;
+        for (int& v : nums)
+            for (int j = n; j >= v; --j)
+                dp[j] = dp[j] || dp[j - v];
+        return dp[n];
     }
 };
 ```
@@ -173,25 +210,77 @@ public:
 ```go
 func canPartition(nums []int) bool {
 	s := 0
-	for _, x := range nums {
-		s += x
+	for _, v := range nums {
+		s += v
 	}
 	if s%2 != 0 {
 		return false
 	}
-	m, n := len(nums), (s>>1)+1
-	dp := make([]bool, n)
-	dp[0] = true
-	if nums[0] < n {
-		dp[nums[0]] = true
+	m, n := len(nums), s>>1
+	dp := make([][]bool, m+1)
+	for i := range dp {
+		dp[i] = make([]bool, n+1)
 	}
-	for i := 1; i < m; i++ {
-		for j := n - 1; j >= nums[i]; j-- {
-			dp[j] = dp[j] || dp[j-nums[i]]
+	dp[0][0] = true
+	for i := 1; i <= m; i++ {
+		for j := 0; j < n; j++ {
+			dp[i][j] = dp[i-1][j]
+			if !dp[i][j] && nums[i-1] <= j {
+				dp[i][j] = dp[i-1][j-nums[i-1]]
+			}
 		}
 	}
-	return dp[n-1]
+	return dp[m][n]
 }
+```
+
+```go
+func canPartition(nums []int) bool {
+	s := 0
+	for _, v := range nums {
+		s += v
+	}
+	if s%2 != 0 {
+		return false
+	}
+	n := s >> 1
+	dp := make([]bool, n+1)
+	dp[0] = true
+	for _, v := range nums {
+		for j := n; j >= v; j-- {
+			dp[j] = dp[j] || dp[j-v]
+		}
+	}
+	return dp[n]
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var canPartition = function (nums) {
+    let s = 0;
+    for (let v of nums) {
+        s += v;
+    }
+    if (s % 2 != 0) {
+        return false;
+    }
+    const m = nums.length;
+    const n = s >> 1;
+    const dp = new Array(n + 1).fill(false);
+    dp[0] = true;
+    for (let i = 1; i <= m; ++i) {
+        for (let j = n; j >= nums[i - 1]; --j) {
+            dp[j] = dp[j] || dp[j - nums[i - 1]];
+        }
+    }
+    return dp[n];
+};
 ```
 
 ### **...**

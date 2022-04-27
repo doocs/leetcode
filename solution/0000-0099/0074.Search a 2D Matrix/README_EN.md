@@ -57,6 +57,21 @@ class Solution:
         return matrix[left // n][left % n] == target
 ```
 
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        i, j = m - 1, 0
+        while i >= 0 and j < n:
+            if matrix[i][j] == target:
+                return True
+            if matrix[i][j] > target:
+                i -= 1
+            else:
+                j += 1
+        return False
+```
+
 ### **Java**
 
 ```java
@@ -74,6 +89,25 @@ class Solution {
             }
         }
         return matrix[left / n][left % n] == target;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length, n = matrix[0].length;
+        for (int i = m - 1, j = 0; i >= 0 && j < n;) {
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            if (matrix[i][j] > target) {
+                --i;
+            } else {
+                ++j;
+            }
+        }
+        return false;
     }
 }
 ```
@@ -100,6 +134,22 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        for (int i = m - 1, j = 0; i >= 0 && j < n;)
+        {
+            if (matrix[i][j] == target) return true;
+            if (matrix[i][j] > target) --i;
+            else ++j;
+        }
+        return false;
+    }
+};
+```
+
 ### **JavaScript**
 
 ```js
@@ -109,21 +159,44 @@ public:
  * @return {boolean}
  */
 var searchMatrix = function (matrix, target) {
-    const m = matrix.length;
-    const n = matrix[0].length;
-    let left = 0;
-    let right = m * n - 1;
+    const m = matrix.length,
+        n = matrix[0].length;
+    let left = 0,
+        right = m * n - 1;
     while (left < right) {
-        const mid = (left + right) >> 1;
+        const mid = (left + right + 1) >> 1;
         const x = Math.floor(mid / n);
         const y = mid % n;
-        if (matrix[x][y] >= target) {
-            right = mid;
+        if (matrix[x][y] <= target) {
+            left = mid;
         } else {
-            left = mid + 1;
+            right = mid - 1;
         }
     }
     return matrix[Math.floor(left / n)][left % n] == target;
+};
+```
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var searchMatrix = function (matrix, target) {
+    const m = matrix.length,
+        n = matrix[0].length;
+    for (let i = m - 1, j = 0; i >= 0 && j < n; ) {
+        if (matrix[i][j] == target) {
+            return true;
+        }
+        if (matrix[i][j] > target) {
+            --i;
+        } else {
+            ++j;
+        }
+    }
+    return false;
 };
 ```
 
@@ -143,6 +216,23 @@ func searchMatrix(matrix [][]int, target int) bool {
 		}
 	}
 	return matrix[left/n][left%n] == target
+}
+```
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	m, n := len(matrix), len(matrix[0])
+	for i, j := m-1, 0; i >= 0 && j < n; {
+		if matrix[i][j] == target {
+			return true
+		}
+		if matrix[i][j] > target {
+			i--
+		} else {
+			j++
+		}
+	}
+	return false
 }
 ```
 

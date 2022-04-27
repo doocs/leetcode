@@ -15,7 +15,7 @@ class Solution:
         q = deque([root])
         while q:
             t = []
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 root = q.popleft()
                 t.append(root.val)
                 q.extend(root.children)

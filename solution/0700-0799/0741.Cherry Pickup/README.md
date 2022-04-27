@@ -50,7 +50,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划 - 数字三角形模型。
+**方法一：动态规划**
+
+线性 DP。题目中，玩家从 `(0, 0)` 到 `(N-1, N-1)` 后又重新返回到起始点 `(0, 0)`，我们可以视为玩家两次从 `(0, 0)` 出发到 `(N-1, N-1)`。
+
+定义 `dp[k][i1][i2]` 表示两次路径同时走了 k 步，并且第一次走到 `(i1, k-i1)`，第二次走到 `(i2, k-i2)` 的所有路径中，可获得的樱桃数量的最大值。
 
 类似题型：方格取数、传纸条。
 
@@ -64,23 +68,24 @@
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
         n = len(grid)
-        dp = [[[float('-inf')] * n for _ in range(n)] for _ in range((n << 1) -1 )]
+        dp = [[[float('-inf')] * n for _ in range(n)]
+              for _ in range((n << 1) - 1)]
         dp[0][0][0] = grid[0][0]
         for k in range(1, (n << 1) - 1):
             for i1 in range(n):
                 for i2 in range(n):
                     j1, j2 = k - i1, k - i2
-                    if j1 >= 0 and j1 < n and j2 >= 0 and j2 < n:
-                        if grid[i1][j1] == -1 or grid[i2][j2] == -1:
-                            continue
-                        t = grid[i1][j1]
-                        if i1 != i2:
-                            t += grid[i2][j2]
-                        for p1 in range(i1 - 1, i1 + 1):
-                            for p2 in range(i2 - 1, i2 + 1):
-                                if p1 >= 0 and p2 >= 0:
-                                    dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][p1][p2] + t)
-        return max(dp[-1][-1][-1], 0)
+                    if not 0 <= j1 < n or not 0 <= j2 < n or grid[i1][j1] == -1 or grid[i2][j2] == -1:
+                        continue
+                    t = grid[i1][j1]
+                    if i1 != i2:
+                        t += grid[i2][j2]
+                    for x1 in range(i1 - 1, i1 + 1):
+                        for x2 in range(i2 - 1, i2 + 1):
+                            if x1 >= 0 and x2 >= 0:
+                                dp[k][i1][i2] = max(
+                                    dp[k][i1][i2], dp[k - 1][x1][x2] + t)
+        return max(0, dp[-1][-1][-1])
 ```
 
 ### **Java**
@@ -91,37 +96,31 @@ class Solution:
 class Solution {
     public int cherryPickup(int[][] grid) {
         int n = grid.length;
-        int[][][] dp = new int[2 * n][n][n];
-        for (int[][] item : dp) {
-            for (int[] row : item) {
-                Arrays.fill(row, Integer.MIN_VALUE);
-            }
-        }
+        int[][][] dp = new int[n * 2][n][n];
         dp[0][0][0] = grid[0][0];
-        for (int k = 1; k < 2 * n - 1; ++k) {
+        for (int k = 1; k < n * 2 - 1; ++k) {
             for (int i1 = 0; i1 < n; ++i1) {
                 for (int i2 = 0; i2 < n; ++i2) {
                     int j1 = k - i1, j2 = k - i2;
-                    if (j1 >= 0 && j1 < n && j2 >= 0 && j2 < n) {
-                        if (grid[i1][j1] == -1 || grid[i2][j2] == -1) {
-                            continue;
-                        }
-                        int t = grid[i1][j1];
-                        if (i1 != i2) {
-                            t += grid[i2][j2];
-                        }
-                        for (int p1 = i1 - 1; p1 <= i1; ++p1) {
-                            for (int p2 = i2 - 1; p2 <= i2; ++p2) {
-                                if (p1 >= 0 && p2 >= 0) {
-                                    dp[k][i1][i2] = Math.max(dp[k][i1][i2], dp[k - 1][p1][p2] + t);
-                                }
+                    dp[k][i1][i2] = Integer.MIN_VALUE;
+                    if (j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1 || grid[i2][j2] == -1) {
+                        continue;
+                    }
+                    int t = grid[i1][j1];
+                    if (i1 != i2) {
+                        t += grid[i2][j2];
+                    }
+                    for (int x1 = i1 - 1; x1 <= i1; ++x1) {
+                        for (int x2 = i2 - 1; x2 <= i2; ++x2) {
+                            if (x1 >= 0 && x2 >= 0) {
+                                dp[k][i1][i2] = Math.max(dp[k][i1][i2], dp[k - 1][x1][x2] + t);
                             }
                         }
                     }
                 }
             }
         }
-        return Math.max(dp[2 * n - 2][n - 1][n - 1], 0);
+        return Math.max(0, dp[n * 2 - 2][n - 1][n - 1]);
     }
 }
 ```
@@ -135,30 +134,24 @@ public:
         int n = grid.size();
         vector<vector<vector<int>>> dp(n << 1, vector<vector<int>>(n, vector<int>(n, -1e9)));
         dp[0][0][0] = grid[0][0];
-        for (int k = 1; k < 2 * n - 1; ++k)
+        for (int k = 1; k < n * 2 - 1; ++k)
         {
             for (int i1 = 0; i1 < n; ++i1)
             {
                 for (int i2 = 0; i2 < n; ++i2)
                 {
                     int j1 = k - i1, j2 = k - i2;
-                    if (j1 >= 0 && j1 < n && j2 >= 0 && j2 < n)
-                    {
-                        if (grid[i1][j1] == -1 || grid[i2][j2] == -1) continue;
-                        int t = grid[i1][j1];
-                        if (i1 != i2) t += grid[i2][j2];
-                        for (int p1 = i1 - 1; p1 <= i1; ++p1)
-                        {
-                            for (int p2 = i2 - 1; p2 <= i2; ++p2)
-                            {
-                                if (p1 >= 0 && p2 >= 0) dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][p1][p2] + t);
-                            }
-                        }
-                    }
+                    if (j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1 || grid[i2][j2] == -1) continue;
+                    int t = grid[i1][j1];
+                    if (i1 != i2) t += grid[i2][j2];
+                    for (int x1 = i1 - 1; x1 <= i1; ++x1)
+                        for (int x2 = i2 - 1; x2 <= i2; ++x2)
+                            if (x1 >= 0 && x2 >= 0)
+                                dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][x1][x2] + t);
                 }
             }
         }
-        return max(dp[2 * n - 2][n - 1][n - 1], 0);
+        return max(0, dp[n * 2 - 2][n - 1][n - 1]);
     }
 };
 ```
@@ -167,51 +160,99 @@ public:
 
 ```go
 func cherryPickup(grid [][]int) int {
-    n := len(grid)
-    dp := make([][][]int, (n << 1) - 1)
-    for i := range dp {
-        dp[i] = make([][]int, n)
-        for j := range dp[i] {
-            dp[i][j] = make([]int, n)
-            for k := range dp[i][j] {
-                dp[i][j][k] = int(-1e9)
-            }
+	n := len(grid)
+	dp := make([][][]int, (n<<1)-1)
+	for i := range dp {
+		dp[i] = make([][]int, n)
+		for j := range dp[i] {
+			dp[i][j] = make([]int, n)
+		}
+	}
+	dp[0][0][0] = grid[0][0]
+	for k := 1; k < (n<<1)-1; k++ {
+		for i1 := 0; i1 < n; i1++ {
+			for i2 := 0; i2 < n; i2++ {
+				dp[k][i1][i2] = int(-1e9)
+				j1, j2 := k-i1, k-i2
+				if j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1 || grid[i2][j2] == -1 {
+					continue
+				}
+				t := grid[i1][j1]
+				if i1 != i2 {
+					t += grid[i2][j2]
+				}
+				for x1 := i1 - 1; x1 <= i1; x1++ {
+					for x2 := i2 - 1; x2 <= i2; x2++ {
+						if x1 >= 0 && x2 >= 0 {
+							dp[k][i1][i2] = max(dp[k][i1][i2], dp[k-1][x1][x2]+t)
+						}
+					}
+				}
+			}
+		}
+	}
+	return max(0, dp[n*2-2][n-1][n-1])
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var cherryPickup = function (grid) {
+    const n = grid.length;
+    let dp = new Array(n * 2 - 1);
+    for (let k = 0; k < dp.length; ++k) {
+        dp[k] = new Array(n);
+        for (let i = 0; i < n; ++i) {
+            dp[k][i] = new Array(n).fill(-1e9);
         }
     }
-    dp[0][0][0] = grid[0][0]
-    for k := 1; k < (n << 1) - 1; k++ {
-        for i1 := 0; i1 < n; i1++ {
-            for i2 := 0; i2 < n; i2++ {
-                j1, j2 := k - i1, k - i2
-                if j1 >= 0 && j1 < n && j2 >= 0 && j2 < n {
-                    if grid[i1][j1] == -1 || grid[i2][j2] == -1 {
-                        continue
-                    }
-                    t := grid[i1][j1]
-                    if i1 != i2 {
-                        t += grid[i2][j2]
-                    }
-                    for p1 := i1 - 1; p1 <= i1; p1++ {
-                        for p2 := i2 - 1; p2 <= i2; p2++ {
-                            if p1 >= 0 && p2 >= 0 {
-                                dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][p1][p2] + t)
-                            }
+    dp[0][0][0] = grid[0][0];
+    for (let k = 1; k < n * 2 - 1; ++k) {
+        for (let i1 = 0; i1 < n; ++i1) {
+            for (let i2 = 0; i2 < n; ++i2) {
+                const j1 = k - i1,
+                    j2 = k - i2;
+                if (
+                    j1 < 0 ||
+                    j1 >= n ||
+                    j2 < 0 ||
+                    j2 >= n ||
+                    grid[i1][j1] == -1 ||
+                    grid[i2][j2] == -1
+                ) {
+                    continue;
+                }
+                let t = grid[i1][j1];
+                if (i1 != i2) {
+                    t += grid[i2][j2];
+                }
+                for (let x1 = i1 - 1; x1 <= i1; ++x1) {
+                    for (let x2 = i2 - 1; x2 <= i2; ++x2) {
+                        if (x1 >= 0 && x2 >= 0) {
+                            dp[k][i1][i2] = Math.max(
+                                dp[k][i1][i2],
+                                dp[k - 1][x1][x2] + t,
+                            );
                         }
                     }
                 }
             }
         }
     }
-
-    return max(dp[(n << 1) - 2][n - 1][n - 1], 0)
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
+    return Math.max(0, dp[n * 2 - 2][n - 1][n - 1]);
+};
 ```
 
 ### **...**

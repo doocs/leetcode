@@ -56,7 +56,7 @@ PRODUCT_EXCEPT_SELF(A)
     let r[0..n]be a new array
     for i = 0 in n
         s = 1
-        for j = 0 in n 
+        for j = 0 in n
             if j == i
                 continue
             s *= A[j]
@@ -74,10 +74,10 @@ PRODUCT_EXCEPT_SELF(A)
     let r[0..n]be a new array
     p = 1
     q = 1
-    for i = 0 in n 
+    for i = 0 in n
         r[i] = p
         p *= A[i]
-    for i = n - 1 in 0 downto 
+    for i = n - 1 in 0 downto
         r[i] *= q
         q *= A[i]
     return r

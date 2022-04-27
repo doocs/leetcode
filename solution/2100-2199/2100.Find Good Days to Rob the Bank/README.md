@@ -52,15 +52,6 @@
 所以没有适合打劫银行的日子，返回空数组。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<b>输入：</b>security = [1], time = 5
-<b>输出：</b>[]
-<strong>解释：</strong>
-没有日子前面和后面有 5 天时间。
-所以没有适合打劫银行的日子，返回空数组。</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

@@ -51,6 +51,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+简单模拟，有可能进入死循环导致无法停止，有几种方式解决：
+
+-   哈希表：转换过程不会重复出现同一个数字。
+-   限制转换次数：在一定次数转换后还未成功变为 1，那么就断言此数不是快乐数。
+-   快慢指针：与判断链表是否存在环原理一致。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -97,6 +103,31 @@ class Solution {
             n /= 10;
         }
         return s;
+    }
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn get_next(mut n: i32) -> i32 {
+        let mut res = 0;
+        while n != 0 {
+            res += (n % 10).pow(2);
+            n /= 10;
+        }
+        res
+    }
+
+    pub fn is_happy(n: i32) -> bool {
+        let mut slow = n;
+        let mut fast = Self::get_next(n);
+        while slow != fast {
+            slow = Self::get_next(slow);
+            fast = Self::get_next(Self::get_next(fast));
+        }
+        slow == 1
     }
 }
 ```

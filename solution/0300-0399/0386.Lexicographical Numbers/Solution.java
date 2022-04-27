@@ -1,19 +1,18 @@
 class Solution {
     public List<Integer> lexicalOrder(int n) {
-        List<Integer> res = new ArrayList<>();
-        for (int i = 1; i < 10; ++i) {
-            dfs(res, i, n);
+        List<Integer> ans = new ArrayList<>();
+        int v = 1;
+        for (int i = 0; i < n; ++i) {
+            ans.add(v);
+            if (v * 10 <= n) {
+                v *= 10;
+            } else {
+                while (v % 10 == 9 || v + 1 > n) {
+                    v /= 10;
+                }
+                ++v;
+            }
         }
-        return res;
-    }
-
-    private void dfs(List<Integer> res, int i, int n) {
-        if (i > n) {
-            return;
-        }
-        res.add(i);
-        for (int j = 0; j < 10; ++j) {
-            dfs(res, i * 10 + j, n);
-        }
+        return ans;
     }
 }

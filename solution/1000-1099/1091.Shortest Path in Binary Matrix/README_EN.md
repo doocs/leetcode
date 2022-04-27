@@ -66,7 +66,7 @@ class Solution:
         ans = 0
         while q:
             ans += 1
-            for _ in range(len(q), 0, -1):
+            for _ in range(len(q)):
                 i, j = q.popleft()
                 if (i, j) == (n - 1, n - 1):
                     return ans

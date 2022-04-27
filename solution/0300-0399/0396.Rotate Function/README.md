@@ -54,6 +54,14 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 
 <!-- 这里可写通用的实现逻辑 -->
 
+```
+f(0) = 0 * nums[0] + 1 * nums[1] + ... + (n - 1) * nums[n - 1]
+f(1) = 1 * nums[0] + 2 * nums[1] + ... + 0 * nums[n - 1]
+...
+f(k) = f(k - 1) + s - n * nums[n - k]
+```
+
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +69,15 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxRotateFunction(self, nums: List[int]) -> int:
+        f = sum(i * v for i, v in enumerate(nums))
+        n, s = len(nums), sum(nums)
+        ans = f
+        for i in range(1, n):
+            f = f + s - n * nums[n - i]
+            ans = max(ans, f)
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +85,102 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxRotateFunction(int[] nums) {
+        int f = 0;
+        int s = 0;
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            f += i * nums[i];
+            s += nums[i];
+        }
+        int ans = f;
+        for (int i = 1; i < n; ++i) {
+            f = f + s - n * nums[n - i];
+            ans = Math.max(ans, f);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxRotateFunction(vector<int>& nums) {
+        int f = 0, s = 0, n = nums.size();
+        for (int i = 0; i < n; ++i)
+        {
+            f += i * nums[i];
+            s += nums[i];
+        }
+        int ans = f;
+        for (int i = 1; i < n; ++i)
+        {
+            f = f + s - n * nums[n - i];
+            ans = max(ans, f);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxRotateFunction(nums []int) int {
+	f, s, n := 0, 0, len(nums)
+	for i, v := range nums {
+		f += i * v
+		s += v
+	}
+	ans := f
+	for i := 1; i < n; i++ {
+		f = f + s - n*nums[n-i]
+		if ans < f {
+			ans = f
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxRotateFunction(nums: number[]): number {
+    const n = nums.length;
+    const sum = nums.reduce((r, v) => r + v);
+    let res = nums.reduce((r, v, i) => r + v * i, 0);
+    let pre = res;
+    for (let i = 1; i < n; i++) {
+        pre = pre - (sum - nums[i - 1]) + nums[i - 1] * (n - 1);
+        res = Math.max(res, pre);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_rotate_function(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let sum: i32 = nums.iter().sum();
+        let mut pre: i32 = nums.iter().enumerate().map(|(i, &v)| i as i32 * v).sum();
+        (0..n)
+            .map(|i| {
+                let res = pre;
+                pre = pre - (sum - nums[i]) + nums[i] * (n - 1) as i32;
+                res
+            })
+            .max()
+            .unwrap_or(0)
+    }
+}
 ```
 
 ### **...**

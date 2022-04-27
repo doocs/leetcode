@@ -1,24 +1,20 @@
 class Solution {
 public:
-    int bestTeamScore(vector<int> &scores, vector<int> &ages) {
-        vector<pair<int, int>> nums;
+    int bestTeamScore(vector<int>& scores, vector<int>& ages) {
         int n = ages.size();
-        for (int i = 0; i < n; ++i) nums.push_back({scores[i], ages[i]});
-        sort(nums.begin(), nums.end(), [](auto &a, auto &b) {
-            return a.second == b.second ? a.first < b.first : a.second < b.second;
-        });
+        vector<vector<int>> nums(n);
+        for (int i = 0; i < n; ++i) nums[i] = {ages[i], scores[i]};
+        sort(nums.begin(), nums.end());
         vector<int> dp(n);
-        int res = 0;
         for (int i = 0; i < n; ++i)
         {
-            dp[i] = nums[i].first;
+            dp[i] = nums[i][1];
             for (int j = 0; j < i; ++j)
             {
-                if (nums[j].first <= nums[i].first)
-                    dp[i] = max(dp[i], dp[j] + nums[i].first);
+                if (nums[i][1] >= nums[j][1])
+                    dp[i] = max(dp[i], dp[j] + nums[i][1]);
             }
-            res = max(res, dp[i]);
         }
-        return res;
+        return *max_element(dp.begin(), dp.end());
     }
 };

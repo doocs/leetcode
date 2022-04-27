@@ -166,7 +166,7 @@ public:
         }
         return l;
     }
-    
+
     vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
         vector<pair<int, int>> p;
         vector<int> res;

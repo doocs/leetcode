@@ -64,7 +64,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minHeightShelves(self, books: List[List[int]], shelfWidth: int) -> int:
+        n = len(books)
+        dp = [0] * (n + 1)
+        dp[1] = books[0][1]
+        for i in range(2, n + 1):
+            dp[i] = books[i - 1][1] + dp[i - 1]
+            w, h = books[i - 1][0], books[i - 1][1]
+            for j in range(i - 1, 0, -1):
+                w += books[j - 1][0]
+                if w > shelfWidth:
+                    break
+                h = max(books[j - 1][1], h)
+                dp[i] = min(dp[i], dp[j - 1] + h)
+        return dp[n]
 ```
 
 ### **Java**
@@ -72,7 +86,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minHeightShelves(int[][] books, int shelfWidth) {
+        int n = books.length;
+        int[] dp = new int[n + 1];
+        dp[1] = books[0][1];
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + books[i - 1][1];
+            int w = books[i - 1][0], h = books[i - 1][1];
+            for (int j = i - 1; j > 0; j--) {
+                w += books[j - 1][0];
+                if (w > shelfWidth) {
+                    break;
+                }
+                h = Math.max(h, books[j - 1][1]);
+                dp[i] = Math.min(dp[i], dp[j - 1] + h);
+            }
+        }
+        return dp[n];
+    }
+}
 ```
 
 ### **...**

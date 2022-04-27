@@ -52,13 +52,114 @@ There are not any adjacent pairs of 1&#39;s in the binary representation of 8, s
 ### **Python3**
 
 ```python
-
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        ans, j = 0, -1
+        for i in range(32):
+            if n & 1:
+                if j != -1:
+                    ans = max(ans, i - j)
+                j = i
+            n >>= 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int binaryGap(int n) {
+        int ans = 0;
+        for (int i = 0, j = -1; n != 0; ++i, n >>= 1) {
+            if ((n & 1) == 1) {
+                if (j != -1) {
+                    ans = Math.max(ans, i - j);
+                }
+                j = i;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function binaryGap(n: number): number {
+    let res = 0;
+    let j = -1;
+    for (let i = 0; n !== 0; i++) {
+        if (n & 1) {
+            if (j !== -1) {
+                res = Math.max(res, i - j);
+            }
+            j = i;
+        }
+        n >>= 1;
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn binary_gap(mut n: i32) -> i32 {
+        let mut res = 0;
+        let mut i = 0;
+        let mut j = -1;
+        while n != 0 {
+            if n & 1 == 1 {
+                if j != -1 {
+                    res = res.max(i - j);
+                }
+                j = i;
+            }
+            n >>= 1;
+            i += 1;
+        }
+        res
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int binaryGap(int n) {
+        int ans = 0;
+        for (int i = 0, j = -1; n; ++i, n >>= 1)
+        {
+            if (n & 1)
+            {
+                if (j != -1) ans = max(ans, i - j);
+                j = i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func binaryGap(n int) int {
+	ans := 0
+	for i, j := 0, -1; n != 0; i, n = i+1, n>>1 {
+		if (n & 1) == 1 {
+			if j != -1 && ans < i-j {
+				ans = i - j
+			}
+			j = i
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

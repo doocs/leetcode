@@ -6,9 +6,10 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Friendship</code></p>
+<p>表：&nbsp;<code>Friendship</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | user1_id      | int     |
@@ -18,11 +19,12 @@
 该表的每一行表示用户user1_id和user2_id是好友。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>Table: <code>Likes</code></p>
+<p>表：&nbsp;<code>Likes</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | user_id     | int     |
@@ -33,25 +35,29 @@
 该表的每一行表示user_id喜欢page_id。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>您正在为一个社交媒体网站实施一个页面推荐系统。如果页面被<code>user_id</code>的<strong>至少一个朋友喜欢</strong>，而<strong>不被</strong><code>user_id</code><strong>喜欢</strong>，你的系统将<strong>推荐</strong>一个页面到<code>user_id</code>。</p>
+<p>您正在为一个社交媒体网站实施一个页面推荐系统。如果页面被<code>user_id</code>的&nbsp;<strong>至少一个朋友喜欢&nbsp;</strong>，而&nbsp;<strong>不被</strong><code>user_id</code><strong>喜欢&nbsp;</strong>，你的系统将&nbsp;<strong>推荐&nbsp;</strong>一个页面到<code>user_id</code>。</p>
 
-<p>编写一个SQL查询来查找针对每个用户的所有可能的<strong>页面建议</strong>。每个建议应该在结果表中显示为一行，包含以下列:</p>
+<p>编写一个SQL查询来查找针对每个用户的所有可能的&nbsp;<strong>页面建议&nbsp;</strong>。每个建议应该在结果表中显示为一行，包含以下列:</p>
 
 <ul>
 	<li><code>user_id</code>: 系统向其提出建议的用户的ID。</li>
-	<li><code>page_id</code>: 推荐为<code>user_id</code>的页面ID。.</li>
-	<li><code>friends_likes</code>: <code>user_id</code>对应<code>page_id</code>的好友数。</li>
+	<li><code>page_id</code>: 推荐为&nbsp;<code>user_id</code>&nbsp;的页面ID。.</li>
+	<li><code>friends_likes</code>:&nbsp;&nbsp;<code>user_id</code>&nbsp;对应&nbsp;<code>page_id</code>&nbsp;的好友数。</li>
 </ul>
 
-<p>以<strong>任意顺序</strong>返回结果表。</p>
+<p>以&nbsp;<strong>任意顺序&nbsp;</strong>返回结果表。</p>
 
-<p>查询结果格式示例如下:</p>
+<p>查询结果格式示例如下。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<pre>Friendship table:
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Friendship 表:
 +----------+----------+
 | user1_id | user2_id |
 +----------+----------+
@@ -63,8 +69,7 @@
 | 2        | 5        |
 | 6        | 1        |
 +----------+----------+
- 
-Likes table:
+Likes 表:
 +---------+---------+
 | user_id | page_id |
 +---------+---------+
@@ -78,8 +83,7 @@ Likes table:
 | 3       | 77      |
 | 6       | 88      |
 +---------+---------+
-
-Result table:
+<strong>输出：</strong>
 +---------+---------+---------------+
 | user_id | page_id | friends_likes |
 +---------+---------+---------------+
@@ -100,24 +104,17 @@ Result table:
 | 5       | 77      | 1             |
 | 5       | 23      | 1             |
 +---------+---------+---------------+
+<strong>解释：</strong>
 以用户1为例:
-
 —用户1是用户2、3、4、6的好友。
-
-推荐页面有23(用户2喜欢)，24(用户3喜欢)，56(用户3喜欢)，33(用户6喜欢)，77(用户2和用户3喜欢)。
-
+-推荐页面有23(用户2喜欢)，24(用户3喜欢)，56(用户3喜欢)，33(用户6喜欢)，77(用户2和用户3喜欢)。
 -请注意，第88页不推荐，因为用户1已经喜欢它。
 
-
 另一个例子是用户6:
-
 —用户6是用户1的好友。
-
 -用户1只喜欢了88页，但用户6已经喜欢了。因此，用户6没有推荐。
 
-
-您可以使用类似的过程为用户2、3、4和5推荐页面。
-</pre>
+您可以使用类似的过程为用户2、3、4和5推荐页面。</pre>
 
 ## 解法
 

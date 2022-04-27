@@ -20,49 +20,21 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>n = 1, headID = 0, manager = [-1], informTime = [0]
+<pre>
+<strong>输入：</strong>n = 1, headID = 0, manager = [-1], informTime = [0]
 <strong>输出：</strong>0
 <strong>解释：</strong>公司总负责人是该公司的唯一一名员工。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/graph.png" style="height: 174px; width: 404px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/graph.png" style="height: 174px; width: 404px;" /></p>
 
-<pre><strong>输入：</strong>n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
+<pre>
+<strong>输入：</strong>n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
 <strong>输出：</strong>1
 <strong>解释：</strong>id = 2 的员工是公司的总负责人，也是其他所有员工的直属负责人，他需要 1 分钟来通知所有员工。
 上图显示了公司员工的树结构。
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/1730_example_3_5.PNG" style="height: 432px; width: 568px;"></p>
-
-<pre><strong>输入：</strong>n = 7, headID = 6, manager = [1,2,3,4,5,6,-1], informTime = [0,6,5,4,3,2,1]
-<strong>输出：</strong>21
-<strong>解释：</strong>总负责人 id = 6。他将在 1 分钟内通知 id = 5 的员工。
-id = 5 的员工将在 2 分钟内通知 id = 4 的员工。
-id = 4 的员工将在 3 分钟内通知 id = 3 的员工。
-id = 3 的员工将在 4 分钟内通知 id = 2 的员工。
-id = 2 的员工将在 5 分钟内通知 id = 1 的员工。
-id = 1 的员工将在 6 分钟内通知 id = 0 的员工。
-所需时间 = 1 + 2 + 3 + 4 + 5 + 6 = 21 。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>n = 15, headID = 0, manager = [-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6], informTime = [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0]
-<strong>输出：</strong>3
-<strong>解释：</strong>第一分钟总负责人通知员工 1 和 2 。
-第二分钟他们将会通知员工 3, 4, 5 和 6 。
-第三分钟他们将会通知剩下的员工。
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>n = 4, headID = 2, manager = [3,3,-1,2], informTime = [0,0,162,914]
-<strong>输出：</strong>1076
 </pre>
 
 <p>&nbsp;</p>

@@ -116,7 +116,6 @@ According to orders 3 and 4 in the Orders table, it is easy to tell that only sa
 ### **SQL**
 
 ```sql
-# Write your MySQL query statement below
 SELECT name
 FROM salesperson
 WHERE sales_id
@@ -126,6 +125,23 @@ NOT IN (
     INNER JOIN company c ON o.com_id = c.com_id
     WHERE c.name = 'RED'
 );
+```
+
+```sql
+SELECT
+    name
+FROM
+    SalesPerson AS s
+WHERE
+    0 = (
+        SELECT
+            COUNT(*)
+        FROM
+            Orders AS o
+            JOIN Company AS c ON o.com_id = c.com_id
+        WHERE
+            o.sales_id = s.sales_id AND c.name = 'RED'
+    );
 ```
 
 <!-- tabs:end -->

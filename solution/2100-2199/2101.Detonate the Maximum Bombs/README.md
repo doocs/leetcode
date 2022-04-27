@@ -67,6 +67,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：BFS**
+
+枚举每个炸弹 k 作为起始引爆点，BFS 搜索能影响到的所有炸弹的数量，取其最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +78,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maximumDetonation(self, bombs: List[List[int]]) -> int:
+        def check(i, j):
+            if i == j:
+                return False
+            x, y = bombs[i][0] - bombs[j][0], bombs[i][1] - bombs[j][1]
+            r = bombs[i][2]
+            return r * r >= x * x + y * y
 
+        g = defaultdict(list)
+        n = len(bombs)
+        for i in range(n):
+            for j in range(n):
+                if check(i, j):
+                    g[i].append(j)
+        ans = 0
+        for k in range(n):
+            q = deque([k])
+            vis = [False] * n
+            vis[k] = True
+            cnt = 0
+            while q:
+                i = q.popleft()
+                cnt += 1
+                for j in g[i]:
+                    if not vis[j]:
+                        vis[j] = True
+                        q.append(j)
+            ans = max(ans, cnt)
+        return ans
 ```
 
 ### **Java**
@@ -82,7 +115,148 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[][] bombs;
 
+    public int maximumDetonation(int[][] bombs) {
+        this.bombs = bombs;
+        int n = bombs.length;
+        boolean[][] g = new boolean[n][n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                g[i][j] = check(i, j);
+            }
+        }
+        int ans = 0;
+        for (int k = 0; k < n; ++k) {
+            Deque<Integer> q = new ArrayDeque<>();
+            q.offer(k);
+            boolean[] vis = new boolean[n];
+            vis[k] = true;
+            int cnt = 0;
+            while (!q.isEmpty()) {
+                int i = q.poll();
+                ++cnt;
+                for (int j = 0; j < n; ++j) {
+                    if (g[i][j] && !vis[j]) {
+                        vis[j] = true;
+                        q.offer(j);
+                    }
+                }
+            }
+            ans = Math.max(ans, cnt);
+        }
+        return ans;
+    }
+
+    private boolean check(int i, int j) {
+        if (i == j) {
+            return false;
+        }
+        long x = bombs[i][0] - bombs[j][0];
+        long y = bombs[i][1] - bombs[j][1];
+        long r = bombs[i][2];
+        return r * r >= x * x + y * y;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumDetonation(vector<vector<int>>& bombs) {
+        int n = bombs.size();
+        vector<vector<bool>> g(n, vector<bool>(n));
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < n; ++j)
+                g[i][j] = check(i, j, bombs);
+        int ans = 0;
+        for (int k = 0; k < n; ++k)
+        {
+            queue<int> q{{k}};
+            vector<bool> vis(n);
+            vis[k] = true;
+            int cnt = 0;
+            while (!q.empty())
+            {
+                int i = q.front();
+                q.pop();
+                ++cnt;
+                for (int j = 0; j < n; ++j)
+                {
+                    if (g[i][j] && !vis[j])
+                    {
+                        vis[j] = true;
+                        q.push(j);
+                    }
+                }
+            }
+            ans = max(ans, cnt);
+        }
+        return ans;
+    }
+
+    bool check(int i, int j, vector<vector<int>>& bombs) {
+        if (i == j) return false;
+        long long x = bombs[i][0] - bombs[j][0];
+        long long y = bombs[i][1] - bombs[j][1];
+        long long r = bombs[i][2];
+        return r * r >= x * x + y * y;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumDetonation(bombs [][]int) int {
+	check := func(i, j int) bool {
+		if i == j {
+			return false
+		}
+		x, y := bombs[i][0]-bombs[j][0], bombs[i][1]-bombs[j][1]
+		r := bombs[i][2]
+		return r*r >= x*x+y*y
+	}
+	n := len(bombs)
+	g := make([][]bool, n)
+	for i := range g {
+		g[i] = make([]bool, n)
+		for j := range g[i] {
+			g[i][j] = check(i, j)
+		}
+	}
+
+	ans := 0
+	for k := 0; k < n; k++ {
+		q := []int{k}
+		vis := make([]bool, n)
+		vis[k] = true
+		cnt := 0
+		for len(q) > 0 {
+			i := q[0]
+			q = q[1:]
+			cnt++
+			for j := 0; j < n; j++ {
+				if g[i][j] && !vis[j] {
+					vis[j] = true
+					q = append(q, j)
+				}
+			}
+		}
+		ans = max(ans, cnt)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

@@ -49,19 +49,128 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minDeletion(self, nums: List[int]) -> int:
+        n = len(nums)
+        i = ans = 0
+        while i < n - 1:
+            if nums[i] == nums[i + 1]:
+                ans += 1
+                i += 1
+            else:
+                i += 2
+        if (n - ans) % 2:
+            ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minDeletion(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                ++ans;
+            } else {
+                ++i;
+            }
+        }
+        if ((n - ans) % 2 == 1) {
+            ++ans;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function minDeletion(nums: number[]): number {
+    const n = nums.length;
+    let res = 0;
+    let i = 0;
+    while (i < n - 1) {
+        if (nums[i] === nums[i + 1]) {
+            i++;
+            res++;
+        } else {
+            i += 2;
+        }
+    }
+    if ((n - res) % 2 === 1) {
+        res++;
+    }
+    return res;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_deletion(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut res = 0;
+        let mut i = 0;
+        while i < n - 1 {
+            if nums[i] == nums[i + 1] {
+                res += 1;
+                i += 1;
+            } else {
+                i += 2;
+            }
+        }
+        if (n - res) % 2 == 1 {
+            res += 1;
+        }
+        res as i32
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDeletion(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                ++ans;
+            } else {
+                ++i;
+            }
+        }
+        if ((n - ans) % 2) ++ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDeletion(nums []int) int {
+	n := len(nums)
+	ans := 0
+	for i := 0; i < n-1; i++ {
+		if nums[i] == nums[i+1] {
+			ans++
+		} else {
+			i++
+		}
+	}
+	if (n-ans)%2 == 1 {
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**

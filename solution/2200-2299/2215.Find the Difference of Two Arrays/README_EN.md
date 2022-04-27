@@ -61,7 +61,7 @@ class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         Set<Integer> s1 = convert(nums1);
         Set<Integer> s2 = convert(nums2);
-        
+
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> l1 = new ArrayList<>();
         List<Integer> l2 = new ArrayList<>();
@@ -90,16 +90,17 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+### **JavaScript**
 
-```ts
+```js
 /**
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number[][]}
  */
-var findDifference = function(nums1, nums2) {
-    let ans1 = new Set(nums1), ans2 = new Set(nums2);
+var findDifference = function (nums1, nums2) {
+    let ans1 = new Set(nums1),
+        ans2 = new Set(nums2);
     for (let num of nums1) {
         ans2.delete(num);
     }
@@ -108,6 +109,17 @@ var findDifference = function(nums1, nums2) {
     }
     return [Array.from(ans1), Array.from(ans2)];
 };
+```
+
+### **TypeScript**
+
+```ts
+function findDifference(nums1: number[], nums2: number[]): number[][] {
+    return [
+        [...new Set<number>(nums1.filter(v => !nums2.includes(v)))],
+        [...new Set<number>(nums2.filter(v => !nums1.includes(v)))],
+    ];
+}
 ```
 
 ### **C++**
@@ -153,6 +165,61 @@ func findDifference(nums1 []int, nums2 []int) [][]int {
 		}
 	}
 	return ans
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn find_difference(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<Vec<i32>> {
+        vec![
+            nums1
+                .iter()
+                .filter_map(|&v| if nums2.contains(&v) { None } else { Some(v) })
+                .collect::<HashSet<i32>>()
+                .into_iter()
+                .collect(),
+            nums2
+                .iter()
+                .filter_map(|&v| if nums1.contains(&v) { None } else { Some(v) })
+                .collect::<HashSet<i32>>()
+                .into_iter()
+                .collect(),
+        ]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_difference(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<Vec<i32>> {
+        const N: usize = 2001;
+        let to_index = |i| i as usize + 1000;
+
+        let mut is_in_nums1 = [false; N];
+        let mut is_in_nums2 = [false; N];
+        let mut res1 = vec![];
+        let mut res2 = vec![];
+        for &num in nums1.iter() {
+            is_in_nums1[to_index(num)] = true;
+        }
+        for &num in nums2.iter() {
+            is_in_nums2[to_index(num)] = true;
+            if !is_in_nums1[to_index(num)] {
+                res2.push(num);
+                is_in_nums1[to_index(num)] = true;
+            }
+        }
+        for &num in nums1.iter() {
+            if !is_in_nums2[to_index(num)] {
+                res1.push(num);
+                is_in_nums2[to_index(num)] = true;
+            }
+        }
+        vec![res1, res2]
+    }
 }
 ```
 

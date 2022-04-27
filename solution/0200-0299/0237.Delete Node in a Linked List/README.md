@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/images/node1.jpg" style="width: 450px; height: 322px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/images/node1.jpg" style="height: 215px; width: 300px;" />
 <pre>
 <strong>输入：</strong>head = [4,5,1,9], node = 5
 <strong>输出：</strong>[4,1,9]
@@ -21,32 +21,11 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/images/node2.jpg" style="width: 450px; height: 354px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/images/node2.jpg" style="height: 236px; width: 300px;" />
 <pre>
 <strong>输入：</strong>head = [4,5,1,9], node = 1
 <strong>输出：</strong>[4,5,9]
 <strong>解释：</strong>指定链表中值为&nbsp;1&nbsp;的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>head = [1,2,3,4], node = 3
-<strong>输出：</strong>[1,2,4]
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>head = [0,1], node = 0
-<strong>输出：</strong>[1]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>head = [-3,5,-99], node = -3
-<strong>输出：</strong>[5,-99]
-</pre>
 
 <p>&nbsp;</p>
 
@@ -55,8 +34,8 @@
 <ul>
 	<li>链表中节点的数目范围是 <code>[2, 1000]</code></li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
-	<li>链表中每个节点的值都是唯一的</li>
-	<li>需要删除的节点 <code>node</code> 是 <strong>链表中的一个有效节点</strong> ，且 <strong>不是末尾节点</strong></li>
+	<li>链表中每个节点的值都是 <strong>唯一</strong> 的</li>
+	<li>需要删除的节点 <code>node</code> 是 <strong>链表中的节点</strong> ，且 <strong>不是末尾节点</strong></li>
 </ul>
 
 ## 解法

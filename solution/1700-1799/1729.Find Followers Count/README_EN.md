@@ -59,15 +59,15 @@ The followers of 2 are {0,1}
 ### **SQL**
 
 ```sql
-# Write your MySQL query statement below
 SELECT
-    user_id, count(1) AS followers_count
+    user_id,
+    count(1) AS followers_count
 FROM
     Followers
 GROUP BY
     user_id
 ORDER BY
-    user_id
+    user_id;
 ```
 
 <!-- tabs:end -->

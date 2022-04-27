@@ -156,15 +156,15 @@ function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
 
 function findTarget(root: TreeNode | null, k: number): boolean {
     if (root == null) {
-      return false;
+        return false;
     }
     const set = new Set<number>();
     const dfs = (root: TreeNode | null) => {
         if (root == null) {
-          return false;
+            return false;
         }
         if (set.has(root.val)) {
-          return true;
+            return true;
         }
         set.add(k - root.val);
         return dfs(root.left) || dfs(root.right);

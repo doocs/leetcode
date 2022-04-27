@@ -24,6 +24,16 @@
 <body>
   <div id="app">LeetCode & Coding Interview Guide @Doocs</div>
   <script>
+    const isEn = () => location.hash.includes('README_EN');
+    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
+    const sidebar = () => isRoot() ? false : (isEn() ?  'summary_en.md' : 'summary.md');
+    
+    window.addEventListener('hashchange', () => {
+      window.$docsify.loadSidebar = sidebar();
+      window.$docsify.pagination.previousText = isEn() ? 'PREVIOUS' : '上一题';
+      window.$docsify.pagination.nextText = isEn() ? 'NEXT' : '下一题';
+    });
+
     window.$docsify = {
       name: 'leetcode',
       repo: 'doocs/leetcode',
@@ -31,7 +41,7 @@
       search: [
         '/', '/solution/', '/lcof/', '/lcof2/', '/lcci/', '/lcs/', '/lcp/', '/basic/'
       ],
-      loadSidebar: 'summary.md',
+      loadSidebar: sidebar(),
       auto2top: true,
       subMaxLevel: 2,
       alias: {
@@ -41,7 +51,23 @@
         '/lcof/.*/summary.md': '/lcof/summary.md',
         '/lcof2/.*/summary.md': '/lcof2/summary.md',
         '/solution/.*/summary.md': '/solution/summary.md',
-        '/basic/.*/summary.md': '/basic/summary.md'
+        '/basic/.*/summary.md': '/basic/summary.md',
+
+        '/lcs/.*/summary_en.md': '/lcs/summary_en.md',
+        '/lcp/.*/summary_en.md': '/lcp/summary_en.md',
+        '/lcci/.*/summary_en.md': '/lcci/summary_en.md',
+        '/lcof/.*/summary_en.md': '/lcof/summary_en.md',
+        '/lcof2/.*/summary_en.md': '/lcof2/summary_en.md',
+        '/solution/.*/summary_en.md': '/solution/summary_en.md',
+        '/basic/.*/summary_en.md': '/basic/summary_en.md',
+      },
+      contributors: {
+        repo: 'doocs/leetcode',
+        ignores: ['/README.md', '/README_EN.md', '/solution/README.md', '/solution/README_EN.md', '/summary.md'],
+        image: {
+          margin: '0.2em',
+          isRound: true
+        }
       },
       darklightTheme: {
         defaultTheme: 'light',
@@ -59,8 +85,8 @@
         }
       },
       pagination: {
-        previousText: '上一题',
-        nextText: '下一题',
+        previousText: isEn() ? 'PREVIOUS' : '上一题',
+        nextText: isEn() ? 'NEXT' : '下一题',
         crossChapter: true,
         crossChapterText: true
       },
@@ -72,25 +98,24 @@
         tabHeadings: true
       },
       plugins: [
-        function (hook, vm) {
-          hook.beforeEach(function (html) {
-            const en = vm.route.file.indexOf('README_EN') > -1
-            const userContent = /githubusercontent\.com/.test(vm.route.file)
-            const url = userContent ? vm.route.file
+        (hook, vm) => {
+          hook.beforeEach((html) => {
+            const {file} =  vm.route
+            const userContent = /githubusercontent\.com/.test(file)
+            const url = userContent ? file
               .replace('raw.githubusercontent.com', 'github.com')
-              .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + vm.route.file
+              .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + file
 
             const github = `[GitHub](${url})`
             const gitee = `[Gitee](${url.replace("github", "gitee")})`
-            const editHtml = en ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
+            const editHtml = isEn() ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
             return editHtml + html
           })
 
-          hook.afterEach(function (html) {
-            const en = vm.route.file.indexOf('README_EN') != -1
-            const copyright = en ? '. All Rights Reserved' : ' 版权所有'
+          hook.afterEach((html) => {
+            const copyright = isEn() ? '. All Rights Reserved' : ' 版权所有'
             const currentYear = new Date().getFullYear()
-            const footer = `<footer><span>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
+            const footer = `<footer>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
             return html + footer
           })
         },
@@ -121,6 +146,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-contributors@latest/dist/index.min.js"></script>
 </body>
 
 </html>

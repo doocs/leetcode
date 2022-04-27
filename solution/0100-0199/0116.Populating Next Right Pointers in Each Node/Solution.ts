@@ -15,17 +15,15 @@
  */
 
 function connect(root: Node | null): Node | null {
-    if (root == null) {
+    if (root == null || root.left == null) {
         return root;
     }
-    const { left, right } = root;
-    if (left != null) {
-        left.next = right;
+    const { left, right, next } = root;
+    left.next = right;
+    if (next != null) {
+        right.next = next.left;
     }
-    if (right != null && root.next != null) {
-        root.right.next = root.next.left;
-    }
-    connect(root.left);
-    connect(root.right);
+    connect(left);
+    connect(right);
     return root;
 }

@@ -1,11 +1,11 @@
 class Solution:
-    def isMonotonic(self, A: List[int]) -> bool:
-        increase = decrease = True
-        for i in range(1, len(A)):
-            if not increase and not decrease:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        isIncr = isDecr = False
+        for i, v in enumerate(nums[1:]):
+            if v < nums[i]:
+                isIncr = True
+            elif v > nums[i]:
+                isDecr = True
+            if isIncr and isDecr:
                 return False
-            if A[i] < A[i - 1]:
-                increase = False
-            elif A[i] > A[i - 1]:
-                decrease = False
-        return increase or decrease
+        return True

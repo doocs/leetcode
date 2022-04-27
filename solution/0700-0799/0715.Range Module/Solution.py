@@ -44,8 +44,7 @@ class SegmentTree:
         return v
 
     def pushup(self, node):
-        node.v = bool(
-            node.left and node.left.v and node.right and node.right.v)
+        node.v = bool(node.left and node.left.v and node.right and node.right.v)
 
     def pushdown(self, node):
         if node.left is None:
@@ -60,7 +59,6 @@ class SegmentTree:
 
 
 class RangeModule:
-
     def __init__(self):
         self.tree = SegmentTree()
 
