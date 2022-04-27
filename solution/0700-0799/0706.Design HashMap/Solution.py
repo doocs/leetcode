@@ -1,5 +1,4 @@
 class MyHashMap:
-
     def __init__(self):
         self.data = [-1] * 1000001
 

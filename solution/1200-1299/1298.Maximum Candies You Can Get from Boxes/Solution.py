@@ -1,5 +1,12 @@
 class Solution:
-    def maxCandies(self, status: List[int], candies: List[int], keys: List[List[int]], containedBoxes: List[List[int]], initialBoxes: List[int]) -> int:
+    def maxCandies(
+        self,
+        status: List[int],
+        candies: List[int],
+        keys: List[List[int]],
+        containedBoxes: List[List[int]],
+        initialBoxes: List[int],
+    ) -> int:
         q = deque([i for i in initialBoxes if status[i] == 1])
         ans = sum(candies[i] for i in initialBoxes if status[i] == 1)
         has = set(initialBoxes)
