@@ -41,7 +41,14 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 ### **Python3**
 
 ```python
-
+class Solution:
+    def intersection(self, nums: List[List[int]]) -> List[int]:
+        cnt = [0] * 1001
+        for num in nums:
+            for v in num:
+                cnt[v] += 1
+        n = len(nums)
+        return [i for i, v in enumerate(cnt) if v == n]
 ```
 
 ### **Java**
@@ -79,6 +86,46 @@ function intersection(nums: number[][]): number[] {
     }
     return ans.sort((a, b) => a - b);
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> intersection(vector<vector<int>>& nums) {
+        vector<int> cnt(1001);
+        for (auto& num : nums)
+            for (int v : num)
+                ++cnt[v];
+        int n = nums.size();
+        vector<int> ans;
+        for (int i = 1; i < 1001; ++i)
+            if (cnt[i] == n)
+                ans.push_back(i);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func intersection(nums [][]int) []int {
+	cnt := make([]int, 1001)
+	for _, num := range nums {
+		for _, v := range num {
+			cnt[v]++
+		}
+	}
+	var ans []int
+	for i, v := range cnt {
+		if v == len(nums) {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
