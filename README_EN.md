@@ -114,6 +114,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Connecting Cities With Minimum Cost](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md) - Minimum Spanning Tree, Kruskal's algorithm
 -   [Optimize Water Distribution in a Village](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md) - Minimum Spanning Tree, Kruskal's algorithm, Union find
 -   [Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README_EN.md) - Minimum Spanning Tree, Kruskal's algorithm, Union find
+-   [Is Graph Bipartite?](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md) - Graph coloring, Union find
 
 <!--
 ### 6. Mathematical Knowledge

@@ -53,9 +53,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。
+**方法一：染色法判定二分图**
 
-并查集模板：
+遍历所有节点进行染色，比如初始为白色，DFS 对节点相邻的点染上另外一种颜色。如果要染色某节点时，要染的目标颜色和该节点的已经染过的颜色不同，则说明不能构成二分图。
+
+**方法二：并查集**
+
+对于本题，如果是二分图，那么图中每个顶点的所有邻接点都应该属于同一集合，且不与顶点处于同一集合，因此我们可以使用并查集。遍历图中每个顶点，如果发现存在当前顶点与对应的邻接点处于同一个集合，说明不是二分图。否则将当前节点的邻接点相互进行合并。以下是并查集模板。
 
 模板 1——朴素并查集：
 
@@ -114,8 +118,6 @@ p[find(a)] = find(b)
 d[find(a)] = distance
 ```
 
-对于本题，如果是二分图，那么图中每个顶点的所有邻接点都应该属于同一集合，且不与顶点处于同一集合，因此我们可以使用并查集。遍历图中每个顶点，如果发现存在当前顶点与对应的邻接点处于同一个集合，说明不是二分图。否则将当前节点的邻接点相互进行合并。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -125,13 +127,33 @@ d[find(a)] = distance
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
+        def dfs(u, c):
+            color[u] = c
+            for v in graph[u]:
+                if not color[v]:
+                    if not dfs(v, 3 - c):
+                        return False
+                elif color[v] == c:
+                    return False
+            return True
+
+        n = len(graph)
+        color = [0] * n
+        for i in range(n):
+            if not color[i] and not dfs(i, 1):
+                return False
+        return True
+```
+
+```python
+class Solution:
+    def isBipartite(self, graph: List[List[int]]) -> bool:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        n = len(graph)
-        p = list(range(n))
+        p = list(range(len(graph)))
         for u, g in enumerate(graph):
             for v in g:
                 if find(u) == find(v):
@@ -143,6 +165,39 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    private int[] color;
+    private int[][] g;
+
+    public boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        color = new int[n];
+        g = graph;
+        for (int i = 0; i < n; ++i) {
+            if (color[i] == 0 && !dfs(i, 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean dfs(int u, int c) {
+        color[u] = c;
+        for (int v : g[u]) {
+            if (color[v] == 0) {
+                if (!dfs(v, 3 - c)) {
+                    return false;
+                }
+            } else if (color[v] == c) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -180,6 +235,33 @@ class Solution {
 ```cpp
 class Solution {
 public:
+    bool isBipartite(vector<vector<int>>& graph) {
+        int n = graph.size();
+        vector<int> color(n);
+        for (int i = 0; i < n; ++i)
+            if (!color[i] && !dfs(i, 1, color, graph))
+                return false;
+        return true;
+    }
+
+    bool dfs(int u, int c, vector<int>& color, vector<vector<int>>& g) {
+        color[u] = c;
+        for (int& v : g[u])
+        {
+            if (!color[v])
+            {
+                if (!dfs(v, 3 - c, color, g)) return false;
+            }
+            else if (color[v] == c) return false;
+        }
+        return true;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
     vector<int> p;
 
     bool isBipartite(vector<vector<int>>& graph) {
@@ -206,6 +288,33 @@ public:
 ```
 
 ### **Go**
+
+```go
+func isBipartite(graph [][]int) bool {
+	n := len(graph)
+	color := make([]int, n)
+	var dfs func(u, c int) bool
+	dfs = func(u, c int) bool {
+		color[u] = c
+		for _, v := range graph[u] {
+			if color[v] == 0 {
+				if !dfs(v, 3-c) {
+					return false
+				}
+			} else if color[v] == c {
+				return false
+			}
+		}
+		return true
+	}
+	for i := range graph {
+		if color[i] == 0 && !dfs(i, 1) {
+			return false
+		}
+	}
+	return true
+}
+```
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -239,12 +348,11 @@ func isBipartite(graph [][]int) bool {
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
     let valid = true;
-    let colors = new Array(n).fill(0);
     // 0 未遍历， 1 红色标记， 2 绿色标记
-
+    let colors = new Array(n).fill(0);
     function dfs(idx: number, color: number, graph: number[][]) {
         colors[idx] = color;
-        const nextColor = color == 1 ? 2 : 1;
+        const nextColor = 3 - color;
         for (let j of graph[idx]) {
             if (!colors[j]) {
                 dfs(j, nextColor, graph);
@@ -262,6 +370,31 @@ function isBipartite(graph: number[][]): boolean {
         }
     }
     return valid;
+}
+```
+
+```ts
+function isBipartite(graph: number[][]): boolean {
+    const n = graph.length;
+    let p = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
+    }
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    for (let u = 0; u < n; ++u) {
+        for (let v of graph[u]) {
+            if (find(u) == find(v)) {
+                return false;
+            }
+            p[find(v)] = find(graph[u][0]);
+        }
+    }
+    return true;
 }
 ```
 

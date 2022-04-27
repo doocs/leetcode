@@ -1,15 +1,18 @@
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
+        def dfs(u, c):
+            color[u] = c
+            for v in graph[u]:
+                if not color[v]:
+                    if not dfs(v, 3 - c):
+                        return False
+                elif color[v] == c:
+                    return False
+            return True
 
         n = len(graph)
-        p = list(range(n))
-        for u, g in enumerate(graph):
-            for v in g:
-                if find(u) == find(v):
-                    return False
-                p[find(v)] = find(g[0])
+        color = [0] * n
+        for i in range(n):
+            if not color[i] and not dfs(i, 1):
+                return False
         return True

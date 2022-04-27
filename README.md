@@ -118,6 +118,7 @@
 -   [最低成本联通所有城市](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md) - 最小生成树、Kruskal 算法、并查集
 -   [水资源分配优化](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md) - 最小生成树、Kruskal 算法、并查集
 -   [找到最小生成树里的关键边和伪关键边](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README.md) - 最小生成树、Kruskal 算法、并查集
+-   [判断二分图](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README.md) - 染色法判定二分图、并查集
 
 <!-- 待补充
 ### 6. 数学知识

@@ -1,25 +1,24 @@
 class Solution {
 public:
-    vector<int> p;
-
     bool isBipartite(vector<vector<int>>& graph) {
         int n = graph.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        for (int u = 0; u < n; ++u)
-        {
-            auto& g = graph[u];
-            for (int v : g)
-            {
-                if (find(u) == find(v)) return 0;
-                p[find(v)] = find(g[0]);
-            }
-        }
-        return 1;
+        vector<int> color(n);
+        for (int i = 0; i < n; ++i)
+            if (!color[i] && !dfs(i, 1, color, graph))
+                return false;
+        return true;
     }
 
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+    bool dfs(int u, int c, vector<int>& color, vector<vector<int>>& g) {
+        color[u] = c;
+        for (int& v : g[u])
+        {
+            if (!color[v])
+            {
+                if (!dfs(v, 3 - c, color, g)) return false;
+            }
+            else if (color[v] == c) return false;
+        }
+        return true;
     }
 };
