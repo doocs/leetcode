@@ -82,12 +82,7 @@ class Solution:
                     q2.append((i, j))
         bfs(q1, vis1)
         bfs(q2, vis2)
-        ans = []
-        for i in range(m):
-            for j in range(n):
-                if (i, j) in vis1 and (i, j) in vis2:
-                    ans.append((i, j))
-        return ans
+        return [(i, j) for i in range(m) for j in range(n) if (i, j) in vis1 and (i, j) in vis2]
 ```
 
 ### **Java**

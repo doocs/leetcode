@@ -124,6 +124,8 @@ d[find(a)] = distance
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+染色法：
+
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
@@ -145,6 +147,8 @@ class Solution:
         return True
 ```
 
+并查集：
+
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
@@ -165,6 +169,8 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+染色法：
 
 ```java
 class Solution {
@@ -199,6 +205,8 @@ class Solution {
 }
 ```
 
+并查集：
+
 ```java
 class Solution {
     private int[] p;
@@ -232,6 +240,8 @@ class Solution {
 
 ### **C++**
 
+染色法：
+
 ```cpp
 class Solution {
 public:
@@ -258,6 +268,8 @@ public:
     }
 };
 ```
+
+并查集：
 
 ```cpp
 class Solution {
@@ -289,6 +301,8 @@ public:
 
 ### **Go**
 
+染色法：
+
 ```go
 func isBipartite(graph [][]int) bool {
 	n := len(graph)
@@ -315,6 +329,8 @@ func isBipartite(graph [][]int) bool {
 	return true
 }
 ```
+
+并查集：
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -344,6 +360,8 @@ func isBipartite(graph [][]int) bool {
 
 ### **TypeScript**
 
+染色法：
+
 ```ts
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
@@ -372,6 +390,8 @@ function isBipartite(graph: number[][]): boolean {
     return valid;
 }
 ```
+
+并查集：
 
 ```ts
 function isBipartite(graph: number[][]): boolean {

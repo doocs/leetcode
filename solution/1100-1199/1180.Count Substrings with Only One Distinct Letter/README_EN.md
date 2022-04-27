@@ -42,13 +42,72 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countLetters(self, s: str) -> int:
+        n = len(s)
+        i = ans = 0
+        while i < n:
+            j = i
+            while j < n and s[j] == s[i]:
+                j += 1
+            ans += (1 + j - i) * (j - i) // 2
+            i = j
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countLetters(String s) {
+        int ans = 0;
+        for (int i = 0, n = s.length(); i < n;) {
+            int j = i;
+            while (j < n && s.charAt(j) == s.charAt(i)) {
+                ++j;
+            }
+            ans += (1 + j - i) * (j - i) / 2;
+            i = j;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countLetters(string s) {
+        int ans = 0;
+        for (int i = 0, n = s.size(); i < n;)
+        {
+            int j = i;
+            while (j < n && s[j] == s[i]) ++j;
+            ans += (1 + j - i) * (j - i) / 2;
+            i = j;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countLetters(s string) int {
+	ans := 0
+	for i, n := 0, len(s); i < n; {
+		j := i
+		for j < n && s[j] == s[i] {
+			j++
+		}
+		ans += (1 + j - i) * (j - i) / 2
+		i = j
+	}
+	return ans
+}
 ```
 
 ### **...**

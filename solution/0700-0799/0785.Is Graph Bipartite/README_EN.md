@@ -51,6 +51,8 @@
 
 ### **Python3**
 
+Graph coloring: 
+
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
@@ -72,6 +74,8 @@ class Solution:
         return True
 ```
 
+Union find:
+
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
@@ -90,6 +94,8 @@ class Solution:
 ```
 
 ### **Java**
+
+Graph coloring: 
 
 ```java
 class Solution {
@@ -124,6 +130,8 @@ class Solution {
 }
 ```
 
+Union find:
+
 ```java
 class Solution {
     private int[] p;
@@ -157,6 +165,8 @@ class Solution {
 
 ### **C++**
 
+Graph coloring: 
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +193,8 @@ public:
     }
 };
 ```
+
+Union find:
 
 ```cpp
 class Solution {
@@ -214,6 +226,8 @@ public:
 
 ### **Go**
 
+Graph coloring: 
+
 ```go
 func isBipartite(graph [][]int) bool {
 	n := len(graph)
@@ -240,6 +254,8 @@ func isBipartite(graph [][]int) bool {
 	return true
 }
 ```
+
+Union find:
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -269,6 +285,8 @@ func isBipartite(graph [][]int) bool {
 
 ### **TypeScript**
 
+Graph coloring: 
+
 ```ts
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
@@ -296,6 +314,8 @@ function isBipartite(graph: number[][]): boolean {
     return valid;
 }
 ```
+
+Union find:
 
 ```ts
 function isBipartite(graph: number[][]): boolean {
