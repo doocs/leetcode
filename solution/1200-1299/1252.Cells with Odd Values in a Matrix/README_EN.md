@@ -54,13 +54,90 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+        g = [[0] * n for _ in range(m)]
+        for r, c in indices:
+            for i in range(m):
+                g[i][c] += 1
+            for j in range(n):
+                g[r][j] += 1
+        return sum(g[i][j] % 2 for i in range(m) for j in range(n))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int oddCells(int m, int n, int[][] indices) {
+        int[][] g = new int[m][n];
+        for (int[] e : indices) {
+            int r = e[0], c = e[1];
+            for (int i = 0; i < m; ++i) {
+                ++g[i][c];
+            }
+            for (int j = 0; j < n; ++j) {
+                ++g[r][j];
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans += g[i][j] % 2;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int oddCells(int m, int n, vector<vector<int>>& indices) {
+        vector<vector<int>> g(m, vector<int>(n));
+        for (auto& e : indices)
+        {
+            int r = e[0], c = e[1];
+            for (int i = 0; i < m; ++i) ++g[i][c];
+            for (int j = 0; j < n; ++j) ++g[r][j];
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                ans += g[i][j] % 2;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func oddCells(m int, n int, indices [][]int) int {
+	g := make([][]int, m)
+	for i := range g {
+		g[i] = make([]int, n)
+	}
+	for _, e := range indices {
+		r, c := e[0], e[1]
+		for i := 0; i < m; i++ {
+			g[i][c]++
+		}
+		for j := 0; j < n; j++ {
+			g[r][j]++
+		}
+	}
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			ans += g[i][j] % 2
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
