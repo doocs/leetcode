@@ -57,7 +57,23 @@ nums[0] = [<em><strong>3</strong></em>,1,2,<em><strong>4</strong></em>,5]，nums
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<Integer> intersection(int[][] nums) {
+        int[] cnt = new int[1001];
+        for (int[] num : nums) {
+            for (int i : num) {
+                cnt[i]++;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 1; i <= 1000; i++) {
+            if (cnt[i] == nums.length) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
