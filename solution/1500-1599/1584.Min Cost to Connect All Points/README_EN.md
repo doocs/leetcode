@@ -75,30 +75,28 @@ class Solution:
 ```python
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
-        n = len(points)
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        edges = []
-        for i in range(n):
-            x1, y1 = points[i]
+        g = []
+        n = len(points)
+        for i, (x1, y1) in enumerate(points):
             for j in range(i + 1, n):
                 x2, y2 = points[j]
-                edges.append([abs(x1 - x2) + abs(y1 - y2), i, j])
-        edges.sort()
-        res = 0
-        for cost, i, j in edges:
+                g.append((abs(x1 - x2) + abs(y1 - y2), i, j))
+        g.sort()
+        p = list(range(n))
+        ans = 0
+        for cost, i, j in g:
             if find(i) == find(j):
                 continue
             p[find(i)] = find(j)
             n -= 1
-            res += cost
+            ans += cost
             if n == 1:
-                return res
+                return ans
         return 0
 ```
 
@@ -147,34 +145,35 @@ class Solution {
 ```java
 class Solution {
     private int[] p;
+
     public int minCostConnectPoints(int[][] points) {
         int n = points.length;
+        List<int[]> g = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                g.add(new int[]{Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
+            }
+        }
+        g.sort(Comparator.comparingInt(a -> a[0]));
         p = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        List<int[]> edges = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            int x1 = points[i][0], y1 = points[i][1];
-            for (int j =  i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                edges.add(new int[]{Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
-            }
-        }
-        edges.sort(Comparator.comparingInt(a -> a[0]));
-        int res = 0;
-        for (int[] e : edges) {
-            if (find(e[1]) == find(e[2])) {
+        int ans = 0;
+        for (int[] e : g) {
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) {
                 continue;
             }
-            p[find(e[1])] = find(e[2]);
-            --n;
-            res += e[0];
-            if (n == 1) {
-                break;
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) {
+                return ans;
             }
         }
-        return res;
+        return 0;
     }
 
     private int find(int x) {
@@ -237,29 +236,29 @@ public:
 
     int minCostConnectPoints(vector<vector<int>>& points) {
         int n = points.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        vector<vector<int>> edges;
+        vector<vector<int>> g;
         for (int i = 0; i < n; ++i)
         {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j)
             {
                 int x2 = points[j][0], y2 = points[j][1];
-                edges.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
+                g.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
             }
         }
-        sort(edges.begin(), edges.end());
-        int res = 0;
-        for (auto e : edges)
+        sort(g.begin(), g.end());
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        int ans = 0;
+        for (auto& e : g)
         {
-            if (find(e[1]) == find(e[2])) continue;
-            p[find(e[1])] = find(e[2]);
-            --n;
-            res += e[0];
-            if (n == 1) break;
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) continue;
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) return ans;
         }
-        return res;
+        return 0;
     }
 
     int find(int x) {
@@ -324,52 +323,51 @@ func abs(x int) int {
 ```
 
 ```go
-var p []int
-
 func minCostConnectPoints(points [][]int) int {
-    n := len(points)
-    p = make([]int, n)
-    for i := 0; i < n; i++ {
-        p[i] = i
-    }
-    var edges [][]int
-    for i := 0; i < n; i++ {
-        x1, y1 := points[i][0], points[i][1]
-        for j := i + 1; j < n; j++ {
-            x2, y2 := points[j][0], points[j][1]
-            edges = append(edges, []int{abs(x1 - x2) + abs(y1 - y2), i, j})
-        }
-    }
-    sort.Slice(edges, func(i, j int) bool {
-        return edges[i][0] < edges[j][0]
-    })
-    res := 0
-    for _, e := range edges {
-        if find(e[1]) == find(e[2]) {
-            continue
-        }
-        p[find(e[1])] = find(e[2])
-        n--
-        res += e[0]
-        if n == 1 {
-            break
-        }
-    }
-    return res
-}
-
-func find(x int) int {
-    if p[x] != x {
-        p[x] = find(p[x])
-    }
-    return p[x]
+	n := len(points)
+	var g [][]int
+	for i, p := range points {
+		x1, y1 := p[0], p[1]
+		for j := i + 1; j < n; j++ {
+			x2, y2 := points[j][0], points[j][1]
+			g = append(g, []int{abs(x1-x2) + abs(y1-y2), i, j})
+		}
+	}
+	sort.Slice(g, func(i, j int) bool {
+		return g[i][0] < g[j][0]
+	})
+	ans := 0
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for _, e := range g {
+		cost, i, j := e[0], e[1], e[2]
+		if find(i) == find(j) {
+			continue
+		}
+		p[find(i)] = find(j)
+		ans += cost
+		n--
+		if n == 1 {
+			return ans
+		}
+	}
+	return 0
 }
 
 func abs(x int) int {
-    if x > 0 {
-        return x
-    }
-    return -x
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 

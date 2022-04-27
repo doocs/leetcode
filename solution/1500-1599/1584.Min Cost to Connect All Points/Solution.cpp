@@ -4,29 +4,29 @@ public:
 
     int minCostConnectPoints(vector<vector<int>>& points) {
         int n = points.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        vector<vector<int>> edges;
+        vector<vector<int>> g;
         for (int i = 0; i < n; ++i)
         {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j)
             {
                 int x2 = points[j][0], y2 = points[j][1];
-                edges.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
+                g.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
             }
         }
-        sort(edges.begin(), edges.end());
-        int res = 0;
-        for (auto e : edges)
+        sort(g.begin(), g.end());
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        int ans = 0;
+        for (auto& e : g)
         {
-            if (find(e[1]) == find(e[2])) continue;
-            p[find(e[1])] = find(e[2]);
-            --n;
-            res += e[0];
-            if (n == 1) break;
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) continue;
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) return ans;
         }
-        return res;
+        return 0;
     }
 
     int find(int x) {
