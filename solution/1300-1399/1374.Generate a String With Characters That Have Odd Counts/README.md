@@ -51,7 +51,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def generateTheString(self, n: int) -> str:
+        return 'a' * n if n & 1 else 'a' * (n - 1) + 'b'
 ```
 
 ### **Java**
@@ -59,7 +61,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String generateTheString(int n) {
+        return (n % 2 == 1) ? "a".repeat(n) : "a".repeat(n - 1) + "b";
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string generateTheString(int n) {
+        string ans(n, 'a');
+        if (n % 2 == 0) ans[0] = 'b';
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func generateTheString(n int) string {
+	ans := strings.Repeat("a", n-1)
+	if n%2 == 0 {
+		ans += "b"
+	} else {
+		ans += "a"
+	}
+	return ans
+}
 ```
 
 ### **...**
