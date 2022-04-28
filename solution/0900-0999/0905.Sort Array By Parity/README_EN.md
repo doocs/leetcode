@@ -40,38 +40,33 @@
 
 ```python
 class Solution:
-    def sortArrayByParity(self, A: List[int]) -> List[int]:
-        i, j = 0, len(A) - 1
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        i, j = 0, len(nums) - 1
         while i < j:
-            if (A[i] & 1) > (A[j] & 1):
-                A[i], A[j] = A[j], A[i]
-            if A[i] & 1 == 0:
-                i += 1
-            if A[j] & 1 == 1:
+            if nums[i] & 1:
+                nums[i], nums[j] = nums[j], nums[i]
                 j -= 1
-        return A
+            else:
+                i += 1
+        return nums
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public int[] sortArrayByParity(int[] A) {
-        int i = 0, j = A.length - 1;
-        while (i < j) {
-            if ((A[i] & 1) > (A[j] & 1)) {
-                int t = A[i];
-                A[i] = A[j];
-                A[j] = t;
-            }
-            if ((A[i] & 1) == 0) {
+    public int[] sortArrayByParity(int[] nums) {
+        for (int i = 0, j = nums.length - 1; i < j;) {
+            if (nums[i] % 2 == 1) {
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
+                --j;
+            } else {
                 ++i;
             }
-            if ((A[j] & 1) == 1) {
-                --j;
-            }
         }
-        return A;
+        return nums;
     }
 }
 ```
@@ -80,26 +75,19 @@ class Solution {
 
 ```js
 /**
- * @param {number[]} A
+ * @param {number[]} nums
  * @return {number[]}
  */
-var sortArrayByParity = function (A) {
-    let i = 0;
-    let j = A.length - 1;
-    while (i < j) {
-        if ((A[i] & 1) > (A[j] & 1)) {
-            const t = A[i];
-            A[i] = A[j];
-            A[j] = t;
-        }
-        if ((A[i] & 1) == 0) {
+var sortArrayByParity = function (nums) {
+    for (let i = 0, j = nums.length - 1; i < j; ) {
+        if (nums[i] & 1) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            --j;
+        } else {
             ++i;
         }
-        if ((A[j] & 1) == 1) {
-            --j;
-        }
     }
-    return A;
+    return nums;
 };
 ```
 
@@ -120,6 +108,38 @@ impl Solution {
         }
         nums
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        for (int i = 0, j = nums.size() - 1; i < j;)
+        {
+            if (nums[i] & 1) swap(nums[i], nums[j--]);
+            else ++i;
+        }
+        return nums;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortArrayByParity(nums []int) []int {
+	for i, j := 0, len(nums)-1; i < j; {
+		if nums[i]%2 == 1 {
+			nums[i], nums[j] = nums[j], nums[i]
+			j--
+		} else {
+			i++
+		}
+	}
+	return nums
 }
 ```
 
