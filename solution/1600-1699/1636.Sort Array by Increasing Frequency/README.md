@@ -51,7 +51,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def frequencySort(self, nums: List[int]) -> List[int]:
+        cnt = Counter(nums)
+        cnt = sorted(cnt.items(), key=lambda x: (x[1], -x[0]))
+        ans = []
+        for v, freq in cnt:
+            ans.extend([v] * freq)
+        return ans
 ```
 
 ### **Java**
@@ -59,7 +66,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] frequencySort(int[] nums) {
+        int[] cnt = new int[201];
+        for (int v : nums) {
+            ++cnt[v + 100];
+        }
+        List<int[]> t = new ArrayList<>();
+        for (int i = 0; i < cnt.length; ++i) {
+            if (cnt[i] > 0) {
+                t.add(new int[]{cnt[i], i});
+            }
+        }
+        t.sort((a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+        int[] ans = new int[nums.length];
+        int i = 0;
+        for (int[] e : t) {
+            for (int j = 0; j < e[0]; ++j) {
+                ans[i++] = e[1] - 100;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> frequencySort(vector<int>& nums) {
+        vector<int> cnt(201);
+        for (int& v : nums) ++cnt[v + 100];
+        vector<vector<int>> t;
+        for (int i = 0; i < cnt.size(); ++i)
+            if (cnt[i])
+                t.push_back({cnt[i], -i});
+        sort(t.begin(), t.end());
+        vector<int> ans;
+        for (auto& e : t)
+            for (int j = 0; j < e[0]; ++j)
+                ans.push_back(-e[1] - 100);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func frequencySort(nums []int) []int {
+	cnt := make([]int, 201)
+	for _, v := range nums {
+		cnt[v+100]++
+	}
+	var t [][]int
+	for i, v := range cnt {
+		if v > 0 {
+			t = append(t, []int{v, i})
+		}
+	}
+	sort.Slice(t, func(i, j int) bool {
+		if t[i][0] == t[j][0] {
+			return t[i][1] > t[j][1]
+		}
+		return t[i][0] < t[j][0]
+	})
+	var ans []int
+	for _, e := range t {
+		for i := 0; i < e[0]; i++ {
+			ans = append(ans, e[1]-100)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
