@@ -61,7 +61,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def smallestRangeI(self, nums: List[int], k: int) -> int:
+        mx, mi = max(nums), min(nums)
+        return max(0, mx - mi - k * 2)
 ```
 
 ### **Java**
@@ -69,7 +72,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int smallestRangeI(int[] nums, int k) {
+        int mx = 0;
+        int mi = 10000;
+        for (int v : nums) {
+            mx = Math.max(mx, v);
+            mi = Math.min(mi, v);
+        }
+        return Math.max(0, mx - mi - k * 2);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestRangeI(vector<int>& nums, int k) {
+        int mx = *max_element(nums.begin(), nums.end());
+        int mi = *min_element(nums.begin(), nums.end());
+        return max(0, mx - mi - k * 2);
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestRangeI(nums []int, k int) int {
+	mx, mi := 0, 10000
+	for _, v := range nums {
+		mx = max(mx, v)
+		mi = min(mi, v)
+	}
+	return max(0, mx-mi-k*2)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
