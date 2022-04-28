@@ -58,7 +58,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        stk = []
+        for c in s:
+            if c == '(':
+                stk.append(c)
+            else:
+                if stk and stk[-1] == '(':
+                    stk.pop()
+                else:
+                    stk.append(c)
+        return len(stk)
 ```
 
 ### **Java**
@@ -66,7 +77,66 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minAddToMakeValid(String s) {
+        Deque<Character> stk = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                stk.push(c);
+            } else {
+                if (!stk.isEmpty() && stk.peek() == '(') {
+                    stk.pop();
+                } else {
+                    stk.push(c);
+                }
+            }
+        }
+        return stk.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minAddToMakeValid(string s) {
+        stack<char> stk;
+        for (char& c: s)
+        {
+            if (c == '(') stk.push(c);
+            else
+            {
+                if (!stk.empty() && stk.top() == '(') {
+                    stk.pop();
+                }
+                else stk.push(c);
+            }
+        }
+        return stk.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func minAddToMakeValid(s string) int {
+	var stk []rune
+	for _, c := range s {
+		if c == '(' {
+			stk = append(stk, c)
+		} else {
+			if len(stk) > 0 && stk[len(stk)-1] == '(' {
+				stk = stk[:len(stk)-1]
+			} else {
+				stk = append(stk, c)
+			}
+		}
+	}
+	return len(stk)
+}
 ```
 
 ### **...**

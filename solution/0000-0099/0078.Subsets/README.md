@@ -140,7 +140,7 @@ func subsets(nums []int) [][]int {
 }
 ```
 
-### **Rust1**
+### **Rust**
 
 ```rust
 impl Solution {
