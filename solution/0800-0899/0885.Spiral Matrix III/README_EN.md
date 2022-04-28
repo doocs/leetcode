@@ -41,13 +41,114 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def spiralMatrixIII(self, rows: int, cols: int, rStart: int, cStart: int) -> List[List[int]]:
+        ans = [[rStart, cStart]]
+        if rows * cols == 1:
+            return ans
+        k = 1
+        while True:
+            for dr, dc, dk in [[0, 1, k], [1, 0, k], [0, -1, k + 1], [-1, 0, k + 1]]:
+                for _ in range(dk):
+                    rStart += dr
+                    cStart += dc
+                    if 0 <= rStart < rows and 0 <= cStart < cols:
+                        ans.append([rStart, cStart])
+                        if len(ans) == rows * cols:
+                            return ans
+            k += 2
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[][] spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
+        int cnt = rows * cols;
+        int[][] ans = new int[cnt][2];
+        ans[0] = new int[]{rStart, cStart};
+        if (cnt == 1) {
+            return ans;
+        }
+        for (int k = 1, idx = 1;; k += 2) {
+            int[][] dirs = new int[][]{{0, 1, k}, {1, 0, k}, {0, -1, k + 1}, {-1, 0, k + 1}};
+            for (int[] dir : dirs) {
+                int r = dir[0], c = dir[1], dk = dir[2];
+                while (dk-- > 0) {
+                    rStart += r;
+                    cStart += c;
+                    if (rStart >= 0 && rStart < rows && cStart >= 0 && cStart < cols) {
+                        ans[idx++] = new int[]{rStart, cStart};
+                        if (idx == cnt) {
+                            return ans;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
+        int cnt = rows * cols;
+        vector<vector<int>> ans;
+        ans.push_back({rStart, cStart});
+        if (cnt == 1) return ans;
+        for (int k = 1;; k += 2)
+        {
+            vector<vector<int>> dirs = {{0, 1, k}, {1, 0, k}, {0, -1, k + 1}, {-1, 0, k + 1}};
+            for (auto& dir : dirs)
+            {
+                int r = dir[0], c = dir[1], dk = dir[2];
+                while (dk-- > 0)
+                {
+                    rStart += r;
+                    cStart += c;
+                    if (rStart >= 0 && rStart < rows && cStart >= 0 && cStart < cols)
+                    {
+                        ans.push_back({rStart, cStart});
+                        if (ans.size() == cnt) return ans;
+                    }
+                }
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func spiralMatrixIII(rows int, cols int, rStart int, cStart int) [][]int {
+	cnt := rows * cols
+	ans := [][]int{[]int{rStart, cStart}}
+	if cnt == 1 {
+		return ans
+	}
+	for k := 1; ; k += 2 {
+		dirs := [][]int{{0, 1, k}, {1, 0, k}, {0, -1, k + 1}, {-1, 0, k + 1}}
+		for _, dir := range dirs {
+			r, c, dk := dir[0], dir[1], dir[2]
+			for dk > 0 {
+				rStart += r
+				cStart += c
+				if rStart >= 0 && rStart < rows && cStart >= 0 && cStart < cols {
+					ans = append(ans, []int{rStart, cStart})
+					if len(ans) == cnt {
+						return ans
+					}
+				}
+				dk--
+			}
+		}
+	}
+}
 ```
 
 ### **...**
