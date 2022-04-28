@@ -46,13 +46,102 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def numTilePossibilities(self, tiles: str) -> int:
+        def dfs():
+            ans = 0
+            for i in range(26):
+                if cnt[i]:
+                    ans += 1
+                    cnt[i] -= 1
+                    ans += dfs()
+                    cnt[i] += 1
+            return ans
 
+        cnt = [0] * 26
+        for t in tiles:
+            cnt[ord(t) - ord('A')] += 1
+        return dfs()
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numTilePossibilities(String tiles) {
+        int[] cnt = new int[26];
+        for (char c : tiles.toCharArray()) {
+            ++cnt[c - 'A'];
+        }
+        return dfs(cnt);
+    }
 
+    private int dfs(int[] cnt) {
+        int res = 0;
+        for (int i = 0; i < cnt.length; ++i) {
+            if (cnt[i] > 0) {
+                ++res;
+                --cnt[i];
+                res += dfs(cnt);
+                ++cnt[i];
+            }
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numTilePossibilities(string tiles) {
+        vector<int> cnt(26);
+        for (char& c : tiles) ++cnt[c - 'A'];
+        return dfs(cnt);
+    }
+
+    int dfs(vector<int>& cnt) {
+        int res = 0;
+        for (int i = 0; i < 26; ++i)
+        {
+            if (cnt[i])
+            {
+                --cnt[i];
+                ++res;
+                res += dfs(cnt);
+                ++cnt[i];
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numTilePossibilities(tiles string) int {
+	cnt := make([]int, 26)
+	for _, c := range tiles {
+		cnt[c-'A']++
+	}
+	var dfs func() int
+	dfs = func() int {
+		res := 0
+		for i := 0; i < 26; i++ {
+			if cnt[i] > 0 {
+				res++
+				cnt[i]--
+				res += dfs()
+				cnt[i]++
+			}
+		}
+		return res
+	}
+	return dfs()
+}
 ```
 
 ### **...**
