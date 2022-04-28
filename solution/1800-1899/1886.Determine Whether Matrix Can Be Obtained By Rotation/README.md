@@ -49,7 +49,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-旋转矩阵，判断矩阵是否一致。
+方法一：模拟旋转
+
+旋转矩阵，判断矩阵是否一致，旋转方式同 [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/)。
+
+方法二：原地比较
+
+此题不同于 [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/)，并不要求改动原数组，因此，只要比较对应的位置即可。
+
+| 旋转度数 | A      | B              |
+| -------- | ------ | -------------- |
+| 0        | `i, j` | `i, j`         |
+| 90       | `i, j` | `j, n - i`     |
+| 180      | `i, j` | `n - i, n - j` |
+| 270      | `i, j` | `n - j, i`     |
+
+> `n = A.length - 1 = B.length - 1`
 
 <!-- tabs:start -->
 
@@ -116,6 +131,79 @@ class Solution {
             }
         }
         return true;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function findRotation(mat: number[][], target: number[][]): boolean {
+    for (let k = 0; k < 4; k++) {
+        rotate(mat);
+        if (isEqual(mat, target)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function isEqual(A: number[][], B: number[][]) {
+    const n = A.length;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (A[i][j] !== B[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function rotate(matrix: number[][]): void {
+    const n = matrix.length;
+    for (let i = 0; i < n >> 1; i++) {
+        for (let j = 0; j < (n + 1) >> 1; j++) {
+            [
+                matrix[i][j],
+                matrix[n - 1 - j][i],
+                matrix[n - 1 - i][n - 1 - j],
+                matrix[j][n - 1 - i],
+            ] = [
+                matrix[n - 1 - j][i],
+                matrix[n - 1 - i][n - 1 - j],
+                matrix[j][n - 1 - i],
+                matrix[i][j],
+            ];
+        }
+    }
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_rotation(mat: Vec<Vec<i32>>, target: Vec<Vec<i32>>) -> bool {
+        let n = mat.len();
+        let mut is_equal = [true; 4];
+        for i in 0..n {
+            for j in 0..n {
+                if is_equal[0] && mat[i][j] != target[i][j] {
+                    is_equal[0] = false;
+                }
+                if is_equal[1] && mat[i][j] != target[j][n - 1 - i] {
+                    is_equal[1] = false;
+                }
+                if is_equal[2] && mat[i][j] != target[n - 1 - i][n - 1 - j] {
+                    is_equal[2] = false;
+                }
+                if is_equal[3] && mat[i][j] != target[n - 1 - j][i] {
+                    is_equal[3] = false;
+                }
+            }
+        }
+        is_equal.into_iter().any(|&v| v)
     }
 }
 ```
