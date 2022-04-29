@@ -44,13 +44,19 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countOdds(self, low: int, high: int) -> int:
+        return ((high + 1) >> 1) - (low >> 1)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int countOdds(int low, int high) {
+        return ((high + 1) >> 1) - (low >> 1);
+    }
+}
 ```
 
 ### **Rust**
@@ -58,8 +64,27 @@
 ```rust
 impl Solution {
     pub fn count_odds(low: i32, high: i32) -> i32 {
-        (high - low) / 2 + if low & 1 == 1 || high & 1 == 1 { 1 } else { 0 }
+        ((high + 1) >> 1) - (low >> 1)
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countOdds(int low, int high) {
+        return (high + 1 >> 1) - (low >> 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func countOdds(low int, high int) int {
+	return ((high + 1) >> 1) - (low >> 1)
 }
 ```
 

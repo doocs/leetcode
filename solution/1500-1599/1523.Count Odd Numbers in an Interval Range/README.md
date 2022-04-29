@@ -34,7 +34,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-计算 `low` 与 `high` 之间的差值，折半得解。由于包括边界在内，两个边界数有一个为奇数，那么需要对折半结果 + 1。
+**方法一：前缀和思想**
+
+`[0, x]` 之间的奇数个数为 `(x + 1) >> 1`，那么 `[low, high]` 之间的奇数个数为 `((high + 1) >> 1) - (low >> 1)`。
 
 <!-- tabs:start -->
 
@@ -43,7 +45,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countOdds(self, low: int, high: int) -> int:
+        return ((high + 1) >> 1) - (low >> 1)
 ```
 
 ### **Java**
@@ -51,7 +55,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countOdds(int low, int high) {
+        return ((high + 1) >> 1) - (low >> 1);
+    }
+}
 ```
 
 ### **Rust**
@@ -59,8 +67,27 @@
 ```rust
 impl Solution {
     pub fn count_odds(low: i32, high: i32) -> i32 {
-        (high - low) / 2 + if low & 1 == 1 || high & 1 == 1 { 1 } else { 0 }
+        ((high + 1) >> 1) - (low >> 1)
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countOdds(int low, int high) {
+        return (high + 1 >> 1) - (low >> 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func countOdds(low int, high int) int {
+	return ((high + 1) >> 1) - (low >> 1)
 }
 ```
 
