@@ -1,4 +1,4 @@
-# [1791. 找出星型图的中心节点](https://leetcode-cn.com/problems/find-center-of-star-graph)
+# [1791. 找出星型图的中心节点](https://leetcode.cn/problems/find-center-of-star-graph)
 
 [English Version](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1484. 按日期分组销售产品](https://leetcode-cn.com/problems/group-sold-products-by-the-date)
+# [1484. 按日期分组销售产品](https://leetcode.cn/problems/group-sold-products-by-the-date)
 
 [English Version](/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README_EN.md)
 

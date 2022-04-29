@@ -1,4 +1,4 @@
-# [705. 设计哈希集合](https://leetcode-cn.com/problems/design-hashset)
+# [705. 设计哈希集合](https://leetcode.cn/problems/design-hashset)
 
 [English Version](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
 

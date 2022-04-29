@@ -1,4 +1,4 @@
-# [1556. 千位分隔数](https://leetcode-cn.com/problems/thousand-separator)
+# [1556. 千位分隔数](https://leetcode.cn/problems/thousand-separator)
 
 [English Version](/solution/1500-1599/1556.Thousand%20Separator/README_EN.md)
 

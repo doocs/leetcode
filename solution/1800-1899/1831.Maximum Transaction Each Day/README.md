@@ -1,4 +1,4 @@
-# [1831. 每天的最大交易](https://leetcode-cn.com/problems/maximum-transaction-each-day)
+# [1831. 每天的最大交易](https://leetcode.cn/problems/maximum-transaction-each-day)
 
 [English Version](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README_EN.md)
 

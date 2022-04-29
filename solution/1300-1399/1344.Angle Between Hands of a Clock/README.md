@@ -1,4 +1,4 @@
-# [1344. 时钟指针的夹角](https://leetcode-cn.com/problems/angle-between-hands-of-a-clock)
+# [1344. 时钟指针的夹角](https://leetcode.cn/problems/angle-between-hands-of-a-clock)
 
 [English Version](/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README_EN.md)
 

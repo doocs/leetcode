@@ -1,4 +1,4 @@
-# [1766. 互质树](https://leetcode-cn.com/problems/tree-of-coprimes)
+# [1766. 互质树](https://leetcode.cn/problems/tree-of-coprimes)
 
 [English Version](/solution/1700-1799/1766.Tree%20of%20Coprimes/README_EN.md)
 

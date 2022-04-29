@@ -1,4 +1,4 @@
-# [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii)
+# [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii)
 
 [English Version](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
 

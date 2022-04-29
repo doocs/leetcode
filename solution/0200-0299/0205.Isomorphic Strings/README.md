@@ -1,4 +1,4 @@
-# [205. 同构字符串](https://leetcode-cn.com/problems/isomorphic-strings)
+# [205. 同构字符串](https://leetcode.cn/problems/isomorphic-strings)
 
 [English Version](/solution/0200-0299/0205.Isomorphic%20Strings/README_EN.md)
 

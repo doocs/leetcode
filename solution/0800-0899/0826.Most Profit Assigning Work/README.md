@@ -1,4 +1,4 @@
-# [826. 安排工作以达到最大收益](https://leetcode-cn.com/problems/most-profit-assigning-work)
+# [826. 安排工作以达到最大收益](https://leetcode.cn/problems/most-profit-assigning-work)
 
 [English Version](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README_EN.md)
 

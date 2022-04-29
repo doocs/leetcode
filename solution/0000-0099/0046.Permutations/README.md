@@ -1,4 +1,4 @@
-# [46. 全排列](https://leetcode-cn.com/problems/permutations)
+# [46. 全排列](https://leetcode.cn/problems/permutations)
 
 [English Version](/solution/0000-0099/0046.Permutations/README_EN.md)
 

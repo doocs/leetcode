@@ -1,4 +1,4 @@
-# [709. 转换成小写字母](https://leetcode-cn.com/problems/to-lower-case)
+# [709. 转换成小写字母](https://leetcode.cn/problems/to-lower-case)
 
 [English Version](/solution/0700-0799/0709.To%20Lower%20Case/README_EN.md)
 

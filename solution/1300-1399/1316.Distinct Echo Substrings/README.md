@@ -1,4 +1,4 @@
-# [1316. 不同的循环子字符串](https://leetcode-cn.com/problems/distinct-echo-substrings)
+# [1316. 不同的循环子字符串](https://leetcode.cn/problems/distinct-echo-substrings)
 
 [English Version](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md)
 

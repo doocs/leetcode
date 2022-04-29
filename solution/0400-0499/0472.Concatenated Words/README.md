@@ -1,4 +1,4 @@
-# [472. 连接词](https://leetcode-cn.com/problems/concatenated-words)
+# [472. 连接词](https://leetcode.cn/problems/concatenated-words)
 
 [English Version](/solution/0400-0499/0472.Concatenated%20Words/README_EN.md)
 

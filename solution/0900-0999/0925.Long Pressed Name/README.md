@@ -1,4 +1,4 @@
-# [925. 长按键入](https://leetcode-cn.com/problems/long-pressed-name)
+# [925. 长按键入](https://leetcode.cn/problems/long-pressed-name)
 
 [English Version](/solution/0900-0999/0925.Long%20Pressed%20Name/README_EN.md)
 

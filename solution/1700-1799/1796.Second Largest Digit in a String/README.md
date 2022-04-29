@@ -1,4 +1,4 @@
-# [1796. 字符串中第二大的数字](https://leetcode-cn.com/problems/second-largest-digit-in-a-string)
+# [1796. 字符串中第二大的数字](https://leetcode.cn/problems/second-largest-digit-in-a-string)
 
 [English Version](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README_EN.md)
 

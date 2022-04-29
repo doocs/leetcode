@@ -1,4 +1,4 @@
-# [999. 可以被一步捕获的棋子数](https://leetcode-cn.com/problems/available-captures-for-rook)
+# [999. 可以被一步捕获的棋子数](https://leetcode.cn/problems/available-captures-for-rook)
 
 [English Version](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README_EN.md)
 

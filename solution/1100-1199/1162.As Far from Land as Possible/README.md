@@ -1,4 +1,4 @@
-# [1162. 地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible)
+# [1162. 地图分析](https://leetcode.cn/problems/as-far-from-land-as-possible)
 
 [English Version](/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README_EN.md)
 

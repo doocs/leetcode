@@ -1,4 +1,4 @@
-# [1172. 餐盘栈](https://leetcode-cn.com/problems/dinner-plate-stacks)
+# [1172. 餐盘栈](https://leetcode.cn/problems/dinner-plate-stacks)
 
 [English Version](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md)
 

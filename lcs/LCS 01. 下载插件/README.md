@@ -1,4 +1,4 @@
-# [LCS 01. 下载插件](https://leetcode-cn.com/problems/Ju9Xwi/)
+# [LCS 01. 下载插件](https://leetcode.cn/problems/Ju9Xwi/)
 
 ## 题目描述
 

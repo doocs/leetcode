@@ -1,4 +1,4 @@
-# [681. 最近时刻](https://leetcode-cn.com/problems/next-closest-time)
+# [681. 最近时刻](https://leetcode.cn/problems/next-closest-time)
 
 [English Version](/solution/0600-0699/0681.Next%20Closest%20Time/README_EN.md)
 

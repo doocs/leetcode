@@ -1,4 +1,4 @@
-# [174. 地下城游戏](https://leetcode-cn.com/problems/dungeon-game)
+# [174. 地下城游戏](https://leetcode.cn/problems/dungeon-game)
 
 [English Version](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)
 

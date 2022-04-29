@@ -1,4 +1,4 @@
-# [923. 三数之和的多种可能](https://leetcode-cn.com/problems/3sum-with-multiplicity)
+# [923. 三数之和的多种可能](https://leetcode.cn/problems/3sum-with-multiplicity)
 
 [English Version](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README_EN.md)
 

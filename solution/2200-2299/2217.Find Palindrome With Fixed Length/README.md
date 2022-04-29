@@ -1,4 +1,4 @@
-# [2217. 找到指定长度的回文数](https://leetcode-cn.com/problems/find-palindrome-with-fixed-length)
+# [2217. 找到指定长度的回文数](https://leetcode.cn/problems/find-palindrome-with-fixed-length)
 
 [English Version](/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README_EN.md)
 

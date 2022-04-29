@@ -1,4 +1,4 @@
-# [面试题 64. 求 1+2+…+n](https://leetcode-cn.com/problems/qiu-12n-lcof/)
+# [面试题 64. 求 1+2+…+n](https://leetcode.cn/problems/qiu-12n-lcof/)
 
 ## 题目描述
 

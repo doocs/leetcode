@@ -1,4 +1,4 @@
-# [1854. 人口最多的年份](https://leetcode-cn.com/problems/maximum-population-year)
+# [1854. 人口最多的年份](https://leetcode.cn/problems/maximum-population-year)
 
 [English Version](/solution/1800-1899/1854.Maximum%20Population%20Year/README_EN.md)
 

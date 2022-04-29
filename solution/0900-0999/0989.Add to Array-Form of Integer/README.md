@@ -1,4 +1,4 @@
-# [989. 数组形式的整数加法](https://leetcode-cn.com/problems/add-to-array-form-of-integer)
+# [989. 数组形式的整数加法](https://leetcode.cn/problems/add-to-array-form-of-integer)
 
 [English Version](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator)
+# [341. 扁平化嵌套列表迭代器](https://leetcode.cn/problems/flatten-nested-list-iterator)
 
 [English Version](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [面试题 08.11. 硬币](https://leetcode-cn.com/problems/coin-lcci)
+# [面试题 08.11. 硬币](https://leetcode.cn/problems/coin-lcci)
 
 [English Version](/lcci/08.11.Coin/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2182. 构造限制重复的字符串](https://leetcode-cn.com/problems/construct-string-with-repeat-limit)
+# [2182. 构造限制重复的字符串](https://leetcode.cn/problems/construct-string-with-repeat-limit)
 
 [English Version](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README_EN.md)
 

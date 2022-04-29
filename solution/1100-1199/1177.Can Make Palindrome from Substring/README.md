@@ -1,4 +1,4 @@
-# [1177. 构建回文串检测](https://leetcode-cn.com/problems/can-make-palindrome-from-substring)
+# [1177. 构建回文串检测](https://leetcode.cn/problems/can-make-palindrome-from-substring)
 
 [English Version](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md)
 

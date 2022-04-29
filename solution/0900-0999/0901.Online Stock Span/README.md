@@ -1,4 +1,4 @@
-# [901. 股票价格跨度](https://leetcode-cn.com/problems/online-stock-span)
+# [901. 股票价格跨度](https://leetcode.cn/problems/online-stock-span)
 
 [English Version](/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md)
 

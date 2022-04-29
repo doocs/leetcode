@@ -1,4 +1,4 @@
-# [1694. 重新格式化电话号码](https://leetcode-cn.com/problems/reformat-phone-number)
+# [1694. 重新格式化电话号码](https://leetcode.cn/problems/reformat-phone-number)
 
 [English Version](/solution/1600-1699/1694.Reformat%20Phone%20Number/README_EN.md)
 

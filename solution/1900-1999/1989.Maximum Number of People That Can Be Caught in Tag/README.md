@@ -1,4 +1,4 @@
-# [1989. Maximum Number of People That Can Be Caught in Tag](https://leetcode-cn.com/problems/maximum-number-of-people-that-can-be-caught-in-tag)
+# [1989. Maximum Number of People That Can Be Caught in Tag](https://leetcode.cn/problems/maximum-number-of-people-that-can-be-caught-in-tag)
 
 [English Version](/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [17.05. Find Longest Subarray](https://leetcode-cn.com/problems/find-longest-subarray-lcci)
+# [17.05. Find Longest Subarray](https://leetcode.cn/problems/find-longest-subarray-lcci)
 
 [中文文档](/lcci/17.05.Find%20Longest%20Subarray/README.md)
 

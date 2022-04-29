@@ -1,4 +1,4 @@
-# [面试题 01.05. 一次编辑](https://leetcode-cn.com/problems/one-away-lcci)
+# [面试题 01.05. 一次编辑](https://leetcode.cn/problems/one-away-lcci)
 
 [English Version](/lcci/01.05.One%20Away/README_EN.md)
 
@@ -148,7 +148,7 @@ public:
 
 ### **Go**
 
-可以直接扩展成[编辑距离](https://leetcode-cn.com/problems/edit-distance/)问题的解法
+可以直接扩展成[编辑距离](https://leetcode.cn/problems/edit-distance/)问题的解法
 
 ```go
 func oneEditAway(first string, second string) bool {

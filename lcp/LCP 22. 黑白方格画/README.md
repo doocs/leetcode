@@ -1,4 +1,4 @@
-# [LCP 22. 黑白方格画](https://leetcode-cn.com/problems/ccw6C7)
+# [LCP 22. 黑白方格画](https://leetcode.cn/problems/ccw6C7)
 
 ## 题目描述
 

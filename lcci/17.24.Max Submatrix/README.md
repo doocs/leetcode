@@ -1,4 +1,4 @@
-# [面试题 17.24. 最大子矩阵](https://leetcode-cn.com/problems/max-submatrix-lcci)
+# [面试题 17.24. 最大子矩阵](https://leetcode.cn/problems/max-submatrix-lcci)
 
 [English Version](/lcci/17.24.Max%20Submatrix/README_EN.md)
 

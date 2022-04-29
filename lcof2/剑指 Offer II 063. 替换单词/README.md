@@ -1,4 +1,4 @@
-# [剑指 Offer II 063. 替换单词](https://leetcode-cn.com/problems/UhWRSj)
+# [剑指 Offer II 063. 替换单词](https://leetcode.cn/problems/UhWRSj)
 
 ## 题目描述
 
@@ -65,7 +65,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 648&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/replace-words/">https://leetcode-cn.com/problems/replace-words/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 648&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/replace-words/">https://leetcode.cn/problems/replace-words/</a></p>
 
 ## 解法
 

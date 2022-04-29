@@ -1,4 +1,4 @@
-# [933. 最近的请求次数](https://leetcode-cn.com/problems/number-of-recent-calls)
+# [933. 最近的请求次数](https://leetcode.cn/problems/number-of-recent-calls)
 
 [English Version](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
 

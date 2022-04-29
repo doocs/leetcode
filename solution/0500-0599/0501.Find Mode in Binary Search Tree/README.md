@@ -1,4 +1,4 @@
-# [501. 二叉搜索树中的众数](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree)
+# [501. 二叉搜索树中的众数](https://leetcode.cn/problems/find-mode-in-binary-search-tree)
 
 [English Version](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README_EN.md)
 

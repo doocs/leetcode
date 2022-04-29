@@ -1,4 +1,4 @@
-# [1104. 二叉树寻路](https://leetcode-cn.com/problems/path-in-zigzag-labelled-binary-tree)
+# [1104. 二叉树寻路](https://leetcode.cn/problems/path-in-zigzag-labelled-binary-tree)
 
 [English Version](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README_EN.md)
 

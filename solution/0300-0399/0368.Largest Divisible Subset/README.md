@@ -1,4 +1,4 @@
-# [368. 最大整除子集](https://leetcode-cn.com/problems/largest-divisible-subset)
+# [368. 最大整除子集](https://leetcode.cn/problems/largest-divisible-subset)
 
 [English Version](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README_EN.md)
 

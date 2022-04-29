@@ -1,4 +1,4 @@
-# [1822. 数组元素积的符号](https://leetcode-cn.com/problems/sign-of-the-product-of-an-array)
+# [1822. 数组元素积的符号](https://leetcode.cn/problems/sign-of-the-product-of-an-array)
 
 [English Version](/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [577. 员工奖金](https://leetcode-cn.com/problems/employee-bonus)
+# [577. 员工奖金](https://leetcode.cn/problems/employee-bonus)
 
 [English Version](/solution/0500-0599/0577.Employee%20Bonus/README_EN.md)
 

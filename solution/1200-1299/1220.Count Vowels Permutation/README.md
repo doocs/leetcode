@@ -1,4 +1,4 @@
-# [1220. 统计元音字母序列的数目](https://leetcode-cn.com/problems/count-vowels-permutation)
+# [1220. 统计元音字母序列的数目](https://leetcode.cn/problems/count-vowels-permutation)
 
 [English Version](/solution/1200-1299/1220.Count%20Vowels%20Permutation/README_EN.md)
 

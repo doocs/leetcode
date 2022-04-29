@@ -1,4 +1,4 @@
-# [剑指 Offer II 054. 所有大于等于节点的值之和](https://leetcode-cn.com/problems/w6cpku)
+# [剑指 Offer II 054. 所有大于等于节点的值之和](https://leetcode.cn/problems/w6cpku)
 
 ## 题目描述
 
@@ -64,8 +64,8 @@
 <p><meta charset="UTF-8" />注意：</p>
 
 <ul>
-	<li>本题与主站 538&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/convert-bst-to-greater-tree/">https://leetcode-cn.com/problems/convert-bst-to-greater-tree/</a></li>
-	<li>本题与主站 1038&nbsp;题相同：<a href="https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/">https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/</a></li>
+	<li>本题与主站 538&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/convert-bst-to-greater-tree/">https://leetcode.cn/problems/convert-bst-to-greater-tree/</a></li>
+	<li>本题与主站 1038&nbsp;题相同：<a href="https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/">https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/</a></li>
 </ul>
 
 ## 解法

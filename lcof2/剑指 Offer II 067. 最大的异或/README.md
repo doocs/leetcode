@@ -1,4 +1,4 @@
-# [剑指 Offer II 067. 最大的异或](https://leetcode-cn.com/problems/ms70jA)
+# [剑指 Offer II 067. 最大的异或](https://leetcode.cn/problems/ms70jA)
 
 ## 题目描述
 
@@ -62,7 +62,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 421&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/">https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 421&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/">https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/</a></p>
 
 ## 解法
 

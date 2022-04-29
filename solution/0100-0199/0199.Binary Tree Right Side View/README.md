@@ -1,4 +1,4 @@
-# [199. 二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view)
+# [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view)
 
 [English Version](/solution/0100-0199/0199.Binary%20Tree%20Right%20Side%20View/README_EN.md)
 

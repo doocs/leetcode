@@ -1,4 +1,4 @@
-# [1978. Employees Whose Manager Left the Company](https://leetcode-cn.com/problems/employees-whose-manager-left-the-company)
+# [1978. Employees Whose Manager Left the Company](https://leetcode.cn/problems/employees-whose-manager-left-the-company)
 
 [English Version](/solution/1900-1999/1978.Employees%20Whose%20Manager%20Left%20the%20Company/README_EN.md)
 

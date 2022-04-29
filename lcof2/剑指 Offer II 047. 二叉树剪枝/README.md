@@ -1,4 +1,4 @@
-# [剑指 Offer II 047. 二叉树剪枝](https://leetcode-cn.com/problems/pOCWxh)
+# [剑指 Offer II 047. 二叉树剪枝](https://leetcode.cn/problems/pOCWxh)
 
 ## 题目描述
 
@@ -53,7 +53,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 814&nbsp;题相同：<a href="https://leetcode-cn.com/problems/binary-tree-pruning/">https://leetcode-cn.com/problems/binary-tree-pruning/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 814&nbsp;题相同：<a href="https://leetcode.cn/problems/binary-tree-pruning/">https://leetcode.cn/problems/binary-tree-pruning/</a></p>
 
 ## 解法
 

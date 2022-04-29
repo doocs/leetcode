@@ -1,4 +1,4 @@
-# [758. 字符串中的加粗单词](https://leetcode-cn.com/problems/bold-words-in-string)
+# [758. 字符串中的加粗单词](https://leetcode.cn/problems/bold-words-in-string)
 
 [English Version](/solution/0700-0799/0758.Bold%20Words%20in%20String/README_EN.md)
 
@@ -40,7 +40,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>注：</strong>此题与「616 - 给字符串添加加粗标签」相同 - <a href="https://leetcode-cn.com/problems/add-bold-tag-in-string/">https://leetcode-cn.com/problems/add-bold-tag-in-string/</a></p>
+<p><strong>注：</strong>此题与「616 - 给字符串添加加粗标签」相同 - <a href="https://leetcode.cn/problems/add-bold-tag-in-string/">https://leetcode.cn/problems/add-bold-tag-in-string/</a></p>
 
 ## 解法
 

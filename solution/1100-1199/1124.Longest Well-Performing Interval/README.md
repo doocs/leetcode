@@ -1,4 +1,4 @@
-# [1124. 表现良好的最长时间段](https://leetcode-cn.com/problems/longest-well-performing-interval)
+# [1124. 表现良好的最长时间段](https://leetcode.cn/problems/longest-well-performing-interval)
 
 [English Version](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README_EN.md)
 

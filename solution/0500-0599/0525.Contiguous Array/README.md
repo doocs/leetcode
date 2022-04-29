@@ -1,4 +1,4 @@
-# [525. 连续数组](https://leetcode-cn.com/problems/contiguous-array)
+# [525. 连续数组](https://leetcode.cn/problems/contiguous-array)
 
 [English Version](/solution/0500-0599/0525.Contiguous%20Array/README_EN.md)
 

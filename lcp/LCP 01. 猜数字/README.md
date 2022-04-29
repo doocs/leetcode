@@ -1,4 +1,4 @@
-# [LCP 01. 猜数字](https://leetcode-cn.com/problems/guess-numbers)
+# [LCP 01. 猜数字](https://leetcode.cn/problems/guess-numbers)
 
 ## 题目描述
 

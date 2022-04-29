@@ -1,4 +1,4 @@
-# [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array)
+# [540. 有序数组中的单一元素](https://leetcode.cn/problems/single-element-in-a-sorted-array)
 
 [English Version](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md)
 

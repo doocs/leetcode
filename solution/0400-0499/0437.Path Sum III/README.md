@@ -1,4 +1,4 @@
-# [437. 路径总和 III](https://leetcode-cn.com/problems/path-sum-iii)
+# [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii)
 
 [English Version](/solution/0400-0499/0437.Path%20Sum%20III/README_EN.md)
 

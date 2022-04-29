@@ -1,4 +1,4 @@
-# [1534. 统计好三元组](https://leetcode-cn.com/problems/count-good-triplets)
+# [1534. 统计好三元组](https://leetcode.cn/problems/count-good-triplets)
 
 [English Version](/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md)
 

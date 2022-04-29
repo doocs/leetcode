@@ -1,4 +1,4 @@
-# [166. 分数到小数](https://leetcode-cn.com/problems/fraction-to-recurring-decimal)
+# [166. 分数到小数](https://leetcode.cn/problems/fraction-to-recurring-decimal)
 
 [English Version](/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [01.08. Zero Matrix](https://leetcode-cn.com/problems/zero-matrix-lcci)
+# [01.08. Zero Matrix](https://leetcode.cn/problems/zero-matrix-lcci)
 
 [中文文档](/lcci/01.08.Zero%20Matrix/README.md)
 

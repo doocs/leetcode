@@ -1,4 +1,4 @@
-# [LCP 38. 守卫城堡](https://leetcode-cn.com/problems/7rLGCR)
+# [LCP 38. 守卫城堡](https://leetcode.cn/problems/7rLGCR)
 
 ## 题目描述
 

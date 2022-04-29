@@ -1,4 +1,4 @@
-# [2219. Maximum Sum Score of Array](https://leetcode-cn.com/problems/maximum-sum-score-of-array)
+# [2219. Maximum Sum Score of Array](https://leetcode.cn/problems/maximum-sum-score-of-array)
 
 [English Version](/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README_EN.md)
 

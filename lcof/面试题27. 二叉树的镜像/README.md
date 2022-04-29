@@ -1,4 +1,4 @@
-# [面试题 27. 二叉树的镜像](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/)
+# [面试题 27. 二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/)
 
 ## 题目描述
 
@@ -33,7 +33,7 @@
 
 <p><code>0 &lt;= 节点个数 &lt;= 1000</code></p>
 
-<p>注意：本题与主站 226 题相同：<a href="https://leetcode-cn.com/problems/invert-binary-tree/">https://leetcode-cn.com/problems/invert-binary-tree/</a></p>
+<p>注意：本题与主站 226 题相同：<a href="https://leetcode.cn/problems/invert-binary-tree/">https://leetcode.cn/problems/invert-binary-tree/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [剑指 Offer II 031. 最近最少使用缓存](https://leetcode-cn.com/problems/OrIXps)
+# [剑指 Offer II 031. 最近最少使用缓存](https://leetcode.cn/problems/OrIXps)
 
 ## 题目描述
 
@@ -57,7 +57,7 @@ lRUCache.get(4);    // 返回 4
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 146&nbsp;题相同：<a href="https://leetcode-cn.com/problems/lru-cache/">https://leetcode-cn.com/problems/lru-cache/</a>&nbsp;</p>
+<p><meta charset="UTF-8" />注意：本题与主站 146&nbsp;题相同：<a href="https://leetcode.cn/problems/lru-cache/">https://leetcode.cn/problems/lru-cache/</a>&nbsp;</p>
 
 ## 解法
 

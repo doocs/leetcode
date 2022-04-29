@@ -1,4 +1,4 @@
-# [1935. 可以输入的最大单词数](https://leetcode-cn.com/problems/maximum-number-of-words-you-can-type)
+# [1935. 可以输入的最大单词数](https://leetcode.cn/problems/maximum-number-of-words-you-can-type)
 
 [English Version](/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README_EN.md)
 

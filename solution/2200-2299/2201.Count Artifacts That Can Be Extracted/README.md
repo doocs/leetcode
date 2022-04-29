@@ -1,4 +1,4 @@
-# [2201. 统计可以提取的工件](https://leetcode-cn.com/problems/count-artifacts-that-can-be-extracted)
+# [2201. 统计可以提取的工件](https://leetcode.cn/problems/count-artifacts-that-can-be-extracted)
 
 [English Version](/solution/2200-2299/2201.Count%20Artifacts%20That%20Can%20Be%20Extracted/README_EN.md)
 

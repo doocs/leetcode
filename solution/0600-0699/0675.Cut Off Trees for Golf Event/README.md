@@ -1,4 +1,4 @@
-# [675. 为高尔夫比赛砍树](https://leetcode-cn.com/problems/cut-off-trees-for-golf-event)
+# [675. 为高尔夫比赛砍树](https://leetcode.cn/problems/cut-off-trees-for-golf-event)
 
 [English Version](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README_EN.md)
 

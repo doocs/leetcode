@@ -1,4 +1,4 @@
-# [797. 所有可能的路径](https://leetcode-cn.com/problems/all-paths-from-source-to-target)
+# [797. 所有可能的路径](https://leetcode.cn/problems/all-paths-from-source-to-target)
 
 [English Version](/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README_EN.md)
 

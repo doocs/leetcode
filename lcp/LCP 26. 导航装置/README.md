@@ -1,4 +1,4 @@
-# [LCP 26. 导航装置](https://leetcode-cn.com/problems/hSRGyL)
+# [LCP 26. 导航装置](https://leetcode.cn/problems/hSRGyL)
 
 ## 题目描述
 

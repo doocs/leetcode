@@ -1,4 +1,4 @@
-# [2036. Maximum Alternating Subarray Sum](https://leetcode-cn.com/problems/maximum-alternating-subarray-sum)
+# [2036. Maximum Alternating Subarray Sum](https://leetcode.cn/problems/maximum-alternating-subarray-sum)
 
 [English Version](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README_EN.md)
 

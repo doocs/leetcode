@@ -1,4 +1,4 @@
-# [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands)
+# [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands)
 
 [English Version](/solution/0200-0299/0200.Number%20of%20Islands/README_EN.md)
 

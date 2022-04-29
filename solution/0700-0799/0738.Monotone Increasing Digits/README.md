@@ -1,4 +1,4 @@
-# [738. 单调递增的数字](https://leetcode-cn.com/problems/monotone-increasing-digits)
+# [738. 单调递增的数字](https://leetcode.cn/problems/monotone-increasing-digits)
 
 [English Version](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2000. 反转单词前缀](https://leetcode-cn.com/problems/reverse-prefix-of-word)
+# [2000. 反转单词前缀](https://leetcode.cn/problems/reverse-prefix-of-word)
 
 [English Version](/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README_EN.md)
 

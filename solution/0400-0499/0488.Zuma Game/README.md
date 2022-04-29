@@ -1,4 +1,4 @@
-# [488. 祖玛游戏](https://leetcode-cn.com/problems/zuma-game)
+# [488. 祖玛游戏](https://leetcode.cn/problems/zuma-game)
 
 [English Version](/solution/0400-0499/0488.Zuma%20Game/README_EN.md)
 

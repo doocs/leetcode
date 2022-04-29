@@ -1,4 +1,4 @@
-# [剑指 Offer II 118. 多余的边](https://leetcode-cn.com/problems/7LpjUW)
+# [剑指 Offer II 118. 多余的边](https://leetcode.cn/problems/7LpjUW)
 
 ## 题目描述
 
@@ -46,7 +46,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 684&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/redundant-connection/">https://leetcode-cn.com/problems/redundant-connection/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 684&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/redundant-connection/">https://leetcode.cn/problems/redundant-connection/</a></p>
 
 ## 解法
 

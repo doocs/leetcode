@@ -1,4 +1,4 @@
-# [1995. 统计特殊四元组](https://leetcode-cn.com/problems/count-special-quadruplets)
+# [1995. 统计特殊四元组](https://leetcode.cn/problems/count-special-quadruplets)
 
 [English Version](/solution/1900-1999/1995.Count%20Special%20Quadruplets/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number)
+# [136. 只出现一次的数字](https://leetcode.cn/problems/single-number)
 
 [English Version](/solution/0100-0199/0136.Single%20Number/README_EN.md)
 

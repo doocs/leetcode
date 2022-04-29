@@ -1,4 +1,4 @@
-# [1254. 统计封闭岛屿的数目](https://leetcode-cn.com/problems/number-of-closed-islands)
+# [1254. 统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands)
 
 [English Version](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md)
 

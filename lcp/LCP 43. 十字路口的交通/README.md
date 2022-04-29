@@ -1,4 +1,4 @@
-# [LCP 43. 十字路口的交通](https://leetcode-cn.com/problems/Y1VbOX)
+# [LCP 43. 十字路口的交通](https://leetcode.cn/problems/Y1VbOX)
 
 ## 题目描述
 

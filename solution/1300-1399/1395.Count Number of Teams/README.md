@@ -1,4 +1,4 @@
-# [1395. 统计作战单位数](https://leetcode-cn.com/problems/count-number-of-teams)
+# [1395. 统计作战单位数](https://leetcode.cn/problems/count-number-of-teams)
 
 [English Version](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README_EN.md)
 

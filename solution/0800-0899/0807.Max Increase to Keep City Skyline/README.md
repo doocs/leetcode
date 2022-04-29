@@ -1,4 +1,4 @@
-# [807. 保持城市天际线](https://leetcode-cn.com/problems/max-increase-to-keep-city-skyline)
+# [807. 保持城市天际线](https://leetcode.cn/problems/max-increase-to-keep-city-skyline)
 
 [English Version](/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/README_EN.md)
 

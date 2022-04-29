@@ -1,4 +1,4 @@
-# [954. 二倍数对数组](https://leetcode-cn.com/problems/array-of-doubled-pairs)
+# [954. 二倍数对数组](https://leetcode.cn/problems/array-of-doubled-pairs)
 
 [English Version](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README_EN.md)
 

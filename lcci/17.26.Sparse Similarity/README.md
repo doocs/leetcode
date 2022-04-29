@@ -1,4 +1,4 @@
-# [面试题 17.26. 稀疏相似度](https://leetcode-cn.com/problems/sparse-similarity-lcci)
+# [面试题 17.26. 稀疏相似度](https://leetcode.cn/problems/sparse-similarity-lcci)
 
 [English Version](/lcci/17.26.Sparse%20Similarity/README_EN.md)
 

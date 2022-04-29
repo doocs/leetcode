@@ -1,4 +1,4 @@
-# [2242. 节点序列的最大得分](https://leetcode-cn.com/problems/maximum-score-of-a-node-sequence)
+# [2242. 节点序列的最大得分](https://leetcode.cn/problems/maximum-score-of-a-node-sequence)
 
 [English Version](/solution/2200-2299/2242.Maximum%20Score%20of%20a%20Node%20Sequence/README_EN.md)
 

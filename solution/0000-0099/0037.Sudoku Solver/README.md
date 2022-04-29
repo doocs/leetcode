@@ -1,4 +1,4 @@
-# [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver)
+# [37. 解数独](https://leetcode.cn/problems/sudoku-solver)
 
 [English Version](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)
 

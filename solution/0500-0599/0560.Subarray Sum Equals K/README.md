@@ -1,4 +1,4 @@
-# [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k)
+# [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k)
 
 [English Version](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md)
 

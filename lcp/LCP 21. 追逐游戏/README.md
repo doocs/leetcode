@@ -1,4 +1,4 @@
-# [LCP 21. 追逐游戏](https://leetcode-cn.com/problems/Za25hA)
+# [LCP 21. 追逐游戏](https://leetcode.cn/problems/Za25hA)
 
 ## 题目描述
 

@@ -1,4 +1,4 @@
-# [1789. 员工的直属部门](https://leetcode-cn.com/problems/primary-department-for-each-employee)
+# [1789. 员工的直属部门](https://leetcode.cn/problems/primary-department-for-each-employee)
 
 [English Version](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README_EN.md)
 

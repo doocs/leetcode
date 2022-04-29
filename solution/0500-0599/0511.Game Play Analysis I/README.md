@@ -1,4 +1,4 @@
-# [511. 游戏玩法分析 I](https://leetcode-cn.com/problems/game-play-analysis-i)
+# [511. 游戏玩法分析 I](https://leetcode.cn/problems/game-play-analysis-i)
 
 [English Version](/solution/0500-0599/0511.Game%20Play%20Analysis%20I/README_EN.md)
 

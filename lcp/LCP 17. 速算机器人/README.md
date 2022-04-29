@@ -1,4 +1,4 @@
-# [LCP 17. 速算机器人](https://leetcode-cn.com/problems/nGK0Fy)
+# [LCP 17. 速算机器人](https://leetcode.cn/problems/nGK0Fy)
 
 ## 题目描述
 

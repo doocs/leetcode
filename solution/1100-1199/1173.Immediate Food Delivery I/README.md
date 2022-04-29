@@ -1,4 +1,4 @@
-# [1173. 即时食物配送 I](https://leetcode-cn.com/problems/immediate-food-delivery-i)
+# [1173. 即时食物配送 I](https://leetcode.cn/problems/immediate-food-delivery-i)
 
 [English Version](/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README_EN.md)
 

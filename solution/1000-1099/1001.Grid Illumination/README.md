@@ -1,4 +1,4 @@
-# [1001. 网格照明](https://leetcode-cn.com/problems/grid-illumination)
+# [1001. 网格照明](https://leetcode.cn/problems/grid-illumination)
 
 [English Version](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)
 

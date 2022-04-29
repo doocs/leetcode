@@ -1,4 +1,4 @@
-# [1043. 分隔数组以得到最大和](https://leetcode-cn.com/problems/partition-array-for-maximum-sum)
+# [1043. 分隔数组以得到最大和](https://leetcode.cn/problems/partition-array-for-maximum-sum)
 
 [English Version](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README_EN.md)
 

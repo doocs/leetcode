@@ -1,4 +1,4 @@
-# [1795. 每个产品在不同商店的价格](https://leetcode-cn.com/problems/rearrange-products-table)
+# [1795. 每个产品在不同商店的价格](https://leetcode.cn/problems/rearrange-products-table)
 
 [English Version](/solution/1700-1799/1795.Rearrange%20Products%20Table/README_EN.md)
 

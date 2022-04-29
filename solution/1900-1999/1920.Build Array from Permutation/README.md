@@ -1,4 +1,4 @@
-# [1920. 基于排列构建数组](https://leetcode-cn.com/problems/build-array-from-permutation)
+# [1920. 基于排列构建数组](https://leetcode.cn/problems/build-array-from-permutation)
 
 [English Version](/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README_EN.md)
 

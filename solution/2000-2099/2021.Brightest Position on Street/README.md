@@ -1,4 +1,4 @@
-# [2021. Brightest Position on Street](https://leetcode-cn.com/problems/brightest-position-on-street)
+# [2021. Brightest Position on Street](https://leetcode.cn/problems/brightest-position-on-street)
 
 [English Version](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README_EN.md)
 

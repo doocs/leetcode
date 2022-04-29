@@ -1,4 +1,4 @@
-# [1407. 排名靠前的旅行者](https://leetcode-cn.com/problems/top-travellers)
+# [1407. 排名靠前的旅行者](https://leetcode.cn/problems/top-travellers)
 
 [English Version](/solution/1400-1499/1407.Top%20Travellers/README_EN.md)
 

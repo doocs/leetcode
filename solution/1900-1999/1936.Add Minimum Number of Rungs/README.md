@@ -1,4 +1,4 @@
-# [1936. 新增的最少台阶数](https://leetcode-cn.com/problems/add-minimum-number-of-rungs)
+# [1936. 新增的最少台阶数](https://leetcode.cn/problems/add-minimum-number-of-rungs)
 
 [English Version](/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [983. 最低票价](https://leetcode-cn.com/problems/minimum-cost-for-tickets)
+# [983. 最低票价](https://leetcode.cn/problems/minimum-cost-for-tickets)
 
 [English Version](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README_EN.md)
 

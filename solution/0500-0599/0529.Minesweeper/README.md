@@ -1,4 +1,4 @@
-# [529. 扫雷游戏](https://leetcode-cn.com/problems/minesweeper)
+# [529. 扫雷游戏](https://leetcode.cn/problems/minesweeper)
 
 [English Version](/solution/0500-0599/0529.Minesweeper/README_EN.md)
 

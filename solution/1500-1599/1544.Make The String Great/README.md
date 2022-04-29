@@ -1,4 +1,4 @@
-# [1544. 整理字符串](https://leetcode-cn.com/problems/make-the-string-great)
+# [1544. 整理字符串](https://leetcode.cn/problems/make-the-string-great)
 
 [English Version](/solution/1500-1599/1544.Make%20The%20String%20Great/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1447. 最简分数](https://leetcode-cn.com/problems/simplified-fractions)
+# [1447. 最简分数](https://leetcode.cn/problems/simplified-fractions)
 
 [English Version](/solution/1400-1499/1447.Simplified%20Fractions/README_EN.md)
 

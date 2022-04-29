@@ -1,4 +1,4 @@
-# [850. 矩形面积 II](https://leetcode-cn.com/problems/rectangle-area-ii)
+# [850. 矩形面积 II](https://leetcode.cn/problems/rectangle-area-ii)
 
 [English Version](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md)
 

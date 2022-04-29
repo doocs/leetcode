@@ -1,4 +1,4 @@
-# [面试题 16.11. 跳水板](https://leetcode-cn.com/problems/diving-board-lcci)
+# [面试题 16.11. 跳水板](https://leetcode.cn/problems/diving-board-lcci)
 
 [English Version](/lcci/16.11.Diving%20Board/README_EN.md)
 

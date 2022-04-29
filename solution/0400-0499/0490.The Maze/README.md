@@ -1,4 +1,4 @@
-# [490. 迷宫](https://leetcode-cn.com/problems/the-maze)
+# [490. 迷宫](https://leetcode.cn/problems/the-maze)
 
 [English Version](/solution/0400-0499/0490.The%20Maze/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [10.09. Sorted Matrix Search](https://leetcode-cn.com/problems/sorted-matrix-search-lcci)
+# [10.09. Sorted Matrix Search](https://leetcode.cn/problems/sorted-matrix-search-lcci)
 
 [中文文档](/lcci/10.09.Sorted%20Matrix%20Search/README.md)
 

@@ -1,4 +1,4 @@
-# [258. 各位相加](https://leetcode-cn.com/problems/add-digits)
+# [258. 各位相加](https://leetcode.cn/problems/add-digits)
 
 [English Version](/solution/0200-0299/0258.Add%20Digits/README_EN.md)
 

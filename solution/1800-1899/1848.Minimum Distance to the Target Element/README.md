@@ -1,4 +1,4 @@
-# [1848. 到目标元素的最小距离](https://leetcode-cn.com/problems/minimum-distance-to-the-target-element)
+# [1848. 到目标元素的最小距离](https://leetcode.cn/problems/minimum-distance-to-the-target-element)
 
 [English Version](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README_EN.md)
 

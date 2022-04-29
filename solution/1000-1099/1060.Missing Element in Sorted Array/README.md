@@ -1,4 +1,4 @@
-# [1060. 有序数组中的缺失元素](https://leetcode-cn.com/problems/missing-element-in-sorted-array)
+# [1060. 有序数组中的缺失元素](https://leetcode.cn/problems/missing-element-in-sorted-array)
 
 [English Version](/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README_EN.md)
 

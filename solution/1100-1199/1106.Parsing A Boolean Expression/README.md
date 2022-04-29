@@ -1,4 +1,4 @@
-# [1106. 解析布尔表达式](https://leetcode-cn.com/problems/parsing-a-boolean-expression)
+# [1106. 解析布尔表达式](https://leetcode.cn/problems/parsing-a-boolean-expression)
 
 [English Version](/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README_EN.md)
 

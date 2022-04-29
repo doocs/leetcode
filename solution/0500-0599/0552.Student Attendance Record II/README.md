@@ -1,4 +1,4 @@
-# [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii)
+# [552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii)
 
 [English Version](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README_EN.md)
 

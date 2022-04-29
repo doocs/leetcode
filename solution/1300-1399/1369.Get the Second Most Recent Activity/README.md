@@ -1,4 +1,4 @@
-# [1369. 获取最近第二次的活动](https://leetcode-cn.com/problems/get-the-second-most-recent-activity)
+# [1369. 获取最近第二次的活动](https://leetcode.cn/problems/get-the-second-most-recent-activity)
 
 [English Version](/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [732. 我的日程安排表 III](https://leetcode-cn.com/problems/my-calendar-iii)
+# [732. 我的日程安排表 III](https://leetcode.cn/problems/my-calendar-iii)
 
 [English Version](/solution/0700-0799/0732.My%20Calendar%20III/README_EN.md)
 

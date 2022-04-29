@@ -1,4 +1,4 @@
-# [1095. 山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array)
+# [1095. 山脉数组中查找目标值](https://leetcode.cn/problems/find-in-mountain-array)
 
 [English Version](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md)
 
@@ -40,7 +40,7 @@
 
 <p>对&nbsp;<code>MountainArray.get</code>&nbsp;发起超过 <code>100</code> 次调用的提交将被视为错误答案。此外，任何试图规避判题系统的解决方案都将会导致比赛资格被取消。</p>
 
-<p>为了帮助大家更好地理解交互式问题，我们准备了一个样例 &ldquo;<strong>答案</strong>&rdquo;：<a href="https://leetcode-cn.com/playground/RKhe3ave" target="_blank">https://leetcode-cn.com/playground/RKhe3ave</a>，请注意这 <strong>不是一个正确答案</strong>。</p>
+<p>为了帮助大家更好地理解交互式问题，我们准备了一个样例 &ldquo;<strong>答案</strong>&rdquo;：<a href="https://leetcode.cn/playground/RKhe3ave" target="_blank">https://leetcode.cn/playground/RKhe3ave</a>，请注意这 <strong>不是一个正确答案</strong>。</p>
 
 <ol>
 </ol>

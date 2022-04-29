@@ -1,4 +1,4 @@
-# [剑指 Offer II 071. 按权重生成随机数](https://leetcode-cn.com/problems/cuyjEf)
+# [剑指 Offer II 071. 按权重生成随机数](https://leetcode.cn/problems/cuyjEf)
 
 ## 题目描述
 
@@ -65,7 +65,7 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 528&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/random-pick-with-weight/">https://leetcode-cn.com/problems/random-pick-with-weight/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 528&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/random-pick-with-weight/">https://leetcode.cn/problems/random-pick-with-weight/</a></p>
 
 ## 解法
 

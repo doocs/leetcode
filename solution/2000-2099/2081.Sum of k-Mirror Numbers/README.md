@@ -1,4 +1,4 @@
-# [2081. k 镜像数字的和](https://leetcode-cn.com/problems/sum-of-k-mirror-numbers)
+# [2081. k 镜像数字的和](https://leetcode.cn/problems/sum-of-k-mirror-numbers)
 
 [English Version](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1914. 循环轮转矩阵](https://leetcode-cn.com/problems/cyclically-rotating-a-grid)
+# [1914. 循环轮转矩阵](https://leetcode.cn/problems/cyclically-rotating-a-grid)
 
 [English Version](/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/README_EN.md)
 

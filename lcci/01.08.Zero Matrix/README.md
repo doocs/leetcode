@@ -1,4 +1,4 @@
-# [面试题 01.08. 零矩阵](https://leetcode-cn.com/problems/zero-matrix-lcci)
+# [面试题 01.08. 零矩阵](https://leetcode.cn/problems/zero-matrix-lcci)
 
 [English Version](/lcci/01.08.Zero%20Matrix/README_EN.md)
 

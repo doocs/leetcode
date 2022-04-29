@@ -1,4 +1,4 @@
-# [LCP 41. 黑白翻转棋](https://leetcode-cn.com/problems/fHi6rV)
+# [LCP 41. 黑白翻转棋](https://leetcode.cn/problems/fHi6rV)
 
 ## 题目描述
 

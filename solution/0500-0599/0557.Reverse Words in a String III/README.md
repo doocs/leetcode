@@ -1,4 +1,4 @@
-# [557. 反转字符串中的单词 III](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii)
+# [557. 反转字符串中的单词 III](https://leetcode.cn/problems/reverse-words-in-a-string-iii)
 
 [English Version](/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2239. 找到最接近 0 的数字](https://leetcode-cn.com/problems/find-closest-number-to-zero)
+# [2239. 找到最接近 0 的数字](https://leetcode.cn/problems/find-closest-number-to-zero)
 
 [English Version](/solution/2200-2299/2239.Find%20Closest%20Number%20to%20Zero/README_EN.md)
 

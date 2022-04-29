@@ -1,4 +1,4 @@
-# [1584. 连接所有点的最小费用](https://leetcode-cn.com/problems/min-cost-to-connect-all-points)
+# [1584. 连接所有点的最小费用](https://leetcode.cn/problems/min-cost-to-connect-all-points)
 
 [English Version](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md)
 

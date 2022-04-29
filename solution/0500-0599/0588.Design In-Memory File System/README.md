@@ -1,4 +1,4 @@
-# [588. 设计内存文件系统](https://leetcode-cn.com/problems/design-in-memory-file-system)
+# [588. 设计内存文件系统](https://leetcode.cn/problems/design-in-memory-file-system)
 
 [English Version](/solution/0500-0599/0588.Design%20In-Memory%20File%20System/README_EN.md)
 

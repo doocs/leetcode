@@ -1,4 +1,4 @@
-# [892. 三维形体的表面积](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)
+# [892. 三维形体的表面积](https://leetcode.cn/problems/surface-area-of-3d-shapes)
 
 [English Version](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README_EN.md)
 

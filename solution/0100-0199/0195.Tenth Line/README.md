@@ -1,4 +1,4 @@
-# [195. 第十行](https://leetcode-cn.com/problems/tenth-line)
+# [195. 第十行](https://leetcode.cn/problems/tenth-line)
 
 [English Version](/solution/0100-0199/0195.Tenth%20Line/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1146. 快照数组](https://leetcode-cn.com/problems/snapshot-array)
+# [1146. 快照数组](https://leetcode.cn/problems/snapshot-array)
 
 [English Version](/solution/1100-1199/1146.Snapshot%20Array/README_EN.md)
 

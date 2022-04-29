@@ -1,4 +1,4 @@
-# [2093. Minimum Cost to Reach City With Discounts](https://leetcode-cn.com/problems/minimum-cost-to-reach-city-with-discounts)
+# [2093. Minimum Cost to Reach City With Discounts](https://leetcode.cn/problems/minimum-cost-to-reach-city-with-discounts)
 
 [English Version](/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README_EN.md)
 

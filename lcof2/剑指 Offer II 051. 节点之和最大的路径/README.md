@@ -1,4 +1,4 @@
-# [剑指 Offer II 051. 节点之和最大的路径](https://leetcode-cn.com/problems/jC7MId)
+# [剑指 Offer II 051. 节点之和最大的路径](https://leetcode.cn/problems/jC7MId)
 
 ## 题目描述
 
@@ -42,7 +42,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 124&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/">https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 124&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/binary-tree-maximum-path-sum/">https://leetcode.cn/problems/binary-tree-maximum-path-sum/</a></p>
 
 ## 解法
 

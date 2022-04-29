@@ -1,4 +1,4 @@
-# [剑指 Offer II 106. 二分图](https://leetcode-cn.com/problems/vEAB3K)
+# [剑指 Offer II 106. 二分图](https://leetcode.cn/problems/vEAB3K)
 
 ## 题目描述
 
@@ -55,7 +55,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 785&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/is-graph-bipartite/">https://leetcode-cn.com/problems/is-graph-bipartite/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 785&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/is-graph-bipartite/">https://leetcode.cn/problems/is-graph-bipartite/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [2027. 转换字符串的最少操作次数](https://leetcode-cn.com/problems/minimum-moves-to-convert-string)
+# [2027. 转换字符串的最少操作次数](https://leetcode.cn/problems/minimum-moves-to-convert-string)
 
 [English Version](/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README_EN.md)
 

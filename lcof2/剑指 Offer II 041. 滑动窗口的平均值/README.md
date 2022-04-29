@@ -1,4 +1,4 @@
-# [剑指 Offer II 041. 滑动窗口的平均值](https://leetcode-cn.com/problems/qIsx9U)
+# [剑指 Offer II 041. 滑动窗口的平均值](https://leetcode.cn/problems/qIsx9U)
 
 ## 题目描述
 
@@ -44,7 +44,7 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 346&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/moving-average-from-data-stream/">https://leetcode-cn.com/problems/moving-average-from-data-stream/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 346&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/moving-average-from-data-stream/">https://leetcode.cn/problems/moving-average-from-data-stream/</a></p>
 
 ## 解法
 

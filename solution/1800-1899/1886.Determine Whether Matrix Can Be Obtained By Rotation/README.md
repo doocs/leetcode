@@ -1,4 +1,4 @@
-# [1886. 判断矩阵经轮转后是否一致](https://leetcode-cn.com/problems/determine-whether-matrix-can-be-obtained-by-rotation)
+# [1886. 判断矩阵经轮转后是否一致](https://leetcode.cn/problems/determine-whether-matrix-can-be-obtained-by-rotation)
 
 [English Version](/solution/1800-1899/1886.Determine%20Whether%20Matrix%20Can%20Be%20Obtained%20By%20Rotation/README_EN.md)
 
@@ -51,11 +51,11 @@
 
 方法一：模拟旋转
 
-旋转矩阵，判断矩阵是否一致，旋转方式同 [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/)。
+旋转矩阵，判断矩阵是否一致，旋转方式同 [48. 旋转图像](https://leetcode.cn/problems/rotate-image/)。
 
 方法二：原地比较
 
-此题不同于 [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/)，并不要求改动原数组，因此，只要比较对应的位置即可。
+此题不同于 [48. 旋转图像](https://leetcode.cn/problems/rotate-image/)，并不要求改动原数组，因此，只要比较对应的位置即可。
 
 | 旋转度数 | A      | B              |
 | -------- | ------ | -------------- |

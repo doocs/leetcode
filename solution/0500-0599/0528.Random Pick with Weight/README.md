@@ -1,4 +1,4 @@
-# [528. 按权重随机选择](https://leetcode-cn.com/problems/random-pick-with-weight)
+# [528. 按权重随机选择](https://leetcode.cn/problems/random-pick-with-weight)
 
 [English Version](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md)
 

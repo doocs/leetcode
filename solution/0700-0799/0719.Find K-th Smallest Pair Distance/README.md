@@ -1,4 +1,4 @@
-# [719. 找出第 k 小的距离对](https://leetcode-cn.com/problems/find-k-th-smallest-pair-distance)
+# [719. 找出第 k 小的距离对](https://leetcode.cn/problems/find-k-th-smallest-pair-distance)
 
 [English Version](/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README_EN.md)
 

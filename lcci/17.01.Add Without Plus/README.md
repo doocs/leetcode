@@ -1,4 +1,4 @@
-# [面试题 17.01. 不用加号的加法](https://leetcode-cn.com/problems/add-without-plus-lcci)
+# [面试题 17.01. 不用加号的加法](https://leetcode.cn/problems/add-without-plus-lcci)
 
 [English Version](/lcci/17.01.Add%20Without%20Plus/README_EN.md)
 

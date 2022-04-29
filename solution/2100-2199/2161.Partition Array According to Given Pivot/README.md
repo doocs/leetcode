@@ -1,4 +1,4 @@
-# [2161. 根据给定数字划分数组](https://leetcode-cn.com/problems/partition-array-according-to-given-pivot)
+# [2161. 根据给定数字划分数组](https://leetcode.cn/problems/partition-array-according-to-given-pivot)
 
 [English Version](/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README_EN.md)
 

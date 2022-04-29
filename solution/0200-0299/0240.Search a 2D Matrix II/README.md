@@ -1,4 +1,4 @@
-# [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii)
+# [240. 搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii)
 
 [English Version](/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/README_EN.md)
 

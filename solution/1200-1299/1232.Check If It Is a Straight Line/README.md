@@ -1,4 +1,4 @@
-# [1232. 缀点成线](https://leetcode-cn.com/problems/check-if-it-is-a-straight-line)
+# [1232. 缀点成线](https://leetcode.cn/problems/check-if-it-is-a-straight-line)
 
 [English Version](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README_EN.md)
 

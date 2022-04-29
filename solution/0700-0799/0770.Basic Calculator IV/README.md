@@ -1,4 +1,4 @@
-# [770. 基本计算器 IV](https://leetcode-cn.com/problems/basic-calculator-iv)
+# [770. 基本计算器 IV](https://leetcode.cn/problems/basic-calculator-iv)
 
 [English Version](/solution/0700-0799/0770.Basic%20Calculator%20IV/README_EN.md)
 

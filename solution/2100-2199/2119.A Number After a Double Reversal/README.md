@@ -1,4 +1,4 @@
-# [2119. 反转两次的数字](https://leetcode-cn.com/problems/a-number-after-a-double-reversal)
+# [2119. 反转两次的数字](https://leetcode.cn/problems/a-number-after-a-double-reversal)
 
 [English Version](/solution/2100-2199/2119.A%20Number%20After%20a%20Double%20Reversal/README_EN.md)
 

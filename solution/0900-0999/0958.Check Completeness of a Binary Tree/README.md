@@ -1,4 +1,4 @@
-# [958. 二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree)
+# [958. 二叉树的完全性检验](https://leetcode.cn/problems/check-completeness-of-a-binary-tree)
 
 [English Version](/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/README_EN.md)
 

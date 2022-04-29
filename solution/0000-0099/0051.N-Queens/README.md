@@ -1,4 +1,4 @@
-# [51. N 皇后](https://leetcode-cn.com/problems/n-queens)
+# [51. N 皇后](https://leetcode.cn/problems/n-queens)
 
 [English Version](/solution/0000-0099/0051.N-Queens/README_EN.md)
 

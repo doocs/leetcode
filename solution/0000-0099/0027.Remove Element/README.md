@@ -1,4 +1,4 @@
-# [27. 移除元素](https://leetcode-cn.com/problems/remove-element)
+# [27. 移除元素](https://leetcode.cn/problems/remove-element)
 
 [English Version](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
 

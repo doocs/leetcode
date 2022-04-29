@@ -1,4 +1,4 @@
-# [剑指 Offer II 098. 路径的数目](https://leetcode-cn.com/problems/2AoeFn)
+# [剑指 Offer II 098. 路径的数目](https://leetcode.cn/problems/2AoeFn)
 
 ## 题目描述
 
@@ -56,7 +56,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 62&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/unique-paths/">https://leetcode-cn.com/problems/unique-paths/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 62&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/unique-paths/">https://leetcode.cn/problems/unique-paths/</a></p>
 
 ## 解法
 

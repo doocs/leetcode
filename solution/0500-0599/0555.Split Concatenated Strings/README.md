@@ -1,4 +1,4 @@
-# [555. 分割连接字符串](https://leetcode-cn.com/problems/split-concatenated-strings)
+# [555. 分割连接字符串](https://leetcode.cn/problems/split-concatenated-strings)
 
 [English Version](/solution/0500-0599/0555.Split%20Concatenated%20Strings/README_EN.md)
 

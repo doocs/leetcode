@@ -1,4 +1,4 @@
-# [230. 二叉搜索树中第 K 小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst)
+# [230. 二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst)
 
 [English Version](/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/README_EN.md)
 

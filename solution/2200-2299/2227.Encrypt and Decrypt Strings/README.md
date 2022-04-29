@@ -1,4 +1,4 @@
-# [2227. 加密解密字符串](https://leetcode-cn.com/problems/encrypt-and-decrypt-strings)
+# [2227. 加密解密字符串](https://leetcode.cn/problems/encrypt-and-decrypt-strings)
 
 [English Version](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README_EN.md)
 

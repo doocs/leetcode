@@ -1,4 +1,4 @@
-# [891. 子序列宽度之和](https://leetcode-cn.com/problems/sum-of-subsequence-widths)
+# [891. 子序列宽度之和](https://leetcode.cn/problems/sum-of-subsequence-widths)
 
 [English Version](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README_EN.md)
 

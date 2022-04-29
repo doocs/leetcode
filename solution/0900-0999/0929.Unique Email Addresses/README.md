@@ -1,4 +1,4 @@
-# [929. 独特的电子邮件地址](https://leetcode-cn.com/problems/unique-email-addresses)
+# [929. 独特的电子邮件地址](https://leetcode.cn/problems/unique-email-addresses)
 
 [English Version](/solution/0900-0999/0929.Unique%20Email%20Addresses/README_EN.md)
 

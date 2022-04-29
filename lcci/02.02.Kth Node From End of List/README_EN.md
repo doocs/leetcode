@@ -1,4 +1,4 @@
-# [02.02. Kth Node From End of List](https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci)
+# [02.02. Kth Node From End of List](https://leetcode.cn/problems/kth-node-from-end-of-list-lcci)
 
 [中文文档](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
 

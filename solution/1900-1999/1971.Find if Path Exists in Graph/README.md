@@ -1,4 +1,4 @@
-# [1971. 寻找图中是否存在路径](https://leetcode-cn.com/problems/find-if-path-exists-in-graph)
+# [1971. 寻找图中是否存在路径](https://leetcode.cn/problems/find-if-path-exists-in-graph)
 
 [English Version](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2102. 序列顺序查询](https://leetcode-cn.com/problems/sequentially-ordinal-rank-tracker)
+# [2102. 序列顺序查询](https://leetcode.cn/problems/sequentially-ordinal-rank-tracker)
 
 [English Version](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README_EN.md)
 

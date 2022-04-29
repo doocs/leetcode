@@ -1,4 +1,4 @@
-# [458. 可怜的小猪](https://leetcode-cn.com/problems/poor-pigs)
+# [458. 可怜的小猪](https://leetcode.cn/problems/poor-pigs)
 
 [English Version](/solution/0400-0499/0458.Poor%20Pigs/README_EN.md)
 

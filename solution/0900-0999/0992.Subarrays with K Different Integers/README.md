@@ -1,4 +1,4 @@
-# [992. K 个不同整数的子数组](https://leetcode-cn.com/problems/subarrays-with-k-different-integers)
+# [992. K 个不同整数的子数组](https://leetcode.cn/problems/subarrays-with-k-different-integers)
 
 [English Version](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README_EN.md)
 

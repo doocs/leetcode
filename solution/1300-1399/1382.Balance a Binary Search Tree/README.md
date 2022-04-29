@@ -1,4 +1,4 @@
-# [1382. 将二叉搜索树变平衡](https://leetcode-cn.com/problems/balance-a-binary-search-tree)
+# [1382. 将二叉搜索树变平衡](https://leetcode.cn/problems/balance-a-binary-search-tree)
 
 [English Version](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README_EN.md)
 

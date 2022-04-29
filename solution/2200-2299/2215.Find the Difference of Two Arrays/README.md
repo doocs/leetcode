@@ -1,4 +1,4 @@
-# [2215. 找出两数组的不同](https://leetcode-cn.com/problems/find-the-difference-of-two-arrays)
+# [2215. 找出两数组的不同](https://leetcode.cn/problems/find-the-difference-of-two-arrays)
 
 [English Version](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README_EN.md)
 

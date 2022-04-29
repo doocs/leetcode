@@ -1,4 +1,4 @@
-# [2140. 解决智力问题](https://leetcode-cn.com/problems/solving-questions-with-brainpower)
+# [2140. 解决智力问题](https://leetcode.cn/problems/solving-questions-with-brainpower)
 
 [English Version](/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README_EN.md)
 

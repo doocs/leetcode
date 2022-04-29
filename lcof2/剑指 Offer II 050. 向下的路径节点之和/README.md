@@ -1,4 +1,4 @@
-# [剑指 Offer II 050. 向下的路径节点之和](https://leetcode-cn.com/problems/6eUYwP)
+# [剑指 Offer II 050. 向下的路径节点之和](https://leetcode.cn/problems/6eUYwP)
 
 ## 题目描述
 
@@ -39,7 +39,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 437&nbsp;题相同：<a href="https://leetcode-cn.com/problems/path-sum-iii/">https://leetcode-cn.com/problems/path-sum-iii/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 437&nbsp;题相同：<a href="https://leetcode.cn/problems/path-sum-iii/">https://leetcode.cn/problems/path-sum-iii/</a></p>
 
 ## 解法
 

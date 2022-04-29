@@ -1,4 +1,4 @@
-# [814. 二叉树剪枝](https://leetcode-cn.com/problems/binary-tree-pruning)
+# [814. 二叉树剪枝](https://leetcode.cn/problems/binary-tree-pruning)
 
 [English Version](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README_EN.md)
 

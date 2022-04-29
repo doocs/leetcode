@@ -1,4 +1,4 @@
-# [LCP 27. 黑盒光线反射](https://leetcode-cn.com/problems/IQvJ9i)
+# [LCP 27. 黑盒光线反射](https://leetcode.cn/problems/IQvJ9i)
 
 ## 题目描述
 

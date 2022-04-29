@@ -1,4 +1,4 @@
-# [246. 中心对称数](https://leetcode-cn.com/problems/strobogrammatic-number)
+# [246. 中心对称数](https://leetcode.cn/problems/strobogrammatic-number)
 
 [English Version](/solution/0200-0299/0246.Strobogrammatic%20Number/README_EN.md)
 

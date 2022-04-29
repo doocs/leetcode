@@ -1,4 +1,4 @@
-# [面试题 08.10. 颜色填充](https://leetcode-cn.com/problems/color-fill-lcci)
+# [面试题 08.10. 颜色填充](https://leetcode.cn/problems/color-fill-lcci)
 
 [English Version](/lcci/08.10.Color%20Fill/README_EN.md)
 

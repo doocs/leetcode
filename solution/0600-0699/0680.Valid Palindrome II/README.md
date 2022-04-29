@@ -1,4 +1,4 @@
-# [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii)
+# [680. 验证回文字符串 Ⅱ](https://leetcode.cn/problems/valid-palindrome-ii)
 
 [English Version](/solution/0600-0699/0680.Valid%20Palindrome%20II/README_EN.md)
 

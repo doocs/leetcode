@@ -1,4 +1,4 @@
-# [2075. 解码斜向换位密码](https://leetcode-cn.com/problems/decode-the-slanted-ciphertext)
+# [2075. 解码斜向换位密码](https://leetcode.cn/problems/decode-the-slanted-ciphertext)
 
 [English Version](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md)
 

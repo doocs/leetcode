@@ -1,4 +1,4 @@
-# [2090. 半径为 k 的子数组平均值](https://leetcode-cn.com/problems/k-radius-subarray-averages)
+# [2090. 半径为 k 的子数组平均值](https://leetcode.cn/problems/k-radius-subarray-averages)
 
 [English Version](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README_EN.md)
 

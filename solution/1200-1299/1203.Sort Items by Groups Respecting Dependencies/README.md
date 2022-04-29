@@ -1,4 +1,4 @@
-# [1203. 项目管理](https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies)
+# [1203. 项目管理](https://leetcode.cn/problems/sort-items-by-groups-respecting-dependencies)
 
 [English Version](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md)
 

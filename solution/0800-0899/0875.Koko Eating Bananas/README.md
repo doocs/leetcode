@@ -1,4 +1,4 @@
-# [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas)
+# [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas)
 
 [English Version](/solution/0800-0899/0875.Koko%20Eating%20Bananas/README_EN.md)
 

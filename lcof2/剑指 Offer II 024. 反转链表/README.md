@@ -1,4 +1,4 @@
-# [剑指 Offer II 024. 反转链表](https://leetcode-cn.com/problems/UHnkqh)
+# [剑指 Offer II 024. 反转链表](https://leetcode.cn/problems/UHnkqh)
 
 ## 题目描述
 
@@ -48,7 +48,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 206&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/reverse-linked-list/">https://leetcode-cn.com/problems/reverse-linked-list/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 206&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/reverse-linked-list/">https://leetcode.cn/problems/reverse-linked-list/</a></p>
 
 ## 解法
 

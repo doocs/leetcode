@@ -1,4 +1,4 @@
-# [1436. 旅行终点站](https://leetcode-cn.com/problems/destination-city)
+# [1436. 旅行终点站](https://leetcode.cn/problems/destination-city)
 
 [English Version](/solution/1400-1499/1436.Destination%20City/README_EN.md)
 

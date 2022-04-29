@@ -1,4 +1,4 @@
-# [1307. 口算难题](https://leetcode-cn.com/problems/verbal-arithmetic-puzzle)
+# [1307. 口算难题](https://leetcode.cn/problems/verbal-arithmetic-puzzle)
 
 [English Version](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README_EN.md)
 

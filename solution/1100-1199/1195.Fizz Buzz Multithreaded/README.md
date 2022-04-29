@@ -1,4 +1,4 @@
-# [1195. 交替打印字符串](https://leetcode-cn.com/problems/fizz-buzz-multithreaded)
+# [1195. 交替打印字符串](https://leetcode.cn/problems/fizz-buzz-multithreaded)
 
 [English Version](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README_EN.md)
 

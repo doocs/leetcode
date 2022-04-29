@@ -1,4 +1,4 @@
-# [415. 字符串相加](https://leetcode-cn.com/problems/add-strings)
+# [415. 字符串相加](https://leetcode.cn/problems/add-strings)
 
 [English Version](/solution/0400-0499/0415.Add%20Strings/README_EN.md)
 

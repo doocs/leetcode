@@ -1,4 +1,4 @@
-# [134. 加油站](https://leetcode-cn.com/problems/gas-station)
+# [134. 加油站](https://leetcode.cn/problems/gas-station)
 
 [English Version](/solution/0100-0199/0134.Gas%20Station/README_EN.md)
 

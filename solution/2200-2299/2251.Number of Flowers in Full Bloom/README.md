@@ -1,4 +1,4 @@
-# [2251. 花期内花的数目](https://leetcode-cn.com/problems/number-of-flowers-in-full-bloom)
+# [2251. 花期内花的数目](https://leetcode.cn/problems/number-of-flowers-in-full-bloom)
 
 [English Version](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md)
 

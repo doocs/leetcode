@@ -1,4 +1,4 @@
-# [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii)
+# [350. 两个数组的交集 II](https://leetcode.cn/problems/intersection-of-two-arrays-ii)
 
 [English Version](/solution/0300-0399/0350.Intersection%20of%20Two%20Arrays%20II/README_EN.md)
 

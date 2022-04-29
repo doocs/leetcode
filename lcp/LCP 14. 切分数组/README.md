@@ -1,4 +1,4 @@
-# [LCP 14. 切分数组](https://leetcode-cn.com/problems/qie-fen-shu-zu)
+# [LCP 14. 切分数组](https://leetcode.cn/problems/qie-fen-shu-zu)
 
 ## 题目描述
 

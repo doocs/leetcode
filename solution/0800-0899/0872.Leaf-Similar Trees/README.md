@@ -1,4 +1,4 @@
-# [872. 叶子相似的树](https://leetcode-cn.com/problems/leaf-similar-trees)
+# [872. 叶子相似的树](https://leetcode.cn/problems/leaf-similar-trees)
 
 [English Version](/solution/0800-0899/0872.Leaf-Similar%20Trees/README_EN.md)
 

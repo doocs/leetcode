@@ -1,4 +1,4 @@
-# [LCP 35. 电动车游城市](https://leetcode-cn.com/problems/DFPeFJ)
+# [LCP 35. 电动车游城市](https://leetcode.cn/problems/DFPeFJ)
 
 ## 题目描述
 

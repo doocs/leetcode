@@ -1,4 +1,4 @@
-# [986. 区间列表的交集](https://leetcode-cn.com/problems/interval-list-intersections)
+# [986. 区间列表的交集](https://leetcode.cn/problems/interval-list-intersections)
 
 [English Version](/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md)
 

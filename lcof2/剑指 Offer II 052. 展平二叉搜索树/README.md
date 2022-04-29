@@ -1,4 +1,4 @@
-# [剑指 Offer II 052. 展平二叉搜索树](https://leetcode-cn.com/problems/NYBBNL)
+# [剑指 Offer II 052. 展平二叉搜索树](https://leetcode.cn/problems/NYBBNL)
 
 ## 题目描述
 
@@ -37,7 +37,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 897&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/increasing-order-search-tree/">https://leetcode-cn.com/problems/increasing-order-search-tree/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 897&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/increasing-order-search-tree/">https://leetcode.cn/problems/increasing-order-search-tree/</a></p>
 
 ## 解法
 

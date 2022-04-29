@@ -1,4 +1,4 @@
-# [1392. 最长快乐前缀](https://leetcode-cn.com/problems/longest-happy-prefix)
+# [1392. 最长快乐前缀](https://leetcode.cn/problems/longest-happy-prefix)
 
 [English Version](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README_EN.md)
 

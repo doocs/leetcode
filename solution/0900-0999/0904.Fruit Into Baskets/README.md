@@ -1,4 +1,4 @@
-# [904. 水果成篮](https://leetcode-cn.com/problems/fruit-into-baskets)
+# [904. 水果成篮](https://leetcode.cn/problems/fruit-into-baskets)
 
 [English Version](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [433. 最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation)
+# [433. 最小基因变化](https://leetcode.cn/problems/minimum-genetic-mutation)
 
 [English Version](/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README_EN.md)
 

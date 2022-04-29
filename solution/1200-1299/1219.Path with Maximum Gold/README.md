@@ -1,4 +1,4 @@
-# [1219. 黄金矿工](https://leetcode-cn.com/problems/path-with-maximum-gold)
+# [1219. 黄金矿工](https://leetcode.cn/problems/path-with-maximum-gold)
 
 [English Version](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md)
 

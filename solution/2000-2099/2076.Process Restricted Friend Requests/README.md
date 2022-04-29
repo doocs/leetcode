@@ -1,4 +1,4 @@
-# [2076. 处理含限制条件的好友请求](https://leetcode-cn.com/problems/process-restricted-friend-requests)
+# [2076. 处理含限制条件的好友请求](https://leetcode.cn/problems/process-restricted-friend-requests)
 
 [English Version](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README_EN.md)
 

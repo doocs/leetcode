@@ -1,4 +1,4 @@
-# [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning)
+# [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning)
 
 [English Version](/solution/0100-0199/0131.Palindrome%20Partitioning/README_EN.md)
 

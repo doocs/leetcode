@@ -1,4 +1,4 @@
-# [1856. 子数组最小乘积的最大值](https://leetcode-cn.com/problems/maximum-subarray-min-product)
+# [1856. 子数组最小乘积的最大值](https://leetcode.cn/problems/maximum-subarray-min-product)
 
 [English Version](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)
 

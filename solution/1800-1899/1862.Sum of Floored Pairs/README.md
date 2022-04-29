@@ -1,4 +1,4 @@
-# [1862. 向下取整数对和](https://leetcode-cn.com/problems/sum-of-floored-pairs)
+# [1862. 向下取整数对和](https://leetcode.cn/problems/sum-of-floored-pairs)
 
 [English Version](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README_EN.md)
 

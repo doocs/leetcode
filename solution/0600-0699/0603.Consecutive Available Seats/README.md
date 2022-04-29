@@ -1,4 +1,4 @@
-# [603. 连续空余座位](https://leetcode-cn.com/problems/consecutive-available-seats)
+# [603. 连续空余座位](https://leetcode.cn/problems/consecutive-available-seats)
 
 [English Version](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README_EN.md)
 

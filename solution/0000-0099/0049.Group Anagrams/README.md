@@ -1,4 +1,4 @@
-# [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams)
+# [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams)
 
 [English Version](/solution/0000-0099/0049.Group%20Anagrams/README_EN.md)
 

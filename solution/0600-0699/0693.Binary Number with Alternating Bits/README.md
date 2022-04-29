@@ -1,4 +1,4 @@
-# [693. 交替位二进制数](https://leetcode-cn.com/problems/binary-number-with-alternating-bits)
+# [693. 交替位二进制数](https://leetcode.cn/problems/binary-number-with-alternating-bits)
 
 [English Version](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [535. TinyURL 的加密与解密](https://leetcode-cn.com/problems/encode-and-decode-tinyurl)
+# [535. TinyURL 的加密与解密](https://leetcode.cn/problems/encode-and-decode-tinyurl)
 
 [English Version](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README_EN.md)
 

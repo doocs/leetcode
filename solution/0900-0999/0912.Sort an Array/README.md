@@ -1,4 +1,4 @@
-# [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array)
+# [912. 排序数组](https://leetcode.cn/problems/sort-an-array)
 
 [English Version](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md)
 

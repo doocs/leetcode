@@ -1,4 +1,4 @@
-# [179. 最大数](https://leetcode-cn.com/problems/largest-number)
+# [179. 最大数](https://leetcode.cn/problems/largest-number)
 
 [English Version](/solution/0100-0199/0179.Largest%20Number/README_EN.md)
 

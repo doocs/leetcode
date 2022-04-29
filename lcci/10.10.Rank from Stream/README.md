@@ -1,4 +1,4 @@
-# [面试题 10.10. 数字流的秩](https://leetcode-cn.com/problems/rank-from-stream-lcci)
+# [面试题 10.10. 数字流的秩](https://leetcode.cn/problems/rank-from-stream-lcci)
 
 [English Version](/lcci/10.10.Rank%20from%20Stream/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1178. 猜字谜](https://leetcode-cn.com/problems/number-of-valid-words-for-each-puzzle)
+# [1178. 猜字谜](https://leetcode.cn/problems/number-of-valid-words-for-each-puzzle)
 
 [English Version](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md)
 

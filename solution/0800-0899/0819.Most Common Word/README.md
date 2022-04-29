@@ -1,4 +1,4 @@
-# [819. 最常见的单词](https://leetcode-cn.com/problems/most-common-word)
+# [819. 最常见的单词](https://leetcode.cn/problems/most-common-word)
 
 [English Version](/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md)
 

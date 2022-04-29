@@ -1,4 +1,4 @@
-# [993. 二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree)
+# [993. 二叉树的堂兄弟节点](https://leetcode.cn/problems/cousins-in-binary-tree)
 
 [English Version](/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README_EN.md)
 

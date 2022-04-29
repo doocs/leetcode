@@ -1,4 +1,4 @@
-# [638. 大礼包](https://leetcode-cn.com/problems/shopping-offers)
+# [638. 大礼包](https://leetcode.cn/problems/shopping-offers)
 
 [English Version](/solution/0600-0699/0638.Shopping%20Offers/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection)
+# [684. 冗余连接](https://leetcode.cn/problems/redundant-connection)
 
 [English Version](/solution/0600-0699/0684.Redundant%20Connection/README_EN.md)
 

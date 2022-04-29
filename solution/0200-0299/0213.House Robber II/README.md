@@ -1,4 +1,4 @@
-# [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii)
+# [213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii)
 
 [English Version](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
 

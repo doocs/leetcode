@@ -1,4 +1,4 @@
-# [649. Dota2 参议院](https://leetcode-cn.com/problems/dota2-senate)
+# [649. Dota2 参议院](https://leetcode.cn/problems/dota2-senate)
 
 [English Version](/solution/0600-0699/0649.Dota2%20Senate/README_EN.md)
 

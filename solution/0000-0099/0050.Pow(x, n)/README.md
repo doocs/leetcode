@@ -1,4 +1,4 @@
-# [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n)
+# [50. Pow(x, n)](https://leetcode.cn/problems/powx-n)
 
 [English Version](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README_EN.md)
 

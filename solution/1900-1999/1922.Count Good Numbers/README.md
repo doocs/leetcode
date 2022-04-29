@@ -1,4 +1,4 @@
-# [1922. 统计好数字的数目](https://leetcode-cn.com/problems/count-good-numbers)
+# [1922. 统计好数字的数目](https://leetcode.cn/problems/count-good-numbers)
 
 [English Version](/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md)
 

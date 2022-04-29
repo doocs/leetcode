@@ -1,4 +1,4 @@
-# [2145. 统计隐藏数组数目](https://leetcode-cn.com/problems/count-the-hidden-sequences)
+# [2145. 统计隐藏数组数目](https://leetcode.cn/problems/count-the-hidden-sequences)
 
 [English Version](/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [816. 模糊坐标](https://leetcode-cn.com/problems/ambiguous-coordinates)
+# [816. 模糊坐标](https://leetcode.cn/problems/ambiguous-coordinates)
 
 [English Version](/solution/0800-0899/0816.Ambiguous%20Coordinates/README_EN.md)
 

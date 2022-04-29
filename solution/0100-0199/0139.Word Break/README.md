@@ -1,4 +1,4 @@
-# [139. 单词拆分](https://leetcode-cn.com/problems/word-break)
+# [139. 单词拆分](https://leetcode.cn/problems/word-break)
 
 [English Version](/solution/0100-0199/0139.Word%20Break/README_EN.md)
 

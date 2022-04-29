@@ -1,4 +1,4 @@
-# [169. 多数元素](https://leetcode-cn.com/problems/majority-element)
+# [169. 多数元素](https://leetcode.cn/problems/majority-element)
 
 [English Version](/solution/0100-0199/0169.Majority%20Element/README_EN.md)
 

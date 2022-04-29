@@ -1,4 +1,4 @@
-# [2069. 模拟行走机器人 II](https://leetcode-cn.com/problems/walking-robot-simulation-ii)
+# [2069. 模拟行走机器人 II](https://leetcode.cn/problems/walking-robot-simulation-ii)
 
 [English Version](/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README_EN.md)
 

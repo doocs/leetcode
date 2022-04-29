@@ -1,4 +1,4 @@
-# [剑指 Offer II 020. 回文子字符串的个数](https://leetcode-cn.com/problems/a7VOhD)
+# [剑指 Offer II 020. 回文子字符串的个数](https://leetcode.cn/problems/a7VOhD)
 
 ## 题目描述
 
@@ -36,7 +36,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 647 题相同：<a href="https://leetcode-cn.com/problems/palindromic-substrings/">https://leetcode-cn.com/problems/palindromic-substrings/</a>&nbsp;</p>
+<p><meta charset="UTF-8" />注意：本题与主站 647 题相同：<a href="https://leetcode.cn/problems/palindromic-substrings/">https://leetcode.cn/problems/palindromic-substrings/</a>&nbsp;</p>
 
 ## 解法
 

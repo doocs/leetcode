@@ -1,4 +1,4 @@
-# [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum)
+# [239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum)
 
 [English Version](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md)
 

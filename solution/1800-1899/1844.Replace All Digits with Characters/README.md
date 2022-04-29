@@ -1,4 +1,4 @@
-# [1844. 将所有数字用字符替换](https://leetcode-cn.com/problems/replace-all-digits-with-characters)
+# [1844. 将所有数字用字符替换](https://leetcode.cn/problems/replace-all-digits-with-characters)
 
 [English Version](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README_EN.md)
 

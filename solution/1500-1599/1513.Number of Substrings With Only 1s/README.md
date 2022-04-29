@@ -1,4 +1,4 @@
-# [1513. 仅含 1 的子串数](https://leetcode-cn.com/problems/number-of-substrings-with-only-1s)
+# [1513. 仅含 1 的子串数](https://leetcode.cn/problems/number-of-substrings-with-only-1s)
 
 [English Version](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README_EN.md)
 

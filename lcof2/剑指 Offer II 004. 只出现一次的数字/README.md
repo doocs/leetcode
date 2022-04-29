@@ -1,4 +1,4 @@
-# [剑指 Offer II 004. 只出现一次的数字](https://leetcode-cn.com/problems/WGki4K)
+# [剑指 Offer II 004. 只出现一次的数字](https://leetcode.cn/problems/WGki4K)
 
 ## 题目描述
 
@@ -38,7 +38,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 137&nbsp;题相同：<a href="https://leetcode-cn.com/problems/single-number-ii/">https://leetcode-cn.com/problems/single-number-ii/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 137&nbsp;题相同：<a href="https://leetcode.cn/problems/single-number-ii/">https://leetcode.cn/problems/single-number-ii/</a></p>
 
 ## 解法
 

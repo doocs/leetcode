@@ -1,4 +1,4 @@
-# [1401. 圆和矩形是否有重叠](https://leetcode-cn.com/problems/circle-and-rectangle-overlapping)
+# [1401. 圆和矩形是否有重叠](https://leetcode.cn/problems/circle-and-rectangle-overlapping)
 
 [English Version](/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README_EN.md)
 

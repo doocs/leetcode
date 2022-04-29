@@ -1,4 +1,4 @@
-# [295. 数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream)
+# [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream)
 
 [English Version](/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README_EN.md)
 

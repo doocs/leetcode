@@ -1,4 +1,4 @@
-# [2149. 按符号重排数组](https://leetcode-cn.com/problems/rearrange-array-elements-by-sign)
+# [2149. 按符号重排数组](https://leetcode.cn/problems/rearrange-array-elements-by-sign)
 
 [English Version](/solution/2100-2199/2149.Rearrange%20Array%20Elements%20by%20Sign/README_EN.md)
 

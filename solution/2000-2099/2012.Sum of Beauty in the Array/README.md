@@ -1,4 +1,4 @@
-# [2012. 数组美丽值求和](https://leetcode-cn.com/problems/sum-of-beauty-in-the-array)
+# [2012. 数组美丽值求和](https://leetcode.cn/problems/sum-of-beauty-in-the-array)
 
 [English Version](/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README_EN.md)
 

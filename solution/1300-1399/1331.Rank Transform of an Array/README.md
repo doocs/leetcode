@@ -1,4 +1,4 @@
-# [1331. 数组序号转换](https://leetcode-cn.com/problems/rank-transform-of-an-array)
+# [1331. 数组序号转换](https://leetcode.cn/problems/rank-transform-of-an-array)
 
 [English Version](/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README_EN.md)
 

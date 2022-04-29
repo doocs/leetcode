@@ -1,4 +1,4 @@
-# [1463. 摘樱桃 II](https://leetcode-cn.com/problems/cherry-pickup-ii)
+# [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii)
 
 [English Version](/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md)
 

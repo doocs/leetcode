@@ -1,4 +1,4 @@
-# [剑指 Offer II 064. 神奇的字典](https://leetcode-cn.com/problems/US1pGT)
+# [剑指 Offer II 064. 神奇的字典](https://leetcode.cn/problems/US1pGT)
 
 ## 题目描述
 
@@ -57,7 +57,7 @@ magicDictionary.search(&quot;leetcoded&quot;); // 返回 False
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 676&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/implement-magic-dictionary/">https://leetcode-cn.com/problems/implement-magic-dictionary/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 676&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/implement-magic-dictionary/">https://leetcode.cn/problems/implement-magic-dictionary/</a></p>
 
 ## 解法
 

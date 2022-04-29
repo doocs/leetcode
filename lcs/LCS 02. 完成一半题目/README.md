@@ -1,4 +1,4 @@
-# [LCS 02. 完成一半题目](https://leetcode-cn.com/problems/WqXACV/)
+# [LCS 02. 完成一半题目](https://leetcode.cn/problems/WqXACV/)
 
 ## 题目描述
 

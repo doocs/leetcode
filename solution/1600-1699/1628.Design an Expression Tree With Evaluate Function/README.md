@@ -1,4 +1,4 @@
-# [1628. 设计带解析函数的表达式树](https://leetcode-cn.com/problems/design-an-expression-tree-with-evaluate-function)
+# [1628. 设计带解析函数的表达式树](https://leetcode.cn/problems/design-an-expression-tree-with-evaluate-function)
 
 [English Version](/solution/1600-1699/1628.Design%20an%20Expression%20Tree%20With%20Evaluate%20Function/README_EN.md)
 

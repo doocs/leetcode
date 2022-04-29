@@ -1,4 +1,4 @@
-# [1097. 游戏玩法分析 V](https://leetcode-cn.com/problems/game-play-analysis-v)
+# [1097. 游戏玩法分析 V](https://leetcode.cn/problems/game-play-analysis-v)
 
 [English Version](/solution/1000-1099/1097.Game%20Play%20Analysis%20V/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [面试题 17.12. BiNode](https://leetcode-cn.com/problems/binode-lcci)
+# [面试题 17.12. BiNode](https://leetcode.cn/problems/binode-lcci)
 
 [English Version](/lcci/17.12.BiNode/README_EN.md)
 

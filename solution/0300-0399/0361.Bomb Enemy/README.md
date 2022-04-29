@@ -1,4 +1,4 @@
-# [361. 轰炸敌人](https://leetcode-cn.com/problems/bomb-enemy)
+# [361. 轰炸敌人](https://leetcode.cn/problems/bomb-enemy)
 
 [English Version](/solution/0300-0399/0361.Bomb%20Enemy/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [822. 翻转卡片游戏](https://leetcode-cn.com/problems/card-flipping-game)
+# [822. 翻转卡片游戏](https://leetcode.cn/problems/card-flipping-game)
 
 [English Version](/solution/0800-0899/0822.Card%20Flipping%20Game/README_EN.md)
 

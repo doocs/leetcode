@@ -1,4 +1,4 @@
-# [79. 单词搜索](https://leetcode-cn.com/problems/word-search)
+# [79. 单词搜索](https://leetcode.cn/problems/word-search)
 
 [English Version](/solution/0000-0099/0079.Word%20Search/README_EN.md)
 

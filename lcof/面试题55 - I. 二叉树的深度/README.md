@@ -1,4 +1,4 @@
-# [面试题 55 - I. 二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/)
+# [面试题 55 - I. 二叉树的深度](https://leetcode.cn/problems/er-cha-shu-de-shen-du-lcof/)
 
 ## 题目描述
 
@@ -24,7 +24,7 @@
 	<li><code>节点总数 &lt;= 10000</code></li>
 </ol>
 
-<p>注意：本题与主站 104&nbsp;题相同：<a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/</a></p>
+<p>注意：本题与主站 104&nbsp;题相同：<a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">https://leetcode.cn/problems/maximum-depth-of-binary-tree/</a></p>
 
 ## 解法
 

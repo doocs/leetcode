@@ -1,4 +1,4 @@
-# [156. 上下翻转二叉树](https://leetcode-cn.com/problems/binary-tree-upside-down)
+# [156. 上下翻转二叉树](https://leetcode.cn/problems/binary-tree-upside-down)
 
 [English Version](/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README_EN.md)
 

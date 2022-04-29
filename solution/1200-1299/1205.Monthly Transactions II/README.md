@@ -1,4 +1,4 @@
-# [1205. 每月交易 II](https://leetcode-cn.com/problems/monthly-transactions-ii)
+# [1205. 每月交易 II](https://leetcode.cn/problems/monthly-transactions-ii)
 
 [English Version](/solution/1200-1299/1205.Monthly%20Transactions%20II/README_EN.md)
 

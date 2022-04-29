@@ -1,4 +1,4 @@
-# [LCP 13. 寻宝](https://leetcode-cn.com/problems/xun-bao)
+# [LCP 13. 寻宝](https://leetcode.cn/problems/xun-bao)
 
 ## 题目描述
 

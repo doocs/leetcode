@@ -1,4 +1,4 @@
-# [808. 分汤](https://leetcode-cn.com/problems/soup-servings)
+# [808. 分汤](https://leetcode.cn/problems/soup-servings)
 
 [English Version](/solution/0800-0899/0808.Soup%20Servings/README_EN.md)
 

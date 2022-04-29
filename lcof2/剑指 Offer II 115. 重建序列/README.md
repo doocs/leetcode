@@ -1,4 +1,4 @@
-# [剑指 Offer II 115. 重建序列](https://leetcode-cn.com/problems/ur2n8P)
+# [剑指 Offer II 115. 重建序列](https://leetcode.cn/problems/ur2n8P)
 
 ## 题目描述
 
@@ -54,7 +54,7 @@
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 444&nbsp;题相同：<a href="https://leetcode-cn.com/problems/sequence-reconstruction/">https://leetcode-cn.com/problems/sequence-reconstruction/</a></p>
+<p>注意：本题与主站 444&nbsp;题相同：<a href="https://leetcode.cn/problems/sequence-reconstruction/">https://leetcode.cn/problems/sequence-reconstruction/</a></p>
 
 ## 解法
 

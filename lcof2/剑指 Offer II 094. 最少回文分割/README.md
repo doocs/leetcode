@@ -1,4 +1,4 @@
-# [剑指 Offer II 094. 最少回文分割](https://leetcode-cn.com/problems/omKAoA)
+# [剑指 Offer II 094. 最少回文分割](https://leetcode.cn/problems/omKAoA)
 
 ## 题目描述
 
@@ -47,7 +47,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 132&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/palindrome-partitioning-ii/">https://leetcode-cn.com/problems/palindrome-partitioning-ii/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 132&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/palindrome-partitioning-ii/">https://leetcode.cn/problems/palindrome-partitioning-ii/</a></p>
 
 ## 解法
 

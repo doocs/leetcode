@@ -1,4 +1,4 @@
-# [2055. 蜡烛之间的盘子](https://leetcode-cn.com/problems/plates-between-candles)
+# [2055. 蜡烛之间的盘子](https://leetcode.cn/problems/plates-between-candles)
 
 [English Version](/solution/2000-2099/2055.Plates%20Between%20Candles/README_EN.md)
 

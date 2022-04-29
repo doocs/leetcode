@@ -1,4 +1,4 @@
-# [1206. 设计跳表](https://leetcode-cn.com/problems/design-skiplist)
+# [1206. 设计跳表](https://leetcode.cn/problems/design-skiplist)
 
 [English Version](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
 

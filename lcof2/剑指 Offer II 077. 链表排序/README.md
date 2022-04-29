@@ -1,4 +1,4 @@
-# [剑指 Offer II 077. 链表排序](https://leetcode-cn.com/problems/7WHec2)
+# [剑指 Offer II 077. 链表排序](https://leetcode.cn/problems/7WHec2)
 
 ## 题目描述
 
@@ -51,7 +51,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 148&nbsp;题相同：<a href="https://leetcode-cn.com/problems/sort-list/">https://leetcode-cn.com/problems/sort-list/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 148&nbsp;题相同：<a href="https://leetcode.cn/problems/sort-list/">https://leetcode.cn/problems/sort-list/</a></p>
 
 ## 解法
 

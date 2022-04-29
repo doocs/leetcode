@@ -1,4 +1,4 @@
-# [面试题 03.04. 化栈为队](https://leetcode-cn.com/problems/implement-queue-using-stacks-lcci)
+# [面试题 03.04. 化栈为队](https://leetcode.cn/problems/implement-queue-using-stacks-lcci)
 
 [English Version](/lcci/03.04.Implement%20Queue%20using%20Stacks/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1360. 日期之间隔几天](https://leetcode-cn.com/problems/number-of-days-between-two-dates)
+# [1360. 日期之间隔几天](https://leetcode.cn/problems/number-of-days-between-two-dates)
 
 [English Version](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README_EN.md)
 

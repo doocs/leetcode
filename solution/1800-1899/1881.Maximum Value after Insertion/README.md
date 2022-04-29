@@ -1,4 +1,4 @@
-# [1881. 插入后的最大值](https://leetcode-cn.com/problems/maximum-value-after-insertion)
+# [1881. 插入后的最大值](https://leetcode.cn/problems/maximum-value-after-insertion)
 
 [English Version](/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README_EN.md)
 

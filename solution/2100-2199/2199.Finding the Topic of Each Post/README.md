@@ -1,4 +1,4 @@
-# [2199. Finding the Topic of Each Post](https://leetcode-cn.com/problems/finding-the-topic-of-each-post)
+# [2199. Finding the Topic of Each Post](https://leetcode.cn/problems/finding-the-topic-of-each-post)
 
 [English Version](/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README_EN.md)
 

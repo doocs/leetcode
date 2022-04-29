@@ -1,4 +1,4 @@
-# [562. 矩阵中最长的连续 1 线段](https://leetcode-cn.com/problems/longest-line-of-consecutive-one-in-matrix)
+# [562. 矩阵中最长的连续 1 线段](https://leetcode.cn/problems/longest-line-of-consecutive-one-in-matrix)
 
 [English Version](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md)
 

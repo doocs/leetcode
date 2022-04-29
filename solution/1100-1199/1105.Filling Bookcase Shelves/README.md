@@ -1,4 +1,4 @@
-# [1105. 填充书架](https://leetcode-cn.com/problems/filling-bookcase-shelves)
+# [1105. 填充书架](https://leetcode.cn/problems/filling-bookcase-shelves)
 
 [English Version](/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README_EN.md)
 

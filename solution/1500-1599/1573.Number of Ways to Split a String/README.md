@@ -1,4 +1,4 @@
-# [1573. 分割字符串的方案数](https://leetcode-cn.com/problems/number-of-ways-to-split-a-string)
+# [1573. 分割字符串的方案数](https://leetcode.cn/problems/number-of-ways-to-split-a-string)
 
 [English Version](/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [946. 验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences)
+# [946. 验证栈序列](https://leetcode.cn/problems/validate-stack-sequences)
 
 [English Version](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md)
 

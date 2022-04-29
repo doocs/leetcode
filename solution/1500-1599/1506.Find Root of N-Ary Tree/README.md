@@ -1,4 +1,4 @@
-# [1506. 找到 N 叉树的根节点](https://leetcode-cn.com/problems/find-root-of-n-ary-tree)
+# [1506. 找到 N 叉树的根节点](https://leetcode.cn/problems/find-root-of-n-ary-tree)
 
 [English Version](/solution/1500-1599/1506.Find%20Root%20of%20N-Ary%20Tree/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [336. 回文对](https://leetcode-cn.com/problems/palindrome-pairs)
+# [336. 回文对](https://leetcode.cn/problems/palindrome-pairs)
 
 [English Version](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md)
 

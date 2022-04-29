@@ -1,4 +1,4 @@
-# [1501. 可以放心投资的国家](https://leetcode-cn.com/problems/countries-you-can-safely-invest-in)
+# [1501. 可以放心投资的国家](https://leetcode.cn/problems/countries-you-can-safely-invest-in)
 
 [English Version](/solution/1500-1599/1501.Countries%20You%20Can%20Safely%20Invest%20In/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [595. 大的国家](https://leetcode-cn.com/problems/big-countries)
+# [595. 大的国家](https://leetcode.cn/problems/big-countries)
 
 [English Version](/solution/0500-0599/0595.Big%20Countries/README_EN.md)
 

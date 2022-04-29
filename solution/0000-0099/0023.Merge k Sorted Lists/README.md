@@ -1,4 +1,4 @@
-# [23. 合并 K 个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)
+# [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists)
 
 [English Version](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
 
@@ -61,7 +61,7 @@
 
 **分而治之：**
 
-多个链表合并复杂，若只有两个或一个链表时，那么就如同 [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) 一样。
+多个链表合并复杂，若只有两个或一个链表时，那么就如同 [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) 一样。
 
 与归并排序同思路，不断拆散，最终合并即可。
 

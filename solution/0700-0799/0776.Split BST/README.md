@@ -1,4 +1,4 @@
-# [776. 拆分二叉搜索树](https://leetcode-cn.com/problems/split-bst)
+# [776. 拆分二叉搜索树](https://leetcode.cn/problems/split-bst)
 
 [English Version](/solution/0700-0799/0776.Split%20BST/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [01.09. String Rotation](https://leetcode-cn.com/problems/string-rotation-lcci)
+# [01.09. String Rotation](https://leetcode.cn/problems/string-rotation-lcci)
 
 [中文文档](/lcci/01.09.String%20Rotation/README.md)
 

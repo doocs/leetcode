@@ -1,4 +1,4 @@
-# [面试题 42. 连续子数组的最大和](https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/)
+# [面试题 42. 连续子数组的最大和](https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/)
 
 ## 题目描述
 
@@ -23,7 +23,7 @@
 	<li><code>-100 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
 
-<p>注意：本题与主站 53 题相同：<a href="https://leetcode-cn.com/problems/maximum-subarray/">https://leetcode-cn.com/problems/maximum-subarray/</a></p>
+<p>注意：本题与主站 53 题相同：<a href="https://leetcode.cn/problems/maximum-subarray/">https://leetcode.cn/problems/maximum-subarray/</a></p>
 
 <p>&nbsp;</p>
 

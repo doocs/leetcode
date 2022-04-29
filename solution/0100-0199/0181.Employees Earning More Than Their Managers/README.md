@@ -1,4 +1,4 @@
-# [181. 超过经理收入的员工](https://leetcode-cn.com/problems/employees-earning-more-than-their-managers)
+# [181. 超过经理收入的员工](https://leetcode.cn/problems/employees-earning-more-than-their-managers)
 
 [English Version](/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README_EN.md)
 

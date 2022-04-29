@@ -1,4 +1,4 @@
-# [面试题 17.19. 消失的两个数字](https://leetcode-cn.com/problems/missing-two-lcci)
+# [面试题 17.19. 消失的两个数字](https://leetcode.cn/problems/missing-two-lcci)
 
 [English Version](/lcci/17.19.Missing%20Two/README_EN.md)
 

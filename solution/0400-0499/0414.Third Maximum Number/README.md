@@ -1,4 +1,4 @@
-# [414. 第三大的数](https://leetcode-cn.com/problems/third-maximum-number)
+# [414. 第三大的数](https://leetcode.cn/problems/third-maximum-number)
 
 [English Version](/solution/0400-0499/0414.Third%20Maximum%20Number/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [335. 路径交叉](https://leetcode-cn.com/problems/self-crossing)
+# [335. 路径交叉](https://leetcode.cn/problems/self-crossing)
 
 [English Version](/solution/0300-0399/0335.Self%20Crossing/README_EN.md)
 

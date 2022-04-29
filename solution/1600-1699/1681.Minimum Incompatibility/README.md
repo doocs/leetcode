@@ -1,4 +1,4 @@
-# [1681. 最小不兼容性](https://leetcode-cn.com/problems/minimum-incompatibility)
+# [1681. 最小不兼容性](https://leetcode.cn/problems/minimum-incompatibility)
 
 [English Version](/solution/1600-1699/1681.Minimum%20Incompatibility/README_EN.md)
 

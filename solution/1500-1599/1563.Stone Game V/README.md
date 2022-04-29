@@ -1,4 +1,4 @@
-# [1563. 石子游戏 V](https://leetcode-cn.com/problems/stone-game-v)
+# [1563. 石子游戏 V](https://leetcode.cn/problems/stone-game-v)
 
 [English Version](/solution/1500-1599/1563.Stone%20Game%20V/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [760. 找出变位映射](https://leetcode-cn.com/problems/find-anagram-mappings)
+# [760. 找出变位映射](https://leetcode.cn/problems/find-anagram-mappings)
 
 [English Version](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README_EN.md)
 

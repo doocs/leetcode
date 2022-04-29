@@ -1,4 +1,4 @@
-# [717. 1 比特与 2 比特字符](https://leetcode-cn.com/problems/1-bit-and-2-bit-characters)
+# [717. 1 比特与 2 比特字符](https://leetcode.cn/problems/1-bit-and-2-bit-characters)
 
 [English Version](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README_EN.md)
 

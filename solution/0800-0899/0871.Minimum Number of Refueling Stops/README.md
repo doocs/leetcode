@@ -1,4 +1,4 @@
-# [871. 最低加油次数](https://leetcode-cn.com/problems/minimum-number-of-refueling-stops)
+# [871. 最低加油次数](https://leetcode.cn/problems/minimum-number-of-refueling-stops)
 
 [English Version](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README_EN.md)
 

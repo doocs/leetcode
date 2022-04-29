@@ -1,4 +1,4 @@
-# [LCP 07. 传递信息](https://leetcode-cn.com/problems/chuan-di-xin-xi)
+# [LCP 07. 传递信息](https://leetcode.cn/problems/chuan-di-xin-xi)
 
 ## 题目描述
 

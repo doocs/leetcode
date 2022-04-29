@@ -1,4 +1,4 @@
-# [剑指 Offer II 010. 和为 k 的子数组](https://leetcode-cn.com/problems/QTMn0o)
+# [剑指 Offer II 010. 和为 k 的子数组](https://leetcode.cn/problems/QTMn0o)
 
 ## 题目描述
 
@@ -37,7 +37,7 @@
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 560&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/subarray-sum-equals-k/">https://leetcode-cn.com/problems/subarray-sum-equals-k/</a></p>
+<p>注意：本题与主站 560&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/subarray-sum-equals-k/">https://leetcode.cn/problems/subarray-sum-equals-k/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [1698. 字符串的不同子字符串个数](https://leetcode-cn.com/problems/number-of-distinct-substrings-in-a-string)
+# [1698. 字符串的不同子字符串个数](https://leetcode.cn/problems/number-of-distinct-substrings-in-a-string)
 
 [English Version](/solution/1600-1699/1698.Number%20of%20Distinct%20Substrings%20in%20a%20String/README_EN.md)
 

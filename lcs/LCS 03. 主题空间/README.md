@@ -1,4 +1,4 @@
-# [LCS 03. 主题空间](https://leetcode-cn.com/problems/YesdPw/)
+# [LCS 03. 主题空间](https://leetcode.cn/problems/YesdPw/)
 
 ## 题目描述
 

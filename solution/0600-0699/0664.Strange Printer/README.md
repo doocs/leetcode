@@ -1,4 +1,4 @@
-# [664. 奇怪的打印机](https://leetcode-cn.com/problems/strange-printer)
+# [664. 奇怪的打印机](https://leetcode.cn/problems/strange-printer)
 
 [English Version](/solution/0600-0699/0664.Strange%20Printer/README_EN.md)
 

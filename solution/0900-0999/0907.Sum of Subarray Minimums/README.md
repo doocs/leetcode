@@ -1,4 +1,4 @@
-# [907. 子数组的最小值之和](https://leetcode-cn.com/problems/sum-of-subarray-minimums)
+# [907. 子数组的最小值之和](https://leetcode.cn/problems/sum-of-subarray-minimums)
 
 [English Version](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README_EN.md)
 

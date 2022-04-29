@@ -1,4 +1,4 @@
-# [2051. The Category of Each Member in the Store](https://leetcode-cn.com/problems/the-category-of-each-member-in-the-store)
+# [2051. The Category of Each Member in the Store](https://leetcode.cn/problems/the-category-of-each-member-in-the-store)
 
 [English Version](/solution/2000-2099/2051.The%20Category%20of%20Each%20Member%20in%20the%20Store/README_EN.md)
 

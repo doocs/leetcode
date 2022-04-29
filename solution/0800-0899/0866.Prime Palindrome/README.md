@@ -1,4 +1,4 @@
-# [866. 回文素数](https://leetcode-cn.com/problems/prime-palindrome)
+# [866. 回文素数](https://leetcode.cn/problems/prime-palindrome)
 
 [English Version](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)
 

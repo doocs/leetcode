@@ -1,4 +1,4 @@
-# [面试题 19. 正则表达式匹配](https://leetcode-cn.com/problems/zheng-ze-biao-da-shi-pi-pei-lcof/)
+# [面试题 19. 正则表达式匹配](https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/)
 
 ## 题目描述
 
@@ -52,7 +52,7 @@ p = &quot;mis*is*p*.&quot;
 	<li><code>p</code>&nbsp;可能为空，且只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母以及字符&nbsp;<code>.</code>&nbsp;和&nbsp;<code>*</code>，无连续的 <code>&#39;*&#39;</code>。</li>
 </ul>
 
-<p>注意：本题与主站 10&nbsp;题相同：<a href="https://leetcode-cn.com/problems/regular-expression-matching/">https://leetcode-cn.com/problems/regular-expression-matching/</a></p>
+<p>注意：本题与主站 10&nbsp;题相同：<a href="https://leetcode.cn/problems/regular-expression-matching/">https://leetcode.cn/problems/regular-expression-matching/</a></p>
 
 ## 解法
 

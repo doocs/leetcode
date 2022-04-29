@@ -1,4 +1,4 @@
-# [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation)
+# [150. 逆波兰表达式求值](https://leetcode.cn/problems/evaluate-reverse-polish-notation)
 
 [English Version](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md)
 

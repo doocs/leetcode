@@ -1,4 +1,4 @@
-# [1302. 层数最深叶子节点的和](https://leetcode-cn.com/problems/deepest-leaves-sum)
+# [1302. 层数最深叶子节点的和](https://leetcode.cn/problems/deepest-leaves-sum)
 
 [English Version](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md)
 

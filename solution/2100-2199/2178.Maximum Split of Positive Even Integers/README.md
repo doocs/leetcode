@@ -1,4 +1,4 @@
-# [2178. 拆分成最多数目的偶整数之和](https://leetcode-cn.com/problems/maximum-split-of-positive-even-integers)
+# [2178. 拆分成最多数目的偶整数之和](https://leetcode.cn/problems/maximum-split-of-positive-even-integers)
 
 [English Version](/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README_EN.md)
 

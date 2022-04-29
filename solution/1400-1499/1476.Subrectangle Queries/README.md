@@ -1,4 +1,4 @@
-# [1476. 子矩形查询](https://leetcode-cn.com/problems/subrectangle-queries)
+# [1476. 子矩形查询](https://leetcode.cn/problems/subrectangle-queries)
 
 [English Version](/solution/1400-1499/1476.Subrectangle%20Queries/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2181. 合并零之间的节点](https://leetcode-cn.com/problems/merge-nodes-in-between-zeros)
+# [2181. 合并零之间的节点](https://leetcode.cn/problems/merge-nodes-in-between-zeros)
 
 [English Version](/solution/2100-2199/2181.Merge%20Nodes%20in%20Between%20Zeros/README_EN.md)
 

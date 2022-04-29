@@ -1,4 +1,4 @@
-# [LCP 37. 最小矩形面积](https://leetcode-cn.com/problems/zui-xiao-ju-xing-mian-ji)
+# [LCP 37. 最小矩形面积](https://leetcode.cn/problems/zui-xiao-ju-xing-mian-ji)
 
 ## 题目描述
 

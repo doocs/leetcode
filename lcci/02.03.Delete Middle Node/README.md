@@ -1,4 +1,4 @@
-# [面试题 02.03. 删除中间节点](https://leetcode-cn.com/problems/delete-middle-node-lcci)
+# [面试题 02.03. 删除中间节点](https://leetcode.cn/problems/delete-middle-node-lcci)
 
 [English Version](/lcci/02.03.Delete%20Middle%20Node/README_EN.md)
 
@@ -27,7 +27,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-> 此题与本站 [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) 题意相同。
+> 此题与本站 [237. 删除链表中的节点](https://leetcode.cn/problems/delete-node-in-a-linked-list/) 题意相同。
 
 步骤：
 

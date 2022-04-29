@@ -1,4 +1,4 @@
-# [2179. 统计数组中好三元组数目](https://leetcode-cn.com/problems/count-good-triplets-in-an-array)
+# [2179. 统计数组中好三元组数目](https://leetcode.cn/problems/count-good-triplets-in-an-array)
 
 [English Version](/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README_EN.md)
 

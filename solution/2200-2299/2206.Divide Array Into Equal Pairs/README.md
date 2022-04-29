@@ -1,4 +1,4 @@
-# [2206. 将数组划分成相等数对](https://leetcode-cn.com/problems/divide-array-into-equal-pairs)
+# [2206. 将数组划分成相等数对](https://leetcode.cn/problems/divide-array-into-equal-pairs)
 
 [English Version](/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README_EN.md)
 

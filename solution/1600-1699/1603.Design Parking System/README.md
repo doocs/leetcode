@@ -1,4 +1,4 @@
-# [1603. 设计停车系统](https://leetcode-cn.com/problems/design-parking-system)
+# [1603. 设计停车系统](https://leetcode.cn/problems/design-parking-system)
 
 [English Version](/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md)
 

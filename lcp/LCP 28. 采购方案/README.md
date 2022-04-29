@@ -1,4 +1,4 @@
-# [LCP 28. 采购方案](https://leetcode-cn.com/problems/4xy4Wx)
+# [LCP 28. 采购方案](https://leetcode.cn/problems/4xy4Wx)
 
 ## 题目描述
 

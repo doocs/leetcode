@@ -1,4 +1,4 @@
-# [16.06. Smallest Difference](https://leetcode-cn.com/problems/smallest-difference-lcci)
+# [16.06. Smallest Difference](https://leetcode.cn/problems/smallest-difference-lcci)
 
 [中文文档](/lcci/16.06.Smallest%20Difference/README.md)
 

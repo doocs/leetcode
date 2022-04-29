@@ -1,4 +1,4 @@
-# [1715. 苹果和橘子的个数](https://leetcode-cn.com/problems/count-apples-and-oranges)
+# [1715. 苹果和橘子的个数](https://leetcode.cn/problems/count-apples-and-oranges)
 
 [English Version](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README_EN.md)
 

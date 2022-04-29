@@ -1,4 +1,4 @@
-# [991. 坏了的计算器](https://leetcode-cn.com/problems/broken-calculator)
+# [991. 坏了的计算器](https://leetcode.cn/problems/broken-calculator)
 
 [English Version](/solution/0900-0999/0991.Broken%20Calculator/README_EN.md)
 

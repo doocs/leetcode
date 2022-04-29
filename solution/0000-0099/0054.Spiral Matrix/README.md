@@ -1,4 +1,4 @@
-# [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix)
+# [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix)
 
 [English Version](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
 

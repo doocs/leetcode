@@ -1,4 +1,4 @@
-# [1184. 公交站间的距离](https://leetcode-cn.com/problems/distance-between-bus-stops)
+# [1184. 公交站间的距离](https://leetcode.cn/problems/distance-between-bus-stops)
 
 [English Version](/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README_EN.md)
 

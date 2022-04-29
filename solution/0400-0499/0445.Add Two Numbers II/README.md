@@ -1,4 +1,4 @@
-# [445. 两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii)
+# [445. 两数相加 II](https://leetcode.cn/problems/add-two-numbers-ii)
 
 [English Version](/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README_EN.md)
 

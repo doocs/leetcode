@@ -1,4 +1,4 @@
-# [513. 找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value)
+# [513. 找树左下角的值](https://leetcode.cn/problems/find-bottom-left-tree-value)
 
 [English Version](/solution/0500-0599/0513.Find%20Bottom%20Left%20Tree%20Value/README_EN.md)
 

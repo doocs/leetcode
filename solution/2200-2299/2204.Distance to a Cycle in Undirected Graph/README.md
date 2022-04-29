@@ -1,4 +1,4 @@
-# [2204. Distance to a Cycle in Undirected Graph](https://leetcode-cn.com/problems/distance-to-a-cycle-in-undirected-graph)
+# [2204. Distance to a Cycle in Undirected Graph](https://leetcode.cn/problems/distance-to-a-cycle-in-undirected-graph)
 
 [English Version](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md)
 

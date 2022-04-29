@@ -1,4 +1,4 @@
-# [1657. 确定两个字符串是否接近](https://leetcode-cn.com/problems/determine-if-two-strings-are-close)
+# [1657. 确定两个字符串是否接近](https://leetcode.cn/problems/determine-if-two-strings-are-close)
 
 [English Version](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md)
 

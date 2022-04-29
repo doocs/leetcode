@@ -1,4 +1,4 @@
-# [17.18. Shortest Supersequence](https://leetcode-cn.com/problems/shortest-supersequence-lcci)
+# [17.18. Shortest Supersequence](https://leetcode.cn/problems/shortest-supersequence-lcci)
 
 [中文文档](/lcci/17.18.Shortest%20Supersequence/README.md)
 

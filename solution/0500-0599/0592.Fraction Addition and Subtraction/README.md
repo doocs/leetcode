@@ -1,4 +1,4 @@
-# [592. 分数加减运算](https://leetcode-cn.com/problems/fraction-addition-and-subtraction)
+# [592. 分数加减运算](https://leetcode.cn/problems/fraction-addition-and-subtraction)
 
 [English Version](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README_EN.md)
 

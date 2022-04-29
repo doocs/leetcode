@@ -1,4 +1,4 @@
-# [17.20. Continuous Median](https://leetcode-cn.com/problems/continuous-median-lcci)
+# [17.20. Continuous Median](https://leetcode.cn/problems/continuous-median-lcci)
 
 [中文文档](/lcci/17.20.Continuous%20Median/README.md)
 

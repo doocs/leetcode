@@ -1,4 +1,4 @@
-# [802. 找到最终的安全状态](https://leetcode-cn.com/problems/find-eventual-safe-states)
+# [802. 找到最终的安全状态](https://leetcode.cn/problems/find-eventual-safe-states)
 
 [English Version](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [185. 部门工资前三高的所有员工](https://leetcode-cn.com/problems/department-top-three-salaries)
+# [185. 部门工资前三高的所有员工](https://leetcode.cn/problems/department-top-three-salaries)
 
 [English Version](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README_EN.md)
 

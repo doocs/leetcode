@@ -1,4 +1,4 @@
-# [1378. 使用唯一标识码替换员工 ID](https://leetcode-cn.com/problems/replace-employee-id-with-the-unique-identifier)
+# [1378. 使用唯一标识码替换员工 ID](https://leetcode.cn/problems/replace-employee-id-with-the-unique-identifier)
 
 [English Version](/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README_EN.md)
 

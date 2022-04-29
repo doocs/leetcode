@@ -1,4 +1,4 @@
-# [1836. Remove Duplicates From an Unsorted Linked List](https://leetcode-cn.com/problems/remove-duplicates-from-an-unsorted-linked-list)
+# [1836. Remove Duplicates From an Unsorted Linked List](https://leetcode.cn/problems/remove-duplicates-from-an-unsorted-linked-list)
 
 [English Version](/solution/1800-1899/1836.Remove%20Duplicates%20From%20an%20Unsorted%20Linked%20List/README_EN.md)
 

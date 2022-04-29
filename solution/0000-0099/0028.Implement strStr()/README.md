@@ -1,4 +1,4 @@
-# [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
+# [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr)
 
 [English Version](/solution/0000-0099/0028.Implement%20strStr%28%29/README_EN.md)
 

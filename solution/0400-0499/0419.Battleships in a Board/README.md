@@ -1,4 +1,4 @@
-# [419. 甲板上的战舰](https://leetcode-cn.com/problems/battleships-in-a-board)
+# [419. 甲板上的战舰](https://leetcode.cn/problems/battleships-in-a-board)
 
 [English Version](/solution/0400-0499/0419.Battleships%20in%20a%20Board/README_EN.md)
 

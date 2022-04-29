@@ -1,4 +1,4 @@
-# [823. 带因子的二叉树](https://leetcode-cn.com/problems/binary-trees-with-factors)
+# [823. 带因子的二叉树](https://leetcode.cn/problems/binary-trees-with-factors)
 
 [English Version](/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README_EN.md)
 

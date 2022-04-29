@@ -1,4 +1,4 @@
-# [970. 强整数](https://leetcode-cn.com/problems/powerful-integers)
+# [970. 强整数](https://leetcode.cn/problems/powerful-integers)
 
 [English Version](/solution/0900-0999/0970.Powerful%20Integers/README_EN.md)
 

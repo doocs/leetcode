@@ -1,4 +1,4 @@
-# [1756. 设计最近使用（MRU）队列](https://leetcode-cn.com/problems/design-most-recently-used-queue)
+# [1756. 设计最近使用（MRU）队列](https://leetcode.cn/problems/design-most-recently-used-queue)
 
 [English Version](/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README_EN.md)
 

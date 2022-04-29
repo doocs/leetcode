@@ -1,4 +1,4 @@
-# [1286. 字母组合迭代器](https://leetcode-cn.com/problems/iterator-for-combination)
+# [1286. 字母组合迭代器](https://leetcode.cn/problems/iterator-for-combination)
 
 [English Version](/solution/1200-1299/1286.Iterator%20for%20Combination/README_EN.md)
 

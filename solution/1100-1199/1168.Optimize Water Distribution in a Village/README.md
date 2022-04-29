@@ -1,4 +1,4 @@
-# [1168. 水资源分配优化](https://leetcode-cn.com/problems/optimize-water-distribution-in-a-village)
+# [1168. 水资源分配优化](https://leetcode.cn/problems/optimize-water-distribution-in-a-village)
 
 [English Version](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md)
 

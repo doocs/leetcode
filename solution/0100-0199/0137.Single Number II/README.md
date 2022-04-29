@@ -1,4 +1,4 @@
-# [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii)
+# [137. 只出现一次的数字 II](https://leetcode.cn/problems/single-number-ii)
 
 [English Version](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [16.15. Master Mind](https://leetcode-cn.com/problems/master-mind-lcci)
+# [16.15. Master Mind](https://leetcode.cn/problems/master-mind-lcci)
 
 [中文文档](/lcci/16.15.Master%20Mind/README.md)
 

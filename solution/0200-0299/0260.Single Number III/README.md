@@ -1,4 +1,4 @@
-# [260. 只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii)
+# [260. 只出现一次的数字 III](https://leetcode.cn/problems/single-number-iii)
 
 [English Version](/solution/0200-0299/0260.Single%20Number%20III/README_EN.md)
 

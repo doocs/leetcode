@@ -1,4 +1,4 @@
-# [57. 插入区间](https://leetcode-cn.com/problems/insert-interval)
+# [57. 插入区间](https://leetcode.cn/problems/insert-interval)
 
 [English Version](/solution/0000-0099/0057.Insert%20Interval/README_EN.md)
 

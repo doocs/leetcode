@@ -1,4 +1,4 @@
-# [840. 矩阵中的幻方](https://leetcode-cn.com/problems/magic-squares-in-grid)
+# [840. 矩阵中的幻方](https://leetcode.cn/problems/magic-squares-in-grid)
 
 [English Version](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README_EN.md)
 

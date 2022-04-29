@@ -1,4 +1,4 @@
-# [473. 火柴拼正方形](https://leetcode-cn.com/problems/matchsticks-to-square)
+# [473. 火柴拼正方形](https://leetcode.cn/problems/matchsticks-to-square)
 
 [English Version](/solution/0400-0499/0473.Matchsticks%20to%20Square/README_EN.md)
 

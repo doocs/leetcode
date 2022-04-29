@@ -1,4 +1,4 @@
-# [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal)
+# [145. 二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal)
 
 [English Version](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)
 

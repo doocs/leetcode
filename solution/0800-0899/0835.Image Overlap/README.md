@@ -1,4 +1,4 @@
-# [835. 图像重叠](https://leetcode-cn.com/problems/image-overlap)
+# [835. 图像重叠](https://leetcode.cn/problems/image-overlap)
 
 [English Version](/solution/0800-0899/0835.Image%20Overlap/README_EN.md)
 

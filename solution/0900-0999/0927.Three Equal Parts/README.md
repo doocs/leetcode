@@ -1,4 +1,4 @@
-# [927. 三等分](https://leetcode-cn.com/problems/three-equal-parts)
+# [927. 三等分](https://leetcode.cn/problems/three-equal-parts)
 
 [English Version](/solution/0900-0999/0927.Three%20Equal%20Parts/README_EN.md)
 

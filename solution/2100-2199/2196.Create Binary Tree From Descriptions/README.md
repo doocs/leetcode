@@ -1,4 +1,4 @@
-# [2196. 根据描述创建二叉树](https://leetcode-cn.com/problems/create-binary-tree-from-descriptions)
+# [2196. 根据描述创建二叉树](https://leetcode.cn/problems/create-binary-tree-from-descriptions)
 
 [English Version](/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README_EN.md)
 

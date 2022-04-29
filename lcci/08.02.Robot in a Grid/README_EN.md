@@ -1,4 +1,4 @@
-# [08.02. Robot in a Grid](https://leetcode-cn.com/problems/robot-in-a-grid-lcci)
+# [08.02. Robot in a Grid](https://leetcode.cn/problems/robot-in-a-grid-lcci)
 
 [中文文档](/lcci/08.02.Robot%20in%20a%20Grid/README.md)
 

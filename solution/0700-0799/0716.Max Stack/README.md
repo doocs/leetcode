@@ -1,4 +1,4 @@
-# [716. 最大栈](https://leetcode-cn.com/problems/max-stack)
+# [716. 最大栈](https://leetcode.cn/problems/max-stack)
 
 [English Version](/solution/0700-0799/0716.Max%20Stack/README_EN.md)
 

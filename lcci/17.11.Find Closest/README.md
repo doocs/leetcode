@@ -1,4 +1,4 @@
-# [面试题 17.11. 单词距离](https://leetcode-cn.com/problems/find-closest-lcci)
+# [面试题 17.11. 单词距离](https://leetcode.cn/problems/find-closest-lcci)
 
 [English Version](/lcci/17.11.Find%20Closest/README_EN.md)
 

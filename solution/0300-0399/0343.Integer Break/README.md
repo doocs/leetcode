@@ -1,4 +1,4 @@
-# [343. 整数拆分](https://leetcode-cn.com/problems/integer-break)
+# [343. 整数拆分](https://leetcode.cn/problems/integer-break)
 
 [English Version](/solution/0300-0399/0343.Integer%20Break/README_EN.md)
 

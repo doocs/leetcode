@@ -1,4 +1,4 @@
-# [629. K 个逆序对数组](https://leetcode-cn.com/problems/k-inverse-pairs-array)
+# [629. K 个逆序对数组](https://leetcode.cn/problems/k-inverse-pairs-array)
 
 [English Version](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README_EN.md)
 

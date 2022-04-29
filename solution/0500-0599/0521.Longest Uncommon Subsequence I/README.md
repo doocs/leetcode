@@ -1,4 +1,4 @@
-# [521. 最长特殊序列 Ⅰ](https://leetcode-cn.com/problems/longest-uncommon-subsequence-i)
+# [521. 最长特殊序列 Ⅰ](https://leetcode.cn/problems/longest-uncommon-subsequence-i)
 
 [English Version](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README_EN.md)
 

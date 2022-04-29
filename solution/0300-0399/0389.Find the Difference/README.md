@@ -1,4 +1,4 @@
-# [389. 找不同](https://leetcode-cn.com/problems/find-the-difference)
+# [389. 找不同](https://leetcode.cn/problems/find-the-difference)
 
 [English Version](/solution/0300-0399/0389.Find%20the%20Difference/README_EN.md)
 

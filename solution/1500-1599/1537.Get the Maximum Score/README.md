@@ -1,4 +1,4 @@
-# [1537. 最大得分](https://leetcode-cn.com/problems/get-the-maximum-score)
+# [1537. 最大得分](https://leetcode.cn/problems/get-the-maximum-score)
 
 [English Version](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)
 

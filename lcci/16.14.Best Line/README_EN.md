@@ -1,4 +1,4 @@
-# [16.14. Best Line](https://leetcode-cn.com/problems/best-line-lcci)
+# [16.14. Best Line](https://leetcode.cn/problems/best-line-lcci)
 
 [中文文档](/lcci/16.14.Best%20Line/README.md)
 

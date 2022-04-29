@@ -1,4 +1,4 @@
-# [720. 词典中最长的单词](https://leetcode-cn.com/problems/longest-word-in-dictionary)
+# [720. 词典中最长的单词](https://leetcode.cn/problems/longest-word-in-dictionary)
 
 [English Version](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [面试题 03.01. 三合一](https://leetcode-cn.com/problems/three-in-one-lcci)
+# [面试题 03.01. 三合一](https://leetcode.cn/problems/three-in-one-lcci)
 
 [English Version](/lcci/03.01.Three%20in%20One/README_EN.md)
 

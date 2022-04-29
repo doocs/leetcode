@@ -1,4 +1,4 @@
-# [1705. 吃苹果的最大数目](https://leetcode-cn.com/problems/maximum-number-of-eaten-apples)
+# [1705. 吃苹果的最大数目](https://leetcode.cn/problems/maximum-number-of-eaten-apples)
 
 [English Version](/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README_EN.md)
 

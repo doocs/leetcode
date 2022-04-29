@@ -1,4 +1,4 @@
-# [409. 最长回文串](https://leetcode-cn.com/problems/longest-palindrome)
+# [409. 最长回文串](https://leetcode.cn/problems/longest-palindrome)
 
 [English Version](/solution/0400-0499/0409.Longest%20Palindrome/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [288. 单词的唯一缩写](https://leetcode-cn.com/problems/unique-word-abbreviation)
+# [288. 单词的唯一缩写](https://leetcode.cn/problems/unique-word-abbreviation)
 
 [English Version](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README_EN.md)
 

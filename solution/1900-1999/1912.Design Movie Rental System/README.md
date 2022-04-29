@@ -1,4 +1,4 @@
-# [1912. 设计电影租借系统](https://leetcode-cn.com/problems/design-movie-rental-system)
+# [1912. 设计电影租借系统](https://leetcode.cn/problems/design-movie-rental-system)
 
 [English Version](/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README_EN.md)
 

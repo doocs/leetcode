@@ -1,4 +1,4 @@
-# [面试题 02.05. 链表求和](https://leetcode-cn.com/problems/sum-lists-lcci)
+# [面试题 02.05. 链表求和](https://leetcode.cn/problems/sum-lists-lcci)
 
 [English Version](/lcci/02.05.Sum%20Lists/README_EN.md)
 

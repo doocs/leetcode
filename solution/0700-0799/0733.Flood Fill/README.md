@@ -1,4 +1,4 @@
-# [733. 图像渲染](https://leetcode-cn.com/problems/flood-fill)
+# [733. 图像渲染](https://leetcode.cn/problems/flood-fill)
 
 [English Version](/solution/0700-0799/0733.Flood%20Fill/README_EN.md)
 

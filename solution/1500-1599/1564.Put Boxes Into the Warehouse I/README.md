@@ -1,4 +1,4 @@
-# [1564. 把箱子放进仓库里 I](https://leetcode-cn.com/problems/put-boxes-into-the-warehouse-i)
+# [1564. 把箱子放进仓库里 I](https://leetcode.cn/problems/put-boxes-into-the-warehouse-i)
 
 [English Version](/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README_EN.md)
 

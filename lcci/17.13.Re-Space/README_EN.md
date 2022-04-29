@@ -1,4 +1,4 @@
-# [17.13. Re-Space](https://leetcode-cn.com/problems/re-space-lcci)
+# [17.13. Re-Space](https://leetcode.cn/problems/re-space-lcci)
 
 [中文文档](/lcci/17.13.Re-Space/README.md)
 

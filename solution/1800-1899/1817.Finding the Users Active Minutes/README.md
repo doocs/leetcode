@@ -1,4 +1,4 @@
-# [1817. 查找用户活跃分钟数](https://leetcode-cn.com/problems/finding-the-users-active-minutes)
+# [1817. 查找用户活跃分钟数](https://leetcode.cn/problems/finding-the-users-active-minutes)
 
 [English Version](/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README_EN.md)
 

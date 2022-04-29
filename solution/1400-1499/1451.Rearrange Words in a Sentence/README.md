@@ -1,4 +1,4 @@
-# [1451. 重新排列句子中的单词](https://leetcode-cn.com/problems/rearrange-words-in-a-sentence)
+# [1451. 重新排列句子中的单词](https://leetcode.cn/problems/rearrange-words-in-a-sentence)
 
 [English Version](/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README_EN.md)
 

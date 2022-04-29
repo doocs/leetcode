@@ -1,4 +1,4 @@
-# [468. 验证 IP 地址](https://leetcode-cn.com/problems/validate-ip-address)
+# [468. 验证 IP 地址](https://leetcode.cn/problems/validate-ip-address)
 
 [English Version](/solution/0400-0499/0468.Validate%20IP%20Address/README_EN.md)
 

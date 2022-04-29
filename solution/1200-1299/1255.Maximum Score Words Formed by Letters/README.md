@@ -1,4 +1,4 @@
-# [1255. 得分最高的单词集合](https://leetcode-cn.com/problems/maximum-score-words-formed-by-letters)
+# [1255. 得分最高的单词集合](https://leetcode.cn/problems/maximum-score-words-formed-by-letters)
 
 [English Version](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README_EN.md)
 

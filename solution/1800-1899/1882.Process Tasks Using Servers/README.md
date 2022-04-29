@@ -1,4 +1,4 @@
-# [1882. 使用服务器处理任务](https://leetcode-cn.com/problems/process-tasks-using-servers)
+# [1882. 使用服务器处理任务](https://leetcode.cn/problems/process-tasks-using-servers)
 
 [English Version](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
 

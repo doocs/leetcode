@@ -1,4 +1,4 @@
-# [02.01. Remove Duplicate Node](https://leetcode-cn.com/problems/remove-duplicate-node-lcci)
+# [02.01. Remove Duplicate Node](https://leetcode.cn/problems/remove-duplicate-node-lcci)
 
 [中文文档](/lcci/02.01.Remove%20Duplicate%20Node/README.md)
 

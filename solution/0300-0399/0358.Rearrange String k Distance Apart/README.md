@@ -1,4 +1,4 @@
-# [358. K 距离间隔重排字符串](https://leetcode-cn.com/problems/rearrange-string-k-distance-apart)
+# [358. K 距离间隔重排字符串](https://leetcode.cn/problems/rearrange-string-k-distance-apart)
 
 [English Version](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md)
 

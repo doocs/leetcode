@@ -1,4 +1,4 @@
-# [面试题 08.03. 魔术索引](https://leetcode-cn.com/problems/magic-index-lcci)
+# [面试题 08.03. 魔术索引](https://leetcode.cn/problems/magic-index-lcci)
 
 [English Version](/lcci/08.03.Magic%20Index/README_EN.md)
 

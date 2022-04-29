@@ -1,4 +1,4 @@
-# [2065. 最大化一张图中的路径价值](https://leetcode-cn.com/problems/maximum-path-quality-of-a-graph)
+# [2065. 最大化一张图中的路径价值](https://leetcode.cn/problems/maximum-path-quality-of-a-graph)
 
 [English Version](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README_EN.md)
 

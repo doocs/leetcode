@@ -1,4 +1,4 @@
-# [面试题 39. 数组中出现次数超过一半的数字](https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/)
+# [面试题 39. 数组中出现次数超过一半的数字](https://leetcode.cn/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/)
 
 ## 题目描述
 
@@ -23,7 +23,7 @@
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 169 题相同：<a href="https://leetcode-cn.com/problems/majority-element/">https://leetcode-cn.com/problems/majority-element/</a></p>
+<p>注意：本题与主站 169 题相同：<a href="https://leetcode.cn/problems/majority-element/">https://leetcode.cn/problems/majority-element/</a></p>
 
 <p>&nbsp;</p>
 

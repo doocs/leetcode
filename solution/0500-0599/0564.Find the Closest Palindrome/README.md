@@ -1,4 +1,4 @@
-# [564. 寻找最近的回文数](https://leetcode-cn.com/problems/find-the-closest-palindrome)
+# [564. 寻找最近的回文数](https://leetcode.cn/problems/find-the-closest-palindrome)
 
 [English Version](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README_EN.md)
 

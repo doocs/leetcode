@@ -1,4 +1,4 @@
-# [04.06. Successor](https://leetcode-cn.com/problems/successor-lcci)
+# [04.06. Successor](https://leetcode.cn/problems/successor-lcci)
 
 [中文文档](/lcci/04.06.Successor/README.md)
 

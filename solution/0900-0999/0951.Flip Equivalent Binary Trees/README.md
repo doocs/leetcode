@@ -1,4 +1,4 @@
-# [951. 翻转等价二叉树](https://leetcode-cn.com/problems/flip-equivalent-binary-trees)
+# [951. 翻转等价二叉树](https://leetcode.cn/problems/flip-equivalent-binary-trees)
 
 [English Version](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [面试题 01.02. 判定是否互为字符重排](https://leetcode-cn.com/problems/check-permutation-lcci)
+# [面试题 01.02. 判定是否互为字符重排](https://leetcode.cn/problems/check-permutation-lcci)
 
 [English Version](/lcci/01.02.Check%20Permutation/README_EN.md)
 

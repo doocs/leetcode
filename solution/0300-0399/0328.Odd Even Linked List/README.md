@@ -1,4 +1,4 @@
-# [328. 奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list)
+# [328. 奇偶链表](https://leetcode.cn/problems/odd-even-linked-list)
 
 [English Version](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
 

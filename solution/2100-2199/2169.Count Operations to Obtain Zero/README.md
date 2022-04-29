@@ -1,4 +1,4 @@
-# [2169. 得到 0 的操作数](https://leetcode-cn.com/problems/count-operations-to-obtain-zero)
+# [2169. 得到 0 的操作数](https://leetcode.cn/problems/count-operations-to-obtain-zero)
 
 [English Version](/solution/2100-2199/2169.Count%20Operations%20to%20Obtain%20Zero/README_EN.md)
 

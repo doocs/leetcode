@@ -1,4 +1,4 @@
-# [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray)
+# [718. 最长重复子数组](https://leetcode.cn/problems/maximum-length-of-repeated-subarray)
 
 [English Version](/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README_EN.md)
 

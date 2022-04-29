@@ -1,4 +1,4 @@
-# [95. 不同的二叉搜索树 II](https://leetcode-cn.com/problems/unique-binary-search-trees-ii)
+# [95. 不同的二叉搜索树 II](https://leetcode.cn/problems/unique-binary-search-trees-ii)
 
 [English Version](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [502. IPO](https://leetcode-cn.com/problems/ipo)
+# [502. IPO](https://leetcode.cn/problems/ipo)
 
 [English Version](/solution/0500-0599/0502.IPO/README_EN.md)
 

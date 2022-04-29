@@ -1,4 +1,4 @@
-# [1188. 设计有限阻塞队列](https://leetcode-cn.com/problems/design-bounded-blocking-queue)
+# [1188. 设计有限阻塞队列](https://leetcode.cn/problems/design-bounded-blocking-queue)
 
 [English Version](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README_EN.md)
 

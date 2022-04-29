@@ -1,4 +1,4 @@
-# [1441. 用栈操作构建数组](https://leetcode-cn.com/problems/build-an-array-with-stack-operations)
+# [1441. 用栈操作构建数组](https://leetcode.cn/problems/build-an-array-with-stack-operations)
 
 [English Version](/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md)
 

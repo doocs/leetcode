@@ -1,4 +1,4 @@
-# [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii)
+# [40. 组合总和 II](https://leetcode.cn/problems/combination-sum-ii)
 
 [English Version](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
 

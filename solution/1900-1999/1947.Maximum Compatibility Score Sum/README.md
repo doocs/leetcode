@@ -1,4 +1,4 @@
-# [1947. 最大兼容性评分和](https://leetcode-cn.com/problems/maximum-compatibility-score-sum)
+# [1947. 最大兼容性评分和](https://leetcode.cn/problems/maximum-compatibility-score-sum)
 
 [English Version](/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README_EN.md)
 

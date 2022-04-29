@@ -1,4 +1,4 @@
-# [186. 翻转字符串里的单词 II](https://leetcode-cn.com/problems/reverse-words-in-a-string-ii)
+# [186. 翻转字符串里的单词 II](https://leetcode.cn/problems/reverse-words-in-a-string-ii)
 
 [English Version](/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README_EN.md)
 

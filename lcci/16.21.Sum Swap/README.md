@@ -1,4 +1,4 @@
-# [面试题 16.21. 交换和](https://leetcode-cn.com/problems/sum-swap-lcci)
+# [面试题 16.21. 交换和](https://leetcode.cn/problems/sum-swap-lcci)
 
 [English Version](/lcci/16.21.Sum%20Swap/README_EN.md)
 

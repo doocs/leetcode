@@ -1,4 +1,4 @@
-# [1. 两数之和](https://leetcode-cn.com/problems/two-sum)
+# [1. 两数之和](https://leetcode.cn/problems/two-sum)
 
 [English Version](/solution/0000-0099/0001.Two%20Sum/README_EN.md)
 

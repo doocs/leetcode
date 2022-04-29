@@ -1,4 +1,4 @@
-# [面试题 04.03. 特定深度节点链表](https://leetcode-cn.com/problems/list-of-depth-lcci)
+# [面试题 04.03. 特定深度节点链表](https://leetcode.cn/problems/list-of-depth-lcci)
 
 [English Version](/lcci/04.03.List%20of%20Depth/README_EN.md)
 

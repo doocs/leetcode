@@ -1,4 +1,4 @@
-# [面试题 02.01. 移除重复节点](https://leetcode-cn.com/problems/remove-duplicate-node-lcci)
+# [面试题 02.01. 移除重复节点](https://leetcode.cn/problems/remove-duplicate-node-lcci)
 
 [English Version](/lcci/02.01.Remove%20Duplicate%20Node/README_EN.md)
 

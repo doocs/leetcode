@@ -1,4 +1,4 @@
-# [剑指 Offer II 028. 展平多级双向链表](https://leetcode-cn.com/problems/Qv1Da2)
+# [剑指 Offer II 028. 展平多级双向链表](https://leetcode.cn/problems/Qv1Da2)
 
 ## 题目描述
 
@@ -92,7 +92,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 430&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/flatten-a-multilevel-doubly-linked-list/">https://leetcode-cn.com/problems/flatten-a-multilevel-doubly-linked-list/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 430&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/flatten-a-multilevel-doubly-linked-list/">https://leetcode.cn/problems/flatten-a-multilevel-doubly-linked-list/</a></p>
 
 ## 解法
 

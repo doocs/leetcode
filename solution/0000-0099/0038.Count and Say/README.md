@@ -1,4 +1,4 @@
-# [38. 外观数列](https://leetcode-cn.com/problems/count-and-say)
+# [38. 外观数列](https://leetcode.cn/problems/count-and-say)
 
 [English Version](/solution/0000-0099/0038.Count%20and%20Say/README_EN.md)
 

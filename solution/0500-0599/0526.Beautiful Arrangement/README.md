@@ -1,4 +1,4 @@
-# [526. 优美的排列](https://leetcode-cn.com/problems/beautiful-arrangement)
+# [526. 优美的排列](https://leetcode.cn/problems/beautiful-arrangement)
 
 [English Version](/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md)
 

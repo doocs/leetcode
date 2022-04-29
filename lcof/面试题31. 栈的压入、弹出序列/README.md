@@ -1,4 +1,4 @@
-# [面试题 31. 栈的压入、弹出序列](https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/)
+# [面试题 31. 栈的压入、弹出序列](https://leetcode.cn/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/)
 
 ## 题目描述
 
@@ -34,7 +34,7 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 	<li><code>pushed</code>&nbsp;是&nbsp;<code>popped</code>&nbsp;的排列。</li>
 </ol>
 
-<p>注意：本题与主站 946 题相同：<a href="https://leetcode-cn.com/problems/validate-stack-sequences/">https://leetcode-cn.com/problems/validate-stack-sequences/</a></p>
+<p>注意：本题与主站 946 题相同：<a href="https://leetcode.cn/problems/validate-stack-sequences/">https://leetcode.cn/problems/validate-stack-sequences/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [2211. 统计道路上的碰撞次数](https://leetcode-cn.com/problems/count-collisions-on-a-road)
+# [2211. 统计道路上的碰撞次数](https://leetcode.cn/problems/count-collisions-on-a-road)
 
 [English Version](/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README_EN.md)
 

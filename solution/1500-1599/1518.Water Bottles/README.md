@@ -1,4 +1,4 @@
-# [1518. 换酒问题](https://leetcode-cn.com/problems/water-bottles)
+# [1518. 换酒问题](https://leetcode.cn/problems/water-bottles)
 
 [English Version](/solution/1500-1599/1518.Water%20Bottles/README_EN.md)
 

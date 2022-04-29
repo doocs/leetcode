@@ -1,4 +1,4 @@
-# [652. 寻找重复的子树](https://leetcode-cn.com/problems/find-duplicate-subtrees)
+# [652. 寻找重复的子树](https://leetcode.cn/problems/find-duplicate-subtrees)
 
 [English Version](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README_EN.md)
 

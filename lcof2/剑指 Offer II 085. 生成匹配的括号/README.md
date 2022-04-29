@@ -1,4 +1,4 @@
-# [剑指 Offer II 085. 生成匹配的括号](https://leetcode-cn.com/problems/IDBivT)
+# [剑指 Offer II 085. 生成匹配的括号](https://leetcode.cn/problems/IDBivT)
 
 ## 题目描述
 
@@ -32,7 +32,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 22&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/generate-parentheses/">https://leetcode-cn.com/problems/generate-parentheses/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 22&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/generate-parentheses/">https://leetcode.cn/problems/generate-parentheses/</a></p>
 
 ## 解法
 

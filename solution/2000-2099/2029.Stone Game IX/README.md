@@ -1,4 +1,4 @@
-# [2029. 石子游戏 IX](https://leetcode-cn.com/problems/stone-game-ix)
+# [2029. 石子游戏 IX](https://leetcode.cn/problems/stone-game-ix)
 
 [English Version](/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md)
 

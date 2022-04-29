@@ -1,4 +1,4 @@
-# [剑指 Offer II 111. 计算除法](https://leetcode-cn.com/problems/vlzXQL)
+# [剑指 Offer II 111. 计算除法](https://leetcode.cn/problems/vlzXQL)
 
 ## 题目描述
 
@@ -57,7 +57,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 399&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/evaluate-division/">https://leetcode-cn.com/problems/evaluate-division/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 399&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/evaluate-division/">https://leetcode.cn/problems/evaluate-division/</a></p>
 
 ## 解法
 

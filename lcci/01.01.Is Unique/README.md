@@ -1,4 +1,4 @@
-# [面试题 01.01. 判定字符是否唯一](https://leetcode-cn.com/problems/is-unique-lcci)
+# [面试题 01.01. 判定字符是否唯一](https://leetcode.cn/problems/is-unique-lcci)
 
 [English Version](/lcci/01.01.Is%20Unique/README_EN.md)
 

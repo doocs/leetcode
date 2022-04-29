@@ -1,4 +1,4 @@
-# [854. 相似度为 K 的字符串](https://leetcode-cn.com/problems/k-similar-strings)
+# [854. 相似度为 K 的字符串](https://leetcode.cn/problems/k-similar-strings)
 
 [English Version](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)
 

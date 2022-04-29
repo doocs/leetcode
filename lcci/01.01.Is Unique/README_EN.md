@@ -1,4 +1,4 @@
-# [01.01. Is Unique](https://leetcode-cn.com/problems/is-unique-lcci)
+# [01.01. Is Unique](https://leetcode.cn/problems/is-unique-lcci)
 
 [中文文档](/lcci/01.01.Is%20Unique/README.md)
 

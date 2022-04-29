@@ -1,4 +1,4 @@
-# [1598. 文件夹操作日志搜集器](https://leetcode-cn.com/problems/crawler-log-folder)
+# [1598. 文件夹操作日志搜集器](https://leetcode.cn/problems/crawler-log-folder)
 
 [English Version](/solution/1500-1599/1598.Crawler%20Log%20Folder/README_EN.md)
 

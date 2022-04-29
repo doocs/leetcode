@@ -1,4 +1,4 @@
-# [93. 复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses)
+# [93. 复原 IP 地址](https://leetcode.cn/problems/restore-ip-addresses)
 
 [English Version](/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1052. 爱生气的书店老板](https://leetcode-cn.com/problems/grumpy-bookstore-owner)
+# [1052. 爱生气的书店老板](https://leetcode.cn/problems/grumpy-bookstore-owner)
 
 [English Version](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md)
 

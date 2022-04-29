@@ -1,4 +1,4 @@
-# [1538. 找出隐藏数组中出现次数最多的元素](https://leetcode-cn.com/problems/guess-the-majority-in-a-hidden-array)
+# [1538. 找出隐藏数组中出现次数最多的元素](https://leetcode.cn/problems/guess-the-majority-in-a-hidden-array)
 
 [English Version](/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README_EN.md)
 

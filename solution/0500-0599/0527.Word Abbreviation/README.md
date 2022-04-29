@@ -1,4 +1,4 @@
-# [527. 单词缩写](https://leetcode-cn.com/problems/word-abbreviation)
+# [527. 单词缩写](https://leetcode.cn/problems/word-abbreviation)
 
 [English Version](/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md)
 

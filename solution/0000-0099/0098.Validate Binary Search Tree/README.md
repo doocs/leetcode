@@ -1,4 +1,4 @@
-# [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree)
+# [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree)
 
 [English Version](/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README_EN.md)
 

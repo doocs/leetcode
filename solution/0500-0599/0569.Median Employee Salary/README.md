@@ -1,4 +1,4 @@
-# [569. 员工薪水中位数](https://leetcode-cn.com/problems/median-employee-salary)
+# [569. 员工薪水中位数](https://leetcode.cn/problems/median-employee-salary)
 
 [English Version](/solution/0500-0599/0569.Median%20Employee%20Salary/README_EN.md)
 

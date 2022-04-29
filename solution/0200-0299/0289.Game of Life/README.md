@@ -1,4 +1,4 @@
-# [289. 生命游戏](https://leetcode-cn.com/problems/game-of-life)
+# [289. 生命游戏](https://leetcode.cn/problems/game-of-life)
 
 [English Version](/solution/0200-0299/0289.Game%20of%20Life/README_EN.md)
 

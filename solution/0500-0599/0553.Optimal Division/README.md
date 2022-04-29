@@ -1,4 +1,4 @@
-# [553. 最优除法](https://leetcode-cn.com/problems/optimal-division)
+# [553. 最优除法](https://leetcode.cn/problems/optimal-division)
 
 [English Version](/solution/0500-0599/0553.Optimal%20Division/README_EN.md)
 

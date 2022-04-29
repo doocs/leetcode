@@ -1,4 +1,4 @@
-# [1386. 安排电影院座位](https://leetcode-cn.com/problems/cinema-seat-allocation)
+# [1386. 安排电影院座位](https://leetcode.cn/problems/cinema-seat-allocation)
 
 [English Version](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md)
 

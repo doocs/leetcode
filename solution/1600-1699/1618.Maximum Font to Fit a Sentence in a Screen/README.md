@@ -1,4 +1,4 @@
-# [1618. 找出适应屏幕的最大字号](https://leetcode-cn.com/problems/maximum-font-to-fit-a-sentence-in-a-screen)
+# [1618. 找出适应屏幕的最大字号](https://leetcode.cn/problems/maximum-font-to-fit-a-sentence-in-a-screen)
 
 [English Version](/solution/1600-1699/1618.Maximum%20Font%20to%20Fit%20a%20Sentence%20in%20a%20Screen/README_EN.md)
 

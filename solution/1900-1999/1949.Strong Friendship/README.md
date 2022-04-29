@@ -1,4 +1,4 @@
-# [1949. Strong Friendship](https://leetcode-cn.com/problems/strong-friendship)
+# [1949. Strong Friendship](https://leetcode.cn/problems/strong-friendship)
 
 [English Version](/solution/1900-1999/1949.Strong%20Friendship/README_EN.md)
 

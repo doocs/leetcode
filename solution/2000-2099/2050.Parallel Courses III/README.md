@@ -1,4 +1,4 @@
-# [2050. 并行课程 III](https://leetcode-cn.com/problems/parallel-courses-iii)
+# [2050. 并行课程 III](https://leetcode.cn/problems/parallel-courses-iii)
 
 [English Version](/solution/2000-2099/2050.Parallel%20Courses%20III/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2216. 美化数组的最少删除数](https://leetcode-cn.com/problems/minimum-deletions-to-make-array-beautiful)
+# [2216. 美化数组的最少删除数](https://leetcode.cn/problems/minimum-deletions-to-make-array-beautiful)
 
 [English Version](/solution/2200-2299/2216.Minimum%20Deletions%20to%20Make%20Array%20Beautiful/README_EN.md)
 

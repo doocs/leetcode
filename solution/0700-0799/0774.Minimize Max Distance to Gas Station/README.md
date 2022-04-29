@@ -1,4 +1,4 @@
-# [774. 最小化去加油站的最大距离](https://leetcode-cn.com/problems/minimize-max-distance-to-gas-station)
+# [774. 最小化去加油站的最大距离](https://leetcode.cn/problems/minimize-max-distance-to-gas-station)
 
 [English Version](/solution/0700-0799/0774.Minimize%20Max%20Distance%20to%20Gas%20Station/README_EN.md)
 

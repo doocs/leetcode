@@ -1,4 +1,4 @@
-# [1024. 视频拼接](https://leetcode-cn.com/problems/video-stitching)
+# [1024. 视频拼接](https://leetcode.cn/problems/video-stitching)
 
 [English Version](/solution/1000-1099/1024.Video%20Stitching/README_EN.md)
 

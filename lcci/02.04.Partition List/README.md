@@ -1,4 +1,4 @@
-# [面试题 02.04. 分割链表](https://leetcode-cn.com/problems/partition-list-lcci)
+# [面试题 02.04. 分割链表](https://leetcode.cn/problems/partition-list-lcci)
 
 [English Version](/lcci/02.04.Partition%20List/README_EN.md)
 

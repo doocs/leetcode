@@ -1,4 +1,4 @@
-# [2092. 找出知晓秘密的所有专家](https://leetcode-cn.com/problems/find-all-people-with-secret)
+# [2092. 找出知晓秘密的所有专家](https://leetcode.cn/problems/find-all-people-with-secret)
 
 [English Version](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md)
 

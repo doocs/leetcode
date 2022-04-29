@@ -1,4 +1,4 @@
-# [1020. 飞地的数量](https://leetcode-cn.com/problems/number-of-enclaves)
+# [1020. 飞地的数量](https://leetcode.cn/problems/number-of-enclaves)
 
 [English Version](/solution/1000-1099/1020.Number%20of%20Enclaves/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1063. 有效子数组的数目](https://leetcode-cn.com/problems/number-of-valid-subarrays)
+# [1063. 有效子数组的数目](https://leetcode.cn/problems/number-of-valid-subarrays)
 
 [English Version](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README_EN.md)
 

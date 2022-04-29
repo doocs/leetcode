@@ -1,4 +1,4 @@
-# [940. 不同的子序列 II](https://leetcode-cn.com/problems/distinct-subsequences-ii)
+# [940. 不同的子序列 II](https://leetcode.cn/problems/distinct-subsequences-ii)
 
 [English Version](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README_EN.md)
 

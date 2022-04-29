@@ -1,4 +1,4 @@
-# [469. 凸多边形](https://leetcode-cn.com/problems/convex-polygon)
+# [469. 凸多边形](https://leetcode.cn/problems/convex-polygon)
 
 [English Version](/solution/0400-0499/0469.Convex%20Polygon/README_EN.md)
 

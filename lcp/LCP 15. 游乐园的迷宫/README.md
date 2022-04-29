@@ -1,4 +1,4 @@
-# [LCP 15. 游乐园的迷宫](https://leetcode-cn.com/problems/you-le-yuan-de-mi-gong)
+# [LCP 15. 游乐园的迷宫](https://leetcode.cn/problems/you-le-yuan-de-mi-gong)
 
 ## 题目描述
 

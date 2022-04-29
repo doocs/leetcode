@@ -1,4 +1,4 @@
-# [118. 杨辉三角](https://leetcode-cn.com/problems/pascals-triangle)
+# [118. 杨辉三角](https://leetcode.cn/problems/pascals-triangle)
 
 [English Version](/solution/0100-0199/0118.Pascal%27s%20Triangle/README_EN.md)
 

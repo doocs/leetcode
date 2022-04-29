@@ -1,4 +1,4 @@
-# [面试题 17.22. 单词转换](https://leetcode-cn.com/problems/word-transformer-lcci)
+# [面试题 17.22. 单词转换](https://leetcode.cn/problems/word-transformer-lcci)
 
 [English Version](/lcci/17.22.Word%20Transformer/README_EN.md)
 

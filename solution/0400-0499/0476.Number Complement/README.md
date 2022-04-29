@@ -1,4 +1,4 @@
-# [476. 数字的补数](https://leetcode-cn.com/problems/number-complement)
+# [476. 数字的补数](https://leetcode.cn/problems/number-complement)
 
 [English Version](/solution/0400-0499/0476.Number%20Complement/README_EN.md)
 
@@ -45,7 +45,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>注意：</strong>本题与 1009 <a href="https://leetcode-cn.com/problems/complement-of-base-10-integer/">https://leetcode-cn.com/problems/complement-of-base-10-integer/</a> 相同</p>
+<p><strong>注意：</strong>本题与 1009 <a href="https://leetcode.cn/problems/complement-of-base-10-integer/">https://leetcode.cn/problems/complement-of-base-10-integer/</a> 相同</p>
 
 ## 解法
 

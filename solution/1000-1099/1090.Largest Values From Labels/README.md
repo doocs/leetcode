@@ -1,4 +1,4 @@
-# [1090. 受标签影响的最大值](https://leetcode-cn.com/problems/largest-values-from-labels)
+# [1090. 受标签影响的最大值](https://leetcode.cn/problems/largest-values-from-labels)
 
 [English Version](/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README_EN.md)
 

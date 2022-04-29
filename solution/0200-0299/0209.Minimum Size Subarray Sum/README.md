@@ -1,4 +1,4 @@
-# [209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum)
+# [209. 长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum)
 
 [English Version](/solution/0200-0299/0209.Minimum%20Size%20Subarray%20Sum/README_EN.md)
 

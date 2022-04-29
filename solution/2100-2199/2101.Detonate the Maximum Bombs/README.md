@@ -1,4 +1,4 @@
-# [2101. 引爆最多的炸弹](https://leetcode-cn.com/problems/detonate-the-maximum-bombs)
+# [2101. 引爆最多的炸弹](https://leetcode.cn/problems/detonate-the-maximum-bombs)
 
 [English Version](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md)
 

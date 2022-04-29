@@ -1,4 +1,4 @@
-# [1629. 按键持续时间最长的键](https://leetcode-cn.com/problems/slowest-key)
+# [1629. 按键持续时间最长的键](https://leetcode.cn/problems/slowest-key)
 
 [English Version](/solution/1600-1699/1629.Slowest%20Key/README_EN.md)
 

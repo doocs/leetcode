@@ -1,4 +1,4 @@
-# [1825. 求出 MK 平均值](https://leetcode-cn.com/problems/finding-mk-average)
+# [1825. 求出 MK 平均值](https://leetcode.cn/problems/finding-mk-average)
 
 [English Version](/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md)
 

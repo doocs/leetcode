@@ -1,4 +1,4 @@
-# [794. 有效的井字游戏](https://leetcode-cn.com/problems/valid-tic-tac-toe-state)
+# [794. 有效的井字游戏](https://leetcode.cn/problems/valid-tic-tac-toe-state)
 
 [English Version](/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README_EN.md)
 

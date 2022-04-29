@@ -1,4 +1,4 @@
-# [LCP 20. 快速公交](https://leetcode-cn.com/problems/meChtZ)
+# [LCP 20. 快速公交](https://leetcode.cn/problems/meChtZ)
 
 ## 题目描述
 

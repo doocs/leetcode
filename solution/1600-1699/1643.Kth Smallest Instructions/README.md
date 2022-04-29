@@ -1,4 +1,4 @@
-# [1643. 第 K 条最小指令](https://leetcode-cn.com/problems/kth-smallest-instructions)
+# [1643. 第 K 条最小指令](https://leetcode.cn/problems/kth-smallest-instructions)
 
 [English Version](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md)
 

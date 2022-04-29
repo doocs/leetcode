@@ -1,4 +1,4 @@
-# [LCP 42. 玩具套圈](https://leetcode-cn.com/problems/vFjcfV)
+# [LCP 42. 玩具套圈](https://leetcode.cn/problems/vFjcfV)
 
 ## 题目描述
 

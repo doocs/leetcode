@@ -1,4 +1,4 @@
-# [面试题 03.03. 堆盘子](https://leetcode-cn.com/problems/stack-of-plates-lcci)
+# [面试题 03.03. 堆盘子](https://leetcode.cn/problems/stack-of-plates-lcci)
 
 [English Version](/lcci/03.03.Stack%20of%20Plates/README_EN.md)
 

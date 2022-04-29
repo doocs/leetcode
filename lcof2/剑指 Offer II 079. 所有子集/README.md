@@ -1,4 +1,4 @@
-# [剑指 Offer II 079. 所有子集](https://leetcode-cn.com/problems/TVdhkn)
+# [剑指 Offer II 079. 所有子集](https://leetcode.cn/problems/TVdhkn)
 
 ## 题目描述
 
@@ -36,7 +36,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 78&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/subsets/">https://leetcode-cn.com/problems/subsets/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 78&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/subsets/">https://leetcode.cn/problems/subsets/</a></p>
 
 ## 解法
 

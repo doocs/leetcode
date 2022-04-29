@@ -1,4 +1,4 @@
-# [383. 赎金信](https://leetcode-cn.com/problems/ransom-note)
+# [383. 赎金信](https://leetcode.cn/problems/ransom-note)
 
 [English Version](/solution/0300-0399/0383.Ransom%20Note/README_EN.md)
 

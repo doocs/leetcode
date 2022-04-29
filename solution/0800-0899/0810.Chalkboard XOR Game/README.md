@@ -1,4 +1,4 @@
-# [810. 黑板异或游戏](https://leetcode-cn.com/problems/chalkboard-xor-game)
+# [810. 黑板异或游戏](https://leetcode.cn/problems/chalkboard-xor-game)
 
 [English Version](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)
 

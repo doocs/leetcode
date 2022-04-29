@@ -1,4 +1,4 @@
-# [1398. 购买了产品 A 和产品 B 却没有购买产品 C 的顾客](https://leetcode-cn.com/problems/customers-who-bought-products-a-and-b-but-not-c)
+# [1398. 购买了产品 A 和产品 B 却没有购买产品 C 的顾客](https://leetcode.cn/problems/customers-who-bought-products-a-and-b-but-not-c)
 
 [English Version](/solution/1300-1399/1398.Customers%20Who%20Bought%20Products%20A%20and%20B%20but%20Not%20C/README_EN.md)
 

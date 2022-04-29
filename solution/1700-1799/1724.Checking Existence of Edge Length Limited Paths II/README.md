@@ -1,4 +1,4 @@
-# [1724. 检查边长度限制的路径是否存在 II](https://leetcode-cn.com/problems/checking-existence-of-edge-length-limited-paths-ii)
+# [1724. 检查边长度限制的路径是否存在 II](https://leetcode.cn/problems/checking-existence-of-edge-length-limited-paths-ii)
 
 [English Version](/solution/1700-1799/1724.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths%20II/README_EN.md)
 

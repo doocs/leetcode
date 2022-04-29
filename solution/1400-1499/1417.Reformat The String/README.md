@@ -1,4 +1,4 @@
-# [1417. 重新格式化字符串](https://leetcode-cn.com/problems/reformat-the-string)
+# [1417. 重新格式化字符串](https://leetcode.cn/problems/reformat-the-string)
 
 [English Version](/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1230. 抛掷硬币](https://leetcode-cn.com/problems/toss-strange-coins)
+# [1230. 抛掷硬币](https://leetcode.cn/problems/toss-strange-coins)
 
 [English Version](/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md)
 

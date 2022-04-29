@@ -1,4 +1,4 @@
-# [700. 二叉搜索树中的搜索](https://leetcode-cn.com/problems/search-in-a-binary-search-tree)
+# [700. 二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree)
 
 [English Version](/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README_EN.md)
 

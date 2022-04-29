@@ -1,4 +1,4 @@
-# [1462. 课程表 IV](https://leetcode-cn.com/problems/course-schedule-iv)
+# [1462. 课程表 IV](https://leetcode.cn/problems/course-schedule-iv)
 
 [English Version](/solution/1400-1499/1462.Course%20Schedule%20IV/README_EN.md)
 

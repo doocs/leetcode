@@ -1,4 +1,4 @@
-# [1041. 困于环中的机器人](https://leetcode-cn.com/problems/robot-bounded-in-circle)
+# [1041. 困于环中的机器人](https://leetcode.cn/problems/robot-bounded-in-circle)
 
 [English Version](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README_EN.md)
 

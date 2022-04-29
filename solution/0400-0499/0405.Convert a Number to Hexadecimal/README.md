@@ -1,4 +1,4 @@
-# [405. 数字转换为十六进制数](https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal)
+# [405. 数字转换为十六进制数](https://leetcode.cn/problems/convert-a-number-to-hexadecimal)
 
 [English Version](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README_EN.md)
 

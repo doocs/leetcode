@@ -1,4 +1,4 @@
-# [546. 移除盒子](https://leetcode-cn.com/problems/remove-boxes)
+# [546. 移除盒子](https://leetcode.cn/problems/remove-boxes)
 
 [English Version](/solution/0500-0599/0546.Remove%20Boxes/README_EN.md)
 

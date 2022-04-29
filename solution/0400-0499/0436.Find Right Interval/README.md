@@ -1,4 +1,4 @@
-# [436. 寻找右区间](https://leetcode-cn.com/problems/find-right-interval)
+# [436. 寻找右区间](https://leetcode.cn/problems/find-right-interval)
 
 [English Version](/solution/0400-0499/0436.Find%20Right%20Interval/README_EN.md)
 

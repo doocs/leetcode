@@ -1,4 +1,4 @@
-# [1555. 银行账户概要](https://leetcode-cn.com/problems/bank-account-summary)
+# [1555. 银行账户概要](https://leetcode.cn/problems/bank-account-summary)
 
 [English Version](/solution/1500-1599/1555.Bank%20Account%20Summary/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1027. 最长等差数列](https://leetcode-cn.com/problems/longest-arithmetic-subsequence)
+# [1027. 最长等差数列](https://leetcode.cn/problems/longest-arithmetic-subsequence)
 
 [English Version](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md)
 

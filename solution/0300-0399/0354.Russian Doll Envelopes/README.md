@@ -1,4 +1,4 @@
-# [354. 俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes)
+# [354. 俄罗斯套娃信封问题](https://leetcode.cn/problems/russian-doll-envelopes)
 
 [English Version](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
 

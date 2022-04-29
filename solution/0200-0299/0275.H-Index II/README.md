@@ -1,4 +1,4 @@
-# [275. H 指数 II](https://leetcode-cn.com/problems/h-index-ii)
+# [275. H 指数 II](https://leetcode.cn/problems/h-index-ii)
 
 [English Version](/solution/0200-0299/0275.H-Index%20II/README_EN.md)
 

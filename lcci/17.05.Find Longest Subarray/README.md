@@ -1,4 +1,4 @@
-# [面试题 17.05. 字母与数字](https://leetcode-cn.com/problems/find-longest-subarray-lcci)
+# [面试题 17.05. 字母与数字](https://leetcode.cn/problems/find-longest-subarray-lcci)
 
 [English Version](/lcci/17.05.Find%20Longest%20Subarray/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1578. 使绳子变成彩色的最短时间](https://leetcode-cn.com/problems/minimum-time-to-make-rope-colorful)
+# [1578. 使绳子变成彩色的最短时间](https://leetcode.cn/problems/minimum-time-to-make-rope-colorful)
 
 [English Version](/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2126. 摧毁小行星](https://leetcode-cn.com/problems/destroying-asteroids)
+# [2126. 摧毁小行星](https://leetcode.cn/problems/destroying-asteroids)
 
 [English Version](/solution/2100-2199/2126.Destroying%20Asteroids/README_EN.md)
 

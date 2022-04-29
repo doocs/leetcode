@@ -1,4 +1,4 @@
-# [953. 验证外星语词典](https://leetcode-cn.com/problems/verifying-an-alien-dictionary)
+# [953. 验证外星语词典](https://leetcode.cn/problems/verifying-an-alien-dictionary)
 
 [English Version](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md)
 

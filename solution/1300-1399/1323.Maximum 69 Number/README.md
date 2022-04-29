@@ -1,4 +1,4 @@
-# [1323. 6 和 9 组成的最大数字](https://leetcode-cn.com/problems/maximum-69-number)
+# [1323. 6 和 9 组成的最大数字](https://leetcode.cn/problems/maximum-69-number)
 
 [English Version](/solution/1300-1399/1323.Maximum%2069%20Number/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [剑指 Offer II 097. 子序列的数目](https://leetcode-cn.com/problems/21dk04)
+# [剑指 Offer II 097. 子序列的数目](https://leetcode.cn/problems/21dk04)
 
 ## 题目描述
 
@@ -48,7 +48,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 115&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/distinct-subsequences/">https://leetcode-cn.com/problems/distinct-subsequences/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 115&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/distinct-subsequences/">https://leetcode.cn/problems/distinct-subsequences/</a></p>
 
 ## 解法
 

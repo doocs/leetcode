@@ -1,4 +1,4 @@
-# [剑指 Offer II 105. 岛屿的最大面积](https://leetcode-cn.com/problems/ZL6zAn)
+# [剑指 Offer II 105. 岛屿的最大面积](https://leetcode.cn/problems/ZL6zAn)
 
 ## 题目描述
 
@@ -40,7 +40,7 @@
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 695&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/max-area-of-island/">https://leetcode-cn.com/problems/max-area-of-island/</a></p>
+<p>注意：本题与主站 695&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/max-area-of-island/">https://leetcode.cn/problems/max-area-of-island/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [644. 子数组最大平均数 II](https://leetcode-cn.com/problems/maximum-average-subarray-ii)
+# [644. 子数组最大平均数 II](https://leetcode.cn/problems/maximum-average-subarray-ii)
 
 [English Version](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md)
 

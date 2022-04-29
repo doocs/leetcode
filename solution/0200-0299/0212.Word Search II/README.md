@@ -1,4 +1,4 @@
-# [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii)
+# [212. 单词搜索 II](https://leetcode.cn/problems/word-search-ii)
 
 [English Version](/solution/0200-0299/0212.Word%20Search%20II/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1732. 找到最高海拔](https://leetcode-cn.com/problems/find-the-highest-altitude)
+# [1732. 找到最高海拔](https://leetcode.cn/problems/find-the-highest-altitude)
 
 [English Version](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README_EN.md)
 

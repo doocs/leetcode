@@ -1,4 +1,4 @@
-# [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi)
+# [8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi)
 
 [English Version](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
 

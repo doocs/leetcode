@@ -1,4 +1,4 @@
-# [91. 解码方法](https://leetcode-cn.com/problems/decode-ways)
+# [91. 解码方法](https://leetcode.cn/problems/decode-ways)
 
 [English Version](/solution/0000-0099/0091.Decode%20Ways/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number)
+# [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number)
 
 [English Version](/solution/0500-0599/0509.Fibonacci%20Number/README_EN.md)
 

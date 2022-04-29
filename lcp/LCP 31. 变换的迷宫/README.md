@@ -1,4 +1,4 @@
-# [LCP 31. 变换的迷宫](https://leetcode-cn.com/problems/Db3wC1)
+# [LCP 31. 变换的迷宫](https://leetcode.cn/problems/Db3wC1)
 
 ## 题目描述
 

@@ -1,4 +1,4 @@
-# [1194. 锦标赛优胜者](https://leetcode-cn.com/problems/tournament-winners)
+# [1194. 锦标赛优胜者](https://leetcode.cn/problems/tournament-winners)
 
 [English Version](/solution/1100-1199/1194.Tournament%20Winners/README_EN.md)
 

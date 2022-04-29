@@ -1,4 +1,4 @@
-# [883. 三维形体投影面积](https://leetcode-cn.com/problems/projection-area-of-3d-shapes)
+# [883. 三维形体投影面积](https://leetcode.cn/problems/projection-area-of-3d-shapes)
 
 [English Version](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README_EN.md)
 

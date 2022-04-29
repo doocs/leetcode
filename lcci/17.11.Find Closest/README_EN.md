@@ -1,4 +1,4 @@
-# [17.11. Find Closest](https://leetcode-cn.com/problems/find-closest-lcci)
+# [17.11. Find Closest](https://leetcode.cn/problems/find-closest-lcci)
 
 [中文文档](/lcci/17.11.Find%20Closest/README.md)
 

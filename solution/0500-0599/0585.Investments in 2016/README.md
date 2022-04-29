@@ -1,4 +1,4 @@
-# [585. 2016 年的投资](https://leetcode-cn.com/problems/investments-in-2016)
+# [585. 2016 年的投资](https://leetcode.cn/problems/investments-in-2016)
 
 [English Version](/solution/0500-0599/0585.Investments%20in%202016/README_EN.md)
 

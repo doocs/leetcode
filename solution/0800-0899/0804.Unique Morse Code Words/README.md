@@ -1,4 +1,4 @@
-# [804. 唯一摩尔斯密码词](https://leetcode-cn.com/problems/unique-morse-code-words)
+# [804. 唯一摩尔斯密码词](https://leetcode.cn/problems/unique-morse-code-words)
 
 [English Version](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README_EN.md)
 

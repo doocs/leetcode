@@ -1,4 +1,4 @@
-# [1268. 搜索推荐系统](https://leetcode-cn.com/problems/search-suggestions-system)
+# [1268. 搜索推荐系统](https://leetcode.cn/problems/search-suggestions-system)
 
 [English Version](/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md)
 

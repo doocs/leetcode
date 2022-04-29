@@ -1,4 +1,4 @@
-# [920. 播放列表的数量](https://leetcode-cn.com/problems/number-of-music-playlists)
+# [920. 播放列表的数量](https://leetcode.cn/problems/number-of-music-playlists)
 
 [English Version](/solution/0900-0999/0920.Number%20of%20Music%20Playlists/README_EN.md)
 

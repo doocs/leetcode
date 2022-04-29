@@ -1,4 +1,4 @@
-# [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses)
+# [32. 最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses)
 
 [English Version](/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README_EN.md)
 

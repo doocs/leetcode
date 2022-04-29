@@ -1,4 +1,4 @@
-# [400. 第 N 位数字](https://leetcode-cn.com/problems/nth-digit)
+# [400. 第 N 位数字](https://leetcode.cn/problems/nth-digit)
 
 [English Version](/solution/0400-0499/0400.Nth%20Digit/README_EN.md)
 

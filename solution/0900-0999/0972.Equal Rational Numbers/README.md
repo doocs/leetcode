@@ -1,4 +1,4 @@
-# [972. 相等的有理数](https://leetcode-cn.com/problems/equal-rational-numbers)
+# [972. 相等的有理数](https://leetcode.cn/problems/equal-rational-numbers)
 
 [English Version](/solution/0900-0999/0972.Equal%20Rational%20Numbers/README_EN.md)
 

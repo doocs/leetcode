@@ -1,4 +1,4 @@
-# [1402. 做菜顺序](https://leetcode-cn.com/problems/reducing-dishes)
+# [1402. 做菜顺序](https://leetcode.cn/problems/reducing-dishes)
 
 [English Version](/solution/1400-1499/1402.Reducing%20Dishes/README_EN.md)
 

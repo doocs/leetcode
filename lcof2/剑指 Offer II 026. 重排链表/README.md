@@ -1,4 +1,4 @@
-# [剑指 Offer II 026. 重排链表](https://leetcode-cn.com/problems/LGjMqU)
+# [剑指 Offer II 026. 重排链表](https://leetcode.cn/problems/LGjMqU)
 
 ## 题目描述
 
@@ -42,7 +42,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 143&nbsp;题相同：<a href="https://leetcode-cn.com/problems/reorder-list/">https://leetcode-cn.com/problems/reorder-list/</a>&nbsp;</p>
+<p><meta charset="UTF-8" />注意：本题与主站 143&nbsp;题相同：<a href="https://leetcode.cn/problems/reorder-list/">https://leetcode.cn/problems/reorder-list/</a>&nbsp;</p>
 
 ## 解法
 

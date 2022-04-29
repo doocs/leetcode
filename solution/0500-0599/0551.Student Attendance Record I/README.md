@@ -1,4 +1,4 @@
-# [551. 学生出勤记录 I](https://leetcode-cn.com/problems/student-attendance-record-i)
+# [551. 学生出勤记录 I](https://leetcode.cn/problems/student-attendance-record-i)
 
 [English Version](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README_EN.md)
 

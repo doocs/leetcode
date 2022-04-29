@@ -1,4 +1,4 @@
-# [1533. 找到最大整数的索引](https://leetcode-cn.com/problems/find-the-index-of-the-large-integer)
+# [1533. 找到最大整数的索引](https://leetcode.cn/problems/find-the-index-of-the-large-integer)
 
 [English Version](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README_EN.md)
 

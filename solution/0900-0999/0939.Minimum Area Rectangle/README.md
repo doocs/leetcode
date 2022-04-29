@@ -1,4 +1,4 @@
-# [939. 最小面积矩形](https://leetcode-cn.com/problems/minimum-area-rectangle)
+# [939. 最小面积矩形](https://leetcode.cn/problems/minimum-area-rectangle)
 
 [English Version](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README_EN.md)
 

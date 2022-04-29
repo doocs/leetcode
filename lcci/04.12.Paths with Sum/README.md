@@ -1,4 +1,4 @@
-# [面试题 04.12. 求和路径](https://leetcode-cn.com/problems/paths-with-sum-lcci)
+# [面试题 04.12. 求和路径](https://leetcode.cn/problems/paths-with-sum-lcci)
 
 [English Version](/lcci/04.12.Paths%20with%20Sum/README_EN.md)
 

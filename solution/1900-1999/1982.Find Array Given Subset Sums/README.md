@@ -1,4 +1,4 @@
-# [1982. 从子集的和还原数组](https://leetcode-cn.com/problems/find-array-given-subset-sums)
+# [1982. 从子集的和还原数组](https://leetcode.cn/problems/find-array-given-subset-sums)
 
 [English Version](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README_EN.md)
 

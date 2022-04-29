@@ -1,4 +1,4 @@
-# [2132. 用邮票贴满网格图](https://leetcode-cn.com/problems/stamping-the-grid)
+# [2132. 用邮票贴满网格图](https://leetcode.cn/problems/stamping-the-grid)
 
 [English Version](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md)
 

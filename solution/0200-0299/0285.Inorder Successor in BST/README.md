@@ -1,4 +1,4 @@
-# [285. 二叉搜索树中的中序后继](https://leetcode-cn.com/problems/inorder-successor-in-bst)
+# [285. 二叉搜索树中的中序后继](https://leetcode.cn/problems/inorder-successor-in-bst)
 
 [English Version](/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README_EN.md)
 

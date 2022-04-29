@@ -1,4 +1,4 @@
-# [面试题 10- II. 青蛙跳台阶问题](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
+# [面试题 10- II. 青蛙跳台阶问题](https://leetcode.cn/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
 
 ## 题目描述
 
@@ -29,7 +29,7 @@
 	<li><code>0 &lt;= n &lt;= 100</code></li>
 </ul>
 
-<p>注意：本题与主站 70 题相同：<a href="https://leetcode-cn.com/problems/climbing-stairs/">https://leetcode-cn.com/problems/climbing-stairs/</a></p>
+<p>注意：本题与主站 70 题相同：<a href="https://leetcode.cn/problems/climbing-stairs/">https://leetcode.cn/problems/climbing-stairs/</a></p>
 
 <p>&nbsp;</p>
 

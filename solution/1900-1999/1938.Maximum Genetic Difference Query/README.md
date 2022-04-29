@@ -1,4 +1,4 @@
-# [1938. 查询最大基因差](https://leetcode-cn.com/problems/maximum-genetic-difference-query)
+# [1938. 查询最大基因差](https://leetcode.cn/problems/maximum-genetic-difference-query)
 
 [English Version](/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/README_EN.md)
 

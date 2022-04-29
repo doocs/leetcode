@@ -1,4 +1,4 @@
-# [1515. 服务中心的最佳位置](https://leetcode-cn.com/problems/best-position-for-a-service-centre)
+# [1515. 服务中心的最佳位置](https://leetcode.cn/problems/best-position-for-a-service-centre)
 
 [English Version](/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README_EN.md)
 

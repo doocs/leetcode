@@ -1,4 +1,4 @@
-# [2063. 所有子字符串中的元音](https://leetcode-cn.com/problems/vowels-of-all-substrings)
+# [2063. 所有子字符串中的元音](https://leetcode.cn/problems/vowels-of-all-substrings)
 
 [English Version](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md)
 

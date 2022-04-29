@@ -1,4 +1,4 @@
-# [449. 序列化和反序列化二叉搜索树](https://leetcode-cn.com/problems/serialize-and-deserialize-bst)
+# [449. 序列化和反序列化二叉搜索树](https://leetcode.cn/problems/serialize-and-deserialize-bst)
 
 [English Version](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README_EN.md)
 

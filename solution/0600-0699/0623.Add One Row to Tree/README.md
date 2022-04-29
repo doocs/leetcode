@@ -1,4 +1,4 @@
-# [623. 在二叉树中增加一行](https://leetcode-cn.com/problems/add-one-row-to-tree)
+# [623. 在二叉树中增加一行](https://leetcode.cn/problems/add-one-row-to-tree)
 
 [English Version](/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README_EN.md)
 

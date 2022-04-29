@@ -1,4 +1,4 @@
-# [318. 最大单词长度乘积](https://leetcode-cn.com/problems/maximum-product-of-word-lengths)
+# [318. 最大单词长度乘积](https://leetcode.cn/problems/maximum-product-of-word-lengths)
 
 [English Version](/solution/0300-0399/0318.Maximum%20Product%20of%20Word%20Lengths/README_EN.md)
 

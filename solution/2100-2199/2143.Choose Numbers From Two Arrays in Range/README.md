@@ -1,4 +1,4 @@
-# [2143. Choose Numbers From Two Arrays in Range](https://leetcode-cn.com/problems/choose-numbers-from-two-arrays-in-range)
+# [2143. Choose Numbers From Two Arrays in Range](https://leetcode.cn/problems/choose-numbers-from-two-arrays-in-range)
 
 [English Version](/solution/2100-2199/2143.Choose%20Numbers%20From%20Two%20Arrays%20in%20Range/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1125. 最小的必要团队](https://leetcode-cn.com/problems/smallest-sufficient-team)
+# [1125. 最小的必要团队](https://leetcode.cn/problems/smallest-sufficient-team)
 
 [English Version](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md)
 

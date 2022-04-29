@@ -1,4 +1,4 @@
-# [1248. 统计「优美子数组」](https://leetcode-cn.com/problems/count-number-of-nice-subarrays)
+# [1248. 统计「优美子数组」](https://leetcode.cn/problems/count-number-of-nice-subarrays)
 
 [English Version](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md)
 

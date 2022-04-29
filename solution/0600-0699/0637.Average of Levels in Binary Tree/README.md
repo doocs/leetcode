@@ -1,4 +1,4 @@
-# [637. 二叉树的层平均值](https://leetcode-cn.com/problems/average-of-levels-in-binary-tree)
+# [637. 二叉树的层平均值](https://leetcode.cn/problems/average-of-levels-in-binary-tree)
 
 [English Version](/solution/0600-0699/0637.Average%20of%20Levels%20in%20Binary%20Tree/README_EN.md)
 

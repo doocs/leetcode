@@ -1,4 +1,4 @@
-# [剑指 Offer II 075. 数组相对排序](https://leetcode-cn.com/problems/0H97ZC)
+# [剑指 Offer II 075. 数组相对排序](https://leetcode.cn/problems/0H97ZC)
 
 ## 题目描述
 
@@ -35,7 +35,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 1122&nbsp;题相同：<a href="https://leetcode-cn.com/problems/relative-sort-array/">https://leetcode-cn.com/problems/relative-sort-array/</a>&nbsp;</p>
+<p><meta charset="UTF-8" />注意：本题与主站 1122&nbsp;题相同：<a href="https://leetcode.cn/problems/relative-sort-array/">https://leetcode.cn/problems/relative-sort-array/</a>&nbsp;</p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [08.10. Color Fill](https://leetcode-cn.com/problems/color-fill-lcci)
+# [08.10. Color Fill](https://leetcode.cn/problems/color-fill-lcci)
 
 [中文文档](/lcci/08.10.Color%20Fill/README.md)
 

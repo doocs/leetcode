@@ -1,4 +1,4 @@
-# [面试题 17.17. 多次搜索](https://leetcode-cn.com/problems/multi-search-lcci)
+# [面试题 17.17. 多次搜索](https://leetcode.cn/problems/multi-search-lcci)
 
 [English Version](/lcci/17.17.Multi%20Search/README_EN.md)
 

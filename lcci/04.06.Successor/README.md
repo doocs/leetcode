@@ -1,4 +1,4 @@
-# [面试题 04.06. 后继者](https://leetcode-cn.com/problems/successor-lcci)
+# [面试题 04.06. 后继者](https://leetcode.cn/problems/successor-lcci)
 
 [English Version](/lcci/04.06.Successor/README_EN.md)
 

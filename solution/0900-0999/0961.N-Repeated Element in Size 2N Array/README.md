@@ -1,4 +1,4 @@
-# [961. 重复 N 次的元素](https://leetcode-cn.com/problems/n-repeated-element-in-size-2n-array)
+# [961. 重复 N 次的元素](https://leetcode.cn/problems/n-repeated-element-in-size-2n-array)
 
 [English Version](/solution/0900-0999/0961.N-Repeated%20Element%20in%20Size%202N%20Array/README_EN.md)
 

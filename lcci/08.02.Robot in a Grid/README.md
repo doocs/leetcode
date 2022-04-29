@@ -1,4 +1,4 @@
-# [面试题 08.02. 迷路的机器人](https://leetcode-cn.com/problems/robot-in-a-grid-lcci)
+# [面试题 08.02. 迷路的机器人](https://leetcode.cn/problems/robot-in-a-grid-lcci)
 
 [English Version](/lcci/08.02.Robot%20in%20a%20Grid/README_EN.md)
 

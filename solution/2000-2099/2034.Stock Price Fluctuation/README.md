@@ -1,4 +1,4 @@
-# [2034. 股票价格波动](https://leetcode-cn.com/problems/stock-price-fluctuation)
+# [2034. 股票价格波动](https://leetcode.cn/problems/stock-price-fluctuation)
 
 [English Version](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md)
 

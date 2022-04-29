@@ -1,4 +1,4 @@
-# [LCP 19. 秋叶收藏集](https://leetcode-cn.com/problems/UlBDOe)
+# [LCP 19. 秋叶收藏集](https://leetcode.cn/problems/UlBDOe)
 
 ## 题目描述
 

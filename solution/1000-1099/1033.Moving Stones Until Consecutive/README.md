@@ -1,4 +1,4 @@
-# [1033. 移动石子直到连续](https://leetcode-cn.com/problems/moving-stones-until-consecutive)
+# [1033. 移动石子直到连续](https://leetcode.cn/problems/moving-stones-until-consecutive)
 
 [English Version](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README_EN.md)
 

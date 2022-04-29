@@ -1,4 +1,4 @@
-# [1813. 句子相似性 III](https://leetcode-cn.com/problems/sentence-similarity-iii)
+# [1813. 句子相似性 III](https://leetcode.cn/problems/sentence-similarity-iii)
 
 [English Version](/solution/1800-1899/1813.Sentence%20Similarity%20III/README_EN.md)
 

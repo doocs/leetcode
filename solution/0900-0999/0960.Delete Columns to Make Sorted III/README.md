@@ -1,4 +1,4 @@
-# [960. 删列造序 III](https://leetcode-cn.com/problems/delete-columns-to-make-sorted-iii)
+# [960. 删列造序 III](https://leetcode.cn/problems/delete-columns-to-make-sorted-iii)
 
 [English Version](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md)
 

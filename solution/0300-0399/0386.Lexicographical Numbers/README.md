@@ -1,4 +1,4 @@
-# [386. 字典序排数](https://leetcode-cn.com/problems/lexicographical-numbers)
+# [386. 字典序排数](https://leetcode.cn/problems/lexicographical-numbers)
 
 [English Version](/solution/0300-0399/0386.Lexicographical%20Numbers/README_EN.md)
 
