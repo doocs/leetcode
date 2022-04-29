@@ -1,4 +1,4 @@
-# [剑指 Offer II 036. 后缀表达式](https://leetcode-cn.com/problems/8Zf90G)
+# [剑指 Offer II 036. 后缀表达式](https://leetcode.cn/problems/8Zf90G)
 
 ## 题目描述
 
@@ -79,7 +79,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 150&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/">https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 150&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/evaluate-reverse-polish-notation/">https://leetcode.cn/problems/evaluate-reverse-polish-notation/</a></p>
 
 ## 解法
 

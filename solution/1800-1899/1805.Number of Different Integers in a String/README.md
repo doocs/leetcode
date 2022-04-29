@@ -1,4 +1,4 @@
-# [1805. 字符串中不同整数的数目](https://leetcode-cn.com/problems/number-of-different-integers-in-a-string)
+# [1805. 字符串中不同整数的数目](https://leetcode.cn/problems/number-of-different-integers-in-a-string)
 
 [English Version](/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README_EN.md)
 

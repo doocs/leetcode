@@ -1,4 +1,4 @@
-# [1656. 设计有序流](https://leetcode-cn.com/problems/design-an-ordered-stream)
+# [1656. 设计有序流](https://leetcode.cn/problems/design-an-ordered-stream)
 
 [English Version](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md)
 

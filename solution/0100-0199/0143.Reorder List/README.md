@@ -1,4 +1,4 @@
-# [143. 重排链表](https://leetcode-cn.com/problems/reorder-list)
+# [143. 重排链表](https://leetcode.cn/problems/reorder-list)
 
 [English Version](/solution/0100-0199/0143.Reorder%20List/README_EN.md)
 

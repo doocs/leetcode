@@ -1,4 +1,4 @@
-# [剑指 Offer II 056. 二叉搜索树中两个节点之和](https://leetcode-cn.com/problems/opLdQZ)
+# [剑指 Offer II 056. 二叉搜索树中两个节点之和](https://leetcode.cn/problems/opLdQZ)
 
 ## 题目描述
 
@@ -37,7 +37,7 @@
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 653 题相同：&nbsp;<a href="https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/">https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/</a></p>
+<p>注意：本题与主站 653 题相同：&nbsp;<a href="https://leetcode.cn/problems/two-sum-iv-input-is-a-bst/">https://leetcode.cn/problems/two-sum-iv-input-is-a-bst/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [1781. 所有子字符串美丽值之和](https://leetcode-cn.com/problems/sum-of-beauty-of-all-substrings)
+# [1781. 所有子字符串美丽值之和](https://leetcode.cn/problems/sum-of-beauty-of-all-substrings)
 
 [English Version](/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README_EN.md)
 

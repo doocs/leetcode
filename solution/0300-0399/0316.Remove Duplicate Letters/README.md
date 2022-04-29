@@ -1,4 +1,4 @@
-# [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters)
+# [316. 去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters)
 
 [English Version](/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README_EN.md)
 
@@ -34,7 +34,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>注意：</strong>该题与 1081 <a href="https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters">https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters</a> 相同</p>
+<p><strong>注意：</strong>该题与 1081 <a href="https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters">https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters</a> 相同</p>
 
 ## 解法
 

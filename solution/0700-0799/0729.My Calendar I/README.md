@@ -1,4 +1,4 @@
-# [729. 我的日程安排表 I](https://leetcode-cn.com/problems/my-calendar-i)
+# [729. 我的日程安排表 I](https://leetcode.cn/problems/my-calendar-i)
 
 [English Version](/solution/0700-0799/0729.My%20Calendar%20I/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [227. 基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii)
+# [227. 基本计算器 II](https://leetcode.cn/problems/basic-calculator-ii)
 
 [English Version](/solution/0200-0299/0227.Basic%20Calculator%20II/README_EN.md)
 

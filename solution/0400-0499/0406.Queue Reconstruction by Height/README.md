@@ -1,4 +1,4 @@
-# [406. 根据身高重建队列](https://leetcode-cn.com/problems/queue-reconstruction-by-height)
+# [406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height)
 
 [English Version](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README_EN.md)
 

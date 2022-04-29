@@ -1,4 +1,4 @@
-# [剑指 Offer II 005. 单词长度的最大乘积](https://leetcode-cn.com/problems/aseY1I)
+# [剑指 Offer II 005. 单词长度的最大乘积](https://leetcode.cn/problems/aseY1I)
 
 ## 题目描述
 
@@ -42,7 +42,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 318&nbsp;题相同：<a href="https://leetcode-cn.com/problems/maximum-product-of-word-lengths/">https://leetcode-cn.com/problems/maximum-product-of-word-lengths/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 318&nbsp;题相同：<a href="https://leetcode.cn/problems/maximum-product-of-word-lengths/">https://leetcode.cn/problems/maximum-product-of-word-lengths/</a></p>
 
 ## 解法
 

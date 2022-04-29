@@ -1,4 +1,4 @@
-# [964. 表示数字的最少运算符](https://leetcode-cn.com/problems/least-operators-to-express-number)
+# [964. 表示数字的最少运算符](https://leetcode.cn/problems/least-operators-to-express-number)
 
 [English Version](/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README_EN.md)
 

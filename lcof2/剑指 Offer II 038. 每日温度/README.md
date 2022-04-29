@@ -1,4 +1,4 @@
-# [剑指 Offer II 038. 每日温度](https://leetcode-cn.com/problems/iIQa4I)
+# [剑指 Offer II 038. 每日温度](https://leetcode.cn/problems/iIQa4I)
 
 ## 题目描述
 
@@ -39,7 +39,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 739&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/daily-temperatures/">https://leetcode-cn.com/problems/daily-temperatures/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 739&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/daily-temperatures/">https://leetcode.cn/problems/daily-temperatures/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [LCP 45. 自行车炫技赛场](https://leetcode-cn.com/problems/kplEvH)
+# [LCP 45. 自行车炫技赛场](https://leetcode.cn/problems/kplEvH)
 
 ## 题目描述
 

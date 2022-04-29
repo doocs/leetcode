@@ -1,4 +1,4 @@
-# [剑指 Offer II 104. 排列的数目](https://leetcode-cn.com/problems/D0F0SV)
+# [剑指 Offer II 104. 排列的数目](https://leetcode.cn/problems/D0F0SV)
 
 ## 题目描述
 
@@ -51,7 +51,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 377&nbsp;题相同：<a href="https://leetcode-cn.com/problems/combination-sum-iv/">https://leetcode-cn.com/problems/combination-sum-iv/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 377&nbsp;题相同：<a href="https://leetcode.cn/problems/combination-sum-iv/">https://leetcode.cn/problems/combination-sum-iv/</a></p>
 
 ## 解法
 

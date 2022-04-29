@@ -1,4 +1,4 @@
-# [1396. 设计地铁系统](https://leetcode-cn.com/problems/design-underground-system)
+# [1396. 设计地铁系统](https://leetcode.cn/problems/design-underground-system)
 
 [English Version](/solution/1300-1399/1396.Design%20Underground%20System/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [16. 最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest)
+# [16. 最接近的三数之和](https://leetcode.cn/problems/3sum-closest)
 
 [English Version](/solution/0000-0099/0016.3Sum%20Closest/README_EN.md)
 

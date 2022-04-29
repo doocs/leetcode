@@ -1,4 +1,4 @@
-# [剑指 Offer II 059. 数据流的第 K 大数值](https://leetcode-cn.com/problems/jBjn9C)
+# [剑指 Offer II 059. 数据流的第 K 大数值](https://leetcode.cn/problems/jBjn9C)
 
 ## 题目描述
 
@@ -48,7 +48,7 @@ kthLargest.add(4);   // return 8
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 703&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/">https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 703&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/kth-largest-element-in-a-stream/">https://leetcode.cn/problems/kth-largest-element-in-a-stream/</a></p>
 
 ## 解法
 

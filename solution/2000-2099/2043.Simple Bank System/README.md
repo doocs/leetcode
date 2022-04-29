@@ -1,4 +1,4 @@
-# [2043. 简易银行系统](https://leetcode-cn.com/problems/simple-bank-system)
+# [2043. 简易银行系统](https://leetcode.cn/problems/simple-bank-system)
 
 [English Version](/solution/2000-2099/2043.Simple%20Bank%20System/README_EN.md)
 

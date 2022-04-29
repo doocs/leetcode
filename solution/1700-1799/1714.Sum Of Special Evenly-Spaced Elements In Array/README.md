@@ -1,4 +1,4 @@
-# [1714. 数组中特殊等间距元素的和](https://leetcode-cn.com/problems/sum-of-special-evenly-spaced-elements-in-array)
+# [1714. 数组中特殊等间距元素的和](https://leetcode.cn/problems/sum-of-special-evenly-spaced-elements-in-array)
 
 [English Version](/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change)
+# [860. 柠檬水找零](https://leetcode.cn/problems/lemonade-change)
 
 [English Version](/solution/0800-0899/0860.Lemonade%20Change/README_EN.md)
 

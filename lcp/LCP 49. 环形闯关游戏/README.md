@@ -1,4 +1,4 @@
-# [LCP 49. 环形闯关游戏](https://leetcode-cn.com/problems/K8GULz)
+# [LCP 49. 环形闯关游戏](https://leetcode.cn/problems/K8GULz)
 
 ## 题目描述
 

@@ -1,4 +1,4 @@
-# [969. 煎饼排序](https://leetcode-cn.com/problems/pancake-sorting)
+# [969. 煎饼排序](https://leetcode.cn/problems/pancake-sorting)
 
 [English Version](/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md)
 

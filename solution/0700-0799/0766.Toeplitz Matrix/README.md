@@ -1,4 +1,4 @@
-# [766. 托普利茨矩阵](https://leetcode-cn.com/problems/toeplitz-matrix)
+# [766. 托普利茨矩阵](https://leetcode.cn/problems/toeplitz-matrix)
 
 [English Version](/solution/0700-0799/0766.Toeplitz%20Matrix/README_EN.md)
 

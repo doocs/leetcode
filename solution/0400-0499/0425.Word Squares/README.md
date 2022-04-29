@@ -1,4 +1,4 @@
-# [425. 单词方块](https://leetcode-cn.com/problems/word-squares)
+# [425. 单词方块](https://leetcode.cn/problems/word-squares)
 
 [English Version](/solution/0400-0499/0425.Word%20Squares/README_EN.md)
 

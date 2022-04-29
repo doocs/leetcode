@@ -1,4 +1,4 @@
-# [面试题 04.10. 检查子树](https://leetcode-cn.com/problems/check-subtree-lcci)
+# [面试题 04.10. 检查子树](https://leetcode.cn/problems/check-subtree-lcci)
 
 [English Version](/lcci/04.10.Check%20SubTree/README_EN.md)
 

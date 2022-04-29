@@ -1,4 +1,4 @@
-# [795. 区间子数组个数](https://leetcode-cn.com/problems/number-of-subarrays-with-bounded-maximum)
+# [795. 区间子数组个数](https://leetcode.cn/problems/number-of-subarrays-with-bounded-maximum)
 
 [English Version](/solution/0700-0799/0795.Number%20of%20Subarrays%20with%20Bounded%20Maximum/README_EN.md)
 

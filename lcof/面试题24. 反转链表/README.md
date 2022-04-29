@@ -1,4 +1,4 @@
-# [面试题 24. 反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
+# [面试题 24. 反转链表](https://leetcode.cn/problems/fan-zhuan-lian-biao-lcof/)
 
 ## 题目描述
 
@@ -19,7 +19,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>注意</strong>：本题与主站 206 题相同：<a href="https://leetcode-cn.com/problems/reverse-linked-list/">https://leetcode-cn.com/problems/reverse-linked-list/</a></p>
+<p><strong>注意</strong>：本题与主站 206 题相同：<a href="https://leetcode.cn/problems/reverse-linked-list/">https://leetcode.cn/problems/reverse-linked-list/</a></p>
 
 ## 解法
 

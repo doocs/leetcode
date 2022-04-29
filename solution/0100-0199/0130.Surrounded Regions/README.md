@@ -1,4 +1,4 @@
-# [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions)
+# [130. 被围绕的区域](https://leetcode.cn/problems/surrounded-regions)
 
 [English Version](/solution/0100-0199/0130.Surrounded%20Regions/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [699. 掉落的方块](https://leetcode-cn.com/problems/falling-squares)
+# [699. 掉落的方块](https://leetcode.cn/problems/falling-squares)
 
 [English Version](/solution/0600-0699/0699.Falling%20Squares/README_EN.md)
 

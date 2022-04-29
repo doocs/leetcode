@@ -1,4 +1,4 @@
-# [1667. 修复表中的名字](https://leetcode-cn.com/problems/fix-names-in-a-table)
+# [1667. 修复表中的名字](https://leetcode.cn/problems/fix-names-in-a-table)
 
 [English Version](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README_EN.md)
 

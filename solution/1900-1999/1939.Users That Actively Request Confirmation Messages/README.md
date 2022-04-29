@@ -1,4 +1,4 @@
-# [1939. Users That Actively Request Confirmation Messages](https://leetcode-cn.com/problems/users-that-actively-request-confirmation-messages)
+# [1939. Users That Actively Request Confirmation Messages](https://leetcode.cn/problems/users-that-actively-request-confirmation-messages)
 
 [English Version](/solution/1900-1999/1939.Users%20That%20Actively%20Request%20Confirmation%20Messages/README_EN.md)
 

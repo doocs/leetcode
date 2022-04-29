@@ -1,4 +1,4 @@
-# [2154. 将找到的值乘以 2](https://leetcode-cn.com/problems/keep-multiplying-found-values-by-two)
+# [2154. 将找到的值乘以 2](https://leetcode.cn/problems/keep-multiplying-found-values-by-two)
 
 [English Version](/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README_EN.md)
 

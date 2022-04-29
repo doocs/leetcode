@@ -1,4 +1,4 @@
-# [面试题 16.17. 连续数列](https://leetcode-cn.com/problems/contiguous-sequence-lcci)
+# [面试题 16.17. 连续数列](https://leetcode.cn/problems/contiguous-sequence-lcci)
 
 [English Version](/lcci/16.17.Contiguous%20Sequence/README_EN.md)
 

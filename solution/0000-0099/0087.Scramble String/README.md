@@ -1,4 +1,4 @@
-# [87. 扰乱字符串](https://leetcode-cn.com/problems/scramble-string)
+# [87. 扰乱字符串](https://leetcode.cn/problems/scramble-string)
 
 [English Version](/solution/0000-0099/0087.Scramble%20String/README_EN.md)
 

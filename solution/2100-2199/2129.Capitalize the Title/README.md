@@ -1,4 +1,4 @@
-# [2129. 将标题首字母大写](https://leetcode-cn.com/problems/capitalize-the-title)
+# [2129. 将标题首字母大写](https://leetcode.cn/problems/capitalize-the-title)
 
 [English Version](/solution/2100-2199/2129.Capitalize%20the%20Title/README_EN.md)
 

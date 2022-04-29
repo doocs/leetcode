@@ -1,4 +1,4 @@
-# [1528. 重新排列字符串](https://leetcode-cn.com/problems/shuffle-string)
+# [1528. 重新排列字符串](https://leetcode.cn/problems/shuffle-string)
 
 [English Version](/solution/1500-1599/1528.Shuffle%20String/README_EN.md)
 

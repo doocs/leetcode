@@ -1,4 +1,4 @@
-# [1084. 销售分析 III](https://leetcode-cn.com/problems/sales-analysis-iii)
+# [1084. 销售分析 III](https://leetcode.cn/problems/sales-analysis-iii)
 
 [English Version](/solution/1000-1099/1084.Sales%20Analysis%20III/README_EN.md)
 

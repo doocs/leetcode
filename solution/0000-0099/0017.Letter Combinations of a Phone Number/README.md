@@ -1,4 +1,4 @@
-# [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number)
+# [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number)
 
 [English Version](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README_EN.md)
 

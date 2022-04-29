@@ -1,4 +1,4 @@
-# [1720. 解码异或后的数组](https://leetcode-cn.com/problems/decode-xored-array)
+# [1720. 解码异或后的数组](https://leetcode.cn/problems/decode-xored-array)
 
 [English Version](/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1677. 发票中的产品金额](https://leetcode-cn.com/problems/products-worth-over-invoices)
+# [1677. 发票中的产品金额](https://leetcode.cn/problems/products-worth-over-invoices)
 
 [English Version](/solution/1600-1699/1677.Product%27s%20Worth%20Over%20Invoices/README_EN.md)
 

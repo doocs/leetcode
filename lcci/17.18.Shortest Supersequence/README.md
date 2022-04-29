@@ -1,4 +1,4 @@
-# [面试题 17.18. 最短超串](https://leetcode-cn.com/problems/shortest-supersequence-lcci)
+# [面试题 17.18. 最短超串](https://leetcode.cn/problems/shortest-supersequence-lcci)
 
 [English Version](/lcci/17.18.Shortest%20Supersequence/README_EN.md)
 

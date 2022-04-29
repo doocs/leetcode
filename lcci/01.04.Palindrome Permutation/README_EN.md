@@ -1,4 +1,4 @@
-# [01.04. Palindrome Permutation](https://leetcode-cn.com/problems/palindrome-permutation-lcci)
+# [01.04. Palindrome Permutation](https://leetcode.cn/problems/palindrome-permutation-lcci)
 
 [中文文档](/lcci/01.04.Palindrome%20Permutation/README.md)
 

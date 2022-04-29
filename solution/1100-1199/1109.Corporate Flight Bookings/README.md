@@ -1,4 +1,4 @@
-# [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings)
+# [1109. 航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings)
 
 [English Version](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README_EN.md)
 

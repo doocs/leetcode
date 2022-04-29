@@ -1,4 +1,4 @@
-# [1592. 重新排列单词间的空格](https://leetcode-cn.com/problems/rearrange-spaces-between-words)
+# [1592. 重新排列单词间的空格](https://leetcode.cn/problems/rearrange-spaces-between-words)
 
 [English Version](/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README_EN.md)
 

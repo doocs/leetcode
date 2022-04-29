@@ -1,4 +1,4 @@
-# [1800. 最大升序子数组和](https://leetcode-cn.com/problems/maximum-ascending-subarray-sum)
+# [1800. 最大升序子数组和](https://leetcode.cn/problems/maximum-ascending-subarray-sum)
 
 [English Version](/solution/1800-1899/1800.Maximum%20Ascending%20Subarray%20Sum/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [164. 最大间距](https://leetcode-cn.com/problems/maximum-gap)
+# [164. 最大间距](https://leetcode.cn/problems/maximum-gap)
 
 [English Version](/solution/0100-0199/0164.Maximum%20Gap/README_EN.md)
 

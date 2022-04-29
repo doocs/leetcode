@@ -1,4 +1,4 @@
-# [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv)
+# [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv)
 
 [English Version](/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md)
 

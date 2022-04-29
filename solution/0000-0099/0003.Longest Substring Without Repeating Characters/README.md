@@ -1,4 +1,4 @@
-# [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
+# [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters)
 
 [English Version](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [834. 树中距离之和](https://leetcode-cn.com/problems/sum-of-distances-in-tree)
+# [834. 树中距离之和](https://leetcode.cn/problems/sum-of-distances-in-tree)
 
 [English Version](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README_EN.md)
 

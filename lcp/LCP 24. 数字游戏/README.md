@@ -1,4 +1,4 @@
-# [LCP 24. 数字游戏](https://leetcode-cn.com/problems/5TxKeK)
+# [LCP 24. 数字游戏](https://leetcode.cn/problems/5TxKeK)
 
 ## 题目描述
 

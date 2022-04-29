@@ -1,4 +1,4 @@
-# [1634. 求两个多项式链表的和](https://leetcode-cn.com/problems/add-two-polynomials-represented-as-linked-lists)
+# [1634. 求两个多项式链表的和](https://leetcode.cn/problems/add-two-polynomials-represented-as-linked-lists)
 
 [English Version](/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/README_EN.md)
 

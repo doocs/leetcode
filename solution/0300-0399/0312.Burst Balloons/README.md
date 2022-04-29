@@ -1,4 +1,4 @@
-# [312. 戳气球](https://leetcode-cn.com/problems/burst-balloons)
+# [312. 戳气球](https://leetcode.cn/problems/burst-balloons)
 
 [English Version](/solution/0300-0399/0312.Burst%20Balloons/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses)
+# [1021. 删除最外层的括号](https://leetcode.cn/problems/remove-outermost-parentheses)
 
 [English Version](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README_EN.md)
 

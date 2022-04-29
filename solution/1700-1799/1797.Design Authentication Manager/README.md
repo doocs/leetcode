@@ -1,4 +1,4 @@
-# [1797. 设计一个验证系统](https://leetcode-cn.com/problems/design-authentication-manager)
+# [1797. 设计一个验证系统](https://leetcode.cn/problems/design-authentication-manager)
 
 [English Version](/solution/1700-1799/1797.Design%20Authentication%20Manager/README_EN.md)
 

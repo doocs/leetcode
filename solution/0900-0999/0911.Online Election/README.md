@@ -1,4 +1,4 @@
-# [911. 在线选举](https://leetcode-cn.com/problems/online-election)
+# [911. 在线选举](https://leetcode.cn/problems/online-election)
 
 [English Version](/solution/0900-0999/0911.Online%20Election/README_EN.md)
 

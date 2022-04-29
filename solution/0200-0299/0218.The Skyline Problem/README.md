@@ -1,4 +1,4 @@
-# [218. 天际线问题](https://leetcode-cn.com/problems/the-skyline-problem)
+# [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem)
 
 [English Version](/solution/0200-0299/0218.The%20Skyline%20Problem/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1340. 跳跃游戏 V](https://leetcode-cn.com/problems/jump-game-v)
+# [1340. 跳跃游戏 V](https://leetcode.cn/problems/jump-game-v)
 
 [English Version](/solution/1300-1399/1340.Jump%20Game%20V/README_EN.md)
 

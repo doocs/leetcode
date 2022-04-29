@@ -1,4 +1,4 @@
-# [618. 学生地理信息报告](https://leetcode-cn.com/problems/students-report-by-geography)
+# [618. 学生地理信息报告](https://leetcode.cn/problems/students-report-by-geography)
 
 [English Version](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README_EN.md)
 

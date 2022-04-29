@@ -1,4 +1,4 @@
-# [813. 最大平均值和的分组](https://leetcode-cn.com/problems/largest-sum-of-averages)
+# [813. 最大平均值和的分组](https://leetcode.cn/problems/largest-sum-of-averages)
 
 [English Version](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README_EN.md)
 

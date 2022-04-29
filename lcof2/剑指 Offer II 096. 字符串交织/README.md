@@ -1,4 +1,4 @@
-# [剑指 Offer II 096. 字符串交织](https://leetcode-cn.com/problems/IY6buf)
+# [剑指 Offer II 096. 字符串交织](https://leetcode.cn/problems/IY6buf)
 
 ## 题目描述
 
@@ -54,7 +54,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 97&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/interleaving-string/">https://leetcode-cn.com/problems/interleaving-string/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 97&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/interleaving-string/">https://leetcode.cn/problems/interleaving-string/</a></p>
 
 ## 解法
 

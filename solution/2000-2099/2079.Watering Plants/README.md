@@ -1,4 +1,4 @@
-# [2079. 给植物浇水](https://leetcode-cn.com/problems/watering-plants)
+# [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants)
 
 [English Version](/solution/2000-2099/2079.Watering%20Plants/README_EN.md)
 

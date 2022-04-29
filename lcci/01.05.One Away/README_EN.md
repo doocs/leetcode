@@ -1,4 +1,4 @@
-# [01.05. One Away](https://leetcode-cn.com/problems/one-away-lcci)
+# [01.05. One Away](https://leetcode.cn/problems/one-away-lcci)
 
 [中文文档](/lcci/01.05.One%20Away/README.md)
 
@@ -132,7 +132,7 @@ public:
 
 ### **Go**
 
-Similar to [Edit Distance](https://leetcode-cn.com/problems/edit-distance/) solution
+Similar to [Edit Distance](https://leetcode.cn/problems/edit-distance/) solution
 
 ```go
 func oneEditAway(first string, second string) bool {

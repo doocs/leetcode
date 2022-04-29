@@ -1,4 +1,4 @@
-# [250. 统计同值子树](https://leetcode-cn.com/problems/count-univalue-subtrees)
+# [250. 统计同值子树](https://leetcode.cn/problems/count-univalue-subtrees)
 
 [English Version](/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README_EN.md)
 

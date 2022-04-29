@@ -1,4 +1,4 @@
-# [1472. 设计浏览器历史记录](https://leetcode-cn.com/problems/design-browser-history)
+# [1472. 设计浏览器历史记录](https://leetcode.cn/problems/design-browser-history)
 
 [English Version](/solution/1400-1499/1472.Design%20Browser%20History/README_EN.md)
 

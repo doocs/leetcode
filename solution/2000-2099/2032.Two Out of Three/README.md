@@ -1,4 +1,4 @@
-# [2032. 至少在两个数组中出现的值](https://leetcode-cn.com/problems/two-out-of-three)
+# [2032. 至少在两个数组中出现的值](https://leetcode.cn/problems/two-out-of-three)
 
 [English Version](/solution/2000-2099/2032.Two%20Out%20of%20Three/README_EN.md)
 

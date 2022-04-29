@@ -1,4 +1,4 @@
-# [296. 最佳的碰头地点](https://leetcode-cn.com/problems/best-meeting-point)
+# [296. 最佳的碰头地点](https://leetcode.cn/problems/best-meeting-point)
 
 [English Version](/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [10.01. Sorted Merge](https://leetcode-cn.com/problems/sorted-merge-lcci)
+# [10.01. Sorted Merge](https://leetcode.cn/problems/sorted-merge-lcci)
 
 [中文文档](/lcci/10.01.Sorted%20Merge/README.md)
 

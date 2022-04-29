@@ -1,4 +1,4 @@
-# [面试题 30. 包含 min 函数的栈](https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/)
+# [面试题 30. 包含 min 函数的栈](https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/)
 
 ## 题目描述
 
@@ -28,7 +28,7 @@ minStack.min();   --&gt; 返回 -2.
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 155 题相同：<a href="https://leetcode-cn.com/problems/min-stack/">https://leetcode-cn.com/problems/min-stack/</a></p>
+<p>注意：本题与主站 155 题相同：<a href="https://leetcode.cn/problems/min-stack/">https://leetcode.cn/problems/min-stack/</a></p>
 
 ## 解法
 

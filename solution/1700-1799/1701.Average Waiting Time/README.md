@@ -1,4 +1,4 @@
-# [1701. 平均等待时间](https://leetcode-cn.com/problems/average-waiting-time)
+# [1701. 平均等待时间](https://leetcode.cn/problems/average-waiting-time)
 
 [English Version](/solution/1700-1799/1701.Average%20Waiting%20Time/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [281. 锯齿迭代器](https://leetcode-cn.com/problems/zigzag-iterator)
+# [281. 锯齿迭代器](https://leetcode.cn/problems/zigzag-iterator)
 
 [English Version](/solution/0200-0299/0281.Zigzag%20Iterator/README_EN.md)
 

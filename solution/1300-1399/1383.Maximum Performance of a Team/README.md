@@ -1,4 +1,4 @@
-# [1383. 最大的团队表现值](https://leetcode-cn.com/problems/maximum-performance-of-a-team)
+# [1383. 最大的团队表现值](https://leetcode.cn/problems/maximum-performance-of-a-team)
 
 [English Version](/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1514. 概率最大的路径](https://leetcode-cn.com/problems/path-with-maximum-probability)
+# [1514. 概率最大的路径](https://leetcode.cn/problems/path-with-maximum-probability)
 
 [English Version](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md)
 

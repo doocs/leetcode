@@ -1,4 +1,4 @@
-# [1552. 两球之间的磁力](https://leetcode-cn.com/problems/magnetic-force-between-two-balls)
+# [1552. 两球之间的磁力](https://leetcode.cn/problems/magnetic-force-between-two-balls)
 
 [English Version](/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README_EN.md)
 

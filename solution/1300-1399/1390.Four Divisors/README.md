@@ -1,4 +1,4 @@
-# [1390. 四因数](https://leetcode-cn.com/problems/four-divisors)
+# [1390. 四因数](https://leetcode.cn/problems/four-divisors)
 
 [English Version](/solution/1300-1399/1390.Four%20Divisors/README_EN.md)
 

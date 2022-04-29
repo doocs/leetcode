@@ -1,4 +1,4 @@
-# [剑指 Offer II 006. 排序数组中两个数字之和](https://leetcode-cn.com/problems/kLl5u1)
+# [剑指 Offer II 006. 排序数组中两个数字之和](https://leetcode.cn/problems/kLl5u1)
 
 ## 题目描述
 
@@ -48,7 +48,7 @@
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 167 题相似（下标起点不同）：<a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/</a></p>
+<p>注意：本题与主站 167 题相似（下标起点不同）：<a href="https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/">https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/</a></p>
 
 ## 解法
 

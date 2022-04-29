@@ -1,4 +1,4 @@
-# [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii)
+# [220. 存在重复元素 III](https://leetcode.cn/problems/contains-duplicate-iii)
 
 [English Version](/solution/0200-0299/0220.Contains%20Duplicate%20III/README_EN.md)
 

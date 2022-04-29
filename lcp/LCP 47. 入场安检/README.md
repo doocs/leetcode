@@ -1,4 +1,4 @@
-# [LCP 47. 入场安检](https://leetcode-cn.com/problems/oPs9Bm)
+# [LCP 47. 入场安检](https://leetcode.cn/problems/oPs9Bm)
 
 ## 题目描述
 

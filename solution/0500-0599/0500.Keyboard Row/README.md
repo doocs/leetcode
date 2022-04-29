@@ -1,4 +1,4 @@
-# [500. 键盘行](https://leetcode-cn.com/problems/keyboard-row)
+# [500. 键盘行](https://leetcode.cn/problems/keyboard-row)
 
 [English Version](/solution/0500-0599/0500.Keyboard%20Row/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [376. 摆动序列](https://leetcode-cn.com/problems/wiggle-subsequence)
+# [376. 摆动序列](https://leetcode.cn/problems/wiggle-subsequence)
 
 [English Version](/solution/0300-0399/0376.Wiggle%20Subsequence/README_EN.md)
 

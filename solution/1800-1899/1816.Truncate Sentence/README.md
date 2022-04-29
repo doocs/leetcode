@@ -1,4 +1,4 @@
-# [1816. 截断句子](https://leetcode-cn.com/problems/truncate-sentence)
+# [1816. 截断句子](https://leetcode.cn/problems/truncate-sentence)
 
 [English Version](/solution/1800-1899/1816.Truncate%20Sentence/README_EN.md)
 

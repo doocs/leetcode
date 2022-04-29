@@ -1,4 +1,4 @@
-# [2057. 值相等的最小索引](https://leetcode-cn.com/problems/smallest-index-with-equal-value)
+# [2057. 值相等的最小索引](https://leetcode.cn/problems/smallest-index-with-equal-value)
 
 [English Version](/solution/2000-2099/2057.Smallest%20Index%20With%20Equal%20Value/README_EN.md)
 

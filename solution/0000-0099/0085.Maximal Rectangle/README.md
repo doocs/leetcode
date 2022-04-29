@@ -1,4 +1,4 @@
-# [85. 最大矩形](https://leetcode-cn.com/problems/maximal-rectangle)
+# [85. 最大矩形](https://leetcode.cn/problems/maximal-rectangle)
 
 [English Version](/solution/0000-0099/0085.Maximal%20Rectangle/README_EN.md)
 

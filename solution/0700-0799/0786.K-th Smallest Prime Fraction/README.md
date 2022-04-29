@@ -1,4 +1,4 @@
-# [786. 第 K 个最小的素数分数](https://leetcode-cn.com/problems/k-th-smallest-prime-fraction)
+# [786. 第 K 个最小的素数分数](https://leetcode.cn/problems/k-th-smallest-prime-fraction)
 
 [English Version](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)
 

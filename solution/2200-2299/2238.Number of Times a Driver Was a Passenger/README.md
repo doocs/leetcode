@@ -1,4 +1,4 @@
-# [2238. Number of Times a Driver Was a Passenger](https://leetcode-cn.com/problems/number-of-times-a-driver-was-a-passenger)
+# [2238. Number of Times a Driver Was a Passenger](https://leetcode.cn/problems/number-of-times-a-driver-was-a-passenger)
 
 [English Version](/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README_EN.md)
 

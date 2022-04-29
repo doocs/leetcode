@@ -1,4 +1,4 @@
-# [931. 下降路径最小和](https://leetcode-cn.com/problems/minimum-falling-path-sum)
+# [931. 下降路径最小和](https://leetcode.cn/problems/minimum-falling-path-sum)
 
 [English Version](/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README_EN.md)
 

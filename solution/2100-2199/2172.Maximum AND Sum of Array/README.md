@@ -1,4 +1,4 @@
-# [2172. 数组的最大与和](https://leetcode-cn.com/problems/maximum-and-sum-of-array)
+# [2172. 数组的最大与和](https://leetcode.cn/problems/maximum-and-sum-of-array)
 
 [English Version](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [LCP 36. 最多牌组数](https://leetcode-cn.com/problems/Up5XYM)
+# [LCP 36. 最多牌组数](https://leetcode.cn/problems/Up5XYM)
 
 ## 题目描述
 

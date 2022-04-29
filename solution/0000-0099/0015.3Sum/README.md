@@ -1,4 +1,4 @@
-# [15. 三数之和](https://leetcode-cn.com/problems/3sum)
+# [15. 三数之和](https://leetcode.cn/problems/3sum)
 
 [English Version](/solution/0000-0099/0015.3Sum/README_EN.md)
 
@@ -53,7 +53,7 @@
 1. 对 `nums` 进行排序。
 2. 遍历数组，并以当前遍历位置作为分割线，在右侧数组当中（不包括分割元素在内），寻找两个可以组成 `0 - nums[i]` 的值，将该题转换为**两数之和**。
 
-> 更贴切的说，与 [剑指 Offer 57. 和为 s 的两个数字](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/) 目标一致
+> 更贴切的说，与 [剑指 Offer 57. 和为 s 的两个数字](https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/) 目标一致
 
 **优化：**
 

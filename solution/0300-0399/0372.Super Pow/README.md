@@ -1,4 +1,4 @@
-# [372. 超级次方](https://leetcode-cn.com/problems/super-pow)
+# [372. 超级次方](https://leetcode.cn/problems/super-pow)
 
 [English Version](/solution/0300-0399/0372.Super%20Pow/README_EN.md)
 

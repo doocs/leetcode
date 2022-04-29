@@ -1,4 +1,4 @@
-# [591. 标签验证器](https://leetcode-cn.com/problems/tag-validator)
+# [591. 标签验证器](https://leetcode.cn/problems/tag-validator)
 
 [English Version](/solution/0500-0599/0591.Tag%20Validator/README_EN.md)
 

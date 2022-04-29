@@ -1,4 +1,4 @@
-# [1338. 数组大小减半](https://leetcode-cn.com/problems/reduce-array-size-to-the-half)
+# [1338. 数组大小减半](https://leetcode.cn/problems/reduce-array-size-to-the-half)
 
 [English Version](/solution/1300-1399/1338.Reduce%20Array%20Size%20to%20The%20Half/README_EN.md)
 

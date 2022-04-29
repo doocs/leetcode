@@ -1,4 +1,4 @@
-# [1193. 每月交易 I](https://leetcode-cn.com/problems/monthly-transactions-i)
+# [1193. 每月交易 I](https://leetcode.cn/problems/monthly-transactions-i)
 
 [English Version](/solution/1100-1199/1193.Monthly%20Transactions%20I/README_EN.md)
 

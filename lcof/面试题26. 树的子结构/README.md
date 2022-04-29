@@ -1,4 +1,4 @@
-# [面试题 26. 树的子结构](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/)
+# [面试题 26. 树的子结构](https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/)
 
 ## 题目描述
 

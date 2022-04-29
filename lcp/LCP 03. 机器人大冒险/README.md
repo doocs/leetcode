@@ -1,4 +1,4 @@
-# [LCP 03. 机器人大冒险](https://leetcode-cn.com/problems/programmable-robot)
+# [LCP 03. 机器人大冒险](https://leetcode.cn/problems/programmable-robot)
 
 ## 题目描述
 

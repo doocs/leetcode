@@ -1,4 +1,4 @@
-# [2041. Accepted Candidates From the Interviews](https://leetcode-cn.com/problems/accepted-candidates-from-the-interviews)
+# [2041. Accepted Candidates From the Interviews](https://leetcode.cn/problems/accepted-candidates-from-the-interviews)
 
 [English Version](/solution/2000-2099/2041.Accepted%20Candidates%20From%20the%20Interviews/README_EN.md)
 

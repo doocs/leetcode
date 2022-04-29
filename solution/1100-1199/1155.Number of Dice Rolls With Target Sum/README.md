@@ -1,4 +1,4 @@
-# [1155. 掷骰子的 N 种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum)
+# [1155. 掷骰子的 N 种方法](https://leetcode.cn/problems/number-of-dice-rolls-with-target-sum)
 
 [English Version](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README_EN.md)
 

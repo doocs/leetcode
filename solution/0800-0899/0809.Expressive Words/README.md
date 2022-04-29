@@ -1,4 +1,4 @@
-# [809. 情感丰富的文字](https://leetcode-cn.com/problems/expressive-words)
+# [809. 情感丰富的文字](https://leetcode.cn/problems/expressive-words)
 
 [English Version](/solution/0800-0899/0809.Expressive%20Words/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2100. 适合打劫银行的日子](https://leetcode-cn.com/problems/find-good-days-to-rob-the-bank)
+# [2100. 适合打劫银行的日子](https://leetcode.cn/problems/find-good-days-to-rob-the-bank)
 
 [English Version](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README_EN.md)
 

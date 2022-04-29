@@ -1,4 +1,4 @@
-# [1999. Smallest Greater Multiple Made of Two Digits](https://leetcode-cn.com/problems/smallest-greater-multiple-made-of-two-digits)
+# [1999. Smallest Greater Multiple Made of Two Digits](https://leetcode.cn/problems/smallest-greater-multiple-made-of-two-digits)
 
 [English Version](/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README_EN.md)
 

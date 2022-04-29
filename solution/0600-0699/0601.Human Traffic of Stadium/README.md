@@ -1,4 +1,4 @@
-# [601. 体育馆的人流量](https://leetcode-cn.com/problems/human-traffic-of-stadium)
+# [601. 体育馆的人流量](https://leetcode.cn/problems/human-traffic-of-stadium)
 
 [English Version](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)
 

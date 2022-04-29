@@ -1,4 +1,4 @@
-# [1226. 哲学家进餐](https://leetcode-cn.com/problems/the-dining-philosophers)
+# [1226. 哲学家进餐](https://leetcode.cn/problems/the-dining-philosophers)
 
 [English Version](/solution/1200-1299/1226.The%20Dining%20Philosophers/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [909. 蛇梯棋](https://leetcode-cn.com/problems/snakes-and-ladders)
+# [909. 蛇梯棋](https://leetcode.cn/problems/snakes-and-ladders)
 
 [English Version](/solution/0900-0999/0909.Snakes%20and%20Ladders/README_EN.md)
 

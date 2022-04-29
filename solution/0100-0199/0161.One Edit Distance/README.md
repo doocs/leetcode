@@ -1,4 +1,4 @@
-# [161. 相隔为 1 的编辑距离](https://leetcode-cn.com/problems/one-edit-distance)
+# [161. 相隔为 1 的编辑距离](https://leetcode.cn/problems/one-edit-distance)
 
 [English Version](/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md)
 

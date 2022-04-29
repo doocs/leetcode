@@ -1,4 +1,4 @@
-# [剑指 Offer II 101. 分割等和子串](https://leetcode-cn.com/problems/NUPfPr)
+# [剑指 Offer II 101. 分割等和子串](https://leetcode.cn/problems/NUPfPr)
 
 ## 题目描述
 
@@ -36,7 +36,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 416&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/partition-equal-subset-sum/">https://leetcode-cn.com/problems/partition-equal-subset-sum/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 416&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/partition-equal-subset-sum/">https://leetcode.cn/problems/partition-equal-subset-sum/</a></p>
 
 ## 解法
 

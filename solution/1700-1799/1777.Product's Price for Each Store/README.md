@@ -1,4 +1,4 @@
-# [1777. 每家商店的产品价格](https://leetcode-cn.com/problems/products-price-for-each-store)
+# [1777. 每家商店的产品价格](https://leetcode.cn/problems/products-price-for-each-store)
 
 [English Version](/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1115. 交替打印 FooBar](https://leetcode-cn.com/problems/print-foobar-alternately)
+# [1115. 交替打印 FooBar](https://leetcode.cn/problems/print-foobar-alternately)
 
 [English Version](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md)
 

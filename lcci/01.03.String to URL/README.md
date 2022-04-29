@@ -1,4 +1,4 @@
-# [面试题 01.03. URL 化](https://leetcode-cn.com/problems/string-to-url-lcci)
+# [面试题 01.03. URL 化](https://leetcode.cn/problems/string-to-url-lcci)
 
 [English Version](/lcci/01.03.String%20to%20URL/README_EN.md)
 

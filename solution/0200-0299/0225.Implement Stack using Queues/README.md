@@ -1,4 +1,4 @@
-# [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)
+# [225. 用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues)
 
 [English Version](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
 

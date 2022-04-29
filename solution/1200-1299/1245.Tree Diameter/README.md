@@ -1,4 +1,4 @@
-# [1245. 树的直径](https://leetcode-cn.com/problems/tree-diameter)
+# [1245. 树的直径](https://leetcode.cn/problems/tree-diameter)
 
 [English Version](/solution/1200-1299/1245.Tree%20Diameter/README_EN.md)
 

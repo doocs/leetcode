@@ -1,4 +1,4 @@
-# [1951. All the Pairs With the Maximum Number of Common Followers](https://leetcode-cn.com/problems/all-the-pairs-with-the-maximum-number-of-common-followers)
+# [1951. All the Pairs With the Maximum Number of Common Followers](https://leetcode.cn/problems/all-the-pairs-with-the-maximum-number-of-common-followers)
 
 [English Version](/solution/1900-1999/1951.All%20the%20Pairs%20With%20the%20Maximum%20Number%20of%20Common%20Followers/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1859. 将句子排序](https://leetcode-cn.com/problems/sorting-the-sentence)
+# [1859. 将句子排序](https://leetcode.cn/problems/sorting-the-sentence)
 
 [English Version](/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1160. 拼写单词](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)
+# [1160. 拼写单词](https://leetcode.cn/problems/find-words-that-can-be-formed-by-characters)
 
 [English Version](/solution/1100-1199/1160.Find%20Words%20That%20Can%20Be%20Formed%20by%20Characters/README_EN.md)
 

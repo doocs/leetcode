@@ -1,4 +1,4 @@
-# [641. 设计循环双端队列](https://leetcode-cn.com/problems/design-circular-deque)
+# [641. 设计循环双端队列](https://leetcode.cn/problems/design-circular-deque)
 
 [English Version](/solution/0600-0699/0641.Design%20Circular%20Deque/README_EN.md)
 

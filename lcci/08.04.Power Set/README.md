@@ -1,4 +1,4 @@
-# [面试题 08.04. 幂集](https://leetcode-cn.com/problems/power-set-lcci)
+# [面试题 08.04. 幂集](https://leetcode.cn/problems/power-set-lcci)
 
 [English Version](/lcci/08.04.Power%20Set/README_EN.md)
 

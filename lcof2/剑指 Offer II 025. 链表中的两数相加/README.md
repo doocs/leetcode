@@ -1,4 +1,4 @@
-# [剑指 Offer II 025. 链表中的两数相加](https://leetcode-cn.com/problems/lMSNwu)
+# [剑指 Offer II 025. 链表中的两数相加](https://leetcode.cn/problems/lMSNwu)
 
 ## 题目描述
 
@@ -49,7 +49,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 445&nbsp;题相同：<a href="https://leetcode-cn.com/problems/add-two-numbers-ii/">https://leetcode-cn.com/problems/add-two-numbers-ii/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 445&nbsp;题相同：<a href="https://leetcode.cn/problems/add-two-numbers-ii/">https://leetcode.cn/problems/add-two-numbers-ii/</a></p>
 
 ## 解法
 

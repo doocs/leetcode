@@ -1,4 +1,4 @@
-# [1575. 统计所有可行路径](https://leetcode-cn.com/problems/count-all-possible-routes)
+# [1575. 统计所有可行路径](https://leetcode.cn/problems/count-all-possible-routes)
 
 [English Version](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md)
 

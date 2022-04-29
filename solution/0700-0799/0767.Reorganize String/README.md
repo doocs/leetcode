@@ -1,4 +1,4 @@
-# [767. 重构字符串](https://leetcode-cn.com/problems/reorganize-string)
+# [767. 重构字符串](https://leetcode.cn/problems/reorganize-string)
 
 [English Version](/solution/0700-0799/0767.Reorganize%20String/README_EN.md)
 

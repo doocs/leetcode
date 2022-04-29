@@ -1,4 +1,4 @@
-# [484. 寻找排列](https://leetcode-cn.com/problems/find-permutation)
+# [484. 寻找排列](https://leetcode.cn/problems/find-permutation)
 
 [English Version](/solution/0400-0499/0484.Find%20Permutation/README_EN.md)
 

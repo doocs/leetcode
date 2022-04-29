@@ -1,4 +1,4 @@
-# [面试题 17.20. 连续中值](https://leetcode-cn.com/problems/continuous-median-lcci)
+# [面试题 17.20. 连续中值](https://leetcode.cn/problems/continuous-median-lcci)
 
 [English Version](/lcci/17.20.Continuous%20Median/README_EN.md)
 

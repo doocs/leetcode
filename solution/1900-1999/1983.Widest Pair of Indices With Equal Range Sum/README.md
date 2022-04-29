@@ -1,4 +1,4 @@
-# [1983. Widest Pair of Indices With Equal Range Sum](https://leetcode-cn.com/problems/widest-pair-of-indices-with-equal-range-sum)
+# [1983. Widest Pair of Indices With Equal Range Sum](https://leetcode.cn/problems/widest-pair-of-indices-with-equal-range-sum)
 
 [English Version](/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README_EN.md)
 

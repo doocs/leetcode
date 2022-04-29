@@ -1,4 +1,4 @@
-# [407. 接雨水 II](https://leetcode-cn.com/problems/trapping-rain-water-ii)
+# [407. 接雨水 II](https://leetcode.cn/problems/trapping-rain-water-ii)
 
 [English Version](/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README_EN.md)
 

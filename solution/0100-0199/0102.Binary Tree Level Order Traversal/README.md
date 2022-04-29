@@ -1,4 +1,4 @@
-# [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal)
+# [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal)
 
 [English Version](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
 

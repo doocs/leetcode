@@ -1,4 +1,4 @@
-# [2222. 选择建筑的方案数](https://leetcode-cn.com/problems/number-of-ways-to-select-buildings)
+# [2222. 选择建筑的方案数](https://leetcode.cn/problems/number-of-ways-to-select-buildings)
 
 [English Version](/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1871. 跳跃游戏 VII](https://leetcode-cn.com/problems/jump-game-vii)
+# [1871. 跳跃游戏 VII](https://leetcode.cn/problems/jump-game-vii)
 
 [English Version](/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md)
 

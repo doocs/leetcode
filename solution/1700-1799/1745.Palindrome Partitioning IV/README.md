@@ -1,4 +1,4 @@
-# [1745. 回文串分割 IV](https://leetcode-cn.com/problems/palindrome-partitioning-iv)
+# [1745. 回文串分割 IV](https://leetcode.cn/problems/palindrome-partitioning-iv)
 
 [English Version](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1260. 二维网格迁移](https://leetcode-cn.com/problems/shift-2d-grid)
+# [1260. 二维网格迁移](https://leetcode.cn/problems/shift-2d-grid)
 
 [English Version](/solution/1200-1299/1260.Shift%202D%20Grid/README_EN.md)
 

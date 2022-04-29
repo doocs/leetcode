@@ -1,4 +1,4 @@
-# [836. 矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap)
+# [836. 矩形重叠](https://leetcode.cn/problems/rectangle-overlap)
 
 [English Version](/solution/0800-0899/0836.Rectangle%20Overlap/README_EN.md)
 

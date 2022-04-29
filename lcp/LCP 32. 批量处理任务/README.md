@@ -1,4 +1,4 @@
-# [LCP 32. 批量处理任务](https://leetcode-cn.com/problems/t3fKg1)
+# [LCP 32. 批量处理任务](https://leetcode.cn/problems/t3fKg1)
 
 ## 题目描述
 

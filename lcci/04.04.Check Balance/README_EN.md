@@ -1,4 +1,4 @@
-# [04.04. Check Balance](https://leetcode-cn.com/problems/check-balance-lcci)
+# [04.04. Check Balance](https://leetcode.cn/problems/check-balance-lcci)
 
 [中文文档](/lcci/04.04.Check%20Balance/README.md)
 

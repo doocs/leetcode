@@ -1,4 +1,4 @@
-# [1067. 范围内的数字计数](https://leetcode-cn.com/problems/digit-count-in-range)
+# [1067. 范围内的数字计数](https://leetcode.cn/problems/digit-count-in-range)
 
 [English Version](/solution/1000-1099/1067.Digit%20Count%20in%20Range/README_EN.md)
 

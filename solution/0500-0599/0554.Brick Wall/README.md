@@ -1,4 +1,4 @@
-# [554. 砖墙](https://leetcode-cn.com/problems/brick-wall)
+# [554. 砖墙](https://leetcode.cn/problems/brick-wall)
 
 [English Version](/solution/0500-0599/0554.Brick%20Wall/README_EN.md)
 

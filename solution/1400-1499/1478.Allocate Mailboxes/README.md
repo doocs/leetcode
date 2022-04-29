@@ -1,4 +1,4 @@
-# [1478. 安排邮筒](https://leetcode-cn.com/problems/allocate-mailboxes)
+# [1478. 安排邮筒](https://leetcode.cn/problems/allocate-mailboxes)
 
 [English Version](/solution/1400-1499/1478.Allocate%20Mailboxes/README_EN.md)
 

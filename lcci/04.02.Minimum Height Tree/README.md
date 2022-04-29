@@ -1,4 +1,4 @@
-# [面试题 04.02. 最小高度树](https://leetcode-cn.com/problems/minimum-height-tree-lcci)
+# [面试题 04.02. 最小高度树](https://leetcode.cn/problems/minimum-height-tree-lcci)
 
 [English Version](/lcci/04.02.Minimum%20Height%20Tree/README_EN.md)
 

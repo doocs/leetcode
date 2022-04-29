@@ -1,4 +1,4 @@
-# [剑指 Offer II 087. 复原 IP](https://leetcode-cn.com/problems/0on3uN)
+# [剑指 Offer II 087. 复原 IP](https://leetcode.cn/problems/0on3uN)
 
 ## 题目描述
 
@@ -58,7 +58,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 93&nbsp;题相同：<a href="https://leetcode-cn.com/problems/restore-ip-addresses/">https://leetcode-cn.com/problems/restore-ip-addresses/</a>&nbsp;</p>
+<p><meta charset="UTF-8" />注意：本题与主站 93&nbsp;题相同：<a href="https://leetcode.cn/problems/restore-ip-addresses/">https://leetcode.cn/problems/restore-ip-addresses/</a>&nbsp;</p>
 
 ## 解法
 

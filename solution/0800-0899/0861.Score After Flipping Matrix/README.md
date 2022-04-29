@@ -1,4 +1,4 @@
-# [861. 翻转矩阵后的得分](https://leetcode-cn.com/problems/score-after-flipping-matrix)
+# [861. 翻转矩阵后的得分](https://leetcode.cn/problems/score-after-flipping-matrix)
 
 [English Version](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)
 

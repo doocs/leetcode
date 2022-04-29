@@ -1,4 +1,4 @@
-# [04.09. BST Sequences](https://leetcode-cn.com/problems/bst-sequences-lcci)
+# [04.09. BST Sequences](https://leetcode.cn/problems/bst-sequences-lcci)
 
 [中文文档](/lcci/04.09.BST%20Sequences/README.md)
 

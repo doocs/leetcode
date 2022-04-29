@@ -1,4 +1,4 @@
-# [LCP 16. 游乐园的游览计划](https://leetcode-cn.com/problems/you-le-yuan-de-you-lan-ji-hua)
+# [LCP 16. 游乐园的游览计划](https://leetcode.cn/problems/you-le-yuan-de-you-lan-ji-hua)
 
 ## 题目描述
 

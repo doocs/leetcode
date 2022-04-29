@@ -1,4 +1,4 @@
-# [2205. The Number of Users That Are Eligible for Discount](https://leetcode-cn.com/problems/the-number-of-users-that-are-eligible-for-discount)
+# [2205. The Number of Users That Are Eligible for Discount](https://leetcode.cn/problems/the-number-of-users-that-are-eligible-for-discount)
 
 [English Version](/solution/2200-2299/2205.The%20Number%20of%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md)
 

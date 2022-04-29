@@ -1,4 +1,4 @@
-# [654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree)
+# [654. 最大二叉树](https://leetcode.cn/problems/maximum-binary-tree)
 
 [English Version](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README_EN.md)
 

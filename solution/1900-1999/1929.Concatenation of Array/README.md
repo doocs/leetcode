@@ -1,4 +1,4 @@
-# [1929. 数组串联](https://leetcode-cn.com/problems/concatenation-of-array)
+# [1929. 数组串联](https://leetcode.cn/problems/concatenation-of-array)
 
 [English Version](/solution/1900-1999/1929.Concatenation%20of%20Array/README_EN.md)
 

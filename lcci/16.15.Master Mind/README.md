@@ -1,4 +1,4 @@
-# [面试题 16.15. 珠玑妙算](https://leetcode-cn.com/problems/master-mind-lcci)
+# [面试题 16.15. 珠玑妙算](https://leetcode.cn/problems/master-mind-lcci)
 
 [English Version](/lcci/16.15.Master%20Mind/README_EN.md)
 

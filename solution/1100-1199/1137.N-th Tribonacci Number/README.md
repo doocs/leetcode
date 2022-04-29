@@ -1,4 +1,4 @@
-# [1137. 第 N 个泰波那契数](https://leetcode-cn.com/problems/n-th-tribonacci-number)
+# [1137. 第 N 个泰波那契数](https://leetcode.cn/problems/n-th-tribonacci-number)
 
 [English Version](/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md)
 

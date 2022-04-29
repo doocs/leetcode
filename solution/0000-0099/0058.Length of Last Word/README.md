@@ -1,4 +1,4 @@
-# [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word)
+# [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word)
 
 [English Version](/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md)
 

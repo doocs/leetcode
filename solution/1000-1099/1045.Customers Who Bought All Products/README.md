@@ -1,4 +1,4 @@
-# [1045. 买下所有产品的客户](https://leetcode-cn.com/problems/customers-who-bought-all-products)
+# [1045. 买下所有产品的客户](https://leetcode.cn/problems/customers-who-bought-all-products)
 
 [English Version](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README_EN.md)
 

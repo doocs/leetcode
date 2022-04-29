@@ -1,4 +1,4 @@
-# [665. 非递减数列](https://leetcode-cn.com/problems/non-decreasing-array)
+# [665. 非递减数列](https://leetcode.cn/problems/non-decreasing-array)
 
 [English Version](/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md)
 

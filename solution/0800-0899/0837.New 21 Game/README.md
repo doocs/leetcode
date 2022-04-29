@@ -1,4 +1,4 @@
-# [837. 新 21 点](https://leetcode-cn.com/problems/new-21-game)
+# [837. 新 21 点](https://leetcode.cn/problems/new-21-game)
 
 [English Version](/solution/0800-0899/0837.New%2021%20Game/README_EN.md)
 

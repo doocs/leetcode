@@ -1,4 +1,4 @@
-# [1425. 带限制的子序列和](https://leetcode-cn.com/problems/constrained-subsequence-sum)
+# [1425. 带限制的子序列和](https://leetcode.cn/problems/constrained-subsequence-sum)
 
 [English Version](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [剑指 Offer II 032. 有效的变位词](https://leetcode-cn.com/problems/dKk3P7)
+# [剑指 Offer II 032. 有效的变位词](https://leetcode.cn/problems/dKk3P7)
 
 ## 题目描述
 
@@ -44,7 +44,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 242&nbsp;题相似（字母异位词定义不同）：<a href="https://leetcode-cn.com/problems/valid-anagram/">https://leetcode-cn.com/problems/valid-anagram/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 242&nbsp;题相似（字母异位词定义不同）：<a href="https://leetcode.cn/problems/valid-anagram/">https://leetcode.cn/problems/valid-anagram/</a></p>
 
 ## 解法
 

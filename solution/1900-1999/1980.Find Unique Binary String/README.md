@@ -1,4 +1,4 @@
-# [1980. 找出不同的二进制字符串](https://leetcode-cn.com/problems/find-unique-binary-string)
+# [1980. 找出不同的二进制字符串](https://leetcode.cn/problems/find-unique-binary-string)
 
 [English Version](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md)
 

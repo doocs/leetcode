@@ -1,4 +1,4 @@
-# [2187. 完成旅途的最少时间](https://leetcode-cn.com/problems/minimum-time-to-complete-trips)
+# [2187. 完成旅途的最少时间](https://leetcode.cn/problems/minimum-time-to-complete-trips)
 
 [English Version](/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README_EN.md)
 

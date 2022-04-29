@@ -1,4 +1,4 @@
-# [280. 摆动排序](https://leetcode-cn.com/problems/wiggle-sort)
+# [280. 摆动排序](https://leetcode.cn/problems/wiggle-sort)
 
 [English Version](/solution/0200-0299/0280.Wiggle%20Sort/README_EN.md)
 

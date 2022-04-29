@@ -1,4 +1,4 @@
-# [剑指 Offer II 110. 所有路径](https://leetcode-cn.com/problems/bP4bmD)
+# [剑指 Offer II 110. 所有路径](https://leetcode.cn/problems/bP4bmD)
 
 ## 题目描述
 
@@ -64,7 +64,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 797&nbsp;题相同：<a href="https://leetcode-cn.com/problems/all-paths-from-source-to-target/">https://leetcode-cn.com/problems/all-paths-from-source-to-target/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 797&nbsp;题相同：<a href="https://leetcode.cn/problems/all-paths-from-source-to-target/">https://leetcode.cn/problems/all-paths-from-source-to-target/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)
+# [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence)
 
 [English Version](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 

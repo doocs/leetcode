@@ -1,4 +1,4 @@
-# [1818. 绝对差值和](https://leetcode-cn.com/problems/minimum-absolute-sum-difference)
+# [1818. 绝对差值和](https://leetcode.cn/problems/minimum-absolute-sum-difference)
 
 [English Version](/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README_EN.md)
 

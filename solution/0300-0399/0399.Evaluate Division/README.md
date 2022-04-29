@@ -1,4 +1,4 @@
-# [399. 除法求值](https://leetcode-cn.com/problems/evaluate-division)
+# [399. 除法求值](https://leetcode.cn/problems/evaluate-division)
 
 [English Version](/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
 

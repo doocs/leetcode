@@ -1,4 +1,4 @@
-# [2157. 字符串分组](https://leetcode-cn.com/problems/groups-of-strings)
+# [2157. 字符串分组](https://leetcode.cn/problems/groups-of-strings)
 
 [English Version](/solution/2100-2199/2157.Groups%20of%20Strings/README_EN.md)
 

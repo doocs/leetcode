@@ -1,4 +1,4 @@
-# [975. 奇偶跳](https://leetcode-cn.com/problems/odd-even-jump)
+# [975. 奇偶跳](https://leetcode.cn/problems/odd-even-jump)
 
 [English Version](/solution/0900-0999/0975.Odd%20Even%20Jump/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [面试题 25. 合并两个排序的链表](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/)
+# [面试题 25. 合并两个排序的链表](https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/)
 
 ## 题目描述
 
@@ -13,7 +13,7 @@
 
 <p><code>0 &lt;= 链表长度 &lt;= 1000</code></p>
 
-<p>注意：本题与主站 21 题相同：<a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/">https://leetcode-cn.com/problems/merge-two-sorted-lists/</a></p>
+<p>注意：本题与主站 21 题相同：<a href="https://leetcode.cn/problems/merge-two-sorted-lists/">https://leetcode.cn/problems/merge-two-sorted-lists/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [788. 旋转数字](https://leetcode-cn.com/problems/rotated-digits)
+# [788. 旋转数字](https://leetcode.cn/problems/rotated-digits)
 
 [English Version](/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [965. 单值二叉树](https://leetcode-cn.com/problems/univalued-binary-tree)
+# [965. 单值二叉树](https://leetcode.cn/problems/univalued-binary-tree)
 
 [English Version](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README_EN.md)
 

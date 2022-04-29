@@ -1,4 +1,4 @@
-# [2094. 找出 3 位偶数](https://leetcode-cn.com/problems/finding-3-digit-even-numbers)
+# [2094. 找出 3 位偶数](https://leetcode.cn/problems/finding-3-digit-even-numbers)
 
 [English Version](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [86. 分隔链表](https://leetcode-cn.com/problems/partition-list)
+# [86. 分隔链表](https://leetcode.cn/problems/partition-list)
 
 [English Version](/solution/0000-0099/0086.Partition%20List/README_EN.md)
 

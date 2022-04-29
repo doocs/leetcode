@@ -1,4 +1,4 @@
-# [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence)
+# [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence)
 
 [English Version](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README_EN.md)
 

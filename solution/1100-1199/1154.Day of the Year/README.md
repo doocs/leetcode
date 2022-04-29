@@ -1,4 +1,4 @@
-# [1154. 一年中的第几天](https://leetcode-cn.com/problems/day-of-the-year)
+# [1154. 一年中的第几天](https://leetcode.cn/problems/day-of-the-year)
 
 [English Version](/solution/1100-1199/1154.Day%20of%20the%20Year/README_EN.md)
 

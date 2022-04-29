@@ -1,4 +1,4 @@
-# [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers)
+# [29. 两数相除](https://leetcode.cn/problems/divide-two-integers)
 
 [English Version](/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md)
 

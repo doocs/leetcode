@@ -1,4 +1,4 @@
-# [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii)
+# [337. 打家劫舍 III](https://leetcode.cn/problems/house-robber-iii)
 
 [English Version](/solution/0300-0399/0337.House%20Robber%20III/README_EN.md)
 

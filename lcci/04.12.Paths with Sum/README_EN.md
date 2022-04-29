@@ -1,4 +1,4 @@
-# [04.12. Paths with Sum](https://leetcode-cn.com/problems/paths-with-sum-lcci)
+# [04.12. Paths with Sum](https://leetcode.cn/problems/paths-with-sum-lcci)
 
 [中文文档](/lcci/04.12.Paths%20with%20Sum/README.md)
 

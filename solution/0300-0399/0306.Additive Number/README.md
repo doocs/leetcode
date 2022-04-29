@@ -1,4 +1,4 @@
-# [306. 累加数](https://leetcode-cn.com/problems/additive-number)
+# [306. 累加数](https://leetcode.cn/problems/additive-number)
 
 [English Version](/solution/0300-0399/0306.Additive%20Number/README_EN.md)
 

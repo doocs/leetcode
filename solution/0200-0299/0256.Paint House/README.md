@@ -1,4 +1,4 @@
-# [256. 粉刷房子](https://leetcode-cn.com/problems/paint-house)
+# [256. 粉刷房子](https://leetcode.cn/problems/paint-house)
 
 [English Version](/solution/0200-0299/0256.Paint%20House/README_EN.md)
 

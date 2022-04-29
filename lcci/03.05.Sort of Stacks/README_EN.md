@@ -1,4 +1,4 @@
-# [03.05. Sort of Stacks](https://leetcode-cn.com/problems/sort-of-stacks-lcci)
+# [03.05. Sort of Stacks](https://leetcode.cn/problems/sort-of-stacks-lcci)
 
 [中文文档](/lcci/03.05.Sort%20of%20Stacks/README.md)
 

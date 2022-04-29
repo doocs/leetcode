@@ -1,4 +1,4 @@
-# [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber)
+# [198. 打家劫舍](https://leetcode.cn/problems/house-robber)
 
 [English Version](/solution/0100-0199/0198.House%20Robber/README_EN.md)
 

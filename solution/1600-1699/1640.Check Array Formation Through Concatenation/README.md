@@ -1,4 +1,4 @@
-# [1640. 能否连接形成数组](https://leetcode-cn.com/problems/check-array-formation-through-concatenation)
+# [1640. 能否连接形成数组](https://leetcode.cn/problems/check-array-formation-through-concatenation)
 
 [English Version](/solution/1600-1699/1640.Check%20Array%20Formation%20Through%20Concatenation/README_EN.md)
 

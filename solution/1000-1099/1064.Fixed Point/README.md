@@ -1,4 +1,4 @@
-# [1064. 不动点](https://leetcode-cn.com/problems/fixed-point)
+# [1064. 不动点](https://leetcode.cn/problems/fixed-point)
 
 [English Version](/solution/1000-1099/1064.Fixed%20Point/README_EN.md)
 

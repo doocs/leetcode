@@ -1,4 +1,4 @@
-# [面试题 04.01. 节点间通路](https://leetcode-cn.com/problems/route-between-nodes-lcci)
+# [面试题 04.01. 节点间通路](https://leetcode.cn/problems/route-between-nodes-lcci)
 
 [English Version](/lcci/04.01.Route%20Between%20Nodes/README_EN.md)
 

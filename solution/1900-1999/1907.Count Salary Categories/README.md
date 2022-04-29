@@ -1,4 +1,4 @@
-# [1907. Count Salary Categories](https://leetcode-cn.com/problems/count-salary-categories)
+# [1907. Count Salary Categories](https://leetcode.cn/problems/count-salary-categories)
 
 [English Version](/solution/1900-1999/1907.Count%20Salary%20Categories/README_EN.md)
 

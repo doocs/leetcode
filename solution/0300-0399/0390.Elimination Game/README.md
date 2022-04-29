@@ -1,4 +1,4 @@
-# [390. 消除游戏](https://leetcode-cn.com/problems/elimination-game)
+# [390. 消除游戏](https://leetcode.cn/problems/elimination-game)
 
 [English Version](/solution/0300-0399/0390.Elimination%20Game/README_EN.md)
 

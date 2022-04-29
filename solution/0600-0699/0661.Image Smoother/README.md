@@ -1,4 +1,4 @@
-# [661. 图片平滑器](https://leetcode-cn.com/problems/image-smoother)
+# [661. 图片平滑器](https://leetcode.cn/problems/image-smoother)
 
 [English Version](/solution/0600-0699/0661.Image%20Smoother/README_EN.md)
 

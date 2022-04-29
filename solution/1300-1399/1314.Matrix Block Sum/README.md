@@ -1,4 +1,4 @@
-# [1314. 矩阵区域和](https://leetcode-cn.com/problems/matrix-block-sum)
+# [1314. 矩阵区域和](https://leetcode.cn/problems/matrix-block-sum)
 
 [English Version](/solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md)
 

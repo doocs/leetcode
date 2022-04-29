@@ -1,4 +1,4 @@
-# [1377. T 秒后青蛙的位置](https://leetcode-cn.com/problems/frog-position-after-t-seconds)
+# [1377. T 秒后青蛙的位置](https://leetcode.cn/problems/frog-position-after-t-seconds)
 
 [English Version](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [442. 数组中重复的数据](https://leetcode-cn.com/problems/find-all-duplicates-in-an-array)
+# [442. 数组中重复的数据](https://leetcode.cn/problems/find-all-duplicates-in-an-array)
 
 [English Version](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README_EN.md)
 

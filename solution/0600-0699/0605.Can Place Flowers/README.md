@@ -1,4 +1,4 @@
-# [605. 种花问题](https://leetcode-cn.com/problems/can-place-flowers)
+# [605. 种花问题](https://leetcode.cn/problems/can-place-flowers)
 
 [English Version](/solution/0600-0699/0605.Can%20Place%20Flowers/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1421. 净现值查询](https://leetcode-cn.com/problems/npv-queries)
+# [1421. 净现值查询](https://leetcode.cn/problems/npv-queries)
 
 [English Version](/solution/1400-1499/1421.NPV%20Queries/README_EN.md)
 

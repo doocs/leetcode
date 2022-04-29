@@ -1,4 +1,4 @@
-# [LCP 10. 二叉树任务调度](https://leetcode-cn.com/problems/er-cha-shu-ren-wu-diao-du)
+# [LCP 10. 二叉树任务调度](https://leetcode.cn/problems/er-cha-shu-ren-wu-diao-du)
 
 ## 题目描述
 

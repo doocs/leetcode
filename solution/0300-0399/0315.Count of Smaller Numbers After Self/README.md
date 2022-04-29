@@ -1,4 +1,4 @@
-# [315. 计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self)
+# [315. 计算右侧小于当前元素的个数](https://leetcode.cn/problems/count-of-smaller-numbers-after-self)
 
 [English Version](/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README_EN.md)
 

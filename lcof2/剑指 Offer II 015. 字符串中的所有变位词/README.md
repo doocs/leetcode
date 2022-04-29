@@ -1,4 +1,4 @@
-# [剑指 Offer II 015. 字符串中的所有变位词](https://leetcode-cn.com/problems/VabMRr)
+# [剑指 Offer II 015. 字符串中的所有变位词](https://leetcode.cn/problems/VabMRr)
 
 ## 题目描述
 
@@ -42,7 +42,7 @@
 
 <p>&nbsp;</p>
 
-<p>注意：本题与主站 438&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/" style="background-color: rgb(255, 255, 255);">https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/</a></p>
+<p>注意：本题与主站 438&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/" style="background-color: rgb(255, 255, 255);">https://leetcode.cn/problems/find-all-anagrams-in-a-string/</a></p>
 
 ## 解法
 

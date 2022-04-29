@@ -1,4 +1,4 @@
-# [面试题 08.12. 八皇后](https://leetcode-cn.com/problems/eight-queens-lcci)
+# [面试题 08.12. 八皇后](https://leetcode.cn/problems/eight-queens-lcci)
 
 [English Version](/lcci/08.12.Eight%20Queens/README_EN.md)
 

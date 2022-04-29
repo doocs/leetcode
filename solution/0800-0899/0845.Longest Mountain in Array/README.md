@@ -1,4 +1,4 @@
-# [845. 数组中的最长山脉](https://leetcode-cn.com/problems/longest-mountain-in-array)
+# [845. 数组中的最长山脉](https://leetcode.cn/problems/longest-mountain-in-array)
 
 [English Version](/solution/0800-0899/0845.Longest%20Mountain%20in%20Array/README_EN.md)
 

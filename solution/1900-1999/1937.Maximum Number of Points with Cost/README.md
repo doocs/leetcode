@@ -1,4 +1,4 @@
-# [1937. 扣分后的最大得分](https://leetcode-cn.com/problems/maximum-number-of-points-with-cost)
+# [1937. 扣分后的最大得分](https://leetcode.cn/problems/maximum-number-of-points-with-cost)
 
 [English Version](/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README_EN.md)
 

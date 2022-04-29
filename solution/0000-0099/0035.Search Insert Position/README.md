@@ -1,4 +1,4 @@
-# [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position)
+# [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position)
 
 [English Version](/solution/0000-0099/0035.Search%20Insert%20Position/README_EN.md)
 

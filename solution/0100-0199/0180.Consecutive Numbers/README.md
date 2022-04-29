@@ -1,4 +1,4 @@
-# [180. 连续出现的数字](https://leetcode-cn.com/problems/consecutive-numbers)
+# [180. 连续出现的数字](https://leetcode.cn/problems/consecutive-numbers)
 
 [English Version](/solution/0100-0199/0180.Consecutive%20Numbers/README_EN.md)
 

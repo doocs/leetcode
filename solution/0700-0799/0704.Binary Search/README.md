@@ -1,4 +1,4 @@
-# [704. 二分查找](https://leetcode-cn.com/problems/binary-search)
+# [704. 二分查找](https://leetcode.cn/problems/binary-search)
 
 [English Version](/solution/0700-0799/0704.Binary%20Search/README_EN.md)
 

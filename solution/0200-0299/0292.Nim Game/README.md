@@ -1,4 +1,4 @@
-# [292. Nim 游戏](https://leetcode-cn.com/problems/nim-game)
+# [292. Nim 游戏](https://leetcode.cn/problems/nim-game)
 
 [English Version](/solution/0200-0299/0292.Nim%20Game/README_EN.md)
 

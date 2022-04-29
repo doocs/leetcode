@@ -1,4 +1,4 @@
-# [2188. 完成比赛的最少时间](https://leetcode-cn.com/problems/minimum-time-to-finish-the-race)
+# [2188. 完成比赛的最少时间](https://leetcode.cn/problems/minimum-time-to-finish-the-race)
 
 [English Version](/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README_EN.md)
 

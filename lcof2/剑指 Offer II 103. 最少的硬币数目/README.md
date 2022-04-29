@@ -1,4 +1,4 @@
-# [剑指 Offer II 103. 最少的硬币数目](https://leetcode-cn.com/problems/gaM7Ch)
+# [剑指 Offer II 103. 最少的硬币数目](https://leetcode.cn/problems/gaM7Ch)
 
 ## 题目描述
 
@@ -56,7 +56,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 322&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/coin-change/">https://leetcode-cn.com/problems/coin-change/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 322&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/coin-change/">https://leetcode.cn/problems/coin-change/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [62. 不同路径](https://leetcode-cn.com/problems/unique-paths)
+# [62. 不同路径](https://leetcode.cn/problems/unique-paths)
 
 [English Version](/solution/0000-0099/0062.Unique%20Paths/README_EN.md)
 

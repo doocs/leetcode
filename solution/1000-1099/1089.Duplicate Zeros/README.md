@@ -1,4 +1,4 @@
-# [1089. 复写零](https://leetcode-cn.com/problems/duplicate-zeros)
+# [1089. 复写零](https://leetcode.cn/problems/duplicate-zeros)
 
 [English Version](/solution/1000-1099/1089.Duplicate%20Zeros/README_EN.md)
 

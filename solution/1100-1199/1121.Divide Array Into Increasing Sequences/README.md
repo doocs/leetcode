@@ -1,4 +1,4 @@
-# [1121. 将数组分成几个递增序列](https://leetcode-cn.com/problems/divide-array-into-increasing-sequences)
+# [1121. 将数组分成几个递增序列](https://leetcode.cn/problems/divide-array-into-increasing-sequences)
 
 [English Version](/solution/1100-1199/1121.Divide%20Array%20Into%20Increasing%20Sequences/README_EN.md)
 

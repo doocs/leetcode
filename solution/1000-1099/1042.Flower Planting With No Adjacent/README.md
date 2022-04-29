@@ -1,4 +1,4 @@
-# [1042. 不邻接植花](https://leetcode-cn.com/problems/flower-planting-with-no-adjacent)
+# [1042. 不邻接植花](https://leetcode.cn/problems/flower-planting-with-no-adjacent)
 
 [English Version](/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README_EN.md)
 

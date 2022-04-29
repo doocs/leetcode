@@ -1,4 +1,4 @@
-# [面试题 16.02. 单词频率](https://leetcode-cn.com/problems/words-frequency-lcci)
+# [面试题 16.02. 单词频率](https://leetcode.cn/problems/words-frequency-lcci)
 
 [English Version](/lcci/16.02.Words%20Frequency/README_EN.md)
 

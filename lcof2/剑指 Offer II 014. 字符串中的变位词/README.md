@@ -1,4 +1,4 @@
-# [剑指 Offer II 014. 字符串中的变位词](https://leetcode-cn.com/problems/MPnaiL)
+# [剑指 Offer II 014. 字符串中的变位词](https://leetcode.cn/problems/MPnaiL)
 
 ## 题目描述
 
@@ -36,7 +36,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 567&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/permutation-in-string/">https://leetcode-cn.com/problems/permutation-in-string/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 567&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/permutation-in-string/">https://leetcode.cn/problems/permutation-in-string/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [1147. 段式回文](https://leetcode-cn.com/problems/longest-chunked-palindrome-decomposition)
+# [1147. 段式回文](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition)
 
 [English Version](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md)
 

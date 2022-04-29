@@ -1,4 +1,4 @@
-# [821. 字符的最短距离](https://leetcode-cn.com/problems/shortest-distance-to-a-character)
+# [821. 字符的最短距离](https://leetcode.cn/problems/shortest-distance-to-a-character)
 
 [English Version](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README_EN.md)
 

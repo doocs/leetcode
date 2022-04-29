@@ -1,4 +1,4 @@
-# [855. 考场就座](https://leetcode-cn.com/problems/exam-room)
+# [855. 考场就座](https://leetcode.cn/problems/exam-room)
 
 [English Version](/solution/0800-0899/0855.Exam%20Room/README_EN.md)
 

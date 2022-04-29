@@ -1,4 +1,4 @@
-# [612. 平面上的最近距离](https://leetcode-cn.com/problems/shortest-distance-in-a-plane)
+# [612. 平面上的最近距离](https://leetcode.cn/problems/shortest-distance-in-a-plane)
 
 [English Version](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README_EN.md)
 

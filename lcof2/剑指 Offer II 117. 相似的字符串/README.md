@@ -1,4 +1,4 @@
-# [剑指 Offer II 117. 相似的字符串](https://leetcode-cn.com/problems/H6lPxb)
+# [剑指 Offer II 117. 相似的字符串](https://leetcode.cn/problems/H6lPxb)
 
 ## 题目描述
 
@@ -43,7 +43,7 @@
 
 <p>&nbsp; &nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 839&nbsp;题相同：<a href="https://leetcode-cn.com/problems/similar-string-groups/">https://leetcode-cn.com/problems/similar-string-groups/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 839&nbsp;题相同：<a href="https://leetcode.cn/problems/similar-string-groups/">https://leetcode.cn/problems/similar-string-groups/</a></p>
 
 ## 解法
 

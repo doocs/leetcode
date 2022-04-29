@@ -1,4 +1,4 @@
-# [面试题 14- II. 剪绳子 II](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [面试题 14- II. 剪绳子 II](这里是题目链接，如：https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
 
 ## 题目描述
 
@@ -28,7 +28,7 @@
 	<li><code>2 &lt;= n &lt;= 1000</code></li>
 </ul>
 
-<p>注意：本题与主站 343 题相同：<a href="https://leetcode-cn.com/problems/integer-break/">https://leetcode-cn.com/problems/integer-break/</a></p>
+<p>注意：本题与主站 343 题相同：<a href="https://leetcode.cn/problems/integer-break/">https://leetcode.cn/problems/integer-break/</a></p>
 
 ## 解法
 

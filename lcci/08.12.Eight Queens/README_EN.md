@@ -1,4 +1,4 @@
-# [08.12. Eight Queens](https://leetcode-cn.com/problems/eight-queens-lcci)
+# [08.12. Eight Queens](https://leetcode.cn/problems/eight-queens-lcci)
 
 [中文文档](/lcci/08.12.Eight%20Queens/README.md)
 

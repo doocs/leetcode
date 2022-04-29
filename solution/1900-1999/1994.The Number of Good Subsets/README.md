@@ -1,4 +1,4 @@
-# [1994. 好子集的数目](https://leetcode-cn.com/problems/the-number-of-good-subsets)
+# [1994. 好子集的数目](https://leetcode.cn/problems/the-number-of-good-subsets)
 
 [English Version](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
 

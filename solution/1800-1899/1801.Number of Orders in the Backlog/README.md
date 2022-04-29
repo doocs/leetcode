@@ -1,4 +1,4 @@
-# [1801. 积压订单中的订单总数](https://leetcode-cn.com/problems/number-of-orders-in-the-backlog)
+# [1801. 积压订单中的订单总数](https://leetcode.cn/problems/number-of-orders-in-the-backlog)
 
 [English Version](/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README_EN.md)
 

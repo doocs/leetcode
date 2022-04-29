@@ -1,4 +1,4 @@
-# [715. Range 模块](https://leetcode-cn.com/problems/range-module)
+# [715. Range 模块](https://leetcode.cn/problems/range-module)
 
 [English Version](/solution/0700-0799/0715.Range%20Module/README_EN.md)
 

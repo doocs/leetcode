@@ -1,4 +1,4 @@
-# [249. 移位字符串分组](https://leetcode-cn.com/problems/group-shifted-strings)
+# [249. 移位字符串分组](https://leetcode.cn/problems/group-shifted-strings)
 
 [English Version](/solution/0200-0299/0249.Group%20Shifted%20Strings/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [LCP 06. 拿硬币](https://leetcode-cn.com/problems/na-ying-bi)
+# [LCP 06. 拿硬币](https://leetcode.cn/problems/na-ying-bi)
 
 ## 题目描述
 

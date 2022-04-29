@@ -1,4 +1,4 @@
-# [755. 倒水](https://leetcode-cn.com/problems/pour-water)
+# [755. 倒水](https://leetcode.cn/problems/pour-water)
 
 [English Version](/solution/0700-0799/0755.Pour%20Water/README_EN.md)
 

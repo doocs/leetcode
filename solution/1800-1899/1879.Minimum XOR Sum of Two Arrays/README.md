@@ -1,4 +1,4 @@
-# [1879. 两个数组最小的异或值之和](https://leetcode-cn.com/problems/minimum-xor-sum-of-two-arrays)
+# [1879. 两个数组最小的异或值之和](https://leetcode.cn/problems/minimum-xor-sum-of-two-arrays)
 
 [English Version](/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README_EN.md)
 

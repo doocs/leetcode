@@ -1,4 +1,4 @@
-# [981. 基于时间的键值存储](https://leetcode-cn.com/problems/time-based-key-value-store)
+# [981. 基于时间的键值存储](https://leetcode.cn/problems/time-based-key-value-store)
 
 [English Version](/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README_EN.md)
 

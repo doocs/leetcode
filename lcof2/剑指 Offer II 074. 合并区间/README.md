@@ -1,4 +1,4 @@
-# [剑指 Offer II 074. 合并区间](https://leetcode-cn.com/problems/SsGoHC)
+# [剑指 Offer II 074. 合并区间](https://leetcode.cn/problems/SsGoHC)
 
 ## 题目描述
 
@@ -35,7 +35,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 56&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/merge-intervals/">https://leetcode-cn.com/problems/merge-intervals/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 56&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/merge-intervals/">https://leetcode.cn/problems/merge-intervals/</a></p>
 
 ## 解法
 

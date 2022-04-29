@@ -1,4 +1,4 @@
-# [1129. 颜色交替的最短路径](https://leetcode-cn.com/problems/shortest-path-with-alternating-colors)
+# [1129. 颜色交替的最短路径](https://leetcode.cn/problems/shortest-path-with-alternating-colors)
 
 [English Version](/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md)
 

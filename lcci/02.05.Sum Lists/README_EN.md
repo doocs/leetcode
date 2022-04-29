@@ -1,4 +1,4 @@
-# [02.05. Sum Lists](https://leetcode-cn.com/problems/sum-lists-lcci)
+# [02.05. Sum Lists](https://leetcode.cn/problems/sum-lists-lcci)
 
 [中文文档](/lcci/02.05.Sum%20Lists/README.md)
 

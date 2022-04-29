@@ -1,4 +1,4 @@
-# [LCP 23. 魔术排列](https://leetcode-cn.com/problems/er94lq)
+# [LCP 23. 魔术排列](https://leetcode.cn/problems/er94lq)
 
 ## 题目描述
 

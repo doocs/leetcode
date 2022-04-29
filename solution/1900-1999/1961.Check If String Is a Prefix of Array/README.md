@@ -1,4 +1,4 @@
-# [1961. 检查字符串是否为数组前缀](https://leetcode-cn.com/problems/check-if-string-is-a-prefix-of-array)
+# [1961. 检查字符串是否为数组前缀](https://leetcode.cn/problems/check-if-string-is-a-prefix-of-array)
 
 [English Version](/solution/1900-1999/1961.Check%20If%20String%20Is%20a%20Prefix%20of%20Array/README_EN.md)
 

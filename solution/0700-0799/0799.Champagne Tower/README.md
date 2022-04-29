@@ -1,4 +1,4 @@
-# [799. 香槟塔](https://leetcode-cn.com/problems/champagne-tower)
+# [799. 香槟塔](https://leetcode.cn/problems/champagne-tower)
 
 [English Version](/solution/0700-0799/0799.Champagne%20Tower/README_EN.md)
 

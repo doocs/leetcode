@@ -1,4 +1,4 @@
-# [剑指 Offer II 093. 最长斐波那契数列](https://leetcode-cn.com/problems/Q91FMA)
+# [剑指 Offer II 093. 最长斐波那契数列](https://leetcode.cn/problems/Q91FMA)
 
 ## 题目描述
 
@@ -49,7 +49,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 873&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/length-of-longest-fibonacci-subsequence/">https://leetcode-cn.com/problems/length-of-longest-fibonacci-subsequence/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 873&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/length-of-longest-fibonacci-subsequence/">https://leetcode.cn/problems/length-of-longest-fibonacci-subsequence/</a></p>
 
 ## 解法
 

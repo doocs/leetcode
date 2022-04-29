@@ -1,4 +1,4 @@
-# [910. 最小差值 II](https://leetcode-cn.com/problems/smallest-range-ii)
+# [910. 最小差值 II](https://leetcode.cn/problems/smallest-range-ii)
 
 [English Version](/solution/0900-0999/0910.Smallest%20Range%20II/README_EN.md)
 

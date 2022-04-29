@@ -1,4 +1,4 @@
-# [剑指 Offer II 091. 粉刷房子](https://leetcode-cn.com/problems/JEj789)
+# [剑指 Offer II 091. 粉刷房子](https://leetcode.cn/problems/JEj789)
 
 ## 题目描述
 
@@ -43,7 +43,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 256&nbsp;题相同：<a href="https://leetcode-cn.com/problems/paint-house/">https://leetcode-cn.com/problems/paint-house/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 256&nbsp;题相同：<a href="https://leetcode.cn/problems/paint-house/">https://leetcode.cn/problems/paint-house/</a></p>
 
 ## 解法
 

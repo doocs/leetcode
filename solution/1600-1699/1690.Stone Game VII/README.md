@@ -1,4 +1,4 @@
-# [1690. 石子游戏 VII](https://leetcode-cn.com/problems/stone-game-vii)
+# [1690. 石子游戏 VII](https://leetcode.cn/problems/stone-game-vii)
 
 [English Version](/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md)
 

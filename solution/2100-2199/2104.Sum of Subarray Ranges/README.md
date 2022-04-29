@@ -1,4 +1,4 @@
-# [2104. 子数组范围和](https://leetcode-cn.com/problems/sum-of-subarray-ranges)
+# [2104. 子数组范围和](https://leetcode.cn/problems/sum-of-subarray-ranges)
 
 [English Version](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md)
 

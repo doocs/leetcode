@@ -1,4 +1,4 @@
-# [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence)
+# [392. 判断子序列](https://leetcode.cn/problems/is-subsequence)
 
 [English Version](/solution/0300-0399/0392.Is%20Subsequence/README_EN.md)
 

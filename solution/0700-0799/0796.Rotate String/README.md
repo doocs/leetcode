@@ -1,4 +1,4 @@
-# [796. 旋转字符串](https://leetcode-cn.com/problems/rotate-string)
+# [796. 旋转字符串](https://leetcode.cn/problems/rotate-string)
 
 [English Version](/solution/0700-0799/0796.Rotate%20String/README_EN.md)
 

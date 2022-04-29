@@ -1,4 +1,4 @@
-# [429. N 叉树的层序遍历](https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal)
+# [429. N 叉树的层序遍历](https://leetcode.cn/problems/n-ary-tree-level-order-traversal)
 
 [English Version](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1540. K 次操作转变字符串](https://leetcode-cn.com/problems/can-convert-string-in-k-moves)
+# [1540. K 次操作转变字符串](https://leetcode.cn/problems/can-convert-string-in-k-moves)
 
 [English Version](/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README_EN.md)
 

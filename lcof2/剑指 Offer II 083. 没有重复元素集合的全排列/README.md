@@ -1,4 +1,4 @@
-# [剑指 Offer II 083. 没有重复元素集合的全排列](https://leetcode-cn.com/problems/VvJkup)
+# [剑指 Offer II 083. 没有重复元素集合的全排列](https://leetcode.cn/problems/VvJkup)
 
 ## 题目描述
 
@@ -41,7 +41,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 46&nbsp;题相同：<a href="https://leetcode-cn.com/problems/permutations/">https://leetcode-cn.com/problems/permutations/</a>&nbsp;</p>
+<p><meta charset="UTF-8" />注意：本题与主站 46&nbsp;题相同：<a href="https://leetcode.cn/problems/permutations/">https://leetcode.cn/problems/permutations/</a>&nbsp;</p>
 
 ## 解法
 

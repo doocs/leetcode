@@ -1,4 +1,4 @@
-# [563. 二叉树的坡度](https://leetcode-cn.com/problems/binary-tree-tilt)
+# [563. 二叉树的坡度](https://leetcode.cn/problems/binary-tree-tilt)
 
 [English Version](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README_EN.md)
 

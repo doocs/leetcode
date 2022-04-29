@@ -1,4 +1,4 @@
-# [1408. 数组中的字符串匹配](https://leetcode-cn.com/problems/string-matching-in-an-array)
+# [1408. 数组中的字符串匹配](https://leetcode.cn/problems/string-matching-in-an-array)
 
 [English Version](/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README_EN.md)
 

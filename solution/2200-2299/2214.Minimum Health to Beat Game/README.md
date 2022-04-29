@@ -1,4 +1,4 @@
-# [2214. Minimum Health to Beat Game](https://leetcode-cn.com/problems/minimum-health-to-beat-game)
+# [2214. Minimum Health to Beat Game](https://leetcode.cn/problems/minimum-health-to-beat-game)
 
 [English Version](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README_EN.md)
 

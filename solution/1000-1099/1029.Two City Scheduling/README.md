@@ -1,4 +1,4 @@
-# [1029. 两地调度](https://leetcode-cn.com/problems/two-city-scheduling)
+# [1029. 两地调度](https://leetcode.cn/problems/two-city-scheduling)
 
 [English Version](/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md)
 

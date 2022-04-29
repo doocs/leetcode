@@ -1,4 +1,4 @@
-# [2240. 买钢笔和铅笔的方案数](https://leetcode-cn.com/problems/number-of-ways-to-buy-pens-and-pencils)
+# [2240. 买钢笔和铅笔的方案数](https://leetcode.cn/problems/number-of-ways-to-buy-pens-and-pencils)
 
 [English Version](/solution/2200-2299/2240.Number%20of%20Ways%20to%20Buy%20Pens%20and%20Pencils/README_EN.md)
 

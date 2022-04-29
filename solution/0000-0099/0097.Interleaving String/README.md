@@ -1,4 +1,4 @@
-# [97. 交错字符串](https://leetcode-cn.com/problems/interleaving-string)
+# [97. 交错字符串](https://leetcode.cn/problems/interleaving-string)
 
 [English Version](/solution/0000-0099/0097.Interleaving%20String/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1837. K 进制表示下的各位数字总和](https://leetcode-cn.com/problems/sum-of-digits-in-base-k)
+# [1837. K 进制表示下的各位数字总和](https://leetcode.cn/problems/sum-of-digits-in-base-k)
 
 [English Version](/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README_EN.md)
 

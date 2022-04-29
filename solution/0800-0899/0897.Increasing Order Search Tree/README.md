@@ -1,4 +1,4 @@
-# [897. 递增顺序搜索树](https://leetcode-cn.com/problems/increasing-order-search-tree)
+# [897. 递增顺序搜索树](https://leetcode.cn/problems/increasing-order-search-tree)
 
 [English Version](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README_EN.md)
 

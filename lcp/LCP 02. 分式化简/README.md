@@ -1,4 +1,4 @@
-# [LCP 02. 分式化简](https://leetcode-cn.com/problems/deep-dark-fraction)
+# [LCP 02. 分式化简](https://leetcode.cn/problems/deep-dark-fraction)
 
 ## 题目描述
 

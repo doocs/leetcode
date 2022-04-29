@@ -1,4 +1,4 @@
-# [LCP 25. 古董键盘](https://leetcode-cn.com/problems/Uh984O)
+# [LCP 25. 古董键盘](https://leetcode.cn/problems/Uh984O)
 
 ## 题目描述
 

@@ -1,4 +1,4 @@
-# [435. 无重叠区间](https://leetcode-cn.com/problems/non-overlapping-intervals)
+# [435. 无重叠区间](https://leetcode.cn/problems/non-overlapping-intervals)
 
 [English Version](/solution/0400-0499/0435.Non-overlapping%20Intervals/README_EN.md)
 

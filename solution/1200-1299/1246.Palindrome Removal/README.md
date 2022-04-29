@@ -1,4 +1,4 @@
-# [1246. 删除回文子数组](https://leetcode-cn.com/problems/palindrome-removal)
+# [1246. 删除回文子数组](https://leetcode.cn/problems/palindrome-removal)
 
 [English Version](/solution/1200-1299/1246.Palindrome%20Removal/README_EN.md)
 

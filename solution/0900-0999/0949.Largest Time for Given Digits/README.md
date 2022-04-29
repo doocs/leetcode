@@ -1,4 +1,4 @@
-# [949. 给定数字能组成的最大时间](https://leetcode-cn.com/problems/largest-time-for-given-digits)
+# [949. 给定数字能组成的最大时间](https://leetcode.cn/problems/largest-time-for-given-digits)
 
 [English Version](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README_EN.md)
 

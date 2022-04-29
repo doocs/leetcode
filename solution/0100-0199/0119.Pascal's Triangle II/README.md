@@ -1,4 +1,4 @@
-# [119. 杨辉三角 II](https://leetcode-cn.com/problems/pascals-triangle-ii)
+# [119. 杨辉三角 II](https://leetcode.cn/problems/pascals-triangle-ii)
 
 [English Version](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)
 

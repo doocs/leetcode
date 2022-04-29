@@ -1,4 +1,4 @@
-# [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching)
+# [10. 正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching)
 
 [English Version](/solution/0000-0099/0010.Regular%20Expression%20Matching/README_EN.md)
 

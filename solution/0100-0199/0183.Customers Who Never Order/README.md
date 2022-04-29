@@ -1,4 +1,4 @@
-# [183. 从不订购的客户](https://leetcode-cn.com/problems/customers-who-never-order)
+# [183. 从不订购的客户](https://leetcode.cn/problems/customers-who-never-order)
 
 [English Version](/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README_EN.md)
 

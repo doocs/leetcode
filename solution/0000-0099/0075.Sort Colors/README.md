@@ -1,4 +1,4 @@
-# [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors)
+# [75. 颜色分类](https://leetcode.cn/problems/sort-colors)
 
 [English Version](/solution/0000-0099/0075.Sort%20Colors/README_EN.md)
 

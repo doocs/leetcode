@@ -1,4 +1,4 @@
-# [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum)
+# [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum)
 
 [English Version](/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 

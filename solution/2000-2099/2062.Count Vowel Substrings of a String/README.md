@@ -1,4 +1,4 @@
-# [2062. 统计字符串中的元音子字符串](https://leetcode-cn.com/problems/count-vowel-substrings-of-a-string)
+# [2062. 统计字符串中的元音子字符串](https://leetcode.cn/problems/count-vowel-substrings-of-a-string)
 
 [English Version](/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README_EN.md)
 

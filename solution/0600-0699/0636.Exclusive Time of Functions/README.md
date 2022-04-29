@@ -1,4 +1,4 @@
-# [636. 函数的独占时间](https://leetcode-cn.com/problems/exclusive-time-of-functions)
+# [636. 函数的独占时间](https://leetcode.cn/problems/exclusive-time-of-functions)
 
 [English Version](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md)
 

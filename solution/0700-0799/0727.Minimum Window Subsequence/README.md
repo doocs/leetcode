@@ -1,4 +1,4 @@
-# [727. 最小窗口子序列](https://leetcode-cn.com/problems/minimum-window-subsequence)
+# [727. 最小窗口子序列](https://leetcode.cn/problems/minimum-window-subsequence)
 
 [English Version](/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README_EN.md)
 

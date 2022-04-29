@@ -1,4 +1,4 @@
-# [825. 适龄的朋友](https://leetcode-cn.com/problems/friends-of-appropriate-ages)
+# [825. 适龄的朋友](https://leetcode.cn/problems/friends-of-appropriate-ages)
 
 [English Version](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1708. 长度为 K 的最大子数组](https://leetcode-cn.com/problems/largest-subarray-length-k)
+# [1708. 长度为 K 的最大子数组](https://leetcode.cn/problems/largest-subarray-length-k)
 
 [English Version](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README_EN.md)
 

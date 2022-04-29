@@ -1,4 +1,4 @@
-# [面试题 68 - II. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
+# [面试题 68 - II. 二叉树的最近公共祖先](https://leetcode.cn/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
 
 ## 题目描述
 
@@ -37,7 +37,7 @@
 	<li>p、q 为不同节点且均存在于给定的二叉树中。</li>
 </ul>
 
-<p>注意：本题与主站 236 题相同：<a href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/">https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/</a></p>
+<p>注意：本题与主站 236 题相同：<a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/">https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/</a></p>
 
 ## 解法
 

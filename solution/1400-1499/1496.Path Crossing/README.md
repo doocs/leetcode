@@ -1,4 +1,4 @@
-# [1496. 判断路径是否相交](https://leetcode-cn.com/problems/path-crossing)
+# [1496. 判断路径是否相交](https://leetcode.cn/problems/path-crossing)
 
 [English Version](/solution/1400-1499/1496.Path%20Crossing/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1306. 跳跃游戏 III](https://leetcode-cn.com/problems/jump-game-iii)
+# [1306. 跳跃游戏 III](https://leetcode.cn/problems/jump-game-iii)
 
 [English Version](/solution/1300-1399/1306.Jump%20Game%20III/README_EN.md)
 

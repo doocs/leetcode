@@ -1,4 +1,4 @@
-# [1919. Leetcodify Similar Friends](https://leetcode-cn.com/problems/leetcodify-similar-friends)
+# [1919. Leetcodify Similar Friends](https://leetcode.cn/problems/leetcodify-similar-friends)
 
 [English Version](/solution/1900-1999/1919.Leetcodify%20Similar%20Friends/README_EN.md)
 

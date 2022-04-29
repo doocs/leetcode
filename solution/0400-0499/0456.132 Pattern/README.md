@@ -1,4 +1,4 @@
-# [456. 132 模式](https://leetcode-cn.com/problems/132-pattern)
+# [456. 132 模式](https://leetcode.cn/problems/132-pattern)
 
 [English Version](/solution/0400-0499/0456.132%20Pattern/README_EN.md)
 

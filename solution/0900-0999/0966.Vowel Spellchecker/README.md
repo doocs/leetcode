@@ -1,4 +1,4 @@
-# [966. 元音拼写检查器](https://leetcode-cn.com/problems/vowel-spellchecker)
+# [966. 元音拼写检查器](https://leetcode.cn/problems/vowel-spellchecker)
 
 [English Version](/solution/0900-0999/0966.Vowel%20Spellchecker/README_EN.md)
 

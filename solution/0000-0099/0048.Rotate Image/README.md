@@ -1,4 +1,4 @@
-# [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image)
+# [48. 旋转图像](https://leetcode.cn/problems/rotate-image)
 
 [English Version](/solution/0000-0099/0048.Rotate%20Image/README_EN.md)
 

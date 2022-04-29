@@ -1,4 +1,4 @@
-# [2246. 相邻字符不同的最长路径](https://leetcode-cn.com/problems/longest-path-with-different-adjacent-characters)
+# [2246. 相邻字符不同的最长路径](https://leetcode.cn/problems/longest-path-with-different-adjacent-characters)
 
 [English Version](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md)
 

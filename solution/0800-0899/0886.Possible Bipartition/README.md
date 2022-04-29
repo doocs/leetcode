@@ -1,4 +1,4 @@
-# [886. 可能的二分法](https://leetcode-cn.com/problems/possible-bipartition)
+# [886. 可能的二分法](https://leetcode.cn/problems/possible-bipartition)
 
 [English Version](/solution/0800-0899/0886.Possible%20Bipartition/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [03.02. Min Stack](https://leetcode-cn.com/problems/min-stack-lcci)
+# [03.02. Min Stack](https://leetcode.cn/problems/min-stack-lcci)
 
 [中文文档](/lcci/03.02.Min%20Stack/README.md)
 

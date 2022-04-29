@@ -1,4 +1,4 @@
-# [剑指 Offer II 119. 最长连续序列](https://leetcode-cn.com/problems/WhsWhI)
+# [剑指 Offer II 119. 最长连续序列](https://leetcode.cn/problems/WhsWhI)
 
 ## 题目描述
 
@@ -37,7 +37,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 128&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/longest-consecutive-sequence/">https://leetcode-cn.com/problems/longest-consecutive-sequence/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 128&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/longest-consecutive-sequence/">https://leetcode.cn/problems/longest-consecutive-sequence/</a></p>
 
 ## 解法
 

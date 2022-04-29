@@ -1,4 +1,4 @@
-# [1840. 最高建筑高度](https://leetcode-cn.com/problems/maximum-building-height)
+# [1840. 最高建筑高度](https://leetcode.cn/problems/maximum-building-height)
 
 [English Version](/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md)
 

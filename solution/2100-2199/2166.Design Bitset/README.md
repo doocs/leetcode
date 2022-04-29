@@ -1,4 +1,4 @@
-# [2166. 设计位集](https://leetcode-cn.com/problems/design-bitset)
+# [2166. 设计位集](https://leetcode.cn/problems/design-bitset)
 
 [English Version](/solution/2100-2199/2166.Design%20Bitset/README_EN.md)
 

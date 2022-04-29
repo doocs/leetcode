@@ -1,4 +1,4 @@
-# [625. 最小因式分解](https://leetcode-cn.com/problems/minimum-factorization)
+# [625. 最小因式分解](https://leetcode.cn/problems/minimum-factorization)
 
 [English Version](/solution/0600-0699/0625.Minimum%20Factorization/README_EN.md)
 

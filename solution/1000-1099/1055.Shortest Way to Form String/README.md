@@ -1,4 +1,4 @@
-# [1055. 形成字符串的最短路径](https://leetcode-cn.com/problems/shortest-way-to-form-string)
+# [1055. 形成字符串的最短路径](https://leetcode.cn/problems/shortest-way-to-form-string)
 
 [English Version](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README_EN.md)
 

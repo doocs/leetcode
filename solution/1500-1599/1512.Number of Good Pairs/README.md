@@ -1,4 +1,4 @@
-# [1512. 好数对的数目](https://leetcode-cn.com/problems/number-of-good-pairs)
+# [1512. 好数对的数目](https://leetcode.cn/problems/number-of-good-pairs)
 
 [English Version](/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README_EN.md)
 

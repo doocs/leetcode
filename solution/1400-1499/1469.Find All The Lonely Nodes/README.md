@@ -1,4 +1,4 @@
-# [1469. 寻找所有的独生节点](https://leetcode-cn.com/problems/find-all-the-lonely-nodes)
+# [1469. 寻找所有的独生节点](https://leetcode.cn/problems/find-all-the-lonely-nodes)
 
 [English Version](/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/README_EN.md)
 

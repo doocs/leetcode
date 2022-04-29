@@ -1,4 +1,4 @@
-# [881. 救生艇](https://leetcode-cn.com/problems/boats-to-save-people)
+# [881. 救生艇](https://leetcode.cn/problems/boats-to-save-people)
 
 [English Version](/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md)
 

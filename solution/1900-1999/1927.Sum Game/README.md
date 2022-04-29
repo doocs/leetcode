@@ -1,4 +1,4 @@
-# [1927. 求和游戏](https://leetcode-cn.com/problems/sum-game)
+# [1927. 求和游戏](https://leetcode.cn/problems/sum-game)
 
 [English Version](/solution/1900-1999/1927.Sum%20Game/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2156. 查找给定哈希值的子串](https://leetcode-cn.com/problems/find-substring-with-given-hash-value)
+# [2156. 查找给定哈希值的子串](https://leetcode.cn/problems/find-substring-with-given-hash-value)
 
 [English Version](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README_EN.md)
 

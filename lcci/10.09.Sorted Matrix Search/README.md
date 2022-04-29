@@ -1,4 +1,4 @@
-# [面试题 10.09. 排序矩阵查找](https://leetcode-cn.com/problems/sorted-matrix-search-lcci)
+# [面试题 10.09. 排序矩阵查找](https://leetcode.cn/problems/sorted-matrix-search-lcci)
 
 [English Version](/lcci/10.09.Sorted%20Matrix%20Search/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [903. DI 序列的有效排列](https://leetcode-cn.com/problems/valid-permutations-for-di-sequence)
+# [903. DI 序列的有效排列](https://leetcode.cn/problems/valid-permutations-for-di-sequence)
 
 [English Version](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)
 

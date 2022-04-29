@@ -1,4 +1,4 @@
-# [剑指 Offer II 066. 单词之和](https://leetcode-cn.com/problems/z1R5dt)
+# [剑指 Offer II 066. 单词之和](https://leetcode.cn/problems/z1R5dt)
 
 ## 题目描述
 
@@ -44,7 +44,7 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 677&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/map-sum-pairs/">https://leetcode-cn.com/problems/map-sum-pairs/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 677&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/map-sum-pairs/">https://leetcode.cn/problems/map-sum-pairs/</a></p>
 
 ## 解法
 

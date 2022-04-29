@@ -1,4 +1,4 @@
-# [973. 最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin)
+# [973. 最接近原点的 K 个点](https://leetcode.cn/problems/k-closest-points-to-origin)
 
 [English Version](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md)
 

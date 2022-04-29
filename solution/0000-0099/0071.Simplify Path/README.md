@@ -1,4 +1,4 @@
-# [71. 简化路径](https://leetcode-cn.com/problems/simplify-path)
+# [71. 简化路径](https://leetcode.cn/problems/simplify-path)
 
 [English Version](/solution/0000-0099/0071.Simplify%20Path/README_EN.md)
 

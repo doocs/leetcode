@@ -1,4 +1,4 @@
-# [948. 令牌放置](https://leetcode-cn.com/problems/bag-of-tokens)
+# [948. 令牌放置](https://leetcode.cn/problems/bag-of-tokens)
 
 [English Version](/solution/0900-0999/0948.Bag%20of%20Tokens/README_EN.md)
 

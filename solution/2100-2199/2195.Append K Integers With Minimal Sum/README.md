@@ -1,4 +1,4 @@
-# [2195. 向数组中追加 K 个整数](https://leetcode-cn.com/problems/append-k-integers-with-minimal-sum)
+# [2195. 向数组中追加 K 个整数](https://leetcode.cn/problems/append-k-integers-with-minimal-sum)
 
 [English Version](/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README_EN.md)
 

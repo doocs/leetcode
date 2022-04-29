@@ -1,4 +1,4 @@
-# [14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix)
+# [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix)
 
 [English Version](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)
 

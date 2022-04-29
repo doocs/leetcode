@@ -1,4 +1,4 @@
-# [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i)
+# [496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i)
 
 [English Version](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)
 

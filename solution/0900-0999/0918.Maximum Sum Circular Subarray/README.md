@@ -1,4 +1,4 @@
-# [918. 环形子数组的最大和](https://leetcode-cn.com/problems/maximum-sum-circular-subarray)
+# [918. 环形子数组的最大和](https://leetcode.cn/problems/maximum-sum-circular-subarray)
 
 [English Version](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
 

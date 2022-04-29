@@ -1,4 +1,4 @@
-# [1093. 大样本统计](https://leetcode-cn.com/problems/statistics-from-a-large-sample)
+# [1093. 大样本统计](https://leetcode.cn/problems/statistics-from-a-large-sample)
 
 [English Version](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README_EN.md)
 

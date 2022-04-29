@@ -1,4 +1,4 @@
-# [687. 最长同值路径](https://leetcode-cn.com/problems/longest-univalue-path)
+# [687. 最长同值路径](https://leetcode.cn/problems/longest-univalue-path)
 
 [English Version](/solution/0600-0699/0687.Longest%20Univalue%20Path/README_EN.md)
 

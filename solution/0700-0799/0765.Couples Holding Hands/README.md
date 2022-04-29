@@ -1,4 +1,4 @@
-# [765. 情侣牵手](https://leetcode-cn.com/problems/couples-holding-hands)
+# [765. 情侣牵手](https://leetcode.cn/problems/couples-holding-hands)
 
 [English Version](/solution/0700-0799/0765.Couples%20Holding%20Hands/README_EN.md)
 

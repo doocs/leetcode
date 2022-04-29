@@ -1,4 +1,4 @@
-# [182. 查找重复的电子邮箱](https://leetcode-cn.com/problems/duplicate-emails)
+# [182. 查找重复的电子邮箱](https://leetcode.cn/problems/duplicate-emails)
 
 [English Version](/solution/0100-0199/0182.Duplicate%20Emails/README_EN.md)
 

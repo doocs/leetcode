@@ -1,4 +1,4 @@
-# [1201. 丑数 III](https://leetcode-cn.com/problems/ugly-number-iii)
+# [1201. 丑数 III](https://leetcode.cn/problems/ugly-number-iii)
 
 [English Version](/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md)
 

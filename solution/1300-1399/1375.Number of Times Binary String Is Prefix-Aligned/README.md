@@ -1,4 +1,4 @@
-# [1375. 二进制字符串前缀一致的次数](https://leetcode-cn.com/problems/number-of-times-binary-string-is-prefix-aligned)
+# [1375. 二进制字符串前缀一致的次数](https://leetcode.cn/problems/number-of-times-binary-string-is-prefix-aligned)
 
 [English Version](/solution/1300-1399/1375.Number%20of%20Times%20Binary%20String%20Is%20Prefix-Aligned/README_EN.md)
 

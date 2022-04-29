@@ -1,4 +1,4 @@
-# [764. 最大加号标志](https://leetcode-cn.com/problems/largest-plus-sign)
+# [764. 最大加号标志](https://leetcode.cn/problems/largest-plus-sign)
 
 [English Version](/solution/0700-0799/0764.Largest%20Plus%20Sign/README_EN.md)
 

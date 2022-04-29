@@ -1,4 +1,4 @@
-# [2017. 网格游戏](https://leetcode-cn.com/problems/grid-game)
+# [2017. 网格游戏](https://leetcode.cn/problems/grid-game)
 
 [English Version](/solution/2000-2099/2017.Grid%20Game/README_EN.md)
 

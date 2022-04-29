@@ -1,4 +1,4 @@
-# [17.25. Word Rectangle](https://leetcode-cn.com/problems/word-rectangle-lcci)
+# [17.25. Word Rectangle](https://leetcode.cn/problems/word-rectangle-lcci)
 
 [中文文档](/lcci/17.25.Word%20Rectangle/README.md)
 

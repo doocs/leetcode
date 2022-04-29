@@ -1,4 +1,4 @@
-# [1547. 切棍子的最小成本](https://leetcode-cn.com/problems/minimum-cost-to-cut-a-stick)
+# [1547. 切棍子的最小成本](https://leetcode.cn/problems/minimum-cost-to-cut-a-stick)
 
 [English Version](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md)
 

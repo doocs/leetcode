@@ -1,4 +1,4 @@
-# [785. 判断二分图](https://leetcode-cn.com/problems/is-graph-bipartite)
+# [785. 判断二分图](https://leetcode.cn/problems/is-graph-bipartite)
 
 [English Version](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md)
 

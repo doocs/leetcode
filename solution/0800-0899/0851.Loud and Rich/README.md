@@ -1,4 +1,4 @@
-# [851. 喧闹和富有](https://leetcode-cn.com/problems/loud-and-rich)
+# [851. 喧闹和富有](https://leetcode.cn/problems/loud-and-rich)
 
 [English Version](/solution/0800-0899/0851.Loud%20and%20Rich/README_EN.md)
 

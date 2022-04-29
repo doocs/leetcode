@@ -1,4 +1,4 @@
-# [723. 粉碎糖果](https://leetcode-cn.com/problems/candy-crush)
+# [723. 粉碎糖果](https://leetcode.cn/problems/candy-crush)
 
 [English Version](/solution/0700-0799/0723.Candy%20Crush/README_EN.md)
 

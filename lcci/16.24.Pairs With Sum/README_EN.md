@@ -1,4 +1,4 @@
-# [16.24. Pairs With Sum](https://leetcode-cn.com/problems/pairs-with-sum-lcci)
+# [16.24. Pairs With Sum](https://leetcode.cn/problems/pairs-with-sum-lcci)
 
 ## Description
 

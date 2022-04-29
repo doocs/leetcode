@@ -1,4 +1,4 @@
-# [686. 重复叠加字符串匹配](https://leetcode-cn.com/problems/repeated-string-match)
+# [686. 重复叠加字符串匹配](https://leetcode.cn/problems/repeated-string-match)
 
 [English Version](/solution/0600-0699/0686.Repeated%20String%20Match/README_EN.md)
 

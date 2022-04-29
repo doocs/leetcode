@@ -1,4 +1,4 @@
-# [2013. 检测正方形](https://leetcode-cn.com/problems/detect-squares)
+# [2013. 检测正方形](https://leetcode.cn/problems/detect-squares)
 
 [English Version](/solution/2000-2099/2013.Detect%20Squares/README_EN.md)
 

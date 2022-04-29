@@ -1,4 +1,4 @@
-# [2249. 统计圆内格点数目](https://leetcode-cn.com/problems/count-lattice-points-inside-a-circle)
+# [2249. 统计圆内格点数目](https://leetcode.cn/problems/count-lattice-points-inside-a-circle)
 
 [English Version](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README_EN.md)
 

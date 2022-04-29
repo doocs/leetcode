@@ -1,4 +1,4 @@
-# [775. 全局倒置与局部倒置](https://leetcode-cn.com/problems/global-and-local-inversions)
+# [775. 全局倒置与局部倒置](https://leetcode.cn/problems/global-and-local-inversions)
 
 [English Version](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README_EN.md)
 

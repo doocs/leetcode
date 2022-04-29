@@ -1,4 +1,4 @@
-# [1087. 花括号展开](https://leetcode-cn.com/problems/brace-expansion)
+# [1087. 花括号展开](https://leetcode.cn/problems/brace-expansion)
 
 [English Version](/solution/1000-1099/1087.Brace%20Expansion/README_EN.md)
 

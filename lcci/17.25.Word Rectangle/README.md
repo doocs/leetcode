@@ -1,4 +1,4 @@
-# [面试题 17.25. 单词矩阵](https://leetcode-cn.com/problems/word-rectangle-lcci)
+# [面试题 17.25. 单词矩阵](https://leetcode.cn/problems/word-rectangle-lcci)
 
 [English Version](/lcci/17.25.Word%20Rectangle/README_EN.md)
 

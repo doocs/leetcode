@@ -1,4 +1,4 @@
-# [17.16. The Masseuse](https://leetcode-cn.com/problems/the-masseuse-lcci)
+# [17.16. The Masseuse](https://leetcode.cn/problems/the-masseuse-lcci)
 
 [中文文档](/lcci/17.16.The%20Masseuse/README.md)
 

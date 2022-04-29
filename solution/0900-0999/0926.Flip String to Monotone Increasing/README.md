@@ -1,4 +1,4 @@
-# [926. 将字符串翻转到单调递增](https://leetcode-cn.com/problems/flip-string-to-monotone-increasing)
+# [926. 将字符串翻转到单调递增](https://leetcode.cn/problems/flip-string-to-monotone-increasing)
 
 [English Version](/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1174. 即时食物配送 II](https://leetcode-cn.com/problems/immediate-food-delivery-ii)
+# [1174. 即时食物配送 II](https://leetcode.cn/problems/immediate-food-delivery-ii)
 
 [English Version](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README_EN.md)
 

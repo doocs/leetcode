@@ -1,4 +1,4 @@
-# [LCP 39. 无人机方阵](https://leetcode-cn.com/problems/0jQkd0)
+# [LCP 39. 无人机方阵](https://leetcode.cn/problems/0jQkd0)
 
 ## 题目描述
 

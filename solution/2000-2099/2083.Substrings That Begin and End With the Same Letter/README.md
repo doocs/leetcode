@@ -1,4 +1,4 @@
-# [2083. Substrings That Begin and End With the Same Letter](https://leetcode-cn.com/problems/substrings-that-begin-and-end-with-the-same-letter)
+# [2083. Substrings That Begin and End With the Same Letter](https://leetcode.cn/problems/substrings-that-begin-and-end-with-the-same-letter)
 
 [English Version](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README_EN.md)
 

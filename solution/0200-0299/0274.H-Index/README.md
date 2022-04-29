@@ -1,4 +1,4 @@
-# [274. H 指数](https://leetcode-cn.com/problems/h-index)
+# [274. H 指数](https://leetcode.cn/problems/h-index)
 
 [English Version](/solution/0200-0299/0274.H-Index/README_EN.md)
 

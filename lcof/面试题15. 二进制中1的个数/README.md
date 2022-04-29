@@ -1,4 +1,4 @@
-# [面试题 15. 二进制中 1 的个数](https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/)
+# [面试题 15. 二进制中 1 的个数](https://leetcode.cn/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/)
 
 ## 题目描述
 
@@ -48,7 +48,7 @@
 
 <p> </p>
 
-<p>注意：本题与主站 191 题相同：<a href="https://leetcode-cn.com/problems/number-of-1-bits/">https://leetcode-cn.com/problems/number-of-1-bits/</a></p>
+<p>注意：本题与主站 191 题相同：<a href="https://leetcode.cn/problems/number-of-1-bits/">https://leetcode.cn/problems/number-of-1-bits/</a></p>
 
 ## 解法
 

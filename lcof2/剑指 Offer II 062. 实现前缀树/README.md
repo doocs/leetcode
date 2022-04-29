@@ -1,4 +1,4 @@
-# [剑指 Offer II 062. 实现前缀树](https://leetcode-cn.com/problems/QC3q1f)
+# [剑指 Offer II 062. 实现前缀树](https://leetcode.cn/problems/QC3q1f)
 
 ## 题目描述
 
@@ -50,7 +50,7 @@ trie.search(&quot;app&quot;);     // 返回 True
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 208 题相同：<a href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">https://leetcode-cn.com/problems/implement-trie-prefix-tree/</a>&nbsp;</p>
+<p><meta charset="UTF-8" />注意：本题与主站 208 题相同：<a href="https://leetcode.cn/problems/implement-trie-prefix-tree/">https://leetcode.cn/problems/implement-trie-prefix-tree/</a>&nbsp;</p>
 
 ## 解法
 

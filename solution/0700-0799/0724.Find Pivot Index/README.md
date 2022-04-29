@@ -1,4 +1,4 @@
-# [724. 寻找数组的中心下标](https://leetcode-cn.com/problems/find-pivot-index)
+# [724. 寻找数组的中心下标](https://leetcode.cn/problems/find-pivot-index)
 
 [English Version](/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
 
@@ -56,7 +56,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>注意：</strong>本题与主站 1991 题相同：<a href="https://leetcode-cn.com/problems/find-the-middle-index-in-array/" target="_blank">https://leetcode-cn.com/problems/find-the-middle-index-in-array/</a></p>
+<p><strong>注意：</strong>本题与主站 1991 题相同：<a href="https://leetcode.cn/problems/find-the-middle-index-in-array/" target="_blank">https://leetcode.cn/problems/find-the-middle-index-in-array/</a></p>
 
 ## 解法
 

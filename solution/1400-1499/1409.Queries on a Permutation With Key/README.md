@@ -1,4 +1,4 @@
-# [1409. 查询带键的排列](https://leetcode-cn.com/problems/queries-on-a-permutation-with-key)
+# [1409. 查询带键的排列](https://leetcode.cn/problems/queries-on-a-permutation-with-key)
 
 [English Version](/solution/1400-1499/1409.Queries%20on%20a%20Permutation%20With%20Key/README_EN.md)
 

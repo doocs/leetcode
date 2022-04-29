@@ -1,4 +1,4 @@
-# [1346. 检查整数及其两倍数是否存在](https://leetcode-cn.com/problems/check-if-n-and-its-double-exist)
+# [1346. 检查整数及其两倍数是否存在](https://leetcode.cn/problems/check-if-n-and-its-double-exist)
 
 [English Version](/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README_EN.md)
 

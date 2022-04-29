@@ -1,4 +1,4 @@
-# [423. 从英文中重建数字](https://leetcode-cn.com/problems/reconstruct-original-digits-from-english)
+# [423. 从英文中重建数字](https://leetcode.cn/problems/reconstruct-original-digits-from-english)
 
 [English Version](/solution/0400-0499/0423.Reconstruct%20Original%20Digits%20from%20English/README_EN.md)
 

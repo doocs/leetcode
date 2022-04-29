@@ -1,4 +1,4 @@
-# [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)
+# [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix)
 
 [English Version](/solution/0000-0099/0074.Search%20a%202D%20Matrix/README_EN.md)
 

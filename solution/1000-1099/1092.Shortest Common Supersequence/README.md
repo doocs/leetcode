@@ -1,4 +1,4 @@
-# [1092. 最短公共超序列](https://leetcode-cn.com/problems/shortest-common-supersequence)
+# [1092. 最短公共超序列](https://leetcode.cn/problems/shortest-common-supersequence)
 
 [English Version](/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README_EN.md)
 

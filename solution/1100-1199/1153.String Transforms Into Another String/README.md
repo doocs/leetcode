@@ -1,4 +1,4 @@
-# [1153. 字符串转化](https://leetcode-cn.com/problems/string-transforms-into-another-string)
+# [1153. 字符串转化](https://leetcode.cn/problems/string-transforms-into-another-string)
 
 [English Version](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)
 

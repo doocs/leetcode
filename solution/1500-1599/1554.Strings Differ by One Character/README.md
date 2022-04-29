@@ -1,4 +1,4 @@
-# [1554. 只有一个不同字符的字符串](https://leetcode-cn.com/problems/strings-differ-by-one-character)
+# [1554. 只有一个不同字符的字符串](https://leetcode.cn/problems/strings-differ-by-one-character)
 
 [English Version](/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [17.10. Find Majority Element](https://leetcode-cn.com/problems/find-majority-element-lcci)
+# [17.10. Find Majority Element](https://leetcode.cn/problems/find-majority-element-lcci)
 
 [中文文档](/lcci/17.10.Find%20Majority%20Element/README.md)
 

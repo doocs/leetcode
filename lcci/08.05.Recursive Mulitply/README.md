@@ -1,4 +1,4 @@
-# [面试题 08.05. 递归乘法](https://leetcode-cn.com/problems/recursive-mulitply-lcci)
+# [面试题 08.05. 递归乘法](https://leetcode.cn/problems/recursive-mulitply-lcci)
 
 [English Version](/lcci/08.05.Recursive%20Mulitply/README_EN.md)
 

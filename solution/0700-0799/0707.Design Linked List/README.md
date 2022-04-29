@@ -1,4 +1,4 @@
-# [707. 设计链表](https://leetcode-cn.com/problems/design-linked-list)
+# [707. 设计链表](https://leetcode.cn/problems/design-linked-list)
 
 [English Version](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
 

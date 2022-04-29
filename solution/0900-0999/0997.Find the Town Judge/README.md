@@ -1,4 +1,4 @@
-# [997. 找到小镇的法官](https://leetcode-cn.com/problems/find-the-town-judge)
+# [997. 找到小镇的法官](https://leetcode.cn/problems/find-the-town-judge)
 
 [English Version](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README_EN.md)
 

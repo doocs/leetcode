@@ -1,4 +1,4 @@
-# [08.01. Three Steps Problem](https://leetcode-cn.com/problems/three-steps-problem-lcci)
+# [08.01. Three Steps Problem](https://leetcode.cn/problems/three-steps-problem-lcci)
 
 [中文文档](/lcci/08.01.Three%20Steps%20Problem/README.md)
 

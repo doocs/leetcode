@@ -1,4 +1,4 @@
-# [633. 平方数之和](https://leetcode-cn.com/problems/sum-of-square-numbers)
+# [633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers)
 
 [English Version](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README_EN.md)
 

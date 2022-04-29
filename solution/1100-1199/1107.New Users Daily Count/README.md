@@ -1,4 +1,4 @@
-# [1107. 每日新用户统计](https://leetcode-cn.com/problems/new-users-daily-count)
+# [1107. 每日新用户统计](https://leetcode.cn/problems/new-users-daily-count)
 
 [English Version](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README_EN.md)
 

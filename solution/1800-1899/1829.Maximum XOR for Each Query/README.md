@@ -1,4 +1,4 @@
-# [1829. 每个查询的最大异或值](https://leetcode-cn.com/problems/maximum-xor-for-each-query)
+# [1829. 每个查询的最大异或值](https://leetcode.cn/problems/maximum-xor-for-each-query)
 
 [English Version](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md)
 

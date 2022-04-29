@@ -1,4 +1,4 @@
-# [1470. 重新排列数组](https://leetcode-cn.com/problems/shuffle-the-array)
+# [1470. 重新排列数组](https://leetcode.cn/problems/shuffle-the-array)
 
 [English Version](/solution/1400-1499/1470.Shuffle%20the%20Array/README_EN.md)
 

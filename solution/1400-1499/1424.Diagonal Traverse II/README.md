@@ -1,4 +1,4 @@
-# [1424. 对角线遍历 II](https://leetcode-cn.com/problems/diagonal-traverse-ii)
+# [1424. 对角线遍历 II](https://leetcode.cn/problems/diagonal-traverse-ii)
 
 [English Version](/solution/1400-1499/1424.Diagonal%20Traverse%20II/README_EN.md)
 

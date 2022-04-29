@@ -1,4 +1,4 @@
-# [1468. 计算税后工资](https://leetcode-cn.com/problems/calculate-salaries)
+# [1468. 计算税后工资](https://leetcode.cn/problems/calculate-salaries)
 
 [English Version](/solution/1400-1499/1468.Calculate%20Salaries/README_EN.md)
 

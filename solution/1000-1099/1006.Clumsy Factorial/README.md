@@ -1,4 +1,4 @@
-# [1006. 笨阶乘](https://leetcode-cn.com/problems/clumsy-factorial)
+# [1006. 笨阶乘](https://leetcode.cn/problems/clumsy-factorial)
 
 [English Version](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [241. 为运算表达式设计优先级](https://leetcode-cn.com/problems/different-ways-to-add-parentheses)
+# [241. 为运算表达式设计优先级](https://leetcode.cn/problems/different-ways-to-add-parentheses)
 
 [English Version](/solution/0200-0299/0241.Different%20Ways%20to%20Add%20Parentheses/README_EN.md)
 

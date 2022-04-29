@@ -1,4 +1,4 @@
-# [1429. 第一个唯一数字](https://leetcode-cn.com/problems/first-unique-number)
+# [1429. 第一个唯一数字](https://leetcode.cn/problems/first-unique-number)
 
 [English Version](/solution/1400-1499/1429.First%20Unique%20Number/README_EN.md)
 

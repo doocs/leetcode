@@ -1,4 +1,4 @@
-# [1487. 保证文件名唯一](https://leetcode-cn.com/problems/making-file-names-unique)
+# [1487. 保证文件名唯一](https://leetcode.cn/problems/making-file-names-unique)
 
 [English Version](/solution/1400-1499/1487.Making%20File%20Names%20Unique/README_EN.md)
 

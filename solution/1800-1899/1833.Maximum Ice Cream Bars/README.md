@@ -1,4 +1,4 @@
-# [1833. 雪糕的最大数量](https://leetcode-cn.com/problems/maximum-ice-cream-bars)
+# [1833. 雪糕的最大数量](https://leetcode.cn/problems/maximum-ice-cream-bars)
 
 [English Version](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README_EN.md)
 

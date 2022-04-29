@@ -1,4 +1,4 @@
-# [剑指 Offer II 112. 最长递增路径](https://leetcode-cn.com/problems/fpTFWP)
+# [剑指 Offer II 112. 最长递增路径](https://leetcode.cn/problems/fpTFWP)
 
 ## 题目描述
 
@@ -49,7 +49,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 329&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/">https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 329&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/">https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/</a></p>
 
 ## 解法
 

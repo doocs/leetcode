@@ -1,4 +1,4 @@
-# [998. 最大二叉树 II](https://leetcode-cn.com/problems/maximum-binary-tree-ii)
+# [998. 最大二叉树 II](https://leetcode.cn/problems/maximum-binary-tree-ii)
 
 [English Version](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README_EN.md)
 
@@ -10,7 +10,7 @@
 
 <p>给出最大树的根节点 <code>root</code>。</p>
 
-<p>就像<a href="https://leetcode-cn.com/problems/maximum-binary-tree/">之前的问题</a>那样，给定的树是从列表 <code>A</code>（<code>root = Construct(A)</code>）递归地使用下述 <code>Construct(A)</code> 例程构造的：</p>
+<p>就像<a href="https://leetcode.cn/problems/maximum-binary-tree/">之前的问题</a>那样，给定的树是从列表 <code>A</code>（<code>root = Construct(A)</code>）递归地使用下述 <code>Construct(A)</code> 例程构造的：</p>
 
 <ul>
 	<li>如果 <code>A</code> 为空，返回 <code>null</code></li>

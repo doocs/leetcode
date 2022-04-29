@@ -1,4 +1,4 @@
-# [1229. 安排会议日程](https://leetcode-cn.com/problems/meeting-scheduler)
+# [1229. 安排会议日程](https://leetcode.cn/problems/meeting-scheduler)
 
 [English Version](/solution/1200-1299/1229.Meeting%20Scheduler/README_EN.md)
 

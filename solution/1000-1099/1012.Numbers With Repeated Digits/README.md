@@ -1,4 +1,4 @@
-# [1012. 至少有 1 位重复的数字](https://leetcode-cn.com/problems/numbers-with-repeated-digits)
+# [1012. 至少有 1 位重复的数字](https://leetcode.cn/problems/numbers-with-repeated-digits)
 
 [English Version](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
 

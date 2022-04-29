@@ -1,4 +1,4 @@
-# [10.05. Sparse Array Search](https://leetcode-cn.com/problems/sparse-array-search-lcci)
+# [10.05. Sparse Array Search](https://leetcode.cn/problems/sparse-array-search-lcci)
 
 ## Description
 

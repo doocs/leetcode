@@ -1,4 +1,4 @@
-# [598. 范围求和 II](https://leetcode-cn.com/problems/range-addition-ii)
+# [598. 范围求和 II](https://leetcode.cn/problems/range-addition-ii)
 
 [English Version](/solution/0500-0599/0598.Range%20Addition%20II/README_EN.md)
 

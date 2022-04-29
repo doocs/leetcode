@@ -1,4 +1,4 @@
-# [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal)
+# [144. 二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal)
 
 [English Version](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [219. 存在重复元素 II](https://leetcode-cn.com/problems/contains-duplicate-ii)
+# [219. 存在重复元素 II](https://leetcode.cn/problems/contains-duplicate-ii)
 
 [English Version](/solution/0200-0299/0219.Contains%20Duplicate%20II/README_EN.md)
 

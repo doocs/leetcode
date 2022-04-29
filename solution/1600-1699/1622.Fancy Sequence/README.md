@@ -1,4 +1,4 @@
-# [1622. 奇妙序列](https://leetcode-cn.com/problems/fancy-sequence)
+# [1622. 奇妙序列](https://leetcode.cn/problems/fancy-sequence)
 
 [English Version](/solution/1600-1699/1622.Fancy%20Sequence/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [790. 多米诺和托米诺平铺](https://leetcode-cn.com/problems/domino-and-tromino-tiling)
+# [790. 多米诺和托米诺平铺](https://leetcode.cn/problems/domino-and-tromino-tiling)
 
 [English Version](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [710. 黑名单中的随机数](https://leetcode-cn.com/problems/random-pick-with-blacklist)
+# [710. 黑名单中的随机数](https://leetcode.cn/problems/random-pick-with-blacklist)
 
 [English Version](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md)
 

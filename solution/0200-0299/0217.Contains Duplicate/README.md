@@ -1,4 +1,4 @@
-# [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate)
+# [217. 存在重复元素](https://leetcode.cn/problems/contains-duplicate)
 
 [English Version](/solution/0200-0299/0217.Contains%20Duplicate/README_EN.md)
 

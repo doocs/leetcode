@@ -1,4 +1,4 @@
-# [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days)
+# [1011. 在 D 天内送达包裹的能力](https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days)
 
 [English Version](/solution/1000-1099/1011.Capacity%20To%20Ship%20Packages%20Within%20D%20Days/README_EN.md)
 

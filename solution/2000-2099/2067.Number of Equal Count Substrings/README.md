@@ -1,4 +1,4 @@
-# [2067. Number of Equal Count Substrings](https://leetcode-cn.com/problems/number-of-equal-count-substrings)
+# [2067. Number of Equal Count Substrings](https://leetcode.cn/problems/number-of-equal-count-substrings)
 
 [English Version](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md)
 

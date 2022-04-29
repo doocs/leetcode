@@ -1,4 +1,4 @@
-# [778. 水位上升的泳池中游泳](https://leetcode-cn.com/problems/swim-in-rising-water)
+# [778. 水位上升的泳池中游泳](https://leetcode.cn/problems/swim-in-rising-water)
 
 [English Version](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README_EN.md)
 

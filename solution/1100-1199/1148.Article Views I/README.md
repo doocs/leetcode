@@ -1,4 +1,4 @@
-# [1148. 文章浏览 I](https://leetcode-cn.com/problems/article-views-i)
+# [1148. 文章浏览 I](https://leetcode.cn/problems/article-views-i)
 
 [English Version](/solution/1100-1199/1148.Article%20Views%20I/README_EN.md)
 

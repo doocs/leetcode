@@ -1,4 +1,4 @@
-# [2088. 统计农场中肥沃金字塔的数目](https://leetcode-cn.com/problems/count-fertile-pyramids-in-a-land)
+# [2088. 统计农场中肥沃金字塔的数目](https://leetcode.cn/problems/count-fertile-pyramids-in-a-land)
 
 [English Version](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README_EN.md)
 

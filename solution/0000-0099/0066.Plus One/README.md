@@ -1,4 +1,4 @@
-# [66. 加一](https://leetcode-cn.com/problems/plus-one)
+# [66. 加一](https://leetcode.cn/problems/plus-one)
 
 [English Version](/solution/0000-0099/0066.Plus%20One/README_EN.md)
 

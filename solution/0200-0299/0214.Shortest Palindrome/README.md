@@ -1,4 +1,4 @@
-# [214. 最短回文串](https://leetcode-cn.com/problems/shortest-palindrome)
+# [214. 最短回文串](https://leetcode.cn/problems/shortest-palindrome)
 
 [English Version](/solution/0200-0299/0214.Shortest%20Palindrome/README_EN.md)
 

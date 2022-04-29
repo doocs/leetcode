@@ -1,4 +1,4 @@
-# [2241. 设计一个 ATM 机器](https://leetcode-cn.com/problems/design-an-atm-machine)
+# [2241. 设计一个 ATM 机器](https://leetcode.cn/problems/design-an-atm-machine)
 
 [English Version](/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README_EN.md)
 

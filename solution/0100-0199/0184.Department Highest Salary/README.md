@@ -1,4 +1,4 @@
-# [184. 部门工资最高的员工](https://leetcode-cn.com/problems/department-highest-salary)
+# [184. 部门工资最高的员工](https://leetcode.cn/problems/department-highest-salary)
 
 [English Version](/solution/0100-0199/0184.Department%20Highest%20Salary/README_EN.md)
 

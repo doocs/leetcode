@@ -1,4 +1,4 @@
-# [2073. 买票需要的时间](https://leetcode-cn.com/problems/time-needed-to-buy-tickets)
+# [2073. 买票需要的时间](https://leetcode.cn/problems/time-needed-to-buy-tickets)
 
 [English Version](/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README_EN.md)
 

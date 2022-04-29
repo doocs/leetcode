@@ -1,4 +1,4 @@
-# [756. 金字塔转换矩阵](https://leetcode-cn.com/problems/pyramid-transition-matrix)
+# [756. 金字塔转换矩阵](https://leetcode.cn/problems/pyramid-transition-matrix)
 
 [English Version](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README_EN.md)
 

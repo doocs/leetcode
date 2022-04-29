@@ -1,4 +1,4 @@
-# [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree)
+# [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree)
 
 [English Version](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
 

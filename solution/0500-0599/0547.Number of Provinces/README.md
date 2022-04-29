@@ -1,4 +1,4 @@
-# [547. 省份数量](https://leetcode-cn.com/problems/number-of-provinces)
+# [547. 省份数量](https://leetcode.cn/problems/number-of-provinces)
 
 [English Version](/solution/0500-0599/0547.Number%20of%20Provinces/README_EN.md)
 

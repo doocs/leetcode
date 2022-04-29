@@ -1,4 +1,4 @@
-# [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals)
+# [1711. 大餐计数](https://leetcode.cn/problems/count-good-meals)
 
 [English Version](/solution/1700-1799/1711.Count%20Good%20Meals/README_EN.md)
 

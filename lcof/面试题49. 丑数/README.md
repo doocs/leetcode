@@ -1,4 +1,4 @@
-# [面试题 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/)
+# [面试题 49. 丑数](https://leetcode.cn/problems/chou-shu-lcof/)
 
 ## 题目描述
 
@@ -21,7 +21,7 @@
 	<li><code>n</code>&nbsp;<strong>不超过</strong>1690。</li>
 </ol>
 
-<p>注意：本题与主站 264 题相同：<a href="https://leetcode-cn.com/problems/ugly-number-ii/">https://leetcode-cn.com/problems/ugly-number-ii/</a></p>
+<p>注意：本题与主站 264 题相同：<a href="https://leetcode.cn/problems/ugly-number-ii/">https://leetcode.cn/problems/ugly-number-ii/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [846. 一手顺子](https://leetcode-cn.com/problems/hand-of-straights)
+# [846. 一手顺子](https://leetcode.cn/problems/hand-of-straights)
 
 [English Version](/solution/0800-0899/0846.Hand%20of%20Straights/README_EN.md)
 
@@ -41,7 +41,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>注意：</strong>此题目与 1296 重复：<a href="https://leetcode-cn.com/problems/divide-array-in-sets-of-k-consecutive-numbers/" target="_blank">https://leetcode-cn.com/problems/divide-array-in-sets-of-k-consecutive-numbers/</a></p>
+<p><strong>注意：</strong>此题目与 1296 重复：<a href="https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers/" target="_blank">https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers/</a></p>
 
 ## 解法
 

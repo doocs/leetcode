@@ -1,4 +1,4 @@
-# [1507. 转变日期格式](https://leetcode-cn.com/problems/reformat-date)
+# [1507. 转变日期格式](https://leetcode.cn/problems/reformat-date)
 
 [English Version](/solution/1500-1599/1507.Reformat%20Date/README_EN.md)
 

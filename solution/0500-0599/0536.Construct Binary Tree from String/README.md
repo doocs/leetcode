@@ -1,4 +1,4 @@
-# [536. 从字符串生成二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-string)
+# [536. 从字符串生成二叉树](https://leetcode.cn/problems/construct-binary-tree-from-string)
 
 [English Version](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README_EN.md)
 

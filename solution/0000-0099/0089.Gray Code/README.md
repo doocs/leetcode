@@ -1,4 +1,4 @@
-# [89. 格雷编码](https://leetcode-cn.com/problems/gray-code)
+# [89. 格雷编码](https://leetcode.cn/problems/gray-code)
 
 [English Version](/solution/0000-0099/0089.Gray%20Code/README_EN.md)
 

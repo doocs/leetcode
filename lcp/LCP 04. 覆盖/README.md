@@ -1,4 +1,4 @@
-# [LCP 04. 覆盖](https://leetcode-cn.com/problems/broken-board-dominoes)
+# [LCP 04. 覆盖](https://leetcode.cn/problems/broken-board-dominoes)
 
 ## 题目描述
 

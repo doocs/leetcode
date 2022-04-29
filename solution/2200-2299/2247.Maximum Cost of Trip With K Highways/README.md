@@ -1,4 +1,4 @@
-# [2247. Maximum Cost of Trip With K Highways](https://leetcode-cn.com/problems/maximum-cost-of-trip-with-k-highways)
+# [2247. Maximum Cost of Trip With K Highways](https://leetcode.cn/problems/maximum-cost-of-trip-with-k-highways)
 
 [English Version](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README_EN.md)
 

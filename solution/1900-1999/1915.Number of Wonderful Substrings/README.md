@@ -1,4 +1,4 @@
-# [1915. 最美子字符串的数目](https://leetcode-cn.com/problems/number-of-wonderful-substrings)
+# [1915. 最美子字符串的数目](https://leetcode.cn/problems/number-of-wonderful-substrings)
 
 [English Version](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README_EN.md)
 

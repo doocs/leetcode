@@ -1,4 +1,4 @@
-# [1224. 最大相等频率](https://leetcode-cn.com/problems/maximum-equal-frequency)
+# [1224. 最大相等频率](https://leetcode.cn/problems/maximum-equal-frequency)
 
 [English Version](/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1166. 设计文件系统](https://leetcode-cn.com/problems/design-file-system)
+# [1166. 设计文件系统](https://leetcode.cn/problems/design-file-system)
 
 [English Version](/solution/1100-1199/1166.Design%20File%20System/README_EN.md)
 

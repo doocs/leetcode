@@ -1,4 +1,4 @@
-# [剑指 Offer II 037. 小行星碰撞](https://leetcode-cn.com/problems/XagZNi)
+# [剑指 Offer II 037. 小行星碰撞](https://leetcode.cn/problems/XagZNi)
 
 ## 题目描述
 
@@ -52,7 +52,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 735&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/asteroid-collision/">https://leetcode-cn.com/problems/asteroid-collision/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 735&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/asteroid-collision/">https://leetcode.cn/problems/asteroid-collision/</a></p>
 
 ## 解法
 

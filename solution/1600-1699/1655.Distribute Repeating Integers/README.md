@@ -1,4 +1,4 @@
-# [1655. 分配重复整数](https://leetcode-cn.com/problems/distribute-repeating-integers)
+# [1655. 分配重复整数](https://leetcode.cn/problems/distribute-repeating-integers)
 
 [English Version](/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README_EN.md)
 

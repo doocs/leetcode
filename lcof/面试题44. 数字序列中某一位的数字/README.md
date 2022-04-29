@@ -1,4 +1,4 @@
-# [面试题 44. 数字序列中某一位的数字](https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/)
+# [面试题 44. 数字序列中某一位的数字](https://leetcode.cn/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/)
 
 ## 题目描述
 
@@ -29,7 +29,7 @@
 	<li><code>0 &lt;= n &lt;&nbsp;2^31</code></li>
 </ul>
 
-<p>注意：本题与主站 400 题相同：<a href="https://leetcode-cn.com/problems/nth-digit/">https://leetcode-cn.com/problems/nth-digit/</a></p>
+<p>注意：本题与主站 400 题相同：<a href="https://leetcode.cn/problems/nth-digit/">https://leetcode.cn/problems/nth-digit/</a></p>
 
 ## 解法
 

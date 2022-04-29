@@ -1,4 +1,4 @@
-# [剑指 Offer II 107. 矩阵中的距离](https://leetcode-cn.com/problems/2bCMpM)
+# [剑指 Offer II 107. 矩阵中的距离](https://leetcode.cn/problems/2bCMpM)
 
 ## 题目描述
 
@@ -43,7 +43,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 542&nbsp;题相同：<a href="https://leetcode-cn.com/problems/01-matrix/">https://leetcode-cn.com/problems/01-matrix/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 542&nbsp;题相同：<a href="https://leetcode.cn/problems/01-matrix/">https://leetcode.cn/problems/01-matrix/</a></p>
 
 ## 解法
 

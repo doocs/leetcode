@@ -1,4 +1,4 @@
-# [面试题 01.09. 字符串轮转](https://leetcode-cn.com/problems/string-rotation-lcci)
+# [面试题 01.09. 字符串轮转](https://leetcode.cn/problems/string-rotation-lcci)
 
 [English Version](/lcci/01.09.String%20Rotation/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [面试题 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/)
+# [面试题 58 - I. 翻转单词顺序](https://leetcode.cn/problems/fan-zhuan-dan-ci-shun-xu-lcof/)
 
 ## 题目描述
 
@@ -36,7 +36,7 @@
 	<li>如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</li>
 </ul>
 
-<p><strong>注意：</strong>本题与主站 151 题相同：<a href="https://leetcode-cn.com/problems/reverse-words-in-a-string/">https://leetcode-cn.com/problems/reverse-words-in-a-string/</a></p>
+<p><strong>注意：</strong>本题与主站 151 题相同：<a href="https://leetcode.cn/problems/reverse-words-in-a-string/">https://leetcode.cn/problems/reverse-words-in-a-string/</a></p>
 
 <p><strong>注意：</strong>此题对比原题有改动</p>
 

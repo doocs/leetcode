@@ -1,4 +1,4 @@
-# [08.06. Hanota](https://leetcode-cn.com/problems/hanota-lcci)
+# [08.06. Hanota](https://leetcode.cn/problems/hanota-lcci)
 
 [中文文档](/lcci/08.06.Hanota/README.md)
 

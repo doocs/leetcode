@@ -1,4 +1,4 @@
-# [2059. 转化数字的最小运算数](https://leetcode-cn.com/problems/minimum-operations-to-convert-number)
+# [2059. 转化数字的最小运算数](https://leetcode.cn/problems/minimum-operations-to-convert-number)
 
 [English Version](/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1626. 无矛盾的最佳球队](https://leetcode-cn.com/problems/best-team-with-no-conflicts)
+# [1626. 无矛盾的最佳球队](https://leetcode.cn/problems/best-team-with-no-conflicts)
 
 [English Version](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README_EN.md)
 

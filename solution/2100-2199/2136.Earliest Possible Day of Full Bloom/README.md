@@ -1,4 +1,4 @@
-# [2136. 全部开花的最早一天](https://leetcode-cn.com/problems/earliest-possible-day-of-full-bloom)
+# [2136. 全部开花的最早一天](https://leetcode.cn/problems/earliest-possible-day-of-full-bloom)
 
 [English Version](/solution/2100-2199/2136.Earliest%20Possible%20Day%20of%20Full%20Bloom/README_EN.md)
 

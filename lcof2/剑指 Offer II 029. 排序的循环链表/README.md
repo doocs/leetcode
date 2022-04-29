@@ -1,4 +1,4 @@
-# [剑指 Offer II 029. 排序的循环链表](https://leetcode-cn.com/problems/4ueAj6)
+# [剑指 Offer II 029. 排序的循环链表](https://leetcode.cn/problems/4ueAj6)
 
 ## 题目描述
 
@@ -54,7 +54,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 708&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/">https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 708&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/insert-into-a-sorted-circular-linked-list/">https://leetcode.cn/problems/insert-into-a-sorted-circular-linked-list/</a></p>
 
 ## 解法
 

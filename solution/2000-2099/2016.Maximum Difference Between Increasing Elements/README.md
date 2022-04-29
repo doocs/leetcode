@@ -1,4 +1,4 @@
-# [2016. 增量元素之间的最大差值](https://leetcode-cn.com/problems/maximum-difference-between-increasing-elements)
+# [2016. 增量元素之间的最大差值](https://leetcode.cn/problems/maximum-difference-between-increasing-elements)
 
 [English Version](/solution/2000-2099/2016.Maximum%20Difference%20Between%20Increasing%20Elements/README_EN.md)
 

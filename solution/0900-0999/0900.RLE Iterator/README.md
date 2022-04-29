@@ -1,4 +1,4 @@
-# [900. RLE 迭代器](https://leetcode-cn.com/problems/rle-iterator)
+# [900. RLE 迭代器](https://leetcode.cn/problems/rle-iterator)
 
 [English Version](/solution/0900-0999/0900.RLE%20Iterator/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [面试题 05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
+# [面试题 05. 替换空格](https://leetcode.cn/problems/ti-huan-kong-ge-lcof/)
 
 ## 题目描述
 

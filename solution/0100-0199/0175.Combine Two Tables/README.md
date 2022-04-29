@@ -1,4 +1,4 @@
-# [175. 组合两个表](https://leetcode-cn.com/problems/combine-two-tables)
+# [175. 组合两个表](https://leetcode.cn/problems/combine-two-tables)
 
 [English Version](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
 

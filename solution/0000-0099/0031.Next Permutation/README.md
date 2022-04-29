@@ -1,4 +1,4 @@
-# [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation)
+# [31. 下一个排列](https://leetcode.cn/problems/next-permutation)
 
 [English Version](/solution/0000-0099/0031.Next%20Permutation/README_EN.md)
 

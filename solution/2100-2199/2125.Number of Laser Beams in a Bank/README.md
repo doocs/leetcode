@@ -1,4 +1,4 @@
-# [2125. 银行中的激光束数量](https://leetcode-cn.com/problems/number-of-laser-beams-in-a-bank)
+# [2125. 银行中的激光束数量](https://leetcode.cn/problems/number-of-laser-beams-in-a-bank)
 
 [English Version](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README_EN.md)
 

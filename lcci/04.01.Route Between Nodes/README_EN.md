@@ -1,4 +1,4 @@
-# [04.01. Route Between Nodes](https://leetcode-cn.com/problems/route-between-nodes-lcci)
+# [04.01. Route Between Nodes](https://leetcode.cn/problems/route-between-nodes-lcci)
 
 [中文文档](/lcci/04.01.Route%20Between%20Nodes/README.md)
 

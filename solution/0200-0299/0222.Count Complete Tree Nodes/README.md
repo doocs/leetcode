@@ -1,4 +1,4 @@
-# [222. 完全二叉树的节点个数](https://leetcode-cn.com/problems/count-complete-tree-nodes)
+# [222. 完全二叉树的节点个数](https://leetcode.cn/problems/count-complete-tree-nodes)
 
 [English Version](/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README_EN.md)
 

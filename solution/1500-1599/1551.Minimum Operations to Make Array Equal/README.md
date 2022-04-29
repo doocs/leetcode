@@ -1,4 +1,4 @@
-# [1551. 使数组中所有元素相等的最小操作数](https://leetcode-cn.com/problems/minimum-operations-to-make-array-equal)
+# [1551. 使数组中所有元素相等的最小操作数](https://leetcode.cn/problems/minimum-operations-to-make-array-equal)
 
 [English Version](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [952. 按公因数计算最大组件大小](https://leetcode-cn.com/problems/largest-component-size-by-common-factor)
+# [952. 按公因数计算最大组件大小](https://leetcode.cn/problems/largest-component-size-by-common-factor)
 
 [English Version](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README_EN.md)
 

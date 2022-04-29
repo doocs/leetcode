@@ -1,4 +1,4 @@
-# [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)
+# [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list)
 
 [English Version](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README_EN.md)
 

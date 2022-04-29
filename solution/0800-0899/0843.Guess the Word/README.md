@@ -1,4 +1,4 @@
-# [843. 猜猜这个单词](https://leetcode-cn.com/problems/guess-the-word)
+# [843. 猜猜这个单词](https://leetcode.cn/problems/guess-the-word)
 
 [English Version](/solution/0800-0899/0843.Guess%20the%20Word/README_EN.md)
 

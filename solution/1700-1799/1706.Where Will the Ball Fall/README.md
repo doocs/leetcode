@@ -1,4 +1,4 @@
-# [1706. 球会落何处](https://leetcode-cn.com/problems/where-will-the-ball-fall)
+# [1706. 球会落何处](https://leetcode.cn/problems/where-will-the-ball-fall)
 
 [English Version](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README_EN.md)
 

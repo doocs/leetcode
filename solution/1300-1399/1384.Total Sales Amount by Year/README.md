@@ -1,4 +1,4 @@
-# [1384. 按年度列出销售总额](https://leetcode-cn.com/problems/total-sales-amount-by-year)
+# [1384. 按年度列出销售总额](https://leetcode.cn/problems/total-sales-amount-by-year)
 
 [English Version](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README_EN.md)
 

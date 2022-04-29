@@ -1,4 +1,4 @@
-# [403. 青蛙过河](https://leetcode-cn.com/problems/frog-jump)
+# [403. 青蛙过河](https://leetcode.cn/problems/frog-jump)
 
 [English Version](/solution/0400-0499/0403.Frog%20Jump/README_EN.md)
 

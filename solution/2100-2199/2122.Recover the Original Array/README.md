@@ -1,4 +1,4 @@
-# [2122. 还原原数组](https://leetcode-cn.com/problems/recover-the-original-array)
+# [2122. 还原原数组](https://leetcode.cn/problems/recover-the-original-array)
 
 [English Version](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [剑指 Offer II 092. 翻转字符](https://leetcode-cn.com/problems/cyJERH)
+# [剑指 Offer II 092. 翻转字符](https://leetcode.cn/problems/cyJERH)
 
 ## 题目描述
 
@@ -47,7 +47,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 926&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/flip-string-to-monotone-increasing/">https://leetcode-cn.com/problems/flip-string-to-monotone-increasing/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 926&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/flip-string-to-monotone-increasing/">https://leetcode.cn/problems/flip-string-to-monotone-increasing/</a></p>
 
 ## 解法
 

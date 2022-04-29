@@ -1,4 +1,4 @@
-# [1763. 最长的美好子字符串](https://leetcode-cn.com/problems/longest-nice-substring)
+# [1763. 最长的美好子字符串](https://leetcode.cn/problems/longest-nice-substring)
 
 [English Version](/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md)
 

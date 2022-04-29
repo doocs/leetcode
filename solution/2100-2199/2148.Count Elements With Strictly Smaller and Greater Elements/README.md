@@ -1,4 +1,4 @@
-# [2148. 元素计数](https://leetcode-cn.com/problems/count-elements-with-strictly-smaller-and-greater-elements)
+# [2148. 元素计数](https://leetcode.cn/problems/count-elements-with-strictly-smaller-and-greater-elements)
 
 [English Version](/solution/2100-2199/2148.Count%20Elements%20With%20Strictly%20Smaller%20and%20Greater%20Elements/README_EN.md)
 

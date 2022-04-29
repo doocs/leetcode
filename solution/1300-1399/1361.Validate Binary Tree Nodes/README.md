@@ -1,4 +1,4 @@
-# [1361. 验证二叉树](https://leetcode-cn.com/problems/validate-binary-tree-nodes)
+# [1361. 验证二叉树](https://leetcode.cn/problems/validate-binary-tree-nodes)
 
 [English Version](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md)
 

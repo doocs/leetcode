@@ -1,4 +1,4 @@
-# [面试题 16.06. 最小差](https://leetcode-cn.com/problems/smallest-difference-lcci)
+# [面试题 16.06. 最小差](https://leetcode.cn/problems/smallest-difference-lcci)
 
 [English Version](/lcci/16.06.Smallest%20Difference/README_EN.md)
 

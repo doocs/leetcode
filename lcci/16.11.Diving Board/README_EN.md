@@ -1,4 +1,4 @@
-# [16.11. Diving Board](https://leetcode-cn.com/problems/diving-board-lcci)
+# [16.11. Diving Board](https://leetcode.cn/problems/diving-board-lcci)
 
 [中文文档](/lcci/16.11.Diving%20Board/README.md)
 

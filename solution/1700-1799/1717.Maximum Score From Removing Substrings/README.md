@@ -1,4 +1,4 @@
-# [1717. 删除子字符串的最大得分](https://leetcode-cn.com/problems/maximum-score-from-removing-substrings)
+# [1717. 删除子字符串的最大得分](https://leetcode.cn/problems/maximum-score-from-removing-substrings)
 
 [English Version](/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README_EN.md)
 

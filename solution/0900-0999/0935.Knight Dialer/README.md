@@ -1,4 +1,4 @@
-# [935. 骑士拨号器](https://leetcode-cn.com/problems/knight-dialer)
+# [935. 骑士拨号器](https://leetcode.cn/problems/knight-dialer)
 
 [English Version](/solution/0900-0999/0935.Knight%20Dialer/README_EN.md)
 

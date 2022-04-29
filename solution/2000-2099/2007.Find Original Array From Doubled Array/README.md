@@ -1,4 +1,4 @@
-# [2007. 从双倍数组中还原原数组](https://leetcode-cn.com/problems/find-original-array-from-doubled-array)
+# [2007. 从双倍数组中还原原数组](https://leetcode.cn/problems/find-original-array-from-doubled-array)
 
 [English Version](/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README_EN.md)
 

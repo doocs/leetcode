@@ -1,4 +1,4 @@
-# [481. 神奇字符串](https://leetcode-cn.com/problems/magical-string)
+# [481. 神奇字符串](https://leetcode.cn/problems/magical-string)
 
 [English Version](/solution/0400-0499/0481.Magical%20String/README_EN.md)
 

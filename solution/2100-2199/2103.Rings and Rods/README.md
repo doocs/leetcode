@@ -1,4 +1,4 @@
-# [2103. 环和杆](https://leetcode-cn.com/problems/rings-and-rods)
+# [2103. 环和杆](https://leetcode.cn/problems/rings-and-rods)
 
 [English Version](/solution/2100-2199/2103.Rings%20and%20Rods/README_EN.md)
 

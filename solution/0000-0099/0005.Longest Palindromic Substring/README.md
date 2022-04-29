@@ -1,4 +1,4 @@
-# [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring)
+# [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring)
 
 [English Version](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [LCP 40. 心算挑战](https://leetcode-cn.com/problems/uOAnQW)
+# [LCP 40. 心算挑战](https://leetcode.cn/problems/uOAnQW)
 
 ## 题目描述
 

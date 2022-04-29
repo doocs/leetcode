@@ -1,4 +1,4 @@
-# [100. 相同的树](https://leetcode-cn.com/problems/same-tree)
+# [100. 相同的树](https://leetcode.cn/problems/same-tree)
 
 [English Version](/solution/0100-0199/0100.Same%20Tree/README_EN.md)
 

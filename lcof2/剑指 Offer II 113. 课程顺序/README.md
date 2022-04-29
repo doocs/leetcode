@@ -1,4 +1,4 @@
-# [剑指 Offer II 113. 课程顺序](https://leetcode-cn.com/problems/QA2IGt)
+# [剑指 Offer II 113. 课程顺序](https://leetcode.cn/problems/QA2IGt)
 
 ## 题目描述
 
@@ -52,7 +52,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 210&nbsp;题相同：<a href="https://leetcode-cn.com/problems/course-schedule-ii/">https://leetcode-cn.com/problems/course-schedule-ii/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 210&nbsp;题相同：<a href="https://leetcode.cn/problems/course-schedule-ii/">https://leetcode.cn/problems/course-schedule-ii/</a></p>
 
 ## 解法
 

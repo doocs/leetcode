@@ -1,4 +1,4 @@
-# [面试题 14- I. 剪绳子](https://leetcode-cn.com/problems/jian-sheng-zi-lcof/)
+# [面试题 14- I. 剪绳子](https://leetcode.cn/problems/jian-sheng-zi-lcof/)
 
 ## 题目描述
 
@@ -22,7 +22,7 @@
 	<li><code>2 &lt;= n &lt;= 58</code></li>
 </ul>
 
-<p>注意：本题与主站 343 题相同：<a href="https://leetcode-cn.com/problems/integer-break/">https://leetcode-cn.com/problems/integer-break/</a></p>
+<p>注意：本题与主站 343 题相同：<a href="https://leetcode.cn/problems/integer-break/">https://leetcode.cn/problems/integer-break/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [剑指 Offer II 089. 房屋偷盗](https://leetcode-cn.com/problems/Gu0c2T)
+# [剑指 Offer II 089. 房屋偷盗](https://leetcode.cn/problems/Gu0c2T)
 
 ## 题目描述
 
@@ -38,7 +38,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 198&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/house-robber/">https://leetcode-cn.com/problems/house-robber/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 198&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/house-robber/">https://leetcode.cn/problems/house-robber/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [1446. 连续字符](https://leetcode-cn.com/problems/consecutive-characters)
+# [1446. 连续字符](https://leetcode.cn/problems/consecutive-characters)
 
 [English Version](/solution/1400-1499/1446.Consecutive%20Characters/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [LCP 46. 志愿者调配](https://leetcode-cn.com/problems/05ZEDJ)
+# [LCP 46. 志愿者调配](https://leetcode.cn/problems/05ZEDJ)
 
 ## 题目描述
 

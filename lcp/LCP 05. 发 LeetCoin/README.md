@@ -1,4 +1,4 @@
-# [LCP 05. 发 LeetCoin](https://leetcode-cn.com/problems/coin-bonus)
+# [LCP 05. 发 LeetCoin](https://leetcode.cn/problems/coin-bonus)
 
 ## 题目描述
 

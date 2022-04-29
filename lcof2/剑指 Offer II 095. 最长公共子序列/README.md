@@ -1,4 +1,4 @@
-# [剑指 Offer II 095. 最长公共子序列](https://leetcode-cn.com/problems/qJnOS7)
+# [剑指 Offer II 095. 最长公共子序列](https://leetcode.cn/problems/qJnOS7)
 
 ## 题目描述
 
@@ -51,7 +51,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 1143&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/longest-common-subsequence/">https://leetcode-cn.com/problems/longest-common-subsequence/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 1143&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/longest-common-subsequence/">https://leetcode.cn/problems/longest-common-subsequence/</a></p>
 
 ## 解法
 

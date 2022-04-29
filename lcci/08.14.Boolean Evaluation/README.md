@@ -1,4 +1,4 @@
-# [面试题 08.14. 布尔运算](https://leetcode-cn.com/problems/boolean-evaluation-lcci)
+# [面试题 08.14. 布尔运算](https://leetcode.cn/problems/boolean-evaluation-lcci)
 
 [English Version](/lcci/08.14.Boolean%20Evaluation/README_EN.md)
 

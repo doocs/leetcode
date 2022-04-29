@@ -1,4 +1,4 @@
-# [1615. 最大网络秩](https://leetcode-cn.com/problems/maximal-network-rank)
+# [1615. 最大网络秩](https://leetcode.cn/problems/maximal-network-rank)
 
 [English Version](/solution/1600-1699/1615.Maximal%20Network%20Rank/README_EN.md)
 

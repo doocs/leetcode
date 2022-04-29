@@ -1,4 +1,4 @@
-# [148. 排序链表](https://leetcode-cn.com/problems/sort-list)
+# [148. 排序链表](https://leetcode.cn/problems/sort-list)
 
 [English Version](/solution/0100-0199/0148.Sort%20List/README_EN.md)
 

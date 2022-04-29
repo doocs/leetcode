@@ -1,4 +1,4 @@
-# [1403. 非递增顺序的最小子序列](https://leetcode-cn.com/problems/minimum-subsequence-in-non-increasing-order)
+# [1403. 非递增顺序的最小子序列](https://leetcode.cn/problems/minimum-subsequence-in-non-increasing-order)
 
 [English Version](/solution/1400-1499/1403.Minimum%20Subsequence%20in%20Non-Increasing%20Order/README_EN.md)
 

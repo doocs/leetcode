@@ -1,4 +1,4 @@
-# [1036. 逃离大迷宫](https://leetcode-cn.com/problems/escape-a-large-maze)
+# [1036. 逃离大迷宫](https://leetcode.cn/problems/escape-a-large-maze)
 
 [English Version](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [708. 循环有序列表的插入](https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list)
+# [708. 循环有序列表的插入](https://leetcode.cn/problems/insert-into-a-sorted-circular-linked-list)
 
 [English Version](/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/README_EN.md)
 

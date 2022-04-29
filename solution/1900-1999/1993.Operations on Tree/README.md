@@ -1,4 +1,4 @@
-# [1993. 树上的操作](https://leetcode-cn.com/problems/operations-on-tree)
+# [1993. 树上的操作](https://leetcode.cn/problems/operations-on-tree)
 
 [English Version](/solution/1900-1999/1993.Operations%20on%20Tree/README_EN.md)
 

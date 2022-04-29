@@ -1,4 +1,4 @@
-# [1845. 座位预约管理系统](https://leetcode-cn.com/problems/seat-reservation-manager)
+# [1845. 座位预约管理系统](https://leetcode.cn/problems/seat-reservation-manager)
 
 [English Version](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README_EN.md)
 

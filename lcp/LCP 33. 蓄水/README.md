@@ -1,4 +1,4 @@
-# [LCP 33. 蓄水](https://leetcode-cn.com/problems/o8SXZn)
+# [LCP 33. 蓄水](https://leetcode.cn/problems/o8SXZn)
 
 ## 题目描述
 

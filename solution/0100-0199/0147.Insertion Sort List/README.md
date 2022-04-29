@@ -1,4 +1,4 @@
-# [147. 对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list)
+# [147. 对链表进行插入排序](https://leetcode.cn/problems/insertion-sort-list)
 
 [English Version](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)
 

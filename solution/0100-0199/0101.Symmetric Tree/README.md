@@ -1,4 +1,4 @@
-# [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree)
+# [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree)
 
 [English Version](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
 

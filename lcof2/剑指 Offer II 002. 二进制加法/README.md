@@ -1,4 +1,4 @@
-# [剑指 Offer II 002. 二进制加法](https://leetcode-cn.com/problems/JFETK5)
+# [剑指 Offer II 002. 二进制加法](https://leetcode.cn/problems/JFETK5)
 
 ## 题目描述
 
@@ -34,7 +34,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 67&nbsp;题相同：<a href="https://leetcode-cn.com/problems/add-binary/">https://leetcode-cn.com/problems/add-binary/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 67&nbsp;题相同：<a href="https://leetcode.cn/problems/add-binary/">https://leetcode.cn/problems/add-binary/</a></p>
 
 ## 解法
 

@@ -1,4 +1,4 @@
-# [2233. K 次增加后的最大乘积](https://leetcode-cn.com/problems/maximum-product-after-k-increments)
+# [2233. K 次增加后的最大乘积](https://leetcode.cn/problems/maximum-product-after-k-increments)
 
 [English Version](/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README_EN.md)
 

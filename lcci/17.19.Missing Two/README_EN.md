@@ -1,4 +1,4 @@
-# [17.19. Missing Two](https://leetcode-cn.com/problems/missing-two-lcci)
+# [17.19. Missing Two](https://leetcode.cn/problems/missing-two-lcci)
 
 [中文文档](/lcci/17.19.Missing%20Two/README.md)
 

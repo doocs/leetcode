@@ -1,4 +1,4 @@
-# [2049. 统计最高分的节点数目](https://leetcode-cn.com/problems/count-nodes-with-the-highest-score)
+# [2049. 统计最高分的节点数目](https://leetcode.cn/problems/count-nodes-with-the-highest-score)
 
 [English Version](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md)
 

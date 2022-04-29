@@ -1,4 +1,4 @@
-# [1018. 可被 5 整除的二进制前缀](https://leetcode-cn.com/problems/binary-prefix-divisible-by-5)
+# [1018. 可被 5 整除的二进制前缀](https://leetcode.cn/problems/binary-prefix-divisible-by-5)
 
 [English Version](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1748. 唯一元素的和](https://leetcode-cn.com/problems/sum-of-unique-elements)
+# [1748. 唯一元素的和](https://leetcode.cn/problems/sum-of-unique-elements)
 
 [English Version](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README_EN.md)
 

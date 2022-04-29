@@ -1,4 +1,4 @@
-# [2223. 构造字符串的总得分和](https://leetcode-cn.com/problems/sum-of-scores-of-built-strings)
+# [2223. 构造字符串的总得分和](https://leetcode.cn/problems/sum-of-scores-of-built-strings)
 
 [English Version](/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README_EN.md)
 

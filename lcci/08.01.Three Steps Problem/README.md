@@ -1,4 +1,4 @@
-# [面试题 08.01. 三步问题](https://leetcode-cn.com/problems/three-steps-problem-lcci)
+# [面试题 08.01. 三步问题](https://leetcode.cn/problems/three-steps-problem-lcci)
 
 [English Version](/lcci/08.01.Three%20Steps%20Problem/README_EN.md)
 

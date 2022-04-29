@@ -1,4 +1,4 @@
-# [203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements)
+# [203. 移除链表元素](https://leetcode.cn/problems/remove-linked-list-elements)
 
 [English Version](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README_EN.md)
 

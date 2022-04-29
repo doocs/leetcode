@@ -1,4 +1,4 @@
-# [1357. 每隔 n 个顾客打折](https://leetcode-cn.com/problems/apply-discount-every-n-orders)
+# [1357. 每隔 n 个顾客打折](https://leetcode.cn/problems/apply-discount-every-n-orders)
 
 [English Version](/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README_EN.md)
 

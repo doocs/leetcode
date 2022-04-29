@@ -1,4 +1,4 @@
-# [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle)
+# [120. 三角形最小路径和](https://leetcode.cn/problems/triangle)
 
 [English Version](/solution/0100-0199/0120.Triangle/README_EN.md)
 

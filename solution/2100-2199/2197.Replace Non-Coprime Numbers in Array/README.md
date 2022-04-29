@@ -1,4 +1,4 @@
-# [2197. 替换数组中的非互质数](https://leetcode-cn.com/problems/replace-non-coprime-numbers-in-array)
+# [2197. 替换数组中的非互质数](https://leetcode.cn/problems/replace-non-coprime-numbers-in-array)
 
 [English Version](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md)
 

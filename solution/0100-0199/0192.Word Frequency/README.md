@@ -1,4 +1,4 @@
-# [192. 统计词频](https://leetcode-cn.com/problems/word-frequency)
+# [192. 统计词频](https://leetcode.cn/problems/word-frequency)
 
 [English Version](/solution/0100-0199/0192.Word%20Frequency/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [898. 子数组按位或操作](https://leetcode-cn.com/problems/bitwise-ors-of-subarrays)
+# [898. 子数组按位或操作](https://leetcode.cn/problems/bitwise-ors-of-subarrays)
 
 [English Version](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README_EN.md)
 

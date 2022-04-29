@@ -1,4 +1,4 @@
-# [2224. 转化时间需要的最少操作数](https://leetcode-cn.com/problems/minimum-number-of-operations-to-convert-time)
+# [2224. 转化时间需要的最少操作数](https://leetcode.cn/problems/minimum-number-of-operations-to-convert-time)
 
 [English Version](/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README_EN.md)
 

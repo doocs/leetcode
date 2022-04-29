@@ -1,4 +1,4 @@
-# [1838. 最高频元素的频数](https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element)
+# [1838. 最高频元素的频数](https://leetcode.cn/problems/frequency-of-the-most-frequent-element)
 
 [English Version](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md)
 

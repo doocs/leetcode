@@ -1,4 +1,4 @@
-# [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list)
+# [61. 旋转链表](https://leetcode.cn/problems/rotate-list)
 
 [English Version](/solution/0000-0099/0061.Rotate%20List/README_EN.md)
 

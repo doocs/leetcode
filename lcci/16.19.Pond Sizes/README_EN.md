@@ -1,4 +1,4 @@
-# [16.19. Pond Sizes](https://leetcode-cn.com/problems/pond-sizes-lcci)
+# [16.19. Pond Sizes](https://leetcode.cn/problems/pond-sizes-lcci)
 
 [中文文档](/lcci/16.19.Pond%20Sizes/README.md)
 

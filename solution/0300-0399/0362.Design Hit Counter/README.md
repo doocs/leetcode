@@ -1,4 +1,4 @@
-# [362. 敲击计数器](https://leetcode-cn.com/problems/design-hit-counter)
+# [362. 敲击计数器](https://leetcode.cn/problems/design-hit-counter)
 
 [English Version](/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md)
 

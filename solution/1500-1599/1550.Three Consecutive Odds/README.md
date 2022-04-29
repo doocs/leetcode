@@ -1,4 +1,4 @@
-# [1550. 存在连续三个奇数的数组](https://leetcode-cn.com/problems/three-consecutive-odds)
+# [1550. 存在连续三个奇数的数组](https://leetcode.cn/problems/three-consecutive-odds)
 
 [English Version](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README_EN.md)
 

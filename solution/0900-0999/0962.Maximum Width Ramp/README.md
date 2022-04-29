@@ -1,4 +1,4 @@
-# [962. 最大宽度坡](https://leetcode-cn.com/problems/maximum-width-ramp)
+# [962. 最大宽度坡](https://leetcode.cn/problems/maximum-width-ramp)
 
 [English Version](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md)
 

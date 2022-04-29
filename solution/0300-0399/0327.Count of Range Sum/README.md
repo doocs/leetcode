@@ -1,4 +1,4 @@
-# [327. 区间和的个数](https://leetcode-cn.com/problems/count-of-range-sum)
+# [327. 区间和的个数](https://leetcode.cn/problems/count-of-range-sum)
 
 [English Version](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README_EN.md)
 

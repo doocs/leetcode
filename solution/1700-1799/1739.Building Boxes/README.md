@@ -1,4 +1,4 @@
-# [1739. 放置盒子](https://leetcode-cn.com/problems/building-boxes)
+# [1739. 放置盒子](https://leetcode.cn/problems/building-boxes)
 
 [English Version](/solution/1700-1799/1739.Building%20Boxes/README_EN.md)
 

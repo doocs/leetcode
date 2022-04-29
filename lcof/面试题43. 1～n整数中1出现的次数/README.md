@@ -1,4 +1,4 @@
-# [面试题 43. 1 ～ n 整数中 1 出现的次数](https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/)
+# [面试题 43. 1 ～ n 整数中 1 出现的次数](https://leetcode.cn/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/)
 
 ## 题目描述
 
@@ -31,7 +31,7 @@
 	<li><code>1 <= n < 2^31</code></li>
 </ul>
 
-<p>注意：本题与主站 233 题相同：<a href="https://leetcode-cn.com/problems/number-of-digit-one/">https://leetcode-cn.com/problems/number-of-digit-one/</a></p>
+<p>注意：本题与主站 233 题相同：<a href="https://leetcode.cn/problems/number-of-digit-one/">https://leetcode.cn/problems/number-of-digit-one/</a></p>
 
 ## 解法
 

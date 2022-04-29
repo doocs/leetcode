@@ -1,4 +1,4 @@
-# [1834. 单线程 CPU](https://leetcode-cn.com/problems/single-threaded-cpu)
+# [1834. 单线程 CPU](https://leetcode.cn/problems/single-threaded-cpu)
 
 [English Version](/solution/1800-1899/1834.Single-Threaded%20CPU/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1349. 参加考试的最大学生数](https://leetcode-cn.com/problems/maximum-students-taking-exam)
+# [1349. 参加考试的最大学生数](https://leetcode.cn/problems/maximum-students-taking-exam)
 
 [English Version](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README_EN.md)
 

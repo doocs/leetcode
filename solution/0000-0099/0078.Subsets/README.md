@@ -1,4 +1,4 @@
-# [78. 子集](https://leetcode-cn.com/problems/subsets)
+# [78. 子集](https://leetcode.cn/problems/subsets)
 
 [English Version](/solution/0000-0099/0078.Subsets/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2047. 句子中的有效单词数](https://leetcode-cn.com/problems/number-of-valid-words-in-a-sentence)
+# [2047. 句子中的有效单词数](https://leetcode.cn/problems/number-of-valid-words-in-a-sentence)
 
 [English Version](/solution/2000-2099/2047.Number%20of%20Valid%20Words%20in%20a%20Sentence/README_EN.md)
 

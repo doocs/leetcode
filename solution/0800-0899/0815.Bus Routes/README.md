@@ -1,4 +1,4 @@
-# [815. 公交路线](https://leetcode-cn.com/problems/bus-routes)
+# [815. 公交路线](https://leetcode.cn/problems/bus-routes)
 
 [English Version](/solution/0800-0899/0815.Bus%20Routes/README_EN.md)
 

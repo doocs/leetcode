@@ -1,4 +1,4 @@
-# [1490. 克隆 N 叉树](https://leetcode-cn.com/problems/clone-n-ary-tree)
+# [1490. 克隆 N 叉树](https://leetcode.cn/problems/clone-n-ary-tree)
 
 [English Version](/solution/1400-1499/1490.Clone%20N-ary%20Tree/README_EN.md)
 
@@ -50,7 +50,7 @@ class Node {
 
 <p>&nbsp;</p>
 
-<p><strong>进阶：</strong>你的解决方案可以适用于<a href="https://leetcode-cn.com/problems/clone-graph/">克隆图</a>问题吗？</p>
+<p><strong>进阶：</strong>你的解决方案可以适用于<a href="https://leetcode.cn/problems/clone-graph/">克隆图</a>问题吗？</p>
 
 ## 解法
 

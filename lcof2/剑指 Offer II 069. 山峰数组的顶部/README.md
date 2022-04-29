@@ -1,4 +1,4 @@
-# [剑指 Offer II 069. 山峰数组的顶部](https://leetcode-cn.com/problems/B1IidL)
+# [剑指 Offer II 069. 山峰数组的顶部](https://leetcode.cn/problems/B1IidL)
 
 ## 题目描述
 
@@ -71,7 +71,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 852&nbsp;题相同：<a href="https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/">https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 852&nbsp;题相同：<a href="https://leetcode.cn/problems/peak-index-in-a-mountain-array/">https://leetcode.cn/problems/peak-index-in-a-mountain-array/</a></p>
 
 ## 解法
 

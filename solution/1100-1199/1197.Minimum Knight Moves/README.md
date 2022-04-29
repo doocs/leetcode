@@ -1,4 +1,4 @@
-# [1197. 进击的骑士](https://leetcode-cn.com/problems/minimum-knight-moves)
+# [1197. 进击的骑士](https://leetcode.cn/problems/minimum-knight-moves)
 
 [English Version](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README_EN.md)
 

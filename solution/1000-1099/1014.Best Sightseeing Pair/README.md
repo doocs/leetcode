@@ -1,4 +1,4 @@
-# [1014. 最佳观光组合](https://leetcode-cn.com/problems/best-sightseeing-pair)
+# [1014. 最佳观光组合](https://leetcode.cn/problems/best-sightseeing-pair)
 
 [English Version](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1329. 将矩阵按对角线排序](https://leetcode-cn.com/problems/sort-the-matrix-diagonally)
+# [1329. 将矩阵按对角线排序](https://leetcode.cn/problems/sort-the-matrix-diagonally)
 
 [English Version](/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README_EN.md)
 

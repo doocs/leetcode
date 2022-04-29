@@ -1,4 +1,4 @@
-# [757. 设置交集大小至少为 2](https://leetcode-cn.com/problems/set-intersection-size-at-least-two)
+# [757. 设置交集大小至少为 2](https://leetcode.cn/problems/set-intersection-size-at-least-two)
 
 [English Version](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README_EN.md)
 

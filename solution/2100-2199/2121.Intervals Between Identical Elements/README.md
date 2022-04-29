@@ -1,4 +1,4 @@
-# [2121. 相同元素的间隔之和](https://leetcode-cn.com/problems/intervals-between-identical-elements)
+# [2121. 相同元素的间隔之和](https://leetcode.cn/problems/intervals-between-identical-elements)
 
 [English Version](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README_EN.md)
 

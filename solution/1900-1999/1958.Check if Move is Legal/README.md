@@ -1,4 +1,4 @@
-# [1958. 检查操作是否合法](https://leetcode-cn.com/problems/check-if-move-is-legal)
+# [1958. 检查操作是否合法](https://leetcode.cn/problems/check-if-move-is-legal)
 
 [English Version](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md)
 

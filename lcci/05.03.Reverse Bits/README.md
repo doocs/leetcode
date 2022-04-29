@@ -1,4 +1,4 @@
-# [面试题 05.03. 翻转数位](https://leetcode-cn.com/problems/reverse-bits-lcci)
+# [面试题 05.03. 翻转数位](https://leetcode.cn/problems/reverse-bits-lcci)
 
 [English Version](/lcci/05.03.Reverse%20Bits/README_EN.md)
 

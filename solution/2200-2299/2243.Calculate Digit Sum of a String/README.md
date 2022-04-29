@@ -1,4 +1,4 @@
-# [2243. 计算字符串的数字和](https://leetcode-cn.com/problems/calculate-digit-sum-of-a-string)
+# [2243. 计算字符串的数字和](https://leetcode.cn/problems/calculate-digit-sum-of-a-string)
 
 [English Version](/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README_EN.md)
 

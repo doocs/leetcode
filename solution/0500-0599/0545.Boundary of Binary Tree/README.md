@@ -1,4 +1,4 @@
-# [545. 二叉树的边界](https://leetcode-cn.com/problems/boundary-of-binary-tree)
+# [545. 二叉树的边界](https://leetcode.cn/problems/boundary-of-binary-tree)
 
 [English Version](/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README_EN.md)
 

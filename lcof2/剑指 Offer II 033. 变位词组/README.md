@@ -1,4 +1,4 @@
-# [剑指 Offer II 033. 变位词组](https://leetcode-cn.com/problems/sfvd7V)
+# [剑指 Offer II 033. 变位词组](https://leetcode.cn/problems/sfvd7V)
 
 ## 题目描述
 
@@ -41,7 +41,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 49&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/group-anagrams/">https://leetcode-cn.com/problems/group-anagrams/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 49&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/group-anagrams/">https://leetcode.cn/problems/group-anagrams/</a></p>
 
 ## 解法
 

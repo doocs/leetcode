@@ -1,4 +1,4 @@
-# [LCP 48. 无限棋局](https://leetcode-cn.com/problems/fsa7oZ)
+# [LCP 48. 无限棋局](https://leetcode.cn/problems/fsa7oZ)
 
 ## 题目描述
 

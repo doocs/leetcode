@@ -1,4 +1,4 @@
-# [1175. 质数排列](https://leetcode-cn.com/problems/prime-arrangements)
+# [1175. 质数排列](https://leetcode.cn/problems/prime-arrangements)
 
 [English Version](/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md)
 

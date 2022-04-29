@@ -1,4 +1,4 @@
-# [01.03. String to URL](https://leetcode-cn.com/problems/string-to-url-lcci)
+# [01.03. String to URL](https://leetcode.cn/problems/string-to-url-lcci)
 
 [中文文档](/lcci/01.03.String%20to%20URL/README.md)
 

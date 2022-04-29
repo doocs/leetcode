@@ -1,4 +1,4 @@
-# [面试题 16.19. 水域大小](https://leetcode-cn.com/problems/pond-sizes-lcci)
+# [面试题 16.19. 水域大小](https://leetcode.cn/problems/pond-sizes-lcci)
 
 [English Version](/lcci/16.19.Pond%20Sizes/README_EN.md)
 

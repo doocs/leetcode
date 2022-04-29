@@ -1,4 +1,4 @@
-# [面试题 05.06. 整数转换](https://leetcode-cn.com/problems/convert-integer-lcci)
+# [面试题 05.06. 整数转换](https://leetcode.cn/problems/convert-integer-lcci)
 
 [English Version](/lcci/05.06.Convert%20Integer/README_EN.md)
 

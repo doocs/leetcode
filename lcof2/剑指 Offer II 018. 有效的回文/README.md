@@ -1,4 +1,4 @@
-# [剑指 Offer II 018. 有效的回文](https://leetcode-cn.com/problems/XltzEq)
+# [剑指 Offer II 018. 有效的回文](https://leetcode.cn/problems/XltzEq)
 
 ## 题目描述
 
@@ -35,7 +35,7 @@
 
 <p>&nbsp;</p>
 
-<p><meta charset="UTF-8" />注意：本题与主站 125&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/valid-palindrome/">https://leetcode-cn.com/problems/valid-palindrome/</a></p>
+<p><meta charset="UTF-8" />注意：本题与主站 125&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/valid-palindrome/">https://leetcode.cn/problems/valid-palindrome/</a></p>
 
 ## 解法
 

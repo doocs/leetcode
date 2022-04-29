@@ -1,4 +1,4 @@
-# [面试题 04.04. 检查平衡性](https://leetcode-cn.com/problems/check-balance-lcci)
+# [面试题 04.04. 检查平衡性](https://leetcode.cn/problems/check-balance-lcci)
 
 [English Version](/lcci/04.04.Check%20Balance/README_EN.md)
 

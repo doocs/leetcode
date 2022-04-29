@@ -1,4 +1,4 @@
-# [1352. 最后 K 个数的乘积](https://leetcode-cn.com/problems/product-of-the-last-k-numbers)
+# [1352. 最后 K 个数的乘积](https://leetcode.cn/problems/product-of-the-last-k-numbers)
 
 [English Version](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md)
 

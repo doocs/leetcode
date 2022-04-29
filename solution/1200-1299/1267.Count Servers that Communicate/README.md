@@ -1,4 +1,4 @@
-# [1267. 统计参与通信的服务器](https://leetcode-cn.com/problems/count-servers-that-communicate)
+# [1267. 统计参与通信的服务器](https://leetcode.cn/problems/count-servers-that-communicate)
 
 [English Version](/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README_EN.md)
 

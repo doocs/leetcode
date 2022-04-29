@@ -1,4 +1,4 @@
-# [895. 最大频率栈](https://leetcode-cn.com/problems/maximum-frequency-stack)
+# [895. 最大频率栈](https://leetcode.cn/problems/maximum-frequency-stack)
 
 [English Version](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README_EN.md)
 

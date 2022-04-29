@@ -1,4 +1,4 @@
-# [1388. 3n 块披萨](https://leetcode-cn.com/problems/pizza-with-3n-slices)
+# [1388. 3n 块披萨](https://leetcode.cn/problems/pizza-with-3n-slices)
 
 [English Version](/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README_EN.md)
 

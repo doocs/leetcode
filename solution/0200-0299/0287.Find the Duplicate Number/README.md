@@ -1,4 +1,4 @@
-# [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number)
+# [287. 寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number)
 
 [English Version](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1488. 避免洪水泛滥](https://leetcode-cn.com/problems/avoid-flood-in-the-city)
+# [1488. 避免洪水泛滥](https://leetcode.cn/problems/avoid-flood-in-the-city)
 
 [English Version](/solution/1400-1499/1488.Avoid%20Flood%20in%20The%20City/README_EN.md)
 
