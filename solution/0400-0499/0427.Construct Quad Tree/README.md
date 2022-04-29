@@ -105,6 +105,10 @@ topRight 具有不同的值，因此我们将其再分为 4 个子网格，这�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+DFS 递归遍历 grid，先判断 grid 是否为叶子节点，是则返回叶子节点相关信息；否则递归 grid 4 个子节点。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -112,7 +116,40 @@ topRight 具有不同的值，因此我们将其再分为 4 个子网格，这�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a QuadTree node.
+class Node:
+    def __init__(self, val, isLeaf, topLeft, topRight, bottomLeft, bottomRight):
+        self.val = val
+        self.isLeaf = isLeaf
+        self.topLeft = topLeft
+        self.topRight = topRight
+        self.bottomLeft = bottomLeft
+        self.bottomRight = bottomRight
+"""
 
+
+class Solution:
+    def construct(self, grid: List[List[int]]) -> 'Node':
+        def dfs(a, b, c, d):
+            zero = one = 0
+            for i in range(a, c + 1):
+                for j in range(b, d + 1):
+                    if grid[i][j] == 0:
+                        zero = 1
+                    else:
+                        one = 1
+            isLeaf = zero + one == 1
+            val = isLeaf and one
+            if isLeaf:
+                return Node(grid[a][b], True)
+            topLeft = dfs(a, b, (a + c) // 2, (b + d) // 2)
+            topRight = dfs(a, (b + d) // 2 + 1, (a + c) // 2, d)
+            bottomLeft = dfs((a + c) // 2 + 1, b, c, (b + d) // 2)
+            bottomRight = dfs((a + c) // 2 + 1, (b + d) // 2 + 1, c, d)
+            return Node(val, isLeaf, topLeft, topRight, bottomLeft, bottomRight)
+
+        return dfs(0, 0, len(grid) - 1, len(grid[0]) - 1)
 ```
 
 ### **Java**
@@ -120,7 +157,191 @@ topRight 具有不同的值，因此我们将其再分为 4 个子网格，这�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a QuadTree node.
+class Node {
+    public boolean val;
+    public boolean isLeaf;
+    public Node topLeft;
+    public Node topRight;
+    public Node bottomLeft;
+    public Node bottomRight;
 
+
+    public Node() {
+        this.val = false;
+        this.isLeaf = false;
+        this.topLeft = null;
+        this.topRight = null;
+        this.bottomLeft = null;
+        this.bottomRight = null;
+    }
+
+    public Node(boolean val, boolean isLeaf) {
+        this.val = val;
+        this.isLeaf = isLeaf;
+        this.topLeft = null;
+        this.topRight = null;
+        this.bottomLeft = null;
+        this.bottomRight = null;
+    }
+
+    public Node(boolean val, boolean isLeaf, Node topLeft, Node topRight, Node bottomLeft, Node bottomRight) {
+        this.val = val;
+        this.isLeaf = isLeaf;
+        this.topLeft = topLeft;
+        this.topRight = topRight;
+        this.bottomLeft = bottomLeft;
+        this.bottomRight = bottomRight;
+    }
+};
+*/
+
+class Solution {
+    public Node construct(int[][] grid) {
+        return dfs(0, 0, grid.length - 1, grid[0].length - 1, grid);
+    }
+
+    private Node dfs(int a, int b, int c, int d, int[][] grid) {
+        int zero = 0, one = 0;
+        for (int i = a; i <= c; ++i) {
+            for (int j = b; j <= d; ++j) {
+                if (grid[i][j] == 0) {
+                    zero = 1;
+                } else {
+                    one = 1;
+                }
+            }
+        }
+        boolean isLeaf = zero + one == 1;
+        boolean val = isLeaf && one == 1;
+        Node node = new Node(val, isLeaf);
+        if (isLeaf) {
+            return node;
+        }
+        node.topLeft = dfs(a, b, (a + c) / 2, (b + d) / 2, grid);
+        node.topRight = dfs(a, (b + d) / 2 + 1, (a + c) / 2, d, grid);
+        node.bottomLeft = dfs((a + c) / 2 + 1, b, c, (b + d) / 2, grid);
+        node.bottomRight = dfs((a + c) / 2 + 1, (b + d) / 2 + 1, c, d, grid);
+        return node;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a QuadTree node.
+class Node {
+public:
+    bool val;
+    bool isLeaf;
+    Node* topLeft;
+    Node* topRight;
+    Node* bottomLeft;
+    Node* bottomRight;
+
+    Node() {
+        val = false;
+        isLeaf = false;
+        topLeft = NULL;
+        topRight = NULL;
+        bottomLeft = NULL;
+        bottomRight = NULL;
+    }
+
+    Node(bool _val, bool _isLeaf) {
+        val = _val;
+        isLeaf = _isLeaf;
+        topLeft = NULL;
+        topRight = NULL;
+        bottomLeft = NULL;
+        bottomRight = NULL;
+    }
+
+    Node(bool _val, bool _isLeaf, Node* _topLeft, Node* _topRight, Node* _bottomLeft, Node* _bottomRight) {
+        val = _val;
+        isLeaf = _isLeaf;
+        topLeft = _topLeft;
+        topRight = _topRight;
+        bottomLeft = _bottomLeft;
+        bottomRight = _bottomRight;
+    }
+};
+*/
+
+class Solution {
+public:
+    Node* construct(vector<vector<int>>& grid) {
+        return dfs(0, 0, grid.size() - 1, grid[0].size() - 1, grid);
+    }
+
+    Node* dfs(int a, int b, int c, int d, vector<vector<int>>& grid) {
+        int zero = 0, one = 0;
+        for (int i = a; i <= c; ++i)
+        {
+            for (int j = b; j <= d; ++j)
+            {
+                if (grid[i][j]) one = 1;
+                else zero = 1;
+            }
+        }
+        bool isLeaf = zero + one == 1;
+        bool val = isLeaf && one;
+        Node* node = new Node(val, isLeaf);
+        if (isLeaf) return node;
+        node->topLeft = dfs(a, b, (a + c) / 2, (b + d) / 2, grid);
+        node->topRight = dfs(a, (b + d) / 2 + 1, (a + c) / 2, d, grid);
+        node->bottomLeft = dfs((a + c) / 2 + 1, b, c, (b + d) / 2, grid);
+        node->bottomRight = dfs((a + c) / 2 + 1, (b + d) / 2 + 1, c, d, grid);
+        return node;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a QuadTree node.
+ * type Node struct {
+ *     Val bool
+ *     IsLeaf bool
+ *     TopLeft *Node
+ *     TopRight *Node
+ *     BottomLeft *Node
+ *     BottomRight *Node
+ * }
+ */
+
+func construct(grid [][]int) *Node {
+	var dfs func(a, b, c, d int) *Node
+	dfs = func(a, b, c, d int) *Node {
+		zero, one := 0, 0
+		for i := a; i <= c; i++ {
+			for j := b; j <= d; j++ {
+				if grid[i][j] == 0 {
+					zero = 1
+				} else {
+					one = 1
+				}
+			}
+		}
+		isLeaf := zero+one == 1
+		val := isLeaf && one == 1
+		node := &Node{Val: val, IsLeaf: isLeaf}
+		if isLeaf {
+			return node
+		}
+		node.TopLeft = dfs(a, b, (a+c)/2, (b+d)/2)
+		node.TopRight = dfs(a, (b+d)/2+1, (a+c)/2, d)
+		node.BottomLeft = dfs((a+c)/2+1, b, c, (b+d)/2)
+		node.BottomRight = dfs((a+c)/2+1, (b+d)/2+1, c, d)
+		return node
+	}
+	return dfs(0, 0, len(grid)-1, len(grid[0])-1)
+}
 ```
 
 ### **...**
