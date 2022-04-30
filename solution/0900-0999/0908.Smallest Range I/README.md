@@ -125,6 +125,28 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function smallestRangeI(nums: number[], k: number): number {
+    const max = nums.reduce((r, v) => Math.max(r, v));
+    const min = nums.reduce((r, v) => Math.min(r, v));
+    return Math.max(max - min - k * 2, 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn smallest_range_i(nums: Vec<i32>, k: i32) -> i32 {
+        let max = nums.iter().max().unwrap();
+        let min = nums.iter().min().unwrap();
+        0.max(max - min - k * 2)
+    }
+}
+```
+
 ### **...**
 
 ```
