@@ -200,6 +200,52 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function checkArithmeticSubarrays(
+    nums: number[],
+    l: number[],
+    r: number[],
+): boolean[] {
+    const m = l.length;
+    const res = new Array(m).fill(true);
+    for (let i = 0; i < m; i++) {
+        const arr = nums.slice(l[i], r[i] + 1).sort((a, b) => b - a);
+        for (let j = 2; j < arr.length; j++) {
+            if (arr[j - 2] - arr[j - 1] !== arr[j - 1] - arr[j]) {
+                res[i] = false;
+                break;
+            }
+        }
+    }
+    return res;
+}
+
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn check_arithmetic_subarrays(nums: Vec<i32>, l: Vec<i32>, r: Vec<i32>) -> Vec<bool> {
+        let m = l.len();
+        let mut res = vec![true; m];
+        for i in 0..m {
+            let mut arr = nums[l[i] as usize..=r[i] as usize].to_vec();
+            arr.sort();
+            for j in 2..arr.len() {
+                if arr[j - 2] - arr[j - 1] != arr[j - 1] - arr[j] {
+                    res[i] = false;
+                    break;
+                }
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
