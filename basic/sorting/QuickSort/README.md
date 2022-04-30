@@ -113,7 +113,7 @@ public class Main {
             System.out.print(nums[i] + " ");
         }
     }
-    
+
     public static void quickSort(int[] nums, int left, int right) {
         if (left >= right) {
             return;

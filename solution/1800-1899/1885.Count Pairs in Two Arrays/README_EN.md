@@ -46,13 +46,89 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countPairs(self, nums1: List[int], nums2: List[int]) -> int:
+        n = len(nums1)
+        d = [nums1[i] - nums2[i] for i in range(n)]
+        d.sort()
+        return sum(n - bisect_right(d, -v, lo=i + 1) for i, v in enumerate(d))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long countPairs(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int[] d = new int[n];
+        for (int i = 0; i < n; ++i) {
+            d[i] = nums1[i] - nums2[i];
+        }
+        Arrays.sort(d);
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int left = i + 1, right = n;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (d[mid] > -d[i]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            ans += n - left;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long countPairs(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        vector<int> d(n);
+        for (int i = 0; i < n; ++i) d[i] = nums1[i] - nums2[i];
+        sort(d.begin(), d.end());
+        long long ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            int j = upper_bound(d.begin() + i + 1, d.end(), -d[i]) - d.begin();
+            ans += n - j;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPairs(nums1 []int, nums2 []int) int64 {
+	n := len(nums1)
+	d := make([]int, n)
+	for i, v := range nums1 {
+		d[i] = v - nums2[i]
+	}
+	sort.Ints(d)
+	var ans int64
+	for i, v := range d {
+		left, right := i+1, n
+		for left < right {
+			mid := (left + right) >> 1
+			if d[mid] > -v {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		ans += int64(n - left)
+	}
+	return ans
+}
 ```
 
 ### **...**

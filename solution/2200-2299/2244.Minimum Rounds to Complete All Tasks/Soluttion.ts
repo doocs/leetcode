@@ -8,7 +8,7 @@ function minimumRounds(tasks: number[]): number {
         let val = hashMap.get(key);
         if (val < 2) return -1;
         const ctn = Math.floor(val / 3) + (val % 3 == 0 ? 0 : 1);
-        ans += ctn; 
+        ans += ctn;
     }
     return ans;
-};
+}

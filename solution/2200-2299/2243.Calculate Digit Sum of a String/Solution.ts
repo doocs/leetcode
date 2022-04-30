@@ -9,4 +9,4 @@ function digitSum(s: string, k: number): string {
         ans = [];
     }
     return s;
-};
+}

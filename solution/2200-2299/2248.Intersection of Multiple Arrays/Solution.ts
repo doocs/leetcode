@@ -7,4 +7,4 @@ function intersection(nums: number[][]): number[] {
         ans = ans.filter(v => cur.has(v));
     }
     return ans.sort((a, b) => a - b);
-};
+}

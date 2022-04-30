@@ -20,4 +20,4 @@ function fullBloomFlowers(flowers: number[][], persons: number[]): number[] {
     // 离散查询
     let ans = persons.map(v => hashMap.get(v));
     return ans;
-};
+}

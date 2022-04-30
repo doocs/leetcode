@@ -8,8 +8,8 @@ _Cracking the Coding Interview, 6th Edition_ is here to help you through this pr
 
 Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the Mac) to search anything you want.
 
-| #                                                                               | Solution                                                                                              | Tag                                                          | Difficulty |
-| ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------- |
+| #                                                                           | Solution                                                                                              | Tag                                                          | Difficulty |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------- |
 | [01.01](https://leetcode.cn/problems/is-unique-lcci)                        | [Is Unique](/lcci/01.01.Is%20Unique/README_EN.md)                                                     | `Array`                                                      | Easy       |
 | [01.02](https://leetcode.cn/problems/check-permutation-lcci)                | [Check Permutation](/lcci/01.02.Check%20Permutation/README_EN.md)                                     | `Array`,`String`                                             | Easy       |
 | [01.03](https://leetcode.cn/problems/string-to-url-lcci)                    | [String to URL](/lcci/01.03.String%20to%20URL/README_EN.md)                                           | `String`                                                     | Easy       |
