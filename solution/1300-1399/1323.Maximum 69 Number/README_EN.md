@@ -53,13 +53,56 @@ The maximum number is 9969.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximum69Number(self, num: int) -> int:
+        return int(str(num).replace("6", "9", 1))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maximum69Number(int num) {
+        return Integer.valueOf(String.valueOf(num).replaceFirst("6", "9"));
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximum69Number(int num) {
+        string s = to_string(num);
+        for (char& ch: s)
+        {
+            if (ch == '6')
+            {
+                ch = '9';
+                break;
+            }
+        }
+        return stoi(s);
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximum69Number(num int) int {
+	s := strconv.Itoa(num)
+	nums := []byte(s)
+	for i, ch := range nums {
+		if ch == '6' {
+			nums[i] = '9'
+			break
+		}
+	}
+	ans, _ := strconv.Atoi(string(nums))
+	return ans
+}
 ```
 
 ### **...**
