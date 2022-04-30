@@ -72,7 +72,6 @@
 class Solution:
     def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
         items.sort()
-        n = len(items)
         prices = [p for p, _ in items]
         mx = [items[0][1]]
         for _, b in items[1:]:
