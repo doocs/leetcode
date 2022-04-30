@@ -1,8 +1,4 @@
 func spiralOrder(matrix [][]int) []int {
-	if len(matrix) == 0 {
-		return []int{}
-	}
-
 	m, n := len(matrix), len(matrix[0])
 	ans := make([]int, 0, m*n)
 
