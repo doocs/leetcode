@@ -10,7 +10,7 @@ public class Main {
         }
         quickSort(nums, 0, n - 1);
         for (int i = 0; i < n; ++i) {
-            System.out.printf("%d ", nums[i]);
+            System.out.print(nums[i] + " ");
         }
     }
     
@@ -19,7 +19,7 @@ public class Main {
             return;
         }
         int i = left - 1, j = right + 1;
-        int x = nums[left];
+        int x = nums[(left + right) >> 1];
         while (i < j) {
             while (nums[++i] < x);
             while (nums[--j] > x);

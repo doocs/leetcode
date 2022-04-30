@@ -24,9 +24,7 @@ function quickSort(nums, left, right) {
         while (nums[++i] < x);
         while (nums[--j] > x);
         if (i < j) {
-            const t = nums[i];
-            nums[i] = nums[j];
-            nums[j] = t;
+            [nums[i], nums[j]] = [nums[j], nums[i]];
         }
     }
     quickSort(nums, left, j);
