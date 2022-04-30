@@ -55,13 +55,69 @@ Hence, answer[1] = 1, answer[2] = 1, and the remaining values are 0.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
+        d = defaultdict(set)
+        for u, t in logs:
+            d[u].add(t)
+        ans = [0] * k
+        for ts in d.values():
+            ans[len(ts) - 1] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] findingUsersActiveMinutes(int[][] logs, int k) {
+        Map<Integer, Set<Integer>> d = new HashMap<>();
+        for (int[] log : logs) {
+            int u = log[0], t = log[1];
+            d.computeIfAbsent(u, key -> new HashSet<>()).add(t);
+        }
+        int[] ans = new int[k];
+        for (Set<Integer> ts : d.values()) {
+            ++ans[ts.size() - 1];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs, int k) {
+        unordered_map<int, unordered_set<int>> d;
+        for (auto& e : logs) d[e[0]].insert(e[1]);
+        vector<int> ans(k);
+        for (auto& e : d) ++ans[e.second.size() - 1];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findingUsersActiveMinutes(logs [][]int, k int) []int {
+	d := map[int]map[int]bool{}
+	for _, e := range logs {
+		u, t := e[0], e[1]
+		if _, ok := d[u]; !ok {
+			d[u] = make(map[int]bool)
+		}
+		d[u][t] = true
+	}
+	ans := make([]int, k)
+	for _, ts := range d {
+		ans[len(ts)-1]++
+	}
+	return ans
+}
 ```
 
 ### **...**
