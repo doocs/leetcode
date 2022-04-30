@@ -51,13 +51,71 @@ Since the third round will generate the final winner, you need to output the ans
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findContestMatch(self, n: int) -> str:
+        team = [str(i + 1) for i in range(n)]
+        while n > 1:
+            for i in range(n >> 1):
+                team[i] = f'({team[i]},{team[n - 1 - i]})'
+            n >>= 1
+        return team[0]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String findContestMatch(int n) {
+        String[] team = new String[n];
+        for (int i = 0; i < n; ++i) {
+            team[i] = "" + (i + 1);
+        }
+        for (; n > 1; n /= 2) {
+            for (int i = 0; i < n / 2; ++i) {
+                team[i] = "(" + team[i] + "," + team[n - 1 - i] + ")";
+            }
+        }
+        return team[0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findContestMatch(int n) {
+        vector<string> team(n);
+        for (int i = 0; i < n; ++i) team[i] = to_string(i + 1);
+        for (; n > 1; n >>= 1)
+        {
+            for (int i = 0; i < n >> 1; ++i)
+            {
+                team[i] = "(" + team[i] + "," + team[n - 1 - i] + ")";
+            }
+        }
+        return team[0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func findContestMatch(n int) string {
+	team := make([]string, n)
+	for i := range team {
+		team[i] = strconv.Itoa(i + 1)
+	}
+	for n > 1 {
+		for i := 0; i < n>>1; i++ {
+			team[i] = "(" + team[i] + "," + team[n-1-i] + ")"
+		}
+		n >>= 1
+	}
+	return team[0]
+}
 ```
 
 ### **...**

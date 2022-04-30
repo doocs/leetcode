@@ -57,6 +57,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+假设 `team[i]` 为当前轮次中第 i 强的队伍。
+
+每一轮，将第 i 支队伍变成 `"(" + team[i] + "," + team[n-1-i] + ")"`，并且每一轮淘汰一半的队伍。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +70,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findContestMatch(self, n: int) -> str:
+        team = [str(i + 1) for i in range(n)]
+        while n > 1:
+            for i in range(n >> 1):
+                team[i] = f'({team[i]},{team[n - 1 - i]})'
+            n >>= 1
+        return team[0]
 ```
 
 ### **Java**
@@ -72,7 +85,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String findContestMatch(int n) {
+        String[] team = new String[n];
+        for (int i = 0; i < n; ++i) {
+            team[i] = "" + (i + 1);
+        }
+        for (; n > 1; n /= 2) {
+            for (int i = 0; i < n / 2; ++i) {
+                team[i] = "(" + team[i] + "," + team[n - 1 - i] + ")";
+            }
+        }
+        return team[0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findContestMatch(int n) {
+        vector<string> team(n);
+        for (int i = 0; i < n; ++i) team[i] = to_string(i + 1);
+        for (; n > 1; n >>= 1)
+        {
+            for (int i = 0; i < n >> 1; ++i)
+            {
+                team[i] = "(" + team[i] + "," + team[n - 1 - i] + ")";
+            }
+        }
+        return team[0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func findContestMatch(n int) string {
+	team := make([]string, n)
+	for i := range team {
+		team[i] = strconv.Itoa(i + 1)
+	}
+	for n > 1 {
+		for i := 0; i < n>>1; i++ {
+			team[i] = "(" + team[i] + "," + team[n-1-i] + ")"
+		}
+		n >>= 1
+	}
+	return team[0]
+}
 ```
 
 ### **...**
