@@ -65,7 +65,6 @@
     <li><code>0 &lt;= succProb.length == edges.length &lt;= 2*10^4</code></li>
     <li><code>0 &lt;= succProb[i] &lt;= 1</code></li>
     <li>There is at most one edge between every two nodes.</li>
-
 </ul>
 
 ## Solutions

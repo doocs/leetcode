@@ -33,6 +33,14 @@ We choose one 1 from [1,1] in 2 ways,
 and two 2s from [2,2,2,2] in 6 ways.
 </pre>
 
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [2,1,3], target = 6
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> (1, 2, 3) occured one time in the array so we return 1.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

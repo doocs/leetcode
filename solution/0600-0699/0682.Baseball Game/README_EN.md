@@ -15,7 +15,7 @@
 	<li><code>&quot;C&quot;</code> - Invalidate the previous score, removing it from the record. It is guaranteed there will always be a previous score.</li>
 </ol>
 
-<p>Return <em>the sum of all the scores on the record</em>.</p>
+<p>Return <em>the sum of all the scores on the record</em>. The test cases are generated so that the answer fits in a 32-bit integer.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -52,8 +52,12 @@ The total sum is 5 + -2 + -4 + 9 + 5 + 14 = 27.
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> ops = [&quot;1&quot;]
-<strong>Output:</strong> 1
+<strong>Input:</strong> ops = [&quot;1&quot;,&quot;C&quot;]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong>
+&quot;1&quot; - Add 1 to the record, record is now [1].
+&quot;C&quot; - Invalidate and remove the previous score, record is now [].
+Since the record is empty, the total sum is 0.
 </pre>
 
 <p>&nbsp;</p>

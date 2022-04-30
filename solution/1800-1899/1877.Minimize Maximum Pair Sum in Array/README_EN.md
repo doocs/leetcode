@@ -8,7 +8,6 @@
 
 <ul>
     <li>For example, if we have pairs <code>(1,5)</code>, <code>(2,3)</code>, and <code>(4,4)</code>, the <strong>maximum pair sum</strong> would be <code>max(1+5, 2+3, 4+4) = max(6, 5, 8) = 8</code>.</li>
-
 </ul>
 
 <p>Given an array <code>nums</code> of <strong>even</strong> length <code>n</code>, pair up the elements of <code>nums</code> into <code>n / 2</code> pairs such that:</p>
@@ -16,7 +15,6 @@
 <ul>
     <li>Each element of <code>nums</code> is in <strong>exactly one</strong> pair, and</li>
     <li>The <strong>maximum pair sum </strong>is <strong>minimized</strong>.</li>
-
 </ul>
 
 <p>Return <em>the minimized <strong>maximum pair sum</strong> after optimally pairing up the elements</em>.</p>
@@ -60,7 +58,6 @@ The maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.
     <li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
     <li><code>n</code> is <strong>even</strong>.</li>
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
-
 </ul>
 
 ## Solutions

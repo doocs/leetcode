@@ -85,7 +85,6 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to all functions.</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

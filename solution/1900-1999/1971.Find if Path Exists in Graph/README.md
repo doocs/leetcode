@@ -92,7 +92,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         p = list(range(n))
         for u, v in edges:
             p[find(u)] = find(v)
@@ -138,7 +138,7 @@ public:
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
         for (auto& e : edges) p[find(e[0])] = find(e[1]);
-        return find(source) == find(destination);    
+        return find(source) == find(destination);
     }
 
     int find(int x) {

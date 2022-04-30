@@ -27,7 +27,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;(()))&quot;
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> The second &#39;(&#39; has two matching &#39;))&#39;, but the first &#39;(&#39; has only &#39;)&#39; matching. We need to to add one more &#39;)&#39; at the end of the string to be &quot;(())))&quot; which is balanced.
+<strong>Explanation:</strong> The second &#39;(&#39; has two matching &#39;))&#39;, but the first &#39;(&#39; has only &#39;)&#39; matching. We need to add one more &#39;)&#39; at the end of the string to be &quot;(())))&quot; which is balanced.
 </pre>
 
 <p><strong>Example 2:</strong></p>

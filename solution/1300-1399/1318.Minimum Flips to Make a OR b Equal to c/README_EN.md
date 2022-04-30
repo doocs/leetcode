@@ -50,7 +50,6 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
     <li><code>1 &lt;= a &lt;= 10^9</code></li>
     <li><code>1 &lt;= b&nbsp;&lt;= 10^9</code></li>
     <li><code>1 &lt;= c&nbsp;&lt;= 10^9</code></li>
-
 </ul>
 
 ## Solutions

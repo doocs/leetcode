@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an integer array <code>data</code> representing the data, return whether it is a valid <strong>UTF-8</strong> encoding.</p>
+<p>Given an integer array <code>data</code> representing the data, return whether it is a valid <strong>UTF-8</strong> encoding (i.e. it translates to a sequence of valid UTF-8 encoded characters).</p>
 
-<p>A character in <strong>UTF8</strong> can be from <b>1 to 4 bytes</b> long, subjected to the following rules:</p>
+<p>A character in <strong>UTF8</strong> can be from <strong>1 to 4 bytes</strong> long, subjected to the following rules:</p>
 
 <ol>
 	<li>For a <strong>1-byte</strong> character, the first bit is a <code>0</code>, followed by its Unicode code.</li>
@@ -16,16 +16,18 @@
 <p>This is how the UTF-8 encoding would work:</p>
 
 <pre>
-<code>   Char. number range  |        UTF-8 octet sequence
-      (hexadecimal)    |              (binary)
-   --------------------+---------------------------------------------
-   0000 0000-0000 007F | 0xxxxxxx
-   0000 0080-0000 07FF | 110xxxxx 10xxxxxx
-   0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
-   0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code>
+     Number of Bytes   |        UTF-8 Octet Sequence
+                       |              (binary)
+   --------------------+-----------------------------------------
+            1          |   0xxxxxxx
+            2          |   110xxxxx 10xxxxxx
+            3          |   1110xxxx 10xxxxxx 10xxxxxx
+            4          |   11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
 </pre>
 
-<p><b>Note: </b>The input is an array of integers. Only the <b>least significant 8 bits</b> of each integer is used to store the data. This means each integer represents only 1 byte of data.</p>
+<p><code>x</code> denotes a bit in the binary form of a byte that may be either <code>0</code> or <code>1</code>.</p>
+
+<p><strong>Note: </strong>The input is an array of integers. Only the <strong>least significant 8 bits</strong> of each integer is used to store the data. This means each integer represents only 1 byte of data.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

@@ -21,7 +21,7 @@
 <strong>Input:</strong> s = &quot;ABC&quot;
 <strong>Output:</strong> 10
 <strong>Explanation: </strong>All possible substrings are: &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;AB&quot;,&quot;BC&quot; and &quot;ABC&quot;.
-Evey substring is composed with only unique letters.
+Every substring is composed with only unique letters.
 Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 </pre>
 

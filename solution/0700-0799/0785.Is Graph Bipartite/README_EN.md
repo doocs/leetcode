@@ -51,7 +51,7 @@
 
 ### **Python3**
 
-Graph coloring: 
+Graph coloring:
 
 ```python
 class Solution:
@@ -95,7 +95,7 @@ class Solution:
 
 ### **Java**
 
-Graph coloring: 
+Graph coloring:
 
 ```java
 class Solution {
@@ -165,7 +165,7 @@ class Solution {
 
 ### **C++**
 
-Graph coloring: 
+Graph coloring:
 
 ```cpp
 class Solution {
@@ -226,7 +226,7 @@ public:
 
 ### **Go**
 
-Graph coloring: 
+Graph coloring:
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -285,7 +285,7 @@ func isBipartite(graph [][]int) bool {
 
 ### **TypeScript**
 
-Graph coloring: 
+Graph coloring:
 
 ```ts
 function isBipartite(graph: number[][]): boolean {

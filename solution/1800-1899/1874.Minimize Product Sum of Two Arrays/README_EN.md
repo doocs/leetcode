@@ -8,7 +8,6 @@
 
 <ul>
     <li>For example, if <code>a = [1,2,3,4]</code> and <code>b = [5,2,3,1]</code>, the <strong>product sum</strong> would be <code>1*5 + 2*2 + 3*3 + 4*1 = 22</code>.</li>
-
 </ul>
 
 <p>Given two arrays <code>nums1</code> and <code>nums2</code> of length <code>n</code>, return <em>the <strong>minimum product sum</strong> if you are allowed to <strong>rearrange</strong> the <strong>order</strong> of the elements in </em><code>nums1</code>.&nbsp;</p>
@@ -47,7 +46,6 @@
     <li><code>n == nums1.length == nums2.length</code></li>
     <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
     <li><code>1 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
-
 </ul>
 
 ## Solutions

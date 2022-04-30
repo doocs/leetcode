@@ -38,7 +38,6 @@
 
 <ul>
     <li><code>0 &lt;= num &lt;= 10^9</code></li>
-
 </ul>
 
 ## Solutions

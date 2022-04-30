@@ -35,7 +35,7 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= numCourses &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= numCourses &lt;= 2000</code></li>
 	<li><code>0 &lt;= prerequisites.length &lt;= 5000</code></li>
 	<li><code>prerequisites[i].length == 2</code></li>
 	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; numCourses</code></li>

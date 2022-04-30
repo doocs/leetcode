@@ -53,7 +53,6 @@
 <ul>
     <li><code>1 &lt;= arr1.length, arr2.length &lt;= 2000</code></li>
     <li><code>0 &lt;= arr1[i], arr2[i] &lt;= 10^9</code></li>
-
 </ul>
 
 <p>&nbsp;</p>

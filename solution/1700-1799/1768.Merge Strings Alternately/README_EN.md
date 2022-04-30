@@ -71,7 +71,6 @@ merged: a p b q c   d
 <ul>
     <li><code>1 &lt;= word1.length, word2.length &lt;= 100</code></li>
     <li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
-
 </ul>
 
 ## Solutions

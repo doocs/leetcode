@@ -9,7 +9,6 @@
 <ul>
     <li>In the beginning, you have the permutation <code>P=[1,2,3,...,m]</code>.</li>
     <li>For the current <code>i</code>, find the position of <code>queries[i]</code> in the permutation <code>P</code> (<strong>indexing from 0</strong>) and then move this at the beginning of the permutation <code>P.</code>&nbsp;Notice that the position of <code>queries[i]</code> in <code>P</code> is the result for <code>queries[i]</code>.</li>
-
 </ul>
 
 <p>Return an array containing the result for the given <code>queries</code>.</p>
@@ -63,8 +62,11 @@ Therefore, the array containing the result is [2,1,2,1].
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= m &lt;= 10^3</code></li>
+
     <li><code>1 &lt;= queries.length &lt;= m</code></li>
+
     <li><code>1 &lt;= queries[i] &lt;= m</code></li>
 
 </ul>

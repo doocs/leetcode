@@ -1,4 +1,5 @@
 import json
+import random
 import re
 import time
 from typing import List
@@ -174,7 +175,8 @@ class Spider:
         return res['data']['question']
 
     def get_question_detail(self, question_title_slug, retry_times=0):
-        time.sleep(0.5)
+
+        time.sleep(0.5 + random.random())
         for i in range(retry_times + 1):
             try:
                 question_detail = self._get_question_detail(question_title_slug)
@@ -182,7 +184,7 @@ class Spider:
                     return question_detail
             except Exception as e:
                 print(f'error:{str(e)}')
-            time.sleep(2)
+            time.sleep(random.choice(range(2, 5)))
         return None
 
     def handle(self, question: dict) -> dict:

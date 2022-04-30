@@ -25,7 +25,6 @@
     	<li>例如：<code>wordlist = ["YellOw"]</code>, <code>query = "yllw"</code>: <code>correct = ""</code> （无匹配项）</li>
     </ul>
     </li>
-
 </ul>
 
 <p>此外，拼写检查器还按照以下优先级规则操作：</p>

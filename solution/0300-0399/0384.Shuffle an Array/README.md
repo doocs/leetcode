@@ -39,10 +39,10 @@ solution.shuffle();    // 随机返回数组 [1, 2, 3] 打乱后的结果。例�
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 50</code></li>
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li><code>nums</code> 中的所有元素都是 <strong>唯一的</strong></li>
-	<li>最多可以调用 <code>5 * 10<sup>4</sup></code> 次 <code>reset</code> 和 <code>shuffle</code></li>
+	<li>最多可以调用 <code>10<sup>4</sup></code> 次 <code>reset</code> 和 <code>shuffle</code></li>
 </ul>
 
 ## 解法

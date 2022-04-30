@@ -48,7 +48,6 @@
     <li><code>edges[i].length == 2</code></li>
     <li><code>0 &lt;= from<sub>i,</sub>&nbsp;to<sub>i</sub> &lt; n</code></li>
     <li>All pairs <code>(from<sub>i</sub>, to<sub>i</sub>)</code> are distinct.</li>
-
 </ul>
 
 ## Solutions

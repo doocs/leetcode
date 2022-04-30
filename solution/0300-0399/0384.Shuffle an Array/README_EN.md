@@ -38,10 +38,10 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 50</code></li>
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 	<li>All the elements of <code>nums</code> are <strong>unique</strong>.</li>
-	<li>At most <code>5 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>reset</code> and <code>shuffle</code>.</li>
+	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>reset</code> and <code>shuffle</code>.</li>
 </ul>
 
 ## Solutions

@@ -28,6 +28,8 @@ dir
 
 <p>Given a string <code>input</code> representing the file system in the explained format, return <em>the length of the <strong>longest absolute path</strong> to a <strong>file</strong> in the abstracted file system</em>. If there is no file in the system, return <code>0</code>.</p>
 
+<p><strong>Note</strong> that the testcases are generated such that the file system is valid and no file or directory name has length 0.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/dir1.jpg" style="width: 401px; height: 202px;" />
@@ -62,6 +64,7 @@ We return 32 since it is the longest absolute path to a file.
 <ul>
 	<li><code>1 &lt;= input.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>input</code> may contain lowercase or uppercase English letters, a new line character <code>&#39;\n&#39;</code>, a tab character <code>&#39;\t&#39;</code>, a dot <code>&#39;.&#39;</code>, a space <code>&#39; &#39;</code>, and digits.</li>
+	<li>All file and directory names have <strong>positive</strong> length.</li>
 </ul>
 
 ## Solutions

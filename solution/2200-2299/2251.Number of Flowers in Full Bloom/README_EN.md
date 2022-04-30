@@ -38,7 +38,6 @@ For each person, we return the number of flowers in full bloom during their arri
 	<li><code>1 &lt;= persons[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -78,7 +77,7 @@ function fullBloomFlowers(flowers: number[][], persons: number[]): number[] {
     }
     let ans = persons.map(v => hashMap.get(v));
     return ans;
-};
+}
 ```
 
 ### **...**

@@ -65,7 +65,6 @@ Similarly, product 2 has a price of 200 in Nozama and 190 in Souq. It is not sol
 For product 3, the price is 1000 in Shop and 1900 in Souq. It is not sold in the other two stores.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

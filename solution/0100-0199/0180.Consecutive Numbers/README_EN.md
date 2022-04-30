@@ -14,6 +14,7 @@
 | num         | varchar |
 +-------------+---------+
 id is the primary key for this table.
+id is an autoincrement column.
 </pre>
 
 <p>&nbsp;</p>

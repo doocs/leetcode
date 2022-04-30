@@ -14,7 +14,6 @@
     <li>The last friend you counted leaves the circle and loses the game.</li>
     <li>If there is still more than one friend in the circle, go back to step <code>2</code> <strong>starting</strong> from the friend <strong>immediately clockwise</strong> of the friend who just lost and repeat.</li>
     <li>Else, the last friend in the circle wins the game.</li>
-
 </ol>
 
 <p>Given the number of friends, <code>n</code>, and an integer <code>k</code>, return <em>the winner of the game</em>.</p>
@@ -69,7 +68,6 @@
 
 <ul>
     <li><code>1 &lt;= k &lt;= n &lt;= 500</code></li>
-
 </ul>
 
 ## Solutions

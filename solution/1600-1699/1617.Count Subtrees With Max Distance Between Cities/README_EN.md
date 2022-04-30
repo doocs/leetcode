@@ -66,7 +66,6 @@ No subtree has two nodes where the max distance between them is 3.
     <li><code>edges[i].length == 2</code></li>
     <li><code>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n</code></li>
     <li>All pairs <code>(u<sub>i</sub>, v<sub>i</sub>)</code> are distinct.</li>
-
 </ul>
 
 ## Solutions

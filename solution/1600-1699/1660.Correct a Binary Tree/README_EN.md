@@ -16,7 +16,6 @@
     <li><code>TreeNode root</code></li>
     <li><code>int fromNode</code> (<strong>not available to </strong><code>correctBinaryTree</code>)</li>
     <li><code>int toNode</code> (<strong>not available to </strong><code>correctBinaryTree</code>)</li>
-
 </ul>
 
 <p>After the binary tree rooted at <code>root</code> is parsed, the <code>TreeNode</code> with value of <code>fromNode</code> will have its right child pointer pointing to the <code>TreeNode</code> with a value of <code>toNode</code>. Then, <code>root</code> is passed to <code>correctBinaryTree</code>.</p>
@@ -56,12 +55,19 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li>The number of nodes in the tree is in the range <code>[3, 10<sup>4</sup>]</code>.</li>
+
     <li><code>-10<sup>9</sup> &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
+
     <li>All <code>Node.val</code> are <strong>unique</strong>.</li>
+
     <li><code>fromNode != toNode</code></li>
+
     <li><code>fromNode</code> and <code>toNode</code> will exist in the tree and will be on the same depth.</li>
+
     <li><code>toNode</code> is to the <strong>right</strong> of <code>fromNode</code>.</li>
+
     <li><code>fromNode.right</code> is <code>null</code> in the initial tree from the test data.</li>
 
 </ul>

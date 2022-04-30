@@ -17,7 +17,6 @@
     	<li>For example, when removing <code>&quot;ba&quot;</code> from <code>&quot;cabx<u>ba</u>e&quot;</code> it becomes <code>&quot;cabxe&quot;</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the maximum points you can gain after applying the above operations on</em> <code>s</code>.</p>

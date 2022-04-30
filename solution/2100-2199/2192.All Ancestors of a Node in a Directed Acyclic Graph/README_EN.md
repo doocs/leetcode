@@ -176,7 +176,7 @@ public:
 };
 ```
 
-###  **Go**
+### **Go**
 
 ```go
 func getAncestors(n int, edges [][]int) [][]int {

@@ -18,14 +18,16 @@
 <p>这是 UTF-8 编码的工作方式：</p>
 
 <pre>
-<code>   Char. number range  |        UTF-8 octet sequence
-      (hexadecimal)    |              (binary)
+<code>      </code>Number of Bytes<code>  |        UTF-8 octet sequence
+                       |              (binary)
    --------------------+---------------------------------------------
-   0000 0000-0000 007F | 0xxxxxxx
-   0000 0080-0000 07FF | 110xxxxx 10xxxxxx
-   0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
-   0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+            1          | 0xxxxxxx
+            2          | 110xxxxx 10xxxxxx
+            3          | 1110xxxx 10xxxxxx 10xxxxxx
+            4          | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
 </code></pre>
+
+<p><code>x</code>&nbsp;表示二进制形式的一位，可以是 <code>0</code>&nbsp;或 <code>1</code>。</p>
 
 <p><strong>注意：</strong>输入是整数数组。只有每个整数的 <strong>最低 8 个有效位</strong> 用来存储数据。这意味着每个整数只表示 1 字节的数据。</p>
 

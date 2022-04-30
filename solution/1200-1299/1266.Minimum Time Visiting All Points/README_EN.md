@@ -18,7 +18,6 @@
     </li>
     <li>You have to visit the points in the same order as they appear in the array.</li>
     <li>You are allowed to pass through points that appear later in the order, but these do not count as visits.</li>
-
 </ul>
 
 <p>&nbsp;</p>

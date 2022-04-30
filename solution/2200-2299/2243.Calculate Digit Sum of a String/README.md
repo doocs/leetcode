@@ -54,7 +54,6 @@ s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 	<li><code>s</code> 仅由数字（<code>0</code> - <code>9</code>）组成。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -91,7 +90,7 @@ function digitSum(s: string, k: number): string {
         ans = [];
     }
     return s;
-};
+}
 ```
 
 ### **...**

@@ -57,7 +57,6 @@
 <ul>
     <li><code>0 &lt;=&nbsp;poured &lt;= 10<sup>9</sup></code></li>
     <li><code>0 &lt;= query_glass &lt;= query_row&nbsp;&lt; 100</code></li>
-
 </ul>
 
 ## Solutions

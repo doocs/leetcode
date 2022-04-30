@@ -23,7 +23,6 @@
     	<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is odd.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>&nbsp;</p>

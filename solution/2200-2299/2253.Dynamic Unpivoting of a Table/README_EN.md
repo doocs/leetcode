@@ -66,7 +66,6 @@ Product 2 is sold in Nozama and Souq with prices of 200 and 190.
 Product 3 is sold in Shop and Souq with prices of 1000 and 1900.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

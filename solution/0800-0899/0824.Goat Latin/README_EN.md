@@ -24,7 +24,6 @@
     	<li>For example, the first word gets <code>&quot;a&quot;</code> added to the end, the second word gets <code>&quot;aa&quot;</code> added to the end, and so on.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return<em> the final sentence representing the conversion from sentence to Goat Latin</em>.</p>

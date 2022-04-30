@@ -61,7 +61,6 @@ f(1) = 1 * nums[0] + 2 * nums[1] + ... + 0 * nums[n - 1]
 f(k) = f(k - 1) + s - n * nums[n - k]
 ```
 
-
 <!-- tabs:start -->
 
 ### **Python3**

@@ -53,7 +53,6 @@
 <ul>
     <li><code>1 &lt;= nums.length &lt;= 500</code></li>
     <li><code>1 &lt;= nums[i] &lt;= 100</code></li>
-
 </ul>
 
 ## Solutions

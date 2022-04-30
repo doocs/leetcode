@@ -25,7 +25,6 @@
     	<li>当 <code>k</code>&nbsp;为奇数时，&nbsp;<code>A[k] &lt; A[k+1]</code>。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -10,7 +10,6 @@
 
 <ul>
     <li>For example, the sentence <code>&quot;This is a sentence&quot;</code> can be shuffled as <code>&quot;sentence4 a3 is2 This1&quot;</code> or <code>&quot;is2 sentence4 This1 a3&quot;</code>.</li>
-
 </ul>
 
 <p>Given a <strong>shuffled sentence</strong> <code>s</code> containing no more than <code>9</code> words, reconstruct and return <em>the original sentence</em>.</p>
@@ -51,7 +50,6 @@
     <li>The number of words in <code>s</code> is between <code>1</code> and <code>9</code>.</li>
     <li>The words in <code>s</code> are separated by a single space.</li>
     <li><code>s</code> contains no leading or trailing spaces.</li>
-
 </ul>
 
 ## Solutions

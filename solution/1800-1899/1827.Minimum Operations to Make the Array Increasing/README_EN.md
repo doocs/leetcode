@@ -8,7 +8,6 @@
 
 <ul>
     <li>For example, if <code>nums = [1,2,3]</code>, you can choose to increment <code>nums[1]</code> to make <code>nums = [1,<u><b>3</b></u>,3]</code>.</li>
-
 </ul>
 
 <p>Return <em>the <strong>minimum</strong> number of operations needed to make</em> <code>nums</code> <em><strong>strictly</strong> <strong>increasing</strong>.</em></p>
@@ -62,7 +61,6 @@
 <ul>
     <li><code>1 &lt;= nums.length &lt;= 5000</code></li>
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-
 </ul>
 
 ## Solutions

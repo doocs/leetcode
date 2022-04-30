@@ -527,7 +527,6 @@ public:
 };
 ```
 
-
 ```cpp
 class Solution {
 public:
@@ -556,7 +555,7 @@ class Solution {
 public:
     const int inf = 0x3f3f;
 
-    int networkDelayTime(vector<vector<int>>& times, int n, int k) {  
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<int> dist(n, inf);
         vector<vector<vector<int>>> g(n);
         for (auto& e : times)

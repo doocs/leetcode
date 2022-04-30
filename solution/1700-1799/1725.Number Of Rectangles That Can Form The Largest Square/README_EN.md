@@ -47,7 +47,6 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
     <li><code>rectangles[i].length == 2</code></li>
     <li><code>1 &lt;= l<sub>i</sub>, w<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
     <li><code>l<sub>i</sub> != w<sub>i</sub></code></li>
-
 </ul>
 
 ## Solutions

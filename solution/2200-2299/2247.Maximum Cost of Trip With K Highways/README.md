@@ -24,6 +24,7 @@ Another possible trip is to go from 4 -&gt; 1 -&gt; 2 -&gt; 3. The cost of this 
 It can be proven that 17 is the maximum possible cost of any valid trip.
 
 Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit the city 1 twice.
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -47,7 +48,6 @@ Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit th
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 	<li>There are no duplicate highways.</li>
 </ul>
-
 
 ## 解法
 

@@ -18,8 +18,8 @@
 | commission_rate | int     |
 | hire_date       | date    |
 +-----------------+---------+
-Sales_id是该表的主键列。
-该表的每一行都显示了销售人员的姓名和ID，以及他们的工资、佣金率和雇佣日期。
+sales_id 是该表的主键列。
+该表的每一行都显示了销售人员的姓名和 ID ，以及他们的工资、佣金率和雇佣日期。
 </pre>
 
 <p>&nbsp;</p>
@@ -34,8 +34,8 @@ Sales_id是该表的主键列。
 | name        | varchar |
 | city        | varchar |
 +-------------+---------+
-Com_id是该表的主键列。
-该表的每一行都表示公司的名称和ID，以及公司所在的城市。
+com_id 是该表的主键列。
+该表的每一行都表示公司的名称和 ID ，以及公司所在的城市。
 </pre>
 
 <p>&nbsp;</p>
@@ -52,10 +52,10 @@ Com_id是该表的主键列。
 | sales_id    | int  |
 | amount      | int  |
 +-------------+------+
-Order_id是该表的主键列。
-com_id是Company表中com_id的外键。
-sales_id是来自销售员表com_id的外键。
-该表的每一行包含一个订单的信息。这包括公司的ID、销售人员的ID、订单日期和支付的金额。
+order_id 是该表的主键列。
+com_id 是 Company 表中 com_id 的外键。
+sales_id 是来自销售员表 sales_id 的外键。
+该表的每一行包含一个订单的信息。这包括公司的 ID 、销售人员的 ID 、订单日期和支付的金额。
 </pre>
 
 <p>&nbsp;</p>
@@ -68,10 +68,10 @@ sales_id是来自销售员表com_id的外键。
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong>示例：</strong></p>
 
 <pre>
-<strong>输入:</strong> 
+<strong>输入：</strong>
 SalesPerson 表:
 +----------+------+--------+-----------------+------------+
 | sales_id | name | salary | commission_rate | hire_date  |
@@ -100,7 +100,7 @@ Orders 表:
 | 3        | 3/1/2014   | 1      | 1        | 50000  |
 | 4        | 4/1/2014   | 1      | 4        | 25000  |
 +----------+------------+--------+----------+--------+
-<strong>输出:</strong> 
+<strong>输出：</strong>
 +------+
 | name |
 +------+
@@ -108,7 +108,7 @@ Orders 表:
 | Mark |
 | Alex |
 +------+
-<strong>解释:</strong>
+<strong>解释：</strong>
 根据表&nbsp;<code>orders</code>&nbsp;中的订单 '3' 和 '4' ，容易看出只有 'John' 和 'Pam' 两个销售员曾经向公司 'RED' 销售过。
 所以我们需要输出表&nbsp;<code>salesperson</code>&nbsp;中所有其他人的名字。</pre>
 

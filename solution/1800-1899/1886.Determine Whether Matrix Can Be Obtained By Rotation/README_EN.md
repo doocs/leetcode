@@ -151,7 +151,6 @@ function rotate(matrix: number[][]): void {
         }
     }
 }
-
 ```
 
 ### **Rust**

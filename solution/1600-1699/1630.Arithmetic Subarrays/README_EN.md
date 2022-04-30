@@ -221,7 +221,6 @@ function checkArithmeticSubarrays(
     }
     return res;
 }
-
 ```
 
 ### **Rust**

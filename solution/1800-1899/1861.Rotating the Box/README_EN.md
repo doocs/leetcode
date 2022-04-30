@@ -10,7 +10,6 @@
     <li>A stone <code>&#39;#&#39;</code></li>
     <li>A stationary obstacle <code>&#39;*&#39;</code></li>
     <li>Empty <code>&#39;.&#39;</code></li>
-
 </ul>
 
 <p>The box is rotated <strong>90 degrees clockwise</strong>, causing some of the stones to fall due to gravity. Each stone falls down until it lands on an obstacle, another stone, or the bottom of the box. Gravity <strong>does not</strong> affect the obstacles&#39; positions, and the inertia from the box&#39;s rotation <strong>does not </strong>affect the stones&#39; horizontal positions.</p>
@@ -92,7 +91,6 @@
     <li><code>n == box[i].length</code></li>
     <li><code>1 &lt;= m, n &lt;= 500</code></li>
     <li><code>box[i][j]</code> is either <code>&#39;#&#39;</code>, <code>&#39;*&#39;</code>, or <code>&#39;.&#39;</code>.</li>
-
 </ul>
 
 ## Solutions

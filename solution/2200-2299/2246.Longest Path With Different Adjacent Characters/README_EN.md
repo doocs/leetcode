@@ -66,7 +66,7 @@ function longestPath(parent: number[], s: string): number {
         graph[parent[i]].push(i);
     }
     let ans = 0;
-    function dfs (x: number): number {
+    function dfs(x: number): number {
         let maxLen = 0;
         for (let y of graph[x]) {
             let len = dfs(y) + 1;
@@ -79,7 +79,7 @@ function longestPath(parent: number[], s: string): number {
     }
     dfs(0);
     return ans + 1;
-};
+}
 ```
 
 ### **...**

@@ -23,7 +23,6 @@
     	<li>Example: <code>wordlist = [&quot;YellOw&quot;]</code>, <code>query = &quot;yllw&quot;</code>: <code>correct = &quot;&quot;</code> (no match)</li>
     </ul>
     </li>
-
 </ul>
 
 <p>In addition, the spell checker operates under the following precedence rules:</p>

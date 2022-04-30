@@ -19,7 +19,6 @@
     	<li>例如，<code><strong>aa</strong>c<strong>abb</strong> -> <strong>bb</strong>c<strong>baa</strong></code>（所有 <code>a</code> 转化为 <code>b</code> ，而所有的 <code>b</code> 转换为 <code>a</code> ）</li>
     </ul>
     </li>
-
 </ul>
 
 <p>你可以根据需要对任意一个字符串多次使用这两种操作。</p>

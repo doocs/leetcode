@@ -35,8 +35,8 @@
 	<li><code>n == image[i].length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 	<li><code>image[i][j]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
-	<li><code>1 &lt;= x &lt; m</code></li>
-	<li><code>1 &lt;= y &lt; n</code></li>
+	<li><code>0 &lt;= x &lt; m</code></li>
+	<li><code>0 &lt;= y &lt; n</code></li>
 	<li><code>image[x][y] == &#39;1&#39;.</code></li>
 	<li>The black pixels in the <code>image</code> only form <strong>one component</strong>.</li>
 </ul>
