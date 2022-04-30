@@ -59,13 +59,97 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numSpecialEquivGroups(self, words: List[str]) -> int:
+        s = {''.join(sorted(word[::2]) + sorted(word[1::2])) for word in words}
+        return len(s)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numSpecialEquivGroups(String[] words) {
+        Set<String> s = new HashSet<>();
+        for (String word : words) {
+            s.add(convert(word));
+        }
+        return s.size();
+    }
 
+    private String convert(String word) {
+        List<Character> a = new ArrayList<>();
+        List<Character> b = new ArrayList<>();
+        for (int i = 0; i < word.length(); ++i) {
+            char ch = word.charAt(i);
+            if (i % 2 == 0) {
+                a.add(ch);
+            } else {
+                b.add(ch);
+            }
+        }
+        Collections.sort(a);
+        Collections.sort(b);
+        StringBuilder sb = new StringBuilder();
+        for (char c : a) {
+            sb.append(c);
+        }
+        for (char c : b) {
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSpecialEquivGroups(vector<string>& words) {
+        unordered_set<string> s;
+        for (auto& word : words)
+        {
+            string a = "", b = "";
+            for (int i = 0; i < word.size(); ++i)
+            {
+                if (i & 1) a += word[i];
+                else b += word[i];
+            }
+            sort(a.begin(), a.end());
+            sort(b.begin(), b.end());
+            s.insert(a + b);
+        }
+        return s.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSpecialEquivGroups(words []string) int {
+	s := map[string]bool{}
+	for _, word := range words {
+		a, b := []rune{}, []rune{}
+		for i, c := range word {
+			if i&1 == 1 {
+				a = append(a, c)
+			} else {
+				b = append(b, c)
+			}
+		}
+		sort.Slice(a, func(i, j int) bool {
+			return a[i] < a[j]
+		})
+		sort.Slice(b, func(i, j int) bool {
+			return b[i] < b[j]
+		})
+		s[string(a)+string(b)] = true
+	}
+	return len(s)
+}
 ```
 
 ### **...**
