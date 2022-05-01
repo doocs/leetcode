@@ -85,7 +85,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minTimeToType(self, word: str) -> int:
+        ans = prev = 0
+        for c in word:
+            curr = ord(c) - ord('a')
+            t = abs(prev - curr)
+            t = min(t, 26 - t)
+            ans += t + 1
+            prev = curr
+        return ans
 ```
 
 ### **Java**
@@ -93,7 +102,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minTimeToType(String word) {
+        int ans = 0;
+        int prev = 0;
+        for (char c : word.toCharArray()) {
+            int curr = c - 'a';
+            int t = Math.abs(prev - curr);
+            t = Math.min(t, 26 - t);
+            ans += t + 1;
+            prev = curr;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minTimeToType(string word) {
+        int ans = 0;
+        int prev = 0;
+        for (char& c : word)
+        {
+            int curr = c - 'a';
+            int t = abs(prev - curr);
+            t = min(t, 26 - t);
+            ans += t + 1;
+            prev = curr;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minTimeToType(word string) int {
+	ans, prev := 0, 0
+	for _, c := range word {
+		curr := int(c - 'a')
+		t := abs(prev - curr)
+		t = min(t, 26-t)
+		ans += t + 1
+		prev = curr
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

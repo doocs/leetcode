@@ -2265,6 +2265,14 @@
 |  [2252](https://leetcode.cn/problems/dynamic-pivoting-of-a-table)  |  [Dynamic Pivoting of a Table](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README.md)  |    |  困难  |  🔒  |
 |  [2253](https://leetcode.cn/problems/dynamic-unpivoting-of-a-table)  |  [Dynamic Unpivoting of a Table](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README.md)  |    |  困难  |  🔒  |
 |  [2254](https://leetcode.cn/problems/design-video-sharing-platform)  |  [Design Video Sharing Platform](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README.md)  |    |  困难  |    |
+|  [2255](https://leetcode.cn/problems/count-prefixes-of-a-given-string)  |  [统计是给定字符串前缀的字符串数目](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README.md)  |    |  简单  |    |
+|  [2256](https://leetcode.cn/problems/minimum-average-difference)  |  [最小平均差](/solution/2200-2299/2256.Minimum%20Average%20Difference/README.md)  |    |  中等  |    |
+|  [2257](https://leetcode.cn/problems/count-unguarded-cells-in-the-grid)  |  [统计网格图中没有被保卫的格子数](/solution/2200-2299/2257.Count%20Unguarded%20Cells%20in%20the%20Grid/README.md)  |    |  中等  |    |
+|  [2258](https://leetcode.cn/problems/escape-the-spreading-fire)  |  [逃离火灾](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README.md)  |    |  困难  |    |
+|  [2259](https://leetcode.cn/problems/remove-digit-from-number-to-maximize-result)  |  [移除指定数字得到的最大结果](/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README.md)  |    |  简单  |    |
+|  [2260](https://leetcode.cn/problems/minimum-consecutive-cards-to-pick-up)  |  [必须拿起的最小连续卡牌数](/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README.md)  |    |  中等  |    |
+|  [2261](https://leetcode.cn/problems/k-divisible-elements-subarrays)  |  [含最多 K 个可整除元素的子数组](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md)  |    |  中等  |    |
+|  [2262](https://leetcode.cn/problems/total-appeal-of-a-string)  |  [字符串的总引力](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README.md)  |    |  困难  |    |
 
 ## 版权
 

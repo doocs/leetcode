@@ -2263,6 +2263,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2252](https://leetcode.com/problems/dynamic-pivoting-of-a-table)  |  [Dynamic Pivoting of a Table](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md)  |    |  Hard  |  🔒  |
 |  [2253](https://leetcode.com/problems/dynamic-unpivoting-of-a-table)  |  [Dynamic Unpivoting of a Table](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README_EN.md)  |    |  Hard  |  🔒  |
 |  [2254](https://leetcode.com/problems/design-video-sharing-platform)  |  [Design Video Sharing Platform](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md)  |    |  Hard  |  🔒  |
+|  [2255](https://leetcode.com/problems/count-prefixes-of-a-given-string)  |  [Count Prefixes of a Given String](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README_EN.md)  |    |  Easy  |    |
+|  [2256](https://leetcode.com/problems/minimum-average-difference)  |  [Minimum Average Difference](/solution/2200-2299/2256.Minimum%20Average%20Difference/README_EN.md)  |    |  Medium  |    |
+|  [2257](https://leetcode.com/problems/count-unguarded-cells-in-the-grid)  |  [Count Unguarded Cells in the Grid](/solution/2200-2299/2257.Count%20Unguarded%20Cells%20in%20the%20Grid/README_EN.md)  |    |  Medium  |    |
+|  [2258](https://leetcode.com/problems/escape-the-spreading-fire)  |  [Escape the Spreading Fire](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md)  |    |  Hard  |    |
+|  [2259](https://leetcode.com/problems/remove-digit-from-number-to-maximize-result)  |  [Remove Digit From Number to Maximize Result](/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README_EN.md)  |    |  Easy  |    |
+|  [2260](https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up)  |  [Minimum Consecutive Cards to Pick Up](/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README_EN.md)  |    |  Medium  |    |
+|  [2261](https://leetcode.com/problems/k-divisible-elements-subarrays)  |  [K Divisible Elements Subarrays](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README_EN.md)  |    |  Medium  |    |
+|  [2262](https://leetcode.com/problems/total-appeal-of-a-string)  |  [Total Appeal of A String](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
