@@ -72,13 +72,150 @@ The reason why cdata is NOT <b>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&qu
 ### **Python3**
 
 ```python
+class Solution:
+    def isValid(self, code: str) -> bool:
+        def check(tag):
+            n = len(tag)
+            if n < 1 or n > 9:
+                return False
+            return all(c.isupper() for c in tag)
 
+        stk = []
+        i, n = 0, len(code)
+        while i < n:
+            if i and not stk:
+                return False
+            if code[i: i + 9] == '<![CDATA[':
+                i = code.find(']]>', i + 9)
+                if i < 0:
+                    return False
+                i += 2
+            elif code[i: i + 2] == '</':
+                j = i + 2
+                i = code.find('>', j)
+                if i < 0:
+                    return False
+                t = code[j: i]
+                if not check(t) or not stk or stk[-1] != t:
+                    return False
+                stk.pop()
+            elif code[i] == '<':
+                j = i + 1
+                i = code.find('>', j)
+                if i < 0:
+                    return False
+                t = code[j: i]
+                if not check(t):
+                    return False
+                stk.append(t)
+            i += 1
+        return not stk
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isValid(String code) {
+        Deque<String> stk = new ArrayDeque<>();
+        for (int i = 0; i < code.length(); ++i) {
+            if (i > 0 && stk.isEmpty()) {
+                return false;
+            }
+            if (code.startsWith("<![CDATA[", i)) {
+                i = code.indexOf("]]>", i + 9);
+                if (i < 0) {
+                    return false;
+                }
+                i += 2;
+            } else if (code.startsWith("</", i)) {
+                int j = i + 2;
+                i = code.indexOf(">", j);
+                if (i < 0) {
+                    return false;
+                }
+                String t = code.substring(j, i);
+                if (!check(t) || stk.isEmpty() || !stk.pop().equals(t)) {
+                    return false;
+                }
+            } else if (code.startsWith("<", i)) {
+                int j = i + 1;
+                i = code.indexOf(">", j);
+                if (i < 0) {
+                    return false;
+                }
+                String t = code.substring(j, i);
+                if (!check(t)) {
+                    return false;
+                }
+                stk.push(t);
+            }
+        }
+        return stk.isEmpty();
+    }
 
+    private boolean check(String tag) {
+        int n = tag.length();
+        if (n < 1 || n > 9) {
+            return false;
+        }
+        for (char c : tag.toCharArray()) {
+            if (!Character.isUpperCase(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isValid(string code) {
+        stack<string> stk;
+        for (int i = 0; i < code.size(); ++i)
+        {
+            if (i && stk.empty()) return false;
+            if (code.substr(i, 9) == "<![CDATA[")
+            {
+                i = code.find("]]>", i + 9);
+                if (i < 0) return false;
+                i += 2;
+            }
+            else if (code.substr(i, 2) == "</")
+            {
+                int j = i + 2;
+                i = code.find('>', j);
+                if (i < 0) return false;
+                string t = code.substr(j, i - j);
+                if (!check(t) || stk.empty() || stk.top() != t) return false;
+                stk.pop();
+            }
+            else if (code.substr(i, 1) == "<")
+            {
+                int j = i + 1;
+                i = code.find('>', j);
+                if (i < 0) return false;
+                string t = code.substr(j, i - j);
+                if (!check(t)) return false;
+                stk.push(t);
+            }
+        }
+        return stk.empty();
+    }
+
+    bool check(string tag) {
+        int n = tag.size();
+        if (n < 1 || n > 9) return false;
+        for (char& c : tag)
+            if (!isupper(c))
+                return false;
+        return true;
+    }
+};
 ```
 
 ### **...**
