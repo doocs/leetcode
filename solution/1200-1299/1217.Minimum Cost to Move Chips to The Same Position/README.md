@@ -63,6 +63,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：脑筋急转弯**
+
+将所有偶数下标的芯片移动到 0 号位置，所有奇数下标的芯片移动到 1 号位置，所有的代价为 0，接下来只需要在 0/1 号位置中选择其中一个较小数量的芯片，移动到另一个位置。所需的最小代价就是那个较小的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +74,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minCostToMoveChips(self, position: List[int]) -> int:
+        a = sum(p % 2 for p in position)
+        b = len(position) - a
+        return min(a, b)
 ```
 
 ### **Java**
@@ -78,7 +86,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minCostToMoveChips(int[] position) {
+        int a = 0;
+        for (int p : position) {
+            a += p % 2;
+        }
+        int b = position.length - a;
+        return Math.min(a, b);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostToMoveChips(vector<int>& position) {
+        int a = 0;
+        for (auto& p : position) a += p & 1;
+        int b = position.size() - a;
+        return min(a, b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCostToMoveChips(position []int) int {
+	a := 0
+	for _, p := range position {
+		a += p & 1
+	}
+	b := len(position) - a
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

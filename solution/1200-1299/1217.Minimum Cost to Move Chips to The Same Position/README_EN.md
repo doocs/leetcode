@@ -56,13 +56,56 @@ Total cost is 1.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minCostToMoveChips(self, position: List[int]) -> int:
+        a = sum(p % 2 for p in position)
+        b = len(position) - a
+        return min(a, b)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minCostToMoveChips(int[] position) {
+        int a = 0;
+        for (int p : position) {
+            a += p % 2;
+        }
+        int b = position.length - a;
+        return Math.min(a, b);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostToMoveChips(vector<int>& position) {
+        int a = 0;
+        for (auto& p : position) a += p & 1;
+        int b = position.size() - a;
+        return min(a, b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCostToMoveChips(position []int) int {
+	a := 0
+	for _, p := range position {
+		a += p & 1
+	}
+	b := len(position) - a
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -108,9 +108,7 @@ class Solution:
     def isValid(self, code: str) -> bool:
         def check(tag):
             n = len(tag)
-            if n < 1 or n > 9:
-                return False
-            return all(c.isupper() for c in tag)
+            return 1 <= n <= 9 and all(c.isupper() for c in tag)
 
         stk = []
         i, n = 0, len(code)
@@ -128,9 +126,8 @@ class Solution:
                 if i < 0:
                     return False
                 t = code[j: i]
-                if not check(t) or not stk or stk[-1] != t:
+                if not check(t) or not stk or stk.pop() != t:
                     return False
-                stk.pop()
             elif code[i] == '<':
                 j = i + 1
                 i = code.find('>', j)
