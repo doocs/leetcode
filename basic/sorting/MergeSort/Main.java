@@ -11,8 +11,8 @@ public class Main {
             nums[i] = sc.nextInt();
         }
         mergeSort(nums, 0, n - 1);
-        for (int i = 0; i < n; ++i) {
-            System.out.printf("%d ", nums[i]);
+        for (int x : nums) {
+            System.out.print(x + " ");
         }
     }
     
@@ -20,7 +20,7 @@ public class Main {
         if (left >= right) {
             return;
         }
-        int mid = (left + right) >>> 1;
+        int mid = (left + right) >> 1;
         mergeSort(nums, left, mid);
         mergeSort(nums, mid + 1, right);
         int i = left, j = mid + 1, k = 0;
@@ -30,6 +30,7 @@ public class Main {
             } else {
                 tmp[k++] = nums[j++];
             }
+            
         }
         while (i <= mid) {
             tmp[k++] = nums[i++];

@@ -297,6 +297,79 @@ func mergeSort(nums []int, left, right int) {
 }
 ```
 
+### **JavaScript**
+
+Quick Sort:
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortArray = function (nums) {
+    function quickSort(left, right) {
+        if (left >= right) {
+            return;
+        }
+        let i = left - 1;
+        let j = right + 1;
+        const x = nums[(left + right) >> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
+            }
+        }
+        quickSort(left, j);
+        quickSort(j + 1, right);
+    }
+    const n = nums.length;
+    quickSort(0, n - 1);
+    return nums;
+};
+```
+
+Merge Sort:
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortArray = function (nums) {
+    function mergetSort(left, right) {
+        if (left >= right) {
+            return;
+        }
+        const mid = (left + right) >> 1;
+        mergetSort(left, mid);
+        mergetSort(mid + 1, right);
+        let [i, j, k] = [left, mid + 1, 0];
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
+            } else {
+                tmp[k++] = nums[j++];
+            }
+        }
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        for (i = left, j = 0; i <= right; ++i, ++j) {
+            nums[i] = tmp[j];
+        }
+    }
+    const n = nums.length;
+    let tmp = new Array(n).fill(0);
+    mergetSort(0, n - 1);
+    return nums;
+};
+```
+
 ### **...**
 
 ```
