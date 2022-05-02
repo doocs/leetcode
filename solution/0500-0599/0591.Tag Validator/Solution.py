@@ -9,17 +9,17 @@ class Solution:
         while i < n:
             if i and not stk:
                 return False
-            if code[i: i + 9] == '<![CDATA[':
+            if code[i : i + 9] == '<![CDATA[':
                 i = code.find(']]>', i + 9)
                 if i < 0:
                     return False
                 i += 2
-            elif code[i: i + 2] == '</':
+            elif code[i : i + 2] == '</':
                 j = i + 2
                 i = code.find('>', j)
                 if i < 0:
                     return False
-                t = code[j: i]
+                t = code[j:i]
                 if not check(t) or not stk or stk.pop() != t:
                     return False
             elif code[i] == '<':
@@ -27,7 +27,7 @@ class Solution:
                 i = code.find('>', j)
                 if i < 0:
                     return False
-                t = code[j: i]
+                t = code[j:i]
                 if not check(t):
                     return False
                 stk.append(t)
