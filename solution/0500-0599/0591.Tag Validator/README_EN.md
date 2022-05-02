@@ -25,9 +25,9 @@
 <pre>
 <strong>Input:</strong> code = &quot;&lt;DIV&gt;This is the first line &lt;![CDATA[&lt;div&gt;]]&gt;&lt;/DIV&gt;&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 
-The code is wrapped in a closed tag : &lt;DIV&gt; and &lt;/DIV&gt;. 
-The TAG_NAME is valid, the TAG_CONTENT consists of some characters and cdata. 
+<strong>Explanation:</strong>
+The code is wrapped in a closed tag : &lt;DIV&gt; and &lt;/DIV&gt;.
+The TAG_NAME is valid, the TAG_CONTENT consists of some characters and cdata.
 Although CDATA_CONTENT has an unmatched start tag with invalid TAG_NAME, it should be considered as plain text, not parsed as a tag.
 So TAG_CONTENT is valid, and then the code is valid. Thus return true.
 </pre>
@@ -213,6 +213,121 @@ public:
         return true;
     }
 };
+```
+
+### **Go**
+
+```go
+func isValid(code string) bool {
+	var stk []string
+	for i := 0; i < len(code); i++ {
+		if i > 0 && len(stk) == 0 {
+			return false
+		}
+		if strings.HasPrefix(code[i:], "<![CDATA[") {
+			n := strings.Index(code[i+9:], "]]>")
+			if n == -1 {
+				return false
+			}
+			i += n + 11
+		} else if strings.HasPrefix(code[i:], "</") {
+			if len(stk) == 0 {
+				return false
+			}
+			j := i + 2
+			n := strings.IndexByte(code[j:], '>')
+			if n == -1 {
+				return false
+			}
+			t := code[j : j+n]
+			last := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			if !check(t) || last != t {
+				return false
+			}
+			i += n + 2
+		} else if strings.HasPrefix(code[i:], "<") {
+			j := i + 1
+			n := strings.IndexByte(code[j:], '>')
+			if n == -1 {
+				return false
+			}
+			t := code[j : j+n]
+			if !check(t) {
+				return false
+			}
+			stk = append(stk, t)
+			i += n + 1
+		}
+	}
+	return len(stk) == 0
+}
+
+func check(tag string) bool {
+	n := len(tag)
+	if n < 1 || n > 9 {
+		return false
+	}
+	for _, c := range tag {
+		if c < 'A' || c > 'Z' {
+			return false
+		}
+	}
+	return true
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_valid(code: String) -> bool {
+        fn check(tag: &str) -> bool {
+            let n = tag.len();
+            n >= 1 && n <= 9 && tag.as_bytes().iter().all(|b| b.is_ascii_uppercase())
+        }
+
+        let mut stk = Vec::new();
+        let mut i = 0;
+        while i < code.len() {
+            if i > 0 && stk.is_empty() {
+                return false;
+            }
+            if code[i..].starts_with("<![CDATA[") {
+                match code[i + 9..].find("]]>") {
+                    Some(n) => i += n + 11,
+                    None => return false,
+                };
+            } else if code[i..].starts_with("</") {
+                let j = i + 2;
+                match code[j..].find('>') {
+                    Some(n) => {
+                        let t = &code[j..j + n];
+                        if !check(t) || stk.is_empty() || stk.pop().unwrap() != t {
+                            return false;
+                        }
+                        i += n + 2;
+                    }
+                    None => return false,
+                };
+            } else if code[i..].starts_with("<") {
+                let j = i + 1;
+                match code[j..].find('>') {
+                    Some(n) => {
+                        let t = &code[j..j + n];
+                        if !check(t) {
+                            return false;
+                        }
+                        stk.push(t);
+                    }
+                    None => return false,
+                };
+            }
+            i += 1;
+        }
+        stk.is_empty()
+    }
+}
 ```
 
 ### **...**
