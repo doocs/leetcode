@@ -82,6 +82,55 @@ public:
 
 ```
 
+### **TypeScript**
+
+```ts
+function numSubarrayProductLessThanK(nums: number[], k: number): number {
+    if (k <= 1) {
+        return 0;
+    }
+
+    const n = nums.length;
+    let res = 0;
+    for (let i = 0; i < n; i++) {
+        let product = 1;
+        for (let j = i; j < n; j++) {
+            product *= nums[j];
+            if (product >= k) {
+                break;
+            }
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn num_subarray_product_less_than_k(nums: Vec<i32>, k: i32) -> i32 {
+        if k <= 1 {
+            return 0;
+        }
+
+        let mut res = 0;
+        let mut product = 1;
+        let mut i = 0;
+        nums.iter().enumerate().for_each(|(j, v)| {
+            product *= v;
+            while product >= k {
+                product /= nums[i];
+                i += 1;
+            }
+            res += j - i + 1;
+        });
+        res as i32
+    }
+}
+```
+
 ### **...**
 
 ```
