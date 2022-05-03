@@ -48,6 +48,19 @@ class Solution:
         return bin(int(a, 2) + int(b, 2))[2:]
 ```
 
+```python
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        ans = []
+        i, j, carry = len(a) - 1, len(b) - 1, 0
+        while i >= 0 or j >= 0 or carry:
+            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
+            carry, v = divmod(carry, 2)
+            ans.append(str(v))
+            i, j = i - 1, j - 1
+        return ''.join(ans[::-1])
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -56,13 +69,10 @@ class Solution:
 class Solution {
     public String addBinary(String a, String b) {
         StringBuilder sb = new StringBuilder();
-        int i = a.length() - 1, j = b.length() - 1, carry = 0;
-        while (i >= 0 || j >= 0 || carry != 0) {
-            int s = carry + (i >= 0 ? a.charAt(i) - '0' : 0) + (j >= 0 ? b.charAt(j) - '0' : 0);
-            sb.append(s % 2);
-            carry = s / 2;
-            --i;
-            --j;
+        for (int i = a.length() - 1, j = b.length() - 1, carry = 0; i >= 0 || j >= 0 || carry > 0; --i, --j) {
+            carry += (i >= 0 ? a.charAt(i) - '0' : 0) + (j >= 0 ? b.charAt(j) - '0' : 0);
+            sb.append(carry % 2);
+            carry /= 2;
         }
         return sb.reverse().toString();
     }

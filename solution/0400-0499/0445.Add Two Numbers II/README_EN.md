@@ -66,9 +66,9 @@ class Solution:
         carry, dummy = 0, ListNode()
         while s1 or s2 or carry:
             carry += (0 if not s1 else s1.pop()) + (0 if not s2 else s2.pop())
-            node = ListNode(carry % 10, dummy.next)
+            carry, val = divmod(carry, 10)
+            node = ListNode(val, dummy.next)
             dummy.next = node
-            carry //= 10
         return dummy.next
 ```
 

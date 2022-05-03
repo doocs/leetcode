@@ -53,7 +53,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-利用栈将数字逆序。
+**方法一：栈**
+
+利用两个栈分别存储两个链表元素。然后对两个栈中对应元素相加，并记录进位 carry。
 
 <!-- tabs:start -->
 
@@ -79,10 +81,9 @@ class Solution:
         carry, dummy = 0, ListNode()
         while s1 or s2 or carry:
             carry += (0 if not s1 else s1.pop()) + (0 if not s2 else s2.pop())
-            # 创建结点，利用头插法将结点插入链表
-            node = ListNode(carry % 10, dummy.next)
+            carry, val = divmod(carry, 10)
+            node = ListNode(val, dummy.next)
             dummy.next = node
-            carry //= 10
         return dummy.next
 ```
 
@@ -102,6 +103,7 @@ class Solution:
  * }
  */
 class Solution {
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         Deque<Integer> s1 = new ArrayDeque<>();
         Deque<Integer> s2 = new ArrayDeque<>();
@@ -114,7 +116,8 @@ class Solution {
         int carry = 0;
         ListNode dummy = new ListNode();
         while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
-            carry += (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
+            carry +=
+                (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
             ListNode node = new ListNode(carry % 10, dummy.next);
             dummy.next = node;
             carry /= 10;
@@ -122,6 +125,7 @@ class Solution {
         return dummy.next;
     }
 }
+
 ```
 
 ### **C++**

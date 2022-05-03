@@ -1,8 +1,7 @@
 class Solution:
     def isValid(self, code: str) -> bool:
         def check(tag):
-            n = len(tag)
-            return 1 <= n <= 9 and all(c.isupper() for c in tag)
+            return 1 <= len(tag) <= 9 and all(c.isupper() for c in tag)
 
         stk = []
         i, n = 0, len(code)
