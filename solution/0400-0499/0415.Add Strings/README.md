@@ -58,13 +58,12 @@
 ```python
 class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
+        i, j, carry = len(num1) - 1, len(num2) - 1, 0
         ans = []
-        i, j = len(num1) - 1, len(num2) - 1
-        carry = 0
         while i >= 0 or j >= 0 or carry:
             carry += (0 if i < 0 else int(num1[i])) + (0 if j < 0 else int(num2[j]))
-            ans.append(str(carry % 10))
-            carry //= 10
+            carry, v = divmod(carry, 10)
+            ans.append(str(v))
             i, j = i - 1, j - 1
         return ''.join(ans[::-1])
 ```
@@ -76,11 +75,10 @@ class Solution:
 ```java
 class Solution {
     public String addStrings(String num1, String num2) {
-        int i = num1.length() - 1, j = num2.length() - 1;
-        int carry = 0;
         StringBuilder ans = new StringBuilder();
-        while (i >= 0 || j >= 0 || carry > 0) {
-            carry += (i < 0 ? 0 : num1.charAt(i--) - '0') + (j < 0 ? 0 : num2.charAt(j--) - '0');
+        int i = num1.length() - 1, j = num2.length() - 1, carry = 0;
+        for (; i >= 0 || j >= 0 || carry > 0; --i, --j) {
+            carry += (i < 0 ? 0 : num1.charAt(i) - '0') + (j < 0 ? 0 : num2.charAt(j) - '0');
             ans.append(carry % 10);
             carry /= 10;
         }
@@ -99,18 +97,14 @@ class Solution {
  */
 var addStrings = function (num1, num2) {
     let ans = [];
-    for (
-        let i = num1.length - 1, j = num2.length - 1, sum = 0;
-        i >= 0 || j >= 0 || sum > 0;
-        i--, j--
-    ) {
-        const a = i >= 0 ? parseInt(num1.charAt(i), 10) : 0;
-        const b = j >= 0 ? parseInt(num2.charAt(j), 10) : 0;
-        sum += a + b;
-        ans.unshift(sum % 10);
-        sum = Math.floor(sum / 10);
+    let [i, j, carry] = [num1.length - 1, num2.length - 1, 0];
+    for (; i >= 0 || j >= 0 || carry; --i, --j) {
+        carry += i < 0 ? 0 : parseInt(num1.charAt(i), 10);
+        carry += j < 0 ? 0 : parseInt(num2.charAt(j), 10);
+        ans.push(carry % 10);
+        carry = Math.floor(carry / 10);
     }
-    return ans.join('');
+    return ans.reverse().join('');
 };
 ```
 
@@ -120,12 +114,11 @@ var addStrings = function (num1, num2) {
 class Solution {
 public:
     string addStrings(string num1, string num2) {
-        int i = num1.size() - 1, j = num2.size() - 1;
-        int carry = 0;
         string ans;
-        while (i >= 0 || j >= 0 || carry)
+        int i = num1.size() - 1, j = num2.size() - 1, carry = 0;
+        for (; i >= 0 || j >= 0 || carry; --i, --j)
         {
-            carry += (i < 0 ? 0 : num1[i--] - '0') + (j < 0 ? 0 : num2[j--] - '0');
+            carry += (i < 0 ? 0 : num1[i] - '0') + (j < 0 ? 0 : num2[j] - '0');
             ans += to_string(carry % 10);
             carry /= 10;
         }
@@ -139,9 +132,9 @@ public:
 
 ```go
 func addStrings(num1 string, num2 string) string {
-	carry := 0
 	ans := ""
-	for i, j := len(num1)-1, len(num2)-1; i >= 0 || j >= 0 || carry != 0; i, j = i-1, j-1 {
+	i, j, carry := len(num1)-1, len(num2)-1, 0
+	for ; i >= 0 || j >= 0 || carry != 0; i, j = i-1, j-1 {
 		if i >= 0 {
 			carry += int(num1[i] - '0')
 		}

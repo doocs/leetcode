@@ -58,7 +58,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-数组从尾到头遍历，分别与 `K` 中的每一位相加，进位保存在 `carry` 中，不进位和则添加到结果列表中。最后逆序结果列表即可。
+数组从尾到头遍历，分别与 `k` 中的每一位相加，进位保存在 `carry` 中，不进位和则添加到结果列表中。最后逆序结果列表即可。
 
 <!-- tabs:start -->
 
@@ -68,16 +68,16 @@
 
 ```python
 class Solution:
-    def addToArrayForm(self, A: List[int], K: int) -> List[int]:
-        n = len(A) - 1
-        carry, res = 0, []
-        while n >= 0 or K != 0 or carry != 0:
-            carry += (0 if n < 0 else A[n]) + (K % 10)
-            res.append(carry % 10)
-            K //= 10
-            carry //= 10
-            n -= 1
-        return res[::-1]
+    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
+        i, carry = len(num) - 1, 0
+        ans = []
+        while i >= 0 or k or carry:
+            carry += (0 if i < 0 else num[i]) + (k % 10)
+            carry, v = divmod(carry, 10)
+            ans.append(v)
+            k //= 10
+            i -= 1
+        return ans[::-1]
 ```
 
 ### **Java**
@@ -86,19 +86,16 @@ class Solution:
 
 ```java
 class Solution {
-    public List<Integer> addToArrayForm(int[] A, int K) {
-        int n = A.length - 1;
-        List<Integer> res = new ArrayList<>();
-        int carry = 0;
-        while (n >= 0 || K != 0 || carry != 0) {
-            carry += (n < 0 ? 0 : A[n]) + (K % 10);
-            res.add(carry % 10);
-            K /= 10;
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        int i = num.length - 1, carry = 0;
+        LinkedList<Integer> ans = new LinkedList<>();
+        while (i >= 0 || k > 0 || carry > 0) {
+            carry += (i < 0 ? 0 : num[i--]) + k % 10;
+            ans.addFirst(carry % 10);
             carry /= 10;
-            --n;
+            k /= 10;
         }
-        Collections.reverse(res);
-        return res;
+        return ans;
     }
 }
 ```
@@ -158,6 +155,49 @@ impl Solution {
         res.reverse();
         res
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> addToArrayForm(vector<int>& num, int k) {
+        int i = num.size() - 1, carry = 0;
+        vector<int> ans;
+        for (; i >= 0 || k || carry; --i)
+        {
+            carry += (i < 0 ? 0 : num[i]) + k % 10;
+            ans.push_back(carry % 10);
+            carry /= 10;
+            k /= 10;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func addToArrayForm(num []int, k int) []int {
+	i, carry := len(num)-1, 0
+	ans := []int{}
+	for ; i >= 0 || k > 0 || carry > 0; i-- {
+		if i >= 0 {
+			carry += num[i]
+		}
+		carry += k % 10
+		ans = append(ans, carry%10)
+		carry /= 10
+		k /= 10
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return ans
 }
 ```
 

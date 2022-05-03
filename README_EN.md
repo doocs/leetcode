@@ -38,6 +38,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Find the Student that Will Replace the Chalk](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md) - Binary search
 -   [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md) - Binary search
 -   [Sort an Array](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md) - Quick Sort, Merge Sort
+-   [Add Strings](/solution/0400-0499/0415.Add%20Strings/README_EN.md) - Addition of large numbers
 
 ### 2. Search
 

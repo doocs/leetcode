@@ -39,6 +39,7 @@
 -   [找到需要补充粉笔的学生编号](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md) - 二分查找
 -   [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md) - 二分查找
 -   [排序数组](/solution/0900-0999/0912.Sort%20an%20Array/README.md) - 快速排序、归并排序
+-   [字符串相加](/solution/0400-0499/0415.Add%20Strings/README.md) - 高精度加法
 <!-- 排序算法、待补充 -->
 
 ### 2. 搜索
