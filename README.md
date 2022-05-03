@@ -40,6 +40,7 @@
 -   [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md) - 二分查找
 -   [排序数组](/solution/0900-0999/0912.Sort%20an%20Array/README.md) - 快速排序、归并排序
 -   [字符串相加](/solution/0400-0499/0415.Add%20Strings/README.md) - 高精度加法
+-   [字符串相乘](/solution/0000-0099/0043.Multiply%20Strings/README.md) - 高精度乘法
 <!-- 排序算法、待补充 -->
 
 ### 2. 搜索

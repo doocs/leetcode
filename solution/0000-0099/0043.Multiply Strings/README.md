@@ -47,30 +47,27 @@
 ```python
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
-        def add(s1, s2):
-            n1, n2 = len(s1), len(s2)
-            i = carry = 0
-            res = []
-            while i < max(n1, n2) or carry > 0:
-                a = int(s1[n1 - i - 1]) if i < n1 else 0
-                b = int(s2[n2 - i - 1]) if i < n2 else 0
-                carry, t = divmod(a + b + carry, 10)
-                res.append(str(t))
-                i += 1
-            return ''.join(res[::-1])
+        def mul(b, i):
+            j, t = m - 1, 0
+            while j >= 0 or t:
+                if j >= 0:
+                    a = int(num1[j])
+                    t += a * b
+                res[i] += t % 10
+                if res[i] >= 10:
+                    res[i] %= 10
+                    res[i + 1] += 1
+                i, j = i + 1, j - 1
+                t //= 10
 
-        if '0' in [num1, num2]:
-            return '0'
-        n1, n2 = len(num1), len(num2)
-        ans = ''
-        for i in range(n1):
-            a = int(num1[n1 - i - 1])
-            t = ''
-            for j in range(n2):
-                b = int(num2[n2 - j - 1])
-                t = add(t, str(a * b) + '0' * j)
-            ans = add(ans, t + '0' * i)
-        return ans
+        m, n = len(num1), len(num2)
+        res = [0] * (m + n)
+        for i in range(n):
+            b = int(num2[n - 1 - i])
+            mul(b, i)
+        while len(res) > 1 and res[-1] == 0:
+            res.pop()
+        return ''.join([str(v) for v in res[::-1]])
 ```
 
 ### **Java**
@@ -80,43 +77,114 @@ class Solution:
 ```java
 class Solution {
     public String multiply(String num1, String num2) {
-        if (Objects.equals(num1, "0") || Objects.equals(num2, "0")) {
-            return "0";
+        int m = num1.length(), n = num2.length();
+        int[] res = new int[m + n];
+        for (int i = 0; i < n; ++i) {
+            int b = num2.charAt(n - 1 - i) - '0';
+            mul(num1, b, i, res);
         }
-        int n1 = num1.length(), n2 = num2.length();
-        String ans = "";
-        for (int i = 0; i < n1; ++i) {
-            int a = num1.charAt(n1 - i - 1) - '0';
-            String t = "";
-            for (int j = 0; j < n2; ++j) {
-                int b = num2.charAt(n2 - j - 1) - '0';
-                StringBuilder sb = new StringBuilder(String.valueOf(a * b));
-                for (int k = 0; k < j; ++k) {
-                    sb.append(0);
-                }
-                t = add(t, sb.toString());
-            }
-            StringBuilder sb = new StringBuilder(t);
-            for (int k = 0; k < i; ++k) {
-                sb.append(0);
-            }
-            ans = add(ans, sb.toString());
+        StringBuilder ans = new StringBuilder();
+        for (int v : res) {
+            ans.append(v);
         }
+        while (ans.length() > 1 && ans.charAt(ans.length() - 1) == '0') {
+            ans.deleteCharAt(ans.length() - 1);
+        }
+        return ans.reverse().toString();
+    }
+
+    private void mul(String A, int b, int i, int[] res) {
+        for (int j = A.length() - 1, t = 0; j >= 0 || t > 0; --j) {
+            if (j >= 0) {
+                int a = A.charAt(j) - '0';
+                t += a * b;
+            }
+            res[i++] += t % 10;
+            if (res[i - 1] >= 10) {
+                res[i - 1] %= 10;
+                ++res[i];
+            }
+            t /= 10;
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string multiply(string num1, string num2) {
+        int m = num1.size(), n = num2.size();
+        vector<int> res(m + n);
+        for (int i = 0; i < n; ++i)
+        {
+            int b = num2[n - 1 - i] - '0';
+            mul(num1, b, i, res);
+        }
+        string ans = "";
+        for (int v : res) ans.push_back(v + '0');
+        while (ans.size() > 1 && ans.back() == '0') ans.pop_back();
+        reverse(ans.begin(), ans.end());
         return ans;
     }
 
-    private String add(String s1, String s2) {
-        int n1 = s1.length(), n2 = s2.length();
-        StringBuilder res = new StringBuilder();
-        for (int i = 0, carry = 0; i < Math.max(n1, n2) || carry > 0; ++i) {
-            int a = i < n1 ? (s1.charAt(n1 - i - 1) - '0') : 0;
-            int b = i < n2 ? (s2.charAt(n2 - i - 1) - '0') : 0;
-            int s = a + b + carry;
-            carry = s / 10;
-            res.append(s % 10);
+    void mul(string A, int b, int i, vector<int>& res) {
+        for (int j = A.size() - 1, t = 0; j >= 0 || t > 0; --j)
+        {
+            if (j >= 0)
+            {
+                int a = A[j] - '0';
+                t += a * b;
+            }
+            res[i++] += t % 10;
+            if (res[i - 1] >= 10)
+            {
+                res[i - 1] %= 10;
+                ++res[i];
+            }
+            t /= 10;
         }
-        return res.reverse().toString();
     }
+};
+```
+
+### **Go**
+
+```go
+func multiply(num1 string, num2 string) string {
+	m, n := len(num1), len(num2)
+	res := make([]int, m+n)
+	mul := func(b, i int) {
+		for j, t := m-1, 0; j >= 0 || t > 0; i, j = i+1, j-1 {
+			if j >= 0 {
+				a := int(num1[j] - '0')
+				t += a * b
+			}
+			res[i] += t % 10
+			if res[i] >= 10 {
+				res[i] %= 10
+				res[i+1]++
+			}
+			t /= 10
+		}
+	}
+	for i := 0; i < n; i++ {
+		b := num2[n-1-i] - '0'
+		mul(int(b), i)
+	}
+	var ans []byte
+	for _, v := range res {
+		ans = append(ans, byte(v+'0'))
+	}
+	for len(ans) > 1 && ans[len(ans)-1] == '0' {
+		ans = ans[:len(ans)-1]
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return string(ans)
 }
 ```
 

@@ -1,26 +1,23 @@
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
-        def add(s1, s2):
-            n1, n2 = len(s1), len(s2)
-            i = carry = 0
-            res = []
-            while i < max(n1, n2) or carry > 0:
-                a = int(s1[n1 - i - 1]) if i < n1 else 0
-                b = int(s2[n2 - i - 1]) if i < n2 else 0
-                carry, t = divmod(a + b + carry, 10)
-                res.append(str(t))
-                i += 1
-            return ''.join(res[::-1])
+        def mul(b, i):
+            j, t = m - 1, 0
+            while j >= 0 or t:
+                if j >= 0:
+                    a = int(num1[j])
+                    t += a * b
+                res[i] += t % 10
+                if res[i] >= 10:
+                    res[i] %= 10
+                    res[i + 1] += 1
+                i, j = i + 1, j - 1
+                t //= 10
 
-        if '0' in [num1, num2]:
-            return '0'
-        n1, n2 = len(num1), len(num2)
-        ans = ''
-        for i in range(n1):
-            a = int(num1[n1 - i - 1])
-            t = ''
-            for j in range(n2):
-                b = int(num2[n2 - j - 1])
-                t = add(t, str(a * b) + '0' * j)
-            ans = add(ans, t + '0' * i)
-        return ans
+        m, n = len(num1), len(num2)
+        res = [0] * (m + n)
+        for i in range(n):
+            b = int(num2[n - 1 - i])
+            mul(b, i)
+        while len(res) > 1 and res[-1] == 0:
+            res.pop()
+        return ''.join([str(v) for v in res[::-1]])
