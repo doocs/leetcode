@@ -42,6 +42,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Multiply Strings](/solution/0000-0099/0043.Multiply%20Strings/README_EN.md) - Multiply large numbers
 -   [Range Sum Query - Immutable](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README_EN.md) - Prefix sum
 -   [Range Sum Query 2D - Immutable](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md) - Prefix sum
+-   [Range Addition](/solution/0300-0399/0370.Range%20Addition/README_EN.md) - Prefix sum, Difference array
 -   [ Stamping the Grid](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md) - Prefix sum, Difference array
 
 ### 2. Search

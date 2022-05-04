@@ -5,6 +5,4 @@ class Solution:
             delta[start] += inc
             if end + 1 < length:
                 delta[end + 1] -= inc
-        for i in range(1, length):
-            delta[i] += delta[i - 1]
-        return delta
+        return list(accumulate(delta))
