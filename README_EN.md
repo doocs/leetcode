@@ -40,6 +40,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Sort an Array](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md) - Quick Sort, Merge Sort
 -   [Add Strings](/solution/0400-0499/0415.Add%20Strings/README_EN.md) - Addition of large numbers
 -   [Multiply Strings](/solution/0000-0099/0043.Multiply%20Strings/README_EN.md) - Multiply large numbers
+-   [Range Sum Query - Immutable](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README_EN.md) - Prefix sum
 -   [Range Sum Query 2D - Immutable](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md) - Prefix sum
 -   [ Stamping the Grid](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md) - Prefix sum, Difference array
 

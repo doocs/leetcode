@@ -60,6 +60,12 @@
 
 **方法一：二维前缀和 + 二维差分**
 
+`s[i + 1][j + 1]` 表示第 i 行第 j 列左上部分所有元素之和，其中 i, j 下标从 0 开始。
+
+则 `s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]`。
+
+以 (x1, y1) 为左上角，(x2, y2) 为右下角的子矩阵和 `sub = s[x2 + 1][y2 + 1] - s[x2 + 1][y1] - s[x1][y2 + 1] + s[x1][y1]`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -85,7 +91,7 @@ class Solution:
                         d[i][y] -= 1
                         d[x][j] -= 1
                         d[x][y] += 1
-        
+
         cnt = [[0] * (n + 1) for _ in range(m + 1)]
         for i, row in enumerate(grid):
             for j, v in enumerate(row):

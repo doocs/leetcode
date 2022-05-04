@@ -52,6 +52,10 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和**
+
+前缀和计算公式：`s[i + 1] = s[i] + nums[i]`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,19 +66,15 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 class NumArray:
 
     def __init__(self, nums: List[int]):
-        n = len(nums)
-        self.sums = [0] * (n + 1)
-        for i in range(n):
-            self.sums[i + 1] = nums[i] + self.sums[i]
+        self.s = [0] + list(accumulate(nums))
 
-
-    def sumRange(self, i: int, j: int) -> int:
-        return self.sums[j + 1] - self.sums[i]
+    def sumRange(self, left: int, right: int) -> int:
+        return self.s[right + 1] - self.s[left]
 
 
 # Your NumArray object will be instantiated and called as such:
 # obj = NumArray(nums)
-# param_1 = obj.sumRange(i,j)
+# param_1 = obj.sumRange(left,right)
 ```
 
 ### **Java**
@@ -83,26 +83,77 @@ class NumArray:
 
 ```java
 class NumArray {
-
-    private int[] sums;
+    private int[] s;
 
     public NumArray(int[] nums) {
         int n = nums.length;
-        sums = new int[n + 1];
+        s = new int[n + 1];
         for (int i = 0; i < n; ++i) {
-            sums[i + 1] = nums[i] + sums[i];
+            s[i + 1] = s[i] + nums[i];
         }
     }
-
-    public int sumRange(int i, int j) {
-        return sums[j + 1] - sums[i];
+    
+    public int sumRange(int left, int right) {
+        return s[right + 1] - s[left];
     }
 }
 
 /**
  * Your NumArray object will be instantiated and called as such:
  * NumArray obj = new NumArray(nums);
- * int param_1 = obj.sumRange(i,j);
+ * int param_1 = obj.sumRange(left,right);
+ */
+```
+
+### **C++**
+
+```cpp
+class NumArray {
+public:
+    vector<int> s;
+
+    NumArray(vector<int>& nums) {
+        int n = nums.size();
+        s.resize(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+    }
+    
+    int sumRange(int left, int right) {
+        return s[right + 1] - s[left];
+    }
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray* obj = new NumArray(nums);
+ * int param_1 = obj->sumRange(left,right);
+ */
+```
+
+### **Go**
+
+```go
+type NumArray struct {
+	s []int
+}
+
+func Constructor(nums []int) NumArray {
+	n := len(nums)
+	s := make([]int, n+1)
+	for i, v := range nums {
+		s[i+1] = s[i] + v
+	}
+	return NumArray{s}
+}
+
+func (this *NumArray) SumRange(left int, right int) int {
+	return this.s[right+1] - this.s[left]
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * obj := Constructor(nums);
+ * param_1 := obj.SumRange(left,right);
  */
 ```
 
@@ -171,6 +222,36 @@ impl NumArray {
  * Your NumArray object will be instantiated and called as such:
  * let obj = NumArray::new(nums);
  * let ret_1: i32 = obj.sum_range(left, right);
+ */
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ */
+var NumArray = function (nums) {
+    const n = nums.length;
+    this.s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        this.s[i + 1] = this.s[i] + nums[i];
+    }
+};
+
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+NumArray.prototype.sumRange = function (left, right) {
+    return this.s[right + 1] - this.s[left];
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * var param_1 = obj.sumRange(left,right)
  */
 ```
 
