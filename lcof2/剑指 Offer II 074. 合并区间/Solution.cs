@@ -1,27 +1,23 @@
 public class Solution {
     public int[][] Merge(int[][] intervals) {
-        var res = new List<int[]>();
-        int st = -1, ed = -1;
-        foreach (var e in intervals.OrderBy(a => a[0]))
+        intervals = intervals.OrderBy(a => a[0]).ToArray();
+        int st = intervals[0][0], ed = intervals[0][1];
+        var ans = new List<int[]>();
+        for (int i = 1; i < intervals.Length; ++i)
         {
-            if (ed < e[0])
+            int s = intervals[i][0], e = intervals[i][1];
+            if (ed < s)
             {
-                if (st != -1)
-                {
-                    res.Add(new int[] { st, ed });
-                }
-                st = e[0];
-                ed = e[1];
+                ans.Add(new int[]{st, ed});
+                st = s;
+                ed = e;
             }
             else
             {
-                ed = Math.Max(ed, e[1]);
+                ed = Math.Max(ed, e);
             }
         }
-        if (st != -1)
-        {
-            res.Add(new int[] { st, ed });
-        }
-        return res.ToArray();
+        ans.Add(new int[]{st, ed});
+        return ans.ToArray();
     }
 }

@@ -64,6 +64,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：区间合并**
+
 区间合并，将所有存在交集的区间进行合并。
 
 <!-- tabs:start -->
@@ -75,21 +77,19 @@
 ```python
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-        def merge(intervals: List[List[int]]) -> List[List[int]]:
-            intervals.sort(key=lambda x: x[0])
-            st = ed = -1
-            res = []
-            for s, e in intervals:
+        def merge(intervals):
+            intervals.sort()
+            ans = []
+            st, ed = intervals[0]
+            for s, e in intervals[1:]:
                 if ed < s:
-                    if st != -1:
-                        res.append([st, ed])
+                    ans.append([st, ed])
                     st, ed = s, e
                 else:
                     ed = max(ed, e)
-            if st != -1:
-                res.append([st, ed])
-            return res
-
+            ans.append([st, ed])
+            return ans
+        
         intervals.append(newInterval)
         return merge(intervals)
 ```
@@ -121,36 +121,27 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInterval) {
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         intervals.push_back(newInterval);
         return merge(intervals);
     }
 
-    vector<vector<int>> merge(vector<vector<int>> &intervals) {
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
         sort(intervals.begin(), intervals.end());
-        vector<vector<int>> res;
-        int st = -1, ed = -1;
-        for (auto e : intervals)
+        int st = intervals[0][0], ed = intervals[0][1];
+        vector<vector<int>> ans;
+        for (int i = 1; i < intervals.size(); ++i)
         {
-            if (ed < e[0])
+            int s = intervals[i][0], e = intervals[i][1];
+            if (ed < s)
             {
-                if (st != -1)
-                {
-                    res.push_back({st, ed});
-                }
-                st = e[0];
-                ed = e[1];
+                ans.push_back({st, ed});
+                st = s, ed = e;
             }
-            else
-            {
-                ed = max(ed, e[1]);
-            }
+            else ed = max(ed, e);
         }
-        if (st != -1)
-        {
-            res.push_back({st, ed});
-        }
-        return res;
+        ans.push_back({st, ed});
+        return ans;
     }
 };
 ```
@@ -164,32 +155,21 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 }
 
 func merge(intervals [][]int) [][]int {
-	var res [][]int
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
-	st, ed := -1, -1
-	for _, e := range intervals {
+	st, ed := intervals[0][0], intervals[0][1]
+	var ans [][]int
+	for _, e := range intervals[1:] {
 		if ed < e[0] {
-			if st != -1 {
-				res = append(res, []int{st, ed})
-			}
+			ans = append(ans, []int{st, ed})
 			st, ed = e[0], e[1]
-		} else {
-			ed = max(ed, e[1])
+		} else if ed < e[1] {
+			ed = e[1]
 		}
 	}
-	if st != -1 {
-		res = append(res, []int{st, ed})
-	}
-	return res
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	ans = append(ans, []int{st, ed})
+	return ans
 }
 ```
 

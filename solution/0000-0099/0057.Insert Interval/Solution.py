@@ -1,21 +1,17 @@
 class Solution:
-    def insert(
-        self, intervals: List[List[int]], newInterval: List[int]
-    ) -> List[List[int]]:
-        def merge(intervals: List[List[int]]) -> List[List[int]]:
-            intervals.sort(key=lambda x: x[0])
-            st = ed = -1
-            res = []
-            for s, e in intervals:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        def merge(intervals):
+            intervals.sort()
+            ans = []
+            st, ed = intervals[0]
+            for s, e in intervals[1:]:
                 if ed < s:
-                    if st != -1:
-                        res.append([st, ed])
+                    ans.append([st, ed])
                     st, ed = s, e
                 else:
                     ed = max(ed, e)
-            if st != -1:
-                res.append([st, ed])
-            return res
+            ans.append([st, ed])
+            return ans
 
         intervals.append(newInterval)
         return merge(intervals)
