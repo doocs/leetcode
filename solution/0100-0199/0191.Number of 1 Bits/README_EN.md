@@ -64,6 +64,16 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        ans = 0
+        while n:
+            n -= (n & -n)
+            ans += 1
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -73,6 +83,20 @@ public class Solution {
         int ans = 0;
         while (n != 0) {
             n &= n - 1;
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
+
+```java
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int ans = 0;
+        while (n != 0) {
+            n -= (n & -n);
             ++ans;
         }
         return ans;
@@ -97,6 +121,21 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans = 0;
+        while (n)
+        {
+            n -= (n & -n);
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -104,6 +143,17 @@ func hammingWeight(num uint32) int {
 	ans := 0
 	for num != 0 {
 		num &= num - 1
+		ans++
+	}
+	return ans
+}
+```
+
+```go
+func hammingWeight(num uint32) int {
+	ans := 0
+	for num != 0 {
+		num -= (num & -num)
 		ans++
 	}
 	return ans
@@ -126,6 +176,7 @@ var hammingWeight = function (n) {
     return ans;
 };
 ```
+
 
 ### **Rust**
 

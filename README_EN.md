@@ -44,6 +44,8 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Range Sum Query 2D - Immutable](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md) - Prefix sum
 -   [Range Addition](/solution/0300-0399/0370.Range%20Addition/README_EN.md) - Prefix sum, Difference array
 -   [ Stamping the Grid](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md) - Prefix sum, Difference array
+-   [Longest Substring Without Repeating Characters](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README_EN.md) - Two pointers, Hash table
+-   [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md) - Bit manipulation, Lowbit
 
 ### 2. Search
 

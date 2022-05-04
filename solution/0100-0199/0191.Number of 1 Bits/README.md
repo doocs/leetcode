@@ -65,16 +65,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-朴素解法：一位一位数。
-
-```txt
-HAMMING-WEIGHT(n)
-    r = 0
-    while n != 0
-        r += n & 1
-        n >>= 1
-    r
-```
+**方法一：位运算**
 
 利用 `n & (n - 1)` 消除 `n` 中最后一位 1 这一特点，优化过程：
 
@@ -99,6 +90,10 @@ HAMMING-WEIGHT(n)
 [0, 0, 0, 0] // 4 & 3 = 0
 ```
 
+**方法二：lowbit**
+
+`x -= (x & -x)` 可以消除二进制形式的最后一位 1。
+
 同 [剑指 Offer 15. 二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
 
 <!-- tabs:start -->
@@ -113,6 +108,16 @@ class Solution:
         ans = 0
         while n:
             n &= n - 1
+            ans += 1
+        return ans
+```
+
+```python
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        ans = 0
+        while n:
+            n -= (n & -n)
             ans += 1
         return ans
 ```
@@ -135,16 +140,17 @@ public class Solution {
 }
 ```
 
-### **Go**
-
-```go
-func hammingWeight(num uint32) int {
-	ans := 0
-	for num != 0 {
-		num &= num - 1
-		ans++
-	}
-	return ans
+```java
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int ans = 0;
+        while (n != 0) {
+            n -= (n & -n);
+            ++ans;
+        }
+        return ans;
+    }
 }
 ```
 
@@ -163,6 +169,45 @@ public:
         return ans;
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans = 0;
+        while (n)
+        {
+            n -= (n & -n);
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func hammingWeight(num uint32) int {
+	ans := 0
+	for num != 0 {
+		num &= num - 1
+		ans++
+	}
+	return ans
+}
+```
+
+```go
+func hammingWeight(num uint32) int {
+	ans := 0
+	for num != 0 {
+		num -= (num & -num)
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **JavaScript**
