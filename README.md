@@ -41,6 +41,7 @@
 -   [排序数组](/solution/0900-0999/0912.Sort%20an%20Array/README.md) - 快速排序、归并排序
 -   [字符串相加](/solution/0400-0499/0415.Add%20Strings/README.md) - 高精度加法
 -   [字符串相乘](/solution/0000-0099/0043.Multiply%20Strings/README.md) - 高精度乘法
+-   [二维区域和检索 - 矩阵不可变](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README.md) - 二维前缀和
 <!-- 排序算法、待补充 -->
 
 ### 2. 搜索
