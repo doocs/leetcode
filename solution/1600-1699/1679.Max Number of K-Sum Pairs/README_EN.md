@@ -49,16 +49,16 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         nums.sort()
-        ans, l, r = 0, 0, len(nums) - 1
+        l, r, ans = 0, len(nums) - 1, 0
         while l < r:
-            if nums[l] + nums[r] > k:
-                r -= 1
-            elif nums[l] + nums[r] < k:
-                l += 1
-            else:
+            s = nums[l] + nums[r]
+            if s == k:
                 ans += 1
-                l += 1
+                l, r = l + 1, r - 1
+            elif s > k:
                 r -= 1
+            else:
+                l += 1
         return ans
 ```
 
@@ -71,14 +71,15 @@ class Solution {
         int l = 0, r = nums.length - 1;
         int ans = 0;
         while (l < r) {
-            if (nums[l] + nums[r] > k) {
-                r--;
-            } else if (nums[l] + nums[r] < k) {
-                l++;
+            int s = nums[l] + nums[r];
+            if (s == k) {
+                ++ans;
+                ++l;
+                --r;
+            } else if (s > k) {
+                --r;
             } else {
-                ans++;
-                l++;
-                r--;
+                ++l;
             }
         }
         return ans;
@@ -90,25 +91,53 @@ class Solution {
 
 ```cpp
 class Solution {
- public:
-  int maxOperations(vector<int>& nums, int k) {
-    int n = nums.size();
-    sort(nums.begin(), nums.end());
-    int cnt = 0;
-    int i = 0, j = n - 1;
-    while (i < j) {
-      if (nums[i] + nums[j] == k) {
-        i++;
-        j--;
-        cnt++;
-      } else if (nums[i] + nums[j] > k) {
-        j--;
-      } else
-        i++;
+public:
+    int maxOperations(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int cnt = 0;
+        int i = 0, j = nums.size() - 1;
+        while (i < j) {
+            if (nums[i] + nums[j] == k) {
+                i++;
+                j--;
+                cnt++;
+            } else if (nums[i] + nums[j] > k) {
+                j--;
+            } else {
+                i++;
+            }
+        }
+        return cnt;
     }
-    return cnt;
-  }
 };
+```
+
+### **Go**
+
+```go
+func maxOperations(nums []int, k int) int {
+	sort.Ints(nums)
+	l, r, ans := 0, len(nums)-1, 0
+	for l < r {
+		s := nums[l] + nums[r]
+		if s == k {
+			ans++
+			l++
+			r--
+		} else if s > k {
+			r--
+		} else {
+			l++
+		}
+	}
+	return ans
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->

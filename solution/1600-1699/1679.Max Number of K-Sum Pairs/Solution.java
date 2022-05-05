@@ -4,14 +4,15 @@ class Solution {
         int l = 0, r = nums.length - 1;
         int ans = 0;
         while (l < r) {
-            if (nums[l] + nums[r] > k) {
-                r--;
-            } else if (nums[l] + nums[r] < k) {
-                l++;
+            int s = nums[l] + nums[r];
+            if (s == k) {
+                ++ans;
+                ++l;
+                --r;
+            } else if (s > k) {
+                --r;
             } else {
-                ans++;
-                l++;
-                r--;
+                ++l;
             }
         }
         return ans;
