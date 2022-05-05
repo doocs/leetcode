@@ -4,6 +4,4 @@ class Solution:
         for start, end in intervals:
             delta[start] += 1
             delta[end] -= 1
-        for i in range(len(delta) - 1):
-            delta[i + 1] += delta[i]
-        return max(delta)
+        return max(accumulate(delta))
