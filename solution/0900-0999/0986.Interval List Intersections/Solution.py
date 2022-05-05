@@ -3,15 +3,14 @@ class Solution:
         self, firstList: List[List[int]], secondList: List[List[int]]
     ) -> List[List[int]]:
         i = j = 0
-        res = []
+        ans = []
         while i < len(firstList) and j < len(secondList):
-            l, r = max(firstList[i][0], secondList[j][0]), min(
-                firstList[i][1], secondList[j][1]
-            )
+            s1, e1, s2, e2 = *firstList[i], *secondList[j]
+            l, r = max(s1, s2), min(e1, e2)
             if l <= r:
-                res.append([l, r])
-            if firstList[i][1] < secondList[j][1]:
+                ans.append([l, r])
+            if e1 < e2:
                 i += 1
             else:
                 j += 1
-        return res
+        return ans

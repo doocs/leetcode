@@ -1,11 +1,12 @@
 class Solution {
     public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
-        List<int[]> res = new ArrayList<>();
-        for (int i = 0, j = 0; i < firstList.length && j < secondList.length;) {
+        List<int[]> ans = new ArrayList<>();
+        int m = firstList.length, n = secondList.length;
+        for (int i = 0, j = 0; i < m && j < n;) {
             int l = Math.max(firstList[i][0], secondList[j][0]);
             int r = Math.min(firstList[i][1], secondList[j][1]);
             if (l <= r) {
-                res.add(new int[]{l, r});
+                ans.add(new int[]{l, r});
             }
             if (firstList[i][1] < secondList[j][1]) {
                 ++i;
@@ -13,6 +14,6 @@ class Solution {
                 ++j;
             }
         }
-        return res.toArray(new int[res.size()][]);
+        return ans.toArray(new int[ans.size()][]);
     }
 }

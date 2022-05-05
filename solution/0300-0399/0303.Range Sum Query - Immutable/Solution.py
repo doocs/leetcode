@@ -1,5 +1,4 @@
 class NumArray:
-
     def __init__(self, nums: List[int]):
         self.s = [0] + list(accumulate(nums))
 

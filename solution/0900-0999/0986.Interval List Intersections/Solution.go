@@ -1,10 +1,11 @@
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
-	i, j := 0, 0
-	var res [][]int
-	for i < len(firstList) && j < len(secondList) {
-		l, r := max(firstList[i][0], secondList[j][0]), min(firstList[i][1], secondList[j][1])
+	m, n := len(firstList), len(secondList)
+	var ans [][]int
+	for i, j := 0, 0; i < m && j < n; {
+		l := max(firstList[i][0], secondList[j][0])
+		r := min(firstList[i][1], secondList[j][1])
 		if l <= r {
-			res = append(res, []int{l, r})
+			ans = append(ans, []int{l, r})
 		}
 		if firstList[i][1] < secondList[j][1] {
 			i++
@@ -12,7 +13,7 @@ func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 			j++
 		}
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {

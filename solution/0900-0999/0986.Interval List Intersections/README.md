@@ -61,7 +61,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双指针实现区间合并。
+**方法一：双指针**
 
 <!-- tabs:start -->
 
@@ -72,18 +72,18 @@
 ```python
 class Solution:
     def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
-        i = j = 0
-        res = []
+        i =  j = 0
+        ans = []
         while i < len(firstList) and j < len(secondList):
-            l, r = max(firstList[i][0], secondList[j][0]), min(
-                firstList[i][1], secondList[j][1])
+            s1, e1, s2, e2 = *firstList[i], *secondList[j]
+            l, r = max(s1, s2), min(e1, e2)
             if l <= r:
-                res.append([l, r])
-            if firstList[i][1] < secondList[j][1]:
+                ans.append([l, r])
+            if e1 < e2:
                 i += 1
             else:
                 j += 1
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -93,12 +93,13 @@ class Solution:
 ```java
 class Solution {
     public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
-        List<int[]> res = new ArrayList<>();
-        for (int i = 0, j = 0; i < firstList.length && j < secondList.length;) {
+        List<int[]> ans = new ArrayList<>();
+        int m = firstList.length, n = secondList.length;
+        for (int i = 0, j = 0; i < m && j < n;) {
             int l = Math.max(firstList[i][0], secondList[j][0]);
             int r = Math.min(firstList[i][1], secondList[j][1]);
             if (l <= r) {
-                res.add(new int[]{l, r});
+                ans.add(new int[]{l, r});
             }
             if (firstList[i][1] < secondList[j][1]) {
                 ++i;
@@ -106,7 +107,7 @@ class Solution {
                 ++j;
             }
         }
-        return res.toArray(new int[res.size()][]);
+        return ans.toArray(new int[ans.size()][]);
     }
 }
 ```
@@ -116,20 +117,18 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> intervalIntersection(vector<vector<int>> &firstList, vector<vector<int>> &secondList) {
-        vector<vector<int>> res;
-        for (int i = 0, j = 0; i < firstList.size() && j < secondList.size();)
+    vector<vector<int>> intervalIntersection(vector<vector<int>>& firstList, vector<vector<int>>& secondList) {
+        vector<vector<int>> ans;
+        int m = firstList.size(), n = secondList.size();
+        for (int i = 0, j = 0; i < m && j < n;)
         {
             int l = max(firstList[i][0], secondList[j][0]);
             int r = min(firstList[i][1], secondList[j][1]);
-            if (l <= r)
-                res.push_back({l, r});
-            if (firstList[i][1] < secondList[j][1])
-                ++i;
-            else
-                ++j;
+            if (l <= r) ans.push_back({l, r});
+            if (firstList[i][1] < secondList[j][1]) ++i;
+            else ++j;
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -138,12 +137,13 @@ public:
 
 ```go
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
-	i, j := 0, 0
-	var res [][]int
-	for i < len(firstList) && j < len(secondList) {
-		l, r := max(firstList[i][0], secondList[j][0]), min(firstList[i][1], secondList[j][1])
+	m, n := len(firstList), len(secondList)
+	var ans [][]int
+	for i, j := 0, 0; i < m && j < n; {
+		l := max(firstList[i][0], secondList[j][0])
+		r := min(firstList[i][1], secondList[j][1])
 		if l <= r {
-			res = append(res, []int{l, r})
+			ans = append(ans, []int{l, r})
 		}
 		if firstList[i][1] < secondList[j][1] {
 			i++
@@ -151,7 +151,7 @@ func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 			j++
 		}
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {
