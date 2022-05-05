@@ -58,6 +58,17 @@
 
 时间复杂度 O(n)，其中 n 表示字符串 s 的长度。
 
+双指针算法模板：
+
+```java
+for (int i = 0, j = 0; i < n; ++i) {
+    while (j < i && check(j, i)) {
+        ++j;
+    }
+    // 具体问题的逻辑
+}
+```
+
 <!-- tabs:start -->
 
 ### **Python3**

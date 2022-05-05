@@ -37,64 +37,86 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 
 <!-- tabs:start -->
 
+### **Python3**
+
+```python
+class Solution:
+    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+        ans, s, j = 0, 1, 0
+        for i, v in enumerate(nums):
+            s *= v
+            while j <= i and s >= k:
+                s //= nums[j]
+                j += 1
+            ans += i - j + 1
+        return ans
+```
+
+### **Java**
+
+```java
+class Solution {
+    public int numSubarrayProductLessThanK(int[] nums, int k) {
+        int ans = 0;
+        for (int i = 0, j = 0, s = 1; i < nums.length; ++i) {
+            s *= nums[i];
+            while (j <= i && s >= k) {
+                s /= nums[j++];
+            }
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     int numSubarrayProductLessThanK(vector<int>& nums, int k) {
-        int left = 0, right;
-        long mul = 1;
-        int count = 0;
-
-        for (right = 0; right < nums.size(); right++) {
-            mul *= nums[right];
-
-            while(left <= right && mul >= k) {
-                mul /= nums[left++];
-            }
-
-            count += right >= left? right - left + 1: 0;
+        int ans = 0;
+        for (int i = 0, j = 0, s = 1; i < nums.size(); ++i)
+        {
+            s *= nums[i];
+            while (j <= i && s >= k) s /= nums[j++];
+            ans += i - j + 1;
         }
-
-        return count;
+        return ans;
     }
 };
 ```
 
-### **Python3**
+### **Go**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
+```go
+func numSubarrayProductLessThanK(nums []int, k int) int {
+	ans := 0
+	for i, j, s := 0, 0, 1; i < len(nums); i++ {
+		s *= nums[i]
+		for ; j <= i && s >= k; j++ {
+			s /= nums[j]
+		}
+		ans += i - j + 1
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {
-    if (k <= 1) {
-        return 0;
-    }
-
-    const n = nums.length;
-    let res = 0;
-    for (let i = 0; i < n; i++) {
-        let product = 1;
-        for (let j = i; j < n; j++) {
-            product *= nums[j];
-            if (product >= k) {
-                break;
-            }
-            res++;
+    let ans = 0;
+    for (let i = 0, j = 0, s = 1; i < nums.length; ++i) {
+        s *= nums[i];
+        while (j <= i && s >= k) {
+            s /= nums[j++];
         }
+        ans += i - j + 1;
     }
-    return res;
+    return ans;
 }
 ```
 

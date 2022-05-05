@@ -45,6 +45,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Range Addition](/solution/0300-0399/0370.Range%20Addition/README_EN.md) - Prefix sum, Difference array
 -   [ Stamping the Grid](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md) - Prefix sum, Difference array
 -   [Longest Substring Without Repeating Characters](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README_EN.md) - Two pointers, Hash table
+-   [Subarray Product Less Than K](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md) - Two pointers
 -   [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md) - Bit manipulation, Lowbit
 -   [Merge Intervals](/solution/0000-0099/0056.Merge%20Intervals/README_EN.md) - Merge intervals
 

@@ -39,39 +39,38 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-<!-- tabs:start -->
+**方法一：双指针**
 
-### **C++**
+双指针算法模板：
 
-```cpp
-class Solution {
-public:
-    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
-        int left = 0, right;
-        long mul = 1;
-        int count = 0;
-
-        for (right = 0; right < nums.size(); right++) {
-            mul *= nums[right];
-
-            while(left <= right && mul >= k) {
-                mul /= nums[left++];
-            }
-
-            count += right >= left? right - left + 1: 0;
-        }
-
-        return count;
+```java
+for (int i = 0, j = 0; i < n; ++i) {
+    while (j < i && check(j, i)) {
+        ++j;
     }
-};
+    // 具体问题的逻辑
+}
 ```
+
+时间复杂度 O(n)。
+
+<!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+        ans, s, j = 0, 1, 0
+        for i, v in enumerate(nums):
+            s *= v
+            while j <= i and s >= k:
+                s //= nums[j]
+                j += 1
+            ans += i - j + 1
+        return ans
 ```
 
 ### **Java**
@@ -79,30 +78,68 @@ public:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numSubarrayProductLessThanK(int[] nums, int k) {
+        int ans = 0;
+        for (int i = 0, j = 0, s = 1; i < nums.length; ++i) {
+            s *= nums[i];
+            while (j <= i && s >= k) {
+                s /= nums[j++];
+            }
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+        int ans = 0;
+        for (int i = 0, j = 0, s = 1; i < nums.size(); ++i)
+        {
+            s *= nums[i];
+            while (j <= i && s >= k) s /= nums[j++];
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSubarrayProductLessThanK(nums []int, k int) int {
+	ans := 0
+	for i, j, s := 0, 0, 1; i < len(nums); i++ {
+		s *= nums[i]
+		for ; j <= i && s >= k; j++ {
+			s /= nums[j]
+		}
+		ans += i - j + 1
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {
-    if (k <= 1) {
-        return 0;
-    }
-
-    const n = nums.length;
-    let res = 0;
-    for (let i = 0; i < n; i++) {
-        let product = 1;
-        for (let j = i; j < n; j++) {
-            product *= nums[j];
-            if (product >= k) {
-                break;
-            }
-            res++;
+    let ans = 0;
+    for (let i = 0, j = 0, s = 1; i < nums.length; ++i) {
+        s *= nums[i];
+        while (j <= i && s >= k) {
+            s /= nums[j++];
         }
+        ans += i - j + 1;
     }
-    return res;
+    return ans;
 }
 ```
 

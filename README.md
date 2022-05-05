@@ -46,6 +46,7 @@
 -   [区间加法](/solution/0300-0399/0370.Range%20Addition/README.md) - 前缀和、差分
 -   [用邮票贴满网格图](/solution/2100-2199/2132.Stamping%20the%20Grid/README.md) - 二维前缀和、二维差分
 -   [无重复字符的最长子串](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README.md) - 双指针、哈希表
+-   [乘积小于 K 的子数组](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md) - 双指针
 -   [位 1 的个数](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md) - 位运算、lowbit
 -   [合并区间](/solution/0000-0099/0056.Merge%20Intervals/README.md) - 区间合并
 
