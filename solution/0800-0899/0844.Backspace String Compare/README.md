@@ -56,6 +56,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+时间复杂度 O(len(s) + len(t))，空间复杂度 O(1)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +67,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        i, j, skip1, skip2 = len(s) - 1, len(t) - 1, 0, 0
+        while i >= 0 or j >= 0:
+            while i >= 0:
+                if s[i] == '#':
+                    skip1 += 1
+                    i -= 1
+                elif skip1:
+                    skip1 -= 1
+                    i -= 1
+                else:
+                    break
+            while j >= 0:
+                if t[j] == '#':
+                    skip2 += 1
+                    j -= 1
+                elif skip2:
+                    skip2 -= 1
+                    j -= 1
+                else:
+                    break
+            if i >= 0 and j >= 0:
+                if s[i] != t[j]:
+                    return False
+            elif i >= 0 or j >= 0:
+                return False
+            i, j = i - 1, j - 1
+        return True
 ```
 
 ### **Java**
@@ -71,7 +103,134 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        int i = s.length() - 1, j = t.length() - 1;
+        int skip1 = 0, skip2 = 0;
+        for (; i >= 0 || j >= 0; --i, --j) {
+            while (i >= 0) {
+                if (s.charAt(i) == '#') {
+                    ++skip1;
+                    --i;
+                } else if (skip1 > 0) {
+                    --skip1;
+                    --i;
+                } else {
+                    break;
+                }
+            }
+            while (j >= 0) {
+                if (t.charAt(j) == '#') {
+                    ++skip2;
+                    --j;
+                } else if (skip2 > 0) {
+                    --skip2;
+                    --j;
+                } else {
+                    break;
+                }
+            }
+            if (i >= 0 && j >= 0) {
+                if (s.charAt(i) != t.charAt(j)) {
+                    return false;
+                }
+            } else if (i >= 0 || j >= 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        int i = s.size() - 1, j = t.size() - 1;
+        int skip1 = 0, skip2 = 0;
+        for (; i >= 0 || j >= 0; --i, --j)
+        {
+            while (i >= 0)
+            {
+                if (s[i] == '#')
+                {
+                    ++skip1;
+                    --i;
+                }
+                else if (skip1)
+                {
+                    --skip1;
+                    --i;
+                }
+                else break;
+            }
+            while (j >= 0)
+            {
+                if (t[j] == '#')
+                {
+                    ++skip2;
+                    --j;
+                }
+                else if (skip2)
+                {
+                    --skip2;
+                    --j;
+                }
+                else break;
+            }
+            if (i >= 0 && j >= 0)
+            {
+                if (s[i] != t[j]) return false;
+            }
+            else if (i >= 0 || j >= 0) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func backspaceCompare(s string, t string) bool {
+	i, j := len(s)-1, len(t)-1
+	skip1, skip2 := 0, 0
+	for ; i >= 0 || j >= 0; i, j = i-1, j-1 {
+		for i >= 0 {
+			if s[i] == '#' {
+				skip1++
+				i--
+			} else if skip1 > 0 {
+				skip1--
+				i--
+			} else {
+				break
+			}
+		}
+		for j >= 0 {
+			if t[j] == '#' {
+				skip2++
+				j--
+			} else if skip2 > 0 {
+				skip2--
+				j--
+			} else {
+				break
+			}
+		}
+		if i >= 0 && j >= 0 {
+			if s[i] != t[j] {
+				return false
+			}
+		} else if i >= 0 || j >= 0 {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
