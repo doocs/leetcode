@@ -74,6 +74,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自定义排序**
+
+时间复杂度 O(2nlogn)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +85,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getStrongest(self, arr: List[int], k: int) -> List[int]:
+        arr.sort()
+        m = arr[(len(arr) - 1) >> 1]
+        arr.sort(key=lambda x: (-abs(x - m), -x))
+        return arr[:k]
 ```
 
 ### **Java**
@@ -89,7 +98,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] getStrongest(int[] arr, int k) {
+        Arrays.sort(arr);
+        int m = arr[(arr.length - 1) >> 1];
+        List<Integer> nums = new ArrayList<>();
+        for (int v : arr) {
+            nums.add(v);
+        }
+        nums.sort((a, b) -> {
+            int x = Math.abs(a - m);
+            int y = Math.abs(b - m);
+            return x == y ? b - a : y - x;
+        });
+        int[] ans = new int[k];
+        for (int i = 0; i < k; ++i) {
+            ans[i] = nums.get(i);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getStrongest(vector<int>& arr, int k) {
+        sort(arr.begin(), arr.end());
+        int m = arr[(arr.size() - 1) >> 1];
+        sort(arr.begin(), arr.end(), [&](int a, int b) {
+            int x = abs(a - m), y = abs(b - m);
+            return x == y ? a > b : x > y;
+        });
+        vector<int> ans(arr.begin(), arr.begin() + k);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getStrongest(arr []int, k int) []int {
+	sort.Ints(arr)
+	m := arr[(len(arr)-1)>>1]
+	sort.Slice(arr, func(i, j int) bool {
+		x, y := abs(arr[i]-m), abs(arr[j]-m)
+		if x == y {
+			return arr[i] > arr[j]
+		}
+		return x > y
+	})
+	return arr[:k]
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
