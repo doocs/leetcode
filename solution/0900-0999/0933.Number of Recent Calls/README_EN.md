@@ -66,6 +66,22 @@ class RecentCounter:
 # param_1 = obj.ping(t)
 ```
 
+```python
+class RecentCounter:
+
+    def __init__(self):
+        self.s = []
+
+    def ping(self, t: int) -> int:
+        self.s.append(t)
+        return len(self.s) - bisect_left(self.s, t - 3000)
+
+
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
+```
+
 ### **Java**
 
 ```java
@@ -82,6 +98,41 @@ class RecentCounter {
             q.pollFirst();
         }
         return q.size();
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
+ */
+```
+
+```java
+class RecentCounter {
+    private int[] s = new int[10010];
+    private int idx;
+
+    public RecentCounter() {
+
+    }
+    
+    public int ping(int t) {
+        s[idx++] = t;
+        return idx - search(t - 3000);
+    }
+
+    private int search(int x) {
+        int left = 0, right = idx;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (s[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
     }
 }
 
@@ -117,6 +168,28 @@ public:
  */
 ```
 
+```cpp
+class RecentCounter {
+public:
+    vector<int> s;
+
+    RecentCounter() {
+
+    }
+    
+    int ping(int t) {
+        s.push_back(t);
+        return s.size() - (lower_bound(s.begin(), s.end(), t - 3000) - s.begin());
+    }
+};
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter* obj = new RecentCounter();
+ * int param_1 = obj->ping(t);
+ */
+```
+
 ### **Go**
 
 ```go
@@ -134,6 +207,39 @@ func (this *RecentCounter) Ping(t int) int {
 		this.q = this.q[1:]
 	}
 	return len(this.q)
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Ping(t);
+ */
+```
+
+```go
+type RecentCounter struct {
+	s []int
+}
+
+func Constructor() RecentCounter {
+	return RecentCounter{[]int{}}
+}
+
+func (this *RecentCounter) Ping(t int) int {
+	this.s = append(this.s, t)
+	search := func(x int) int {
+		left, right := 0, len(this.s)
+		for left < right {
+			mid := (left + right) >> 1
+			if this.s[mid] >= x {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		return left
+	}
+	return len(this.s) - search(t-3000)
 }
 
 /**
