@@ -212,6 +212,72 @@ public class RecentCounter {
  */
 ```
 
+### **TypeScript**
+
+```ts
+class RecentCounter {
+    private queue: number[];
+
+    constructor() {
+        this.queue = [];
+    }
+
+    ping(t: number): number {
+        this.queue.push(t);
+        while (this.queue[0] < t - 3000) {
+            this.queue.shift();
+        }
+        return this.queue.length;
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * var obj = new RecentCounter()
+ * var param_1 = obj.ping(t)
+ */
+```
+
+### **Rust**
+
+```rust
+use std::collections::VecDeque;
+struct RecentCounter {
+    queue: VecDeque<i32>
+}
+
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl RecentCounter {
+
+    fn new() -> Self {
+        Self {
+            queue: VecDeque::new()
+        }
+    }
+
+    fn ping(&mut self, t: i32) -> i32 {
+        self.queue.push_back(t);
+        while let Some(&v) = self.queue.front() {
+            if v >= t - 3000  {
+                break;
+            }
+            self.queue.pop_front();
+        }
+        self.queue.len() as i32
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * let obj = RecentCounter::new();
+ * let ret_1: i32 = obj.ping(t);
+ */
+```
+
 ### **...**
 
 ```
