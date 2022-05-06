@@ -1,23 +1,23 @@
 class CustomStack {
     private int[] s;
-    private int tail;
+    private int t;
 
     public CustomStack(int maxSize) {
         s = new int[maxSize];
     }
     
     public void push(int x) {
-        if (tail < s.length) {
-            s[tail++] = x;
+        if (t < s.length) {
+            s[t++] = x;
         }
     }
     
     public int pop() {
-        return tail == 0 ? -1 : s[--tail];
+        return t == 0 ? -1 : s[--t];
     }
     
     public void increment(int k, int val) {
-        for (int i = 0; i < Math.min(k, tail); ++i) {
+        for (int i = 0; i < Math.min(k, t); ++i) {
             s[i] += val;
         }
     }

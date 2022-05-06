@@ -1,21 +1,22 @@
 class CustomStack:
+
     def __init__(self, maxSize: int):
         self.s = [0] * maxSize
-        self.tail = 0
+        self.t = 0
 
     def push(self, x: int) -> None:
-        if self.tail < len(self.s):
-            self.s[self.tail] = x
-            self.tail += 1
+        if self.t < len(self.s):
+            self.s[self.t] = x
+            self.t += 1
 
     def pop(self) -> int:
-        if self.tail == 0:
+        if self.t == 0:
             return -1
-        self.tail -= 1
-        return self.s[self.tail]
+        self.t -= 1
+        return self.s[self.t]
 
     def increment(self, k: int, val: int) -> None:
-        for i in range(min(k, self.tail)):
+        for i in range(min(k, self.t)):
             self.s[i] += val
 
 

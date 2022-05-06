@@ -69,21 +69,21 @@ class CustomStack:
 
     def __init__(self, maxSize: int):
         self.s = [0] * maxSize
-        self.tail = 0
+        self.t = 0
 
     def push(self, x: int) -> None:
-        if self.tail < len(self.s):
-            self.s[self.tail] = x
-            self.tail += 1
+        if self.t < len(self.s):
+            self.s[self.t] = x
+            self.t += 1
 
     def pop(self) -> int:
-        if self.tail == 0:
+        if self.t == 0:
             return -1
-        self.tail -= 1
-        return self.s[self.tail]
+        self.t -= 1
+        return self.s[self.t]
 
     def increment(self, k: int, val: int) -> None:
-        for i in range(min(k, self.tail)):
+        for i in range(min(k, self.t)):
             self.s[i] += val
 
 
@@ -101,24 +101,24 @@ class CustomStack:
 ```java
 class CustomStack {
     private int[] s;
-    private int tail;
+    private int t;
 
     public CustomStack(int maxSize) {
         s = new int[maxSize];
     }
-
+    
     public void push(int x) {
-        if (tail < s.length) {
-            s[tail++] = x;
+        if (t < s.length) {
+            s[t++] = x;
         }
     }
-
+    
     public int pop() {
-        return tail == 0 ? -1 : s[--tail];
+        return t == 0 ? -1 : s[--t];
     }
-
+    
     public void increment(int k, int val) {
-        for (int i = 0; i < Math.min(k, tail); ++i) {
+        for (int i = 0; i < Math.min(k, t); ++i) {
             s[i] += val;
         }
     }
@@ -159,7 +159,6 @@ class CustomStack {
     }
 
     increment(k: number, val: number): void {
-        let tmp: Array<number> = [];
         for (let i = Math.max(this.size - k, 0); i < this.size; i++) {
             this.stack[i] = this.stack[i] + val;
         }
@@ -172,6 +171,84 @@ class CustomStack {
  * obj.push(x)
  * var param_2 = obj.pop()
  * obj.increment(k,val)
+ */
+```
+
+### **C++**
+
+```cpp
+class CustomStack {
+public:
+    vector<int> s;
+    int t;
+
+    CustomStack(int maxSize) {
+        s.resize(maxSize);
+        t = 0;
+    }
+    
+    void push(int x) {
+        if (t < s.size()) s[t++] = x;
+    }
+    
+    int pop() {
+        return t == 0 ? -1 : s[--t];
+    }
+    
+    void increment(int k, int val) {
+        for (int i = 0; i < min(k, t); ++i) s[i] += val;
+    }
+};
+
+/**
+ * Your CustomStack object will be instantiated and called as such:
+ * CustomStack* obj = new CustomStack(maxSize);
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * obj->increment(k,val);
+ */
+```
+
+### **Go**
+
+```go
+type CustomStack struct {
+	s []int
+	t int
+}
+
+func Constructor(maxSize int) CustomStack {
+	s := make([]int, maxSize)
+	return CustomStack{s, 0}
+}
+
+func (this *CustomStack) Push(x int) {
+	if this.t < len(this.s) {
+		this.s[this.t] = x
+		this.t++
+	}
+}
+
+func (this *CustomStack) Pop() int {
+	if this.t == 0 {
+		return -1
+	}
+	this.t--
+	return this.s[this.t]
+}
+
+func (this *CustomStack) Increment(k int, val int) {
+	for i := 0; i < k && i < this.t; i++ {
+		this.s[i] += val
+	}
+}
+
+/**
+ * Your CustomStack object will be instantiated and called as such:
+ * obj := Constructor(maxSize);
+ * obj.Push(x);
+ * param_2 := obj.Pop();
+ * obj.Increment(k,val);
  */
 ```
 

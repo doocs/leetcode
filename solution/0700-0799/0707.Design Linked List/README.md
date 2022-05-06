@@ -57,6 +57,7 @@ linkedList.get(1);            //返回3
 -   e 存储链表节点的值
 -   ne 存储链表节点的 next 指针
 -   idx 指向当前可分配的节点下标
+-   size 存储链表节点的个数
 
 <!-- tabs:start -->
 
