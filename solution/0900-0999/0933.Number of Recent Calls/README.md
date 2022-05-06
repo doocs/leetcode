@@ -50,6 +50,8 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：队列**
+
 在第 1、100、3001、3002 这四个时间点分别进行了 ping 请求， 在 3001 秒的时候， 它前面的 3000 秒指的是区间 `[1,3001]`， 所以一共是有 `1、100、3001` 三个请求， t = 3002 的前 3000 秒指的是区间 `[2,3002]`, 所以有 `100、3001、3002` 三次请求。
 
 可以用队列实现。每次将 t 进入队尾，同时从队头开始依次移除小于 `t-3000` 的元素。然后返回队列的大小 `q.size()` 即可。
@@ -84,14 +86,14 @@ class RecentCounter:
 
 ```java
 class RecentCounter {
-    private Deque<Integer> q;
+    private Deque<Integer> q = new ArrayDeque<>();
 
     public RecentCounter() {
-        q = new LinkedList<>();
+        
     }
-
+    
     public int ping(int t) {
-        q.offerLast(t);
+        q.offer(t);
         while (q.peekFirst() < t - 3000) {
             q.pollFirst();
         }
@@ -111,17 +113,15 @@ class RecentCounter {
 ```cpp
 class RecentCounter {
 public:
-    deque<int> q;
+    queue<int> q;
 
     RecentCounter() {
 
     }
-
+    
     int ping(int t) {
-        q.push_back(t);
-        while (q.front() < t - 3000) {
-            q.pop_front();
-        }
+        q.push(t);
+        while (q.front() < t - 3000) q.pop();
         return q.size();
     }
 };
@@ -141,15 +141,13 @@ type RecentCounter struct {
 }
 
 func Constructor() RecentCounter {
-	return RecentCounter{
-		q: []int{},
-	}
+	return RecentCounter{[]int{}}
 }
 
 func (this *RecentCounter) Ping(t int) int {
 	this.q = append(this.q, t)
 	for this.q[0] < t-3000 {
-		this.q = this.q[1:len(this.q)]
+		this.q = this.q[1:]
 	}
 	return len(this.q)
 }
@@ -184,6 +182,33 @@ RecentCounter.prototype.ping = function (t) {
  * Your RecentCounter object will be instantiated and called as such:
  * var obj = new RecentCounter()
  * var param_1 = obj.ping(t)
+ */
+```
+
+### **C#**
+
+```cs
+public class RecentCounter {
+    private Queue<int> q = new Queue<int>();
+
+    public RecentCounter() {
+
+    }
+    
+    public int Ping(int t) {
+        q.Enqueue(t);
+        while (q.Peek() < t - 3000)
+        {
+            q.Dequeue();
+        }
+        return q.Count;
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.Ping(t);
  */
 ```
 
