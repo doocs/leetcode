@@ -49,6 +49,12 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md) - Bit manipulation, Lowbit
 -   [Merge Intervals](/solution/0000-0099/0056.Merge%20Intervals/README_EN.md) - Merge intervals
 
+<!-- 
+### 2. Data Structures
+
+-   [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md) - Linked List, Pointer, Array
+ -->
+
 ### 2. Search
 
 -   [Flood Fill](/solution/0700-0799/0733.Flood%20Fill/README_EN.md) - BFS, DFS, Flood fill

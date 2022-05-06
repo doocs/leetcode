@@ -49,8 +49,14 @@
 -   [乘积小于 K 的子数组](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md) - 双指针
 -   [位 1 的个数](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md) - 位运算、lowbit
 -   [合并区间](/solution/0000-0099/0056.Merge%20Intervals/README.md) - 区间合并
-
 <!-- 排序算法、待补充 -->
+
+<!-- 
+### 2. 数据结构
+
+-   [设计链表](/solution/0700-0799/0707.Design%20Linked%20List/README.md) - 单链表、指针引用、数组实现
+ -->
+
 
 ### 2. 搜索
 
