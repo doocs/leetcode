@@ -66,6 +66,8 @@ There are no 1&#39;s to remove so return 0.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：状态压缩 + BFS**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,7 +75,33 @@ There are no 1&#39;s to remove so return 0.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def removeOnes(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        state = sum(1 << (i * n + j) for i in range(m)
+                    for j in range(n) if grid[i][j])
+        q = deque([state])
+        vis = set([state])
+        ans = 0
+        while q:
+            for _ in range(len(q)):
+                state = q.popleft()
+                if state == 0:
+                    return ans
+                for i in range(m):
+                    for j in range(n):
+                        if grid[i][j] == 0:
+                            continue
+                        nxt = state
+                        for r in range(m):
+                            nxt &= ~(1 << (r * n + j))
+                        for c in range(n):
+                            nxt &= ~(1 << (i * n + c))
+                        if nxt not in vis:
+                            vis.add(nxt)
+                            q.append(nxt)
+            ans += 1
+        return -1
 ```
 
 ### **Java**
@@ -81,7 +109,145 @@ There are no 1&#39;s to remove so return 0.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int removeOnes(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int state = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    state |= 1 << (i * n + j);
+                }
+            }
+        }
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(state);
+        Set<Integer> vis = new HashSet<>();
+        vis.add(state);
+        int ans = 0;
+        while (!q.isEmpty()) {
+            for (int k = q.size(); k > 0; --k) {
+                state = q.poll();
+                if (state == 0) {
+                    return ans;
+                }
+                for (int i = 0; i < m; ++i) {
+                    for (int j = 0; j < n; ++j) {
+                        if (grid[i][j] == 0) {
+                            continue;
+                        }
+                        int nxt = state;
+                        for (int r = 0; r < m; ++r) {
+                            nxt &= ~(1 << (r * n + j));
+                        }
+                        for (int c = 0; c < n; ++c) {
+                            nxt &= ~(1 << (i * n + c));
+                        }
+                        if (!vis.contains(nxt)) {
+                            vis.add(nxt);
+                            q.offer(nxt);
+                        }
+                    }
+                }
+            }
+            ++ans;
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int removeOnes(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int state = 0;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (grid[i][j])
+                    state |= (1 << (i * n + j));
+        queue<int> q{{state}};
+        unordered_set<int> vis{{state}};
+        int ans = 0;
+        while (!q.empty())
+        {
+            for (int k = q.size(); k > 0; --k)
+            {
+                state = q.front();
+                q.pop();
+                if (state == 0) return ans;
+                for (int i = 0; i < m; ++i)
+                {
+                    for (int j = 0; j < n; ++j)
+                    {
+                        if (grid[i][j] == 0) continue;
+                        int nxt = state;
+                        for (int r = 0; r < m; ++r) nxt &= ~(1 << (r * n + j));
+                        for (int c = 0; c < n; ++c) nxt &= ~(1 << (i * n + c));
+                        if (!vis.count(nxt))
+                        {
+                            vis.insert(nxt);
+                            q.push(nxt);
+                        }
+                    }
+                }
+            }
+            ++ans;
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeOnes(grid [][]int) int {
+    m, n := len(grid), len(grid[0])
+    state := 0
+    for i, row := range grid {
+        for j, v := range row {
+            if v == 1 {
+                state |= 1 << (i * n + j)
+            }
+        }
+    }
+    q := []int{state}
+    vis := map[int]bool{state:true}
+    ans := 0
+    for len(q) > 0 {
+        for k := len(q); k > 0; k-- {
+            state = q[0]
+            if state == 0 {
+                return ans
+            }
+            q = q[1:]
+            for i, row := range grid {
+                for j, v := range row {
+                    if v == 0 {
+                        continue
+                    }
+                    nxt := state
+                    for r := 0; r < m; r++ {
+                        nxt &= ^(1 << (r * n + j))
+                    }
+                    for c := 0; c < n; c++ {
+                        nxt &= ^(1 << (i * n + c))
+                    }
+                    if !vis[nxt] {
+                        vis[nxt] = true
+                        q = append(q, nxt)
+                    }
+                }
+            }
+        }
+        ans++
+    }
+    return -1
+}
 ```
 
 ### **TypeScript**
