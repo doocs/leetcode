@@ -157,7 +157,9 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 ## Stargazers over time
 
-<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a>
+<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://starchart.cc/doocs/leetcode.svg" alt="Stargazers over time" /></a>
+
+<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a> -->
 
 ## Contributors
 

@@ -164,7 +164,10 @@
 
 ## Stars 趋势
 
-<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a>
+<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://starchart.cc/doocs/leetcode.svg" alt="Stargazers over time" /></a>
+
+<!-- 这里先使用 https://starchart.cc/ 自动刷新 stars 数据，之后若有问题，可以使用 GitHub Action: starcharts.yml -->
+<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a> -->
 
 ## 贡献者
 
