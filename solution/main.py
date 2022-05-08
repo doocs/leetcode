@@ -203,9 +203,9 @@ if __name__ == '__main__':
     res = spider.run()
     save(res)
 
-    with open('./result.json', 'r', encoding='utf-8') as f:
-        res = f.read()
-        res = json.loads(res)
+    # with open('./result.json', 'r', encoding='utf-8') as f:
+    #     res = f.read()
+    #     res = json.loads(res)
 
     generate_readme(res)
     generate_question_readme(res)

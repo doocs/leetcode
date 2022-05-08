@@ -2306,3 +2306,8 @@
   - [2260.Minimum Consecutive Cards to Pick Up](/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README_EN.md)
   - [2261.K Divisible Elements Subarrays](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README_EN.md)
   - [2262.Total Appeal of A String](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README_EN.md)
+  - [2263.Make Array Non-decreasing or Non-increasing](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README_EN.md)
+  - [2264.Largest 3-Same-Digit Number in String](/solution/2200-2299/2264.Largest%203-Same-Digit%20Number%20in%20String/README_EN.md)
+  - [2265.Count Nodes Equal to Average of Subtree](/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README_EN.md)
+  - [2266.Count Number of Texts](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README_EN.md)
+  - [2267.Check if There Is a Valid Parentheses String Path](/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README_EN.md)

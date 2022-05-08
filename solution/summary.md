@@ -2306,3 +2306,8 @@
   - [2260.必须拿起的最小连续卡牌数](/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README.md)
   - [2261.含最多 K 个可整除元素的子数组](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README.md)
   - [2262.字符串的总引力](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README.md)
+  - [2263.Make Array Non-decreasing or Non-increasing](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README.md)
+  - [2264.字符串中最大的 3 位相同数字](/solution/2200-2299/2264.Largest%203-Same-Digit%20Number%20in%20String/README.md)
+  - [2265.统计值等于子树平均值的节点数](/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README.md)
+  - [2266.统计打字方案数](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README.md)
+  - [2267.检查是否有合法括号字符串路径](/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README.md)
