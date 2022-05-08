@@ -55,7 +55,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        for i in range(len(nums)):
+            while nums[i] != nums[nums[i] - 1]:
+                nums[nums[i] - 1], nums[i] = nums[i], nums[nums[i] - 1]
+        return [v for i, v in enumerate(nums) if v != i + 1]
 ```
 
 ### **Java**
@@ -63,7 +68,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] != nums[nums[i] - 1]) {
+                swap(nums, i, nums[i] - 1);
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] != i + 1) {
+                ans.add(nums[i]);
+            }
+        }
+        return ans;
+    }
 
+    void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        int n = nums.size();
+        for (int i = 0; i < n; ++i)
+        {
+            while (nums[i] != nums[nums[i] - 1])
+            {
+                swap(nums[i], nums[nums[i] - 1]);
+            }
+        }
+        vector<int> ans;
+        for (int i = 0; i < n; ++i)
+        {
+            if (nums[i] != i + 1)
+            {
+                ans.push_back(nums[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findDuplicates(nums []int) []int {
+	for i := range nums {
+		for nums[i] != nums[nums[i]-1] {
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
+	var ans []int
+	for i, v := range nums {
+		if v != i+1 {
+			ans = append(ans, v)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
