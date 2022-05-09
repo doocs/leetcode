@@ -7,7 +7,7 @@ def selectionSort(arr):
                 min_index = j
         arr[min_index], arr[i] = arr[i], arr[min_index]
 
-array = [26, 11, 99 , 33, 69, 77, 55, 56, 67]
-selectionSort(array)
 
-
+arr = [26, 11, 99, 33, 69, 77, 55, 56, 67]
+selectionSort(arr)
+print(arr)
