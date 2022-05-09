@@ -63,18 +63,174 @@ This is the lowest possible number of moves to reach the last square, so return 
 
 ## Solutions
 
+BFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def snakesAndLadders(self, board: List[List[int]]) -> int:
+        def get(x):
+            i, j = (x - 1) // n, (x - 1) % n
+            if i & 1:
+                j = n - 1 - j
+            return n - 1 - i, j
 
+        n = len(board)
+        q = deque([1])
+        vis = {1}
+        ans = 0
+        while q:
+            for _ in range(len(q)):
+                curr = q.popleft()
+                if curr == n * n:
+                    return ans
+                for next in range(curr + 1, min(curr + 7, n * n + 1)):
+                    i, j = get(next)
+                    if board[i][j] != -1:
+                        next = board[i][j]
+                    if next not in vis:
+                        q.append(next)
+                        vis.add(next)
+            ans += 1
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
 
+    public int snakesAndLadders(int[][] board) {
+        n = board.length;
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(1);
+        boolean[] vis = new boolean[n * n + 1];
+        vis[1] = true;
+        int ans = 0;
+        while (!q.isEmpty()) {
+            for (int t = q.size(); t > 0; --t) {
+                int curr = q.poll();
+                if (curr == n * n) {
+                    return ans;
+                }
+                for (int k = curr + 1; k <= Math.min(curr + 6, n * n); ++k) {
+                    int[] p = get(k);
+                    int next = k;
+                    int i = p[0], j = p[1];
+                    if (board[i][j] != -1) {
+                        next = board[i][j];
+                    }
+                    if (!vis[next]) {
+                        vis[next] = true;
+                        q.offer(next);
+                    }
+                }
+            }
+            ++ans;
+        }
+        return -1;
+    }
+
+    private int[] get(int x) {
+        int i = (x - 1) / n, j = (x - 1) % n;
+        if (i % 2 == 1) {
+            j = n - 1 - j;
+        }
+        return new int[]{n - 1 - i, j};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int n;
+
+    int snakesAndLadders(vector<vector<int>>& board) {
+        n = board.size();
+        queue<int> q{{1}};
+        vector<bool> vis(n * n + 1);
+        vis[1] = true;
+        int ans = 0;
+        while (!q.empty())
+        {
+            for (int t = q.size(); t; --t)
+            {
+                int curr = q.front();
+                if (curr == n * n) return ans;
+                q.pop();
+                for (int k = curr + 1; k <= min(curr + 6, n * n); ++k)
+                {
+                    auto p = get(k);
+                    int next = k;
+                    int i = p[0], j = p[1];
+                    if (board[i][j] != -1) next = board[i][j];
+                    if (!vis[next])
+                    {
+                        vis[next] = true;
+                        q.push(next);
+                    }
+                }
+            }
+            ++ans;
+        }
+        return -1;
+    }
+
+    vector<int> get(int x) {
+        int i = (x - 1) / n, j = (x - 1) % n;
+        if (i % 2 == 1) j = n - 1 - j;
+        return {n - 1 - i, j};
+    }
+};
+```
+
+### **Go**
+
+```go
+func snakesAndLadders(board [][]int) int {
+	n := len(board)
+	get := func(x int) []int {
+		i, j := (x-1)/n, (x-1)%n
+		if i%2 == 1 {
+			j = n - 1 - j
+		}
+		return []int{n - 1 - i, j}
+	}
+	q := []int{1}
+	vis := make([]bool, n*n+1)
+	vis[1] = true
+	ans := 0
+	for len(q) > 0 {
+		for t := len(q); t > 0; t-- {
+			curr := q[0]
+			if curr == n*n {
+				return ans
+			}
+			q = q[1:]
+			for k := curr + 1; k <= curr+6 && k <= n*n; k++ {
+				p := get(k)
+				next := k
+				i, j := p[0], p[1]
+				if board[i][j] != -1 {
+					next = board[i][j]
+				}
+				if !vis[next] {
+					vis[next] = true
+					q = append(q, next)
+				}
+			}
+		}
+		ans++
+	}
+	return -1
+}
 ```
 
 ### **...**
