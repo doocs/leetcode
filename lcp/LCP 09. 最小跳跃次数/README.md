@@ -29,6 +29,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：BFS**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -36,7 +38,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minJump(self, jump: List[int]) -> int:
+        n = len(jump)
+        vis = [False] * (n + 1)
+        q = deque([0])
+        ans = 0
+        vis[0] = True
+        mx = 1
+        while q:
+            for _ in range(len(q)):
+                i = q.popleft()
+                if i + jump[i] >= n:
+                    return ans + 1
+                for j in list(range(mx, i)) + [i + jump[i]]:
+                    if not vis[j]:
+                        q.append(j)
+                        vis[j] = True
+                mx = max(mx, i + 1)
+            ans += 1
+        return -1
 ```
 
 ### **Java**
@@ -44,7 +65,117 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minJump(int[] jump) {
+        int n = jump.length;
+        boolean[] vis = new boolean[n + 1];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        vis[0] = true;
+        int ans = 0;
+        int mx = 1;
+        while (!q.isEmpty()) {
+            for (int t = q.size(); t > 0; --t) {
+                int i = q.poll();
+                int j = i + jump[i];
+                if (j >= n) {
+                    return ans + 1;
+                }
+                if (!vis[j]) {
+                    q.offer(j);
+                    vis[j] = true;
+                }
+                for (j = mx; j < i; ++j) {
+                    if (!vis[j]) {
+                        q.offer(j);
+                        vis[j] = true;
+                    }
+                }
+                mx = Math.max(mx, i + 1);
+            }
+            ++ans;
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minJump(vector<int>& jump) {
+        int n = jump.size();
+        vector<bool> vis(n + 1);
+        queue<int> q{{0}};
+        vis[0] = true;
+        int ans = 0, mx = 1;
+        while (!q.empty())
+        {
+            for (int t = q.size(); t; --t)
+            {
+                int i = q.front();
+                int j = i + jump[i];
+                if (j >= n) return ans + 1;
+                q.pop();
+                if (!vis[j])
+                {
+                    vis[j] = true;
+                    q.push(j);
+                }
+                for (j = mx; j < i; ++j)
+                {
+                    if (!vis[j])
+                    {
+                        vis[j] = true;
+                        q.push(j);
+                    }
+                }
+                mx = max(mx, i + 1);
+            }
+            ++ans;
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minJump(jump []int) int {
+    n := len(jump)
+    vis := make([]bool, n + 1)
+    q := []int{0}
+    vis[0] = true
+    ans, mx := 0, 1
+    for len(q) > 0 {
+        for t := len(q); t > 0; t-- {
+            i := q[0]
+            q = q[1:]
+            j := i + jump[i]
+            if j >= n {
+                return ans + 1
+            }
+            if !vis[j] {
+                vis[j] = true
+                q = append(q, j)
+            }
+            for j = mx; j < i; j++ {
+                if !vis[j] {
+                    vis[j] = true
+                    q = append(q, j)
+                }
+            }
+            if mx < i + 1 {
+                mx = i + 1
+            }
+        }
+        ans++
+    }
+    return -1
+}
 ```
 
 ### **...**
