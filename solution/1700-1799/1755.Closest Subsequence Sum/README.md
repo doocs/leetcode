@@ -52,6 +52,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS + 二分查找**
+
+每个数选或不选两种可能，所以 `n` 个数就有 `2^n` 种组合，由于 `n` 最大为 40，枚举 `2^40` 种组合显然会超时。
+
+可以把数组分成左右两部分，分别求出两部分所有子序列和（`2 * 2^(n/2)` 种组合）记为 `lsum` 和 `rsum`。最后，只需找到最接近 `goal` 的 `lsum[i] + rsum[j]`
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -98,7 +104,160 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minAbsDifference(int[] nums, int goal) {
+        int n = nums.length;
+        List<Integer> lsum = new ArrayList<>();
+        List<Integer> rsum = new ArrayList<>();
+        dfs(nums, lsum, 0, n / 2, 0);
+        dfs(nums, rsum, n / 2, n, 0);
 
+        rsum.sort(Integer::compareTo);
+        int res = Integer.MAX_VALUE;
+
+        for (Integer x : lsum) {
+            int target = goal - x;
+            int left = 0, right = rsum.size();
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (rsum.get(mid) < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+            if (left < rsum.size()) {
+                res = Math.min(res, Math.abs(target - rsum.get(left)));
+            }
+            if (left > 0) {
+                res = Math.min(res, Math.abs(target - rsum.get(left - 1)));
+            }
+        }
+
+        return res;
+    }
+
+    private void dfs(int[] nums, List<Integer> sum, int i, int n, int cur) {
+        if (i == n) {
+            sum.add(cur);
+            return;
+        }
+
+        dfs(nums, sum, i + 1, n, cur);
+        dfs(nums, sum, i + 1, n, cur + nums[i]);
+    }
+}
+```
+
+### **Go**
+
+```go
+func minAbsDifference(nums []int, goal int) int {
+	n := len(nums)
+	lsum := make([]int, 0)
+	rsum := make([]int, 0)
+
+	dfs(nums[:n/2], &lsum, 0, 0)
+	dfs(nums[n/2:], &rsum, 0, 0)
+
+	sort.Ints(rsum)
+	res := math.MaxInt32
+
+	for _, x := range lsum {
+		t := goal - x
+		l, r := 0, len(rsum)
+		for l < r {
+			m := int(uint(l+r) >> 1)
+			if rsum[m] < t {
+				l = m + 1
+			} else {
+				r = m
+			}
+		}
+		if l < len(rsum) {
+			res = min(res, abs(t-rsum[l]))
+		}
+		if l > 0 {
+			res = min(res, abs(t-rsum[l-1]))
+		}
+	}
+
+	return res
+}
+
+func dfs(nums []int, sum *[]int, i, cur int) {
+	if i == len(nums) {
+		*sum = append(*sum, cur)
+		return
+	}
+
+	dfs(nums, sum, i+1, cur)
+	dfs(nums, sum, i+1, cur+nums[i])
+}
+
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minAbsDifference(vector<int>& nums, int goal) {
+        int n = nums.size();
+        vector<int> lsum;
+        vector<int> rsum;
+        dfs(nums, lsum, 0, n / 2, 0);
+        dfs(nums, rsum, n / 2, n, 0);
+
+        sort(rsum.begin(), rsum.end());
+        int res = INT_MAX;
+
+        for (int x : lsum) {
+            int target = goal - x;
+            int left = 0, right = rsum.size();
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (rsum[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+            if (left < rsum.size()) {
+                res = min(res, abs(target - rsum[left]));
+            }
+            if (left > 0) {
+                res = min(res, abs(target - rsum[left - 1]));
+            }
+        }
+
+        return res;
+    }
+
+private:
+    void dfs(vector<int>& nums, vector<int>& sum, int i, int n, int cur) {
+        if (i == n) {
+            sum.emplace_back(cur);
+            return;
+        }
+
+        dfs(nums, sum, i + 1, n, cur);
+        dfs(nums, sum, i + 1, n, cur + nums[i]);
+    }
+};
 ```
 
 ### **...**
