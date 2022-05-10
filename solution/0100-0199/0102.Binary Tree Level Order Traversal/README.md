@@ -44,7 +44,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-队列实现。
+**方法一：BFS**
 
 <!-- tabs:start -->
 
@@ -66,9 +66,8 @@ class Solution:
         ans = []
         q = deque([root])
         while q:
-            n = len(q)
             t = []
-            for _ in range(n):
+            for _ in range(len(q)):
                 node = q.popleft()
                 t.append(node.val)
                 if node.left:
@@ -101,16 +100,16 @@ class Solution:
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<List<Integer>> ans = new ArrayList<>();
         while (!q.isEmpty()) {
             List<Integer> t = new ArrayList<>();
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                TreeNode node = q.pollFirst();
+            for (int n = q.size(); n > 0; --n) {
+                TreeNode node = q.poll();
                 t.add(node.val);
                 if (node.left != null) {
                     q.offer(node.left);
@@ -143,13 +142,13 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-        if (!root) return {};
         vector<vector<int>> ans;
+        if (!root) return ans;
         queue<TreeNode*> q{{root}};
         while (!q.empty())
         {
             vector<int> t;
-            for (int i = 0, n = q.size(); i < n; ++i)
+            for (int n = q.size(); n; --n)
             {
                 auto node = q.front();
                 q.pop();
@@ -176,15 +175,14 @@ public:
  * }
  */
 func levelOrder(root *TreeNode) [][]int {
-	if root == nil {
-		return nil
-	}
 	var ans [][]int
+	if root == nil {
+		return ans
+	}
 	var q = []*TreeNode{root}
 	for len(q) > 0 {
 		var t []int
-		n := len(q)
-		for i := 0; i < n; i++ {
+		for n := len(q); n > 0; n-- {
 			node := q[0]
 			q = q[1:]
 			t = append(t, node.Val)
@@ -217,14 +215,14 @@ func levelOrder(root *TreeNode) [][]int {
  * @return {number[][]}
  */
 var levelOrder = function (root) {
-    if (!root) {
-        return [];
-    }
     let ans = [];
+    if (!root) {
+        return ans;
+    }
     let q = [root];
     while (q.length) {
         let t = [];
-        for (let i = 0, n = q.length; i < n; ++i) {
+        for (let n = q.length; n; --n) {
             const node = q.shift();
             t.push(node.val);
             if (node.left) {

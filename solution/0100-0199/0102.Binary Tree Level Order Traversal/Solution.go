@@ -7,15 +7,14 @@
  * }
  */
 func levelOrder(root *TreeNode) [][]int {
-	if root == nil {
-		return nil
-	}
 	var ans [][]int
+	if root == nil {
+		return ans
+	}
 	var q = []*TreeNode{root}
 	for len(q) > 0 {
 		var t []int
-		n := len(q)
-		for i := 0; i < n; i++ {
+		for n := len(q); n > 0; n-- {
 			node := q[0]
 			q = q[1:]
 			t = append(t, node.Val)
