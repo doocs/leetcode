@@ -173,7 +173,7 @@
 
 感谢以下所有朋友对本项目的贡献！
 
-<a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
+<a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=499" /></a>
 
 ## 赞助者
 

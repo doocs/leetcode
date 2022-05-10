@@ -165,7 +165,7 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 This project exists thanks to all the people who contribute.
 
-<a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
+<a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=499" /></a>
 
 ## Backers & Sponsors
 
