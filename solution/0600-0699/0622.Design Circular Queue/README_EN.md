@@ -181,6 +181,151 @@ class MyCircularQueue {
  */
 ```
 
+### **TypeScript**
+
+```ts
+class MyCircularQueue {
+    private queue: number[];
+    private left: number;
+    private right: number;
+    private capacity: number;
+
+    constructor(k: number) {
+        this.queue = new Array(k);
+        this.left = 0;
+        this.right = 0;
+        this.capacity = k;
+    }
+
+    enQueue(value: number): boolean {
+        if (this.isFull()) {
+            return false;
+        }
+        this.queue[this.right % this.capacity] = value;
+        this.right++;
+        return true;
+    }
+
+    deQueue(): boolean {
+        if (this.isEmpty()) {
+            return false;
+        }
+        this.left++;
+        return true;
+    }
+
+    Front(): number {
+        if (this.isEmpty()) {
+            return -1;
+        }
+        return this.queue[this.left % this.capacity];
+    }
+
+    Rear(): number {
+        if (this.isEmpty()) {
+            return -1;
+        }
+        return this.queue[(this.right - 1) % this.capacity];
+    }
+
+    isEmpty(): boolean {
+        return this.right - this.left === 0;
+    }
+
+    isFull(): boolean {
+        return this.right - this.left === this.capacity;
+    }
+}
+
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * var obj = new MyCircularQueue(k)
+ * var param_1 = obj.enQueue(value)
+ * var param_2 = obj.deQueue()
+ * var param_3 = obj.Front()
+ * var param_4 = obj.Rear()
+ * var param_5 = obj.isEmpty()
+ * var param_6 = obj.isFull()
+ */
+```
+
+### **Rust**
+
+```rust
+struct MyCircularQueue {
+    queue: Vec<i32>,
+    left: usize,
+    right: usize,
+    capacity: usize,
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl MyCircularQueue {
+    fn new(k: i32) -> Self {
+        let k = k as usize;
+        Self {
+            queue: vec![0; k],
+            left: 0,
+            right: 0,
+            capacity: k,
+        }
+    }
+
+    fn en_queue(&mut self, value: i32) -> bool {
+        if self.is_full() {
+            return false;
+        }
+        self.queue[self.right % self.capacity] = value;
+        self.right += 1;
+        true
+    }
+
+    fn de_queue(&mut self) -> bool {
+        if self.is_empty() {
+            return false;
+        }
+        self.left += 1;
+        true
+    }
+
+    fn front(&self) -> i32 {
+        if self.is_empty() {
+            return -1;
+        }
+        self.queue[self.left % self.capacity]
+    }
+
+    fn rear(&self) -> i32 {
+        if self.is_empty() {
+            return -1;
+        }
+        self.queue[(self.right - 1) % self.capacity]
+    }
+
+    fn is_empty(&self) -> bool {
+        self.right - self.left == 0
+    }
+
+    fn is_full(&self) -> bool {
+        self.right - self.left == self.capacity
+    }
+}
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * let obj = MyCircularQueue::new(k);
+ * let ret_1: bool = obj.en_queue(value);
+ * let ret_2: bool = obj.de_queue();
+ * let ret_3: i32 = obj.front();
+ * let ret_4: i32 = obj.rear();
+ * let ret_5: bool = obj.is_empty();
+ * let ret_6: bool = obj.is_full();
+ */
+ */
+```
+
 ### **...**
 
 ```
