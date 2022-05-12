@@ -60,13 +60,96 @@ Since we need to return the answer modulo 10<sup>9</sup> + 7, we return 20828761
 ### **Python3**
 
 ```python
+mod = 10**9 + 7
+f = [1, 1, 2, 4]
+g = [1, 1, 2, 4]
+for _ in range(100000):
+    f.append((f[-1] + f[-2] + f[-3]) % mod)
+    g.append((g[-1] + g[-2] + g[-3] + g[-4]) % mod)
 
+
+class Solution:
+    def countTexts(self, pressedKeys: str) -> int:
+        ans = 1
+        for ch, s in groupby(pressedKeys):
+            m = len(list(s))
+            ans = ans * (g[m] if ch in "79" else f[m]) % mod
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int N = 100010;
+    private static final int MOD = (int) 1e9 + 7;
+    private static long[] f = new long[N];
+    private static long[] g = new long[N];
+    static {
+        f[0] = 1;
+        f[1] = 1;
+        f[2] = 2;
+        f[3] = 4;
+        g[0] = 1;
+        g[1] = 1;
+        g[2] = 2;
+        g[3] = 4;
+        for (int i = 4; i < N; ++i) {
+            f[i] = (f[i - 1] + f[i - 2] + f[i - 3]) % MOD;
+            g[i] = (g[i - 1] + g[i - 2] + g[i - 3] + g[i - 4]) % MOD;
+        }
+    }
 
+    public int countTexts(String pressedKeys) {
+        long ans = 1;
+        for (int i = 0, n = pressedKeys.length(); i < n; ++i) {
+            int j = i;
+            char c = pressedKeys.charAt(i);
+            for (; j + 1 < n && pressedKeys.charAt(j + 1) == c; ++j);
+            int cnt = j - i + 1;
+            ans = c == '7' || c == '9' ? ans * g[cnt] : ans * f[cnt];
+            ans %= MOD;
+            i = j;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+const mod int = 1e9 + 7
+const n int = 1e5 + 10
+
+var f = [n]int{1, 1, 2, 4}
+var g = f
+
+func init() {
+	for i := 4; i < n; i++ {
+		f[i] = (f[i-1] + f[i-2] + f[i-3]) % mod
+		g[i] = (g[i-1] + g[i-2] + g[i-3] + g[i-4]) % mod
+	}
+}
+
+func countTexts(pressedKeys string) int {
+	ans := 1
+	for i, j, n := 0, 0, len(pressedKeys); i < n; i++ {
+		c := pressedKeys[i]
+		j = i
+		for j+1 < n && pressedKeys[j+1] == c {
+			j++
+		}
+		cnt := j - i + 1
+		if c == '7' || c == '9' {
+			ans = ans * g[cnt] % mod
+		} else {
+			ans = ans * f[cnt] % mod
+		}
+		i = j
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
