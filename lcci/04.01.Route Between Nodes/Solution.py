@@ -1,5 +1,7 @@
 class Solution:
-    def findWhetherExistsPath(self, n: int, graph: List[List[int]], start: int, target: int) -> bool:
+    def findWhetherExistsPath(
+        self, n: int, graph: List[List[int]], start: int, target: int
+    ) -> bool:
         g = defaultdict(list)
         for u, v in graph:
             g[u].append(v)

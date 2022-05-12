@@ -3,9 +3,9 @@ class Solution:
         m, n = len(mat), len(mat[0])
         ans = [[-1] * n for _ in range(m)]
         q = deque()
-        for i in range(m):
-            for j in range(n):
-                if mat[i][j] == 0:
+        for i, row in enumerate(mat):
+            for j, v in enumerate(row):
+                if v == 0:
                     ans[i][j] = 0
                     q.append((i, j))
         dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]

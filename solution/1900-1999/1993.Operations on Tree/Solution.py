@@ -1,5 +1,4 @@
 class LockingTree:
-
     def __init__(self, parent: List[int]):
         self.nums = {}
         self.parent = parent

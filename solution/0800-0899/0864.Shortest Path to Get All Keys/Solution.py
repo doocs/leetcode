@@ -21,7 +21,10 @@ class Solution:
                     nxt = state
                     x, y = i + dirs[k], j + dirs[k + 1]
                     if 0 <= x < m and 0 <= y < n and grid[x][y] != '#':
-                        if grid[x][y].isupper() and (nxt & (1 << (ord(grid[x][y]) - ord('A')))) == 0:
+                        if (
+                            grid[x][y].isupper()
+                            and (nxt & (1 << (ord(grid[x][y]) - ord('A')))) == 0
+                        ):
                             continue
                         if grid[x][y].islower():
                             nxt |= 1 << (ord(grid[x][y]) - ord('a'))

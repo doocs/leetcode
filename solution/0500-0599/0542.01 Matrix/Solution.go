@@ -9,9 +9,9 @@ func updateMatrix(mat [][]int) [][]int {
 	}
 	type pair struct{ x, y int }
 	var q []pair
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if mat[i][j] == 0 {
+	for i, row := range mat {
+		for j, v := range row {
+			if v == 0 {
 				ans[i][j] = 0
 				q = append(q, pair{i, j})
 			}
