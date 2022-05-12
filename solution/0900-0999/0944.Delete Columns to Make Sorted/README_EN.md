@@ -71,13 +71,36 @@ All 3 columns are not sorted, so you will delete all 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minDeletionSize(self, strs: List[str]) -> int:
+        m, n = len(strs[0]), len(strs)
+        ans = 0
+        for j in range(m):
+            for i in range(1, n):
+                if strs[i][j] < strs[i - 1][j]:
+                    ans += 1
+                    break
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int m = strs[0].length(), n = strs.length;
+        int ans = 0;
+        for (int j = 0; j < m; ++j) {
+            for (int i = 1; i < n; ++i) {
+                if (strs[i].charAt(j) < strs[i - 1].charAt(j)) {
+                    ++ans;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
@@ -120,6 +143,24 @@ impl Solution {
         }
         res
     }
+}
+```
+
+### **Go**
+
+```go
+func minDeletionSize(strs []string) int {
+	m, n := len(strs[0]), len(strs)
+	ans := 0
+	for j := 0; j < m; j++ {
+		for i := 1; i < n; i++ {
+			if strs[i][j] < strs[i-1][j] {
+				ans++
+				break
+			}
+		}
+	}
+	return ans
 }
 ```
 
