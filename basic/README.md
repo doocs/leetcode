@@ -8,6 +8,7 @@
 -   [归并排序](/basic/sorting/MergeSort/README.md)
 -   [快速排序](/basic/sorting/QuickSort/README.md)
 -   [堆排序](/basic/sorting/HeapSort/README.md)
+-   [计数排序](/basic/sorting/CountingSort/README.md)
 
 ## 查找算法
 
