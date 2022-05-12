@@ -61,7 +61,13 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestGoodInteger(self, num: str) -> str:
+        for i in range(9, -1, -1):
+            t = str(i) * 3
+            if t in num:
+                return t
+        return ''
 ```
 
 ### **Java**
@@ -89,7 +95,37 @@ function largestGoodInteger(num: string): string {
         if (num.includes(c)) return c;
     }
     return '';
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string largestGoodInteger(string num) {
+        for (char i = '9'; i >= '0'; --i)
+        {
+            string t(3, i);
+            if (num.find(t) != string::npos) return t;
+        }
+        return "";
+    }
 };
+```
+
+### **Go**
+
+```go
+func largestGoodInteger(num string) string {
+	for c := '9'; c >= '0'; c-- {
+		t := strings.Repeat(string(c), 3)
+		if strings.Contains(num, t) {
+			return t
+		}
+	}
+	return ""
+}
 ```
 
 ### **...**
