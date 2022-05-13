@@ -28,8 +28,6 @@
 
 ## 解法
 
-需要注意，此题是旋转，而非位移。当 `n >= s.length` 时，字符串不变。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,6 +48,29 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string reverseLeftWords(string s, int n) {
+        return s.substr(n) + s.substr(0, n);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string reverseLeftWords(string s, int n) {
+        reverse(s.begin(), s.begin() + n);
+        reverse(s.begin() + n, s.end());
+        reverse(s.begin(), s.end());
+        return s;
+    }
+};
+```
+
 ### **JavaScript**
 
 ```js
@@ -59,7 +80,7 @@ class Solution {
  * @return {string}
  */
 var reverseLeftWords = function (s, n) {
-    return s.substring(n) + s.substr(0, n);
+    return s.substring(n) + s.substring(0, n);
 };
 ```
 
@@ -76,11 +97,8 @@ func reverseLeftWords(s string, n int) string {
 ```rust
 impl Solution {
     pub fn reverse_left_words(s: String, n: i32) -> String {
-        let len = s.len() as i32;
-        if n >= len {
-            return s;
-        }
-        String::from(&s[n as usize..]) + &s[..n as usize]
+        let n = n as usize;
+        String::from(&s[n..]) + &s[..n]
     }
 }
 ```
