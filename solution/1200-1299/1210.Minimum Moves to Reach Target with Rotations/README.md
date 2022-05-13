@@ -86,7 +86,7 @@ class Solution:
         n = len(grid)
         target = (n * n - 2, n * n - 1)
         q = deque([(0, 1)])
-        vis = set([(0, 1)])
+        vis = {(0, 1)}
         ans = 0
         while q:
             for _ in range(len(q)):

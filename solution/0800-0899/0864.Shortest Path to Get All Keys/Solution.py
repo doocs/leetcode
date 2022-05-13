@@ -11,7 +11,7 @@ class Solution:
         dirs = [-1, 0, 1, 0, -1]
         ans = 0
         mask = (1 << cnt) - 1
-        vis = set([(start[0], start[1], 0)])
+        vis = {(*start, 0)}
         while q:
             for _ in range(len(q)):
                 i, j, state = q.popleft()

@@ -174,7 +174,7 @@ class Solution:
         while left < right:
             mid = (left + right) >> 1
             q = deque([(0, 0)])
-            vis = set([(0, 0)])
+            vis = {(0, 0)}
             while q:
                 i, j = q.popleft()
                 for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:

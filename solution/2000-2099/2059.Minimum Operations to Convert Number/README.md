@@ -143,7 +143,7 @@ class Solution:
             return res
 
         q = deque([start])
-        vis = set([(start)])
+        vis = {start}
         ans = 0
         while q:
             ans += 1

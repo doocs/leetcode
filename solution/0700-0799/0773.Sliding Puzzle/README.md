@@ -121,7 +121,7 @@ class Solution:
         end = "123450"
         if start == end:
             return 0
-        vis = set([(start)])
+        vis = {start}
         q = deque([(start)])
         ans = 0
         while q:

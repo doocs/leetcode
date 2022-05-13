@@ -67,13 +67,14 @@ class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
         q = deque([(0, 0)])
         ans = 0
-        vis = set([(0, 0)])
+        vis = {(0, 0)}
+        dirs = ((-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1))
         while q:
             for _ in range(len(q)):
                 i, j = q.popleft()
                 if (i, j) == (x, y):
                     return ans
-                for a, b in [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]]:
+                for a, b in dirs:
                     c, d = i + a, j + b
                     if (c, d) not in vis:
                         vis.add((c, d))
@@ -82,7 +83,7 @@ class Solution:
         return -1
 ```
 
-双向 BFS；
+双向 BFS：
 
 ```python
 class Solution:
@@ -91,7 +92,7 @@ class Solution:
             for _ in range(len(q)):
                 i, j = q.popleft()
                 step = m1[(i, j)]
-                for a, b in [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]]:
+                for a, b in ((-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)):
                     x, y = i + a, j + b
                     if (x, y) in m1:
                         continue

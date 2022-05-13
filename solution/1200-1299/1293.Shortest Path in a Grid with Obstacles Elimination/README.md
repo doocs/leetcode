@@ -68,7 +68,7 @@ class Solution:
         if k >= m + n - 3:
             return m + n - 2
         q = deque([(0, 0, k)])
-        vis = set([(0, 0, k)])
+        vis = {(0, 0, k)}
         ans = 0
         while q:
             ans += 1

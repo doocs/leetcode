@@ -69,7 +69,7 @@ class Solution:
         ans = 0
         while i < n:
             s = 0
-            seen = set([0])
+            seen = {0}
             while i < n:
                 s += nums[i]
                 if s - target in seen:

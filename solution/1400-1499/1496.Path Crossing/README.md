@@ -55,7 +55,7 @@
 class Solution:
     def isPathCrossing(self, path: str) -> bool:
         x = y = 0
-        vis = set([(x, y)])
+        vis = {(x, y)}
         for c in path:
             if c == 'N':
                 y += 1

@@ -103,7 +103,7 @@ class Solution:
         m, n = len(maze), len(maze[0])
         q = deque([start])
         rs, cs = start
-        vis = set([(rs, cs)])
+        vis = {(rs, cs)}
         while q:
             i, j = q.popleft()
             for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:

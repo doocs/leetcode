@@ -73,7 +73,7 @@ class Solution:
         state = sum(1 << (i * n + j) for i in range(m)
                     for j in range(n) if grid[i][j])
         q = deque([state])
-        vis = set([state])
+        vis = {state}
         ans = 0
         while q:
             for _ in range(len(q)):
