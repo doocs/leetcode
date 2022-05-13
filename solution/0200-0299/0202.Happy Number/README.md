@@ -107,25 +107,72 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isHappy(int n) {
+        auto getNext = [](int n) {
+            int res = 0;
+            while (n) {
+                res += pow(n % 10, 2);
+                n /= 10;
+            }
+            return res;
+        };
+        int slow = n;
+        int fast = getNext(n);
+        while (slow != fast) {
+            slow = getNext(slow);
+            fast = getNext(getNext(fast));
+        }
+        return slow == 1;
+    }
+};
+```
+
+### **TypeScript**
+
+```ts
+function isHappy(n: number): boolean {
+    const getNext = (n: number) => {
+        let res = 0;
+        while (n !== 0) {
+            res += (n % 10) ** 2;
+            n = Math.floor(n / 10);
+        }
+        return res;
+    };
+
+    let slow = n;
+    let fast = getNext(n);
+    while (slow !== fast) {
+        slow = getNext(slow);
+        fast = getNext(getNext(fast));
+    }
+    return fast === 1;
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
-    fn get_next(mut n: i32) -> i32 {
-        let mut res = 0;
-        while n != 0 {
-            res += (n % 10).pow(2);
-            n /= 10;
-        }
-        res
-    }
-
     pub fn is_happy(n: i32) -> bool {
+        let get_next = |mut n: i32| {
+            let mut res = 0;
+            while n != 0 {
+                res += (n % 10).pow(2);
+                n /= 10;
+            }
+            res
+        };
         let mut slow = n;
-        let mut fast = Self::get_next(n);
+        let mut fast = get_next(n);
         while slow != fast {
-            slow = Self::get_next(slow);
-            fast = Self::get_next(Self::get_next(fast));
+            slow = get_next(slow);
+            fast = get_next(get_next(fast));
         }
         slow == 1
     }

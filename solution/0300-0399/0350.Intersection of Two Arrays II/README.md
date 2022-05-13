@@ -158,6 +158,49 @@ func intersect(nums1 []int, nums2 []int) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function intersect(nums1: number[], nums2: number[]): number[] {
+    const map = new Map<number, number>();
+    for (const num of nums1) {
+        map.set(num, (map.get(num) ?? 0) + 1);
+    }
+
+    const res = [];
+    for (const num of nums2) {
+        if (map.has(num) && map.get(num) !== 0) {
+            res.push(num);
+            map.set(num, map.get(num) - 1);
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn intersect(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+        let mut map = HashMap::new();
+        for num in nums1.iter() {
+            *map.entry(num).or_insert(0) += 1;
+        }
+
+        let mut res = vec![];
+        for num in nums2.iter() {
+            if map.contains_key(num) && map.get(num).unwrap() != &0 {
+                map.insert(num, map.get(&num).unwrap() - 1);
+                res.push(*num);
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
