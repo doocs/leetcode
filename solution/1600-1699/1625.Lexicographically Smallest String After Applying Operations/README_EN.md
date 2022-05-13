@@ -70,18 +70,132 @@ There is no way to obtain a string that is lexicographically smaller then &quot;
 
 ## Solutions
 
+BFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findLexSmallestString(self, s: str, a: int, b: int) -> str:
+        q = deque([s])
+        vis = {s}
+        ans = s
+        while q:
+            s = q.popleft()
+            if s < ans:
+                ans = s
+            nxt1 = ''.join(
+                [str((int(c) + a) % 10) if i & 1 else c for i, c in enumerate(s)]
+            )
+            nxt2 = s[-b:] + s[:-b]
+            for nxt in (nxt1, nxt2):
+                if nxt not in vis:
+                    vis.add(nxt)
+                    q.append(nxt)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String findLexSmallestString(String s, int a, int b) {
+        Queue<String> q = new ArrayDeque<>();
+        q.offer(s);
+        Set<String> vis = new HashSet<>();
+        vis.add(s);
+        String ans = s;
+        while (!q.isEmpty()) {
+            s = q.poll();
+            if (s.compareTo(ans) < 0) {
+                ans = s;
+            }
+            char[] cs = s.toCharArray();
+            for (int i = 1; i < cs.length; i += 2) {
+                cs[i] = (char) (((cs[i] - '0' + a) % 10) + '0');
+            }
+            String nxt1 = String.valueOf(cs);
+            String nxt2 = s.substring(b) + s.substring(0, b);
+            for (String nxt : new String[]{nxt1, nxt2}) {
+                if (!vis.contains(nxt)) {
+                    vis.add(nxt);
+                    q.offer(nxt);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findLexSmallestString(string s, int a, int b) {
+        unordered_set<string> vis{{s}};
+        queue<string> q{{s}};
+        string ans = s;
+        int n = s.size();
+        while (!q.empty())
+        {
+            s = q.front();
+            q.pop();
+            if (s < ans) ans = s;
+            string nxt1 = s;
+            for (int i = 1; i < n; i += 2) nxt1[i] = ((nxt1[i] - '0' + a) % 10) + '0';
+            string nxt2 = s.substr(n - b) + s.substr(0, n - b);
+            for (string nxt : {nxt1, nxt2})
+            {
+                if (!vis.count(nxt))
+                {
+                    vis.insert(nxt);
+                    q.push(nxt);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLexSmallestString(s string, a int, b int) string {
+	q := []string{s}
+	vis := map[string]bool{s: true}
+	ans := s
+	for len(q) > 0 {
+		s = q[0]
+		q = q[1:]
+		if s < ans {
+			ans = s
+		}
+		for _, nxt := range []string{op1(s, a), op2(s, b)} {
+			if !vis[nxt] {
+				vis[nxt] = true
+				q = append(q, nxt)
+			}
+		}
+	}
+	return ans
+}
+
+func op1(s string, a int) string {
+	res := []byte(s)
+	for i := 1; i < len(s); i += 2 {
+		res[i] = byte((int(res[i]-'0')+a)%10 + '0')
+	}
+	return string(res)
+}
+
+func op2(s string, b int) string {
+	return s[len(s)-b:] + s[:len(s)-b]
+}
 ```
 
 ### **...**
