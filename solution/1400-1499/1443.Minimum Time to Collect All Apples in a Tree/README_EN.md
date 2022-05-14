@@ -46,18 +46,125 @@
 
 ## Solutions
 
+DFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+        def dfs(u, cost):
+            if vis[u]:
+                return 0
+            vis[u] = True
+            nxt_cost = 0
+            for v in g[u]:
+                nxt_cost += dfs(v, 2)
+            if not hasApple[u] and nxt_cost == 0:
+                return 0
+            return cost + nxt_cost
 
+        g = defaultdict(list)
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        vis = [False] * n
+        return dfs(0, 0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
+        boolean[] vis = new boolean[n];
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        return dfs(0, 0, g, hasApple, vis);
+    }
 
+    private int dfs(int u, int cost, List<Integer>[] g, List<Boolean> hasApple, boolean[] vis) {
+        if (vis[u]) {
+            return 0;
+        }
+        vis[u] = true;
+        int nxtCost = 0;
+        for (int v : g[u]) {
+            nxtCost += dfs(v, 2, g, hasApple, vis);
+        }
+        if (!hasApple.get(u) && nxtCost == 0) {
+            return 0;
+        }
+        return cost + nxtCost;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minTime(int n, vector<vector<int>>& edges, vector<bool>& hasApple) {
+        vector<bool> vis(n);
+        vector<vector<int>> g(n);
+        for (auto& e : edges)
+        {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        return dfs(0, 0, g, hasApple, vis);
+    }
+
+    int dfs(int u, int cost, vector<vector<int>>& g, vector<bool>& hasApple, vector<bool>& vis) {
+        if (vis[u]) return 0;
+        vis[u] = true;
+        int nxt = 0;
+        for (int& v : g[u]) nxt += dfs(v, 2, g, hasApple, vis);
+        if (!hasApple[u] && !nxt) return 0;
+        return cost + nxt;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minTime(n int, edges [][]int, hasApple []bool) int {
+	vis := make([]bool, n)
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	var dfs func(int, int) int
+	dfs = func(u, cost int) int {
+		if vis[u] {
+			return 0
+		}
+		vis[u] = true
+		nxt := 0
+		for _, v := range g[u] {
+			nxt += dfs(v, 2)
+		}
+		if !hasApple[u] && nxt == 0 {
+			return 0
+		}
+		return cost + nxt
+	}
+	return dfs(0, 0)
+}
 ```
 
 ### **...**
