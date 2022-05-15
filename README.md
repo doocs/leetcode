@@ -56,6 +56,7 @@
 -   [设计链表](/solution/0700-0799/0707.Design%20Linked%20List/README.md) - `单链表`、`指针引用`、`数组实现`
 -   [下一个更大元素 I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md) - `单调栈`
 -   [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md) - `单调栈`
+-   [滑动窗口最大值](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md) - `单调队列`
 
 ### 3. 搜索
 

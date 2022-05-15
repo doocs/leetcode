@@ -49,7 +49,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-单调队列。
+**方法一：单调队列**
 
 单调队列常见模型：找出滑动窗口中的最大值/最小值。模板：
 
@@ -73,16 +73,17 @@ for i in range(n):
 ```python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        q, res = deque(), []
-        for i, num in enumerate(nums):
+        q = deque()
+        ans = []
+        for i, v in enumerate(nums):
             if q and i - k + 1 > q[0]:
                 q.popleft()
-            while q and nums[q[-1]] <= num:
+            while q and nums[q[-1]] <= v:
                 q.pop()
             q.append(i)
             if i >= k - 1:
-                res.append(nums[q[0]])
-        return res
+                ans.append(nums[q[0]])
+        return ans
 ```
 
 ### **Java**
@@ -93,11 +94,8 @@ class Solution:
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
-        if (n == 0) {
-            return new int[0];
-        }
-        int[] res = new int[n - k + 1];
-        Deque<Integer> q = new LinkedList<>();
+        int[] ans = new int[n - k + 1];
+        Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0, j = 0; i < n; ++i) {
             if (!q.isEmpty() && i - k + 1 > q.peekFirst()) {
                 q.pollFirst();
@@ -105,12 +103,12 @@ class Solution {
             while (!q.isEmpty() && nums[q.peekLast()] <= nums[i]) {
                 q.pollLast();
             }
-            q.offerLast(i);
+            q.offer(i);
             if (i >= k - 1) {
-                res[j++] = nums[q.peekFirst()];
+                ans[j++] = nums[q.peekFirst()];
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -124,24 +122,21 @@ class Solution {
  * @return {number[]}
  */
 var maxSlidingWindow = function (nums, k) {
-    let len = nums.length;
-    if (len < k) return [];
-    let res = [],
-        win = [];
-    for (let i = 0; i < k; i++) {
-        while (win.length > 0 && nums[i] >= nums[win[win.length - 1]])
-            win.pop();
-        win.push(i);
+    let ans = [];
+    let q = [];
+    for (let i = 0; i < nums.length; ++i) {
+        if (q && i - k + 1 > q[0]) {
+            q.shift();
+        }
+        while (q && nums[q[q.length - 1]] <= nums[i]) {
+            q.pop();
+        }
+        q.push(i);
+        if (i >= k - 1) {
+            ans.push(nums[q[0]]);
+        }
     }
-    res.push(nums[win[0]]);
-    for (let i = k; i < len; i++) {
-        while (win.length > 0 && nums[i] >= nums[win[win.length - 1]])
-            win.pop();
-        if (win.length > 0 && win[0] < i - k + 1) win.shift();
-        win.push(i);
-        res.push(nums[win[0]]);
-    }
-    return res;
+    return ans;
 };
 ```
 
@@ -150,21 +145,18 @@ var maxSlidingWindow = function (nums, k) {
 ```cpp
 class Solution {
 public:
-	vector<int> maxSlidingWindow(vector<int> &nums, int k) {
-		vector<int> res;
-		deque<int> q;
-		for (int i = 0; i < nums.size(); ++i)
-		{
-			if (!q.empty() && i - k + 1 > q.front())
-				q.pop_front();
-			while (!q.empty() && nums[q.back()] <= nums[i])
-				q.pop_back();
-			q.push_back(i);
-			if (i >= k - 1)
-				res.push_back(nums[q.front()]);
-		}
-		return res;
-	}
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        deque<int> q;
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            if (!q.empty() && i - k + 1 > q.front()) q.pop_front();
+            while (!q.empty() && nums[q.back()] <= nums[i]) q.pop_back();
+            q.push_back(i);
+            if (i >= k - 1) ans.push_back(nums[q.front()]);
+        }
+        return ans;
+    }
 };
 ```
 
@@ -172,21 +164,21 @@ public:
 
 ```go
 func maxSlidingWindow(nums []int, k int) []int {
-	var res []int
 	var q []int
-	for i, num := range nums {
+	var ans []int
+	for i, v := range nums {
 		if len(q) > 0 && i-k+1 > q[0] {
 			q = q[1:]
 		}
-		for len(q) > 0 && nums[q[len(q)-1]] <= num {
+		for len(q) > 0 && nums[q[len(q)-1]] <= v {
 			q = q[:len(q)-1]
 		}
 		q = append(q, i)
 		if i >= k-1 {
-			res = append(res, nums[q[0]])
+			ans = append(ans, nums[q[0]])
 		}
 	}
-	return res
+	return ans
 }
 ```
 

@@ -28,7 +28,6 @@ class Node:
 class CountIntervals:
 
     def __init__(self):
-        self.tot = 0
         self.tree = Node()
 
     def add(self, left: int, right: int) -> None:
