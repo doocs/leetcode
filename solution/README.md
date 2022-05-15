@@ -2264,7 +2264,7 @@
 |  [2251](https://leetcode.cn/problems/number-of-flowers-in-full-bloom)  |  [花期内花的数目](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md)  |  `数组`,`哈希表`,`二分查找`,`有序集合`,`前缀和`,`排序`  |  困难  |    |
 |  [2252](https://leetcode.cn/problems/dynamic-pivoting-of-a-table)  |  [Dynamic Pivoting of a Table](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  [2253](https://leetcode.cn/problems/dynamic-unpivoting-of-a-table)  |  [Dynamic Unpivoting of a Table](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  [2254](https://leetcode.cn/problems/design-video-sharing-platform)  |  [Design Video Sharing Platform](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README.md)  |    |  困难  |  🔒  |
+|  [2254](https://leetcode.cn/problems/design-video-sharing-platform)  |  [Design Video Sharing Platform](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README.md)  |  `栈`,`设计`,`哈希表`,`有序集合`  |  困难  |  🔒  |
 |  [2255](https://leetcode.cn/problems/count-prefixes-of-a-given-string)  |  [统计是给定字符串前缀的字符串数目](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README.md)  |  `数组`,`字符串`  |  简单  |    |
 |  [2256](https://leetcode.cn/problems/minimum-average-difference)  |  [最小平均差](/solution/2200-2299/2256.Minimum%20Average%20Difference/README.md)  |  `数组`,`前缀和`  |  中等  |    |
 |  [2257](https://leetcode.cn/problems/count-unguarded-cells-in-the-grid)  |  [统计网格图中没有被保卫的格子数](/solution/2200-2299/2257.Count%20Unguarded%20Cells%20in%20the%20Grid/README.md)  |  `数组`,`矩阵`,`模拟`  |  中等  |    |
@@ -2278,6 +2278,15 @@
 |  [2265](https://leetcode.cn/problems/count-nodes-equal-to-average-of-subtree)  |  [统计值等于子树平均值的节点数](/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README.md)  |    |  中等  |    |
 |  [2266](https://leetcode.cn/problems/count-number-of-texts)  |  [统计打字方案数](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README.md)  |    |  中等  |    |
 |  [2267](https://leetcode.cn/problems/check-if-there-is-a-valid-parentheses-string-path)  |  [检查是否有合法括号字符串路径](/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README.md)  |    |  困难  |    |
+|  [2268](https://leetcode.cn/problems/minimum-number-of-keypresses)  |  [Minimum Number of Keypresses](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README.md)  |    |  中等  |  🔒  |
+|  [2269](https://leetcode.cn/problems/find-the-k-beauty-of-a-number)  |  [找到一个数字的 K 美丽值](/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README.md)  |  `数学`,`字符串`  |  简单  |    |
+|  [2270](https://leetcode.cn/problems/number-of-ways-to-split-array)  |  [分割数组的方案数](/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README.md)  |    |  中等  |    |
+|  [2271](https://leetcode.cn/problems/maximum-white-tiles-covered-by-a-carpet)  |  [毯子覆盖的最多白色砖块数](/solution/2200-2299/2271.Maximum%20White%20Tiles%20Covered%20by%20a%20Carpet/README.md)  |    |  中等  |    |
+|  [2272](https://leetcode.cn/problems/substring-with-largest-variance)  |  [最大波动的子字符串](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README.md)  |    |  困难  |    |
+|  [2273](https://leetcode.cn/problems/find-resultant-array-after-removing-anagrams)  |  [移除字母异位词后的结果数组](/solution/2200-2299/2273.Find%20Resultant%20Array%20After%20Removing%20Anagrams/README.md)  |  `排序`,`数组`,`字符串`  |  简单  |    |
+|  [2274](https://leetcode.cn/problems/maximum-consecutive-floors-without-special-floors)  |  [不含特殊楼层的最大连续楼层数](/solution/2200-2299/2274.Maximum%20Consecutive%20Floors%20Without%20Special%20Floors/README.md)  |    |  中等  |    |
+|  [2275](https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero)  |  [按位与结果大于零的最长组合](/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README.md)  |    |  中等  |    |
+|  [2276](https://leetcode.cn/problems/count-integers-in-intervals)  |  [统计区间中的整数数目](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README.md)  |    |  困难  |    |
 
 ## 版权
 

@@ -2262,7 +2262,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2251](https://leetcode.com/problems/number-of-flowers-in-full-bloom)  |  [Number of Flowers in Full Bloom](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md)  |  `Array`,`Hash Table`,`Binary Search`,`Ordered Set`,`Prefix Sum`,`Sorting`  |  Hard  |    |
 |  [2252](https://leetcode.com/problems/dynamic-pivoting-of-a-table)  |  [Dynamic Pivoting of a Table](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  [2253](https://leetcode.com/problems/dynamic-unpivoting-of-a-table)  |  [Dynamic Unpivoting of a Table](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
-|  [2254](https://leetcode.com/problems/design-video-sharing-platform)  |  [Design Video Sharing Platform](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md)  |    |  Hard  |  🔒  |
+|  [2254](https://leetcode.com/problems/design-video-sharing-platform)  |  [Design Video Sharing Platform](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md)  |  `Stack`,`Design`,`Hash Table`,`Ordered Set`  |  Hard  |  🔒  |
 |  [2255](https://leetcode.com/problems/count-prefixes-of-a-given-string)  |  [Count Prefixes of a Given String](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README_EN.md)  |  `Array`,`String`  |  Easy  |    |
 |  [2256](https://leetcode.com/problems/minimum-average-difference)  |  [Minimum Average Difference](/solution/2200-2299/2256.Minimum%20Average%20Difference/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |    |
 |  [2257](https://leetcode.com/problems/count-unguarded-cells-in-the-grid)  |  [Count Unguarded Cells in the Grid](/solution/2200-2299/2257.Count%20Unguarded%20Cells%20in%20the%20Grid/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Medium  |    |
@@ -2276,6 +2276,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2265](https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree)  |  [Count Nodes Equal to Average of Subtree](/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/README_EN.md)  |    |  Medium  |    |
 |  [2266](https://leetcode.com/problems/count-number-of-texts)  |  [Count Number of Texts](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README_EN.md)  |    |  Medium  |    |
 |  [2267](https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path)  |  [Check if There Is a Valid Parentheses String Path](/solution/2200-2299/2267.Check%20if%20There%20Is%20a%20Valid%20Parentheses%20String%20Path/README_EN.md)  |    |  Hard  |    |
+|  [2268](https://leetcode.com/problems/minimum-number-of-keypresses)  |  [Minimum Number of Keypresses](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README_EN.md)  |    |  Medium  |  🔒  |
+|  [2269](https://leetcode.com/problems/find-the-k-beauty-of-a-number)  |  [Find the K-Beauty of a Number](/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README_EN.md)  |  `Math`,`String`  |  Easy  |    |
+|  [2270](https://leetcode.com/problems/number-of-ways-to-split-array)  |  [Number of Ways to Split Array](/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README_EN.md)  |    |  Medium  |    |
+|  [2271](https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet)  |  [Maximum White Tiles Covered by a Carpet](/solution/2200-2299/2271.Maximum%20White%20Tiles%20Covered%20by%20a%20Carpet/README_EN.md)  |    |  Medium  |    |
+|  [2272](https://leetcode.com/problems/substring-with-largest-variance)  |  [Substring With Largest Variance](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README_EN.md)  |    |  Hard  |    |
+|  [2273](https://leetcode.com/problems/find-resultant-array-after-removing-anagrams)  |  [Find Resultant Array After Removing Anagrams](/solution/2200-2299/2273.Find%20Resultant%20Array%20After%20Removing%20Anagrams/README_EN.md)  |  `Sort`,`Array`,`String`  |  Easy  |    |
+|  [2274](https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors)  |  [Maximum Consecutive Floors Without Special Floors](/solution/2200-2299/2274.Maximum%20Consecutive%20Floors%20Without%20Special%20Floors/README_EN.md)  |    |  Medium  |    |
+|  [2275](https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero)  |  [Largest Combination With Bitwise AND Greater Than Zero](/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README_EN.md)  |    |  Medium  |    |
+|  [2276](https://leetcode.com/problems/count-integers-in-intervals)  |  [Count Integers in Intervals](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
