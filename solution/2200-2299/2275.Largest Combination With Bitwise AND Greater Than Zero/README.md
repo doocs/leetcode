@@ -53,6 +53,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算**
+
+大于 0，实际上就是要求存在某个二进制位（0-31），满足所有数字的这一位均为 1。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +64,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestCombination(self, candidates: List[int]) -> int:
+        ans = 0
+        for i in range(32):
+            t = 0
+            for x in candidates:
+                t += (x >> i) & 1
+            ans = max(ans, t)
+        return ans
 ```
 
 ### **Java**
