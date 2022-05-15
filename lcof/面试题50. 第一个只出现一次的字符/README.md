@@ -28,9 +28,9 @@
 
 对字符串进行两次遍历：
 
-第一遍，先用 hash 表（或数组）统计字符串中每个字符出现的次数。
+第一遍，使用 hash 表（或数组）统计字符串中每个字符出现的次数。
 
-第二遍，只要遍历到一个只出现一次的字符，那么就返回该字符，否则在遍历结束后返回空格。
+第二遍，只要遍历到一个只出现一次的字符，那么就返回该字符，否则在遍历结束后，返回 `' '`。
 
 <!-- tabs:start -->
 
@@ -130,22 +130,15 @@ function firstUniqChar(s: string): string {
 
 ```rust
 use std::collections::HashMap;
-
 impl Solution {
     pub fn first_uniq_char(s: String) -> char {
         let mut map = HashMap::new();
-        let s = s.chars().collect::<Vec<char>>();
-        for c in s.iter() {
-            match map.contains_key(c) {
-                true => map.insert(c, false),
-                false => map.insert(c, true),
-            };
+        for c in s.as_bytes() {
+            map.insert(c, !map.contains_key(c));
         }
-        for c in s.iter() {
-            if let Some(is_single) = map.get(c) {
-                if *is_single {
-                    return *c;
-                }
+        for c in s.as_bytes() {
+            if map[c] {
+                return char::from(*c);
             }
         }
         ' '
