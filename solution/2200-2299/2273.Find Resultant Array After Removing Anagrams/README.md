@@ -75,7 +75,22 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<String> removeAnagrams(String[] words) {
+        List<String> ans = new ArrayList<>();
+        String prev = "";
+        for (String w : words) {
+            char[] cs = w.toCharArray();
+            Arrays.sort(cs);
+            String t = String.valueOf(cs);
+            if (!t.equals(prev)) {
+                ans.add(w);
+            }
+            prev = t;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**

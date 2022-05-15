@@ -1,16 +1,16 @@
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
-	var stk []int
-	mp := make(map[int]int)
-	for _, num := range nums2 {
-		for len(stk) > 0 && stk[len(stk)-1] < num {
-			mp[stk[len(stk)-1]] = num
+	stk := []int{}
+	m := map[int]int{}
+	for _, v := range nums2 {
+		for len(stk) > 0 && stk[len(stk)-1] < v {
+			m[stk[len(stk)-1]] = v
 			stk = stk[:len(stk)-1]
 		}
-		stk = append(stk, num)
+		stk = append(stk, v)
 	}
 	var ans []int
-	for _, num := range nums1 {
-		val, ok := mp[num]
+	for _, v := range nums1 {
+		val, ok := m[v]
 		if !ok {
 			val = -1
 		}

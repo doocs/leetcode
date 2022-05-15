@@ -5,12 +5,12 @@
  */
 var nextGreaterElement = function (nums1, nums2) {
     let stk = [];
-    let nextGreater = {};
-    for (let num of nums2) {
-        while (stk && stk[stk.length - 1] < num) {
-            nextGreater[stk.pop()] = num;
+    let m = {};
+    for (let v of nums2) {
+        while (stk && stk[stk.length - 1] < v) {
+            m[stk.pop()] = v;
         }
-        stk.push(num);
+        stk.push(v);
     }
-    return nums1.map(e => nextGreater[e] || -1);
+    return nums1.map(e => m[e] || -1);
 };

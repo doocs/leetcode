@@ -49,13 +49,13 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md) - `Bit manipulation`, `Lowbit`
 -   [Merge Intervals](/solution/0000-0099/0056.Merge%20Intervals/README_EN.md) - `Merge intervals`
 
-<!-- 
 ### 2. Data Structures
 
 -   [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md) - `Linked List`, `Pointer`, `Array`
- -->
+-   [Next Greater Element I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md) - `Monotonic Stack`
+-   [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md) - `Monotonic Stack`
 
-### 2. Search
+### 3. Search
 
 -   [Flood Fill](/solution/0700-0799/0733.Flood%20Fill/README_EN.md) - `BFS`, `DFS`, `Flood fill`
 -   [Number of Islands](/solution/0200-0299/0200.Number%20of%20Islands/README_EN.md) - `BFS`, `Flood fill`
@@ -76,7 +76,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Word Search](/solution/0000-0099/0079.Word%20Search/README_EN.md) - `DFS`, `Backtracking`
 -   [Path with Maximum Gold](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md) - `DFS`, `Backtracking`
 
-### 3. Dynamic Programming(DP)
+### 4. Dynamic Programming(DP)
 
 -   [Pascal's Triangle](/solution/0100-0199/0118.Pascal's%20Triangle/README_EN.md) - `Linear problem`
 -   [Minimum Path Sum](/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md) - `Linear problem`
@@ -97,7 +97,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Coin Change](/solution/0300-0399/0322.Coin%20Change/README_EN.md) - `Unbounded Knapsack problem`
 -   [Combination Sum IV](/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md) - `Unbounded Knapsack problem`
 
-### 4. Advanced Data Structures
+### 5. Advanced Data Structures
 
 -   [Detect Cycles in 2D Grid](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README_EN.md) - `Union find`, `Detect cycles`
 -   [Evaluate Division](/solution/0300-0399/0399.Evaluate%20Division/README_EN.md) - `Union find`
@@ -124,7 +124,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Longest Substring of One Repeating Character](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md) - `Segment Tree`
 -   [Rectangle Area II](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md) - `Segment Tree`, `Discretization`, `Line Sweep`
 
-### 5. Graph Theory
+### 6. Graph Theory
 
 -   [Network Delay Time](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md) - `Shortest Path`, `Dijkstra's algorithm`, `Bellman Ford's algorithm`, `SPFA`
 -   [Min Cost to Connect All Points](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md) - `Minimum Spanning Tree`, `Prim's algorithm`, `Kruskal's algorithm`, `Union find`
@@ -134,7 +134,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Is Graph Bipartite?](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md) - `Graph coloring`, `Union find`
 
 <!--
-### 6. Mathematical Knowledge
+### 7. Mathematical Knowledge
  -->
 
 ## Contributions

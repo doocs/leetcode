@@ -51,14 +51,13 @@
 -   [合并区间](/solution/0000-0099/0056.Merge%20Intervals/README.md) - `区间合并`
 <!-- 排序算法、待补充 -->
 
-<!-- 
 ### 2. 数据结构
 
 -   [设计链表](/solution/0700-0799/0707.Design%20Linked%20List/README.md) - `单链表`、`指针引用`、`数组实现`
- -->
+-   [下一个更大元素 I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md) - `单调栈`
+-   [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md) - `单调栈`
 
-
-### 2. 搜索
+### 3. 搜索
 
 -   [图像渲染](/solution/0700-0799/0733.Flood%20Fill/README.md)- `BFS`、`DFS`、`Flood Fill 算法`、`连通性模型`
 -   [岛屿数量](/solution/0200-0299/0200.Number%20of%20Islands/README.md) - `BFS`、`Flood Fill 算法`
@@ -75,12 +74,12 @@
 -   [访问所有节点的最短路径](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README.md) - `BFS`、`最小步数模型`、`A* 算法`
 -   [为高尔夫比赛砍树](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README.md) - `BFS`、`A* 算法`
 -   [使网格图至少有一条有效路径的最小代价](/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README.md) - `双端队列 BFS`
--   [迷宫](/solution/0400-0499/0490.The%20Maze/README.md) -` DFS`、`连通性模型`、`Flood Fill 算法`
+-   [迷宫](/solution/0400-0499/0490.The%20Maze/README.md) - `DFS`、`连通性模型`、`Flood Fill 算法`
 -   [单词搜索](/solution/0000-0099/0079.Word%20Search/README.md) - `DFS`、`搜索顺序`、`回溯`
 -   [黄金矿工](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md) - `DFS`、`搜索顺序`、`回溯`
 <!-- DFS 待补充 -->
 
-### 3. 动态规划（DP）
+### 4. 动态规划（DP）
 
 -   [杨辉三角](/solution/0100-0199/0118.Pascal's%20Triangle/README.md) - `线性 DP`、`数字三角形模型`
 -   [最小路径和](/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md) - `线性 DP`、`数字三角形模型`
@@ -102,7 +101,7 @@
 -   [组合总和 Ⅳ](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md) - `完全背包问题`
 <!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
-### 4. 高级数据结构
+### 5. 高级数据结构
 
 -   [二维网格图中探测环](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md) - `并查集`、`检测环`
 -   [除法求值](/solution/0300-0399/0399.Evaluate%20Division/README.md) - `并查集`、`权值维护`
@@ -129,7 +128,7 @@
 -   [由单个字符重复的最长子字符串](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md) - `线段树`、`动态最大子段和模型`
 -   [矩形面积 II](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md) - `线段树`、`离散化`、`扫描线`
 
-### 5. 图论
+### 6. 图论
 
 -   [网络延迟时间](/solution/0700-0799/0743.Network%20Delay%20Time/README.md) - `最短路`、`Dijkstra 算法`、`Bellman Ford 算法`、`SPFA 算法`
 -   [连接所有点的最小费用](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md) - `最小生成树`、`Prim 算法`、`Kruskal 算法`
@@ -139,7 +138,7 @@
 -   [判断二分图](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README.md) - `染色法判定二分图`、`并查集`
 
 <!-- 待补充
-### 6. 数学知识
+### 7. 数学知识
  -->
 
 ## 加入我们
