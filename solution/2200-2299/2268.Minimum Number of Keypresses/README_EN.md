@@ -62,13 +62,79 @@ A total of 15 button presses are needed, so return 15.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumKeypresses(self, s: str) -> int:
+        cnt = Counter(s)
+        ans = 0
+        i, j = 0, 1
+        for v in sorted(cnt.values(), reverse=True):
+            i += 1
+            ans += j * v
+            if i % 9 == 0:
+                j += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumKeypresses(String s) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        Arrays.sort(cnt);
+        int ans = 0;
+        for (int i = 1, j = 1; i <= 26; ++i) {
+            ans += j * cnt[26 - i];
+            if (i % 9 == 0) {
+                ++j;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumKeypresses(string s) {
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        sort(cnt.begin(), cnt.end());
+        int ans = 0;
+        for (int i = 1, j = 1; i <= 26; ++i)
+        {
+            ans += j * cnt[26 - i];
+            if (i % 9 == 0) ++j;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumKeypresses(s string) int {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	sort.Ints(cnt)
+	ans := 0
+	for i, j := 1, 1; i <= 26; i++ {
+		ans += j * cnt[26-i]
+		if i%9 == 0 {
+			j++
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
