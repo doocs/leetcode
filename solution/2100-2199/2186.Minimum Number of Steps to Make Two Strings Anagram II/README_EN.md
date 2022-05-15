@@ -47,34 +47,119 @@ It can be shown that there is no way to make them anagrams of each other with le
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        cnt = Counter(s)
+        for c in t:
+            cnt[c] -= 1
+        return sum(abs(v) for v in cnt.values())
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minSteps(String s, String t) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        for (char c : t.toCharArray()) {
+            --cnt[c - 'a'];
+        }
+        int ans = 0;
+        for (int v : cnt) {
+            ans += Math.abs(v);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function minSteps(s: string, t: string): number {
-    let count1 = new Array(128).fill(0);
-    let count2 = new Array(128).fill(0);
-    for (let char of s) {
-        count1[char.charCodeAt(0)]++;
+    let cnt = new Array(128).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0)];
     }
-    for (let char of t) {
-        count2[char.charCodeAt(0)]++;
+    for (const c of t) {
+        --cnt[c.charCodeAt(0)];
     }
     let ans = 0;
-    for (let i = 0; i < 128; i++) {
-        ans += Math.abs(count1[i] - count2[i]);
+    for (const v of cnt) {
+        ans += Math.abs(v);
     }
     return ans;
 }
 ```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        for (char& c : t) --cnt[c - 'a'];
+        int ans = 0;
+        for (int& v : cnt) ans += abs(v);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSteps(s string, t string) int {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	for _, c := range t {
+		cnt[c-'a']--
+	}
+	ans := 0
+	for _, v := range cnt {
+		ans += abs(v)
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {number}
+ */
+var minSteps = function (s, t) {
+    let cnt = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
+    }
+    for (const c of t) {
+        --cnt[c.charCodeAt() - 'a'.charCodeAt()];
+    }
+    let ans = 0;
+    for (const v of cnt) {
+        ans += Math.abs(v);
+    }
+    return ans;
+};
+````
 
 ### **...**
 
