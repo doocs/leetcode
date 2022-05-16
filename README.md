@@ -58,6 +58,7 @@
 -   [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md) - `单调栈`
 -   [滑动窗口最大值](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md) - `单调队列`
 -   [满足不等式的最大值](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md) - `单调队列`
+-   [和至少为 K 的最短子数组](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README.md) - `单调队列`
 
 ### 3. 搜索
 
