@@ -135,6 +135,86 @@ func isIsomorphic(s string, t string) bool {
 }
 ```
 
+### **C#**
+
+```cs
+using System.Collections.Generic;
+
+public class Solution {
+    public bool IsIsomorphic(string s, string t) {
+        if (s.Length != t.Length) return false;
+        var dict1 = new Dictionary<char, char>();
+        var dict2 = new Dictionary<char, char>();
+        for (var i = 0; i < s.Length; ++i)
+        {
+            char mapping1;
+            char mapping2;
+            var found1 = dict1.TryGetValue(s[i], out mapping1);
+            var found2 = dict2.TryGetValue(t[i], out mapping2);
+            if (found1 ^ found2) return false;
+            if (!found1)
+            {
+                dict1.Add(s[i], t[i]);
+                dict2.Add(t[i], s[i]);
+            }
+            else if (mapping1 != t[i] || mapping2 != s[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function isIsomorphic(s: string, t: string): boolean {
+    const n = s.length;
+    const help = (s: string, t: string) => {
+        const map = new Map();
+        for (let i = 0; i < n; i++) {
+            if (map.has(s[i])) {
+                if (map.get(s[i]) !== t[i]) {
+                    return false;
+                }
+            } else {
+                map.set(s[i], t[i]);
+            }
+        }
+        return true;
+    };
+    return help(s, t) && help(t, s);
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    fn help(s: &[u8], t: &[u8]) -> bool {
+        let mut map = HashMap::new();
+        for i in 0..s.len() {
+            if map.contains_key(&s[i]) {
+                if map.get(&s[i]).unwrap() != &t[i] {
+                    return false;
+                }
+            } else {
+                map.insert(s[i], t[i]);
+            }
+        }
+        true
+    }
+
+    pub fn is_isomorphic(s: String, t: String) -> bool {
+        let (s, t) = (s.as_bytes(), t.as_bytes());
+        Self::help(s, t) && Self::help(t, s)
+    }
+}
+```
+
 ### **...**
 
 ```
