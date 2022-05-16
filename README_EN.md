@@ -55,6 +55,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Next Greater Element I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md) - `Monotonic Stack`
 -   [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md) - `Monotonic Stack`
 -   [Sliding Window Maximum](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md) - `Monotonic Queue`
+-   [Max Value of Equation](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md) - `Monotonic Queue`
 
 ### 3. Search
 

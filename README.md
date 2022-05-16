@@ -57,6 +57,7 @@
 -   [下一个更大元素 I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md) - `单调栈`
 -   [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md) - `单调栈`
 -   [滑动窗口最大值](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md) - `单调队列`
+-   [满足不等式的最大值](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md) - `单调队列`
 
 ### 3. 搜索
 
