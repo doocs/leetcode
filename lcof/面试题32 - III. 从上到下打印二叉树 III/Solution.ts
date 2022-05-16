@@ -18,19 +18,18 @@ function levelOrder(root: TreeNode | null): number[][] {
         return res;
     }
     let isEven = false;
-    const levelFn = (nodes: TreeNode[]) => {
-        if (nodes.length === 0) {
-            return res;
+    const queue = [root];
+    while (queue.length !== 0) {
+        const n = queue.length;
+        const vals = new Array(n);
+        for (let i = 0; i < n; i++) {
+            const { val, left, right } = queue.shift();
+            vals[i] = val;
+            left && queue.push(left);
+            right && queue.push(right);
         }
-        const nextNodes = [];
-        const values = nodes.map(({ val, left, right }) => {
-            left && nextNodes.push(left);
-            right && nextNodes.push(right);
-            return val;
-        });
-        res.push(isEven ? values.reverse() : values);
+        res.push(isEven ? vals.reverse() : vals);
         isEven = !isEven;
-        return levelFn(nextNodes);
-    };
-    return levelFn([root]);
+    }
+    return res;
 }

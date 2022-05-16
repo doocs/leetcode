@@ -156,31 +156,35 @@ func levelOrder(root *TreeNode) []int {
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    vector<int> levelOrder(TreeNode* root) {
-        vector<int> ret;
-        if (!root) {
-            return ret;
-        }
-
+    vector<int> levelOrder(TreeNode *root) {
+        vector<int> res;
         queue<TreeNode *> q;
-        q.push(root);
-
-        while (!q.empty()) {
-            auto head = q.front();
-            q.pop();
-            ret.push_back(head->val);
-            if (head->left) {
-                q.push(head->left);
-            }
-
-            if (head->right) {
-                q.push(head->right);
-            }
+        if (root != nullptr) {
+            q.push(root);
         }
-
-        return ret;
+        while (!q.empty()) {
+            TreeNode *node = q.front();
+            q.pop();
+            if (node->left != nullptr) {
+                q.push(node->left);
+            }
+            if (node->right != nullptr) {
+                q.push(node->right);
+            }
+            res.push_back(node->val);
+        }
+        return res;
     }
 };
 ```
@@ -207,15 +211,12 @@ function levelOrder(root: TreeNode | null): number[] {
     if (root == null) {
         return res;
     }
-
-    const arr = [root];
-    let i = 0;
-    while (i < arr.length) {
-        const { val, left, right } = arr[i];
+    const queue = [root];
+    while (queue.length !== 0) {
+        const { val, left, right } = queue.shift();
         res.push(val);
-        left && arr.push(left);
-        right && arr.push(right);
-        i++;
+        left && queue.push(left);
+        right && queue.push(right);
     }
     return res;
 }
@@ -245,7 +246,6 @@ function levelOrder(root: TreeNode | null): number[] {
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
-
 impl Solution {
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut res = Vec::new();

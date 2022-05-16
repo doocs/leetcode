@@ -235,21 +235,20 @@ function levelOrder(root: TreeNode | null): number[][] {
         return res;
     }
     let isEven = false;
-    const levelFn = (nodes: TreeNode[]) => {
-        if (nodes.length === 0) {
-            return res;
+    const queue = [root];
+    while (queue.length !== 0) {
+        const n = queue.length;
+        const vals = new Array(n);
+        for (let i = 0; i < n; i++) {
+            const { val, left, right } = queue.shift();
+            vals[i] = val;
+            left && queue.push(left);
+            right && queue.push(right);
         }
-        const nextNodes = [];
-        const values = nodes.map(({ val, left, right }) => {
-            left && nextNodes.push(left);
-            right && nextNodes.push(right);
-            return val;
-        });
-        res.push(isEven ? values.reverse() : values);
+        res.push(isEven ? vals.reverse() : vals);
         isEven = !isEven;
-        return levelFn(nextNodes);
-    };
-    return levelFn([root]);
+    }
+    return res;
 }
 ```
 
@@ -277,34 +276,34 @@ function levelOrder(root: TreeNode | null): number[][] {
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
-
 impl Solution {
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
         let mut res = Vec::new();
         if root.is_none() {
             return res;
         }
-        let mut nodes = VecDeque::new();
-        nodes.push_back(root.unwrap());
+        let mut queue = VecDeque::new();
+        queue.push_back(root);
         let mut is_even = false;
-        while !nodes.is_empty() {
-            let mut values = Vec::new();
-            for _ in 0..nodes.len() {
-                let node = nodes.pop_front().unwrap();
-                let mut node = node.borrow_mut();
-                values.push(node.val);
+        while !queue.is_empty() {
+            let n = queue.len();
+            let mut vals = Vec::with_capacity(n);
+            for _ in 0..n {
+                let mut node = queue.pop_front().unwrap();
+                let mut node = node.as_mut().unwrap().borrow_mut();
+                vals.push(node.val);
                 if node.left.is_some() {
-                    nodes.push_back(node.left.take().unwrap())
+                    queue.push_back(node.left.take());
                 }
                 if node.right.is_some() {
-                    nodes.push_back(node.right.take().unwrap())
+                    queue.push_back(node.right.take());
                 }
             }
             if is_even {
-                values.reverse()
+                vals.reverse();
             }
-            res.push(values);
-            is_even = !is_even
+            res.push(vals);
+            is_even = !is_even;
         }
         res
     }

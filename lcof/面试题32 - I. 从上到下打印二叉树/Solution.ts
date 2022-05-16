@@ -17,15 +17,12 @@ function levelOrder(root: TreeNode | null): number[] {
     if (root == null) {
         return res;
     }
-
-    const arr = [root];
-    let i = 0;
-    while (i < arr.length) {
-        const { val, left, right } = arr[i];
+    const queue = [root];
+    while (queue.length !== 0) {
+        const { val, left, right } = queue.shift();
         res.push(val);
-        left && arr.push(left);
-        right && arr.push(right);
-        i++;
+        left && queue.push(left);
+        right && queue.push(right);
     }
     return res;
 }

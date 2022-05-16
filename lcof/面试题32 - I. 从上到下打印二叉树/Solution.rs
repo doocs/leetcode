@@ -19,7 +19,6 @@
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
-
 impl Solution {
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut res = Vec::new();

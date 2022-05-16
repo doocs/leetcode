@@ -19,29 +19,29 @@
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
-
 impl Solution {
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
         let mut res = Vec::new();
         if root.is_none() {
             return res;
         }
-        let mut nodes = VecDeque::new();
-        nodes.push_back(root.unwrap());
-        while !nodes.is_empty() {
-            let mut values = Vec::new();
-            for _ in 0..nodes.len() {
-                let node = nodes.pop_front().unwrap();
-                let mut node = node.borrow_mut();
-                values.push(node.val);
+        let mut queue = VecDeque::new();
+        queue.push_back(root);
+        while !queue.is_empty() {
+            let n = queue.len();
+            let mut vals = Vec::with_capacity(n);
+            for _ in 0..n {
+                let mut node = queue.pop_front().unwrap();
+                let mut node = node.as_mut().unwrap().borrow_mut();
+                vals.push(node.val);
                 if node.left.is_some() {
-                    nodes.push_back(node.left.take().unwrap())
+                    queue.push_back(node.left.take());
                 }
                 if node.right.is_some() {
-                    nodes.push_back(node.right.take().unwrap())
+                    queue.push_back(node.right.take());
                 }
             }
-            res.push(values);
+            res.push(vals);
         }
         res
     }
