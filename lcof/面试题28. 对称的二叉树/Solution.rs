@@ -16,30 +16,26 @@
 //     }
 //   }
 // }
-use std::cell::RefCell;
 use std::rc::Rc;
+use std::cell::RefCell;
 impl Solution {
-    pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        match root {
-            None => true,
-            Some(root) => {
-                fn dfs(
-                    l: &Option<Rc<RefCell<TreeNode>>>,
-                    r: &Option<Rc<RefCell<TreeNode>>>,
-                ) -> bool {
-                    if l.is_none() && r.is_none() {
-                        return true;
-                    }
-                    if l.is_none() || r.is_none() {
-                        return false;
-                    }
-                    let l = l.as_ref().unwrap().borrow();
-                    let r = r.as_ref().unwrap().borrow();
-                    l.val == r.val && dfs(&l.left, &r.right) && dfs(&l.right, &r.left) && true
-                }
-                let node = root.borrow();
-                dfs(&node.left, &node.right)
-            }
+    fn dfs(left: &Option<Rc<RefCell<TreeNode>>>, right: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if left.is_none() && right.is_none() {
+            return true;
         }
+        if left.is_none() || right.is_none() {
+            return false;
+        }
+        let l = left.as_ref().unwrap().borrow();
+        let r = right.as_ref().unwrap().borrow();
+        l.val == r.val && Self::dfs(&l.left, &r.right) && Self::dfs(&l.right, &r.left)
+    }
+
+    pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if root.is_none() {
+            return true;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        Self::dfs(&node.left, &node.right)
     }
 }

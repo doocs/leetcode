@@ -7,21 +7,17 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-
 class Solution {
 public:
-    bool isSymmetric(TreeNode* a, TreeNode* b) {
-        // 均为空，则直接返回true。有且仅有一个不为空，则返回false
-        if (a == nullptr && b == nullptr) {
+    bool isSymmetric(TreeNode* left, TreeNode* right) {
+        // 均为空，则直接返回 true。有且仅有一个不为空，则返回 false
+        if (left == nullptr && right == nullptr) {
             return true;
-        } else if (a == nullptr && b != nullptr) {
-            return false;
-        } else if (a != nullptr && b == nullptr) {
+        }
+        if (left == nullptr || right == nullptr || left->val != right->val) {
             return false;
         }
-
-        // 判定值是否相等，和下面的节点是否对称
-        return (a->val == b->val) && isSymmetric(a->left, b->right) && isSymmetric(a->right, b->left);
+        return isSymmetric(left->left, right->right) && isSymmetric(left->right, right->left);
     }
 
     bool isSymmetric(TreeNode* root) {

@@ -18,37 +18,36 @@
 // }
 use std::rc::Rc;
 use std::cell::RefCell;
-
 impl Solution {
     pub fn is_sub_structure(
         a: Option<Rc<RefCell<TreeNode>>>,
         b: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
+        Self::is_sub_structure_help(&a, &b)
+    }
+
+    fn is_sub_structure_help(
+        a: &Option<Rc<RefCell<TreeNode>>>,
+        b: &Option<Rc<RefCell<TreeNode>>>,
+    ) -> bool {
         if a.is_none() || b.is_none() {
             return false;
         }
-        let a_ref = a.as_ref().unwrap().borrow();
-        let b_ref = b.as_ref().unwrap().borrow();
 
-        if a_ref.val == b_ref.val
-            && Solution::exam(&a_ref.left, &b_ref.left)
-            && Solution::exam(&a_ref.right, &b_ref.right)
-        {
-            return true;
-        }
-        Solution::is_sub_structure(a_ref.left.clone(), b.clone())
-            || Solution::is_sub_structure(a_ref.right.clone(), b.clone())
+        Self::dfs(a, b)
+            || Self::is_sub_structure_help(&a.as_ref().unwrap().borrow().left, b)
+            || Self::is_sub_structure_help(&a.as_ref().unwrap().borrow().right, b)
     }
 
-    fn exam(a: &Option<Rc<RefCell<TreeNode>>>, b: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if a.is_none() && b.is_some() {
-            return false;
-        }
-        if b.is_none() || a.is_none() && b.is_none() {
+    fn dfs(a: &Option<Rc<RefCell<TreeNode>>>, b: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if b.is_none() {
             return true;
+        }
+        if a.is_none() {
+            return false;
         }
         let a = a.as_ref().unwrap().borrow();
         let b = b.as_ref().unwrap().borrow();
-        a.val == b.val && Solution::exam(&a.left, &b.left) && Solution::exam(&a.right, &b.right)
+        a.val == b.val && Self::dfs(&a.left, &b.left) && Self::dfs(&a.right, &b.right)
     }
 }
