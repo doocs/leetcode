@@ -57,6 +57,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Sliding Window Maximum](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md) - `Monotonic Queue`
 -   [Max Value of Equation](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md) - `Monotonic Queue`
 -   [Shortest Subarray with Sum at Least K](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md) - `Monotonic Queue`
+-   [带限制的子序列和](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README.md) - `Dynamic Programming`, `Monotonic Queue`
 
 ### 3. Search
 
