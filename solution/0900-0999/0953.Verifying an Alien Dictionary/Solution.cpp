@@ -1,23 +1,20 @@
 ﻿class Solution {
 public:
-    bool isAlienSorted(vector<string> &words, string order) {
-        vector<int> index(26);
-        for (int i = 0; i < index.size(); ++i)
-            index[order[i] - 'a'] = i;
-        for (int i = 0; i < words.size() - 1; ++i)
+    bool isAlienSorted(vector<string>& words, string order) {
+        vector<int> m(26);
+        for (int i = 0; i < 26; ++i) m[order[i] - 'a'] = i;
+        for (int i = 0; i < 20; ++i)
         {
-            string w1 = words[i];
-            string w2 = words[i + 1];
-            int l1 = w1.size(), l2 = w2.size();
-            for (int j = 0; j < max(l1, l2); ++j)
+            int prev = -1;
+            bool valid = true;
+            for (auto& x : words)
             {
-                int i1 = j >= l1 ? -1 : index[w1[j] - 'a'];
-                int i2 = j >= l2 ? -1 : index[w2[j] - 'a'];
-                if (i1 > i2)
-                    return false;
-                if (i1 < i2)
-                    break;
+                int curr = i >= x.size() ? -1 : m[x[i] - 'a'];
+                if (prev > curr) return false;
+                if (prev == curr) valid = false;
+                prev = curr;
             }
+            if (valid) break;
         }
         return true;
     }

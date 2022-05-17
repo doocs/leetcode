@@ -1,22 +1,24 @@
 class Solution {
     public boolean isAlienSorted(String[] words, String order) {
-        int[] index = new int[26];
-        for (int i = 0; i < index.length; ++i) {
-            index[order.charAt(i) - 'a'] = i;
+        int[] m = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            m[order.charAt(i) - 'a'] = i;
         }
-        for (int i = 0; i < words.length - 1; ++i) {
-            String w1 = words[i];
-            String w2 = words[i + 1];
-            int l1 = w1.length(), l2 = w2.length();
-            for (int j = 0; j < Math.max(l1, l2); ++j) {
-                int i1 = j >= l1 ? -1 : index[w1.charAt(j) - 'a'];
-                int i2 = j >= l2 ? -1 : index[w2.charAt(j) - 'a'];
-                if (i1 > i2) {
+        for (int i = 0; i < 20; ++i) {
+            int prev = -1;
+            boolean valid = true;
+            for (String x : words) {
+                int curr = i >= x.length() ? -1 : m[x.charAt(i) - 'a'];
+                if (prev > curr) {
                     return false;
                 }
-                if (i1 < i2) {
-                    break;
+                if (prev == curr) {
+                    valid = false;
                 }
+                prev = curr;
+            }
+            if (valid) {
+                break;
             }
         }
         return true;

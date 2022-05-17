@@ -1,31 +1,27 @@
 func isAlienSorted(words []string, order string) bool {
-	index := make(map[byte]int)
-	for i := range order {
-		index[order[i]] = i
+	m := make([]int, 26)
+	for i, c := range order {
+		m[c-'a'] = i
 	}
-	for i := 0; i < len(words)-1; i++ {
-		w1, w2 := words[i], words[i+1]
-		l1, l2 := len(w1), len(w2)
-		flag := true
-		for j := 0; j < min(l1, l2) && flag; j++ {
-			i1, i2 := index[w1[j]], index[w2[j]]
-			if i1 > i2 {
+	for i := 0; i < 20; i++ {
+		prev := -1
+		valid := true
+		for _, x := range words {
+			curr := -1
+			if i < len(x) {
+				curr = m[x[i]-'a']
+			}
+			if prev > curr {
 				return false
 			}
-			if i1 < i2 {
-				flag = false
+			if prev == curr {
+				valid = false
 			}
+			prev = curr
 		}
-		if flag && l1 > l2 {
-			return false
+		if valid {
+			break
 		}
 	}
 	return true
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
