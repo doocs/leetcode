@@ -62,6 +62,7 @@
 -   [带限制的子序列和](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README.md) - `动态规划`、`单调队列优化`
 -   [单词规律 II](/solution/0200-0299/0291.Word%20Pattern%20II/README.md) - `哈希表`、`回溯`
 -   [最短回文串](/solution/0200-0299/0214.Shortest%20Palindrome/README.md) - `字符串哈希`
+-   [回文对](/solution/0300-0399/0336.Palindrome%20Pairs/README.md) - `字符串哈希`
 
 ### 3. 搜索
 
