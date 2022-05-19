@@ -31,13 +31,106 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def shortestPalindrome(self, s: str) -> str:
+        base = 131
+        mod = 10**9 + 7
+        n = len(s)
+        prefix = suffix = 0
+        mul = 1
+        idx = 0
+        for i, c in enumerate(s):
+            prefix = (prefix * base + (ord(c) - ord('a') + 1)) % mod
+            suffix = (suffix + (ord(c) - ord('a') + 1) * mul) % mod
+            mul = (mul * base) % mod
+            if prefix == suffix:
+                idx = i + 1
+        return s if idx == n else s[idx:][::-1] + s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String shortestPalindrome(String s) {
+        int base = 131;
+        int mul = 1;
+        int mod = (int) 1e9 + 7;
+        int prefix = 0, suffix = 0;
+        int idx = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            int t = s.charAt(i) - 'a' + 1;
+            prefix = (int) (((long) prefix * base + t) % mod);
+            suffix = (int) ((suffix + (long) t * mul) % mod);
+            mul = (int) (((long) mul * base) % mod);
+            if (prefix == suffix) {
+                idx = i + 1;
+            }
+        }
+        if (idx == n) {
+            return s;
+        }
+        return new StringBuilder(s.substring(idx)).reverse().toString() + s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+typedef unsigned long long ull;
+
+class Solution {
+public:
+    string shortestPalindrome(string s) {
+        int base = 131;
+        ull mul = 1;
+        ull prefix = 0;
+        ull suffix = 0;
+        int idx = 0, n = s.size();
+        for (int i = 0; i < n; ++i)
+        {
+            int t = s[i] - 'a' + 1;
+            prefix = prefix * base + t;
+            suffix = suffix + mul * t;
+            mul *= base;
+            if (prefix == suffix) idx = i + 1;
+        }
+        if (idx == n) return s;
+        string x = s.substr(idx, n - idx);
+        reverse(x.begin(), x.end());
+        return x + s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shortestPalindrome(s string) string {
+	n := len(s)
+	base, mod := 131, int(1e9)+7
+	prefix, suffix, mul := 0, 0, 1
+	idx := 0
+	for i, c := range s {
+		t := int(c-'a') + 1
+		prefix = (prefix*base + t) % mod
+		suffix = (suffix + t*mul) % mod
+		mul = (mul * base) % mod
+		if prefix == suffix {
+			idx = i + 1
+		}
+	}
+	if idx == n {
+		return s
+	}
+	x := []byte(s[idx:])
+	for i, j := 0, len(x)-1; i < j; i, j = i+1, j-1 {
+		x[i], x[j] = x[j], x[i]
+	}
+	return string(x) + s
+}
 ```
 
 ### **...**

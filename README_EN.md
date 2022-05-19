@@ -59,6 +59,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Shortest Subarray with Sum at Least K](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md) - `Monotonic Queue`
 -   [Constrained Subsequence Sum](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md) - `Dynamic Programming`, `Monotonic Queue`
 -   [Word Pattern II](/solution/0200-0299/0291.Word%20Pattern%20II/README_EN.md) - `Hash Table`、`Backtracking`
+-   [Shortest Palindrome](/solution/0200-0299/0214.Shortest%20Palindrome/README_EN.md) - `Rabin-Karp`
 
 ### 3. Search
 
