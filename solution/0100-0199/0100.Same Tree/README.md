@@ -360,6 +360,200 @@ var isSameTree = function (p, q) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    if (p == null && q == null) {
+        return true;
+    }
+    if (p == null || q == null || p.val !== q.val) {
+        return false;
+    }
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    const queue = [];
+    p && queue.push(p);
+    q && queue.push(q);
+    if (queue.length === 1) {
+        return false;
+    }
+    while (queue.length !== 0) {
+        const node1 = queue.shift();
+        const node2 = queue.shift();
+        if (node1.val !== node2.val) {
+            return false;
+        }
+        if (
+            (node1.left == null && node2.left != null) ||
+            (node1.left != null && node2.left == null)
+        ) {
+            return false;
+        }
+        if (
+            (node1.right == null && node2.right != null) ||
+            (node1.right != null && node2.right == null)
+        ) {
+            return false;
+        }
+
+        if (node1.left != null) {
+            queue.push(node1.left);
+            queue.push(node2.left);
+        }
+        if (node1.right != null) {
+            queue.push(node1.right);
+            queue.push(node2.right);
+        }
+    }
+    return true;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(p: &Option<Rc<RefCell<TreeNode>>>, q: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if p.is_none() && q.is_none() {
+            return true;
+        }
+        if p.is_none() || q.is_none() {
+            return false;
+        }
+        let r1 = p.as_ref().unwrap().borrow();
+        let r2 = q.as_ref().unwrap().borrow();
+        r1.val == r2.val && Self::dfs(&r1.left, &r2.left) && Self::dfs(&r1.right, &r2.right)
+    }
+
+    pub fn is_same_tree(
+        p: Option<Rc<RefCell<TreeNode>>>,
+        q: Option<Rc<RefCell<TreeNode>>>,
+    ) -> bool {
+        Self::dfs(&p, &q)
+    }
+}
+```
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn is_same_tree(
+        mut p: Option<Rc<RefCell<TreeNode>>>,
+        mut q: Option<Rc<RefCell<TreeNode>>>,
+    ) -> bool {
+        let mut queue = VecDeque::new();
+        if p.is_some() {
+            queue.push_back(p.take());
+        }
+        if q.is_some() {
+            queue.push_back(q.take());
+        }
+        if queue.len() == 1 {
+            return false;
+        }
+        while queue.len() != 0 {
+            if let (Some(mut node1), Some(mut node2)) = (queue.pop_front(), queue.pop_front()) {
+                let mut node1 = node1.as_mut().unwrap().borrow_mut();
+                let mut node2 = node2.as_mut().unwrap().borrow_mut();
+                if node1.val != node2.val {
+                    return false;
+                }
+                match (node1.left.is_some(), node2.left.is_some()) {
+                    (false, false) => {}
+                    (true, true) => {
+                        queue.push_back(node1.left.take());
+                        queue.push_back(node2.left.take());
+                    }
+                    (_, _) => return false,
+                }
+                match (node1.right.is_some(), node2.right.is_some()) {
+                    (false, false) => {}
+                    (true, true) => {
+                        queue.push_back(node1.right.take());
+                        queue.push_back(node2.right.take());
+                    }
+                    (_, _) => return false,
+                }
+            }
+        }
+        true
+    }
+}
+```
+
 ### **...**
 
 ```

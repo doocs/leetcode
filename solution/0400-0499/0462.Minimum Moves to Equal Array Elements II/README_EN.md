@@ -118,6 +118,32 @@ func abs(x int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minMoves2(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const mid = nums[nums.length >> 1];
+    return nums.reduce((r, v) => r + Math.abs(v - mid), 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_moves2(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let mid = nums[nums.len() / 2];
+        let mut res = 0;
+        for num in nums.iter() {
+            res += (num - mid).abs();
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
