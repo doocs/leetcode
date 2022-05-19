@@ -44,13 +44,78 @@ Only two moves are needed (remember each move increments or decrements one eleme
 ### **Python3**
 
 ```python
+class Solution:
+    def minMoves2(self, nums: List[int]) -> int:
+        nums.sort()
+        k = nums[len(nums) >> 1]
+        return sum(abs(v - k) for v in nums)
+```
 
+```python
+class Solution:
+    def minMoves2(self, nums: List[int]) -> int:
+        def move(i):
+            v = nums[i]
+            a = v * i - s[i]
+            b = s[-1] - s[i + 1] - v * (n - i - 1)
+            return a + b
+
+        nums.sort()
+        s = [0] + list(accumulate(nums))
+        n = len(nums)
+        return min(move(i) for i in range(n))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minMoves2(int[] nums) {
+        Arrays.sort(nums);
+        int k = nums[nums.length >> 1];
+        int ans = 0;
+        for (int v : nums) {
+            ans += Math.abs(v - k);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMoves2(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int k = nums[nums.size() >> 1];
+        int ans = 0;
+        for (int& v : nums) ans += abs(v - k);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMoves2(nums []int) int {
+	sort.Ints(nums)
+	k := nums[len(nums)>>1]
+	ans := 0
+	for _, v := range nums {
+		ans += abs(v - k)
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
