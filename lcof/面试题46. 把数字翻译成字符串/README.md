@@ -148,6 +148,27 @@ function translateNum(num: number): number {
 }
 ```
 
+```ts
+function translateNum(num: number): number {
+    const s = num + '';
+    const n = s.length;
+    let res = 1;
+    const dfs = (i: number) => {
+        if (i >= n) {
+            return;
+        }
+        const val = Number(s[i - 1] + s[i]);
+        if (val >= 10 && val <= 25) {
+            res++;
+            dfs(i + 2);
+        }
+        dfs(i + 1);
+    };
+    dfs(1);
+    return res;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -165,6 +186,29 @@ impl Solution {
             }
         }
         b
+    }
+}
+```
+
+```rust
+impl Solution {
+    fn dfs(s: &String, i: usize, res: &mut i32) {
+        if i >= s.len() {
+            return;
+        }
+        let val = s[i - 1..=i].parse::<i32>().unwrap();
+        if val >= 10 && val <= 25 {
+            *res += 1;
+            Self::dfs(s, i + 2, res);
+        }
+        Self::dfs(s, i + 1, res);
+    }
+
+    pub fn translate_num(num: i32) -> i32 {
+        let s = num.to_string();
+        let mut res = 1;
+        Self::dfs(&s, 1, &mut res);
+        res
     }
 }
 ```
