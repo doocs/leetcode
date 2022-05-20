@@ -13,7 +13,7 @@ class CountIntervals {
     }
 
     add(left: number, right: number): void {
-        if (this.sum == (this.end - this.start + 1)) return;
+        if (this.sum == this.end - this.start + 1) return;
         if (left <= this.start && right >= this.end) {
             this.sum = this.end - this.start + 1;
             return;

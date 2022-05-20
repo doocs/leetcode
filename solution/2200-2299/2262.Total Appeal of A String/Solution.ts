@@ -8,4 +8,4 @@ function appealSum(s: string): number {
         hashMap.set(c, i + 1);
     }
     return dp.reduce((a, c) => a + c, 0);
-};
+}

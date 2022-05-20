@@ -55,7 +55,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
 
 <!-- tabs:start -->
 
@@ -66,20 +66,16 @@
 ```python
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
+        for i, v in enumerate(intervals):
+            v.append(i)
+        intervals.sort()
         n = len(intervals)
-        starts = [(intervals[i][0], i) for i in range(n)]
-        starts.sort(key=lambda x : x[0])
-        res = []
-        for _, end in intervals:
-            left, right = 0, n - 1
-            while left < right:
-                mid = (left + right) >> 1
-                if starts[mid][0] >= end:
-                    right = mid
-                else:
-                    left = mid + 1
-            res.append(-1 if starts[left][0] < end else starts[left][1])
-        return res
+        ans = [-1] * n
+        for _, e, i in intervals:
+            j = bisect_left(intervals, [e])
+            if j < n:
+                ans[i] = intervals[j][2]
+        return ans
 ```
 
 ### **Java**

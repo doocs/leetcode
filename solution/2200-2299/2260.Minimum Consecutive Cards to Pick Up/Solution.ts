@@ -11,4 +11,4 @@ function minimumCardPickup(cards: number[]): number {
         hashMap.set(num, i);
     }
     return ans == max ? -1 : ans;
-};
+}
