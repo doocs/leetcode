@@ -63,7 +63,8 @@
 -   [单词规律 II](/solution/0200-0299/0291.Word%20Pattern%20II/README.md) - `哈希表`、`回溯`
 -   [最短回文串](/solution/0200-0299/0214.Shortest%20Palindrome/README.md) - `字符串哈希`
 -   [回文对](/solution/0300-0399/0336.Palindrome%20Pairs/README.md) - `字符串哈希`
--   [最长重复子串](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md) - `字符串哈希` - `二分查找`
+-   [最长重复子串](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md) - `字符串哈希`、`二分查找`
+-   [不同的循环子字符串](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README.md) - `字符串哈希`
 
 ### 3. 搜索
 
