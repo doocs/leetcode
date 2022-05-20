@@ -29,14 +29,14 @@ class Solution {
 
     private String check(String s, int len) {
         int n = s.length();
-        Set<Long> seen = new HashSet<>();
+        Set<Long> vis = new HashSet<>();
         for (int i = 1; i + len - 1 <= n; ++i) {
             int j = i + len - 1;
             long t = h[j] - h[i - 1] * p[j - i + 1];
-            if (seen.contains(t)) {
+            if (vis.contains(t)) {
                 return s.substring(i - 1, j);
             }
-            seen.add(t);
+            vis.add(t);
         }
         return "";
     }

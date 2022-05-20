@@ -28,15 +28,15 @@ public:
         return ans;
     }
 
-    string check(string s, int len) {
+    string check(string& s, int len) {
         int n = s.size();
-        unordered_set<ULL> seen;
+        unordered_set<ULL> vis;
         for (int i = 1; i + len - 1 <= n; ++i)
         {
             int j = i + len - 1;
             ULL t = h[j] - h[i - 1] * p[j - i + 1];
-            if (seen.count(t)) return s.substr(i - 1, len);
-            seen.insert(t);
+            if (vis.count(t)) return s.substr(i - 1, len);
+            vis.insert(t);
         }
         return "";
     }

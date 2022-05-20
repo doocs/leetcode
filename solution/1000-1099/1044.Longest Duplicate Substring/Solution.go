@@ -8,14 +8,14 @@ func longestDupSubstring(s string) string {
 		h[i+1] = h[i]*int64(base) + int64(s[i])
 	}
 	check := func(l int) string {
-		seen := make(map[int64]bool)
+		vis := make(map[int64]bool)
 		for i := 1; i+l-1 <= n; i++ {
 			j := i + l - 1
 			t := h[j] - h[i-1]*p[j-i+1]
-			if seen[t] {
+			if vis[t] {
 				return s[i-1 : j]
 			}
-			seen[t] = true
+			vis[t] = true
 		}
 		return ""
 	}

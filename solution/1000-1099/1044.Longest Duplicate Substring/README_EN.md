@@ -33,24 +33,23 @@
 ```python
 class Solution:
     def longestDupSubstring(self, s: str) -> str:
-        n = len(s)
-
         def check(l):
-            seen = set()
+            vis = set()
             for i in range(n - l + 1):
                 t = s[i: i + l]
-                if t in seen:
+                if t in vis:
                     return t
-                seen.add(t)
+                vis.add(t)
             return ''
 
+        n = len(s)
         left, right = 0, n
         ans = ''
         while left < right:
             mid = (left + right + 1) >> 1
             t = check(mid)
             ans = t or ans
-            if len(t) > 0:
+            if t:
                 left = mid
             else:
                 right = mid - 1
@@ -91,14 +90,14 @@ class Solution {
 
     private String check(String s, int len) {
         int n = s.length();
-        Set<Long> seen = new HashSet<>();
+        Set<Long> vis = new HashSet<>();
         for (int i = 1; i + len - 1 <= n; ++i) {
             int j = i + len - 1;
             long t = h[j] - h[i - 1] * p[j - i + 1];
-            if (seen.contains(t)) {
+            if (vis.contains(t)) {
                 return s.substring(i - 1, j);
             }
-            seen.add(t);
+            vis.add(t);
         }
         return "";
     }
@@ -138,15 +137,15 @@ public:
         return ans;
     }
 
-    string check(string s, int len) {
+    string check(string& s, int len) {
         int n = s.size();
-        unordered_set<ULL> seen;
+        unordered_set<ULL> vis;
         for (int i = 1; i + len - 1 <= n; ++i)
         {
             int j = i + len - 1;
             ULL t = h[j] - h[i - 1] * p[j - i + 1];
-            if (seen.count(t)) return s.substr(i - 1, len);
-            seen.insert(t);
+            if (vis.count(t)) return s.substr(i - 1, len);
+            vis.insert(t);
         }
         return "";
     }
@@ -166,14 +165,14 @@ func longestDupSubstring(s string) string {
 		h[i+1] = h[i]*int64(base) + int64(s[i])
 	}
 	check := func(l int) string {
-		seen := make(map[int64]bool)
+		vis := make(map[int64]bool)
 		for i := 1; i+l-1 <= n; i++ {
 			j := i + l - 1
 			t := h[j] - h[i-1]*p[j-i+1]
-			if seen[t] {
+			if vis[t] {
 				return s[i-1 : j]
 			}
-			seen[t] = true
+			vis[t] = true
 		}
 		return ""
 	}

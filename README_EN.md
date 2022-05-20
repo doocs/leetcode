@@ -60,7 +60,8 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Constrained Subsequence Sum](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md) - `Dynamic Programming`, `Monotonic Queue`
 -   [Word Pattern II](/solution/0200-0299/0291.Word%20Pattern%20II/README_EN.md) - `Hash Table`、`Backtracking`
 -   [Shortest Palindrome](/solution/0200-0299/0214.Shortest%20Palindrome/README_EN.md) - `Rabin-Karp`
--   [Palindrome Pairs](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md)) - `Rabin-Karp`
+-   [Palindrome Pairs](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md) - `Rabin-Karp`
+-   [Longest Duplicate Substring](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md) - `Rabin-Karp`, `Binary search`
 
 ### 3. Search
 
