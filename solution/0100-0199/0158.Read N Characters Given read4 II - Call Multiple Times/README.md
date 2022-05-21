@@ -1,6 +1,6 @@
 # [158. 用 Read4 读取 N 个字符 II](https://leetcode.cn/problems/read-n-characters-given-read4-ii-call-multiple-times)
 
-[English Version](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20Read4%20II%20-%20Call%20multiple%20times/README_EN.md)
+[English Version](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README_EN.md)
 
 ## 题目描述
 
@@ -56,7 +56,7 @@ read4(buf4); // read4 返回 0。现在 buf4 = ""，fp 指向文件末尾</code>
 <ul>
 	<li>你 <strong>不能</strong> 直接操作该文件，文件只能通过 <code>read4</code> 获取而 <strong>不能</strong> 通过 <code>read</code>。</li>
 	<li><code>read</code>&nbsp; 函数可以被调用&nbsp;<strong>多次</strong>。</li>
-	<li>请记得&nbsp;<strong>重置&nbsp;</strong>在 Solution 中声明的类变量（静态变量），因为类变量会&nbsp;<strong>在多个测试用例中保持不变</strong>，影响判题准确。请 <a href="https://support.leetcode.cn/hc/kb/section/1071534/" target="_blank">查阅</a> 这里。</li>
+	<li>请记得&nbsp;<strong>重置&nbsp;</strong>在 Solution 中声明的类变量（静态变量），因为类变量会&nbsp;<strong>在多个测试用例中保持不变</strong>，影响判题准确。请 <a href="https://support.leetcode-cn.com/hc/kb/section/1071534/" target="_blank">查阅</a> 这里。</li>
 	<li>你可以假定目标缓存数组&nbsp;<code>buf</code> 保证有足够的空间存下 n 个字符。&nbsp;</li>
 	<li>保证在一个给定测试用例中，<code>read</code> 函数使用的是同一个 <code>buf</code>。</li>
 </ul>
@@ -102,6 +102,7 @@ sol.read (buf, 1); // 我们已经到达文件的末尾，不能读取更多的�
 	<li><code>1 &lt;= queries[i] &lt;= 500</code></li>
 </ul>
 
+
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -121,6 +122,12 @@ sol.read (buf, 1); // 我们已经到达文件的末尾，不能读取更多的�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
+```
+
+### **TypeScript**
+
+```ts
 
 ```
 

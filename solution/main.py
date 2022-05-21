@@ -106,11 +106,11 @@ def generate_summary(result):
     """generate summary files"""
     summary_cn = summary_en = ''
     m = {int(item['frontend_question_id']): item for item in result}
-    for file in os.listdir('./'):
+    for file in sorted(os.listdir("./"), key=lambda x: x.lower()):
         if os.path.isdir("./" + file) and file != '__pycache__':
             summary_cn += f'\n- {file}\n'
             summary_en += f'\n- {file}\n'
-            for sub in os.listdir('./' + file):
+            for sub in sorted(os.listdir('./' + file), key=lambda x: x.lower()):
                 sub = sub.replace('`', ' ')
                 enc = quote(sub)
 

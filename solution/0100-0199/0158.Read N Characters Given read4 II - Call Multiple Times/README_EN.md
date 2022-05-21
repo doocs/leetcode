@@ -1,6 +1,6 @@
-# [158. Read N Characters Given Read4 II - Call multiple times](https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times)
+# [158. Read N Characters Given read4 II - Call Multiple Times](https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times)
 
-[中文文档](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20Read4%20II%20-%20Call%20multiple%20times/README.md)
+[中文文档](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README.md)
 
 ## Description
 
@@ -97,6 +97,7 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 	<li><code>1 &lt;= queries[i] &lt;= 500</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->
@@ -110,6 +111,12 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 ### **Java**
 
 ```java
+
+```
+
+### **TypeScript**
+
+```ts
 
 ```
 

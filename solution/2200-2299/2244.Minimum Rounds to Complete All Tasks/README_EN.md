@@ -45,13 +45,34 @@ It can be shown that all the tasks cannot be completed in fewer than 4 rounds, s
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumRounds(self, tasks: List[int]) -> int:
+        cnt = Counter(tasks)
+        mi = min(cnt.values())
+        if mi == 1:
+            return -1
+        return sum(v // 3 + (0 if v % 3 == 0 else 1) for v in cnt.values())
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minimumRounds(int[] tasks) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int t : tasks) {
+            cnt.put(t, cnt.getOrDefault(t, 0) + 1);
+        }
+        int ans = 0;
+        for (int v : cnt.values()) {
+            if (v == 1) {
+                return -1;
+            }
+            ans += v / 3 + (v % 3 == 0 ? 0 : 1);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -70,6 +91,47 @@ function minimumRounds(tasks: number[]): number {
         ans += ctn;
     }
     return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumRounds(vector<int>& tasks) {
+        unordered_map<int, int> cnt;
+        for (int& t : tasks) ++cnt[t];
+        int ans = 0;
+        for (auto& [_, v] : cnt)
+        {
+            if (v == 1) return -1;
+            ans += v / 3 + (v % 3 == 0 ? 0 : 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumRounds(tasks []int) int {
+	cnt := map[int]int{}
+	for _, t := range tasks {
+		cnt[t]++
+	}
+	ans := 0
+	for _, v := range cnt {
+		if v == 1 {
+			return -1
+		}
+		ans += v / 3
+		if v%3 != 0 {
+			ans++
+		}
+	}
+	return ans
 }
 ```
 

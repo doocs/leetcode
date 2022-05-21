@@ -1,108 +1,60 @@
-# [146. LRU 缓存机制](https://leetcode.cn/problems/lru-cache)
+# [146. LRU Cache](https://leetcode.com/problems/lru-cache)
 
-[English Version](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)
+[中文文档](/solution/0100-0199/0146.LRU%20Cache/README.md)
 
-## 题目描述
+## Description
 
-<!-- 这里写题目描述 -->
+<p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU" target="_blank">Least Recently Used (LRU) cache</a></strong>.</p>
 
-<div class="title__3Vvk">请你设计并实现一个满足&nbsp; <a href="https://baike.baidu.com/item/LRU" target="_blank">LRU (最近最少使用) 缓存</a> 约束的数据结构。</div>
+<p>Implement the <code>LRUCache</code> class:</p>
 
-<div class="title__3Vvk">实现 <code>LRUCache</code> 类：</div>
-
-<div class="original__bRMd">
-<div>
 <ul>
-	<li><code>LRUCache(int capacity)</code> 以 <strong>正整数</strong> 作为容量&nbsp;<code>capacity</code> 初始化 LRU 缓存</li>
-	<li><code>int get(int key)</code> 如果关键字 <code>key</code> 存在于缓存中，则返回关键字的值，否则返回 <code>-1</code> 。</li>
-	<li><code>void put(int key, int value)</code>&nbsp;如果关键字&nbsp;<code>key</code> 已经存在，则变更其数据值&nbsp;<code>value</code> ；如果不存在，则向缓存中插入该组&nbsp;<code>key-value</code> 。如果插入操作导致关键字数量超过&nbsp;<code>capacity</code> ，则应该 <strong>逐出</strong> 最久未使用的关键字。</li>
+	<li><code>LRUCache(int capacity)</code> Initialize the LRU cache with <strong>positive</strong> size <code>capacity</code>.</li>
+	<li><code>int get(int key)</code> Return the value of the <code>key</code> if the key exists, otherwise return <code>-1</code>.</li>
+	<li><code>void put(int key, int value)</code>&nbsp;Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>
 </ul>
 
-<p>函数 <code>get</code> 和 <code>put</code> 必须以 <code>O(1)</code> 的平均时间复杂度运行。</p>
-</div>
-</div>
+<p>The functions&nbsp;<code data-stringify-type="code">get</code>&nbsp;and&nbsp;<code data-stringify-type="code">put</code>&nbsp;must each run in <code>O(1)</code> average time complexity.</p>
 
 <p>&nbsp;</p>
-
-<p><strong>示例：</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>输入</strong>
-["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+<strong>Input</strong>
+[&quot;LRUCache&quot;, &quot;put&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;get&quot;, &quot;get&quot;]
 [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
-<strong>输出</strong>
+<strong>Output</strong>
 [null, null, null, 1, null, -1, null, -1, 3, 4]
 
-<strong>解释</strong>
+<strong>Explanation</strong>
 LRUCache lRUCache = new LRUCache(2);
-lRUCache.put(1, 1); // 缓存是 {1=1}
-lRUCache.put(2, 2); // 缓存是 {1=1, 2=2}
-lRUCache.get(1);    // 返回 1
-lRUCache.put(3, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
-lRUCache.get(2);    // 返回 -1 (未找到)
-lRUCache.put(4, 4); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}
-lRUCache.get(1);    // 返回 -1 (未找到)
-lRUCache.get(3);    // 返回 3
-lRUCache.get(4);    // 返回 4
+lRUCache.put(1, 1); // cache is {1=1}
+lRUCache.put(2, 2); // cache is {1=1, 2=2}
+lRUCache.get(1);    // return 1
+lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+lRUCache.get(2);    // returns -1 (not found)
+lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
+lRUCache.get(1);    // return -1 (not found)
+lRUCache.get(3);    // return 3
+lRUCache.get(4);    // return 4
 </pre>
 
 <p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= capacity &lt;= 3000</code></li>
-	<li><code>0 &lt;= key &lt;= 10000</code></li>
+	<li><code>0 &lt;= key &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
-	<li>最多调用 <code>2 * 10<sup>5</sup></code> 次 <code>get</code> 和 <code>put</code></li>
+	<li>At most 2<code>&nbsp;* 10<sup>5</sup></code>&nbsp;calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
 
-## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-“哈希表 + 双向链表”实现。其中：
-
--   双向链表按照被使用的顺序存储 kv 键值对，靠近头部的 kv 键值对是最近使用的，而靠近尾部的键值对是最久未使用的。
--   哈希表通过缓存的 key 映射到双向链表中的位置。我们可以在 `O(1)` 时间内定位到缓存的 key 所对应的 value 在链表中的位置。
-
-对于 `get` 操作，判断 key 是否存在哈希表中：
-
--   若不存在，返回 -1
--   若存在，则 key 对应的节点 node 是最近使用的节点。将该节点移动到双向链表的头部，最后返回该节点的值即可。
-
-对于 `put` 操作，同样先判断 key 是否存在哈希表中：
-
--   若不存在，则创建一个新的 node 节点，放入哈希表中。然后在双向链表的头部添加该节点。接着判断双向链表节点数是否超过 capacity。若超过，则删除双向链表的尾部节点，以及在哈希表中对应的项。
--   若存在，则更新 node 节点的值，然后该节点移动到双向链表的头部。
-
-双向链表节点（哈希表的 value）的结构如下：
-
-```java
-class Node {
-	int key;
-	int value;
-	Node prev;
-	Node next;
-	Node() {
-
-	}
-	Node(int key, int value) {
-		this.key = key;
-		this.value = value;
-	}
-}
-```
-
-你可能会问，哈希表的 value 为何还要存放 key？
-
-这是因为，双向链表有一个删除尾节点的操作。我们定位到双向链表的尾节点，在链表中删除之后，还要找到该尾节点在哈希表中的位置，因此需要根据 value 中存放的 key，定位到哈希表的数据项，然后将其删除。
+## Solutions
 
 <!-- tabs:start -->
 
 ### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -173,8 +125,6 @@ class LRUCache:
 ```
 
 ### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
