@@ -52,13 +52,95 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxEqualRowsAfterFlips(self, matrix: List[List[int]]) -> int:
+        cnt = Counter()
+        for row in matrix:
+            t = []
+            for v in row:
+                if row[0] == 1:
+                    v ^= 1
+                t.append(str(v))
+            s = ''.join(t)
+            cnt[s] += 1
+        return max(cnt.values())
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxEqualRowsAfterFlips(int[][] matrix) {
+        Map<String, Integer> map = new HashMap<>();
+        for (int[] row : matrix) {
+            if (row[0] == 1) {
+                for (int i = 0; i < row.length; ++i) {
+                    row[i] ^= 1;
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int x : row) {
+                sb.append(x);
+            }
+            String s = sb.toString();
+            map.put(s, map.getOrDefault(s, 0) + 1);
+        }
+        return map.values().stream().max(Integer::compareTo).get();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxEqualRowsAfterFlips(vector<vector<int>>& matrix) {
+        unordered_map<string, int> cnt;
+        int ans = 0;
+        for (auto& row : matrix)
+        {
+            string s = "";
+            for (int v : row)
+            {
+                if (row[0] == 1) v ^= 1;
+                s += to_string(v);
+            }
+            ++cnt[s];
+            ans = max(ans, cnt[s]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxEqualRowsAfterFlips(matrix [][]int) int {
+	ans := 0
+	cnt := map[string]int{}
+	for _, row := range matrix {
+		s := []byte{}
+		for _, v := range row {
+			if row[0] == 1 {
+				v ^= 1
+			}
+			s = append(s, byte(v+'0'))
+		}
+		t := string(s)
+		cnt[t]++
+		ans = max(ans, cnt[t])
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
