@@ -55,13 +55,36 @@ There are two valid splits in nums:
 ### **Python3**
 
 ```python
-
+class Solution:
+    def waysToSplitArray(self, nums: List[int]) -> int:
+        n, left, right = len(nums), 0, sum(nums)
+        cnt = 0
+        for i in range(n - 1):
+            left += nums[i]
+            right -= nums[i]
+            if left >= right:
+                cnt += 1
+        return cnt
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int waysToSplitArray(int[] nums) {
+        long[] pre = new long[nums.length + 1];
+        for (int i = 0; i < nums.length; i++) {
+            pre[i + 1] = pre[i] + nums[i];
+        }
+        int cnt = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (pre[i] >= pre[nums.length] - pre[i]) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+}
 ```
 
 ### **TypeScript**
