@@ -2321,3 +2321,7 @@
   - [2275.Largest Combination With Bitwise AND Greater Than Zero](/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README_EN.md)
   - [2276.Count Integers in Intervals](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md)
   - [2277.Closest Node to Path in Tree](/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README_EN.md)
+  - [2278.Percentage of Letter in String](/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README_EN.md)
+  - [2279.Maximum Bags With Full Capacity of Rocks](/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README_EN.md)
+  - [2280.Minimum Lines to Represent a Line Chart](/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README_EN.md)
+  - [2281.Sum of Total Strength of Wizards](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md)

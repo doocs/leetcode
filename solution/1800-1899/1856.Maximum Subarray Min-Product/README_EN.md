@@ -61,31 +61,27 @@
 ```python
 class Solution:
     def maxSumMinProduct(self, nums: List[int]) -> int:
+        mod = int(1e9) + 7
         n = len(nums)
-        pre_sum = [0] * (n + 1)
-        for i in range(1, n + 1):
-            pre_sum[i] = pre_sum[i - 1] + nums[i - 1]
-
-        stack = []
-        next_lesser = [n] * n
-        for i in range(n):
-            while stack and nums[stack[-1]] > nums[i]:
-                next_lesser[stack.pop()] = i
-            stack.append(i)
-
-        stack = []
-        prev_lesser = [-1] * n
+        left = [-1] * n
+        right = [n] * n
+        stk = []
+        for i, v in enumerate(nums):
+            while stk and nums[stk[-1]] >= v:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
         for i in range(n - 1, -1, -1):
-            while stack and nums[stack[-1]] > nums[i]:
-                prev_lesser[stack.pop()] = i
-            stack.append(i)
-
-        res = 0
-        for i in range(n):
-            start, end = prev_lesser[i], next_lesser[i]
-            t = nums[i] * (pre_sum[end] - pre_sum[start + 1])
-            res = max(res, t)
-        return res % (10 ** 9 + 7)
+            while stk and nums[stk[-1]] > nums[i]:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        s = [0] + list(accumulate(nums))
+        ans = max(v * (s[right[i]] - s[left[i] + 1]) for i, v in enumerate(nums))
+        return ans % mod
 ```
 
 ### **Java**
@@ -94,37 +90,125 @@ class Solution:
 class Solution {
     public int maxSumMinProduct(int[] nums) {
         int n = nums.length;
-        long[] preSum = new long[n + 1];
-        for (int i = 1; i < n + 1; ++i) {
-            preSum[i] = preSum[i - 1] + nums[i - 1];
-        }
-        Deque<Integer> stack = new ArrayDeque<>();
-        int[] nextLesser = new int[n];
-        Arrays.fill(nextLesser, n);
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Arrays.fill(left, -1);
+        Arrays.fill(right, n);
+        Deque<Integer> stk = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
-            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
-                nextLesser[stack.pop()] = i;
+            while (!stk.isEmpty() && nums[stk.peek()] >= nums[i]) {
+                stk.pop();
             }
-            stack.push(i);
+            if (!stk.isEmpty()) {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
         }
-
-        stack = new ArrayDeque<>();
-        int[] prevLesser = new int[n];
-        Arrays.fill(prevLesser, -1);
+        stk.clear();
         for (int i = n - 1; i >= 0; --i) {
-            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
-                prevLesser[stack.pop()] = i;
+            while (!stk.isEmpty() && nums[stk.peek()] > nums[i]) {
+                stk.pop();
             }
-            stack.push(i);
+            if (!stk.isEmpty()) {
+                right[i] = stk.peek();
+            }
+            stk.push(i);
         }
-        long res = 0;
+        long[] s = new long[n + 1];
         for (int i = 0; i < n; ++i) {
-            int start = prevLesser[i], end = nextLesser[i];
-            long t = nums[i] * (preSum[end] - preSum[start + 1]);
-            res = Math.max(res, t);
+            s[i + 1] = s[i] + nums[i];
         }
-        return (int) (res % 1000000007);
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            long t = nums[i] * (s[right[i]] - s[left[i] + 1]);
+            ans = Math.max(ans, t);
+        }
+        return (int) (ans % 1000000007);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSumMinProduct(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> left(n, -1);
+        vector<int> right(n, n);
+        stack<int> stk;
+        for (int i = 0; i < n; ++i)
+        {
+            while (!stk.empty() && nums[stk.top()] >= nums[i]) stk.pop();
+            if (!stk.empty()) left[i] = stk.top();
+            stk.push(i);
+        }
+        stk = stack<int>();
+        for (int i = n - 1; i >= 0; --i)
+        {
+            while (!stk.empty() && nums[stk.top()] > nums[i]) stk.pop();
+            if (!stk.empty()) right[i] = stk.top();
+            stk.push(i);
+        }
+        vector<long long> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+        long long ans = 0;
+        const int mod = 1e9 + 7;
+        for (int i = 0; i < n; ++i)
+        {
+            long long t = nums[i] * (s[right[i]] - s[left[i] + 1]);
+            ans = max(ans, t);
+        }
+        return (int) (ans % mod);
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSumMinProduct(nums []int) int {
+	n := len(nums)
+	left := make([]int, n)
+	right := make([]int, n)
+	for i := range left {
+		left[i] = -1
+		right[i] = n
+	}
+	stk := []int{}
+	for i, v := range nums {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] >= v {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			left[i] = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	stk = []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] > nums[i] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			right[i] = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	s := make([]int, n+1)
+	for i, v := range nums {
+		s[i+1] = s[i] + v
+	}
+	ans := 0
+	for i, v := range nums {
+		t := v * (s[right[i]] - s[left[i]+1])
+		if ans < t {
+			ans = t
+		}
+	}
+	mod := int(1e9) + 7
+	return ans % mod
 }
 ```
 

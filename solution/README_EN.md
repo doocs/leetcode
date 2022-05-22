@@ -2286,6 +2286,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2275](https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero)  |  [Largest Combination With Bitwise AND Greater Than Zero](/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Counting`  |  Medium  |    |
 |  [2276](https://leetcode.com/problems/count-integers-in-intervals)  |  [Count Integers in Intervals](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md)  |  `Design`,`Segment Tree`,`Ordered Set`  |  Hard  |    |
 |  [2277](https://leetcode.com/problems/closest-node-to-path-in-tree)  |  [Closest Node to Path in Tree](/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README_EN.md)  |    |  Hard  |  🔒  |
+|  [2278](https://leetcode.com/problems/percentage-of-letter-in-string)  |  [Percentage of Letter in String](/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README_EN.md)  |    |  Easy  |    |
+|  [2279](https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks)  |  [Maximum Bags With Full Capacity of Rocks](/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README_EN.md)  |    |  Medium  |    |
+|  [2280](https://leetcode.com/problems/minimum-lines-to-represent-a-line-chart)  |  [Minimum Lines to Represent a Line Chart](/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README_EN.md)  |    |  Medium  |    |
+|  [2281](https://leetcode.com/problems/sum-of-total-strength-of-wizards)  |  [Sum of Total Strength of Wizards](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

@@ -2288,6 +2288,10 @@
 |  [2275](https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero)  |  [按位与结果大于零的最长组合](/solution/2200-2299/2275.Largest%20Combination%20With%20Bitwise%20AND%20Greater%20Than%20Zero/README.md)  |  `位运算`,`数组`,`哈希表`,`计数`  |  中等  |    |
 |  [2276](https://leetcode.cn/problems/count-integers-in-intervals)  |  [统计区间中的整数数目](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README.md)  |  `设计`,`线段树`,`有序集合`  |  困难  |    |
 |  [2277](https://leetcode.cn/problems/closest-node-to-path-in-tree)  |  [Closest Node to Path in Tree](/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README.md)  |    |  困难  |  🔒  |
+|  [2278](https://leetcode.cn/problems/percentage-of-letter-in-string)  |  [字母在字符串中的百分比](/solution/2200-2299/2278.Percentage%20of%20Letter%20in%20String/README.md)  |    |  简单  |    |
+|  [2279](https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks)  |  [装满石头的背包的最大数量](/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README.md)  |    |  中等  |    |
+|  [2280](https://leetcode.cn/problems/minimum-lines-to-represent-a-line-chart)  |  [表示一个折线图的最少线段数](/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README.md)  |    |  中等  |    |
+|  [2281](https://leetcode.cn/problems/sum-of-total-strength-of-wizards)  |  [巫师的总力量和](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README.md)  |    |  困难  |    |
 
 ## 版权
 

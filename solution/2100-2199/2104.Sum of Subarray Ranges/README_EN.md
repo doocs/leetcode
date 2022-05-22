@@ -78,6 +78,34 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def subArrayRanges(self, nums: List[int]) -> int:
+        def f(nums):
+            stk = []
+            n = len(nums)
+            left = [-1] * n
+            right = [n] * n
+            for i, v in enumerate(nums):
+                while stk and nums[stk[-1]] <= v:
+                    stk.pop()
+                if stk:
+                    left[i] = stk[-1]
+                stk.append(i)
+            stk = []
+            for i in range(n - 1, -1, -1):
+                while stk and nums[stk[-1]] < nums[i]:
+                    stk.pop()
+                if stk:
+                    right[i] = stk[-1]
+                stk.append(i)
+            return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(nums))
+        
+        mx = f(nums)
+        mi = f([-v for v in nums])
+        return mx + mi
+```
+
 ### **Java**
 
 ```java
@@ -94,6 +122,52 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public long subArrayRanges(int[] nums) {
+        long mx = f(nums);
+        for (int i = 0; i < nums.length; ++i) {
+            nums[i] *= -1;
+        }
+        long mi = f(nums);
+        return mx + mi;
+    }
+
+    private long f(int[] nums) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int n = nums.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Arrays.fill(left, -1);
+        Arrays.fill(right, n);
+        for (int i = 0; i < n; ++i) {
+            while (!stk.isEmpty() && nums[stk.peek()] <= nums[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        stk.clear();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && nums[stk.peek()] < nums[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                right[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        long s = 0;
+        for (int i = 0; i < n; ++i) {
+            s += (long) (i - left[i]) * (right[i] - i) * nums[i];
+        }
+        return s;
     }
 }
 ```
@@ -115,6 +189,44 @@ public:
                 mx = max(mx, nums[j]);
                 ans += (mx - mi);
             }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    long long subArrayRanges(vector<int>& nums) {
+        long long mx = f(nums);
+        for (int i = 0; i < nums.size(); ++i) nums[i] *= -1;
+        long long mi = f(nums);
+        return mx + mi;
+    }
+
+    long long f(vector<int>& nums) {
+        stack<int> stk;
+        int n = nums.size();
+        vector<int> left(n, -1);
+        vector<int> right(n, n);
+        for (int i = 0; i < n; ++i)
+        {
+            while (!stk.empty() && nums[stk.top()] <= nums[i]) stk.pop();
+            if (!stk.empty()) left[i] = stk.top();
+            stk.push(i);
+        }
+        stk = stack<int>();
+        for (int i = n - 1; i >= 0; --i)
+        {
+            while (!stk.empty() && nums[stk.top()] < nums[i]) stk.pop();
+            if (!stk.empty()) right[i] = stk.top();
+            stk.push(i);
+        }
+        long long ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            ans += (long long) (i - left[i]) * (right[i] - i) * nums[i];
         }
         return ans;
     }
@@ -150,6 +262,51 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func subArrayRanges(nums []int) int64 {
+	f := func(nums []int) int64 {
+		stk := []int{}
+		n := len(nums)
+		left := make([]int, n)
+		right := make([]int, n)
+		for i := range left {
+			left[i] = -1
+			right[i] = n
+		}
+		for i, v := range nums {
+			for len(stk) > 0 && nums[stk[len(stk)-1]] <= v {
+				stk = stk[:len(stk)-1]
+			}
+			if len(stk) > 0 {
+				left[i] = stk[len(stk)-1]
+			}
+			stk = append(stk, i)
+		}
+		stk = []int{}
+		for i := n - 1; i >= 0; i-- {
+			for len(stk) > 0 && nums[stk[len(stk)-1]] < nums[i] {
+				stk = stk[:len(stk)-1]
+			}
+			if len(stk) > 0 {
+				right[i] = stk[len(stk)-1]
+			}
+			stk = append(stk, i)
+		}
+		ans := 0
+		for i, v := range nums {
+			ans += (i - left[i]) * (right[i] - i) * v
+		}
+		return int64(ans)
+	}
+	mx := f(nums)
+	for i := range nums {
+		nums[i] *= -1
+	}
+	mi := f(nums)
+	return mx + mi
 }
 ```
 

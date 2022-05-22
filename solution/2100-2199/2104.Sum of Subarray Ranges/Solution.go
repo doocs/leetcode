@@ -1,27 +1,42 @@
 func subArrayRanges(nums []int) int64 {
-	var ans int64
-	n := len(nums)
-	for i := 0; i < n-1; i++ {
-		mi, mx := nums[i], nums[i]
-		for j := i + 1; j < n; j++ {
-			mi = min(mi, nums[j])
-			mx = max(mx, nums[j])
-			ans += (int64)(mx - mi)
+	f := func(nums []int) int64 {
+		stk := []int{}
+		n := len(nums)
+		left := make([]int, n)
+		right := make([]int, n)
+		for i := range left {
+			left[i] = -1
+			right[i] = n
 		}
+		for i, v := range nums {
+			for len(stk) > 0 && nums[stk[len(stk)-1]] <= v {
+				stk = stk[:len(stk)-1]
+			}
+			if len(stk) > 0 {
+				left[i] = stk[len(stk)-1]
+			}
+			stk = append(stk, i)
+		}
+		stk = []int{}
+		for i := n - 1; i >= 0; i-- {
+			for len(stk) > 0 && nums[stk[len(stk)-1]] < nums[i] {
+				stk = stk[:len(stk)-1]
+			}
+			if len(stk) > 0 {
+				right[i] = stk[len(stk)-1]
+			}
+			stk = append(stk, i)
+		}
+		ans := 0
+		for i, v := range nums {
+			ans += (i - left[i]) * (right[i] - i) * v
+		}
+		return int64(ans)
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
+	mx := f(nums)
+	for i := range nums {
+		nums[i] *= -1
 	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+	mi := f(nums)
+	return mx + mi
 }

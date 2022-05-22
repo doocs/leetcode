@@ -1,23 +1,13 @@
-```java
 class Solution {
-    public long subArrayRanges(int[] nums) {
-        long mx = f(nums);
-        for (int i = 0; i < nums.length; ++i) {
-            nums[i] *= -1;
-        }
-        long mi = f(nums);
-        return mx + mi;
-    }
-
-    private long f(int[] nums) {
-        Deque<Integer> stk = new ArrayDeque<>();
-        int n = nums.length;
+    public int sumSubarrayMins(int[] arr) {
+        int n = arr.length;
         int[] left = new int[n];
         int[] right = new int[n];
         Arrays.fill(left, -1);
         Arrays.fill(right, n);
+        Deque<Integer> stk = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
-            while (!stk.isEmpty() && nums[stk.peek()] <= nums[i]) {
+            while (!stk.isEmpty() && arr[stk.peek()] >= arr[i]) {
                 stk.pop();
             }
             if (!stk.isEmpty()) {
@@ -27,7 +17,7 @@ class Solution {
         }
         stk.clear();
         for (int i = n - 1; i >= 0; --i) {
-            while (!stk.isEmpty() && nums[stk.peek()] < nums[i]) {
+            while (!stk.isEmpty() && arr[stk.peek()] > arr[i]) {
                 stk.pop();
             }
             if (!stk.isEmpty()) {
@@ -35,11 +25,12 @@ class Solution {
             }
             stk.push(i);
         }
-        long s = 0;
+        int mod = (int) 1e9 + 7;
+        long ans = 0;
         for (int i = 0; i < n; ++i) {
-            s += (long) (i - left[i]) * (right[i] - i) * nums[i];
+            ans += (long) (i - left[i]) * (right[i] - i) % mod * arr[i] % mod;
+            ans %= mod;
         }
-        return s;
+        return (int) ans;
     }
 }
-```
