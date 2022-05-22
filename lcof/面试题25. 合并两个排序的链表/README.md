@@ -209,8 +209,8 @@ function mergeTwoLists(
     l1: ListNode | null,
     l2: ListNode | null,
 ): ListNode | null {
-    const res = new ListNode();
-    let cur = res;
+    const duumy = new ListNode();
+    let cur = duumy;
     while (l1 && l2) {
         let node: ListNode;
         if (l1.val < l2.val) {
@@ -224,7 +224,36 @@ function mergeTwoLists(
         cur = node;
     }
     cur.next = l1 || l2;
-    return res.next;
+    return duumy.next;
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function mergeTwoLists(
+    l1: ListNode | null,
+    l2: ListNode | null,
+): ListNode | null {
+    if (l1 == null || l2 == null) {
+        return l1 || l2;
+    }
+    if (l1.val < l2.val) {
+        l1.next = mergeTwoLists(l1.next, l2);
+        return l1;
+    }
+    l2.next = mergeTwoLists(l1, l2.next);
+    return l2;
 }
 ```
 
@@ -255,16 +284,65 @@ impl Solution {
         match (l1, l2) {
             (Some(mut n1), Some(mut n2)) => {
                 if n1.val < n2.val {
-                    n1.next = Solution::merge_two_lists(n1.next, Some(n2));
+                    n1.next = Self::merge_two_lists(n1.next, Some(n2));
                     Some(n1)
                 } else {
-                    n2.next = Solution::merge_two_lists(Some(n1), n2.next);
+                    n2.next = Self::merge_two_lists(Some(n1), n2.next);
                     Some(n2)
                 }
             }
             (Some(node), None) => Some(node),
             (None, Some(node)) => Some(node),
             (None, None) => None,
+        }
+    }
+}
+```
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_two_lists(
+        mut l1: Option<Box<ListNode>>,
+        mut l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        match (l1.is_some(), l2.is_some()) {
+            (false, false) => None,
+            (true, false) => l1,
+            (false, true) => l2,
+            (true, true) => {
+                let mut dummy = Box::new(ListNode::new(0));
+                let mut cur = &mut dummy;
+                while l1.is_some() && l2.is_some() {
+                    cur.next = if l1.as_ref().unwrap().val < l2.as_ref().unwrap().val {
+                        let mut res = l1.take();
+                        l1 = res.as_mut().unwrap().next.take();
+                        res
+                    } else {
+                        let mut res = l2.take();
+                        l2 = res.as_mut().unwrap().next.take();
+                        res
+                    };
+                    cur = cur.next.as_mut().unwrap();
+                }
+                cur.next = if l1.is_some() { l1.take() } else { l2.take() };
+                dummy.next.take()
+            }
         }
     }
 }

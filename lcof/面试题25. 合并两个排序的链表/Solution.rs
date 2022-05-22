@@ -22,10 +22,10 @@ impl Solution {
         match (l1, l2) {
             (Some(mut n1), Some(mut n2)) => {
                 if n1.val < n2.val {
-                    n1.next = Solution::merge_two_lists(n1.next, Some(n2));
+                    n1.next = Self::merge_two_lists(n1.next, Some(n2));
                     Some(n1)
                 } else {
-                    n2.next = Solution::merge_two_lists(Some(n1), n2.next);
+                    n2.next = Self::merge_two_lists(Some(n1), n2.next);
                     Some(n2)
                 }
             }

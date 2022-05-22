@@ -14,8 +14,8 @@ function mergeTwoLists(
     l1: ListNode | null,
     l2: ListNode | null,
 ): ListNode | null {
-    const res = new ListNode();
-    let cur = res;
+    const duumy = new ListNode();
+    let cur = duumy;
     while (l1 && l2) {
         let node: ListNode;
         if (l1.val < l2.val) {
@@ -29,5 +29,5 @@ function mergeTwoLists(
         cur = node;
     }
     cur.next = l1 || l2;
-    return res.next;
+    return duumy.next;
 }
