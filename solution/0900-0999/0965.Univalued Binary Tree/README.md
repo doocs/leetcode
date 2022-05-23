@@ -164,6 +164,73 @@ func dfs(root *TreeNode, val int) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isUnivalTree(root: TreeNode | null): boolean {
+    const val = root.val;
+    const dfs = (root: TreeNode | null) => {
+        if (root == null) {
+            return true;
+        }
+        return root.val === val && dfs(root.left) && dfs(root.right);
+    };
+    return dfs(root.left) && dfs(root.right);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(val: i32, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if root.is_none() {
+            return true;
+        }
+        let root = root.as_ref().unwrap().borrow();
+        root.val == val && Self::dfs(val, &root.left) && Self::dfs(val, &root.right)
+    }
+    pub fn is_unival_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        let root = root.as_ref().unwrap().borrow();
+        Self::dfs(root.val, &root.left) && Self::dfs(root.val, &root.right)
+    }
+}
+```
+
 ### **...**
 
 ```
