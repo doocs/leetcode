@@ -108,6 +108,51 @@ class MinStack {
  */
 ```
 
+### **C++**
+
+```cpp
+class MinStack {
+private:
+    stack<int> stk;
+    stack<int> minStk;
+public:
+    /** initialize your data structure here. */
+    MinStack() = default;
+
+    void push(int x) {
+        if (minStk.empty() || minStk.top() >= x) {
+            minStk.push(x);
+        }
+        stk.push(x);
+    }
+
+    void pop() {
+        int val = stk.top();
+        stk.pop();
+        if (val == minStk.top()) {
+            minStk.pop();
+        }
+    }
+
+    int top() {
+        return stk.top();
+    }
+
+    int getMin() {
+        return minStk.top();
+    }
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack* obj = new MinStack();
+ * obj->push(x);
+ * obj->pop();
+ * int param_3 = obj->top();
+ * int param_4 = obj->getMin();
+ */
+```
+
 ### **TypeScript**
 
 ```ts
@@ -196,6 +241,60 @@ func (this *MinStack) GetMin() int {
  * obj.Pop();
  * param_3 := obj.Top();
  * param_4 := obj.GetMin();
+ */
+```
+
+### **Rust**
+
+```rust
+use std::collections::VecDeque;
+struct MinStack {
+    stack: VecDeque<i32>,
+    min_stack: VecDeque<i32>,
+}
+
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl MinStack {
+
+    /** initialize your data structure here. */
+    fn new() -> Self {
+        Self { stack: VecDeque::new(), min_stack: VecDeque::new() }
+    }
+
+    fn push(&mut self, x: i32) {
+        self.stack.push_back(x);
+        if self.min_stack.is_empty() || *self.min_stack.back().unwrap() >= x {
+            self.min_stack.push_back(x);
+        }
+    }
+
+    fn pop(&mut self) {
+        let val = self.stack.pop_back().unwrap();
+        if *self.min_stack.back().unwrap() == val {
+            self.min_stack.pop_back();
+        }
+    }
+
+    fn top(&self) -> i32 {
+        *self.stack.back().unwrap()
+    }
+
+    fn get_min(&self) -> i32 {
+        *self.min_stack.back().unwrap()
+    }
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * let obj = MinStack::new();
+ * obj.push(x);
+ * obj.pop();
+ * let ret_3: i32 = obj.top();
+ * let ret_4: i32 = obj.get_min();
  */
 ```
 
