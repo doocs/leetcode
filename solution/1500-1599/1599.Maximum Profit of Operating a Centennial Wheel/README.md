@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/images/wheeldiagram12.png" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/images/wheeldiagram12.png" /></p>
 
 <pre>
 <strong>输入：</strong>customers = [8,3], boardingCost = 5, runningCost = 6

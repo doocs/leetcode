@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/images/leet1.png" style="width: 400px; height: 182px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/images/leet1.png" style="width: 400px; height: 182px;"></p>
 
 <pre><b>输入：</b>colors = "abaca", edges = [[0,1],[0,2],[2,3],[3,4]]
 <b>输出：</b>3
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/images/leet2.png" style="width: 85px; height: 85px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/images/leet2.png" style="width: 85px; height: 85px;"></p>
 
 <pre><b>输入：</b>colors = "a", edges = [[0,0]]
 <b>输出：</b>-1

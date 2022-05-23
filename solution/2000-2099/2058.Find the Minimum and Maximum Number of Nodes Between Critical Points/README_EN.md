@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/images/a1.png" style="width: 148px; height: 55px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/images/a1.png" style="width: 148px; height: 55px;" />
 <pre>
 <strong>Input:</strong> head = [3,1]
 <strong>Output:</strong> [-1,-1]
@@ -24,7 +24,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/images/a2.png" style="width: 624px; height: 46px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/images/a2.png" style="width: 624px; height: 46px;" />
 <pre>
 <strong>Input:</strong> head = [5,3,1,2,5,1,2]
 <strong>Output:</strong> [1,3]
@@ -37,7 +37,7 @@ The maximum distance is between the third and the sixth node. maxDistance = 6 - 
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/images/a5.png" style="width: 624px; height: 39px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/images/a5.png" style="width: 624px; height: 39px;" />
 <pre>
 <strong>Input:</strong> head = [1,3,2,2,3,2,2,2,7]
 <strong>Output:</strong> [3,3]

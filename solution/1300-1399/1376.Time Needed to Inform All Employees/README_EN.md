@@ -24,7 +24,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/graph.png" style="width: 404px; height: 174px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/graph.png" style="width: 404px; height: 174px;" />
 <pre>
 <strong>Input:</strong> n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
 <strong>Output:</strong> 1

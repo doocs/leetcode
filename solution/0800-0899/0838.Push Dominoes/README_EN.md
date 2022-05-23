@@ -32,7 +32,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0838.Push%20Dominoes/images/domino.png" style="height: 196px; width: 512px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0838.Push%20Dominoes/images/domino.png" style="height: 196px; width: 512px;" />
 <pre>
 <strong>Input:</strong> dominoes = &quot;.L.R...LR..L..&quot;
 <strong>Output:</strong> &quot;LL.RR.LLRRLL..&quot;

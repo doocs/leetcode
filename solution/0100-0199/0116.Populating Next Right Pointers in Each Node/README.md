@@ -24,7 +24,7 @@ struct Node {
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/images/116_sample.png" style="height: 171px; width: 500px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/images/116_sample.png" style="height: 171px; width: 500px;" /></p>
 
 <pre>
 <b>输入：</b>root = [1,2,3,4,5,6,7]

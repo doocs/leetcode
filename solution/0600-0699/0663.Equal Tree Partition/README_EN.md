@@ -8,14 +8,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0663.Equal%20Tree%20Partition/images/split1-tree.jpg" style="width: 500px; height: 204px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0663.Equal%20Tree%20Partition/images/split1-tree.jpg" style="width: 500px; height: 204px;" />
 <pre>
 <strong>Input:</strong> root = [5,10,10,null,null,2,3]
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0663.Equal%20Tree%20Partition/images/split2-tree.jpg" style="width: 277px; height: 302px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0663.Equal%20Tree%20Partition/images/split2-tree.jpg" style="width: 277px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,10,null,null,2,20]
 <strong>Output:</strong> false

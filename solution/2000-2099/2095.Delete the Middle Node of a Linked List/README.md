@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/images/eg1drawio.png" style="width: 500px; height: 77px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/images/eg1drawio.png" style="width: 500px; height: 77px;" /></p>
 
 <pre>
 <strong>输入：</strong>head = [1,3,4,7,1,2,6]
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/images/eg2drawio.png" style="width: 250px; height: 43px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/images/eg2drawio.png" style="width: 250px; height: 43px;" /></p>
 
 <pre>
 <strong>输入：</strong>head = [1,2,3,4]
@@ -43,7 +43,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/images/eg3drawio.png" style="width: 150px; height: 58px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/images/eg3drawio.png" style="width: 150px; height: 58px;" /></p>
 
 <pre>
 <strong>输入：</strong>head = [2,1]

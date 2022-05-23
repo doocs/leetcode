@@ -12,7 +12,7 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/images/sample_3_1676.png" style="width: 260px; height: 87px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/images/sample_3_1676.png" style="width: 260px; height: 87px;" /></p>
 
 <pre>
 

@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/images/shortest1-graph.jpg" style="width: 222px; height: 183px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/images/shortest1-graph.jpg" style="width: 222px; height: 183px;" />
 <pre>
 <strong>Input:</strong> graph = [[1,2,3],[0],[0],[0]]
 <strong>Output:</strong> 4
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/images/shortest2-graph.jpg" style="width: 382px; height: 222px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/images/shortest2-graph.jpg" style="width: 382px; height: 222px;" />
 <pre>
 <strong>Input:</strong> graph = [[1],[0,2,4],[1,3,4],[2],[1,2]]
 <strong>Output:</strong> 4

@@ -11,14 +11,14 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_1.jpg" style="height: 229px; width: 400px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_1.jpg" style="height: 229px; width: 400px;" />
 <pre>
 <strong>输入:</strong> root = [5,3,6,2,4,null,7], k = 9
 <strong>输出:</strong> true
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_2.jpg" style="height: 229px; width: 400px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_2.jpg" style="height: 229px; width: 400px;" />
 <pre>
 <strong>输入:</strong> root = [5,3,6,2,4,null,7], k = 28
 <strong>输出:</strong> false

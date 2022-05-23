@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0764.Largest%20Plus%20Sign/images/plus1-grid.jpg" style="width: 404px; height: 405px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0764.Largest%20Plus%20Sign/images/plus1-grid.jpg" style="width: 404px; height: 405px;" />
 <pre>
 <strong>Input:</strong> n = 5, mines = [[4,2]]
 <strong>Output:</strong> 2
@@ -20,7 +20,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0764.Largest%20Plus%20Sign/images/plus2-grid.jpg" style="width: 84px; height: 85px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0764.Largest%20Plus%20Sign/images/plus2-grid.jpg" style="width: 84px; height: 85px;" />
 <pre>
 <strong>Input:</strong> n = 1, mines = [[0,0]]
 <strong>Output:</strong> 0

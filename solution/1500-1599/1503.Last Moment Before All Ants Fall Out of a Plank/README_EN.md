@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/images/ants.jpg" style="width: 450px; height: 610px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/images/ants.jpg" style="width: 450px; height: 610px;" />
 <pre>
 <strong>Input:</strong> n = 4, left = [4,3], right = [0,1]
 <strong>Output:</strong> 4
@@ -27,7 +27,7 @@ The last moment when an ant was on the plank is t = 4 seconds. After that, it fa
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/images/ants2.jpg" style="width: 639px; height: 101px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/images/ants2.jpg" style="width: 639px; height: 101px;" />
 <pre>
 <strong>Input:</strong> n = 7, left = [], right = [0,1,2,3,4,5,6,7]
 <strong>Output:</strong> 7
@@ -35,7 +35,7 @@ The last moment when an ant was on the plank is t = 4 seconds. After that, it fa
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/images/ants3.jpg" style="width: 639px; height: 100px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/images/ants3.jpg" style="width: 639px; height: 100px;" />
 <pre>
 <strong>Input:</strong> n = 7, left = [0,1,2,3,4,5,6,7], right = []
 <strong>Output:</strong> 7

@@ -17,14 +17,14 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1272.Remove%20Interval/images/removeintervalex1.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1272.Remove%20Interval/images/removeintervalex1.png" />
 <pre>
 <strong>输入：</strong>intervals = [[0,2],[3,4],[5,7]], toBeRemoved = [1,6]
 <strong>输出：</strong>[[0,1],[6,7]]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1272.Remove%20Interval/images/removeintervalex2.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1272.Remove%20Interval/images/removeintervalex2.png" />
 <pre>
 <strong>输入：</strong>intervals = [[0,5]], toBeRemoved = [2,3]
 <strong>输出：</strong>[[0,2],[3,5]]

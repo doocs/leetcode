@@ -35,7 +35,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1993.Operations%20on%20Tree/images/untitled.png" style="width: 375px; height: 246px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1993.Operations%20on%20Tree/images/untitled.png" style="width: 375px; height: 246px;"></p>
 
 <pre><strong>输入：</strong>
 ["LockingTree", "lock", "unlock", "unlock", "lock", "upgrade", "lock"]

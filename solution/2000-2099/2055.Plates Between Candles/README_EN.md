@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="ex-1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-1.png" style="width: 400px; height: 134px;" />
+<img alt="ex-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-1.png" style="width: 400px; height: 134px;" />
 <pre>
 <strong>Input:</strong> s = &quot;**|**|***|&quot;, queries = [[2,5],[5,9]]
 <strong>Output:</strong> [2,3]
@@ -26,7 +26,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="ex-2" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-2.png" style="width: 600px; height: 193px;" />
+<img alt="ex-2" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-2.png" style="width: 600px; height: 193px;" />
 <pre>
 <strong>Input:</strong> s = &quot;***|**|*****|**||**|*&quot;, queries = [[1,17],[4,5],[14,17],[5,11],[15,16]]
 <strong>Output:</strong> [9,0,0,0,0]

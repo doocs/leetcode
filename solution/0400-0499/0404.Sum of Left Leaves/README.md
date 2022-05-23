@@ -12,7 +12,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/images/leftsum-tree.jpg" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/images/leftsum-tree.jpg" /></p>
 
 <pre>
 <strong>输入:</strong> root = [3,9,20,null,null,15,7] 

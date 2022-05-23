@@ -23,7 +23,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="example 1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/images/quiet-place-example1.png" style="width: 750px; height: 384px;" />
+<img alt="example 1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/images/quiet-place-example1.png" style="width: 750px; height: 384px;" />
 <pre>
 <strong>Input:</strong> edges = [[0,1],[1,2]], patience = [0,2,1]
 <strong>Output:</strong> 8
@@ -55,7 +55,7 @@ This is the time when the network becomes idle.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="example 2" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/images/network_a_quiet_place_2.png" style="width: 100px; height: 85px;" />
+<img alt="example 2" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/images/network_a_quiet_place_2.png" style="width: 100px; height: 85px;" />
 <pre>
 <strong>Input:</strong> edges = [[0,1],[0,2],[1,2]], patience = [0,10,10]
 <strong>Output:</strong> 3

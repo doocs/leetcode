@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="example-1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex1.png" style="width: 240px; height: 106px;" />
+<img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex1.png" style="width: 240px; height: 106px;" />
 <pre>
 <strong>Input:</strong> nums = [3,9,7,3]
 <strong>Output:</strong> 2
@@ -28,7 +28,7 @@ The absolute difference between the sums of the arrays is abs((-36) - (36)) = 72
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="example-3" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex3.png" style="width: 316px; height: 106px;" />
+<img alt="example-3" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex3.png" style="width: 316px; height: 106px;" />
 <pre>
 <strong>Input:</strong> nums = [2,-1,0,4,-2,-9]
 <strong>Output:</strong> 0

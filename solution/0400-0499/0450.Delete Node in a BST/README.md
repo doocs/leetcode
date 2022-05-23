@@ -19,7 +19,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_1.jpg" style="width: 800px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_1.jpg" style="width: 800px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [5,3,6,2,4,null,7], key = 3
@@ -28,7 +28,7 @@
 一个正确的答案是 [5,4,6,2,null,null,7], 如下图所示。
 另一个正确答案是 [5,2,6,null,4,null,7]。
 
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_supp.jpg" style="width: 350px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_supp.jpg" style="width: 350px;" />
 </pre>
 
 <p><strong>示例 2:</strong></p>

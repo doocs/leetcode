@@ -20,7 +20,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="Rectangle Area" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.png" style="width: 700px; height: 365px;" />
+<img alt="Rectangle Area" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.png" style="width: 700px; height: 365px;" />
 <pre>
 <strong>输入：</strong>ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2
 <strong>输出：</strong>45

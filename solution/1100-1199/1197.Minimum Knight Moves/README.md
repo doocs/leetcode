@@ -12,7 +12,7 @@
 
 <p>每次移动，他都可以按图示八个方向之一前进。</p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1197.Minimum%20Knight%20Moves/images/knight.png" style="width: 250px; height: 250px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1197.Minimum%20Knight%20Moves/images/knight.png" style="width: 250px; height: 250px;" /></p>
 
 <p>返回 <em>骑士前去征服坐标为&nbsp;<code>[x, y]</code>&nbsp;的部落所需的最小移动次数</em> 。本题确保答案是一定存在的。</p>
 

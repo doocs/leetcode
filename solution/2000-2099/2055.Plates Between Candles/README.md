@@ -20,7 +20,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="ex-1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-1.png" style="width: 400px; height: 134px;"></p>
+<p><img alt="ex-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-1.png" style="width: 400px; height: 134px;"></p>
 
 <pre><b>输入：</b>s = "**|**|***|", queries = [[2,5],[5,9]]
 <b>输出：</b>[2,3]
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img alt="ex-2" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-2.png" style="width: 600px; height: 193px;"></p>
+<p><img alt="ex-2" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2055.Plates%20Between%20Candles/images/ex-2.png" style="width: 600px; height: 193px;"></p>
 
 <pre><b>输入：</b>s = "***|**|*****|**||**|*", queries = [[1,17],[4,5],[14,17],[5,11],[15,16]]
 <b>输出：</b>[9,0,0,0,0]

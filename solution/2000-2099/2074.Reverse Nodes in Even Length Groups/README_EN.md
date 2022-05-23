@@ -20,7 +20,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/eg1.png" style="width: 699px; height: 124px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/eg1.png" style="width: 699px; height: 124px;" />
 <pre>
 <strong>Input:</strong> head = [5,2,6,3,9,1,7,3,8,4]
 <strong>Output:</strong> [5,6,2,3,9,1,4,8,3,7]
@@ -32,7 +32,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/eg2.png" style="width: 284px; height: 114px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/eg2.png" style="width: 284px; height: 114px;" />
 <pre>
 <strong>Input:</strong> head = [1,1,0,6]
 <strong>Output:</strong> [1,0,1,6]
@@ -43,7 +43,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/ex3.png" style="width: 348px; height: 114px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/images/ex3.png" style="width: 348px; height: 114px;" />
 <pre>
 <strong>Input:</strong> head = [1,1,0,6,5]
 <strong>Output:</strong> [1,0,1,5,6]

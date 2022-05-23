@@ -15,7 +15,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0554.Brick%20Wall/images/cutwall-grid.jpg" style="width: 493px; height: 577px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0554.Brick%20Wall/images/cutwall-grid.jpg" style="width: 493px; height: 577px;" />
 <pre>
 <strong>输入：</strong>wall = [[1,2,2,1],[3,1,2],[1,3,2],[2,4],[3,1,2],[1,3,1,1]]
 <strong>输出：</strong>2

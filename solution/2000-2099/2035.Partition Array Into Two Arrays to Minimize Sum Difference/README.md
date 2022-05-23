@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="example-1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex1.png" style="width: 240px; height: 106px;"></p>
+<p><img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex1.png" style="width: 240px; height: 106px;"></p>
 
 <pre><b>输入：</b>nums = [3,9,7,3]
 <b>输出：</b>2
@@ -32,7 +32,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="example-3" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex3.png" style="width: 316px; height: 106px;"></p>
+<p><img alt="example-3" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/images/ex3.png" style="width: 316px; height: 106px;"></p>
 
 <pre><b>输入：</b>nums = [2,-1,0,4,-2,-9]
 <b>输出：</b>0

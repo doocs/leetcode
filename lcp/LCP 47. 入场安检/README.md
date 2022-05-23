@@ -10,7 +10,7 @@
 
 -   后进先出：在安检室中的所有观众中，最晚进入安检室的观众最先离开
 
-![c24754f1a5ff56989340ba5004dc5eda.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2047.%20%E5%85%A5%E5%9C%BA%E5%AE%89%E6%A3%80/images/1628843202-cdFPSt-c24754f1a5ff56989340ba5004dc5eda.gif)
+![c24754f1a5ff56989340ba5004dc5eda.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2047.%20%E5%85%A5%E5%9C%BA%E5%AE%89%E6%A3%80/images/1628843202-cdFPSt-c24754f1a5ff56989340ba5004dc5eda.gif)
 
 恰好 `M+1` 位入场的观众（编号从 0 开始）需要排队**依次**入场安检， 入场安检的规则如下：
 
@@ -52,7 +52,7 @@
 
 > 以下是方案 1 的示意图：
 
-> ![c60e38199a225ad62f13b954872edf9b.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2047.%20%E5%85%A5%E5%9C%BA%E5%AE%89%E6%A3%80/images/1628841618-bFKsnt-c60e38199a225ad62f13b954872edf9b.gif)
+> ![c60e38199a225ad62f13b954872edf9b.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2047.%20%E5%85%A5%E5%9C%BA%E5%AE%89%E6%A3%80/images/1628841618-bFKsnt-c60e38199a225ad62f13b954872edf9b.gif)
 
 **示例 2：**
 

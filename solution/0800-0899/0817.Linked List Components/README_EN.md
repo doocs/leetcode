@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0817.Linked%20List%20Components/images/lc-linkedlistcom1.jpg" style="width: 424px; height: 65px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0817.Linked%20List%20Components/images/lc-linkedlistcom1.jpg" style="width: 424px; height: 65px;" />
 <pre>
 <strong>Input:</strong> head = [0,1,2,3], nums = [0,1,3]
 <strong>Output:</strong> 2
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0817.Linked%20List%20Components/images/lc-linkedlistcom2.jpg" style="width: 544px; height: 65px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0817.Linked%20List%20Components/images/lc-linkedlistcom2.jpg" style="width: 544px; height: 65px;" />
 <pre>
 <strong>Input:</strong> head = [0,1,2,3,4], nums = [0,3,1,4]
 <strong>Output:</strong> 2

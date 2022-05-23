@@ -12,7 +12,7 @@
 
 <p><strong>示例1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/images/largest_e1.jpg" style="height: 172px; width: 300px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/images/largest_e1.jpg" style="height: 172px; width: 300px;" /></p>
 
 <pre>
 <strong>输入: </strong>root = [1,3,2,5,3,null,9]

@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/images/clone_1.png" style="height: 473px; width: 500px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/images/clone_1.png" style="height: 473px; width: 500px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [[1,null],null,[4,3],[7,0]]
@@ -36,7 +36,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/images/clone_2.png" style="height: 540px; width: 500px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/images/clone_2.png" style="height: 540px; width: 500px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [[1,4],null,[1,0],null,[1,5],[1,5]]
@@ -46,7 +46,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/images/e2.png" style="height: 426px; width: 500px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/images/e2.png" style="height: 426px; width: 500px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [[1,6],[2,5],[3,4],[4,3],[5,2],[6,1],[7,0]]

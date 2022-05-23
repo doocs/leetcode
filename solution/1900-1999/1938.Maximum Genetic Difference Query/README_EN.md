@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/images/c1.png" style="width: 118px; height: 163px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/images/c1.png" style="width: 118px; height: 163px;" />
 <pre>
 <strong>Input:</strong> parents = [-1,0,1,1], queries = [[0,2],[3,2],[2,5]]
 <strong>Output:</strong> [2,3,7]
@@ -23,7 +23,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/images/c2.png" style="width: 256px; height: 221px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/images/c2.png" style="width: 256px; height: 221px;" />
 <pre>
 <strong>Input:</strong> parents = [3,7,-1,2,0,7,0,2], queries = [[4,6],[1,15],[0,5]]
 <strong>Output:</strong> [6,14,7]

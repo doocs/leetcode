@@ -20,7 +20,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1537.Get%20the%20Maximum%20Score/images/sample_1_1893.png" style="width: 500px; height: 151px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1537.Get%20the%20Maximum%20Score/images/sample_1_1893.png" style="width: 500px; height: 151px;" />
 <pre>
 <strong>Input:</strong> nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]
 <strong>Output:</strong> 30

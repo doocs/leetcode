@@ -51,7 +51,7 @@
 
 Dynamic programming.
 
-![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1143.Longest%20Common%20Subsequence/images/CodeCogsEqn.gif)
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1143.Longest%20Common%20Subsequence/images/CodeCogsEqn.gif)
 
 <!-- tabs:start -->
 

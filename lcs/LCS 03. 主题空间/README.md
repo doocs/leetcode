@@ -15,7 +15,7 @@
 > 输出：`1`
 >
 > 解释：4 个主题空间中，只有 1 个不与走廊相邻，面积为 1。
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcs/LCS%2003.%20主题空间/images/1613708145-rscctN-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcs/LCS%2003.%20主题空间/images/1613708145-rscctN-image.png)
 
 **示例 2:**
 
@@ -24,7 +24,7 @@
 > 输出：`3`
 >
 > 解释：8 个主题空间中，有 5 个不与走廊相邻，面积分别为 3、1、1、1、2，最大面积为 3。
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcs/LCS%2003.%20主题空间/images/1613707985-KJyiXJ-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcs/LCS%2003.%20主题空间/images/1613707985-KJyiXJ-image.png)
 
 **提示：**
 

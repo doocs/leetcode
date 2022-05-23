@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid1-grid.jpg" style="height: 232px; width: 600px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid1-grid.jpg" style="height: 232px; width: 600px;" /></p>
 
 <pre>
 <strong>输入：</strong>bottom = "BCD", allowed = ["BCG", "CDE", "GEA", "FFF"]
@@ -34,7 +34,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid2-grid.jpg" style="height: 359px; width: 600px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid2-grid.jpg" style="height: 359px; width: 600px;" /></p>
 
 <pre>
 <strong>输入：</strong>bottom = "AABA", allowed = ["AAA", "AAB", "ABA", "ABB", "BAC"]

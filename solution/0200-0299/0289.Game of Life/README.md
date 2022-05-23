@@ -22,14 +22,14 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0289.Game%20of%20Life/images/grid1.jpg" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0289.Game%20of%20Life/images/grid1.jpg" />
 <pre>
 <strong>输入：</strong>board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
 <strong>输出：</strong>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0289.Game%20of%20Life/images/grid2.jpg" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0289.Game%20of%20Life/images/grid2.jpg" />
 <pre>
 <strong>输入：</strong>board = [[1,1],[1,0]]
 <strong>输出：</strong>[[1,1],[1,1]]

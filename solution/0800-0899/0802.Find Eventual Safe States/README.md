@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="Illustration of graph" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/images/picture1.png" /></p>
+<p><img alt="Illustration of graph" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/images/picture1.png" /></p>
 
 <pre>
 <strong>输入：</strong>graph = [[1,2],[2,3],[5],[0],[5],[],[]]

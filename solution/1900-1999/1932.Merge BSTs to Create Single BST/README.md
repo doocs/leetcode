@@ -28,33 +28,33 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/d1.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/d1.png" />
 <pre>
 <strong>输入：</strong>trees = [[2,1],[3,2,5],[5,4]]
 <strong>输出：</strong>[3,2,5,1,null,4]
 <strong>解释：</strong>
 第一步操作中，选出 i=1 和 j=0 ，并将 trees[0] 合并到 trees[1] 中。
 删除 trees[0] ，trees = [[3,2,5,1],[5,4]] 。
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/diagram.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/diagram.png" />
 在第二步操作中，选出 i=0 和 j=1 ，将 trees[1] 合并到 trees[0] 中。
 删除 trees[1] ，trees = [[3,2,5,1,null,4]] 。
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/diagram-2.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/diagram-2.png" />
 结果树如上图所示，为一棵有效的二叉搜索树，所以返回该树的根节点。</pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/d2.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/d2.png" />
 <pre>
 <strong>输入：</strong>trees = [[5,3,8],[3,2,6]]
 <strong>输出：</strong>[]
 <strong>解释：</strong>
 选出 i=0 和 j=1 ，然后将 trees[1] 合并到 trees[0] 中。
 删除 trees[1] ，trees = [[5,3,8,2,6]] 。
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/diagram-3.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/diagram-3.png" />
 结果树如上图所示。仅能执行一次有效的操作，但结果树不是一棵有效的二叉搜索树，所以返回 null 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/d3.png" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/d3.png" />
 <pre>
 <strong>输入：</strong>trees = [[5,4],[3]]
 <strong>输出：</strong>[]

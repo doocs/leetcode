@@ -12,7 +12,7 @@
 &nbsp;
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perectrec1-plane.jpg" style="height: 294px; width: 300px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perectrec1-plane.jpg" style="height: 294px; width: 300px;" />
 <pre>
 <strong>输入：</strong>rectangles = [[1,1,3,3],[3,1,4,2],[3,2,4,4],[1,3,2,4],[2,3,3,4]]
 <strong>输出：</strong>true
@@ -20,14 +20,14 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perfectrec2-plane.jpg" style="height: 294px; width: 300px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perfectrec2-plane.jpg" style="height: 294px; width: 300px;" />
 <pre>
 <strong>输入：</strong>rectangles = [[1,1,2,3],[1,3,2,4],[3,1,4,2],[3,2,4,4]]
 <strong>输出：</strong>false
 <strong>解释：</strong>两个矩形之间有间隔，无法覆盖成一个矩形。</pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perfecrrec4-plane.jpg" style="height: 294px; width: 300px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0391.Perfect%20Rectangle/images/perfecrrec4-plane.jpg" style="height: 294px; width: 300px;" />
 <pre>
 <strong>输入：</strong>rectangles = [[1,1,3,3],[3,1,4,2],[1,3,2,4],[2,2,4,4]]
 <strong>输出：</strong>false

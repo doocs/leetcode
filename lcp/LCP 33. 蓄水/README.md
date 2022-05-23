@@ -22,7 +22,7 @@
 > 解释：
 > 第 1 次操作升级 bucket[0]；
 > 第 2 ~ 4 次操作均选择蓄水，即可完成蓄水要求。
-> ![vat1.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2033.%20蓄水/images/1616122992-RkDxoL-vat1.gif)
+> ![vat1.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2033.%20蓄水/images/1616122992-RkDxoL-vat1.gif)
 
 **示例 2：**
 

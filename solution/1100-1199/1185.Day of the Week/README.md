@@ -46,7 +46,7 @@
 
 直接调库或者应用蔡勒公式。
 
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1185.Day%20of%20the%20Week/images/zeller.svg">
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1185.Day%20of%20the%20Week/images/zeller.svg">
 
 -   `w`: 星期（从 Sunday 开始）
 -   `c`: 年份前两位

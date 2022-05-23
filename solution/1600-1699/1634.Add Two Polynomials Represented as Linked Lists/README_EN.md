@@ -16,7 +16,7 @@
 
 <p>For example, the polynomial <code>5x<sup>3</sup> + 4x - 7</code> is represented by the polynomial linked list illustrated below:</p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/polynomial2.png" style="width: 500px; height: 91px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/polynomial2.png" style="width: 500px; height: 91px;" /></p>
 
 <p>The polynomial linked list must be in its standard form: the polynomial must be in <strong>strictly</strong> descending order by its <code>power</code> value. Also, terms with a <code>coefficient</code> of <code>0</code> are omitted.</p>
 
@@ -30,7 +30,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/ex1.png" style="width: 600px; height: 322px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/ex1.png" style="width: 600px; height: 322px;" /></p>
 
 <pre>
 

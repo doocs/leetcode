@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181501-1.png" style="width: 644px; height: 250px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181501-1.png" style="width: 644px; height: 250px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,0],[0,1,1],[1,1,1]]
 <strong>Output:</strong> 3
@@ -21,7 +21,7 @@ After, no more 1&#39;s are 4-directionally connected and grid is well-isolated.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181518-2.png" style="height: 250px; width: 255px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181518-2.png" style="height: 250px; width: 255px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,0,0],[0,0,0],[0,0,0]]
 <strong>Output:</strong> 0
@@ -30,7 +30,7 @@ No operations were done so return 0.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181817-3.png" style="width: 165px; height: 167px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181817-3.png" style="width: 165px; height: 167px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1],[1,0]]
 <strong>Output:</strong> 0

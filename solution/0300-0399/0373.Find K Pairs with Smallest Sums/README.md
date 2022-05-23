@@ -55,7 +55,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/images/demo.png"/>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/images/demo.png"/>
 
 <!-- tabs:start -->
 

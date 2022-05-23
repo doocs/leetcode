@@ -18,7 +18,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0382.Linked%20List%20Random%20Node/images/getrand-linked-list.jpg" style="width: 302px; height: 62px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0382.Linked%20List%20Random%20Node/images/getrand-linked-list.jpg" style="width: 302px; height: 62px;" />
 <pre>
 <strong>输入</strong>
 ["Solution", "getRandom", "getRandom", "getRandom", "getRandom", "getRandom"]
@@ -64,7 +64,7 @@ solution.getRandom(); // 返回 3
 
 **证明**：第 m 个对象最终被选中的概率 P = `选择 m 的概率 × 其后面所有对象不被选择的概率`，即：
 
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0382.Linked%20List%20Random%20Node/images/demo.gif"/>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0382.Linked%20List%20Random%20Node/images/demo.gif"/>
 
 思路同：[398. 随机数索引](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
 

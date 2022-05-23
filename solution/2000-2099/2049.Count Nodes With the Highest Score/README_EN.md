@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="example-1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-1.png" style="width: 604px; height: 266px;" />
+<img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-1.png" style="width: 604px; height: 266px;" />
 <pre>
 <strong>Input:</strong> parents = [-1,2,0,2,0]
 <strong>Output:</strong> 3
@@ -26,7 +26,7 @@ The highest score is 4, and three nodes (node 1, node 3, and node 4) have the hi
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="example-2" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-2.png" style="width: 95px; height: 143px;" />
+<img alt="example-2" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-2.png" style="width: 95px; height: 143px;" />
 <pre>
 <strong>Input:</strong> parents = [-1,2,0]
 <strong>Output:</strong> 2

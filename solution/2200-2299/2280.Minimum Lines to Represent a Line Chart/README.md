@@ -7,14 +7,14 @@
 <!-- 这里写题目描述 -->
 
 <p>给你一个二维整数数组&nbsp;<code>stockPrices</code> ，其中&nbsp;<code>stockPrices[i] = [day<sub>i</sub>, price<sub>i</sub>]</code>&nbsp;表示股票在&nbsp;<code>day<sub>i</sub></code>&nbsp;的价格为&nbsp;<code>price<sub>i</sub></code>&nbsp;。<strong>折线图</strong>&nbsp;是一个二维平面上的若干个点组成的图，横坐标表示日期，纵坐标表示价格，折线图由相邻的点连接而成。比方说下图是一个例子：</p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/images/1920px-pushkin_population_historysvg.png" style="width: 500px; height: 313px;">
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/images/1920px-pushkin_population_historysvg.png" style="width: 500px; height: 313px;">
 <p>请你返回要表示一个折线图所需要的 <strong>最少线段数</strong>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/images/ex0.png" style="width: 400px; height: 400px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/images/ex0.png" style="width: 400px; height: 400px;"></p>
 
 <pre><b>输入：</b>stockPrices = [[1,7],[2,6],[3,5],[4,4],[5,4],[6,3],[7,2],[8,1]]
 <b>输出：</b>3
@@ -29,7 +29,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/images/ex1.png" style="width: 325px; height: 325px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/images/ex1.png" style="width: 325px; height: 325px;"></p>
 
 <pre><b>输入：</b>stockPrices = [[3,4],[1,2],[7,8],[2,3]]
 <b>输出：</b>1

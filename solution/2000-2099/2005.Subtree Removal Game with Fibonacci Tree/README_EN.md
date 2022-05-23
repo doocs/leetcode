@@ -20,7 +20,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong><br />
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/images/image-20210914173520-3.png" style="width: 200px; height: 184px;" /></p>
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/images/image-20210914173520-3.png" style="width: 200px; height: 184px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 3
@@ -34,7 +34,7 @@ Return true because Alice wins.
 </pre>
 
 <p><strong>Example 2:</strong><br />
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/images/image-20210914173634-4.png" style="width: 75px; height: 75px;" /></p>
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/images/image-20210914173634-4.png" style="width: 75px; height: 75px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 1
@@ -45,7 +45,7 @@ Return false because Alice loses.
 </pre>
 
 <p><strong>Example 3:</strong><br />
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/images/image-20210914173425-1.png" style="width: 100px; height: 106px;" /></p>
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/images/image-20210914173425-1.png" style="width: 100px; height: 106px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 2

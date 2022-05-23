@@ -22,7 +22,7 @@
 
 >
 
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2026.%20导航装置/images/1597996812-tqrgwu-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2026.%20导航装置/images/1597996812-tqrgwu-image.png)
 
 **示例 2：**
 
@@ -38,7 +38,7 @@
 
 >
 
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2026.%20导航装置/images/1597996826-EUQRyz-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2026.%20导航装置/images/1597996826-EUQRyz-image.png)
 
 **提示：**
 

@@ -15,7 +15,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220315203925-1.png" style="width: 300px; height: 212px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220315203925-1.png" style="width: 300px; height: 212px;" />
 <pre>
 <strong>Input:</strong> root = [4,8,5,0,1,null,6]
 <strong>Output:</strong> 5
@@ -28,7 +28,7 @@ For the node with value 6: The average of its subtree is 6 / 1 = 6.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220326133920-1.png" style="width: 80px; height: 76px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220326133920-1.png" style="width: 80px; height: 76px;" />
 <pre>
 <strong>Input:</strong> root = [1]
 <strong>Output:</strong> 1

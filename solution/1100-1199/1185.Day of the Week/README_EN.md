@@ -43,7 +43,7 @@
 
 Zeller formula.
 
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1185.Day%20of%20the%20Week/images/zeller.svg">
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1185.Day%20of%20the%20Week/images/zeller.svg">
 
 <!-- tabs:start -->
 

@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/images/tree.png" style="width: 500px; height: 341px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/images/tree.png" style="width: 500px; height: 341px;" />
 <pre>
 <strong>Input:</strong> root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
 <strong>Output:</strong> [30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]

@@ -32,7 +32,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/1.png" style="width: 529px; height: 241px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/1.png" style="width: 529px; height: 241px;" />
 <pre>
 <strong>Input:</strong> segments = [[1,4,5],[4,7,7],[1,7,9]]
 <strong>Output:</strong> [[1,4,14],[4,7,16]]
@@ -42,7 +42,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/2.png" style="width: 532px; height: 219px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/2.png" style="width: 532px; height: 219px;" />
 <pre>
 <strong>Input:</strong> segments = [[1,7,9],[6,8,15],[8,10,7]]
 <strong>Output:</strong> [[1,6,9],[6,7,24],[7,8,15],[8,10,7]]
@@ -54,7 +54,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/c1.png" style="width: 529px; height: 289px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/c1.png" style="width: 529px; height: 289px;" />
 <pre>
 <strong>Input:</strong> segments = [[1,4,5],[1,4,7],[4,7,1],[4,7,11]]
 <strong>Output:</strong> [[1,4,12],[4,7,12]]

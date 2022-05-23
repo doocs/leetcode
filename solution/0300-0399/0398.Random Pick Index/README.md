@@ -62,7 +62,7 @@ solution.pick(3); // 随机返回索引 2, 3 或者 4 之一。每个索引的�
 
 **证明**：第 m 个对象最终被选中的概率 P = `选择 m 的概率 × 其后面所有对象不被选择的概率`，即：
 
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0398.Random%20Pick%20Index/images/demo.gif"/>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0398.Random%20Pick%20Index/images/demo.gif"/>
 
 思路同：[382. 链表随机节点](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README.md)
 

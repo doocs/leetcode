@@ -5,7 +5,7 @@
 ## Description
 
 <p>You are given an integer array <code>nums</code>. You have an integer array <code>arr</code> of the same length with all values set to <code>0</code> initially. You also have the following <code>modify</code> function:</p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/images/sample_2_1887.png" style="width: 573px; height: 294px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/images/sample_2_1887.png" style="width: 573px; height: 294px;" />
 <p>You want to use the modify function to covert <code>arr</code> to <code>nums</code> using the minimum number of calls.</p>
 
 <p>Return <em>the minimum number of function calls to make </em><code>nums</code><em> from </em><code>arr</code>.</p>

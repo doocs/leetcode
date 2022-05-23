@@ -10,7 +10,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram.jpg" style="width: 321px; height: 321px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram.jpg" style="width: 321px; height: 321px;" /></p>
 
 <pre>
 
@@ -36,7 +36,7 @@ The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram-1.jpg" style="width: 321px; height: 321px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram-1.jpg" style="width: 321px; height: 321px;" /></strong></p>
 
 <pre>
 
@@ -48,7 +48,7 @@ The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram-2.jpg" style="width: 321px; height: 321px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram-2.jpg" style="width: 321px; height: 321px;" /></strong></p>
 
 <pre>
 

@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/images/failing1-grid.jpg" style="width: 499px; height: 500px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/images/failing1-grid.jpg" style="width: 499px; height: 500px;" />
 <pre>
 <strong>Input:</strong> matrix = [[2,1,3],[6,5,4],[7,8,9]]
 <strong>Output:</strong> 13
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/images/failing2-grid.jpg" style="width: 164px; height: 365px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/images/failing2-grid.jpg" style="width: 164px; height: 365px;" />
 <pre>
 <strong>Input:</strong> matrix = [[-19,57],[-40,-5]]
 <strong>Output:</strong> -59

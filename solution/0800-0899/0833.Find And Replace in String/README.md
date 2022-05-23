@@ -32,7 +32,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex1.png" style="height: 251px; width: 411px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex1.png" style="height: 251px; width: 411px;" /></p>
 
 <pre>
 <strong>输入：</strong>s = "abcd", indexes = [0,2], sources = ["a","cd"], targets = ["eee","ffff"]
@@ -42,7 +42,7 @@
 "cd" 从 s 中的索引 2 开始，所以它被替换为 "ffff"。
 </pre>
 
-<p><strong>示例 2：</strong><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex2-1.png" style="height: 251px; width: 411px;" /></p>
+<p><strong>示例 2：</strong><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex2-1.png" style="height: 251px; width: 411px;" /></p>
 
 <pre>
 <strong>输入：</strong>s = "abcd", indexes = [0,2], sources = ["ab","ec"], targets = ["eee","ffff"]

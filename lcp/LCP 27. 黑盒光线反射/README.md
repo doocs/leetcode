@@ -6,7 +6,7 @@
 
 秋日市集上有个奇怪的黑盒，黑盒的主视图为 n\*m 的矩形。从黑盒的主视图来看，黑盒的上面和下面各均匀分布有 m 个小孔，黑盒的左面和右面各均匀分布有 n 个小孔。黑盒左上角小孔序号为 0，按顺时针编号，总共有 2\*(m+n) 个小孔。每个小孔均可以打开或者关闭，初始时，所有小孔均处于关闭状态。每个小孔上的盖子均为镜面材质。例如一个 2\*3 的黑盒主视图与其小孔分布如图所示:
 
-![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1598951281-ZCBrif-image.png)
+![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1598951281-ZCBrif-image.png)
 
 店长告诉小扣，这里是「几何学的快问快答」，店长可能有两种操作：
 
@@ -18,14 +18,14 @@
 -   `index`： 表示小孔序号
 -   `direction`：`1` 表示光线沿 $y=x$ 方向，`-1` 表示光线沿 $y=-x$ 方向。
 
-![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1599620810-HdOlMi-image.png)
+![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1599620810-HdOlMi-image.png)
 
 当光线照至边界时：若边界上的小孔为开启状态，则光线会射出；否则，光线会在小孔之间进行反射。特别地：
 
 1. 若光线射向未打开的拐角（黑盒顶点），则光线会原路反射回去；
 2. 光线自拐角处的小孔照入时，只有一种入射方向（如自序号为 0 的小孔照入方向只能为 `-1`）
 
-![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1598953840-DLiAsf-image.png)
+![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1598953840-DLiAsf-image.png)
 
 请帮助小扣判断并返回店长每次照入的光线从几号小孔射出。
 
@@ -53,7 +53,7 @@
 >
 > 解释：
 >
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1599204202-yGDMVk-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1599204202-yGDMVk-image.png)
 >
 > BlackBox b = BlackBox(3,3); // 新建一个 3x3 的黑盒
 > b.open(1,-1) // 打开 1 号小孔，并沿 y=-x 方向照入光线，光线轨迹为 1-5-7-11-1，从 1 号小孔射出

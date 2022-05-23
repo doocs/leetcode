@@ -14,7 +14,7 @@
 
 <p><strong>示例1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0445.Add%20Two%20Numbers%20II/images/1626420025-fZfzMX-image.png" style="width: 302px; " /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0445.Add%20Two%20Numbers%20II/images/1626420025-fZfzMX-image.png" style="width: 302px; " /></p>
 
 <pre>
 <strong>输入：</strong>l1 = [7,2,4,3], l2 = [5,6,4]

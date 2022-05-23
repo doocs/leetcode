@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/images/tree.png" style="height:273px; width:400px" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/images/tree.png" style="height:273px; width:400px" /></strong></p>
 
 <pre>
 <strong>输入：</strong>[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]

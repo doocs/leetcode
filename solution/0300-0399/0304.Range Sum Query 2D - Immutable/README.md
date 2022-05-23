@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/images/1626332422-wUpUHT-image.png" style="width: 200px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/images/1626332422-wUpUHT-image.png" style="width: 200px;" /></p>
 
 <pre>
 <strong>输入:</strong> 

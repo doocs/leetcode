@@ -10,7 +10,7 @@
 
 <p><small>在「杨辉三角」中，每个数是它左上方和右上方的数的和。</small></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/images/1626927345-DZmfxB-PascalTriangleAnimated2.gif" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/images/1626927345-DZmfxB-PascalTriangleAnimated2.gif" /></p>
 
 <p> </p>
 

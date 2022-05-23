@@ -14,7 +14,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0598.Range%20Addition%20II/images/ex1.jpg" style="height: 176px; width: 750px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0598.Range%20Addition%20II/images/ex1.jpg" style="height: 176px; width: 750px;" /></p>
 
 <pre>
 <strong>输入:</strong> m = 3, n = 3，ops = [[2,2],[3,3]]

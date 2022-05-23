@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/images/wheeldiagram12.png" style="width: 700px; height: 225px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/images/wheeldiagram12.png" style="width: 700px; height: 225px;" />
 <pre>
 <strong>Input:</strong> customers = [8,3], boardingCost = 5, runningCost = 6
 <strong>Output:</strong> 3

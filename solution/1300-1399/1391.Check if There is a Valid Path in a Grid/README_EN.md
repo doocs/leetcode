@@ -14,7 +14,7 @@
 	<li><code>5</code> which means a street connecting the left cell and the upper cell.</li>
 	<li><code>6</code> which means a street connecting the right cell and the upper cell.</li>
 </ul>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/images/main.png" style="width: 450px; height: 708px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/images/main.png" style="width: 450px; height: 708px;" />
 <p>You will initially start at the street of the upper-left cell <code>(0, 0)</code>. A valid path in the grid is a path that starts from the upper left cell <code>(0, 0)</code> and ends at the bottom-right cell <code>(m - 1, n - 1)</code>. <strong>The path should only follow the streets</strong>.</p>
 
 <p><strong>Notice</strong> that you are <strong>not allowed</strong> to change any street.</p>
@@ -23,7 +23,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/images/e1.png" style="width: 455px; height: 311px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/images/e1.png" style="width: 455px; height: 311px;" />
 <pre>
 <strong>Input:</strong> grid = [[2,4,3],[6,5,2]]
 <strong>Output:</strong> true
@@ -31,7 +31,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/images/e2.png" style="width: 455px; height: 293px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/images/e2.png" style="width: 455px; height: 293px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,2,1],[1,2,1]]
 <strong>Output:</strong> false

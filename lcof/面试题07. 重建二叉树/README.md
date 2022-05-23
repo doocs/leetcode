@@ -9,7 +9,7 @@
 <p> </p>
 
 <p><strong>示例 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9807.%20%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/images/tree.jpg" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9807.%20%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/images/tree.jpg" />
 <pre>
 <strong>Input:</strong> preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
 <strong>Output:</strong> [3,9,20,null,null,15,7]

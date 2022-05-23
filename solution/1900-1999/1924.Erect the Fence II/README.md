@@ -18,7 +18,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees1.png" style="width: 510px; height: 501px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees1.png" style="width: 510px; height: 501px;"></strong></p>
 
 <pre><strong>输入:</strong> trees = [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
 <strong>输出:</strong> [2.00000,2.00000,2.00000]
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees2.png" style="width: 510px; height: 501px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees2.png" style="width: 510px; height: 501px;"></strong></p>
 
 <pre><strong>输入:</strong> trees = [[1,2],[2,2],[4,2]]
 <strong>输出:</strong> [2.50000,2.00000,1.50000]

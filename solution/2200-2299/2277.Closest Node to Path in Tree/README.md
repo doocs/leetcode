@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132158-1.png" style="width: 300px; height: 211px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132158-1.png" style="width: 300px; height: 211px;" />
 <pre>
 <strong>Input:</strong> n = 7, edges = [[0,1],[0,2],[0,3],[1,4],[2,5],[2,6]], query = [[5,3,4],[5,3,6]]
 <strong>Output:</strong> [0,2]
@@ -27,7 +27,7 @@ Node 2 is the node on the path closest to node 6, so the answer to the second qu
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132318-2.png" style="width: 300px; height: 89px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132318-2.png" style="width: 300px; height: 89px;" />
 <pre>
 <strong>Input:</strong> n = 3, edges = [[0,1],[1,2]], query = [[0,1,2]]
 <strong>Output:</strong> [1]
@@ -38,7 +38,7 @@ Node 1 is the node on the path closest to node 2, so the answer to the first que
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132333-3.png" style="width: 300px; height: 89px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132333-3.png" style="width: 300px; height: 89px;" />
 <pre>
 <strong>Input:</strong> n = 3, edges = [[0,1],[1,2]], query = [[0,0,0]]
 <strong>Output:</strong> [0]

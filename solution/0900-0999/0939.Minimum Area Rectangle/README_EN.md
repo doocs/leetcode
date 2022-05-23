@@ -10,14 +10,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/images/rec1.jpg" style="width: 500px; height: 447px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/images/rec1.jpg" style="width: 500px; height: 447px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[1,3],[3,1],[3,3],[2,2]]
 <strong>Output:</strong> 4
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/images/rec2.jpg" style="width: 500px; height: 477px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/images/rec2.jpg" style="width: 500px; height: 477px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[1,3],[3,1],[3,3],[4,1],[4,3]]
 <strong>Output:</strong> 2

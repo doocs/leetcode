@@ -27,7 +27,7 @@ The lexicographically smallest subsequence among them is &quot;eet&quot;.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="example-2" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/images/smallest-k-length-subsequence.png" style="width: 339px; height: 67px;" />
+<img alt="example-2" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/images/smallest-k-length-subsequence.png" style="width: 339px; height: 67px;" />
 <pre>
 <strong>Input:</strong> s = &quot;leetcode&quot;, k = 4, letter = &quot;e&quot;, repetition = 2
 <strong>Output:</strong> &quot;ecde&quot;

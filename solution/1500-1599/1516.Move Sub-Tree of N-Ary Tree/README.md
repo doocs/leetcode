@@ -28,7 +28,7 @@
 
 <p><em>N 叉树的输入序列以层序遍历的形式给出，每组子节点用 null 分隔（见示例）。</em></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/sample_4_964.png" style="height: 269px; width: 296px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/sample_4_964.png" style="height: 269px; width: 296px;" /></p>
 
 <p>例如，上面的树会被序列化为&nbsp;[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]。</p>
 
@@ -36,7 +36,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/move_e1.jpg" style="height: 188px; width: 450px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/move_e1.jpg" style="height: 188px; width: 450px;" /></p>
 
 <pre>
 <strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 4, q = 1
@@ -46,7 +46,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/move_e2.jpg" style="height: 281px; width: 281px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/move_e2.jpg" style="height: 281px; width: 281px;" /></p>
 
 <pre>
 <strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 7, q = 4
@@ -56,7 +56,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/move_e3.jpg" style="height: 331px; width: 450px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/move_e3.jpg" style="height: 331px; width: 450px;" /></p>
 
 <pre>
 <strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 3, q = 8

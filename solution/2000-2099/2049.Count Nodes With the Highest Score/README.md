@@ -16,7 +16,7 @@
 
 <p><strong>示例&nbsp;1:</strong></p>
 
-<p><img alt="example-1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-1.png" style="width: 604px; height: 266px;"></p>
+<p><img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-1.png" style="width: 604px; height: 266px;"></p>
 
 <pre><b>输入：</b>parents = [-1,2,0,2,0]
 <b>输出：</b>3
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="example-2" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-2.png" style="width: 95px; height: 143px;"></p>
+<p><img alt="example-2" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/images/example-2.png" style="width: 95px; height: 143px;"></p>
 
 <pre><b>输入：</b>parents = [-1,2,0]
 <b>输出：</b>2

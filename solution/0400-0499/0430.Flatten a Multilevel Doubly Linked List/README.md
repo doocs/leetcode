@@ -16,26 +16,26 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten11.jpg" style="height:339px; width:700px" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten11.jpg" style="height:339px; width:700px" /></p>
 
 <pre>
 <strong>输入：</strong>head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
 <strong>输出：</strong>[1,2,3,7,8,11,12,9,10,4,5,6]
 <strong>解释：</strong>输入的多级列表如上图所示。
 扁平化后的链表如下图：
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten12.jpg" style="height:69px; width:1000px" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten12.jpg" style="height:69px; width:1000px" />
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten2.1jpg" style="height:200px; width:200px" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten2.1jpg" style="height:200px; width:200px" /></p>
 
 <pre>
 <strong>输入：</strong>head = [1,2,null,3]
 <strong>输出：</strong>[1,3,2]
 <strong>解释：</strong>输入的多级列表如上图所示。
 扁平化后的链表如下图：
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/list.jpg" style="height:87px; width:300px" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/list.jpg" style="height:87px; width:300px" />
 </pre>
 
 <p><strong>示例 3：</strong></p>

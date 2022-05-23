@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/images/lc-midlist1.jpg" style="width: 544px; height: 65px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/images/lc-midlist1.jpg" style="width: 544px; height: 65px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,3,4,5]
 <strong>Output:</strong> [3,4,5]
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/images/lc-midlist2.jpg" style="width: 664px; height: 65px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/images/lc-midlist2.jpg" style="width: 664px; height: 65px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,3,4,5,6]
 <strong>Output:</strong> [4,5,6]

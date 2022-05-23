@@ -24,7 +24,7 @@
 
 <p>下图展示了部分符合定义和不符合定义的金字塔区域。黑色区域表示肥沃的格子。</p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/image.png" style="width: 700px; height: 156px;"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/image.png" style="width: 700px; height: 156px;"></p>
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始且大小为 <code>m x n</code>&nbsp;的二进制矩阵&nbsp;<code>grid</code>&nbsp;，它表示农场，请你返回 <code>grid</code>&nbsp;中金字塔和倒金字塔的&nbsp;<strong>总数目</strong>&nbsp;。</p>
 
@@ -32,7 +32,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg11.png" style="width: 200px; height: 102px;">&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa12.png" style="width: 200px; height: 102px;">&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa13.png" style="width: 200px; height: 102px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg11.png" style="width: 200px; height: 102px;">&nbsp;<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa12.png" style="width: 200px; height: 102px;">&nbsp;<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa13.png" style="width: 200px; height: 102px;"></p>
 
 <pre><b>输入：</b>grid = [[0,1,1,0],[1,1,1,1]]
 <b>输出：</b>2
@@ -44,7 +44,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg21.png" style="width: 180px; height: 122px;">&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa22.png" style="width: 180px; height: 122px;">&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa23.png" style="width: 180px; height: 122px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg21.png" style="width: 180px; height: 122px;">&nbsp;<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa22.png" style="width: 180px; height: 122px;">&nbsp;<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa23.png" style="width: 180px; height: 122px;"></p>
 
 <pre><b>输入：</b>grid = [[1,1,1],[1,1,1]]
 <b>输出：</b>2
@@ -55,7 +55,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg3.png" style="width: 149px; height: 150px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg3.png" style="width: 149px; height: 150px;"></p>
 
 <pre><b>输入：</b>grid = [[1,0,1],[0,0,0],[1,0,1]]
 <b>输出：</b>0
@@ -65,7 +65,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg41.png" style="width: 180px; height: 144px;">&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg42.png" style="width: 180px; height: 144px;">&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg43.png" style="width: 180px; height: 144px;">&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg44.png" style="width: 180px; height: 144px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg41.png" style="width: 180px; height: 144px;">&nbsp;<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg42.png" style="width: 180px; height: 144px;">&nbsp;<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg43.png" style="width: 180px; height: 144px;">&nbsp;<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg44.png" style="width: 180px; height: 144px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,1,1,1,0],[1,1,1,1,1],[1,1,1,1,1],[0,1,0,0,1]]
 <b>输出：</b>13

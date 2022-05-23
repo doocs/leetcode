@@ -8,7 +8,7 @@ Given the <code>root</code> of a binary tree, return <em>the sum of values of it
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/images/1483_ex1.png" style="width: 273px; height: 265px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/images/1483_ex1.png" style="width: 273px; height: 265px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
 <strong>Output:</strong> 15

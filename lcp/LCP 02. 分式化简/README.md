@@ -6,7 +6,7 @@
 
 <p>有一个同学在学习分式。他需要将一个连分数化成最简分数，你能帮助他吗？</p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2002.%20分式化简/images/fraction_example_1.jpg" style="height: 195px; width: 480px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2002.%20分式化简/images/fraction_example_1.jpg" style="height: 195px; width: 480px;" /></p>
 
 <p>连分数是形如上图的分式。在本题中，所有系数都是大于等于0的整数。</p>
 
