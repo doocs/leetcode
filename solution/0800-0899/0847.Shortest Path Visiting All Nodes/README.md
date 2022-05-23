@@ -181,8 +181,7 @@ class Solution {
             Arrays.fill(dist[i], Integer.MAX_VALUE);
         }
         PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             q.offer(new int[]{f(1 << i), i, 1 << i});
             dist[i][1 << i] = 0;
         }
