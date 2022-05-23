@@ -170,10 +170,8 @@ impl Solution {
         let mut l = 0;
         let mut r = nums.len() - 1;
         while l < r {
-            let num = nums[l];
-            if num % 2 == 0 {
-                nums[l] = nums[r];
-                nums[r] = num;
+            if nums[l] % 2 == 0 {
+                nums.swap(l, r);
                 r -= 1;
             } else {
                 l += 1;
