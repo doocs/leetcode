@@ -63,7 +63,7 @@
 
 递推公式如下：
 
-![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/剑指%20Offer%20II%20095.%20最长公共子序列/images/gif.gif)
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcof2/剑指%20Offer%20II%20095.%20最长公共子序列/images/gif.gif)
 
 时间复杂度 O(mn)。
 

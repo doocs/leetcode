@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/sample_2_1897.png" style="height:173px; width:324px" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/sample_2_1897.png" style="height:173px; width:324px" /></p>
 
 <pre>
 <strong>输入：</strong>root = [1,null,3,2,4,null,5,6]
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/sample_1_1897.png" style="height:246px; width:253px" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/sample_1_1897.png" style="height:246px; width:253px" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [1,null,2,null,3,4,null,5,null,6]
@@ -34,7 +34,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/sample_3_1897.png" style="height:326px; width:369px" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/sample_3_1897.png" style="height:326px; width:369px" /></p>
 
 <pre>
 <strong>输入:</strong> root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]
@@ -72,7 +72,7 @@
     -   当 y 到达的最远结点 z 横穿 δ(s, t) 时，记与之相交的结点为 x。此时有 δ(y, z) = δ(y, x) + δ(x, z)。而此时 δ(y, z) > δ(y, t)，故可得 δ(x, z) ＞ δ(x, t)。由 1 的结论可知该假设不成立。
     -   当 y 到达的最远结点 z 与 δ(s, t) 不相交时，定义从 y 开始到 t 结束的简单路径上，第一个同时也存在于简单路径 δ(s, t) 上的结点为 x，最后一个存在于简单路径 δ(y, z) 上的结点为 x’。如下图。那么根据假设，有 δ(y, z) ≥ δ(y, t) => δ(x', z) ≥ δ(x', x) + δ(x, t)。既然这样，那么 δ(x, z) ≥ δ(x, t)，和 δ(s, t) 对应着直径这一前提不符，故 y 的最远结点 z 不可能在 s 到 t 这个直径对应的路外面。
 
-    <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/tree-diameter.svg">
+    <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/images/tree-diameter.svg">
 
 因此定理成立。
 

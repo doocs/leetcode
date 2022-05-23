@@ -37,7 +37,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/images/table.png)
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/images/table.png)
 
 上图为 a，b，c 之间的关系，这题其实就是在这张“表”里查找 c。
 

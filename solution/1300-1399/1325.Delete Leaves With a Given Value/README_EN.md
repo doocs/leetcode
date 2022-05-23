@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/images/sample_1_1684.png" style="width: 500px; height: 112px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/images/sample_1_1684.png" style="width: 500px; height: 112px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [1,2,3,2,null,2,4], target = 2
@@ -22,7 +22,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/images/sample_2_1684.png" style="width: 400px; height: 154px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/images/sample_2_1684.png" style="width: 400px; height: 154px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [1,3,3,3,2], target = 3
@@ -31,7 +31,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/images/sample_3_1684.png" style="width: 500px; height: 166px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/images/sample_3_1684.png" style="width: 500px; height: 166px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [1,2,null,2,null,2], target = 2

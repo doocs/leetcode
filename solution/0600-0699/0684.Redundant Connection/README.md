@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0684.Redundant%20Connection/images/1626676174-hOEVUL-image.png" style="width: 152px; " /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0684.Redundant%20Connection/images/1626676174-hOEVUL-image.png" style="width: 152px; " /></p>
 
 <pre>
 <strong>输入:</strong> edges = [[1,2], [1,3], [2,3]]
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0684.Redundant%20Connection/images/1626676179-kGxcmu-image.png" style="width: 250px; " /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0684.Redundant%20Connection/images/1626676179-kGxcmu-image.png" style="width: 250px; " /></p>
 
 <pre>
 <strong>输入:</strong> edges = [[1,2], [2,3], [3,4], [1,4], [1,5]]

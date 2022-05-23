@@ -6,7 +6,7 @@
 
 「力扣挑战赛」中有一个由 `N` 个关卡组成的**环形**闯关游戏，关卡编号为 `0`~`N-1`，编号 `0` 的关卡和编号 `N-1` 的关卡相邻。每个关卡均有积分要求，`challenge[i]` 表示挑战编号 `i` 的关卡最少需要拥有的积分。
 
-![图片.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/images/1630392170-ucncVS-%E5%9B%BE%E7%89%87.png)
+![图片.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/images/1630392170-ucncVS-%E5%9B%BE%E7%89%87.png)
 
 小扣想要挑战关卡，闯关的具体规则如下：
 

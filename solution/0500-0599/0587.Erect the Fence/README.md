@@ -18,7 +18,7 @@
 
 <strong>解释:</strong>
 
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_1.png" style="width: 100%; max-width: 320px">
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_1.png" style="width: 100%; max-width: 320px">
 
 </pre>
 
@@ -30,7 +30,7 @@
 
 <strong>解释:</strong>
 
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_2.png" style="width: 100%; max-width: 320px">
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_2.png" style="width: 100%; max-width: 320px">
 
 即使树都在一条直线上，你也需要先用绳子包围它们。
 

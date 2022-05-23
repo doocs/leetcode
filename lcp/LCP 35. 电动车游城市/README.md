@@ -16,7 +16,7 @@
 > 在城市 1 仅充 3 单位电至城市 3，然后在城市 3 充 5 单位电，行驶至城市 5。
 > 充电用时共 3\*10 + 5\*1= 35
 > 行驶用时 3 + 5 = 8，此时总用时最短 43。
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2035.%20电动车游城市/images/1616125304-mzVxIV-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2035.%20电动车游城市/images/1616125304-mzVxIV-image.png)
 
 **示例 2：**
 

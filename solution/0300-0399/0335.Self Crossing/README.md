@@ -15,21 +15,21 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross1-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross1-plane.jpg" style="width: 400px; height: 435px;" />
 <pre>
 <strong>输入：</strong>distance = [2,1,1,2]
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross2-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross2-plane.jpg" style="width: 400px; height: 435px;" />
 <pre>
 <strong>输入：</strong>distance = [1,2,3,4]
 <strong>输出：</strong>false
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross3-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross3-plane.jpg" style="width: 400px; height: 435px;" />
 <pre>
 <strong>输入：</strong>distance = [1,1,1,1]
 <strong>输出：</strong>true</pre>

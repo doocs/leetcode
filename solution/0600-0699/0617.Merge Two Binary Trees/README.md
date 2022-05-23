@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/images/merge.jpg" style="height: 163px; width: 600px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/images/merge.jpg" style="height: 163px; width: 600px;" />
 <pre>
 <strong>输入：</strong>root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
 <strong>输出：</strong>[3,4,5,5,4,null,7]

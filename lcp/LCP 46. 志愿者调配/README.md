@@ -28,7 +28,7 @@
 
 **示例 1：**
 
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061228-gnZsOz-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061228-gnZsOz-image.png)
 
 > 输入：
 
@@ -42,7 +42,7 @@
 
 > 解释：
 
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061300-WuVkeF-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061300-WuVkeF-image.png)
 
 **示例 2 ：**
 

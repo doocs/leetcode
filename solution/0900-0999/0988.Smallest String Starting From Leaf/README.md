@@ -27,7 +27,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree1.png" style="height: 358px; width: 534px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree1.png" style="height: 358px; width: 534px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [0,1,2,3,4,3,4]
@@ -36,7 +36,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree2.png" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree2.png" /></p>
 
 <pre>
 <strong>输入：</strong>root = [25,1,3,1,3,0,2]
@@ -45,7 +45,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 513px; width: 490px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 513px; width: 490px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [2,2,1,null,1,0,null,0]
@@ -78,7 +78,7 @@ class Solution:
         return min(left + val, right + val)
 ```
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/image_1551131779.png" style="height: 180px; width: 172px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/image_1551131779.png" style="height: 180px; width: 172px;"></strong></p>
 
 我们举个例子来说明，对于上面这棵二叉树，正确答案应该是 "ababz"，但是我们采用以上实现方式得到的答案是 "abz"。
 

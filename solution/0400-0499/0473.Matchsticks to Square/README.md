@@ -14,7 +14,7 @@
 
 <p><strong>示例&nbsp;1:</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0473.Matchsticks%20to%20Square/images/matchsticks1-grid.jpg" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0473.Matchsticks%20to%20Square/images/matchsticks1-grid.jpg" /></p>
 
 <pre>
 <strong>输入:</strong> matchsticks = [1,1,2,2,2]

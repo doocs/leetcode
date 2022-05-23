@@ -15,7 +15,7 @@
 <p><strong>示例 1：</strong></p>
 
 <blockquote>
-<p><img alt="image.png" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2010.%20二叉树任务调度/images/3522fbf8ce4ebb20b79019124eb9870109fdfe97fe9da99f6c20c07ceb1c60b3-image.png" /></p>
+<p><img alt="image.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2010.%20二叉树任务调度/images/3522fbf8ce4ebb20b79019124eb9870109fdfe97fe9da99f6c20c07ceb1c60b3-image.png" /></p>
 
 <p>输入：root = [47, 74, 31]</p>
 
@@ -27,7 +27,7 @@
 <p><strong>示例 2：</strong></p>
 
 <blockquote>
-<p><img alt="image.png" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2010.%20二叉树任务调度/images/13accf172ee4a660d241e25901595d55b759380b090890a17e6e7bd51a143e3f-image.png" /></p>
+<p><img alt="image.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2010.%20二叉树任务调度/images/13accf172ee4a660d241e25901595d55b759380b090890a17e6e7bd51a143e3f-image.png" /></p>
 
 <p>输入：root = [15, 21, null, 24, null, 27, 26]</p>
 
@@ -37,7 +37,7 @@
 <p><strong>示例 3：</strong></p>
 
 <blockquote>
-<p><img alt="image.png" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2010.%20二叉树任务调度/images/bef743a12591aafb9047dd95d335b8083dfa66e8fdedc63f50fd406b4a9d163a-image.png" /></p>
+<p><img alt="image.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2010.%20二叉树任务调度/images/bef743a12591aafb9047dd95d335b8083dfa66e8fdedc63f50fd406b4a9d163a-image.png" /></p>
 
 <p>输入：root = [1,3,2,null,null,4,4]</p>
 

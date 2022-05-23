@@ -30,7 +30,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="example-1" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/images/example-1.png" style="width: 498px; height: 268px;"></p>
+<p><img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/images/example-1.png" style="width: 498px; height: 268px;"></p>
 
 <pre><strong>输入：</strong>
 ["Robot", "move", "move", "getPos", "getDir", "move", "move", "move", "getPos", "getDir"]

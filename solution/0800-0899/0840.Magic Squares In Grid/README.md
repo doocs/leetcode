@@ -14,16 +14,16 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/images/magic_main.jpg" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/images/magic_main.jpg" /></p>
 
 <pre>
 <strong>输入: </strong>grid = [[4,3,8,4],[9,5,1,9],[2,7,6,2]
 <strong>输出: </strong>1
 <strong>解释: </strong>
 下面的子矩阵是一个 3 x 3 的幻方：
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/images/magic_valid.jpg" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/images/magic_valid.jpg" />
 而这一个不是：
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/images/magic_invalid.jpg" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/images/magic_invalid.jpg" />
 总的来说，在本示例所给定的矩阵中只有一个 3 x 3 的幻方子矩阵。
 </pre>
 

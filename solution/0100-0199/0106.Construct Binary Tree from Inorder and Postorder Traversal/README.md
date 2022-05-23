@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/images/tree.jpg" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/images/tree.jpg" />
 <pre>
 <b>输入：</b>inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
 <b>输出：</b>[3,9,20,null,null,15,7]

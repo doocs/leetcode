@@ -23,7 +23,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/images/addrow-tree.jpg" style="height: 231px; width: 500px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/images/addrow-tree.jpg" style="height: 231px; width: 500px;" /></p>
 
 <pre>
 <strong>输入:</strong> root = [4,2,6,3,1,5], val = 1, depth = 2
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/images/add2-tree.jpg" style="height: 277px; width: 500px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/images/add2-tree.jpg" style="height: 277px; width: 500px;" /></p>
 
 <pre>
 <strong>输入:</strong> root = [4,2,null,3,1], val = 1, depth = 3

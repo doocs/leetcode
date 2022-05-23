@@ -18,7 +18,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220315203925-1.png" style="width: 300px; height: 212px;">
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220315203925-1.png" style="width: 300px; height: 212px;">
 <pre><strong>输入：</strong>root = [4,8,5,0,1,null,6]
 <strong>输出：</strong>5
 <strong>解释：</strong>
@@ -30,7 +30,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220326133920-1.png" style="width: 80px; height: 76px;">
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2265.Count%20Nodes%20Equal%20to%20Average%20of%20Subtree/images/image-20220326133920-1.png" style="width: 80px; height: 76px;">
 <pre><strong>输入：</strong>root = [1]
 <strong>输出：</strong>1
 <strong>解释：</strong>对值为 1 的节点：子树的平均值 1 / 1 = 1。

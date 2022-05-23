@@ -68,7 +68,7 @@ i, j 分别从 1 开始遍历，判断 `word1[i - 1]` 与 `word2[j - 1]` 是否�
 
 递推公式如下：
 
-![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0072.Edit%20Distance/images/gif.gif)
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0072.Edit%20Distance/images/gif.gif)
 
 最后返回 `dp[m][n]` 即可。
 

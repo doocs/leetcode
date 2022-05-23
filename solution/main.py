@@ -160,7 +160,7 @@ def refresh(result):
                 os.path.basename(url).replace('.PNG', '.png').replace('.JPG', '.jpg')
             )
             new_url = (
-                'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
+                'https://fastly.jsdelivr.net/gh/doocs/leetcode@main'
                 + str(question['relative_path_cn']).replace("README.md", "images/")
                 + image_name
             )
@@ -181,7 +181,7 @@ def refresh(result):
                 os.path.basename(url).replace('.PNG', '.png').replace('.JPG', '.jpg')
             )
             new_url = (
-                'https://cdn.jsdelivr.net/gh/doocs/leetcode@main'
+                'https://fastly.jsdelivr.net/gh/doocs/leetcode@main'
                 + str(question['relative_path_cn']).replace("README.md", "images/")
                 + image_name
             )

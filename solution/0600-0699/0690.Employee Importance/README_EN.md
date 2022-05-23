@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0690.Employee%20Importance/images/emp1-tree.jpg" style="width: 400px; height: 258px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0690.Employee%20Importance/images/emp1-tree.jpg" style="width: 400px; height: 258px;" />
 <pre>
 <strong>Input:</strong> employees = [[1,5,[2,3]],[2,3,[]],[3,3,[]]], id = 1
 <strong>Output:</strong> 11
@@ -28,7 +28,7 @@ Thus, the total importance value of employee 1 is 5 + 3 + 3 = 11.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0690.Employee%20Importance/images/emp2-tree.jpg" style="width: 362px; height: 361px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0690.Employee%20Importance/images/emp2-tree.jpg" style="width: 362px; height: 361px;" />
 <pre>
 <strong>Input:</strong> employees = [[1,2,[5]],[5,-3,[]]], id = 5
 <strong>Output:</strong> -3

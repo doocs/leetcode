@@ -56,7 +56,7 @@
 第二次查询时，每个成员得到的LeetCoin的数量分别为（按编号顺序）：500, 50, 50, 0, 50, 15.
 </pre>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2005.%20发%20LeetCoin/images/coin_example_1.jpg" style="height: 344px; width: 300px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2005.%20发%20LeetCoin/images/coin_example_1.jpg" style="height: 344px; width: 300px;"></p>
 
 <p>&nbsp;</p>
 

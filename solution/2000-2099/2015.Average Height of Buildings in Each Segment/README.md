@@ -27,7 +27,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例1：</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/images/image-20210921224001-2.png" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/images/image-20210921224001-2.png" />
 <pre>
 <strong>输入:</strong> buildings = [[1,4,2],[3,9,4]]
 <strong>输出:</strong> [[1,3,2],[3,4,3],[4,9,4]]

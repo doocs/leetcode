@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/images/graph3drawio.png" style="width: 281px; height: 199px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/images/graph3drawio.png" style="width: 281px; height: 199px;" />
 <pre>
 <strong>Input:</strong> root = [10,4,6]
 <strong>Output:</strong> true
@@ -19,7 +19,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/images/graph3drawio-1.png" style="width: 281px; height: 199px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/images/graph3drawio-1.png" style="width: 281px; height: 199px;" />
 <pre>
 <strong>Input:</strong> root = [5,3,1]
 <strong>Output:</strong> false

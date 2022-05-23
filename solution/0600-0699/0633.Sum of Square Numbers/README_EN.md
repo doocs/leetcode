@@ -31,7 +31,7 @@
 
 ## Solutions
 
-![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/images/table.png)
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/images/table.png)
 
 The picture above shows the relationship between `a`, `b`, and `c`. This question is actually looking up `c` in this table
 
