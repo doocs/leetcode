@@ -51,13 +51,88 @@ The longest arithmetic subsequence is [20,15,10,5].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestArithSeqLength(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [[1] * 1001 for _ in range(n)]
+        ans = 0
+        for i in range(1, n):
+            for j in range(i):
+                d = nums[i] - nums[j] + 500
+                dp[i][d] = max(dp[i][d], dp[j][d] + 1)
+                ans = max(ans, dp[i][d])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int longestArithSeqLength(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        int[][] dp = new int[n][1001];
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                int d = nums[i] - nums[j] + 500;
+                dp[i][d] = Math.max(dp[i][d], dp[j][d] + 1);
+                ans = Math.max(ans, dp[i][d]);
+            }
+        }
+        return ans + 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestArithSeqLength(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        vector<vector<int>> dp(n, vector<int>(1001, 1));
+        for (int i = 1; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                int d = nums[i] - nums[j] + 500;
+                dp[i][d] = max(dp[i][d], dp[j][d] + 1);
+                ans = max(ans, dp[i][d]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestArithSeqLength(nums []int) int {
+	n := len(nums)
+	dp := make([][]int, n)
+	for i := range dp {
+		dp[i] = make([]int, 1001)
+	}
+	ans := 0
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			d := nums[i] - nums[j] + 500
+			dp[i][d] = max(dp[i][d], dp[j][d]+1)
+			ans = max(ans, dp[i][d])
+		}
+	}
+	return ans + 1
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
