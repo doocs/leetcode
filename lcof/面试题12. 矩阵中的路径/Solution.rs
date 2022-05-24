@@ -1,21 +1,22 @@
 impl Solution {
-    fn dfs(board: &mut Vec<Vec<char>>, chars: &Vec<char>, y: usize, x: usize, i: usize) -> bool {
-        if board[y][x] != chars[i] {
+    fn dfs(board: &mut Vec<Vec<char>>, chars: &Vec<char>, i: usize, j: usize, mut k: usize) -> bool {
+        if board[i][j] != chars[k] {
             return false;
         }
-        if i + 1 == chars.len() {
+        k += 1;
+        if k == chars.len() {
             return true;
         }
-        let temp = board[y][x];
-        board[y][x] = ' ';
-        if y != 0 && Solution::dfs(board, chars, y - 1, x, i + 1)
-            || x != 0 && Solution::dfs(board, chars, y, x - 1, i + 1)
-            || y != board.len() - 1 && Solution::dfs(board, chars, y + 1, x, i + 1)
-            || x != board[0].len() - 1 && Solution::dfs(board, chars, y, x + 1, i + 1)
+        let temp = board[i][j];
+        board[i][j] = ' ';
+        if i != 0 && Self::dfs(board, chars, i - 1, j, k)
+            || j != 0 && Self::dfs(board, chars, i, j - 1, k)
+            || i != board.len() - 1 && Self::dfs(board, chars, i + 1, j, k)
+            || j != board[0].len() - 1 && Self::dfs(board, chars, i, j + 1, k)
         {
             return true;
         }
-        board[y][x] = temp;
+        board[i][j] = temp;
         false
     }
 
@@ -25,7 +26,7 @@ impl Solution {
         let chars = word.chars().collect::<Vec<char>>();
         for i in 0..m {
             for j in 0..n {
-                if Solution::dfs(&mut board, &chars, i, j, 0) {
+                if Self::dfs(&mut board, &chars, i, j, 0) {
                     return true;
                 }
             }

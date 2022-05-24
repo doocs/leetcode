@@ -1,19 +1,18 @@
 function movingCount(m: number, n: number, k: number): number {
     const set = new Set();
-    const dfs = (y: number, x: number) => {
-        if (y === m || x === n || set.has(`${y},${x}`)) {
+    const dfs = (i: number, j: number) => {
+        const key = `${i},${j}`;
+        if (
+            i === m ||
+            j === n ||
+            set.has(key) ||
+            `${i}${j}`.split('').reduce((r, v) => r + Number(v), 0) > k
+        ) {
             return;
         }
-        let count = 0;
-        const str = `${y}${x}`;
-        for (const c of str) {
-            count += Number(c);
-        }
-        if (count <= k) {
-            set.add(`${y},${x}`);
-            dfs(y + 1, x);
-            dfs(y, x + 1);
-        }
+        set.add(key);
+        dfs(i + 1, j);
+        dfs(i, j + 1);
     };
     dfs(0, 0);
     return set.size;

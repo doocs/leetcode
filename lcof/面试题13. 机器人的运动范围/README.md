@@ -35,17 +35,20 @@
 
 **流程**：
 
-1.  `(0,0)` 开始。
-2.  根据公式判断 `(i,j)` 是否可进入：
-    -   可进入，继续往右（`(i, j + 1)`）往下（`(i + 1, j)`）重新执行流程 2。
-    -   不可进入，退出结算。
-3.  计算可进入方格的数量，返回即可。
+1. `(0,0)` 开始。
+
+2. 根据公式判断 `(i, j)` 是否可进入：
+
+   - 可进入，并继续往右 `(i, j + 1)` 往下 `(i + 1, j)` 重新执行流程 2。
+   - 不可进入，退出结算。
+
+3. 计算可进入区域的数量，返回即可。
 
 **剪枝**：
 
 对于已进入的方格，需要防止多次进入，否则会导致指数级耗时。
 
-在确定方格可进入后，给方格加上标记。判断一个方格可进入性之前，先查看是否存在对应的标记，存在标记时及时退出。
+在确定方格可进入后，给方格加上标记。判断一个方格可进入之前，先查看是否存在对应的标记，存在标记时及时退出。
 
 记录方式不限数组与哈希表。
 
@@ -171,20 +174,19 @@ public:
 ```ts
 function movingCount(m: number, n: number, k: number): number {
     const set = new Set();
-    const dfs = (y: number, x: number) => {
-        if (y === m || x === n || set.has(`${y},${x}`)) {
+    const dfs = (i: number, j: number) => {
+        const key = `${i},${j}`;
+        if (
+            i === m ||
+            j === n ||
+            set.has(key) ||
+            `${i}${j}`.split('').reduce((r, v) => r + Number(v), 0) > k
+        ) {
             return;
         }
-        let count = 0;
-        const str = `${y}${x}`;
-        for (const c of str) {
-            count += Number(c);
-        }
-        if (count <= k) {
-            set.add(`${y},${x}`);
-            dfs(y + 1, x);
-            dfs(y, x + 1);
-        }
+        set.add(key);
+        dfs(i + 1, j);
+        dfs(i, j + 1);
     };
     dfs(0, 0);
     return set.size;
@@ -197,25 +199,26 @@ function movingCount(m: number, n: number, k: number): number {
 
 ```rust
 use std::collections::{HashSet, VecDeque};
-
 impl Solution {
     pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
-        let mut deque = VecDeque::new();
         let mut set = HashSet::new();
-        deque.push_back([0, 0]);
-        while let Some([y, x]) = deque.pop_front() {
-            if y < m && x < n && !set.contains(&format!("{},{}", y, x)) {
-                let str = format!("{}{}", y, x);
-                let mut count = 0;
-                for c in str.chars() {
-                    count += c.to_string().parse::<i32>().unwrap();
-                }
-                if count <= k {
-                    set.insert(format!("{},{}", y, x));
-                    deque.push_back([y + 1, x]);
-                    deque.push_back([y, x + 1]);
-                }
+        let mut queue = VecDeque::new();
+        queue.push_back([0, 0]);
+        while let Some([i, j]) = queue.pop_front() {
+            let key = format!("{},{}", i, j);
+            if i == m
+                || j == n
+                || set.contains(&key)
+                || k < format!("{}{}", i, j)
+                    .chars()
+                    .map(|c| c.to_string().parse::<i32>().unwrap())
+                    .sum::<i32>()
+            {
+                continue;
             }
+            set.insert(key);
+            queue.push_back([i + 1, j]);
+            queue.push_back([i, j + 1]);
         }
         set.len() as i32
     }
@@ -226,20 +229,21 @@ impl Solution {
 
 ```rust
 impl Solution {
-    fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, y: usize, x: usize) -> i32 {
-        if y == sign.len()
-            || x == sign[0].len()
-            || sign[y][x]
-            || x % 10 + x / 10 % 10 + y % 10 + y / 10 % 10 > k
+    fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, i: usize, j: usize) -> i32 {
+        if i == sign.len()
+            || j == sign[0].len()
+            || sign[i][j]
+            || j % 10 + j / 10 % 10 + i % 10 + i / 10 % 10 > k
         {
             return 0;
         }
-        sign[y][x] = true;
-        1 + Solution::dfs(sign, k, y + 1, x) + Solution::dfs(sign, k, y, x + 1)
+        sign[i][j] = true;
+        1 + Self::dfs(sign, k, i + 1, j) + Self::dfs(sign, k, i, j + 1)
     }
+
     pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
         let mut sign = vec![vec![false; n as usize]; m as usize];
-        Solution::dfs(&mut sign, k as usize, 0, 0)
+        Self::dfs(&mut sign, k as usize, 0, 0)
     }
 }
 ```

@@ -1,24 +1,18 @@
-use std::collections::{HashSet, VecDeque};
-
 impl Solution {
-    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
-        let mut deque = VecDeque::new();
-        let mut set = HashSet::new();
-        deque.push_back([0, 0]);
-        while let Some([y, x]) = deque.pop_front() {
-            if y < m && x < n && !set.contains(&format!("{},{}", y, x)) {
-                let str = format!("{}{}", y, x);
-                let mut count = 0;
-                for c in str.chars() {
-                    count += c.to_string().parse::<i32>().unwrap();
-                }
-                if count <= k {
-                    set.insert(format!("{},{}", y, x));
-                    deque.push_back([y + 1, x]);
-                    deque.push_back([y, x + 1]);
-                }
-            }
+    fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, i: usize, j: usize) -> i32 {
+        if i == sign.len()
+            || j == sign[0].len()
+            || sign[i][j]
+            || j % 10 + j / 10 % 10 + i % 10 + i / 10 % 10 > k
+        {
+            return 0;
         }
-        set.len() as i32
+        sign[i][j] = true;
+        1 + Self::dfs(sign, k, i + 1, j) + Self::dfs(sign, k, i, j + 1)
+    }
+
+    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
+        let mut sign = vec![vec![false; n as usize]; m as usize];
+        Self::dfs(&mut sign, k as usize, 0, 0)
     }
 }
