@@ -14,20 +14,14 @@
  * }
  */
 class Solution {
-    private int val;
-
     public boolean isUnivalTree(TreeNode root) {
-        val = root.val;
-        return dfs(root);
+        return dfs(root, root.val);
     }
 
-    private boolean dfs(TreeNode root) {
+    private boolean dfs(TreeNode root, int val) {
         if (root == null) {
             return true;
         }
-        if (root.val != val) {
-            return false;
-        }
-        return dfs(root.left) && dfs(root.right);
+        return root.val == val && dfs(root.left, val) && dfs(root.right, val);
     }
 }

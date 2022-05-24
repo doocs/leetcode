@@ -7,15 +7,12 @@
  * }
  */
 func isUnivalTree(root *TreeNode) bool {
-	return dfs(root, root.Val)
-}
-
-func dfs(root *TreeNode, val int) bool {
-	if root == nil {
-		return true
+	var dfs func(*TreeNode) bool
+	dfs = func(node *TreeNode) bool {
+		if node == nil {
+			return true
+		}
+		return node.Val == root.Val && dfs(node.Left) && dfs(node.Right)
 	}
-	if root.Val != val {
-		return false
-	}
-	return dfs(root.Left, val) && dfs(root.Right, val)
+	return dfs(root)
 }

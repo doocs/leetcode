@@ -6,12 +6,9 @@
 #         self.right = right
 class Solution:
     def isUnivalTree(self, root: TreeNode) -> bool:
-        def dfs(root):
-            if root is None:
+        def dfs(node):
+            if node is None:
                 return True
-            if root.val != self.val:
-                return False
-            return dfs(root.left) and dfs(root.right)
+            return node.val == root.val and dfs(node.left) and dfs(node.right)
 
-        self.val = root.val
         return dfs(root)

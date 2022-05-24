@@ -11,16 +11,12 @@
  */
 class Solution {
 public:
-    int val;
-
     bool isUnivalTree(TreeNode* root) {
-        val = root->val;
-        return dfs(root);
+        return dfs(root, root->val);
     }
 
-    bool dfs(TreeNode* root) {
-        if (root == nullptr) return true;
-        if (root->val != val) return false;
-        return dfs(root->left) && dfs(root->right);
+    bool dfs(TreeNode* root, int val) {
+        if (!root) return true;
+        return root->val == val && dfs(root->left, val) && dfs(root->right, val);
     }
 };

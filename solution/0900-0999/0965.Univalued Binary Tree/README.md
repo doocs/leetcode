@@ -56,14 +56,11 @@
 #         self.right = right
 class Solution:
     def isUnivalTree(self, root: TreeNode) -> bool:
-        def dfs(root):
-            if root is None:
+        def dfs(node):
+            if node is None:
                 return True
-            if root.val != self.val:
-                return False
-            return dfs(root.left) and dfs(root.right)
+            return node.val == root.val and dfs(node.left) and dfs(node.right)
 
-        self.val = root.val
         return dfs(root)
 ```
 
@@ -88,21 +85,15 @@ class Solution:
  * }
  */
 class Solution {
-    private int val;
-
     public boolean isUnivalTree(TreeNode root) {
-        val = root.val;
-        return dfs(root);
+        return dfs(root, root.val);
     }
 
-    private boolean dfs(TreeNode root) {
+    private boolean dfs(TreeNode root, int val) {
         if (root == null) {
             return true;
         }
-        if (root.val != val) {
-            return false;
-        }
-        return dfs(root.left) && dfs(root.right);
+        return root.val == val && dfs(root.left, val) && dfs(root.right, val);
     }
 }
 ```
@@ -123,17 +114,13 @@ class Solution {
  */
 class Solution {
 public:
-    int val;
-
     bool isUnivalTree(TreeNode* root) {
-        val = root->val;
-        return dfs(root);
+        return dfs(root, root->val);
     }
 
-    bool dfs(TreeNode* root) {
-        if (root == nullptr) return true;
-        if (root->val != val) return false;
-        return dfs(root->left) && dfs(root->right);
+    bool dfs(TreeNode* root, int val) {
+        if (!root) return true;
+        return root->val == val && dfs(root->left, val) && dfs(root->right, val);
     }
 };
 ```
@@ -150,17 +137,14 @@ public:
  * }
  */
 func isUnivalTree(root *TreeNode) bool {
-	return dfs(root, root.Val)
-}
-
-func dfs(root *TreeNode, val int) bool {
-	if root == nil {
-		return true
+	var dfs func(*TreeNode) bool
+	dfs = func(node *TreeNode) bool {
+		if node == nil {
+			return true
+		}
+		return node.Val == root.Val && dfs(node.Left) && dfs(node.Right)
 	}
-	if root.Val != val {
-		return false
-	}
-	return dfs(root.Left, val) && dfs(root.Right, val)
+	return dfs(root)
 }
 ```
 
