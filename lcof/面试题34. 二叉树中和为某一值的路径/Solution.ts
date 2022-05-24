@@ -25,11 +25,10 @@ function pathSum(root: TreeNode | null, target: number): number[][] {
             if (target === 0) {
                 res.push([...paths]);
             }
-            paths.pop();
-            return;
+        } else {
+            left && dfs(left, target);
+            right && dfs(right, target);
         }
-        left && dfs(left, target);
-        right && dfs(right, target);
         paths.pop();
     };
     dfs(root, target);

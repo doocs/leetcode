@@ -16,9 +16,8 @@
 //     }
 //   }
 // }
-use std::cell::RefCell;
 use std::rc::Rc;
-
+use std::cell::RefCell;
 impl Solution {
     fn dfs(
         root: &Option<Rc<RefCell<TreeNode>>>,
@@ -33,14 +32,15 @@ impl Solution {
             if node.left.is_none() && node.right.is_none() && target == 0 {
                 res.push(paths.clone());
             }
-            Solution::dfs(&node.left, target, paths, res);
-            Solution::dfs(&node.right, target, paths, res);
+            Self::dfs(&node.left, target, paths, res);
+            Self::dfs(&node.right, target, paths, res);
             paths.pop();
         }
     }
+
     pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target: i32) -> Vec<Vec<i32>> {
         let mut res = vec![];
-        Solution::dfs(&root, target, &mut vec![], &mut res);
+        Self::dfs(&root, target, &mut vec![], &mut res);
         res
     }
 }
