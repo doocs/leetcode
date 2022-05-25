@@ -52,13 +52,43 @@ Explanation: Only the substring &quot;a&quot; of p is in s.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findSubstringInWraproundString(self, p: str) -> int:
+        dp = [0] * 26
+        k = 0
+        for i, c in enumerate(p):
+            if i and (ord(c) - ord(p[i - 1])) % 26 == 1:
+                k += 1
+            else:
+                k = 1
+            idx = ord(c) - ord('a')
+            dp[idx] = max(dp[idx], k)
+        return sum(dp)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findSubstringInWraproundString(String p) {
+        int[] dp = new int[26];
+        int k = 0;
+        for (int i = 0; i < p.length(); ++i) {
+            char c = p.charAt(i);
+            if (i > 0 && (c - p.charAt(i - 1) + 26) % 26 == 1) {
+                ++k;
+            } else {
+                k = 1;
+            }
+            dp[c - 'a'] = Math.max(dp[c - 'a'], k);
+        }
+        int ans = 0;
+        for (int v : dp) {
+            ans += v;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -103,6 +133,58 @@ impl Solution {
         }
         dp.into_iter().sum()
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findSubstringInWraproundString(string p) {
+        vector<int> dp(26);
+        int k = 0;
+        for (int i = 0; i < p.size(); ++i)
+        {
+            char c = p[i];
+            if (i && (c - p[i - 1] + 26) % 26 == 1) ++k;
+            else k = 1;
+            dp[c - 'a'] = max(dp[c - 'a'], k);
+        }
+        int ans = 0;
+        for (int& v : dp) ans += v;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findSubstringInWraproundString(p string) int {
+	dp := make([]int, 26)
+	k := 0
+	for i := range p {
+		c := p[i]
+		if i > 0 && (c-p[i-1]+26)%26 == 1 {
+			k++
+		} else {
+			k = 1
+		}
+		dp[c-'a'] = max(dp[c-'a'], k)
+	}
+	ans := 0
+	for _, v := range dp {
+		ans += v
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
