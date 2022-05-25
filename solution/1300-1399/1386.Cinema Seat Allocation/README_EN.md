@@ -56,13 +56,99 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
+        m = defaultdict(int)
+        for i, j in reservedSeats:
+            m[i] = m[i] | (1 << (10 - j))
+        masks = (0b0111100000, 0b0000011110, 0b0001111000)
+        ans = (n - len(m)) << 1
+        for v in m.values():
+            for mask in masks:
+                if (v & mask) == 0:
+                    v |= mask
+                    ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
+        Map<Integer, Integer> m = new HashMap<>();
+        for (int[] e : reservedSeats) {
+            int i = e[0], j = 10 - e[1];
+            int v = m.getOrDefault(i, 0);
+            v |= 1 << j;
+            m.put(i, v);
+        }
+        int[] masks = {0b0111100000, 0b0000011110, 0b0001111000};
+        int ans = (n - m.size()) << 1;
+        for (int v : m.values()) {
+            for (int mask : masks) {
+                if ((v & mask) == 0) {
+                    v |= mask;
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
+        unordered_map<int, int> m;
+        for (auto& e : reservedSeats)
+        {
+            int i = e[0], j = 10 - e[1];
+            m[i] |= (1 << j);
+        }
+        vector<int> masks = {0b0111100000, 0b0000011110, 0b0001111000};
+        int ans = (n - m.size()) << 1;
+        for (auto& [_, v] : m)
+        {
+            for (int& mask : masks)
+            {
+                if ((v & mask) == 0)
+                {
+                    v |= mask;
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
+	m := map[int]int{}
+	for _, e := range reservedSeats {
+		i, j := e[0], 10-e[1]
+		m[i] |= 1 << j
+	}
+	masks := []int{0b0111100000, 0b0000011110, 0b0001111000}
+	ans := (n - len(m)) << 1
+	for _, v := range m {
+		for _, mask := range masks {
+			if (v & mask) == 0 {
+				v |= mask
+				ans++
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
