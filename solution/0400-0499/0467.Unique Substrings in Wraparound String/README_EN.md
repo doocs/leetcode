@@ -61,6 +61,51 @@ Explanation: Only the substring &quot;a&quot; of p is in s.
 
 ```
 
+### **TypeScript**
+
+```ts
+function findSubstringInWraproundString(p: string): number {
+    const n = p.length;
+    const dp = new Array(26).fill(0);
+    let cur = 1;
+    dp[p.charCodeAt(0) - 'a'.charCodeAt(0)] = 1;
+    for (let i = 1; i < n; i++) {
+        if ((p.charCodeAt(i) - p.charCodeAt(i - 1) + 25) % 26 == 0) {
+            cur++;
+        } else {
+            cur = 1;
+        }
+        const index = p.charCodeAt(i) - 'a'.charCodeAt(0);
+        dp[index] = Math.max(dp[index], cur);
+    }
+    return dp.reduce((r, v) => r + v);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_substring_in_wrapround_string(p: String) -> i32 {
+        let n = p.len();
+        let p = p.as_bytes();
+        let mut dp = [0; 26];
+        let mut cur = 1;
+        dp[(p[0] - b'a') as usize] = 1;
+        for i in 1..n {
+            if (p[i] - p[i - 1] + 25) % 26 == 0 {
+                cur += 1;
+            } else {
+                cur = 1;
+            }
+            let index = (p[i] - b'a') as usize;
+            dp[index] = dp[index].max(cur);
+        }
+        dp.into_iter().sum()
+    }
+}
+```
+
 ### **...**
 
 ```
