@@ -56,13 +56,56 @@ row 2: 0<u>1</u>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def kthGrammar(self, n: int, k: int) -> int:
+        if n == 1:
+            return 0
+        if k <= (1 << (n - 2)):
+            return self.kthGrammar(n - 1, k)
+        return self.kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int kthGrammar(int n, int k) {
+        if (n == 1) {
+            return 0;
+        }
+        if (k <= (1 << (n - 2))) {
+            return kthGrammar(n - 1, k);
+        }
+        return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kthGrammar(int n, int k) {
+        if (n == 1) return 0;
+        if (k <= (1 << (n - 2))) return kthGrammar(n - 1, k);
+        return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthGrammar(n int, k int) int {
+	if n == 1 {
+		return 0
+	}
+	if k <= (1 << (n - 2)) {
+		return kthGrammar(n-1, k)
+	}
+	return kthGrammar(n-1, k-(1<<(n-2))) ^ 1
+}
 ```
 
 ### **...**
