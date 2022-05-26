@@ -62,6 +62,10 @@ Step 1) 2 是偶数，除 2 得到 1
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟操作**
+
+模拟操作 1/2，同时用 carry 记录进位。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +73,24 @@ Step 1) 2 是偶数，除 2 得到 1
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numSteps(self, s: str) -> int:
+        carry = False
+        ans = 0
+        for c in s[:0:-1]:
+            if carry:
+                if c == '0':
+                    c = '1'
+                    carry = False
+                else:
+                    c = '0'
+            if c == '1':
+                ans += 1
+                carry = True
+            ans += 1
+        if carry:
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -77,7 +98,94 @@ Step 1) 2 是偶数，除 2 得到 1
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numSteps(String s) {
+        boolean carry = false;
+        int ans = 0;
+        for (int i = s.length() - 1; i > 0; --i) {
+            char c = s.charAt(i);
+            if (carry) {
+                if (c == '0') {
+                    c = '1';
+                    carry = false;
+                } else {
+                    c = '0';
+                }
+            }
+            if (c == '1') {
+                ++ans;
+                carry = true;
+            }
+            ++ans;
+        }
+        if (carry) {
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSteps(string s) {
+        int ans = 0;
+        bool carry = false;
+        for (int i = s.size() - 1; i; --i)
+        {
+            char c = s[i];
+            if (carry)
+            {
+                if (c == '0')
+                {
+                    c = '1';
+                    carry = false;
+                }
+                else c = '0';
+            }
+            if (c == '1')
+            {
+                ++ans;
+                carry = true;
+            }
+            ++ans;
+        }
+        if (carry) ++ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSteps(s string) int {
+	ans := 0
+	carry := false
+	for i := len(s) - 1; i > 0; i-- {
+		c := s[i]
+		if carry {
+			if c == '0' {
+				c = '1'
+				carry = false
+			} else {
+				c = '0'
+			}
+		}
+		if c == '1' {
+			ans++
+			carry = true
+		}
+		ans++
+	}
+	if carry {
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**
