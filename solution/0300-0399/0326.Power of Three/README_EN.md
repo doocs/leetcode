@@ -4,45 +4,41 @@
 
 ## Description
 
-<p>Given an integer, write a function to determine if it is a power of three.</p>
+<p>Given an integer <code>n</code>, return <em><code>true</code> if it is a power of three. Otherwise, return <code>false</code></em>.</p>
 
-<p><b>Example 1:</b></p>
+<p>An integer <code>n</code> is a power of three, if there exists an integer <code>x</code> such that <code>n == 3<sup>x</sup></code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> 27
-
+<strong>Input:</strong> n = 27
 <strong>Output:</strong> true
-
 </pre>
 
-<p><b>Example 2:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> n = 0
+<strong>Output:</strong> false
+</pre>
 
-<strong>Input:</strong> 0
-
-<strong>Output:</strong> false</pre>
-
-<p><b>Example 3:</b></p>
-
-<pre>
-
-<strong>Input:</strong> 9
-
-<strong>Output:</strong> true</pre>
-
-<p><b>Example 4:</b></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
+<strong>Input:</strong> n = 9
+<strong>Output:</strong> true
+</pre>
 
-<strong>Input:</strong> 45
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output:</strong> false</pre>
+<ul>
+	<li><code>-2<sup>31</sup> &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
-<p><b>Follow up:</b><br />
-
-Could you do it without using any loop / recursion?</p>
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you solve it without loops/recursion?
 
 ## Solutions
 
@@ -58,6 +54,18 @@ Could you do it without using any loop / recursion?</p>
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function isPowerOfThree(n: number): boolean {
+    while (n > 2) {
+        if (n % 3) return false;
+        n /= 3;
+    }
+    return n == 1;
+}
 ```
 
 ### **...**

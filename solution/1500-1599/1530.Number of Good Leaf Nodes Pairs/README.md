@@ -1,10 +1,11 @@
-# [1530. 好叶子节点对的数量](https://leetcode-cn.com/problems/number-of-good-leaf-nodes-pairs)
+# [1530. 好叶子节点对的数量](https://leetcode.cn/problems/number-of-good-leaf-nodes-pairs)
 
 [English Version](/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你二叉树的根节点 <code>root</code> 和一个整数 <code>distance</code> 。</p>
 
 <p>如果二叉树中两个 <strong>叶</strong> 节点之间的 <strong>最短路径长度</strong> 小于或者等于 <code>distance</code> ，那它们就可以构成一组 <strong>好叶子节点对</strong> 。</p>
@@ -17,7 +18,7 @@
 
 <p>&nbsp;</p>
 
-![](./images/e1.jpg)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/images/e1.jpg" style="height: 321px; width: 321px;"></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,null,4], distance = 3
 <strong>输出：</strong>1
@@ -26,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/e2.jpg)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/images/e2.jpg" style="height: 321px; width: 441px;"></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,6,7], distance = 3
 <strong>输出：</strong>2

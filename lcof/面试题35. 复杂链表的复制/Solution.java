@@ -12,28 +12,35 @@ class Node {
     }
 }
 */
+
 class Solution {
     public Node copyRandomList(Node head) {
         if (head == null) {
             return null;
         }
-        Map<Node, Node> map = new HashMap<>();
-        Node copyHead = new Node(-1);
-        Node cur = copyHead, t = head;
-        while (t != null) {
-            Node node = new Node(t.val);
-            map.put(t, node);
-            cur.next = node;
-            cur = node;
-            t = t.next;
-        }
-        cur = copyHead.next;
-        while (head != null) {
-            cur.random = map.get(head.random);
-            cur = cur.next;
-            head = head.next;
-        }
-        return copyHead.next;
 
+        Node cur = head;
+        while (cur != null) {
+            Node node = new Node(cur.val);
+            node.next = cur.next;
+            cur.next = node;
+            cur = node.next;
+        }
+
+        cur = head;
+        while (cur != null) {
+            cur.next.random = cur.random == null ? null : cur.random.next;
+            cur = cur.next.next;
+        }
+
+        Node copy = head.next;
+        cur = head;
+        while (cur != null) {
+            Node next = cur.next;
+            cur.next = next.next;
+            next.next = next.next == null ? null : next.next.next;
+            cur = cur.next;
+        }
+        return copy;
     }
 }

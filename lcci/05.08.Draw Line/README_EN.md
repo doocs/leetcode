@@ -1,4 +1,4 @@
-# [05.08. Draw Line](https://leetcode-cn.com/problems/draw-line-lcci)
+# [05.08. Draw Line](https://leetcode.cn/problems/draw-line-lcci)
 
 [中文文档](/lcci/05.08.Draw%20Line/README.md)
 

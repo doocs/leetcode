@@ -1,7 +1,7 @@
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        int n;
-        if (nums == null || (n = (nums.length)) < 4) {
+        int n = nums.length;
+        if (n < 4) {
             return Collections.emptyList();
         }
         Arrays.sort(nums);
@@ -14,25 +14,22 @@ class Solution {
                 if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
                 }
-                int p = j + 1, q = n - 1;
-                while (p < q) {
-                    if (p > j + 1 && nums[p] == nums[p - 1]) {
-                        ++p;
-                        continue;
-                    }
-                    if (q < n - 1 && nums[q] == nums[q + 1]) {
-                        --q;
-                        continue;
-                    }
-                    int t = nums[i] + nums[j] + nums[p] + nums[q];
-                    if (t == target) {
-                        res.add(Arrays.asList(nums[i], nums[j], nums[p], nums[q]));
-                        ++p;
-                        --q;
-                    } else if (t < target) {
-                        ++p;
+                int k = j + 1, l = n - 1;
+                while (k < l) {
+                    if (nums[i] + nums[j] + nums[k] + nums[l] == target) {
+                        res.add(Arrays.asList(nums[i], nums[j], nums[k], nums[l]));
+                        ++k;
+                        --l;
+                        while (k < n && nums[k] == nums[k - 1]) {
+                            ++k;
+                        }
+                        while (l > j && nums[l] == nums[l + 1]) {
+                            --l;
+                        }
+                    } else if (nums[i] + nums[j] + nums[k] + nums[l] < target) {
+                        ++k;
                     } else {
-                        --q;
+                        --l;
                     }
                 }
             }

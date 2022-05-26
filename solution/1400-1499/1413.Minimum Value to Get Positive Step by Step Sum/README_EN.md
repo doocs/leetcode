@@ -11,62 +11,42 @@
 <p>Return the minimum <strong>positive</strong> value of&nbsp;<em>startValue</em> such that the step by step sum is never less than 1.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> nums = [-3,2,-3,4,2]
-
 <strong>Output:</strong> 5
-
 <strong>Explanation: </strong>If you choose startValue = 4, in the third iteration your step by step sum is less than 1.
-
-<strong>                step by step sum
-
-&nbsp;               startValue = 4 | startValue = 5 | nums
-
-</strong>&nbsp;                 (4 <strong>-3</strong> ) = 1  | (5 <strong>-3</strong> ) = 2    |  -3
-
-&nbsp;                 (1 <strong>+2</strong> ) = 3  | (2 <strong>+2</strong> ) = 4    |   2
-
-&nbsp;                 (3 <strong>-3</strong> ) = 0  | (4 <strong>-3</strong> ) = 1    |  -3
-
-&nbsp;                 (0 <strong>+4</strong> ) = 4  | (1 <strong>+4</strong> ) = 5    |   4
-
-&nbsp;                 (4 <strong>+2</strong> ) = 6  | (5 <strong>+2</strong> ) = 7    |   2
-
+<strong>step by step sum</strong>
+<strong>startValue = 4 | startValue = 5 | nums</strong>
+  (4 <strong>-3</strong> ) = 1  | (5 <strong>-3</strong> ) = 2    |  -3
+  (1 <strong>+2</strong> ) = 3  | (2 <strong>+2</strong> ) = 4    |   2
+  (3 <strong>-3</strong> ) = 0  | (4 <strong>-3</strong> ) = 1    |  -3
+  (0 <strong>+4</strong> ) = 4  | (1 <strong>+4</strong> ) = 5    |   4
+  (4 <strong>+2</strong> ) = 6  | (5 <strong>+2</strong> ) = 7    |   2
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> nums = [1,2]
-
 <strong>Output:</strong> 1
-
 <strong>Explanation:</strong> Minimum start value should be positive. 
-
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> nums = [1,-2,-3]
-
 <strong>Output:</strong> 5
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>1 &lt;= nums.length &lt;= 100</code></li>
-    <li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
 ## Solutions
@@ -76,13 +56,64 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minStartValue(self, nums: List[int]) -> int:
+        s, t = 0, float('inf')
+        for num in nums:
+            s += num
+            t = min(t, s)
+        return max(1, 1 - t)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minStartValue(int[] nums) {
+        int s = 0;
+        int t = Integer.MAX_VALUE;
+        for (int num : nums) {
+            s += num;
+            t = Math.min(t, s);
+        }
+        return Math.max(1, 1 - t);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minStartValue(vector<int>& nums) {
+        int s = 0, t = INT_MAX;
+        for (int num : nums)
+        {
+            s += num;
+            t = min(t, s);
+        }
+        return max(1, 1 - t);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minStartValue(nums []int) int {
+	s, t := 0, 10000
+	for _, num := range nums {
+		s += num
+		if s < t {
+			t = s
+		}
+	}
+	if t < 0 {
+		return 1 - t
+	}
+	return 1
+}
 ```
 
 ### **...**

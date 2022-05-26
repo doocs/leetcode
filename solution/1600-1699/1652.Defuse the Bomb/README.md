@@ -1,10 +1,11 @@
-# [1652. 拆炸弹](https://leetcode-cn.com/problems/defuse-the-bomb)
+# [1652. 拆炸弹](https://leetcode.cn/problems/defuse-the-bomb)
 
 [English Version](/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>你有一个炸弹需要拆除，时间紧迫！你的情报员会给你一个长度为 <code>n</code> 的 <strong>循环</strong> 数组 <code>code</code> 以及一个密钥 <code>k</code> 。</p>
 
 <p>为了获得正确的密码，你需要替换掉每一个数字。所有数字会 <strong>同时</strong> 被替换。</p>
@@ -60,6 +61,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+数组下标取模，累加求每一项即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +70,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def decrypt(self, code: List[int], k: int) -> List[int]:
+        n = len(code)
+        res = [0] * n
+        if k == 0:
+            return res
+        for i in range(n):
+            if k > 0:
+                for j in range(i + 1, i + k + 1):
+                    res[i] += code[j % n]
+            else:
+                for j in range(i + k, i):
+                    res[i] += code[(j + n) % n]
+        return res
 ```
 
 ### **Java**
@@ -75,7 +91,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] decrypt(int[] code, int k) {
+        int n = code.length;
+        int[] res = new int[n];
+        if (k == 0) return res;
+        for (int i = 0; i < n; ++i) {
+            if (k > 0) {
+                for (int j = i + 1; j <= i + k; ++j) {
+                    res[i] += code[j % n];
+                }
+            } else {
+                for (int j = i + k; j <= i - 1; ++j) {
+                    res[i] += code[(j + n) % n];
+                }
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

@@ -1,63 +1,50 @@
 class RandomizedCollection {
+    private Map<Integer, Set<Integer>> m;
+    private List<Integer> l;
+    private Random rnd;
 
-	private List<Integer> list;
-	private Map<Integer, Set<Integer>> map;
-	private Random random;
+    /** Initialize your data structure here. */
+    public RandomizedCollection() {
+        m = new HashMap<>();
+        l = new ArrayList<>();
+        rnd = new Random();
+    }
 
-	/** Initialize your data structure here. */
-	public RandomizedCollection() {
-		list = new ArrayList<>();
-		map = new HashMap<>();
-		random = new Random();
-	}
+    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+    public boolean insert(int val) {
+        m.computeIfAbsent(val, k -> new HashSet<>()).add(l.size());
+        l.add(val);
+        return m.get(val).size() == 1;
+    }
 
-	/**
-	 * Inserts a value to the set. Returns true if the set did not already contain
-	 * the specified element.
-	 */
-	public boolean insert(int val) {
-		boolean flag = false;
-		if (!map.containsKey(val)) {
-			flag = true;
-			map.put(val, new HashSet<Integer>());
-		}
-		map.get(val).add(list.size());
-		list.add(val);
-		return flag;
-	}
+    /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+    public boolean remove(int val) {
+        if (!m.containsKey(val)) {
+            return false;
+        }
+        Set<Integer> idxSet = m.get(val);
+        int idx = idxSet.iterator().next();
+        int lastIdx = l.size() - 1;
+        l.set(idx, l.get(lastIdx));
+        idxSet.remove(idx);
 
-	/**
-	 * Removes a value from the set. Returns true if the set contained the specified
-	 * element.
-	 */
-	public boolean remove(int val) {
-		if (!map.containsKey(val)) {
-			return false;
-		}
-		int removed = map.get(val).iterator().next();
-		map.get(val).remove(removed);
-		if (removed < list.size() - 1) {
-			Integer tail = list.get(list.size() - 1);
-			list.set(removed, tail);
-			map.get(tail).remove(list.size() - 1);
-			map.get(tail).add(removed);
-		}
-		list.remove(list.size() - 1);
-		if (map.get(val).size() == 0) {
-			map.remove(val);
-		}
-		return true;
-	}
+        Set<Integer> lastIdxSet = m.get(l.get(lastIdx));
+        lastIdxSet.remove(lastIdx);
+        if (idx < lastIdx) {
+            lastIdxSet.add(idx);
+        }
+        if (idxSet.isEmpty()) {
+            m.remove(val);
+        }
+        l.remove(lastIdx);
+        return true;
+    }
 
-	/** Get a random element from the set. */
-	public int getRandom() {
-		if (list.size() == 0) {
-			return 0;
-		}
-
-		return list.get(random.nextInt(list.size()));
-	}
-
+    /** Get a random element from the collection. */
+    public int getRandom() {
+        int size = l.size();
+        return size == 0 ? -1 : l.get(rnd.nextInt(size));
+    }
 }
 
 /**

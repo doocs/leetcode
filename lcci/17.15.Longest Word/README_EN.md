@@ -1,4 +1,4 @@
-# [17.15. Longest Word](https://leetcode-cn.com/problems/longest-word-lcci)
+# [17.15. Longest Word](https://leetcode.cn/problems/longest-word-lcci)
 
 [中文文档](/lcci/17.15.Longest%20Word/README.md)
 

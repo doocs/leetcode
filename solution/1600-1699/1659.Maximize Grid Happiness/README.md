@@ -1,10 +1,11 @@
-# [1659. 最大化网格幸福感](https://leetcode-cn.com/problems/maximize-grid-happiness)
+# [1659. 最大化网格幸福感](https://leetcode.cn/problems/maximize-grid-happiness)
 
 [English Version](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你四个整数 <code>m</code>、<code>n</code>、<code>introvertsCount</code> 和 <code>extrovertsCount</code> 。有一个 <code>m x n</code> 网格，和两种类型的人：内向的人和外向的人。总共有 <code>introvertsCount</code> 个内向的人和 <code>extrovertsCount</code> 个外向的人。</p>
 
 <p>请你决定网格中应当居住多少人，并为每个人分配一个网格单元。 注意，<strong>不必</strong> 让所有人都生活在网格中。</p>
@@ -23,9 +24,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/grid_happiness.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1659.Maximize%20Grid%20Happiness/images/grid_happiness.png" style="width: 261px; height: 121px;" />
 <pre>
 <strong>输入：</strong>m = 2, n = 3, introvertsCount = 1, extrovertsCount = 2
 <strong>输出：</strong>240

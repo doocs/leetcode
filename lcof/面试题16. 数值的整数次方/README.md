@@ -1,35 +1,44 @@
-# [面试题 16. 数值的整数次方](https://leetcode-cn.com/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/)
+# [面试题 16. 数值的整数次方](https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/)
 
 ## 题目描述
 
-实现函数 double Power(double base, int exponent)，求 base 的 exponent 次方。不得使用库函数，同时不需要考虑大数问题。
+<p>实现 <a href="https://www.cplusplus.com/reference/valarray/pow/">pow(<em>x</em>, <em>n</em>)</a> ，即计算 x 的 n 次幂函数（即，x<sup>n</sup>）。不得使用库函数，同时不需要考虑大数问题。</p>
 
-**示例 1:**
+<p> </p>
 
-```
-输入: 2.00000, 10
-输出: 1024.00000
-```
+<p><strong>示例 1：</strong></p>
 
-**示例  2:**
+<pre>
+<strong>输入：</strong>x = 2.00000, n = 10
+<strong>输出：</strong>1024.00000
+</pre>
 
-```
-输入: 2.10000, 3
-输出: 9.26100
-```
+<p><strong>示例 2：</strong></p>
 
-**示例  3:**
+<pre>
+<strong>输入：</strong>x = 2.10000, n = 3
+<strong>输出：</strong>9.26100</pre>
 
-```
-输入: 2.00000, -2
-输出: 0.25000
-解释: 2-2 = 1/22 = 1/4 = 0.25
-```
+<p><strong>示例 3：</strong></p>
 
-**说明:**
+<pre>
+<strong>输入：</strong>x = 2.00000, n = -2
+<strong>输出：</strong>0.25000
+<strong>解释：</strong>2<sup>-2</sup> = 1/2<sup>2</sup> = 1/4 = 0.25</pre>
 
-- `-100.0 < x < 100.0`
-- n  是 32 位有符号整数，其数值范围是   `[−231, 231 − 1]` 。
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>-100.0 < x < 100.0</code></li>
+	<li><code>-2<sup>31</sup> <= n <= 2<sup>31</sup>-1</code></li>
+	<li><code>-10<sup>4</sup> <= x<sup>n</sup> <= 10<sup>4</sup></code></li>
+</ul>
+
+<p> </p>
+
+<p>注意：本题与主站 50 题相同：<a href="https://leetcode.cn/problems/powx-n/">https://leetcode.cn/problems/powx-n/</a></p>
 
 ## 解法
 
@@ -73,21 +82,21 @@ class Solution {
  * @return {number}
  */
 var myPow = function (x, n) {
-  let r = 1;
-  let tmp = x;
-  let tag = 0;
-  if (n < 0) {
-    tag = 1;
-    n = -n;
-  }
-  while (n) {
-    if (n & 1) {
-      r *= tmp;
+    let r = 1;
+    let tmp = x;
+    let tag = 0;
+    if (n < 0) {
+        tag = 1;
+        n = -n;
     }
-    tmp *= tmp;
-    n >>>= 1;
-  }
-  return tag ? 1 / r : r;
+    while (n) {
+        if (n & 1) {
+            r *= tmp;
+        }
+        tmp *= tmp;
+        n >>>= 1;
+    }
+    return tag ? 1 / r : r;
 };
 ```
 
@@ -117,6 +126,30 @@ func abs(x int) int {
     return -x
 }
 
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long m = n;
+        if (m < 0) {
+            x = 1 / x;
+            m = -m;
+        }
+        double ans = 1;
+        while (m) {
+            if (m & 1) {
+                ans *= x;
+            }
+            x *= x;
+            m >>= 1;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**

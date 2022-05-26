@@ -1,9 +1,13 @@
 class Solution {
-    public int longestOnes(int[] A, int K) {
+    public int longestOnes(int[] nums, int k) {
         int l = 0, r = 0;
-        while (r < A.length) {
-            if (A[r++] == 0) --K;
-            if (K < 0 && A[l++] == 0) ++K;
+        while (r < nums.length) {
+            if (nums[r++] == 0) {
+                --k;
+            }
+            if (k < 0 && nums[l++] == 0) {
+                ++k;
+            }
         }
         return r - l;
     }

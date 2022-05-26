@@ -1,4 +1,4 @@
-# [面试题 16.24. 数对和](https://leetcode-cn.com/problems/pairs-with-sum-lcci)
+# [面试题 16.24. 数对和](https://leetcode.cn/problems/pairs-with-sum-lcci)
 
 [中文文档](/lcci/16.24.Pairs%20With%20Sum/README.md)
 

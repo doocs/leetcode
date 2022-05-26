@@ -8,20 +8,20 @@
  * }
  */
 class Solution {
+
+    private int minDiff = Integer.MAX_VALUE;
+    private Integer pre;
+
     public int getMinimumDifference(TreeNode root) {
-        Integer res = Integer.MAX_VALUE, prev = Integer.MAX_VALUE;
-        Stack<TreeNode> stack = new Stack<>();
-        while (true) {
-            while (root != null) {
-                stack.push(root);
-                root = root.left;
-            }
-            if (stack.isEmpty()) break;
-            TreeNode node = stack.pop();
-            res = Math.min(res, Math.abs(node.val - prev));
-            prev = node.val;
-            root = node.right;
-        }
-        return res;
+        inorder(root);
+        return minDiff;
+    }
+
+    private void inorder(TreeNode root) {
+        if (root == null) return;
+        inorder(root.left);
+        if (pre != null) minDiff = Math.min(minDiff, Math.abs(root.val - pre));
+        pre = root.val;
+        inorder(root.right);
     }
 }

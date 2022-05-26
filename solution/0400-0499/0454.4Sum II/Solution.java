@@ -1,18 +1,17 @@
 class Solution {
-    public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int a : A) {
-            for (int b : B) {
-                int key = a + b;
-                map.put(key, map.getOrDefault(key, 0) + 1);
+    public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int a : nums1) {
+            for (int b : nums2) {
+                counter.put(a + b, counter.getOrDefault(a + b, 0) + 1);
             }
         }
-        int res = 0;
-        for (int c : C) {
-            for (int d : D) {
-                res += map.getOrDefault(-(c + d), 0);
+        int ans = 0;
+        for (int c : nums3) {
+            for (int d : nums4) {
+                ans += counter.getOrDefault(-(c + d), 0);
             }
         }
-        return res;
+        return ans;
     }
 }

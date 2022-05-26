@@ -4,35 +4,25 @@
 
 ## Description
 
-<p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
+<p>Given a string <code>s</code>, reverse only all the vowels in the string and return it.</p>
 
-<p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-1-1">&quot;hello&quot;</span>
-
-<strong>Output: </strong><span id="example-output-1">&quot;holle&quot;</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-2-1">&quot;leetcode&quot;</span>
-
-<strong>Output: </strong><span id="example-output-2">&quot;leotcede&quot;</span></pre>
-
-</div>
-
-<p><b>Note:</b><br />
-
-The vowels does not include the letter &quot;y&quot;.</p>
+<p>The vowels are <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>, and they can appear in both cases.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "hello"
+<strong>Output:</strong> "holle"
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "leetcode"
+<strong>Output:</strong> "leotcede"
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
+	<li><code>s</code> consist of <strong>printable ASCII</strong> characters.</li>
+</ul>
 
 ## Solutions
 
@@ -43,20 +33,19 @@ The vowels does not include the letter &quot;y&quot;.</p>
 ```python
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        if s is None:
-            return s
+        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        i, j = 0, len(s) - 1
         chars = list(s)
-        p, q = 0, len(chars) - 1
-        while p < q:
-            if chars[p] not in 'aeiouAEIOU':
-                p += 1
+        while i < j:
+            if chars[i] not in vowels:
+                i += 1
                 continue
-            if chars[q] not in 'aeiouAEIOU':
-                q -= 1
+            if chars[j] not in vowels:
+                j -= 1
                 continue
-            chars[p], chars[q] = chars[q], chars[p]
-            p += 1
-            q -= 1
+            chars[i], chars[j] = chars[j], chars[i]
+            i += 1
+            j -= 1
         return ''.join(chars)
 ```
 
@@ -65,48 +54,54 @@ class Solution:
 ```java
 class Solution {
     public String reverseVowels(String s) {
-        if (s == null) {
-            return s;
-        }
+        Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+        int i = 0, j = s.length() - 1;
         char[] chars = s.toCharArray();
-        int p = 0, q = chars.length - 1;
-        while (p < q) {
-            if (!isVowel(chars[p])) {
-                ++p;
+        while (i < j) {
+            if (!vowels.contains(chars[i])) {
+                ++i;
                 continue;
             }
-            if (!isVowel(chars[q])) {
-                --q;
+            if (!vowels.contains(chars[j])) {
+                --j;
                 continue;
             }
-            swap(chars, p++, q--);
+            char t = chars[i];
+            chars[i] = chars[j];
+            chars[j] = t;
+            ++i;
+            --j;
         }
-        return String.valueOf(chars);
+        return new String(chars);
     }
+}
+```
 
-    private void swap(char[] chars, int i, int j) {
-        char t = chars[i];
-        chars[i] = chars[j];
-        chars[j] = t;
-    }
+### **Go**
 
-    private boolean isVowel(char c) {
-        switch(c) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-        case 'A':
-        case 'E':
-        case 'I':
-        case 'O':
-        case 'U':
-            return true;
-        default:
-            return false;
-        }
-    }
+```go
+func reverseVowels(s string) string {
+	left, right := 0, len(s)-1
+	a := []byte(s)
+	for left < right {
+		for left < right && !isVowel(a[left]) {
+			left++
+		}
+		for left < right && !isVowel(a[right]) {
+			right--
+		}
+		if left != right && isVowel(a[left]) && isVowel(a[right]) {
+			a[left], a[right] = a[right], a[left]
+			left++
+			right--
+		}
+	}
+	return string(a)
+}
+
+func isVowel(b byte) bool {
+	return b == 'a' || b == 'e' || b == 'i' || b == 'o' || b == 'u' ||
+		b == 'A' || b == 'E' || b == 'I' || b == 'O' || b == 'U'
 }
 ```
 

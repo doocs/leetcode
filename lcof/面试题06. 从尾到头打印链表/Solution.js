@@ -10,11 +10,9 @@
  * @return {number[]}
  */
 var reversePrint = function (head) {
-  let node = head;
-  let res = [];
-  while (node) {
-    res.unshift(node.val);
-    node = node.next;
-  }
-  return res;
+    let ans = [];
+    for (; !!head; head = head.next) {
+        ans.unshift(head.val);
+    }
+    return ans;
 };

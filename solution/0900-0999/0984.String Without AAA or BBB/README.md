@@ -1,41 +1,44 @@
-# [984. 不含 AAA 或 BBB 的字符串](https://leetcode-cn.com/problems/string-without-aaa-or-bbb)
+# [984. 不含 AAA 或 BBB 的字符串](https://leetcode.cn/problems/string-without-aaa-or-bbb)
 
 [English Version](/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定两个整数&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>，返回<strong>任意</strong>字符串 <code>S</code>，要求满足：</p>
+
+<p>给定两个整数 <code>a</code>&nbsp;和 <code>b</code>&nbsp;，返回&nbsp;<strong>任意</strong>&nbsp;字符串 <code>s</code>&nbsp;，要求满足：</p>
 
 <ul>
-	<li><code>S</code> 的长度为&nbsp;<code>A + B</code>，且正好包含&nbsp;<code>A</code>&nbsp;个 <code>&#39;a&#39;</code>&nbsp;字母与&nbsp;<code>B</code>&nbsp;个 <code>&#39;b&#39;</code>&nbsp;字母；</li>
-	<li>子串&nbsp;<code>&#39;aaa&#39;</code>&nbsp;没有出现在&nbsp;<code>S</code>&nbsp;中；</li>
-	<li>子串&nbsp;<code>&#39;bbb&#39;</code> 没有出现在&nbsp;<code>S</code>&nbsp;中。</li>
+	<li><code>s</code>&nbsp;的长度为 <code>a + b</code>，且正好包含<code><font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.600000381469727px"><span style="caret-color:#c7254e"><span style="background-color:#f9f2f4">a</span></span></span></font></font></code>&nbsp;个 <code>'a'</code>&nbsp;字母与&nbsp;<code><font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.600000381469727px"><span style="caret-color:#c7254e"><span style="background-color:#f9f2f4">b</span></span></span></font></font></code>&nbsp;个 <code>'b'</code>&nbsp;字母；</li>
+	<li>子串&nbsp;<code>'aaa'</code>&nbsp;没有出现在 <code>s</code>&nbsp;中；</li>
+	<li>子串&nbsp;<code>'bbb'</code> 没有出现在 <code>s</code>&nbsp;中。</li>
 </ul>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>A = 1, B = 2
-<strong>输出：</strong>&quot;abb&quot;
-<strong>解释：</strong>&quot;abb&quot;, &quot;bab&quot; 和 &quot;bba&quot; 都是正确答案。
+<pre>
+<strong>输入：</strong>a = 1, b = 2
+<strong>输出：</strong>"abb"
+<strong>解释：</strong>"abb", "bab" 和 "bba" 都是正确答案。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>A = 4, B = 1
-<strong>输出：</strong>&quot;aabaa&quot;</pre>
+<pre>
+<strong>输入：</strong>a = 4, b = 1
+<strong>输出：</strong>"aabaa"</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>0 &lt;= A &lt;= 100</code></li>
-	<li><code>0 &lt;= B &lt;= 100</code></li>
-	<li>对于给定的 <code>A</code> 和 <code>B</code>，保证存在满足要求的 <code>S</code>。</li>
-</ol>
+<ul>
+	<li><code>0 &lt;= a, b&nbsp;&lt;= 100</code></li>
+	<li>对于给定的 <code>a</code> 和 <code>b</code>，保证存在满足要求的 <code>s</code>&nbsp;</li>
+</ul>
+<span style="display:block"><span style="height:0px"><span style="position:absolute">​​​</span></span></span>
 
 ## 解法
 

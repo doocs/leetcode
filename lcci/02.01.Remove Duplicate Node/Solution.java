@@ -13,17 +13,15 @@ class Solution {
         }
         Set<Integer> s = new HashSet<>();
         s.add(head.val);
-        ListNode p = head.next, cur = head;
-        while (p != null) {
+        ListNode cur = head;
+        for (ListNode p = head.next; p != null; p = p.next) {
             if (!s.contains(p.val)) {
                 cur.next = p;
                 cur = cur.next;
                 s.add(p.val);
             }
-            p = p.next;
         }
         cur.next = null;
         return head;
-
     }
 }

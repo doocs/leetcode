@@ -3,5 +3,5 @@
  * @return {boolean}
  */
 var isNumber = function (s) {
-  return s !== " " && !isNaN(+s);
+    return s !== ' ' && !isNaN(+s);
 };

@@ -1,28 +1,33 @@
 class Solution {
     public String multiply(String num1, String num2) {
-        char[] chars1 = num1.toCharArray(),chars2 = num2.toCharArray();
-        int[] result = new int[chars1.length+chars2.length];
-        int pow = result.length-1;
-        for (int i = chars1.length - 1; i >= 0; i--) {
-            int a = chars1[i] - '0';
-            int j = 0,bit = pow;
-            for (int i1 = chars2.length - 1; i1 >= 0; i1--) {
-                int b = chars2[i1] -'0';
-                j = a*b + j + result[bit];
-                result[bit--] = j%10;
-                j = j/10;
-            }
-            while (j!=0){
-                j += result[bit];
-                result[bit--] = j%10;
-                j = j/10;
-            }
-            pow--;
+        int m = num1.length(), n = num2.length();
+        int[] res = new int[m + n];
+        for (int i = 0; i < n; ++i) {
+            int b = num2.charAt(n - 1 - i) - '0';
+            mul(num1, b, i, res);
         }
-        StringBuilder builder = new StringBuilder();
-        int i = 0;
-        for (; i < result.length; i++) if (result[i] != 0) break;
-        for (; i < result.length; i++) builder.append(result[i]);
-        return builder.length()==0? "0" : builder.toString();
+        StringBuilder ans = new StringBuilder();
+        for (int v : res) {
+            ans.append(v);
+        }
+        while (ans.length() > 1 && ans.charAt(ans.length() - 1) == '0') {
+            ans.deleteCharAt(ans.length() - 1);
+        }
+        return ans.reverse().toString();
+    }
+
+    private void mul(String A, int b, int i, int[] res) {
+        for (int j = A.length() - 1, t = 0; j >= 0 || t > 0; --j) {
+            if (j >= 0) {
+                int a = A.charAt(j) - '0';
+                t += a * b;
+            }
+            res[i++] += t % 10;
+            if (res[i - 1] >= 10) {
+                res[i - 1] %= 10;
+                ++res[i];
+            }
+            t /= 10;
+        }
     }
 }

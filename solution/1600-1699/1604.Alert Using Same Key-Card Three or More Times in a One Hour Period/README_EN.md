@@ -31,27 +31,13 @@
 <strong>Explanation:</strong> &quot;bob&quot; used the keycard 3 times in a one-hour period (&quot;21:00&quot;,&quot;21:20&quot;, &quot;21:30&quot;).
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> keyName = [&quot;john&quot;,&quot;john&quot;,&quot;john&quot;], keyTime = [&quot;23:58&quot;,&quot;23:59&quot;,&quot;00:01&quot;]
-<strong>Output:</strong> []
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> keyName = [&quot;leslie&quot;,&quot;leslie&quot;,&quot;leslie&quot;,&quot;clare&quot;,&quot;clare&quot;,&quot;clare&quot;,&quot;clare&quot;], keyTime = [&quot;13:00&quot;,&quot;13:20&quot;,&quot;14:00&quot;,&quot;18:00&quot;,&quot;18:51&quot;,&quot;19:30&quot;,&quot;19:49&quot;]
-<strong>Output:</strong> [&quot;clare&quot;,&quot;leslie&quot;]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= keyName.length, keyTime.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>keyName.length == keyTime.length</code></li>
-	<li><code>keyTime[i]</code>&nbsp;is in the format <strong>&quot;HH:MM&quot;</strong>.</li>
+	<li><code>keyTime[i]</code> is in the format <strong>&quot;HH:MM&quot;</strong>.</li>
 	<li><code>[keyName[i], keyTime[i]]</code> is <strong>unique</strong>.</li>
 	<li><code>1 &lt;= keyName[i].length &lt;= 10</code></li>
 	<li><code>keyName[i] contains only lowercase English letters.</code></li>

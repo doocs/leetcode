@@ -1,38 +1,43 @@
-# [473. 火柴拼正方形](https://leetcode-cn.com/problems/matchsticks-to-square)
+# [473. 火柴拼正方形](https://leetcode.cn/problems/matchsticks-to-square)
 
 [English Version](/solution/0400-0499/0473.Matchsticks%20to%20Square/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>还记得童话《卖火柴的小女孩》吗？现在，你知道小女孩有多少根火柴，请找出一种能使用所有火柴拼成一个正方形的方法。不能折断火柴，可以把火柴连接起来，并且每根火柴都要用到。</p>
 
-<p>输入为小女孩拥有火柴的数目，每根火柴用其长度表示。输出即为是否能用所有的火柴拼成正方形。</p>
+<p>你将得到一个整数数组 <code>matchsticks</code> ，其中 <code>matchsticks[i]</code> 是第 <code>i</code>&nbsp;个火柴棒的长度。你要用 <strong>所有的火柴棍</strong>&nbsp;拼成一个正方形。你 <strong>不能折断</strong> 任何一根火柴棒，但你可以把它们连在一起，而且每根火柴棒必须 <strong>使用一次</strong> 。</p>
+
+<p>如果你能使这个正方形，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例&nbsp;1:</strong></p>
 
-<pre>
-<strong>输入:</strong> [1,1,2,2,2]
-<strong>输出:</strong> true
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0473.Matchsticks%20to%20Square/images/matchsticks1-grid.jpg" /></p>
 
+<pre>
+<strong>输入:</strong> matchsticks = [1,1,2,2,2]
+<strong>输出:</strong> true
 <strong>解释:</strong> 能拼成一个边长为2的正方形，每边两根火柴。
 </pre>
 
 <p><strong>示例&nbsp;2:</strong></p>
 
 <pre>
-<strong>输入:</strong> [3,3,3,3,4]
+<strong>输入:</strong> matchsticks = [3,3,3,3,4]
 <strong>输出:</strong> false
-
 <strong>解释:</strong> 不能用所有火柴拼成一个正方形。
 </pre>
 
-<p><strong>注意:</strong></p>
+<p>&nbsp;</p>
 
-<ol>
-	<li>给定的火柴长度和在&nbsp;<code>0</code>&nbsp;到&nbsp;<code>10^9</code>之间。</li>
-	<li>火柴数组的长度不超过15。</li>
-</ol>
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= matchsticks.length &lt;= 15</code></li>
+	<li><code>1 &lt;= matchsticks[i] &lt;= 10<sup>8</sup></code></li>
+</ul>
 
 ## 解法
 

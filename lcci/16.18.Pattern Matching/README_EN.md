@@ -1,4 +1,4 @@
-# [16.18. Pattern Matching](https://leetcode-cn.com/problems/pattern-matching-lcci)
+# [16.18. Pattern Matching](https://leetcode.cn/problems/pattern-matching-lcci)
 
 [中文文档](/lcci/16.18.Pattern%20Matching/README.md)
 

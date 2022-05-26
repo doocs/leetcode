@@ -1,24 +1,20 @@
 class Solution {
     public int calPoints(String[] ops) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stk = new ArrayDeque<>();
         for (String op : ops) {
-            if ("C".equals(op)) {
-                stack.pop();
+            if ("+".equals(op)) {
+                int a = stk.pop();
+                int b = stk.peek();
+                stk.push(a);
+                stk.push(a + b);
             } else if ("D".equals(op)) {
-                stack.push(stack.peek() << 1);
-            } else if ("+".equals(op)) {
-                Integer a = stack.pop();
-                Integer b = stack.peek();
-                stack.push(a);
-                stack.push(a + b);
+                stk.push(stk.peek() << 1);
+            } else if ("C".equals(op)) {
+                stk.pop();
             } else {
-                stack.push(Integer.valueOf(op));
+                stk.push(Integer.valueOf(op));
             }
         }
-        int res = 0;
-        for (Integer score : stack) {
-            res += score;
-        }
-        return res;
+        return stk.stream().mapToInt(Integer::intValue).sum();
     }
 }

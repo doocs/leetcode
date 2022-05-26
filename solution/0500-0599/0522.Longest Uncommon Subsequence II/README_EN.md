@@ -4,47 +4,32 @@
 
 ## Description
 
-<p>
+<p>Given an array of strings <code>strs</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between them</em>. If the longest uncommon subsequence does not exist, return <code>-1</code>.</p>
 
-Given a list of strings, you need to find the longest uncommon subsequence among them. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be <b>any</b> subsequence of the other strings.
+<p>An <strong>uncommon subsequence</strong> between an array of strings is a string that is a <strong>subsequence of one string but not the others</strong>.</p>
 
-</p>
+<p>A <strong>subsequence</strong> of a string <code>s</code> is a string that can be obtained after deleting any number of characters from <code>s</code>.</p>
 
-<p>
+<ul>
+	<li>For example, <code>&quot;abc&quot;</code> is a subsequence of <code>&quot;aebdc&quot;</code> because you can delete the underlined characters in <code>&quot;a<u>e</u>b<u>d</u>c&quot;</code> to get <code>&quot;abc&quot;</code>. Other subsequences of <code>&quot;aebdc&quot;</code> include <code>&quot;aebdc&quot;</code>, <code>&quot;aeb&quot;</code>, and <code>&quot;&quot;</code> (empty string).</li>
+</ul>
 
-A <b>subsequence</b> is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string.
-
-</p>
-
-<p>
-
-The input will be a list of strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn't exist, return -1.
-
-</p>
-
-<p><b>Example 1:</b><br />
-
-<pre>
-
-<b>Input:</b> "aba", "cdc", "eae"
-
-<b>Output:</b> 3
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> strs = ["aba","cdc","eae"]
+<strong>Output:</strong> 3
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> strs = ["aaa","aaa","aa"]
+<strong>Output:</strong> -1
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
-
-<p><b>Note:</b>
-
-<ol>
-
-<li>All the given strings' lengths will not exceed 10.</li>
-
-<li>The length of the given list will be in the range of [2, 50].</li>
-
-</ol>
-
-</p>
+<ul>
+	<li><code>2 &lt;= strs.length &lt;= 50</code></li>
+	<li><code>1 &lt;= strs[i].length &lt;= 10</code></li>
+	<li><code>strs[i]</code> consists of lowercase English letters.</li>
+</ul>
 
 ## Solutions
 
@@ -53,13 +38,123 @@ The input will be a list of strings, and the output needs to be the length of th
 ### **Python3**
 
 ```python
+class Solution:
+    def findLUSlength(self, strs: List[str]) -> int:
+        def check(a, b):
+            i = j = 0
+            while i < len(a) and j < len(b):
+                if a[i] == b[j]:
+                    j += 1
+                i += 1
+            return j == len(b)
 
+        n = len(strs)
+        ans = -1
+
+        for i in range(n):
+            j = 0
+            while j < n:
+                if i == j or not check(strs[j], strs[i]):
+                    j += 1
+                else:
+                    break
+            if j == n:
+                ans = max(ans, len(strs[i]))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findLUSlength(String[] strs) {
+        int ans = -1;
+        for (int i = 0, j = 0, n = strs.length; i < n; ++i) {
+            for (j = 0; j < n; ++j) {
+                if (i == j) {
+                    continue;
+                }
+                if (check(strs[j], strs[i])) {
+                    break;
+                }
+            }
+            if (j == n) {
+                ans = Math.max(ans, strs[i].length());
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(String a, String b) {
+        int j = 0;
+        for (int i = 0; i < a.length() && j < b.length(); ++i) {
+            if (a.charAt(i) == b.charAt(j)) {
+                ++j;
+            }
+        }
+        return j == b.length();
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findLUSlength(vector<string>& strs) {
+        int ans = -1;
+        for (int i = 0, j = 0, n = strs.size(); i < n; ++i)
+        {
+            for (j = 0; j < n; ++j)
+            {
+                if (i == j) continue;
+                if (check(strs[j], strs[i])) break;
+            }
+            if (j == n) ans = max(ans, (int)strs[i].size());
+        }
+        return ans;
+    }
+
+    bool check(string a, string b) {
+        int j = 0;
+        for (int i = 0; i < a.size() && j < b.size(); ++i)
+            if (a[i] == b[j]) ++j;
+        return j == b.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLUSlength(strs []string) int {
+	check := func(a, b string) bool {
+		j := 0
+		for i := 0; i < len(a) && j < len(b); i++ {
+			if a[i] == b[j] {
+				j++
+			}
+		}
+		return j == len(b)
+	}
+
+	ans := -1
+	for i, j, n := 0, 0, len(strs); i < n; i++ {
+		for j = 0; j < n; j++ {
+			if i == j {
+				continue
+			}
+			if check(strs[j], strs[i]) {
+				break
+			}
+		}
+		if j == n && ans < len(strs[i]) {
+			ans = len(strs[i])
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

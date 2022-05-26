@@ -1,29 +1,18 @@
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def numComponents(self, head, G):
-        """
-        :type head: ListNode
-        :type G: List[int]
-        :rtype: int
-        """
-        dic = set(G)
-        ans = 0
-        flag = 0
+    def numComponents(self, head: ListNode, nums: List[int]) -> int:
+        s = set(nums)
+        res, pre = 0, True
         while head:
-            if head.val not in dic:
-                if flag == 1:
-                    ans += 1
-                    flag = 0
+            if head.val in s:
+                if pre:
+                    res += 1
+                    pre = False
             else:
-                flag = 1
+                pre = True
             head = head.next
-        else:
-            if flag == 1:
-                ans += 1
-        return ans
+        return res

@@ -1,15 +1,22 @@
 class Solution {
     public int minDistance(String word1, String word2) {
-        return edit(word1.length(),word2.length(),word1,word2,new int[word1.length()+1][word2.length()+1]);
-    }
-    private int edit(int l, int r, String w1, String w2, int[][] dp){
-        if(l==0) return r;
-        if(r==0) return l;
-        if(dp[l][r]!=0) return dp[l][r];
-        int min = (w1.charAt(l-1)!=w2.charAt(r-1)) ?
-                Math.min(edit(l-1,r-1,w1,w2,dp)+1,Math.min(edit(l-1,r,w1,w2,dp)+1,edit(l,r-1,w1,w2,dp)+1))
-                : edit(l - 1, r - 1, w1, w2, dp);
-        dp[l][r] = min;
-        return min;
+        int m = word1.length(), n = word2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 0; i <= m; ++i) {
+            dp[i][0] = i;
+        }
+        for (int j = 0; j <= n; ++j) {
+            dp[0][j] = j;
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        return dp[m][n];
     }
 }

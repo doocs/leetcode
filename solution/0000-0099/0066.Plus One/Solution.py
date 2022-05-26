@@ -1,20 +1,9 @@
 class Solution:
-    def plusOne(self, digits):
-        """
-        :type digits: List[int]
-        :rtype: List[int]
-        """
-        
-        i = len(digits)-1
-        digits[i] += 1
-        
-        while i > 0 and digits[i] > 9 :
-            digits[i] = 0
-            i -= 1
+    def plusOne(self, digits: List[int]) -> List[int]:
+        n = len(digits)
+        for i in range(n - 1, -1, -1):
             digits[i] += 1
-        
-        if digits[0] > 9:
-            digits[0] = 0
-            digits.insert(0, 1)
-        
-        return digits
+            digits[i] %= 10
+            if digits[i] != 0:
+                return digits
+        return [1] + digits

@@ -1,14 +1,14 @@
 class Solution {
     public int leastBricks(List<List<Integer>> wall) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (List<Integer> list : wall) {
-            int s = 0;
-            for (int i = 0; i < list.size() - 1; ++i) {
-                s += list.get(i);
-                map.put(s, map.getOrDefault(s, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (List<Integer> row : wall) {
+            int width = 0;
+            for (int i = 0, n = row.size() - 1; i < n; i++) {
+                width += row.get(i);
+                cnt.merge(width, 1, Integer::sum);
             }
         }
-        int max = map.values().stream().max(Integer::compare).orElse(0);
+        int max = cnt.values().stream().max(Comparator.naturalOrder()).orElse(0);
         return wall.size() - max;
     }
 }

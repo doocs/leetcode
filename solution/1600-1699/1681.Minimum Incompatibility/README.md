@@ -1,10 +1,11 @@
-# [1681. 最小不兼容性](https://leetcode-cn.com/problems/minimum-incompatibility)
+# [1681. 最小不兼容性](https://leetcode.cn/problems/minimum-incompatibility)
 
 [English Version](/solution/1600-1699/1681.Minimum%20Incompatibility/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组 <code>nums</code>​​​ 和一个整数 <code>k</code> 。你需要将这个数组划分到 <code>k</code> 个相同大小的子集中，使得同一个子集里面没有两个相同的元素。</p>
 
 <p>一个子集的 <strong>不兼容性</strong> 是该子集里面最大值和最小值的差。</p>

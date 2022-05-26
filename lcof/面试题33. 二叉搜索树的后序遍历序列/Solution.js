@@ -3,17 +3,18 @@
  * @return {boolean}
  */
 var verifyPostorder = function (postorder) {
-  if (!postorder || postorder.length < 2) return true;
-  let mid = 0;
-  let root = postorder[postorder.length - 1];
-  for (let i = 0; i < postorder.length - 1 && postorder[i] < root; i++) {
-    mid++;
-  }
-  for (let i = mid + 1; i < postorder.length - 1; i++) {
-    if (postorder[i] < root) return false;
-  }
-  return (
-    verifyPostorder(postorder.slice(0, mid)) &&
-    verifyPostorder(postorder.slice(mid + 1, postorder.length - 1))
-  );
+    if (postorder.length < 2) return true;
+    function dfs(i, n) {
+        if (n <= 0) return true;
+        const v = postorder[i + n - 1];
+        let j = i;
+        while (j < i + n && postorder[j] < v) ++j;
+        for (let k = j; k < i + n; ++k) {
+            if (postorder[k] < v) {
+                return false;
+            }
+        }
+        return dfs(i, j - i) && dfs(j, n + i - j - 1);
+    }
+    return dfs(0, postorder.length);
 };

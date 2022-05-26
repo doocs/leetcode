@@ -1,8 +1,4 @@
-from collections import deque
-
-
 class MaxQueue:
-
     def __init__(self):
         self.p = deque()
         self.q = deque()

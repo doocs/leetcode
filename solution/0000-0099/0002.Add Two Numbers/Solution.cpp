@@ -1,37 +1,27 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-
-        ListNode *ans_l = new ListNode(0);
-        ListNode *head = ans_l;
-        int tmp = 0;
-        while(l1 != NULL && l2 != NULL){
-            tmp += l1->val + l2->val;
-            ans_l->next = new ListNode(tmp % 10);
-            tmp = tmp / 10;
-            ans_l = ans_l->next;
-            l1 = l1->next;
-            l2 = l2->next;
+        ListNode* dummy = new ListNode();
+        int carry = 0;
+        ListNode* cur = dummy;
+        while (l1 || l2 || carry) {
+            int s = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + carry;
+            carry = s / 10;
+            cur->next = new ListNode(s % 10);
+            cur = cur->next;
+            l1 = l1 ? l1->next : nullptr;
+            l2 = l2 ? l2->next : nullptr;
         }
-        
-        while(l1 != NULL){
-            tmp += l1->val;
-            ans_l->next = new ListNode(tmp % 10);
-            tmp = tmp / 10;
-            ans_l = ans_l->next;
-            l1 = l1->next;  
-        }
-        
-        while(l2 != NULL){
-            tmp += l2->val;
-            ans_l->next = new ListNode(tmp % 10);
-            tmp = tmp / 10;
-            ans_l = ans_l->next;
-            l2 = l2->next;  
-        }
-        
-        if(tmp)ans_l->next = new ListNode(tmp);
-
-        return head->next;
+        return dummy->next;
     }
 };

@@ -1,15 +1,11 @@
 class Solution {
-    public int fib(int N) {
-        if (N < 2) {
-            return N;
-        }
+    public int fib(int n) {
         int a = 0, b = 1;
-        int res = 0;
-        for (int i = 2; i <= N; ++i) {
-            res = a + b;
+        while (n-- > 0) {
+            int c = a + b;
             a = b;
-            b = res;
+            b = c;
         }
-        return res;
+        return a;
     }
 }

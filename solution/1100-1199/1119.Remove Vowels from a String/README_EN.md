@@ -4,32 +4,30 @@
 
 ## Description
 
-<p>Given a string <code>S</code>, remove the vowels <code>'a'</code>, <code>'e'</code>, <code>'i'</code>, <code>'o'</code>, and <code>'u'</code> from it, and return the new string.</p>
+<p>Given a string <code>s</code>, remove the vowels <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code> from it, and return the new string.</p>
 
-<p> </p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input: </strong><span id="example-input-1-1">"leetcodeisacommunityforcoders"</span>
-<strong>Output: </strong><span id="example-output-1">"ltcdscmmntyfrcdrs"</span>
+<strong>Input:</strong> s = &quot;leetcodeisacommunityforcoders&quot;
+<strong>Output:</strong> &quot;ltcdscmmntyfrcdrs&quot;
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input: </strong><span id="example-input-2-1">"aeiou"</span>
-<strong>Output: </strong><span id="example-output-2">""</span>
+<strong>Input:</strong> s = &quot;aeiou&quot;
+<strong>Output:</strong> &quot;&quot;
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>S</code> consists of lowercase English letters only.</li>
-	<li><code>1 <= S.length <= 1000</code></li>
-</ol>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> consists of only lowercase English letters.</li>
+</ul>
 
 ## Solutions
 
@@ -38,13 +36,29 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeVowels(self, s: str) -> str:
+        res = []
+        for c in s:
+            if c not in {'a', 'e', 'i', 'o', 'u'}:
+                res.append(c)
+        return ''.join(res)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public String removeVowels(String s) {
+        StringBuilder res = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
+                res.append(c);
+            }
+        }
+        return res.toString();
+    }
+}
 ```
 
 ### **...**

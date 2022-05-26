@@ -1,10 +1,11 @@
-# [1103. 分糖果 II](https://leetcode-cn.com/problems/distribute-candies-to-people)
+# [1103. 分糖果 II](https://leetcode.cn/problems/distribute-candies-to-people)
 
 [English Version](/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>排排坐，分糖果。</p>
 
 <p>我们买了一些糖果 <code>candies</code>，打算把它们分给排好队的 <strong><code>n = num_people</code></strong> 个小朋友。</p>
@@ -54,6 +55,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+直接暴力模拟发糖即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +64,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def distributeCandies(self, candies: int, num_people: int) -> List[int]:
+        ans = [0] * num_people
+        i = 0
+        while candies > 0:
+            ans[i % num_people] += min(candies, i + 1)
+            candies -= min(candies, i + 1)
+            i += 1
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +80,53 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] distributeCandies(int candies, int num_people) {
+        int[] ans = new int[num_people];
+        for (int i = 0; candies > 0; ++i) {
+            ans[i % num_people] += Math.min(candies, i + 1);
+            candies -= Math.min(candies, i + 1);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> distributeCandies(int candies, int num_people) {
+        vector<int> ans(num_people);
+        for (int i = 0; candies > 0; ++i)
+        {
+            ans[i % num_people] += min(candies, i + 1);
+            candies -= min(candies, i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func distributeCandies(candies int, num_people int) []int {
+	ans := make([]int, num_people)
+	for i := 0; candies > 0; i++ {
+		ans[i%num_people] += min(candies, i+1)
+		candies -= min(candies, i+1)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

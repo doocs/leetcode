@@ -1,10 +1,11 @@
-# [866. 回文素数](https://leetcode-cn.com/problems/prime-palindrome)
+# [866. 回文素数](https://leetcode.cn/problems/prime-palindrome)
 
 [English Version](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>求出大于或等于&nbsp;<code>N</code>&nbsp;的最小回文素数。</p>
 
 <p>回顾一下，如果一个数大于 1，且其因数只有 1 和它自身，那么这个数是<em>素数</em>。</p>

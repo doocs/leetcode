@@ -4,51 +4,49 @@
 
 ## Description
 
-<p>
+<p>Given two strings <code>a</code> and <code>b</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between </em><code>a</code> <em>and</em> <code>b</code>. If the longest uncommon subsequence does not exist, return <code>-1</code>.</p>
 
-Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings.
+<p>An <strong>uncommon subsequence</strong> between two strings is a string that is a <strong>subsequence of one but not the other</strong>.</p>
 
-The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be <b>any</b> subsequence of the other strings.
+<p>A <strong>subsequence</strong> of a string <code>s</code> is a string that can be obtained after deleting any number of characters from <code>s</code>.</p>
 
-</p>
+<ul>
+	<li>For example, <code>&quot;abc&quot;</code> is a subsequence of <code>&quot;aebdc&quot;</code> because you can delete the underlined characters in <code>&quot;a<u>e</u>b<u>d</u>c&quot;</code> to get <code>&quot;abc&quot;</code>. Other subsequences of <code>&quot;aebdc&quot;</code> include <code>&quot;aebdc&quot;</code>, <code>&quot;aeb&quot;</code>, and <code>&quot;&quot;</code> (empty string).</li>
+</ul>
 
-<p>
-
-A <b>subsequence</b> is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string.
-
-</p>
-
-<p>
-
-The input will be two strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn't exist, return -1.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> "aba", "cdc"
-
-<b>Output:</b> 3
-
-<b>Explanation:</b> The longest uncommon subsequence is "aba" (or "cdc"), <br/>because "aba" is a subsequence of "aba", <br/>but not a subsequence of any other strings in the group of two strings. 
-
+<strong>Input:</strong> a = &quot;aba&quot;, b = &quot;cdc&quot;
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> One longest uncommon subsequence is &quot;aba&quot; because &quot;aba&quot; is a subsequence of &quot;aba&quot; but not &quot;cdc&quot;.
+Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b>
+<pre>
+<strong>Input:</strong> a = &quot;aaa&quot;, b = &quot;bbb&quot;
+<strong>Output:</strong> 3
+<strong>Explanation:</strong>&nbsp;The longest uncommon subsequences are &quot;aaa&quot; and &quot;bbb&quot;.
+</pre>
 
-<ol>
+<p><strong>Example 3:</strong></p>
 
-<li>Both strings' lengths will not exceed 100.</li>
+<pre>
+<strong>Input:</strong> a = &quot;aaa&quot;, b = &quot;aaa&quot;
+<strong>Output:</strong> -1
+<strong>Explanation:</strong>&nbsp;Every subsequence of string a is also a subsequence of string b. Similarly, every subsequence of string b is also a subsequence of string a.
+</pre>
 
-<li>Only letters from a ~ z will appear in input strings. </li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</ol>
-
-</p>
+<ul>
+	<li><code>1 &lt;= a.length, b.length &lt;= 100</code></li>
+	<li><code>a</code> and <code>b</code> consist of lower-case English letters.</li>
+</ul>
 
 ## Solutions
 
@@ -57,13 +55,65 @@ The input will be two strings, and the output needs to be the length of the long
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findLUSlength(self, a: str, b: str) -> int:
+        return -1 if a == b else max(len(a), len(b))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findLUSlength(String a, String b) {
+        return a.equals(b) ? -1 : Math.max(a.length(), b.length());
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function findLUSlength(a: string, b: string): number {
+    return a != b ? Math.max(a.length, b.length) : -1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_lu_slength(a: String, b: String) -> i32 {
+        if a == b {
+            return -1;
+        }
+        a.len().max(b.len()) as i32
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findLUSlength(string a, string b) {
+        return a == b ? -1 : max(a.size(), b.size());
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLUSlength(a string, b string) int {
+	if a == b {
+		return -1
+	}
+	if len(a) > len(b) {
+		return len(a)
+	}
+	return len(b)
+}
 ```
 
 ### **...**

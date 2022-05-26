@@ -47,13 +47,63 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minPartitions(self, n: str) -> int:
+        return int(max(n))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minPartitions(String n) {
+        int res = 0;
+        for (char c : n.toCharArray()) {
+            res = Math.max(res, c - '0');
+        }
+        return res;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function minPartitions(n: string): number {
+    let nums = n.split('').map(d => parseInt(d));
+    let ans = Math.max(...nums);
+    return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minPartitions(string n) {
+        int res = 0;
+        for (auto& c : n) {
+            res = max(res, c - '0');
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minPartitions(n string) int {
+	res := 0
+	for _, c := range n {
+		t := int(c - '0')
+		if t > res {
+			res = t
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

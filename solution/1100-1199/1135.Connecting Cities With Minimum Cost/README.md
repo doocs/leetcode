@@ -1,53 +1,63 @@
-# [1135. 最低成本联通所有城市](https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost)
+# [1135. 最低成本联通所有城市](https://leetcode.cn/problems/connecting-cities-with-minimum-cost)
 
 [English Version](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>想象一下你是个城市基建规划者，地图上有 <code>N</code> 座城市，它们按以 <code>1</code> 到 <code>N</code> 的次序编号。</p>
 
-<p>给你一些可连接的选项 <code>conections</code>，其中每个选项 <code>conections[i] = [city1, city2, cost]</code> 表示将城市 <code>city1</code> 和城市 <code>city2</code> 连接所要的成本。（<strong>连接是双向的</strong>，也就是说城市 <code>city1</code> 和城市 <code>city2</code> 相连也同样意味着城市 <code>city2</code> 和城市 <code>city1</code> 相连）。</p>
+<p>想象一下你是个城市基建规划者，地图上有&nbsp;<code>n</code>&nbsp;座城市，它们按以&nbsp;<code>1</code> 到&nbsp;<code>n</code>&nbsp;的次序编号。</p>
 
-<p>返回使得每对城市间都存在将它们连接在一起的连通路径（可能长度为 1 的）最小成本。该最小成本应该是所用全部连接代价的综合。如果根据已知条件无法完成该项任务，则请你返回 -1。</p>
+<p>给你整数 <code>n</code> 和一个数组&nbsp;<code>conections</code>，其中&nbsp;<code>connections[i] = [x<sub>i</sub>, y<sub>i</sub>, cost<sub>i</sub>]</code>&nbsp;表示将城市&nbsp;<code>x<sub>i</sub></code>&nbsp;和城市&nbsp;<code>y<sub>i</sub></code>&nbsp;连接所要的<code>cost<sub>i</sub></code>（<strong>连接是双向的</strong>）。</p>
 
-<p> </p>
+<p>返回连接所有城市的<strong>最低成本</strong>，每对城市之间<strong>至少</strong>有一条路径。如果无法连接所有 <code>n</code>&nbsp;个城市，返回 <code>-1</code></p>
+
+<p>该 <strong>最小成本</strong> 应该是所用全部连接成本的总和。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/1314_ex2.png)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/images/1314_ex2.png" /></p>
 
-<pre><strong>输入：</strong>N = 3, conections = [[1,2,5],[1,3,6],[2,3,1]]
+<pre>
+<strong>输入：</strong>n = 3, conections = [[1,2,5],[1,3,6],[2,3,1]]
 <strong>输出：</strong>6
-<strong>解释：</strong>
-选出任意 2 条边都可以连接所有城市，我们从中选取成本最小的 2 条。
+<strong>解释：</strong>选出任意 2 条边都可以连接所有城市，我们从中选取成本最小的 2 条。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/1314_ex1.png)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/images/1314_ex1.png" /></p>
 
-<pre><strong>输入：</strong>N = 4, conections = [[1,2,3],[3,4,4]]
+<pre>
+<strong>输入：</strong>n = 4, conections = [[1,2,3],[3,4,4]]
 <strong>输出：</strong>-1
-<strong>解释： </strong>
-即使连通所有的边，也无法连接所有城市。
+<strong>解释：</strong>即使连通所有的边，也无法连接所有城市。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 <= N <= 10000</code></li>
-	<li><code>1 <= conections.length <= 10000</code></li>
-	<li><code>1 <= conections[i][0], conections[i][1] <= N</code></li>
-	<li><code>0 <= conections[i][2] <= 10^5</code></li>
-	<li><code>conections[i][0] != conections[i][1]</code></li>
-</ol>
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= connections.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>connections[i].length == 3</code></li>
+	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= n</code></li>
+	<li><code>x<sub>i</sub>&nbsp;!= y<sub>i</sub></code></li>
+	<li><code>0 &lt;= cost<sub>i</sub>&nbsp;&lt;= 10<sup>5</sup></code></li>
+</ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+最小生成树问题。设 n 表示点数，m 表示边数。
+
+**方法一：Kruskal 算法**
+
+时间复杂度 O(mlogm)。
 
 <!-- tabs:start -->
 
@@ -56,7 +66,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumCost(self, n: int, connections: List[List[int]]) -> int:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
 
+        connections.sort(key=lambda x: x[2])
+        p = list(range(n))
+        ans = 0
+        for x, y, cost in connections:
+            x, y = x - 1, y - 1
+            if find(x) == find(y):
+                continue
+            p[find(x)] = find(y)
+            ans += cost
+            n -= 1
+            if n == 1:
+                return ans
+        return -1
 ```
 
 ### **Java**
@@ -64,7 +93,102 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int minimumCost(int n, int[][] connections) {
+        Arrays.sort(connections, Comparator.comparingInt(a -> a[2]));
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        int ans = 0;
+        for (int[] e : connections) {
+            int x = e[0] - 1, y = e[1] - 1, cost = e[2];
+            if (find(x) == find(y)) {
+                continue;
+            }
+            p[find(x)] = find(y);
+            ans += cost;
+            if (--n == 1) {
+                return ans;
+            }
+        }
+        return -1;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int minimumCost(int n, vector<vector<int>>& connections) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        sort(connections.begin(), connections.end(), [](auto& a, auto& b) {return a[2] < b[2];});
+        int ans = 0;
+        for (auto& e : connections)
+        {
+            int x = e[0] - 1, y = e[1] - 1, cost = e[2];
+            if (find(x) == find(y)) continue;
+            p[find(x)] = find(y);
+            ans += cost;
+            if (--n == 1) return ans;
+        }
+        return -1;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumCost(n int, connections [][]int) int {
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	sort.Slice(connections, func(i, j int) bool {
+		return connections[i][2] < connections[j][2]
+	})
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	ans := 0
+	for _, e := range connections {
+		x, y, cost := e[0]-1, e[1]-1, e[2]
+		if find(x) == find(y) {
+			continue
+		}
+		p[find(x)] = find(y)
+		ans += cost
+		n--
+		if n == 1 {
+			return ans
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**

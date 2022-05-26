@@ -1,8 +1,9 @@
 class Solution {
-    public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
-        long x = (long) Math.min(C, G) - Math.max(A, E);
-        long y = (long) Math.min(D, H) - Math.max(B, F);
-        int intersection = x > 0 && y > 0 ? (int) (x * y) : 0;
-        return (C - A) * (D - B) + (G - E) * (H - F) - intersection;
+    public int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
+        int a = (ax2 - ax1) * (ay2 - ay1);
+        int b = (bx2 - bx1) * (by2 - by1);
+        int width = Math.min(ax2, bx2) - Math.max(ax1, bx1);
+        int height = Math.min(ay2, by2) - Math.max(ay1, by1);
+        return a + b - Math.max(height, 0) * Math.max(width, 0);
     }
 }

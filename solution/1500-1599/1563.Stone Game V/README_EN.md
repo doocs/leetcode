@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>There are several stones&nbsp;<strong>arranged in a row</strong>, and each stone has an associated&nbsp;value which is an integer given in the array&nbsp;<code>stoneValue</code>.</p>
+<p>There are several stones <strong>arranged in a row</strong>, and each stone has an associated value which is an integer given in the array <code>stoneValue</code>.</p>
 
-<p>In each round of the game, Alice divides the row into <strong>two non-empty rows</strong> (i.e. left row and right row), then Bob calculates the value of each row which is the sum of the values of all the stones in this row. Bob throws away the row which has the maximum value, and&nbsp;Alice&#39;s score increases by the value of the remaining row. If the value of the two rows are equal, Bob lets Alice decide which row will be thrown away. The next round starts with the remaining row.</p>
+<p>In each round of the game, Alice divides the row into <strong>two non-empty rows</strong> (i.e. left row and right row), then Bob calculates the value of each row which is the sum of the values of all the stones in this row. Bob throws away the row which has the maximum value, and Alice&#39;s score increases by the value of the remaining row. If the value of the two rows are equal, Bob lets Alice decide which row will be thrown away. The next round starts with the remaining row.</p>
 
 <p>The game ends when there is only <strong>one stone remaining</strong>. Alice&#39;s is initially <strong>zero</strong>.</p>
 
@@ -42,7 +42,7 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 
 <ul>
 	<li><code>1 &lt;= stoneValue.length &lt;= 500</code></li>
-	<li><code>1 &lt;=&nbsp;stoneValue[i] &lt;= 10^6</code></li>
+	<li><code>1 &lt;= stoneValue[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## Solutions

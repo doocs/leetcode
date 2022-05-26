@@ -1,38 +1,32 @@
 class Solution {
     public String fractionToDecimal(int numerator, int denominator) {
-        boolean minus = numerator < 0 && denominator > 0 || numerator > 0 && denominator < 0;
-        HashMap<Long, Integer> remains = new HashMap<>(16);
-        List<Long> resList = new ArrayList<>();
-        long n;
-        if(numerator > 0) n = numerator;
-        else if(numerator > Integer.MIN_VALUE) n = -numerator;
-        else n = Integer.MAX_VALUE + 1L;
-        long d;
-        if(denominator > 0) d = denominator;
-        else if(denominator > Integer.MIN_VALUE) d = -denominator;
-        else d = Integer.MAX_VALUE + 1L;
-        long r = n % d;
-        int index = 0 , loopPos = -1;
-        while(r != 0){
-            if(remains.containsKey(r)){
-                loopPos = remains.get(r);
+        if (numerator == 0) {
+            return "0";
+        }
+        StringBuilder sb = new StringBuilder();
+        boolean neg = (numerator > 0) ^ (denominator > 0);
+        sb.append(neg ? "-" : "");
+        long num = Math.abs((long) numerator);
+        long d = Math.abs((long) denominator);
+        sb.append(num / d);
+        num %= d;
+        if (num == 0) {
+            return sb.toString();
+        }
+        sb.append(".");
+        Map<Long, Integer> mp = new HashMap<>();
+        while (num != 0) {
+            mp.put(num, sb.length());
+            num *= 10;
+            sb.append(num / d);
+            num %= d;
+            if (mp.containsKey(num)) {
+                int idx = mp.get(num);
+                sb.insert(idx, "(");
+                sb.append(")");
                 break;
             }
-            remains.put(r, ++index);
-            resList.add(Math.abs(n / d));
-            n = r;
-            n *= 10;
-            r = n % d;
         }
-        resList.add(Math.abs(n / d));
-        StringBuilder res = new StringBuilder();
-        if(minus) res.append("-");
-        for(int i = 0; i < resList.size(); i++){
-            if(i == 1) res.append(".");
-            if(loopPos == i) res.append("(");
-            res.append(resList.get(i));
-        }
-        if(loopPos != -1) res.append(")");
-        return res.toString();
+        return sb.toString();
     }
 }

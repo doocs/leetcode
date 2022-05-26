@@ -1,10 +1,11 @@
-# [1006. 笨阶乘](https://leetcode-cn.com/problems/clumsy-factorial)
+# [1006. 笨阶乘](https://leetcode.cn/problems/clumsy-factorial)
 
 [English Version](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>通常，正整数 <code>n</code> 的阶乘是所有小于或等于 <code>n</code> 的正整数的乘积。例如，<code>factorial(10) = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1</code>。</p>
 
 <p>相反，我们设计了一个笨阶乘 <code>clumsy</code>：在整数的递减序列中，我们以一个固定顺序的操作符序列来依次替换原有的乘法操作符：乘法(*)，除法(/)，加法(+)和减法(-)。</p>
@@ -44,6 +45,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遇到 `*`、`/` 时计算后入栈，遇到 `+`、`-` 时直接入栈。最后累加栈中的元素即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +54,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def clumsy(self, N: int) -> int:
+        op = 0
+        s = [N]
+        for i in range(N - 1, 0, -1):
+            if op == 0:
+                s.append(s.pop() * i)
+            elif op == 1:
+                s.append(int(s.pop() / i))
+            elif op == 2:
+                s.append(i)
+            else:
+                s.append(-i)
+            op = (op + 1) % 4
+        return sum(s)
 ```
 
 ### **Java**
@@ -59,7 +76,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int clumsy(int N) {
+        Deque<Integer> s = new ArrayDeque<>();
+        s.offerLast(N);
+        int op = 0;
+        for (int i = N - 1; i > 0; --i) {
+            if (op == 0) {
+                s.offerLast(s.pollLast() * i);
+            } else if (op == 1) {
+                s.offerLast(s.pollLast() / i);
+            } else if (op == 2) {
+                s.offerLast(i);
+            } else {
+                s.offerLast(-i);
+            }
+            op = (op + 1) % 4;
+        }
+        int res = 0;
+        while (!s.isEmpty()) {
+            res += s.pollLast();
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
@@ -68,5 +108,4 @@
 
 ```
 
-<!-- tabs:end -->
 <!-- tabs:end -->

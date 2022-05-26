@@ -1,27 +1,33 @@
 class Solution {
+    private char[][] grid;
+    private int m;
+    private int n;
+
     public int numIslands(char[][] grid) {
-        int islandNum = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == '1') {
-                    infect(grid, i, j);
-                    islandNum ++;
+                    dfs(i, j);
+                    ++ans;
                 }
             }
         }
-        return islandNum;
+        return ans;
     }
 
-    public void infect(char[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length ||
-                j < 0 || j >= grid[0].length ||
-                grid[i][j] != '1') {
-            return;
+    private void dfs(int i, int j) {
+        grid[i][j] = '0';
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                dfs(x, y);
+            }
         }
-        grid[i][j] = '2';
-        infect(grid, i + 1, j);
-        infect(grid, i - 1, j);
-        infect(grid, i, j + 1);
-        infect(grid, i, j - 1);
     }
 }

@@ -4,35 +4,22 @@
 
 ## Description
 
-<p>Calculate the sum of two integers <i>a</i> and <i>b</i>, but you are <b>not allowed</b> to use the operator <code>+</code> and <code>-</code>.</p>
+<p>Given two integers <code>a</code> and <code>b</code>, return <em>the sum of the two integers without using the operators</em> <code>+</code> <em>and</em> <code>-</code>.</p>
 
-<div>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>a = <span id="example-input-1-1">1</span>, b = <span id="example-input-1-2">2</span>
-
-<strong>Output: </strong><span id="example-output-1">3</span>
-
+<pre><strong>Input:</strong> a = 1, b = 2
+<strong>Output:</strong> 3
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> a = 2, b = 3
+<strong>Output:</strong> 5
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>a = -<span id="example-input-2-1">2</span>, b = <span id="example-input-2-2">3</span>
-
-<strong>Output: </strong>1
-
-</pre>
-
-</div>
-
-</div>
+<ul>
+	<li><code>-1000 &lt;= a, b &lt;= 1000</code></li>
+</ul>
 
 ## Solutions
 
@@ -41,13 +28,53 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        a, b = a & 0xffffffff, b & 0xffffffff
+        while b:
+            carry = ((a & b) << 1) & 0xffffffff
+            a, b = a ^ b, carry
+        return a if a < 0x80000000 else ~(a ^ 0xffffffff)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int getSum(int a, int b) {
+        return b == 0 ? a : getSum(a ^ b, (a & b) << 1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getSum(int a, int b) {
+        while (b)
+        {
+            unsigned int carry = (unsigned int)(a & b) << 1;
+            a = a ^ b;
+            b = carry;
+        }
+        return a;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getSum(a int, b int) int {
+	for b != 0 {
+		s := a ^ b
+		b = (a & b) << 1
+		a = s
+	}
+	return a
+}
 ```
 
 ### **...**

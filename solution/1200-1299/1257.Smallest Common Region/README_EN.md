@@ -4,38 +4,47 @@
 
 ## Description
 
-<p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>
+<p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>
 
-<p>Naturally, if a region <code>X</code> contains another region <code>Y</code> then <code>X</code> is bigger than <code>Y</code>. Also by definition a region X contains itself.</p>
+<p>Naturally, if a region <code>x</code> contains another region <code>y</code> then <code>x</code> is bigger than <code>y</code>. Also, by definition, a region <code>x</code> contains itself.</p>
 
-<p>Given two regions <code>region1</code>, <code>region2</code>, find out the <strong>smallest</strong> region that contains both of them.</p>
+<p>Given two regions: <code>region1</code> and <code>region2</code>, return <em>the smallest region that contains both of them</em>.</p>
 
-<p>If you are given regions <code>r1</code>, <code>r2</code> and <code>r3</code> such that <code>r1</code> includes <code>r3</code>, it is guaranteed there is no <code>r2</code> such that <code>r2</code> includes <code>r3</code>.<br />
-<br />
-It's guaranteed the smallest region exists.</p>
+<p>If you are given regions <code>r1</code>, <code>r2</code>, and <code>r3</code> such that <code>r1</code> includes <code>r3</code>, it is guaranteed there is no <code>r2</code> such that <code>r2</code> includes <code>r3</code>.</p>
 
-<p> </p>
+<p>It is guaranteed the smallest region exists.</p>
+
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:
-</strong>regions = [["Earth","North America","South America"],
-["North America","United States","Canada"],
-["United States","New York","Boston"],
-["Canada","Ontario","Quebec"],
-["South America","Brazil"]],
-region1 = "Quebec",
-region2 = "New York"
-<strong>Output:</strong> "North America"
+</strong>regions = [[&quot;Earth&quot;,&quot;North America&quot;,&quot;South America&quot;],
+[&quot;North America&quot;,&quot;United States&quot;,&quot;Canada&quot;],
+[&quot;United States&quot;,&quot;New York&quot;,&quot;Boston&quot;],
+[&quot;Canada&quot;,&quot;Ontario&quot;,&quot;Quebec&quot;],
+[&quot;South America&quot;,&quot;Brazil&quot;]],
+region1 = &quot;Quebec&quot;,
+region2 = &quot;New York&quot;
+<strong>Output:</strong> &quot;North America&quot;
 </pre>
 
-<p> </p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> regions = [[&quot;Earth&quot;, &quot;North America&quot;, &quot;South America&quot;],[&quot;North America&quot;, &quot;United States&quot;, &quot;Canada&quot;],[&quot;United States&quot;, &quot;New York&quot;, &quot;Boston&quot;],[&quot;Canada&quot;, &quot;Ontario&quot;, &quot;Quebec&quot;],[&quot;South America&quot;, &quot;Brazil&quot;]], region1 = &quot;Canada&quot;, region2 = &quot;South America&quot;
+<strong>Output:</strong> &quot;Earth&quot;
+</pre>
+
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 <= regions.length <= 10^4</code></li>
+	<li><code>2 &lt;= regions.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>2 &lt;= regions[i].length &lt;= 20</code></li>
+	<li><code>1 &lt;= regions[i][j].length, region1.length, region2.length &lt;= 20</code></li>
 	<li><code>region1 != region2</code></li>
-	<li>All strings consist of English letters and spaces with at most 20 letters.</li>
+	<li><code>regions[i][j]</code>, <code>region1</code>, and <code>region2</code> consist of English letters.</li>
 </ul>
 
 ## Solutions
@@ -45,13 +54,74 @@ region2 = "New York"
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findSmallestRegion(self, regions: List[List[str]], region1: str, region2: str) -> str:
+        m = {}
+        for region in regions:
+            for r in region[1:]:
+                m[r] = region[0]
+        s = set()
+        while m.get(region1):
+            s.add(region1)
+            region1 = m[region1]
+        while m.get(region2):
+            if region2 in s:
+                return region2
+            region2 = m[region2]
+        return region1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String findSmallestRegion(List<List<String>> regions, String region1, String region2) {
+        Map<String, String> m = new HashMap<>();
+        for (List<String> region : regions) {
+            for (int i = 1; i < region.size(); ++i) {
+                m.put(region.get(i), region.get(0));
+            }
+        }
+        Set<String> s = new HashSet<>();
+        while (m.containsKey(region1)) {
+            s.add(region1);
+            region1 = m.get(region1);
+        }
+        while (m.containsKey(region2)) {
+            if (s.contains(region2)) {
+                return region2;
+            }
+            region2 = m.get(region2);
+        }
+        return region1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findSmallestRegion(vector<vector<string>>& regions, string region1, string region2) {
+        unordered_map<string, string> m;
+        for (auto& region : regions)
+            for (int i = 1; i < region.size(); ++i)
+                m[region[i]] = region[0];
+        unordered_set<string> s;
+        while (m.count(region1))
+        {
+            s.insert(region1);
+            region1 = m[region1];
+        }
+        while (m.count(region2))
+        {
+            if (s.count(region2)) return region2;
+            region2 = m[region2];
+        }
+        return region1;
+    }
+};
 ```
 
 ### **...**

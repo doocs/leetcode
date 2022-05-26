@@ -4,77 +4,176 @@
 
 ## Description
 
-<p>A sequence <code>X_1, X_2, ..., X_n</code>&nbsp;is <em>fibonacci-like</em> if:</p>
+<p>A sequence <code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></code> is <em>Fibonacci-like</em> if:</p>
 
 <ul>
-    <li><code>n &gt;= 3</code></li>
-    <li><code>X_i + X_{i+1} = X_{i+2}</code>&nbsp;for all&nbsp;<code>i + 2 &lt;= n</code></li>
+	<li><code>n &gt;= 3</code></li>
+	<li><code>x<sub>i</sub> + x<sub>i+1</sub> == x<sub>i+2</sub></code> for all <code>i + 2 &lt;= n</code></li>
 </ul>
 
-<p>Given a <b>strictly increasing</b>&nbsp;array&nbsp;<code>A</code> of positive integers forming a sequence, find the <strong>length</strong> of the longest fibonacci-like subsequence of <code>A</code>.&nbsp; If one does not exist, return 0.</p>
+<p>Given a <b>strictly increasing</b> array <code>arr</code> of positive integers forming a sequence, return <em>the <strong>length</strong> of the longest Fibonacci-like subsequence of</em> <code>arr</code>. If one does not exist, return <code>0</code>.</p>
 
-<p>(<em>Recall that a subsequence is derived from another sequence <code>A</code> by&nbsp;deleting any number of&nbsp;elements (including none)&nbsp;from <code>A</code>, without changing the order of the remaining elements.&nbsp; For example, <code>[3, 5, 8]</code> is a subsequence of <code>[3, 4, 5, 6, 7, 8]</code>.</em>)</p>
+<p>A <strong>subsequence</strong> is derived from another sequence <code>arr</code> by deleting any number of elements (including none) from <code>arr</code>, without changing the order of the remaining elements. For example, <code>[3, 5, 8]</code> is a subsequence of <code>[3, 4, 5, 6, 7, 8]</code>.</p>
 
 <p>&nbsp;</p>
-
-<ul>
-
-</ul>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>[1,2,3,4,5,6,7,8]
-
-<strong>Output: </strong>5
-
-<strong>Explanation:
-
-</strong>The longest subsequence that is fibonacci-like: [1,2,3,5,8].
-
-</pre>
+<strong>Input:</strong> arr = [1,2,3,4,5,6,7,8]
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> The longest subsequence that is fibonacci-like: [1,2,3,5,8].</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>[1,3,7,11,12,14,18]
-
-<strong>Output: </strong>3
-
-<strong>Explanation</strong>:
-
-The longest subsequence that is fibonacci-like:
-
-[1,11,12], [3,11,14] or [7,11,18].
-
-</pre>
+<strong>Input:</strong> arr = [1,3,7,11,12,14,18]
+<strong>Output:</strong> 3
+<strong>Explanation</strong>:<strong> </strong>The longest subsequence that is fibonacci-like: [1,11,12], [3,11,14] or [7,11,18].</pre>
 
 <p>&nbsp;</p>
-
-<p><strong>Note:</strong></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>3 &lt;= A.length &lt;= 1000</code></li>
-    <li><code>1 &lt;= A[0] &lt; A[1] &lt; ... &lt; A[A.length - 1] &lt;= 10^9</code></li>
-    <li><em>(The time limit has been reduced by 50% for submissions in Java, C, and C++.)</em></li>
+	<li><code>3 &lt;= arr.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= arr[i] &lt; arr[i + 1] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions
+
+Dynamic programming.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lenLongestFibSubseq(self, arr: List[int]) -> int:
+        mp = {v: i for i, v in enumerate(arr)}
+        n = len(arr)
+        dp = [[0] * n for _ in range(n)]
+        for i in range(n):
+            for j in range(i):
+                dp[j][i] = 2
+        ans = 0
+        for i in range(n):
+            for j in range(i):
+                delta = arr[i] - arr[j]
+                if delta in mp:
+                    k = mp[delta]
+                    if k < j:
+                        dp[j][i] = dp[k][j] + 1
+                        ans = max(ans, dp[j][i])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int lenLongestFibSubseq(int[] arr) {
+        int n = arr.length;
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            mp.put(arr[i], i);
+        }
+        int[][] dp = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                dp[j][i] = 2;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                int delta = arr[i] - arr[j];
+                if (mp.containsKey(delta)) {
+                    int k = mp.get(delta);
+                    if (k < j) {
+                        dp[j][i] = dp[k][j] + 1;
+                        ans = Math.max(ans, dp[j][i]);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lenLongestFibSubseq(vector<int>& arr) {
+        unordered_map<int, int> mp;
+        int n = arr.size();
+        for (int i = 0; i < n; ++i) mp[arr[i]] = i;
+        vector<vector<int>> dp(n, vector<int>(n));
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+                dp[j][i] = 2;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                int delta = arr[i] - arr[j];
+                if (mp.count(delta))
+                {
+                    int k = mp[delta];
+                    if (k < j)
+                    {
+                        dp[j][i] = dp[k][j] + 1;
+                        ans = max(ans, dp[j][i]);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lenLongestFibSubseq(arr []int) int {
+	n := len(arr)
+	mp := make(map[int]int, n)
+	for i, v := range arr {
+		mp[v] = i + 1
+	}
+	dp := make([][]int, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([]int, n)
+		for j := 0; j < i; j++ {
+			dp[j][i] = 2
+		}
+	}
+	ans := 0
+	for i := 0; i < n; i++ {
+		for j := 0; j < i; j++ {
+			delta := arr[i] - arr[j]
+			k := mp[delta] - 1
+			if k >= 0 && k < j {
+				dp[j][i] = dp[k][j] + 1
+				ans = max(ans, dp[j][i])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

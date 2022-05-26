@@ -1,14 +1,13 @@
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1);
-        int res = 0;
-        int s = 0;
-        for (int i = 0; i < nums.length; ++i) {
-            s += nums[i];
-            res += map.getOrDefault(s - k, 0);
-            map.put(s, map.getOrDefault(s, 0) + 1);
+        Map<Integer, Integer> counter = new HashMap<>();
+        counter.put(0, 1);
+        int ans = 0, s = 0;
+        for (int num : nums) {
+            s += num;
+            ans += counter.getOrDefault(s - k, 0);
+            counter.put(s, counter.getOrDefault(s, 0) + 1);
         }
-        return res;
+        return ans;
     }
 }

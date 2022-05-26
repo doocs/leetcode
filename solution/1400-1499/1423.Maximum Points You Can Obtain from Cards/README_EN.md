@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>There are several cards&nbsp;<strong>arranged in a row</strong>, and each card has an associated number of points&nbsp;The points are given in the integer array&nbsp;<code>cardPoints</code>.</p>
+<p>There are several cards <strong>arranged in a row</strong>, and each card has an associated number of points. The points are given in the integer array <code>cardPoints</code>.</p>
 
 <p>In one step, you can take one card from the beginning or from the end of the row. You have to take exactly <code>k</code> cards.</p>
 
@@ -37,27 +37,12 @@
 <strong>Explanation:</strong> You have to take all the cards. Your score is the sum of points of all cards.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> cardPoints = [1,1000,1], k = 1
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> You cannot take the card in the middle. Your best score is 1. 
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> cardPoints = [1,79,80,1,1,1,200,1], k = 3
-<strong>Output:</strong> 202
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= cardPoints.length &lt;= 10^5</code></li>
-	<li><code>1 &lt;= cardPoints[i] &lt;= 10^4</code></li>
+	<li><code>1 &lt;= cardPoints.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= cardPoints[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= cardPoints.length</code></li>
 </ul>
 
@@ -68,13 +53,121 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        n = len(cardPoints)
+        s = [0] * (n + 1)
+        for i in range(n):
+            s[i + 1] = s[i] + cardPoints[i]
+        mi = float('inf')
+        for i in range(n):
+            j = i + (n - k) - 1
+            if j < n:
+                mi = min(mi, s[j + 1] - s[i])
+        return s[-1] - mi
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public int maxScore(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + cardPoints[i];
+        }
+        int mi = Integer.MAX_VALUE;
+        for (int i = 0; i < n; ++i) {
+            int j = i + (n - k) - 1;
+            if (j < n) {
+                mi = Math.min(mi, s[j + 1] - s[i]);
+            }
+        }
+        return s[n] - mi;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxScore(vector<int>& cardPoints, int k) {
+        int n = cardPoints.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + cardPoints[i];
+        int mi = INT_MAX;
+        for (int i = 0; i < n; ++i)
+        {
+            int j = i + (n - k) - 1;
+            if (j < n) mi = min(mi, s[j + 1] - s[i]);
+        }
+        return s[n] - mi;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxScore(cardPoints []int, k int) int {
+	n := len(cardPoints)
+	s := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		s[i+1] = s[i] + cardPoints[i]
+	}
+	mi := math.MaxInt64
+	for i := 0; i < n; i++ {
+		j := i + (n - k) - 1
+		if j < n {
+			mi = min(mi, s[j+1]-s[i])
+		}
+	}
+	return s[n] - mi
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxScore(cardPoints: number[], k: number): number {
+    const n = cardPoints.length;
+    let sum = cardPoints.slice(0, n - k).reduce((r, v) => r + v, 0);
+    let min = sum;
+    for (let i = 0; i < k; i++) {
+        sum += cardPoints[n - k + i] - cardPoints[i];
+        min = Math.min(min, sum);
+    }
+    return cardPoints.reduce((r, v) => r + v, 0) - min;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_score(card_points: Vec<i32>, k: i32) -> i32 {
+        let (k, n) = (k as usize, card_points.len());
+        let mut sum = card_points.iter().take(n - k).sum::<i32>();
+        let mut min = sum;
+        for i in 0..k {
+            sum += card_points[n - k + i] - card_points[i];
+            min = min.min(sum);
+        }
+        card_points.iter().sum::<i32>() - min
+    }
+}
 ```
 
 ### **...**

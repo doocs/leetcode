@@ -1,4 +1,4 @@
-- All Solutions
-  - [LeetCode(Not finished yet)](/solution/README_EN.md)
-  - [LCOF: _Coding Interviews, 2nd Edition_](/lcof/README_EN.md)
-  - [LCCI: _Cracking the Coding Interview, 6th Edition_](/lcci/README_EN.md)
+-   All Solutions
+    -   [LeetCode(Not finished yet)](/solution/README_EN.md)
+    -   [LCOF: _Coding Interviews, 2nd Edition_](/lcof/README_EN.md)
+    -   [LCCI: _Cracking the Coding Interview, 6th Edition_](/lcci/README_EN.md)

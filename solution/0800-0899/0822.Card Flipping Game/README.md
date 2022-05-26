@@ -1,10 +1,11 @@
-# [822. 翻转卡片游戏](https://leetcode-cn.com/problems/card-flipping-game)
+# [822. 翻转卡片游戏](https://leetcode.cn/problems/card-flipping-game)
 
 [English Version](/solution/0800-0899/0822.Card%20Flipping%20Game/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在桌子上有 <code>N</code> 张卡片，每张卡片的正面和背面都写着一个正数（正面与背面上的数有可能不一样）。</p>
 
 <p>我们可以先翻转任意张卡片，然后选择其中一张卡片。</p>
@@ -39,6 +40,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+对于位置 i，若 `fronts[i]` 与 `backs[i]` 元素相同，则一定不满足条件。找其他出现在 fronts 或 backs 中的元素的最小值即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,7 +51,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def flipgame(self, fronts: List[int], backs: List[int]) -> int:
+        same = {a for a, b in zip(fronts, backs) if a == b}
+        ans = 9999
+        for x in chain(fronts, backs):
+            if x not in same:
+                ans = min(ans, x)
+        return ans % 9999
 ```
 
 ### **Java**
@@ -54,7 +66,84 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int flipgame(int[] fronts, int[] backs) {
+        Set<Integer> s = new HashSet<>();
+        int n = fronts.length;
+        for (int i = 0; i < n; ++i) {
+            if (fronts[i] == backs[i]) {
+                s.add(fronts[i]);
+            }
+        }
+        int ans = 9999;
+        for (int v : fronts) {
+            if (!s.contains(v)) {
+                ans = Math.min(ans, v);
+            }
+        }
+        for (int v : backs) {
+            if (!s.contains(v)) {
+                ans = Math.min(ans, v);
+            }
+        }
+        return ans % 9999;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int flipgame(vector<int>& fronts, vector<int>& backs) {
+        unordered_set<int> s;
+        int n = fronts.size();
+        for (int i = 0; i < n; ++i)
+            if (fronts[i] == backs[i])
+                s.insert(fronts[i]);
+        int ans = 9999;
+        for (int& v : fronts)
+            if (!s.count(v))
+                ans = min(ans, v);
+        for (int& v : backs)
+            if (!s.count(v))
+                ans = min(ans, v);
+        return ans % 9999;
+    }
+};
+```
+
+### **Go**
+
+```go
+func flipgame(fronts []int, backs []int) int {
+	s := map[int]bool{}
+	for i, v := range fronts {
+		if v == backs[i] {
+			s[v] = true
+		}
+	}
+	ans := 9999
+	for _, v := range fronts {
+		if !s[v] {
+			ans = min(ans, v)
+		}
+	}
+	for _, v := range backs {
+		if !s[v] {
+			ans = min(ans, v)
+		}
+	}
+	return ans % 9999
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

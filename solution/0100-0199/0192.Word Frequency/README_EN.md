@@ -43,29 +43,20 @@ day 1
 <p><b>Note:</b></p>
 
 <ul>
+
     <li>Don&#39;t worry about handling ties, it is guaranteed that each word&#39;s frequency count is unique.</li>
+
     <li>Could you write it in one-line using <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-4.html">Unix pipes</a>?</li>
+
 </ul>
 
 ## Solutions
 
 <!-- tabs:start -->
 
-### **Python3**
+### **Bash**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
+```sh
 
 ```
 

@@ -4,42 +4,44 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    int max = 0;
-    int cur = 0;
-    TreeNode preNode = null;
+    private int mx;
+    private int cnt;
+    private TreeNode prev;
+    private List<Integer> res;
 
     public int[] findMode(TreeNode root) {
-        ArrayList<Integer> list = new ArrayList<>();
-        findMode(root, list);
-        int[] res = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
+        res = new ArrayList<>();
+        dfs(root);
+        int[] ans = new int[res.size()];
+        for (int i = 0; i < res.size(); ++i) {
+            ans[i] = res.get(i);
         }
-        return res;
+        return ans;
     }
 
-    private void findMode(TreeNode root, ArrayList<Integer> list) {
+    private void dfs(TreeNode root) {
         if (root == null) {
             return;
         }
-        findMode(root.left, list);
-        if (preNode != null && root.val == preNode.val) {
-            cur++;
-        } else {
-            cur = 1;
+        dfs(root.left);
+        cnt = prev != null && prev.val == root.val ? cnt + 1 : 1;
+        if (cnt > mx) {
+            res = new ArrayList<>(Arrays.asList(root.val));
+            mx = cnt;
+        } else if (cnt == mx) {
+            res.add(root.val);
         }
-        if (max < cur) {
-            max = cur;
-            list.clear();
-            list.add(root.val);
-        } else if (max == cur) {
-            list.add(root.val);
-        }
-        preNode = root;
-        findMode(root.right, list);
+        prev = root;
+        dfs(root.right);
     }
 }

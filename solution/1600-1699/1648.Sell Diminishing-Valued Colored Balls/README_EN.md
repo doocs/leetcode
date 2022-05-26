@@ -14,9 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/jj.gif)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/images/jj.gif" style="width: 480px; height: 270px;" />
 <pre>
 <strong>Input:</strong> inventory = [2,5], orders = 4
 <strong>Output:</strong> 14
@@ -31,21 +29,6 @@ The maximum total value is 2 + 5 + 4 + 3 = 14.
 <strong>Output:</strong> 19
 <strong>Explanation: </strong>Sell the 1st color 2 times (3 + 2) and the 2nd color 4 times (5 + 4 + 3 + 2).
 The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> inventory = [2,8,4,10,6], orders = 20
-<strong>Output:</strong> 110
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> inventory = [1000000000], orders = 1000000000
-<strong>Output:</strong> 21
-<strong>Explanation: </strong>Sell the 1st color 1000000000 times for a total value of 500000000500000000. 500000000500000000 modulo 10<sup>9 </sup>+ 7 = 21.
 </pre>
 
 <p>&nbsp;</p>

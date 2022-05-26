@@ -1,28 +1,29 @@
-# [面试题 55 - II. 平衡二叉树](https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/)
+# [面试题 55 - II. 平衡二叉树](https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/)
 
 ## 题目描述
 
-输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过 1，那么它就是一棵平衡二叉树。
+<p>输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。</p>
 
-**示例 1:**
+<p> </p>
 
-给定二叉树 `[3,9,20,null,null,15,7]`
+<p><strong>示例 1:</strong></p>
 
-```
+<p>给定二叉树 <code>[3,9,20,null,null,15,7]</code></p>
+
+<pre>
     3
    / \
   9  20
     /  \
-   15   7
-```
+   15   7</pre>
 
-返回 `true`。
+<p>返回 <code>true</code> 。<br />
+<br />
+<strong>示例 2:</strong></p>
 
-**示例 2:**
+<p>给定二叉树 <code>[1,2,2,3,3,null,null,4,4]</code></p>
 
-给定二叉树 `[1,2,2,3,3,null,null,4,4]`
-
-```
+<pre>
        1
       / \
      2   2
@@ -30,13 +31,21 @@
    3   3
   / \
  4   4
-```
+</pre>
 
-返回  `false`。
+<p>返回 <code>false</code> 。</p>
 
-**限制：**
+<p> </p>
 
-- `1 <= 树的结点个数 <= 10000`
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>0 <= 树的结点个数 <= 10000</code></li>
+</ul>
+
+<p>注意：本题与主站 110 题相同：<a href="https://leetcode.cn/problems/balanced-binary-tree/">https://leetcode.cn/problems/balanced-binary-tree/</a></p>
+
+<p> </p>
 
 ## 解法
 
@@ -54,14 +63,14 @@
 
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
+        def height(root):
+            if root is None:
+                return 0
+            return 1 + max(height(root.left), height(root.right))
+
         if root is None:
             return True
-        return abs(self._height(root.left) - self._height(root.right)) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
-
-    def _height(self, tree):
-        if tree is None:
-            return 0
-        return 1 + max(self._height(tree.left), self._height(tree.right))
+        return abs(height(root.left) - height(root.right)) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
 ```
 
 ### **Java**
@@ -81,14 +90,14 @@ class Solution {
         if (root == null) {
             return true;
         }
-        return Math.abs(height(root.left) - height(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(depth(root.left) - depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
 
-    private int height(TreeNode tree) {
+    private int depth(TreeNode tree) {
         if (tree == null) {
             return 0;
         }
-        return 1 + Math.max(height(tree.left), height(tree.right));
+        return 1 + Math.max(depth(tree.left), depth(tree.right));
     }
 }
 ```
@@ -108,56 +117,131 @@ class Solution {
  * @return {boolean}
  */
 var isBalanced = function (root) {
-  if (!root) return true;
-  if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
-  if (Math.abs(getDepth(root.left) - getDepth(root.right)) > 1) return false;
-  return true;
-};
+    const depth = root => {
+        if (!root) {
+            return 0;
+        }
+        return 1 + Math.max(depth(root.left), depth(root.right));
+    };
 
-function getDepth(node) {
-  if (!node) return 0;
-  return Math.max(getDepth(node.left), getDepth(node.right)) + 1;
-}
+    if (!root) {
+        return true;
+    }
+    return (
+        Math.abs(depth(root.left) - depth(root.right)) <= 1 &&
+        isBalanced(root.left) &&
+        isBalanced(root.right)
+    );
+};
 ```
 
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    bool isBalanced(TreeNode* root, int* depth) {
-        if (root == nullptr) {
-            *depth = 0;
-            return true;
-        }
-
-        int left = 0;
-        int right = 0;
-        if (isBalanced(root->left, &left) && isBalanced(root->right, &right)) {
-            // 这样做的优势是，不用每次都计算单个子树的深度
-            int diff = left - right;
-            if (diff > 1 || diff < -1) {
-                // 如果有一处不符合 -1 < diff < 1，则直接返回false
-                return false;
-            } else {
-                // 如果符合，则记录当前深度，然后返回上一层继续计算
-                *depth = max(left, right) + 1;
-                return true;
-            }
-        }
-
-        return false;    // 如果
-    }
-
     bool isBalanced(TreeNode* root) {
         if (!root) {
             return true;
         }
+        return abs(depth(root->left) - depth(root->right)) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+    }
 
-        int depth = 0;
-        return isBalanced(root, &depth);
+private:
+    int depth(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        return 1 + max(depth(root->left), depth(root->right));
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isBalanced(root *TreeNode) bool {
+    if (root == nil) {
+        return true
+    }
+    return math.Abs(float64(depth(root.Left)-depth(root.Right))) <= 1 && isBalanced(root.Left) && isBalanced(root.Right)
+}
+
+func depth(root *TreeNode) int {
+    if (root == nil) {
+        return 0
+    }
+    left, right := depth(root.Left), depth(root.Right)
+    if (left > right) {
+        return 1 + left
+    }
+    return 1 + right
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        match root {
+            None => 0,
+            Some(node) => {
+                let node = node.borrow();
+                1 + Self::dfs(&node.left).max(Self::dfs(&node.right))
+            }
+        }
+    }
+    pub fn is_balanced(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        match root {
+            None => true,
+            Some(node) => {
+                let mut node = node.borrow_mut();
+                let a = 10;
+                (Self::dfs(&node.left) - Self::dfs(&node.right)).abs() <= 1
+                    && Self::is_balanced(node.left.take())
+                    && Self::is_balanced(node.right.take())
+            }
+        }
+    }
+}
 ```
 
 ### **...**

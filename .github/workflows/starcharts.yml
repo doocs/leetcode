@@ -1,0 +1,17 @@
+name: update-starcharts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    name: Generate starcharts
+    runs-on: ubuntu-latest
+    if: github.repository == 'doocs/leetcode'
+    steps:
+      - uses: MaoLongLong/actions-starcharts@main
+        with:
+          github_token: ${{ secrets.ACTION_TOKEN }}
+          svg_path: images/starcharts.svg
+          commit_message: "chore: auto update starcharts"
+          stars_change: "50"

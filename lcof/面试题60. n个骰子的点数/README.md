@@ -1,30 +1,33 @@
-# [面试题 60. n 个骰子的点数](https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof/)
+# [面试题 60. n 个骰子的点数](https://leetcode.cn/problems/nge-tou-zi-de-dian-shu-lcof/)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-把 n 个骰子扔在地上，所有骰子朝上一面的点数之和为 s。输入 n，打印出 s 的所有可能的值出现的概率。
+<p>把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。</p>
 
-你需要用一个浮点数数组返回答案，其中第 i 个元素代表这 n 个骰子所能掷出的点数集合中第 i 小的那个的概率。
+<p>&nbsp;</p>
 
-**示例 1:**
+<p>你需要用一个浮点数数组返回答案，其中第 i 个元素代表这 n 个骰子所能掷出的点数集合中第 i 小的那个的概率。</p>
 
-```
-输入: 1
-输出: [0.16667,0.16667,0.16667,0.16667,0.16667,0.16667]
-```
+<p>&nbsp;</p>
 
-**示例  2:**
+<p><strong>示例 1:</strong></p>
 
-```
-输入: 2
-输出: [0.02778,0.05556,0.08333,0.11111,0.13889,0.16667,0.13889,0.11111,0.08333,0.05556,0.02778]
-```
+<pre><strong>输入:</strong> 1
+<strong>输出:</strong> [0.16667,0.16667,0.16667,0.16667,0.16667,0.16667]
+</pre>
 
-**限制：**
+<p><strong>示例&nbsp;2:</strong></p>
 
-- `1 <= n <= 11`
+<pre><strong>输入:</strong> 2
+<strong>输出:</strong> [0.02778,0.05556,0.08333,0.11111,0.13889,0.16667,0.13889,0.11111,0.08333,0.05556,0.02778]</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>1 &lt;= n &lt;= 11</code></p>
 
 ## 解法
 
@@ -112,21 +115,43 @@ class Solution {
  * @return {number[]}
  */
 var twoSum = function (n) {
-  function backtrack(sum, time) {
-    if (time === n) {
-      res[sum]++;
-      return;
+    function backtrack(sum, time) {
+        if (time === n) {
+            res[sum]++;
+            return;
+        }
+        for (let i = 1; i <= 6; i++) {
+            backtrack(sum + i, time + 1);
+        }
     }
-    for (let i = 1; i <= 6; i++) {
-      backtrack(sum + i, time + 1);
-    }
-  }
-  let len = n * 6;
-  let t = 6 ** n;
-  let res = new Array(len + 1).fill(0);
-  backtrack(0, 0);
-  return res.slice(n).map((e) => e / t);
+    let len = n * 6;
+    let t = 6 ** n;
+    let res = new Array(len + 1).fill(0);
+    backtrack(0, 0);
+    return res.slice(n).map(e => e / t);
 };
+```
+
+### **Go**
+
+```go
+func dicesProbability(n int) []float64 {
+	dp := make([]float64, 7)
+	for i := 1; i <= 6; i++ {
+		dp[i] = 1.0 / 6.0
+	}
+	for i := 2; i <= n; i++ {
+		n := len(dp)
+		tmp := make([]float64, 6*i+1)
+		for j := 0; j < n; j++ {
+			for k := 1; k <= 6; k++ {
+				tmp[j+k] += dp[j] / 6.0
+			}
+		}
+		dp = tmp
+	}
+	return dp[n:]
+}
 ```
 
 ### **...**

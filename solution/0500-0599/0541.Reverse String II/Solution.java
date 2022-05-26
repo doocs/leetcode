@@ -1,26 +1,13 @@
 class Solution {
     public String reverseStr(String s, int k) {
-        if (k < 2) return s;
-        StringBuilder sb = new StringBuilder();
-        int length = s.length(), index = 0;
-        while (index < length) {
-            if (index + 2 * k <= length) {
-                sb.append(reverse(s, index, index + k));
-                sb.append(s.substring(index + k, index + 2 * k));
-                index += 2 * k;
-            } else if (index + k <= length){
-                sb.append(reverse(s, index, index + k));
-                sb.append(s.substring(index + k));
-                break;
-            } else {
-                sb.append(reverse(s, index, length));
-                break;
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i += (k << 1)) {
+            for (int st = i, ed = Math.min(chars.length - 1, i + k - 1); st < ed; ++st, --ed) {
+                char t = chars[st];
+                chars[st] = chars[ed];
+                chars[ed] = t;
             }
         }
-        return sb.toString();
-    }
-
-    private StringBuffer reverse(String s, int index, int end) {
-        return new StringBuffer(s.substring(index, end)).reverse();
+        return new String(chars);
     }
 }

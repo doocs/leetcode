@@ -12,9 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/h.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/images/h.png" style="width: 267px; height: 262px;" />
 <pre>
 <strong>Input:</strong> n = 3, edgeList = [[0,1,2],[1,2,4],[2,0,8],[1,0,16]], queries = [[0,1,2],[0,2,5]]
 <strong>Output:</strong> [false,true]
@@ -24,9 +22,7 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/q.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/images/q.png" style="width: 390px; height: 358px;" />
 <pre>
 <strong>Input:</strong> n = 5, edgeList = [[0,1,10],[1,2,5],[2,3,9],[3,4,13]], queries = [[0,4,14],[1,4,13]]
 <strong>Output:</strong> [true,false]
@@ -50,18 +46,161 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 
 ## Solutions
 
+Union find.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def distanceLimitedPathsExist(self, n: int, edgeList: List[List[int]], queries: List[List[int]]) -> List[bool]:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
 
+        p = list(range(n))
+        edgeList.sort(key=lambda x: x[2])
+
+        m = len(queries)
+        indexes = list(range(m))
+        indexes.sort(key=lambda i: queries[i][2])
+        ans = [False] * m
+        i = 0
+        for j in indexes:
+            pj, qj, limit = queries[j]
+            while i < len(edgeList) and edgeList[i][2] < limit:
+                u, v, _ = edgeList[i]
+                p[find(u)] = find(v)
+                i += 1
+            ans[j] = find(pj) == find(qj)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public boolean[] distanceLimitedPathsExist(int n, int[][] edgeList, int[][] queries) {
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        int m = queries.length;
+        Integer[] indexes = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            indexes[i] = i;
+        }
+        Arrays.sort(indexes, Comparator.comparingInt(i -> queries[i][2]));
+        Arrays.sort(edgeList, Comparator.comparingInt(a -> a[2]));
+        boolean[] ans = new boolean[m];
+        int i = 0;
+        for (int j : indexes) {
+            int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
+            while (i < edgeList.length && edgeList[i][2] < limit) {
+                int u = edgeList[i][0], v = edgeList[i][1];
+                p[find(u)] = find(v);
+                ++i;
+            }
+            ans[j] = find(pj) == find(qj);
+        }
+        return ans;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    vector<bool> distanceLimitedPathsExist(int n, vector<vector<int>>& edgeList, vector<vector<int>>& queries) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        sort(edgeList.begin(), edgeList.end(), [](const auto& e1, const auto& e2) {
+            return e1[2] < e2[2];
+        });
+        int m = queries.size();
+        vector<int> indexes(m);
+        for (int i = 0; i < m; ++i) indexes[i] = i;
+        sort(indexes.begin(), indexes.end(), [&](int i, int j) {
+            return queries[i][2] < queries[j][2];
+        });
+
+        vector<bool> ans(m, false);
+        int i = 0;
+        for (int j : indexes)
+        {
+            int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
+            while (i < edgeList.size() && edgeList[i][2] < limit)
+            {
+                int u = edgeList[i][0], v = edgeList[i][1];
+                p[find(u)] = find(v);
+                ++i;
+            }
+            ans[j] = find(pj) == find(qj);
+        }
+        return ans;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
+	p := make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	sort.Slice(edgeList, func(i, j int) bool {
+		return edgeList[i][2] < edgeList[j][2]
+	})
+	m := len(queries)
+	indexes := make([]int, m)
+	for i := 0; i < m; i++ {
+		indexes[i] = i
+	}
+	sort.Slice(indexes, func(i, j int) bool {
+		return queries[indexes[i]][2] < queries[indexes[j]][2]
+	})
+	ans := make([]bool, m)
+	i := 0
+	for _, j := range indexes {
+		pj, qj, limit := queries[j][0], queries[j][1], queries[j][2]
+		for i < len(edgeList) && edgeList[i][2] < limit {
+			u, v := edgeList[i][0], edgeList[i][1]
+			p[find(u)] = find(v)
+			i++
+		}
+		ans[j] = find(pj) == find(qj)
+	}
+	return ans
+}
 ```
 
 ### **...**

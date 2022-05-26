@@ -1,10 +1,11 @@
-# [1502. 判断能否形成等差数列](https://leetcode-cn.com/problems/can-make-arithmetic-progression-from-sequence)
+# [1502. 判断能否形成等差数列](https://leetcode.cn/problems/can-make-arithmetic-progression-from-sequence)
 
 [English Version](/solution/1500-1599/1502.Can%20Make%20Arithmetic%20Progression%20From%20Sequence/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个数字数组 <code>arr</code> 。</p>
 
 <p>如果一个数列中，任意相邻两项的差总等于同一个常数，那么这个数列就称为 <strong>等差数列</strong> 。</p>
@@ -47,7 +48,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        arr.sort()
+        for i in range(1, len(arr) - 1):
+            if (arr[i] << 1) != arr[i - 1] + arr[i + 1]:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -55,7 +62,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = 1; i < arr.length - 1; ++i) {
+            if ((arr[i] << 1) != arr[i - 1] + arr[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function (arr) {
+    arr.sort((a, b) => a - b);
+    for (let i = 1; i < arr.length - 1; i++) {
+        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) return false;
+    }
+    return true;
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
+        arr.sort();
+        let n = arr.len();
+        let target = arr[0] - arr[1];
+        for i in 2..n {
+            if arr[i - 1] - arr[i] != target {
+                return false;
+            }
+        }
+        true
+    }
+}
 ```
 
 ### **...**

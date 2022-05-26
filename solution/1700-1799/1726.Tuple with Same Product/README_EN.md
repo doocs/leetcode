@@ -22,25 +22,11 @@
 <pre>
 <strong>Input:</strong> nums = [1,2,4,5,10]
 <strong>Output:</strong> 16
-<strong>Explanation:</strong> There are 16 valids tuples:
+<strong>Explanation:</strong> There are 16 valid tuples:
 (1,10,2,5) , (1,10,5,2) , (10,1,2,5) , (10,1,5,2)
 (2,5,1,10) , (2,5,10,1) , (5,2,1,10) , (5,2,10,1)
-(2,10,4,5) , (2,10,5,4) , (10,2,4,5) , (10,2,4,5)
+(2,10,4,5) , (2,10,5,4) , (10,2,4,5) , (10,2,5,4)
 (4,5,2,10) , (4,5,10,2) , (5,4,2,10) , (5,4,10,2)
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [2,3,4,6,8,12]
-<strong>Output:</strong> 40
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [2,3,5,7]
-<strong>Output:</strong> 0
 </pre>
 
 <p>&nbsp;</p>

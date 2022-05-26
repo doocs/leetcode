@@ -8,10 +8,9 @@ class Solution:
         p = count = 0
         while 1:
             count = get_bit_num()
-            if n < count: break
+            if n < count:
+                break
             n -= count
             p += 1
         num = n // (p + 1) + pow(10, p)
         return int(str(num)[n % (p + 1)])
-
-

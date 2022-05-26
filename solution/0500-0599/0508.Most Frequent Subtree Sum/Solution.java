@@ -4,38 +4,43 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
-public class Solution {
-    // 后续遍历，遍历的同时，找最大值和计算次数
-    Map<Integer, Integer> map = new HashMap<>();
-    int max = Integer.MIN_VALUE;
+class Solution {
+    private Map<Integer, Integer> counter;
+    private int mx;
 
     public int[] findFrequentTreeSum(TreeNode root) {
-        if (root == null) {
-            return new int[0];
-        }
+        counter = new HashMap<>();
+        mx = Integer.MIN_VALUE;
         dfs(root);
-        List<Integer> list = map.entrySet().stream()
-                .filter(m -> m.getValue() == max).map(i -> i.getKey()).collect(Collectors.toList());
-        int[] res = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
+        List<Integer> res = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
+            if (entry.getValue() == mx) {
+                res.add(entry.getKey());
+            }
         }
-        return res;
+        int[] ans = new int[res.size()];
+        for (int i = 0; i < res.size(); ++i) {
+            ans[i] = res.get(i);
+        }
+        return ans;
     }
 
     private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int left = dfs(root.left);
-        int right = dfs(root.right);
-        int sum = root.val + left + right;
-        int current = map.getOrDefault(sum, 0) + 1;
-        map.put(sum, current);
-        max = Math.max(current, max);
-        return sum;
+        int s = root.val + dfs(root.left) + dfs(root.right);
+        counter.put(s, counter.getOrDefault(s, 0) + 1);
+        mx = Math.max(mx, counter.get(s));
+        return s;
     }
 }

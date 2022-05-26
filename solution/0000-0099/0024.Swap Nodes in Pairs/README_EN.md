@@ -4,19 +4,37 @@
 
 ## Description
 
-<p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head.</p>
-
-<p>You may <strong>not</strong> modify the values in the list&#39;s nodes, only nodes itself may be changed.</p>
+<p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head. You must solve the problem without&nbsp;modifying the values in the list&#39;s nodes (i.e., only nodes themselves may be changed.)</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/images/swap_ex1.jpg" style="width: 422px; height: 222px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,3,4]
+<strong>Output:</strong> [2,1,4,3]
+</pre>
 
-<p><strong>Example:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-Given <code>1-&gt;2-&gt;3-&gt;4</code>, you should return the list as <code>2-&gt;1-&gt;4-&gt;3</code>.
-
+<strong>Input:</strong> head = []
+<strong>Output:</strong> []
 </pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> head = [1]
+<strong>Output:</strong> [1]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the&nbsp;list&nbsp;is in the range <code>[0, 100]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
+</ul>
 
 ## Solutions
 
@@ -39,8 +57,7 @@ class Solution:
             cur.next = t.next
             t.next = cur
             pre.next = t
-            pre = cur
-            cur = pre.next
+            pre, cur = cur, cur.next
         return dummy.next
 ```
 
@@ -67,12 +84,41 @@ class Solution {
             t.next = cur;
             pre.next = t;
             pre = cur;
-            cur = pre.next;
-
+            cur = cur.next;
         }
         return dummy.next;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var swapPairs = function (head) {
+    const dummy = new ListNode(0, head);
+    let pre = dummy;
+    let cur = head;
+    while (cur && cur.next) {
+        const t = cur.next;
+        cur.next = t.next;
+        t.next = cur;
+        pre.next = t;
+        pre = cur;
+        cur = cur.next;
+    }
+    return dummy.next;
+};
 ```
 
 ### **C++**
@@ -91,20 +137,139 @@ class Solution {
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        ListNode* dummy = new ListNode(0, head);
-        ListNode* pre = dummy;
-        ListNode* cur = head;
+        ListNode *dummy = new ListNode(0, head);
+        ListNode *pre = dummy, *cur = head;
         while (cur != nullptr && cur->next != nullptr) {
-            ListNode* t = cur->next;
+            ListNode *t = cur->next;
             cur->next = t->next;
             t->next = cur;
             pre->next = t;
             pre = cur;
-            cur = pre->next;
+            cur = cur->next;
         }
         return dummy->next;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func swapPairs(head *ListNode) *ListNode {
+    dummy := &ListNode{0, head}
+    pre, cur := dummy, head
+    for cur != nil && cur.Next != nil {
+        t := cur.Next
+        cur.Next = t.Next
+        t.Next = cur
+        pre.Next = t
+        pre = cur
+        cur = cur.Next
+    }
+    return dummy.Next
+}
+```
+
+### **Ruby**
+
+```rb
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} head
+# @return {ListNode}
+def swap_pairs(head)
+    dummy = ListNode.new(0, head)
+    pre = dummy
+    cur = head
+    while !cur.nil? && !cur.next.nil?
+        t = cur.next
+        cur.next = t.next
+        t.next = cur
+        pre.next = t
+        pre = cur
+        cur = cur.next
+    end
+    dummy.next
+end
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function swapPairs(head: ListNode | null): ListNode | null {
+    const dummy = new ListNode(0, head);
+    let cur = dummy;
+    while (cur.next != null && cur.next.next != null) {
+        const a = cur.next;
+        const b = cur.next.next;
+        [a.next, b.next, cur.next] = [b.next, a, b];
+        cur = cur.next.next;
+    }
+    return dummy.next;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut dummy = Some(Box::new(ListNode { val: 0, next: head }));
+        let mut cur = dummy.as_mut().unwrap();
+        while cur.next.is_some() && cur.next.as_ref().unwrap().next.is_some() {
+            cur.next = {
+                let mut b = cur.next.as_mut().unwrap().next.take();
+                cur.next.as_mut().unwrap().next = b.as_mut().unwrap().next.take();
+                let a = cur.next.take();
+                b.as_mut().unwrap().next = a;
+                b
+            };
+            cur = cur.next.as_mut().unwrap().next.as_mut().unwrap();
+        }
+        dummy.unwrap().next
+    }
+}
 ```
 
 ### **...**

@@ -1,29 +1,67 @@
-# [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change)
+# [322. 零钱兑换](https://leetcode.cn/problems/coin-change)
 
 [English Version](/solution/0300-0399/0322.Coin%20Change/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回&nbsp;<code>-1</code>。</p>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p>给你一个整数数组 <code>coins</code> ，表示不同面额的硬币；以及一个整数 <code>amount</code> ，表示总金额。</p>
 
-<pre><strong>输入: </strong>coins = <code>[1, 2, 5]</code>, amount = <code>11</code>
-<strong>输出: </strong><code>3</code> 
-<strong>解释:</strong> 11 = 5 + 5 + 1</pre>
+<p>计算并返回可以凑成总金额所需的 <strong>最少的硬币个数</strong> 。如果没有任何一种硬币组合能组成总金额，返回&nbsp;<code>-1</code> 。</p>
 
-<p><strong>示例 2:</strong></p>
+<p>你可以认为每种硬币的数量是无限的。</p>
 
-<pre><strong>输入: </strong>coins = <code>[2]</code>, amount = <code>3</code>
-<strong>输出: </strong>-1</pre>
+<p>&nbsp;</p>
 
-<p><strong>说明</strong>:<br>
-你可以认为每种硬币的数量是无限的。</p>
+<p><strong>示例&nbsp;1：</strong></p>
+
+<pre>
+<strong>输入：</strong>coins = <code>[1, 2, 5]</code>, amount = <code>11</code>
+<strong>输出：</strong><code>3</code> 
+<strong>解释：</strong>11 = 5 + 5 + 1</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>coins = <code>[2]</code>, amount = <code>3</code>
+<strong>输出：</strong>-1</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>coins = [1], amount = 0
+<strong>输出：</strong>0
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= coins.length &lt;= 12</code></li>
+	<li><code>1 &lt;= coins[i] &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>0 &lt;= amount &lt;= 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：动态规划**
+
+类似完全背包的思路，硬币数量不限，求凑成总金额所需的最少的硬币个数。
+
+定义 `dp[i][j]` 表示从前 i 种硬币选出总金额为 j 所需的最少硬币数。
+
+由于：
+
+-   `dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2v] + 2, ... , dp[i - 1][j - kv] + k)`
+-   `dp[i][j - v] = min( dp[i - 1][j - v], dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
+
+因此 `dp[i][j] = min(dp[i - 1][j], dp[i][j - v] + 1)`。
+
+时间复杂度 `O(m*amount)`，其中 m 表示 coins 长度。
 
 <!-- tabs:start -->
 
@@ -31,8 +69,33 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
+动态规划——完全背包问题朴素做法：
 
+```python
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        m, n = len(coins), amount
+        dp = [[n + 1] * (n + 1) for _ in range(m + 1)]
+        dp[0][0] = 0
+        for i in range(1, m + 1):
+            for j in range(n + 1):
+                dp[i][j] = dp[i - 1][j]
+                if j >= coins[i - 1]:
+                    dp[i][j] = min(dp[i][j], dp[i][j - coins[i - 1]] + 1)
+        return -1 if dp[-1][-1] > n else dp[-1][-1]
+```
+
+动态规划——完全背包问题空间优化：
+
+```python
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [amount + 1] * (amount + 1)
+        dp[0] = 0
+        for coin in coins:
+            for j in range(coin, amount + 1):
+                dp[j] = min(dp[j], dp[j - coin] + 1)
+        return -1 if dp[-1] > amount else dp[-1]
 ```
 
 ### **Java**
@@ -40,32 +103,126 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int m = coins.length;
+        int[][] dp = new int[m + 1][amount + 1];
+        for (int i = 0; i <= m; ++i) {
+            Arrays.fill(dp[i], amount + 1);
+        }
+        dp[0][0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            int v = coins[i - 1];
+            for (int j = 0; j <= amount; ++j) {
+                dp[i][j] = dp[i - 1][j];
+                if (j >= v) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i][j - v] + 1);
+                }
+            }
+        }
+        return dp[m][amount] > amount ? - 1 : dp[m][amount];
+    }
+}
+```
 
+```java
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for (int coin : coins) {
+            for (int j = coin; j <= amount; j++) {
+                dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+}
 ```
 
 ### **JavaScript**
 
-动态规划法。
-
-```javascript
+```js
 /**
  * @param {number[]} coins
  * @param {number} amount
  * @return {number}
  */
 var coinChange = function (coins, amount) {
-  var dp = Array(amount + 1).fill(amount + 1);
-  dp[0] = 0;
-  for (var i = 1; i <= amount; i++) {
-    for (var j = 0; j < coins.length; j++) {
-      if (coins[j] <= i) {
-        dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
-      }
+    let dp = Array(amount + 1).fill(amount + 1);
+    dp[0] = 0;
+    for (const coin of coins) {
+        for (let j = coin; j <= amount; ++j) {
+            dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+        }
     }
-  }
-
-  return dp[amount] > amount ? -1 : dp[amount];
+    return dp[amount] > amount ? -1 : dp[amount];
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        vector<int> dp(amount + 1, amount + 1);
+        dp[0] = 0;
+        for (auto& coin : coins)
+            for (int j = coin; j <= amount; ++j)
+                dp[j] = min(dp[j], dp[j - coin] + 1);
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+};
+```
+
+### **Go**
+
+```go
+func coinChange(coins []int, amount int) int {
+	dp := make([]int, amount+1)
+	for i := 1; i <= amount; i++ {
+		dp[i] = amount + 1
+	}
+	for _, coin := range coins {
+		for j := coin; j <= amount; j++ {
+			dp[j] = min(dp[j], dp[j-coin]+1)
+		}
+	}
+	if dp[amount] > amount {
+		return -1
+	}
+	return dp[amount]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function coinChange(coins: number[], amount: number): number {
+    let dp = new Array(amount + 1).fill(amount + 1);
+    dp[0] = 0;
+    for (const coin of coins) {
+        for (let j = coin; j <= amount; ++j) {
+            dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+        }
+    }
+    return dp[amount] > amount ? -1 : dp[amount];
+}
+```
+
+### **....**
+
+```
+
 ```
 
 <!-- tabs:end -->

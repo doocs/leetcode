@@ -1,34 +1,26 @@
 class Foo {
+private:
+    mutex m2, m3;
+
 public:
     Foo() {
-        _mutex1.lock();
-        _mutex2.lock();
+        m2.lock();
+        m3.lock();
     }
 
     void first(function<void()> printFirst) {
-        
         printFirst();
-        _mutex1.unlock();
+        m2.unlock();
     }
 
     void second(function<void()> printSecond) {
-        
-        _mutex1.lock();
+        m2.lock();
         printSecond();
-        _mutex1.unlock();
-        _mutex2.unlock();
+        m3.unlock();
     }
 
     void third(function<void()> printThird) {
-        
-        _mutex2.lock();
+        m3.lock();
         printThird();
-        _mutex2.unlock();
     }
-    
-    
-private:
-    std::mutex _mutex1;
-    std::mutex _mutex2;
-    
 };

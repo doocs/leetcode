@@ -1,38 +1,27 @@
 ﻿class Solution {
-private:
-    vector<vector<int>> paths ;
-    vector<bool> visited = vector<bool>(16, false) ;
-    vector<int> path ;
-    
-    void search(vector<vector<int>>& graph, int s, int e)
-    {
-        if (visited.at(s))
-            return ;
-        
-        if (s == e)
-        {
-            path.push_back(e) ;
-            paths.push_back(path) ;
-            path.pop_back() ;
-            return ;
-        }
-        
-        visited[s] = true ;  // visited
-        path.push_back(s) ;
-        for (auto to: graph[s])
-            search(graph, to, e) ;
-        path.pop_back() ;
-        visited[s] = false ;
-        
-    }
-    
 public:
+    vector<vector<int>> graph;
+    vector<vector<int>> ans;
+
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
-        if (graph.size() == 0)
-            return {} ;
-        
-        search(graph, 0, graph.size()-1) ;
-        
-        return paths ;
+        this->graph = graph;
+        vector<int> path;
+        path.push_back(0);
+        dfs(0, path);
+        return ans;
+    }
+
+    void dfs(int i, vector<int> path) {
+        if (i == graph.size() - 1)
+        {
+            ans.push_back(path);
+            return;
+        }
+        for (int j : graph[i])
+        {
+            path.push_back(j);
+            dfs(j, path);
+            path.pop_back();
+        }
     }
 };

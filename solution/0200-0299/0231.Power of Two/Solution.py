@@ -1,13 +1,3 @@
 class Solution:
-    def isPowerOfTwo(self, n):
-        """
-        :type n: int
-        :rtype: bool
-        """
-        if n<=0:
-            return False
-        m=2**32
-        if m%n:
-            return False
-        else:
-            return True
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and (n & (n - 1)) == 0

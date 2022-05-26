@@ -4,31 +4,33 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-
     public List<Double> averageOfLevels(TreeNode root) {
-        if (root == null) return null;
-
         List<Double> res = new ArrayList<>();
-        LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            double sum = 0, size = queue.size();
-            for (int i = 0; i < size; i ++) {
-                TreeNode node = queue.poll();
-                sum += node.val;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            double s = 0, n = q.size();
+            for (int i = 0; i < n; ++i) {
+                TreeNode node = q.poll();
+                s += node.val;
                 if (node.left != null) {
-                    queue.offer(node.left);
+                    q.offer(node.left);
                 }
                 if (node.right != null) {
-                    queue.offer(node.right);
+                    q.offer(node.right);
                 }
             }
-            res.add(sum / size);
+            res.add(s / n);
         }
         return res;
     }

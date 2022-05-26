@@ -1,23 +1,19 @@
 class Solution {
     public String countAndSay(int n) {
-        String one = "1";
-        while (n > 1) {
-            one = say(one);
-            n--;
-        }
-        return one;
-    }
-
-    private String say(String las) {
-        StringBuilder sBuilder = new StringBuilder();
-        int l = 1;
-        for (int i = 0; i < las.length(); i++) {
-            if (i < las.length() - 1 && las.charAt(i) == las.charAt(i + 1)) l++;
-            else {
-                sBuilder.append(l).append(las.charAt(i));
-                l = 1;
+        String s = "1";
+        while (--n > 0) {
+            StringBuilder t = new StringBuilder();
+            for (int i = 0; i < s.length();) {
+                int j = i;
+                while (j < s.length() && s.charAt(j) == s.charAt(i)) {
+                    ++j;
+                }
+                t.append((j - i) + "");
+                t.append(s.charAt(i));
+                i = j;
             }
+            s = t.toString();
         }
-        return sBuilder.toString();
+        return s;
     }
 }

@@ -4,22 +4,35 @@
 
 ## Description
 
-Given a 01 matrix <b>M</b>, find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
+<p>Given an <code>m x n</code> binary matrix <code>mat</code>, return <em>the length of the longest line of consecutive one in the matrix</em>.</p>
 
-<p><b>Example:</b><br />
+<p>The line could be horizontal, vertical, diagonal, or anti-diagonal.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/images/long1-grid.jpg" style="width: 333px; height: 253px;" />
 <pre>
-<b>Input:</b>
-[[0,1,1,0],
- [0,1,1,0],
- [0,0,0,1]]
-<b>Output:</b> 3
+<strong>Input:</strong> mat = [[0,1,1,0],[0,1,1,0],[0,0,0,1]]
+<strong>Output:</strong> 3
 </pre>
-</p>
 
-<p>
-<b>Hint:</b>
-The number of elements in the given matrix will not exceed 10,000.
-</p>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/images/long2-grid.jpg" style="width: 333px; height: 253px;" />
+<pre>
+<strong>Input:</strong> mat = [[1,1,1,1],[0,1,1,0],[0,0,0,1]]
+<strong>Output:</strong> 4
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>m == mat.length</code></li>
+	<li><code>n == mat[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= m * n &lt;= 10<sup>4</sup></code></li>
+	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+</ul>
 
 ## Solutions
 

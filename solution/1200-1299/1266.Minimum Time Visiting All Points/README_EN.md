@@ -4,20 +4,25 @@
 
 ## Description
 
-<p>On a plane there are <code>n</code> points with integer coordinates <code>points[i] = [xi, yi]</code>. Your task is to find the minimum time in seconds to visit all points.</p>
+<p>On a 2D plane, there are <code>n</code> points with integer coordinates <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>. Return <em>the <strong>minimum time</strong> in seconds to visit all the points in the order given by </em><code>points</code>.</p>
 
-<p>You can move according to the next rules:</p>
+<p>You can move according to these rules:</p>
 
 <ul>
-	<li>In one second always you can either move vertically, horizontally by one unit or diagonally (it means to move one unit vertically and one unit horizontally in one second).</li>
-	<li>You have to visit the points in the same order as they appear in the array.</li>
+	<li>In <code>1</code> second, you can either:
+    <ul>
+    	<li>move vertically by one&nbsp;unit,</li>
+    	<li>move horizontally by one unit, or</li>
+    	<li>move diagonally <code>sqrt(2)</code> units (in other words, move one unit vertically then one unit horizontally in <code>1</code> second).</li>
+    </ul>
+    </li>
+    <li>You have to visit the points in the same order as they appear in the array.</li>
+    <li>You are allowed to pass through points that appear later in the order, but these do not count as visits.</li>
 </ul>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/1626_example_1.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/images/1626_example_1.png" style="width: 500px; height: 428px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[3,4],[-1,0]]
 <strong>Output:</strong> 7
@@ -50,13 +55,89 @@ Total time = 7 seconds</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
+        res = 0
+        x0, y0 = points[0][0], points[0][1]
+        for x1, y1 in points[1:]:
+            res += max(abs(x0 - x1), abs(y0 - y1))
+            x0, y0 = x1, y1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minTimeToVisitAllPoints(int[][] points) {
+        int res = 0;
+        for (int i = 1; i < points.length; ++i) {
+            int x0 = points[i - 1][0], y0 = points[i - 1][1];
+            int x1 = points[i][0], y1 = points[i][1];
+            res += Math.max(Math.abs(x0 - x1), Math.abs(y0 - y1));
+        }
+        return res;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function minTimeToVisitAllPoints(points: number[][]): number {
+    let ans = 0;
+    for (let i = 1; i < points.length; i++) {
+        let dx = Math.abs(points[i][0] - points[i - 1][0]),
+            dy = Math.abs(points[i][1] - points[i - 1][1]);
+        ans += Math.max(dx, dy);
+    }
+    return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minTimeToVisitAllPoints(vector<vector<int>>& points) {
+        int res = 0;
+        for (int i = 1; i < points.size(); ++i) {
+            int x0 = points[i - 1][0], y0 = points[i - 1][1];
+            int x1 = points[i][0], y1 = points[i][1];
+            res += max(abs(x0 - x1), abs(y0 - y1));
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minTimeToVisitAllPoints(points [][]int) int {
+	res := 0
+	for i := 1; i < len(points); i++ {
+		x0, y0 := points[i-1][0], points[i-1][1]
+		x1, y1 := points[i][0], points[i][1]
+		res += max(abs(x0-x1), abs(y0-y1))
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func abs(a int) int {
+	if a > 0 {
+		return a
+	}
+	return -a
+}
 ```
 
 ### **...**

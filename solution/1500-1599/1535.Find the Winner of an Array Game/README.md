@@ -1,10 +1,11 @@
-# [1535. 找出数组游戏的赢家](https://leetcode-cn.com/problems/find-the-winner-of-an-array-game)
+# [1535. 找出数组游戏的赢家](https://leetcode.cn/problems/find-the-winner-of-an-array-game)
 
 [English Version](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个由 <strong>不同</strong> 整数组成的整数数组 <code>arr</code> 和一个整数 <code>k</code> 。</p>
 
 <p>每回合游戏都在数组的前两个元素（即 <code>arr[0]</code> 和 <code>arr[1]</code> ）之间进行。比较 <code>arr[0]</code> 与 <code>arr[1]</code> 的大小，较大的整数将会取得这一回合的胜利并保留在位置 <code>0</code> ，较小的整数移至数组的末尾。当一个整数赢得 <code>k</code> 个连续回合时，游戏结束，该整数就是比赛的 <strong>赢家</strong> 。</p>
@@ -20,9 +21,7 @@
 <pre><strong>输入：</strong>arr = [2,1,3,5,4,6,7], k = 2
 <strong>输出：</strong>5
 <strong>解释：</strong>一起看一下本场游戏每回合的情况：
-
-![](./images/q-example.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/images/q-example.png" style="height: 90px; width: 400px;">
 因此将进行 4 回合比赛，其中 5 是赢家，因为它连胜 2 回合。
 </pre>
 

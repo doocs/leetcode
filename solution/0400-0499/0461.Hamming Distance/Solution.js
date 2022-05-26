@@ -1,9 +1,14 @@
-const hammingDistance = function (x, y) {
-  let a = x ^ y;
-  a = a.toString(2);
-  let res = 0;
-  for (let i = 0; i < a.length; i++) {
-    res += a[i] === "1";
-  }
-  return res;
+/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ */
+var hammingDistance = function (x, y) {
+    let distance = x ^ y;
+    let count = 0;
+    while (distance != 0) {
+        count++;
+        distance &= distance - 1;
+    }
+    return count;
 };

@@ -1,14 +1,14 @@
-import java.util.*;
-
 class Solution {
     public boolean checkIfExist(int[] arr) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < arr.length; i++) {
-            map.put(arr[i], i);
+        Map<Integer, Integer> m = new HashMap<>();
+        int n = arr.length;
+        for (int i = 0; i < n; ++i) {
+            m.put(arr[i], i);
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (map.containsKey(arr[i] * 2) && i != map.get(arr[i] * 2))
+        for (int i = 0; i < n; ++i) {
+            if (m.containsKey(arr[i] << 1) && m.get(arr[i] << 1) != i) {
                 return true;
+            }
         }
         return false;
     }

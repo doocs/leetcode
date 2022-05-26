@@ -1,4 +1,4 @@
-# [01.01. Is Unique](https://leetcode-cn.com/problems/is-unique-lcci)
+# [01.01. Is Unique](https://leetcode.cn/problems/is-unique-lcci)
 
 [中文文档](/lcci/01.01.Is%20Unique/README.md)
 
@@ -10,7 +10,7 @@
 
 <pre>
 
-<strong>Input: </strong><code>s</code> = &quot;leetcode&quot;
+<strong>Input: </strong> = &quot;leetcode&quot;
 
 <strong>Output: </strong>false
 
@@ -20,7 +20,7 @@
 
 <pre>
 
-<strong>Input: </strong><code>s</code> = &quot;abc&quot;
+<strong>Input: </strong>s = &quot;abc&quot;
 
 <strong>Output: </strong>true
 
@@ -41,8 +41,13 @@
 ```python
 class Solution:
     def isUnique(self, astr: str) -> bool:
-        sets = set(astr)
-        return len(sets) == len(astr)
+        bitmap = 0
+        for c in astr:
+            pos = ord(c) - ord('a')
+            if (bitmap & (1 << pos)) != 0:
+                return False
+            bitmap |= (1 << pos)
+        return True
 ```
 
 ### **Java**
@@ -50,18 +55,72 @@ class Solution:
 ```java
 class Solution {
     public boolean isUnique(String astr) {
-        char[] chars = astr.toCharArray();
-        int len = chars.length;
-        for (int i = 0; i < len - 1; ++i) {
-            for (int j = i + 1; j < len; ++j) {
-                if (chars[i] == chars[j]) {
-                    return false;
-                }
+        int bitmap = 0;
+        for (char c : astr.toCharArray()) {
+            int pos = c - 'a';
+            if ((bitmap & (1 << pos)) != 0) {
+                return false;
             }
+            bitmap |= (1 << pos);
         }
         return true;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} astr
+ * @return {boolean}
+ */
+var isUnique = function (astr) {
+    let bitmap = 0;
+    for (let i = 0; i < astr.length; ++i) {
+        const pos = astr[i].charCodeAt() - 'a'.charCodeAt();
+        if ((bitmap & (1 << pos)) != 0) {
+            return false;
+        }
+        bitmap |= 1 << pos;
+    }
+    return true;
+};
+```
+
+### **Go**
+
+```go
+func isUnique(astr string) bool {
+	bitmap := 0
+	for _, r := range astr {
+		pos := r - 'a'
+		if (bitmap & (1 << pos)) != 0 {
+			return false
+		}
+		bitmap |= (1 << pos)
+	}
+	return true
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isUnique(string astr) {
+        int bitmap = 0;
+        for (char c : astr) {
+            int pos = c - 'a';
+            if ((bitmap & (1 << pos)) != 0) {
+                return false;
+            }
+            bitmap |= (1 << pos);
+        }
+        return true;
+    }
+};
 ```
 
 ### **...**

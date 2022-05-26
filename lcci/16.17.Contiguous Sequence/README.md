@@ -1,4 +1,4 @@
-# [面试题 16.17. 连续数列](https://leetcode-cn.com/problems/contiguous-sequence-lcci)
+# [面试题 16.17. 连续数列](https://leetcode.cn/problems/contiguous-sequence-lcci)
 
 [English Version](/lcci/16.17.Contiguous%20Sequence/README_EN.md)
 
@@ -20,6 +20,8 @@
 
 ## 解法
 
+动态规划
+
 <!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
@@ -38,6 +40,23 @@
 
 ```java
 
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+    let dp = [-Infinity];
+    for (let i = 0; i < nums.length; i++) {
+        let cur = nums[i];
+        dp[i + 1] = Math.max(dp[i] + cur, cur);
+    }
+    return Math.max(...dp);
+};
 ```
 
 ### **...**

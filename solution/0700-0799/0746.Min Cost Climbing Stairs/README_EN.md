@@ -4,55 +4,45 @@
 
 ## Description
 
-<p>
+<p>You are given an integer array <code>cost</code> where <code>cost[i]</code> is the cost of <code>i<sup>th</sup></code> step on a staircase. Once you pay the cost, you can either climb one or two steps.</p>
 
-On a staircase, the <code>i</code>-th step has some non-negative cost <code>cost[i]</code> assigned (0 indexed).
+<p>You can either start from the step with index <code>0</code>, or the step with index <code>1</code>.</p>
 
-</p><p>
+<p>Return <em>the minimum cost to reach the top of the floor</em>.</p>
 
-Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> cost = [10, 15, 20]
-
-<b>Output:</b> 15
-
-<b>Explanation:</b> Cheapest is start on cost[1], pay that cost and go to the top.
-
+<strong>Input:</strong> cost = [10,<u>15</u>,20]
+<strong>Output:</strong> 15
+<strong>Explanation:</strong> You will start at index 1.
+- Pay 15 and climb two steps to reach the top.
+The total cost is 15.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
-
-<b>Output:</b> 6
-
-<b>Explanation:</b> Cheapest is start on cost[0], and only step on 1s, skipping cost[3].
-
+<strong>Input:</strong> cost = [<u>1</u>,100,<u>1</u>,1,<u>1</u>,100,<u>1</u>,<u>1</u>,100,<u>1</u>]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> You will start at index 0.
+- Pay 1 and climb two steps to reach index 2.
+- Pay 1 and climb two steps to reach index 4.
+- Pay 1 and climb two steps to reach index 6.
+- Pay 1 and climb one step to reach index 7.
+- Pay 1 and climb two steps to reach index 9.
+- Pay 1 and climb one step to reach the top.
+The total cost is 6.
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br>
-
-<ol>
-
-<li><code>cost</code> will have a length in the range <code>[2, 1000]</code>.</li>
-
-<li>Every <code>cost[i]</code> will be an integer in the range <code>[0, 999]</code>.</li>
-
-</ol>
-
-</p>
+<ul>
+	<li><code>2 &lt;= cost.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= cost[i] &lt;= 999</code></li>
+</ul>
 
 ## Solutions
 
@@ -63,12 +53,10 @@ Once you pay the cost, you can either climb one or two steps. You need to find m
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
-        pre = cur = 0
-        n = len(cost)
-        for i in range(1, n):
-            t = min(cost[i] + cur, cost[i - 1] + pre)
-            pre, cur = cur, t
-        return cur
+        a = b = 0
+        for i in range(1, len(cost)):
+            a, b = b, min(a + cost[i - 1], b + cost[i])
+        return b
 ```
 
 ### **Java**
@@ -76,14 +64,63 @@ class Solution:
 ```java
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
-        int pre = 0, cur = 0;
-        for (int i = 1, n = cost.length; i < n; ++i) {
-            int t = Math.min(cost[i] + cur, cost[i - 1] + pre);
-            pre = cur;
-            cur = t;
+        int a = 0, b = 0;
+        for (int i = 1; i < cost.length; ++i) {
+            int c = Math.min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = c;
         }
-        return cur;
+        return b;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
+    let a = 0,
+        b = 0;
+    for (let i = 1; i < cost.length; ++i) {
+        [a, b] = [b, Math.min(a + cost[i - 1], b + cost[i])];
+    }
+    return b;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int a = 0, b = 0;
+        for (int i = 1; i < cost.size(); ++i) {
+            int c = min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	a, b := 0, 0
+	for i := 1; i < len(cost); i++ {
+		a, b = b, min(a+cost[i-1], b+cost[i])
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 

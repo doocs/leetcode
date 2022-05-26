@@ -1,22 +1,22 @@
 class Solution {
-    public int shortestSubarray(int[] A, int K) {
-        int n = A.length;
-        int[] s = new int[n + 1];
+    public int shortestSubarray(int[] nums, int k) {
+        int n = nums.length;
+        long[] s = new long[n + 1];
         for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + A[i];
+            s[i + 1] = s[i] + nums[i];
         }
-        Deque<Integer> deque = new ArrayDeque<>();
-        deque.offer(0);
-        int res = Integer.MAX_VALUE;
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        int ans = Integer.MAX_VALUE;
         for (int i = 1; i <= n; ++i) {
-            while (!deque.isEmpty() && s[i] - s[deque.peekFirst()] >= K) {
-                res = Math.min(res, i - deque.pollFirst());
+            while (!q.isEmpty() && s[i] - s[q.peek()] >= k) {
+                ans = Math.min(ans, i - q.poll());
             }
-            while (!deque.isEmpty() && s[i] <= s[deque.peekLast()]) {
-                deque.pollLast();
+            while (!q.isEmpty() && s[i] <= s[q.peekLast()]) {
+                q.pollLast();
             }
-            deque.offer(i);
+            q.offer(i);
         }
-        return res != Integer.MAX_VALUE ? res : -1;
+        return ans == Integer.MAX_VALUE ? -1 : ans;
     }
 }

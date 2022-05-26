@@ -8,15 +8,11 @@
  */
 class Solution {
     public int getDecimalValue(ListNode head) {
-        int sum = 0;
-        StringBuilder sb = new StringBuilder("0");
+        int res = 0;
         while (head != null) {
-            sum += head.val;
-            if (sum != 0) {
-                sb.append(head.val);
-            }
+            res = (res << 1) + head.val;
             head = head.next;
         }
-        return Integer.valueOf(sb.toString(), 2);
+        return res;
     }
 }

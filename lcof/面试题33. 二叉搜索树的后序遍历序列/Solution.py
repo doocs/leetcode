@@ -1,17 +1,14 @@
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
-        def verify(p1, p2):
-            if p1 > p2:
+        def dfs(postorder):
+            if not postorder:
                 return True
-            pos = p1
-            while pos < p2 and postorder[pos] < postorder[p2]:
-                pos += 1
-            p = pos
-            while pos < p2:
-                if postorder[pos] < postorder[p2]:
-                    return False
-                pos += 1
-            return verify(p1, p - 1) and verify(p, p2 - 1)
-        if not postorder:
-            return True
-        return verify(0, len(postorder) - 1)
+            v = postorder[-1]
+            i = 0
+            while i < len(postorder) and postorder[i] < v:
+                i += 1
+            if any(x < v for x in postorder[i:]):
+                return False
+            return dfs(postorder[:i]) and dfs(postorder[i:-1])
+
+        return dfs(postorder)

@@ -1,55 +1,63 @@
-# [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remove-outermost-parentheses)
+# [1021. 删除最外层的括号](https://leetcode.cn/problems/remove-outermost-parentheses)
 
 [English Version](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>有效括号字符串为空&nbsp;<code>(&quot;&quot;)</code>、<code>&quot;(&quot; + A + &quot;)&quot;</code>&nbsp;或&nbsp;<code>A + B</code>，其中&nbsp;<code>A</code> 和&nbsp;<code>B</code>&nbsp;都是有效的括号字符串，<code>+</code>&nbsp;代表字符串的连接。例如，<code>&quot;&quot;</code>，<code>&quot;()&quot;</code>，<code>&quot;(())()&quot;</code>&nbsp;和&nbsp;<code>&quot;(()(()))&quot;</code>&nbsp;都是有效的括号字符串。</p>
 
-<p>如果有效字符串&nbsp;<code>S</code>&nbsp;非空，且不存在将其拆分为&nbsp;<code>S = A+B</code>&nbsp;的方法，我们称其为<strong>原语（primitive）</strong>，其中&nbsp;<code>A</code> 和&nbsp;<code>B</code>&nbsp;都是非空有效括号字符串。</p>
+<p>有效括号字符串为空 <code>""</code>、<code>"(" + A + ")"</code> 或 <code>A + B</code> ，其中 <code>A</code> 和 <code>B</code> 都是有效的括号字符串，<code>+</code> 代表字符串的连接。</p>
 
-<p>给出一个非空有效字符串&nbsp;<code>S</code>，考虑将其进行原语化分解，使得：<code>S = P_1 + P_2 + ... + P_k</code>，其中&nbsp;<code>P_i</code>&nbsp;是有效括号字符串原语。</p>
+<ul>
+	<li>例如，<code>""</code>，<code>"()"</code>，<code>"(())()"</code> 和 <code>"(()(()))"</code> 都是有效的括号字符串。</li>
+</ul>
 
-<p>对&nbsp;<code>S</code>&nbsp;进行原语化分解，删除分解中每个原语字符串的最外层括号，返回 <code>S</code>&nbsp;。</p>
+<p>如果有效字符串 <code>s</code> 非空，且不存在将其拆分为 <code>s = A + B</code> 的方法，我们称其为<strong>原语（primitive）</strong>，其中 <code>A</code> 和 <code>B</code> 都是非空有效括号字符串。</p>
 
-<p>&nbsp;</p>
+<p>给出一个非空有效字符串 <code>s</code>，考虑将其进行原语化分解，使得：<code>s = P_1 + P_2 + ... + P_k</code>，其中 <code>P_i</code> 是有效括号字符串原语。</p>
+
+<p>对 <code>s</code> 进行原语化分解，删除分解中每个原语字符串的最外层括号，返回 <code>s</code> 。</p>
+
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>&quot;(()())(())&quot;
-<strong>输出：</strong>&quot;()()()&quot;
+<pre>
+<strong>输入：</strong>s = "(()())(())"
+<strong>输出：</strong>"()()()"
 <strong>解释：
-</strong>输入字符串为 &quot;(()())(())&quot;，原语化分解得到 &quot;(()())&quot; + &quot;(())&quot;，
-删除每个部分中的最外层括号后得到 &quot;()()&quot; + &quot;()&quot; = &quot;()()()&quot;。</pre>
+</strong>输入字符串为 "(()())(())"，原语化分解得到 "(()())" + "(())"，
+删除每个部分中的最外层括号后得到 "()()" + "()" = "()()()"。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>&quot;(()())(())(()(()))&quot;
-<strong>输出：</strong>&quot;()()()()(())&quot;
+<pre>
+<strong>输入：</strong>s = "(()())(())(()(()))"
+<strong>输出：</strong>"()()()()(())"
 <strong>解释：</strong>
-输入字符串为 &quot;(()())(())(()(()))&quot;，原语化分解得到 &quot;(()())&quot; + &quot;(())&quot; + &quot;(()(()))&quot;，
-删除每隔部分中的最外层括号后得到 &quot;()()&quot; + &quot;()&quot; + &quot;()(())&quot; = &quot;()()()()(())&quot;。
+输入字符串为 "(()())(())(()(()))"，原语化分解得到 "(()())" + "(())" + "(()(()))"，
+删除每个部分中的最外层括号后得到 "()()" + "()" + "()(())" = "()()()()(())"。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>&quot;()()&quot;
-<strong>输出：</strong>&quot;&quot;
+<pre>
+<strong>输入：</strong>s = "()()"
+<strong>输出：</strong>""
 <strong>解释：</strong>
-输入字符串为 &quot;()()&quot;，原语化分解得到 &quot;()&quot; + &quot;()&quot;，
-删除每个部分中的最外层括号后得到 &quot;&quot; + &quot;&quot; = &quot;&quot;。
+输入字符串为 "()()"，原语化分解得到 "()" + "()"，
+删除每个部分中的最外层括号后得到 "" + "" = ""。
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>S.length &lt;= 10000</code></li>
-	<li><code>S[i]</code> 为&nbsp;<code>&quot;(&quot;</code> 或&nbsp;<code>&quot;)&quot;</code></li>
-	<li><code>S</code> 是一个有效括号字符串</li>
-</ol>
+<ul>
+	<li><code>1 <= s.length <= 10<sup>5</sup></code></li>
+	<li><code>s[i]</code> 为 <code>'('</code> 或 <code>')'</code></li>
+	<li><code>s</code> 是一个有效括号字符串</li>
+</ul>
 
 ## 解法
 

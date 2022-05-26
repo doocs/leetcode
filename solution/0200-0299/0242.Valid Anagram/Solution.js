@@ -1,27 +1,15 @@
-const isAnagram = function (s, t) {
-  let a = {},
-    b = {};
-  for (let i = 0; i < s.length; i++) {
-    if (a.hasOwnProperty(s[i])) {
-      a[s[i]]++;
-    } else {
-      a[s[i]] = 1;
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+    if (s.length != t.length) return false;
+    let record = new Array(26).fill(0);
+    let base = 'a'.charCodeAt(0);
+    for (let i = 0; i < s.length; ++i) {
+        ++record[s.charCodeAt(i) - base];
+        --record[t.charCodeAt(i) - base];
     }
-  }
-  for (let i = 0; i < t.length; i++) {
-    if (b.hasOwnProperty(t[i])) {
-      b[t[i]]++;
-    } else {
-      b[t[i]] = 1;
-    }
-  }
-  let keyA = Object.keys(a);
-  let keyB = Object.keys(b);
-  if (keyA.length !== keyB.length) {
-    return false;
-  }
-  for (let i = 0; i < keyA.length; i++) {
-    if (a[keyA[i]] !== b[keyA[i]]) return false;
-  }
-  return true;
+    return record.every(v => v == 0);
 };

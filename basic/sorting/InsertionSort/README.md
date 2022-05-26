@@ -10,8 +10,8 @@
 
 与冒泡排序对比：
 
-- 在冒泡排序中，经过每一轮的排序处理后，数组后端的数是排好序的。
-- 在插入排序中，经过每一轮的排序处理后，数组前端的数是排好序的。
+-   在冒泡排序中，经过每一轮的排序处理后，数组后端的数是排好序的。
+-   在插入排序中，经过每一轮的排序处理后，数组前端的数是排好序的。
 
 ## 代码示例
 
@@ -38,6 +38,161 @@ public class InsertionSort {
         int[] nums = {1, 2, 7, 9, 5, 8};
         insertionSort(nums);
         System.out.println(Arrays.toString(nums));
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+function insertionSort(inputArr) {
+    let len = inputArr.length;
+    for (let i = 1; i <= len - 1; i++) {
+        let temp = inputArr[i];
+        let j = i - 1;
+        while (j >= 0 && inputArr[j] > temp) {
+            inputArr[j + 1] = inputArr[j];
+            j--;
+        }
+        inputArr[j + 1] = temp;
+    }
+    return inputArr;
+}
+
+let arr = [6, 3, 2, 1, 5];
+console.log(insertionSort(arr));
+```
+
+### **Go**
+
+```go
+package main
+
+import "fmt"
+
+func insertionSort(nums []int) {
+	for i, n := 1, len(nums); i < n; i++ {
+		j, num := i-1, nums[i]
+		for ; j >= 0 && nums[j] > num; j-- {
+			nums[j+1] = nums[j]
+		}
+		nums[j+1] = num
+	}
+}
+
+func main() {
+	nums := []int{1, 2, 7, 9, 5, 8}
+	insertionSort(nums)
+	fmt.Println(nums)
+}
+```
+
+### **C++**
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void printvec(const vector<int> &vec, const string &strbegin = "", const string &strend = "")
+{
+    cout << strbegin << endl;
+    for (auto val : vec)
+    {
+        cout << val << "\t";
+    }
+
+    cout << endl;
+    cout << strend << endl;
+}
+
+void insertsort(vector<int> &vec)
+{
+    for (int i = 1; i < vec.size(); i++)
+    {
+        int j = i - 1;
+        int num = vec[i];
+        for (; j >= 0 && vec[j] > num; j--)
+        {
+            vec[j + 1] = vec[j];
+        }
+
+        vec[j + 1] = num;
+    }
+
+    return;
+}
+
+int main()
+{
+    vector<int> vec = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    printvec(vec);
+    insertsort(vec);
+    printvec(vec, "after insert sort");
+    return (0);
+}
+```
+
+### **Rust**
+
+```rust
+fn insertion_sort(nums: &mut Vec<i32>) {
+    let n = nums.len();
+    for i in 1..n {
+        let mut j = i - 1;
+        let temp = nums[i];
+        while j >= 0 as usize && nums[j] > temp {
+            nums[j + 1] = nums[j];
+            j -= 1;
+        }
+        nums[j + 1] = temp;
+    }
+}
+
+fn main() {
+    let mut nums = vec![1, 2, 7, 9, 5, 8];
+    insertion_sort(&mut nums);
+    println!("{:?}", nums);
+}
+```
+
+### **C#**
+
+```cs
+using System.Diagnostics;
+using static System.Console;
+namespace Pro;
+public class Program
+{
+    public static void Main()
+    {
+        int[] test = new int[] { 31, 12, 10, 5, 6, 7, 8, 10, 23, 34, 56, 43, 32, 21 };
+        InsertSortNums(test);
+        foreach (var item in test)
+        {
+            WriteLine(item);
+        }
+    }
+    public static void InsertSortNums(int[] nums)
+    {
+        for (int initial = 1; initial < nums.Length; initial++)
+        {
+            for (int second_sort = 0; second_sort < initial; second_sort++)
+            {
+                if (nums[second_sort] > nums[initial])
+                {
+                    swap(ref nums[second_sort], ref nums[initial]);
+                }
+            }
+        }
+    }
+
+    private static void swap(ref int compare_left, ref int compare_right)
+    {
+        int temp = compare_left;
+        compare_left = compare_right;
+        compare_right = temp;
     }
 }
 ```

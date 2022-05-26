@@ -4,9 +4,7 @@
 
 ## Description
 
-<p>Given an array <code>nums</code> and an integer <code><font face="monospace">target</font></code>.</p>
-
-<p>Return the maximum number of <strong>non-empty</strong>&nbsp;<strong>non-overlapping</strong> subarrays such that the sum of values in each subarray is equal to <code><font face="monospace">target</font></code>.</p>
+<p>Given an array <code>nums</code> and an integer <code>target</code>, return <em>the maximum number of <strong>non-empty</strong> <strong>non-overlapping</strong> subarrays such that the sum of values in each subarray is equal to</em> <code>target</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -14,7 +12,7 @@
 <pre>
 <strong>Input:</strong> nums = [1,1,1,1,1], target = 2
 <strong>Output:</strong> 2
-<strong>Explanation: </strong>There are 2 non-overlapping subarrays [<strong>1,1</strong>,1,<strong>1,1</strong>] with sum equals to target(2).
+<strong>Explanation:</strong> There are 2 non-overlapping subarrays [<strong>1,1</strong>,1,<strong>1,1</strong>] with sum equals to target(2).
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -22,30 +20,17 @@
 <pre>
 <strong>Input:</strong> nums = [-1,3,5,1,4,2,-9], target = 6
 <strong>Output:</strong> 2
-<strong>Explanation: </strong>There are 3 subarrays with sum equal to 6.
-([5,1], [4,2], [3,5,1,4,2,-9]) but only the first 2 are non-overlapping.</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [-2,6,6,3,5,4,1,2,8], target = 10
-<strong>Output:</strong> 3
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [0,0,0], target = 0
-<strong>Output:</strong> 3
+<strong>Explanation:</strong> There are 3 subarrays with sum equal to 6.
+([5,1], [4,2], [3,5,1,4,2,-9]) but only the first 2 are non-overlapping.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;=&nbsp;10^5</code></li>
-	<li><code>-10^4 &lt;= nums[i] &lt;=&nbsp;10^4</code></li>
-	<li><code>0 &lt;= target &lt;= 10^6</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## Solutions
@@ -55,13 +40,103 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxNonOverlapping(self, nums: List[int], target: int) -> int:
+        i, n = 0, len(nums)
+        ans = 0
+        while i < n:
+            s = 0
+            seen = {0}
+            while i < n:
+                s += nums[i]
+                if s - target in seen:
+                    ans += 1
+                    break
+                i += 1
+                seen.add(s)
+            i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxNonOverlapping(int[] nums, int target) {
+        int i = 0, n = nums.length;
+        int ans = 0;
+        while (i < n) {
+            int s = 0;
+            Set<Integer> seen = new HashSet<>();
+            seen.add(0);
+            while (i < n) {
+                s += nums[i];
+                if (seen.contains(s - target)) {
+                    ++ans;
+                    break;
+                }
+                ++i;
+                seen.add(s);
+            }
+            ++i;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxNonOverlapping(vector<int>& nums, int target) {
+        int i = 0, n = nums.size();
+        int ans = 0;
+        while (i < n)
+        {
+            int s = 0;
+            unordered_set<int> seen;
+            seen.insert(0);
+            while (i < n)
+            {
+                s += nums[i];
+                if (seen.count(s - target))
+                {
+                    ++ans;
+                    break;
+                }
+                ++i;
+                seen.insert(s);
+            }
+            ++i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxNonOverlapping(nums []int, target int) int {
+	i, n, ans := 0, len(nums), 0
+	for i < n {
+		s := 0
+		seen := map[int]bool{0: true}
+		for i < n {
+			s += nums[i]
+			if seen[s-target] {
+				ans++
+				break
+			}
+			seen[s] = true
+			i++
+		}
+		i++
+	}
+	return ans
+}
 ```
 
 ### **...**

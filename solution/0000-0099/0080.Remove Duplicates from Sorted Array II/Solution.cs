@@ -1,16 +1,13 @@
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
-        if (nums.Length <= 2) return nums.Length;
-        var i = 0;
-        var j = 1;
-        while (j < nums.Length)
+        int i = 0;
+        foreach(int num in nums)
         {
-            if (nums[i] != nums[j] || i == 0 || nums[i] == nums[j] && nums[i - 1] != nums[j])
+            if (i < 2 || num != nums[i - 2])
             {
-                nums[++i] = nums[j];
+                nums[i++] = num;
             }
-            ++j;
         }
-        return i + 1;
+        return i;
     }
 }

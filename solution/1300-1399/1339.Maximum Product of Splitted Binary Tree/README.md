@@ -1,10 +1,11 @@
-# [1339. 分裂二叉树的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-splitted-binary-tree)
+# [1339. 分裂二叉树的最大乘积](https://leetcode.cn/problems/maximum-product-of-splitted-binary-tree)
 
 [English Version](/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一棵二叉树，它的根为&nbsp;<code>root</code> 。请你删除 1 条边，使二叉树分裂成两棵子树，且它们子树和的乘积尽可能大。</p>
 
 <p>由于答案可能会很大，请你将结果对 10^9 + 7 取模后再返回。</p>
@@ -13,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1699.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_1_1699.png" style="height: 200px; width: 495px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,6]
 <strong>输出：</strong>110
@@ -22,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1699.png)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_2_1699.png" style="height: 200px; width: 495px;"></p>
 
 <pre><strong>输入：</strong>root = [1,null,2,3,4,null,null,5,6]
 <strong>输出：</strong>90

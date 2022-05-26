@@ -1,8 +1,10 @@
 class Solution {
     public int hammingDistance(int x, int y) {
-        int count = 0, sum = x ^ y;
-        while (sum != 0) {
-            sum &= (sum - 1);
+        // return Integer.bitCount(x ^ y);
+        int num = x ^ y;
+        int count = 0;
+        while (num != 0) {
+            num &= num - 1;
             count++;
         }
         return count;

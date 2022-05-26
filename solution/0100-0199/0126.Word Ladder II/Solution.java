@@ -1,64 +1,66 @@
 class Solution {
-    private boolean isConnected = false;
-    private Map<String, List<String>> hs;
+    private List<List<String>> ans;
+    private Map<String, Set<String>> prev;
+
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
-        hs = new HashMap<>(16);
-        List<List<String>> result = new ArrayList<>();
-        if(!wordList.contains(endWord))
-            return result;
-        HashSet<String> dict = new HashSet<>(wordList);
-        Set<String> fwd = new HashSet<>();
-        fwd.add(beginWord);
-        Set<String> bwd = new HashSet<>();
-        bwd.add(endWord);
-        bfs(fwd, bwd, dict, false);
-        if(!isConnected) return result;
-        List<String> temp = new ArrayList<>();
-        temp.add(beginWord);
-        dfs(result, temp, beginWord, endWord);
-        return result;
-    }
-    private void bfs(Set<String> forward, Set<String> backward, Set<String> dict, boolean swap){
-        if(forward.isEmpty() || backward.isEmpty()) return;
-        if(forward.size() > backward.size()){
-            bfs(backward, forward, dict, !swap);
-            return;
+        ans = new ArrayList<>();
+        Set<String> words = new HashSet<>(wordList);
+        if (!words.contains(endWord)) {
+            return ans;
         }
-        dict.removeAll(forward);
-        dict.removeAll(backward);
-        Set<String> set3 = new HashSet<>();
-        for(String str : forward)
-            for (int i = 0; i < str.length(); i++) {
-                char[] ary = str.toCharArray();
-                for (char j = 'a'; j <= 'z'; j++) {
-                    ary[i] = j;
-                    String temp = new String(ary);
-                    if (!backward.contains(temp) && !dict.contains(temp)) continue;
-                    String key = !swap ? str : temp;
-                    String val = !swap ? temp : str;
-                    if (!hs.containsKey(key)) hs.put(key, new ArrayList<>());
-                    if (backward.contains(temp)) {
-                        hs.get(key).add(val);
-                        isConnected = true;
+        words.remove(beginWord);
+        Map<String, Integer> dist = new HashMap<>();
+        dist.put(beginWord, 0);
+        prev = new HashMap<>();
+        Queue<String> q = new ArrayDeque<>();
+        q.offer(beginWord);
+        boolean found = false;
+        int step = 0;
+        while (!q.isEmpty() && !found) {
+            ++step;
+            for (int i = q.size(); i > 0; --i) {
+                String p = q.poll();
+                char[] chars = p.toCharArray();
+                for (int j = 0; j < chars.length; ++j) {
+                    char ch = chars[j];
+                    for (char k = 'a'; k <= 'z'; ++k) {
+                        chars[j] = k;
+                        String t = new String(chars);
+                        if (dist.getOrDefault(t, 0) == step) {
+                            prev.get(t).add(p);
+                        }
+                        if (!words.contains(t)) {
+                            continue;
+                        }
+                        prev.computeIfAbsent(t, key -> new HashSet<>()).add(p);
+                        words.remove(t);
+                        q.offer(t);
+                        dist.put(t, step);
+                        if (endWord.equals(t)) {
+                            found = true;
+                        }
                     }
-                    if (!isConnected && dict.contains(temp)) {
-                        hs.get(key).add(val);
-                        set3.add(temp);
-                    }
+                    chars[j] = ch;
                 }
             }
-        if(!isConnected) bfs(set3, backward, dict, swap);
+        }
+        if (found) {
+            Deque<String> path = new ArrayDeque<>();
+            path.add(endWord);
+            dfs(path, beginWord, endWord);
+        }
+        return ans;
     }
-    private void dfs(List<List<String>> result, List<String> temp, String start, String end){
-        if(start.equals(end)){
-            result.add(new ArrayList<>(temp));
+
+    private void dfs(Deque<String> path, String beginWord, String cur) {
+        if (cur.equals(beginWord)) {
+            ans.add(new ArrayList<>(path));
             return;
         }
-        if(!hs.containsKey(start)) return;
-        for(String s : hs.get(start)){
-            temp.add(s);
-            dfs(result, temp, s, end);
-            temp.remove(temp.size()-1);
+        for (String precursor : prev.get(cur)) {
+            path.addFirst(precursor);
+            dfs(path, beginWord, precursor);
+            path.removeFirst();
         }
     }
 }

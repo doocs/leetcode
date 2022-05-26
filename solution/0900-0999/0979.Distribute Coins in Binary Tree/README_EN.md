@@ -4,90 +4,38 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary tree with <code>N</code> nodes, each <code>node</code>&nbsp;in the tree has <code>node.val</code> coins, and there are <code>N</code> coins total.</p>
+<p>You are given the <code>root</code> of a binary tree with <code>n</code> nodes where each <code>node</code> in the tree has <code>node.val</code> coins. There are <code>n</code> coins in total throughout the whole tree.</p>
 
-<p>In one move, we may choose two adjacent nodes and move one coin from one node to another.&nbsp; (The move may be from parent to child, or from child to parent.)</p>
+<p>In one move, we may choose two adjacent nodes and move one coin from one node to another. A move may be from parent to child, or from child to parent.</p>
 
-<p>Return the number of moves required to make every node have exactly one coin.</p>
+<p>Return <em>the <strong>minimum</strong> number of moves required to make every node have <strong>exactly</strong> one coin</em>.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
-![](./images/tree1.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0979.Distribute%20Coins%20in%20Binary%20Tree/images/tree1.png" style="width: 250px; height: 236px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[3,0,0]</span>
-
-<strong>Output: </strong><span id="example-output-1">2</span>
-
+<strong>Input:</strong> root = [3,0,0]
+<strong>Output:</strong> 2
 <strong>Explanation: </strong>From the root of the tree, we move one coin to its left child, and one coin to its right child.
-
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/tree2.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0979.Distribute%20Coins%20in%20Binary%20Tree/images/tree2.png" style="width: 250px; height: 236px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[0,3,0]</span>
-
-<strong>Output: </strong><span id="example-output-2">3</span>
-
-<strong>Explanation: </strong>From the left child of the root, we move two coins to the root [taking two moves].  Then, we move one coin from the root of the tree to the right child.
-
-</pre>
-
-<div>
-
-<p><strong>Example 3:</strong></p>
-
-![](./images/tree3.png)
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-3-1">[1,0,2]</span>
-
-<strong>Output: </strong><span id="example-output-3">2</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 4:</strong></p>
-
-![](./images/tree4.png)
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-4-1">[1,0,0,null,3]</span>
-
-<strong>Output: </strong><span id="example-output-4">4</span>
-
+<strong>Input:</strong> root = [0,3,0]
+<strong>Output:</strong> 3
+<strong>Explanation: </strong>From the left child of the root, we move two coins to the root [taking two moves]. Then, we move one coin from the root of the tree to the right child.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong><span>Note:</span></strong></p>
-
-<ol>
-	<li><code>1&lt;= N &lt;= 100</code></li>
-	<li><code>0 &lt;= node.val &lt;= N</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<ul>
+	<li>The number of nodes in the tree is <code>n</code>.</li>
+	<li><code>1 &lt;= n &lt;= 100</code></li>
+	<li><code>0 &lt;= Node.val &lt;= n</code></li>
+	<li>The sum of all <code>Node.val</code> is <code>n</code>.</li>
+</ul>
 
 ## Solutions
 
@@ -96,13 +44,133 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def distributeCoins(self, root: TreeNode) -> int:
+        def dfs(root):
+            nonlocal ans
+            if root is None:
+                return 0
+            left, right = dfs(root.left), dfs(root.right)
+            ans += abs(left) + abs(right)
+            return left + right + root.val - 1
 
+        ans = 0
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    private int ans;
+
+    public int distributeCoins(TreeNode root) {
+        ans = 0;
+        dfs(root);
+        return ans;
+    }
+
+    private int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        ans += Math.abs(left) + Math.abs(right);
+        return left + right + root.val - 1;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans;
+
+    int distributeCoins(TreeNode* root) {
+        ans = 0;
+        dfs(root);
+        return ans;
+    }
+
+    int dfs(TreeNode* root) {
+        if (!root) return 0;
+        int left = dfs(root->left), right = dfs(root->right);
+        ans += abs(left) + abs(right);
+        return left + right + root->val - 1;
+    }
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func distributeCoins(root *TreeNode) int {
+	ans := 0
+	var dfs func(root *TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		left, right := dfs(root.Left), dfs(root.Right)
+		ans += abs(left) + abs(right)
+		return left + right + root.Val - 1
+	}
+	dfs(root)
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**

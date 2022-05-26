@@ -45,13 +45,39 @@ Given the array of integers <code>nums</code>, you will choose two different ind
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        i = 0 if nums[0] > nums[1] else 1
+        j = 1 - i
+        for k in range(2, len(nums)):
+            if nums[k] > nums[i]:
+                j = k
+                i, j = j, i
+            elif nums[k] > nums[j]:
+                j = k
+        return (nums[i] - 1) * (nums[j] - 1)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxProduct(int[] nums) {
+        int i = nums[0] > nums[1] ? 0 : 1;
+        int j = 1 - i;
+        for (int k = 2; k < nums.length; ++k) {
+            if (nums[k] > nums[i]) {
+                j = k;
+                int t = i;
+                i = j;
+                j = t;
+            } else if (nums[k] > nums[j]) {
+                j = k;
+            }
+        }
+        return (nums[i] - 1) * (nums[j] - 1);
+    }
+}
 ```
 
 ### **...**

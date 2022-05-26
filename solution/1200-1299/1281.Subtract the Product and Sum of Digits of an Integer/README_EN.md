@@ -43,13 +43,83 @@ Result = 32 - 11 = 21
 ### **Python3**
 
 ```python
-
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        s, p = 0, 1
+        while n:
+            t = n % 10
+            n //= 10
+            s += t
+            p *= t
+        return p - s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int subtractProductAndSum(int n) {
+        int s = 0, p = 1;
+        while (n != 0) {
+            int t = n % 10;
+            n /= 10;
+            s += t;
+            p *= t;
+        }
+        return p - s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        int s = 0, p = 1;
+        while (n) {
+            int t = n % 10;
+            n /= 10;
+            s += t;
+            p *= t;
+        }
+        return p - s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func subtractProductAndSum(n int) int {
+	s, p := 0, 1
+	for n != 0 {
+		t := n % 10
+		n /= 10
+		s += t
+		p *= t
+	}
+	return p - s
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn subtract_product_and_sum(mut n: i32) -> i32 {
+        let mut mul = 1;
+        let mut sum = 0;
+        while n != 0 {
+            let num = n % 10;
+            n /= 10;
+            mul *= num;
+            sum += num;
+        }
+        mul - sum
+    }
+}
 ```
 
 ### **...**

@@ -14,7 +14,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-![](./images/ways_to_cut_apple_1.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/images/ways_to_cut_apple_1.png" style="width: 500px; height: 378px;" /></strong></p>
 
 <pre>
 
@@ -51,11 +51,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= rows, cols &lt;= 50</code></li>
-	<li><code>rows ==&nbsp;pizza.length</code></li>
-	<li><code>cols ==&nbsp;pizza[i].length</code></li>
-	<li><code>1 &lt;= k &lt;= 10</code></li>
-	<li><code>pizza</code> consists of characters <code>&#39;A&#39;</code>&nbsp;and <code>&#39;.&#39;</code> only.</li>
+    <li><code>1 &lt;= rows, cols &lt;= 50</code></li>
+    <li><code>rows ==&nbsp;pizza.length</code></li>
+    <li><code>cols ==&nbsp;pizza[i].length</code></li>
+    <li><code>1 &lt;= k &lt;= 10</code></li>
+    <li><code>pizza</code> consists of characters <code>&#39;A&#39;</code>&nbsp;and <code>&#39;.&#39;</code> only.</li>
 </ul>
 
 ## Solutions

@@ -1,4 +1,4 @@
-# [16.26. Calculator](https://leetcode-cn.com/problems/calculator-lcci)
+# [16.26. Calculator](https://leetcode.cn/problems/calculator-lcci)
 
 [中文文档](/lcci/16.26.Calculator/README.md)
 

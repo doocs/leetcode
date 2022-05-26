@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-public class ThreeSumComparer : IEqualityComparer<IList<int>>
+public class ThreeSumComparer: IEqualityComparer<IList<int>>
 {
     public bool Equals(IList<int> left, IList<int> right)
     {

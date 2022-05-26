@@ -4,36 +4,37 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary tree, find the maximum value <code>V</code> for which there exists <strong>different</strong> nodes <code>A</code> and <code>B</code> where <code>V = |A.val - B.val|</code>&nbsp;and <code>A</code> is an ancestor of <code>B</code>.</p>
+<p>Given the <code>root</code> of a binary tree, find the maximum value <code>v</code> for which there exist <strong>different</strong> nodes <code>a</code> and <code>b</code> where <code>v = |a.val - b.val|</code> and <code>a</code> is an ancestor of <code>b</code>.</p>
 
-<p>(A node A is an ancestor of B if either: any child of A is equal to B, or any child of A is an ancestor of B.)</p>
+<p>A node <code>a</code> is an ancestor of <code>b</code> if either: any child of <code>a</code> is equal to <code>b</code>&nbsp;or any child of <code>a</code> is an ancestor of <code>b</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
-![](./images/2whqcep.jpg)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/images/tmp-tree.jpg" style="width: 400px; height: 390px;" />
 <pre>
-<strong>Input: </strong><span id="example-input-1-1">[8,3,10,1,6,null,14,null,null,4,7,13]</span>
-<strong>Output: </strong><span id="example-output-1">7</span>
-<strong>Explanation: </strong>
-We have various ancestor-node differences, some of which are given below :
+<strong>Input:</strong> root = [8,3,10,1,6,null,14,null,null,4,7,13]
+<strong>Output:</strong> 7
+<strong>Explanation: </strong>We have various ancestor-node differences, some of which are given below :
 |8 - 3| = 5
 |3 - 7| = 4
 |8 - 1| = 7
 |10 - 13| = 3
-Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 7.
+Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 7.</pre>
+
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/images/tmp-tree-1.jpg" style="width: 250px; height: 349px;" />
+<pre>
+<strong>Input:</strong> root = [1,null,2,null,0,3]
+<strong>Output:</strong> 3
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li>The number of nodes in the tree is between <code>2</code> and <code>5000</code>.</li>
-	<li>Each node will have value between <code>0</code> and <code>100000</code>.</li>
-</ol>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[2, 5000]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+</ul>
 
 ## Solutions
 
@@ -42,13 +43,155 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxAncestorDiff(self, root: TreeNode) -> int:
+        def dfs(root, mx, mi):
+            if root is None:
+                return
+            nonlocal ans
+            ans = max(ans, abs(root.val - mx), abs(root.val - mi))
+            mx = max(mx, root.val)
+            mi = min(mi, root.val)
+            dfs(root.left, mx, mi)
+            dfs(root.right, mx, mi)
 
+        ans = 0
+        dfs(root, root.val, root.val)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int ans;
 
+    public int maxAncestorDiff(TreeNode root) {
+        ans = 0;
+        dfs(root, root.val, root.val);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int mx, int mi) {
+        if (root == null) {
+            return;
+        }
+        int t = Math.max(Math.abs(root.val - mx), Math.abs(root.val - mi));
+        ans = Math.max(ans, t);
+        mx = Math.max(mx, root.val);
+        mi = Math.min(mi, root.val);
+        dfs(root.left, mx, mi);
+        dfs(root.right, mx, mi);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans;
+
+    int maxAncestorDiff(TreeNode* root) {
+        ans = 0;
+        dfs(root, root->val, root->val);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int mx, int mi) {
+        if (!root) return;
+        int t = max(abs(root->val - mx), abs(root->val - mi));
+        ans = max(ans, t);
+        mx = max(mx, root->val);
+        mi = min(mi, root->val);
+        dfs(root->left, mx, mi);
+        dfs(root->right, mx, mi);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxAncestorDiff(root *TreeNode) int {
+	ans := 0
+	var dfs func(root *TreeNode, mx, mi int)
+	dfs = func(root *TreeNode, mx, mi int) {
+		if root == nil {
+			return
+		}
+		t := max(abs(root.Val-mx), abs(root.Val-mi))
+		ans = max(ans, t)
+		mx = max(mx, root.Val)
+		mi = min(mi, root.Val)
+		dfs(root.Left, mx, mi)
+		dfs(root.Right, mx, mi)
+	}
+	dfs(root, root.Val, root.Val)
+	return ans
+}
+
+func abs(x int) int {
+	if x > 0 {
+		return x
+	}
+	return -x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -1,22 +1,24 @@
-/*
- * Report by leetcode.com
- * Runtime: 8 ms, Memory Usage: 3.2 MB
- */
 func lengthOfLongestSubstring(s string) int {
-	mathMax := func(a, b int) int {
-		if a > b {
-			return a
+	window := make(map[byte]int)
+	n := len(s)
+	ans := 0
+	left, right := 0, 0
+	for right < n {
+		b := s[right]
+		right++
+		window[b]++
+		for window[b] > 1 {
+			window[s[left]]--
+			left++
 		}
-		return b
+		ans = max(ans, right-left)
 	}
-	cache := map[rune]int{}
-	var max, position int
-	for i, r := range s {
-		if num, ok := cache[r]; ok {
-			position = mathMax(position, num+1)
-		}
-		cache[r] = i
-		max = mathMax(max, i-position+1)
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
 	}
-	return max
+	return y
 }

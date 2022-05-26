@@ -1,1 +1,12 @@
-delete from Person where Id not in (select min(Id) from (select * from Person) as p group by p.Email)
+DELETE
+FROM
+	Person
+WHERE
+	Id NOT IN (
+	SELECT
+		MIN( Id )
+	FROM
+		( SELECT * FROM Person ) AS p
+	GROUP BY
+        p.Email
+	);

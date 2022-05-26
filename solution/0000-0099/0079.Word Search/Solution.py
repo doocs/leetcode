@@ -3,18 +3,23 @@ class Solution:
         def dfs(i, j, cur):
             if cur == len(word):
                 return True
-            if i < 0 or i >= m or j < 0 or j >= n or visited[i][j] or word[cur] != board[i][j]:
+            if (
+                i < 0
+                or i >= m
+                or j < 0
+                or j >= n
+                or board[i][j] == '0'
+                or word[cur] != board[i][j]
+            ):
                 return False
-            visited[i][j] = True
-            next = cur + 1
-            res = dfs(i + 1, j, next) or dfs(i - 1, j, next) or dfs(i, j + 1, next) or dfs(i, j - 1, next)
-            visited[i][j] = False
-            return res
-        m, n = len(board), len(board[0])
-        visited = [[False for _ in range(n)] for _ in range(m)]
-        for i in range(m):
-            for j in range(n):
-                res = dfs(i, j, 0)
-                if res:
+            t = board[i][j]
+            board[i][j] = '0'
+            for a, b in [[0, 1], [0, -1], [-1, 0], [1, 0]]:
+                x, y = i + a, j + b
+                if dfs(x, y, cur + 1):
                     return True
-        return False
+            board[i][j] = t
+            return False
+
+        m, n = len(board), len(board[0])
+        return any(dfs(i, j, 0) for i in range(m) for j in range(n))

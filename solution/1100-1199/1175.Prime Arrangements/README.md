@@ -1,10 +1,11 @@
-# [1175. 质数排列](https://leetcode-cn.com/problems/prime-arrangements)
+# [1175. 质数排列](https://leetcode.cn/problems/prime-arrangements)
 
 [English Version](/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>请你帮忙给从 <code>1</code> 到 <code>n</code>&nbsp;的数设计排列方案，使得所有的「质数」都应该被放在「质数索引」（索引从 1 开始）上；你需要返回可能的方案总数。</p>
 
 <p>让我们一起来回顾一下「质数」：质数一定是大于 1 的，并且不能用两个小于它的正整数的乘积来表示。</p>

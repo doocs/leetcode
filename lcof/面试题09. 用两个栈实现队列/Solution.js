@@ -1,28 +1,31 @@
 var CQueue = function () {
-  this.data = [];
-  this.helper = [];
+    this.stk1 = [];
+    this.stk2 = [];
 };
+
 /**
  * @param {number} value
  * @return {void}
  */
 CQueue.prototype.appendTail = function (value) {
-  this.data.push(value);
+    this.stk1.push(value);
 };
+
 /**
  * @return {number}
  */
 CQueue.prototype.deleteHead = function () {
-  if (this.data.length) {
-    while (this.data.length > 1) {
-      this.helper.push(this.data.pop());
+    if (!this.stk2.length) {
+        while (this.stk1.length) {
+            this.stk2.push(this.stk1.pop());
+        }
     }
-    let res = this.data.pop();
-    while (this.helper.length) {
-      this.data.push(this.helper.pop());
-    }
-    return res;
-  } else {
-    return -1;
-  }
+    return this.stk2.length ? this.stk2.pop() : -1;
 };
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * var obj = new CQueue()
+ * obj.appendTail(value)
+ * var param_2 = obj.deleteHead()
+ */

@@ -1,3 +1,3 @@
 var sumNums = function (n: number): number {
-  return n && n + sumNums(n - 1);
+    return n && n + sumNums(n - 1);
 };

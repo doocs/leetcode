@@ -1,4 +1,4 @@
-# [面试题 08.02. 迷路的机器人](https://leetcode-cn.com/problems/robot-in-a-grid-lcci)
+# [面试题 08.02. 迷路的机器人](https://leetcode.cn/problems/robot-in-a-grid-lcci)
 
 [English Version](/lcci/08.02.Robot%20in%20a%20Grid/README_EN.md)
 
@@ -32,6 +32,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+DFS 思路
+
+**剪枝：**
+
+防止多次进入同一个位置，走过的位置要将其置为 1
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,6 +54,62 @@
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function pathWithObstacles(obstacleGrid: number[][]): number[][] {
+    const m = obstacleGrid.length;
+    const n = obstacleGrid[0].length;
+    const res = [];
+    const dfs = (i: number, j: number): boolean => {
+        if (i === m || j === n || obstacleGrid[i][j] === 1) {
+            return false;
+        }
+        res.push([i, j]);
+        obstacleGrid[i][j] = 1;
+        if ((i + 1 === m && j + 1 === n) || dfs(i + 1, j) || dfs(i, j + 1)) {
+            return true;
+        }
+        res.pop();
+        return false;
+    };
+    if (dfs(0, 0)) {
+        return res;
+    }
+    return [];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn dfs(grid: &mut Vec<Vec<i32>>, path: &mut Vec<Vec<i32>>, i: usize, j: usize) -> bool {
+        if i == grid.len() || j == grid[0].len() || grid[i][j] == 1 {
+            return false;
+        }
+        path.push(vec![i as i32, j as i32]);
+        grid[i as usize][j as usize] = 1;
+        if (i + 1 == grid.len() && j + 1 == grid[0].len())
+            || Self::dfs(grid, path, i + 1, j)
+            || Self::dfs(grid, path, i, j + 1)
+        {
+            return true;
+        }
+        path.pop();
+        false
+    }
+
+    pub fn path_with_obstacles(mut obstacle_grid: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let mut res = vec![];
+        if Self::dfs(&mut obstacle_grid, &mut res, 0, 0) {
+            return res;
+        }
+        vec![]
+    }
+}
 ```
 
 ### **...**

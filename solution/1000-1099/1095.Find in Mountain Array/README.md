@@ -1,10 +1,11 @@
-# [1095. 山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array)
+# [1095. 山脉数组中查找目标值](https://leetcode.cn/problems/find-in-mountain-array)
 
 [English Version](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>（这是一个 <strong>交互式问题&nbsp;</strong>）</p>
 
 <p>给你一个 <strong>山脉数组</strong>&nbsp;<code>mountainArr</code>，请你返回能够使得&nbsp;<code>mountainArr.get(index)</code>&nbsp;<strong>等于</strong>&nbsp;<code>target</code>&nbsp;<strong>最小</strong>&nbsp;的下标 <code>index</code>&nbsp;值。</p>
@@ -13,7 +14,7 @@
 
 <p>&nbsp;</p>
 
-<p>所谓山脉数组，即数组&nbsp;<code>A</code>&nbsp;假如是一个山脉数组的话，需要满足如下条件：</p>
+<p>何为山脉数组？如果数组&nbsp;<code>A</code> 是一个山脉数组的话，那它满足如下条件：</p>
 
 <p><strong>首先</strong>，<code>A.length &gt;= 3</code></p>
 
@@ -39,7 +40,7 @@
 
 <p>对&nbsp;<code>MountainArray.get</code>&nbsp;发起超过 <code>100</code> 次调用的提交将被视为错误答案。此外，任何试图规避判题系统的解决方案都将会导致比赛资格被取消。</p>
 
-<p>为了帮助大家更好地理解交互式问题，我们准备了一个样例 &ldquo;<strong>答案</strong>&rdquo;：<a href="https://leetcode-cn.com/playground/RKhe3ave" target="_blank">https://leetcode-cn.com/playground/RKhe3ave</a>，请注意这 <strong>不是一个正确答案</strong>。</p>
+<p>为了帮助大家更好地理解交互式问题，我们准备了一个样例 &ldquo;<strong>答案</strong>&rdquo;：<a href="https://leetcode.cn/playground/RKhe3ave" target="_blank">https://leetcode.cn/playground/RKhe3ave</a>，请注意这 <strong>不是一个正确答案</strong>。</p>
 
 <ol>
 </ol>
@@ -63,11 +64,11 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>3 &lt;= mountain_arr.length() &lt;= 10000</code></li>
 	<li><code>0 &lt;= target &lt;= 10^9</code></li>
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
-</ol>
+</ul>
 
 ## 解法
 

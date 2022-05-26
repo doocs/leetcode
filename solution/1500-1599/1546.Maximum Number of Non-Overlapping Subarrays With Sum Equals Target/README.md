@@ -1,10 +1,11 @@
-# [1546. 和为目标值的最大数目不重叠非空子数组数目](https://leetcode-cn.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target)
+# [1546. 和为目标值的最大数目不重叠非空子数组数目](https://leetcode.cn/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target)
 
 [English Version](/solution/1500-1599/1546.Maximum%20Number%20of%20Non-Overlapping%20Subarrays%20With%20Sum%20Equals%20Target/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>target</code>&nbsp;。</p>
 
 <p>请你返回&nbsp;<strong>非空不重叠</strong>&nbsp;子数组的最大数目，且每个子数组中数字和都为 <code>target</code>&nbsp;。</p>
@@ -51,6 +52,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+贪心 + 前缀和。ans 表示结果，初始值为 0。
+
+贪心：当我们发现以下标 i 结尾的子数组和为 target 时，ans++，然后继续往后查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +63,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxNonOverlapping(self, nums: List[int], target: int) -> int:
+        i, n = 0, len(nums)
+        ans = 0
+        while i < n:
+            s = 0
+            seen = {0}
+            while i < n:
+                s += nums[i]
+                if s - target in seen:
+                    ans += 1
+                    break
+                i += 1
+                seen.add(s)
+            i += 1
+        return ans
 ```
 
 ### **Java**
@@ -66,7 +86,82 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxNonOverlapping(int[] nums, int target) {
+        int i = 0, n = nums.length;
+        int ans = 0;
+        while (i < n) {
+            int s = 0;
+            Set<Integer> seen = new HashSet<>();
+            seen.add(0);
+            while (i < n) {
+                s += nums[i];
+                if (seen.contains(s - target)) {
+                    ++ans;
+                    break;
+                }
+                ++i;
+                seen.add(s);
+            }
+            ++i;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxNonOverlapping(vector<int>& nums, int target) {
+        int i = 0, n = nums.size();
+        int ans = 0;
+        while (i < n)
+        {
+            int s = 0;
+            unordered_set<int> seen;
+            seen.insert(0);
+            while (i < n)
+            {
+                s += nums[i];
+                if (seen.count(s - target))
+                {
+                    ++ans;
+                    break;
+                }
+                ++i;
+                seen.insert(s);
+            }
+            ++i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxNonOverlapping(nums []int, target int) int {
+	i, n, ans := 0, len(nums), 0
+	for i < n {
+		s := 0
+		seen := map[int]bool{0: true}
+		for i < n {
+			s += nums[i]
+			if seen[s-target] {
+				ans++
+				break
+			}
+			seen[s] = true
+			i++
+		}
+		i++
+	}
+	return ans
+}
 ```
 
 ### **...**

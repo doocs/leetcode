@@ -1,28 +1,36 @@
-# [1088. 易混淆数 II](https://leetcode-cn.com/problems/confusing-number-ii)
+# [1088. 易混淆数 II](https://leetcode.cn/problems/confusing-number-ii)
 
 [English Version](/solution/1000-1099/1088.Confusing%20Number%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>本题我们会将数字旋转 180° 来生成一个新的数字。</p>
 
-<p>比如 0、1、6、8、9 旋转 180° 以后，我们得到的新数字分别为 0、1、9、8、6。</p>
+<p><strong>易混淆数</strong>（Confusing Number）指的是一个数字在整体旋转 <code>180°</code> 以后，能够得到一个和原来&nbsp;<strong>不同&nbsp;</strong>的数，且 <strong>新数字的每一位都应该是有效的</strong>。</p>
 
-<p>2、3、4、5、7 旋转 180° 后，是 <strong>无法</strong> 得到任何数字的。</p>
+<p>本题我们会将数字旋转 <code>180°</code> 来生成一个新的数字。</p>
 
-<p>易混淆数（Confusing Number）指的是一个数字在整体旋转 180° 以后，能够得到一个和原来 <strong>不同 </strong>的数，且新数字的每一位都应该是有效的。（请注意，旋转后得到的新数字可能大于原数字）</p>
+<ul>
+	<li>当 <code>0、1、6、8、9</code> 旋转 <code>180°</code> 以后，我们得到的新数字分别为&nbsp;0、1、9、8、6。</li>
+	<li>当&nbsp;<code>2、3、4、5、7</code> 旋转 <code>180°</code> 后，是 <strong>无法</strong> 得到任何数字的。</li>
+</ul>
 
-<p>给出正整数 <code>N</code>，请你返回 <code>1</code> 到 <code>N</code> 之间易混淆数字的数量。</p>
+<p>请注意，在旋转一个数字之后，我们可以忽略前导零。</p>
 
-<p> </p>
+<ul>
+	<li>例如，在旋转 <code>8000</code> 之后，我们有 <code>0008</code> ，它被认为只是 <code>8</code> 。</li>
+</ul>
+
+<p>给出正整数&nbsp;<code>n</code>，请你返回&nbsp;&nbsp;<em><code>[1, n]</code>&nbsp;范围内的 <strong>易混淆数</strong> 的数量&nbsp;</em>。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>20
+<pre>
+<strong>输入：</strong>n = 20
 <strong>输出：</strong>6
-<strong>解释：</strong>
-易混淆数为 [6,9,10,16,18,19]。
+<strong>解释：</strong>易混淆数为 [6,9,10,16,18,19]。
 6 转换为 9
 9 转换为 6
 10 转换为 01 也就是 1
@@ -33,19 +41,19 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>100
+<pre>
+<strong>输入：</strong>n = 100
 <strong>输出：</strong>19
-<strong>解释：</strong>
-易混淆数为 [6,9,10,16,18,19,60,61,66,68,80,81,86,89,90,91,98,99,100]。
+<strong>解释：</strong>易混淆数为 [6,9,10,16,18,19,60,61,66,68,80,81,86,89,90,91,98,99,100]。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 <= N <= 10^9</code></li>
-</ol>
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
+</ul>
 
 ## 解法
 

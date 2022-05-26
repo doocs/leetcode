@@ -4,23 +4,40 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    private int max = 0;
-
     public TreeNode bstToGst(TreeNode root) {
-        if (root == null) return new TreeNode(0);
-        int temp = bstToGst(root.right).val;
-        root.val += (temp > max ? temp : max);
-        max = root.val > max ? root.val : max;
-        if (root.left != null) {
-            int temp2 = bstToGst(root.left.right).val;
-            root.left.val += max > temp2 ? max : temp2;
-            max = max > root.left.val ? max : root.left.val;
-            bstToGst(root.left.left);
+        int s = 0;
+        TreeNode node = root;
+        while (root != null) {
+            if (root.right == null) {
+                s += root.val;
+                root.val = s;
+                root = root.left;
+            } else {
+                TreeNode next = root.right;
+                while (next.left != null && next.left != root) {
+                    next = next.left;
+                }
+                if (next.left == null) {
+                    next.left = root;
+                    root = root.right;
+                } else {
+                    s += root.val;
+                    root.val = s;
+                    next.left = null;
+                    root = root.left;
+                }
+            }
         }
-        return root;
+        return node;
     }
 }

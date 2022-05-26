@@ -1,0 +1,11 @@
+func finalValueAfterOperations(operations []string) int {
+    ans := 0
+    for _, s := range operations {
+        if s[1] == '+' {
+            ans += 1
+        } else {
+            ans -= 1
+        }
+    }
+    return ans
+}

@@ -8,6 +8,7 @@ class Solution:
             if a == '9':
                 return b == '6'
             return False
+
         n = len(num)
         i, j = 0, n - 1
         while i <= j:

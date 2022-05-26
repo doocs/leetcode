@@ -1,10 +1,11 @@
-# [1688. 比赛中的配对次数](https://leetcode-cn.com/problems/count-of-matches-in-tournament)
+# [1688. 比赛中的配对次数](https://leetcode.cn/problems/count-of-matches-in-tournament)
 
 [English Version](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数 <code>n</code> ，表示比赛中的队伍数。比赛遵循一种独特的赛制：</p>
 
 <ul>
@@ -51,6 +52,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+n 个人比赛，最终淘汰 n - 1 个人，所以配对次数是 n - 1。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +61,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfMatches(self, n: int) -> int:
+        return n - 1
 ```
 
 ### **Java**
@@ -66,7 +71,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfMatches(int n) {
+        return n - 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfMatches(int n) {
+        return n - 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfMatches(n int) int {
+	return n - 1
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var numberOfMatches = function (n) {
+    return n - 1;
+};
 ```
 
 ### **...**

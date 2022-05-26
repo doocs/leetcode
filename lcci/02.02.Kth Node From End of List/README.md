@@ -1,4 +1,4 @@
-# [面试题 02.02. 返回倒数第 k 个节点](https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci)
+# [面试题 02.02. 返回倒数第 k 个节点](https://leetcode.cn/problems/kth-node-from-end-of-list-lcci)
 
 [English Version](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
 
@@ -41,12 +41,12 @@
 
 class Solution:
     def kthToLast(self, head: ListNode, k: int) -> int:
-        p = q = head
+        slow = fast = head
         for _ in range(k):
-            q = q.next
-        while q:
-            p, q = p.next, q.next
-        return p.val
+            fast = fast.next
+        while fast:
+            slow, fast = slow.next, fast.next
+        return slow.val
 ```
 
 ### **Java**
@@ -64,15 +64,123 @@ class Solution:
  */
 class Solution {
     public int kthToLast(ListNode head, int k) {
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0) {
-            q = q.next;
+            fast = fast.next;
         }
-        while (q != null) {
-            q = q.next;
-            p = p.next;
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        return p.val;
+        return slow.val;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {number}
+ */
+var kthToLast = function (head, k) {
+    let fast = head,
+        slow = head;
+    for (let i = 0; i < k; i++) {
+        fast = fast.next;
+    }
+    while (fast != null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+    return slow.val;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int kthToLast(ListNode* head, int k) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (k-- > 0) {
+            fast = fast->next;
+        }
+        while (fast) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+        return slow->val;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthToLast(head *ListNode, k int) int {
+	slow, fast := head, head
+	for i := 0; i < k; i++ {
+		fast = fast.Next
+	}
+	for fast != nil {
+		slow = slow.Next
+		fast = fast.Next
+	}
+	return slow.Val
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn kth_to_last(head: Option<Box<ListNode>>, k: i32) -> i32 {
+        let mut fast = &head;
+        for _ in 0..k {
+            fast = &fast.as_ref().unwrap().next;
+        }
+        let mut slow = &head;
+        while let (Some(f), Some(s)) = (fast, slow) {
+            fast = &f.next;
+            slow = &s.next;
+        }
+        slow.as_ref().unwrap().val
     }
 }
 ```

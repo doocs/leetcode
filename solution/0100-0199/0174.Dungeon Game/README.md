@@ -1,10 +1,11 @@
-# [174. 地下城游戏](https://leetcode-cn.com/problems/dungeon-game)
+# [174. 地下城游戏](https://leetcode.cn/problems/dungeon-game)
 
 [English Version](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <style>
 
 table.dungeon, .dungeon th, .dungeon td {
@@ -86,15 +87,10 @@ table.dungeon, .dungeon th, .dungeon td {
 <p><strong>说明:</strong></p>
 
 <ul>
-
     <li>
-
     <p>骑士的健康点数没有上限。</p>
-
     </li>
-
     <li>任何房间都可能对骑士的健康点数造成威胁，也可能增加骑士的健康点数，包括骑士进入的左上角房间以及公主被监禁的右下角房间。</li>
-
 </ul>
 
 ## 解法

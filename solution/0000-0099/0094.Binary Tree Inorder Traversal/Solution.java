@@ -1,44 +1,40 @@
-// 递归版本
-/*
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        inorderTraversal(root, list);
-        return list;
-    }
-    
-    private void inorderTraversal(TreeNode root, List<Integer> list) {
-        if (root == null) {
-            return;
-        }
-        inorderTraversal(root.left, list);
-        list.add(root.val);
-        inorderTraversal(root.right, list);
-    }
-    
-}
-
-*/
-
-// 非递归版本
-class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        
-        while (root != null || !stack.isEmpty()) {
-            while (root != null) {
-                stack.push(root);
-                root = root.left;
-            }
-            if (!stack.isEmpty()) {
-                root = stack.pop();
-                list.add(root.val);
+        List<Integer> ans = new ArrayList<>();
+        while (root != null) {
+            if (root.left == null) {
+                ans.add(root.val);
                 root = root.right;
+            } else {
+                TreeNode prev = root.left;
+                while (prev.right != null && prev.right != root) {
+                    prev = prev.right;
+                }
+                if (prev.right == null) {
+                    prev.right = root;
+                    root = root.left;
+                } else {
+                    ans.add(root.val);
+                    prev.right = null;
+                    root = root.right;
+                }
             }
         }
-        return list;
-        
+        return ans;
     }
-    
 }

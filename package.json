@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "docsify serve --open",
+    "convert": "docsify-pdf-converter"
+  },
+  "dependencies": {
+    "docsify-cli": "^4.4.3"
+  }
+}

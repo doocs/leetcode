@@ -1,10 +1,11 @@
-# [1281. 整数的各位积和之差](https://leetcode-cn.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer)
+# [1281. 整数的各位积和之差](https://leetcode.cn/problems/subtract-the-product-and-sum-of-digits-of-an-integer)
 
 [English Version](/solution/1200-1299/1281.Subtract%20the%20Product%20and%20Sum%20of%20Digits%20of%20an%20Integer/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数&nbsp;<code>n</code>，请你帮忙计算并返回该整数「各位数字之积」与「各位数字之和」的差。</p>
 
 <p>&nbsp;</p>
@@ -48,7 +49,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        s, p = 0, 1
+        while n:
+            t = n % 10
+            n //= 10
+            s += t
+            p *= t
+        return p - s
 ```
 
 ### **Java**
@@ -56,7 +65,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int subtractProductAndSum(int n) {
+        int s = 0, p = 1;
+        while (n != 0) {
+            int t = n % 10;
+            n /= 10;
+            s += t;
+            p *= t;
+        }
+        return p - s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        int s = 0, p = 1;
+        while (n) {
+            int t = n % 10;
+            n /= 10;
+            s += t;
+            p *= t;
+        }
+        return p - s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func subtractProductAndSum(n int) int {
+	s, p := 0, 1
+	for n != 0 {
+		t := n % 10
+		n /= 10
+		s += t
+		p *= t
+	}
+	return p - s
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn subtract_product_and_sum(mut n: i32) -> i32 {
+        let mut mul = 1;
+        let mut sum = 0;
+        while n != 0 {
+            let num = n % 10;
+            n /= 10;
+            mul *= num;
+            sum += num;
+        }
+        mul - sum
+    }
+}
 ```
 
 ### **...**

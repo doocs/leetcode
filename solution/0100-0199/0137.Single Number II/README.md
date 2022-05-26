@@ -1,26 +1,42 @@
-# [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii)
+# [137. 只出现一次的数字 II](https://leetcode.cn/problems/single-number-ii)
 
 [English Version](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
 
-<p><strong>说明：</strong></p>
+<p>给你一个整数数组 <code>nums</code> ，除某个元素仅出现 <strong>一次</strong> 外，其余每个元素都恰出现 <strong>三次 。</strong>请你找出并返回那个只出现了一次的元素。</p>
 
-<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<p> </p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> [2,2,3,2]
-<strong>输出:</strong> 3
+<pre>
+<strong>输入：</strong>nums = [2,2,3,2]
+<strong>输出：</strong>3
 </pre>
 
-<p><strong>示例&nbsp;2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> [0,1,0,1,0,1,99]
-<strong>输出:</strong> 99</pre>
+<pre>
+<strong>输入：</strong>nums = [0,1,0,1,0,1,99]
+<strong>输出：</strong>99
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= nums.length <= 3 * 10<sup>4</sup></code></li>
+	<li><code>-2<sup>31</sup> <= nums[i] <= 2<sup>31</sup> - 1</code></li>
+	<li><code>nums</code> 中，除某个元素仅出现 <strong>一次</strong> 外，其余每个元素都恰出现 <strong>三次</strong></li>
+</ul>
+
+<p> </p>
+
+<p><strong>进阶：</strong>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
 
 ## 解法
 
@@ -37,17 +53,15 @@
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        bits = [0] * 32
-        for num in nums:
-            for i in range(32):
-                bits[i] += (num & 1)
-                num >>= 1
-        res = 0
+        ans = 0
         for i in range(32):
-            if bits[i] % 3 != 0:
-                res += (1 << i)
-        # 如果为负数，先将 0-32 位取反（即 res ^ 0xffffffff ），再将所有位取反（即 ~ ）
-        return res if bits[31] % 3 == 0 else ~(res ^ 0xffffffff)
+            cnt = sum(num >> i & 1 for num in nums)
+            if cnt % 3:
+                if i == 31:
+                    ans -= 1 << i
+                else:
+                    ans |= 1 << i
+        return ans
 ```
 
 ### **Java**
@@ -57,23 +71,59 @@ class Solution:
 ```java
 class Solution {
     public int singleNumber(int[] nums) {
-        int[] bits = new int[32];
-        for (int num : nums) {
-            for (int i = 0; i < 32; ++i) {
-                bits[i] += (num & 1);
-                num >>= 1;
+        int ans = 0;
+        for (int i = 0; i < 32; i++) {
+            int cnt = 0;
+            for (int num : nums) {
+                cnt += num >> i & 1;
             }
+            cnt %= 3;
+            ans |= cnt << i;
         }
-
-        int res = 0;
-        for (int i = 0; i < 32; ++i) {
-            if (bits[i] % 3 == 1) {
-                res += (1 << i);
-            }
-        }
-        return res;
+        return ans;
     }
 }
+```
+
+### **Go**
+
+需要注意 Golang 中的 `int` 在 64 位平台上相当于 `int64`
+
+```go
+func singleNumber(nums []int) int {
+	ans := int32(0)
+	for i := 0; i < 32; i++ {
+		cnt := int32(0)
+		for _, num := range nums {
+			cnt += int32(num) >> i & 1
+		}
+		cnt %= 3
+		ans |= cnt << i
+	}
+	return int(ans)
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i)
+        {
+            int cnt = 0;
+            for (int num : nums)
+            {
+                cnt += ((num >> i) & 1);
+            }
+            cnt %= 3;
+            ans |= cnt << i;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**

@@ -4,35 +4,36 @@
 
 ## Description
 
-<p>Given a <b>non-empty</b> integer array of size <i>n</i>, find the minimum number of moves required to make all array elements equal, where a move is incrementing <i>n</i> - 1 elements by 1.</p>
+<p>Given an integer array <code>nums</code> of size <code>n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</p>
 
-<p><b>Example:</b>
+<p>In one move, you can increment <code>n - 1</code> elements of the array by <code>1</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-[1,2,3]
-
-
-
-<b>Output:</b>
-
-3
-
-
-
-<b>Explanation:</b>
-
-Only three moves are needed (remember each move increments two elements):
-
-
-
-[1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
-
+<strong>Input:</strong> nums = [1,2,3]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> Only three moves are needed (remember each move increments two elements):
+[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,1,1]
+<strong>Output:</strong> 0
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li>The answer is guaranteed to fit in a <strong>32-bit</strong> integer.</li>
+</ul>
 
 ## Solutions
 
@@ -41,13 +42,68 @@ Only three moves are needed (remember each move increments two elements):
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        return sum(nums) - min(nums) * len(nums)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minMoves(int[] nums) {
+        return Arrays.stream(nums).sum() - Arrays.stream(nums).min().getAsInt() * nums.length;
+    }
+}
+```
 
+```java
+class Solution {
+    public int minMoves(int[] nums) {
+        int s = 0;
+        int mi = Integer.MAX_VALUE;
+        for (int num : nums) {
+            s += num;
+            mi = Math.min(mi, num);
+        }
+        return s - mi * nums.length;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMoves(vector<int>& nums) {
+        int s = 0;
+        int mi = INT_MAX;
+        for (int num : nums)
+        {
+            s += num;
+            mi = min(mi, num);
+        }
+        return s - mi * nums.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMoves(nums []int) int {
+	mi := math.MaxInt32
+	s := 0
+	for _, num := range nums {
+		s += num
+		if num < mi {
+			mi = num
+		}
+	}
+	return s - mi*len(nums)
+
+}
 ```
 
 ### **...**

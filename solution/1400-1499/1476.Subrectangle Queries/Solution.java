@@ -1,29 +1,24 @@
 class SubrectangleQueries {
-
-    int[][] matrix;
+    private int[][] rec;
+    private List<int[]> history;
 
     public SubrectangleQueries(int[][] rectangle) {
-        matrix = new int[rectangle.length][rectangle[0].length];
-        for (int i = 0; i < rectangle.length; i++) {
-            for (int j = 0; j < rectangle[0].length; j++) {
-                matrix[i][j] = rectangle[i][j];
-            }
-        }
+        rec = rectangle;
+        history = new ArrayList<>();
     }
-
+    
     public void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
-        if (row1 > row2 || col1 > col2) {
-            return;
-        }
-        for (int i = row1; i <= row2; i++) {
-            for (int j = col1; j <= col2; j++) {
-                matrix[i][j] = newValue;
+        history.add(new int[]{row1, col1, row2, col2, newValue});
+    }
+    
+    public int getValue(int row, int col) {
+        for (int i = history.size() - 1; i >= 0; --i) {
+            int[] record = history.get(i);
+            if (row >= record[0] && row <= record[2] && col >= record[1] && col <= record[3]) {
+                return record[4];
             }
         }
-    }
-
-    public int getValue(int row, int col) {
-        return matrix[row][col];
+        return rec[row][col];
     }
 }
 

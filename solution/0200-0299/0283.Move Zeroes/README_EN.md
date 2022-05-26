@@ -4,22 +4,28 @@
 
 ## Description
 
-<p>Given an array <code>nums</code>, write a function to move all <code>0</code>&#39;s to the end of it while maintaining the relative order of the non-zero elements.</p>
+<p>Given an integer array <code>nums</code>, move all <code>0</code>&#39;s to the end of it while maintaining the relative order of the non-zero elements.</p>
 
-<p><b>Example:</b></p>
+<p><strong>Note</strong> that you must do this in-place without making a copy of the array.</p>
 
-<pre>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [0,1,0,3,12]
+<strong>Output:</strong> [1,3,12,0,0]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [0]
+<strong>Output:</strong> [0]
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<b>Input:</b> <code>[0,1,0,3,12]</code>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
-<b>Output:</b> <code>[1,3,12,0,0]</code></pre>
-
-<p><b>Note</b>:</p>
-
-<ol>
-    <li>You must do this <b>in-place</b> without making a copy of the array.</li>
-    <li>Minimize the total number of operations.</li>
-</ol>
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you minimize the total number of operations done?
 
 ## Solutions
 
@@ -33,18 +39,11 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        if not nums:
-            return
-        n = len(nums)
-        zero_count = 0
-        for i in range(n):
-            if nums[i] == 0:
-                zero_count += 1
-            else:
-                nums[i - zero_count] = nums[i]
-        while zero_count > 0:
-            nums[n - zero_count] = 0
-            zero_count -= 1
+        left, n = 0, len(nums)
+        for right in range(n):
+            if nums[right] != 0:
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
 ```
 
 ### **Java**
@@ -52,20 +51,114 @@ class Solution:
 ```java
 class Solution {
     public void moveZeroes(int[] nums) {
-        int n;
-        if (nums == null || (n = nums.length) < 1) {
-            return;
-        }
-        int zeroCount = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] == 0) {
-                ++zeroCount;
-            } else {
-                nums[i - zeroCount] = nums[i];
+        int left = 0, n = nums.length;
+        for (int right = 0; right < n; ++right) {
+            if (nums[right] != 0) {
+                int t = nums[left];
+                nums[left] = nums[right];
+                nums[right] = t;
+                ++left;
             }
         }
-        while (zeroCount > 0) {
-            nums[n - zeroCount--] = 0;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int left = 0, n = nums.size();
+        for (int right = 0; right < n; ++right) {
+            if (nums[right] != 0)
+            {
+                swap(nums[left], nums[right]);
+                ++left;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func moveZeroes(nums []int) {
+	n := len(nums)
+	left := 0
+	for right := 0; right < n; right++ {
+		if nums[right] != 0 {
+			nums[left], nums[right] = nums[right], nums[left]
+			left++
+		}
+	}
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function (nums) {
+    let left = 0,
+        n = nums.length;
+    for (let right = 0; right < n; ++right) {
+        if (nums[right]) {
+            [nums[left], nums[right]] = [nums[right], nums[left]];
+            ++left;
+        }
+    }
+};
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function (nums) {
+    let left = 0;
+    let right = left;
+    while (left < nums.length) {
+        if (nums[left] != 0) {
+            left++;
+        } else {
+            right = left + 1;
+            while (right < nums.length) {
+                if (nums[right] == 0) {
+                    right++;
+                } else {
+                    let tem = nums[left];
+                    nums[left] = nums[right];
+                    nums[right] = tem;
+                    break;
+                }
+            }
+            left++;
+        }
+    }
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn move_zeroes(nums: &mut Vec<i32>) {
+        let mut i = 0;
+        for j in 0..nums.len() {
+            if nums[j] != 0 {
+                if i != j {
+                    nums[i] = nums[j];
+                    nums[j] = 0;
+                }
+                i += 1;
+            }
         }
     }
 }

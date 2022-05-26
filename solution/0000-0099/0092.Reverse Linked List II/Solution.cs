@@ -1,35 +1,38 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
 public class Solution {
-    public ListNode ReverseBetween(ListNode head, int m, int n) {
-        ListNode part1Head = null;
-        ListNode part1Tail = null;
-        for (var i = 1; i < m; ++i)
+    public ListNode ReverseBetween(ListNode head, int left, int right) {
+        if (head == null || head.next == null || left == right)
         {
-            if (part1Head == null)
-            {
-                part1Head = head;
-            }
-            part1Tail = head;
-            head = head.next;
+            return head;
         }
-        if (part1Tail != null) part1Tail.next = null;
-        ListNode part2Head = null;
-        ListNode part2Tail = null;
-        for (var i = m; i <= n; ++i)
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy;
+        for (int i = 0; i < left - 1; ++i)
         {
-            var next = head.next;
-            head.next = part2Head;
-            part2Head = head;
-            if (part2Tail == null)
-            {
-                part2Tail = head;
-            }
-            head = next;
+            pre = pre.next;
         }
-        if (part1Tail != null)
+        ListNode p = pre;
+        ListNode q = pre.next;
+        ListNode cur = q;
+        for (int i = 0; i < right - left + 1; ++i)
         {
-            part1Tail.next = part2Head;
+            ListNode t = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = t;
         }
-        part2Tail.next = head;
-        return part1Head ?? part2Head;
+        p.next = pre;
+        q.next = cur;
+        return dummy.next;
     }
 }

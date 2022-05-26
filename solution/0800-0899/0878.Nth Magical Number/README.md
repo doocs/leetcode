@@ -1,13 +1,14 @@
-# [878. 第 N 个神奇数字](https://leetcode-cn.com/problems/nth-magical-number)
+# [878. 第 N 个神奇数字](https://leetcode.cn/problems/nth-magical-number)
 
 [English Version](/solution/0800-0899/0878.Nth%20Magical%20Number/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>如果正整数可以被 A 或 B 整除，那么它是神奇的。</p>
 
-<p>返回第 N 个神奇数字。由于答案可能非常大，<strong>返回它模&nbsp;</strong><code>10^9 + 7</code>&nbsp;<strong>的结果</strong>。</p>
+<p>一个正整数如果能被 <code>a</code> 或 <code>b</code> 整除，那么它是神奇的。</p>
+
+<p>给定三个整数 <code>n</code> ,&nbsp;<code>a</code> , <code>b</code> ，返回第 <code>n</code> 个神奇的数字。因为答案可能很大，所以返回答案&nbsp;<strong>对&nbsp;</strong><code>10<sup>9</sup>&nbsp;+ 7</code> <strong>取模&nbsp;</strong>后的值。</p>
 
 <p>&nbsp;</p>
 
@@ -16,37 +17,28 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>N = 1, A = 2, B = 3
+<pre>
+<strong>输入：</strong>n = 1, a = 2, b = 3
 <strong>输出：</strong>2
 </pre>
 
 <p><strong>示例&nbsp;2：</strong></p>
 
-<pre><strong>输入：</strong>N = 4, A = 2, B = 3
+<pre>
+<strong>输入：</strong>n = 4, a = 2, b = 3
 <strong>输出：</strong>6
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>N = 5, A = 2, B = 4
-<strong>输出：</strong>10
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>N = 3, A = 6, B = 4
-<strong>输出：</strong>8
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= N&nbsp;&lt;= 10^9</code></li>
-	<li><code>2 &lt;= A&nbsp;&lt;= 40000</code></li>
-	<li><code>2 &lt;= B&nbsp;&lt;= 40000</code></li>
-</ol>
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
+	<li><code>2 &lt;= a, b &lt;= 4 * 10<sup>4</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
 
 ## 解法
 

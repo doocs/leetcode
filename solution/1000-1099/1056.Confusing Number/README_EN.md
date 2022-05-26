@@ -4,64 +4,54 @@
 
 ## Description
 
-<p>Given a number <code>N</code>, return <code>true</code> if and only if it is a <em>confusing number</em>, which satisfies the following condition:</p>
+<p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
 
-<p>We can rotate digits by 180 degrees to form new digits. When 0, 1, 6, 8, 9 are rotated 180 degrees, they become 0, 1, 9, 8, 6 respectively. When 2, 3, 4, 5 and 7 are rotated 180 degrees, they become invalid. A <em>confusing number</em> is a number that when rotated 180 degrees becomes a <strong>different</strong> number with each digit valid.</p>
+<p>We can rotate digits of a number by <code>180</code> degrees to form new digits.</p>
 
-<p> </p>
+<ul>
+	<li>When <code>0</code>, <code>1</code>, <code>6</code>, <code>8</code>, and <code>9</code> are rotated <code>180</code> degrees, they become <code>0</code>, <code>1</code>, <code>9</code>, <code>8</code>, and <code>6</code> respectively.</li>
+	<li>When <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, and <code>7</code> are rotated <code>180</code> degrees, they become <strong>invalid</strong>.</li>
+</ul>
 
+<p>Note that after rotating a number, we can ignore leading zeros.</p>
+
+<ul>
+	<li>For example, after rotating <code>8000</code>, we have <code>0008</code> which is considered as just <code>8</code>.</li>
+</ul>
+
+<p>Given an integer <code>n</code>, return <code>true</code><em> if it is a <strong>confusing number</strong>, or </em><code>false</code><em> otherwise</em>.</p>
+
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/1268_1.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1056.Confusing%20Number/images/1268_1.png" style="width: 281px; height: 121px;" />
 <pre>
-<strong>Input: </strong><span id="example-input-1-1">6</span>
-<strong>Output: </strong><span id="example-output-1">true</span>
-<strong>Explanation: </strong>
-We get <code>9</code> after rotating <code>6</code>, <code>9</code> is a valid number and <code>9!=6</code>.
+<strong>Input:</strong> n = 6
+<strong>Output:</strong> true
+<strong>Explanation:</strong> We get 9 after rotating 6, 9 is a valid number, and 9 != 6.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/1268_2.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1056.Confusing%20Number/images/1268_2.png" style="width: 312px; height: 121px;" />
 <pre>
-<strong>Input: </strong><span id="example-input-2-1">89</span>
-<strong>Output: </strong><span id="example-output-2">true</span>
-<strong>Explanation: </strong>
-We get <code>68</code> after rotating <code>89</code>, <code>86</code> is a valid number and <code>86!=89</code>.
+<strong>Input:</strong> n = 89
+<strong>Output:</strong> true
+<strong>Explanation:</strong> We get 68 after rotating 89, 68 is a valid number and 68 != 89.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/1268_3.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1056.Confusing%20Number/images/1268_3.png" style="width: 301px; height: 121px;" />
 <pre>
-<strong>Input: </strong><span id="example-input-3-1">11</span>
-<strong>Output: </strong><span id="example-output-3">false</span>
-<strong>Explanation: </strong>
-We get <code>11</code> after rotating <code>11</code>, <code>11</code> is a valid number but the value remains the same, thus <code>11</code> is not a confusing number.
+<strong>Input:</strong> n = 11
+<strong>Output:</strong> false
+<strong>Explanation:</strong> We get 11 after rotating 11, 11 is a valid number but the value remains the same, thus 11 is not a confusing number
 </pre>
 
-<p><strong>Example 4:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-![](./images/1268_4.png)
-
-<pre>
-<strong>Input: </strong><span id="example-input-4-1">25</span>
-<strong>Output: </strong><span id="example-output-4">false</span>
-<strong>Explanation: </strong>
-We get an invalid number after rotating <code>25</code>.
-</pre>
-
-<p> </p>
-
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>0 <= N <= 10^9</code></li>
-	<li>After the rotation we can ignore leading zeros, for example if after rotation we have <code>0008</code> then this number is considered as just <code>8</code>.</li>
-</ol>
+<ul>
+	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
+</ul>
 
 ## Solutions
 

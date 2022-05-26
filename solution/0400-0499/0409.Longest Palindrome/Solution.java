@@ -1,14 +1,14 @@
 class Solution {
     public int longestPalindrome(String s) {
-        int[] res = new int[128];
-        int n = s.length();
-        for (int i = 0; i < n; ++i) {
-            res[s.charAt(i)]++;
+        int[] counter = new int[128];
+        for (char c : s.toCharArray()) {
+            ++counter[c];
         }
         int oddCnt = 0;
-        for (int e : res) {
+        for (int e : counter) {
             oddCnt += (e % 2);
         }
+        int n = s.length();
         return oddCnt == 0 ? n : n - oddCnt + 1;
     }
 }

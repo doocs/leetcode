@@ -4,58 +4,46 @@
 
 ## Description
 
-<p>Implement a <code>MyCalendarTwo</code> class to store your events. A new event can be added if adding the event will not cause a <b>triple</b> booking.</p>
+<p>You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a <strong>triple booking</strong>.</p>
 
-<p>Your class will have one method, <code>book(int start, int end)</code>. Formally, this represents a booking on the half open interval <code>[start, end)</code>, the range of real numbers <code>x</code> such that <code>start &lt;= x &lt; end</code>.</p>
+<p>A <strong>triple booking</strong> happens when three events have some non-empty intersection (i.e., some moment is common to all the three events.).</p>
 
-<p>A <i>triple booking</i> happens when <b>three</b> events have some non-empty intersection (ie., there is some time that is common to all 3 events.)</p>
+<p>The event can be represented as a pair of integers <code>start</code> and <code>end</code> that represents a booking on the half-open interval <code>[start, end)</code>, the range of real numbers <code>x</code> such that <code>start &lt;= x &lt; end</code>.</p>
 
-<p>For each call to the method <code>MyCalendar.book</code>, return <code>true</code> if the event can be added to the calendar successfully without causing a <b>triple</b> booking. Otherwise, return <code>false</code> and do not add the event to the calendar.</p>
-
-Your class will be called like this: <code>MyCalendar cal = new MyCalendar();</code> <code>MyCalendar.book(start, end)</code>
-
-<p><b>Example 1:</b></p>
-
-<pre>
-
-MyCalendar();
-
-MyCalendar.book(10, 20); // returns true
-
-MyCalendar.book(50, 60); // returns true
-
-MyCalendar.book(10, 40); // returns true
-
-MyCalendar.book(5, 15); // returns false
-
-MyCalendar.book(5, 10); // returns true
-
-MyCalendar.book(25, 55); // returns true
-
-<b>Explanation:</b> 
-
-The first two events can be booked.  The third event can be double booked.
-
-The fourth event (5, 15) can&#39;t be booked, because it would result in a triple booking.
-
-The fifth event (5, 10) can be booked, as it does not use time 10 which is already double booked.
-
-The sixth event (25, 55) can be booked, as the time in [25, 40) will be double booked with the third event;
-
-the time [40, 50) will be single booked, and the time [50, 55) will be double booked with the second event.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Note:</b></p>
+<p>Implement the <code>MyCalendarTwo</code> class:</p>
 
 <ul>
-    <li>The number of calls to <code>MyCalendar.book</code> per test case will be at most <code>1000</code>.</li>
-    <li>In calls to <code>MyCalendar.book(start, end)</code>, <code>start</code> and <code>end</code> are integers in the range <code>[0, 10^9]</code>.</li>
+	<li><code>MyCalendarTwo()</code> Initializes the calendar object.</li>
+	<li><code>boolean book(int start, int end)</code> Returns <code>true</code> if the event can be added to the calendar successfully without causing a <strong>triple booking</strong>. Otherwise, return <code>false</code> and do not add the event to the calendar.</li>
 </ul>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input</strong>
+[&quot;MyCalendarTwo&quot;, &quot;book&quot;, &quot;book&quot;, &quot;book&quot;, &quot;book&quot;, &quot;book&quot;, &quot;book&quot;]
+[[], [10, 20], [50, 60], [10, 40], [5, 15], [5, 10], [25, 55]]
+<strong>Output</strong>
+[null, true, true, true, false, true, true]
+
+<strong>Explanation</strong>
+MyCalendarTwo myCalendarTwo = new MyCalendarTwo();
+myCalendarTwo.book(10, 20); // return True, The event can be booked. 
+myCalendarTwo.book(50, 60); // return True, The event can be booked. 
+myCalendarTwo.book(10, 40); // return True, The event can be double booked. 
+myCalendarTwo.book(5, 15);  // return False, The event cannot be booked, because it would result in a triple booking.
+myCalendarTwo.book(5, 10); // return True, The event can be booked, as it does not use time 10 which is already double booked.
+myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time in [25, 40) will be double booked with the third event, the time [40, 50) will be single booked, and the time [50, 55) will be double booked with the second event.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= start &lt; end &lt;= 10<sup>9</sup></code></li>
+	<li>At most <code>1000</code> calls will be made to <code>book</code>.</li>
+</ul>
 
 ## Solutions
 
@@ -64,13 +52,103 @@ the time [40, 50) will be single booked, and the time [50, 55) will be double bo
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedDict
 
+
+class MyCalendarTwo:
+
+    def __init__(self):
+        self.sd = SortedDict()
+
+    def book(self, start: int, end: int) -> bool:
+        if start not in self.sd:
+            self.sd[start] = 0
+        if end not in self.sd:
+            self.sd[end] = 0
+        self.sd[start] += 1
+        self.sd[end] -= 1
+        s = 0
+        for v in self.sd.values():
+            s += v
+            if s > 2:
+                self.sd[start] -= 1
+                self.sd[end] += 1
+                return False
+        return True
+
+
+# Your MyCalendarTwo object will be instantiated and called as such:
+# obj = MyCalendarTwo()
+# param_1 = obj.book(start,end)
 ```
 
 ### **Java**
 
 ```java
+class MyCalendarTwo {
+    private Map<Integer, Integer> tm = new TreeMap<>();
 
+    public MyCalendarTwo() {
+
+    }
+
+    public boolean book(int start, int end) {
+        tm.put(start, tm.getOrDefault(start, 0) + 1);
+        tm.put(end, tm.getOrDefault(end, 0) - 1);
+        int s = 0;
+        for (int v : tm.values()) {
+            s += v;
+            if (s > 2) {
+                tm.put(start, tm.get(start) - 1);
+                tm.put(end, tm.get(end) + 1);
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */
+```
+
+### **C++**
+
+```cpp
+class MyCalendarTwo {
+public:
+    map<int, int> m;
+
+    MyCalendarTwo() {
+
+    }
+
+    bool book(int start, int end) {
+        ++m[start];
+        --m[end];
+        int s = 0;
+        for (auto& [k, v] : m)
+        {
+            s += v;
+            if (s > 2)
+            {
+                --m[start];
+                ++m[end];
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo* obj = new MyCalendarTwo();
+ * bool param_1 = obj->book(start,end);
+ */
 ```
 
 ### **...**

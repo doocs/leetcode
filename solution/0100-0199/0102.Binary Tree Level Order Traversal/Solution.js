@@ -1,8 +1,9 @@
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
  * }
  */
 /**
@@ -10,25 +11,24 @@
  * @return {number[][]}
  */
 var levelOrder = function (root) {
-  let result = [];
-  if (!root) return result;
-
-  let queue = [];
-  queue.push(root);
-  while (queue.length) {
-    let size = queue.length;
-    let levelItems = [];
-    while (size--) {
-      let node = queue.shift();
-      levelItems.push(node.val);
-      if (node.left) {
-        queue.push(node.left);
-      }
-      if (node.right) {
-        queue.push(node.right);
-      }
+    let ans = [];
+    if (!root) {
+        return ans;
     }
-    result.push(levelItems);
-  }
-  return result;
+    let q = [root];
+    while (q.length) {
+        let t = [];
+        for (let n = q.length; n; --n) {
+            const node = q.shift();
+            t.push(node.val);
+            if (node.left) {
+                q.push(node.left);
+            }
+            if (node.right) {
+                q.push(node.right);
+            }
+        }
+        ans.push(t);
+    }
+    return ans;
 };

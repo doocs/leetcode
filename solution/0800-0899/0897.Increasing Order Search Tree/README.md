@@ -1,60 +1,47 @@
-# [897. 递增顺序查找树](https://leetcode-cn.com/problems/increasing-order-search-tree)
+# [897. 递增顺序搜索树](https://leetcode.cn/problems/increasing-order-search-tree)
 
 [English Version](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给你一个树，请你 <strong>按中序遍历</strong> 重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。</p>
+
+<p>给你一棵二叉搜索树的<meta charset="UTF-8" />&nbsp;<code>root</code>&nbsp;，请你 <strong>按中序遍历</strong> 将其重新排列为一棵递增顺序搜索树，使树中最左边的节点成为树的根节点，并且每个节点没有左子节点，只有一个右子节点。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 ：</strong></p>
-
-<pre><strong>输入：</strong>[5,3,6,2,4,null,8,1,null,null,null,7,9]
-
-       5
-      / \
-    3    6
-   / \    \
-  2   4    8
-&nbsp;/        / \ 
-1        7   9
-
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/images/ex1.jpg" style="height: 350px; width: 600px;" />
+<pre>
+<strong>输入：</strong>root = [5,3,6,2,4,null,8,1,null,null,null,7,9]
 <strong>输出：</strong>[1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
+</pre>
 
- 1
-&nbsp; \
-&nbsp;  2
-&nbsp;   \
-&nbsp;    3
-&nbsp;     \
-&nbsp;      4
-&nbsp;       \
-&nbsp;        5
-&nbsp;         \
-&nbsp;          6
-&nbsp;           \
-&nbsp;            7
-&nbsp;             \
-&nbsp;              8
-&nbsp;               \
-                 9  </pre>
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/images/ex2.jpg" style="height: 114px; width: 300px;" />
+<pre>
+<strong>输入：</strong>root = [5,1,7]
+<strong>输出：</strong>[1,null,5,null,7]
+</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>给定树中的结点数介于 <code>1</code> 和&nbsp;<code>100</code> 之间。</li>
-	<li>每个结点都有一个从 <code>0</code> 到 <code>1000</code> 范围内的唯一整数值。</li>
-</ol>
+<ul>
+	<li>树中节点数的取值范围是 <code>[1, 100]</code></li>
+	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-递归将左子树、右子树转换为左、右链表 left 和 right。然后将左链表 left 的最后一个结点的 right 指针指向 root，root 的 right 指针指向右链表 right，并将 root 的 left 指针值为空。
+**方法一：中序遍历**
+
+中序遍历过程中改变指针指向。
+
+时间复杂度 O(n)。
 
 同[面试题 17.12. BiNode](/lcci/17.12.BiNode/README.md)。
 
@@ -73,20 +60,20 @@
 #         self.right = right
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        if root is None:
-            return None
-        left = self.increasingBST(root.left)
-        right = self.increasingBST(root.right)
-        if left is None:
-            root.right = right
-            return root
-        res = left
-        while left and left.right:
-            left = left.right
-        left.right = root
-        root.right = right
-        root.left = None
-        return res
+        def dfs(root):
+            if root is None:
+                return
+            nonlocal prev
+            dfs(root.left)
+            prev.right = root
+            root.left = None
+            prev = root
+            dfs(root.right)
+
+        dummy = TreeNode(val=0, right=root)
+        prev = dummy
+        dfs(root)
+        return dummy.right
 ```
 
 ### **Java**
@@ -110,21 +97,90 @@ class Solution:
  * }
  */
 class Solution {
+    private TreeNode prev;
     public TreeNode increasingBST(TreeNode root) {
-        if (root == null) return null;
-        TreeNode left = increasingBST(root.left);
-        TreeNode right = increasingBST(root.right);
-        if (left == null) {
-            root.right = right;
-            return root;
-        }
-        TreeNode res = left;
-        while (left != null && left.right != null) left = left.right;
-        left.right = root;
-        root.right = right;
-        root.left = null;
-        return res;
+        TreeNode dummy = new TreeNode(0, null, root);
+        prev = dummy;
+        dfs(root);
+        return dummy.right;
     }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        prev.right = root;
+        root.left = null;
+        prev = root;
+        dfs(root.right);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* prev;
+
+    TreeNode* increasingBST(TreeNode* root) {
+        TreeNode* dummy = new TreeNode(0, nullptr, root);
+        prev = dummy;
+        dfs(root);
+        return dummy->right;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->left);
+        prev->right = root;
+        root->left = nullptr;
+        prev = root;
+        dfs(root->right);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func increasingBST(root *TreeNode) *TreeNode {
+	dummy := &TreeNode{Val: 0, Right: root}
+	prev := dummy
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		prev.Right = root
+		root.Left = nil
+		prev = root
+		dfs(root.Right)
+	}
+	dfs(root)
+	return dummy.Right
 }
 ```
 

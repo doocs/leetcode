@@ -1,28 +1,47 @@
-public class Solution {
-    public void connect(TreeLinkNode root) {
-        if (root == null) return;
-        TreeLinkNode first_node_next_layer = null;
-        TreeLinkNode preNode = null;
-        for (TreeLinkNode curNode = root; curNode != null; curNode = curNode.next) {
-            if (curNode.left != null) {
-                if (preNode == null) {
-                    preNode = curNode.left;
-                    first_node_next_layer = curNode.left;
-                } else {
-                    preNode.next = curNode.left;
-                    preNode = preNode.next;
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+
+    public Node() {}
+    
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+};
+*/
+
+class Solution {
+    public Node connect(Node root) {
+        if (root == null || (root.left == null && root.right == null)) {
+            return root;
+        }
+        Deque<Node> q = new ArrayDeque<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            Node cur = null;
+            for (int i = 0, n = q.size(); i < n; ++i) {
+                Node node = q.pollFirst();
+                if (node.right != null) {
+                    q.offer(node.right);
                 }
-            }
-            if (curNode.right != null) {
-                if (preNode == null) {
-                    preNode = curNode.right;
-                    first_node_next_layer = curNode.right;
-                } else {
-                    preNode.next = curNode.right;
-                    preNode = preNode.next;
+                if (node.left != null) {
+                    q.offer(node.left);
                 }
+                node.next = cur;
+                cur = node;
             }
         }
-        connect(first_node_next_layer);
+        return root;
     }
 }

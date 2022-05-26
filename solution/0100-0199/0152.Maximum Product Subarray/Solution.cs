@@ -1,18 +1,13 @@
-using System;
-
 public class Solution {
     public int MaxProduct(int[] nums) {
-        var prevMin = 1;
-        var prevMax = 1;
-        var result = int.MinValue;
-        for (var i = 0; i < nums.Length; ++i)
+        int maxf = nums[0], minf = nums[0], res = nums[0];
+        for (int i = 1; i < nums.Length; ++i)
         {
-            var max = Math.Max(nums[i], Math.Max(nums[i] * prevMin, nums[i] * prevMax));
-            var min = Math.Min(nums[i], Math.Min(nums[i] * prevMin, nums[i] * prevMax));
-            result = Math.Max(result, max);
-            prevMax = max;
-            prevMin = min;
+            int m = maxf, n = minf;
+            maxf = Math.Max(nums[i], Math.Max(nums[i] * m, nums[i] * n));
+            minf = Math.Min(nums[i], Math.Min(nums[i] * m, nums[i] * n));
+            res = Math.Max(res, maxf);
         }
-        return result;
+        return res;
     }
 }

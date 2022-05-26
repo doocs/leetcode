@@ -1,10 +1,11 @@
-# [1250. 检查「好数组」](https://leetcode-cn.com/problems/check-if-it-is-a-good-array)
+# [1250. 检查「好数组」](https://leetcode.cn/problems/check-if-it-is-a-good-array)
 
 [English Version](/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个正整数数组 <code>nums</code>，你需要从中任选一些子集，然后将子集中每一个数乘以一个 <strong>任意整数</strong>，并求出他们的和。</p>
 
 <p>假如该和结果为&nbsp;<code>1</code>，那么原数组就是一个「<strong>好数组</strong>」，则返回 <code>True</code>；否则请返回 <code>False</code>。</p>

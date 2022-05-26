@@ -14,7 +14,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-![](./images/untitled-diagram-1.jpg)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/images/untitled-diagram-1.jpg" style="width: 388px; height: 240px;" /></p>
 
 <pre>
 
@@ -28,7 +28,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/untitled-diagram-1-1.jpg)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/images/untitled-diagram-1-1.jpg" style="width: 388px; height: 240px;" /></p>
 
 <pre>
 
@@ -44,7 +44,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/untitled-diagram-1-2.jpg)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/images/untitled-diagram-1-2.jpg" style="width: 388px; height: 240px;" /></p>
 
 <pre>
 
@@ -61,10 +61,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n&nbsp;&lt;= 10^4</code></li>
-	<li><code>distance.length == n</code></li>
-	<li><code>0 &lt;= start, destination &lt; n</code></li>
-	<li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
+    <li><code>1 &lt;= n&nbsp;&lt;= 10^4</code></li>
+    <li><code>distance.length == n</code></li>
+    <li><code>0 &lt;= start, destination &lt; n</code></li>
+    <li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
 </ul>
 
 ## Solutions

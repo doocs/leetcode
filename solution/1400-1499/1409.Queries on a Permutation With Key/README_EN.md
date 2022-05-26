@@ -62,9 +62,13 @@ Therefore, the array containing the result is [2,1,2,1].
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= m &lt;= 10^3</code></li>
+
     <li><code>1 &lt;= queries.length &lt;= m</code></li>
+
     <li><code>1 &lt;= queries[i] &lt;= m</code></li>
+
 </ul>
 
 ## Solutions
@@ -74,13 +78,89 @@ Therefore, the array containing the result is [2,1,2,1].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def processQueries(self, queries: List[int], m: int) -> List[int]:
+        nums = list(range(1, m + 1))
+        res = []
+        for num in queries:
+            res.append(nums.index(num))
+            nums.remove(num)
+            nums.insert(0, num)
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] processQueries(int[] queries, int m) {
+        List<Integer> nums = new LinkedList<>();
+        for (int i = 0; i < m; ++i) {
+            nums.add(i + 1);
+        }
+        int[] res = new int[queries.length];
+        int i = 0;
+        for (int num : queries) {
+            res[i++] = nums.indexOf(num);
+            nums.remove(Integer.valueOf(num));
+            nums.add(0, num);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> processQueries(vector<int>& queries, int m) {
+        vector<int> nums(m);
+        iota(nums.begin(), nums.end(), 1);
+        vector<int> res;
+        for (int num : queries)
+        {
+            int idx = -1;
+            for (int i = 0; i < m; ++i)
+            {
+                if (nums[i] == num) {
+                    idx = i;
+                    break;
+                }
+            }
+            res.push_back(idx);
+            nums.erase(nums.begin() + idx);
+            nums.insert(nums.begin(), num);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func processQueries(queries []int, m int) []int {
+	nums := make([]int, m)
+	for i := 0; i < m; i++ {
+		nums[i] = i + 1
+	}
+	var res []int
+	for _, num := range queries {
+		idx := -1
+		for i := 0; i < m; i++ {
+			if nums[i] == num {
+				idx = i
+				break
+			}
+		}
+		res = append(res, idx)
+		nums = append(nums[:idx], nums[idx+1:]...)
+		nums = append([]int{num}, nums...)
+	}
+	return res
+}
 ```
 
 ### **...**

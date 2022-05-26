@@ -1,40 +1,46 @@
-# [1015. 可被 K 整除的最小整数](https://leetcode-cn.com/problems/smallest-integer-divisible-by-k)
+# [1015. 可被 K 整除的最小整数](https://leetcode.cn/problems/smallest-integer-divisible-by-k)
 
 [English Version](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定正整数&nbsp;<code>K</code>，你需要找出可以被 K 整除的、仅包含数字 <strong>1</strong> 的最小正整数 N。</p>
 
-<p>返回&nbsp;<code>N</code>&nbsp;的长度。如果不存在这样的&nbsp;<code>N</code>，就返回 <code>-1</code>。</p>
+<p>给定正整数 <code>k</code>&nbsp;，你需要找出可以被 <code>k</code>&nbsp;整除的、仅包含数字 <code><strong>1</strong></code> 的最 <strong>小</strong> 正整数 <code>n</code>&nbsp;的长度。</p>
+
+<p>返回 <code>n</code>&nbsp;的长度。如果不存在这样的 <code>n</code>&nbsp;，就返回-1。</p>
+
+<p><strong>注意：</strong> <code>n</code>&nbsp;不符合 64 位带符号整数。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>1
+<pre>
+<strong>输入：</strong>k = 1
 <strong>输出：</strong>1
-<strong>解释：</strong>最小的答案是 N = 1，其长度为 1。</pre>
+<strong>解释：</strong>最小的答案是 n = 1，其长度为 1。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>2
+<pre>
+<strong>输入：</strong>k = 2
 <strong>输出：</strong>-1
-<strong>解释：</strong>不存在可被 2 整除的正整数 N 。</pre>
+<strong>解释：</strong>不存在可被 2 整除的正整数 n 。</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>3
+<pre>
+<strong>输入：</strong>k = 3
 <strong>输出：</strong>3
-<strong>解释：</strong>最小的答案是 N = 111，其长度为 3。</pre>
+<strong>解释：</strong>最小的答案是 n = 111，其长度为 3。</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= K &lt;= 10^5</code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## 解法

@@ -4,72 +4,72 @@
 
 ## Description
 
-<p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
+<p>Given the heads of two singly linked-lists <code>headA</code> and <code>headB</code>, return <em>the node at which the two lists intersect</em>. If the two linked lists have no intersection at all, return <code>null</code>.</p>
 
-<p>For example, the following two linked lists:</p>
+<p>For example, the following two linked lists begin to intersect at node <code>c1</code>:</p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/images/160_statement.png" style="width: 500px; height: 162px;" />
+<p>The test cases are generated such that there are no cycles anywhere in the entire linked structure.</p>
 
-![](./images/160_statement.png)
+<p><strong>Note</strong> that the linked lists must <strong>retain their original structure</strong> after the function returns.</p>
 
-<p>begin to intersect at node c1.</p>
+<p><strong>Custom Judge:</strong></p>
 
-<p>&nbsp;</p>
-
-<p><strong>Example 1:</strong></p>
-
-![](./images/160_example_1.png)
-
-<pre>
-
-<strong>Input: </strong>intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
-
-<strong>Output:</strong> Reference of the node with value = 8
-
-<strong>Input Explanation:</strong> The intersected node&#39;s value is 8 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,0,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>Example 2:</strong></p>
-
-![](./images/160_example_2.png)
-
-<pre>
-
-<strong>Input: </strong>intersectVal&nbsp;= 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
-
-<strong>Output:</strong> Reference of the node with value = 2
-
-<strong>Input Explanation:</strong>&nbsp;The intersected node&#39;s value is 2 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [0,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>Example 3:</strong></p>
-
-![](./images/160_example_3.png)
-
-<pre>
-
-<strong>Input: </strong>intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
-
-<strong>Output:</strong> null
-
-<strong>Input Explanation:</strong> From the head of A, it reads as [2,6,4]. From the head of B, it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0, while skipA and skipB can be arbitrary values.
-
-<strong>Explanation:</strong> The two lists do not intersect, so return null.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Notes:</b></p>
+<p>The inputs to the <strong>judge</strong> are given as follows (your program is <strong>not</strong> given these inputs):</p>
 
 <ul>
-	<li>If the two linked lists have no intersection at all, return <code>null</code>.</li>
-	<li>The linked lists must retain their original structure after the function returns.</li>
-	<li>You may assume there are no cycles anywhere in the entire linked structure.</li>
-	<li>Your code should preferably run in O(n) time and use only O(1) memory.</li>
+	<li><code>intersectVal</code> - The value of the node where the intersection occurs. This is <code>0</code> if there is no intersected node.</li>
+	<li><code>listA</code> - The first linked list.</li>
+	<li><code>listB</code> - The second linked list.</li>
+	<li><code>skipA</code> - The number of nodes to skip ahead in <code>listA</code> (starting from the head) to get to the intersected node.</li>
+	<li><code>skipB</code> - The number of nodes to skip ahead in <code>listB</code> (starting from the head) to get to the intersected node.</li>
 </ul>
+
+<p>The judge will then create the linked structure based on these inputs and pass the two heads, <code>headA</code> and <code>headB</code>&nbsp;to your program. If you correctly return the intersected node, then your solution will be <strong>accepted</strong>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/images/160_example_1_1.png" style="width: 500px; height: 162px;" />
+<pre>
+<strong>Input:</strong> intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+<strong>Output:</strong> Intersected at &#39;8&#39;
+<strong>Explanation:</strong> The intersected node&#39;s value is 8 (note that this must not be 0 if the two lists intersect).
+From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,6,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.
+</pre>
+
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/images/160_example_2.png" style="width: 500px; height: 194px;" />
+<pre>
+<strong>Input:</strong> intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
+<strong>Output:</strong> Intersected at &#39;2&#39;
+<strong>Explanation:</strong> The intersected node&#39;s value is 2 (note that this must not be 0 if the two lists intersect).
+From the head of A, it reads as [1,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.
+</pre>
+
+<p><strong>Example 3:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/images/160_example_3.png" style="width: 300px; height: 189px;" />
+<pre>
+<strong>Input:</strong> intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
+<strong>Output:</strong> No intersection
+<strong>Explanation:</strong> From the head of A, it reads as [2,6,4]. From the head of B, it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0, while skipA and skipB can be arbitrary values.
+Explanation: The two lists do not intersect, so return null.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes of <code>listA</code> is in the <code>m</code>.</li>
+	<li>The number of nodes of <code>listB</code> is in the <code>n</code>.</li>
+	<li><code>1 &lt;= m, n &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= skipA &lt;&nbsp;m</code></li>
+	<li><code>0 &lt;= skipB &lt;&nbsp;n</code></li>
+	<li><code>intersectVal</code> is <code>0</code> if <code>listA</code> and <code>listB</code> do not intersect.</li>
+	<li><code>intersectVal == listA[skipA] == listB[skipB]</code> if <code>listA</code> and <code>listB</code> intersect.</li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you write a solution that runs in <code>O(m + n)</code> time and use only <code>O(1)</code> memory?
 
 ## Solutions
 
@@ -86,13 +86,11 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-        if headA is None or headB is None:
-            return None
-        pA, pB = headA, headB
-        while pA != pB:
-            pA = pA.next if pA else headB
-            pB = pB.next if pB else headA
-        return pA
+        cur1, cur2 = headA, headB
+        while cur1 != cur2:
+            cur1 = headB if cur1 is None else cur1.next
+            cur2 = headA if cur2 is None else cur2.next
+        return cur1
 ```
 
 ### **Java**
@@ -111,15 +109,162 @@ class Solution:
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if (headA == null || headB == null) {
-            return null;
+        ListNode cur1 = headA, cur2 = headB;
+        while (cur1 != cur2) {
+            cur1 = cur1 == null ? headB : cur1.next;
+            cur2 = cur2 == null ? headA : cur2.next;
         }
-        ListNode pA = headA, pB = headB;
-        while (pA != pB) {
-            pA = pA != null ? pA.next : headB;
-            pB = pB != null ? pB.next : headA;
+        return cur1;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode* cur1 = headA;
+        ListNode* cur2 = headB;
+        while (cur1 != cur2) {
+            cur1 = cur1 ? cur1->next : headB;
+            cur2 = cur2 ? cur2->next : headA;
         }
-        return pA;
+        return cur1;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function (headA, headB) {
+    let cur1 = headA;
+    let cur2 = headB;
+    while (cur1 != cur2) {
+        cur1 = cur1 ? cur1.next : headB;
+        cur2 = cur2 ? cur2.next : headA;
+    }
+    return cur1;
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+ func getIntersectionNode(headA, headB *ListNode) *ListNode {
+    cur1, cur2 := headA, headB
+    for cur1 != cur2 {
+        if cur1 == nil {
+            cur1 = headB
+        } else {
+            cur1 = cur1.Next
+        }
+        if cur2 == nil {
+            cur2 = headA
+        } else {
+            cur2 = cur2.Next
+        }
+    }
+    return cur1
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function getIntersectionNode(
+    headA: ListNode | null,
+    headB: ListNode | null,
+): ListNode | null {
+    let p1: ListNode | null = headA;
+    let p2: ListNode | null = headB;
+    while (p1 != p2) {
+        p1 = p1 == null ? headB : p1.next;
+        p2 = p2 == null ? headA : p2.next;
+    }
+    return p1;
+}
+```
+
+### **Swift**
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+
+class Solution {
+    func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
+
+        guard let _ = headA, let _ = headB else {
+            return nil
+        }
+
+        var nodeA = headA
+        var nodeB = headB
+
+        while nodeA != nodeB {
+            nodeA = nodeA != nil ? nodeA?.next : headB
+            nodeB = nodeB != nil ? nodeB?.next : headA
+        }
+
+        return nodeA
+    }
+}
+
+extension ListNode: Equatable {
+    public static func ==(lhs: ListNode, rhs: ListNode) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
     }
 }
 ```

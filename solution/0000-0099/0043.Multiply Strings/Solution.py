@@ -1,20 +1,23 @@
-class Solution(object):
-    def multiply(self, num1, num2):
+class Solution:
+    def multiply(self, num1: str, num2: str) -> str:
+        def mul(b, i):
+            j, t = m - 1, 0
+            while j >= 0 or t:
+                if j >= 0:
+                    a = int(num1[j])
+                    t += a * b
+                res[i] += t % 10
+                if res[i] >= 10:
+                    res[i] %= 10
+                    res[i + 1] += 1
+                i, j = i + 1, j - 1
+                t //= 10
 
-        # Create a dictionary to store 0-9 key-value pairs
-        dict_nums={"0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9}
-        number1 = 0
-        number2 = 0
-
-	# Convert num1 in integer format
-        for i in num1:
-            key = dict_nums[i]
-            number1 = (number1 * 10) + key
-
-
-	# Convert num2 in integer format
-        for i in num2:
-	    key = dict_nums[i]
-		number2 = (number2 * 10) + key
-
-        return str(number1 * number2)
+        m, n = len(num1), len(num2)
+        res = [0] * (m + n)
+        for i in range(n):
+            b = int(num2[n - 1 - i])
+            mul(b, i)
+        while len(res) > 1 and res[-1] == 0:
+            res.pop()
+        return ''.join([str(v) for v in res[::-1]])

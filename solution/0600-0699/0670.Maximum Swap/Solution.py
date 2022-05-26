@@ -1,20 +1,13 @@
 class Solution:
-    def maximumSwap(self, num):
-        """
-        :type num: int
-        :rtype: int
-        """
-        # s为能得到的最大数
-        s = ''.join(sorted(list(str(num)), reverse=True))
-        nums = str(num)
-        if s == nums:
-            return num
-        for i in range(len(s)):
-            if s[i] != nums[i]:
-                kai = i
+    def maximumSwap(self, num: int) -> int:
+        chars = list(str(num))
+        n = len(chars)
+        for i in range(n - 1):
+            mx = i + 1
+            for j in range(i + 1, n):
+                if ord(chars[j]) >= ord(chars[mx]):
+                    mx = j
+            if ord(chars[i]) < ord(chars[mx]):
+                chars[i], chars[mx] = chars[mx], chars[i]
                 break
-        for i in range(len(nums) - 1, -1, -1):
-            if nums[i] == s[kai]:
-                loc = i
-                break
-        return int(s[:kai + 1] + nums[kai + 1:loc] + nums[kai] + nums[loc + 1:])
+        return int(''.join(chars))

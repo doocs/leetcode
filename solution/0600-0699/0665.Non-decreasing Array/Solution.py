@@ -11,7 +11,12 @@ class Solution:
             if nums[i] < nums[i - 1]:
                 if count == 1:
                     return False
-                if not(i + 1 == len(nums) or nums[i + 1] >= nums[i - 1] or i - 2 < 0 or nums[i - 2] < nums[i]):
+                if not (
+                    i + 1 == len(nums)
+                    or nums[i + 1] >= nums[i - 1]
+                    or i - 2 < 0
+                    or nums[i - 2] < nums[i]
+                ):
                     return False
                 else:
                     count = 1

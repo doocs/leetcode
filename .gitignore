@@ -1,3 +1,10 @@
 .idea/
 .DS_Store
 .vscode
+/node_modules
+/solution/result.json
+/solution/raw.json
+/lcof/lcof.json
+/lcof/lcof_list.json
+/lcci/lcci.json
+/solution/__pycache__

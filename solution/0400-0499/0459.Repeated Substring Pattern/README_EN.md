@@ -4,43 +4,39 @@
 
 ## Description
 
-<p>Given a non-empty string check if it can be constructed by taking a substring of it and appending multiple copies of the substring together. You may assume the given string consists of lowercase English letters only and its length will not exceed 10000.</p>
+<p>Given a string <code>s</code>, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
-
-<pre>
-
-<b>Input:</b> &quot;abab&quot;
-
-<b>Output:</b> True
-
-<b>Explanation:</b> It&#39;s the substring &quot;ab&quot; twice.
-
-</pre>
-
-<p><b>Example 2:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> &quot;aba&quot;
-
-<b>Output:</b> False
-
+<strong>Input:</strong> s = &quot;abab&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> It is the substring &quot;ab&quot; twice.
 </pre>
 
-<p><b>Example 3:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> &quot;abcabcabcabc&quot;
-
-<b>Output:</b> True
-
-<b>Explanation:</b> It&#39;s the substring &quot;abc&quot; four times. (And the substring &quot;abcabc&quot; twice.)
-
+<strong>Input:</strong> s = &quot;aba&quot;
+<strong>Output:</strong> false
 </pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;abcabcabcabc&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> It is the substring &quot;abc&quot; four times or the substring &quot;abcabc&quot; twice.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s</code> consists of lowercase English letters.</li>
+</ul>
 
 ## Solutions
 
@@ -55,7 +51,53 @@
 ### **Java**
 
 ```java
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        String str = s + s;
+        return str.substring(1, str.length() - 1).contains(s);
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function repeatedSubstringPattern(s: string): boolean {
+    return (s + s).slice(1, (s.length << 1) - 1).includes(s);
+}
+```
+
+```ts
+function repeatedSubstringPattern(s: string): boolean {
+    const n = s.length;
+    for (let i = 0; i < n >> 1; i++) {
+        const len = i + 1;
+        if (n % len !== 0) {
+            continue;
+        }
+        const t = s.slice(0, len);
+        let j: number;
+        for (j = len; j < n; j += len) {
+            if (s.slice(j, j + len) !== t) {
+                break;
+            }
+        }
+        if (j === n) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn repeated_substring_pattern(s: String) -> bool {
+        (s.clone() + &s)[1..s.len() * 2 - 1].contains(&s)
+    }
+}
 ```
 
 ### **...**

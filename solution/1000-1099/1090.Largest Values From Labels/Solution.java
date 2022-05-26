@@ -1,32 +1,22 @@
 class Solution {
-    public int largestValsFromLabels(int[] values, int[] labels, int num_wanted, int use_limit) {
-        class Data implements Comparable<Data> {
-            int value, label;
-
-            public Data(int value, int label) {
-                this.value = value;
-                this.label = label;
-            }
-
-            @Override
-            public int compareTo(Data o) {
-                return Integer.compare(o.value, this.value);
-            }
-        }
+    public int largestValsFromLabels(int[] values, int[] labels, int numWanted, int useLimit) {
         int n = values.length;
-        Data[] ds = new Data[n];
+        int[][] p = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            ds[i] = new Data(values[i], labels[i]);
+            p[i] = new int[]{values[i], labels[i]};
         }
-        Arrays.sort(ds);
-        int[] map = new int[20001];
-        int res = 0;
-        for (int i = 0; i < n && num_wanted != 0; ++i) {
-            if (++map[ds[i].label] <= use_limit) {
-                res += ds[i].value;
-                --num_wanted;
+        Arrays.sort(p, (a, b) -> b[0] - a[0]);
+        int ans = 0;
+        int num = 0;
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int i = 0; i < n && num < numWanted; ++i) {
+            int v = p[i][0], l = p[i][1];
+            if (counter.getOrDefault(l, 0) < useLimit) {
+                counter.put(l, counter.getOrDefault(l, 0) + 1);
+                ans += v;
+                ++num;
             }
         }
-        return res;
+        return ans;
     }
 }

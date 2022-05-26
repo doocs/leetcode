@@ -1,10 +1,11 @@
-# [1324. 竖直打印单词](https://leetcode-cn.com/problems/print-words-vertically)
+# [1324. 竖直打印单词](https://leetcode.cn/problems/print-words-vertically)
 
 [English Version](/solution/1300-1399/1324.Print%20Words%20Vertically/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>s</code>。请你按照单词在 <code>s</code> 中的出现顺序将它们全部竖直返回。<br>
 单词应该以字符串列表的形式返回，必要时用空格补位，但输出尾部的空格需要删除（不允许尾随空格）。<br>
 每个单词只能放在一列上，每一列中也只能有一个单词。</p>
@@ -49,6 +50,8 @@
 
 ## 解法
 
+先将字符串 s 按空格切分，然后直接模拟即可。
+
 <!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
@@ -58,7 +61,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def printVertically(self, s: str) -> List[str]:
+        words = s.split()
+        m, n = len(words), max(len(word) for word in words)
+        ans = []
+        for j in range(n):
+            t = []
+            for i in range(m):
+                word = words[i]
+                t.append(word[j] if j < len(word) else ' ')
+            ans.append(''.join(t).rstrip())
+        return ans
 ```
 
 ### **Java**
@@ -66,7 +80,114 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<String> printVertically(String s) {
+        String[] words = s.split(" ");
+        int m = words.length, n = maxLen(words);
+        List<String> ans = new ArrayList<>();
+        for (int j = 0; j < n; ++j) {
+            StringBuilder t = new StringBuilder();
+            for (int i = 0; i < m; ++i) {
+                String word = words[i];
+                t.append(j < word.length() ? word.charAt(j) : ' ');
+            }
+            ans.add(rstrip(t));
+        }
+        return ans;
+    }
 
+    private int maxLen(String[] words) {
+        int ans = 0;
+        for (String word : words) {
+            ans = Math.max(ans, word.length());
+        }
+        return ans;
+    }
+
+    private String rstrip(StringBuilder s) {
+        for (int i = s.length() - 1; i >= 0; --i) {
+            if (s.charAt(i) != ' ') {
+                return s.substring(0, i + 1);
+            }
+        }
+        return "";
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> printVertically(string s) {
+        stringstream in(s);
+        vector<string> words;
+        string word;
+        int n = 0;
+        while (in >> word)
+        {
+            words.push_back(word);
+            n = max(n, (int) word.size());
+        }
+        int m = words.size();
+        vector<string> ans;
+        for (int j = 0; j < n; ++j)
+        {
+            string t = "";
+            for (int i = 0; i < m; ++i)
+            {
+                word = words[i];
+                t += j < word.size() ? word[j] : ' ';
+            }
+            while (t.back() == ' ')
+            {
+                t.pop_back();
+            }
+            ans.push_back(t);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func printVertically(s string) []string {
+	words := strings.Split(s, " ")
+	m := len(words)
+	var n int
+	for _, word := range words {
+		if n < len(word) {
+			n = len(word)
+		}
+	}
+	var ans []string
+	for j := 0; j < n; j++ {
+		var t []byte
+		for i := 0; i < m; i++ {
+			word := words[i]
+			if j < len(word) {
+				t = append(t, word[j])
+			} else {
+				t = append(t, ' ')
+			}
+		}
+		s = string(t)
+		ans = append(ans, rstrip(s))
+	}
+	return ans
+}
+
+func rstrip(s string) string {
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] != ' ' {
+			return s[:i+1]
+		}
+	}
+	return s
+}
 ```
 
 ### **...**

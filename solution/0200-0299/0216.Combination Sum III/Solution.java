@@ -1,26 +1,24 @@
 class Solution {
+    private List<List<Integer>> ans;
+
     public List<List<Integer>> combinationSum3(int k, int n) {
-        List<List<Integer>> ans = new ArrayList<>();        
-        robot(1, k, n, ans, new ArrayList<Integer>());
+        ans = new ArrayList<>();
+        dfs(0, n, k, new ArrayList<>());
         return ans;
     }
-    
-    private void robot(int start, int k, int left, List<List<Integer>> ans, List<Integer> tmp) {
-        if(k < 0 || left < 0) return;
-        
-        if(k == 0 && left == 0) {
-            ans.add(new ArrayList<>(tmp));
+
+    private void dfs(int i, int n, int k, List<Integer> t) {
+        if (i > 9 || n < 0 || t.size() > k) {
             return;
         }
-        
-        for(int i = start; i <= 9; i++) {
-            if(left >= i && k > 0) {
-                tmp.add(i);
-                robot(i + 1, k - 1, left - i, ans, tmp);
-                tmp.remove(tmp.size() - 1);
-            } else {
-                return;
-            }
+        if (n == 0 && t.size() == k) {
+            ans.add(new ArrayList<>(t));
+            return;
         }
+        ++i;
+        t.add(i);
+        dfs(i, n - i, k, t);
+        t.remove(t.size() - 1);
+        dfs(i, n, k, t);
     }
 }

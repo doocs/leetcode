@@ -1,10 +1,11 @@
-# [1110. 删点成林](https://leetcode-cn.com/problems/delete-nodes-and-return-forest)
+# [1110. 删点成林](https://leetcode.cn/problems/delete-nodes-and-return-forest)
 
 [English Version](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给出二叉树的根节点&nbsp;<code>root</code>，树上每个节点都有一个不同的值。</p>
 
 <p>如果节点值在&nbsp;<code>to_delete</code>&nbsp;中出现，我们就把该节点从树上删去，最后得到一个森林（一些不相交的树构成的集合）。</p>
@@ -13,12 +14,20 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-![](./images/screen-shot-2019-07-01-at-53836-pm.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/images/screen-shot-2019-07-01-at-53836-pm.png" style="height: 150px; width: 237px;" /></strong></p>
 
-<pre><strong>输入：</strong>root = [1,2,3,4,5,6,7], to_delete = [3,5]
+<pre>
+<strong>输入：</strong>root = [1,2,3,4,5,6,7], to_delete = [3,5]
 <strong>输出：</strong>[[1,2,null,4],[6],[7]]
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = [1,2,4,null,3], to_delete = [3]
+<strong>输出：</strong>[[1,2,4]]
 </pre>
 
 <p>&nbsp;</p>

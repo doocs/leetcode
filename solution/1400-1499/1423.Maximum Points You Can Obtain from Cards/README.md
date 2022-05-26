@@ -1,10 +1,11 @@
-# [1423. 可获得的最大点数](https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards)
+# [1423. 可获得的最大点数](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards)
 
 [English Version](/solution/1400-1499/1423.Maximum%20Points%20You%20Can%20Obtain%20from%20Cards/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>几张卡牌<strong> 排成一行</strong>，每张卡牌都有一个对应的点数。点数由整数数组 <code>cardPoints</code> 给出。</p>
 
 <p>每次行动，你可以从行的开头或者末尾拿一张卡牌，最终你必须正好拿 <code>k</code> 张卡牌。</p>
@@ -63,6 +64,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+要让左右两侧共 `k` 个元素和最大，可以转换为求中间连续数组 `n - k` 个元素和最小值 `mi`，然后用数组总和 `s` 减去 `mi` 得到答案。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +73,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        n = len(cardPoints)
+        s = [0] * (n + 1)
+        for i in range(n):
+            s[i + 1] = s[i] + cardPoints[i]
+        mi = float('inf')
+        for i in range(n):
+            j = i + (n - k) - 1
+            if j < n:
+                mi = min(mi, s[j + 1] - s[i])
+        return s[-1] - mi
 ```
 
 ### **Java**
@@ -78,7 +92,104 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    public int maxScore(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + cardPoints[i];
+        }
+        int mi = Integer.MAX_VALUE;
+        for (int i = 0; i < n; ++i) {
+            int j = i + (n - k) - 1;
+            if (j < n) {
+                mi = Math.min(mi, s[j + 1] - s[i]);
+            }
+        }
+        return s[n] - mi;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxScore(vector<int>& cardPoints, int k) {
+        int n = cardPoints.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + cardPoints[i];
+        int mi = INT_MAX;
+        for (int i = 0; i < n; ++i)
+        {
+            int j = i + (n - k) - 1;
+            if (j < n) mi = min(mi, s[j + 1] - s[i]);
+        }
+        return s[n] - mi;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxScore(cardPoints []int, k int) int {
+	n := len(cardPoints)
+	s := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		s[i+1] = s[i] + cardPoints[i]
+	}
+	mi := math.MaxInt64
+	for i := 0; i < n; i++ {
+		j := i + (n - k) - 1
+		if j < n {
+			mi = min(mi, s[j+1]-s[i])
+		}
+	}
+	return s[n] - mi
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxScore(cardPoints: number[], k: number): number {
+    const n = cardPoints.length;
+    let sum = cardPoints.slice(0, n - k).reduce((r, v) => r + v, 0);
+    let min = sum;
+    for (let i = 0; i < k; i++) {
+        sum += cardPoints[n - k + i] - cardPoints[i];
+        min = Math.min(min, sum);
+    }
+    return cardPoints.reduce((r, v) => r + v, 0) - min;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_score(card_points: Vec<i32>, k: i32) -> i32 {
+        let (k, n) = (k as usize, card_points.len());
+        let mut sum = card_points.iter().take(n - k).sum::<i32>();
+        let mut min = sum;
+        for i in 0..k {
+            sum += card_points[n - k + i] - card_points[i];
+            min = min.min(sum);
+        }
+        card_points.iter().sum::<i32>() - min
+    }
+}
 ```
 
 ### **...**

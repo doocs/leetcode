@@ -1,4 +1,4 @@
-# [面试题 16.13. 平分正方形](https://leetcode-cn.com/problems/bisect-squares-lcci)
+# [面试题 16.13. 平分正方形](https://leetcode.cn/problems/bisect-squares-lcci)
 
 [English Version](/lcci/16.13.Bisect%20Squares/README_EN.md)
 

@@ -4,58 +4,43 @@
 
 ## Description
 
-<p>You are given a tree with&nbsp;<code>n</code>&nbsp;nodes numbered from&nbsp;<code>0</code>&nbsp;to&nbsp;<code>n-1</code>&nbsp;in the form of a parent array where <code>parent[i]</code>&nbsp;is the parent of node <code>i</code>. The root of the tree is node <code>0</code>.</p>
+<p>You are given a tree with <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> in the form of a parent array <code>parent</code> where <code>parent[i]</code> is the parent of <code>i<sup>th</sup></code> node. The root of the tree is node <code>0</code>. Find the <code>k<sup>th</sup></code> ancestor of a given node.</p>
 
-<p>Implement the function&nbsp;<code>getKthAncestor</code><code>(int node, int k)</code>&nbsp;to return the <code>k</code>-th ancestor of the given&nbsp;<code>node</code>. If there is no such ancestor, return&nbsp;<code>-1</code>.</p>
+<p>The <code>k<sup>th</sup></code> ancestor of a tree node is the <code>k<sup>th</sup></code> node in the path from that node to the root node.</p>
 
-<p>The&nbsp;<em>k-th&nbsp;</em><em>ancestor</em>&nbsp;of a tree node is the <code>k</code>-th node&nbsp;in the path&nbsp;from that node to the root.</p>
+<p>Implement the <code>TreeAncestor</code> class:</p>
+
+<ul>
+	<li><code>TreeAncestor(int n, int[] parent)</code> Initializes the object with the number of nodes in the tree and the parent array.</li>
+	<li><code>int getKthAncestor(int node, int k)</code> return the <code>k<sup>th</sup></code> ancestor of the given node <code>node</code>. If there is no such ancestor, return <code>-1</code>.</li>
+</ul>
 
 <p>&nbsp;</p>
-
-<p><strong>Example:</strong></p>
-
-![](./images/1528_ex1.png)
-
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/images/1528_ex1.png" style="width: 396px; height: 262px;" />
 <pre>
+<strong>Input</strong>
+[&quot;TreeAncestor&quot;, &quot;getKthAncestor&quot;, &quot;getKthAncestor&quot;, &quot;getKthAncestor&quot;]
+[[7, [-1, 0, 0, 1, 1, 2, 2]], [3, 1], [5, 2], [6, 3]]
+<strong>Output</strong>
+[null, 1, 0, -1]
 
-<b>Input:</b>
-
-[&quot;TreeAncestor&quot;,&quot;getKthAncestor&quot;,&quot;getKthAncestor&quot;,&quot;getKthAncestor&quot;]
-
-[[7,[-1,0,0,1,1,2,2]],[3,1],[5,2],[6,3]]
-
-
-
-<b>Output:</b>
-
-[null,1,0,-1]
-
-
-
-<b>Explanation:</b>
-
+<strong>Explanation</strong>
 TreeAncestor treeAncestor = new TreeAncestor(7, [-1, 0, 0, 1, 1, 2, 2]);
-
-
-
-treeAncestor.getKthAncestor(3, 1);  // returns 1 which is the parent of 3
-
-treeAncestor.getKthAncestor(5, 2);  // returns 0 which is the grandparent of 5
-
-treeAncestor.getKthAncestor(6, 3);  // returns -1 because there is no such ancestor
-
-</pre>
+treeAncestor.getKthAncestor(3, 1); // returns 1 which is the parent of 3
+treeAncestor.getKthAncestor(5, 2); // returns 0 which is the grandparent of 5
+treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancestor</pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= k &lt;=&nbsp;n &lt;= 5*10^4</code></li>
-	<li><code>parent[0] == -1</code>&nbsp;indicating that&nbsp;<code>0</code>&nbsp;is the root node.</li>
-	<li><code>0 &lt;= parent[i] &lt; n</code>&nbsp;for all&nbsp;<code>0 &lt;&nbsp;i &lt; n</code></li>
+	<li><code>1 &lt;= k &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>parent.length == n</code></li>
+	<li><code>parent[0] == -1</code></li>
+	<li><code>0 &lt;= parent[i] &lt; n</code> for all <code>0 &lt; i &lt; n</code></li>
 	<li><code>0 &lt;= node &lt; n</code></li>
-	<li>There will be at most <code>5*10^4</code> queries.</li>
+	<li>There will be at most <code>5 * 10<sup>4</sup></code> queries.</li>
 </ul>
 
 ## Solutions

@@ -20,4 +20,4 @@ var spiralOrder = (matrix: number[][]): number[] => {
         if (left > right) break;
     }
     return ans;
-}
+};

@@ -1,4 +1,4 @@
-# [面试题 05.01. 插入](https://leetcode-cn.com/problems/insert-into-bits-lcci)
+# [面试题 05.01. 插入](https://leetcode.cn/problems/insert-into-bits-lcci)
 
 [English Version](/lcci/05.01.Insert%20Into%20Bits/README_EN.md)
 

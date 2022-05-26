@@ -55,14 +55,6 @@ Apply Operation 1: &quot;ca<u>b</u>bb<u>a</u>&quot; -&gt; &quot;ca<u>a</u>bb<u>b
 Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> word1 = &quot;cabbba&quot;, word2 = &quot;aabbss&quot;
-<strong>Output:</strong> false
-<strong>Explanation: </strong>It is impossible to attain word2 from word1, or vice versa, in any amount of operations.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

@@ -13,21 +13,21 @@
  * @return {function}
  */
 var solution = function (isBadVersion) {
-  /**
-   * @param {integer} n Total versions
-   * @return {integer} The first bad version
-   */
-  return function (n) {
-    let low = 1,
-      high = n;
-    while (low < high) {
-      const mid = low + ((high - low) >> 1);
-      if (isBadVersion(mid)) {
-        high = mid;
-      } else {
-        low = mid + 1;
-      }
-    }
-    return low;
-  };
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function (n) {
+        let left = 1;
+        let right = n;
+        while (left < right) {
+            const mid = (left + right) >>> 1;
+            if (isBadVersion(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
 };

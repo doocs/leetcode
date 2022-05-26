@@ -1,10 +1,11 @@
-# [1643. 第 K 条最小指令](https://leetcode-cn.com/problems/kth-smallest-instructions)
+# [1643. 第 K 条最小指令](https://leetcode.cn/problems/kth-smallest-instructions)
 
 [English Version](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>Bob 站在单元格 <code>(0, 0)</code> ，想要前往目的地 <code>destination</code> ：<code>(row, column)</code> 。他只能向 <strong>右</strong> 或向 <strong>下</strong> 走。你可以为 Bob 提供导航 <strong>指令</strong> 来帮助他到达目的地 <code>destination</code> 。</p>
 
 <p><strong>指令</strong> 用字符串表示，其中每个字符：</p>
@@ -27,7 +28,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/ex1.png)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/images/ex1.png" style="width: 300px;" /></p>
 
 <pre>
 <strong>输入：</strong>destination = [2,3], k = 1
@@ -38,7 +39,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/ex2.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/images/ex2.png" style="width: 300px; height: 229px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>destination = [2,3], k = 2
@@ -47,7 +48,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/ex3.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/images/ex3.png" style="width: 300px; height: 229px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>destination = [2,3], k = 3

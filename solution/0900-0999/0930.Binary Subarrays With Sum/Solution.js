@@ -1,26 +1,23 @@
-const numSubarrayWithSum = function (A, S) {
-  let count = 0;
-  for (let i = 0; i < A.length; i++) {
-    if (A[i] === 1) count++;
-  }
-  if (S > count) return 0;
-  let count2 = 0;
-  let res = 0;
-  for (let i = 0; i < A.length; i++) {
-    if (S > count - count2) break;
-    let t = 0;
-    for (let j = i; j < A.length; j++) {
-      t += A[j];
-      if (t === S) {
-        res++;
-        for (let k = j + 1; k < A.length; k++) {
-          if (A[k] === 0) res++;
-          else break;
-        }
-        break;
-      }
+/**
+ * @param {number[]} nums
+ * @param {number} goal
+ * @return {number}
+ */
+var numSubarraysWithSum = function (nums, goal) {
+    let i1 = 0,
+        i2 = 0,
+        s1 = 0,
+        s2 = 0,
+        j = 0,
+        ans = 0;
+    const n = nums.length;
+    while (j < n) {
+        s1 += nums[j];
+        s2 += nums[j];
+        while (i1 <= j && s1 > goal) s1 -= nums[i1++];
+        while (i2 <= j && s2 >= goal) s2 -= nums[i2++];
+        ans += i2 - i1;
+        ++j;
     }
-    if (A[i] === 1) count2++;
-  }
-  return res;
+    return ans;
 };

@@ -1,47 +1,22 @@
 class Solution {
 public:
-    bool dfs(vector<vector<char>>& board, string& word, int cur, int x, int y) {
-        if (board[x][y] != word[cur]) {
-            return false;
-        }
-
-        if (cur == word.size()-1) {
-            return true;
-        }
-        
-        char t = board[x][y];
-        board[x][y] = '*';    // 表示查询过了这个字段
-        int dx[4] = {-1, 0, 1, 0};
-        int dy[4] = {0, 1, 0, -1};
-        for (int k = 0; k < 4; k++) {
-            // 从上、右、下、左四个方向，开始dfs
-            int a = x + dx[k], b = y + dy[k];
-            if (a >= 0 && a < board.size() && b >= 0 && b < board[0].size()) {
-                if (dfs(board, word, cur+1, a, b)) {
-                    return true;
-                }
-            }
-        }
-
-        board[x][y] = t;
-        return false;
+    bool exist(vector<vector<char>>& board, string word) {
+        for (int i = 0; i < board.size(); ++i)
+            for (int j = 0; j < board[0].size(); ++j)
+                if (dfs(i, j, 0, board, word))
+                    return 1;
+        return 0;    
     }
 
-    bool exist(vector<vector<char>>& board, string word) {
-        int x = board.size();
-        int y = board[0].size();
-        if (0 == x || 0 == y) {
-            return false;
-        } 
-
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                if (dfs(board, word, 0, i, j)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+    bool dfs(int i, int j, int k, vector<vector<char>>& board, string word) {
+        if (k == word.size()) return 1;
+        if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || board[i][j] != word[k]) return 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        board[i][j] = ' ';
+        bool ans = 0;
+        for (int l = 0; l < 4; ++l)
+            ans = ans || dfs(i + dirs[l], j + dirs[l + 1], k + 1, board, word);
+        board[i][j] = word[k];
+        return ans;
     }
 };

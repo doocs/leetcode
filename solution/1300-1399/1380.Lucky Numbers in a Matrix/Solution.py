@@ -1,5 +1,5 @@
 class Solution:
-    def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
-        row_min = {min(rows) for rows in matrix}
-        col_max = {max(cols) for cols in zip(*matrix)}
-        return [e for e in row_min if e in col_max]
+    def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
+        rows = {min(row) for row in matrix}
+        cols = {max(col) for col in zip(*matrix)}
+        return list(rows & cols)

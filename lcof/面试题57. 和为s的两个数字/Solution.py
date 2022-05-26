@@ -5,7 +5,7 @@ class Solution:
             s = nums[p] + nums[q]
             if s == target:
                 return [nums[p], nums[q]]
-            if s < target: 
+            if s < target:
                 p += 1
-            else: 
+            else:
                 q -= 1

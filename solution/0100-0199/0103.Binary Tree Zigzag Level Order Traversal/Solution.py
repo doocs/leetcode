@@ -1,41 +1,27 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution(object):
-    def zigzagLevelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
-        zuo = []
-        you = []
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
             return []
-        zuo.append(root)
-        ans = []
-        while zuo or you:
-            tmp = []
-            while zuo:
-                if zuo[0].left is not None:
-                    you.append(zuo[0].left)
-                if zuo[0].right is not None:
-                    you.append(zuo[0].right)
-                tmp.append(zuo[0].val)
-                zuo.pop(0)
-            ans.append(tmp)
-            tmp = []
-            while you:
-                if you[-1].right is not None:
-                    zuo.insert(0, you[-1].right)
-                if you[-1].left is not None:
-                    zuo.insert(0, you[-1].left)
-                tmp.append(you[-1].val)
-                you.pop(-1)
-            if tmp:
-                ans.append(tmp)
+        left, ans = False, []
+        q = deque([root])
+        while q:
+            n = len(q)
+            t = []
+            for _ in range(n):
+                node = q.popleft()
+                t.append(node.val)
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            if left:
+                t.reverse()
+            ans.append(t)
+            left = not left
         return ans

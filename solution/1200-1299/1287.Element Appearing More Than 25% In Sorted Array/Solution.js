@@ -1,16 +1,13 @@
-const findSpecialInteger = function (arr) {
-  let count = 0;
-  let item = -1;
-  for (var i = 0; i < arr.length; i++) {
-    if (item == arr[i]) {
-      count++;
-    } else {
-      item = arr[i];
-      count = 1;
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var findSpecialInteger = function (arr) {
+    const n = arr.length;
+    for (let i = 0; i < n; ++i) {
+        if (arr[i] == arr[i + (n >> 2)]) {
+            return arr[i];
+        }
     }
-    if (count > arr.length * 0.25) {
-      return item;
-    }
-  }
-  return item;
+    return 0;
 };

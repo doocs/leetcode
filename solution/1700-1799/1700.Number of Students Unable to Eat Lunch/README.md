@@ -1,10 +1,11 @@
-# [1700. 无法吃午餐的学生数量](https://leetcode-cn.com/problems/number-of-students-unable-to-eat-lunch)
+# [1700. 无法吃午餐的学生数量](https://leetcode.cn/problems/number-of-students-unable-to-eat-lunch)
 
 [English Version](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>学校的自助午餐提供圆形和方形的三明治，分别用数字 <code>0</code> 和 <code>1</code> 表示。所有学生站在一个队列里，每个学生要么喜欢圆形的要么喜欢方形的。<br>
 餐厅里三明治的数量与学生的数量相同。所有三明治都放在一个 <strong>栈</strong> 里，每一轮：</p>
 
@@ -56,6 +57,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+学生位置可调整，而三明治位置不可调整。也就是说，若前面的三明治没被拿走，则往后的所有三明治也无法被拿走。
+
+因此，先用计数器 counter 统计学生喜欢的三明治种类和对应的数量，然后遍历三明治，若在 counter 中找不到喜欢此三明治的学生，说明已经找到答案，当前以及往后的三明治均无法被拿走，数量为 `n - i`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +68,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        counter = Counter(students)
+        for i, sandwich in enumerate(sandwiches):
+            if counter[sandwich] == 0:
+                return len(students) - i
+            counter[sandwich] -= 1
+        return 0
 ```
 
 ### **Java**
@@ -71,7 +83,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        int[] counter = new int[2];
+        for (int i : students) {
+            counter[i] += 1;
+        }
+        for (int i = 0; i < sandwiches.length; ++i) {
+            if (counter[sandwiches[i]] == 0) {
+                return sandwiches.length - i;
+            }
+            counter[sandwiches[i]] -= 1;
+        }
+        return 0;
+    }
+}
 ```
 
 ### **...**

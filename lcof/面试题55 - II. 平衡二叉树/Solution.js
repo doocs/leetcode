@@ -10,13 +10,19 @@
  * @return {boolean}
  */
 var isBalanced = function (root) {
-  if (!root) return true;
-  if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
-  if (Math.abs(getDepth(root.left) - getDepth(root.right)) > 1) return false;
-  return true;
-};
+    const depth = root => {
+        if (!root) {
+            return 0;
+        }
+        return 1 + Math.max(depth(root.left), depth(root.right));
+    };
 
-function getDepth(node) {
-  if (!node) return 0;
-  return Math.max(getDepth(node.left), getDepth(node.right)) + 1;
-}
+    if (!root) {
+        return true;
+    }
+    return (
+        Math.abs(depth(root.left) - depth(root.right)) <= 1 &&
+        isBalanced(root.left) &&
+        isBalanced(root.right)
+    );
+};

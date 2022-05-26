@@ -1,20 +1,16 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        def dfs(i, j, cur):
-            if cur == len(word):
+        def dfs(i, j, k):
+            if k == len(word):
                 return True
-            if i < 0 or i >= m or j < 0 or j >= n or visited[i][j] or word[cur] != board[i][j]:
+            if i < 0 or i >= m or j < 0 or j >= n or word[k] != board[i][j]:
                 return False
-            visited[i][j] = True
-            next = cur + 1
-            res = dfs(i + 1, j, next) or dfs(i - 1, j, next) or dfs(i, j + 1, next) or dfs(i, j - 1, next)
-            visited[i][j] = False
-            return res
+            board[i][j] = ''
+            ans = any(
+                dfs(i + a, j + b, k + 1) for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]
+            )
+            board[i][j] = word[k]
+            return ans
+
         m, n = len(board), len(board[0])
-        visited = [[False for _ in range(n)] for _ in range(m)]
-        for i in range(m):
-            for j in range(n):
-                res = dfs(i, j, 0)
-                if res:
-                    return True
-        return False
+        return any(dfs(i, j, 0) for i in range(m) for j in range(n))

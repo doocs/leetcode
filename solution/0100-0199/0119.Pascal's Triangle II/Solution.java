@@ -1,11 +1,14 @@
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        List<Integer> ret = new LinkedList<>();
-        long nk = 1;
-        for (int i = 0; i <= rowIndex; i++) {
-            ret.add((int) nk);
-            nk = nk * (rowIndex - i) / (i + 1);
+        List<Integer> row = new ArrayList<>();
+        for (int i = 0; i < rowIndex + 1; ++i) {
+            row.add(1);
         }
-        return ret;
+        for (int i = 2; i < rowIndex + 1; ++i) {
+            for (int j = i - 1; j > 0; --j) {
+                row.set(j, row.get(j) + row.get(j - 1));
+            }
+        }
+        return row;
     }
 }

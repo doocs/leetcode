@@ -4,53 +4,41 @@
 
 ## Description
 
-<p>We have two special characters. The first character can be represented by one bit <code>0</code>. The second character can be represented by two bits (<code>10</code> or <code>11</code>).  </p>
+<p>We have two special characters:</p>
 
-<p>Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.</p>
+<ul>
+	<li>The first character can be represented by one bit <code>0</code>.</li>
+	<li>The second character can be represented by two bits (<code>10</code> or <code>11</code>).</li>
+</ul>
 
-<p><b>Example 1:</b><br />
+<p>Given a binary array <code>bits</code> that ends with <code>0</code>, return <code>true</code> if the last character must be a one-bit character.</p>
 
-<pre>
-
-<b>Input:</b> 
-
-bits = [1, 0, 0]
-
-<b>Output:</b> True
-
-<b>Explanation:</b> 
-
-The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character.
-
-</pre>
-
-</p>
-
-<p><b>Example 2:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> 
-
-bits = [1, 1, 1, 0]
-
-<b>Output:</b> False
-
-<b>Explanation:</b> 
-
-The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character.
-
+<strong>Input:</strong> bits = [1,0,0]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> The only way to decode it is two-bit character and one-bit character.
+So the last character is one-bit character.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b>
+<pre>
+<strong>Input:</strong> bits = [1,1,1,0]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> The only way to decode it is two-bit character and two-bit character.
+So the last character is not one-bit character.
+</pre>
 
-<li><code>1 <= len(bits) <= 1000</code>.</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li><code>bits[i]</code> is always <code>0</code> or <code>1</code>.</li>
-
-</p>
+<ul>
+	<li><code>1 &lt;= bits.length &lt;= 1000</code></li>
+	<li><code>bits[i]</code> is either <code>0</code> or <code>1</code>.</li>
+</ul>
 
 ## Solutions
 
@@ -59,13 +47,68 @@ The only way to decode it is two-bit character and two-bit character. So the las
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isOneBitCharacter(self, bits: List[int]) -> bool:
+        i, n = 0, len(bits)
+        while i < n - 1:
+            i += bits[i] + 1
+        return i == n - 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isOneBitCharacter(int[] bits) {
+        int i = 0, n = bits.length;
+        while (i < n - 1) {
+            i += bits[i] + 1;
+        }
+        return i == n - 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isOneBitCharacter(vector<int>& bits) {
+        int i = 0, n = bits.size();
+        while (i < n - 1) i += bits[i] + 1;
+        return i == n - 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isOneBitCharacter(bits []int) bool {
+	i, n := 0, len(bits)
+	for i < n-1 {
+		i += bits[i] + 1
+	}
+	return i == n-1
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} bits
+ * @return {boolean}
+ */
+var isOneBitCharacter = function (bits) {
+    let i = 0;
+    const n = bits.length;
+    while (i < n - 1) {
+        i += bits[i] + 1;
+    }
+    return i == n - 1;
+};
 ```
 
 ### **...**

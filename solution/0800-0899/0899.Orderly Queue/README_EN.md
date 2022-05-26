@@ -4,62 +4,38 @@
 
 ## Description
 
-<p>A string <code>S</code> of lowercase letters is given.&nbsp; Then, we may make any number of <em>moves</em>.</p>
+<p>You are given a string <code>s</code> and an integer <code>k</code>. You can choose one of the first <code>k</code> letters of <code>s</code> and append it at the end of the string..</p>
 
-<p>In each move, we&nbsp;choose one&nbsp;of the first <code>K</code> letters (starting from the left), remove it,&nbsp;and place it at the end of the string.</p>
-
-<p>Return the lexicographically smallest string we could have after any number of moves.</p>
+<p>Return <em>the lexicographically smallest string you could have after applying the mentioned step any number of moves</em>.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>S = <span id="example-input-1-1">&quot;cba&quot;</span>, K = <span id="example-input-1-2">1</span>
-
-<strong>Output: </strong><span id="example-output-1">&quot;acb&quot;</span>
-
-<strong>Explanation: </strong>
-
-In the first move, we move the 1st character (&quot;c&quot;) to the end, obtaining the string &quot;bac&quot;.
-
-In the second move, we move the 1st character (&quot;b&quot;) to the end, obtaining the final result &quot;acb&quot;.
-
+<strong>Input:</strong> s = &quot;cba&quot;, k = 1
+<strong>Output:</strong> &quot;acb&quot;
+<strong>Explanation:</strong> 
+In the first move, we move the 1<sup>st</sup> character &#39;c&#39; to the end, obtaining the string &quot;bac&quot;.
+In the second move, we move the 1<sup>st</sup> character &#39;b&#39; to the end, obtaining the final result &quot;acb&quot;.
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>S = <span id="example-input-2-1">&quot;baaca&quot;</span>, K = <span id="example-input-2-2">3</span>
-
-<strong>Output: </strong><span id="example-output-2">&quot;aaabc&quot;</span>
-
-<strong>Explanation: </strong>
-
-In the first move, we move the 1st character (&quot;b&quot;) to the end, obtaining the string &quot;aacab&quot;.
-
-In the second move, we move the 3rd character (&quot;c&quot;) to the end, obtaining the final result &quot;aaabc&quot;.
-
+<strong>Input:</strong> s = &quot;baaca&quot;, k = 3
+<strong>Output:</strong> &quot;aaabc&quot;
+<strong>Explanation:</strong> 
+In the first move, we move the 1<sup>st</sup> character &#39;b&#39; to the end, obtaining the string &quot;aacab&quot;.
+In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end, obtaining the final result &quot;aaabc&quot;.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-    <li><code>1 &lt;= K &lt;= S.length&nbsp;&lt;= 1000</code></li>
-    <li><code>S</code>&nbsp;consists of lowercase letters only.</li>
-</ol>
-
-</div>
-
-</div>
+<ul>
+	<li><code>1 &lt;= k &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> consist of lowercase English letters.</li>
+</ul>
 
 ## Solutions
 

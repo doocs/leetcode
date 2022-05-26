@@ -3,23 +3,25 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
-    public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (head == null || head.next == null || m == n) {
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        if (head == null || head.next == null || left == right) {
             return head;
         }
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode pre = dummy, cur = head;
-        for (int i = 0; i < m - 1; ++i) {
-            pre = cur;
-            cur = cur.next;
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy;
+        for (int i = 0; i < left - 1; ++i) {
+            pre = pre.next;
         }
-        ListNode p = pre, q = cur;
-        for (int i = 0; i < n - m + 1; ++i) {
+        ListNode p = pre;
+        ListNode q = pre.next;
+        ListNode cur = q;
+        for (int i = 0; i < right - left + 1; ++i) {
             ListNode t = cur.next;
             cur.next = pre;
             pre = cur;

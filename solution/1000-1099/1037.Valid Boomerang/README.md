@@ -1,36 +1,40 @@
-# [1037. 有效的回旋镖](https://leetcode-cn.com/problems/valid-boomerang)
+# [1037. 有效的回旋镖](https://leetcode.cn/problems/valid-boomerang)
 
 [English Version](/solution/1000-1099/1037.Valid%20Boomerang/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>回旋镖定义为一组三个点，这些点各不相同且<strong>不</strong>在一条直线上。</p>
 
-<p>给出平面上三个点组成的列表，判断这些点是否可以构成回旋镖。</p>
+<p>给定一个数组<meta charset="UTF-8" />&nbsp;<code>points</code>&nbsp;，其中<meta charset="UTF-8" />&nbsp;<code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;表示 <strong>X-Y</strong> 平面上的一个点，<em>如果这些点构成一个&nbsp;</em><strong>回旋镖</strong>&nbsp;则返回&nbsp;<code>true</code>&nbsp;。</p>
+
+<p><strong>回旋镖</strong>&nbsp;定义为一组三个点，这些点&nbsp;<strong>各不相同</strong>&nbsp;且&nbsp;<strong>不在一条直线上</strong>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>[[1,1],[2,3],[3,2]]
+<pre>
+<strong>输入：</strong>points = [[1,1],[2,3],[3,2]]
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>[[1,1],[2,2],[3,3]]
+<pre>
+<strong>输入：</strong>points = [[1,1],[2,2],[3,3]]
 <strong>输出：</strong>false</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
+<meta charset="UTF-8" />
 
-<ol>
+<ul>
 	<li><code>points.length == 3</code></li>
 	<li><code>points[i].length == 2</code></li>
-	<li><code>0 &lt;= points[i][j] &lt;= 100</code></li>
-</ol>
+	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= 100</code></li>
+</ul>
 
 ## 解法
 

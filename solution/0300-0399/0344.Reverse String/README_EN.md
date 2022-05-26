@@ -4,41 +4,25 @@
 
 ## Description
 
-<p>Write a function that reverses a string. The input string is given as an array of characters <code>char[]</code>.</p>
+<p>Write a function that reverses a string. The input string is given as an array of characters <code>s</code>.</p>
 
-<p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array&nbsp;<a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a></strong> with O(1) extra memory.</p>
-
-<p>You may assume all the characters consist of <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters" target="_blank">printable ascii characters</a>.</p>
+<p>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a> with <code>O(1)</code> extra memory.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span>
-
-<strong>Output: </strong><span id="example-output-1">[&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span>
-
+<pre><strong>Input:</strong> s = ["h","e","l","l","o"]
+<strong>Output:</strong> ["o","l","l","e","h"]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = ["H","a","n","n","a","h"]
+<strong>Output:</strong> ["h","a","n","n","a","H"]
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]</span>
-
-<strong>Output: </strong><span id="example-output-2">[&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</span>
-
-</pre>
-
-</div>
-
-</div>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s[i]</code> is a <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters" target="_blank">printable ascii character</a>.</li>
+</ul>
 
 ## Solutions
 
@@ -60,15 +44,63 @@ class Solution:
 ```java
 class Solution {
     public void reverseString(char[] s) {
-        int n;
-        if (s == null || (n = s.length) < 2) return;
-        int i = 0, j = n - 1;
-        while (i < j) {
+        for (int i = 0, j = s.length - 1; i < j; ++i, --j) {
             char t = s[i];
             s[i] = s[j];
             s[j] = t;
-            ++i;
-            --j;
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j)
+            swap(s[i], s[j]);
+    }
+};
+```
+
+### **Go**
+
+```go
+func reverseString(s []byte) {
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		s[i], s[j] = s[j], s[i]
+	}
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
+ */
+var reverseString = function (s) {
+    for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
+        [s[i], s[j]] = [s[j], s[i]];
+    }
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn reverse_string(s: &mut Vec<char>) {
+        let n = s.len();
+        let mut l = 0;
+        let mut r = n - 1;
+        while l < r {
+            s.swap(l, r);
+            l += 1;
+            r -= 1;
         }
     }
 }

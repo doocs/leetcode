@@ -1,177 +1,183 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,Python,C++,JavaScript,Go,.../green?list=1" alt="languages"></a>
-  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
-  <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a>
-  <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
-  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode?color=cyan&cache=300" alt="stars"></a>
-  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode?color=cyan&cache=300" alt="forks"></a>
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/⭐/GitHub/cyan" alt="github"></a>
-  <a href="https://gitee.com/doocs/leetcode"><img src="https://badgen.net/badge/⭐/Gitee/cyan" alt="github"></a>
-  <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
-  <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Java%20%7C%20Python%20%7C%20C%2B%2B%20%7C%20Go%20%7C%20TypeScript%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
+  <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://img.shields.io/badge/organization-join%20us-42b883?style=flat-square" alt="open-source-organization"></a>
+  <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doocs/leetcode?color=42b883&style=flat-square" alt="LICENSE"></a><br>
+  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
+  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="stars"></a>
+  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="forks"></a>
+  <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://img.shields.io/opencollective/sponsors/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
 </p>
 
 ## Introduction
 
-Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF](https://leetcode-cn.com/problemset/lcof/) and [LCCI](https://leetcode-cn.com/problemset/lcci/) problems, updated daily.
+Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](https://leetcode.cn/problemset/lcof/) and [LCCI](https://leetcode.cn/problemset/lcci/) problems, updated daily. Please give me a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
 
 [中文文档](/README.md)
 
 ## Sites
 
-- Netlify: https://lc.netlify.app
-- Gitee Pages: https://doocs.gitee.io/leetcode
-- GitHub Pages: https://doocs.github.io/leetcode
+-   Gitee Pages: https://doocs.gitee.io/leetcode
+-   GitHub Pages: https://doocs.github.io/leetcode
 
 ## Solutions
 
-- [LeetCode](/solution/README_EN.md)
-- [LCOF: _Coding Interviews, 2nd Edition_](/lcof/README_EN.md)
-- [LCCI: _Cracking the Coding Interview, 6th Edition_](/lcci/README_EN.md)
+-   [LeetCode](/solution/README_EN.md)
+-   [LCOF: Coding Interviews, 2nd Edition](/lcof/README_EN.md)
+-   [LCCI: Cracking the Coding Interview, 6th Edition](/lcci/README_EN.md)
 
-## Basic Algorithms
+## Topics
 
-### Sorting
+### 1. Basic Algorithms
 
-- [Bubble Sort](/basic/sorting/BubbleSort/README.md)
-- [Insertion Sort](/basic/sorting/InsertionSort/README.md)
-- [Selection Sort](/basic/sorting/SelectionSort/README.md)
-- [Merge Sort](/basic/sorting/MergeSort/README.md)
-- [Quick Sort](/basic/sorting/QuickSort/README.md)
+-   [Find First and Last Position of Element in Sorted Array](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README_EN.md) - `Binary search`
+-   [Minimum Speed to Arrive on Time](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README_EN.md) - `Binary search`
+-   [Find the Student that Will Replace the Chalk](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md) - `Binary search`
+-   [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md) - `Binary search`
+-   [Sort an Array](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md) - `Quick Sort`, `Merge Sort`
+-   [Add Strings](/solution/0400-0499/0415.Add%20Strings/README_EN.md) - `Addition of large numbers`
+-   [Multiply Strings](/solution/0000-0099/0043.Multiply%20Strings/README_EN.md) - `Multiply large numbers`
+-   [Range Sum Query - Immutable](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README_EN.md) - `Prefix sum`
+-   [Range Sum Query 2D - Immutable](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md) - `Prefix sum`
+-   [Range Addition](/solution/0300-0399/0370.Range%20Addition/README_EN.md) - `Prefix sum`, `Difference array`
+-   [ Stamping the Grid](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md) - `Prefix sum`, `Difference array`
+-   [Longest Substring Without Repeating Characters](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README_EN.md) - `Two pointers`, `Hash table`
+-   [Subarray Product Less Than K](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md) - `Two pointers`
+-   [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md) - `Bit manipulation`, `Lowbit`
+-   [Merge Intervals](/solution/0000-0099/0056.Merge%20Intervals/README_EN.md) - `Merge intervals`
 
-### Searching
+### 2. Data Structures
 
-- [Binary Search](/basic/searching/BinarySearch/README.md)
-- [Binary Search II](/basic/searching/BinarySearch-II/README.md)
+-   [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md) - `Linked List`, `Pointer`, `Array`
+-   [Next Greater Element I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md) - `Monotonic Stack`
+-   [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md) - `Monotonic Stack`
+-   [Sum of Subarray Minimums](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README_EN.md) - `Monotonic Stack`
+-   [Sum of Subarray Ranges](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md) - `Monotonic Stack`
+-   [Maximum Subarray Min-Product](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md) - `Monotonic Stack`
+-   [Sliding Window Maximum](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md) - `Monotonic Queue`
+-   [Max Value of Equation](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md) - `Monotonic Queue`
+-   [Shortest Subarray with Sum at Least K](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md) - `Monotonic Queue`
+-   [Constrained Subsequence Sum](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md) - `Dynamic Programming`, `Monotonic Queue`
+-   [Word Pattern II](/solution/0200-0299/0291.Word%20Pattern%20II/README_EN.md) - `Hash Table`、`Backtracking`
+-   [Shortest Palindrome](/solution/0200-0299/0214.Shortest%20Palindrome/README_EN.md) - `Rabin-Karp`
+-   [Palindrome Pairs](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md) - `Rabin-Karp`
+-   [Longest Duplicate Substring](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md) - `Rabin-Karp`, `Binary search`
+-   [Distinct Echo Substrings](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md) - `Rabin-Karp`
 
-## High Frequency Interview Questions
+### 3. Search
 
-### Arrays
+-   [Flood Fill](/solution/0700-0799/0733.Flood%20Fill/README_EN.md) - `BFS`, `DFS`, `Flood fill`
+-   [Number of Islands](/solution/0200-0299/0200.Number%20of%20Islands/README_EN.md) - `BFS`, `Flood fill`
+-   [01 Matrix](/solution/0500-0599/0542.01%20Matrix/README_EN.md) - `BFS with multiple sources`
+-   [Map of Highest Peak](/solution/1700-1799/1765.Map%20of%20Highest%20Peak/README_EN.md) - `BFS with multiple sources`
+-   [Minimum Knight Moves](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README_EN.md) - `BFS`, `Shortest paths model`
+-   [Shortest Path in Binary Matrix](/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README_EN.md) - `BFS`, `Shortest paths model`
+-   [Nearest Exit from Entrance in Maze](/solution/1900-1999/1926.Nearest%20Exit%20from%20Entrance%20in%20Maze/README_EN.md) - `BFS`, `Shortest paths model`
+-   [Shortest Path in a Grid with Obstacles Elimination](/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README_EN.md) - `BFS`, `Shortest paths model`
+-   [Open the Lock](/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md) - `Minimum steps model`, `Two-end BFS`, `A* search`
+-   [Word Ladder](/solution/0100-0199/0127.Word%20Ladder/README_EN.md) - `Minimum steps model`, `Two-end BFS`
+-   [Minimum Operations to Convert Number](/solution/2000-2099/2059.Minimum%20Operations%20to%20Convert%20Number/README_EN.md) - `Minimum steps model`, `Two-end BFS`
+-   [Sliding Puzzle](/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md) - BFS, `Minimum steps model`, `A* search`
+-   [Shortest Path Visiting All Nodes](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README_EN.md) - `BFS`, `Minimum steps model`, `A* search`
+-   [Cut Off Trees for Golf Event](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README_EN.md) - `BFS`, `A* search`
+-   [Minimum Cost to Make at Least One Valid Path in a Grid](/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md) - `BFS using deque`
+-   [The Maze](/solution/0400-0499/0490.The%20Maze/README_EN.md) - `DFS, Flood fill`
+-   [Word Search](/solution/0000-0099/0079.Word%20Search/README_EN.md) - `DFS`, `Backtracking`
+-   [Path with Maximum Gold](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md) - `DFS`, `Backtracking`
 
-- [Remove Duplicates from Sorted Array](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
-- [Remove Element](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
-- [Move Zeroes](/solution/0200-0299/0283.Move%20Zeroes/README_EN.md)
-- [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
-- [Spiral Matrix](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
-- [Two Sum](/solution/0000-0099/0001.Two%20Sum/README_EN.md)
-- [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)
-- [4Sum](/solution/0000-0099/0018.4Sum/README_EN.md)
-- [Merge Sorted Array](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
-- [Find Minimum in Rotated Sorted Array](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README_EN.md)
-- [Find Minimum in Rotated Sorted Array II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)
-- [Product of Array Except Self](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md)
+### 4. Dynamic Programming(DP)
 
-### Strings
+-   [Pascal's Triangle](/solution/0100-0199/0118.Pascal's%20Triangle/README_EN.md) - `Linear problem`
+-   [Minimum Path Sum](/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md) - `Linear problem`
+-   [Cherry Pickup](/solution/0700-0799/0741.Cherry%20Pickup/README_EN.md) - `Linear problem`
+-   [Cherry Pickup II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md) - `Linear problem`
+-   [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md) - `Linear problem`, `LIS`
+-   [Non-overlapping Intervals](/solution/0400-0499/0435.Non-overlapping%20Intervals/README_EN.md) - `Linear problem`, `LIS`, `Greedy`
+-   [Delete Columns to Make Sorted III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md) - `Linear problem`, `LIS`
+-   [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md) - `Linear problem`, `LIS`
+-   [Maximum Height by Stacking Cuboids](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README_EN.md) - `Sort`, `Linear problem`, `LIS`
+-   [Best Team With No Conflicts](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README_EN.md) - `Sort`, `Linear problem`, `LIS`
+-   [Longest Common Subsequence](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md) - `Linear problem`, `LCS`
+-   [Minimum ASCII Delete Sum for Two Strings](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md) - `Linear problem`, `LCS`
+-   [Delete Operation for Two Strings](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README_EN.md) - `Linear problem`, `LCS`
+-   [Target Sum](/solution/0400-0499/0494.Target%20Sum/README_EN.md) - `0-1 Knapsack problem`
+-   [Partition Equal Subset Sum](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README_EN.md) - `0-1 Knapsack problem`
+-   [Last Stone Weight II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md) - `0-1 Knapsack problem`
+-   [Coin Change](/solution/0300-0399/0322.Coin%20Change/README_EN.md) - `Unbounded Knapsack problem`
+-   [Combination Sum IV](/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md) - `Unbounded Knapsack problem`
 
-- [Reverse Vowels of a String](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
-- [String to Integer (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
-- [Ransom Note](/solution/0300-0399/0383.Ransom%20Note/README_EN.md)
+### 5. Advanced Data Structures
 
-### Linked List
+-   [Detect Cycles in 2D Grid](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README_EN.md) - `Union find`, `Detect cycles`
+-   [Evaluate Division](/solution/0300-0399/0399.Evaluate%20Division/README_EN.md) - `Union find`
+-   [Regions Cut By Slashes](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README_EN.md) - `Union find`
+-   [Swim in Rising Water](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README_EN.md) - `Union find`
+-   [Smallest String With Swaps](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md) - `Union find`
+-   [Bricks Falling When Hit](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md) - `Union find`, `Reversed thinking`
+-   [Minimize Malware Spread II](/solution/0900-0999/0928.Minimize%20Malware%20Spread%20II/README_EN.md) - `Union find`, `Reversed thinking`
+-   [Checking Existence of Edge Length Limited Paths](/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README_EN.md) - `Union find`, `Offline algorithm`
+-   [Remove Max Number of Edges to Keep Graph Fully Traversable](/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/README_EN.md) - `Two Union find`
+-   [Range Sum Query - Mutable](/solution/0300-0399/0307.Range%20Sum%20Query%20-%20Mutable/README_EN.md) - `Binary Indexed Tree`, `Segment Tree`
+-   [Create Sorted Array through Instructions](/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README_EN.md) - `Binary Indexed Tree`, `Segment Tree`
+-   [Count Good Triplets in an Array](/solution/2100-2199/2179.Count%20Good%20Triplets%20in%20an%20Array/README_EN.md) - `Binary Indexed Tree`, `Segment Tree`
+-   [Minimum Possible Integer After at Most K Adjacent Swaps On Digits](/solution/1500-1599/1505.Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits/README_EN.md) - `Binary Indexed Tree`
+-   [Range Sum Query 2D - Mutable](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README_EN.md) - `Binary Indexed Tree 2D`, `Segment Tree`
+-   [Count of Smaller Numbers After Self](/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README_EN.md) - `Binary Indexed Tree`, `Discretization`, `Segment Tree`
+-   [Count of Range Sum](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README_EN.md) - `Binary Indexed Tree`, `Discretization`, `Segment Tree`
+-   [Reverse Pairs](/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md) - `Binary Indexed Tree`, `Discretization`, `Divide and Conquer`, `Segment Tree`
+-   [Number of Longest Increasing Subsequence](/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README_EN.md) - `Binary Indexed Tree`, `Discretization`, `Interval maximum`
+-   [Fancy Sequence](/solution/1600-1699/1622.Fancy%20Sequence/README_EN.md) - `Dynamic Segment Tree`, `Lazy Propogation`
+-   [Range Module](/solution/0700-0799/0715.Range%20Module/README_EN.md) - `Dynamic Segment Tree`, `Lazy Propogation`
+-   [My Calendar III](/solution/0700-0799/0732.My%20Calendar%20III/README_EN.md) - `Dynamic Segment Tree`, `Lazy Propogation`
+-   [Amount of New Area Painted Each Day](/solution/2100-2199/2158.Amount%20of%20New%20Area%20Painted%20Each%20Day/README_EN.md) - `Dynamic Segment Tree`, `Lazy Propogation`
+-   [Longest Substring of One Repeating Character](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README_EN.md) - `Segment Tree`
+-   [Rectangle Area II](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md) - `Segment Tree`, `Discretization`, `Line Sweep`
 
-- [Add Two Numbers](/solution/0000-0099/0002.Add%20Two%20Numbers/README_EN.md)
-- [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
-- [Remove Linked List Elements](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README_EN.md)
-- [Kth Node From End of List](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
-- [Swap Nodes in Pairs](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
-- [Merge Two Sorted Lists](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md)
-- [Merge k Sorted Lists](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
-- [Insertion Sort List](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)
-- [Sort List](/solution/0100-0199/0148.Sort%20List/README_EN.md)
-- [Reverse Linked List](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
-- [Reverse Linked List II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md)
-- [Reorder List](/solution/0100-0199/0143.Reorder%20List/README_EN.md)
-- [Rotate List](/solution/0000-0099/0061.Rotate%20List/README_EN.md)
-- [Palindrome Linked List](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
-- [Intersection of Two Linked Lists](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md)
-- [Odd Even Linked List](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
-- [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
-- [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
-- [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
+### 6. Graph Theory
 
-### Binary Tree
+-   [Network Delay Time](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md) - `Shortest Path`, `Dijkstra's algorithm`, `Bellman Ford's algorithm`, `SPFA`
+-   [Min Cost to Connect All Points](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md) - `Minimum Spanning Tree`, `Prim's algorithm`, `Kruskal's algorithm`, `Union find`
+-   [Connecting Cities With Minimum Cost](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md) - `Minimum Spanning Tree`, `Kruskal's algorithm`
+-   [Optimize Water Distribution in a Village](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md) - `Minimum Spanning Tree`, `Kruskal's algorithm`, `Union find`
+-   [Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README_EN.md) - `Minimum Spanning Tree`, `Kruskal's algorithm`, `Union find`
+-   [Is Graph Bipartite?](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md) - `Graph coloring`, `Union find`
 
-- [Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
-- [Invert Binary Tree](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
-- [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
-- [Binary Tree Level Order Traversal II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
-- [Maximum Depth of Binary Tree](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
-- [Minimum Depth of Binary Tree](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md)
-- [Binary Tree Paths](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)
-- [Path Sum](/solution/0100-0199/0112.Path%20Sum/README_EN.md)
-- [Path Sum II](/solution/0100-0199/0113.Path%20Sum%20II/README_EN.md)
-- [Construct Binary Tree from Preorder and Inorder Traversal](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md)
-- [Construct Binary Tree from Inorder and Postorder Traversal](/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README_EN.md)
-- [Lowest Common Ancestor of a Binary Tree](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
-- [Lowest Common Ancestor of a Binary Search Tree](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
-- [BiNode](/lcci/17.12.BiNode/README_EN.md)
-- [Convert Binary Search Tree to Sorted Doubly Linked List](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md)
-
-### Math
-
-- [Single Number](/solution/0100-0199/0136.Single%20Number/README_EN.md)
-- [Single Number II](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)
-- [Single Number III](/solution/0200-0299/0260.Single%20Number%20III/README_EN.md)
-- [Set Mismatch](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
-- [Count Primes](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
-- [Missing Number](/solution/0200-0299/0268.Missing%20Number/README_EN.md)
-
-### Stack & Queue
-
-- [Valid Parentheses](/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md)
-- [Min Stack](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
-- [Implement Queue using Stacks](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
-- [Implement Stack using Queues](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
-- [Evaluate Reverse Polish Notation](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md)
-- [Number of Recent Calls](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
-- [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
-
-### Dynamic Programming
-
-- [Maximum Subarray](/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
-- [Maximum Product Subarray](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
-- [House Robber](/solution/0100-0199/0198.House%20Robber/README_EN.md)
-- [House Robber II](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
-- [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
-- [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
-
-### Misc
-
-- [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
-- [Second Highest Salary](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
-- [Nth Highest Salary](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
-- [Rank Scores](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)
-
-## Maintainer
-
-[Yang Libin](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) technical community; member of [@TheAlgorithms](https://github.com/TheAlgorithms) organization.
+<!--
+### 7. Mathematical Knowledge
+ -->
 
 ## Contributions
 
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
 
-1. <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>clone</kbd> it to your local machine.
-1. Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> the changes to your remote GitHub repository.
-1. Submit a pull request with your changes!
+1. Fork [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then clone it to your local machine.
+1. Checkout a new branch.
+1. Make some changes to your leetcode repository, then push the changes to your remote GitHub repository.
+1. Create a pull request with your changes!
 1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
 </p>
 
 You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) using [Gitpod.io](https://www.gitpod.io), a free online dev environment with a single click.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/doocs/leetcode)
+<a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
+
+## Stargazers over time
+
+<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://starchart.cc/doocs/leetcode.svg" alt="Stargazers over time" /></a>
+
+<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a> -->
 
 ## Contributors
 
 This project exists thanks to all the people who contribute.
 
-<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
 
 ## Backers & Sponsors
 
@@ -186,5 +192,3 @@ Thank you to all our backers and sponsors!
 ## License
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large)

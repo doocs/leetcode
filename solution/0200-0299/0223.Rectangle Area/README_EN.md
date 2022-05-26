@@ -4,23 +4,33 @@
 
 ## Description
 
-<p>Find the total area covered by two <strong>rectilinear</strong> rectangles in a <strong>2D</strong> plane.</p>
+<p>Given the coordinates of two <strong>rectilinear</strong> rectangles in a 2D plane, return <em>the total area covered by the two rectangles</em>.</p>
 
-<p>Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.</p>
+<p>The first rectangle is defined by its <strong>bottom-left</strong> corner <code>(ax1, ay1)</code> and its <strong>top-right</strong> corner <code>(ax2, ay2)</code>.</p>
 
-![](./images/rectangle_area.png)
+<p>The second rectangle is defined by its <strong>bottom-left</strong> corner <code>(bx1, by1)</code> and its <strong>top-right</strong> corner <code>(bx2, by2)</code>.</p>
 
-<p><strong>Example:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="Rectangle Area" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.png" style="width: 700px; height: 365px;" />
+<pre>
+<strong>Input:</strong> ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2
+<strong>Output:</strong> 45
+</pre>
+
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2
+<strong>Output:</strong> 16
+</pre>
 
-<strong>Input: </strong>A = <span id="example-input-1-1">-3</span>, B = <span id="example-input-1-2">0</span>, C = <span id="example-input-1-3">3</span>, D = <span id="example-input-1-4">4</span>, E = <span id="example-input-1-5">0</span>, F = <span id="example-input-1-6">-1</span>, G = <span id="example-input-1-7">9</span>, H = <span id="example-input-1-8">2</span>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output: </strong><span id="example-output-1">45</span></pre>
-
-<p><strong>Note:</strong></p>
-
-<p>Assume that the total area is never beyond the maximum possible value of <strong>int</strong>.</p>
+<ul>
+	<li><code>-10<sup>4</sup> &lt;= ax1, ay1, ax2, ay2, bx1, by1, bx2, by2 &lt;= 10<sup>4</sup></code></li>
+</ul>
 
 ## Solutions
 
@@ -29,13 +39,68 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int, bx2: int, by2: int) -> int:
+        a = (ax2 - ax1) * (ay2 - ay1)
+        b = (bx2 - bx1) * (by2 - by1)
+        width = min(ax2, bx2) - max(ax1, bx1)
+        height = min(ay2, by2) - max(ay1, by1)
+        return a + b - max(height, 0) * max(width, 0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
+        int a = (ax2 - ax1) * (ay2 - ay1);
+        int b = (bx2 - bx1) * (by2 - by1);
+        int width = Math.min(ax2, bx2) - Math.max(ax1, bx1);
+        int height = Math.min(ay2, by2) - Math.max(ay1, by1);
+        return a + b - Math.max(height, 0) * Math.max(width, 0);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
+        int a = (ax2 - ax1) * (ay2 - ay1);
+        int b = (bx2 - bx1) * (by2 - by1);
+        int width = min(ax2, bx2) - max(ax1, bx1);
+        int height = min(ay2, by2) - max(ay1, by1);
+        return a + b - max(height, 0) * max(width, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, by2 int) int {
+	a := (ax2 - ax1) * (ay2 - ay1)
+	b := (bx2 - bx1) * (by2 - by1)
+	width := min(ax2, bx2) - max(ax1, bx1)
+	height := min(ay2, by2) - max(ay1, by1)
+	return a + b - max(height, 0)*max(width, 0)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

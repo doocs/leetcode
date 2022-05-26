@@ -1,4 +1,4 @@
-# [16.21. Sum Swap](https://leetcode-cn.com/problems/sum-swap-lcci)
+# [16.21. Sum Swap](https://leetcode.cn/problems/sum-swap-lcci)
 
 [中文文档](/lcci/16.21.Sum%20Swap/README.md)
 
@@ -42,11 +42,14 @@
 class Solution:
     def findSwapValues(self, array1: List[int], array2: List[int]) -> List[int]:
         diff = sum(array1) - sum(array2)
-        if diff & 1: return []
+        if diff & 1:
+            return []
         diff >>= 1
         s = set(array2)
-        for e in array1:
-            if (e - diff) in s: return [e, e - diff]
+        for a in array1:
+            b = a - diff
+            if b in s:
+                return [a, b]
         return []
 ```
 
@@ -55,27 +58,85 @@ class Solution:
 ```java
 class Solution {
     public int[] findSwapValues(int[] array1, int[] array2) {
-        int diff = sum(array1) - sum(array2);
+        int s1 = 0, s2 = 0;
+        Set<Integer> s = new HashSet<>();
+        for (int a : array1) {
+            s1 += a;
+        }
+        for (int b : array2) {
+            s.add(b);
+            s2 += b;
+        }
+        int diff = s1 - s2;
         if ((diff & 1) == 1) {
             return new int[]{};
         }
         diff >>= 1;
-        Set<Integer> s = Arrays.stream(array2).boxed().collect(Collectors.toSet());
-        for (int e : array1) {
-            if (s.contains((e - diff))) {
-                return new int[]{e, e - diff};
+        for (int a : array1) {
+            int b = a - diff;
+            if (s.contains(b)) {
+                return new int[]{a, b};
             }
         }
         return new int[]{};
     }
+}
+```
 
-    private int sum(int[] array) {
-        int res = 0;
-        for (int e : array) {
-            res += e;
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findSwapValues(vector<int>& array1, vector<int>& array2) {
+        int s1 = 0, s2 = 0;
+        unordered_set<int> s;
+        for (int a : array1) s1 += a;
+        for (int b : array2) {
+            s2 += b;
+            s.insert(b);
         }
-        return res;
+        int diff = s1 - s2;
+        if (diff & 1) {
+            return {};
+        }
+        diff >>= 1;
+        for (int a : array1) {
+            int b = a - diff;
+            if (s.count(b)) {
+                return {a, b};
+            }
+        }
+        return {};
     }
+};
+```
+
+### **Go**
+
+```go
+func findSwapValues(array1 []int, array2 []int) []int {
+	s1, s2 := 0, 0
+	for _, a := range array1 {
+		s1 += a
+	}
+	s := make(map[int]bool)
+	for _, b := range array2 {
+		s2 += b
+		s[b] = true
+	}
+	diff := s1 - s2
+	if (diff & 1) == 1 {
+		return []int{}
+	}
+	diff >>= 1
+	for _, a := range array1 {
+		b := a - diff
+		if s[b] {
+			return []int{a, b}
+		}
+	}
+	return []int{}
 }
 ```
 

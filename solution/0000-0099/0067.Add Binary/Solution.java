@@ -1,20 +1,11 @@
 class Solution {
     public String addBinary(String a, String b) {
-        StringBuilder reverseAnswer = new StringBuilder();
-        int maxLength = Math.max(a.length(), b.length());
-        int carry = 0;
-
-        for (int i = 0;i < maxLength;i++) {
-            carry += i < a.length() ? a.charAt(a.length() - 1 - i) - 48 : 0;
-            carry += i < b.length() ? b.charAt(b.length() - 1 - i) - 48 : 0;
-
-            reverseAnswer.append(carry % 2);
+        StringBuilder sb = new StringBuilder();
+        for (int i = a.length() - 1, j = b.length() - 1, carry = 0; i >= 0 || j >= 0 || carry > 0; --i, --j) {
+            carry += (i >= 0 ? a.charAt(i) - '0' : 0) + (j >= 0 ? b.charAt(j) - '0' : 0);
+            sb.append(carry % 2);
             carry /= 2;
         }
-
-        if (carry == 1) {
-            reverseAnswer.append(1);
-        }
-        return reverseAnswer.reverse().toString();
+        return sb.reverse().toString();
     }
 }

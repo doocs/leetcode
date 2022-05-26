@@ -1,4 +1,4 @@
-# [04.12. Paths with Sum](https://leetcode-cn.com/problems/paths-with-sum-lcci)
+# [04.12. Paths with Sum](https://leetcode.cn/problems/paths-with-sum-lcci)
 
 [中文文档](/lcci/04.12.Paths%20with%20Sum/README.md)
 
@@ -52,8 +52,8 @@ Depth-First-Search
 
 Using the idea of recursion, at each recursion to a node.
 
-- If root.val-sum == 0, add 1 to the result
-- Consider two scenarios for inclusion or exclusion of this node from the pathway
+-   If root.val-sum == 0, add 1 to the result
+-   Consider two scenarios for inclusion or exclusion of this node from the pathway
 
 Special case: if the parent node of this node is in the path, this node must be included in the path (the path cannot be broken)
 
@@ -83,8 +83,8 @@ class Solution:
 
 Use to 2 recursive processes.
 
-- BFS: (traverse) traverses each tree node.
-- DFS: Starting from each tree node, the nodes sum to see if sum can be satisfied.
+-   BFS: (traverse) traverses each tree node.
+-   DFS: Starting from each tree node, the nodes sum to see if sum can be satisfied.
 
 Note that node values can be positive or negative, and all possible paths need to be exhausted.
 

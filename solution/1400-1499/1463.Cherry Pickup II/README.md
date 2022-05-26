@@ -1,10 +1,11 @@
-# [1463. 摘樱桃 II](https://leetcode-cn.com/problems/cherry-pickup-ii)
+# [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii)
 
 [English Version](/solution/1400-1499/1463.Cherry%20Pickup%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个&nbsp;<code>rows x cols</code> 的矩阵&nbsp;<code>grid</code>&nbsp;来表示一块樱桃地。 <code>grid</code>&nbsp;中每个格子的数字表示你能获得的樱桃数目。</p>
 
 <p>你有两个机器人帮你收集樱桃，机器人 1 从左上角格子 <code>(0,0)</code> 出发，机器人 2 从右上角格子 <code>(0, cols-1)</code> 出发。</p>
@@ -23,7 +24,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1802.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1463.Cherry%20Pickup%20II/images/sample_1_1802.png" style="height: 182px; width: 139px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[3,1,1],[2,5,1],[1,5,5],[2,1,1]]
 <strong>输出：</strong>24
@@ -35,7 +36,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1802.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1463.Cherry%20Pickup%20II/images/sample_2_1802.png" style="height: 257px; width: 284px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[1,0,0,0,0,0,1],[2,0,0,0,0,3,0],[2,0,9,0,0,0,0],[0,3,0,5,4,0,0],[1,0,2,3,0,0,6]]
 <strong>输出：</strong>28
@@ -72,6 +73,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+线性 DP。定义 `dp[i][j1][j2]` 表示两个机器人从起始点分别走到坐标 `(i, j1)`, `(i, j2)` 的所有路线中，可获得的樱桃数量的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,7 +84,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        dp = [[[0] * n for _ in range(n)] for _ in range(m)]
+        valid = [[[False] * n for _ in range(n)] for _ in range(m)]
+        dp[0][0][n - 1] = grid[0][0] + grid[0][n - 1]
+        valid[0][0][n - 1] = True
+        for i in range(1, m):
+            for j1 in range(n):
+                for j2 in range(n):
+                    t = grid[i][j1]
+                    if j1 != j2:
+                        t += grid[i][j2]
+                    ok = False
+                    for y1 in range(j1 - 1, j1 + 2):
+                        for y2 in range(j2 - 1, j2 + 2):
+                            if 0 <= y1 < n and 0 <= y2 < n and valid[i - 1][y1][y2]:
+                                dp[i][j1][j2] = max(
+                                    dp[i][j1][j2], dp[i - 1][y1][y2] + t)
+                                ok = True
+                    valid[i][j1][j2] = ok
+        return max(dp[m - 1][j1][j2] for j1 in range(n) for j2 in range(n))
 ```
 
 ### **Java**
@@ -87,7 +113,139 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int cherryPickup(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
 
+        int[][][] dp = new int[m][n][n];
+        boolean[][][] valid = new boolean[m][n][n];
+        dp[0][0][n - 1] = grid[0][0] + grid[0][n - 1];
+        valid[0][0][n - 1] = true;
+
+        for (int i = 1; i < m; ++i) {
+            for (int j1 = 0; j1 < n; ++j1) {
+                for (int j2 = 0; j2 < n; ++j2) {
+                    int t = grid[i][j1];
+                    if (j1 != j2) {
+                        t += grid[i][j2];
+                    }
+                    boolean ok = false;
+                    for (int y1 = j1 - 1; y1 <= j1 + 1; ++y1) {
+                        for (int y2 = j2 - 1; y2 <= j2 + 1; ++y2) {
+                            if (y1 >= 0 && y1 < n && y2 >= 0 && y2 < n && valid[i - 1][y1][y2]) {
+                                dp[i][j1][j2] = Math.max(dp[i][j1][j2], dp[i - 1][y1][y2] + t);
+                                ok = true;
+                            }
+                        }
+                    }
+                    valid[i][j1][j2] = ok;
+                }
+            }
+        }
+        int ans = 0;
+        for (int j1 = 0; j1 < n; ++j1) {
+            for (int j2 = 0; j2 < n; ++j2) {
+                ans = Math.max(ans, dp[m - 1][j1][j2]);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int cherryPickup(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<vector<int>>> dp(m, vector<vector<int>>(n, vector<int>(n)));
+        vector<vector<vector<bool>>> valid(m, vector<vector<bool>>(n, vector<bool>(n)));
+        dp[0][0][n - 1] = grid[0][0] + grid[0][n - 1];
+        valid[0][0][n - 1] = true;
+        for (int i = 1; i < m; ++i)
+        {
+            for (int j1 = 0; j1 < n; ++j1)
+            {
+                for (int j2 = 0; j2 < n; ++j2)
+                {
+                    int t = grid[i][j1];
+                    if (j1 != j2) t += grid[i][j2];
+                    bool ok = false;
+                    for (int y1 = j1 - 1; y1 <= j1 + 1; ++y1)
+                        for (int y2 = j2 - 1; y2 <= j2 + 1; ++y2)
+                            if (y1 >= 0 && y1 < n && y2 >= 0 && y2 < n && valid[i - 1][y1][y2])
+                            {
+                                dp[i][j1][j2] = max(dp[i][j1][j2], dp[i - 1][y1][y2] + t);
+                                ok = true;
+                            }
+                    valid[i][j1][j2] = ok;
+                }
+            }
+        }
+        int ans = 0;
+        for (int j1 = 0; j1 < n; ++j1)
+            for (int j2 = 0; j2 < n; ++j2)
+                ans = max(ans, dp[m - 1][j1][j2]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func cherryPickup(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	dp := make([][][]int, m)
+	valid := make([][][]bool, m)
+	for i := range dp {
+		dp[i] = make([][]int, n)
+		valid[i] = make([][]bool, n)
+		for j1 := range dp[i] {
+			dp[i][j1] = make([]int, n)
+			valid[i][j1] = make([]bool, n)
+		}
+	}
+	dp[0][0][n-1] = grid[0][0] + grid[0][n-1]
+	valid[0][0][n-1] = true
+	for i := 1; i < m; i++ {
+		for j1 := 0; j1 < n; j1++ {
+			for j2 := 0; j2 < n; j2++ {
+				t := grid[i][j1]
+				if j1 != j2 {
+					t += grid[i][j2]
+				}
+				ok := false
+				for y1 := j1 - 1; y1 <= j1+1; y1++ {
+					for y2 := j2 - 1; y2 <= j2+1; y2++ {
+						if y1 >= 0 && y1 < n && y2 >= 0 && y2 < n && valid[i-1][y1][y2] {
+							dp[i][j1][j2] = max(dp[i][j1][j2], dp[i-1][y1][y2]+t)
+							ok = true
+						}
+					}
+				}
+				valid[i][j1][j2] = ok
+			}
+		}
+	}
+	ans := 0
+	for j1 := 0; j1 < n; j1++ {
+		for j2 := 0; j2 < n; j2++ {
+			ans = max(ans, dp[m-1][j1][j2])
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

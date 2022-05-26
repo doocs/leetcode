@@ -1,8 +1,9 @@
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
  * }
  */
 /**
@@ -10,19 +11,24 @@
  * @return {boolean}
  */
 var isValidBST = function (root) {
-  if (root == null) return true;
-  let arr = [];
-  inOrderTraverse(root, arr);
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] >= arr[i + 1]) return false;
-  }
-  return true;
-};
+    let prev = null;
 
-var inOrderTraverse = function (node, arr) {
-  if (node !== null) {
-    inOrderTraverse(node.left, arr);
-    arr.push(node.val);
-    inOrderTraverse(node.right, arr);
-  }
+    let dfs = function (root) {
+        if (!root) {
+            return true;
+        }
+        if (!dfs(root.left)) {
+            return false;
+        }
+        if (prev && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        if (!dfs(root.right)) {
+            return false;
+        }
+        return true;
+    };
+
+    return dfs(root);
 };

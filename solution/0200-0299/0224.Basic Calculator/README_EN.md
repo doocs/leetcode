@@ -4,41 +4,43 @@
 
 ## Description
 
-<p>Implement a basic calculator to evaluate a simple expression string.</p>
+<p>Given a string <code>s</code> representing a valid expression, implement a basic calculator to evaluate it, and return <em>the result of the evaluation</em>.</p>
 
-<p>The expression string may contain open <code>(</code> and closing parentheses <code>)</code>, the plus <code>+</code> or minus sign <code>-</code>, <b>non-negative</b> integers and empty spaces <code> </code>.</p>
+<p><strong>Note:</strong> You are <strong>not</strong> allowed to use any built-in function which evaluates strings as mathematical expressions, such as <code>eval()</code>.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> &quot;1 + 1&quot;
-
+<strong>Input:</strong> s = &quot;1 + 1&quot;
 <strong>Output:</strong> 2
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> &quot; 2-1 + 2 &quot;
-
-<strong>Output:</strong> 3</pre>
+<strong>Input:</strong> s = &quot; 2-1 + 2 &quot;
+<strong>Output:</strong> 3
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
+<strong>Input:</strong> s = &quot;(1+(4+5+2)-3)+(6+8)&quot;
+<strong>Output:</strong> 23
+</pre>
 
-<strong>Input:</strong> &quot;(1+(4+5+2)-3)+(6+8)&quot;
-
-<strong>Output:</strong> 23</pre>
-
-<b>Note:</b>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>You may assume that the given expression is always valid.</li>
-    <li><b>Do not</b> use the <code>eval</code> built-in library function.</li>
+	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
+	<li><code>s</code> consists of digits, <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, and <code>&#39; &#39;</code>.</li>
+	<li><code>s</code> represents a valid expression.</li>
+	<li><code>&#39;+&#39;</code> is <strong>not</strong> used as a unary operation (i.e., <code>&quot;+1&quot;</code> and <code>&quot;+(2 + 3)&quot;</code> is invalid).</li>
+	<li><code>&#39;-&#39;</code> could be used as a unary operation (i.e., <code>&quot;-1&quot;</code> and <code>&quot;-(2 + 3)&quot;</code> is valid).</li>
+	<li>There will be no two consecutive operators in the input.</li>
+	<li>Every number and running calculation will fit in a signed 32-bit integer.</li>
 </ul>
 
 ## Solutions

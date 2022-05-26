@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given a string <code>s</code>. An <em>awesome</em> substring is a non-empty substring of <code>s</code> such that we can make any number of swaps in order to make it palindrome.</p>
+<p>You are given a string <code>s</code>. An <strong>awesome</strong> substring is a non-empty substring of <code>s</code> such that we can make any number of swaps in order to make it a palindrome.</p>
 
-<p>Return the length of the maximum length <strong>awesome substring</strong> of <code>s</code>.</p>
+<p>Return <em>the length of the maximum length <strong>awesome substring</strong> of</em> <code>s</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -32,18 +32,11 @@
 <strong>Explanation:</strong> &quot;213123&quot; is the longest awesome substring, we can form the palindrome &quot;231132&quot; with some swaps.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;00&quot;
-<strong>Output:</strong> 2
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> consists only of digits.</li>
 </ul>
 

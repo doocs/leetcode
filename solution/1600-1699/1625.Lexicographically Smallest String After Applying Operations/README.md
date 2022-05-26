@@ -1,10 +1,11 @@
-# [1625. 执行操作后字典序最小的字符串](https://leetcode-cn.com/problems/lexicographically-smallest-string-after-applying-operations)
+# [1625. 执行操作后字典序最小的字符串](https://leetcode.cn/problems/lexicographically-smallest-string-after-applying-operations)
 
 [English Version](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>s</code> 以及两个整数 <code>a</code> 和 <code>b</code> 。其中，字符串 <code>s</code> 的长度为偶数，且仅由数字 <code>0</code> 到 <code>9</code> 组成。</p>
 
 <p>你可以在 <code>s</code> 上按任意顺序多次执行下面两个操作之一：</p>
@@ -82,6 +83,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：BFS**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -89,7 +92,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findLexSmallestString(self, s: str, a: int, b: int) -> str:
+        q = deque([s])
+        vis = {s}
+        ans = s
+        while q:
+            s = q.popleft()
+            if s < ans:
+                ans = s
+            nxt1 = ''.join(
+                [str((int(c) + a) % 10) if i & 1 else c for i, c in enumerate(s)]
+            )
+            nxt2 = s[-b:] + s[:-b]
+            for nxt in (nxt1, nxt2):
+                if nxt not in vis:
+                    vis.add(nxt)
+                    q.append(nxt)
+        return ans
 ```
 
 ### **Java**
@@ -97,7 +117,102 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String findLexSmallestString(String s, int a, int b) {
+        Queue<String> q = new ArrayDeque<>();
+        q.offer(s);
+        Set<String> vis = new HashSet<>();
+        vis.add(s);
+        String ans = s;
+        while (!q.isEmpty()) {
+            s = q.poll();
+            if (s.compareTo(ans) < 0) {
+                ans = s;
+            }
+            char[] cs = s.toCharArray();
+            for (int i = 1; i < cs.length; i += 2) {
+                cs[i] = (char) (((cs[i] - '0' + a) % 10) + '0');
+            }
+            String nxt1 = String.valueOf(cs);
+            String nxt2 = s.substring(b) + s.substring(0, b);
+            for (String nxt : new String[]{nxt1, nxt2}) {
+                if (!vis.contains(nxt)) {
+                    vis.add(nxt);
+                    q.offer(nxt);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findLexSmallestString(string s, int a, int b) {
+        unordered_set<string> vis{{s}};
+        queue<string> q{{s}};
+        string ans = s;
+        int n = s.size();
+        while (!q.empty())
+        {
+            s = q.front();
+            q.pop();
+            if (s < ans) ans = s;
+            string nxt1 = s;
+            for (int i = 1; i < n; i += 2) nxt1[i] = ((nxt1[i] - '0' + a) % 10) + '0';
+            string nxt2 = s.substr(n - b) + s.substr(0, n - b);
+            for (string nxt : {nxt1, nxt2})
+            {
+                if (!vis.count(nxt))
+                {
+                    vis.insert(nxt);
+                    q.push(nxt);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLexSmallestString(s string, a int, b int) string {
+	q := []string{s}
+	vis := map[string]bool{s: true}
+	ans := s
+	for len(q) > 0 {
+		s = q[0]
+		q = q[1:]
+		if s < ans {
+			ans = s
+		}
+		for _, nxt := range []string{op1(s, a), op2(s, b)} {
+			if !vis[nxt] {
+				vis[nxt] = true
+				q = append(q, nxt)
+			}
+		}
+	}
+	return ans
+}
+
+func op1(s string, a int) string {
+	res := []byte(s)
+	for i := 1; i < len(s); i += 2 {
+		res[i] = byte((int(res[i]-'0')+a)%10 + '0')
+	}
+	return string(res)
+}
+
+func op2(s string, b int) string {
+	return s[len(s)-b:] + s[:len(s)-b]
+}
 ```
 
 ### **...**

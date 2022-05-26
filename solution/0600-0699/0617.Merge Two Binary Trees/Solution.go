@@ -6,15 +6,15 @@
  *     Right *TreeNode
  * }
  */
-func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
-    if t1 == nil {
-        return t2
-    }
-    if t2 == nil {
-        return t1
-    }
-    t1.Val += t2.Val
-    t1.Left = mergeTrees(t1.Left, t2.Left)
-    t1.Right = mergeTrees(t1.Right, t2.Right)
-    return t1
+func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
+	if root1 == nil {
+		return root2
+	}
+	if root2 == nil {
+		return root1
+	}
+	node := &TreeNode{Val: root1.Val + root2.Val}
+	node.Left = mergeTrees(root1.Left, root2.Left)
+	node.Right = mergeTrees(root1.Right, root2.Right)
+	return node
 }

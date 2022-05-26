@@ -1,10 +1,11 @@
-# [1451. 重新排列句子中的单词](https://leetcode-cn.com/problems/rearrange-words-in-a-sentence)
+# [1451. 重新排列句子中的单词](https://leetcode.cn/problems/rearrange-words-in-a-sentence)
 
 [English Version](/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>「句子」是一个用空格分隔单词的字符串。给你一个满足下述格式的句子 <code>text</code> :</p>
 
 <ul>

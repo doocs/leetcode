@@ -4,62 +4,87 @@
 
 ## Description
 
-<p>Your task is to design the basic function of Excel and implement the function of sum formula.  Specifically, you need to implement the following functions:</p>
+<p>Design the basic function of <strong>Excel</strong> and implement the function of the sum formula.</p>
 
-<p><code>Excel(int H, char W):</code> This is the constructor. The inputs represents the height and width of the Excel form. <b>H</b> is a positive integer, range from 1 to 26. It represents the height. <b>W</b> is a character range from 'A' to 'Z'. It represents that the width is the number of characters from 'A' to <b>W</b>. The Excel form content is represented by a height * width 2D integer array <code>C</code>, it should be initialized to zero. You should assume that the first row of <code>C</code> starts from 1, and the first column of <code>C</code> starts from 'A'.</p>
+<p>Implement the <code>Excel</code> class:</p>
 
-<br>
+<ul>
+	<li><code>Excel(int height, char width)</code> Initializes the object with the <code>height</code> and the <code>width</code> of the sheet. The sheet is an integer matrix <code>mat</code> of size <code>height x width</code> with the row index in the range <code>[1, height]</code> and the column index in the range <code>[&#39;A&#39;, width]</code>. All the values should be <strong>zero</strong> initially.</li>
+	<li><code>void set(int row, char column, int val)</code> Changes the value at <code>mat[row][column]</code> to be <code>val</code>.</li>
+	<li><code>int get(int row, char column)</code> Returns the value at <code>mat[row][column]</code>.</li>
+	<li><code>int sum(int row, char column, List&lt;String&gt; numbers)</code> Sets the value at <code>mat[row][column]</code> to be the sum of cells represented by <code>numbers</code> and returns the value at <code>mat[row][column]</code>. This sum formula <strong>should exist</strong> until this cell is overlapped by another value or another sum formula. <code>numbers[i]</code> could be on the format:
+	<ul>
+		<li><code>&quot;ColRow&quot;</code> that represents a single cell.
+		<ul>
+			<li>For example, <code>&quot;F7&quot;</code> represents the cell <code>mat[7][&#39;F&#39;]</code>.</li>
+		</ul>
+		</li>
+		<li><code>&quot;ColRow1:ColRow2&quot;</code> that represents a range of cells. The range will always be a rectangle where <code>&quot;ColRow1&quot;</code> represent the position of the top-left cell, and <code>&quot;ColRow2&quot;</code> represents the position of the bottom-right cell.
+		<ul>
+			<li>For example, <code>&quot;B3:F7&quot;</code> represents the cells <code>mat[i][j]</code> for <code>3 &lt;= i &lt;= 7</code> and <code>&#39;B&#39; &lt;= j &lt;= &#39;F&#39;</code>.</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
 
-<p><code>void Set(int row, char column, int val):</code> Change the value at <code>C(row, column)</code> to be val.</p>
-<br>
-<p><code>int Get(int row, char column):</code> Return the value at <code>C(row, column)</code>.</p>
-<br>
-<p><code>int Sum(int row, char column, List of Strings : numbers):</code> This function calculate and set the value at <code>C(row, column)</code>, where the value should be the sum of cells represented by <code>numbers</code>. This function return the sum result at <code>C(row, column)</code>. This sum formula should exist until this cell is overlapped by another value or another sum formula.</p>
+<p><strong>Note:</strong> You could assume that there will not be any circular sum reference.</p>
 
-<p><code>numbers</code> is a list of strings that each string represent a cell or a range of cells. If the string represent a single cell, then it has the following format : <code>ColRow</code>. For example, "F7" represents the cell at (7, F). </p>
+<ul>
+	<li>For example, <code>mat[1][&#39;A&#39;] == sum(1, &quot;B&quot;)</code> and <code>mat[1][&#39;B&#39;] == sum(1, &quot;A&quot;)</code>.</li>
+</ul>
 
-<p>If the string represent a range of cells, then it has the following format : <code>ColRow1:ColRow2</code>. The range will always be a rectangle, and ColRow1 represent the position of the top-left cell, and ColRow2 represents the position of the bottom-right cell. </p>
-<br>
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
 <pre>
-Excel(3,"C"); 
-// construct a 3*3 2D array with all zero.
-//   A B C
-// 1 0 0 0
-// 2 0 0 0
-// 3 0 0 0
+<strong>Input</strong>
+[&quot;Excel&quot;, &quot;set&quot;, &quot;sum&quot;, &quot;set&quot;, &quot;get&quot;]
+[[3, &quot;C&quot;], [1, &quot;A&quot;, 2], [3, &quot;C&quot;, [&quot;A1&quot;, &quot;A1:B2&quot;]], [2, &quot;B&quot;, 2], [3, &quot;C&quot;]]
+<strong>Output</strong>
+[null, null, 4, null, 6]
 
-Set(1, "A", 2);
-// set C(1,"A") to be 2.
-// A B C
-// 1 2 0 0
-// 2 0 0 0
-// 3 0 0 0
-
-Sum(3, "C", ["A1", "A1:B2"]);
-// set C(3,"C") to be the sum of value at C(1,"A") and the values sum of the rectangle range whose top-left cell is C(1,"A") and bottom-right cell is C(2,"B"). Return 4.
-// A B C
-// 1 2 0 0
-// 2 0 0 0
-// 3 0 0 4
-
-Set(2, "B", 2);
-// set C(2,"B") to be 2. Note C(3, "C") should also be changed.
-// A B C
-// 1 2 0 0
-// 2 0 2 0
-// 3 0 0 6
-
+<strong>Explanation</strong>
+Excel excel = new Excel(3, &quot;C&quot;);
+ // construct a 3*3 2D array with all zero.
+ //   A B C
+ // 1 0 0 0
+ // 2 0 0 0
+ // 3 0 0 0
+excel.set(1, &quot;A&quot;, 2);
+ // set mat[1][&quot;A&quot;] to be 2.
+ //   A B C
+ // 1 2 0 0
+ // 2 0 0 0
+ // 3 0 0 0
+excel.sum(3, &quot;C&quot;, [&quot;A1&quot;, &quot;A1:B2&quot;]); // return 4
+ // set mat[3][&quot;C&quot;] to be the sum of value at mat[1][&quot;A&quot;] and the values sum of the rectangle range whose top-left cell is mat[1][&quot;A&quot;] and bottom-right cell is mat[2][&quot;B&quot;].
+ //   A B C
+ // 1 2 0 0
+ // 2 0 0 0
+ // 3 0 0 4
+excel.set(2, &quot;B&quot;, 2);
+ // set mat[2][&quot;B&quot;] to be 2. Note mat[3][&quot;C&quot;] should also be changed.
+ //   A B C
+ // 1 2 0 0
+ // 2 0 2 0
+ // 3 0 0 6
+excel.get(3, &quot;C&quot;); // return 6
 </pre>
-</p>
 
-<p><b>Note:</b><br>
-<ol>
-<li>You could assume that there won't be any circular sum reference. For example, A1 = sum(B1) and B1 = sum(A1).</li>
-<li> The test cases are using double-quotes to represent a character.</li>
-<li>Please remember to <b>RESET</b> your class variables declared in class Excel, as static/class variables are <b>persisted across multiple test cases</b>. Please see <a href="https://leetcode.com/faq/#different-output">here</a> for more details.</li>
-</ol>
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= height &lt;= 26</code></li>
+	<li><code>&#39;A&#39; &lt;= width &lt;= &#39;Z&#39;</code></li>
+	<li><code>1 &lt;= row &lt;= height</code></li>
+	<li><code>&#39;A&#39; &lt;= column &lt;= width</code></li>
+	<li><code>-100 &lt;= val &lt;= 100</code></li>
+	<li><code>1 &lt;= numbers.length &lt;= 5</code></li>
+	<li><code>numbers[i]</code> has the format <code>&quot;ColRow&quot;</code> or <code>&quot;ColRow1:ColRow2&quot;</code>.</li>
+	<li>At most <code>100</code> calls will be made to <code>set</code>, <code>get</code>, and <code>sum</code>.</li>
+</ul>
 
 ## Solutions
 

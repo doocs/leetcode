@@ -1,44 +1,27 @@
 class Solution {
     public String decodeString(String s) {
-        char[] chars = s.toCharArray();
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] != ']') {
-                stack.push(chars[i]);
+        Deque<Integer> s1 = new ArrayDeque<>();
+        Deque<String> s2 = new ArrayDeque<>();
+        int num = 0;
+        String res = "";
+        for (char c : s.toCharArray()) {
+            if ('0' <= c && c <= '9') {
+                num = num * 10 + c - '0';
+            } else if (c == '[') {
+                s1.push(num);
+                s2.push(res);
+                num = 0;
+                res = "";
+            } else if (c == ']') {
+                StringBuilder t = new StringBuilder();
+                for (int i = 0, n = s1.pop(); i < n; ++i) {
+                    t.append(res);
+                }
+                res = s2.pop() + t.toString();
             } else {
-                // 找[]内的内容
-                String t = "";
-                while (stack.peek() != '[') {
-                    t = stack.pop() + t;
-                }
-                // 弹出[
-                stack.pop();
-                // 找前面的数字
-                String n = "";
-                while (!stack.isEmpty() && stack.peek() >= '0' && stack.peek() <= '9') {
-                    n = stack.pop() + n;
-                }
-                int c = Integer.valueOf(n);
-
-                String tmpCombine = "";
-                // 把字母重复c次
-                for (int j = 0; j < c; j++) {
-                    tmpCombine += t;
-                }
-
-                // 放回stack
-                char[] tmp = tmpCombine.toCharArray();
-                for (int j = 0; j < tmp.length; j++) {
-                    stack.push(tmp[j]);
-                }
+                res += String.valueOf(c);
             }
         }
-
-        // stack即为结果
-        String ans = "";
-        while (!stack.isEmpty()) {
-            ans = stack.pop() + ans;
-        }
-        return ans;
+        return res;
     }
 }

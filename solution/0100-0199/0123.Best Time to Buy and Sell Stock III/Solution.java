@@ -1,15 +1,13 @@
-class Solution {
-    public int maxProfit(int[] prices) {
-        if (prices.length <= 1) return 0;
-        int m = 2 , n = prices.length;
-        int[][] dp = new int[m+1][n];
-        for (int i = 1; i <= m; i++) {
-            int maxdiff = Integer.MIN_VALUE;
-            for (int j = 1; j < n; j++) {
-                maxdiff = Math.max(maxdiff, dp[i-1][j-1] - prices[j-1]);
-                dp[i][j] = Math.max(dp[i][j-1], prices[j] + maxdiff);
-            }
+public class Solution {
+    public int MaxProfit(int[] prices) {
+        int f1 = -prices[0], f2 = 0, f3 = -prices[0], f4 = 0;
+        for (int i = 1; i < prices.Length; ++i)
+        {
+            f1 = Math.Max(f1, -prices[i]);
+            f2 = Math.Max(f2, f1 + prices[i]);
+            f3 = Math.Max(f3, f2 - prices[i]);
+            f4 = Math.Max(f4, f3 + prices[i]);
         }
-        return dp[m][n-1];
+        return f4;
     }
 }

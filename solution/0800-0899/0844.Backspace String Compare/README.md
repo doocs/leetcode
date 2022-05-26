@@ -1,56 +1,64 @@
-# [844. 比较含退格的字符串](https://leetcode-cn.com/problems/backspace-string-compare)
+# [844. 比较含退格的字符串](https://leetcode.cn/problems/backspace-string-compare)
 
 [English Version](/solution/0800-0899/0844.Backspace%20String%20Compare/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定 <code>S</code> 和 <code>T</code> 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 <code>#</code> 代表退格字符。</p>
+
+<p>给定 <code>s</code> 和 <code>t</code> 两个字符串，当它们分别被输入到空白的文本编辑器后，如果两者相等，返回 <code>true</code> 。<code>#</code> 代表退格字符。</p>
+
+<p><strong>注意：</strong>如果对空文本输入退格字符，文本继续为空。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>S = &quot;ab#c&quot;, T = &quot;ad#c&quot;
+<pre>
+<strong>输入：</strong>s = "ab#c", t = "ad#c"
 <strong>输出：</strong>true
-<strong>解释：</strong>S 和 T 都会变成 &ldquo;ac&rdquo;。
+<strong>解释：</strong>s 和 t 都会变成 "ac"。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>S = &quot;ab##&quot;, T = &quot;c#d#&quot;
+<pre>
+<strong>输入：</strong>s = "ab##", t = "c#d#"
 <strong>输出：</strong>true
-<strong>解释：</strong>S 和 T 都会变成 &ldquo;&rdquo;。
+<strong>解释：</strong>s 和 t 都会变成 ""。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>S = &quot;a##c&quot;, T = &quot;#a#c&quot;
-<strong>输出：</strong>true
-<strong>解释：</strong>S 和 T 都会变成 &ldquo;c&rdquo;。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>S = &quot;a#c&quot;, T = &quot;b&quot;
+<pre>
+<strong>输入：</strong>s = "a#c", t = "b"
 <strong>输出：</strong>false
-<strong>解释：</strong>S 会变成 &ldquo;c&rdquo;，但 T 仍然是 &ldquo;b&rdquo;。</pre>
+<strong>解释：</strong>s 会变成 "c"，但 t 仍然是 "b"。</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= S.length &lt;= 200</code></li>
-	<li><code>1 &lt;= T.length &lt;= 200</code></li>
-	<li><code>S</code> 和 <code>T</code> 只含有小写字母以及字符 <code>&#39;#&#39;</code>。</li>
-</ol>
+<ul>
+	<li><code>1 &lt;= s.length, t.length &lt;= 200</code></li>
+	<li><code>s</code> 和 <code>t</code> 只含有小写字母以及字符 <code>'#'</code></li>
+</ul>
 
 <p>&nbsp;</p>
+
+<p><strong>进阶：</strong></p>
+
+<ul>
+	<li>你可以用 <code>O(n)</code> 的时间复杂度和 <code>O(1)</code> 的空间复杂度解决该问题吗？</li>
+</ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：双指针**
+
+时间复杂度 O(len(s) + len(t))，空间复杂度 O(1)。
 
 <!-- tabs:start -->
 
@@ -59,7 +67,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        i, j, skip1, skip2 = len(s) - 1, len(t) - 1, 0, 0
+        while i >= 0 or j >= 0:
+            while i >= 0:
+                if s[i] == '#':
+                    skip1 += 1
+                    i -= 1
+                elif skip1:
+                    skip1 -= 1
+                    i -= 1
+                else:
+                    break
+            while j >= 0:
+                if t[j] == '#':
+                    skip2 += 1
+                    j -= 1
+                elif skip2:
+                    skip2 -= 1
+                    j -= 1
+                else:
+                    break
+            if i >= 0 and j >= 0:
+                if s[i] != t[j]:
+                    return False
+            elif i >= 0 or j >= 0:
+                return False
+            i, j = i - 1, j - 1
+        return True
 ```
 
 ### **Java**
@@ -67,7 +103,134 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        int i = s.length() - 1, j = t.length() - 1;
+        int skip1 = 0, skip2 = 0;
+        for (; i >= 0 || j >= 0; --i, --j) {
+            while (i >= 0) {
+                if (s.charAt(i) == '#') {
+                    ++skip1;
+                    --i;
+                } else if (skip1 > 0) {
+                    --skip1;
+                    --i;
+                } else {
+                    break;
+                }
+            }
+            while (j >= 0) {
+                if (t.charAt(j) == '#') {
+                    ++skip2;
+                    --j;
+                } else if (skip2 > 0) {
+                    --skip2;
+                    --j;
+                } else {
+                    break;
+                }
+            }
+            if (i >= 0 && j >= 0) {
+                if (s.charAt(i) != t.charAt(j)) {
+                    return false;
+                }
+            } else if (i >= 0 || j >= 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        int i = s.size() - 1, j = t.size() - 1;
+        int skip1 = 0, skip2 = 0;
+        for (; i >= 0 || j >= 0; --i, --j)
+        {
+            while (i >= 0)
+            {
+                if (s[i] == '#')
+                {
+                    ++skip1;
+                    --i;
+                }
+                else if (skip1)
+                {
+                    --skip1;
+                    --i;
+                }
+                else break;
+            }
+            while (j >= 0)
+            {
+                if (t[j] == '#')
+                {
+                    ++skip2;
+                    --j;
+                }
+                else if (skip2)
+                {
+                    --skip2;
+                    --j;
+                }
+                else break;
+            }
+            if (i >= 0 && j >= 0)
+            {
+                if (s[i] != t[j]) return false;
+            }
+            else if (i >= 0 || j >= 0) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func backspaceCompare(s string, t string) bool {
+	i, j := len(s)-1, len(t)-1
+	skip1, skip2 := 0, 0
+	for ; i >= 0 || j >= 0; i, j = i-1, j-1 {
+		for i >= 0 {
+			if s[i] == '#' {
+				skip1++
+				i--
+			} else if skip1 > 0 {
+				skip1--
+				i--
+			} else {
+				break
+			}
+		}
+		for j >= 0 {
+			if t[j] == '#' {
+				skip2++
+				j--
+			} else if skip2 > 0 {
+				skip2--
+				j--
+			} else {
+				break
+			}
+		}
+		if i >= 0 && j >= 0 {
+			if s[i] != t[j] {
+				return false
+			}
+		} else if i >= 0 || j >= 0 {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**

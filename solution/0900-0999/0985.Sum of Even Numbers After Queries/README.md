@@ -1,10 +1,11 @@
-# [985. 查询后的偶数和](https://leetcode-cn.com/problems/sum-of-even-numbers-after-queries)
+# [985. 查询后的偶数和](https://leetcode.cn/problems/sum-of-even-numbers-after-queries)
 
 [English Version](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给出一个整数数组&nbsp;<code>A</code>&nbsp;和一个查询数组&nbsp;<code>queries</code>。</p>
 
 <p>对于第&nbsp;<code>i</code>&nbsp;次查询，有&nbsp;<code>val =&nbsp;queries[i][0], index&nbsp;= queries[i][1]</code>，我们会把&nbsp;<code>val</code>&nbsp;加到&nbsp;<code>A[index]</code>&nbsp;上。然后，第&nbsp;<code>i</code>&nbsp;次查询的答案是 <code>A</code> 中偶数值的和。</p>
@@ -50,7 +51,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sumEvenAfterQueries(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+        ans = []
+        s = sum(num for num in nums if num % 2 == 0)
+        for v, i in queries:
+            old = nums[i]
+            nums[i] += v
+            if nums[i] % 2 == 0 and old % 2 == 0:
+                s += v
+            elif nums[i] % 2 == 0 and old % 2 == 1:
+                s += nums[i]
+            elif old % 2 == 0:
+                s -= old
+            ans.append(s)
+        return ans
 ```
 
 ### **Java**
@@ -58,7 +73,118 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] sumEvenAfterQueries(int[] nums, int[][] queries) {
+        int s = 0;
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                s += num;
+            }
+        }
+        int[] ans = new int[queries.length];
+        int idx = 0;
+        for (int[] q : queries) {
+            int v = q[0], i = q[1];
+            int old = nums[i];
+            nums[i] += v;
+            if (nums[i] % 2 == 0 && old % 2 == 0) {
+                s += v;
+            } else if (nums[i] % 2 == 0 && old % 2 != 0) {
+                s += nums[i];
+            } else if (old % 2 == 0) {
+                s -= old;
+            }
+            ans[idx++] = s;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sumEvenAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
+        int s = 0;
+        for (int& num : nums)
+            if (num % 2 == 0)
+                s += num;
+        vector<int> ans;
+        for (auto& q : queries)
+        {
+            int v = q[0], i = q[1];
+            int old = nums[i];
+            nums[i] += v;
+            if (nums[i] % 2 == 0 && old % 2 == 0) s += v;
+            else if (nums[i] % 2 == 0 && old % 2 != 0) s += nums[i];
+            else if (old % 2 == 0) s -= old;
+            ans.push_back(s);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumEvenAfterQueries(nums []int, queries [][]int) []int {
+	s := 0
+	for _, num := range nums {
+		if num%2 == 0 {
+			s += num
+		}
+	}
+	var ans []int
+	for _, q := range queries {
+		v, i := q[0], q[1]
+		old := nums[i]
+		nums[i] += v
+		if nums[i]%2 == 0 && old%2 == 0 {
+			s += v
+		} else if nums[i]%2 == 0 && old%2 != 0 {
+			s += nums[i]
+		} else if old%2 == 0 {
+			s -= old
+		}
+		ans = append(ans, s)
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var sumEvenAfterQueries = function (nums, queries) {
+    let s = 0;
+    for (let num of nums) {
+        if (num % 2 == 0) {
+            s += num;
+        }
+    }
+    let ans = [];
+    for (let [v, i] of queries) {
+        const old = nums[i];
+        nums[i] += v;
+        if (nums[i] % 2 == 0 && old % 2 == 0) {
+            s += v;
+        } else if (nums[i] % 2 == 0 && old % 2 != 0) {
+            s += nums[i];
+        } else if (old % 2 == 0) {
+            s -= old;
+        }
+        ans.push(s);
+    }
+    return ans;
+};
 ```
 
 ### **...**

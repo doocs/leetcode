@@ -1,18 +1,37 @@
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
 class Solution {
     public List<Integer> postorder(Node root) {
-        List<Integer> res = new ArrayList<>();
+        LinkedList<Integer> ans = new LinkedList<>();
         if (root == null) {
-            return res;
+            return ans;
         }
-        Deque<Node> stack = new ArrayDeque<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            Node node = stack.pop();
-            res.add(0, node.val);
-            for (Node child : node.children) {
-                stack.push(child);
+        Deque<Node> stk = new ArrayDeque<>();
+        stk.offer(root);
+        while (!stk.isEmpty()) {
+            root = stk.pollLast();
+            ans.addFirst(root.val);
+            for (Node child : root.children) {
+                stk.offer(child);
             }
         }
-        return res;
+        return ans;
     }
 }

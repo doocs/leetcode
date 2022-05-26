@@ -1,4 +1,4 @@
-# [面试题 17.25. 单词矩阵](https://leetcode-cn.com/problems/word-rectangle-lcci)
+# [面试题 17.25. 单词矩阵](https://leetcode.cn/problems/word-rectangle-lcci)
 
 [English Version](/lcci/17.25.Word%20Rectangle/README_EN.md)
 
@@ -11,17 +11,17 @@
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> <code>[&quot;this&quot;, &quot;real&quot;, &quot;hard&quot;, &quot;trh&quot;, &quot;hea&quot;, &quot;iar&quot;, &quot;sld&quot;]</code>
+<pre><strong>输入:</strong> [&quot;this&quot;, &quot;real&quot;, &quot;hard&quot;, &quot;trh&quot;, &quot;hea&quot;, &quot;iar&quot;, &quot;sld&quot;]
 <strong>输出:
-</strong><code>[
+</strong>[
 &nbsp;  &quot;this&quot;,
 &nbsp;  &quot;real&quot;,
-&nbsp;  &quot;hard&quot;</code>
+&nbsp;  &quot;hard&quot;
 ]</pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入:</strong> <code>[&quot;aa&quot;]</code>
+<pre><strong>输入:</strong> [&quot;aa&quot;]
 <strong>输出: </strong>[&quot;aa&quot;,&quot;aa&quot;]</pre>
 
 <p><strong>说明：</strong></p>

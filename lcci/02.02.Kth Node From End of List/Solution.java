@@ -8,14 +8,14 @@
  */
 class Solution {
     public int kthToLast(ListNode head, int k) {
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0) {
-            q = q.next;
+            fast = fast.next;
         }
-        while (q != null) {
-            q = q.next;
-            p = p.next;
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        return p.val;
+        return slow.val;
     }
 }

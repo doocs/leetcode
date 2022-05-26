@@ -1,28 +1,22 @@
 class Solution:
-    def circularArrayLoop(self, nums: 'List[int]') -> 'bool':
-        flag = 1000
-        lent = len(nums)
-        drt = 1  # -1->left 1->right
-        for loc in range(lent):
-            if nums[loc] > 1000:
+    def circularArrayLoop(self, nums: List[int]) -> bool:
+        n = len(nums)
+
+        def next(i):
+            return (i + nums[i] % n + n) % n
+
+        for i in range(n):
+            if nums[i] == 0:
                 continue
-            if nums[loc] < 0:
-                drt = -1
-            else:
-                drt = 1
-            ct = (loc + nums[loc]) % lent
-            flag += 1
-            nums[loc] = flag
-            start = flag
-            tmp = ct
-            while -1000 <= nums[ct] <= 1000:
-                if nums[ct] * drt < 0:
+            slow, fast = i, next(i)
+            while nums[slow] * nums[fast] > 0 and nums[slow] * nums[next(fast)] > 0:
+                if slow == fast:
+                    if slow != next(slow):
+                        return True
                     break
-                tmp = ct
-                ct = (ct + nums[ct]) % lent
-                flag += 1
-                nums[tmp] = flag
-            else:
-                if nums[ct] != nums[tmp] and nums[ct] >= start:
-                    return True
+                slow, fast = next(slow), next(next(fast))
+            j = i
+            while nums[j] * nums[next(j)] > 0:
+                nums[j] = 0
+                j = next(j)
         return False

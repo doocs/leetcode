@@ -1,4 +1,4 @@
-# [01.06. Compress String](https://leetcode-cn.com/problems/compress-string-lcci)
+# [01.06. Compress String](https://leetcode.cn/problems/compress-string-lcci)
 
 [中文文档](/lcci/01.06.Compress%20String/README.md)
 
@@ -32,7 +32,7 @@ The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original
 
 <p><strong>Note:</strong></p>
 
-- `0 <= S.length <= 50000`
+-   `0 <= S.length <= 50000`
 
 ## Solutions
 
@@ -61,22 +61,105 @@ class Solution:
 ```java
 class Solution {
     public String compressString(String S) {
-        if (S == null || S.length() < 2) {
+        int n;
+        if (S == null || (n = S.length()) < 2) {
             return S;
         }
-        char[] chars = S.toCharArray();
-        int p = 0, q = 1, n = chars.length;
+        int p = 0, q = 1;
         StringBuilder sb = new StringBuilder();
         while (q < n) {
-            if (chars[p] != chars[q]) {
-                sb.append(chars[p]).append(q - p);
+            if (S.charAt(p) != S.charAt(q)) {
+                sb.append(S.charAt(p)).append(q - p);
                 p = q;
             }
-            q += 1;
+            ++q;
         }
-        sb.append(chars[p]).append(q - p);
+        sb.append(S.charAt(p)).append(q - p);
         String res = sb.toString();
         return res.length() < n ? res : S;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var compressString = function (S) {
+    if (!S) return S;
+    let p = 0,
+        q = 1;
+    let res = '';
+    while (q < S.length) {
+        if (S[p] != S[q]) {
+            res += S[p] + (q - p);
+            p = q;
+        }
+        ++q;
+    }
+    res += S[p] + (q - p);
+    return res.length < S.length ? res : S;
+};
+```
+
+### **Go**
+
+```go
+func compressString(S string) string {
+	n := len(S)
+	if n == 0 {
+		return S
+	}
+	var builder strings.Builder
+	pre, cnt := S[0], 1
+	for i := 1; i < n; i++ {
+		if S[i] != pre {
+			builder.WriteByte(pre)
+			builder.WriteString(strconv.Itoa(cnt))
+			cnt = 1
+		} else {
+			cnt++
+		}
+		pre = S[i]
+	}
+	builder.WriteByte(pre)
+	builder.WriteString(strconv.Itoa(cnt))
+	if builder.Len() >= n {
+		return S
+	}
+	return builder.String()
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn compress_string(s: String) -> String {
+        let mut cs: Vec<char> = s.chars().collect();
+        cs.push(' ');
+        let mut res = vec![];
+        let mut l = 0;
+        let mut cur = cs[0];
+        for i in 1..cs.len() {
+            if cs[i] != cur {
+                let count = (i - l).to_string();
+                l = i;
+                res.push(cur);
+                cur = cs[i];
+                for c in count.chars() {
+                    res.push(c);
+                }
+            }
+        }
+        if res.len() >= cs.len() - 1 {
+            s
+        } else {
+            res.iter().collect()
+        }
     }
 }
 ```

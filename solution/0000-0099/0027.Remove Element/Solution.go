@@ -1,13 +1,11 @@
 func removeElement(nums []int, val int) int {
-	if len(nums) == 0 {
-		return 0
-	}
-	i := 0
-	for j := 0; j < len(nums); j++ {
-		if nums[j] != val {
-			nums[i] = nums[j]
-			i++
-		}
-	}
-	return i
+    cnt, n := 0, len(nums)
+    for i := 0; i < n; i++ {
+        if (nums[i] == val) {
+            cnt++
+        } else {
+            nums[i - cnt] = nums[i]
+        }
+    }
+    return n - cnt
 }

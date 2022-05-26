@@ -1,4 +1,4 @@
-# [面试题 16.04. 井字游戏](https://leetcode-cn.com/problems/tic-tac-toe-lcci)
+# [面试题 16.04. 井字游戏](https://leetcode.cn/problems/tic-tac-toe-lcci)
 
 [English Version](/lcci/16.04.Tic-Tac-Toe/README_EN.md)
 

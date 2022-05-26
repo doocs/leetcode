@@ -1,47 +1,53 @@
 class Solution {
-    // https://oi-wiki.org/ds/dsu/#_3
-    private boolean[] used;
-
     public int maxNumEdgesToRemove(int n, int[][] edges) {
-        used = new boolean[edges.length];
-        // type 为倒序，3, 2, 1
-        Arrays.sort(edges, (a, b) -> Integer.compare(b[0], a[0]));
-        if (!unionFind(n, edges, 1)) return -1;
-        if (!unionFind(n, edges, 2)) return -1;
-        int result = 0;
-        for (boolean u : used) {
-            result += u ? 0 : 1;
-        }
-        return result;
-    }
-
-    private boolean unionFind(int n, int[][] edges, int excludedType) {
-        int[] union = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            union[i] = i;
-        }
-        int cnt = 0;
-        for (int i = 0; i < edges.length; i++) {
-            int[] edge = edges[i];
-            if (edge[0] == excludedType) continue;
-            int rootA = findRoot(union, edge[1]);
-            int rootB = findRoot(union, edge[2]);
-            if (rootA != rootB) {
-                cnt += 1;
-                union[rootA] = rootB;
-                used[i] = true;
+        UnionFind ufa = new UnionFind(n);
+        UnionFind ufb = new UnionFind(n);
+        int ans = 0;
+        for (int[] e : edges) {
+            if (e[0] == 3) {
+                if (ufa.union(e[1], e[2])) {
+                    ufb.union(e[1], e[2]);
+                } else {
+                    ++ans;
+                }
             }
-            if (cnt == n - 1) return true;
         }
-        return false;
+        for (int[] e : edges) {
+            if ((e[0] == 1 && !ufa.union(e[1], e[2])) || (e[0] == 2 && !ufb.union(e[1], e[2]))) {
+                ++ans;
+            }
+        }
+        return ufa.n == 1 && ufb.n == 1 ? ans : -1;
+    }
+}
+
+class UnionFind {
+    public int[] p;
+    public int n;
+
+    public UnionFind(int n) {
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        this.n = n;
     }
 
-    private int findRoot(int[] union, int idx) {
-        if (union[idx] != idx) {
-            int root = findRoot(union, union[idx]);
-            union[idx] = root;
-            return root;
+    public boolean union(int a, int b) {
+        int pa = find(a - 1);
+        int pb = find(b - 1);
+        if (pa == pb) {
+            return false;
         }
-        return idx;
+        p[pa] = pb;
+        --n;
+        return true;
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
     }
 }

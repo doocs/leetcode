@@ -4,38 +4,36 @@
 
 ## Description
 
-<p>There is&nbsp;a special square room with mirrors on each of the four&nbsp;walls.&nbsp; Except for the southwest&nbsp;corner, there are receptors on each of the remaining corners, numbered <code>0</code>, <code>1</code>, and <code>2</code>.</p>
+<p>There is a special square room with mirrors on each of the four walls. Except for the southwest corner, there are receptors on each of the remaining corners, numbered <code>0</code>, <code>1</code>, and <code>2</code>.</p>
 
-<p>The square room has walls of length <code>p</code>, and a laser ray from the southwest corner&nbsp;first meets the east wall at a distance <code>q</code>&nbsp;from the <code>0</code>th receptor.</p>
+<p>The square room has walls of length <code>p</code>&nbsp;and a laser ray from the southwest corner first meets the east wall at a distance <code>q</code> from the <code>0<sup>th</sup></code> receptor.</p>
 
-<p>Return the number of the receptor that the ray meets first.&nbsp; (It is guaranteed that the ray will meet&nbsp;a receptor eventually.)</p>
+<p>Given the two integers <code>p</code> and <code>q</code>, return <em>the number of the receptor that the ray meets first</em>.</p>
+
+<p>The test cases are guaranteed so that the ray will meet a receptor eventually.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0858.Mirror%20Reflection/images/reflection.png" style="width: 218px; height: 217px;" />
 <pre>
-
-<strong>Input: </strong>p = <span id="example-input-1-1">2</span>, q = <span id="example-input-1-2">1</span>
-
-<strong>Output: </strong><span id="example-output-1">2</span>
-
-<strong>Explanation: </strong>The ray meets receptor 2 the first time it gets reflected back to the left wall.
-
+<strong>Input:</strong> p = 2, q = 1
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The ray meets receptor 2 the first time it gets reflected back to the left wall.
 </pre>
 
-![](./images/reflection.png)
+<p><strong>Example 2:</strong></p>
 
-<p><strong>Note:</strong></p>
+<pre>
+<strong>Input:</strong> p = 3, q = 1
+<strong>Output:</strong> 1
+</pre>
 
-<ol>
-	<li><code>1 &lt;= p &lt;= 1000</code></li>
-	<li><code>0 &lt;= q &lt;= p</code></li>
-</ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</div>
+<ul>
+	<li><code>1 &lt;= q &lt;= p &lt;= 1000</code></li>
+</ul>
 
 ## Solutions
 

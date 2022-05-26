@@ -4,61 +4,33 @@
 
 ## Description
 
-<p>You have a total of <i>n</i> coins that you want to form in a staircase shape, where every <i>k</i>-th row must have exactly <i>k</i> coins.</p>
+<p>You have <code>n</code> coins and you want to build a staircase with these coins. The staircase consists of <code>k</code> rows where the <code>i<sup>th</sup></code> row has exactly <code>i</code> coins. The last row of the staircase <strong>may be</strong> incomplete.</p>
 
-<p>Given <i>n</i>, find the total number of <b>full</b> staircase rows that can be formed.</p>
+<p>Given the integer <code>n</code>, return <em>the number of <strong>complete rows</strong> of the staircase you will build</em>.</p>
 
-<p><i>n</i> is a non-negative integer and fits within the range of a 32-bit signed integer.</p>
-
-<p><b>Example 1:</b>
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0441.Arranging%20Coins/images/arrangecoins1-grid.jpg" style="width: 253px; height: 253px;" />
 <pre>
-
-n = 5
-
-
-
-The coins can form the following rows:
-
-¤
-
-¤ ¤
-
-¤ ¤
-
-
-
-Because the 3rd row is incomplete, we return 2.
-
+<strong>Input:</strong> n = 5
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> Because the 3<sup>rd</sup> row is incomplete, we return 2.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0441.Arranging%20Coins/images/arrangecoins2-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
-
-n = 8
-
-
-
-The coins can form the following rows:
-
-¤
-
-¤ ¤
-
-¤ ¤ ¤
-
-¤ ¤
-
-
-
-Because the 4th row is incomplete, we return 3.
-
+<strong>Input:</strong> n = 8
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> Because the 4<sup>th</sup> row is incomplete, we return 3.
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
 ## Solutions
 
@@ -72,6 +44,19 @@ class Solution:
         return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
 
+```python
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        left, right = 1, n
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if (1 + mid) * mid // 2 <= n:
+                left = mid
+            else:
+                right = mid - 1
+        return left
+```
+
 ### **Java**
 
 ```java
@@ -79,6 +64,60 @@ class Solution {
     public int arrangeCoins(int n) {
         return (int) (Math.sqrt(2) * Math.sqrt(n + 0.125) - 0.5);
     }
+}
+```
+
+```java
+class Solution {
+    public int arrangeCoins(int n) {
+        long left = 1, right = n;
+        while (left < right) {
+            long mid = (left + right + 1) >>> 1;
+            if ((1 + mid) * mid / 2 <= n) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return (int) left;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using LL = long;
+
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        LL left = 1, right = n;
+        while (left < right)
+        {
+            LL mid = left + right + 1 >> 1;
+            if ((1 + mid) * mid / 2 <= n) left = mid;
+            else right = mid - 1;
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrangeCoins(n int) int {
+	left, right := 1, n
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if (1+mid)*mid/2 <= n {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
 }
 ```
 

@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given the array <code>nums</code> consisting of <code>n</code> positive integers. You computed the sum of all non-empty continous subarrays from&nbsp;the array and then sort them in non-decreasing order, creating a new array of <code>n * (n + 1) / 2</code>&nbsp;numbers.</p>
+<p>You are given the array <code>nums</code> consisting of <code>n</code> positive integers. You computed the sum of all non-empty continuous subarrays from the array and then sorted them in non-decreasing order, creating a new array of <code>n * (n + 1) / 2</code> numbers.</p>
 
-<p><em>Return the sum of the numbers from index </em><code>left</code><em> to index </em><code>right</code> (<strong>indexed from 1</strong>)<em>, inclusive, in the&nbsp;new array.&nbsp;</em>Since the answer can be a huge number return it modulo 10^9 + 7.</p>
+<p><em>Return the sum of the numbers from index </em><code>left</code><em> to index </em><code>right</code> (<strong>indexed from 1</strong>)<em>, inclusive, in the new array. </em>Since the answer can be a huge number return it modulo <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -36,10 +36,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10^3</code></li>
-	<li><code>nums.length == n</code></li>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
-	<li><code>1 &lt;= left &lt;= right&nbsp;&lt;= n * (n + 1) / 2</code></li>
+	<li><code>1 &lt;= left &lt;= right &lt;= n * (n + 1) / 2</code></li>
 </ul>
 
 ## Solutions
@@ -49,13 +49,65 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
+        arr = []
+        for i in range(n):
+            s = 0
+            for j in range(i, n):
+                s += nums[j]
+                arr.append(s)
+        arr.sort()
+        MOD = 10**9 + 7
+        return sum(arr[left - 1: right]) % MOD
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int rangeSum(int[] nums, int n, int left, int right) {
+        int[] arr = new int[n * (n + 1) / 2];
+        int idx = 0;
+        for (int i = 0; i < n; ++i) {
+            int s = 0;
+            for (int j = i; j < n; ++j) {
+                s += nums[j];
+                arr[idx++] = s;
+            }
+        }
+        Arrays.sort(arr);
+        int ans = 0;
+        for (int i = left - 1; i < right; ++i) {
+            ans = (ans + arr[i]) % MOD;
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+func rangeSum(nums []int, n int, left int, right int) int {
+	var arr []int
+	for i := 0; i < n; i++ {
+		s := 0
+		for j := i; j < n; j++ {
+			s += nums[j]
+			arr = append(arr, s)
+		}
+	}
+	sort.Ints(arr)
+	mod := int(1e9) + 7
+	ans := 0
+	for i := left - 1; i < right; i++ {
+		ans = (ans + arr[i]) % mod
+	}
+	return ans
+}
 ```
 
 ### **...**

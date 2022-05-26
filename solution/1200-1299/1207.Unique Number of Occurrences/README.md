@@ -1,10 +1,11 @@
-# [1207. 独一无二的出现次数](https://leetcode-cn.com/problems/unique-number-of-occurrences)
+# [1207. 独一无二的出现次数](https://leetcode.cn/problems/unique-number-of-occurrences)
 
 [English Version](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>arr</code>，请你帮忙统计数组中每个数的出现次数。</p>
 
 <p>如果每个数的出现次数都是独一无二的，就返回&nbsp;<code>true</code>；否则返回 <code>false</code>。</p>
@@ -42,6 +43,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“哈希表 - 计数器”实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,7 +52,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        counter = Counter(arr)
+        s = set()
+        for num in counter.values():
+            if num in s:
+                return False
+            s.add(num)
+        return True
 ```
 
 ### **Java**
@@ -57,7 +68,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int e : arr) {
+            counter.put(e, counter.getOrDefault(e, 0) + 1);
+        }
+        Set<Integer> s = new HashSet<>();
+        for (int num : counter.values()) {
+            if (s.contains(num)) {
+                return false;
+            }
+            s.add(num);
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> counter;
+        for (auto e : arr) {
+            ++counter[e];
+        }
+        unordered_set<int> s;
+        for (auto e : counter) {
+            int num = e.second;
+            if (s.count(num)) return false;
+            s.insert(num);
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func uniqueOccurrences(arr []int) bool {
+	counter := make(map[int]int)
+	for _, e := range arr {
+		counter[e]++
+	}
+	s := make(map[int]bool)
+	for _, num := range counter {
+		if s[num] {
+			return false
+		}
+		s[num] = true
+	}
+	return true
+}
 ```
 
 ### **...**

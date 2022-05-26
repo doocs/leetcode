@@ -4,78 +4,192 @@
 
 ## Description
 
-<p>There are <code>N</code> rooms and you start in room <code>0</code>.&nbsp; Each room has a distinct number in <code>0, 1, 2, ..., N-1</code>, and each room may have&nbsp;some keys to access the next room.&nbsp;</p>
+<p>There are <code>n</code> rooms labeled from <code>0</code> to <code>n - 1</code>&nbsp;and all the rooms are locked except for room <code>0</code>. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.</p>
 
-<p>Formally, each room <code>i</code>&nbsp;has a list of keys <code>rooms[i]</code>, and each key <code>rooms[i][j]</code> is an integer in <code>[0, 1, ..., N-1]</code> where <code>N = rooms.length</code>.&nbsp; A key <code>rooms[i][j] = v</code>&nbsp;opens the room with number <code>v</code>.</p>
+<p>When you visit a room, you may find a set of <strong>distinct keys</strong> in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.</p>
 
-<p>Initially, all the rooms start locked (except for room <code>0</code>).&nbsp;</p>
+<p>Given an array <code>rooms</code> where <code>rooms[i]</code> is the set of keys that you can obtain if you visited room <code>i</code>, return <code>true</code> <em>if you can visit <strong>all</strong> the rooms, or</em> <code>false</code> <em>otherwise</em>.</p>
 
-<p>You can walk back and forth between rooms freely.</p>
-
-<p>Return <code>true</code>&nbsp;if and only if you can enter&nbsp;every room.</p>
-
-<ol>
-
-</ol>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>[[1],[2],[3],[]]
-
-<strong>Output: </strong>true
-
-<strong>Explanation:  </strong>
-
-We start in room 0, and pick up key 1.
-
-We then go to room 1, and pick up key 2.
-
-We then go to room 2, and pick up key 3.
-
-We then go to room 3.  Since we were able to go to every room, we return true.
-
+<strong>Input:</strong> rooms = [[1],[2],[3],[]]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> 
+We visit room 0 and pick up key 1.
+We then visit room 1 and pick up key 2.
+We then visit room 2 and pick up key 3.
+We then visit room 3.
+Since we were able to visit every room, we return true.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>[[1,3],[3,0,1],[2],[0]]
-
-<strong>Output: </strong>false
-
-<strong>Explanation: </strong>We can&#39;t enter the room with number 2.
-
+<strong>Input:</strong> rooms = [[1,3],[3,0,1],[2],[0]]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> We can not enter room number 2 since the only key that unlocks it is in that room.
 </pre>
 
-<p><b>Note:</b></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<ol>
-
-    <li><code>1 &lt;= rooms.length &lt;=&nbsp;1000</code></li>
-
-    <li><code>0 &lt;= rooms[i].length &lt;= 1000</code></li>
-
-    <li>The number of keys in all rooms combined is at most&nbsp;<code>3000</code>.</li>
-
-</ol>
+<ul>
+	<li><code>n == rooms.length</code></li>
+	<li><code>2 &lt;= n &lt;= 1000</code></li>
+	<li><code>0 &lt;= rooms[i].length &lt;= 1000</code></li>
+	<li><code>1 &lt;= sum(rooms[i].length) &lt;= 3000</code></li>
+	<li><code>0 &lt;= rooms[i][j] &lt; n</code></li>
+	<li>All the values of <code>rooms[i]</code> are <strong>unique</strong>.</li>
+</ul>
 
 ## Solutions
+
+DFS.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        def dfs(u):
+            if u in vis:
+                return
+            vis.add(u)
+            for v in rooms[u]:
+                dfs(v)
 
+        vis = set()
+        dfs(0)
+        return len(vis) == len(rooms)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<List<Integer>> rooms;
+    private Set<Integer> vis;
 
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        vis = new HashSet<>();
+        this.rooms = rooms;
+        dfs(0);
+        return vis.size() == rooms.size();
+    }
+
+    private void dfs(int u) {
+        if (vis.contains(u)) {
+            return;
+        }
+        vis.add(u);
+        for (int v : rooms.get(u)) {
+            dfs(v);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> rooms;
+    unordered_set<int> vis;
+
+    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        vis.clear();
+        this->rooms = rooms;
+        dfs(0);
+        return vis.size() == rooms.size();
+    }
+
+    void dfs(int u) {
+        if (vis.count(u)) return;
+        vis.insert(u);
+        for (int v : rooms[u]) dfs(v);
+    }
+};
+```
+
+### **Go**
+
+```go
+func canVisitAllRooms(rooms [][]int) bool {
+	vis := make(map[int]bool)
+	var dfs func(u int)
+	dfs = func(u int) {
+		if vis[u] {
+			return
+		}
+		vis[u] = true
+		for _, v := range rooms[u] {
+			dfs(v)
+		}
+	}
+	dfs(0)
+	return len(vis) == len(rooms)
+}
+```
+
+### **TypeScript**
+
+```ts
+function canVisitAllRooms(rooms: number[][]): boolean {
+    const n = rooms.length;
+    const isOpen = new Array(n).fill(false);
+    const dfs = (i: number) => {
+        if (isOpen[i]) {
+            return;
+        }
+        isOpen[i] = true;
+        rooms[i].forEach(k => dfs(k));
+    };
+    dfs(0);
+    return isOpen.every(v => v);
+}
+```
+
+```ts
+function canVisitAllRooms(rooms: number[][]): boolean {
+    const n = rooms.length;
+    const isOpen = new Array(n).fill(false);
+    const keys = [0];
+    while (keys.length !== 0) {
+        const i = keys.pop();
+        if (isOpen[i]) {
+            continue;
+        }
+        isOpen[i] = true;
+        keys.push(...rooms[i]);
+    }
+    return isOpen.every(v => v);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_visit_all_rooms(rooms: Vec<Vec<i32>>) -> bool {
+        let n = rooms.len();
+        let mut is_open = vec![false; n];
+        let mut keys = vec![0];
+        while !keys.is_empty() {
+            let i = keys.pop().unwrap();
+            if is_open[i] {
+                continue;
+            }
+            is_open[i] = true;
+            rooms[i].iter().for_each(|&key| keys.push(key as usize));
+        }
+        is_open.iter().all(|&v| v)
+    }
+}
 ```
 
 ### **...**

@@ -1,10 +1,20 @@
-var isMonotonic = function (A) {
-  var check =
-    A[0] <= A[A.length - 1] ? (a1, a2) => a1 <= a2 : (a1, a2) => a1 >= a2;
-  for (var i = 0; i < A.length - 1; i++) {
-    if (!check(A[i], A[i + 1])) {
-      return false;
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isMonotonic = function (nums) {
+    let isIncr = false;
+    let isDecr = false;
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] < nums[i - 1]) {
+            isIncr = true;
+        }
+        if (nums[i] > nums[i - 1]) {
+            isDecr = true;
+        }
+        if (isIncr && isDecr) {
+            return false;
+        }
     }
-  }
-  return true;
+    return true;
 };

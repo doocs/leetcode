@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/palindromic_paths_1.png)
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_1.png" style="width: 300px; height: 201px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [2,3,1,3,1,null,1]
@@ -21,7 +21,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/palindromic_paths_2.png)
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_2.png" style="width: 300px; height: 314px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [2,1,1,1,3,null,null,null,null,null,1]
@@ -40,8 +40,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The&nbsp;given binary tree will have between <code>1</code> and <code>10^5</code> nodes.</li>
-	<li>Node values are digits from <code>1</code> to <code>9</code>.</li>
+	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 9</code></li>
 </ul>
 
 ## Solutions
@@ -51,13 +51,176 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pseudoPalindromicPaths(self, root: TreeNode) -> int:
+        def dfs(root):
+            if root is None:
+                return
+            nonlocal ans, counter
+            counter[root.val] += 1
+            if root.left is None and root.right is None:
+                if sum(1 for i in range(1, 10) if counter[i] % 2 == 1) < 2:
+                    ans += 1
+            else:
+                dfs(root.left)
+                dfs(root.right)
+            counter[root.val] -= 1
 
+        ans = 0
+        counter = [0] * 10
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int ans;
+    private int[] counter;
 
+    public int pseudoPalindromicPaths (TreeNode root) {
+        ans = 0;
+        counter = new int[10];
+        dfs(root);
+        return ans;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        ++counter[root.val];
+        if (root.left == null && root.right == null) {
+            if (check(counter)) {
+                ++ans;
+            }
+        } else {
+            dfs(root.left);
+            dfs(root.right);
+        }
+        --counter[root.val];
+    }
+
+    private boolean check(int[] counter) {
+        int n = 0;
+        for (int i = 1; i < 10; ++i) {
+            if (counter[i] % 2 == 1) {
+                ++n;
+            }
+        }
+        return n < 2;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans;
+    vector<int> counter;
+
+    int pseudoPalindromicPaths (TreeNode* root) {
+        ans = 0;
+        counter.resize(10);
+        dfs(root);
+        return ans;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        ++counter[root->val];
+        if (!root->left && !root->right)
+        {
+            int n = 0;
+            for (int i = 1; i < 10; ++i)
+                if (counter[i] % 2 == 1)
+                    ++n;
+            if (n < 2) ++ans;
+        }
+        else
+        {
+            dfs(root->left);
+            dfs(root->right);
+        }
+        --counter[root->val];
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pseudoPalindromicPaths(root *TreeNode) int {
+	ans := 0
+	counter := make([]int, 10)
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		counter[root.Val]++
+		if root.Left == nil && root.Right == nil {
+			n := 0
+			for i := 1; i < 10; i++ {
+				if counter[i]%2 == 1 {
+					n++
+				}
+			}
+			if n < 2 {
+				ans++
+			}
+		} else {
+			dfs(root.Left)
+			dfs(root.Right)
+		}
+		counter[root.Val]--
+	}
+	dfs(root)
+	return ans
+}
 ```
 
 ### **...**

@@ -1,11 +1,6 @@
 class Solution {
     public int longestStrChain(String[] words) {
-        Arrays.sort(words, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return Integer.compare(o1.length(), o2.length());
-            }
-        });
+        Arrays.sort(words, Comparator.comparingInt(String::length));
         int res = 0;
         Map<String, Integer> map = new HashMap<>();
         for (String word : words) {

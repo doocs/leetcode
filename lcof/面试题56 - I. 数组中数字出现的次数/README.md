@@ -1,32 +1,41 @@
-# [面试题 56 - I. 数组中数字出现的次数](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/)
+# [面试题 56 - I. 数组中数字出现的次数](https://leetcode.cn/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/)
 
 ## 题目描述
 
-一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是 O(n)，空间复杂度是 O(1)。
+<p>一个整型数组 <code>nums</code> 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-```
-输入：nums = [4,1,4,6]
-输出：[1,6] 或 [6,1]
-```
+<p><strong>示例 1：</strong></p>
 
-**示例 2：**
+<pre><strong>输入：</strong>nums = [4,1,4,6]
+<strong>输出：</strong>[1,6] 或 [6,1]
+</pre>
 
-```
-输入：nums = [1,2,10,4,1,4,3,3]
-输出：[2,10] 或 [10,2]
-```
+<p><strong>示例 2：</strong></p>
 
-**限制：**
+<pre><strong>输入：</strong>nums = [1,2,10,4,1,4,3,3]
+<strong>输出：</strong>[2,10] 或 [10,2]</pre>
 
-- `2 <= nums <= 10000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>2 &lt;= nums.length &lt;= 10000</code></li>
+</ul>
+
+<p>&nbsp;</p>
 
 ## 解法
 
 异或运算求解。
 
-首先明确，两个相同的数异或之后的结果为 0。对该数组所有元素进行异或运算，结果就是**两个只出现一次的数字异或的结果**。找出这个结果中某个二进制位为 1 的位置，之后对数组所有元素进行分类，二进制位为 0 的异或到 a，二进制位为 1 的异或到 b，结果就是 a，b。
+首先明确，两个相同的数异或之后的结果为 0。对该数组所有元素进行异或运算，结果就是**两个只出现一次的数字异或的结果**，即 `eor = a ^ b`
+
+找出这个结果 eor 中最后一个二进制位为 1 而其余位为 0 的数，即 `eor & (~eor + 1)`，之后遍历数组所有元素，二进制位为 0 的元素异或到 a。
+
+遍历结束后 `b = eor ^ a`，返回结果即可。
 
 <!-- tabs:start -->
 
@@ -35,21 +44,16 @@
 ```python
 class Solution:
     def singleNumbers(self, nums: List[int]) -> List[int]:
-        xor_res = 0
+        eor = 0
         for num in nums:
-            xor_res ^= num
-        pos = 0
-        while (xor_res & 1) == 0:
-            pos += 1
-            xor_res >>= 1
-
-        a = b = 0
+            eor ^= num
+        # 找出最右边的 1
+        diff = eor & (~eor + 1)
+        a = 0
         for num in nums:
-            t = num >> pos
-            if (t & 1) == 0:
+            if (num & diff) == 0:
                 a ^= num
-            else:
-                b ^= num
+        b = eor ^ a
         return [a, b]
 ```
 
@@ -58,25 +62,20 @@ class Solution:
 ```java
 class Solution {
     public int[] singleNumbers(int[] nums) {
-        int xor = 0;
+        int eor = 0;
         for (int num : nums) {
-            xor ^= num;
+            eor ^= num;
         }
-        int pos = 0;
-        while ((xor & 1) == 0) {
-            ++pos;
-            xor >>= 1;
-        }
-        int a = 0, b = 0;
+        // # 找出最右边的 1
+        int diff = eor & (~eor + 1);
+        int a = 0;
         for (int num : nums) {
-            int t = num >> pos;
-            if ((t & 1) == 0) {
+            if ((num & diff) == 0) {
                 a ^= num;
-            } else {
-                b ^= num;
             }
         }
-        return new int[] {a, b};
+        int b = eor ^ a;
+        return new int[]{a, b};
     }
 }
 ```
@@ -89,24 +88,19 @@ class Solution {
  * @return {number[]}
  */
 var singleNumbers = function (nums) {
-  let xor = 0;
-  let bit = 1;
-  let res = [0, 0];
-  for (let num of nums) {
-    xor ^= num;
-  }
-  while ((xor & 1) === 0) {
-    xor >>= 1;
-    bit <<= 1;
-  }
-  for (let num of nums) {
-    if ((num & bit) === 0) {
-      res[0] ^= num;
-    } else {
-      res[1] ^= num;
+    let eor = 0;
+    for (let num of nums) {
+        eor ^= num;
     }
-  }
-  return res;
+    const diff = eor & (~eor + 1);
+    let a = 0;
+    for (let num of nums) {
+        if ((num & diff) == 0) {
+            a ^= num;
+        }
+    }
+    let b = eor ^ a;
+    return [a, b];
 };
 ```
 

@@ -1,30 +1,33 @@
-# [面试题 32 - I. 从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
+# [面试题 32 - I. 从上到下打印二叉树](https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
 
 ## 题目描述
 
-从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
+<p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p>
 
-**例如:**
+<p>&nbsp;</p>
 
-给定二叉树: `[3,9,20,null,null,15,7]`,
+<p>例如:<br>
+给定二叉树:&nbsp;<code>[3,9,20,null,null,15,7]</code>,</p>
 
-```
-    3
+<pre>    3
    / \
   9  20
     /  \
    15   7
-```
+</pre>
 
-**返回：**
+<p>返回：</p>
 
-```
-[3,9,20,15,7]
-```
+<pre>[3,9,20,15,7]
+</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- `节点总数 <= 1000`
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>节点总数 &lt;= 1000</code></li>
+</ol>
 
 ## 解法
 
@@ -111,16 +114,16 @@ class Solution {
  * @return {number[]}
  */
 var levelOrder = function (root) {
-  if (!root) return [];
-  let queue = [root];
-  let res = [];
-  while (queue.length) {
-    let node = queue.shift();
-    if (!node) continue;
-    res.push(node.val);
-    queue.push(node.left, node.right);
-  }
-  return res;
+    if (!root) return [];
+    let queue = [root];
+    let res = [];
+    while (queue.length) {
+        let node = queue.shift();
+        if (!node) continue;
+        res.push(node.val);
+        queue.push(node.left, node.right);
+    }
+    return res;
 };
 ```
 
@@ -128,58 +131,141 @@ var levelOrder = function (root) {
 
 ```go
 func levelOrder(root *TreeNode) []int {
-    if root == nil {
-        return []int{}
-    }
-    q := []*TreeNode{}
-    q = append(q,root)
-    //层序遍历,用队列,遍历到谁,就把谁的左右结点加入队列
-    res := []int{}
-    for len(q) != 0 {
-        tmp := q[0]
-        q = q[1:]
-        res = append(res,tmp.Val)
-        if tmp.Left != nil {
-            q = append(q,tmp.Left)
-        }
-        if tmp.Right != nil {
-            q = append(q,tmp.Right)
-        }
-    }
-    return res
+	if root == nil {
+		return []int{}
+	}
+	q := []*TreeNode{}
+	q = append(q, root)
+	// 层序遍历,用队列,遍历到谁,就把谁的左右结点加入队列
+	res := []int{}
+	for len(q) != 0 {
+		tmp := q[0]
+		q = q[1:]
+		res = append(res, tmp.Val)
+		if tmp.Left != nil {
+			q = append(q, tmp.Left)
+		}
+		if tmp.Right != nil {
+			q = append(q, tmp.Right)
+		}
+	}
+	return res
 }
 ```
 
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    vector<int> levelOrder(TreeNode* root) {
-        vector<int> ret;
-        if (!root) {
-            return ret;
-        }
-
+    vector<int> levelOrder(TreeNode *root) {
+        vector<int> res;
         queue<TreeNode *> q;
-        q.push(root);
-
-        while (!q.empty()) {
-            auto head = q.front();
-            q.pop();
-            ret.push_back(head->val);
-            if (head->left) {
-                q.push(head->left);
-            }
-
-            if (head->right) {
-                q.push(head->right);
-            }
+        if (root != nullptr) {
+            q.push(root);
         }
-
-        return ret;
+        while (!q.empty()) {
+            TreeNode *node = q.front();
+            q.pop();
+            if (node->left != nullptr) {
+                q.push(node->left);
+            }
+            if (node->right != nullptr) {
+                q.push(node->right);
+            }
+            res.push_back(node->val);
+        }
+        return res;
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function levelOrder(root: TreeNode | null): number[] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    const queue = [root];
+    while (queue.length !== 0) {
+        const { val, left, right } = queue.shift();
+        res.push(val);
+        left && queue.push(left);
+        right && queue.push(right);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut res = Vec::new();
+        let mut queue = VecDeque::new();
+        if let Some(node) = root {
+            queue.push_back(node);
+        }
+        while let Some(node) = queue.pop_front() {
+            let mut node = node.borrow_mut();
+            res.push(node.val);
+            if let Some(l) = node.left.take() {
+                queue.push_back(l);
+            }
+            if let Some(r) = node.right.take() {
+                queue.push_back(r);
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**

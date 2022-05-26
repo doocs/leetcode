@@ -1,37 +1,53 @@
-# [645. 错误的集合](https://leetcode-cn.com/problems/set-mismatch)
+# [645. 错误的集合](https://leetcode.cn/problems/set-mismatch)
 
 [English Version](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>集合 <code>S</code> 包含从1到&nbsp;<code>n</code>&nbsp;的整数。不幸的是，因为数据错误，导致集合里面某一个元素复制了成了集合里面的另外一个元素的值，导致集合丢失了一个整数并且有一个元素重复。</p>
 
-<p>给定一个数组 <code>nums</code> 代表了集合 <code>S</code> 发生错误后的结果。你的任务是首先寻找到重复出现的整数，再找到丢失的整数，将它们以数组的形式返回。</p>
+<p>集合 <code>s</code> 包含从 <code>1</code> 到 <code>n</code> 的整数。不幸的是，因为数据错误，导致集合里面某一个数字复制了成了集合里面的另外一个数字的值，导致集合 <strong>丢失了一个数字</strong> 并且 <strong>有一个数字重复</strong> 。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>给定一个数组 <code>nums</code> 代表了集合 <code>S</code> 发生错误后的结果。</p>
+
+<p>请你找出重复出现的整数，再找到丢失的整数，将它们以数组的形式返回。</p>
+
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> nums = [1,2,2,4]
-<strong>输出:</strong> [2,3]
+<strong>输入：</strong>nums = [1,2,2,4]
+<strong>输出：</strong>[2,3]
 </pre>
 
-<p><strong>注意:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<ol>
-	<li>给定数组的长度范围是&nbsp;[2, 10000]。</li>
-	<li>给定的数组是无序的。</li>
-</ol>
+<pre>
+<strong>输入：</strong>nums = [1,1]
+<strong>输出：</strong>[1,2]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>2 <= nums.length <= 10<sup>4</sup></code></li>
+	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-首先使用 1 到 n 的所有数字做异或运算，然后再与数组中的所有数字异或，得到的值就是缺失数字与重复的数字异或的结果。
+异或运算求解。
 
-接着计算中这个值中其中一个非零的位 pos。然后 pos 位是否为 1，将 nums 数组的元素分成两部分，分别异或；接着将 `1~n` 的元素也分成两部分，分别异或。得到的两部分结果分别为 a,b，即是缺失数字与重复数字。
+首先明确，两个相同的数异或之后的结果为 0。对该数组所有元素以及 `i∈[1, n]` 所有数字进行异或运算，结果就是**两个只出现一次的数字异或的结果**，即 `eor = a ^ b`。
 
-最后判断数组中是否存在 a 或 b，若存在 a，说明重复数字是 a，返回 `[a,b]`，否则返回 `[b,a]`。
+找出这个结果 eor 中最后一个二进制位为 1 而其余位为 0 的数，即 `eor & (~eor + 1)`，之后遍历数组所有元素以及 `i∈[1, n]` 所有数字，二进制位为 0 的元素异或到 a。
+
+遍历结束后 `b = eor ^ a`，返回结果即可。
 
 <!-- tabs:start -->
 
@@ -42,28 +58,19 @@
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        res = 0
-        for num in nums:
-            res ^= num
-        for i in range(1, len(nums) + 1):
-            res ^= i
-        pos = 0
-        while (res & 1) == 0:
-            res >>= 1
-            pos += 1
-        a = b = 0
-        for num in nums:
-            if ((num >> pos) & 1) == 0:
-                a ^= num
-            else:
-                b ^= num
-        for i in range(1, len(nums) + 1):
-            if ((i >> pos) & 1) == 0:
+        eor, n = 0, len(nums)
+        for i in range(1, n + 1):
+            eor ^= (i ^ nums[i - 1])
+        diff = eor & (~eor + 1)
+        a = 0
+        for i in range(1, n + 1):
+            if (nums[i - 1] & diff) == 0:
+                a ^= nums[i - 1]
+            if (i & diff) == 0:
                 a ^= i
-            else:
-                b ^= i
+        b = eor ^ a
         for num in nums:
-            if num == a:
+            if a == num:
                 return [a, b]
         return [b, a]
 ```
@@ -75,41 +82,175 @@ class Solution:
 ```java
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        int res = 0;
-        for (int num : nums) {
-            res ^= num;
+        int eor = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            eor ^= (i ^ nums[i - 1]);
         }
-        for (int i = 1, n = nums.length; i < n + 1; ++i) {
-            res ^= i;
-        }
-        int pos = 0;
-        while ((res & 1) == 0) {
-            res >>= 1;
-            ++pos;
-        }
-        int a = 0, b = 0;
-        for (int num : nums) {
-            if (((num >> pos) & 1) == 0) {
-                a ^= num;
-            } else {
-                b ^= num;
+        int diff = eor & (~eor + 1);
+        int a = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            if ((nums[i - 1] & diff) == 0) {
+                a ^= nums[i - 1];
             }
-        }
-        for (int i = 1, n = nums.length; i < n + 1; ++i) {
-            if (((i >> pos) & 1) == 0) {
+            if ((i & diff) == 0) {
                 a ^= i;
-            } else {
-                b ^= i;
             }
         }
+        int b = eor ^ a;
         for (int num : nums) {
-            if (num == a) {
+            if (a == num) {
                 return new int[]{a, b};
             }
         }
         return new int[]{b, a};
     }
 }
+```
+
+### **TypeScript**
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    let xor = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        xor ^= (i + 1) ^ nums[i];
+    }
+
+    let divide = 1;
+    while ((xor & divide) == 0) {
+        divide <<= 1;
+    }
+
+    let ans1 = 0,
+        ans2 = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        let cur = nums[i];
+        if (divide & cur) {
+            ans1 ^= cur;
+        } else {
+            ans2 ^= cur;
+        }
+
+        let idx = i + 1;
+        if (divide & idx) {
+            ans1 ^= idx;
+        } else {
+            ans2 ^= idx;
+        }
+    }
+    return nums.includes(ans1) ? [ans1, ans2] : [ans2, ans1];
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int eor = 0, n = nums.size();
+        for (int i = 1; i <= n; ++i) {
+            eor ^= (i ^ nums[i - 1]);
+        }
+        int diff = eor & (~eor + 1);
+        int a = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((nums[i - 1] & diff) == 0) {
+                a ^= nums[i - 1];
+            }
+            if ((i & diff) == 0) {
+                a ^= i;
+            }
+        }
+        int b = eor ^ a;
+        for (int num : nums) {
+            if (a == num) {
+                return {a, b};
+            }
+        }
+        return {b, a};
+    }
+};
+```
+
+### **Go**
+
+把每个数都放到它应该在的位置，最后出现“异常”的就是重复的数和丢失的数。
+
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	for i := 0; i < n; i++ {
+		for nums[i] != i+1 && nums[nums[i]-1] != nums[i] {
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
+	for i := 0; i < n; i++ {
+		if nums[i] != i+1 {
+			return []int{nums[i], i + 1}
+		}
+	}
+	return []int{-1, -1}
+}
+```
+
+也可以使用位运算。
+
+```go
+func findErrorNums(nums []int) []int {
+	eor, n := 0, len(nums)
+	for i := 1; i <= n; i++ {
+		eor ^= (i ^ nums[i-1])
+	}
+	diff := eor & (-eor)
+	a := 0
+	for i := 1; i <= n; i++ {
+		if (nums[i-1] & diff) == 0 {
+			a ^= nums[i-1]
+		}
+		if (i & diff) == 0 {
+			a ^= i
+		}
+	}
+	b := eor ^ a
+	for _, num := range nums {
+		if a == num {
+			return []int{a, b}
+		}
+	}
+	return []int{b, a}
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int eor = 0, n = nums.size();
+        for (int i = 1; i <= n; ++i) {
+            eor ^= (i ^ nums[i - 1]);
+        }
+        int diff = eor & (~eor + 1);
+        int a = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((nums[i - 1] & diff) == 0) {
+                a ^= nums[i - 1];
+            }
+            if ((i & diff) == 0) {
+                a ^= i;
+            }
+        }
+        int b = eor ^ a;
+        for (int num : nums) {
+            if (a == num) {
+                return {a, b};
+            }
+        }
+        return {b, a};
+    }
+};
 ```
 
 ### **...**

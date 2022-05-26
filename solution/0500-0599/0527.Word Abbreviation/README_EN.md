@@ -4,29 +4,33 @@
 
 ## Description
 
-<p>Given an array of n distinct non-empty strings, you need to generate <b>minimal</b> possible abbreviations for every word following rules below.</p>
+<p>Given an array of <strong>distinct</strong> strings <code>words</code>, return <em>the minimal possible <strong>abbreviations</strong> for every word</em>.</p>
+
+<p>The following are the rules for a string abbreviation:</p>
 
 <ol>
-<li>Begin with the first character and then the number of characters abbreviated, which followed by the last character.</li>
-<li>If there are any conflict, that is more than one words share the same abbreviation, a longer prefix is used instead of only the first character until making the map from word to abbreviation become unique. In other words, a final abbreviation cannot map to more than one original words.</li>
-<li> If the abbreviation doesn't make the word shorter, then keep it as original.</li>
+	<li>Begin with the first character, and then the number of characters abbreviated, followed by the last character.</li>
+	<li>If there is any conflict and more than one word shares the same abbreviation, a longer prefix is used instead of only the first character until making the map from word to abbreviation become unique. In other words, a final abbreviation cannot map to more than one original word.</li>
+	<li>If the abbreviation does not make the word shorter, then keep it as the original.</li>
 </ol>
 
-<p><b>Example:</b><br />
-<pre>
-<b>Input:</b> ["like", "god", "internal", "me", "internet", "interval", "intension", "face", "intrusion"]
-<b>Output:</b> ["l2e","god","internal","me","i6t","interval","inte4n","f2e","intr4n"]
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> words = ["like","god","internal","me","internet","interval","intension","face","intrusion"]
+<strong>Output:</strong> ["l2e","god","internal","me","i6t","interval","inte4n","f2e","intr4n"]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> words = ["aa","aaa"]
+<strong>Output:</strong> ["aa","aaa"]
 </pre>
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<b>Note:</b>
-
-<ol>
-<li> Both n and the length of each word will not exceed 400.</li>
-<li> The length of each word is greater than 1.</li>
-<li> The words consist of lowercase English letters only.</li>
-<li> The return answers should be <b>in the same order</b> as the original array.</li>
-</ol>
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 400</code></li>
+	<li><code>2 &lt;= words[i].length &lt;= 400</code></li>
+	<li><code>words[i]</code> consists of lowercase English letters.</li>
+	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
+</ul>
 
 ## Solutions
 

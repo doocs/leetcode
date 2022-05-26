@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an array of numbers <code>arr</code>.&nbsp;A sequence of numbers is called an arithmetic progression&nbsp;if the difference between any two consecutive elements is the same.</p>
+<p>A sequence of numbers is called an <strong>arithmetic progression</strong> if the difference between any two consecutive elements is the same.</p>
 
-<p>Return <code>true</code>&nbsp;if the array can be rearranged to form an arithmetic progression, otherwise, return <code>false</code>.</p>
+<p>Given an array of numbers <code>arr</code>, return <code>true</code> <em>if the array can be rearranged to form an <strong>arithmetic progression</strong>. Otherwise, return</em> <code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -30,7 +30,7 @@
 
 <ul>
 	<li><code>2 &lt;= arr.length &lt;= 1000</code></li>
-	<li><code>-10^6 &lt;= arr[i] &lt;= 10^6</code></li>
+	<li><code>-10<sup>6</sup> &lt;= arr[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## Solutions
@@ -40,13 +40,63 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        arr.sort()
+        for i in range(1, len(arr) - 1):
+            if (arr[i] << 1) != arr[i - 1] + arr[i + 1]:
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = 1; i < arr.length - 1; ++i) {
+            if ((arr[i] << 1) != arr[i - 1] + arr[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function (arr) {
+    arr.sort((a, b) => a - b);
+    for (let i = 1; i < arr.length - 1; i++) {
+        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) return false;
+    }
+    return true;
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
+        arr.sort();
+        let n = arr.len();
+        let target = arr[0] - arr[1];
+        for i in 2..n {
+            if arr[i - 1] - arr[i] != target {
+                return false;
+            }
+        }
+        true
+    }
+}
 ```
 
 ### **...**

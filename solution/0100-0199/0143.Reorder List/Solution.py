@@ -10,22 +10,27 @@ class Solution:
         """
         if head is None or head.next is None:
             return
+
+        # 快慢指针找到链表中点
         slow, fast = head, head.next
         while fast and fast.next:
             slow, fast = slow.next, fast.next.next
+
+        # cur 指向右半部分链表
         cur = slow.next
         slow.next = None
+
+        # 反转右半部分链表
         pre = None
         while cur:
             t = cur.next
             cur.next = pre
-            pre = cur
-            cur = t
+            pre, cur = cur, t
         cur = head
+        # 此时 cur, pre 分别指向链表左右两半的第一个节点
+
         while pre:
-            t1 = cur.next
+            t = pre.next
+            pre.next = cur.next
             cur.next = pre
-            cur = t1
-            t2 = pre.next
-            pre.next = t1
-            pre = t2
+            cur, pre = pre.next, t

@@ -1,4 +1,4 @@
-# [面试题 16.10. 生存人数](https://leetcode-cn.com/problems/living-people-lcci)
+# [面试题 16.10. 生存人数](https://leetcode.cn/problems/living-people-lcci)
 
 [English Version](/lcci/16.10.Living%20People/README_EN.md)
 

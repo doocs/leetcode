@@ -1,27 +1,15 @@
 /**
- * @param {number[]} A
+ * @param {number[]} nums
  * @return {number[]}
  */
-
-/**
- * Author: Mcnwork2018
- */
-
-var sortArrayByParityII = function (A) {
-  let index = A.length - 1,
-    i = 0,
-    j = 1; // index A的索引, i偶数位， j奇数位。
-  for (; i < index; i += 2) {
-    if ((A[i] & 1) != 0) {
-      // 寻找A[i]是奇数的情况。
-      while ((A[j] & 1) != 0) {
-        // 寻找A[j]是偶数的情况。
-        j += 2;
-      }
-      let temp = A[j];
-      A[j] = A[i];
-      A[i] = temp;
+var sortArrayByParityII = function (nums) {
+    for (let i = 0, j = 1; i < nums.length; i += 2) {
+        if ((nums[i] & 1) == 1) {
+            while ((nums[j] & 1) == 1) {
+                j += 2;
+            }
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
     }
-  }
-  return A;
+    return nums;
 };

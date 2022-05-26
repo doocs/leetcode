@@ -1,10 +1,11 @@
-# [1295. 统计位数为偶数的数字](https://leetcode-cn.com/problems/find-numbers-with-even-number-of-digits)
+# [1295. 统计位数为偶数的数字](https://leetcode.cn/problems/find-numbers-with-even-number-of-digits)
 
 [English Version](/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你返回其中位数为&nbsp;<strong>偶数</strong>&nbsp;的数字的个数。</p>
 
 <p>&nbsp;</p>
@@ -54,10 +55,7 @@
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        res = 0
-        for num in nums:
-            res += (len(str(num)) & 1) == 0
-        return res
+        return sum(1 for num in nums if (len(str(num)) & 1) == 0)
 ```
 
 ### **Java**
@@ -67,12 +65,43 @@ class Solution:
 ```java
 class Solution {
     public int findNumbers(int[] nums) {
-        int res = 0;
+        int s = 0;
         for (int num : nums) {
-            res += (String.valueOf(num).length() & 1) == 0 ? 1 : 0;
+            if ((String.valueOf(num).length() & 1) == 0) {
+                ++s;
+            }
         }
-        return res;
+        return s;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int s = 0;
+        for (int num : nums) {
+            s += (to_string(num).size() & 1) == 0;
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findNumbers(nums []int) int {
+	s := 0
+	for _, num := range nums {
+		if (len(strconv.Itoa(num)) & 1) == 0 {
+			s++
+		}
+	}
+	return s
 }
 ```
 

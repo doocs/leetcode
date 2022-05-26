@@ -1,59 +1,80 @@
-# [682. 棒球比赛](https://leetcode-cn.com/problems/baseball-game)
+# [682. 棒球比赛](https://leetcode.cn/problems/baseball-game)
 
 [English Version](/solution/0600-0699/0682.Baseball%20Game/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>你现在是棒球比赛记录员。<br>
-给定一个字符串列表，每个字符串可以是以下四种类型之一：<br>
-1.<code>整数</code>（一轮的得分）：直接表示您在本轮中获得的积分数。<br>
-2. <code>&quot;+&quot;</code>（一轮的得分）：表示本轮获得的得分是前两轮<code>有效</code>&nbsp;回合得分的总和。<br>
-3. <code>&quot;D&quot;</code>（一轮的得分）：表示本轮获得的得分是前一轮<code>有效</code>&nbsp;回合得分的两倍。<br>
-4. <code>&quot;C&quot;</code>（一个操作，这不是一个回合的分数）：表示您获得的最后一个<code>有效</code>&nbsp;回合的分数是无效的，应该被移除。<br>
-<br>
-每一轮的操作都是永久性的，可能会对前一轮和后一轮产生影响。<br>
-你需要返回你在所有回合中得分的总和。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>你现在是一场采用特殊赛制棒球比赛的记录员。这场比赛由若干回合组成，过去几回合的得分可能会影响以后几回合的得分。</p>
 
-<pre><strong>输入:</strong> [&quot;5&quot;,&quot;2&quot;,&quot;C&quot;,&quot;D&quot;,&quot;+&quot;]
-<strong>输出:</strong> 30
-<strong>解释:</strong> 
-第1轮：你可以得到5分。总和是：5。
-第2轮：你可以得到2分。总和是：7。
-操作1：第2轮的数据无效。总和是：5。
-第3轮：你可以得到10分（第2轮的数据已被删除）。总数是：15。
-第4轮：你可以得到5 + 10 = 15分。总数是：30。
+<p>比赛开始时，记录是空白的。你会得到一个记录操作的字符串列表 <code>ops</code>，其中 <code>ops[i]</code> 是你需要记录的第 <code>i</code> 项操作，<code>ops</code> 遵循下述规则：</p>
+
+<ol>
+	<li>整数 <code>x</code> - 表示本回合新获得分数 <code>x</code></li>
+	<li><code>"+"</code> - 表示本回合新获得的得分是前两次得分的总和。题目数据保证记录此操作时前面总是存在两个有效的分数。</li>
+	<li><code>"D"</code> - 表示本回合新获得的得分是前一次得分的两倍。题目数据保证记录此操作时前面总是存在一个有效的分数。</li>
+	<li><code>"C"</code> - 表示前一次得分无效，将其从记录中移除。题目数据保证记录此操作时前面总是存在一个有效的分数。</li>
+</ol>
+
+<p>请你返回记录中所有得分的总和。</p>
+
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>ops = ["5","2","C","D","+"]
+<strong>输出：</strong>30
+<strong>解释：</strong>
+"5" - 记录加 5 ，记录现在是 [5]
+"2" - 记录加 2 ，记录现在是 [5, 2]
+"C" - 使前一次得分的记录无效并将其移除，记录现在是 [5].
+"D" - 记录加 2 * 5 = 10 ，记录现在是 [5, 10].
+"+" - 记录加 5 + 10 = 15 ，记录现在是 [5, 10, 15].
+所有得分的总和 5 + 10 + 15 = 30
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> [&quot;5&quot;,&quot;-2&quot;,&quot;4&quot;,&quot;C&quot;,&quot;D&quot;,&quot;9&quot;,&quot;+&quot;,&quot;+&quot;]
-<strong>输出:</strong> 27
-<strong>解释:</strong> 
-第1轮：你可以得到5分。总和是：5。
-第2轮：你可以得到-2分。总数是：3。
-第3轮：你可以得到4分。总和是：7。
-操作1：第3轮的数据无效。总数是：3。
-第4轮：你可以得到-4分（第三轮的数据已被删除）。总和是：-1。
-第5轮：你可以得到9分。总数是：8。
-第6轮：你可以得到-4 + 9 = 5分。总数是13。
-第7轮：你可以得到9 + 5 = 14分。总数是27。
+<pre>
+<strong>输入：</strong>ops = ["5","-2","4","C","D","9","+","+"]
+<strong>输出：</strong>27
+<strong>解释：</strong>
+"5" - 记录加 5 ，记录现在是 [5]
+"-2" - 记录加 -2 ，记录现在是 [5, -2]
+"4" - 记录加 4 ，记录现在是 [5, -2, 4]
+"C" - 使前一次得分的记录无效并将其移除，记录现在是 [5, -2]
+"D" - 记录加 2 * -2 = -4 ，记录现在是 [5, -2, -4]
+"9" - 记录加 9 ，记录现在是 [5, -2, -4, 9]
+"+" - 记录加 -4 + 9 = 5 ，记录现在是 [5, -2, -4, 9, 5]
+"+" - 记录加 9 + 5 = 14 ，记录现在是 [5, -2, -4, 9, 5, 14]
+所有得分的总和 5 + -2 + -4 + 9 + 5 + 14 = 27
 </pre>
 
-<p><strong>注意：</strong></p>
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>ops = ["1"]
+<strong>输出：</strong>1
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>输入列表的大小将介于1和1000之间。</li>
-	<li>列表中的每个整数都将介于-30000和30000之间。</li>
+	<li><code>1 <= ops.length <= 1000</code></li>
+	<li><code>ops[i]</code> 为 <code>"C"</code>、<code>"D"</code>、<code>"+"</code>，或者一个表示整数的字符串。整数范围是 <code>[-3 * 10<sup>4</sup>, 3 * 10<sup>4</sup>]</code></li>
+	<li>对于 <code>"+"</code> 操作，题目数据保证记录此操作时前面总是存在两个有效的分数</li>
+	<li>对于 <code>"C"</code> 和 <code>"D"</code> 操作，题目数据保证记录此操作时前面总是存在一个有效的分数</li>
 </ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-栈实现。
+利用栈简单模拟即可。
 
 <!-- tabs:start -->
 
@@ -64,17 +85,17 @@
 ```python
 class Solution:
     def calPoints(self, ops: List[str]) -> int:
-        stack = []
+        stk = []
         for op in ops:
-            if op == 'C':
-                stack.pop()
+            if op == '+':
+                stk.append(stk[-1] + stk[-2])
             elif op == 'D':
-                stack.append(stack[-1] << 1)
-            elif op == '+':
-                stack.append(stack[-1] + stack[-2])
+                stk.append(stk[-1] << 1)
+            elif op == 'C':
+                stk.pop()
             else:
-                stack.append(int(op))
-        return sum(stack)
+                stk.append(int(op))
+        return sum(stk)
 ```
 
 ### **Java**
@@ -84,26 +105,123 @@ class Solution:
 ```java
 class Solution {
     public int calPoints(String[] ops) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stk = new ArrayDeque<>();
         for (String op : ops) {
-            if ("C".equals(op)) {
-                stack.pop();
+            if ("+".equals(op)) {
+                int a = stk.pop();
+                int b = stk.peek();
+                stk.push(a);
+                stk.push(a + b);
             } else if ("D".equals(op)) {
-                stack.push(stack.peek() << 1);
-            } else if ("+".equals(op)) {
-                Integer a = stack.pop();
-                Integer b = stack.peek();
-                stack.push(a);
-                stack.push(a + b);
+                stk.push(stk.peek() << 1);
+            } else if ("C".equals(op)) {
+                stk.pop();
             } else {
-                stack.push(Integer.valueOf(op));
+                stk.push(Integer.valueOf(op));
             }
         }
-        int res = 0;
-        for (Integer score : stack) {
-            res += score;
+        return stk.stream().mapToInt(Integer::intValue).sum();
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int calPoints(vector<string>& ops) {
+        vector<int> stk;
+        for (auto& op : ops)
+        {
+            int n = stk.size();
+            if (op == "+")
+            {
+                int a = stk[n - 1];
+                int b = stk[n - 2];
+                stk.push_back(a + b);
+            }
+            else if (op == "D") stk.push_back(stk[n - 1] * 2);
+            else if (op == "C") stk.pop_back();
+            else stk.push_back(stoi(op));
         }
-        return res;
+        return accumulate(stk.begin(), stk.end(), 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func calPoints(ops []string) int {
+	var stk []int
+	for _, op := range ops {
+		n := len(stk)
+		switch op {
+		case "+":
+			stk = append(stk, stk[n-1]+stk[n-2])
+		case "D":
+			stk = append(stk, stk[n-1]*2)
+		case "C":
+			stk = stk[:n-1]
+		default:
+			num, _ := strconv.Atoi(op)
+			stk = append(stk, num)
+		}
+	}
+	ans := 0
+	for _, score := range stk {
+		ans += score
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function calPoints(ops: string[]): number {
+    const stack = [];
+    for (const op of ops) {
+        const n = stack.length;
+        if (op === '+') {
+            stack.push(stack[n - 1] + stack[n - 2]);
+        } else if (op === 'D') {
+            stack.push(stack[n - 1] * 2);
+        } else if (op === 'C') {
+            stack.pop();
+        } else {
+            stack.push(Number(op));
+        }
+    }
+    return stack.reduce((p, v) => p + v);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn cal_points(ops: Vec<String>) -> i32 {
+        let mut stack = vec![];
+        for op in ops {
+            match op.as_str() {
+                "+" => {
+                    let n = stack.len();
+                    stack.push(stack[n - 1] + stack[n - 2]);
+                }
+                "D" => {
+                    stack.push(stack.last().unwrap() * 2);
+                }
+                "C" => {
+                    stack.pop();
+                }
+                n => {
+                    stack.push(n.parse::<i32>().unwrap());
+                }
+            }
+        }
+        stack.into_iter().sum()
     }
 }
 ```

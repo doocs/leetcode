@@ -4,27 +4,37 @@
 
 ## Description
 
-<p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p>
+<p>Given an array of non-negative integers <code>nums</code>, you are initially positioned at the first index of the array.</p>
 
 <p>Each element in the array represents your maximum jump length at that position.</p>
 
 <p>Your goal is to reach the last index in the minimum number of jumps.</p>
 
-<p><strong>Example:</strong></p>
+<p>You can assume that you can always reach the last index.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> [2,3,1,1,4]
-
+<strong>Input:</strong> nums = [2,3,1,1,4]
 <strong>Output:</strong> 2
+<strong>Explanation:</strong> The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+</pre>
 
-<strong>Explanation:</strong> The minimum number of jumps to reach the last index is 2.
+<p><strong>Example 2:</strong></p>
 
-    Jump 1 step from index 0 to 1, then 3 steps to the last index.</pre>
+<pre>
+<strong>Input:</strong> nums = [2,3,0,1,4]
+<strong>Output:</strong> 2
+</pre>
 
-<p><strong>Note:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p>You can assume that you can always reach the last index.</p>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+</ul>
 
 ## Solutions
 
@@ -33,13 +43,99 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        end = mx = steps = 0
+        for i, num in enumerate(nums[:-1]):
+            mx = max(mx, i + num)
+            if i == end:
+                end = mx
+                steps += 1
+        return steps
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int jump(int[] nums) {
+        int end = 0;
+        int mx = 0;
+        int steps = 0;
+        for (int i = 0; i < nums.length - 1; ++i) {
+            mx = Math.max(mx, i + nums[i]);
+            if (i == end) {
+                end = mx;
+                ++steps;
+            }
+        }
+        return steps;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        int mx = 0, steps = 0, end = 0;
+        for (int i = 0; i < nums.size() - 1; ++i) {
+            mx = max(mx, i + nums[i]);
+            if (i == end) {
+                end = mx;
+                ++steps;
+            }
+        }
+        return steps;
+    }
+};
+```
+
+### **Go**
+
+```go
+func jump(nums []int) int {
+	mx, steps, end := 0, 0, 0
+	for i := 0; i < len(nums)-1; i++ {
+		mx = max(mx, i+nums[i])
+		if i == end {
+			end = mx
+			steps++
+		}
+	}
+	return steps
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int Jump(int[] nums) {
+        int end = 0;
+        int mx = 0;
+        int steps = 0;
+        for (int i = 0; i < nums.Length - 1; ++i)
+        {
+            mx = Math.Max(mx, i + nums[i]);
+            if (i == end)
+            {
+                end = mx;
+                ++steps;
+            }
+        }
+        return steps;
+    }
+}
 ```
 
 ### **...**

@@ -4,95 +4,46 @@
 
 ## Description
 
-<p>
+<p>Given a characters array <code>letters</code> that is sorted in <strong>non-decreasing</strong> order and a character <code>target</code>, return <em>the smallest character in the array that is larger than </em><code>target</code>.</p>
 
-Given a list of sorted characters <code>letters</code> containing only lowercase letters, and given a target letter <code>target</code>, find the smallest element in the list that is larger than the given target.
+<p><strong>Note</strong> that the letters wrap around.</p>
 
-</p><p>
+<ul>
+	<li>For example, if <code>target == &#39;z&#39;</code> and <code>letters == [&#39;a&#39;, &#39;b&#39;]</code>, the answer is <code>&#39;a&#39;</code>.</li>
+</ul>
 
-Letters also wrap around. For example, if the target is <code>target = 'z'</code> and <code>letters = ['a', 'b']</code>, the answer is <code>'a'</code>.
-
-</p>
-
-<p><b>Examples:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-letters = ["c", "f", "j"]
-
-target = "a"
-
-<b>Output:</b> "c"
-
-
-
-<b>Input:</b>
-
-letters = ["c", "f", "j"]
-
-target = "c"
-
-<b>Output:</b> "f"
-
-
-
-<b>Input:</b>
-
-letters = ["c", "f", "j"]
-
-target = "d"
-
-<b>Output:</b> "f"
-
-
-
-<b>Input:</b>
-
-letters = ["c", "f", "j"]
-
-target = "g"
-
-<b>Output:</b> "j"
-
-
-
-<b>Input:</b>
-
-letters = ["c", "f", "j"]
-
-target = "j"
-
-<b>Output:</b> "c"
-
-
-
-<b>Input:</b>
-
-letters = ["c", "f", "j"]
-
-target = "k"
-
-<b>Output:</b> "c"
-
+<strong>Input:</strong> letters = [&quot;c&quot;,&quot;f&quot;,&quot;j&quot;], target = &quot;a&quot;
+<strong>Output:</strong> &quot;c&quot;
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b><br>
+<pre>
+<strong>Input:</strong> letters = [&quot;c&quot;,&quot;f&quot;,&quot;j&quot;], target = &quot;c&quot;
+<strong>Output:</strong> &quot;f&quot;
+</pre>
 
-<ol>
+<p><strong>Example 3:</strong></p>
 
-<li><code>letters</code> has a length in range <code>[2, 10000]</code>.</li>
+<pre>
+<strong>Input:</strong> letters = [&quot;c&quot;,&quot;f&quot;,&quot;j&quot;], target = &quot;d&quot;
+<strong>Output:</strong> &quot;f&quot;
+</pre>
 
-<li><code>letters</code> consists of lowercase letters, and contains at least 2 unique letters.</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li><code>target</code> is a lowercase letter.</li>
-
-</ol>
-
-</p>
+<ul>
+	<li><code>2 &lt;= letters.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>letters[i]</code> is a lowercase English letter.</li>
+	<li><code>letters</code> is sorted in <strong>non-decreasing</strong> order.</li>
+	<li><code>letters</code> contains at least two different characters.</li>
+	<li><code>target</code> is a lowercase English letter.</li>
+</ul>
 
 ## Solutions
 
@@ -101,13 +52,142 @@ target = "k"
 ### **Python3**
 
 ```python
-
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        left, right = 0, len(letters)
+        while left < right:
+            mid = (left + right) >> 1
+            if ord(letters[mid]) > ord(target):
+                right = mid
+            else:
+                left = mid + 1
+        return letters[left % len(letters)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        int left = 0, right = letters.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (letters[mid] > target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return letters[left % letters.length];
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function nextGreatestLetter(letters: string[], target: string): string {
+    let left = 0,
+        right = letters.length;
+    let x = target.charCodeAt(0);
+    while (left < right) {
+        let mid = (left + right) >> 1;
+        if (x < letters[mid].charCodeAt(0)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return letters[left % letters.length];
+}
+```
+
+```ts
+function nextGreatestLetter(letters: string[], target: string): string {
+    const n = letters.length;
+    let l = 0;
+    let r = n;
+    while (l < r) {
+        const mid = (l + r) >>> 1;
+        if (target < letters[mid]) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return letters[l % n];
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int left = 0, right = letters.size();
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (letters[mid] > target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return letters[left % letters.size()];
+    }
+};
+```
+
+### **Go**
+
+```go
+func nextGreatestLetter(letters []byte, target byte) byte {
+	left, right := 0, len(letters)
+	for left < right {
+		mid := (left + right) >> 1
+		if letters[mid] > target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return letters[left%len(letters)]
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        for c in letters.iter() {
+            if c > &target {
+                return *c;
+            }
+        }
+        letters[0]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        let n = letters.len();
+        let mut l = 0;
+        let mut r = n;
+        while l < r {
+            let mid = l + r >> 1;
+            if letters[mid] <= target {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        letters[l % n]
+    }
+}
 ```
 
 ### **...**

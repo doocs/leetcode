@@ -40,18 +40,63 @@
 
 ## Solutions
 
+XOR.
+
+`a = b ^ c` => `a ^ b = b ^ c ^ b` => `c = a ^ b`.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def decode(self, encoded: List[int], first: int) -> List[int]:
+        ans = [first]
+        for e in encoded:
+            ans.append(ans[-1] ^ e)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] decode(int[] encoded, int first) {
+        int n = encoded.length;
+        int[] ans = new int[n + 1];
+        ans[0] = first;
+        for (int i = 0; i < n; ++i) {
+            ans[i + 1] = ans[i] ^ encoded[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> decode(vector<int>& encoded, int first) {
+        vector<int> ans{{first}};
+        for (int i = 0; i < encoded.size(); ++i)
+            ans.push_back(ans[i] ^ encoded[i]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func decode(encoded []int, first int) []int {
+	ans := []int{first}
+	for i, e := range encoded {
+		ans = append(ans, ans[i]^e)
+	}
+	return ans
+}
 ```
 
 ### **...**

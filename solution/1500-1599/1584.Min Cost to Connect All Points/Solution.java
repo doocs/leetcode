@@ -1,46 +1,40 @@
 class Solution {
-    static class Edge {
-
-        int x;
-        int y;
-        int len;
-
-        Edge(int x, int y, int len) {
-            this.x = x;
-            this.y = y;
-            this.len = len;
-        }
-    }
+    private int[] p;
 
     public int minCostConnectPoints(int[][] points) {
-        Queue<Edge> heap = new PriorityQueue<>(Comparator.comparingInt((Edge e) -> e.len));
-        boolean[] marked = new boolean[points.length];
-        marked[0] = true;
-        addVertex(points, marked, 0, heap);
-        int count = 1;
-        int res = 0;
-        while (!heap.isEmpty()) {
-            Edge edge = heap.poll();
-            if (!marked[edge.y]) {
-                res += edge.len;
-                marked[edge.y] = true;
-                addVertex(points, marked, edge.y, heap);
-                count++;
-                if (count == points.length) {
-                    break;
-                }
+        int n = points.length;
+        List<int[]> g = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                g.add(new int[]{Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
             }
         }
-        return res;
-    }
-
-    public void addVertex(int[][] points, boolean[] marked, int x, Queue<Edge> heap) {
-        for (int i = 0; i < marked.length; i++) {
-            if (marked[i]) {
+        g.sort(Comparator.comparingInt(a -> a[0]));
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        int ans = 0;
+        for (int[] e : g) {
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) {
                 continue;
             }
-            heap.add(new Edge(x, i,
-                    Math.abs(points[x][0] - points[i][0]) + Math.abs(points[x][1] - points[i][1])));
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) {
+                return ans;
+            }
         }
+        return 0;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
     }
 }

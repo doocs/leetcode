@@ -4,48 +4,42 @@
 
 ## Description
 
-<p>There are <code>N</code> courses, labelled from 1 to <code>N</code>.</p>
+<p>You are given an integer <code>n</code>, which indicates that there are <code>n</code> courses labeled from <code>1</code> to <code>n</code>. You are also given an array <code>relations</code> where <code>relations[i] = [prevCourse<sub>i</sub>, nextCourse<sub>i</sub>]</code>, representing a prerequisite relationship between course <code>prevCourse<sub>i</sub></code> and course <code>nextCourse<sub>i</sub></code>: course <code>prevCourse<sub>i</sub></code> has to be taken before course <code>nextCourse<sub>i</sub></code>.</p>
 
-<p>We are given <code>relations[i] = [X, Y]</code>, representing a prerequisite relationship between course <code>X</code> and course <code>Y</code>: course <code>X</code> has to be studied before course <code>Y</code>.</p>
+<p>In one semester, you can take <strong>any number</strong> of courses as long as you have taken all the prerequisites in the <strong>previous</strong> semester for the courses you are taking.</p>
 
-<p>In one semester you can study any number of courses as long as you have studied all the prerequisites for the course you are studying.</p>
+<p>Return <em>the <strong>minimum</strong> number of semesters needed to take all courses</em>. If there is no way to take all the courses, return <code>-1</code>.</p>
 
-<p>Return the minimum number of semesters needed to study all courses.  If there is no way to study all the courses, return <code>-1</code>.</p>
-
-<p> </p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/1316_ex1.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1136.Parallel%20Courses/images/course1graph.jpg" style="width: 222px; height: 222px;" />
 <pre>
-<strong>Input: </strong>N = <span id="example-input-1-1">3</span>, relations = <span id="example-input-1-2">[[1,3],[2,3]]</span>
-<strong>Output: </strong><span id="example-output-1">2</span>
-<strong>Explanation: </strong>
-In the first semester, courses 1 and 2 are studied. In the second semester, course 3 is studied.
+<strong>Input:</strong> n = 3, relations = [[1,3],[2,3]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The figure above represents the given graph.
+In the first semester, you can take courses 1 and 2.
+In the second semester, you can take course 3.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/1316_ex2.png)
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1136.Parallel%20Courses/images/course2graph.jpg" style="width: 222px; height: 222px;" />
 <pre>
-<strong>Input: </strong>N = <span id="example-input-2-1">3</span>, relations = <span id="example-input-2-2">[[1,2],[2,3],[3,1]]</span>
-<strong>Output: </strong><span id="example-output-2">-1</span>
-<strong>Explanation: </strong>
-No course can be studied because they depend on each other.
+<strong>Input:</strong> n = 3, relations = [[1,2],[2,3],[3,1]]
+<strong>Output:</strong> -1
+<strong>Explanation:</strong> No course can be studied because they are prerequisites of each other.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong><span>Note:</span></strong></p>
-
-<ol>
-	<li><code>1 <= N <= 5000</code></li>
-	<li><code>1 <= relations.length <= 5000</code></li>
-	<li><code>relations[i][0] != relations[i][1]</code></li>
-	<li>There are no repeated relations in the input.</li>
-</ol>
+<ul>
+	<li><code>1 &lt;= n &lt;= 5000</code></li>
+	<li><code>1 &lt;= relations.length &lt;= 5000</code></li>
+	<li><code>relations[i].length == 2</code></li>
+	<li><code>1 &lt;= prevCourse<sub>i</sub>, nextCourse<sub>i</sub> &lt;= n</code></li>
+	<li><code>prevCourse<sub>i</sub> != nextCourse<sub>i</sub></code></li>
+	<li>All the pairs <code>[prevCourse<sub>i</sub>, nextCourse<sub>i</sub>]</code> are <strong>unique</strong>.</li>
+</ul>
 
 ## Solutions
 

@@ -1,45 +1,46 @@
-/**
- * Definition for singly-linked list with a random pointer.
- * class RandomListNode {
- *     int label;
- *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
- * };
- */
-public class Solution {
-    public RandomListNode copyRandomList(RandomListNode head) {
+/*
+// Definition for a Node.
+class Node {
+    int val;
+    Node next;
+    Node random;
+
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}
+*/
+
+class Solution {
+    public Node copyRandomList(Node head) {
         if (head == null) {
             return null;
         }
-        
-        // step1
-        RandomListNode cur = head;
+
+        Node cur = head;
         while (cur != null) {
-            RandomListNode node = new RandomListNode(cur.label);
+            Node node = new Node(cur.val);
             node.next = cur.next;
             cur.next = node;
             cur = node.next;
         }
-        
-        // step2
+
         cur = head;
         while (cur != null) {
-            RandomListNode clone = cur.next;
-            if (cur.random != null) {
-                clone.random = cur.random.next;   
-            }
-            cur = clone.next;
+            cur.next.random = cur.random == null ? null : cur.random.next;
+            cur = cur.next.next;
         }
-        
-        // step3
+
+        Node copy = head.next;
         cur = head;
-        RandomListNode cloneHead = head.next;
-        while (cur.next != null) {
-            RandomListNode clone = cur.next;
-            cur.next = clone.next;
-            cur = clone;
+        while (cur != null) {
+            Node next = cur.next;
+            cur.next = next.next;
+            next.next = next.next == null ? null : next.next.next;
+            cur = cur.next;
         }
-        
-        return cloneHead;
+        return copy;
     }
 }

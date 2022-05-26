@@ -1,14 +1,14 @@
-const moveZeros = function (nums) {
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === 0) {
-      for (let j = i + 1; j < nums.length; j++) {
-        if (nums[j] !== 0) {
-          let t = nums[i];
-          nums[i] = nums[j];
-          nums[j] = t;
-          break;
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function (nums) {
+    let left = 0,
+        n = nums.length;
+    for (let right = 0; right < n; ++right) {
+        if (nums[right]) {
+            [nums[left], nums[right]] = [nums[right], nums[left]];
+            ++left;
         }
-      }
     }
-  }
 };

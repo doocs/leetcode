@@ -35,21 +35,6 @@
 <strong>Explanation:</strong> Here the sum is 6. which is already divisible by 3. Thus we do not need to remove anything.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,2,3], p = 7
-<strong>Output:</strong> -1
-<strong>Explanation:</strong> There is no way to remove a subarray in order to get a sum divisible by 7.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1000000000,1000000000,1000000000], p = 3
-<strong>Output:</strong> 0
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -73,6 +58,38 @@
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function minSubarray(nums: number[], p: number): number {
+    const n = nums.length;
+    let mod = 0;
+    for (let i = 0; i < n; i++) {
+        mod = (nums[i] + mod) % p;
+    }
+    if (!mod) return 0;
+
+    let hashMap = new Map<number, number>();
+    hashMap.set(0, -1);
+    let ans = n;
+    let subMod = 0;
+    for (let i = 0; i < n; i++) {
+        let cur = nums[i];
+        subMod = (subMod + cur) % p;
+        let target = (subMod - mod + p) % p;
+        if (hashMap.has(target)) {
+            let j = hashMap.get(target);
+            ans = Math.min(i - j, ans);
+            if (ans == 1 && ans != n) {
+                return ans;
+            }
+        }
+        hashMap.set(subMod, i);
+    }
+    return ans == n ? -1 : ans;
+}
 ```
 
 ### **...**

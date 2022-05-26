@@ -1,33 +1,66 @@
-# [627. 交换工资](https://leetcode-cn.com/problems/swap-salary)
+# [627. 变更性别](https://leetcode.cn/problems/swap-salary)
 
 [English Version](/solution/0600-0699/0627.Swap%20Salary/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个&nbsp;<code>salary</code>&nbsp;表，如下所示，有 m = 男性 和 f = 女性 的值。交换所有的 f 和 m 值（例如，将所有 f 值更改为 m，反之亦然）。要求只使用一个更新（Update）语句，并且没有中间的临时表。</p>
 
-<p>注意，您必只能写一个 Update 语句，请不要编写任何 Select 语句。</p>
+<div class="original__bRMd">
+<div>
+<p><code>Salary</code> 表：</p>
 
-<p><strong>例如：</strong></p>
+<pre>
++-------------+----------+
+| Column Name | Type     |
++-------------+----------+
+| id          | int      |
+| name        | varchar  |
+| sex         | ENUM     |
+| salary      | int      |
++-------------+----------+
+id 是这个表的主键。
+sex 这一列的值是 ENUM 类型，只能从 ('m', 'f') 中取。
+本表包含公司雇员的信息。
+</pre>
 
-<pre>| id | name | sex | salary |
-|----|------|-----|--------|
+<p>&nbsp;</p>
+
+<p>请你编写一个 SQL 查询来交换所有的 <code>'f'</code> 和 <code>'m'</code> （即，将所有 <code>'f'</code> 变为 <code>'m'</code> ，反之亦然），仅使用 <strong>单个 update 语句</strong> ，且不产生中间临时表。</p>
+
+<p>注意，你必须仅使用一条 update 语句，且 <strong>不能</strong> 使用 select 语句。</p>
+
+<p>查询结果如下例所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Salary 表：
++----+------+-----+--------+
+| id | name | sex | salary |
++----+------+-----+--------+
 | 1  | A    | m   | 2500   |
 | 2  | B    | f   | 1500   |
 | 3  | C    | m   | 5500   |
 | 4  | D    | f   | 500    |
-</pre>
-
-<p>运行你所编写的更新语句之后，将会得到以下表:</p>
-
-<pre>| id | name | sex | salary |
-|----|------|-----|--------|
++----+------+-----+--------+
+<strong>输出：</strong>
++----+------+-----+--------+
+| id | name | sex | salary |
++----+------+-----+--------+
 | 1  | A    | f   | 2500   |
 | 2  | B    | m   | 1500   |
 | 3  | C    | f   | 5500   |
 | 4  | D    | m   | 500    |
-</pre>
++----+------+-----+--------+
+<strong>解释：</strong>
+(1, A) 和 (3, C) 从 'm' 变为 'f' 。
+(2, B) 和 (4, D) 从 'f' 变为 'm' 。</pre>
+</div>
+</div>
 
 ## 解法
 
@@ -37,7 +70,7 @@
 
 ### **SQL**
 
-```
+```sql
 UPDATE salary
 SET
     sex = CASE sex

@@ -4,32 +4,37 @@
 
 ## Description
 
-<p>Return the root node of a binary <strong>search</strong> tree that matches the given <code>preorder</code> traversal.</p>
+<p>Given an array of integers preorder, which represents the <strong>preorder traversal</strong> of a BST (i.e., <strong>binary search tree</strong>), construct the tree and return <em>its root</em>.</p>
 
-<p><em>(Recall that a binary search tree&nbsp;is a binary tree where for every <font face="monospace">node</font>, any descendant of <code>node.left</code> has a value <code>&lt;</code>&nbsp;<code>node.val</code>, and any descendant of <code>node.right</code> has a value <code>&gt;</code>&nbsp;<code>node.val</code>.&nbsp; Also recall that a preorder traversal&nbsp;displays the value of the&nbsp;<code>node</code> first, then traverses <code>node.left</code>, then traverses <code>node.right</code>.)</em></p>
+<p>It is <strong>guaranteed</strong> that there is always possible to find a binary search tree with the given requirements for the given test cases.</p>
+
+<p>A <strong>binary search tree</strong> is a binary tree where for every node, any descendant of <code>Node.left</code> has a value <strong>strictly less than</strong> <code>Node.val</code>, and any descendant of <code>Node.right</code> has a value <strong>strictly greater than</strong> <code>Node.val</code>.</p>
+
+<p>A <strong>preorder traversal</strong> of a binary tree displays the value of the node first, then traverses <code>Node.left</code>, then traverses <code>Node.right</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/images/1266.png" style="height: 386px; width: 590px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[8,5,1,7,10,12]</span>
-
-<strong>Output: </strong><span id="example-output-1">[8,5,10,1,7,null,12]
-
+<strong>Input:</strong> preorder = [8,5,1,7,10,12]
+<strong>Output:</strong> [8,5,10,1,7,null,12]
 </pre>
 
-![](./images/1266.png)
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> preorder = [1,3]
+<strong>Output:</strong> [1,null,3]
+</pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong>&nbsp;</p>
-
-<ol>
+<ul>
 	<li><code>1 &lt;= preorder.length &lt;= 100</code></li>
-	<li>The values of <code>preorder</code> are distinct.</li>
-</ol>
+	<li><code>1 &lt;= preorder[i] &lt;= 1000</code></li>
+	<li>All the values of <code>preorder</code> are <strong>unique</strong>.</li>
+</ul>
 
 ## Solutions
 
@@ -38,13 +43,148 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        def dfs(preorder):
+            if not preorder:
+                return None
+            root = TreeNode(preorder[0])
+            left, right = 1, len(preorder)
+            while left < right:
+                mid = (left + right) >> 1
+                if preorder[mid] > preorder[0]:
+                    right = mid
+                else:
+                    left = mid + 1
+            root.left = dfs(preorder[1:left])
+            root.right = dfs(preorder[left:])
+            return root
 
+        return dfs(preorder)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    public TreeNode bstFromPreorder(int[] preorder) {
+        return dfs(preorder, 0, preorder.length - 1);
+    }
+
+    private TreeNode dfs(int[] preorder, int i, int j) {
+        if (i > j || i >= preorder.length) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preorder[i]);
+        int left = i + 1, right = j + 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (preorder[mid] > preorder[i]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        root.left = dfs(preorder, i + 1, left - 1);
+        root.right = dfs(preorder, left, j);
+        return root;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        return dfs(preorder, 0, preorder.size() - 1);
+    }
+
+    TreeNode* dfs(vector<int>& preorder, int i, int j) {
+        if (i > j || i >= preorder.size()) return nullptr;
+        TreeNode* root = new TreeNode(preorder[i]);
+        int left = i + 1, right = j + 1;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (preorder[mid] > preorder[i]) right = mid;
+            else left = mid + 1;
+        }
+        root->left = dfs(preorder, i + 1, left - 1);
+        root->right = dfs(preorder, left, j);
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func bstFromPreorder(preorder []int) *TreeNode {
+	var dfs func(i, j int) *TreeNode
+	dfs = func(i, j int) *TreeNode {
+		if i > j || i >= len(preorder) {
+			return nil
+		}
+		root := &TreeNode{Val: preorder[i]}
+		left, right := i+1, len(preorder)
+		for left < right {
+			mid := (left + right) >> 1
+			if preorder[mid] > preorder[i] {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		root.Left = dfs(i+1, left-1)
+		root.Right = dfs(left, j)
+		return root
+	}
+	return dfs(0, len(preorder)-1)
+}
 ```
 
 ### **...**
@@ -53,5 +193,4 @@
 
 ```
 
-<!-- tabs:end -->
 <!-- tabs:end -->

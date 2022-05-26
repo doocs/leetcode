@@ -1,34 +1,19 @@
 class Solution {
     public int maxProfit(int k, int[] prices) {
-		if (prices == null || prices.length == 0) {
-			return 0;
-		}
-        
-        if(k >= prices.length) return maxProfit(prices);
-        
-		int n = prices.length;
-		int[] l = new int[k + 1];
-		int[] g = new int[k + 1];
-
-		for (int i = 1; i < n; i++) {
-			int diff = prices[i] - prices[i - 1];
-			for (int j = k; j >= 1; j--) {
-				l[j] = Math.max(l[j], g[j - 1]) + diff;
-				g[j] = Math.max(l[j], g[j]);
-			}
-		}
-
-		return g[k];
-    }
-    
-    public int maxProfit(int[] prices) {
-        // 只要有利润就卖，就是最优解。
-        int profit = 0;
-        for(int i = 1; i < prices.length; i++) {
-            if(prices[i] > prices[i - 1]) {
-                profit += prices[i] - prices[i - 1];
+        int n = prices.length;
+        if (n <= 1) {
+            return 0;
+        }
+        int[][][] dp = new int[n][k + 1][2];
+        for (int i = 1; i <= k; ++i) {
+            dp[0][i][1] = -prices[0];
+        }
+        for (int i = 1; i < n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                dp[i][j][0] = Math.max(dp[i - 1][j][1] + prices[i], dp[i - 1][j][0]);
+                dp[i][j][1] = Math.max(dp[i - 1][j - 1][0] - prices[i], dp[i - 1][j][1]);
             }
         }
-        return profit;
+        return dp[n - 1][k][0];
     }
 }

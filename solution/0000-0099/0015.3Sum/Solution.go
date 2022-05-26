@@ -1,57 +1,31 @@
 func threeSum(nums []int) [][]int {
-	sort(nums)
-	result := make([][]int, 0)
-	for i, n := range nums {
-		if n > 0 {
-			break
-		}
+	n, res := len(nums), make([][]int, 0)
+	if n < 3 {
+		return res
+	}
+	sort.Ints(nums)
+	for i := 0; i < n-2 && nums[i] <= 0; i++ {
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
-		left := i + 1
-		right := len(nums) - 1
-		for left < right {
-			r := nums[left] + nums[right] + n
-			if r == 0 {
-				result = append(result, []int{nums[left], nums[right], n})
-				left++
-				for left < right && nums[left] == nums[left-1] {
-					left++
+		j, k := i+1, n-1
+		for j < k {
+			if nums[i]+nums[j]+nums[k] == 0 {
+				res = append(res, []int{nums[i], nums[j], nums[k]})
+				j++
+				k--
+				for j < n && nums[j] == nums[j-1] {
+					j++
 				}
-				right--
-				for left < right && nums[right] == nums[right+1] {
-					right--
+				for k > i && nums[k] == nums[k+1] {
+					k--
 				}
-			} else if r < 0 {
-				left++
-			} else if r > 0 {
-				right--
+			} else if nums[i]+nums[j]+nums[k] < 0 {
+				j++
+			} else {
+				k--
 			}
 		}
 	}
-	return result
-}
-
-// quick sort
-func sort(array []int) {
-	if len(array) == 0 {
-		return
-	}
-	left := 0
-	right := len(array) - 1
-	obj := array[left]
-	for left < right {
-		for left < right && array[right] >= obj {
-			right--
-		}
-		array[left] = array[right]
-
-		for left < right && array[left] <= obj {
-			left++
-		}
-		array[right] = array[left]
-	}
-	array[left] = obj
-	sort(array[:left])
-	sort(array[right+1:])
+	return res
 }

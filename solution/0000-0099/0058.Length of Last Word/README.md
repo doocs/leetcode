@@ -1,23 +1,50 @@
-# [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word)
+# [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word)
 
 [English Version](/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个仅包含大小写字母和空格&nbsp;<code>&#39; &#39;</code>&nbsp;的字符串 <code>s</code>，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。</p>
 
-<p>如果不存在最后一个单词，请返回 0&nbsp;。</p>
+<p>给你一个字符串 <code>s</code>，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 <strong>最后一个</strong> 单词的长度。</p>
 
-<p><strong>说明：</strong>一个单词是指仅由字母组成、不包含任何空格字符的 <strong>最大子字符串</strong>。</p>
+<p><strong>单词</strong> 是指仅由字母组成、不包含任何空格字符的最大子字符串。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> &quot;Hello World&quot;
-<strong>输出:</strong> 5
+<pre>
+<strong>输入：</strong>s = "Hello World"
+<strong>输出：</strong>5
+<strong>解释：</strong>最后一个单词是“World”，长度为5。
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "   fly me   to   the moon  "
+<strong>输出：</strong>4<strong>
+解释：</strong>最后一个单词是“moon”，长度为4。
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "luffy is still joyboy"
+<strong>输出：</strong>6
+<strong>解释：</strong>最后一个单词是长度为6的“joyboy”。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s</code> 仅有英文字母和空格 <code>' '</code> 组成</li>
+	<li><code>s</code> 中至少存在一个单词</li>
+</ul>
 
 ## 解法
 
@@ -64,6 +91,81 @@ class Solution {
             }
         }
         return lastWordLength;
+    }
+}
+```
+
+### **Go**
+
+```go
+func lengthOfLastWord(s string) int {
+	if len(s) == 0 {
+		return 0
+	}
+	space := []byte(" ")[0]
+	for len(s) != 0 && s[len(s)-1] == space {
+		s = s[:len(s)-1]
+	}
+	ret := 0
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] != space {
+			ret++
+		} else {
+			return ret
+		}
+	}
+	return ret
+}
+```
+
+### **JavaScript**
+
+```js
+var lengthOfLastWord = function (s) {
+    s = s.trim();
+    return s.length - s.lastIndexOf(' ') - 1;
+};
+
+var lengthOfLastWord2 = function (s) {
+    let res = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== ' ' && (i === 0 || s[i - 1] === ' ')) {
+            res = 1;
+        } else if (s[i] !== ' ') {
+            res++;
+        }
+    }
+    return res;
+};
+```
+
+### **TypeScript**
+
+```ts
+function lengthOfLastWord(s: string): number {
+    s = s.trimEnd();
+    const n = s.length;
+    const index = s.lastIndexOf(' ');
+    if (index !== -1) {
+        return n - index - 1;
+    }
+    return n;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn length_of_last_word(s: String) -> i32 {
+        let s = s.trim_end();
+        let n = s.len();
+        for (i, c) in s.char_indices().rev() {
+            if c == ' ' {
+                return (n - i - 1) as i32;
+            }
+        }
+        n as i32
     }
 }
 ```

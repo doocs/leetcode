@@ -4,80 +4,46 @@
 
 ## Description
 
-<p>Given a balanced parentheses string <code>S</code>, compute the score of the string based on the following rule:</p>
+<p>Given a balanced parentheses string <code>s</code>, return <em>the <strong>score</strong> of the string</em>.</p>
+
+<p>The <strong>score</strong> of a balanced parentheses string is based on the following rule:</p>
 
 <ul>
-    <li><code>()</code> has score 1</li>
-    <li><code>AB</code> has score <code>A + B</code>, where A and B are balanced parentheses strings.</li>
-    <li><code>(A)</code> has score <code>2 * A</code>, where A is a balanced parentheses string.</li>
+	<li><code>&quot;()&quot;</code> has score <code>1</code>.</li>
+	<li><code>AB</code> has score <code>A + B</code>, where <code>A</code> and <code>B</code> are balanced parentheses strings.</li>
+	<li><code>(A)</code> has score <code>2 * A</code>, where <code>A</code> is a balanced parentheses string.</li>
 </ul>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">&quot;()&quot;</span>
-
-<strong>Output: </strong><span id="example-output-1">1</span>
-
+<strong>Input:</strong> s = &quot;()&quot;
+<strong>Output:</strong> 1
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">&quot;(())&quot;</span>
-
-<strong>Output: </strong><span id="example-output-2">2</span>
-
+<strong>Input:</strong> s = &quot;(())&quot;
+<strong>Output:</strong> 2
 </pre>
-
-<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-3-1">&quot;()()&quot;</span>
-
-<strong>Output: </strong><span id="example-output-3">2</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-4-1">&quot;(()(()))&quot;</span>
-
-<strong>Output: </strong><span id="example-output-4">6</span>
-
+<strong>Input:</strong> s = &quot;()()&quot;
+<strong>Output:</strong> 2
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-    <li><code>S</code> is a balanced parentheses string, containing only <code>(</code> and <code>)</code>.</li>
-    <li><code>2 &lt;= S.length &lt;= 50</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<ul>
+	<li><code>2 &lt;= s.length &lt;= 50</code></li>
+	<li><code>s</code> consists of only <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>.</li>
+	<li><code>s</code> is a balanced parentheses string.</li>
+</ul>
 
 ## Solutions
 

@@ -1,38 +1,35 @@
 class Solution {
-    private List<List<String>> res;
+    private boolean[][] dp;
+    private List<List<String>> ans;
+    private int n;
+
     public List<List<String>> partition(String s) {
-        res= new ArrayList<>();
-        func(new ArrayList<>(),0,s);
-        return res;
+        ans = new ArrayList<>();
+        n = s.length();
+        dp = new boolean[n][n];
+        for (int i = 0; i < n; ++i) {
+            Arrays.fill(dp[i], true);
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
+            }
+        }
+        dfs(s, 0, new ArrayList<>());
+        return ans;
     }
-    private void func(List<String> temp, int start, String str){
-        if(start>=str.length()){
-            res.add(new ArrayList<>(temp));
+
+    private void dfs(String s, int i, List<String> t) {
+        if (i == n) {
+            ans.add(new ArrayList<>(t));
             return;
         }
-        int ed=str.indexOf(str.charAt(start),start+1);
-        while(ed>0){
-            int s=start;
-            int e=ed;
-            boolean flag=false;
-            while(s<e){
-                if(str.charAt(s)==str.charAt(e)){
-                    s++;
-                    e--;
-                } else{
-                    flag=true;
-                    break;
-                }
+        for (int j = i; j < n; ++j) {
+            if (dp[i][j]) {
+                t.add(s.substring(i, j + 1));
+                dfs(s, j + 1, t);
+                t.remove(t.size() - 1);
             }
-            if(!flag){
-                temp.add(str.substring(start,ed+1));
-                func(temp,ed+1,str);
-                temp.remove(temp.size()-1);
-            }
-            ed=str.indexOf(str.charAt(start),ed+1);
         }
-        temp.add(str.substring(start,start+1));
-        func(temp,start+1,str);
-        temp.remove(temp.size()-1);
     }
 }

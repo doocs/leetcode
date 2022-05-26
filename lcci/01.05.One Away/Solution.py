@@ -1,14 +1,24 @@
 class Solution:
     def oneEditAway(self, first: str, second: str) -> bool:
         n1, n2 = len(first), len(second)
-        if abs(n1 - n2) > 1:
+        diff = n1 - n2
+        if abs(diff) > 1:
             return False
-        if n1 + n2 <= 2:
-            return True
-        if first[0] != second[0]:
-            if n1 == n2:
-                return first[1:] == second[1:]
+        i, j, op = 0, 0, 1
+        while i < n1 and j < n2:
+            not_same = first[i] != second[j]
+            if not_same:
+                if diff == 1:
+                    i += 1
+                elif diff == -1:
+                    j += 1
+                else:
+                    i += 1
+                    j += 1
+                op -= 1
             else:
-                return first[1:] == second or second[1:] == first
-        else:
-            return self.oneEditAway(first[1:], second[1:])
+                i += 1
+                j += 1
+            if op < 0:
+                return False
+        return True

@@ -5,17 +5,17 @@
 #         self.left = None
 #         self.right = None
 
-class Codec:
 
+class Codec:
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
+
         :type root: TreeNode
         :rtype: str
         """
         if not root:
             return '[]'
-        queue = collections.deque()
+        queue = deque()
         queue.append(root)
         res = []
         while queue:
@@ -27,17 +27,16 @@ class Codec:
             else:
                 res.append('null')
         return f'[{",".join(res)}]'
-        
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: TreeNode
         """
         if not data or data == '[]':
             return None
-        queue = collections.deque()
+        queue = deque()
         nodes = data[1:-1].split(',')
         root = TreeNode(nodes[0])
         queue.append(root)

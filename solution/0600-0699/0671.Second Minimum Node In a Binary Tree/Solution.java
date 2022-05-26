@@ -4,25 +4,31 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
+    private int ans;
+
     public int findSecondMinimumValue(TreeNode root) {
-        if (root == null || root.left == null) return -1;
-        int limit = Integer.MAX_VALUE;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            if (node.val != root.val) {
-                limit = Math.min(limit, node.val - root.val);
-            }
-            if (node.left != null) {
-                stack.push(node.left);
-                stack.push(node.right);
+        ans = -1;
+        dfs(root, root.val);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int val) {
+        if (root != null) {
+            dfs(root.left, val);
+            dfs(root.right, val);
+            if (root.val > val) {
+                ans = ans == -1 ? root.val : Math.min(ans, root.val);
             }
         }
-        return limit == Integer.MAX_VALUE ? -1 : root.val + limit;
     }
 }

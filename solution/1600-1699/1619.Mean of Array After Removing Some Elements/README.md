@@ -1,10 +1,11 @@
-# [1619. 删除某些元素后的数组均值](https://leetcode-cn.com/problems/mean-of-array-after-removing-some-elements)
+# [1619. 删除某些元素后的数组均值](https://leetcode.cn/problems/mean-of-array-after-removing-some-elements)
 
 [English Version](/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组 <code>arr</code> ，请你删除最小 <code>5%</code> 的数字和最大 <code>5%</code> 的数字后，剩余数字的平均值。</p>
 
 <p>与 <strong>标准答案</strong> 误差在 <code>10<sup>-5</sup></code> 的结果都被视为正确结果。</p>
@@ -68,7 +69,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def trimMean(self, arr: List[int]) -> float:
+        n = len(arr)
+        start, end = int(n * 0.05), int(n * 0.95)
+        arr.sort()
+        t = arr[start: end]
+        return round(sum(t) / len(t), 5)
 ```
 
 ### **Java**
@@ -76,7 +83,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public double trimMean(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        double s = 0;
+        for (int start = (int) (n * 0.05), i = start; i < n - start; ++i) {
+            s += arr[i];
+        }
+        return s / (n * 0.9);
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function trimMean(arr: number[]): number {
+    arr.sort((a, b) => a - b);
+    let n = arr.length,
+        rmLen = n * 0.05;
+    let sum = 0;
+    for (let i = rmLen; i < n - rmLen; i++) {
+        sum += arr[i];
+    }
+    return sum / (n * 0.9);
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double trimMean(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        double s = 0;
+        for (int start = (int) (n * 0.05), i = start; i < n - start; ++i)
+            s += arr[i];
+        return s / (n * 0.9);
+    }
+};
+```
+
+### **Go**
+
+```go
+func trimMean(arr []int) float64 {
+	sort.Ints(arr)
+	n := len(arr)
+	sum := 0.0
+	for i := n / 20; i < n-n/20; i++ {
+		sum += float64(arr[i])
+	}
+	return sum / (float64(n) * 0.9)
+}
 ```
 
 ### **...**

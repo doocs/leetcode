@@ -1,10 +1,11 @@
-# [1408. 数组中的字符串匹配](https://leetcode-cn.com/problems/string-matching-in-an-array)
+# [1408. 数组中的字符串匹配](https://leetcode.cn/problems/string-matching-in-an-array)
 
 [English Version](/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串数组 <code>words</code> ，数组中的每个字符串都可以看作是一个单词。请你按 <strong>任意</strong> 顺序返回 <code>words</code> 中是其他单词的子字符串的所有单词。</p>
 
 <p>如果你可以删除 <code>words[j]</code>&nbsp;最左侧和/或最右侧的若干字符得到 <code>word[i]</code> ，那么字符串 <code>words[i]</code> 就是 <code>words[j]</code> 的一个子字符串。</p>

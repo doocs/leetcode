@@ -4,40 +4,42 @@
 
 ## Description
 
-<p>Imagine you have a special keyboard with the following keys: </p>
-<p><code>Key 1: (A)</code>:  Print one 'A' on screen.</p>
-<p><code>Key 2: (Ctrl-A)</code>: Select the whole screen.</p>
-<p><code>Key 3: (Ctrl-C)</code>: Copy selection to buffer.</p>
-<p><code>Key 4: (Ctrl-V)</code>: Print buffer on screen appending it after what has already been printed. </p>
+<p>Imagine you have a special keyboard with the following keys:</p>
 
-<p>Now, you can only press the keyboard for <b>N</b> times (with the above four keys), find out the maximum numbers of 'A' you can print on screen.</p>
+<ul>
+	<li>A: Print one <code>&#39;A&#39;</code> on the screen.</li>
+	<li>Ctrl-A: Select the whole screen.</li>
+	<li>Ctrl-C: Copy selection to buffer.</li>
+	<li>Ctrl-V: Print buffer on screen appending it after what has already been printed.</li>
+</ul>
 
-<p><b>Example 1:</b><br />
+<p>Given an integer n, return <em>the maximum number of </em><code>&#39;A&#39;</code><em> you can print on the screen with <strong>at most</strong> </em><code>n</code><em> presses on the keys</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
 <pre>
-<b>Input:</b> N = 3
-<b>Output:</b> 3
-<b>Explanation:</b> 
-We can at most get 3 A's on screen by pressing following key sequence:
+<strong>Input:</strong> n = 3
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> We can at most get 3 A&#39;s on screen by pressing the following key sequence:
 A, A, A
 </pre>
-</p>
 
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
+
 <pre>
-<b>Input:</b> N = 7
-<b>Output:</b> 9
-<b>Explanation:</b> 
-We can at most get 9 A's on screen by pressing following key sequence:
+<strong>Input:</strong> n = 7
+<strong>Output:</strong> 9
+<strong>Explanation:</strong> We can at most get 9 A&#39;s on screen by pressing following key sequence:
 A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 </pre>
-</p>
 
-<p><b>Note:</b><br>
-<ol>
-<li>1 <= N <= 50 </li>
-<li>Answers will be in the range of 32-bit signed integer.</li>
-</ol>
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 50</code></li>
+</ul>
 
 ## Solutions
 

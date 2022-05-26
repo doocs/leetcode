@@ -1,10 +1,11 @@
-# [1590. 使数组和能被 P 整除](https://leetcode-cn.com/problems/make-sum-divisible-by-p)
+# [1590. 使数组和能被 P 整除](https://leetcode.cn/problems/make-sum-divisible-by-p)
 
 [English Version](/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个正整数数组&nbsp;<code>nums</code>，请你移除 <strong>最短</strong>&nbsp;子数组（可以为 <strong>空</strong>），使得剩余元素的 <strong>和</strong>&nbsp;能被 <code>p</code>&nbsp;整除。 <strong>不允许</strong>&nbsp;将整个数组都移除。</p>
 
 <p>请你返回你需要移除的最短子数组的长度，如果无法满足题目要求，返回 <code>-1</code>&nbsp;。</p>
@@ -77,6 +78,38 @@
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function minSubarray(nums: number[], p: number): number {
+    const n = nums.length;
+    let mod = 0;
+    for (let i = 0; i < n; i++) {
+        mod = (nums[i] + mod) % p;
+    }
+    if (!mod) return 0;
+
+    let hashMap = new Map<number, number>();
+    hashMap.set(0, -1);
+    let ans = n;
+    let subMod = 0;
+    for (let i = 0; i < n; i++) {
+        let cur = nums[i];
+        subMod = (subMod + cur) % p;
+        let target = (subMod - mod + p) % p;
+        if (hashMap.has(target)) {
+            let j = hashMap.get(target);
+            ans = Math.min(i - j, ans);
+            if (ans == 1 && ans != n) {
+                return ans;
+            }
+        }
+        hashMap.set(subMod, i);
+    }
+    return ans == n ? -1 : ans;
+}
 ```
 
 ### **...**

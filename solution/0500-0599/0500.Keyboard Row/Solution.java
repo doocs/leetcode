@@ -1,34 +1,16 @@
 class Solution {
-
     public String[] findWords(String[] words) {
-        if (words == null) {
-            return null;
-        }
-        ArrayList<String> list = new ArrayList<>();
-        String[] keyboards = {"qwertyuiop", "asdfghjkl", "zxcvbnm"};
-        for (int i = 0; i < words.length; i++) {
-            String word = words[i].toLowerCase();
-            for (int j = 0; j < keyboards.length; j++) {
-                // 先用word首字符确定属于哪一行
-                if (keyboards[j].indexOf(word.charAt(0)) > -1) {
-                    // 判断word字符串所有字符是否都属于同一行
-                    boolean match = match(keyboards[j], word, list);
-                    if (match) {
-                        list.add(words[i]);
-                    }
-                    break;
-                }
+        String s = "12210111011122000010020202";
+        List<String> res = new ArrayList<>();
+        for (String word : words) {
+            Set<Character> t = new HashSet<>();
+            for (char c : word.toLowerCase().toCharArray()) {
+                t.add(s.charAt(c - 'a'));
+            }
+            if (t.size() == 1) {
+                res.add(word);
             }
         }
-        return list.toArray(new String[list.size()]);
-    }
-
-    private boolean match(String keyboard, String word, ArrayList<String> list) {
-        for (int i = 1; i < word.length(); i++) {
-            if (keyboard.indexOf(word.charAt(i)) < 0) {
-                return false;
-            }
-        }
-        return true;
+        return res.toArray(new String[0]);
     }
 }
