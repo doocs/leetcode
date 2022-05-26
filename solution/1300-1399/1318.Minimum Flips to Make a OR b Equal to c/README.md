@@ -48,6 +48,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算**
+
+逐位提取 a, b, c 对应二进制位，进行比较计数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +59,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minFlips(self, a: int, b: int, c: int) -> int:
+        ans = 0
+        for i in range(31):
+            x, y, z = (a >> i) & 1, (b >> i) & 1, (c >> i) & 1
+            if (x | y) == z:
+                continue
+            if x == 1 and y == 1 and z == 0:
+                ans += 2
+            else:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -63,7 +78,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minFlips(int a, int b, int c) {
+        int ans = 0;
+        for (int i = 0; i < 31; ++i) {
+            int x = (a >> i) & 1, y = (b >> i) & 1, z = (c >> i) & 1;
+            if ((x | y) == z) {
+                continue;
+            }
+            if (x == 1 && y == 1 && z == 0) {
+                ++ans;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minFlips(int a, int b, int c) {
+        int ans = 0;
+        for (int i = 0; i < 31; ++i)
+        {
+            int x = (a >> i) & 1, y = (b >> i) & 1, z = (c >> i) & 1;
+            if ((x | y) == z) continue;
+            if (x == 1 && y == 1 && z == 0) ++ans;
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minFlips(a int, b int, c int) int {
+	ans := 0
+	for i := 0; i < 31; i++ {
+		x, y, z := (a>>i)&1, (b>>i)&1, (c>>i)&1
+		if (x | y) == z {
+			continue
+		}
+		if x == 1 && y == 1 && z == 0 {
+			ans++
+		}
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**
