@@ -4,21 +4,17 @@
 
 ## Description
 
-<p>Given two strings <code>s</code> and <code>t</code>, transform string <code>s</code> into string <code>t</code> using the following operation any number of times:</p>
+<p>Given two strings&nbsp;<code>s</code> and <code>t</code>, you want to transform string&nbsp;<code>s</code> into string&nbsp;<code>t</code> using the following&nbsp;operation any number of times:</p>
 
 <ul>
-	<li>Choose a <strong>non-empty</strong> substring in <code>s</code> and sort it in place so the characters are in <strong>ascending order</strong>.
-
-    <ul>
-    	<li>For example, applying the operation on the underlined substring in <code>&quot;1<u>4234</u>&quot;</code> results in <code>&quot;1<u>2344</u>&quot;</code>.</li>
-    </ul>
-    </li>
-
+	<li>Choose a <strong>non-empty</strong> substring in&nbsp;<code>s</code>&nbsp;and sort it in-place&nbsp;so the characters are in&nbsp;<strong>ascending order</strong>.</li>
 </ul>
 
-<p>Return <code>true</code> if <em>it is possible to transform <code>s</code> into <code>t</code></em>. Otherwise, return <code>false</code>.</p>
+<p>For example, applying the operation on the underlined substring in&nbsp;<code>&quot;1<u>4234</u>&quot;</code>&nbsp;results in <code>&quot;1<u>2344</u>&quot;</code>.</p>
 
-<p>A <strong>substring</strong> is a contiguous sequence of characters within a string.</p>
+<p>Return <code>true</code> if <em>it is possible to transform string <code>s</code>&nbsp;into string <code>t</code></em>. Otherwise,&nbsp;return <code>false</code>.</p>
+
+<p>A <strong>substring</strong>&nbsp;is a contiguous sequence of characters within a string.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -48,13 +44,20 @@
 <strong>Output:</strong> false
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;1&quot;, t = &quot;2&quot;
+<strong>Output:</strong> false
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>s.length == t.length</code></li>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> and <code>t</code> consist of only digits.</li>
+	<li><code>s</code> and <code>t</code>&nbsp;only contain digits from <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>.</li>
 </ul>
 
 ## Solutions

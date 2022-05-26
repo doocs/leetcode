@@ -1,56 +1,30 @@
-# [181. 超过经理收入的员工](https://leetcode.cn/problems/employees-earning-more-than-their-managers)
+# [181. 超过经理收入的员工](https://leetcode-cn.com/problems/employees-earning-more-than-their-managers)
 
 [English Version](/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p><code>Employee</code>&nbsp;表包含所有员工，他们的经理也属于员工。每个员工都有一个 Id，此外还有一列对应员工的经理的 Id。</p>
 
-<p>表：<code>Employee</code>&nbsp;</p>
-
-<pre>
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| id          | int     |
-| name        | varchar |
-| salary      | int     |
-| managerId   | int     |
-+-------------+---------+
-Id是该表的主键。
-该表的每一行都表示雇员的ID、姓名、工资和经理的ID。
-</pre>
-
-<p>&nbsp;</p>
-
-<p>编写一个SQL查询来查找收入比经理高的员工。</p>
-
-<p>以 <strong>任意顺序</strong> 返回结果表。</p>
-
-<p>查询结果格式如下所示。</p>
-
-<p>&nbsp;</p>
-
-<p><strong>示例 1:</strong></p>
-
-<pre>
-<strong>输入:</strong> 
-Employee 表:
-+----+-------+--------+-----------+
-| id | name  | salary | managerId |
+<pre>+----+-------+--------+-----------+
+| Id | Name  | Salary | ManagerId |
 +----+-------+--------+-----------+
 | 1  | Joe   | 70000  | 3         |
 | 2  | Henry | 80000  | 4         |
-| 3  | Sam   | 60000  | Null      |
-| 4  | Max   | 90000  | Null      |
+| 3  | Sam   | 60000  | NULL      |
+| 4  | Max   | 90000  | NULL      |
 +----+-------+--------+-----------+
-<strong>输出:</strong> 
-+----------+
+</pre>
+
+<p>给定&nbsp;<code>Employee</code>&nbsp;表，编写一个 SQL 查询，该查询可以获取收入超过他们经理的员工的姓名。在上面的表格中，Joe 是唯一一个收入超过他的经理的员工。</p>
+
+<pre>+----------+
 | Employee |
 +----------+
 | Joe      |
 +----------+
-<strong>解释:</strong> Joe 是唯一挣得比经理多的雇员。</pre>
+</pre>
 
 ## 解法
 
@@ -60,14 +34,9 @@ Employee 表:
 
 ### **SQL**
 
-```sql
-select Name as Employee
-from Employee Curr
-where Salary > (
-        select Salary
-        from Employee
-        where Id = Curr.ManagerId
-    )
+```
+select Name as Employee from Employee Curr where
+    Salary > (select Salary from Employee where Id = Curr.ManagerId)
 ```
 
 <!-- tabs:end -->

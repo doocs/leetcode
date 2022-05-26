@@ -1,17 +1,17 @@
-# [1675. 数组的最小偏移量](https://leetcode.cn/problems/minimize-deviation-in-array)
+# [1675. 数组的最小偏移量](https://leetcode-cn.com/problems/minimize-deviation-in-array)
 
 [English Version](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个由 <code>n</code> 个正整数组成的数组 <code>nums</code> 。</p>
 
 <p>你可以对数组的任意元素执行任意次数的两类操作：</p>
 
 <ul>
 	<li>如果元素是<strong> 偶数</strong> ，<strong>除以</strong> <code>2</code>
+
     <ul>
     	<li>例如，如果数组是 <code>[1,2,3,4]</code> ，那么你可以对最后一个元素执行此操作，使其变成 <code>[1,2,3,<strong>2</strong>]</code></li>
     </ul>
@@ -21,6 +21,7 @@
     	<li>例如，如果数组是 <code>[1,2,3,4]</code> ，那么你可以对第一个元素执行此操作，使其变成 <code>[<strong>2</strong>,2,3,4]</code></li>
     </ul>
     </li>
+
 </ul>
 
 <p>数组的 <strong>偏移量</strong> 是数组中任意两个元素之间的 <strong>最大差值</strong> 。</p>

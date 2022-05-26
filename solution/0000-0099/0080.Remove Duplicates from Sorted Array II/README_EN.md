@@ -4,59 +4,67 @@
 
 ## Description
 
-<p>Given an integer array <code>nums</code> sorted in <strong>non-decreasing order</strong>, remove some duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a> such that each unique element appears <strong>at most twice</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>.</p>
+<p>Given a sorted array <em>nums</em>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a> such that duplicates appeared at most&nbsp;<em>twice</em> and return the new length.</p>
 
-<p>Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the <strong>first part</strong> of the array <code>nums</code>. More formally, if there are <code>k</code> elements after removing the duplicates, then the first <code>k</code> elements of <code>nums</code>&nbsp;should hold the final result. It does not matter what you leave beyond the first&nbsp;<code>k</code>&nbsp;elements.</p>
+<p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a></strong> with O(1) extra memory.</p>
 
-<p>Return <code>k</code><em> after placing the final result in the first </em><code>k</code><em> slots of </em><code>nums</code>.</p>
-
-<p>Do <strong>not</strong> allocate extra space for another array. You must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a></strong> with O(1) extra memory.</p>
-
-<p><strong>Custom Judge:</strong></p>
-
-<p>The judge will test your solution with the following code:</p>
-
-<pre>
-int[] nums = [...]; // Input array
-int[] expectedNums = [...]; // The expected answer with correct length
-
-int k = removeDuplicates(nums); // Calls your implementation
-
-assert k == expectedNums.length;
-for (int i = 0; i &lt; k; i++) {
-    assert nums[i] == expectedNums[i];
-}
-</pre>
-
-<p>If all assertions pass, then your solution will be <strong>accepted</strong>.</p>
-
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,1,1,2,2,3]
-<strong>Output:</strong> 5, nums = [1,1,2,2,3,_]
-<strong>Explanation:</strong> Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-</pre>
+
+Given <em>nums</em> = <strong>[1,1,1,2,2,3]</strong>,
+
+
+
+Your function should return length = <strong><code>5</code></strong>, with the first five elements of <em><code>nums</code></em> being <strong><code>1, 1, 2, 2</code></strong> and <strong>3</strong> respectively.
+
+
+
+It doesn&#39;t matter what you leave beyond the returned length.</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [0,0,1,1,1,1,2,3,3]
-<strong>Output:</strong> 7, nums = [0,0,1,1,2,3,3,_,_]
-<strong>Explanation:</strong> Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
+
+Given <em>nums</em> = <strong>[0,0,1,1,1,1,2,3,3]</strong>,
+
+
+
+Your function should return length = <strong><code>7</code></strong>, with the first seven elements of <em><code>nums</code></em> being modified to&nbsp;<strong><code>0</code></strong>, <strong>0</strong>, <strong>1</strong>, <strong>1</strong>, <strong>2</strong>, <strong>3</strong> and&nbsp;<strong>3</strong> respectively.
+
+
+
+It doesn&#39;t matter what values are set beyond&nbsp;the returned length.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><strong>Clarification:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
-</ul>
+<p>Confused why the returned value is an integer but your answer is an array?</p>
+
+<p>Note that the input array is passed in by <strong>reference</strong>, which means modification to the input array will be known to the caller as well.</p>
+
+<p>Internally you can think of this:</p>
+
+<pre>
+
+// <strong>nums</strong> is passed in by reference. (i.e., without making a copy)
+
+int len = removeDuplicates(nums);
+
+
+
+// any modification to <strong>nums</strong> in your function would be known by the caller.
+
+// using the length returned by your function, it prints the first <strong>len</strong> elements.
+
+for (int i = 0; i &lt; len; i++) {
+
+&nbsp; &nbsp; print(nums[i]);
+
+}
+
+</pre>
 
 ## Solutions
 
@@ -65,113 +73,13 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 ### **Python3**
 
 ```python
-class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        i = 0
-        for num in nums:
-            if i < 2 or num != nums[i - 2]:
-                nums[i] = num
-                i += 1
-        return i
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int removeDuplicates(int[] nums) {
-        int i = 0;
-        for (int num : nums) {
-            if (i < 2 || num != nums[i - 2]) {
-                nums[i++] = num;
-            }
-        }
-        return i;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        int i = 0;
-        for (int& num : nums)
-            if (i < 2 || num != nums[i - 2])
-                nums[i++] = num;
-        return i;
-    }
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int RemoveDuplicates(int[] nums) {
-        int i = 0;
-        foreach(int num in nums)
-        {
-            if (i < 2 || num != nums[i - 2])
-            {
-                nums[i++] = num;
-            }
-        }
-        return i;
-    }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var removeDuplicates = function (nums) {
-    let i = 0;
-    for (const num of nums) {
-        if (i < 2 || num != nums[i - 2]) {
-            nums[i++] = num;
-        }
-    }
-    return i;
-};
-```
-
-### **Go**
-
-```go
-func removeDuplicates(nums []int) int {
-	i := 0
-	for _, num := range nums {
-		if i < 2 || num != nums[i-2] {
-			nums[i] = num
-			i++
-		}
-	}
-	return i
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        let mut len = 0;
-        for i in 0..nums.len() {
-            if i < 2 || nums[i] != nums[len - 2] {
-                nums[len] = nums[i];
-                len += 1;
-            }
-        }
-        len as i32
-    }
-}
 ```
 
 ### **...**

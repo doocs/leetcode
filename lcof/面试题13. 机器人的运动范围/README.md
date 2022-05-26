@@ -1,56 +1,31 @@
-# [面试题 13. 机器人的运动范围](https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
+# [面试题 13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
 
 ## 题目描述
 
-<p>地上有一个m行n列的方格，从坐标 <code>[0,0]</code> 到坐标 <code>[m-1,n-1]</code> 。一个机器人从坐标 <code>[0, 0] </code>的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7=18。但它不能进入方格 [35, 38]，因为3+5+3+8=19。请问该机器人能够到达多少个格子？</p>
+地上有一个 m 行 n 列的方格，从坐标 `[0,0]` 到坐标 `[m-1,n-1]` 。一个机器人从坐标 `[0, 0]` 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于 k 的格子。例如，当 k 为 18 时，机器人能够进入方格 `[35, 37]` ，因为 3+5+3+7=18。但它不能进入方格 `[35, 38]`，因为 3+5+3+8=19。请问该机器人能够到达多少个格子？
 
-<p>&nbsp;</p>
+**示例 1：**
 
-<p><strong>示例 1：</strong></p>
+```
+输入：m = 2, n = 3, k = 1
+输出：3
+```
 
-<pre><strong>输入：</strong>m = 2, n = 3, k = 1
-<strong>输出：</strong>3
-</pre>
+**示例 2：**
 
-<p><strong>示例 2：</strong></p>
+```
+输入：m = 3, n = 1, k = 0
+输出：1
+```
 
-<pre><strong>输入：</strong>m = 3, n = 1, k = 0
-<strong>输出：</strong>1
-</pre>
+**提示：**
 
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li><code>1 &lt;= n,m &lt;= 100</code></li>
-	<li><code>0 &lt;= k&nbsp;&lt;= 20</code></li>
-</ul>
+- `1 <= n,m <= 100`
+- `0 <= k <= 20`
 
 ## 解法
 
-此题一大误区是：遍历所有单元格，按照公式计算是否可进入，并记录可进入的方格数量。
-
-因为部分方格在公式上属于可进入，但不在机器人运动范围当中，进入一方格的前提条件是能够抵达相邻方格当中。
-
-而后，条件限制只能从 `(0,0)` 起步，对此，只需要关注方格的下方与右方即可。
-
-**流程**：
-
-1. `(0,0)` 开始。
-
-2. 根据公式判断 `(i, j)` 是否可进入：
-
-   - 可进入，并继续往右 `(i, j + 1)` 往下 `(i + 1, j)` 重新执行流程 2。
-   - 不可进入，退出结算。
-
-3. 计算可进入区域的数量，返回即可。
-
-**剪枝**：
-
-对于已进入的方格，需要防止多次进入，否则会导致指数级耗时。
-
-在确定方格可进入后，给方格加上标记。判断一个方格可进入之前，先查看是否存在对应的标记，存在标记时及时退出。
-
-记录方式不限数组与哈希表。
+深度优先搜索 DFS 实现。
 
 <!-- tabs:start -->
 
@@ -58,40 +33,64 @@
 
 ```python
 class Solution:
+    cnt = 0
     def movingCount(self, m: int, n: int, k: int) -> int:
+        def cal(m, n):
+            s = str(m) + str(n)
+            return sum([int(i) for i in s])
         def dfs(i, j):
-            if i >= m or j >= n or vis[i][j] or (i % 10 + i // 10 + j % 10 + j // 10) > k:
-                return 0
-            vis[i][j] = True
-            return 1 + dfs(i + 1, j) + dfs(i, j + 1)
-
-        vis = [[False] * n for _ in range(m)]
-        return dfs(0, 0)
+            if i < 0 or i >= m or j < 0 or j >= n or cal(i, j) > k or visited[i][j]:
+                return
+            self.cnt += 1
+            visited[i][j] = True
+            dfs(i + 1, j)
+            dfs(i - 1, j)
+            dfs(i, j + 1)
+            dfs(i, j - 1)
+        self.cnt = 0
+        visited = [[False for _ in range(n)] for _ in range(m)]
+        dfs(0, 0)
+        return self.cnt
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private boolean[][] vis;
     private int m;
     private int n;
-    private int k;
-
+    private boolean[][] visited;
+    private int cnt;
     public int movingCount(int m, int n, int k) {
+        visited = new boolean[m][n];
         this.m = m;
         this.n = n;
-        this.k = k;
-        vis = new boolean[m][n];
-        return dfs(0, 0);
+        cnt = 0;
+        dfs(0, 0, k);
+        return cnt;
     }
 
-    private int dfs(int i, int j) {
-        if (i >= m || j >= n || vis[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) {
-            return 0;
+    private void dfs(int i, int j, int k) {
+        if (i < 0 || i >= m || j < 0 || j >= n || visited[i][j] || cal(i, j) > k) return;
+        ++cnt;
+        visited[i][j] = true;
+        dfs(i + 1, j, k);
+        dfs(i - 1, j, k);
+        dfs(i, j + 1, k);
+        dfs(i, j - 1, k);
+    }
+
+    private int cal(int i, int j) {
+        int res = 0;
+        while (i != 0) {
+            res += (i % 10);
+            i /= 10;
         }
-        vis[i][j] = true;
-        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
+        while (j != 0) {
+            res += (j % 10);
+            j /= 10;
+        }
+        return res;
     }
 }
 ```
@@ -106,20 +105,50 @@ class Solution {
  * @return {number}
  */
 var movingCount = function (m, n, k) {
-    const vis = new Array(m * n).fill(false);
-    let dfs = function (i, j) {
-        if (
-            i >= m ||
-            j >= n ||
-            vis[i * n + j] ||
-            (i % 10) + Math.floor(i / 10) + (j % 10) + Math.floor(j / 10) > k
-        ) {
-            return 0;
-        }
-        vis[i * n + j] = true;
-        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
-    };
-    return dfs(0, 0);
+  let res = 0;
+  let isRead = [...new Array(m)].map(() => Array(n).fill(0));
+  let moving = [
+    [0, -1],
+    [0, 1],
+    [1, 0],
+    [-1, 0],
+  ];
+  let queue = [[0, 0]];
+  isRead[0][0] = 1;
+  while (queue.length) {
+    let [x, y] = queue.shift();
+    for (let [dx, dy] of moving) {
+      let X = x + dx;
+      let Y = y + dy;
+      if (
+        X >= 0 &&
+        Y >= 0 &&
+        X < m &&
+        Y < n &&
+        !isRead[X][Y] &&
+        isValid(X, Y)
+      ) {
+        queue.push([X, Y]);
+        isRead[X][Y] = 1;
+      }
+    }
+    res++;
+  }
+  function isValid(x, y) {
+    let r = 0;
+    r +=
+      x
+        .toString()
+        .split("")
+        .reduce((acc, cur) => acc + +cur, 0) +
+      y
+        .toString()
+        .split("")
+        .reduce((acc, cur) => acc + +cur, 0);
+    if (r <= k) return true;
+    else return false;
+  }
+  return res;
 };
 ```
 
@@ -127,19 +156,20 @@ var movingCount = function (m, n, k) {
 
 ```go
 func movingCount(m int, n int, k int) int {
-	vis := make([][]bool, m)
-	for i := range vis {
-		vis[i] = make([]bool, n)
+	var visited [][]bool
+	visited = make([][]bool, m)
+	for i := 0; i < m; i++ {
+		visited[i] = make([]bool, n)
 	}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) int {
-		if i >= m || j >= n || vis[i][j] || (i%10+i/10+j%10+j/10) > k {
-			return 0
-		}
-		vis[i][j] = true
-		return 1 + dfs(i+1, j) + dfs(i, j+1)
+	return dfs(0, 0, m, n, k, visited)
+}
+
+func dfs(x, y, m, n, k int, visited [][]bool) int {
+	if x >= m || y >= n || visited[x][y] || (x%10+x/10+y%10+y/10) > k {
+		return 0
 	}
-	return dfs(0, 0)
+	visited[x][y] = true
+	return 1 + dfs(x+1, y, m, n, k, visited) + dfs(x, y+1, m, n, k, visited)
 }
 ```
 
@@ -148,104 +178,47 @@ func movingCount(m int, n int, k int) int {
 ```cpp
 class Solution {
 public:
-    int m;
-    int n;
-    int k;
-    vector<vector<bool>> vis;
+    int checksum(int m, int n, int target) {
+        int a = 0;
+        while (m > 0) {
+            a += m % 10;
+            m /= 10;
+        }
+
+        int b = 0;
+        while (n > 0) {
+            b += n % 10;
+            n /= 10;
+        }
+
+        return a + b <= target;
+    }
+
+    int moving(int row, int col, vector<vector<int>>& arr, int i, int j, int target) {
+        int count = 0;
+        if (checksum(i, j, target)
+            && i>=0 && i < row && j>=0 && j < col
+            && arr[i][j] == 0) {
+            arr[i][j] = 1;
+            count = 1 + moving(row, col, arr, i-1, j, target)
+                    + moving(row, col, arr, i, j-1, target)
+                    + moving(row, col, arr, i+1, j, target)
+                    + moving(row, col, arr, i, j+1, target);
+        }
+
+        return count;
+    }
 
     int movingCount(int m, int n, int k) {
-        this->m = m;
-        this->n = n;
-        this->k = k;
-        vis.resize(m, vector<bool>(n, false));
-        return dfs(0, 0);
-    }
-
-    int dfs(int i, int j) {
-        if (i >= m || j >= n || vis[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) return 0;
-        vis[i][j] = true;
-        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
-    }
-};
-```
-
-### **TypeScript**
-
-```ts
-function movingCount(m: number, n: number, k: number): number {
-    const set = new Set();
-    const dfs = (i: number, j: number) => {
-        const key = `${i},${j}`;
-        if (
-            i === m ||
-            j === n ||
-            set.has(key) ||
-            `${i}${j}`.split('').reduce((r, v) => r + Number(v), 0) > k
-        ) {
-            return;
-        }
-        set.add(key);
-        dfs(i + 1, j);
-        dfs(i, j + 1);
-    };
-    dfs(0, 0);
-    return set.size;
-}
-```
-
-### **Rust**
-
-循环：
-
-```rust
-use std::collections::{HashSet, VecDeque};
-impl Solution {
-    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
-        let mut set = HashSet::new();
-        let mut queue = VecDeque::new();
-        queue.push_back([0, 0]);
-        while let Some([i, j]) = queue.pop_front() {
-            let key = format!("{},{}", i, j);
-            if i == m
-                || j == n
-                || set.contains(&key)
-                || k < format!("{}{}", i, j)
-                    .chars()
-                    .map(|c| c.to_string().parse::<i32>().unwrap())
-                    .sum::<i32>()
-            {
-                continue;
-            }
-            set.insert(key);
-            queue.push_back([i + 1, j]);
-            queue.push_back([i, j + 1]);
-        }
-        set.len() as i32
-    }
-}
-```
-
-递归：
-
-```rust
-impl Solution {
-    fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, i: usize, j: usize) -> i32 {
-        if i == sign.len()
-            || j == sign[0].len()
-            || sign[i][j]
-            || j % 10 + j / 10 % 10 + i % 10 + i / 10 % 10 > k
-        {
+        if (m == 0 || n == 0) {
             return 0;
         }
-        sign[i][j] = true;
-        1 + Self::dfs(sign, k, i + 1, j) + Self::dfs(sign, k, i, j + 1)
-    }
 
-    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
-        let mut sign = vec![vec![false; n as usize]; m as usize];
-        Self::dfs(&mut sign, k as usize, 0, 0)
+        vector<vector<int>> arr(m, vector<int>(n, 0));
+        int cnt = moving(m, n, arr, 0, 0, k);
+        return cnt;
     }
-}
+};
 ```
 
 ### **...**

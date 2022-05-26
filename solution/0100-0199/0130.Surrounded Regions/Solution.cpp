@@ -1,29 +1,50 @@
 class Solution {
+private:
+    void dfs(vector<vector<char>>& b, 
+             vector<vector<bool>>& m, 
+             int i, int j)
+    {
+        if (i < 0 || i >= b.size()
+           || j < 0 || j >= b[0].size())
+            return ;
+            
+        if (b[i][j] != 'O' || m[i][j])
+            return ;
+        
+        m[i][j] = true ;
+        dfs(b, m, i-1, j) ;
+        dfs(b, m, i+1, j) ;
+        dfs(b, m, i, j-1) ;
+        dfs(b, m, i, j+1) ;
+    }
 public:
     void solve(vector<vector<char>>& board) {
-        int m = board.size(), n = board[0].size();
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                if ((i == 0 || i == m - 1 || j == 0 || j == n - 1) && board[i][j] == 'O')
-                    dfs(board, i, j);
-        for (int i = 0; i < m; ++i)
+        if (board.size() == 0 || board[0].size() == 0)
+            return ;
+        
+        vector<vector<bool>> marks(board.size(), vector<bool>(board[0].size(), false)) ;
+        const int w_1 = board[0].size() - 1 ; 
+        for (int i = 0; i < w_1; ++i)
         {
-            for (int j = 0; j < n; ++j)
-            {
-                if (board[i][j] == '.') board[i][j] = 'O';
-                else if (board[i][j] == 'O') board[i][j] = 'X';
-            }
+            if (board[0][i] == 'O')
+                dfs(board, marks, 0, i) ;
+            if (board[board.size()-1][i] == 'O')
+                dfs(board, marks, board.size()-1, i) ;
         }
-    }
-
-    void dfs(vector<vector<char>>& board, int i, int j) {
-        board[i][j] = '.';
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k)
+        
+        const int h_1 = board.size() - 1 ;
+        for (int i = 1; i < h_1; ++i)
         {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size() && board[x][y] == 'O')
-                dfs(board, x, y);
+            if (board[i][0] == 'O')
+                dfs(board, marks, i, 0) ;
+            if (board[i][board[0].size()-1] == 'O')
+                dfs(board, marks, i, board[0].size()-1) ;
         }
+        
+        for (int i = 1; i < h_1; ++i)
+            for (int j = 1; j < w_1; ++j)
+                if (board[i][j] == 'O' && !marks[i][j])
+                    board[i][j] = 'X' ;
+                    
     }
 };

@@ -1,11 +1,10 @@
-# [1464. 数组中两元素的最大乘积](https://leetcode.cn/problems/maximum-product-of-two-elements-in-an-array)
+# [1464. 数组中两元素的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-two-elements-in-an-array)
 
 [English Version](/solution/1400-1499/1464.Maximum%20Product%20of%20Two%20Elements%20in%20an%20Array/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个整数数组 <code>nums</code>，请你选择数组的两个不同下标 <code>i</code> 和 <code>j</code><em>，</em>使 <code>(nums[i]-1)*(nums[j]-1)</code> 取得最大值。</p>
 
 <p>请你计算并返回该式的最大值。</p>
@@ -45,8 +44,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-找出数组中最大的两个元素的下标 i、j，然后计算 `(nums[i]-1)*(nums[j]-1)` 即可。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,17 +51,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
-        i = 0 if nums[0] > nums[1] else 1
-        j = 1 - i
-        for k in range(2, len(nums)):
-            if nums[k] > nums[i]:
-                j = k
-                i, j = j, i
-            elif nums[k] > nums[j]:
-                j = k
-        return (nums[i] - 1) * (nums[j] - 1)
+
 ```
 
 ### **Java**
@@ -72,23 +59,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int maxProduct(int[] nums) {
-        int i = nums[0] > nums[1] ? 0 : 1;
-        int j = 1 - i;
-        for (int k = 2; k < nums.length; ++k) {
-            if (nums[k] > nums[i]) {
-                j = k;
-                int t = i;
-                i = j;
-                j = t;
-            } else if (nums[k] > nums[j]) {
-                j = k;
-            }
-        }
-        return (nums[i] - 1) * (nums[j] - 1);
-    }
-}
+
 ```
 
 ### **...**

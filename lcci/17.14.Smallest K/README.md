@@ -1,4 +1,4 @@
-# [面试题 17.14. 最小 K 个数](https://leetcode.cn/problems/smallest-k-lcci)
+# [面试题 17.14. 最小 K 个数](https://leetcode-cn.com/problems/smallest-k-lcci)
 
 [English Version](/lcci/17.14.Smallest%20K/README_EN.md)
 

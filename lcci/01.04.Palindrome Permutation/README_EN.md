@@ -1,4 +1,4 @@
-# [01.04. Palindrome Permutation](https://leetcode.cn/problems/palindrome-permutation-lcci)
+# [01.04. Palindrome Permutation](https://leetcode-cn.com/problems/palindrome-permutation-lcci)
 
 [中文文档](/lcci/01.04.Palindrome%20Permutation/README.md)
 
@@ -27,8 +27,18 @@
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        counter = Counter(s)
-        return sum(1 for v in counter.values() if v % 2 == 1) <= 1
+        if s is None or len(s) < 2:
+            return True
+        cache = {}
+        for ch in s:
+            cache[ch] = 1 if cache.get(ch) is None else cache[ch] + 1
+        cnt = 0
+        for k, v in cache.items():
+            if (v & 1) == 1:
+                cnt += 1
+            if cnt > 1:
+                return False
+        return cnt <= 1
 ```
 
 ### **Java**
@@ -36,85 +46,24 @@ class Solution:
 ```java
 class Solution {
     public boolean canPermutePalindrome(String s) {
+        if (s == null || s.length() < 2) {
+            return true;
+        }
+        char[] chars = s.toCharArray();
         Map<Character, Integer> counter = new HashMap<>();
-        for (char c : s.toCharArray()) {
-            counter.put(c, counter.getOrDefault(c, 0) + 1);
+        for (char ch : chars) {
+            counter.put(ch, counter.get(ch) == null ? 1 : counter.get(ch) + 1);
         }
         int cnt = 0;
-        for (int v : counter.values()) {
-            cnt += v % 2;
-        }
-        return cnt < 2;
-    }
-}
-```
-
-### **Go**
-
-```go
-func canPermutePalindrome(s string) bool {
-	m := make(map[rune]bool)
-	count := 0
-	for _, r := range s {
-		if m[r] {
-			m[r] = false
-			count--
-		} else {
-			m[r] = true
-			count++
-		}
-	}
-	return count <= 1
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool canPermutePalindrome(string s) {
-        unordered_map<char, int> counter;
-        for (char c : s) ++counter[c];
-        int cnt = 0;
-        for (auto& [k, v] : counter) cnt += v % 2;
-        return cnt < 2;
-    }
-};
-```
-
-### **TypeScript**
-
-```ts
-function canPermutePalindrome(s: string): boolean {
-    const set = new Set<string>();
-    for (const c of s) {
-        if (set.has(c)) {
-            set.delete(c);
-        } else {
-            set.add(c);
-        }
-    }
-    return set.size <= 1;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-
-impl Solution {
-    pub fn can_permute_palindrome(s: String) -> bool {
-        let mut set = HashSet::new();
-        for c in s.chars() {
-            if set.contains(&c) {
-                set.remove(&c);
-            } else {
-                set.insert(c);
+        for (Map.Entry<Character, Integer> entry : counter.entrySet()) {
+            if ((entry.getValue() & 1) == 1) {
+                ++cnt;
+            }
+            if (cnt > 1) {
+                return false;
             }
         }
-        set.len() <= 1
+        return cnt <= 1;
     }
 }
 ```

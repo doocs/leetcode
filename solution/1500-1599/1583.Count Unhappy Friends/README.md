@@ -1,18 +1,17 @@
-# [1583. 统计不开心的朋友](https://leetcode.cn/problems/count-unhappy-friends)
+# [1583. 统计不开心的朋友](https://leetcode-cn.com/problems/count-unhappy-friends)
 
 [English Version](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一份 <code>n</code> 位朋友的亲近程度列表，其中 <code>n</code> 总是 <strong>偶数</strong> 。</p>
 
 <p>对每位朋友 <code>i</code>，<code>preferences[i]</code> 包含一份 <strong>按亲近程度从高</strong><strong>到低排列</strong> 的朋友列表。换句话说，排在列表前面的朋友与 <code>i</code> 的亲近程度比排在列表后面的朋友更高。每个列表中的朋友均以 <code>0</code> 到 <code>n-1</code> 之间的整数表示。</p>
 
 <p>所有的朋友被分成几对，配对情况以列表 <code>pairs</code> 给出，其中 <code>pairs[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示 <code>x<sub>i</sub></code> 与 <code>y<sub>i</sub></code> 配对，且 <code>y<sub>i</sub></code> 与 <code>x<sub>i</sub></code> 配对。</p>
 
-<p>但是，这样的配对情况可能会使其中部分朋友感到不开心。在 <code>x</code> 与 <code>y</code> 配对且 <code>u</code> 与 <code>v</code> 配对的情况下，如果同时满足下述两个条件，<code>x</code> 就会不开心：</p>
+<p>但是，这样的配对情况可能会是其中部分朋友感到不开心。在 <code>x</code> 与 <code>y</code> 配对且 <code>u</code> 与 <code>v</code> 配对的情况下，如果同时满足下述两个条件，<code>x</code> 就会不开心：</p>
 
 <ul>
 	<li><code>x</code> 与 <code>u</code> 的亲近程度胜过 <code>x</code> 与 <code>y</code>，且</li>
@@ -25,8 +24,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>n = 4, preferences = [[1, 2, 3], [3, 2, 0], [3, 1, 0], [1, 2, 0]], pairs = [[0, 1], [2, 3]]
+<pre><strong>输入：</strong>n = 4, preferences = [[1, 2, 3], [3, 2, 0], [3, 1, 0], [1, 2, 0]], pairs = [[0, 1], [2, 3]]
 <strong>输出：</strong>2
 <strong>解释：</strong>
 朋友 1 不开心，因为：
@@ -40,16 +38,14 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>n = 2, preferences = [[1], [0]], pairs = [[1, 0]]
+<pre><strong>输入：</strong>n = 2, preferences = [[1], [0]], pairs = [[1, 0]]
 <strong>输出：</strong>0
 <strong>解释：</strong>朋友 0 和 1 都开心。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>n = 4, preferences = [[1, 3, 2], [2, 3, 0], [1, 3, 0], [0, 2, 1]], pairs = [[1, 3], [0, 2]]
+<pre><strong>输入：</strong>n = 4, preferences = [[1, 3, 2], [2, 3, 0], [1, 3, 0], [0, 2, 1]], pairs = [[1, 3], [0, 2]]
 <strong>输出：</strong>4
 </pre>
 

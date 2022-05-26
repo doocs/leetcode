@@ -1,11 +1,10 @@
-# [1539. 第 k 个缺失的正整数](https://leetcode.cn/problems/kth-missing-positive-number)
+# [1539. 第 k 个缺失的正整数](https://leetcode-cn.com/problems/kth-missing-positive-number)
 
 [English Version](/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个 <strong>严格升序排列</strong>&nbsp;的正整数数组 <code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
 <p>请你找到这个数组里第&nbsp;<code>k</code>&nbsp;个缺失的正整数。</p>
@@ -41,8 +40,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：二分查找**
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,18 +47,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def findKthPositive(self, arr: List[int], k: int) -> int:
-        if arr[0] > k:
-            return k
-        left, right = 0, len(arr)
-        while left < right:
-            mid = (left + right) >> 1
-            if arr[mid] - mid - 1 >= k:
-                right = mid
-            else:
-                left = mid + 1
-        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1)
+
 ```
 
 ### **Java**
@@ -69,62 +55,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int findKthPositive(int[] arr, int k) {
-        if (arr[0] > k) {
-            return k;
-        }
-        int left = 0, right = arr.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (arr[mid] - mid - 1 >= k) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1);
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findKthPositive(vector<int>& arr, int k) {
-        if (arr[0] > k) return k;
-        int left = 0, right = arr.size();
-        while (left < right)
-        {
-            int mid = (left + right) >> 1;
-            if (arr[mid] - mid - 1 >= k) right = mid;
-            else left = mid + 1;
-        }
-        return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1);
-    }
-};
-```
-
-### **Go**
-
-```go
-func findKthPositive(arr []int, k int) int {
-	if arr[0] > k {
-		return k
-	}
-	left, right := 0, len(arr)
-	for left < right {
-		mid := (left + right) >> 1
-		if arr[mid]-mid-1 >= k {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return arr[left-1] + k - (arr[left-1] - (left - 1) - 1)
-}
 ```
 
 ### **...**

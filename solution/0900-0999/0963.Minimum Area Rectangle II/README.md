@@ -1,11 +1,10 @@
-# [963. 最小面积矩形 II](https://leetcode.cn/problems/minimum-area-rectangle-ii)
+# [963. 最小面积矩形 II](https://leetcode-cn.com/problems/minimum-area-rectangle-ii)
 
 [English Version](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给定在 xy 平面上的一组点，确定由这些点组成的任何矩形的最小面积，其中矩形的边<strong>不一定平行于</strong> x 轴和 y 轴。</p>
 
 <p>如果没有任何矩形，就返回 0。</p>
@@ -14,7 +13,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/1a.png" style="height: 151px; width: 150px;"></strong></p>
+![](./images/1a.png)
 
 <pre><strong>输入：</strong>[[1,2],[2,1],[1,0],[0,1]]
 <strong>输出：</strong>2.00000
@@ -22,7 +21,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/2.png" style="height: 94px; width: 150px;"></p>
+![](./images/2.png)
 
 <pre><strong>输入：</strong>[[0,1],[2,1],[1,1],[1,0],[2,0]]
 <strong>输出：</strong>1.00000
@@ -31,7 +30,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/3.png" style="height: 94px; width: 150px;"></p>
+![](./images/3.png)
 
 <pre><strong>输入：</strong>[[0,3],[1,2],[3,1],[1,3],[2,1]]
 <strong>输出：</strong>0
@@ -40,7 +39,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/4c.png" style="height: 155px; width: 160px;"></strong></p>
+![](./images/4c.png)
 
 <pre><strong>输入：</strong>[[3,1],[1,1],[0,1],[2,1],[3,3],[3,2],[0,2],[2,3]]
 <strong>输出：</strong>2.00000

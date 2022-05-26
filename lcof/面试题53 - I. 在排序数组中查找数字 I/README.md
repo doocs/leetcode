@@ -1,41 +1,28 @@
-# [面试题 53 - I. 在排序数组中查找数字 I](https://leetcode.cn/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/)
+# [面试题 53 - I. 在排序数组中查找数字 I](https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/)
 
 ## 题目描述
 
-<p>统计一个数字在排序数组中出现的次数。</p>
+统计一个数字在排序数组中出现的次数。
 
-<p> </p>
+**示例 1:**
 
-<p><strong>示例 1:</strong></p>
+```
+输入: nums = [5,7,7,8,8,10], target = 8
+输出: 2
+```
 
-<pre>
-<strong>输入:</strong> nums = [<code>5,7,7,8,8,10]</code>, target = 8
-<strong>输出:</strong> 2</pre>
+**示例  2:**
 
-<p><strong>示例 2:</strong></p>
+```
+输入: nums = [5,7,7,8,8,10], target = 6
+输出: 0
+```
 
-<pre>
-<strong>输入:</strong> nums = [<code>5,7,7,8,8,10]</code>, target = 6
-<strong>输出:</strong> 0</pre>
+**限制：**
 
-<p> </p>
-
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li><code>0 <= nums.length <= 10<sup>5</sup></code></li>
-	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
-	<li><code>nums</code> 是一个非递减数组</li>
-	<li><code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code></li>
-</ul>
-
-<p> </p>
-
-<p><strong>注意：</strong>本题与主站 34 题相同（仅返回值不同）：<a href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/">https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/</a></p>
+- `0 <= 数组长度 <= 50000`
 
 ## 解法
-
-两遍二分，分别查找出左边界和右边界。
 
 <!-- tabs:start -->
 
@@ -44,25 +31,33 @@
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        if len(nums) == 0:
+        if not nums:
             return 0
-        left, right = 0, len(nums) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            if nums[mid] >= target:
-                right = mid
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            m = l + ((r - l) >> 1)
+            if nums[m] == target:
+                return self._count(nums, l, r, m)
+            if nums[m] < target:
+                l = m + 1
             else:
-                left = mid + 1
-        if nums[left] != target:
-            return 0
-        l, right = left, len(nums) - 1
-        while left < right:
-            mid = (left + right + 1) >> 1
-            if nums[mid] <= target:
-                left = mid
-            else:
-                right = mid - 1
-        return left - l + 1
+                r = m - 1
+        return 0
+
+    def _count(self, nums, l, r, m) -> int:
+        cnt = 0
+        for i in range(m, l - 1, -1):
+            if nums[i] == nums[m]:
+                cnt += 1
+            elif nums[i] < nums[m]:
+                break
+
+        for i in range(m + 1, r + 1):
+            if nums[i] == nums[m]:
+                cnt += 1
+            elif nums[i] > nums[m]:
+                break
+        return cnt
 ```
 
 ### **Java**
@@ -73,102 +68,39 @@ class Solution {
         if (nums.length == 0) {
             return 0;
         }
-        // find first position
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (nums[mid] >= target) {
-                right = mid;
+        int l = 0, r = nums.length - 1;
+        while (l <= r) {
+            int m = l + ((r - l) >> 1);
+            if (nums[m] == target) {
+                return count(nums, l, r, m);
+            }
+            if (nums[m] < target) {
+                l = m + 1;
             } else {
-                left = mid + 1;
+                r = m - 1;
             }
         }
-        if (nums[left] != target) {
-            return 0;
-        }
-        int l = left;
-
-        // find last position
-        right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (nums[mid] <= target) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left - l + 1;
+        return 0;
     }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int search(vector<int>& nums, int target) {
-        int n = nums.size();
-        int left = 0, right = n;
-        int first, last;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid;
+    private int count(int[] nums, int l, int r, int m) {
+        int cnt = 0;
+        for (int i = m; i >= l; --i) {
+            if (nums[i] == nums[m]) {
+                ++cnt;
+            } else if (nums[i] < nums[m]) {
+                break;
             }
         }
-        if (left == n || nums[left] != target) {
-            return 0;
-        }
-        first = left;
-        left = 0, right = n;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] > target) {
-                right = mid;
-            } else {
-                left = mid + 1;
+        for (int i = m + 1; i <= r; ++i) {
+            if (nums[i] == nums[m]) {
+                ++cnt;
+            } else if (nums[i] > nums[m]) {
+                break;
             }
         }
-        last = left - 1;
-        return last - first + 1;
+        return cnt;
     }
-};
-```
-
-### **Go**
-
-```go
-func search(nums []int, target int) int {
-	if len(nums) == 0 {
-		return 0
-	}
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
-		if nums[mid] >= target {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	if nums[left] != target {
-		return 0
-	}
-	l := left
-	right = len(nums) - 1
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if nums[mid] <= target {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left - l + 1
 }
 ```
 
@@ -181,58 +113,31 @@ func search(nums []int, target int) int {
  * @return {number}
  */
 var search = function (nums, target) {
-    if (nums.length == 0) {
-        return 0;
+  if (!nums || !nums.length) return 0;
+  let left = 0;
+  let right = nums.length - 1;
+  let res = 0;
+  while (left < right) {
+    let mid = left + ~~((right - left) / 2);
+    if (nums[mid] < target) {
+      left = mid + 1;
+    } else if (nums[mid] > target) {
+      right = mid;
+    } else {
+      left = mid;
+      right = mid;
+      break;
     }
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    if (nums[left] != target) {
-        return 0;
-    }
-    let l = left;
-    right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (nums[mid] <= target) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left - l + 1;
+  }
+  while (nums[left] === target) {
+    res++;
+    left--;
+  }
+  while (nums[++right] === target) {
+    res++;
+  }
+  return res;
 };
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
-        let help = |target| {
-            let mut left = 0;
-            let mut right = nums.len();
-            while left < right  {
-                let mid = left + (right - left) / 2;
-                if nums[mid] <= target {
-                    left = mid + 1;
-                } else {
-                    right = mid;
-                }
-            }
-            left as i32
-        };
-
-        help(target) - help(target - 1)
-    }
-}
 ```
 
 ### **...**

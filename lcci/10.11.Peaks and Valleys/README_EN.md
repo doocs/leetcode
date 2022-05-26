@@ -1,4 +1,4 @@
-# [10.11. Peaks and Valleys](https://leetcode.cn/problems/peaks-and-valleys-lcci)
+# [10.11. Peaks and Valleys](https://leetcode-cn.com/problems/peaks-and-valleys-lcci)
 
 [中文文档](/lcci/10.11.Peaks%20and%20Valleys/README.md)
 

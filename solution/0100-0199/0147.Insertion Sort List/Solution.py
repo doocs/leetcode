@@ -1,13 +1,15 @@
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
         if head is None or head.next is None:
             return head
-        dummy = ListNode(head.val, head)
+        dummy = ListNode(head.val)
+        dummy.next = head
         pre, cur = dummy, head
         while cur:
             if pre.val <= cur.val:

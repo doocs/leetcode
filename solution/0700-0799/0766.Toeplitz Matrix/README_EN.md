@@ -4,48 +4,80 @@
 
 ## Description
 
-<p>Given an <code>m x n</code> <code>matrix</code>, return&nbsp;<em><code>true</code>&nbsp;if the matrix is Toeplitz. Otherwise, return <code>false</code>.</em></p>
+<p>A matrix is <em>Toeplitz</em> if every diagonal from top-left to bottom-right has the same element.</p>
 
-<p>A matrix is <strong>Toeplitz</strong> if every diagonal from top-left to bottom-right has the same elements.</p>
+<p>Now given an <code>M x N</code> matrix, return&nbsp;<code>True</code>&nbsp;if and only if the matrix is <em>Toeplitz</em>.<br />
 
-<p>&nbsp;</p>
+&nbsp;</p>
+
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0766.Toeplitz%20Matrix/images/ex1.jpg" style="width: 322px; height: 242px;" />
+
 <pre>
-<strong>Input:</strong> matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-<strong>Output:</strong> true
+
+<strong>Input:
+
+</strong>matrix = [
+
+&nbsp; [1,2,3,4],
+
+&nbsp; [5,1,2,3],
+
+&nbsp; [9,5,1,2]
+
+]
+
+<strong>Output:</strong> True
+
 <strong>Explanation:</strong>
+
 In the above grid, the&nbsp;diagonals are:
+
 &quot;[9]&quot;, &quot;[5, 5]&quot;, &quot;[1, 1, 1]&quot;, &quot;[2, 2, 2]&quot;, &quot;[3, 3]&quot;, &quot;[4]&quot;.
+
 In each diagonal all elements are the same, so the answer is True.
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0766.Toeplitz%20Matrix/images/ex2.jpg" style="width: 162px; height: 162px;" />
+
 <pre>
-<strong>Input:</strong> matrix = [[1,2],[2,2]]
-<strong>Output:</strong> false
+
+<strong>Input:
+
+</strong>matrix = [
+
+&nbsp; [1,2],
+
+&nbsp; [2,2]
+
+]
+
+<strong>Output:</strong> False
+
 <strong>Explanation:</strong>
+
 The diagonal &quot;[1, 2]&quot; has different elements.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><br />
 
-<ul>
-	<li><code>m == matrix.length</code></li>
-	<li><code>n == matrix[i].length</code></li>
-	<li><code>1 &lt;= m, n &lt;= 20</code></li>
-	<li><code>0 &lt;= matrix[i][j] &lt;= 99</code></li>
-</ul>
+<strong>Note:</strong></p>
 
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong></p>
+<ol>
+    <li><code>matrix</code> will be a 2D array of integers.</li>
+    <li><code>matrix</code> will have a number of rows and columns in range <code>[1, 20]</code>.</li>
+    <li><code>matrix[i][j]</code> will be integers in range <code>[0, 99]</code>.</li>
+</ol>
 
-<ul>
-	<li>What if the <code>matrix</code> is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?</li>
-	<li>What if the <code>matrix</code> is so large that you can only load up a partial row into the memory at once?</li>
-</ul>
+<p><br />
+
+<strong>Follow up:</strong></p>
+
+<ol>
+    <li>What if the matrix is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?</li>
+    <li>What if the matrix is so large that you can only load up a partial row into the memory at once?</li>
+</ol>
 
 ## Solutions
 
@@ -54,32 +86,13 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 ### **Python3**
 
 ```python
-class Solution:
-    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
-        m, n = len(matrix), len(matrix[0])
-        for i in range(1, m):
-            for j in range(1, n):
-                if matrix[i][j] != matrix[i - 1][j - 1]:
-                    return False
-        return True
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public boolean isToeplitzMatrix(int[][] matrix) {
-        int m = matrix.length, n = matrix[0].length;
-        for (int i = 1; i < m; ++i) {
-            for (int j = 1; j < n; ++j) {
-                if (matrix[i][j] != matrix[i - 1][j - 1]) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-}
+
 ```
 
 ### **...**

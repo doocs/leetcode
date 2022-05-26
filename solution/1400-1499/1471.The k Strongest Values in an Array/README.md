@@ -1,11 +1,10 @@
-# [1471. 数组中的 k 个最强值](https://leetcode.cn/problems/the-k-strongest-values-in-an-array)
+# [1471. 数组中的 k 个最强值](https://leetcode-cn.com/problems/the-k-strongest-values-in-an-array)
 
 [English Version](/solution/1400-1499/1471.The%20k%20Strongest%20Values%20in%20an%20Array/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个整数数组 <code>arr</code> 和一个整数 <code>k</code> 。</p>
 
 <p>设 <code>m</code> 为数组的中位数，只要满足下述两个前提之一，就可以判定 <code>arr[i]</code> 的值比 <code>arr[j]</code> 的值更强：</p>
@@ -74,10 +73,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：自定义排序**
-
-时间复杂度 O(2nlogn)。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -85,12 +80,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def getStrongest(self, arr: List[int], k: int) -> List[int]:
-        arr.sort()
-        m = arr[(len(arr) - 1) >> 1]
-        arr.sort(key=lambda x: (-abs(x - m), -x))
-        return arr[:k]
+
 ```
 
 ### **Java**
@@ -98,68 +88,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int[] getStrongest(int[] arr, int k) {
-        Arrays.sort(arr);
-        int m = arr[(arr.length - 1) >> 1];
-        List<Integer> nums = new ArrayList<>();
-        for (int v : arr) {
-            nums.add(v);
-        }
-        nums.sort((a, b) -> {
-            int x = Math.abs(a - m);
-            int y = Math.abs(b - m);
-            return x == y ? b - a : y - x;
-        });
-        int[] ans = new int[k];
-        for (int i = 0; i < k; ++i) {
-            ans[i] = nums.get(i);
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> getStrongest(vector<int>& arr, int k) {
-        sort(arr.begin(), arr.end());
-        int m = arr[(arr.size() - 1) >> 1];
-        sort(arr.begin(), arr.end(), [&](int a, int b) {
-            int x = abs(a - m), y = abs(b - m);
-            return x == y ? a > b : x > y;
-        });
-        vector<int> ans(arr.begin(), arr.begin() + k);
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func getStrongest(arr []int, k int) []int {
-	sort.Ints(arr)
-	m := arr[(len(arr)-1)>>1]
-	sort.Slice(arr, func(i, j int) bool {
-		x, y := abs(arr[i]-m), abs(arr[j]-m)
-		if x == y {
-			return arr[i] > arr[j]
-		}
-		return x > y
-	})
-	return arr[:k]
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
 ```
 
 ### **...**

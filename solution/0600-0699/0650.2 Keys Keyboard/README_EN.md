@@ -4,40 +4,46 @@
 
 ## Description
 
-<p>There is only one character <code>&#39;A&#39;</code> on the screen of a notepad. You can perform one of two operations on this notepad for each step:</p>
+<p>Initially on a notepad only one character &#39;A&#39; is present. You can perform two operations on this notepad for each step:</p>
 
-<ul>
-	<li>Copy All: You can copy all the characters present on the screen (a partial copy is not allowed).</li>
-	<li>Paste: You can paste the characters which are copied last time.</li>
-</ul>
-
-<p>Given an integer <code>n</code>, return <em>the minimum number of operations to get the character</em> <code>&#39;A&#39;</code> <em>exactly</em> <code>n</code> <em>times on the screen</em>.</p>
+<ol>
+    <li><code>Copy All</code>: You can copy all the characters present on the notepad (partial copy is not allowed).</li>
+    <li><code>Paste</code>: You can paste the characters which are copied <b>last time</b>.</li>
+</ol>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p>Given a number <code>n</code>. You have to get <b>exactly</b> <code>n</code> &#39;A&#39; on the notepad by performing the minimum number of steps permitted. Output the minimum number of steps to get <code>n</code> &#39;A&#39;.</p>
+
+<p><b>Example 1:</b></p>
 
 <pre>
-<strong>Input:</strong> n = 3
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> Initially, we have one character &#39;A&#39;.
-In step 1, we use Copy All operation.
-In step 2, we use Paste operation to get &#39;AA&#39;.
-In step 3, we use Paste operation to get &#39;AAA&#39;.
-</pre>
 
-<p><strong>Example 2:</strong></p>
+<b>Input:</b> 3
 
-<pre>
-<strong>Input:</strong> n = 1
-<strong>Output:</strong> 0
+<b>Output:</b> 3
+
+<b>Explanation:</b>
+
+Intitally, we have one character &#39;A&#39;.
+
+In step 1, we use <b>Copy All</b> operation.
+
+In step 2, we use <b>Paste</b> operation to get &#39;AA&#39;.
+
+In step 3, we use <b>Paste</b> operation to get &#39;AAA&#39;.
+
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= n &lt;= 1000</code></li>
-</ul>
+<p><b>Note:</b></p>
+
+<ol>
+    <li>The <code>n</code> will be in the range [1, 1000].</li>
+</ol>
+
+<p>&nbsp;</p>
 
 ## Solutions
 

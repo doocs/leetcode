@@ -1,19 +1,21 @@
 class Solution {
+
+    private List<List<Integer>> result;
+
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> res = new ArrayList<>();
-        dfs(1, n, k, new ArrayList<>(), res);
-        return res;
+        result = new ArrayList<>();
+        combine(n-k+1,k,0,1,new Integer[k]);
+        return result;
     }
 
-    private void dfs(int i, int n, int k, List<Integer> t, List<List<Integer>> res) {
-        if (t.size() == k) {
-            res.add(new ArrayList<>(t));
+    private void combine(int n, int k, int i, int start, Integer[] list) {
+        if (i==k) {
+            result.add(new ArrayList<>(Arrays.asList(list)));
             return;
         }
-        for (int j = i; j <= n; ++j) {
-            t.add(j);
-            dfs(j + 1, n, k, t, res);
-            t.remove(t.size() - 1);
+        for (int j = start; j <= n+i; j++) {
+            list[i] = j;
+            combine(n,k,i+1,j+1,list);
         }
     }
 }

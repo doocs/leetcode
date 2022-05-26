@@ -1,4 +1,4 @@
-# [面试题 16.14. 最佳直线](https://leetcode.cn/problems/best-line-lcci)
+# [面试题 16.14. 最佳直线](https://leetcode-cn.com/problems/best-line-lcci)
 
 [English Version](/lcci/16.14.Best%20Line/README_EN.md)
 

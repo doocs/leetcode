@@ -4,36 +4,38 @@
 
 ## Description
 
-<p>Given a string <code>text</code> and an array of strings <code>words</code>, return <em>an array of all index pairs </em><code>[i, j]</code><em> so that the substring </em><code>text[i...j]</code><em> is in <code>words</code></em>.</p>
+<p>Given a <code>text</code> string and <code>words</code> (a list of strings), return all index pairs <code>[i, j]</code> so that the substring <code>text[i]...text[j]</code> is in the list of <code>words</code>.</p>
 
-<p>Return the pairs <code>[i, j]</code> in sorted order (i.e., sort them by their first coordinate, and in case of ties sort them by their second coordinate).</p>
+<p> </p>
 
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> text = &quot;thestoryofleetcodeandme&quot;, words = [&quot;story&quot;,&quot;fleet&quot;,&quot;leetcode&quot;]
-<strong>Output:</strong> [[3,7],[9,13],[10,17]]
+<strong>Input: </strong>text = <span id="example-input-1-1">"thestoryofleetcodeandme"</span>, words = <span id="example-input-1-2">["story","fleet","leetcode"]</span>
+<strong>Output: </strong><span id="example-output-1">[[3,7],[9,13],[10,17]]</span>
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> text = &quot;ababa&quot;, words = [&quot;aba&quot;,&quot;ab&quot;]
-<strong>Output:</strong> [[0,1],[0,2],[2,3],[2,4]]
-<strong>Explanation:</strong> Notice that matches can overlap, see &quot;aba&quot; is found in [0,2] and [2,4].
+<strong>Input: </strong>text = <span id="example-input-2-1">"ababa"</span>, words = <span id="example-input-2-2">["aba","ab"]</span>
+<strong>Output: </strong><span id="example-output-2">[[0,1],[0,2],[2,3],[2,4]]</span>
+<strong>Explanation: </strong>
+Notice that matches can overlap, see "aba" is found in [0,2] and [2,4].
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p> </p>
 
-<ul>
-	<li><code>1 &lt;= text.length &lt;= 100</code></li>
-	<li><code>1 &lt;= words.length &lt;= 20</code></li>
-	<li><code>1 &lt;= words[i].length &lt;= 50</code></li>
-	<li><code>text</code> and <code>words[i]</code> consist of lowercase English letters.</li>
-	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
-</ul>
+<p><strong>Note:</strong></p>
+
+<ol>
+	<li>All strings contains only lowercase English letters.</li>
+	<li>It's guaranteed that all strings in <code>words</code> are different.</li>
+	<li><code>1 <= text.length <= 100</code></li>
+	<li><code>1 <= words.length <= 20</code></li>
+	<li><code>1 <= words[i].length <= 50</code></li>
+	<li>Return the pairs <code>[i,j]</code> in sorted order (i.e. sort them by their first coordinate in case of ties sort them by their second coordinate).</li>
+</ol>
 
 ## Solutions
 

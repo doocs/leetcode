@@ -4,40 +4,89 @@
 
 ## Description
 
-<p>Solve a given equation and return the value of <code>&#39;x&#39;</code> in the form of a string <code>&quot;x=#value&quot;</code>. The equation contains only <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code> operation, the variable <code>&#39;x&#39;</code> and its coefficient. You should return <code>&quot;No solution&quot;</code> if there is no solution for the equation, or <code>&quot;Infinite solutions&quot;</code> if there are infinite solutions for the equation.</p>
+<p>
 
-<p>If there is exactly one solution for the equation, we ensure that the value of <code>&#39;x&#39;</code> is an integer.</p>
+Solve a given equation and return the value of <code>x</code> in the form of string "x=#value". The equation contains only '+', '-' operation, the variable <code>x</code> and its coefficient.
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+</p>
+
+<p>
+
+If there is no solution for the equation, return "No solution".
+
+</p>
+
+<p>
+
+If there are infinite solutions for the equation, return "Infinite solutions".
+
+</p>
+
+<p>
+
+If there is exactly one solution for the equation, we ensure that the value of <code>x</code> is an integer.
+
+</p>
+
+<p><b>Example 1:</b><br/>
 
 <pre>
-<strong>Input:</strong> equation = &quot;x+5-3+x=6+x-2&quot;
-<strong>Output:</strong> &quot;x=2&quot;
+
+<b>Input:</b> "x+5-3+x=6+x-2"
+
+<b>Output:</b> "x=2"
+
 </pre>
 
-<p><strong>Example 2:</strong></p>
+</p>
+
+<p><b>Example 2:</b><br/>
 
 <pre>
-<strong>Input:</strong> equation = &quot;x=x&quot;
-<strong>Output:</strong> &quot;Infinite solutions&quot;
+
+<b>Input:</b> "x=x"
+
+<b>Output:</b> "Infinite solutions"
+
 </pre>
 
-<p><strong>Example 3:</strong></p>
+</p>
+
+<p><b>Example 3:</b><br/>
 
 <pre>
-<strong>Input:</strong> equation = &quot;2x=x&quot;
-<strong>Output:</strong> &quot;x=0&quot;
+
+<b>Input:</b> "2x=x"
+
+<b>Output:</b> "x=0"
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</p>
 
-<ul>
-	<li><code>3 &lt;= equation.length &lt;= 1000</code></li>
-	<li><code>equation</code> has exactly one <code>&#39;=&#39;</code>.</li>
-	<li><code>equation</code> consists of integers with an absolute value in the range <code>[0, 100]</code> without any leading zeros, and the variable <code>&#39;x&#39;</code>.</li>
-</ul>
+<p><b>Example 4:</b><br/>
+
+<pre>
+
+<b>Input:</b> "2x+3x-6x=x+2"
+
+<b>Output:</b> "x=-1"
+
+</pre>
+
+</p>
+
+<p><b>Example 5:</b><br/>
+
+<pre>
+
+<b>Input:</b> "x=x+2"
+
+<b>Output:</b> "No solution"
+
+</pre>
+
+</p>
 
 ## Solutions
 

@@ -10,7 +10,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/images/screenshot-2020-12-30-at-40536-pm.png" style="width: 500px; height: 240px;" />
+
+![](./images/screenshot-2020-12-30-at-40536-pm.png)
+
 <pre>
 <strong>Input:</strong> matrix = [[0,0,1],[1,1,1],[1,0,1]]
 <strong>Output:</strong> 4
@@ -19,7 +21,9 @@ The largest submatrix of 1s, in bold, has an area of 4.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/images/screenshot-2020-12-30-at-40852-pm.png" style="width: 500px; height: 62px;" />
+
+![](./images/screenshot-2020-12-30-at-40852-pm.png)
+
 <pre>
 <strong>Input:</strong> matrix = [[1,0,1,0,1]]
 <strong>Output:</strong> 3
@@ -32,8 +36,14 @@ The largest submatrix of 1s, in bold, has an area of 3.
 <pre>
 <strong>Input:</strong> matrix = [[1,1,0],[1,0,1]]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> Notice that you must rearrange entire columns, and there is no way to make a submatrix of 1s larger than an area of 2.
-</pre>
+<strong>Explanation:</strong> Notice that you must rearrange entire columns, and there is no way to make a submatrix of 1s larger than an area of 2.</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> matrix = [[0,0],[0,0]]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> As there are no 1s, no submatrix of 1s can be formed and the area is 0.</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -42,7 +52,7 @@ The largest submatrix of 1s, in bold, has an area of 3.
 	<li><code>m == matrix.length</code></li>
 	<li><code>n == matrix[i].length</code></li>
 	<li><code>1 &lt;= m * n &lt;= 10<sup>5</sup></code></li>
-	<li><code>matrix[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li><code>matrix[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
 ## Solutions

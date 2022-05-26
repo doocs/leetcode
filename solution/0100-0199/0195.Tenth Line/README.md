@@ -1,11 +1,10 @@
-# [195. 第十行](https://leetcode.cn/problems/tenth-line)
+# [195. 第十行](https://leetcode-cn.com/problems/tenth-line)
 
 [English Version](/solution/0100-0199/0195.Tenth%20Line/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给定一个文本文件&nbsp;<code>file.txt</code>，请只打印这个文件中的第十行。</p>
 
 <p><strong>示例:</strong></p>
@@ -39,11 +38,25 @@ Line 10
 
 <!-- tabs:start -->
 
-### **Bash**
+### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```sh
+```python
+
+```
+
+### **Java**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
+```
+
+### **...**
+
+```
 
 ```
 

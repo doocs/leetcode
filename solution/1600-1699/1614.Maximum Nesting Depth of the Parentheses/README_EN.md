@@ -41,6 +41,20 @@
 <strong>Output:</strong> 3
 </pre>
 
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;1+(<u>2</u>*3)/(2-1)&quot;
+<strong>Output:</strong> 1
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;<u>1</u>&quot;
+<strong>Output:</strong> 0
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -57,110 +71,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def maxDepth(self, s: str) -> int:
-        n = ans = 0
-        for c in s:
-            if c == '(':
-                n += 1
-                ans = max(ans, n)
-            elif c == ')':
-                n -= 1
-        return ans
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int maxDepth(String s) {
-        int n = 0, ans = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '(') {
-                ans = Math.max(ans, ++n);
-            } else if (c == ')') {
-                --n;
-            }
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxDepth(string s) {
-        int n = 0, ans = 0;
-        for (char c : s)
-        {
-            if (c == '(') ans = max(ans, ++n);
-            else if (c == ')') --n;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxDepth(s string) int {
-	n, ans := 0, 0
-	for _, c := range s {
-		if c == '(' {
-			n++
-			if ans < n {
-				ans = n
-			}
-		} else if c == ')' {
-			n--
-		}
-	}
-	return ans
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @return {number}
- */
-var maxDepth = function (s) {
-    let n = 0,
-        ans = 0;
-    for (let c of s) {
-        if (c == '(') ans = Math.max(ans, ++n);
-        else if (c == ')') --n;
-    }
-    return ans;
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MaxDepth(string s) {
-        int n = 0, ans = 0;
-        foreach (char c in s)
-        {
-            if (c == '(')
-            {
-                ans = Math.Max(ans, ++n);
-            }
-            else if (c == ')')
-            {
-                --n;
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ### **...**

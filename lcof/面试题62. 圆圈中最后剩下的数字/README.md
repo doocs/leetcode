@@ -1,37 +1,31 @@
-# [面试题 62. 圆圈中最后剩下的数字](https://leetcode.cn/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)
+# [面试题 62. 圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>0,1,···,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字（删除后从下一个数字开始计数）。求出这个圆圈里剩下的最后一个数字。</p>
+0,1,,n-1 这 n 个数字排成一个圆圈，从数字 0 开始，每次从这个圆圈里删除第 m 个数字。求出这个圆圈里剩下的最后一个数字。
 
-<p>例如，0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次是2、0、4、1，因此最后剩下的数字是3。</p>
+例如，0、1、2、3、4 这 5 个数字组成一个圆圈，从数字 0 开始每次删除第 3 个数字，则删除的前 4 个数字依次是 2、0、4、1，因此最后剩下的数字是 3。
 
-<p> </p>
+**示例 1：**
 
-<p><strong>示例 1：</strong></p>
+```
+输入: n = 5, m = 3
+输出: 3
+```
 
-<pre>
-<strong>输入:</strong> n = 5, m = 3
-<strong>输出: </strong>3
-</pre>
+**示例 2：**
 
-<p><strong>示例 2：</strong></p>
+```
+输入: n = 10, m = 17
+输出: 2
+```
 
-<pre>
-<strong>输入:</strong> n = 10, m = 17
-<strong>输出: </strong>2
-</pre>
+**限制：**
 
-<p> </p>
-
-<p><strong>限制：</strong></p>
-
-<ul>
-	<li><code>1 <= n <= 10^5</code></li>
-	<li><code>1 <= m <= 10^6</code></li>
-</ul>
+- `1 <= n <= 10^5`
+- `1 <= m <= 10^6`
 
 ## 解法
 
@@ -102,25 +96,13 @@ class Solution {
  * @return {number}
  */
 var lastRemaining = function (n, m) {
-    // 约瑟夫环
-    let res = 0;
-    for (let i = 1; i <= n; i++) {
-        res = (res + m) % i;
-    }
-    return res;
+  // 约瑟夫环
+  let res = 0;
+  for (let i = 1; i <= n; i++) {
+    res = (res + m) % i;
+  }
+  return res;
 };
-```
-
-### **Go**
-
-```go
-func lastRemaining(n int, m int) int {
-	f := 0
-	for i := 2; i <= n; i++ {
-		f = (f + m) % i
-	}
-	return f
-}
 ```
 
 ### **...**

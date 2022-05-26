@@ -1,12 +1,13 @@
 class Solution {
     public boolean isUnique(String astr) {
-        int bitmap = 0;
-        for (char c : astr.toCharArray()) {
-            int pos = c - 'a';
-            if ((bitmap & (1 << pos)) != 0) {
-                return false;
+        char[] chars = astr.toCharArray();
+        int len = chars.length;
+        for (int i = 0; i < len - 1; ++i) {
+            for (int j = i + 1; j < len; ++j) {
+                if (chars[i] == chars[j]) {
+                    return false;
+                }
             }
-            bitmap |= (1 << pos);
         }
         return true;
     }

@@ -1,44 +1,30 @@
-# [107. 二叉树的层序遍历 II](https://leetcode.cn/problems/binary-tree-level-order-traversal-ii)
+# [107. 二叉树的层次遍历 II](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii)
 
 [English Version](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给定一个二叉树，返回其节点值自底向上的层次遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）</p>
 
-<p>给你二叉树的根节点 <code>root</code> ，返回其节点值 <strong>自底向上的层序遍历</strong> 。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）</p>
+<p>例如：<br>
+给定二叉树 <code>[3,9,20,null,null,15,7]</code>,</p>
 
-<p>&nbsp;</p>
-
-<p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/images/tree1.jpg" style="width: 277px; height: 302px;" />
-<pre>
-<strong>输入：</strong>root = [3,9,20,null,null,15,7]
-<strong>输出：</strong>[[15,7],[9,20],[3]]
+<pre>    3
+   / \
+  9  20
+    /  \
+   15   7
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p>返回其自底向上的层次遍历为：</p>
 
-<pre>
-<strong>输入：</strong>root = [1]
-<strong>输出：</strong>[[1]]
+<pre>[
+  [15,7],
+  [9,20],
+  [3]
+]
 </pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>root = []
-<strong>输出：</strong>[]
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li>树中节点数目在范围 <code>[0, 2000]</code> 内</li>
-	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
-</ul>
 
 ## 解法
 
@@ -55,28 +41,29 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
-        ans = []
         if root is None:
-            return ans
-        q = deque([root])
+            return []
+        q = [root]
+        res = []
         while q:
-            n = len(q)
+            size = len(q)
             t = []
-            for _ in range(n):
-                node = q.popleft()
+            for _ in range(size):
+                node = q.pop(0)
                 t.append(node.val)
-                if node.left:
+                if node.left is not None:
                     q.append(node.left)
-                if node.right:
+                if node.right is not None:
                     q.append(node.right)
-            ans.append(t)
-        return ans[::-1]
+            res.append(t)
+        return res[::-1]
 ```
 
 ### **Java**
@@ -90,147 +77,29 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ *     TreeNode(int x) { val = x; }
  * }
  */
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        LinkedList<List<Integer>> ans = new LinkedList<>();
-        if (root == null) {
-            return ans;
-        }
-        Deque<TreeNode> q = new LinkedList<>();
-        q.offerLast(root);
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
+        List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
+            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            for (int i = q.size(); i > 0; --i) {
-                TreeNode node = q.pollFirst();
+            while (size-- > 0) {
+                TreeNode node = q.poll();
                 t.add(node.val);
-                if (node.left != null) {
-                    q.offerLast(node.left);
-                }
-                if (node.right != null) {
-                    q.offerLast(node.right);
-                }
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
             }
-            ans.addFirst(t);
+            res.add(0, t);
         }
-        return ans;
+        return res;
     }
 }
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    vector<vector<int>> levelOrderBottom(TreeNode* root) {
-        vector<vector<int>> ans;
-        if (!root) return ans;
-        queue<TreeNode*> q{{root}};
-        while (!q.empty())
-        {
-            vector<int> t;
-            for (int i = q.size(); i > 0; --i) {
-                TreeNode* node = q.front();
-                q.pop();
-                t.push_back(node->val);
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
-            }
-            ans.push_back(t);
-        }
-        reverse(ans.begin(), ans.end());
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func levelOrderBottom(root *TreeNode) [][]int {
-	ans := [][]int{}
-	if root == nil {
-		return ans
-	}
-	q := []*TreeNode{root}
-	for len(q) > 0 {
-		var t []int
-		for i := len(q); i > 0; i-- {
-			node := q[0]
-			q = q[1:]
-			t = append(t, node.Val)
-			if node.Left != nil {
-				q = append(q, node.Left)
-			}
-			if node.Right != nil {
-				q = append(q, node.Right)
-			}
-		}
-		ans = append([][]int{t}, ans...)
-	}
-	return ans
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number[][]}
- */
-var levelOrderBottom = function (root) {
-    let ans = [];
-    if (!root) return ans;
-    let q = [root];
-    while (q.length) {
-        let t = [];
-        for (let i = q.length; i > 0; --i) {
-            const node = q.shift();
-            t.push(node.val);
-            if (node.left) q.push(node.left);
-            if (node.right) q.push(node.right);
-        }
-        ans.unshift(t);
-    }
-    return ans;
-};
 ```
 
 ### **...**

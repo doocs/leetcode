@@ -3,9 +3,7 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
@@ -13,7 +11,8 @@ class Solution {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode dummy = new ListNode(head.val, head);
+        ListNode dummy = new ListNode(head.val);
+        dummy.next = head;
         ListNode pre = dummy, cur = head;
         while (cur != null) {
             if (pre.val <= cur.val) {

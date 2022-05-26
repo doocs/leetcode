@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>Given an array of positive integers <code>arr</code>, find a pattern of length <code>m</code> that is repeated <code>k</code> or more times.</p>
+<p>Given an array of positive integers <code>arr</code>,&nbsp; find a pattern of length <code>m</code> that is repeated <code>k</code> or more times.</p>
 
 <p>A <strong>pattern</strong> is a subarray (consecutive sub-sequence) that consists of one or more values, repeated multiple times <strong>consecutively </strong>without overlapping. A pattern is defined by its length and the number of repetitions.</p>
 
-<p>Return <code>true</code> <em>if there exists a pattern of length</em> <code>m</code> <em>that is repeated</em> <code>k</code> <em>or more times, otherwise return</em> <code>false</code>.</p>
+<p>Return&nbsp;<code>true</code>&nbsp;<em>if there exists a pattern of length</em>&nbsp;<code>m</code>&nbsp;<em>that is repeated</em>&nbsp;<code>k</code>&nbsp;<em>or more times, otherwise return</em>&nbsp;<code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,14 +35,30 @@
 <strong>Explanation: </strong>The pattern (1,2) is of length 2 but is repeated only 2 times. There is no pattern of length 2 that is repeated 3 or more times.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [1,2,3,1,2], m = 2, k = 2
+<strong>Output:</strong> false
+<strong>Explanation: </strong>Notice that the pattern (1,2) exists twice but not consecutively, so it doesn&#39;t count.
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [2,2,2,2], m = 2, k = 3
+<strong>Output:</strong> false
+<strong>Explanation: </strong>The only pattern of length 2 is (2,2) however it&#39;s repeated only twice. Notice that we do not count overlapping repetitions.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>2 &lt;= arr.length &lt;= 100</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
-	<li><code>1 &lt;= m &lt;= 100</code></li>
-	<li><code>2 &lt;= k &lt;= 100</code></li>
+	<li><code>1 &lt;= m&nbsp;&lt;= 100</code></li>
+	<li><code>2 &lt;= k&nbsp;&lt;= 100</code></li>
 </ul>
 
 ## Solutions

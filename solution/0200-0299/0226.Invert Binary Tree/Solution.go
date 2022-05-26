@@ -6,16 +6,12 @@
  *     Right *TreeNode
  * }
  */
-func invertTree(root *TreeNode) *TreeNode {
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		root.Left, root.Right = root.Right, root.Left
-		dfs(root.Left)
-		dfs(root.Right)
-	}
-	dfs(root)
-	return root
+ func invertTree(root *TreeNode) *TreeNode {
+    if (root == nil) {
+        return nil
+    }
+    root.Left, root.Right = root.Right, root.Left
+    invertTree(root.Left)
+    invertTree(root.Right)
+    return root
 }

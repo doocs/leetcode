@@ -4,38 +4,40 @@
 
 ## Description
 
-<p>You are given a string <code>s</code> and an array of strings <code>words</code>. You should add a closed pair of bold tag <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code> to wrap the substrings in <code>s</code> that exist in <code>words</code>. If two such substrings overlap, you should wrap them together with only one pair of closed bold-tag. If two substrings wrapped by bold tags are consecutive, you should combine them.</p>
+Given a string <b>s</b> and a list of strings <b>dict</b>, you need to add a closed pair of bold tag <code><b></code> and <code></b></code> to wrap the substrings in s that exist in dict. If two such substrings overlap, you need to wrap them together by only one pair of closed bold tag. Also, if two substrings wrapped by bold tags are consecutive, you need to combine them.
 
-<p>Return <code>s</code> <em>after adding the bold tags</em>.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><b>Example 1:</b></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;abcxyz123&quot;, words = [&quot;abc&quot;,&quot;123&quot;]
-<strong>Output:</strong> &quot;&lt;b&gt;abc&lt;/b&gt;xyz&lt;b&gt;123&lt;/b&gt;&quot;
+<b>Input:</b> 
+s = "abcxyz123"
+dict = ["abc","123"]
+<b>Output:</b>
+"<b>abc</b>xyz<b>123</b>"
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p> </p>
+
+<p><b>Example 2:</b></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;aaabbcc&quot;, words = [&quot;aaa&quot;,&quot;aab&quot;,&quot;bc&quot;]
-<strong>Output:</strong> &quot;&lt;b&gt;aaabbc&lt;/b&gt;c&quot;
+<b>Input:</b> 
+s = "aaabbcc"
+dict = ["aaa","aab","bc"]
+<b>Output:</b>
+"<b>aaabbc</b>c"
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p> </p>
+
+<p><b>Constraints:</b></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-	<li><code>0 &lt;= words.length &lt;= 100</code></li>
-	<li><code>1 &lt;= words[i].length &lt;= 1000</code></li>
-	<li><code>s</code> and <code>words[i]</code> consist of English letters and digits.</li>
-	<li>All the values of <code>words</code> are <strong>unique</strong>.</li>
+	<li>The given dict won't contain duplicates, and its length won't exceed 100.</li>
+	<li>All the strings in input have length in range [1, 1000].</li>
 </ul>
 
-<p>&nbsp;</p>
-<p><strong>Note:</strong> This question is the same as 758: <a href="https://leetcode.com/problems/bold-words-in-string/" target="_blank">https://leetcode.com/problems/bold-words-in-string/</a></p>
+<p><strong>Note:</strong> This question is the same as 758: <a href="https://leetcode.com/problems/bold-words-in-string/">https://leetcode.com/problems/bold-words-in-string/</a></p>
 
 ## Solutions
 

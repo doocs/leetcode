@@ -1,28 +1,41 @@
 class Solution {
 public:
-    vector<vector<int>> permuteUnique(vector<int>& nums) {
-        int n = nums.size();
-        vector<vector<int>> res;
-        vector<int> path(n, 0);
-        vector<bool> used(n, false);
-        sort(nums.begin(), nums.end());
-        dfs(0, n, nums, used, path, res);
-        return res;
-    }
+	vector<vector<int>> permuteUnique(vector<int>& nums) {
+		if (nums.size() <= 0) return{};
 
-    void dfs(int u, int n, vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
-        if (u == n)
-        {
-            res.emplace_back(path);
-            return;
-        }
-        for (int i = 0; i < n; ++i)
-        {
-            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) continue;
-            path[u] = nums[i];
-            used[i] = true;
-            dfs(u + 1, n, nums, used, path, res);
-            used[i] = false;
-        }
-    }
+		sort(nums.begin(), nums.end());
+		
+		vector<vector<int>> res;
+		vector<bool> used;
+		vector<int> curr;
+		
+		for (auto item : nums)
+		{
+			used.push_back(false);
+		}
+
+		dfs(res, nums, curr, used, 0);
+		return res;
+	}
+
+	void dfs(vector<vector<int>>& res, vector<int>& nums, vector<int> curr, vector<bool> used, int depth)
+	{
+		if (depth >= nums.size())
+		{
+			res.emplace_back(curr);
+			return;
+		}
+
+		for (int i = 0; i < nums.size(); i++)
+		{
+			if (used[i]) continue; 
+			if (i > 0 && nums[i] == nums[i - 1] && !used[i-1]) continue;
+
+			used[i] = true;
+			curr.emplace_back(nums[i]);
+			dfs(res, nums, curr, used, depth + 1);
+			curr.pop_back();
+			used[i] = false;
+		}
+	}
 };

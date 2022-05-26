@@ -1,44 +1,41 @@
-# [478. 在圆内随机生成点](https://leetcode.cn/problems/generate-random-point-in-a-circle)
+# [478. 在圆内随机生成点](https://leetcode-cn.com/problems/generate-random-point-in-a-circle)
 
 [English Version](/solution/0400-0499/0478.Generate%20Random%20Point%20in%20a%20Circle/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给定圆的半径和圆心的 x、y 坐标，写一个在圆中产生均匀随机点的函数&nbsp;<code>randPoint</code>&nbsp;。</p>
 
-<p>给定圆的半径和圆心的位置，实现函数 <code>randPoint</code> ，在圆中产生均匀随机点。</p>
+<p>说明:</p>
 
-<p>实现&nbsp;<code>Solution</code>&nbsp;类:</p>
-
-<ul>
-	<li><code>Solution(double radius, double x_center, double y_center)</code>&nbsp;用圆的半径&nbsp;<code>radius</code>&nbsp;和圆心的位置<code> (x_center, y_center)</code> 初始化对象</li>
-	<li><code>randPoint()</code>&nbsp;返回圆内的一个随机点。圆周上的一点被认为在圆内。答案作为数组返回 <code>[x, y]</code> 。</li>
-</ul>
-
-<p>&nbsp;</p>
+<ol>
+	<li>输入值和输出值都将是<a href="https://baike.baidu.com/item/%E6%B5%AE%E7%82%B9%E6%95%B0/6162520">浮点数</a>。</li>
+	<li>圆的半径和圆心的 x、y 坐标将作为参数传递给类的构造函数。</li>
+	<li>圆周上的点也认为是在圆中。</li>
+	<li><code>randPoint</code>&nbsp;返回一个包含随机点的x坐标和y坐标的大小为2的数组。</li>
+</ol>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入: 
-</strong>["Solution","randPoint","randPoint","randPoint"]
-[[1.0, 0.0, 0.0], [], [], []]
-<strong>输出: </strong>[null, [-0.02493, -0.38077], [0.82314, 0.38945], [0.36572, 0.17248]]
-<strong>解释:</strong>
-Solution solution = new Solution(1.0, 0.0, 0.0);
-solution.randPoint ();//返回[-0.02493，-0.38077]
-solution.randPoint ();//返回[0.82314,0.38945]
-solution.randPoint ();//返回[0.36572,0.17248]</pre>
+</strong>[&quot;Solution&quot;,&quot;randPoint&quot;,&quot;randPoint&quot;,&quot;randPoint&quot;]
+[[1,0,0],[],[],[]]
+<strong>输出: </strong>[null,[-0.72939,-0.65505],[-0.78502,-0.28626],[-0.83119,-0.19803]]
+</pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 2：</strong></p>
 
-<p><strong>提示：</strong></p>
+<pre>
+<strong>输入: 
+</strong>[&quot;Solution&quot;,&quot;randPoint&quot;,&quot;randPoint&quot;,&quot;randPoint&quot;]
+[[10,5,-7.5],[],[],[]]
+<strong>输出: </strong>[null,[11.52438,-8.33273],[2.46992,-16.21705],[11.13430,-12.42337]]</pre>
 
-<ul>
-	<li><code>0 &lt;&nbsp;radius &lt;= 10<sup>8</sup></code></li>
-	<li><code>-10<sup>7</sup>&nbsp;&lt;= x_center, y_center &lt;= 10<sup>7</sup></code></li>
-	<li><code>randPoint</code> 最多被调用&nbsp;<code>3 * 10<sup>4</sup></code>&nbsp;次</li>
-</ul>
+<p><strong>输入语法说明：</strong></p>
+
+<p>输入是两个列表：调用成员函数名和调用的参数。<code>Solution</code>&nbsp;的构造函数有三个参数，圆的半径、圆心的 x 坐标、圆心的 y 坐标。<code>randPoint</code>&nbsp;没有参数。输入参数是一个列表，即使参数为空，也会输入一个 [] 空列表。</p>
 
 ## 解法
 

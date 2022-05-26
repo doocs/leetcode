@@ -4,43 +4,53 @@
 
 ## Description
 
-<p>Given a string <code>num</code> that contains only digits and an integer <code>target</code>, return <em><strong>all possibilities</strong> to insert the binary operators </em><code>&#39;+&#39;</code><em>, </em><code>&#39;-&#39;</code><em>, and/or </em><code>&#39;*&#39;</code><em> between the digits of </em><code>num</code><em> so that the resultant expression evaluates to the </em><code>target</code><em> value</em>.</p>
+<p>Given a string that contains only digits <code>0-9</code> and a target value, return all possibilities to add <b>binary</b> operators (not unary) <code>+</code>, <code>-</code>, or <code>*</code> between the digits so they evaluate to the target value.</p>
 
-<p>Note that operands in the returned expressions <strong>should not</strong> contain leading zeros.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><b>Example 1:</b></p>
 
 <pre>
-<strong>Input:</strong> num = &quot;123&quot;, target = 6
-<strong>Output:</strong> [&quot;1*2*3&quot;,&quot;1+2+3&quot;]
-<strong>Explanation:</strong> Both &quot;1*2*3&quot; and &quot;1+2+3&quot; evaluate to 6.
+
+<b>Input:</b> <code><em>num</em> = </code>&quot;123&quot;, <em>target</em> = 6
+
+<b>Output: </b>[&quot;1+2+3&quot;, &quot;1*2*3&quot;] 
+
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><b>Example 2:</b></p>
 
 <pre>
-<strong>Input:</strong> num = &quot;232&quot;, target = 8
-<strong>Output:</strong> [&quot;2*3+2&quot;,&quot;2+3*2&quot;]
-<strong>Explanation:</strong> Both &quot;2*3+2&quot; and &quot;2+3*2&quot; evaluate to 8.
-</pre>
 
-<p><strong>Example 3:</strong></p>
+<b>Input:</b> <code><em>num</em> = </code>&quot;232&quot;, <em>target</em> = 8
+
+<b>Output: </b>[&quot;2*3+2&quot;, &quot;2+3*2&quot;]</pre>
+
+<p><b>Example 3:</b></p>
 
 <pre>
-<strong>Input:</strong> num = &quot;3456237490&quot;, target = 9191
-<strong>Output:</strong> []
-<strong>Explanation:</strong> There are no expressions that can be created from &quot;3456237490&quot; to evaluate to 9191.
+
+<b>Input:</b> <code><em>num</em> = </code>&quot;105&quot;, <em>target</em> = 5
+
+<b>Output: </b>[&quot;1*0+5&quot;,&quot;10-5&quot;]</pre>
+
+<p><b>Example 4:</b></p>
+
+<pre>
+
+<b>Input:</b> <code><em>num</em> = </code>&quot;00&quot;, <em>target</em> = 0
+
+<b>Output: </b>[&quot;0+0&quot;, &quot;0-0&quot;, &quot;0*0&quot;]
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><b>Example 5:</b></p>
 
-<ul>
-	<li><code>1 &lt;= num.length &lt;= 10</code></li>
-	<li><code>num</code> consists of only digits.</li>
-	<li><code>-2<sup>31</sup> &lt;= target &lt;= 2<sup>31</sup> - 1</code></li>
-</ul>
+<pre>
+
+<b>Input:</b> <code><em>num</em> = </code>&quot;3456237490&quot;, <em>target</em> = 9191
+
+<b>Output: </b>[]
+
+</pre>
 
 ## Solutions
 
@@ -49,68 +59,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def addOperators(self, num: str, target: int) -> List[str]:
-        ans = []
 
-        def dfs(u, prev, curr, path):
-            if u == len(num):
-                if curr == target:
-                    ans.append(path)
-                return
-            for i in range(u, len(num)):
-                if i != u and num[u] == '0':
-                    break
-                next = int(num[u: i+1])
-                if u == 0:
-                    dfs(i + 1, next, next, path + str(next))
-                else:
-                    dfs(i + 1,  next, curr + next, path + "+" + str(next))
-                    dfs(i + 1, -next, curr - next, path + "-" + str(next))
-                    dfs(i + 1, prev * next, curr - prev +
-                        prev * next, path + "*" + str(next))
-
-        dfs(0, 0, 0, "")
-        return ans
 ```
 
 ### **Java**
 
 ```java
 
-class Solution {
-    private List<String> ans;
-    private String num;
-    private int target;
-
-    public List<String> addOperators(String num, int target) {
-        ans = new ArrayList<>();
-        this.num = num;
-        this.target = target;
-        dfs(0, 0, 0, "");
-        return ans;
-    }
-
-    private void dfs(int u, long prev, long curr, String path) {
-        if (u == num.length()) {
-            if (curr == target) ans.add(path);
-            return ;
-        }
-        for (int i = u; i < num.length(); i++) {
-            if (i != u && num.charAt(u) == '0') {
-                break;
-            }
-            long next = Long.parseLong(num.substring(u, i + 1));
-            if (u == 0) {
-                dfs(i + 1, next, next, path + next);
-            } else {
-                dfs(i + 1,  next, curr + next, path + "+" + next);
-                dfs(i + 1, -next, curr - next, path + "-" + next);
-                dfs(i + 1, prev * next, curr - prev + prev * next, path + "*" + next);
-            }
-        }
-    }
-}
 ```
 
 ### **...**

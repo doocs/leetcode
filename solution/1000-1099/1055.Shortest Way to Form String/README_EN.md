@@ -4,41 +4,41 @@
 
 ## Description
 
-<p>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;<u>a</u>b<u>c</u>d<u>e</u>&quot;</code> while <code>&quot;aec&quot;</code> is not).</p>
+<p>From any string, we can form a <i>subsequence</i> of that string by deleting some number of characters (possibly no deletions).</p>
 
-<p>Given two strings <code>source</code> and <code>target</code>, return <em>the minimum number of <strong>subsequences</strong> of </em><code>source</code><em> such that their concatenation equals </em><code>target</code>. If the task is impossible, return <code>-1</code>.</p>
+<p>Given two strings <code>source</code> and <code>target</code>, return the minimum number of subsequences of <code>source</code> such that their concatenation equals <code>target</code>. If the task is impossible, return <code>-1</code>.</p>
 
-<p>&nbsp;</p>
+<p> </p>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> source = &quot;abc&quot;, target = &quot;abcbc&quot;
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The target &quot;abcbc&quot; can be formed by &quot;abc&quot; and &quot;bc&quot;, which are subsequences of source &quot;abc&quot;.
+<strong>Input: </strong>source = <span id="example-input-1-1">"abc"</span>, target = <span id="example-input-1-2">"abcbc"</span>
+<strong>Output: </strong><span id="example-output-1">2</span>
+<strong>Explanation: </strong>The target "abcbc" can be formed by "abc" and "bc", which are subsequences of source "abc".
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> source = &quot;abc&quot;, target = &quot;acdbc&quot;
-<strong>Output:</strong> -1
-<strong>Explanation:</strong> The target string cannot be constructed from the subsequences of source string due to the character &quot;d&quot; in target string.
+<strong>Input: </strong>source = <span id="example-input-2-1">"abc"</span>, target = <span id="example-input-2-2">"acdbc"</span>
+<strong>Output: </strong><span id="example-output-2">-1</span>
+<strong>Explanation: </strong>The target string cannot be constructed from the subsequences of source string due to the character "d" in target string.
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> source = &quot;xyz&quot;, target = &quot;xzyxz&quot;
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The target string can be constructed as follows &quot;xz&quot; + &quot;y&quot; + &quot;xz&quot;.
+<strong>Input: </strong>source = <span id="example-input-3-1">"xyz"</span>, target = <span id="example-input-3-2">"xzyxz"</span>
+<strong>Output: </strong><span id="example-output-3">3</span>
+<strong>Explanation: </strong>The target string can be constructed as follows "xz" + "y" + "xz".
 </pre>
-
-<p>&nbsp;</p>
+<p> </p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= source.length, target.length &lt;= 1000</code></li>
-	<li><code>source</code> and <code>target</code> consist of lowercase English letters.</li>
+	<li>Both the <code>source</code> and <code>target</code> strings consist of only lowercase English letters from "a"-"z".</li>
+	<li>The lengths of <code>source</code> and <code>target</code> string are between <code>1</code> and <code>1000</code>.</li>
 </ul>
 
 ## Solutions

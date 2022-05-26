@@ -1,11 +1,10 @@
-# [182. 查找重复的电子邮箱](https://leetcode.cn/problems/duplicate-emails)
+# [182. 查找重复的电子邮箱](https://leetcode-cn.com/problems/duplicate-emails)
 
 [English Version](/solution/0100-0199/0182.Duplicate%20Emails/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>编写一个 SQL 查询，查找&nbsp;<code>Person</code> 表中所有重复的电子邮箱。</p>
 
 <p><strong>示例：</strong></p>
@@ -38,19 +37,8 @@
 
 ### **SQL**
 
-```sql
-SELECT Email
-FROM Person
-GROUP BY Email
-HAVING count(Email) > 1;
 ```
-
-```sql
-SELECT DISTINCT p1.email
-FROM person AS p1,
-    person AS p2
-WHERE p1.id != p2.id
-    AND p1.email = p2.email;
+select Email from Person group by Email having count(Email) > 1
 ```
 
 <!-- tabs:end -->

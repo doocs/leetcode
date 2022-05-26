@@ -1,38 +1,19 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    private Map<String, Integer> counter;
-    private List<TreeNode> ans;
-
     public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
-        counter = new HashMap<>();
-        ans = new ArrayList<>();
-        dfs(root);
-        return ans;
+        List<TreeNode> res = new ArrayList<>();
+        dfs(root, new HashMap<>(), res);
+        return res;
     }
 
-    private String dfs(TreeNode root) {
+    private String dfs(TreeNode root, Map<String, Integer> map, List<TreeNode> res) {
         if (root == null) {
-            return "#";
+            return "";
         }
-        String v = root.val + "," + dfs(root.left) + "," + dfs(root.right);
-        counter.put(v, counter.getOrDefault(v, 0) + 1);
-        if (counter.get(v) == 2) {
-            ans.add(root);
+        String s = root.val + "_" + dfs(root.left, map, res) + "_" + dfs(root.right, map, res);
+        map.put(s, map.getOrDefault(s, 0) + 1);
+        if (map.get(s) == 2) {
+            res.add(root);
         }
-        return v;
+        return s;
     }
 }

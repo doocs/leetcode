@@ -4,11 +4,10 @@
 #         self.val = x
 #         self.next = None
 
-
 class Solution:
     def reversePrint(self, head: ListNode) -> List[int]:
-        ans = []
+        res = []
         while head:
-            ans.append(head.val)
+            res.append(head.val)
             head = head.next
-        return ans[::-1]
+        return res[::-1]

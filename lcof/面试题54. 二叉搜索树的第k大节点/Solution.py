@@ -7,17 +7,18 @@
 
 
 class Solution:
-    def kthLargest(self, root: TreeNode, k: int) -> int:
-        def inorder(root):
-            if root is None:
-                return
-            inorder(root.right)
-            self.cur -= 1
-            if self.cur == 0:
-                self.res = root.val
-                return
-            inorder(root.left)
+    t, res = 0, -1
 
-        self.cur = k
-        inorder(root)
+    def kthLargest(self, root: TreeNode, k: int) -> int:
+        self.t = k
+        self._traverse(root)
         return self.res
+
+    def _traverse(self, node):
+        if node:
+            self._traverse(node.right)
+            self.t -= 1
+            if self.t == 0:
+                self.res = node.val
+                return
+            self._traverse(node.left)

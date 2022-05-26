@@ -6,27 +6,32 @@
  *     Right *TreeNode
  * }
  */
+
+ import(
+    "math"
+)
+
 func maxPathSum(root *TreeNode) int {
-	ans := math.MinInt32
-
-	var dfs func(*TreeNode) int
-	dfs = func(node *TreeNode) int {
-		if node == nil {
-			return 0
-		}
-		left := max(0, dfs(node.Left))
-		right := max(0, dfs(node.Right))
-		ans = max(ans, node.Val+left+right)
-		return node.Val + max(left, right)
-	}
-
-	dfs(root)
-	return ans
+    maxInt := math.MinInt32
+    dfs(root,&maxInt)
+    return maxInt
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+func dfs(root *TreeNode,maxInt *int) int {
+    if root == nil{
+        return 0
+    }
+    
+    left := max(0,dfs(root.Left,maxInt))
+    right := max(0,dfs(root.Right,maxInt))
+    *maxInt = max(*maxInt,root.Val + left + right)
+    return max(left,right) + root.Val
+}
+
+
+func max(a,b int) int{
+    if a > b{
+        return a
+    }
+    return b
 }

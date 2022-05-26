@@ -4,47 +4,76 @@
 
 ## Description
 
-<p>You are given four integers <code>row</code>, <code>cols</code>, <code>rCenter</code>, and <code>cCenter</code>. There is a <code>rows x cols</code> matrix and you are on the cell with the coordinates <code>(rCenter, cCenter)</code>.</p>
+<p>We are given a matrix with <code>R</code> rows and <code>C</code> columns has cells with integer coordinates&nbsp;<code>(r, c)</code>, where <code>0 &lt;= r &lt; R</code> and <code>0 &lt;= c &lt; C</code>.</p>
 
-<p>Return <em>the coordinates of all cells in the matrix, sorted by their <strong>distance</strong> from </em><code>(rCenter, cCenter)</code><em> from the smallest distance to the largest distance</em>. You may return the answer in <strong>any order</strong> that satisfies this condition.</p>
+<p>Additionally, we are given a cell in that matrix with coordinates&nbsp;<code>(r0, c0)</code>.</p>
 
-<p>The <strong>distance</strong> between two cells <code>(r<sub>1</sub>, c<sub>1</sub>)</code> and <code>(r<sub>2</sub>, c<sub>2</sub>)</code> is <code>|r<sub>1</sub> - r<sub>2</sub>| + |c<sub>1</sub> - c<sub>2</sub>|</code>.</p>
+<p>Return the coordinates of&nbsp;all cells in the matrix, sorted by their distance from <code>(r0, c0)</code>&nbsp;from smallest distance to largest distance.&nbsp; Here,&nbsp;the distance between two cells <code>(r1, c1)</code> and <code>(r2, c2)</code> is the Manhattan distance,&nbsp;<code>|r1 - r2| + |c1 - c2|</code>.&nbsp; (You may return the answer in any order that satisfies this condition.)</p>
 
 <p>&nbsp;</p>
+
+<div>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> rows = 1, cols = 2, rCenter = 0, cCenter = 0
-<strong>Output:</strong> [[0,0],[0,1]]
-<strong>Explanation:</strong> The distances from (0, 0) to other cells are: [0,1]
+
+<strong>Input: </strong>R = <span id="example-input-1-1">1</span>, C = <span id="example-input-1-2">2</span>, r0 = <span id="example-input-1-3">0</span>, c0 = <span id="example-input-1-4">0</span>
+
+<strong>Output: </strong><span id="example-output-1">[[0,0],[0,1]]
+
+<strong>Explanation:</strong> The distances from (r0, c0) to other cells are: [0,1]</span>
+
 </pre>
+
+<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> rows = 2, cols = 2, rCenter = 0, cCenter = 1
-<strong>Output:</strong> [[0,1],[0,0],[1,1],[1,0]]
-<strong>Explanation:</strong> The distances from (0, 1) to other cells are: [0,1,1,2]
+
+<strong>Input: </strong>R = <span id="example-input-2-1">2</span>, C = <span id="example-input-2-2">2</span>, r0 = <span id="example-input-2-3">0</span>, c0 = <span id="example-input-2-4">1</span>
+
+<strong>Output: </strong><span id="example-output-2">[[0,1],[0,0],[1,1],[1,0]]
+
+</span><span id="example-output-1"><strong>Explanation:</strong> The distances from (r0, c0) to other cells are:</span><span> [0,1,1,2]</span>
+
 The answer [[0,1],[1,1],[0,0],[1,0]] would also be accepted as correct.
+
 </pre>
+
+<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> rows = 2, cols = 3, rCenter = 1, cCenter = 2
-<strong>Output:</strong> [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
-<strong>Explanation:</strong> The distances from (1, 2) to other cells are: [0,1,1,2,2,3]
+
+<strong>Input: </strong>R = <span id="example-input-3-1">2</span>, C = <span id="example-input-3-2">3</span>, r0 = <span id="example-input-3-3">1</span>, c0 = <span id="example-input-3-4">2</span>
+
+<strong>Output: </strong><span id="example-output-3">[[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]</span>
+
+<span id="example-output-1"><strong>Explanation:</strong> The distances from (r0, c0) to other cells are:</span><span> [0,1,1,2,2,3]</span>
+
 There are other answers that would also be accepted as correct, such as [[1,2],[1,1],[0,2],[1,0],[0,1],[0,0]].
+
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= rows, cols &lt;= 100</code></li>
-	<li><code>0 &lt;= rCenter &lt; rows</code></li>
-	<li><code>0 &lt;= cCenter &lt; cols</code></li>
-</ul>
+<p><strong><span>Note:</span></strong></p>
+
+<ol>
+    <li><code>1 &lt;= R &lt;= 100</code></li>
+    <li><code>1 &lt;= C &lt;= 100</code></li>
+    <li><code>0 &lt;= r0 &lt; R</code></li>
+    <li><code>0 &lt;= c0 &lt; C</code></li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
 
 ## Solutions
 
@@ -53,118 +82,13 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 ### **Python3**
 
 ```python
-class Solution:
-    def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
-        q = deque([(rCenter, cCenter)])
-        vis = [[False] * cols for _ in range(rows)]
-        vis[rCenter][cCenter] = True
-        ans = []
-        while q:
-            for _ in range(len(q)):
-                i, j = q.popleft()
-                ans.append([i, j])
-                for a, b in [[1, 0], [-1, 0], [0, 1], [0, -1]]:
-                    x, y = i + a, j + b
-                    if 0 <= x < rows and 0 <= y < cols and not vis[x][y]:
-                        q.append((x, y))
-                        vis[x][y] = True
-        return ans
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
-        Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{rCenter, cCenter});
-        boolean[][] vis = new boolean[rows][cols];
-        vis[rCenter][cCenter] = true;
-        int[][] ans = new int[rows * cols][2];
-        int idx = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        while (!q.isEmpty()) {
-            for (int n = q.size(); n > 0; --n) {
-                int[] p = q.poll();
-                ans[idx++] = p;
-                for (int k = 0; k < 4; ++k) {
-                    int x = p[0] + dirs[k];
-                    int y = p[1] + dirs[k + 1];
-                    if (x >= 0 && x < rows && y >= 0 && y < cols && !vis[x][y]) {
-                        q.offer(new int[]{x, y});
-                        vis[x][y] = true;
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
-        queue<vector<int>> q;
-        q.push({rCenter, cCenter});
-        vector<vector<bool>> vis(rows, vector<bool>(cols));
-        vis[rCenter][cCenter] = true;
-        vector<vector<int>> ans;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty())
-        {
-            for (int n = q.size(); n > 0; --n)
-            {
-                auto p = q.front();
-                q.pop();
-                ans.push_back(p);
-                for (int k = 0; k < 4; ++k)
-                {
-                    int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
-                    if (x >= 0 && x < rows && y >= 0 && y < cols && !vis[x][y])
-                    {
-                        q.push({x, y});
-                        vis[x][y] = true;
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func allCellsDistOrder(rows int, cols int, rCenter int, cCenter int) [][]int {
-	q := [][]int{{rCenter, cCenter}}
-	vis := make([][]bool, rows)
-	for i := range vis {
-		vis[i] = make([]bool, cols)
-	}
-	vis[rCenter][cCenter] = true
-	var ans [][]int
-	dirs := []int{-1, 0, 1, 0, -1}
-	for len(q) > 0 {
-		for n := len(q); n > 0; n-- {
-			p := q[0]
-			q = q[1:]
-			ans = append(ans, p)
-			for k := 0; k < 4; k++ {
-				x, y := p[0]+dirs[k], p[1]+dirs[k+1]
-				if x >= 0 && x < rows && y >= 0 && y < cols && !vis[x][y] {
-					q = append(q, []int{x, y})
-					vis[x][y] = true
-				}
-			}
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

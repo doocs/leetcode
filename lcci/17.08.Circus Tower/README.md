@@ -1,4 +1,4 @@
-# [面试题 17.08. 马戏团人塔](https://leetcode.cn/problems/circus-tower-lcci)
+# [面试题 17.08. 马戏团人塔](https://leetcode-cn.com/problems/circus-tower-lcci)
 
 [English Version](/lcci/17.08.Circus%20Tower/README_EN.md)
 

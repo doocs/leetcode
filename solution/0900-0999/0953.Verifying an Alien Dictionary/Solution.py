@@ -1,16 +1,24 @@
 class Solution:
-    def isAlienSorted(self, words: List[str], order: str) -> bool:
-        m = {c: i for i, c in enumerate(order)}
-        for i in range(20):
-            prev = -1
-            valid = True
-            for x in words:
-                curr = -1 if i >= len(x) else m[x[i]]
-                if prev > curr:
+    def isAlienSorted(self, words, order):
+        """
+        :type words: List[str]
+        :type order: str
+        :rtype: bool
+        """
+
+        order = {a: d for d, a in enumerate(order)}
+
+        for i in range(1, len(words)):
+            j = 0
+            while len(words[i - 1]) > j < len(words[i]):
+
+                value = order[words[i - 1][j]] - order[words[i][j]]
+
+                if value < 0:
+                    break
+                elif value > 0 or (j + 1) == len(words[i]):
                     return False
-                if prev == curr:
-                    valid = False
-                prev = curr
-            if valid:
-                return True
+
+                j += 1
+
         return True

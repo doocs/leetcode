@@ -1,11 +1,10 @@
-# [1366. 通过投票对团队排名](https://leetcode.cn/problems/rank-teams-by-votes)
+# [1366. 通过投票对团队排名](https://leetcode-cn.com/problems/rank-teams-by-votes)
 
 [English Version](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>现在有一个特殊的排名系统，依据参赛团队在投票人心中的次序进行排名，每个投票者都需要按从高到低的顺序对参与排名的所有团队进行排位。</p>
 
 <p>排名规则如下：</p>
@@ -80,8 +79,6 @@ C 队获得两票「排位第一」，两票「排位第二」，两票「排位
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表计数 + 自定义排序。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -89,14 +86,7 @@ C 队获得两票「排位第一」，两票「排位第二」，两票「排位
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def rankTeams(self, votes: List[str]) -> str:
-        d = defaultdict(lambda: [0] * len(votes[0]))
-        for vote in votes:
-            for i, v in enumerate(vote):
-                d[v][i] -= 1
-        ans = sorted(votes[0], key=lambda x: (d[x], x))
-        return ''.join(ans)
+
 ```
 
 ### **Java**
@@ -104,86 +94,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public String rankTeams(String[] votes) {
-        Map<Character, int[]> counter = new HashMap<>();
-        int n = votes[0].length();
-        for (String vote : votes) {
-            for (int i = 0; i < n; ++i) {
-                char v = vote.charAt(i);
-                counter.computeIfAbsent(v, k -> new int[26])[i]++;
-            }
-        }
-        List<Map.Entry<Character, int[]>> t = new ArrayList<>(counter.entrySet());
-        Collections.sort(t, (a, b) -> {
-            int[] v1 = a.getValue();
-            int[] v2 = b.getValue();
-            for (int i = 0; i < 26; ++i) {
-                if (v1[i] != v2[i]) {
-                    return v2[i] - v1[i];
-                }
-            }
-            return a.getKey() - b.getKey();
-        });
-        StringBuilder ans = new StringBuilder();
-        t.forEach(e -> ans.append(e.getKey()));
-        return ans.toString();
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string rankTeams(vector<string>& votes) {
-        unordered_map<char, vector<int>> counter;
-        int n = votes[0].size();
-        for (auto& vote : votes)
-        {
-            for (int i = 0; i < n; ++i)
-            {
-                char v = vote[i];
-                counter[v].resize(n);
-                ++counter[v][i];
-            }
-        }
-        string ans = votes[0];
-        sort(ans.begin(), ans.end(), [&](char a, char b){
-            return counter[a] > counter[b] || (counter[a] == counter[b] && a < b);
-        });
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func rankTeams(votes []string) string {
-	n := len(votes[0])
-	counter := make(map[byte][]int)
-	for _, v := range votes[0] {
-		counter[byte(v)] = make([]int, n)
-	}
-	for _, vote := range votes {
-		for i, v := range vote {
-			counter[byte(v)][i]++
-		}
-	}
-	ans := []byte(votes[0])
-	sort.Slice(ans, func(i, j int) bool {
-		v1, v2 := counter[ans[i]], counter[ans[j]]
-		for i := range v1 {
-			if v1[i] != v2[i] {
-				return v1[i] > v2[i]
-			}
-		}
-		return ans[i] < ans[j]
-	})
-	return string(ans)
-}
 ```
 
 ### **...**

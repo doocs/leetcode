@@ -1,20 +1,17 @@
-# [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree)
+# [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
 
 [English Version](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。</p>
 
 <p><a href="https://baike.baidu.com/item/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/8918834?fr=aladdin" target="_blank">百度百科</a>中最近公共祖先的定义为：&ldquo;对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（<strong>一个节点也可以是它自己的祖先</strong>）。&rdquo;</p>
 
 <p>例如，给定如下二叉搜索树:&nbsp; root =&nbsp;[6,2,8,0,4,7,9,null,null,3,5]</p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/images/binarysearchtree_improved.png" style="height: 190px; width: 200px;"></p>
-
-<p>&nbsp;</p>
+![](./images/binarysearchtree_improved.png)
 
 <p><strong>示例 1:</strong></p>
 
@@ -144,72 +141,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-迭代：
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function lowestCommonAncestor(
-    root: TreeNode | null,
-    p: TreeNode | null,
-    q: TreeNode | null,
-): TreeNode | null {
-    while (root) {
-        if (root.val > p.val && root.val > q.val) {
-            root = root.left;
-        } else if (root.val < p.val && root.val < q.val) {
-            root = root.right;
-        } else {
-            return root;
-        }
-    }
-}
-```
-
-递归：
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function lowestCommonAncestor(
-    root: TreeNode | null,
-    p: TreeNode | null,
-    q: TreeNode | null,
-): TreeNode | null {
-    if (root.val > p.val && root.val > q.val)
-        return lowestCommonAncestor(root.left, p, q);
-    if (root.val < p.val && root.val < q.val)
-        return lowestCommonAncestor(root.right, p, q);
-    return root;
-}
-```
-
 ### **Go**
 
 迭代：
@@ -265,59 +196,6 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
     }
     return root
 }
-```
-
-### **C++**
-
-迭代：
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-
-class Solution {
-public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        while (root)
-        {
-            if (root->val < p->val && root->val < q->val) root = root->right;
-            else if (root->val > p->val && root->val > q->val) root = root->left;
-            else return root;
-        }
-        return root;
-    }
-};
-```
-
-递归：
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-
-class Solution {
-public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if (!root) return root;
-        if (root->val < p->val && root->val < q->val) return lowestCommonAncestor(root->right, p, q);
-        if (root->val > p->val && root->val > q->val) return lowestCommonAncestor(root->left, p, q);
-        return root;
-    }
-};
 ```
 
 <!-- tabs:end -->

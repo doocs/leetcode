@@ -15,14 +15,17 @@
 
 <p>Multiple <strong>instructions</strong> will lead Bob to <code>destination</code>. For example, if <code>destination</code> is <code>(2, 3)</code>, both <code>&quot;HHHVV&quot;</code> and <code>&quot;HVHVH&quot;</code> are valid <strong>instructions</strong>.</p>
 
+<ul>
+</ul>
+
 <p>However, Bob is very picky. Bob has a lucky number <code>k</code>, and he wants the <code>k<sup>th</sup></code> <strong>lexicographically smallest instructions</strong> that will lead him to <code>destination</code>. <code>k</code> is <strong>1-indexed</strong>.</p>
 
-<p>Given an integer array <code>destination</code> and an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code><em> <strong>lexicographically smallest instructions</strong> that will take Bob to </em><code>destination</code>.</p>
+<p>Given an integer array <code>destination</code> and an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code><em> <b>lexicographically smallest instructions</b>&nbsp;that will take Bob to </em><code>destination</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/images/ex1.png" style="width: 300px; height: 229px;" /></p>
+![](./images/ex1.png)
 
 <pre>
 <strong>Input:</strong> destination = [2,3], k = 1
@@ -33,7 +36,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/images/ex2.png" style="width: 300px; height: 229px;" /></strong></p>
+![](./images/ex2.png)
 
 <pre>
 <strong>Input:</strong> destination = [2,3], k = 2
@@ -42,7 +45,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1643.Kth%20Smallest%20Instructions/images/ex3.png" style="width: 300px; height: 229px;" /></strong></p>
+![](./images/ex3.png)
 
 <pre>
 <strong>Input:</strong> destination = [2,3], k = 3

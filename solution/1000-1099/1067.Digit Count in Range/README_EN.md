@@ -4,33 +4,38 @@
 
 ## Description
 
-<p>Given a single-digit integer <code>d</code> and two integers <code>low</code> and <code>high</code>, return <em>the number of times that </em><code>d</code><em> occurs as a digit in all integers in the inclusive range </em><code>[low, right]</code>.</p>
+Given an integer <code>d</code> between <code>0</code> and <code>9</code>, and two positive integers <code>low</code> and <code>high</code> as lower and upper bounds, respectively. Return the number of times that <code>d</code> occurs as a digit in all integers between <code>low</code> and <code>high</code>, including the bounds <code>low</code> and <code>high</code>.
 
-<p>&nbsp;</p>
+<p> </p>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> d = 1, low = 1, high = 13
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> The digit d = 1 occurs 6 times in 1, 10, 11, 12, 13.
-Note that the digit d = 1 occurs twice in the number 11.
+<strong>Input: </strong>d = <span id="example-input-1-1">1</span>, low = <span id="example-input-1-2">1</span>, high = <span id="example-input-1-3">13</span>
+<strong>Output: </strong><span id="example-output-1">6</span>
+<strong>Explanation: </strong>
+The digit <code>d=1</code> occurs <code>6</code> times in <code>1,10,11,12,13</code>. Note that the digit <code>d=1</code> occurs twice in the number <code>11</code>.
 </pre>
 
+<div>
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> d = 3, low = 100, high = 250
-<strong>Output:</strong> 35
-<strong>Explanation:</strong> The digit d = 3 occurs 35 times in 103,113,123,130,131,...,238,239,243.
+<strong>Input: </strong>d = <span id="example-input-2-1">3</span>, low = <span id="example-input-2-2">100</span>, high = <span id="example-input-2-3">250</span>
+<strong>Output: </strong><span id="example-output-2">35</span>
+<strong>Explanation: </strong>
+The digit <code>d=3</code> occurs <code>35</code> times in <code>103,113,123,130,131,...,238,239,243</code>.
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p> </p>
 
-<ul>
-	<li><code>0 &lt;= d &lt;= 9</code></li>
-	<li><code>1 &lt;= low &lt;= high &lt;= 2 * 10<sup>8</sup></code></li>
-</ul>
+<p><strong>Note:</strong></p>
+
+<ol>
+	<li><code>0 <= d <= 9</code></li>
+	<li><code>1 <= low <= high <= 2×10^8</code></li>
+</ol>
+</div>
 
 ## Solutions
 

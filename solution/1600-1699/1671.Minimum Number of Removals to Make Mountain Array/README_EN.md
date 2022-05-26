@@ -35,6 +35,20 @@
 <strong>Explanation:</strong> One solution is to remove the elements at indices 0, 1, and 5, making the array nums = [1,5,6,3,1].
 </pre>
 
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [4,3,2,1,1,2,3,1]
+<strong>Output:</strong> 4
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,3,4,4,3,2,1]
+<strong>Output:</strong> 1
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

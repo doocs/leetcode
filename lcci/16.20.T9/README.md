@@ -1,4 +1,4 @@
-# [面试题 16.20. T9 键盘](https://leetcode.cn/problems/t9-lcci)
+# [面试题 16.20. T9 键盘](https://leetcode-cn.com/problems/t9-lcci)
 
 [English Version](/lcci/16.20.T9/README_EN.md)
 

@@ -1,14 +1,11 @@
-# [527. 单词缩写](https://leetcode.cn/problems/word-abbreviation)
+# [527. 单词缩写](https://leetcode-cn.com/problems/word-abbreviation)
 
 [English Version](/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
-<p>给你一个字符串数组 <code>words</code> ，该数组由 <strong>互不相同</strong> 的若干字符串组成，请你找出并返回每个单词的 <strong>最小缩写</strong> 。</p>
-
-<p>生成缩写的规则如下<strong>：</strong></p>
+<p>给定一个由n个不重复非空字符串组成的数组，你需要按照以下规则为每个单词生成<strong>最小的</strong>缩写<strong>。</strong></p>
 
 <ol>
 	<li>初始缩写由起始字母+省略字母的数量+结尾字母组成。</li>
@@ -16,32 +13,22 @@
 	<li>若缩写并不比原单词更短，则保留原样。</li>
 </ol>
 
-<p>&nbsp;</p>
+<p><strong>示例:</strong></p>
 
-<p><strong>示例 1：</strong></p>
-
-<pre>
-<strong>输入:</strong> words = ["like", "god", "internal", "me", "internet", "interval", "intension", "face", "intrusion"]
+<pre><strong>输入:</strong> ["like", "god", "internal", "me", "internet", "interval", "intension", "face", "intrusion"]
 <strong>输出:</strong> ["l2e","god","internal","me","i6t","interval","inte4n","f2e","intr4n"]
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p> </p>
 
-<pre>
-<strong>输入：</strong>words = ["aa","aaa"]
-<strong>输出：</strong>["aa","aaa"]
-</pre>
+<p><strong>注意:</strong></p>
 
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li><code>1 &lt;= words.length &lt;= 400</code></li>
-	<li><code>2 &lt;= words[i].length &lt;= 400</code></li>
-	<li><code>words[i]</code> 由小写英文字母组成</li>
-	<li><code>words</code> 中的所有字符串 <strong>互不相同</strong></li>
-</ul>
+<ol>
+	<li>n和每个单词的长度均不超过 400。</li>
+	<li>每个单词的长度大于 1。</li>
+	<li>单词只由英文小写字母组成。</li>
+	<li>返回的答案需要和原数组保持<strong>同一顺序。</strong></li>
+</ol>
 
 ## 解法
 

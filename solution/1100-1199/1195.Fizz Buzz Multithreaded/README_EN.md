@@ -4,57 +4,35 @@
 
 ## Description
 
-<p>You have the four functions:</p>
+<p>Write a program that outputs the string representation of numbers from 1 to&nbsp;<i>n</i>, however:</p>
 
 <ul>
-	<li><code>printFizz</code> that prints the word <code>&quot;Fizz&quot;</code> to the console,</li>
-	<li><code>printBuzz</code> that prints the word <code>&quot;Buzz&quot;</code> to the console,</li>
-	<li><code>printFizzBuzz</code> that prints the word <code>&quot;FizzBuzz&quot;</code> to the console, and</li>
-	<li><code>printNumber</code> that prints a given integer to the console.</li>
+	<li>If the number is divisible by 3, output &quot;fizz&quot;.</li>
+	<li>If the number is divisible by 5, output&nbsp;&quot;buzz&quot;.</li>
+	<li>If the number is divisible by both 3 and 5, output&nbsp;&quot;fizzbuzz&quot;.</li>
 </ul>
 
-<p>You are given an instance of the class <code>FizzBuzz</code> that has four functions: <code>fizz</code>, <code>buzz</code>, <code>fizzbuzz</code> and <code>number</code>. The same instance of <code>FizzBuzz</code> will be passed to four different threads:</p>
+<p>For example, for&nbsp;<code>n = 15</code>, we output:&nbsp;<code>1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fizzbuzz</code>.</p>
 
-<ul>
-	<li><strong>Thread A:</strong> calls <code>fizz()</code> that should output the word <code>&quot;Fizz&quot;</code>.</li>
-	<li><strong>Thread B:</strong> calls <code>buzz()</code> that should output the word <code>&quot;Buzz&quot;</code>.</li>
-	<li><strong>Thread C:</strong> calls <code>fizzbuzz()</code> that should output the word <code>&quot;FizzBuzz&quot;</code>.</li>
-	<li><strong>Thread D:</strong> calls <code>number()</code> that should only output the integers.</li>
-</ul>
+<p>Suppose you are given the following code:</p>
 
-<p>Modify the given class to output the series <code>[1, 2, &quot;Fizz&quot;, 4, &quot;Buzz&quot;, ...]</code> where the <code>i<sup>th</sup></code> token (<strong>1-indexed</strong>) of the series is:</p>
+<pre>
+class FizzBuzz {
+&nbsp; public FizzBuzz(int n) { ... }&nbsp;              // constructor
+  public void fizz(printFizz) { ... }          // only output &quot;fizz&quot;
+  public void buzz(printBuzz) { ... }          // only output &quot;buzz&quot;
+  public void fizzbuzz(printFizzBuzz) { ... }  // only output &quot;fizzbuzz&quot;
+  public void number(printNumber) { ... }      // only output the numbers
+}</pre>
 
-<ul>
-	<li><code>&quot;FizzBuzz&quot;</code> if <code>i</code> is divisible by <code>3</code> and <code>5</code>,</li>
-	<li><code>&quot;Fizz&quot;</code> if <code>i</code> is divisible by <code>3</code> and not <code>5</code>,</li>
-	<li><code>&quot;Buzz&quot;</code> if <code>i</code> is divisible by <code>5</code> and not <code>3</code>, or</li>
-	<li><code>i</code> if <code>i</code> is not divisible by <code>3</code> or <code>5</code>.</li>
-</ul>
+<p>Implement a multithreaded version of <code>FizzBuzz</code> with <strong>four</strong> threads. The same instance of <code>FizzBuzz</code> will be passed to four different threads:</p>
 
-<p>Implement the <code>FizzBuzz</code> class:</p>
-
-<ul>
-	<li><code>FizzBuzz(int n)</code> Initializes the object with the number <code>n</code> that represents the length of the sequence that should be printed.</li>
-	<li><code>void fizz(printFizz)</code> Calls <code>printFizz</code> to output <code>&quot;Fizz&quot;</code>.</li>
-	<li><code>void buzz(printBuzz)</code> Calls <code>printBuzz</code> to output <code>&quot;Buzz&quot;</code>.</li>
-	<li><code>void fizzbuzz(printFizzBuzz)</code> Calls <code>printFizzBuzz</code> to output <code>&quot;FizzBuzz&quot;</code>.</li>
-	<li><code>void number(printNumber)</code> Calls <code>printnumber</code> to output the numbers.</li>
-</ul>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> n = 15
-<strong>Output:</strong> [1,2,"fizz",4,"buzz","fizz",7,8,"fizz","buzz",11,"fizz",13,14,"fizzbuzz"]
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> n = 5
-<strong>Output:</strong> [1,2,"fizz",4,"buzz"]
-</pre>
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= n &lt;= 50</code></li>
-</ul>
+<ol>
+	<li>Thread A will call&nbsp;<code>fizz()</code>&nbsp;to check for divisibility of 3 and outputs&nbsp;<code>fizz</code>.</li>
+	<li>Thread B will call&nbsp;<code>buzz()</code>&nbsp;to check for divisibility of 5 and outputs&nbsp;<code>buzz</code>.</li>
+	<li>Thread C will call <code>fizzbuzz()</code>&nbsp;to check for divisibility of 3 and 5 and outputs&nbsp;<code>fizzbuzz</code>.</li>
+	<li>Thread D will call <code>number()</code> which should only output the numbers.</li>
+</ol>
 
 ## Solutions
 

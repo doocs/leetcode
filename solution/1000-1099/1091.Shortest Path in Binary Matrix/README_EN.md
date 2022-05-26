@@ -4,187 +4,70 @@
 
 ## Description
 
-<p>Given an <code>n x n</code> binary matrix <code>grid</code>, return <em>the length of the shortest <strong>clear path</strong> in the matrix</em>. If there is no clear path, return <code>-1</code>.</p>
+<p>In an N by N square grid, each cell is either empty (0) or blocked (1).</p>
 
-<p>A <strong>clear path</strong> in a binary matrix is a path from the <strong>top-left</strong> cell (i.e., <code>(0, 0)</code>) to the <strong>bottom-right</strong> cell (i.e., <code>(n - 1, n - 1)</code>) such that:</p>
+<p>A&nbsp;<em>clear&nbsp;path from top-left to bottom-right</em>&nbsp;has length <code>k</code> if and only if it is composed of cells <code>C_1, C_2, ..., C_k</code>&nbsp;such that:</p>
 
 <ul>
-	<li>All the visited cells of the path are <code>0</code>.</li>
-	<li>All the adjacent cells of the path are <strong>8-directionally</strong> connected (i.e., they are different and they share an edge or a corner).</li>
+	<li>Adjacent cells <code>C_i</code> and <code>C_{i+1}</code> are connected 8-directionally (ie., they are different and&nbsp;share an edge or corner)</li>
+	<li><code>C_1</code> is at location <code>(0, 0)</code> (ie. has value <code>grid[0][0]</code>)</li>
+	<li><code>C_k</code>&nbsp;is at location <code>(N-1, N-1)</code> (ie. has value <code>grid[N-1][N-1]</code>)</li>
+	<li>If <code>C_i</code> is located at&nbsp;<code>(r, c)</code>, then <code>grid[r][c]</code> is empty (ie.&nbsp;<code>grid[r][c] ==&nbsp;0</code>).</li>
 </ul>
 
-<p>The <strong>length of a clear path</strong> is the number of visited cells of this path.</p>
+<p>Return the length of the shortest such clear path from top-left to bottom-right.&nbsp; If such a path does not exist, return -1.</p>
 
 <p>&nbsp;</p>
+
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/images/example1_1.png" style="width: 500px; height: 234px;" />
-<pre>
-<strong>Input:</strong> grid = [[0,1],[1,0]]
-<strong>Output:</strong> 2
-</pre>
 
+<pre>
+<strong>Input: </strong><span id="example-input-1-1">[[0,1],[1,0]]</pre></span>
+
+![](./images/example1_1.png)
+
+<pre><strong>Output: </strong>2</pre>
+
+![](./images/example1_2.png)
+
+<div>
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/images/example2_1.png" style="height: 216px; width: 500px;" />
-<pre>
-<strong>Input:</strong> grid = [[0,0,0],[1,1,0],[1,1,0]]
-<strong>Output:</strong> 4
-</pre>
-
-<p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> grid = [[1,0,0],[1,1,0],[1,1,0]]
-<strong>Output:</strong> -1
+<strong>Input: </strong><span id="example-input-2-1">[[0,0,0],[1,1,0],[1,1,0]]
+</span></pre>
+
+![](./images/example2_1.png)
+
+<pre><strong>Output:</strong> 4
 </pre>
+
+![](./images/example2_2.png)
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</div>
 
-<ul>
-	<li><code>n == grid.length</code></li>
-	<li><code>n == grid[i].length</code></li>
-	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li><code>grid[i][j] is 0 or 1</code></li>
-</ul>
+<p><strong>Note:</strong></p>
+
+<ol>
+	<li><code>1 &lt;= grid.length == grid[0].length &lt;= 100</code></li>
+	<li><code>grid[r][c]</code> is <code>0</code> or <code>1</code></li>
+</ol>
 
 ## Solutions
-
-BFS.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-class Solution:
-    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
-        if grid[0][0]:
-            return -1
-        n = len(grid)
-        q = deque([(0, 0)])
-        grid[0][0] = 1
-        ans = 0
-        while q:
-            ans += 1
-            for _ in range(len(q)):
-                i, j = q.popleft()
-                if (i, j) == (n - 1, n - 1):
-                    return ans
-                for x in range(i - 1, i + 2):
-                    for y in range(j - 1, j + 2):
-                        if 0 <= x < n and 0 <= y < n and grid[x][y] == 0:
-                            q.append((x, y))
-                            grid[x][y] = 1
-        return -1
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int shortestPathBinaryMatrix(int[][] grid) {
-        if (grid[0][0] == 1) {
-            return -1;
-        }
-        int n = grid.length;
-        Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{0, 0});
-        grid[0][0] = 1;
-        int ans = 0;
-        while (!q.isEmpty()) {
-            ++ans;
-            for (int m = q.size(); m > 0; --m) {
-                int[] p = q.poll();
-                int i = p[0], j = p[1];
-                if (i == n - 1 && j == n - 1) {
-                    return ans;
-                }
-                for (int x = i - 1; x <= i + 1; ++x) {
-                    for (int y = j - 1; y <= j + 1; ++y) {
-                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
-                            q.offer(new int[]{x, y});
-                            grid[x][y] = 1;
-                        }
-                    }
-                }
-            }
-        }
-        return -1;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        if (grid[0][0]) return -1;
-        int n = grid.size();
-        queue<pair<int, int>> q;
-        q.push({0, 0});
-        grid[0][0] = 1;
-        int ans = 0;
-        while (!q.empty())
-        {
-            ++ans;
-            for (int m = q.size(); m > 0; --m)
-            {
-                auto p = q.front();
-                q.pop();
-                int i = p.first, j = p.second;
-                if (i == n - 1 && j == n - 1) return ans;
-                for (int x = i - 1; x <= i + 1; ++x)
-                {
-                    for (int y = j - 1; y <= j + 1; ++y)
-                    {
-                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0)
-                        {
-                            q.push({x, y});
-                            grid[x][y] = 1;
-                        }
-                    }
-                }
-            }
-        }
-        return -1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func shortestPathBinaryMatrix(grid [][]int) int {
-	if grid[0][0] == 1 {
-		return -1
-	}
-	n := len(grid)
-	q := [][]int{[]int{0, 0}}
-	grid[0][0] = 1
-	ans := 0
-	for len(q) > 0 {
-		ans++
-		for m := len(q); m > 0; m-- {
-			p := q[0]
-			q = q[1:]
-			i, j := p[0], p[1]
-			if i == n-1 && j == n-1 {
-				return ans
-			}
-			for x := i - 1; x <= i+1; x++ {
-				for y := j - 1; y <= j+1; y++ {
-					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0 {
-						q = append(q, []int{x, y})
-						grid[x][y] = 1
-					}
-				}
-			}
-		}
-	}
-	return -1
-}
 ```
 
 ### **...**

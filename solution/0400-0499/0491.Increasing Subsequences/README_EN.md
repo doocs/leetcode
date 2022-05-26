@@ -4,32 +4,26 @@
 
 ## Description
 
-<p>Given an integer array <code>nums</code>, return all the different possible increasing subsequences of the given array with <strong>at least two elements</strong>. You may return the answer in <strong>any order</strong>.</p>
-
-<p>The given array may contain duplicates, and two equal integers should also be considered a special case of increasing sequence.</p>
+<p>Given an integer array, your task is to find all the different possible increasing subsequences of the given array, and the length of an increasing subsequence should be at least 2.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><b>Example:</b></p>
 
 <pre>
-<strong>Input:</strong> nums = [4,6,7,7]
-<strong>Output:</strong> [[4,6],[4,6,7],[4,6,7,7],[4,7],[4,7,7],[6,7],[6,7,7],[7,7]]
-</pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [4,4,3,2,1]
-<strong>Output:</strong> [[4,4]]
+<b>Input:</b> [4, 6, 7, 7]
+<b>Output:</b> [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 15</code></li>
-	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
-</ul>
+<p><b>Note:</b></p>
+
+<ol>
+	<li>The length of the given array will not exceed 15.</li>
+	<li>The range of integer in the given array is [-100,100].</li>
+	<li>The given array may contain duplicates, and two equal integers should also be considered as a special case of increasing sequence.</li>
+</ol>
 
 ## Solutions
 
@@ -38,115 +32,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def findSubsequences(self, nums: List[int]) -> List[List[int]]:
-        def dfs(u, last, t):
-            if u == len(nums):
-                if len(t) > 1:
-                    ans.append(t[:])
-                return
-            if nums[u] >= last:
-                t.append(nums[u])
-                dfs(u + 1, nums[u], t)
-                t.pop()
-            if nums[u] != last:
-                dfs(u + 1, last, t)
 
-        ans = []
-        dfs(0, -1000, [])
-        return ans
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    private int[] nums;
-    private List<List<Integer>> ans;
 
-    public List<List<Integer>> findSubsequences(int[] nums) {
-        this.nums = nums;
-        ans = new ArrayList<>();
-        dfs(0, -1000, new ArrayList<>());
-        return ans;
-    }
-
-    private void dfs(int u, int last, List<Integer> t) {
-        if (u == nums.length) {
-            if (t.size() > 1) {
-                ans.add(new ArrayList<>(t));
-            }
-            return;
-        }
-        if (nums[u] >= last) {
-            t.add(nums[u]);
-            dfs(u + 1, nums[u], t);
-            t.remove(t.size() - 1);
-        }
-        if (nums[u] != last) {
-            dfs(u + 1, last, t);
-        }
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> findSubsequences(vector<int>& nums) {
-        vector<vector<int>> ans;
-        vector<int> t;
-        dfs(0, -1000, t, nums, ans);
-        return ans;
-    }
-
-    void dfs(int u, int last, vector<int>& t, vector<int>& nums, vector<vector<int>>& ans) {
-        if (u == nums.size())
-        {
-            if (t.size() > 1) ans.push_back(t);
-            return;
-        }
-        if (nums[u] >= last)
-        {
-            t.push_back(nums[u]);
-            dfs(u + 1, nums[u], t, nums, ans);
-            t.pop_back();
-        }
-        if (nums[u] != last) dfs(u + 1, last, t, nums, ans);
-    }
-};
-```
-
-### **Go**
-
-```go
-func findSubsequences(nums []int) [][]int {
-	var ans [][]int
-	var dfs func(u, last int, t []int)
-	dfs = func(u, last int, t []int) {
-		if u == len(nums) {
-			if len(t) > 1 {
-				cp := make([]int, len(t))
-				copy(cp, t)
-				ans = append(ans, cp)
-			}
-			return
-		}
-		if nums[u] >= last {
-			t = append(t, nums[u])
-			dfs(u+1, nums[u], t)
-			t = t[:len(t)-1]
-		}
-		if nums[u] != last {
-			dfs(u+1, last, t)
-		}
-	}
-	var t []int
-	dfs(0, -1000, t)
-	return ans
-}
 ```
 
 ### **...**

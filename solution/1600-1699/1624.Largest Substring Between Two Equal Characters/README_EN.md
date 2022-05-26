@@ -32,6 +32,14 @@
 <strong>Explanation:</strong> There are no characters that appear twice in s.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;cabbac&quot;
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> The optimal substring here is &quot;abba&quot;. Other non-optimal substrings include &quot;bb&quot; and &quot;&quot;.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

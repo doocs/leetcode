@@ -1,11 +1,10 @@
-# [768. 最多能完成排序的块 II](https://leetcode.cn/problems/max-chunks-to-make-sorted-ii)
+# [768. 最多能完成排序的块 II](https://leetcode-cn.com/problems/max-chunks-to-make-sorted-ii)
 
 [English Version](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p><em>这个问题和&ldquo;最多能完成排序的块&rdquo;相似，但给定数组中的元素可以重复，输入数组最大长度为<code>2000</code>，其中的元素最大为<code>10**8</code>。</em></p>
 
 <p><code>arr</code>是一个可能包含<strong>重复元素</strong>的整数数组，我们将这个数组分割成几个&ldquo;块&rdquo;，并将这些块分别进行排序。之后再连接起来，使得连接的结果和按升序排序后的原数组相同。</p>
@@ -43,8 +42,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-单调栈
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,26 +58,6 @@
 
 ```java
 
-```
-
-### **TypeScript**
-
-```ts
-function maxChunksToSorted(arr: number[]): number {
-    let stack = []; // 左进左出
-    for (let num of arr) {
-        if (stack.length && num < stack[0]) {
-            let max = stack.shift();
-            while (stack.length && num < stack[0]) {
-                stack.shift();
-            }
-            stack.unshift(max);
-        } else {
-            stack.unshift(num);
-        }
-    }
-    return stack.length;
-}
 ```
 
 ### **...**

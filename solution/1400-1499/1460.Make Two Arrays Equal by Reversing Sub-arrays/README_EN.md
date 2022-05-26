@@ -4,9 +4,11 @@
 
 ## Description
 
-<p>You are given two integer arrays of equal length <code>target</code> and <code>arr</code>. In one step, you can select any <strong>non-empty sub-array</strong> of <code>arr</code> and reverse it. You are allowed to make any number of steps.</p>
+<p>Given two integer arrays of equal length <code>target</code> and <code>arr</code>.</p>
 
-<p>Return <code>true</code> <em>if you can make </em><code>arr</code><em> equal to </em><code>target</code><em>&nbsp;or </em><code>false</code><em> otherwise</em>.</p>
+<p>In one step, you can select any <strong>non-empty sub-array</strong> of <code>arr</code> and reverse it. You are allowed to make any number of steps.</p>
+
+<p>Return <em>True</em> if you can make <code>arr</code> equal to <code>target</code>, or <em>False</em> otherwise.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -32,9 +34,23 @@ There are multiple ways to convert arr to target, this is not the only way to do
 <p><strong>Example 3:</strong></p>
 
 <pre>
+<strong>Input:</strong> target = [1,12], arr = [12,1]
+<strong>Output:</strong> true
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
 <strong>Input:</strong> target = [3,7,9], arr = [3,7,11]
 <strong>Output:</strong> false
-<strong>Explanation:</strong> arr does not have value 9 and it can never be converted to target.
+<strong>Explanation:</strong> arr doesn&#39;t have value 9 and it can never be converted to target.
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> target = [1,1,1,1,1], arr = [1,1,1,1,1]
+<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>
@@ -54,21 +70,13 @@ There are multiple ways to convert arr to target, this is not the only way to do
 ### **Python3**
 
 ```python
-class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        return sorted(target) == sorted(arr)
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public boolean canBeEqual(int[] target, int[] arr) {
-        Arrays.sort(target);
-        Arrays.sort(arr);
-        return Arrays.equals(target, arr);
-    }
-}
+
 ```
 
 ### **...**

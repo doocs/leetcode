@@ -1,4 +1,4 @@
-# [面试题 16.02. 单词频率](https://leetcode.cn/problems/words-frequency-lcci)
+# [面试题 16.02. 单词频率](https://leetcode-cn.com/problems/words-frequency-lcci)
 
 [English Version](/lcci/16.02.Words%20Frequency/README_EN.md)
 
@@ -31,8 +31,6 @@ wordsFrequency.get("pen"); //返回1
 
 <!-- 这里可写通用的实现逻辑 -->
 
-计数器实现。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -40,17 +38,7 @@ wordsFrequency.get("pen"); //返回1
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class WordsFrequency:
 
-    def __init__(self, book: List[str]):
-        self.counter = Counter(book)
-
-    def get(self, word: str) -> int:
-        return self.counter[word]
-
-# Your WordsFrequency object will be instantiated and called as such:
-# obj = WordsFrequency(book)
-# param_1 = obj.get(word)
 ```
 
 ### **Java**
@@ -58,54 +46,7 @@ class WordsFrequency:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class WordsFrequency {
 
-    private Map<String, Integer> counter = new HashMap<>();
-
-    public WordsFrequency(String[] book) {
-        for (String word : book) {
-            counter.put(word, counter.getOrDefault(word, 0) + 1);
-        }
-    }
-
-    public int get(String word) {
-        return counter.containsKey(word) ? counter.get(word) : 0;
-    }
-}
-
-/**
- * Your WordsFrequency object will be instantiated and called as such:
- * WordsFrequency obj = new WordsFrequency(book);
- * int param_1 = obj.get(word);
- */
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string[]} book
- */
-var WordsFrequency = function (book) {
-    this.counter = {};
-    for (const word of book) {
-        this.counter[word] = (this.counter[word] || 0) + 1;
-    }
-};
-
-/**
- * @param {string} word
- * @return {number}
- */
-WordsFrequency.prototype.get = function (word) {
-    return this.counter[word] || 0;
-};
-
-/**
- * Your WordsFrequency object will be instantiated and called as such:
- * var obj = new WordsFrequency(book)
- * var param_1 = obj.get(word)
- */
 ```
 
 ### **...**

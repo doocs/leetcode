@@ -1,11 +1,10 @@
-# [1416. 恢复数组](https://leetcode.cn/problems/restore-the-array)
+# [1416. 恢复数组](https://leetcode-cn.com/problems/restore-the-array)
 
 [English Version](/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>某个程序本来应该输出一个整数数组。但是这个程序忘记输出空格了以致输出了一个数字字符串，我们所知道的信息只有：数组中所有整数都在 <code>[1, k]</code>&nbsp;之间，且数组中的数字都没有前导 0 。</p>
 
 <p>给你字符串&nbsp;<code>s</code>&nbsp;和整数&nbsp;<code>k</code>&nbsp;。可能会有多种不同的数组恢复结果。</p>

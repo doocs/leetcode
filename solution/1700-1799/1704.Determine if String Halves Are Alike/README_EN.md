@@ -16,7 +16,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;book&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong> a = &quot;b<u>o</u>&quot; and b = &quot;<u>o</u>k&quot;. a has 1 vowel and b has 1 vowel. Therefore, they are alike.
+<strong>Explanation:</strong>&nbsp;a = &quot;b<u>o</u>&quot; and b = &quot;<u>o</u>k&quot;. a has 1 vowel and b has 1 vowel. Therefore, they are alike.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -24,8 +24,22 @@
 <pre>
 <strong>Input:</strong> s = &quot;textbook&quot;
 <strong>Output:</strong> false
-<strong>Explanation:</strong> a = &quot;t<u>e</u>xt&quot; and b = &quot;b<u>oo</u>k&quot;. a has 1 vowel whereas b has 2. Therefore, they are not alike.
+<strong>Explanation:</strong>&nbsp;a = &quot;t<u>e</u>xt&quot; and b = &quot;b<u>oo</u>k&quot;. a has 1 vowel whereas b has 2. Therefore, they are not alike.
 Notice that the vowel o is counted twice.
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;MerryChristmas&quot;
+<strong>Output:</strong> false
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;AbCdEfGh&quot;
+<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>
@@ -44,34 +58,13 @@ Notice that the vowel o is counted twice.
 ### **Python3**
 
 ```python
-class Solution:
-    def halvesAreAlike(self, s: str) -> bool:
-        half = len(s) >> 1
-        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
-        s1 = sum(1 for c in s[:half] if c in vowels)
-        s2 = sum(1 for c in s[half:] if c in vowels)
-        return s1 == s2
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public boolean halvesAreAlike(String s) {
-        int half = s.length() >> 1;
-        Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
-        int s1 = 0, s2 = 0;
-        for (int i = 0; i < half; ++i) {
-            if (vowels.contains(s.charAt(i))) {
-                ++s1;
-            }
-            if (vowels.contains(s.charAt(half + i))) {
-                ++s2;
-            }
-        }
-        return s1 == s2;
-    }
-}
+
 ```
 
 ### **...**

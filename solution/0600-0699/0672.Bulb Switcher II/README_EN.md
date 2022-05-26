@@ -4,60 +4,62 @@
 
 ## Description
 
-<p>There is a room with <code>n</code> bulbs labeled from <code>1</code> to <code>n</code> that all are turned on initially, and <strong>four buttons</strong> on the wall. Each of the four buttons has a different functionality where:</p>
+<p>There is a room with <code>n</code> lights which are turned on initially and 4 buttons on the wall. After performing exactly <code>m</code> unknown operations towards buttons, you need to return how many different kinds of status of the <code>n</code> lights could be.</p>
 
-<ul>
-	<li><strong>Button 1:</strong> Flips the status of all the bulbs.</li>
-	<li><strong>Button 2:</strong> Flips the status of all the bulbs with even labels (i.e., <code>2, 4, ...</code>).</li>
-	<li><strong>Button 3:</strong> Flips the status of all the bulbs with odd labels (i.e., <code>1, 3, ...</code>).</li>
-	<li><strong>Button 4:</strong> Flips the status of all the bulbs with a label <code>j = 3k + 1</code> where <code>k = 0, 1, 2, ...</code> (i.e., <code>1, 4, 7, 10, ...</code>).</li>
-</ul>
+<p>Suppose <code>n</code> lights are labeled as number [1, 2, 3 ..., n], function of these 4 buttons are given below:</p>
 
-<p>You must make <strong>exactly</strong> <code>presses</code> button presses in total. For each press, you may pick <strong>any</strong> of the four buttons to press.</p>
-
-<p>Given the two integers <code>n</code> and <code>presses</code>, return <em>the number of <strong>different possible statuses</strong> after performing all </em><code>presses</code><em> button presses</em>.</p>
+<ol>
+    <li>Flip all the lights.</li>
+    <li>Flip lights with even numbers.</li>
+    <li>Flip lights with odd numbers.</li>
+    <li>Flip lights with (3k + 1) numbers, k = 0, 1, 2, ...</li>
+</ol>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><b>Example 1:</b></p>
 
 <pre>
-<strong>Input:</strong> n = 1, presses = 1
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> Status can be:
-- [off] by pressing button 1
-- [on] by pressing button 2
-</pre>
 
-<p><strong>Example 2:</strong></p>
+<b>Input:</b> n = 1, m = 1.
 
-<pre>
-<strong>Input:</strong> n = 2, presses = 1
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> Status can be:
-- [off, off] by pressing button 1
-- [on, off] by pressing button 2
-- [off, on] by pressing button 3
-</pre>
+<b>Output:</b> 2
 
-<p><strong>Example 3:</strong></p>
+<b>Explanation:</b> Status can be: [on], [off]
 
-<pre>
-<strong>Input:</strong> n = 3, presses = 1
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> Status can be:
-- [off, off, off] by pressing button 1
-- [off, on, off] by pressing button 2
-- [on, off, on] by pressing button 3
-- [off, on, on] by pressing button 4
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= n &lt;= 1000</code></li>
-	<li><code>0 &lt;= presses &lt;= 1000</code></li>
-</ul>
+<p><b>Example 2:</b></p>
+
+<pre>
+
+<b>Input:</b> n = 2, m = 1.
+
+<b>Output:</b> 3
+
+<b>Explanation:</b> Status can be: [on, off], [off, on], [off, off]
+
+</pre>
+
+<p>&nbsp;</p>
+
+<p><b>Example 3:</b></p>
+
+<pre>
+
+<b>Input:</b> n = 3, m = 1.
+
+<b>Output:</b> 4
+
+<b>Explanation:</b> Status can be: [off, on, off], [on, off, on], [off, off, off], [off, on, on].
+
+</pre>
+
+<p>&nbsp;</p>
+
+<p><b>Note:</b> <code>n</code> and <code>m</code> both fit in range [0, 1000].</p>
 
 ## Solutions
 

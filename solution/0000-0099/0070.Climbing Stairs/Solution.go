@@ -1,7 +1,10 @@
 func climbStairs(n int) int {
-    a, b := 0, 1
-    for i := 0; i < n; i++ {
-        a, b = b, a + b
-    }
-    return b
+	if n < 3 {
+		return n
+	}
+	x, y := 1, 2
+	for i := 2; i < n; i++ {
+		x, y = y, x+y
+	}
+	return y
 }

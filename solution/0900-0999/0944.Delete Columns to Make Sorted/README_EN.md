@@ -4,65 +4,78 @@
 
 ## Description
 
-<p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>
+<p>We are given an array&nbsp;<code>A</code> of <code>N</code> lowercase letter strings, all of the same length.</p>
 
-<p>The strings can be arranged such that there is one on each line, making a grid. For example, <code>strs = [&quot;abc&quot;, &quot;bce&quot;, &quot;cae&quot;]</code> can be arranged as:</p>
+<p>Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.</p>
 
-<pre>
-abc
-bce
-cae
-</pre>
+<p>For example, if we have an array <code>A = [&quot;</code><code>abcdef</code><code>&quot;,&quot;uvwxyz&quot;]</code> and deletion indices <code>{0, 2, 3}</code>, then the final array after deletions is <code>[&quot;bef&quot;, &quot;vyz&quot;]</code>,&nbsp;and the remaining columns of <code>A</code> are&nbsp;<code>[&quot;b&quot;</code><code>,&quot;</code><code>v&quot;]</code>, <code>[&quot;e&quot;,&quot;y&quot;]</code>, and <code>[&quot;f&quot;,&quot;z&quot;]</code>.&nbsp; (Formally, the <code>c</code>-th column is <code>[A[0][c], A[1][c], ..., A[A.length-1][c]]</code>.)</p>
 
-<p>You want to <strong>delete</strong> the columns that are <strong>not sorted lexicographically</strong>. In the above example (0-indexed), columns 0 (<code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, <code>&#39;c&#39;</code>) and 2 (<code>&#39;c&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;e&#39;</code>) are sorted while column 1 (<code>&#39;b&#39;</code>, <code>&#39;c&#39;</code>, <code>&#39;a&#39;</code>) is not, so you would delete column 1.</p>
+<p>Suppose we chose a set of deletion indices <code>D</code> such that after deletions, each remaining column in A is in <strong>non-decreasing</strong> sorted order.</p>
 
-<p>Return <em>the number of columns that you will delete</em>.</p>
+<p>Return the minimum possible value of <code>D.length</code>.</p>
 
 <p>&nbsp;</p>
+
+<div>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> strs = [&quot;cba&quot;,&quot;daf&quot;,&quot;ghi&quot;]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> The grid looks as follows:
-  cba
-  daf
-  ghi
-Columns 0 and 2 are sorted, but column 1 is not, so you only need to delete 1 column.
+
+<strong>Input: </strong><span id="example-input-1-1">[&quot;cba&quot;,&quot;daf&quot;,&quot;ghi&quot;]</span>
+
+<strong>Output: </strong><span id="example-output-1">1</span>
+
+<strong>Explanation: </strong>
+
+After choosing D = {1}, each column [&quot;c&quot;,&quot;d&quot;,&quot;g&quot;] and [&quot;a&quot;,&quot;f&quot;,&quot;i&quot;] are in non-decreasing sorted order.
+
+If we chose D = {}, then a column [&quot;b&quot;,&quot;a&quot;,&quot;h&quot;] would not be in non-decreasing sorted order.
+
 </pre>
+
+<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> strs = [&quot;a&quot;,&quot;b&quot;]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The grid looks as follows:
-  a
-  b
-Column 0 is the only column and is sorted, so you will not delete any columns.
+
+<strong>Input: </strong><span id="example-input-2-1">[&quot;a&quot;,&quot;b&quot;]</span>
+
+<strong>Output: </strong><span id="example-output-2">0</span>
+
+<strong>Explanation: </strong>D = {}
+
 </pre>
+
+<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> strs = [&quot;zyx&quot;,&quot;wvu&quot;,&quot;tsr&quot;]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The grid looks as follows:
-  zyx
-  wvu
-  tsr
-All 3 columns are not sorted, so you will delete all 3.
+
+<strong>Input: </strong><span id="example-input-3-1">[&quot;zyx&quot;,&quot;wvu&quot;,&quot;tsr&quot;]</span>
+
+<strong>Output: </strong><span id="example-output-3">3</span>
+
+<strong>Explanation: </strong>D = {0, 1, 2}
+
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>n == strs.length</code></li>
-	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li><code>1 &lt;= strs[i].length &lt;= 1000</code></li>
-	<li><code>strs[i]</code> consists of lowercase English letters.</li>
-</ul>
+<p><strong><span>Note:</span></strong></p>
+
+<ol>
+	<li><code>1 &lt;= A.length &lt;= 100</code></li>
+	<li><code>1 &lt;= A[i].length &lt;= 1000</code></li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
 
 ## Solutions
 
@@ -71,97 +84,13 @@ All 3 columns are not sorted, so you will delete all 3.
 ### **Python3**
 
 ```python
-class Solution:
-    def minDeletionSize(self, strs: List[str]) -> int:
-        m, n = len(strs[0]), len(strs)
-        ans = 0
-        for j in range(m):
-            for i in range(1, n):
-                if strs[i][j] < strs[i - 1][j]:
-                    ans += 1
-                    break
-        return ans
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int minDeletionSize(String[] strs) {
-        int m = strs[0].length(), n = strs.length;
-        int ans = 0;
-        for (int j = 0; j < m; ++j) {
-            for (int i = 1; i < n; ++i) {
-                if (strs[i].charAt(j) < strs[i - 1].charAt(j)) {
-                    ++ans;
-                    break;
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minDeletionSize(vector<string>& strs) {
-        int n = strs.size();
-        int m = strs[0].size();
-        int res = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n - 1; ++j) {
-                if (strs[j][i] > strs[j + 1][i]) {
-                    res++;
-                    break;
-                }
-            }
-        }
-        return res;
-    }
-};
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn min_deletion_size(strs: Vec<String>) -> i32 {
-        let n = strs.len();
-        let m = strs[0].len();
-        let mut res = 0;
-        for i in 0..m {
-            for j in 1..n {
-                if strs[j - 1].as_bytes()[i] > strs[j].as_bytes()[i] {
-                    res += 1;
-                    break;
-                }
-            }
-        }
-        res
-    }
-}
-```
-
-### **Go**
-
-```go
-func minDeletionSize(strs []string) int {
-	m, n := len(strs[0]), len(strs)
-	ans := 0
-	for j := 0; j < m; j++ {
-		for i := 1; i < n; i++ {
-			if strs[i][j] < strs[i-1][j] {
-				ans++
-				break
-			}
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

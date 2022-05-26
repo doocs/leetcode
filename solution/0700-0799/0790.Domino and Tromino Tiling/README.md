@@ -1,45 +1,39 @@
-# [790. 多米诺和托米诺平铺](https://leetcode.cn/problems/domino-and-tromino-tiling)
+# [790. 多米诺和托米诺平铺](https://leetcode-cn.com/problems/domino-and-tromino-tiling)
 
 [English Version](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
-<p>有两种形状的瓷砖：一种是&nbsp;<code>2 x 1</code> 的多米诺形，另一种是形如&nbsp;"L" 的托米诺形。两种形状都可以旋转。</p>
-
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/images/lc-domino.jpg" style="height: 195px; width: 362px;" /></p>
-
-<p>给定整数 n ，返回可以平铺&nbsp;<code>2 x n</code> 的面板的方法的数量。<strong>返回对</strong>&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;<strong>取模&nbsp;</strong>的值。</p>
-
-<p>平铺指的是每个正方形都必须有瓷砖覆盖。两个平铺不同，当且仅当面板上有四个方向上的相邻单元中的两个，使得恰好有一个平铺有一个瓷砖占据两个正方形。</p>
-
-<p>&nbsp;</p>
-
-<p><strong>示例 1:</strong></p>
-
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/images/lc-domino1.jpg" style="height: 226px; width: 500px;" /></p>
+<p>有两种形状的瓷砖：一种是&nbsp;2x1 的多米诺形，另一种是形如&nbsp;&quot;L&quot; 的托米诺形。两种形状都可以旋转。</p>
 
 <pre>
-<strong>输入:</strong> n = 3
+XX  &lt;- 多米诺
+
+XX  &lt;- &quot;L&quot; 托米诺
+X
+</pre>
+
+<p>给定&nbsp;N 的值，有多少种方法可以平铺&nbsp;2 x N 的面板？<strong>返回值 mod 10^9 + 7</strong>。</p>
+
+<p>（平铺指的是每个正方形都必须有瓷砖覆盖。两个平铺不同，当且仅当面板上有四个方向上的相邻单元中的两个，使得恰好有一个平铺有一个瓷砖占据两个正方形。）</p>
+
+<pre>
+<strong>示例:</strong>
+<strong>输入:</strong> 3
 <strong>输出:</strong> 5
-<strong>解释:</strong> 五种不同的方法如上所示。
-</pre>
-
-<p><strong>示例 2:</strong></p>
-
-<pre>
-<strong>输入:</strong> n = 1
-<strong>输出:</strong> 1
-</pre>
-
-<p>&nbsp;</p>
+<strong>解释:</strong> 
+下面列出了五种不同的方法，不同字母代表不同瓷砖：
+XYZ XXZ XYY XXY XYY
+XYZ YYZ XZZ XYY XXY</pre>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 1000</code></li>
+	<li>N&nbsp; 的范围是&nbsp;<code>[1, 1000]</code></li>
 </ul>
+
+<p>&nbsp;</p>
 
 ## 解法
 

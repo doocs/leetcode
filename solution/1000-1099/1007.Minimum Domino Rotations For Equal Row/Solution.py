@@ -1,4 +1,5 @@
 class Solution:
+
     def minDominoRotations(self, A: List[int], B: List[int]) -> int:
         a, b = A[0], B[0]
         c, d = b, a

@@ -1,4 +1,4 @@
-# [面试题 17.09. 第 k 个数](https://leetcode.cn/problems/get-kth-magic-number-lcci)
+# [面试题 17.09. 第 k 个数](https://leetcode-cn.com/problems/get-kth-magic-number-lcci)
 
 [中文文档](/lcci/17.09.Get%20Kth%20Magic%20Number/README.md)
 

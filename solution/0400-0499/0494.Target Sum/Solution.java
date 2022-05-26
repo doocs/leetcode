@@ -1,20 +1,17 @@
 class Solution {
-    public int findTargetSumWays(int[] nums, int target) {
-        int s = 0;
-        for (int v : nums) {
-            s += v;
+    public int findTargetSumWays(int[] nums, int S) {
+        int[] ans = new int[1];
+        wayDfs(nums, 0, S, ans);
+        return ans[0];
+    }
+
+    private void wayDfs(int[] nums, int start, int left, int[] ans) {
+        if (start == nums.length) {
+            if (left == 0) ans[0]++;
+            return;
         }
-        if (s < target || (s - target) % 2 != 0) {
-            return 0;
-        }
-        int n = (s - target) / 2;
-        int[] dp = new int[n + 1];
-        dp[0] = 1;
-        for (int v : nums) {
-            for (int j = n; j >= v; --j) {
-                dp[j] += dp[j - v];
-            }
-        }
-        return dp[n];
+
+        wayDfs(nums, start + 1, left + nums[start], ans);
+        wayDfs(nums, start + 1, left - nums[start], ans);
     }
 }

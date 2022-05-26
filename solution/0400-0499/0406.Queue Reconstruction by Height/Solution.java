@@ -1,10 +1,10 @@
 class Solution {
     public int[][] reconstructQueue(int[][] people) {
-        Arrays.sort(people, (a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
-        List<int[]> ans = new ArrayList<>(people.length);
+        Arrays.sort(people, (o1, o2) -> o1[0] != o2[0] ? Integer.compare(o2[0], o1[0]) : Integer.compare(o1[1], o2[1]));
+        List<int[]> res = new ArrayList<>(people.length);
         for (int[] p : people) {
-            ans.add(p[1], p);
+            res.add(p[1], p);
         }
-        return ans.toArray(new int[ans.size()][]);
+        return res.toArray(new int[res.size()][]);
     }
 }

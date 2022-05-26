@@ -1,37 +1,33 @@
-# [面试题 45. 把数组排成最小的数](https://leetcode.cn/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/)
+# [面试题 45. 把数组排成最小的数](https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
+输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
 
-<p>&nbsp;</p>
+**示例 1:**
 
-<p><strong>示例 1:</strong></p>
+```
+输入: [10,2]
+输出: "102"
+```
 
-<pre><strong>输入:</strong> <code>[10,2]</code>
-<strong>输出:</strong> &quot;<code>102&quot;</code></pre>
+**示例  2:**
 
-<p><strong>示例&nbsp;2:</strong></p>
+```
+输入: [3,30,34,5,9]
+输出: "3033459"
+```
 
-<pre><strong>输入:</strong> <code>[3,30,34,5,9]</code>
-<strong>输出:</strong> &quot;<code>3033459&quot;</code></pre>
+**提示:**
 
-<p>&nbsp;</p>
+- `0 < nums.length <= 100`
 
-<p><strong>提示:</strong></p>
+**说明:**
 
-<ul>
-	<li><code>0 &lt; nums.length &lt;= 100</code></li>
-</ul>
-
-<p><strong>说明: </strong></p>
-
-<ul>
-	<li>输出结果可能非常大，所以你需要返回一个字符串而不是整数</li>
-	<li>拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0</li>
-</ul>
+- 输出结果可能非常大，所以你需要返回一个字符串而不是整数。
+- 拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0。
 
 ## 解法
 
@@ -86,59 +82,15 @@ class Solution {
  * @return {string}
  */
 var minNumber = function (nums) {
-    nums.sort((a, b) => {
-        let s1 = a + '' + b;
-        let s2 = b + '' + a;
-        if (s1 < s2) {
-            return -1;
-        } else return 1;
-    });
-    return nums.join('');
+  nums.sort((a, b) => {
+    let s1 = a + "" + b;
+    let s2 = b + "" + a;
+    if (s1 < s2) {
+      return -1;
+    } else return 1;
+  });
+  return nums.join("");
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string minNumber(vector<int>& nums) {
-        int n = nums.size();
-        vector<string> strs(n);
-        for (int i = 0; i < n; ++i) {
-            strs[i] = to_string(nums[i]);
-        }
-        sort(strs.begin(), strs.end(), [](const string& s1, const string& s2) {
-            return s1 + s2 < s2 + s1;
-        });
-        string ans;
-        for (int i = 0; i < n; ++i) {
-            ans += strs[i];
-        }
-        return ans;
-    }
-};
-```
-
-### **TypeScript**
-
-```ts
-function minNumber(nums: number[]): string {
-    return nums
-        .sort((a, b) => Number(`${a}${b}`) - Number(`${b}${a}`))
-        .join('');
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn min_number(mut nums: Vec<i32>) -> String {
-        nums.sort_by(|a, b| format!("{}{}", a, b).cmp(&format!("{}{}", b, a)));
-        nums.iter().map(|num| num.to_string()).collect()
-    }
-}
 ```
 
 ### **...**

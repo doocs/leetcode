@@ -4,62 +4,40 @@
 
 ## Description
 
-<p>Table: <code>Employee</code></p>
+<p>Write a SQL query to get the second highest salary from the <code>Employee</code> table.</p>
 
 <pre>
-+-------------+------+
-| Column Name | Type |
-+-------------+------+
-| id          | int  |
-| salary      | int  |
-+-------------+------+
-id is the primary key column for this table.
-Each row of this table contains information about the salary of an employee.
-</pre>
 
-<p>&nbsp;</p>
-
-<p>Write an SQL query to report the second highest salary from the <code>Employee</code> table. If there is no second highest salary, the query should report <code>null</code>.</p>
-
-<p>The query result format is in the following example.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> 
-Employee table:
 +----+--------+
-| id | salary |
+
+| Id | Salary |
+
 +----+--------+
+
 | 1  | 100    |
+
 | 2  | 200    |
+
 | 3  | 300    |
+
 +----+--------+
-<strong>Output:</strong> 
-+---------------------+
-| SecondHighestSalary |
-+---------------------+
-| 200                 |
-+---------------------+
+
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p>For example, given the above Employee table, the query should return <code>200</code> as the second highest salary. If there is no second highest salary, then the query should return <code>null</code>.</p>
 
 <pre>
-<strong>Input:</strong> 
-Employee table:
-+----+--------+
-| id | salary |
-+----+--------+
-| 1  | 100    |
-+----+--------+
-<strong>Output:</strong> 
+
 +---------------------+
+
 | SecondHighestSalary |
+
 +---------------------+
-| null                |
+
+| 200                 |
+
 +---------------------+
+
 </pre>
 
 ## Solutions

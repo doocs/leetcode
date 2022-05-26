@@ -7,7 +7,7 @@ public:
         int i = 0;
         while(nums[i] <= 0 && i < len)i++;
         if(i == len)return 1;
-
+        
         int tmp = 1;
         while(i<len){
             if(nums[i] != tmp)return tmp;

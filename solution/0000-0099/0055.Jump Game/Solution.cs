@@ -1,13 +1,18 @@
+using System;
+
 public class Solution {
     public bool CanJump(int[] nums) {
-        int mx = 0;
-        for (int i = 0; i < nums.Length; ++i)
+        var maxJump = 0;
+        for (var i = 0; i < nums.Length; ++i)
         {
-            if (i > mx)
+            if (i <= maxJump)
+            {
+                maxJump = Math.Max(maxJump, i + nums[i]);
+            }
+            else
             {
                 return false;
             }
-            mx = Math.Max(mx, i + nums[i]);
         }
         return true;
     }

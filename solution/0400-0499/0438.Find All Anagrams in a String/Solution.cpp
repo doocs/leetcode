@@ -1,23 +1,71 @@
-﻿class Solution {
+﻿static const auto io_speed_up = []()
+{
+	std::ios::sync_with_stdio(false) ;
+	cin.tie(nullptr) ;
+	return 0 ;
+}() ;
+
+class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
-        vector<int> counter(26);
-        for (char c : p) ++counter[c - 'a'];
-        vector<int> ans;
-        int left = 0, right = 0;
-        vector<int> t(26);
-        while (right < s.size())
+        int l = s.size() - p.size() ;
+        if (l < 0)
+            return {} ;
+        vector<int> pt(128, 0) ;
+        vector<int> st(128, 0) ;
+        vector<int> res ;
+        
+        for (auto ch: p)
+            ++pt[ch] ;
+                
+        for (int i = 0; i <= l; ++i)
         {
-            int i = s[right] - 'a';
-            ++t[i];
-            while (t[i] > counter[i])
+            for (int j = 0; j <= p.size(); ++j)
             {
-                --t[s[left] - 'a'];
-                ++left;
+                if (p.size() == j)
+                {
+                    if (match(st, pt))
+                    {
+                        res.push_back(i) ;
+                    }
+                    --st[s[i]] ;
+                    ++i ;
+                    j-=2 ;
+                    continue ;
+                }
+                
+                char ch = s[i+j] ;
+                if (0 == pt[ch])
+                {
+                    i = i+j ;
+                    clear(st) ;
+                    break ;
+                }
+
+                if (pt[ch] < ++st[ch])
+                {
+                    clear(st) ;
+                    break ;
+                }
             }
-            if (right - left + 1 == p.size()) ans.push_back(left);
-            ++right;
         }
-        return ans;
+        
+        return res ;
     }
+    
+    inline void clear(vector<int> &v)
+    {
+        for (int i = 'a'; i <= 'z'; ++i)
+            v[i] = 0 ;
+    }
+    
+    inline bool match(vector<int> &a, vector<int> &b)
+    {
+        for (int i = 'a'; i <= 'z'; ++i)
+            if (a[i] != b[i])
+                return false ;
+        return true ;
+    }
+    
+    
 };

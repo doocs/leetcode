@@ -1,27 +1,30 @@
 class FooBar {
 private:
     int n;
-    mutex fooMu, barMu;
+    std::mutex _mutex1;
+    std::mutex _mutex2;
 
 public:
     FooBar(int n) {
         this->n = n;
-        barMu.lock();
+        _mutex2.lock();
     }
 
     void foo(function<void()> printFoo) {
+        
         for (int i = 0; i < n; i++) {
-            fooMu.lock();
+            _mutex1.lock();
         	printFoo();
-            barMu.unlock();
+            _mutex2.unlock();
         }
     }
 
     void bar(function<void()> printBar) {
+        
         for (int i = 0; i < n; i++) {
-            barMu.lock();
+            _mutex2.lock();
         	printBar();
-            fooMu.unlock();
+            _mutex1.unlock();
         }
     }
 };

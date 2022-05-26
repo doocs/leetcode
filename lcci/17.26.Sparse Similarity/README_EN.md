@@ -1,4 +1,4 @@
-# [17.26. Sparse Similarity](https://leetcode.cn/problems/sparse-similarity-lcci)
+# [17.26. Sparse Similarity](https://leetcode-cn.com/problems/sparse-similarity-lcci)
 
 [中文文档](/lcci/17.26.Sparse%20Similarity/README.md)
 

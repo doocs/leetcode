@@ -1,16 +1,20 @@
 /**
- * @param {number[][]} matrix
+ * @param {number[][]} A
  * @return {number[][]}
  */
-var transpose = function (matrix) {
-    const m = matrix.length,
-        n = matrix[0].length;
-    let res = [];
-    for (let i = 0; i < n; ++i) {
-        res[i] = [];
-        for (let j = 0; j < m; ++j) {
-            res[i][j] = matrix[j][i];
-        }
+
+/**
+ *  Author: Mcnwork2018
+ */
+
+var transpose = function (A) {
+  if (A.length === 1 && A[0].length === 1) return A;
+  let tran_matrix = [];
+  for (let i = 0; i < A[0].length; ++i) {
+    tran_matrix[i] = [];
+    for (let j = 0; j < A.length; ++j) {
+      tran_matrix[i][j] = A[j][i];
     }
-    return res;
+  }
+  return tran_matrix;
 };

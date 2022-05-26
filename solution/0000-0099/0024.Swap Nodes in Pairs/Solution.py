@@ -12,5 +12,6 @@ class Solution:
             cur.next = t.next
             t.next = cur
             pre.next = t
-            pre, cur = cur, cur.next
+            pre = cur
+            cur = pre.next
         return dummy.next

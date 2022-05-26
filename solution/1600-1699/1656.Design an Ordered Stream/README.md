@@ -1,11 +1,10 @@
-# [1656. 设计有序流](https://leetcode.cn/problems/design-an-ordered-stream)
+# [1656. 设计有序流](https://leetcode-cn.com/problems/design-an-ordered-stream)
 
 [English Version](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>有 <code>n</code> 个 <code>(id, value)</code> 对，其中 <code>id</code> 是 <code>1</code> 到 <code>n</code> 之间的一个整数，<code>value</code> 是一个字符串。不存在 <code>id</code> 相同的两个 <code>(id, value)</code> 对。</p>
 
 <p>设计一个流，以 <strong>任意</strong> 顺序获取 <code>n</code> 个 <code>(id, value)</code> 对，并在多次调用时 <strong>按 <code>id</code> 递增的顺序</strong> 返回一些值。</p>
@@ -28,7 +27,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/images/q1.gif" style="width: 682px; height: 240px;" /></strong></p>
+![](./images/q1.gif)
 
 <pre>
 <strong>输入</strong>
@@ -70,24 +69,7 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class OrderedStream:
 
-    def __init__(self, n: int):
-        self.data = [None] * n
-        self.ptr = 0
-
-    def insert(self, idKey: int, value: str) -> List[str]:
-        self.data[idKey - 1] = value
-        ans = []
-        while self.ptr < len(self.data) and self.data[self.ptr]:
-            ans.append(self.data[self.ptr])
-            self.ptr += 1
-        return ans
-
-
-# Your OrderedStream object will be instantiated and called as such:
-# obj = OrderedStream(n)
-# param_1 = obj.insert(idKey,value)
 ```
 
 ### **Java**
@@ -95,87 +77,7 @@ class OrderedStream:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class OrderedStream {
-    private String[] data;
-    private int ptr;
 
-    public OrderedStream(int n) {
-        data = new String[n];
-        ptr = 0;
-    }
-
-    public List<String> insert(int idKey, String value) {
-        data[idKey - 1] = value;
-        List<String> ans = new ArrayList<>();
-        while (ptr < data.length && data[ptr] != null) {
-            ans.add(data[ptr++]);
-        }
-        return ans;
-    }
-}
-
-/**
- * Your OrderedStream object will be instantiated and called as such:
- * OrderedStream obj = new OrderedStream(n);
- * List<String> param_1 = obj.insert(idKey,value);
- */
-```
-
-### **C++**
-
-```cpp
-class OrderedStream {
-public:
-    vector<string> data;
-    int ptr = 0;
-
-    OrderedStream(int n) {
-        data.resize(n, "");
-    }
-
-    vector<string> insert(int idKey, string value) {
-        data[idKey - 1] = value;
-        vector<string> ans;
-        while (ptr < data.size() && data[ptr] != "") ans.push_back(data[ptr++]);
-        return ans;
-    }
-};
-
-/**
- * Your OrderedStream object will be instantiated and called as such:
- * OrderedStream* obj = new OrderedStream(n);
- * vector<string> param_1 = obj->insert(idKey,value);
- */
-```
-
-### **Go**
-
-```go
-type OrderedStream struct {
-	data []string
-	ptr  int
-}
-
-func Constructor(n int) OrderedStream {
-	data := make([]string, n)
-	return OrderedStream{data, 0}
-}
-
-func (this *OrderedStream) Insert(idKey int, value string) []string {
-	this.data[idKey-1] = value
-	var ans []string
-	for this.ptr < len(this.data) && this.data[this.ptr] != "" {
-		ans = append(ans, this.data[this.ptr])
-		this.ptr++
-	}
-	return ans
-}
-
-/**
- * Your OrderedStream object will be instantiated and called as such:
- * obj := Constructor(n);
- * param_1 := obj.Insert(idKey,value);
- */
 ```
 
 ### **...**

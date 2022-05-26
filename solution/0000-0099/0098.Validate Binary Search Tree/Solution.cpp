@@ -4,26 +4,35 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
 class Solution {
 public:
-    TreeNode* prev;
 
-    bool isValidBST(TreeNode* root) {
-        prev = nullptr;
-        return dfs(root);
+    void traverse(TreeNode* root, vector<int> &elements){
+
+        if( root->left != NULL )
+            traverse(root->left, elements);
+
+        elements.push_back(root->val);
+
+        if( root->right != NULL )
+            traverse(root->right, elements);
     }
 
-    bool dfs(TreeNode* root) {
-        if (!root) return true;
-        if (!dfs(root->left)) return false;
-        if (prev && prev->val >= root->val) return false;
-        prev = root;
-        if (!dfs(root->right)) return false;
+    bool isValidBST(TreeNode* root) {
+
+        if( root == NULL )
+            return true;
+
+        vector<int> elements;
+        traverse(root, elements);
+
+        for(int i = 0 ; i < elements.size() - 1 ; i++)
+            if( elements[i] >= elements[i + 1] )
+                return false;
+
         return true;
     }
 };

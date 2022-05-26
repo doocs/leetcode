@@ -1,11 +1,10 @@
-# [1745. 回文串分割 IV](https://leetcode.cn/problems/palindrome-partitioning-iv)
+# [1745. 回文串分割 IV](https://leetcode-cn.com/problems/palindrome-partitioning-iv)
 
 [English Version](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个字符串 <code>s</code> ，如果可以将它分割成三个 <strong>非空</strong> 回文子字符串，那么返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 
 <p>当一个字符串正着读和反着读是一模一样的，就称其为 <strong>回文字符串</strong> 。</p>

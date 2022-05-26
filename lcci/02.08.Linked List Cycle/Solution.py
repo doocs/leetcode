@@ -4,17 +4,17 @@
 #         self.val = x
 #         self.next = None
 
-
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
-        slow = fast = head
-        has_cycle = False
-        while not has_cycle and fast and fast.next:
-            slow, fast = slow.next, fast.next.next
-            has_cycle = slow == fast
-        if not has_cycle:
+        fast = slow = p = head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                break
+        if fast is None or fast.next is None:
             return None
-        p = head
-        while p != slow:
-            p, slow = p.next, slow.next
+        while slow != p:
+            p = p.next
+            slow = slow.next
         return p

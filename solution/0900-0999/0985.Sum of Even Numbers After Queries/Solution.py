@@ -1,17 +1,16 @@
 class Solution:
-    def sumEvenAfterQueries(
-        self, nums: List[int], queries: List[List[int]]
-    ) -> List[int]:
+    def sumEvenAfterQueries(self, A: 'List[int]', queries: 'List[List[int]]') -> 'List[int]':
+        base = sum(filter(lambda x: x % 2 == 0, A))
         ans = []
-        s = sum(num for num in nums if num % 2 == 0)
-        for v, i in queries:
-            old = nums[i]
-            nums[i] += v
-            if nums[i] % 2 == 0 and old % 2 == 0:
-                s += v
-            elif nums[i] % 2 == 0 and old % 2 == 1:
-                s += nums[i]
-            elif old % 2 == 0:
-                s -= old
-            ans.append(s)
+        for val, index in queries:
+            if A[index] % 2 == 0:
+                base -= A[index]
+                A[index] += val
+                if A[index] % 2 == 0:
+                    base += A[index]
+            else:
+                A[index] += val
+                if A[index] % 2 == 0:
+                    base += A[index]
+            ans.append(base)
         return ans

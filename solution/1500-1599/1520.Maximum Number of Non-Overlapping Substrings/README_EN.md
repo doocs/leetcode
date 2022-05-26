@@ -4,14 +4,14 @@
 
 ## Description
 
-<p>Given a string <code>s</code> of lowercase letters, you need to find the maximum number of <strong>non-empty</strong> substrings of <code>s</code> that meet the following conditions:</p>
+<p>Given a string <code>s</code>&nbsp;of lowercase letters, you need to find the maximum number of <strong>non-empty</strong> substrings of&nbsp;<code>s</code>&nbsp;that meet the following conditions:</p>
 
 <ol>
-	<li>The substrings do not overlap, that is for any two substrings <code>s[i..j]</code> and <code>s[x..y]</code>, either <code>j &lt; x</code> or <code>i &gt; y</code> is true.</li>
-	<li>A substring that contains a certain character <code>c</code> must also contain all occurrences of <code>c</code>.</li>
+	<li>The substrings do not overlap, that is for any two substrings <code>s[i..j]</code> and <code>s[k..l]</code>, either <code>j &lt; k</code> or <code>i &gt; l</code>&nbsp;is true.</li>
+	<li>A substring that contains a certain character&nbsp;<code>c</code>&nbsp;must also contain all occurrences of <code>c</code>.</li>
 </ol>
 
-<p>Find <em>the maximum number of substrings that meet the above conditions</em>. If there are multiple solutions with the same number of substrings, <em>return the one with minimum total length. </em>It can be shown that there exists a unique solution of minimum total length.</p>
+<p>Find <em>the maximum number of substrings that meet the above conditions</em>. If there are multiple solutions with the same number of substrings, <em>return the one with minimum total length.&nbsp;</em>It can be shown that there exists a unique solution of minimum total length.</p>
 
 <p>Notice that you can return the substrings in <strong>any</strong> order.</p>
 
@@ -45,8 +45,8 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> contains only lowercase English letters.</li>
+	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
+	<li><code>s</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
 
 ## Solutions

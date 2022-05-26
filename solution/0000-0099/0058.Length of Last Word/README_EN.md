@@ -4,43 +4,20 @@
 
 ## Description
 
-<p>Given a string <code>s</code> consisting&nbsp;of some words separated by some number of spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
+<p>Given a string <i>s</i> consists of upper/lower-case alphabets and empty space characters <code>&#39; &#39;</code>, return the length of last word (last word means the last appearing word if we loop from left to right) in the string.</p>
 
-<p>A <strong>word</strong> is a maximal substring consisting of non-space characters only.</p>
+<p>If the last word does not exist, return 0.</p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><b>Note:</b> A word is defined as a <strong>maximal substring</strong> consisting&nbsp;of non-space characters only.</p>
 
-<pre>
-<strong>Input:</strong> s = &quot;Hello World&quot;
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> The last word is &quot;World&quot; with length 5.
-</pre>
-
-<p><strong>Example 2:</strong></p>
+<p><b>Example:</b></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;   fly me   to   the moon  &quot;
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> The last word is &quot;moon&quot; with length 4.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;luffy is still joyboy&quot;
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> The last word is &quot;joyboy&quot; with length 6.
+<b>Input:</b> &quot;Hello World&quot;
+<b>Output:</b> 5
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>s</code> consists of only English letters and spaces <code>&#39; &#39;</code>.</li>
-	<li>There will be at least one word in <code>s</code>.</li>
-</ul>
 
 ## Solutions
 
@@ -81,81 +58,6 @@ class Solution {
             }
         }
         return lastWordLength;
-    }
-}
-```
-
-### **Go**
-
-```go
-func lengthOfLastWord(s string) int {
-	if len(s) == 0 {
-		return 0
-	}
-	space := []byte(" ")[0]
-	for len(s) != 0 && s[len(s)-1] == space {
-		s = s[:len(s)-1]
-	}
-	ret := 0
-	for i := len(s) - 1; i >= 0; i-- {
-		if s[i] != space {
-			ret++
-		} else {
-			return ret
-		}
-	}
-	return ret
-}
-```
-
-### **JavaScript**
-
-```js
-var lengthOfLastWord = function (s) {
-    s = s.trim();
-    return s.length - s.lastIndexOf(' ') - 1;
-};
-
-var lengthOfLastWord2 = function (s) {
-    let res = 0;
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] !== ' ' && (i === 0 || s[i - 1] === ' ')) {
-            res = 1;
-        } else if (s[i] !== ' ') {
-            res++;
-        }
-    }
-    return res;
-};
-```
-
-### **TypeScript**
-
-```ts
-function lengthOfLastWord(s: string): number {
-    s = s.trimEnd();
-    const n = s.length;
-    const index = s.lastIndexOf(' ');
-    if (index !== -1) {
-        return n - index - 1;
-    }
-    return n;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn length_of_last_word(s: String) -> i32 {
-        let s = s.trim_end();
-        let n = s.len();
-        for (i, c) in s.char_indices().rev() {
-            if c == ' ' {
-                return (n - i - 1) as i32;
-            }
-        }
-        n as i32
     }
 }
 ```

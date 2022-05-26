@@ -13,6 +13,4 @@ class Solution:
                 return 1
             return 0
 
-        return ''.join(
-            sorted([str(x) for x in nums], key=functools.cmp_to_key(compare))
-        )
+        return ''.join(sorted([str(x) for x in nums], key=functools.cmp_to_key(compare)))

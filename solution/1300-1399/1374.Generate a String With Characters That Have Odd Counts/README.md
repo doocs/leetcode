@@ -1,11 +1,10 @@
-# [1374. 生成每种字符都是奇数个的字符串](https://leetcode.cn/problems/generate-a-string-with-characters-that-have-odd-counts)
+# [1374. 生成每种字符都是奇数个的字符串](https://leetcode-cn.com/problems/generate-a-string-with-characters-that-have-odd-counts)
 
 [English Version](/solution/1300-1399/1374.Generate%20a%20String%20With%20Characters%20That%20Have%20Odd%20Counts/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个整数 <code>n</code>，请你返回一个含<em> <code>n</code> </em>个字符的字符串，其中每种字符在该字符串中都恰好出现 <strong>奇数次</strong> <em><strong>。</strong></em></p>
 
 <p>返回的字符串必须只含小写英文字母。如果存在多个满足题目要求的字符串，则返回其中任意一个即可。</p>
@@ -51,9 +50,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def generateTheString(self, n: int) -> str:
-        return 'a' * n if n & 1 else 'a' * (n - 1) + 'b'
+
 ```
 
 ### **Java**
@@ -61,38 +58,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public String generateTheString(int n) {
-        return (n % 2 == 1) ? "a".repeat(n) : "a".repeat(n - 1) + "b";
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string generateTheString(int n) {
-        string ans(n, 'a');
-        if (n % 2 == 0) ans[0] = 'b';
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func generateTheString(n int) string {
-	ans := strings.Repeat("a", n-1)
-	if n%2 == 0 {
-		ans += "b"
-	} else {
-		ans += "a"
-	}
-	return ans
-}
 ```
 
 ### **...**

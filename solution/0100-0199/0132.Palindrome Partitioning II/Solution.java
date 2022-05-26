@@ -1,23 +1,21 @@
 class Solution {
     public int minCut(String s) {
-        int n = s.length();
-        boolean[][] dp1 = new boolean[n][n];
-        for (int i = n - 1; i >= 0; i--) {
-            for (int j = i; j < n; j++) {
-                dp1[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 3 || dp1[i + 1][j - 1]);
-            }
+        if(s==null || s.length()<=1)return 0;
+        int len = s.length();
+        int[] dp = new int[len];
+        for(int i=0;i<len;i++) dp[i] = len - 1;
+        for(int i=0;i<len;i++){
+            mincutHelper(s , i , i , dp);
+            mincutHelper(s, i , i+1 , dp);
         }
-        int[] dp2 = new int[n];
-        for (int i = 0; i < n; i++) {
-            if (!dp1[0][i]) {
-                dp2[i] = i;
-                for (int j = 1; j <= i; j++) {
-                    if (dp1[j][i]) {
-                        dp2[i] = Math.min(dp2[i], dp2[j - 1] + 1);
-                    }
-                }
-            }
+        return dp[len-1];
+    }
+    private void mincutHelper(String s, int i, int j, int[] dp){
+        int len = s.length();
+        while(i>=0 && j<len && s.charAt(i)==s.charAt(j)){
+            dp[j] = Math.min(dp[j] , (i==0?-1:dp[i-1])+1);
+            i--;
+            j++;
         }
-        return dp2[n - 1];
     }
 }

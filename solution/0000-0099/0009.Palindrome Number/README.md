@@ -1,55 +1,35 @@
-# [9. 回文数](https://leetcode.cn/problems/palindrome-number)
+# [9. 回文数](https://leetcode-cn.com/problems/palindrome-number)
 
 [English Version](/solution/0000-0099/0009.Palindrome%20Number/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
 
-<p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p><strong>示例 1:</strong></p>
 
-<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
-
-<ul>
-	<li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
-</ul>
-
-<p>&nbsp;</p>
-
-<p><strong>示例 1：</strong></p>
-
-<pre>
-<strong>输入：</strong>x = 121
-<strong>输出：</strong>true
+<pre><strong>输入:</strong> 121
+<strong>输出:</strong> true
 </pre>
 
-<p><strong>示例&nbsp;2：</strong></p>
+<p><strong>示例&nbsp;2:</strong></p>
 
-<pre>
-<strong>输入：</strong>x = -121
-<strong>输出：</strong>false
-<strong>解释：</strong>从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
+<pre><strong>输入:</strong> -121
+<strong>输出:</strong> false
+<strong>解释:</strong> 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong>示例 3:</strong></p>
 
-<pre>
-<strong>输入：</strong>x = 10
-<strong>输出：</strong>false
-<strong>解释：</strong>从右向左读, 为 01 。因此它不是一个回文数。
+<pre><strong>输入:</strong> 10
+<strong>输出:</strong> false
+<strong>解释:</strong> 从右向左读, 为 01 。因此它不是一个回文数。
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>进阶:</strong></p>
 
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li><code>-2<sup>31</sup>&nbsp;&lt;= x &lt;= 2<sup>31</sup>&nbsp;- 1</code></li>
-</ul>
-
-<p>&nbsp;</p>
-
-<p><strong>进阶：</strong>你能不将整数转为字符串来解决这个问题吗？</p>
+<p>你能不将整数转为字符串来解决这个问题吗？</p>
 
 ## 解法
 
@@ -87,85 +67,6 @@ class Solution {
             t /= 10;
         }
         return x == y;
-    }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} x
- * @return {boolean}
- */
-var isPalindrome = function (x) {
-    let str = x + '';
-    let left = 0,
-        right = str.length - 1;
-    while (left < right) {
-        if (str[left] != str[right]) return false;
-        left++;
-        right--;
-    }
-    return true;
-};
-```
-
-### **Go**
-
-```go
-func isPalindrome(x int) bool {
-	if x < 0 {
-		return false
-	}
-	result := 0
-	y := x
-	for y != 0 {
-		result = result * 10 + y%10
-		y /= 10
-	}
-	return result == x
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn is_palindrome(x: i32) -> bool {
-        if x < 0 {
-            return false;
-        }
-        let s = x.to_string();
-        let bs = s.as_bytes();
-        let n = bs.len();
-        let mut l = 0;
-        let mut r = n - 1;
-        while l < r {
-            if bs[l] != bs[r] {
-                return false;
-            }
-            l += 1;
-            r -= 1;
-        }
-        true
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn is_palindrome(mut x: i32) -> bool {
-        if x < 0 || (x % 10 == 0 && x != 0) {
-            return false;
-        }
-        let mut y = 0;
-        while x > y {
-            y *= 10;
-            y += x % 10;
-            x /= 10;
-        }
-        x == y || x == y / 10
     }
 }
 ```

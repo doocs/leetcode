@@ -6,15 +6,17 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ 
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode* cur1 = headA;
-        ListNode* cur2 = headB;
-        while (cur1 != cur2) {
-            cur1 = cur1 ? cur1->next : headB;
-            cur2 = cur2 ? cur2->next : headA;
+        ListNode* a = headA;
+        ListNode* b = headB;
+        while (a != b) {
+            a = (a == nullptr) ? headB : a->next;
+            b = (b == nullptr) ? headA : b->next;
         }
-        return cur1;
+
+        return a;
     }
 };

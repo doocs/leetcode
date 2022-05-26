@@ -1,11 +1,10 @@
-# [1510. 石子游戏 IV](https://leetcode.cn/problems/stone-game-iv)
+# [1510. 石子游戏 IV](https://leetcode-cn.com/problems/stone-game-iv)
 
 [English Version](/solution/1500-1599/1510.Stone%20Game%20IV/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>Alice 和 Bob 两个人轮流玩一个游戏，Alice 先手。</p>
 
 <p>一开始，有 <code>n</code>&nbsp;个石子堆在一起。每个人轮流操作，正在操作的玩家可以从石子堆里拿走 <strong>任意</strong>&nbsp;非零 <strong>平方数</strong>&nbsp;个石子。</p>

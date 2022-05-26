@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>You are given an alphanumeric string <code>s</code>. (<strong>Alphanumeric string</strong> is a string consisting of lowercase English letters and digits).</p>
+<p>Given alphanumeric string <code>s</code>. (<strong>Alphanumeric string</strong> is a string consisting of lowercase English letters and digits).</p>
 
-<p>You have to find a permutation of the string where no letter is followed by another letter and no digit is followed by another digit. That is, no two adjacent characters have the same type.</p>
+<p>You have to find a permutation of&nbsp;the string where no letter is followed by another letter and no digit is followed by another digit. That is, no two adjacent characters have the same type.</p>
 
 <p>Return <em>the reformatted string</em> or return <strong>an empty string</strong> if it is impossible to reformat the string.</p>
 
@@ -33,6 +33,20 @@
 <strong>Input:</strong> s = &quot;1229857369&quot;
 <strong>Output:</strong> &quot;&quot;
 <strong>Explanation:</strong> &quot;1229857369&quot; has only digits so we cannot separate them by characters.
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;covid2019&quot;
+<strong>Output:</strong> &quot;c2o0v1i9d&quot;
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;ab123&quot;
+<strong>Output:</strong> &quot;1a2b3&quot;
 </pre>
 
 <p>&nbsp;</p>

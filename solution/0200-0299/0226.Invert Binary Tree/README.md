@@ -1,54 +1,38 @@
-# [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree)
+# [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree)
 
 [English Version](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>翻转一棵二叉树。</p>
 
-<p>给你一棵二叉树的根节点 <code>root</code> ，翻转这棵二叉树，并返回其根节点。</p>
+<p><strong>示例：</strong></p>
 
-<p>&nbsp;</p>
+<p>输入：</p>
 
-<p><strong>示例 1：</strong></p>
+<pre>     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9</pre>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0226.Invert%20Binary%20Tree/images/invert1-tree.jpg" style="height: 165px; width: 500px;" /></p>
+<p>输出：</p>
 
-<pre>
-<strong>输入：</strong>root = [4,2,7,1,3,6,9]
-<strong>输出：</strong>[4,7,2,9,6,3,1]
-</pre>
+<pre>     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>备注:</strong><br>
+这个问题是受到 <a href="https://twitter.com/mxcl" target="_blank">Max Howell </a>的 <a href="https://twitter.com/mxcl/status/608682016205344768" target="_blank">原问题</a> 启发的 ：</p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0226.Invert%20Binary%20Tree/images/invert2-tree.jpg" style="width: 500px; height: 120px;" /></p>
-
-<pre>
-<strong>输入：</strong>root = [2,1,3]
-<strong>输出：</strong>[2,3,1]
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>root = []
-<strong>输出：</strong>[]
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li>树中节点数目范围在 <code>[0, 100]</code> 内</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
+<blockquote>谷歌：我们90％的工程师使用您编写的软件(Homebrew)，但是您却无法在面试时在白板上写出翻转二叉树这道题，这太糟糕了。</blockquote>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
-DFS。
 
 <!-- tabs:start -->
 
@@ -59,20 +43,18 @@ DFS。
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
-        def dfs(root):
-            if root is None:
-                return
-            root.left, root.right = root.right, root.left
-            dfs(root.left)
-            dfs(root.right)
-
-        dfs(root)
+        if root is None:
+            return None
+        root.left, root.right = root.right, root.left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
         return root
 ```
 
@@ -87,63 +69,42 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ *     TreeNode(int x) { val = x; }
  * }
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        dfs(root);
-        return root;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+        if (root == null) return null;
         TreeNode t = root.left;
         root.left = root.right;
         root.right = t;
-        dfs(root.left);
-        dfs(root.right);
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
     }
 }
 ```
 
-### **C++**
+### **JavaScript**
 
-```cpp
+```js
 /**
  * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
  */
-class Solution {
-public:
-    TreeNode* invertTree(TreeNode* root) {
-        dfs(root);
-        return root;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        TreeNode* t = root->left;
-        root->left = root->right;
-        root->right = t;
-        dfs(root->left);
-        dfs(root->right);
-    }
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function (root) {
+  if (!root) return null;
+  [root.left, root.right] = [root.right, root.left];
+  invertTree(root.left);
+  invertTree(root.right);
+  return root;
 };
 ```
 
@@ -159,45 +120,14 @@ public:
  * }
  */
 func invertTree(root *TreeNode) *TreeNode {
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		root.Left, root.Right = root.Right, root.Left
-		dfs(root.Left)
-		dfs(root.Right)
-	}
-	dfs(root)
-	return root
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {TreeNode}
- */
-var invertTree = function (root) {
-    function dfs(root) {
-        if (!root) return;
-        [root.left, root.right] = [root.right, root.left];
-        dfs(root.left);
-        dfs(root.right);
+    if (root == nil) {
+        return nil
     }
-    dfs(root);
-    return root;
-};
+    root.Left, root.Right = root.Right, root.Left
+    invertTree(root.Left)
+    invertTree(root.Right)
+    return root
+}
 ```
 
 ### **...**

@@ -1,11 +1,10 @@
-# [761. 特殊的二进制序列](https://leetcode.cn/problems/special-binary-string)
+# [761. 特殊的二进制序列](https://leetcode-cn.com/problems/special-binary-string)
 
 [English Version](/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>特殊的二进制序列是具有以下两个性质的二进制序列：</p>
 
 <ul>

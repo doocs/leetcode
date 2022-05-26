@@ -1,11 +1,10 @@
-# [1690. 石子游戏 VII](https://leetcode.cn/problems/stone-game-vii)
+# [1690. 石子游戏 VII](https://leetcode-cn.com/problems/stone-game-vii)
 
 [English Version](/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>石子游戏中，爱丽丝和鲍勃轮流进行自己的回合，<strong>爱丽丝先开始</strong> 。</p>
 
 <p>有 <code>n</code> 块石子排成一排。每个玩家的回合中，可以从行中 <strong>移除</strong> 最左边的石头或最右边的石头，并获得与该行中剩余石头值之 <strong>和</strong> 相等的得分。当没有石头可移除时，得分较高者获胜。</p>

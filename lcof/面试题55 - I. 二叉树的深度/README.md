@@ -1,30 +1,26 @@
-# [面试题 55 - I. 二叉树的深度](https://leetcode.cn/problems/er-cha-shu-de-shen-du-lcof/)
+# [面试题 55 - I. 二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/)
 
 ## 题目描述
 
-<p>输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。</p>
+输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。
 
-<p>例如：</p>
+例如：
 
-<p>给定二叉树 <code>[3,9,20,null,null,15,7]</code>，</p>
+给定二叉树 `[3,9,20,null,null,15,7]`，
 
-<pre>    3
+```
+    3
    / \
   9  20
     /  \
-   15   7</pre>
+   15   7
+```
 
-<p>返回它的最大深度&nbsp;3 。</p>
+返回它的最大深度  3 。
 
-<p>&nbsp;</p>
+**提示：**
 
-<p><strong>提示：</strong></p>
-
-<ol>
-	<li><code>节点总数 &lt;= 10000</code></li>
-</ol>
-
-<p>注意：本题与主站 104&nbsp;题相同：<a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">https://leetcode.cn/problems/maximum-depth-of-binary-tree/</a></p>
+- `节点总数 <= 10000`
 
 ## 解法
 
@@ -84,95 +80,35 @@ class Solution {
  * @return {number}
  */
 var maxDepth = function (root) {
-    if (!root) {
-        return 0;
+  let res = 0;
+  function traversal(node, depth) {
+    if (!node) {
+      res = Math.max(res, depth);
+      return;
     }
-    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    traversal(node.left, depth + 1);
+    traversal(node.right, depth + 1);
+  }
+  traversal(root, 0);
+  return res;
 };
 ```
 
 ### **C++**
 
 ```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        if (!root) {
+        if (nullptr == root) {
             return 0;
         }
-        return 1 + max(maxDepth(root->left), maxDepth(root->right));
+
+        int left = maxDepth(root->left);
+        int right = maxDepth(root->right);
+        return std::max(left, right) + 1;
     }
 };
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func maxDepth(root *TreeNode) int {
-    if (root == nil) {
-        return 0
-    }
-    left, right := maxDepth(root.Left), maxDepth(root.Right)
-    if left > right {
-        return 1 + left
-    }
-    return 1 + right
-}
-```
-
-### **Rust**
-
-```rust
-// Definition for a binary tree node.
-// #[derive(Debug, PartialEq, Eq)]
-// pub struct TreeNode {
-//   pub val: i32,
-//   pub left: Option<Rc<RefCell<TreeNode>>>,
-//   pub right: Option<Rc<RefCell<TreeNode>>>,
-// }
-//
-// impl TreeNode {
-//   #[inline]
-//   pub fn new(val: i32) -> Self {
-//     TreeNode {
-//       val,
-//       left: None,
-//       right: None
-//     }
-//   }
-// }
-use std::rc::Rc;
-use std::cell::RefCell;
-impl Solution {
-    pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        match root {
-            None => 0,
-            Some(node) => {
-                let mut node = node.borrow_mut();
-                let left = node.left.take();
-                let right = node.right.take();
-                1 + Self::max_depth(left).max(Self::max_depth(right))
-            }
-        }
-    }
-}
 ```
 
 ### **...**

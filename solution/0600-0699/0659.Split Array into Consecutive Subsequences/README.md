@@ -1,16 +1,13 @@
-# [659. 分割数组为连续子序列](https://leetcode.cn/problems/split-array-into-consecutive-subsequences)
+# [659. 分割数组为连续子序列](https://leetcode-cn.com/problems/split-array-into-consecutive-subsequences)
 
 [English Version](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>输入一个按升序排序的整数数组（可能包含重复数字），你需要将它们分割成几个子序列，其中每个子序列至少包含三个连续整数。返回你是否能做出这样的分割？</p>
 
-<p>给你一个按升序排序的整数数组 <code>num</code>（可能包含重复数字），请你将它们分割成一个或多个长度至少为 3 的子序列，其中每个子序列都由连续整数组成。</p>
-
-<p>如果可以完成上述分割，则返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -23,6 +20,8 @@
 3, 4, 5
 </pre>
 
+<p>&nbsp;</p>
+
 <p><strong>示例 2：</strong></p>
 
 <pre>
@@ -34,6 +33,8 @@
 3, 4, 5
 </pre>
 
+<p>&nbsp;</p>
+
 <p><strong>示例 3：</strong></p>
 
 <pre>
@@ -41,13 +42,15 @@
 <strong>输出:</strong> False
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><b>提示：</b></p>
+<p><strong>提示：</strong></p>
 
-<ul>
-	<li><code>1 <= nums.length <= 10000</code></li>
-</ul>
+<ol>
+	<li>输入的数组长度范围为 [1, 10000]</li>
+</ol>
+
+<p>&nbsp;</p>
 
 ## 解法
 

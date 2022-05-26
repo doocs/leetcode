@@ -43,7 +43,7 @@ left = &quot;01110&quot; and right = &quot;1&quot;, score = 2 + 1 = 3
 
 <ul>
 	<li><code>2 &lt;= s.length &lt;= 500</code></li>
-	<li>The string <code>s</code> consists of characters <code>&#39;0&#39;</code> and <code>&#39;1&#39;</code> only.</li>
+	<li>The string <code>s</code> consists of characters &#39;0&#39; and &#39;1&#39; only.</li>
 </ul>
 
 ## Solutions

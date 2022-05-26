@@ -1,30 +1,15 @@
 func isMatch(s string, p string) bool {
-	m, n := len(s), len(p)
-	if n == 0 {
-		return m == 0
+	//p only contains `.` or `*` or `[a-z]`
+	lenP := len(p)
+	lenS := len(s)
+	if lenP == 0 {
+		return lenS == 0
 	}
-	dp := make([][]bool, m+1)
-	for i := 0; i < m+1; i++ {
-		dp[i] = make([]bool, n+1)
+	fm := lenS != 0 && (s[0] == p[0] || p[0] == '.')
+
+	if len(p) >= 2 && p[1] == '*' {
+		return isMatch(s, p[2:]) || fm && isMatch(s[1:], p)
+	} else {
+		return fm && isMatch(s[1:], p[1:])
 	}
-	dp[0][0] = true
-	for j := 1; j < n+1; j++ {
-		if p[j-1] == '*' {
-			dp[0][j] = dp[0][j-2]
-		}
-	}
-	for i := 1; i < m+1; i++ {
-		for j := 1; j < n+1; j++ {
-			if s[i-1] == p[j-1] || p[j-1] == '.' {
-				dp[i][j] = dp[i-1][j-1]
-			} else if p[j-1] == '*' {
-				if s[i-1] == p[j-2] || p[j-2] == '.' {
-					dp[i][j] = dp[i][j-2] || dp[i-1][j]
-				} else {
-					dp[i][j] = dp[i][j-2]
-				}
-			}
-		}
-	}
-	return dp[m][n]
 }

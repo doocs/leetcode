@@ -1,8 +1,10 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        counter = Counter(magazine)
-        for c in ransomNote:
-            if counter[c] <= 0:
+        chars = {}
+        for i in magazine:
+            chars[i] = chars.get(i, 0) + 1
+        for i in ransomNote:
+            if not chars.get(i):
                 return False
-            counter[c] -= 1
+            chars[i] -= 1
         return True

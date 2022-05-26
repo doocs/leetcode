@@ -1,4 +1,4 @@
-# [面试题 01.03. URL 化](https://leetcode.cn/problems/string-to-url-lcci)
+# [面试题 01.03. URL 化](https://leetcode-cn.com/problems/string-to-url-lcci)
 
 [English Version](/lcci/01.03.String%20to%20URL/README_EN.md)
 
@@ -33,23 +33,13 @@
 
 ### **Python3**
 
-直接利用 `replace` 将所有 ` ` 替换为 `%20`：
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
-        return S[:length].replace(' ', '%20')
-```
-
-初始化一个空列表 `chars`，遍历字符串中每个字符 `c`，遇到空格字符时，往 `chars` 中追加元素 `%20`，否则追加 `c`。最后返回 `''.join(chars)` 即可。
-
-```python
-class Solution:
-    def replaceSpaces(self, S: str, length: int) -> str:
-        chars = []
-        for c in S[:length]:
-            chars.append('%20' if c == ' ' else c)
-        return ''.join(chars)
+        S = S[:length] if length < len(S) else S
+        return S.replace(' ', '%20')
 ```
 
 ### **Java**
@@ -59,88 +49,18 @@ class Solution:
 ```java
 class Solution {
     public String replaceSpaces(String S, int length) {
-        char[] chars = S.toCharArray();
-        int j = chars.length;
-        for (int i = length - 1; i >= 0; --i) {
-            if (chars[i] == ' ') {
-                chars[--j] = '0';
-                chars[--j] = '2';
-                chars[--j] = '%';
+        char[] c = S.toCharArray();
+        int j = c.length;
+        for (int i = length - 1; i >= 0; i--) {
+            if (c[i] == ' ') {
+                c[--j] = '0';
+                c[--j] = '2';
+                c[--j] = '%';
             } else {
-                chars[--j] = chars[i];
+                c[--j] = c[i];
             }
         }
-        return new String(chars, j, chars.length - j);
-    }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} S
- * @param {number} length
- * @return {string}
- */
-var replaceSpaces = function (S, length) {
-    return encodeURI(S.substring(0, length));
-};
-```
-
-### **Go**
-
-```go
-func replaceSpaces(S string, length int) string {
-	// return url.PathEscape(S[:length])
-	j := len(S)
-	b := []byte(S)
-	for i := length - 1; i >= 0; i-- {
-		if b[i] == ' ' {
-			b[j-1] = '0'
-			b[j-2] = '2'
-			b[j-3] = '%'
-			j -= 3
-		} else {
-			b[j-1] = b[i]
-			j--
-		}
-	}
-	return string(b[j:])
-}
-```
-
-### **TypeScript**
-
-```ts
-function replaceSpaces(S: string, length: number): string {
-    return S.slice(0, length).replace(/\s/g, '%20');
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn replace_spaces(s: String, length: i32) -> String {
-        s[..length as usize].replace(' ', "%20")
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn replace_spaces(s: String, length: i32) -> String {
-        s.chars()
-            .take(length as usize)
-            .map(|c| {
-                if c == ' ' {
-                    "%20".to_string()
-                } else {
-                    c.to_string()
-                }
-            })
-            .collect()
+        return new String(c, j, c.length - j);
     }
 }
 ```

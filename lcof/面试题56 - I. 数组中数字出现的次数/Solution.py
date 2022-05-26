@@ -1,13 +1,18 @@
 class Solution:
     def singleNumbers(self, nums: List[int]) -> List[int]:
-        eor = 0
+        xor_res = 0
         for num in nums:
-            eor ^= num
-        # 找出最右边的 1
-        diff = eor & (~eor + 1)
-        a = 0
+            xor_res ^= num
+        pos = 0
+        while (xor_res & 1) == 0:
+            pos += 1
+            xor_res >>= 1
+        
+        a = b = 0
         for num in nums:
-            if (num & diff) == 0:
+            t = num >> pos
+            if (t & 1) == 0:
                 a ^= num
-        b = eor ^ a
+            else:
+                b ^= num
         return [a, b]

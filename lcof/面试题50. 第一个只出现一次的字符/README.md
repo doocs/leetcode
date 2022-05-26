@@ -1,66 +1,62 @@
-# [面试题 50. 第一个只出现一次的字符](https://leetcode.cn/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
+# [面试题 50. 第一个只出现一次的字符](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
 
 ## 题目描述
 
-<p>在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。</p>
+在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。
 
-<p><strong>示例 1:</strong></p>
+**示例:**
 
-<pre>
-输入：s = "abaccdeff"
-输出：'b'
-</pre>
+````
+s = "abaccdeff"
+返回 "b"
 
-<p><strong>示例 2:</strong></p>
+s = ""
+返回 " "
+``` 
 
-<pre>
-输入：s = "" 
-输出：' '
-</pre>
+**限制：**
 
-<p>&nbsp;</p>
-
-<p><strong>限制：</strong></p>
-
-<p><code>0 &lt;= s 的长度 &lt;= 50000</code></p>
+- `0 <= s 的长度 <= 50000`
 
 ## 解法
-
-对字符串进行两次遍历：
-
-第一遍，使用 hash 表（或数组）统计字符串中每个字符出现的次数。
-
-第二遍，只要遍历到一个只出现一次的字符，那么就返回该字符，否则在遍历结束后，返回 `' '`。
+有序字典解决。
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 ```python
+import collections
+
 class Solution:
     def firstUniqChar(self, s: str) -> str:
-        counter = Counter(s)
+        if s == '':
+            return ' '
+        cache = collections.OrderedDict()
         for c in s:
-            if counter[c] == 1:
-                return c
+            cache[c] = 1 if cache.get(c) is None else cache[c] + 1
+        for k, v in cache.items():
+            if v == 1:
+                return k
         return ' '
-```
+````
 
 ### **Java**
 
 ```java
 class Solution {
     public char firstUniqChar(String s) {
-        int n;
-        if ((n = s.length()) == 0) return ' ';
-        int[] counter = new int[26];
-        for (int i = 0; i < n; ++i) {
-            int index = s.charAt(i) - 'a';
-            ++counter[index];
+        if ("".equals(s)) {
+            return ' ';
         }
-        for (int i = 0; i < n; ++i) {
-            int index = s.charAt(i) - 'a';
-            if (counter[index] == 1) return s.charAt(i);
+        Map<Character, Integer> map = new LinkedHashMap<>();
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            map.put(c, map.get(c) == null ? 1 : 1 + map.get(c));
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                return entry.getKey();
+            }
         }
         return ' ';
     }
@@ -75,75 +71,16 @@ class Solution {
  * @return {character}
  */
 var firstUniqChar = function (s) {
-    if (s.length == 0) return ' ';
-    let counter = new Array(26).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - 'a'.charCodeAt();
-        ++counter[index];
-    }
-    for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - 'a'.charCodeAt();
-        if (counter[index] == 1) return s[i];
-    }
-    return ' ';
+  let t = new Array(26).fill(0);
+  let code = "a".charCodeAt();
+  for (let i = 0; i < s.length; i++) {
+    t[s[i].charCodeAt() - code]++;
+  }
+  for (let i = 0; i < s.length; i++) {
+    if (t[s[i].charCodeAt() - code] === 1) return s[i];
+  }
+  return " ";
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    char firstUniqChar(string s) {
-        unordered_map<char, bool> um;
-        for (char c : s) {
-            um[c] = um.find(c) == um.end();
-        }
-        for (char c : s) {
-            if (um[c]) {
-                return c;
-            }
-        }
-        return ' ';
-    }
-};
-```
-
-### **TypeScript**
-
-```ts
-function firstUniqChar(s: string): string {
-    const map = new Map();
-    for (const c of s) {
-        map.set(c, !map.has(c));
-    }
-    for (const c of s) {
-        if (map.get(c)) {
-            return c;
-        }
-    }
-    return ' ';
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashMap;
-impl Solution {
-    pub fn first_uniq_char(s: String) -> char {
-        let mut map = HashMap::new();
-        for c in s.as_bytes() {
-            map.insert(c, !map.contains_key(c));
-        }
-        for c in s.as_bytes() {
-            if map[c] {
-                return char::from(*c);
-            }
-        }
-        ' '
-    }
-}
 ```
 
 ### **...**

@@ -39,7 +39,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1728.Cat%20and%20Mouse%20II/images/sample_111_1955.png" style="width: 580px; height: 239px;" />
+
+![](./images/sample_111_1955.png)
+
 <pre>
 <strong>Input:</strong> grid = [&quot;####F&quot;,&quot;#C...&quot;,&quot;M....&quot;], catJump = 1, mouseJump = 2
 <strong>Output:</strong> true
@@ -47,7 +49,9 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1728.Cat%20and%20Mouse%20II/images/sample_2_1955.png" style="width: 580px; height: 175px;" />
+
+![](./images/sample_2_1955.png)
+
 <pre>
 <strong>Input:</strong> grid = [&quot;M.C...F&quot;], catJump = 1, mouseJump = 4
 <strong>Output:</strong> true
@@ -58,6 +62,20 @@
 <pre>
 <strong>Input:</strong> grid = [&quot;M.C...F&quot;], catJump = 1, mouseJump = 3
 <strong>Output:</strong> false
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> grid = [&quot;C...#&quot;,&quot;...#F&quot;,&quot;....#&quot;,&quot;M....&quot;], catJump = 2, mouseJump = 5
+<strong>Output:</strong> false
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> grid = [&quot;.M...&quot;,&quot;..#..&quot;,&quot;#..#.&quot;,&quot;C#.#.&quot;,&quot;...#F&quot;], catJump = 3, mouseJump = 1
+<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>

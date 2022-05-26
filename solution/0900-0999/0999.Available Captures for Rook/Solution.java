@@ -1,31 +1,27 @@
 class Solution {
     public int numRookCaptures(char[][] board) {
-        int[] pos = find(board);
-        int ans = 0, n = 8;
-        int[][] dirs = new int[][]{{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
-        for (int[] dir : dirs) {
-            int x = pos[0], y = pos[1], a = dir[0], b = dir[1];
-            while (x + a >= 0 && x + a < n && y + b >= 0 && y + b < n && board[x + a][y + b] != 'B') {
-                x += a;
-                y += b;
-                if (board[x][y] == 'p') {
-                    ++ans;
-                    break;
+        int[][] directions = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
+        int res = 0;
+        for (int i = 0; i < 8; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                if (board[i][j] == 'R') {
+                    for (int[] direction : directions) {
+                        res += search(board, i, j, direction);
+                    }
+                    return res;
                 }
             }
         }
-        return ans;
+        return res;
     }
 
-    private int[] find(char[][] board) {
-        int n = 8;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (board[i][j] == 'R') {
-                    return new int[]{i, j};
-                }
-            }
+    private int search(char[][] board, int i, int j, int[] direction) {
+        while (i >= 0 && i < 8 && j >= 0 && j < 8) {
+            if (board[i][j] == 'B') return 0;
+            if (board[i][j] == 'p') return 1;
+            i += direction[0];
+            j += direction[1];
         }
-        return null;
+        return 0;
     }
 }

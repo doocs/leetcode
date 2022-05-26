@@ -1,18 +1,23 @@
 class Solution {
     public int[] singleNumbers(int[] nums) {
-        int eor = 0;
+        int xor = 0;
         for (int num : nums) {
-            eor ^= num;
+            xor ^= num;
         }
-        // # 找出最右边的 1
-        int diff = eor & (~eor + 1);
-        int a = 0;
+        int pos = 0;
+        while ((xor & 1) == 0) {
+            ++pos;
+            xor >>= 1;
+        }
+        int a = 0, b = 0;
         for (int num : nums) {
-            if ((num & diff) == 0) {
+            int t = num >> pos;
+            if ((t & 1) == 0) {
                 a ^= num;
+            } else {
+                b ^= num;
             }
         }
-        int b = eor ^ a;
-        return new int[]{a, b};
+        return new int[] { a, b };
     }
 }

@@ -4,45 +4,75 @@
 
 ## Description
 
-<p>You are given an integer array of unique positive integers <code>nums</code>. Consider the following graph:</p>
+<p>Given a non-empty&nbsp;array of unique positive integers <code>A</code>, consider the following graph:</p>
 
 <ul>
-	<li>There are <code>nums.length</code> nodes, labeled <code>nums[0]</code> to <code>nums[nums.length - 1]</code>,</li>
-	<li>There is an undirected edge between <code>nums[i]</code> and <code>nums[j]</code> if <code>nums[i]</code> and <code>nums[j]</code> share a common factor greater than <code>1</code>.</li>
+    <li>There are <code>A.length</code> nodes, labelled <code>A[0]</code> to <code>A[A.length - 1];</code></li>
+    <li>There is an edge between <code>A[i]</code> and <code>A[j]</code>&nbsp;if and only if&nbsp;<code>A[i]</code> and <code>A[j]</code> share a common factor greater than 1.</li>
 </ul>
 
-<p>Return <em>the size of the largest connected component in the graph</em>.</p>
+<p>Return the size of the largest connected component in the graph.</p>
 
 <p>&nbsp;</p>
+
+<ol>
+
+</ol>
+
+<div>
+
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/images/ex1.png" style="width: 500px; height: 97px;" />
+
 <pre>
-<strong>Input:</strong> nums = [4,6,15,35]
-<strong>Output:</strong> 4
+
+<strong>Input: </strong><span id="example-input-1-1">[4,6,15,35]</span>
+
+<strong>Output: </strong><span id="example-output-1">4</span>
+
 </pre>
+
+![](./images/ex1.png)
+
+<div>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/images/ex2.png" style="width: 500px; height: 85px;" />
+
 <pre>
-<strong>Input:</strong> nums = [20,50,9,63]
-<strong>Output:</strong> 2
+
+<strong>Input: </strong><span id="example-input-2-1">[20,50,9,63]</span>
+
+<strong>Output: </strong><span id="example-output-2">2</span>
+
 </pre>
+
+![](./images/ex2.png)
+
+<div>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/images/ex3.png" style="width: 500px; height: 260px;" />
+
 <pre>
-<strong>Input:</strong> nums = [2,3,6,7,4,12,21,39]
-<strong>Output:</strong> 8
+
+<strong>Input: </strong><span id="example-input-3-1">[2,3,6,7,4,12,21,39]</span>
+
+<strong>Output: </strong><span id="example-output-3">8</span>
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+![](./images/ex3.png)
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
-	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
-</ul>
+<p><strong>Note:</strong></p>
+
+<ol>
+	<li><code>1 &lt;= A.length &lt;= 20000</code></li>
+	<li><code>1 &lt;= A[i] &lt;= 100000</code></li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
 
 ## Solutions
 

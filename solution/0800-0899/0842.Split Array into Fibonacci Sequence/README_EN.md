@@ -4,52 +4,82 @@
 
 ## Description
 
-<p>You are given a string of digits <code>num</code>, such as <code>&quot;123456579&quot;</code>. We can split it into a Fibonacci-like sequence <code>[123, 456, 579]</code>.</p>
+<p>Given a string <code>S</code>&nbsp;of digits, such as <code>S = &quot;123456579&quot;</code>, we can split it into a <em>Fibonacci-like sequence</em>&nbsp;<code>[123, 456, 579].</code></p>
 
-<p>Formally, a <strong>Fibonacci-like</strong> sequence is a list <code>f</code> of non-negative integers such that:</p>
+<p>Formally, a Fibonacci-like sequence is a list&nbsp;<code>F</code> of non-negative integers such that:</p>
 
 <ul>
-	<li><code>0 &lt;= f[i] &lt; 2<sup>31</sup></code>, (that is, each integer fits in a <strong>32-bit</strong> signed integer type),</li>
-	<li><code>f.length &gt;= 3</code>, and</li>
-	<li><code>f[i] + f[i + 1] == f[i + 2]</code> for all <code>0 &lt;= i &lt; f.length - 2</code>.</li>
+    <li><code>0 &lt;= F[i] &lt;= 2^31 - 1</code>, (that is,&nbsp;each integer fits a 32-bit signed integer type);</li>
+    <li><code>F.length &gt;= 3</code>;</li>
+    <li>and<code> F[i] + F[i+1] = F[i+2] </code>for all <code>0 &lt;= i &lt; F.length - 2</code>.</li>
 </ul>
 
-<p>Note that when splitting the string into pieces, each piece must not have extra leading zeroes, except if the piece is the number <code>0</code> itself.</p>
+<p>Also, note that when splitting the string into pieces, each piece must not have extra leading zeroes, except if the piece is the number 0 itself.</p>
 
-<p>Return any Fibonacci-like sequence split from <code>num</code>, or return <code>[]</code> if it cannot be done.</p>
+<p>Return any Fibonacci-like sequence split from <code>S</code>, or return <code>[]</code> if it cannot be done.</p>
 
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> num = &quot;1101111&quot;
-<strong>Output:</strong> [11,0,11,11]
-<strong>Explanation:</strong> The output [110, 1, 111] would also be accepted.
+
+<strong>Input: </strong>&quot;123456579&quot;
+
+<strong>Output: </strong>[123,456,579]
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> num = &quot;112358130&quot;
-<strong>Output:</strong> []
-<strong>Explanation:</strong> The task is impossible.
+
+<strong>Input: </strong>&quot;11235813&quot;
+
+<strong>Output: </strong>[1,1,2,3,5,8,13]
+
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> num = &quot;0123&quot;
-<strong>Output:</strong> []
-<strong>Explanation:</strong> Leading zeroes are not allowed, so &quot;01&quot;, &quot;2&quot;, &quot;3&quot; is not valid.
+
+<strong>Input: </strong>&quot;112358130&quot;
+
+<strong>Output: </strong>[]
+
+<strong>Explanation: </strong>The task is impossible.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><strong>Example 4:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= num.length &lt;= 200</code></li>
-	<li><code>num</code> contains only digits.</li>
-</ul>
+<pre>
+
+<strong>Input: </strong>&quot;0123&quot;
+
+<strong>Output: </strong>[]
+
+<strong>Explanation: </strong>Leading zeroes are not allowed, so &quot;01&quot;, &quot;2&quot;, &quot;3&quot; is not valid.
+
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+
+<strong>Input: </strong>&quot;1101111&quot;
+
+<strong>Output: </strong>[110, 1, 111]
+
+<strong>Explanation: </strong>The output [11, 0, 11, 11] would also be accepted.
+
+</pre>
+
+<p><strong>Note: </strong></p>
+
+<ol>
+    <li><code>1 &lt;= S.length&nbsp;&lt;= 200</code></li>
+    <li><code>S</code> contains only digits.</li>
+</ol>
 
 ## Solutions
 

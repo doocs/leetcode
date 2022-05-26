@@ -1,23 +1,26 @@
 class Solution {
     public List<Integer> luckyNumbers (int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
-        int[] rows = new int[m];
-        int[] cols = new int[n];
-        Arrays.fill(rows, Integer.MAX_VALUE);
+        Set<Integer> rowMin = new HashSet<>();
+        List<Integer> res = new ArrayList<>();
         for (int i = 0; i < m; ++i) {
+            int min = Integer.MAX_VALUE;
             for (int j = 0; j < n; ++j) {
-                rows[i] = Math.min(rows[i], matrix[i][j]);
-                cols[j] = Math.max(cols[j], matrix[i][j]);
+                min = Math.min(min, matrix[i][j]);
             }
+            rowMin.add(min);
         }
-        List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (rows[i] == cols[j]) {
-                    ans.add(matrix[i][j]);
-                }
+
+        for (int j = 0; j < n; ++j) {
+            int max = Integer.MIN_VALUE;
+            for (int i = 0; i < m; ++i) {
+                max = Math.max(max, matrix[i][j]);
             }
+            if (rowMin.contains(max)) {
+                res.add(max);
+            }
+
         }
-        return ans;
+        return res;
     }
 }

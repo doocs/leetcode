@@ -1,12 +1,12 @@
 class Solution {
-    public int repeatedNTimes(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            if (s.contains(num)) {
-                return num;
+    public int repeatedNTimes(int[] A) {
+        Set<Integer> set = new HashSet<>();
+        for (int e : A) {
+            if (set.contains(e)) {
+                return e;
             }
-            s.add(num);
+            set.add(e);
         }
-        return -1;
+        return 0;
     }
 }

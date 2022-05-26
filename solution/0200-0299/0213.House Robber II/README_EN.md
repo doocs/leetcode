@@ -4,42 +4,35 @@
 
 ## Description
 
-<p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong> That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected, and&nbsp;<b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p>
+<p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong> That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security system connected and&nbsp;<b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p>
 
-<p>Given an integer array <code>nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <strong>without alerting the police</strong></em>.</p>
+<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <strong>without alerting the police</strong>.</p>
 
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [2,3,2]
+
+<strong>Input:</strong> [2,3,2]
+
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> You cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses.
+
+<strong>Explanation:</strong> You cannot rob house 1 (money = 2) and then rob house 3 (money = 2),
+
+&nbsp;            because they are adjacent houses.
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,2,3,1]
+
+<strong>Input:</strong> [1,2,3,1]
+
 <strong>Output:</strong> 4
+
 <strong>Explanation:</strong> Rob house 1 (money = 1) and then rob house 3 (money = 3).
-Total amount you can rob = 1 + 3 = 4.
-</pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,2,3]
-<strong>Output:</strong> 3
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
-	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
-</ul>
+&nbsp;            Total amount you can rob = 1 + 3 = 4.</pre>
 
 ## Solutions
 
@@ -50,17 +43,22 @@ Total amount you can rob = 1 + 3 = 4.
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        def robRange(nums, l, r):
-            a, b = 0, nums[l]
-            for num in nums[l + 1: r + 1]:
-                a, b = b, max(num + a, b)
-            return b
+        def _rob(nums):
+            n = len(nums)
+            if n == 0:
+                return 0
+            if n == 1:
+                return nums[0]
+            pre, cur = nums[0], max(nums[0], nums[1])
+            for i in range(2, n):
+                t = max(pre + nums[i], cur)
+                pre, cur = cur, t
+            return cur
 
         n = len(nums)
         if n == 1:
             return nums[0]
-        s1, s2 = robRange(nums, 0, n - 2), robRange(nums, 1, n - 1)
-        return max(s1, s2)
+        return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
 
 ### **Java**
@@ -72,73 +70,28 @@ class Solution {
         if (n == 1) {
             return nums[0];
         }
-        int s1 = robRange(nums, 0, n - 2);
-        int s2 = robRange(nums, 1, n - 1);
-        return Math.max(s1, s2);
+        int sub1 = robInternal(Arrays.copyOfRange(nums, 0, n - 1));
+        int sub2 = robInternal(Arrays.copyOfRange(nums, 1, n));
+        return Math.max(sub1, sub2);
     }
 
-    private int robRange(int[] nums, int l, int r) {
-        int a = 0, b = nums[l];
-        for (int i = l + 1; i <= r; ++i) {
-            int c = Math.max(nums[i] + a, b);
-            a = b;
-            b = c;
+    private int robInternal(int[] nums) {
+        int n;
+        if ((n = nums.length) == 0) {
+            return 0;
         }
-        return b;
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int rob(vector<int>& nums) {
-        int n = nums.size();
-        if (n == 1) return nums[0];
-        int s1 = robRange(nums, 0, n - 2);
-        int s2 = robRange(nums, 1, n - 1);
-        return max(s1, s2);
-    }
-
-    int robRange(vector<int>& nums, int l, int r) {
-        int a = 0, b = nums[l];
-        for (int i = l + 1; i <= r; ++i) {
-            int c = max(nums[i] + a, b);
-            a = b;
-            b = c;
+        if (n == 1) {
+            return nums[0];
         }
-        return b;
+        int pre = nums[0];
+        int cur = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < n; ++i) {
+            int t = Math.max(pre + nums[i], cur);
+            pre = cur;
+            cur = t;
+        }
+        return cur;
     }
-};
-```
-
-### **Go**
-
-```go
-func rob(nums []int) int {
-	n := len(nums)
-	if n == 1 {
-		return nums[0]
-	}
-	s1, s2 := robRange(nums, 0, n-2), robRange(nums, 1, n-1)
-	return max(s1, s2)
-}
-
-func robRange(nums []int, l, r int) int {
-	a, b := 0, nums[l]
-	for i := l + 1; i <= r; i++ {
-		a, b = b, max(nums[i]+a, b)
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

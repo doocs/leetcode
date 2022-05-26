@@ -1,4 +1,4 @@
-# [16.02. Words Frequency](https://leetcode.cn/problems/words-frequency-lcci)
+# [16.02. Words Frequency](https://leetcode-cn.com/problems/words-frequency-lcci)
 
 [中文文档](/lcci/16.02.Words%20Frequency/README.md)
 
@@ -34,10 +34,15 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 <p><strong>Note: </strong></p>
 
 <ul>
+
     <li><code>There are only lowercase letters in book[i].</code></li>
+
     <li><code>1 &lt;= book.length &lt;= 100000</code></li>
+
     <li><code>1 &lt;= book[i].length &lt;= 10</code></li>
+
     <li><code>get</code>&nbsp;function will not be called more than&nbsp;100000 times.</li>
+
 </ul>
 
 ## Solutions
@@ -47,70 +52,13 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 ### **Python3**
 
 ```python
-class WordsFrequency:
 
-    def __init__(self, book: List[str]):
-        self.counter = Counter(book)
-
-    def get(self, word: str) -> int:
-        return self.counter[word]
-
-# Your WordsFrequency object will be instantiated and called as such:
-# obj = WordsFrequency(book)
-# param_1 = obj.get(word)
 ```
 
 ### **Java**
 
 ```java
-class WordsFrequency {
 
-    private Map<String, Integer> counter = new HashMap<>();
-
-    public WordsFrequency(String[] book) {
-        for (String word : book) {
-            counter.put(word, counter.getOrDefault(word, 0) + 1);
-        }
-    }
-
-    public int get(String word) {
-        return counter.containsKey(word) ? counter.get(word) : 0;
-    }
-}
-
-/**
- * Your WordsFrequency object will be instantiated and called as such:
- * WordsFrequency obj = new WordsFrequency(book);
- * int param_1 = obj.get(word);
- */
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string[]} book
- */
-var WordsFrequency = function (book) {
-    this.counter = {};
-    for (const word of book) {
-        this.counter[word] = (this.counter[word] || 0) + 1;
-    }
-};
-
-/**
- * @param {string} word
- * @return {number}
- */
-WordsFrequency.prototype.get = function (word) {
-    return this.counter[word] || 0;
-};
-
-/**
- * Your WordsFrequency object will be instantiated and called as such:
- * var obj = new WordsFrequency(book)
- * var param_1 = obj.get(word)
- */
 ```
 
 ### **...**

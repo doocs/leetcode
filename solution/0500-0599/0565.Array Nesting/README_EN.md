@@ -4,45 +4,41 @@
 
 ## Description
 
-<p>You are given an integer array <code>nums</code> of length <code>n</code> where <code>nums</code> is a permutation of the numbers in the range <code>[0, n - 1]</code>.</p>
+<p>A zero-indexed array A of length N contains all integers from 0 to N-1. Find and return the longest length of set S, where S[i] = {A[i], A[A[i]], A[A[A[i]]], ... } subjected to the rule below.</p>
 
-<p>You should build a set <code>s[k] = {nums[k], nums[nums[k]], nums[nums[nums[k]]], ... }</code> subjected to the following rule:</p>
-
-<ul>
-	<li>The first element in <code>s[k]</code> starts with the selection of the element <code>nums[k]</code> of <code>index = k</code>.</li>
-	<li>The next element in <code>s[k]</code> should be <code>nums[nums[k]]</code>, and then <code>nums[nums[nums[k]]]</code>, and so on.</li>
-	<li>We stop adding right before a duplicate element occurs in <code>s[k]</code>.</li>
-</ul>
-
-<p>Return <em>the longest length of a set</em> <code>s[k]</code>.</p>
+<p>Suppose the first element in S starts with the selection of element A[i] of index = i, the next element in S should be A[A[i]], and then A[A[A[i]]]&hellip; By that analogy, we stop adding right before a duplicate element occurs in S.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><b>Example 1:</b></p>
 
 <pre>
-<strong>Input:</strong> nums = [5,4,0,3,1,6,2]
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> 
-nums[0] = 5, nums[1] = 4, nums[2] = 0, nums[3] = 3, nums[4] = 1, nums[5] = 6, nums[6] = 2.
-One of the longest sets s[k]:
-s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}
-</pre>
 
-<p><strong>Example 2:</strong></p>
+<b>Input:</b> A = [5,4,0,3,1,6,2]
 
-<pre>
-<strong>Input:</strong> nums = [0,1,2]
-<strong>Output:</strong> 1
+<b>Output:</b> 4
+
+<b>Explanation:</b> 
+
+A[0] = 5, A[1] = 4, A[2] = 0, A[3] = 3, A[4] = 1, A[5] = 6, A[6] = 2.
+
+
+
+One of the longest S[K]:
+
+S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
+
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>0 &lt;= nums[i] &lt; nums.length</code></li>
-	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
-</ul>
+<p><b>Note:</b></p>
+
+<ol>
+    <li>N is an integer within the range [1, 20,000].</li>
+    <li>The elements of A are all distinct.</li>
+    <li>Each element of A is an integer within the range [0, N-1].</li>
+</ol>
 
 ## Solutions
 
@@ -51,99 +47,13 @@ s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}
 ### **Python3**
 
 ```python
-class Solution:
-    def arrayNesting(self, nums: List[int]) -> int:
-        n = len(nums)
-        vis = [False] * n
-        res = 0
-        for i in range(n):
-            if vis[i]:
-                continue
-            cur, m = nums[i], 1
-            vis[cur] = True
-            while nums[cur] != nums[i]:
-                cur = nums[cur]
-                m += 1
-                vis[cur] = True
-            res = max(res, m)
-        return res
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int arrayNesting(int[] nums) {
-        int n = nums.length;
-        boolean[] vis = new boolean[n];
-        int res = 0;
-        for (int i = 0; i < n; i++) {
-            if (vis[i]) {
-                continue;
-            }
-            int cur = nums[i], m = 1;
-            vis[cur] = true;
-            while (nums[cur] != nums[i]) {
-                cur = nums[cur];
-                m++;
-                vis[cur] = true;
-            }
-            res = Math.max(res, m);
-        }
-        return res;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int arrayNesting(vector<int>& nums) {
-        int n = nums.size();
-        vector<bool> vis(n);
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
-            if (vis[i]) continue;
-            int cur = nums[i], m = 1;
-            vis[cur] = true;
-            while (nums[cur] != nums[i]) {
-                cur = nums[cur];
-                ++m;
-                vis[cur] = true;
-            }
-            res = max(res, m);
-        }
-        return res;
-    }
-};
-```
-
-### **Go**
-
-```go
-func arrayNesting(nums []int) int {
-	n := len(nums)
-	vis := make([]bool, n)
-	ans := 0
-	for i := 0; i < n; i++ {
-		if vis[i] {
-			continue
-		}
-		cur, m := nums[i], 1
-		vis[cur] = true
-		for nums[cur] != nums[i] {
-			cur = nums[cur]
-			m++
-			vis[cur] = true
-		}
-		if m > ans {
-			ans = m
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

@@ -1,11 +1,10 @@
-# [1234. 替换子串得到平衡字符串](https://leetcode.cn/problems/replace-the-substring-for-balanced-string)
+# [1234. 替换子串得到平衡字符串](https://leetcode-cn.com/problems/replace-the-substring-for-balanced-string)
 
 [English Version](/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>有一个只含有&nbsp;<code>&#39;Q&#39;, &#39;W&#39;, &#39;E&#39;,&nbsp;&#39;R&#39;</code>&nbsp;四种字符，且长度为 <code>n</code>&nbsp;的字符串。</p>
 
 <p>假如在该字符串中，这四个字符都恰好出现&nbsp;<code>n/4</code>&nbsp;次，那么它就是一个「平衡字符串」。</p>
@@ -70,47 +69,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def balancedString(self, s: str) -> int:
-        # count the occurence of each char
-        count_chars = Counter(s)
 
-        required = len(s) // 4
-
-        # hold the number of excessive occurences
-        more_chars = defaultdict(int)
-        for char, count_char in count_chars.items():
-            more_chars[char] = max(0, count_char - required)
-
-        min_len = len(s)
-
-        # count the number of total replacements
-        need_replace = sum(more_chars.values())
-        if need_replace == 0:
-            return 0
-
-        # Sliding windows
-        # First, move the second cursors until satisfy the conditions
-        # Second, move the first_cursor so that it still satisfy the requirement
-
-        first_cursor, second_cursor = 0, 0
-        while second_cursor < len(s):
-            # Move second_cursor
-            if more_chars[s[second_cursor]] > 0:
-                need_replace -= 1
-            more_chars[s[second_cursor]] -= 1
-            second_cursor += 1
-
-            # Move first_cursor
-            while first_cursor < second_cursor and need_replace == 0:
-                min_len = min(min_len, second_cursor - first_cursor)
-                if s[first_cursor] in more_chars:
-                    more_chars[s[first_cursor]] += 1
-                    if more_chars[s[first_cursor]] > 0:
-                        need_replace += 1
-                first_cursor += 1
-
-        return min_len
 ```
 
 ### **Java**

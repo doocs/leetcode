@@ -8,54 +8,63 @@
  * }
  */
 public class Codec {
-    private static final String NULL = "#";
-    private static final String SEP = ",";
 
-    // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
+        public String serialize(TreeNode root) {
+
         if (root == null) {
             return "";
         }
+
         StringBuilder sb = new StringBuilder();
-        preorder(root, sb);
-        return sb.toString();
-    }
 
-    private void preorder(TreeNode root, StringBuilder sb) {
-        if (root == null) {
-            sb.append(NULL + SEP);
-            return;
+        Deque<TreeNode> deque = new LinkedList<>();
+        deque.add(root);
+
+        while (!deque.isEmpty()) {
+            TreeNode p = deque.pop();
+
+            if (p == null) {
+                sb.append(",#");
+            } else {
+                sb.append(",").append(p.val);
+                deque.add(p.left);
+                deque.add(p.right);
+            }
         }
-        sb.append(root.val + SEP);
-        preorder(root.left, sb);
-        preorder(root.right, sb);
+
+        return sb.toString().substring(1);
     }
 
-    // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        if (data == null || "".equals(data)) {
-            return null;
-        }
-        List<String> vals = new LinkedList<>();
-        for (String x : data.split(SEP)) {
-            vals.add(x);
-        }
-        return deserialize(vals);
-    }
 
-    private TreeNode deserialize(List<String> vals) {
-        String first = vals.remove(0);
-        if (NULL.equals(first)) {
+        if (data == null || Objects.equals(data, "")) {
             return null;
         }
-        TreeNode root = new TreeNode(Integer.parseInt(first));
-        root.left = deserialize(vals);
-        root.right = deserialize(vals);
-        return root;
+
+        String[] s = data.split(",");
+
+        TreeNode[] root = new TreeNode[s.length];
+
+        for (int i = 0; i < root.length; i++) {
+            if (!Objects.equals(s[i], "#")) {
+                root[i] = new TreeNode(Integer.valueOf(s[i]));
+            }
+        }
+
+        int parent = 0;
+
+        for (int i = 0; parent * 2 + 2 < s.length; i++) {
+            if (root[i] != null) {
+                root[i].left = root[parent * 2 + 1];
+                root[i].right = root[parent * 2 + 2];
+                parent++;
+            }
+        }
+
+        return root[0];
     }
 }
 
 // Your Codec object will be instantiated and called as such:
-// Codec ser = new Codec();
-// Codec deser = new Codec();
-// TreeNode ans = deser.deserialize(ser.serialize(root));
+// Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));

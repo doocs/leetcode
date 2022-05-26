@@ -1,12 +1,9 @@
 class Solution {
     public int tribonacci(int n) {
-        int a = 0, b = 1, c = 1;
-        while (n-- > 0) {
-            int d = a + b + c;
-            a = b;
-            b = c;
-            c = d;
+        int[] f = new int[]{0, 1, 1, 2};
+        for (int i = 4; i <= n; ++i) {
+            f[i % 4] = f[(i - 1) % 4] + f[(i - 2) % 4] + f[(i - 3) % 4];
         }
-        return a;
+        return f[n % 4];
     }
 }

@@ -1,15 +1,16 @@
 func movingCount(m int, n int, k int) int {
-	vis := make([][]bool, m)
-	for i := range vis {
-		vis[i] = make([]bool, n)
+	var visited [][]bool
+	visited = make([][]bool, m)
+	for i := 0; i < m; i++ {
+		visited[i] = make([]bool, n)
 	}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) int {
-		if i >= m || j >= n || vis[i][j] || (i%10+i/10+j%10+j/10) > k {
-			return 0
-		}
-		vis[i][j] = true
-		return 1 + dfs(i+1, j) + dfs(i, j+1)
+	return dfs(0, 0, m, n, k, visited)
+}
+
+func dfs(x, y, m, n, k int, visited [][]bool) int {
+	if x >= m || y >= n || visited[x][y] || (x%10+x/10+y%10+y/10) > k {
+		return 0
 	}
-	return dfs(0, 0)
+	visited[x][y] = true
+	return 1 + dfs(x+1, y, m, n, k, visited) + dfs(x, y+1, m, n, k, visited)
 }

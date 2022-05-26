@@ -1,11 +1,10 @@
-# [855. 考场就座](https://leetcode.cn/problems/exam-room)
+# [855. 考场就座](https://leetcode-cn.com/problems/exam-room)
 
 [English Version](/solution/0800-0899/0855.Exam%20Room/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>在考场里，一排有&nbsp;<code>N</code>&nbsp;个座位，分别编号为&nbsp;<code>0, 1, 2, ..., N-1</code>&nbsp;。</p>
 
 <p>当学生进入考场后，他必须坐在能够使他与离他最近的人之间的距离达到最大化的座位上。如果有多个这样的座位，他会坐在编号最小的座位上。(另外，如果考场里没有人，那么学生就坐在 0 号座位上。)</p>

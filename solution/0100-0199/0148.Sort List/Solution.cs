@@ -1,47 +1,50 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
 public class Solution {
     public ListNode SortList(ListNode head) {
         if (head == null || head.next == null)
         {
             return head;
         }
-        ListNode slow = head, fast = head.next;
-        while (fast != null && fast.next != null)
+
+        ListNode p1 = null;
+        var p2 = head;
+        while (p2 != null)
         {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        ListNode t = slow.next;
-        slow.next = null;
-        ListNode l1 = SortList(head);
-        ListNode l2 = SortList(t);
-        ListNode dummy = new ListNode();
-        ListNode cur = dummy;
-        while (l1 != null && l2 != null)
-        {
-            if (l1.val <= l2.val)
+            p2 = p2.next;
+            if (p2 != null)
             {
-                cur.next = l1;
-                l1 = l1.next;
+                p2 = p2.next;
+                p1 = p1 == null ? head : p1.next;
+            }
+        }
+
+        p2 = p1.next;
+        p1.next = null;
+        p1 = head;
+        p1 = SortList(p1);
+        p2 = SortList(p2);
+        ListNode newHead = null;
+        ListNode newTail = null;
+        while (p1 != null || p2 != null)
+        {
+            if (p1 == null || (p2 != null && p1.val > p2.val))
+            {
+                var temp = p1;
+                p1 = p2;
+                p2 = temp;
+            }
+            var next = p1;
+            p1 = p1.next;
+            next.next = null;
+            if (newTail == null)
+            {
+                newHead = newTail = next;
             }
             else
             {
-                cur.next = l2;
-                l2 = l2.next;
+                newTail.next = next;
+                newTail = next;
             }
-            cur = cur.next;
         }
-        cur.next = l1 == null ? l2 : l1;
-        return dummy.next;
+        return newHead;
     }
 }

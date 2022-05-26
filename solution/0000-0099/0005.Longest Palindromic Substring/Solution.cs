@@ -1,27 +1,31 @@
-public class Solution{
+public class Solution {
     public string LongestPalindrome(string s) {
-        int n = s.Length;
-        bool[,] dp = new bool[n, n];
-        int mx = 1, start = 0;
-        for (int j = 0; j < n; ++j)
+        var f = new bool[s.Length];
+        var maxLen = 0;
+        var index = 0;
+        for (var p = 0; p <= 1; ++p)
         {
-            for (int i = 0; i <= j; ++i)
+            for (var l = 1 + p; l <= s.Length; l += 2)
             {
-                if (j - i < 2)
+                for (var i = 0; i <= s.Length - l; ++i)
                 {
-                    dp[i, j] = s[i] == s[j];
-                }
-                else
-                {
-                    dp[i, j] = dp[i + 1, j - 1] && s[i] == s[j];
-                }
-                if (dp[i, j] && mx < j - i + 1)
-                {
-                    mx = j - i + 1;
-                    start = i;
+                    if (l <= 2)
+                    {
+                        f[i] = s[i] == s[i + l - 1]; 
+                    }
+                    else
+                    {
+                        f[i] = f[i + 1] && s[i] == s[i + l - 1]; 
+                    }
+                    if (f[i] && l > maxLen)
+                    {
+                        maxLen = l;
+                        index = i;
+                    }
                 }
             }
         }
-        return s.Substring(start, mx);
+        
+        return s.Substring(index, maxLen);
     }
 }

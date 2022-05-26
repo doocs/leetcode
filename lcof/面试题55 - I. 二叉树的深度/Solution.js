@@ -10,8 +10,15 @@
  * @return {number}
  */
 var maxDepth = function (root) {
-    if (!root) {
-        return 0;
+  let res = 0;
+  function traversal(node, depth) {
+    if (!node) {
+      res = Math.max(res, depth);
+      return;
     }
-    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    traversal(node.left, depth + 1);
+    traversal(node.right, depth + 1);
+  }
+  traversal(root, 0);
+  return res;
 };

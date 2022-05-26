@@ -1,60 +1,29 @@
-# [338. 比特位计数](https://leetcode.cn/problems/counting-bits)
+# [338. 比特位计数](https://leetcode-cn.com/problems/counting-bits)
 
 [English Version](/solution/0300-0399/0338.Counting%20Bits/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给定一个非负整数&nbsp;<strong>num</strong>。对于&nbsp;<strong>0 &le; i &le; num </strong>范围中的每个数字&nbsp;<strong>i&nbsp;</strong>，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
 
-<p>给你一个整数 <code>n</code> ，对于&nbsp;<code>0 &lt;= i &lt;= n</code> 中的每个 <code>i</code> ，计算其二进制表示中 <strong><code>1</code> 的个数</strong> ，返回一个长度为 <code>n + 1</code> 的数组 <code>ans</code> 作为答案。</p>
+<p><strong>示例 1:</strong></p>
 
-<p>&nbsp;</p>
+<pre><strong>输入: </strong>2
+<strong>输出: </strong>[0,1,1]</pre>
 
-<div class="original__bRMd">
-<div>
-<p><strong>示例 1：</strong></p>
+<p><strong>示例&nbsp;2:</strong></p>
 
-<pre>
-<strong>输入：</strong>n = 2
-<strong>输出：</strong>[0,1,1]
-<strong>解释：</strong>
-0 --&gt; 0
-1 --&gt; 1
-2 --&gt; 10
-</pre>
+<pre><strong>输入: </strong>5
+<strong>输出: </strong><code>[0,1,1,2,1,2]</code></pre>
 
-<p><strong>示例 2：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 5
-<strong>输出：</strong>[0,1,1,2,1,2]
-<strong>解释：</strong>
-0 --&gt; 0
-1 --&gt; 1
-2 --&gt; 10
-3 --&gt; 11
-4 --&gt; 100
-5 --&gt; 101
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
+<p><strong>进阶:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li>给出时间复杂度为<strong>O(n*sizeof(integer))</strong>的解答非常容易。但你可以在线性时间<strong>O(n)</strong>内用一趟扫描做到吗？</li>
+	<li>要求算法的空间复杂度为<strong>O(n)</strong>。</li>
+	<li>你能进一步完善解法吗？要求在C++或任何其他语言中不使用任何内置函数（如 C++ 中的&nbsp;<strong>__builtin_popcount</strong>）来执行此操作。</li>
 </ul>
-
-<p>&nbsp;</p>
-
-<p><strong>进阶：</strong></p>
-
-<ul>
-	<li>很容易就能实现时间复杂度为 <code>O(n log n)</code> 的解决方案，你可以在线性时间复杂度 <code>O(n)</code> 内用一趟扫描解决此问题吗？</li>
-	<li>你能不使用任何内置函数解决此问题吗？（如，C++ 中的&nbsp;<code>__builtin_popcount</code> ）</li>
-</ul>
-</div>
-</div>
 
 ## 解法
 
@@ -76,22 +45,6 @@
 
 ```java
 
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> countBits(int n) {
-        vector<int> res(n + 1);
-        for (int i = 1; i <= n; i++) {
-            res[i] = res[i & (i - 1)] + 1;
-        }
-
-        return res;
-    }
-};
 ```
 
 ### **...**

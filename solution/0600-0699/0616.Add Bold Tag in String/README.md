@@ -1,48 +1,40 @@
-# [616. 给字符串添加加粗标签](https://leetcode.cn/problems/add-bold-tag-in-string)
+# [616. 给字符串添加加粗标签](https://leetcode-cn.com/problems/add-bold-tag-in-string)
 
 [English Version](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给一个字符串 <strong>s</strong> 和一个字符串列表 <strong>dict</strong> ，你需要将在字符串列表中出现过的 s 的子串添加加粗闭合标签 <code><b></code> 和 <code></b></code> 。如果两个子串有重叠部分，你需要把它们一起用一个闭合标签包围起来。同理，如果两个子字符串连续被加粗，那么你也需要把它们合起来用一个加粗标签包围。</p>
 
-<p>给你一个字符串 <code>s</code> 和一个字符串列表 <code>words</code> ，你需要将在字符串列表中出现过的 <code>s</code> 的子串添加加粗闭合标签 &lt;b&gt; 和 &lt;/b&gt; 。</p>
+<p><strong>样例 1：</strong></p>
 
-<p>如果两个子串有重叠部分，你需要把它们一起用一对闭合标签包围起来。同理，如果两个子字符串连续被加粗，那么你也需要把它们合起来用一对加粗标签包围。</p>
-
-<p>返回添加加粗标签后的字符串 <code>s</code> 。</p>
-
-<p> </p>
-
-<p><strong>示例 1：</strong></p>
-
-<pre>
-<strong>输入：</strong> s = "abcxyz123", words = ["abc","123"]
-<strong>输出：</strong>"&lt;b&gt;abc&lt;/b&gt;xyz&lt;b&gt;123&lt;/b&gt;"
-</pre>
-
-<p><strong>示例 2：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "aaabbcc", words = ["aaa","aab","bc"]
-<strong>输出：</strong>"&lt;b&gt;aaabbc&lt;/b&gt;c"
+<pre><strong>输入：</strong>
+s = "abcxyz123"
+dict = ["abc","123"]
+<strong>输出：</strong>
+"<b>abc</b>xyz<b>123</b>"
 </pre>
 
 <p> </p>
 
-<p><strong>提示：</strong></p>
+<p><strong>样例 2：</strong></p>
 
-<ul>
-	<li><code>1 <= s.length <= 1000</code></li>
-	<li><code>0 <= words.length <= 100</code></li>
-	<li><code>1 <= words[i].length <= 1000</code></li>
-	<li><code>s</code> 和 <code>words[i]</code> 由英文字母和数字组成</li>
-	<li><code>words</code> 中的所有值 <strong>互不相同</strong></li>
-</ul>
+<pre><strong>输入：</strong>
+s = "aaabbcc"
+dict = ["aaa","aab","bc"]
+<strong>输出：</strong>
+"<b>aaabbc</b>c"
+</pre>
 
 <p> </p>
 
-<p><strong>注：</strong>此题与「758 - 字符串中的加粗单词」相同 - <a href="https://leetcode.cn/problems/bold-words-in-string">https://leetcode.cn/problems/bold-words-in-string</a></p>
+<p><strong>注意：</strong></p>
+
+<ol>
+	<li>给定的 dict 中不会有重复的字符串，且字符串数目不会超过 100 。</li>
+	<li>输入中的所有字符串长度都在范围 [1, 1000] 内。</li>
+</ol>
 
 <p> </p>
 

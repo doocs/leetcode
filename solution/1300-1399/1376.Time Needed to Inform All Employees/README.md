@@ -1,11 +1,10 @@
-# [1376. 通知所有员工所需的时间](https://leetcode.cn/problems/time-needed-to-inform-all-employees)
+# [1376. 通知所有员工所需的时间](https://leetcode-cn.com/problems/time-needed-to-inform-all-employees)
 
 [English Version](/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>公司里有 <code>n</code> 名员工，每个员工的 ID 都是独一无二的，编号从 <code>0</code> 到 <code>n - 1</code>。公司的总负责人通过 <code>headID</code> 进行标识。</p>
 
 <p>在 <code>manager</code> 数组中，每个员工都有一个直属负责人，其中 <code>manager[i]</code> 是第 <code>i</code> 名员工的直属负责人。对于总负责人，<code>manager[headID] = -1</code>。题目保证从属关系可以用树结构显示。</p>
@@ -20,21 +19,49 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>n = 1, headID = 0, manager = [-1], informTime = [0]
+<pre><strong>输入：</strong>n = 1, headID = 0, manager = [-1], informTime = [0]
 <strong>输出：</strong>0
 <strong>解释：</strong>公司总负责人是该公司的唯一一名员工。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/graph.png" style="height: 174px; width: 404px;" /></p>
+![](./images/graph.png)
 
-<pre>
-<strong>输入：</strong>n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
+<pre><strong>输入：</strong>n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
 <strong>输出：</strong>1
 <strong>解释：</strong>id = 2 的员工是公司的总负责人，也是其他所有员工的直属负责人，他需要 1 分钟来通知所有员工。
 上图显示了公司员工的树结构。
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+![](./images/1730_example_3_5.png)
+
+<pre><strong>输入：</strong>n = 7, headID = 6, manager = [1,2,3,4,5,6,-1], informTime = [0,6,5,4,3,2,1]
+<strong>输出：</strong>21
+<strong>解释：</strong>总负责人 id = 6。他将在 1 分钟内通知 id = 5 的员工。
+id = 5 的员工将在 2 分钟内通知 id = 4 的员工。
+id = 4 的员工将在 3 分钟内通知 id = 3 的员工。
+id = 3 的员工将在 4 分钟内通知 id = 2 的员工。
+id = 2 的员工将在 5 分钟内通知 id = 1 的员工。
+id = 1 的员工将在 6 分钟内通知 id = 0 的员工。
+所需时间 = 1 + 2 + 3 + 4 + 5 + 6 = 21 。
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre><strong>输入：</strong>n = 15, headID = 0, manager = [-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6], informTime = [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0]
+<strong>输出：</strong>3
+<strong>解释：</strong>第一分钟总负责人通知员工 1 和 2 。
+第二分钟他们将会通知员工 3, 4, 5 和 6 。
+第三分钟他们将会通知剩下的员工。
+</pre>
+
+<p><strong>示例 5：</strong></p>
+
+<pre><strong>输入：</strong>n = 4, headID = 2, manager = [3,3,-1,2], informTime = [0,0,162,914]
+<strong>输出：</strong>1076
 </pre>
 
 <p>&nbsp;</p>
@@ -57,8 +84,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-找从根节点到叶子节点最长的路径即可。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,18 +91,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
-        def dfs(i):
-            ans = 0
-            for j in g[i]:
-                ans = max(ans, informTime[i] + dfs(j))
-            return ans
 
-        g = defaultdict(list)
-        for i, m in enumerate(manager):
-            g[m].append(i)
-        return dfs(headID)
 ```
 
 ### **Java**
@@ -85,117 +99,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    private Map<Integer, List<Integer>> g;
-    private int[] manager;
-    private int[] informTime;
 
-    public int numOfMinutes(int n, int headID, int[] manager, int[] informTime) {
-        g = new HashMap<>();
-        this.manager = manager;
-        this.informTime = informTime;
-        for (int i = 0; i < n; ++i) {
-            g.computeIfAbsent(manager[i], k -> new ArrayList<>()).add(i);
-        }
-        return dfs(headID);
-    }
-
-    private int dfs(int i) {
-        int ans = 0;
-        for (int j : g.getOrDefault(i, new ArrayList<>())) {
-            ans = Math.max(ans, informTime[i] + dfs(j));
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    unordered_map<int, vector<int>> g;
-    vector<int> manager;
-    vector<int> informTime;
-
-    int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
-        this->manager = manager;
-        this->informTime = informTime;
-        for (int i = 0; i < n; ++i) g[manager[i]].push_back(i);
-        return dfs(headID);
-    }
-
-    int dfs(int i) {
-        int ans = 0;
-        for (int j : g[i]) ans = max(ans, informTime[i] + dfs(j));
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
-	g := make(map[int][]int)
-	for i, m := range manager {
-		g[m] = append(g[m], i)
-	}
-	var dfs func(i int) int
-	dfs = func(i int) int {
-		ans := 0
-		if v, ok := g[i]; ok {
-			for _, j := range v {
-				ans = max(ans, informTime[i]+dfs(j))
-			}
-		}
-		return ans
-	}
-	return dfs(headID)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-```
-
-### **TypeScript**
-
-```ts
-function numOfMinutes(
-    n: number,
-    headID: number,
-    manager: number[],
-    informTime: number[],
-): number {
-    if (n === 1) {
-        return 0;
-    }
-    let res = 0;
-    const time = new Array(n).fill(0);
-    time[headID] = -1;
-    const dfs = (i: number) => {
-        const aim = manager[i];
-        if (time[aim] === -1) {
-            return informTime[aim];
-        }
-        if (time[aim] === 0) {
-            time[aim] = dfs(aim);
-        }
-        return time[aim] + informTime[aim];
-    };
-    for (let i = 0; i < n; i++) {
-        if (time[i] === 0) {
-            time[i] = dfs(i);
-        }
-        res = Math.max(res, time[i]);
-    }
-    return res;
-}
 ```
 
 ### **...**

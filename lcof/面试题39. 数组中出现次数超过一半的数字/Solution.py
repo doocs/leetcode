@@ -1,8 +1,10 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        cnt = candidate = 0
+        cnt = major = 0
         for num in nums:
             if cnt == 0:
-                candidate = num
-            cnt += 1 if candidate == num else -1
-        return candidate
+                major = num
+                cnt += 1
+            else:
+                cnt += (1 if major == num else -1)
+        return major

@@ -46,92 +46,13 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 ### **Python3**
 
 ```python
-class Solution:
-    def maxOperations(self, nums: List[int], k: int) -> int:
-        nums.sort()
-        l, r, ans = 0, len(nums) - 1, 0
-        while l < r:
-            s = nums[l] + nums[r]
-            if s == k:
-                ans += 1
-                l, r = l + 1, r - 1
-            elif s > k:
-                r -= 1
-            else:
-                l += 1
-        return ans
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int maxOperations(int[] nums, int k) {
-        Arrays.sort(nums);
-        int l = 0, r = nums.length - 1;
-        int ans = 0;
-        while (l < r) {
-            int s = nums[l] + nums[r];
-            if (s == k) {
-                ++ans;
-                ++l;
-                --r;
-            } else if (s > k) {
-                --r;
-            } else {
-                ++l;
-            }
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxOperations(vector<int>& nums, int k) {
-        sort(nums.begin(), nums.end());
-        int cnt = 0;
-        int i = 0, j = nums.size() - 1;
-        while (i < j) {
-            if (nums[i] + nums[j] == k) {
-                i++;
-                j--;
-                cnt++;
-            } else if (nums[i] + nums[j] > k) {
-                j--;
-            } else {
-                i++;
-            }
-        }
-        return cnt;
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxOperations(nums []int, k int) int {
-	sort.Ints(nums)
-	l, r, ans := 0, len(nums)-1, 0
-	for l < r {
-		s := nums[l] + nums[r]
-		if s == k {
-			ans++
-			l++
-			r--
-		} else if s > k {
-			r--
-		} else {
-			l++
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

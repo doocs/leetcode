@@ -1,28 +1,33 @@
 class Solution {
     public int evalRPN(String[] tokens) {
-        Deque<Integer> stk = new ArrayDeque<>();
-        for (String t : tokens) {
-            if (t.length() > 1 || Character.isDigit(t.charAt(0))) {
-                stk.push(Integer.parseInt(t));
-            } else {
-                int y = stk.pop();
-                int x = stk.pop();
-                switch (t) {
-                    case "+":
-                        stk.push(x + y);
-                        break;
-                    case "-":
-                        stk.push(x - y);
-                        break;
-                    case "*":
-                        stk.push(x * y);
-                        break;
-                    default:
-                        stk.push(x / y);
-                        break;
-                }
+        Deque<Integer> s = new ArrayDeque<>();
+        int left, right;
+        for (String token : tokens) {
+            switch(token) {
+            case "+":
+                right = s.pop();
+                left = s.pop();
+                s.push(left + right);
+                break;
+            case "-":
+                right = s.pop();
+                left = s.pop();
+                s.push(left - right);
+                break;
+            case "*":
+                right = s.pop();
+                left = s.pop();
+                s.push(left * right);
+                break;
+            case "/":
+                right = s.pop();
+                left = s.pop();
+                s.push(left / right);
+                break;
+            default:
+                s.push(Integer.valueOf(token));
             }
         }
-        return stk.pop();
+        return s.pop();
     }
 }

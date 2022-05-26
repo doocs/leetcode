@@ -1,3 +1,6 @@
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        return sum(1 for num in nums if (len(str(num)) & 1) == 0)
+        res = 0
+        for num in nums:
+            res += (len(str(num)) & 1) == 0
+        return res

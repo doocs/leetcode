@@ -4,51 +4,55 @@
 
 ## Description
 
-<p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
+<p>Let&#39;s call any (contiguous) subarray B (of A)&nbsp;a <em>mountain</em> if the following properties hold:</p>
 
 <ul>
-	<li><code>arr.length &gt;= 3</code></li>
-	<li>There exists some index <code>i</code> (<strong>0-indexed</strong>) with <code>0 &lt; i &lt; arr.length - 1</code> such that:
-	<ul>
-		<li><code>arr[0] &lt; arr[1] &lt; ... &lt; arr[i - 1] &lt; arr[i]</code></li>
-		<li><code>arr[i] &gt; arr[i + 1] &gt; ... &gt; arr[arr.length - 1]</code></li>
-	</ul>
-	</li>
+    <li><code>B.length &gt;= 3</code></li>
+    <li>There exists some <code>0 &lt; i&nbsp;&lt; B.length - 1</code> such that <code>B[0] &lt; B[1] &lt; ... B[i-1] &lt; B[i] &gt; B[i+1] &gt; ... &gt; B[B.length - 1]</code></li>
 </ul>
 
-<p>Given an integer array <code>arr</code>, return <em>the length of the longest subarray, which is a mountain</em>. Return <code>0</code> if there is no mountain subarray.</p>
+<p>(Note that B could be any subarray of A, including the entire array A.)</p>
 
-<p>&nbsp;</p>
+<p>Given an array <code>A</code>&nbsp;of integers,&nbsp;return the length of the longest&nbsp;<em>mountain</em>.&nbsp;</p>
+
+<p>Return <code>0</code> if there is no mountain.</p>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> arr = [2,1,4,7,3,2,5]
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> The largest mountain is [1,4,7,3,2] which has length 5.
+
+<strong>Input: </strong>[2,1,4,7,3,2,5]
+
+<strong>Output: </strong>5
+
+<strong>Explanation: </strong>The largest mountain is [1,4,7,3,2] which has length 5.
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> arr = [2,2,2]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> There is no mountain.
+
+<strong>Input: </strong>[2,2,2]
+
+<strong>Output: </strong>0
+
+<strong>Explanation: </strong>There is no mountain.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><strong>Note:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
-</ul>
+<ol>
+    <li><code>0 &lt;= A.length &lt;= 10000</code></li>
+    <li><code>0 &lt;= A[i] &lt;= 10000</code></li>
+</ol>
 
-<p>&nbsp;</p>
 <p><strong>Follow up:</strong></p>
 
 <ul>
-	<li>Can you solve it using only one pass?</li>
-	<li>Can you solve it in <code>O(1)</code> space?</li>
+    <li>Can you solve it using only one pass?</li>
+    <li>Can you solve it in <code>O(1)</code> space?</li>
 </ul>
 
 ## Solutions
@@ -58,78 +62,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def longestMountain(self, arr: List[int]) -> int:
-        left, right = 0, 1
-        status = -1
-        ans = 0
-        while right < len(arr):
-            if status == -1 or status == 1:
-                if arr[right] == arr[right - 1]:
-                    status = -1
-                if status == -1:
-                    if arr[right] > arr[right - 1]:
-                        status = 1
-                    else:
-                        left = right
-                if status == 1 and arr[right] < arr[right - 1]:
-                    status = 2
-            else:
-                if arr[right] == arr[right - 1]:
-                    status = -1
-                    ans = max(ans, right - left)
-                    left = right
-                elif arr[right] > arr[right - 1]:
-                    status = 1
-                    ans = max(ans, right - left)
-                    left = right - 1
-            right += 1
-        if status == 2:
-            ans = max(right - left, ans)
-        return ans
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int longestMountain(int[] arr) {
-        int left = 0, right = 0;
-        int ans = 0;
-        int status = -1;
-        while (++right < arr.length) {
-            if (status == -1 || status == 1) {
-                if (arr[right] == arr[right - 1]) {
-                    status = -1;
-                }
-                if (status == -1) {
-                    if (arr[right] > arr[right - 1]) {
-                        status = 1;
-                    } else {
-                        left = right;
-                    }
-                }
-                if (status == 1 && arr[right] < arr[right - 1]) {
-                    status = 2;
-                }
-            } else {
-                if (arr[right] > arr[right - 1]) {
-                    status = 1;
-                    ans = Math.max(right - left, ans);
-                    left = right - 1;
-                } else if (arr[right] == arr[right - 1]) {
-                    status = -1;
-                    ans = Math.max(right - left, ans);
-                    left = right;
-                }
-            }
-        }
-        if (status == 2) {
-            ans = Math.max(ans, right - left);
-        }
-        return ans;
-    }
-}
+
 ```
 
 ### **...**

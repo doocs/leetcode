@@ -1,18 +1,17 @@
-# [1183. 矩阵中 1 的最大数量](https://leetcode.cn/problems/maximum-number-of-ones)
+# [1183. 矩阵中 1 的最大数量](https://leetcode-cn.com/problems/maximum-number-of-ones)
 
 [English Version](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>现在有一个尺寸为 <code>width * height</code> 的矩阵 <code>M</code>，矩阵中的每个单元格的值不是 <code>0</code> 就是 <code>1</code>。</p>
 
-<p>现在有一个尺寸为 <code>width * height</code>&nbsp;的矩阵&nbsp;<code>M</code>，矩阵中的每个单元格的值不是&nbsp;<code>0</code>&nbsp;就是&nbsp;<code>1</code>。</p>
-
-<p>而且矩阵 <code>M</code> 中每个大小为&nbsp;<code>sideLength * sideLength</code>&nbsp;的 <strong>正方形</strong> 子阵中，<code>1</code> 的数量不得超过&nbsp;<code>maxOnes</code>。</p>
+<p>而且矩阵 <code>M</code> 中每个大小为 <code>sideLength * sideLength</code> 的 <strong>正方形</strong> 子阵中，<code>1</code> 的数量不得超过 <code>maxOnes</code>。</p>
 
 <p>请你设计一个算法，计算矩阵中最多可以有多少个 <code>1</code>。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -36,14 +35,14 @@
 [1,0,1]
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= width, height &lt;= 100</code></li>
-	<li><code>1 &lt;= sideLength &lt;= width, height</code></li>
-	<li><code>0 &lt;= maxOnes &lt;= sideLength * sideLength</code></li>
+	<li><code>1 <= width, height <= 100</code></li>
+	<li><code>1 <= sideLength <= width, height</code></li>
+	<li><code>0 <= maxOnes <= sideLength * sideLength</code></li>
 </ul>
 
 ## 解法

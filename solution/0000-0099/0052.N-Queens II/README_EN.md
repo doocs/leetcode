@@ -4,32 +4,45 @@
 
 ## Description
 
-<p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>
+<p>The <em>n</em>-queens puzzle is the problem of placing <em>n</em> queens on an <em>n</em>&times;<em>n</em> chessboard such that no two queens attack each other.</p>
 
-<p>Given an integer <code>n</code>, return <em>the number of distinct solutions to the&nbsp;<strong>n-queens puzzle</strong></em>.</p>
+![](./images/8-queens.png)
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0052.N-Queens%20II/images/queens.jpg" style="width: 600px; height: 268px;" />
+<p>Given an integer&nbsp;<em>n</em>, return the number of&nbsp;distinct solutions to the&nbsp;<em>n</em>-queens puzzle.</p>
+
+<p><strong>Example:</strong></p>
+
 <pre>
-<strong>Input:</strong> n = 4
+
+<strong>Input:</strong> 4
+
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> There are two distinct solutions to the 4-queens puzzle as shown.
+
+<strong>Explanation:</strong> There are two distinct solutions to the 4-queens puzzle as shown below.
+
+[
+
+&nbsp;[&quot;.Q..&quot;, &nbsp;// Solution 1
+
+&nbsp; &quot;...Q&quot;,
+
+&nbsp; &quot;Q...&quot;,
+
+&nbsp; &quot;..Q.&quot;],
+
+
+
+&nbsp;[&quot;..Q.&quot;, &nbsp;// Solution 2
+
+&nbsp; &quot;Q...&quot;,
+
+&nbsp; &quot;...Q&quot;,
+
+&nbsp; &quot;.Q..&quot;]
+
+]
+
 </pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 1
-<strong>Output:</strong> 1
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= n &lt;= 9</code></li>
-</ul>
 
 ## Solutions
 

@@ -8,25 +8,9 @@ public:
     Node* topRight;
     Node* bottomLeft;
     Node* bottomRight;
-    
-    Node() {
-        val = false;
-        isLeaf = false;
-        topLeft = NULL;
-        topRight = NULL;
-        bottomLeft = NULL;
-        bottomRight = NULL;
-    }
-    
-    Node(bool _val, bool _isLeaf) {
-        val = _val;
-        isLeaf = _isLeaf;
-        topLeft = NULL;
-        topRight = NULL;
-        bottomLeft = NULL;
-        bottomRight = NULL;
-    }
-    
+
+    Node() {}
+
     Node(bool _val, bool _isLeaf, Node* _topLeft, Node* _topRight, Node* _bottomLeft, Node* _bottomRight) {
         val = _val;
         isLeaf = _isLeaf;
@@ -37,31 +21,54 @@ public:
     }
 };
 */
-
 class Solution {
 public:
     Node* construct(vector<vector<int>>& grid) {
-        return dfs(0, 0, grid.size() - 1, grid[0].size() - 1, grid);
+        return build(grid, 0, grid.size(), 0, grid.size()) ;
     }
-
-    Node* dfs(int a, int b, int c, int d, vector<vector<int>>& grid) {
-        int zero = 0, one = 0;
-        for (int i = a; i <= c; ++i)
+    Node *build(vector<vector<int>> &g, int l, int r, int t, int b) 
+    {
+        Node *node = new Node ;
+        node->topLeft = NULL ;
+        node->topRight = NULL ;
+        node->bottomLeft = NULL ;
+        node->bottomRight = NULL ;
+        node->isLeaf = false ;
+        
+        bool tl, tr, bl, br ;
+        if (l + 1 == r)
         {
-            for (int j = b; j <= d; ++j)
+            node->val = g[t][l] ;
+            node->isLeaf = true ;
+            return node ;
+        }
+        
+        int vmid = (l+r)>>1 ;
+        int hmid = (t+b)>>1 ;
+        node->topLeft = build(g, l, vmid, t, hmid) ;
+        node->topRight = build(g, vmid, r, t, hmid) ;
+        node->bottomLeft = build(g, l, vmid, hmid, b) ;
+        node->bottomRight = build(g, vmid, r, hmid, b) ;
+        
+        if (node->topLeft->isLeaf && node->topRight->isLeaf && node->bottomLeft->isLeaf && node->bottomRight->isLeaf)
+        {
+            if (node->topLeft->val && node->topRight->val && node->bottomLeft->val && node->bottomRight->val
+               || !(node->topLeft->val || node->topRight->val || node->bottomLeft->val || node->bottomRight->val))
             {
-                if (grid[i][j]) one = 1;
-                else zero = 1;
+                node->val = node->topLeft->val ;
+                node->isLeaf = true ;
+                
+                delete(node->topLeft) ;
+                delete(node->topRight) ;
+                delete(node->bottomLeft) ;
+                delete(node->bottomRight) ;
+                
+                node->topLeft = NULL ;
+                node->topRight = NULL ;
+                node->bottomLeft = NULL ;
+                node->bottomRight = NULL ;
             }
         }
-        bool isLeaf = zero + one == 1;
-        bool val = isLeaf && one;
-        Node* node = new Node(val, isLeaf);
-        if (isLeaf) return node;
-        node->topLeft = dfs(a, b, (a + c) / 2, (b + d) / 2, grid);
-        node->topRight = dfs(a, (b + d) / 2 + 1, (a + c) / 2, d, grid);
-        node->bottomLeft = dfs((a + c) / 2 + 1, b, c, (b + d) / 2, grid);
-        node->bottomRight = dfs((a + c) / 2 + 1, (b + d) / 2 + 1, c, d, grid);
-        return node;
+        return node ;
     }
 };

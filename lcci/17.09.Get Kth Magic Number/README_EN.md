@@ -1,4 +1,4 @@
-# [17.09. Get Kth Magic Number](https://leetcode.cn/problems/get-kth-magic-number-lcci)
+# [17.09. Get Kth Magic Number](https://leetcode-cn.com/problems/get-kth-magic-number-lcci)
 
 ## Description
 

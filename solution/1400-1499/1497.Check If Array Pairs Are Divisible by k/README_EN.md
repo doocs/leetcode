@@ -6,9 +6,9 @@
 
 <p>Given an array of integers <code>arr</code> of even length <code>n</code> and an integer <code>k</code>.</p>
 
-<p>We want to divide the array into exactly <code>n / 2</code> pairs such that the sum of each pair is divisible by <code>k</code>.</p>
+<p>We want to divide the array into exactly <code>n /&nbsp;2</code> pairs such that the sum of each pair is divisible by <code>k</code>.</p>
 
-<p>Return <code>true</code><em> If you can find a way to do that or </em><code>false</code><em> otherwise</em>.</p>
+<p>Return <em>True</em> If you can find a way to do that or <em>False</em> otherwise.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,15 +35,29 @@
 <strong>Explanation:</strong> You can try all possible pairs to see that there is no way to divide arr into 3 pairs each with sum divisible by 10.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [-10,10], k = 2
+<strong>Output:</strong> true
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [-1,1,-2,2,-3,3,-4,4], k = 3
+<strong>Output:</strong> true
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>arr.length == n</code></li>
-	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 	<li><code>n</code> is even.</li>
-	<li><code>-10<sup>9</sup> &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
-	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10^9 &lt;= arr[i] &lt;= 10^9</code></li>
+	<li><code>1 &lt;= k &lt;= 10^5</code></li>
 </ul>
 
 ## Solutions
@@ -53,64 +67,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def canArrange(self, arr: List[int], k: int) -> bool:
-        mod = [0] * k
-        for v in arr:
-            mod[v % k] += 1
-        return all(mod[i] == mod[k - i] for i in range(1, k)) and mod[0] % 2 == 0
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public boolean canArrange(int[] arr, int k) {
-        int[] mod = new int[k];
-        for (int v : arr) {
-            ++mod[(v % k + k) % k];
-        }
-        for (int i = 1; i < k; ++i) {
-            if (mod[i] != mod[k - i]) {
-                return false;
-            }
-        }
-        return mod[0] % 2 == 0;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool canArrange(vector<int>& arr, int k) {
-        vector<int> mod(k);
-        for (int v : arr) ++mod[(v % k + k) % k];
-        for (int i = 1; i < k; ++i)
-            if (mod[i] != mod[k - i])
-                return false;
-        return mod[0] % 2 == 0;
-    }
-};
-```
-
-### **Go**
-
-```go
-func canArrange(arr []int, k int) bool {
-	mod := make([]int, k)
-	for _, v := range arr {
-		mod[(v%k+k)%k]++
-	}
-	for i := 1; i < k; i++ {
-		if mod[i] != mod[k-i] {
-			return false
-		}
-	}
-	return mod[0]%2 == 0
-}
 ```
 
 ### **...**

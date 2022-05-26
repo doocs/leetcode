@@ -4,38 +4,29 @@
 
 ## Description
 
-<p>You are given a 2D array of integers <code>envelopes</code> where <code>envelopes[i] = [w<sub>i</sub>, h<sub>i</sub>]</code> represents the width and the height of an envelope.</p>
+<p>You have a number of envelopes with widths and heights given as a pair of integers <code>(w, h)</code>. One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.</p>
 
-<p>One envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope&#39;s width and height.</p>
+<p>What is the maximum number of envelopes can you Russian doll? (put one inside other)</p>
 
-<p>Return <em>the maximum number of envelopes you can Russian doll (i.e., put one inside the other)</em>.</p>
+<p><b>Note:</b><br />
 
-<p><strong>Note:</strong> You cannot rotate an envelope.</p>
+Rotation is not allowed.</p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong>Example:</strong></p>
 
-<pre>
-<strong>Input:</strong> envelopes = [[5,4],[6,4],[6,7],[2,3]]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The maximum number of envelopes you can Russian doll is <code>3</code> ([2,3] =&gt; [5,4] =&gt; [6,7]).
-</pre>
-
-<p><strong>Example 2:</strong></p>
+<div>
 
 <pre>
-<strong>Input:</strong> envelopes = [[1,1],[1,1],[1,1]]
-<strong>Output:</strong> 1
+
+<strong>Input: </strong><span id="example-input-1-1">[[5,4],[6,4],[6,7],[2,3]]</span>
+
+<strong>Output: </strong><span id="example-output-1">3 
+
+<strong>Explanation: T</strong></span>he maximum number of envelopes you can Russian doll is <code>3</code> ([2,3] =&gt; [5,4] =&gt; [6,7]).
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= envelopes.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>envelopes[i].length == 2</code></li>
-	<li><code>1 &lt;= w<sub>i</sub>, h<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
-</ul>
+</div>
 
 ## Solutions
 
@@ -46,17 +37,19 @@
 ```python
 class Solution:
     def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
+        if not envelopes:
+            return 0
         envelopes.sort(key=lambda x: (x[0], -x[1]))
-        d = [envelopes[0][1]]
-        for _, h in envelopes[1:]:
-            if h > d[-1]:
-                d.append(h)
-            else:
-                idx = bisect_left(d, h)
-                if idx == len(d):
-                    idx = 0
-                d[idx] = h
-        return len(d)
+        nums = [x[1] for x in envelopes]
+        n = len(nums)
+        dp = [1] * n
+        res = 1
+        for i in range(1, n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+            res = max(res, dp[i])
+        return res
 ```
 
 ### **Java**
@@ -64,99 +57,24 @@ class Solution:
 ```java
 class Solution {
     public int maxEnvelopes(int[][] envelopes) {
+        int n;
+        if (envelopes == null || (n = envelopes.length) == 0) return 0;
         Arrays.sort(envelopes, (a, b) -> {
             return a[0] == b[0] ? b[1] - a[1] : a[0] - b[0];
         });
-        int n = envelopes.length;
-        int[] d = new int[n + 1];
-        d[1] = envelopes[0][1];
-        int size = 1;
+        int[] dp = new int[n];
+        Arrays.fill(dp, 1);
+        int res = 1;
         for (int i = 1; i < n; ++i) {
-            int x = envelopes[i][1];
-            if (x > d[size]) {
-                d[++size] = x;
-            } else {
-                int left = 1, right = size;
-                while (left < right) {
-                    int mid = (left + right) >> 1;
-                    if (d[mid] >= x) {
-                        right = mid;
-                    } else {
-                        left = mid + 1;
-                    }
+            for (int j = 0; j < i; ++j) {
+                if (envelopes[j][1] < envelopes[i][1]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
-                int p = d[left] >= x ? left : 1;
-                d[p] = x;
             }
+            res = Math.max(res, dp[i]);
         }
-        return size;
+        return res;
     }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxEnvelopes(vector<vector<int>>& envelopes) {
-        sort(envelopes.begin(), envelopes.end(), [](const auto& e1, const auto& e2) {
-            return e1[0] < e2[0] || (e1[0] == e2[0] && e1[1] > e2[1]);
-        });
-        int n = envelopes.size();
-        vector<int> d{envelopes[0][1]};
-        for (int i = 1; i < n; ++i)
-        {
-            int x = envelopes[i][1];
-            if (x > d[d.size() - 1]) d.push_back(x);
-            else
-            {
-                int idx = lower_bound(d.begin(), d.end(), x) - d.begin();
-                if (idx == d.size()) idx = 0;
-                d[idx] = x;
-            }
-        }
-        return d.size();
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxEnvelopes(envelopes [][]int) int {
-	sort.Slice(envelopes, func(i, j int) bool {
-		if envelopes[i][0] != envelopes[j][0] {
-			return envelopes[i][0] < envelopes[j][0]
-		}
-		return envelopes[j][1] < envelopes[i][1]
-	})
-	n := len(envelopes)
-	d := make([]int, n+1)
-	d[1] = envelopes[0][1]
-	size := 1
-	for _, e := range envelopes[1:] {
-		x := e[1]
-		if x > d[size] {
-			size++
-			d[size] = x
-		} else {
-			left, right := 1, size
-			for left < right {
-				mid := (left + right) >> 1
-				if d[mid] >= x {
-					right = mid
-				} else {
-					left = mid + 1
-				}
-			}
-			if d[left] < x {
-				left = 1
-			}
-			d[left] = x
-		}
-	}
-	return size
 }
 ```
 

@@ -1,11 +1,12 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        ans = 0
+        bits = [0] * 32
+        for num in nums:
+            for i in range(32):
+                bits[i] += (num & 1)
+                num >>= 1
+        res = 0
         for i in range(32):
-            cnt = sum(num >> i & 1 for num in nums)
-            if cnt % 3:
-                if i == 31:
-                    ans -= 1 << i
-                else:
-                    ans |= 1 << i
-        return ans
+            if bits[i] % 3 != 0:
+                res += (1 << i)
+        return res if bits[31] % 3 == 0 else ~(res ^ 0xffffffff)

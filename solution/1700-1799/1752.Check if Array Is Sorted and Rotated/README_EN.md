@@ -37,6 +37,24 @@ You can rotate the array by x = 3 positions to begin on the the element of value
 You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,1,1]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> [1,1,1] is the original sorted array.
+You can rotate any number of positions to make nums.
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,1]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> [1,2] is the original sorted array.
+You can rotate the array by x = 5 positions to begin on the element of value 2: [2,1].
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

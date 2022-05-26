@@ -1,28 +1,46 @@
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
-        int n = nums.length;
-        boolean[] used = new boolean[n];
-        Arrays.sort(nums);
-        dfs(0, n, nums, used, path, res);
-        return res;
+        List<List<Integer>> list = new ArrayList<>();
+        permute(list, nums, 0);
+        return list;
     }
-
-    private void dfs(int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
-        if (u == n) {
-            res.add(new ArrayList<>(path));
-            return;
-        }
-        for (int i = 0; i < n; ++i) {
-            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
-                continue;
+    
+    private void permute(List<List<Integer>> list, int[] nums, int start) {
+        int end = nums.length - 1;
+        if (start == end) {
+            List<Integer> tmp = new ArrayList<>();
+            for (int val : nums) {
+                tmp.add(val);
             }
-            path.add(nums[i]);
-            used[i] = true;
-            dfs(u + 1, n, nums, used, path, res);
-            used[i] = false;
-            path.remove(path.size() - 1);
+            
+            list.add(tmp);
+            
         }
+        
+        for (int i = start; i <= end; ++i) {
+            if (isSwap(nums, start, i)) {
+                swap(nums, i, start);
+                permute(list, nums, start + 1);
+                swap(nums, i, start);
+            }
+            
+        }
+        
+    }
+    
+    private boolean isSwap(int[] nums, int from, int to) {
+        for (int i = from; i < to; ++i) {
+            if (nums[i] == nums[to]) {
+                // 相等，不进行交换
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }

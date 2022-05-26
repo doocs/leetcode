@@ -1,6 +1,6 @@
 class Solution {
     public int integerReplacement(int n) {
-        int ans = 0;
+        int res = 0;
         while (n != 1) {
             if ((n & 1) == 0) {
                 n >>>= 1;
@@ -9,8 +9,8 @@ class Solution {
             } else {
                 --n;
             }
-            ++ans;
+            ++res;
         }
-        return ans;
+        return res;
     }
 }

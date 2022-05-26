@@ -1,4 +1,4 @@
-# [01.07. Rotate Matrix](https://leetcode.cn/problems/rotate-matrix-lcci)
+# [01.07. Rotate Matrix](https://leetcode-cn.com/problems/rotate-matrix-lcci)
 
 [中文文档](/lcci/01.07.Rotate%20Matrix/README.md)
 
@@ -12,7 +12,7 @@
 
 <pre>
 
-Given <strong>matrix</strong> =
+Given <strong>matrix</strong> = 
 
 [
 
@@ -56,7 +56,7 @@ Given <strong>matrix</strong> =
 
   [15,14,12,16]
 
-],
+], 
 
 
 
@@ -115,45 +115,6 @@ class Solution {
             }
         }
     }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} matrix
- * @return {void} Do not return anything, modify matrix in-place instead.
- */
-var rotate = function (matrix) {
-    const n = matrix.length;
-    for (let i = 0; i < n / 2; i++) {
-        for (let j = i; j < n - i - 1; j++) {
-            let t = matrix[i][j];
-            matrix[i][j] = matrix[n - j - 1][i];
-            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
-            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
-            matrix[j][n - i - 1] = t;
-        }
-    }
-};
-```
-
-### **Go**
-
-```go
-func rotate(matrix [][]int) {
-	n := len(matrix)
-	r, c := n/2, (n+1)/2
-	for i := 0; i < r; i++ {
-		for j := 0; j < c; j++ {
-			temp := matrix[i][j]
-			matrix[i][j] = matrix[n-j-1][i]
-			matrix[n-j-1][i] = matrix[n-i-1][n-j-1]
-			matrix[n-i-1][n-j-1] = matrix[j][n-i-1]
-			matrix[j][n-i-1] = temp
-		}
-	}
 }
 ```
 

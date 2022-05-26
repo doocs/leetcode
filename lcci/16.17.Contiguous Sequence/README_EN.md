@@ -1,4 +1,4 @@
-# [16.17. Contiguous Sequence](https://leetcode.cn/problems/contiguous-sequence-lcci)
+# [16.17. Contiguous Sequence](https://leetcode-cn.com/problems/contiguous-sequence-lcci)
 
 [中文文档](/lcci/16.17.Contiguous%20Sequence/README.md)
 
@@ -36,23 +36,6 @@
 
 ```java
 
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var maxSubArray = function (nums) {
-    let dp = [-Infinity];
-    for (let i = 0; i < nums.length; i++) {
-        let cur = nums[i];
-        dp[i + 1] = Math.max(dp[i] + cur, cur);
-    }
-    return Math.max(...dp);
-};
 ```
 
 ### **...**

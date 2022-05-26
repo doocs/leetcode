@@ -1,23 +1,26 @@
 func rob(nums []int) int {
-	n := len(nums)
-	if n == 1 {
+	l := len(nums)
+	if l == 0 {
+		return 0
+	}
+	if l == 1 {
 		return nums[0]
 	}
-	s1, s2 := robRange(nums, 0, n-2), robRange(nums, 1, n-1)
-	return max(s1, s2)
+	res1 := _rob(nums[:l-1])
+	res2 := _rob(nums[1:])
+	if res1 < res2 {
+		return res2
+	}
+	return res1
 }
 
-func robRange(nums []int, l, r int) int {
-	a, b := 0, nums[l]
-	for i := l + 1; i <= r; i++ {
-		a, b = b, max(nums[i]+a, b)
+func _rob(nums []int) int {
+	x, y := 0, 0
+	for _, n := range nums {
+		x, y = y, x+n
+		if x > y {
+			y = x
+		}
 	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return y
 }

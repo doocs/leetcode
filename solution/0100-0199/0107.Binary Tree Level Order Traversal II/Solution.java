@@ -4,37 +4,26 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ *     TreeNode(int x) { val = x; }
  * }
  */
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        LinkedList<List<Integer>> ans = new LinkedList<>();
-        if (root == null) {
-            return ans;
-        }
-        Deque<TreeNode> q = new LinkedList<>();
-        q.offerLast(root);
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
+        List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
+            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            for (int i = q.size(); i > 0; --i) {
-                TreeNode node = q.pollFirst();
+            while (size-- > 0) {
+                TreeNode node = q.poll();
                 t.add(node.val);
-                if (node.left != null) {
-                    q.offerLast(node.left);
-                }
-                if (node.right != null) {
-                    q.offerLast(node.right);
-                }
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
             }
-            ans.addFirst(t);
+            res.add(0, t);
         }
-        return ans;
+        return res;
     }
 }

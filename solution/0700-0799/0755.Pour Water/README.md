@@ -1,11 +1,10 @@
-# [755. 倒水](https://leetcode.cn/problems/pour-water)
+# [755. 倒水](https://leetcode-cn.com/problems/pour-water)
 
 [English Version](/solution/0700-0799/0755.Pour%20Water/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给出一个地形高度图， <code>heights[i]</code> 表示该索引处的高度。每个索引的宽度为 1。在 <code>V</code> 个单位的水落在索引 <code>K</code> 处以后，每个索引位置有多少水？</p>
 
 <p>水最先会在索引 <code>K</code> 处下降并且落在该索引位置的最高地形或水面之上。然后按如下方式流动：</p>
@@ -14,17 +13,19 @@
 	<li>如果液滴最终可以通过向左流动而下降，则向左流动。</li>
 	<li>否则，如果液滴最终可以通过向右流动而下降，则向右流动。</li>
 	<li>否则，在当前的位置上升。</li>
-	<li>这里，“最终下降” 的意思是液滴如果按此方向移动的话，最终可以下降到一个较低的水平。而且，“水平”的意思是当前列的地形的高度加上水的高度。</li>
-</ul>
+	<li>这里，“最终下降” 的意思是液滴如果按此方向移动的话，最终可以下降到一个较低的水平。而且，“水平”的意思是当前列的地形的高度加上水的高度。
+	<p> </p>
 
-<p>我们可以假定在数组两侧的边界外有无限高的地形。而且，不能有部分水在多于 1 个的网格块上均匀分布 - 每个单位的水必须要位于一个块中。</p>
+    <p>我们可以假定在数组两侧的边界外有无限高的地形。而且，不能有部分水在多于 1 个的网格块上均匀分布 - 每个单位的水必须要位于一个块中。</p>
+    </li>
+
+</ul>
 
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>heights = [2,1,1,2,1,2,2], V = 4, K = 3
+<pre><strong>输入：</strong>heights = [2,1,1,2,1,2,2], V = 4, K = 3
 <strong>输出：</strong>[2,2,2,3,2,2,2]
 <strong>解释：</strong>
 #       #
@@ -113,25 +114,29 @@
  0123456 
 </pre>
 
+<p> </p>
+
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>heights = [1,2,3,4], V = 2, K = 2
+<pre><strong>输入：</strong>heights = [1,2,3,4], V = 2, K = 2
 <strong>输出：</strong>[2,3,3,4]
 <strong>解释：</strong>
 最后的水滴落在索引 1 位置，因为继续向左移动不会使其下降到更低的高度。
 </pre>
 
+<p> </p>
+
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>heights = [3,1,3], V = 5, K = 1
+<pre><strong>输入：</strong>heights = [3,1,3], V = 5, K = 1
 <strong>输出：</strong>[4,4,4]
 </pre>
 
 <p> </p>
 
 <p><strong>注：</strong></p>
+
+<p> </p>
 
 <ol>
 	<li><code>heights</code> 的长度为 <code>[1, 100]</code> ，并且每个数的范围为<code>[0, 99]</code>。</li>

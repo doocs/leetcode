@@ -1,39 +1,32 @@
-class Solution {
-    private int[][] memo;
-    private int[][] matrix;
-    private int m;
-    private int n;
-
-    public int longestIncreasingPath(int[][] matrix) {
-        this.matrix = matrix;
-        m = matrix.length;
-        n = matrix[0].length;
-        memo = new int[m][n];
-        for (int i = 0; i < m; ++i) {
-            Arrays.fill(memo[i], -1);
-        }
-        int ans = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                ans = Math.max(ans, dfs(i, j));
+public class Solution {
+    
+    public static final int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    
+    public int robot(int x, int y, int[][] m, int[][] cache) {
+        if(cache[x][y] != 0) return cache[x][y];
+        int max = 1;
+        for(int[] dir : dirs) {
+            int dx = dir[0], dy = dir[1];
+            if(x + dx < 0 || x + dx >= m.length || y + dy < 0 || y + dy >= m[0].length || m[x][y] <= m[x + dx][y + dy]) {
+                continue;
             }
+            max = Math.max(max, robot(x + dx, y + dy, m, cache) + 1);
         }
-        return ans;
+        cache[x][y] = max;
+        return max;
     }
-
-    private int dfs(int i, int j) {
-        if (memo[i][j] != -1) {
-            return memo[i][j];
-        }
+    
+    public int longestIncreasingPath(int[][] matrix) {
+        if(matrix.length == 0) return 0;
+        int m = matrix.length, n = matrix[0].length;
+        int[][] cache = new int[m][n];
         int ans = 1;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
-                ans = Math.max(ans, dfs(x, y) + 1);
+        // 枚举每一个点，计算每个点的最大升序
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                ans = Math.max(ans, robot(i, j, matrix, cache));
             }
         }
-        memo[i][j] = ans;
         return ans;
     }
 }

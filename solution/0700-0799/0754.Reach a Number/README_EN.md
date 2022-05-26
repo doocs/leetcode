@@ -4,46 +4,63 @@
 
 ## Description
 
-<p>You are standing at position <code>0</code> on an infinite number line. There is a destination at position <code>target</code>.</p>
+<p>
 
-<p>You can make some number of moves <code>numMoves</code> so that:</p>
+You are standing at position <code>0</code> on an infinite number line. There is a goal at position <code>target</code>.
 
-<ul>
-	<li>On each move, you can either go left or right.</li>
-	<li>During the <code>i<sup>th</sup></code> move (starting from <code>i == 1</code> to <code>i == numMoves</code>), you take <code>i</code> steps in the chosen direction.</li>
-</ul>
+</p><p>
 
-<p>Given the integer <code>target</code>, return <em>the <strong>minimum</strong> number of moves required (i.e., the minimum </em><code>numMoves</code><em>) to reach the destination</em>.</p>
+On each move, you can either go left or right. During the <i>n</i>-th move (starting from 1), you take <i>n</i> steps.
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+</p><p>
 
-<pre>
-<strong>Input:</strong> target = 2
-<strong>Output:</strong> 3
-<strong>Explanation:</strong>
-On the 1<sup>st</sup> move, we step from 0 to 1 (1 step).
-On the 2<sup>nd</sup> move, we step from 1 to -1 (2 steps).
-On the 3<sup>rd</sup> move, we step from -1 to 2 (3 steps).
-</pre>
+Return the minimum number of steps required to reach the destination.
 
-<p><strong>Example 2:</strong></p>
+</p>
+
+<p><b>Example 1:</b><br />
 
 <pre>
-<strong>Input:</strong> target = 3
-<strong>Output:</strong> 2
-<strong>Explanation:</strong>
-On the 1<sup>st</sup> move, we step from 0 to 1 (1 step).
-On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
+
+<b>Input:</b> target = 3
+
+<b>Output:</b> 2
+
+<b>Explanation:</b>
+
+On the first move we step from 0 to 1.
+
+On the second step we step from 1 to 3.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</p>
 
-<ul>
-	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
-	<li><code>target != 0</code></li>
-</ul>
+<p><b>Example 2:</b><br />
+
+<pre>
+
+<b>Input:</b> target = 2
+
+<b>Output:</b> 3
+
+<b>Explanation:</b>
+
+On the first move we step from 0 to 1.
+
+On the second move we step  from 1 to -1.
+
+On the third move we step from -1 to 2.
+
+</pre>
+
+</p>
+
+<p><b>Note:</b><br>
+
+<li><code>target</code> will be a non-zero integer in the range <code>[-10^9, 10^9]</code>.</li>
+
+</p>
 
 ## Solutions
 

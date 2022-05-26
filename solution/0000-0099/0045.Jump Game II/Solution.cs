@@ -1,17 +1,29 @@
+using System;
+
 public class Solution {
     public int Jump(int[] nums) {
-        int end = 0;
-        int mx = 0;
-        int steps = 0;
-        for (int i = 0; i < nums.Length - 1; ++i)
+        var steps = 0;
+        var maxJump = 0;
+        var i = 0;
+        while (maxJump + 1 < nums.Length)
         {
-            mx = Math.Max(mx, i + nums[i]);
-            if (i == end)
+            var newMaxJump = maxJump;
+            for (var j = i; j < nums.Length && j <= maxJump; ++j)
             {
-                end = mx;
+                newMaxJump = Math.Max(newMaxJump, j + nums[j]);
+            }
+            i = maxJump + 1;
+            if (newMaxJump > maxJump)
+            {
+                maxJump = newMaxJump;
                 ++steps;
             }
+            else
+            {
+                break;
+            }
         }
-        return steps;
+        if (maxJump + 1 >= nums.Length) return steps;
+        return -1;
     }
 }

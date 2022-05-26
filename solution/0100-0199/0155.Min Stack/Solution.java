@@ -1,22 +1,23 @@
 class MinStack {
+
     private Deque<Integer> s;
-    private Deque<Integer> mins;
+    private Deque<Integer> helper;
 
     /** initialize your data structure here. */
     public MinStack() {
         s = new ArrayDeque<>();
-        mins = new ArrayDeque<>();
-        mins.push(Integer.MAX_VALUE);
+        helper = new ArrayDeque<>();
     }
     
-    public void push(int val) {
-        s.push(val);
-        mins.push(Math.min(mins.peek(), val));
+    public void push(int x) {
+        s.push(x);
+        int element = helper.isEmpty() || x < helper.peek() ? x : helper.peek();
+        helper.push(element);
     }
     
     public void pop() {
         s.pop();
-        mins.pop();
+        helper.pop();
     }
     
     public int top() {
@@ -24,14 +25,14 @@ class MinStack {
     }
     
     public int getMin() {
-        return mins.peek();
+        return helper.peek();
     }
 }
 
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack obj = new MinStack();
- * obj.push(val);
+ * obj.push(x);
  * obj.pop();
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();

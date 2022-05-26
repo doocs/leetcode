@@ -1,11 +1,11 @@
 public class Solution {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
-        int ans = 0;
+        int res = 0;
         while (n != 0) {
-            n &= n - 1;
-            ++ans;
+            n &= (n - 1);
+            ++res;
         }
-        return ans;
+        return res;
     }
 }

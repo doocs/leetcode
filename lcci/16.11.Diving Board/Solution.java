@@ -7,7 +7,7 @@ class Solution {
             return new int[]{longer * k};
         }
         int[] ans = new int[k + 1];
-        for (int i = 0; i < k + 1; ++i) {
+        for (int i = 0;i <= k;i++) {
             ans[i] = longer * i + shorter * (k - i);
         }
         return ans;

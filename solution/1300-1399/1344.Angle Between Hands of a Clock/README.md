@@ -1,18 +1,17 @@
-# [1344. 时钟指针的夹角](https://leetcode.cn/problems/angle-between-hands-of-a-clock)
+# [1344. 时钟指针的夹角](https://leetcode-cn.com/problems/angle-between-hands-of-a-clock)
 
 [English Version](/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你两个数&nbsp;<code>hour</code>&nbsp;和&nbsp;<code>minutes</code>&nbsp;。请你返回在时钟上，由给定时间的时针和分针组成的较小角的角度（60 单位制）。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/images/sample_1_1673.png" style="height: 225px; width: 230px;"></p>
+![](./images/sample_1_1673.png)
 
 <pre><strong>输入：</strong>hour = 12, minutes = 30
 <strong>输出：</strong>165
@@ -20,7 +19,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/images/sample_2_1673.png" style="height: 225px; width: 230px;"></p>
+![](./images/sample_2_1673.png)
 
 <pre><strong>输入：</strong>hour = 3, minutes = 30
 <strong>输出；</strong>75
@@ -28,7 +27,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/images/sample_3_1673.png" style="height: 231px; width: 230px;"></strong></p>
+![](./images/sample_3_1673.png)
 
 <pre><strong>输入：</strong>hour = 3, minutes = 15
 <strong>输出：</strong>7.5

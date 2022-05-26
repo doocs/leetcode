@@ -5,7 +5,6 @@
 #         self.left = None
 #         self.right = None
 
-
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
         def dfs(root, sum):
@@ -17,7 +16,6 @@ class Solution:
             dfs(root.left, sum - root.val)
             dfs(root.right, sum - root.val)
             path.pop()
-
         if not root:
             return []
         res = []

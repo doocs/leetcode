@@ -38,7 +38,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == apples.length == days.length</code></li>
+	<li><code>apples.length == n</code></li>
+	<li><code>days.length == n</code></li>
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= apples[i], days[i] &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>days[i] = 0</code> if and only if <code>apples[i] = 0</code>.</li>
@@ -51,119 +52,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def eatenApples(self, apples: List[int], days: List[int]) -> int:
-        q = []
-        n = len(apples)
-        i = ans = 0
-        while i < n or q:
-            if i < n and apples[i] > 0:
-                heappush(q, [i + days[i] - 1, apples[i]])
-            while q and q[0][0] < i:
-                heappop(q)
-            if q:
-                end, num = heappop(q)
-                num -= 1
-                ans += 1
-                if num > 0 and end > i:
-                    heappush(q, [end, num])
-            i += 1
-        return ans
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int eatenApples(int[] apples, int[] days) {
-        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        int ans = 0, i = 0, n = apples.length;
-        while (i < n || !q.isEmpty()) {
-            if (i < n && apples[i] > 0) {
-                q.offer(new int[]{i + days[i] - 1, apples[i]});
-            }
-            while (!q.isEmpty() && q.peek()[0] < i) {
-                q.poll();
-            }
-            if (!q.isEmpty()) {
-                int[] t = q.poll();
-                if (--t[1] > 0 && t[0] > i) {
-                    q.offer(t);
-                }
-                ++ans;
-            }
-            ++i;
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-typedef pair<int, int> PII;
-
-class Solution {
-public:
-    int eatenApples(vector<int>& apples, vector<int>& days) {
-        priority_queue<PII, vector<PII>, greater<PII>> q;
-        int i = 0, n = apples.size(), ans = 0;
-        while (i < n || !q.empty())
-        {
-            if (i < n && apples[i] > 0) q.emplace(i + days[i] - 1, apples[i]);
-            while (!q.empty() && q.top().first < i) q.pop();
-            if (!q.empty())
-            {
-                PII t = q.top();
-                q.pop();
-                --t.second;
-                ++ans;
-                if (t.second > 0 && t.first > i) q.emplace(t);
-            }
-            ++i;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func eatenApples(apples []int, days []int) int {
-	var h hp
-	ans, n := 0, len(apples)
-	for i := 0; i < n || len(h) > 0; i++ {
-		if i < n && apples[i] > 0 {
-			heap.Push(&h, pair{i + days[i] - 1, apples[i]})
-		}
-		for len(h) > 0 && h[0].first < i {
-			heap.Pop(&h)
-		}
-		if len(h) > 0 {
-			h[0].second--
-			if h[0].first == i || h[0].second == 0 {
-				heap.Pop(&h)
-			}
-			ans++
-		}
-	}
-	return ans
-}
-
-type pair struct {
-	first  int
-	second int
-}
-
-type hp []pair
-
-func (a hp) Len() int            { return len(a) }
-func (a hp) Swap(i, j int)       { a[i], a[j] = a[j], a[i] }
-func (a hp) Less(i, j int) bool  { return a[i].first < a[j].first }
-func (a *hp) Push(x interface{}) { *a = append(*a, x.(pair)) }
-func (a *hp) Pop() interface{}   { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 ```
 
 ### **...**

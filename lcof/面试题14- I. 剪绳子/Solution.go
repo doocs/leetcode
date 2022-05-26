@@ -1,12 +1,11 @@
 func cuttingRope(n int) int {
-	if n < 4 {
+	if n <= 3 {
 		return n - 1
 	}
-	ans := 1
+	sum := 1
 	for n > 4 {
-		ans *= 3
+		sum *= 3
 		n -= 3
 	}
-	ans *= n
-	return ans
+	return sum * n
 }

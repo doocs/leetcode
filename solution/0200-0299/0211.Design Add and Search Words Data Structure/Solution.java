@@ -1,56 +1,69 @@
-class Trie {
-    Trie[] children = new Trie[26];
-    boolean isEnd;
-}
-
 class WordDictionary {
-    private Trie trie;
+
+    class TrieNode {
+        private TrieNode[] links;
+        private boolean end;
+
+        public TrieNode() {
+            this.links = new TrieNode[26];
+        }
+
+        public boolean contains(char c) {
+            return links[c - 'a'] != null;
+        }
+
+        public void put(char c, TrieNode trieNode) {
+            links[c - 'a'] = trieNode;
+        }
+
+        public TrieNode get(char c) {
+            return links[c - 'a'];
+        }
+    }
+
+    private TrieNode root;
 
     /** Initialize your data structure here. */
     public WordDictionary() {
-        trie = new Trie();
-    }
-    
-    public void addWord(String word) {
-        Trie node = trie;
-        for (char c : word.toCharArray()) {
-            int idx = c - 'a';
-            if (node.children[idx] == null) {
-                node.children[idx] = new Trie();
-            }
-            node = node.children[idx];
-        }
-        node.isEnd = true;
-    }
-    
-    public boolean search(String word) {
-        return search(word, trie);
+        root = new TrieNode();
     }
 
-    private boolean search(String word, Trie node) {
-        for (int i = 0; i < word.length(); ++i) {
+    /** Adds a word into the data structure. */
+    public void addWord(String word) {
+        TrieNode node = root;
+        for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            int idx = c - 'a';
-            if (c != '.' && node.children[idx] == null) {
-                return false;
+            if (!node.contains(c)) {
+                node.put(c, new TrieNode());
             }
-            if (c == '.') {
-                for (Trie child : node.children) {
-                    if (child != null && search(word.substring(i + 1), child)) {
+            node = node.get(c);
+        }
+        node.end = true;
+    }
+
+    /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+    public boolean search(String word) {
+        return searchHelp(word, root);
+    }
+
+    private boolean searchHelp(String word, TrieNode root) {
+        TrieNode node = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+
+            if ('.' == c) {
+                for (int j = 0; j < node.links.length; j++) {
+                    if (node.links[j] != null && searchHelp(word.substring(i + 1), node.links[j])) {
                         return true;
                     }
                 }
                 return false;
             }
-            node = node.children[idx];
+            if (!node.contains(c)) {
+                return false;
+            }
+            node = node.get(c);
         }
-        return node.isEnd;
+        return node != null && node.end;
     }
 }
-
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * WordDictionary obj = new WordDictionary();
- * obj.addWord(word);
- * boolean param_2 = obj.search(word);
- */

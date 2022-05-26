@@ -1,11 +1,10 @@
-# [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling)
+# [1235. 规划兼职工作](https://leetcode-cn.com/problems/maximum-profit-in-job-scheduling)
 
 [English Version](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>你打算利用空闲时间来做兼职工作赚些零花钱。</p>
 
 <p>这里有&nbsp;<code>n</code>&nbsp;份兼职工作，每份工作预计从&nbsp;<code>startTime[i]</code>&nbsp;开始到&nbsp;<code>endTime[i]</code>&nbsp;结束，报酬为&nbsp;<code>profit[i]</code>。</p>
@@ -20,7 +19,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample1_1584.png" style="width: 300px;"></strong></p>
+![](./images/sample1_1584.png)
 
 <pre><strong>输入：</strong>startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
 <strong>输出：</strong>120
@@ -31,7 +30,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample22_1584.png" style="height: 112px; width: 600px;"> </strong></p>
+![](./images/sample22_1584.png)
 
 <pre><strong>输入：</strong>startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]
 <strong>输出：</strong>150
@@ -42,7 +41,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample3_1584.png" style="height: 112px; width: 400px;"></strong></p>
+![](./images/sample3_1584.png)
 
 <pre><strong>输入：</strong>startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]
 <strong>输出：</strong>6

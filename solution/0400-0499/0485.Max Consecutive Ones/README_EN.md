@@ -4,31 +4,35 @@
 
 ## Description
 
-<p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array</em>.</p>
+<p>Given a binary array, find the maximum number of consecutive 1s in this array.</p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,1,0,1,1,1]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
-</pre>
-
-<p><strong>Example 2:</strong></p>
+<p><b>Example 1:</b><br />
 
 <pre>
-<strong>Input:</strong> nums = [1,0,1,1,0,1]
-<strong>Output:</strong> 2
+
+<b>Input:</b> [1,1,0,1,1,1]
+
+<b>Output:</b> 3
+
+<b>Explanation:</b> The first two digits or the last three digits are consecutive 1s.
+
+    The maximum number of consecutive 1s is 3.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</p>
+
+<p><b>Note:</b>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
+
+<li>The input array will only contain <code>0</code> and <code>1</code>.</li>
+
+<li>The length of input array is a positive integer and will not exceed 10,000</li>
+
 </ul>
+
+</p>
 
 ## Solutions
 
@@ -76,56 +80,18 @@ class Solution {
  * @return {number}
  */
 var findMaxConsecutiveOnes = function (nums) {
-    let res = 0,
-        t = 0;
-    for (let num of nums) {
-        if (num == 1) {
-            ++t;
-        } else {
-            res = Math.max(res, t);
-            t = 0;
-        }
+  let res = 0,
+    t = 0;
+  for (let num of nums) {
+    if (num == 1) {
+      ++t;
+    } else {
+      res = Math.max(res, t);
+      t = 0;
     }
-    return Math.max(res, t);
+  }
+  return Math.max(res, t);
 };
-```
-
-### **TypeScript**
-
-```ts
-function findMaxConsecutiveOnes(nums: number[]): number {
-    let res = 0;
-    let count = 0;
-    for (const num of nums) {
-        if (num === 0) {
-            res = Math.max(res, count);
-            count = 0;
-        } else {
-            count++;
-        }
-    }
-    return Math.max(res, count);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_max_consecutive_ones(nums: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut count = 0;
-        for num in nums {
-            if num == 0 {
-                res = res.max(count);
-                count = 0;
-            } else {
-                count += 1;
-            }
-        }
-        res.max(count)
-    }
-}
 ```
 
 ### **...**

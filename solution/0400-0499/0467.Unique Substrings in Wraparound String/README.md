@@ -1,65 +1,51 @@
-# [467. 环绕字符串中唯一的子字符串](https://leetcode.cn/problems/unique-substrings-in-wraparound-string)
+# [467. 环绕字符串中唯一的子字符串](https://leetcode-cn.com/problems/unique-substrings-in-wraparound-string)
 
 [English Version](/solution/0400-0499/0467.Unique%20Substrings%20in%20Wraparound%20String/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>把字符串 <code>s</code> 看作是&ldquo;abcdefghijklmnopqrstuvwxyz&rdquo;的无限环绕字符串，所以&nbsp;<code>s</code> 看起来是这样的：&quot;...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....&quot;.&nbsp;</p>
 
-<p>把字符串 <code>s</code> 看作是&nbsp;<code>“abcdefghijklmnopqrstuvwxyz”</code>&nbsp;的无限环绕字符串，所以&nbsp;<code>s</code> 看起来是这样的：</p>
+<p>现在我们有了另一个字符串 <code>p</code> 。你需要的是找出 <code>s</code> 中有多少个唯一的 <code>p</code> 的非空子串，尤其是当你的输入是字符串 <code>p</code> ，你需要输出字符串&nbsp;<code>s</code> 中 <code>p</code> 的不同的非空子串的数目。&nbsp;</p>
 
-<ul>
-	<li><code>"...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd...."</code>&nbsp;.&nbsp;</li>
-</ul>
-
-<p>现在给定另一个字符串 <code>p</code> 。返回<em>&nbsp;<code>s</code> 中&nbsp;<strong>唯一</strong> 的 <code>p</code> 的 <strong>非空子串</strong>&nbsp;的数量&nbsp;</em>。&nbsp;</p>
+<p><strong>注意:</strong> <code>p</code>&nbsp;仅由小写的英文字母组成，p 的大小可能超过 10000。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例&nbsp;1:</strong></p>
 
 <pre>
-<strong>输入:</strong> p = "a"
+<strong>输入:</strong> &quot;a&quot;
 <strong>输出:</strong> 1
-<strong>解释:</strong> 字符串 s 中只有一个"a"子字符。
-</pre>
-
-<p><strong>示例 2:</strong></p>
-
-<pre>
-<strong>输入:</strong> p = "cac"
-<strong>输出:</strong> 2
-<strong>解释:</strong> 字符串 s 中的字符串“cac”只有两个子串“a”、“c”。.
-</pre>
-
-<p><strong>示例 3:</strong></p>
-
-<pre>
-<strong>输入:</strong> p = "zab"
-<strong>输出:</strong> 6
-<strong>解释:</strong> 在字符串 s 中有六个子串“z”、“a”、“b”、“za”、“ab”、“zab”。
+<strong>解释:</strong> 字符串 S 中只有一个&quot;a&quot;子字符。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>提示:</strong></p>
+<p><strong>示例 2:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= p.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>p</code>&nbsp;由小写英文字母构成</li>
-</ul>
+<pre>
+<strong>输入:</strong> &quot;cac&quot;
+<strong>输出:</strong> 2
+<strong>解释:</strong> 字符串 S 中的字符串&ldquo;cac&rdquo;只有两个子串&ldquo;a&rdquo;、&ldquo;c&rdquo;。.
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> &quot;zab&quot;
+<strong>输出:</strong> 6
+<strong>解释:</strong> 在字符串 S 中有六个子串&ldquo;z&rdquo;、&ldquo;a&rdquo;、&ldquo;b&rdquo;、&ldquo;za&rdquo;、&ldquo;ab&rdquo;、&ldquo;zab&rdquo;。.
+</pre>
+
+<p>&nbsp;</p>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
-
-不妨设 `dp[α]` 表示 p 中以字符 α 结尾且在 s 中的子串的最大长度，将 dp 求和可以得到最终结果。
-
-时间复杂度 O(n)，其中 n 表示字符串 p 的长度。
-
-> 成为子串的一个标准，需要是连续的，`a` 与 `c` 之间少了一个 `b`，所以不能算一个子字符串。
 
 <!-- tabs:start -->
 
@@ -68,18 +54,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def findSubstringInWraproundString(self, p: str) -> int:
-        dp = [0] * 26
-        k = 0
-        for i, c in enumerate(p):
-            if i and (ord(c) - ord(p[i - 1])) % 26 == 1:
-                k += 1
-            else:
-                k = 1
-            idx = ord(c) - ord('a')
-            dp[idx] = max(dp[idx], k)
-        return sum(dp)
+
 ```
 
 ### **Java**
@@ -87,123 +62,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int findSubstringInWraproundString(String p) {
-        int[] dp = new int[26];
-        int k = 0;
-        for (int i = 0; i < p.length(); ++i) {
-            char c = p.charAt(i);
-            if (i > 0 && (c - p.charAt(i - 1) + 26) % 26 == 1) {
-                ++k;
-            } else {
-                k = 1;
-            }
-            dp[c - 'a'] = Math.max(dp[c - 'a'], k);
-        }
-        int ans = 0;
-        for (int v : dp) {
-            ans += v;
-        }
-        return ans;
-    }
-}
-```
 
-### **TypeScript**
-
-```ts
-function findSubstringInWraproundString(p: string): number {
-    const n = p.length;
-    const dp = new Array(26).fill(0);
-    let cur = 1;
-    dp[p.charCodeAt(0) - 'a'.charCodeAt(0)] = 1;
-    for (let i = 1; i < n; i++) {
-        if ((p.charCodeAt(i) - p.charCodeAt(i - 1) + 25) % 26 == 0) {
-            cur++;
-        } else {
-            cur = 1;
-        }
-        const index = p.charCodeAt(i) - 'a'.charCodeAt(0);
-        dp[index] = Math.max(dp[index], cur);
-    }
-    return dp.reduce((r, v) => r + v);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_substring_in_wrapround_string(p: String) -> i32 {
-        let n = p.len();
-        let p = p.as_bytes();
-        let mut dp = [0; 26];
-        let mut cur = 1;
-        dp[(p[0] - b'a') as usize] = 1;
-        for i in 1..n {
-            if (p[i] - p[i - 1] + 25) % 26 == 0 {
-                cur += 1;
-            } else {
-                cur = 1;
-            }
-            let index = (p[i] - b'a') as usize;
-            dp[index] = dp[index].max(cur);
-        }
-        dp.into_iter().sum()
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findSubstringInWraproundString(string p) {
-        vector<int> dp(26);
-        int k = 0;
-        for (int i = 0; i < p.size(); ++i)
-        {
-            char c = p[i];
-            if (i && (c - p[i - 1] + 26) % 26 == 1) ++k;
-            else k = 1;
-            dp[c - 'a'] = max(dp[c - 'a'], k);
-        }
-        int ans = 0;
-        for (int& v : dp) ans += v;
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func findSubstringInWraproundString(p string) int {
-	dp := make([]int, 26)
-	k := 0
-	for i := range p {
-		c := p[i]
-		if i > 0 && (c-p[i-1]+26)%26 == 1 {
-			k++
-		} else {
-			k = 1
-		}
-		dp[c-'a'] = max(dp[c-'a'], k)
-	}
-	ans := 0
-	for _, v := range dp {
-		ans += v
-	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

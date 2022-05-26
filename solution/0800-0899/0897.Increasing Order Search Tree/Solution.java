@@ -14,22 +14,19 @@
  * }
  */
 class Solution {
-    private TreeNode prev;
     public TreeNode increasingBST(TreeNode root) {
-        TreeNode dummy = new TreeNode(0, null, root);
-        prev = dummy;
-        dfs(root);
-        return dummy.right;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
+        if (root == null) return null;
+        TreeNode left = increasingBST(root.left);
+        TreeNode right = increasingBST(root.right);
+        if (left == null) {
+            root.right = right;
+            return root;
         }
-        dfs(root.left);
-        prev.right = root;
+        TreeNode res = left;
+        while (left != null && left.right != null) left = left.right;
+        left.right = root;
+        root.right = right;
         root.left = null;
-        prev = root;
-        dfs(root.right);
+        return res;
     }
 }

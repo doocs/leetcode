@@ -6,7 +6,7 @@
 
 <p>In a deck of cards, each card has an integer written on it.</p>
 
-<p>Return <code>true</code> if and only if you can choose <code>X &gt;= 2</code> such that it is possible to split the entire deck into 1 or more groups of cards, where:</p>
+<p>Return <code>true</code> if and only if you can choose&nbsp;<code>X &gt;= 2</code> such that&nbsp;it is possible to split the entire deck&nbsp;into 1 or more groups of cards, where:</p>
 
 <ul>
 	<li>Each group has exactly <code>X</code> cards.</li>
@@ -26,16 +26,40 @@
 
 <pre>
 <strong>Input:</strong> deck = [1,1,1,2,2,2,3,3]
+<strong>Output:</strong> false&acute;
+<strong>Explanation</strong>: No possible partition.
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> deck = [1]
 <strong>Output:</strong> false
 <strong>Explanation</strong>: No possible partition.
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> deck = [1,1]
+<strong>Output:</strong> true
+<strong>Explanation</strong>: Possible partition [1,1].
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> deck = [1,1,2,2,2,2]
+<strong>Output:</strong> true
+<strong>Explanation</strong>: Possible partition [1,1],[2,2],[2,2].
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= deck.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= deck[i] &lt; 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= deck.length &lt;= 10^4</code></li>
+	<li><code>0 &lt;= deck[i] &lt;&nbsp;10^4</code></li>
 </ul>
 
 ## Solutions
@@ -45,84 +69,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def hasGroupsSizeX(self, deck: List[int]) -> bool:
-        vals = Counter(deck).values()
-        return reduce(gcd, vals) >= 2
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public boolean hasGroupsSizeX(int[] deck) {
-        int[] counter = new int[10000];
-        for (int d : deck) {
-            ++counter[d];
-        }
-        int g = -1;
-        for (int v : counter) {
-            if (v > 0) {
-                g = g == -1 ? v : gcd(g, v);
-            }
-        }
-        return g >= 2;
-    }
 
-    private int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool hasGroupsSizeX(vector<int>& deck) {
-        vector<int> counter(10000);
-        for (int& d : deck) ++counter[d];
-        int g = -1;
-        for (int& v : counter)
-            if (v > 0)
-                g = g == -1 ? v : gcd(g, v);
-        return g >= 2;
-    }
-
-    int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
-};
-```
-
-### **Go**
-
-```go
-func hasGroupsSizeX(deck []int) bool {
-	counter := make([]int, 10000)
-	for _, d := range deck {
-		counter[d]++
-	}
-	var gcd func(a, b int) int
-	gcd = func(a, b int) int {
-		if b == 0 {
-			return a
-		}
-		return gcd(b, a%b)
-	}
-	g := -1
-	for _, v := range counter {
-		if v > 0 {
-			if g == -1 {
-				g = v
-			} else {
-				g = gcd(g, v)
-			}
-		}
-	}
-	return g >= 2
-}
 ```
 
 ### **...**

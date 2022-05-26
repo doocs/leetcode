@@ -7,13 +7,13 @@
 <p>You are given an integer <code>num</code>. You will apply the following steps exactly <strong>two</strong> times:</p>
 
 <ul>
-	<li>Pick a digit <code>x (0 &lt;= x &lt;= 9)</code>.</li>
-	<li>Pick another digit <code>y (0 &lt;= y &lt;= 9)</code>. The digit <code>y</code> can be equal to <code>x</code>.</li>
+	<li>Pick a digit <code>x (0&nbsp;&lt;= x &lt;= 9)</code>.</li>
+	<li>Pick another digit <code>y (0&nbsp;&lt;= y &lt;= 9)</code>. The digit <code>y</code> can be equal to <code>x</code>.</li>
 	<li>Replace all the occurrences of <code>x</code> in the decimal representation of <code>num</code> by <code>y</code>.</li>
 	<li>The new integer <strong>cannot</strong> have any leading zeros, also the new integer <strong>cannot</strong> be 0.</li>
 </ul>
 
-<p>Let <code>a</code> and <code>b</code> be the results of applying the operations to <code>num</code> the first and second times, respectively.</p>
+<p>Let <code>a</code>&nbsp;and <code>b</code>&nbsp;be the results of applying the operations to <code>num</code> the first and second times, respectively.</p>
 
 <p>Return <em>the max difference</em> between <code>a</code> and <code>b</code>.</p>
 
@@ -38,11 +38,32 @@ The second time pick x = 9 and y = 1 and store the new integer in b.
 We have now a = 9 and b = 1 and max difference = 8
 </pre>
 
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> num = 123456
+<strong>Output:</strong> 820000
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> num = 10000
+<strong>Output:</strong> 80000
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> num = 9288
+<strong>Output:</strong> 8700
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= num &lt;= 10</code><sup>8</sup></li>
+	<li><code>1 &lt;= num &lt;= 10^8</code></li>
 </ul>
 
 ## Solutions

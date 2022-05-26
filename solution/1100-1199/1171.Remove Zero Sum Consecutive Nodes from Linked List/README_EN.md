@@ -48,59 +48,13 @@
 ### **Python3**
 
 ```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
 
-class Solution:
-    def removeZeroSumSublists(self, head: ListNode) -> ListNode:
-        dummy = ListNode(0)
-        dummy.next = head
-        s, cur = 0, dummy
-        pre_sum_node = {}
-        while cur:
-            s += cur.val
-            pre_sum_node[s] = cur
-            cur = cur.next
-        s, cur = 0, dummy
-        while cur:
-            s += cur.val
-            cur.next = pre_sum_node[s].next
-            cur = cur.next
-        return dummy.next
 ```
 
 ### **Java**
 
 ```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode removeZeroSumSublists(ListNode head) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        Map<Integer, ListNode> preSumNode = new HashMap<>();
-        int s = 0;
-        for (ListNode cur = dummy; cur != null; cur = cur.next) {
-            s += cur.val;
-            preSumNode.put(s, cur);
-        }
-        s = 0;
-        for (ListNode cur = dummy; cur != null; cur = cur.next) {
-            s += cur.val;
-            cur.next = preSumNode.get(s).next;
-        }
-        return dummy.next;
-    }
-}
+
 ```
 
 ### **...**

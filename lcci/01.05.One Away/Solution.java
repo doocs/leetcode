@@ -1,27 +1,21 @@
 class Solution {
     public boolean oneEditAway(String first, String second) {
         int n1 = first.length(), n2 = second.length();
-        int diff = n1 - n2;
-        if (Math.abs(diff) > 1) {
+        int differ = Math.abs(n1 - n2);
+        if (differ > 1) {
             return false;
         }
-        int op = 1;
-        for (int i = 0, j = 0; i < n1 && j < n2; ++i, ++j) {
-            boolean notSame = first.charAt(i) != second.charAt(j);
-            if (notSame) {
-                if (diff == 1) {
-                    // --j, ++i, ++j => ++i
-                    --j;
-                } else if (diff == -1) {
-                    // --i, ++i, ++j => ++j
-                    --i;
-                }
-                --op;
-            }
-            if (op < 0) {
-                return false;
-            }
+        if (n1 + n2 <= 2) {
+            return true;
         }
-        return true;
+        if (first.charAt(0) != second.charAt(0)) {
+            if (n1 == n2) {
+                return first.substring(1).equals(second.substring(1));
+            } else {
+                return first.substring(1).equals(second) || second.substring(1).equals(first);
+            }
+        } else {
+            return oneEditAway(first.substring(1), second.substring(1));
+        }
     }
 }

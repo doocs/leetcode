@@ -1,4 +1,4 @@
-# [04.08. First Common Ancestor](https://leetcode.cn/problems/first-common-ancestor-lcci)
+# [04.08. First Common Ancestor](https://leetcode-cn.com/problems/first-common-ancestor-lcci)
 
 [中文文档](/lcci/04.08.First%20Common%20Ancestor/README.md)
 

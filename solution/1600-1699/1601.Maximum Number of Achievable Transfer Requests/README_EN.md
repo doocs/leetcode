@@ -14,7 +14,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move1.jpg" style="width: 600px; height: 406px;" />
+
+![](./images/move1.jpg)
+
 <pre>
 <strong>Input:</strong> n = 5, requests = [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
 <strong>Output:</strong> 5
@@ -29,7 +31,9 @@ We can achieve the requests of users y, a and z by swapping the places in the 3 
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move2.jpg" style="width: 450px; height: 327px;" />
+
+![](./images/move2.jpg)
+
 <pre>
 <strong>Input:</strong> n = 3, requests = [[0,0],[1,2],[2,1]]
 <strong>Output:</strong> 3
@@ -63,136 +67,13 @@ We can achieve all the requests. </pre>
 ### **Python3**
 
 ```python
-class Solution:
-    def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
-        def check(x):
-            delta = [0] * n
-            for i, (f, t) in enumerate(requests):
-                if (x >> i) & 1:
-                    delta[f] -= 1
-                    delta[t] += 1
-            return all(d == 0 for d in delta)
 
-        ans, m = 0, len(requests)
-        for mask in range(1 << m):
-            cnt = mask.bit_count()
-            if cnt <= ans:
-                continue
-            if check(mask):
-                ans = cnt
-        return ans
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    private int m;
-    private int n;
-    private int[][] requests;
 
-    public int maximumRequests(int n, int[][] requests) {
-        int ans = 0;
-        m = requests.length;
-        this.n = n;
-        this.requests = requests;
-        for (int mask = 0; mask < (1 << m); ++mask) {
-            int cnt = Integer.bitCount(mask);
-            if (cnt <= ans) {
-                continue;
-            }
-            if (check(mask)) {
-                ans = cnt;
-            }
-        }
-        return ans;
-    }
-
-    private boolean check(int x) {
-        int[] delta = new int[n];
-        for (int i = 0; i < m; ++i) {
-            if (((x >> i) & 1) == 1) {
-                int f = requests[i][0];
-                int t = requests[i][1];
-                --delta[f];
-                ++delta[t];
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            if (delta[i] != 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumRequests(int n, vector<vector<int>>& requests) {
-        int ans = 0, m = requests.size();
-        for (int mask = 0; mask < (1 << m); ++mask)
-        {
-            int cnt = __builtin_popcount(mask);
-            if (cnt <= ans) continue;
-            if (check(mask, m, n, requests)) ans = cnt;
-        }
-        return ans;
-    }
-
-    bool check(int x, int m, int n, vector<vector<int>>& requests) {
-        vector<int> delta(n);
-        for (int i = 0; i < m; ++i)
-        {
-            if ((x >> i) & 1)
-            {
-                --delta[requests[i][0]];
-                ++delta[requests[i][1]];
-            }
-        }
-        for (int i = 0; i < n; ++i)
-            if (delta[i]) return 0;
-        return 1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func maximumRequests(n int, requests [][]int) int {
-	check := func(x int) bool {
-		delta := make([]int, n)
-		for i, r := range requests {
-			if (x>>i)&1 == 1 {
-				delta[r[0]]--
-				delta[r[1]]++
-			}
-		}
-		for _, d := range delta {
-			if d != 0 {
-				return false
-			}
-		}
-		return true
-	}
-
-	ans, m := 0, len(requests)
-	for mask := 0; mask < (1 << m); mask++ {
-		cnt := bits.OnesCount(uint(mask))
-		if cnt <= ans {
-			continue
-		}
-		if check(mask) {
-			ans = cnt
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

@@ -10,18 +10,18 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        int n = lists.length;
-        if (n == 0) {
+        int n;
+        if (lists == null || (n = lists.length) == 0) {
             return null;
         }
-        for (int i = 0; i < n - 1; ++i) {
-            lists[i + 1] = mergeLists(lists[i], lists[i + 1]);
+        for (int i = 1; i < n; ++i) {
+            lists[i] = mergeTwoLists(lists[i - 1], lists[i]);
         }
         return lists[n - 1];
     }
 
-    private ListNode mergeLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode();
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {

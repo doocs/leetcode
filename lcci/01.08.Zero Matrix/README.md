@@ -1,4 +1,4 @@
-# [面试题 01.08. 零矩阵](https://leetcode.cn/problems/zero-matrix-lcci)
+# [面试题 01.08. 零矩阵](https://leetcode-cn.com/problems/zero-matrix-lcci)
 
 [English Version](/lcci/01.08.Zero%20Matrix/README_EN.md)
 
@@ -115,38 +115,6 @@ class Solution {
         }
     }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} matrix
- * @return {void} Do not return anything, modify matrix in-place instead.
- */
-var setZeroes = function (matrix) {
-    let m = matrix.length,
-        n = matrix[0].length;
-    let rows = new Array(m).fill(false);
-    let cols = new Array(n).fill(false);
-    // 标记
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (matrix[i][j] == 0) {
-                rows[i] = true;
-                cols[j] = true;
-            }
-        }
-    }
-    // 清零
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (matrix[i][j] != 0 && (rows[i] || cols[j])) {
-                matrix[i][j] = 0;
-            }
-        }
-    }
-};
 ```
 
 ### **...**

@@ -57,126 +57,13 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 ### **Python3**
 
 ```python
-class Solution:
-    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
-        n = len(arr)
-        presum = [0] * (n + 1)
-        for i in range(n):
-            presum[i + 1] = presum[i] + arr[i]
 
-        res = 0
-        for i in range(n):
-            for j in range(0, n, 2):
-                if i + j < n:
-                    res += presum[i + j + 1] - presum[i]
-        return res
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int sumOddLengthSubarrays(int[] arr) {
-        int n = arr.length;
-        int[] presum = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + arr[i];
-        }
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; i + j < n; j += 2) {
-                res += presum[i + j + 1] - presum[i];
-            }
-        }
-        return res;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int sumOddLengthSubarrays(vector<int>& arr) {
-        int n = arr.size();
-        int presum[n + 1];
-        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + arr[i];
-        int res = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            for (int j = 0; i + j < n; j += 2)
-            {
-                res += presum[i + j + 1] - presum[i];
-            }
-        }
-        return res;
-    }
-};
-```
-
-### **Go**
-
-```go
-func sumOddLengthSubarrays(arr []int) int {
-	n := len(arr)
-	presum := make([]int, n+1)
-	for i := range arr {
-		presum[i+1] = presum[i] + arr[i]
-	}
-	res := 0
-	for i := 0; i < n; i++ {
-		for j := 0; i+j < n; j += 2 {
-			res += presum[i+j+1] - presum[i]
-		}
-	}
-	return res
-}
-```
-
-### **TypeScript**
-
-```ts
-function sumOddLengthSubarrays(arr: number[]): number {
-    const n = arr.length;
-    let res = 0;
-    for (let i = 1; i <= n; i += 2) {
-        let sum = 0;
-        for (let j = 0; j < i; j++) {
-            sum += arr[j];
-        }
-        res += sum;
-        for (let j = i; j < n; j++) {
-            sum -= arr[j - i];
-            sum += arr[j];
-            res += sum;
-        }
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn sum_odd_length_subarrays(arr: Vec<i32>) -> i32 {
-        let n = arr.len();
-        let mut res = 0;
-        let mut i = 1;
-        while i <= n {
-            let mut sum: i32 = arr[0..i].iter().sum();
-            res += sum;
-            for j in i..n {
-                sum -= arr[j - i];
-                sum += arr[j];
-                res += sum;
-            }
-            i += 2;
-        }
-        res
-    }
-}
 ```
 
 ### **...**

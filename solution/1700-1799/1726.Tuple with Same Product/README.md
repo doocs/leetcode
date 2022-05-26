@@ -1,14 +1,13 @@
-# [1726. 同积元组](https://leetcode.cn/problems/tuple-with-same-product)
+# [1726. 同积元组](https://leetcode-cn.com/problems/tuple-with-same-product)
 
 [English Version](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给你一个由 <strong>不同</strong> 正整数组成的数组 <code>nums</code> ，请你返回满足 <code>a * b = c * d</code> 的元组<em> </em><code>(a, b, c, d)</code><em> </em>的数量。其中 <code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> 都是 <code>nums</code> 中的元素，且 <code>a != b != c != d</code> 。</p>
 
-<p>给你一个由 <strong>不同</strong> 正整数组成的数组 <code>nums</code> ，请你返回满足&nbsp;<code>a * b = c * d</code> 的元组<em> </em><code>(a, b, c, d)</code><em> </em>的数量。其中 <code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> 都是 <code>nums</code> 中的元素，且 <code>a != b != c != d</code> 。</p>
-
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -32,13 +31,27 @@
 (4,5,2,10) , (4,5,10,2) , (5,4,2,10) , (5,4,10,2)
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [2,3,4,6,8,12]
+<strong>输出：</strong>40
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [2,3,5,7]
+<strong>输出：</strong>0
+</pre>
+
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 <= nums.length <= 1000</code></li>
+	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
 	<li><code>nums</code> 中的所有元素 <strong>互不相同</strong></li>
 </ul>
 

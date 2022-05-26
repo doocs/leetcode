@@ -1,40 +1,33 @@
 class Solution {
-    private List<String> ans;
-
+    private List<String> result;
+    private int length;
     public List<String> restoreIpAddresses(String s) {
-        ans = new ArrayList<>();
-        dfs(s, new ArrayList<>());
-        return ans;
+        result  = new ArrayList<>();
+        length = s.length();
+        int[] ip = new int[4];
+        restoreIpAddresses(s,0,ip,0);
+        return result;
     }
-
-    private void dfs(String s, List<String> t) {
-        if (t.size() == 4) {
-            if ("".equals(s)) {
-                ans.add(String.join(".", t));
+    private void restoreIpAddresses(String s, int si, int[] ip, int pi) {
+        int sl = length - si , pl = 3 - pi , i = -1;
+        String pfx = null;
+        while (si< length){
+            int num = s.charAt(si++) - '1' + 1;
+            if (i==0) break;
+            i = i == -1 ? num : i * 10 + num;
+            sl--;
+            if (i>255) break;
+            if (sl < pl || sl > pl * 3) continue;
+            if (pi==3){
+                if (pfx==null){
+                    StringBuilder pfxBuilder = new StringBuilder();
+                    for (int j = 0; j < ip.length-1; j++) pfxBuilder.append(ip[j]).append('.');
+                    pfx = pfxBuilder.toString();
+                }
+                result.add(pfx + i);
             }
-            return;
+            ip[pi] = i;
+            restoreIpAddresses(s,si,ip,pi+1);
         }
-        for (int i = 1; i < Math.min(4, s.length() + 1); ++i) {
-            String c = s.substring(0, i);
-            if (check(c)) {
-                t.add(c);
-                dfs(s.substring(i), t);
-                t.remove(t.size() - 1);
-            }
-        }
-    }
-
-    private boolean check(String s) {
-        if ("".equals(s)) {
-            return false;
-        }
-        int num = Integer.parseInt(s);
-        if (num > 255) {
-            return false;
-        }
-        if (s.charAt(0) == '0' && s.length() > 1) {
-            return false;
-        }
-        return true;
     }
 }

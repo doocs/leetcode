@@ -1,28 +1,23 @@
-# [面试题 38. 字符串的排列](https://leetcode.cn/problems/zi-fu-chuan-de-pai-lie-lcof/)
+# [面试题 38. 字符串的排列](https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>输入一个字符串，打印出该字符串中字符的所有排列。</p>
+输入一个字符串，打印出该字符串中字符的所有排列。
 
-<p>&nbsp;</p>
+你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
 
-<p>你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。</p>
+**示例:**
 
-<p>&nbsp;</p>
+```
+输入：s = "abc"
+输出：["abc","acb","bac","bca","cab","cba"]
+```
 
-<p><strong>示例:</strong></p>
+**限制：**
 
-<pre><strong>输入：</strong>s = &quot;abc&quot;
-<strong>输出：[</strong>&quot;abc&quot;,&quot;acb&quot;,&quot;bac&quot;,&quot;bca&quot;,&quot;cab&quot;,&quot;cba&quot;<strong>]</strong>
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>限制：</strong></p>
-
-<p><code>1 &lt;= s 的长度 &lt;= 8</code></p>
+- `1 <= s 的长度 <= 8`
 
 ## 解法
 
@@ -103,22 +98,22 @@ class Solution {
  * @return {string[]}
  */
 var permutation = function (s) {
-    let len = s.length;
-    let res = new Set();
-    function dfs(str, isRead) {
-        if (str.length === len) {
-            res.add(str);
-            return;
-        }
-        for (let i = 0; i < len; i++) {
-            if (isRead[i]) continue;
-            isRead[i] = 1;
-            dfs(str.concat(s[i]), isRead);
-            isRead[i] = 0;
-        }
+  let len = s.length;
+  let res = new Set();
+  function dfs(str, isRead) {
+    if (str.length === len) {
+      res.add(str);
+      return;
     }
-    dfs('', {});
-    return [...res];
+    for (let i = 0; i < len; i++) {
+      if (isRead[i]) continue;
+      isRead[i] = 1;
+      dfs(str.concat(s[i]), isRead);
+      isRead[i] = 0;
+    }
+  }
+  dfs("", {});
+  return [...res];
 };
 ```
 

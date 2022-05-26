@@ -1,15 +1,25 @@
 class Solution {
     public int totalHammingDistance(int[] nums) {
-        int ans = 0;
-        for (int i = 0; i < 31; ++i) {
-            int a = 0, b = 0;
-            for (int v : nums) {
-                int t = (v >> i) & 1;
-                a += t;
-                b += t ^ 1;
-            }
-            ans += a * b;
+        
+        if (nums == null || nums.length < 2) {
+			return 0;
+		}
+        
+        int[] m = new int[31];// 存储对应位数，有多少个0
+        for(int num : nums) {
+        	for(int i = 0; i < 31; i++) {
+        		if ((num & (1 << i)) == 0) {
+					m[i]++;
+				}
+        	}
         }
-        return ans;
+        
+        int result = 0;
+        for(int i = 0; i < 31; i++) {
+        	result += m[i] * (nums.length - m[i]);
+        }
+        
+        return result;
+    
     }
 }

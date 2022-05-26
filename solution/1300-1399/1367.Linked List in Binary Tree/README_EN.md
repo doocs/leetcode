@@ -11,40 +11,53 @@
 <p>In this context downward path means a path that starts at some node and goes downwards.</p>
 
 <p>&nbsp;</p>
+
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/images/sample_1_1720.png" style="width: 220px; height: 280px;" /></strong></p>
+![](./images/sample_1_1720.png)
 
 <pre>
+
 <strong>Input:</strong> head = [4,2,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+
 <strong>Output:</strong> true
+
 <strong>Explanation:</strong> Nodes in blue form a subpath in the binary Tree.  
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/images/sample_2_1720.png" style="width: 220px; height: 280px;" /></strong></p>
+![](./images/sample_2_1720.png)
 
 <pre>
+
 <strong>Input:</strong> head = [1,4,2,6], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+
 <strong>Output:</strong> true
+
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
+
 <strong>Input:</strong> head = [1,4,2,6,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+
 <strong>Output:</strong> false
+
 <strong>Explanation:</strong> There is no path in the binary tree that contains all the elements of the linked list from <code>head</code>.
+
 </pre>
 
 <p>&nbsp;</p>
+
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree will be in the range <code>[1, 2500]</code>.</li>
-	<li>The number of nodes in the list will be in the range <code>[1, 100]</code>.</li>
-	<li><code>1 &lt;= Node.val&nbsp;&lt;= 100</code>&nbsp;for each node in the linked list and binary tree.</li>
+	<li><code>1 &lt;= node.val&nbsp;&lt;= 100</code>&nbsp;for each node in the linked list and binary tree.</li>
+	<li>The given linked list will contain between&nbsp;<code>1</code>&nbsp;and <code>100</code>&nbsp;nodes.</li>
+	<li>The given binary tree will contain between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>2500</code>&nbsp;nodes.</li>
 </ul>
 
 ## Solutions
@@ -54,204 +67,13 @@
 ### **Python3**
 
 ```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def isSubPath(self, head: ListNode, root: TreeNode) -> bool:
-        def dfs(head, root):
-            if head is None:
-                return True
-            if root is None:
-                return False
-            if root.val != head.val:
-                return False
-            return dfs(head.next, root.left) or dfs(head.next, root.right)
 
-        if root is None:
-            return False
-        return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
 ```
 
 ### **Java**
 
 ```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public boolean isSubPath(ListNode head, TreeNode root) {
-        if (root == null) {
-            return false;
-        }
-        return dfs(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
-    }
 
-    private boolean dfs(ListNode head, TreeNode root) {
-        if (head == null) {
-            return true;
-        }
-        if (root == null) {
-            return false;
-        }
-        if (root.val != head.val) {
-            return false;
-        }
-        return dfs(head.next, root.left) || dfs(head.next, root.right);
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-const dfs = (head: ListNode | null, root: TreeNode | null) => {
-    if (head == null) {
-        return true;
-    }
-    if (root == null || head.val !== root.val) {
-        return false;
-    }
-    return dfs(head.next, root.left) || dfs(head.next, root.right);
-};
-
-function isSubPath(head: ListNode | null, root: TreeNode | null): boolean {
-    if (root == null) {
-        return false;
-    }
-    return (
-        dfs(head, root) ||
-        isSubPath(head, root.left) ||
-        isSubPath(head, root.right)
-    );
-}
-```
-
-### **Rust**
-
-```rust
-// Definition for singly-linked list.
-// #[derive(PartialEq, Eq, Clone, Debug)]
-// pub struct ListNode {
-//   pub val: i32,
-//   pub next: Option<Box<ListNode>>
-// }
-//
-// impl ListNode {
-//   #[inline]
-//   fn new(val: i32) -> Self {
-//     ListNode {
-//       next: None,
-//       val
-//     }
-//   }
-// }
-// Definition for a binary tree node.
-// #[derive(Debug, PartialEq, Eq)]
-// pub struct TreeNode {
-//   pub val: i32,
-//   pub left: Option<Rc<RefCell<TreeNode>>>,
-//   pub right: Option<Rc<RefCell<TreeNode>>>,
-// }
-//
-// impl TreeNode {
-//   #[inline]
-//   pub fn new(val: i32) -> Self {
-//     TreeNode {
-//       val,
-//       left: None,
-//       right: None
-//     }
-//   }
-// }
-use std::rc::Rc;
-use std::cell::RefCell;
-impl Solution {
-    fn dfs(head: &Option<Box<ListNode>>, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if head.is_none() {
-            return true;
-        }
-        if root.is_none() {
-            return false;
-        }
-        let node = head.as_ref().unwrap();
-        let root = root.as_ref().unwrap().borrow();
-        if node.val != root.val {
-            return false;
-        }
-        Self::dfs(&node.next, &root.left) || Self::dfs(&node.next, &root.right)
-    }
-
-    fn my_is_sub_path(head: &Option<Box<ListNode>>, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if root.is_none() {
-            return false;
-        }
-        let node = root.as_ref().unwrap().borrow();
-        Self::dfs(head, root)
-            || Self::my_is_sub_path(head, &node.left)
-            || Self::my_is_sub_path(head, &node.right)
-    }
-
-    pub fn is_sub_path(head: Option<Box<ListNode>>, root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        Self::my_is_sub_path(&head, &root)
-    }
-}
 ```
 
 ### **...**

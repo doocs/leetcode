@@ -1,11 +1,10 @@
-# [1753. 移除石子的最大得分](https://leetcode.cn/problems/maximum-score-from-removing-stones)
+# [1753. 移除石子的最大得分](https://leetcode-cn.com/problems/maximum-score-from-removing-stones)
 
 [English Version](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>你正在玩一个单人游戏，面前放置着大小分别为 <code>a</code>​​​​​​、<code>b</code> 和 <code>c</code>​​​​​​ 的 <strong>三堆</strong> 石子。</p>
 
 <p>每回合你都要从两个 <strong>不同的非空堆</strong> 中取出一颗石子，并在得分上加 <code>1</code> 分。当存在 <strong>两个或更多</strong> 的空堆时，游戏停止。</p>

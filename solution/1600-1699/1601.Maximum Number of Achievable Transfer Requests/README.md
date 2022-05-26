@@ -1,11 +1,10 @@
-# [1601. 最多可达成的换楼请求数目](https://leetcode.cn/problems/maximum-number-of-achievable-transfer-requests)
+# [1601. 最多可达成的换楼请求数目](https://leetcode-cn.com/problems/maximum-number-of-achievable-transfer-requests)
 
 [English Version](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>我们有&nbsp;<code>n</code>&nbsp;栋楼，编号从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;。每栋楼有若干员工。由于现在是换楼的季节，部分员工想要换一栋楼居住。</p>
 
 <p>给你一个数组 <code>requests</code>&nbsp;，其中&nbsp;<code>requests[i] = [from<sub>i</sub>, to<sub>i</sub>]</code>&nbsp;，表示一个员工请求从编号为&nbsp;<code>from<sub>i</sub></code>&nbsp;的楼搬到编号为&nbsp;<code>to<sub>i</sub></code><sub>&nbsp;</sub>的楼。</p>
@@ -18,7 +17,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move1.jpg" style="height: 406px; width: 600px;"></p>
+![](./images/move1.jpg)
 
 <pre><strong>输入：</strong>n = 5, requests = [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
 <strong>输出：</strong>5
@@ -34,7 +33,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move2.jpg" style="height: 327px; width: 450px;"></p>
+![](./images/move2.jpg)
 
 <pre><strong>输入：</strong>n = 3, requests = [[0,0],[1,2],[2,1]]
 <strong>输出：</strong>3
@@ -65,8 +64,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二进制枚举所有方案，找出满足条件的最大请求数方案即可。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,24 +71,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
-        def check(x):
-            delta = [0] * n
-            for i, (f, t) in enumerate(requests):
-                if (x >> i) & 1:
-                    delta[f] -= 1
-                    delta[t] += 1
-            return all(d == 0 for d in delta)
 
-        ans, m = 0, len(requests)
-        for mask in range(1 << m):
-            cnt = mask.bit_count()
-            if cnt <= ans:
-                continue
-            if check(mask):
-                ans = cnt
-        return ans
 ```
 
 ### **Java**
@@ -99,113 +79,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    private int m;
-    private int n;
-    private int[][] requests;
 
-    public int maximumRequests(int n, int[][] requests) {
-        int ans = 0;
-        m = requests.length;
-        this.n = n;
-        this.requests = requests;
-        for (int mask = 0; mask < (1 << m); ++mask) {
-            int cnt = Integer.bitCount(mask);
-            if (cnt <= ans) {
-                continue;
-            }
-            if (check(mask)) {
-                ans = cnt;
-            }
-        }
-        return ans;
-    }
-
-    private boolean check(int x) {
-        int[] delta = new int[n];
-        for (int i = 0; i < m; ++i) {
-            if (((x >> i) & 1) == 1) {
-                int f = requests[i][0];
-                int t = requests[i][1];
-                --delta[f];
-                ++delta[t];
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            if (delta[i] != 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumRequests(int n, vector<vector<int>>& requests) {
-        int ans = 0, m = requests.size();
-        for (int mask = 0; mask < (1 << m); ++mask)
-        {
-            int cnt = __builtin_popcount(mask);
-            if (cnt <= ans) continue;
-            if (check(mask, m, n, requests)) ans = cnt;
-        }
-        return ans;
-    }
-
-    bool check(int x, int m, int n, vector<vector<int>>& requests) {
-        vector<int> delta(n);
-        for (int i = 0; i < m; ++i)
-        {
-            if ((x >> i) & 1)
-            {
-                --delta[requests[i][0]];
-                ++delta[requests[i][1]];
-            }
-        }
-        for (int i = 0; i < n; ++i)
-            if (delta[i]) return 0;
-        return 1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func maximumRequests(n int, requests [][]int) int {
-	check := func(x int) bool {
-		delta := make([]int, n)
-		for i, r := range requests {
-			if (x>>i)&1 == 1 {
-				delta[r[0]]--
-				delta[r[1]]++
-			}
-		}
-		for _, d := range delta {
-			if d != 0 {
-				return false
-			}
-		}
-		return true
-	}
-
-	ans, m := 0, len(requests)
-	for mask := 0; mask < (1 << m); mask++ {
-		cnt := bits.OnesCount(uint(mask))
-		if cnt <= ans {
-			continue
-		}
-		if check(mask) {
-			ans = cnt
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

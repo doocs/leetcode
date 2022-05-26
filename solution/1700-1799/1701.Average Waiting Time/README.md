@@ -1,11 +1,10 @@
-# [1701. 平均等待时间](https://leetcode.cn/problems/average-waiting-time)
+# [1701. 平均等待时间](https://leetcode-cn.com/problems/average-waiting-time)
 
 [English Version](/solution/1700-1799/1701.Average%20Waiting%20Time/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>有一个餐厅，只有一位厨师。你有一个顾客数组 <code>customers</code> ，其中 <code>customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>]</code> ：</p>
 
 <ul>
@@ -58,8 +57,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-记 totalWaitingTime 表示总等待时间，f 表示当次做菜完成时间。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,13 +64,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def averageWaitingTime(self, customers: List[List[int]]) -> float:
-        f = total_waiting_time = 0
-        for arrival, time in customers:
-            f = max(arrival, f) + time
-            total_waiting_time += (f - arrival)
-        return total_waiting_time / len(customers)
+
 ```
 
 ### **Java**
@@ -81,17 +72,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public double averageWaitingTime(int[][] customers) {
-        int f = 0;
-        double totalWaitingTime = 0;
-        for (int[] customer : customers) {
-            f = Math.max(f, customer[0]) + customer[1];
-            totalWaitingTime += (f - customer[0]);
-        }
-        return totalWaitingTime / customers.length;
-    }
-}
+
 ```
 
 ### **...**

@@ -3,30 +3,36 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
-    public int numComponents(ListNode head, int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            s.add(num);
+    public int numComponents(ListNode head, int[] G) {
+        if (head == null || G == null) {
+            return 0;
         }
-        int res = 0;
-        boolean pre = true;
-        while (head != null) {
-            if (s.contains(head.val)) {
-                if (pre) {
-                    ++res;
-                    pre = false;
-                }
-            } else {
-                pre = true;
+        Set<Integer> set = new HashSet<>();
+        for (int val : G) {
+            set.add(val);
+        }
+        int n = G.length;
+        ListNode cur = head;
+        int cnt = 0;
+        boolean flag = false;
+        while (cur != null) {
+            while (cur != null && set.contains(cur.val)) {
+                flag = true;
+                cur = cur.next;
             }
-            head = head.next;
+            if (flag) {
+                ++cnt;
+                flag = false;
+            }
+            
+            if (cur != null) {
+                cur = cur.next;
+            }
         }
-        return res;
+        return cnt;
     }
 }

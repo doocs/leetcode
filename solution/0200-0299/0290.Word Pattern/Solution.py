@@ -1,15 +1,15 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        s = s.split(' ')
+        ch2str, str2ch = {}, {}
+        ss = s.split(' ')
         n = len(pattern)
-        if n != len(s):
+        if n != len(ss):
             return False
-        c2str, str2c = defaultdict(), defaultdict()
         for i in range(n):
-            k, v = pattern[i], s[i]
-            if k in c2str and c2str[k] != v:
+            if ch2str.get(pattern[i]) is not None and ch2str.get(pattern[i]) != ss[i]:
                 return False
-            if v in str2c and str2c[v] != k:
+            if str2ch.get(ss[i]) is not None and str2ch.get(ss[i]) != pattern[i]:
                 return False
-            c2str[k], str2c[v] = v, k
+            ch2str[pattern[i]] = ss[i]
+            str2ch[ss[i]] = pattern[i]
         return True

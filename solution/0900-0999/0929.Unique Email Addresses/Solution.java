@@ -1,17 +1,17 @@
 class Solution {
     public int numUniqueEmails(String[] emails) {
-        Set<String> s = new HashSet<>();
+        Set<String> set = new HashSet<>();
         for (String email : emails) {
-            String[] t = email.split("@");
-            String local = t[0];
-            String domain = t[1];
-            local = local.replace(".", "");
-            int i = local.indexOf('+');
-            if (i != -1) {
-                local = local.substring(0, i);
+            int index = email.indexOf('@');
+            String local = email.substring(0, index);
+            String domain = email.substring(index);
+            index = local.indexOf('+');
+            if (index != -1) {
+                local = local.substring(0, index);
             }
-            s.add(local + "@" + domain);
+            local = local.replace(".", "");
+            set.add(local + domain);
         }
-        return s.size();
+        return set.size();
     }
 }

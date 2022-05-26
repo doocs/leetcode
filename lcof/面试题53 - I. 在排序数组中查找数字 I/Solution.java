@@ -3,31 +3,37 @@ class Solution {
         if (nums.length == 0) {
             return 0;
         }
-        // find first position
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (nums[mid] >= target) {
-                right = mid;
+        int l = 0, r = nums.length - 1;
+        while (l <= r) {
+            int m = l + ((r - l) >> 1);
+            if (nums[m] == target) {
+                return count(nums, l, r, m);
+            }
+            if (nums[m] < target) {
+                l = m + 1;
             } else {
-                left = mid + 1;
+                r = m - 1;
             }
         }
-        if (nums[left] != target) {
-            return 0;
-        }
-        int l = left;
+        return 0;
+    }
 
-        // find last position
-        right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (nums[mid] <= target) {
-                left = mid;
-            } else {
-                right = mid - 1;
+    private int count(int[] nums, int l, int r, int m) {
+        int cnt = 0;
+        for (int i = m; i >= l; --i) {
+            if (nums[i] == nums[m]) {
+                ++cnt;
+            } else if (nums[i] < nums[m]) {
+                break;
             }
         }
-        return left - l + 1;
+        for (int i = m + 1; i <= r; ++i) {
+            if (nums[i] == nums[m]) {
+                ++cnt;
+            } else if (nums[i] > nums[m]) {
+                break;
+            }
+        }
+        return cnt;
     }
 }

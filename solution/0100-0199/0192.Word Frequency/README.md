@@ -1,11 +1,10 @@
-# [192. 统计词频](https://leetcode.cn/problems/word-frequency)
+# [192. 统计词频](https://leetcode-cn.com/problems/word-frequency)
 
 [English Version](/solution/0100-0199/0192.Word%20Frequency/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>写一个 bash 脚本以统计一个文本文件&nbsp;<code>words.txt</code>&nbsp;中每个单词出现的频率。</p>
 
 <p>为了简单起见，你可以假设：</p>
@@ -45,11 +44,25 @@ day 1
 
 <!-- tabs:start -->
 
-### **Bash**
+### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```sh
+```python
+
+```
+
+### **Java**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
+```
+
+### **...**
+
+```
 
 ```
 

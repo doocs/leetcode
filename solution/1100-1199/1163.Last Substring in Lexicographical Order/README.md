@@ -1,38 +1,35 @@
-# [1163. 按字典序排在最后的子串](https://leetcode.cn/problems/last-substring-in-lexicographical-order)
+# [1163. 按字典序排在最后的子串](https://leetcode-cn.com/problems/last-substring-in-lexicographical-order)
 
 [English Version](/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
-<p>给你一个字符串&nbsp;<code>s</code>&nbsp;，找出它的所有子串并按字典序排列，返回排在最后的那个子串。</p>
+<p>给你一个字符串&nbsp;<code>s</code>，找出它的所有子串并按字典序排列，返回排在最后的那个子串。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "abab"
-<strong>输出：</strong>"bab"
-<strong>解释：</strong>我们可以找出 7 个子串 ["a", "ab", "aba", "abab", "b", "ba", "bab"]。按字典序排在最后的子串是 "bab"。
+<pre><strong>输入：</strong>&quot;abab&quot;
+<strong>输出：</strong>&quot;bab&quot;
+<strong>解释：</strong>我们可以找出 7 个子串 [&quot;a&quot;, &quot;ab&quot;, &quot;aba&quot;, &quot;abab&quot;, &quot;b&quot;, &quot;ba&quot;, &quot;bab&quot;]。按字典序排在最后的子串是 &quot;bab&quot;。
 </pre>
 
 <p><strong>示例&nbsp;2：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "leetcode"
-<strong>输出：</strong>"tcode"
+<pre><strong>输入：</strong>&quot;leetcode&quot;
+<strong>输出：</strong>&quot;tcode&quot;
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ul>
-	<li><code>1 &lt;= s.length &lt;= 4 * 10<sup>5</sup></code></li>
-	<li><code>s</code> 仅含有小写英文字符。</li>
-</ul>
+<ol>
+	<li><code>1 &lt;= s.length &lt;= 4 * 10^5</code></li>
+	<li>s 仅含有小写英文字符。</li>
+</ol>
 
 ## 解法
 

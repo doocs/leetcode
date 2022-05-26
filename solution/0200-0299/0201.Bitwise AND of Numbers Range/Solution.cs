@@ -1,9 +1,13 @@
 public class Solution {
-    public int RangeBitwiseAnd(int left, int right) {
-        while (left < right)
+    public int RangeBitwiseAnd(int m, int n) {
+        var and = m & n;
+        var xor = m ^ n;
+        var temp = 0;
+        while (xor > 0)
         {
-            right &= (right - 1);
+            temp = (temp << 1) + 1;
+            xor >>= 1;
         }
-        return right;
+        return and & (~temp);
     }
 }

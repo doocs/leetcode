@@ -1,29 +1,26 @@
 class Solution {
     public int splitArray(int[] nums, int m) {
-        int mx = -1;
-        for (int num : nums) {
-            mx = Math.max(mx, num);
+        long l = 0, r = 0;
+        for (int x : nums) {
+            l = Math.max(l, x);
+            r += x;
         }
-        int left = mx, right = (int) 1e9;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (check(nums, m, mid)) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+        while (l < r) {
+            long mid = l + r >>> 1;
+            if (check(nums, m, mid)) r = mid;
+            else l = mid + 1;
         }
-        return left;
+        return (int) r;
     }
 
-    private boolean check(int[] nums, int m, int x) {
-        int s = 0, cnt = 1;
-        for (int num : nums) {
-            if (s + num > x) {
+    private boolean check(int[] nums, int m, long cap) {
+        int cnt = 1;
+        long tot = 0;
+        for (int x : nums) {
+            tot += x;
+            if (tot > cap) {
                 ++cnt;
-                s = num;
-            } else {
-                s += num;
+                tot = x;
             }
         }
         return cnt <= m;

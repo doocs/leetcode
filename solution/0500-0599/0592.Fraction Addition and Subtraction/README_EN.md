@@ -4,42 +4,73 @@
 
 ## Description
 
-<p>Given a string <code>expression</code> representing an expression of fraction addition and subtraction, return the calculation result in string format.</p>
+<p>Given a string representing an expression of fraction addition and subtraction, you need to return the calculation result in string format. The final result should be <a href = "https://en.wikipedia.org/wiki/Irreducible_fraction">irreducible fraction</a>. If your final result is an integer, say <code>2</code>, you need to change it to the format of fraction that has denominator <code>1</code>. So in this case, <code>2</code> should be converted to <code>2/1</code>.</p>
 
-<p>The final result should be an <a href="https://en.wikipedia.org/wiki/Irreducible_fraction" target="_blank">irreducible fraction</a>. If your final result is an integer, change it to the format of a fraction that has a denominator <code>1</code>. So in this case, <code>2</code> should be converted to <code>2/1</code>.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><b>Example 1:</b><br />
 
 <pre>
-<strong>Input:</strong> expression = &quot;-1/2+1/2&quot;
-<strong>Output:</strong> &quot;0/1&quot;
+
+<b>Input:</b>"-1/2+1/2"
+
+<b>Output:</b> "0/1"
+
 </pre>
 
-<p><strong>Example 2:</strong></p>
+</p>
+
+<p><b>Example 2:</b><br />
 
 <pre>
-<strong>Input:</strong> expression = &quot;-1/2+1/2+1/3&quot;
-<strong>Output:</strong> &quot;1/3&quot;
+
+<b>Input:</b>"-1/2+1/2+1/3"
+
+<b>Output:</b> "1/3"
+
 </pre>
 
-<p><strong>Example 3:</strong></p>
+</p>
+
+<p><b>Example 3:</b><br />
 
 <pre>
-<strong>Input:</strong> expression = &quot;1/3-1/2&quot;
-<strong>Output:</strong> &quot;-1/6&quot;
+
+<b>Input:</b>"1/3-1/2"
+
+<b>Output:</b> "-1/6"
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</p>
 
-<ul>
-	<li>The input string only contains <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>, <code>&#39;/&#39;</code>, <code>&#39;+&#39;</code> and <code>&#39;-&#39;</code>. So does the output.</li>
-	<li>Each fraction (input and output) has the format <code>&plusmn;numerator/denominator</code>. If the first input fraction or the output is positive, then <code>&#39;+&#39;</code> will be omitted.</li>
-	<li>The input only contains valid <strong>irreducible fractions</strong>, where the <strong>numerator</strong> and <strong>denominator</strong> of each fraction will always be in the range <code>[1, 10]</code>. If the denominator is <code>1</code>, it means this fraction is actually an integer in a fraction format defined above.</li>
-	<li>The number of given fractions will be in the range <code>[1, 10]</code>.</li>
-	<li>The numerator and denominator of the <strong>final result</strong> are guaranteed to be valid and in the range of <strong>32-bit</strong> int.</li>
-</ul>
+<p><b>Example 4:</b><br />
+
+<pre>
+
+<b>Input:</b>"5/3+1/3"
+
+<b>Output:</b> "2/1"
+
+</pre>
+
+</p>
+
+<p><b>Note:</b><br>
+
+<ol>
+
+<li>The input string only contains <code>'0'</code> to <code>'9'</code>, <code>'/'</code>, <code>'+'</code> and <code>'-'</code>. So does the output.</li>
+
+<li>Each fraction (input and output) has format <code>±numerator/denominator</code>. If the first input fraction or the output is positive, then <code>'+'</code> will be omitted.</li>
+
+<li>The input only contains valid <b>irreducible fractions</b>, where the <b>numerator</b> and <b>denominator</b> of each fraction will always be in the range [1,10]. If the denominator is 1, it means this fraction is actually an integer in a fraction format defined above.</li>
+
+<li>The number of given fractions will be in the range [1,10].</li>
+
+<li>The numerator and denominator of the <b>final result</b> are guaranteed to be valid and in the range of 32-bit int.</li>
+
+</ol>
+
+</p>
 
 ## Solutions
 

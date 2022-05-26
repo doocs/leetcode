@@ -1,23 +1,21 @@
-# [面试题 51. 数组中的逆序对](https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)
+# [面试题 51. 数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
 
-<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。</p>
+在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
 
-<p>&nbsp;</p>
+**示例 1:**
 
-<p><strong>示例 1:</strong></p>
+```
+输入: [7,5,6,4]
+输出: 5
+```
 
-<pre><strong>输入</strong>: [7,5,6,4]
-<strong>输出</strong>: 5</pre>
+**限制：**
 
-<p>&nbsp;</p>
-
-<p><strong>限制：</strong></p>
-
-<p><code>0 &lt;= 数组长度 &lt;= 50000</code></p>
+- `0 <= 数组长度 <= 50000`
 
 ## 解法
 
@@ -34,32 +32,41 @@
 ```python
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
-        def merge_sort(nums, left, right):
-            if left >= right:
-                return 0
-            mid = (left + right) >> 1
-            res = merge_sort(nums, left, mid) + merge_sort(nums, mid + 1, right)
-            i, j = left, mid + 1
-            tmp = []
-            while i <= mid and j <= right:
-                if nums[i] <= nums[j]:
-                    tmp.append(nums[i])
-                    i += 1
-                else:
-                    res += (mid - i + 1)
-                    tmp.append(nums[j])
-                    j += 1
-            while i <= mid:
-                tmp.append(nums[i])
-                i += 1
-            while j <= right:
-                tmp.append(nums[j])
-                j += 1
-            for i in range(left, right + 1):
-                nums[i] = tmp[i - left]
-            return res
+        self.res = 0
 
-        return merge_sort(nums, 0, len(nums) - 1)
+        def merge(part1, part2, nums):
+            len1, len2 = len(part1) - 1, len(part2) - 1
+            t = len(nums) - 1
+            while len1 >= 0 and len2 >= 0:
+                if part1[len1] > part2[len2]:
+                    self.res += (len2 + 1)
+                    nums[t] = part1[len1]
+                    len1 -= 1
+                else:
+                    nums[t] = part2[len2]
+                    len2 -= 1
+                t -= 1
+            while len1 >= 0:
+                nums[t] = part1[len1]
+                t -= 1
+                len1 -= 1
+            while len2 >= 0:
+                nums[t] = part2[len2]
+                t -= 1
+                len2 -= 1
+
+        def merge_sort(nums):
+            if len(nums) < 2:
+                return
+            mid = len(nums) // 2
+            s1, s2 = nums[:mid], nums[mid:]
+            merge_sort(s1)
+            merge_sort(s2)
+            merge(s1, s2, nums)
+
+        merge_sort(nums)
+        return self.res
+
 ```
 
 ### **Java**
@@ -68,37 +75,47 @@ class Solution:
 
 ```java
 class Solution {
-    private static int[] tmp = new int[50010];
-
+    private int res = 0;
     public int reversePairs(int[] nums) {
-        return mergeSort(nums, 0, nums.length - 1);
-    }
-
-    private int mergeSort(int[] nums, int left, int right) {
-        if (left >= right) {
+        int n = nums.length;
+        if (n < 2) {
             return 0;
         }
-        int mid = (left + right) >> 1;
-        int res = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
-        int i = left, j = mid + 1, k = 0;
-        while (i <= mid && j <= right) {
-            if (nums[i] <= nums[j]) {
-                tmp[k++] = nums[i++];
-            } else {
+        mergeSort(nums, 0, n - 1);
+        return res;
+    }
+
+    private void mergeSort(int[] nums, int s, int e) {
+        if (s == e) {
+            return;
+        }
+        int mid = s + ((e - s) >> 1);
+        mergeSort(nums, s, mid);
+        mergeSort(nums, mid + 1, e);
+        merge(nums, s, mid, e);
+    }
+
+    private void merge(int[] nums, int s, int mid, int e) {
+        int n = e - s + 1;
+        int[] help = new int[n];
+        int i = s, j = mid + 1, idx = 0;
+        while (i <= mid && j <= e) {
+            if (nums[i] > nums[j]) {
                 res += (mid - i + 1);
-                tmp[k++] = nums[j++];
+                help[idx++] = nums[j++];
+            } else {
+                help[idx++] = nums[i++];
             }
         }
         while (i <= mid) {
-            tmp[k++] = nums[i++];
+            help[idx++] = nums[i++];
         }
-        while (j <= right) {
-            tmp[k++] = nums[j++];
+        while (j <= e) {
+            help[idx++] = nums[j++];
         }
-        for (i = left; i <= right; ++i) {
-            nums[i] = tmp[i - left];
+        for (int t = 0; t < n; ++t) {
+            nums[s + t] = help[t];
         }
-        return res;
     }
 }
 ```
@@ -111,163 +128,33 @@ class Solution {
  * @return {number}
  */
 var reversePairs = function (nums) {
-    const mergeSort = (nums, left, right) => {
-        if (left >= right) {
-            return 0;
-        }
-        const mid = (left + right) >> 1;
-        let res = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
-        let i = left;
-        let j = mid + 1;
-        let tmp = [];
-        while (i <= mid && j <= right) {
-            if (nums[i] <= nums[j]) {
-                tmp.push(nums[i++]);
-            } else {
-                tmp.push(nums[j++]);
-                res += mid - i + 1;
-            }
-        }
-        while (i <= mid) {
-            tmp.push(nums[i++]);
-        }
-        while (j <= right) {
-            tmp.push(nums[j++]);
-        }
-        for (i = left, j = 0; i <= right; ++i, ++j) {
-            nums[i] = tmp[j];
-        }
-        return res;
-    };
-
-    return mergeSort(nums, 0, nums.length - 1);
+  if (!nums || nums.length < 2) return 0;
+  let res = 0;
+  function mergeSort(arr) {
+    if (arr.length === 1) {
+      return arr;
+    }
+    let mid = ~~(arr.length / 2);
+    return merge(mergeSort(arr.slice(0, mid)), mergeSort(arr.slice(mid)));
+  }
+  function merge(a, b) {
+    let r = [];
+    let cnt = 0;
+    while (a && b && a.length && b.length) {
+      if (a[0] <= b[0]) {
+        res += cnt;
+        r.push(a.shift());
+      } else {
+        r.push(b.shift());
+        cnt++;
+      }
+    }
+    res += a.length * cnt;
+    return r.concat(a, b);
+  }
+  mergeSort(nums);
+  return res;
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int reversePairs(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> temp(n);
-        return mergeSort(nums, temp, 0, n - 1);
-    }
-
-private:
-    int mergeSort(vector<int>& nums, vector<int>& temp, int l, int r) {
-        if (l >= r) {
-            return 0;
-        }
-        int m = l + (r - l) / 2;
-        int count = mergeSort(nums, temp, l, m) + mergeSort(nums, temp, m + 1, r);
-        int i = l, j = m + 1, k = l;
-        while (i <= m || j <= r) {
-            if (i > m) {
-                temp[k++] = nums[j++];
-            } else if (j > r || nums[i] <= nums[j]) {
-                temp[k++] = nums[i++];
-            } else {
-                count += m - i + 1;
-                temp[k++] = nums[j++];
-            }
-        }
-        copy(temp.begin() + l, temp.begin() + r + 1, nums.begin() + l);
-        return count;
-    }
-};
-```
-
-### **TypeScript**
-
-```ts
-function reversePairs(nums: number[]): number {
-    let count: number = 0;
-    const n: number = nums.length;
-    if (n < 2) return 0;
-
-    function merge(
-        nums: number[],
-        left: number,
-        mid: number,
-        right: number,
-    ): void {
-        let n: number = right - left + 1;
-        let t: number[] = new Array(n);
-        let i: number = left,
-            j: number = mid + 1,
-            idx: number = 0;
-        while (i <= mid && j <= right) {
-            if (nums[i] > nums[j]) {
-                count += mid - i + 1;
-                t[idx++] = nums[j++];
-            } else {
-                t[idx++] = nums[i++];
-            }
-        }
-        while (i <= mid) {
-            t[idx++] = nums[i++];
-        }
-        while (j <= right) {
-            t[idx++] = nums[j++];
-        }
-        for (let k: number = 0; k < n; ++k) {
-            nums[left + k] = t[k];
-        }
-    }
-
-    function mergeSort(nums: number[], left: number, right: number): void {
-        if (left == right) return;
-        let mid: number = (left + right) >> 1;
-        mergeSort(nums, left, mid);
-        mergeSort(nums, mid + 1, right);
-        merge(nums, left, mid, right);
-    }
-
-    mergeSort(nums, 0, n - 1);
-    return count;
-}
-```
-
-### **Go**
-
-```go
-func reversePairs(nums []int) int {
-	return mergeSort(nums, 0, len(nums)-1)
-}
-
-func mergeSort(nums []int, left, right int) int {
-	if left >= right {
-		return 0
-	}
-	mid := (left + right) >> 1
-	res := mergeSort(nums, left, mid) + mergeSort(nums, mid+1, right)
-	i, j := left, mid+1
-	var tmp []int
-	for i <= mid && j <= right {
-		if nums[i] <= nums[j] {
-			tmp = append(tmp, nums[i])
-			i++
-		} else {
-			res += (mid - i + 1)
-			tmp = append(tmp, nums[j])
-			j++
-		}
-	}
-	for i <= mid {
-		tmp = append(tmp, nums[i])
-		i++
-	}
-	for j <= right {
-		tmp = append(tmp, nums[j])
-		j++
-	}
-	for i = left; i <= right; i++ {
-		nums[i] = tmp[i-left]
-	}
-	return res
-}
 ```
 
 ### **...**

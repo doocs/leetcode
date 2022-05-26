@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>Given a string <code>s</code>, return <em>the length of the longest repeating substrings</em>. If no repeating substring exists, return <code>0</code>.</p>
+<p>Given a string <code>S</code>, find out the length of the longest repeating substring(s). Return <code>0</code> if no repeating substring exists.</p>
 
-<p>&nbsp;</p>
+<p> </p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;abcd&quot;
+<strong>Input:</strong> S = "abcd"
 <strong>Output:</strong> 0
 <strong>Explanation: </strong>There is no repeating substring.
 </pre>
@@ -18,25 +18,33 @@
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;abbaba&quot;
+<strong>Input:</strong> S = "abbaba"
 <strong>Output:</strong> 2
-<strong>Explanation: </strong>The longest repeating substrings are &quot;ab&quot; and &quot;ba&quot;, each of which occurs twice.
+<strong>Explanation: </strong>The longest repeating substrings are "ab" and "ba", each of which occurs twice.
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;aabcaabdaab&quot;
+<strong>Input:</strong> S = "aabcaabdaab"
 <strong>Output:</strong> 3
-<strong>Explanation: </strong>The longest repeating substring is &quot;aab&quot;, which occurs <code>3</code> times.
+<strong>Explanation: </strong>The longest repeating substring is "aab", which occurs <code>3</code> times.
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> S = "aaaaa"
+<strong>Output:</strong> 4
+<strong>Explanation: </strong>The longest repeating substring is "aaaa", which occurs twice.
+</pre>
+
+<p> </p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 2000</code></li>
-	<li><code>s</code> consists of lowercase English letters.</li>
+	<li>The string <code>S</code> consists of only lowercase English letters from <code>'a'</code> - <code>'z'</code>.</li>
+	<li><code>1 <= S.length <= 1500</code></li>
 </ul>
 
 ## Solutions

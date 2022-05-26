@@ -1,6 +1,12 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        a, b = 0, nums[0]
-        for num in nums[1:]:
-            a, b = b, max(num + a, b)
-        return b
+        if not nums:
+            return 0
+        n = len(nums)
+        if n == 1:
+            return nums[0]
+        pre, cur = nums[0], max(nums[0], nums[1])
+        for i in range(2, n):
+            t = max(pre + nums[i], cur)
+            pre, cur = cur, t
+        return cur

@@ -1,4 +1,4 @@
-# [面试题 05.08. 绘制直线](https://leetcode.cn/problems/draw-line-lcci)
+# [面试题 05.08. 绘制直线](https://leetcode-cn.com/problems/draw-line-lcci)
 
 [English Version](/lcci/05.08.Draw%20Line/README_EN.md)
 

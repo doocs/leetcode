@@ -1,11 +1,10 @@
-# [631. 设计 Excel 求和公式](https://leetcode.cn/problems/design-excel-sum-formula)
+# [631. 设计 Excel 求和公式](https://leetcode-cn.com/problems/design-excel-sum-formula)
 
 [English Version](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>你的任务是实现 Excel 的求和功能，具体的操作如下：</p>
 
 <p><code>Excel(int H, char W):</code> 这是一个构造函数，输入表明了 Excel 的高度和宽度。H 是一个正整数，范围从 1 到 26，代表高度。W 是一个字符，范围从 'A' 到 'Z'，宽度等于从 'A' 到 W 的字母个数。Excel 表格是一个高度 * 宽度的二维整数数组，数组中元素初始化为 0。第一行下标从 1 开始，第一列下标从 'A' 开始。</p>
@@ -26,63 +25,47 @@
 
 <p> </p>
 
-<p><strong>注意: </strong>你可以认为不会出现循环求和的定义，比如说：<code>mat[1]['A'] == sum(1, "B")</code> 和 <code>mat[1]['B'] == sum(1, "A")</code>.</p>
+<p><strong>样例 1 ：</strong></p>
 
 <p> </p>
 
-<p><strong>示例 1:</strong></p>
+<pre>Excel(3,"C"); 
+// 构造一个 3*3 的二维数组，初始化全是 0。
+//   A B C
+// 1 0 0 0
+// 2 0 0 0
+// 3 0 0 0
 
-<pre>
-<strong>输入:</strong>
-["Excel", "set", "sum", "set", "get"]
-[[3, "C"], [1, "A", 2], [3, "C", ["A1", "A1:B2"]], [2, "B", 2], [3, "C"]]
-<b>输出:</b>
-[null, null, 4, null, 6]
+Set(1, "A", 2);
+// 设置 C(1,"A") 为 2。
+//   A B C
+// 1 2 0 0
+// 2 0 0 0
+// 3 0 0 0
 
-<b>解释:</b>
-Excel excel = new Excel(3, "C");
- // 构造一个 3*3 的二维数组，初始化全是 0。
- //   A B C
- // 1 0 0 0
- // 2 0 0 0
- // 3 0 0 0
-excel.set(1, "A", 2);
- // 设置 C(1,"A") 为 2。
- //   A B C
- // 1 2 0 0
- // 2 0 0 0
- // 3 0 0 0
-excel.sum(3, "C", ["A1", "A1:B2"]); // return 4
- // 将 C(3,"C") 的值设为 C(1,"A") 单点以及左上角为 C(1,"A") 右下角为 C(2,"B") 的长方形两者之和。返回值 4。 
- // 1 2 0 0
- // 2 0 0 0
- // 3 0 0 4
-excel.set(2, "B", 2);
+Sum(3, "C", ["A1", "A1:B2"]);
+// 将 C(3,"C") 的值设为 C(1,"A") 单点，左上角为 C(1,"A") 右下角为 C(2,"B") 的长方形，所有元素之和。返回值 4。 
+//   A B C
+// 1 2 0 0
+// 2 0 0 0
+// 3 0 0 4
+
+Set(2, "B", 2);
 // 将 C(2,"B") 设为 2。 注意 C(3, "C") 的值也同时改变。
- //   A B C
- // 1 2 0 0
- // 2 0 2 0
- // 3 0 0 6
-excel.get(3, "C"); // 返回 6</pre>
+//   A B C
+// 1 2 0 0
+// 2 0 2 0
+// 3 0 0 6
+</pre>
 
 <p> </p>
 
-<p><strong>提示:</strong></p>
-
-<ul>
-	<li><code>1 <= height <= 26</code></li>
-	<li><code>'A' <= width <= 'Z'</code></li>
-	<li><code>1 <= row <= height</code></li>
-	<li><code>'A' <= column <= width</code></li>
-	<li><code>-100 <= val <= 100</code></li>
-	<li><code>1 <= numbers.length <= 5</code></li>
-	<li><code>numbers[i]</code> 的格式为 <code>"ColRow"</code> 或 <code>"ColRow1:ColRow2"</code>.</li>
-	<li><code>set</code>, <code>get</code>, and <code>sum</code> 操作数不超过 100 次</li>
-</ul>
-
-<p> </p>
+<p><strong>注释 ：</strong></p>
 
 <ol>
+	<li>你可以认为不会出现循环求和的定义，比如说： A1 = sum(B1) ，B1 = sum(A1)。</li>
+	<li>测试数据中，字母表示用双引号。</li>
+	<li>请记住<strong>清零</strong> Excel 类中的变量，因为静态变量、类变量会在多组测试数据中保存之前结果。详情请看<a href="http://leetcode.com/faq/#different-output" target="_blank">这里</a>。</li>
 </ol>
 
 <p> </p>

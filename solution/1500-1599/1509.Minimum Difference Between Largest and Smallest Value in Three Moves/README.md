@@ -1,11 +1,10 @@
-# [1509. 三次操作后最大值与最小值的最小差](https://leetcode.cn/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves)
+# [1509. 三次操作后最大值与最小值的最小差](https://leetcode-cn.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves)
 
 [English Version](/solution/1500-1599/1509.Minimum%20Difference%20Between%20Largest%20and%20Smallest%20Value%20in%20Three%20Moves/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个数组&nbsp;<code>nums</code>&nbsp;，每次操作你可以选择&nbsp;<code>nums</code>&nbsp;中的任意一个元素并将它改成任意值。</p>
 
 <p>请你返回三次操作后， <code>nums</code>&nbsp;中最大值与最小值的差的最小值。</p>

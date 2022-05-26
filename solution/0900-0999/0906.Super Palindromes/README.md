@@ -1,11 +1,10 @@
-# [906. 超级回文数](https://leetcode.cn/problems/super-palindromes)
+# [906. 超级回文数](https://leetcode-cn.com/problems/super-palindromes)
 
 [English Version](/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>如果一个正整数自身是回文数，而且它也是一个回文数的平方，那么我们称这个数为超级回文数。</p>
 
 <p>现在，给定两个正整数&nbsp;<code>L</code> 和&nbsp;<code>R</code> （以字符串形式表示），返回包含在范围 <code>[L, R]</code> 中的超级回文数的数目。</p>

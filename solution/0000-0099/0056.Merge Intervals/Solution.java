@@ -1,19 +1,29 @@
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
 class Solution {
-    public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
-        int st = intervals[0][0], ed = intervals[0][1];
-        List<int[]> ans = new ArrayList<>();
-        for (int i = 1; i < intervals.length; ++i) {
-            int s = intervals[i][0], e = intervals[i][1];
-            if (ed < s) {
-                ans.add(new int[]{st, ed});
-                st = s;
-                ed = e;
-            } else {
-                ed = Math.max(ed, e);
+    public List<Interval> merge(List<Interval> intervals) {
+        int n=intervals.size();
+        int[] starts=new int[n],ends=new int[n];
+        for(int i=0;i<n;i++){
+            starts[i]=intervals.get(i).start;
+            ends[i]=intervals.get(i).end;
+        }
+        Arrays.sort(starts);
+        Arrays.sort(ends);
+        List<Interval> res= new ArrayList<>();
+        for(int i=0,j=0;i<n;i++){
+            if((i == (n - 1)) || (starts[i + 1] > ends[i])){
+                res.add(new Interval(starts[j],ends[i]));
+                j=i+1;
             }
         }
-        ans.add(new int[]{st, ed});
-        return ans.toArray(new int[ans.size()][]);
+        return res;
     }
 }

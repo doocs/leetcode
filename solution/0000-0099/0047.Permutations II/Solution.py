@@ -1,22 +1,40 @@
 class Solution:
-    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        n = len(nums)
-        res = []
-        path = [0] * n
-        used = [False] * n
-        nums.sort()
+    def permuteUnique(self, nums):
+        ans = [[]]
+        for n in nums:
+            new_ans = []
+            for l in ans:
+                for i in range(len(l)+1):
+                    new_ans.append(l[:i]+[n]+l[i:])
+                    if i<len(l) and l[i]==n: break              #handles duplication
+            ans = new_ans
+        return ans
 
-        def dfs(u):
-            if u == n:
-                res.append(path.copy())
-                return
-            for i in range(n):
-                if used[i] or (i > 0 and nums[i] == nums[i - 1] and not used[i - 1]):
-                    continue
-                path[u] = nums[i]
-                used[i] = True
-                dfs(u + 1)
-                used[i] = False
-
-        dfs(0)
-        return res
+class Solution:
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if len(nums) <= 1: 
+            return [nums]
+        ans = []
+        for i, num in enumerate(nums):
+            n = nums[:i] + nums[i+1:]
+            for y in self.permute(n):
+                ans.append([num] + y)
+        return ans
+    
+    def permuteUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        ans=self.permute(nums)
+        temp=[]
+        for i in ans:
+            if i in temp:
+                pass
+            else:
+                temp.append(i)
+        return temp

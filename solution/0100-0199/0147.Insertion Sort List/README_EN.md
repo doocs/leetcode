@@ -4,40 +4,53 @@
 
 ## Description
 
-<p>Given the <code>head</code> of a singly linked list, sort the list using <strong>insertion sort</strong>, and return <em>the sorted list&#39;s head</em>.</p>
-
-<p>The steps of the <strong>insertion sort</strong> algorithm:</p>
+<p>Sort a linked list using insertion sort.</p>
 
 <ol>
-	<li>Insertion sort iterates, consuming one input element each repetition and growing a sorted output list.</li>
-	<li>At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list and inserts it there.</li>
-	<li>It repeats until no input elements remain.</li>
+
 </ol>
 
-<p>The following is a graphical example of the insertion sort algorithm. The partially sorted list (black) initially contains only the first element in the list. One element (red) is removed from the input data and inserted in-place into the sorted list with each iteration.</p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/Insertion-sort-example-300px.gif" style="height:180px; width:300px" />
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/sort1linked-list.jpg" style="width: 422px; height: 222px;" />
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif" style="height:180px; width:300px" /><br />
+
+<small>A graphical example of insertion sort. The partial sorted list (black) initially contains only the first element in the list.<br />
+
+With each iteration one element (red) is removed from the input data and inserted in-place into the sorted list</small><br />
+
+&nbsp;</p>
+
+<ol>
+
+</ol>
+
+<p><strong>Algorithm of Insertion Sort:</strong></p>
+
+<ol>
+    <li>Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list.</li>
+    <li>At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there.</li>
+    <li>It repeats until no input elements remain.</li>
+</ol>
+
+<p><br />
+
+<strong>Example 1:</strong></p>
+
 <pre>
-<strong>Input:</strong> head = [4,2,1,3]
-<strong>Output:</strong> [1,2,3,4]
+
+<strong>Input:</strong> 4-&gt;2-&gt;1-&gt;3
+
+<strong>Output:</strong> 1-&gt;2-&gt;3-&gt;4
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/sort2linked-list.jpg" style="width: 542px; height: 222px;" />
+
 <pre>
-<strong>Input:</strong> head = [-1,5,3,4,0]
-<strong>Output:</strong> [-1,0,3,4,5]
+
+<strong>Input:</strong> -1-&gt;5-&gt;3-&gt;4-&gt;0
+
+<strong>Output:</strong> -1-&gt;0-&gt;3-&gt;4-&gt;5
+
 </pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li>The number of nodes in the list is in the range <code>[1, 5000]</code>.</li>
-	<li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
-</ul>
 
 ## Solutions
 
@@ -48,14 +61,16 @@
 ```python
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
         if head is None or head.next is None:
             return head
-        dummy = ListNode(head.val, head)
+        dummy = ListNode(head.val)
+        dummy.next = head
         pre, cur = dummy, head
         while cur:
             if pre.val <= cur.val:
@@ -80,9 +95,7 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
@@ -90,7 +103,8 @@ class Solution {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode dummy = new ListNode(head.val, head);
+        ListNode dummy = new ListNode(head.val);
+        dummy.next = head;
         ListNode pre = dummy, cur = head;
         while (cur != null) {
             if (pre.val <= cur.val) {
@@ -111,45 +125,6 @@ class Solution {
         return dummy.next;
     }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var insertionSortList = function (head) {
-    if (head == null || head.next == null) return head;
-    let dummy = new ListNode(head.val, head);
-    let prev = dummy,
-        cur = head;
-    while (cur != null) {
-        if (prev.val <= cur.val) {
-            prev = cur;
-            cur = cur.next;
-            continue;
-        }
-        let p = dummy;
-        while (p.next.val <= cur.val) {
-            p = p.next;
-        }
-        let t = cur.next;
-        cur.next = p.next;
-        p.next = cur;
-        prev.next = t;
-        cur = t;
-    }
-    return dummy.next;
-};
 ```
 
 ### **...**

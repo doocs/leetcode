@@ -1,11 +1,10 @@
-# [254. 因子的组合](https://leetcode.cn/problems/factor-combinations)
+# [254. 因子的组合](https://leetcode-cn.com/problems/factor-combinations)
 
 [English Version](/solution/0200-0299/0254.Factor%20Combinations/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>整数可以被看作是其因子的乘积。</p>
 
 <p>例如：</p>
@@ -13,7 +12,7 @@
 <pre>8 = 2 x 2 x 2;
   = 2 x 4.</pre>
 
-<p>请实现一个函数，该函数接收一个整数 <em>n</em>&nbsp;并返回该整数所有的因子组合。</p>
+<p>请实现一个函数，该函数接收一个整数 <em>n</em> 并返回该整数所有的因子组合。</p>
 
 <p><strong>注意：</strong></p>
 

@@ -1,4 +1,4 @@
-# [16.03. Intersection](https://leetcode.cn/problems/intersection-lcci)
+# [16.03. Intersection](https://leetcode-cn.com/problems/intersection-lcci)
 
 [中文文档](/lcci/16.03.Intersection/README.md)
 

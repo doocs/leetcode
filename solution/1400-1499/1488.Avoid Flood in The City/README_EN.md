@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over the <code>nth</code> lake, the <code>nth</code> lake becomes full of water. If it rains over a lake that is <strong>full of water</strong>, there will be a <strong>flood</strong>. Your goal is to avoid floods in any lake.</p>
+<p>Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over the <code>nth</code> lake, the <code>nth</code> lake becomes full of water. If it rains over a lake which is <strong>full of water</strong>, there will be a <strong>flood</strong>. Your goal is to avoid the flood in any lake.</p>
 
 <p>Given an integer array <code>rains</code> where:</p>
 
@@ -18,12 +18,12 @@
 <ul>
 	<li><code>ans.length == rains.length</code></li>
 	<li><code>ans[i] == -1</code> if <code>rains[i] &gt; 0</code>.</li>
-	<li><code>ans[i]</code> is the lake you choose to dry in the <code>ith</code> day if <code>rains[i] == 0</code>.</li>
+	<li><code>ans[i]</code> is the lake you choose to dry in the <code>ith</code> day&nbsp;if <code>rains[i] == 0</code>.</li>
 </ul>
 
 <p>If there are multiple valid answers return <strong>any</strong> of them. If it is impossible to avoid flood return <strong>an empty array</strong>.</p>
 
-<p>Notice that if you chose to dry a full lake, it becomes empty, but if you chose to dry an empty lake, nothing changes.</p>
+<p>Notice that if you chose to dry a full lake, it becomes empty, but if you chose to dry an empty lake, nothing changes. (see example 4)</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -61,12 +61,28 @@ It is easy that this scenario is flood-free. [-1,-1,1,2,-1,-1] is another accept
 After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter which lake you choose to dry in the 3rd day, the other one will flood.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> rains = [69,0,0,0,69]
+<strong>Output:</strong> [-1,69,1,1,-1]
+<strong>Explanation:</strong> Any solution on one of the forms [-1,69,x,y,-1], [-1,x,69,y,-1] or [-1,x,y,69,-1] is acceptable where 1 &lt;= x,y &lt;= 10^9
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> rains = [10,20,20]
+<strong>Output:</strong> []
+<strong>Explanation:</strong> It will rain over lake 20 two consecutive days. There is no chance to dry any lake.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= rains.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>0 &lt;= rains[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= rains.length &lt;= 10^5</code></li>
+	<li><code>0 &lt;= rains[i] &lt;= 10^9</code></li>
 </ul>
 
 ## Solutions

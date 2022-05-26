@@ -12,12 +12,19 @@
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> arr = [15,88], pieces = [[88],[15]]
+<strong>Input:</strong> arr = [85], pieces = [[85]]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Concatenate [15] then [88]
 </pre>
 
 <p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [15,88], pieces = [[88],[15]]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> Concatenate <code>[15]</code> then <code>[88]</code>
+</pre>
+
+<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [49,18,16], pieces = [[16,18,49]]
@@ -25,12 +32,18 @@
 <strong>Explanation:</strong> Even though the numbers match, we cannot reorder pieces[0].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong>Example 4:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [91,4,64,78], pieces = [[78],[4,64],[91]]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Concatenate [91] then [4,64] then [78]
+<strong>Explanation:</strong> Concatenate <code>[91]</code> then <code>[4,64]</code> then <code>[78]</code></pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [1,3,5,7], pieces = [[2,4,6,8]]
+<strong>Output:</strong> false
 </pre>
 
 <p>&nbsp;</p>
@@ -41,8 +54,8 @@
 	<li><code>sum(pieces[i].length) == arr.length</code></li>
 	<li><code>1 &lt;= pieces[i].length &lt;= arr.length</code></li>
 	<li><code>1 &lt;= arr[i], pieces[i][j] &lt;= 100</code></li>
-	<li>The integers in <code>arr</code> are <strong>distinct</strong>.</li>
-	<li>The integers in <code>pieces</code> are <strong>distinct</strong> (i.e., If we flatten pieces in a 1D array, all the integers in this array are distinct).</li>
+	<li>The integers in&nbsp;<code>arr</code>&nbsp;are <strong>distinct</strong>.</li>
+	<li>The integers in&nbsp;<code>pieces</code> are <strong>distinct</strong>&nbsp;(i.e., If we flatten pieces in a 1D array, all the integers in this array are distinct).</li>
 </ul>
 
 ## Solutions
@@ -52,73 +65,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
-        mapper = {piece[0]: piece for piece in pieces}
-        i, n = 0, len(arr)
-        while i < n:
-            if arr[i] not in mapper:
-                return False
-            vals = mapper[arr[i]]
-            for val in vals:
-                if arr[i] != val:
-                    return False
-                i += 1
-        return True
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public boolean canFormArray(int[] arr, int[][] pieces) {
-        Map<Integer, int[]> map = new HashMap<>();
-        for (int[] piece : pieces) {
-            map.put(piece[0], piece);
-        }
-        for (int i = 0; i < arr.length;) {
-            int[] vals = map.get(arr[i]);
-            if (vals == null) {
-                return false;
-            }
-            for (int val : vals) {
-                if (arr[i] != val) {
-                    return false;
-                }
-                ++i;
-            }
-        }
-        return true;
-    }
-}
-```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} arr
- * @param {number[][]} pieces
- * @return {boolean}
- */
-var canFormArray = function (arr, pieces) {
-    let mapper = new Map();
-    for (let i = 0; i < pieces.length; i++) {
-        mapper.set(pieces[i][0], pieces[i]);
-    }
-    let i = 0,
-        n = arr.length;
-    while (i < n) {
-        let cur = arr[i];
-        let nums = mapper.get(cur);
-        if (nums == undefined) return false;
-        for (let num of nums) {
-            if (arr[i] != num) return false;
-            i++;
-        }
-    }
-    return true;
-};
 ```
 
 ### **...**

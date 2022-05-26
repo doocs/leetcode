@@ -1,9 +1,13 @@
 class Solution {
     public int[] constructRectangle(int area) {
-        int w = (int) Math.sqrt(area);
-        while (area % w != 0) {
-            --w;
+        int sr = (int) Math.sqrt(area);
+        int l = sr, w = sr;
+        while (l <= area && w >= 1) {
+            int s = l * w;
+            if (s == area) break;
+            if (s > area) --w;
+            else ++l;
         }
-        return new int[]{area / w, w};
+        return new int[]{l, w};
     }
 }

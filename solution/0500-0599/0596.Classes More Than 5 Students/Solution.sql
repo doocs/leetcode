@@ -1,8 +1,8 @@
-SELECT
-	class 
-FROM
-	courses 
-GROUP BY
-	class 
-HAVING
-	COUNT( class ) >= 5
+select
+    c.class
+from
+    (select distinct courses.student, courses.class from courses) c
+group by
+    c.class
+having
+    count(c.class)>=5

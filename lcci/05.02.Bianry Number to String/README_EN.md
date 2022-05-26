@@ -1,4 +1,4 @@
-# [05.02. Bianry Number to String](https://leetcode.cn/problems/bianry-number-to-string-lcci)
+# [05.02. Bianry Number to String](https://leetcode-cn.com/problems/bianry-number-to-string-lcci)
 
 [中文文档](/lcci/05.02.Bianry%20Number%20to%20String/README.md)
 

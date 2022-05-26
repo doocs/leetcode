@@ -1,11 +1,10 @@
-# [1389. 按既定顺序创建目标数组](https://leetcode.cn/problems/create-target-array-in-the-given-order)
+# [1389. 按既定顺序创建目标数组](https://leetcode-cn.com/problems/create-target-array-in-the-given-order)
 
 [English Version](/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你两个整数数组 <code>nums</code> 和 <code>index</code>。你需要按照以下规则创建目标数组：</p>
 
 <ul>
@@ -74,12 +73,7 @@ nums       index     target
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
-        target = []
-        for i in range(len(nums)):
-            target.insert(index[i], nums[i])
-        return target
+
 ```
 
 ### **Java**
@@ -87,60 +81,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int[] createTargetArray(int[] nums, int[] index) {
-        int n = nums.length;
-        List<Integer> target = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            target.add(index[i], nums[i]);
-        }
-        int[] res = new int[n];
-        for (int i = 0; i < n; ++i) {
-            res[i] = target.get(i);
-        }
-        return res;
-    }
-}
-```
 
-### **TypeScript**
-
-```ts
-function createTargetArray(nums: number[], index: number[]): number[] {
-    let ans = [];
-    for (let i = 0; i < nums.length; i++) {
-        ans.splice(index[i], 0, nums[i]);
-    }
-    return ans;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
-        vector<int> target;
-        for (int i = 0; i < nums.size(); ++i) {
-            target.insert(target.begin() + index[i], nums[i]);
-        }
-        return target;
-    }
-};
-```
-
-### **Go**
-
-```go
-func createTargetArray(nums []int, index []int) []int {
-	target := make([]int, len(nums))
-	for i, v := range nums {
-		copy(target[index[i]+1:], target[index[i]:])
-		target[index[i]] = v
-	}
-	return target
-}
 ```
 
 ### **...**

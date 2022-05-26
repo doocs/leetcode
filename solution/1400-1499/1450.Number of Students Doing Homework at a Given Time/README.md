@@ -1,11 +1,10 @@
-# [1450. 在既定时间做作业的学生人数](https://leetcode.cn/problems/number-of-students-doing-homework-at-a-given-time)
+# [1450. 在既定时间做作业的学生人数](https://leetcode-cn.com/problems/number-of-students-doing-homework-at-a-given-time)
 
 [English Version](/solution/1400-1499/1450.Number%20of%20Students%20Doing%20Homework%20at%20a%20Given%20Time/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你两个整数数组 <code>startTime</code>（开始时间）和 <code>endTime</code>（结束时间），并指定一个整数 <code>queryTime</code> 作为查询时间。</p>
 
 <p>已知，第 <code>i</code> 名学生在 <code>startTime[i]</code> 时开始写作业并于 <code>endTime[i]</code> 时完成作业。</p>
@@ -71,12 +70,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -> int:
-        count, n = 0, len(startTime)
-        for i in range(n):
-            count += startTime[i] <= queryTime <= endTime[i]
-        return count
+
 ```
 
 ### **Java**
@@ -84,48 +78,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
-        int count = 0, n = startTime.length;
-        for (int i = 0; i < n; ++i) {
-            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
-                ++count;
-            }
-        }
-        return count;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
-        int count = 0, n = startTime.size();
-        for (int i = 0; i < n; ++i) {
-            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
-                ++count;
-            }
-        }
-        return count;
-    }
-};
-```
-
-### **Go**
-
-```go
-func busyStudent(startTime []int, endTime []int, queryTime int) int {
-	count, n := 0, len(startTime)
-	for i := 0; i < n; i++ {
-		if startTime[i] <= queryTime && queryTime <= endTime[i] {
-			count++
-		}
-	}
-	return count
-}
 ```
 
 ### **...**

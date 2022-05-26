@@ -1,13 +1,13 @@
 class Solution:
     def calPoints(self, ops: List[str]) -> int:
-        stk = []
+        stack = []
         for op in ops:
-            if op == '+':
-                stk.append(stk[-1] + stk[-2])
+            if op == 'C':
+                stack.pop()
             elif op == 'D':
-                stk.append(stk[-1] << 1)
-            elif op == 'C':
-                stk.pop()
+                stack.append(stack[-1] << 1)
+            elif op == '+':
+                stack.append(stack[-1] + stack[-2])
             else:
-                stk.append(int(op))
-        return sum(stk)
+                stack.append(int(op))
+        return sum(stack)

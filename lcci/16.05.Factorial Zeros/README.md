@@ -1,4 +1,4 @@
-# [面试题 16.05. 阶乘尾数](https://leetcode.cn/problems/factorial-zeros-lcci)
+# [面试题 16.05. 阶乘尾数](https://leetcode-cn.com/problems/factorial-zeros-lcci)
 
 [English Version](/lcci/16.05.Factorial%20Zeros/README_EN.md)
 

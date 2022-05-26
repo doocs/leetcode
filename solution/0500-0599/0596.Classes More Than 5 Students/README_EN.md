@@ -4,58 +4,63 @@
 
 ## Description
 
-<p>Table: <code>Courses</code></p>
+<p>There is a table <code>courses</code> with columns: <b>student</b> and <b>class</b></p>
+
+<p>Please list out all classes which have more than or equal to 5 students.</p>
+
+<p>For example, the table:</p>
 
 <pre>
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| student     | varchar |
-| class       | varchar |
-+-------------+---------+
-(student, class) is the primary key column for this table.
-Each row of this table indicates the name of a student and the class in which they are enrolled.
+
++---------+------------+
+
+| student | class      |
+
++---------+------------+
+
+| A       | Math       |
+
+| B       | English    |
+
+| C       | Math       |
+
+| D       | Biology    |
+
+| E       | Math       |
+
+| F       | Computer   |
+
+| G       | Math       |
+
+| H       | Math       |
+
+| I       | Math       |
+
++---------+------------+
+
 </pre>
 
-<p>&nbsp;</p>
-
-<p>Write an SQL query to report all the classes that have <strong>at least five students</strong>.</p>
-
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is in the following example.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p>Should output:</p>
 
 <pre>
-<strong>Input:</strong> 
-Courses table:
-+---------+----------+
-| student | class    |
-+---------+----------+
-| A       | Math     |
-| B       | English  |
-| C       | Math     |
-| D       | Biology  |
-| E       | Math     |
-| F       | Computer |
-| G       | Math     |
-| H       | Math     |
-| I       | Math     |
-+---------+----------+
-<strong>Output:</strong> 
+
 +---------+
+
 | class   |
+
 +---------+
+
 | Math    |
+
 +---------+
-<strong>Explanation:</strong> 
-- Math has 6 students, so we include it.
-- English has 1 student, so we do not include it.
-- Biology has 1 student, so we do not include it.
-- Computer has 1 student, so we do not include it.
+
 </pre>
+
+<p>&nbsp;</p>
+
+<p><b>Note:</b><br />
+
+The students should not be counted duplicate in each course.</p>
 
 ## Solutions
 
@@ -63,15 +68,15 @@ Courses table:
 
 ### **SQL**
 
-```sql
-SELECT
-	class
-FROM
-	courses
-GROUP BY
-	class
-HAVING
-	COUNT( class ) >= 5
+```
+select
+    c.class
+from
+    (select distinct courses.student, courses.class from courses) c
+group by
+    c.class
+having
+    count(c.class)>=5
 ```
 
 <!-- tabs:end -->

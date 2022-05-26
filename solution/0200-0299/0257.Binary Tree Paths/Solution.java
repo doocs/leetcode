@@ -4,36 +4,29 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ *     TreeNode(int x) { val = x; }
  * }
  */
 class Solution {
-    private List<String> ans;
-    private List<String> t;
+    private List<String> res;
+    private List<String> path;
 
     public List<String> binaryTreePaths(TreeNode root) {
-        ans = new ArrayList<>();
-        t = new ArrayList<>();
+        if (root == null) return Collections.emptyList();
+        res = new ArrayList<>();
+        path = new ArrayList<>();
         dfs(root);
-        return ans;
+        return res;
     }
 
     private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        t.add(root.val + "");
+        if (root == null) return;
+        path.add(String.valueOf(root.val));
         if (root.left == null && root.right == null) {
-            ans.add(String.join("->", t));
+            res.add(String.join("->", path));
         }
         dfs(root.left);
         dfs(root.right);
-        t.remove(t.size() - 1);
+        path.remove(path.size() - 1);
     }
 }

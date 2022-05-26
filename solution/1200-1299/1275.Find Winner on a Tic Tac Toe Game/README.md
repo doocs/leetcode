@@ -1,11 +1,10 @@
-# [1275. 找出井字棋的获胜者](https://leetcode.cn/problems/find-winner-on-a-tic-tac-toe-game)
+# [1275. 找出井字棋的获胜者](https://leetcode-cn.com/problems/find-winner-on-a-tic-tac-toe-game)
 
 [English Version](/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p><em>A</em> 和&nbsp;<em>B</em>&nbsp;在一个&nbsp;<em>3</em>&nbsp;x&nbsp;<em>3</em>&nbsp;的网格上玩井字棋。</p>
 
 <p>井字棋游戏的规则如下：</p>
@@ -83,12 +82,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-判断 A、B 谁能获胜，只需判断最后一个落棋的人能否获胜即可。我们用数组 `counter` 记录 `0~2` 行、`0~2` 列、`正对角线`、`副对角线`是否已满 3 个棋子。如果等于 3，此人获胜，游戏结束。
-
-若最后落棋者为未能获胜，棋盘被下满返回 `Draw`，未下满则返回 `Pending`。
-
-> 数组 `counter` 长度为 8，其中，`counter[0..2]` 对应 `0~2` 行，`counter[3..5]` 对应 `0~2` 列，`counter[6]` 对应正对角线，`counter[7]` 对应副对角线的落棋次数。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -96,21 +89,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def tictactoe(self, moves: List[List[int]]) -> str:
-        n = len(moves)
-        counter = [0] * 8
-        for i in range(n - 1, -1, -2):
-            row, col = moves[i][0], moves[i][1]
-            counter[row] += 1
-            counter[col + 3] += 1
-            if row == col:
-                counter[6] += 1
-            if row + col == 2:
-                counter[7] += 1
-            if counter[row] == 3 or counter[col + 3] == 3 or counter[6] == 3 or counter[7] == 3:
-                return "A" if (i % 2) == 0 else "B"
-        return "Draw" if n == 9 else "Pending"
+
 ```
 
 ### **Java**
@@ -118,46 +97,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public String tictactoe(int[][] moves) {
-        int n = moves.length;
-        int[] counter = new int[8];
-        for (int i = n - 1; i >= 0; i -= 2) {
-            int row = moves[i][0], col = moves[i][1];
-            ++counter[row];
-            ++counter[col + 3];
-            if (row == col) ++counter[6];
-            if (row + col == 2) ++counter[7];
-            if (counter[row] == 3 || counter[col + 3] == 3 || counter[6] == 3 || counter[7] == 3) {
-                return (i % 2) == 0 ? "A" : "B";
-            }
-        }
-        return n == 9 ? "Draw" : "Pending";
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string tictactoe(vector<vector<int>>& moves) {
-        int n = moves.size();
-        vector<int> counter(8, 0);
-        for (int i = n - 1; i >= 0; i -= 2) {
-            int row = moves[i][0], col = moves[i][1];
-            ++counter[row];
-            ++counter[col + 3];
-            if (row == col) ++counter[6];
-            if (row + col == 2) ++counter[7];
-            if (counter[row] == 3 || counter[col + 3] == 3 || counter[6] == 3 || counter[7] == 3) {
-                return (i % 2 == 0) ? "A" : "B";
-            }
-        }
-        return n == 9 ? "Draw" : "Pending";
-    }
-};
 ```
 
 ### **...**

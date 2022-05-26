@@ -1,4 +1,4 @@
-# [17.20. Continuous Median](https://leetcode.cn/problems/continuous-median-lcci)
+# [17.20. Continuous Median](https://leetcode-cn.com/problems/continuous-median-lcci)
 
 [中文文档](/lcci/17.20.Continuous%20Median/README.md)
 
@@ -50,19 +50,18 @@ class MedianFinder:
         """
         initialize your data structure here.
         """
-        self.min_heap = []
         self.max_heap = []
+        self.min_heap = []
+
 
     def addNum(self, num: int) -> None:
-        heappush(self.min_heap, num)
-        heappush(self.max_heap, -heappop(self.min_heap))
-        if len(self.max_heap) - len(self.min_heap) > 1:
-            heappush(self.min_heap, -heappop(self.max_heap))
+        if len(self.max_heap) == len(self.min_heap):
+            heapq.heappush(self.min_heap, -heapq.heappushpop(self.max_heap, -num))
+        else:
+            heapq.heappush(self.max_heap, -heapq.heappushpop(self.min_heap, num))
 
     def findMedian(self) -> float:
-        if len(self.max_heap) > len(self.min_heap):
-            return -self.max_heap[0]
-        return (self.min_heap[0] - self.max_heap[0]) / 2
+        return (-self.max_heap[0] + self.min_heap[0]) / 2 if len(self.max_heap) == len(self.min_heap) else self.min_heap[0]
 
 
 # Your MedianFinder object will be instantiated and called as such:
@@ -75,28 +74,27 @@ class MedianFinder:
 
 ```java
 class MedianFinder {
-    private PriorityQueue<Integer> minHeap;
-    private PriorityQueue<Integer> maxHeap;
+    private Queue<Integer> minHeap;
+    private Queue<Integer> maxHeap;
 
     /** initialize your data structure here. */
     public MedianFinder() {
         minHeap = new PriorityQueue<>();
-        maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        maxHeap = new PriorityQueue<>((a, b) -> b - a);
     }
 
     public void addNum(int num) {
-        minHeap.offer(num);
-        maxHeap.offer(minHeap.poll());
-        if (maxHeap.size() - minHeap.size() > 1) {
+        if (minHeap.size() == maxHeap.size()) {
+            maxHeap.offer(num);
             minHeap.offer(maxHeap.poll());
+        } else {
+            minHeap.offer(num);
+            maxHeap.offer(minHeap.poll());
         }
     }
 
     public double findMedian() {
-        if (maxHeap.size() > minHeap.size()) {
-            return maxHeap.peek();
-        }
-        return (minHeap.peek() + maxHeap.peek()) * 1.0 / 2;
+        return minHeap.size() == maxHeap.size() ? (minHeap.peek() + maxHeap.peek()) / 2.0 : minHeap.peek();
     }
 }
 

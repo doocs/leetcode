@@ -1,28 +1,32 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        int n = nums.length;
-        return quickSort(nums, 0, n - 1, n - k);
+        return findKthLargest(nums, 0, nums.length - 1, nums.length - k);
     }
-
-    private int quickSort(int[] nums, int left, int right, int k) {
-        if (left == right) {
-            return nums[left];
-        }
-        int i = left - 1, j = right + 1;
-        int x = nums[(left + right) >>> 1];
+    
+    public int findKthLargest(int[] nums, int l, int r, int k) {
+        int i = l, j = r;
+        int temp = nums[i];
         while (i < j) {
-            while (nums[++i] < x);
-            while (nums[--j] > x);
+            while (i < j && nums[j] >= temp) {
+                j--;
+            }
             if (i < j) {
-                int t = nums[i];
-                nums[i] = nums[j];
-                nums[j] = t;
+                nums[i++] = nums[j];
+            }
+            while (i < j && nums[i] <= temp) {
+                i++;
+            }
+            if (i < j) {
+                nums[j--] = nums[i];
             }
         }
-        if (j < k) {
-            return quickSort(nums, j + 1, right, k);
+        nums[i] = temp;
+        if (i == k) {
+            return nums[i];
+        } else if (i < k) {
+            return findKthLargest(nums, i + 1, r, k);
+        } else {
+            return findKthLargest(nums, l, i - 1, k);
         }
-        return quickSort(nums, left, j, k);
-
     }
 }

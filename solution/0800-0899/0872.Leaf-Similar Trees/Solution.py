@@ -14,7 +14,6 @@ class Solution:
                 return
             dfs(root.left, leaves)
             dfs(root.right, leaves)
-
         l1, l2 = [], []
         dfs(root1, l1)
         dfs(root2, l2)

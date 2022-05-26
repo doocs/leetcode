@@ -4,39 +4,55 @@
 
 ## Description
 
-<p>There is a strange printer with the following two special properties:</p>
+<p>
 
-<ul>
-	<li>The printer can only print a sequence of <strong>the same character</strong> each time.</li>
-	<li>At each turn, the printer can print new characters starting from and ending at any place and will cover the original existing characters.</li>
-</ul>
+There is a strange printer with the following two special requirements:
 
-<p>Given a string <code>s</code>, return <em>the minimum number of turns the printer needed to print it</em>.</p>
+<ol>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<li>The printer can only print a sequence of the same character each time.</li>
+
+<li>At each turn, the printer can print new characters starting from and ending at any places, and will cover the original existing characters.</li>
+
+</ol>
+
+</p>
+
+<p>
+
+Given a string consists of lower English letters only, your job is to count the minimum number of turns the printer needed in order to print it.
+
+</p>
+
+<p><b>Example 1:</b><br />
 
 <pre>
-<strong>Input:</strong> s = &quot;aaabbb&quot;
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> Print &quot;aaa&quot; first and then print &quot;bbb&quot;.
+
+<b>Input:</b> "aaabbb"
+
+<b>Output:</b> 2
+
+<b>Explanation:</b> Print "aaa" first and then print "bbb".
+
 </pre>
 
-<p><strong>Example 2:</strong></p>
+</p>
+
+<p><b>Example 2:</b><br />
 
 <pre>
-<strong>Input:</strong> s = &quot;aba&quot;
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> Print &quot;aaa&quot; first and then print &quot;b&quot; from the second place of the string, which will cover the existing character &#39;a&#39;.
+
+<b>Input:</b> "aba"
+
+<b>Output:</b> 2
+
+<b>Explanation:</b> Print "aaa" first and then print "b" from the second place of the string, which will cover the existing character 'a'.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</p>
 
-<ul>
-	<li><code>1 &lt;= s.length &lt;= 100</code></li>
-	<li><code>s</code> consists of lowercase English letters.</li>
-</ul>
+<p><b>Hint</b>: Length of the given string will not exceed 100.</p>
 
 ## Solutions
 

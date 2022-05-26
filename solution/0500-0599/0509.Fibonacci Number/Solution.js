@@ -1,14 +1,20 @@
 /**
- * @param {number} n
+ * @param {number} N
  * @return {number}
  */
-var fib = function (n) {
-    let a = 0;
-    let b = 1;
-    while (n--) {
-        const c = a + b;
-        a = b;
-        b = c;
-    }
-    return a;
+
+/**
+ * Author: Mcnwork2018
+ */
+
+let preResult = {};
+var fib = function (N) {
+  if (N === 0) return 0;
+  if (N === 1) return 1;
+  if (preResult[N]) {
+    return preResult[N];
+  } else {
+    preResult[N] = fib(N - 1) + fib(N - 2);
+  }
+  return fib(N - 1) + fib(N - 2);
 };

@@ -1,11 +1,10 @@
-# [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii)
+# [731. 我的日程安排表 II](https://leetcode-cn.com/problems/my-calendar-ii)
 
 [English Version](/solution/0700-0799/0731.My%20Calendar%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>实现一个 <code>MyCalendar</code> 类来存放你的日程安排。如果要添加的时间内不会导致三重预订时，则可以存储这个新的日程安排。</p>
 
 <p><code>MyCalendar</code> 有一个 <code>book(int start, int end)</code>方法。它意味着在 <code>start</code> 到 <code>end</code> 时间内增加一个日程安排，注意，这里的时间是半开区间，即 <code>[start, end)</code>, 实数&nbsp;<code>x</code> 的范围为， &nbsp;<code>start &lt;= x &lt; end</code>。</p>
@@ -55,34 +54,7 @@ MyCalendar.book(25, 55); // returns true
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-from sortedcontainers import SortedDict
 
-
-class MyCalendarTwo:
-
-    def __init__(self):
-        self.sd = SortedDict()
-
-    def book(self, start: int, end: int) -> bool:
-        if start not in self.sd:
-            self.sd[start] = 0
-        if end not in self.sd:
-            self.sd[end] = 0
-        self.sd[start] += 1
-        self.sd[end] -= 1
-        s = 0
-        for v in self.sd.values():
-            s += v
-            if s > 2:
-                self.sd[start] -= 1
-                self.sd[end] += 1
-                return False
-        return True
-
-
-# Your MyCalendarTwo object will be instantiated and called as such:
-# obj = MyCalendarTwo()
-# param_1 = obj.book(start,end)
 ```
 
 ### **Java**
@@ -90,70 +62,7 @@ class MyCalendarTwo:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class MyCalendarTwo {
-    private Map<Integer, Integer> tm = new TreeMap<>();
 
-    public MyCalendarTwo() {
-
-    }
-
-    public boolean book(int start, int end) {
-        tm.put(start, tm.getOrDefault(start, 0) + 1);
-        tm.put(end, tm.getOrDefault(end, 0) - 1);
-        int s = 0;
-        for (int v : tm.values()) {
-            s += v;
-            if (s > 2) {
-                tm.put(start, tm.get(start) - 1);
-                tm.put(end, tm.get(end) + 1);
-                return false;
-            }
-        }
-        return true;
-    }
-}
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * MyCalendarTwo obj = new MyCalendarTwo();
- * boolean param_1 = obj.book(start,end);
- */
-```
-
-### **C++**
-
-```cpp
-class MyCalendarTwo {
-public:
-    map<int, int> m;
-
-    MyCalendarTwo() {
-
-    }
-
-    bool book(int start, int end) {
-        ++m[start];
-        --m[end];
-        int s = 0;
-        for (auto& [k, v] : m)
-        {
-            s += v;
-            if (s > 2)
-            {
-                --m[start];
-                ++m[end];
-                return false;
-            }
-        }
-        return true;
-    }
-};
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * MyCalendarTwo* obj = new MyCalendarTwo();
- * bool param_1 = obj->book(start,end);
- */
 ```
 
 ### **...**

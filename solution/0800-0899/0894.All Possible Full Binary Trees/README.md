@@ -1,11 +1,10 @@
-# [894. 所有可能的满二叉树](https://leetcode.cn/problems/all-possible-full-binary-trees)
+# [894. 所有可能的满二叉树](https://leetcode-cn.com/problems/all-possible-full-binary-trees)
 
 [English Version](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p><em>满二叉树</em>是一类二叉树，其中每个结点恰好有 0 或 2 个子结点。</p>
 
 <p>返回包含 <code>N</code> 个结点的所有可能满二叉树的列表。 答案的每个元素都是一个可能树的根结点。</p>
@@ -21,8 +20,9 @@
 <pre><strong>输入：</strong>7
 <strong>输出：</strong>[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]
 <strong>解释：</strong>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/images/fivetrees.png" style="height: 400px; width: 700px;">
 </pre>
+
+![](./images/fivetrees.png)
 
 <p>&nbsp;</p>
 

@@ -1,56 +1,59 @@
-# [1003. 检查替换后的词是否有效](https://leetcode.cn/problems/check-if-word-is-valid-after-substitutions)
+# [1003. 检查替换后的词是否有效](https://leetcode-cn.com/problems/check-if-word-is-valid-after-substitutions)
 
 [English Version](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给定有效字符串&nbsp;<code>&quot;abc&quot;</code>。</p>
 
-给你一个字符串 <code>s</code> ，请你判断它是否 <strong>有效</strong> 。
+<p>对于任何有效的字符串 <code>V</code>，我们可以将 <code>V</code> 分成两个部分 <code>X</code> 和 <code>Y</code>，使得 <code>X + Y</code>（<code>X</code> 与 <code>Y</code> 连接）等于 <code>V</code>。（<code>X</code>&nbsp;或 <code>Y</code> 可以为空。）那么，<code>X + &quot;abc&quot; + Y</code> 也同样是有效的。</p>
 
-<p>字符串 <code>s</code> <strong>有效</strong> 需要满足：假设开始有一个空字符串 <code>t = ""</code> ，你可以执行 <strong>任意次</strong> 下述操作将<strong> </strong><code>t</code><strong> 转换为 </strong><code>s</code> ：</p>
+<p>例如，如果 <code>S = &quot;abc&quot;</code>，则有效字符串的示例是：<code>&quot;abc&quot;</code>，<code>&quot;aabcbc&quot;</code>，<code>&quot;abcabc&quot;</code>，<code>&quot;abcabcababcc&quot;</code>。<strong>无效</strong>字符串的示例是：<code>&quot;abccba&quot;</code>，<code>&quot;ab&quot;</code>，<code>&quot;cababc&quot;</code>，<code>&quot;bac&quot;</code>。</p>
 
-<ul>
-	<li>将字符串 <code>"abc"</code> 插入到 <code>t</code> 中的任意位置。形式上，<code>t</code> 变为 <code>t<sub>left</sub> + "abc" + t<sub>right</sub></code>，其中 <code>t == t<sub>left</sub> + t<sub>right</sub></code> 。注意，<code>t<sub>left</sub></code> 和 <code>t<sub>right</sub></code> 可能为 <strong>空</strong> 。</li>
-</ul>
-
-<p>如果字符串 <code>s</code> 有效，则返回 <code>true</code>；否则，返回 <code>false</code>。</p>
+<p>如果给定字符串 <code>S</code> 有效，则返回 <code>true</code>；否则，返回 <code>false</code>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "aabcbc"
+<pre><strong>输入：</strong>&quot;aabcbc&quot;
 <strong>输出：</strong>true
 <strong>解释：</strong>
-"" -&gt; "<strong>abc</strong>" -&gt; "a<strong>abc</strong>bc"
-因此，"aabcbc" 有效。</pre>
+从有效字符串 &quot;abc&quot; 开始。
+然后我们可以在 &quot;a&quot; 和 &quot;bc&quot; 之间插入另一个 &quot;abc&quot;，产生 &quot;a&quot; + &quot;abc&quot; + &quot;bc&quot;，即 &quot;aabcbc&quot;。
+</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "abcabcababcc"
+<pre><strong>输入：</strong>&quot;abcabcababcc&quot;
 <strong>输出：</strong>true
 <strong>解释：</strong>
-"" -&gt; "<strong>abc</strong>" -&gt; "abc<strong>abc</strong>" -&gt; "abcabc<strong>abc</strong>" -&gt; "abcabcab<strong>abc</strong>c"
-因此，"abcabcababcc" 有效。</pre>
+&quot;abcabcabc&quot; 是有效的，它可以视作在原串后连续插入 &quot;abc&quot;。
+然后我们可以在最后一个字母之前插入 &quot;abc&quot;，产生 &quot;abcabcab&quot; + &quot;abc&quot; + &quot;c&quot;，即 &quot;abcabcababcc&quot;。
+</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "abccba"
+<pre><strong>输入：</strong>&quot;abccba&quot;
 <strong>输出：</strong>false
-<strong>解释：</strong>执行操作无法得到 "abccba" 。</pre>
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre><strong>输入：</strong>&quot;cababc&quot;
+<strong>输出：</strong>false</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ul>
-	<li><code>1 &lt;= s.length &lt;= 2 * 10<sup>4</sup></code></li>
-	<li><code>s</code> 由字母 <code>'a'</code>、<code>'b'</code> 和 <code>'c'</code> 组成</li>
-</ul>
+<ol>
+	<li><code>1 &lt;= S.length &lt;= 20000</code></li>
+	<li><code>S[i]</code> 为&nbsp;<code>&#39;a&#39;</code>、<code>&#39;b&#39;</code>、或&nbsp;<code>&#39;c&#39;</code></li>
+</ol>
+
+<p>&nbsp;</p>
 
 ## 解法
 
@@ -80,4 +83,5 @@
 
 ```
 
+<!-- tabs:end -->
 <!-- tabs:end -->

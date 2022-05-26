@@ -1,4 +1,4 @@
-# [08.13. Pile Box](https://leetcode.cn/problems/pile-box-lcci)
+# [08.13. Pile Box](https://leetcode-cn.com/problems/pile-box-lcci)
 
 [中文文档](/lcci/08.13.Pile%20Box/README.md)
 

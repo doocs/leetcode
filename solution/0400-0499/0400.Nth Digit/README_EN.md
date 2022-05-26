@@ -4,30 +4,55 @@
 
 ## Description
 
-<p>Given an integer <code>n</code>, return the <code>n<sup>th</sup></code> digit of the infinite integer sequence <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...]</code>.</p>
+<p>Find the <i>n</i><sup>th</sup> digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... </p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><b>Note:</b><br />
 
-<pre>
-<strong>Input:</strong> n = 3
-<strong>Output:</strong> 3
-</pre>
+<i>n</i> is positive and will fit within the range of a 32-bit signed integer (<i>n</i> < 2<sup>31</sup>).
 
-<p><strong>Example 2:</strong></p>
+</p>
+
+<p><b>Example 1:</b>
 
 <pre>
-<strong>Input:</strong> n = 11
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The 11<sup>th</sup> digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... is a 0, which is part of the number 10.
+
+<b>Input:</b>
+
+3
+
+
+
+<b>Output:</b>
+
+3
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</p>
 
-<ul>
-	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
-</ul>
+<p><b>Example 2:</b>
+
+<pre>
+
+<b>Input:</b>
+
+11
+
+
+
+<b>Output:</b>
+
+0
+
+
+
+<b>Explanation:</b>
+
+The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... is a 0, which is part of the number 10.
+
+</pre>
+
+</p>
 
 ## Solutions
 
@@ -36,58 +61,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def findNthDigit(self, n: int) -> int:
-        bits, t = 1, 9
-        while n > bits * t:
-            n -= bits * t
-            bits += 1
-            t *= 10
 
-        start = 10 ** (bits - 1) + (n // bits) - 1
-        if n % bits == 0:
-            return start % 10
-        return int(str((start + 1))[(n % bits) - 1])
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int findNthDigit(int n) {
-        int bits = 1, t = 9;
-        while (n / bits > t) {
-            n -= bits * t;
-            ++bits;
-            t *= 10;
-        }
-        int start = (int) Math.pow(10, bits - 1) + (n / bits) - 1;
-        if (n % bits == 0) {
-            return start % 10;
-        }
-        return String.valueOf(start + 1).charAt((n % bits) - 1) - '0';
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findNthDigit(int n) {
-        int bits = 1, t = 9;
-        while (n / bits > t)
-        {
-            n -= bits * t;
-            ++bits;
-            t *= 10;
-        }
-        int start = pow(10, bits - 1) + (n / bits) - 1;
-        if (n % bits == 0) return start % 10;
-        return to_string(start + 1)[(n % bits) - 1] - '0';
-    }
-};
 ```
 
 ### **...**

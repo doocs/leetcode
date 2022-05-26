@@ -1,11 +1,10 @@
-# [1684. 统计一致字符串的数目](https://leetcode.cn/problems/count-the-number-of-consistent-strings)
+# [1684. 统计一致字符串的数目](https://leetcode-cn.com/problems/count-the-number-of-consistent-strings)
 
 [English Version](/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个由不同字符组成的字符串 <code>allowed</code> 和一个字符串数组 <code>words</code> 。如果一个字符串的每一个字符都在 <code>allowed</code> 中，就称这个字符串是 <strong>一致字符串 </strong>。</p>
 
 <p>请你返回 <code>words</code> 数组中 <strong>一致字符串</strong> 的数目。</p>
@@ -59,19 +58,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
-        res = 0
-        chars = set(allowed)
-        for word in words:
-            find = True
-            for c in word:
-                if c not in chars:
-                    find = False
-                    break
-            if find:
-                res += 1
-        return res
+
 ```
 
 ### **Java**
@@ -79,79 +66,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int countConsistentStrings(String allowed, String[] words) {
-        boolean[] chars = new boolean[26];
-        for (char c : allowed.toCharArray()) {
-            chars[c - 'a'] = true;
-        }
-        int res = 0;
-        for (String word : words) {
-            boolean find = true;
-            for (char c : word.toCharArray()) {
-                if (!chars[c - 'a']) {
-                    find = false;
-                    break;
-                }
-            }
-            if (find) {
-                ++res;
-            }
-        }
-        return res;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countConsistentStrings(string allowed, vector<string>& words) {
-        vector<bool> chars(26, false);
-        for (char c : allowed) {
-            chars[c - 'a'] = true;
-        }
-        int res = 0;
-        for (string word : words) {
-            bool find = true;
-            for (char c : word) {
-                if (!chars[c - 'a']) {
-                    find = false;
-                    break;
-                }
-            }
-            if (find) ++res;
-        }
-        return res;
-    }
-};
-```
-
-### **Go**
-
-```go
-func countConsistentStrings(allowed string, words []string) int {
-	chars := [26]bool{}
-	for _, c := range allowed {
-		chars[c-'a'] = true
-	}
-	res := 0
-	for _, word := range words {
-		find := true
-		for _, c := range word {
-			if !chars[c-'a'] {
-				find = false
-				break
-			}
-		}
-		if find {
-			res++
-		}
-	}
-	return res
-}
 ```
 
 ### **...**

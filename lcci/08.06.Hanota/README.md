@@ -1,4 +1,4 @@
-# [面试题 08.06. 汉诺塔问题](https://leetcode.cn/problems/hanota-lcci)
+# [面试题 08.06. 汉诺塔问题](https://leetcode-cn.com/problems/hanota-lcci)
 
 [English Version](/lcci/08.06.Hanota/README_EN.md)
 

@@ -4,46 +4,73 @@
 
 ## Description
 
-<p>Given a string <code>licensePlate</code> and an array of strings <code>words</code>, find the <strong>shortest completing</strong> word in <code>words</code>.</p>
+<p>
 
-<p>A <strong>completing</strong> word is a word that <strong>contains all the letters</strong> in <code>licensePlate</code>. <strong>Ignore numbers and spaces</strong> in <code>licensePlate</code>, and treat letters as <strong>case insensitive</strong>. If a letter appears more than once in <code>licensePlate</code>, then it must appear in the word the same number of times or more.</p>
+Find the minimum length word from a given dictionary <code>words</code>, which has all the letters from the string <code>licensePlate</code>. Such a word is said to <i>complete</i> the given string <code>licensePlate</code>
 
-<p>For example, if <code>licensePlate</code><code> = &quot;aBc 12c&quot;</code>, then it contains letters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code> (ignoring case), and <code>&#39;c&#39;</code> twice. Possible <strong>completing</strong> words are <code>&quot;abccdef&quot;</code>, <code>&quot;caaacab&quot;</code>, and <code>&quot;cbca&quot;</code>.</p>
+</p><p>
 
-<p>Return <em>the shortest <strong>completing</strong> word in </em><code>words</code><em>.</em> It is guaranteed an answer exists. If there are multiple shortest <strong>completing</strong> words, return the <strong>first</strong> one that occurs in <code>words</code>.</p>
+Here, for letters we ignore case. For example, <code>"P"</code> on the <code>licensePlate</code> still matches <code>"p"</code> on the word.
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+</p><p>
 
-<pre>
-<strong>Input:</strong> licensePlate = &quot;1s3 PSt&quot;, words = [&quot;step&quot;,&quot;steps&quot;,&quot;stripe&quot;,&quot;stepple&quot;]
-<strong>Output:</strong> &quot;steps&quot;
-<strong>Explanation:</strong> licensePlate contains letters &#39;s&#39;, &#39;p&#39;, &#39;s&#39; (ignoring case), and &#39;t&#39;.
-&quot;step&quot; contains &#39;t&#39; and &#39;p&#39;, but only contains 1 &#39;s&#39;.
-&quot;steps&quot; contains &#39;t&#39;, &#39;p&#39;, and both &#39;s&#39; characters.
-&quot;stripe&quot; is missing an &#39;s&#39;.
-&quot;stepple&quot; is missing an &#39;s&#39;.
-Since &quot;steps&quot; is the only word containing all the letters, that is the answer.
-</pre>
+It is guaranteed an answer exists. If there are multiple answers, return the one that occurs first in the array.
 
-<p><strong>Example 2:</strong></p>
+</p><p>
+
+The license plate might have the same letter occurring multiple times. For example, given a <code>licensePlate</code> of <code>"PP"</code>, the word <code>"pair"</code> does not complete the <code>licensePlate</code>, but the word <code>"supper"</code> does.
+
+</p><p>
+
+<p><b>Example 1:</b><br />
 
 <pre>
-<strong>Input:</strong> licensePlate = &quot;1s3 456&quot;, words = [&quot;looks&quot;,&quot;pest&quot;,&quot;stew&quot;,&quot;show&quot;]
-<strong>Output:</strong> &quot;pest&quot;
-<strong>Explanation:</strong> licensePlate only contains the letter &#39;s&#39;. All the words contain &#39;s&#39;, but among these &quot;pest&quot;, &quot;stew&quot;, and &quot;show&quot; are shortest. The answer is &quot;pest&quot; because it is the word that appears earliest of the 3.
+
+<b>Input:</b> licensePlate = "1s3 PSt", words = ["step", "steps", "stripe", "stepple"]
+
+<b>Output:</b> "steps"
+
+<b>Explanation:</b> The smallest length word that contains the letters "S", "P", "S", and "T".
+
+Note that the answer is not "step", because the letter "s" must occur in the word twice.
+
+Also note that we ignored case for the purposes of comparing whether a letter exists in the word.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+</p>
 
-<ul>
-	<li><code>1 &lt;= licensePlate.length &lt;= 7</code></li>
-	<li><code>licensePlate</code> contains digits, letters (uppercase or lowercase), or space <code>&#39; &#39;</code>.</li>
-	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
-	<li><code>1 &lt;= words[i].length &lt;= 15</code></li>
-	<li><code>words[i]</code> consists of lower case English letters.</li>
-</ul>
+<p><b>Example 2:</b><br />
+
+<pre>
+
+<b>Input:</b> licensePlate = "1s3 456", words = ["looks", "pest", "stew", "show"]
+
+<b>Output:</b> "pest"
+
+<b>Explanation:</b> There are 3 smallest length words that contains the letters "s".
+
+We return the one that occurred first.
+
+</pre>
+
+</p>
+
+<p><b>Note:</b><br>
+
+<ol>
+
+<li><code>licensePlate</code> will be a string with length in range <code>[1, 7]</code>.</li>
+
+<li><code>licensePlate</code> will contain digits, spaces, or letters (uppercase or lowercase).</li>
+
+<li><code>words</code> will have a length in the range <code>[10, 1000]</code>.</li>
+
+<li>Every <code>words[i]</code> will consist of lowercase letters, and have length in range <code>[1, 15]</code>.</li>
+
+</ol>
+
+</p>
 
 ## Solutions
 
@@ -52,152 +79,13 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 ### **Python3**
 
 ```python
-class Solution:
-    def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
-        def count(word):
-            counter = [0] * 26
-            for c in word:
-                counter[ord(c) - ord('a')] += 1
-            return counter
 
-        def check(counter1, counter2):
-            for i in range(26):
-                if counter1[i] > counter2[i]:
-                    return False
-            return True
-
-        counter = count(c.lower() for c in licensePlate if c.isalpha())
-        ans, n = None, 16
-        for word in words:
-            if n <= len(word):
-                continue
-            t = count(word)
-            if check(counter, t):
-                n = len(word)
-                ans = word
-        return ans
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public String shortestCompletingWord(String licensePlate, String[] words) {
-        int[] counter = count(licensePlate.toLowerCase());
-        String ans = null;
-        int n = 16;
-        for (String word : words) {
-            if (n <= word.length()) {
-                continue;
-            }
-            int[] t = count(word);
-            if (check(counter, t)) {
-                n = word.length();
-                ans = word;
-            }
-        }
-        return ans;
-    }
 
-    private int[] count(String word) {
-        int[] counter = new int[26];
-        for (char c : word.toCharArray()) {
-            if (Character.isLetter(c)) {
-                ++counter[c - 'a'];
-            }
-
-        }
-        return counter;
-    }
-
-    private boolean check(int[] counter1, int[] counter2) {
-        for (int i = 0; i < 26; ++i) {
-            if (counter1[i] > counter2[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string shortestCompletingWord(string licensePlate, vector<string>& words) {
-        vector<int> counter = count(licensePlate);
-        int n = 16;
-        string ans;
-        for (auto& word : words)
-        {
-            if (n <= word.size()) continue;
-            vector<int> t = count(word);
-            if (check(counter, t))
-            {
-                n = word.size();
-                ans = word;
-            }
-        }
-        return ans;
-    }
-
-    vector<int> count(string& word) {
-        vector<int> counter(26);
-        for (char& c : word)
-            if (isalpha(c))
-                ++counter[tolower(c) - 'a'];
-        return counter;
-    }
-
-    bool check(vector<int>& counter1, vector<int>& counter2) {
-        for (int i = 0; i < 26; ++i)
-            if (counter1[i] > counter2[i])
-                return false;
-        return true;
-    }
-};
-```
-
-### **Go**
-
-```go
-func shortestCompletingWord(licensePlate string, words []string) string {
-	count := func(word string) []int {
-		counter := make([]int, 26)
-		for _, c := range word {
-			if unicode.IsLetter(c) {
-				counter[c-'a']++
-			}
-		}
-		return counter
-	}
-
-	check := func(cnt1, cnt2 []int) bool {
-		for i := 0; i < 26; i++ {
-			if cnt1[i] > cnt2[i] {
-				return false
-			}
-		}
-		return true
-	}
-
-	counter := count(strings.ToLower(licensePlate))
-	var ans string
-	n := 16
-	for _, word := range words {
-		if n <= len(word) {
-			continue
-		}
-		t := count(word)
-		if check(counter, t) {
-			n = len(word)
-			ans = word
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

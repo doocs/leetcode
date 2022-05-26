@@ -4,47 +4,42 @@
 
 ## Description
 
-<p>There are <code>n</code> different online courses numbered from <code>1</code> to <code>n</code>. You are given an array <code>courses</code> where <code>courses[i] = [duration<sub>i</sub>, lastDay<sub>i</sub>]</code> indicate that the <code>i<sup>th</sup></code> course should be taken <b>continuously</b> for <code>duration<sub>i</sub></code> days and must be finished before or on <code>lastDay<sub>i</sub></code>.</p>
+<p>There are <code>n</code> different online courses numbered from <code>1</code> to <code>n</code>. Each course has some duration(course length) <code>t</code> and closed on <code>d<sub>th</sub></code> day. A course should be taken <b>continuously</b> for <code>t</code> days and must be finished before or on the <code>d<sub>th</sub></code> day. You will start at the <code>1<sub>st</sub></code> day.</p>
 
-<p>You will start on the <code>1<sup>st</sup></code> day and you cannot take two or more courses simultaneously.</p>
+<p>Given <code>n</code> online courses represented by pairs <code>(t,d)</code>, your task is to find the maximal number of courses that can be taken.</p>
 
-<p>Return <em>the maximum number of courses that you can take</em>.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><b>Example:</b></p>
 
 <pre>
-<strong>Input:</strong> courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
-<strong>Output:</strong> 3
-Explanation: 
-There are totally 4 courses, but you can take 3 courses at most:
-First, take the 1<sup>st</sup> course, it costs 100 days so you will finish it on the 100<sup>th</sup> day, and ready to take the next course on the 101<sup>st</sup> day.
-Second, take the 3<sup>rd</sup> course, it costs 1000 days so you will finish it on the 1100<sup>th</sup> day, and ready to take the next course on the 1101<sup>st</sup> day. 
-Third, take the 2<sup>nd</sup> course, it costs 200 days so you will finish it on the 1300<sup>th</sup> day. 
-The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3300<sup>th</sup> day, which exceeds the closed date.
-</pre>
 
-<p><strong>Example 2:</strong></p>
+<b>Input:</b> [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
 
-<pre>
-<strong>Input:</strong> courses = [[1,2]]
-<strong>Output:</strong> 1
-</pre>
+<b>Output:</b> 3
 
-<p><strong>Example 3:</strong></p>
+<b>Explanation:</b> 
 
-<pre>
-<strong>Input:</strong> courses = [[3,2],[4,3]]
-<strong>Output:</strong> 0
+There&#39;re totally 4 courses, but you can take 3 courses at most:
+
+First, take the 1st course, it costs 100 days so you will finish it on the 100th day, and ready to take the next course on the 101st day.
+
+Second, take the 3rd course, it costs 1000 days so you will finish it on the 1100th day, and ready to take the next course on the 1101st day. 
+
+Third, take the 2nd course, it costs 200 days so you will finish it on the 1300th day. 
+
+The 4th course cannot be taken now, since you will finish it on the 3300th day, which exceeds the closed date.
+
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= courses.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>1 &lt;= duration<sub>i</sub>, lastDay<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
-</ul>
+<p><b>Note:</b></p>
+
+<ol>
+    <li>The integer 1 &lt;= d, t, n &lt;= 10,000.</li>
+    <li>You can&#39;t take two courses simultaneously.</li>
+</ol>
+
+<p>&nbsp;</p>
 
 ## Solutions
 
@@ -53,108 +48,13 @@ The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3
 ### **Python3**
 
 ```python
-class Solution:
-    def scheduleCourse(self, courses: List[List[int]]) -> int:
-        courses.sort(key=lambda x: x[1])
-        pq = []
-        s = 0
-        for d, e in courses:
-            heappush(pq, -d)
-            s += d
-            if s > e:
-                s += heappop(pq)
-        return len(pq)
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int scheduleCourse(int[][] courses) {
-        Arrays.sort(courses, Comparator.comparingInt(a -> a[1]));
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
-        int s = 0;
-        for (int[] course : courses) {
-            int duration = course[0], lastDay = course[1];
-            pq.offer(duration);
-            s += duration;
-            if (s > lastDay) {
-                s -= pq.poll();
-            }
-        }
-        return pq.size();
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int scheduleCourse(vector<vector<int>>& courses) {
-        sort(courses.begin(), courses.end(), [](const auto& c0, const auto& c1) {
-            return c0[1] < c1[1];
-        });
-        int s = 0;
-        priority_queue<int> pq;
-        for (auto& course : courses)
-        {
-            int d = course[0], e = course[1];
-            pq.push(d);
-            s += d;
-            if (s > e)
-            {
-                s -= pq.top();
-                pq.pop();
-            }
-        }
-        return pq.size();
-    }
-};
-```
-
-### **Go**
-
-```go
-func scheduleCourse(courses [][]int) int {
-	sort.Slice(courses, func(i, j int) bool {
-		return courses[i][1] < courses[j][1]
-	})
-
-	h := &Heap{}
-	s := 0
-	for _, course := range courses {
-		if d := course[0]; s+d <= course[1] {
-			s += d
-			heap.Push(h, d)
-		} else if h.Len() > 0 && d < h.IntSlice[0] {
-			s += d - h.IntSlice[0]
-			h.IntSlice[0] = d
-			heap.Fix(h, 0)
-		}
-	}
-	return h.Len()
-}
-
-type Heap struct {
-	sort.IntSlice
-}
-
-func (h Heap) Less(i, j int) bool {
-	return h.IntSlice[i] > h.IntSlice[j]
-}
-
-func (h *Heap) Push(x interface{}) {
-	h.IntSlice = append(h.IntSlice, x.(int))
-}
-
-func (h *Heap) Pop() interface{} {
-	a := h.IntSlice
-	x := a[len(a)-1]
-	h.IntSlice = a[:len(a)-1]
-	return x
-}
 ```
 
 ### **...**

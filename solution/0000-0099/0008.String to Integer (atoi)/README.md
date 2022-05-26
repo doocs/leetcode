@@ -1,88 +1,61 @@
-# [8. 字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi)
+# [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi)
 
-[English Version](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
+[English Version](</solution/0000-0099/0008.String%20to%20Integer%20(atoi)/README_EN.md>)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>请你来实现一个&nbsp;<code>atoi</code>&nbsp;函数，使其能将字符串转换成整数。</p>
 
-<p>请你来实现一个&nbsp;<code>myAtoi(string s)</code>&nbsp;函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 <code>atoi</code> 函数）。</p>
+<p>首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。</p>
 
-<p>函数&nbsp;<code>myAtoi(string s)</code> 的算法如下：</p>
+<p>当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。</p>
 
-<ol>
-	<li>读入字符串并丢弃无用的前导空格</li>
-	<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
-	<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
-	<li>将前面步骤读入的这些数字转换为整数（即，"123" -&gt; 123， "0032" -&gt; 32）。如果没有读入数字，则整数为 <code>0</code> 。必要时更改符号（从步骤 2 开始）。</li>
-	<li>如果整数数超过 32 位有符号整数范围 <code>[−2<sup>31</sup>,&nbsp; 2<sup>31&nbsp;</sup>− 1]</code> ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 <code>−2<sup>31</sup></code> 的整数应该被固定为 <code>−2<sup>31</sup></code> ，大于 <code>2<sup>31&nbsp;</sup>− 1</code> 的整数应该被固定为 <code>2<sup>31&nbsp;</sup>− 1</code> 。</li>
-	<li>返回整数作为最终结果。</li>
-</ol>
+<p>该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。</p>
 
-<p><strong>注意：</strong></p>
+<p>注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。</p>
 
-<ul>
-	<li>本题中的空白字符只包括空格字符 <code>' '</code> 。</li>
-	<li>除前导空格或数字后的其余字符串外，<strong>请勿忽略</strong> 任何其他字符。</li>
-</ul>
+<p>在任何情况下，若函数不能进行有效的转换时，请返回 0。</p>
 
-<p>&nbsp;</p>
+<p><strong>说明：</strong></p>
 
-<p><strong>示例&nbsp;1：</strong></p>
+<p>假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为&nbsp;[&minus;2<sup>31</sup>,&nbsp; 2<sup>31&nbsp;</sup>&minus; 1]。如果数值超过这个范围，请返回 &nbsp;INT_MAX (2<sup>31&nbsp;</sup>&minus; 1) 或&nbsp;INT_MIN (&minus;2<sup>31</sup>) 。</p>
 
-<pre>
-<strong>输入：</strong>s = "42"
-<strong>输出：</strong>42
-<strong>解释：</strong>加粗的字符串为已经读入的字符，插入符号是当前读取的字符。
-第 1 步："42"（当前没有读入字符，因为没有前导空格）
-         ^
-第 2 步："42"（当前没有读入字符，因为这里不存在 '-' 或者 '+'）
-         ^
-第 3 步："<u>42</u>"（读入 "42"）
-           ^
-解析得到整数 42 。
-由于 "42" 在范围 [-2<sup>31</sup>, 2<sup>31</sup> - 1] 内，最终结果为 42 。</pre>
+<p><strong>示例&nbsp;1:</strong></p>
 
-<p><strong>示例&nbsp;2：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "   -42"
-<strong>输出：</strong>-42
-<strong>解释：</strong>
-第 1 步："<u><strong>   </strong></u>-42"（读入前导空格，但忽视掉）
-            ^
-第 2 步："   <u><strong>-</strong></u>42"（读入 '-' 字符，所以结果应该是负数）
-             ^
-第 3 步："   <u><strong>-42</strong></u>"（读入 "42"）
-               ^
-解析得到整数 -42 。
-由于 "-42" 在范围 [-2<sup>31</sup>, 2<sup>31</sup> - 1] 内，最终结果为 -42 。
+<pre><strong>输入:</strong> &quot;42&quot;
+<strong>输出:</strong> 42
 </pre>
 
-<p><strong>示例&nbsp;3：</strong></p>
+<p><strong>示例&nbsp;2:</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "4193 with words"
-<strong>输出：</strong>4193
-<strong>解释：</strong>
-第 1 步："4193 with words"（当前没有读入字符，因为没有前导空格）
-         ^
-第 2 步："4193 with words"（当前没有读入字符，因为这里不存在 '-' 或者 '+'）
-         ^
-第 3 步："<u>4193</u> with words"（读入 "4193"；由于下一个字符不是一个数字，所以读入停止）
-             ^
-解析得到整数 4193 。
-由于 "4193" 在范围 [-2<sup>31</sup>, 2<sup>31</sup> - 1] 内，最终结果为 4193 。
+<pre><strong>输入:</strong> &quot;   -42&quot;
+<strong>输出:</strong> -42
+<strong>解释: </strong>第一个非空白字符为 &#39;-&#39;, 它是一个负号。
+&nbsp;    我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例&nbsp;3:</strong></p>
 
-<p><strong>提示：</strong></p>
+<pre><strong>输入:</strong> &quot;4193 with words&quot;
+<strong>输出:</strong> 4193
+<strong>解释:</strong> 转换截止于数字 &#39;3&#39; ，因为它的下一个字符不为数字。
+</pre>
 
-<ul>
-	<li><code>0 &lt;= s.length &lt;= 200</code></li>
-	<li><code>s</code> 由英文字母（大写和小写）、数字（<code>0-9</code>）、<code>' '</code>、<code>'+'</code>、<code>'-'</code> 和 <code>'.'</code> 组成</li>
-</ul>
+<p><strong>示例&nbsp;4:</strong></p>
+
+<pre><strong>输入:</strong> &quot;words and 987&quot;
+<strong>输出:</strong> 0
+<strong>解释:</strong> 第一个非空字符是 &#39;w&#39;, 但它不是数字或正、负号。
+     因此无法执行有效的转换。</pre>
+
+<p><strong>示例&nbsp;5:</strong></p>
+
+<pre><strong>输入:</strong> &quot;-91283472332&quot;
+<strong>输出:</strong> -2147483648
+<strong>解释:</strong> 数字 &quot;-91283472332&quot; 超过 32 位有符号整数范围。 
+&nbsp;    因此返回 INT_MIN (&minus;2<sup>31</sup>) 。
+</pre>
 
 ## 解法
 
@@ -157,46 +130,6 @@ class Solution {
         }
         return sign * res;
     }
-}
-```
-
-### **Go**
-
-```go
-func myAtoi(s string) int {
-	i, n := 0, len(s)
-	num := 0
-
-	for i < n && s[i] == ' ' {
-		i++
-	}
-	if i == n {
-		return 0
-	}
-
-	sign := 1
-	if s[i] == '-' {
-		sign = -1
-		i++
-	} else if s[i] == '+' {
-		i++
-	}
-
-	for i < n && s[i] >= '0' && s[i] <= '9' {
-		num = num*10 + int(s[i]-'0')
-		i++
-		if num > math.MaxInt32 {
-			break
-		}
-	}
-
-	if num > math.MaxInt32 {
-		if sign == -1 {
-			return math.MinInt32
-		}
-		return math.MaxInt32
-	}
-	return sign * num
 }
 ```
 

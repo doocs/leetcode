@@ -4,45 +4,62 @@
 
 ## Description
 
-<p>There is a city composed of <code>n x n</code> blocks, where each block contains a single building shaped like a vertical square prism. You are given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code> where <code>grid[r][c]</code> represents the <strong>height</strong> of the building located in the block at row <code>r</code> and column <code>c</code>.</p>
+<p>In a 2 dimensional array <code>grid</code>, each value <code>grid[i][j]</code> represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts&nbsp;can be different for different buildings). Height&nbsp;0 is considered to be a&nbsp;building&nbsp;as well.&nbsp;</p>
 
-<p>A city&#39;s <strong>skyline</strong> is the the outer contour formed by all the building when viewing the side of the city from a distance. The <strong>skyline</strong> from each cardinal direction north, east, south, and west may be different.</p>
+<p>At the end, the &quot;skyline&quot; when viewed from all four directions&nbsp;of the grid, i.e.&nbsp;top, bottom, left, and right,&nbsp;must be the same as the&nbsp;skyline of the original grid. A city&#39;s skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See&nbsp;the following example.</p>
 
-<p>We are allowed to increase the height of <strong>any number of buildings by any amount</strong> (the amount can be different per building). The height of a <code>0</code>-height building can also be increased. However, increasing the height of a building should <strong>not</strong> affect the city&#39;s <strong>skyline</strong> from any cardinal direction.</p>
+<p>What is the maximum total sum that the height of the buildings can be increased?</p>
 
-<p>Return <em>the <strong>maximum total sum</strong> that the height of the buildings can be increased by <strong>without</strong> changing the city&#39;s <strong>skyline</strong> from any cardinal direction</em>.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/images/807-ex1.png" style="width: 700px; height: 603px;" />
 <pre>
+
+<strong>Example:</strong>
+
 <strong>Input:</strong> grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]
+
 <strong>Output:</strong> 35
-<strong>Explanation:</strong> The building heights are shown in the center of the above image.
-The skylines when viewed from each cardinal direction are drawn in red.
+
+<strong>Explanation:</strong> 
+
+The grid is:
+
+[ [3, 0, 8, 4], 
+
+  [2, 4, 5, 7],
+
+  [9, 2, 6, 3],
+
+  [0, 3, 1, 0] ]
+
+
+
+The skyline viewed from top or bottom is: [9, 4, 8, 7]
+
+The skyline viewed from left or right is: [8, 7, 9, 3]
+
+
+
 The grid after increasing the height of buildings without affecting skylines is:
+
+
+
 gridNew = [ [8, 4, 8, 7],
+
             [7, 4, 7, 7],
+
             [9, 4, 8, 7],
+
             [3, 3, 3, 3] ]
+
+
+
 </pre>
 
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> grid = [[0,0,0],[0,0,0],[0,0,0]]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> Increasing the height of any building will result in the skyline changing.
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><strong>Notes: </strong></p>
 
 <ul>
-	<li><code>n == grid.length</code></li>
-	<li><code>n == grid[r].length</code></li>
-	<li><code>2 &lt;= n &lt;= 50</code></li>
-	<li><code>0 &lt;= grid[r][c] &lt;= 100</code></li>
+    <li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li>
+    <li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li>
+    <li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li>
 </ul>
 
 ## Solutions
@@ -52,124 +69,13 @@ gridNew = [ [8, 4, 8, 7],
 ### **Python3**
 
 ```python
-class Solution:
-    def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
-        rmx = [max(row) for row in grid]
-        cmx = [max(col) for col in zip(*grid)]
-        return sum((min(rmx[i], cmx[j]) - grid[i][j]) for i in range(len(grid)) for j in range(len(grid[0])))
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int maxIncreaseKeepingSkyline(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
-        int[] rmx = new int[m];
-        int[] cmx = new int[n];
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                rmx[i] = Math.max(rmx[i], grid[i][j]);
-                cmx[j] = Math.max(cmx[j], grid[i][j]);
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                ans += Math.min(rmx[i], cmx[j]) - grid[i][j];
-            }
-        }
-        return ans;
-    }
-}
-```
 
-### **TypeScript**
-
-```ts
-function maxIncreaseKeepingSkyline(grid: number[][]): number {
-    let rows = grid.map(arr => Math.max(...arr)),
-        cols = [];
-    let m = grid.length,
-        n = grid[0].length;
-    for (let j = 0; j < n; ++j) {
-        cols[j] = grid[0][j];
-        for (let i = 1; i < m; ++i) {
-            cols[j] = Math.max(cols[j], grid[i][j]);
-        }
-    }
-
-    let ans = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            ans += Math.min(rows[i], cols[j]) - grid[i][j];
-        }
-    }
-    return ans;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxIncreaseKeepingSkyline(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
-        vector<int> rmx(m, 0);
-        vector<int> cmx(n, 0);
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                rmx[i] = max(rmx[i], grid[i][j]);
-                cmx[j] = max(cmx[j], grid[i][j]);
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                ans += min(rmx[i], cmx[j]) - grid[i][j];
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxIncreaseKeepingSkyline(grid [][]int) int {
-	m, n := len(grid), len(grid[0])
-	rmx := make([]int, m)
-	cmx := make([]int, n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			rmx[i] = max(rmx[i], grid[i][j])
-			cmx[j] = max(cmx[j], grid[i][j])
-		}
-	}
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			ans += min(rmx[i], cmx[j]) - grid[i][j]
-		}
-	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

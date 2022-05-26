@@ -4,31 +4,42 @@
 
 ## Description
 
-<p>You are given an integer array <code>coins</code> (<strong>1-indexed</strong>) of length <code>n</code> and an integer <code>maxJump</code>. You can jump to any index <code>i</code> of the array <code>coins</code> if <code>coins[i] != -1</code> and you have to pay <code>coins[i]</code> when you visit index <code>i</code>. In addition to that, if you are currently at index <code>i</code>, you can only jump to any index <code>i + k</code> where <code>i + k &lt;= n</code> and <code>k</code> is a value in the range <code>[1, maxJump]</code>.</p>
+<p>Given an array <code>A</code> (index starts at <code>1</code>) consisting of N integers: A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>N</sub> and an integer <code>B</code>. The integer <code>B</code> denotes that from any place (suppose the index is <code>i</code>) in the array <code>A</code>, you can jump to any one of the place in the array <code>A</code> indexed <code>i+1</code>, <code>i+2</code>, …, <code>i+B</code> if this place can be jumped to. Also, if you step on the index <code>i</code>, you have to pay A<sub>i</sub> coins. If A<sub>i</sub> is -1, it means you can’t jump to the place indexed <code>i</code> in the array.</p>
 
-<p>You are initially positioned at index <code>1</code> (<code>coins[1]</code> is not <code>-1</code>). You want to find the path that reaches index n with the minimum cost.</p>
+<p>Now, you start from the place indexed <code>1</code> in the array <code>A</code>, and your aim is to reach the place indexed <code>N</code> using the minimum coins. You need to return the path of indexes (starting from 1 to N) in the array you should take to get to the place indexed <code>N</code> using minimum coins.</p>
 
-<p>Return an integer array of the indices that you will visit in order so that you can reach index n with the minimum cost. If there are multiple paths with the same cost, return the <strong>lexicographically smallest</strong> such path. If it is not possible to reach index n, return an empty array.</p>
+<p>If there are multiple paths with the same cost, return the lexicographically smallest such path.</p>
 
-<p>A path <code>p1 = [Pa<sub>1</sub>, Pa<sub>2</sub>, ..., Pa<sub>x</sub>]</code> of length <code>x</code> is <strong>lexicographically smaller</strong> than <code>p2 = [Pb<sub>1</sub>, Pb<sub>2</sub>, ..., Pb<sub>x</sub>]</code> of length <code>y</code>, if and only if at the first <code>j</code> where <code>Pa<sub>j</sub></code> and <code>Pb<sub>j</sub></code> differ, <code>Pa<sub>j</sub> &lt; Pb<sub>j</sub></code>; when no such <code>j</code> exists, then <code>x &lt; y</code>.</p>
+<p>If it's not possible to reach the place indexed N then you need to return an empty array.</p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> coins = [1,2,4,-1,2], maxJump = 2
-<strong>Output:</strong> [1,3,5]
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> coins = [1,2,4,-1,2], maxJump = 1
-<strong>Output:</strong> []
+<p><b>Example 1:</b></p>
+
+<pre>
+<b>Input:</b> [1,2,4,-1,2], 2
+<b>Output:</b> [1,3,5]
 </pre>
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= coins.length &lt;= 1000</code></li>
-	<li><code>-1 &lt;= coins[i] &lt;= 100</code></li>
-	<li><code>coins[1] != -1</code></li>
-	<li><code>1 &lt;= maxJump &lt;= 100</code></li>
-</ul>
+<p> </p>
+
+<p><b>Example 2:</b></p>
+
+<pre>
+<b>Input:</b> [1,2,4,-1,2], 1
+<b>Output:</b> []
+</pre>
+
+<p> </p>
+
+<p><b>Note:</b></p>
+
+<ol>
+	<li>Path Pa<sub>1</sub>, Pa<sub>2</sub>, ..., Pa<sub>n</sub> is lexicographically smaller than Pb<sub>1</sub>, Pb<sub>2</sub>, ..., Pb<sub>m</sub>, if and only if at the first <code>i</code> where Pa<sub>i</sub> and Pb<sub>i</sub> differ, Pa<sub>i</sub> < Pb<sub>i</sub>; when no such <code>i</code> exists, then <code>n</code> < <code>m</code>.</li>
+	<li>A<sub>1</sub> >= 0. A<sub>2</sub>, ..., A<sub>N</sub> (if exist) will in the range of [-1, 100].</li>
+	<li>Length of A is in the range of [1, 1000].</li>
+	<li>B is in the range of [1, 100].</li>
+</ol>
+
+<p> </p>
 
 ## Solutions
 

@@ -1,4 +1,4 @@
-# [面试题 17.13. 恢复空格](https://leetcode.cn/problems/re-space-lcci)
+# [面试题 17.13. 恢复空格](https://leetcode-cn.com/problems/re-space-lcci)
 
 [English Version](/lcci/17.13.Re-Space/README_EN.md)
 

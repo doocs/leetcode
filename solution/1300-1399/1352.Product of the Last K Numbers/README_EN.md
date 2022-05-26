@@ -4,17 +4,22 @@
 
 ## Description
 
-<p>Design an algorithm that accepts a stream of integers and retrieves the product of the last <code>k</code> integers of the stream.</p>
+<p>Implement the class <code>ProductOfNumbers</code>&nbsp;that supports two methods:</p>
 
-<p>Implement the <code>ProductOfNumbers</code> class:</p>
+<p>1.<code>&nbsp;add(int num)</code></p>
 
 <ul>
-	<li><code>ProductOfNumbers()</code> Initializes the object with an empty stream.</li>
-	<li><code>void add(int num)</code> Appends the integer <code>num</code> to the stream.</li>
-	<li><code>int getProduct(int k)</code> Returns the product of the last <code>k</code> numbers in the current list. You can assume that always the current list has at least <code>k</code> numbers.</li>
+	<li>Adds the number <code>num</code> to the back of the current list of numbers.</li>
 </ul>
 
-<p>The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.</p>
+<p>2.<code> getProduct(int k)</code></p>
+
+<ul>
+	<li>Returns the product of the last <code>k</code> numbers in the current list.</li>
+	<li>You can assume that always the current list has <strong>at least</strong> <code>k</code> numbers.</li>
+</ul>
+
+<p>At any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example:</strong></p>
@@ -45,10 +50,9 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= num &lt;= 100</code></li>
-	<li><code>1 &lt;= k &lt;= 4 * 10<sup>4</sup></code></li>
-	<li>At most <code>4 * 10<sup>4</sup></code> calls will be made to <code>add</code> and <code>getProduct</code>.</li>
-	<li>The product of the stream at any point in time will fit in a <strong>32-bit</strong> integer.</li>
+	<li>There will be at most <code>40000</code>&nbsp;operations considering both <code>add</code> and <code>getProduct</code>.</li>
+	<li><code>0 &lt;= num&nbsp;&lt;=&nbsp;100</code></li>
+	<li><code>1 &lt;= k &lt;= 40000</code></li>
 </ul>
 
 ## Solutions
@@ -58,62 +62,13 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 ### **Python3**
 
 ```python
-class ProductOfNumbers:
 
-    def __init__(self):
-        self.pre_product = []
-
-    def add(self, num: int) -> None:
-        if num == 0:
-            self.pre_product = []
-            return
-        if not self.pre_product:
-            self.pre_product.append(1)
-        self.pre_product.append(num * self.pre_product[-1])
-
-    def getProduct(self, k: int) -> int:
-        n = len(self.pre_product)
-        return 0 if n <= k else self.pre_product[n - 1] // self.pre_product[n - k - 1]
-
-
-# Your ProductOfNumbers object will be instantiated and called as such:
-# obj = ProductOfNumbers()
-# obj.add(num)
-# param_2 = obj.getProduct(k)
 ```
 
 ### **Java**
 
 ```java
-class ProductOfNumbers {
-    private List<Integer> preProduct;
 
-    public ProductOfNumbers() {
-        preProduct = new ArrayList<>();
-    }
-
-    public void add(int num) {
-        if (num == 0) {
-            preProduct.clear();
-            return;
-        }
-        if (preProduct.isEmpty()) {
-            preProduct.add(1);
-        }
-        preProduct.add(num * preProduct.get(preProduct.size() - 1));
-    }
-
-    public int getProduct(int k) {
-        return preProduct.size() <= k ? 0 : preProduct.get(preProduct.size() - 1) / preProduct.get(preProduct.size() - 1 - k);
-    }
-}
-
-/**
- * Your ProductOfNumbers object will be instantiated and called as such:
- * ProductOfNumbers obj = new ProductOfNumbers();
- * obj.add(num);
- * int param_2 = obj.getProduct(k);
- */
 ```
 
 ### **...**

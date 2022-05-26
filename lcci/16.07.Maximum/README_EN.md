@@ -1,4 +1,4 @@
-# [16.07. Maximum](https://leetcode.cn/problems/maximum-lcci)
+# [16.07. Maximum](https://leetcode-cn.com/problems/maximum-lcci)
 
 [中文文档](/lcci/16.07.Maximum/README.md)
 

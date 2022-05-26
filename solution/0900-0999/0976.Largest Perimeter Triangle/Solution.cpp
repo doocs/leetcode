@@ -2,7 +2,7 @@ class Solution {
 public:
     int largestPerimeter(vector<int>& A) {
         priority_queue<int> q(A.begin(), A.end()) ; // 大顶堆
-
+        
         int a, b, c ;
         b = q.top() ;
         q.pop() ;

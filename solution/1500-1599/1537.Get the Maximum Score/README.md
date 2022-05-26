@@ -1,11 +1,10 @@
-# [1537. 最大得分](https://leetcode.cn/problems/get-the-maximum-score)
+# [1537. 最大得分](https://leetcode-cn.com/problems/get-the-maximum-score)
 
 [English Version](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>你有两个 <strong>有序</strong>&nbsp;且数组内元素互不相同的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;。</p>
 
 <p>一条&nbsp;<strong>合法路径</strong>&nbsp;定义如下：</p>
@@ -26,7 +25,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1537.Get%20the%20Maximum%20Score/images/sample_1_1893.png" style="height: 163px; width: 538px;"></strong></p>
+![](./images/sample_1_1893.png)
 
 <pre><strong>输入：</strong>nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]
 <strong>输出：</strong>30

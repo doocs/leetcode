@@ -1,11 +1,10 @@
-# [1550. 存在连续三个奇数的数组](https://leetcode.cn/problems/three-consecutive-odds)
+# [1550. 存在连续三个奇数的数组](https://leetcode-cn.com/problems/three-consecutive-odds)
 
 [English Version](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个整数数组 <code>arr</code>，请你判断数组中是否存在连续三个元素都是奇数的情况：如果存在，请返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
 <p>&nbsp;</p>

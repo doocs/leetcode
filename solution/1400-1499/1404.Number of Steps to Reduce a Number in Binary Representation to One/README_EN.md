@@ -4,18 +4,18 @@
 
 ## Description
 
-<p>Given the binary representation of an integer as a string <code>s</code>, return <em>the number of steps to reduce it to </em><code>1</code><em> under the following rules</em>:</p>
+<p>Given a number&nbsp;<code>s</code> in their binary representation. Return the number of steps to reduce it to 1 under the following rules:</p>
 
 <ul>
 	<li>
-	<p>If the current number is even, you have to divide it by <code>2</code>.</p>
+	<p>If the current number is even, you have to divide it by 2.</p>
 	</li>
 	<li>
-	<p>If the current number is odd, you have to add <code>1</code> to it.</p>
+	<p>If the current number is odd, you have to add 1 to it.</p>
 	</li>
 </ul>
 
-<p>It is guaranteed that you can always reach one for all test cases.</p>
+<p>It&#39;s guaranteed that you can always reach to one for all testcases.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

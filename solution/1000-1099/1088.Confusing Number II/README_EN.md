@@ -4,30 +4,21 @@
 
 ## Description
 
-<p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
+<p>We can rotate digits by 180 degrees to form new digits. When 0, 1, 6, 8, 9 are rotated 180 degrees, they become 0, 1, 9, 8, 6 respectively. When 2, 3, 4, 5 and 7 are rotated 180 degrees, they become invalid.</p>
 
-<p>We can rotate digits of a number by <code>180</code> degrees to form new digits.</p>
+<p>A <em>confusing number</em> is a number that when rotated 180 degrees becomes a <strong>different</strong> number with each digit valid.(Note that the rotated number can be greater than the original number.)</p>
 
-<ul>
-	<li>When <code>0</code>, <code>1</code>, <code>6</code>, <code>8</code>, and <code>9</code> are rotated <code>180</code> degrees, they become <code>0</code>, <code>1</code>, <code>9</code>, <code>8</code>, and <code>6</code> respectively.</li>
-	<li>When <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, and <code>7</code> are rotated <code>180</code> degrees, they become <strong>invalid</strong>.</li>
-</ul>
+<p>Given a positive integer <code>N</code>, return the number of confusing numbers between <code>1</code> and <code>N</code> inclusive.</p>
 
-<p>Note that after rotating a number, we can ignore leading zeros.</p>
+<p> </p>
 
-<ul>
-	<li>For example, after rotating <code>8000</code>, we have <code>0008</code> which is considered as just <code>8</code>.</li>
-</ul>
-
-<p>Given an integer <code>n</code>, return <em>the number of <strong>confusing numbers</strong> in the inclusive range </em><code>[1, n]</code>.</p>
-
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 20
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> The confusing numbers are [6,9,10,16,18,19].
+<strong>Input: </strong><span id="example-input-1-1">20</span>
+<strong>Output: </strong><span id="example-output-1">6</span>
+<strong>Explanation: </strong>
+The confusing numbers are [6,9,10,16,18,19].
 6 converts to 9.
 9 converts to 6.
 10 converts to 01 which is just 1.
@@ -39,17 +30,19 @@
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 100
-<strong>Output:</strong> 19
-<strong>Explanation:</strong> The confusing numbers are [6,9,10,16,18,19,60,61,66,68,80,81,86,89,90,91,98,99,100].
+<strong>Input: </strong><span id="example-input-2-1">100</span>
+<strong>Output: </strong><span id="example-output-2">19</span>
+<strong>Explanation: </strong>
+The confusing numbers are [6,9,10,16,18,19,60,61,66,68,80,81,86,89,90,91,98,99,100].
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p> </p>
 
-<ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
-</ul>
+<p><strong>Note:</strong></p>
+
+<ol>
+	<li><code>1 <= N <= 10^9</code></li>
+</ol>
 
 ## Solutions
 

@@ -1,19 +1,16 @@
 class Solution {
-    public int bitwiseComplement(int n) {
-        if (n == 0) {
-            return 1;
-        }
+    public int bitwiseComplement(int N) {
         int ans = 0;
-        boolean find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = n & (1 << i);
-            if (!find && b == 0) {
-                continue;
+        int index = -1;
+        if (N == 0) return 1;
+        if (N == 1) return 0;
+        while (N / 2 != 0) {
+            index++;
+            int temp = N % 2 == 0 ? 1 : 0;
+            if (temp == 1) {
+                ans += Math.pow(2, index);
             }
-            find = true;
-            if (b == 0) {
-                ans |= (1 << i);
-            }
+            N /= 2;
         }
         return ans;
     }

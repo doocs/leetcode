@@ -12,7 +12,10 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1637.Widest%20Vertical%20Area%20Between%20Two%20Points%20Containing%20No%20Points/images/points3.png" style="width: 276px; height: 371px;" />​
+
+![](./images/points3.png)
+​
+
 <pre>
 <strong>Input:</strong> points = [[8,7],[9,9],[7,4],[9,7]]
 <strong>Output:</strong> 1

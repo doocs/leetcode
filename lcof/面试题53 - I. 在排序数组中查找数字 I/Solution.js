@@ -4,31 +4,28 @@
  * @return {number}
  */
 var search = function (nums, target) {
-    if (nums.length == 0) {
-        return 0;
+  if (!nums || !nums.length) return 0;
+  let left = 0;
+  let right = nums.length - 1;
+  let res = 0;
+  while (left < right) {
+    let mid = left + ~~((right - left) / 2);
+    if (nums[mid] < target) {
+      left = mid + 1;
+    } else if (nums[mid] > target) {
+      right = mid;
+    } else {
+      left = mid;
+      right = mid;
+      break;
     }
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    if (nums[left] != target) {
-        return 0;
-    }
-    let l = left;
-    right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (nums[mid] <= target) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left - l + 1;
+  }
+  while (nums[left] === target) {
+    res++;
+    left--;
+  }
+  while (nums[++right] === target) {
+    res++;
+  }
+  return res;
 };

@@ -4,15 +4,17 @@
 
 ## Description
 
-<p>Given an integer <code>n</code> and an integer array <code>rounds</code>. We have a circular track which consists of <code>n</code> sectors labeled from <code>1</code> to <code>n</code>. A marathon will be held on this track, the marathon consists of <code>m</code> rounds. The <code>i<sup>th</sup></code> round starts at sector <code>rounds[i - 1]</code> and ends at sector <code>rounds[i]</code>. For example, round 1 starts at sector <code>rounds[0]</code> and ends at sector <code>rounds[1]</code></p>
+<p>Given an integer <code>n</code> and an integer array <code>rounds</code>.&nbsp;We&nbsp;have a circular track which consists of <code>n</code> sectors labeled from <code>1</code> to <code>n</code>. A marathon will be held on this track, the marathon consists of <code>m</code> rounds. The <code>i<sup>th</sup></code>&nbsp;round starts at sector <code>rounds[i - 1]</code> and ends at sector <code>rounds[i]</code>. For example, round 1 starts at sector <code>rounds[0]</code> and ends at sector <code>rounds[1]</code></p>
 
 <p>Return <em>an array of the most visited sectors</em> sorted in <strong>ascending</strong> order.</p>
 
-<p>Notice that you circulate the track in ascending order of sector numbers in the counter-clockwise direction (See the first example).</p>
+<p>Notice that you&nbsp;circulate the track in ascending order of sector numbers in the counter-clockwise direction (See the first example).</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/images/tmp.jpg" style="width: 433px; height: 341px;" />
+
+![](./images/tmp.jpg)
+
 <pre>
 <strong>Input:</strong> n = 4, rounds = [1,3,1,2]
 <strong>Output:</strong> [1,2]

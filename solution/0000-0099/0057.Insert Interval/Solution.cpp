@@ -1,25 +1,32 @@
+bool cmp(Interval &val1,Interval &val2){
+    return val1.start < val2.start;
+}
+
 class Solution {
 public:
-    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+    vector<Interval> insert(vector<Interval>& intervals, Interval newInterval) {
+        //先插进去，重复56题
+        
         intervals.push_back(newInterval);
-        return merge(intervals);
-    }
-
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end());
-        int st = intervals[0][0], ed = intervals[0][1];
-        vector<vector<int>> ans;
-        for (int i = 1; i < intervals.size(); ++i)
-        {
-            int s = intervals[i][0], e = intervals[i][1];
-            if (ed < s)
-            {
-                ans.push_back({st, ed});
-                st = s, ed = e;
+        
+        int len = intervals.size();
+        if(len <= 1)return intervals;
+        
+        sort(intervals.begin(),intervals.end(),cmp);
+        
+        vector<Interval> ans;
+        
+        ans.push_back(intervals[0]);
+        
+        for(int i = 1;i<len;i++){
+            if(ans.back().end >= intervals[i].start){
+                ans.back().end = max(ans.back().end,intervals[i].end);
             }
-            else ed = max(ed, e);
+            else{
+                ans.push_back(intervals[i]);
+            }
         }
-        ans.push_back({st, ed});
+        
         return ans;
     }
 };

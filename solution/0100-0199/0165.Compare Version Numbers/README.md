@@ -1,69 +1,61 @@
-# [165. 比较版本号](https://leetcode.cn/problems/compare-version-numbers)
+# [165. 比较版本号](https://leetcode-cn.com/problems/compare-version-numbers)
 
 [English Version](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>比较两个版本号 <em>version1&nbsp;</em>和 <em>version2</em>。<br>
+如果&nbsp;<code><em>version1&nbsp;</em>&gt;&nbsp;<em>version2</em></code>&nbsp;返回&nbsp;<code>1</code>，如果&nbsp;<code><em>version1&nbsp;</em>&lt;&nbsp;<em>version2</em></code> 返回 <code>-1</code>， 除此之外返回 <code>0</code>。</p>
 
-<p>给你两个版本号 <code>version1</code> 和 <code>version2</code> ，请你比较它们。</p>
+<p>你可以假设版本字符串非空，并且只包含数字和&nbsp;<code>.</code> 字符。</p>
 
-<p>版本号由一个或多个修订号组成，各修订号由一个 <code>'.'</code> 连接。每个修订号由 <strong>多位数字</strong> 组成，可能包含 <strong>前导零</strong> 。每个版本号至少包含一个字符。修订号从左到右编号，下标从 0 开始，最左边的修订号下标为 0 ，下一个修订号下标为 1 ，以此类推。例如，<code>2.5.33</code> 和 <code>0.1</code> 都是有效的版本号。</p>
+<p>&nbsp;<code>.</code> 字符不代表小数点，而是用于分隔数字序列。</p>
 
-<p>比较版本号时，请按从左到右的顺序依次比较它们的修订号。比较修订号时，只需比较 <strong>忽略任何前导零后的整数值</strong> 。也就是说，修订号 <code>1</code> 和修订号 <code>001</code> <strong>相等 </strong>。如果版本号没有指定某个下标处的修订号，则该修订号视为 <code>0</code> 。例如，版本 <code>1.0</code> 小于版本 <code>1.1</code> ，因为它们下标为 <code>0</code> 的修订号相同，而下标为 <code>1</code> 的修订号分别为 <code>0</code> 和 <code>1</code> ，<code>0 &lt; 1</code> 。</p>
+<p>例如，<code>2.5</code> 不是&ldquo;两个半&rdquo;，也不是&ldquo;差一半到三&rdquo;，而是第二版中的第五个小版本。</p>
 
-<p>返回规则如下：</p>
+<p>你可以假设版本号的每一级的默认修订版号为 <code>0</code>。例如，版本号 <code>3.4</code> 的第一级（大版本）和第二级（小版本）修订号分别为 <code>3</code> 和 <code>4</code>。其第三级和第四级修订号均为 <code>0</code>。<br>
+&nbsp;</p>
 
-<ul>
-	<li>如果&nbsp;<code><em>version1&nbsp;</em>&gt;&nbsp;<em>version2</em></code>&nbsp;返回&nbsp;<code>1</code>，</li>
-	<li>如果&nbsp;<code><em>version1&nbsp;</em>&lt;&nbsp;<em>version2</em></code> 返回 <code>-1</code>，</li>
-	<li>除此之外返回 <code>0</code>。</li>
-</ul>
+<p><strong>示例&nbsp;1:</strong></p>
 
-<p>&nbsp;</p>
+<pre><strong>输入:</strong> <code><em>version1</em></code> = &quot;0.1&quot;, <code><em>version2</em></code> = &quot;1.1&quot;
+<strong>输出:</strong> -1</pre>
 
-<p><strong>示例 1：</strong></p>
+<p><strong>示例 2:</strong></p>
 
-<pre>
-<strong>输入：</strong>version1 = "1.01", version2 = "1.001"
+<pre><strong>输入: </strong><code><em>version1</em></code> = &quot;1.0.1&quot;, <code><em>version2</em></code> = &quot;1&quot;
+<strong>输出:</strong> 1</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre><strong>输入:</strong> <code><em>version1</em></code> = &quot;7.5.2.4&quot;, <code><em>version2</em></code> = &quot;7.5.3&quot;
+<strong>输出:</strong> -1</pre>
+
+<p><strong>示例&nbsp;4：</strong></p>
+
+<pre><code><strong>输入：</strong><em>version1</em></code> = &quot;1.01&quot;, <code><em>version2</em></code> = &quot;1.001&quot;
 <strong>输出：</strong>0
-<strong>解释：</strong>忽略前导零，"01" 和 "001" 都表示相同的整数 "1"
-</pre>
+<strong>解释：</strong>忽略前导零，&ldquo;01&rdquo; 和 &ldquo;001&rdquo; 表示相同的数字 &ldquo;1&rdquo;。</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>示例 5：</strong></p>
 
-<pre>
-<strong>输入：</strong>version1 = "1.0", version2 = "1.0.0"
+<pre><code><strong>输入：</strong><em>version1</em></code> = &quot;1.0&quot;, <code><em>version2</em></code> = &quot;1.0.0&quot;
 <strong>输出：</strong>0
-<strong>解释：</strong>version1 没有指定下标为 2 的修订号，即视为 "0"
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>version1 = "0.1", version2 = "1.1"
-<strong>输出：</strong>-1
-<strong>解释：</strong>version1 中下标为 0 的修订号是 "0"，version2 中下标为 0 的修订号是 "1" 。0 &lt; 1，所以 version1 &lt; version2
-</pre>
+<strong>解释：</strong><code><em>version1 </em></code>没有第三级修订号，这意味着它的第三级修订号默认为 &ldquo;0&rdquo;。</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ul>
-	<li><code>1 &lt;= version1.length, version2.length &lt;= 500</code></li>
-	<li><code>version1</code> 和 <code>version2</code> 仅包含数字和 <code>'.'</code></li>
-	<li><code>version1</code> 和 <code>version2</code> 都是 <strong>有效版本号</strong></li>
-	<li><code>version1</code> 和 <code>version2</code> 的所有修订号都可以存储在 <strong>32 位整数</strong> 中</li>
-</ul>
+<ol>
+	<li>版本字符串由以点&nbsp;（<code>.</code>）&nbsp;分隔的数字字符串组成。这个数字字符串<strong>可能</strong>有前导零。</li>
+	<li>版本字符串不以点开始或结束，并且其中不会有两个连续的点。</li>
+</ol>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
-**1. 字符串分割**：分割两个字符串，比较对应的修订号。
-
-**2. 双指针**。
 
 <!-- tabs:start -->
 
@@ -71,25 +63,8 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-双指针。
-
 ```python
-class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        i, j, m, n = 0, 0, len(version1), len(version2)
-        while i < m or j < n:
-            a = b = 0
-            while i < m and version1[i] != '.':
-                a = a * 10 + int(version1[i])
-                i += 1
-            while j < n and version2[j] != '.':
-                b = b * 10 + int(version2[j])
-                j += 1
-            if a != b:
-                return -1 if a < b else 1
-            i += 1
-            j += 1
-        return 0
+
 ```
 
 ### **Java**
@@ -97,85 +72,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int compareVersion(String version1, String version2) {
-        for (int i = 0, j = 0; i < version1.length() || j < version2.length(); ++i, ++j) {
-            int a = 0, b = 0;
-            while (i < version1.length() && version1.charAt(i) != '.') {
-                a = a * 10 + version1.charAt(i++) - '0';
-            }
-            while (j < version2.length() && version2.charAt(j) != '.') {
-                b = b * 10 + version2.charAt(j++) - '0';
-            }
-            if (a != b) {
-                return a < b ? -1 : 1;
-            }
-        }
-        return 0;
-    }
-}
-```
 
-### **TypeScript**
-
-```ts
-function compareVersion(version1: string, version2: string): number {
-    let v1 = version1.split('.'),
-        v2 = version2.split('.');
-    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
-        let c1 = Number(v1[i] || 0),
-            c2 = Number(v2[i] || 0);
-        if (c1 > c2) return 1;
-        if (c1 < c2) return -1;
-    }
-    return 0;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int compareVersion(string version1, string version2) {
-        for (int i = 0, j = 0; i < version1.size() || j < version2.size(); ++i, ++j)
-        {
-            int a = 0, b = 0;
-            while (i < version1.size() && version1[i] != '.')
-                a = a * 10 + version1[i++] - '0';
-            while (j < version2.size() && version2[j] != '.')
-                b = b * 10 + version2[j++] - '0';
-            if (a != b)
-                return a < b ? -1 : 1;
-        }
-        return 0;
-    }
-};
-```
-
-### **Go**
-
-```go
-func compareVersion(version1 string, version2 string) int {
-	for i, j := 0, 0; i < len(version1) || j < len(version2); i, j = i+1, j+1 {
-		a, b := 0, 0
-		for i < len(version1) && version1[i] != '.' {
-			a = a*10 + int(version1[i]-'0')
-			i++
-		}
-		for j < len(version2) && version2[j] != '.' {
-			b = b*10 + int(version2[j]-'0')
-			j++
-		}
-		if a < b {
-			return -1
-		}
-		if a > b {
-			return 1
-		}
-	}
-	return 0
-}
 ```
 
 ### **...**

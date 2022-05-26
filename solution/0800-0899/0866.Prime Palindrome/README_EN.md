@@ -4,38 +4,65 @@
 
 ## Description
 
-<p>Given an integer n, return <em>the smallest <strong>prime palindrome</strong> greater than or equal to </em><code>n</code>.</p>
+<p>Find the smallest prime palindrome greater than or equal to <code>N</code>.</p>
 
-<p>An integer is <strong>prime</strong> if it has exactly two divisors: <code>1</code> and itself. Note that <code>1</code> is not a prime number.</p>
+<p>Recall that a&nbsp;number is <em>prime</em> if it&#39;s only divisors are 1 and itself, and it is greater than 1.&nbsp;</p>
 
-<ul>
-	<li>For example, <code>2</code>, <code>3</code>, <code>5</code>, <code>7</code>, <code>11</code>, and <code>13</code> are all primes.</li>
-</ul>
+<p>For example, 2,3,5,7,11 and 13 are&nbsp;primes.</p>
 
-<p>An integer is a <strong>palindrome</strong> if it reads the same from left to right as it does from right to left.</p>
+<p>Recall that a number is a <em>palindrome</em> if it reads the same from left to right as it does from right to left.&nbsp;</p>
 
-<ul>
-	<li>For example, <code>101</code> and <code>12321</code> are palindromes.</li>
-</ul>
-
-<p>The test cases are generated so that the answer always exists and is in the range <code>[2, 2 * 10<sup>8</sup>]</code>.</p>
+<p>For example, 12321 is a palindrome.</p>
 
 <p>&nbsp;</p>
+
+<div>
+
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> n = 6
-<strong>Output:</strong> 7
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> n = 8
-<strong>Output:</strong> 11
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> n = 13
-<strong>Output:</strong> 101
+
+<pre>
+
+<strong>Input: </strong><span id="example-input-1-1">6</span>
+
+<strong>Output: </strong><span id="example-output-1">7</span>
+
 </pre>
+
+<div>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+
+<strong>Input: </strong><span id="example-input-2-1">8</span>
+
+<strong>Output: </strong><span id="example-output-2">11</span>
+
+</pre>
+
+<div>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+
+<strong>Input: </strong><span id="example-input-3-1">13</span>
+
+<strong>Output: </strong><span id="example-output-3">101</span></pre>
+
+</div>
+
+</div>
+
+</div>
+
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>Note:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
+    <li><code>1 &lt;= N &lt;= 10^8</code></li>
+    <li>The answer is guaranteed to exist and be less than <code>2 * 10^8</code>.</li>
 </ul>
 
 ## Solutions

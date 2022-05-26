@@ -1,49 +1,44 @@
-/**
- * Definition for a Node.
- * type Node struct {
- *     Val int
- *     Next *Node
- *     Random *Node
- * }
- */
-
- func copyRandomList(head *Node) *Node {
+func copyRandomList(head *Node) *Node {
     if head == nil {
         return nil
     }
-
-    cur := head
+    cur, next := head,head
+    //完成对当前节点的复制
     for cur != nil {
-        node := &Node{
+        next = cur.Next
+        cur.Next = &Node{
             Val: cur.Val,
-            Next: cur.Next,
+            Next: next,
             Random: nil,
         }
-        cur.Next = node
-        cur = node.Next
+        cur = next
     }
-
+    //设置复制节点的random节点
     cur = head
+    curCopy := head
     for cur != nil {
+        next = cur.Next.Next
+        curCopy = cur.Next
         if cur.Random == nil {
-            cur.Next.Random = nil
+            curCopy.Random = nil
         } else {
-            cur.Next.Random = cur.Random.Next
+            curCopy.Random = cur.Random.Next
         }
-        cur = cur.Next.Next
+        cur = next
     }
-
-    copy := head.Next
+    res := head.Next
     cur = head
     for cur != nil {
-        next := cur.Next
-        cur.Next = next.Next
-        if (next.Next == nil) {
-            next.Next = nil
+        next = cur.Next.Next
+        curCopy = cur.Next
+        cur.Next = next
+        if next != nil {
+            curCopy.Next = next.Next
         } else {
-            next.Next = next.Next.Next
+            curCopy.Next = nil
         }
         cur = cur.Next
     }
-    return copy
+    return res
+
 }

@@ -1,16 +1,15 @@
-# [1347. 制造字母异位词的最小步骤数](https://leetcode.cn/problems/minimum-number-of-steps-to-make-two-strings-anagram)
+# [1347. 制造字母异位词的最小步骤数](https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram)
 
 [English Version](/solution/1300-1399/1347.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你两个长度相等的字符串&nbsp;<code>s</code> 和 <code>t</code>。每一个步骤中，你可以选择将&nbsp;<code>t</code>&nbsp;中的 <strong>任一字符</strong> 替换为 <strong>另一个字符</strong>。</p>
 
 <p>返回使&nbsp;<code>t</code>&nbsp;成为&nbsp;<code>s</code>&nbsp;的字母异位词的最小步骤数。</p>
 
-<p><strong>字母异位词</strong> 指字母相同，但排列不同（也可能相同）的字符串。</p>
+<p><strong>字母异位词</strong> 指字母相同，但排列不同的字符串。</p>
 
 <p>&nbsp;</p>
 
@@ -61,8 +60,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“哈希表”实现。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,16 +67,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def minSteps(self, s: str, t: str) -> int:
-        counter = Counter(s)
-        res = 0
-        for c in t:
-            if counter[c] > 0:
-                counter[c] -= 1
-            else:
-                res += 1
-        return res
+
 ```
 
 ### **Java**
@@ -87,62 +75,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int minSteps(String s, String t) {
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
-        }
-        int res = 0;
-        for (char c : t.toCharArray()) {
-            if (counter[c - 'a'] > 0) {
-                --counter[c - 'a'];
-            } else {
-                ++res;
-            }
-        }
-        return res;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minSteps(string s, string t) {
-        vector<int> counter(26);
-        for (char c : s) ++counter[c - 'a'];
-        int res = 0;
-        for (char c : t)
-        {
-            if (counter[c - 'a'] > 0) --counter[c - 'a'];
-            else ++res;
-        }
-        return res;
-    }
-};
-```
-
-### **Go**
-
-```go
-func minSteps(s string, t string) int {
-	counter := make([]int, 26)
-	for _, c := range s {
-		counter[c-'a']++
-	}
-	res := 0
-	for _, c := range t {
-		if counter[c-'a'] > 0 {
-			counter[c-'a']--
-		} else {
-			res++
-		}
-	}
-	return res
-}
 ```
 
 ### **...**

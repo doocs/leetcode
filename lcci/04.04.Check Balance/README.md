@@ -1,4 +1,4 @@
-# [面试题 04.04. 检查平衡性](https://leetcode.cn/problems/check-balance-lcci)
+# [面试题 04.04. 检查平衡性](https://leetcode-cn.com/problems/check-balance-lcci)
 
 [English Version](/lcci/04.04.Check%20Balance/README_EN.md)
 
@@ -69,42 +69,6 @@ class Solution {
         }
         return 1 + Math.max(height(node.left), height(node.right));
     }
-}
-```
-
-### **Go**
-
-自底向上递归
-
-```go
-func isBalanced(root *TreeNode) bool {
-	return depth(root) >= 0
-}
-
-func depth(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	left := depth(root.Left)
-	right := depth(root.Right)
-	if left == -1 || right == -1 || abs(left-right) > 1 {
-		return -1
-	}
-	return max(left, right) + 1
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
 }
 ```
 

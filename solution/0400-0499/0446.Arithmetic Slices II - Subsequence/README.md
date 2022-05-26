@@ -1,36 +1,46 @@
-# [446. 等差数列划分 II - 子序列](https://leetcode.cn/problems/arithmetic-slices-ii-subsequence)
+# [446. 等差数列划分 II - 子序列](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence)
 
 [English Version](/solution/0400-0499/0446.Arithmetic%20Slices%20II%20-%20Subsequence/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>如果一个数列至少有三个元素，并且任意两个相邻元素之差相同，则称该数列为等差数列。</p>
 
-<p>给你一个整数数组 <code>nums</code> ，返回 <code>nums</code> 中所有 <strong>等差子序列</strong> 的数目。</p>
+<p>例如，以下数列为等差数列:</p>
 
-<p>如果一个序列中 <strong>至少有三个元素</strong> ，并且任意两个相邻元素之差相同，则称该序列为等差序列。</p>
+<pre>1, 3, 5, 7, 9
+7, 7, 7, 7
+3, -1, -5, -9</pre>
 
-<ul>
-	<li>例如，<code>[1, 3, 5, 7, 9]</code>、<code>[7, 7, 7, 7]</code> 和 <code>[3, -1, -5, -9]</code> 都是等差序列。</li>
-	<li>再例如，<code>[1, 1, 2, 5, 7]</code> 不是等差序列。</li>
-</ul>
+<p>以下数列不是等差数列。</p>
 
-<p>数组中的子序列是从数组中删除一些元素（也可能不删除）得到的一个序列。</p>
-
-<ul>
-	<li>例如，<code>[2,5,10]</code> 是 <code>[1,2,1,<em><strong>2</strong></em>,4,1,<strong><em>5</em></strong>,<em><strong>10</strong></em>]</code> 的一个子序列。</li>
-</ul>
-
-<p>题目数据保证答案是一个 <strong>32-bit</strong> 整数。</p>
+<pre>1, 1, 2, 5, 7</pre>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p>数组 A 包含 N 个数，且索引从 0 开始。该数组<strong>子序列</strong>将划分为整数序列&nbsp;(P<sub>0</sub>, P<sub>1</sub>, ..., P<sub>k</sub>)，P 与 Q 是整数且满足 0 &le; P<sub>0</sub> &lt; P<sub>1</sub> &lt; ... &lt; P<sub>k</sub> &lt; N。</p>
 
-<pre>
-<strong>输入：</strong>nums = [2,4,6,8,10]
+<p>&nbsp;</p>
+
+<p>如果序列 A[P<sub>0</sub>]，A[P<sub>1</sub>]，...，A[P<sub>k-1</sub>]，A[P<sub>k</sub>] 是等差的，那么数组 A 的<strong>子序列</strong> (P0，P1，&hellip;，PK) 称为等差序列。值得注意的是，这意味着 k &ge; 2。</p>
+
+<p>函数要返回数组 A 中所有等差子序列的个数。</p>
+
+<p>输入包含 N 个整数。每个整数都在 -2<sup>31</sup> 和 2<sup>31</sup>-1 之间，另外 0 &le; N &le; 1000。保证输出小于 2<sup>31</sup>-1。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例：</strong></p>
+
+<p>&nbsp;</p>
+
+<pre><strong>输入：</strong>[2, 4, 6, 8, 10]
+
 <strong>输出：</strong>7
-<strong>解释：</strong>所有的等差子序列为：
+
+<strong>解释：</strong>
+所有的等差子序列为：
 [2,4,6]
 [4,6,8]
 [6,8,10]
@@ -40,22 +50,7 @@
 [2,6,10]
 </pre>
 
-<p><strong>示例 2：</strong></p>
-
-<pre>
-<strong>输入：</strong>nums = [7,7,7,7,7]
-<strong>输出：</strong>16
-<strong>解释：</strong>数组中的任意子序列都是等差子序列。
-</pre>
-
 <p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li><code>1&nbsp; &lt;= nums.length &lt;= 1000</code></li>
-	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
-</ul>
 
 ## 解法
 

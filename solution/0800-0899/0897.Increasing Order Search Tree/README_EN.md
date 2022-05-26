@@ -4,29 +4,45 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary search tree, rearrange the tree in <strong>in-order</strong> so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.</p>
+<p>Given a binary search tree, rearrange the tree in <strong>in-order</strong> so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only 1 right child.</p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/images/ex1.jpg" style="width: 600px; height: 350px;" />
 <pre>
-<strong>Input:</strong> root = [5,3,6,2,4,null,8,1,null,null,null,7,9]
+<strong>Example 1:</strong>
+<strong>Input:</strong> [5,3,6,2,4,null,8,1,null,null,null,7,9]
+
+       5
+      / \
+    3    6
+   / \    \
+  2   4    8
+&nbsp;/        / \ 
+1        7   9
+
 <strong>Output:</strong> [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
-</pre>
 
-<p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/images/ex2.jpg" style="width: 300px; height: 114px;" />
-<pre>
-<strong>Input:</strong> root = [5,1,7]
-<strong>Output:</strong> [1,null,5,null,7]
-</pre>
-
+ 1
+&nbsp; \
+&nbsp;  2
+&nbsp;   \
+&nbsp;    3
+&nbsp;     \
+&nbsp;      4
+&nbsp;       \
+&nbsp;        5
+&nbsp;         \
+&nbsp;          6
+&nbsp;           \
+&nbsp;            7
+&nbsp;             \
+&nbsp;              8
+&nbsp;               \
+                 9  </pre>
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the given tree will be in the range <code>[1, 100]</code>.</li>
-	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
+	<li>The number of nodes in the given tree will be between <code>1</code> and <code>100</code>.</li>
+	<li>Each node will have a unique integer value from <code>0</code> to <code>1000</code>.</li>
 </ul>
 
 ## Solutions
@@ -46,20 +62,20 @@ See [17.12. BiNode](/lcci/17.12.BiNode/README_EN.md).
 #         self.right = right
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        def dfs(root):
-            if root is None:
-                return
-            nonlocal prev
-            dfs(root.left)
-            prev.right = root
-            root.left = None
-            prev = root
-            dfs(root.right)
-
-        dummy = TreeNode(val=0, right=root)
-        prev = dummy
-        dfs(root)
-        return dummy.right
+        if root is None:
+            return None
+        left = self.increasingBST(root.left)
+        right = self.increasingBST(root.right)
+        if left is None:
+            root.right = right
+            return root
+        res = left
+        while left and left.right:
+            left = left.right
+        left.right = root
+        root.right = right
+        root.left = None
+        return res
 ```
 
 ### **Java**
@@ -81,90 +97,21 @@ class Solution:
  * }
  */
 class Solution {
-    private TreeNode prev;
     public TreeNode increasingBST(TreeNode root) {
-        TreeNode dummy = new TreeNode(0, null, root);
-        prev = dummy;
-        dfs(root);
-        return dummy.right;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
+        if (root == null) return null;
+        TreeNode left = increasingBST(root.left);
+        TreeNode right = increasingBST(root.right);
+        if (left == null) {
+            root.right = right;
+            return root;
         }
-        dfs(root.left);
-        prev.right = root;
+        TreeNode res = left;
+        while (left != null && left.right != null) left = left.right;
+        left.right = root;
+        root.right = right;
         root.left = null;
-        prev = root;
-        dfs(root.right);
+        return res;
     }
-}
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    TreeNode* prev;
-
-    TreeNode* increasingBST(TreeNode* root) {
-        TreeNode* dummy = new TreeNode(0, nullptr, root);
-        prev = dummy;
-        dfs(root);
-        return dummy->right;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        prev->right = root;
-        root->left = nullptr;
-        prev = root;
-        dfs(root->right);
-    }
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func increasingBST(root *TreeNode) *TreeNode {
-	dummy := &TreeNode{Val: 0, Right: root}
-	prev := dummy
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left)
-		prev.Right = root
-		root.Left = nil
-		prev = root
-		dfs(root.Right)
-	}
-	dfs(root)
-	return dummy.Right
 }
 ```
 

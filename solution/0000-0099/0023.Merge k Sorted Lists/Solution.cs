@@ -1,40 +1,45 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Comparer : IComparer<Tuple<ListNode, int>>
+{
+    public int Compare(Tuple<ListNode, int> left, Tuple<ListNode, int> right)
+    {
+        var result = left.Item1.val.CompareTo(right.Item1.val);
+        if (result == 0)
+        {
+            result = left.Item2.CompareTo(right.Item2);
+        }
+        return result;
+    }
+}
+
 public class Solution {
     public ListNode MergeKLists(ListNode[] lists) {
-        int n = lists.Length;
-        if (n == 0) {
-            return null;
+        var heap = new SortedSet<Tuple<ListNode, int>>(new Comparer());
+        for (var i = 0; i < lists.Length; ++i)
+        {
+            if (lists[i] != null) heap.Add(Tuple.Create(lists[i], i));
         }
-        for (int i = 1; i < n; ++i) {
-            lists[i] = MergeTwoLists(lists[i - 1], lists[i]);
-        }
-        return lists[n - 1];
-    }
-
-    private ListNode MergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode();
-        ListNode cur = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                cur.next = l1;
-                l1 = l1.next;
-            } else {
-                cur.next = l2;
-                l2 = l2.next;
+        ListNode head = null;
+        ListNode current = null;
+        while (heap.Any())
+        {
+            var min = heap.Min;
+            heap.Remove(min);
+            if (min.Item1.next != null) heap.Add(Tuple.Create(min.Item1.next, min.Item2));
+            if (head == null)
+            {
+                head = min.Item1;
+                current = head;
             }
-            cur = cur.next;
+            else
+            {
+                current.next = min.Item1;
+                current = current.next;
+            }
         }
-        cur.next = l1 == null ? l2 : l1;
-        return dummy.next;
+        return head;
     }
 }

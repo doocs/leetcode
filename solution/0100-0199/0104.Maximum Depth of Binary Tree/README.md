@@ -1,11 +1,10 @@
-# [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree)
+# [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree)
 
 [English Version](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给定一个二叉树，找出其最大深度。</p>
 
 <p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
@@ -46,7 +45,8 @@ class Solution:
     def maxDepth(self, root: TreeNode) -> int:
         if root is None:
             return 0
-        l, r = self.maxDepth(root.left), self.maxDepth(root.right)
+        l = self.maxDepth(root.left)
+        r = self.maxDepth(root.right)
         return 1 + max(l, r)
 ```
 
@@ -72,9 +72,7 @@ class Solution:
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
+        if (root == null) return 0;
         int l = maxDepth(root.left);
         int r = maxDepth(root.right);
         return 1 + Math.max(l, r);
@@ -85,138 +83,15 @@ class Solution {
 ### **C++**
 
 ```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
         if (!root) return 0;
-        int l = maxDepth(root->left), r = maxDepth(root->right);
-        return 1 + max(l, r);
+        int l = maxDepth(root->left);
+        int r = maxDepth(root->right);
+        return max(l, r) + 1;
     }
 };
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func maxDepth(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	l, r := maxDepth(root.Left), maxDepth(root.Right)
-	return 1 + max(l, r)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number}
- */
-var maxDepth = function (root) {
-    if (!root) return 0;
-    const l = maxDepth(root.left);
-    const r = maxDepth(root.right);
-    return 1 + Math.max(l, r);
-};
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function maxDepth(root: TreeNode | null): number {
-    if (root == null) {
-        return 0;
-    }
-    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
-}
-```
-
-### **Rust**
-
-```rust
-// Definition for a binary tree node.
-// #[derive(Debug, PartialEq, Eq)]
-// pub struct TreeNode {
-//   pub val: i32,
-//   pub left: Option<Rc<RefCell<TreeNode>>>,
-//   pub right: Option<Rc<RefCell<TreeNode>>>,
-// }
-//
-// impl TreeNode {
-//   #[inline]
-//   pub fn new(val: i32) -> Self {
-//     TreeNode {
-//       val,
-//       left: None,
-//       right: None
-//     }
-//   }
-// }
-use std::rc::Rc;
-use std::cell::RefCell;
-impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if root.is_none() {
-            return 0;
-        }
-        let node = root.as_ref().unwrap().borrow();
-        1 + Self::dfs(&node.left).max(Self::dfs(&node.right))
-    }
-
-    pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        Self::dfs(&root)
-    }
-}
 ```
 
 ### **...**

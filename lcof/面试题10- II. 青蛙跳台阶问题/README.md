@@ -1,37 +1,28 @@
-# [面试题 10- II. 青蛙跳台阶问题](https://leetcode.cn/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
+# [面试题 10- II. 青蛙跳台阶问题](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
 
 ## 题目描述
 
-<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 <code>n</code>&nbsp;级的台阶总共有多少种跳法。</p>
+一只青蛙一次可以跳上 1 级台阶，也可以跳上 2 级台阶。求该青蛙跳上一个 `n`  级的台阶总共有多少种跳法。
 
-<p>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</p>
+答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
 
-<p><strong>示例 1：</strong></p>
+**示例 1：**
 
-<pre><strong>输入：</strong>n = 2
-<strong>输出：</strong>2
-</pre>
+```
+输入：n = 2
+输出：2
+```
 
-<p><strong>示例 2：</strong></p>
+**示例 2：**
 
-<pre><strong>输入：</strong>n = 7
-<strong>输出：</strong>21
-</pre>
+```
+输入：n = 7
+输出：21
+```
 
-<p><strong>示例 3：</strong></p>
+**提示：**
 
-<pre><strong>输入：</strong>n = 0
-<strong>输出：</strong>1</pre>
-
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li><code>0 &lt;= n &lt;= 100</code></li>
-</ul>
-
-<p>注意：本题与主站 70 题相同：<a href="https://leetcode.cn/problems/climbing-stairs/">https://leetcode.cn/problems/climbing-stairs/</a></p>
-
-<p>&nbsp;</p>
+- `0 <= n <= 100`
 
 ## 解法
 
@@ -57,30 +48,13 @@ class Solution {
     public int numWays(int n) {
         int a = 0, b = 1;
         for (int i = 0; i < n; ++i) {
-            int c = (a + b) % 1000000007;
+            int s = (a + b) % 1000000007;
             a = b;
-            b = c;
+            b = s;
         }
         return b;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numWays(int n) {
-        int a = 0, b = 1;
-        for (int i = 0; i < n; ++i) {
-            int c = (a + b) % 1000000007;
-            a = b;
-            b = c;
-        }
-        return b;
-    }
-};
 ```
 
 ### **JavaScript**
@@ -91,14 +65,15 @@ public:
  * @return {number}
  */
 var numWays = function (n) {
-    let a = 0,
-        b = 1;
-    for (let i = 0; i < n; ++i) {
-        const c = (a + b) % (1e9 + 7);
-        a = b;
-        b = c;
-    }
-    return b;
+  if (!n) return 1;
+  let pre = 1;
+  let cur = 1;
+  for (let i = 2; i <= n; i++) {
+    let c = (pre + cur) % (1e9 + 7);
+    pre = cur;
+    cur = c;
+  }
+  return cur;
 };
 ```
 
@@ -106,38 +81,19 @@ var numWays = function (n) {
 
 ```go
 func numWays(n int) int {
-    a, b := 0, 1
-    for i := 0; i < n; i++ {
-        a, b = b, (a + b) % 1000000007
-    }
-    return b
-}
-```
-
-### **TypeScript**
-
-```ts
-function numWays(n: number): number {
-    let a = 0;
-    let b = 1;
-    for (let i = 0; i < n; i++) {
-        [a, b] = [b, (a + b) % 1000000007];
-    }
-    return b;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn num_ways(n: i32) -> i32 {
-        let mut tup = (0, 1);
-        for _ in 0..n {
-            tup = (tup.1, (tup.0 + tup.1) % 1000000007);
-        }
-        tup.1
-    }
+	if n == 0 {
+		return 1
+	}
+	if n <= 2 {
+		return n
+	}
+	a := make([]int, n)
+	a[0] = 1
+	a[1] = 2
+	for i := 2; i < n; i++ {
+		a[i] = (a[i-1] + a[i-2]) % 1000000007
+	}
+	return a[n-1]
 }
 ```
 

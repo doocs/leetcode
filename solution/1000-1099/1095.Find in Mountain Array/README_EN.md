@@ -4,30 +4,33 @@
 
 ## Description
 
-<p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>
+<p><em>(This problem is an&nbsp;<strong>interactive problem</strong>.)</em></p>
 
-<p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
+<p>You may recall that an array&nbsp;<code>A</code> is a <em>mountain array</em> if and only if:</p>
 
 <ul>
-	<li><code>arr.length &gt;= 3</code></li>
-	<li>There exists some <code>i</code> with <code>0 &lt; i &lt; arr.length - 1</code> such that:
+	<li><code>A.length &gt;= 3</code></li>
+	<li>There exists some&nbsp;<code>i</code>&nbsp;with&nbsp;<code>0 &lt; i&nbsp;&lt; A.length - 1</code>&nbsp;such that:
 	<ul>
-		<li><code>arr[0] &lt; arr[1] &lt; ... &lt; arr[i - 1] &lt; arr[i]</code></li>
-		<li><code>arr[i] &gt; arr[i + 1] &gt; ... &gt; arr[arr.length - 1]</code></li>
+		<li><code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i]</code></li>
+		<li><code>A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code></li>
 	</ul>
 	</li>
 </ul>
 
-<p>Given a mountain array <code>mountainArr</code>, return the <strong>minimum</strong> <code>index</code> such that <code>mountainArr.get(index) == target</code>. If such an <code>index</code> does not exist, return <code>-1</code>.</p>
+<p>Given a mountain&nbsp;array <code>mountainArr</code>, return the <strong>minimum</strong>&nbsp;<code>index</code> such that <code>mountainArr.get(index) == target</code>.&nbsp; If such an <code>index</code>&nbsp;doesn&#39;t exist, return <code>-1</code>.</p>
 
-<p><strong>You cannot access the mountain array directly.</strong> You may only access the array using a <code>MountainArray</code> interface:</p>
+<p><strong>You can&#39;t access the mountain array directly.</strong>&nbsp; You may only access the array using a&nbsp;<code>MountainArray</code>&nbsp;interface:</p>
 
 <ul>
-	<li><code>MountainArray.get(k)</code> returns the element of the array at index <code>k</code> (0-indexed).</li>
-	<li><code>MountainArray.length()</code> returns the length of the array.</li>
+	<li><code>MountainArray.get(k)</code> returns the element of the array at index <code>k</code>&nbsp;(0-indexed).</li>
+	<li><code>MountainArray.length()</code>&nbsp;returns the length of the array.</li>
 </ul>
 
-<p>Submissions making more than <code>100</code> calls to <code>MountainArray.get</code> will be judged <em>Wrong Answer</em>. Also, any solutions that attempt to circumvent the judge will result in disqualification.</p>
+<p>Submissions making more than <code>100</code> calls to&nbsp;<code>MountainArray.get</code>&nbsp;will be judged <em>Wrong Answer</em>.&nbsp; Also, any solutions that attempt to circumvent the judge&nbsp;will result in disqualification.</p>
+
+<ol>
+</ol>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -48,11 +51,11 @@
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>3 &lt;= mountain_arr.length() &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= target &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= mountain_arr.get(index) &lt;= 10<sup>9</sup></code></li>
-</ul>
+<ol>
+	<li><code>3 &lt;= mountain_arr.length() &lt;= 10000</code></li>
+	<li><code>0 &lt;= target &lt;= 10^9</code></li>
+	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
+</ol>
 
 ## Solutions
 

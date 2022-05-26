@@ -1,11 +1,10 @@
-# [1647. 字符频次唯一的最小删除次数](https://leetcode.cn/problems/minimum-deletions-to-make-character-frequencies-unique)
+# [1647. 字符频次唯一的最小删除次数](https://leetcode-cn.com/problems/minimum-deletions-to-make-character-frequencies-unique)
 
 [English Version](/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>如果字符串 <code>s</code> 中 <strong>不存在</strong> 两个不同字符 <strong>频次</strong> 相同的情况，就称 <code>s</code> 是 <strong>优质字符串</strong> 。</p>
 
 <p>给你一个字符串 <code>s</code>，返回使 <code>s</code> 成为 <strong>优质字符串</strong> 需要删除的 <strong>最小</strong> 字符数。</p>
@@ -52,8 +51,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表 + 排序。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,17 +58,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def minDeletions(self, s: str) -> int:
-        counter = Counter(s)
-        vals = [v for v in counter.values()]
-        vals.sort(reverse=True)
-        ans = 0
-        for i in range(1, len(vals)):
-            while vals[i] >= vals[i - 1] and vals[i] > 0:
-                vals[i] -= 1
-                ans += 1
-        return ans
+
 ```
 
 ### **Java**
@@ -79,44 +66,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int minDeletions(String s) {
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
-        }
-        Arrays.sort(counter);
-        int ans = 0;
-        for (int i = 24; i >= 0; --i) {
-            while (counter[i] >= counter[i + 1] && counter[i] > 0) {
-                --counter[i];
-                ++ans;
-            }
-        }
-        return ans;
-    }
-}
-```
 
-### **TypeScript**
-
-```ts
-function minDeletions(s: string): number {
-    let map = {};
-    for (let c of s) {
-        map[c] = (map[c] || 0) + 1;
-    }
-    let ans = 0;
-    let vals: number[] = Object.values(map);
-    vals.sort((a, b) => a - b);
-    for (let i = 1; i < vals.length; ++i) {
-        while (vals[i] > 0 && i != vals.indexOf(vals[i])) {
-            --vals[i];
-            ++ans;
-        }
-    }
-    return ans;
-}
 ```
 
 ### **...**

@@ -1,55 +1,64 @@
-# [439. 三元表达式解析器](https://leetcode.cn/problems/ternary-expression-parser)
+# [439. 三元表达式解析器](https://leetcode-cn.com/problems/ternary-expression-parser)
 
 [English Version](/solution/0400-0499/0439.Ternary%20Expression%20Parser/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给定一个以字符串表示的任意嵌套的三元表达式，计算表达式的值。你可以假定给定的表达式始终都是有效的并且只包含数字 <code>0-9</code>, <code>?</code>, <code>:</code>, <code>T</code> 和 <code>F</code> (<code>T</code> 和 <code>F</code> 分别表示真和假）。</p>
 
-<p>给定一个表示任意嵌套三元表达式的字符串&nbsp;<code>expression</code>&nbsp;，求值并返回其结果。</p>
+<p><strong>注意：</strong></p>
 
-<p>你可以总是假设给定的表达式是有效的，并且只包含数字，&nbsp;<code>'?'</code>&nbsp;，&nbsp;&nbsp;<code>':'</code>&nbsp;，&nbsp;&nbsp;<code>'T'</code>&nbsp;和 <code>'F'</code> ，其中 <code>'T'</code> 为真， <code>'F'</code> 为假。表达式中的所有数字都是 <strong>一位</strong> 数(即在 <strong>[0,9] </strong>范围内)。</p>
+<ol>
+	<li>给定的字符串长度 ≤ 10000。</li>
+	<li>所包含的数字都只有一位数。</li>
+	<li>条件表达式从右至左结合（和大多数程序设计语言类似）。</li>
+	<li>条件是 <code>T</code> 和 <code>F</code>其一，即条件永远不会是数字。</li>
+	<li>表达式的结果是数字 <code>0-9</code>, <code>T</code> 或者 <code>F</code>。</li>
+</ol>
 
-<p>条件表达式从右到左分组(大多数语言中都是这样)，表达式的结果总是为数字 <code>'T'</code> 或 <code>'F'</code> 。</p>
-
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong> expression = "T?2:3"
+<pre><strong>输入：</strong> "T?2:3"
+
 <strong>输出：</strong> "2"
+
 <strong>解释：</strong> 如果条件为真，结果为 2；否则，结果为 3。
 </pre>
 
+<p> </p>
+
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong> expression = "F?1:T?4:5"
+<pre><strong>输入：</strong> "F?1:T?4:5"
+
 <strong>输出：</strong> "4"
+
 <strong>解释：</strong> 条件表达式自右向左结合。使用括号的话，相当于：
- "(F ? 1 : (T ? 4 : 5))" --&gt; "(F ? 1 : 4)" --&gt; "4"
-or "(F ? 1 : (T ? 4 : 5))" --&gt; "(T ? 4 : 5)" --&gt; "4"
+
+             "(F ? 1 : (T ? 4 : 5))"                   "(F ? 1 : (T ? 4 : 5))"
+          -> "(F ? 1 : 4)"                 或者     -> "(T ? 4 : 5)"
+          -> "4"                                    -> "4"
 </pre>
+
+<p> </p>
 
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong> expression = "T?T?F:5:3"
+<pre><strong>输入：</strong> "T?T?F:5:3"
+
 <strong>输出：</strong> "F"
+
 <strong>解释：</strong> 条件表达式自右向左结合。使用括号的话，相当于：
-"(T ? (T ? F : 5) : 3)" --&gt; "(T ? F : 3)" --&gt; "F"
-"(T ? (T ? F : 5) : 3)" --&gt; "(T ? F : 5)" --&gt; "F"</pre>
 
-<p>&nbsp;</p>
+             "(T ? (T ? F : 5) : 3)"                   "(T ? (T ? F : 5) : 3)"
+          -> "(T ? F : 3)"                 或者       -> "(T ? F : 5)"
+          -> "F"                                     -> "F"
+</pre>
 
-<p><strong>提示:</strong></p>
-
-<ul>
-	<li><code>5 &lt;= expression.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>expression</code>&nbsp;由数字,&nbsp;<code>'T'</code>,&nbsp;<code>'F'</code>,&nbsp;<code>'?'</code>&nbsp;和&nbsp;<code>':'</code>&nbsp;组成</li>
-	<li><strong>保证&nbsp;</strong>了表达式是一个有效的三元表达式，并且每个数字都是 <strong>一位数</strong>&nbsp;</li>
-</ul>
+<p> </p>
 
 ## 解法
 

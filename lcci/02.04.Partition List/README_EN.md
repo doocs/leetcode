@@ -1,4 +1,4 @@
-# [02.04. Partition List](https://leetcode.cn/problems/partition-list-lcci)
+# [02.04. Partition List](https://leetcode-cn.com/problems/partition-list-lcci)
 
 [中文文档](/lcci/02.04.Partition%20List/README.md)
 
@@ -31,19 +31,22 @@
 
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
-        l1, l2 = ListNode(0), ListNode(0)
-        cur1, cur2 = l1, l2
+        if head is None or head.next is None:
+            return head
+        left, right = ListNode(-1), ListNode(-1)
+        p, q = left, right
         while head:
+            t = head.next
+            head.next = None
             if head.val < x:
-                cur1.next = head
-                cur1 = cur1.next
+                p.next = head
+                p = p.next
             else:
-                cur2.next = head
-                cur2 = cur2.next
-            head = head.next
-        cur1.next = l2.next
-        cur2.next = None
-        return l1.next
+                q.next = head
+                q = q.next
+            head = t
+        p.next = right.next
+        return left.next
 ```
 
 ### **Java**
@@ -54,99 +57,32 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode l1 = new ListNode(0);
-        ListNode l2 = new ListNode(0);
-        ListNode cur1 = l1, cur2 = l2;
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode left = new ListNode(-1);
+        ListNode right = new ListNode(-1);
+        ListNode p = left, q = right;
         while (head != null) {
+            ListNode t = head.next;
+            head.next = null;
             if (head.val < x) {
-                cur1.next = head;
-                cur1 = cur1.next;
+                p.next = head;
+                p = p.next;
             } else {
-                cur2.next = head;
-                cur2 = cur2.next;
+                q.next = head;
+                q = q.next;
             }
-            head = head.next;
+            head = t;
         }
-        cur1.next = l2.next;
-        cur2.next = null;
-        return l1.next;
+        p.next = right.next;
+        return left.next;
     }
-}
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* partition(ListNode* head, int x) {
-        ListNode* l1 = new ListNode();
-        ListNode* l2 = new ListNode();
-        ListNode* cur1 = l1;
-        ListNode* cur2 = l2;
-        while (head != nullptr) {
-            if (head->val < x) {
-                cur1->next = head;
-                cur1 = cur1->next;
-            } else {
-                cur2->next = head;
-                cur2 = cur2->next;
-            }
-            head = head->next;
-        }
-        cur1->next = l2->next;
-        cur2->next = nullptr;
-        return l1->next;
-    }
-};
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function partition(head: ListNode | null, x: number): ListNode | null {
-    if (head == null) {
-        return head;
-    }
-    let cur = head;
-    while (cur.next != null) {
-        let node = cur.next;
-        if (node.val < x) {
-            [head, node.next, cur.next] = [node, head, node.next];
-        } else {
-            cur = cur.next;
-        }
-    }
-    return head;
 }
 ```
 

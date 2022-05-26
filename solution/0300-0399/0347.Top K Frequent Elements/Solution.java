@@ -1,21 +1,24 @@
 class Solution {
-    public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Long> frequency = Arrays.stream(nums).boxed()
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
-        Queue<Map.Entry<Integer, Long>> queue = new PriorityQueue<>(Map.Entry.comparingByValue());
-        for (Map.Entry<Integer, Long> entry : frequency.entrySet()) {
-            long count = entry.getValue();
-            if (queue.size() == k) {
-                if (count > queue.peek().getValue()) {
-                    queue.poll();
-                    queue.offer(entry);
-                }
-            } else {
-                queue.offer(entry);
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        List<Integer>[] buckets = new ArrayList[nums.length + 1];
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            int num = entry.getKey();
+            int count = entry.getValue();
+            if (buckets[count] == null) {
+                buckets[count] = new ArrayList<>();
+            }
+            buckets[count].add(num);
+        }
+        List<Integer> topK = new ArrayList<>(k);
+        for (int i = buckets.length - 1; i >= 0 && topK.size() < k; --i) {
+            if (buckets[i] != null) {
+                topK.addAll(buckets[i]);
             }
         }
-
-        return queue.stream().mapToInt(Map.Entry::getKey).toArray();
+        return topK;
     }
 }

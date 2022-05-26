@@ -1,4 +1,4 @@
-# [16.20. T9](https://leetcode.cn/problems/t9-lcci)
+# [16.20. T9](https://leetcode-cn.com/problems/t9-lcci)
 
 [中文文档](/lcci/16.20.T9/README.md)
 

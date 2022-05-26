@@ -1,11 +1,10 @@
-# [1638. 统计只差一个字符的子串数目](https://leetcode.cn/problems/count-substrings-that-differ-by-one-character)
+# [1638. 统计只差一个字符的子串数目](https://leetcode-cn.com/problems/count-substrings-that-differ-by-one-character)
 
 [English Version](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你两个字符串 <code>s</code> 和 <code>t</code> ，请你找出 <code>s</code> 中的非空子串的数目，这些子串满足替换 <strong>一个不同字符</strong> 以后，是 <code>t</code> 串的子串。换言之，请你找到 <code>s</code> 和 <code>t</code> 串中 <strong>恰好</strong> 只有一个字符不同的子字符串对的数目。</p>
 
 <p>比方说， <code>"<strong>compute</strong>r"</code> 和 <code>"<strong>computa</strong>tion"</code> 加粗部分只有一个字符不同： <code>'e'</code>/<code>'a'</code> ，所以这一对子字符串会给答案加 1 。</p>

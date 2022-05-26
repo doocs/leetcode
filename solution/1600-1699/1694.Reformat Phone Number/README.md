@@ -1,11 +1,10 @@
-# [1694. 重新格式化电话号码](https://leetcode.cn/problems/reformat-phone-number)
+# [1694. 重新格式化电话号码](https://leetcode-cn.com/problems/reformat-phone-number)
 
 [English Version](/solution/1600-1699/1694.Reformat%20Phone%20Number/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个字符串形式的电话号码 <code>number</code> 。<code>number</code> 由数字、空格 <code>' '</code>、和破折号 <code>'-'</code> 组成。</p>
 
 <p>请你按下述方式重新格式化电话号码。</p>

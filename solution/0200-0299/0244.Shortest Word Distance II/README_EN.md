@@ -4,42 +4,22 @@
 
 ## Description
 
-<p>Design a data structure that will be initialized with a string array, and then it should answer queries of the shortest distance between two different strings from the array.</p>
+<p>Design a class which receives a list of words in the constructor, and implements a method that takes two words <em>word1</em> and <em>word2</em> and return the shortest distance between these two words in the list. Your method will be called <em>repeatedly</em> many times with different parameters. </p>
 
-<p>Implement the <code>WordDistance</code> class:</p>
-
-<ul>
-	<li><code>WordDistance(String[] wordsDict)</code> initializes the object with the strings array <code>wordsDict</code>.</li>
-	<li><code>int shortest(String word1, String word2)</code> returns the shortest distance between <code>word1</code> and <code>word2</code> in the array <code>wordsDict</code>.</li>
-</ul>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong>Example:</strong><br />
+Assume that words = <code>["practice", "makes", "perfect", "coding", "makes"]</code>.</p>
 
 <pre>
-<strong>Input</strong>
-[&quot;WordDistance&quot;, &quot;shortest&quot;, &quot;shortest&quot;]
-[[[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]], [&quot;coding&quot;, &quot;practice&quot;], [&quot;makes&quot;, &quot;coding&quot;]]
-<strong>Output</strong>
-[null, 3, 1]
-
-<strong>Explanation</strong>
-WordDistance wordDistance = new WordDistance([&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]);
-wordDistance.shortest(&quot;coding&quot;, &quot;practice&quot;); // return 3
-wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
+<b>Input:</b> <em>word1</em> = <code>“coding”</code>, <em>word2</em> = <code>“practice”</code>
+<b>Output:</b> 3
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<pre>
+<b>Input:</b> <em>word1</em> = <code>"makes"</code>, <em>word2</em> = <code>"coding"</code>
+<b>Output:</b> 1</pre>
 
-<ul>
-	<li><code>1 &lt;= wordsDict.length &lt;= 3 * 10<sup>4</sup></code></li>
-	<li><code>1 &lt;= wordsDict[i].length &lt;= 10</code></li>
-	<li><code>wordsDict[i]</code> consists of lowercase English letters.</li>
-	<li><code>word1</code> and <code>word2</code> are in <code>wordsDict</code>.</li>
-	<li><code>word1 != word2</code></li>
-	<li>At most <code>5000</code> calls will be made to <code>shortest</code>.</li>
-</ul>
+<p><strong>Note:</strong><br />
+You may assume that <em>word1</em> <strong>does not equal to</strong> <em>word2</em>, and <em>word1</em> and <em>word2</em> are both in the list.</p>
 
 ## Solutions
 
@@ -48,69 +28,13 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 ### **Python3**
 
 ```python
-class WordDistance:
 
-    def __init__(self, wordsDict: List[str]):
-        self.words = {}
-        for i, word in enumerate(wordsDict):
-            indexes = self.words.get(word, [])
-            indexes.append(i)
-            self.words[word] = indexes
-
-    def shortest(self, word1: str, word2: str) -> int:
-        idx1, idx2 = self.words[word1], self.words[word2]
-        i1 = i2 = 0
-        shortest = float('inf')
-        while i1 < len(idx1) and i2 < len(idx2):
-            shortest = min(shortest, abs(idx1[i1] - idx2[i2]))
-            smaller = idx1[i1] < idx2[i2]
-            if smaller:
-                i1 += 1
-            else:
-                i2 += 1
-        return shortest
-
-
-# Your WordDistance object will be instantiated and called as such:
-# obj = WordDistance(wordsDict)
-# param_1 = obj.shortest(word1,word2)
 ```
 
 ### **Java**
 
 ```java
-class WordDistance {
-    private Map<String, List<Integer>> words;
 
-    public WordDistance(String[] wordsDict) {
-        words = new HashMap<>();
-        for (int i = 0; i < wordsDict.length; ++i) {
-            words.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
-        }
-    }
-
-    public int shortest(String word1, String word2) {
-        List<Integer> idx1 = words.get(word1);
-        List<Integer> idx2 = words.get(word2);
-        int i1 = 0, i2 = 0, shortest = Integer.MAX_VALUE;
-        while (i1 < idx1.size() && i2 < idx2.size()) {
-            shortest = Math.min(shortest, Math.abs(idx1.get(i1) - idx2.get(i2)));
-            boolean smaller = idx1.get(i1) < idx2.get(i2);
-            if (smaller) {
-                ++i1;
-            } else {
-                ++i2;
-            }
-        }
-        return shortest;
-    }
-}
-
-/**
- * Your WordDistance object will be instantiated and called as such:
- * WordDistance obj = new WordDistance(wordsDict);
- * int param_1 = obj.shortest(word1,word2);
- */
 ```
 
 ### **...**

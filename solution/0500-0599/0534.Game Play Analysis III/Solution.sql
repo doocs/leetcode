@@ -1,6 +1,1 @@
-SELECT
-  player_id,
-  event_date,
-  SUM(games_played) OVER (PARTITION BY player_id ORDER BY event_date) AS games_played_so_far
-FROM Activity
-ORDER BY 1, 2;
+select a.player_id, a.event_date, sum(b.games_played) as games_played_so_far from Activity a, Activity b where a.player_id = b.player_id and a.event_date >= b.event_date group by a.player_id, a.event_date

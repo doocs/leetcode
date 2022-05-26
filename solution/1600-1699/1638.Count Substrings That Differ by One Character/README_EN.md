@@ -18,7 +18,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;aba&quot;, t = &quot;baba&quot;
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> The following are the pairs of substrings from s and t that differ by exactly 1 character:
+<strong>Explanation: </strong>The following are the pairs of substrings from s and t that differ by exactly 1 character:
 (&quot;<u>a</u>ba&quot;, &quot;<u>b</u>aba&quot;)
 (&quot;<u>a</u>ba&quot;, &quot;ba<u>b</u>a&quot;)
 (&quot;ab<u>a</u>&quot;, &quot;<u>b</u>aba&quot;)
@@ -33,11 +33,25 @@ The underlined portions are the substrings that are chosen from s and t.
 <pre>
 <strong>Input:</strong> s = &quot;ab&quot;, t = &quot;bb&quot;
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> The following are the pairs of substrings from s and t that differ by 1 character:
+<strong>Explanation: </strong>The following are the pairs of substrings from s and t that differ by 1 character:
 (&quot;<u>a</u>b&quot;, &quot;<u>b</u>b&quot;)
 (&quot;<u>a</u>b&quot;, &quot;b<u>b</u>&quot;)
 (&quot;<u>ab</u>&quot;, &quot;<u>bb</u>&quot;)
 ​​​​The underlined portions are the substrings that are chosen from s and t.
+</pre>
+
+<strong>Example 3:</strong>
+
+<pre>
+<strong>Input:</strong> s = &quot;a&quot;, t = &quot;a&quot;
+<strong>Output:</strong> 0
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;abe&quot;, t = &quot;bbc&quot;
+<strong>Output:</strong> 10
 </pre>
 
 <p>&nbsp;</p>

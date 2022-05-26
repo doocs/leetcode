@@ -62,6 +62,21 @@ So the total number of trips is 2 + 2 + 2 = 6.
 So the total number of trips is 2 + 2 + 2 = 6.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> boxes = [[2,4],[2,5],[3,1],[3,2],[3,7],[3,1],[4,4],[1,3],[5,2]], portsCount = 5, maxBoxes = 5, maxWeight = 7
+<strong>Output:</strong> 14
+<strong>Explanation:</strong> The optimal strategy is as follows:
+- The ship takes the first box, goes to port 2, then storage. 2 trips.
+- The ship takes the second box, goes to port 2, then storage. 2 trips.
+- The ship takes the third and fourth boxes, goes to port 3, then storage. 2 trips.
+- The ship takes the fifth box, goes to port 3, then storage. 2 trips.
+- The ship takes the sixth and seventh boxes, goes to port 3, then port 4, then storage. 3 trips. 
+- The ship takes the eighth and ninth boxes, goes to port 1, then port 5, then storage. 3 trips.
+So the total number of trips is 2 + 2 + 2 + 2 + 3 + 3 = 14.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

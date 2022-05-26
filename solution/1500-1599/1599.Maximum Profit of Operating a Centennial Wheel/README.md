@@ -1,11 +1,10 @@
-# [1599. 经营摩天轮的最大利润](https://leetcode.cn/problems/maximum-profit-of-operating-a-centennial-wheel)
+# [1599. 经营摩天轮的最大利润](https://leetcode-cn.com/problems/maximum-profit-of-operating-a-centennial-wheel)
 
 [English Version](/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>你正在经营一座摩天轮，该摩天轮共有 <strong>4 个座舱</strong> ，每个座舱<strong> 最多可以容纳 4 位游客</strong> 。你可以 <strong>逆时针</strong>&nbsp;轮转座舱，但每次轮转都需要支付一定的运行成本 <code>runningCost</code> 。摩天轮每次轮转都恰好转动 1 / 4 周。</p>
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>customers</code> ， <code>customers[i]</code> 是在第 <code>i</code> 次轮转（下标从 0 开始）之前到达的新游客的数量。这也意味着你必须在新游客到来前轮转 <code>i</code> 次。每位游客在登上离地面最近的座舱前都会支付登舱成本 <code>boardingCost</code> ，一旦该座舱再次抵达地面，他们就会离开座舱结束游玩。</p>
@@ -18,10 +17,9 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/images/wheeldiagram12.png" /></p>
+![](./images/wheeldiagram12.png)
 
-<pre>
-<strong>输入：</strong>customers = [8,3], boardingCost = 5, runningCost = 6
+<pre><strong>输入：</strong>customers = [8,3], boardingCost = 5, runningCost = 6
 <strong>输出：</strong>3
 <strong>解释：</strong>座舱上标注的数字是该座舱的当前游客数。
 1. 8 位游客抵达，4 位登舱，4 位等待下一舱，摩天轮轮转。当前利润为 4 * $5 - 1 * $6 = $14 。
@@ -31,8 +29,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>customers = [10,9,6], boardingCost = 6, runningCost = 4
+<pre><strong>输入：</strong>customers = [10,9,6], boardingCost = 6, runningCost = 4
 <strong>输出：</strong>7
 <strong>解释：</strong>
 1. 10 位游客抵达，4 位登舱，6 位等待下一舱，摩天轮轮转。当前利润为 4 * $6 - 1 * $4 = $20 。
@@ -47,8 +44,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>customers = [3,4,0,5,1], boardingCost = 1, runningCost = 92
+<pre><strong>输入：</strong>customers = [3,4,0,5,1], boardingCost = 1, runningCost = 92
 <strong>输出：</strong>-1
 <strong>解释：</strong>
 1. 3 位游客抵达，3 位登舱，0 位等待，摩天轮轮转。当前利润为 3 * $1 - 1 * $92 = -$89 。
@@ -57,6 +53,24 @@
 4. 5 位游客抵达，4 位登舱，1 位等待，摩天轮轮转。当前利润为 12 * $1 - 4 * $92 = -$356 。
 5. 1 位游客抵达，2 位登舱，0 位等待，摩天轮轮转。当前利润为 13 * $1 - 5 * $92 = -$447 。
 利润永不为正，所以返回 -1 。
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre><strong>输入：</strong>customers = [10,10,6,4,7], boardingCost = 3, runningCost = 8
+<strong>输出：</strong>9
+<strong>解释：</strong>
+1. 10 位游客抵达，4 位登舱，6 位等待，摩天轮轮转。当前利润为 4 * $3 - 1 * $8 = $4 。
+2. 10 位游客抵达，4 位登舱，12 位等待，摩天轮轮转。当前利润为 8 * $3 - 2 * $8 = $8 。
+3. 6 位游客抵达，4 位登舱，14 位等待，摩天轮轮转。当前利润为 12 * $3 - 3 * $8 = $12 。
+4. 4 位游客抵达，4 位登舱，14 位等待，摩天轮轮转。当前利润为 16 * $3 - 4 * $8 = $16 。
+5. 7 位游客抵达，4 位登舱，17 位等待，摩天轮轮转。当前利润为 20 * $3 - 5 * $8 = $20 。
+6. 4 位登舱，13 位等待，摩天轮轮转。当前利润为 24 * $3 - 6 * $8 = $24 。
+7. 4 位登舱，9 位等待，摩天轮轮转。当前利润为 28 * $3 - 7 * $8 = $28 。
+8. 4 位登舱，5 位等待，摩天轮轮转。当前利润为 32 * $3 - 8 * $8 = $32 。
+9. 4 位登舱，1 位等待，摩天轮轮转。当前利润为 36 * $3 - 9 * $8 = $36 。
+​​​​​​​10. 1 位登舱，0 位等待，摩天轮轮转。当前利润为 37 * $3 - 10 * $8 = $31 。
+轮转 9 次得到最大利润，最大利润为 $36 。
 </pre>
 
 <p>&nbsp;</p>

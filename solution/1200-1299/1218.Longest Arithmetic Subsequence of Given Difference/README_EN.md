@@ -4,9 +4,7 @@
 
 ## Description
 
-<p>Given an integer array <code>arr</code> and an integer <code>difference</code>, return the length of the longest subsequence in <code>arr</code> which is an arithmetic sequence such that the difference between adjacent elements in the subsequence equals <code>difference</code>.</p>
-
-<p>A <strong>subsequence</strong> is a sequence that can be derived from <code>arr</code> by deleting some or no elements without changing the order of the remaining elements.</p>
+<p>Given an integer array <code>arr</code>&nbsp;and an integer <code><font face="monospace">difference</font></code>, return the length of the longest subsequence in <font face="monospace"><code>arr</code>&nbsp;</font>which is an arithmetic sequence such that the difference between adjacent elements in the subsequence equals&nbsp;<code>difference</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -36,8 +34,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt;= arr[i], difference &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
+	<li><code>-10^4 &lt;= arr[i], difference &lt;= 10^4</code></li>
 </ul>
 
 ## Solutions
@@ -47,66 +45,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def longestSubsequence(self, arr: List[int], difference: int) -> int:
-        dp, ans = defaultdict(int), 1
-        for num in arr:
-            dp[num] = dp[num - difference] + 1
-            ans = max(ans, dp[num])
-        return ans
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int longestSubsequence(int[] arr, int difference) {
-        Map<Integer, Integer> dp = new HashMap<>();
-        int ans = 1;
-        for (int num : arr) {
-            dp.put(num, dp.getOrDefault(num - difference, 0) + 1);
-            ans = Math.max(ans, dp.get(num));
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int longestSubsequence(vector<int>& arr, int difference) {
-        unordered_map<int, int> dp;
-        int ans = 1;
-        for (int num : arr) {
-            dp[num] = dp[num - difference] + 1;
-            ans = max(ans, dp[num]);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func longestSubsequence(arr []int, difference int) int {
-	dp, ans := make(map[int]int), 1
-	for _, num := range arr {
-		dp[num] = dp[num-difference] + 1
-		ans = max(ans, dp[num])
-	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

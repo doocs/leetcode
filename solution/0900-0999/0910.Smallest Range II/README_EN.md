@@ -4,47 +4,75 @@
 
 ## Description
 
-<p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
+<p>Given an array <code>A</code> of integers, for each integer <code>A[i]</code> we need to choose <strong>either&nbsp;<code>x = -K</code>&nbsp;or <code>x = K</code></strong>, and add <code>x</code> to <code>A[i] <strong>(only once)</strong></code>.</p>
 
-<p>For each index <code>i</code> where <code>0 &lt;= i &lt; nums.length</code>, change <code>nums[i]</code> to be either <code>nums[i] + k</code> or <code>nums[i] - k</code>.</p>
+<p>After this process, we have some array <code>B</code>.</p>
 
-<p>The <strong>score</strong> of <code>nums</code> is the difference between the maximum and minimum elements in <code>nums</code>.</p>
-
-<p>Return <em>the minimum <strong>score</strong> of </em><code>nums</code><em> after changing the values at each index</em>.</p>
+<p>Return the smallest possible difference between the maximum value of <code>B</code>&nbsp;and the minimum value of <code>B</code>.</p>
 
 <p>&nbsp;</p>
+
+<ol>
+
+</ol>
+
+<div>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1], k = 0
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The score is max(nums) - min(nums) = 1 - 1 = 0.
+
+<strong>Input: </strong>A = <span id="example-input-1-1">[1]</span>, K = <span id="example-input-1-2">0</span>
+
+<strong>Output: </strong><span id="example-output-1">0</span>
+
+<span><strong>Explanation</strong>: B = [1]</span>
+
 </pre>
+
+<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [0,10], k = 2
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> Change nums to be [2, 8]. The score is max(nums) - min(nums) = 8 - 2 = 6.
+
+<strong>Input: </strong>A = <span id="example-input-2-1">[0,10]</span>, K = <span id="example-input-2-2">2</span>
+
+<strong>Output: </strong><span id="example-output-2">6
+
+</span><span><strong>Explanation</strong>: B = [2,8]</span>
+
 </pre>
+
+<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,3,6], k = 3
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> Change nums to be [4, 6, 3]. The score is max(nums) - min(nums) = 6 - 3 = 3.
+
+<strong>Input: </strong>A = <span id="example-input-3-1">[1,3,6]</span>, K = <span id="example-input-3-2">3</span>
+
+<strong>Output: </strong><span id="example-output-3">3</span>
+
+<span><strong>Explanation</strong>: B = [4,6,3]</span>
+
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
-</ul>
+<p><strong>Note:</strong></p>
+
+<ol>
+    <li><code>1 &lt;= A.length &lt;= 10000</code></li>
+    <li><code>0 &lt;= A[i] &lt;= 10000</code></li>
+    <li><code>0 &lt;= K &lt;= 10000</code></li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
 
 ## Solutions
 

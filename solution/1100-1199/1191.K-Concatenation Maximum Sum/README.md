@@ -1,51 +1,52 @@
-# [1191. K 次串联后最大子数组之和](https://leetcode.cn/problems/k-concatenation-maximum-sum)
+# [1191. K 次串联后最大子数组之和](https://leetcode-cn.com/problems/k-concatenation-maximum-sum)
 
 [English Version](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>。</p>
 
-<p>给定一个整数数组&nbsp;<code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;，通过重复&nbsp;<code>k</code>&nbsp;次来修改数组。</p>
+<p>首先，我们要对该数组进行修改，即把原数组 <code>arr</code> 重复&nbsp;<code>k</code>&nbsp;次。</p>
 
-<p>例如，如果&nbsp;<code>arr = [1, 2]</code>&nbsp;，<meta charset="UTF-8" />&nbsp;<code>k = 3</code>&nbsp;，那么修改后的数组将是 <code>[1, 2, 1, 2, 1, 2]</code> 。</p>
+<blockquote>
+<p>举个例子，如果&nbsp;<code>arr&nbsp;= [1, 2]</code> 且 <code>k = 3</code>，那么修改后的数组就是&nbsp;<code>[1, 2, 1, 2, 1, 2]</code>。</p>
+</blockquote>
 
-<p>返回修改后的数组中的最大的子数组之和。注意，子数组长度可以是 <code>0</code>，在这种情况下它的总和也是 <code>0</code>。</p>
+<p>然后，请你返回修改后的数组中的最大的子数组之和。</p>
 
-<p>由于&nbsp;<strong>结果可能会很大</strong>，需要返回的<meta charset="UTF-8" />&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;的&nbsp;<strong>模</strong>&nbsp;。</p>
+<p>注意，子数组长度可以是 <code>0</code>，在这种情况下它的总和也是 <code>0</code>。</p>
+
+<p>由于&nbsp;<strong>结果可能会很大</strong>，所以需要 <strong>模（mod）</strong>&nbsp;<code>10^9 + 7</code>&nbsp;后再返回。&nbsp;</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>arr = [1,2], k = 3
+<pre><strong>输入：</strong>arr = [1,2], k = 3
 <strong>输出：</strong>9
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>arr = [1,-2,1], k = 5
+<pre><strong>输入：</strong>arr = [1,-2,1], k = 5
 <strong>输出：</strong>2
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>arr = [-1,-2], k = 7
+<pre><strong>输入：</strong>arr = [-1,-2], k = 7
 <strong>输出：</strong>0
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
-<meta charset="UTF-8" />
 
 <ul>
-	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
-	<li><code>-10<sup>4</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
+	<li><code>1 &lt;= k &lt;= 10^5</code></li>
+	<li><code>-10^4 &lt;= arr[i] &lt;= 10^4</code></li>
 </ul>
 
 ## 解法

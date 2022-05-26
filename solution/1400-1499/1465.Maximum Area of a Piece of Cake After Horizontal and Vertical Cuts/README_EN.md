@@ -4,18 +4,15 @@
 
 ## Description
 
-<p>You are given a rectangular cake of size <code>h x w</code> and two arrays of integers <code>horizontalCuts</code> and <code>verticalCuts</code> where:</p>
+<p>Given a rectangular cake with height <code>h</code> and width <code>w</code>, and two arrays of integers <code>horizontalCuts</code> and <code>verticalCuts</code> where <code>horizontalCuts[i]</code> is the distance from the top of the rectangular cake to the <code>ith</code> horizontal cut&nbsp;and similarly, <code>verticalCuts[j]</code> is the distance from the&nbsp;left of the rectangular cake to the <code>jth</code>&nbsp;vertical cut.</p>
 
-<ul>
-	<li><code>horizontalCuts[i]</code> is the distance from the top of the rectangular cake to the <code>i<sup>th</sup></code> horizontal cut and similarly, and</li>
-	<li><code>verticalCuts[j]</code> is the distance from the left of the rectangular cake to the <code>j<sup>th</sup></code> vertical cut.</li>
-</ul>
-
-<p>Return <em>the maximum area of a piece of cake after you cut at each horizontal and vertical position provided in the arrays</em> <code>horizontalCuts</code> <em>and</em> <code>verticalCuts</code>. Since the answer can be a large number, return this <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
+<p><em>Return the maximum area of a piece of cake after you cut at each horizontal and vertical position provided in the arrays <code>horizontalCuts</code> and <code>verticalCuts</code>.&nbsp;</em>Since the answer can be a huge number, return this modulo 10^9 + 7.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/images/leetcode_max_area_2.png" style="width: 225px; height: 240px;" />
+
+![](./images/leetcode_max_area_2.png)
+
 <pre>
 <strong>Input:</strong> h = 5, w = 4, horizontalCuts = [1,2,4], verticalCuts = [1,3]
 <strong>Output:</strong> 4 
@@ -23,7 +20,9 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/images/leetcode_max_area_3.png" style="width: 225px; height: 240px;" />
+
+![](./images/leetcode_max_area_3.png)
+
 <pre>
 <strong>Input:</strong> h = 5, w = 4, horizontalCuts = [3,1], verticalCuts = [1]
 <strong>Output:</strong> 6
@@ -41,13 +40,13 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= h, w &lt;= 10<sup>9</sup></code></li>
-	<li><code>1 &lt;= horizontalCuts.length &lt;= min(h - 1, 10<sup>5</sup>)</code></li>
-	<li><code>1 &lt;= verticalCuts.length &lt;= min(w - 1, 10<sup>5</sup>)</code></li>
-	<li><code>1 &lt;= horizontalCuts[i] &lt; h</code></li>
-	<li><code>1 &lt;= verticalCuts[i] &lt; w</code></li>
-	<li>All the elements in <code>horizontalCuts</code> are distinct.</li>
-	<li>All the elements in <code>verticalCuts</code> are distinct.</li>
+	<li><code>2 &lt;= h,&nbsp;w &lt;= 10^9</code></li>
+	<li><code>1 &lt;=&nbsp;horizontalCuts.length &lt;&nbsp;min(h, 10^5)</code></li>
+	<li><code>1 &lt;=&nbsp;verticalCuts.length &lt; min(w, 10^5)</code></li>
+	<li><code>1 &lt;=&nbsp;horizontalCuts[i] &lt; h</code></li>
+	<li><code>1 &lt;=&nbsp;verticalCuts[i] &lt; w</code></li>
+	<li>It is guaranteed that all elements in&nbsp;<code>horizontalCuts</code>&nbsp;are distinct.</li>
+	<li>It is guaranteed that all elements in <code>verticalCuts</code>&nbsp;are distinct.</li>
 </ul>
 
 ## Solutions

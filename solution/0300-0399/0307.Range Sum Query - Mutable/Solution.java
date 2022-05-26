@@ -1,57 +1,58 @@
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
+public class NumArray {	int[] array, helper;
 
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        c = new int[n + 1];
-    }
+	public NumArray(int[] nums) {
 
-    public void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
+		array = new int[nums.length];
+		helper = new int[nums.length + 1];
 
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
+		for (int i = 0; i < nums.length; i++) {
+			array[i] = nums[i];
+		}
 
-    public static int lowbit(int x) {
-        return x & -x;
-    }
-}
+		for (int i = 0; i < nums.length; i++) {
+			add(i + 1, nums[i]);
+		}
+	}
 
-class NumArray {
-    private BinaryIndexedTree tree;
+	private void add(int pos, int value) {
+		// TODO Auto-generated method stub
+		while (pos < helper.length) {
+			helper[pos] += value;
+			pos += lowBit(pos);
+		}
+	}
 
-    public NumArray(int[] nums) {
-        int n = nums.length;
-        tree = new BinaryIndexedTree(n);
-        for (int i = 0; i < n; ++i) {
-            tree.update(i + 1, nums[i]);
-        }
-    }
-    
-    public void update(int index, int val) {
-        int prev = sumRange(index, index);
-        tree.update(index + 1, val - prev);
-    }
-    
-    public int sumRange(int left, int right) {
-        return tree.query(right + 1) - tree.query(left);
-    }
-}
+	private int lowBit(int pos) {
 
-/**
- * Your NumArray object will be instantiated and called as such:
- * NumArray obj = new NumArray(nums);
- * obj.update(index,val);
- * int param_2 = obj.sumRange(left,right);
- */
+		return pos & (-pos);
+	}
+
+	private int sum(int pos) {
+
+		int rt = 0;
+
+		while (pos > 0) {
+			rt += helper[pos];
+			pos -= lowBit(pos);
+		}
+
+		return rt;
+	}
+
+	void update(int i, int val) {
+		int delta = val - array[i];
+		array[i] = val;
+		add(i + 1, delta);
+	}
+
+	public int sumRange(int i, int j) {
+
+		return sum(j + 1) - sum(i);
+	}}
+
+
+// Your NumArray object will be instantiated and called as such:
+// NumArray numArray = new NumArray(nums);
+// numArray.sumRange(0, 1);
+// numArray.update(1, 10);
+// numArray.sumRange(1, 2);

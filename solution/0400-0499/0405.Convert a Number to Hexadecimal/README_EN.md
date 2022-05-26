@@ -4,26 +4,63 @@
 
 ## Description
 
-<p>Given an integer <code>num</code>, return <em>a string representing its hexadecimal representation</em>. For negative integers, <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two&rsquo;s complement</a> method is used.</p>
+<p>
 
-<p>All the letters in the answer string should be lowercase characters, and there should not be any leading zeros in the answer except for the zero itself.</p>
+Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two’s complement</a> method is used.
 
-<p><strong>Note:&nbsp;</strong>You are not allowed to use any built-in library method to directly solve this problem.</p>
+</p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> num = 26
-<strong>Output:</strong> "1a"
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> num = -1
-<strong>Output:</strong> "ffffffff"
+<p><b>Note:</b>
+
+<ol>
+
+<li>All letters in hexadecimal (<code>a-f</code>) must be in lowercase.</li>
+
+<li>The hexadecimal string must not contain extra leading <code>0</code>s. If the number is zero, it is represented by a single zero character <code>'0'</code>; otherwise, the first character in the hexadecimal string will not be the zero character.</li>
+
+<li>The given number is guaranteed to fit within the range of a 32-bit signed integer.</li>
+
+<li>You <b>must not use <i>any</i> method provided by the library</b> which converts/formats the number to hex directly.</li>
+
+</ol>
+
+</p>
+
+<p><b>Example 1:</b>
+
+<pre>
+
+Input:
+
+26
+
+
+
+Output:
+
+"1a"
+
 </pre>
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>-2<sup>31</sup> &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
-</ul>
+</p>
+
+<p><b>Example 2:</b>
+
+<pre>
+
+Input:
+
+-1
+
+
+
+Output:
+
+"ffffffff"
+
+</pre>
+
+</p>
 
 ## Solutions
 
@@ -32,105 +69,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def toHex(self, num: int) -> str:
-        if num == 0:
-            return '0'
-        chars = '0123456789abcdef'
-        s = []
-        for i in range(7, -1, -1):
-            x = (num >> (4 * i)) & 0xf
-            if s or x != 0:
-                s.append(chars[x])
-        return ''.join(s)
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public String toHex(int num) {
-        if (num == 0) {
-            return "0";
-        }
-        StringBuilder sb = new StringBuilder();
-        while (num != 0) {
-            int x = num & 15;
-            if (x < 10) {
-                sb.append(x);
-            } else {
-                sb.append((char) (x - 10 + 'a'));
-            }
-            num >>>= 4;
-        }
-        return sb.reverse().toString();
-    }
-}
-```
 
-```java
-class Solution {
-    public String toHex(int num) {
-        if (num == 0) {
-            return "0";
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 7; i >= 0; --i) {
-            int x = (num >> (4 * i)) & 0xf;
-            if (sb.length() > 0 || x != 0) {
-                char c = x < 10 ? (char) (x + '0') : (char) (x - 10 + 'a');
-                sb.append(c);
-            }
-        }
-        return sb.toString();
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string toHex(int num) {
-        if (num == 0) return "0";
-        string s = "";
-        for (int i = 7; i >= 0; --i)
-        {
-            int x = (num >> (4 * i)) & 0xf;
-            if (s.size() > 0 || x != 0)
-            {
-                char c = x < 10 ? (char) (x + '0') : (char) (x - 10 + 'a');
-                s += c;
-            }
-        }
-        return s;
-    }
-};
-```
-
-### **Go**
-
-```go
-func toHex(num int) string {
-	if num == 0 {
-		return "0"
-	}
-	sb := &strings.Builder{}
-	for i := 7; i >= 0; i-- {
-		x := num >> (4 * i) & 0xf
-		if x > 0 || sb.Len() > 0 {
-			var c byte
-			if x < 10 {
-				c = '0' + byte(x)
-			} else {
-				c = 'a' + byte(x-10)
-			}
-			sb.WriteByte(c)
-		}
-	}
-	return sb.String()
-}
 ```
 
 ### **...**

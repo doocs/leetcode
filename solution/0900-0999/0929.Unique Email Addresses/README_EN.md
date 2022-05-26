@@ -4,56 +4,49 @@
 
 ## Description
 
-<p>Every <strong>valid email</strong> consists of a <strong>local name</strong> and a <strong>domain name</strong>, separated by the <code>&#39;@&#39;</code> sign. Besides lowercase letters, the email may contain one or more <code>&#39;.&#39;</code> or <code>&#39;+&#39;</code>.</p>
+<p>Every email consists of a local name and a domain name, separated by the @ sign.</p>
 
-<ul>
-	<li>For example, in <code>&quot;alice@leetcode.com&quot;</code>, <code>&quot;alice&quot;</code> is the <strong>local name</strong>, and <code>&quot;leetcode.com&quot;</code> is the <strong>domain name</strong>.</li>
-</ul>
+<p>For example, in <code>alice@leetcode.com</code>,&nbsp;<code>alice</code> is the local name, and <code>leetcode.com</code> is the domain name.</p>
 
-<p>If you add periods <code>&#39;.&#39;</code> between some characters in the <strong>local name</strong> part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule <strong>does not apply</strong> to <strong>domain names</strong>.</p>
+<p>Besides lowercase letters, these emails may contain <code>&#39;.&#39;</code>s or <code>&#39;+&#39;</code>s.</p>
 
-<ul>
-	<li>For example, <code>&quot;alice.z@leetcode.com&quot;</code> and <code>&quot;alicez@leetcode.com&quot;</code> forward to the same email address.</li>
-</ul>
+<p>If you add periods (<code>&#39;.&#39;</code>) between some characters in the <strong>local name</strong> part of an email address, mail sent there will be forwarded to the same address without dots in the local name.&nbsp; For example, <code>&quot;alice.z@leetcode.com&quot;</code> and <code>&quot;alicez@leetcode.com&quot;</code> forward to the same email address.&nbsp; (Note that this rule does not apply for domain names.)</p>
 
-<p>If you add a plus <code>&#39;+&#39;</code> in the <strong>local name</strong>, everything after the first plus sign <strong>will be ignored</strong>. This allows certain emails to be filtered. Note that this rule <strong>does not apply</strong> to <strong>domain names</strong>.</p>
-
-<ul>
-	<li>For example, <code>&quot;m.y+name@email.com&quot;</code> will be forwarded to <code>&quot;my@email.com&quot;</code>.</li>
-</ul>
+<p>If you add a plus (<code>&#39;+&#39;</code>) in the <strong>local name</strong>, everything after the first plus sign will be&nbsp;<strong>ignored</strong>. This allows certain emails to be filtered, for example&nbsp;<code>m.y+name@email.com</code>&nbsp;will be forwarded to&nbsp;<code>my@email.com</code>.&nbsp; (Again, this rule does not apply for domain names.)</p>
 
 <p>It is possible to use both of these rules at the same time.</p>
 
-<p>Given an array of strings <code>emails</code> where we send one email to each <code>emails[i]</code>, return <em>the number of different addresses that actually receive mails</em>.</p>
+<p>Given a list of <code>emails</code>, we send one email to each address in the list.&nbsp;&nbsp;How many different addresses actually receive mails?&nbsp;</p>
 
 <p>&nbsp;</p>
+
+<div>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> emails = [&quot;test.email+alex@leetcode.com&quot;,&quot;test.e.mail+bob.cathy@leetcode.com&quot;,&quot;testemail+david@lee.tcode.com&quot;]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> &quot;testemail@leetcode.com&quot; and &quot;testemail@lee.tcode.com&quot; actually receive mails.
-</pre>
 
-<p><strong>Example 2:</strong></p>
+<strong>Input: </strong><span id="example-input-1-1">[&quot;test.email+alex@leetcode.com&quot;,&quot;test.e.mail+bob.cathy@leetcode.com&quot;,&quot;testemail+david@lee.tcode.com&quot;]</span>
 
-<pre>
-<strong>Input:</strong> emails = [&quot;a@leetcode.com&quot;,&quot;b@leetcode.com&quot;,&quot;c@leetcode.com&quot;]
-<strong>Output:</strong> 3
+<strong>Output: </strong><span id="example-output-1">2</span>
+
+<strong><span>Explanation:</span></strong><span>&nbsp;&quot;</span><span id="example-input-1-1">testemail@leetcode.com&quot; and &quot;testemail@lee.tcode.com&quot; </span>actually receive mails
+
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>Note:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= emails.length &lt;= 100</code></li>
-	<li><code>1 &lt;= emails[i].length &lt;= 100</code></li>
-	<li><code>emails[i]</code> consist of lowercase English letters, <code>&#39;+&#39;</code>, <code>&#39;.&#39;</code> and <code>&#39;@&#39;</code>.</li>
-	<li>Each <code>emails[i]</code> contains exactly one <code>&#39;@&#39;</code> character.</li>
-	<li>All local and domain names are non-empty.</li>
-	<li>Local names do not start with a <code>&#39;+&#39;</code> character.</li>
-	<li>Domain names end with the <code>&quot;.com&quot;</code> suffix.</li>
+    <li><code>1 &lt;= emails[i].length&nbsp;&lt;= 100</code></li>
+    <li><code>1 &lt;= emails.length &lt;= 100</code></li>
+    <li>Each <code>emails[i]</code> contains exactly one <code>&#39;@&#39;</code> character.</li>
+    <li>All local and domain names are non-empty.</li>
+    <li>Local names do not start with a <code>&#39;+&#39;</code> character.</li>
 </ul>
+
+</div>
 
 ## Solutions
 
@@ -62,62 +55,13 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def numUniqueEmails(self, emails: List[str]) -> int:
-        ans = 0
-        s = set()
-        for email in emails:
-            local, domain = email.split('@')
-            local = local.replace('.', '')
-            if '+' in local:
-                local = local[:local.find('+')]
-            s.add(local + '@' + domain)
-        return len(s)
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int numUniqueEmails(String[] emails) {
-        Set<String> s = new HashSet<>();
-        for (String email : emails) {
-            String[] t = email.split("@");
-            String local = t[0];
-            String domain = t[1];
-            local = local.replace(".", "");
-            int i = local.indexOf('+');
-            if (i != -1) {
-                local = local.substring(0, i);
-            }
-            s.add(local + "@" + domain);
-        }
-        return s.size();
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numUniqueEmails(vector<string>& emails) {
-        unordered_set<string> s;
-        for (auto& email : emails)
-        {
-            int i = email.find('@');
-            string local = email.substr(0, i);
-            string domain = email.substr(i + 1);
-            i = local.find('+', 0);
-            if (~i) local = local.substr(0, i);
-            while (~(i = local.find('.', 0)))
-                local.erase(local.begin() + i);
-            s.insert(local + "@" + domain);
-        }
-        return s.size();
-    }
-};
 ```
 
 ### **...**

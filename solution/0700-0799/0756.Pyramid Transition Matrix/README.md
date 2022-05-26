@@ -1,61 +1,55 @@
-# [756. 金字塔转换矩阵](https://leetcode.cn/problems/pyramid-transition-matrix)
+# [756. 金字塔转换矩阵](https://leetcode-cn.com/problems/pyramid-transition-matrix)
 
 [English Version](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+<p>现在，我们用一些方块来堆砌一个金字塔。 每个方块用仅包含一个字母的字符串表示。</p>
 
-<p>你正在把积木堆成金字塔。每个块都有一个颜色，用一个字母表示。每一行的块比它下面的行 <strong>少一个块</strong> ，并且居中。</p>
+<p>使用三元组表示金字塔的堆砌规则如下：</p>
 
-<p>为了使金字塔美观，只有特定的 <strong>三角形图案</strong> 是允许的。一个三角形的图案由&nbsp;<strong>两个块</strong>&nbsp;和叠在上面的 <strong>单个块</strong> 组成。模式是以三个字母字符串的列表形式&nbsp;<code>allowed</code>&nbsp;给出的，其中模式的前两个字符分别表示左右底部块，第三个字符表示顶部块。</p>
+<p>对于三元组(A, B, C) ，&ldquo;C&rdquo;为顶层方块，方块&ldquo;A&rdquo;、&ldquo;B&rdquo;分别作为方块&ldquo;C&rdquo;下一层的的左、右子块。当且仅当(A, B, C)是被允许的三元组，我们才可以将其堆砌上。</p>
 
-<ul>
-	<li>例如，<code>"ABC"</code>&nbsp;表示一个三角形图案，其中一个 <code>“C”</code> 块堆叠在一个&nbsp;<code>'A'</code>&nbsp;块(左)和一个&nbsp;<code>'B'</code>&nbsp;块(右)之上。请注意，这与 <code>"BAC"</code>&nbsp;不同，<code>"B"</code>&nbsp;在左下角，<code>"A"</code>&nbsp;在右下角。</li>
-</ul>
+<p>初始时，给定金字塔的基层&nbsp;<code>bottom</code>，用一个字符串表示。一个允许的三元组列表&nbsp;<code>allowed</code>，每个三元组用一个长度为 3 的字符串表示。</p>
 
-<p>你从底部的一排积木&nbsp;<code>bottom</code>&nbsp;开始，作为一个单一的字符串，你 <strong>必须</strong> 使用作为金字塔的底部。</p>
-
-<p>在给定&nbsp;<code>bottom</code>&nbsp;和&nbsp;<code>allowed</code>&nbsp;的情况下，如果你能一直构建到金字塔顶部，使金字塔中的 <strong>每个三角形图案</strong> 都是允许的，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+<p>如果可以由基层一直堆到塔尖就返回 true，否则返回 false。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong>示例 1:</strong></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid1-grid.jpg" style="height: 232px; width: 600px;" /></p>
+<pre><strong>输入:</strong> bottom = &quot;BCD&quot;, allowed = [&quot;BCG&quot;, &quot;CDE&quot;, &quot;GEA&quot;, &quot;FFF&quot;]
+<strong>输出:</strong> true
+<strong>解析:</strong>
+可以堆砌成这样的金字塔:
+    A
+   / \
+  G   E
+ / \ / \
+B   C   D
 
-<pre>
-<strong>输入：</strong>bottom = "BCD", allowed = ["BCG", "CDE", "GEA", "FFF"]
-<strong>输出：</strong>true
-<strong>解释：</strong>允许的三角形模式显示在右边。
-从最底层(第3层)开始，我们可以在第2层构建“CE”，然后在第1层构建“E”。
-金字塔中有三种三角形图案，分别是“BCC”、“CDE”和“CEA”。都是允许的。
+因为符合(&#39;B&#39;, &#39;C&#39;, &#39;G&#39;), (&#39;C&#39;, &#39;D&#39;, &#39;E&#39;) 和 (&#39;G&#39;, &#39;E&#39;, &#39;A&#39;) 三种规则。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>示例 2:</strong></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid2-grid.jpg" style="height: 359px; width: 600px;" /></p>
-
-<pre>
-<strong>输入：</strong>bottom = "AABA", allowed = ["AAA", "AAB", "ABA", "ABB", "BAC"]
-<strong>输出：</strong>false
-<strong>解释：</strong>允许的三角形模式显示在右边。
-从最底层(游戏邦注:即第4个关卡)开始，创造第3个关卡有多种方法，但如果尝试所有可能性，你便会在创造第1个关卡前陷入困境。
+<pre><strong>输入:</strong> bottom = &quot;AABA&quot;, allowed = [&quot;AAA&quot;, &quot;AAB&quot;, &quot;ABA&quot;, &quot;ABB&quot;, &quot;BAC&quot;]
+<strong>输出:</strong> false
+<strong>解析:</strong>
+无法一直堆到塔尖。
+注意, 允许存在像 (A, B, C) 和 (A, B, D) 这样的三元组，其中 C != D。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>提示：</strong></p>
+<p><strong>注意：</strong></p>
 
-<ul>
-	<li><code>2 &lt;= bottom.length &lt;= 6</code></li>
-	<li><code>0 &lt;= allowed.length &lt;= 216</code></li>
-	<li><code>allowed[i].length == 3</code></li>
-	<li>所有输入字符串中的字母来自集合&nbsp;<code>{'A', 'B', 'C', 'D', 'E', 'F', 'G'}</code>。</li>
-	<li>&nbsp;<code>allowed</code>&nbsp;中所有值都是 <strong>唯一的</strong></li>
-</ul>
-
-<p>&nbsp;</p>
+<ol>
+	<li><code>bottom</code> 的长度范围在&nbsp;<code>[2, 8]</code>。</li>
+	<li><code>allowed</code> 的长度范围在<code>[0, 200]</code>。</li>
+	<li>方块的标记字母范围为<code>{&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;}</code>。</li>
+</ol>
 
 ## 解法
 

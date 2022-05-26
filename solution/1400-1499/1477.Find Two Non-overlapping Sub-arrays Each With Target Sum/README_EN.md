@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>You are given an array of integers <code>arr</code> and an integer <code>target</code>.</p>
+<p>Given an array of integers <code>arr</code> and an integer <code>target</code>.</p>
 
-<p>You have to find <strong>two non-overlapping sub-arrays</strong> of <code>arr</code> each with a sum equal <code>target</code>. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is <strong>minimum</strong>.</p>
+<p>You have to find <strong>two non-overlapping sub-arrays</strong> of <code>arr</code> each with sum equal <code>target</code>. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is <strong>minimum</strong>.</p>
 
-<p>Return <em>the minimum sum of the lengths</em> of the two required sub-arrays, or return <code>-1</code> if you cannot find such two sub-arrays.</p>
+<p>Return <em>the minimum sum of the lengths</em> of the two required sub-arrays, or return <em><strong>-1</strong></em> if you cannot&nbsp;find such two sub-arrays.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,13 +35,29 @@
 <strong>Explanation:</strong> We have only one sub-array of sum = 6.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [5,5,4,4,5], target = 3
+<strong>Output:</strong> -1
+<strong>Explanation:</strong> We cannot find a sub-array of sum = 3.
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [3,1,1,1,5,1,2,1], target = 3
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> Note that sub-arrays [1,2] and [2,1] cannot be an answer because they overlap.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
-	<li><code>1 &lt;= target &lt;= 10<sup>8</sup></code></li>
+	<li><code>1 &lt;= target &lt;= 10^8</code></li>
 </ul>
 
 ## Solutions

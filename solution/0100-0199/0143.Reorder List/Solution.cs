@@ -1,48 +1,55 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
 public class Solution {
     public void ReorderList(ListNode head) {
-        if (head == null || head.next == null)
+        var mid = FindMiddleNode(head);
+        if (mid == null || mid.next == null) return;
+        var head2 = mid.next;
+        mid.next = null;
+        head2 = ReverseList(head2);
+        MergeList(head, head2);
+    }
+    
+    private ListNode FindMiddleNode(ListNode head)
+    {
+        var last = head;
+        var mid = head;
+        while (last != null)
         {
-            return;
+            last = last.next;
+            if (last != null)
+            {
+                last = last.next;
+                mid = mid.next;
+            }
         }
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (fast != null && fast.next != null)
+        return mid;
+    }
+    
+    private ListNode ReverseList(ListNode head)
+    {
+        var current = head;
+        head = null;
+        while (current != null)
         {
-            slow = slow.next;
-            fast = fast.next.next;
+            var next = current.next;
+            current.next = head;
+            head = current;
+            current = next;
         }
-
-        ListNode cur = slow.next;
-        slow.next = null;
-
-        ListNode pre = null;
-        while (cur != null)
+        return head;
+    }
+    
+    private void MergeList(ListNode head1, ListNode head2)
+    {
+        var p1 = head1;
+        var p2 = head2;
+        while (p2 != null)
         {
-            ListNode t = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = t;
-        }
-        cur = head;
-
-        while (pre != null)
-        {
-            ListNode t = pre.next;
-            pre.next = cur.next;
-            cur.next = pre;
-            cur = pre.next;
-            pre = t;
+            var p1Next = p1.next;
+            var p2Next = p2.next;
+            p1.next = p2;
+            p2.next = p1Next;
+            p1 = p1Next;
+            p2 = p2Next;
         }
     }
 }

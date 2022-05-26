@@ -8,26 +8,23 @@
  * }
  */
 class Solution {
-    private int cur;
+    private int t;
     private int res;
-
     public int kthLargest(TreeNode root, int k) {
-        cur = k;
-        res = 0;
-        inorder(root);
+        t = k;
+        traverse(root);
         return res;
     }
 
-    private void inorder(TreeNode root) {
-        if (root == null) {
-            return;
+    private void traverse(TreeNode node) {
+        if (node != null) {
+            traverse(node.right);
+            --t;
+            if (t == 0) {
+                res = node.val;
+                return;
+            }
+            traverse(node.left);
         }
-        inorder(root.right);
-        --cur;
-        if (cur == 0) {
-            res = root.val;
-            return;
-        }
-        inorder(root.left);
     }
 }

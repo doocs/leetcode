@@ -4,37 +4,25 @@
 
 ## Description
 
-<p>Given a string <code>s</code>, return <code>true</code> if a permutation of the string could form a palindrome.</p>
+<p>Given a string, determine if a permutation of the string could form a palindrome.</p>
 
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;code&quot;
-<strong>Output:</strong> false
-</pre>
+<strong>Input:</strong> <code>"code"</code>
+<strong>Output:</strong> false</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;aab&quot;
-<strong>Output:</strong> true
-</pre>
+<strong>Input:</strong> <code>"aab"</code>
+<strong>Output:</strong> true</pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;carerac&quot;
-<strong>Output:</strong> true
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= s.length &lt;= 5000</code></li>
-	<li><code>s</code> consists of only lowercase English letters.</li>
-</ul>
+<strong>Input:</strong> <code>"carerac"</code>
+<strong>Output:</strong> true</pre>
 
 ## Solutions
 
@@ -45,8 +33,14 @@
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        counter = Counter(s)
-        return sum(e % 2 for e in counter.values()) < 2
+        mapper = {}
+        for ch in s:
+            mapper[ch] = mapper.get(ch, 0) + 1
+        cnt = 0
+        for _, v in mapper.items():
+            if v % 2 != 0:
+                cnt += 1
+        return cnt <= 1
 ```
 
 ### **Java**
@@ -54,47 +48,19 @@ class Solution:
 ```java
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0, n = s.length(); i < n; ++i) {
+            char ch = s.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
-        int oddCnt = 0;
-        for (int cnt : counter) {
-            oddCnt += cnt % 2;
+        int cnt = 0;
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() % 2 != 0) {
+                ++cnt;
+            }
         }
-        return oddCnt < 2;
+        return cnt <= 1;
     }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool canPermutePalindrome(string s) {
-        vector<int> counter(26);
-        for (auto& c : s) ++counter[c - 'a'];
-        int oddCnt = 0;
-        for (int& cnt : counter) oddCnt += cnt % 2;
-        return oddCnt < 2;
-    }
-};
-```
-
-### **Go**
-
-```go
-func canPermutePalindrome(s string) bool {
-	counter := make([]int, 26)
-	for i := range s {
-		counter[s[i]-'a']++
-	}
-	oddCnt := 0
-	for _, cnt := range counter {
-		oddCnt += cnt % 2
-	}
-	return oddCnt < 2
 }
 ```
 

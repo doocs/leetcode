@@ -1,11 +1,10 @@
-# [1442. 形成两个异或相等数组的三元组数目](https://leetcode.cn/problems/count-triplets-that-can-form-two-arrays-of-equal-xor)
+# [1442. 形成两个异或相等数组的三元组数目](https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor)
 
 [English Version](/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给你一个整数数组 <code>arr</code> 。</p>
 
 <p>现需要从数组中取三个下标 <code>i</code>、<code>j</code> 和 <code>k</code> ，其中 <code>(0 &lt;= i &lt; j &lt;= k &lt; arr.length)</code> 。</p>
@@ -67,8 +66,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀异或，然后暴力枚举即可。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,20 +73,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def countTriplets(self, arr: List[int]) -> int:
-        n = len(arr)
-        pre = [0] * (n + 1)
-        for i in range(n):
-            pre[i + 1] = pre[i] ^ arr[i]
-        ans = 0
-        for i in range(n - 1):
-            for j in range(i + 1, n):
-                for k in range(j, n):
-                    a, b = pre[j] ^ pre[i], pre[k + 1] ^ pre[j]
-                    if a == b:
-                        ans += 1
-        return ans
+
 ```
 
 ### **Java**
@@ -97,78 +81,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int countTriplets(int[] arr) {
-        int n = arr.length;
-        int[] pre = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            pre[i + 1] = pre[i] ^ arr[i];
-        }
-        int ans = 0;
-        for (int i = 0; i < n - 1; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                for (int k = j; k < n; ++k) {
-                    int a = pre[j] ^ pre[i];
-                    int b = pre[k + 1] ^ pre[j];
-                    if (a == b) {
-                        ++ans;
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countTriplets(vector<int>& arr) {
-        int n = arr.size();
-        vector<int> pre(n + 1);
-        for (int i = 0; i < n; ++i) pre[i + 1] = pre[i] ^ arr[i];
-        int ans = 0;
-        for (int i = 0; i < n - 1; ++i)
-        {
-            for (int j = i + 1; j < n; ++j)
-            {
-                for (int k = j; k < n; ++k)
-                {
-                    int a = pre[j] ^ pre[i], b = pre[k + 1] ^ pre[j];
-                    if (a == b) ++ans;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func countTriplets(arr []int) int {
-	n := len(arr)
-	pre := make([]int, n+1)
-	for i := 0; i < n; i++ {
-		pre[i+1] = pre[i] ^ arr[i]
-	}
-	ans := 0
-	for i := 0; i < n-1; i++ {
-		for j := i + 1; j < n; j++ {
-			for k := j; k < n; k++ {
-				a, b := pre[j]^pre[i], pre[k+1]^pre[j]
-				if a == b {
-					ans++
-				}
-			}
-		}
-	}
-	return ans
-}
 ```
 
 ### **...**

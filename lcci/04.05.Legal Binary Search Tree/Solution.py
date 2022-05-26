@@ -5,10 +5,8 @@
 #         self.left = None
 #         self.right = None
 
-
 class Solution:
     res, t = True, None
-
     def isValidBST(self, root: TreeNode) -> bool:
         self.isValid(root)
         return self.res

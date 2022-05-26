@@ -1,65 +1,49 @@
-# [716. 最大栈](https://leetcode.cn/problems/max-stack)
+# [716. 最大栈](https://leetcode-cn.com/problems/max-stack)
 
 [English Version](/solution/0700-0799/0716.Max%20Stack/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
-<p>设计一个最大栈数据结构，既支持栈操作，又支持查找栈中最大元素。</p>
-
-<p>实现 <code>MaxStack</code> 类：</p>
-
-<ul>
-	<li><code>MaxStack()</code> 初始化栈对象</li>
-	<li><code>void push(int x)</code> 将元素 x 压入栈中。</li>
-	<li><code>int pop()</code> 移除栈顶元素并返回这个元素。</li>
-	<li><code>int top()</code> 返回栈顶元素，无需移除。</li>
-	<li><code>int peekMax()</code> 检索并返回栈中最大元素，无需移除。</li>
-	<li><code>int popMax()</code> 检索并返回栈中最大元素，并将其移除。如果有多个最大元素，只要移除 <strong>最靠近栈顶</strong> 的那个。</li>
-</ul>
+<p>设计一个最大栈，支持 push、pop、top、peekMax 和 popMax 操作。</p>
 
 <p> </p>
 
-<p><strong>示例：</strong></p>
+<ol>
+	<li>push(x) -- 将元素 x 压入栈中。</li>
+	<li>pop() -- 移除栈顶元素并返回这个值。</li>
+	<li>top() -- 返回栈顶元素。</li>
+	<li>peekMax() -- 返回栈中最大元素。</li>
+	<li>popMax() -- 返回栈中最大的元素，并将其删除。如果有多个最大元素，只要删除最靠近栈顶的那个。</li>
+</ol>
 
-<pre>
-<strong>输入</strong>
-["MaxStack", "push", "push", "push", "top", "popMax", "top", "peekMax", "pop", "top"]
-[[], [5], [1], [5], [], [], [], [], [], []]
-<strong>输出</strong>
-[null, null, null, null, 5, 5, 1, 5, 1, 5]
+<p> </p>
 
-<strong>解释</strong>
-MaxStack stk = new MaxStack();
-stk.push(5);   // [<strong>5</strong>] - 5 既是栈顶元素，也是最大元素
-stk.push(1);   // [<strong>5</strong>, <strong>1</strong>] - 栈顶元素是 1，最大元素是 5
-stk.push(5);   // [5, 1, <strong>5</strong>] - 5 既是栈顶元素，也是最大元素
-stk.top();     // 返回 5，[5, 1, <strong>5</strong>] - 栈没有改变
-stk.popMax();  // 返回 5，[<strong>5</strong>, <strong>1</strong>] - 栈发生改变，栈顶元素不再是最大元素
-stk.top();     // 返回 1，[<strong>5</strong>, <strong>1</strong>] - 栈没有改变
-stk.peekMax(); // 返回 5，[<strong>5</strong>, <strong>1</strong>] - 栈没有改变
-stk.pop();     // 返回 1，[<strong>5</strong>] - 此操作后，5 既是栈顶元素，也是最大元素
-stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
+<p><strong>样例 1:</strong></p>
+
+<pre>MaxStack stack = new MaxStack();
+stack.push(5); 
+stack.push(1);
+stack.push(5);
+stack.top(); -> 5
+stack.popMax(); -> 5
+stack.top(); -> 1
+stack.peekMax(); -> 5
+stack.pop(); -> 1
+stack.top(); -> 5
 </pre>
 
 <p> </p>
 
-<p><strong>提示：</strong></p>
+<p><strong>注释:</strong></p>
 
-<ul>
-	<li><code>-10<sup>7</sup> <= x <= 10<sup>7</sup></code></li>
-	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>push</code>、<code>pop</code>、<code>top</code>、<code>peekMax</code> 和 <code>popMax</code></li>
-	<li>调用 <code>pop</code>、<code>top</code>、<code>peekMax</code> 或 <code>popMax</code> 时，栈中 <strong>至少存在一个元素</strong></li>
-</ul>
+<ol>
+	<li>-1e7 <= x <= 1e7</li>
+	<li>操作次数不会超过 10000。</li>
+	<li>当栈为空的时候不会出现后四个操作。</li>
+</ol>
 
 <p> </p>
-
-<p><b>进阶：</b> </p>
-
-<ul>
-	<li>试着设计解决方案：调用 <code>top</code> 方法的时间复杂度为 <code>O(1)</code> ，调用其他方法的时间复杂度为 <code>O(logn)</code> 。 </li>
-</ul>
 
 ## 解法
 

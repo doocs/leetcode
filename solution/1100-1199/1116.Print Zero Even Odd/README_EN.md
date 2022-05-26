@@ -4,55 +4,43 @@
 
 ## Description
 
-<p>You have a function <code>printNumber</code> that can be called with an integer parameter and prints it to the console.</p>
+<p>Suppose you are given the following code:</p>
 
-<ul>
-	<li>For example, calling <code>printNumber(7)</code> prints <code>7</code> to the console.</li>
-</ul>
+<pre>
+class ZeroEvenOdd {
+&nbsp; public ZeroEvenOdd(int n) { ... }&nbsp;     // constructor
+  public void zero(printNumber) { ... }  // only output 0&#39;s
+  public void even(printNumber) { ... }  // only output even numbers
+  public void odd(printNumber) { ... }   // only output odd numbers
+}
+</pre>
 
-<p>You are given an instance of the class <code>ZeroEvenOdd</code> that has three functions: <code>zero</code>, <code>even</code>, and <code>odd</code>. The same instance of <code>ZeroEvenOdd</code> will be passed to three different threads:</p>
+<p>The same instance of <code>ZeroEvenOdd</code> will be passed to three different threads:</p>
 
-<ul>
-	<li><strong>Thread A:</strong> calls <code>zero()</code> that should only output <code>0</code>&#39;s.</li>
-	<li><strong>Thread B:</strong> calls <code>even()</code> that should only output even numbers.</li>
-	<li><strong>Thread C:</strong> calls <code>odd()</code> that should only output odd numbers.</li>
-</ul>
+<ol>
+	<li>Thread A will call&nbsp;<code>zero()</code>&nbsp;which should only output 0&#39;s.</li>
+	<li>Thread B will call&nbsp;<code>even()</code>&nbsp;which should only ouput even numbers.</li>
+	<li>Thread C will call <code>odd()</code>&nbsp;which should only output odd numbers.</li>
+</ol>
 
-<p>Modify the given class to output the series <code>&quot;010203040506...&quot;</code> where the length of the series must be <code>2n</code>.</p>
-
-<p>Implement the <code>ZeroEvenOdd</code> class:</p>
-
-<ul>
-	<li><code>ZeroEvenOdd(int n)</code> Initializes the object with the number <code>n</code> that represents the numbers that should be printed.</li>
-	<li><code>void zero(printNumber)</code> Calls <code>printNumber</code> to output one zero.</li>
-	<li><code>void even(printNumber)</code> Calls <code>printNumber</code> to output one even number.</li>
-	<li><code>void odd(printNumber)</code> Calls <code>printNumber</code> to output one odd number.</li>
-</ul>
+<p>Each of the threads is given a&nbsp;<code>printNumber</code> method to output&nbsp;an integer. Modify the given program to output the series&nbsp;<code>010203040506</code>... where the length of the series must be 2<em>n</em>.</p>
 
 <p>&nbsp;</p>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 2
-<strong>Output:</strong> &quot;0102&quot;
-<strong>Explanation:</strong> There are three threads being fired asynchronously.
-One of them calls zero(), the other calls even(), and the last one calls odd().
-&quot;0102&quot; is the correct output.
+<b>Input:</b> n = 2
+<b>Output:</b> &quot;0102&quot;
+<strong>Explanation:</strong> There are three threads being fired asynchronously. One of them calls zero(), the other calls even(), and the last one calls odd(). &quot;0102&quot; is the correct output.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 5
-<strong>Output:</strong> &quot;0102030405&quot;
+<b>Input:</b> n = 5
+<b>Output:</b> &quot;0102030405&quot;
 </pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= n &lt;= 1000</code></li>
-</ul>
 
 ## Solutions
 

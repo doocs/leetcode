@@ -1,13 +1,12 @@
 ﻿class Solution {
 public:
-    int repeatedNTimes(vector<int>& nums) {
-        unordered_set<int> s;
-        for (auto &num : nums) {
-            if (s.find(num) != s.end()) {
-                return num;
-            }
-            s.insert(num);
-        }
-        return -1;
+    int repeatedNTimes(vector<int>& A) {
+        unordered_set<int> us(A[0]) ;
+        for(int i  = (A.size() >> 1) - 1; i < A.size(); ++i)
+            if(us.find(A[i]) != us.end())
+                return A[i] ;
+            else
+                us.insert(A[i]) ;
+        return A[0] ;
     }
 };

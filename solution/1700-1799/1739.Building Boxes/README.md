@@ -1,11 +1,10 @@
-# [1739. 放置盒子](https://leetcode.cn/problems/building-boxes)
+# [1739. 放置盒子](https://leetcode-cn.com/problems/building-boxes)
 
 [English Version](/solution/1700-1799/1739.Building%20Boxes/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>有一个立方体房间，其长度、宽度和高度都等于 <code>n</code> 个单位。请你在房间里放置 <code>n</code> 个盒子，每个盒子都是一个单位边长的立方体。放置规则如下：</p>
 
 <ul>
@@ -19,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1739.Building%20Boxes/images/3-boxes.png" style="width: 135px; height: 143px;" /></p>
+![](./images/3-boxes.png)
 
 <pre>
 <strong>输入：</strong>n = 3
@@ -30,7 +29,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1739.Building%20Boxes/images/4-boxes.png" style="width: 135px; height: 179px;" /></p>
+![](./images/4-boxes.png)
 
 <pre>
 <strong>输入：</strong>n = 4
@@ -41,7 +40,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1739.Building%20Boxes/images/10-boxes.png" style="width: 271px; height: 257px;" /></p>
+![](./images/10-boxes.png)
 
 <pre>
 <strong>输入：</strong>n = 10

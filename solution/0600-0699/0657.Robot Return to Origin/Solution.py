@@ -1,13 +1,20 @@
 class Solution:
-    def judgeCircle(self, moves: str) -> bool:
-        x = y = 0
-        for c in moves:
-            if c == 'R':
-                x += 1
-            elif c == 'L':
-                x -= 1
-            elif c == 'U':
+    def judgeCircle(self, moves):
+        """
+        :type moves: str
+        :rtype: bool
+        """
+        
+        x = 0
+        y = 0
+        for each in moves:
+            if( each == 'U' ):
                 y += 1
-            elif c == 'D':
+            elif( each == 'D' ):
                 y -= 1
-        return x == 0 and y == 0
+            elif( each == 'R' ):
+                x += 1
+            elif( each == 'L' ):
+                x -= 1
+        
+        return x == y == 0

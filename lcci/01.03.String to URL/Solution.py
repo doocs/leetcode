@@ -1,3 +1,4 @@
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
-        return S[:length].replace(' ', '%20')
+        S = S[:length] if length < len(S) else S
+        return S.replace(' ', '%20')

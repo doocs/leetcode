@@ -1,18 +1,19 @@
 class Solution {
+    unordered_map<int, int> tested; // map (start index * 1005 + steps) to longest length  
 public:
-    int longestArithSeqLength(vector<int>& nums) {
-        int n = nums.size();
-        int ans = 0;
-        vector<vector<int>> dp(n, vector<int>(1001, 1));
-        for (int i = 1; i < n; ++i)
-        {
-            for (int j = 0; j < i; ++j)
-            {
-                int d = nums[i] - nums[j] + 500;
-                dp[i][d] = max(dp[i][d], dp[j][d] + 1);
-                ans = max(ans, dp[i][d]);
+    int longestArithSeqLength(vector<int>& A) {
+        int res = 0;
+        for (int i = 0; i < A.size(); ++i) {
+            for (int j = 0; j < i; ++j) {
+                int diff = A[i] - A[j];
+                if (tested.count(j*10005 + diff)) {
+                    tested[i*10005+diff] = max(tested[i*10005+diff], 1+tested[j*10005 + diff]);
+                } else {
+                    tested[i*10005+diff] = max(tested[i*10005+diff], 2);
+                }
+                res = max(res, tested[i*10005+diff]);
             }
         }
-        return ans;
+        return res;
     }
 };

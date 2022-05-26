@@ -4,99 +4,103 @@
 
 ## Description
 
-<p>You are given a personal information string <code>s</code>, representing either an <strong>email address</strong> or a <strong>phone number</strong>. Return <em>the <strong>masked</strong> personal information using the below rules</em>.</p>
+<p>We are given a&nbsp;personal information string <code>S</code>, which may represent&nbsp;either <strong>an email address</strong> or <strong>a phone number.</strong></p>
 
-<p><u><strong>Email address:</strong></u></p>
+<p>We would like to mask this&nbsp;personal information according to the&nbsp;following rules:</p>
 
-<p>An email address is:</p>
+<p><br />
 
-<ul>
-	<li>A <strong>name</strong> consisting of uppercase and lowercase English letters, followed by</li>
-	<li>The <code>&#39;@&#39;</code> symbol, followed by</li>
-	<li>The <strong>domain</strong> consisting of uppercase and lowercase English letters with a dot <code>&#39;.&#39;</code> somewhere in the middle (not the first or last character).</li>
-</ul>
+<u><strong>1. Email address:</strong></u></p>
 
-<p>To mask an email:</p>
+<p>We define a&nbsp;<strong>name</strong> to be a string of <code>length &ge; 2</code> consisting&nbsp;of only lowercase letters&nbsp;<code>a-z</code> or uppercase&nbsp;letters&nbsp;<code>A-Z</code>.</p>
 
-<ul>
-	<li>The uppercase letters in the <strong>name</strong> and <strong>domain</strong> must be converted to lowercase letters.</li>
-	<li>The middle letters of the <strong>name</strong> (i.e., all but the first and last letters) must be replaced by 5 asterisks <code>&quot;*****&quot;</code>.</li>
-</ul>
+<p>An email address starts with a name, followed by the&nbsp;symbol <code>&#39;@&#39;</code>, followed by a name, followed by the&nbsp;dot&nbsp;<code>&#39;.&#39;</code>&nbsp;and&nbsp;followed by a name.&nbsp;</p>
 
-<p><u><strong>Phone number:</strong></u></p>
+<p>All email addresses are&nbsp;guaranteed to be valid and in the format of&nbsp;<code>&quot;name1@name2.name3&quot;.</code></p>
 
-<p>A phone number is formatted as follows:</p>
+<p>To mask an email, <strong>all names must be converted to lowercase</strong> and <strong>all letters between the first and last letter of the first name</strong> must be replaced by 5 asterisks <code>&#39;*&#39;</code>.</p>
 
-<ul>
-	<li>The phone number contains 10-13 digits.</li>
-	<li>The last 10 digits make up the <strong>local number</strong>.</li>
-	<li>The remaining 0-3 digits, in the beginning, make up the <strong>country code</strong>.</li>
-	<li><strong>Separation characters</strong> from the set <code>{&#39;+&#39;, &#39;-&#39;, &#39;(&#39;, &#39;)&#39;, &#39; &#39;}</code> separate the above digits in some way.</li>
-</ul>
+<p><br />
 
-<p>To mask a phone number:</p>
+<u><strong>2. Phone number:</strong></u></p>
 
-<ul>
-	<li>Remove all <strong>separation characters</strong>.</li>
-	<li>The masked phone number should have the form:
-	<ul>
-		<li><code>&quot;***-***-XXXX&quot;</code> if the country code has 0 digits.</li>
-		<li><code>&quot;+*-***-***-XXXX&quot;</code> if the country code has 1 digit.</li>
-		<li><code>&quot;+**-***-***-XXXX&quot;</code> if the country code has 2 digits.</li>
-		<li><code>&quot;+***-***-***-XXXX&quot;</code> if the country code has 3 digits.</li>
-	</ul>
-	</li>
-	<li><code>&quot;XXXX&quot;</code> is the last 4 digits of the <strong>local number</strong>.</li>
-</ul>
+<p>A phone number is a string consisting of&nbsp;only the digits <code>0-9</code> or the characters from the set <code>{&#39;+&#39;, &#39;-&#39;, &#39;(&#39;, &#39;)&#39;, &#39;&nbsp;&#39;}.</code>&nbsp;You may assume a phone&nbsp;number contains&nbsp;10 to 13 digits.</p>
+
+<p>The last 10 digits make up the local&nbsp;number, while the digits before those make up the country code. Note that&nbsp;the country code is optional. We want to expose only the last 4 digits&nbsp;and mask all other&nbsp;digits.</p>
+
+<p>The local&nbsp;number&nbsp;should be formatted and masked as <code>&quot;***-***-1111&quot;,&nbsp;</code>where <code>1</code> represents the exposed digits.</p>
+
+<p>To mask a phone number with country code like <code>&quot;+111 111 111 1111&quot;</code>, we write it in the form <code>&quot;+***-***-***-1111&quot;.</code>&nbsp; The <code>&#39;+&#39;</code>&nbsp;sign and the first <code>&#39;-&#39;</code>&nbsp;sign before the local number should only exist if there is a country code.&nbsp; For example, a 12 digit phone number mask&nbsp;should start&nbsp;with <code>&quot;+**-&quot;</code>.</p>
+
+<p>Note that extraneous characters like <code>&quot;(&quot;, &quot;)&quot;, &quot; &quot;</code>, as well as&nbsp;extra dashes or plus signs not part of the above formatting scheme should be removed.</p>
 
 <p>&nbsp;</p>
+
+<p>Return the correct &quot;mask&quot; of the information provided.</p>
+
+<p>&nbsp;</p>
+
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;LeetCode@LeetCode.com&quot;
-<strong>Output:</strong> &quot;l*****e@leetcode.com&quot;
-<strong>Explanation:</strong> s is an email address.
-The name and domain are converted to lowercase, and the middle of the name is replaced by 5 asterisks.
+
+<strong>Input: </strong>&quot;LeetCode@LeetCode.com&quot;
+
+<strong>Output: </strong>&quot;l*****e@leetcode.com&quot;
+
+<strong>Explanation:&nbsp;</strong>All names are converted to lowercase, and the letters between the
+
+&nbsp;            first and last letter of the first name is replaced by 5 asterisks.
+
+&nbsp;            Therefore, &quot;leetcode&quot; -&gt; &quot;l*****e&quot;.
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;AB@qq.com&quot;
-<strong>Output:</strong> &quot;a*****b@qq.com&quot;
-<strong>Explanation:</strong> s is an email address.
-The name and domain are converted to lowercase, and the middle of the name is replaced by 5 asterisks.
-Note that even though &quot;ab&quot; is 2 characters, it still must have 5 asterisks in the middle.
+
+<strong>Input: </strong>&quot;AB@qq.com&quot;
+
+<strong>Output: </strong>&quot;a*****b@qq.com&quot;
+
+<strong>Explanation:&nbsp;</strong>There must be 5 asterisks between the first and last letter 
+
+&nbsp;            of the first name &quot;ab&quot;. Therefore, &quot;ab&quot; -&gt; &quot;a*****b&quot;.
+
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;1(234)567-890&quot;
-<strong>Output:</strong> &quot;***-***-7890&quot;
-<strong>Explanation:</strong> s is a phone number.
-There are 10 digits, so the local number is 10 digits and the country code is 0 digits.
-Thus, the resulting masked number is &quot;***-***-7890&quot;.
+
+<strong>Input: </strong>&quot;1(234)567-890&quot;
+
+<strong>Output: </strong>&quot;***-***-7890&quot;
+
+<strong>Explanation:</strong>&nbsp;10 digits in the phone number, which means all digits make up the local number.
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><strong>Example 4:</strong></p>
 
-<ul>
-	<li><code>s</code> is either a <strong>valid</strong> email or a phone number.</li>
-	<li>If <code>s</code> is an email:
-	<ul>
-		<li><code>8 &lt;= s.length &lt;= 40</code></li>
-		<li><code>s</code> consists of uppercase and lowercase English letters and exactly one <code>&#39;@&#39;</code> symbol and <code>&#39;.&#39;</code> symbol.</li>
-	</ul>
-	</li>
-	<li>If <code>s</code> is a phone number:
-	<ul>
-		<li><code>10 &lt;= s.length &lt;= 20</code></li>
-		<li><code>s</code> consists of digits, spaces, and the symbols <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;-&#39;</code>, and <code>&#39;+&#39;</code>.</li>
-	</ul>
-	</li>
-</ul>
+<pre>
+
+<strong>Input: </strong>&quot;86-(10)12345678&quot;
+
+<strong>Output: </strong>&quot;+**-***-***-5678&quot;
+
+<strong>Explanation:</strong>&nbsp;12 digits, 2 digits for country code and 10 digits for local number. 
+
+</pre>
+
+<p><strong>Notes:</strong></p>
+
+<ol>
+    <li><code>S.length&nbsp;&lt;=&nbsp;40</code>.</li>
+    <li>Emails have length at least 8.</li>
+    <li>Phone numbers have length at least 10.</li>
+</ol>
 
 ## Solutions
 

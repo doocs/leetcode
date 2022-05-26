@@ -1,4 +1,4 @@
-# [05.07. Exchange](https://leetcode.cn/problems/exchange-lcci)
+# [05.07. Exchange](https://leetcode-cn.com/problems/exchange-lcci)
 
 [中文文档](/lcci/05.07.Exchange/README.md)
 
@@ -40,9 +40,7 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def exchangeBits(self, num: int) -> int:
-        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa) >> 1)
+
 ```
 
 ### **Java**
@@ -50,48 +48,10 @@ class Solution:
 ```java
 class Solution {
     public int exchangeBits(int num) {
-        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
+        int t1 = num >> 1;
+    	int t2 = num << 1;
+    	return t1 & 0x55555555 | t2 & 0xaaaaaaaa;
     }
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn exchange_bits(mut num: i32) -> i32 {
-        let mut res = 0;
-        let mut i = 0;
-        while num != 0 {
-            let a = num & 1;
-            num >>= 1;
-            let b = num & 1;
-            num >>= 1;
-            res |= a << i + 1;
-            res |= b << i;
-            i += 2;
-        }
-        res
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int exchangeBits(int num) {
-        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func exchangeBits(num int) int {
-	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
 }
 ```
 

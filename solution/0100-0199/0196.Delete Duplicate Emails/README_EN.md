@@ -4,49 +4,49 @@
 
 ## Description
 
-<p>Table: <code>Person</code></p>
+<p>Write a SQL query to <strong>delete</strong> all duplicate email entries in a table named <code>Person</code>, keeping only unique emails based on its <i>smallest</i> <b>Id</b>.</p>
 
 <pre>
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| id          | int     |
-| email       | varchar |
-+-------------+---------+
-id is the primary key column for this table.
-Each row of this table contains an email. The emails will not contain uppercase letters.
-</pre>
 
-<p>&nbsp;</p>
-
-<p>Write an SQL query to <strong>delete</strong> all the duplicate emails, keeping only one unique email with the smallest <code>id</code>. Note that you are supposed to write a <code>DELETE</code> statement and not a <code>SELECT</code> one.</p>
-
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is in the following example.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> 
-Person table:
 +----+------------------+
-| id | email            |
+
+| Id | Email            |
+
 +----+------------------+
+
 | 1  | john@example.com |
+
 | 2  | bob@example.com  |
+
 | 3  | john@example.com |
+
 +----+------------------+
-<strong>Output:</strong> 
-+----+------------------+
-| id | email            |
-+----+------------------+
-| 1  | john@example.com |
-| 2  | bob@example.com  |
-+----+------------------+
-<strong>Explanation:</strong> john@example.com is repeated two times. We keep the row with the smallest Id = 1.
+
+Id is the primary key column for this table.
+
 </pre>
+
+<p>For example, after running your query, the above <code>Person</code> table should have the following rows:</p>
+
+<pre>
+
++----+------------------+
+
+| Id | Email            |
+
++----+------------------+
+
+| 1  | john@example.com |
+
+| 2  | bob@example.com  |
+
++----+------------------+
+
+</pre>
+
+<p><strong>Note:</strong></p>
+
+<p>Your output is the whole <code>Person</code>&nbsp;table after executing your sql. Use <code>delete</code> statement.</p>
 
 ## Solutions
 
@@ -54,28 +54,8 @@ Person table:
 
 ### **SQL**
 
-```sql
-DELETE
-FROM
-    Person
-WHERE
-    Id NOT IN (
-    SELECT
-        MIN( Id )
-    FROM
-        ( SELECT * FROM Person ) AS p
-    GROUP BY
-        p.Email
-    );
 ```
-
-```sql
-DELETE p2
-FROM
-    person AS p1
-    JOIN person AS p2 ON p1.email = p2.email
-WHERE
-    p1.id < p2.id;
+delete from Person where Id not in (select min(Id) from (select * from Person) as p group by p.Email)
 ```
 
 <!-- tabs:end -->

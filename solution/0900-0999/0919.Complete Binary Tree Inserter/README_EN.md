@@ -4,46 +4,69 @@
 
 ## Description
 
-<p>A <strong>complete binary tree</strong> is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</p>
+<p>A <em>complete</em> binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</p>
 
-<p>Design an algorithm to insert a new node to a complete binary tree keeping it complete after the insertion.</p>
-
-<p>Implement the <code>CBTInserter</code> class:</p>
+<p>Write a data structure&nbsp;<code>CBTInserter</code>&nbsp;that is initialized with a complete binary tree and supports the following operations:</p>
 
 <ul>
-	<li><code>CBTInserter(TreeNode root)</code> Initializes the data structure with the <code>root</code> of the complete binary tree.</li>
-	<li><code>int insert(int v)</code> Inserts a <code>TreeNode</code> into the tree with value <code>Node.val == val</code> so that the tree remains complete, and returns the value of the parent of the inserted <code>TreeNode</code>.</li>
-	<li><code>TreeNode get_root()</code> Returns the root node of the tree.</li>
+    <li><code>CBTInserter(TreeNode root)</code> initializes the data structure on a given tree&nbsp;with head node <code>root</code>;</li>
+    <li><code>CBTInserter.insert(int v)</code> will insert a <code>TreeNode</code>&nbsp;into the tree with value <code>node.val =&nbsp;v</code>&nbsp;so that the tree remains complete, <strong>and returns the value of the parent of the inserted <code>TreeNode</code></strong>;</li>
+    <li><code>CBTInserter.get_root()</code> will return the head node of the tree.</li>
 </ul>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0919.Complete%20Binary%20Tree%20Inserter/images/lc-treeinsert.jpg" style="width: 500px; height: 143px;" />
-<pre>
-<strong>Input</strong>
-[&quot;CBTInserter&quot;, &quot;insert&quot;, &quot;insert&quot;, &quot;get_root&quot;]
-[[[1, 2]], [3], [4], []]
-<strong>Output</strong>
-[null, 1, 2, [1, 2, 3, 4]]
+<ol>
 
-<strong>Explanation</strong>
-CBTInserter cBTInserter = new CBTInserter([1, 2]);
-cBTInserter.insert(3); // return 1
-cBTInserter.insert(4); // return 2
-cBTInserter.get_root(); // return [1, 2, 3, 4]
+</ol>
+
+<div>
+
+<p>&nbsp;</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre>
+
+<strong>Input: </strong>inputs = <span id="example-input-1-1">[&quot;CBTInserter&quot;,&quot;insert&quot;,&quot;get_root&quot;]</span>, inputs = <span id="example-input-1-2">[[[1]],[2],[]]</span>
+
+<strong>Output: </strong><span id="example-output-1">[null,1,[1,2]]</span>
 
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<div>
 
-<ul>
-	<li>The number of nodes in the tree will be in the range <code>[1, 1000]</code>.</li>
-	<li><code>0 &lt;= Node.val &lt;= 5000</code></li>
-	<li><code>root</code> is a complete binary tree.</li>
-	<li><code>0 &lt;= val &lt;= 5000</code></li>
-	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>insert</code> and <code>get_root</code>.</li>
-</ul>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+
+<strong>Input: </strong>inputs = <span id="example-input-2-1">[&quot;CBTInserter&quot;,&quot;insert&quot;,&quot;insert&quot;,&quot;get_root&quot;]</span>, inputs = <span id="example-input-2-2">[[[1,2,3,4,5,6]],[7],[8],[]]</span>
+
+<strong>Output: </strong><span id="example-output-2">[null,3,4,[1,2,3,4,5,6,7,8]]</span></pre>
+
+</div>
+
+<div>
+
+<p>&nbsp;</p>
+
+<p><strong>Note:</strong></p>
+
+<ol>
+    <li>The initial given tree is complete and contains between <code>1</code> and <code>1000</code> nodes.</li>
+    <li><code>CBTInserter.insert</code> is called at most <code>10000</code> times per test case.</li>
+    <li>Every value of a given or inserted node is between <code>0</code> and <code>5000</code>.</li>
+</ol>
+
+</div>
+
+</div>
+
+<div>
+
+<p>&nbsp;</p>
+
+<div>&nbsp;</div>
+
+</div>
 
 ## Solutions
 
@@ -52,217 +75,13 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 ### **Python3**
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class CBTInserter:
 
-    def __init__(self, root: TreeNode):
-        self.tree = []
-        q = deque([root])
-        while q:
-            n = len(q)
-            for _ in range(n):
-                node = q.popleft()
-                self.tree.append(node)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-
-    def insert(self, val: int) -> int:
-        pidx = (len(self.tree) - 1) >> 1
-        node = TreeNode(val=val)
-        self.tree.append(node)
-        if self.tree[pidx].left is None:
-            self.tree[pidx].left = node
-        else:
-            self.tree[pidx].right = node
-        return self.tree[pidx].val
-
-    def get_root(self) -> TreeNode:
-        return self.tree[0]
-
-
-# Your CBTInserter object will be instantiated and called as such:
-# obj = CBTInserter(root)
-# param_1 = obj.insert(val)
-# param_2 = obj.get_root()
 ```
 
 ### **Java**
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class CBTInserter {
-    private List<TreeNode> tree;
 
-    public CBTInserter(TreeNode root) {
-        tree = new ArrayList<>();
-        Deque<TreeNode> q = new ArrayDeque<>();
-        q.offerLast(root);
-        while (!q.isEmpty()) {
-            TreeNode node = q.pollFirst();
-            tree.add(node);
-            if (node.left != null) {
-                q.offerLast(node.left);
-            }
-            if (node.right != null) {
-                q.offerLast(node.right);
-            }
-        }
-    }
-
-    public int insert(int val) {
-        int pidx = (tree.size() - 1) >> 1;
-        TreeNode node = new TreeNode(val);
-        tree.add(node);
-        if (tree.get(pidx).left == null) {
-            tree.get(pidx).left = node;
-        } else {
-            tree.get(pidx).right = node;
-        }
-        return tree.get(pidx).val;
-    }
-
-    public TreeNode get_root() {
-        return tree.get(0);
-    }
-}
-
-/**
- * Your CBTInserter object will be instantiated and called as such:
- * CBTInserter obj = new CBTInserter(root);
- * int param_1 = obj.insert(val);
- * TreeNode param_2 = obj.get_root();
- */
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class CBTInserter {
-public:
-    vector<TreeNode*> tree;
-
-    CBTInserter(TreeNode* root) {
-        queue<TreeNode*> q;
-        q.push(root);
-        while (!q.empty())
-        {
-            auto node = q.front();
-            q.pop();
-            tree.push_back(node);
-            if (node->left) q.push(node->left);
-            if (node->right) q.push(node->right);
-        }
-    }
-
-    int insert(int val) {
-        int pidx = tree.size() - 1 >> 1;
-        TreeNode* node = new TreeNode(val);
-        tree.push_back(node);
-        if (!tree[pidx]->left) tree[pidx]->left = node;
-        else tree[pidx]->right = node;
-        return tree[pidx]->val;
-    }
-
-    TreeNode* get_root() {
-        return tree[0];
-    }
-};
-
-/**
- * Your CBTInserter object will be instantiated and called as such:
- * CBTInserter* obj = new CBTInserter(root);
- * int param_1 = obj->insert(val);
- * TreeNode* param_2 = obj->get_root();
- */
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-type CBTInserter struct {
-	tree []*TreeNode
-}
-
-func Constructor(root *TreeNode) CBTInserter {
-	var q []*TreeNode
-	var tree []*TreeNode
-	q = append(q, root)
-	for len(q) > 0 {
-		node := q[0]
-		tree = append(tree, node)
-		q = q[1:]
-		if node.Left != nil {
-			q = append(q, node.Left)
-		}
-		if node.Right != nil {
-			q = append(q, node.Right)
-		}
-	}
-	return CBTInserter{tree}
-}
-
-func (this *CBTInserter) Insert(val int) int {
-	pidx := (len(this.tree) - 1) >> 1
-	node := &TreeNode{Val: val}
-	this.tree = append(this.tree, node)
-	if this.tree[pidx].Left == nil {
-		this.tree[pidx].Left = node
-	} else {
-		this.tree[pidx].Right = node
-	}
-	return this.tree[pidx].Val
-}
-
-func (this *CBTInserter) Get_root() *TreeNode {
-	return this.tree[0]
-}
-
-/**
- * Your CBTInserter object will be instantiated and called as such:
- * obj := Constructor(root);
- * param_1 := obj.Insert(val);
- * param_2 := obj.Get_root();
- */
 ```
 
 ### **...**

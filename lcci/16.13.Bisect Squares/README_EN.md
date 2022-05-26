@@ -1,4 +1,4 @@
-# [16.13. Bisect Squares](https://leetcode.cn/problems/bisect-squares-lcci)
+# [16.13. Bisect Squares](https://leetcode-cn.com/problems/bisect-squares-lcci)
 
 [中文文档](/lcci/16.13.Bisect%20Squares/README.md)
 

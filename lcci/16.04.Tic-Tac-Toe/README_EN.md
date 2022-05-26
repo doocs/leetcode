@@ -1,4 +1,4 @@
-# [16.04. Tic-Tac-Toe](https://leetcode.cn/problems/tic-tac-toe-lcci)
+# [16.04. Tic-Tac-Toe](https://leetcode-cn.com/problems/tic-tac-toe-lcci)
 
 [中文文档](/lcci/16.04.Tic-Tac-Toe/README.md)
 

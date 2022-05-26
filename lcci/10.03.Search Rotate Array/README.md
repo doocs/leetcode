@@ -1,4 +1,4 @@
-# [面试题 10.03. 搜索旋转数组](https://leetcode.cn/problems/search-rotate-array-lcci)
+# [面试题 10.03. 搜索旋转数组](https://leetcode-cn.com/problems/search-rotate-array-lcci)
 
 [English Version](/lcci/10.03.Search%20Rotate%20Array/README_EN.md)
 

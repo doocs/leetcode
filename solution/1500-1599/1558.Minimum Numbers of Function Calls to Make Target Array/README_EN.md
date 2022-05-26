@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>You are given an integer array <code>nums</code>. You have an integer array <code>arr</code> of the same length with all values set to <code>0</code> initially. You also have the following <code>modify</code> function:</p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/images/sample_2_1887.png" style="width: 573px; height: 294px;" />
-<p>You want to use the modify function to covert <code>arr</code> to <code>nums</code> using the minimum number of calls.</p>
+![](./images/sample_2_1887.png)
 
-<p>Return <em>the minimum number of function calls to make </em><code>nums</code><em> from </em><code>arr</code>.</p>
+<p>Your task is to form&nbsp;an integer array <code>nums</code> from an initial array of zeros&nbsp;<code>arr</code> that is the&nbsp;same size&nbsp;as <code>nums</code>.</p>
 
-<p>The test cases are generated so that the answer fits in a <strong>32-bit</strong> signed integer.</p>
+<p>Return the minimum number of&nbsp;function calls to make <code>nums</code> from <code>arr</code>.</p>
+
+<p>The answer is guaranteed to fit in a 32-bit signed integer.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -42,12 +42,26 @@ Total of operations: 2 + 1 = 3.
 <strong>Explanation:</strong> (initial)[0,0,0] -&gt; [1,0,0] -&gt; [1,0,1] -&gt; [2,0,2] -&gt; [2,1,2] -&gt; [4,2,4] -&gt; <strong>[4,2,5]</strong>(nums).
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,2,2,4]
+<strong>Output:</strong> 7
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,4,8,16]
+<strong>Output:</strong> 8
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 10^9</code></li>
 </ul>
 
 ## Solutions

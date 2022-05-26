@@ -39,6 +39,13 @@ x cannot be greater since there are only 2 numbers in nums.
 <strong>Explanation:</strong> There are 3 values that are greater than or equal to 3.
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,6,7,7,0]
+<strong>Output:</strong> -1
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -54,87 +61,13 @@ x cannot be greater since there are only 2 numbers in nums.
 ### **Python3**
 
 ```python
-class Solution:
-    def specialArray(self, nums: List[int]) -> int:
-        n = len(nums)
-        nums.sort()
-        for x in range(n + 1):
-            idx = bisect_left(nums, x)
-            cnt = n - 1 - idx + 1
-            if cnt == x:
-                return x
-        return -1
+
 ```
 
 ### **Java**
 
 ```java
-class Solution {
-    public int specialArray(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        for (int x = 0; x <= n; ++x) {
-            int left = 0, right = n;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (nums[mid] >= x) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            int cnt = n - 1 - left + 1;
-            if (cnt == x) {
-                return x;
-            }
-        }
-        return -1;
-    }
-}
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int specialArray(vector<int>& nums) {
-        int n = nums.size();
-        sort(nums.begin(), nums.end());
-        for (int x = 0; x <= n; ++x)
-        {
-            int idx = lower_bound(nums.begin(), nums.end(), x) - nums.begin();
-            int cnt = n - 1 - idx + 1;
-            if (cnt == x) return x;
-        }
-        return -1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func specialArray(nums []int) int {
-	n := len(nums)
-	sort.Ints(nums)
-	for x := 0; x <= n; x++ {
-		left, right := 0, n
-		for left < right {
-			mid := (left + right) >> 1
-			if nums[mid] >= x {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		cnt := n - 1 - left + 1
-		if cnt == x {
-			return x
-		}
-	}
-	return -1
-}
 ```
 
 ### **...**

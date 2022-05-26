@@ -1,4 +1,4 @@
-# [面试题 16.26. 计算器](https://leetcode.cn/problems/calculator-lcci)
+# [面试题 16.26. 计算器](https://leetcode-cn.com/problems/calculator-lcci)
 
 [English Version](/lcci/16.26.Calculator/README_EN.md)
 

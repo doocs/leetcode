@@ -4,9 +4,11 @@
 
 ## Description
 
-<p>Given a binary string <code>s</code>, you can split <code>s</code> into 3 <strong>non-empty</strong> strings <code>s1</code>, <code>s2</code>, and <code>s3</code> where <code>s1 + s2 + s3 = s</code>.</p>
+<p>Given a binary string <code>s</code> (a string consisting only of &#39;0&#39;s and &#39;1&#39;s),&nbsp;we can split <code>s</code>&nbsp;into 3 <strong>non-empty</strong> strings s1, s2, s3 (s1+ s2+ s3 = s).</p>
 
-<p>Return the number of ways <code>s</code> can be split such that the number of ones is the same in <code>s1</code>, <code>s2</code>, and <code>s3</code>. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
+<p>Return the number of ways <code>s</code> can be split such that the number of&nbsp;characters &#39;1&#39; is the same in s1, s2, and s3.</p>
+
+<p>Since the answer&nbsp;may be too large,&nbsp;return it modulo&nbsp;10^9 + 7.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -39,12 +41,19 @@
 &quot;00|0|0&quot;
 </pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;100100010100110&quot;
+<strong>Output:</strong> 12
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>3 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
+	<li><code>3 &lt;= s.length &lt;= 10^5</code></li>
+	<li><code>s[i]</code> is <code>&#39;0&#39;</code>&nbsp;or&nbsp;<code>&#39;1&#39;</code>.</li>
 </ul>
 
 ## Solutions

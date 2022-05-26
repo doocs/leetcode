@@ -1,4 +1,4 @@
-# [面试题 05.04. 下一个数](https://leetcode.cn/problems/closed-number-lcci)
+# [面试题 05.04. 下一个数](https://leetcode-cn.com/problems/closed-number-lcci)
 
 [English Version](/lcci/05.04.Closed%20Number/README_EN.md)
 

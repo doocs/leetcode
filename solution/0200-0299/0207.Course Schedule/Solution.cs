@@ -1,33 +1,44 @@
+using System.Collections.Generic;
+
 public class Solution {
     public bool CanFinish(int numCourses, int[][] prerequisites) {
-        var edges = new List<int>[numCourses];
-        for (int i = 0; i < numCourses; ++i)
-        {
-            edges[i] = new List<int>();
-        }
         var indegree = new int[numCourses];
-        for (int i = 0; i < prerequisites.Length; ++i)
+        var edgeCount = prerequisites.Length;
+        var edge = new List<int>[numCourses];
+        for (var i = 0; i < edgeCount; ++i)
         {
-            int a = prerequisites[i][0];
-            int b = prerequisites[i][1];
-            edges[b].Add(a);
-            ++indegree[a];
-        }
-        var q = new Queue<int>();
-        for (int i = 0; i < numCourses; ++i)
-        {
-            if (indegree[i] == 0) q.Enqueue(i);
-        }
-        var n = 0;
-        while (q.Count > 0)
-        {
-            int b = q.Dequeue();
-            ++n;
-            foreach (int a in edges[b])
+            var child = prerequisites[i][0];
+            var parent = prerequisites[i][1];
+            if (edge[parent] == null)
             {
-                if (--indegree[a] == 0) q.Enqueue(a);
+                edge[parent] = new List<int>();
+            }
+            edge[parent].Add(child);
+            ++indegree[child];
+        }
+
+        var queue = new Queue<int>();
+        for (var i = 0; i < numCourses; ++i)
+        {
+            if (indegree[i] == 0) queue.Enqueue(i);
+        }
+
+        var count = 0;
+        while (queue.Count > 0)
+        {
+            var node = queue.Dequeue();
+            ++count;
+            if (edge[node] != null)
+            {
+                foreach (var next in edge[node])
+                {
+                    if (--indegree[next] == 0)
+                    {
+                        queue.Enqueue(next);
+                    }
+                }
             }
         }
-        return n == numCourses;
+        return count == numCourses;
     }
 }

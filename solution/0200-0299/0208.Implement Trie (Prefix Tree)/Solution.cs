@@ -1,51 +1,63 @@
-public class Trie {
-    bool isEnd;
-    Trie[] children = new Trie[26];
+using System.Collections.Generic;
+using System.Linq;
 
-    public Trie() {
-
-    }
-
-    public void Insert(string word) {
-        Trie node = this;
-        foreach (var c in word)
-        {
-            var idx = c - 'a';
-            node.children[idx] ??= new Trie();
-            node = node.children[idx];
-        }
-        node.isEnd = true;
-    }
-
-    public bool Search(string word) {
-        Trie node = SearchPrefix(word);
-        return node != null && node.isEnd;
-    }
-
-    public bool StartsWith(string prefix) {
-        Trie node = SearchPrefix(prefix);
-        return node != null;
-    }
-
-    private Trie SearchPrefix(string s) {
-        Trie node = this;
-        foreach (var c in s)
-        {
-            var idx = c - 'a';
-            if (node.children[idx] == null)
-            {
-                return null;
-            }
-            node = node.children[idx];
-        }
-        return node;
+class TrieNode {
+    public bool IsEnd { get; set; }
+    public TrieNode[] Children { get; set; }
+    public TrieNode() {
+        Children = new TrieNode[26];
     }
 }
 
-/**
- * Your Trie object will be instantiated and called as such:
- * Trie obj = new Trie();
- * obj.Insert(word);
- * bool param_2 = obj.Search(word);
- * bool param_3 = obj.StartsWith(prefix);
- */
+public class Trie {
+    private TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    public void Insert(string word) {
+        var node = root;
+        for (var i = 0; i < word.Length; ++i)
+        {
+            TrieNode nextNode;
+            var index = word[i] - 'a';
+            nextNode = node.Children[index];
+            if (nextNode == null)
+            {
+                nextNode = new TrieNode();
+                node.Children[index] = nextNode;
+            }
+            node = nextNode;
+        }
+        node.IsEnd = true;
+    }
+
+    public bool Search(string word) {
+        var node = root;
+        for (var i = 0; i < word.Length; ++i)
+        {
+            var nextNode = node.Children[word[i] - 'a'];
+            if (nextNode == null)
+            {
+                return false;
+            }
+            node = nextNode;
+        }
+        return node.IsEnd;
+    }
+
+    public bool StartsWith(string word) {
+        var node = root;
+        for (var i = 0; i < word.Length; ++i)
+        {
+            var nextNode = node.Children[word[i] - 'a'];
+            if (nextNode == null)
+            {
+                return false;
+            }
+            node = nextNode;
+        }
+        return node.IsEnd || node.Children.Any(c => c != null);
+    }
+}

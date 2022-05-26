@@ -4,49 +4,77 @@
 
 ## Description
 
-<p>You are given an integer <code>n</code> and an array of <strong>unique</strong> integers <code>blacklist</code>. Design an algorithm to pick a random integer in the range <code>[0, n - 1]</code> that is <strong>not</strong> in <code>blacklist</code>. Any integer that is in the mentioned range and not in <code>blacklist</code> should be <strong>equally likely</strong> to be returned.</p>
+<p>Given a blacklist&nbsp;<code>B</code> containing unique integers&nbsp;from <code>[0, N)</code>, write a function to return a uniform random integer from <code>[0, N)</code> which is <strong>NOT</strong>&nbsp;in <code>B</code>.</p>
 
-<p>Optimize your algorithm such that it minimizes the number of calls to the <strong>built-in</strong> random function of your language.</p>
+<p>Optimize it such that it minimizes the call to system&rsquo;s <code>Math.random()</code>.</p>
 
-<p>Implement the <code>Solution</code> class:</p>
+<p><strong>Note:</strong></p>
 
-<ul>
-	<li><code>Solution(int n, int[] blacklist)</code> Initializes the object with the integer <code>n</code> and the blacklisted integers <code>blacklist</code>.</li>
-	<li><code>int pick()</code> Returns a random integer in the range <code>[0, n - 1]</code> and not in <code>blacklist</code>.</li>
-</ul>
+<ol>
+    <li><code>1 &lt;= N &lt;= 1000000000</code></li>
+    <li><code>0 &lt;= B.length &lt; min(100000, N)</code></li>
+    <li><code>[0, N)</code>&nbsp;does NOT include N. See <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)" target="_blank">interval notation</a>.</li>
+</ol>
 
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input</strong>
-[&quot;Solution&quot;, &quot;pick&quot;, &quot;pick&quot;, &quot;pick&quot;, &quot;pick&quot;, &quot;pick&quot;, &quot;pick&quot;, &quot;pick&quot;]
-[[7, [2, 3, 5]], [], [], [], [], [], [], []]
-<strong>Output</strong>
-[null, 0, 4, 1, 6, 1, 0, 4]
 
-<strong>Explanation</strong>
-Solution solution = new Solution(7, [2, 3, 5]);
-solution.pick(); // return 0, any integer from [0,1,4,6] should be ok. Note that for every call of pick,
-                 // 0, 1, 4, and 6 must be equally likely to be returned (i.e., with probability 1/4).
-solution.pick(); // return 4
-solution.pick(); // return 1
-solution.pick(); // return 6
-solution.pick(); // return 1
-solution.pick(); // return 0
-solution.pick(); // return 4
+<strong>Input: 
+
+</strong><span id="example-input-1-1">[&quot;Solution&quot;,&quot;pick&quot;,&quot;pick&quot;,&quot;pick&quot;]
+
+</span><span id="example-input-1-2">[[1,[]],[],[],[]]</span>
+
+<strong>Output: </strong><span id="example-output-1">[null,0,0,0]</span>
+
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><strong>Example 2:</strong></p>
 
-<ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= blacklist.length &lt;- min(10<sup>5</sup>, n - 1)</code></li>
-	<li><code>0 &lt;= blacklist[i] &lt; n</code></li>
-	<li>All the values of <code>blacklist</code> are <strong>unique</strong>.</li>
-	<li>At most <code>2 * 10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
-</ul>
+<pre>
+
+<strong>Input: 
+
+</strong><span id="example-input-2-1">[&quot;Solution&quot;,&quot;pick&quot;,&quot;pick&quot;,&quot;pick&quot;]
+
+</span><span id="example-input-2-2">[[2,[]],[],[],[]]</span>
+
+<strong>Output: </strong><span id="example-output-2">[null,1,1,1]</span>
+
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+
+<strong>Input: 
+
+</strong><span id="example-input-3-1">[&quot;Solution&quot;,&quot;pick&quot;,&quot;pick&quot;,&quot;pick&quot;]
+
+</span><span id="example-input-3-2">[[3,[1]],[],[],[]]</span>
+
+<strong>Output: </strong><span id="example-output-3">[null,0,0,2]</span>
+
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+
+<strong>Input: 
+
+</strong><span id="example-input-4-1">[&quot;Solution&quot;,&quot;pick&quot;,&quot;pick&quot;,&quot;pick&quot;]
+
+</span><span id="example-input-4-2">[[4,[2]],[],[],[]]</span>
+
+<strong>Output: </strong><span id="example-output-4">[null,1,3,1]</span>
+
+</pre>
+
+<p><strong>Explanation of Input Syntax:</strong></p>
+
+<p>The input is two lists:&nbsp;the subroutines called&nbsp;and their&nbsp;arguments.&nbsp;<code>Solution</code>&#39;s&nbsp;constructor has two arguments,&nbsp;<code>N</code> and the blacklist <code>B</code>. <code>pick</code> has no arguments.&nbsp;Arguments&nbsp;are&nbsp;always wrapped with a list, even if there aren&#39;t any.</p>
 
 ## Solutions
 

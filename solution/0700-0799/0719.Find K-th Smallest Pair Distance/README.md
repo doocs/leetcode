@@ -1,11 +1,10 @@
-# [719. 找出第 k 小的距离对](https://leetcode.cn/problems/find-k-th-smallest-pair-distance)
+# [719. 找出第 k 小的距离对](https://leetcode-cn.com/problems/find-k-th-smallest-pair-distance)
 
 [English Version](/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-
 <p>给定一个整数数组，返回所有数对之间的第 k 个最小<strong>距离</strong>。一对 (A, B) 的距离被定义为 A 和 B 之间的绝对差值。</p>
 
 <p><strong>示例 1:</strong></p>
@@ -51,35 +50,6 @@ k = 1
 
 ```java
 
-```
-
-### **TypeScript**
-
-```ts
-function smallestDistancePair(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    let left = 0,
-        right = nums[n - 1] - nums[0];
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        let count = 0,
-            i = 0;
-        for (let j = 0; j < n; j++) {
-            // 索引[i, j]距离nums[j]的距离<=mid
-            while (nums[j] - nums[i] > mid) {
-                i++;
-            }
-            count += j - i;
-        }
-        if (count >= k) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
 ```
 
 ### **...**
