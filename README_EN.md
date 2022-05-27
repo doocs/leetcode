@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
@@ -160,7 +160,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
 </p>
 
 You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) using [Gitpod.io](https://www.gitpod.io), a free online dev environment with a single click.
@@ -171,7 +171,7 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://starchart.cc/doocs/leetcode.svg" alt="Stargazers over time" /></a>
 
-<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a> -->
+<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a> -->
 
 ## Contributors
 
