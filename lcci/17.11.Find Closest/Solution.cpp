@@ -1,13 +1,13 @@
 class Solution {
 public:
     int findClosest(vector<string>& words, string word1, string word2) {
-        int idx1 = 1e5, idx2 = -1e5, ans = 1e5;
-        for (int i = 0; i < words.size(); ++i)
+        int i = 1e5, j = -1e5, ans = 1e5;
+        for (int k = 0; k < words.size(); ++k)
         {
-            string word = words[i];
-            if (word == word1) idx1 = i;
-            else if (word == word2) idx2 = i;
-            ans = min(ans, abs(idx1 - idx2));
+            string word = words[k];
+            if (word == word1) i = k;
+            else if (word == word2) j = k;
+            ans = min(ans, abs(i - j));
         }
         return ans;
     }

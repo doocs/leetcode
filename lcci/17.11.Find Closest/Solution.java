@@ -1,16 +1,14 @@
 class Solution {
     public int findClosest(String[] words, String word1, String word2) {
-        int idx1 = 100000;
-        int idx2 = -100000;
-        int ans = 100000;
-        for (int i = 0; i < words.length; ++i) {
-            String word = words[i];
+        int i = 100000, j = -100000, ans = 100000;
+        for (int k = 0; k < words.length; ++k) {
+            String word = words[k];
             if (word.equals(word1)) {
-                idx1 = i;
+                i = k;
             } else if (word.equals(word2)) {
-                idx2 = i;
+                j = k;
             }
-            ans = Math.min(ans, Math.abs(idx1 - idx2));
+            ans = Math.min(ans, Math.abs(i - j));
         }
         return ans;
     }

@@ -49,25 +49,120 @@
 
 ```python
 class Solution:
-    def readBinaryWatch(self, num: int) -> List[str]:
-        return ['{:d}:{:02d}'.format(i, j) for i in range(12) for j in range(60) if (bin(i) + bin(j)).count('1') == num]
+    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+        return ['{:d}:{:02d}'.format(i, j) for i in range(12) for j in range(60) if (bin(i) + bin(j)).count('1') == turnedOn]
+```
+
+```python
+class Solution:
+    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+        ans = []
+        for i in range(1 << 10):
+            h, m = i >> 6, i & 0b111111
+            if h < 12 and m < 60 and i.bit_count() == turnedOn:
+                ans.append('{:d}:{:02d}'.format(h, m))
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public List<String> readBinaryWatch(int num) {
-        List<String> res = new ArrayList<>();
+    public List<String> readBinaryWatch(int turnedOn) {
+        List<String> ans = new ArrayList<>();
         for (int i = 0; i < 12; ++i) {
             for (int j = 0; j < 60; ++j) {
-                if (Integer.bitCount(i) + Integer.bitCount(j) == num) {
-                    res.add(String.format("%d:%02d", i, j));
+                if (Integer.bitCount(i) + Integer.bitCount(j) == turnedOn) {
+                    ans.add(String.format("%d:%02d", i, j));
                 }
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public List<String> readBinaryWatch(int turnedOn) {
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << 10; ++i) {
+            int h = i >> 6, m = i & 0b111111;
+            if (h < 12 && m < 60 && Integer.bitCount(i) == turnedOn) {
+                ans.add(String.format("%d:%02d", h, m));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> readBinaryWatch(int turnedOn) {
+        vector<string> ans;
+        for (int i = 0; i < 12; ++i)
+        {
+            for (int j = 0; j < 60; ++j)
+            {
+                if (__builtin_popcount(i) + __builtin_popcount(j) == turnedOn)
+                {
+                    ans.push_back(to_string(i) + ":" + (j < 10 ? "0" : "") + to_string(j));
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<string> readBinaryWatch(int turnedOn) {
+        vector<string> ans;
+        for (int i = 0; i < 1 << 10; ++i)
+        {
+            int h = i >> 6, m = i & 0b111111;
+            if (h < 12 && m < 60 && __builtin_popcount(i) == turnedOn)
+            {
+                ans.push_back(to_string(h) + ":" + (m < 10 ? "0" : "") + to_string(m));
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func readBinaryWatch(turnedOn int) []string {
+	var ans []string
+	for i := 0; i < 12; i++ {
+		for j := 0; j < 60; j++ {
+			if bits.OnesCount(uint(i))+bits.OnesCount(uint(j)) == turnedOn {
+				ans = append(ans, fmt.Sprintf("%d:%02d", i, j))
+			}
+		}
+	}
+	return ans
+}
+```
+
+```go
+func readBinaryWatch(turnedOn int) []string {
+	var ans []string
+	for i := 0; i < 1<<10; i++ {
+		h, m := i>>6, i&0b111111
+		if h < 12 && m < 60 && bits.OnesCount(uint(i)) == turnedOn {
+			ans = append(ans, fmt.Sprintf("%d:%02d", h, m))
+		}
+	}
+	return ans
 }
 ```
 

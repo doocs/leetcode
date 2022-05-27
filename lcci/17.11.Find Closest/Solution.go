@@ -1,12 +1,12 @@
 func findClosest(words []string, word1 string, word2 string) int {
-	idx1, idx2, ans := 100000, -100000, 100000
-	for i, word := range words {
+	i, j, ans := 100000, -100000, 100000
+	for k, word := range words {
 		if word == word1 {
-			idx1 = i
+			i = k
 		} else if word == word2 {
-			idx2 = i
+			j = k
 		}
-		ans = min(ans, abs(idx1-idx2))
+		ans = min(ans, abs(i-j))
 	}
 	return ans
 }
