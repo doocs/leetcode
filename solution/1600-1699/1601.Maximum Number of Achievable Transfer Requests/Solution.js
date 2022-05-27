@@ -8,8 +8,7 @@ var maximumRequests = function (n, requests) {
         let d = new Array(n).fill(0);
         for (let i = 0; i < m; ++i) {
             if ((x >> i) & 1) {
-                const f = requests[i][0];
-                const t = requests[i][1];
+                const [f, t] = requests[i];
                 d[f]--;
                 d[t]++;
             }
