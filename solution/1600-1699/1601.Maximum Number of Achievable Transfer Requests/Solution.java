@@ -1,37 +1,27 @@
 class Solution {
-    private int m;
-    private int n;
-    private int[][] requests;
-
     public int maximumRequests(int n, int[][] requests) {
         int ans = 0;
-        m = requests.length;
-        this.n = n;
-        this.requests = requests;
-        for (int mask = 0; mask < (1 << m); ++mask) {
+        for (int mask = 1; mask < 1 << requests.length; ++mask) {
             int cnt = Integer.bitCount(mask);
-            if (cnt <= ans) {
-                continue;
-            }
-            if (check(mask)) {
+            if (ans < cnt && check(mask, requests)) {
                 ans = cnt;
             }
         }
         return ans;
     }
 
-    private boolean check(int x) {
-        int[] delta = new int[n];
-        for (int i = 0; i < m; ++i) {
+    private boolean check(int x, int[][] requests) {
+        int[] d = new int[21];
+        for (int i = 0; i < requests.length; ++i) {
             if (((x >> i) & 1) == 1) {
                 int f = requests[i][0];
                 int t = requests[i][1];
-                --delta[f];
-                ++delta[t];
+                --d[f];
+                ++d[t];
             }
         }
-        for (int i = 0; i < n; ++i) {
-            if (delta[i] != 0) {
+        for (int v : d) {
+            if (v != 0) {
                 return false;
             }
         }

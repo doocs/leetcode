@@ -66,19 +66,17 @@ We can achieve all the requests. </pre>
 class Solution:
     def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
         def check(x):
-            delta = [0] * n
+            d = [0] * n
             for i, (f, t) in enumerate(requests):
                 if (x >> i) & 1:
-                    delta[f] -= 1
-                    delta[t] += 1
-            return all(d == 0 for d in delta)
+                    d[f] -= 1
+                    d[t] += 1
+            return all(v == 0 for v in d)
 
         ans, m = 0, len(requests)
         for mask in range(1 << m):
             cnt = mask.bit_count()
-            if cnt <= ans:
-                continue
-            if check(mask):
+            if cnt > ans and check(mask):
                 ans = cnt
         return ans
 ```
@@ -87,39 +85,29 @@ class Solution:
 
 ```java
 class Solution {
-    private int m;
-    private int n;
-    private int[][] requests;
-
     public int maximumRequests(int n, int[][] requests) {
         int ans = 0;
-        m = requests.length;
-        this.n = n;
-        this.requests = requests;
-        for (int mask = 0; mask < (1 << m); ++mask) {
+        for (int mask = 1; mask < 1 << requests.length; ++mask) {
             int cnt = Integer.bitCount(mask);
-            if (cnt <= ans) {
-                continue;
-            }
-            if (check(mask)) {
+            if (ans < cnt && check(mask, requests)) {
                 ans = cnt;
             }
         }
         return ans;
     }
 
-    private boolean check(int x) {
-        int[] delta = new int[n];
-        for (int i = 0; i < m; ++i) {
+    private boolean check(int x, int[][] requests) {
+        int[] d = new int[21];
+        for (int i = 0; i < requests.length; ++i) {
             if (((x >> i) & 1) == 1) {
                 int f = requests[i][0];
                 int t = requests[i][1];
-                --delta[f];
-                ++delta[t];
+                --d[f];
+                ++d[t];
             }
         }
-        for (int i = 0; i < n; ++i) {
-            if (delta[i] != 0) {
+        for (int v : d) {
+            if (v != 0) {
                 return false;
             }
         }
@@ -135,27 +123,26 @@ class Solution {
 public:
     int maximumRequests(int n, vector<vector<int>>& requests) {
         int ans = 0, m = requests.size();
-        for (int mask = 0; mask < (1 << m); ++mask)
+        for (int mask = 0; mask < 1 << m; ++mask)
         {
             int cnt = __builtin_popcount(mask);
-            if (cnt <= ans) continue;
-            if (check(mask, m, n, requests)) ans = cnt;
+            if (ans < cnt && check(mask, requests)) ans = cnt;
         }
         return ans;
     }
 
-    bool check(int x, int m, int n, vector<vector<int>>& requests) {
-        vector<int> delta(n);
-        for (int i = 0; i < m; ++i)
+    bool check(int x, vector<vector<int>>& requests) {
+        vector<int> d(21);
+        for (int i = 0; i < requests.size(); ++i)
         {
             if ((x >> i) & 1)
             {
-                --delta[requests[i][0]];
-                ++delta[requests[i][1]];
+                --d[requests[i][0]];
+                ++d[requests[i][1]];
             }
         }
-        for (int i = 0; i < n; ++i)
-            if (delta[i]) return 0;
+        for (int& v : d)
+            if (v) return 0;
         return 1;
     }
 };
@@ -166,15 +153,15 @@ public:
 ```go
 func maximumRequests(n int, requests [][]int) int {
 	check := func(x int) bool {
-		delta := make([]int, n)
+		d := make([]int, n)
 		for i, r := range requests {
 			if (x>>i)&1 == 1 {
-				delta[r[0]]--
-				delta[r[1]]++
+				d[r[0]]--
+				d[r[1]]++
 			}
 		}
-		for _, d := range delta {
-			if d != 0 {
+		for _, v := range d {
+			if v != 0 {
 				return false
 			}
 		}
@@ -182,17 +169,52 @@ func maximumRequests(n int, requests [][]int) int {
 	}
 
 	ans, m := 0, len(requests)
-	for mask := 0; mask < (1 << m); mask++ {
+	for mask := 0; mask < 1<<m; mask++ {
 		cnt := bits.OnesCount(uint(mask))
-		if cnt <= ans {
-			continue
-		}
-		if check(mask) {
+		if ans < cnt && check(mask) {
 			ans = cnt
 		}
 	}
 	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} requests
+ * @return {number}
+ */
+var maximumRequests = function (n, requests) {
+    function check(x) {
+        let d = new Array(n).fill(0);
+        for (let i = 0; i < m; ++i) {
+            if ((x >> i) & 1) {
+                const f = requests[i][0];
+                const t = requests[i][1];
+                d[f]--;
+                d[t]++;
+            }
+        }
+        for (const v of d) {
+            if (v) {
+                return false;
+            }
+        }
+        return true;
+    }
+    let ans = 0;
+    let m = requests.length;
+    for (let mask = 1; mask < 1 << m; ++mask) {
+        let cnt = mask.toString(2).split('0').join('').length;
+        if (ans < cnt && check(mask)) {
+            ans = cnt;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
