@@ -1,5 +1,5 @@
 struct MedianFinder {
-    arr: Vec<i32>,
+    nums: Vec<i32>,
 }
 
 /**
@@ -9,31 +9,29 @@ struct MedianFinder {
 impl MedianFinder {
     /** initialize your data structure here. */
     fn new() -> Self {
-        MedianFinder {
-            arr: vec![]
-        }
+        Self { nums: Vec::new() }
     }
 
     fn add_num(&mut self, num: i32) {
         let mut l = 0;
-        let mut r = self.arr.len();
+        let mut r = self.nums.len();
         while l < r {
             let mid = l + r >> 1;
-            if self.arr[mid] < num {
+            if self.nums[mid] < num {
                 l = mid + 1;
             } else {
                 r = mid;
             }
         }
-        self.arr.splice(l..l, [num]);
+        self.nums.insert(l, num);
     }
 
     fn find_median(&self) -> f64 {
-        let n = self.arr.len();
-        match n % 2 == 0 {
-            true => f64::from(self.arr[n >> 1] + self.arr[(n >> 1) - 1]) / 2.0,
-            false => f64::from(self.arr[n >> 1]),
+        let n = self.nums.len();
+        if (n & 1) == 1 {
+            return f64::from(self.nums[n >> 1]);
         }
+        f64::from(self.nums[n >> 1] + self.nums[(n >> 1) - 1]) / 2.0
     }
 }
 

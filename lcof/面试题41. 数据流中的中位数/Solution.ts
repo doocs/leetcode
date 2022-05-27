@@ -1,30 +1,32 @@
 class MedianFinder {
-    public arr: number[] = [];
+    private nums: number[];
 
-    constructor() {}
+    constructor() {
+        this.nums = [];
+    }
 
     addNum(num: number): void {
-        const { arr } = this;
+        const { nums } = this;
         let l = 0;
-        let r = arr.length - 1;
-        while (l <= r) {
-            const mid = (l + r) >> 1;
-            if (arr[mid] < num) {
+        let r = nums.length;
+        while (l < r) {
+            const mid = (l + r) >>> 1;
+            if (nums[mid] < num) {
                 l = mid + 1;
             } else {
-                r = mid - 1;
+                r = mid;
             }
         }
-        arr.splice(l, 0, num);
+        nums.splice(l, 0, num);
     }
 
     findMedian(): number {
-        const { arr } = this;
-        const n = arr.length;
-        if (n % 2 === 0) {
-            return (arr[n >> 1] + arr[(n >> 1) - 1]) / 2;
+        const { nums } = this;
+        const n = nums.length;
+        if ((n & 1) === 1) {
+            return nums[n >> 1];
         }
-        return arr[n >> 1];
+        return (nums[n >> 1] + nums[(n >> 1) - 1]) / 2;
     }
 }
 
