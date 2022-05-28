@@ -1,11 +1,11 @@
 func maximumGood(statements [][]int) int {
 	n := len(statements)
-	check := func(k int) int {
+	check := func(mask int) int {
 		cnt := 0
 		for i, s := range statements {
-			if ((k >> i) & 1) == 1 {
-				for j := 0; j < n; j++ {
-					if s[j] < 2 && ((k>>j)&1) != s[j] {
+			if ((mask >> i) & 1) == 1 {
+				for j, v := range s {
+					if v < 2 && ((mask>>j)&1) != v {
 						return 0
 					}
 				}
@@ -15,8 +15,8 @@ func maximumGood(statements [][]int) int {
 		return cnt
 	}
 	ans := 0
-	for k := 0; k < (1 << n); k++ {
-		ans = max(ans, check(k))
+	for mask := 1; mask < 1<<n; mask++ {
+		ans = max(ans, check(mask))
 	}
 	return ans
 }

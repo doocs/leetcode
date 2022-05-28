@@ -93,43 +93,39 @@ Note that there is more than one way to arrive at this conclusion.
 ```python
 class Solution:
     def maximumGood(self, statements: List[List[int]]) -> int:
-        def check(k):
+        def check(mask):
             cnt = 0
             for i, s in enumerate(statements):
-                if (k >> i) & 1:
-                    for j in range(n):
-                        if s[j] < 2 and ((k >> j) & 1) != s[j]:
+                if (mask >> i) & 1:
+                    for j, v in enumerate(s):
+                        if v < 2 and ((mask >> j) & 1) != v:
                             return 0
                     cnt += 1
             return cnt
-
-        n = len(statements)
-        return max(check(k) for k in range(1 << n))
+        
+        return max(check(mask) for mask in range(1, 1 << len(statements)))
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private int n;
-    private int[][] statements;
-
     public int maximumGood(int[][] statements) {
-        n = statements.length;
-        this.statements = statements;
         int ans = 0;
-        for (int k = 0; k < (1 << n); ++k) {
-            ans = Math.max(ans, check(k));
+        for (int mask = 1; mask < 1 << statements.length; ++mask) {
+            ans = Math.max(ans, check(mask, statements));
         }
         return ans;
     }
 
-    private int check(int k) {
+    private int check(int mask, int[][] statements) {
         int cnt = 0;
+        int n = statements.length;
         for (int i = 0; i < n; ++i) {
-            if (((k >> i) & 1) == 1) {
+            if (((mask >> i) & 1) == 1) {
                 for (int j = 0; j < n; ++j) {
-                    if (statements[i][j] < 2 && ((k >> j) & 1) != statements[i][j]) {
+                    int v = statements[i][j];
+                    if (v < 2 && ((mask >> j) & 1) != v) {
                         return 0;
                     }
                 }
@@ -146,26 +142,23 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int n;
-    vector<vector<int>> statements;
-
     int maximumGood(vector<vector<int>>& statements) {
-        n = statements.size();
-        this->statements = statements;
         int ans = 0;
-        for (int k = 0; k < (1 << n); ++k) ans = max(ans, check(k));
+        for (int mask = 1; mask < 1 << statements.size(); ++mask) ans = max(ans, check(mask, statements));
         return ans;
     }
 
-    int check(int k) {
+    int check(int mask, vector<vector<int>>& statements) {
         int cnt = 0;
+        int n = statements.size();
         for (int i = 0; i < n; ++i)
         {
-            if ((k >> i) & 1)
+            if ((mask >> i) & 1)
             {
                 for (int j = 0; j < n; ++j)
                 {
-                    if (statements[i][j] < 2 && ((k >> j) & 1) != statements[i][j]) return 0;
+                    int v = statements[i][j];
+                    if (v < 2 && ((mask >> j) & 1) != v) return 0;
                 }
                 ++cnt;
             }
@@ -180,12 +173,12 @@ public:
 ```go
 func maximumGood(statements [][]int) int {
 	n := len(statements)
-	check := func(k int) int {
+	check := func(mask int) int {
 		cnt := 0
 		for i, s := range statements {
-			if ((k >> i) & 1) == 1 {
-				for j := 0; j < n; j++ {
-					if s[j] < 2 && ((k>>j)&1) != s[j] {
+			if ((mask >> i) & 1) == 1 {
+				for j, v := range s {
+					if v < 2 && ((mask>>j)&1) != v {
 						return 0
 					}
 				}
@@ -195,8 +188,8 @@ func maximumGood(statements [][]int) int {
 		return cnt
 	}
 	ans := 0
-	for k := 0; k < (1 << n); k++ {
-		ans = max(ans, check(k))
+	for mask := 1; mask < 1<<n; mask++ {
+		ans = max(ans, check(mask))
 	}
 	return ans
 }
@@ -212,7 +205,29 @@ func max(a, b int) int {
 ### **TypeScript**
 
 ```ts
-
+function maximumGood(statements: number[][]): number {
+    const n = statements.length;
+    function check(mask) {
+        let cnt = 0;
+        for (let i = 0; i < n; ++i) {
+            if ((mask >> i) & 1) {
+                for (let j = 0; j < n; ++j) {
+                    const v = statements[i][j];
+                    if (v < 2 && ((mask >> j) & 1) != v) {
+                        return 0;
+                    }
+                }
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+    let ans = 0;
+    for (let mask = 1; mask < 1 << n; ++mask) {
+        ans = Math.max(ans, check(mask));
+    }
+    return ans;
+}
 ```
 
 ### **...**

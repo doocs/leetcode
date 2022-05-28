@@ -1,23 +1,20 @@
 class Solution {
-    private int n;
-    private int[][] statements;
-
     public int maximumGood(int[][] statements) {
-        n = statements.length;
-        this.statements = statements;
         int ans = 0;
-        for (int k = 0; k < (1 << n); ++k) {
-            ans = Math.max(ans, check(k));
+        for (int mask = 1; mask < 1 << statements.length; ++mask) {
+            ans = Math.max(ans, check(mask, statements));
         }
         return ans;
     }
 
-    private int check(int k) {
+    private int check(int mask, int[][] statements) {
         int cnt = 0;
+        int n = statements.length;
         for (int i = 0; i < n; ++i) {
-            if (((k >> i) & 1) == 1) {
+            if (((mask >> i) & 1) == 1) {
                 for (int j = 0; j < n; ++j) {
-                    if (statements[i][j] < 2 && ((k >> j) & 1) != statements[i][j]) {
+                    int v = statements[i][j];
+                    if (v < 2 && ((mask >> j) & 1) != v) {
                         return 0;
                     }
                 }

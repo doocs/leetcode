@@ -1,14 +1,13 @@
 class Solution:
     def maximumGood(self, statements: List[List[int]]) -> int:
-        def check(k):
+        def check(mask):
             cnt = 0
             for i, s in enumerate(statements):
-                if (k >> i) & 1:
-                    for j in range(n):
-                        if s[j] < 2 and ((k >> j) & 1) != s[j]:
+                if (mask >> i) & 1:
+                    for j, v in enumerate(s):
+                        if v < 2 and ((mask >> j) & 1) != v:
                             return 0
                     cnt += 1
             return cnt
 
-        n = len(statements)
-        return max(check(k) for k in range(1 << n))
+        return max(check(mask) for mask in range(1, 1 << len(statements)))

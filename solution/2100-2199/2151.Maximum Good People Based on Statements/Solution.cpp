@@ -1,25 +1,22 @@
 class Solution {
 public:
-    int n;
-    vector<vector<int>> statements;
-
     int maximumGood(vector<vector<int>>& statements) {
-        n = statements.size();
-        this->statements = statements;
         int ans = 0;
-        for (int k = 0; k < (1 << n); ++k) ans = max(ans, check(k));
-        return ans;    
+        for (int mask = 1; mask < 1 << statements.size(); ++mask) ans = max(ans, check(mask, statements));
+        return ans;
     }
 
-    int check(int k) {
+    int check(int mask, vector<vector<int>>& statements) {
         int cnt = 0;
+        int n = statements.size();
         for (int i = 0; i < n; ++i)
         {
-            if ((k >> i) & 1)
+            if ((mask >> i) & 1)
             {
                 for (int j = 0; j < n; ++j)
                 {
-                    if (statements[i][j] < 2 && ((k >> j) & 1) != statements[i][j]) return 0;
+                    int v = statements[i][j];
+                    if (v < 2 && ((mask >> j) & 1) != v) return 0;
                 }
                 ++cnt;
             }
