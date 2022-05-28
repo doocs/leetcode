@@ -78,7 +78,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String removeOuterParentheses(String S) {
+        StringBuilder res = new StringBuilder();
+        int cnt = 0;
+        for (char c : S.toCharArray()) {
+            if (c == '(') {
+                if (++cnt > 1) {
+                    res.append('(');
+                }
+            } else {
+                if (--cnt > 0) {
+                    res.append(')');
+                }
+            }
+        }
+        return res.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        string res;
+        int depth = 0;
+        for (char c: s) {
+            if (c == '(') {
+                depth++;
+            }
+            if (depth != 1) {
+                res.push_back(c);
+            }
+            if (c == ')') {
+                depth--;
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **TypeScript**
+
+```ts
+function removeOuterParentheses(s: string): string {
+    let res = '';
+    let depth = 0;
+    for (const c of s) {
+        if (c === '(') {
+            depth++;
+        }
+        if (depth !== 1) {
+            res += c;
+        }
+        if (c === ')') {
+            depth--;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn remove_outer_parentheses(s: String) -> String {
+        let mut res = String::new();
+        let mut depth = 0;
+        for c in s.chars() {
+            if c == '(' {
+                depth += 1;
+            }
+            if depth != 1 {
+                res.push(c);
+            }
+            if c == ')' {
+                depth -= 1;
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**
