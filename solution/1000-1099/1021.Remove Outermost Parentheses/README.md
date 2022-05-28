@@ -70,7 +70,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        ans = []
+        cnt = 0
+        for c in s:
+            if c == '(':
+                cnt += 1
+                if cnt > 1:
+                    ans.append(c)
+            else:
+                cnt -= 1
+                if cnt > 0:
+                    ans.append(c)
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -120,6 +133,29 @@ public:
         return res;
     }
 };
+```
+
+### **Go**
+
+```go
+func removeOuterParentheses(s string) string {
+	ans := []rune{}
+	cnt := 0
+	for _, c := range s {
+		if c == '(' {
+			cnt++
+			if cnt > 1 {
+				ans = append(ans, c)
+			}
+		} else {
+			cnt--
+			if cnt > 0 {
+				ans = append(ans, c)
+			}
+		}
+	}
+	return string(ans)
+}
 ```
 
 ### **TypeScript**
