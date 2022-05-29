@@ -66,7 +66,12 @@ Charlie 总共发出了 5 个单词。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestWordCount(self, messages: List[str], senders: List[str]) -> str:
+        cnt = Counter()
+        for m, s in zip(messages, senders):
+            cnt[s] += m.count(' ') + 1
+        return sorted(cnt.items(), key=lambda x: (x[1], x[0]))[-1][0]
 ```
 
 ### **Java**
@@ -74,7 +79,70 @@ Charlie 总共发出了 5 个单词。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String largestWordCount(String[] messages, String[] senders) {
+        Map<String, Integer> cnt = new HashMap<>();
+        int n = senders.length;
+        for (int i = 0; i < n; ++i) {
+            cnt.put(senders[i], cnt.getOrDefault(senders[i], 0) + messages[i].split(" ").length);
+        }
+        String ans = senders[0];
+        for (Map.Entry<String, Integer> e : cnt.entrySet()) {
+            String u = e.getKey();
+            int v = e.getValue();
+            if (v > cnt.get(ans) || (v == cnt.get(ans) && ans.compareTo(u) < 0)) {
+                ans = u;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string largestWordCount(vector<string>& messages, vector<string>& senders) {
+        unordered_map<string, int> cnt;
+        int n = senders.size();
+        for (int i = 0; i < n; ++i)
+        {
+            int v = 0;
+            for (char& c : messages[i])
+            {
+                if (c == ' ') ++v;
+            }
+            cnt[senders[i]] += v + 1;
+        }
+        string ans = senders[0];
+        for (auto& [u, v] : cnt)
+        {
+            if (v > cnt[ans] || (v == cnt[ans] && u > ans)) ans = u;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestWordCount(messages []string, senders []string) string {
+	cnt := map[string]int{}
+	for i, msg := range messages {
+		v := strings.Count(msg, " ") + 1
+		cnt[senders[i]] += v
+	}
+	ans := ""
+	for u, v := range cnt {
+		if v > cnt[ans] || (v == cnt[ans] && u > ans) {
+			ans = u
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

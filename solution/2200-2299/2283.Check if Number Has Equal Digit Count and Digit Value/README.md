@@ -57,7 +57,10 @@ num[2] = '0' 。数字 2 在 num 中出现了 0 次。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def digitCount(self, num: str) -> bool:
+        cnt = Counter(num)
+        return all(int(v) == cnt[str(i)] for i, v in enumerate(num))
 ```
 
 ### **Java**
@@ -65,7 +68,57 @@ num[2] = '0' 。数字 2 在 num 中出现了 0 次。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean digitCount(String num) {
+        int[] cnt = new int[10];
+        for (char c : num.toCharArray()) {
+            ++cnt[c - '0'];
+        }
+        for (int i = 0; i < num.length(); ++i) {
+            int v = num.charAt(i) - '0';
+            if (cnt[i] != v) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool digitCount(string num) {
+        vector<int> cnt(10);
+        for (char& c : num) ++cnt[c - '0'];
+        for (int i = 0; i < num.size(); ++i)
+        {
+            int v = num[i] - '0';
+            if (cnt[i] != v) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func digitCount(num string) bool {
+	cnt := make([]int, 10)
+	for _, c := range num {
+		cnt[c-'0']++
+	}
+	for i, c := range num {
+		v := int(c - '0')
+		if cnt[i] != v {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **TypeScript**

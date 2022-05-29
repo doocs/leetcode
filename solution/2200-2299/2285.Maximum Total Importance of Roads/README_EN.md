@@ -62,13 +62,72 @@ It can be shown that we cannot obtain a greater total importance than 20.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumImportance(self, n: int, roads: List[List[int]]) -> int:
+        deg = [0] * n
+        for a, b in roads:
+            deg[a] += 1
+            deg[b] += 1
+        deg.sort()
+        return sum(i * v for i, v in enumerate(deg, 1))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long maximumImportance(int n, int[][] roads) {
+        int[] deg = new int[n];
+        for (int[] r : roads) {
+            ++deg[r[0]];
+            ++deg[r[1]];
+        }
+        Arrays.sort(deg);
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += (long) (i + 1) * deg[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maximumImportance(int n, vector<vector<int>>& roads) {
+        vector<int> deg(n);
+        for (auto& r : roads)
+        {
+            ++deg[r[0]];
+            ++deg[r[1]];
+        }
+        sort(deg.begin(), deg.end());
+        long long ans = 0;
+        for (int i = 0; i < n; ++i) ans += 1ll * (i + 1) * deg[i];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumImportance(n int, roads [][]int) int64 {
+	deg := make([]int, n)
+	for _, r := range roads {
+		deg[r[0]]++
+		deg[r[1]]++
+	}
+	sort.Ints(deg)
+	var ans int64
+	for i := 0; i < n; i++ {
+		ans += int64((i + 1) * deg[i])
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

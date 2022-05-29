@@ -65,6 +65,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+考虑每个城市对所有道路的总重要性的贡献度，按贡献度从小到大排序，为城市依次分配 $[1, 2, ..., n]$。
+
+时间复杂度 $O(nlogn)$，其中 $n$ 表示城市数目。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +78,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumImportance(self, n: int, roads: List[List[int]]) -> int:
+        deg = [0] * n
+        for a, b in roads:
+            deg[a] += 1
+            deg[b] += 1
+        deg.sort()
+        return sum(i * v for i, v in enumerate(deg, 1))
 ```
 
 ### **Java**
@@ -80,7 +93,59 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long maximumImportance(int n, int[][] roads) {
+        int[] deg = new int[n];
+        for (int[] r : roads) {
+            ++deg[r[0]];
+            ++deg[r[1]];
+        }
+        Arrays.sort(deg);
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += (long) (i + 1) * deg[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maximumImportance(int n, vector<vector<int>>& roads) {
+        vector<int> deg(n);
+        for (auto& r : roads)
+        {
+            ++deg[r[0]];
+            ++deg[r[1]];
+        }
+        sort(deg.begin(), deg.end());
+        long long ans = 0;
+        for (int i = 0; i < n; ++i) ans += 1ll * (i + 1) * deg[i];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumImportance(n int, roads [][]int) int64 {
+	deg := make([]int, n)
+	for _, r := range roads {
+		deg[r[0]]++
+		deg[r[1]]++
+	}
+	sort.Ints(deg)
+	var ans int64
+	for i := 0; i < n; i++ {
+		ans += int64((i + 1) * deg[i])
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
