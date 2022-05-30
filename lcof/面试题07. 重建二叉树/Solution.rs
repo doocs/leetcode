@@ -19,7 +19,7 @@
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+    fn help(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
         if inorder.is_empty() {
             return None;
         }
@@ -27,8 +27,12 @@ impl Solution {
         let i = inorder.iter().position(|num| *num == val).unwrap();
         Some(Rc::new(RefCell::new(TreeNode {
             val,
-            left: Self::build_tree(preorder[1..i + 1].to_vec(), inorder[..i].to_vec()),
-            right: Self::build_tree(preorder[i + 1..].to_vec(), inorder[i + 1..].to_vec()),
+            left: Self::help(&preorder[1..i + 1], &inorder[..i]),
+            right: Self::help(&preorder[i + 1..], &inorder[i + 1..]),
         })))
+    }
+
+    pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+        Self::help(&preorder, &inorder)
     }
 }
