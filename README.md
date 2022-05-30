@@ -26,6 +26,7 @@
 ## 算法全解
 
 -   [LeetCode](/solution/README.md)
+-   [往期竞赛合集](/solution/CONTEST_README.md)
 -   [剑指 Offer（第 2 版）](/lcof/README.md)
 -   [剑指 Offer（专项突击版）](/lcof2/README.md)
 -   [程序员面试金典（第 6 版）](/lcci/README.md)
