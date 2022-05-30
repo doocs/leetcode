@@ -1,4 +1,4 @@
-# [1972. First and Last Call On the Same Day](https://leetcode.cn/problems/first-and-last-call-on-the-same-day)
+# [1972. 同一天的第一个电话和最后一个电话](https://leetcode.cn/problems/first-and-last-call-on-the-same-day)
 
 [English Version](/solution/1900-1999/1972.First%20and%20Last%20Call%20On%20the%20Same%20Day/README_EN.md)
 

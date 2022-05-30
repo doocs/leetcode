@@ -1,4 +1,4 @@
-# [2113. Elements in Array After Removing and Replacing Elements](https://leetcode.cn/problems/elements-in-array-after-removing-and-replacing-elements)
+# [2113. 查询删除和添加元素后的数组](https://leetcode.cn/problems/elements-in-array-after-removing-and-replacing-elements)
 
 [English Version](/solution/2100-2199/2113.Elements%20in%20Array%20After%20Removing%20and%20Replacing%20Elements/README_EN.md)
 

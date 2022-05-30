@@ -1,4 +1,4 @@
-# [189. 旋转数组](https://leetcode.cn/problems/rotate-array)
+# [189. 轮转数组](https://leetcode.cn/problems/rotate-array)
 
 [English Version](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 

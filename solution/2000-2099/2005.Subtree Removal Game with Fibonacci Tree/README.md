@@ -1,4 +1,4 @@
-# [2005. Subtree Removal Game with Fibonacci Tree](https://leetcode.cn/problems/subtree-removal-game-with-fibonacci-tree)
+# [2005. 斐波那契树的移除子树游戏](https://leetcode.cn/problems/subtree-removal-game-with-fibonacci-tree)
 
 [English Version](/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/README_EN.md)
 

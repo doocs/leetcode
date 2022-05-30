@@ -1,4 +1,4 @@
-# [1651. Hopper Company Queries III](https://leetcode.cn/problems/hopper-company-queries-iii)
+# [1651. Hopper 公司查询 III](https://leetcode.cn/problems/hopper-company-queries-iii)
 
 [English Version](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README_EN.md)
 

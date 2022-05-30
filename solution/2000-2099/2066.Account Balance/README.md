@@ -1,4 +1,4 @@
-# [2066. Account Balance](https://leetcode.cn/problems/account-balance)
+# [2066. 账户余额](https://leetcode.cn/problems/account-balance)
 
 [English Version](/solution/2000-2099/2066.Account%20Balance/README_EN.md)
 

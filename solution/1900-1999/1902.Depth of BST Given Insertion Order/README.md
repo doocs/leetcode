@@ -1,4 +1,4 @@
-# [1902. Depth of BST Given Insertion Order](https://leetcode.cn/problems/depth-of-bst-given-insertion-order)
+# [1902. 给定二叉搜索树的插入顺序求深度](https://leetcode.cn/problems/depth-of-bst-given-insertion-order)
 
 [English Version](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [688. “马”在棋盘上的概率](https://leetcode.cn/problems/knight-probability-in-chessboard)
+# [688. 骑士在棋盘上的概率](https://leetcode.cn/problems/knight-probability-in-chessboard)
 
 [English Version](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md)
 

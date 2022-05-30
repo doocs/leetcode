@@ -1,4 +1,4 @@
-# [1873. Calculate Special Bonus](https://leetcode.cn/problems/calculate-special-bonus)
+# [1873. 计算特殊奖金](https://leetcode.cn/problems/calculate-special-bonus)
 
 [English Version](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)
 

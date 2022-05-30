@@ -1,4 +1,4 @@
-# [357. 计算各个位数不同的数字个数](https://leetcode.cn/problems/count-numbers-with-unique-digits)
+# [357. 统计各位数字都不同的数字个数](https://leetcode.cn/problems/count-numbers-with-unique-digits)
 
 [English Version](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
 

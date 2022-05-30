@@ -1,4 +1,4 @@
-# [1990. Count the Number of Experiments](https://leetcode.cn/problems/count-the-number-of-experiments)
+# [1990. 统计实验的数量](https://leetcode.cn/problems/count-the-number-of-experiments)
 
 [English Version](/solution/1900-1999/1990.Count%20the%20Number%20of%20Experiments/README_EN.md)
 

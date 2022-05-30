@@ -1,4 +1,4 @@
-# [2128. Remove All Ones With Row and Column Flips](https://leetcode.cn/problems/remove-all-ones-with-row-and-column-flips)
+# [2128. 通过翻转行或列来去除所有的 1](https://leetcode.cn/problems/remove-all-ones-with-row-and-column-flips)
 
 [English Version](/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README_EN.md)
 

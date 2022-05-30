@@ -1,4 +1,4 @@
-# [1529. 灯泡开关 IV](https://leetcode.cn/problems/minimum-suffix-flips)
+# [1529. 最少的后缀翻转次数](https://leetcode.cn/problems/minimum-suffix-flips)
 
 [English Version](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README_EN.md)
 

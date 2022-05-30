@@ -138,6 +138,8 @@ def refresh(result):
     for question in result:
         front_question_id = question['frontend_question_id']
         print(front_question_id)
+        title = question['title_cn']
+        title_en = question['title_en']
 
         path_cn = unquote(str(question['relative_path_cn']).replace("/solution", "."))
         path_en = unquote(str(question['relative_path_en']).replace("/solution", "."))
@@ -145,8 +147,15 @@ def refresh(result):
         with open(path_cn, 'r', encoding='utf-8') as f1:
             cn_content = f1.read()
 
+        # update title
         with open(path_en, 'r', encoding='utf-8') as f2:
             en_content = f2.read()
+        i = cn_content.index('. ')
+        j = cn_content.index(']')
+        cn_content = cn_content.replace(cn_content[i + 2: j], title)
+        i = en_content.index('. ')
+        j = en_content.index(']')
+        en_content = en_content.replace(en_content[i + 2: j], title_en)
 
         # update question content
         old_content = re.search("<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S).group(1)
@@ -197,17 +206,17 @@ def save(result):
 
 
 if __name__ == '__main__':
-    cookie_cn = ''
-    cookie_en = ''
-    spider = Spider(cookie_cn, cookie_en)
-    res = spider.run()
-    save(res)
+    # cookie_cn = ''
+    # cookie_en = ''
+    # spider = Spider(cookie_cn, cookie_en)
+    # res = spider.run()
+    # save(res)
 
-    # with open('./result.json', 'r', encoding='utf-8') as f:
-    #     res = f.read()
-    #     res = json.loads(res)
+    with open('./result.json', 'r', encoding='utf-8') as f:
+        res = f.read()
+        res = json.loads(res)
 
-    generate_readme(res)
-    generate_question_readme(res)
-    generate_summary(res)
-    # refresh(res)
+    # generate_readme(res)
+    # generate_question_readme(res)
+    # generate_summary(res)
+    refresh(res)

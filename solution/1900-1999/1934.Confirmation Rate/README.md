@@ -1,4 +1,4 @@
-# [1934. Confirmation Rate](https://leetcode.cn/problems/confirmation-rate)
+# [1934. 确认率](https://leetcode.cn/problems/confirmation-rate)
 
 [English Version](/solution/1900-1999/1934.Confirmation%20Rate/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1600. 皇位继承顺序](https://leetcode.cn/problems/throne-inheritance)
+# [1600. 王位继承顺序](https://leetcode.cn/problems/throne-inheritance)
 
 [English Version](/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [53. 最大子序和](https://leetcode.cn/problems/maximum-subarray)
+# [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray)
 
 [English Version](/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
 
@@ -59,7 +59,7 @@
 
 ### 2. 分治
 
-最大子序和可能有三种情况：
+最大子数组和可能有三种情况：
 
 1. 在数组左半部分
 1. 在数组右半部分

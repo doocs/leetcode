@@ -1,4 +1,4 @@
-# [229. 求众数 II](https://leetcode.cn/problems/majority-element-ii)
+# [229. 多数元素 II](https://leetcode.cn/problems/majority-element-ii)
 
 [English Version](/solution/0200-0299/0229.Majority%20Element%20II/README_EN.md)
 

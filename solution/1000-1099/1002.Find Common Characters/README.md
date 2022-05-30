@@ -1,4 +1,4 @@
-# [1002. 查找常用字符](https://leetcode.cn/problems/find-common-characters)
+# [1002. 查找共用字符](https://leetcode.cn/problems/find-common-characters)
 
 [English Version](/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md)
 
