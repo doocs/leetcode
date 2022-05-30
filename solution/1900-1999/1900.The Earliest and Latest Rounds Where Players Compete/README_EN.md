@@ -16,7 +16,6 @@
     	<li>Player <code>4</code> automatically advances to the next round.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>After each round is over, the winners are lined back up in the row based on the <strong>original ordering</strong> assigned to them initially (ascending order).</p>

@@ -85,7 +85,11 @@ class Solution {
 ### **TypeScript**
 
 ```ts
-function maxConsecutive(bottom: number, top: number, special: number[]): number {
+function maxConsecutive(
+    bottom: number,
+    top: number,
+    special: number[],
+): number {
     let nums = special.slice().sort((a, b) => a - b);
     nums.unshift(bottom - 1);
     nums.push(top + 1);
@@ -95,7 +99,7 @@ function maxConsecutive(bottom: number, top: number, special: number[]): number 
         ans = Math.max(ans, nums[i] - nums[i - 1] - 1);
     }
     return ans;
-};
+}
 ```
 
 ### **...**

@@ -9,7 +9,7 @@
 <p>给你一个只包含小写字母的字符串&nbsp;<code>s</code>&nbsp;，你需要找到 <code>s</code>&nbsp;中最多数目的非空子字符串，满足如下条件：</p>
 
 <ol>
-	<li>这些字符串之间互不重叠，也就是说对于任意两个子字符串&nbsp;<code>s[i..j]</code> 和&nbsp;<code>s[k..t]</code>&nbsp;，要么&nbsp;<code>j &lt; k</code>&nbsp;要么&nbsp;<code>i &gt; t</code>&nbsp;。</li>
+	<li>这些字符串之间互不重叠，也就是说对于任意两个子字符串&nbsp;<code>s[i..j]</code> 和&nbsp;<code>s[x..y]</code>&nbsp;，要么&nbsp;<code>j &lt; x</code>&nbsp;要么&nbsp;<code>i &gt; y</code>&nbsp;。</li>
 	<li>如果一个子字符串包含字符&nbsp;<code>char</code> ，那么&nbsp;<code>s</code>&nbsp;中所有&nbsp;<code>char</code> 字符都应该在这个子字符串中。</li>
 </ol>
 

@@ -54,7 +54,6 @@ It can be shown that we cannot obtain a greater total importance than 20.
 	<li>There are no duplicate roads.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

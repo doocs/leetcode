@@ -1,4 +1,5 @@
 import json
+import os.path
 import random
 import re
 import time
@@ -92,6 +93,10 @@ class Spider:
         self.cookie_en = cookie_en
         self.session = requests.session()
         self.raw_data = {}
+        self.contest = {}
+        if os.path.exists('./contest.json'):
+            with open('contest.json', 'r', encoding='utf-8') as f:
+                self.contest = json.loads(f.read())
 
     def get_all_questions(self) -> List:
         """获取所有题目"""
@@ -233,7 +238,7 @@ class Spider:
             'code_snippets': question_detail.get('codeSnippets') or [],
         }
 
-        col1_cn = f'[{frontend_question_id}]({url_cn})'
+        col1_cn = frontend_question_id
         col2_cn = (
             f'[{item["title_cn"]}]({path_cn})'
             if item["title_cn"]
@@ -243,13 +248,17 @@ class Spider:
         col3_cn = '' if (col3_cn == 'None' or not col3_cn) else col3_cn
         col4_cn = item['difficulty_cn']
         col5_cn = '🔒' if item['paid_only_cn'] else ''
+        if not col5_cn and question_title_slug in self.contest:
+            col5_cn = self.contest[question_title_slug]['contest_title']
 
-        col1_en = f'[{frontend_question_id}]({url_en})'
+        col1_en = frontend_question_id
         col2_en = f'[{item["title_en"]}]({path_en})'
         col3_en = ','.join([f'`{tag}`' for tag in item['tags_en']])
         col3_en = '' if (col3_en == 'None' or not col3_en) else col3_en
         col4_en = item['difficulty_en']
         col5_en = '🔒' if item['paid_only'] else ''
+        if not col5_en and question_title_slug in self.contest:
+            col5_en = self.contest[question_title_slug]['contest_title_en']
 
         item['md_table_row_cn'] = [col1_cn, col2_cn, col3_cn, col4_cn, col5_cn]
         item['md_table_row_en'] = [col1_en, col2_en, col3_en, col4_en, col5_en]

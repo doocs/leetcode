@@ -20,7 +20,6 @@
     	<li>将<code>sentence</code> 分成&nbsp;<code>"i"</code>, 和<code>"love leetcode"</code>&nbsp;是不可能的，因为&nbsp;<code>"love leetcode"</code>&nbsp;的长度大于&nbsp;<code>k</code>。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>返回<em>将</em><code>sentence</code><em>分隔成行的<strong>最低的</strong>可能总成本。</em></p>

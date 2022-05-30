@@ -16,7 +16,6 @@
     	<li>From 5 to 10, there is only the second building with an average height of <code>4 / 1 = 4</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Given <code>buildings</code>, return <em>the 2D integer array </em><code>street</code><em> as described above (<strong>excluding</strong> any areas of the street where there are no buldings). You may return the array in <strong>any order</strong></em>.</p>

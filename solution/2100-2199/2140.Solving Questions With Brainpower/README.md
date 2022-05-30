@@ -17,7 +17,6 @@
     	<li>如果你跳过问题&nbsp;<code>0</code>&nbsp;，且解决问题&nbsp;<code>1</code>&nbsp;，你将获得 <code>4</code> 分但是不能解决问题&nbsp;<code>2</code> 和&nbsp;<code>3</code>&nbsp;。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>请你返回这场考试里你能获得的 <strong>最高</strong>&nbsp;分数。</p>

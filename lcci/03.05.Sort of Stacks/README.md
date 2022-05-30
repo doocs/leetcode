@@ -160,33 +160,33 @@ class SortedStack {
 
 ```ts
 class SortedStack {
-    private stack: number[]
+    private stack: number[];
 
     constructor() {
-        this.stack = []
+        this.stack = [];
     }
 
     push(val: number): void {
         if (this.isEmpty() || this.peek() > val) {
-            this.stack.push(val)
-            return
+            this.stack.push(val);
+            return;
         }
 
-        const tmp = this.stack.pop()
+        const tmp = this.stack.pop();
         this.push(val);
         this.stack.push(tmp);
     }
 
     pop(): void {
-        this.stack.pop()
+        this.stack.pop();
     }
 
     peek(): number {
-        return this.stack[this.stack.length - 1] ?? -1
+        return this.stack[this.stack.length - 1] ?? -1;
     }
 
     isEmpty(): boolean {
-        return this.stack.length === 0
+        return this.stack.length === 0;
     }
 }
 

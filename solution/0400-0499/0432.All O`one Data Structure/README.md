@@ -18,6 +18,8 @@
 	<li><code>getMinKey()</code> 返回任意一个计数最小的字符串。如果没有元素存在，返回一个空字符串 <code>""</code> 。</li>
 </ul>
 
+<p><strong>注意：</strong>每个函数都应当满足 <code>O(1)</code> 平均时间复杂度。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例：</strong></p>

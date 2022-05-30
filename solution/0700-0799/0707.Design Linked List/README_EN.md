@@ -203,7 +203,7 @@ class MyLinkedList {
         dummy = new ListNode(0);
         count = 0;
     }
-    
+
     public int get(int index) {
         if (index < 0 || index >= count) {
             return -1;
@@ -214,15 +214,15 @@ class MyLinkedList {
         }
         return cur.val;
     }
-    
+
     public void addAtHead(int val) {
         addAtIndex(0, val);
     }
-    
+
     public void addAtTail(int val) {
         addAtIndex(count, val);
     }
-    
+
     public void addAtIndex(int index, int val) {
         if (index > count) {
             return;
@@ -234,7 +234,7 @@ class MyLinkedList {
         pre.next = new ListNode(val, pre.next);
         ++count;
     }
-    
+
     public void deleteAtIndex(int index) {
         if (index < 0 || index >= count) {
             return;
@@ -272,7 +272,7 @@ class MyLinkedList {
     public MyLinkedList() {
 
     }
-    
+
     public int get(int index) {
         if (index < 0 || index >= size) {
             return -1;
@@ -281,18 +281,18 @@ class MyLinkedList {
         for (; index > 0; i = ne[i], index--);
         return e[i];
     }
-    
+
     public void addAtHead(int val) {
         e[idx] = val;
         ne[idx] = head;
         head = idx++;
         size++;
     }
-    
+
     public void addAtTail(int val) {
         addAtIndex(size, val);
     }
-    
+
     public void addAtIndex(int index, int val) {
         if (index > size) {
             return;
@@ -308,7 +308,7 @@ class MyLinkedList {
         ne[i] = idx++;
         size++;
     }
-    
+
     public void deleteAtIndex(int index) {
         if (index < 0 || index >= size) {
             return;
@@ -349,25 +349,25 @@ public:
     MyLinkedList() {
 
     }
-    
+
     int get(int index) {
         if (index < 0 || index >= size) return -1;
         int i = head;
         for (; index > 0; i = ne[i], index--);
         return e[i];
     }
-    
+
     void addAtHead(int val) {
         e[idx] = val;
         ne[idx] = head;
         head = idx++;
         size++;
     }
-    
+
     void addAtTail(int val) {
         addAtIndex(size, val);
     }
-    
+
     void addAtIndex(int index, int val) {
         if (index > size) return;
         if (index <= 0)
@@ -382,7 +382,7 @@ public:
         ne[i] = idx++;
         size++;
     }
-    
+
     void deleteAtIndex(int index) {
         if (index < 0 || index >= size) return;
         size--;

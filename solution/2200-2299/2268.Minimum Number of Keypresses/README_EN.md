@@ -54,7 +54,6 @@ A total of 15 button presses are needed, so return 15.
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

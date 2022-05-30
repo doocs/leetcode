@@ -73,7 +73,7 @@ class Solution:
                         d[i][y] -= 1
                         d[x][j] -= 1
                         d[x][y] += 1
-        
+
         cnt = [[0] * (n + 1) for _ in range(m + 1)]
         for i, row in enumerate(grid):
             for j, v in enumerate(row):

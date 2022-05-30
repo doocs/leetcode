@@ -89,9 +89,9 @@ class RecentCounter {
     private Deque<Integer> q = new ArrayDeque<>();
 
     public RecentCounter() {
-        
+
     }
-    
+
     public int ping(int t) {
         q.offer(t);
         while (q.peekFirst() < t - 3000) {
@@ -116,7 +116,7 @@ class RecentCounter {
     public RecentCounter() {
 
     }
-    
+
     public int ping(int t) {
         s[idx++] = t;
         return idx - search(t - 3000);
@@ -153,7 +153,7 @@ public:
     RecentCounter() {
 
     }
-    
+
     int ping(int t) {
         q.push(t);
         while (q.front() < t - 3000) q.pop();
@@ -176,7 +176,7 @@ public:
     RecentCounter() {
 
     }
-    
+
     int ping(int t) {
         s.push_back(t);
         return s.size() - (lower_bound(s.begin(), s.end(), t - 3000) - s.begin());
@@ -284,7 +284,7 @@ public class RecentCounter {
     public RecentCounter() {
 
     }
-    
+
     public int Ping(int t) {
         q.Enqueue(t);
         while (q.Peek() < t - 3000)

@@ -36,7 +36,7 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 <ul>
 	<li><code>1 &lt;= accounts.length &lt;= 1000</code></li>
 	<li><code>2 &lt;= accounts[i].length &lt;= 10</code></li>
-	<li><code>1 &lt;= accounts[i][j] &lt;= 30</code></li>
+	<li><code>1 &lt;= accounts[i][j].length &lt;= 30</code></li>
 	<li><code>accounts[i][0]</code> consists of English letters.</li>
 	<li><code>accounts[i][j] (for j &gt; 0)</code> is a valid email.</li>
 </ul>

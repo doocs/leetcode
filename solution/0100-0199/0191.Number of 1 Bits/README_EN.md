@@ -177,7 +177,6 @@ var hammingWeight = function (n) {
 };
 ```
 
-
 ### **Rust**
 
 ```rust

@@ -56,7 +56,6 @@ P     I
 	<li><code>1 &lt;= numRows &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

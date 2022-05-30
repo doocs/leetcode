@@ -26,11 +26,11 @@
 
 <strong>输出:</strong> True
 
-<strong>解释:</strong>
+<strong>解释:</strong> 
 
 代码被包含在了闭合的标签内： &lt;DIV&gt; 和 &lt;/DIV&gt; 。
 
-TAG_NAME 是合法的，TAG_CONTENT 包含了一些字符和 cdata 。
+TAG_NAME 是合法的，TAG_CONTENT 包含了一些字符和 cdata 。 
 
 即使 CDATA_CONTENT 含有不匹配的起始标签和不合法的 TAG_NAME，它应该被视为普通的文本，而不是标签。
 

@@ -52,7 +52,6 @@ Since there is a tie for the largest word count, we return the sender with the l
 	<li><code>senders[i]</code> consists of uppercase and lowercase English letters only.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

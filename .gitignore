@@ -3,6 +3,7 @@
 .vscode
 /node_modules
 /solution/result.json
+/solution/contest.json
 /solution/raw.json
 /lcof/lcof.json
 /lcof/lcof_list.json

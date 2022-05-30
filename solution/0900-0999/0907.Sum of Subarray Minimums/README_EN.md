@@ -202,7 +202,7 @@ function sumSubarrayMins(arr: number[]): number {
         stack.unshift(i);
     }
     return ans;
-};
+}
 ```
 
 ### **...**

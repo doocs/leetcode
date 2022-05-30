@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given a string <code>s</code> consisting&nbsp;of some words separated by some number of spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
+<p>Given a string <code>s</code> consisting of words and spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
 
 <p>A <strong>word</strong> is a maximal substring consisting of non-space characters only.</p>
 

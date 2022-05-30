@@ -53,6 +53,9 @@ It can be proven that 4 is the minimum number of operations needed.
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Can you solve it in <code>O(n*log(n))</code> time complexity?</p>
+
 ## Solutions
 
 <!-- tabs:start -->

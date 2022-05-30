@@ -19,7 +19,6 @@
     	<li>举个例子，如果排序前 <code>nums = [<em><strong>4</strong></em>,1,<em><strong>2</strong></em>,3]</code> ，对偶数下标的值排序后变为 <code>[<em><strong>2</strong></em>,1,<em><strong>4</strong></em>,3]</code> 。偶数下标 <code>0</code> 和 <code>2</code> 的值按照非递减顺序重排。</li>
     </ul>
     </li>
-
 </ol>
 
 <p>返回重排 <code>nums</code> 的值之后形成的数组。</p>

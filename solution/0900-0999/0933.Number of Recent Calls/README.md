@@ -114,7 +114,7 @@ class RecentCounter {
     public RecentCounter() {
 
     }
-    
+
     public int ping(int t) {
         s[idx++] = t;
         return idx - search(t - 3000);
@@ -174,7 +174,7 @@ public:
     RecentCounter() {
 
     }
-    
+
     int ping(int t) {
         s.push_back(t);
         return s.size() - (lower_bound(s.begin(), s.end(), t - 3000) - s.begin());

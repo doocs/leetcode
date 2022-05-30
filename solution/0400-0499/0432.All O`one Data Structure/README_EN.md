@@ -16,6 +16,8 @@
 	<li><code>getMinKey()</code> Returns one of the keys with the minimum count. If no element exists, return an empty string <code>&quot;&quot;</code>.</li>
 </ul>
 
+<p><strong>Note</strong> that each function must run in <code>O(1)</code> average time complexity.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 

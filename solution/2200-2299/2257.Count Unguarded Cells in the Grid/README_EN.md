@@ -43,7 +43,6 @@ There are a total of 4 unguarded cells, so we return 4.
 	<li>All the positions in <code>guards</code> and <code>walls</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

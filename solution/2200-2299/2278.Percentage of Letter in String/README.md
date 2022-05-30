@@ -37,7 +37,6 @@
 	<li><code>letter</code> 是一个小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -108,8 +107,8 @@ function percentageLetter(s: string, letter: string): number {
     for (let i of s) {
         if (i === letter) count++;
     }
-    return Math.floor(count / total * 100);
-};
+    return Math.floor((count / total) * 100);
+}
 ```
 
 ### **Rust**

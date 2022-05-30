@@ -105,7 +105,7 @@ function largestGoodInteger(num: string): string {
         if (num.includes(c)) return c;
     }
     return '';
-};
+}
 ```
 
 ### **C++**

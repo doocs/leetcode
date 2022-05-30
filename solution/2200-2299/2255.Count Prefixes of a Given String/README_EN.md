@@ -39,7 +39,6 @@ Note that the same string can occur multiple times in words, and it should be co
 	<li><code>words[i]</code> and <code>s</code> consist of lowercase English letters <strong>only</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

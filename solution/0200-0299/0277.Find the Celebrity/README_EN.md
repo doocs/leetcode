@@ -33,8 +33,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == graph.length</code></li>
-	<li><code>n == graph[i].length</code></li>
+	<li><code>n == graph.length == graph[i].length</code></li>
 	<li><code>2 &lt;= n &lt;= 100</code></li>
 	<li><code>graph[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 	<li><code>graph[i][i] == 1</code></li>

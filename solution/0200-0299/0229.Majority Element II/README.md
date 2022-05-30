@@ -10,12 +10,10 @@
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
-
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>[3,2,3]
+<strong>输入：</strong>nums = [3,2,3]
 <strong>输出：</strong>[3]</pre>
 
 <p><strong>示例 2：</strong></p>
@@ -28,7 +26,7 @@
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>[1,1,1,3,3,2,2,2]
+<strong>输入：</strong>nums = [1,2]
 <strong>输出：</strong>[1,2]</pre>
 
 <p>&nbsp;</p>

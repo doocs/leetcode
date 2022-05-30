@@ -4,5 +4,5 @@ function percentageLetter(s: string, letter: string): number {
     for (let i of s) {
         if (i === letter) count++;
     }
-    return Math.floor(count / total * 100);
-};
+    return Math.floor((count / total) * 100);
+}

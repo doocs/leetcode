@@ -10,8 +10,6 @@
 
 <p>给你两个字符串&nbsp;<code>haystack</code> 和 <code>needle</code> ，请你在 <code>haystack</code> 字符串中找出 <code>needle</code> 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回&nbsp; <code>-1</code><strong> </strong>。</p>
 
-<p>&nbsp;</p>
-
 <p><strong>说明：</strong></p>
 
 <p>当&nbsp;<code>needle</code>&nbsp;是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。</p>
@@ -32,13 +30,6 @@
 <pre>
 <strong>输入：</strong>haystack = "aaaaa", needle = "bba"
 <strong>输出：</strong>-1
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>haystack = "", needle = ""
-<strong>输出：</strong>0
 </pre>
 
 <p>&nbsp;</p>

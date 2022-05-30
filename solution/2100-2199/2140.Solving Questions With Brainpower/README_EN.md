@@ -15,7 +15,6 @@
     	<li>If instead, question <code>0</code> is skipped and question <code>1</code> is solved, you will earn <code>4</code> points but you will be unable to solve questions <code>2</code> and <code>3</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the <strong>maximum</strong> points you can earn for the exam</em>.</p>

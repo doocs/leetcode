@@ -52,7 +52,6 @@ The average difference of index 0 is: |0 / 1 - 0| = |0 - 0| = 0.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

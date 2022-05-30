@@ -37,8 +37,6 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -225,17 +223,17 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
  */
 var inorderSuccessor = function (root, p) {
     if (root == null) {
-        return root
+        return root;
     }
-    const { val, left, right } = root
-    const res = inorderSuccessor(left, p)
+    const { val, left, right } = root;
+    const res = inorderSuccessor(left, p);
     if (res != null) {
-        return res
+        return res;
     }
     if (val > p.val) {
-        return root
+        return root;
     }
-    return inorderSuccessor(right, p)
+    return inorderSuccessor(right, p);
 };
 ```
 

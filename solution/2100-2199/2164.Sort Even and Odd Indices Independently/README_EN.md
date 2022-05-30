@@ -17,7 +17,6 @@
     	<li>For example, if <code>nums = [<u><strong>4</strong></u>,1,<u><strong>2</strong></u>,3]</code> before this step, it becomes <code>[<u><strong>2</strong></u>,1,<u><strong>4</strong></u>,3]</code> after. The values at even indices <code>0</code> and <code>2</code> are sorted in non-decreasing order.</li>
     </ul>
     </li>
-
 </ol>
 
 <p>Return <em>the array formed after rearranging the values of</em> <code>nums</code>.</p>

@@ -159,7 +159,7 @@ class LockingTree {
             }
         }
     }
-    
+
     public boolean lock(int num, int user) {
         if (nums.containsKey(num)) {
             return false;
@@ -167,7 +167,7 @@ class LockingTree {
         nums.put(num, user);
         return true;
     }
-    
+
     public boolean unlock(int num, int user) {
         if (!nums.containsKey(num) || nums.get(num) != user) {
             return false;
@@ -175,7 +175,7 @@ class LockingTree {
         nums.remove(num);
         return true;
     }
-    
+
     public boolean upgrade(int num, int user) {
         int t = num;
         while (t != -1) {
@@ -230,19 +230,19 @@ public:
             if (parent[i] != -1)
                 children[parent[i]].push_back(i);
     }
-    
+
     bool lock(int num, int user) {
         if (nums.count(num)) return false;
         nums[num] = user;
         return true;
     }
-    
+
     bool unlock(int num, int user) {
         if (!nums.count(num) || nums[num] != user) return false;
         nums.erase(num);
         return true;
     }
-    
+
     bool upgrade(int num, int user) {
         for (int t = num; t != -1; t = parent[t])
             if (nums.count(t))

@@ -93,7 +93,7 @@ class Solution:
 class Solution {
     private long[] h;
     private long[] p;
-    
+
     public int distinctEchoSubstrings(String text) {
         int n = text.length();
         int base = 131;

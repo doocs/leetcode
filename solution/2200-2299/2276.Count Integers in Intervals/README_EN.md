@@ -205,11 +205,11 @@ class CountIntervals {
     public CountIntervals() {
 
     }
-    
+
     public void add(int left, int right) {
         tree.modify(left, right, 1);
     }
-    
+
     public int count() {
         return tree.query(1, (int) 1e9);
     }
@@ -242,7 +242,7 @@ class CountIntervals {
     }
 
     add(left: number, right: number): void {
-        if (this.sum == (this.end - this.start + 1)) return;
+        if (this.sum == this.end - this.start + 1) return;
         if (left <= this.start && right >= this.end) {
             this.sum = this.end - this.start + 1;
             return;

@@ -80,7 +80,7 @@ class Solution:
     def longestCommonSubpath(self, n: int, paths: List[List[int]]) -> int:
         def get(l, r, h):
             return (h[r] - h[l - 1] * p[r - l + 1]) % mod
-        
+
         def check(l):
             cnt = Counter()
             for k, path in enumerate(paths):
@@ -92,7 +92,7 @@ class Solution:
                         vis.add(x)
                         cnt[x] += 1
             return max(cnt.values()) == len(paths)
-        
+
         base = 133331
         mod = 2**64+1
         p = [0] * 100010

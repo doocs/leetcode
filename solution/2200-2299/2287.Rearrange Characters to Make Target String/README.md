@@ -119,7 +119,7 @@ public:
         {
             if (cnt2[i] <= 0) continue;
             if (cnt1[i] < cnt2[i]) return 0;
-            ans = min(ans, cnt1[i] / cnt2[i]);   
+            ans = min(ans, cnt1[i] / cnt2[i]);
         }
         return ans;
     }

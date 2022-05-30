@@ -57,7 +57,6 @@
     <li>Both <code>m</code> and <code>n</code> are <strong>even</strong> integers.</li>
     <li><code>1 &lt;= grid[i][j] &lt;=<sup> </sup>5000</code></li>
     <li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
-
 </ul>
 
 ## Solutions

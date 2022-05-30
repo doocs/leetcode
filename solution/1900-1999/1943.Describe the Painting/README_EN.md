@@ -23,7 +23,6 @@
     	<li><code>[4,7)</code> is colored <code>{7}</code> from only the second segment.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the 2D array </em><code>painting</code><em> describing the finished painting (excluding any parts that are <strong>not </strong>painted). You may return the segments in <strong>any order</strong></em>.</p>

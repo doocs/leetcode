@@ -62,7 +62,6 @@ Thus, 10<sup>9</sup> is returned.
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

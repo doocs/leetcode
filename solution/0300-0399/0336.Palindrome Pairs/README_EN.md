@@ -59,7 +59,7 @@ class Solution {
     static {
         MUL[0] = 1;
         for (int i = 1; i < MUL.length; ++i) {
-            MUL[i] = (MUL[i - 1] * BASE) % MOD; 
+            MUL[i] = (MUL[i - 1] * BASE) % MOD;
         }
     }
     public List<List<Integer>> palindromePairs(String[] words) {

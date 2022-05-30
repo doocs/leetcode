@@ -8,7 +8,8 @@
 
 <p>表: <code>Relations</code></p>
 
-<pre>+-------------+------+
+<pre>
++-------------+------+
 | Column Name | Type |
 +-------------+------+
 | user_id     | int  |
@@ -22,8 +23,6 @@
 
 <p>写出一个查询语句，找到具有最多共同关注者的所有两两结对组。换句话说，如果有两个用户的共同关注者是最大的，我们应该返回所有具有此最大值的两两结对组</p>
 
-<p>The result table should contain the pairs <code>user1_id</code> and <code>user2_id</code> where <code>user1_id &lt; user2_id</code>.</p>
-
 <p>结果返回表，每一行应该包含<code>user1_id</code>和&nbsp;<code>user2_id，</code>其中<code>user1_id &lt; user2_id</code>.</p>
 
 <p>返回结果&nbsp;<strong>不要求顺序</strong>&nbsp;。</p>
@@ -32,7 +31,8 @@
 
 <p>&nbsp;</p>
 
-<pre>Relations 表:
+<pre>
+Relations 表:
 +---------+-------------+
 | user_id | follower_id |
 +---------+-------------+

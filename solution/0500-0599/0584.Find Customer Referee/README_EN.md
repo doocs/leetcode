@@ -20,7 +20,7 @@ Each row of this table indicates the id of a customer, their name, and the id of
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the customer that are <strong>not referred by</strong> the customer with <code>id = 2</code>.</p>
+<p>Write an SQL query to report the names of the customer that are <strong>not referred by</strong> the customer with <code>id = 2</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

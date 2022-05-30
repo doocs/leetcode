@@ -64,7 +64,6 @@
     <li><code>prevRoom[0] == -1</code></li>
     <li><code>0 &lt;= prevRoom[i] &lt; n</code> for all <code>1 &lt;= i &lt; n</code></li>
     <li>Every room is reachable from room <code>0</code> once all the rooms are built.</li>
-
 </ul>
 
 ## Solutions

@@ -38,7 +38,7 @@ Each row of this table contains some information about one sale.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the <strong>products</strong> that were <strong>only</strong> sold in the spring of <code>2019</code>. That is, between <code>2019-01-01</code> and <code>2019-03-31</code> inclusive.</p>
+<p>Write an SQL query that reports the <strong>products</strong> that were <strong>only</strong> sold in the first quarter of <code>2019</code>. That is, between <code>2019-01-01</code> and <code>2019-03-31</code> inclusive.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

@@ -29,22 +29,22 @@
 <img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/images/example-1.png" style="width: 498px; height: 268px;" />
 <pre>
 <strong>Input</strong>
-[&quot;Robot&quot;, &quot;move&quot;, &quot;move&quot;, &quot;getPos&quot;, &quot;getDir&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;getPos&quot;, &quot;getDir&quot;]
+[&quot;Robot&quot;, &quot;step&quot;, &quot;step&quot;, &quot;getPos&quot;, &quot;getDir&quot;, &quot;step&quot;, &quot;step&quot;, &quot;step&quot;, &quot;getPos&quot;, &quot;getDir&quot;]
 [[6, 3], [2], [2], [], [], [2], [1], [4], [], []]
 <strong>Output</strong>
 [null, null, null, [4, 0], &quot;East&quot;, null, null, null, [1, 2], &quot;West&quot;]
 
 <strong>Explanation</strong>
 Robot robot = new Robot(6, 3); // Initialize the grid and the robot at (0, 0) facing East.
-robot.move(2); // It moves two steps East to (2, 0), and faces East.
-robot.move(2); // It moves two steps East to (4, 0), and faces East.
+robot.step(2); // It moves two steps East to (2, 0), and faces East.
+robot.step(2); // It moves two steps East to (4, 0), and faces East.
 robot.getPos(); // return [4, 0]
 robot.getDir(); // return &quot;East&quot;
-robot.move(2); // It moves one step East to (5, 0), and faces East.
+robot.step(2); // It moves one step East to (5, 0), and faces East.
 // Moving the next step East would be out of bounds, so it turns and faces North.
 // Then, it moves one step North to (5, 1), and faces North.
-robot.move(1); // It moves one step North to (5, 2), and faces <strong>North</strong> (not West).
-robot.move(4); // Moving the next step North would be out of bounds, so it turns and faces West.
+robot.step(1); // It moves one step North to (5, 2), and faces <strong>North</strong> (not West).
+robot.step(4); // Moving the next step North would be out of bounds, so it turns and faces West.
 // Then, it moves four steps West to (1, 2), and faces West.
 robot.getPos(); // return [1, 2]
 robot.getDir(); // return &quot;West&quot;

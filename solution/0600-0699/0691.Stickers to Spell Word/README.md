@@ -42,7 +42,7 @@
 	<li><code>n == stickers.length</code></li>
 	<li><code>1 &lt;= n &lt;= 50</code></li>
 	<li><code>1 &lt;= stickers[i].length &lt;= 10</code></li>
-	<li><code>1 &lt;= target &lt;= 15</code></li>
+	<li><code>1 &lt;= target.length &lt;= 15</code></li>
 	<li><code>stickers[i]</code>&nbsp;和&nbsp;<code>target</code>&nbsp;由小写英文单词组成</li>
 </ul>
 

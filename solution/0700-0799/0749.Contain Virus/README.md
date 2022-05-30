@@ -25,7 +25,7 @@
 <strong>输出:</strong> 10
 <strong>解释:</strong>一共有两块被病毒感染的区域。
 在第一天，添加 5 墙隔离病毒区域的左侧。病毒传播后的状态是:
-<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0749.Contain%20Virus/images/virus12edited-grid.jpg" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0749.Contain%20Virus/images/653" />
 第二天，在右侧添加 5 个墙来隔离病毒区域。此时病毒已经被完全控制住了。
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0749.Contain%20Virus/images/virus13edited-grid.jpg" style="height: 261px; width: 500px;" />
 </pre>

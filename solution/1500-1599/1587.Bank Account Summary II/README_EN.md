@@ -15,6 +15,7 @@
 +--------------+---------+
 account is the primary key for this table.
 Each row of this table contains the account number of each user in the bank.
+There will be no two users having the same name in the table.
 </pre>
 
 <p>&nbsp;</p>

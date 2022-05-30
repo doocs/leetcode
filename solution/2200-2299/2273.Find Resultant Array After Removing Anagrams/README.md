@@ -109,9 +109,9 @@ function removeAnagrams(words: string[]): string[] {
         }
     }
     return ans;
-};
+}
 
-function countWord (word: string): number[] {
+function countWord(word: string): number[] {
     let count = new Array(128).fill(0);
     for (let i = 0; i < word.length; i++) {
         count[word.charCodeAt(i)]++;

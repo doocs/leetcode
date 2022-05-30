@@ -102,7 +102,7 @@ class Solution:
                             return 0
                     cnt += 1
             return cnt
-        
+
         return max(check(mask) for mask in range(1, 1 << len(statements)))
 ```
 

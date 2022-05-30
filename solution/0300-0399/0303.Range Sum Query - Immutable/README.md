@@ -92,7 +92,7 @@ class NumArray {
             s[i + 1] = s[i] + nums[i];
         }
     }
-    
+
     public int sumRange(int left, int right) {
         return s[right + 1] - s[left];
     }
@@ -117,7 +117,7 @@ public:
         s.resize(n + 1);
         for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
     }
-    
+
     int sumRange(int left, int right) {
         return s[right + 1] - s[left];
     }

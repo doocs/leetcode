@@ -43,7 +43,6 @@ The indices 0 and 1 both violate the condition, so return false.
 	<li><code>num</code> consists of digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

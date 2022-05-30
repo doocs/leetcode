@@ -33,7 +33,6 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 	<li><code>letter</code> is a lowercase English letter.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -98,8 +97,8 @@ function percentageLetter(s: string, letter: string): number {
     for (let i of s) {
         if (i === letter) count++;
     }
-    return Math.floor(count / total * 100);
-};
+    return Math.floor((count / total) * 100);
+}
 ```
 
 ### **Rust**

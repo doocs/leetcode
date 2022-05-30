@@ -40,7 +40,7 @@ name 是活动的名字
 
 <p>写一条 SQL 查询那些既没有最多，也没有最少参与者的活动的名字</p>
 
-<p><code>Activities</code> 表的每项活动的参与者都来自 Friends 表。</p>
+<p><code>Activities</code> 表中的任意活动都有在&nbsp;<code>Friends</code> 中参与过</p>
 
 <p>可以以 <strong>任何顺序</strong> 返回结果。</p>
 

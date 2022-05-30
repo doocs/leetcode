@@ -60,7 +60,6 @@ The sum of all the total strengths is 25 + 16 + 36 + 36 + 40 + 60 = 213.
 	<li><code>1 &lt;= strength[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

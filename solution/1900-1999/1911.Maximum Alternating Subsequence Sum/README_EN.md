@@ -8,7 +8,6 @@
 
 <ul>
     <li>For example, the alternating sum of <code>[4,2,5,3]</code> is <code>(4 + 5) - (2 + 3) = 4</code>.</li>
-
 </ul>
 
 <p>Given an array <code>nums</code>, return <em>the <strong>maximum alternating sum</strong> of any subsequence of </em><code>nums</code><em> (after <strong>reindexing</strong> the elements of the subsequence)</em>.</p>
@@ -64,7 +63,6 @@
 <ul>
     <li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
-
 </ul>
 
 ## Solutions

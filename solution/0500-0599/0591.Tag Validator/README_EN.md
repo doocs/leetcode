@@ -25,9 +25,9 @@
 <pre>
 <strong>Input:</strong> code = &quot;&lt;DIV&gt;This is the first line &lt;![CDATA[&lt;div&gt;]]&gt;&lt;/DIV&gt;&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong>
-The code is wrapped in a closed tag : &lt;DIV&gt; and &lt;/DIV&gt;.
-The TAG_NAME is valid, the TAG_CONTENT consists of some characters and cdata.
+<strong>Explanation:</strong> 
+The code is wrapped in a closed tag : &lt;DIV&gt; and &lt;/DIV&gt;. 
+The TAG_NAME is valid, the TAG_CONTENT consists of some characters and cdata. 
 Although CDATA_CONTENT has an unmatched start tag with invalid TAG_NAME, it should be considered as plain text, not parsed as a tag.
 So TAG_CONTENT is valid, and then the code is valid. Thus return true.
 </pre>

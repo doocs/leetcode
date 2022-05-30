@@ -8,7 +8,6 @@
 
 <ul>
     <li>For example, the product difference between <code>(5, 6)</code> and <code>(2, 7)</code> is <code>(5 * 6) - (2 * 7) = 16</code>.</li>
-
 </ul>
 
 <p>Given an integer array <code>nums</code>, choose four <strong>distinct</strong> indices <code>w</code>, <code>x</code>, <code>y</code>, and <code>z</code> such that the <strong>product difference</strong> between pairs <code>(nums[w], nums[x])</code> and <code>(nums[y], nums[z])</code> is <strong>maximized</strong>.</p>
@@ -51,6 +50,7 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 
 <ul>
     <li><code>4 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 
 </ul>

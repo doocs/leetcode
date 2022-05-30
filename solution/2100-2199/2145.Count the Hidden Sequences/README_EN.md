@@ -16,7 +16,6 @@
     	<li><code>[1, 2, 3, 4]</code> is not possible since the differences are not correct.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the number of <strong>possible</strong> hidden sequences there are.</em> If there are no possible sequences, return <code>0</code>.</p>
