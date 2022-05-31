@@ -7,21 +7,20 @@
  * }
  */
 func kthSmallest(root *TreeNode, k int) int {
-	var ans int
-
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
+	stk := []*TreeNode{}
+	for root != nil || len(stk) > 0 {
 		if root != nil {
-			dfs(root.Left)
+			stk = append(stk, root)
+			root = root.Left
+		} else {
+			root = stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
 			k--
 			if k == 0 {
-				ans = root.Val
-				return
+				return root.Val
 			}
-			dfs(root.Right)
+			root = root.Right
 		}
 	}
-
-	dfs(root)
-	return ans
+	return 0
 }

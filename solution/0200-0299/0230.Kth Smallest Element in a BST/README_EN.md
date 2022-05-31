@@ -48,19 +48,17 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        def dfs(root):
+        stk = []
+        while root or stk:
             if root:
-                nonlocal k, ans
-                dfs(root.left)
+                stk.append(root)
+                root = root.left
+            else:
+                root = stk.pop()
                 k -= 1
                 if k == 0:
-                    ans = root.val
-                    return
-                dfs(root.right)
-
-        ans = -1
-        dfs(root)
-        return ans
+                    return root.val
+                root = root.right
 ```
 
 ### **Java**
@@ -82,76 +80,21 @@ class Solution:
  * }
  */
 class Solution {
-    private int k;
-    private int ans;
-
     public int kthSmallest(TreeNode root, int k) {
-        this.k = k;
-        dfs(root);
-        return ans;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        dfs(root.left);
-        if (--k == 0) {
-            ans = root.val;
-            return;
-        }
-        dfs(root.right);
-    }
-}
-```
-
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public int kthSmallest(TreeNode root, int k) {
-        int ans = -1;
-        while (root != null) {
-            if (root.left == null) {
-                --k;
-                if (k == 0) {
-                    ans = root.val;
-                    return ans;
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        while (root != null || !stk.isEmpty()) {
+            if (root != null) {
+                stk.push(root);
+                root = root.left;
+            } else {
+                root = stk.pop();
+                if (--k == 0) {
+                    return root.val;
                 }
                 root = root.right;
-            } else {
-                TreeNode pre = root.left;
-                while (pre.right != null && pre.right != root) {
-                    pre = pre.right;
-                }
-                if (pre.right == null) {
-                    pre.right = root;
-                    root = root.left;
-                } else {
-                    --k;
-                    if (k == 0) {
-                        ans = root.val;
-                        return ans;
-                    }
-                    pre.right = null;
-                    root = root.right;
-                }
             }
         }
-        return ans;
+        return 0;
     }
 }
 ```
@@ -172,24 +115,24 @@ class Solution {
  */
 class Solution {
 public:
-    int k;
-    int ans;
-
     int kthSmallest(TreeNode* root, int k) {
-        this->k = k;
-        dfs(root);
-        return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        if (--k == 0)
+        stack<TreeNode*> stk;
+        while (root || !stk.empty())
         {
-            ans = root->val;
-            return;
+            if (root)
+            {
+                stk.push(root);
+                root = root->left;
+            }
+            else
+            {
+                root = stk.top();
+                stk.pop();
+                if (--k == 0) return root->val;
+                root = root->right;
+            }
         }
-        dfs(root->right);
+        return 0;
     }
 };
 ```
@@ -206,23 +149,22 @@ public:
  * }
  */
 func kthSmallest(root *TreeNode, k int) int {
-	var ans int
-
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
+	stk := []*TreeNode{}
+	for root != nil || len(stk) > 0 {
 		if root != nil {
-			dfs(root.Left)
+			stk = append(stk, root)
+			root = root.Left
+		} else {
+			root = stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
 			k--
 			if k == 0 {
-				ans = root.Val
-				return
+				return root.Val
 			}
-			dfs(root.Right)
+			root = root.Right
 		}
 	}
-
-	dfs(root)
-	return ans
+	return 0
 }
 ```
 

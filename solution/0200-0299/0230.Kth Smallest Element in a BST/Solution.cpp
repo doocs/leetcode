@@ -11,23 +11,23 @@
  */
 class Solution {
 public:
-    int k;
-    int ans;
-
     int kthSmallest(TreeNode* root, int k) {
-        this->k = k;
-        dfs(root);
-        return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        if (--k == 0)
+        stack<TreeNode*> stk;
+        while (root || !stk.empty())
         {
-            ans = root->val;
-            return;
+            if (root)
+            {
+                stk.push(root);
+                root = root->left;
+            }
+            else
+            {
+                root = stk.top();
+                stk.pop();
+                if (--k == 0) return root->val;
+                root = root->right;
+            }
         }
-        dfs(root->right);
+        return 0;
     }
 };
