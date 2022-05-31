@@ -63,9 +63,9 @@
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         while root:
-            if root.val < p.val and root.val < q.val:
+            if root.val < min(p.val, q.val):
                 root = root.right
-            elif root.val > p.val and root.val > q.val:
+            elif root.val > max(p.val, q.val):
                 root = root.left
             else:
                 return root
@@ -85,9 +85,9 @@ class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         if root is None:
             return None
-        if root.val < p.val and root.val < q.val:
+        if root.val < min(p.val, q.val):
             return self.lowestCommonAncestor(root.right, p, q)
-        if root.val > p.val and root.val > q.val:
+        if root.val > max(p.val, q.val):
             return self.lowestCommonAncestor(root.left, p, q)
         return root
 ```
@@ -226,9 +226,6 @@ function lowestCommonAncestor(
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	for root != nil {
-		// 如果 p、q 的值都小于 root，说明 p、q 肯定在 root 的左子树中；
-		// 如果 p、q 都大于 root，说明肯定在 root 的右子树中；
-		// 如果一个在左一个在右，则说明此时的 root 记为对应的最近公共祖先。
 		if root.Val > p.Val && root.Val > q.Val {
 			root = root.Left
 		} else if root.Val < p.Val && root.Val < q.Val {

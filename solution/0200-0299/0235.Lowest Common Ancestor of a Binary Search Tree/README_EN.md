@@ -62,9 +62,9 @@ Iterative:
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         while root:
-            if root.val < p.val and root.val < q.val:
+            if root.val < min(p.val, q.val):
                 root = root.right
-            elif root.val > p.val and root.val > q.val:
+            elif root.val > max(p.val, q.val):
                 root = root.left
             else:
                 return root
@@ -84,9 +84,9 @@ class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         if root is None:
             return None
-        if root.val < p.val and root.val < q.val:
+        if root.val < min(p.val, q.val):
             return self.lowestCommonAncestor(root.right, p, q)
-        if root.val > p.val and root.val > q.val:
+        if root.val > max(p.val, q.val):
             return self.lowestCommonAncestor(root.left, p, q)
         return root
 ```
