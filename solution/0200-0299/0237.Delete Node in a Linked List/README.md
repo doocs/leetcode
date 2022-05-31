@@ -42,6 +42,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：节点赋值**
+
 将 `node.next` 节点的值赋给 `node`，然后将 `node.next` 指向 `node.next` 的下一个节点。
 
 <!-- tabs:start -->
