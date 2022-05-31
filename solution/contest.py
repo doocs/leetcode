@@ -60,7 +60,7 @@ def handle(result: dict):
             'contest_title_slug': result['contest']['title_slug'],
             'contest_id': result['contest']['id'],
             'contest_start_time': result['contest']['origin_start_time'],
-            'contest_duration': result['contest']['duration']
+            'contest_duration': result['contest']['duration'],
         }
 
 
@@ -80,10 +80,16 @@ def run():
         biweekly_res.append(res)
     for v in chain(weekly_res, biweekly_res):
         handle(v)
-        contest_list.append([
-            v['contest']['id'], v['title'], v['title_en'], v['questions'], v['contest']['start_time'],
-            v['contest']['duration']
-        ])
+        contest_list.append(
+            [
+                v['contest']['id'],
+                v['title'],
+                v['title_en'],
+                v['questions'],
+                v['contest']['start_time'],
+                v['contest']['duration'],
+            ]
+        )
 
     contest_list.sort(reverse=True)
     with open("contest.json", 'w', encoding='utf-8') as f:
@@ -93,6 +99,7 @@ def run():
 
 
 # ["id", "title", "title_en", "questions", "start_time", "duration"]
+
 
 def generate_contest_list():
     with open('./result.json', 'r', encoding='utf-8') as f:
@@ -112,7 +119,12 @@ Get your rating changes right after the completion of LeetCode contests, https:/
     en_items = []
 
     for cid, title, title_en, qs, start_time, duration in contest_list:
-        v = "#### " + title + f'({format_time(start_time) + ", " + format_duration(duration)})' + "\n\n"
+        v = (
+            "#### "
+            + title
+            + f'({format_time(start_time) + ", " + format_duration(duration)})'
+            + "\n\n"
+        )
         v_en = "#### " + title_en + "\n\n"
         for q in qs:
             slug = q['title_slug']

@@ -14,8 +14,4 @@ class Solution:
             return root
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
-        if left is None:
-            return right
-        if right is None:
-            return left
-        return root
+        return root if left and right else (left or right)

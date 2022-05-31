@@ -152,10 +152,10 @@ def refresh(result):
             en_content = f2.read()
         i = cn_content.index('. ')
         j = cn_content.index(']')
-        cn_content = cn_content.replace(cn_content[i + 2: j], title)
+        cn_content = cn_content.replace(cn_content[i + 2 : j], title)
         i = en_content.index('. ')
         j = en_content.index(']')
-        en_content = en_content.replace(en_content[i + 2: j], title_en)
+        en_content = en_content.replace(en_content[i + 2 : j], title_en)
 
         # update question content
         old_content = re.search("<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S).group(1)
