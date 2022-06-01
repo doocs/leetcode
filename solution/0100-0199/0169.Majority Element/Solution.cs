@@ -1,18 +1,18 @@
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int cnt = 0, major = 0;
-        foreach (int num in nums)
+        int cnt = 0, m = 0;
+        foreach (int v in nums)
         {
             if (cnt == 0)
             {
-                major = num;
+                m = v;
                 cnt = 1;
             }
             else
             {
-                cnt += (major == num ? 1 : -1);
+                cnt += m == v ? 1 : -1;
             }
         }
-        return major;
+        return m;
     }
 }

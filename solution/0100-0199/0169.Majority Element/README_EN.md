@@ -37,14 +37,13 @@
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        cnt = major = 0
-        for num in nums:
+        cnt = m = 0
+        for v in nums:
             if cnt == 0:
-                major = num
-                cnt = 1
+                m, cnt = v, 1
             else:
-                cnt += (1 if major == num else -1)
-        return major
+                cnt += (1 if m == v else -1)
+        return m
 ```
 
 ### **Java**
@@ -52,16 +51,16 @@ class Solution:
 ```java
 class Solution {
     public int majorityElement(int[] nums) {
-        int cnt = 0, major = 0;
-        for (int num : nums) {
+        int cnt = 0, m = 0;
+        for (int v : nums) {
             if (cnt == 0) {
-                major = num;
+                m = v;
                 cnt = 1;
             } else {
-                cnt += (major == num ? 1 : -1);
+                cnt += (m == v ? 1 : -1);
             }
         }
-        return major;
+        return m;
     }
 }
 ```
@@ -74,17 +73,17 @@ class Solution {
  * @return {number}
  */
 var majorityElement = function (nums) {
-    let cnt = 0;
-    let major = 0;
-    for (const num of nums) {
+    let cnt = 0,
+        m = 0;
+    for (const v of nums) {
         if (cnt == 0) {
-            major = num;
+            m = v;
             cnt = 1;
         } else {
-            cnt += major == num ? 1 : -1;
+            cnt += m == v ? 1 : -1;
         }
     }
-    return major;
+    return m;
 };
 ```
 
@@ -94,16 +93,17 @@ var majorityElement = function (nums) {
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int cnt = 0, major = 0;
-        for (int num : nums) {
-            if (cnt == 0) {
-                major = num;
+        int cnt = 0, m = 0;
+        for (int& v : nums)
+        {
+            if (cnt == 0)
+            {
+                m = v;
                 cnt = 1;
-            } else {
-                cnt += (major == num ? 1 : -1);
             }
+            else cnt += (m == v ? 1 : -1);
         }
-        return major;
+        return m;
     }
 };
 ```
@@ -113,20 +113,20 @@ public:
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int cnt = 0, major = 0;
-        foreach (int num in nums)
+        int cnt = 0, m = 0;
+        foreach (int v in nums)
         {
             if (cnt == 0)
             {
-                major = num;
+                m = v;
                 cnt = 1;
             }
             else
             {
-                cnt += (major == num ? 1 : -1);
+                cnt += m == v ? 1 : -1;
             }
         }
-        return major;
+        return m;
     }
 }
 ```
@@ -135,20 +135,19 @@ public class Solution {
 
 ```go
 func majorityElement(nums []int) int {
-    var cnt, major int
-    for _, num := range nums {
-        if cnt == 0 {
-            major = num
-            cnt = 1
-        } else {
-            if major == num {
-                cnt++
-            } else {
-                cnt--
-            }
-        }
-    }
-    return major
+	cnt, m := 0, 0
+	for _, v := range nums {
+		if cnt == 0 {
+			m, cnt = v, 1
+		} else {
+			if m == v {
+				cnt++
+			} else {
+				cnt--
+			}
+		}
+	}
+	return m
 }
 ```
 
@@ -157,17 +156,17 @@ func majorityElement(nums []int) int {
 ```rust
 impl Solution {
     pub fn majority_element(nums: Vec<i32>) -> i32 {
-        let mut major = 0;
+        let mut m = 0;
         let mut cnt = 0;
-        for &num in nums.iter() {
+        for &v in nums.iter() {
             if cnt == 0 {
-                major = num;
+                m = v;
                 cnt = 1;
             } else {
-                cnt += if major == num { 1 } else { -1 };
+                cnt += if m == v { 1 } else { -1 };
             }
         }
-        major
+        m
     }
 }
 ```

@@ -3,15 +3,15 @@
  * @return {number}
  */
 var majorityElement = function (nums) {
-    let cnt = 0;
-    let major = 0;
-    for (const num of nums) {
+    let cnt = 0,
+        m = 0;
+    for (const v of nums) {
         if (cnt == 0) {
-            major = num;
+            m = v;
             cnt = 1;
         } else {
-            cnt += major == num ? 1 : -1;
+            cnt += m == v ? 1 : -1;
         }
     }
-    return major;
+    return m;
 };

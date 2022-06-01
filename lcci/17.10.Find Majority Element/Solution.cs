@@ -1,22 +1,26 @@
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int cnt = 0, candidate = 0;
-        foreach (int num in nums)
+        int cnt = 0, m = 0;
+        foreach (int v in nums)
         {
             if (cnt == 0)
             {
-                candidate = num;
+                m = v;
+                cnt = 1;
             }
-            cnt += (candidate == num ? 1 : -1);
+            else
+            {
+                cnt += m == v ? 1 : -1;
+            }
         }
         cnt = 0;
-        foreach (int num in nums)
+        foreach (int v in nums)
         {
-            if (candidate == num)
+            if (m == v)
             {
                 ++cnt;
             }
         }
-        return cnt > nums.Length / 2 ? candidate : -1;
+        return cnt > nums.Length / 2 ? m : -1;
     }
 }

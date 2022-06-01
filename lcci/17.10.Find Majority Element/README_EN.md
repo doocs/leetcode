@@ -47,12 +47,13 @@ Boyer–Moore majority vote algorithm
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        cnt = candidate = 0
-        for num in nums:
+        cnt = m = 0
+        for v in nums:
             if cnt == 0:
-                candidate = num
-            cnt += (1 if candidate == num else -1)
-        return candidate if nums.count(candidate) > len(nums) / 2 else -1
+                m, cnt = v, 1
+            else:
+                cnt += (1 if m == v else -1)
+        return m if nums.count(m) > len(nums) // 2 else -1
 ```
 
 ### **Java**
@@ -60,20 +61,22 @@ class Solution:
 ```java
 class Solution {
     public int majorityElement(int[] nums) {
-        int cnt = 0, candidate = 0;
-        for (int num : nums) {
+        int cnt = 0, m = 0;
+        for (int v : nums) {
             if (cnt == 0) {
-                candidate = num;
+                m = v;
+                cnt = 1;
+            } else {
+                cnt += (m == v ? 1 : -1);
             }
-            cnt += (num == candidate ? 1 : -1);
         }
         cnt = 0;
-        for (int num : nums) {
-            if (num == candidate) {
+        for (int v : nums) {
+            if (m == v) {
                 ++cnt;
             }
         }
-        return cnt > nums.length / 2 ? candidate : -1;
+        return cnt > nums.length / 2 ? m : -1;
     }
 }
 ```
@@ -86,21 +89,23 @@ class Solution {
  * @return {number}
  */
 var majorityElement = function (nums) {
-    let cnt = 0;
-    let candidate = 0;
-    for (const num of nums) {
+    let cnt = 0,
+        m = 0;
+    for (const v of nums) {
         if (cnt == 0) {
-            candidate = num;
+            m = v;
+            cnt = 1;
+        } else {
+            cnt += m == v ? 1 : -1;
         }
-        cnt += candidate == num ? 1 : -1;
     }
     cnt = 0;
-    for (const num of nums) {
-        if (candidate == num) {
+    for (const v of nums) {
+        if (m == v) {
             ++cnt;
         }
     }
-    return cnt > nums.length / 2 ? candidate : -1;
+    return cnt > nums.length / 2 ? m : -1;
 };
 ```
 
@@ -110,14 +115,18 @@ var majorityElement = function (nums) {
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int cnt = 0, candidate = 0;
-        for (int num : nums)
+        int cnt = 0, m = 0;
+        for (int& v : nums)
         {
-            if (cnt == 0) candidate = num;
-            cnt += (candidate == num ? 1 : -1);
+            if (cnt == 0)
+            {
+                m = v;
+                cnt = 1;
+            }
+            else cnt += (m == v ? 1 : -1);
         }
-        cnt = count(nums.begin(), nums.end(), candidate);
-        return cnt > nums.size() / 2 ? candidate : -1;
+        cnt = count(nums.begin(), nums.end(), m);
+        return cnt > nums.size() / 2 ? m : -1;
     }
 };
 ```
@@ -126,25 +135,26 @@ public:
 
 ```go
 func majorityElement(nums []int) int {
-	var cnt, candidate int
-	for _, num := range nums {
+	cnt, m := 0, 0
+	for _, v := range nums {
 		if cnt == 0 {
-			candidate = num
-		}
-		if candidate == num {
-			cnt++
+			m, cnt = v, 1
 		} else {
-			cnt--
+			if m == v {
+				cnt++
+			} else {
+				cnt--
+			}
 		}
 	}
 	cnt = 0
-	for _, num := range nums {
-		if candidate == num {
+	for _, v := range nums {
+		if m == v {
 			cnt++
 		}
 	}
 	if cnt > len(nums)/2 {
-		return candidate
+		return m
 	}
 	return -1
 }
@@ -155,24 +165,28 @@ func majorityElement(nums []int) int {
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int cnt = 0, candidate = 0;
-        foreach (int num in nums)
+        int cnt = 0, m = 0;
+        foreach (int v in nums)
         {
             if (cnt == 0)
             {
-                candidate = num;
+                m = v;
+                cnt = 1;
             }
-            cnt += (candidate == num ? 1 : -1);
+            else
+            {
+                cnt += m == v ? 1 : -1;
+            }
         }
         cnt = 0;
-        foreach (int num in nums)
+        foreach (int v in nums)
         {
-            if (candidate == num)
+            if (m == v)
             {
                 ++cnt;
             }
         }
-        return cnt > nums.Length / 2 ? candidate : -1;
+        return cnt > nums.Length / 2 ? m : -1;
     }
 }
 ```

@@ -29,22 +29,21 @@
 
 ## 解法
 
-摩尔投票法。时间复杂度 O(n)，空间复杂度 O(1)。
+<!-- 这里可写通用的实现逻辑 -->
 
-一般而言，摩尔投票法需要对输入的列表进行**两次遍历**。在第一次遍历中，我们生成候选值 candidate，如果存在多数，那么该候选值就是多数值。在第二次遍历中，只需要简单地计算候选值的频率，以确认是否是多数值。
+**方法一：摩尔投票法**
 
-接下来我们详细看下**第一次遍历**：
+摩尔投票法的基本步骤如下：
 
-我们需要两个变量：`cnt`, `candidate`，其中 `cnt` 初始化为 0，`candidate` 初始化可以是任何值，这里我们设置为 0。
+初始化元素 $m$，并给计数器 $cnt$ 赋初值 $cnt=0$。对于输入列表中每一个元素 $x$：
 
-对于列表中的每个元素 num，我们首先检查计数值 cnt，
+1. 若 $cnt=0$，那么 $m=x$ and $cnt=1$；
+1. 否则若 $m=x$，那么 $cnt=cnt+1$；
+1. 否则 $cnt=cnt-1$。
 
--   若 `cnt == 0`，我们将候选值 candidate 设置为当前元素值，即 `candidate = num`。
--   若 `candidate == num`，将 cnt 加 1，否则减 1。
+一般而言，摩尔投票法需要对输入的列表进行**两次遍历**。在第一次遍历中，我们生成候选值 $m$，如果存在多数，那么该候选值就是多数值。在第二次遍历中，只需要简单地计算候选值的频率，以确认是否是多数值。由于本题已经明确说明存在多数值，所以第一次遍历结束后，直接返回 m 即可，无需二次遍历确认是否是多数值。
 
-**第二次遍历**，则是扫描列表中 candidate 出现的次数，若大于 `n/2`，则该候选值就是多数值，否则返回 -1。
-
-注意：本题已经明确说明存在多数值，所以第一次遍历结束后，直接返回 candidate 即可，无需二次遍历确认是否是多数值。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -55,12 +54,13 @@
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        cnt = candidate = 0
-        for num in nums:
+        cnt = m = 0
+        for v in nums:
             if cnt == 0:
-                candidate = num
-            cnt += (1 if candidate == num else -1)
-        return candidate
+                m, cnt = v, 1
+            else:
+                cnt += (1 if m == v else -1)
+        return m
 ```
 
 ### **Java**
@@ -70,14 +70,16 @@ class Solution:
 ```java
 class Solution {
     public int majorityElement(int[] nums) {
-        int cnt = 0, candidate = 0;
-        for (int num : nums) {
+        int cnt = 0, m = 0;
+        for (int v : nums) {
             if (cnt == 0) {
-                candidate = num;
+                m = v;
+                cnt = 1;
+            } else {
+                cnt += (m == v ? 1 : -1);
             }
-            cnt += (num == candidate ? 1 : -1);
         }
-        return candidate;
+        return m;
     }
 }
 ```
@@ -90,15 +92,17 @@ class Solution {
  * @return {number}
  */
 var majorityElement = function (nums) {
-    let cnt = 0;
-    let candidate = 0;
-    for (const num of nums) {
+    let cnt = 0,
+        m = 0;
+    for (const v of nums) {
         if (cnt == 0) {
-            candidate = num;
+            m = v;
+            cnt = 1;
+        } else {
+            cnt += m == v ? 1 : -1;
         }
-        cnt += candidate == num ? 1 : -1;
     }
-    return candidate;
+    return m;
 };
 ```
 
@@ -108,33 +112,19 @@ var majorityElement = function (nums) {
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int votes = 0, x = 0;
-        for (int num : nums) {
-            if (votes == 0) x = num;
-            votes += x == num ? 1 : -1;
+        int cnt = 0, m = 0;
+        for (int& v : nums)
+        {
+            if (cnt == 0)
+            {
+                m = v;
+                cnt = 1;
+            }
+            else cnt += (m == v ? 1 : -1);
         }
-        return x;
+        return m;
     }
 };
-```
-
-### **Go**
-
-```go
-func majorityElement(nums []int) int {
-	var cnt, candidate int
-	for _, num := range nums {
-		if cnt == 0 {
-			candidate = num
-		}
-		if candidate == num {
-			cnt++
-		} else {
-			cnt--
-		}
-	}
-	return candidate
-}
 ```
 
 ### **C#**
@@ -142,16 +132,60 @@ func majorityElement(nums []int) int {
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int cnt = 0, candidate = 0;
-        foreach (int num in nums)
+        int cnt = 0, m = 0;
+        foreach (int v in nums)
         {
             if (cnt == 0)
             {
-                candidate = num;
+                m = v;
+                cnt = 1;
             }
-            cnt += (candidate == num ? 1 : -1);
+            else
+            {
+                cnt += m == v ? 1 : -1;
+            }
         }
-        return candidate;
+        return m;
+    }
+}
+```
+
+### **Go**
+
+```go
+func majorityElement(nums []int) int {
+	cnt, m := 0, 0
+	for _, v := range nums {
+		if cnt == 0 {
+			m, cnt = v, 1
+		} else {
+			if m == v {
+				cnt++
+			} else {
+				cnt--
+			}
+		}
+	}
+	return m
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn majority_element(nums: Vec<i32>) -> i32 {
+        let mut m = 0;
+        let mut cnt = 0;
+        for &v in nums.iter() {
+            if cnt == 0 {
+                m = v;
+                cnt = 1;
+            } else {
+                cnt += if m == v { 1 } else { -1 };
+            }
+        }
+        m
     }
 }
 ```

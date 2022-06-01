@@ -1,16 +1,15 @@
 func majorityElement(nums []int) int {
-    var cnt, major int
-    for _, num := range nums {
-        if cnt == 0 {
-            major = num
-            cnt = 1
-        } else {
-            if major == num {
-                cnt++
-            } else {
-                cnt--
-            }
-        }
-    }
-    return major
+	cnt, m := 0, 0
+	for _, v := range nums {
+		if cnt == 0 {
+			m, cnt = v, 1
+		} else {
+			if m == v {
+				cnt++
+			} else {
+				cnt--
+			}
+		}
+	}
+	return m
 }

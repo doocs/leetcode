@@ -1,15 +1,16 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int cnt = 0, major = 0;
-        for (int num : nums) {
-            if (cnt == 0) {
-                major = num;
+        int cnt = 0, m = 0;
+        for (int& v : nums)
+        {
+            if (cnt == 0)
+            {
+                m = v;
                 cnt = 1;
-            } else {
-                cnt += (major == num ? 1 : -1);
             }
+            else cnt += (m == v ? 1 : -1);
         }
-        return major;
+        return m;
     }
 };
