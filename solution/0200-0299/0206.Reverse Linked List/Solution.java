@@ -3,18 +3,21 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode pre = null, p = head;
-        while (p != null) {
-            ListNode q = p.next;
-            p.next = pre;
-            pre = p;
-            p = q;
+        ListNode dummy = new ListNode();
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = dummy.next;
+            dummy.next = curr;
+            curr = next;
         }
-        return pre;
+        return dummy.next;
     }
 }
