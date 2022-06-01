@@ -18,6 +18,7 @@ public:
         if (u == matchsticks.size()) return true;
         for (int i = 0; i < 4; ++i)
         {
+            if (i > 0 && edges[i - 1] == edges[i]) continue;
             edges[i] += matchsticks[u];
             if (edges[i] <= x && dfs(u + 1, x, matchsticks, edges)) return true;
             edges[i] -= matchsticks[u];

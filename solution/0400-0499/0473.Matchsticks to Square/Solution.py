@@ -4,6 +4,8 @@ class Solution:
             if u == len(matchsticks):
                 return True
             for i in range(4):
+                if i > 0 and edges[i - 1] == edges[i]:
+                    continue
                 edges[i] += matchsticks[u]
                 if edges[i] <= x and dfs(u + 1):
                     return True
