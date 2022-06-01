@@ -116,6 +116,102 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function dfs(root: TreeNode | null, sum: number): number {
+    let res = 0;
+    if (root == null) {
+        return res;
+    }
+    sum -= root.val;
+    if (sum === 0) {
+        res++;
+    }
+    return res + dfs(root.left, sum) + dfs(root.right, sum);
+}
+
+function pathSum(root: TreeNode | null, sum: number): number {
+    if (root == null) {
+        return 0;
+    }
+    return dfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
+        let mut res = 0;
+        if root.is_none() {
+            return res;
+        }
+        let root = root.as_ref().unwrap().borrow();
+        sum -= root.val;
+        if sum == 0 {
+            res += 1;
+        }
+        res + Self::dfs(&root.left, sum) + Self::dfs(&root.right, sum)
+    }
+
+    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
+        let mut queue = VecDeque::new();
+        if root.is_some() {
+            queue.push_back(root);
+        }
+        let mut res = 0;
+        while let Some(mut root) = queue.pop_front() {
+            res += Self::dfs(&root, sum);
+            let mut root = root.as_mut().unwrap().borrow_mut();
+            if root.left.is_some() {
+                queue.push_back(root.left.take());
+            }
+            if root.right.is_some() {
+                queue.push_back(root.right.take());
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
