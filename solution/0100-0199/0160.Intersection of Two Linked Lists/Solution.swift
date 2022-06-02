@@ -12,24 +12,12 @@
 
 class Solution {
     func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
-        guard let _ = headA, let _ = headB else {
-            return nil
+        var a = headA
+        var b = headB
+        while a !== b {
+            a = a == nil ? headB : a?.next
+            b = b == nil ? headA : b?.next
         }
-
-        var nodeA = headA
-        var nodeB = headB
-
-        while nodeA != nodeB {
-            nodeA = nodeA != nil ? nodeA?.next : headB
-            nodeB = nodeB != nil ? nodeB?.next : headA
-        }
-
-        return nodeA
-    }
-}
-
-extension ListNode: Equatable {
-    public static func == (lhs: ListNode, rhs: ListNode) -> Bool {
-        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+        return a
     }
 }

@@ -91,11 +91,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-使用两个指针 `cur1`, `cur2` 分别指向两个链表 `headA`, `headB`。
+**方法一：双指针**
 
-同时遍历链表，当 `cur1` 到达链表 `headA` 的末尾时，重新定位到链表 `headB` 的头节点；当 `cur2` 到达链表 `headB` 的末尾时，重新定位到链表 `headA` 的头节点。
+使用两个指针 $a$, $b$ 分别指向两个链表 $headA$, $headB$。
 
-若两指针相遇，所指向的结点就是第一个公共节点。若没相遇，说明两链表无公共节点，此时两个指针都指向 `null`。
+同时遍历链表，当 $a$ 到达链表 $headA$ 的末尾时，重新定位到链表 $headB$ 的头节点；当 $b$ 到达链表 $headB$ 的末尾时，重新定位到链表 $headA$ 的头节点。
+
+若两指针相遇，所指向的结点就是第一个公共节点。若没相遇，说明两链表无公共节点，此时两个指针都指向 $null$。
+
+时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别是链表 $headA$ 和 $headB$ 的长度。
 
 <!-- tabs:start -->
 
@@ -112,11 +116,11 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-        cur1, cur2 = headA, headB
-        while cur1 != cur2:
-            cur1 = headB if cur1 is None else cur1.next
-            cur2 = headA if cur2 is None else cur2.next
-        return cur1
+        a, b = headA, headB
+        while a != b:
+            a = a.next if a else headB
+            b = b.next if b else headA
+        return a
 ```
 
 ### **Java**
@@ -137,12 +141,12 @@ class Solution:
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode cur1 = headA, cur2 = headB;
-        while (cur1 != cur2) {
-            cur1 = cur1 == null ? headB : cur1.next;
-            cur2 = cur2 == null ? headA : cur2.next;
+        ListNode a = headA, b = headB;
+        while (a != b) {
+            a = a == null ? headB : a.next;
+            b = b == null ? headA : b.next;
         }
-        return cur1;
+        return a;
     }
 }
 ```
@@ -161,13 +165,13 @@ public class Solution {
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode* cur1 = headA;
-        ListNode* cur2 = headB;
-        while (cur1 != cur2) {
-            cur1 = cur1 ? cur1->next : headB;
-            cur2 = cur2 ? cur2->next : headA;
+        ListNode *a = headA, *b = headB;
+        while (a != b)
+        {
+            a = a ? a->next : headB;
+            b = b ? b->next : headA;
         }
-        return cur1;
+        return a;
     }
 };
 ```
@@ -189,13 +193,13 @@ public:
  * @return {ListNode}
  */
 var getIntersectionNode = function (headA, headB) {
-    let cur1 = headA;
-    let cur2 = headB;
-    while (cur1 != cur2) {
-        cur1 = cur1 ? cur1.next : headB;
-        cur2 = cur2 ? cur2.next : headA;
+    let a = headA;
+    let b = headB;
+    while (a != b) {
+        a = a ? a.next : headB;
+        b = b ? b.next : headA;
     }
-    return cur1;
+    return a;
 };
 ```
 
@@ -210,20 +214,20 @@ var getIntersectionNode = function (headA, headB) {
  * }
  */
  func getIntersectionNode(headA, headB *ListNode) *ListNode {
-    cur1, cur2 := headA, headB
-    for cur1 != cur2 {
-        if cur1 == nil {
-            cur1 = headB
+    a, b := headA, headB
+    for a != b {
+        if a == nil {
+            a = headB
         } else {
-            cur1 = cur1.Next
+            a = a.Next
         }
-        if cur2 == nil {
-            cur2 = headA
+        if b == nil {
+            b = headA
         } else {
-            cur2 = cur2.Next
+            b = b.Next
         }
     }
-    return cur1
+    return a
 }
 ```
 
@@ -246,13 +250,13 @@ function getIntersectionNode(
     headA: ListNode | null,
     headB: ListNode | null,
 ): ListNode | null {
-    let p1: ListNode | null = headA;
-    let p2: ListNode | null = headB;
-    while (p1 != p2) {
-        p1 = p1 == null ? headB : p1.next;
-        p2 = p2 == null ? headA : p2.next;
+    let a = headA;
+    let b = headB;
+    while (a != b) {
+        a = a ? a.next : headB;
+        b = b ? b.next : headA;
     }
-    return p1;
+    return a;
 }
 ```
 
@@ -273,26 +277,13 @@ function getIntersectionNode(
 
 class Solution {
     func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
-
-        guard let _ = headA, let _ = headB else {
-            return nil
+        var a = headA
+        var b = headB
+        while a !== b {
+            a = a == nil ? headB : a?.next
+            b = b == nil ? headA : b?.next
         }
-
-        var nodeA = headA
-        var nodeB = headB
-
-        while nodeA != nodeB {
-            nodeA = nodeA != nil ? nodeA?.next : headB
-            nodeB = nodeB != nil ? nodeB?.next : headA
-        }
-
-        return nodeA
-    }
-}
-
-extension ListNode: Equatable {
-    public static func ==(lhs: ListNode, rhs: ListNode) -> Bool {
-        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+        return a
     }
 }
 ```
