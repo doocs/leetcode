@@ -80,6 +80,66 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maxAliveYear(birth: number[], death: number[]): number {
+    const n = birth.length;
+    const counter = new Map<number, number>();
+    for (let i = 0; i < n; i++) {
+        counter.set(birth[i], 0);
+        counter.set(death[i], 0);
+    }
+    for (let i = 0; i < n; i++) {
+        const start = birth[i];
+        const end = death[i];
+        for (const key of counter.keys()) {
+            if (key >= start && key <= end) {
+                counter.set(key, (counter.get(key) ?? 0) + 1);
+            }
+        }
+    }
+    let res = 0;
+    let max = 0;
+    for (const [key, val] of counter) {
+        if (val === max) {
+            res = Math.min(res, key);
+        } else if (val > max) {
+            res = key;
+            max = Math.max(max, val);
+        }
+    }
+    return res;
+}
+
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_alive_year(birth: Vec<i32>, death: Vec<i32>) -> i32 {
+        let n = birth.len();
+        let mut counter = vec![0; 101];
+        for i in 0..n {
+            let (start, end) = (birth[i] - 1900, death[i] - 1900);
+            for j in start..=end {
+                counter[j as usize] += 1;
+            }
+        }
+        let mut res = 0;
+        let mut max = 0;
+        for (i, count) in counter.iter().enumerate() {
+            if *count > max {
+                res = i;
+                max = *count;
+            }
+        }
+        (res + 1900) as i32
+    }
+}
+```
+
 ### **...**
 
 ```

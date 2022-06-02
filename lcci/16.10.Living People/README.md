@@ -24,6 +24,14 @@ death = {1948, 1951, 2000}
 
 <!-- 这里可写通用的实现逻辑 -->
 
+不在乎某个区间，而是某一年的最多存活人数。
+
+可以使用哈希表来统计每年的存活人数，当 `birth[i] >= year && year <= death[i]`，该年份的存活人数加一。
+
+> 只有 `birth` 和 `death` 当中的出现过的年份才是有效年份，或者说，可能成为返回值的年份。
+
+题目当中已说明年份范围是 `1900 ~ 2000`，对此也可以使用数组进行计数（`year - 1900`）。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,6 +81,66 @@ class Solution {
             }
         }
         return 1900 + res;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxAliveYear(birth: number[], death: number[]): number {
+    const n = birth.length;
+    const counter = new Map<number, number>();
+    for (let i = 0; i < n; i++) {
+        counter.set(birth[i], 0);
+        counter.set(death[i], 0);
+    }
+    for (let i = 0; i < n; i++) {
+        const start = birth[i];
+        const end = death[i];
+        for (const key of counter.keys()) {
+            if (key >= start && key <= end) {
+                counter.set(key, (counter.get(key) ?? 0) + 1);
+            }
+        }
+    }
+    let res = 0;
+    let max = 0;
+    for (const [key, val] of counter) {
+        if (val === max) {
+            res = Math.min(res, key);
+        } else if (val > max) {
+            res = key;
+            max = Math.max(max, val);
+        }
+    }
+    return res;
+}
+
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_alive_year(birth: Vec<i32>, death: Vec<i32>) -> i32 {
+        let n = birth.len();
+        let mut counter = vec![0; 101];
+        for i in 0..n {
+            let (start, end) = (birth[i] - 1900, death[i] - 1900);
+            for j in start..=end {
+                counter[j as usize] += 1;
+            }
+        }
+        let mut res = 0;
+        let mut max = 0;
+        for (i, count) in counter.iter().enumerate() {
+            if *count > max {
+                res = i;
+                max = *count;
+            }
+        }
+        (res + 1900) as i32
     }
 }
 ```
