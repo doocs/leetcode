@@ -38,13 +38,143 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+        s = sum(nums)
+        target, m = divmod(s, k)
+        if m != 0:
+            return False
 
+        cur = [0] * k
+        n = len(nums)
+
+        def dfs(i: int) -> bool:
+            if i == n:
+                return True
+            for j in range(k):
+                if j > 0 and cur[j - 1] == cur[j]:
+                    continue
+                cur[j] += nums[i]
+                if cur[j] <= target and dfs(i + 1):
+                    return True
+                cur[j] -= nums[i]
+            return False
+
+        nums.sort(reverse=True)
+        return dfs(0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+	public boolean canPartitionKSubsets(int[] nums, int k) {
+		int sum = (int) Arrays.stream(nums).sum();
+		if (sum % k != 0) {
+			return false;
+		}
 
+		Arrays.sort(nums);
+		int low = 0, high = nums.length - 1;
+		while (low < high) {
+			int temp = nums[low];
+			nums[low] = nums[high];
+			nums[high] = temp;
+			low++;
+			high--;
+		}
+		return dfs(nums, new int[k], 0, sum / k);
+	}
+
+	private boolean dfs(int[] nums, int[] cur, int i, int target) {
+		if (i == nums.length) {
+			return true;
+		}
+		for (int j = 0; j < cur.length; j++) {
+            if (j > 0 && cur[j - 1] == cur[j]) {
+                continue;
+            }
+			cur[j] += nums[i];
+			if (cur[j] <= target && dfs(nums, cur, i + 1, target)) {
+				return true;
+			}
+			cur[j] -= nums[i];
+		}
+		return false;
+	}
+}
+```
+
+### **Go**
+
+```go
+func canPartitionKSubsets(nums []int, k int) bool {
+	sum := 0
+	for _, num := range nums {
+		sum += num
+	}
+	if sum%k != 0 {
+		return false
+	}
+
+	var (
+		target = sum / k
+		cur    = make([]int, k)
+		n      = len(nums)
+	)
+
+	var dfs func(i int) bool
+	dfs = func(i int) bool {
+		if i == n {
+			return true
+		}
+		for j := 0; j < k; j++ {
+			if j > 0 && cur[j-1] == cur[j] {
+				continue
+			}
+			cur[j] += nums[i]
+			if cur[j] <= target && dfs(i+1) {
+				return true
+			}
+			cur[j] -= nums[i]
+		}
+		return false
+	}
+
+	sort.Sort(sort.Reverse(sort.IntSlice(nums)))
+	return dfs(0)
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canPartitionKSubsets(vector<int>& nums, int k) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum % k != 0) return false;
+
+        int target  = sum / k;
+        int n = nums.size();
+        vector<int> cur(k, 0);
+
+        function<bool(int)> dfs;
+        dfs = [&](int i) {
+            if (i == n) return true;
+            for (int j = 0; j < k; ++j) {
+                if (j > 0 && cur[j - 1] == cur[j]) continue;
+                cur[j] += nums[i];
+                if (cur[j] <= target && dfs(i + 1)) return true;
+                cur[j] -= nums[i];
+            }
+            return false;
+        };
+
+        sort(nums.begin(), nums.end(), greater<int>());
+        return dfs(0);
+    }
+};
 ```
 
 ### **...**
