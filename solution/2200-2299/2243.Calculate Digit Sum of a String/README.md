@@ -65,7 +65,15 @@ s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def digitSum(self, s: str, k: int) -> str:
+        if len(s) <= k:
+            return s
+        t = []
+        while s:
+            t.append(str(sum(int(v) for v in s[:k])))
+            s = s[k:]
+        return self.digitSum(''.join(t), k)
 ```
 
 ### **Java**
@@ -73,7 +81,23 @@ s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String digitSum(String s, int k) {
+        while (s.length() > k) {
+            int n = s.length();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < n; i += k) {
+                int v = 0;
+                for (int j = i; j < Math.min(i + k, n); ++j) {
+                    v += s.charAt(j) - '0';
+                }
+                sb.append(v + "");
+            }
+            s = sb.toString();
+        }
+        return s;
+    }
+}
 ```
 
 ### **TypeScript**

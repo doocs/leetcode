@@ -60,13 +60,61 @@ Thus, the sorted array is [338,38,991].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sortJumbled(self, mapping: List[int], nums: List[int]) -> List[int]:
+        m = []
+        for i, v in enumerate(nums):
+            a, b, t = v, 0, 1
+            while 1:
+                a, x = divmod(a, 10)
+                x = mapping[x]
+                b = x * t + b
+                t *= 10
+                if a == 0:
+                    break
+            m.append((b, i, v))
+        m.sort()
+        for i, v in enumerate(m):
+            nums[i] = v[2]
+        return nums
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] sortJumbled(int[] mapping, int[] nums) {
+        List<int[]> m = new ArrayList<>();
+        for (int i = 0; i < nums.length; ++i) {
+            int v = nums[i];
+            int a = v, b = 0, t = 1;
+            while (true) {
+                int x = a % 10;
+                x = mapping[x];
+                a /= 10;
+                b = x * t + b;
+                t *= 10;
+                if (a == 0) {
+                    break;
+                }
+            }
+            m.add(new int[]{b, i, v});
+        }
+        m.sort((a, b) -> {
+            if (a[0] != b[0]) {
+                return a[0] - b[0];
+            }
+            if (a[1] != b[1]) {
+                return a[1] - b[1];
+            }
+            return 0;
+        });
+        for (int i = 0; i < m.size(); ++i) {
+            nums[i] = m.get(i)[2];
+        }
+        return nums;
+    }
+}
 ```
 
 ### **TypeScript**

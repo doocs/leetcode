@@ -5,5 +5,5 @@ class Solution:
             if cnt == 0:
                 m, cnt = v, 1
             else:
-                cnt += (1 if m == v else -1)
+                cnt += 1 if m == v else -1
         return m

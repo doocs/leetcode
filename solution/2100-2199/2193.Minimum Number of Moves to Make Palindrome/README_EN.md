@@ -53,13 +53,117 @@ It can be shown that it is not possible to obtain a palindrome in less than 2 mo
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minMovesToMakePalindrome(self, s: str) -> int:
+        cs = list(s)
+        ans, n = 0, len(s)
+        i, j = 0, n - 1
+        while i < j:
+            even = False
+            for k in range(j, i, -1):
+                if cs[i] == cs[k]:
+                    even = True
+                    while k < j:
+                        cs[k], cs[k + 1] = cs[k + 1], cs[k]
+                        k += 1
+                        ans += 1
+                    j -= 1
+                    break
+            if not even:
+                ans += n // 2 - i
+            i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minMovesToMakePalindrome(String s) {
+        int n = s.length();
+        int ans = 0;
+        char[] cs = s.toCharArray();
+        for (int i = 0, j = n - 1; i < j; ++i) {
+            boolean even = false;
+            for (int k = j; k != i; --k) {
+                if (cs[i] == cs[k]) {
+                    even = true;
+                    for (; k < j; ++k) {
+                        char t = cs[k];
+                        cs[k] = cs[k + 1];
+                        cs[k + 1] = t;
+                        ++ans;
+                    }
+                    --j;
+                    break;
+                }
+            }
+            if (!even) {
+                ans += n / 2 - i;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMovesToMakePalindrome(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (int i = 0, j = n - 1; i < j; ++i)
+        {
+            bool even = false;
+            for (int k = j; k != i; --k)
+            {
+                if (s[i] == s[k])
+                {
+                    even = true;
+                    for (; k < j; ++k)
+                    {
+                        swap(s[k], s[k + 1]);
+                        ++ans;
+                    }
+                    --j;
+                    break;
+                }
+            }
+            if (!even) ans += n / 2 - i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMovesToMakePalindrome(s string) int {
+	cs := []byte(s)
+	ans, n := 0, len(s)
+	for i, j := 0, n-1; i < j; i++ {
+		even := false
+		for k := j; k != i; k-- {
+			if cs[i] == cs[k] {
+				even = true
+				for ; k < j; k++ {
+					cs[k], cs[k+1] = cs[k+1], cs[k]
+					ans++
+				}
+				j--
+				break
+			}
+		}
+		if !even {
+			ans += n/2 - i
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

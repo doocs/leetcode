@@ -52,6 +52,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+由于题目保证原串一定可以变成回文串，那么原串中最多只有一种字母出现奇数次。如果有一种字母出现奇数次，那么将该字母中排在最中间的字符移动到字符串中间，剩下的字符可以转化为所有字母均出现偶数次的情况。
+
+贪心算法是：每次固定字符串最左边的字母 $a$ 不变，找出距离字符串右侧最近的 $a$，把它交换到字符串最右边。这样字符串的头尾字母就相等了。把字符串的头尾去掉，就变成了子问题。把所有子问题的答案加起来就是最少交换次数。
+
+由于数据范围较小，通过 ${O}(n^2)$ 的模拟即可通过本题。
+
+证明：
+
+构造回文串的过程，实际上是每次选择一对字母并把它们交换到字符串头尾的过程。考虑字母 $x$ 和字母 $y$ 哪个先选，分以下情况讨论：
+
+-   字母 $x$ 和 $y$ 的位置满足 $\underbrace{\cdots}_{a\text{ 个}}x\underbrace{\cdots}_{b\text{ 个}}y\underbrace{\cdots}_{c\text{ 个}}y\underbrace{\cdots}_{d\text{ 个}}x\underbrace{\cdots}_{e\text{ 个}}$。如果先把 $x$ 换到头尾，再把 $y$ 换到头尾，那么需要 $(a + e) + (b + d)$ 次交换；如果先换 $y$ 再换 $x$，那么需要 $(a + b + 1 + d + e + 1) + (a + e)$ 次交换。显然先换 $x$ 更优。
+-   字母 $x$ 和 $y$ 的位置满足 $\underbrace{\cdots}_{a\text{ 个}}x\underbrace{\cdots}_{b\text{ 个}}y\underbrace{\cdots}_{c\text{ 个}}x\underbrace{\cdots}_{d\text{ 个}}y\underbrace{\cdots}_{e\text{ 个}}$。如果先换 $x$ 再换 $y$，那么需要 $(a + d + e + 1) + (a + b + e)$ 次交换；如果先换 $y$ 再换 $x$，那么需要 $(a + b + 1 + e) + (a + d + e)$ 次交换。先换哪个都一样。
+-   字母 $x$ 和 $y$ 的位置满足 $\underbrace{\cdots}_{a\text{ 个}}x\underbrace{\cdots}_{b\text{ 个}}x\underbrace{\cdots}_{c\text{ 个}}y\underbrace{\cdots}_{d\text{ 个}}y\underbrace{\cdots}_{e\text{ 个}}$。如果先换 $x$ 再换 $y$，那么需要 $(a + c + d + e + 2) + (a + b + c + e)$ 次交换；如果先换 $y$ 再换 $x$，那么需要 $(a + b + c + 2 + e) + (a + c + d + e)$ 次交换。先换哪个都一样。
+
+上述讨论可以得到结论：每次交换最外边出现的字母不劣。因此贪心解法成立。
+
+> 出处：https://leetcode.cn/problems/minimum-number-of-moves-to-make-palindrome/solution/tan-xin-zheng-ming-geng-da-shu-ju-fan-we-h57i/
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +79,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minMovesToMakePalindrome(self, s: str) -> int:
+        cs = list(s)
+        ans, n = 0, len(s)
+        i, j = 0, n - 1
+        while i < j:
+            even = False
+            for k in range(j, i, -1):
+                if cs[i] == cs[k]:
+                    even = True
+                    while k < j:
+                        cs[k], cs[k + 1] = cs[k + 1], cs[k]
+                        k += 1
+                        ans += 1
+                    j -= 1
+                    break
+            if not even:
+                ans += n // 2 - i
+            i += 1
+        return ans
 ```
 
 ### **Java**
@@ -67,7 +106,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minMovesToMakePalindrome(String s) {
+        int n = s.length();
+        int ans = 0;
+        char[] cs = s.toCharArray();
+        for (int i = 0, j = n - 1; i < j; ++i) {
+            boolean even = false;
+            for (int k = j; k != i; --k) {
+                if (cs[i] == cs[k]) {
+                    even = true;
+                    for (; k < j; ++k) {
+                        char t = cs[k];
+                        cs[k] = cs[k + 1];
+                        cs[k + 1] = t;
+                        ++ans;
+                    }
+                    --j;
+                    break;
+                }
+            }
+            if (!even) {
+                ans += n / 2 - i;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMovesToMakePalindrome(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (int i = 0, j = n - 1; i < j; ++i)
+        {
+            bool even = false;
+            for (int k = j; k != i; --k)
+            {
+                if (s[i] == s[k])
+                {
+                    even = true;
+                    for (; k < j; ++k)
+                    {
+                        swap(s[k], s[k + 1]);
+                        ++ans;
+                    }
+                    --j;
+                    break;
+                }
+            }
+            if (!even) ans += n / 2 - i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMovesToMakePalindrome(s string) int {
+	cs := []byte(s)
+	ans, n := 0, len(s)
+	for i, j := 0, n-1; i < j; i++ {
+		even := false
+		for k := j; k != i; k-- {
+			if cs[i] == cs[k] {
+				even = true
+				for ; k < j; k++ {
+					cs[k], cs[k+1] = cs[k+1], cs[k]
+					ans++
+				}
+				j--
+				break
+			}
+		}
+		if !even {
+			ans += n/2 - i
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

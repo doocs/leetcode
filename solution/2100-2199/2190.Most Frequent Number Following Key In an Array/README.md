@@ -58,7 +58,18 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def mostFrequent(self, nums: List[int], key: int) -> int:
+        cnt = Counter()
+        mx = ans = 0
+        for i, v in enumerate(nums[:-1]):
+            if v == key:
+                target = nums[i + 1]
+                cnt[target] += 1
+                if mx < cnt[target]:
+                    mx = cnt[target]
+                    ans = nums[i + 1]
+        return ans
 ```
 
 ### **Java**
@@ -66,7 +77,69 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int mostFrequent(int[] nums, int key) {
+        int[] cnt = new int[1010];
+        int mx = 0, ans = 0;
+        for (int i = 0; i < nums.length - 1; ++i) {
+            if (nums[i] == key) {
+                int target = nums[i + 1];
+                ++cnt[target];
+                if (mx < cnt[target]) {
+                    mx = cnt[target];
+                    ans = nums[i + 1];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int mostFrequent(vector<int>& nums, int key) {
+        vector<int> cnt(1010);
+        int mx = 0, ans = 0;
+        for (int i = 0; i < nums.size() - 1; ++i)
+        {
+            if (nums[i] == key)
+            {
+                int target = nums[i + 1];
+                ++cnt[target];
+                if (mx < cnt[target])
+                {
+                    mx = cnt[target];
+                    ans = nums[i + 1];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostFrequent(nums []int, key int) int {
+	cnt := make([]int, 1010)
+	mx, ans := 0, 0
+	for i, v := range nums[:len(nums)-1] {
+		if v == key {
+			target := nums[i+1]
+			cnt[target]++
+			if mx < cnt[target] {
+				mx = cnt[target]
+				ans = nums[i+1]
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
