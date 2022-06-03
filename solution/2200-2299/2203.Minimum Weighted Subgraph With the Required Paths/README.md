@@ -61,6 +61,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举三条最短路的交汇点**
+
+最短路问题。
+
+我们假设从 $src1$ 出发到 $dest$ 的一条最短路径为 $A$，从 $src2$ 出发到 $dest$ 的一条最短路径为 $B$。
+
+$A$, $B$ 两条路径一定存在着公共点 $p$，因为 $dest$ 一定是其中一个公共点。那么问题可以转换为求以下三条路径和的最小值：
+
+1. 从 $src1$ 到 $p$ 的最短路
+1. 从 $src2$ 到 $p$ 的最短路
+1. 从 $p$ 到 $dest$ 的最短路（这里我们可以将原图的所有边反向，然后转换为从 $dest$ 到 $p$ 的最短路）
+
+我们进行三次 Dijkstra 算法，就可以求出 $src1$, $src2$, $dest$ 到其他点的最短路径。
+
+公共点可以有多个，因此我们在 $[0,n)$ 范围内枚举公共点 $p$，找出边权之和最小的值即可。
+
+时间复杂度 $O(mlogn)$，其中 m 表示数组 $edges$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +86,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumWeight(self, n: int, edges: List[List[int]], src1: int, src2: int, dest: int) -> int:
+        def dijkstra(g, u):
+            dist = [inf] * n
+            dist[u] = 0
+            q = [(0, u)]
+            while q:
+                d, u = heappop(q)
+                if d > dist[u]:
+                    continue
+                for v, w in g[u]:
+                    if dist[v] > dist[u] + w:
+                        dist[v] = dist[u] + w
+                        heappush(q, (dist[v], v))
+            return dist
 
+        g = defaultdict(list)
+        rg = defaultdict(list)
+        for f, t, w in edges:
+            g[f].append((t, w))
+            rg[t].append((f, w))
+        d1 = dijkstra(g, src1)
+        d2 = dijkstra(g, src2)
+        d3 = dijkstra(rg, dest)
+        ans = min(sum(v) for v in zip(d1, d2, d3))
+        return -1 if ans >= inf else ans
 ```
 
 ### **Java**
@@ -76,7 +119,64 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final Long INF = Long.MAX_VALUE;
 
+    public long minimumWeight(int n, int[][] edges, int src1, int src2, int dest) {
+        List<Pair<Integer, Long>>[] g = new List[n];
+        List<Pair<Integer, Long>>[] rg = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+            rg[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            int f = e[0], t = e[1];
+            long w = e[2];
+            g[f].add(new Pair<>(t, w));
+            rg[t].add(new Pair<>(f, w));
+        }
+        long[] d1 = dijkstra(g, src1);
+        long[] d2 = dijkstra(g, src2);
+        long[] d3 = dijkstra(rg, dest);
+        long ans = -1;
+        for (int i = 0; i < n; ++i) {
+            if (d1[i] == INF || d2[i] == INF || d3[i] == INF) {
+                continue;
+            }
+            long t = d1[i] + d2[i] + d3[i];
+            if (ans == -1 || ans > t) {
+                ans = t;
+            }
+        }
+        return ans;
+    }
+
+    private long[] dijkstra(List<Pair<Integer, Long>>[] g, int u) {
+        int n = g.length;
+        long[] dist = new long[n];
+        Arrays.fill(dist, INF);
+        dist[u] = 0;
+        PriorityQueue<Pair<Long, Integer>> q = new PriorityQueue<>(Comparator.comparingLong(Pair::getKey));
+        q.offer(new Pair<>(0L, u));
+        while (!q.isEmpty()) {
+            Pair<Long, Integer> p = q.poll();
+            long d = p.getKey();
+            u = p.getValue();
+            if (d > dist[u]) {
+                continue;
+            }
+            for (Pair<Integer, Long> e : g[u]) {
+                int v = e.getKey();
+                long w = e.getValue();
+                if (dist[v] > dist[u] + w) {
+                    dist[v] = dist[u] + w;
+                    q.offer(new Pair<>(dist[v], v));
+                }
+            }
+        }
+        return dist;
+    }
+}
 ```
 
 ### **TypeScript**

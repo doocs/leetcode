@@ -73,7 +73,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def digArtifacts(self, n: int, artifacts: List[List[int]], dig: List[List[int]]) -> int:
+        def check(artifact):
+            r1, c1, r2, c2 = artifact
+            for x in range(r1, r2 + 1):
+                for y in range(c1, c2 + 1):
+                    if (x, y) not in s:
+                        return False
+            return True
 
+        s = {(i, j) for i, j in dig}
+        return sum(check(v) for v in artifacts)
 ```
 
 ### **Java**
@@ -81,7 +92,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int digArtifacts(int n, int[][] artifacts, int[][] dig) {
+        Set<Integer> s = new HashSet<>();
+        for (int[] d : dig) {
+            s.add(d[0] * n + d[1]);
+        }
+        int ans = 0;
+        for (int[] a : artifacts) {
+            if (check(a, s, n)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(int[] a, Set<Integer> s, int n) {
+        int r1 = a[0], c1 = a[1], r2 = a[2], c2 = a[3];
+        for (int i = r1; i <= r2; ++i) {
+            for (int j = c1; j <= c2; ++j) {
+                if (!s.contains(i * n + j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -109,6 +146,65 @@ function digArtifacts(
         flag && ans++;
     }
     return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int digArtifacts(int n, vector<vector<int>>& artifacts, vector<vector<int>>& dig) {
+        unordered_set<int> s;
+        for (auto& d : dig) s.insert(d[0] * n + d[1]);
+        int ans = 0;
+        for (auto& a : artifacts) ans += check(a, s, n);
+        return ans;
+    }
+
+    bool check(vector<int>& a, unordered_set<int>& s, int n) {
+        int r1 = a[0], c1 = a[1], r2 = a[2], c2 = a[3];
+        for (int i = r1; i <= r2; ++i)
+        {
+            for (int j = c1; j <= c2; ++j)
+            {
+                if (!s.count(i * n + j)) 
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func digArtifacts(n int, artifacts [][]int, dig [][]int) int {
+	s := map[int]bool{}
+	for _, d := range dig {
+		s[d[0]*n+d[1]] = true
+	}
+	check := func(a []int) bool {
+		r1, c1, r2, c2 := a[0], a[1], a[2], a[3]
+		for i := r1; i <= r2; i++ {
+			for j := c1; j <= c2; j++ {
+				if !s[i*n+j] {
+					return false
+				}
+			}
+		}
+		return true
+	}
+	ans := 0
+	for _, a := range artifacts {
+		if check(a) {
+			ans++
+		}
+	}
+	return ans
 }
 ```
 
