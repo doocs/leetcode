@@ -64,13 +64,12 @@
 ```python
 class Solution:
     def numUniqueEmails(self, emails: List[str]) -> int:
-        ans = 0
         s = set()
         for email in emails:
             local, domain = email.split('@')
             local = local.replace('.', '')
-            if '+' in local:
-                local = local[:local.find('+')]
+            if (i := local.find('+')) != -1:
+                local = local[:i]
             s.add(local + '@' + domain)
         return len(s)
 ```
@@ -83,9 +82,8 @@ class Solution {
         Set<String> s = new HashSet<>();
         for (String email : emails) {
             String[] t = email.split("@");
-            String local = t[0];
+            String local = t[0].replace(".", "");
             String domain = t[1];
-            local = local.replace(".", "");
             int i = local.indexOf('+');
             if (i != -1) {
                 local = local.substring(0, i);
@@ -118,6 +116,22 @@ public:
         return s.size();
     }
 };
+```
+
+### **Go**
+
+```go
+func numUniqueEmails(emails []string) int {
+	s := map[string]bool{}
+	for _, email := range emails {
+		i := strings.IndexByte(email, '@')
+		local := strings.SplitN(email[:i], "+", 2)[0]
+		local = strings.ReplaceAll(local, ".", "")
+		domain := email[i:]
+		s[local+domain] = true
+	}
+	return len(s)
+}
 ```
 
 ### **...**
