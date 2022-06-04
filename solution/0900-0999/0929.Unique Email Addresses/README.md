@@ -146,6 +146,91 @@ func numUniqueEmails(emails []string) int {
 }
 ```
 
+### **JavaScript**
+
+```js
+const numUniqueEmails2 = function (emails) {
+    const emailFilter = function (str) {
+        let index = str.search(/@/);
+        let s = str.substring(0, index);
+        let s2 = str.substring(index + 1, str.length);
+        let res = '';
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === '+') break;
+            if (s[i] === '.') continue;
+            res = res + s[i];
+        }
+        return res + s2;
+    };
+
+    let arr = [];
+    for (let i = 0; i < emails.length; i++) {
+        let t = emailFilter(emails[i]);
+        if (arr.indexOf(t) === -1) {
+            arr.push(t);
+        }
+    }
+    return arr.length;
+};
+
+const numUniqueEmails = function (emails) {
+    let arr = emails.map(str => {
+        let index = str.search(/@/);
+        let s = str.substring(0, index);
+        let s2 = str.substring(index + 1, str.length);
+        let res = '';
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === '+') break;
+            if (s[i] === '.') continue;
+            res = res + s[i];
+        }
+        return res + s2;
+    });
+    let set = new Set(arr);
+    return set.size;
+};
+```
+
+### **TypeScript**
+
+```ts
+function numUniqueEmails(emails: string[]): number {
+    return new Set(
+        emails
+            .map(email => email.split('@'))
+            .map(([start, end]) => start.replace(/\+.*|\./g, '') + '@' + end),
+    ).size;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn num_unique_emails(emails: Vec<String>) -> i32 {
+        let mut set = HashSet::new();
+        for email in emails.iter() {
+            let res: Vec<&str> = email.split('@').collect();
+            let mut s = String::new();
+            for &c in res[0].as_bytes().iter() {
+                if c == b'.' {
+                    continue;
+                }
+                if c == b'+' {
+                    break;
+                }
+                s.push(c as char)
+            }
+            s.push('@');
+            s.push_str(res[1]);
+            set.insert(s);
+        }
+        set.len() as i32
+    }
+}
+```
+
 ### **...**
 
 ```
