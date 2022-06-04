@@ -67,6 +67,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举中间边**
+
+枚举中间边 $(a, b)$，假设与 $a$ 相邻的点为 $c$，与 $b$ 相邻的点为 $d$。对于相邻点，取分数最大的三个点进行枚举。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +78,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumScore(self, scores: List[int], edges: List[List[int]]) -> int:
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        for k in g.keys():
+            g[k] = nlargest(3, g[k], key=lambda x: scores[x])
+        ans = -1
+        for a, b in edges:
+            for c in g[a]:
+                for d in g[b]:
+                    if b != c != d != a:
+                        t = scores[a] + scores[b] + scores[c] + scores[d]
+                        ans = max(ans, t)
+        return ans
 ```
 
 ### **Java**
@@ -82,7 +101,37 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maximumScore(int[] scores, int[][] edges) {
+        int n = scores.length;
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        for (int i = 0; i < n; ++i) {
+            g[i].sort((a, b) -> scores[b] - scores[a]);
+            g[i] = g[i].subList(0, Math.min(3, g[i].size()));
+        }
+        int ans = -1;
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            for (int c : g[a]) {
+                for (int d : g[b]) {
+                    if (c != b && c != d && a != d) {
+                        int t = scores[a] + scores[b] + scores[c] + scores[d];
+                        ans = Math.max(ans, t);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**

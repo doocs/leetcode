@@ -43,13 +43,58 @@ The total number of ways to buy pens and pencils is 5 + 3 + 1 = 9.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def waysToBuyPensPencils(self, total: int, cost1: int, cost2: int) -> int:
+        ans = 0
+        for x in range(total // cost1 + 1):
+            v = total - x * cost1
+            ans += v // cost2 + 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long waysToBuyPensPencils(int total, int cost1, int cost2) {
+        long ans = 0;
+        for (int x = 0; x <= total / cost1; ++x) {
+            int v = total - x * cost1;
+            ans += v / cost2 + 1;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long waysToBuyPensPencils(int total, int cost1, int cost2) {
+        long long ans = 0;
+        for (int x = 0; x <= total / cost1; ++x)
+        {
+            int v = total - x * cost1;
+            ans += v / cost2 + 1;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func waysToBuyPensPencils(total int, cost1 int, cost2 int) int64 {
+	var ans int64
+	for x := 0; x <= total/cost1; x++ {
+		v := total - x*cost1
+		ans += int64(v/cost2 + 1)
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

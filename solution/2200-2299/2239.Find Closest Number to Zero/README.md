@@ -50,7 +50,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findClosestNumber(self, nums: List[int]) -> int:
+        ans, d = 0, 1000000
+        for v in nums:
+            if (t := abs(v)) < d or (t == d and v > ans):
+                ans, d = v, t
+        return ans
 ```
 
 ### **Java**
@@ -58,7 +64,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findClosestNumber(int[] nums) {
+        int ans = 0, d = 1000000;
+        for (int v : nums) {
+            int t = Math.abs(v);
+            if (t < d || (t == d && v > ans)) {
+                ans = v;
+                d = t;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findClosestNumber(vector<int>& nums) {
+        int ans = 0, d = 1e6;
+        for (int& v : nums)
+        {
+            int t = abs(v);
+            if (t < d || (t == d && v > ans))
+            {
+                ans = v;
+                d = t;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findClosestNumber(nums []int) int {
+	ans, d := 0, 1000000
+	for _, v := range nums {
+		t := abs(v)
+		if t < d || (t == d && v > ans) {
+			ans, d = v, t
+		}
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **TypeScript**
