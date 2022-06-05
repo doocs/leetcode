@@ -1,5 +1,4 @@
 class ATM:
-
     def __init__(self):
         self.cnt = [0] * 5
         self.m = [500, 200, 100, 50, 20]
