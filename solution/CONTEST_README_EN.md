@@ -9,6 +9,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 296
+
+- [2293. Min Max Game](/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md)
+- [2294. Partition Array Such That Maximum Difference Is K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README_EN.md)
+- [2295. Replace Elements in an Array](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md)
+- [2296. Design a Text Editor](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)
+
+
 #### Weekly Contest 295
 
 - [2287. Rearrange Characters to Make Target String](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README_EN.md)

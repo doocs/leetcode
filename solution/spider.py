@@ -181,7 +181,7 @@ class Spider:
 
     def get_question_detail(self, question_title_slug, retry_times=0):
 
-        time.sleep(2 + random.random())
+        time.sleep(1.5 + random.random())
         for _ in range(retry_times + 1):
             try:
                 question_detail = self._get_question_detail(question_title_slug)

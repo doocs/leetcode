@@ -9,6 +9,14 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 296 场周赛(2022-06-05 10:30, 90 分钟)
+
+- [2293. 极大极小游戏](/solution/2200-2299/2293.Min%20Max%20Game/README.md)
+- [2294. 划分数组使最大差为 K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README.md)
+- [2295. 替换数组中的元素](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)
+- [2296. 设计一个文本编辑器](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md)
+
+
 #### 第 295 场周赛(2022-05-29 10:30, 90 分钟)
 
 - [2287. 重排字符形成目标字符串](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README.md)

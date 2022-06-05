@@ -59,7 +59,7 @@
 |  0046  |  [全排列](/solution/0000-0099/0046.Permutations/README.md)  |  `数组`,`回溯`  |  中等  |    |
 |  0047  |  [全排列 II](/solution/0000-0099/0047.Permutations%20II/README.md)  |  `数组`,`回溯`  |  中等  |    |
 |  0048  |  [旋转图像](/solution/0000-0099/0048.Rotate%20Image/README.md)  |  `数组`,`数学`,`矩阵`  |  中等  |    |
-|  0049  |  [字母异位词分组](/solution/0000-0099/0049.Group%20Anagrams/README.md)  |  `哈希表`,`字符串`,`排序`  |  中等  |    |
+|  0049  |  [字母异位词分组](/solution/0000-0099/0049.Group%20Anagrams/README.md)  |  `数组`,`哈希表`,`字符串`,`排序`  |  中等  |    |
 |  0050  |  [Pow(x, n)](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README.md)  |  `递归`,`数学`  |  中等  |    |
 |  0051  |  [N 皇后](/solution/0000-0099/0051.N-Queens/README.md)  |  `数组`,`回溯`  |  困难  |    |
 |  0052  |  [N皇后 II](/solution/0000-0099/0052.N-Queens%20II/README.md)  |  `回溯`  |  困难  |    |
@@ -365,6 +365,7 @@
 |  0352  |  [将数据流变为多个不相交区间](/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README.md)  |  `设计`,`二分查找`,`有序集合`  |  困难  |    |
 |  0353  |  [贪吃蛇](/solution/0300-0399/0353.Design%20Snake%20Game/README.md)  |  `设计`,`队列`,`数组`,`矩阵`  |  中等  |  🔒  |
 |  0354  |  [俄罗斯套娃信封问题](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)  |  `数组`,`二分查找`,`动态规划`,`排序`  |  困难  |    |
+|  0355  |  [设计推特](/solution/0300-0399/0355.Design%20Twitter/README.md)  |  `设计`,`哈希表`,`链表`,`堆（优先队列）`  |  中等  |    |
 |  0356  |  [直线镜像](/solution/0300-0399/0356.Line%20Reflection/README.md)  |  `数组`,`哈希表`,`数学`  |  中等  |  🔒  |
 |  0357  |  [统计各位数字都不同的数字个数](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)  |  `数学`,`动态规划`,`回溯`  |  中等  |    |
 |  0358  |  [K 距离间隔重排字符串](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md)  |  `贪心`,`哈希表`,`字符串`,`计数`,`排序`,`堆（优先队列）`  |  困难  |  🔒  |
@@ -2259,7 +2260,7 @@
 |  2247  |  [Maximum Cost of Trip With K Highways](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README.md)  |  `位运算`,`图`,`动态规划`,`状态压缩`  |  困难  |  🔒  |
 |  2248  |  [多个数组求交集](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README.md)  |  `数组`,`哈希表`,`计数`  |  简单  |  第 290 场周赛  |
 |  2249  |  [统计圆内格点数目](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README.md)  |  `几何`,`数组`,`哈希表`,`数学`,`枚举`  |  中等  |  第 290 场周赛  |
-|  2250  |  [统计包含每个点的矩形数目](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README.md)  |    |  中等  |  第 290 场周赛  |
+|  2250  |  [统计包含每个点的矩形数目](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README.md)  |  `树状数组`,`数组`,`二分查找`,`排序`  |  中等  |  第 290 场周赛  |
 |  2251  |  [花期内花的数目](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md)  |  `数组`,`哈希表`,`二分查找`,`有序集合`,`前缀和`,`排序`  |  困难  |  第 290 场周赛  |
 |  2252  |  [Dynamic Pivoting of a Table](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  2253  |  [Dynamic Unpivoting of a Table](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README.md)  |  `数据库`  |  困难  |  🔒  |
@@ -2291,15 +2292,21 @@
 |  2279  |  [装满石头的背包的最大数量](/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 294 场周赛  |
 |  2280  |  [表示一个折线图的最少线段数](/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README.md)  |  `几何`,`数组`,`数学`,`数论`,`排序`  |  中等  |  第 294 场周赛  |
 |  2281  |  [巫师的总力量和](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README.md)  |  `栈`,`数组`,`前缀和`,`单调栈`  |  困难  |  第 294 场周赛  |
-|  2282  |  [Number of People That Can Be Seen in a Grid](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)  |    |  中等  |  🔒  |
-|  2283  |  [判断一个数的数字计数是否等于数位的值](/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README.md)  |    |  简单  |  第 79 场双周赛  |
-|  2284  |  [最多单词数的发件人](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README.md)  |    |  中等  |  第 79 场双周赛  |
-|  2285  |  [道路的最大总重要性](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md)  |    |  中等  |  第 79 场双周赛  |
-|  2286  |  [以组为单位订音乐会的门票](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README.md)  |    |  困难  |  第 79 场双周赛  |
-|  2287  |  [重排字符形成目标字符串](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README.md)  |    |  简单  |  第 295 场周赛  |
-|  2288  |  [价格减免](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README.md)  |    |  中等  |  第 295 场周赛  |
-|  2289  |  [使数组按非递减顺序排列](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md)  |    |  中等  |  第 295 场周赛  |
-|  2290  |  [到达角落需要移除障碍物的最小数目](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README.md)  |    |  困难  |  第 295 场周赛  |
+|  2282  |  [Number of People That Can Be Seen in a Grid](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)  |  `栈`,`数组`,`矩阵`,`单调栈`  |  中等  |  🔒  |
+|  2283  |  [判断一个数的数字计数是否等于数位的值](/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README.md)  |  `哈希表`,`字符串`,`计数`  |  简单  |  第 79 场双周赛  |
+|  2284  |  [最多单词数的发件人](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README.md)  |  `数组`,`哈希表`,`字符串`,`计数`  |  中等  |  第 79 场双周赛  |
+|  2285  |  [道路的最大总重要性](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md)  |  `贪心`,`图`,`排序`,`堆（优先队列）`  |  中等  |  第 79 场双周赛  |
+|  2286  |  [以组为单位订音乐会的门票](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README.md)  |  `设计`,`树状数组`,`线段树`,`二分查找`  |  困难  |  第 79 场双周赛  |
+|  2287  |  [重排字符形成目标字符串](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README.md)  |  `哈希表`,`字符串`,`计数`  |  简单  |  第 295 场周赛  |
+|  2288  |  [价格减免](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README.md)  |  `字符串`  |  中等  |  第 295 场周赛  |
+|  2289  |  [使数组按非递减顺序排列](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md)  |  `栈`,`数组`,`链表`,`单调栈`  |  中等  |  第 295 场周赛  |
+|  2290  |  [到达角落需要移除障碍物的最小数目](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README.md)  |  `广度优先搜索`,`图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  困难  |  第 295 场周赛  |
+|  2291  |  [Maximum Profit From Trading Stocks](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md)  |    |  中等  |  🔒  |
+|  2292  |  [Products With Three or More Orders in Two Consecutive Years](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README.md)  |    |  中等  |  🔒  |
+|  2293  |  [极大极小游戏](/solution/2200-2299/2293.Min%20Max%20Game/README.md)  |    |  简单  |    |
+|  2294  |  [划分数组使最大差为 K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README.md)  |    |  中等  |    |
+|  2295  |  [替换数组中的元素](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)  |    |  中等  |    |
+|  2296  |  [设计一个文本编辑器](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md)  |    |  困难  |    |
 
 ## 版权
 

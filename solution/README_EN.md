@@ -57,7 +57,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0046  |  [Permutations](/solution/0000-0099/0046.Permutations/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
 |  0047  |  [Permutations II](/solution/0000-0099/0047.Permutations%20II/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
 |  0048  |  [Rotate Image](/solution/0000-0099/0048.Rotate%20Image/README_EN.md)  |  `Array`,`Math`,`Matrix`  |  Medium  |    |
-|  0049  |  [Group Anagrams](/solution/0000-0099/0049.Group%20Anagrams/README_EN.md)  |  `Hash Table`,`String`,`Sorting`  |  Medium  |    |
+|  0049  |  [Group Anagrams](/solution/0000-0099/0049.Group%20Anagrams/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |    |
 |  0050  |  [Pow(x, n)](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |    |
 |  0051  |  [N-Queens](/solution/0000-0099/0051.N-Queens/README_EN.md)  |  `Array`,`Backtracking`  |  Hard  |    |
 |  0052  |  [N-Queens II](/solution/0000-0099/0052.N-Queens%20II/README_EN.md)  |  `Backtracking`  |  Hard  |    |
@@ -363,6 +363,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0352  |  [Data Stream as Disjoint Intervals](/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md)  |  `Design`,`Binary Search`,`Ordered Set`  |  Hard  |    |
 |  0353  |  [Design Snake Game](/solution/0300-0399/0353.Design%20Snake%20Game/README_EN.md)  |  `Design`,`Queue`,`Array`,`Matrix`  |  Medium  |  🔒  |
 |  0354  |  [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)  |  `Array`,`Binary Search`,`Dynamic Programming`,`Sorting`  |  Hard  |    |
+|  0355  |  [Design Twitter](/solution/0300-0399/0355.Design%20Twitter/README_EN.md)  |  `Design`,`Hash Table`,`Linked List`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0356  |  [Line Reflection](/solution/0300-0399/0356.Line%20Reflection/README_EN.md)  |  `Array`,`Hash Table`,`Math`  |  Medium  |  🔒  |
 |  0357  |  [Count Numbers with Unique Digits](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)  |  `Math`,`Dynamic Programming`,`Backtracking`  |  Medium  |    |
 |  0358  |  [Rearrange String k Distance Apart](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Counting`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
@@ -2257,7 +2258,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2247  |  [Maximum Cost of Trip With K Highways](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Dynamic Programming`,`Bitmask`  |  Hard  |  🔒  |
 |  2248  |  [Intersection of Multiple Arrays](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Easy  |  Weekly Contest 290  |
 |  2249  |  [Count Lattice Points Inside a Circle](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README_EN.md)  |  `Geometry`,`Array`,`Hash Table`,`Math`,`Enumeration`  |  Medium  |  Weekly Contest 290  |
-|  2250  |  [Count Number of Rectangles Containing Each Point](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md)  |    |  Medium  |  Weekly Contest 290  |
+|  2250  |  [Count Number of Rectangles Containing Each Point](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md)  |  `Binary Indexed Tree`,`Array`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 290  |
 |  2251  |  [Number of Flowers in Full Bloom](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md)  |  `Array`,`Hash Table`,`Binary Search`,`Ordered Set`,`Prefix Sum`,`Sorting`  |  Hard  |  Weekly Contest 290  |
 |  2252  |  [Dynamic Pivoting of a Table](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  2253  |  [Dynamic Unpivoting of a Table](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
@@ -2289,15 +2290,21 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2279  |  [Maximum Bags With Full Capacity of Rocks](/solution/2200-2299/2279.Maximum%20Bags%20With%20Full%20Capacity%20of%20Rocks/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 294  |
 |  2280  |  [Minimum Lines to Represent a Line Chart](/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README_EN.md)  |  `Geometry`,`Array`,`Math`,`Number Theory`,`Sorting`  |  Medium  |  Weekly Contest 294  |
 |  2281  |  [Sum of Total Strength of Wizards](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md)  |  `Stack`,`Array`,`Prefix Sum`,`Monotonic Stack`  |  Hard  |  Weekly Contest 294  |
-|  2282  |  [Number of People That Can Be Seen in a Grid](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  🔒  |
-|  2283  |  [Check if Number Has Equal Digit Count and Digit Value](/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README_EN.md)  |    |  Easy  |  Biweekly Contest 79  |
-|  2284  |  [Sender With Largest Word Count](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README_EN.md)  |    |  Medium  |  Biweekly Contest 79  |
-|  2285  |  [Maximum Total Importance of Roads](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README_EN.md)  |    |  Medium  |  Biweekly Contest 79  |
-|  2286  |  [Booking Concert Tickets in Groups](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README_EN.md)  |    |  Hard  |  Biweekly Contest 79  |
-|  2287  |  [Rearrange Characters to Make Target String](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README_EN.md)  |    |  Easy  |  Weekly Contest 295  |
-|  2288  |  [Apply Discount to Prices](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README_EN.md)  |    |  Medium  |  Weekly Contest 295  |
-|  2289  |  [Steps to Make Array Non-decreasing](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README_EN.md)  |    |  Medium  |  Weekly Contest 295  |
-|  2290  |  [Minimum Obstacle Removal to Reach Corner](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md)  |    |  Hard  |  Weekly Contest 295  |
+|  2282  |  [Number of People That Can Be Seen in a Grid](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README_EN.md)  |  `Stack`,`Array`,`Matrix`,`Monotonic Stack`  |  Medium  |  🔒  |
+|  2283  |  [Check if Number Has Equal Digit Count and Digit Value](/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Biweekly Contest 79  |
+|  2284  |  [Sender With Largest Word Count](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Counting`  |  Medium  |  Biweekly Contest 79  |
+|  2285  |  [Maximum Total Importance of Roads](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README_EN.md)  |  `Greedy`,`Graph`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 79  |
+|  2286  |  [Booking Concert Tickets in Groups](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README_EN.md)  |  `Design`,`Binary Indexed Tree`,`Segment Tree`,`Binary Search`  |  Hard  |  Biweekly Contest 79  |
+|  2287  |  [Rearrange Characters to Make Target String](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Weekly Contest 295  |
+|  2288  |  [Apply Discount to Prices](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README_EN.md)  |  `String`  |  Medium  |  Weekly Contest 295  |
+|  2289  |  [Steps to Make Array Non-decreasing](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README_EN.md)  |  `Stack`,`Array`,`Linked List`,`Monotonic Stack`  |  Medium  |  Weekly Contest 295  |
+|  2290  |  [Minimum Obstacle Removal to Reach Corner](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 295  |
+|  2291  |  [Maximum Profit From Trading Stocks](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README_EN.md)  |    |  Medium  |  🔒  |
+|  2292  |  [Products With Three or More Orders in Two Consecutive Years](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README_EN.md)  |    |  Medium  |  🔒  |
+|  2293  |  [Min Max Game](/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md)  |    |  Easy  |    |
+|  2294  |  [Partition Array Such That Maximum Difference Is K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README_EN.md)  |    |  Medium  |    |
+|  2295  |  [Replace Elements in an Array](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md)  |    |  Medium  |    |
+|  2296  |  [Design a Text Editor](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

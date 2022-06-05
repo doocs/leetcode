@@ -144,5 +144,5 @@ Get your rating changes right after the completion of LeetCode contests, https:/
         f.write(content_en)
 
 
-# run()
+run()
 generate_contest_list()
