@@ -141,11 +141,13 @@ func dailyTemperatures(temperatures []int) []int {
 
 ### **TypeScript**
 
+倒序：
+
 ```ts
 function dailyTemperatures(temperatures: number[]): number[] {
     const n = temperatures.length;
-    const stack = [];
     const res = new Array(n);
+    const stack = [];
     for (let i = n - 1; i >= 0; i--) {
         while (
             stack.length !== 0 &&
@@ -160,14 +162,38 @@ function dailyTemperatures(temperatures: number[]): number[] {
 }
 ```
 
+正序：
+
+```ts
+function dailyTemperatures(temperatures: number[]): number[] {
+    const n = temperatures.length;
+    const res = new Array(n).fill(0);
+    const stack = [];
+    for (let i = 0; i < n; i++) {
+        const temperature = temperatures[i];
+        while (
+            stack.length !== 0 &&
+            temperatures[stack[stack.length - 1]] < temperature
+        ) {
+            const j = stack.pop();
+            res[j] = i - j;
+        }
+        stack.push(i);
+    }
+    return res;
+}
+```
+
 ### **Rust**
+
+倒序：
 
 ```rust
 impl Solution {
     pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
         let n = temperatures.len();
-        let mut stack = Vec::new();
         let mut res = vec![0; n];
+        let mut stack = Vec::new();
         for i in (0..n).rev() {
             while !stack.is_empty() && temperatures[*stack.last().unwrap()] <= temperatures[i] {
                 stack.pop();
@@ -177,6 +203,26 @@ impl Solution {
             } else {
                 (stack.last().unwrap() - i) as i32
             };
+            stack.push(i);
+        }
+        res
+    }
+}
+```
+
+正序：
+
+```rust
+impl Solution {
+    pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
+        let n = temperatures.len();
+        let mut res = vec![0; n];
+        let mut stack = Vec::new();
+        for i in 0..n {
+            while !stack.is_empty() && temperatures[*stack.last().unwrap()] < temperatures[i] {
+                let j = stack.pop().unwrap();
+                res[j] = (i - j) as i32;
+            }
             stack.push(i);
         }
         res
