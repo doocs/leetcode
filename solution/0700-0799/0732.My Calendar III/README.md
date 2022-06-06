@@ -53,12 +53,21 @@ myCalendarThree.book(25, 55); // 返回 3
 
 **方法一：线段树**
 
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $log(width)$。更新某个元素的值，只需要更新 $log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
 
 -   线段树的每个节点代表一个区间；
--   线段树具有唯一的根节点，代表的区间是整个统计范围，如 `[1, N]`；
--   线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
--   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1, N]$；
+-   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x, x]$；
+-   对于每个内部节点 $[l, r]$，它的左儿子是 $[l, mid]$，右儿子是 $[mid + 1, r]$, 其中 $mid = ⌊(l + r) / 2⌋$ (即向下取整)。
+
+对于本题，线段树节点维护的信息有：
+
+1. 区间范围内被预定的次数的最大值 $v$
+1. 懒标记 $add$
+
+由于 $0<=start<end<=109$，时间范围非常大，因此我们采用动态开点。
+
+时间复杂度 $O(nlogn)$，其中 n 表示日程安排的数量。
 
 <!-- tabs:start -->
 
@@ -359,6 +368,118 @@ public:
  * Your MyCalendarThree object will be instantiated and called as such:
  * MyCalendarThree* obj = new MyCalendarThree();
  * int param_1 = obj->book(start,end);
+ */
+```
+
+### **Go**
+
+```go
+type node struct {
+	left      *node
+	right     *node
+	l, mid, r int
+	v, add    int
+}
+
+func newNode(l, r int) *node {
+	return &node{
+		l:   l,
+		r:   r,
+		mid: int(uint(l+r) >> 1),
+	}
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
+
+type segmentTree struct {
+	root *node
+}
+
+func newSegmentTree() *segmentTree {
+	return &segmentTree{
+		root: newNode(1, 1e9+1),
+	}
+}
+
+func (t *segmentTree) modify(l, r, v int, n *node) {
+	if l > r {
+		return
+	}
+	if n.l >= l && n.r <= r {
+		n.v += v
+		n.add += v
+		return
+	}
+	t.pushdown(n)
+	if l <= n.mid {
+		t.modify(l, r, v, n.left)
+	}
+	if r > n.mid {
+		t.modify(l, r, v, n.right)
+	}
+	t.pushup(n)
+}
+
+func (t *segmentTree) query(l, r int, n *node) int {
+	if l > r {
+		return 0
+	}
+	if n.l >= l && n.r <= r {
+		return n.v
+	}
+	t.pushdown(n)
+	v := 0
+	if l <= n.mid {
+		v = max(v, t.query(l, r, n.left))
+	}
+	if r > n.mid {
+		v = max(v, t.query(l, r, n.right))
+	}
+	return v
+}
+
+func (t *segmentTree) pushup(n *node) {
+	n.v = max(n.left.v, n.right.v)
+}
+
+func (t *segmentTree) pushdown(n *node) {
+	if n.left == nil {
+		n.left = newNode(n.l, n.mid)
+	}
+	if n.right == nil {
+		n.right = newNode(n.mid+1, n.r)
+	}
+	if n.add != 0 {
+		n.left.add += n.add
+		n.right.add += n.add
+		n.left.v += n.add
+		n.right.v += n.add
+		n.add = 0
+	}
+}
+
+type MyCalendarThree struct {
+	tree *segmentTree
+}
+
+func Constructor() MyCalendarThree {
+	return MyCalendarThree{newSegmentTree()}
+}
+
+func (this *MyCalendarThree) Book(start int, end int) int {
+	this.tree.modify(start+1, end, 1, this.tree.root)
+	return this.tree.query(1, int(1e9)+1, this.tree.root)
+}
+
+/**
+ * Your MyCalendarThree object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Book(start,end);
  */
 ```
 
