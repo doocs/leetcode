@@ -51,6 +51,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：单调栈**
+
+时间复杂度 $O(n)$，其中 $n$ 表示 $prices$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +62,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def finalPrices(self, prices: List[int]) -> List[int]:
+        stk = []
+        ans = prices[:]
+        for i, v in enumerate(prices):
+            while stk and prices[stk[-1]] >= v:
+                ans[stk.pop()] -= v
+            stk.append(i)
+        return ans
 ```
 
 ### **Java**
@@ -66,7 +78,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] finalPrices(int[] prices) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int n = prices.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = prices[i];
+            while (!stk.isEmpty() && prices[stk.peek()] >= prices[i]) {
+                ans[stk.pop()] -= prices[i];
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> finalPrices(vector<int>& prices) {
+        stack<int> stk;
+        vector<int> ans = prices;
+        for (int i = 0; i < prices.size(); ++i)
+        {
+            while (!stk.empty() && prices[stk.top()] >= prices[i])
+            {
+                ans[stk.top()] -= prices[i];
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func finalPrices(prices []int) []int {
+	var stk []int
+	n := len(prices)
+	ans := make([]int, n)
+	for i, v := range prices {
+		ans[i] = v
+		for len(stk) > 0 && prices[stk[len(stk)-1]] >= v {
+			ans[stk[len(stk)-1]] -= v
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
