@@ -139,6 +139,51 @@ func dailyTemperatures(temperatures []int) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function dailyTemperatures(temperatures: number[]): number[] {
+    const n = temperatures.length;
+    const stack = [];
+    const res = new Array(n);
+    for (let i = n - 1; i >= 0; i--) {
+        while (
+            stack.length !== 0 &&
+            temperatures[stack[stack.length - 1]] <= temperatures[i]
+        ) {
+            stack.pop();
+        }
+        res[i] = stack.length === 0 ? 0 : stack[stack.length - 1] - i;
+        stack.push(i);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
+        let n = temperatures.len();
+        let mut stack = Vec::new();
+        let mut res = vec![0; n];
+        for i in (0..n).rev() {
+            while !stack.is_empty() && temperatures[*stack.last().unwrap()] <= temperatures[i] {
+                stack.pop();
+            }
+            res[i] = if stack.is_empty() {
+                0
+            } else {
+                (stack.last().unwrap() - i) as i32
+            };
+            stack.push(i);
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
