@@ -60,6 +60,46 @@ For items 3 and 4 you will not receive any discount at all.
 
 ```
 
+### **TypeScript**
+
+```ts
+function finalPrices(prices: number[]): number[] {
+    const n = prices.length;
+    const stack = [];
+    const res = new Array(n);
+    for (let i = n - 1; i >= 0; i--) {
+        const price = prices[i];
+        while (stack.length !== 0 && stack[stack.length - 1] > price) {
+            stack.pop();
+        }
+        res[i] = price - (stack[stack.length - 1] ?? 0);
+        stack.push(price);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn final_prices(prices: Vec<i32>) -> Vec<i32> {
+        let n = prices.len();
+        let mut stack = Vec::new();
+        let mut res = vec![0; n];
+        for i in (0..n).rev() {
+            let price = prices[i];
+            while !stack.is_empty() && *stack.last().unwrap() > price {
+                stack.pop();
+            }
+            res[i] = price - stack.last().unwrap_or(&0);
+            stack.push(price);
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
