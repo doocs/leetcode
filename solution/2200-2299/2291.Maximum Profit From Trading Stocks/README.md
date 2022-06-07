@@ -58,6 +58,10 @@ It can be shown that the maximum profit you can make is 0.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+$0-1$ 背包问题。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +69,14 @@ It can be shown that the maximum profit you can make is 0.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
+        arr = [(a, b - a) for a, b in zip(present, future) if b > a]
+        dp = [0] * (budget + 1)
+        for v, w in arr:
+            for j in range(budget, v - 1, -1):
+                dp[j] = max(dp[j], dp[j - v] + w)
+        return dp[-1]
 ```
 
 ### **Java**
@@ -73,7 +84,24 @@ It can be shown that the maximum profit you can make is 0.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maximumProfit(int[] present, int[] future, int budget) {
+        List<int[]> arr = new ArrayList<>();
+        for (int i = 0; i < present.length; ++i) {
+            if (future[i] > present[i]) {
+                arr.add(new int[]{present[i], future[i] - present[i]});
+            }
+        }
+        int[] dp = new int[budget + 1];
+        for (int[] e : arr) {
+            int v = e[0], w = e[1];
+            for (int j = budget; j >= v; --j) {
+                dp[j] = Math.max(dp[j], dp[j - v] + w);
+            }
+        }
+        return dp[budget];
+    }
+}
 ```
 
 ### **TypeScript**
@@ -98,7 +126,7 @@ class Solution {
 public:
     int maximumProfit(vector<int>& present, vector<int>& future, int budget) {
         int n = present.size();
-        vector<int>dp(budget + 1, 0);
+        vector<int>dp(budget + 1);
         for (int i = 0; i < n; i++) {
             for (int j = budget; j >= present[i]; j--) {
                 dp[j] = max(dp[j], dp[j - present[i]] + future[i] - present[i]);
@@ -107,6 +135,34 @@ public:
         return dp.back();
     }
 };
+```
+
+### **Go**
+
+```go
+func maximumProfit(present []int, future []int, budget int) int {
+	arr := [][]int{}
+	for i, v := range present {
+		if future[i] > v {
+			arr = append(arr, []int{v, future[i] - v})
+		}
+	}
+	dp := make([]int, budget+1)
+	for _, e := range arr {
+		v, w := e[0], e[1]
+		for j := budget; j >= v; j-- {
+			dp[j] = max(dp[j], dp[j-v]+w)
+		}
+	}
+	return dp[budget]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
