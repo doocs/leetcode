@@ -3,15 +3,15 @@
  * @return {number[]}
  */
 var nextGreaterElements = function (nums) {
-    let n = nums.length;
-    let stack = [];
-    let res = new Array(n).fill(-1);
-    for (let i = 0; i < 2 * n; i++) {
-        let cur = nums[i % n];
-        while (stack.length > 0 && nums[stack[stack.length - 1]] < cur) {
-            res[stack.pop()] = cur;
+    const n = nums.length;
+    let stk = [];
+    let ans = new Array(n).fill(-1);
+    for (let i = 0; i < n << 1; i++) {
+        const j = i % n;
+        while (stk.length && nums[stk[stk.length - 1]] < nums[j]) {
+            ans[stk.pop()] = nums[j];
         }
-        stack.push(i % n);
+        stk.push(j);
     }
-    return res;
+    return ans;
 };

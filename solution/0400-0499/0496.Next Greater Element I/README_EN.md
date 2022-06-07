@@ -65,6 +65,20 @@ class Solution:
         return [m.get(v, -1) for v in nums1]
 ```
 
+```python
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        m = {}
+        stk = []
+        for v in nums2[::-1]:
+            while stk and stk[-1] <= v:
+                stk.pop()
+            if stk:
+                m[v] = stk[-1]
+            stk.append(v)
+        return [m.get(x, -1) for x in nums1]
+```
+
 ### **Java**
 
 ```java
@@ -77,6 +91,30 @@ class Solution {
                 m.put(stk.pop(), v);
             }
             stk.push(v);
+        }
+        int n = nums1.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = m.getOrDefault(nums1[i], -1);
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        Map<Integer, Integer> m = new HashMap<>();
+        for (int i = nums2.length - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && stk.peek() <= nums2[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                m.put(nums2[i], stk.peek());
+            }
+            stk.push(nums2[i]);
         }
         int n = nums1.length;
         int[] ans = new int[n];
@@ -109,6 +147,28 @@ var nextGreaterElement = function (nums1, nums2) {
 };
 ```
 
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var nextGreaterElement = function (nums1, nums2) {
+    let stk = [];
+    let m = {};
+    for (let v of nums2.reverse()) {
+        while (stk && stk[stk.length - 1] <= v) {
+            stk.pop();
+        }
+        if (stk) {
+            m[v] = stk[stk.length - 1];
+        }
+        stk.push(v);
+    }
+    return nums1.map(e => m[e] || -1);
+};
+```
+
 ### **C++**
 
 ```cpp
@@ -133,6 +193,25 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        stack<int> stk;
+        unordered_map<int, int> m;
+        for (int i = nums2.size() - 1; ~i; --i)
+        {
+            while (!stk.empty() && stk.top() <= nums2[i]) stk.pop();
+            if (!stk.empty()) m[nums2[i]] = stk.top();
+            stk.push(nums2[i]);
+        }
+        vector<int> ans;
+        for (int& v : nums1) ans.push_back(m.count(v) ? m[v] : -1);
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -145,6 +224,31 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 			stk = stk[:len(stk)-1]
 		}
 		stk = append(stk, v)
+	}
+	var ans []int
+	for _, v := range nums1 {
+		val, ok := m[v]
+		if !ok {
+			val = -1
+		}
+		ans = append(ans, val)
+	}
+	return ans
+}
+```
+
+```go
+func nextGreaterElement(nums1 []int, nums2 []int) []int {
+	stk := []int{}
+	m := map[int]int{}
+	for i := len(nums2) - 1; i >= 0; i-- {
+		for len(stk) > 0 && stk[len(stk)-1] <= nums2[i] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			m[nums2[i]] = stk[len(stk)-1]
+		}
+		stk = append(stk, nums2[i])
 	}
 	var ans []int
 	for _, v := range nums1 {

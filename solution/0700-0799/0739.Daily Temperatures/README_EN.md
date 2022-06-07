@@ -40,14 +40,29 @@ If the day with higher temperature is not found, we leave the ans to be the defa
 ```python
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        res = [0] * len(temperatures)
+        ans = [0] * len(temperatures)
         stk = []
         for i, t in enumerate(temperatures):
             while stk and temperatures[stk[-1]] < t:
                 j = stk.pop()
-                res[j] = i - j
+                ans[j] = i - j
             stk.append(i)
-        return res
+        return ans
+```
+
+```python
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        n = len(temperatures)
+        stk = []
+        ans = [0] * n
+        for i in range(n - 1, -1, -1):
+            while stk and temperatures[stk[-1]] <= temperatures[i]:
+                stk.pop()
+            if stk:
+                ans[i] = stk[-1] - i
+            stk.append(i)
+        return ans
 ```
 
 ### **Java**
@@ -56,16 +71,36 @@ class Solution:
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
-        int[] res = new int[n];
+        int[] ans = new int[n];
         Deque<Integer> stk = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
             while (!stk.isEmpty() && temperatures[stk.peek()] < temperatures[i]) {
                 int j = stk.pop();
-                res[j] = i - j;
+                ans[j] = i - j;
             }
             stk.push(i);
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
+        Deque<Integer> stk = new ArrayDeque<>();
+        int[] ans = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && temperatures[stk.peek()] <= temperatures[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                ans[i] = stk.peek() - i;
+            }
+            stk.push(i);
+        }
+        return ans;
     }
 }
 ```
@@ -79,18 +114,36 @@ class Solution {
 public:
     vector<int> dailyTemperatures(vector<int> &temperatures) {
         int n = temperatures.size();
-        vector<int> res(n);
+        vector<int> ans(n);
         stack<int> stk;
         for (int i = 0; i < n; ++i)
         {
             while (!stk.empty() && temperatures[stk.top()] < temperatures[i])
             {
-                res[stk.top()] = i - stk.top();
+                ans[stk.top()] = i - stk.top();
                 stk.pop();
             }
             stk.push(i);
         }
-        return res;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int> &temperatures) {
+        int n = temperatures.size();
+        vector<int> ans(n);
+        stack<int> stk;
+        for (int i = n - 1; ~i; --i)
+        {
+            while (!stk.empty() && temperatures[stk.top()] <= temperatures[i]) stk.pop();
+            if (!stk.empty()) ans[i] = stk.top() - i;
+            stk.push(i);
+        }
+        return ans;
     }
 };
 ```
@@ -99,17 +152,35 @@ public:
 
 ```go
 func dailyTemperatures(temperatures []int) []int {
-	res := make([]int, len(temperatures))
+	ans := make([]int, len(temperatures))
 	var stk []int
 	for i, t := range temperatures {
 		for len(stk) > 0 && temperatures[stk[len(stk)-1]] < t {
 			j := stk[len(stk)-1]
-			res[j] = i - j
+			ans[j] = i - j
 			stk = stk[:len(stk)-1]
 		}
 		stk = append(stk, i)
 	}
-	return res
+	return ans
+}
+```
+
+```go
+func dailyTemperatures(temperatures []int) []int {
+	n := len(temperatures)
+	ans := make([]int, n)
+	var stk []int
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && temperatures[stk[len(stk)-1]] <= temperatures[i] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			ans[i] = stk[len(stk)-1] - i
+		}
+		stk = append(stk, i)
+	}
+	return ans
 }
 ```
 

@@ -44,13 +44,29 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        res = [-1] * n
+        ans = [-1] * n
         stk = []
         for i in range(n << 1):
             while stk and nums[stk[-1]] < nums[i % n]:
-                res[stk.pop()] = nums[i % n]
+                ans[stk.pop()] = nums[i % n]
             stk.append(i % n)
-        return res
+        return ans
+```
+
+```python
+class Solution:
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        ans = [-1] * n
+        stk = []
+        for i in range(n * 2 - 1, -1, -1):
+            i %= n
+            while stk and stk[-1] <= nums[i]:
+                stk.pop()
+            if stk:
+                ans[i] = stk[-1]
+            stk.append(nums[i])
+        return ans
 ```
 
 ### **Java**
@@ -59,16 +75,38 @@ class Solution:
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
         int n = nums.length;
-        int[] res = new int[n];
-        Arrays.fill(res, -1);
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
         Deque<Integer> stk = new ArrayDeque<>();
         for (int i = 0; i < (n << 1); ++i) {
             while (!stk.isEmpty() && nums[stk.peek()] < nums[i % n]) {
-                res[stk.pop()] = nums[i % n];
+                ans[stk.pop()] = nums[i % n];
             }
             stk.push(i % n);
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = n * 2 - 1; i >= 0; --i) {
+            int j = i % n;
+            while (!stk.isEmpty() && stk.peek() <= nums[j]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                ans[j] = stk.peek();
+            }
+            stk.push(nums[j]);
+        }
+        return ans;
     }
 }
 ```
@@ -81,17 +119,40 @@ class Solution {
  * @return {number[]}
  */
 var nextGreaterElements = function (nums) {
-    let n = nums.length;
-    let stack = [];
-    let res = new Array(n).fill(-1);
-    for (let i = 0; i < 2 * n; i++) {
-        let cur = nums[i % n];
-        while (stack.length > 0 && nums[stack[stack.length - 1]] < cur) {
-            res[stack.pop()] = cur;
+    const n = nums.length;
+    let stk = [];
+    let ans = new Array(n).fill(-1);
+    for (let i = 0; i < n << 1; i++) {
+        const j = i % n;
+        while (stk.length && nums[stk[stk.length - 1]] < nums[j]) {
+            ans[stk.pop()] = nums[j];
         }
-        stack.push(i % n);
+        stk.push(j);
     }
-    return res;
+    return ans;
+};
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var nextGreaterElements = function (nums) {
+    const n = nums.length;
+    let stk = [];
+    let ans = new Array(n).fill(-1);
+    for (let i = n * 2 - 1; ~i; --i) {
+        const j = i % n;
+        while (stk.length && stk[stk.length - 1] <= nums[j]) {
+            stk.pop();
+        }
+        if (stk.length) {
+            ans[j] = stk[stk.length - 1];
+        }
+        stk.push(nums[j]);
+    }
+    return ans;
 };
 ```
 
@@ -102,18 +163,37 @@ class Solution {
 public:
     vector<int> nextGreaterElements(vector<int> &nums) {
         int n = nums.size();
-        vector<int> res(n, -1);
+        vector<int> ans(n, -1);
         stack<int> stk;
         for (int i = 0; i < (n << 1); ++i)
         {
             while (!stk.empty() && nums[stk.top()] < nums[i % n])
             {
-                res[stk.top()] = nums[i % n];
+                ans[stk.top()] = nums[i % n];
                 stk.pop();
             }
             stk.push(i % n);
         }
-        return res;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n, -1);
+        stack<int> stk;
+        for (int i = n * 2 - 1; ~i; --i)
+        {
+            int j = i % n;
+            while (!stk.empty() && stk.top() <= nums[j]) stk.pop();
+            if (!stk.empty()) ans[j] = stk.top();
+            stk.push(nums[j]);
+        }
+        return ans;
     }
 };
 ```
@@ -123,19 +203,41 @@ public:
 ```go
 func nextGreaterElements(nums []int) []int {
 	n := len(nums)
-	res := make([]int, n)
-	for i := range res {
-		res[i] = -1
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = -1
 	}
 	var stk []int
 	for i := 0; i < (n << 1); i++ {
 		for len(stk) > 0 && nums[stk[len(stk)-1]] < nums[i%n] {
-			res[stk[len(stk)-1]] = nums[i%n]
+			ans[stk[len(stk)-1]] = nums[i%n]
 			stk = stk[:len(stk)-1]
 		}
 		stk = append(stk, i%n)
 	}
-	return res
+	return ans
+}
+```
+
+```go
+func nextGreaterElements(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = -1
+	}
+	var stk []int
+	for i := n*2 - 1; i >= 0; i-- {
+		j := i % n
+		for len(stk) > 0 && stk[len(stk)-1] <= nums[j] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			ans[j] = stk[len(stk)-1]
+		}
+		stk = append(stk, nums[j])
+	}
+	return ans
 }
 ```
 
