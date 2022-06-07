@@ -45,11 +45,13 @@
 
 **方法一：单调栈**
 
-枚举 `arr[i]` 作为子数组的最小值，找出左侧第一个比 `arr[i]` 小的位置 `left[i]`，右侧第一个不大于 `arr[i]` 的位置 `right[i]`。
+枚举 $arr[i]$ 作为子数组的最小值，找出左侧第一个比 $arr[i]$ 小的位置 $left[i]$，右侧第一个不大于 $arr[i]$ 的位置 $right[i]$。由此可以算出最小值 $arr[i]$ 可以出现在多少个子数组中。
 
-计算每个 `arr[i]` 的贡献 `(i - left[i]) * (right[i] - i) * arr[i]`，累加得到结果。
+计算每个 $arr[i]$ 的贡献 $(i-left[i])*(right[i]-i)*arr[i]$，累加得到结果。
 
 注意数据溢出与取模操作。
+
+时间复杂度 $O(n)$，其中 $n$ 表示数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 
@@ -64,7 +66,6 @@ class Solution:
         left = [-1] * n
         right = [n] * n
         stk = []
-        mod = int(1e9) + 7
         for i, v in enumerate(arr):
             while stk and arr[stk[-1]] >= v:
                 stk.pop()
@@ -78,6 +79,7 @@ class Solution:
             if stk:
                 right[i] = stk[-1]
             stk.append(i)
+        mod = int(1e9) + 7
         return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(arr)) % mod
 ```
 

@@ -40,13 +40,104 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxWidthRamp(self, nums: List[int]) -> int:
+        stk = []
+        for i, v in enumerate(nums):
+            if not stk or nums[stk[-1]] > v:
+                stk.append(i)
+        ans = 0
+        for i in range(len(nums) - 1, -1, -1):
+            while stk and nums[stk[-1]] <= nums[i]:
+                ans = max(ans, i - stk.pop())
+            if not stk:
+                break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxWidthRamp(int[] nums) {
+        int n = nums.length;
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (stk.isEmpty() || nums[stk.peek()] > nums[i]) {
+                stk.push(i);
+            }
+        }
+        int ans = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && nums[stk.peek()] <= nums[i]) {
+                ans = Math.max(ans, i - stk.pop());
+            }
+            if (stk.isEmpty()) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxWidthRamp(vector<int>& nums) {
+        int n = nums.size();
+        stack<int> stk;
+        for (int i = 0; i < n; ++i)
+        {
+            if (stk.empty() || nums[stk.top()] > nums[i]) stk.push(i);
+        }
+        int ans = 0;
+        for (int i = n - 1; i; --i)
+        {
+            while (!stk.empty() && nums[stk.top()] <= nums[i])
+            {
+                ans = max(ans, i - stk.top());
+                stk.pop();
+            }
+            if (stk.empty()) break;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxWidthRamp(nums []int) int {
+	n := len(nums)
+	stk := []int{}
+	for i, v := range nums {
+		if len(stk) == 0 || nums[stk[len(stk)-1]] > v {
+			stk = append(stk, i)
+		}
+	}
+	ans := 0
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] <= nums[i] {
+			ans = max(ans, i-stk[len(stk)-1])
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) == 0 {
+			break
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

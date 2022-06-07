@@ -4,7 +4,6 @@ class Solution:
         left = [-1] * n
         right = [n] * n
         stk = []
-        mod = int(1e9) + 7
         for i, v in enumerate(arr):
             while stk and arr[stk[-1]] >= v:
                 stk.pop()
@@ -18,4 +17,5 @@ class Solution:
             if stk:
                 right[i] = stk[-1]
             stk.append(i)
+        mod = int(1e9) + 7
         return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(arr)) % mod

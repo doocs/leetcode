@@ -58,6 +58,7 @@
 -   [下一个更大元素 I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md) - `单调栈`
 -   [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md) - `单调栈`
 -   [子数组的最小值之和](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md) - `单调栈`
+-   [最大宽度坡](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md) - `单调栈`
 -   [子数组范围和](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README.md) - `单调栈`
 -   [子数组最小乘积的最大值](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md) - `单调栈`
 -   [滑动窗口最大值](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md) - `单调队列`
