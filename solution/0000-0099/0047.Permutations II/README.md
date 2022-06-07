@@ -141,6 +141,49 @@ public:
 };
 ```
 
+### **C#**
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution {
+    public IList<IList<int>> PermuteUnique(int[] nums) {
+        var results = new List<IList<int>>();
+        var temp = new List<int>();
+        var count = nums.GroupBy(n => n).ToDictionary(g => g.Key, g => g.Count());
+        Search(count, temp, results);
+        return results;
+    }
+
+    private void Search(Dictionary<int, int> count, IList<int> temp, IList<IList<int>> results)
+    {
+        if (!count.Any() && temp.Any())
+        {
+            results.Add(new List<int>(temp));
+            return;
+        }
+        var keys = count.Keys.ToList();
+        foreach (var key in keys)
+        {
+            temp.Add(key);
+            --count[key];
+            if (count[key] == 0) count.Remove(key);
+            Search(count, temp, results);
+            temp.RemoveAt(temp.Count - 1);
+            if (count.ContainsKey(key))
+            {
+                ++count[key];
+            }
+            else
+            {
+                count[key] = 1;
+            }
+        }
+    }
+}
+```
+
 ### **Go**
 
 ```go
@@ -170,6 +213,63 @@ func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
 		dfs(u+1, n, nums, used, path, res)
 		used[i] = false
 	}
+}
+```
+
+### **TypeScript**
+
+```ts
+function permuteUnique(nums: number[]): number[][] {
+    const n = nums.length;
+    const res: number[][] = [];
+    const dfs = (i: number) => {
+        if (i === n) {
+            res.push([...nums]);
+        }
+        const set = new Set<number>();
+        for (let j = i; j < n; j++) {
+            if (set.has(nums[j])) {
+                continue;
+            }
+            set.add(nums[j]);
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            dfs(i + 1);
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
+    };
+    dfs(0);
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    fn dfs(i: usize, nums: &mut Vec<i32>, res: &mut Vec<Vec<i32>>) {
+        let n = nums.len();
+        if i == n {
+            res.push(nums.clone());
+            return;
+        }
+        let mut set = HashSet::new();
+        for j in i..n {
+            if set.contains(&nums[j]) {
+                continue;
+            }
+            set.insert(nums[j]);
+            nums.swap(i, j);
+            Self::dfs(i + 1, nums, res);
+            nums.swap(i, j);
+        }
+    }
+
+    pub fn permute_unique(mut nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut res = vec![];
+        Self::dfs(0, &mut nums, &mut res);
+        res
+    }
 }
 ```
 

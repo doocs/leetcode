@@ -176,6 +176,42 @@ public:
 };
 ```
 
+### **C#**
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution {
+    public IList<IList<int>> Permute(int[] nums) {
+        var results = new List<IList<int>>();
+        var temp = new List<int>();
+        var visited = new bool[nums.Length];
+        Search(nums, visited, temp, results);
+        return results;
+    }
+
+    private void Search(int[] nums, bool[] visited, IList<int> temp, IList<IList<int>> results)
+    {
+        int count = 0;
+        for (var i = 0; i < nums.Length; ++i)
+        {
+            if (visited[i]) continue;
+            ++count;
+            temp.Add(nums[i]);
+            visited[i] = true;
+            Search(nums, visited, temp, results);
+            temp.RemoveAt(temp.Count - 1);
+            visited[i] = false;
+        }
+        if (count == 0 && temp.Any())
+        {
+            results.Add(new List<int>(temp));
+        }
+    }
+}
+```
+
 ### **Go**
 
 ```go
@@ -210,19 +246,19 @@ func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
 
 ```ts
 function permute(nums: number[]): number[][] {
+    const n = nums.length;
     const res: number[][] = [];
-    const dfs = (paths: number[]) => {
-        if (paths.length === nums.length) {
-            res.push(paths);
-            return;
+    const dfs = (i: number) => {
+        if (i === n) {
+            res.push([...nums]);
         }
-        for (const num of nums) {
-            if (!paths.includes(num)) {
-                dfs(paths.concat(num));
-            }
+        for (let j = i; j < n; j++) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            dfs(i + 1);
+            [nums[i], nums[j]] = [nums[j], nums[i]];
         }
     };
-    dfs([]);
+    dfs(0);
     return res;
 }
 ```
@@ -231,23 +267,22 @@ function permute(nums: number[]): number[][] {
 
 ```rust
 impl Solution {
-    fn dfs(nums: &Vec<i32>, paths: &mut Vec<i32>, res: &mut Vec<Vec<i32>>) {
-        if paths.len() == nums.len() {
-            res.push(paths.clone());
+    fn dfs(i: usize, nums: &mut Vec<i32>, res: &mut Vec<Vec<i32>>) {
+        let n = nums.len();
+        if i == n {
+            res.push(nums.clone());
             return;
         }
-        for i in nums.iter() {
-            if !paths.contains(i) {
-                paths.push(*i);
-                Self::dfs(nums, paths, res);
-                paths.pop();
-            }
+        for j in i..n {
+            nums.swap(i, j);
+            Self::dfs(i + 1, nums, res);
+            nums.swap(i, j);
         }
     }
 
-    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
+    pub fn permute(mut nums: Vec<i32>) -> Vec<Vec<i32>> {
         let mut res = vec![];
-        Self::dfs(&nums, &mut vec![], &mut res);
+        Self::dfs(0, &mut nums, &mut res);
         res
     }
 }
