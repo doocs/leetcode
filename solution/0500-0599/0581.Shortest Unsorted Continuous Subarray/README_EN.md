@@ -51,14 +51,13 @@
 ```python
 class Solution:
     def findUnsortedSubarray(self, nums: List[int]) -> int:
-        n = len(nums)
-        numsSorted = sorted(nums)
-        left, right = 0, n - 1
-        while left < n and nums[left] == numsSorted[left]:
+        arr = sorted(nums)
+        left, right = 0, len(nums) - 1
+        while left <= right and nums[left] == arr[left]:
             left += 1
-        while right >= 0 and nums[right] == numsSorted[right]:
+        while left <= right and nums[right] == arr[right]:
             right -= 1
-        return 0 if right == -1 else right - left + 1
+        return right - left + 1
 ```
 
 ### **Java**
@@ -66,23 +65,54 @@ class Solution:
 ```java
 class Solution {
     public int findUnsortedSubarray(int[] nums) {
-        int n = nums.length;
-        int[] numsSorted = new int[n];
-        System.arraycopy(nums, 0, numsSorted, 0, n);
-        Arrays.sort(numsSorted);
-        int left = 0, right = n - 1;
-        while (left < n && nums[left] == numsSorted[left]) {
-            left++;
+        int[] arr = nums.clone();
+        Arrays.sort(arr);
+        int left = 0, right = nums.length - 1;
+        while (left <= right && nums[left] == arr[left]) {
+            ++left;
         }
-        while (right >= 0 && nums[right] == numsSorted[right]) {
-            right--;
+        while (left <= right && nums[right] == arr[right]) {
+            --right;
         }
-        return right == -1 ? 0 : right - left + 1;
+        return right - left + 1;
     }
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findUnsortedSubarray(vector<int>& nums) {
+        vector<int> arr = nums;
+        sort(arr.begin(), arr.end());
+        int left = 0, right = arr.size() - 1;
+        while (left <= right && nums[left] == arr[left]) ++left;
+        while (left <= right && nums[right] == arr[right]) --right;
+        return right - left + 1;
+    }
+};
+```
+
 ### **Go**
+
+```go
+func findUnsortedSubarray(nums []int) int {
+	n := len(nums)
+	arr := make([]int, n)
+	copy(arr, nums)
+	sort.Ints(arr)
+	left, right := 0, n-1
+	for left <= right && nums[left] == arr[left] {
+		left++
+	}
+	for left <= right && nums[right] == arr[right] {
+		right--
+	}
+	return right - left + 1
+}
+```
 
 ```go
 func findUnsortedSubarray(nums []int) int {

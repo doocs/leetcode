@@ -1,16 +1,14 @@
 class Solution {
     public int findUnsortedSubarray(int[] nums) {
-        int n = nums.length;
-        int[] numsSorted = new int[n];
-        System.arraycopy(nums, 0, numsSorted, 0, n);
-        Arrays.sort(numsSorted);
-        int left = 0, right = n - 1;
-        while (left < n && nums[left] == numsSorted[left]) {
-            left++;
+        int[] arr = nums.clone();
+        Arrays.sort(arr);
+        int left = 0, right = nums.length - 1;
+        while (left <= right && nums[left] == arr[left]) {
+            ++left;
         }
-        while (right >= 0 && nums[right] == numsSorted[right]) {
-            right--;
+        while (left <= right && nums[right] == arr[right]) {
+            --right;
         }
-        return right == -1 ? 0 : right - left + 1;
+        return right - left + 1;
     }
 }
