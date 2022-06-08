@@ -3,8 +3,7 @@ function maxChunksToSorted(arr: number[]): number {
     let ans = 0;
     let max = 0;
     for (let i = 0; i < n; i++) {
-        let cur = arr[i];
-        max = Math.max(cur, max);
+        max = Math.max(arr[i], max);
         if (max == i) {
             ans++;
         }

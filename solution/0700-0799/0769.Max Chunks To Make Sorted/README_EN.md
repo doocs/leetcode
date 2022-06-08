@@ -48,13 +48,72 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        mx = ans = 0
+        for i, v in enumerate(arr):
+            mx = max(mx, v)
+            if i == mx:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxChunksToSorted(int[] arr) {
+        int ans = 0;
+        int mx = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            mx = Math.max(mx, arr[i]);
+            if (i == mx) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        int ans = 0;
+        int mx = 0;
+        for (int i = 0; i < arr.size(); ++i)
+        {
+            mx = max(mx, arr[i]);
+            ans += i == mx;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxChunksToSorted(arr []int) int {
+	ans, mx := 0, 0
+	for i, v := range arr {
+		mx = max(mx, v)
+		if i == mx {
+			ans++
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
@@ -65,8 +124,7 @@ function maxChunksToSorted(arr: number[]): number {
     let ans = 0;
     let max = 0;
     for (let i = 0; i < n; i++) {
-        let cur = arr[i];
-        max = Math.max(cur, max);
+        max = Math.max(arr[i], max);
         if (max == i) {
             ans++;
         }

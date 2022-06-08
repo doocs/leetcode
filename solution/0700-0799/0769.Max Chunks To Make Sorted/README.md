@@ -49,6 +49,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
+由于 $arr$ 是 $[0,..,n-1]$ 的一个排列，若已遍历过的数中的最大值 $mx$ 与当前遍历到的下标 $i$ 相等，说明可以进行一次分割，累加答案。
+
+时间复杂度 $O(n)$，其中 $n$ 表示 $arr$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +62,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        mx = ans = 0
+        for i, v in enumerate(arr):
+            mx = max(mx, v)
+            if i == mx:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +77,59 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxChunksToSorted(int[] arr) {
+        int ans = 0;
+        int mx = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            mx = Math.max(mx, arr[i]);
+            if (i == mx) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        int ans = 0;
+        int mx = 0;
+        for (int i = 0; i < arr.size(); ++i)
+        {
+            mx = max(mx, arr[i]);
+            ans += i == mx;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxChunksToSorted(arr []int) int {
+	ans, mx := 0, 0
+	for i, v := range arr {
+		mx = max(mx, v)
+		if i == mx {
+			ans++
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
@@ -75,8 +140,7 @@ function maxChunksToSorted(arr: number[]): number {
     let ans = 0;
     let max = 0;
     for (let i = 0; i < n; i++) {
-        let cur = arr[i];
-        max = Math.max(cur, max);
+        max = Math.max(arr[i], max);
         if (max == i) {
             ans++;
         }

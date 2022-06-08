@@ -1,13 +1,8 @@
 class Solution:
-    def maxChunksToSorted(self, arr):
-        """
-        :type arr: List[int]
-        :rtype: int
-        """
-        ans = 0
-        loc = 0
-        for i, val in enumerate(arr):
-            loc = val if loc < val else loc
-            if loc == i:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        mx = ans = 0
+        for i, v in enumerate(arr):
+            mx = max(mx, v)
+            if i == mx:
                 ans += 1
         return ans
