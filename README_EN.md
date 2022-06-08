@@ -55,6 +55,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md) - `Linked List`, `Pointer`, `Array`
 -   [Next Greater Element I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md) - `Monotonic Stack`
 -   [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md) - `Monotonic Stack`
+-   [Max Chunks To Make Sorted II](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README_EN.md) - `Monotonic Stack`
 -   [Sum of Subarray Minimums](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README_EN.md) - `Monotonic Stack`
 -   [Maximum Width Ramp](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md) - `Monotonic Stack`
 -   [Sum of Subarray Ranges](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md) - `Monotonic Stack`

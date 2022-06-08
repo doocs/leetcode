@@ -46,20 +46,91 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        stk = []
+        for v in arr:
+            if not stk or v >= stk[-1]:
+                stk.append(v)
+            else:
+                mx = stk.pop()
+                while stk and stk[-1] > v:
+                    stk.pop()
+                stk.append(mx)
+        return len(stk)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxChunksToSorted(int[] arr) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int v : arr) {
+            if (stk.isEmpty() || stk.peek() <= v) {
+                stk.push(v);
+            } else {
+                int mx = stk.pop();
+                while (!stk.isEmpty() && stk.peek() > v) {
+                    stk.pop();
+                }
+                stk.push(mx);
+            }
+        }
+        return stk.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        stack<int> stk;
+        for (int& v : arr)
+        {
+            if (stk.empty() || stk.top() <= v) stk.push(v);
+            else
+            {
+                int mx = stk.top();
+                stk.pop();
+                while (!stk.empty() && stk.top() > v) stk.pop();
+                stk.push(mx);
+            }
+        }
+        return stk.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxChunksToSorted(arr []int) int {
+	var stk []int
+	for _, v := range arr {
+		if len(stk) == 0 || stk[len(stk)-1] <= v {
+			stk = append(stk, v)
+		} else {
+			mx := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for len(stk) > 0 && stk[len(stk)-1] > v {
+				stk = stk[:len(stk)-1]
+			}
+			stk = append(stk, mx)
+		}
+	}
+	return len(stk)
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function maxChunksToSorted(arr: number[]): number {
-    let stack = []; // 左进左出
+    let stack = [];
     for (let num of arr) {
         if (stack.length && num < stack[0]) {
             let max = stack.shift();
