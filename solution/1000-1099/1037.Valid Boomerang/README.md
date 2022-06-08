@@ -40,6 +40,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：斜率比较**
+
+设三点分别为 $(x_1,y_1)$, $(x_2,y_2)$, $(x_3,y_3)$。
+
+要使得三点不共线，需要满足 $\frac{y_2-y_1}{x_2-x_1}\neq\frac{y_3-y_2}{x_3-x_2}$，变形得 $(y_2-y_1)*(x_3-x_2) \neq (y_3-y_2)*(x_2-x_1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +53,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isBoomerang(self, points: List[List[int]]) -> bool:
+        (x1, y1), (x2, y2), (x3, y3) = points
+        return (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)
 ```
 
 ### **Java**
@@ -55,7 +64,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isBoomerang(int[][] points) {
+        int x1 = points[0][0], y1 = points[0][1];
+        int x2 = points[1][0], y2 = points[1][1];
+        int x3 = points[2][0], y3 = points[2][1];
+        return (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isBoomerang(vector<vector<int>>& points) {
+        int x1 = points[0][0], y1 = points[0][1];
+        int x2 = points[1][0], y2 = points[1][1];
+        int x3 = points[2][0], y3 = points[2][1];
+        return (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func isBoomerang(points [][]int) bool {
+	x1, y1 := points[0][0], points[0][1]
+	x2, y2 := points[1][0], points[1][1]
+	x3, y3 := points[2][0], points[2][1]
+	return (y2-y1)*(x3-x2) != (y3-y2)*(x2-x1)
+}
 ```
 
 ### **...**
