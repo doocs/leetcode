@@ -1,9 +1,9 @@
 class Solution {
     public int expectNumber(int[] scores) {
-      Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < scores.length; i++) {
-            set.add(scores[i]);
+        Set<Integer> s = new HashSet<>();
+        for (int v : scores) {
+            s.add(v);
         }
-        return set.size();
+        return s.size();
     }
 }
