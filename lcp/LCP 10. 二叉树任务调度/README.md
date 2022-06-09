@@ -62,9 +62,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-   def expectNumber(self, scores: List[int]) -> int:
-        return len(set(scores))
+
 ```
 
 ### **Java**
@@ -72,15 +70,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public int expectNumber(int[] scores) {
-      Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < scores.length; i++) {
-            set.add(scores[i]);
-        }
-        return set.size();
-    }
-}
+
 ```
 
 ### **...**
