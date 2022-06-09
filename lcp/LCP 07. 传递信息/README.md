@@ -47,6 +47,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,30 +56,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution(object):
-    def numWays(self, n, relation, k):
-        """
-        :type n: int
-        :type relation: List[List[int]]
-        :type k: int
-        :rtype: int
-        """
-        dp = []
-        for i in range(0,k+1):
-            tmp = [0]*(n)
-            dp.append(tmp)
-
+class Solution:
+    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
+        dp = [[0] * n for _ in range(k + 1)]
         dp[0][0] = 1
-
-        for i in range(1,k+1):
-            for j in range(0,n):
-                sum = 0
-                for p in relation:
-                    if(p[1] == j):
-                        sum = sum + dp[i-1][p[0]]
-                dp[i][j] = sum
-
-        return dp[k][n-1]
+        for i in range(1, k + 1):
+            for a, b in relation:
+                dp[i][b] += dp[i - 1][a]
+        return dp[-1][-1]
 ```
 
 ### **Java**
@@ -88,7 +74,7 @@ class Solution(object):
 class Solution {
     public int numWays(int n, int[][] relation, int k) {
         int[][] dp = new int[k + 1][n];
-        dp[0][0] = 1; // 表示第0轮传递到编号为0的小朋友的总方案数
+        dp[0][0] = 1;
         for (int i = 1; i <= k; i++) {
             for (int[] r : relation) {
                 dp[i][r[1]] += dp[i - 1][r[0]];
@@ -99,6 +85,10 @@ class Solution {
 }
 ```
 
+### **...**
 
+```
+
+```
 
 <!-- tabs:end -->
