@@ -14,14 +14,8 @@ public:
     vector<int> pick() {
         int n = rects.size();
         int v = 1 + rand() % s[n];
-        int left = 0, right = n;
-        while (left < right)
-        {
-            int mid = (left + right) >> 1;
-            if (s[mid] >= v) right = mid;
-            else left = mid + 1;
-        }
-        auto& rect = rects[left - 1];
+        int idx = lower_bound(s.begin(), s.end(), v) - s.begin();
+        auto& rect = rects[idx - 1];
         int x = rect[0] + rand() % (rect[2] - rect[0] + 1);
         int y = rect[1] + rand() % (rect[3] - rect[1] + 1);
         return {x, y};

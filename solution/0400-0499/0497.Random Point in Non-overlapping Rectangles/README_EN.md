@@ -68,14 +68,8 @@ class Solution:
 
     def pick(self) -> List[int]:
         v = random.randint(1, self.s[-1])
-        left, right = 0, len(self.s) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            if self.s[mid] >= v:
-                right = mid
-            else:
-                left = mid + 1
-        x1, y1, x2, y2 = self.rects[left]
+        idx = bisect_left(self.s, v)
+        x1, y1, x2, y2 = self.rects[idx]
         return [random.randint(x1, x2), random.randint(y1, y2)]
 
 
@@ -140,18 +134,12 @@ public:
         this->rects = rects;
         srand(time(nullptr));
     }
-
+    
     vector<int> pick() {
         int n = rects.size();
         int v = 1 + rand() % s[n];
-        int left = 0, right = n;
-        while (left < right)
-        {
-            int mid = (left + right) >> 1;
-            if (s[mid] >= v) right = mid;
-            else left = mid + 1;
-        }
-        auto& rect = rects[left - 1];
+        int idx = lower_bound(s.begin(), s.end(), v) - s.begin();
+        auto& rect = rects[idx - 1];
         int x = rect[0] + rand() % (rect[2] - rect[0] + 1);
         int y = rect[1] + rand() % (rect[3] - rect[1] + 1);
         return {x, y};

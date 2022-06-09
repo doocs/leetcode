@@ -1,4 +1,5 @@
 class Solution:
+
     def __init__(self, rects: List[List[int]]):
         self.rects = rects
         self.s = [0] * len(rects)
@@ -7,14 +8,8 @@ class Solution:
 
     def pick(self) -> List[int]:
         v = random.randint(1, self.s[-1])
-        left, right = 0, len(self.s) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            if self.s[mid] >= v:
-                right = mid
-            else:
-                left = mid + 1
-        x1, y1, x2, y2 = self.rects[left]
+        idx = bisect_left(self.s, v)
+        x1, y1, x2, y2 = self.rects[idx]
         return [random.randint(x1, x2), random.randint(y1, y2)]
 
 

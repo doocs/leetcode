@@ -1,5 +1,4 @@
 function partitionArray(nums: number[], k: number): number {
-    if (!nums.length) return 0;
     nums.sort((a, b) => a - b);
     let ans = 1;
     let prev = nums[0] + k;
