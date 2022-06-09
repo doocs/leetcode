@@ -47,6 +47,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +56,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
+        dp = [[0] * n for _ in range(k + 1)]
+        dp[0][0] = 1
+        for i in range(1, k + 1):
+            for a, b in relation:
+                dp[i][b] += dp[i - 1][a]
+        return dp[-1][-1]
 ```
 
 ### **Java**
@@ -62,7 +71,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int numWays(int n, int[][] relation, int k) {
+        int[][] dp = new int[k + 1][n];
+        dp[0][0] = 1;
+        for (int i = 1; i <= k; i++) {
+            for (int[] r : relation) {
+                dp[i][r[1]] += dp[i - 1][r[0]];
+            }
+        }
+        return dp[k][n - 1];
+    }
+}
 ```
 
 ### **...**
