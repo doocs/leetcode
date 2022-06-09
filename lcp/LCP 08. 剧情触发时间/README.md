@@ -61,6 +61,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 二分查找**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,29 +72,22 @@
 ```python
 class Solution:
     def getTriggerTime(self, increase: List[List[int]], requirements: List[List[int]]) -> List[int]:
-        increase.insert(0, [0,0,0])
-        for i in range(1, len(increase)):
+        increase.insert(0, [0, 0, 0])
+        m, n = len(increase), len(requirements)
+        for i in range(1, m):
             for j in range(3):
-                increase[i][j] += increase[i-1][j]
-
-        res = [None for _ in range(len(requirements))]
-        maxs = increase[-1]
-        for i in range(len(requirements)):
-            # value in requirements beyond the limit
-            if any(a > b for a, b in zip(requirements[i], maxs)):
-                res[i] = -1
-                continue
-            # else
-            left, right = 0, len(increase) - 1
-            while left <= right:
-                mid = (left + right) // 2
-                if all(a >= b for a, b in zip(increase[mid], requirements[i])):
-                    right = mid - 1
-                    res[i] = mid
+                increase[i][j] += increase[i - 1][j]
+        ans = [-1] * n
+        for i, req in enumerate(requirements):
+            left, right = 0, m
+            while left < right:
+                mid = (left + right) >> 1
+                if all(a >= b for a, b in zip(increase[mid], req)):
+                    ans[i] = mid
+                    right = mid
                 else:
                     left = mid + 1
-            
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -100,61 +95,42 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-public int[] getTriggerTime(int[][] inc, int[][] requ) {
-        int[] C = new int[inc.length+1];
-        int[] R = new int[inc.length+1];
-        int[] H = new int[inc.length+1];
-        for(int i=0;i<inc.length;i++){
-            C[i+1]=C[i]+inc[i][0];
-            R[i+1]=R[i]+inc[i][1];
-            H[i+1]=H[i]+inc[i][2];
+class Solution {
+    public int[] getTriggerTime(int[][] increase, int[][] requirements) {
+        int m = increase.length, n = requirements.length;
+        int[][] s = new int[m + 1][3];
+        for (int j = 0; j < 3; ++j) {
+            for (int i = 0; i < m; ++i) {
+                s[i + 1][j] = s[i][j] + increase[i][j];
+            }
         }
-        int[] result = new int[requ.length];
-        for(int i=0;i<requ.length;i++){
-            result[i]=-1;
-            int cIndex = Arrays.binarySearch(C,requ[i][0]);
-            if(Math.abs(cIndex)>C.length){
-                continue;
-            }
-            //用于得到值中最小的那个下标
-            if(cIndex>0){
-                while(cIndex>0&&C[cIndex-1]==C[cIndex]){
-                    cIndex--;
+
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        for (int i = 0; i < n; ++i) {
+            int left = 0, right = m + 1;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (check(s[mid], requirements[i])) {
+                    ans[i] = mid;
+                    right = mid;
+                } else {
+                    left = mid + 1;
                 }
             }
-            if(cIndex<0){
-                cIndex = Math.abs(cIndex+1);
-            }
-            int rIndex = Arrays.binarySearch(R,cIndex,R.length,requ[i][1]);
-            if(Math.abs(rIndex)>R.length){
-                continue;
-            }
-            //得到下标最小，且大于等于cIndex的那个元素的下标
-            if(rIndex>0){
-                while(rIndex>cIndex&&R[rIndex-1]==R[rIndex]){
-                    rIndex--;
-                }
-            }
-            if(rIndex<0){
-                rIndex = Math.abs(rIndex+1);
-            }
-            int hIndex = Arrays.binarySearch(H,rIndex,H.length,requ[i][2]);
-            if(Math.abs(hIndex)>H.length){
-                continue;
-            }
-            //得到下标最小，且大于等于rIndex的那个元素的下标
-            if(hIndex>0){
-                while(hIndex>rIndex&&H[hIndex-1]==H[hIndex]){
-                    hIndex--;
-                }
-            }
-            if(hIndex<0){
-                hIndex = Math.abs(hIndex+1);
-            }
-            result[i] = hIndex;
         }
-        return result;
+        return ans;
     }
+
+    private boolean check(int[] a, int[] b) {
+        for (int i = 0; i < 3; ++i) {
+            if (a[i] < b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
