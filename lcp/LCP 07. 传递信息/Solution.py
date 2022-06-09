@@ -1,24 +1,9 @@
-class Solution(object):
-    def numWays(self, n, relation, k):
-        """
-        :type n: int
-        :type relation: List[List[int]]
-        :type k: int
-        :rtype: int
-        """
-        dp = []
-        for i in range(0,k+1):
-            tmp = [0]*(n)
-            dp.append(tmp)
-
+class Solution:
+    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
+        dp = [[0] * n for _ in range(k + 1)]
         dp[0][0] = 1
-
-        for i in range(1,k+1):
-            for j in range(0,n):
-                sum = 0
-                for p in relation:
-                    if(p[1] == j):
-                        sum = sum + dp[i-1][p[0]]
-                dp[i][j] = sum
-
-        return dp[k][n-1]
+        for i in range(1, k + 1):
+            for a, b in relation:
+                dp[i][b] += dp[i - 1][a]
+        return dp[-1][-1]
+    
