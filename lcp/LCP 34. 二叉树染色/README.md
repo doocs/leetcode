@@ -40,42 +40,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
     def maxValue(self, root: TreeNode, k: int) -> int:
-        def dp(node):
-            if node.left:
-                if node.right: return cg(node.val, dp(node.left), dp(node.right))  # 左右都存在
-                else: return cg(node.val, dp(node.left))  # 单左存在
-            elif node.right:
-                return cg(node.val, dp(node.right))  # 单右存在
-            else: return [0] + [node.val] * k  # 左右都不存在
-        def cg(v,lis0,lis1=None):
-            nlis = [0] * (k + 1)
-            if lis1:
-                nlis[0] = lis0[-1]+lis1[-1]
-                for i in range(k):
-                    nlis[i+1] = nlis[i]
-                    for j in range(i+1):
-                        nlis[i+1] = max(nlis[i+1],lis0[j]+lis1[i-j]+v)
-            else:
-                nlis[0] = lis0[-1]
-                for i in range(k):
-                    nlis[i+1] = max(nlis[i],lis0[i]+v)
-            return nlis
-        v = root.val
-        if root.left:
-            if root.right:  # 左右都存在
-                left = dp(root.left)
-                right = dp(root.right)
-                mx = left[-1]+right[-1]
-                for i in range(k):
-                    mx = max(mx, left[i]+right[k-i-1]+v)
-                return mx
-            else:  # 单左存在
-                *_,x,y = dp(root.left)
-        elif root.right: *_,x,y = dp(root.right)    # 单右存在
-        else: return v  # 左右都不存在
-        return max(y, v+x)  # 单孩子情况的返回值
+        def dfs(root):
+            ans = [0] * (k + 1)
+            if root is None:
+                return ans
+            l, r = dfs(root.left), dfs(root.right)
+            for i in range(k):
+                for j in range(k - i):
+                    ans[i + j + 1] = max(ans[i + j + 1], l[i] + r[j] + root.val)
+            for i in range(k + 1):
+                for j in range(k + 1):
+                    ans[0] = max(ans[0], l[i] + r[j])
+            return ans
+        
+        return max(dfs(root))
 ```
 
 ### **Java**
@@ -83,45 +70,43 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 class Solution {
-    Map<TreeNode,int[]> map=new HashMap<>();
     public int maxValue(TreeNode root, int k) {
-        calclulateMaxScore(root,k);
-        int ans=0;
-        int a[]=map.get(root);
-        for(int i=0;i<=k;i++){ans=Math.max(ans,a[i]);}
+        int[] t = dfs(root, k);
+        int ans = 0;
+        for (int v : t) {
+            ans = Math.max(ans, v);
+        }
         return ans;
     }
-    public void calclulateMaxScore(TreeNode t,int k){
-        int a[]=new int[12];
-        if(t.left==t.right){a[1]=t.val;}
-        else if(t.left==null){
-            calclulateMaxScore(t.right,k);
-            int r[]=map.get(t.right);
-            for(int i=1;i<=k;i++){a[i]=r[i-1]+t.val;}
-            for(int i=0;i<=k;i++){a[0]=Math.max(a[0],r[i]);}
+
+    private int[] dfs(TreeNode root, int k) {
+        int[] ans = new int[k + 1];
+        if (root == null) {
+            return ans;
         }
-        else if(t.right==null){
-            calclulateMaxScore(t.left,k);
-            int l[]=map.get(t.left);
-            for(int i=1;i<=k;i++){a[i]=l[i-1]+t.val;}
-            for(int i=0;i<=k;i++){a[0]=Math.max(a[0],l[i]);}
-        }
-        else{
-            calclulateMaxScore(t.left,k);
-            calclulateMaxScore(t.right,k);
-            int l[]=map.get(t.left);
-            int r[]=map.get(t.right);
-            //左右加起来的节点数为i-1，
-            for(int i=1;i<=k;i++){for(int j=0;j<i;j++){a[i]=Math.max(a[i],t.val+l[j]+r[i-1-j]);}}
-            int lMax=0,rMax=0;
-            for(int i=0;i<=k;i++){
-                lMax=Math.max(lMax,l[i]);
-                rMax=Math.max(rMax,r[i]);
+        int[] l = dfs(root.left, k);
+        int[] r = dfs(root.right, k);
+        for (int i = 0; i < k; ++i) {
+            for (int j = 0; j < k - i; ++j) {
+                ans[i + j + 1] = Math.max(ans[i + j + 1], l[i] + r[j] + root.val);
             }
-            a[0]=lMax+rMax;
         }
-        map.put(t,a);
+        for (int i = 0; i <= k; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                ans[0] = Math.max(ans[0], l[i] + r[j]);
+            }
+        }
+        return ans;
     }
 }
 ```
