@@ -8,8 +8,6 @@ public:
             ans = ans * 3 % mod;
             n -= 3;
         }
-        if (n == 4)
-            return ans * 4 % mod;
         return ans * n % mod;
     }
 };
