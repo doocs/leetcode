@@ -51,7 +51,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-我们需要找到一个分界点 `i`，使 `[:i]` 全为 0，`[i:]` 全为 1，并且翻转次数最少，问题就转换成计算 `i` 的左右两侧的翻转次数，可以用前缀和进行优化
+**方法一：前缀和**
+
+我们需要找到一个分界点 `i`，使 `[:i]` 全为 0，`[i:]` 全为 1，并且翻转次数最少，问题就转换成计算 `i` 的左右两侧的翻转次数，可以用前缀和进行优化。
 
 <!-- tabs:start -->
 
@@ -71,6 +73,19 @@ class Solution:
             right[i] = right[i + 1] + (1 if s[i] == '0' else 0)
         for i in range(0, n + 1):
             ans = min(ans, left[i] + right[i])
+        return ans
+```
+
+```python
+class Solution:
+    def minFlipsMonoIncr(self, s: str) -> int:
+        n = len(s)
+        presum = [0] * (n + 1)
+        for i, c in enumerate(s):
+            presum[i + 1] = presum[i] + int(c)
+        ans = presum[-1]
+        for i in range(n):
+            ans = min(ans, presum[i] + n - i - (presum[-1] - presum[i]))
         return ans
 ```
 
@@ -99,6 +114,23 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minFlipsMonoIncr(String s) {
+        int n = s.length();
+        int[] presum = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + (s.charAt(i) - '0');
+        }
+        int ans = presum[n];
+        for (int i = 0; i < n; ++i) {
+            ans = Math.min(ans, presum[i] + n - i - (presum[n] - presum[i]));
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -117,6 +149,20 @@ public:
         for (int i = 0; i <= n; i++) {
             ans = min(ans, left[i] + right[i]);
         }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minFlipsMonoIncr(string s) {
+        int n = s.size();
+        vector<int> presum(n + 1);
+        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + (s[i] == '1');
+        int ans = presum[n];
+        for (int i = 0; i < n; ++i) ans = min(ans, presum[i] + n - i - (presum[n] - presum[i]));
         return ans;
     }
 };
@@ -153,6 +199,49 @@ func min(x, y int) int {
 	}
 	return y
 }
+```
+
+```go
+func minFlipsMonoIncr(s string) int {
+	n := len(s)
+	presum := make([]int, n+1)
+	for i, c := range s {
+		presum[i+1] = presum[i] + int(c-'0')
+	}
+	ans := presum[n]
+	for i := range s {
+		ans = min(ans, presum[i]+n-i-(presum[n]-presum[i]))
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minFlipsMonoIncr = function (s) {
+    const n = s.length;
+    let presum = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        presum[i + 1] = presum[i] + (s[i] == '1');
+    }
+    let ans = presum[n];
+    for (let i = 0; i < n; ++i) {
+        ans = Math.min(ans, presum[i] + n - i - (presum[n] - presum[i]));
+    }
+    return ans;
+};
 ```
 
 ### **...**

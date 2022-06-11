@@ -40,13 +40,113 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isLongPressedName(self, name: str, typed: str) -> bool:
+        m, n = len(name), len(typed)
+        i = j = 0
+        while i < m and j < n:
+            if name[i] != typed[j]:
+                return False
+            cnt1 = cnt2 = 0
+            c = name[i]
+            while i + 1 < m and name[i + 1] == c:
+                i += 1
+                cnt1 += 1
+            while j + 1 < n and typed[j + 1] == c:
+                j += 1
+                cnt2 += 1
+            if cnt1 > cnt2:
+                return False
+            i, j = i + 1, j + 1
+        return i == m and j == n
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isLongPressedName(String name, String typed) {
+        int m = name.length(), n = typed.length();
+        int i = 0, j = 0;
+        for (; i < m && j < n; ++i, ++j) {
+            if (name.charAt(i) != typed.charAt(j)) {
+                return false;
+            }
+            int cnt1 = 0, cnt2 = 0;
+            char c = name.charAt(i);
+            while (i + 1 < m && name.charAt(i + 1) == c) {
+                ++i;
+                ++cnt1;
+            }
+            while (j + 1 < n && typed.charAt(j + 1) == c) {
+                ++j;
+                ++cnt2;
+            }
+            if (cnt1 > cnt2) {
+                return false;
+            }
+        }
+        return i == m && j == n;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isLongPressedName(string name, string typed) {
+        int m = name.size(), n = typed.size();
+        int i = 0, j = 0;
+        for (; i < m && j < n; ++i, ++j)
+        {
+            if (name[i] != typed[j]) return false;
+            int cnt1 = 0, cnt2 = 0;
+            char c = name[i];
+            while (i + 1 < m && name[i + 1] == c)
+            {
+                ++i;
+                ++cnt1;
+            }
+            while (j + 1 < n && typed[j + 1] == c)
+            {
+                ++j;
+                ++cnt2;
+            }
+            if (cnt1 > cnt2) return false;
+        }
+        return i == m && j == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isLongPressedName(name string, typed string) bool {
+	m, n := len(name), len(typed)
+	i, j := 0, 0
+	for ; i < m && j < n; i, j = i+1, j+1 {
+		if name[i] != typed[j] {
+			return false
+		}
+		cnt1, cnt2 := 0, 0
+		c := name[i]
+		for i+1 < m && name[i+1] == c {
+			i++
+			cnt1++
+		}
+		for j+1 < n && typed[j+1] == c {
+			j++
+			cnt2++
+		}
+		if cnt1 > cnt2 {
+			return false
+		}
+	}
+	return i == m && j == n
+}
 ```
 
 ### **...**
