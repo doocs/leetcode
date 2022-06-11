@@ -57,6 +57,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：将 1 的数量三等分**
+
+将 $1$ 的数量三等分，找到每一部分的第一个 $1$，分别记为 $i$, $j$, $k$。
+
+然后从 $i$, $j$, $k$ 开始往后同时遍历每一部分，判断三部分对应的值是否相等，是则继续遍历，直至 $k$ 到达 $arr$ 末尾。
+
+遍历结束时，若 $k=n$，说明满足三等分，返回此时的 $[i-1,j]$ 作为答案。
+
+时间复杂度 $O(n)$，其中 $n$ 表示 $arr$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +74,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def threeEqualParts(self, arr: List[int]) -> List[int]:
+        def find(cnt):
+            s = 0
+            for i, v in enumerate(arr):
+                s += v
+                if s == cnt:
+                    return i
+            return -1
 
+        n = len(arr)
+        cnt, mod = divmod(sum(arr), 3)
+        if mod:
+            return [-1, -1]
+        if cnt == 0:
+            return [0, n - 1]
+        i = find(1)
+        j = find(cnt + 1)
+        k = find(cnt * 2 + 1)
+        while k < n and arr[i] == arr[j] == arr[k]:
+            i, j, k = i + 1, j + 1, k + 1
+        if k == n:
+            return [i - 1, j]
+        return [-1, -1]
 ```
 
 ### **Java**
@@ -72,7 +105,123 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] threeEqualParts(int[] arr) {
+        int n = arr.length;
+        int cnt1 = 0;
+        for (int v : arr) {
+            cnt1 += v;
+        }
+        int cnt = cnt1 / 3;
+        int mod = cnt1 % 3;
+        if (mod != 0) {
+            return new int[]{-1, -1};
+        }
+        if (cnt == 0) {
+            return new int[]{0, n - 1};
+        }
+        int i = find(arr, 1);
+        int j = find(arr, cnt + 1);
+        int k = find(arr, cnt * 2 + 1);
+        while (k < n && arr[i] == arr[j] && arr[j] == arr[k]) {
+            ++i;
+            ++j;
+            ++k;
+        }
+        if (k == n) {
+            return new int[]{i - 1, j};
+        }
+        return new int[]{-1, -1};
+    }
 
+    private int find(int[] arr, int cnt) {
+        int s = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            s += arr[i];
+            if (s == cnt) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> threeEqualParts(vector<int>& arr) {
+        int n = arr.size();
+        int cnt1 = accumulate(arr.begin(), arr.end(), 0);
+        int cnt = cnt1 / 3;
+        int mod = cnt1 % 3;
+        if (mod) return {-1, -1};
+        if (cnt == 0) return {0, n - 1};
+        int i = find(arr, 1);
+        int j = find(arr, cnt + 1);
+        int k = find(arr, cnt * 2 + 1);
+        while (k < n && arr[i] == arr[j] && arr[j] == arr[k])
+        {
+            ++i;
+            ++j;
+            ++k;
+        }
+        if (k == n) return {i - 1, j};
+        return {-1, -1};
+    }
+
+    int find(vector<int>& arr, int cnt) {
+        int s = 0;
+        for (int i = 0; i < arr.size(); ++i)
+        {
+            s += arr[i];
+            if (s == cnt) return i;
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func threeEqualParts(arr []int) []int {
+	n := len(arr)
+	cnt1 := 0
+	for _, v := range arr {
+		cnt1 += v
+	}
+	cnt := cnt1 / 3
+	mod := cnt1 % 3
+	if mod != 0 {
+		return []int{-1, -1}
+	}
+	if cnt == 0 {
+		return []int{0, n - 1}
+	}
+	find := func(cnt int) int {
+		s := 0
+		for i, v := range arr {
+			s += v
+			if s == cnt {
+				return i
+			}
+		}
+		return -1
+	}
+	i, j, k := find(1), find(cnt+1), find(cnt*2+1)
+	for k < n && arr[i] == arr[j] && arr[j] == arr[k] {
+		i++
+		j++
+		k++
+	}
+	if k == n {
+		return []int{i - 1, j}
+	}
+	return []int{-1, -1}
+}
 ```
 
 ### **...**
