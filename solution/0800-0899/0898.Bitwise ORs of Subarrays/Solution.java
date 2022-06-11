@@ -1,16 +1,18 @@
 class Solution {
-    public int subarrayBitwiseORs(int[] A) {
-        int maxVal = Arrays.stream(A).max().getAsInt();
-        int mask = (Integer.highestOneBit(maxVal) << 1) - 1;
-        Set<Integer> res = new HashSet<>();
-        for (int i = 0; i < A.length; ++i) {
-            int val = A[i];
-            res.add(val);
-            for (int j = i - 1; j >= 0 && val != mask; --j) {
-                val |= A[j];
-                res.add(val);
+    public int subarrayBitwiseORs(int[] arr) {
+        Set<Integer> s = new HashSet<>();
+        int prev = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            prev |= arr[i];
+            int curr = 0;
+            for (int j = i; j >= 0; --j) {
+                curr |= arr[j];
+                s.add(curr);
+                if (curr == prev) {
+                    break;
+                }
             }
         }
-        return res.size();
+        return s.size();
     }
 }

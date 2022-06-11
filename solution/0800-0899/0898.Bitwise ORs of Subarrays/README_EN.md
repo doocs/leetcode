@@ -52,13 +52,87 @@ There are 3 unique values, so the answer is 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def subarrayBitwiseORs(self, arr: List[int]) -> int:
+        s = set()
+        prev = 0
+        for i, v in enumerate(arr):
+            prev |= v
+            curr = 0
+            for j in range(i, -1, -1):
+                curr |= arr[j]
+                s.add(curr)
+                if curr == prev:
+                    break
+        return len(s)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int subarrayBitwiseORs(int[] arr) {
+        Set<Integer> s = new HashSet<>();
+        int prev = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            prev |= arr[i];
+            int curr = 0;
+            for (int j = i; j >= 0; --j) {
+                curr |= arr[j];
+                s.add(curr);
+                if (curr == prev) {
+                    break;
+                }
+            }
+        }
+        return s.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int subarrayBitwiseORs(vector<int>& arr) {
+        unordered_set<int> s;
+        int prev = 0;
+        for (int i = 0; i < arr.size(); ++i)
+        {
+            prev |= arr[i];
+            int curr = 0;
+            for (int j = i; ~j; --j)
+            {
+                curr |= arr[j];
+                s.insert(curr);
+                if (curr == prev) break;
+            }
+        }
+        return s.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func subarrayBitwiseORs(arr []int) int {
+	s := map[int]bool{}
+	prev := 0
+	for i, v := range arr {
+		prev |= v
+		curr := 0
+		for j := i; j >= 0; j-- {
+			curr |= arr[j]
+			s[curr] = true
+			if curr == prev {
+				break
+			}
+		}
+	}
+	return len(s)
+}
 ```
 
 ### **...**
