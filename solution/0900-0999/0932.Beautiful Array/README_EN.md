@@ -35,13 +35,76 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def beautifulArray(self, n: int) -> List[int]:
+        if n == 1:
+            return [1]
+        left = self.beautifulArray((n + 1) >> 1)
+        right = self.beautifulArray(n >> 1)
+        left = [x * 2 - 1 for x in left]
+        right = [x * 2 for x in right]
+        return left + right
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] beautifulArray(int n) {
+        if (n == 1) {
+            return new int[]{1};
+        }
+        int[] left = beautifulArray((n + 1) >> 1);
+        int[] right = beautifulArray(n >> 1);
+        int[] ans = new int[n];
+        int i = 0;
+        for (int x : left) {
+            ans[i++] = x * 2 - 1;
+        }
+        for (int x : right) {
+            ans[i++] = x * 2;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> beautifulArray(int n) {
+        if (n == 1) return {1};
+        vector<int> left = beautifulArray((n + 1) >> 1);
+        vector<int> right = beautifulArray(n >> 1);
+        vector<int> ans(n);
+        int i = 0;
+        for (int& x : left) ans[i++] = x * 2 - 1;
+        for (int& x : right) ans[i++] = x * 2;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func beautifulArray(n int) []int {
+	if n == 1 {
+		return []int{1}
+	}
+	left := beautifulArray((n + 1) >> 1)
+	right := beautifulArray(n >> 1)
+	var ans []int
+	for _, x := range left {
+		ans = append(ans, x*2-1)
+	}
+	for _, x := range right {
+		ans = append(ans, x*2)
+	}
+	return ans
+}
 ```
 
 ### **...**
