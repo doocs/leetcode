@@ -52,13 +52,76 @@ Thus, there are 2 strings that appear exactly once in each of the two arrays.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countWords(self, words1: List[str], words2: List[str]) -> int:
+        cnt1 = Counter(words1)
+        cnt2 = Counter(words2)
+        return sum(cnt2[k] == 1 for k, v in cnt1.items() if v == 1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countWords(String[] words1, String[] words2) {
+        Map<String, Integer> cnt1 = count(words1);
+        Map<String, Integer> cnt2 = count(words2);
+        int ans = 0;
+        for (String w : words1) {
+            if (cnt1.getOrDefault(w, 0) == 1 && cnt2.getOrDefault(w, 0) == 1) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
 
+    private Map<String, Integer> count(String[] words) {
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String w : words) {
+            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+        }
+        return cnt;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countWords(vector<string>& words1, vector<string>& words2) {
+        unordered_map<string, int> cnt1;
+        unordered_map<string, int> cnt2;
+        for (auto& w : words1) cnt1[w]++;
+        for (auto& w : words2) cnt2[w]++;
+        int ans = 0;
+        for (auto& w : words1) ans += (cnt1[w] == 1 && cnt2[w] == 1);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countWords(words1 []string, words2 []string) int {
+	cnt1 := map[string]int{}
+	cnt2 := map[string]int{}
+	for _, w := range words1 {
+		cnt1[w]++
+	}
+	for _, w := range words2 {
+		cnt2[w]++
+	}
+	ans := 0
+	for _, w := range words1 {
+		if cnt1[w] == 1 && cnt2[w] == 1 {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
