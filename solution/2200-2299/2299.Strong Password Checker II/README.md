@@ -69,18 +69,16 @@ class Solution:
         if len(password) < 8:
             return False
         ans = 0
-        prev = '.'
-        for c in password:
-            if prev == c:
+        for i, c in enumerate(password):
+            if i and password[i - 1] == c:
                 return False
-            prev = c
             if c.islower():
                 ans |= 1
-            if c.isupper():
+            elif c.isupper():
                 ans |= 2
-            if c.isdigit():
+            elif c.isdigit():
                 ans |= 4
-            if c in '!@#$%^&*()-+':
+            else:
                 ans |= 8
         return ans == 15
 ```
@@ -104,19 +102,65 @@ class Solution {
             prev = c;
             if (Character.isLowerCase(c)) {
                 ans |= 1;
-            }
-            if (Character.isUpperCase(c)) {
+            } else if (Character.isUpperCase(c)) {
                 ans |= 2;
-            }
-            if (Character.isDigit(c)) {
+            } else if (Character.isDigit(c)) {
                 ans |= 4;
-            }
-            if ("!@#$%^&*()-+".contains(c + "")) {
+            } else {
                 ans |= 8;
             }
         }
         return ans == 15;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool strongPasswordCheckerII(string password) {
+        if (password.size() < 8) return false;
+        int ans = 0;
+        char prev = '.';
+        for (char& c : password)
+        {
+            if (c == prev) return false;
+            prev = c;
+            if (c >= 'a' && c <= 'z') ans |= 1;
+            else if (c >= 'A' && c <= 'Z') ans |= 2;
+            else if (c >= '0' && c <= '9') ans |= 4;
+            else ans |= 8;
+        }
+        return ans == 15;
+    }
+};
+```
+
+### **Go**
+
+```go
+func strongPasswordCheckerII(password string) bool {
+	if len(password) < 8 {
+		return false
+	}
+	ans := 0
+	for i, c := range password {
+		if i > 0 && password[i] == password[i-1] {
+			return false
+		}
+		if unicode.IsLower(c) {
+			ans |= 1
+		} else if unicode.IsUpper(c) {
+			ans |= 2
+		} else if unicode.IsDigit(c) {
+			ans |= 4
+		} else {
+			ans |= 8
+		}
+	}
+	return ans == 15
 }
 ```
 

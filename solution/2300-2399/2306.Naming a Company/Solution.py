@@ -1,18 +1,20 @@
 class Solution:
     def distinctNames(self, ideas: List[str]) -> int:
-        g = defaultdict(int)
+        s = set(ideas)
+        f = [[0] * 26 for _ in range(26)]
         for v in ideas:
-            g[v[1:]] |= 1 << (ord(v[0]) - ord('a'))
+            i = ord(v[0]) - ord('a')
+            t = list(v)
+            for j in range(26):
+                t[0] = chr(ord('a') + j)
+                if ''.join(t) not in s:
+                    f[i][j] += 1
         ans = 0
-        cnt = [[0] * 26 for _ in range(26)]
-        for mask in g.values():
-            for i in range(26):
-                if (mask >> i) & 1:
-                    for j in range(26):
-                        if ((mask >> j) & 1) == 0:
-                            ans += cnt[i][j]
-                else:
-                    for j in range(26):
-                        if (mask >> j) & 1:
-                            cnt[i][j] += 1
-        return ans << 1
+        for v in ideas:
+            i = ord(v[0]) - ord('a')
+            t = list(v)
+            for j in range(26):
+                t[0] = chr(ord('a') + j)
+                if ''.join(t) not in s:
+                    ans += f[j][i]
+        return ans

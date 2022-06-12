@@ -3,17 +3,15 @@ class Solution:
         if len(password) < 8:
             return False
         ans = 0
-        prev = '.'
-        for c in password:
-            if prev == c:
+        for i, c in enumerate(password):
+            if i and password[i - 1] == c:
                 return False
-            prev = c
             if c.islower():
                 ans |= 1
-            if c.isupper():
+            elif c.isupper():
                 ans |= 2
-            if c.isdigit():
+            elif c.isdigit():
                 ans |= 4
-            if c in '!@#$%^&*()-+':
+            else:
                 ans |= 8
         return ans == 15

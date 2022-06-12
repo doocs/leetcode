@@ -69,27 +69,9 @@ Task 6 was submitted on Sunday.
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
+```sql
 
 ```
 

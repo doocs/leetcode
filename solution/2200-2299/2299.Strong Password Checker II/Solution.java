@@ -12,14 +12,11 @@ class Solution {
             prev = c;
             if (Character.isLowerCase(c)) {
                 ans |= 1;
-            }
-            if (Character.isUpperCase(c)) {
+            } else if (Character.isUpperCase(c)) {
                 ans |= 2;
-            }
-            if (Character.isDigit(c)) {
+            } else if (Character.isDigit(c)) {
                 ans |= 4;
-            }
-            if ("!@#$%^&*()-+".contains(c + "")) {
+            } else {
                 ans |= 8;
             }
         }

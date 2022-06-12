@@ -64,28 +64,98 @@ The following are some examples of invalid selections:
 ```python
 class Solution:
     def distinctNames(self, ideas: List[str]) -> int:
-        g = defaultdict(int)
+        s = set(ideas)
+        f = [[0] * 26 for _ in range(26)]
         for v in ideas:
-            g[v[1:]] |= 1 << (ord(v[0]) - ord('a'))
+            i = ord(v[0]) - ord('a')
+            t = list(v)
+            for j in range(26):
+                t[0] = chr(ord('a') + j)
+                if ''.join(t) not in s:
+                    f[i][j] += 1
         ans = 0
-        cnt = [[0] * 26 for _ in range(26)]
-        for mask in g.values():
-            for i in range(26):
-                if (mask >> i) & 1:
-                    for j in range(26):
-                        if ((mask >> j) & 1) == 0:
-                            ans += cnt[i][j]
-                else:
-                    for j in range(26):
-                        if (mask >> j) & 1:
-                            cnt[i][j] += 1
-        return ans << 1
+        for v in ideas:
+            i = ord(v[0]) - ord('a')
+            t = list(v)
+            for j in range(26):
+                t[0] = chr(ord('a') + j)
+                if ''.join(t) not in s:
+                    ans += f[j][i]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long distinctNames(String[] ideas) {
+        Set<String> s = new HashSet<>();
+        for (String v : ideas) {
+            s.add(v);
+        }
+        int[][] f = new int[26][26];
+        for (String v : ideas) {
+            char[] t = v.toCharArray();
+            int i = t[0] - 'a';
+            for (int j = 0; j < 26; ++j) {
+                t[0] = (char) (j + 'a');
+                if (!s.contains(String.valueOf(t))) {
+                    ++f[i][j];
+                }
+            }
+        }
+        long ans = 0;
+        for (String v : ideas) {
+            char[] t = v.toCharArray();
+            int i = t[0] - 'a';
+            for (int j = 0; j < 26; ++j) {
+                t[0] = (char) (j + 'a');
+                if (!s.contains(String.valueOf(t))) {
+                    ans += f[j][i];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long distinctNames(vector<string>& ideas) {
+        unordered_set<string> s(ideas.begin(), ideas.end());
+        vector<vector<int>> f(26, vector<int>(26));
+        for (auto v : ideas)
+        {
+            int i = v[0] - 'a';
+            for (int j = 0; j < 26; ++j)
+            {
+                v[0] = j + 'a';
+                if (!s.count(v))
+                {
+                    ++f[i][j];
+                }
+            }
+        }
+        long long ans = 0;
+        for (auto v : ideas)
+        {
+            int i = v[0] - 'a';
+            for (int j = 0; j < 26; ++j)
+            {
+                v[0] = j + 'a';
+                if (!s.count(v))
+                {
+                    ans += f[j][i];
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **TypeScript**
