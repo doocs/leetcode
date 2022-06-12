@@ -2340,3 +2340,15 @@
   - [2294.Partition Array Such That Maximum Difference Is K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README_EN.md)
   - [2295.Replace Elements in an Array](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md)
   - [2296.Design a Text Editor](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)
+  - [2297.Jump Game IX](/solution/2200-2299/2297.Jump%20Game%20IX/README_EN.md)
+  - [2298.Tasks Count in the Weekend](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README_EN.md)
+  - [2299.Strong Password Checker II](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README_EN.md)
+
+- 2300-2399
+  - [2300.Successful Pairs of Spells and Potions](/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README_EN.md)
+  - [2301.Match Substring After Replacement](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README_EN.md)
+  - [2302.Count Subarrays With Score Less Than K](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README_EN.md)
+  - [2303.Calculate Amount Paid in Taxes](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md)
+  - [2304.Minimum Path Cost in a Grid](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README_EN.md)
+  - [2305.Fair Distribution of Cookies](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md)
+  - [2306.Naming a Company](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)

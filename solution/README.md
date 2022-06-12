@@ -78,7 +78,7 @@
 |  0065  |  [有效数字](/solution/0000-0099/0065.Valid%20Number/README.md)  |  `字符串`  |  困难  |    |
 |  0066  |  [加一](/solution/0000-0099/0066.Plus%20One/README.md)  |  `数组`,`数学`  |  简单  |    |
 |  0067  |  [二进制求和](/solution/0000-0099/0067.Add%20Binary/README.md)  |  `位运算`,`数学`,`字符串`,`模拟`  |  简单  |    |
-|  0068  |  [文本左右对齐](/solution/0000-0099/0068.Text%20Justification/README.md)  |  `字符串`,`模拟`  |  困难  |    |
+|  0068  |  [文本左右对齐](/solution/0000-0099/0068.Text%20Justification/README.md)  |  `数组`,`字符串`,`模拟`  |  困难  |    |
 |  0069  |  [x 的平方根 ](/solution/0000-0099/0069.Sqrt%28x%29/README.md)  |  `数学`,`二分查找`  |  简单  |    |
 |  0070  |  [爬楼梯](/solution/0000-0099/0070.Climbing%20Stairs/README.md)  |  `记忆化搜索`,`数学`,`动态规划`  |  简单  |    |
 |  0071  |  [简化路径](/solution/0000-0099/0071.Simplify%20Path/README.md)  |  `栈`,`字符串`  |  中等  |    |
@@ -2301,12 +2301,22 @@
 |  2288  |  [价格减免](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README.md)  |  `字符串`  |  中等  |  第 295 场周赛  |
 |  2289  |  [使数组按非递减顺序排列](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md)  |  `栈`,`数组`,`链表`,`单调栈`  |  中等  |  第 295 场周赛  |
 |  2290  |  [到达角落需要移除障碍物的最小数目](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README.md)  |  `广度优先搜索`,`图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  困难  |  第 295 场周赛  |
-|  2291  |  [Maximum Profit From Trading Stocks](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md)  |    |  中等  |  🔒  |
-|  2292  |  [Products With Three or More Orders in Two Consecutive Years](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README.md)  |    |  中等  |  🔒  |
-|  2293  |  [极大极小游戏](/solution/2200-2299/2293.Min%20Max%20Game/README.md)  |    |  简单  |    |
-|  2294  |  [划分数组使最大差为 K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README.md)  |    |  中等  |    |
-|  2295  |  [替换数组中的元素](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)  |    |  中等  |    |
-|  2296  |  [设计一个文本编辑器](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md)  |    |  困难  |    |
+|  2291  |  [Maximum Profit From Trading Stocks](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md)  |  `数组`,`动态规划`  |  中等  |  🔒  |
+|  2292  |  [Products With Three or More Orders in Two Consecutive Years](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2293  |  [极大极小游戏](/solution/2200-2299/2293.Min%20Max%20Game/README.md)  |  `数组`,`模拟`  |  简单  |  第 296 场周赛  |
+|  2294  |  [划分数组使最大差为 K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 296 场周赛  |
+|  2295  |  [替换数组中的元素](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)  |  `数组`,`哈希表`,`模拟`  |  中等  |  第 296 场周赛  |
+|  2296  |  [设计一个文本编辑器](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md)  |  `栈`,`设计`,`链表`,`字符串`,`双向链表`,`模拟`  |  困难  |  第 296 场周赛  |
+|  2297  |  [Jump Game IX](/solution/2200-2299/2297.Jump%20Game%20IX/README.md)  |    |  中等  |  🔒  |
+|  2298  |  [Tasks Count in the Weekend](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README.md)  |    |  中等  |  🔒  |
+|  2299  |  [强密码检验器 II](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README.md)  |    |  简单  |    |
+|  2300  |  [咒语和药水的成功对数](/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README.md)  |    |  中等  |    |
+|  2301  |  [替换字符后匹配](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md)  |    |  困难  |    |
+|  2302  |  [统计得分小于 K 的子数组数目](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README.md)  |    |  困难  |    |
+|  2303  |  [计算应缴税款总额](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README.md)  |  `数组`  |  简单  |    |
+|  2304  |  [网格中的最小路径代价](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README.md)  |  `动态规划`  |  中等  |    |
+|  2305  |  [公平分发饼干](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md)  |  `回溯`  |  中等  |    |
+|  2306  |  [公司命名](/solution/2300-2399/2306.Naming%20a%20Company/README.md)  |    |  困难  |    |
 
 ## 版权
 

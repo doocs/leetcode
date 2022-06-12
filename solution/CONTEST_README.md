@@ -9,12 +9,28 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 297 场周赛(2022-06-12 10:30, 90 分钟)
+
+- [2303. 计算应缴税款总额](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README.md)
+- [2304. 网格中的最小路径代价](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README.md)
+- [2305. 公平分发饼干](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md)
+- [2306. 公司命名](/solution/2300-2399/2306.Naming%20a%20Company/README.md)
+
+
 #### 第 296 场周赛(2022-06-05 10:30, 90 分钟)
 
 - [2293. 极大极小游戏](/solution/2200-2299/2293.Min%20Max%20Game/README.md)
 - [2294. 划分数组使最大差为 K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README.md)
 - [2295. 替换数组中的元素](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)
 - [2296. 设计一个文本编辑器](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README.md)
+
+
+#### 第 80 场双周赛(2022-06-11 22:30, 90 分钟)
+
+- [2299. 强密码检验器 II](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README.md)
+- [2300. 咒语和药水的成功对数](/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README.md)
+- [2301. 替换字符后匹配](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md)
+- [2302. 统计得分小于 K 的子数组数目](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README.md)
 
 
 #### 第 295 场周赛(2022-05-29 10:30, 90 分钟)

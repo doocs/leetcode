@@ -76,7 +76,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0065  |  [Valid Number](/solution/0000-0099/0065.Valid%20Number/README_EN.md)  |  `String`  |  Hard  |    |
 |  0066  |  [Plus One](/solution/0000-0099/0066.Plus%20One/README_EN.md)  |  `Array`,`Math`  |  Easy  |    |
 |  0067  |  [Add Binary](/solution/0000-0099/0067.Add%20Binary/README_EN.md)  |  `Bit Manipulation`,`Math`,`String`,`Simulation`  |  Easy  |    |
-|  0068  |  [Text Justification](/solution/0000-0099/0068.Text%20Justification/README_EN.md)  |  `String`,`Simulation`  |  Hard  |    |
+|  0068  |  [Text Justification](/solution/0000-0099/0068.Text%20Justification/README_EN.md)  |  `Array`,`String`,`Simulation`  |  Hard  |    |
 |  0069  |  [Sqrt(x)](/solution/0000-0099/0069.Sqrt%28x%29/README_EN.md)  |  `Math`,`Binary Search`  |  Easy  |    |
 |  0070  |  [Climbing Stairs](/solution/0000-0099/0070.Climbing%20Stairs/README_EN.md)  |  `Memoization`,`Math`,`Dynamic Programming`  |  Easy  |    |
 |  0071  |  [Simplify Path](/solution/0000-0099/0071.Simplify%20Path/README_EN.md)  |  `Stack`,`String`  |  Medium  |    |
@@ -2299,12 +2299,22 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2288  |  [Apply Discount to Prices](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README_EN.md)  |  `String`  |  Medium  |  Weekly Contest 295  |
 |  2289  |  [Steps to Make Array Non-decreasing](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README_EN.md)  |  `Stack`,`Array`,`Linked List`,`Monotonic Stack`  |  Medium  |  Weekly Contest 295  |
 |  2290  |  [Minimum Obstacle Removal to Reach Corner](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 295  |
-|  2291  |  [Maximum Profit From Trading Stocks](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README_EN.md)  |    |  Medium  |  🔒  |
-|  2292  |  [Products With Three or More Orders in Two Consecutive Years](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README_EN.md)  |    |  Medium  |  🔒  |
-|  2293  |  [Min Max Game](/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md)  |    |  Easy  |    |
-|  2294  |  [Partition Array Such That Maximum Difference Is K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README_EN.md)  |    |  Medium  |    |
-|  2295  |  [Replace Elements in an Array](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md)  |    |  Medium  |    |
-|  2296  |  [Design a Text Editor](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)  |    |  Hard  |    |
+|  2291  |  [Maximum Profit From Trading Stocks](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  🔒  |
+|  2292  |  [Products With Three or More Orders in Two Consecutive Years](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2293  |  [Min Max Game](/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Weekly Contest 296  |
+|  2294  |  [Partition Array Such That Maximum Difference Is K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 296  |
+|  2295  |  [Replace Elements in an Array](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Simulation`  |  Medium  |  Weekly Contest 296  |
+|  2296  |  [Design a Text Editor](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)  |  `Stack`,`Design`,`Linked List`,`String`,`Doubly-Linked List`,`Simulation`  |  Hard  |  Weekly Contest 296  |
+|  2297  |  [Jump Game IX](/solution/2200-2299/2297.Jump%20Game%20IX/README_EN.md)  |    |  Medium  |  🔒  |
+|  2298  |  [Tasks Count in the Weekend](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README_EN.md)  |    |  Medium  |  🔒  |
+|  2299  |  [Strong Password Checker II](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README_EN.md)  |    |  Easy  |    |
+|  2300  |  [Successful Pairs of Spells and Potions](/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README_EN.md)  |    |  Medium  |    |
+|  2301  |  [Match Substring After Replacement](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README_EN.md)  |    |  Hard  |    |
+|  2302  |  [Count Subarrays With Score Less Than K](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README_EN.md)  |    |  Hard  |    |
+|  2303  |  [Calculate Amount Paid in Taxes](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md)  |  `Array`  |  Easy  |    |
+|  2304  |  [Minimum Path Cost in a Grid](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
+|  2305  |  [Fair Distribution of Cookies](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md)  |  `Backtracking`  |  Medium  |    |
+|  2306  |  [Naming a Company](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
