@@ -1,15 +1,15 @@
 impl Solution {
     pub fn find_min(nums: Vec<i32>) -> i32 {
-        let mut l = 0;
-        let mut r = nums.len() - 1;
-        while l < r {
-            let mid = l + (r - l) / 2;
-            if nums[mid] > nums[r] {
-                l = mid + 1;
+        let mut left = 0;
+        let mut right = nums.len() - 1;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if nums[mid] > nums[right] {
+                left = mid + 1;
             } else {
-                r = mid;
+                right = mid;
             }
         }
-        nums[l]
+        nums[left]
     }
 }

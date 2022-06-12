@@ -63,11 +63,15 @@
 
 **方法一：二分查找**
 
-初始，判断数组首尾元素的大小关系，若 `nums[0] <= nums[n - 1]`，说明当前数组已经是递增数组，最小值一定是数组第一个元素，提前返回 `nums[0]`。
+初始，判断数组首尾元素的大小关系，若 `nums[0] <= nums[n - 1]` 条件成立，则说明当前数组已经是递增数组，最小值一定是数组第一个元素，提前返回 `nums[0]`。
 
-否则，进行二分判断。若 `nums[0] <= nums[mid]`，说明 `[left, mid]` 范围内的元素构成递增数组，最小值一定在 mid 的右侧，否则说明 `[mid + 1, right]`范围内的元素构成递增数组，最小值一定在 mid 的左侧。
+否则，进行二分判断。若 `nums[0] <= nums[mid]`，说明 `[left, mid]` 范围内的元素构成递增数组，最小值一定在 `mid` 的右侧，否则说明 `[mid + 1, right]` 范围内的元素构成递增数组，最小值一定在 `mid` 的左侧。
 
-时间复杂度 O(logn)。
+---
+
+除了 `nums[0]`，也可以以 `nums[right]` 作为参照物，若 `nums[mid] < nums[right]` 成立，则最小值存在于 `[left, mid]` 范围当中，否则存在于 `[mid + 1, right]`。
+
+时间复杂度：$O(logN)$
 
 <!-- tabs:start -->
 
@@ -181,17 +185,17 @@ var findMin = function (nums) {
 ```rust
 impl Solution {
     pub fn find_min(nums: Vec<i32>) -> i32 {
-        let mut l = 0;
-        let mut r = nums.len() - 1;
-        while l < r {
-            let mid = l + (r - l) / 2;
-            if nums[mid] > nums[r] {
-                l = mid + 1;
+        let mut left = 0;
+        let mut right = nums.len() - 1;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if nums[mid] > nums[right] {
+                left = mid + 1;
             } else {
-                r = mid;
+                right = mid;
             }
         }
-        nums[l]
+        nums[left]
     }
 }
 ```
@@ -200,15 +204,11 @@ impl Solution {
 
 ```ts
 function findMin(nums: number[]): number {
-    const n = nums.length;
-    if (nums[0] <= nums[n - 1]) {
-        return nums[0];
-    }
-    let left = 0,
-        right = n - 1;
+    let left = 0;
+    let right = nums.length - 1;
     while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[0] <= nums[mid]) {
+        const mid = (left + right) >>> 1;
+        if (nums[mid] > nums[right]) {
             left = mid + 1;
         } else {
             right = mid;
