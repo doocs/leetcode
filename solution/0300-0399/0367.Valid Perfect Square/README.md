@@ -40,15 +40,15 @@
 
 **方法一：二分查找**
 
-不断循环二分枚举数字，判断该数的平方与 num 的大小关系，进而缩短空间，继续循环直至 `left < right` 不成立。循环结束判断 left² 与 num 是否相等。
+不断循环二分枚举数字，判断该数的平方与 $num$ 的大小关系，进而缩短空间，继续循环直至 `left < right` 不成立。循环结束判断 $left^2$ 与 $num$ 是否相等。
 
-时间复杂度 O(logn)。
+时间复杂度：$O(logN)$。
 
 **方法二：转换为数学问题**
 
-由于 `n² = 1 + 3 + 5 + ... + (2n-1)`，对数字 num 不断减去 i (`i = 1, 3, 5, ...`) 直至 num 不大于 0，如果最终 num 等于 0，说明是一个有效的完全平方数。
+由于 `n² = 1 + 3 + 5 + ... + (2n-1)`，对数字 $num$ 不断减去 i (`i = 1, 3, 5, ...`) 直至 $num$ 不大于 0，如果最终 $num$ 等于 0，说明是一个有效的完全平方数。
 
-时间复杂度 O(sqrt(n))。
+时间复杂度：$O(sqrt(N))$。
 
 <!-- tabs:start -->
 
@@ -165,25 +165,53 @@ func isPerfectSquare(num int) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function isPerfectSquare(num: number): boolean {
+    let left = 1;
+    let right = num >> 1;
+    while (left < right) {
+        const mid = (left + right) >>> 1;
+        if (mid * mid < num) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return left * left === num;
+}
+```
+
+```ts
+function isPerfectSquare(num: number): boolean {
+    let i = 1;
+    while (num > 0) {
+        num -= i;
+        i += 2;
+    }
+    return num === 0;
+}
+```
+
 ### **Rust**
 
 ```rust
 use std::cmp::Ordering;
-
 impl Solution {
-    pub fn is_perfect_square(mut num: i32) -> bool {
+    pub fn is_perfect_square(num: i32) -> bool {
         let num: i64 = num as i64;
-        let mut l = 0;
-        let mut r = num;
-        while l < r {
-            let mid = l + (r - l) / 2;
+        let mut left = 1;
+        let mut right = num >> 1;
+        while left < right {
+            let mid = left + (right - left) / 2;
             match (mid * mid).cmp(&num) {
-                Ordering::Less => l = mid + 1,
-                Ordering::Greater => r = mid - 1,
+                Ordering::Less => left = mid + 1,
+                Ordering::Greater => right = mid - 1,
                 Ordering::Equal => return true,
             }
         }
-        r * r == num
+        left * left == num
     }
 }
 ```

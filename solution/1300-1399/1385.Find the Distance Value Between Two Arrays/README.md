@@ -68,17 +68,17 @@
 
 **方法一：暴力枚举**
 
-由于 arr1，arr2 的长度不超过 500，因此可以直接暴力遍历。时间复杂度 O(mn)，其中 m 为 arr1 的长度，n 为 arr2 的长度。
+由于 `arr1` 和 `arr2` 的长度不超过 500，因此可以直接暴力遍历。
 
-时间复杂度 O(mn)，其中 m 表示 arr1 的元素个数，n 表示 arr2 的元素个数。
+时间复杂度 $O(mn)$，其中 $m$ 为 `arr1` 的长度，$n$ 为 `arr2` 的长度。
 
 **方法二：二分查找**
 
-对于 arr1 中的每个元素 a，若在 arr2 中存在 b，使得 `b ∈ [a - d, a + d]`，那么就符合距离要求，不进行累加。
+对于 `arr1` 中的每个元素 `a`，若在 `arr2` 中存在 `b`，使得 `b ∈ [a - d, a + d]`，那么就符合距离要求，不进行累加。
 
-因此，可以先对 arr2 进行排序。然后对于每个元素 a，二分枚举 arr2 判断是否存在符合距离要求的 b。
+因此，可以先对 `arr2` 进行排序。然后对于每个元素 `a`，二分枚举 `arr2` 判断是否存在符合距离要求的 `b`。
 
-时间复杂度 O((m + n)logn)。
+时间复杂度 $O((m + n)logn)$。
 
 <!-- tabs:start -->
 
@@ -252,6 +252,99 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function findTheDistanceValue(
+    arr1: number[],
+    arr2: number[],
+    d: number,
+): number {
+    let res = 0;
+    for (const num of arr1) {
+        if (arr2.every(v => Math.abs(num - v) > d)) {
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+```ts
+function findTheDistanceValue(
+    arr1: number[],
+    arr2: number[],
+    d: number,
+): number {
+    arr2.sort((a, b) => a - b);
+    const n = arr2.length;
+    let res = 0;
+    for (const num of arr1) {
+        let left = 0;
+        let right = n - 1;
+        while (left < right) {
+            const mid = (left + right) >>> 1;
+            if (arr2[mid] <= num) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        if (
+            Math.abs(num - arr2[left]) <= d ||
+            (left !== 0 && Math.abs(num - arr2[left - 1]) <= d)
+        ) {
+            continue;
+        }
+        res++;
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_the_distance_value(arr1: Vec<i32>, arr2: Vec<i32>, d: i32) -> i32 {
+        let mut res = 0;
+        for num in arr1.iter() {
+            if arr2.iter().all(|v| i32::abs(num - v) > d) {
+                res += 1;
+            }
+        }
+        res
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_the_distance_value(arr1: Vec<i32>, mut arr2: Vec<i32>, d: i32) -> i32 {
+        arr2.sort();
+        let n = arr2.len();
+        let mut res = 0;
+        for &num in arr1.iter() {
+            let mut left = 0;
+            let mut right = n - 1;
+            while left < right {
+                let mid = left + (right - left) / 2;
+                if arr2[mid] <= num {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+            if i32::abs(num - arr2[left]) <= d || (left != 0 && i32::abs(num - arr2[left - 1]) <= d) {
+                continue;
+            }
+            res += 1;
+        }
+        res
+    }
 }
 ```
 

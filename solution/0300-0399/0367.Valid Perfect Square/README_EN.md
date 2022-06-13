@@ -153,25 +153,53 @@ func isPerfectSquare(num int) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function isPerfectSquare(num: number): boolean {
+    let left = 1;
+    let right = num >> 1;
+    while (left < right) {
+        const mid = (left + right) >>> 1;
+        if (mid * mid < num) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return left * left === num;
+}
+```
+
+```ts
+function isPerfectSquare(num: number): boolean {
+    let i = 1;
+    while (num > 0) {
+        num -= i;
+        i += 2;
+    }
+    return num === 0;
+}
+```
+
 ### **Rust**
 
 ```rust
 use std::cmp::Ordering;
-
 impl Solution {
-    pub fn is_perfect_square(mut num: i32) -> bool {
+    pub fn is_perfect_square(num: i32) -> bool {
         let num: i64 = num as i64;
-        let mut l = 0;
-        let mut r = num;
-        while l < r {
-            let mid = l + (r - l) / 2;
+        let mut left = 1;
+        let mut right = num >> 1;
+        while left < right {
+            let mid = left + (right - left) / 2;
             match (mid * mid).cmp(&num) {
-                Ordering::Less => l = mid + 1,
-                Ordering::Greater => r = mid - 1,
+                Ordering::Less => left = mid + 1,
+                Ordering::Greater => right = mid - 1,
                 Ordering::Equal => return true,
             }
         }
-        r * r == num
+        left * left == num
     }
 }
 ```

@@ -232,6 +232,99 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function findTheDistanceValue(
+    arr1: number[],
+    arr2: number[],
+    d: number,
+): number {
+    let res = 0;
+    for (const num of arr1) {
+        if (arr2.every(v => Math.abs(num - v) > d)) {
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+```ts
+function findTheDistanceValue(
+    arr1: number[],
+    arr2: number[],
+    d: number,
+): number {
+    arr2.sort((a, b) => a - b);
+    const n = arr2.length;
+    let res = 0;
+    for (const num of arr1) {
+        let left = 0;
+        let right = n - 1;
+        while (left < right) {
+            const mid = (left + right) >>> 1;
+            if (arr2[mid] <= num) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        if (
+            Math.abs(num - arr2[left]) <= d ||
+            (left !== 0 && Math.abs(num - arr2[left - 1]) <= d)
+        ) {
+            continue;
+        }
+        res++;
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_the_distance_value(arr1: Vec<i32>, arr2: Vec<i32>, d: i32) -> i32 {
+        let mut res = 0;
+        for num in arr1.iter() {
+            if arr2.iter().all(|v| i32::abs(num - v) > d) {
+                res += 1;
+            }
+        }
+        res
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_the_distance_value(arr1: Vec<i32>, mut arr2: Vec<i32>, d: i32) -> i32 {
+        arr2.sort();
+        let n = arr2.len();
+        let mut res = 0;
+        for &num in arr1.iter() {
+            let mut left = 0;
+            let mut right = n - 1;
+            while left < right {
+                let mid = left + (right - left) / 2;
+                if arr2[mid] <= num {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+            if i32::abs(num - arr2[left]) <= d || (left != 0 && i32::abs(num - arr2[left - 1]) <= d) {
+                continue;
+            }
+            res += 1;
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
