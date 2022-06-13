@@ -61,24 +61,24 @@ All indices match.
 ```python
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
-        bucket = [0] * 101
-        for h in heights:
-            bucket[h] += 1
-        res = i = 0
-        for j in range(1, 101):
-            while bucket[j] > 0:
-                bucket[j] -= 1
-                if heights[i] != j:
-                    res += 1
-                i += 1
-        return res
+        expected = sorted(heights)
+        return sum(a != b for a, b in zip(heights, expected))
 ```
 
 ```python
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
-        expected = sorted(heights)
-        return sum(1 for i, h in enumerate(heights) if h != expected[i])
+        cnt = [0] * 101
+        for h in heights:
+            cnt[h] += 1
+        ans = i = 0
+        for j in range(1, 101):
+            while cnt[j]:
+                cnt[j] -= 1
+                if heights[i] != j:
+                    ans += 1
+                i += 1
+        return ans
 ```
 
 ### **Java**
@@ -86,15 +86,36 @@ class Solution:
 ```java
 class Solution {
     public int heightChecker(int[] heights) {
-        int[] expected = Arrays.copyOf(heights, heights.length);
+        int[] expected = heights.clone();
         Arrays.sort(expected);
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < heights.length; ++i) {
             if (heights[i] != expected[i]) {
-                ++res;
+                ++ans;
             }
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int heightChecker(int[] heights) {
+        int[] cnt = new int[101];
+        for (int h : heights) {
+            ++cnt[h];
+        }
+        int ans = 0;
+        for (int i = 0, j = 0; i < 101; ++i) {
+            while (cnt[i] > 0) {
+                --cnt[i];
+                if (heights[j++] != i) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
     }
 }
 ```
@@ -107,12 +128,29 @@ public:
     int heightChecker(vector<int>& heights) {
         vector<int> expected = heights;
         sort(expected.begin(), expected.end());
-        int res = 0;
-        for (int i = 0; i < heights.size(); ++i)
+        int ans = 0;
+        for (int i = 0; i < heights.size(); ++i) ans += heights[i] != expected[i];
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int heightChecker(vector<int>& heights) {
+        vector<int> cnt(101);
+        for (int& h : heights) ++cnt[h];
+        int ans = 0;
+        for (int i = 0, j = 0; i < 101; ++i)
         {
-            if (heights[i] != expected[i]) ++res;
+            while (cnt[i])
+            {
+                --cnt[i];
+                if (heights[j++] != i) ++ans;
+            }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -121,16 +159,36 @@ public:
 
 ```go
 func heightChecker(heights []int) int {
-    expected := make([]int, len(heights))
-    copy(expected, heights)
-    sort.Ints(expected)
-    res := 0
-    for i, h := range heights {
-        if h != expected[i] {
-            res++
-        }
-    }
-    return res
+	expected := make([]int, len(heights))
+	copy(expected, heights)
+	sort.Ints(expected)
+	ans := 0
+	for i, v := range heights {
+		if v != expected[i] {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+```go
+func heightChecker(heights []int) int {
+	cnt := make([]int, 101)
+	for _, h := range heights {
+		cnt[h]++
+	}
+	ans := 0
+	for i, j := 0, 0; i < 101; i++ {
+		for cnt[i] > 0 {
+			cnt[i]--
+			if heights[j] != i {
+				ans++
+			}
+			j++
+		}
+	}
+	return ans
 }
 ```
 
