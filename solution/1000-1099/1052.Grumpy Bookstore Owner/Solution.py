@@ -1,13 +1,11 @@
 class Solution:
-    def maxSatisfied(self, customers: List[int], grumpy: List[int], X: int) -> int:
-        s = t = 0
-        win, n = 0, len(customers)
-        for i in range(n):
-            if grumpy[i] == 0:
-                s += customers[i]
-            else:
-                win += customers[i]
-            if i >= X and grumpy[i - X] == 1:
-                win -= customers[i - X]
-            t = max(t, win)
-        return s + t
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
+        s = sum(a * b for a, b in zip(customers, grumpy))
+        cs = sum(customers)
+        t = ans = 0
+        for i, (a, b) in enumerate(zip(customers, grumpy), 1):
+            t += a * b
+            if (j := i - minutes) >= 0:
+                ans = max(ans, cs - (s - t))
+                t -= customers[j] * grumpy[j]
+        return ans

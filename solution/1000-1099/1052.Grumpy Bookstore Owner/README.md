@@ -47,9 +47,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
--   用 `s` 累计不使用秘密技巧时，满意的顾客数；
--   用 `t` 计算大小为 `X` 的滑动窗口最多增加的满意的顾客数；
--   结果即为 `s+t`。
+**方法一：滑动窗口**
+
+定义 $s$ 表示所有不满意的顾客总数，$cs$ 表示顾客总数。
 
 <!-- tabs:start -->
 
@@ -59,22 +59,16 @@
 
 ```python
 class Solution:
-    def maxSatisfied(self, customers: List[int], grumpy: List[int], X: int) -> int:
-        # 用s累计不使用秘密技巧时，满意的顾客数
-        # 用t计算大小为X的滑动窗口最多增加的满意的顾客数
-        # 结果即为s+t
-        s = t = 0
-        win, n = 0, len(customers)
-        for i in range(n):
-            if grumpy[i] == 0:
-                s += customers[i]
-            else:
-                win += customers[i]
-            if i >= X and grumpy[i - X] == 1:
-                win -= customers[i - X]
-            # 求滑动窗口的最大值
-            t = max(t, win)
-        return s + t
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
+        s = sum(a * b for a, b in zip(customers, grumpy))
+        cs = sum(customers)
+        t = ans = 0
+        for i, (a, b) in enumerate(zip(customers, grumpy), 1):
+            t += a * b
+            if (j := i - minutes) >= 0:
+                ans = max(ans, cs - (s - t))
+                t -= customers[j] * grumpy[j]
+        return ans
 ```
 
 ### **Java**
@@ -83,25 +77,82 @@ class Solution:
 
 ```java
 class Solution {
-    public int maxSatisfied(int[] customers, int[] grumpy, int X) {
-        // 用s累计不使用秘密技巧时，满意的顾客数
-        // 用t计算大小为X的滑动窗口最多增加的满意的顾客数
-        // 结果即为s+t
-        int s = 0, t = 0;
-        for (int i = 0, win = 0, n = customers.length; i < n; ++i) {
-            if (grumpy[i] == 0) {
-                s += customers[i];
-            } else {
-                win += customers[i];
-            }
-            if (i >= X && grumpy[i - X] == 1) {
-                win -= customers[i - X];
-            }
-            // 求滑动窗口的最大值
-            t = Math.max(t, win);
+    public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
+        int s = 0, cs = 0;
+        int n = customers.length;
+        for (int i = 0; i < n; ++i) {
+            s += customers[i] * grumpy[i];
+            cs += customers[i];
         }
-        return s + t;
+        int t = 0, ans = 0;
+        for (int i = 0; i < n; ++i) {
+            t += customers[i] * grumpy[i];
+            int j = i - minutes + 1;
+            if (j >= 0) {
+                ans = Math.max(ans, cs - (s - t));
+                t -= customers[j] * grumpy[j];
+            }
+        }
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int minutes) {
+        int s = 0, cs = 0;
+        int n = customers.size();
+        for (int i = 0; i < n; ++i)
+        {
+            s += customers[i] * grumpy[i];
+            cs += customers[i];
+        }
+        int t = 0, ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            t += customers[i] * grumpy[i];
+            int j = i - minutes + 1;
+            if (j >= 0)
+            {
+                ans = max(ans, cs - (s - t));
+                t -= customers[j] * grumpy[j];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSatisfied(customers []int, grumpy []int, minutes int) int {
+	s, cs := 0, 0
+	for i, c := range customers {
+		s += c * grumpy[i]
+		cs += c
+	}
+	t, ans := 0, 0
+	for i, c := range customers {
+		t += c * grumpy[i]
+		j := i - minutes + 1
+		if j >= 0 {
+			ans = max(ans, cs-(s-t))
+			t -= customers[j] * grumpy[j]
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
