@@ -1,5 +1,7 @@
 class Solution:
-    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
+    def maxSatisfied(
+        self, customers: List[int], grumpy: List[int], minutes: int
+    ) -> int:
         s = sum(a * b for a, b in zip(customers, grumpy))
         cs = sum(customers)
         t = ans = 0

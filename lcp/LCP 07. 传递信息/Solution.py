@@ -6,4 +6,3 @@ class Solution:
             for a, b in relation:
                 dp[i][b] += dp[i - 1][a]
         return dp[-1][-1]
-    
