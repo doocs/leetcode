@@ -53,17 +53,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-方法一：遍历
+**方法一：遍历**
 
-遍历 `letters`，返回第一个满足 `letters[i] > target` 条件的元素。若是遍历结束还未找到，则返回 `letters[0]`
+遍历 `letters`，返回第一个满足 `letters[i] > target` 条件的元素。若是遍历结束还未找到，则返回 `letters[0]`。
 
-> 至少存在两个不同的字母，所以不会返回 `target`
+> 至少存在两个不同的字母，所以不会返回 `target`。
 
-方法二：二分
+时间复杂度：$O(N)$。
+
+**方法二：二分**
 
 利用 `letters` 有序的特点，可以使用二分来快速查找。
 
-在返回值方面相比传统二分不一样，需要对结果进行取余操作：`letters[l % letters.length]`
+在返回值方面相比传统二分不一样，需要对结果进行取余操作：`letters[l % n]`。
 
 为什么？如题描述，字母是重复出现的，当索引过界时，不是没有结果，而是需要返回前面的元素。
 
@@ -75,6 +77,8 @@ if (l < n) {
 }
 return letters[l - n];
 ```
+
+时间复杂度：$O(logN)$。
 
 <!-- tabs:start -->
 
@@ -120,35 +124,18 @@ class Solution {
 
 ```ts
 function nextGreatestLetter(letters: string[], target: string): string {
-    let left = 0,
-        right = letters.length;
-    let x = target.charCodeAt(0);
+    const n = letters.length;
+    let left = 0;
+    let right = letters.length;
     while (left < right) {
-        let mid = (left + right) >> 1;
-        if (x < letters[mid].charCodeAt(0)) {
+        let mid = (left + right) >>> 1;
+        if (letters[mid] > target) {
             right = mid;
         } else {
             left = mid + 1;
         }
     }
-    return letters[left % letters.length];
-}
-```
-
-```ts
-function nextGreatestLetter(letters: string[], target: string): string {
-    const n = letters.length;
-    let l = 0;
-    let r = n;
-    while (l < r) {
-        const mid = (l + r) >>> 1;
-        if (target < letters[mid]) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return letters[l % n];
+    return letters[left % n];
 }
 ```
 
@@ -194,12 +181,7 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 ```rust
 impl Solution {
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        for c in letters.iter() {
-            if c > &target {
-                return *c;
-            }
-        }
-        letters[0]
+        *letters.iter().find(|&&c| c > target).unwrap_or(&letters[0])
     }
 }
 ```
@@ -208,17 +190,17 @@ impl Solution {
 impl Solution {
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
         let n = letters.len();
-        let mut l = 0;
-        let mut r = n;
-        while l < r {
-            let mid = l + r >> 1;
-            if letters[mid] <= target {
-                l = mid + 1;
+        let mut left = 0;
+        let mut right = n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if letters[mid] > target {
+                right = mid;
             } else {
-                r = mid;
+                left = mid + 1;
             }
         }
-        letters[l % n]
+        letters[left % n]
     }
 }
 ```

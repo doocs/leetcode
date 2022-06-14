@@ -60,13 +60,13 @@
 
 先求出数组的前缀和 `s`，然后根据 `s[j] - s[i] >= target` => `s[j] >= s[i] + target`，找出最小的一个 j，使得 `s[j]` 满足大于等于 `s[i] + target`，然后更新最小长度即可。
 
-时间复杂度 `O(n logn)`。
+时间复杂度 $O(NlogN)$。
 
 **方法二：滑动窗口**
 
-使用指针 left, right 分别表示子数组的开始位置和结束位置，维护变量 sum 表示子数组 `nums[left...right]` 元素之和。初始时 left, right 均指向 0。每一次迭代，将 `nums[right]` 加到 sum，如果此时 `sum >= target`，更新最小长度即可。然后将 sum 减去 `nums[left]`，接着 left 指针右移直至 `sum < target`。每一次迭代最后，将 right 指针右移。
+使用指针 `left`, `right` 分别表示子数组的开始位置和结束位置，维护变量 `sum` 表示子数组 `nums[left...right]` 元素之和。初始时 `left`, `right` 均指向 0。每一次迭代，将 `nums[right]` 加到 `sum`，如果此时 `sum >= target`，更新最小长度即可。然后将 `sum` 减去 `nums[left]`，接着 `left` 指针右移直至 `sum < target`。每一次迭代最后，将 `right` 指针右移。
 
-时间复杂度 `O(n)`。
+时间复杂度 $O(N)$。
 
 <!-- tabs:start -->
 
@@ -278,21 +278,22 @@ public class Solution {
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
     const n = nums.length;
-    let res = Infinity;
+    let res = n + 1;
     let sum = 0;
     let i = 0;
-    let j = 0;
-    while (j <= n) {
-        if (sum < target) {
-            sum += nums[j];
-            j++;
-        } else {
-            res = Math.min(res, j - i);
+    for (let j = 0; j < n; j++) {
+        sum += nums[j];
+        while (sum >= target) {
+            res = Math.min(res, j - i + 1);
             sum -= nums[i];
             i++;
         }
     }
-    return res === Infinity ? 0 : res;
+
+    if (res === n + 1) {
+        return 0;
+    }
+    return res;
 }
 ```
 
@@ -304,14 +305,14 @@ impl Solution {
         let n = nums.len();
         let mut res = n + 1;
         let mut sum = 0;
-        let mut l = 0;
-        for r in 0..n {
-            sum += nums[r];
+        let mut i = 0;
+        for j in 0..n {
+            sum += nums[j];
 
             while sum >= target {
-                res = res.min(r - l + 1);
-                sum -= nums[l];
-                l += 1;
+                res = res.min(j - i + 1);
+                sum -= nums[i];
+                i += 1;
             }
         }
         if res == n + 1 {

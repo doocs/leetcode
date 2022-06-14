@@ -87,35 +87,18 @@ class Solution {
 
 ```ts
 function nextGreatestLetter(letters: string[], target: string): string {
-    let left = 0,
-        right = letters.length;
-    let x = target.charCodeAt(0);
+    const n = letters.length;
+    let left = 0;
+    let right = letters.length;
     while (left < right) {
-        let mid = (left + right) >> 1;
-        if (x < letters[mid].charCodeAt(0)) {
+        let mid = (left + right) >>> 1;
+        if (letters[mid] > target) {
             right = mid;
         } else {
             left = mid + 1;
         }
     }
-    return letters[left % letters.length];
-}
-```
-
-```ts
-function nextGreatestLetter(letters: string[], target: string): string {
-    const n = letters.length;
-    let l = 0;
-    let r = n;
-    while (l < r) {
-        const mid = (l + r) >>> 1;
-        if (target < letters[mid]) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return letters[l % n];
+    return letters[left % n];
 }
 ```
 
@@ -161,12 +144,7 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 ```rust
 impl Solution {
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        for c in letters.iter() {
-            if c > &target {
-                return *c;
-            }
-        }
-        letters[0]
+        *letters.iter().find(|&&c| c > target).unwrap_or(&letters[0])
     }
 }
 ```
@@ -175,17 +153,17 @@ impl Solution {
 impl Solution {
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
         let n = letters.len();
-        let mut l = 0;
-        let mut r = n;
-        while l < r {
-            let mid = l + r >> 1;
-            if letters[mid] <= target {
-                l = mid + 1;
+        let mut left = 0;
+        let mut right = n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if letters[mid] > target {
+                right = mid;
             } else {
-                r = mid;
+                left = mid + 1;
             }
         }
-        letters[l % n]
+        letters[left % n]
     }
 }
 ```

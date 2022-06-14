@@ -1,16 +1,16 @@
 impl Solution {
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
         let n = letters.len();
-        let mut l = 0;
-        let mut r = n;
-        while l < r {
-            let mid = l + r >> 1;
-            if letters[mid] <= target {
-                l = mid + 1;
+        let mut left = 0;
+        let mut right = n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if letters[mid] > target {
+                right = mid;
             } else {
-                r = mid;
+                left = mid + 1;
             }
         }
-        letters[l % n]
+        letters[left % n]
     }
 }

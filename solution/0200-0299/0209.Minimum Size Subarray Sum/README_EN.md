@@ -253,21 +253,22 @@ public class Solution {
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
     const n = nums.length;
-    let res = Infinity;
+    let res = n + 1;
     let sum = 0;
     let i = 0;
-    let j = 0;
-    while (j <= n) {
-        if (sum < target) {
-            sum += nums[j];
-            j++;
-        } else {
-            res = Math.min(res, j - i);
+    for (let j = 0; j < n; j++) {
+        sum += nums[j];
+        while (sum >= target) {
+            res = Math.min(res, j - i + 1);
             sum -= nums[i];
             i++;
         }
     }
-    return res === Infinity ? 0 : res;
+
+    if (res === n + 1) {
+        return 0;
+    }
+    return res;
 }
 ```
 
@@ -279,14 +280,14 @@ impl Solution {
         let n = nums.len();
         let mut res = n + 1;
         let mut sum = 0;
-        let mut l = 0;
-        for r in 0..n {
-            sum += nums[r];
+        let mut i = 0;
+        for j in 0..n {
+            sum += nums[j];
 
             while sum >= target {
-                res = res.min(r - l + 1);
-                sum -= nums[l];
-                l += 1;
+                res = res.min(j - i + 1);
+                sum -= nums[i];
+                i += 1;
             }
         }
         if res == n + 1 {
