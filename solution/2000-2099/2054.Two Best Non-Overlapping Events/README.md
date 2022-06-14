@@ -55,6 +55,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 二分查找**
+
+时间复杂度 $O(nlogn)$，其中 $n$ 表示 $events$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +66,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxTwoEvents(self, events: List[List[int]]) -> int:
+        events.sort()
+        n = len(events)
+        f = [events[-1][2]] * n
+        for i in range(n - 2, -1, -1):
+            f[i] = max(f[i + 1], events[i][2])
+        ans = 0
+        for _, e, v in events:
+            idx = bisect_right(events, e, key=lambda x: x[0])
+            if idx < n:
+                v += f[idx]
+            ans = max(ans, v)
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +87,103 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxTwoEvents(int[][] events) {
+        Arrays.sort(events, (a, b) -> a[0] - b[0]);
+        int n = events.length;
+        int[] f = new int [n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = Math.max(f[i + 1], events[i][2]);
+        }
+        int ans = 0;
+        for (int[] e : events) {
+            int v = e[2];
+            int left = 0, right = n;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (events[mid][0] > e[1]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (left < n) {
+                v += f[left];
+            }
+            ans = Math.max(ans, v);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxTwoEvents(vector<vector<int>>& events) {
+        sort(events.begin(), events.end());
+        int n = events.size();
+        vector<int> f(n + 1);
+        for (int i = n - 1; ~i; --i) f[i] = max(f[i + 1], events[i][2]);
+        int ans = 0;
+        for (auto& e : events)
+        {
+            int v = e[2];
+            int left = 0, right = n;
+            while (left < right)
+            {
+                int mid = (left + right) >> 1;
+                if (events[mid][0] > e[1]) right = mid;
+                else left = mid + 1;
+            }
+            if (left < n) v += f[left];
+            ans = max(ans, v);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxTwoEvents(events [][]int) int {
+	sort.Slice(events, func(i, j int) bool {
+		return events[i][0] < events[j][0]
+	})
+	n := len(events)
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		f[i] = max(f[i+1], events[i][2])
+	}
+	ans := 0
+	for _, e := range events {
+		v := e[2]
+		left, right := 0, n
+		for left < right {
+			mid := (left + right) >> 1
+			if events[mid][0] > e[1] {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		if left < n {
+			v += f[left]
+		}
+		ans = max(ans, v)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
