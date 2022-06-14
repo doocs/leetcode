@@ -40,6 +40,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：定点遍历**
+
+对于每一轮 $k$，我们固定从右上方开始往左下方遍历，得到 $t$。如果 $k$ 为偶数，再将 $t$ 逆序。然后将 $t$ 添加到结果数组 $ans$ 中。
+
+问题的关键在于确定轮数以及每一轮的起始坐标点 $(i,j)$。
+
+时间复杂度 $O(m*n)$，其中 $m$ 表示 $mat$ 的行数，$n$ 表示 $mat$ 的列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,18 +58,18 @@
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         m, n = len(mat), len(mat[0])
-        ans, t = [], []
-        for i in range(m + n):
-            r = 0 if i < n else i - n + 1
-            c = i if i < n else n - 1
-            while r < m and c >= 0:
-                t.append(mat[r][c])
-                r += 1
-                c -= 1
-            if i % 2 == 0:
-                t.reverse()
+        ans = []
+        for k in range(m + n - 1):
+            t = []
+            i = 0 if k < n else k - n + 1
+            j = k if k < n else n - 1
+            while i < m and j >= 0:
+                t.append(mat[i][j])
+                i += 1
+                j -= 1
+            if k % 2 == 0:
+                t = t[::-1]
             ans.extend(t)
-            t.clear()
         return ans
 ```
 
@@ -74,21 +82,21 @@ class Solution {
     public int[] findDiagonalOrder(int[][] mat) {
         int m = mat.length, n = mat[0].length;
         int[] ans = new int[m * n];
-        int k = 0;
+        int idx = 0;
         List<Integer> t = new ArrayList<>();
-        for (int i = 0; i < m + n - 1; ++i) {
-            int r = i < n ? 0 : i - n + 1;
-            int c = i < n ? i : n - 1;
-            while (r < m && c >= 0) {
-                t.add(mat[r][c]);
-                ++r;
-                --c;
+        for (int k = 0; k < m + n - 1; ++k) {
+            int i = k < n ? 0 : k - n + 1;
+            int j = k < n ? k : n - 1;
+            while (i < m && j >= 0) {
+                t.add(mat[i][j]);
+                ++i;
+                --j;
             }
-            if (i % 2 == 0) {
+            if (k % 2 == 0) {
                 Collections.reverse(t);
             }
             for (int v : t) {
-                ans[k++] = v;
+                ans[idx++] = v;
             }
             t.clear();
         }
@@ -106,18 +114,13 @@ public:
         int m = mat.size(), n = mat[0].size();
         vector<int> ans;
         vector<int> t;
-        for (int i = 0; i < m + n; ++i)
+        for (int k = 0; k < m + n - 1; ++k)
         {
-            int r = i < n ? 0 : i - n + 1;
-            int c = i < n ? i : n - 1;
-            while (r < m && c >= 0)
-            {
-                t.push_back(mat[r][c]);
-                ++r;
-                --c;
-            }
-            if (i % 2 == 0) reverse(t.begin(), t.end());
-            for (int v : t) ans.push_back(v);
+            int i = k < n ? 0 : k - n + 1;
+            int j = k < n ? k : n - 1;
+            while (i < m && j >= 0) t.push_back(mat[i++][j--]);
+            if (k % 2 == 0) reverse(t.begin(), t.end());
+            for (int& v : t) ans.push_back(v);
             t.clear();
         }
         return ans;
@@ -131,18 +134,18 @@ public:
 func findDiagonalOrder(mat [][]int) []int {
 	m, n := len(mat), len(mat[0])
 	var ans []int
-	for i := 0; i < m+n; i++ {
+	for k := 0; k < m+n-1; k++ {
 		var t []int
-		r, c := i-n+1, n-1
-		if i < n {
-			r, c = 0, i
+		i, j := k-n+1, n-1
+		if k < n {
+			i, j = 0, k
 		}
-		for r < m && c >= 0 {
-			t = append(t, mat[r][c])
-			r += 1
-			c -= 1
+		for i < m && j >= 0 {
+			t = append(t, mat[i][j])
+			i++
+			j--
 		}
-		if i%2 == 0 {
+		if k%2 == 0 {
 			p, q := 0, len(t)-1
 			for p < q {
 				t[p], t[q] = t[q], t[p]

@@ -1,18 +1,18 @@
 func findDiagonalOrder(mat [][]int) []int {
 	m, n := len(mat), len(mat[0])
 	var ans []int
-	for i := 0; i < m+n; i++ {
+	for k := 0; k < m+n-1; k++ {
 		var t []int
-		r, c := i-n+1, n-1
-		if i < n {
-			r, c = 0, i
+		i, j := k-n+1, n-1
+		if k < n {
+			i, j = 0, k
 		}
-		for r < m && c >= 0 {
-			t = append(t, mat[r][c])
-			r += 1
-			c -= 1
+		for i < m && j >= 0 {
+			t = append(t, mat[i][j])
+			i++
+			j--
 		}
-		if i%2 == 0 {
+		if k%2 == 0 {
 			p, q := 0, len(t)-1
 			for p < q {
 				t[p], t[q] = t[q], t[p]

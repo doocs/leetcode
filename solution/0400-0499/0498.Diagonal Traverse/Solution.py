@@ -1,16 +1,16 @@
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         m, n = len(mat), len(mat[0])
-        ans, t = [], []
-        for i in range(m + n):
-            r = 0 if i < n else i - n + 1
-            c = i if i < n else n - 1
-            while r < m and c >= 0:
-                t.append(mat[r][c])
-                r += 1
-                c -= 1
-            if i % 2 == 0:
-                t.reverse()
+        ans = []
+        for k in range(m + n - 1):
+            t = []
+            i = 0 if k < n else k - n + 1
+            j = k if k < n else n - 1
+            while i < m and j >= 0:
+                t.append(mat[i][j])
+                i += 1
+                j -= 1
+            if k % 2 == 0:
+                t = t[::-1]
             ans.extend(t)
-            t.clear()
         return ans
