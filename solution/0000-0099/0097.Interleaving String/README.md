@@ -60,7 +60,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-题目描述带有一定迷惑性，“交错”的过程其实就类似归并排序的 merge 过程，每次从 `s1` 或 `s2` 的首部取一个字符，最终组成 `s3`，用记忆化搜索或者动态规划都可以解决
+题目描述带有一定迷惑性，“交错”的过程其实就类似归并排序的 merge 过程，每次从 `s1` 或 `s2` 的首部取一个字符，最终组成 `s3`，用记忆化搜索或者动态规划都可以解决。
 
 <!-- tabs:start -->
 
@@ -84,6 +84,42 @@ class Solution:
                 j < n and s2[j] == s3[i + j] and dfs(i, j + 1)
 
         return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        m, n = len(s1), len(s2)
+        if m + n != len(s3):
+            return False
+        dp = [[False] * (n + 1) for _ in range(m + 1)]
+        dp[0][0] = True
+        for i in range(m + 1):
+            for j in range(n + 1):
+                k = i + j - 1
+                if i:
+                    dp[i][j] = s1[i - 1] == s3[k] and dp[i - 1][j]
+                if j:
+                    dp[i][j] |= (s2[j - 1] == s3[k] and dp[i][j - 1])
+        return dp[-1][-1]
+```
+
+```python
+class Solution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        m, n = len(s1), len(s2)
+        if m + n != len(s3):
+            return False
+        dp = [False] * (n + 1)
+        dp[0] = True
+        for i in range(m + 1):
+            for j in range(n + 1):
+                k = i + j - 1
+                if i:
+                    dp[j] &= (s1[i - 1] == s3[k])
+                if j:
+                    dp[j] |= (s2[j - 1] == s3[k] and dp[j - 1])
+        return dp[-1]
 ```
 
 ### **Java**
@@ -129,6 +165,31 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+        int m = s1.length(), n = s2.length();
+        if (m + n != s3.length()) {
+            return false;
+        }
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                int k = i + j - 1;
+                if (i > 0) {
+                    dp[j] &= (s1.charAt(i - 1) == s3.charAt(k));
+                }
+                if (j > 0) {
+                    dp[j] |= (s2.charAt(j - 1) == s3.charAt(k) && dp[j - 1]);
+                }
+            }
+        }
+        return dp[n];
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -154,6 +215,28 @@ public:
         };
 
         return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isInterleave(string s1, string s2, string s3) {
+        int m = s1.size(), n = s2.size();
+        if (m + n != s3.size()) return false;
+        vector<int> dp(n + 1);
+        dp[0] = 1;
+        for (int i = 0; i <= m; ++i)
+        {
+            for (int j = 0; j <= n; ++j)
+            {
+                int k = i + j - 1;
+                if (i) dp[j] &= (s1[i - 1] == s3[k]);
+                if (j) dp[j] |= (s2[j - 1] == s3[k] && dp[j - 1]);
+            }
+        }
+        return dp[n];
     }
 };
 ```
@@ -186,6 +269,29 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	}
 
 	return dfs(0, 0)
+}
+```
+
+```go
+func isInterleave(s1 string, s2 string, s3 string) bool {
+	m, n := len(s1), len(s2)
+	if m+n != len(s3) {
+		return false
+	}
+	dp := make([]bool, n+1)
+	dp[0] = true
+	for i := 0; i <= m; i++ {
+		for j := 0; j <= n; j++ {
+			k := i + j - 1
+			if i > 0 {
+				dp[j] = dp[j] && (s1[i-1] == s3[k])
+			}
+			if j > 0 {
+				dp[j] = dp[j] || (s2[j-1] == s3[k] && dp[j-1])
+			}
+		}
+	}
+	return dp[n]
 }
 ```
 
