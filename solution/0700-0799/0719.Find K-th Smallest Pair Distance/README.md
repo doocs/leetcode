@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 二分查找**
+
+先对 $nums$ 数组进行排序，然后在 $[0, nums[n-1]-nums[0]]$ 范围内二分枚举数对距离 $dist$，若 $nums$ 中数对距离小于等于 $dist$ 的数量 $cnt$ 大于等于 $k$，则尝试缩小 $dist$，否则尝试扩大 $dist$。
+
+时间复杂度 $O(nlogn×logm)$，其中 $n$ 表示 $nums$ 的长度，$m$ 表示 $nums$ 中两个数的最大差值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def smallestDistancePair(self, nums: List[int], k: int) -> int:
+        def count(dist):
+            cnt = 0
+            for i, b in enumerate(nums):
+                a = b - dist
+                j = bisect_left(nums, a, 0, i)
+                cnt += i - j
+            return cnt
 
+        nums.sort()
+        return bisect_left(range(nums[-1] - nums[0]), k, key=count)
 ```
 
 ### **Java**
@@ -68,7 +85,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int smallestDistancePair(int[] nums, int k) {
+        Arrays.sort(nums);
+        int left = 0, right = nums[nums.length - 1] - nums[0];
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (count(mid, nums) >= k) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 
+    private int count(int dist, int[] nums) {
+        int cnt = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            int left = 0, right = i;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                int target = nums[i] - dist;
+                if (nums[mid] >= target) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            cnt += i - left;
+        }
+        return cnt;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -97,6 +146,72 @@ function smallestDistancePair(nums: number[], k: number): number {
         }
     }
     return left;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestDistancePair(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int left = 0, right = nums.back() - nums.front();
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (count(mid, k, nums) >= k) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+
+    int count(int dist, int k, vector<int>& nums) {
+        int cnt = 0;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            int target = nums[i] - dist;
+            int j = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+            cnt += i - j;
+        }
+        return cnt;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestDistancePair(nums []int, k int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	left, right := 0, nums[n-1]-nums[0]
+	count := func(dist int) int {
+		cnt := 0
+		for i, v := range nums {
+			target := v - dist
+			left, right := 0, i
+			for left < right {
+				mid := (left + right) >> 1
+				if nums[mid] >= target {
+					right = mid
+				} else {
+					left = mid + 1
+				}
+			}
+			cnt += i - left
+		}
+		return cnt
+	}
+	for left < right {
+		mid := (left + right) >> 1
+		if count(mid) >= k {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
 }
 ```
 
