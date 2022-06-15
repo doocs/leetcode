@@ -66,7 +66,7 @@
 ```python
 class Solution:
     def catMouseGame(self, graph: List[List[int]]) -> int:
-        @lru_cache(None)
+        @cache
         def dfs(i, j, k):
             # mouse / cat / steps
             if k >= 2 * len(graph):

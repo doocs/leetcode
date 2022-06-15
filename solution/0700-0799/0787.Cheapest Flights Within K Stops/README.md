@@ -82,12 +82,9 @@ class Solution:
 ```
 
 ```python
-from functools import lru_cache
-
-
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
-        @lru_cache(None)
+        @cache
         def dfs(u, k):
             if u == dst:
                 return 0

@@ -57,7 +57,7 @@ Same with other integers chosen by the first player, the second player will alwa
 ```python
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
-        @lru_cache(None)
+        @cache
         def dfs(state, t):
             for i in range(1, maxChoosableInteger + 1):
                 if (state >> i) & 1:

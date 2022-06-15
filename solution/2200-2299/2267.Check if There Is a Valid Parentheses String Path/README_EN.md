@@ -62,7 +62,7 @@ Note that there may be other valid parentheses string paths.
 ```python
 class Solution:
     def hasValidPath(self, grid: List[List[str]]) -> bool:
-        @lru_cache(None)
+        @cache
         def dfs(i, j, t):
             if grid[i][j] == '(':
                 t += 1

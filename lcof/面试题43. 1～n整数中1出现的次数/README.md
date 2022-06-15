@@ -59,10 +59,8 @@ high=3,lows=356,base=1000。此时 n 可拆分为 `0~999`,`1000~1999`,`2000~2999
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-from functools import lru_cache
-
 class Solution:
-    @lru_cache
+    @cache
     def countDigitOne(self, n: int) -> int:
         if n < 1:
             return 0

@@ -1,6 +1,6 @@
 class Solution:
     def minimumCost(self, sentence: str, k: int) -> int:
-        @lru_cache(None)
+        @cache
         def dfs(i):
             if s[-1] - s[i] + n - i - 1 <= k:
                 return 0

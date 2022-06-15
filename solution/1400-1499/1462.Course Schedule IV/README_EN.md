@@ -68,7 +68,7 @@ DFS.
 ```python
 class Solution:
     def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
-        @lru_cache(None)
+        @cache
         def dfs(a, b):
             if b in g[a] or a == b:
                 return True

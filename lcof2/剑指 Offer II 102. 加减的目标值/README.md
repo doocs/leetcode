@@ -125,7 +125,7 @@ class Solution:
 ```python
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        @lru_cache(None)
+        @cache
         def dfs(i, t):
             if i == n:
                 if t == target:

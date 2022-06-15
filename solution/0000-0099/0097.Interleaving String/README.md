@@ -75,7 +75,7 @@ class Solution:
         if m + n != len(s3):
             return False
 
-        @lru_cache
+        @cache
         def dfs(i, j):
             if i == m and j == n:
                 return True

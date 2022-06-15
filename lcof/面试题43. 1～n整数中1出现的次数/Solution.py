@@ -1,8 +1,5 @@
-from functools import lru_cache
-
-
 class Solution:
-    @lru_cache
+    @cache
     def countDigitOne(self, n: int) -> int:
         if n < 1:
             return 0

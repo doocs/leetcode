@@ -66,7 +66,7 @@
 ```python
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
-        @lru_cache(None)
+        @cache
         def dfs(i, j):
             ans = 1
             for a, b in [[-1, 0], [1, 0], [0, 1], [0, -1]]:

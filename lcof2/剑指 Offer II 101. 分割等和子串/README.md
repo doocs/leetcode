@@ -105,7 +105,7 @@ class Solution:
             return False
         target = s >> 1
 
-        @lru_cache(None)
+        @cache
         def dfs(i, s):
             nonlocal target
             if s > target or i >= len(nums):

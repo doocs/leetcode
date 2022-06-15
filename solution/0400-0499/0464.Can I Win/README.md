@@ -67,7 +67,7 @@
 ```python
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
-        @lru_cache(None)
+        @cache
         def dfs(state, t):
             for i in range(1, maxChoosableInteger + 1):
                 if (state >> i) & 1:
