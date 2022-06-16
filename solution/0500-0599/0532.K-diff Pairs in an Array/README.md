@@ -66,6 +66,14 @@
 
 时间复杂度 $O(n)$，其中 $n$ 表示数组 $nums$ 的长度。
 
+**方法二：排序 + 双指针**
+
+只需要统计组合的数量，因此可以改动原数组，对其排序，使用双指针来统计。
+
+声明 `left` 与 `right` 指针，初始化为 0 和 1。根据 `abs(nums[left] - nums[right])` 与 `k` 值对比结果移动指针。
+
+需要注意的是，**不能出现重复的组合**，所以移动指针时，不能仅仅是 `+1`，需要到一个不等于当前值的位置。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -143,6 +151,41 @@ func findPairs(nums []int, k int) int {
 		vis[v] = true
 	}
 	return len(ans)
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_pairs(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let mut res = 0;
+        let mut left = 0;
+        let mut right = 1;
+        while right < n {
+            let num = i32::abs(nums[left] - nums[right]);
+            if num == k {
+                res += 1;
+            }
+            if num <= k {
+                right += 1;
+                while right < n && nums[right - 1] == nums[right] {
+                    right += 1;
+                }
+            } else {
+                left += 1;
+                while left < right && nums[left - 1] == nums[left] {
+                    left += 1;
+                }
+                if left == right {
+                    right += 1;
+                }
+            }
+        }
+        res
+    }
 }
 ```
 
