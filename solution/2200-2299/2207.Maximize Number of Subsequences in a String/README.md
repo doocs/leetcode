@@ -58,7 +58,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumSubsequenceCount(self, text: str, pattern: str) -> int:
+        ans = 0
+        cnt = Counter()
+        for c in text:
+            if c == pattern[1]:
+                ans += cnt[pattern[0]]
+            cnt[c] += 1
+        ans += max(cnt[pattern[0]], cnt[pattern[1]])
+        return ans
 ```
 
 ### **Java**
@@ -66,7 +75,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long maximumSubsequenceCount(String text, String pattern) {
+        int[] cnt = new int[26];
+        char a = pattern.charAt(0);
+        char b = pattern.charAt(1);
+        long ans = 0;
+        for (char c : text.toCharArray()) {
+            if (c == b) {
+                ans += cnt[a - 'a'];
+            }
+            cnt[c - 'a']++;
+        }
+        ans += Math.max(cnt[a - 'a'], cnt[b - 'a']);
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maximumSubsequenceCount(string text, string pattern) {
+        long long ans = 0;
+        char a = pattern[0], b = pattern[1];
+        vector<int> cnt(26);
+        for (char& c : text)
+        {
+            if (c == b) ans += cnt[a - 'a'];
+            cnt[c - 'a']++;
+        }
+        ans += max(cnt[a - 'a'], cnt[b - 'a']);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumSubsequenceCount(text string, pattern string) int64 {
+	ans := 0
+	cnt := make([]int, 26)
+	a, b := pattern[0], pattern[1]
+	for i := range text {
+		c := text[i]
+		if c == b {
+			ans += cnt[a-'a']
+		}
+		cnt[c-'a']++
+	}
+	ans += max(cnt[a-'a'], cnt[b-'a'])
+	return int64(ans)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
