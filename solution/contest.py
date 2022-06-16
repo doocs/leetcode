@@ -91,7 +91,7 @@ def run():
             ]
         )
 
-    contest_list.sort(reverse=True)
+    contest_list.sort(key=lambda x: x[4], reverse=True)
     with open("contest.json", 'w', encoding='utf-8') as f:
         f.write(json.dumps(questions))
     with open('contest_list.json', 'w', encoding='utf-8') as f:

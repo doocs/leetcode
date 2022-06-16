@@ -2352,3 +2352,5 @@
   - [2304.网格中的最小路径代价](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README.md)
   - [2305.公平分发饼干](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md)
   - [2306.公司命名](/solution/2300-2399/2306.Naming%20a%20Company/README.md)
+  - [2307.Check for Contradictions in Equations](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README.md)
+  - [2308.Arrange Table by Gender](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README.md)

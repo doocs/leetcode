@@ -58,6 +58,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+由于 $k$ 是一个定值，因此用哈希表 $ans$ 记录数对的较小值，就能够确定较大的值。最后返回 ans 的大小作为答案。
+
+遍历数组 $nums$，当前遍历到的数 $nums[j]$，我们记为 $v$，用哈希表 $vis$ 记录此前遍历到的所有数字。若 $v-k$ 在 $vis$ 中，则将 $v-k$ 添加至 $ans$；若 $v+k$ 在 $vis$ 中，则将 $v$ 添加至 $ans$。
+
+时间复杂度 $O(n)$，其中 $n$ 表示数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +73,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findPairs(self, nums: List[int], k: int) -> int:
+        vis, ans = set(), set()
+        for v in nums:
+            if v - k in vis:
+                ans.add(v - k)
+            if v + k in vis:
+                ans.add(v)
+            vis.add(v)
+        return len(ans)
 ```
 
 ### **Java**
@@ -73,7 +90,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findPairs(int[] nums, int k) {
+        Set<Integer> vis = new HashSet<>();
+        Set<Integer> ans = new HashSet<>();
+        for (int v : nums) {
+            if (vis.contains(v - k)) {
+                ans.add(v - k);
+            }
+            if (vis.contains(v + k)) {
+                ans.add(v);
+            }
+            vis.add(v);
+        }
+        return ans.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findPairs(vector<int>& nums, int k) {
+        unordered_set<int> vis;
+        unordered_set<int> ans;
+        for (int& v : nums)
+        {
+            if (vis.count(v - k)) ans.insert(v - k);
+            if (vis.count(v + k)) ans.insert(v);
+            vis.insert(v);
+        }
+        return ans.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func findPairs(nums []int, k int) int {
+	vis := map[int]bool{}
+	ans := map[int]bool{}
+	for _, v := range nums {
+		if vis[v-k] {
+			ans[v-k] = true
+		}
+		if vis[v+k] {
+			ans[v] = true
+		}
+		vis[v] = true
+	}
+	return len(ans)
+}
 ```
 
 ### **...**

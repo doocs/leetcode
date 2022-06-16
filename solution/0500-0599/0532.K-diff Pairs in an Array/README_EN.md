@@ -58,13 +58,75 @@ Although we have two 1s in the input, we should only return the number of <stron
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findPairs(self, nums: List[int], k: int) -> int:
+        vis, ans = set(), set()
+        for v in nums:
+            if v - k in vis:
+                ans.add(v - k)
+            if v + k in vis:
+                ans.add(v)
+            vis.add(v)
+        return len(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findPairs(int[] nums, int k) {
+        Set<Integer> vis = new HashSet<>();
+        Set<Integer> ans = new HashSet<>();
+        for (int v : nums) {
+            if (vis.contains(v - k)) {
+                ans.add(v - k);
+            }
+            if (vis.contains(v + k)) {
+                ans.add(v);
+            }
+            vis.add(v);
+        }
+        return ans.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findPairs(vector<int>& nums, int k) {
+        unordered_set<int> vis;
+        unordered_set<int> ans;
+        for (int& v : nums)
+        {
+            if (vis.count(v - k)) ans.insert(v - k);
+            if (vis.count(v + k)) ans.insert(v);
+            vis.insert(v);
+        }
+        return ans.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func findPairs(nums []int, k int) int {
+	vis := map[int]bool{}
+	ans := map[int]bool{}
+	for _, v := range nums {
+		if vis[v-k] {
+			ans[v-k] = true
+		}
+		if vis[v+k] {
+			ans[v] = true
+		}
+		vis[v] = true
+	}
+	return len(ans)
+}
 ```
 
 ### **...**

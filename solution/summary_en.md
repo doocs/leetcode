@@ -2352,3 +2352,5 @@
   - [2304.Minimum Path Cost in a Grid](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README_EN.md)
   - [2305.Fair Distribution of Cookies](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md)
   - [2306.Naming a Company](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)
+  - [2307.Check for Contradictions in Equations](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README_EN.md)
+  - [2308.Arrange Table by Gender](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README_EN.md)

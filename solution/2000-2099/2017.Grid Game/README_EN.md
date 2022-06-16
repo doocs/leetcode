@@ -60,13 +60,91 @@ The second robot will collect 0 + 1 + 3 + 3 + 0 = 7 points.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def gridGame(self, grid: List[List[int]]) -> int:
+        ans = inf
+        s1, s2 = sum(grid[0]), 0
+        for j, v in enumerate(grid[0]):
+            s1 -= v
+            ans = min(ans, max(s1, s2))
+            s2 += grid[1][j]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long gridGame(int[][] grid) {
+        long ans = Long.MAX_VALUE;
+        long s1 = 0, s2 = 0;
+        for (int v : grid[0]) {
+            s1 += v;
+        }
+        int n = grid[0].length;
+        for (int j = 0; j < n; ++j) {
+            s1 -= grid[0][j];
+            ans = Math.min(ans, Math.max(s1, s2));
+            s2 += grid[1][j];
+        }
+        return ans; 
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    long long gridGame(vector<vector<int>>& grid) {
+        ll ans = LONG_MAX;
+        int n = grid[0].size();
+        ll s1 = 0, s2 = 0;
+        for (int& v : grid[0]) s1 += v;
+        for (int j = 0; j < n; ++j)
+        {
+            s1 -= grid[0][j];
+            ans = min(ans, max(s1, s2));
+            s2 += grid[1][j];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func gridGame(grid [][]int) int64 {
+	ans := math.MaxInt64
+	s1, s2 := 0, 0
+	for _, v := range grid[0] {
+		s1 += v
+	}
+	for j, v := range grid[0] {
+		s1 -= v
+		ans = min(ans, max(s1, s2))
+		s2 += grid[1][j]
+	}
+	return int64(ans)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
