@@ -41,7 +41,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：双指针**
+由于是原地修改，所以不能直接将 0 的后一位直接修改为 0，这会丢失元素数据。
+
+若选择插入，则会导致元素位置调整，时间复杂度偏高。
+
+**方法一：模拟**
+
+开辟一个等长数组，将 `arr` 复刻一份，再进行简单模拟即可。
+
+- 时间复杂度：$O(n)$。
+- 空间复杂度：$O(n)$。
+
+**方法二：双指针**
+
+- 时间复杂度：$O(n)$。
+- 空间复杂度：$O(1)$。
 
 <!-- tabs:start -->
 
@@ -158,6 +172,65 @@ func duplicateZeros(arr []int) {
 		}
 		i, j = i-1, j-1
 	}
+}
+```
+
+### **C**
+
+```c
+void duplicateZeros(int* arr, int arrSize){
+    int i = 0;
+    int j = 0;
+    while (j < arrSize) {
+        if (arr[i] == 0) {
+            j++;
+        }
+        i++;
+        j++;
+    }
+    i--;
+    j--;
+    while (i >= 0) {
+        if (arr[i] == 0) {
+            if (j < arrSize) {
+                arr[j] = arr[i];
+            }
+            j--;
+        }
+        arr[j] = arr[i];
+        i--;
+        j--;
+    }
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn duplicate_zeros(arr: &mut Vec<i32>) {
+        let n = arr.len();
+        let mut i = 0;
+        let mut j = 0;
+        while j < n {
+            if arr[i] == 0 {
+                j += 1;
+            }
+            j += 1;
+            i += 1;
+        }
+        while i > 0 {
+            if arr[i - 1] == 0 {
+                if j <= n {
+                    arr[j - 1] = arr[i - 1];
+                }
+                j -= 1;
+            }
+            arr[j - 1] = arr[i - 1];
+            i -= 1;
+            j -= 1;
+        }
+    }
 }
 ```
 
