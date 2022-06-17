@@ -42,6 +42,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力枚举**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,7 +51,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countPairs(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        return sum(nums[i] == nums[j] and (i * j) % k == 0 for i in range(n) for j in range(i + 1, n))
 ```
 
 ### **Java**
@@ -57,7 +62,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countPairs(int[] nums, int k) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (nums[i] == nums[j] && (i * j) % k == 0) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countPairs(vector<int>& nums, int k) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = i + 1; j < n; ++j)
+            {
+                if (nums[i] == nums[j] && (i * j) % k == 0) ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPairs(nums []int, k int) int {
+	n := len(nums)
+	ans := 0
+	for i, v := range nums {
+		for j := i + 1; j < n; j++ {
+			if v == nums[j] && (i*j)%k == 0 {
+				ans++
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

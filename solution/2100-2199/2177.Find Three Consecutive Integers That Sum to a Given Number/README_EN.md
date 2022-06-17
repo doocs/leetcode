@@ -38,13 +38,49 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sumOfThree(self, num: int) -> List[int]:
+        a, b = divmod(num, 3)
+        return [] if b else [a - 1, a, a + 1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long[] sumOfThree(long num) {
+        if (num % 3 != 0) {
+            return new long[]{};
+        }
+        long x = num / 3;
+        return new long[]{x - 1, x, x + 1};
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<long long> sumOfThree(long long num) {
+        if (num % 3) return {};
+        long long x = num / 3;
+        return {x - 1, x, x + 1};
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumOfThree(num int64) []int64 {
+	if num%3 != 0 {
+		return []int64{}
+	}
+	x := num / 3
+	return []int64{x - 1, x, x + 1}
+}
 ```
 
 ### **TypeScript**
