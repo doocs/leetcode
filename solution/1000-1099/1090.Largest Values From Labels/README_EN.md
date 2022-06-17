@@ -61,17 +61,15 @@
 ```python
 class Solution:
     def largestValsFromLabels(self, values: List[int], labels: List[int], numWanted: int, useLimit: int) -> int:
-        n = len(values)
-        idx = list(range(n))
-        idx.sort(key=lambda i: -values[i])
+        arr = list(zip(values, labels))
+        arr.sort(reverse=True)
+        cnt = Counter()
         ans = num = 0
-        counter = Counter()
-        for i in idx:
-            v, l = values[i], labels[i]
-            if counter[l] < useLimit:
-                counter[l] += 1
-                ans += v
+        for v, l in arr:
+            if cnt[l] < useLimit:
+                cnt[l] += 1
                 num += 1
+                ans += v
             if num == numWanted:
                 break
         return ans

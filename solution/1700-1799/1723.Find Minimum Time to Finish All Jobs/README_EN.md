@@ -44,13 +44,157 @@ The maximum working time is 11.</pre>
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumTimeRequired(self, jobs: List[int], k: int) -> int:
+        def dfs(i):
+            nonlocal ans
+            if i == len(jobs):
+                ans = min(ans, max(cnt))
+                return
+            for j in range(k):
+                if cnt[j] + jobs[i] >= ans:
+                    continue
+                cnt[j] += jobs[i]
+                dfs(i + 1)
+                cnt[j] -= jobs[i]
+                if cnt[j] == 0:
+                    break
 
+        cnt = [0] * k
+        jobs.sort(reverse=True)
+        ans = inf
+        dfs(0)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] cnt;
+    private int ans;
+    private int[] jobs;
+    private int k;
 
+    public int minimumTimeRequired(int[] jobs, int k) {
+        this.k = k;
+        Arrays.sort(jobs);
+        for (int i = 0, j = jobs.length - 1; i < j; ++i, --j) {
+            int t = jobs[i];
+            jobs[i] = jobs[j];
+            jobs[j] = t;
+        }
+        this.jobs = jobs;
+        cnt = new int[k];
+        ans = 0x3f3f3f3f;
+        dfs(0);
+        return ans;
+    }
+
+    private void dfs(int i) {
+        if (i == jobs.length) {
+            int mx = 0;
+            for (int v : cnt) {
+                mx = Math.max(mx, v);
+            }
+            ans = Math.min(ans, mx);
+            return;
+        }
+        for (int j = 0; j < k; ++j) {
+            if (cnt[j] + jobs[i] >= ans) {
+                continue;
+            }
+            cnt[j] += jobs[i];
+            dfs(i + 1);
+            cnt[j] -= jobs[i];
+            if (cnt[j] == 0) {
+                break;
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int ans;
+
+    int minimumTimeRequired(vector<int>& jobs, int k) {
+        vector<int> cnt(k);
+        ans = 0x3f3f3f3f;
+        sort(jobs.begin(), jobs.end(), greater<int>());
+        dfs(0, k, jobs, cnt);
+        return ans;
+    }
+
+    void dfs(int i, int k, vector<int>& jobs, vector<int>& cnt) {
+        if (i == jobs.size()) {
+            ans = min(ans, *max_element(cnt.begin(), cnt.end()));
+            return;
+        }
+        for (int j = 0; j < k; ++j)
+        {
+            if (cnt[j] + jobs[i] >= ans) continue;
+            cnt[j] += jobs[i];
+            dfs(i + 1, k, jobs, cnt);
+            cnt[j] -= jobs[i];
+            if (cnt[j] == 0) break;
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumTimeRequired(jobs []int, k int) int {
+	cnt := make([]int, k)
+	ans := 0x3f3f3f3f
+	sort.Slice(jobs, func(i, j int) bool {
+		return jobs[i] > jobs[j]
+	})
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == len(jobs) {
+			mx := 0
+			for _, v := range cnt {
+				mx = max(mx, v)
+			}
+			ans = min(ans, mx)
+			return
+		}
+		for j := 0; j < k; j++ {
+			if cnt[j]+jobs[i] >= ans {
+				continue
+			}
+			cnt[j] += jobs[i]
+			dfs(i + 1)
+			cnt[j] -= jobs[i]
+			if cnt[j] == 0 {
+				break
+			}
+		}
+	}
+	dfs(0)
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
