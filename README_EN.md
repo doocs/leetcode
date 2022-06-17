@@ -174,9 +174,11 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 ## Stargazers over time
 
-<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://starchart.cc/doocs/leetcode.svg" alt="Stargazers over time" /></a>
+<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://starchart.cc/doocs/leetcode.svg" alt="Stargazers over time" /></a> -->
 
-<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a> -->
+<!-- [![Star History Chart](https://api.star-history.com/svg?repos=doocs/leetcode&type=Date)](https://star-history.com/#doocs/leetcode) -->
+
+<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="./images/starcharts.svg" alt="Stargazers over time" /></a>
 
 ## Contributors
 
