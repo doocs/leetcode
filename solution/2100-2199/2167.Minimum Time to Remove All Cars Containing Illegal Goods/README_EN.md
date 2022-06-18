@@ -76,13 +76,91 @@ There are no other ways to remove them with less time.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumTime(self, s: str) -> int:
+        n = len(s)
+        pre = [0] * (n + 1)
+        suf = [0] * (n + 1)
+        for i, c in enumerate(s):
+            pre[i + 1] = pre[i] if c == '0' else min(pre[i] + 2, i + 1)
+        for i in range(n - 1, -1, -1):
+            suf[i] = suf[i + 1] if s[i] == '0' else min(suf[i + 1] + 2, n - i)
+        return min(a + b for a, b in zip(pre[1:], suf[1:]))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumTime(String s) {
+        int n = s.length();
+        int[] pre = new int[n + 1];
+        int[] suf = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            pre[i + 1] = s.charAt(i) == '0' ? pre[i] : Math.min(pre[i] + 2, i + 1);
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            suf[i] = s.charAt(i) == '0' ? suf[i + 1] : Math.min(suf[i + 1] + 2, n - i);
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int i = 1; i <= n; ++i) {
+            ans = Math.min(ans, pre[i] + suf[i]);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumTime(string s) {
+        int n = s.size();
+        vector<int> pre(n + 1);
+        vector<int> suf(n + 1);
+        for (int i = 0; i < n; ++i) pre[i + 1] = s[i] == '0' ? pre[i] : min(pre[i] + 2, i + 1);
+        for (int i = n - 1; ~i; --i) suf[i] = s[i] == '0' ? suf[i + 1] : min(suf[i + 1] + 2, n - i);
+        int ans = INT_MAX;
+        for (int i = 1; i <= n; ++i) ans = min(ans, pre[i] + suf[i]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumTime(s string) int {
+	n := len(s)
+	pre := make([]int, n+1)
+	suf := make([]int, n+1)
+	for i, c := range s {
+		pre[i+1] = pre[i]
+		if c == '1' {
+			pre[i+1] = min(pre[i]+2, i+1)
+		}
+	}
+	for i := n - 1; i >= 0; i-- {
+		suf[i] = suf[i+1]
+		if s[i] == '1' {
+			suf[i] = min(suf[i+1]+2, n-i)
+		}
+	}
+	ans := 0x3f3f3f3f
+	for i := 1; i <= n; i++ {
+		ans = min(ans, pre[i]+suf[i])
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

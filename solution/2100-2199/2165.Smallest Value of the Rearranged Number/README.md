@@ -48,7 +48,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def smallestNumber(self, num: int) -> int:
+        if num == 0:
+            return 0
+        cnt = [0] * 10
+        neg = num < 0
+        num = abs(num)
+        while num:
+            num, v = divmod(num, 10)
+            cnt[v] += 1
+        ans = ""
+        if neg:
+            for i in range(9, -1, -1):
+                if cnt[i]:
+                    ans += str(i) * cnt[i]
+            return -int(ans)
+        if cnt[0]:
+            for i in range(1, 10):
+                if cnt[i]:
+                    ans += str(i)
+                    cnt[i] -= 1
+                    break
+        for i in range(10):
+            if cnt[i]:
+                ans += str(i) * cnt[i]
+        return int(ans)
 ```
 
 ### **Java**
@@ -56,7 +81,128 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long smallestNumber(long num) {
+        if (num == 0) {
+            return 0;
+        }
+        int[] cnt = new int[10];
+        boolean neg = num < 0;
+        num = Math.abs(num);
+        while (num != 0) {
+            cnt[(int) (num % 10)]++;
+            num /= 10;
+        }
+        long ans = 0;
+        if (neg) {
+            for (int i = 9; i >= 0; --i) {
+                while (cnt[i]-- > 0) {
+                    ans = ans * 10 + i;
+                }
+            }
+            return -ans;
+        }
+        if (cnt[0] > 0) {
+            for (int i = 1; i < 10; ++i) {
+                if (cnt[i] > 0) {
+                    ans = ans * 10 + i;
+                    cnt[i]--;
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < 10; ++i) {
+            while (cnt[i]-- > 0) {
+                ans = ans * 10 + i;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long smallestNumber(long long num) {
+        if (num == 0) return 0;
+        vector<int> cnt(10);
+        bool neg = num < 0;
+        num = abs(num);
+        while (num)
+        {
+            cnt[num % 10]++;
+            num /= 10;
+        }
+        long long ans = 0;
+        if (neg)
+        {
+            for (int i = 9; i >= 0; --i)
+                while (cnt[i]--) ans = ans * 10 + i;
+            return -ans;
+        }
+        if (cnt[0])
+        {
+            for (int i = 1; i < 10; ++i)
+            {
+                if (cnt[i])
+                {
+                    ans = ans * 10 + i;
+                    cnt[i]--;
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < 10; ++i)
+            while (cnt[i]--) ans = ans * 10 + i;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestNumber(num int64) int64 {
+	if num == 0 {
+		return 0
+	}
+	cnt := make([]int, 10)
+	neg := num < 0
+	if neg {
+		num = -num
+	}
+	for num != 0 {
+		cnt[num%10]++
+		num /= 10
+	}
+	ans := 0
+	if neg {
+		for i := 9; i >= 0; i-- {
+			for j := 0; j < cnt[i]; j++ {
+				ans = ans*10 + i
+			}
+		}
+		return -int64(ans)
+	}
+	if cnt[0] > 0 {
+		for i := 1; i < 10; i++ {
+			if cnt[i] > 0 {
+				ans = ans*10 + i
+				cnt[i]--
+				break
+			}
+		}
+	}
+	for i := 0; i < 10; i++ {
+		for j := 0; j < cnt[i]; j++ {
+			ans = ans*10 + i
+		}
+	}
+	return int64(ans)
+}
 ```
 
 ### **TypeScript**
