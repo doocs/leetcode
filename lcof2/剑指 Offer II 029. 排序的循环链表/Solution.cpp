@@ -22,41 +22,21 @@ public:
 class Solution {
 public:
     Node* insert(Node* head, int insertVal) {
-        Node* insert = new Node(insertVal);
-        if (head == nullptr) {
-            head = insert;
-            head->next = head;
-        } else if (head->next == nullptr) {
-            head->next = insert;
-            insert->next = head;
-        } else {
-            insertCore(head, insert);
+        Node* node = new Node(insertVal);
+        if (!head)
+        {
+            node->next = node;
+            return node;
         }
-
+        Node *prev = head, *curr = head->next;
+        while (curr != head)
+        {
+            if ((prev->val <= insertVal && insertVal <= curr->val) || (prev->val > curr->val && (insertVal >= prev->val || insertVal <= curr->val))) break;
+            prev = curr;
+            curr = curr->next;
+        }
+        prev->next = node;
+        node->next = curr;
         return head;
-    }
-
-    void insertCore(Node* head, Node* insert) {
-        Node* cur = head;
-        Node* maxNode = head;
-        Node* next = head->next;
-
-        while (!(cur->val <= insert->val && insert->val <= next->val) && next != head) {
-            cur = cur->next;
-            next = next->next;
-
-            if (cur->val >= maxNode->val)
-                maxNode = cur;
-        }
-
-        if (cur->val <= insert->val && insert->val <= next->val) {
-            insert->next = next;
-            cur->next = insert;
-        } else {
-            insert->next = maxNode->next;
-            maxNode->next = insert;
-
-        }
-
     }
 };

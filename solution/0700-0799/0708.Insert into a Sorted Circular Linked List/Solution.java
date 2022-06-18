@@ -24,19 +24,16 @@ class Solution {
             node.next = node;
             return node;
         }
-        Node pre = head, cur = head.next;
-        while (true) {
-            if ((pre.val <= insertVal && insertVal <= cur.val) || (pre.val > cur.val && (insertVal >= pre.val || cur.val >= insertVal))) {
+        Node prev = head, curr = head.next;
+        while (curr != head) {
+            if ((prev.val <= insertVal && insertVal <= curr.val) || (prev.val > curr.val && (insertVal >= prev.val || insertVal <= curr.val))) {
                 break;
             }
-            pre = cur;
-            cur = cur.next;
-            if (pre == head) {
-                break;
-            }
+            prev = curr;
+            curr = curr.next;
         }
-        pre.next = node;
-        node.next = cur;
+        prev.next = node;
+        node.next = curr;
         return head;
     }
 }

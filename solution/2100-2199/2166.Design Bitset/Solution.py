@@ -1,5 +1,4 @@
 class Bitset:
-
     def __init__(self, size: int):
         self.a = ['0'] * size
         self.b = ['1'] * size
