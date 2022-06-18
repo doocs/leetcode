@@ -72,17 +72,11 @@
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
-        n = len(nums)
-        pre_max = nums[0]
-        times = 0
-        for i in range(1, n):
-            if nums[i] <= pre_max:
-                steps = pre_max - nums[i] + 1
-                times += steps
-                pre_max = nums[i] + steps
-            else:
-                pre_max = nums[i]
-        return times
+        mx = ans = 0
+        for v in nums:
+            ans += max(0, mx + 1 - v)
+            mx = max(mx + 1, v)
+        return ans
 ```
 
 ### **Java**
@@ -90,20 +84,52 @@ class Solution:
 ```java
 class Solution {
     public int minOperations(int[] nums) {
-        int n = nums.length;
-        int preMax = nums[0];
-        int times = 0;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] <= preMax) {
-                int steps = preMax - nums[i] + 1;
-                times += steps;
-                preMax = nums[i] + steps;
-            } else {
-                preMax = nums[i];
-            }
+        int ans = 0;
+        int mx = 0;
+        for (int v : nums) {
+            ans += Math.max(0, mx + 1 - v);
+            mx = Math.max(mx + 1, v);
         }
-        return times;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        int ans = 0;
+        int mx = 0;
+        for (int& v : nums)
+        {
+            ans += max(0, mx + 1 - v);
+            mx = max(mx + 1, v);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minOperations(nums []int) int {
+	ans, mx := 0, 0
+	for _, v := range nums {
+		ans += max(0, mx+1-v)
+		mx = max(mx+1, v)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
