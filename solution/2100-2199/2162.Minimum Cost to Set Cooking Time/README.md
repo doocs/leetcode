@@ -82,7 +82,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minCostSetTime(self, startAt: int, moveCost: int, pushCost: int, targetSeconds: int) -> int:
+        def f(m, s):
+            if not 0 <= m < 100 or not 0 <= s < 100:
+                return inf
+            arr = [m // 10, m % 10, s // 10, s % 10]
+            i = 0
+            while i < 4 and arr[i] == 0:
+                i += 1
+            t = 0
+            prev = startAt
+            for v in arr[i:]:
+                if v != prev:
+                    t += moveCost
+                t += pushCost
+                prev = v
+            return t
 
+        m, s = divmod(targetSeconds, 60)
+        ans = min(f(m, s), f(m - 1, s + 60))
+        return ans
 ```
 
 ### **Java**
@@ -90,7 +110,93 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minCostSetTime(int startAt, int moveCost, int pushCost, int targetSeconds) {
+        int m = targetSeconds / 60;
+        int s = targetSeconds % 60;
+        return Math.min(f(m, s, startAt, moveCost, pushCost), f(m - 1, s + 60, startAt, moveCost, pushCost));
+    }
 
+    private int f(int m, int s, int prev, int moveCost, int pushCost) {
+        if (m < 0 || m > 99 || s < 0 || s > 99) {
+            return Integer.MAX_VALUE;
+        }
+        int[] arr = new int[]{m / 10, m % 10, s / 10, s % 10};
+        int i = 0;
+        for (; i < 4 && arr[i] == 0; ++i);
+        int t = 0;
+        for (; i < 4; ++i) {
+            if (arr[i] != prev) {
+                t += moveCost;
+            }
+            t += pushCost;
+            prev = arr[i];
+        }
+        return t;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostSetTime(int startAt, int moveCost, int pushCost, int targetSeconds) {
+        int m = targetSeconds / 60, s = targetSeconds % 60;
+        return min(f(m, s, startAt, moveCost, pushCost), f(m - 1, s + 60, startAt, moveCost, pushCost));
+    }
+
+    int f(int m, int s, int prev, int moveCost, int pushCost) {
+        if (m < 0 || m > 99 || s < 0 || s > 99) return INT_MAX;
+        vector<int> arr = {m / 10, m % 10, s / 10, s % 10};
+        int i = 0;
+        for (; i < 4 && arr[i] == 0; ++i);
+        int t = 0;
+        for (; i < 4; ++i)
+        {
+            if (arr[i] != prev) t += moveCost;
+            t += pushCost;
+            prev = arr[i];
+        }
+        return t;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCostSetTime(startAt int, moveCost int, pushCost int, targetSeconds int) int {
+	m, s := targetSeconds/60, targetSeconds%60
+	f := func(m, s int) int {
+		if m < 0 || m > 99 || s < 0 || s > 99 {
+			return 0x3f3f3f3f
+		}
+		arr := []int{m / 10, m % 10, s / 10, s % 10}
+		i := 0
+		for ; i < 4 && arr[i] == 0; i++ {
+		}
+		t := 0
+		prev := startAt
+		for ; i < 4; i++ {
+			if arr[i] != prev {
+				t += moveCost
+			}
+			t += pushCost
+			prev = arr[i]
+		}
+		return t
+	}
+	return min(f(m, s), f(m-1, s+60))
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
