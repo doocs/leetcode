@@ -236,6 +236,32 @@ func searchMatrix(matrix [][]int, target int) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function searchMatrix(matrix: number[][], target: number): boolean {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let left = 0;
+    let right = m * n;
+    while (left < right) {
+        const mid = (left + right) >>> 1;
+        const i = Math.floor(mid / n);
+        const j = mid % n;
+        if (matrix[i][j] === target) {
+            return true;
+        }
+
+        if (matrix[i][j] < target) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return false;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -251,6 +277,29 @@ impl Solution {
                 Ordering::Equal => return true,
                 Ordering::Less => i += 1,
                 Ordering::Greater => j -= 1,
+            }
+        }
+        false
+    }
+}
+```
+
+```rust
+use std::cmp::Ordering;
+impl Solution {
+    pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
+        let m = matrix.len();
+        let n = matrix[0].len();
+        let mut left = 0;
+        let mut right = m * n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            let i = mid / n;
+            let j = mid % n;
+            match matrix[i][j].cmp(&target) {
+                Ordering::Equal => return true,
+                Ordering::Less => left = mid + 1,
+                Ordering::Greater => right = mid,
             }
         }
         false

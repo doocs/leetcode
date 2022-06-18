@@ -46,15 +46,17 @@
 
 **方法一：从左下角或右上角开始遍历**
 
-从**左下角**开始**往右上方向遍历**。当遇到负数时，说明这一行从当前位置开始往右的所有元素均为负数，那么 `ans += n - j`，并且 i 指针上移；否则 j 指针右移。遍历结束，返回 ans。
+根据**其行列都以非递增顺序排列**的特点，可以从**左下角**开始**往右上方向遍历**。
 
-时间复杂度 O(m + n)。
+当遇到负数时，说明这一行从当前位置开始往右的所有元素均为负数，那么 `ans += n - j`，并且 i 指针上移；否则 j 指针右移。遍历结束，返回 `ans`。
+
+时间复杂度：$O(m + n)$。
 
 **方法二：二分查找**
 
-遍历每一行，查找每一行第一个小于 0 的位置，从该位置开始往右的所有元素均为负数，累加负数个数到 ans。遍历结束，返回 ans。
+遍历每一行，查找每一行第一个小于 0 的位置，从该位置开始往右的所有元素均为负数，累加负数个数到 `ans`。遍历结束，返回 `ans`。
 
-时间复杂度 O(mlogn)。
+时间复杂度：$O(mlogn)$。
 
 <!-- tabs:start -->
 
@@ -305,6 +307,52 @@ var countNegatives = function (grid) {
     }
     return ans;
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
+        let n = grid[0].len();
+        grid.into_iter()
+            .map(|nums| {
+                let mut left = 0;
+                let mut right = n;
+                while left < right {
+                    let mid = left + (right - left) / 2;
+                    if nums[mid] >= 0 {
+                        left = mid + 1;
+                    } else {
+                        right = mid;
+                    }
+                }
+                (n - left) as i32
+            })
+            .sum()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut i = m;
+        let mut j = 0;
+        let mut res = 0;
+        while i > 0 && j < n {
+            if grid[i - 1][j] >= 0 {
+                j += 1;
+            } else {
+                res += n - j;
+                i -= 1;
+            }
+        }
+        res as i32
+    }
+}
 ```
 
 ### **...**

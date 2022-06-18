@@ -48,11 +48,11 @@
 
 将二维矩阵逻辑展开，然后二分查找即可。
 
-时间复杂度 O(logmn)。
+时间复杂度：$O(logmn)$。
 
 **方法二：从左下角或右上角搜索**
 
-这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 target 的大小关系：
+这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]` 与 `target` 的大小关系：
 
 -   若 `matrix[i][j] == target`，说明找到了目标值，直接返回 true。
 -   若 `matrix[i][j] > target`，说明这一行从当前位置开始往右的所有元素均大于 target，应该让 i 指针往上移动，即 `i--`。
@@ -60,7 +60,7 @@
 
 若搜索结束依然找不到 target，返回 false。
 
-时间复杂度 O(m + n)。
+时间复杂度：$O(m + n)$。
 
 <!-- tabs:start -->
 
@@ -284,6 +284,32 @@ func searchMatrix(matrix [][]int, target int) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function searchMatrix(matrix: number[][], target: number): boolean {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let left = 0;
+    let right = m * n;
+    while (left < right) {
+        const mid = (left + right) >>> 1;
+        const i = Math.floor(mid / n);
+        const j = mid % n;
+        if (matrix[i][j] === target) {
+            return true;
+        }
+
+        if (matrix[i][j] < target) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return false;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -299,6 +325,29 @@ impl Solution {
                 Ordering::Equal => return true,
                 Ordering::Less => i += 1,
                 Ordering::Greater => j -= 1,
+            }
+        }
+        false
+    }
+}
+```
+
+```rust
+use std::cmp::Ordering;
+impl Solution {
+    pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
+        let m = matrix.len();
+        let n = matrix[0].len();
+        let mut left = 0;
+        let mut right = m * n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            let i = mid / n;
+            let j = mid % n;
+            match matrix[i][j].cmp(&target) {
+                Ordering::Equal => return true,
+                Ordering::Less => left = mid + 1,
+                Ordering::Greater => right = mid,
             }
         }
         false
