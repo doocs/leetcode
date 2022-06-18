@@ -61,13 +61,95 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 ### **Python3**
 
 ```python
+class Solution:
+    def mostPoints(self, questions: List[List[int]]) -> int:
+        @cache
+        def dfs(i):
+            if i >= len(questions):
+                return 0
+            return max(questions[i][0] + dfs(i + questions[i][1] + 1), dfs(i + 1))
 
+        return dfs(0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private long[] memo;
+    private int[][] questions;
 
+    public long mostPoints(int[][] questions) {
+        this.questions = questions;
+        memo = new long[questions.length];
+        Arrays.fill(memo, -1);
+        return dfs(0);    
+    }
+
+    private long dfs(int i) {
+        if (i >= questions.length) {
+            return 0;
+        }
+        if (memo[i] != -1) {
+            return memo[i];
+        }
+        long ans = Math.max(questions[i][0] + dfs(i + questions[i][1] + 1), dfs(i + 1));
+        memo[i] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long mostPoints(vector<vector<int>>& questions) {
+        vector<long long> memo(questions.size(), -1);
+        return dfs(0, questions, memo); 
+    }
+
+    long long dfs(int i, vector<vector<int>>& questions, vector<long long>& memo) {
+        if (i >= questions.size()) return 0;
+        if (memo[i] != -1) return memo[i];
+        long long ans = max(questions[i][0] + dfs(i + questions[i][1] + 1, questions, memo), dfs(i + 1, questions, memo));
+        memo[i] = ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostPoints(questions [][]int) int64 {
+	n := len(questions)
+	memo := make([]int, n)
+	for i := range memo {
+		memo[i] = -1
+	}
+	var dfs func(i int) int
+	dfs = func(i int) int {
+		if i >= n {
+			return 0
+		}
+		if memo[i] != -1 {
+			return memo[i]
+		}
+		ans := max(questions[i][0]+dfs(i+questions[i][1]+1), dfs(i+1))
+		memo[i] = ans
+		return ans
+	}
+	return int64(dfs(0))
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
