@@ -38,13 +38,50 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def findLongestWord(self, s: str, dictionary: List[str]) -> str:
+        def check(a, b):
+            m, n = len(a), len(b)
+            i = j = 0
+            while i < m and j < n:
+                if a[i] == b[j]:
+                    j += 1
+                i += 1
+            return j == n
 
+        ans = ''
+        for a in dictionary:
+            if check(s, a) and (len(ans) < len(a) or (len(ans) == len(a) and ans > a)):
+                ans = a
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String findLongestWord(String s, List<String> dictionary) {
+        String ans = "";
+        for (String a : dictionary) {
+            if (check(s, a) && (ans.length() < a.length() || (ans.length() == a.length() && a.compareTo(ans) < 0))) {
+                ans = a;
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(String a, String b) {
+        int m = a.length(), n = b.length();
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (a.charAt(i) == b.charAt(j)) {
+                ++j;
+            }
+            ++i;
+        }
+        return j == n;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -103,6 +140,57 @@ impl Solution {
         }
         String::new()
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findLongestWord(string s, vector<string>& dictionary) {
+        string ans = "";
+        for (string& a : dictionary)
+            if (check(s, a) && (ans.size() < a.size() || (ans.size() == a.size() && a < ans)))
+                ans = a;
+        return ans;
+    }
+
+    bool check(string& a, string& b) {
+        int m = a.size(), n = b.size();
+        int i = 0, j = 0;
+        while (i < m && j < n)
+        {
+            if (a[i] == b[j]) ++j;
+            ++i;
+        }
+        return j == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLongestWord(s string, dictionary []string) string {
+	ans := ""
+	check := func(a, b string) bool {
+		m, n := len(a), len(b)
+		i, j := 0, 0
+		for i < m && j < n {
+			if a[i] == b[j] {
+				j++
+			}
+			i++
+		}
+		return j == n
+	}
+	for _, a := range dictionary {
+		if check(s, a) && (len(ans) < len(a) || (len(ans) == len(a) && a < ans)) {
+			ans = a
+		}
+	}
+	return ans
 }
 ```
 

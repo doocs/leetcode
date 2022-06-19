@@ -46,20 +46,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def minDiffInBST(self, root: TreeNode) -> int:
-        def inorder(root):
-            if not root:
+    def minDiffInBST(self, root: Optional[TreeNode]) -> int:
+        def dfs(root):
+            if root is None:
                 return
-            inorder(root.left)
-            if self.pre is not None:
-                self.min_diff = min(self.min_diff, abs(root.val - self.pre))
-            self.pre = root.val
-            inorder(root.right)
+            dfs(root.left)
+            nonlocal ans, prev
+            ans = min(ans, abs(prev - root.val))
+            prev = root.val
+            dfs(root.right)
 
-        self.pre = None
-        self.min_diff = 10 ** 5
-        inorder(root)
-        return self.min_diff
+        ans = prev = inf
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
@@ -81,22 +80,105 @@ class Solution:
  * }
  */
 class Solution {
-
-    private int minDiff = Integer.MAX_VALUE;
-    private Integer pre;
+    private int ans;
+    private int prev;
+    private int inf = Integer.MAX_VALUE;
 
     public int minDiffInBST(TreeNode root) {
-        inorder(root);
-        return minDiff;
+        ans = inf;
+        prev = inf;
+        dfs(root);
+        return ans;
     }
 
-    private void inorder(TreeNode root) {
-        if (root == null) return;
-        inorder(root.left);
-        if (pre != null) minDiff = Math.min(minDiff, Math.abs(root.val - pre));
-        pre = root.val;
-        inorder(root.right);
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        ans = Math.min(ans, Math.abs(root.val - prev));
+        prev = root.val;
+        dfs(root.right);
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    const int inf = INT_MAX;
+    int ans;
+    int prev;
+    
+    int minDiffInBST(TreeNode* root) {
+        ans = inf, prev = inf;
+        dfs(root);
+        return ans;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->left);
+        ans = min(ans, abs(prev - root->val));
+        prev = root->val;
+        dfs(root->right);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func minDiffInBST(root *TreeNode) int {
+	inf := 0x3f3f3f3f
+	ans, prev := inf, inf
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		ans = min(ans, abs(prev-root.Val))
+		prev = root.Val
+		dfs(root.Right)
+	}
+	dfs(root)
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 

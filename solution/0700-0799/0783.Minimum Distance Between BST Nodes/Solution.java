@@ -14,20 +14,24 @@
  * }
  */
 class Solution {
-
-    private int minDiff = Integer.MAX_VALUE;
-    private Integer pre;
+    private int ans;
+    private int prev;
+    private int inf = Integer.MAX_VALUE;
 
     public int minDiffInBST(TreeNode root) {
-        inorder(root);
-        return minDiff;
+        ans = inf;
+        prev = inf;
+        dfs(root);
+        return ans;
     }
 
-    private void inorder(TreeNode root) {
-        if (root == null) return;
-        inorder(root.left);
-        if (pre != null) minDiff = Math.min(minDiff, Math.abs(root.val - pre));
-        pre = root.val;
-        inorder(root.right);
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        ans = Math.min(ans, Math.abs(root.val - prev));
+        prev = root.val;
+        dfs(root.right);
     }
 }

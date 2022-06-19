@@ -6,31 +6,33 @@
  *     Right *TreeNode
  * }
  */
-
-var res int
-var preNode *TreeNode
 func minDiffInBST(root *TreeNode) int {
-    res = int(^uint(0) >> 1)
-    preNode = nil
-    helper(root)
-    return res
+	inf := 0x3f3f3f3f
+	ans, prev := inf, inf
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		ans = min(ans, abs(prev-root.Val))
+		prev = root.Val
+		dfs(root.Right)
+	}
+	dfs(root)
+	return ans
 }
 
-func helper(root *TreeNode)  {
-    if root == nil {
-        return
-    }
-    helper(root.Left)
-    if preNode != nil {
-        res = getMinInt(res, root.Val - preNode.Val)
-    }
-    preNode = root
-    helper(root.Right)
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
-func getMinInt(a,b int) int {
-    if a < b {
-        return a
-    }
-    return b
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
