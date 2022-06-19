@@ -54,17 +54,20 @@
 
 **方法一：哈希表**
 
-用哈希表 m 记录 arr 每个元素 v 及其对应的下标 i。
+使用哈希表 `m` 记录 `arr` 每个元素 `v` 及其对应的下标 `i`。
 
-遍历 arr 每个元素 v，若能在哈希表中找到 `v*2`，且下标值与当前 v 的下标值不相等，说明找到了满足条件的元素，返回 true。否则遍历结束返回 false。
+遍历 `arr` 每个元素 `v`，若能在哈希表中找到 `v * 2`，且下标值与当前 `v` 的下标值不相等，说明找到了满足条件的元素，返回 `true`。否则遍历结束返回 `false`。
+
+时间复杂度：$O(n)$。
+空间复杂度：$O(n)$。
 
 **方法二：排序 + 二分查找**
 
-首先对 arr 排序。
+首先对 `arr` 排序。
 
-然后遍历 arr 每个元素 v，二分查找 arr 中是否存在 `v*2` 元素，是则返回 true。
+然后遍历 `arr` 每个元素 `v`，二分查找 `arr` 中是否存在 `v * 2` 元素，是则返回 `true`。
 
-注意，元素可能为 0，这种情况下，`v*2` 的值同样为 0，二分查找可能会找到同个位置的元素，与题意不符。因此，可以预先统计 arr 中元素 0 的个数，若超过 1 个，可提前返回 true。
+注意，元素可能为 0，这种情况下，`v*2` 的值同样为 0，二分查找可能会找到同个位置的元素，与题意不符。因此，可以预先统计 `arr` 中元素 0 的个数，若超过 1 个，可提前返回 `true`。
 
 <!-- tabs:start -->
 
@@ -331,6 +334,55 @@ func checkIfExist(arr []int) bool {
 		}
 	}
 	return false
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn check_if_exist(arr: Vec<i32>) -> bool {
+        let mut map = HashMap::new();
+        for (i, v) in arr.iter().enumerate() {
+            map.insert(v, i);
+        }
+        for (i, v) in arr.iter().enumerate() {
+            if map.contains_key(&(v * 2)) && map[&(v * 2)] != i {
+                return true;
+            }
+        }
+        false
+    }
+}
+```
+
+```rust
+use std::cmp::Ordering;
+impl Solution {
+    pub fn check_if_exist(mut arr: Vec<i32>) -> bool {
+        arr.sort();
+        let n = arr.len();
+        for i in 0..n {
+            let target = arr[i] * 2;
+            let mut left = 0;
+            let mut right = n;
+            while left < right {
+                let mid = left + (right - left) / 2;
+                match arr[mid].cmp(&target) {
+                    Ordering::Less => left = mid + 1,
+                    Ordering::Greater => right = mid,
+                    Ordering::Equal => {
+                        if mid == i {
+                            break;
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+        false
+    }
 }
 ```
 
