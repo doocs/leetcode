@@ -16,7 +16,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>arr = [1,4,2,5,3]
+<pre>
+<strong>输入：</strong>arr = [1,4,2,5,3]
 <strong>输出：</strong>58
 <strong>解释：</strong>所有奇数长度子数组和它们的和为：
 [1] = 1
@@ -32,13 +33,15 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>arr = [1,2]
+<pre>
+<strong>输入：</strong>arr = [1,2]
 <strong>输出：</strong>3
 <strong>解释：</strong>总共只有 2 个长度为奇数的子数组，[1] 和 [2]。它们的和为 3 。</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>arr = [10,11,12]
+<pre>
+<strong>输入：</strong>arr = [10,11,12]
 <strong>输出：</strong>66
 </pre>
 
@@ -50,6 +53,12 @@
 	<li><code>1 &lt;= arr.length &lt;= 100</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong></p>
+
+<p>你可以设计一个 O(n) 时间复杂度的算法解决此问题吗？</p>
 
 ## 解法
 

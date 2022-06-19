@@ -46,7 +46,7 @@ solution.pick(); // 返回 4
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= blacklist.length &lt;- min(10<sup>5</sup>, n - 1)</code></li>
+	<li><code>0 &lt;= blacklist.length &lt;= min(10<sup>5</sup>, n - 1)</code></li>
 	<li><code>0 &lt;= blacklist[i] &lt; n</code></li>
 	<li><code>blacklist</code>&nbsp;中所有值都 <strong>不同</strong></li>
 	<li>&nbsp;<code>pick</code>&nbsp;最多被调用&nbsp;<code>2 * 10<sup>4</sup></code>&nbsp;次</li>

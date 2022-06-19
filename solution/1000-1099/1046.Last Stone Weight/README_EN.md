@@ -15,7 +15,7 @@
 
 <p>At the end of the game, there is <strong>at most one</strong> stone left.</p>
 
-<p>Return <em>the smallest possible weight of the left stone</em>. If there are no stones left, return <code>0</code>.</p>
+<p>Return <em>the weight of the last remaining stone</em>. If there are no stones left, return <code>0</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

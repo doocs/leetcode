@@ -11,7 +11,7 @@
 	<li>If <code>n</code> is odd, replace <code>n</code> with either <code>n + 1</code> or <code>n - 1</code>.</li>
 </ol>
 
-<p>Return <em>the minimum number of operations needed for <code>n</code> to become <code>1</code></em>.</p>
+<p>Return <em>the minimum number of operations needed for</em> <code>n</code> <em>to become</em> <code>1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

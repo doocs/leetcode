@@ -159,11 +159,17 @@ class Solution {
 
 ```ts
 function minCost(grid: number[][]): number {
-    const m = grid.length, n = grid[0].length;
+    const m = grid.length,
+        n = grid[0].length;
     let ans = Array.from({ length: m }, v => new Array(n).fill(Infinity));
     ans[0][0] = 0;
     let queue = [[0, 0]];
-    const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+    const dirs = [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ];
     while (queue.length) {
         let [x, y] = queue.shift();
         for (let step = 1; step < 5; step++) {
@@ -181,7 +187,7 @@ function minCost(grid: number[][]): number {
         }
     }
     return ans[m - 1][n - 1];
-};
+}
 ```
 
 ### **C++**

@@ -40,6 +40,9 @@ The third fraction is 2/5.
 	<li><code>1 &lt;= k &lt;= arr.length * (arr.length - 1) / 2</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Can you solve the problem with better than <code>O(n<sup>2</sup>)</code> complexity?
+
 ## Solutions
 
 <!-- tabs:start -->

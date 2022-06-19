@@ -50,7 +50,6 @@
 	<li><code>password</code>&nbsp;包含字母，数字和&nbsp;<code>"!@#$%^&amp;*()-+"</code>&nbsp;这些特殊字符。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -169,16 +168,16 @@ func strongPasswordCheckerII(password string) bool {
 ```ts
 function strongPasswordCheckerII(password: string): boolean {
     if (password.length < 8) return false;
-    if (!(/[a-z]+/g).test(password)) return false;
-    if (!(/[A-Z]+/g).test(password)) return false;
-    if (!(/[0-9]+/g).test(password)) return false;
-    if (!(/[\!\@\#\$\%\^\&\*\(\)\-\+]+/g).test(password)) return false;
+    if (!/[a-z]+/g.test(password)) return false;
+    if (!/[A-Z]+/g.test(password)) return false;
+    if (!/[0-9]+/g.test(password)) return false;
+    if (!/[\!\@\#\$\%\^\&\*\(\)\-\+]+/g.test(password)) return false;
     const n = password.length;
     for (let i = 1; i < n; i++) {
         if (password.charAt(i) == password.charAt(i - 1)) return false;
     }
     return true;
-};
+}
 ```
 
 ### **...**

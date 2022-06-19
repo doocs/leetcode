@@ -56,7 +56,6 @@ It can be shown that 2 is the minimum possible size of a valid set.
 	<li><code>0 &lt;= k &lt;= 9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -69,6 +69,8 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 	<li>At most <code>2 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>addText</code>, <code>deleteText</code>, <code>cursorLeft</code> and <code>cursorRight</code>.</li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Follow-up:</strong> Could you find a solution with time complexity of <code>O(k)</code> per call?</p>
 
 ## Solutions
 

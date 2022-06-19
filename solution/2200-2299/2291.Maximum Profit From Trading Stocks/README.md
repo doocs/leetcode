@@ -53,7 +53,6 @@ It can be shown that the maximum profit you can make is 0.
 	<li><code>0 &lt;= budget &lt;= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -107,7 +106,11 @@ class Solution {
 ### **TypeScript**
 
 ```ts
-function maximumProfit(present: number[], future: number[], budget: number): number {
+function maximumProfit(
+    present: number[],
+    future: number[],
+    budget: number,
+): number {
     let packet = present.map((v, i) => [v, future[i] - v]);
     let dp = new Array(budget + 1).fill(0);
     for (let [v, w] of packet) {
@@ -116,7 +119,7 @@ function maximumProfit(present: number[], future: number[], budget: number): num
         }
     }
     return dp[budget];
-};
+}
 ```
 
 ### **C++**

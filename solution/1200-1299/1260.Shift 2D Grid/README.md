@@ -113,7 +113,8 @@ class Solution {
 
 ```ts
 function shiftGrid(grid: number[][], k: number): number[][] {
-    const m = grid.length, n = grid[0].length;
+    const m = grid.length,
+        n = grid[0].length;
     const size = m * n;
     k = k % size;
     if (k == 0 || size <= 1) return grid;
@@ -125,7 +126,7 @@ function shiftGrid(grid: number[][], k: number): number[][] {
         j = j == size - 1 ? 0 : j + 1;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

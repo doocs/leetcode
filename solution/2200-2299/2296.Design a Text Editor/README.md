@@ -30,7 +30,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>
+<pre>
+<strong>输入：</strong>
 ["TextEditor", "addText", "deleteText", "addText", "cursorRight", "cursorLeft", "deleteText", "cursorLeft", "cursorRight"]
 [[], ["leetcode"], [4], ["practice"], [3], [8], [10], [2], [6]]
 <strong>输出：</strong>
@@ -72,6 +73,9 @@ textEditor.cursorRight(6); // 返回 "practi"
 	<li>调用 <code>addText</code>&nbsp;，<code>deleteText</code>&nbsp;，<code>cursorLeft</code> 和&nbsp;<code>cursorRight</code>&nbsp;的 <strong>总</strong> 次数不超过&nbsp;<code>2 * 10<sup>4</sup></code>&nbsp;次。</li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你能设计并实现一个每次调用时间复杂度为 <code>O(k)</code> 的解决方案吗？</p>
 
 ## 解法
 

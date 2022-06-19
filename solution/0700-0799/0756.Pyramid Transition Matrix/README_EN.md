@@ -23,7 +23,7 @@
 <strong>Input:</strong> bottom = &quot;BCD&quot;, allowed = [&quot;BCC&quot;,&quot;CDE&quot;,&quot;CEA&quot;,&quot;FFF&quot;]
 <strong>Output:</strong> true
 <strong>Explanation:</strong> The allowed triangular patterns are shown on the right.
-Starting from the bottom (level 3), we can build &quot;CE&quot; on level 2 and then build &quot;E&quot; on level 1.
+Starting from the bottom (level 3), we can build &quot;CE&quot; on level 2 and then build &quot;A&quot; on level 1.
 There are three triangular patterns in the pyramid, which are &quot;BCC&quot;, &quot;CDE&quot;, and &quot;CEA&quot;. All are allowed.
 </pre>
 

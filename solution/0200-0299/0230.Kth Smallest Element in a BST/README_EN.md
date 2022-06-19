@@ -75,7 +75,7 @@ class BST:
         self.cnt = Counter()
         self.root = root
         self.count(root)
-    
+
     def kthSmallest(self, k):
         node = self.root
         while node:
@@ -87,7 +87,7 @@ class BST:
             else:
                 node = node.left
         return 0
-    
+
     def count(self, root):
         if root is None:
             return 0
@@ -275,7 +275,7 @@ public:
 private:
     TreeNode* root;
     unordered_map<TreeNode*, int> cnt;
-    
+
     int count(TreeNode* root) {
         if (!root) return 0;
         int n = 1 + count(root->left) + count(root->right);

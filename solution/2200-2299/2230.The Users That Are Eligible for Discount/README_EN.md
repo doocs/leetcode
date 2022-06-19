@@ -20,7 +20,7 @@ Each row contains information about the purchase time and the amount paid for th
 
 <p>&nbsp;</p>
 
-<p>A user is eligible for a discount if they had a purchase in the inclusive interval of time <code>[startDate, endDate]</code> with at least <code>minAmount</code> amount.</p>
+<p>A user is eligible for a discount if they had a purchase in the inclusive interval of time <code>[startDate, endDate]</code> with at least <code>minAmount</code> amount. To convert the dates to times, both dates should be considered as the <strong>start</strong> of the day (i.e., <code>endDate = 2022-03-05</code> should be considered as the time <code>2022-03-05 00:00:00</code>).</p>
 
 <p>Write an SQL query to report the IDs of the users that are eligible for a discount.</p>
 
@@ -32,7 +32,7 @@ Each row contains information about the purchase time and the amount paid for th
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>Input:</strong>
 Purchases table:
 +---------+---------------------+--------+
 | user_id | time_stamp          | amount |
@@ -43,7 +43,7 @@ Purchases table:
 | 3       | 2022-03-30 09:43:42 | 626    |
 +---------+---------------------+--------+
 startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
-<strong>Output:</strong> 
+<strong>Output:</strong>
 +---------+
 | user_id |
 +---------+

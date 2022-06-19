@@ -61,7 +61,6 @@
 	<li><code>0 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -167,7 +166,7 @@ function partitionArray(nums: number[], k: number): number {
         ans++;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

@@ -30,9 +30,10 @@
 
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= words[i].length &lt;= 30</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
 	<li><code>words[i]</code> consists of only lowercase English letters.</li>
-	<li><code>0 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
+	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
+	<li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions

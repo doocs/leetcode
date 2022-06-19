@@ -24,10 +24,9 @@
 <strong>Input:</strong> brackets = [[3,50],[7,10],[12,25]], income = 10
 <strong>Output:</strong> 2.65000
 <strong>Explanation:</strong>
-The first 3 dollars you earn are taxed at 50%. You have to pay $3 * 50% = $1.50 dollars in taxes.
-The next 7 - 3 = 4 dollars you earn are taxed at 10%. You have to pay $4 * 10% = $0.40 dollars in taxes.
-The final 10 - 7 = 3 dollars you earn are taxed at 25%. You have to pay $3 * 25% = $0.75 dollars in taxes.
-You have to pay a total of $1.50 + $0.40 + $0.75 = $2.65 dollars in taxes.
+Based on your income, you have 3 dollars in the 1<sup>st</sup> tax bracket, 4 dollars in the 2<sup>nd</sup> tax bracket, and 3 dollars in the 3<sup>rd</sup> tax bracket.
+The tax rate for the three tax brackets is 50%, 10%, and 25%, respectively.
+In total, you pay $3 * 50% + $4 * 10% + $3 * 25% = $2.65 in taxes.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -36,9 +35,9 @@ You have to pay a total of $1.50 + $0.40 + $0.75 = $2.65 dollars in taxes.
 <strong>Input:</strong> brackets = [[1,0],[4,25],[5,50]], income = 2
 <strong>Output:</strong> 0.25000
 <strong>Explanation:</strong>
-The first dollar you earn is taxed at 0%. You have to pay $1 * 0% = $0 dollars in taxes.
-The second dollar you earn is taxed at 25%. You have to pay $1 * 25% = $0.25 dollars in taxes.
-You have to pay a total of $0 + $0.25 = $0.25 dollars in taxes.
+Based on your income, you have 1 dollar in the 1<sup>st</sup> tax bracket and 1 dollar in the 2<sup>nd</sup> tax bracket.
+The tax rate for the two tax brackets is 0% and 25%, respectively.
+In total, you pay $1 * 0% + $1 * 25% = $0.25 in taxes.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -47,7 +46,7 @@ You have to pay a total of $0 + $0.25 = $0.25 dollars in taxes.
 <strong>Input:</strong> brackets = [[2,50]], income = 0
 <strong>Output:</strong> 0.00000
 <strong>Explanation:</strong>
-You have no income to tax, so you have to pay a total of $0 dollars in taxes.
+You have no income to tax, so you have to pay a total of $0 in taxes.
 </pre>
 
 <p>&nbsp;</p>
@@ -62,7 +61,6 @@ You have no income to tax, so you have to pay a total of $0 dollars in taxes.
 	<li>All the values of <code>upper<sub>i</sub></code> are <strong>unique</strong>.</li>
 	<li>The upper bound of the last tax bracket is greater than or equal to <code>income</code>.</li>
 </ul>
-
 
 ## Solutions
 
@@ -188,11 +186,11 @@ function calculateTax(brackets: number[][], income: number): number {
     let prev = 0;
     for (let [upper, percent] of brackets) {
         if (prev > income) break;
-        ans += (Math.min(upper, income) - prev) * percent / 100;
+        ans += ((Math.min(upper, income) - prev) * percent) / 100;
         prev = upper;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

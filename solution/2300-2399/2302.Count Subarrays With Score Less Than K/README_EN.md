@@ -50,7 +50,6 @@ Thus, there are 5 subarrays having scores less than 5.
 	<li><code>1 &lt;= k &lt;= 10<sup>15</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -57,7 +57,6 @@ Since three subsequences were created, we return 3. It can be shown that 3 is th
 	<li><code>0 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -155,7 +154,7 @@ function partitionArray(nums: number[], k: number): number {
         ans++;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

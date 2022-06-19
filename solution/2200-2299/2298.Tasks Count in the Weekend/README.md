@@ -62,10 +62,9 @@ Task 3 was submitted on Wednesday.
 Task 4 was submitted on Saturday.
 Task 5 was submitted on Sunday.
 Task 6 was submitted on Sunday.
-3 tasks were submitted during the weekends.
+3 tasks were submitted during the weekend.
 3 tasks were submitted during the working days.
 </pre>
-
 
 ## 解法
 

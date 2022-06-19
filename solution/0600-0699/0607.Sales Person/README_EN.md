@@ -52,7 +52,7 @@ Each row of this table indicates the name and the ID of a company and the city i
 +-------------+------+
 order_id is the primary key column for this table.
 com_id is a foreign key to com_id from the Company table.
-sales_id is a foreign key to com_id from the SalesPerson table.
+sales_id is a foreign key to sales_id from the SalesPerson table.
 Each row of this table contains information about one order. This includes the ID of the company, the ID of the salesperson, the date of the order, and the amount paid.
 </pre>
 

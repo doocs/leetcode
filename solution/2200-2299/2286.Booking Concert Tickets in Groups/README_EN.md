@@ -46,7 +46,7 @@ bms.gather(2, 0); // return []
 bms.scatter(5, 1); // return True
                    // The group books seat 4 of row 0 and seats [0, 3] of row 1. 
 bms.scatter(5, 1); // return False
-                   // There are only 2 seats left in the hall.
+                   // There is only one seat left in the hall.
 </pre>
 
 <p>&nbsp;</p>

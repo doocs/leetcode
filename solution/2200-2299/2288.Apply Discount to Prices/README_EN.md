@@ -4,15 +4,17 @@
 
 ## Description
 
-<p>A <strong>sentence</strong> is a string of single-space separated words where each word can contain digits, lowercase letters, and the dollar sign <code>&#39;$&#39;</code>. A word represents a <strong>price</strong> if it is a non-negative real number preceded by a dollar sign.</p>
+<p>A <strong>sentence</strong> is a string of single-space separated words where each word can contain digits, lowercase letters, and the dollar sign <code>&#39;$&#39;</code>. A word represents a <strong>price</strong> if it is a sequence of digits preceded by a dollar sign.</p>
 
 <ul>
-	<li>For example, <code>&quot;$100&quot;</code>, <code>&quot;$23&quot;</code>, and <code>&quot;$6.75&quot;</code> represent prices while <code>&quot;100&quot;</code>, <code>&quot;$&quot;</code>, and <code>&quot;2$3&quot;</code> do not.</li>
+	<li>For example, <code>&quot;$100&quot;</code>, <code>&quot;$23&quot;</code>, and <code>&quot;$6&quot;</code> represent prices while <code>&quot;100&quot;</code>, <code>&quot;$&quot;</code>, and <code>&quot;$1e5&quot;</code> do not.</li>
 </ul>
 
 <p>You are given a string <code>sentence</code> representing a sentence and an integer <code>discount</code>. For each word representing a price, apply a discount of <code>discount%</code> on the price and <strong>update</strong> the word in the sentence. All updated prices should be represented with <strong>exactly two</strong> decimal places.</p>
 
 <p>Return <em>a string representing the modified sentence</em>.</p>
+
+<p>Note that all prices will contain <strong>at most</strong> <code>10</code> digits.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -45,7 +47,7 @@ Each of them is replaced by &quot;$0.00&quot;.
 	<li><code>sentence</code> consists of lowercase English letters, digits, <code>&#39; &#39;</code>, and <code>&#39;$&#39;</code>.</li>
 	<li><code>sentence</code> does not have leading or trailing spaces.</li>
 	<li>All words in <code>sentence</code> are separated by a single space.</li>
-	<li>All prices will be <strong>positive</strong> integers without leading zeros.</li>
+	<li>All prices will be <strong>positive</strong> numbers without leading zeros.</li>
 	<li>All prices will have <strong>at most</strong> <code>10</code> digits.</li>
 	<li><code>0 &lt;= discount &lt;= 100</code></li>
 </ul>
@@ -113,7 +115,7 @@ function discountPrices(sentence: string, discount: number): string {
         });
     });
     return arr.join(' ');
-};
+}
 ```
 
 ### **...**

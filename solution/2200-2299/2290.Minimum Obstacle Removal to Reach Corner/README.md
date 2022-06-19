@@ -213,8 +213,14 @@ func minimumObstacles(grid [][]int) int {
 
 ```ts
 function minimumObstacles(grid: number[][]): number {
-    const m = grid.length, n = grid[0].length;
-    const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+    const m = grid.length,
+        n = grid[0].length;
+    const dirs = [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ];
     let ans = Array.from({ length: m }, v => new Array(n).fill(Infinity));
     ans[0][0] = 0;
     let deque = [[0, 0]];
@@ -230,7 +236,7 @@ function minimumObstacles(grid: number[][]): number {
         }
     }
     return ans[m - 1][n - 1];
-};
+}
 ```
 
 ### **...**

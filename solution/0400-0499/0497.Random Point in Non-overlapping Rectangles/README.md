@@ -6,9 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个由非重叠的轴对齐矩形的数组 <code>rects</code> ，其中 <code>rects[i] = [ai, bi, xi, yi]</code> 表示 <code>(ai, bi)</code> 是第 <code>i</code> 个矩形的左下角点，<code>(xi, yi)</code> 是第 <code>i</code> 个矩形的右上角角点。设计一个算法来挑选一个随机整数点内的空间所覆盖的一个给定的矩形。矩形周长上的一个点包含在矩形覆盖的空间中。</p>
+<p>给定一个由非重叠的轴对齐矩形的数组 <code>rects</code> ，其中 <code>rects[i] = [ai, bi, xi, yi]</code> 表示 <code>(ai, bi)</code> 是第 <code>i</code> 个矩形的左下角点，<code>(xi, yi)</code> 是第 <code>i</code> 个矩形的右上角点。设计一个算法来随机挑选一个被某一矩形覆盖的整数点。矩形周长上的点也算做是被矩形覆盖。所有满足要求的点必须等概率被返回。</p>
 
-<p>在一个给定的矩形覆盖的空间内任何整数点都有可能被返回。</p>
+<p>在给定的矩形覆盖的空间内的任何整数点都有可能被返回。</p>
 
 <p><strong>请注意&nbsp;</strong>，整数点是具有整数坐标的点。</p>
 
@@ -30,10 +30,10 @@
 
 <pre>
 <strong>输入: 
-</strong>["Solution","pick","pick","pick","pick","pick"]
-[[[[-2,-2,-1,-1],[1,0,3,0]]],[],[],[],[],[]]
+</strong>["Solution", "pick", "pick", "pick", "pick", "pick"]
+[[[[-2, -2, 1, 1], [2, 2, 4, 6]]], [], [], [], [], []]
 <strong>输出: 
-</strong>[null,[-1,-2],[2,0],[-2,-1],[3,0],[-2,-2]
+</strong>[null, [1, -2], [1, -1], [-1, -2], [-2, -2], [0, 0]]
 
 <strong>解释：</strong>
 Solution solution = new Solution([[-2, -2, 1, 1], [2, 2, 4, 6]]);
@@ -57,8 +57,6 @@ solution.pick(); // 返回 [0, 0]</pre>
 	<li>所有的矩形不重叠。</li>
 	<li><code>pick</code> 最多被调用&nbsp;<code>10<sup>4</sup></code>&nbsp;次。</li>
 </ul>
-
-<p>&nbsp;</p>
 
 ## 解法
 
@@ -153,7 +151,7 @@ public:
         this->rects = rects;
         srand(time(nullptr));
     }
-    
+
     vector<int> pick() {
         int n = rects.size();
         int v = 1 + rand() % s[n];

@@ -54,7 +54,6 @@ The following are some examples of invalid selections:
 	<li>All the strings in <code>ideas</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

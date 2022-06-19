@@ -66,7 +66,6 @@
 	<li>所有&nbsp;<code>(h<sub>i</sub>, w<sub>i</sub>)</code> <strong>互不相同</strong>&nbsp;。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -145,7 +144,7 @@ class Solution {
         if (memo[m][n] != -1) {
             return memo[m][n];
         }
-        
+
         long ans = d[m][n];
         for (int i = 1; i < m / 2 + 1; ++i) {
             ans = Math.max(ans, dfs(i, n) + dfs(m - i, n));
@@ -194,7 +193,7 @@ public:
         vector<vector<ll>> memo(m + 1, vector<ll>(n + 1, -1));
         vector<vector<int>> d(m + 1, vector<int>(n + 1));
         for (auto& p : prices) d[p[0]][p[1]] = p[2];
-        return dfs(m, n, d, memo); 
+        return dfs(m, n, d, memo);
     }
 
     ll dfs(int m, int n, vector<vector<int>>& d, vector<vector<ll>>& memo) {

@@ -56,7 +56,6 @@
 	<li>在执行第&nbsp;<code>i</code>&nbsp;个操作时，<code>operations[i][1]</code>&nbsp;在&nbsp;<code>nums</code>&nbsp;中不存在。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -171,7 +170,7 @@ function arrayChange(nums: number[], operations: number[][]): number[] {
         ans[key] = val;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

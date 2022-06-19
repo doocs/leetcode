@@ -51,7 +51,6 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 	<li>All the shapes of wood <code>(h<sub>i</sub>, w<sub>i</sub>)</code> are pairwise <strong>distinct</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -116,7 +115,7 @@ class Solution {
         if (memo[m][n] != -1) {
             return memo[m][n];
         }
-        
+
         long ans = d[m][n];
         for (int i = 1; i < m / 2 + 1; ++i) {
             ans = Math.max(ans, dfs(i, n) + dfs(m - i, n));
@@ -165,7 +164,7 @@ public:
         vector<vector<ll>> memo(m + 1, vector<ll>(n + 1, -1));
         vector<vector<int>> d(m + 1, vector<int>(n + 1));
         for (auto& p : prices) d[p[0]][p[1]] = p[2];
-        return dfs(m, n, d, memo); 
+        return dfs(m, n, d, memo);
     }
 
     ll dfs(int m, int n, vector<vector<int>>& d, vector<vector<ll>>& memo) {

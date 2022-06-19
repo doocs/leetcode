@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an array <code>arr</code>&nbsp;of positive integers&nbsp;sorted in a <strong>strictly increasing order</strong>, and an integer <code><font face="monospace">k</font></code>.</p>
+<p>Given an array <code>arr</code> of positive integers sorted in a <strong>strictly increasing order</strong>, and an integer <code>k</code>.</p>
 
-<p><em>Find the </em><font face="monospace"><code>k<sup>th</sup></code></font><em>&nbsp;positive integer that is missing from this array.</em></p>
+<p>Return <em>the</em> <code>k<sup>th</sup></code> <em><strong>positive</strong> integer that is <strong>missing</strong> from this array.</em></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -34,6 +34,11 @@
 	<li><code>1 &lt;= k &lt;= 1000</code></li>
 	<li><code>arr[i] &lt; arr[j]</code> for <code>1 &lt;= i &lt; j &lt;= arr.length</code></li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong></p>
+
+<p>Could you solve this problem in less than O(n) complexity?</p>
 
 ## Solutions
 

@@ -53,7 +53,6 @@
 	<li><code>1 &lt;= moveCost[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -222,7 +221,8 @@ impl Solution {
 
 ```ts
 function minPathCost(grid: number[][], moveCost: number[][]): number {
-    const m = grid.length, n = grid[0].length;
+    const m = grid.length,
+        n = grid[0].length;
     let pre = grid[0].slice();
     for (let i = 1; i < m; i++) {
         let next = new Array(n);
@@ -238,7 +238,7 @@ function minPathCost(grid: number[][], moveCost: number[][]): number {
         pre = next;
     }
     return Math.min(...pre);
-};
+}
 ```
 
 ### **...**

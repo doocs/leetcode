@@ -23,11 +23,11 @@ Each row in this table contains the ID of an order, the id of the product purcha
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of all the products that were purchased three or more times in two consecutive years.</p>
+<p>Write an SQL query to report the IDs of all the products that were ordered three or more times in two consecutive years.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The query result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -56,7 +56,6 @@ Orders table:
 Product 1 was ordered in 2020 three times and in 2021 three times. Since it was ordered three times in two consecutive years, we include it in the answer.
 Product 2 was ordered one time in 2022. We do not include it in the answer.
 </pre>
-
 
 ## 解法
 

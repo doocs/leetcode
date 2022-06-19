@@ -33,7 +33,7 @@
 
 <pre>
 <strong>输入：</strong>n = 4, k = 2
-<strong>输出：</strong>6
+<strong>输出：</strong>7
 <strong>解释：</strong>把糖果 4 分配到 2 个手袋中的一个，共有 7 种方式:
 (1), (2,3,4)
 (1,2), (3,4)

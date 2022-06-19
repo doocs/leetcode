@@ -64,7 +64,6 @@
 	<li>最后一个税级的上限大于等于 <code>income</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -197,11 +196,11 @@ function calculateTax(brackets: number[][], income: number): number {
     let prev = 0;
     for (let [upper, percent] of brackets) {
         if (prev > income) break;
-        ans += (Math.min(upper, income) - prev) * percent / 100;
+        ans += ((Math.min(upper, income) - prev) * percent) / 100;
         prev = upper;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

@@ -48,7 +48,6 @@
 	<li><code>1 &lt;= success &lt;= 10<sup>10</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -147,8 +146,13 @@ func successfulPairs(spells []int, potions []int, success int64) []int {
 ### **TypeScript**
 
 ```ts
-function successfulPairs(spells: number[], potions: number[], success: number): number[] {
-    const n = spells.length, m = potions.length;
+function successfulPairs(
+    spells: number[],
+    potions: number[],
+    success: number,
+): number[] {
+    const n = spells.length,
+        m = potions.length;
     potions.sort((a, b) => a - b);
     let pairs = new Array(n);
     let hashMap = new Map();
@@ -162,7 +166,7 @@ function successfulPairs(spells: number[], potions: number[], success: number): 
         pairs[i] = m - idx;
     }
     return pairs;
-};
+}
 
 function searchLeft(nums, left, right, target) {
     while (left < right) {

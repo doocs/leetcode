@@ -134,7 +134,7 @@ public:
         this->rects = rects;
         srand(time(nullptr));
     }
-    
+
     vector<int> pick() {
         int n = rects.size();
         int v = 1 + rand() % s[n];

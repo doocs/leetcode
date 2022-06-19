@@ -144,7 +144,7 @@ function totalSteps(nums: number[]): number {
         stack.unshift([num, max]);
     }
     return ans;
-};
+}
 ```
 
 ### **...**

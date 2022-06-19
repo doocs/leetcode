@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.</p>
+<p>A binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent&nbsp;the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.</p>
 
 <ul>
 	<li>For example, the below binary watch reads <code>&quot;4:51&quot;</code>.</li>
@@ -12,7 +12,7 @@
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0401.Binary%20Watch/images/binarywatch.jpg" style="width: 500px; height: 500px;" /></p>
 
-<p>Given an integer <code>turnedOn</code> which represents the number of LEDs that are currently on, return <em>all possible times the watch could represent</em>. You may return the answer in <strong>any order</strong>.</p>
+<p>Given an integer <code>turnedOn</code> which represents the number of LEDs that are currently on (ignoring the PM), return <em>all possible times the watch could represent</em>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>The hour must not contain a leading zero.</p>
 

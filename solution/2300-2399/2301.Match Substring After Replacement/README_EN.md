@@ -50,7 +50,6 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 	<li><code>old<sub>i</sub></code> and <code>new<sub>i</sub></code> are either uppercase or lowercase English letters or digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

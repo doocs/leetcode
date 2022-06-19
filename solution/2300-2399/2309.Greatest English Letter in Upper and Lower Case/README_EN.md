@@ -45,7 +45,6 @@ There is no letter that appears in both lower and upper case.
 	<li><code>s</code> consists of lowercase and uppercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

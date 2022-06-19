@@ -46,7 +46,7 @@ streamChecker.query(&quot;l&quot;); // return True, because &#39;kl&#39; is in t
 
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 2000</code></li>
-	<li><code>1 &lt;= words[i].length &lt;= 2000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 200</code></li>
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 	<li><code>letter</code> is a lowercase English letter.</li>
 	<li>At most <code>4 * 10<sup>4</sup></code> calls will be made to query.</li>

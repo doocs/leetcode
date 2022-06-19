@@ -70,7 +70,6 @@ We arrange the table alternating between &#39;female&#39;, &#39;other&#39;, and 
 Note that the IDs of each gender are sorted in ascending order.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

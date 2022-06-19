@@ -168,7 +168,7 @@ public:
         {
             for (int j = c1; j <= c2; ++j)
             {
-                if (!s.count(i * n + j)) 
+                if (!s.count(i * n + j))
                 {
                     return false;
                 }

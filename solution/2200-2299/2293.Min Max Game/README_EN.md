@@ -48,7 +48,6 @@ Third: nums = [1]
 	<li><code>nums.length</code> is a power of <code>2</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -146,7 +145,7 @@ func min(a, b int) int {
 
 ```ts
 function minMaxGame(nums: number[]): number {
-    while(nums.length > 1) {
+    while (nums.length > 1) {
         let n = nums.length;
         let tmp = [];
         for (let i = 0; i < n; i += 2) {
@@ -159,7 +158,7 @@ function minMaxGame(nums: number[]): number {
         nums = tmp;
     }
     return nums[0];
-};
+}
 ```
 
 ### **...**

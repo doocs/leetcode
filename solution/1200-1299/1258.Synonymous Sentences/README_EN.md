@@ -32,6 +32,7 @@
 	<li><code>1 &lt;= s<sub>i</sub>.length,<sub> </sub>t<sub>i</sub>.length &lt;= 10</code></li>
 	<li><code>s<sub>i</sub> != t<sub>i</sub></code></li>
 	<li><code>text</code> consists of at most <code>10</code> words.</li>
+	<li>All the pairs of&nbsp;<code>synonyms</code> are <strong>unique</strong>.</li>
 	<li>The words of <code>text</code> are separated by single spaces.</li>
 </ul>
 

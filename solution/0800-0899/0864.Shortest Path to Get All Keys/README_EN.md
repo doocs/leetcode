@@ -26,7 +26,7 @@
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/images/lc-keys2.jpg" style="width: 404px; height: 245px;" />
 <pre>
-<strong>Input:</strong> grid = [&quot;@.a.#&quot;,&quot;###.#&quot;,&quot;b.A.B&quot;]
+<strong>Input:</strong> grid = [&quot;@.a..&quot;,&quot;###.#&quot;,&quot;b.A.B&quot;]
 <strong>Output:</strong> 8
 <strong>Explanation:</strong> Note that the goal is to obtain all the keys not to open all the locks.
 </pre>

@@ -8,6 +8,8 @@
 
 <p>Return <em>the minimum number of moves to make every value in </em><code>nums</code><em> <strong>unique</strong></em>.</p>
 
+<p>The test cases are generated so that the answer fits in a 32-bit integer.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 

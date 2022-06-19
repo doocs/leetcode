@@ -54,7 +54,6 @@ We return the array [2,1].
 	<li><code>operations[i][1]</code> will not exist in <code>nums</code> when applying the <code>i<sup>th</sup></code> operation.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -161,7 +160,7 @@ function arrayChange(nums: number[], operations: number[][]): number[] {
         ans[key] = val;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

@@ -37,7 +37,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>6</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= primes.length &lt;= 100</code></li>
 	<li><code>2 &lt;= primes[i] &lt;= 1000</code></li>
 	<li>题目数据<strong> 保证</strong> <code>primes[i]</code> 是一个质数</li>

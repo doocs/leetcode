@@ -6,9 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>有&nbsp;<code>n</code>&nbsp;个筹码。第 <code>i</code> 个芯片的位置是<meta charset="UTF-8" />&nbsp;<code>position[i]</code>&nbsp;。</p>
+<p>有&nbsp;<code>n</code>&nbsp;个筹码。第 <code>i</code> 个筹码的位置是<meta charset="UTF-8" />&nbsp;<code>position[i]</code>&nbsp;。</p>
 
-<p>我们需要把所有筹码移到同一个位置。在一步中，我们可以将第 <code>i</code> 个芯片的位置从&nbsp;<code>position[i]</code>&nbsp;改变为:</p>
+<p>我们需要把所有筹码移到同一个位置。在一步中，我们可以将第 <code>i</code> 个筹码的位置从&nbsp;<code>position[i]</code>&nbsp;改变为:</p>
 
 <p><meta charset="UTF-8" /></p>
 
@@ -28,8 +28,8 @@
 <pre>
 <strong>输入：</strong>position = [1,2,3]
 <strong>输出：</strong>1
-<strong>解释：</strong>第一步:将位置3的芯片移动到位置1，成本为0。
-第二步:将位置2的芯片移动到位置1，成本= 1。
+<strong>解释：</strong>第一步:将位置3的筹码移动到位置1，成本为0。
+第二步:将位置2的筹码移动到位置1，成本= 1。
 总成本是1。
 </pre>
 
@@ -40,7 +40,7 @@
 <pre>
 <strong>输入：</strong>position = [2,2,2,3,3]
 <strong>输出：</strong>2
-<strong>解释：</strong>我们可以把位置3的两个芯片移到位置2。每一步的成本为1。总成本= 2。
+<strong>解释：</strong>我们可以把位置3的两个筹码移到位置2。每一步的成本为1。总成本= 2。
 </pre>
 
 <p><strong>示例 3:</strong></p>

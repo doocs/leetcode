@@ -45,7 +45,6 @@ It can be shown that there is no distribution with an unfairness less than 7.
 	<li><code>2 &lt;= k &lt;= cookies.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -40,6 +40,11 @@
 	<li><code>1 &lt;= k &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong></p>
+
+<p>Could you solve this problem in less than O(n) complexity?</p>
+
 ## Solutions
 
 <!-- tabs:start -->

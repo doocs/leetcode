@@ -99,7 +99,7 @@ class Solution {
             ans = Math.min(ans, Math.max(s1, s2));
             s2 += grid[1][j];
         }
-        return ans; 
+        return ans;
     }
 }
 ```

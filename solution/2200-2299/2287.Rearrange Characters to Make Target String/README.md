@@ -164,7 +164,7 @@ func min(a, b int) int {
 ```ts
 function rearrangeCharacters(s: string, target: string): number {
     let cnt1 = new Array(128).fill(0),
-    cnt2 = new Array(128).fill(0);
+        cnt2 = new Array(128).fill(0);
     for (let i of target) {
         cnt1[i.charCodeAt(0)]++;
     }
@@ -177,7 +177,7 @@ function rearrangeCharacters(s: string, target: string): number {
         ans = Math.min(ans, Math.floor(cnt2[i] / cnt1[i]));
     }
     return ans === Infinity ? 0 : ans;
-};
+}
 ```
 
 ### **...**

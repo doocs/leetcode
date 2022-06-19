@@ -10,7 +10,7 @@
 	<li>Calculate the <strong>sum</strong> of the elements of <code>matrix</code> inside the rectangle defined by its <strong>upper left corner</strong> <code>(row1, col1)</code> and <strong>lower right corner</strong> <code>(row2, col2)</code>.</li>
 </ul>
 
-<p>Implement the NumMatrix class:</p>
+<p>Implement the <code>NumMatrix</code> class:</p>
 
 <ul>
 	<li><code>NumMatrix(int[][] matrix)</code> Initializes the object with the integer matrix <code>matrix</code>.</li>
@@ -42,7 +42,7 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 	<li><code>m == matrix.length</code></li>
 	<li><code>n == matrix[i].length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 200</code></li>
-	<li><code>-10<sup>5</sup> &lt;= matrix[i][j] &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= matrix[i][j] &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= row1 &lt;= row2 &lt; m</code></li>
 	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRegion</code>.</li>

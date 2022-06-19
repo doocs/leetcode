@@ -25,8 +25,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>rect1.length == 4</code></li>
-	<li><code>rect2.length == 4</code></li>
+	<li><code>rec1.length == 4</code></li>
+	<li><code>rec2.length == 4</code></li>
 	<li><code>-10<sup>9</sup> &lt;= rec1[i], rec2[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>rec1</code> and <code>rec2</code> represent a valid rectangle with a non-zero area.</li>
 </ul>

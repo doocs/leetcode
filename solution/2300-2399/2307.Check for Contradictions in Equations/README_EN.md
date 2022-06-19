@@ -8,7 +8,7 @@
 
 <p>Determine if there exists a contradiction in the equations. Return <code>true</code><em> if there is a contradiction, or </em><code>false</code><em> otherwise</em>.</p>
 
-<p><strong>Note</strong>: Two floating point numbers are considered equal if their <strong>absolute difference</strong> is less than <code>10<sup>-5</sup></code>.</p>
+<p><strong>Note</strong>: When checking if two numbers are equal, check that their <strong>absolute difference</strong> is less than <code>10<sup>-5</sup></code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -44,7 +44,6 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 	<li><code>equations.length == values.length</code></li>
 	<li><code>0.0 &lt; values[i] &lt;= 20.0</code></li>
 </ul>
-
 
 ## Solutions
 

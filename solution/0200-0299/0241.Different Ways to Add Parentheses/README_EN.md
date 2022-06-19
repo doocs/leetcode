@@ -6,6 +6,8 @@
 
 <p>Given a string <code>expression</code> of numbers and operators, return <em>all possible results from computing all the different possible ways to group numbers and operators</em>. You may return the answer in <strong>any order</strong>.</p>
 
+<p>The test cases are generated such that the output values fit in a 32-bit integer and the number of different results does not exceed <code>10<sup>4</sup></code>.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
