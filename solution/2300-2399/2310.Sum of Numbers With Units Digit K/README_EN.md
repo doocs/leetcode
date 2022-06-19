@@ -76,6 +76,17 @@ class Solution:
 ```python
 class Solution:
     def minimumNumbers(self, num: int, k: int) -> int:
+        if num == 0:
+            return 0
+        for i in range(1, 11):
+            if (k * i) % 10 == num % 10 and k * i <= num:
+                return i
+        return -1
+```
+
+```python
+class Solution:
+    def minimumNumbers(self, num: int, k: int) -> int:
         @cache
         def dfs(v):
             if v == 0:
@@ -116,6 +127,22 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minimumNumbers(int num, int k) {
+        if (num == 0) {
+            return 0;
+        }
+        for (int i = 1; i <= 10; ++i) {
+            if ((k * i) % 10 ==  num % 10 && k * i <= num) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -133,6 +160,19 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumNumbers(int num, int k) {
+        if (!num) return 0;
+        for (int i = 1; i <= 10; ++i)
+            if ((k * i) % 10 == num % 10 && k * i <= num)
+                return i;
+        return -1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -143,6 +183,20 @@ func minimumNumbers(num int, k int) int {
 	for i := 1; i <= num; i++ {
 		t := num - k*i
 		if t >= 0 && t%10 == 0 {
+			return i
+		}
+	}
+	return -1
+}
+```
+
+```go
+func minimumNumbers(num int, k int) int {
+	if num == 0 {
+		return 0
+	}
+	for i := 1; i <= 10; i++ {
+		if (k*i)%10 == num%10 && k*i <= num {
 			return i
 		}
 	}

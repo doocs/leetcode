@@ -69,6 +69,8 @@
 
 我们从小到达枚举 $n$，找到第一个满足 $num-n*k$ 是 $10$ 的倍数的 $n$。由于 $n$ 不会超过 $num$，因此 $n$ 最大枚举至 $num$。
 
+也可以只考虑个位，个位满足，高位随意。
+
 **方法二：记忆化搜索**
 
 <!-- tabs:start -->
@@ -84,6 +86,17 @@ class Solution:
             return 0
         for i in range(1, num + 1):
             if (t := num - k * i) >= 0 and t % 10 == 0:
+                return i
+        return -1
+```
+
+```python
+class Solution:
+    def minimumNumbers(self, num: int, k: int) -> int:
+        if num == 0:
+            return 0
+        for i in range(1, 11):
+            if (k * i) % 10 == num % 10 and k * i <= num:
                 return i
         return -1
 ```
@@ -133,6 +146,22 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minimumNumbers(int num, int k) {
+        if (num == 0) {
+            return 0;
+        }
+        for (int i = 1; i <= 10; ++i) {
+            if ((k * i) % 10 ==  num % 10 && k * i <= num) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -150,6 +179,19 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumNumbers(int num, int k) {
+        if (!num) return 0;
+        for (int i = 1; i <= 10; ++i)
+            if ((k * i) % 10 == num % 10 && k * i <= num)
+                return i;
+        return -1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -160,6 +202,20 @@ func minimumNumbers(num int, k int) int {
 	for i := 1; i <= num; i++ {
 		t := num - k*i
 		if t >= 0 && t%10 == 0 {
+			return i
+		}
+	}
+	return -1
+}
+```
+
+```go
+func minimumNumbers(num int, k int) int {
+	if num == 0 {
+		return 0
+	}
+	for i := 1; i <= 10; i++ {
+		if (k*i)%10 == num%10 && k*i <= num {
 			return i
 		}
 	}
