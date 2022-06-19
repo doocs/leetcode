@@ -794,7 +794,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0783  |  [Minimum Distance Between BST Nodes](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Search Tree`,`Binary Tree`  |  Easy  |    |
 |  0784  |  [Letter Case Permutation](/solution/0700-0799/0784.Letter%20Case%20Permutation/README_EN.md)  |  `Bit Manipulation`,`String`,`Backtracking`  |  Medium  |    |
 |  0785  |  [Is Graph Bipartite](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`  |  Medium  |    |
-|  0786  |  [K-th Smallest Prime Fraction](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)  |  `Array`,`Binary Search`,`Heap (Priority Queue)`  |  Hard  |    |
+|  0786  |  [K-th Smallest Prime Fraction](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)  |  `Array`,`Binary Search`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0787  |  [Cheapest Flights Within K Stops](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Dynamic Programming`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0788  |  [Rotated Digits](/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Medium  |    |
 |  0789  |  [Escape The Ghosts](/solution/0700-0799/0789.Escape%20The%20Ghosts/README_EN.md)  |  `Array`,`Math`  |  Medium  |    |
@@ -2316,6 +2316,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2306  |  [Naming a Company](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`String`,`Enumeration`  |  Hard  |  Weekly Contest 297  |
 |  2307  |  [Check for Contradictions in Equations](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README_EN.md)  |    |  Hard  |  🔒  |
 |  2308  |  [Arrange Table by Gender](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README_EN.md)  |    |  Medium  |  🔒  |
+|  2309  |  [Greatest English Letter in Upper and Lower Case](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 298  |
+|  2310  |  [Sum of Numbers With Units Digit K](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 298  |
+|  2311  |  [Longest Binary Subsequence Less Than or Equal to K](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 298  |
+|  2312  |  [Selling Pieces of Wood](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)  |  `Backtracking`  |  Hard  |  Weekly Contest 298  |
 
 ## Copyright
 

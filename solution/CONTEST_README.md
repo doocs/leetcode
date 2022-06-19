@@ -9,6 +9,14 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 298 场周赛(2022-06-19 10:30, 90 分钟)
+
+- [2309. 兼具大小写的最好英文字母](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README.md)
+- [2310. 个位数字为 K 的整数之和](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README.md)
+- [2311. 小于等于 K 的最长二进制子序列](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README.md)
+- [2312. 卖木头块](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)
+
+
 #### 第 297 场周赛(2022-06-12 10:30, 90 分钟)
 
 - [2303. 计算应缴税款总额](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README.md)

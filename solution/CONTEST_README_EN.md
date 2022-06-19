@@ -9,6 +9,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 298
+
+- [2309. Greatest English Letter in Upper and Lower Case](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README_EN.md)
+- [2310. Sum of Numbers With Units Digit K](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md)
+- [2311. Longest Binary Subsequence Less Than or Equal to K](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
+- [2312. Selling Pieces of Wood](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)
+
+
 #### Weekly Contest 297
 
 - [2303. Calculate Amount Paid in Taxes](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md)
