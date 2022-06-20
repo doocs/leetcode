@@ -73,7 +73,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSwaps(self, s: str) -> int:
+        ans = 0
+        for c in s:
+            if c == '[':
+                ans += 1
+            elif ans:
+                ans -= 1
+        return (ans + 1) >> 1
 ```
 
 ### **Java**
@@ -81,7 +89,52 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSwaps(String s) {
+        int ans = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '[') {
+                ++ans;
+            } else if (ans > 0) {
+                --ans;
+            }
+        }
+        return (ans + 1) >> 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSwaps(string s) {
+        int ans = 0;
+        for (char& c : s)
+        {
+            if (c == '[') ++ans;
+            else if (ans) --ans;
+        }
+        return (ans + 1) >> 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSwaps(s string) int {
+	ans := 0
+	for _, c := range s {
+		if c == '[' {
+			ans++
+		} else if ans > 0 {
+			ans--
+		}
+	}
+	return (ans + 1) >> 1
+}
 ```
 
 ### **...**
