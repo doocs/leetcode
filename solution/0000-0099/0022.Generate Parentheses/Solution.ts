@@ -1,6 +1,6 @@
 function generateParenthesis(n: number): string[] {
-    let ans = [];
-    let dfs = function (left, right, t) {
+    const ans: string[] = [];
+    const dfs = (left: number, right: number, t: string) => {
         if (left == n && right == n) {
             ans.push(t);
             return;

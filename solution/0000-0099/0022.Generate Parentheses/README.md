@@ -88,28 +88,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function generateParenthesis(n: number): string[] {
-    let ans = [];
-    let dfs = function (left, right, t) {
-        if (left == n && right == n) {
-            ans.push(t);
-            return;
-        }
-        if (left < n) {
-            dfs(left + 1, right, t + '(');
-        }
-        if (right < left) {
-            dfs(left, right + 1, t + ')');
-        }
-    };
-    dfs(0, 0, '');
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -180,6 +158,57 @@ var generateParenthesis = function (n) {
     dfs(0, 0, '');
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function generateParenthesis(n: number): string[] {
+    const ans: string[] = [];
+    const dfs = (left: number, right: number, t: string) => {
+        if (left == n && right == n) {
+            ans.push(t);
+            return;
+        }
+        if (left < n) {
+            dfs(left + 1, right, t + '(');
+        }
+        if (right < left) {
+            dfs(left, right + 1, t + ')');
+        }
+    };
+    dfs(0, 0, '');
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn dfs(left: i32, right: i32, s: &mut String, res: &mut Vec<String>) {
+        if left == 0 && right == 0 {
+            res.push(s.clone());
+            return;
+        }
+        if left > 0 {
+            s.push('(');
+            Self::dfs(left - 1, right, s, res);
+            s.pop();
+        }
+        if right > left {
+            s.push(')');
+            Self::dfs(left, right - 1, s, res);
+            s.pop();
+        }
+    }
+
+    pub fn generate_parenthesis(n: i32) -> Vec<String> {
+        let mut res = Vec::new();
+        Self::dfs(n, n, &mut String::new(), &mut res);
+        res
+    }
+}
 ```
 
 ### **...**
