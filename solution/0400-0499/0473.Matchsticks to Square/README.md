@@ -51,6 +51,17 @@
 
 时间复杂度 $O(4^n)$，其中 $n$ 表示 $matchsticks$ 的长度。每根火柴可以被放入正方形的 $4$ 条边，共有 $n$ 根火柴。
 
+**方法二：状态压缩 + 记忆化搜索**
+
+记当前火柴被划分的情况为 $state$。对于第 $i$ 个数，若 $state \ \& \ (1<<i)=0$，说明第 $i$ 个火柴棒未被划分。我们的目标是从全部数字中凑出 $k$ 个和为 $s$ 的子集。
+
+记当前子集的和为 $t$。在未划分第 $i$ 个火柴棒时：
+
+-   若 $t+matchsticks[i]>s$，说明第 $i$ 个火柴棒不能被添加到当前子集中，由于我们对 $matchsticks$ 数组进行升序排列，因此从 $matchsticks$ 从第 $i$ 个火柴棒开始的所有数字都不能被添加到当前子集，直接返回 $false$。
+-   否则，将第 $i$ 个火柴棒添加到当前子集中，状态变为 $state \ |\ (1<<i)$，继续对未划分的数字进行搜索。
+
+注：若 $t+matchsticks[i]==s$，说明恰好可以得到一个和为 $s$ 的子集，下一步将 $t$ 归零（可以通过 $(t+matchsticks[i]) \%s$ 实现），并继续划分下一个子集。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -78,6 +89,29 @@ class Solution:
         edges = [0] * 4
         matchsticks.sort(reverse=True)
         return dfs(0)
+```
+
+```python
+class Solution:
+    def makesquare(self, matchsticks: List[int]) -> bool:
+        @cache
+        def dfs(state, t):
+            if state == (1 << len(matchsticks)) - 1:
+                return True
+            for i, v in enumerate(matchsticks):
+                if (state & (1 << i)):
+                    continue
+                if t + v > s:
+                    break
+                if dfs(state | (1 << i), (t + v) % s):
+                    return True
+            return False
+
+        s, mod = divmod(sum(matchsticks), 4)
+        matchsticks.sort()
+        if mod:
+            return False
+        return dfs(0, 0)
 ```
 
 ### **Java**

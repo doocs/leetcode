@@ -37,7 +37,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-解法和 [473. 火柴拼正方形](/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md) 相同
+**方法一：DFS + 剪枝**
+
+解法和 [473. 火柴拼正方形](/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md) 相同。
+
+**方法二：状态压缩 + 记忆化搜索**
+
+记当前数字被划分的情况为 $state$。对于第 $i$ 个数，若 $state \ \& \ (1<<i)=0$，说明第 $i$ 个数字未被划分。我们的目标是从全部数字中凑出 $k$ 个和为 $s$ 的子集。
+
+记当前子集的和为 $t$。在未划分第 $i$ 个数字时：
+
+-   若 $t+nums[i]>s$，说明第 $i$ 个数字不能被添加到当前子集中，由于我们对 $nums$ 数组进行升序排列，因此从 $nums$ 从第 $i$ 个数字开始的所有数字都不能被添加到当前子集，直接返回 $false$。
+-   否则，将第 $i$ 个数字添加到当前子集中，状态变为 $state \ |\ (1<<i)$，继续对未划分的数字进行搜索。
+
+注：若 $t+nums[i]==s$，说明恰好可以得到一个和为 $s$ 的子集，下一步将 $t$ 归零（可以通过 $(t+nums[i]) \%s$ 实现），并继续划分下一个子集。
 
 <!-- tabs:start -->
 
@@ -70,6 +83,29 @@ class Solution:
 
         nums.sort(reverse=True)
         return dfs(0)
+```
+
+```python
+class Solution:
+    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+        @cache
+        def dfs(state, t):
+            if state == (1 << len(nums)) - 1:
+                return True
+            for i, v in enumerate(nums):
+                if (state & (1 << i)):
+                    continue
+                if t + v > s:
+                    break
+                if dfs(state | (1 << i), (t + v) % s):
+                    return True
+            return False
+
+        s, mod = divmod(sum(nums), k)
+        nums.sort()
+        if mod:
+            return False
+        return dfs(0, 0)
 ```
 
 ### **Java**

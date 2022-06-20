@@ -64,6 +64,29 @@ class Solution:
         return dfs(0)
 ```
 
+```python
+class Solution:
+    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+        @cache
+        def dfs(state, t):
+            if state == (1 << len(nums)) - 1:
+                return True
+            for i, v in enumerate(nums):
+                if (state & (1 << i)):
+                    continue
+                if t + v > s:
+                    break
+                if dfs(state | (1 << i), (t + v) % s):
+                    return True
+            return False
+
+        s, mod = divmod(sum(nums), k)
+        nums.sort()
+        if mod:
+            return False
+        return dfs(0, 0)
+```
+
 ### **Java**
 
 ```java

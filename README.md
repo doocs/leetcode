@@ -93,6 +93,11 @@
 -   [迷宫](/solution/0400-0499/0490.The%20Maze/README.md) - `DFS`、`连通性模型`、`Flood Fill 算法`
 -   [单词搜索](/solution/0000-0099/0079.Word%20Search/README.md) - `DFS`、`搜索顺序`、`回溯`
 -   [黄金矿工](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md) - `DFS`、`搜索顺序`、`回溯`
+-   [火柴拼正方形](/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md) - `DFS`、`回溯`、`剪枝`
+-   [划分为 k 个相等的子集](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md) - `DFS`、`回溯`、`剪枝`
+-   [完成所有工作的最短时间](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md) - `DFS`、`回溯`、`剪枝`
+-   [公平分发饼干](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md) - `DFS`、`回溯`、`剪枝`
+
 <!-- DFS 待补充 -->
 
 ### 4. 动态规划（DP）
