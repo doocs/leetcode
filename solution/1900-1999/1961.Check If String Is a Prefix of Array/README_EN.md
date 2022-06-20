@@ -45,13 +45,63 @@ It is impossible to make s using a prefix of arr.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isPrefixString(self, s: str, words: List[str]) -> bool:
+        t = 0
+        for i, w in enumerate(words):
+            t += len(w)
+            if len(s) == t:
+                return ''.join(words[:i + 1]) == s
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isPrefixString(String s, String[] words) {
+        StringBuilder t = new StringBuilder();
+        for (String w : words) {
+            t.append(w);
+            if (s.length() == t.length()) {
+                return s.equals(t.toString());
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPrefixString(string s, vector<string>& words) {
+        string t = "";
+        for (string& w : words)
+        {
+            t += w;
+            if (t.size() == s.size()) return t == s;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isPrefixString(s string, words []string) bool {
+	t := ""
+	for _, w := range words {
+		t += w
+		if t == s {
+			return true
+		}
+	}
+	return false
+}
 ```
 
 ### **...**

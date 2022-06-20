@@ -53,7 +53,14 @@ s 可以由 "i"、"love" 和 "leetcode" 相连得到。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isPrefixString(self, s: str, words: List[str]) -> bool:
+        t = 0
+        for i, w in enumerate(words):
+            t += len(w)
+            if len(s) == t:
+                return ''.join(words[:i + 1]) == s
+        return False
 ```
 
 ### **Java**
@@ -61,7 +68,50 @@ s 可以由 "i"、"love" 和 "leetcode" 相连得到。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isPrefixString(String s, String[] words) {
+        StringBuilder t = new StringBuilder();
+        for (String w : words) {
+            t.append(w);
+            if (s.length() == t.length()) {
+                return s.equals(t.toString());
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPrefixString(string s, vector<string>& words) {
+        string t = "";
+        for (string& w : words)
+        {
+            t += w;
+            if (t.size() == s.size()) return t == s;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isPrefixString(s string, words []string) bool {
+	t := ""
+	for _, w := range words {
+		t += w
+		if t == s {
+			return true
+		}
+	}
+	return false
+}
 ```
 
 ### **...**
