@@ -1,18 +1,18 @@
 public class Solution {
     public int CountPrimes(int n) {
-        var count = 0;
-        var notPrime = new bool[n];
-        for (var i = 2; i < n; ++i)
+        var notPrimes = new bool[n];
+        int ans = 0;
+        for (int i = 2; i < n; ++i)
         {
-            if (!notPrime[i])
+            if (!notPrimes[i])
             {
-                ++count;
-                for (var j = i + i; j < n; j += i)
+                ++ans;
+                for (int j = i + i; j < n; j += i)
                 {
-                    notPrime[j] = true;
+                    notPrimes[j] = true;
                 }
             }
         }
-        return count;
+        return ans;
     }
 }

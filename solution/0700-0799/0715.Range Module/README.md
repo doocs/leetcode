@@ -264,7 +264,44 @@ class RangeModule {
 ### **C++**
 
 ```cpp
-class Node {
+template <class T>
+class CachedObj {
+public:
+    void *operator new(size_t s)
+    {
+        if (!head)
+        {
+            T *a = new T[SIZE];
+            for (size_t i = 0; i < SIZE; ++i)
+                add(a + i);
+        }
+        T *p = head;
+        head = head->CachedObj<T>::next;
+        return p;
+    }
+    void operator delete(void *p, size_t)
+    {
+        if (p) add(static_cast<T *>(p));
+    }
+    virtual ~CachedObj() {}
+
+protected:
+    T *next;
+
+private:
+    static T *head;
+    static const size_t SIZE;
+    static void add(T *p)
+    {
+        p->CachedObj<T>::next = head;
+        head = p;
+    }
+};
+template <class T>
+T *CachedObj<T>::head = 0;
+template <class T>
+const size_t CachedObj<T>::SIZE = 10000;
+class Node : public CachedObj<Node> {
 public:
     Node* left;
     Node* right;
@@ -336,15 +373,15 @@ public:
     RangeModule() {
         tree = new SegmentTree();
     }
-
+    
     void addRange(int left, int right) {
         tree->modify(left, right - 1, 1);
     }
-
+    
     bool queryRange(int left, int right) {
         return tree->query(left, right - 1);
     }
-
+    
     void removeRange(int left, int right) {
         tree->modify(left, right - 1, -1);
     }

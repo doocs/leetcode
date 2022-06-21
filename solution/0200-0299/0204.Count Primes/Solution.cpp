@@ -1,29 +1,16 @@
 class Solution {
- public:
-
-    vector<int> primes;
-
-    int isPrime(int num){
-
-        int i = 1;
-        while( i < primes.size() && sqrt(num) >= primes[i] ){
-            if( num % primes[i] == 0 ) return 0;
-            i++;
-        }
-        return 1;
-    }
-
+public:
     int countPrimes(int n) {
-
-        if( n <= 2 ) return 0;
-
-        primes.push_back(2);
-
-        for(int i = 3; i < n; i += 2){
-            if( isPrime(i) )
-                primes.push_back(i);
+        vector<bool> primes(n, true);
+        int ans = 0;
+        for (int i = 2; i < n; ++i)
+        {
+            if (primes[i])
+            {
+                ++ans;
+                for (int j = i; j < n; j += i) primes[j] = false;
+            }
         }
-
-        return primes.size();
+        return ans;
     }
 };

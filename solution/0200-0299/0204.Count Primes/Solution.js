@@ -1,31 +1,17 @@
-// 600ms多
-const countPrimes2 = function (n) {
-    let arr = [];
-    let res = 0;
-    for (let i = 2; i < n; i++) {
-        if (arr[i] === undefined) {
-            arr[i] = 1;
-            res++;
-            for (let j = 2; i * j < n; j++) {
-                arr[i * j] = 0;
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var countPrimes = function (n) {
+    let primes = new Array(n).fill(true);
+    let ans = 0;
+    for (let i = 2; i < n; ++i) {
+        if (primes[i]) {
+            ++ans;
+            for (let j = i + i; j < n; j += i) {
+                primes[j] = false;
             }
         }
     }
-    return res;
-};
-
-//200ms多
-const countPrimes = function (n) {
-    let arr = [];
-    let res = 0;
-    for (let i = 2; i < n; i++) {
-        if (arr[i] === undefined) {
-            arr[i] = 1;
-            res++;
-            for (let j = i; i * j < n; j++) {
-                arr[i * j] = 0;
-            }
-        }
-    }
-    return res;
+    return ans;
 };

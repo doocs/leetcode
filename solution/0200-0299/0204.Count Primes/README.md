@@ -44,11 +44,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-如果 x 是质数，那么大于 x 的 x 的倍数 2x,3x,… 一定不是质数，因此我们可以从这里入手。
+**方法一：埃氏筛**
 
-我们设 `primes[i]` 表示数 i 是不是质数，如果是质数则为 true，否则为 false。从小到大遍历每个数，如果这个数为质数，则将其所有的倍数都标记为合数（除了该质数本身），即 false，这样在运行结束的时候我们即能知道质数的个数。
+如果 $x$ 是质数，那么大于 $x$ 的 $x$ 的倍数 $2x$,$3x$,… 一定不是质数，因此我们可以从这里入手。
 
-对于一个质数 x，我们从 2x 开始标记其实是冗余的，应该直接从 x⋅x 开始标记，因为 2x,3x,… 这些数一定在 x 之前就被其他数的倍数标记过了，例如 2 的所有倍数，3 的所有倍数等。
+我们设 $primes[i]$ 表示数 $i$ 是不是质数，如果是质数则为 $true$，否则为 $false$。从小到大遍历每个数，如果这个数为质数，则将其所有的倍数都标记为合数（除了该质数本身），即 $false$，这样在运行结束的时候我们即能知道质数的个数。
+
+时间复杂度 $O(nloglogn)$。
 
 <!-- tabs:start -->
 
@@ -59,16 +61,14 @@
 ```python
 class Solution:
     def countPrimes(self, n: int) -> int:
-        if n < 2:
-            return 0
-        res = 0
-        primes = [True for _ in range(n)]
+        primes = [True] * n
+        ans = 0
         for i in range(2, n):
             if primes[i]:
-                res += 1
-                for j in range(i * i, n, i):
+                ans += 1
+                for j in range(i + i, n, i):
                     primes[j] = False
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -78,21 +78,105 @@ class Solution:
 ```java
 class Solution {
     public int countPrimes(int n) {
-        if (n < 2) return 0;
         boolean[] primes = new boolean[n];
         Arrays.fill(primes, true);
-        int res = 0;
+        int ans = 0;
         for (int i = 2; i < n; ++i) {
             if (primes[i]) {
-                ++res;
-                if ((long) i * i < n) {
-                    for (int j = i * i; j < n; j += i) {
-                        primes[j] = false;
-                    }
+                ++ans;
+                for (int j = i + i; j < n; j += i) {
+                    primes[j] = false;
                 }
             }
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<bool> primes(n, true);
+        int ans = 0;
+        for (int i = 2; i < n; ++i)
+        {
+            if (primes[i])
+            {
+                ++ans;
+                for (int j = i + i; j < n; j += i) primes[j] = false;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPrimes(n int) int {
+	primes := make([]bool, n)
+	for i := range primes {
+		primes[i] = true
+	}
+	ans := 0
+	for i := 2; i < n; i++ {
+		if primes[i] {
+			ans++
+			for j := i + i; j < n; j += i {
+				primes[j] = false
+			}
+		}
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var countPrimes = function (n) {
+    let primes = new Array(n).fill(true);
+    let ans = 0;
+    for (let i = 2; i < n; ++i) {
+        if (primes[i]) {
+            ++ans;
+            for (let j = i + i; j < n; j += i) {
+                primes[j] = false;
+            }
+        }
+    }
+    return ans;
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int CountPrimes(int n) {
+        var notPrimes = new bool[n];
+        int ans = 0;
+        for (int i = 2; i < n; ++i)
+        {
+            if (!notPrimes[i])
+            {
+                ++ans;
+                for (int j = i + i; j < n; j += i)
+                {
+                    notPrimes[j] = true;
+                }
+            }
+        }
+        return ans;
     }
 }
 ```
