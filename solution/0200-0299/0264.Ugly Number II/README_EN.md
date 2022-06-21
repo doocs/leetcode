@@ -41,6 +41,22 @@
 ```python
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
+        h = [1]
+        vis = {1}
+        ans = 1
+        for _ in range(n):
+            ans = heappop(h)
+            for v in [2, 3, 5]:
+                nxt = ans * v
+                if nxt not in vis:
+                    vis.add(nxt)
+                    heappush(h, nxt)
+        return ans
+```
+
+```python
+class Solution:
+    def nthUglyNumber(self, n: int) -> int:
         dp = [1] * n
         p2 = p3 = p5 = 0
         for i in range(1, n):
@@ -75,6 +91,29 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int nthUglyNumber(int n) {
+        Set<Long> vis = new HashSet<>();
+        PriorityQueue<Long> q = new PriorityQueue<>();
+        int[] f = new int[]{2, 3, 5};
+        q.offer(1L);
+        vis.add(1L);
+        long ans = 0;
+        while (n-- > 0) {
+            ans = q.poll();
+            for (int v : f) {
+                long next = ans * v;
+                if (vis.add(next)) {
+                    q.offer(next);
+                }
+            }
+        }
+        return (int) ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -96,29 +135,31 @@ public:
 };
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var nthUglyNumber = function (n) {
-    let dp = [1];
-    let p2 = 0,
-        p3 = 0,
-        p5 = 0;
-    for (let i = 1; i < n; ++i) {
-        const next2 = dp[p2] * 2,
-            next3 = dp[p3] * 3,
-            next5 = dp[p5] * 5;
-        dp[i] = Math.min(next2, Math.min(next3, next5));
-        if (dp[i] == next2) ++p2;
-        if (dp[i] == next3) ++p3;
-        if (dp[i] == next5) ++p5;
-        dp.push(dp[i]);
+```cpp
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        priority_queue<long, vector<long>, greater<long>> q;
+        q.push(1l);
+        unordered_set<long> vis{{1l}};
+        long ans = 1;
+        vector<int> f = {2, 3, 5};
+        while (n--)
+        {
+            ans = q.top();
+            q.pop();
+            for (int& v : f)
+            {
+                long nxt = ans * v;
+                if (!vis.count(nxt))
+                {
+                    vis.insert(nxt);
+                    q.push(nxt);
+                }
+            }
+        }
+        return (int) ans;
     }
-    return dp[n - 1];
 };
 ```
 
@@ -151,6 +192,69 @@ func min(a, b int) int {
     }
     return b
 }
+```
+
+```go
+func nthUglyNumber(n int) int {
+	h := IntHeap([]int{1})
+	heap.Init(&h)
+	ans := 1
+	vis := map[int]bool{1: true}
+	for n > 0 {
+		ans = heap.Pop(&h).(int)
+		for _, v := range []int{2, 3, 5} {
+			nxt := ans * v
+			if !vis[nxt] {
+				vis[nxt] = true
+				heap.Push(&h, nxt)
+			}
+		}
+		n--
+	}
+	return ans
+}
+
+type IntHeap []int
+
+func (h IntHeap) Len() int           { return len(h) }
+func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *IntHeap) Push(x interface{}) {
+	*h = append(*h, x.(int))
+}
+func (h *IntHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var nthUglyNumber = function (n) {
+    let dp = [1];
+    let p2 = 0,
+        p3 = 0,
+        p5 = 0;
+    for (let i = 1; i < n; ++i) {
+        const next2 = dp[p2] * 2,
+            next3 = dp[p3] * 3,
+            next5 = dp[p5] * 5;
+        dp[i] = Math.min(next2, Math.min(next3, next5));
+        if (dp[i] == next2) ++p2;
+        if (dp[i] == next3) ++p3;
+        if (dp[i] == next5) ++p5;
+        dp.push(dp[i]);
+    }
+    return dp[n - 1];
+};
 ```
 
 ### **C#**
