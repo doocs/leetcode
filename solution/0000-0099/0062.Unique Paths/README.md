@@ -58,9 +58,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划。
+**方法一：动态规划**
 
-假设 `dp[i][j]` 表示到达网格 `(i,j)` 的路径数，则 `dp[i][j] = dp[i - 1][j] + dp[i][j - 1]`。
+假设 `dp[i][j]` 表示到达网格 `(i, j)` 的路径数，则 `dp[i][j] = dp[i - 1][j] + dp[i][j - 1]`。
 
 <!-- tabs:start -->
 
@@ -150,6 +150,23 @@ func uniquePaths(m int, n int) int {
 		}
 	}
 	return dp[m-1][n-1]
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn unique_paths(m: i32, n: i32) -> i32 {
+        let (m, n) = (m as usize, n as usize);
+        let mut dp = vec![1; n];
+        for i in 1..m {
+            for j in 1..n {
+                dp[j] += dp[j - 1];
+            }
+        }
+        dp[n - 1]
+    }
 }
 ```
 
