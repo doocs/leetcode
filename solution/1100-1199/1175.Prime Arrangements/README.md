@@ -39,6 +39,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学**
+
+先统计 $[1,n]$ 范围内的质数个数，我们记为 $cnt$。然后求 $cnt$ 以及 $n-cnt$ 阶乘的乘积得到答案，注意取模操作。
+
+这里我们用“埃氏筛”统计质数。
+
+如果 $x$ 是质数，那么大于 $x$ 的 $x$ 的倍数 $2x$,$3x$,… 一定不是质数，因此我们可以从这里入手。
+
+我们设 $primes[i]$ 表示数 $i$ 是不是质数，如果是质数则为 $true$，否则为 $false$。从小到大遍历每个数，如果这个数为质数，则将其所有的倍数都标记为合数（除了该质数本身），即 $false$，这样在运行结束的时候我们即能知道质数的个数。
+
+时间复杂度 $O(nloglogn)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,7 +58,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def numPrimeArrangements(self, n: int) -> int:
+        def count(n):
+            cnt = 0
+            primes = [True] * (n + 1)
+            for i in range(2, n + 1):
+                if primes[i]:
+                    cnt += 1
+                    for j in range(i + i, n + 1, i):
+                        primes[j] = False
+            return cnt
 
+        cnt = count(n)
+        ans = factorial(cnt) * factorial(n - cnt)
+        return ans % (10**9 + 7)
 ```
 
 ### **Java**
@@ -54,7 +80,110 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int numPrimeArrangements(int n) {
+        int cnt = count(n);
+        long ans = f(cnt) * f(n - cnt);
+        return (int) (ans % MOD);
+    }
+
+    private long f(int n) {
+        long ans = 1;
+        for (int i = 2; i <= n; ++i) {
+            ans = (ans * i) % MOD;
+        }
+        return ans;
+    }
+
+    private int count(int n) {
+        int cnt = 0;
+        boolean[] primes = new boolean[n + 1];
+        Arrays.fill(primes, true);
+        for (int i = 2; i <= n; ++i) {
+            if (primes[i]) {
+                ++cnt;
+                for (int j = i + i; j <= n; j += i) {
+                    primes[j] = false;
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using ll = long long;
+const int MOD = 1e9 + 7;
+
+class Solution {
+public:
+    int numPrimeArrangements(int n) {
+        int cnt = count(n);
+        ll ans = f(cnt) * f(n - cnt);
+        return (int) (ans % MOD);
+    }
+
+    ll f(int n) {
+        ll ans = 1;
+        for (int i = 2; i <= n; ++i) ans = (ans * i) % MOD;
+        return ans;
+    }
+
+    int count(int n) {
+        vector<bool> primes(n + 1, true);
+        int cnt = 0;
+        for (int i = 2; i <= n; ++i)
+        {
+            if (primes[i])
+            {
+                ++cnt;
+                for (int j = i + i; j <= n; j += i) primes[j] = false;
+            }
+        }
+        return cnt;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numPrimeArrangements(n int) int {
+	count := func(n int) int {
+		cnt := 0
+		primes := make([]bool, n+1)
+		for i := range primes {
+			primes[i] = true
+		}
+		for i := 2; i <= n; i++ {
+			if primes[i] {
+				cnt++
+				for j := i + i; j <= n; j += i {
+					primes[j] = false
+				}
+			}
+		}
+		return cnt
+	}
+
+	mod := int(1e9) + 7
+	f := func(n int) int {
+		ans := 1
+		for i := 2; i <= n; i++ {
+			ans = (ans * i) % mod
+		}
+		return ans
+	}
+
+	cnt := count(n)
+	ans := f(cnt) * f(n-cnt)
+	return ans % mod
+}
 ```
 
 ### **...**
