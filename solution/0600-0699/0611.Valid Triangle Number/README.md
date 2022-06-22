@@ -46,9 +46,9 @@
 
 如果我们将边按从小到大顺序排列，即 `a < b < c`，那么显然 ②③ 成立，我们只需要确保 ① 也成立，就可以形成一个有效三角形。
 
-我们在 `[0, n-3]` 范围内枚举 i，在 `[i+1, n-2]` 范围内枚举 j，在 `[j+1, n-1]` 范围内进行二分查找，找出第一个大于等于 `nums[i]+nums[j]` 的下标 left，那么在 `[j+1, left-1]` 范围内的 k 满足条件，将其累加到结果 ans。
+我们在 `[0, n - 3]` 范围内枚举 i，在 `[i + 1, n - 2]` 范围内枚举 j，在 `[j + 1, n - 1]` 范围内进行二分查找，找出第一个大于等于 `nums[i] + nums[j]` 的下标 left，那么在 `[j + 1, left - 1]` 范围内的 k 满足条件，将其累加到结果 ans。
 
-时间复杂度 O(n²logn)。
+时间复杂度：$O(n²logn)$。
 
 <!-- tabs:start -->
 
@@ -184,6 +184,31 @@ public:
         return ans;
     }
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn triangle_number(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let mut res = 0;
+        for i in (2..n).rev() {
+            let mut left = 0;
+            let mut right = i - 1;
+            while left < right {
+                if nums[left] + nums[right] > nums[i] {
+                    res += right - left;
+                    right -= 1;
+                } else {
+                    left += 1;
+                }
+            }
+        }
+        res as i32
+    }
+}
 ```
 
 ### **...**

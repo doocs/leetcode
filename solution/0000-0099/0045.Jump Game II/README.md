@@ -45,7 +45,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-贪心。
+**方法一：动态规划**
+
+**方法二：贪心**
 
 <!-- tabs:start -->
 
@@ -147,6 +149,46 @@ public class Solution {
             }
         }
         return steps;
+    }
+}
+```
+
+### **C**
+
+```c
+#define min(a, b) a < b ? a : b
+int jump(int* nums, int numsSize){
+    int dp[numsSize];
+    for (int i = 0; i < numsSize; i++) {
+        dp[i] = numsSize;
+    }
+    dp[0] = 0;
+    for (int i = 0; i < numsSize - 1; i++) {
+        for (int j = i + 1; j < (min(i + nums[i] + 1, numsSize)); j++) {
+            dp[j] = min(dp[j], dp[i] + 1);
+        }
+    }
+    return dp[numsSize - 1];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn jump(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut dp = vec![i32::MAX; n];
+        dp[0] = 0;
+        for i in 0..n - 1 {
+            for j in 1..=nums[i] as usize {
+                if i + j >= n {
+                    break;
+                }
+                dp[i + j] = dp[i + j].min(dp[i] + 1);
+            }
+        }
+        dp[n - 1]
     }
 }
 ```
