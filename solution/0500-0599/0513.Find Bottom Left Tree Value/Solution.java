@@ -17,14 +17,11 @@ class Solution {
     public int findBottomLeftValue(TreeNode root) {
         Queue<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        int ans = -1;
+        int ans = 0;
         while (!q.isEmpty()) {
-            int n = q.size();
-            for (int i = 0; i < n; i++) {
+            ans = q.peek().val;
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
-                if (i == 0) {
-                    ans = node.val;
-                }
                 if (node.left != null) {
                     q.offer(node.left);
                 }
