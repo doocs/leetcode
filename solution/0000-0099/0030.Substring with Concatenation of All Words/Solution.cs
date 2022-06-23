@@ -1,9 +1,5 @@
-using System.Collections.Generic;
-
 public class Solution {
     public IList<int> FindSubstring(string s, string[] words) {
-        if (words.Length == 0) return new List<int>();
-        
         var wordsDict = new Dictionary<string, int>();
         foreach (var word in words)
         {

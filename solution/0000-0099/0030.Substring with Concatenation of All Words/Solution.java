@@ -1,56 +1,38 @@
 class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
-		
-        List<Integer> re = new ArrayList<>();
-
-        if(s == null || words == null || words.length == 0 || words[0] == null) {
-            return re;
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String w : words) {
+            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
         }
-        if(s.length() == 0 || words[0].length() == 0 || s.length() < words.length * words[0].length()) {
-            return re;
-        }
-		// 用< 单词，出现次数 > 来存储 words 中的元素，方便查找
-        HashMap<String,Integer> map = new HashMap();
-        for (String string : words) {
-            map.put(string, map.getOrDefault(string,0) + 1);
-        }
-        int len = words[0].length();
-        int strLen = s.length();
-        int lastStart = len * words.length - len;
-
-        for (int i = 0; i < len; i++) {
-            for (int j = i; j <= strLen - len - lastStart; j += len) {
-                String tempStr = s.substring(j, j + len);
-                if(map.containsKey(tempStr)) {                    
-                    HashMap<String,Integer> searched = new HashMap<>();
-					// 从后向前依次对比
-					int tempIndex = j + lastStart;
-                    String matchedStr = s.substring(tempIndex, tempIndex + len);
-                    while (tempIndex >= j && map.containsKey(matchedStr)) {
-                        // 正确匹配到单词
-                        if(searched.getOrDefault(matchedStr,0) < map.get(matchedStr)) {
-                            searched.put(matchedStr, searched.getOrDefault(matchedStr,0) + 1);
-                        }
-                        else {
-                            break;
-                        }
-                        tempIndex -= len;
-                        if(tempIndex < j) {
-                            break;
-                        }
-                        matchedStr = s.substring(tempIndex, tempIndex + len);
-                    }
-					// 完全匹配所以单词
-                    if(j > tempIndex) {
-                        re.add(j);
-                    }
-					// 从tempIndex 到 tempIndex + len 这个单词不能正确匹配
-                    else {
-                        j = tempIndex;
-                    }
+        int subLen = words[0].length();
+        int n = s.length(), m = words.length;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < subLen; ++i) {
+            Map<String, Integer> cnt1 = new HashMap<>();
+            int l = i, r = i;
+            int t = 0;
+            while (r + subLen <= n) {
+                String w = s.substring(r, r + subLen);
+                r += subLen;
+                if (!cnt.containsKey(w)) {
+                    l = r;
+                    cnt1.clear();
+                    t = 0;
+                    continue;
+                }
+                cnt1.put(w, cnt1.getOrDefault(w, 0) + 1);
+                ++t;
+                while (cnt1.get(w) > cnt.get(w)) {
+                    String remove = s.substring(l, l + subLen);
+                    l += subLen;
+                    cnt1.put(remove, cnt1.get(remove) - 1);
+                    --t;
+                }
+                if (m == t) {
+                    ans.add(l);
                 }
             }
         }
-        return re;
+        return ans;
     }
 }
