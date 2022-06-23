@@ -17,12 +17,12 @@ public:
         vector<int> ans;
         while (!q.empty())
         {
-            int t = INT_MIN;
-            for (int i = q.size(); i > 0; --i)
+            int t = q.front()->val;
+            for (int i = q.size(); i; --i)
             {
-                auto node = q.front();
-                q.pop();
+                TreeNode* node = q.front();
                 t = max(t, node->val);
+                q.pop();
                 if (node->left) q.push(node->left);
                 if (node->right) q.push(node->right);
             }

@@ -22,7 +22,7 @@ class Solution {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            int t = Integer.MIN_VALUE;
+            int t = q.peek().val;
             for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
                 t = Math.max(t, node.val);

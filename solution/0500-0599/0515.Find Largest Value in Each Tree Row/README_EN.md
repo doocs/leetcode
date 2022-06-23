@@ -43,13 +43,13 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def largestValues(self, root: TreeNode) -> List[int]:
+    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
             return []
         q = deque([root])
         ans = []
         while q:
-            t = float('-inf')
+            t = -inf
             for _ in range(len(q)):
                 node = q.popleft()
                 t = max(t, node.val)
@@ -58,6 +58,30 @@ class Solution:
                 if node.right:
                     q.append(node.right)
             ans.append(t)
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs(root, curr):
+            if root is None:
+                return
+            if curr == len(ans):
+                ans.append(root.val)
+            else:
+                ans[curr] = max(ans[curr], root.val)
+            dfs(root.left, curr + 1)
+            dfs(root.right, curr + 1)
+        
+        ans = []
+        dfs(root, 0)
         return ans
 ```
 
@@ -88,7 +112,7 @@ class Solution {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            int t = Integer.MIN_VALUE;
+            int t = q.peek().val;
             for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
                 t = Math.max(t, node.val);
@@ -102,6 +126,45 @@ class Solution {
             ans.add(t);
         }
         return ans;
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private List<Integer> ans = new ArrayList<>();
+
+    public List<Integer> largestValues(TreeNode root) {
+        dfs(root, 0);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int curr) {
+        if (root == null) {
+            return;
+        }
+        if (curr == ans.size()) {
+            ans.add(root.val);
+        } else {
+            ans.set(curr, Math.max(ans.get(curr), root.val));
+        }
+        dfs(root.left, curr + 1);
+        dfs(root.right, curr + 1);
     }
 }
 ```
@@ -128,18 +191,49 @@ public:
         vector<int> ans;
         while (!q.empty())
         {
-            int t = INT_MIN;
-            for (int i = q.size(); i > 0; --i)
+            int t = q.front()->val;
+            for (int i = q.size(); i; --i)
             {
-                auto node = q.front();
-                q.pop();
+                TreeNode* node = q.front();
                 t = max(t, node->val);
+                q.pop();
                 if (node->left) q.push(node->left);
                 if (node->right) q.push(node->right);
             }
             ans.push_back(t);
         }
         return ans;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> ans;
+
+    vector<int> largestValues(TreeNode* root) {
+        dfs(root, 0);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int curr) {
+        if (!root) return;
+        if (curr == ans.size()) ans.push_back(root->val);
+        else ans[curr] = max(ans[curr], root->val);
+        dfs(root->left, curr + 1);
+        dfs(root->right, curr + 1);
     }
 };
 ```
@@ -160,9 +254,9 @@ func largestValues(root *TreeNode) []int {
 	if root == nil {
 		return ans
 	}
-	var q = []*TreeNode{root}
+	q := []*TreeNode{root}
 	for len(q) > 0 {
-		t := math.MinInt32
+		t := q[0].Val
 		for i := len(q); i > 0; i-- {
 			node := q[0]
 			q = q[1:]
@@ -176,6 +270,42 @@ func largestValues(root *TreeNode) []int {
 		}
 		ans = append(ans, t)
 	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func largestValues(root *TreeNode) []int {
+	var ans []int
+	var dfs func(*TreeNode, int)
+	dfs = func(root *TreeNode, curr int) {
+		if root == nil {
+			return
+		}
+		if curr == len(ans) {
+			ans = append(ans, root.Val)
+		} else {
+			ans[curr] = max(ans[curr], root.Val)
+		}
+		dfs(root.Left, curr+1)
+		dfs(root.Right, curr+1)
+	}
+	dfs(root, 0)
 	return ans
 }
 
