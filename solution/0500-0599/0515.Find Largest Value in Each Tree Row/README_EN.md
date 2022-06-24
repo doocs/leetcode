@@ -317,6 +317,174 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function largestValues(root: TreeNode | null): number[] {
+    const res: number[] = [];
+    const queue: TreeNode[] = [];
+    if (root) {
+        queue.push(root);
+    }
+    while (queue.length) {
+        const n = queue.length;
+        let max = -Infinity;
+        for (let i = 0; i < n; i++) {
+            const { val, left, right } = queue.shift();
+            max = Math.max(max, val);
+            left && queue.push(left);
+            right && queue.push(right);
+        }
+        res.push(max);
+    }
+    return res;
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function largestValues(root: TreeNode | null): number[] {
+    const res = [];
+    const dfs = (root: TreeNode | null, depth: number) => {
+        if (root == null) {
+            return;
+        }
+        const { val, left, right } = root;
+        if (res.length == depth) {
+            res.push(val);
+        } else {
+            res[depth] = Math.max(res[depth], val);
+        }
+        dfs(left, depth + 1);
+        dfs(right, depth + 1);
+    };
+    dfs(root, 0);
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn largest_values(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut res = Vec::new();
+        let mut queue = VecDeque::new();
+        if root.is_some() {
+            queue.push_back(root.clone());
+        }
+        while !queue.is_empty() {
+            let mut max = i32::MIN;
+            for _ in 0..queue.len() {
+                let node = queue.pop_front().unwrap();
+                let node = node.as_ref().unwrap().borrow();
+                max = max.max(node.val);
+                if node.left.is_some() {
+                    queue.push_back(node.left.clone());
+                }
+                if node.right.is_some() {
+                    queue.push_back(node.right.clone());
+                }
+            }
+            res.push(max);
+        }
+        res
+    }
+}
+```
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, depth: usize, res: &mut Vec<i32>) {
+        if root.is_none() {
+            return;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        if res.len() == depth {
+            res.push(node.val);
+        } else {
+            res[depth] = res[depth].max(node.val);
+        }
+        Self::dfs(&node.left, depth + 1, res);
+        Self::dfs(&node.right, depth + 1, res);
+    }
+
+    pub fn largest_values(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut res = Vec::new();
+        Self::dfs(&root, 0, &mut res);
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
