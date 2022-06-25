@@ -1,5 +1,7 @@
 class Solution:
-    def minCostSetTime(self, startAt: int, moveCost: int, pushCost: int, targetSeconds: int) -> int:
+    def minCostSetTime(
+        self, startAt: int, moveCost: int, pushCost: int, targetSeconds: int
+    ) -> int:
         def f(m, s):
             if not 0 <= m < 100 or not 0 <= s < 100:
                 return inf
