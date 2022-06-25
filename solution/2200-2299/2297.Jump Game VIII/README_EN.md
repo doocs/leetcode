@@ -1,6 +1,6 @@
-# [2297. Jump Game IX](https://leetcode.com/problems/jump-game-ix)
+# [2297. Jump Game VIII](https://leetcode.com/problems/jump-game-viii)
 
-[中文文档](/solution/2200-2299/2297.Jump%20Game%20IX/README.md)
+[中文文档](/solution/2200-2299/2297.Jump%20Game%20VIII/README.md)
 
 ## Description
 
@@ -48,6 +48,7 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i], costs[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
 
 ## Solutions
 

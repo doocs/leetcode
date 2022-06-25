@@ -794,7 +794,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0783  |  [Minimum Distance Between BST Nodes](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Search Tree`,`Binary Tree`  |  Easy  |    |
 |  0784  |  [Letter Case Permutation](/solution/0700-0799/0784.Letter%20Case%20Permutation/README_EN.md)  |  `Bit Manipulation`,`String`,`Backtracking`  |  Medium  |    |
 |  0785  |  [Is Graph Bipartite](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`  |  Medium  |    |
-|  0786  |  [K-th Smallest Prime Fraction](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)  |  `Array`,`Binary Search`,`Heap (Priority Queue)`  |  Medium  |    |
+|  0786  |  [K-th Smallest Prime Fraction](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)  |  `Array`,`Binary Search`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0787  |  [Cheapest Flights Within K Stops](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Dynamic Programming`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0788  |  [Rotated Digits](/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Medium  |    |
 |  0789  |  [Escape The Ghosts](/solution/0700-0799/0789.Escape%20The%20Ghosts/README_EN.md)  |  `Array`,`Math`  |  Medium  |    |
@@ -1909,7 +1909,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1898  |  [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md)  |  `Array`,`String`,`Binary Search`  |  Medium  |  Weekly Contest 245  |
 |  1899  |  [Merge Triplets to Form Target Triplet](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 245  |
 |  1900  |  [The Earliest and Latest Rounds Where Players Compete](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md)  |  `Memoization`,`Dynamic Programming`  |  Hard  |  Weekly Contest 245  |
-|  1901  |  [Find a Peak Element II](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README_EN.md)  |  `Array`,`Binary Search`,`Divide and Conquer`,`Matrix`  |  Medium  |    |
+|  1901  |  [Find a Peak Element II](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README_EN.md)  |  `Array`,`Binary Search`,`Matrix`  |  Medium  |    |
 |  1902  |  [Depth of BST Given Insertion Order](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README_EN.md)  |  `Tree`,`Binary Search Tree`,`Binary Tree`,`Ordered Set`  |  Medium  |  🔒  |
 |  1903  |  [Largest Odd Number in String](/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README_EN.md)  |  `Greedy`,`Math`,`String`  |  Easy  |  Weekly Contest 246  |
 |  1904  |  [The Number of Full Rounds You Have Played](/solution/1900-1999/1904.The%20Number%20of%20Full%20Rounds%20You%20Have%20Played/README_EN.md)  |  `Math`,`String`  |  Medium  |  Weekly Contest 246  |
@@ -2305,6 +2305,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2294  |  [Partition Array Such That Maximum Difference Is K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 296  |
 |  2295  |  [Replace Elements in an Array](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Simulation`  |  Medium  |  Weekly Contest 296  |
 |  2296  |  [Design a Text Editor](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)  |  `Stack`,`Design`,`Linked List`,`String`,`Doubly-Linked List`,`Simulation`  |  Hard  |  Weekly Contest 296  |
+|  2297  |  [Jump Game VIII](/solution/2200-2299/2297.Jump%20Game%20VIII/README_EN.md)  |  `Stack`,`Graph`,`Array`,`Dynamic Programming`,`Shortest Path`,`Monotonic Stack`  |  Medium  |  🔒  |
 |  2298  |  [Tasks Count in the Weekend](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  2299  |  [Strong Password Checker II](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README_EN.md)  |  `String`  |  Easy  |  Biweekly Contest 80  |
 |  2300  |  [Successful Pairs of Spells and Potions](/solution/2300-2399/2300.Successful%20Pairs%20of%20Spells%20and%20Potions/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  Biweekly Contest 80  |
@@ -2314,12 +2315,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2304  |  [Minimum Path Cost in a Grid](/solution/2300-2399/2304.Minimum%20Path%20Cost%20in%20a%20Grid/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Weekly Contest 297  |
 |  2305  |  [Fair Distribution of Cookies](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Backtracking`,`Bitmask`  |  Medium  |  Weekly Contest 297  |
 |  2306  |  [Naming a Company](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`String`,`Enumeration`  |  Hard  |  Weekly Contest 297  |
-|  2307  |  [Check for Contradictions in Equations](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README_EN.md)  |    |  Hard  |  🔒  |
-|  2308  |  [Arrange Table by Gender](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README_EN.md)  |    |  Medium  |  🔒  |
-|  2309  |  [Greatest English Letter in Upper and Lower Case](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 298  |
-|  2310  |  [Sum of Numbers With Units Digit K](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 298  |
-|  2311  |  [Longest Binary Subsequence Less Than or Equal to K](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 298  |
-|  2312  |  [Selling Pieces of Wood](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)  |  `Backtracking`  |  Hard  |  Weekly Contest 298  |
+|  2307  |  [Check for Contradictions in Equations](/solution/2300-2399/2307.Check%20for%20Contradictions%20in%20Equations/README_EN.md)  |  `Depth-First Search`,`Union Find`,`Graph`,`Array`  |  Hard  |  🔒  |
+|  2308  |  [Arrange Table by Gender](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2309  |  [Greatest English Letter in Upper and Lower Case](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README_EN.md)  |  `Hash Table`,`String`,`Enumeration`  |  Easy  |  Weekly Contest 298  |
+|  2310  |  [Sum of Numbers With Units Digit K](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md)  |  `Greedy`,`Math`,`Dynamic Programming`,`Enumeration`  |  Medium  |  Weekly Contest 298  |
+|  2311  |  [Longest Binary Subsequence Less Than or Equal to K](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |  `Greedy`,`Memoization`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 298  |
+|  2312  |  [Selling Pieces of Wood](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)  |  `Memoization`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 298  |
+|  2313  |  [Minimum Flips in Binary Tree to Get Result](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md)  |    |  Hard  |  🔒  |
+|  2314  |  [The First Day of the Maximum Recorded Degree in Each City](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

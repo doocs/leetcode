@@ -50,7 +50,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countEven(self, num: int) -> int:
+        ans = 0
+        for i in range(1, num + 1):
+            t = 0
+            while i:
+                t += i % 10
+                i //= 10
+            if t % 2 == 0:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -58,7 +68,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countEven(int num) {
+        int ans = 0;
+        for (int i = 1; i <= num; ++i) {
+            int j = i, t = 0;
+            while (j > 0) {
+                t += j % 10;
+                j /= 10;
+            }
+            if (t % 2 == 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -72,6 +97,42 @@ function countEven(num: number): number {
         }
     }
     return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countEven(int num) {
+        int ans = 0;
+        for (int i = 1; i <= num; ++i)
+        {
+            int t = 0;
+            for (int j = i; j; j /= 10) t += j % 10;
+            if (t % 2 == 0) ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countEven(num int) int {
+	ans := 0
+	for i := 1; i <= num; i++ {
+		t := 0
+		for j := i; j > 0; j /= 10 {
+			t += j % 10
+		}
+		if t%2 == 0 {
+			ans++
+		}
+	}
+	return ans
 }
 ```
 

@@ -53,6 +53,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 双指针**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +62,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def repeatLimitedString(self, s: str, repeatLimit: int) -> str:
+        cnt = [0] * 26
+        for c in s:
+            cnt[ord(c) - ord('a')] += 1
+        ans = []
+        for i in range(25, -1, -1):
+            j = i - 1
+            while 1:
+                for _ in range(min(repeatLimit, cnt[i])):
+                    cnt[i] -= 1
+                    ans.append(chr(ord('a') + i))
+                if cnt[i] == 0:
+                    break
+                while j >= 0 and cnt[j] == 0:
+                    j -= 1
+                if j < 0:
+                    break
+                cnt[j] -= 1
+                ans.append(chr(ord('a') + j))
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -68,7 +90,107 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String repeatLimitedString(String s, int repeatLimit) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            cnt[c - 'a']++;
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 25; i >= 0; --i) {
+            int j = i - 1;
+            while (true) {
+                for (int k = Math.min(repeatLimit, cnt[i]); k > 0; --k) {
+                    cnt[i]--;
+                    ans.append((char) ('a' + i));
+                }
+                if (cnt[i] == 0) {
+                    break;
+                }
+                while (j >= 0 && cnt[j] == 0) {
+                    --j;
+                }
+                if (j < 0) {
+                    break;
+                }
+                cnt[j]--;
+                ans.append((char) ('a' + j));
+            }
+        }
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string repeatLimitedString(string s, int repeatLimit) {
+        vector<int> cnt(26);
+        for (char& c : s) cnt[c - 'a']++;
+        string ans;
+        for (int i = 25; ~i; --i)
+        {
+            int j = i - 1;
+            while (true)
+            {
+                for (int k = min(cnt[i], repeatLimit); k; --k)
+                {
+                    cnt[i]--;
+                    ans.push_back('a' + i);
+                }
+                if (cnt[i] == 0) break;
+                while (~j && cnt[j] == 0) --j;
+                if (j < 0) break;
+                cnt[j]--;
+                ans.push_back('a' + j);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func repeatLimitedString(s string, repeatLimit int) string {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	var ans []byte
+	for i := 25; i >= 0; i-- {
+		j := i - 1
+		for {
+			for k := min(cnt[i], repeatLimit); k > 0; k-- {
+				cnt[i]--
+				ans = append(ans, 'a'+byte(i))
+			}
+			if cnt[i] == 0 {
+				break
+			}
+			for j >= 0 && cnt[j] == 0 {
+				j--
+			}
+			if j < 0 {
+				break
+			}
+			cnt[j]--
+			ans = append(ans, 'a'+byte(j))
+		}
+	}
+	return string(ans)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
