@@ -50,6 +50,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+对每个栈求前缀和 $s$，$s_i$ 视为一个体积为 $i$ 且价值为 $s_i$ 的物品。
+
+问题转化为求从 $n$ 个物品组中取物品体积为 $k$，且每组最多取一个物品时的最大价值和。
+
+定义 $dp[i][j]$ 表示从前 $i$ 个组中取体积之和为 $j$ 的物品时的最大价值和。
+
+枚举第 $i$ 组所有物品，设当前物品体积为 $w$，价值为 $v$，则有 $f[i][j]=max(f[i][j],f[i-1][j-w]+v)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +67,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
+        presum = [list(accumulate(p, initial=0)) for p in piles]
+        n = len(piles)
+        dp = [[0] * (k + 1) for _ in range(n + 1)]
+        for i, s in enumerate(presum, 1):
+            for j in range(k + 1):
+                for idx, v in enumerate(s):
+                    if j >= idx:
+                        dp[i][j] = max(dp[i][j], dp[i - 1][j - idx] + v)
+        return dp[-1][-1]
+```
 
+```python
+class Solution:
+    def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
+        presum = [list(accumulate(p, initial=0)) for p in piles]
+        dp = [0] * (k + 1)
+        for s in presum:
+            for j in range(k, -1, -1):
+                for idx, v in enumerate(s):
+                    if j >= idx:
+                        dp[j] = max(dp[j], dp[j - idx] + v)
+        return dp[-1]
 ```
 
 ### **Java**
@@ -65,7 +98,95 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxValueOfCoins(List<List<Integer>> piles, int k) {
+        int n = piles.size();
+        List<int[]> presum = new ArrayList<>();
+        for (List<Integer> p : piles) {
+            int m = p.size();
+            int[] s = new int[m + 1];
+            for (int i = 0; i < m; ++i) {
+                s[i + 1] = s[i] + p.get(i);
+            }
+            presum.add(s);
+        }
+        int[] dp = new int[k + 1];
+        for (int[] s : presum) {
+            for (int j = k; j >= 0; --j) {
+                for (int idx = 0; idx < s.length; ++idx) {
+                    if (j >= idx) {
+                        dp[j] = Math.max(dp[j], dp[j - idx] + s[idx]);
+                    }
+                }
+            }
+        }
+        return dp[k];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxValueOfCoins(vector<vector<int>>& piles, int k) {
+        vector<vector<int>> presum;
+        for (auto& p : piles)
+        {
+            int m = p.size();
+            vector<int> s(m + 1);
+            for (int i = 0; i < m; ++i) s[i + 1] = s[i] + p[i];
+            presum.push_back(s);
+        }
+        vector<int> dp(k + 1);
+        for (auto& s : presum)
+        {
+            for (int j = k; ~j; --j)
+            {
+                for (int idx = 0; idx < s.size(); ++idx)
+                {
+                    if (j >= idx) dp[j] = max(dp[j], dp[j - idx] + s[idx]);
+                }
+            }
+        }
+        return dp[k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxValueOfCoins(piles [][]int, k int) int {
+	var presum [][]int
+	for _, p := range piles {
+		m := len(p)
+		s := make([]int, m+1)
+		for i, v := range p {
+			s[i+1] = s[i] + v
+		}
+		presum = append(presum, s)
+	}
+	dp := make([]int, k+1)
+	for _, s := range presum {
+		for j := k; j >= 0; j-- {
+			for idx, v := range s {
+				if j >= idx {
+					dp[j] = max(dp[j], dp[j-idx]+v)
+				}
+			}
+		}
+	}
+	return dp[k]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

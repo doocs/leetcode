@@ -116,6 +116,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Last Stone Weight II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md) - `0-1 Knapsack problem`
 -   [Coin Change](/solution/0300-0399/0322.Coin%20Change/README_EN.md) - `Unbounded Knapsack problem`
 -   [Combination Sum IV](/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md) - `Unbounded Knapsack problem`
+-   [Maximum Value of K Coins From Piles](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README_EN.md) - `Group Knapsack problem`
 
 ### 5. Advanced Data Structures
 

@@ -47,13 +47,124 @@ The maximum total we can obtain is 101.
 ### **Python3**
 
 ```python
+class Solution:
+    def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
+        presum = [list(accumulate(p, initial=0)) for p in piles]
+        n = len(piles)
+        dp = [[0] * (k + 1) for _ in range(n + 1)]
+        for i, s in enumerate(presum, 1):
+            for j in range(k + 1):
+                for idx, v in enumerate(s):
+                    if j >= idx:
+                        dp[i][j] = max(dp[i][j], dp[i - 1][j - idx] + v)
+        return dp[-1][-1]
+```
 
+```python
+class Solution:
+    def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
+        presum = [list(accumulate(p, initial=0)) for p in piles]
+        dp = [0] * (k + 1)
+        for s in presum:
+            for j in range(k, -1, -1):
+                for idx, v in enumerate(s):
+                    if j >= idx:
+                        dp[j] = max(dp[j], dp[j - idx] + v)
+        return dp[-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxValueOfCoins(List<List<Integer>> piles, int k) {
+        int n = piles.size();
+        List<int[]> presum = new ArrayList<>();
+        for (List<Integer> p : piles) {
+            int m = p.size();
+            int[] s = new int[m + 1];
+            for (int i = 0; i < m; ++i) {
+                s[i + 1] = s[i] + p.get(i);
+            }
+            presum.add(s);
+        }
+        int[] dp = new int[k + 1];
+        for (int[] s : presum) {
+            for (int j = k; j >= 0; --j) {
+                for (int idx = 0; idx < s.length; ++idx) {
+                    if (j >= idx) {
+                        dp[j] = Math.max(dp[j], dp[j - idx] + s[idx]);
+                    }
+                }
+            }
+        }
+        return dp[k];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxValueOfCoins(vector<vector<int>>& piles, int k) {
+        vector<vector<int>> presum;
+        for (auto& p : piles)
+        {
+            int m = p.size();
+            vector<int> s(m + 1);
+            for (int i = 0; i < m; ++i) s[i + 1] = s[i] + p[i];
+            presum.push_back(s);
+        }
+        vector<int> dp(k + 1);
+        for (auto& s : presum)
+        {
+            for (int j = k; ~j; --j)
+            {
+                for (int idx = 0; idx < s.size(); ++idx)
+                {
+                    if (j >= idx) dp[j] = max(dp[j], dp[j - idx] + s[idx]);
+                }
+            }
+        }
+        return dp[k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxValueOfCoins(piles [][]int, k int) int {
+	var presum [][]int
+	for _, p := range piles {
+		m := len(p)
+		s := make([]int, m+1)
+		for i, v := range p {
+			s[i+1] = s[i] + v
+		}
+		presum = append(presum, s)
+	}
+	dp := make([]int, k+1)
+	for _, s := range presum {
+		for j := k; j >= 0; j-- {
+			for idx, v := range s {
+				if j >= idx {
+					dp[j] = max(dp[j], dp[j-idx]+v)
+				}
+			}
+		}
+	}
+	return dp[k]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

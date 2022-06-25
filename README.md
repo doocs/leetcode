@@ -120,6 +120,7 @@
 -   [最后一块石头的重量 II](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md) - `0-1 背包问题`
 -   [零钱兑换](/solution/0300-0399/0322.Coin%20Change/README.md) - `完全背包问题`
 -   [组合总和 Ⅳ](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md) - `完全背包问题`
+-   [从栈中取出 K 个硬币的最大面值和](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md) - `分组背包问题`
 <!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
 ### 5. 高级数据结构
