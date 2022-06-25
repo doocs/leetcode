@@ -126,6 +126,40 @@ func min(x, y int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minCost(costs: number[][]): number {
+    let [r, g, b] = [0, 0, 0];
+    for (const [_r, _g, _b] of costs) {
+        [r, g, b] = [
+            _r + Math.min(g, b),
+            _g + Math.min(r, b),
+            _b + Math.min(r, g),
+        ];
+    }
+    return Math.min(r, g, b);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_cost(costs: Vec<Vec<i32>>) -> i32 {
+        let mut dp = [0, 0, 0];
+        for cost in costs.iter() {
+            dp = [
+                cost[0] + dp[1].min(dp[2]),
+                cost[1] + dp[0].min(dp[2]),
+                cost[2] + dp[0].min(dp[1]),
+            ];
+        }
+        *dp.iter().min().unwrap()
+    }
+}
+```
+
 ### **...**
 
 ```
