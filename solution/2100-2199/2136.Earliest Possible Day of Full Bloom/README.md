@@ -66,6 +66,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序**
+
+生长时间越长的种子，越先播种，因此将 $growTime$ 降序排列。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,7 +77,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def earliestFullBloom(self, plantTime: List[int], growTime: List[int]) -> int:
+        ans = t = 0
+        for a, b in sorted(zip(plantTime, growTime), key=lambda x: -x[1]):
+            t += a
+            ans = max(ans, t + b)
+        return ans
 ```
 
 ### **Java**
@@ -81,7 +91,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int earliestFullBloom(int[] plantTime, int[] growTime) {
+        int n = plantTime.length;
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[]{plantTime[i], growTime[i]};
+        }
+        Arrays.sort(arr, (a, b) -> b[1] - a[1]);
+        int ans = 0;
+        int t = 0;
+        for (int[] e : arr) {
+            t += e[0];
+            ans = Math.max(ans, t + e[1]);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int earliestFullBloom(vector<int>& plantTime, vector<int>& growTime) {
+        int n = plantTime.size();
+        vector<pair<int, int>> arr;
+        for (int i = 0; i < n; ++i) arr.push_back({-growTime[i], plantTime[i]});
+        sort(arr.begin(), arr.end());
+        int ans = 0, t = 0;
+        for (auto [a, b] : arr)
+        {
+            t += b;
+            ans = max(ans, t - a);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func earliestFullBloom(plantTime []int, growTime []int) int {
+	arr := [][]int{}
+	for i, a := range plantTime {
+		arr = append(arr, []int{a, growTime[i]})
+	}
+	sort.Slice(arr, func(i, j int) bool {
+		return arr[i][1] > arr[j][1]
+	})
+	ans, t := 0, 0
+	for _, e := range arr {
+		t += e[0]
+		ans = max(ans, t+e[1])
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
