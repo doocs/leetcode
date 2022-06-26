@@ -2325,6 +2325,14 @@
 |  2312  |  [卖木头块](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)  |  `记忆化搜索`,`数组`,`动态规划`  |  困难  |  第 298 场周赛  |
 |  2313  |  [Minimum Flips in Binary Tree to Get Result](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README.md)  |    |  困难  |  🔒  |
 |  2314  |  [The First Day of the Maximum Recorded Degree in Each City](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README.md)  |    |  中等  |  🔒  |
+|  2315  |  [统计星号](/solution/2300-2399/2315.Count%20Asterisks/README.md)  |    |  简单  |  第 81 场双周赛  |
+|  2316  |  [统计无向图中无法互相到达点对数](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README.md)  |    |  中等  |  第 81 场双周赛  |
+|  2317  |  [操作后的最大异或和](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README.md)  |    |  中等  |  第 81 场双周赛  |
+|  2318  |  [不同骰子序列的数目](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md)  |    |  困难  |  第 81 场双周赛  |
+|  2319  |  [判断矩阵是否是一个 X 矩阵](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md)  |    |  简单  |  第 299 场周赛  |
+|  2320  |  [统计放置房子的方式数](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README.md)  |    |  中等  |  第 299 场周赛  |
+|  2321  |  [拼接数组的最大分数](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md)  |  `动态规划`  |  困难  |  第 299 场周赛  |
+|  2322  |  [从树中删除边的最小分数](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)  |    |  困难  |  第 299 场周赛  |
 
 ## 版权
 

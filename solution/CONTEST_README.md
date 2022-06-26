@@ -9,6 +9,22 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 299 场周赛(2022-06-26 10:30, 90 分钟)
+
+- [2319. 判断矩阵是否是一个 X 矩阵](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md)
+- [2320. 统计放置房子的方式数](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README.md)
+- [2321. 拼接数组的最大分数](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md)
+- [2322. 从树中删除边的最小分数](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)
+
+
+#### 第 81 场双周赛(2022-06-25 22:30, 90 分钟)
+
+- [2315. 统计星号](/solution/2300-2399/2315.Count%20Asterisks/README.md)
+- [2316. 统计无向图中无法互相到达点对数](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README.md)
+- [2317. 操作后的最大异或和](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README.md)
+- [2318. 不同骰子序列的数目](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md)
+
+
 #### 第 298 场周赛(2022-06-19 10:30, 90 分钟)
 
 - [2309. 兼具大小写的最好英文字母](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README.md)

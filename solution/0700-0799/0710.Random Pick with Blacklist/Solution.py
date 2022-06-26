@@ -1,5 +1,4 @@
 class Solution:
-
     def __init__(self, n: int, blacklist: List[int]):
         self.k = n - len(blacklist)
         self.d = {}

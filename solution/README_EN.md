@@ -2323,6 +2323,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2312  |  [Selling Pieces of Wood](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)  |  `Memoization`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 298  |
 |  2313  |  [Minimum Flips in Binary Tree to Get Result](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md)  |    |  Hard  |  🔒  |
 |  2314  |  [The First Day of the Maximum Recorded Degree in Each City](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md)  |    |  Medium  |  🔒  |
+|  2315  |  [Count Asterisks](/solution/2300-2399/2315.Count%20Asterisks/README_EN.md)  |    |  Easy  |  Biweekly Contest 81  |
+|  2316  |  [Count Unreachable Pairs of Nodes in an Undirected Graph](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README_EN.md)  |    |  Medium  |  Biweekly Contest 81  |
+|  2317  |  [Maximum XOR After Operations](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md)  |    |  Medium  |  Biweekly Contest 81  |
+|  2318  |  [Number of Distinct Roll Sequences](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README_EN.md)  |    |  Hard  |  Biweekly Contest 81  |
+|  2319  |  [Check if Matrix Is X-Matrix](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md)  |    |  Easy  |  Weekly Contest 299  |
+|  2320  |  [Count Number of Ways to Place Houses](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md)  |    |  Medium  |  Weekly Contest 299  |
+|  2321  |  [Maximum Score Of Spliced Array](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)  |  `Dynamic Programming`  |  Hard  |  Weekly Contest 299  |
+|  2322  |  [Minimum Score After Removals on a Tree](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 299  |
 
 ## Copyright
 

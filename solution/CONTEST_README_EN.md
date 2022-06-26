@@ -9,6 +9,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 299
+
+- [2319. Check if Matrix Is X-Matrix](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md)
+- [2320. Count Number of Ways to Place Houses](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md)
+- [2321. Maximum Score Of Spliced Array](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)
+- [2322. Minimum Score After Removals on a Tree](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)
+
+
+#### Biweekly Contest 81
+
+- [2315. Count Asterisks](/solution/2300-2399/2315.Count%20Asterisks/README_EN.md)
+- [2316. Count Unreachable Pairs of Nodes in an Undirected Graph](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README_EN.md)
+- [2317. Maximum XOR After Operations](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md)
+- [2318. Number of Distinct Roll Sequences](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README_EN.md)
+
+
 #### Weekly Contest 298
 
 - [2309. Greatest English Letter in Upper and Lower Case](/solution/2300-2399/2309.Greatest%20English%20Letter%20in%20Upper%20and%20Lower%20Case/README_EN.md)
