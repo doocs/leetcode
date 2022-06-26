@@ -55,13 +55,144 @@ solution.pick(); // return 4
 ### **Python3**
 
 ```python
+class Solution:
 
+    def __init__(self, n: int, blacklist: List[int]):
+        self.k = n - len(blacklist)
+        self.d = {}
+        i = self.k
+        black = set(blacklist)
+        for b in blacklist:
+            if b < self.k:
+                while i in black:
+                    i += 1
+                self.d[b] = i
+                i += 1
+
+    def pick(self) -> int:
+        x = randrange(self.k)
+        return self.d.get(x, x)
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(n, blacklist)
+# param_1 = obj.pick()
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private Map<Integer, Integer> d = new HashMap<>();
+    private Random rand = new Random();
+    private int k;
 
+    public Solution(int n, int[] blacklist) {
+        k = n - blacklist.length;
+        int i = k;
+        Set<Integer> black = new HashSet<>();
+        for (int b : blacklist) {
+            black.add(b);
+        }
+        for (int b : blacklist) {
+            if (b < k) {
+                while (black.contains(i)) {
+                    ++i;
+                }
+                d.put(b, i++);
+            }
+        }
+    }
+    
+    public int pick() {
+        int x = rand.nextInt(k);
+        return d.getOrDefault(x, x);
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(n, blacklist);
+ * int param_1 = obj.pick();
+ */
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    unordered_map<int, int> d;
+    int k;
+
+    Solution(int n, vector<int>& blacklist) {
+        k = n - blacklist.size();
+        int i = k;
+        unordered_set<int> black(blacklist.begin(), blacklist.end());
+        for (int& b : blacklist)
+        {
+            if (b < k)
+            {
+                while (black.count(i)) ++i;
+                d[b] = i++;
+            }
+        }
+    }
+    
+    int pick() {
+        int x = rand() % k;
+        return d.count(x) ? d[x] : x;
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(n, blacklist);
+ * int param_1 = obj->pick();
+ */
+```
+
+### **Go**
+
+```go
+type Solution struct {
+	d map[int]int
+	k int
+}
+
+func Constructor(n int, blacklist []int) Solution {
+	k := n - len(blacklist)
+	i := k
+	black := map[int]bool{}
+	for _, b := range blacklist {
+		black[b] = true
+	}
+	d := map[int]int{}
+	for _, b := range blacklist {
+		if b < k {
+			for black[i] {
+				i++
+			}
+			d[b] = i
+			i++
+		}
+	}
+	return Solution{d, k}
+}
+
+func (this *Solution) Pick() int {
+	x := rand.Intn(this.k)
+	if v, ok := this.d[x]; ok {
+		return v
+	}
+	return x
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * obj := Constructor(n, blacklist);
+ * param_1 := obj.Pick();
+ */
 ```
 
 ### **...**
