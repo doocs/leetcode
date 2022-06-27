@@ -65,13 +65,88 @@ Since friend 0 sat on chair 2, we return 2.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
+        n = len(times)
+        h = list(range(n))
+        heapify(h)
+        for i in range(n):
+            times[i].append(i)
+        times.sort()
+        busy = []
+        for a, b, i in times:
+            while busy and busy[0][0] <= a:
+                heappush(h, heappop(busy)[1])
+            c = heappop(h)
+            if i == targetFriend:
+                return c
+            heappush(busy, (b, c))
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int smallestChair(int[][] times, int targetFriend) {
+        int n = times.length;
+        int[][] ts = new int[n][3];
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        PriorityQueue<int[]> busy = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        for (int i = 0; i < n; ++i) {
+            ts[i] = new int[]{times[i][0], times[i][1], i};
+            q.offer(i);
+        }
+        Arrays.sort(ts, (a, b) -> a[0] - b[0]);
+        for (int[] t : ts) {
+            int a = t[0], b = t[1], i = t[2];
+            while (!busy.isEmpty() && busy.peek()[0] <= a) {
+                q.offer(busy.poll()[1]);
+            }
+            int c = q.poll();
+            if (i == targetFriend) {
+                return c;
+            }
+            busy.offer(new int[]{b, c});
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    int smallestChair(vector<vector<int>>& times, int targetFriend) {
+        priority_queue<int, vector<int>, greater<int>> q;
+        priority_queue<pii, vector<pii>, greater<pii>> busy;
+        int n = times.size();
+        for (int i = 0; i < n; ++i)
+        {
+            times[i].push_back(i);
+            q.push(i);
+        }
+        sort(times.begin(), times.end());
+        for (auto& t : times)
+        {
+            int a = t[0], b = t[1], i = t[2];
+            while (!busy.empty() && busy.top().first <= a)
+            {
+                q.push(busy.top().second);
+                busy.pop();
+            }
+            int c = q.top();
+            q.pop();
+            if (i == targetFriend) return c;
+            busy.push({b, c});
+        }
+        return -1;
+    }
+};
 ```
 
 ### **...**
