@@ -1,18 +1,17 @@
 class Solution {
     public boolean areOccurrencesEqual(String s) {
-        int[] counter = new int[26];
+        int[] cnt = new int[26];
         for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+            ++cnt[c - 'a'];
         }
-        int cnt = -1;
-        for (int i = 0; i < 26; ++i) {
-            if (counter[i] == 0) {
+        int t = 0;
+        for (int v : cnt) {
+            if (v == 0) {
                 continue;
             }
-
-            if (cnt == -1) {
-                cnt = counter[i];
-            } else if (cnt != counter[i]) {
+            if (t == 0) {
+                t = v;
+            } else if (t != v) {
                 return false;
             }
         }

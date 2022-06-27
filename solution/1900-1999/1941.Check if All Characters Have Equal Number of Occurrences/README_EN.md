@@ -43,14 +43,8 @@
 ```python
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
-        counter = Counter(s)
-        cnt = -1
-        for c, times in counter.items():
-            if cnt == -1:
-                cnt = times
-            elif cnt != times:
-                return False
-        return True
+        cnt = Counter(s)
+        return len(set(cnt.values())) == 1
 ```
 
 ### **Java**
@@ -58,24 +52,57 @@ class Solution:
 ```java
 class Solution {
     public boolean areOccurrencesEqual(String s) {
-        int[] counter = new int[26];
+        int[] cnt = new int[26];
         for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+            ++cnt[c - 'a'];
         }
-        int cnt = -1;
-        for (int i = 0; i < 26; ++i) {
-            if (counter[i] == 0) {
+        int t = 0;
+        for (int v : cnt) {
+            if (v == 0) {
                 continue;
             }
-
-            if (cnt == -1) {
-                cnt = counter[i];
-            } else if (cnt != counter[i]) {
+            if (t == 0) {
+                t = v;
+            } else if (t != v) {
                 return false;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool areOccurrencesEqual(string s) {
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        unordered_set<int> ss;
+        for (int& v : cnt) if (v) ss.insert(v);
+        return ss.size() == 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func areOccurrencesEqual(s string) bool {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	ss := map[int]bool{}
+	for _, v := range cnt {
+		if v == 0 {
+			continue
+		}
+		ss[v] = true
+	}
+	return len(ss) == 1
 }
 ```
 
