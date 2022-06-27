@@ -47,13 +47,105 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def checkMove(self, board: List[List[str]], rMove: int, cMove: int, color: str) -> bool:
+        dirs = [(1, 0), (0, 1), (-1, 0), (0, -1),
+                (1, 1), (1, -1), (-1, 1), (-1, -1)]
+        n = 8
+        for a, b in dirs:
+            i, j = rMove, cMove
+            t = 0
+            while 0 <= i + a < n and 0 <= j + b < n:
+                t += 1
+                i, j = i + a, j + b
+                if board[i][j] in ['.', color]:
+                    break
+            if board[i][j] == color and t > 1:
+                return True
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int[][] DIRS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+    private static final int N = 8;
 
+    public boolean checkMove(char[][] board, int rMove, int cMove, char color) {
+        for (int[] d : DIRS) {
+            int i = rMove, j = cMove;
+            int t = 0;
+            int a = d[0], b = d[1];
+            while (0 <= i + a && i + a < N && 0 <= j + b && j + b < N) {
+                ++t;
+                i += a;
+                j += b;
+                if (board[i][j] == '.' || board[i][j] == color) {
+                    break;
+                }
+            }
+            if (board[i][j] == color && t > 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+    int n = 8;
+
+    bool checkMove(vector<vector<char>>& board, int rMove, int cMove, char color) {
+        for (auto& d : dirs)
+        {
+            int a = d[0], b = d[1];
+            int i = rMove, j = cMove;
+            int t = 0;
+            while (0 <= i + a && i + a < n && 0 <= j + b && j + b < n)
+            {
+                ++t;
+                i += a;
+                j += b;
+                if (board[i][j] == '.' || board[i][j] == color) break;
+            }
+            if (board[i][j] == color && t > 1) return true;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
+	dirs := [8][2]int{{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
+	n := 8
+	for _, d := range dirs {
+		a, b := d[0], d[1]
+		i, j := rMove, cMove
+		t := 0
+		for 0 <= i+a && i+a < n && 0 <= j+b && j+b < n {
+			t++
+			i += a
+			j += b
+			if board[i][j] == '.' || board[i][j] == color {
+				break
+			}
+		}
+		if board[i][j] == color && t > 1 {
+			return true
+		}
+	}
+	return false
+}
 ```
 
 ### **...**

@@ -55,13 +55,66 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def makeFancyString(self, s: str) -> str:
+        ans = []
+        for c in s:
+            if len(ans) > 1 and ans[-1] == ans[-2] == c:
+                continue
+            ans.append(c)
+        return ''.join(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String makeFancyString(String s) {
+        StringBuilder ans = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            int n = ans.length();
+            if (n > 1 && ans.charAt(n - 1) == c && ans.charAt(n - 2) == c) {
+                continue;
+            }
+            ans.append(c);
+        }
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string makeFancyString(string s) {
+        string ans = "";
+        for (char& c : s)
+        {
+            int n = ans.size();
+            if (n > 1 && ans[n - 1] == c && ans[n - 2] == c) continue;
+            ans.push_back(c);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func makeFancyString(s string) string {
+	ans := []rune{}
+	for _, c := range s {
+		n := len(ans)
+		if n > 1 && ans[n-1] == c && ans[n-2] == c {
+			continue
+		}
+		ans = append(ans, c)
+	}
+	return string(ans)
+}
 ```
 
 ### **...**
