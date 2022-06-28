@@ -57,6 +57,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +66,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSpaceWastedKResizing(self, nums: List[int], k: int) -> int:
+        k += 1
+        n = len(nums)
+        g = [[0] * n for _ in range(n)]
+        for i in range(n):
+            s = mx = 0
+            for j in range(i, n):
+                s += nums[j]
+                mx = max(mx, nums[j])
+                g[i][j] = mx * (j - i + 1) - s
+        f = [[inf] * (k + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i in range(1, n + 1):
+            for j in range(1, k + 1):
+                for h in range(i):
+                    f[i][j] = min(f[i][j], f[h][j - 1] + g[h][i - 1])
+        return f[-1][-1]
 ```
 
 ### **Java**
@@ -72,7 +91,124 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSpaceWastedKResizing(int[] nums, int k) {
+        ++k;
+        int n = nums.length;
+        int[][] g = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            int s = 0, mx = 0;
+            for (int j = i; j < n; ++j) {
+                s += nums[j];
+                mx = Math.max(mx, nums[j]);
+                g[i][j] = mx * (j - i + 1) - s;
+            }
+        }
+        int[][] f = new int[n + 1][k + 1];
+        int inf = 0x3f3f3f3f;
+        for (int i = 0; i < f.length; ++i) {
+            Arrays.fill(f[i], inf);
+        }
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                for (int h = 0; h < i; ++h) {
+                    f[i][j] = Math.min(f[i][j], f[h][j - 1] + g[h][i - 1]);
+                }
+            }
+        }
+        return f[n][k];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSpaceWastedKResizing(vector<int>& nums, int k) {
+        ++k;
+        int n = nums.size();
+        vector<vector<int>> g(n, vector<int>(n));
+        for (int i = 0; i < n; ++i)
+        {
+            int s = 0, mx = 0;
+            for (int j = i; j < n; ++j)
+            {
+                mx = max(mx, nums[j]);
+                s += nums[j];
+                g[i][j] = mx * (j - i + 1) - s;
+            }
+        }
+        int inf = 0x3f3f3f3f;
+        vector<vector<int>> f(n + 1, vector<int>(k + 1, inf));
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i)
+        {
+            for (int j = 1; j <= k; ++j)
+            {
+                for (int h = 0; h < i; ++h)
+                {
+                    f[i][j] = min(f[i][j], f[h][j - 1] + g[h][i - 1]);
+                }
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSpaceWastedKResizing(nums []int, k int) int {
+	k++
+	n := len(nums)
+	g := make([][]int, n)
+	for i := range g {
+		g[i] = make([]int, n)
+	}
+	for i := 0; i < n; i++ {
+		s, mx := 0, 0
+		for j := i; j < n; j++ {
+			s += nums[j]
+			mx = max(mx, nums[j])
+			g[i][j] = mx*(j-i+1) - s
+		}
+	}
+	f := make([][]int, n+1)
+	inf := 0x3f3f3f3f
+	for i := range f {
+		f[i] = make([]int, k+1)
+		for j := range f[i] {
+			f[i][j] = inf
+		}
+	}
+	f[0][0] = 0
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= k; j++ {
+			for h := 0; h < i; h++ {
+				f[i][j] = min(f[i][j], f[h][j-1]+g[h][i-1])
+			}
+		}
+	}
+	return f[n][k]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
