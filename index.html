@@ -39,9 +39,11 @@
       name: 'leetcode',
       repo: 'doocs/leetcode',
       logo: '/images/doocs-leetcode.png',
-      search: [
-        '/', '/solution/', '/lcof/', '/lcof2/', '/lcci/', '/lcs/', '/lcp/', '/basic/'
-      ],
+      search: {
+        depth: 2,
+        hideOtherSidebarContent: true,
+        pathNamespaces: ['/', '/solution', '/lcof', '/lcof2', '/lcci', '/lcs', '/lcp', '/basic']
+      },
       loadSidebar: sidebar(),
       auto2top: true,
       subMaxLevel: 2,
