@@ -54,7 +54,7 @@ for (int i = 0; i &lt; k; i++) {
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>nums</code> 已按 <strong>升序</strong> 排列</li>
 </ul>

@@ -115,7 +115,7 @@ class Solution {
             }
         }
     }
-    
+
     public int pick() {
         int x = rand.nextInt(k);
         return d.getOrDefault(x, x);
@@ -150,7 +150,7 @@ public:
             }
         }
     }
-    
+
     int pick() {
         int x = rand() % k;
         return d.count(x) ? d[x] : x;

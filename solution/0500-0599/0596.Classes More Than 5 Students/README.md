@@ -21,7 +21,7 @@
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询来报告 <strong>至少有5个学生</strong> 的所有类。</p>
+<p>编写一个SQL查询来报告 <strong>至少有5个学生</strong> 的所有班级。</p>
 
 <p>以 <strong>任意顺序 </strong>返回结果表。</p>
 

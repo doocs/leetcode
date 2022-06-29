@@ -9,9 +9,18 @@
 <p>The following are the rules for a string abbreviation:</p>
 
 <ol>
-	<li>Begin with the first character, and then the number of characters abbreviated, followed by the last character.</li>
-	<li>If there is any conflict and more than one word shares the same abbreviation, a longer prefix is used instead of only the first character until making the map from word to abbreviation become unique. In other words, a final abbreviation cannot map to more than one original word.</li>
-	<li>If the abbreviation does not make the word shorter, then keep it as the original.</li>
+	<li>The <strong>initial</strong> abbreviation for each word is: the first character, then the number of characters in between, followed by the last character.</li>
+	<li>If more than one word shares the <strong>same</strong> abbreviation, then perform the following operation:
+	<ul>
+		<li><strong>Increase</strong> the prefix (characters in the first part) of each of their abbreviations by <code>1</code>.
+		<ul>
+			<li>For example, say you start with the words <code>[&quot;abcdef&quot;,&quot;abndef&quot;]</code> both initially abbreviated as <code>&quot;a4f&quot;</code>. Then, a sequence of operations would be <code>[&quot;a4f&quot;,&quot;a4f&quot;]</code> -&gt; <code>[&quot;ab3f&quot;,&quot;ab3f&quot;]</code> -&gt; <code>[&quot;abc2f&quot;,&quot;abn2f&quot;]</code>.</li>
+		</ul>
+		</li>
+		<li>This operation is repeated until every abbreviation is <strong>unique</strong>.</li>
+	</ul>
+	</li>
+	<li>At the end, if an abbreviation did not make a word shorter, then keep it as the original word.</li>
 </ol>
 
 <p>&nbsp;</p>

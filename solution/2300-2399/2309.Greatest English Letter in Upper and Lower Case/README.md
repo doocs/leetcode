@@ -159,7 +159,7 @@ function greatestLetter(s: string): string {
         if (couter[i] && couter[i + 32]) return String.fromCharCode(i);
     }
     return '';
-};
+}
 ```
 
 ### **...**

@@ -6,9 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定字符串列表&nbsp;<code>strs</code> ，返回 <em>它们中 <strong>最长的特殊序列</strong></em> 。如果最长特殊序列不存在，返回 <code>-1</code> 。</p>
+<p>给定字符串列表&nbsp;<code>strs</code> ，返回其中 <strong>最长的特殊序列</strong>&nbsp;的长度。如果最长特殊序列不存在，返回 <code>-1</code> 。</p>
 
-<p><strong>最长特殊序列</strong> 定义如下：该序列为某字符串&nbsp;<strong>独有的最长子序列（即不能是其他字符串的子序列）</strong>。</p>
+<p><strong>特殊序列</strong> 定义如下：该序列为某字符串 <strong>独有的子序列（即不能是其他字符串的子序列）</strong>。</p>
 
 <p>&nbsp;<code>s</code>&nbsp;的&nbsp;<strong>子序列</strong>可以通过删去字符串&nbsp;<code>s</code>&nbsp;中的某些字符实现。</p>
 

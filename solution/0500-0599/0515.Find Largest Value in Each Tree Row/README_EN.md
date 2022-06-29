@@ -79,7 +79,7 @@ class Solution:
                 ans[curr] = max(ans[curr], root.val)
             dfs(root.left, curr + 1)
             dfs(root.right, curr + 1)
-        
+
         ans = []
         dfs(root, 0)
         return ans

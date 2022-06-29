@@ -32,7 +32,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2022/06/20/operationstree.png" style="width: 500px; height: 179px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/images/operationstree.png" style="width: 500px; height: 179px;" />
 <pre>
 <strong>Input:</strong> root = [3,5,4,2,null,1,1,1,0], result = true
 <strong>Output:</strong> 2
@@ -61,7 +61,6 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 	<li>Leaf nodes have a value of <code>0</code> or <code>1</code>.</li>
 	<li>Non-leaf nodes have a value of <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>.</li>
 </ul>
-
 
 ## 解法
 

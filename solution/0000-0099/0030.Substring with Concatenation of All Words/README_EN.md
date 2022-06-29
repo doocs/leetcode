@@ -225,7 +225,7 @@ public class Solution {
                 ++wordsDict[word];
             }
         }
-        
+
         var wordOfS = new string[s.Length];
         var wordLength = words[0].Length;
         var wordCount = words.Length;
@@ -237,7 +237,7 @@ public class Solution {
                 wordOfS[i] = substring;
             }
         }
-        
+
         var result = new List<int>();
         for (var i = 0; i <= s.Length - wordLength * wordCount; ++i)
         {
@@ -260,7 +260,7 @@ public class Solution {
                 result.Add(i);
             }
         }
-        
+
         return result;
     }
 }

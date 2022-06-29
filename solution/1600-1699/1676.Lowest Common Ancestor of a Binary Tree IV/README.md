@@ -148,7 +148,7 @@ public:
 
     TreeNode* lowestCommonAncestor(TreeNode* root, vector<TreeNode*> &nodes) {
         for (auto node : nodes) s.insert(node->val);
-        return dfs(root);    
+        return dfs(root);
     }
 
     TreeNode* dfs(TreeNode* root) {

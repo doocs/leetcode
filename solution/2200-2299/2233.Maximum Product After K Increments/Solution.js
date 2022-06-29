@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number}
  */
- var maximumProduct = function(nums, k) {
+var maximumProduct = function (nums, k) {
     const n = nums.length;
     let pq = new MinPriorityQueue();
     for (let i = 0; i < n; i++) {
@@ -15,7 +15,7 @@
     let ans = 1;
     const limit = 10 ** 9 + 7;
     for (let i = 0; i < n; i++) {
-        ans = ans * pq.dequeue().element % limit;
+        ans = (ans * pq.dequeue().element) % limit;
     }
     return ans;
 };

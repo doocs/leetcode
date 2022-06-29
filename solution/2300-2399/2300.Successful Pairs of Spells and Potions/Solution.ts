@@ -1,5 +1,10 @@
-function successfulPairs(spells: number[], potions: number[], success: number): number[] {
-    const n = spells.length, m = potions.length;
+function successfulPairs(
+    spells: number[],
+    potions: number[],
+    success: number,
+): number[] {
+    const n = spells.length,
+        m = potions.length;
     potions.sort((a, b) => a - b);
     let pairs = new Array(n);
     let hashMap = new Map();
@@ -13,7 +18,7 @@ function successfulPairs(spells: number[], potions: number[], success: number): 
         pairs[i] = m - idx;
     }
     return pairs;
-};
+}
 
 function searchLeft(nums, left, right, target) {
     while (left < right) {

@@ -42,7 +42,7 @@ solution.pick(); // return 4
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= blacklist.length &lt;- min(10<sup>5</sup>, n - 1)</code></li>
+	<li><code>0 &lt;= blacklist.length &lt;= min(10<sup>5</sup>, n - 1)</code></li>
 	<li><code>0 &lt;= blacklist[i] &lt; n</code></li>
 	<li>All the values of <code>blacklist</code> are <strong>unique</strong>.</li>
 	<li>At most <code>2 * 10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
@@ -103,7 +103,7 @@ class Solution {
             }
         }
     }
-    
+
     public int pick() {
         int x = rand.nextInt(k);
         return d.getOrDefault(x, x);
@@ -138,7 +138,7 @@ public:
             }
         }
     }
-    
+
     int pick() {
         int x = rand() % k;
         return d.count(x) ? d[x] : x;

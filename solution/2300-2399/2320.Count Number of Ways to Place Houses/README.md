@@ -123,7 +123,6 @@ func countHousePlacements(n int) int {
 }
 ```
 
-
 ### **TypeScript**
 
 ```ts

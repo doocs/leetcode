@@ -4,7 +4,13 @@
 
 ## Description
 
-<p>You are given two strings <code>s</code> and <code>sub</code>. You are also given a 2D character array <code>mappings</code> where <code>mappings[i] = [old<sub>i</sub>, new<sub>i</sub>]</code> indicates that you may <strong>replace</strong> any number of <code>old<sub>i</sub></code> characters of <code>sub</code> with <code>new<sub>i</sub></code>. Each character in <code>sub</code> <strong>cannot</strong> be replaced more than once.</p>
+<p>You are given two strings <code>s</code> and <code>sub</code>. You are also given a 2D character array <code>mappings</code> where <code>mappings[i] = [old<sub>i</sub>, new<sub>i</sub>]</code> indicates that you may perform the following operation <strong>any</strong> number of times:</p>
+
+<ul>
+	<li><strong>Replace</strong> a character <code>old<sub>i</sub></code> of <code>sub</code> with <code>new<sub>i</sub></code>.</li>
+</ul>
+
+<p>Each character in <code>sub</code> <strong>cannot</strong> be replaced more than once.</p>
 
 <p>Return <code>true</code><em> if it is possible to make </em><code>sub</code><em> a substring of </em><code>s</code><em> by replacing zero or more characters according to </em><code>mappings</code>. Otherwise, return <code>false</code>.</p>
 

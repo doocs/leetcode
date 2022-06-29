@@ -11,4 +11,4 @@ function arrayChange(nums: number[], operations: number[][]): number[] {
         ans[key] = val;
     }
     return ans;
-};
+}

@@ -45,7 +45,6 @@ There are 2 asterisks considered. Therefore, we return 2.</pre>
 	<li><code>s</code> contains an <strong>even</strong> number of vertical bars <code>&#39;|&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

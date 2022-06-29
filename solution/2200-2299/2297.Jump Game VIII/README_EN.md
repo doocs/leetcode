@@ -49,7 +49,6 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 	<li><code>0 &lt;= nums[i], costs[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

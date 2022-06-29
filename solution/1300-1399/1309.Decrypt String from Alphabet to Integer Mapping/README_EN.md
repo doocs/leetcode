@@ -7,8 +7,8 @@
 <p>You are given a string <code>s</code> formed by digits and <code>&#39;#&#39;</code>. We want to map <code>s</code> to English lowercase characters as follows:</p>
 
 <ul>
-	<li>Characters (<code>&#39;a&#39;</code> to <code>&#39;i&#39;)</code> are represented by (<code>&#39;1&#39;</code> to <code>&#39;9&#39;</code>) respectively.</li>
-	<li>Characters (<code>&#39;j&#39;</code> to <code>&#39;z&#39;)</code> are represented by (<code>&#39;10#&#39;</code> to <code>&#39;26#&#39;</code>) respectively.</li>
+	<li>Characters (<code>&#39;a&#39;</code> to <code>&#39;i&#39;</code>) are represented by (<code>&#39;1&#39;</code> to <code>&#39;9&#39;</code>) respectively.</li>
+	<li>Characters (<code>&#39;j&#39;</code> to <code>&#39;z&#39;</code>) are represented by (<code>&#39;10#&#39;</code> to <code>&#39;26#&#39;</code>) respectively.</li>
 </ul>
 
 <p>Return <em>the string formed after mapping</em>.</p>

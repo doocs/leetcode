@@ -18,7 +18,7 @@
 
 <p>Starting from the point <code>(0, 0)</code>, return <em>the minimum steps you need to walk to cut off all the trees</em>. If you cannot cut off all the trees, return <code>-1</code>.</p>
 
-<p>You are guaranteed that no two trees have the same height, and there is at least one tree needs to be cut off.</p>
+<p><strong>Note:</strong> The input is generated such that no two trees have the same height, and there is at least one tree needs to be cut off.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -54,6 +54,7 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 	<li><code>n == forest[i].length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 50</code></li>
 	<li><code>0 &lt;= forest[i][j] &lt;= 10<sup>9</sup></code></li>
+	<li>Heights of all trees are <strong>distinct</strong>.</li>
 </ul>
 
 ## Solutions

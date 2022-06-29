@@ -8,4 +8,4 @@ function discountPrices(sentence: string, discount: number): string {
         });
     });
     return arr.join(' ');
-};
+}

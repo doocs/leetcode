@@ -16,12 +16,12 @@
 +-------------+------+
 (city_id, day) is the primary key for this table.
 Each row in this table contains the degree of the weather of a city on a certain day.
-All the degrees are recorded in 2022.
+All the degrees are recorded in the year 2022.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the day that has the maximum recorded degree. If the maximum degree was recorded for the same city multiple times, return the earliest day among them.</p>
+<p>Write an&nbsp;SQL query to report the day that has the maximum recorded degree in each city. If the maximum degree was recorded for the same city multiple times, return the earliest day among them.</p>
 
 <p>Return the result table ordered by <code>city_id</code> in <strong>ascending order</strong>.</p>
 
@@ -57,7 +57,6 @@ For city 1, the maximum degree was recorded on 2022-07-07 with 24 degrees.
 For city 1, the maximum degree was recorded on 2022-08-07 and 2022-08-17 with 37 degrees. We choose the earlier date (2022-08-07).
 For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
 </pre>
-
 
 ## Solutions
 

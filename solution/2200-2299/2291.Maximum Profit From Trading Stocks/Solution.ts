@@ -1,4 +1,8 @@
-function maximumProfit(present: number[], future: number[], budget: number): number {
+function maximumProfit(
+    present: number[],
+    future: number[],
+    budget: number,
+): number {
     let packet = present.map((v, i) => [v, future[i] - v]);
     let dp = new Array(budget + 1).fill(0);
     for (let [v, w] of packet) {
@@ -7,4 +11,4 @@ function maximumProfit(present: number[], future: number[], budget: number): num
         }
     }
     return dp[budget];
-};
+}

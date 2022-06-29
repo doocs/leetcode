@@ -6,16 +6,23 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二叉树，你需要找出二叉树中最长的连续序列路径的长度。</p>
+<p>给定二叉树的根&nbsp;<code>root</code>&nbsp;，返回树中<strong>最长连续路径</strong>的长度。<br />
+<strong>连续路径</strong>是路径中相邻节点的值相差 <code>1</code> 的路径。此路径可以是增加或减少。</p>
 
-<p>请注意，该路径可以是递增的或者是递减。例如，[1,2,3,4] 和 [4,3,2,1] 都被认为是合法的，而路径 [1,2,4,3] 则不合法。另一方面，路径可以是 子-父-子 顺序，并不一定是 父-子 顺序。</p>
+<ul>
+	<li>例如，&nbsp;<code>[1,2,3,4]</code> 和 <code>[4,3,2,1]</code> 都被认为有效，但路径 <code>[1,2,4,3]</code> 无效。</li>
+</ul>
+
+<p>另一方面，路径可以是子-父-子顺序，不一定是父子顺序。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong>
-        1
-       / \
-      2   3
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0549.Binary%20Tree%20Longest%20Consecutive%20Sequence%20II/images/consec2-1-tree.jpg" /></p>
+
+<pre>
+<strong>输入: </strong>root = [1,2,3]
 <strong>输出:</strong> 2
 <strong>解释:</strong> 最长的连续路径是 [1, 2] 或者 [2, 1]。
 </pre>
@@ -24,17 +31,22 @@
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入:</strong>
-        2
-       / \
-      1   3
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0549.Binary%20Tree%20Longest%20Consecutive%20Sequence%20II/images/consec2-2-tree.jpg" /></p>
+
+<pre>
+<strong>输入: </strong>root = [2,1,3]
 <strong>输出:</strong> 3
 <strong>解释:</strong> 最长的连续路径是 [1, 2, 3] 或者 [3, 2, 1]。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>注意:</strong> 树上所有节点的值都在 [-1e7, 1e7] 范围内。</p>
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>树上所有节点的值都在&nbsp;<code>[1, 3 * 10<sup>4</sup>]</code>&nbsp;范围内。</li>
+	<li><code>-3 * 10<sup>4</sup>&nbsp;&lt;= Node.val &lt;= 3 * 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 

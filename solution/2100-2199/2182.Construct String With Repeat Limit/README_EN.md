@@ -142,8 +142,6 @@ public:
 };
 ```
 
-
-
 ### **TypeScript**
 
 ```ts

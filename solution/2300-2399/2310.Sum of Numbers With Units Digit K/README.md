@@ -234,7 +234,7 @@ function minimumNumbers(num: number, k: number): number {
         if (target <= num && target % 10 == digit) return i;
     }
     return -1;
-};
+}
 ```
 
 ### **...**

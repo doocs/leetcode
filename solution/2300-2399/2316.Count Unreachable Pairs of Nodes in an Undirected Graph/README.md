@@ -45,7 +45,6 @@
 	<li>不会有重复边。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -207,7 +206,6 @@ func countPairs(n int, edges [][]int) int64 {
 	return int64(ans)
 }
 ```
-
 
 ### **TypeScript**
 
