@@ -71,6 +71,18 @@ class Solution:
         return -1
 ```
 
+```python
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        l, r = 0, sum(nums)
+        for i, v in enumerate(nums):
+            r -= v
+            if l == r:
+                return i
+            l += v
+        return -1
+```
+
 ### **Java**
 
 ```java
@@ -93,16 +105,37 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int l = 0, r = 0;
+        for (int v : nums) {
+            r += v;
+        }
+        for (int i = 0; i < nums.length; ++i) {
+            r -= nums[i];
+            if (l == r) {
+                return i;
+            }
+            l += nums[i];
+        }
+        return -1;
+    }
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function pivotIndex(nums: number[]): number {
-    let rightSum = nums.reduce((a, c) => a + c, 0),
-        leftSum = 0;
-    for (let i = 0; i < nums.length; i++) {
-        rightSum -= nums[i];
-        if (leftSum == rightSum) return i;
-        leftSum += nums[i];
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < nums.length; ++i) {
+        r -= nums[i];
+        if (l == r) {
+            return i;
+        }
+        l += nums[i];
     }
     return -1;
 }
@@ -129,6 +162,23 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        int l = 0, r = 0;
+        for (int& v : nums) r += v;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            r -= nums[i];
+            if (l == r) return i;
+            l += nums[i];
+        }
+        return -1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -143,6 +193,23 @@ func pivotIndex(nums []int) int {
 			return i
 		}
 		presum += e
+	}
+	return -1
+}
+```
+
+```go
+func pivotIndex(nums []int) int {
+	l, r := 0, 0
+	for _, v := range nums {
+		r += v
+	}
+	for i, v := range nums {
+		r -= v
+		if l == r {
+			return i
+		}
+		l += v
 	}
 	return -1
 }

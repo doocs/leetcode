@@ -43,7 +43,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-原地修改数组。
+**方法一：前缀和**
 
 <!-- tabs:start -->
 
@@ -54,9 +54,7 @@
 ```python
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
-        for i in range(1, len(nums)):
-            nums[i] += nums[i - 1]
-        return nums
+        return list(accumulate(nums))
 ```
 
 ### **Java**
@@ -80,9 +78,7 @@ class Solution {
 class Solution {
 public:
     vector<int> runningSum(vector<int>& nums) {
-        for (int i = 1; i < nums.size(); ++i) {
-            nums[i] += nums[i - 1];
-        }
+        for (int i = 1; i < nums.size(); ++i) nums[i] += nums[i - 1];
         return nums;
     }
 };
