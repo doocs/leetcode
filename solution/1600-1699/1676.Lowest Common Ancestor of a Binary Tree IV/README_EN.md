@@ -52,13 +52,98 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', nodes: 'List[TreeNode]') -> 'TreeNode':
+        def dfs(root):
+            if root is None or root.val in s:
+                return root
+            left, right = dfs(root.left), dfs(root.right)
+            if left and right:
+                return root
+            return left or right
+
+        s = {node.val for node in nodes}
+        return dfs(root)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private Set<Integer> s = new HashSet<>();
 
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode[] nodes) {
+        for (TreeNode node : nodes) {
+            s.add(node.val);
+        }
+        return dfs(root);
+    }
+
+    private TreeNode dfs(TreeNode root) {
+        if (root == null || s.contains(root.val)) {
+            return root;
+        }
+        TreeNode left = dfs(root.left);
+        TreeNode right = dfs(root.right);
+        if (left == null) {
+            return right;
+        }
+        if (right == null) {
+            return left;
+        }
+        return root;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_set<int> s;
+
+    TreeNode* lowestCommonAncestor(TreeNode* root, vector<TreeNode*> &nodes) {
+        for (auto node : nodes) s.insert(node->val);
+        return dfs(root);    
+    }
+
+    TreeNode* dfs(TreeNode* root) {
+        if (!root || s.count(root->val)) return root;
+        auto left = dfs(root->left);
+        auto right = dfs(root->right);
+        if (!left) return right;
+        if (!right) return left;
+        return root;
+    }
+};
 ```
 
 ### **...**
