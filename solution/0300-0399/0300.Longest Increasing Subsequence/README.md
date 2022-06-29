@@ -58,13 +58,13 @@
 
 定义 `dp[i]` 为以 `nums[i]` 结尾的最长子序列的长度，`dp[i]` 初始化为 1(`i∈[0, n)`)。即题目求的是 `dp[i]` （`i ∈[0, n-1]`）的最大值。
 
-状态转移方程为：`dp[i] = max(dp[j]) + 1`，其中 `0≤j<i` 且 `nums[j]<nums[i]`。
+状态转移方程为：`dp[i] = max(dp[j]) + 1`，其中 `0≤j<i` 且 `nums[j] < nums[i]`。
 
-时间复杂度 O(n²)。
+时间复杂度：$O(n^{2})$。
 
 **方法二：贪心 + 二分查找**
 
-维护一个数组 `d[i]`，表示长度为 i 的最长上升子序列末尾元素的最小值，初始值 `d[1]=nums[0]`。
+维护一个数组 `d[i]`，表示长度为 i 的最长上升子序列末尾元素的最小值，初始值 `d[1] = nums[0]`。
 
 直观上，`d[i]` 是单调递增数组。
 
@@ -72,14 +72,14 @@
 
 算法思路：
 
-设当前求出的最长上升子序列的长度为 size，初始 `size=1`，从前往后遍历数组 nums，在遍历到 `nums[i]` 时：
+设当前求出的最长上升子序列的长度为 size，初始 `size = 1`，从前往后遍历数组 nums，在遍历到 `nums[i]` 时：
 
 -   若 `nums[i] > d[size]`，则直接将 `nums[i]` 加入到数组 d 的末尾，并且更新 size 自增；
 -   否则，在数组 d 中二分查找（前面证明 d 是一个单调递增数组），找到第一个大于等于 nums[i] 的位置 idx，更新 `d[idx] = nums[i]`。
 
 最终返回 size。
 
-时间复杂度 O(nlogn)。
+时间复杂度：$O(nlogn)$。
 
 **方法三：树状数组**
 
@@ -92,7 +92,7 @@
 
 本题我们使用树状数组 `tree[x]` 来维护以 x 结尾的最长上升子序列的长度。
 
-时间复杂度 O(nlogn)。
+时间复杂度：$O(nlogn)$。
 
 ```python
 def update(x, val):
@@ -570,6 +570,25 @@ func lengthOfLIS(nums []int) int {
 		tree.update(x, t)
 	}
 	return ans
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn length_of_lis(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut dp = vec![1; n];
+        for i in 1..n {
+            for j in 0..i {
+                if nums[i] > nums[j] {
+                    dp[i] = dp[i].max(dp[j] + 1);
+                }
+            }
+        }
+        *dp.iter().max().unwrap()
+    }
 }
 ```
 

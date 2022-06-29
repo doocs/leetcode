@@ -48,15 +48,21 @@
 
 **方法一：排序**
 
-将 arr 中的所有元素按照与 x 的距离从小到大进行排列。取前 k 个 排序后返回。
+将 `arr` 中的所有元素按照与 `x` 的距离从小到大进行排列。取前 `k` 个元素排序后返回。
 
-时间复杂度 O(nlogn)。
+时间复杂度：$O(nlogn)$。
 
-**方法二：二分查找**
+**方法二：双指针**
 
-查找大小为 k 的所有窗口的左边界。
+根据 `arr` 有序的特点，可以声明头尾指针，然后根据 `k - arr[left]` 与 `arr[right] - k` 的判断结果缩小范围，直到 `right - left == k`，
 
-时间复杂度 O(logn)。
+时间复杂度：$O(n)$。
+
+**方法三：二分查找**
+
+查找大小为 `k` 的所有窗口的左边界。
+
+时间复杂度：$O(logn)$。
 
 <!-- tabs:start -->
 
@@ -219,6 +225,26 @@ impl Solution {
             }
         }
         arr[l..r].to_vec()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_closest_elements(arr: Vec<i32>, k: i32, x: i32) -> Vec<i32> {
+        let k = k as usize;
+        let n = arr.len();
+        let mut left = 0;
+        let mut right = n - k;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if x - arr[mid] > arr[mid + k] - x {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        arr[left..left + k].to_vec()
     }
 }
 ```

@@ -47,7 +47,7 @@
 
 定义 `dp[i][j]` 表示使得 `word1[0:i-1]` 和 `word1[0:j-1]` 两个字符串相同所需执行的删除操作次数。
 
-时间复杂度 O(mn)。
+时间复杂度：$O(mn)$。
 
 <!-- tabs:start -->
 
@@ -155,6 +155,50 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minDistance(word1: string, word2: string): number {
+    const m = word1.length;
+    const n = word2.length;
+    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (word1[i - 1] === word2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    const max = dp[m][n];
+    return m - max + n - max;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_distance(word1: String, word2: String) -> i32 {
+        let (m, n) = (word1.len(), word2.len());
+        let (word1, word2) = (word1.as_bytes(), word2.as_bytes());
+        let mut dp = vec![vec![0; n + 1]; m + 1];
+        for i in 1..=m {
+            for j in 1..=n {
+                dp[i][j] = if word1[i - 1] == word2[j - 1] {
+                    dp[i - 1][j - 1] + 1
+                } else {
+                    dp[i - 1][j].max(dp[i][j - 1])
+                }
+            }
+        }
+        let max = dp[m][n];
+        ((m - max) + (n - max)) as i32
+    }
 }
 ```
 

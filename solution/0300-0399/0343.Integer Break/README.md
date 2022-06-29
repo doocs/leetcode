@@ -38,7 +38,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划。
+**方法一：动态规划**
 
 设 dp[i] 表示正整数 n 能获得的最大乘积，初始化 `dp[1] = 1`。
 
@@ -116,6 +116,32 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **C**
+
+```c
+int integerBreak(int n) {
+    if (n < 4) {
+        return n - 1;
+    }
+    int count = (n - 2) / 3;
+    return pow(3, count) * (n - count * 3);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn integer_break(n: i32) -> i32 {
+        if n < 4 {
+            return n - 1;
+        }
+        let count = (n - 2) / 3;
+        3i32.pow(count as u32) * (n - count * 3)
+    }
 }
 ```
 

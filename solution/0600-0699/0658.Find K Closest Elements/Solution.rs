@@ -1,15 +1,17 @@
 impl Solution {
     pub fn find_closest_elements(arr: Vec<i32>, k: i32, x: i32) -> Vec<i32> {
+        let k = k as usize;
         let n = arr.len();
-        let mut l = 0;
-        let mut r = n;
-        while r - l != k as usize {
-            if (arr[l] - x).abs() <= (arr[r - 1] - x).abs() {
-                r -= 1;
+        let mut left = 0;
+        let mut right = n - k;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if x - arr[mid] > arr[mid + k] - x {
+                left = mid + 1;
             } else {
-                l += 1;
+                right = mid;
             }
         }
-        arr[l..r].to_vec()
+        arr[left..left + k].to_vec()
     }
 }
