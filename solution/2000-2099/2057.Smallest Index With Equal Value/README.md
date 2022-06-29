@@ -69,7 +69,12 @@ i=3: 3 mod 10 = 3 != nums[3].
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def smallestEqual(self, nums: List[int]) -> int:
+        for i, v in enumerate(nums):
+            if i % 10 == v:
+                return i
+        return -1
 ```
 
 ### **Java**
@@ -77,7 +82,16 @@ i=3: 3 mod 10 = 3 != nums[3].
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int smallestEqual(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            if (i % 10 == nums[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -88,6 +102,33 @@ function smallestEqual(nums: number[]): number {
         if (i % 10 == nums[i]) return i;
     }
     return -1;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestEqual(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); ++i)
+            if (i % 10 == nums[i])
+                return i;
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestEqual(nums []int) int {
+	for i, v := range nums {
+		if i%10 == v {
+			return i
+		}
+	}
+	return -1
 }
 ```
 
