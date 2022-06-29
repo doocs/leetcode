@@ -49,7 +49,7 @@ string ans = obj.decode(tiny); // 返回解密后得到的原本的 URL 。
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表实现。
+**方法一：哈希表**
 
 <!-- tabs:start -->
 
@@ -60,23 +60,23 @@ string ans = obj.decode(tiny); // 返回解密后得到的原本的 URL 。
 ```python
 class Codec:
     def __init__(self):
-        self.code_url = {}
-        self.count = 0
-        self.prefix_url = 'http://tinyurl.com/'
+        self.m = defaultdict()
+        self.idx = 0
+        self.domain = 'https://tinyurl.com/'
 
     def encode(self, longUrl: str) -> str:
         """Encodes a URL to a shortened URL.
         """
-        self.count += 1
-        code = str(hex(self.count))[2:]
-        self.code_url[code] = longUrl
-        return self.prefix_url + code
+        self.idx += 1
+        self.m[str(self.idx)] = longUrl
+        return f'{self.domain}{self.idx}'
 
     def decode(self, shortUrl: str) -> str:
         """Decodes a shortened URL to its original URL.
         """
-        code = shortUrl.replace(self.prefix_url, '')
-        return self.code_url[code]
+        idx = shortUrl.split('/')[-1]
+        return self.m[idx]
+
 
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
@@ -89,27 +89,92 @@ class Codec:
 
 ```java
 public class Codec {
-    private Map<String, String> code2Url = new HashMap<>();
-    private int count = 0;
-    private static final String prefixUrl = "http://tinyurl.com/";
+    private Map<String, String> m = new HashMap<>();
+    private int idx = 0;
+    private String domain = "https://tinyurl.com/";
 
     // Encodes a URL to a shortened URL.
     public String encode(String longUrl) {
-        String code = Integer.toHexString(++count);
-        code2Url.put(code, longUrl);
-        return prefixUrl + code;
+        String v = String.valueOf(++idx);
+        m.put(v, longUrl);
+        return domain + v;
     }
 
     // Decodes a shortened URL to its original URL.
     public String decode(String shortUrl) {
-        String code = shortUrl.replace(prefixUrl, "");
-        return code2Url.get(code);
+        int i = shortUrl.lastIndexOf('/') + 1;
+        return m.get(shortUrl.substring(i));
     }
 }
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
 // codec.decode(codec.encode(url));
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+
+    // Encodes a URL to a shortened URL.
+    string encode(string longUrl) {
+        string v = to_string(++idx);
+        m[v] = longUrl;
+        return domain + v;
+    }
+
+    // Decodes a shortened URL to its original URL.
+    string decode(string shortUrl) {
+        int i = shortUrl.rfind('/') + 1;
+        return m[shortUrl.substr(i, shortUrl.size() - i)];
+    }
+
+private:
+    unordered_map<string, string> m;
+    int idx = 0;
+    string domain = "https://tinyurl.com/";
+};
+
+// Your Solution object will be instantiated and called as such:
+// Solution solution;
+// solution.decode(solution.encode(url));
+```
+
+### **Go**
+
+```go
+type Codec struct {
+	m   map[int]string
+	idx int
+}
+
+func Constructor() Codec {
+	m := map[int]string{}
+	return Codec{m, 0}
+}
+
+// Encodes a URL to a shortened URL.
+func (this *Codec) encode(longUrl string) string {
+	this.idx++
+	this.m[this.idx] = longUrl
+	return "https://tinyurl.com/" + strconv.Itoa(this.idx)
+}
+
+// Decodes a shortened URL to its original URL.
+func (this *Codec) decode(shortUrl string) string {
+	i := strings.LastIndexByte(shortUrl, '/')
+	v, _ := strconv.Atoi(shortUrl[i+1:])
+	return this.m[v]
+}
+
+/**
+ * Your Codec object will be instantiated and called as such:
+ * obj := Constructor();
+ * url := obj.encode(longUrl);
+ * ans := obj.decode(url);
+ */
 ```
 
 ### **...**

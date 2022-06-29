@@ -1,19 +1,19 @@
 public class Codec {
-    private Map<String, String> code2Url = new HashMap<>();
-    private int count = 0;
-    private static final String prefixUrl = "http://tinyurl.com/";
+    private Map<String, String> m = new HashMap<>();
+    private int idx = 0;
+    private String domain = "https://tinyurl.com/";
 
     // Encodes a URL to a shortened URL.
     public String encode(String longUrl) {
-        String code = Integer.toHexString(++count);
-        code2Url.put(code, longUrl);
-        return prefixUrl + code;
+        String v = String.valueOf(++idx);
+        m.put(v, longUrl);
+        return domain + v;
     }
 
     // Decodes a shortened URL to its original URL.
     public String decode(String shortUrl) {
-        String code = shortUrl.replace(prefixUrl, "");
-        return code2Url.get(code);
+        int i = shortUrl.lastIndexOf('/') + 1;
+        return m.get(shortUrl.substring(i));
     }
 }
 
