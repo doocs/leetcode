@@ -49,6 +49,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,26 +60,26 @@
 ```python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        a2b, b2a = {}, {}
-        n = len(s)
-        for i in range(n):
-            a, b = s[i], t[i]
-            if (a in a2b and a2b[a] != b) or (b in b2a and b2a[b] != a):
+        d1, d2 = {}, {}
+        for a, b in zip(s, t):
+            if a in d1 and d1[a] != b:
                 return False
-            a2b[a] = b
-            b2a[b] = a
+            if b in d2 and d2[b] != a:
+                return False
+            d1[a] = b
+            d2[b] = a
         return True
 ```
 
 ```python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        m1, m2 = [0] * 256, [0] * 256
-        for i in range(len(s)):
-            c1, c2 = ord(s[i]), ord(t[i])
-            if m1[c1] != m2[c2]:
+        d1, d2 = [0] * 256, [0] * 256
+        for i, (a, b) in enumerate(zip(s, t)):
+            a, b = ord(a), ord(b)
+            if d1[a] != d2[b]:
                 return False
-            m1[c1] = m2[c2] = i + 1
+            d1[a] = d2[b] = i + 1
         return True
 ```
 
@@ -88,14 +90,19 @@ class Solution:
 ```java
 class Solution {
     public boolean isIsomorphic(String s, String t) {
+        Map<Character, Character> d1 = new HashMap<>();
+        Map<Character, Character> d2 = new HashMap<>();
         int n = s.length();
-        Map<Character, Character> a2b = new HashMap<>();
-        Map<Character, Character> b2a = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             char a = s.charAt(i), b = t.charAt(i);
-            if ((a2b.containsKey(a) && a2b.get(a) != b) || (b2a.containsKey(b) && b2a.get(b) != a)) return false;
-            a2b.put(a, b);
-            b2a.put(b, a);
+            if (d1.containsKey(a) && d1.get(a) != b) {
+                return false;
+            }
+            if (d2.containsKey(b) && d2.get(b) != a) {
+                return false;
+            }
+            d1.put(a, b);
+            d2.put(b, a);
         }
         return true;
     }
@@ -105,16 +112,16 @@ class Solution {
 ```java
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        int[] m1 = new int[256];
-        int[] m2 = new int[256];
-        for (int i = 0; i < s.length(); ++i) {
-            char c1 = s.charAt(i);
-            char c2 = t.charAt(i);
-            if (m1[c1] != m2[c2]) {
+        int[] d1 = new int[256];
+        int[] d2 = new int[256];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            char a = s.charAt(i), b = t.charAt(i);
+            if (d1[a] != d2[b]) {
                 return false;
             }
-            m1[c1] = i + 1;
-            m2[c2] = i + 1;
+            d1[a] = i + 1;
+            d2[b] = i + 1;
         }
         return true;
     }
@@ -127,15 +134,16 @@ class Solution {
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        vector<int> m1(256);
-        vector<int> m2(256);
-        for (int i = 0; i < s.size(); ++i)
+        vector<int> d1(256);
+        vector<int> d2(256);
+        int n = s.size();
+        for (int i = 0; i < n; ++i)
         {
-            if (m1[s[i]] != m2[t[i]]) return 0;
-            m1[s[i]] = i + 1;
-            m2[t[i]] = i + 1;
+            char a = s[i], b = t[i];
+            if (d1[a] != d2[b]) return false;
+            d1[a] = d2[b] = i + 1;
         }
-        return 1;
+        return true;
     }
 };
 ```
@@ -144,13 +152,13 @@ public:
 
 ```go
 func isIsomorphic(s string, t string) bool {
-	m1, m2 := make([]int, 256), make([]int, 256)
-	for i := 0; i < len(s); i++ {
-		if m1[s[i]] != m2[t[i]] {
+	d1, d2 := make([]int, 256), make([]int, 256)
+	for i, a := range s {
+		b := t[i]
+		if d1[a] != d2[b] {
 			return false
 		}
-		m1[s[i]] = i + 1
-		m2[t[i]] = i + 1
+		d1[a], d2[b] = i+1, i+1
 	}
 	return true
 }
@@ -159,24 +167,21 @@ func isIsomorphic(s string, t string) bool {
 ### **C#**
 
 ```cs
-using System.Collections.Generic;
-
 public class Solution {
     public bool IsIsomorphic(string s, string t) {
-        if (s.Length != t.Length) return false;
-        var dict1 = new Dictionary<char, char>();
-        var dict2 = new Dictionary<char, char>();
+        var d1 = new Dictionary<char, char>();
+        var d2 = new Dictionary<char, char>();
         for (var i = 0; i < s.Length; ++i)
         {
             char mapping1;
             char mapping2;
-            var found1 = dict1.TryGetValue(s[i], out mapping1);
-            var found2 = dict2.TryGetValue(t[i], out mapping2);
+            var found1 = d1.TryGetValue(s[i], out mapping1);
+            var found2 = d2.TryGetValue(t[i], out mapping2);
             if (found1 ^ found2) return false;
             if (!found1)
             {
-                dict1.Add(s[i], t[i]);
-                dict2.Add(t[i], s[i]);
+                d1.Add(s[i], t[i]);
+                d2.Add(t[i], s[i]);
             }
             else if (mapping1 != t[i] || mapping2 != s[i])
             {

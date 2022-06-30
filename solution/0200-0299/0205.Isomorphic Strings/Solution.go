@@ -1,11 +1,11 @@
 func isIsomorphic(s string, t string) bool {
-	m1, m2 := make([]int, 256), make([]int, 256)
-	for i := 0; i < len(s); i++ {
-		if m1[s[i]] != m2[t[i]] {
+	d1, d2 := make([]int, 256), make([]int, 256)
+	for i, a := range s {
+		b := t[i]
+		if d1[a] != d2[b] {
 			return false
 		}
-		m1[s[i]] = i + 1
-		m2[t[i]] = i + 1
+		d1[a], d2[b] = i+1, i+1
 	}
 	return true
 }
