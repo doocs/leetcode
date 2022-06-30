@@ -5,23 +5,23 @@
  *     Next *ListNode
  * }
  */
- func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-    dummy := &ListNode{}
-    cur := dummy
-    for l1 != nil && l2 != nil {
-        if l1.Val <= l2.Val {
-            cur.Next = l1
-            l1 = l1.Next
-        } else {
-            cur.Next = l2
-            l2 = l2.Next
-        }
-        cur = cur.Next
-    }
-    if l1 != nil {
-        cur.Next = l1
-    } else if l2 != nil {
-        cur.Next = l2
-    }
-    return dummy.Next
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	dummy := &ListNode{}
+	curr := dummy
+	for list1 != nil && list2 != nil {
+		if list1.Val <= list2.Val {
+			curr.Next = list1
+			list1 = list1.Next
+		} else {
+			curr.Next = list2
+			list2 = list2.Next
+		}
+		curr = curr.Next
+	}
+	if list1 != nil {
+		curr.Next = list1
+	} else {
+		curr.Next = list2
+	}
+	return dummy.Next
 }

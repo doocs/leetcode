@@ -6,22 +6,22 @@
 #         @next = _next
 #     end
 # end
-# @param {ListNode} l1
-# @param {ListNode} l2
+# @param {ListNode} list1
+# @param {ListNode} list2
 # @return {ListNode}
-def merge_two_lists(l1, l2)
-  dummy = ListNode.new()
-  cur = dummy
-  while l1 && l2
-      if l1.val <= l2.val
-          cur.next = l1
-          l1 = l1.next
-      else
-          cur.next = l2
-          l2 = l2.next
-      end
-      cur = cur.next
-  end
-  cur.next = l1 || l2
-  dummy.next
+def merge_two_lists(list1, list2)
+    dummy = ListNode.new()
+    cur = dummy
+    while list1 && list2
+        if list1.val <= list2.val
+            cur.next = list1
+            list1 = list1.next
+        else
+            cur.next = list2
+            list2 = list2.next
+        end
+        cur = cur.next
+    end
+    cur.next = list1 || list2
+    dummy.next
 end
