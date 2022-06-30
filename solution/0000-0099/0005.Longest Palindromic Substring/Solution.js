@@ -34,5 +34,3 @@ function getPalLenByCenterChar(s, left, right) {
     }
     return right - left + 1;
 }
-
-console.log(longestPalindrome('cbbd'));

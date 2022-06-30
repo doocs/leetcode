@@ -171,6 +171,24 @@ function longestSubsequence(s: string, k: number): number {
 }
 ```
 
+```ts
+function longestSubsequence(s: string, k: number): number {
+    const cs = s.split('');
+    const n = s.length;
+    let i = 0;
+    while (parseInt(cs.join(''), 2) > k) {
+        for (let j = i; j < n; j++) {
+            if (cs[j] === '1') {
+                cs[j] = '0';
+                break;
+            }
+        }
+        i++;
+    }
+    return n - i;
+}
+```
+
 ### **...**
 
 ```

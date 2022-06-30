@@ -43,7 +43,43 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
+
+给与的数组是有序的，由此可以使用二分查找，那条件该如何判断呢。
+
+先观察一下线性遍历是如何确定目标的：
+
+```c
+for (int i = 0; i < n - 1; i += 2) {
+    if (nums[i] != nums[i + 1]) {
+        return nums[i];
+    }
+}
+return nums[n - 1];
+```
+
+偶数下标：当 `nums[i] != nums[i + 1] && i % 2  == 0` 成立，结果便是 `nums[i]`。
+奇数下标：当 `nums[i] != nums[i - 1] && i % 2  == 1` 成立，结果便是 `nums[i - 1]`。
+
+于是二分模板就有了：
+
+```txt
+l = 0
+r = n - 1
+while l < r
+    m = l + (r - l) / 2
+    if m % 2 == 0
+        if nums[m] == nums[m + 1]
+            l = m + 1
+        else
+            r = m
+    else
+        if nums[m] == nums[m - 1]
+            l = m + 1
+        else
+            r = m
+return nums[l]
+```
 
 <!-- tabs:start -->
 
@@ -99,6 +135,24 @@ function singleNonDuplicate(nums: number[]): number {
             right = mid;
         } else {
             left = mid + 1;
+        }
+    }
+    return nums[left];
+}
+```
+
+### **C**
+
+```c
+int singleNonDuplicate(int* nums, int numsSize) {
+    int left = 0;
+    int right = numsSize - 1;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == nums[mid ^ 1]) {
+            left = mid + 1;
+        } else {
+            right = mid;
         }
     }
     return nums[left];

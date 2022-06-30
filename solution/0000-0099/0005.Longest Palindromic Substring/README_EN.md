@@ -192,6 +192,108 @@ proc longestPalindrome(s: string): string =
   result = s[start ..< start+mx]
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+    let maxLength = 0,
+        left = 0,
+        right = 0;
+    for (let i = 0; i < s.length; i++) {
+        let singleCharLength = getPalLenByCenterChar(s, i, i);
+        let doubleCharLength = getPalLenByCenterChar(s, i, i + 1);
+        let max = Math.max(singleCharLength, doubleCharLength);
+        if (max > maxLength) {
+            maxLength = max;
+            left = i - parseInt((max - 1) / 2);
+            right = i + parseInt(max / 2);
+        }
+    }
+    return s.slice(left, right + 1);
+};
+
+function getPalLenByCenterChar(s, left, right) {
+    // 中间值为两个字符，确保两个字符相等
+    if (s[left] != s[right]) {
+        return right - left; // 不相等返回为1个字符串
+    }
+    while (left > 0 && right < s.length - 1) {
+        // 先加减再判断
+        left--;
+        right++;
+        if (s[left] != s[right]) {
+            return right - left - 1;
+        }
+    }
+    return right - left + 1;
+}
+```
+
+### **TypeScript**
+
+```ts
+function longestPalindrome(s: string): string {
+    const n = s.length;
+    const isPass = (l: number, r: number) => {
+        while (l < r) {
+            if (s[l++] !== s[r--]) {
+                return false;
+            }
+        }
+        return true;
+    };
+    let res = s[0];
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = n - 1; j > i; j--) {
+            if (j - i < res.length) {
+                break;
+            }
+            if (isPass(i, j)) {
+                res = s.slice(i, j + 1);
+            }
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn longest_palindrome(s: String) -> String {
+        let n = s.len();
+        let s = s.as_bytes();
+        let is_pass = |mut l, mut r| {
+            while l < r {
+                if s[l] != s[r] {
+                    return false;
+                }
+                l += 1;
+                r -= 1;
+            }
+            true
+        };
+        let mut res = &s[0..1];
+        for i in 0..n - 1 {
+            for j in (i + 1..n).rev() {
+                if res.len() > j - i {
+                    break;
+                }
+                if is_pass(i, j) {
+                    res = &s[i..=j];
+                }
+            }
+        }
+        res.into_iter().map(|c| char::from(*c)).collect()
+    }
+}
+```
+
 ### **...**
 
 ```
