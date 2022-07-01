@@ -1,45 +1,38 @@
-public class Solution {
-    public List<Integer> diffWaysToCompute(String input) {
+class Solution {
+    private static Map<String, List<Integer>> memo = new HashMap<>();
 
-		List<Integer> rt = new LinkedList<Integer>();
-		int len = input.length();
+    public List<Integer> diffWaysToCompute(String expression) {
+        return dfs(expression);
+    }
 
-		for (int i = 0; i < len; i++) {
-
-			if (input.charAt(i) == '-' || input.charAt(i) == '*'
-					|| input.charAt(i) == '+') {
-
-				String part1 = input.substring(0, i);
-				String part2 = input.substring(i + 1);
-
-				List<Integer> part1Ret = diffWaysToCompute(part1);
-				List<Integer> part2Ret = diffWaysToCompute(part2);
-
-				for (Integer p1 : part1Ret) {
-					for (Integer p2 : part2Ret) {
-						int c = 0;
-						switch (input.charAt(i)) {
-						case '+':
-							c = p1 + p2;
-							break;
-						case '-':
-							c = p1 - p2;
-							break;
-						case '*':
-							c = p1 * p2;
-						}
-						rt.add(c);
-					}
-				}
-			}
-		}
-
-		if (rt.size() == 0) {
-			rt.add(Integer.valueOf(input));
-		}
-
-		return rt;
-	
-        
+    private List<Integer> dfs(String exp) {
+        if (memo.containsKey(exp)) {
+            return memo.get(exp);
+        }
+        List<Integer> ans = new ArrayList<>();
+        if (exp.length() < 3) {
+            ans.add(Integer.parseInt(exp));
+            return ans;
+        }
+        for (int i = 0; i < exp.length(); ++i) {
+            char c = exp.charAt(i);
+            if (c == '-' || c == '+' || c == '*') {
+                List<Integer> left = dfs(exp.substring(0, i));
+                List<Integer> right = dfs(exp.substring(i + 1));
+                for (int a : left) {
+                    for (int b : right) {
+                        if (c == '-') {
+                            ans.add(a - b);
+                        } else if (c == '+') {
+                            ans.add(a + b);
+                        } else {
+                            ans.add(a * b);
+                        }
+                    }
+                }
+            }
+        }
+        memo.put(exp, ans);
+        return ans;
     }
 }
