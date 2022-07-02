@@ -2368,3 +2368,4 @@
   - [2320.Count Number of Ways to Place Houses](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md)
   - [2321.Maximum Score Of Spliced Array](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)
   - [2322.Minimum Score After Removals on a Tree](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)
+  - [2323.Find Minimum Time to Finish All Jobs II](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README_EN.md)

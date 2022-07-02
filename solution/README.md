@@ -165,7 +165,7 @@
 |  0152  |  [乘积最大子数组](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)  |  `数组`,`动态规划`  |  中等  |    |
 |  0153  |  [寻找旋转排序数组中的最小值](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README.md)  |  `数组`,`二分查找`  |  中等  |    |
 |  0154  |  [寻找旋转排序数组中的最小值 II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README.md)  |  `数组`,`二分查找`  |  困难  |    |
-|  0155  |  [最小栈](/solution/0100-0199/0155.Min%20Stack/README.md)  |  `栈`,`设计`  |  简单  |    |
+|  0155  |  [最小栈](/solution/0100-0199/0155.Min%20Stack/README.md)  |  `栈`,`设计`  |  中等  |    |
 |  0156  |  [上下翻转二叉树](/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |  🔒  |
 |  0157  |  [用 Read4 读取 N 个字符](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md)  |  `字符串`,`交互`,`模拟`  |  简单  |  🔒  |
 |  0158  |  [用 Read4 读取 N 个字符 II](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README.md)  |  `字符串`,`交互`,`模拟`  |  困难  |  🔒  |
@@ -201,7 +201,7 @@
 |  0188  |  [买卖股票的最佳时机 IV](/solution/0100-0199/0188.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV/README.md)  |  `数组`,`动态规划`  |  困难  |    |
 |  0189  |  [轮转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)  |  `数组`,`数学`,`双指针`  |  中等  |    |
 |  0190  |  [颠倒二进制位](/solution/0100-0199/0190.Reverse%20Bits/README.md)  |  `位运算`,`分治`  |  简单  |    |
-|  0191  |  [位1的个数](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md)  |  `位运算`  |  简单  |    |
+|  0191  |  [位1的个数](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md)  |  `位运算`,`分治`  |  简单  |    |
 |  0192  |  [统计词频](/solution/0100-0199/0192.Word%20Frequency/README.md)  |    |  中等  |    |
 |  0193  |  [有效电话号码](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README.md)  |    |  简单  |    |
 |  0194  |  [转置文件](/solution/0100-0199/0194.Transpose%20File/README.md)  |    |  中等  |    |
@@ -726,7 +726,7 @@
 |  0713  |  [乘积小于 K 的子数组](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)  |  `数组`,`滑动窗口`  |  中等  |    |
 |  0714  |  [买卖股票的最佳时机含手续费](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |    |
 |  0715  |  [Range 模块](/solution/0700-0799/0715.Range%20Module/README.md)  |  `设计`,`线段树`,`有序集合`  |  困难  |    |
-|  0716  |  [最大栈](/solution/0700-0799/0716.Max%20Stack/README.md)  |  `栈`,`设计`,`链表`,`双向链表`,`有序集合`  |  简单  |  🔒  |
+|  0716  |  [最大栈](/solution/0700-0799/0716.Max%20Stack/README.md)  |  `栈`,`设计`,`链表`,`双向链表`,`有序集合`  |  困难  |  🔒  |
 |  0717  |  [1 比特与 2 比特字符](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README.md)  |  `数组`  |  简单  |    |
 |  0718  |  [最长重复子数组](/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README.md)  |  `数组`,`二分查找`,`动态规划`,`滑动窗口`,`哈希函数`,`滚动哈希`  |  中等  |    |
 |  0719  |  [找出第 K 小的数对距离](/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README.md)  |  `数组`,`双指针`,`二分查找`,`排序`  |  困难  |    |
@@ -2323,16 +2323,17 @@
 |  2310  |  [个位数字为 K 的整数之和](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README.md)  |  `贪心`,`数学`,`动态规划`,`枚举`  |  中等  |  第 298 场周赛  |
 |  2311  |  [小于等于 K 的最长二进制子序列](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README.md)  |  `贪心`,`记忆化搜索`,`字符串`,`动态规划`  |  中等  |  第 298 场周赛  |
 |  2312  |  [卖木头块](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)  |  `记忆化搜索`,`数组`,`动态规划`  |  困难  |  第 298 场周赛  |
-|  2313  |  [Minimum Flips in Binary Tree to Get Result](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README.md)  |    |  困难  |  🔒  |
-|  2314  |  [The First Day of the Maximum Recorded Degree in Each City](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README.md)  |    |  中等  |  🔒  |
-|  2315  |  [统计星号](/solution/2300-2399/2315.Count%20Asterisks/README.md)  |    |  简单  |  第 81 场双周赛  |
-|  2316  |  [统计无向图中无法互相到达点对数](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README.md)  |    |  中等  |  第 81 场双周赛  |
-|  2317  |  [操作后的最大异或和](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README.md)  |    |  中等  |  第 81 场双周赛  |
-|  2318  |  [不同骰子序列的数目](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md)  |    |  困难  |  第 81 场双周赛  |
-|  2319  |  [判断矩阵是否是一个 X 矩阵](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md)  |    |  简单  |  第 299 场周赛  |
-|  2320  |  [统计放置房子的方式数](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README.md)  |    |  中等  |  第 299 场周赛  |
-|  2321  |  [拼接数组的最大分数](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md)  |  `动态规划`  |  困难  |  第 299 场周赛  |
-|  2322  |  [从树中删除边的最小分数](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)  |    |  困难  |  第 299 场周赛  |
+|  2313  |  [Minimum Flips in Binary Tree to Get Result](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README.md)  |  `树`,`深度优先搜索`,`动态规划`,`二叉树`  |  困难  |  🔒  |
+|  2314  |  [The First Day of the Maximum Recorded Degree in Each City](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2315  |  [统计星号](/solution/2300-2399/2315.Count%20Asterisks/README.md)  |  `字符串`  |  简单  |  第 81 场双周赛  |
+|  2316  |  [统计无向图中无法互相到达点对数](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`图`  |  中等  |  第 81 场双周赛  |
+|  2317  |  [操作后的最大异或和](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README.md)  |  `位运算`,`数组`,`数学`  |  中等  |  第 81 场双周赛  |
+|  2318  |  [不同骰子序列的数目](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md)  |  `记忆化搜索`,`动态规划`  |  困难  |  第 81 场双周赛  |
+|  2319  |  [判断矩阵是否是一个 X 矩阵](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md)  |  `数组`,`矩阵`  |  简单  |  第 299 场周赛  |
+|  2320  |  [统计放置房子的方式数](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README.md)  |  `动态规划`  |  中等  |  第 299 场周赛  |
+|  2321  |  [拼接数组的最大分数](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md)  |  `数组`,`动态规划`  |  困难  |  第 299 场周赛  |
+|  2322  |  [从树中删除边的最小分数](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)  |  `位运算`,`树`,`深度优先搜索`,`数组`  |  困难  |  第 299 场周赛  |
+|  2323  |  [Find Minimum Time to Finish All Jobs II](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

@@ -163,7 +163,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0152  |  [Maximum Product Subarray](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
 |  0153  |  [Find Minimum in Rotated Sorted Array](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |    |
 |  0154  |  [Find Minimum in Rotated Sorted Array II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)  |  `Array`,`Binary Search`  |  Hard  |    |
-|  0155  |  [Min Stack](/solution/0100-0199/0155.Min%20Stack/README_EN.md)  |  `Stack`,`Design`  |  Easy  |    |
+|  0155  |  [Min Stack](/solution/0100-0199/0155.Min%20Stack/README_EN.md)  |  `Stack`,`Design`  |  Medium  |    |
 |  0156  |  [Binary Tree Upside Down](/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
 |  0157  |  [Read N Characters Given Read4](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README_EN.md)  |  `String`,`Interactive`,`Simulation`  |  Easy  |  🔒  |
 |  0158  |  [Read N Characters Given read4 II - Call Multiple Times](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20read4%20II%20-%20Call%20Multiple%20Times/README_EN.md)  |  `String`,`Interactive`,`Simulation`  |  Hard  |  🔒  |
@@ -199,7 +199,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0188  |  [Best Time to Buy and Sell Stock IV](/solution/0100-0199/0188.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |    |
 |  0189  |  [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)  |  `Array`,`Math`,`Two Pointers`  |  Medium  |    |
 |  0190  |  [Reverse Bits](/solution/0100-0199/0190.Reverse%20Bits/README_EN.md)  |  `Bit Manipulation`,`Divide and Conquer`  |  Easy  |    |
-|  0191  |  [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)  |  `Bit Manipulation`  |  Easy  |    |
+|  0191  |  [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)  |  `Bit Manipulation`,`Divide and Conquer`  |  Easy  |    |
 |  0192  |  [Word Frequency](/solution/0100-0199/0192.Word%20Frequency/README_EN.md)  |  `Shell`  |  Medium  |    |
 |  0193  |  [Valid Phone Numbers](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README_EN.md)  |  `Shell`  |  Easy  |    |
 |  0194  |  [Transpose File](/solution/0100-0199/0194.Transpose%20File/README_EN.md)  |  `Shell`  |  Medium  |    |
@@ -724,7 +724,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0713  |  [Subarray Product Less Than K](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |    |
 |  0714  |  [Best Time to Buy and Sell Stock with Transaction Fee](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |    |
 |  0715  |  [Range Module](/solution/0700-0799/0715.Range%20Module/README_EN.md)  |  `Design`,`Segment Tree`,`Ordered Set`  |  Hard  |    |
-|  0716  |  [Max Stack](/solution/0700-0799/0716.Max%20Stack/README_EN.md)  |  `Stack`,`Design`,`Linked List`,`Doubly-Linked List`,`Ordered Set`  |  Easy  |  🔒  |
+|  0716  |  [Max Stack](/solution/0700-0799/0716.Max%20Stack/README_EN.md)  |  `Stack`,`Design`,`Linked List`,`Doubly-Linked List`,`Ordered Set`  |  Hard  |  🔒  |
 |  0717  |  [1-bit and 2-bit Characters](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README_EN.md)  |  `Array`  |  Easy  |    |
 |  0718  |  [Maximum Length of Repeated Subarray](/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README_EN.md)  |  `Array`,`Binary Search`,`Dynamic Programming`,`Sliding Window`,`Hash Function`,`Rolling Hash`  |  Medium  |    |
 |  0719  |  [Find K-th Smallest Pair Distance](/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Hard  |    |
@@ -2321,16 +2321,17 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2310  |  [Sum of Numbers With Units Digit K](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md)  |  `Greedy`,`Math`,`Dynamic Programming`,`Enumeration`  |  Medium  |  Weekly Contest 298  |
 |  2311  |  [Longest Binary Subsequence Less Than or Equal to K](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |  `Greedy`,`Memoization`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 298  |
 |  2312  |  [Selling Pieces of Wood](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)  |  `Memoization`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 298  |
-|  2313  |  [Minimum Flips in Binary Tree to Get Result](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md)  |    |  Hard  |  🔒  |
-|  2314  |  [The First Day of the Maximum Recorded Degree in Each City](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md)  |    |  Medium  |  🔒  |
-|  2315  |  [Count Asterisks](/solution/2300-2399/2315.Count%20Asterisks/README_EN.md)  |    |  Easy  |  Biweekly Contest 81  |
-|  2316  |  [Count Unreachable Pairs of Nodes in an Undirected Graph](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README_EN.md)  |    |  Medium  |  Biweekly Contest 81  |
-|  2317  |  [Maximum XOR After Operations](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md)  |    |  Medium  |  Biweekly Contest 81  |
-|  2318  |  [Number of Distinct Roll Sequences](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README_EN.md)  |    |  Hard  |  Biweekly Contest 81  |
-|  2319  |  [Check if Matrix Is X-Matrix](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md)  |    |  Easy  |  Weekly Contest 299  |
-|  2320  |  [Count Number of Ways to Place Houses](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md)  |    |  Medium  |  Weekly Contest 299  |
-|  2321  |  [Maximum Score Of Spliced Array](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)  |  `Dynamic Programming`  |  Hard  |  Weekly Contest 299  |
-|  2322  |  [Minimum Score After Removals on a Tree](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 299  |
+|  2313  |  [Minimum Flips in Binary Tree to Get Result](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md)  |  `Tree`,`Depth-First Search`,`Dynamic Programming`,`Binary Tree`  |  Hard  |  🔒  |
+|  2314  |  [The First Day of the Maximum Recorded Degree in Each City](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2315  |  [Count Asterisks](/solution/2300-2399/2315.Count%20Asterisks/README_EN.md)  |  `String`  |  Easy  |  Biweekly Contest 81  |
+|  2316  |  [Count Unreachable Pairs of Nodes in an Undirected Graph](/solution/2300-2399/2316.Count%20Unreachable%20Pairs%20of%20Nodes%20in%20an%20Undirected%20Graph/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`  |  Medium  |  Biweekly Contest 81  |
+|  2317  |  [Maximum XOR After Operations](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`  |  Medium  |  Biweekly Contest 81  |
+|  2318  |  [Number of Distinct Roll Sequences](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README_EN.md)  |  `Memoization`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 81  |
+|  2319  |  [Check if Matrix Is X-Matrix](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md)  |  `Array`,`Matrix`  |  Easy  |  Weekly Contest 299  |
+|  2320  |  [Count Number of Ways to Place Houses](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  Weekly Contest 299  |
+|  2321  |  [Maximum Score Of Spliced Array](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 299  |
+|  2322  |  [Minimum Score After Removals on a Tree](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)  |  `Bit Manipulation`,`Tree`,`Depth-First Search`,`Array`  |  Hard  |  Weekly Contest 299  |
+|  2323  |  [Find Minimum Time to Finish All Jobs II](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
