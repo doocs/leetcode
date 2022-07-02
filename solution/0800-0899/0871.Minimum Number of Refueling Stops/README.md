@@ -60,6 +60,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 优先队列（大根堆）**
+
+利用优先队列记录所有已经到达过的加油站的加油量，每次当油量不足时，从队列中取出最大加油量，并累计加油次数 ans。
+
+时间复杂度 $O(nlogn)$。其中 $n$ 表示数组 $stations$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +73,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minRefuelStops(self, target: int, startFuel: int, stations: List[List[int]]) -> int:
+        q = []
+        prev = ans = 0
+        stations.append([target, 0])
+        for a, b in stations:
+            d = a - prev
+            startFuel -= d
+            while startFuel < 0 and q:
+                startFuel -= heappop(q)
+                ans += 1
+            if startFuel < 0:
+                return -1
+            heappush(q, -b)
+            prev = a
+        return ans
 ```
 
 ### **Java**
@@ -75,7 +96,95 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minRefuelStops(int target, int startFuel, int[][] stations) {
+        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> b - a);
+        int n = stations.length;
+        int prev = 0, ans = 0;
+        for (int i = 0; i < n + 1; ++i) {
+            int d = (i < n ? stations[i][0] : target) - prev;
+            startFuel -= d;
+            while (startFuel < 0 && !q.isEmpty()) {
+                startFuel += q.poll();
+                ++ans;
+            }
+            if (startFuel < 0) {
+                return -1;
+            }
+            if (i < n) {
+                q.offer(stations[i][1]);
+                prev = stations[i][0];
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minRefuelStops(int target, int startFuel, vector<vector<int>>& stations) {
+        priority_queue<int> q;
+        stations.push_back({target, 0});
+        int ans = 0, prev = 0;
+        for (auto& s : stations)
+        {
+            int d = s[0] - prev;
+            startFuel -= d;
+            while (startFuel < 0 && !q.empty())
+            {
+                startFuel += q.top();
+                q.pop();
+                ++ans;
+            }
+            if (startFuel < 0) return -1;
+            q.push(s[1]);
+            prev = s[0];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minRefuelStops(target int, startFuel int, stations [][]int) int {
+	stations = append(stations, []int{target, 0})
+	ans, prev := 0, 0
+	q := &hp{}
+	heap.Init(q)
+	for _, s := range stations {
+		d := s[0] - prev
+		startFuel -= d
+		for startFuel < 0 && q.Len() > 0 {
+			startFuel += q.pop()
+			ans++
+		}
+		if startFuel < 0 {
+			return -1
+		}
+		q.push(s[1])
+		prev = s[0]
+	}
+	return ans
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) push(v int) { heap.Push(h, v) }
+func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
 ### **...**
