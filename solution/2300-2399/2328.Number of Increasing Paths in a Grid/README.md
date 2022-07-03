@@ -77,11 +77,7 @@ class Solution:
 
         m, n = len(grid), len(grid[0])
         mod = 10**9 + 7
-        ans = 0
-        for i in range(m):
-            for j in range(n):
-                ans += dfs(i, j)
-        return ans % mod
+        return sum(dfs(i, j) for i in range(m) for j in range(n)) % mod
 ```
 
 ### **Java**

@@ -58,14 +58,14 @@ It is obtained by taking the first appearance of each letter in &quot;<u><strong
 ```python
 class Solution:
     def decodeMessage(self, key: str, message: str) -> str:
-        d = {}
+        d = {" ": " "}
         i = 0
-        for c in ''.join(key.split()):
+        for c in key:
             if c in d:
                 continue
             d[c] = ascii_lowercase[i]
             i += 1
-        return ''.join([' ' if c == ' ' else d[c] for c in message])
+        return "".join(d[c] for c in message)
 ```
 
 ### **Java**

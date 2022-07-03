@@ -54,8 +54,9 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 ```python
 class Solution:
     def peopleAwareOfSecret(self, n: int, delay: int, forget: int) -> int:
-        d = [0] * (n + 1010)
-        cnt = [0] * (n + 1010)
+        m = (n << 1) + 10
+        d = [0] * m
+        cnt = [0] * m
         cnt[1] = 1
         for i in range(1, n + 1):
             if cnt[i]:
