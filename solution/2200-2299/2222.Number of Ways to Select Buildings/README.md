@@ -58,6 +58,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：统计 010 和 101 的出现次数**
+
+有效方案只有两种情况：$010$ 和 $101$。枚举中间数字，累计方案数。
+
+时间复杂度 $O(n)$，其中 $n$ 表示 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +71,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfWays(self, s: str) -> int:
+        n = len(s)
+        cnt0 = s.count("0")
+        cnt1 = n - cnt0
+        c0 = c1 = 0
+        ans = 0
+        for c in s:
+            if c == "0":
+                ans += c1 * (cnt1 - c1)
+                c0 += 1
+            else:
+                ans += c0 * (cnt0 - c0)
+                c1 += 1
+        return ans
 ```
 
 ### **Java**
@@ -73,7 +93,82 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long numberOfWays(String s) {
+        int n = s.length();
+        int cnt0 = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '0') {
+                ++cnt0;
+            }
+        }
+        int cnt1 = n - cnt0;
+        long ans = 0;
+        int c0 = 0, c1 = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '0') {
+                ans += c1 * (cnt1 - c1);
+                ++c0;
+            } else {
+                ans += c0 * (cnt0 - c0);
+                ++c1;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long numberOfWays(string s) {
+        int n = s.size();
+        int cnt0 = 0;
+        for (char& c : s) cnt0 += c == '0';
+        int cnt1 = n - cnt0;
+        int c0 = 0, c1 = 0;
+        long long ans = 0;
+        for (char& c : s)
+        {
+            if (c == '0')
+            {
+                ans += c1 * (cnt1 - c1);
+                ++c0;
+            }
+            else
+            {
+                ans += c0 * (cnt0 - c0);
+                ++c1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfWays(s string) int64 {
+	n := len(s)
+	cnt0 := strings.Count(s, "0")
+	cnt1 := n - cnt0
+	c0, c1 := 0, 0
+	ans := 0
+	for _, c := range s {
+		if c == '0' {
+			ans += c1 * (cnt1 - c1)
+			c0++
+		} else {
+			ans += c0 * (cnt0 - c0)
+			c1++
+		}
+	}
+	return int64(ans)
+}
 ```
 
 ### **TypeScript**
