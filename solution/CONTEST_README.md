@@ -9,6 +9,14 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 300 场周赛(2022-07-03 10:30, 90 分钟)
+
+- [2325. 解密消息](/solution/2300-2399/2325.Decode%20the%20Message/README.md)
+- [2326. 螺旋矩阵 IV](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README.md)
+- [2327. 知道秘密的人数](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md)
+- [2328. 网格图中递增路径的数目](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md)
+
+
 #### 第 299 场周赛(2022-06-26 10:30, 90 分钟)
 
 - [2319. 判断矩阵是否是一个 X 矩阵](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md)

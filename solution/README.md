@@ -2334,6 +2334,10 @@
 |  2321  |  [拼接数组的最大分数](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md)  |  `数组`,`动态规划`  |  困难  |  第 299 场周赛  |
 |  2322  |  [从树中删除边的最小分数](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)  |  `位运算`,`树`,`深度优先搜索`,`数组`  |  困难  |  第 299 场周赛  |
 |  2323  |  [Find Minimum Time to Finish All Jobs II](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README.md)  |    |  中等  |  🔒  |
+|  2325  |  [解密消息](/solution/2300-2399/2325.Decode%20the%20Message/README.md)  |    |  简单  |  第 300 场周赛  |
+|  2326  |  [螺旋矩阵 IV](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README.md)  |    |  中等  |  第 300 场周赛  |
+|  2327  |  [知道秘密的人数](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md)  |    |  中等  |  第 300 场周赛  |
+|  2328  |  [网格图中递增路径的数目](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md)  |    |  困难  |  第 300 场周赛  |
 
 ## 版权
 

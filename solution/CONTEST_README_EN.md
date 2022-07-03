@@ -9,6 +9,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 300
+
+- [2325. Decode the Message](/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md)
+- [2326. Spiral Matrix IV](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README_EN.md)
+- [2327. Number of People Aware of a Secret](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)
+- [2328. Number of Increasing Paths in a Grid](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md)
+
+
 #### Weekly Contest 299
 
 - [2319. Check if Matrix Is X-Matrix](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README_EN.md)
