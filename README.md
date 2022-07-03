@@ -20,7 +20,7 @@
 
 ## 站点
 
--   Gitee Pages: https://doocs.gitee.io/leetcode
+-   Vercel: https://leetcode-doocs.vercel.app
 -   GitHub Pages: https://doocs.github.io/leetcode
 
 ## 算法全解
