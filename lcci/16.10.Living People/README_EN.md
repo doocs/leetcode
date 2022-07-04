@@ -111,7 +111,6 @@ function maxAliveYear(birth: number[], death: number[]): number {
     }
     return res;
 }
-
 ```
 
 ### **Rust**

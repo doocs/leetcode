@@ -47,7 +47,6 @@ It can be proven that 3 days is the minimum number of days needed.
 	<li><code>1 &lt;= jobs[i], workers[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

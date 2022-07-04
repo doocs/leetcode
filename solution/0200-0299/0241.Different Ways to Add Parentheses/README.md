@@ -77,7 +77,7 @@ class Solution:
                             else:
                                 ans.append(a * b)
             return ans
-        
+
         return dfs(expression)
 ```
 

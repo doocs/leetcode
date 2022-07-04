@@ -61,7 +61,7 @@ class Solution:
                 for j in range(k + 1):
                     ans[0] = max(ans[0], l[i] + r[j])
             return ans
-        
+
         return max(dfs(root))
 ```
 

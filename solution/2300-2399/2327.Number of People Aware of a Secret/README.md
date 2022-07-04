@@ -197,7 +197,7 @@ function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
         }
     }
     return Number(pre % BigInt(10 ** 9 + 7));
-};
+}
 ```
 
 ### **...**

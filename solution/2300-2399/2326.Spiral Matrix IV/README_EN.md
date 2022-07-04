@@ -210,10 +210,17 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
  * }
  */
 
- function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
-    const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
+    const dirs = [
+        [0, 1],
+        [1, 0],
+        [0, -1],
+        [-1, 0],
+    ];
     let ans = Array.from({ length: m }, v => new Array(n).fill(-1));
-    let i = 0, j = 0, k = 0;
+    let i = 0,
+        j = 0,
+        k = 0;
     while (head) {
         ans[i][j] = head.val;
         head = head.next;
@@ -226,7 +233,7 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
         j = j + dirs[k][1];
     }
     return ans;
-};
+}
 ```
 
 ### **...**

@@ -58,8 +58,8 @@ for (int i = 0; i < n - 1; i += 2) {
 return nums[n - 1];
 ```
 
-偶数下标：当 `nums[i] != nums[i + 1] && i % 2  == 0` 成立，结果便是 `nums[i]`。
-奇数下标：当 `nums[i] != nums[i - 1] && i % 2  == 1` 成立，结果便是 `nums[i - 1]`。
+偶数下标：当 `nums[i] != nums[i + 1] && i % 2 == 0` 成立，结果便是 `nums[i]`。
+奇数下标：当 `nums[i] != nums[i - 1] && i % 2 == 1` 成立，结果便是 `nums[i - 1]`。
 
 于是二分模板就有了：
 
