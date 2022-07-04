@@ -59,6 +59,8 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自定义排序**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +68,15 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def kthLargestNumber(self, nums: List[str], k: int) -> str:
+        def cmp(a, b):
+            if len(a) != len(b):
+                return len(b) - len(a)
+            return 1 if b > a else -1
 
+        nums.sort(key=cmp_to_key(cmp))
+        return nums[k - 1]
 ```
 
 ### **Java**
@@ -74,7 +84,40 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String kthLargestNumber(String[] nums, int k) {
+        Arrays.sort(nums, (a, b) -> a.length() == b.length() ? b.compareTo(a) : b.length() - a.length());
+        return nums[k - 1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string kthLargestNumber(vector<string>& nums, int k) {
+        auto cmp = [](const string& a, const string& b) { return a.size() == b.size() ? a > b : a.size() > b.size(); };
+        sort(nums.begin(), nums.end(), cmp);
+        return nums[k - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthLargestNumber(nums []string, k int) string {
+	sort.Slice(nums, func(i, j int) bool {
+		a, b := nums[i], nums[j]
+		if len(a) == len(b) {
+			return a > b
+		}
+		return len(a) > len(b)
+	})
+	return nums[k-1]
+}
 ```
 
 ### **...**
