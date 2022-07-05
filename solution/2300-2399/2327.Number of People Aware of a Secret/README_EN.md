@@ -67,7 +67,7 @@ class Solution:
                     cnt[nxt] += cnt[i]
                     nxt += 1
         mod = 10**9 + 7
-        return list(accumulate(d))[n] % mod
+        return sum(d[: n + 1]) % mod
 ```
 
 ### **Java**

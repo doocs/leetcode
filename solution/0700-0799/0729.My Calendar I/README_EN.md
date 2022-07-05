@@ -58,9 +58,8 @@ class MyCalendar:
 
     def book(self, start: int, end: int) -> bool:
         idx = self.sd.bisect_right(start)
-        if 0 <= idx < len(self.sd):
-            if end > self.sd.values()[idx]:
-                return False
+        if idx < len(self.sd) and end > self.sd.values()[idx]:
+            return False
         self.sd[end] = start
         return True
 

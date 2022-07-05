@@ -53,6 +53,10 @@
 
 **方法一：差分数组**
 
+差分数组 $d[i]$ 记录每天知道秘密的人数变化情况，$cnt[i]$ 记录第 $i$ 天新得知秘密的人数。那么从 $[i+delay,i+forget)$ 的这段时间内，$cnt[i]$ 个人每天都能分享给另外 $cnt[i]$ 个人。
+
+最终 $sum(d[:n+1])$ 就是答案。
+
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
@@ -77,7 +81,7 @@ class Solution:
                     cnt[nxt] += cnt[i]
                     nxt += 1
         mod = 10**9 + 7
-        return list(accumulate(d))[n] % mod
+        return sum(d[: n + 1]) % mod
 ```
 
 ### **Java**
