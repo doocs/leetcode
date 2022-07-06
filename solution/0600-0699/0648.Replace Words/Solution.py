@@ -1,5 +1,5 @@
 class Trie:
-    def __init__(self) -> None:
+    def __init__(self):
         self.children = [None] * 26
         self.root = None
 
@@ -10,7 +10,7 @@ class Solution:
         for root in dictionary:
             cur = trie
             for c in root:
-                idx = ord(c) - ord('a')
+                idx = ord(c) - ord("a")
                 if cur.children[idx] is None:
                     cur.children[idx] = Trie()
                 cur = cur.children[idx]
@@ -20,9 +20,9 @@ class Solution:
         for word in sentence.split():
             cur = trie
             for c in word:
-                idx = ord(c) - ord('a')
-                if cur.children[idx] is None or cur.root is not None:
+                idx = ord(c) - ord("a")
+                if cur.children[idx] is None or cur.root:
                     break
                 cur = cur.children[idx]
-            ans.append(word if cur.root is None else cur.root)
-        return ' '.join(ans)
+            ans.append(cur.root or word)
+        return " ".join(ans)

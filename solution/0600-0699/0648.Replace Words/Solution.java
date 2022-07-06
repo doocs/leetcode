@@ -9,21 +9,23 @@ class Solution {
         for (String root : dictionary) {
             Trie cur = trie;
             for (char c : root.toCharArray()) {
-                if (cur.children[c - 'a'] == null) {
-                    cur.children[c - 'a'] = new Trie();
+                c -= 'a';
+                if (cur.children[c] == null) {
+                    cur.children[c] = new Trie();
                 }
-                cur = cur.children[c - 'a'];
+                cur = cur.children[c];
             }
             cur.root = root;
         }
         List<String> ans = new ArrayList<>();
-        for (String word : sentence.split("\\s+")) {
+        for (String word : sentence.split(" ")) {
             Trie cur = trie;
             for (char c : word.toCharArray()) {
-                if (cur.children[c - 'a'] == null || cur.root != null) {
+                c -= 'a';
+                if (cur.children[c] == null || cur.root != null) {
                     break;
                 }
-                cur = cur.children[c - 'a'];
+                cur = cur.children[c];
             }
             ans.add(cur.root == null ? word : cur.root);
         }

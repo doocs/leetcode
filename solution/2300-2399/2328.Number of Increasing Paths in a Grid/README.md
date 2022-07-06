@@ -57,6 +57,8 @@
 
 时间复杂度 $O(mn)$。
 
+相似题目：[329. 矩阵中的最长递增路径](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)。
+
 <!-- tabs:start -->
 
 ### **Python3**

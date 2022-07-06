@@ -97,6 +97,8 @@
 -   [划分为 k 个相等的子集](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md) - `DFS`、`回溯`、`剪枝`
 -   [完成所有工作的最短时间](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md) - `DFS`、`回溯`、`剪枝`
 -   [公平分发饼干](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md) - `DFS`、`回溯`、`剪枝`
+-   [矩阵中的最长递增路径](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md) - `DFS`、`记忆化搜索`
+-   [网格图中递增路径的数目](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md) - `DFS`、`记忆化搜索`
 
 <!-- DFS 待补充 -->
 

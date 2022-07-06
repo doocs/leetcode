@@ -50,7 +50,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀树实现。
+**方法一：前缀树**
 
 <!-- tabs:start -->
 
@@ -60,7 +60,7 @@
 
 ```python
 class Trie:
-    def __init__(self) -> None:
+    def __init__(self):
         self.children = [None] * 26
         self.root = None
 
@@ -71,7 +71,7 @@ class Solution:
         for root in dictionary:
             cur = trie
             for c in root:
-                idx = ord(c) - ord('a')
+                idx = ord(c) - ord("a")
                 if cur.children[idx] is None:
                     cur.children[idx] = Trie()
                 cur = cur.children[idx]
@@ -81,12 +81,12 @@ class Solution:
         for word in sentence.split():
             cur = trie
             for c in word:
-                idx = ord(c) - ord('a')
-                if cur.children[idx] is None or cur.root is not None:
+                idx = ord(c) - ord("a")
+                if cur.children[idx] is None or cur.root:
                     break
                 cur = cur.children[idx]
-            ans.append(word if cur.root is None else cur.root)
-        return ' '.join(ans)
+            ans.append(cur.root or word)
+        return " ".join(ans)
 ```
 
 ### **Java**
@@ -105,21 +105,23 @@ class Solution {
         for (String root : dictionary) {
             Trie cur = trie;
             for (char c : root.toCharArray()) {
-                if (cur.children[c - 'a'] == null) {
-                    cur.children[c - 'a'] = new Trie();
+                c -= 'a';
+                if (cur.children[c] == null) {
+                    cur.children[c] = new Trie();
                 }
-                cur = cur.children[c - 'a'];
+                cur = cur.children[c];
             }
             cur.root = root;
         }
         List<String> ans = new ArrayList<>();
-        for (String word : sentence.split("\\s+")) {
+        for (String word : sentence.split(" ")) {
             Trie cur = trie;
             for (char c : word.toCharArray()) {
-                if (cur.children[c - 'a'] == null || cur.root != null) {
+                c -= 'a';
+                if (cur.children[c] == null || cur.root != null) {
                     break;
                 }
-                cur = cur.children[c - 'a'];
+                cur = cur.children[c];
             }
             ans.add(cur.root == null ? word : cur.root);
         }

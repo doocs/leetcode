@@ -95,6 +95,8 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Partition to K Equal Sum Subsets](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README_EN.md) - `DFS`, `Backtracking`
 -   [Find Minimum Time to Finish All Jobs](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README_EN.md) - `DFS`, `Backtracking`
 -   [Fair Distribution of Cookies](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README_EN.md) - `DFS`, `Backtracking`
+-   [Longest Increasing Path in a Matrix](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README_EN.md) - `DFS`、`Memoization`
+-   [Number of Increasing Paths in a Grid](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md) - `DFS`、`Memoization`
 
 ### 4. Dynamic Programming(DP)
 
