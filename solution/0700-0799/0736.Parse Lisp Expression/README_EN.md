@@ -64,13 +64,217 @@ The second (add x y) evaluates as 3+2 = 5.
 ### **Python3**
 
 ```python
+class Solution:
+    def evaluate(self, expression: str) -> int:
+        def parseVar():
+            nonlocal i
+            j = i
+            while i < n and expression[i] not in " )":
+                i += 1
+            return expression[j:i]
 
+        def parseInt():
+            nonlocal i
+            sign, v = 1, 0
+            if expression[i] == "-":
+                sign = -1
+                i += 1
+            while i < n and expression[i].isdigit():
+                v = v * 10 + int(expression[i])
+                i += 1
+            return sign * v
+
+        def eval():
+            nonlocal i
+            if expression[i] != "(":
+                return scope[parseVar()][-1] if expression[i].islower() else parseInt()
+            i += 1
+            if expression[i] == "l":
+                i += 4
+                vars = []
+                while 1:
+                    var = parseVar()
+                    if expression[i] == ")":
+                        ans = scope[var][-1]
+                        break
+                    vars.append(var)
+                    i += 1
+                    scope[var].append(eval())
+                    i += 1
+                    if not expression[i].islower():
+                        ans = eval()
+                        break
+                for v in vars:
+                    scope[v].pop()
+            else:
+                add = expression[i] == "a"
+                i += 4 if add else 5
+                a = eval()
+                i += 1
+                b = eval()
+                ans = a + b if add else a * b
+            i += 1
+            return ans
+
+        i, n = 0, len(expression)
+        scope = defaultdict(list)
+        return eval()
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int i;
+    private String expr;
+    private Map<String, Deque<Integer>> scope = new HashMap<>();
 
+    public int evaluate(String expression) {
+        expr = expression;
+        return eval();
+    }
+
+    private int eval() {
+        char c = expr.charAt(i);
+        if (c != '(') {
+            return Character.isLowerCase(c) ? scope.get(parseVar()).peekLast() : parseInt();
+        }
+        ++i;
+        c = expr.charAt(i);
+        int ans = 0;
+        if (c == 'l') {
+            i += 4;
+            List<String> vars = new ArrayList<>();
+            while (true) {
+                String var = parseVar();
+                if (expr.charAt(i) == ')') {
+                    ans = scope.get(var).peekLast();
+                    break;
+                }
+                vars.add(var);
+                ++i;
+                scope.computeIfAbsent(var, k -> new ArrayDeque<>()).offer(eval());
+                ++i;
+                if (!Character.isLowerCase(expr.charAt(i))) {
+                    ans = eval();
+                    break;
+                }
+            }
+            for (String v : vars) {
+                scope.get(v).pollLast();
+            }
+        } else {
+            boolean add = c == 'a';
+            i += add ? 4 : 5;
+            int a = eval();
+            ++i;
+            int b = eval();
+            ans = add ? a + b : a * b;
+        }
+        ++i;
+        return ans;
+    }
+
+    private String parseVar() {
+        int j = i;
+        while (i < expr.length() && expr.charAt(i) != ' ' && expr.charAt(i) != ')') {
+            ++i;
+        }
+        return expr.substring(j, i);
+    }
+
+    private int parseInt() {
+        int sign = 1;
+        if (expr.charAt(i) == '-') {
+            sign = -1;
+            ++i;
+        }
+        int v = 0;
+        while (i < expr.length() && Character.isDigit(expr.charAt(i))) {
+            v = v * 10 + (expr.charAt(i) - '0');
+            ++i;
+        }
+        return sign * v;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int i = 0;
+    string expr;
+    unordered_map<string, vector<int>> scope;
+
+    int evaluate(string expression) {
+        expr = expression;
+        return eval();
+    }
+
+    int eval() {
+        if (expr[i] != '(') return islower(expr[i]) ? scope[parseVar()].back() : parseInt();
+        int ans = 0;
+        ++i;
+        if (expr[i] == 'l')
+        {
+            i += 4;
+            vector<string> vars;
+            while (1)
+            {
+                string var = parseVar();
+                if (expr[i] == ')')
+                {
+                    ans = scope[var].back();
+                    break;
+                }
+                ++i;
+                vars.push_back(var);
+                scope[var].push_back(eval());
+                ++i;
+                if (!islower(expr[i]))
+                {
+                    ans = eval();
+                    break;
+                }
+            }
+            for (string v : vars) scope[v].pop_back();
+        }
+        else
+        {
+            bool add = expr[i] == 'a';
+            i += add ? 4 : 5;
+            int a = eval();
+            ++i;
+            int b = eval();
+            ans = add ? a + b : a * b;
+        }
+        ++i;
+        return ans;
+    }
+
+    string parseVar() {
+        int j = i;
+        while (i < expr.size() && expr[i] != ' ' && expr[i] != ')') ++i;
+        return expr.substr(j, i - j);
+    }
+
+    int parseInt() {
+        int sign = 1, v = 0;
+        if (expr[i] == '-')
+        {
+            sign = -1;
+            ++i;
+        }
+        while (i < expr.size() && expr[i] >= '0' && expr[i] <= '9')
+        {
+            v = v * 10 + (expr[i] - '0');
+            ++i;
+        }
+        return sign * v;
+    }
+};
 ```
 
 ### **...**
