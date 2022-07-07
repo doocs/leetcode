@@ -50,6 +50,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
 **方法一：前缀树**
 
 <!-- tabs:start -->
@@ -57,6 +59,19 @@
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def replaceWords(self, dictionary: List[str], sentence: str) -> str:
+        s = set(dictionary)
+        words = sentence.split()
+        for i, word in enumerate(words):
+            for j in range(1, len(word) + 1):
+                if word[:j] in s:
+                    words[i] = word[:j]
+                    break
+        return ' '.join(words)
+```
 
 ```python
 class Trie:
@@ -92,6 +107,26 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public String replaceWords(List<String> dictionary, String sentence) {
+        Set<String> s = new HashSet<>(dictionary);
+        String[] words = sentence.split(" ");
+        for (int i = 0; i < words.length; ++i) {
+            String word = words[i];
+            for (int j = 1; j <= word.length(); ++j) {
+                String t = word.substring(0, j);
+                if (s.contains(t)) {
+                    words[i] = t;
+                    break;
+                }
+            }
+        }
+        return String.join(" ", words);
+    }
+}
+```
 
 ```java
 class Trie {
@@ -131,6 +166,36 @@ class Solution {
 ```
 
 ### **C++**
+
+```cpp
+class Solution {
+public:
+    string replaceWords(vector<string>& dictionary, string sentence) {
+        unordered_set<string> s(dictionary.begin(), dictionary.end());
+        istringstream is(sentence);
+        vector<string> words;
+        string ss;
+        while (is >> ss) words.push_back(ss);
+        for (int i = 0; i < words.size(); ++i)
+        {
+            string word = words[i];
+            for (int j = 1; j <= word.size(); ++j)
+            {
+                string t = word.substr(0, j);
+                if (s.count(t))
+                {
+                    words[i] = t;
+                    break;
+                }
+            }
+        }
+        string ans = "";
+        for (string& word : words) ans += word + " ";
+        ans.pop_back();
+        return ans;
+    }
+};
+```
 
 ```cpp
 class Trie {
@@ -182,6 +247,26 @@ public:
 ```
 
 ### **Go**
+
+```go
+func replaceWords(dictionary []string, sentence string) string {
+	s := map[string]bool{}
+	for _, v := range dictionary {
+		s[v] = true
+	}
+	words := strings.Split(sentence, " ")
+	for i, word := range words {
+		for j := 1; j <= len(word); j++ {
+			t := word[:j]
+			if s[t] {
+				words[i] = t
+				break
+			}
+		}
+	}
+	return strings.Join(words, " ")
+}
+```
 
 ```go
 func replaceWords(dictionary []string, sentence string) string {
