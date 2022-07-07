@@ -100,6 +100,7 @@
 -   [矩阵中的最长递增路径](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md) - `DFS`、`记忆化搜索`
 -   [网格图中递增路径的数目](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md) - `DFS`、`记忆化搜索`
 -   [翻转游戏 II](/solution/0200-0299/0294.Flip%20Game%20II/README.md) - `DFS`、`状态压缩`、`记忆化搜索`
+-   [统计所有可行路径](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md) - `DFS`、`记忆化搜索`
 
 <!-- DFS 待补充 -->
 
