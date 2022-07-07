@@ -337,7 +337,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0326  |  [Power of Three](/solution/0300-0399/0326.Power%20of%20Three/README_EN.md)  |  `Recursion`,`Math`  |  Easy  |    |
 |  0327  |  [Count of Range Sum](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Divide and Conquer`,`Ordered Set`,`Merge Sort`  |  Hard  |    |
 |  0328  |  [Odd Even Linked List](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)  |  `Linked List`  |  Medium  |    |
-|  0329  |  [Longest Increasing Path in a Matrix](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Topological Sort`,`Memoization`,`Dynamic Programming`  |  Hard  |    |
+|  0329  |  [Longest Increasing Path in a Matrix](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Topological Sort`,`Memoization`,`Array`,`Dynamic Programming`,`Matrix`  |  Hard  |    |
 |  0330  |  [Patching Array](/solution/0300-0399/0330.Patching%20Array/README_EN.md)  |  `Greedy`,`Array`  |  Hard  |    |
 |  0331  |  [Verify Preorder Serialization of a Binary Tree](/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README_EN.md)  |  `Stack`,`Tree`,`String`,`Binary Tree`  |  Medium  |    |
 |  0332  |  [Reconstruct Itinerary](/solution/0300-0399/0332.Reconstruct%20Itinerary/README_EN.md)  |  `Depth-First Search`,`Graph`,`Eulerian Circuit`  |  Hard  |    |
@@ -569,7 +569,6 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0558  |  [Logical OR of Two Binary Grids Represented as Quad-Trees](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README_EN.md)  |  `Tree`,`Divide and Conquer`  |  Medium  |    |
 |  0559  |  [Maximum Depth of N-ary Tree](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`  |  Easy  |    |
 |  0560  |  [Subarray Sum Equals K](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |    |
-|  0561  |  [Array Partition I](/solution/0500-0599/0561.Array%20Partition%20I/README_EN.md)  |  `Greedy`,`Array`,`Counting Sort`,`Sorting`  |  Easy  |    |
 |  0562  |  [Longest Line of Consecutive One in Matrix](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  🔒  |
 |  0563  |  [Binary Tree Tilt](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Easy  |    |
 |  0564  |  [Find the Closest Palindrome](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README_EN.md)  |  `Math`,`String`  |  Hard  |    |
@@ -860,7 +859,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0849  |  [Maximize Distance to Closest Person](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README_EN.md)  |  `Array`  |  Medium  |  Weekly Contest 88  |
 |  0850  |  [Rectangle Area II](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md)  |  `Segment Tree`,`Array`,`Ordered Set`,`Line Sweep`  |  Hard  |  Weekly Contest 88  |
 |  0851  |  [Loud and Rich](/solution/0800-0899/0851.Loud%20and%20Rich/README_EN.md)  |  `Depth-First Search`,`Graph`,`Topological Sort`,`Array`  |  Medium  |  Weekly Contest 88  |
-|  0852  |  [Peak Index in a Mountain Array](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Easy  |  Weekly Contest 89  |
+|  0852  |  [Peak Index in a Mountain Array](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 89  |
 |  0853  |  [Car Fleet](/solution/0800-0899/0853.Car%20Fleet/README_EN.md)  |  `Stack`,`Array`,`Sorting`,`Monotonic Stack`  |  Medium  |  Weekly Contest 89  |
 |  0854  |  [K-Similar Strings](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)  |  `Breadth-First Search`,`String`  |  Hard  |  Weekly Contest 89  |
 |  0855  |  [Exam Room](/solution/0800-0899/0855.Exam%20Room/README_EN.md)  |  `Design`,`Ordered Set`  |  Medium  |  Weekly Contest 89  |
@@ -2331,11 +2330,13 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2320  |  [Count Number of Ways to Place Houses](/solution/2300-2399/2320.Count%20Number%20of%20Ways%20to%20Place%20Houses/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  Weekly Contest 299  |
 |  2321  |  [Maximum Score Of Spliced Array](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 299  |
 |  2322  |  [Minimum Score After Removals on a Tree](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)  |  `Bit Manipulation`,`Tree`,`Depth-First Search`,`Array`  |  Hard  |  Weekly Contest 299  |
-|  2323  |  [Find Minimum Time to Finish All Jobs II](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README_EN.md)  |    |  Medium  |  🔒  |
-|  2325  |  [Decode the Message](/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md)  |    |  Easy  |    |
-|  2326  |  [Spiral Matrix IV](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README_EN.md)  |    |  Medium  |    |
-|  2327  |  [Number of People Aware of a Secret](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)  |    |  Medium  |    |
-|  2328  |  [Number of Increasing Paths in a Grid](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md)  |    |  Hard  |    |
+|  2323  |  [Find Minimum Time to Finish All Jobs II](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  🔒  |
+|  2324  |  [Product Sales Analysis IV](/solution/2300-2399/2324.Product%20Sales%20Analysis%20IV/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2325  |  [Decode the Message](/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 300  |
+|  2326  |  [Spiral Matrix IV](/solution/2300-2399/2326.Spiral%20Matrix%20IV/README_EN.md)  |  `Array`,`Linked List`,`Matrix`,`Simulation`  |  Medium  |  Weekly Contest 300  |
+|  2327  |  [Number of People Aware of a Secret](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)  |  `Queue`,`Dynamic Programming`,`Simulation`  |  Medium  |  Weekly Contest 300  |
+|  2328  |  [Number of Increasing Paths in a Grid](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Topological Sort`,`Memoization`,`Array`,`Dynamic Programming`,`Matrix`  |  Hard  |  Weekly Contest 300  |
+|  2329  |  [Product Sales Analysis V](/solution/2300-2399/2329.Product%20Sales%20Analysis%20V/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
