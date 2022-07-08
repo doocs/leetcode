@@ -99,6 +99,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 -   [Number of Increasing Paths in a Grid](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md) - `DFS`、`Memoization`
 -   [Flip Game II](/solution/0200-0299/0294.Flip%20Game%20II/README_EN.md) - `DFS`、`Bitmask`、`Memoization`
 -   [Count All Possible Routes](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md) - `DFS`、`Memoization`
+-   [Number of Ways of Cutting a Pizza](/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README_EN.md) - `DFS`、`Memoization`
 
 ### 4. Dynamic Programming(DP)
 
