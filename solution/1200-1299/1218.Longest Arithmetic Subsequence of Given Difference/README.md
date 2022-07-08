@@ -48,6 +48,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+时间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -117,6 +121,25 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @param {number} difference
+ * @return {number}
+ */
+var longestSubsequence = function (arr, difference) {
+    let ans = 1;
+    const dp = new Map();
+    for (const v of arr) {
+        dp.set(v, (dp.get(v - difference) || 0) + 1);
+        ans = Math.max(ans, dp.get(v));
+    }
+    return ans;
+};
 ```
 
 ### **...**
