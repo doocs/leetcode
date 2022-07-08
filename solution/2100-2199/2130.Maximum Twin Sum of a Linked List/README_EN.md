@@ -77,6 +77,39 @@ class Solution:
         return max(s[i] + s[-(i + 1)] for i in range(n >> 1))
 ```
 
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        def reverse(head):
+            dummy = ListNode()
+            curr = head
+            while curr:
+                next = curr.next
+                curr.next = dummy.next
+                dummy.next = curr
+                curr = next
+            return dummy.next
+
+        slow, fast = head, head.next
+        while fast and fast.next:
+            slow, fast = slow.next, fast.next.next
+        pa = head
+        q = slow.next
+        slow.next = None
+        pb = reverse(q)
+        ans = 0
+        while pa and pb:
+            ans = max(ans, pa.val + pb.val)
+            pa = pa.next
+            pb = pb.next
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -101,6 +134,52 @@ class Solution {
             ans = Math.max(ans, s.get(i) + s.get(n - 1 - i));
         }
         return ans;
+    }
+}
+```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public int pairSum(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode pa = head;
+        ListNode q = slow.next;
+        slow.next = null;
+        ListNode pb = reverse(q);
+        int ans = 0;
+        while (pa != null) {
+            ans = Math.max(ans, pa.val + pb.val);
+            pa = pa.next;
+            pb = pb.next;
+        }
+        return ans;
+    }
+
+    private ListNode reverse(ListNode head) {
+        ListNode dummy = new ListNode();
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = dummy.next;
+            dummy.next = curr;
+            curr = next;
+        }
+        return dummy.next;
     }
 }
 ```
@@ -130,6 +209,56 @@ public:
 };
 ```
 
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    int pairSum(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while (fast && fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        ListNode* pa = head;
+        ListNode* q = slow->next;
+        slow->next = nullptr;
+        ListNode* pb = reverse(q);
+        int ans = 0;
+        while (pa)
+        {
+            ans = max(ans, pa->val + pb->val);
+            pa = pa->next;
+            pb = pb->next;
+        }
+        return ans;
+    }
+
+    ListNode* reverse(ListNode* head) {
+        ListNode* dummy = new ListNode();
+        ListNode* curr = head;
+        while (curr)
+        {
+            ListNode* next = curr->next;
+            curr->next = dummy->next;
+            dummy->next = curr;
+            curr = next;
+        }
+        return dummy->next;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -152,6 +281,51 @@ func pairSum(head *ListNode) int {
 		}
 	}
 	return ans
+}
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func pairSum(head *ListNode) int {
+	reverse := func(head *ListNode) *ListNode {
+		dummy := &ListNode{}
+		curr := head
+		for curr != nil {
+			next := curr.Next
+			curr.Next = dummy.Next
+			dummy.Next = curr
+			curr = next
+		}
+		return dummy.Next
+	}
+	slow, fast := head, head.Next
+	for fast != nil && fast.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+	}
+	pa := head
+	q := slow.Next
+	slow.Next = nil
+	pb := reverse(q)
+	ans := 0
+	for pa != nil {
+		ans = max(ans, pa.Val+pb.Val)
+		pa = pa.Next
+		pb = pb.Next
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
