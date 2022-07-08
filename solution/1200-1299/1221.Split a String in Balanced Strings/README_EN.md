@@ -53,15 +53,15 @@
 ```python
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
-        n = res = 0
+        ans = l = 0
         for c in s:
             if c == 'L':
-                n += 1
+                l += 1
             else:
-                n -= 1
-            if n == 0:
-                res += 1
-        return res
+                l -= 1
+            if l == 0:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -69,18 +69,18 @@ class Solution:
 ```java
 class Solution {
     public int balancedStringSplit(String s) {
-        int n = 0, res = 0;
+        int ans = 0, l = 0;
         for (char c : s.toCharArray()) {
             if (c == 'L') {
-                ++n;
+                ++l;
             } else {
-                --n;
+                --l;
             }
-            if (n == 0) {
-                ++res;
+            if (l == 0) {
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -91,13 +91,14 @@ class Solution {
 class Solution {
 public:
     int balancedStringSplit(string s) {
-        int n = 0, res = 0;
-        for (char c : s) {
-            if (c == 'L') ++n;
-            else --n;
-            if (n == 0) ++res;
+        int ans = 0, l = 0;
+        for (char c : s)
+        {
+            if (c == 'L') ++l;
+            else --l;
+            if (l == 0) ++ans;
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -106,19 +107,43 @@ public:
 
 ```go
 func balancedStringSplit(s string) int {
-	n, res := 0, 0
+	ans, l := 0, 0
 	for _, c := range s {
 		if c == 'L' {
-			n++
+			l++
 		} else {
-			n--
+			l--
 		}
-		if n == 0 {
-			res++
+		if l == 0 {
+			ans++
 		}
 	}
-	return res
+	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var balancedStringSplit = function (s) {
+    let ans = 0;
+    let l = 0;
+    for (let c of s) {
+        if (c == 'L') {
+            ++l;
+        } else {
+            --l;
+        }
+        if (l == 0) {
+            ++ans;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**

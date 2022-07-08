@@ -79,7 +79,7 @@
 class Solution:
     def queensAttacktheKing(self, queens: List[List[int]], king: List[int]) -> List[List[int]]:
         n = 8
-        s = set((i, j) for i, j in queens)
+        s = {(i, j) for i, j in queens}
         ans = []
         for a, b in [[-1, 0], [1, 0], [0, -1], [0, 1], [1, 1], [1, -1], [-1, 1], [-1, -1]]:
             x, y = king
