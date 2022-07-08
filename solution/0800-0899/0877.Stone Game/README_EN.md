@@ -50,26 +50,79 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 ### **Python3**
 
 ```python
-
+class Solution:
+    def stoneGame(self, piles: List[int]) -> bool:
+        n = len(piles)
+        dp = [[0] * n for _ in range(n)]
+        for i, v in enumerate(piles):
+            dp[i][i] = v
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                dp[i][j] = max(piles[i] - dp[i + 1][j],
+                               piles[j] - dp[i][j - 1])
+        return dp[0][-1] > 0
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-        public boolean stoneGame(int[] ps) {
-        int n = ps.length;
-        int[][] f = new int[n + 2][n + 2];
-        for (int len = 1; len <= n; len++) {
-            for (int l = 1; l + len - 1 <= n; l++) {
-                int r = l + len - 1;
-                int a = ps[l - 1] - f[l + 1][r];
-                int b = ps[r - 1] - f[l][r - 1];
-                f[l][r] = Math.max(a, b);
+    public boolean stoneGame(int[] piles) {
+        int n = piles.length;
+        int[][] dp = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            dp[i][i] = piles[i];
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                dp[i][j] = Math.max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
             }
         }
-        return f[1][n] > 0;
+        return dp[0][n - 1] > 0;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool stoneGame(vector<int>& piles) {
+        int n = piles.size();
+        vector<vector<int>> dp(n, vector<int>(n));
+        for (int i = 0; i < n; ++i) dp[i][i] = piles[i];
+        for (int i = n - 2; ~i; --i)
+            for (int j = i + 1; j < n; ++j)
+                dp[i][j] = max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);
+        return dp[0][n - 1] > 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func stoneGame(piles []int) bool {
+	n := len(piles)
+	dp := make([][]int, n)
+	for i, v := range piles {
+		dp[i] = make([]int, n)
+		dp[i][i] = v
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			dp[i][j] = max(piles[i]-dp[i+1][j], piles[j]-dp[i][j-1])
+		}
+	}
+	return dp[0][n-1] > 0
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
