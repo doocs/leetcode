@@ -5,17 +5,11 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def leafSimilar(self, root1: TreeNode, root2: TreeNode) -> bool:
-        def dfs(root, leaves):
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        def dfs(root):
             if root is None:
-                return
-            if root.left is None and root.right is None:
-                leaves.append(root.val)
-                return
-            dfs(root.left, leaves)
-            dfs(root.right, leaves)
+                return []
+            ans = dfs(root.left) + dfs(root.right)
+            return ans or [root.val]
 
-        l1, l2 = [], []
-        dfs(root1, l1)
-        dfs(root2, l2)
-        return l1 == l2
+        return dfs(root1) == dfs(root2)
