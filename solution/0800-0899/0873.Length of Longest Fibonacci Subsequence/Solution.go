@@ -14,10 +14,10 @@ func lenLongestFibSubseq(arr []int) int {
 	ans := 0
 	for i := 0; i < n; i++ {
 		for j := 0; j < i; j++ {
-			delta := arr[i] - arr[j]
-			k := mp[delta] - 1
+			d := arr[i] - arr[j]
+			k := mp[d] - 1
 			if k >= 0 && k < j {
-				dp[j][i] = dp[k][j] + 1
+				dp[j][i] = max(dp[j][i], dp[k][j]+1)
 				ans = max(ans, dp[j][i])
 			}
 		}

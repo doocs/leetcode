@@ -58,12 +58,10 @@ class Solution:
         ans = 0
         for i in range(n):
             for j in range(i):
-                delta = arr[i] - arr[j]
-                if delta in mp:
-                    k = mp[delta]
-                    if k < j:
-                        dp[j][i] = dp[k][j] + 1
-                        ans = max(ans, dp[j][i])
+                d = arr[i] - arr[j]
+                if d in mp and (k := mp[d]) < j:
+                    dp[j][i] = max(dp[j][i], dp[k][j] + 1)
+                    ans = max(ans, dp[j][i])
         return ans
 ```
 
@@ -86,11 +84,11 @@ class Solution {
         int ans = 0;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
-                int delta = arr[i] - arr[j];
-                if (mp.containsKey(delta)) {
-                    int k = mp.get(delta);
+                int d = arr[i] - arr[j];
+                if (mp.containsKey(d)) {
+                    int k = mp.get(d);
                     if (k < j) {
-                        dp[j][i] = dp[k][j] + 1;
+                        dp[j][i] = Math.max(dp[j][i], dp[k][j] + 1);
                         ans = Math.max(ans, dp[j][i]);
                     }
                 }
@@ -112,22 +110,20 @@ public:
         for (int i = 0; i < n; ++i) mp[arr[i]] = i;
         vector<vector<int>> dp(n, vector<int>(n));
         for (int i = 0; i < n; ++i)
-        {
             for (int j = 0; j < i; ++j)
                 dp[j][i] = 2;
-        }
         int ans = 0;
         for (int i = 0; i < n; ++i)
         {
             for (int j = 0; j < i; ++j)
             {
-                int delta = arr[i] - arr[j];
-                if (mp.count(delta))
+                int d = arr[i] - arr[j];
+                if (mp.count(d))
                 {
-                    int k = mp[delta];
+                    int k = mp[d];
                     if (k < j)
                     {
-                        dp[j][i] = dp[k][j] + 1;
+                        dp[j][i] = max(dp[j][i], dp[k][j] + 1);
                         ans = max(ans, dp[j][i]);
                     }
                 }
@@ -157,10 +153,10 @@ func lenLongestFibSubseq(arr []int) int {
 	ans := 0
 	for i := 0; i < n; i++ {
 		for j := 0; j < i; j++ {
-			delta := arr[i] - arr[j]
-			k := mp[delta] - 1
+			d := arr[i] - arr[j]
+			k := mp[d] - 1
 			if k >= 0 && k < j {
-				dp[j][i] = dp[k][j] + 1
+				dp[j][i] = max(dp[j][i], dp[k][j]+1)
 				ans = max(ans, dp[j][i])
 			}
 		}
@@ -174,6 +170,40 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var lenLongestFibSubseq = function (arr) {
+    const mp = new Map();
+    const n = arr.length;
+    const dp = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    for (let i = 0; i < n; ++i) {
+        mp.set(arr[i], i);
+        for (let j = 0; j < i; ++j) {
+            dp[j][i] = 2;
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            const d = arr[i] - arr[j];
+            if (mp.has(d)) {
+                const k = mp.get(d);
+                if (k < j) {
+                    dp[j][i] = Math.max(dp[j][i], dp[k][j] + 1);
+                    ans = Math.max(ans, dp[j][i]);
+                }
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
