@@ -59,7 +59,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def primePalindrome(self, n: int) -> int:
+        def is_prime(x):
+            if x < 2:
+                return False
+            v = 2
+            while v * v <= x:
+                if x % v == 0:
+                    return False
+                v += 1
+            return True
 
+        def reverse(x):
+            res = 0
+            while x:
+                res = res * 10 + x % 10
+                x //= 10
+            return res
+
+        while 1:
+            if reverse(n) == n and is_prime(n):
+                return n
+            if 10**7 < n < 10**8:
+                n = 10**8
+            n += 1
 ```
 
 ### **Java**
@@ -67,7 +91,110 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int primePalindrome(int n) {
+        while (true) {
+            if (reverse(n) == n && isPrime(n)) {
+                return n;
+            }
+            if (n > 10000000 && n < 100000000) {
+                n = 100000000;
+            }
+            ++n;
+        }
+    }
 
+    private boolean isPrime(int x) {
+        if (x < 2) {
+            return false;
+        }
+        for (int v = 2; v * v <= x; ++v) {
+            if (x % v == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int reverse(int x) {
+        int res = 0;
+        while (x != 0) {
+            res = res * 10 + x % 10;
+            x /= 10;
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int primePalindrome(int n) {
+        while (1)
+        {
+            if (reverse(n) == n && isPrime(n)) return n;
+            if (n > 10000000 && n < 100000000) n = 100000000;
+            ++n;
+        }
+    }
+
+    bool isPrime(int x) {
+        if (x < 2) return false;
+        for (int v = 2; v * v <= x; ++v)
+            if (x % v == 0)
+                return false;
+        return true;
+    }
+
+    int reverse(int x) {
+        int res = 0;
+        while (x)
+        {
+            res = res * 10 + x % 10;
+            x /= 10;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func primePalindrome(n int) int {
+	isPrime := func(x int) bool {
+		if x < 2 {
+			return false
+		}
+		for v := 2; v*v <= x; v++ {
+			if x%v == 0 {
+				return false
+			}
+		}
+		return true
+	}
+
+	reverse := func(x int) int {
+		res := 0
+		for x != 0 {
+			res = res*10 + x%10
+			x /= 10
+		}
+		return res
+	}
+	for {
+		if reverse(n) == n && isPrime(n) {
+			return n
+		}
+		if n > 10000000 && n < 100000000 {
+			n = 100000000
+		}
+		n++
+	}
+}
 ```
 
 ### **...**
