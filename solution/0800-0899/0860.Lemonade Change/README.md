@@ -62,15 +62,15 @@
 ```python
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:
-        five, ten = 0, 0
-        for bill in bills:
-            if bill == 5:
+        five = ten = 0
+        for v in bills:
+            if v == 5:
                 five += 1
-            elif bill == 10:
+            elif v == 10:
                 ten += 1
                 five -= 1
-            elif bill == 20:
-                if ten > 0:
+            else:
+                if ten:
                     ten -= 1
                     five -= 1
                 else:
@@ -87,28 +87,81 @@ class Solution:
 ```java
 class Solution {
     public boolean lemonadeChange(int[] bills) {
-        int fives = 0, tens = 0;
-        for (int bill : bills) {
-            if (bill == 5) {
-                ++fives;
-            } else if (bill == 10) {
-                ++tens;
-                if (--fives < 0) {
-                    return false;
-                }
+        int five = 0, ten = 0;
+        for (int v : bills) {
+            if (v == 5) {
+                ++five;
+            } else if (v == 10) {
+                ++ten;
+                --five;
             } else {
-                if (tens >= 1 && fives >= 1) {
-                    --tens;
-                    --fives;
-                } else if (fives >= 3) {
-                    fives -= 3;
+                if (ten > 0) {
+                    --ten;
+                    --five;
                 } else {
-                    return false;
+                    five -= 3;
                 }
+            }
+            if (five < 0) {
+                return false;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool lemonadeChange(vector<int>& bills) {
+        int five = 0, ten = 0;
+        for (int v : bills)
+        {
+            if (v == 5) ++five;
+            else if (v == 10)
+            {
+                ++ten;
+                --five;
+            }
+            else
+            {
+                if (ten) --ten, --five;
+                else five -= 3;
+            }
+            if (five < 0) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lemonadeChange(bills []int) bool {
+	five, ten := 0, 0
+	for _, v := range bills {
+		if v == 5 {
+			five++
+		} else if v == 10 {
+			ten++
+			five--
+		} else {
+			if ten > 0 {
+				ten--
+				five--
+			} else {
+				five -= 3
+			}
+		}
+		if five < 0 {
+			return false
+		}
+	}
+	return true
 }
 ```
 
