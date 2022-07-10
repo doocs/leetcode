@@ -53,6 +53,8 @@ smallestInfiniteSet.popSmallest(); // 返回 5 ，并将其从集合中移除。
 
 **方法一：哈希表**
 
+**方法二：哈希表 + 优先队列（小根堆）**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -82,6 +84,31 @@ class SmallestInfiniteSet:
 # obj.addBack(num)
 ```
 
+```python
+class SmallestInfiniteSet:
+
+    def __init__(self):
+        self.h = list(range(1, 1010))
+        self.s = set(self.h)
+        heapify(self.h)
+
+    def popSmallest(self) -> int:
+        ans = heappop(self.h)
+        self.s.discard(ans)
+        return ans
+
+    def addBack(self, num: int) -> None:
+        if num not in self.s:
+            self.s.add(num)
+            heappush(self.h, num)
+
+
+# Your SmallestInfiniteSet object will be instantiated and called as such:
+# obj = SmallestInfiniteSet()
+# param_1 = obj.popSmallest()
+# obj.addBack(num)
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -103,6 +130,40 @@ class SmallestInfiniteSet {
     
     public void addBack(int num) {
         black.remove(num);
+    }
+}
+
+/**
+ * Your SmallestInfiniteSet object will be instantiated and called as such:
+ * SmallestInfiniteSet obj = new SmallestInfiniteSet();
+ * int param_1 = obj.popSmallest();
+ * obj.addBack(num);
+ */
+```
+
+```java
+class SmallestInfiniteSet {
+    private PriorityQueue<Integer> pq = new PriorityQueue<>();
+    private Set<Integer> s = new HashSet<>();
+
+    public SmallestInfiniteSet() {
+        for (int i = 1; i < 1010; ++i) {
+            pq.offer(i);
+            s.add(i);
+        }
+    }
+    
+    public int popSmallest() {
+        int ans = pq.poll();
+        s.remove(ans);
+        return ans;
+    }
+    
+    public void addBack(int num) {
+        if (!s.contains(num)) {
+            s.add(num);
+            pq.offer(num);
+        }
     }
 }
 
@@ -145,6 +206,44 @@ public:
  */
 ```
 
+```cpp
+class SmallestInfiniteSet {
+public:
+    priority_queue<int, vector<int>, greater<int>> pq;
+    unordered_set<int> s;
+
+    SmallestInfiniteSet() {
+        for (int i = 1; i < 1010; ++i)
+        {
+            pq.push(i);
+            s.insert(i);
+        }
+    }
+    
+    int popSmallest() {
+        int ans = pq.top();
+        pq.pop();
+        s.erase(ans);
+        return ans;
+    }
+    
+    void addBack(int num) {
+        if (!s.count(num))
+        {
+            s.insert(num);
+            pq.push(num);
+        }
+    }
+};
+
+/**
+ * Your SmallestInfiniteSet object will be instantiated and called as such:
+ * SmallestInfiniteSet* obj = new SmallestInfiniteSet();
+ * int param_1 = obj->popSmallest();
+ * obj->addBack(num);
+ */
+```
+
 ### **Go**
 
 ```go
@@ -168,6 +267,54 @@ func (this *SmallestInfiniteSet) PopSmallest() int {
 func (this *SmallestInfiniteSet) AddBack(num int) {
 	this.black[num] = false
 }
+
+/**
+ * Your SmallestInfiniteSet object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.PopSmallest();
+ * obj.AddBack(num);
+ */
+```
+
+```go
+type SmallestInfiniteSet struct {
+	h *hp
+	s map[int]bool
+}
+
+func Constructor() SmallestInfiniteSet {
+	h := &hp{}
+	s := map[int]bool{}
+	for i := 1; i < 1010; i++ {
+		s[i] = true
+		h.push(i)
+	}
+	return SmallestInfiniteSet{h, s}
+}
+
+func (this *SmallestInfiniteSet) PopSmallest() int {
+	ans := this.h.pop()
+	this.s[ans] = false
+	return ans
+}
+
+func (this *SmallestInfiniteSet) AddBack(num int) {
+	if !this.s[num] {
+		this.s[num] = true
+		this.h.push(num)
+	}
+}
+
+type hp []int
+
+func (h hp) Len() int              { return len(h) }
+func (h hp) Less(i, j int) bool    { return h[i] < h[j] }
+func (h hp) Swap(i, j int)         { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{})   { *h = append(*h, v.(int)) }
+func (h *hp) Pop() (v interface{}) { a := *h; *h, v = a[:len(a)-1], a[len(a)-1]; return }
+func (h *hp) push(v int)           { heap.Push(h, v) }
+func (h *hp) pop() int             { return heap.Pop(h).(int) }
+func (h *hp) top() int             { a := *h; return a[0] }
 
 /**
  * Your SmallestInfiniteSet object will be instantiated and called as such:

@@ -5,6 +5,5 @@ class Solution:
             amount.sort()
             ans += 1
             amount[2] -= 1
-            if amount[1]:
-                amount[1] -= 1
+            amount[1] = max(0, amount[1] - 1)
         return ans

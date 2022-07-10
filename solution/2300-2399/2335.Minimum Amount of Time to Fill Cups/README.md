@@ -61,6 +61,8 @@
 
 **方法一：贪心 + 排序**
 
+每次贪心地选择其中较大的两个数进行减一操作（最多减为 0），直至所有数变为 0。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,8 +77,7 @@ class Solution:
             amount.sort()
             ans += 1
             amount[2] -= 1
-            if amount[1]:
-                amount[1] -= 1
+            amount[1] = max(0, amount[1] - 1)
         return ans
 ```
 
@@ -92,9 +93,7 @@ class Solution {
             Arrays.sort(amount);
             ++ans;
             amount[2]--;
-            if (amount[1] > 0) {
-                amount[1]--;
-            }
+            amount[1] = Math.max(0, amount[1] - 1);
         }
         return ans;
     }
@@ -113,7 +112,7 @@ public:
             sort(amount.begin(), amount.end());
             ++ans;
             amount[2]--;
-            if (amount[1]) amount[1]--;
+            amount[1] = max(0, amount[1] - 1);
         }
         return ans;
     }

@@ -7,7 +7,7 @@ public:
             sort(amount.begin(), amount.end());
             ++ans;
             amount[2]--;
-            if (amount[1]) amount[1]--;
+            amount[1] = max(0, amount[1] - 1);
         }
         return ans;
     }
