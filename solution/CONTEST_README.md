@@ -9,6 +9,22 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 301 场周赛(2022-07-10 10:30, 90 分钟)
+
+- [2335. 装满杯子需要的最短总时长](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README.md)
+- [2336. 无限集中的最小数字](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README.md)
+- [2337. 移动片段得到字符串](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md)
+- [2338. 统计理想数组的数目](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)
+
+
+#### 第 82 场双周赛(2022-07-09 22:30, 90 分钟)
+
+- [2331. 计算布尔二叉树的值](/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README.md)
+- [2332. 坐上公交的最晚时间](/solution/2300-2399/2332.The%20Latest%20Time%20to%20Catch%20a%20Bus/README.md)
+- [2333. 最小差值平方和](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md)
+- [2334. 元素值大于变化阈值的子数组](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
+
+
 #### 第 300 场周赛(2022-07-03 10:30, 90 分钟)
 
 - [2325. 解密消息](/solution/2300-2399/2325.Decode%20the%20Message/README.md)
@@ -1854,7 +1870,7 @@ https://lcpredictor.herokuapp.com/
 - [1133. 最大唯一数](/solution/1100-1199/1133.Largest%20Unique%20Number/README.md)
 - [1134. 阿姆斯特朗数](/solution/1100-1199/1134.Armstrong%20Number/README.md)
 - [1135. 最低成本联通所有城市](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md)
-- [1136. 平行课程](/solution/1100-1199/1136.Parallel%20Courses/README.md)
+- [1136. 并行课程](/solution/1100-1199/1136.Parallel%20Courses/README.md)
 
 
 #### 第 146 场周赛(2019-07-21 10:30, 90 分钟)
@@ -2269,7 +2285,7 @@ https://lcpredictor.herokuapp.com/
 
 - [892. 三维形体的表面积](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)
 - [893. 特殊等价字符串组](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)
-- [894. 所有可能的满二叉树](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)
+- [894. 所有可能的真二叉树](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)
 - [895. 最大频率栈](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md)
 
 

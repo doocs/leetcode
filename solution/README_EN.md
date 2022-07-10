@@ -569,6 +569,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0558  |  [Logical OR of Two Binary Grids Represented as Quad-Trees](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README_EN.md)  |  `Tree`,`Divide and Conquer`  |  Medium  |    |
 |  0559  |  [Maximum Depth of N-ary Tree](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`  |  Easy  |    |
 |  0560  |  [Subarray Sum Equals K](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |    |
+|  0561  |  [Array Partition](/solution/0500-0599/0561.Array%20Partition/README_EN.md)  |  `Greedy`,`Array`,`Counting Sort`,`Sorting`  |  Easy  |    |
 |  0562  |  [Longest Line of Consecutive One in Matrix](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  🔒  |
 |  0563  |  [Binary Tree Tilt](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Easy  |    |
 |  0564  |  [Find the Closest Palindrome](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README_EN.md)  |  `Math`,`String`  |  Hard  |    |
@@ -2337,6 +2338,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2327  |  [Number of People Aware of a Secret](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)  |  `Queue`,`Dynamic Programming`,`Simulation`  |  Medium  |  Weekly Contest 300  |
 |  2328  |  [Number of Increasing Paths in a Grid](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Topological Sort`,`Memoization`,`Array`,`Dynamic Programming`,`Matrix`  |  Hard  |  Weekly Contest 300  |
 |  2329  |  [Product Sales Analysis V](/solution/2300-2399/2329.Product%20Sales%20Analysis%20V/README_EN.md)  |    |  Medium  |  🔒  |
+|  2330  |  [Valid Palindrome IV](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README_EN.md)  |    |  Medium  |  🔒  |
+|  2331  |  [Evaluate Boolean Binary Tree](/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README_EN.md)  |    |  Easy  |  Biweekly Contest 82  |
+|  2332  |  [The Latest Time to Catch a Bus](/solution/2300-2399/2332.The%20Latest%20Time%20to%20Catch%20a%20Bus/README_EN.md)  |    |  Medium  |  Biweekly Contest 82  |
+|  2333  |  [Minimum Sum of Squared Difference](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README_EN.md)  |    |  Medium  |  Biweekly Contest 82  |
+|  2334  |  [Subarray With Elements Greater Than Varying Threshold](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README_EN.md)  |    |  Hard  |  Biweekly Contest 82  |
+|  2335  |  [Minimum Amount of Time to Fill Cups](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README_EN.md)  |    |  Easy  |  Weekly Contest 301  |
+|  2336  |  [Smallest Number in Infinite Set](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README_EN.md)  |    |  Medium  |  Weekly Contest 301  |
+|  2337  |  [Move Pieces to Obtain a String](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 301  |
+|  2338  |  [Count the Number of Ideal Arrays](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md)  |    |  Hard  |  Weekly Contest 301  |
 
 ## Copyright
 

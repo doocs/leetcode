@@ -1,6 +1,6 @@
-# [561. Array Partition I](https://leetcode.com/problems/array-partition-i)
+# [561. Array Partition](https://leetcode.com/problems/array-partition)
 
-[中文文档](/solution/0500-0599/0561.Array%20Partition%20I/README.md)
+[中文文档](/solution/0500-0599/0561.Array%20Partition/README.md)
 
 ## Description
 
@@ -35,6 +35,7 @@ So the maximum possible sum is 4.</pre>
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,12 +54,39 @@ class Solution:
 class Solution {
     public int arrayPairSum(int[] nums) {
         Arrays.sort(nums);
-        int res = 0;
-        for (int i = 0, n = nums.length; i < n; i += 2) {
-            res += nums[i];
+        int ans = 0;
+        for (int i = 0; i < nums.length; i += 2) {
+            ans += nums[i];
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int arrayPairSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        for (int i = 0; i < nums.size(); i += 2) ans += nums[i];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrayPairSum(nums []int) int {
+	sort.Ints(nums)
+	ans := 0
+	for i := 0; i < len(nums); i += 2 {
+		ans += nums[i]
+	}
+	return ans
 }
 ```
 
@@ -71,11 +99,11 @@ class Solution {
  */
 var arrayPairSum = function (nums) {
     nums.sort((a, b) => a - b);
-    let res = 0;
-    for (let i = 0, n = nums.length; i < n; i += 2) {
-        res += nums[i];
+    let ans = 0;
+    for (let i = 0; i < nums.length; i += 2) {
+        ans += nums[i];
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -95,6 +123,12 @@ impl Solution {
         res
     }
 }
+```
+
+### **TypeScript**
+
+```ts
+
 ```
 
 ### **...**
