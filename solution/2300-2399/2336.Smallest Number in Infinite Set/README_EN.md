@@ -108,14 +108,14 @@ class SmallestInfiniteSet {
     public SmallestInfiniteSet() {
 
     }
-    
+
     public int popSmallest() {
         int i = 1;
         for (; black.contains(i); ++i);
         black.add(i);
         return i;
     }
-    
+
     public void addBack(int num) {
         black.remove(num);
     }
@@ -140,13 +140,13 @@ class SmallestInfiniteSet {
             s.add(i);
         }
     }
-    
+
     public int popSmallest() {
         int ans = pq.poll();
         s.remove(ans);
         return ans;
     }
-    
+
     public void addBack(int num) {
         if (!s.contains(num)) {
             s.add(num);
@@ -173,14 +173,14 @@ public:
     SmallestInfiniteSet() {
 
     }
-    
+
     int popSmallest() {
         int i = 1;
         for (; black.count(i); ++i);
         black.insert(i);
         return i;
     }
-    
+
     void addBack(int num) {
         black.erase(num);
     }
@@ -207,14 +207,14 @@ public:
             s.insert(i);
         }
     }
-    
+
     int popSmallest() {
         int ans = pq.top();
         pq.pop();
         s.erase(ans);
         return ans;
     }
-    
+
     void addBack(int num) {
         if (!s.count(num))
         {

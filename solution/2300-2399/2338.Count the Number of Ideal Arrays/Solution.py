@@ -14,8 +14,7 @@ class Solution:
         mod = 10**9 + 7
         for i in range(n):
             for j in range(min(16, i + 1)):
-                c[i][j] = 1 if j == 0 else (
-                    c[i - 1][j] + c[i - 1][j - 1]) % mod
+                c[i][j] = 1 if j == 0 else (c[i - 1][j] + c[i - 1][j - 1]) % mod
         ans = 0
         for i in range(1, maxValue + 1):
             ans = (ans + dfs(i, 1)) % mod

@@ -88,7 +88,6 @@ User 102:
 User 102 spent the most money on products 1, 2, and 3.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -81,7 +81,6 @@ User 103 spent 3 * 25 = 75.
 Users 102 and 103 spent the same amount and we break the tie by their ID while user 101 is on the top.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

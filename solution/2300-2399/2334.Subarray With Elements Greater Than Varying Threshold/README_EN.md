@@ -40,7 +40,6 @@ Therefore, 2, 3, 4, or 5 may also be returned.</pre>
 	<li><code>1 &lt;= nums[i], threshold &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

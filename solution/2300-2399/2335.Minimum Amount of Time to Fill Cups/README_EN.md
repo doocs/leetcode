@@ -53,7 +53,6 @@ Second 7: Fill up a hot cup.
 	<li><code>0 &lt;= amount[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

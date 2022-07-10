@@ -1,5 +1,4 @@
 class SmallestInfiniteSet:
-
     def __init__(self):
         self.black = set()
 
