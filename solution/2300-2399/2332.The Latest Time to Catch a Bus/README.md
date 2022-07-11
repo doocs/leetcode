@@ -54,6 +54,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+先排序，然后用双指针模拟乘客上车的过程：遍历公交车 $bus$，乘客遵循“先到先上车”的原则。
+
+模拟结束后，判断最后一班公交车是否还有空位：
+
+-   若有空位，我们可以在公交车发车时 $bus[bus.length-1]$ 到达公交站；若此时有人，可以顺着往前找到没人到达的时刻；
+-   若无空位，我们可以找到上一个上车的乘客，顺着他往前找到没人到达的时刻。
+
+时间复杂度 $O(nlogn+mlogm)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +72,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def latestTimeCatchTheBus(self, buses: List[int], passengers: List[int], capacity: int) -> int:
+        buses.sort()
+        passengers.sort()
+        j = 0
+        for t in buses:
+            c = capacity
+            while c and j < len(passengers) and passengers[j] <= t:
+                c, j = c - 1, j + 1
+        j -= 1
+        ans = buses[-1] if c else passengers[j]
+        while ~j and passengers[j] == ans:
+            ans, j = ans - 1, j - 1
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +93,76 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int latestTimeCatchTheBus(int[] buses, int[] passengers, int capacity) {
+        Arrays.sort(buses);
+        Arrays.sort(passengers);
+        int j = 0, c = 0;
+        for (int t : buses) {
+            c = capacity;
+            while (c > 0 && j < passengers.length && passengers[j] <= t) {
+                --c;
+                ++j;
+            }
+        }
+        --j;
+        int ans = c > 0 ? buses[buses.length - 1] : passengers[j];
+        while (j >= 0 && ans == passengers[j]) {
+            --ans;
+            --j;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int latestTimeCatchTheBus(vector<int>& buses, vector<int>& passengers, int capacity) {
+        sort(buses.begin(), buses.end());
+        sort(passengers.begin(), passengers.end());
+        int j = 0, c = 0;
+        for (int t : buses)
+        {
+            c = capacity;
+            while (c && j < passengers.size() && passengers[j] <= t) --c, ++j;
+        }
+        --j;
+        int ans = c ? buses[buses.size() - 1] : passengers[j];
+        while (~j && ans == passengers[j]) --j, --ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
+	sort.Ints(buses)
+	sort.Ints(passengers)
+	j, c := 0, 0
+	for _, t := range buses {
+		c = capacity
+		for c > 0 && j < len(passengers) && passengers[j] <= t {
+			j++
+			c--
+		}
+	}
+	j--
+	ans := buses[len(buses)-1]
+	if c == 0 {
+		ans = passengers[j]
+	}
+	for j >= 0 && ans == passengers[j] {
+		ans--
+		j--
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
