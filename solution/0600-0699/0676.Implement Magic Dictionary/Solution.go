@@ -1,35 +1,32 @@
 type MagicDictionary struct {
-	words   map[string]bool
-	counter map[string]int
+	s   map[string]bool
+	cnt map[string]int
 }
 
 /** Initialize your data structure here. */
 func Constructor() MagicDictionary {
-	return MagicDictionary{
-		words:   make(map[string]bool),
-		counter: make(map[string]int),
-	}
+	return MagicDictionary{map[string]bool{}, map[string]int{}}
 }
 
 func (this *MagicDictionary) BuildDict(dictionary []string) {
 	for _, word := range dictionary {
-		this.words[word] = true
-		for _, p := range patterns(word) {
-			this.counter[p]++
+		this.s[word] = true
+		for _, p := range gen(word) {
+			this.cnt[p]++
 		}
 	}
 }
 
 func (this *MagicDictionary) Search(searchWord string) bool {
-	for _, p := range patterns(searchWord) {
-		if this.counter[p] > 1 || (this.counter[p] == 1 && !this.words[searchWord]) {
+	for _, p := range gen(searchWord) {
+		if this.cnt[p] > 1 || (this.cnt[p] == 1 && !this.s[searchWord]) {
 			return true
 		}
 	}
 	return false
 }
 
-func patterns(word string) []string {
+func gen(word string) []string {
 	var res []string
 	for i := 0; i < len(word); i++ {
 		res = append(res, word[:i]+"."+word[i+1:])
