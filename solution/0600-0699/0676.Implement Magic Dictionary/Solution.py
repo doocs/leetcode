@@ -1,12 +1,11 @@
 class MagicDictionary:
-
     def __init__(self):
         """
         Initialize your data structure here.
         """
 
     def gen(self, word):
-        return [word[:i] + '*' + word[i + 1:] for i in range(len(word))]
+        return [word[:i] + '*' + word[i + 1 :] for i in range(len(word))]
 
     def buildDict(self, dictionary: List[str]) -> None:
         self.s = set(dictionary)
