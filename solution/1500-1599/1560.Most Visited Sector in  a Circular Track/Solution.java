@@ -1,28 +1,19 @@
 class Solution {
     public List<Integer> mostVisited(int n, int[] rounds) {
-        int[] ans = new int[n];
-        for (int i = 0; i < rounds.length; i++) {
-            rounds[i]--;
-        }
-        ans[rounds[0]]++;
-        for (int i = 0; i < rounds.length - 1; i++) {
-            int start = rounds[i];
-            int end = rounds[i + 1];
-            if (end <= start) {
-                end += n;
+        int m = rounds.length - 1;
+        List<Integer> ans = new ArrayList<>();
+        if (rounds[0] <= rounds[m]) {
+            for (int i = rounds[0]; i <= rounds[m]; ++i) {
+                ans.add(i);
             }
-            for (int j = start + 1; j <= end; j++) {
-                ans[j % n]++;
+        } else {
+            for (int i = 1; i <= rounds[m]; ++i) {
+                ans.add(i);
             }
-        }
-
-        int max = Arrays.stream(ans).max().orElse(-1);
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < ans.length; i++) {
-            if (ans[i] == max) {
-                list.add(i + 1);
+            for (int i = rounds[0]; i <= n; ++i) {
+                ans.add(i);
             }
         }
-        return list;
+        return ans;
     }
 }

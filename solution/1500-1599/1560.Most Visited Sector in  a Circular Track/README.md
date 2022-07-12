@@ -52,6 +52,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：考虑开始、结束的位置关系**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +61,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def mostVisited(self, n: int, rounds: List[int]) -> List[int]:
+        if rounds[0] <= rounds[-1]:
+            return list(range(rounds[0], rounds[-1] + 1))
+        return list(range(1, rounds[-1] + 1)) + list(range(rounds[0], n + 1))
 ```
 
 ### **Java**
@@ -67,7 +73,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> mostVisited(int n, int[] rounds) {
+        int m = rounds.length - 1;
+        List<Integer> ans = new ArrayList<>();
+        if (rounds[0] <= rounds[m]) {
+            for (int i = rounds[0]; i <= rounds[m]; ++i) {
+                ans.add(i);
+            }
+        } else {
+            for (int i = 1; i <= rounds[m]; ++i) {
+                ans.add(i);
+            }
+            for (int i = rounds[0]; i <= n; ++i) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> mostVisited(int n, vector<int>& rounds) {
+        int m = rounds.size() - 1;
+        vector<int> ans;
+        if (rounds[0] <= rounds[m])
+        {
+            for (int i = rounds[0]; i <= rounds[m]; ++i) ans.push_back(i);
+        }
+        else
+        {
+            for (int i = 1; i <= rounds[m]; ++i) ans.push_back(i);
+            for (int i = rounds[0]; i <= n; ++i) ans.push_back(i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostVisited(n int, rounds []int) []int {
+	m := len(rounds) - 1
+	var ans []int
+	if rounds[0] <= rounds[m] {
+		for i := rounds[0]; i <= rounds[m]; i++ {
+			ans = append(ans, i)
+		}
+	} else {
+		for i := 1; i <= rounds[m]; i++ {
+			ans = append(ans, i)
+		}
+		for i := rounds[0]; i <= n; i++ {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
