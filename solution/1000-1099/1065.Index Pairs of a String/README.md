@@ -41,6 +41,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力枚举**
+
+**方法二：前缀树**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +52,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
+        words = set(words)
+        n = len(text)
+        return [[i, j] for i in range(n) for j in range(i, n) if text[i: j + 1] in words]
+```
 
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.is_end = False
+
+    def insert(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.is_end = True
+
+
+class Solution:
+    def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        n = len(text)
+        ans = []
+        for i in range(n):
+            node = trie
+            for j in range(i, n):
+                idx = ord(text[j]) - ord('a')
+                if node.children[idx] is None:
+                    break
+                node = node.children[idx]
+                if node.is_end:
+                    ans.append([i, j])
+        return ans
 ```
 
 ### **Java**
@@ -56,7 +99,142 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+    boolean isEnd = false;
 
+    void insert(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.isEnd = true;
+    }
+}
+
+class Solution {
+    public int[][] indexPairs(String text, String[] words) {
+        Trie trie = new Trie();
+        for (String w : words) {
+            trie.insert(w);
+        }
+        int n = text.length();
+        List<int[]> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            Trie node = trie;
+            for (int j = i; j < n; ++j) {
+                int idx = text.charAt(j) - 'a';
+                if (node.children[idx] == null) {
+                    break;
+                }
+                node = node.children[idx];
+                if (node.isEnd) {
+                    ans.add(new int[]{i, j});
+                }
+            }
+        }
+        return ans.toArray(new int[ans.size()][2]);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Trie {
+public:
+    vector<Trie*> children;
+    bool isEnd = false;
+
+    Trie() {
+        children.resize(26);
+    }
+
+    void insert(string word) {
+        Trie* node = this;
+        for (char c : word)
+        {
+            c -= 'a';
+            if (!node->children[c]) node->children[c] = new Trie();
+            node = node->children[c];
+        }
+        node->isEnd = true;
+    }
+};
+
+class Solution {
+public:
+    vector<vector<int>> indexPairs(string text, vector<string>& words) {
+        Trie* trie = new Trie();
+        for (auto w : words) trie->insert(w);
+        int n = text.size();
+        vector<vector<int>> ans;
+        for (int i = 0; i < n; ++i)
+        {
+            Trie* node = trie;
+            for (int j = i; j < n; ++j)
+            {
+                int idx = text[j] - 'a';
+                if (!node->children[idx]) break;
+                node = node->children[idx];
+                if (node->isEnd) ans.push_back({i, j});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+
+func (this *Trie) insert(word string) {
+	node := this
+	for _, c := range word {
+		idx := int(c - 'a')
+		if node.children[idx] == nil {
+			node.children[idx] = newTrie()
+		}
+		node = node.children[idx]
+	}
+	node.isEnd = true
+}
+
+func indexPairs(text string, words []string) [][]int {
+	trie := newTrie()
+	for _, w := range words {
+		trie.insert(w)
+	}
+	n := len(text)
+	var ans [][]int
+	for i := range text {
+		node := trie
+		for j := i; j < n; j++ {
+			idx := int(text[j] - 'a')
+			if node.children[idx] == nil {
+				break
+			}
+			node = node.children[idx]
+			if node.isEnd {
+				ans = append(ans, []int{i, j})
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
