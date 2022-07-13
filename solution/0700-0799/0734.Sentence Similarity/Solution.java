@@ -3,13 +3,13 @@ class Solution {
         if (sentence1.length != sentence2.length) {
             return false;
         }
-        Set<String> pairs = new HashSet<>();
-        for (List<String> pair : similarPairs) {
-            pairs.add(pair.get(0) + "." + pair.get(1));
+        Set<String> s = new HashSet<>();
+        for (List<String> e : similarPairs) {
+            s.add(e.get(0) + "." + e.get(1));
         }
         for (int i = 0; i < sentence1.length; ++i) {
-            boolean similar =  pairs.contains(sentence1[i] + "." + sentence2[i]) || pairs.contains(sentence2[i] + "." + sentence1[i]) || sentence1[i].equals(sentence2[i]);
-            if (!similar) {
+            String a = sentence1[i], b = sentence2[i];
+            if (!a.equals(b) && !s.contains(a + "." + b) && !s.contains(b + "." + a)) {
                 return false;
             }
         }

@@ -69,12 +69,8 @@ class Solution:
     def areSentencesSimilar(self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]) -> bool:
         if len(sentence1) != len(sentence2):
             return False
-        pairs = {(word1, word2) for word1, word2 in similarPairs}
-        for i in range(len(sentence1)):
-            similar = (sentence1[i], sentence2[i]) in pairs or (sentence2[i], sentence1[i]) in pairs or sentence1[i] == sentence2[i]
-            if not similar:
-                return False
-        return True
+        s = {(a, b) for a, b in similarPairs}
+        return all(a == b or (a, b) in s or (b, a) in s for a, b in zip(sentence1, sentence2))
 ```
 
 ### **Java**
@@ -85,18 +81,59 @@ class Solution {
         if (sentence1.length != sentence2.length) {
             return false;
         }
-        Set<String> pairs = new HashSet<>();
-        for (List<String> pair : similarPairs) {
-            pairs.add(pair.get(0) + "." + pair.get(1));
+        Set<String> s = new HashSet<>();
+        for (List<String> e : similarPairs) {
+            s.add(e.get(0) + "." + e.get(1));
         }
         for (int i = 0; i < sentence1.length; ++i) {
-            boolean similar =  pairs.contains(sentence1[i] + "." + sentence2[i]) || pairs.contains(sentence2[i] + "." + sentence1[i]) || sentence1[i].equals(sentence2[i]);
-            if (!similar) {
+            String a = sentence1[i], b = sentence2[i];
+            if (!a.equals(b) && !s.contains(a + "." + b) && !s.contains(b + "." + a)) {
                 return false;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool areSentencesSimilar(vector<string>& sentence1, vector<string>& sentence2, vector<vector<string>>& similarPairs) {
+        int m = sentence1.size(), n = sentence2.size();
+        if (m != n) return false;
+        unordered_set<string> s;
+        for (auto e : similarPairs) s.insert(e[0] + "." + e[1]);
+        for (int i = 0; i < n; ++i)
+        {
+            string a = sentence1[i], b = sentence2[i];
+            if (a != b && !s.count(a + "." + b) && !s.count(b + "." + a)) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func areSentencesSimilar(sentence1 []string, sentence2 []string, similarPairs [][]string) bool {
+	if len(sentence1) != len(sentence2) {
+		return false
+	}
+	s := map[string]bool{}
+	for _, e := range similarPairs {
+		s[e[0]+"."+e[1]] = true
+	}
+	for i, a := range sentence1 {
+		b := sentence2[i]
+		if a != b && !s[a+"."+b] && !s[b+"."+a] {
+			return false
+		}
+	}
+	return true
 }
 ```
 
