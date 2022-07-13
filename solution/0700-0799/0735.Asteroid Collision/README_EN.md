@@ -65,11 +65,11 @@ class Solution:
             if a > 0:
                 ans.append(a)
             else:
-                while len(ans) > 0 and ans[-1] > 0 and ans[-1] < -a:
+                while ans and 0 < ans[-1] < -a:
                     ans.pop()
-                if len(ans) > 0 and ans[-1] == -a:
+                if ans and ans[-1] == -a:
                     ans.pop()
-                elif len(ans) == 0 or ans[-1] < -a:
+                elif not ans or ans[-1] < -a:
                     ans.append(a)
         return ans
 ```
