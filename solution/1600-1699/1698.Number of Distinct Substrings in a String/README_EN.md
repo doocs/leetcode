@@ -42,13 +42,63 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countDistinct(self, s: str) -> int:
+        n = len(s)
+        return len({s[i: j] for i in range(n) for j in range(i + 1, n + 1)})
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countDistinct(String s) {
+        Set<String> ss = new HashSet<>();
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j <= n; ++j) {
+                ss.add(s.substring(i, j));
+            }
+        }
+        return ss.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countDistinct(string s) {
+        unordered_set<string_view> ss;
+        int n = s.size();
+        string_view t, v = s;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = i + 1; j <= n; ++j)
+            {
+                t = v.substr(i, j - i);
+                ss.insert(t);
+            }
+        }
+        return ss.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func countDistinct(s string) int {
+	ss := map[string]bool{}
+	for i := range s {
+		for j := i + 1; j <= len(s); j++ {
+			ss[s[i:j]] = true
+		}
+	}
+	return len(ss)
+}
 ```
 
 ### **...**
