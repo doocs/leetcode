@@ -67,6 +67,27 @@ class MovingAverage:
 # param_1 = obj.next(val)
 ```
 
+```python
+class MovingAverage:
+
+    def __init__(self, size: int):
+        self.n = size
+        self.s = 0
+        self.q = deque()
+
+    def next(self, val: int) -> float:
+        if len(self.q) == self.n:
+            self.s -= self.q.popleft()
+        self.q.append(val)
+        self.s += val
+        return self.s / len(self.q)
+
+
+# Your MovingAverage object will be instantiated and called as such:
+# obj = MovingAverage(size)
+# param_1 = obj.next(val)
+```
+
 ### **Java**
 
 ```java
@@ -85,6 +106,33 @@ class MovingAverage {
         arr[idx] = val;
         ++cnt;
         return s * 1.0 / Math.min(cnt, arr.length);
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */
+```
+
+```java
+class MovingAverage {
+    private Deque<Integer> q = new ArrayDeque<>();
+    private int n;
+    private int s;
+
+    public MovingAverage(int size) {
+        n = size;
+    }
+    
+    public double next(int val) {
+        if (q.size() == n) {
+            s -= q.pollFirst();
+        }
+        q.offer(val);
+        s += val;
+        return s * 1.0 / q.size();
     }
 }
 
@@ -125,6 +173,37 @@ private:
  */
 ```
 
+```cpp
+class MovingAverage {
+public:
+    MovingAverage(int size) {
+        n = size;
+    }
+    
+    double next(int val) {
+        if (q.size() == n)
+        {
+            s -= q.front();
+            q.pop();
+        }
+        q.push(val);
+        s += val;
+        return (double) s / q.size();
+    }
+
+private:
+    queue<int> q;
+    int s = 0;
+    int n;
+};
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage* obj = new MovingAverage(size);
+ * double param_1 = obj->next(val);
+ */
+```
+
 ### **Go**
 
 ```go
@@ -152,6 +231,34 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * obj := Constructor(size);
+ * param_1 := obj.Next(val);
+ */
+```
+
+```go
+type MovingAverage struct {
+	q []int
+	s int
+	n int
+}
+
+func Constructor(size int) MovingAverage {
+	return MovingAverage{n: size}
+}
+
+func (this *MovingAverage) Next(val int) float64 {
+	if len(this.q) == this.n {
+		this.s -= this.q[0]
+		this.q = this.q[1:]
+	}
+	this.q = append(this.q, val)
+	this.s += val
+	return float64(this.s) / float64(len(this.q))
 }
 
 /**
