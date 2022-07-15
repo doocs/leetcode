@@ -52,9 +52,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划法。
+**方法一：动态规划**
 
-`dp[i]` 表示前 i 个字符组成的字符串 `s[0...i-1]` 能否拆分成若干个字典中出现的单词。
+$dp[i]$ 表示前 $i$ 个字符组成的字符串 $s[0...i-1]$ 能否拆分成若干个字典中出现的单词。
+
+时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
 
@@ -74,7 +76,7 @@ class Solution:
                 if dp[j] and s[j:i] in words:
                     dp[i] = True
                     break
-        return dp[n]
+        return dp[-1]
 ```
 
 ### **Java**
@@ -107,16 +109,16 @@ class Solution {
 class Solution {
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
-        unordered_set<string> words;
-        for (auto word : wordDict) {
-            words.insert(word);
-        }
+        unordered_set<string> words(wordDict.begin(), wordDict.end());
         int n = s.size();
-        vector<bool> dp(n + 1, false);
+        vector<bool> dp(n + 1);
         dp[0] = true;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (dp[j] && words.find(s.substr(j, i - j)) != words.end()) {
+        for (int i = 1; i <= n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                if (dp[j] && words.count(s.substr(j, i - j)))
+                {
                     dp[i] = true;
                     break;
                 }
