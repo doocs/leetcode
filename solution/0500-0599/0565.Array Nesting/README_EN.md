@@ -69,6 +69,21 @@ class Solution:
         return res
 ```
 
+```python
+class Solution:
+    def arrayNesting(self, nums: List[int]) -> int:
+        ans, n = 0, len(nums)
+        for i in range(n):
+            cnt = 0
+            while nums[i] != n:
+                j = nums[i]
+                nums[i] = n
+                i = j
+                cnt += 1
+            ans = max(ans, cnt)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -91,6 +106,26 @@ class Solution {
             res = Math.max(res, m);
         }
         return res;
+    }
+}
+```
+
+```java
+class Solution {
+    public int arrayNesting(int[] nums) {
+        int ans = 0, n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            int cnt = 0;
+            int j = i;
+            while (nums[j] < n) {
+                int k = nums[j];
+                nums[j] = n;
+                j = k;
+                ++cnt;
+            }
+            ans = Math.max(ans, cnt);
+        }
+        return ans;
     }
 }
 ```
@@ -120,6 +155,29 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int arrayNesting(vector<int>& nums) {
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n; ++i)
+        {
+            int cnt = 0;
+            int j = i;
+            while (nums[j] < n)
+            {
+                int k = nums[j];
+                nums[j] = n;
+                j = k;
+                ++cnt;
+            }
+            ans = max(ans, cnt);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -140,6 +198,25 @@ func arrayNesting(nums []int) int {
 		}
 		if m > ans {
 			ans = m
+		}
+	}
+	return ans
+}
+```
+
+```go
+func arrayNesting(nums []int) int {
+	ans, n := 0, len(nums)
+	for i := range nums {
+		cnt, j := 0, i
+		for nums[j] != n {
+			k := nums[j]
+			nums[j] = n
+			j = k
+			cnt++
+		}
+		if ans < cnt {
+			ans = cnt
 		}
 	}
 	return ans
