@@ -1,69 +1,60 @@
+class Trie {
+    Trie[] children = new Trie[26];
+    String w;
+
+    void insert(String w) {
+        Trie node = this;
+        for (char c : w.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.w = w;
+    }
+}
+
 class Solution {
-    private int[] counter;
+    private Set<String> ans = new HashSet<>();
+    private int m;
+    private int n;
     private char[][] board;
-    
+
     public List<String> findWords(char[][] board, String[] words) {
-        counter = new int[26];
+        Trie trie = new Trie();
+        for (String w : words) {
+            trie.insert(w);
+        }
+        m = board.length;
+        n = board[0].length;
         this.board = board;
-        for (char[] b : board) {
-            for (char c : b) {
-                ++counter[c - 'a'];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                dfs(trie, i, j);
             }
         }
-        Set<String> s = new HashSet<>(Arrays.asList(words));
-        List<String> ans = new ArrayList<>();
-        for (String word : s) {
-            if (find(word)) {
-                ans.add(word);
-            }
-        }
-        return ans;
+        return new ArrayList<>(ans);
     }
 
-    private boolean find(String word) {
-        if (!check(word)) {
-            return false;
+    private void dfs(Trie node, int i, int j) {
+        int idx = board[i][j] - 'a';
+        if (node.children[idx] == null) {
+            return;
         }
-        for (int i = 0; i < board.length; ++i) {
-            for (int j = 0; j < board[0].length; ++j) {
-                if (dfs(i, j, 0, word)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private boolean dfs(int i, int j, int l, String word) {
-        if (l == word.length()) {
-            return true;
-        }
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != word.charAt(l)) {
-            return false;
+        node = node.children[idx];
+        if (node.w != null) {
+            ans.add(node.w);
         }
         char c = board[i][j];
         board[i][j] = '0';
-        boolean ans = false;
         int[] dirs = {-1, 0, 1, 0, -1};
         for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k];
-            int y = j + dirs[k + 1];
-            ans = ans || dfs(x, y, l + 1, word);
-        }
-        board[i][j] = c;
-        return ans;
-    }
-
-    private boolean check(String word) {
-        int[] cnt = new int[26];
-        for (char c : word.toCharArray()) {
-            ++cnt[c - 'a'];
-        }
-        for (int i = 0; i < 26; ++i) {
-            if (counter[i] < cnt[i]) {
-                return false;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0') {
+                dfs(node, x, y);
             }
         }
-        return true;
+        board[i][j] = c;
     }
 }

@@ -1,33 +1,41 @@
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.w = ''
+
+    def insert(self, w):
+        node = self
+        for c in w:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.w = w
+
+
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        def check(word):
-            cnt = Counter(word)
-            return all(counter[c] >= i for c, i in cnt.items())
-
-        def dfs(i, j, l, word):
-            if l == len(word):
-                return True
-            if i < 0 or i >= m or j < 0 or j >= n or board[i][j] != word[l]:
-                return False
+        def dfs(node, i, j):
+            idx = ord(board[i][j]) - ord('a')
+            if node.children[idx] is None:
+                return
+            node = node.children[idx]
+            if node.w:
+                ans.add(node.w)
             c = board[i][j]
             board[i][j] = '0'
-            ans = False
             for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
                 x, y = i + a, j + b
-                ans = ans or dfs(x, y, l + 1, word)
-            board[i][j] = c
-            return ans
+                if 0 <= x < m and 0 <= y < n and board[x][y] != '0':
+                    dfs(node, x, y)
+            board[i][y] = c
 
-        def find(word):
-            if not check(word):
-                return False
-            for i in range(m):
-                for j in range(n):
-                    if dfs(i, j, 0, word):
-                        return True
-            return False
-
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        ans = set()
         m, n = len(board), len(board[0])
-        words = set(words)
-        counter = Counter(c for b in board for c in b)
-        return [word for word in words if find(word)]
+        for i in range(m):
+            for j in range(n):
+                dfs(trie, i, j)
+        return list(ans)

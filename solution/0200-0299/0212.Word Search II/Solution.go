@@ -1,67 +1,59 @@
+type Trie struct {
+	children [26]*Trie
+	w        string
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+func (this *Trie) insert(word string) {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = newTrie()
+		}
+		node = node.children[c]
+	}
+	node.w = word
+}
+
 func findWords(board [][]byte, words []string) []string {
-	counter := make([]int, 26)
-	for _, b := range board {
-		for _, c := range b {
-			counter[c-'a']++
-		}
+	trie := newTrie()
+	for _, w := range words {
+		trie.insert(w)
 	}
-	s := make(map[string]bool)
-	for _, word := range words {
-		s[word] = true
-	}
-
-	check := func(word string) bool {
-		cnt := make([]int, 26)
-		for i := range word {
-			cnt[word[i]-'a']++
+	m, n := len(board), len(board[0])
+	res := map[string]bool{}
+	var dfs func(node *Trie, i, j int)
+	dfs = func(node *Trie, i, j int) {
+		idx := board[i][j] - 'a'
+		if node.children[idx] == nil {
+			return
 		}
-		for i := 0; i < 26; i++ {
-			if counter[i] < cnt[i] {
-				return false
-			}
+		node = node.children[idx]
+		if node.w != "" {
+			res[node.w] = true
 		}
-		return true
-	}
-
-	var dfs func(i, j, l int, word string) bool
-	dfs = func(i, j, l int, word string) bool {
-		if l == len(word) {
-			return true
-		}
-		if i < 0 || i >= len(board) || j < 0 || j >= len(board[0]) || board[i][j] != word[l] {
-			return false
-		}
+		dirs := []int{-1, 0, 1, 0, -1}
 		c := board[i][j]
 		board[i][j] = '0'
-		ans := false
-		dirs := []int{-1, 0, 1, 0, -1}
 		for k := 0; k < 4; k++ {
 			x, y := i+dirs[k], j+dirs[k+1]
-			ans = ans || dfs(x, y, l+1, word)
-		}
-		board[i][j] = c
-		return ans
-	}
-
-	find := func(word string) bool {
-		if !check(word) {
-			return false
-		}
-		for i, b := range board {
-			for j, _ := range b {
-				if dfs(i, j, 0, word) {
-					return true
-				}
+			if x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' {
+				dfs(node, x, y)
 			}
 		}
-		return false
+		board[i][j] = c
 	}
-
-	var ans []string
-	for word, _ := range s {
-		if find(word) {
-			ans = append(ans, word)
+	for i, row := range board {
+		for j := range row {
+			dfs(trie, i, j)
 		}
+	}
+	var ans []string
+	for v := range res {
+		ans = append(ans, v)
 	}
 	return ans
 }
