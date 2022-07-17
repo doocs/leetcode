@@ -2386,3 +2386,7 @@
   - [2338.统计理想数组的数目](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)
   - [2339.All the Matches of the League](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README.md)
   - [2340.Minimum Adjacent Swaps to Make a Valid Array](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README.md)
+  - [2341.数组能形成多少数对](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md)
+  - [2342.数位和相等数对的最大和](/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README.md)
+  - [2343.裁剪数字后查询第 K 小的数字](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README.md)
+  - [2344.使数组可以被整除的最少删除次数](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md)

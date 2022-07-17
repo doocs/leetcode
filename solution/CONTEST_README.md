@@ -9,6 +9,14 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 302 场周赛(2022-07-17 10:30, 90 分钟)
+
+- [2341. 数组能形成多少数对](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md)
+- [2342. 数位和相等数对的最大和](/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README.md)
+- [2343. 裁剪数字后查询第 K 小的数字](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README.md)
+- [2344. 使数组可以被整除的最少删除次数](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md)
+
+
 #### 第 301 场周赛(2022-07-10 10:30, 90 分钟)
 
 - [2335. 装满杯子需要的最短总时长](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README.md)
@@ -1595,7 +1603,7 @@ https://lcpredictor.herokuapp.com/
 
 #### 第 169 场周赛(2019-12-29 10:30, 90 分钟)
 
-- [1304. 和为零的N个唯一整数](/solution/1300-1399/1304.Find%20N%20Unique%20Integers%20Sum%20up%20to%20Zero/README.md)
+- [1304. 和为零的 N 个不同整数](/solution/1300-1399/1304.Find%20N%20Unique%20Integers%20Sum%20up%20to%20Zero/README.md)
 - [1305. 两棵二叉搜索树中的所有元素](/solution/1300-1399/1305.All%20Elements%20in%20Two%20Binary%20Search%20Trees/README.md)
 - [1306. 跳跃游戏 III](/solution/1300-1399/1306.Jump%20Game%20III/README.md)
 - [1307. 口算难题](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README.md)

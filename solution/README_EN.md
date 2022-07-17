@@ -2349,6 +2349,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2338  |  [Count the Number of Ideal Arrays](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md)  |  `Math`,`Dynamic Programming`,`Combinatorics`,`Number Theory`  |  Hard  |  Weekly Contest 301  |
 |  2339  |  [All the Matches of the League](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README_EN.md)  |    |  Easy  |  🔒  |
 |  2340  |  [Minimum Adjacent Swaps to Make a Valid Array](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README_EN.md)  |    |  Medium  |  🔒  |
+|  2341  |  [Maximum Number of Pairs in Array](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README_EN.md)  |    |  Easy  |    |
+|  2342  |  [Max Sum of a Pair With Equal Sum of Digits](/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README_EN.md)  |    |  Medium  |    |
+|  2343  |  [Query Kth Smallest Trimmed Number](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README_EN.md)  |    |  Medium  |    |
+|  2344  |  [Minimum Deletions to Make Array Divisible](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
