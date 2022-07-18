@@ -1,33 +1,37 @@
 class Solution {
     private static final int[] DIRS = {-1, 0, 1, 0, -1};
     private List<Integer> c = new ArrayList<>();
-    private List<Set<Integer>> areas = new ArrayList<>();
+    private List<List<Integer>> areas = new ArrayList<>();
     private List<Set<Integer>> boundaries = new ArrayList<>();
-    private int[][] isInfected;
+    private int[][] infected;
+    private boolean[][] vis;
     private int m;
     private int n;
 
     public int containVirus(int[][] isInfected) {
-        m = isInfected.length;
-        n = isInfected[0].length;
-        this.isInfected = isInfected;
+        infected = isInfected;
+        m = infected.length;
+        n = infected[0].length;
+        vis = new boolean[m][n];
         int ans = 0;
         while (true) {
-            boolean[][] vis = new boolean[m][n];
-            areas.clear();
+            for (boolean[] row : vis) {
+                Arrays.fill(row, false);
+            }
             c.clear();
+            areas.clear();
             boundaries.clear();
             for (int i = 0; i < m; ++i) {
                 for (int j = 0; j < n; ++j) {
-                    if (isInfected[i][j] == 1 && !vis[i][j]) {
-                        areas.add(new HashSet<>());
-                        boundaries.add(new HashSet<>());
+                    if (infected[i][j] == 1 && !vis[i][j]) {
                         c.add(0);
-                        dfs(i, j, vis);
+                        areas.add(new ArrayList<>());
+                        boundaries.add(new HashSet<>());
+                        dfs(i, j);
                     }
                 }
             }
-            if (boundaries.isEmpty()) {
+            if (areas.isEmpty()) {
                 break;
             }
             int idx = max(boundaries);
@@ -36,21 +40,20 @@ class Solution {
                 if (t == idx) {
                     for (int v : areas.get(t)) {
                         int i = v / n, j = v % n;
-                        isInfected[i][j] = -1;
+                        infected[i][j] = -1;
                     }
                 } else {
                     for (int v : areas.get(t)) {
                         int i = v / n, j = v % n;
                         for (int k = 0; k < 4; ++k) {
                             int x = i + DIRS[k], y = j + DIRS[k + 1];
-                            if (x >= 0 && x < m && y >= 0 && y < n && isInfected[x][y] == 0) {
-                                isInfected[x][y] = 1;
+                            if (x >= 0 && x < m && y >= 0 && y < n && infected[x][y] == 0) {
+                                infected[x][y] = 1;
                             }
                         }
                     }
                 }
             }
-
         }
         return ans;
     }
@@ -68,16 +71,16 @@ class Solution {
         return idx;
     }
 
-    private void dfs(int i, int j, boolean[][] vis) {
+    private void dfs(int i, int j) {
         vis[i][j] = true;
         int idx = areas.size() - 1;
         areas.get(idx).add(i * n + j);
         for (int k = 0; k < 4; ++k) {
             int x = i + DIRS[k], y = j + DIRS[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n) {
-                if (isInfected[x][y] == 1 && !vis[x][y]) {
-                    dfs(x, y, vis);
-                } else if (isInfected[x][y] == 0) {
+                if (infected[x][y] == 1 && !vis[x][y]) {
+                    dfs(x, y);
+                } else if (infected[x][y] == 0) {
                     c.set(idx, c.get(idx) + 1);
                     boundaries.get(idx).add(x * n + y);
                 }
