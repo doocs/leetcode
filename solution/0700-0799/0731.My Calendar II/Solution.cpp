@@ -10,7 +10,7 @@ public:
         ++m[start];
         --m[end];
         int s = 0;
-        for (auto& [k, v] : m)
+        for (auto& [_, v] : m)
         {
             s += v;
             if (s > 2)
