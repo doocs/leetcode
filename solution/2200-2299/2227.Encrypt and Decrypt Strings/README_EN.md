@@ -74,13 +74,150 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 ### **Python3**
 
 ```python
+class Encrypter:
 
+    def __init__(self, keys: List[str], values: List[str], dictionary: List[str]):
+        self.mp = dict(zip(keys, values))
+        self.cnt = Counter(self.encrypt(v) for v in dictionary)
+
+    def encrypt(self, word1: str) -> str:
+        res = []
+        for c in word1:
+            if c not in self.mp:
+                return ''
+            res.append(self.mp[c])
+        return ''.join(res)
+
+    def decrypt(self, word2: str) -> int:
+        return self.cnt[word2]
+
+
+# Your Encrypter object will be instantiated and called as such:
+# obj = Encrypter(keys, values, dictionary)
+# param_1 = obj.encrypt(word1)
+# param_2 = obj.decrypt(word2)
 ```
 
 ### **Java**
 
 ```java
+class Encrypter {
+    private Map<Character, String> mp = new HashMap<>();
+    private Map<String, Integer> cnt = new HashMap<>();
 
+    public Encrypter(char[] keys, String[] values, String[] dictionary) {
+        for (int i = 0; i < keys.length; ++i) {
+            mp.put(keys[i], values[i]);
+        }
+        for (String w : dictionary) {
+            w = encrypt(w);
+            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+        }
+    }
+    
+    public String encrypt(String word1) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : word1.toCharArray()) {
+            if (!mp.containsKey(c)) {
+                return "";
+            }
+            sb.append(mp.get(c));
+        }
+        return sb.toString();
+    }
+    
+    public int decrypt(String word2) {
+        return cnt.getOrDefault(word2, 0);
+    }
+}
+
+/**
+ * Your Encrypter object will be instantiated and called as such:
+ * Encrypter obj = new Encrypter(keys, values, dictionary);
+ * String param_1 = obj.encrypt(word1);
+ * int param_2 = obj.decrypt(word2);
+ */
+```
+
+### **C++**
+
+```cpp
+class Encrypter {
+public:
+    unordered_map<string, int> cnt;
+    unordered_map<char, string> mp;
+
+    Encrypter(vector<char>& keys, vector<string>& values, vector<string>& dictionary) {
+        for (int i = 0; i < keys.size(); ++i) mp[keys[i]] = values[i];
+        for (auto v : dictionary) cnt[encrypt(v)]++;
+    }
+    
+    string encrypt(string word1) {
+        string res = "";
+        for (char c : word1)
+        {
+            if (!mp.count(c)) return "";
+            res += mp[c];
+        }
+        return res;
+    }
+    
+    int decrypt(string word2) {
+        return cnt[word2];
+    }
+};
+
+/**
+ * Your Encrypter object will be instantiated and called as such:
+ * Encrypter* obj = new Encrypter(keys, values, dictionary);
+ * string param_1 = obj->encrypt(word1);
+ * int param_2 = obj->decrypt(word2);
+ */
+```
+
+### **Go**
+
+```go
+type Encrypter struct {
+	mp  map[byte]string
+	cnt map[string]int
+}
+
+func Constructor(keys []byte, values []string, dictionary []string) Encrypter {
+	mp := map[byte]string{}
+	cnt := map[string]int{}
+	for i, k := range keys {
+		mp[k] = values[i]
+	}
+	e := Encrypter{mp, cnt}
+	for _, v := range dictionary {
+		e.cnt[e.Encrypt(v)]++
+	}
+	return e
+}
+
+func (this *Encrypter) Encrypt(word1 string) string {
+	var ans strings.Builder
+	for _, c := range word1 {
+		if v, ok := this.mp[byte(c)]; ok {
+			ans.WriteString(v)
+		} else {
+			return ""
+		}
+	}
+	return ans.String()
+}
+
+func (this *Encrypter) Decrypt(word2 string) int {
+	return this.cnt[word2]
+}
+
+/**
+ * Your Encrypter object will be instantiated and called as such:
+ * obj := Constructor(keys, values, dictionary);
+ * param_1 := obj.Encrypt(word1);
+ * param_2 := obj.Decrypt(word2);
+ */
 ```
 
 ### **TypeScript**
