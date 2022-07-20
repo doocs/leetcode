@@ -52,7 +52,7 @@
 
 **方法一：哈希表**
 
-**方法一：前缀树**
+**方法二：前缀树**
 
 <!-- tabs:start -->
 
@@ -77,31 +77,35 @@ class Solution:
 class Trie:
     def __init__(self):
         self.children = [None] * 26
-        self.root = None
+        self.v = None
+
+    def insert(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.v = word
+
+    def search(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                break
+            node = node.children[idx]
+            if node.v:
+                return node.v
+        return word
 
 
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
         trie = Trie()
-        for root in dictionary:
-            cur = trie
-            for c in root:
-                idx = ord(c) - ord("a")
-                if cur.children[idx] is None:
-                    cur.children[idx] = Trie()
-                cur = cur.children[idx]
-            cur.root = root
-
-        ans = []
-        for word in sentence.split():
-            cur = trie
-            for c in word:
-                idx = ord(c) - ord("a")
-                if cur.children[idx] is None or cur.root:
-                    break
-                cur = cur.children[idx]
-            ans.append(cur.root or word)
-        return " ".join(ans)
+        for v in dictionary:
+            trie.insert(v)
+        return ' '.join(trie.search(v) for v in sentence.split())
 ```
 
 ### **Java**
@@ -131,34 +135,45 @@ class Solution {
 ```java
 class Trie {
     Trie[] children = new Trie[26];
-    String root;
+    String v;
+
+    void insert(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.v = word;
+    }
+
+    String search(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                return word;
+            }
+            node = node.children[c];
+            if (node.v != null) {
+                return node.v;
+            }
+        }
+        return word;
+    }
 }
 
 class Solution {
     public String replaceWords(List<String> dictionary, String sentence) {
         Trie trie = new Trie();
-        for (String root : dictionary) {
-            Trie cur = trie;
-            for (char c : root.toCharArray()) {
-                c -= 'a';
-                if (cur.children[c] == null) {
-                    cur.children[c] = new Trie();
-                }
-                cur = cur.children[c];
-            }
-            cur.root = root;
+        for (String v : dictionary) {
+            trie.insert(v);
         }
         List<String> ans = new ArrayList<>();
-        for (String word : sentence.split(" ")) {
-            Trie cur = trie;
-            for (char c : word.toCharArray()) {
-                c -= 'a';
-                if (cur.children[c] == null || cur.root != null) {
-                    break;
-                }
-                cur = cur.children[c];
-            }
-            ans.add(cur.root == null ? word : cur.root);
+        for (String v : sentence.split("\\s")) {
+            ans.add(trie.search(v));
         }
         return String.join(" ", ans);
     }
@@ -200,12 +215,31 @@ public:
 ```cpp
 class Trie {
 public:
-    string root;
     vector<Trie*> children;
+    string v;
+    Trie() : children(26), v("") {}
 
-    Trie() {
-        root = "";
-        children.resize(26);
+    void insert(string word) {
+        Trie* node = this;
+        for (char c : word)
+        {
+            c -= 'a';
+            if (!node->children[c]) node->children[c] = new Trie();
+            node = node->children[c];
+        }
+        node->v = word;
+    }
+
+    string search(string word) {
+        Trie* node = this;
+        for (char c : word)
+        {
+            c -= 'a';
+            if (!node->children[c]) break;
+            node = node->children[c];
+            if (node->v != "") return node->v;
+        }
+        return word;
     }
 };
 
@@ -213,33 +247,13 @@ class Solution {
 public:
     string replaceWords(vector<string>& dictionary, string sentence) {
         Trie* trie = new Trie();
-        for (auto root : dictionary)
-        {
-            Trie* cur = trie;
-            for (char c : root)
-            {
-                if (!cur->children[c - 'a']) cur->children[c - 'a'] = new Trie();
-                cur = cur->children[c - 'a'];
-            }
-            cur->root = root;
-        }
-
+        for (auto& v : dictionary) trie->insert(v);
         string ans = "";
         istringstream is(sentence);
         vector<string> ss;
         string s;
         while (is >> s) ss.push_back(s);
-        for (auto word : ss)
-        {
-            Trie* cur = trie;
-            for (char c : word)
-            {
-                if (!cur->children[c - 'a'] || cur->root != "") break;
-                cur = cur->children[c - 'a'];
-            }
-            ans += cur->root == "" ? word : cur->root;
-            ans += " ";
-        }
+        for (auto word : ss) ans += trie->search(word) + " ";
         ans.pop_back();
         return ans;
     }
@@ -269,42 +283,51 @@ func replaceWords(dictionary []string, sentence string) string {
 ```
 
 ```go
-func replaceWords(dictionary []string, sentence string) string {
-	trie := &Trie{}
-	for _, root := range dictionary {
-		cur := trie
-		for _, c := range root {
-			c -= 'a'
-			if cur.children[c] == nil {
-				cur.children[c] = &Trie{}
-			}
-			cur = cur.children[c]
-		}
-		cur.root = root
-	}
-
-	var ans []string
-	for _, word := range strings.Split(sentence, " ") {
-		cur := trie
-		for _, c := range word {
-			c -= 'a'
-			if cur.children[c] == nil || cur.root != "" {
-				break
-			}
-			cur = cur.children[c]
-		}
-		if cur.root == "" {
-			ans = append(ans, word)
-		} else {
-			ans = append(ans, cur.root)
-		}
-	}
-	return strings.Join(ans, " ")
-}
-
 type Trie struct {
 	children [26]*Trie
-	root     string
+	v        string
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+func (this *Trie) insert(word string) {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = newTrie()
+		}
+		node = node.children[c]
+	}
+	node.v = word
+}
+
+func (this *Trie) search(word string) string {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			break
+		}
+		node = node.children[c]
+		if node.v != "" {
+			return node.v
+		}
+	}
+	return word
+}
+
+func replaceWords(dictionary []string, sentence string) string {
+	trie := newTrie()
+	for _, v := range dictionary {
+		trie.insert(v)
+	}
+	var ans []string
+	for _, v := range strings.Split(sentence, " ") {
+		ans = append(ans, trie.search(v))
+	}
+	return strings.Join(ans, " ")
 }
 ```
 

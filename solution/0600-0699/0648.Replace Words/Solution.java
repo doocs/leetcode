@@ -1,33 +1,44 @@
 class Trie {
     Trie[] children = new Trie[26];
-    String root;
+    String v;
+
+    void insert(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.v = word;
+    }
+
+    String search(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                return word;
+            }
+            node = node.children[c];
+            if (node.v != null) {
+                return node.v;
+            }
+        }
+        return word;
+    }
 }
 
 class Solution {
     public String replaceWords(List<String> dictionary, String sentence) {
         Trie trie = new Trie();
-        for (String root : dictionary) {
-            Trie cur = trie;
-            for (char c : root.toCharArray()) {
-                c -= 'a';
-                if (cur.children[c] == null) {
-                    cur.children[c] = new Trie();
-                }
-                cur = cur.children[c];
-            }
-            cur.root = root;
+        for (String v : dictionary) {
+            trie.insert(v);
         }
         List<String> ans = new ArrayList<>();
-        for (String word : sentence.split(" ")) {
-            Trie cur = trie;
-            for (char c : word.toCharArray()) {
-                c -= 'a';
-                if (cur.children[c] == null || cur.root != null) {
-                    break;
-                }
-                cur = cur.children[c];
-            }
-            ans.add(cur.root == null ? word : cur.root);
+        for (String v : sentence.split("\\s")) {
+            ans.add(trie.search(v));
         }
         return String.join(" ", ans);
     }

@@ -1,28 +1,32 @@
 class Trie:
     def __init__(self):
         self.children = [None] * 26
-        self.root = None
+        self.v = None
+
+    def insert(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.v = word
+
+    def search(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                break
+            node = node.children[idx]
+            if node.v:
+                return node.v
+        return word
 
 
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
         trie = Trie()
-        for root in dictionary:
-            cur = trie
-            for c in root:
-                idx = ord(c) - ord("a")
-                if cur.children[idx] is None:
-                    cur.children[idx] = Trie()
-                cur = cur.children[idx]
-            cur.root = root
-
-        ans = []
-        for word in sentence.split():
-            cur = trie
-            for c in word:
-                idx = ord(c) - ord("a")
-                if cur.children[idx] is None or cur.root:
-                    break
-                cur = cur.children[idx]
-            ans.append(cur.root or word)
-        return " ".join(ans)
+        for v in dictionary:
+            trie.insert(v)
+        return ' '.join(trie.search(v) for v in sentence.split())
