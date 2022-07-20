@@ -6,6 +6,6 @@ class Solution:
         for i in range(1, n + 1):
             dp[i] = dp[i - 1] + 1
             for j in range(i):
-                if sentence[j: i] in s:
+                if sentence[j:i] in s:
                     dp[i] = min(dp[i], dp[j])
         return dp[-1]

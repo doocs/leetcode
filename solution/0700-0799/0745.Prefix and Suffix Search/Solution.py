@@ -2,7 +2,7 @@ class Trie:
     def __init__(self):
         self.children = [None] * 26
         self.indexes = []
-    
+
     def insert(self, word, i):
         node = self
         for c in word:
@@ -11,7 +11,7 @@ class Trie:
                 node.children[idx] = Trie()
             node = node.children[idx]
             node.indexes.append(i)
-    
+
     def search(self, pref):
         node = self
         for c in pref:
@@ -23,7 +23,6 @@ class Trie:
 
 
 class WordFilter:
-
     def __init__(self, words: List[str]):
         self.p = Trie()
         self.s = Trie()

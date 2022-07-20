@@ -25,7 +25,9 @@ class Trie:
 
 
 class Solution:
-    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+    def suggestedProducts(
+        self, products: List[str], searchWord: str
+    ) -> List[List[str]]:
         products.sort()
         trie = Trie()
         for i, w in enumerate(products):

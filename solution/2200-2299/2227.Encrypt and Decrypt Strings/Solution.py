@@ -1,5 +1,4 @@
 class Encrypter:
-
     def __init__(self, keys: List[str], values: List[str], dictionary: List[str]):
         self.mp = dict(zip(keys, values))
         self.cnt = Counter(self.encrypt(v) for v in dictionary)

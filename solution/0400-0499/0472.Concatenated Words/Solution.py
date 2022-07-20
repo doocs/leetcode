@@ -24,7 +24,7 @@ class Solution:
                 if node.children[idx] is None:
                     return False
                 node = node.children[idx]
-                if node.is_end and dfs(w[i + 1:]):
+                if node.is_end and dfs(w[i + 1 :]):
                     return True
             return False
 
