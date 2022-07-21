@@ -29,13 +29,36 @@ B = [2,5,6],       n = 3
 ### **Python3**
 
 ```python
-
+class Solution:
+    def merge(self, A: List[int], m: int, B: List[int], n: int) -> None:
+        """
+        Do not return anything, modify A in-place instead.
+        """
+        i, j = m - 1, n - 1
+        for k in range(len(A) - 1, -1, -1):
+            if j < 0 or (i >= 0 and A[i] >= B[j]):
+                A[k] = A[i]
+                i -= 1
+            else:
+                A[k] = B[j]
+                j -= 1
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public void merge(int[] A, int m, int[] B, int n) {
+        int i = m - 1, j = n - 1;
+        for (int k = A.length - 1; k >= 0; --k) {
+            if (j < 0 || (i >= 0 && A[i] >= B[j])) {
+                A[k] = A[i--];
+            } else {
+                A[k] = B[j--];
+            }
+        }
+    }
+}
 ```
 
 ### **JavaScript**
@@ -104,6 +127,39 @@ impl Solution {
             }
         }
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& A, int m, vector<int>& B, int n) {
+        int i = m - 1, j = n - 1;
+        for (int k = A.size() - 1; k >= 0; --k)
+        {
+            if (j < 0 || (i >= 0 && A[i] >= B[j])) A[k] = A[i--];
+            else A[k] = B[j--];
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func merge(A []int, m int, B []int, n int) {
+	i, j := m-1, n-1
+	for k := len(A) - 1; k >= 0; k-- {
+		if j < 0 || (i >= 0 && A[i] >= B[j]) {
+			A[k] = A[i]
+			i--
+		} else {
+			A[k] = B[j]
+			j--
+		}
+	}
 }
 ```
 
