@@ -21,7 +21,6 @@ function heapify(arr, n, i) {
     }
 }
 
-
 function buildHeap(arr, n) {
     const lastNode = n - 1;
     const lastParent = Math.floor((lastNode - 1) / 2);
@@ -40,6 +39,6 @@ function heapSort(arr, n) {
 
 function main(arr, n, m) {
     heapSort(arr, n);
-    const list = arr.slice(0, m)
+    const list = arr.slice(0, m);
     console.log(list.join(' '));
 }

@@ -2,7 +2,7 @@
  * @param {number[]} questions
  * @return {number}
  */
- var halfQuestions = function(questions) {
+var halfQuestions = function (questions) {
     let counter = new Array(1010).fill(0);
     for (const q of questions) {
         ++counter[q];
