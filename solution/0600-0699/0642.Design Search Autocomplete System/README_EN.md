@@ -178,7 +178,7 @@ class AutocompleteSystem {
             trie.insert(s, times[i++]);
         }
     }
-    
+
     public List<String> input(char c) {
         List<String> res = new ArrayList<>();
         if (c == '#') {

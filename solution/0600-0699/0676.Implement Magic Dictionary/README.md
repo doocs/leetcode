@@ -145,11 +145,11 @@ class MagicDictionary {
     public MagicDictionary() {
 
     }
-    
+
     public void buildDict(String[] dictionary) {
         d = dictionary;
     }
-    
+
     public boolean search(String searchWord) {
         for (String w : d) {
             if (w.length() != searchWord.length()) {
@@ -237,11 +237,11 @@ public:
     MagicDictionary() {
 
     }
-    
+
     void buildDict(vector<string> dictionary) {
         d = move(dictionary);
     }
-    
+
     bool search(string searchWord) {
         for (auto&& w : d)
         {
@@ -269,7 +269,7 @@ public:
     MagicDictionary() {
 
     }
-    
+
     void buildDict(vector<string> dictionary) {
         for (string word : dictionary)
         {
@@ -277,7 +277,7 @@ public:
             for (string p : gen(word)) ++cnt[p];
         }
     }
-    
+
     bool search(string searchWord) {
         for (string p : gen(searchWord))
         {

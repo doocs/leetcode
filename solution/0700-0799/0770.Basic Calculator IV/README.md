@@ -42,6 +42,8 @@
 	</li>
 </ul>
 
+<p><strong>注意：</strong>你可以假设给定的表达式均有效。所有中间结果都在区间 <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code> 内。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>

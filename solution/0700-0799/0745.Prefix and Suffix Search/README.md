@@ -85,7 +85,7 @@ class Trie:
     def __init__(self):
         self.children = [None] * 26
         self.indexes = []
-    
+
     def insert(self, word, i):
         node = self
         for c in word:
@@ -94,7 +94,7 @@ class Trie:
                 node.children[idx] = Trie()
             node = node.children[idx]
             node.indexes.append(i)
-    
+
     def search(self, pref):
         node = self
         for c in pref:
@@ -156,7 +156,7 @@ class WordFilter {
             }
         }
     }
-    
+
     public int f(String pref, String suff) {
         return d.getOrDefault(pref + "." + suff, -1);
     }
@@ -210,7 +210,7 @@ class WordFilter {
             s.insert(new StringBuilder(w).reverse().toString(), i);
         }
     }
-    
+
     public int f(String pref, String suff) {
         suff = new StringBuilder(suff).reverse().toString();
         List<Integer> a = p.search(pref);
@@ -264,7 +264,7 @@ public:
             }
         }
     }
-    
+
     int f(string pref, string suff) {
         string key = pref + "." + suff;
         if (d.count(key)) return d[key];

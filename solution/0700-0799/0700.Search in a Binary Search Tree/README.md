@@ -21,7 +21,7 @@
 <b>输出：</b>[2,1,3]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/images/tree2.jpg" style="height: 179px; width: 250px;" />
 <pre>
 <b>输入：</b>root = [4,2,7,1,3], val = 5

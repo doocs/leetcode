@@ -10,7 +10,12 @@
 
 <p>Determine if there exists a contradiction in the equations. Return <code>true</code><em> if there is a contradiction, or </em><code>false</code><em> otherwise</em>.</p>
 
-<p><strong>Note</strong>: When checking if two numbers are equal, check that their <strong>absolute difference</strong> is less than <code>10<sup>-5</sup></code>.</p>
+<p><strong>Note</strong>:</p>
+
+<ul>
+	<li>When checking if two numbers are equal, check that their <strong>absolute difference</strong> is less than <code>10<sup>-5</sup></code>.</li>
+	<li>The testcases are generated such that there are no cases targeting precision, i.e. using <code>double</code> is enough to solve the problem.</li>
+</ul>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

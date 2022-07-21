@@ -8,6 +8,8 @@
 
 <p>If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.</p>
 
+<p>Note that the word should be built from left to right with each additional character being added to the end of a previous word.&nbsp;</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 

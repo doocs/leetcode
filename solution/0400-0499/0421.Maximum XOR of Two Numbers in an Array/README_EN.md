@@ -59,7 +59,7 @@ class Solution:
 class Trie:
     def __init__(self):
         self.children = [None] * 2
-    
+
     def insert(self, x):
         node = self
         for i in range(30, -1, -1):
@@ -67,7 +67,7 @@ class Trie:
             if node.children[v] is None:
                 node.children[v] = Trie()
             node = node.children[v]
-    
+
     def search(self, x):
         node = self
         res = 0

@@ -8,6 +8,8 @@
 
 <p>Return the <em>decimal value</em> of the number in the linked list.</p>
 
+<p>The <strong>most significant bit</strong> is at the head of the linked list.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/images/graph-1.png" style="width: 426px; height: 108px;" />
@@ -29,8 +31,8 @@
 
 <ul>
 	<li>The Linked List is not empty.</li>
-	<li>Number of nodes&nbsp;will not exceed <code>30</code>.</li>
-	<li>Each node&#39;s value is either&nbsp;<code>0</code> or <code>1</code>.</li>
+	<li>Number of nodes will not exceed <code>30</code>.</li>
+	<li>Each node&#39;s value is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
 ## Solutions

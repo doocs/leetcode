@@ -40,7 +40,6 @@ There is no way to delete elements from nums to allow this.</pre>
 	<li><code>1 &lt;= nums[i], numsDivide[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

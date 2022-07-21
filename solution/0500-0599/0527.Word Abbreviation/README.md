@@ -102,7 +102,7 @@ class Trie:
     def __init__(self):
         self.children = [None] * 26
         self.v = Counter()
-    
+
     def insert(self, w):
         node = self
         for c in w:
@@ -111,7 +111,7 @@ class Trie:
                 node.children[idx] = Trie()
             node = node.children[idx]
             node.v[w[-1]] += 1
-    
+
     def search(self, w):
         node = self
         res = []

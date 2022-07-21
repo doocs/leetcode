@@ -6,11 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数数组 <code>nums</code> ，返回<em> </em><code>nums[i] XOR nums[j]</code> 的最大运算结果，其中 <code>0 ≤ i ≤ j < n</code> 。</p>
+<p>给你一个整数数组 <code>nums</code> ，返回<em> </em><code>nums[i] XOR nums[j]</code> 的最大运算结果，其中 <code>0 ≤ i ≤ j &lt; n</code> 。</p>
 
 <p><strong>进阶：</strong>你可以在 <code>O(n)</code> 的时间解决这个问题吗？</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <div class="original__bRMd">
 <div>
@@ -49,13 +49,13 @@
 <strong>输出：</strong>127
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 2 * 10<sup>4</sup></code></li>
-	<li><code>0 <= nums[i] <= 2<sup>31</sup> - 1</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 </div>
 </div>

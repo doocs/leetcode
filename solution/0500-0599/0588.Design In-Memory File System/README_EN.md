@@ -175,7 +175,7 @@ class FileSystem {
     public FileSystem() {
 
     }
-    
+
     public List<String> ls(String path) {
         List<String> ans = new ArrayList<>();
         Trie node = root.search(path);
@@ -192,16 +192,16 @@ class FileSystem {
         Collections.sort(ans);
         return ans;
     }
-    
+
     public void mkdir(String path) {
         root.insert(path, false);
     }
-    
+
     public void addContentToFile(String filePath, String content) {
         Trie node = root.insert(filePath, true);
         node.content.append(content);
     }
-    
+
     public String readContentFromFile(String filePath) {
         Trie node = root.search(filePath);
         return node.content.toString();

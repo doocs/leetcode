@@ -22,7 +22,7 @@ product_id is a foreign key to <code>Product</code> table.
 Each row of this table shows the ID of the product and the quantity purchased by a user.
 </pre>
 
-<p>&nbsp;</p>
+<p></p>
 
 <p>Table: <code>Product</code></p>
 
@@ -37,7 +37,7 @@ product_id is the primary key of this table.
 Each row of this table indicates the price of each product.
 </pre>
 
-<p>&nbsp;</p>
+<p></p>
 
 <p>Write an SQL query that reports for each user the product id on which the user spent the most money. In case the same user spent the most money on two or more products, report all of them.</p>
 

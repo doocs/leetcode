@@ -99,7 +99,7 @@ class MovingAverage {
     public MovingAverage(int size) {
         arr = new int[size];
     }
-    
+
     public double next(int val) {
         int idx = cnt % arr.length;
         s += val - arr[idx];
@@ -125,7 +125,7 @@ class MovingAverage {
     public MovingAverage(int size) {
         n = size;
     }
-    
+
     public double next(int val) {
         if (q.size() == n) {
             s -= q.pollFirst();
@@ -151,7 +151,7 @@ public:
     MovingAverage(int size) {
         arr.resize(size);
     }
-    
+
     double next(int val) {
         int idx = cnt % arr.size();
         s += val - arr[idx];
@@ -179,7 +179,7 @@ public:
     MovingAverage(int size) {
         n = size;
     }
-    
+
     double next(int val) {
         if (q.size() == n)
         {

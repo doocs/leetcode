@@ -124,7 +124,7 @@ class Encrypter {
             cnt.put(w, cnt.getOrDefault(w, 0) + 1);
         }
     }
-    
+
     public String encrypt(String word1) {
         StringBuilder sb = new StringBuilder();
         for (char c : word1.toCharArray()) {
@@ -135,7 +135,7 @@ class Encrypter {
         }
         return sb.toString();
     }
-    
+
     public int decrypt(String word2) {
         return cnt.getOrDefault(word2, 0);
     }
@@ -161,7 +161,7 @@ public:
         for (int i = 0; i < keys.size(); ++i) mp[keys[i]] = values[i];
         for (auto v : dictionary) cnt[encrypt(v)]++;
     }
-    
+
     string encrypt(string word1) {
         string res = "";
         for (char c : word1)
@@ -171,7 +171,7 @@ public:
         }
         return res;
     }
-    
+
     int decrypt(string word2) {
         return cnt[word2];
     }

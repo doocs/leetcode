@@ -41,7 +41,7 @@ Each row of this table indicates the price of each product.
 
 <p>Write an SQL query that reports the spending of each user.</p>
 
-<p>Return the resulting table ordered by <code>spending</code> in <strong>descending order</strong>. In case of a tie, order them by <code>user_id</code>.</p>
+<p>Return the resulting table ordered by <code>spending</code> in <strong>descending order</strong>. In case of a tie, order them by <code>user_id</code> in ascending order.</p>
 
 <p>The query result format is in the following example.</p>
 

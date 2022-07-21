@@ -31,7 +31,7 @@ The index of value 6 is 1, so we return 1.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 50</code></li>
+	<li><code>2 &lt;= nums.length &lt;= 50</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 	<li>The largest element in <code>nums</code> is unique.</li>
 </ul>

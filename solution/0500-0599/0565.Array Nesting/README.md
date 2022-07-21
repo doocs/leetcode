@@ -14,7 +14,8 @@
 
 <p><strong>示例&nbsp;1:</strong></p>
 
-<pre><strong>输入:</strong> A = [5,4,0,3,1,6,2]
+<pre>
+<strong>输入:</strong> A = [5,4,0,3,1,6,2]
 <strong>输出:</strong> 4
 <strong>解释:</strong> 
 A[0] = 5, A[1] = 4, A[2] = 0, A[3] = 3, A[4] = 1, A[5] = 6, A[6] = 2.
@@ -27,11 +28,11 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>N</code>是<code>[1, 20,000]</code>之间的整数。</li>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt; nums.length</code></li>
 	<li><code>A</code>中不含有重复的元素。</li>
-	<li><code>A</code>中的元素大小在<code>[0, N-1]</code>之间。</li>
-</ol>
+</ul>
 
 ## 解法
 

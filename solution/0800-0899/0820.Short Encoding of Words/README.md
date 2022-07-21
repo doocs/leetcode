@@ -309,7 +309,7 @@ class Trie {
 public:
     vector<Trie*> children;
     Trie() : children(26) {}
-    
+
     int insert(string w) {
         Trie* node = this;
         bool pref = true;

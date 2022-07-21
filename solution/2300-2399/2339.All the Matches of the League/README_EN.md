@@ -18,7 +18,7 @@ Each row of this table shows the name of a team.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports all the possible matches of the league. Note that every two teams play two matches: home and away.&nbsp;</p>
+<p>Write an SQL query that reports all the possible matches of the league. Note that every two teams play two matches with each other, with one team being the <code>home_team</code> once and the other time being the <code>away_team</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
@@ -50,7 +50,6 @@ Teams table:
 +-------------+-------------+
 <strong>Explanation:</strong> All the matches of the league are shown in the table.
 </pre>
-
 
 ## Solutions
 

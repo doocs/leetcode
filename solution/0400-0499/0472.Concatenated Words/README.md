@@ -193,7 +193,7 @@ public:
 
     vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {
         sort(words.begin(), words.end(), [&](const string & a, const string & b){
-            return a.size() < b.size(); 
+            return a.size() < b.size();
         });
         vector<string> ans;
         for (auto& w : words)

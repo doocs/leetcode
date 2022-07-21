@@ -22,9 +22,9 @@
 
 <p>&nbsp;</p>
 
-<p>如果一对朋友 <code>x</code>&nbsp; 和&nbsp;<code>y</code> <strong>至少</strong>有三个共同的朋&nbsp;，那么&nbsp;<code>x</code> 和&nbsp;<code>y</code> 之间的友谊就是<strong>坚定的</strong>。</p>
+<p>如果 <code>x</code>&nbsp; 和&nbsp;<code>y</code>&nbsp;为<strong>朋友</strong>且他们<strong>至少</strong>有三个共同的朋友 ，那么&nbsp;<code>x</code> 和&nbsp;<code>y</code> 之间的友谊就是<strong>坚定的</strong>。</p>
 
-<p>写一个 SQ L查询来找到所有的<strong>坚定的友谊</strong>。</p>
+<p>写一个 SQL 查询来找到所有的<strong>坚定的友谊</strong>。</p>
 
 <p>注意，结果表不应该包含重复，并且 <code>user1_id &lt; user2_id</code>。</p>
 

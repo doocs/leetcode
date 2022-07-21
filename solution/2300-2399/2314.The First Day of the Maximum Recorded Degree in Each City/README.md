@@ -23,7 +23,7 @@ All the degrees are recorded in the year 2022.
 
 <p>&nbsp;</p>
 
-<p>Write an&nbsp;SQL query to report the day that has the maximum recorded degree in each city. If the maximum degree was recorded for the same city multiple times, return the earliest day among them.</p>
+<p>Write an SQL query to report the day that has the maximum recorded degree in each city. If the maximum degree was recorded for the same city multiple times, return the earliest day among them.</p>
 
 <p>Return the result table ordered by <code>city_id</code> in <strong>ascending order</strong>.</p>
 

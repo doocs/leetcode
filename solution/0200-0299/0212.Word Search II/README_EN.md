@@ -198,7 +198,7 @@ public:
         if(node->w != "") res.insert(node->w);
         char c = board[i][j];
         board[i][j] = '0';
-        
+
         for (int k = 0; k < 4; ++k)
         {
             int x = i + dirs[k], y = j + dirs[k + 1];

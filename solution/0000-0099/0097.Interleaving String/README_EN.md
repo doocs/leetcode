@@ -6,7 +6,7 @@
 
 <p>Given strings <code>s1</code>, <code>s2</code>, and <code>s3</code>, find whether <code>s3</code> is formed by an <strong>interleaving</strong> of <code>s1</code> and <code>s2</code>.</p>
 
-<p>An <strong>interleaving</strong> of two strings <code>s</code> and <code>t</code> is a configuration where they are divided into <strong>non-empty</strong> substrings such that:</p>
+<p>An <strong>interleaving</strong> of two strings <code>s</code> and <code>t</code> is a configuration where <code>s</code> and <code>t</code> are divided into <code>n</code> and <code>m</code> <strong>non-empty</strong> substrings respectively, such that:</p>
 
 <ul>
 	<li><code>s = s<sub>1</sub> + s<sub>2</sub> + ... + s<sub>n</sub></code></li>
@@ -23,6 +23,10 @@
 <pre>
 <strong>Input:</strong> s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbcbcac&quot;
 <strong>Output:</strong> true
+<strong>Explanation:</strong> One way to obtain s3 is:
+Split s1 into s1 = &quot;aa&quot; + &quot;bc&quot; + &quot;c&quot;, and s2 into s2 = &quot;dbbc&quot; + &quot;a&quot;.
+Interleaving the two splits, we get &quot;aa&quot; + &quot;dbbc&quot; + &quot;bc&quot; + &quot;a&quot; + &quot;c&quot; = &quot;aadbbcbcac&quot;.
+Since s3 can be obtained by interleaving s1 and s2, we return true.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -30,6 +34,7 @@
 <pre>
 <strong>Input:</strong> s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbbaccc&quot;
 <strong>Output:</strong> false
+<strong>Explanation:</strong> Notice how it is impossible to interleave s2 with any other string to obtain s3.
 </pre>
 
 <p><strong>Example 3:</strong></p>

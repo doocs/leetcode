@@ -90,7 +90,7 @@ class Trie:
     def __init__(self):
         self.children = [None] * 26
         self.is_end = False
-    
+
     def insert(self, w):
         node = self
         for c in w:
@@ -99,7 +99,7 @@ class Trie:
                 node.children[idx] = Trie()
             node = node.children[idx]
         node.is_end = True
-    
+
     def search(self, w):
         node = self
         for c in w:
@@ -114,7 +114,7 @@ class Solution:
         @cache
         def dfs(s):
             return not s or any(trie.search(s[:i]) and dfs(s[i:]) for i in range(1, len(s) + 1))
-        
+
         trie = Trie()
         for w in wordDict:
             trie.insert(w)
@@ -269,7 +269,7 @@ public:
 
     bool wordBreak(string s, vector<string>& wordDict) {
         for (auto w : wordDict) trie->insert(w);
-        return dfs(s);    
+        return dfs(s);
     }
 
     bool dfs(string s) {

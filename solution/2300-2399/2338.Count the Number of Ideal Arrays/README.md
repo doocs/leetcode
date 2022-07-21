@@ -71,7 +71,7 @@
 
 我们可以预处理组合数 $C[i][j]$，根据递推公式 $C[i][j]=C[i-1][j]+C[i-1][j-1]$ 求得，特别地，当 $j=0$ 时，$C[i][j]=1$。
 
-最终的答案为  $\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{\log_2 k + 1}dp[i][j] \times C_{n-1}^{j-1}$ 。其中 $k$ 表示数组的最大值，即 $maxValue$。
+最终的答案为 $\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{\log_2 k + 1}dp[i][j] \times C_{n-1}^{j-1}$ 。其中 $k$ 表示数组的最大值，即 $maxValue$。
 
 <!-- tabs:start -->
 

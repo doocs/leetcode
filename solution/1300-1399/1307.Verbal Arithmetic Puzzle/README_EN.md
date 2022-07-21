@@ -10,7 +10,7 @@
 
 <ul>
 	<li>Each character is decoded as one digit (0 - 9).</li>
-	<li>Every pair of different characters must map to different digits.</li>
+	<li>No two characters can map to the same digit.</li>
 	<li>Each <code>words[i]</code> and <code>result</code> are decoded as one number <strong>without</strong> leading zeros.</li>
 	<li>Sum of numbers on the left side (<code>words</code>) will equal to the number on the right side (<code>result</code>).</li>
 </ul>
@@ -39,6 +39,8 @@ Such that: &quot;SIX&quot; + &quot;SEVEN&quot; + &quot;SEVEN&quot; = &quot;TWENT
 <pre>
 <strong>Input:</strong> words = [&quot;LEET&quot;,&quot;CODE&quot;], result = &quot;POINT&quot;
 <strong>Output:</strong> false
+<strong>Explanation:</strong> There is no possible mapping to satisfy the equation, so we return false.
+Note that two different characters cannot map to the same digit.
 </pre>
 
 <p>&nbsp;</p>

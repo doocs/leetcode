@@ -8,26 +8,26 @@
 
 <p>给定一种规律 <code>pattern</code>&nbsp;和一个字符串&nbsp;<code>s</code>&nbsp;，判断 <code>s</code>&nbsp;是否遵循相同的规律。</p>
 
-<p>这里的&nbsp;<strong>遵循&nbsp;</strong>指完全匹配，例如，&nbsp;<code>pattern</code>&nbsp;里的每个字母和字符串&nbsp;<code>str</code><strong>&nbsp;</strong>中的每个非空单词之间存在着双向连接的对应规律。</p>
+<p>这里的&nbsp;<strong>遵循&nbsp;</strong>指完全匹配，例如，&nbsp;<code>pattern</code>&nbsp;里的每个字母和字符串&nbsp;<code>s</code><strong>&nbsp;</strong>中的每个非空单词之间存在着双向连接的对应规律。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例1:</strong></p>
 
 <pre>
-<strong>输入:</strong> pattern = <code>"abba"</code>, str = <code>"dog cat cat dog"</code>
+<strong>输入:</strong> pattern = <code>"abba"</code>, s = <code>"dog cat cat dog"</code>
 <strong>输出:</strong> true</pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong>pattern = <code>"abba"</code>, str = <code>"dog cat cat fish"</code>
+<strong>输入:</strong>pattern = <code>"abba"</code>, s = <code>"dog cat cat fish"</code>
 <strong>输出:</strong> false</pre>
 
 <p><strong>示例 3:</strong></p>
 
 <pre>
-<strong>输入:</strong> pattern = <code>"aaaa"</code>, str = <code>"dog cat cat dog"</code>
+<strong>输入:</strong> pattern = <code>"aaaa"</code>, s = <code>"dog cat cat dog"</code>
 <strong>输出:</strong> false</pre>
 
 <p>&nbsp;</p>

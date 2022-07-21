@@ -21,7 +21,7 @@ Each row in this table contains the ID of a user and their gender.
 The table has an equal number of &#39;female&#39;, &#39;male&#39;, and &#39;other&#39;.
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p>Write an SQL query to rearrange the <code>Genders</code> table such that the rows alternate between <code>&#39;female&#39;</code>, <code>&#39;other&#39;</code>, and <code>&#39;male&#39;</code> in order. The table should be rearranged such that the IDs of each gender are sorted in ascending order.</p>
 

@@ -62,6 +62,9 @@
 	<li><code>1 &lt;= trim<sub>i</sub> &lt;= nums[i].length</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Could you use the <strong>Radix Sort Algorithm</strong> to solve this problem? What will be the complexity of that solution?</p>
+
 ## Solutions
 
 <!-- tabs:start -->
