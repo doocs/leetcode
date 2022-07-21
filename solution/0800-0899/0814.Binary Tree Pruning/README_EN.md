@@ -55,12 +55,12 @@ The diagram on the right represents the answer.
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pruneTree(self, root: TreeNode) -> TreeNode:
-        if not root:
+    def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None:
             return None
         root.left = self.pruneTree(root.left)
         root.right = self.pruneTree(root.right)
-        if root.val == 0 and not root.left and not root.right:
+        if root.val == 0 and root.left is None and root.right is None:
             return None
         return root
 ```
@@ -145,6 +145,32 @@ public:
         if (!root->val && !root->left && !root->right) return nullptr;
         return root;
     }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var pruneTree = function (root) {
+    if (!root) return null;
+    root.left = pruneTree(root.left);
+    root.right = pruneTree(root.right);
+    if (root.val == 0 && !root.left && !root.right) {
+        return null;
+    }
+    return root;
 };
 ```
 
