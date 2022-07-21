@@ -49,6 +49,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 排序**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,9 +60,8 @@
 ```python
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        counter = Counter(words)
-        res = sorted(counter, key=lambda word: (-counter[word], word))
-        return res[:k]
+        cnt = Counter(words)
+        return sorted(cnt, key=lambda x: (-cnt[x], x))[:k]
 ```
 
 ### **Java**
@@ -70,29 +71,65 @@ class Solution:
 ```java
 class Solution {
     public List<String> topKFrequent(String[] words, int k) {
-        Map<String, Integer> counter = new HashMap<>();
-        for (String word : words) {
-            counter.put(word, counter.getOrDefault(word, 0) + 1);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String v : words) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
         }
-        PriorityQueue<String> minHeap = new PriorityQueue<>((a, b) -> {
-            if (counter.get(a).equals(counter.get(b))) {
-                return b.compareTo(a);
-            }
-            return counter.get(a) - counter.get(b);
+        PriorityQueue<String> q = new PriorityQueue<>((a, b) -> {
+            int d = cnt.get(a) - cnt.get(b);
+            return d == 0 ? b.compareTo(a) : d;
         });
-        for (String word : counter.keySet()) {
-            minHeap.offer(word);
-            if (minHeap.size() > k) {
-                minHeap.poll();
+        for (String v : cnt.keySet()) {
+            q.offer(v);
+            if (q.size() > k) {
+                q.poll();
             }
         }
-        List<String> res = new ArrayList<>();
-        while (!minHeap.isEmpty()) {
-            res.add(minHeap.poll());
+        LinkedList<String> ans = new LinkedList<>();
+        while (!q.isEmpty()) {
+            ans.addFirst(q.poll());
         }
-        Collections.reverse(res);
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> topKFrequent(vector<string>& words, int k) {
+        unordered_map<string, int> cnt;
+        for (auto& v : words) ++cnt[v];
+        vector<string> ans;
+        for (auto& [key, _] : cnt) ans.emplace_back(key);
+        sort(ans.begin(), ans.end(), [&](const string& a, const string& b) -> bool {
+            return cnt[a] == cnt[b] ? a < b : cnt[a] > cnt[b];
+        });
+        ans.erase(ans.begin() + k, ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func topKFrequent(words []string, k int) []string {
+	cnt := map[string]int{}
+	for _, v := range words {
+		cnt[v]++
+	}
+	ans := []string{}
+	for v := range cnt {
+		ans = append(ans, v)
+	}
+	sort.Slice(ans, func(i, j int) bool {
+		a, b := ans[i], ans[j]
+		return cnt[a] > cnt[b] || cnt[a] == cnt[b] && a < b
+	})
+	return ans[:k]
 }
 ```
 
