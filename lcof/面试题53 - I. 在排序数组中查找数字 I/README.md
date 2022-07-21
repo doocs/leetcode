@@ -237,7 +237,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int Search(int[] nums, int target) {
         return helper(nums, target) - helper(nums, target - 1);

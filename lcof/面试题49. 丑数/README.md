@@ -192,7 +192,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int NthUglyNumber(int n) {
         if (n < 0) {

@@ -96,7 +96,7 @@ var constructArr = function (a) {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] ConstructArr(int[] a) {
         int n = a.Length;

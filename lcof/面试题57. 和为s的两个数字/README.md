@@ -290,7 +290,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         int p = 0, q = nums.Length - 1;

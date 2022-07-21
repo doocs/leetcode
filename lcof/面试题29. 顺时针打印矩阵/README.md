@@ -165,7 +165,7 @@ var spiralOrder = function (matrix) {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] SpiralOrder(int[][] matrix) {
         List<int> ans = new List<int>();

@@ -218,7 +218,7 @@ func strToInt(str string) int {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int StrToInt(string str) {
         if (string.IsNullOrWhiteSpace(str))

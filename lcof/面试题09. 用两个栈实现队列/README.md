@@ -290,7 +290,7 @@ impl CQueue {
 
 ### **C##**
 
-```csharp
+```cs
 public class CQueue {
     private Stack<int> stack1;
     private Stack<int> stack2;

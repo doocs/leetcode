@@ -298,7 +298,7 @@ impl MedianFinder {
 
 ### **C#**
 
-```csharp
+```cs
 public class MedianFinder {
     private List<int> nums;
     private int curIndex;

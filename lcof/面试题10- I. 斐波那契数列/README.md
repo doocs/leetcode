@@ -147,7 +147,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int Fib(int n) {
         int a = 0, b = 1, tmp;

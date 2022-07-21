@@ -134,7 +134,7 @@ func add(a int, b int) int {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int Add(int a, int b) {
         while (b != 0) {

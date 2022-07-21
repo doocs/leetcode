@@ -242,7 +242,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int LengthOfLongestSubstring(string s) {
         var set = new HashSet<char>();

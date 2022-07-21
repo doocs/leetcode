@@ -142,7 +142,7 @@ public:
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int FindNthDigit(int n) {
         long length = 1;

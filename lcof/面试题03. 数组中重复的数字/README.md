@@ -191,7 +191,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int FindRepeatNumber(int[] nums) {
         int temp;

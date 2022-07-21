@@ -250,7 +250,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int MovingCount(int m, int n, int k) {
         bool[,] arr = new bool[m, n];

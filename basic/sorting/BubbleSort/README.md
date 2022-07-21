@@ -238,8 +238,8 @@ public class Program
 }
 ```
 
-### **Python**
-```py
+### **Python3**
+```python
 def bubbleSort(arr):
     n = len(arr)
     # Iterate over all array elements

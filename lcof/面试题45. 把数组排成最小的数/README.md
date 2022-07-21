@@ -143,7 +143,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public string MinNumber(int[] nums) {
         List<string> ans = new List<string>();

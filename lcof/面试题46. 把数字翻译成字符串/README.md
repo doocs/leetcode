@@ -215,7 +215,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int TranslateNum(int num) {
         return TranslateString(num.ToString());

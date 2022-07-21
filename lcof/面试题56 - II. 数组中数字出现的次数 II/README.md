@@ -115,7 +115,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int SingleNumber(int[] nums) {
         int res = 0;

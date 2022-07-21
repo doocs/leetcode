@@ -155,7 +155,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int CuttingRope(int n) {
         if (n < 4) {

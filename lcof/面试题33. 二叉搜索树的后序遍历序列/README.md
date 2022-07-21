@@ -225,7 +225,7 @@ impl Solution {
 ```
 
 ### **C#**
-```csharp
+```cs
 public class Solution {
     public bool VerifyPostorder(int[] postorder) {
         if (postorder.Length == 0) {

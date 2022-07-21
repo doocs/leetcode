@@ -151,7 +151,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int MinArray(int[] numbers) {
         int left = 0, right = numbers.Length - 1, mid;

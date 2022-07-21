@@ -288,7 +288,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public bool Exist(char[][] board, string word) {
         int k = 0;

@@ -106,7 +106,7 @@ var singleNumbers = function (nums) {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] SingleNumbers(int[] nums) {
         int eor = 0;

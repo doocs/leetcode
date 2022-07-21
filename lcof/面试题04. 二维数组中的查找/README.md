@@ -210,7 +210,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public bool FindNumberIn2DArray(int[][] matrix, int target) {
         if (matrix.Length == 0 || matrix[0].Length == 0) {

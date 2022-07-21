@@ -184,7 +184,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] Excahnge(int[] nums) {
         int p = 0, q = nums.Length - 1;

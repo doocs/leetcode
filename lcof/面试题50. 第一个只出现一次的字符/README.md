@@ -148,7 +148,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public char FirstUniqChar(string s) {
         Dictionary<char, bool> dic = new Dictionary<char, bool>();

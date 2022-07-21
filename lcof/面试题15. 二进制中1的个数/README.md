@@ -133,7 +133,7 @@ public:
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int HammingWeight(uint n) {
         int count = 0;

@@ -125,7 +125,7 @@ func lastRemaining(n int, m int) int {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int LastRemaining(int n, int m) {
         int f = 0;

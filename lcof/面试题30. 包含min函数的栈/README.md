@@ -273,7 +273,7 @@ impl MinStack {
 
 ### **C#**
 
-```csharp
+```cs
 public class MinStack {
     Stack<int> stack;
     Stack<int> minStack;

@@ -183,7 +183,7 @@ var isNumber = function (s) {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public bool IsNumber(string s) {
         if (s == null || s.Trim() == null) {

@@ -221,7 +221,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] GetLeastNumbers(int[] arr, int k) {
         Array.Sort(arr);

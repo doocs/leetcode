@@ -143,7 +143,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int NumWays(int n) {
         int a = 1, b = 1, tmp;

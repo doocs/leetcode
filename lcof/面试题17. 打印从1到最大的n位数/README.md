@@ -109,7 +109,7 @@ public:
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] PrintNumbers(int n) {
         List<int> ans = new List<int>();

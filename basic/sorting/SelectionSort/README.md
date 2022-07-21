@@ -205,9 +205,9 @@ public class Program
 
 ```
 
-### **Python**
+### **Python3**
 
-```py
+```python
 def selection_sort(arr):
     n = len(arr)
     for i in range(n-1):

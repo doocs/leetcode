@@ -326,7 +326,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 /**
  * Definition for a binary tree node.
  * public class TreeNode {

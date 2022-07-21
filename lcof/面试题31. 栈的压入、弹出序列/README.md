@@ -162,7 +162,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public bool ValidateStackSequences(int[] pushed, int[] popped) {
         Stack<int> ans = new Stack<int>();

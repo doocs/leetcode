@@ -256,7 +256,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public string ReverseWords(string s) {
         string[] tmp = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);

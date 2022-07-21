@@ -212,7 +212,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public string[] Permutation(string s) {
         int n = s.Length;

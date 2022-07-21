@@ -347,7 +347,7 @@ impl MaxQueue {
 
 ### **C#**
 
-```csharp
+```cs
 public class MaxQueue {
     LinkedList<int> mvq;
     Queue<int> q;

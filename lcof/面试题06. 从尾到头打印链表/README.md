@@ -299,7 +299,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 /**
  * Definition for singly-linked list.
  * public class ListNode {

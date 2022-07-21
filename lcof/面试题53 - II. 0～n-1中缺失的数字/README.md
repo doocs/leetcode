@@ -148,7 +148,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int MissingNumber(int[] nums) {
         int l = 0, r = nums.Length - 1;

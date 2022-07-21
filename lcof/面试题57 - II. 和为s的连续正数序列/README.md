@@ -202,7 +202,7 @@ func findContinuousSequence(target int) [][]int {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[][] FindContinuousSequence(int target) {
         List<int[]> res = new List<int[]>();

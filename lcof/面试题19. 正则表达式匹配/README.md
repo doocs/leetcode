@@ -225,7 +225,7 @@ var isMatch = function (s, p) {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public bool IsMatch(string s, string p) {
         int m = s.Length, n = p.Length;

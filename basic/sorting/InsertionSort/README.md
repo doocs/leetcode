@@ -197,9 +197,9 @@ public class Program
 }
 ```
 
-### **Python**
+### **Python3**
 
-```py
+```python
 def insertion_sort(array):
     for i in range(len(array)):
         cur_index = i

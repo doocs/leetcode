@@ -272,7 +272,7 @@ func mergeSort(nums []int, left, right int) int {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     int[] nums, aux;
     public int ReversePairs(int[] nums) {

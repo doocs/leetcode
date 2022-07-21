@@ -197,7 +197,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
         if (prices.Length == 0) {

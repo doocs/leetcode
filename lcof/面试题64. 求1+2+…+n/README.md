@@ -112,7 +112,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int result;
     public int SumNums(int n) {

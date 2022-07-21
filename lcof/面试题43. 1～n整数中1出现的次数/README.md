@@ -153,7 +153,7 @@ public:
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int CountDigitOne(int n) {
         long mulk = 1;

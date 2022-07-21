@@ -156,7 +156,7 @@ func dicesProbability(n int) []float64 {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public double[] DicesProbability(int n) {
         var bp = new double[6];

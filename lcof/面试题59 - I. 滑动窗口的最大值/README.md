@@ -250,7 +250,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int[] MaxSlidingWindow(int[] nums, int k) {
         if (nums.Length == 0) {

@@ -183,11 +183,11 @@ impl Solution {
 }
 ```
 
-### **...**
+### **C#**
 
 使用 `Replace()`：
 
-```csharp
+```cs
 public class Solution {
     public string ReplaceSpace(string s) {
         return s.Replace(" ", "%20");

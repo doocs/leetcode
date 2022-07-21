@@ -177,7 +177,7 @@ impl Solution {
 
 ### **C#**
 
-```csharp
+```cs
 public class Solution {
     public int MaxValue(int[][] grid) {
         int m = grid.Length, n = grid[0].Length;
