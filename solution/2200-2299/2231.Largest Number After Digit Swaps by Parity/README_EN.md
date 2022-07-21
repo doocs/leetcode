@@ -44,13 +44,120 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestInteger(self, num: int) -> int:
+        cnt = Counter()
+        x = num
+        while x:
+            x, v = divmod(x, 10)
+            cnt[v] += 1
+        x = num
+        ans = 0
+        t = 1
+        while x:
+            x, v = divmod(x, 10)
+            for y in range(10):
+                if ((v ^ y) & 1) == 0 and cnt[y]:
+                    ans += y * t
+                    t *= 10
+                    cnt[y] -= 1
+                    break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int largestInteger(int num) {
+        int[] cnt = new int[10];
+        int x = num;
+        while (x != 0) {
+            cnt[x % 10]++;
+            x /= 10;
+        }
+        x = num;
+        int ans = 0;
+        int t = 1;
+        while (x != 0) {
+            int v = x % 10;
+            x /= 10;
+            for (int y = 0; y < 10; ++y) {
+                if (((v ^ y) & 1) == 0 && cnt[y] > 0) {
+                    cnt[y]--;
+                    ans += y * t;
+                    t *= 10;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestInteger(int num) {
+        vector<int> cnt(10);
+        int x = num;
+        while (x)
+        {
+            cnt[x % 10]++;
+            x /= 10;
+        }
+        x = num;
+        int ans = 0;
+        long t = 1;
+        while (x)
+        {
+            int v = x % 10;
+            x /= 10;
+            for (int y = 0; y < 10; ++y)
+            {
+                if (((v ^ y) & 1) == 0 && cnt[y] > 0)
+                {
+                    cnt[y]--;
+                    ans += y * t;
+                    t *= 10;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestInteger(num int) int {
+	cnt := make([]int, 10)
+	x := num
+	for x != 0 {
+		cnt[x%10]++
+		x /= 10
+	}
+	x = num
+	ans, t := 0, 1
+	for x != 0 {
+		v := x % 10
+		x /= 10
+		for y := 0; y < 10; y++ {
+			if ((v^y)&1) == 0 && cnt[y] > 0 {
+				cnt[y]--
+				ans += y * t
+				t *= 10
+				break
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

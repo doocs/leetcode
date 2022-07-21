@@ -1,20 +1,15 @@
 func arrayNesting(nums []int) int {
-	n := len(nums)
-	vis := make([]bool, n)
-	ans := 0
-	for i := 0; i < n; i++ {
-		if vis[i] {
-			continue
+	ans, n := 0, len(nums)
+	for i := range nums {
+		cnt, j := 0, i
+		for nums[j] != n {
+			k := nums[j]
+			nums[j] = n
+			j = k
+			cnt++
 		}
-		cur, m := nums[i], 1
-		vis[cur] = true
-		for nums[cur] != nums[i] {
-			cur = nums[cur]
-			m++
-			vis[cur] = true
-		}
-		if m > ans {
-			ans = m
+		if ans < cnt {
+			ans = cnt
 		}
 	}
 	return ans

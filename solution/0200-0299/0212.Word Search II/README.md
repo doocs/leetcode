@@ -45,7 +45,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS。
+**方法一：前缀树 + DFS**
 
 <!-- tabs:start -->
 
@@ -54,39 +54,47 @@ DFS。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.w = ''
+
+    def insert(self, w):
+        node = self
+        for c in w:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.w = w
+
+
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        def check(word):
-            cnt = Counter(word)
-            return all(counter[c] >= i for c, i in cnt.items())
-
-        def dfs(i, j, l, word):
-            if l == len(word):
-                return True
-            if i < 0 or i >= m or j < 0 or j >= n or board[i][j] != word[l]:
-                return False
+        def dfs(node, i, j):
+            idx = ord(board[i][j]) - ord('a')
+            if node.children[idx] is None:
+                return
+            node = node.children[idx]
+            if node.w:
+                ans.add(node.w)
             c = board[i][j]
             board[i][j] = '0'
-            ans = False
             for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
                 x, y = i + a, j + b
-                ans = ans or dfs(x, y, l + 1, word)
-            board[i][j] = c
-            return ans
+                if 0 <= x < m and 0 <= y < n and board[x][y] != '0':
+                    dfs(node, x, y)
+            board[i][y] = c
 
-        def find(word):
-            if not check(word):
-                return False
-            for i in range(m):
-                for j in range(n):
-                    if dfs(i, j, 0, word):
-                        return True
-            return False
-
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        ans = set()
         m, n = len(board), len(board[0])
-        words = set(words)
-        counter = Counter(c for b in board for c in b)
-        return [word for word in words if find(word)]
+        for i in range(m):
+            for j in range(n):
+                dfs(trie, i, j)
+        return list(ans)
 ```
 
 ### **Java**
@@ -94,73 +102,64 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+    String w;
+
+    void insert(String w) {
+        Trie node = this;
+        for (char c : w.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.w = w;
+    }
+}
+
 class Solution {
-    private int[] counter;
+    private Set<String> ans = new HashSet<>();
+    private int m;
+    private int n;
     private char[][] board;
 
     public List<String> findWords(char[][] board, String[] words) {
-        counter = new int[26];
+        Trie trie = new Trie();
+        for (String w : words) {
+            trie.insert(w);
+        }
+        m = board.length;
+        n = board[0].length;
         this.board = board;
-        for (char[] b : board) {
-            for (char c : b) {
-                ++counter[c - 'a'];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                dfs(trie, i, j);
             }
         }
-        Set<String> s = new HashSet<>(Arrays.asList(words));
-        List<String> ans = new ArrayList<>();
-        for (String word : s) {
-            if (find(word)) {
-                ans.add(word);
-            }
-        }
-        return ans;
+        return new ArrayList<>(ans);
     }
 
-    private boolean find(String word) {
-        if (!check(word)) {
-            return false;
+    private void dfs(Trie node, int i, int j) {
+        int idx = board[i][j] - 'a';
+        if (node.children[idx] == null) {
+            return;
         }
-        for (int i = 0; i < board.length; ++i) {
-            for (int j = 0; j < board[0].length; ++j) {
-                if (dfs(i, j, 0, word)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private boolean dfs(int i, int j, int l, String word) {
-        if (l == word.length()) {
-            return true;
-        }
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != word.charAt(l)) {
-            return false;
+        node = node.children[idx];
+        if (node.w != null) {
+            ans.add(node.w);
         }
         char c = board[i][j];
         board[i][j] = '0';
-        boolean ans = false;
         int[] dirs = {-1, 0, 1, 0, -1};
         for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k];
-            int y = j + dirs[k + 1];
-            ans = ans || dfs(x, y, l + 1, word);
-        }
-        board[i][j] = c;
-        return ans;
-    }
-
-    private boolean check(String word) {
-        int[] cnt = new int[26];
-        for (char c : word.toCharArray()) {
-            ++cnt[c - 'a'];
-        }
-        for (int i = 0; i < 26; ++i) {
-            if (counter[i] < cnt[i]) {
-                return false;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0') {
+                dfs(node, x, y);
             }
         }
-        return true;
+        board[i][j] = c;
     }
 }
 ```
@@ -168,56 +167,54 @@ class Solution {
 ### **C++**
 
 ```cpp
+class Trie {
+public:
+    vector<Trie*> children;
+    string w;
+    Trie() : children(26), w("") {}
+
+    void insert(string& w) {
+        Trie* node = this;
+        for (char c : w)
+        {
+            c -= 'a';
+            if (!node->children[c]) node->children[c] = new Trie();
+            node = node->children[c];
+        }
+        node->w = w;
+    }
+};
+
 class Solution {
 public:
-    vector<int> counter;
+    vector<int> dirs = {-1, 0, 1, 0, -1};
 
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
-        counter.resize(26);
-        for (auto& b : board)
-            for (auto& c : b)
-                ++counter[c - 'a'];
-        unordered_set<string> s(words.begin(), words.end());
+        Trie* trie = new Trie();
+        unordered_set<string> res;
+        for (auto& w : words) trie->insert(w);
+        for (int i = 0; i < board.size(); ++i)
+            for (int j = 0; j < board[0].size(); ++j)
+                dfs(trie, i, j, board, res);
         vector<string> ans;
-        for (string word : s)
-            if (find(word, board))
-                ans.push_back(word);
+        for (auto& w : res) ans.emplace_back(w);
         return ans;
     }
 
-    bool find(string& word, vector<vector<char>>& board) {
-        if (!check(word)) return false;
-        for (int i = 0; i < board.size(); ++i)
-            for (int j = 0; j < board[0].size(); ++j)
-                if (dfs(i, j, 0, word, board))
-                    return true;
-        return false;
-    }
-
-    bool dfs(int i, int j, int l, string& word, vector<vector<char>>& board) {
-        if (l == word.size()) return true;
-        if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || board[i][j] != word[l]) return false;
+    void dfs(Trie* node, int i, int j, vector<vector<char>>& board, unordered_set<string>& res) {
+        int idx = board[i][j] - 'a';
+        if (!node->children[idx]) return;
+        node = node->children[idx];
+        if(node->w != "") res.insert(node->w);
         char c = board[i][j];
         board[i][j] = '0';
-        bool ans = false;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
+        
         for (int k = 0; k < 4; ++k)
         {
             int x = i + dirs[k], y = j + dirs[k + 1];
-            ans = ans || dfs(x, y, l + 1, word, board);
+            if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size() && board[x][y] != '0') dfs(node, x, y, board, res);
         }
         board[i][j] = c;
-        return ans;
-    }
-
-    bool check(string word) {
-        vector<int> cnt(26);
-        for (char c : word)
-            ++cnt[c - 'a'];
-        for (int i = 0; i < 26; ++i)
-            if (counter[i] < cnt[i])
-                return false;
-        return true;
     }
 };
 ```
@@ -225,70 +222,62 @@ public:
 ### **Go**
 
 ```go
+type Trie struct {
+	children [26]*Trie
+	w        string
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+func (this *Trie) insert(word string) {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = newTrie()
+		}
+		node = node.children[c]
+	}
+	node.w = word
+}
+
 func findWords(board [][]byte, words []string) []string {
-	counter := make([]int, 26)
-	for _, b := range board {
-		for _, c := range b {
-			counter[c-'a']++
-		}
+	trie := newTrie()
+	for _, w := range words {
+		trie.insert(w)
 	}
-	s := make(map[string]bool)
-	for _, word := range words {
-		s[word] = true
-	}
-
-	check := func(word string) bool {
-		cnt := make([]int, 26)
-		for i := range word {
-			cnt[word[i]-'a']++
+	m, n := len(board), len(board[0])
+	res := map[string]bool{}
+	var dfs func(node *Trie, i, j int)
+	dfs = func(node *Trie, i, j int) {
+		idx := board[i][j] - 'a'
+		if node.children[idx] == nil {
+			return
 		}
-		for i := 0; i < 26; i++ {
-			if counter[i] < cnt[i] {
-				return false
-			}
+		node = node.children[idx]
+		if node.w != "" {
+			res[node.w] = true
 		}
-		return true
-	}
-
-	var dfs func(i, j, l int, word string) bool
-	dfs = func(i, j, l int, word string) bool {
-		if l == len(word) {
-			return true
-		}
-		if i < 0 || i >= len(board) || j < 0 || j >= len(board[0]) || board[i][j] != word[l] {
-			return false
-		}
+		dirs := []int{-1, 0, 1, 0, -1}
 		c := board[i][j]
 		board[i][j] = '0'
-		ans := false
-		dirs := []int{-1, 0, 1, 0, -1}
 		for k := 0; k < 4; k++ {
 			x, y := i+dirs[k], j+dirs[k+1]
-			ans = ans || dfs(x, y, l+1, word)
-		}
-		board[i][j] = c
-		return ans
-	}
-
-	find := func(word string) bool {
-		if !check(word) {
-			return false
-		}
-		for i, b := range board {
-			for j, _ := range b {
-				if dfs(i, j, 0, word) {
-					return true
-				}
+			if x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' {
+				dfs(node, x, y)
 			}
 		}
-		return false
+		board[i][j] = c
 	}
-
-	var ans []string
-	for word, _ := range s {
-		if find(word) {
-			ans = append(ans, word)
+	for i, row := range board {
+		for j := range row {
+			dfs(trie, i, j)
 		}
+	}
+	var ans []string
+	for v := range res {
+		ans = append(ans, v)
 	}
 	return ans
 }

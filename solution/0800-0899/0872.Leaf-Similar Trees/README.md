@@ -49,7 +49,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-深度优先搜索。
+**方法一：DFS**
+
+后序遍历。
 
 <!-- tabs:start -->
 
@@ -65,19 +67,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def leafSimilar(self, root1: TreeNode, root2: TreeNode) -> bool:
-        def dfs(root, leaves):
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        def dfs(root):
             if root is None:
-                return
-            if root.left is None and root.right is None:
-                leaves.append(root.val)
-                return
-            dfs(root.left, leaves)
-            dfs(root.right, leaves)
-        l1, l2 = [], []
-        dfs(root1, l1)
-        dfs(root2, l2)
-        return l1 == l2
+                return []
+            ans = dfs(root.left) + dfs(root.right)
+            return ans or [root.val]
+
+        return dfs(root1) == dfs(root2)
 ```
 
 ### **Java**
@@ -102,50 +99,81 @@ class Solution:
  */
 class Solution {
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        List<Integer> l1 = new ArrayList<>();
-        List<Integer> l2 = new ArrayList<>();
-        dfs(root1, l1);
-        dfs(root2, l2);
+        List<Integer> l1 = dfs(root1);
+        List<Integer> l2 = dfs(root2);
         return l1.equals(l2);
     }
 
-    private void dfs(TreeNode root, List<Integer> leaves) {
-        if (root == null) return;
-        if (root.left == null && root.right == null) {
-            leaves.add(root.val);
-            return;
+    private List<Integer> dfs(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
         }
-        dfs(root.left, leaves);
-        dfs(root.right, leaves);
+        List<Integer> ans = dfs(root.left);
+        ans.addAll(dfs(root.right));
+        if (ans.isEmpty()) {
+            ans.add(root.val);
+        }
+        return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+        return dfs(root1) == dfs(root2);
+    }
+
+    vector<int> dfs(TreeNode* root) {
+        if (!root) return {};
+        auto ans = dfs(root->left);
+        auto right = dfs(root->right);
+        ans.insert(ans.end(), right.begin(), right.end());
+        if (ans.empty()) ans.push_back(root->val);
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
-	var l1, l2 []int
-	if root1 != nil {
-		dfs(root1, &l1)
-	}
-	if root2 != nil {
-		dfs(root2, &l2)
-	}
-	return reflect.DeepEqual(l1, l2)
-}
-
-func dfs(root *TreeNode, leaves *[]int) {
-	if root.Left == nil && root.Right == nil {
-		*leaves = append(*leaves, root.Val)
-	} else {
-		if root.Left != nil {
-			dfs(root.Left, leaves)
+	var dfs func(*TreeNode) []int
+	dfs = func(root *TreeNode) []int {
+		if root == nil {
+			return []int{}
 		}
-		if root.Right != nil {
-			dfs(root.Right, leaves)
+		ans := dfs(root.Left)
+		ans = append(ans, dfs(root.Right)...)
+		if len(ans) == 0 {
+			ans = append(ans, root.Val)
 		}
+		return ans
 	}
+	return reflect.DeepEqual(dfs(root1), dfs(root2))
 }
 ```
 

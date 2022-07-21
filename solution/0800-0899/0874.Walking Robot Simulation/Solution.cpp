@@ -1,75 +1,27 @@
 ﻿class Solution {
 public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
-        set<pair<int, int>> s ;
-        for (auto o: obstacles)
-            s.insert(pair<int, int>(o[0], o[1])) ;
-        
-        int dir = 0 ;
-        int x = 0, y = 0 ;
-        int m = 0 ;
-        
-        for (auto c: commands)
+        vector<vector<int>> dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        unordered_set<string> s;
+        for (auto v : obstacles) s.insert(to_string(v[0]) + "." + to_string(v[1]));
+        int ans = 0, p = 1;
+        int x = 0, y = 0;
+        for (int v : commands)
         {
-            //cout << c << ":" << x << ' ' << y << endl ;
-            long long d = x*x + y*y ;
-            if (m < d)
-                m = d ;
-            if (-2 == c)
-            {
-                dir += 3 ;
-            }
-            else if (-1 == c)
-            {
-                ++dir ;
-            }
+            if (v == -2) p = (p + 3) % 4;
+            else if (v == -1) p = (p + 1) % 4;
             else
             {
-                int step = c ;
-                dir %= 4 ;
-                if (0 == dir)
+                while (v--)
                 {
-                    while (step--)
-                    {
-                        if (s.find(pair<int, int>(x, y+1)) != s.end())
-                            break ;
-                        //cout << "++i" << endl ;
-                        ++y ;
-                    }
-                     
-                }
-                else if (1 == dir)
-                {
-                    while (step--)
-                    {
-                        if (s.find(pair<int, int>(x+1, y)) != s.end())
-                            break ;
-                        ++x ;
-                    }
-                }
-                else if (2 == dir)
-                {
-                    while (step--)
-                    {
-                        if (s.find(pair<int, int>(x, y-1)) != s.end())
-                            break ;
-                        --y ;
-                    }
-                }
-                else if (3 == dir)
-                {
-                    while (step--)
-                    {
-                        if (s.find(pair<int, int>(x-1, y)) != s.end())
-                            break ;
-                        --x ;
-                    }
+                    int nx = x + dirs[p][0], ny = y + dirs[p][1];
+                    if (s.count(to_string(nx) + "." + to_string(ny))) break;
+                    x = nx;
+                    y = ny;
+                    ans = max(ans, x * x + y * y);
                 }
             }
         }
-        
-        //cout  << ":" << x << ' ' << y << endl ;
-        
-        return max(m, x*x + y*y);
+        return ans;
     }
 };

@@ -62,6 +62,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+创建一个矩阵 $g$ 来存放操作的结果。对于 $indices$ 中的每一对 $(r_i, c_i)$，我们将矩阵第 $r_i$ 行的所有数加 $1$，第 $c_i$ 列的所有元素加 $1$。
+
+模拟结束后，遍历矩阵，统计奇数的个数。
+
+时间复杂度 $O(indices.length*(m+n)+mn)$，空间复杂度 $O(mn)$。
+
+**方法二：空间优化**
+
+用行数组 $row$ 和列数组 $col$ 来记录每一行、每一列被增加的次数。对于 $indices$ 中的每一对 $(r_i, c_i)$，我们将 $row[r_i]$ 和 $col[c_i]$ 分别加 $1$。
+
+操作结束后，可以算出 $(i, j)$ 位置的计数为 $row[i]+col[j]$。遍历矩阵，统计奇数的个数。
+
+时间复杂度 $O(indices.length+mn)$，空间复杂度 $O(m+n)$。
+
+**方法三：数学优化**
+
+我们注意到，只有当 $row[i]$ 和 $col[j]$ 中恰好为“一奇一偶”时，矩阵 $(i, j)$ 位置的数才会是奇数。
+
+我们统计 $row$ 中的奇数个数，记为 $cnt1$；$col$ 中的奇数个数，记为 $cnt2$。那么最终得到的奇数个数为 $cnt1*(n-cnt2)+cnt2*(m-cnt1)$。
+
+时间复杂度 $O(indices.length+m+n)$，空间复杂度 $O(m+n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -77,7 +101,31 @@ class Solution:
                 g[i][c] += 1
             for j in range(n):
                 g[r][j] += 1
-        return sum(g[i][j] % 2 for i in range(m) for j in range(n))
+        return sum(v % 2 for row in g for v in row)
+```
+
+```python
+class Solution:
+    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+        row = [0] * m
+        col = [0] * n
+        for r, c in indices:
+            row[r] += 1
+            col[c] += 1
+        return sum((i + j) % 2 for i in row for j in col)
+```
+
+```python
+class Solution:
+    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+        row = [0] * m
+        col = [0] * n
+        for r, c in indices:
+            row[r] += 1
+            col[c] += 1
+        cnt1 = sum(v % 2 for v in row)
+        cnt2 = sum(v % 2 for v in col)
+        return cnt1 * (n - cnt2) + cnt2 * (m - cnt1)
 ```
 
 ### **Java**
@@ -91,19 +139,62 @@ class Solution {
         for (int[] e : indices) {
             int r = e[0], c = e[1];
             for (int i = 0; i < m; ++i) {
-                ++g[i][c];
+                g[i][c]++;
             }
             for (int j = 0; j < n; ++j) {
-                ++g[r][j];
+                g[r][j]++;
             }
         }
         int ans = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                ans += g[i][j] % 2;
+        for (int[] row : g) {
+            for (int v : row) {
+                ans += v % 2;
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int oddCells(int m, int n, int[][] indices) {
+        int[] row = new int[m];
+        int[] col = new int[n];
+        for (int[] e : indices) {
+            int r = e[0], c = e[1];
+            row[r]++;
+            col[c]++;
+        }
+        int ans = 0;
+        for (int i : row) {
+            for (int j : col) {
+                ans += (i + j) % 2;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int oddCells(int m, int n, int[][] indices) {
+        int[] row = new int[m];
+        int[] col = new int[n];
+        for (int[] e : indices) {
+            int r = e[0], c = e[1];
+            row[r]++;
+            col[c]++;
+        }
+        int cnt1 = 0, cnt2 = 0;
+        for (int v : row) {
+            cnt1 += v % 2;
+        }
+        for (int v : col) {
+            cnt2 += v % 2;
+        }
+        return cnt1 * (n - cnt2) + cnt2 * (m - cnt1);
     }
 }
 ```
@@ -122,10 +213,47 @@ public:
             for (int j = 0; j < n; ++j) ++g[r][j];
         }
         int ans = 0;
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                ans += g[i][j] % 2;
+        for (auto& row : g) for (int v : row) ans += v % 2;
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int oddCells(int m, int n, vector<vector<int>>& indices) {
+        vector<int> row(m);
+        vector<int> col(n);
+        for (auto& e : indices)
+        {
+            int r = e[0], c = e[1];
+            row[r]++;
+            col[c]++;
+        }
+        int ans = 0;
+        for (int i : row) for (int j : col) ans += (i + j) % 2;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int oddCells(int m, int n, vector<vector<int>>& indices) {
+        vector<int> row(m);
+        vector<int> col(n);
+        for (auto& e : indices)
+        {
+            int r = e[0], c = e[1];
+            row[r]++;
+            col[c]++;
+        }
+        int cnt1 = 0, cnt2 = 0;
+        for (int v : row) cnt1 += v % 2;
+        for (int v : col) cnt2 += v % 2;
+        return cnt1 * (n - cnt2) + cnt2 * (m - cnt1);
     }
 };
 ```
@@ -148,12 +276,51 @@ func oddCells(m int, n int, indices [][]int) int {
 		}
 	}
 	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			ans += g[i][j] % 2
+	for _, row := range g {
+		for _, v := range row {
+			ans += v % 2
 		}
 	}
 	return ans
+}
+```
+
+```go
+func oddCells(m int, n int, indices [][]int) int {
+	row := make([]int, m)
+	col := make([]int, n)
+	for _, e := range indices {
+		r, c := e[0], e[1]
+		row[r]++
+		col[c]++
+	}
+	ans := 0
+	for _, i := range row {
+		for _, j := range col {
+			ans += (i + j) % 2
+		}
+	}
+	return ans
+}
+```
+
+```go
+func oddCells(m int, n int, indices [][]int) int {
+	row := make([]int, m)
+	col := make([]int, n)
+	for _, e := range indices {
+		r, c := e[0], e[1]
+		row[r]++
+		col[c]++
+	}
+	cnt1, cnt2 := 0, 0
+	for _, v := range row {
+		cnt1 += v % 2
+	}
+	for _, v := range col {
+		cnt2 += v % 2
+	}
+	return cnt1*(n-cnt2) + cnt2*(m-cnt1)
 }
 ```
 

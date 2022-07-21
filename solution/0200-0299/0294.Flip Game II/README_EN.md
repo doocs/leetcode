@@ -44,13 +44,127 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def canWin(self, currentState: str) -> bool:
+        @cache
+        def dfs(mask):
+            for i in range(n - 1):
+                if (mask & (1 << i)) == 0 or (mask & (1 << (i + 1)) == 0):
+                    continue
+                if dfs(mask ^ (1 << i) ^ (1 << (i + 1))):
+                    continue
+                return True
+            return False
 
+        mask, n = 0, len(currentState)
+        for i, c in enumerate(currentState):
+            if c == '+':
+                mask |= 1 << i
+        return dfs(mask)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private Map<Long, Boolean> memo = new HashMap<>();
 
+    public boolean canWin(String currentState) {
+        long mask = 0;
+        n = currentState.length();
+        for (int i = 0; i < n; ++i) {
+            if (currentState.charAt(i) == '+') {
+                mask |= 1 << i;
+            }
+        }
+        return dfs(mask);
+    }
+
+    private boolean dfs(long mask) {
+        if (memo.containsKey(mask)) {
+            return memo.get(mask);
+        }
+        for (int i = 0; i < n - 1; ++i) {
+            if ((mask & (1 << i)) == 0 || (mask & (1 << (i + 1))) == 0) {
+                continue;
+            }
+            if (dfs(mask ^ (1 << i) ^ (1 << (i + 1)))) {
+                continue;
+            }
+            memo.put(mask, true);
+            return true;
+        }
+        memo.put(mask, false);
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    int n;
+    unordered_map<ll, bool> memo;
+
+    bool canWin(string currentState) {
+        n = currentState.size();
+        ll mask = 0;
+        for (int i = 0; i < n; ++i) if (currentState[i] == '+') mask |= 1ll << i;
+        return dfs(mask);
+    }
+
+    bool dfs(ll mask) {
+        if (memo.count(mask)) return memo[mask];
+        for (int i = 0; i < n - 1; ++i)
+        {
+            if ((mask & (1ll << i)) == 0 || (mask & (1ll << (i + 1))) == 0) continue;
+            if (dfs(mask ^ (1ll << i) ^ (1ll << (i + 1)))) continue;
+            memo[mask] = true;
+            return true;
+        }
+        memo[mask] = false;
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canWin(currentState string) bool {
+	n := len(currentState)
+	memo := map[int]bool{}
+	mask := 0
+	for i, c := range currentState {
+		if c == '+' {
+			mask |= 1 << i
+		}
+	}
+	var dfs func(int) bool
+	dfs = func(mask int) bool {
+		if v, ok := memo[mask]; ok {
+			return v
+		}
+		for i := 0; i < n-1; i++ {
+			if (mask&(1<<i)) == 0 || (mask&(1<<(i+1))) == 0 {
+				continue
+			}
+			if dfs(mask ^ (1 << i) ^ (1 << (i + 1))) {
+				continue
+			}
+			memo[mask] = true
+			return true
+		}
+		memo[mask] = false
+		return false
+	}
+	return dfs(mask)
+}
 ```
 
 ### **...**

@@ -1,57 +1,51 @@
-class Solution {
-    private Trie trie;
+class Trie {
+    Trie[] children = new Trie[26];
+    boolean isEnd;
 
-    public List<String> findAllConcatenatedWordsInADict(String[] words) {
-        Arrays.sort(words, Comparator.comparingInt(String::length));
-        List<String> ans = new ArrayList<>();
-        trie = new Trie();
-        for (String word : words) {
-            if ("".equals(word)) {
-                continue;
+    void insert(String w) {
+        Trie node = this;
+        for (char c : w.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
             }
-            if (dfs(word, 0)) {
-                ans.add(word);
-            } else {
-                insert(word);
-            }
-        }
-        return ans;
-    }
-
-    private boolean dfs(String word, int u) {
-        if (word.length() == u) {
-            return true;
-        }
-        Trie node = trie;
-        for (int i = u; i < word.length(); ++i) {
-            int idx = word.charAt(i) - 'a';
-            node = node.children[idx];
-            if (node == null) {
-                return false;
-            }
-            if (node.isEnd) {
-                if (dfs(word, i + 1)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private void insert(String word) {
-        Trie node = trie;
-        for (char c : word.toCharArray()) {
-            int idx = c - 'a';
-            if (node.children[idx] == null) {
-                node.children[idx] = new Trie();
-            }
-            node = node.children[idx];
+            node = node.children[c];
         }
         node.isEnd = true;
     }
 }
 
-class Trie {
-    Trie[] children = new Trie[26];
-    boolean isEnd;
+class Solution {
+    private Trie trie = new Trie();
+
+    public List<String> findAllConcatenatedWordsInADict(String[] words) {
+        Arrays.sort(words, (a, b) -> a.length() - b.length());
+        List<String> ans = new ArrayList<>();
+        for (String w : words) {
+            if (dfs(w)) {
+                ans.add(w);
+            } else {
+                trie.insert(w);
+            }
+        }
+        return ans;
+    }
+
+    private boolean dfs(String w) {
+        if ("".equals(w)) {
+            return true;
+        }
+        Trie node = trie;
+        for (int i = 0; i < w.length(); ++i) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                return false;
+            }
+            node = node.children[idx];
+            if (node.isEnd && dfs(w.substring(i + 1))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

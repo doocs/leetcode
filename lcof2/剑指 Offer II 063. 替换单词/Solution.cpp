@@ -1,11 +1,30 @@
 class Trie {
 public:
-    string root;
     vector<Trie*> children;
+    string v;
+    Trie() : children(26), v("") {}
 
-    Trie() {
-        root = "";
-        children.resize(26);
+    void insert(string word) {
+        Trie* node = this;
+        for (char c : word)
+        {
+            c -= 'a';
+            if (!node->children[c]) node->children[c] = new Trie();
+            node = node->children[c];
+        }
+        node->v = word;
+    }
+
+    string search(string word) {
+        Trie* node = this;
+        for (char c : word)
+        {
+            c -= 'a';
+            if (!node->children[c]) break;
+            node = node->children[c];
+            if (node->v != "") return node->v;
+        }
+        return word;
     }
 };
 
@@ -13,33 +32,13 @@ class Solution {
 public:
     string replaceWords(vector<string>& dictionary, string sentence) {
         Trie* trie = new Trie();
-        for (auto root : dictionary)
-        {
-            Trie* cur = trie;
-            for (char c : root)
-            {
-                if (!cur->children[c - 'a']) cur->children[c - 'a'] = new Trie();
-                cur = cur->children[c - 'a'];
-            }
-            cur->root = root;
-        }
-
+        for (auto& v : dictionary) trie->insert(v);
         string ans = "";
         istringstream is(sentence);
         vector<string> ss;
         string s;
         while (is >> s) ss.push_back(s);
-        for (auto word : ss)
-        {
-            Trie* cur = trie;
-            for (char c : word)
-            {
-                if (!cur->children[c - 'a'] || cur->root != "") break;
-                cur = cur->children[c - 'a'];
-            }
-            ans += cur->root == "" ? word : cur->root;
-            ans += " ";
-        }
+        for (auto word : ss) ans += trie->search(word) + " ";
         ans.pop_back();
         return ans;
     }

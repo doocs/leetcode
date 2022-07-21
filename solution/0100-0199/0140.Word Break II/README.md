@@ -52,6 +52,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀树 + DFS**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +61,47 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.is_end = False
 
+    def insert(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.is_end = True
+
+    def search(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                return False
+            node = node.children[idx]
+        return node.is_end
+
+
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        def dfs(s):
+            if not s:
+                return [[]]
+            res = []
+            for i in range(1, len(s) + 1):
+                if trie.search(s[:i]):
+                    for v in dfs(s[i:]):
+                        res.append([s[:i]] + v)
+            return res
+
+        trie = Trie()
+        for w in wordDict:
+            trie.insert(w)
+        ans = dfs(s)
+        return [' '.join(v) for v in ans]
 ```
 
 ### **Java**
@@ -67,7 +109,128 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+    boolean isEnd;
 
+    void insert(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.isEnd = true;
+    }
+
+    boolean search(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                return false;
+            }
+            node = node.children[c];
+        }
+        return node.isEnd;
+    }
+}
+
+class Solution {
+    private Trie trie = new Trie();
+
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        for (String w : wordDict) {
+            trie.insert(w);
+        }
+        List<List<String>> res = dfs(s);
+        return res.stream().map(e -> String.join(" ", e)).collect(Collectors.toList());
+    }
+
+    private List<List<String>> dfs(String s) {
+        List<List<String>> res = new ArrayList<>();
+        if ("".equals(s)) {
+            res.add(new ArrayList<>());
+            return res;
+        }
+        for (int i = 1; i <= s.length(); ++i) {
+            if (trie.search(s.substring(0, i))) {
+                for (List<String> v : dfs(s.substring(i))) {
+                    v.add(0, s.substring(0, i));
+                    res.add(v);
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+func (this *Trie) insert(word string) {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = newTrie()
+		}
+		node = node.children[c]
+	}
+	node.isEnd = true
+}
+func (this *Trie) search(word string) bool {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			return false
+		}
+		node = node.children[c]
+	}
+	return node.isEnd
+}
+
+func wordBreak(s string, wordDict []string) []string {
+	trie := newTrie()
+	for _, w := range wordDict {
+		trie.insert(w)
+	}
+	var dfs func(string) [][]string
+	dfs = func(s string) [][]string {
+		res := [][]string{}
+		if len(s) == 0 {
+			res = append(res, []string{})
+			return res
+		}
+		for i := 1; i <= len(s); i++ {
+			if trie.search(s[:i]) {
+				for _, v := range dfs(s[i:]) {
+					v = append([]string{s[:i]}, v...)
+					res = append(res, v)
+				}
+			}
+		}
+		return res
+	}
+	res := dfs(s)
+	ans := []string{}
+	for _, v := range res {
+		ans = append(ans, strings.Join(v, " "))
+	}
+	return ans
+}
 ```
 
 ### **...**

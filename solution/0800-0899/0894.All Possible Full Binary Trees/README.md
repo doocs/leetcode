@@ -1,4 +1,4 @@
-# [894. 所有可能的满二叉树](https://leetcode.cn/problems/all-possible-full-binary-trees)
+# [894. 所有可能的真二叉树](https://leetcode.cn/problems/all-possible-full-binary-trees)
 
 [English Version](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README_EN.md)
 
@@ -6,22 +6,26 @@
 
 <!-- 这里写题目描述 -->
 
-<p><em>满二叉树</em>是一类二叉树，其中每个结点恰好有 0 或 2 个子结点。</p>
+<p>给你一个整数 <code>n</code> ，请你找出所有可能含 <code>n</code> 个节点的 <strong>真二叉树</strong> ，并以列表形式返回。答案中每棵树的每个节点都必须符合 <code>Node.val == 0</code> 。</p>
 
-<p>返回包含 <code>N</code> 个结点的所有可能满二叉树的列表。 答案的每个元素都是一个可能树的根结点。</p>
+<p>答案的每个元素都是一棵真二叉树的根节点。你可以按 <strong>任意顺序</strong> 返回最终的真二叉树列表<strong>。</strong></p>
 
-<p>答案中每个树的每个<code>结点</code>都<strong>必须</strong>有 <code>node.val=0</code>。</p>
-
-<p>你可以按任何顺序返回树的最终列表。</p>
+<p><strong>真二叉树</strong> 是一类二叉树，树中每个节点恰好有 <code>0</code> 或 <code>2</code> 个子节点。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
-
-<pre><strong>输入：</strong>7
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/images/fivetrees.png" style="width: 700px; height: 400px;" />
+<pre>
+<strong>输入：</strong>n = 7
 <strong>输出：</strong>[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]
-<strong>解释：</strong>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/images/fivetrees.png" style="height: 400px; width: 700px;">
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 3
+<strong>输出：</strong>[[0,0,0]]
 </pre>
 
 <p>&nbsp;</p>
@@ -29,7 +33,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= N &lt;= 20</code></li>
+	<li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
 
 ## 解法

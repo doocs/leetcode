@@ -63,6 +63,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 前缀树**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +72,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.v = []
 
+    def insert(self, word, i):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+            node.v.append(i)
+
+    def search(self, word):
+        res = [[] for _ in range(len(word))]
+        node = self
+        for i, c in enumerate(word):
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                break
+            node = node.children[idx]
+            res[i] = node.v[:3]
+        return res
+
+
+class Solution:
+    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+        products.sort()
+        trie = Trie()
+        for i, w in enumerate(products):
+            trie.insert(w, i)
+        res = trie.search(searchWord)
+        return [[products[j] for j in v] for v in res]
 ```
 
 ### **Java**
@@ -78,7 +113,122 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+    List<Integer> v = new ArrayList<>();
 
+    void insert(String word, int i) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+            if (node.v.size() < 3) {
+                node.v.add(i);
+            }
+        }
+    }
+
+    List<List<Integer>> search(String word) {
+        List<List<Integer>> res = new ArrayList<>();
+        int n = word.length();
+        for (int i = 0; i < n; ++i) {
+            res.add(new ArrayList<>());
+        }
+        Trie node = this;
+        for (int i = 0; i < n; ++i) {
+            char c = word.charAt(i);
+            c -= 'a';
+            if (node.children[c] == null) {
+                break;
+            }
+            node = node.children[c];
+            res.set(i, node.v);
+        }
+        return res;
+    }
+}
+
+class Solution {
+    public List<List<String>> suggestedProducts(String[] products, String searchWord) {
+        Arrays.sort(products);
+        Trie trie = new Trie();
+        for (int i = 0; i < products.length; ++i) {
+            trie.insert(products[i], i);
+        }
+        List<List<Integer>> res = trie.search(searchWord);
+        List<List<String>> ans = new ArrayList<>();
+        for (List<Integer> v : res) {
+            List<String> t = new ArrayList<>();
+            for (int i : v) {
+                t.add(products[i]);
+            }
+            ans.add(t);
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children [26]*Trie
+	v        []int
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+func (this *Trie) insert(word string, i int) {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = newTrie()
+		}
+		node = node.children[c]
+		if len(node.v) < 3 {
+			node.v = append(node.v, i)
+		}
+	}
+}
+
+func (this *Trie) search(word string) [][]int {
+	node := this
+	n := len(word)
+	res := make([][]int, n)
+	for i, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			break
+		}
+		node = node.children[c]
+		res[i] = node.v
+	}
+	return res
+}
+
+func suggestedProducts(products []string, searchWord string) [][]string {
+	sort.Strings(products)
+	trie := newTrie()
+	for i, w := range products {
+		trie.insert(w, i)
+	}
+	res := trie.search(searchWord)
+	var ans [][]string
+	for _, v := range res {
+		t := []string{}
+		for _, i := range v {
+			t = append(t, products[i])
+		}
+		ans = append(ans, t)
+	}
+	return ans
+}
 ```
 
 ### **...**

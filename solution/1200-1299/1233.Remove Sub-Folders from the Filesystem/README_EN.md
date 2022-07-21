@@ -56,13 +56,149 @@
 ### **Python3**
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
 
+    def insert(self, w):
+        node = self
+        ps = w.split('/')
+        for p in ps[1:]:
+            if p not in node.children:
+                node.children[p] = Trie()
+            node = node.children[p]
+        node.is_end = True
+
+    def search(self, w):
+        node = self
+        ps = w.split('/')
+        for p in ps[1:]:
+            if p not in node.children:
+                return False
+            node = node.children[p]
+            if node.is_end:
+                return True
+        return False
+
+
+class Solution:
+    def removeSubfolders(self, folder: List[str]) -> List[str]:
+        trie = Trie()
+        folder.sort(key=lambda x: len(x.split('/')))
+        ans = []
+        for v in folder:
+            if not trie.search(v):
+                trie.insert(v)
+                ans.append(v)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Trie {
+    Map<String, Trie> children = new HashMap<>();
+    boolean isEnd;
 
+    void insert(String w) {
+        Trie node = this;
+        String[] ps = w.split("/");
+        for (int i = 1; i < ps.length; ++i) {
+            String p = ps[i];
+            if (!node.children.containsKey(p)) {
+                node.children.put(p, new Trie());
+            }
+            node = node.children.get(p);
+        }
+        node.isEnd = true;
+    }
+
+    boolean search(String w) {
+        Trie node = this;
+        String[] ps = w.split("/");
+        for (int i = 1; i < ps.length; ++i) {
+            String p = ps[i];
+            if (!node.children.containsKey(p)) {
+                return false;
+            }
+            node = node.children.get(p);
+            if (node.isEnd) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+class Solution {
+    public List<String> removeSubfolders(String[] folder) {
+        Arrays.sort(folder, (a, b) -> a.split("/").length - b.split("/").length);
+        Trie trie = new Trie();
+        List<String> ans = new ArrayList<>();
+        for (String v : folder) {
+            if (!trie.search(v)) {
+                trie.insert(v);
+                ans.add(v);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children map[string]*Trie
+	isEnd    bool
+}
+
+func newTrie() *Trie {
+	m := map[string]*Trie{}
+	return &Trie{children: m}
+}
+
+func (this *Trie) insert(w string) {
+	node := this
+	for _, p := range strings.Split(w, "/")[1:] {
+		if _, ok := node.children[p]; !ok {
+			node.children[p] = newTrie()
+		}
+		node, _ = node.children[p]
+	}
+	node.isEnd = true
+}
+
+func (this *Trie) search(w string) bool {
+	node := this
+	for _, p := range strings.Split(w, "/")[1:] {
+		if _, ok := node.children[p]; !ok {
+			return false
+		}
+		node, _ = node.children[p]
+		if node.isEnd {
+			return true
+		}
+	}
+	return false
+}
+
+func removeSubfolders(folder []string) []string {
+	sort.Slice(folder, func(i, j int) bool {
+		return len(strings.Split(folder[i], "/")) < len(strings.Split(folder[j], "/"))
+	})
+	trie := newTrie()
+	var ans []string
+	for _, v := range folder {
+		if !trie.search(v) {
+			trie.insert(v)
+			ans = append(ans, v)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

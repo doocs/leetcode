@@ -6,12 +6,8 @@ class MyCalendarTwo:
         self.sd = SortedDict()
 
     def book(self, start: int, end: int) -> bool:
-        if start not in self.sd:
-            self.sd[start] = 0
-        if end not in self.sd:
-            self.sd[end] = 0
-        self.sd[start] += 1
-        self.sd[end] -= 1
+        self.sd[start] = self.sd.get(start, 0) + 1
+        self.sd[end] = self.sd.get(end, 0) - 1
         s = 0
         for v in self.sd.values():
             s += v

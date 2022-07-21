@@ -1,23 +1,23 @@
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
-	var l1, l2 []int
-	if root1 != nil {
-		dfs(root1, &l1)
-	}
-	if root2 != nil {
-		dfs(root2, &l2)
-	}
-	return reflect.DeepEqual(l1, l2)
-}
-
-func dfs(root *TreeNode, leaves *[]int) {
-	if root.Left == nil && root.Right == nil {
-		*leaves = append(*leaves, root.Val)
-	} else {
-		if root.Left != nil {
-			dfs(root.Left, leaves)
+	var dfs func(*TreeNode) []int
+	dfs = func(root *TreeNode) []int {
+		if root == nil {
+			return []int{}
 		}
-		if root.Right != nil {
-			dfs(root.Right, leaves)
+		ans := dfs(root.Left)
+		ans = append(ans, dfs(root.Right)...)
+		if len(ans) == 0 {
+			ans = append(ans, root.Val)
 		}
+		return ans
 	}
+	return reflect.DeepEqual(dfs(root1), dfs(root2))
 }

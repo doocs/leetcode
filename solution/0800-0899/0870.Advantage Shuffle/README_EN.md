@@ -32,13 +32,99 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def advantageCount(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        nums1.sort()
+        t = [(v, i) for i, v in enumerate(nums2)]
+        t.sort()
+        n = len(nums2)
+        ans = [0] * n
+        i, j = 0, n - 1
+        for v in nums1:
+            if v <= t[i][0]:
+                ans[t[j][1]] = v
+                j -= 1
+            else:
+                ans[t[i][1]] = v
+                i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] advantageCount(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int[][] t = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            t[i] = new int[]{nums2[i], i};
+        }
+        Arrays.sort(t, (a, b) -> a[0] - b[0]);
+        Arrays.sort(nums1);
+        int[] ans = new int[n];
+        int i = 0, j = n - 1;
+        for (int v : nums1) {
+            if (v <= t[i][0]) {
+                ans[t[j--][1]] = v;
+            } else {
+                ans[t[i++][1]] = v;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> advantageCount(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        vector<pair<int, int>> t;
+        for (int i = 0; i < n; ++i) t.push_back({nums2[i], i});
+        sort(t.begin(), t.end());
+        sort(nums1.begin(), nums1.end());
+        int i = 0, j = n - 1;
+        vector<int> ans(n);
+        for (int v : nums1)
+        {
+            if (v <= t[i].first) ans[t[j--].second] = v;
+            else ans[t[i++].second] = v;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func advantageCount(nums1 []int, nums2 []int) []int {
+	n := len(nums1)
+	t := make([][]int, n)
+	for i, v := range nums2 {
+		t[i] = []int{v, i}
+	}
+	sort.Slice(t, func(i, j int) bool {
+		return t[i][0] < t[j][0]
+	})
+	sort.Ints(nums1)
+	ans := make([]int, n)
+	i, j := 0, n-1
+	for _, v := range nums1 {
+		if v <= t[i][0] {
+			ans[t[j][1]] = v
+			j--
+		} else {
+			ans[t[i][1]] = v
+			i++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

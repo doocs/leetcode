@@ -51,7 +51,11 @@ words[2] = "bell" ，s 开始于 indices[2] = 5 到下一个 '#' 结束的子字
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀树**
+
 题目大意：充分利用重叠的后缀，使有效编码尽可能短。
+
+判断当前单词是否是其他单词的后缀，若是，就不用写入助记字符串中，否则需要写入并且加上一个 # 后缀。
 
 <!-- tabs:start -->
 
@@ -70,8 +74,8 @@ class Solution:
         root = Trie()
         for w in words:
             cur = root
-            for i in range(len(w) - 1, -1, -1):
-                idx = ord(w[i]) - ord('a')
+            for c in w[::-1]:
+                idx = ord(c) - ord("a")
                 if cur.children[idx] == None:
                     cur.children[idx] = Trie()
                 cur = cur.children[idx]
@@ -89,13 +93,27 @@ class Solution:
 ```
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+
+    def insert(self, w):
+        node = self
+        pref = True
+        for c in w:
+            idx = ord(c) - ord("a")
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+                pref = False
+            node = node.children[idx]
+        return 0 if pref else len(w) + 1
+
+
 class Solution:
     def minimumLengthEncoding(self, words: List[str]) -> int:
-        s = set(words)
-        for word in words:
-            for i in range(1, len(word)):
-                s.discard(word[i:])
-        return sum(len(word) + 1 for word in s)
+        words.sort(key=lambda x: -len(x))
+        trie = Trie()
+        return sum(trie.insert(w[::-1]) for w in words)
 ```
 
 ### **Java**
@@ -141,17 +159,31 @@ class Solution {
 ```
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+
+    int insert(String w) {
+        Trie node = this;
+        boolean pref = true;
+        for (int i = w.length() - 1; i >= 0; --i) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                pref = false;
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        return pref ? 0 : w.length() + 1;
+    }
+}
+
 class Solution {
     public int minimumLengthEncoding(String[] words) {
-        Set<String> s = new HashSet<>(Arrays.asList(words));
-        for (String word : words) {
-            for (int i = 1; i < word.length(); ++i) {
-                s.remove(word.substring(i));
-            }
-        }
+        Arrays.sort(words, (a, b) -> b.length() - a.length());
         int ans = 0;
-        for (String word : s) {
-            ans += word.length() + 1;
+        Trie trie = new Trie();
+        for (String w : words) {
+            ans += trie.insert(w);
         }
         return ans;
     }
@@ -195,19 +227,37 @@ func dfs(cur *trie, l int) int {
 ```
 
 ```go
-func minimumLengthEncoding(words []string) int {
-	s := make(map[string]bool)
-	for _, word := range words {
-		s[word] = true
-	}
-	for _, word := range words {
-		for i, n := 1, len(word); i < n; i++ {
-			delete(s, word[i:n])
+type Trie struct {
+	children [26]*Trie
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+
+func (this *Trie) insert(w string) int {
+	node := this
+	pref := true
+	for i := len(w) - 1; i >= 0; i-- {
+		idx := w[i] - 'a'
+		if node.children[idx] == nil {
+			pref = false
+			node.children[idx] = newTrie()
 		}
+		node = node.children[idx]
 	}
+	if pref {
+		return 0
+	}
+	return len(w) + 1
+}
+
+func minimumLengthEncoding(words []string) int {
+	sort.Slice(words, func(i, j int) bool { return len(words[i]) > len(words[j]) })
+	trie := newTrie()
 	ans := 0
-	for word := range s {
-		ans += len(word) + 1
+	for _, w := range words {
+		ans += trie.insert(w)
 	}
 	return ans
 }
@@ -255,16 +305,39 @@ private:
 ```
 
 ```cpp
+class Trie {
+public:
+    vector<Trie*> children;
+    Trie() : children(26) {}
+    
+    int insert(string w) {
+        Trie* node = this;
+        bool pref = true;
+        for (char c : w)
+        {
+            c -= 'a';
+            if (!node->children[c])
+            {
+                pref = false;
+                node->children[c] = new Trie();
+            }
+            node = node->children[c];
+        }
+        return pref ? 0 : w.size() + 1;
+    }
+};
+
 class Solution {
 public:
     int minimumLengthEncoding(vector<string>& words) {
-        unordered_set<string> s(words.begin(), words.end());
-        for (auto& word : words)
-            for (int i = 1; i < word.size(); ++i)
-                s.erase(word.substr(i));
+        sort(words.begin(), words.end(), [](string &a, string &b) {return a.size() > b.size();});
+        Trie* trie = new Trie();
         int ans = 0;
-        for (auto& word : s)
-            ans += word.size() + 1;
+        for (auto& w : words)
+        {
+            reverse(w.begin(), w.end());
+            ans += trie->insert(w);
+        }
         return ans;
     }
 };

@@ -48,13 +48,15 @@
 
 **方法一：字符串哈希**
 
-**字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 0。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
+**字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 $0$。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
 
-取一固定值 BASE，把字符串看作是 BASE 进制数，并分配一个大于 0 的数值，代表每种字符。一般来说，我们分配的数值都远小于 BASE。例如，对于小写字母构成的字符串，可以令 a=1, b=2, ..., z=26。取一固定值 MOD，求出该 BASE 进制对 M 的余数，作为该字符串的 hash 值。
+取一固定值 $BASE$，把字符串看作是 $BASE$ 进制数，并分配一个大于 $0$ 的数值，代表每种字符。一般来说，我们分配的数值都远小于 $BASE$。例如，对于小写字母构成的字符串，可以令 $a=1$, $b=2$, ..., $z=26$。取一固定值 $MOD$，求出该 $BASE$ 进制对 $M$ 的余数，作为该字符串的 $hash$ 值。
 
-一般来说，取 BASE=131 或者 BASE=13331，此时 hash 值产生的冲突概率极低。只要两个字符串 hash 值相同，我们就认为两个字符串是相等的。通常 MOD 取 2^64，C++ 里，可以直接使用 unsigned long long 类型存储这个 hash 值，在计算时不处理算术溢出问题，产生溢出时相当于自动对 2^64 取模，这样可以避免低效取模运算。
+一般来说，取 $BASE=131$ 或者 $BASE=13331$，此时 $hash$ 值产生的冲突概率极低。只要两个字符串 $hash$ 值相同，我们就认为两个字符串是相等的。通常 $MOD$ 取 $2^{64}$，C++ 里，可以直接使用 `unsigned long long` 类型存储这个 $hash$ 值，在计算时不处理算术溢出问题，产生溢出时相当于自动对 $2^{64}$ 取模，这样可以避免低效取模运算。
 
-除了在极特殊构造的数据上，上述 hash 算法很难产生冲突，一般情况下上述 hash 算法完全可以出现在题目的标准答案中。我们还可以多取一些恰当的 BASE 和 MOD 的值（例如大质数），多进行几组 hash 运算，当结果都相同时才认为原字符串相等，就更加难以构造出使这个 hash 产生错误的数据。
+除了在极特殊构造的数据上，上述 $hash$ 算法很难产生冲突，一般情况下上述 $hash$ 算法完全可以出现在题目的标准答案中。我们还可以多取一些恰当的 $BASE$ 和 $MOD$ 的值（例如大质数），多进行几组 $hash$ 运算，当结果都相同时才认为原字符串相等，就更加难以构造出使这个 $hash$ 产生错误的数据。
+
+**方法二：前缀树**
 
 <!-- tabs:start -->
 
@@ -63,7 +65,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def palindromePairs(self, words: List[str]) -> List[List[int]]:
+        d = {w: i for i, w in enumerate(words)}
+        ans = []
+        for i, w in enumerate(words):
+            for j in range(len(w) + 1):
+                a, b = w[:j], w[j:]
+                ra, rb = a[::-1], b[::-1]
+                if ra in d and d[ra] != i and b == rb:
+                    ans.append([i, d[ra]])
+                if j and rb in d and d[rb] != i and a == ra:
+                    ans.append([d[rb], i])
+        return ans
 ```
 
 ### **Java**
@@ -113,6 +127,87 @@ class Solution {
         long t = ((prefix[i] * MUL[n]) % MOD + prefix[j]) % MOD;
         long s = ((suffix[j] * MUL[m]) % MOD + suffix[i]) % MOD;
         return t == s;
+    }
+}
+```
+
+```java
+class Trie {
+    Trie[] children = new Trie[26];
+    Integer v;
+
+    void insert(String w, int i) {
+        Trie node = this;
+        for (char c : w.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.v = i;
+    }
+
+    Integer search(String w, int i, int j) {
+        Trie node = this;
+        for (int k = j; k >= i; --k) {
+            int idx = w.charAt(k) - 'a';
+            if (node.children[idx] == null) {
+                return null;
+            }
+            node = node.children[idx];
+        }
+        return node.v;
+    }
+}
+
+class Solution {
+    public List<List<Integer>> palindromePairs(String[] words) {
+        Trie trie = new Trie();
+        int n = words.length;
+        for (int i = 0; i < n; ++i) {
+            trie.insert(words[i], i);
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            String w = words[i];
+            int m = w.length();
+            for (int j = 0; j <= m; ++j) {
+                if (isPalindrome(w, j, m - 1)) {
+                    Integer k = trie.search(w, 0, j - 1);
+                    if (k != null && k != i) {
+                        ans.add(Arrays.asList(i, k));
+                    }
+                }
+                if (j != 0 && isPalindrome(w, 0, j - 1)) {
+                    Integer k = trie.search(w, j, m - 1);
+                    if (k != null && k != i) {
+                        ans.add(Arrays.asList(k, i));
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+    // TLE
+    // private boolean isPalindrome(String w, int i, int j) {
+    //     for (; i < j; ++i, --j) {
+    //         if (w.charAt(i) != w.charAt(j)) {
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
+
+    private boolean isPalindrome(String w, int start, int end) {
+        int i = start, j = end;
+        for (; i < j; ++i, --j) {
+            if (w.charAt(i) != w.charAt(j)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 ```

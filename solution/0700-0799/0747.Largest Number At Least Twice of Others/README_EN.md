@@ -24,14 +24,7 @@ The index of value 6 is 1, so we return 1.
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4]
 <strong>Output:</strong> -1
-<strong>Explanation:</strong> 4 is less than twice the value of 3, so we return -1.</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> 1 is trivially at least twice the value as any other number because there are no other numbers.
+<strong>Explanation:</strong> 4 is less than twice the value of 3, so we return -1.
 </pre>
 
 <p>&nbsp;</p>

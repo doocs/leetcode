@@ -1,48 +1,49 @@
-type trie struct {
-	children [26]*trie
+type Trie struct {
+	children [26]*Trie
 	isEnd    bool
 }
 
-func (root *trie) insert(word string) {
-	node := root
+func newTrie() *Trie {
+	return &Trie{}
+}
+func (this *Trie) insert(word string) {
+	node := this
 	for _, c := range word {
 		c -= 'a'
 		if node.children[c] == nil {
-			node.children[c] = &trie{}
+			node.children[c] = newTrie()
 		}
 		node = node.children[c]
 	}
 	node.isEnd = true
 }
 
-func (root *trie) dfs(word string) bool {
-	if word == "" {
-		return true
-	}
-	node := root
-	for i, c := range word {
-		node = node.children[c-'a']
-		if node == nil {
-			return false
-		}
-		if node.isEnd && root.dfs(word[i+1:]) {
-			return true
-		}
-	}
-	return false
-}
-
 func findAllConcatenatedWordsInADict(words []string) (ans []string) {
 	sort.Slice(words, func(i, j int) bool { return len(words[i]) < len(words[j]) })
-	root := &trie{}
-	for _, word := range words {
-		if word == "" {
-			continue
+	trie := newTrie()
+	var dfs func(string) bool
+	dfs = func(w string) bool {
+		if w == "" {
+			return true
 		}
-		if root.dfs(word) {
-			ans = append(ans, word)
+		node := trie
+		for i, c := range w {
+			c -= 'a'
+			if node.children[c] == nil {
+				return false
+			}
+			node = node.children[c]
+			if node.isEnd && dfs(w[i+1:]) {
+				return true
+			}
+		}
+		return false
+	}
+	for _, w := range words {
+		if dfs(w) {
+			ans = append(ans, w)
 		} else {
-			root.insert(word)
+			trie.insert(w)
 		}
 	}
 	return

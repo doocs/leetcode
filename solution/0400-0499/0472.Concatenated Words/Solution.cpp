@@ -3,48 +3,46 @@ public:
     vector<Trie*> children;
     bool isEnd;
     Trie(): children(26), isEnd(false) {}
+
+    void insert(string w) {
+        Trie* node = this;
+        for (char c : w)
+        {
+            c -= 'a';
+            if (!node->children[c]) node->children[c] = new Trie();
+            node = node->children[c];
+        }
+        node->isEnd = true;
+    }
 };
 
 class Solution {
 public:
-    Trie* trie;
+    Trie* trie = new Trie();
 
     vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {
         sort(words.begin(), words.end(), [&](const string & a, const string & b){
             return a.size() < b.size(); 
         });
         vector<string> ans;
-        trie = new Trie();
-        for (auto& word : words)
+        for (auto& w : words)
         {
-            if (word.size() == 0) continue;
-            if (dfs(word, 0)) ans.push_back(word);
-            else insert(word);
+            if (dfs(w)) ans.push_back(w);
+            else trie->insert(w);
         }
         return ans;
     }
 
-    bool dfs(string word, int u) {
+    bool dfs(string w) {
+        if (w == "") return true;
         Trie* node = trie;
-        if (u == word.size()) return true;
-        for (int i = u; i < word.size(); ++i)
+        for (int i = 0; i < w.size(); ++i)
         {
-            int idx = word[i] - 'a';
+            int idx = w[i] - 'a';
+            if (!node->children[idx]) return false;
             node = node->children[idx];
-            if (!node) return false;
-            if (node->isEnd && dfs(word, i + 1)) return true;
+            if (node->isEnd && dfs(w.substr(i + 1))) return true;
         }
         return false;
-    }
-
-    void insert(string word) {
-        Trie* node = trie;
-        for (char c : word)
-        {
-            int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
-            node = node->children[idx];
-        }
-        node->isEnd = true;
     }
 };

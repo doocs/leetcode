@@ -1,24 +1,8 @@
 class Solution:
-    def canPlaceFlowers(self, flowerBed, n):
-        """
-        type flowerBed : List[int], n : int
-        rtype : bool
-        """
-
-        i = 0
-        while n > 0 and i < len(flowerBed):
-            if i == 0 and flowerBed[0] == 0:  # for 1st Element
-                if len(flowerBed) == 1 or (len(flowerBed) > 1 and flowerBed[1] == 0):
-                    n -= 1
-                    flowerBed[0] = 1
-            elif (
-                i == len(flowerBed) - 1 and flowerBed[i] == 0 and flowerBed[i - 1] == 0
-            ):  # for last element
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        flowerbed = [0] + flowerbed + [0]
+        for i in range(1, len(flowerbed) - 1):
+            if sum(flowerbed[i - 1 : i + 2]) == 0:
+                flowerbed[i] = 1
                 n -= 1
-                flowerBed[i] = 1
-            elif flowerBed[i] == 0 and flowerBed[i - 1] == 0 and flowerBed[i + 1] == 0:
-                n -= 1
-                flowerBed[i] = 1
-            i += 1
-
-        return n == 0
+        return n <= 0

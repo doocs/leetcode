@@ -39,12 +39,13 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= equations.length &lt;= 500</code></li>
+	<li><code>1 &lt;= equations.length &lt;= 100</code></li>
 	<li><code>equations[i].length == 2</code></li>
 	<li><code>1 &lt;= A<sub>i</sub>.length, B<sub>i</sub>.length &lt;= 5</code></li>
-	<li><code>A<sub>i</sub></code>, <code>B<sub>i</sub></code> consist of lower case English letters.</li>
+	<li><code>A<sub>i</sub></code>, <code>B<sub>i</sub></code> consist of lowercase English letters.</li>
 	<li><code>equations.length == values.length</code></li>
-	<li><code>0.0 &lt; values[i] &lt;= 20.0</code></li>
+	<li><code>0.0 &lt; values[i] &lt;= 10.0</code></li>
+	<li><code>values[i]</code> has a maximum of 2 decimal places.</li>
 </ul>
 
 ## 解法

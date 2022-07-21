@@ -55,12 +55,12 @@ The diagram on the right represents the answer.
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pruneTree(self, root: TreeNode) -> TreeNode:
-        if not root:
+    def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None:
             return None
         root.left = self.pruneTree(root.left)
         root.right = self.pruneTree(root.right)
-        if root.val == 0 and not root.left and not root.right:
+        if root.val == 0 and root.left is None and root.right is None:
             return None
         return root
 ```
@@ -146,6 +146,105 @@ public:
         return root;
     }
 };
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var pruneTree = function (root) {
+    if (!root) return null;
+    root.left = pruneTree(root.left);
+    root.right = pruneTree(root.right);
+    if (root.val == 0 && !root.left && !root.right) {
+        return null;
+    }
+    return root;
+};
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function pruneTree(root: TreeNode | null): TreeNode | null {
+    if (root == null) {
+        return root;
+    }
+    root.left = pruneTree(root.left);
+    root.right = pruneTree(root.right);
+    if (root.val == 0 && root.left == null && root.right == null) {
+        return null;
+    }
+    return root;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn prune_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        if root.is_none() {
+            return None;
+        }
+
+        let root = root.unwrap();
+        let left = Self::prune_tree(root.borrow_mut().left.take());
+        let right = Self::prune_tree(root.borrow_mut().right.take());
+        if root.borrow().val == 0 && left.is_none() && right.is_none() {
+            return None;
+        }
+
+        root.borrow_mut().left = left;
+        root.borrow_mut().right = right;
+        Some(root)
+    }
+}
 ```
 
 ### **...**

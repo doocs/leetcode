@@ -1,22 +1,18 @@
 class MovingAverage {
-    private int size;
-    private int[] data;
-    private int sum;
-    private int count;
+    private int[] arr;
+    private int s;
+    private int cnt;
 
-    /** Initialize your data structure here. */
     public MovingAverage(int size) {
-        this.size = size;
-        this.data = new int[size];
+        arr = new int[size];
     }
     
     public double next(int val) {
-        int idx = count % size;
-        int oldVal = data[idx];
-        data[idx] = val;
-        sum += val - oldVal;
-        ++count;
-        return sum * 1.0 / Math.min(count, size);
+        int idx = cnt % arr.length;
+        s += val - arr[idx];
+        arr[idx] = val;
+        ++cnt;
+        return s * 1.0 / Math.min(cnt, arr.length);
     }
 }
 

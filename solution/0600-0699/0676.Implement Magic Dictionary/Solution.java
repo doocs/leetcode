@@ -1,33 +1,32 @@
 class MagicDictionary {
-    private Set<String> words;
-    private Map<String, Integer> counter;
+    private Set<String> s = new HashSet<>();
+    private Map<String, Integer> cnt = new HashMap<>();
 
     /** Initialize your data structure here. */
     public MagicDictionary() {
-        words = new HashSet<>();
-        counter = new HashMap<>();
+
     }
-    
+
     public void buildDict(String[] dictionary) {
         for (String word : dictionary) {
-            words.add(word);
-            for (String p : patterns(word)) {
-                counter.put(p, counter.getOrDefault(p, 0) + 1);
+            s.add(word);
+            for (String p : gen(word)) {
+                cnt.put(p, cnt.getOrDefault(p, 0) + 1);
             }
         }
     }
-    
+
     public boolean search(String searchWord) {
-        for (String p : patterns(searchWord)) {
-            int cnt = counter.getOrDefault(p, 0);
-            if (cnt > 1 || (cnt == 1 && !words.contains(searchWord))) {
+        for (String p : gen(searchWord)) {
+            int v = cnt.getOrDefault(p, 0);
+            if (v > 1 || (v == 1 && !s.contains(searchWord))) {
                 return true;
             }
         }
         return false;
     }
 
-    private List<String> patterns(String word) {
+    private List<String> gen(String word) {
         List<String> res = new ArrayList<>();
         char[] chars = word.toCharArray();
         for (int i = 0; i < chars.length; ++i) {

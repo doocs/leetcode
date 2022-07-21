@@ -48,13 +48,210 @@
 ### **Python3**
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.v = defaultdict(int)
 
+    def insert(self, w):
+        node = self
+        for c in w:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+            node.v[(w[-1], len(w))] += 1
+
+    def search(self, w):
+        node = self
+        res = []
+        for c in w[:-1]:
+            idx = ord(c) - ord('a')
+            node = node.children[idx]
+            res.append(c)
+            if node.v[(w[-1], len(w))] == 1:
+                break
+        n = len(w) - len(res) - 1
+        if n:
+            res.append(str(n))
+        res.append(w[-1])
+        t = ''.join(res)
+        return t if len(t) < len(w) else w
+
+
+class Solution:
+    def wordsAbbreviation(self, words: List[str]) -> List[str]:
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        return [trie.search(w) for w in words]
+```
+
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.v = Counter()
+    
+    def insert(self, w):
+        node = self
+        for c in w:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+            node.v[w[-1]] += 1
+    
+    def search(self, w):
+        node = self
+        res = []
+        for c in w[:-1]:
+            idx = ord(c) - ord('a')
+            node = node.children[idx]
+            res.append(c)
+            if node.v[w[-1]] == 1:
+                break
+        n = len(w) - len(res) - 1
+        if n:
+            res.append(str(n))
+        res.append(w[-1])
+        t = ''.join(res)
+        return t if len(t) < len(w) else w
+
+class Solution:
+    def wordsAbbreviation(self, words: List[str]) -> List[str]:
+        trees = {}
+        for w in words:
+            if len(w) not in trees:
+                trees[len(w)] = Trie()
+        for w in words:
+            trees[len(w)].insert(w)
+        return [trees[len(w)].search(w) for w in words]
 ```
 
 ### **Java**
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+    int[] v = new int[26];
 
+    void insert(String w) {
+        Trie node = this;
+        int t = w.charAt(w.length() - 1) - 'a';
+        for (char c : w.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+            node.v[t]++;
+        }
+    }
+
+    String search(String w) {
+        Trie node = this;
+        StringBuilder res = new StringBuilder();
+        int t = w.charAt(w.length() - 1) - 'a';
+        for (int i = 0; i < w.length() - 1; ++i) {
+            char c = w.charAt(i);
+            node = node.children[c - 'a'];
+            res.append(c);
+            if (node.v[t] == 1) {
+                break;
+            }
+        }
+        int n = w.length() - res.length() - 1;
+        if (n > 0) {
+            res.append(n);
+        }
+        res.append(w.charAt(w.length() - 1));
+        return res.length() < w.length() ? res.toString() : w;
+    }
+}
+
+class Solution {
+    public List<String> wordsAbbreviation(List<String> words) {
+        Map<Integer, Trie> trees = new HashMap<>();
+        for (String w : words) {
+            if (!trees.containsKey(w.length())) {
+                trees.put(w.length(), new Trie());
+            }
+        }
+        for (String w : words) {
+            trees.get(w.length()).insert(w);
+        }
+        List<String> ans = new ArrayList<>();
+        for (String w : words) {
+            ans.add(trees.get(w.length()).search(w));
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children [26]*Trie
+	v        [26]int
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+func (this *Trie) insert(w string) {
+	node := this
+	t := w[len(w)-1] - 'a'
+	for _, c := range w {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = newTrie()
+		}
+		node = node.children[c]
+		node.v[t]++
+	}
+}
+func (this *Trie) search(w string) string {
+	node := this
+	t := w[len(w)-1] - 'a'
+	res := &strings.Builder{}
+	for _, c := range w[:len(w)-1] {
+		res.WriteRune(c)
+		c -= 'a'
+		node = node.children[c]
+		if node.v[t] == 1 {
+			break
+		}
+	}
+	n := len(w) - res.Len() - 1
+	if n > 0 {
+		res.WriteString(strconv.Itoa(n))
+	}
+	res.WriteByte(w[len(w)-1])
+	if res.Len() < len(w) {
+		return res.String()
+	}
+	return w
+}
+
+func wordsAbbreviation(words []string) []string {
+	trees := map[int]*Trie{}
+	for _, w := range words {
+		if _, ok := trees[len(w)]; !ok {
+			trees[len(w)] = newTrie()
+		}
+	}
+	for _, w := range words {
+		trees[len(w)].insert(w)
+	}
+	ans := []string{}
+	for _, w := range words {
+		ans = append(ans, trees[len(w)].search(w))
+	}
+	return ans
+}
 ```
 
 ### **...**

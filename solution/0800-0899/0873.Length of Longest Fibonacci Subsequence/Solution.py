@@ -9,10 +9,8 @@ class Solution:
         ans = 0
         for i in range(n):
             for j in range(i):
-                delta = arr[i] - arr[j]
-                if delta in mp:
-                    k = mp[delta]
-                    if k < j:
-                        dp[j][i] = dp[k][j] + 1
-                        ans = max(ans, dp[j][i])
+                d = arr[i] - arr[j]
+                if d in mp and (k := mp[d]) < j:
+                    dp[j][i] = max(dp[j][i], dp[k][j] + 1)
+                    ans = max(ans, dp[j][i])
         return ans

@@ -10,11 +10,10 @@ class Solution {
     }
 
     private String convert(int n) {
-        char[] counter = new char[10];
-        while (n > 0) {
-            ++counter[n % 10];
-            n /= 10;
+        char[] cnt = new char[10];
+        for (; n > 0; n /= 10) {
+            cnt[n % 10]++;
         }
-        return new String(counter);
+        return new String(cnt);
     }
 }

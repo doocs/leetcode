@@ -52,6 +52,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+根据题目描述，我们可以推出每个元音字母的前一个字母可以为哪些。
+
 ```bash
 a [e]
 e [a|i]
@@ -68,7 +72,7 @@ u [a]
 [i|o]	u
 ```
 
-设 `dp[i][j]` 表示当前长度为 i 且以字符 j 为结尾的字符串的数目，其中 j = {0,1,2,3,4} 分别代表元音字母 `a,e,i,o,u`。
+设 $dp[i][j]$ 表示当前长度为 $i$ 且以字符 j 为结尾的字符串的数目，其中 j = {0,1,2,3,4} 分别代表元音字母 `a,e,i,o,u`。
 
 <!-- tabs:start -->
 
@@ -160,6 +164,33 @@ func countVowelPermutation(n int) int {
 	}
 	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var countVowelPermutation = function (n) {
+    const mod = 1000000007;
+    const dp = new Array(5).fill(1);
+    const t = new Array(5).fill(0);
+    for (let i = 0; i < n - 1; ++i) {
+        t[0] = (dp[1] + dp[2] + dp[4]) % mod;
+        t[1] = (dp[0] + dp[2]) % mod;
+        t[2] = (dp[1] + dp[3]) % mod;
+        t[3] = dp[2];
+        t[4] = (dp[2] + dp[3]) % mod;
+        dp.splice(0, 5, ...t);
+    }
+    let ans = 0;
+    for (let i = 0; i < 5; ++i) {
+        ans = (ans + dp[i]) % mod;
+    }
+    return ans;
+};
 ```
 
 ### **...**

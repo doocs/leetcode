@@ -1,14 +1,14 @@
 func balancedStringSplit(s string) int {
-	n, res := 0, 0
+	ans, l := 0, 0
 	for _, c := range s {
 		if c == 'L' {
-			n++
+			l++
 		} else {
-			n--
+			l--
 		}
-		if n == 0 {
-			res++
+		if l == 0 {
+			ans++
 		}
 	}
-	return res
+	return ans
 }

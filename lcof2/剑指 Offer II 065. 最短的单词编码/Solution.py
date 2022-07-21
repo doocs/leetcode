@@ -8,8 +8,8 @@ class Solution:
         root = Trie()
         for w in words:
             cur = root
-            for i in range(len(w) - 1, -1, -1):
-                idx = ord(w[i]) - ord('a')
+            for c in w[::-1]:
+                idx = ord(c) - ord("a")
                 if cur.children[idx] == None:
                     cur.children[idx] = Trie()
                 cur = cur.children[idx]

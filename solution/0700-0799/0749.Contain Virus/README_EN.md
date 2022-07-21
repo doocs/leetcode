@@ -64,8 +64,8 @@ class Solution:
     def containVirus(self, isInfected: List[List[int]]) -> int:
         def dfs(i, j):
             vis[i][j] = True
-            areas[-1].add((i, j))
-            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+            areas[-1].append((i, j))
+            for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
                 x, y = i + a, j + b
                 if 0 <= x < m and 0 <= y < n:
                     if isInfected[x][y] == 1 and not vis[x][y]:
@@ -84,7 +84,7 @@ class Solution:
             for i, row in enumerate(isInfected):
                 for j, v in enumerate(row):
                     if v == 1 and not vis[i][j]:
-                        areas.append(set())
+                        areas.append([])
                         boundaries.append(set())
                         c.append(0)
                         dfs(i, j)
@@ -98,7 +98,7 @@ class Solution:
                         isInfected[i][j] = -1
                 else:
                     for i, j in area:
-                        for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                        for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
                             x, y = i + a, j + b
                             if 0 <= x < m and 0 <= y < n and isInfected[x][y] == 0:
                                 isInfected[x][y] = 1
@@ -111,33 +111,37 @@ class Solution:
 class Solution {
     private static final int[] DIRS = {-1, 0, 1, 0, -1};
     private List<Integer> c = new ArrayList<>();
-    private List<Set<Integer>> areas = new ArrayList<>();
+    private List<List<Integer>> areas = new ArrayList<>();
     private List<Set<Integer>> boundaries = new ArrayList<>();
-    private int[][] isInfected;
+    private int[][] infected;
+    private boolean[][] vis;
     private int m;
     private int n;
 
     public int containVirus(int[][] isInfected) {
-        m = isInfected.length;
-        n = isInfected[0].length;
-        this.isInfected = isInfected;
+        infected = isInfected;
+        m = infected.length;
+        n = infected[0].length;
+        vis = new boolean[m][n];
         int ans = 0;
         while (true) {
-            boolean[][] vis = new boolean[m][n];
-            areas.clear();
+            for (boolean[] row : vis) {
+                Arrays.fill(row, false);
+            }
             c.clear();
+            areas.clear();
             boundaries.clear();
             for (int i = 0; i < m; ++i) {
                 for (int j = 0; j < n; ++j) {
-                    if (isInfected[i][j] == 1 && !vis[i][j]) {
-                        areas.add(new HashSet<>());
-                        boundaries.add(new HashSet<>());
+                    if (infected[i][j] == 1 && !vis[i][j]) {
                         c.add(0);
-                        dfs(i, j, vis);
+                        areas.add(new ArrayList<>());
+                        boundaries.add(new HashSet<>());
+                        dfs(i, j);
                     }
                 }
             }
-            if (boundaries.isEmpty()) {
+            if (areas.isEmpty()) {
                 break;
             }
             int idx = max(boundaries);
@@ -146,21 +150,20 @@ class Solution {
                 if (t == idx) {
                     for (int v : areas.get(t)) {
                         int i = v / n, j = v % n;
-                        isInfected[i][j] = -1;
+                        infected[i][j] = -1;
                     }
                 } else {
                     for (int v : areas.get(t)) {
                         int i = v / n, j = v % n;
                         for (int k = 0; k < 4; ++k) {
                             int x = i + DIRS[k], y = j + DIRS[k + 1];
-                            if (x >= 0 && x < m && y >= 0 && y < n && isInfected[x][y] == 0) {
-                                isInfected[x][y] = 1;
+                            if (x >= 0 && x < m && y >= 0 && y < n && infected[x][y] == 0) {
+                                infected[x][y] = 1;
                             }
                         }
                     }
                 }
             }
-
         }
         return ans;
     }
@@ -178,16 +181,16 @@ class Solution {
         return idx;
     }
 
-    private void dfs(int i, int j, boolean[][] vis) {
+    private void dfs(int i, int j) {
         vis[i][j] = true;
         int idx = areas.size() - 1;
         areas.get(idx).add(i * n + j);
         for (int k = 0; k < 4; ++k) {
             int x = i + DIRS[k], y = j + DIRS[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n) {
-                if (isInfected[x][y] == 1 && !vis[x][y]) {
-                    dfs(x, y, vis);
-                } else if (isInfected[x][y] == 0) {
+                if (infected[x][y] == 1 && !vis[x][y]) {
+                    dfs(x, y);
+                } else if (infected[x][y] == 0) {
                     c.set(idx, c.get(idx) + 1);
                     boundaries.get(idx).add(x * n + y);
                 }
@@ -195,6 +198,110 @@ class Solution {
         }
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const vector<int> dirs = {-1, 0, 1, 0, -1};
+    vector<int> c;
+    vector<vector<int>> areas;
+    vector<unordered_set<int>> boundaries;
+    vector<vector<int>> infected;
+    vector<vector<bool>> vis;
+    int m;
+    int n;
+
+    int containVirus(vector<vector<int>>& isInfected) {
+        infected = isInfected;
+        m = infected.size();
+        n = infected[0].size();
+        vis.assign(m, vector<bool>(n));
+        int ans = 0;
+        while (1)
+        {
+            for (int i = 0; i < m; ++i) for (int j = 0; j < n; ++j) vis[i][j] = false;
+            c.clear();
+            areas.clear();
+            boundaries.clear();
+            for (int i = 0; i < m; ++i)
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    if (infected[i][j] == 1 && !vis[i][j])
+                    {
+                        c.push_back(0);
+                        areas.push_back({});
+                        boundaries.push_back({});
+                        dfs(i, j);
+                    }
+                }
+            }
+            if (areas.empty()) break;
+            int idx = getMax();
+            ans += c[idx];
+            for (int t = 0; t < areas.size(); ++t)
+            {
+                if (t == idx)
+                {
+                    for (int v : areas[t])
+                    {
+                        int i = v / n, j = v % n;
+                        infected[i][j] = -1;
+                    }
+                }
+                else
+                {
+                    for (int v : areas[t])
+                    {
+                        int i = v / n, j = v % n;
+                        for (int k = 0; k < 4; ++k)
+                        {
+                            int x = i + dirs[k], y = j + dirs[k + 1];
+                            if (x >= 0 && x < m && y >= 0 && y < n && infected[x][y] == 0) infected[x][y] = 1;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+    int getMax() {
+        int idx = 0;
+        int mx = boundaries[0].size();
+        for (int i = 1; i < boundaries.size(); ++i)
+        {
+            int t = boundaries[i].size();
+            if (mx < t)
+            {
+                mx = t;
+                idx = i;
+            }
+        }
+        return idx;
+    }
+
+    void dfs(int i, int j) {
+        vis[i][j] = true;
+        areas.back().push_back(i * n + j);
+        for (int k = 0; k < 4; ++k)
+        {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n)
+            {
+                if (infected[x][y] == 1 && !vis[x][y]) dfs(x, y);
+                else if (infected[x][y] == 0)
+                {
+                    c.back() += 1;
+                    boundaries.back().insert(x * n + y);
+                }
+            }
+        }
+    }
+};
 ```
 
 ### **Go**

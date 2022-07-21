@@ -45,6 +45,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 优先队列（小根堆）**
+
+每次操作，贪心地选择最小的元素进行加 $1$，共进行 $k$ 次操作。最后累乘所有元素得到结果。注意取模操作。
+
+时间复杂度 $O(n+klogn)$。其中，$n$ 表示 $nums$ 的长度。建堆的时间复杂度为 $O(n)$，每次弹出最小元素进行加 $1$，再放回堆中，时间复杂度为 $O(logn)$，共进行 $k$ 次操作。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,7 +58,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumProduct(self, nums: List[int], k: int) -> int:
+        heapify(nums)
+        for _ in range(k):
+            heappush(nums, heappop(nums) + 1)
+        ans = 1
+        mod = 10**9 + 7
+        for v in nums:
+            ans = (ans * v) % mod
+        return ans
 ```
 
 ### **Java**
@@ -60,7 +75,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int maximumProduct(int[] nums, int k) {
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        for (int v : nums) {
+            q.offer(v);
+        }
+        while (k-- > 0) {
+            q.offer(q.poll() + 1);
+        }
+        long ans = 1;
+        while (!q.isEmpty()) {
+            ans = (ans * q.poll()) % MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumProduct(vector<int>& nums, int k) {
+        int mod = 1e9 + 7;
+        make_heap(nums.begin(), nums.end(), greater<int>());
+        while (k--)
+        {
+            pop_heap(nums.begin(), nums.end(), greater<int>());
+            ++nums.back();
+            push_heap(nums.begin(), nums.end(), greater<int>());
+        }
+        long long ans = 1;
+        for (int v : nums) ans = (ans * v) % mod;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumProduct(nums []int, k int) int {
+	h := hp{nums}
+	for heap.Init(&h); k > 0; k-- {
+		h.IntSlice[0]++
+		heap.Fix(&h, 0)
+	}
+	ans := 1
+	for _, v := range nums {
+		ans = (ans * v) % (1e9 + 7)
+	}
+	return ans
+}
+
+type hp struct{ sort.IntSlice }
+
+func (hp) Push(interface{})     {}
+func (hp) Pop() (_ interface{}) { return }
 ```
 
 ### **JavaScript**

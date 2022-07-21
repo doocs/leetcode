@@ -36,7 +36,7 @@
 <pre>
 <strong>Input:</strong> text = &quot;antaprezatepzapreanta&quot;
 <strong>Output:</strong> 11
-<strong>Explanation:</strong> We can split the string on &quot;(a)(nt)(a)(pre)(za)(tpe)(za)(pre)(a)(nt)(a)&quot;.
+<strong>Explanation:</strong> We can split the string on &quot;(a)(nt)(a)(pre)(za)(tep)(za)(pre)(a)(nt)(a)&quot;.
 </pre>
 
 <p>&nbsp;</p>

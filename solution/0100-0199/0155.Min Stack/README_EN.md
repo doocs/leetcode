@@ -16,6 +16,8 @@
 	<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>
 </ul>
 
+<p>You must implement a solution with <code>O(1)</code> time complexity for each function.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 

@@ -1,13 +1,19 @@
 class Solution {
-    private Map<Integer, Integer> map = new HashMap<>();
+    private Map<Integer, Integer> f = new HashMap<>();
 
     public int minDays(int n) {
+        return dfs(n);
+    }
+
+    private int dfs(int n) {
         if (n < 2) {
             return n;
         }
-        if (!map.containsKey(n)) {
-            map.put(n, Math.min(minDays(n / 2) + 1 + n % 2, minDays(n / 3) + 1 + n % 3));
+        if (f.containsKey(n)) {
+            return f.get(n);
         }
-        return map.get(n);
+        int res = 1 + Math.min(n % 2 + dfs(n / 2), n % 3 + dfs(n / 3));
+        f.put(n, res);
+        return res;
     }
 }

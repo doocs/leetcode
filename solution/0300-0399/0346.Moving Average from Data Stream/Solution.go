@@ -1,27 +1,20 @@
 type MovingAverage struct {
-	size  int
-	data  []int
-	sum   int
-	count int
+	arr []int
+	cnt int
+	s   int
 }
 
-/** Initialize your data structure here. */
 func Constructor(size int) MovingAverage {
-	return MovingAverage{
-		size:  size,
-		data:  make([]int, size),
-		sum:   0,
-		count: 0,
-	}
+	arr := make([]int, size)
+	return MovingAverage{arr, 0, 0}
 }
 
 func (this *MovingAverage) Next(val int) float64 {
-	idx := this.count % this.size
-	oldVal := this.data[idx]
-	this.data[idx] = val
-	this.sum += val - oldVal
-	this.count++
-	return float64(this.sum) / float64(min(this.count, this.size))
+	idx := this.cnt % len(this.arr)
+	this.s += val - this.arr[idx]
+	this.arr[idx] = val
+	this.cnt++
+	return float64(this.s) / float64(min(this.cnt, len(this.arr)))
 }
 
 func min(a, b int) int {

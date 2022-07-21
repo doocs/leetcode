@@ -14,13 +14,13 @@
 
 ## 介绍
 
-本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。欢迎 Star 🌟 关注[本项目](https://github.com/doocs/leetcode)，获取项目最新动态。
+本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、Go、TypeScript、Rust，日常更新。欢迎 Star 🌟 关注[本项目](https://github.com/doocs/leetcode)，获取项目最新动态。
 
 [English Version](/README_EN.md)
 
 ## 站点
 
--   Gitee Pages: https://doocs.gitee.io/leetcode
+-   Vercel: https://doocs-leetcode.vercel.app
 -   GitHub Pages: https://doocs.github.io/leetcode
 
 ## 算法全解
@@ -97,6 +97,11 @@
 -   [划分为 k 个相等的子集](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md) - `DFS`、`回溯`、`剪枝`
 -   [完成所有工作的最短时间](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md) - `DFS`、`回溯`、`剪枝`
 -   [公平分发饼干](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md) - `DFS`、`回溯`、`剪枝`
+-   [矩阵中的最长递增路径](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md) - `DFS`、`记忆化搜索`
+-   [网格图中递增路径的数目](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md) - `DFS`、`记忆化搜索`
+-   [翻转游戏 II](/solution/0200-0299/0294.Flip%20Game%20II/README.md) - `DFS`、`状态压缩`、`记忆化搜索`
+-   [统计所有可行路径](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md) - `DFS`、`记忆化搜索`
+-   [切披萨的方案数](/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md) - `DFS`、`记忆化搜索`
 
 <!-- DFS 待补充 -->
 

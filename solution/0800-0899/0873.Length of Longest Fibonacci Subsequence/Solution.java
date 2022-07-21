@@ -14,11 +14,11 @@ class Solution {
         int ans = 0;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
-                int delta = arr[i] - arr[j];
-                if (mp.containsKey(delta)) {
-                    int k = mp.get(delta);
+                int d = arr[i] - arr[j];
+                if (mp.containsKey(d)) {
+                    int k = mp.get(d);
                     if (k < j) {
-                        dp[j][i] = dp[k][j] + 1;
+                        dp[j][i] = Math.max(dp[j][i], dp[k][j] + 1);
                         ans = Math.max(ans, dp[j][i]);
                     }
                 }

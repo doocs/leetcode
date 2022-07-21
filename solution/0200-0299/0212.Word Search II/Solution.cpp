@@ -1,52 +1,50 @@
+class Trie {
+public:
+    vector<Trie*> children;
+    string w;
+    Trie() : children(26), w("") {}
+
+    void insert(string& w) {
+        Trie* node = this;
+        for (char c : w)
+        {
+            c -= 'a';
+            if (!node->children[c]) node->children[c] = new Trie();
+            node = node->children[c];
+        }
+        node->w = w;
+    }
+};
+
 class Solution {
 public:
-    vector<int> counter;
+    vector<int> dirs = {-1, 0, 1, 0, -1};
 
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
-        counter.resize(26);
-        for (auto& b : board)
-            for (auto& c : b)
-                ++counter[c - 'a'];
-        unordered_set<string> s(words.begin(), words.end());
+        Trie* trie = new Trie();
+        unordered_set<string> res;
+        for (auto& w : words) trie->insert(w);
+        for (int i = 0; i < board.size(); ++i)
+            for (int j = 0; j < board[0].size(); ++j)
+                dfs(trie, i, j, board, res);
         vector<string> ans;
-        for (string word : s)
-            if (find(word, board))
-                ans.push_back(word);
+        for (auto& w : res) ans.emplace_back(w);
         return ans;
     }
 
-    bool find(string& word, vector<vector<char>>& board) {
-        if (!check(word)) return false;
-        for (int i = 0; i < board.size(); ++i)
-            for (int j = 0; j < board[0].size(); ++j)
-                if (dfs(i, j, 0, word, board))
-                    return true;
-        return false;
-    }
-
-    bool dfs(int i, int j, int l, string& word, vector<vector<char>>& board) {
-        if (l == word.size()) return true;
-        if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || board[i][j] != word[l]) return false;
+    void dfs(Trie* node, int i, int j, vector<vector<char>>& board, unordered_set<string>& res) {
+        int idx = board[i][j] - 'a';
+        if (!node->children[idx]) return;
+        node = node->children[idx];
+        if(node->w != "") res.insert(node->w);
         char c = board[i][j];
         board[i][j] = '0';
-        bool ans = false;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
+        
         for (int k = 0; k < 4; ++k)
         {
             int x = i + dirs[k], y = j + dirs[k + 1];
-            ans = ans || dfs(x, y, l + 1, word, board);
+            if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size() && board[x][y] != '0') dfs(node, x, y, board, res);
         }
         board[i][j] = c;
-        return ans;
-    }
-
-    bool check(string word) {
-        vector<int> cnt(26);
-        for (char c : word)
-            ++cnt[c - 'a'];
-        for (int i = 0; i < 26; ++i)
-            if (counter[i] < cnt[i])
-                return false;
-        return true;
     }
 };
