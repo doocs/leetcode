@@ -185,6 +185,36 @@ impl Solution {
 
 ### **...**
 
+使用 `Replace()`：
+
+```csharp
+public class Solution {
+    public string ReplaceSpace(string s) {
+        return s.Replace(" ", "%20");
+    }
+}
+```
+
+遍历添加：
+
+```cs
+public class Solution {
+    public string ReplaceSpace(string s) {
+        StringBuilder res = new StringBuilder();
+        foreach (var c in s) {
+            if (c == ' ') {
+                res.Append("%20");
+            } else {
+                res.Append(c);
+            }
+        }
+        return res.ToString();
+    }
+}
+```
+
+### **...**
+
 ```
 
 ```
