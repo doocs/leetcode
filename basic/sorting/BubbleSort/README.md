@@ -239,6 +239,7 @@ public class Program
 ```
 
 ### **Python3**
+
 ```python
 def bubbleSort(arr):
     n = len(arr)
@@ -249,10 +250,11 @@ def bubbleSort(arr):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
+
 # 改进版本
 def bubbleSort(arr):
     n = len(arr)
-    for i in range(n-1):
+    for i in range(n - 1):
         has_change = False
         for j in range(n - i - 1):
             if arr[j] > arr[j + 1]:
@@ -261,10 +263,10 @@ def bubbleSort(arr):
         if not has_change:
             break
 
+
 arr = [64, 34, 25, 12, 22, 11, 90]
 bubbleSort(arr)
 print(arr)
-
 ```
 
 <!-- tabs:end -->
