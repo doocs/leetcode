@@ -1,5 +1,6 @@
 class SmallestInfiniteSet {
-    hashMap;
+    private hashMap: boolean[];
+
     constructor() {
         this.hashMap = new Array(1001).fill(true);
     }
@@ -11,6 +12,7 @@ class SmallestInfiniteSet {
                 return i;
             }
         }
+        return -1;
     }
 
     addBack(num: number): void {
