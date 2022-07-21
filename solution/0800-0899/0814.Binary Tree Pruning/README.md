@@ -50,6 +50,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+观察叶节点，当叶节点 `val` 为 0 时，便将该节点抹去。回溯，查看其父节点是否成为了新的叶节点，依照此规则自底向上。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -212,6 +216,49 @@ function pruneTree(root: TreeNode | null): TreeNode | null {
         return null;
     }
     return root;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn prune_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        if root.is_none() {
+            return None;
+        }
+
+        let root = root.unwrap();
+        let left = Self::prune_tree(root.borrow_mut().left.take());
+        let right = Self::prune_tree(root.borrow_mut().right.take());
+        if root.borrow().val == 0 && left.is_none() && right.is_none() {
+            return None;
+        }
+
+        root.borrow_mut().left = left;
+        root.borrow_mut().right = right;
+        Some(root)
+    }
 }
 ```
 
