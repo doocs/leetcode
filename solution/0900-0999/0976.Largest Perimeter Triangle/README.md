@@ -40,6 +40,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 贪心**
+
 > 三角形由三条边组成，且满足 <var>C</var> >= <var>B</var> && <var>C</var> >= <var>A</var> && <var>C</var> < <var>A</var> + <var>B</var>
 
 贪心策略，尽可能使用长边来组成三角形。
@@ -56,7 +58,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestPerimeter(self, nums: List[int]) -> int:
+        nums.sort()
+        for i in range(len(nums) - 1, 1, -1):
+            if (c := nums[i - 1] + nums[i - 2]) > nums[i]:
+                return c + nums[i]
+        return 0
 ```
 
 ### **Java**
@@ -64,7 +72,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int largestPerimeter(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = nums.length - 1; i >= 2; --i) {
+            int c = nums[i - 1] + nums[i - 2];
+            if (c > nums[i]) {
+                return c + nums[i];
+            }
+        }
+        return 0;
+    }
+}
 ```
 
 ### **C++**
@@ -72,26 +91,31 @@
 ```cpp
 class Solution {
 public:
-    int largestPerimeter(vector<int>& A) {
-        priority_queue<int> q(A.begin(), A.end()) ; // 大顶堆
-
-        int a, b, c ;
-        b = q.top() ;
-        q.pop() ;
-        c = q.top() ;
-        q.pop() ;
-        while ( !q.empty() )
+    int largestPerimeter(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        for (int i = nums.size() - 1; i >= 2; --i)
         {
-            a = b ;
-            b = c ;
-            c = q.top() ;
-            q.pop() ;
-            if ( b + c > a )
-                return a + b + c ;
+            int c = nums[i - 1] + nums[i - 2];
+            if (c > nums[i]) return c + nums[i];
         }
-        return 0 ;
+        return 0;
     }
 };
+```
+
+### **Go**
+
+```go
+func largestPerimeter(nums []int) int {
+	sort.Ints(nums)
+	for i := len(nums) - 1; i >= 2; i-- {
+		c := nums[i-1] + nums[i-2]
+		if c > nums[i] {
+			return c + nums[i]
+		}
+	}
+	return 0
+}
 ```
 
 ### **TypeScript**
