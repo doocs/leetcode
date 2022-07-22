@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 贪心**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minIncrementForUnique(self, nums: List[int]) -> int:
+        nums.sort()
+        ans = 0
+        for i in range(1, len(nums)):
+            if nums[i] <= nums[i - 1]:
+                d = nums[i - 1] - nums[i] + 1
+                nums[i] += d
+                ans += d
+        return ans
 ```
 
 ### **Java**
@@ -59,7 +70,59 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minIncrementForUnique(int[] nums) {
+        Arrays.sort(nums);
+        int ans = 0;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] <= nums[i - 1]) {
+                int d = nums[i - 1] - nums[i] + 1;
+                nums[i] += d;
+                ans += d;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minIncrementForUnique(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        for (int i = 1; i < nums.size(); ++i)
+        {
+            if (nums[i] <= nums[i - 1])
+            {
+                int d = nums[i - 1] - nums[i] + 1;
+                nums[i] += d;
+                ans += d;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minIncrementForUnique(nums []int) int {
+	sort.Ints(nums)
+	ans := 0
+	for i := 1; i < len(nums); i++ {
+		if nums[i] <= nums[i-1] {
+			d := nums[i-1] - nums[i] + 1
+			nums[i] += d
+			ans += d
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

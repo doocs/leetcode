@@ -43,13 +43,74 @@ It can be shown with 5 or less moves that it is impossible for the array to have
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minIncrementForUnique(self, nums: List[int]) -> int:
+        nums.sort()
+        ans = 0
+        for i in range(1, len(nums)):
+            if nums[i] <= nums[i - 1]:
+                d = nums[i - 1] - nums[i] + 1
+                nums[i] += d
+                ans += d
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minIncrementForUnique(int[] nums) {
+        Arrays.sort(nums);
+        int ans = 0;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] <= nums[i - 1]) {
+                int d = nums[i - 1] - nums[i] + 1;
+                nums[i] += d;
+                ans += d;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minIncrementForUnique(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        for (int i = 1; i < nums.size(); ++i)
+        {
+            if (nums[i] <= nums[i - 1])
+            {
+                int d = nums[i - 1] - nums[i] + 1;
+                nums[i] += d;
+                ans += d;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minIncrementForUnique(nums []int) int {
+	sort.Ints(nums)
+	ans := 0
+	for i := 1; i < len(nums); i++ {
+		if nums[i] <= nums[i-1] {
+			d := nums[i-1] - nums[i] + 1
+			nums[i] += d
+			ans += d
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
