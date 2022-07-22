@@ -54,6 +54,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 贪心**
+
+相似题目：[757. 设置交集大小至少为 2](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +65,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        points.sort(key=lambda x: x[1])
+        ans = 1
+        x = points[0][1]
+        for a, b in points:
+            if a > x:
+                ans += 1
+                x = b
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +82,64 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findMinArrowShots(int[][] points) {
+        Arrays.sort(points, (a, b) -> a[1] < b[1] ? -1 : 1);
+        int ans = 1;
+        int x = points[0][1];
+        for (int[] v : points) {
+            int a = v[0], b = v[1];
+            if (a > x) {
+                ++ans;
+                x = b;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMinArrowShots(vector<vector<int>>& points) {
+        sort(points.begin(), points.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[1] < b[1];
+        });
+        int ans = 1;
+        int x = points[0][1];
+        for (auto& v : points)
+        {
+            int a = v[0], b = v[1];
+            if (a > x)
+            {
+                ++ans;
+                x = b;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMinArrowShots(points [][]int) int {
+	sort.Slice(points, func(i, j int) bool { return points[i][1] < points[j][1] })
+	ans := 1
+	x := points[0][1]
+	for _, v := range points {
+		a, b := v[0], v[1]
+		if a > x {
+			ans++
+			x = b
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
