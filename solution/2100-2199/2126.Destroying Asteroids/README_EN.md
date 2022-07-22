@@ -51,13 +51,66 @@ This is less than 23, so a collision would not destroy the last asteroid.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
+        asteroids.sort()
+        for v in asteroids:
+            if mass < v:
+                return False
+            mass += v
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean asteroidsDestroyed(int mass, int[] asteroids) {
+        Arrays.sort(asteroids);
+        long m = mass;
+        for (int v : asteroids) {
+            if (m < v) {
+                return false;
+            }
+            m += v;
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool asteroidsDestroyed(int mass, vector<int>& asteroids) {
+        sort(asteroids.begin(), asteroids.end());
+        long long m = mass;
+        for (int v : asteroids)
+        {
+            if (m < v) return false;
+            m += v;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func asteroidsDestroyed(mass int, asteroids []int) bool {
+	m := mass
+	sort.Ints(asteroids)
+	for _, v := range asteroids {
+		if m < v {
+			return false
+		}
+		m += v
+	}
+	return true
+}
 ```
 
 ### **TypeScript**
