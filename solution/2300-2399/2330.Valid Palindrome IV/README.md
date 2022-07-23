@@ -52,6 +52,8 @@ Two operations could be performed to make s a palindrome so return true.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +61,15 @@ Two operations could be performed to make s a palindrome so return true.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def makePalindrome(self, s: str) -> bool:
+        i, j = 0, len(s) - 1
+        t = 0
+        while i < j:
+            if s[i] != s[j]:
+                t += 1
+            i, j = i + 1, j - 1
+        return t <= 2
 ```
 
 ### **Java**
@@ -67,7 +77,44 @@ Two operations could be performed to make s a palindrome so return true.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean makePalindrome(String s) {
+        int t = 0;
+        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                ++t;
+            }
+        }
+        return t <= 2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool makePalindrome(string s) {
+        int t = 0;
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) t += s[i] != s[j];
+        return t <= 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func makePalindrome(s string) bool {
+	t := 0
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		if s[i] != s[j] {
+			t++
+		}
+	}
+	return t <= 2
+}
 ```
 
 ### **TypeScript**
