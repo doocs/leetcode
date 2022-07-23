@@ -48,13 +48,136 @@ In the second semester, you can take course 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumSemesters(self, n: int, relations: List[List[int]]) -> int:
+        g = defaultdict(list)
+        indeg = [0] * n
+        for a, b in relations:
+            g[a - 1].append(b - 1)
+            indeg[b - 1] += 1
+        ans = 0
+        q = deque([i for i, v in enumerate(indeg) if v == 0])
+        while q:
+            ans += 1
+            for _ in range(len(q)):
+                i = q.popleft()
+                n -= 1
+                for j in g[i]:
+                    indeg[j] -= 1
+                    if indeg[j] == 0:
+                        q.append(j)
+        return -1 if n else ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumSemesters(int n, int[][] relations) {
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        int[] indeg = new int[n];
+        for (int[] r : relations) {
+            int a = r[0] - 1, b = r[1] - 1;
+            g[a].add(b);
+            ++indeg[b];
+        }
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                q.offer(i);
+            }
+        }
+        int ans = 0;
+        while (!q.isEmpty()) {
+            ++ans;
+            for (int k = q.size(); k > 0; --k) {
+                int i = q.poll();
+                --n;
+                for (int j : g[i]) {
+                    if (--indeg[j] == 0) {
+                        q.offer(j);
+                    }
+                }
+            }
+        }
+        return n == 0 ? ans : -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumSemesters(int n, vector<vector<int>>& relations) {
+        vector<vector<int>> g(n);
+        vector<int> indeg(n);
+        for (auto& r : relations)
+        {
+            int a = r[0] - 1, b = r[1] - 1;
+            g[a].push_back(b);
+            ++indeg[b];
+        }
+        queue<int> q;
+        for (int i = 0; i < n; ++i) if (indeg[i] == 0) q.push(i);
+        int ans = 0;
+        while (!q.empty())
+        {
+            ++ans;
+            for (int k = q.size(); k; --k)
+            {
+                int i = q.front();
+                q.pop();
+                --n;
+                for (int j : g[i]) if (--indeg[j] == 0) q.push(j);
+            }
+        }
+        return n == 0 ? ans : -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumSemesters(n int, relations [][]int) int {
+	g := make([][]int, n)
+	indeg := make([]int, n)
+	for _, r := range relations {
+		a, b := r[0]-1, r[1]-1
+		g[a] = append(g[a], b)
+		indeg[b]++
+	}
+	q := []int{}
+	for i, v := range indeg {
+		if v == 0 {
+			q = append(q, i)
+		}
+	}
+	ans := 0
+	for len(q) > 0 {
+		ans++
+		for k := len(q); k > 0; k-- {
+			i := q[0]
+			q = q[1:]
+			n--
+			for _, j := range g[i] {
+				indeg[j]--
+				if indeg[j] == 0 {
+					q = append(q, j)
+				}
+			}
+		}
+	}
+	if n == 0 {
+		return ans
+	}
+	return -1
+}
 ```
 
 ### **...**

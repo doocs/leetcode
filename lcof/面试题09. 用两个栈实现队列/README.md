@@ -288,7 +288,7 @@ impl CQueue {
  */
 ```
 
-### **C##**
+### **C#**
 
 ```cs
 public class CQueue {
