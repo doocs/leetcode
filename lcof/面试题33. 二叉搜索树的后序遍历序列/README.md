@@ -225,6 +225,7 @@ impl Solution {
 ```
 
 ### **C#**
+
 ```cs
 public class Solution {
     public bool VerifyPostorder(int[] postorder) {

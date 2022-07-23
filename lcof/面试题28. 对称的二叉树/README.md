@@ -290,7 +290,7 @@ public class Solution {
         if (left == null || right == null || left.val != right.val) {
             return false;
         }
-        return dfs(left.left, right.right) && dfs(left.right, right.left); 
+        return dfs(left.left, right.right) && dfs(left.right, right.left);
     }
 }
 ```

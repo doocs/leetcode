@@ -237,7 +237,7 @@ public class Solution {
         for(int j = 1; j < n + 1; j++) {
             if (p[j-1] == '*') {
                 dp[0,j] = dp[0,j-2];
-            } 
+            }
         }
         for (int i = 1; i < m + 1; i++) {
             for (int j = 1; j < n + 1; j++) {

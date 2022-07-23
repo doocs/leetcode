@@ -1,5 +1,7 @@
 class Solution:
-    def sequenceReconstruction(self, nums: List[int], sequences: List[List[int]]) -> bool:
+    def sequenceReconstruction(
+        self, nums: List[int], sequences: List[List[int]]
+    ) -> bool:
         g = defaultdict(list)
         indeg = [0] * len(nums)
         for seq in sequences:

@@ -299,11 +299,11 @@ public class CQueue {
         stack1 = new Stack<int>();
         stack2 = new Stack<int>();
     }
-    
+
     public void AppendTail(int value) {
         stack1.Push(value);
     }
-    
+
     public int DeleteHead() {
         if (stack2.Count == 0) {
             while (stack1.Count != 0) {
@@ -327,4 +327,5 @@ public class CQueue {
 ```
 
 ```
+
 <!-- tabs:end -->

@@ -283,21 +283,21 @@ public class MinStack {
         minStack = new Stack<int>();
         minStack.Push(int.MaxValue);
     }
-    
+
     public void Push(int x) {
         stack.Push(x);
         minStack.Push(Math.Min(minStack.Peek(), x));
     }
-    
+
     public void Pop() {
         stack.Pop();
         minStack.Pop();
     }
-    
+
     public int Top() {
         return stack.Peek();
     }
-    
+
     public int Min() {
         return minStack.Peek();
     }

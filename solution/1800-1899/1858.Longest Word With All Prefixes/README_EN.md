@@ -166,7 +166,7 @@ private:
     bool isEnd;
 public:
     Trie() : children(26), isEnd(false) {}
-    
+
     void insert(string word) {
         Trie* node = this;
         for (char c : word)
@@ -177,7 +177,7 @@ public:
         }
         node->isEnd = true;
     }
-    
+
     bool search(string word) {
         Trie* node = this;
         for (char c : word)

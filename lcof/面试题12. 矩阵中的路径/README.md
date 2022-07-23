@@ -298,7 +298,7 @@ public class Solution {
             {
                 if (dfs(board, word, i, j, k)) {
                     return true;
-                }   
+                }
             }
         }
         return false;

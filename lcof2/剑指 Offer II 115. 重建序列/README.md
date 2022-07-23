@@ -69,7 +69,6 @@
 
 <p>注意：本题与主站 444&nbsp;题相同：<a href="https://leetcode.cn/problems/sequence-reconstruction/">https://leetcode-cn.com/problems/sequence-reconstruction/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -142,7 +142,7 @@ public class Solution {
             a = a ^ b;
             b = c;
         }
-        
+
         return a;
     }
 }

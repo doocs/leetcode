@@ -321,7 +321,7 @@ public class MedianFinder {
         }
         return left;
     }
-    
+
     public void AddNum(int num) {
         if (nums.Count == 0) {
             nums.Add(num);
@@ -335,7 +335,7 @@ public class MedianFinder {
             }
         }
     }
-    
+
     public double FindMedian() {
         if (nums.Count % 2 == 1) {
             return (double)nums[nums.Count / 2];
