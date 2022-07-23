@@ -51,24 +51,21 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 ```python
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        edges = defaultdict(list)
-        indegree = [0] * numCourses
+        g = defaultdict(list)
+        indeg = [0] * numCourses
         for a, b in prerequisites:
-            edges[b].append(a)
-            indegree[a] += 1
-        q = deque()
-        for i in range(numCourses):
-            if indegree[i] == 0:
-                q.append(i)
-        n = 0
+            g[b].append(a)
+            indeg[a] += 1
+        cnt = 0
+        q = deque([i for i, v in enumerate(indeg) if v == 0])
         while q:
-            b = q.popleft()
-            n += 1
-            for a in edges[b]:
-                indegree[a] -= 1
-                if indegree[a] == 0:
-                    q.append(a)
-        return n == numCourses
+            i = q.popleft()
+            cnt += 1
+            for j in g[i]:
+                indeg[j] -= 1
+                if indeg[j] == 0:
+                    q.append(j)
+        return cnt == numCourses
 ```
 
 ### **Java**
@@ -76,33 +73,33 @@ class Solution:
 ```java
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        List<Integer>[] edges = new List[numCourses];
+        List<Integer>[] g = new List[numCourses];
         for (int i = 0; i < numCourses; ++i) {
-            edges[i] = new ArrayList<>();
+            g[i] = new ArrayList<>();
         }
-        int[] indegree = new int[numCourses];
-        for (int[] p : prerequisites) {
+        int[] indeg = new int[numCourses];
+        for (var p : prerequisites) {
             int a = p[0], b = p[1];
-            edges[b].add(a);
-            ++indegree[a];
+            g[b].add(a);
+            ++indeg[a];
         }
-        Queue<Integer> q = new LinkedList<>();
+        Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < numCourses; ++i) {
-            if (indegree[i] == 0) {
+            if (indeg[i] == 0) {
                 q.offer(i);
             }
         }
-        int n = 0;
+        int cnt = 0;
         while (!q.isEmpty()) {
-            int b = q.poll();
-            ++n;
-            for (int a : edges[b]) {
-                if (--indegree[a] == 0) {
-                    q.offer(a);
+            int i = q.poll();
+            ++cnt;
+            for (int j : g[i]) {
+                if (--indeg[j] == 0) {
+                    q.offer(j);
                 }
             }
         }
-        return n == numCourses;
+        return cnt == numCourses;
     }
 }
 ```
@@ -111,33 +108,29 @@ class Solution {
 
 ```ts
 function canFinish(numCourses: number, prerequisites: number[][]): boolean {
-    let edges: number[][] = Array.from({ length: numCourses }, () => []);
+    let g = Array.from({ length: numCourses }, () => []);
     let indeg = new Array(numCourses).fill(0);
-
-    for (let [b, a] of prerequisites) {
-        edges[a].push(b);
-        indeg[b] += 1;
+    for (let [a, b] of prerequisites) {
+        g[b].push(a);
+        ++indeg[a];
     }
-
-    let queue = [];
-    for (let i = 0; i < numCourses; i++) {
+    let q = [];
+    for (let i = 0; i < numCourses; ++i) {
         if (!indeg[i]) {
-            queue.push(i);
+            q.push(i);
         }
     }
-
-    let visited: number = 0;
-    while (queue.length) {
-        visited += 1;
-        const u = queue.shift();
-        for (let v of edges[u]) {
-            indeg[v] -= 1;
-            if (!indeg[v]) {
-                queue.push(v);
+    let cnt = 0;
+    while (q.length) {
+        const i = q.shift();
+        ++cnt;
+        for (let j of g[i]) {
+            if (--indeg[j] == 0) {
+                q.push(j);
             }
         }
     }
-    return visited == numCourses;
+    return cnt == numCourses;
 }
 ```
 
@@ -147,29 +140,25 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> edges(numCourses);
-        vector<int> indegree(numCourses);
+        vector<vector<int>> g(numCourses);
+        vector<int> indeg(numCourses);
         for (auto& p : prerequisites)
         {
             int a = p[0], b = p[1];
-            edges[b].push_back(a);
-            ++indegree[a];
+            g[b].push_back(a);
+            ++indeg[a];
         }
         queue<int> q;
-        for (int i = 0; i < numCourses; ++i)
-            if (indegree[i] == 0)
-                q.push(i);
-        int n = 0;
+        for (int i = 0; i < numCourses; ++i) if (indeg[i] == 0) q.push(i);
+        int cnt = 0;
         while (!q.empty())
         {
-            int b = q.front();
+            int i = q.front();
             q.pop();
-            ++n;
-            for (int a : edges[b])
-                if (--indegree[a] == 0)
-                    q.push(a);
+            ++cnt;
+            for (int j : g[i]) if (--indeg[j] == 0) q.push(j);
         }
-        return n == numCourses;
+        return cnt == numCourses;
     }
 };
 ```
@@ -178,32 +167,32 @@ public:
 
 ```go
 func canFinish(numCourses int, prerequisites [][]int) bool {
-	edges := make([][]int, numCourses)
-	indegree := make([]int, numCourses)
+	g := make([][]int, numCourses)
+	indeg := make([]int, numCourses)
 	for _, p := range prerequisites {
 		a, b := p[0], p[1]
-		edges[b] = append(edges[b], a)
-		indegree[a]++
+		g[b] = append(g[b], a)
+		indeg[a]++
 	}
-	var q []int
-	for i := 0; i < numCourses; i++ {
-		if indegree[i] == 0 {
+	q := []int{}
+	for i, v := range indeg {
+		if v == 0 {
 			q = append(q, i)
 		}
 	}
-	n := 0
+	cnt := 0
 	for len(q) > 0 {
-		b := q[0]
+		i := q[0]
 		q = q[1:]
-		n++
-		for _, a := range edges[b] {
-			indegree[a]--
-			if indegree[a] == 0 {
-				q = append(q, a)
+		cnt++
+		for _, j := range g[i] {
+			indeg[j]--
+			if indeg[j] == 0 {
+				q = append(q, j)
 			}
 		}
 	}
-	return n == numCourses
+	return cnt == numCourses
 }
 ```
 
@@ -212,35 +201,34 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 ```cs
 public class Solution {
     public bool CanFinish(int numCourses, int[][] prerequisites) {
-        var edges = new List<int>[numCourses];
+        var g = new List<int>[numCourses];
         for (int i = 0; i < numCourses; ++i)
         {
-            edges[i] = new List<int>();
+            g[i] = new List<int>();
         }
-        var indegree = new int[numCourses];
-        for (int i = 0; i < prerequisites.Length; ++i)
+        var indeg = new int[numCourses];
+        foreach (var p in prerequisites)
         {
-            int a = prerequisites[i][0];
-            int b = prerequisites[i][1];
-            edges[b].Add(a);
-            ++indegree[a];
+            int a = p[0], b = p[1];
+            g[b].Add(a);
+            ++indeg[a];
         }
         var q = new Queue<int>();
         for (int i = 0; i < numCourses; ++i)
         {
-            if (indegree[i] == 0) q.Enqueue(i);
+            if (indeg[i] == 0) q.Enqueue(i);
         }
-        var n = 0;
+        var cnt = 0;
         while (q.Count > 0)
         {
-            int b = q.Dequeue();
-            ++n;
-            foreach (int a in edges[b])
+            int i = q.Dequeue();
+            ++cnt;
+            foreach (int j in g[i])
             {
-                if (--indegree[a] == 0) q.Enqueue(a);
+                if (--indeg[j] == 0) q.Enqueue(j);
             }
         }
-        return n == numCourses;
+        return cnt == numCourses;
     }
 }
 ```

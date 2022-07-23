@@ -1,20 +1,17 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        edges = defaultdict(list)
-        indegree = [0] * numCourses
+        g = defaultdict(list)
+        indeg = [0] * numCourses
         for a, b in prerequisites:
-            edges[b].append(a)
-            indegree[a] += 1
-        q = deque()
-        for i in range(numCourses):
-            if indegree[i] == 0:
-                q.append(i)
+            g[b].append(a)
+            indeg[a] += 1
+        q = deque([i for i, v in enumerate(indeg) if v == 0])
         ans = []
         while q:
-            b = q.popleft()
-            ans.append(b)
-            for a in edges[b]:
-                indegree[a] -= 1
-                if indegree[a] == 0:
-                    q.append(a)
+            i = q.popleft()
+            ans.append(i)
+            for j in g[i]:
+                indeg[j] -= 1
+                if indeg[j] == 0:
+                    q.append(j)
         return ans if len(ans) == numCourses else []

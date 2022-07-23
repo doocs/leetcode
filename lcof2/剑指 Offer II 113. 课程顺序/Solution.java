@@ -1,32 +1,32 @@
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        List<Integer>[] edges = new List[numCourses];
+        List<Integer>[] g = new List[numCourses];
         for (int i = 0; i < numCourses; ++i) {
-            edges[i] = new ArrayList<>();
+            g[i] = new ArrayList<>();
         }
-        int[] indegree = new int[numCourses];
-        for (int[] p : prerequisites) {
+        int[] indeg = new int[numCourses];
+        for (var p : prerequisites) {
             int a = p[0], b = p[1];
-            edges[b].add(a);
-            ++indegree[a];
+            g[b].add(a);
+            ++indeg[a];
         }
-        Queue<Integer> q = new LinkedList<>();
+        Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < numCourses; ++i) {
-            if (indegree[i] == 0) {
+            if (indeg[i] == 0) {
                 q.offer(i);
             }
         }
         int[] ans = new int[numCourses];
-        int n = 0;
+        int cnt = 0;
         while (!q.isEmpty()) {
-            int b = q.poll();
-            ans[n++] = b;
-            for (int a : edges[b]) {
-                if (--indegree[a] == 0) {
-                    q.offer(a);
+            int i = q.poll();
+            ans[cnt++] = i;
+            for (int j : g[i]) {
+                if (--indeg[j] == 0) {
+                    q.offer(j);
                 }
             }
         }
-        return n == numCourses ? ans : new int[0];
+        return cnt == numCourses ? ans : new int[0];
     }
 }

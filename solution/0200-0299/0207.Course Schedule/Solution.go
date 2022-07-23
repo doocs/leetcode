@@ -1,28 +1,28 @@
 func canFinish(numCourses int, prerequisites [][]int) bool {
-	edges := make([][]int, numCourses)
-	indegree := make([]int, numCourses)
+	g := make([][]int, numCourses)
+	indeg := make([]int, numCourses)
 	for _, p := range prerequisites {
 		a, b := p[0], p[1]
-		edges[b] = append(edges[b], a)
-		indegree[a]++
+		g[b] = append(g[b], a)
+		indeg[a]++
 	}
-	var q []int
-	for i := 0; i < numCourses; i++ {
-		if indegree[i] == 0 {
+	q := []int{}
+	for i, v := range indeg {
+		if v == 0 {
 			q = append(q, i)
 		}
 	}
-	n := 0
+	cnt := 0
 	for len(q) > 0 {
-		b := q[0]
+		i := q[0]
 		q = q[1:]
-		n++
-		for _, a := range edges[b] {
-			indegree[a]--
-			if indegree[a] == 0 {
-				q = append(q, a)
+		cnt++
+		for _, j := range g[i] {
+			indeg[j]--
+			if indeg[j] == 0 {
+				q = append(q, j)
 			}
 		}
 	}
-	return n == numCourses
+	return cnt == numCourses
 }

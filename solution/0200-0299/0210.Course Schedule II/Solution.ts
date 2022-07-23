@@ -1,26 +1,23 @@
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
-    let edges = Array.from({ length: numCourses }, () => []);
+    let g = Array.from({ length: numCourses }, () => []);
     let indeg = new Array(numCourses).fill(0);
-    for (let [b, a] of prerequisites) {
-        edges[a].push(b);
-        indeg[b] += 1;
+    for (let [a, b] of prerequisites) {
+        g[b].push(a);
+        ++indeg[a];
     }
-
-    let queue = [];
-    for (let i = 0; i < numCourses; i++) {
+    let q = [];
+    for (let i = 0; i < numCourses; ++i) {
         if (!indeg[i]) {
-            queue.push(i);
+            q.push(i);
         }
     }
-
     let ans = [];
-    while (queue.length) {
-        const u = queue.shift();
-        ans.push(u);
-        for (let v of edges[u]) {
-            indeg[v] -= 1;
-            if (!indeg[v]) {
-                queue.push(v);
+    while (q.length) {
+        const i = q.shift();
+        ans.push(i);
+        for (let j of g[i]) {
+            if (--indeg[j] == 0) {
+                q.push(j);
             }
         }
     }
