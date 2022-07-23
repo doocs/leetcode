@@ -11,9 +11,8 @@ type CBTInserter struct {
 }
 
 func Constructor(root *TreeNode) CBTInserter {
-	var q []*TreeNode
-	var tree []*TreeNode
-	q = append(q, root)
+	q := []*TreeNode{root}
+	tree := []*TreeNode{}
 	for len(q) > 0 {
 		node := q[0]
 		tree = append(tree, node)
@@ -28,16 +27,17 @@ func Constructor(root *TreeNode) CBTInserter {
 	return CBTInserter{tree}
 }
 
-func (this *CBTInserter) Insert(val int) int {
-	pidx := (len(this.tree) - 1) >> 1
-	node := &TreeNode{Val: val}
+func (this *CBTInserter) Insert(v int) int {
+	pid := (len(this.tree) - 1) >> 1
+	node := &TreeNode{Val: v}
 	this.tree = append(this.tree, node)
-	if this.tree[pidx].Left == nil {
-		this.tree[pidx].Left = node
+	p := this.tree[pid]
+	if p.Left == nil {
+		p.Left = node
 	} else {
-		this.tree[pidx].Right = node
+		p.Right = node
 	}
-	return this.tree[pidx].Val
+	return p.Val
 }
 
 func (this *CBTInserter) Get_root() *TreeNode {
@@ -47,6 +47,6 @@ func (this *CBTInserter) Get_root() *TreeNode {
 /**
  * Your CBTInserter object will be instantiated and called as such:
  * obj := Constructor(root);
- * param_1 := obj.Insert(val);
+ * param_1 := obj.Insert(v);
  * param_2 := obj.Get_root();
  */

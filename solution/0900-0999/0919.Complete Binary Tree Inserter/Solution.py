@@ -9,8 +9,7 @@ class CBTInserter:
         self.tree = []
         q = deque([root])
         while q:
-            n = len(q)
-            for _ in range(n):
+            for _ in range(len(q)):
                 node = q.popleft()
                 self.tree.append(node)
                 if node.left:
@@ -19,14 +18,15 @@ class CBTInserter:
                     q.append(node.right)
 
     def insert(self, val: int) -> int:
-        pidx = (len(self.tree) - 1) >> 1
-        node = TreeNode(val=val)
+        pid = (len(self.tree) - 1) >> 1
+        node = TreeNode(val)
         self.tree.append(node)
-        if self.tree[pidx].left is None:
-            self.tree[pidx].left = node
+        p = self.tree[pid]
+        if p.left is None:
+            p.left = node
         else:
-            self.tree[pidx].right = node
-        return self.tree[pidx].val
+            p.right = node
+        return p.val
 
     def get_root(self) -> TreeNode:
         return self.tree[0]
