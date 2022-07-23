@@ -1,13 +1,13 @@
 class Solution {
     public int divisorSubstrings(int num, int k) {
-        int cnt = 0;
-        String s = String.valueOf(num);
-        for (int i = 0; i <= s.length() - k; i++) {
-            int tmp = Integer.parseInt(s.substring(i, i + k));
-            if (tmp != 0 && num % tmp == 0) {
-                cnt++;
+        int ans = 0;
+        String s = "" + num;
+        for (int i = 0; i < s.length() - k + 1; ++i) {
+            int t = Integer.parseInt(s.substring(i, i + k));
+            if (t != 0 && num % t == 0) {
+                ++ans;
             }
         }
-        return cnt;
+        return ans;
     }
 }
