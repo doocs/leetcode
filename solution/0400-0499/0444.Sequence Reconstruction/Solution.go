@@ -1,47 +1,32 @@
-func sequenceReconstruction(org []int, seqs [][]int) bool {
-	n := len(org)
-	nums := make(map[int]bool)
-	for _, seq := range seqs {
-		for _, num := range seq {
-			if num < 1 || num > n {
-				return false
-			}
-			nums[num] = true
+func sequenceReconstruction(nums []int, sequences [][]int) bool {
+	n := len(nums)
+	g := make([][]int, n)
+	indeg := make([]int, n)
+	for _, seq := range sequences {
+		for i := 1; i < len(seq); i++ {
+			a, b := seq[i-1]-1, seq[i]-1
+			g[a] = append(g[a], b)
+			indeg[b]++
 		}
 	}
-	if len(nums) < n {
-		return false
-	}
-	edges := make([][]int, n+1)
-	indegree := make([]int, n+1)
-	for _, seq := range seqs {
-		i := seq[0]
-		for _, j := range seq[1:] {
-			edges[i] = append(edges[i], j)
-			indegree[j]++
-			i = j
-		}
-	}
-	var q []int
-	for i := 1; i <= n; i++ {
-		if indegree[i] == 0 {
+	q := []int{}
+	for i, v := range indeg {
+		if v == 0 {
 			q = append(q, i)
 		}
 	}
-	cnt := 0
 	for len(q) > 0 {
-		if len(q) > 1 || org[cnt] != q[0] {
+		if len(q) > 1 {
 			return false
 		}
 		i := q[0]
 		q = q[1:]
-		cnt++
-		for _, j := range edges[i] {
-			indegree[j]--
-			if indegree[j] == 0 {
+		for _, j := range g[i] {
+			indeg[j]--
+			if indeg[j] == 0 {
 				q = append(q, j)
 			}
 		}
 	}
-	return cnt == n
+	return true
 }

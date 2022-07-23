@@ -1,51 +1,35 @@
 class Solution {
-    public boolean sequenceReconstruction(int[] org, List<List<Integer>> seqs) {
-        int n = org.length;
-        Set<Integer> nums = new HashSet<>();
-        for (List<Integer> seq : seqs) {
-            for (int num : seq) {
-                if (num < 1 || num > n) {
-                    return false;
-                }
-                nums.add(num);
+    public boolean sequenceReconstruction(int[] nums, int[][] sequences) {
+        int n = nums.length;
+        int[] indeg = new int[n];
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] seq : sequences) {
+            for (int i = 1; i < seq.length; ++i) {
+                int a = seq[i - 1] - 1, b = seq[i] - 1;
+                g[a].add(b);
+                indeg[b]++;
             }
         }
-        if (nums.size() < n) {
-            return false;
-        }
-        List<Integer>[] edges = new List[n + 1];
-        for (int i = 0; i < edges.length; ++i) {
-            edges[i] = new ArrayList<>();
-        }
-        int[] indegree = new int[n + 1];
-        for (List<Integer> seq : seqs) {
-            int i = seq.get(0);
-            for (int j = 1; j < seq.size(); ++j) {
-                edges[i].add(seq.get(j));
-                ++indegree[seq.get(j)];
-                i = seq.get(j);
-            }
-        }
-        Queue<Integer> q = new LinkedList<>();
-        for (int i = 1; i <= n; ++i) {
-            if (indegree[i] == 0) {
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
                 q.offer(i);
             }
         }
-        int cnt = 0;
         while (!q.isEmpty()) {
-            if (q.size() > 1 || q.peek() != org[cnt]) {
+            if (q.size() > 1) {
                 return false;
             }
-            ++cnt;
             int i = q.poll();
-            for (int j : edges[i]) {
-                --indegree[j];
-                if (indegree[j] == 0) {
+            for (int j : g[i]) {
+                if (--indeg[j] == 0) {
                     q.offer(j);
                 }
             }
         }
-        return cnt == n;
+        return true;
     }
 }

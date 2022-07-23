@@ -74,94 +74,61 @@ Since nums is the only shortest supersequence, we return true.
 
 ```python
 class Solution:
-    def sequenceReconstruction(self, org: List[int], seqs: List[List[int]]) -> bool:
-        n = len(org)
-        nums = set()
-        for seq in seqs:
-            for num in seq:
-                if num < 1 or num > n:
-                    return False
-                nums.add(num)
-        if len(nums) < n:
-            return False
-
-        edges = defaultdict(list)
-        indegree = [0] * (n + 1)
-        for seq in seqs:
-            i = seq[0]
-            for j in seq[1:]:
-                edges[i].append(j)
-                indegree[j] += 1
-                i = j
-        q = deque()
-        for i in range(1, n + 1):
-            if indegree[i] == 0:
-                q.append(i)
-        cnt = 0
+    def sequenceReconstruction(self, nums: List[int], sequences: List[List[int]]) -> bool:
+        g = defaultdict(list)
+        indeg = [0] * len(nums)
+        for seq in sequences:
+            for a, b in pairwise(seq):
+                g[a - 1].append(b - 1)
+                indeg[b - 1] += 1
+        q = deque([i for i, v in enumerate(indeg) if v == 0])
         while q:
-            if len(q) > 1 or org[cnt] != q[0]:
+            if len(q) > 1:
                 return False
             i = q.popleft()
-            cnt += 1
-            for j in edges[i]:
-                indegree[j] -= 1
-                if indegree[j] == 0:
+            for j in g[i]:
+                indeg[j] -= 1
+                if indeg[j] == 0:
                     q.append(j)
-        return cnt == n
+        return True
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public boolean sequenceReconstruction(int[] org, List<List<Integer>> seqs) {
-        int n = org.length;
-        Set<Integer> nums = new HashSet<>();
-        for (List<Integer> seq : seqs) {
-            for (int num : seq) {
-                if (num < 1 || num > n) {
-                    return false;
-                }
-                nums.add(num);
+    public boolean sequenceReconstruction(int[] nums, List<List<Integer>> sequences) {
+        int n = nums.length;
+        int[] indeg = new int[n];
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (var seq : sequences) {
+            for (int i = 1; i < seq.size(); ++i) {
+                int a = seq.get(i - 1) - 1, b = seq.get(i) - 1;
+                g[a].add(b);
+                indeg[b]++;
             }
         }
-        if (nums.size() < n) {
-            return false;
-        }
-        List<Integer>[] edges = new List[n + 1];
-        for (int i = 0; i < edges.length; ++i) {
-            edges[i] = new ArrayList<>();
-        }
-        int[] indegree = new int[n + 1];
-        for (List<Integer> seq : seqs) {
-            int i = seq.get(0);
-            for (int j = 1; j < seq.size(); ++j) {
-                edges[i].add(seq.get(j));
-                ++indegree[seq.get(j)];
-                i = seq.get(j);
-            }
-        }
-        Queue<Integer> q = new LinkedList<>();
-        for (int i = 1; i <= n; ++i) {
-            if (indegree[i] == 0) {
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
                 q.offer(i);
             }
         }
-        int cnt = 0;
         while (!q.isEmpty()) {
-            if (q.size() > 1 || q.peek() != org[cnt]) {
+            if (q.size() > 1) {
                 return false;
             }
-            ++cnt;
             int i = q.poll();
-            for (int j : edges[i]) {
-                --indegree[j];
-                if (indegree[j] == 0) {
+            for (int j : g[i]) {
+                if (--indeg[j] == 0) {
                     q.offer(j);
                 }
             }
         }
-        return cnt == n;
+        return true;
     }
 }
 ```
@@ -171,49 +138,29 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    bool sequenceReconstruction(vector<int>& org, vector<vector<int>>& seqs) {
-        int n = org.size();
-        unordered_set<int> nums;
-        for (auto& seq : seqs)
+    bool sequenceReconstruction(vector<int>& nums, vector<vector<int>>& sequences) {
+        int n = nums.size();
+        vector<vector<int>> g(n);
+        vector<int> indeg(n);
+        for (auto& seq : sequences)
         {
-            for (int num : seq)
+            for (int i = 1; i < seq.size(); ++i)
             {
-                if (num < 1 || num > n) return false;
-                nums.insert(num);
-            }
-        }
-        if (nums.size() < n) return false;
-        vector<vector<int>> edges(n + 1);
-        vector<int> indegree(n + 1);
-        for (auto& seq : seqs)
-        {
-            int i = seq[0];
-            for (int j = 1; j < seq.size(); ++j)
-            {
-                edges[i].push_back(seq[j]);
-                ++indegree[seq[j]];
-                i = seq[j];
+                int a = seq[i - 1] - 1, b = seq[i] - 1;
+                g[a].push_back(b);
+                ++indeg[b];
             }
         }
         queue<int> q;
-        for (int i = 1; i <= n; ++i)
-        {
-            if (indegree[i] == 0) q.push(i);
-        }
-        int cnt = 0;
+        for (int i = 0; i < n; ++i) if (indeg[i] == 0) q.push(i);
         while (!q.empty())
         {
-            if (q.size() > 1 || q.front() != org[cnt]) return false;
-            ++cnt;
+            if (q.size() > 1) return false;
             int i = q.front();
             q.pop();
-            for (int j : edges[i])
-            {
-                --indegree[j];
-                if (indegree[j] == 0) q.push(j);
-            }
+            for (int j : g[i]) if (--indeg[j] == 0) q.push(j);
         }
-        return cnt == n;
+        return true;
     }
 };
 ```
@@ -221,52 +168,37 @@ public:
 ### **Go**
 
 ```go
-func sequenceReconstruction(org []int, seqs [][]int) bool {
-	n := len(org)
-	nums := make(map[int]bool)
-	for _, seq := range seqs {
-		for _, num := range seq {
-			if num < 1 || num > n {
-				return false
-			}
-			nums[num] = true
+func sequenceReconstruction(nums []int, sequences [][]int) bool {
+	n := len(nums)
+	g := make([][]int, n)
+	indeg := make([]int, n)
+	for _, seq := range sequences {
+		for i := 1; i < len(seq); i++ {
+			a, b := seq[i-1]-1, seq[i]-1
+			g[a] = append(g[a], b)
+			indeg[b]++
 		}
 	}
-	if len(nums) < n {
-		return false
-	}
-	edges := make([][]int, n+1)
-	indegree := make([]int, n+1)
-	for _, seq := range seqs {
-		i := seq[0]
-		for _, j := range seq[1:] {
-			edges[i] = append(edges[i], j)
-			indegree[j]++
-			i = j
-		}
-	}
-	var q []int
-	for i := 1; i <= n; i++ {
-		if indegree[i] == 0 {
+	q := []int{}
+	for i, v := range indeg {
+		if v == 0 {
 			q = append(q, i)
 		}
 	}
-	cnt := 0
 	for len(q) > 0 {
-		if len(q) > 1 || org[cnt] != q[0] {
+		if len(q) > 1 {
 			return false
 		}
 		i := q[0]
 		q = q[1:]
-		cnt++
-		for _, j := range edges[i] {
-			indegree[j]--
-			if indegree[j] == 0 {
+		for _, j := range g[i] {
+			indeg[j]--
+			if indeg[j] == 0 {
 				q = append(q, j)
 			}
 		}
 	}
-	return cnt == n
+	return true
 }
 ```
 
