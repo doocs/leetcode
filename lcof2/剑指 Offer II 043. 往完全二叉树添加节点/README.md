@@ -136,7 +136,7 @@ class CBTInserter {
             }
         }
     }
-    
+
     public int insert(int v) {
         int pid = (tree.size() - 1) >> 1;
         TreeNode node = new TreeNode(v);
@@ -149,7 +149,7 @@ class CBTInserter {
         }
         return p.val;
     }
-    
+
     public TreeNode get_root() {
         return tree.get(0);
     }
@@ -192,7 +192,7 @@ public:
             if (node->right) q.push(node->right);
         }
     }
-    
+
     int insert(int v) {
         int pid = tree.size() - 1 >> 1;
         TreeNode* node = new TreeNode(v);
@@ -202,7 +202,7 @@ public:
         else p->right = node;
         return p->val;
     }
-    
+
     TreeNode* get_root() {
         return tree[0];
     }

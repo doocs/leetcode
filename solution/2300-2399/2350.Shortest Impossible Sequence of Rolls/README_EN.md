@@ -51,7 +51,6 @@ Note that there are other sequences that cannot be taken from rolls but [4] is t
 	<li><code>1 &lt;= rolls[i] &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -53,7 +53,6 @@ nc.find(10); // 数字 10 所在下标为 2 ，3 和 5 。最小下标为 2 ，�
 	<li>调用&nbsp;<code>change</code> 和&nbsp;<code>find</code>&nbsp;的&nbsp;<strong>总次数</strong>&nbsp;不超过&nbsp;<code>10<sup>5</sup></code> 次。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -106,7 +105,7 @@ class NumberContainers {
     public NumberContainers() {
 
     }
-    
+
     public void change(int index, int number) {
         if (mp.containsKey(index)) {
             int v = mp.get(index);
@@ -118,7 +117,7 @@ class NumberContainers {
         mp.put(index, number);
         t.computeIfAbsent(number, k -> new TreeSet<>()).add(index);
     }
-    
+
     public int find(int number) {
         return t.containsKey(number) ? t.get(number).first() : -1;
     }
@@ -143,7 +142,7 @@ public:
     NumberContainers() {
 
     }
-    
+
     void change(int index, int number) {
         auto it = mp.find(index);
         if (it != mp.end())
@@ -154,7 +153,7 @@ public:
         else mp[index] = number;
         t[number].insert(index);
     }
-    
+
     int find(int number) {
         auto it = t.find(number);
         return it == t.end() || it->second.empty() ? -1 : *it->second.begin();

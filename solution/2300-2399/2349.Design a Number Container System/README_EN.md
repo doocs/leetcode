@@ -49,7 +49,6 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 	<li>At most <code>10<sup>5</sup></code> calls will be made <strong>in total</strong> to <code>change</code> and <code>find</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -94,7 +93,7 @@ class NumberContainers {
     public NumberContainers() {
 
     }
-    
+
     public void change(int index, int number) {
         if (mp.containsKey(index)) {
             int v = mp.get(index);
@@ -106,7 +105,7 @@ class NumberContainers {
         mp.put(index, number);
         t.computeIfAbsent(number, k -> new TreeSet<>()).add(index);
     }
-    
+
     public int find(int number) {
         return t.containsKey(number) ? t.get(number).first() : -1;
     }
@@ -131,7 +130,7 @@ public:
     NumberContainers() {
 
     }
-    
+
     void change(int index, int number) {
         auto it = mp.find(index);
         if (it != mp.end())
@@ -142,7 +141,7 @@ public:
         else mp[index] = number;
         t[number].insert(index);
     }
-    
+
     int find(int number) {
         auto it = t.find(number);
         return it == t.end() || it->second.empty() ? -1 : *it->second.begin();
