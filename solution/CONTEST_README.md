@@ -9,6 +9,14 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 83 场双周赛(2022-07-23 22:30, 90 分钟)
+
+- [2347. 最好的扑克手牌](/solution/2300-2399/2347.Best%20Poker%20Hand/README.md)
+- [2348. 全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
+- [2349. 设计数字容器系统](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)
+- [2350. 不可能得到的最短骰子序列](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md)
+
+
 #### 第 302 场周赛(2022-07-17 10:30, 90 分钟)
 
 - [2341. 数组能形成多少数对](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md)

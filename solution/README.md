@@ -2356,6 +2356,11 @@
 |  2343  |  [裁剪数字后查询第 K 小的数字](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README.md)  |  `数组`,`字符串`,`分治`,`快速选择`,`基数排序`,`排序`,`堆（优先队列）`  |  中等  |  第 302 场周赛  |
 |  2344  |  [使数组可以被整除的最少删除次数](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md)  |  `数组`,`数学`,`数论`,`排序`,`堆（优先队列）`  |  困难  |  第 302 场周赛  |
 |  2345  |  [Finding the Number of Visible Mountains](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README.md)  |    |  中等  |  🔒  |
+|  2346  |  [Compute the Rank as a Percentage](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README.md)  |    |  中等  |  🔒  |
+|  2347  |  [最好的扑克手牌](/solution/2300-2399/2347.Best%20Poker%20Hand/README.md)  |    |  简单  |    |
+|  2348  |  [全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)  |    |  中等  |    |
+|  2349  |  [设计数字容器系统](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)  |    |  中等  |    |
+|  2350  |  [不可能得到的最短骰子序列](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md)  |    |  困难  |    |
 
 ## 版权
 
