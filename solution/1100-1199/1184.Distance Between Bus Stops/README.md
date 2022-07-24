@@ -59,6 +59,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +68,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def distanceBetweenBusStops(self, distance: List[int], start: int, destination: int) -> int:
+        if start > destination:
+            start, destination = destination, start
+        a = sum(distance[start: destination])
+        b = sum(distance[:start]) + sum(distance[destination:])
+        return min(a, b)
 ```
 
 ### **Java**
@@ -74,7 +82,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int distanceBetweenBusStops(int[] distance, int start, int destination) {
+        if (start > destination) {
+            return distanceBetweenBusStops(distance, destination, start);
+        }
+        int a = 0, b = 0;
+        for (int i = 0; i < distance.length; ++i) {
+            if (i >= start && i < destination) {
+                a += distance[i];
+            } else {
+                b += distance[i];
+            }
+        }
+        return Math.min(a, b);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
+        if (start > destination) return distanceBetweenBusStops(distance, destination, start);
+        int a = 0, b = 0;
+        for (int i = 0; i < distance.size(); ++i)
+        {
+            if (i >= start && i < destination) a += distance[i];
+            else b += distance[i];
+        }
+        return min(a, b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func distanceBetweenBusStops(distance []int, start int, destination int) int {
+	if start > destination {
+		return distanceBetweenBusStops(distance, destination, start)
+	}
+	a, b := 0, 0
+	for i, v := range distance {
+		if i >= start && i < destination {
+			a += v
+		} else {
+			b += v
+		}
+	}
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} distance
+ * @param {number} start
+ * @param {number} destination
+ * @return {number}
+ */
+var distanceBetweenBusStops = function (distance, start, destination) {
+    if (start > destination) {
+        return distanceBetweenBusStops(distance, destination, start);
+    }
+    let a = 0;
+    let b = 0;
+    for (let i = 0; i < distance.length; ++i) {
+        if (i >= start && i < destination) {
+            a += distance[i];
+        } else {
+            b += distance[i];
+        }
+    }
+    return Math.min(a, b);
+};
 ```
 
 ### **...**
