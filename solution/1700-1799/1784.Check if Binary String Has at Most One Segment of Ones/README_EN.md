@@ -37,13 +37,48 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def checkOnesSegment(self, s: str) -> bool:
+        for i, c in enumerate(s):
+            if c == '0':
+                if s[:i].count('1') and s[i + 1:].count('1'):
+                    return False
+        return True
+```
 
+```python
+class Solution:
+    def checkOnesSegment(self, s: str) -> bool:
+        return '01' not in s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean checkOnesSegment(String s) {
+        return !s.contains("01");
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkOnesSegment(string s) {
+        return s.find("01") == -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkOnesSegment(s string) bool {
+	return !strings.Contains(s, "01")
+}
 ```
 
 ### **...**

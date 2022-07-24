@@ -61,6 +61,7 @@ def handle(result: dict):
             'contest_id': result['contest']['id'],
             'contest_start_time': result['contest']['origin_start_time'],
             'contest_duration': result['contest']['duration'],
+            'user_num': result['user_num'],
         }
 
 
@@ -88,6 +89,7 @@ def run():
                 v['questions'],
                 v['contest']['start_time'],
                 v['contest']['duration'],
+                v['user_num'],
             ]
         )
 
@@ -118,11 +120,12 @@ Get your rating changes right after the completion of LeetCode contests, https:/
     items = []
     en_items = []
 
-    for cid, title, title_en, qs, start_time, duration in contest_list:
+    for _, title, title_en, qs, start_time, duration, user_num in contest_list:
         v = (
             "#### "
             + title
-            + f'({format_time(start_time) + ", " + format_duration(duration)})'
+            + f'({format_time(start_time) + ", " + format_duration(duration)}) '
+            + f'参赛人数 {user_num}'
             + "\n\n"
         )
         v_en = "#### " + title_en + "\n\n"

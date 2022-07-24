@@ -40,6 +40,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：0 后面不能有 1**
+
+注意到字符串 $s$ 不含前导零，说明 $s$ 以 "1" 开头，若字符串后面出现 "01"，则不满足题意。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +51,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def checkOnesSegment(self, s: str) -> bool:
+        for i, c in enumerate(s):
+            if c == '0':
+                if s[:i].count('1') and s[i + 1:].count('1'):
+                    return False
+        return True
+```
 
+```python
+class Solution:
+    def checkOnesSegment(self, s: str) -> bool:
+        return '01' not in s
 ```
 
 ### **Java**
@@ -55,7 +71,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean checkOnesSegment(String s) {
+        return !s.contains("01");
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkOnesSegment(string s) {
+        return s.find("01") == -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkOnesSegment(s string) bool {
+	return !strings.Contains(s, "01")
+}
 ```
 
 ### **...**
