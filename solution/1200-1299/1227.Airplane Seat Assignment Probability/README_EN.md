@@ -43,13 +43,41 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def nthPersonGetsNthSeat(self, n: int) -> float:
+        return 1 if n == 1 else .5
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double nthPersonGetsNthSeat(int n) {
+        return n == 1 ? 1 : .5;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double nthPersonGetsNthSeat(int n) {
+        return n == 1 ? 1 : .5;
+    }
+};
+```
+
+### **Go**
+
+```go
+func nthPersonGetsNthSeat(n int) float64 {
+	if n == 1 {
+		return 1
+	}
+	return .5
+}
 ```
 
 ### **...**
