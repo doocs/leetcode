@@ -48,13 +48,38 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def divisorGame(self, n: int) -> bool:
+        return n % 2 == 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean divisorGame(int n) {
+        return n % 2 == 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool divisorGame(int n) {
+        return n % 2 == 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func divisorGame(n int) bool {
+	return n%2 == 0
+}
 ```
 
 ### **...**
