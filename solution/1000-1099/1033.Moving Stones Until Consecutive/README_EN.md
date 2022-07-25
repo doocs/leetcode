@@ -57,13 +57,83 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numMovesStones(self, a: int, b: int, c: int) -> List[int]:
+        a, b, c = sorted([a, b, c])
+        ans = [0] * 2
+        if c - a == 2:
+            return ans
+        if b - a < 3 or c - b < 3:
+            ans[0] = 1
+        else:
+            ans[0] = 2
+        ans[1] = c - a - 2
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] numMovesStones(int a, int b, int c) {
+        int x = Math.min(a, Math.min(b, c));
+        int z = Math.max(a, Math.max(b, c));
+        int y = a + b + c - x - z;
+        int max = z - x - 2;
+        int min = y - x == 1 && z - y == 1 ? 0 : y - x <= 2 || z - y <= 2 ? 1 : 2;
+        return new int[]{min, max};
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> numMovesStones(int a, int b, int c) {
+        int x = min(min(a, b), c);
+        int z = max(max(a, b), c);
+        int y = a + b + c - x - z;
+        if (z - x == 2) return {0, 0};
+        int mx = z - x - 2;
+        int mi = y - x < 3 || z - y < 3 ? 1 : 2;
+        return {mi, mx};
+    }
+};
+```
+
+### **Go**
+
+```go
+func numMovesStones(a int, b int, c int) []int {
+	x := min(min(a, b), c)
+	z := max(max(a, b), c)
+	y := a + b + c - x - z
+	if z-x == 2 {
+		return []int{0, 0}
+	}
+	mx := z - x - 2
+	mi := 2
+	if y-x < 3 || z-y < 3 {
+		mi = 1
+	}
+	return []int{mi, mx}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
