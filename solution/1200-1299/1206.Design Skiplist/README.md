@@ -66,7 +66,9 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 
 <!-- 这里可写通用的实现逻辑 -->
 
-因为节点 `level` 随机，所以需要多个 `next` 指针，其余操作类似单链表
+**方法一：数据结构**
+
+因为节点 `level` 随机，所以需要多个 `next` 指针，其余操作类似单链表。
 
 <!-- tabs:start -->
 
@@ -76,54 +78,56 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 
 ```python
 class Node:
+    __slots__ = ['val', 'next']
+
     def __init__(self, val: int, level: int):
         self.val = val
-        self.next = [None for _ in range(level)]
+        self.next = [None] * level
 
 
 class Skiplist:
-    max_level = 16
-    p = 0.5
+    max_level = 32
+    p = 0.25
 
     def __init__(self):
         self.head = Node(-1, self.max_level)
-        self.level = 1
+        self.level = 0
 
     def search(self, target: int) -> bool:
-        p = self.head
+        curr = self.head
         for i in range(self.level - 1, -1, -1):
-            p = self.find_closest(p, i, target)
-            if p.next[i] != None and p.next[i].val == target:
+            curr = self.find_closest(curr, i, target)
+            if curr.next[i] and curr.next[i].val == target:
                 return True
         return False
 
     def add(self, num: int) -> None:
+        curr = self.head
         level = self.random_level()
-        self.level = max(self.level, level)
         node = Node(num, level)
-        p = self.head
+        self.level = max(self.level, level)
         for i in range(self.level - 1, -1, -1):
-            p = self.find_closest(p, i, num)
+            curr = self.find_closest(curr, i, num)
             if i < level:
-                node.next[i] = p.next[i]
-                p.next[i] = node
+                node.next[i] = curr.next[i]
+                curr.next[i] = node
 
     def erase(self, num: int) -> bool:
+        curr = self.head
         ok = False
-        p = self.head
         for i in range(self.level - 1, -1, -1):
-            p = self.find_closest(p, i, num)
-            if p.next[i] != None and p.next[i].val == num:
-                p.next[i] = p.next[i].next[i]
+            curr = self.find_closest(curr, i, num)
+            if curr.next[i] and curr.next[i].val == num:
+                curr.next[i] = curr.next[i].next[i]
                 ok = True
-        while self.level > 1 and self.head.next[self.level - 1] == None:
+        while self.level > 1 and self.head.next[self.level - 1] is None:
             self.level -= 1
         return ok
 
-    def find_closest(self, p: Node, level: int, target: int) -> Node:
-        while p.next[level] != None and p.next[level].val < target:
-            p = p.next[level]
-        return p
+    def find_closest(self, curr: Node, level: int, target: int) -> Node:
+        while curr.next[level] and curr.next[level].val < target:
+            curr = curr.next[level]
+        return curr
 
     def random_level(self) -> int:
         level = 1
@@ -145,84 +149,90 @@ class Skiplist:
 
 ```java
 class Skiplist {
-
-	private static final int DEFAULT_MAX_LEVEL = 16;
-	private static final double DEFAULT_P_FACTOR = 0.5;
-
-	private final Node head;
-	private int currentLevel;
+    private static final int MAX_LEVEL = 32;
+    private static final double P = 0.25;
+    private static final Random RANDOM = new Random();
+    private final Node head = new Node(-1, MAX_LEVEL);
+    private int level = 0;
 
     public Skiplist() {
-    	this.head = new Node(0, DEFAULT_MAX_LEVEL);
-    	this.currentLevel = 1;
+
     }
 
     public boolean search(int target) {
-    	Node node = head;
-    	for (int i = currentLevel - 1; i >= 0; i--) {
-    		node = findClosest(node, i, target);
-    		if (node.next[i] != null && node.next[i].value == target) {
-    			return true;
-    		}
-    	}
-    	return false;
+        Node curr = head;
+        for (int i = level - 1; i >= 0; --i) {
+            curr = findClosest(curr, i, target);
+            if (curr.next[i] != null && curr.next[i].val == target) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void add(int num) {
-    	int level = randomLevel();
-    	currentLevel = Math.max(currentLevel, level);
-    	Node newNode = new Node(num, level);
-    	Node updateNode = head;
-    	for (int i = currentLevel - 1; i >= 0; i--) {
-    		updateNode = findClosest(updateNode, i, num);
-    		if (i < level) {
-    			newNode.next[i] = updateNode.next[i];
-    			updateNode.next[i] = newNode;
-    		}
-    	}
+        Node curr = head;
+        int lv = randomLevel();
+        Node node = new Node(num, lv);
+        level = Math.max(level, lv);
+        for (int i = level - 1; i >= 0; --i) {
+            curr = findClosest(curr, i, num);
+            if (i < lv) {
+                node.next[i] = curr.next[i];
+                curr.next[i] = node;
+            }
+        }
     }
 
     public boolean erase(int num) {
-    	boolean exist = false;
-    	Node node = head;
-    	for (int i = currentLevel - 1; i >= 0; i--) {
-    		node = findClosest(node, i, num);
-    		if (node.next[i] != null && node.next[i].value == num) {
-    			node.next[i] = node.next[i].next[i];
-    			exist = true;
-    		}
-    	}
-    	while (currentLevel > 1 && head.next[currentLevel - 1] == null) {
-    		currentLevel--;
-    	}
-    	return exist;
+        Node curr = head;
+        boolean ok = false;
+        for (int i = level - 1; i >= 0; --i) {
+            curr = findClosest(curr, i, num);
+            if (curr.next[i] != null && curr.next[i].val == num) {
+                curr.next[i] = curr.next[i].next[i];
+                ok = true;
+            }
+        }
+        while (level > 1 && head.next[level - 1] == null) {
+            --level;
+        }
+        return ok;
     }
 
-    private Node findClosest(Node node, int level, int value) {
-    	while (node.next[level] != null && node.next[level].value < value) {
-    		node = node.next[level];
-    	}
-    	return node;
+    private Node findClosest(Node curr, int level, int target) {
+        while (curr.next[level] != null && curr.next[level].val < target) {
+            curr = curr.next[level];
+        }
+        return curr;
     }
 
-    private int randomLevel() {
-    	int level = 1;
-    	while (level < DEFAULT_MAX_LEVEL && Math.random() < DEFAULT_P_FACTOR) {
-    		level++;
-    	}
-    	return level;
+    private static int randomLevel() {
+        int level = 1;
+        while (level < MAX_LEVEL && RANDOM.nextDouble() < P) {
+            ++level;
+        }
+        return level;
     }
 
     static class Node {
-    	int value;
-    	Node[] next;
+        int val;
+        Node[] next;
 
-    	Node(int value, int level) {
-    		this.value = value;
-    		this.next = new Node[level];
-    	}
+        Node(int val, int level) {
+            this.val = val;
+            next = new Node[level];
+        }
     }
 }
+
+/**
+ * Your Skiplist object will be instantiated and called as such:
+ * Skiplist obj = new Skiplist();
+ * boolean param_1 = obj.search(target);
+ * obj.add(num);
+ * boolean param_3 = obj.erase(num);
+ */
 ```
 
 ### **Go**
@@ -323,6 +333,90 @@ func randomLevel() int {
  * param_1 := obj.Search(target);
  * obj.Add(num);
  * param_3 := obj.Erase(num);
+ */
+```
+
+### **C++**
+
+```cpp
+struct Node {
+    int val;
+    vector<Node*> next;
+    Node(int v, int level) : val(v), next(level, nullptr) {}
+};
+
+class Skiplist {
+public:
+    const int p = RAND_MAX / 4;
+    const int maxLevel = 32;
+    Node* head;
+    int level;
+
+    Skiplist() {
+        head = new Node(-1, maxLevel);
+        level = 0;
+    }
+    
+    bool search(int target) {
+        Node* curr = head;
+        for (int i = level - 1; ~i; --i)
+        {
+            curr = findClosest(curr, i, target);
+            if (curr->next[i] && curr->next[i]->val == target) return true;
+        }
+        return false;
+    }
+    
+    void add(int num) {
+        Node* curr = head;
+        int lv = randomLevel();
+        Node* node = new Node(num, lv);
+        level = max(level, lv);
+        for (int i = level - 1; ~i; --i)
+        {
+            curr = findClosest(curr, i, num);
+            if (i < lv)
+            {
+                node->next[i] = curr->next[i];
+                curr->next[i] = node;
+            }
+        }
+    }
+    
+    bool erase(int num) {
+        Node* curr = head;
+        bool ok = false;
+        for (int i = level - 1; ~i; --i)
+        {
+            curr = findClosest(curr, i, num);
+            if (curr->next[i] && curr->next[i]->val == num)
+            {
+                curr->next[i] = curr->next[i]->next[i];
+                ok = true;
+            }
+        }
+        while (level > 1 && !head->next[level - 1]) --level;
+        return ok;
+    }
+
+    Node* findClosest(Node* curr, int level, int target) {
+        while (curr->next[level] && curr->next[level]->val < target) curr = curr->next[level];
+        return curr;
+    }
+
+    int randomLevel() {
+        int lv = 1;
+        while (lv < maxLevel && rand() < p) ++lv;
+        return lv;
+    }
+};
+
+/**
+ * Your Skiplist object will be instantiated and called as such:
+ * Skiplist* obj = new Skiplist();
+ * bool param_1 = obj->search(target);
+ * obj->add(num);
+ * bool param_3 = obj->erase(num);
  */
 ```
 

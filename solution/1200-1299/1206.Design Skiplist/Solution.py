@@ -1,52 +1,54 @@
 class Node:
+    __slots__ = ['val', 'next']
+
     def __init__(self, val: int, level: int):
         self.val = val
-        self.next = [None for _ in range(level)]
+        self.next = [None] * level
 
 
 class Skiplist:
-    max_level = 16
-    p = 0.5
+    max_level = 32
+    p = 0.25
 
     def __init__(self):
         self.head = Node(-1, self.max_level)
-        self.level = 1
+        self.level = 0
 
     def search(self, target: int) -> bool:
-        p = self.head
+        curr = self.head
         for i in range(self.level - 1, -1, -1):
-            p = self.find_closest(p, i, target)
-            if p.next[i] != None and p.next[i].val == target:
+            curr = self.find_closest(curr, i, target)
+            if curr.next[i] and curr.next[i].val == target:
                 return True
         return False
 
     def add(self, num: int) -> None:
+        curr = self.head
         level = self.random_level()
-        self.level = max(self.level, level)
         node = Node(num, level)
-        p = self.head
+        self.level = max(self.level, level)
         for i in range(self.level - 1, -1, -1):
-            p = self.find_closest(p, i, num)
+            curr = self.find_closest(curr, i, num)
             if i < level:
-                node.next[i] = p.next[i]
-                p.next[i] = node
+                node.next[i] = curr.next[i]
+                curr.next[i] = node
 
     def erase(self, num: int) -> bool:
+        curr = self.head
         ok = False
-        p = self.head
         for i in range(self.level - 1, -1, -1):
-            p = self.find_closest(p, i, num)
-            if p.next[i] != None and p.next[i].val == num:
-                p.next[i] = p.next[i].next[i]
+            curr = self.find_closest(curr, i, num)
+            if curr.next[i] and curr.next[i].val == num:
+                curr.next[i] = curr.next[i].next[i]
                 ok = True
-        while self.level > 1 and self.head.next[self.level - 1] == None:
+        while self.level > 1 and self.head.next[self.level - 1] is None:
             self.level -= 1
         return ok
 
-    def find_closest(self, p: Node, level: int, target: int) -> Node:
-        while p.next[level] != None and p.next[level].val < target:
-            p = p.next[level]
-        return p
+    def find_closest(self, curr: Node, level: int, target: int) -> Node:
+        while curr.next[level] and curr.next[level].val < target:
+            curr = curr.next[level]
+        return curr
 
     def random_level(self) -> int:
         level = 1
