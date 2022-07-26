@@ -43,7 +43,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-单调栈。
+**方法一：单调栈**
 
 单调栈常见模型：找出每个数左/右边**离它最近的**且**比它大/小的数**。模板：
 
@@ -55,7 +55,9 @@ for i in range(n):
     stk.append(i)
 ```
 
-枚举每根柱子的高度 h 作为矩形的高度，向左右两边找第一个高度小于 h 的下标 `left[i]`, `right[i]`。那么此时矩形面积为 `h * (right[i] - left[i] - 1)`，求最大值即可。
+枚举每根柱子的高度 $h$ 作为矩形的高度，向左右两边找第一个高度小于 $h$ 的下标 $left_i$, $right_i$。那么此时矩形面积为 $h \times (right_i-left_i-1)$，求最大值即可。
+
+时间复杂度 $O(n)$，其中 $n$ 表示 $heights$ 的长度。
 
 <!-- tabs:start -->
 
@@ -66,7 +68,7 @@ for i in range(n):
 ```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
-        res, n = 0, len(heights)
+        n = len(heights)
         stk = []
         left = [-1] * n
         right = [n] * n
@@ -77,9 +79,31 @@ class Solution:
             if stk:
                 left[i] = stk[-1]
             stk.append(i)
+        return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
+```
+
+```python
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        n = len(heights)
+        stk = []
+        left = [-1] * n
+        right = [n] * n
         for i, h in enumerate(heights):
-            res = max(res, h * (right[i] - left[i] - 1))
-        return res
+            while stk and heights[stk[-1]] >= h:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            h = heights[i]
+            while stk and heights[stk[-1]] >= h:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
 
 ### **Java**
