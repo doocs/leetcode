@@ -50,7 +50,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-离散化。
+**方法一：离散化**
 
 <!-- tabs:start -->
 
@@ -61,18 +61,8 @@
 ```python
 class Solution:
     def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        def find(x):
-            left, right = 0, len(t) - 1
-            while left < right:
-                mid = (left + right) >> 1
-                if t[mid] >= x:
-                    right = mid
-                else:
-                    left = mid + 1
-            return left + 1
-
         t = sorted(set(arr))
-        return [find(x) for x in arr]
+        return [bisect_left(t, x) + 1 for x in arr]
 ```
 
 ```python
@@ -108,6 +98,25 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int[] arrayRankTransform(int[] arr) {
+        Set<Integer> s = new HashSet<>();
+        for (int v : arr) {
+            s.add(v);
+        }
+        List<Integer> alls = new ArrayList<>(s);
+        alls.sort((a, b) -> a - b);
+        int n = arr.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = Collections.binarySearch(alls, arr[i]) + 1;
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -121,6 +130,20 @@ public:
         for (int i = 0; i < alls.size(); ++i) m[alls[i]] = i + 1;
         vector<int> ans;
         for (int v : arr) ans.push_back(m[v]);
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> arrayRankTransform(vector<int>& arr) {
+        unordered_set<int> s(arr.begin(), arr.end());
+        vector<int> alls(s.begin(), s.end());
+        sort(alls.begin(), alls.end());
+        vector<int> ans;
+        for (int v: arr) ans.push_back(lower_bound(alls.begin(), alls.end(), v) - alls.begin() + 1);
         return ans;
     }
 };
