@@ -55,13 +55,95 @@ The underlined portions are the substrings that are chosen from s and t.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countSubstrings(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if s[i] != t[j]:
+                    l = r = 1
+                    while i - l >= 0 and j - l >= 0 and s[i - l] == t[j - l]:
+                        l += 1
+                    while i + r < m and j + r < n and s[i + r] == t[j + r]:
+                        r += 1
+                    ans += l * r
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countSubstrings(String s, String t) {
+        int m = s.length(), n = t.length();
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (s.charAt(i) != t.charAt(j)) {
+                    int l = 1, r = 1;
+                    while (i - l >= 0 && j - l >= 0 && s.charAt(i - l) == t.charAt(j - l)) {
+                        ++l;
+                    }
+                    while (i + r < m && j + r < n && s.charAt(i + r) == t.charAt(j + r)) {
+                        ++r;
+                    }
+                    ans += l * r;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s, string t) {
+        int m = s.size(), n = t.size();
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (s[i] == t[j]) continue;
+                int l = 1, r = 1;
+                while (i - l >= 0 && j - l >= 0 && s[i - l] == t[j - l]) ++l;
+                while (i + r < m && j + r < n && s[i + r] == t[j + r]) ++r;
+                ans += l * r;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSubstrings(s string, t string) int {
+	m, n := len(s), len(t)
+	ans := 0
+	for i := range s {
+		for j := range t {
+			if s[i] == t[j] {
+				continue
+			}
+			l, r := 1, 1
+			for i-l >= 0 && j-l >= 0 && s[i-l] == t[j-l] {
+				l++
+			}
+			for i+r < m && j+r < n && s[i+r] == t[j+r] {
+				r++
+			}
+			ans += l * r
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
