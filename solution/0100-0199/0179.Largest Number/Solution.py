@@ -1,8 +1,5 @@
-from functools import cmp_to_key
-
-
 class Solution:
     def largestNumber(self, nums: List[int]) -> str:
-        num_list = list(map(str, nums))
-        num_list.sort(key=cmp_to_key(lambda x, y: int(y + x) - int(x + y)))
-        return '0' if num_list[0] == '0' else ''.join(num_list)
+        nums = [str(v) for v in nums]
+        nums.sort(key=cmp_to_key(lambda a, b: 1 if a + b < b + a else -1))
+        return "0" if nums[0] == "0" else "".join(nums)
