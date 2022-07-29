@@ -41,34 +41,75 @@
 
 ```python
 class Solution:
-    def generatePossibleNextMoves(self, s: str) -> List[str]:
-        if not s or len(s) < 2:
-            return []
-        n = len(s)
-        res = []
-        for i in range(n - 1):
-            if s[i] == '+' and s[i + 1] == '+':
-                res.append(s[:i] + "--" + s[i + 2:])
-        return res
+    def generatePossibleNextMoves(self, currentState: str) -> List[str]:
+        s = list(currentState)
+        ans = []
+        for i, c in enumerate(s[:-1]):
+            if c == "+" and s[i + 1] == "+":
+                s[i] = s[i + 1] = "-"
+                ans.append("".join(s))
+                s[i] = s[i + 1] = "+"
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public List<String> generatePossibleNextMoves(String s) {
-        int n;
-        if (s == null || (n = s.length()) < 2) return Collections.emptyList();
-        List<String> res = new ArrayList<>();
-        for (int i = 0; i < n - 1; ++i) {
-            if (s.charAt(i) == '+' && s.charAt(i + 1) == '+') {
-                StringBuilder sb = new StringBuilder(s);
-                sb.replace(i, i + 2, "--");
-                res.add(sb.toString());
+    public List<String> generatePossibleNextMoves(String currentState) {
+        char[] cs = currentState.toCharArray();
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < cs.length - 1; ++i) {
+            if (cs[i] == '+' && cs[i + 1] == '+') {
+                cs[i] = '-';
+                cs[i + 1] = '-';
+                ans.add(String.valueOf(cs));
+                cs[i] = '+';
+                cs[i + 1] = '+';
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> generatePossibleNextMoves(string currentState) {
+        vector<string> ans;
+        for (int i = 0; i < currentState.size() - 1; ++i)
+        {
+            if (currentState[i] == '+' && currentState[i + 1] == '+')
+            {
+                currentState[i] = '-';
+                currentState[i + 1] = '-';
+                ans.push_back(currentState);
+                currentState[i] = '+';
+                currentState[i + 1] = '+';
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func generatePossibleNextMoves(currentState string) []string {
+	ans := []string{}
+	cs := []byte(currentState)
+	for i, c := range cs[1:] {
+		if c == '+' && cs[i] == '+' {
+			cs[i], cs[i+1] = '-', '-'
+			ans = append(ans, string(cs))
+			cs[i], cs[i+1] = '+', '+'
+		}
+	}
+	return ans
 }
 ```
 

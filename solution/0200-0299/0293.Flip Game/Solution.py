@@ -1,10 +1,10 @@
 class Solution:
-    def generatePossibleNextMoves(self, s: str) -> List[str]:
-        if not s or len(s) < 2:
-            return []
-        n = len(s)
-        res = []
-        for i in range(n - 1):
-            if s[i] == '+' and s[i + 1] == '+':
-                res.append(s[:i] + "--" + s[i + 2 :])
-        return res
+    def generatePossibleNextMoves(self, currentState: str) -> List[str]:
+        s = list(currentState)
+        ans = []
+        for i, c in enumerate(s[:-1]):
+            if c == "+" and s[i + 1] == "+":
+                s[i] = s[i + 1] = "-"
+                ans.append("".join(s))
+                s[i] = s[i + 1] = "+"
+        return ans
