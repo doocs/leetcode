@@ -2351,16 +2351,21 @@
 |  2338  |  [统计理想数组的数目](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)  |  `数学`,`动态规划`,`组合数学`,`数论`  |  困难  |  第 301 场周赛  |
 |  2339  |  [All the Matches of the League](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  2340  |  [Minimum Adjacent Swaps to Make a Valid Array](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README.md)  |  `贪心`,`数组`  |  中等  |  🔒  |
-|  2341  |  [数组能形成多少数对](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md)  |  `数组`,`哈希表`,`排序`  |  简单  |  第 302 场周赛  |
+|  2341  |  [数组能形成多少数对](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README.md)  |  `数组`,`哈希表`,`计数`  |  简单  |  第 302 场周赛  |
 |  2342  |  [数位和相等数对的最大和](/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README.md)  |  `数组`,`哈希表`,`排序`,`堆（优先队列）`  |  中等  |  第 302 场周赛  |
 |  2343  |  [裁剪数字后查询第 K 小的数字](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README.md)  |  `数组`,`字符串`,`分治`,`快速选择`,`基数排序`,`排序`,`堆（优先队列）`  |  中等  |  第 302 场周赛  |
 |  2344  |  [使数组可以被整除的最少删除次数](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md)  |  `数组`,`数学`,`数论`,`排序`,`堆（优先队列）`  |  困难  |  第 302 场周赛  |
-|  2345  |  [Finding the Number of Visible Mountains](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README.md)  |    |  中等  |  🔒  |
-|  2346  |  [Compute the Rank as a Percentage](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README.md)  |    |  中等  |  🔒  |
-|  2347  |  [最好的扑克手牌](/solution/2300-2399/2347.Best%20Poker%20Hand/README.md)  |    |  简单  |    |
-|  2348  |  [全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)  |    |  中等  |    |
-|  2349  |  [设计数字容器系统](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)  |    |  中等  |    |
-|  2350  |  [不可能得到的最短骰子序列](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md)  |    |  困难  |    |
+|  2345  |  [Finding the Number of Visible Mountains](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README.md)  |  `栈`,`数组`,`排序`,`单调栈`  |  中等  |  🔒  |
+|  2346  |  [Compute the Rank as a Percentage](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2347  |  [最好的扑克手牌](/solution/2300-2399/2347.Best%20Poker%20Hand/README.md)  |  `数组`,`哈希表`,`计数`  |  简单  |  第 83 场双周赛  |
+|  2348  |  [全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)  |  `数组`,`数学`  |  中等  |  第 83 场双周赛  |
+|  2349  |  [设计数字容器系统](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)  |  `设计`,`哈希表`,`有序集合`,`堆（优先队列）`  |  中等  |  第 83 场双周赛  |
+|  2350  |  [不可能得到的最短骰子序列](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md)  |  `贪心`,`数组`,`哈希表`  |  困难  |  第 83 场双周赛  |
+|  2351  |  [第一个出现两次的字母](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md)  |  `哈希表`,`字符串`,`计数`  |  简单  |  第 303 场周赛  |
+|  2352  |  [相等行列对](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README.md)  |  `数组`,`哈希表`,`矩阵`,`模拟`  |  中等  |  第 303 场周赛  |
+|  2353  |  [设计食物评分系统](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README.md)  |  `设计`,`哈希表`,`有序集合`,`堆（优先队列）`  |  中等  |  第 303 场周赛  |
+|  2354  |  [优质数对的数目](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md)  |  `位运算`,`数组`,`哈希表`,`二分查找`  |  困难  |  第 303 场周赛  |
+|  2355  |  [Maximum Number of Books You Can Take](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

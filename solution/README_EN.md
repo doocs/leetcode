@@ -2349,16 +2349,21 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2338  |  [Count the Number of Ideal Arrays](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md)  |  `Math`,`Dynamic Programming`,`Combinatorics`,`Number Theory`  |  Hard  |  Weekly Contest 301  |
 |  2339  |  [All the Matches of the League](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  2340  |  [Minimum Adjacent Swaps to Make a Valid Array](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  🔒  |
-|  2341  |  [Maximum Number of Pairs in Array](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Easy  |  Weekly Contest 302  |
+|  2341  |  [Maximum Number of Pairs in Array](/solution/2300-2399/2341.Maximum%20Number%20of%20Pairs%20in%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Easy  |  Weekly Contest 302  |
 |  2342  |  [Max Sum of a Pair With Equal Sum of Digits](/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 302  |
 |  2343  |  [Query Kth Smallest Trimmed Number](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README_EN.md)  |  `Array`,`String`,`Divide and Conquer`,`Quickselect`,`Radix Sort`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 302  |
 |  2344  |  [Minimum Deletions to Make Array Divisible](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README_EN.md)  |  `Array`,`Math`,`Number Theory`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 302  |
-|  2345  |  [Finding the Number of Visible Mountains](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README_EN.md)  |    |  Medium  |  🔒  |
-|  2346  |  [Compute the Rank as a Percentage](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README_EN.md)  |    |  Medium  |  🔒  |
-|  2347  |  [Best Poker Hand](/solution/2300-2399/2347.Best%20Poker%20Hand/README_EN.md)  |    |  Easy  |    |
-|  2348  |  [Number of Zero-Filled Subarrays](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md)  |    |  Medium  |    |
-|  2349  |  [Design a Number Container System](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md)  |    |  Medium  |    |
-|  2350  |  [Shortest Impossible Sequence of Rolls](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README_EN.md)  |    |  Hard  |    |
+|  2345  |  [Finding the Number of Visible Mountains](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README_EN.md)  |  `Stack`,`Array`,`Sorting`,`Monotonic Stack`  |  Medium  |  🔒  |
+|  2346  |  [Compute the Rank as a Percentage](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2347  |  [Best Poker Hand](/solution/2300-2399/2347.Best%20Poker%20Hand/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Easy  |  Biweekly Contest 83  |
+|  2348  |  [Number of Zero-Filled Subarrays](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md)  |  `Array`,`Math`  |  Medium  |  Biweekly Contest 83  |
+|  2349  |  [Design a Number Container System](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md)  |  `Design`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 83  |
+|  2350  |  [Shortest Impossible Sequence of Rolls](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Hard  |  Biweekly Contest 83  |
+|  2351  |  [First Letter to Appear Twice](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Weekly Contest 303  |
+|  2352  |  [Equal Row and Column Pairs](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md)  |  `Array`,`Hash Table`,`Matrix`,`Simulation`  |  Medium  |  Weekly Contest 303  |
+|  2353  |  [Design a Food Rating System](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md)  |  `Design`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 303  |
+|  2354  |  [Number of Excellent Pairs](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Binary Search`  |  Hard  |  Weekly Contest 303  |
+|  2355  |  [Maximum Number of Books You Can Take](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

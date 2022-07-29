@@ -2396,3 +2396,8 @@
   - [2348.Number of Zero-Filled Subarrays](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md)
   - [2349.Design a Number Container System](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md)
   - [2350.Shortest Impossible Sequence of Rolls](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README_EN.md)
+  - [2351.First Letter to Appear Twice](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md)
+  - [2352.Equal Row and Column Pairs](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md)
+  - [2353.Design a Food Rating System](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md)
+  - [2354.Number of Excellent Pairs](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md)
+  - [2355.Maximum Number of Books You Can Take](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README_EN.md)

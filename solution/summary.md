@@ -2396,3 +2396,8 @@
   - [2348.全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
   - [2349.设计数字容器系统](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README.md)
   - [2350.不可能得到的最短骰子序列](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md)
+  - [2351.第一个出现两次的字母](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md)
+  - [2352.相等行列对](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README.md)
+  - [2353.设计食物评分系统](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README.md)
+  - [2354.优质数对的数目](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md)
+  - [2355.Maximum Number of Books You Can Take](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md)
