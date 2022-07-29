@@ -8,7 +8,14 @@
 
 <p>You are given an integer <code>capacity</code>, which represents the <strong>maximum</strong> number of passengers that can get on each bus.</p>
 
-<p>The passengers will get on the next available bus. You can get on a bus that will depart at <code>x</code> minutes if you arrive at <code>y</code> minutes where <code>y &lt;= x</code>, and the bus is not full. Passengers with the <strong>earliest</strong> arrival times get on the bus first.</p>
+<p>When a passenger arrives, they will wait in line for the next available bus. You can get on a bus that departs at <code>x</code> minutes if you arrive at <code>y</code> minutes where <code>y &lt;= x</code>, and the bus is not full. Passengers with the <strong>earliest</strong> arrival times get on the bus first.</p>
+
+<p>More formally when a bus arrives, either:</p>
+
+<ul>
+	<li>If <code>capacity</code> or fewer passengers are waiting for a bus, they will <strong>all</strong> get on the bus, or</li>
+	<li>The <code>capacity</code> passengers with the <strong>earliest</strong> arrival times will get on the bus.</li>
+</ul>
 
 <p>Return <em>the latest time you may arrive at the bus station to catch a bus</em>. You <strong>cannot</strong> arrive at the same time as another passenger.</p>
 
@@ -20,21 +27,21 @@
 <pre>
 <strong>Input:</strong> buses = [10,20], passengers = [2,17,18,19], capacity = 2
 <strong>Output:</strong> 16
-<strong>Explanation:</strong> 
-The 1<sup>st</sup> bus departs with the 1<sup>st</sup> passenger. 
-The 2<sup>nd</sup> bus departs with you and the 2<sup>nd</sup> passenger.
-Note that you must not arrive at the same time as the passengers, which is why you must arrive before the 2<sup>nd</sup><sup> </sup>passenger to catch the bus.</pre>
+<strong>Explanation:</strong> Suppose you arrive at time 16.
+At time 10, the first bus departs with the 0<sup>th</sup> passenger. 
+At time 20, the second bus departs with you and the 1<sup>st</sup> passenger.
+Note that you may not arrive at the same time as another passenger, which is why you must arrive before the 1<sup>st</sup> passenger to catch the bus.</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> buses = [20,30,10], passengers = [19,13,26,4,25,11,21], capacity = 2
 <strong>Output:</strong> 20
-<strong>Explanation:</strong> 
-The 1<sup>st</sup> bus departs with the 4<sup>th</sup> passenger. 
-The 2<sup>nd</sup> bus departs with the 6<sup>th</sup>&nbsp;and 2<sup>nd</sup><sup> </sup>passengers.
-The 3<sup>rd</sup> bus departs with the 1<sup>s</sup><sup>t</sup> passenger and you.
-</pre>
+<strong>Explanation:</strong> Suppose you arrive at time 20.
+At time 10, the first bus departs with the 3<sup>rd</sup> passenger. 
+At time 20, the second bus departs with the 5<sup>th</sup> and 1<sup>st</sup> passengers.
+At time 30, the third bus departs with the 0<sup>th</sup> passenger and you.
+Notice if you had arrived any later, then the 6<sup>th</sup> passenger would have taken your seat on the third bus.</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

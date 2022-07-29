@@ -7,10 +7,10 @@
 <p>Implement a SnapshotArray that supports the following interface:</p>
 
 <ul>
-	<li><code>SnapshotArray(int length)</code> initializes an array-like data structure with the given length.&nbsp; <strong>Initially, each element equals 0</strong>.</li>
+	<li><code>SnapshotArray(int length)</code> initializes an array-like data structure with the given length. <strong>Initially, each element equals 0</strong>.</li>
 	<li><code>void set(index, val)</code> sets the element at the given <code>index</code> to be equal to <code>val</code>.</li>
-	<li><code>int snap()</code>&nbsp;takes a snapshot of the array and returns the <code>snap_id</code>: the total number of times we called <code>snap()</code> minus <code>1</code>.</li>
-	<li><code>int get(index, snap_id)</code>&nbsp;returns the value at the given <code>index</code>, at the time we took the snapshot with the given <code>snap_id</code></li>
+	<li><code>int snap()</code> takes a snapshot of the array and returns the <code>snap_id</code>: the total number of times we called <code>snap()</code> minus <code>1</code>.</li>
+	<li><code>int get(index, snap_id)</code> returns the value at the given <code>index</code>, at the time we took the snapshot with the given <code>snap_id</code></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -31,11 +31,11 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= length&nbsp;&lt;= 50000</code></li>
-	<li>At most <code>50000</code>&nbsp;calls will be made to <code>set</code>, <code>snap</code>, and <code>get</code>.</li>
-	<li><code>0 &lt;= index&nbsp;&lt;&nbsp;length</code></li>
-	<li><code>0 &lt;=&nbsp;snap_id &lt;&nbsp;</code>(the total number of times we call <code>snap()</code>)</li>
-	<li><code>0 &lt;=&nbsp;val &lt;= 10^9</code></li>
+	<li><code>1 &lt;= length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= index &lt; length</code></li>
+	<li><code>0 &lt;= val &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= snap_id &lt; </code>(the total number of times we call <code>snap()</code>)</li>
+	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>set</code>, <code>snap</code>, and <code>get</code>.</li>
 </ul>
 
 ## Solutions

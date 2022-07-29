@@ -10,7 +10,7 @@ class Solution:
             j = i
             while j < n and expression[j] not in '+-':
                 j += 1
-            s = expression[i: j]
+            s = expression[i:j]
             a, b = s.split('/')
             x += sign * int(a) * y // int(b)
             i = j

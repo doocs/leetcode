@@ -39,7 +39,7 @@
 <ul>
 	<li><code>1 &lt;= num.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>num</code> consists of only <strong>digits</strong> and does not contain <strong>leading zeros</strong>.</li>
-	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

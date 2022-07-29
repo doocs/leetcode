@@ -60,7 +60,6 @@ It can be proven that 13 is the maximum number of books you can take.
 	<li><code>0 &lt;= books[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

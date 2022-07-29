@@ -37,10 +37,9 @@ The output order does not matter, returning [9,0] is fine too.
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>s</code> consists of lower-case English letters.</li>
 	<li><code>1 &lt;= words.length &lt;= 5000</code></li>
 	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
-	<li><code>words[i]</code>&nbsp;consists of lower-case English letters.</li>
+	<li><code>s</code> and <code>words[i]</code> consist of lowercase English letters.</li>
 </ul>
 
 ## Solutions

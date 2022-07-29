@@ -356,7 +356,7 @@ public:
         head = new Node(-1, maxLevel);
         level = 0;
     }
-    
+
     bool search(int target) {
         Node* curr = head;
         for (int i = level - 1; ~i; --i)
@@ -366,7 +366,7 @@ public:
         }
         return false;
     }
-    
+
     void add(int num) {
         Node* curr = head;
         int lv = randomLevel();
@@ -382,7 +382,7 @@ public:
             }
         }
     }
-    
+
     bool erase(int num) {
         Node* curr = head;
         bool ok = false;
