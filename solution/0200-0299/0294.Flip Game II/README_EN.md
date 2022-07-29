@@ -63,6 +63,34 @@ class Solution:
         return dfs(mask)
 ```
 
+```python
+class Solution:
+    def canWin(self, currentState: str) -> bool:
+        def win(i):
+            if sg[i] != -1:
+                return sg[i]
+            vis = [False] * n
+            for j in range(i - 1):
+                vis[win(j) ^ win(i - j - 2)] = True
+            for j in range(n):
+                if not vis[j]:
+                    sg[i] = j
+                    return j
+            return 0
+
+        n = len(currentState)
+        sg = [-1] * (n + 1)
+        sg[0] = sg[1] = 0
+        ans = i = 0
+        while i < n:
+            j = i
+            while j < n and currentState[j] == '+':
+                j += 1
+            ans ^= win(j - i)
+            i = j + 1
+        return ans > 0
+```
+
 ### **Java**
 
 ```java
@@ -101,6 +129,47 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    private int n;
+    private int[] sg;
+
+    public boolean canWin(String currentState) {
+        n = currentState.length();
+        sg = new int[n + 1];
+        Arrays.fill(sg, -1);
+        int i = 0;
+        int ans = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && currentState.charAt(j) == '+') {
+                ++j;
+            }
+            ans ^= win(j - i);
+            i = j + 1;
+        }
+        return ans > 0;
+    }
+
+    private int win(int i) {
+        if (sg[i] != -1) {
+            return sg[i];
+        }
+        boolean[] vis = new boolean[n];
+        for (int j = 0; j < i - 1; ++j) {
+            vis[win(j) ^ win(i - j - 2)] = true;
+        }
+        for (int j = 0; j < n; ++j) {
+            if (!vis[j]) {
+                sg[i] = j;
+                return j;
+            }
+        }
+        return 0;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -129,6 +198,35 @@ public:
         }
         memo[mask] = false;
         return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canWin(string currentState) {
+        int n = currentState.size();
+        vector<int> sg(n + 1, -1);
+        sg[0] = 0, sg[1] = 0;
+
+        function<int(int)> win = [&](int i) {
+            if (sg[i] != -1) return sg[i];
+            vector<bool> vis(n);
+            for (int j = 0; j < i - 1; ++j) vis[win(j) ^ win(i - j - 2)] = true;
+            for (int j = 0; j < n; ++j) if (!vis[j]) return sg[i] = j;
+            return 0;
+        };
+
+        int ans = 0, i = 0;
+        while (i < n)
+        {
+            int j = i;
+            while (j < n && currentState[j] == '+') ++j;
+            ans ^= win(j - i);
+            i = j + 1;
+        }
+        return ans > 0;
     }
 };
 ```
@@ -164,6 +262,43 @@ func canWin(currentState string) bool {
 		return false
 	}
 	return dfs(mask)
+}
+```
+
+```go
+func canWin(currentState string) bool {
+	n := len(currentState)
+	sg := make([]int, n+1)
+	for i := range sg {
+		sg[i] = -1
+	}
+	var win func(i int) int
+	win = func(i int) int {
+		if sg[i] != -1 {
+			return sg[i]
+		}
+		vis := make([]bool, n)
+		for j := 0; j < i-1; j++ {
+			vis[win(j)^win(i-j-2)] = true
+		}
+		for j := 0; j < n; j++ {
+			if !vis[j] {
+				sg[i] = j
+				return j
+			}
+		}
+		return 0
+	}
+	ans, i := 0, 0
+	for i < n {
+		j := i
+		for j < n && currentState[j] == '+' {
+			j++
+		}
+		ans ^= win(j - i)
+		i = j + 1
+	}
+	return ans > 0
 }
 ```
 

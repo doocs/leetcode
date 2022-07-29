@@ -46,6 +46,31 @@
 
 **方法一：状态压缩 + 记忆化搜索**
 
+**方法二：Sprague-Grundy 定理**
+
+Sprague-Grundy 定理为游戏的每一个状态定义了一个 Sprague-Grundy 数（简称 SG 数），游戏状态的组合相当于 SG 数的异或运算。
+
+Sprague-Grundy 定理的完整表述如下：
+
+若一个游戏满足以下条件：
+
+1. 双人、回合制
+1. 信息完全公开
+1. 无随机因素
+1. 必然在有限步内结束，且每步的走法数有限
+1. 没有平局
+1. 双方可采取的行动及胜利目标都相同
+1. 这个胜利目标是自己亲手达成终局状态，或者说走最后一步者为胜（normal play）；则游戏中的每个状态可以按如下规则赋予一个非负整数，称为 Sprague-Grundy 数：$SG(A)=mex\{SG(B)|A->B\}$。（式中 $A$、$B$ 代表状态，代表 $A$ 状态经一步行动可以到达 $B$ 状态，$mex$ 表示一个集合所不包含的最小非负整数）
+
+SG 数有如下性质：
+
+1. SG 数为 0 的状态，后手必胜；SG 数为正的状态，先手必胜；
+1. 若一个母状态可以拆分成多个相互独立的子状态，则母状态的 SG 数等于各个子状态的 SG 数的异或。
+
+参考资料：[Sprague-Grundy 定理是怎么想出来的](https://zhuanlan.zhihu.com/p/20611132)
+
+时间复杂度 $O(n^2)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,6 +95,34 @@ class Solution:
             if c == '+':
                 mask |= 1 << i
         return dfs(mask)
+```
+
+```python
+class Solution:
+    def canWin(self, currentState: str) -> bool:
+        def win(i):
+            if sg[i] != -1:
+                return sg[i]
+            vis = [False] * n
+            for j in range(i - 1):
+                vis[win(j) ^ win(i - j - 2)] = True
+            for j in range(n):
+                if not vis[j]:
+                    sg[i] = j
+                    return j
+            return 0
+
+        n = len(currentState)
+        sg = [-1] * (n + 1)
+        sg[0] = sg[1] = 0
+        ans = i = 0
+        while i < n:
+            j = i
+            while j < n and currentState[j] == '+':
+                j += 1
+            ans ^= win(j - i)
+            i = j + 1
+        return ans > 0
 ```
 
 ### **Java**
@@ -112,6 +165,47 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    private int n;
+    private int[] sg;
+
+    public boolean canWin(String currentState) {
+        n = currentState.length();
+        sg = new int[n + 1];
+        Arrays.fill(sg, -1);
+        int i = 0;
+        int ans = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && currentState.charAt(j) == '+') {
+                ++j;
+            }
+            ans ^= win(j - i);
+            i = j + 1;
+        }
+        return ans > 0;
+    }
+
+    private int win(int i) {
+        if (sg[i] != -1) {
+            return sg[i];
+        }
+        boolean[] vis = new boolean[n];
+        for (int j = 0; j < i - 1; ++j) {
+            vis[win(j) ^ win(i - j - 2)] = true;
+        }
+        for (int j = 0; j < n; ++j) {
+            if (!vis[j]) {
+                sg[i] = j;
+                return j;
+            }
+        }
+        return 0;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -140,6 +234,35 @@ public:
         }
         memo[mask] = false;
         return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canWin(string currentState) {
+        int n = currentState.size();
+        vector<int> sg(n + 1, -1);
+        sg[0] = 0, sg[1] = 0;
+
+        function<int(int)> win = [&](int i) {
+            if (sg[i] != -1) return sg[i];
+            vector<bool> vis(n);
+            for (int j = 0; j < i - 1; ++j) vis[win(j) ^ win(i - j - 2)] = true;
+            for (int j = 0; j < n; ++j) if (!vis[j]) return sg[i] = j;
+            return 0;
+        };
+
+        int ans = 0, i = 0;
+        while (i < n)
+        {
+            int j = i;
+            while (j < n && currentState[j] == '+') ++j;
+            ans ^= win(j - i);
+            i = j + 1;
+        }
+        return ans > 0;
     }
 };
 ```
@@ -175,6 +298,43 @@ func canWin(currentState string) bool {
 		return false
 	}
 	return dfs(mask)
+}
+```
+
+```go
+func canWin(currentState string) bool {
+	n := len(currentState)
+	sg := make([]int, n+1)
+	for i := range sg {
+		sg[i] = -1
+	}
+	var win func(i int) int
+	win = func(i int) int {
+		if sg[i] != -1 {
+			return sg[i]
+		}
+		vis := make([]bool, n)
+		for j := 0; j < i-1; j++ {
+			vis[win(j)^win(i-j-2)] = true
+		}
+		for j := 0; j < n; j++ {
+			if !vis[j] {
+				sg[i] = j
+				return j
+			}
+		}
+		return 0
+	}
+	ans, i := 0, 0
+	for i < n {
+		j := i
+		for j < n && currentState[j] == '+' {
+			j++
+		}
+		ans ^= win(j - i)
+		i = j + 1
+	}
+	return ans > 0
 }
 ```
 
