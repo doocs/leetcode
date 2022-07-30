@@ -62,13 +62,85 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minSubsequence(self, nums: List[int]) -> List[int]:
+        nums.sort(reverse=True)
+        s = sum(nums)
+        ans = []
+        t = 0
+        for v in nums:
+            ans.append(v)
+            t += v
+            if t > s - t:
+                break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> minSubsequence(int[] nums) {
+        Arrays.sort(nums);
+        List<Integer> ans = new ArrayList<>();
+        int s = 0;
+        for (int v : nums) {
+            s += v;
+        }
+        int t = 0;
+        for (int i = nums.length - 1; i >= 0; --i) {
+            t += nums[i];
+            ans.add(nums[i]);
+            if (t > s - t) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> minSubsequence(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int s = 0;
+        for (int v : nums) s += v;
+        int t = 0;
+        vector<int> ans;
+        for (int i = nums.size() - 1; ~i; --i)
+        {
+            t += nums[i];
+            ans.push_back(nums[i]);
+            if (t > s - t) break;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSubsequence(nums []int) []int {
+	sort.Ints(nums)
+	s, t := 0, 0
+	for _, v := range nums {
+		s += v
+	}
+	ans := []int{}
+	for i := len(nums) - 1; i >= 0; i-- {
+		t += nums[i]
+		ans = append(ans, nums[i])
+		if t > s-t {
+			break
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
