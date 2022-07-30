@@ -46,6 +46,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：BFS**
+
+BFS 层次遍历，求每一层的节点和，找出节点和最大的层，若有多个层的节点和最大，则返回最小的层。
+
+**方法二：DFS**
+
+
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,24 +68,48 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxLevelSum(self, root: TreeNode) -> int:
-        ans = (float('-inf'), 0)
+    def maxLevelSum(self, root: Optional[TreeNode]) -> int:
         q = deque([root])
-        l = 0
+        mx = -inf
+        i = 0
         while q:
-            l += 1
-            n = len(q)
+            i += 1
             s = 0
-            for _ in range(n):
+            for _ in range(len(q)):
                 node = q.popleft()
                 s += node.val
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            if s > ans[0]:
-                ans = (s, l)
-        return ans[1]
+            if mx < s:
+                mx = s
+                ans = i
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+        def dfs(node, i):
+            if node is None:
+                return
+            if i == len(s):
+                s.append(node.val)
+            else:
+                s[i] += node.val
+            dfs(node.left, i + 1)
+            dfs(node.right, i + 1)
+
+        s = []
+        dfs(root, 0)
+        return s.index(max(s)) + 1
 ```
 
 ### **Java**
@@ -101,34 +133,80 @@ class Solution:
  * }
  */
 class Solution {
-
     public int maxLevelSum(TreeNode root) {
-        int[] ans = new int[] { Integer.MIN_VALUE, 0 };
-        int l = 0;
-        Deque<TreeNode> q = new LinkedList<>();
-        q.offerLast(root);
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        int mx = Integer.MIN_VALUE;
+        int i = 0;
+        int ans = 0;
         while (!q.isEmpty()) {
-            ++l;
+            ++i;
             int s = 0;
-            for (int i = q.size(); i > 0; --i) {
+            for (int n = q.size(); n > 0; --n) {
                 TreeNode node = q.pollFirst();
                 s += node.val;
                 if (node.left != null) {
-                    q.offerLast(node.left);
+                    q.offer(node.left);
                 }
                 if (node.right != null) {
-                    q.offerLast(node.right);
+                    q.offer(node.right);
                 }
             }
-            if (s > ans[0]) {
-                ans[0] = s;
-                ans[1] = l;
+            if (mx < s) {
+                mx = s;
+                ans = i;
             }
         }
-        return ans[1];
+        return ans;
     }
 }
+```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private List<Integer> s = new ArrayList<>();
+
+    public int maxLevelSum(TreeNode root) {
+        dfs(root, 0);
+        int mx = Integer.MIN_VALUE;
+        int ans = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            if (mx < s.get(i)) {
+                mx = s.get(i);
+                ans = i + 1;
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int i) {
+        if (root == null) {
+            return;
+        }
+        if (i == s.size()) {
+            s.add(root.val);
+        } else {
+            s.set(i, s.get(i) + root.val);
+        }
+        dfs(root.left, i + 1);
+        dfs(root.right, i + 1);
+    }
+}
 ```
 
 ### **C++**
@@ -148,29 +226,58 @@ class Solution {
 class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
-        vector<int> ans(2);
-        ans[0] = INT_MIN;
         queue<TreeNode*> q{{root}};
-        int l = 0;
+        int mx = INT_MIN;
+        int ans = 0;
+        int i = 0;
         while (!q.empty())
         {
-            ++l;
+            ++i;
             int s = 0;
-            for (int i = q.size(); i > 0; --i)
+            for (int n = q.size(); n; --n)
             {
-                TreeNode* node = q.front();
+                root = q.front();
                 q.pop();
-                s += node->val;
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
+                s += root->val;
+                if (root->left) q.push(root->left);
+                if (root->right) q.push(root->right);
             }
-            if (s > ans[0])
-            {
-                ans[0] = s;
-                ans[1] = l;
-            }
+            if (mx < s) mx = s, ans = i;
         }
-        return ans[1];
+        return ans;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxLevelSum(TreeNode* root) {
+        vector<int> s;
+        dfs(root, 0, s);
+        int mx = INT_MIN;
+        int ans = 0;
+        for (int i = 0; i < s.size(); ++i) if (mx < s[i]) mx = s[i], ans = i + 1;
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int i, vector<int>& s) {
+        if (!root) return;
+        if (s.size() == i) s.push_back(root->val);
+        else s[i] += root->val;
+        dfs(root->left, i + 1, s);
+        dfs(root->right, i + 1, s);
     }
 };
 ```
@@ -187,28 +294,66 @@ public:
  * }
  */
 func maxLevelSum(root *TreeNode) int {
-	ans := [2]int{math.MinInt32, 0}
 	q := []*TreeNode{root}
-	l := 0
+	mx := -0x3f3f3f3f
+	i := 0
+	ans := 0
 	for len(q) > 0 {
-		l++
+		i++
 		s := 0
-		for i := len(q); i > 0; i-- {
-			node := q[0]
+		for n := len(q); n > 0; n-- {
+			root = q[0]
 			q = q[1:]
-			s += node.Val
-			if node.Left != nil {
-				q = append(q, node.Left)
+			s += root.Val
+			if root.Left != nil {
+				q = append(q, root.Left)
 			}
-			if node.Right != nil {
-				q = append(q, node.Right)
+			if root.Right != nil {
+				q = append(q, root.Right)
 			}
 		}
-		if s > ans[0] {
-			ans = [2]int{s, l}
+		if mx < s {
+			mx = s
+			ans = i
 		}
 	}
-	return ans[1]
+	return ans
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxLevelSum(root *TreeNode) int {
+	s := []int{}
+	var dfs func(*TreeNode, int)
+	dfs = func(root *TreeNode, i int) {
+		if root == nil {
+			return
+		}
+		if len(s) == i {
+			s = append(s, root.Val)
+		} else {
+			s[i] += root.Val
+		}
+		dfs(root.Left, i+1)
+		dfs(root.Right, i+1)
+	}
+	dfs(root, 0)
+	ans, mx := 0, -0x3f3f3f3f
+	for i, v := range s {
+		if mx < v {
+			mx = v
+			ans = i + 1
+		}
+	}
+	return ans
 }
 ```
 

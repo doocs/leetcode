@@ -15,28 +15,29 @@
  */
 class Solution {
     public int maxLevelSum(TreeNode root) {
-        int[] ans = new int[]{Integer.MIN_VALUE, 0};
-        int l = 0;
-        Deque<TreeNode> q = new LinkedList<>();
-        q.offerLast(root);
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        int mx = Integer.MIN_VALUE;
+        int i = 0;
+        int ans = 0;
         while (!q.isEmpty()) {
-            ++l;
+            ++i;
             int s = 0;
-            for (int i = q.size(); i > 0; --i) {
+            for (int n = q.size(); n > 0; --n) {
                 TreeNode node = q.pollFirst();
                 s += node.val;
                 if (node.left != null) {
-                    q.offerLast(node.left);
+                    q.offer(node.left);
                 }
                 if (node.right != null) {
-                    q.offerLast(node.right);
+                    q.offer(node.right);
                 }
             }
-            if (s > ans[0]) {
-                ans[0] = s;
-                ans[1] = l;
+            if (mx < s) {
+                mx = s;
+                ans = i;
             }
         }
-        return ans[1];
+        return ans;
     }
 }

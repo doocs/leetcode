@@ -5,21 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxLevelSum(self, root: TreeNode) -> int:
-        ans = (float('-inf'), 0)
+    def maxLevelSum(self, root: Optional[TreeNode]) -> int:
         q = deque([root])
-        l = 0
+        mx = -inf
+        i = 0
         while q:
-            l += 1
-            n = len(q)
+            i += 1
             s = 0
-            for _ in range(n):
+            for _ in range(len(q)):
                 node = q.popleft()
                 s += node.val
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            if s > ans[0]:
-                ans = (s, l)
-        return ans[1]
+            if mx < s:
+                mx = s
+                ans = i
+        return ans
