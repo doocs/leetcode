@@ -2,6 +2,20 @@
 
 [中文文档](/solution/CONTEST_README.md)
 
+## Contest Rating & Badge
+
+The contest badge is calculated based on the contest rating.
+
+For LeetCoders with rating >=1600,
+If you are in the top 5% of the contest rating, you’ll get the “Guardian” badge.
+
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif)
+
+If you are in the top 25% of the contest rating, you’ll get the “Knight” badge.
+
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif)
+
+For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange on the ranking board. You'll also have the honor with you when you post/comment under discuss.
 
 ## Rating Predictor
 
