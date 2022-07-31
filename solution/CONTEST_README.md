@@ -9,6 +9,14 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 304 场周赛(2022-07-31 10:30, 90 分钟) 参赛人数 7372
+
+- [2357. 使数组中所有元素都等于零](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README.md)
+- [2358. 分组的最大数量](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md)
+- [2359. 找到离给定两个节点最近的节点](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README.md)
+- [2360. 图中的最长环](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
+
+
 #### 第 303 场周赛(2022-07-24 10:30, 90 分钟) 参赛人数 7032
 
 - [2351. 第一个出现两次的字母](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md)

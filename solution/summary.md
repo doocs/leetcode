@@ -2401,3 +2401,8 @@
   - [2353.设计食物评分系统](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README.md)
   - [2354.优质数对的数目](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md)
   - [2355.Maximum Number of Books You Can Take](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md)
+  - [2356.Number of Unique Subjects Taught by Each Teacher](/solution/2300-2399/2356.Number%20of%20Unique%20Subjects%20Taught%20by%20Each%20Teacher/README.md)
+  - [2357.使数组中所有元素都等于零](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README.md)
+  - [2358.分组的最大数量](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md)
+  - [2359.找到离给定两个节点最近的节点](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README.md)
+  - [2360.图中的最长环](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
