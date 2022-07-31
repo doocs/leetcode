@@ -9,10 +9,10 @@
 
 如果竞赛积分处于段位的临界值，在每周比赛结束重新计算后会出现段位升级或降级的情况。段位升级或降级后会自动替换对应的荣誉勋章。
 
-| 段位  | 比例   | 段位名   | 分数线    | 勋章展示                                                                    |
+| 段位  | 比例   | 段位名   | 分数线（守门员）    | 勋章展示                                                                    |
 | ----- | ------ | -------- | --------- | --------------------------------------------------------------------------- |
-| $LV3$ | $5\%$  | $Guardian$ | $\ge2250$ | ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif) |
-| $LV2$ | $20\%$ | $Knight$   | $\ge1860$ | ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif)   |
+| $LV3$ | $5\%$  | $Guardian$ | $\ge2216$ | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 100px;" /></p> |
+| $LV2$ | $20\%$ | $Knight$   | $\ge1863$ | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 100px;" /></p>   |
 | $LV1$ | $75\%$ | -        | -         | -                                                                           |
 
 ## 赛后估分网站
