@@ -9,11 +9,11 @@ The contest badge is calculated based on the contest rating.
 For LeetCoders with rating >=1600,
 If you are in the top 5% of the contest rating, you’ll get the “Guardian” badge.
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 100px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p>
 
 If you are in the top 25% of the contest rating, you’ll get the “Knight” badge.
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 100px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>
 
 For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange on the ranking board. You'll also have the honor with you when you post/comment under discuss.
 

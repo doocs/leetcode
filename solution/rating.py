@@ -10,17 +10,23 @@ url = 'https://leetcode.cn/graphql'
 # 分页加载排名列表
 @cache
 def load_page(page):
-    query = "{\n  localRankingV2(page:" + str(
-        page) + ") {\nmyRank {\nattendedContestCount\ncurrentRatingRanking\ndataRegion\nisDeleted\n" \
-                "user {\nrealName\nuserAvatar\nuserSlug\n__typename\n}\n__typename\n}\npage\ntotalUsers\nuserPerPage\n" \
-                "rankingNodes {\nattendedContestCount\ncurrentRatingRanking\ndataRegion\nisDeleted\n" \
-                "user {\nrealName\nuserAvatar\nuserSlug\n__typename\n}\n__typename\n}\n__typename\n  }\n}\n"
+    query = (
+        "{\n  localRankingV2(page:"
+        + str(page)
+        + ") {\nmyRank {\nattendedContestCount\ncurrentRatingRanking\ndataRegion\nisDeleted\n"
+        "user {\nrealName\nuserAvatar\nuserSlug\n__typename\n}\n__typename\n}\npage\ntotalUsers\nuserPerPage\n"
+        "rankingNodes {\nattendedContestCount\ncurrentRatingRanking\ndataRegion\nisDeleted\n"
+        "user {\nrealName\nuserAvatar\nuserSlug\n__typename\n}\n__typename\n}\n__typename\n  }\n}\n"
+    )
     retry = 0
     while retry < 3:
         resp = requests.post(url=url, json={'query': query})
         if resp.status_code == 200:
             nodes = resp.json()['data']['localRankingV2']['rankingNodes']
-            return [(int(nd['currentRatingRanking']), nd['user']['userSlug']) for nd in nodes]
+            return [
+                (int(nd['currentRatingRanking']), nd['user']['userSlug'])
+                for nd in nodes
+            ]
         else:
             retry += 1
     return None
@@ -30,16 +36,21 @@ def load_page(page):
 @cache
 def get_user_rank(uid):
     operation_name = "userContest"
-    query = "query userContest($userSlug: String!){\n userContestRanking(userSlug: $userSlug){" \
-            "\ncurrentRatingRanking\nratingHistory\n}\n}\n "
+    query = (
+        "query userContest($userSlug: String!){\n userContestRanking(userSlug: $userSlug){"
+        "\ncurrentRatingRanking\nratingHistory\n}\n}\n "
+    )
     variables = {'userSlug': uid}
     retry = 0
     while retry < 3:
-        resp = requests.post(url=url, json={
-            'operationName': operation_name,
-            'query': query,
-            'variables': variables
-        })
+        resp = requests.post(
+            url=url,
+            json={
+                'operationName': operation_name,
+                'query': query,
+                'variables': variables,
+            },
+        )
         if resp.status_code == 200:
             ranking = resp.json()['data']['userContestRanking']
             score = None
@@ -48,7 +59,11 @@ def get_user_rank(uid):
                 mth = re.search(r'(\d+(?:\.\d+)?)(?:, null)*]$', s)
                 if mth:
                     score = mth.group(1)
-            return (ranking['currentRatingRanking'], float(score)) if score else (None, None)
+            return (
+                (ranking['currentRatingRanking'], float(score))
+                if score
+                else (None, None)
+            )
         else:
             retry += 1
     return None, None
@@ -103,6 +118,10 @@ print(f'1600 分以上共计 {total} 人')
 guardian = int(total * 0.05)
 knight = int(total * 0.25)
 g_first, g_last = get_user(1), get_user(guardian)
-print(f'Guardian(top 5%): 共 {guardian} 名，守门员 {g_last[0]} 分（uid: {g_last[1]}），最高 {g_first[0]} 分（uid: {g_first[1]}）')
+print(
+    f'Guardian(top 5%): 共 {guardian} 名，守门员 {g_last[0]} 分（uid: {g_last[1]}），最高 {g_first[0]} 分（uid: {g_first[1]}）'
+)
 k_first, k_last = get_user(guardian + 1), get_user(knight)
-print(f'Knight(top 25%): 共 {knight} 名，守门员 {k_last[0]} 分（uid: {k_last[1]}），最高 {k_first[0]} 分（uid: {k_first[1]}）')
+print(
+    f'Knight(top 25%): 共 {knight} 名，守门员 {k_last[0]} 分（uid: {k_last[1]}），最高 {k_first[0]} 分（uid: {k_first[1]}）'
+)
