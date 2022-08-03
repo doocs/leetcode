@@ -44,13 +44,79 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 ### **Python3**
 
 ```python
-
+class Solution:
+    def orderlyQueue(self, s: str, k: int) -> str:
+        if k == 1:
+            ans = s
+            for _ in range(len(s) - 1):
+                s = s[1:] + s[0]
+                ans = min(ans, s)
+            return ans
+        return "".join(sorted(s))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String orderlyQueue(String s, int k) {
+        if (k == 1) {
+            String ans = s;
+            StringBuilder sb = new StringBuilder(s);
+            for (int i = 0; i < s.length() - 1; ++i) {
+                sb.append(sb.charAt(0)).deleteCharAt(0);
+                if (sb.toString().compareTo(ans) < 0) {
+                    ans = sb.toString();
+                }
+            }
+            return ans;
+        }
+        char[] cs = s.toCharArray();
+        Arrays.sort(cs);
+        return String.valueOf(cs);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string orderlyQueue(string s, int k) {
+        if (k == 1) {
+            string ans = s;
+            for (int i = 0; i < s.size() - 1; ++i)
+            {
+                s = s.substr(1) + s[0];
+                if (s < ans) ans = s;
+            }
+            return ans;
+        }
+        sort(s.begin(), s.end());
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func orderlyQueue(s string, k int) string {
+	if k == 1 {
+		ans := s
+		for i := 0; i < len(s)-1; i++ {
+			s = s[1:] + s[:1]
+			if s < ans {
+				ans = s
+			}
+		}
+		return ans
+	}
+	t := []byte(s)
+	sort.Slice(t, func(i, j int) bool { return t[i] < t[j] })
+	return string(t)
+}
 ```
 
 ### **...**
