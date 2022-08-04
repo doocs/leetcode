@@ -66,6 +66,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 贪心**
+
+用 $times$ 数组记录每个怪物最晚可被消灭的时间。对于第 $i$ 个怪物，最晚可被消灭的时间满足：
+
+$$times[i] = \lfloor \frac{dist[i]-1}{speed[i]} \rfloor$$
+
+我们对 $times$ 数组升序排列，然后遍历 $times$ 数组。对于第 $i$ 个怪物，如果 $times[i] \geq i$，说明第 $i$ 个怪物可以被消灭，否则说明第 $i$ 个怪物无法被消灭，直接返回 $i$ 即可。
+
+若所有怪物都可以被消灭，则返回 $n$。
+
+时间复杂度 $O(nlogn)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,13 +87,12 @@
 ```python
 class Solution:
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
-        n = len(dist)
-        times = [(dist[i] - 1) // speed[i] for i in range(n)]
+        times = [(d - 1) // s for d, s in zip(dist, speed)]
         times.sort()
-        for i in range(n):
-            if times[i] < i:
+        for i, t in enumerate(times):
+            if t < i:
                 return i
-        return n
+        return len(dist)
 ```
 
 ### **Java**
@@ -158,16 +169,35 @@ public:
 func eliminateMaximum(dist []int, speed []int) int {
 	n := len(dist)
 	times := make([]int, n)
-	for i := 0; i < n; i++ {
-		times[i] = (dist[i] - 1) / speed[i]
+	for i, d := range dist {
+		times[i] = (d - 1) / speed[i]
 	}
 	sort.Ints(times)
-	for i := 0; i < n; i++ {
-		if times[i] < i {
+	for i, t := range times {
+		if t < i {
 			return i
 		}
 	}
 	return n
+}
+```
+
+### **TypeScript**
+
+```ts
+function eliminateMaximum(dist: number[], speed: number[]): number {
+    const n = dist.length;
+    const times = new Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        times[i] = Math.floor((dist[i] - 1) / speed[i]);
+    }
+    times.sort((a, b) => a - b);
+    for (let i = 0; i < n; ++i) {
+        if (times[i] < i) {
+            return i;
+        }
+    }
+    return n;
 }
 ```
 

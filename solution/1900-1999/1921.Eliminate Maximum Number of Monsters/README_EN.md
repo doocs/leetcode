@@ -66,13 +66,12 @@ You can only eliminate 1 monster.
 ```python
 class Solution:
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
-        n = len(dist)
-        times = [(dist[i] - 1) // speed[i] for i in range(n)]
+        times = [(d - 1) // s for d, s in zip(dist, speed)]
         times.sort()
-        for i in range(n):
-            if times[i] < i:
+        for i, t in enumerate(times):
+            if t < i:
                 return i
-        return n
+        return len(dist)
 ```
 
 ### **Java**
@@ -147,16 +146,35 @@ public:
 func eliminateMaximum(dist []int, speed []int) int {
 	n := len(dist)
 	times := make([]int, n)
-	for i := 0; i < n; i++ {
-		times[i] = (dist[i] - 1) / speed[i]
+	for i, d := range dist {
+		times[i] = (d - 1) / speed[i]
 	}
 	sort.Ints(times)
-	for i := 0; i < n; i++ {
-		if times[i] < i {
+	for i, t := range times {
+		if t < i {
 			return i
 		}
 	}
 	return n
+}
+```
+
+### **TypeScript**
+
+```ts
+function eliminateMaximum(dist: number[], speed: number[]): number {
+    const n = dist.length;
+    const times = new Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        times[i] = Math.floor((dist[i] - 1) / speed[i]);
+    }
+    times.sort((a, b) => a - b);
+    for (let i = 0; i < n; ++i) {
+        if (times[i] < i) {
+            return i;
+        }
+    }
+    return n;
 }
 ```
 
