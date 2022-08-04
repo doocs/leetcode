@@ -143,6 +143,46 @@ func minSubsequence(nums []int) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minSubsequence(nums: number[]): number[] {
+    nums.sort((a, b) => b - a);
+    const sum = nums.reduce((r, c) => r + c);
+    const res: number[] = [];
+    let t = 0;
+    for (const num of nums) {
+        t += num;
+        res.push(num);
+        if (t > sum - t) {
+            break;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_subsequence(mut nums: Vec<i32>) -> Vec<i32> {
+        nums.sort_by(|a, b| b.cmp(a));
+        let sum = nums.iter().sum::<i32>();
+        let mut res = vec![];
+        let mut t = 0;
+        for num in nums.into_iter() {
+            t += num;
+            res.push(num);
+            if t > sum - t {
+                break;
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
