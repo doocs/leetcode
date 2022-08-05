@@ -40,7 +40,6 @@ The length of this cycle is 3, so 3 is returned.
 	<li><code>edges[i] != i</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

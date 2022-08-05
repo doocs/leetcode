@@ -39,11 +39,9 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == price.length</code></li>
-	<li><code>n == needs.length</code></li>
+	<li><code>n == price.length == needs.length</code></li>
 	<li><code>1 &lt;= n &lt;= 6</code></li>
-	<li><code>0 &lt;= price[i] &lt;= 10</code></li>
-	<li><code>0 &lt;= needs[i] &lt;= 10</code></li>
+	<li><code>0 &lt;= price[i], needs[i] &lt;= 10</code></li>
 	<li><code>1 &lt;= special.length &lt;= 100</code></li>
 	<li><code>special[i].length == n + 1</code></li>
 	<li><code>0 &lt;= special[i][j] &lt;= 50</code></li>

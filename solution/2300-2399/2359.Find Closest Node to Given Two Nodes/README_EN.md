@@ -44,7 +44,6 @@ The maximum of those two distances is 2. It can be proven that we cannot get a n
 	<li><code>0 &lt;= node1, node2 &lt; n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

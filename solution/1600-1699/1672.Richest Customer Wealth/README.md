@@ -159,7 +159,7 @@ class Solution {
             }
         }
         return max
-    }   
+    }
 }
 ```
 

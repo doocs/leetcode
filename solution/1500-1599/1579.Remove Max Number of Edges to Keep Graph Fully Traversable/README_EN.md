@@ -4,17 +4,17 @@
 
 ## Description
 
-<p>Alice and Bob have an undirected graph of&nbsp;<code>n</code>&nbsp;nodes&nbsp;and 3 types of edges:</p>
+<p>Alice and Bob have an undirected graph of <code>n</code> nodes and three types of edges:</p>
 
 <ul>
 	<li>Type 1: Can be traversed by Alice only.</li>
 	<li>Type 2: Can be traversed by Bob only.</li>
-	<li>Type 3: Can by traversed by both Alice and Bob.</li>
+	<li>Type 3: Can be traversed by both Alice and Bob.</li>
 </ul>
 
-<p>Given an array&nbsp;<code>edges</code>&nbsp;where&nbsp;<code>edges[i] = [type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>]</code>&nbsp;represents a bidirectional edge of type&nbsp;<code>type<sub>i</sub></code>&nbsp;between nodes&nbsp;<code>u<sub>i</sub></code>&nbsp;and&nbsp;<code>v<sub>i</sub></code>, find the maximum number of edges you can remove so that after removing the edges, the graph can still be fully traversed by both Alice and Bob. The graph is fully traversed by Alice and Bob if starting from any node, they can reach all other nodes.</p>
+<p>Given an array <code>edges</code> where <code>edges[i] = [type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>]</code> represents a bidirectional edge of type <code>type<sub>i</sub></code> between nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>, find the maximum number of edges you can remove so that after removing the edges, the graph can still be fully traversed by both Alice and Bob. The graph is fully traversed by Alice and Bob if starting from any node, they can reach all other nodes.</p>
 
-<p>Return <em>the maximum number of edges you can remove, or return</em> <code>-1</code> <em>if it&#39;s impossible for the graph to be fully traversed by Alice and Bob.</em></p>
+<p>Return <em>the maximum number of edges you can remove, or return</em> <code>-1</code> <em>if Alice and Bob cannot fully traverse the graph.</em></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -52,12 +52,12 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10^5</code></li>
-	<li><code>1 &lt;= edges.length &lt;= min(10^5, 3 * n * (n-1) / 2)</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= edges.length &lt;= min(10<sup>5</sup>, 3 * n * (n - 1) / 2)</code></li>
 	<li><code>edges[i].length == 3</code></li>
-	<li><code>1 &lt;= edges[i][0] &lt;= 3</code></li>
-	<li><code>1 &lt;= edges[i][1] &lt; edges[i][2] &lt;= n</code></li>
-	<li>All tuples&nbsp;<code>(type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>)</code>&nbsp;are distinct.</li>
+	<li><code>1 &lt;= type<sub>i</sub> &lt;= 3</code></li>
+	<li><code>1 &lt;= u<sub>i</sub> &lt; v<sub>i</sub> &lt;= n</code></li>
+	<li>All tuples <code>(type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>)</code> are distinct.</li>
 </ul>
 
 ## Solutions

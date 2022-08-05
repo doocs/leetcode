@@ -42,7 +42,6 @@ It can be shown that it is not possible to form more than 3 groups.
 	<li><code>1 &lt;= grades[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

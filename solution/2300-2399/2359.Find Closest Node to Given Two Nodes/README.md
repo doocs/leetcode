@@ -50,7 +50,6 @@
 	<li><code>0 &lt;= node1, node2 &lt; n</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

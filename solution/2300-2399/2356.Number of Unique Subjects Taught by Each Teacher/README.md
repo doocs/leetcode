@@ -63,7 +63,6 @@ Teacher 2:
   - They teach subject 4 in department 1.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

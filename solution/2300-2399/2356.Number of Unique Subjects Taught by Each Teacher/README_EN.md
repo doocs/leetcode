@@ -61,7 +61,6 @@ Teacher 2:
   - They teach subject 4 in department 1.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

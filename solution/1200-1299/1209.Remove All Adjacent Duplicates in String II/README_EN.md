@@ -8,7 +8,7 @@
 
 <p>We repeatedly make <code>k</code> <strong>duplicate removals</strong> on <code>s</code> until we no longer can.</p>
 
-<p>Return the final string after all such duplicate removals have been made. It is guaranteed that the answer is unique.</p>
+<p>Return <em>the final string after all such duplicate removals have been made</em>. It is guaranteed that the answer is <strong>unique</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -41,7 +41,7 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>2 &lt;= k &lt;= 10<sup>4</sup></code></li>
-	<li><code>s</code> only contains lower case English letters.</li>
+	<li><code>s</code> only contains lowercase English letters.</li>
 </ul>
 
 ## Solutions

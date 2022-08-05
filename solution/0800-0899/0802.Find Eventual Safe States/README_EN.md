@@ -322,7 +322,7 @@ var eventualSafeNodes = function (graph) {
  * @param {number[][]} graph
  * @return {number[]}
  */
- var eventualSafeNodes = function(graph) {
+var eventualSafeNodes = function (graph) {
     const n = graph.length;
     const color = new Array(n).fill(0);
     function dfs(i) {

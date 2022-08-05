@@ -41,7 +41,6 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
