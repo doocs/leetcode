@@ -60,6 +60,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递推**
+
+把每一行所有可能的状态进行分类。根据对称性原理，当一行只有 $3$ 个元素时，所有合法状态分类为：$010$ 型, $012$ 型。
+
+-   当状态为 $010$ 型时：下一行可能的状态为：$101$, $102$, $121$, $201$, $202$。这 $5$ 个状态可归纳为 $3$ 个 $010$ 型，$2$ 个 $012$ 型。
+-   当状态为 $012$ 型时：下一行可能的状态为：$101$, $120$, $121$, $201$。这 $4$ 个状态可归纳为 $2$ 个 $010$ 型，$2$ 个 $012$ 型。
+
+综上所述，可以得到：$newf0 = 3 * f0 + 2 * f1$，$newf1 = 2 * f0 + 2 * f1$。
+
+时间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +78,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numOfWays(self, n: int) -> int:
+        mod = 10**9 + 7
+        f0 = f1 = 6
+        for _ in range(n - 1):
+            g0 = (3 * f0 + 2 * f1) % mod
+            g1 = (2 * f0 + 2 * f1) % mod
+            f0, f1 = g0, g1
+        return (f0 + f1) % mod
 ```
 
 ### **Java**
@@ -75,7 +94,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numOfWays(int n) {
+        int mod = (int) 1e9 + 7;
+        long f0 = 6, f1 = 6;
+        for (int i = 0; i < n - 1; ++i) {
+            long g0 = (3 * f0 + 2 * f1) % mod;
+            long g1 = (2 * f0 + 2 * f1) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    int numOfWays(int n) {
+        int mod = 1e9 + 7;
+        ll f0 = 6, f1 = 6;
+        while (--n)
+        {
+            ll g0 = (f0 * 3 + f1 * 2) % mod;
+            ll g1 = (f0 * 2 + f1 * 2) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numOfWays(n int) int {
+	mod := int(1e9) + 7
+	f0, f1 := 6, 6
+	for n > 1 {
+		n--
+		g0 := (f0*3 + f1*2) % mod
+		g1 := (f0*2 + f1*2) % mod
+		f0, f1 = g0, g1
+	}
+	return (f0 + f1) % mod
+}
 ```
 
 ### **...**

@@ -39,13 +39,71 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numOfWays(self, n: int) -> int:
+        mod = 10**9 + 7
+        f0 = f1 = 6
+        for _ in range(n - 1):
+            g0 = (3 * f0 + 2 * f1) % mod
+            g1 = (2 * f0 + 2 * f1) % mod
+            f0, f1 = g0, g1
+        return (f0 + f1) % mod
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numOfWays(int n) {
+        int mod = (int) 1e9 + 7;
+        long f0 = 6, f1 = 6;
+        for (int i = 0; i < n - 1; ++i) {
+            long g0 = (3 * f0 + 2 * f1) % mod;
+            long g1 = (2 * f0 + 2 * f1) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    int numOfWays(int n) {
+        int mod = 1e9 + 7;
+        ll f0 = 6, f1 = 6;
+        while (--n)
+        {
+            ll g0 = (f0 * 3 + f1 * 2) % mod;
+            ll g1 = (f0 * 2 + f1 * 2) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numOfWays(n int) int {
+	mod := int(1e9) + 7
+	f0, f1 := 6, 6
+	for n > 1 {
+		n--
+		g0 := (f0*3 + f1*2) % mod
+		g1 := (f0*2 + f1*2) % mod
+		f0, f1 = g0, g1
+	}
+	return (f0 + f1) % mod
+}
 ```
 
 ### **...**
