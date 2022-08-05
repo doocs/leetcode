@@ -1,16 +1,17 @@
 class Solution {
     public int[] processQueries(int[] queries, int m) {
-        List<Integer> nums = new LinkedList<>();
-        for (int i = 0; i < m; ++i) {
-            nums.add(i + 1);
+        List<Integer> p = new LinkedList<>();
+        for (int i = 1; i <= m; ++i) {
+            p.add(i);
         }
-        int[] res = new int[queries.length];
+        int[] ans = new int[queries.length];
         int i = 0;
-        for (int num : queries) {
-            res[i++] = nums.indexOf(num);
-            nums.remove(Integer.valueOf(num));
-            nums.add(0, num);
+        for (int v : queries) {
+            int j = p.indexOf(v);
+            ans[i++] = j;
+            p.remove(j);
+            p.add(0, v);
         }
-        return res;
+        return ans;
     }
 }
