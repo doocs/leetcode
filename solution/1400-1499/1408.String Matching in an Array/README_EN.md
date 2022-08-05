@@ -50,13 +50,76 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        ans = []
+        for i, w1 in enumerate(words):
+            for j, w2 in enumerate(words):
+                if i != j and w1 in w2:
+                    ans.append(w1)
+                    break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> stringMatching(String[] words) {
+        List<String> ans = new ArrayList<>();
+        int n = words.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i != j && words[j].contains(words[i])) {
+                    ans.add(words[i]);
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> stringMatching(vector<string>& words) {
+        vector<string> ans;
+        int n = words.size();
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (i != j && words[j].find(words[i]) != string::npos)
+                {
+                    ans.push_back(words[i]);
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func stringMatching(words []string) []string {
+	ans := []string{}
+	for i, w1 := range words {
+		for j, w2 := range words {
+			if i != j && strings.Contains(w2, w1) {
+				ans = append(ans, w1)
+				break
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
