@@ -53,6 +53,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 贪心**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +62,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSatisfaction(self, satisfaction: List[int]) -> int:
+        satisfaction.sort(reverse=True)
+        ans = presum = 0
+        for v in satisfaction:
+            presum += v
+            if presum > 0:
+                ans += presum
+            else:
+                break
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +80,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxSatisfaction(int[] satisfaction) {
+        Arrays.sort(satisfaction);
+        int ans = 0, presum = 0;
+        for (int i = satisfaction.length - 1; i >= 0; --i) {
+            presum += satisfaction[i];
+            if (presum > 0) {
+                ans += presum;
+            } else {
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSatisfaction(vector<int>& satisfaction) {
+        sort(rbegin(satisfaction), rend(satisfaction));
+        int ans = 0, presum = 0;
+        for (int v : satisfaction)
+        {
+            presum += v;
+            if (presum > 0) ans += presum;
+            else break;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSatisfaction(satisfaction []int) int {
+	sort.Ints(satisfaction)
+	ans, presum := 0, 0
+	for i := len(satisfaction) - 1; i >= 0; i-- {
+		presum += satisfaction[i]
+		if presum > 0 {
+			ans += presum
+		} else {
+			break
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

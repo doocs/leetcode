@@ -53,13 +53,74 @@ Each dish is prepared in one unit of time.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSatisfaction(self, satisfaction: List[int]) -> int:
+        satisfaction.sort(reverse=True)
+        ans = presum = 0
+        for v in satisfaction:
+            presum += v
+            if presum > 0:
+                ans += presum
+            else:
+                break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxSatisfaction(int[] satisfaction) {
+        Arrays.sort(satisfaction);
+        int ans = 0, presum = 0;
+        for (int i = satisfaction.length - 1; i >= 0; --i) {
+            presum += satisfaction[i];
+            if (presum > 0) {
+                ans += presum;
+            } else {
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSatisfaction(vector<int>& satisfaction) {
+        sort(rbegin(satisfaction), rend(satisfaction));
+        int ans = 0, presum = 0;
+        for (int v : satisfaction)
+        {
+            presum += v;
+            if (presum > 0) ans += presum;
+            else break;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSatisfaction(satisfaction []int) int {
+	sort.Ints(satisfaction)
+	ans, presum := 0, 0
+	for i := len(satisfaction) - 1; i >= 0; i-- {
+		presum += satisfaction[i]
+		if presum > 0 {
+			ans += presum
+		} else {
+			break
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
