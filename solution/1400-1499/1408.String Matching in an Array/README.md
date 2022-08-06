@@ -131,6 +131,42 @@ func stringMatching(words []string) []string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function stringMatching(words: string[]): string[] {
+    const res: string[] = [];
+    for (const target of words) {
+        for (const word of words) {
+            if (word !== target && word.includes(target)) {
+                res.push(target);
+                break;
+            }
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn string_matching(words: Vec<String>) -> Vec<String> {
+        let mut res = Vec::new();
+        for target in words.iter() {
+            for word in words.iter() {
+                if word != target && word.contains(target) {
+                    res.push(target.clone());
+                    break;
+                }
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
