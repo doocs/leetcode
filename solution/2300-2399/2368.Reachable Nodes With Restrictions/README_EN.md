@@ -78,6 +78,29 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def reachableNodes(self, n: int, edges: List[List[int]], restricted: List[int]) -> int:
+        s = set(restricted)
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        q = deque([0])
+        vis = [False] * n
+        for v in restricted:
+            vis[v] = True
+        ans = 0
+        while q:
+            i = q.popleft()
+            ans += 1
+            vis[i] = True
+            for j in g[i]:
+                if not vis[j]:
+                    q.append(j)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -119,6 +142,40 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int reachableNodes(int n, int[][] edges, int[] restricted) {
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        boolean[] vis = new boolean[n];
+        for (int v : restricted) {
+            vis[v] = true;
+        }
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        int ans = 0;
+        while (!q.isEmpty()) {
+            int i = q.pollFirst();
+            ++ans;
+            vis[i] = true;
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    q.offer(j);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -146,6 +203,34 @@ public:
         vis[u] = true;
         ++ans;
         for (int v : g[u]) dfs(v, g, vis);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
+        vector<vector<int>> g(n);
+        vector<bool> vis(n);
+        for (auto& e : edges)
+        {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        for (int v : restricted) vis[v] = true;
+        queue<int> q{{0}};
+        int ans = 0;
+        while (!q.empty())
+        {
+            int i = q.front();
+            q.pop();
+            ++ans;
+            vis[i] = true;
+            for (int j : g[i]) if (!vis[j]) q.push(j);
+        }
+        return ans;
     }
 };
 ```
@@ -181,6 +266,35 @@ func reachableNodes(n int, edges [][]int, restricted []int) int {
 }
 ```
 
+```go
+func reachableNodes(n int, edges [][]int, restricted []int) int {
+	g := make([][]int, n)
+	vis := make([]bool, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	for _, v := range restricted {
+		vis[v] = true
+	}
+	q := []int{0}
+	ans := 0
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		ans++
+		vis[i] = true
+		for _, j := range g[i] {
+			if !vis[j] {
+				q = append(q, j)
+			}
+		}
+	}
+	return ans
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -209,6 +323,37 @@ function reachableNodes(
     dfs(0);
 
     return res;
+}
+```
+
+```ts
+function reachableNodes(
+    n: number,
+    edges: number[][],
+    restricted: number[],
+): number {
+    const g = Array.from({ length: n }, () => []);
+    const vis = new Array(n).fill(false);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    for (const v of restricted) {
+        vis[v] = true;
+    }
+    const q = [0];
+    let ans = 0;
+    while (q.length) {
+        const i = q.shift();
+        ++ans;
+        vis[i] = true;
+        for (const j of g[i]) {
+            if (!vis[j]) {
+                q.push(j);
+            }
+        }
+    }
+    return ans;
 }
 ```
 

@@ -47,12 +47,21 @@
 	<li><code>nums</code> <strong>严格</strong> 递增</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
 **方法一：暴力枚举**
+
+直接暴力枚举 $i$, $j$, $k$，统计合法的三元组数目。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。
+
+**方法二：哈希表**
+
+由于 $nums$ 严格递增，那么对于 $nums$ 中的每个元素 $v$，判断 $v+diff$, $v+diff+diff$ 是否也在 $nums$ 中，若是，累加三元组数目。这里用哈希表实现元素的快速查找。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -73,6 +82,19 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        return sum(b - a == diff and c - b == diff for a, b, c in combinations(nums, 3))
+```
+
+```python
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        s = set(nums)
+        return sum(v + diff in s and v + diff + diff in s for v in nums)
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -89,6 +111,24 @@ class Solution {
                         ++ans;
                     }
                 }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int arithmeticTriplets(int[] nums, int diff) {
+        boolean[] vis = new boolean[310];
+        for (int v : nums) {
+            vis[v] = true;
+        }
+        int ans = 0;
+        for (int v : nums) {
+            if (vis[v + diff] && vis[v + diff + diff]) {
+                ++ans;
             }
         }
         return ans;
@@ -118,6 +158,19 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int arithmeticTriplets(vector<int>& nums, int diff) {
+        vector<bool> vis(310);
+        for (int v : nums) vis[v] = true;
+        int ans = 0;
+        for (int v : nums) ans += vis[v + diff] && vis[v + diff + diff];
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -131,6 +184,22 @@ func arithmeticTriplets(nums []int, diff int) int {
 					ans++
 				}
 			}
+		}
+	}
+	return ans
+}
+```
+
+```go
+func arithmeticTriplets(nums []int, diff int) int {
+	vis := make([]bool, 310)
+	for _, v := range nums {
+		vis[v] = true
+	}
+	ans := 0
+	for _, v := range nums {
+		if vis[v+diff] && vis[v+diff+diff] {
+			ans++
 		}
 	}
 	return ans
@@ -156,6 +225,22 @@ function arithmeticTriplets(nums: number[], diff: number): number {
         }
     }
     return res;
+}
+```
+
+```ts
+function arithmeticTriplets(nums: number[], diff: number): number {
+    let vis = new Array(310).fill(false);
+    for (const v of nums) {
+        vis[v] = true;
+    }
+    let ans = 0;
+    for (const v of nums) {
+        if (vis[v + diff] && vis[v + diff + diff]) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

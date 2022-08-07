@@ -65,6 +65,19 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        return sum(b - a == diff and c - b == diff for a, b, c in combinations(nums, 3))
+```
+
+```python
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        s = set(nums)
+        return sum(v + diff in s and v + diff + diff in s for v in nums)
+```
+
 ### **Java**
 
 ```java
@@ -79,6 +92,24 @@ class Solution {
                         ++ans;
                     }
                 }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int arithmeticTriplets(int[] nums, int diff) {
+        boolean[] vis = new boolean[310];
+        for (int v : nums) {
+            vis[v] = true;
+        }
+        int ans = 0;
+        for (int v : nums) {
+            if (vis[v + diff] && vis[v + diff + diff]) {
+                ++ans;
             }
         }
         return ans;
@@ -108,6 +139,19 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int arithmeticTriplets(vector<int>& nums, int diff) {
+        vector<bool> vis(310);
+        for (int v : nums) vis[v] = true;
+        int ans = 0;
+        for (int v : nums) ans += vis[v + diff] && vis[v + diff + diff];
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -121,6 +165,22 @@ func arithmeticTriplets(nums []int, diff int) int {
 					ans++
 				}
 			}
+		}
+	}
+	return ans
+}
+```
+
+```go
+func arithmeticTriplets(nums []int, diff int) int {
+	vis := make([]bool, 310)
+	for _, v := range nums {
+		vis[v] = true
+	}
+	ans := 0
+	for _, v := range nums {
+		if vis[v+diff] && vis[v+diff+diff] {
+			ans++
 		}
 	}
 	return ans
@@ -146,6 +206,22 @@ function arithmeticTriplets(nums: number[], diff: number): number {
         }
     }
     return res;
+}
+```
+
+```ts
+function arithmeticTriplets(nums: number[], diff: number): number {
+    let vis = new Array(310).fill(false);
+    for (const v of nums) {
+        vis[v] = true;
+    }
+    let ans = 0;
+    for (const v of nums) {
+        if (vis[v + diff] && vis[v + diff + diff]) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
