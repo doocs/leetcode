@@ -3,7 +3,7 @@ class Solution:
         a.sort()
         b.sort()
         i = j = 0
-        res = float('inf')
+        res = inf
         while i < len(a) and j < len(b):
             res = min(res, abs(a[i] - b[j]))
             if a[i] > b[j]:

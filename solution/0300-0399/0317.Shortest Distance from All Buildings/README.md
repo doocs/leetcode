@@ -102,12 +102,12 @@ class Solution:
                                     dist[x][y] += d
                                     q.append((x, y))
                                     vis.add((x, y))
-        ans = float('inf')
+        ans = inf
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 0 and cnt[i][j] == total:
                     ans = min(ans, dist[i][j])
-        return -1 if ans == float('inf') else ans
+        return -1 if ans == inf else ans
 ```
 
 ### **Java**

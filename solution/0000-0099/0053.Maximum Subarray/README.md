@@ -92,7 +92,7 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         def crossMaxSub(nums, left, mid, right):
             lsum = rsum = 0
-            lmx = rmx = float('-inf')
+            lmx = rmx = -inf
             for i in range(mid, left - 1, -1):
                 lsum += nums[i]
                 lmx = max(lmx, lsum)

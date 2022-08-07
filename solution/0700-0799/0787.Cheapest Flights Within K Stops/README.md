@@ -89,9 +89,9 @@ class Solution:
             if u == dst:
                 return 0
             if k <= 0:
-                return float('inf')
+                return inf
             k -= 1
-            ans = float('inf')
+            ans = inf
             for v, p in g[u]:
                 ans = min(ans, dfs(v, k) + p)
             return ans
@@ -100,7 +100,7 @@ class Solution:
         for u, v, p in flights:
             g[u].append((v, p))
         ans = dfs(src, k + 1)
-        return -1 if ans >= float('inf') else ans
+        return -1 if ans >= inf else ans
 ```
 
 ### **Java**

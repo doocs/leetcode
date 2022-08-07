@@ -104,7 +104,7 @@ class Solution:
             return sum(((state >> i) & 1) == 0 for i in range(n))
 
         q = []
-        dist = [[float('inf')] * (1 << n) for _ in range(n)]
+        dist = [[inf] * (1 << n) for _ in range(n)]
         for i in range(n):
             heappush(q, (f(1 << i), i, 1 << i))
             dist[i][1 << i] = 0

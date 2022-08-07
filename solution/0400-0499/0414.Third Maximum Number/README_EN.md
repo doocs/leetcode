@@ -60,7 +60,7 @@ The third distinct maximum is 1.
 ```python
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        m1 = m2 = m3 = float('-inf')
+        m1 = m2 = m3 = -inf
         for num in nums:
             if num in [m1, m2, m3]:
                 continue
@@ -70,7 +70,7 @@ class Solution:
                 m3, m2 = m2, num
             elif num > m3:
                 m3 = num
-        return m3 if m3 != float('-inf') else m1
+        return m3 if m3 != -inf else m1
 ```
 
 ### **Java**

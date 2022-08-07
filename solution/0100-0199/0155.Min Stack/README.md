@@ -71,7 +71,7 @@ class MinStack:
         initialize your data structure here.
         """
         self.s = []
-        self.mins = [float('inf')]
+        self.mins = [inf]
 
     def push(self, val: int) -> None:
         self.s.append(val)

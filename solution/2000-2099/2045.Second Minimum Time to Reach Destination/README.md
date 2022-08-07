@@ -96,7 +96,7 @@ class Solution:
             g[u].add(v)
             g[v].add(u)
         q = deque([(1, 0)])
-        dist = [[float('inf')] * 2 for _ in range(n + 1)]
+        dist = [[inf] * 2 for _ in range(n + 1)]
         dist[1][1] = 0
         while q:
             u, d = q.popleft()

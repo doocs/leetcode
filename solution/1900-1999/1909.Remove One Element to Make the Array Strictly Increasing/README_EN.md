@@ -57,7 +57,7 @@ No resulting array is strictly increasing, so return false.</pre>
 class Solution:
     def canBeIncreasing(self, nums: List[int]) -> bool:
         def check(nums, i):
-            prev = float('-inf')
+            prev = -inf
             for j, num in enumerate(nums):
                 if i == j:
                     continue

@@ -47,7 +47,7 @@ Binary search.
 #         self.right = right
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        ans, mi = root.val, float('inf')
+        ans, mi = root.val, inf
         while root:
             t = abs(root.val - target)
             if t < mi:

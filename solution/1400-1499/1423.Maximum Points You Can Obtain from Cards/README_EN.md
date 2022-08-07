@@ -59,7 +59,7 @@ class Solution:
         s = [0] * (n + 1)
         for i in range(n):
             s[i + 1] = s[i] + cardPoints[i]
-        mi = float('inf')
+        mi = inf
         for i in range(n):
             j = i + (n - k) - 1
             if j < n:

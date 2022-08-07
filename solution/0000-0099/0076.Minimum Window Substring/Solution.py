@@ -6,7 +6,7 @@ class Solution:
             return ans
         need = Counter(t)
         window = Counter()
-        i, cnt, mi = 0, 0, float('inf')
+        i, cnt, mi = 0, 0, inf
         for j, c in enumerate(s):
             window[c] += 1
             if need[c] >= window[c]:

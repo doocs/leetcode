@@ -1,6 +1,6 @@
 class Solution:
     def findTheLongestSubstring(self, s: str) -> int:
-        pos = [float('inf')] * 32
+        pos = [inf] * 32
         pos[0] = -1
         vowels = 'aeiou'
         state = ans = 0

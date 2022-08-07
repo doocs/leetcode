@@ -74,7 +74,7 @@ class Solution:
         self.getSubSeqSum(0, 0, nums[:n // 2], left)
         self.getSubSeqSum(0, 0, nums[n // 2:], right)
 
-        result = float('inf')
+        result = inf
         right = sorted(right)
         rl = len(right)
 

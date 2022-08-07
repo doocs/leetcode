@@ -68,7 +68,7 @@
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
         n = len(grid)
-        dp = [[[float('-inf')] * n for _ in range(n)]
+        dp = [[[-inf] * n for _ in range(n)]
               for _ in range((n << 1) - 1)]
         dp[0][0][0] = grid[0][0]
         for k in range(1, (n << 1) - 1):

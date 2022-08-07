@@ -81,7 +81,7 @@ class Solution:
             f[cnt].add(s)
             g[cnt1].add(s1)
 
-        ans = float('inf')
+        ans = inf
         for i in range(n + 1):
             fi, gi = sorted(list(f[i])), sorted(list(g[n - i]))
             # min(abs(f[i] + g[n - i]))

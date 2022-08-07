@@ -68,7 +68,7 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         n = len(nums)
-        ans = float('inf')
+        ans = inf
         sum = 0
         left, right = 0, 0
         while right < n:
@@ -78,7 +78,7 @@ class Solution:
                 ans = min(ans, right - left)
                 sum -= nums[left]
                 left += 1
-        return 0 if ans == float('inf') else ans
+        return 0 if ans == inf else ans
 ```
 
 ### **Java**

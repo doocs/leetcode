@@ -68,7 +68,7 @@ The total waste is (5-3) + (5-5) + (10-8) + (10-10) + (14-11) + (14-12) = 9.
 class Solution:
     def minWastedSpace(self, packages: List[int], boxes: List[List[int]]) -> int:
         packages.sort()
-        res = float('inf')
+        res = inf
         for box in boxes:
             box.sort()
             if packages[-1] > box[-1]:
@@ -79,7 +79,7 @@ class Solution:
                 t += (idx - last) * b
                 last = idx
             res = min(res, t)
-        return -1 if res == float('inf') else (res - sum(packages)) % (10 ** 9 + 7)
+        return -1 if res == inf else (res - sum(packages)) % (10 ** 9 + 7)
 ```
 
 ### **Java**

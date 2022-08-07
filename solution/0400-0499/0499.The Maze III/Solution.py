@@ -6,7 +6,7 @@ class Solution:
         r, c = ball
         rh, ch = hole
         q = deque([(r, c)])
-        dist = [[float('inf')] * n for _ in range(m)]
+        dist = [[inf] * n for _ in range(m)]
         dist[r][c] = 0
         path = [[None] * n for _ in range(m)]
         path[r][c] = ''

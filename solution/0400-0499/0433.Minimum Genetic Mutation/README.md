@@ -105,9 +105,9 @@ class Solution:
                             dfs(nxt, t + 1)
 
         s = set(bank)
-        ans = float('inf')
+        ans = inf
         dfs(start, 0)
-        return -1 if ans == float('inf') else ans
+        return -1 if ans == inf else ans
 ```
 
 ### **Java**

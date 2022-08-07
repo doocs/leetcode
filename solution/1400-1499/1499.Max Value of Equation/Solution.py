@@ -1,7 +1,7 @@
 class Solution:
     def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
         q = deque([points[0]])
-        ans = float('-inf')
+        ans = -inf
         for x, y in points[1:]:
             while q and x - q[0][0] > k:
                 q.popleft()

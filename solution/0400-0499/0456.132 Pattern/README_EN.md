@@ -51,7 +51,7 @@
 ```python
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
-        ak = float('-inf')
+        ak = -inf
         stack = []
         for num in nums[::-1]:
             if num < ak:

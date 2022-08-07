@@ -1,6 +1,6 @@
 class Solution:
     def isReflected(self, points: List[List[int]]) -> bool:
-        min_x, max_x = float('inf'), float('-inf')
+        min_x, max_x = inf, -inf
         point_set = set()
         for x, y in points:
             min_x = min(min_x, x)

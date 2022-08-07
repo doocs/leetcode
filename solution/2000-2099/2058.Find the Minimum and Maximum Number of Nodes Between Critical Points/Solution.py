@@ -8,7 +8,7 @@ class Solution:
         prev, curr = head, head.next
         first = last = None
         i = 1
-        ans = [float('inf'), float('-inf')]
+        ans = [inf, -inf]
         while curr.next:
             if curr.val < min(prev.val, curr.next.val) or curr.val > max(
                 prev.val, curr.next.val

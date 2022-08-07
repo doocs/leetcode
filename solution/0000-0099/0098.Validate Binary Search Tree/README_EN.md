@@ -66,7 +66,7 @@ class Solution:
                 return False
             return True
 
-        prev = float('-inf')
+        prev = -inf
         return dfs(root)
 ```
 

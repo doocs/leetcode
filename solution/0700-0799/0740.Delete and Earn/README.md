@@ -75,7 +75,7 @@ nonSelect[i] = Math.max(select[i-1], nonSelect[i-1]);
 ```python
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
-        mx = float('-inf')
+        mx = -inf
         for num in nums:
             mx = max(mx, num)
         total = [0] * (mx + 1)

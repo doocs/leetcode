@@ -55,7 +55,7 @@ The four ways to get there in 7 minutes are:
 ```python
 class Solution:
     def countPaths(self, n: int, roads: List[List[int]]) -> int:
-        INF = float('inf')
+        INF = inf
         MOD = 10**9 + 7
         g = [[INF] * n for _ in range(n)]
         for u, v, t in roads:

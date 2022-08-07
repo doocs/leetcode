@@ -75,7 +75,7 @@ class Solution:
 
         s = {c for c in time if c != ':'}
         t = int(time[:2]) * 60 + int(time[3:])
-        d = float('inf')
+        d = inf
         ans = None
         dfs('')
         if ans is None:
