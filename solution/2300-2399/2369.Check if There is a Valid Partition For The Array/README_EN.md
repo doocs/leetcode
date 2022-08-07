@@ -42,7 +42,6 @@ This partition is valid, so we return true.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -116,7 +115,7 @@ public:
     vector<int> f;
     vector<int> nums;
     int n;
-    
+
     bool validPartition(vector<int>& nums) {
         n = nums.size();
         this->nums = nums;
@@ -177,7 +176,35 @@ func validPartition(nums []int) bool {
 ### **TypeScript**
 
 ```ts
+function validPartition(nums: number[]): boolean {
+    const n = nums.length;
+    const vis = new Array(n).fill(false);
+    const queue = [0];
+    while (queue.length !== 0) {
+        const i = queue.shift() ?? 0;
 
+        if (i === n) {
+            return true;
+        }
+
+        if (!vis[i + 2] && i + 2 <= n && nums[i] === nums[i + 1]) {
+            queue.push(i + 2);
+            vis[i + 2] = true;
+        }
+
+        if (
+            !vis[i + 3] &&
+            i + 3 <= n &&
+            ((nums[i] === nums[i + 1] && nums[i + 1] === nums[i + 2]) ||
+                (nums[i] === nums[i + 1] - 1 &&
+                    nums[i + 1] === nums[i + 2] - 1))
+        ) {
+            queue.push(i + 3);
+            vis[i + 3] = true;
+        }
+    }
+    return false;
+}
 ```
 
 ### **...**
