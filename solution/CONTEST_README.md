@@ -23,6 +23,22 @@ https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
+#### 第 305 场周赛(2022-08-07 10:30, 90 分钟) 参赛人数 7464
+
+- [2367. 算术三元组的数目](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
+- [2368. 受限条件下可到达节点的数目](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)
+- [2369. 检查数组是否存在有效划分](/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README.md)
+- [2370. 最长理想子序列](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)
+
+
+#### 第 84 场双周赛(2022-08-06 22:30, 90 分钟) 参赛人数 4574
+
+- [2363. 合并相似的物品](/solution/2300-2399/2363.Merge%20Similar%20Items/README.md)
+- [2364. 统计坏数对的数目](/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README.md)
+- [2365. 任务调度器 II](/solution/2300-2399/2365.Task%20Scheduler%20II/README.md)
+- [2366. 将数组排序的最少替换次数](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README.md)
+
+
 #### 第 304 场周赛(2022-07-31 10:30, 90 分钟) 参赛人数 7372
 
 - [2357. 使数组中所有元素都等于零](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README.md)

@@ -2370,6 +2370,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2359  |  [Find Closest Node to Given Two Nodes](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README_EN.md)  |  `Depth-First Search`,`Graph`  |  Medium  |  Weekly Contest 304  |
 |  2360  |  [Longest Cycle in a Graph](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README_EN.md)  |  `Depth-First Search`,`Graph`,`Topological Sort`  |  Hard  |  Weekly Contest 304  |
 |  2361  |  [Minimum Costs Using the Train Line](/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  🔒  |
+|  2362  |  [Generate the Invoice](/solution/2300-2399/2362.Generate%20the%20Invoice/README_EN.md)  |    |  Hard  |  🔒  |
+|  2363  |  [Merge Similar Items](/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md)  |    |  Easy  |    |
+|  2364  |  [Count Number of Bad Pairs](/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README_EN.md)  |    |  Medium  |    |
+|  2365  |  [Task Scheduler II](/solution/2300-2399/2365.Task%20Scheduler%20II/README_EN.md)  |    |  Medium  |    |
+|  2366  |  [Minimum Replacements to Sort the Array](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README_EN.md)  |    |  Hard  |    |
+|  2367  |  [Number of Arithmetic Triplets](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README_EN.md)  |    |  Easy  |    |
+|  2368  |  [Reachable Nodes With Restrictions](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README_EN.md)  |    |  Medium  |    |
+|  2369  |  [Check if There is a Valid Partition For The Array](/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README_EN.md)  |    |  Medium  |    |
+|  2370  |  [Longest Ideal Subsequence](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 

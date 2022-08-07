@@ -2371,7 +2371,16 @@
 |  2358  |  [分组的最大数量](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md)  |  `贪心`,`数组`,`数学`,`二分查找`  |  中等  |  第 304 场周赛  |
 |  2359  |  [找到离给定两个节点最近的节点](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README.md)  |  `深度优先搜索`,`图`  |  中等  |  第 304 场周赛  |
 |  2360  |  [图中的最长环](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)  |  `深度优先搜索`,`图`,`拓扑排序`  |  困难  |  第 304 场周赛  |
-|  2361  |  [Minimum Costs Using the Train Line](/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README.md)  |  `数组`,`动态规划`  |  困难  |  🔒  |
+|  2361  |  [乘坐火车路线的最少费用](/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README.md)  |  `数组`,`动态规划`  |  困难  |  🔒  |
+|  2362  |  [Generate the Invoice](/solution/2300-2399/2362.Generate%20the%20Invoice/README.md)  |    |  困难  |  🔒  |
+|  2363  |  [合并相似的物品](/solution/2300-2399/2363.Merge%20Similar%20Items/README.md)  |    |  简单  |  第 84 场双周赛  |
+|  2364  |  [统计坏数对的数目](/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README.md)  |    |  中等  |  第 84 场双周赛  |
+|  2365  |  [任务调度器 II](/solution/2300-2399/2365.Task%20Scheduler%20II/README.md)  |    |  中等  |  第 84 场双周赛  |
+|  2366  |  [将数组排序的最少替换次数](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README.md)  |    |  困难  |  第 84 场双周赛  |
+|  2367  |  [算术三元组的数目](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)  |    |  简单  |  第 305 场周赛  |
+|  2368  |  [受限条件下可到达节点的数目](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)  |    |  中等  |  第 305 场周赛  |
+|  2369  |  [检查数组是否存在有效划分](/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README.md)  |    |  中等  |  第 305 场周赛  |
+|  2370  |  [最长理想子序列](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)  |    |  中等  |  第 305 场周赛  |
 
 ## 版权
 
