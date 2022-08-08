@@ -171,6 +171,97 @@ func countAndSay(n int) string {
 }
 ```
 
+### **C#**
+
+```cs
+using System.Text;
+public class Solution {
+    public string CountAndSay(int n) {
+        var s = "1";
+        while (n > 1)
+        {
+            var sb = new StringBuilder();
+            var lastChar = '1';
+            var count = 0;
+            foreach (var ch in s)
+            {
+                if (count > 0 && lastChar == ch)
+                {
+                    ++count;
+                }
+                else
+                {
+                    if (count > 0)
+                    {
+                        sb.Append(count);
+                        sb.Append(lastChar);
+                    }
+                    lastChar = ch;
+                    count = 1;
+                }
+            }
+            if (count > 0)
+            {
+                sb.Append(count);
+                sb.Append(lastChar);
+            }
+            s = sb.ToString();
+            --n;
+        }
+        return s;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+const countAndSay = function (n) {
+    let s = '1';
+
+    for (let i = 2; i <= n; i++) {
+        let count = 1,
+            str = '',
+            len = s.length;
+
+        for (let j = 0; j < len; j++) {
+            if (j < len - 1 && s[j] === s[j + 1]) {
+                count++;
+            } else {
+                str += `${count}${s[j]}`;
+                count = 1;
+            }
+        }
+        s = str;
+    }
+    return s;
+};
+```
+
+### **TypeScript**
+
+```ts
+function countAndSay(n: number): string {
+    let s = '1';
+    for (let i = 1; i < n; i++) {
+        let t = '';
+        let cur = s[0];
+        let count = 1;
+        for (let j = 1; j < s.length; j++) {
+            if (s[j] !== cur) {
+                t += `${count}${cur}`;
+                cur = s[j];
+                count = 0;
+            }
+            count++;
+        }
+        t += `${count}${cur}`;
+        s = t;
+    }
+    return s;
+}
+```
+
 ### **...**
 
 ```
