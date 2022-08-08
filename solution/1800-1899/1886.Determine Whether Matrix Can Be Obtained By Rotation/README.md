@@ -91,6 +91,16 @@ class Solution:
         return False
 ```
 
+```python
+class Solution:
+    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
+        for _ in range(4):
+            mat = [list(col) for col in zip(*mat[::-1])]
+            if mat == target:
+                return True
+        return False
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -132,6 +142,95 @@ class Solution {
         }
         return true;
     }
+}
+```
+
+```java
+class Solution {
+    public boolean findRotation(int[][] mat, int[][] target) {
+        int n = mat.length;
+        for (int k = 0; k < 4; ++k) {
+            int[][] g = new int[n][n];
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    g[i][j] = mat[j][n - i - 1];
+                }
+            }
+            if (equals(g, target)) {
+                return true;
+            }
+            mat = g;
+        }
+        return false;
+    }
+
+    private boolean equals(int[][] a, int[][] b) {
+        int n = a.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (a[i][j] != b[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
+        int n = mat.size();
+        for (int k = 0; k < 4; ++k)
+        {
+            vector<vector<int>> g(n, vector<int>(n));
+            for (int i = 0; i < n; ++i)
+                for (int j = 0; j < n; ++j)
+                    g[i][j] = mat[j][n - i - 1];
+            if (g == target) return true;
+            mat = g;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findRotation(mat [][]int, target [][]int) bool {
+	n := len(mat)
+	for k := 0; k < 4; k++ {
+		g := make([][]int, n)
+		for i := range g {
+			g[i] = make([]int, n)
+		}
+		for i := 0; i < n; i++ {
+			for j := 0; j < n; j++ {
+				g[i][j] = mat[j][n-i-1]
+			}
+		}
+		if equals(g, target) {
+			return true
+		}
+		mat = g
+	}
+	return false
+}
+
+func equals(a, b [][]int) bool {
+	for i, row := range a {
+		for j, v := range row {
+			if v != b[i][j] {
+				return false
+			}
+		}
+	}
+	return true
 }
 ```
 

@@ -121,7 +121,7 @@ def generate_contest_list():
 
 如果竞赛积分处于段位的临界值，在每周比赛结束重新计算后会出现段位升级或降级的情况。段位升级或降级后会自动替换对应的荣誉勋章。
 
-| 段位  | 比例   | 段位名   | 国服分数线    | 勋章展示                                                                    |
+| 段位  | 比例   | 段位名   | 国服分数线    | 勋章                                                                    |
 | ----- | ------ | -------- | --------- | --------------------------------------------------------------------------- |
 | LV3 | 5%  | Guardian | &ge;2217.22 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
 | LV2 | 20% | Knight   | &ge;1862.81 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
