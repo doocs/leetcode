@@ -2,11 +2,12 @@ class Solution {
 public:
     int reductionOperations(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int cnt = 0, res = 0, n = nums.size();
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] != nums[i - 1]) ++cnt;
-            res += cnt;
+        int ans = 0, cnt = 0;
+        for (int i = 1; i < nums.size(); ++i)
+        {
+            cnt += nums[i] != nums[i - 1];
+            ans += cnt;
         }
-        return res;
+        return ans;
     }
 };

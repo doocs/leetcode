@@ -62,7 +62,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-排序。
+**方法一：排序**
+
+对 $nums$ 进行排序，用 $cnt$ 表示元素所需的操作次数，初始时 $cnt=0$。
+
+遍历 $nums[1..n-1]$，如果当前元素 $nums[i]$ 不等于 $nums[i-1]$，则将 $cnt$ 加一。累加当前 $cnt$ 到答案 $ans$。
+
+时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
 
@@ -74,12 +80,22 @@
 class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
         nums.sort()
-        cnt, res, n = 0, 0, len(nums)
-        for i in range(1, n):
-            if nums[i] != nums[i - 1]:
+        ans = cnt = 0
+        for i, v in enumerate(nums[1:]):
+            if v != nums[i]:
                 cnt += 1
-            res += cnt
-        return res
+            ans += cnt
+        return ans
+```
+
+```python
+class Solution:
+    def reductionOperations(self, nums: List[int]) -> int:
+        ans = cnt = 0
+        for _, v in sorted(Counter(nums).items()):
+            ans += cnt * v
+            cnt += 1
+        return ans
 ```
 
 ### **Java**
@@ -90,14 +106,31 @@ class Solution:
 class Solution {
     public int reductionOperations(int[] nums) {
         Arrays.sort(nums);
-        int cnt = 0, res = 0, n = nums.length;
-        for (int i = 1; i < n; ++i) {
+        int ans = 0, cnt = 0;
+        for (int i = 1; i < nums.length; ++i) {
             if (nums[i] != nums[i - 1]) {
                 ++cnt;
             }
-            res += cnt;
+            ans += cnt;
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int reductionOperations(int[] nums) {
+        Map<Integer, Integer> tm = new TreeMap<>();
+        for (int v : nums) {
+            tm.put(v, tm.getOrDefault(v, 0) + 1);
+        }
+        int ans = 0, cnt = 0;
+        for (int v : tm.values()) {
+            ans += cnt * v;
+            ++cnt;
+        }
+        return ans;
     }
 }
 ```
@@ -107,14 +140,13 @@ class Solution {
 ```ts
 function reductionOperations(nums: number[]): number {
     nums.sort((a, b) => a - b);
-    let n = nums.length;
-    let ans = 0,
-        count = 0;
-    for (let i = 1; i < n; i++) {
+    let ans = 0;
+    let cnt = 0;
+    for (let i = 1; i < nums.length; ++i) {
         if (nums[i] != nums[i - 1]) {
-            count++;
+            ++cnt;
         }
-        ans += count;
+        ans += cnt;
     }
     return ans;
 }
@@ -127,12 +159,30 @@ class Solution {
 public:
     int reductionOperations(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int cnt = 0, res = 0, n = nums.size();
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] != nums[i - 1]) ++cnt;
-            res += cnt;
+        int ans = 0, cnt = 0;
+        for (int i = 1; i < nums.size(); ++i)
+        {
+            cnt += nums[i] != nums[i - 1];
+            ans += cnt;
         }
-        return res;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int reductionOperations(vector<int>& nums) {
+        map<int, int> m;
+        for (int v : nums) ++m[v];
+        int ans = 0, cnt = 0;
+        for (auto [_, v] : m)
+        {
+            ans += cnt * v;
+            ++cnt;
+        }
+        return ans;
     }
 };
 ```
@@ -142,14 +192,14 @@ public:
 ```go
 func reductionOperations(nums []int) int {
 	sort.Ints(nums)
-	cnt, res, n := 0, 0, len(nums)
-	for i := 1; i < n; i++ {
-		if nums[i] != nums[i-1] {
+	ans, cnt := 0, 0
+	for i, v := range nums[1:] {
+		if v != nums[i] {
 			cnt++
 		}
-		res += cnt
+		ans += cnt
 	}
-	return res
+	return ans
 }
 ```
 
