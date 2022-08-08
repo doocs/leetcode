@@ -1,10 +1,9 @@
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
-        def convert(word):
+        def f(s):
             res = 0
-            for c in word:
-                res *= 10
-                res += ord(c) - ord('a')
+            for c in s:
+                res = res * 10 + (ord(c) - ord('a'))
             return res
 
-        return convert(firstWord) + convert(secondWord) == convert(targetWord)
+        return f(firstWord) + f(secondWord) == f(targetWord)

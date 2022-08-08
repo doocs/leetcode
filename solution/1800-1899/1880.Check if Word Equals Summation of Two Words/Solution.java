@@ -1,13 +1,12 @@
 class Solution {
     public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
-        return convert(firstWord) + convert(secondWord) == convert(targetWord);
+        return f(firstWord) + f(secondWord) == f(targetWord);
     }
 
-    private int convert(String word) {
+    private int f(String s) {
         int res = 0;
-        for (char c : word.toCharArray()) {
-            res *= 10;
-            res += (c - 'a');
+        for (char c : s.toCharArray()) {
+            res = res * 10 + (c - 'a');
         }
         return res;
     }

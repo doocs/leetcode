@@ -1,18 +1,12 @@
 class Solution:
     def maxValue(self, n: str, x: int) -> str:
-        negative = n[0] == '-'
-        i, res = 0, []
-        if negative:
-            i += 1
-            res.append('-')
-        find = False
-        while i < len(n):
-            num = int(n[i])
-            if (negative and x < num) or (not negative and x > num):
-                res.append(str(x))
-                find = True
-                break
-            res.append(n[i])
-            i += 1
-        res.append(n[i:] if find else str(x))
-        return ''.join(res)
+        if n[0] != '-':
+            for i, c in enumerate(n):
+                if int(c) < x:
+                    return n[:i] + str(x) + n[i:]
+            return n + str(x)
+        else:
+            for i, c in enumerate(n[1:]):
+                if int(c) > x:
+                    return n[:i + 1] + str(x) + n[i + 1:]
+            return n + str(x)
