@@ -8,7 +8,7 @@ class Solution:
         while i < len(s):
             cnt += 1 if s[i] == '1' else -1
             if cnt == 0:
-                ans.append('1' + self.makeLargestSpecial(s[j + 1: i]) + '0')
+                ans.append('1' + self.makeLargestSpecial(s[j + 1 : i]) + '0')
                 j = i + 1
             i += 1
         ans.sort(reverse=True)
