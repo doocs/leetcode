@@ -67,6 +67,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：单调栈**
+
+-   首先在柱状图中求最大矩形面积可以通过单调栈，维护每一列的左边第一个比它小的位置 $L$，和右边第一个比它小的位置 $R$，就能得到以这一列为高的最大矩形面积为 $(R-L-1)*h$。
+-   考虑每一行作为底边的柱状图中，能够得到的最大的矩形面积。再对每一行的最大面积取 $max$ 就是最终的答案。
+-   柱状图中每一列的高可以通过类似前缀和的方式去维护。
+-   假设矩阵大小为 $n*m$，那么时间复杂为 $O(nm)$，空间复杂度为 $O(m)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -83,6 +90,44 @@
 
 ```java
 
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int h[210];
+    int l[210], r[210];
+    int maximalRectangle(vector<string>& matrix) {
+        int n = matrix.size();
+        if (n == 0) return 0;
+        int m = matrix[0].size();
+        int ans = 0;
+        stack<int> st;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                h[j] = (matrix[i][j] == '1' ? h[j] + 1 : 0);
+                while (st.size() && h[j] <= h[st.top()])
+                {
+                    ans = max(ans, (j - l[st.top()] - 1) * h[st.top()]);
+                    st.pop();
+                }
+                if (st.size()) l[j] = st.top();
+                else l[j] = -1;
+                st.push(j);
+            }
+            while (st.size())
+            {
+                ans = max(ans, (m - 1 - l[st.top()]) * h[st.top()]);
+                st.pop();
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**
