@@ -49,13 +49,13 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        ss = set()
         i = ans = 0
-        chars = set()
         for j, c in enumerate(s):
-            while c in chars:
-                chars.remove(s[i])
+            while c in ss:
+                ss.remove(s[i])
                 i += 1
-            chars.add(c)
+            ss.add(c)
             ans = max(ans, j - i + 1)
         return ans
 ```
@@ -65,18 +65,61 @@ class Solution:
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        int i = 0, j = 0, ans = 0;
-        Set<Character> chars = new HashSet<>();
-        for (char c : s.toCharArray()) {
-            while (chars.contains(c)) {
-                chars.remove(s.charAt(i++));
+        Set<Character> ss = new HashSet<>();
+        int i = 0, ans = 0;
+        for (int j = 0; j < s.length(); ++j) {
+            char c = s.charAt(j);
+            while (ss.contains(c)) {
+                ss.remove(s.charAt(i++));
             }
-            chars.add(c);
+            ss.add(c);
             ans = Math.max(ans, j - i + 1);
-            ++j;
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_set<char> ss;
+        int i = 0, ans = 0;
+        for (int j = 0; j < s.size(); ++j) {
+            while (ss.count(s[j])) ss.erase(s[i++]);
+            ss.insert(s[j]);
+            ans = max(ans, j - i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lengthOfLongestSubstring(s string) int {
+	ss := map[byte]bool{}
+	i, ans := 0, 0
+	for j := 0; j < len(s); j++ {
+		for ss[s[j]] {
+			ss[s[i]] = false
+			i++
+		}
+		ss[s[j]] = true
+		ans = max(ans, j-i+1)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -88,39 +131,56 @@ class Solution {
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-    let i = 0,
-        j = 0,
-        ans = 0;
-    let chars = new Set();
-    for (let c of s) {
-        while (chars.has(c)) {
-            chars.delete(s[i++]);
+    const ss = new Set();
+    let i = 0;
+    let ans = 0;
+    for (let j = 0; j < s.length; ++j) {
+        while (ss.has(s[j])) {
+            ss.delete(s[i++]);
         }
-        chars.add(c);
+        ss.add(s[j]);
         ans = Math.max(ans, j - i + 1);
-        ++j;
     }
     return ans;
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int LengthOfLongestSubstring(string s) {
+        var ss = new HashSet<char>();
+        int i = 0, ans = 0;
+        for (int j = 0; j < s.Length; ++j)
+        {
+            while (ss.Contains(s[j]))
+            {
+                ss.Remove(s[i++]);
+            }
+            ss.Add(s[j]);
+            ans = Math.Max(ans, j - i + 1);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function lengthOfLongestSubstring(s: string): number {
-    // 滑动窗口+哈希表
-    let left = -1;
-    let maxLen = 0;
-    let hashTable = new Map();
-    for (let right = 0; right < s.length; right++) {
-        let cur = s.charAt(right);
-        if (hashTable.has(cur)) {
-            left = Math.max(left, hashTable.get(cur));
+    const ss = new Set();
+    let i = 0;
+    let ans = 0;
+    for (let j = 0; j < s.length; ++j) {
+        while (ss.has(s[j])) {
+            ss.delete(s[i++]);
         }
-        hashTable.set(cur, right);
-        maxLen = Math.max(maxLen, right - left);
+        ss.add(s[j]);
+        ans = Math.max(ans, j - i + 1);
     }
-    return maxLen;
+    return ans;
 }
 ```
 
@@ -146,56 +206,6 @@ class Solution {
         return max(maxLength, i - currentStartingIndex)
     }
 }
-```
-
-### **Go**
-
-```go
-func lengthOfLongestSubstring(s string) int {
-	window := make(map[byte]int)
-	n := len(s)
-	ans := 0
-	left, right := 0, 0
-	for right < n {
-		b := s[right]
-		right++
-		window[b]++
-		for window[b] > 1 {
-			window[s[left]]--
-			left++
-		}
-		ans = max(ans, right-left)
-	}
-	return ans
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int lengthOfLongestSubstring(string s) {
-        int i = 0, j = 0, ans = 0;
-        unordered_set<char> chars;
-        for (char& c : s)
-        {
-            while (chars.count(c)) chars.erase(s[i++]);
-            chars.insert(c);
-            ans = max(ans, j - i + 1);
-            ++j;
-        }
-        return ans;
-
-    }
-};
 ```
 
 ### **Nim**

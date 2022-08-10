@@ -1,24 +1,20 @@
 func lengthOfLongestSubstring(s string) int {
-	window := make(map[byte]int)
-	n := len(s)
-	ans := 0
-	left, right := 0, 0
-	for right < n {
-		b := s[right]
-		right++
-		window[b]++
-		for window[b] > 1 {
-			window[s[left]]--
-			left++
+	ss := map[byte]bool{}
+	i, ans := 0, 0
+	for j := 0; j < len(s); j++ {
+		for ss[s[j]] {
+			ss[s[i]] = false
+			i++
 		}
-		ans = max(ans, right-left)
+		ss[s[j]] = true
+		ans = max(ans, j-i+1)
 	}
 	return ans
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return y
+	return b
 }
