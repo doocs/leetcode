@@ -55,12 +55,12 @@
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        helper = {}
+        m = {}
         for i, v in enumerate(nums):
-            num = target - v
-            if num in helper:
-                return [helper[num], i]
-            helper[v] = i
+            x = target - v
+            if x in m:
+                return [m[x], i]
+            m[v] = i
 ```
 
 ### **Java**
@@ -68,13 +68,14 @@ class Solution:
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> m = new HashMap<>();
         for (int i = 0; i < nums.length; ++i) {
-            int num = target - nums[i];
-            if (map.containsKey(num)) {
-                return new int[]{map.get(num), i};
+            int v = nums[i];
+            int x = target - v;
+            if (m.containsKey(x)) {
+                return new int[]{m.get(x), i};
             }
-            map.put(nums[i], i);
+            m.put(v, i);
         }
         return null;
     }
@@ -87,13 +88,12 @@ class Solution {
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> map;
+        unordered_map<int, int> m;
         for (int i = 0; i < nums.size(); ++i) {
-            int num = target - nums[i];
-            if (map.find(num) != map.end()) {
-                return {map[num], i};
-            }
-            map[nums[i]] = i;
+            int v = nums[i];
+            int x = target - v;
+            if (m.count(x)) return {m[x], i};
+            m[v] = i;
         }
         return {};
     }
@@ -104,28 +104,61 @@ public:
 
 ```go
 func twoSum(nums []int, target int) []int {
-	numMap := make(map[int]int)
-	for i, num := range nums {
-		other := target - num
-		if _, ok := numMap[other]; ok {
-			return []int{numMap[other], i}
+	m := map[int]int{}
+	for i, v := range nums {
+		x := target - v
+		if j, ok := m[x]; ok {
+			return []int{j, i}
 		}
-		numMap[num] = i
+		m[v] = i
 	}
 	return nil
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        var m = new Dictionary<int, int>();
+        for (var i = 0; i < nums.Length; ++i)
+        {
+            int j;
+            int v = nums[i];
+            int x = target - v;
+            if (m.TryGetValue(x, out j))
+            {
+                return new [] {j, i};
+            }
+            if (!m.ContainsKey(v))
+            {
+                m.Add(v, i);
+            }
+            
+        }
+        return null;
+    }
 }
 ```
 
 ### **JavaScript**
 
 ```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
 var twoSum = function (nums, target) {
-    const map = new Map();
-    for (let i = 0; i < nums.length; i++) {
-        if (map.has(target - nums[i])) {
-            return [map.get(target - nums[i]), i];
+    const m = new Map();
+    for (let i = 0; i < nums.length; ++i) {
+        const v = nums[i];
+        const x = target - v;
+        if (m.has(x)) {
+            return [m.get(x), i];
         }
-        map.set(nums[i], i);
+        m.set(v, i);
     }
     return [];
 };
