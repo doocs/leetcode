@@ -51,6 +51,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学**
+
+将方程 $equation$ 按照等号 “=” 切分为左右两个式子，分别算出左右两个式子中 "x" 的系数 $x_i$，以及常数的值 $y_i$。
+
+那么方程转换为等式 $x_1 \times x + y_1 = x_2 \times x + y_2$。
+
+- 当 $x_1 = x_2$：若 $y_1 \neq y_2$，方程无解；若 $y_1=y_2$，方程有无限解。
+- 当 $x_1 \neq x_2$：方程有唯一解 $x=\frac{y_2-y_1}{x_1-x_2}$。
+
+相似题目：[592. 分数加减运算](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +69,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def solveEquation(self, equation: str) -> str:
+        def f(s):
+            x = y = 0
+            if s[0] != '-':
+                s = '+' + s
+            i, n = 0, len(s)
+            while i < n:
+                sign = 1 if s[i] == '+' else -1
+                i += 1
+                j = i
+                while j < n and s[j] not in '+-':
+                    j += 1
+                v = s[i: j]
+                if v[-1] == 'x':
+                    x += sign * (int(v[:-1]) if len(v) > 1 else 1)
+                else:
+                    y += sign * int(v)
+                i = j
+            return x, y
 
+        a, b = equation.split('=')
+        x1, y1 = f(a)
+        x2, y2 = f(b)
+        if x1 == x2:
+            return 'Infinite solutions' if y1 == y2 else 'No solution'
+        return f'x={(y2 - y1) // (x1 - x2)}'
 ```
 
 ### **Java**
@@ -66,7 +103,93 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String solveEquation(String equation) {
+        String[] es = equation.split("=");
+        int[] a = f(es[0]), b = f(es[1]);
+        int x1 = a[0], y1 = a[1];
+        int x2 = b[0], y2 = b[1];
+        if (x1 == x2) {
+            return y1 == y2 ? "Infinite solutions" : "No solution";
+        }
+        return "x=" + (y2 - y1) / (x1 - x2);
+    }
 
+    private int[] f(String s) {
+        int x = 0, y = 0;
+        if (s.charAt(0) != '-') {
+            s = "+" + s;
+        }
+        int i = 0, n = s.length();
+        while (i < n) {
+            int sign = s.charAt(i) == '+' ? 1 : -1;
+            ++i;
+            int j = i;
+            while (j < n && s.charAt(j) != '+' && s.charAt(j) != '-') {
+                ++j;
+            }
+            String v = s.substring(i, j);
+            if (s.charAt(j - 1) == 'x') {
+                x += sign * (v.length() > 1 ? Integer.parseInt(v.substring(0, v.length() - 1)) : 1);
+            } else {
+                y += sign * Integer.parseInt(v);
+            }
+            i = j;
+        }
+        return new int[]{x, y};
+    }
+}
+```
+
+### **Go**
+
+```go
+func solveEquation(equation string) string {
+	f := func(s string) []int {
+		x, y := 0, 0
+		if s[0] != '-' {
+			s = "+" + s
+		}
+		i, n := 0, len(s)
+		for i < n {
+			sign := 1
+			if s[i] == '-' {
+				sign = -1
+			}
+			i++
+			j := i
+			for j < n && s[j] != '+' && s[j] != '-' {
+				j++
+			}
+			v := s[i:j]
+			if s[j-1] == 'x' {
+				a := 1
+				if len(v) > 1 {
+					a, _ = strconv.Atoi(v[:len(v)-1])
+				}
+				x += sign * a
+			} else {
+				a, _ := strconv.Atoi(v)
+				y += sign * a
+			}
+			i = j
+		}
+		return []int{x, y}
+	}
+
+	es := strings.Split(equation, "=")
+	a, b := f(es[0]), f(es[1])
+	x1, y1 := a[0], a[1]
+	x2, y2 := b[0], b[1]
+	if x1 == x2 {
+		if y1 == y2 {
+			return "Infinite solutions"
+		} else {
+			return "No solution"
+		}
+	}
+	return fmt.Sprintf("x=%d", (y2-y1)/(x1-x2))
+}
 ```
 
 ### **...**

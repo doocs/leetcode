@@ -46,13 +46,125 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def solveEquation(self, equation: str) -> str:
+        def f(s):
+            x = y = 0
+            if s[0] != '-':
+                s = '+' + s
+            i, n = 0, len(s)
+            while i < n:
+                sign = 1 if s[i] == '+' else -1
+                i += 1
+                j = i
+                while j < n and s[j] not in '+-':
+                    j += 1
+                v = s[i: j]
+                if v[-1] == 'x':
+                    x += sign * (int(v[:-1]) if len(v) > 1 else 1)
+                else:
+                    y += sign * int(v)
+                i = j
+            return x, y
 
+        a, b = equation.split('=')
+        x1, y1 = f(a)
+        x2, y2 = f(b)
+        if x1 == x2:
+            return 'Infinite solutions' if y1 == y2 else 'No solution'
+        return f'x={(y2 - y1) // (x1 - x2)}'
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String solveEquation(String equation) {
+        String[] es = equation.split("=");
+        int[] a = f(es[0]), b = f(es[1]);
+        int x1 = a[0], y1 = a[1];
+        int x2 = b[0], y2 = b[1];
+        if (x1 == x2) {
+            return y1 == y2 ? "Infinite solutions" : "No solution";
+        }
+        return "x=" + (y2 - y1) / (x1 - x2);
+    }
 
+    private int[] f(String s) {
+        int x = 0, y = 0;
+        if (s.charAt(0) != '-') {
+            s = "+" + s;
+        }
+        int i = 0, n = s.length();
+        while (i < n) {
+            int sign = s.charAt(i) == '+' ? 1 : -1;
+            ++i;
+            int j = i;
+            while (j < n && s.charAt(j) != '+' && s.charAt(j) != '-') {
+                ++j;
+            }
+            String v = s.substring(i, j);
+            if (s.charAt(j - 1) == 'x') {
+                x += sign * (v.length() > 1 ? Integer.parseInt(v.substring(0, v.length() - 1)) : 1);
+            } else {
+                y += sign * Integer.parseInt(v);
+            }
+            i = j;
+        }
+        return new int[]{x, y};
+    }
+}
+```
+
+### **Go**
+
+```go
+func solveEquation(equation string) string {
+	f := func(s string) []int {
+		x, y := 0, 0
+		if s[0] != '-' {
+			s = "+" + s
+		}
+		i, n := 0, len(s)
+		for i < n {
+			sign := 1
+			if s[i] == '-' {
+				sign = -1
+			}
+			i++
+			j := i
+			for j < n && s[j] != '+' && s[j] != '-' {
+				j++
+			}
+			v := s[i:j]
+			if s[j-1] == 'x' {
+				a := 1
+				if len(v) > 1 {
+					a, _ = strconv.Atoi(v[:len(v)-1])
+				}
+				x += sign * a
+			} else {
+				a, _ := strconv.Atoi(v)
+				y += sign * a
+			}
+			i = j
+		}
+		return []int{x, y}
+	}
+
+	es := strings.Split(equation, "=")
+	a, b := f(es[0]), f(es[1])
+	x1, y1 := a[0], a[1]
+	x2, y2 := b[0], b[1]
+	if x1 == x2 {
+		if y1 == y2 {
+			return "Infinite solutions"
+		} else {
+			return "No solution"
+		}
+	}
+	return fmt.Sprintf("x=%d", (y2-y1)/(x1-x2))
+}
 ```
 
 ### **...**
