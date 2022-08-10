@@ -50,6 +50,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+同时遍历两个链表 $l1$, $l2$，对应节点值相加，进位记为 $carry$。当 $l1$, $l2$ 同时遍历结束，并且 $carry$ 为 $0$ 时，结束遍历。
+
+时间复杂度 $O(max(m, n))$，其中 $m$, $n$ 分别表示两个链表的长度。忽略结果链表的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,16 +69,16 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode()
-        carry, cur = 0, dummy
+        carry, curr = 0, dummy
         while l1 or l2 or carry:
-            s = (0 if not l1 else l1.val) + (0 if not l2 else l2.val) + carry
+            s = (l1.val if l1 else 0) + (l2.val if l2 else 0) + carry
             carry, val = divmod(s, 10)
-            cur.next = ListNode(val)
-            cur = cur.next
-            l1 = None if not l1 else l1.next
-            l2 = None if not l2 else l2.next
+            curr.next = ListNode(val)
+            curr = curr.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
         return dummy.next
 ```
 
