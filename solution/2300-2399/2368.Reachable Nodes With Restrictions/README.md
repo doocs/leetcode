@@ -47,7 +47,6 @@
 	<li><code>restricted</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -121,7 +120,7 @@ class Solution {
     private List<Integer>[] g;
     private boolean[] vis;
     private int ans;
-    
+
     public int reachableNodes(int n, int[][] edges, int[] restricted) {
         g = new List[n];
         for (int i = 0; i < n; ++i) {
@@ -136,12 +135,12 @@ class Solution {
             g[a].add(b);
             g[b].add(a);
         }
-        
+
         ans = 0;
         dfs(0);
         return ans;
     }
-    
+
     private void dfs(int u) {
         if (vis[u]) {
             return;
@@ -195,7 +194,7 @@ class Solution {
 class Solution {
 public:
     int ans;
-    
+
     int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
         vector<vector<int>> g(n);
         for (auto& e : edges)
@@ -210,7 +209,7 @@ public:
         dfs(0, g, vis);
         return ans;
     }
-    
+
     void dfs(int u, vector<vector<int>>& g, vector<bool>& vis) {
         if (vis[u]) return;
         vis[u] = true;

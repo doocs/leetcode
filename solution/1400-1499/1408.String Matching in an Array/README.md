@@ -8,28 +8,31 @@
 
 <p>给你一个字符串数组 <code>words</code> ，数组中的每个字符串都可以看作是一个单词。请你按 <strong>任意</strong> 顺序返回 <code>words</code> 中是其他单词的子字符串的所有单词。</p>
 
-<p>如果你可以删除 <code>words[j]</code>&nbsp;最左侧和/或最右侧的若干字符得到 <code>word[i]</code> ，那么字符串 <code>words[i]</code> 就是 <code>words[j]</code> 的一个子字符串。</p>
+<p>如果你可以删除 <code>words[j]</code>&nbsp;最左侧和/或最右侧的若干字符得到 <code>words[i]</code> ，那么字符串 <code>words[i]</code> 就是 <code>words[j]</code> 的一个子字符串。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;mass&quot;,&quot;as&quot;,&quot;hero&quot;,&quot;superhero&quot;]
-<strong>输出：</strong>[&quot;as&quot;,&quot;hero&quot;]
-<strong>解释：</strong>&quot;as&quot; 是 &quot;mass&quot; 的子字符串，&quot;hero&quot; 是 &quot;superhero&quot; 的子字符串。
-[&quot;hero&quot;,&quot;as&quot;] 也是有效的答案。
+<pre>
+<strong>输入：</strong>words = ["mass","as","hero","superhero"]
+<strong>输出：</strong>["as","hero"]
+<strong>解释：</strong>"as" 是 "mass" 的子字符串，"hero" 是 "superhero" 的子字符串。
+["hero","as"] 也是有效的答案。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;leetcode&quot;,&quot;et&quot;,&quot;code&quot;]
-<strong>输出：</strong>[&quot;et&quot;,&quot;code&quot;]
-<strong>解释：</strong>&quot;et&quot; 和 &quot;code&quot; 都是 &quot;leetcode&quot; 的子字符串。
+<pre>
+<strong>输入：</strong>words = ["leetcode","et","code"]
+<strong>输出：</strong>["et","code"]
+<strong>解释：</strong>"et" 和 "code" 都是 "leetcode" 的子字符串。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;blue&quot;,&quot;green&quot;,&quot;bu&quot;]
+<pre>
+<strong>输入：</strong>words = ["blue","green","bu"]
 <strong>输出：</strong>[]
 </pre>
 

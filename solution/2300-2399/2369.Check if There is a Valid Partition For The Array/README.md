@@ -46,7 +46,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -65,7 +64,7 @@ $dfs(i)$ 表示从数组从下标 $i$ 开始到结尾，是否至少存在一个
 
 $$
 dp[i] = \text{OR}
-\begin{cases} 
+\begin{cases}
 dp[i-2]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2],&i>1\\
 dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3],&i>2\\
 dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2]+1 = \textit{nums}[i-3]+2,&i>2
@@ -189,7 +188,7 @@ public:
     vector<int> f;
     vector<int> nums;
     int n;
-    
+
     bool validPartition(vector<int>& nums) {
         n = nums.size();
         this->nums = nums;

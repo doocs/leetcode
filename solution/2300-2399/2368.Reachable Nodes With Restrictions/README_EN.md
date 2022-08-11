@@ -46,7 +46,6 @@ We have that [0,5,6] are the only nodes that can be reached from node 0 without 
 	<li>All the values of <code>restricted</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -108,7 +107,7 @@ class Solution {
     private List<Integer>[] g;
     private boolean[] vis;
     private int ans;
-    
+
     public int reachableNodes(int n, int[][] edges, int[] restricted) {
         g = new List[n];
         for (int i = 0; i < n; ++i) {
@@ -123,12 +122,12 @@ class Solution {
             g[a].add(b);
             g[b].add(a);
         }
-        
+
         ans = 0;
         dfs(0);
         return ans;
     }
-    
+
     private void dfs(int u) {
         if (vis[u]) {
             return;
@@ -182,7 +181,7 @@ class Solution {
 class Solution {
 public:
     int ans;
-    
+
     int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
         vector<vector<int>> g(n);
         for (auto& e : edges)
@@ -197,7 +196,7 @@ public:
         dfs(0, g, vis);
         return ans;
     }
-    
+
     void dfs(int u, vector<vector<int>>& g, vector<bool>& vis) {
         if (vis[u]) return;
         vis[u] = true;

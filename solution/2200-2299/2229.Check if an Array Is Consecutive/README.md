@@ -1,4 +1,4 @@
-# [2229. Check if an Array Is Consecutive](https://leetcode.cn/problems/check-if-an-array-is-consecutive)
+# [2229. 检查数组是否连贯](https://leetcode.cn/problems/check-if-an-array-is-consecutive)
 
 [English Version](/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README_EN.md)
 
@@ -6,46 +6,47 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given an integer array <code>nums</code>, return <code>true</code> <em>if </em><code>nums</code><em> is <strong>consecutive</strong>, otherwise return </em><code>false</code><em>.</em></p>
+<p>给你一个整数数组 <code>nums</code> ，如果 <code>nums</code> 是一个 <strong>连贯数组</strong> ，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 
-<p>An array is <strong>consecutive </strong>if it contains every number in the range <code>[x, x + n - 1]</code> (<strong>inclusive</strong>), where <code>x</code> is the minimum number in the array and <code>n</code> is the length of the array.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,3,4,2]
-<strong>Output:</strong> true
-<strong>Explanation:</strong>
-The minimum value is 1 and the length of nums is 4.
-All of the values in the range [x, x + n - 1] = [1, 1 + 4 - 1] = [1, 4] = (1, 2, 3, 4) occur in nums.
-Therefore, nums is consecutive.
-</pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,3]
-<strong>Output:</strong> false
-<strong>Explanation:</strong>
-The minimum value is 1 and the length of nums is 2.
-The value 2 in the range [x, x + n - 1] = [1, 1 + 2 - 1], = [1, 2] = (1, 2) does not occur in nums.
-Therefore, nums is not consecutive.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [3,5,4]
-<strong>Output:</strong> true
-<strong>Explanation:</strong>
-The minimum value is 3 and the length of nums is 3.
-All of the values in the range [x, x + n - 1] = [3, 3 + 3 - 1] = [3, 5] = (3, 4, 5) occur in nums.
-Therefore, nums is consecutive.
-</pre>
+<p><span style="">如果数组包含 </span><code>[x, x + n - 1]</code><span style=""> 范围内的所有数字（包括 <code>x</code> 和 <code>x + n - 1</code> ），则该数组为连贯数组；其中</span> <code>x</code><span style=""> 是数组中最小的数，</span><code>n</code> <span style="">是数组的长度。</span></p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [1,3,4,2]
+<strong>输出：</strong>true
+<strong>解释：</strong>
+最小值是 1 ，数组长度为 4 。
+范围 [x, x + n - 1] 中的所有值都出现在 nums 中：[1, 1 + 4 - 1] = [1, 4] = (1, 2, 3, 4) 。
+因此，nums 是一个连贯数组。
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [1,3]
+<strong>输出：</strong>false
+<strong>解释：
+</strong>最小值是 1 ，数组长度为 2 。 
+范围 [x, x + n - 1] 中的所有值没有都出现在 nums 中：[1, 1 + 2 - 1] = [1, 2] = (1, 2) 。 
+因此，nums 不是一个连贯数组。 
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [3,5,4]
+<strong>输出：</strong>true
+<strong>解释：</strong>
+最小值是 3 ，数组长度为 3 。
+范围 [x, x + n - 1] 中的所有值都出现在 nums 中：[3, 3 + 3 - 1] = [3, 5] = (3，4，5) 。
+因此，nums 是一个连贯数组。
+</pre>
+
+<p>&nbsp;</p>
+<strong>提示：</strong>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

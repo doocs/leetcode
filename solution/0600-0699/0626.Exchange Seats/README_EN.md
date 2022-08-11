@@ -11,7 +11,7 @@
 | Column Name | Type    |
 +-------------+---------+
 | id          | int     |
-| name        | varchar |
+| student     | varchar |
 +-------------+---------+
 id is the primary key column for this table.
 Each row of this table indicates the name and the ID of a student.

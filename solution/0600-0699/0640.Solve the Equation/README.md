@@ -10,7 +10,7 @@
 
 <p>如果方程没有解，请返回&nbsp;<code>"No solution"</code>&nbsp;。如果方程有无限解，则返回 <code>“Infinite solutions”</code> 。</p>
 
-<p>如果方程中只有一个解，要保证返回值 <font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'x'</span></span></font></font>&nbsp;是一个整数。</p>
+<p>题目保证，如果方程中只有一个解，则 <font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'x'</span></span></font></font> 的值是一个整数。</p>
 
 <p>&nbsp;</p>
 
@@ -37,8 +37,6 @@
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
-
 <p><strong>提示:</strong></p>
 
 <ul>
@@ -57,8 +55,8 @@
 
 那么方程转换为等式 $x_1 \times x + y_1 = x_2 \times x + y_2$。
 
-- 当 $x_1 = x_2$：若 $y_1 \neq y_2$，方程无解；若 $y_1=y_2$，方程有无限解。
-- 当 $x_1 \neq x_2$：方程有唯一解 $x=\frac{y_2-y_1}{x_1-x_2}$。
+-   当 $x_1 = x_2$：若 $y_1 \neq y_2$，方程无解；若 $y_1=y_2$，方程有无限解。
+-   当 $x_1 \neq x_2$：方程有唯一解 $x=\frac{y_2-y_1}{x_1-x_2}$。
 
 相似题目：[592. 分数加减运算](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
 

@@ -38,7 +38,6 @@ There are a total of 5 bad pairs, so we return 5.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

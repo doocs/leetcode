@@ -45,7 +45,6 @@
 	<li><code>nums</code> is <strong>strictly</strong> increasing.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

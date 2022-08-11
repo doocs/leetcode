@@ -53,6 +53,12 @@ nums 中的所有元素都可以被 p = 1 整除。
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong></p>
+
+<p>你可以设计并实现时间复杂度为 <code>O(n<sup>2</sup>)</code> 的算法解决此问题吗？</p>
+
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

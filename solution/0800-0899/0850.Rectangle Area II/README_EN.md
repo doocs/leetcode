@@ -16,7 +16,7 @@
 <pre>
 <strong>Input:</strong> rectangles = [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
 <strong>Output:</strong> 6
-<strong>Explanation: </strong>A total area of 6 is covered by all three rectangales, as illustrated in the picture.
+<strong>Explanation:</strong> A total area of 6 is covered by all three rectangles, as illustrated in the picture.
 From (1,1) to (2,2), the green and red rectangles overlap.
 From (1,0) to (2,3), all three rectangles overlap.
 </pre>
@@ -26,7 +26,7 @@ From (1,0) to (2,3), all three rectangles overlap.
 <pre>
 <strong>Input:</strong> rectangles = [[0,0,1000000000,1000000000]]
 <strong>Output:</strong> 49
-<strong>Explanation: </strong>The answer is 10<sup>18</sup> modulo (10<sup>9</sup> + 7), which is 49.
+<strong>Explanation:</strong> The answer is 10<sup>18</sup> modulo (10<sup>9</sup> + 7), which is 49.
 </pre>
 
 <p>&nbsp;</p>
