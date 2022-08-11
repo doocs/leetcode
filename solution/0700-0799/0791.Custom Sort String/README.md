@@ -45,6 +45,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 自定义排序**
+
+将字符串中的字符按照 $order$ 中出现的位置（下标）排序，未在 $order$ 中出现的，下标默认视为 $-1$。
+
+时间复杂度 $O(nlogn+m)$，空间复杂度 $O(m)$，其中 $m$ 和 $n$ 分别为 $order$ 和 $s$ 的长度。
+
+**方法二：字符计数**
+
+统计 $s$ 中每个字符的出现次数，存储在 $cnt$ 数组中。
+
+然后把在 $order$ 中出现的字符按照 $order$ 中的顺序排序，剩余字符添加到当前字符串的后面。
+
+时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别为 $order$ 和 $s$ 的长度。空间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,7 +66,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        cs = list(s)
+        m = {v: i for i, v in enumerate(order)}
+        cs.sort(key=lambda x: m.get(x, -1))
+        return ''.join(cs)
+```
 
+```python
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        cnt = Counter(s)
+        ans = []
+        for c in order:
+            ans.append(cnt[c] * c)
+            cnt[c] = 0
+        for c in s:
+            ans.append(cnt[c] * c)
+            cnt[c] = 0
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -60,7 +93,96 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String customSortString(String order, String s) {
+        Map<Character, Integer> m = new HashMap<>();
+        for (int i = 0; i < order.length(); ++i) {
+            m.put(order.charAt(i), i);
+        }
+        List<Character> cs = new ArrayList<>();
+        for (char c : s.toCharArray()) {
+            cs.add(c);
+        }
+        cs.sort((a, b) -> m.getOrDefault(a, -1) - m.getOrDefault(b, -1));
+        StringBuilder ans = new StringBuilder();
+        for (char c : cs) {
+            ans.append(c);
+        }
+        return ans.toString();
+    }
+}
+```
 
+```java
+class Solution {
+    public String customSortString(String order, String s) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        StringBuilder ans = new StringBuilder();
+        for (char c : order.toCharArray()) {
+            while (cnt[c - 'a']-- > 0) {
+                ans.append(c);
+            }
+        }
+        for (char c : s.toCharArray()) {
+            while (cnt[c - 'a']-- > 0) {
+                ans.append(c);
+            }
+        }
+        return ans.toString();
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        vector<int> cnt(26);
+        for (char c : s) ++cnt[c - 'a'];
+        string ans = "";
+        for (char c : order) {
+            while (cnt[c - 'a']-- > 0) {
+                ans += c;
+            }
+        }
+        for (char c : s) {
+            while (cnt[c - 'a']-- > 0) {
+                ans += c;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func customSortString(order string, s string) string {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	ans := []rune{}
+	for _, c := range order {
+		for cnt[c-'a'] > 0 {
+			ans = append(ans, c)
+			cnt[c-'a']--
+		}
+	}
+	for _, c := range s {
+		for cnt[c-'a'] > 0 {
+			ans = append(ans, c)
+			cnt[c-'a']--
+		}
+	}
+	return string(ans)
+}
 ```
 
 ### **...**
