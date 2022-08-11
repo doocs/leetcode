@@ -11,15 +11,15 @@
 
 | 段位  | 比例   | 段位名   | 国服分数线    | 勋章                                                                    |
 | ----- | ------ | -------- | --------- | --------------------------------------------------------------------------- |
-| LV3 | 5%  | Guardian | &ge;2217.22 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2 | 20% | Knight   | &ge;1862.81 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3 | 5%  | Guardian | &ge;2220.91 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2 | 20% | Knight   | &ge;1865.77 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1 | 75% | -        | -         | -                                                                           |
 
 力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
 
 ## 赛后估分网站
 
-https://lcpredictor.herokuapp.com/
+https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 

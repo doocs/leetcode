@@ -50,13 +50,97 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findBuildings(self, heights: List[int]) -> List[int]:
+        mx = 0
+        ans = []
+        for i in range(len(heights) - 1, -1, -1):
+            v = heights[i]
+            if mx < v:
+                ans.append(i)
+                mx = v
+        return ans[::-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] findBuildings(int[] heights) {
+        int mx = 0;
+        LinkedList<Integer> ans = new LinkedList<>();
+        for (int i = heights.length - 1; i >= 0; --i) {
+            int v = heights[i];
+            if (mx < v) {
+                ans.addFirst(i);
+                mx = v;
+            }
+        }
+        return ans.stream().mapToInt(i -> i).toArray();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findBuildings(vector<int>& heights) {
+        int mx = 0;
+        vector<int> ans;
+        for (int i = heights.size() - 1; ~i; --i) {
+            int v = heights[i];
+            if (mx < v) {
+                ans.push_back(i);
+                mx = v;
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findBuildings(heights []int) []int {
+	mx := 0
+	ans := []int{}
+	for i := len(heights) - 1; i >= 0; i-- {
+		v := heights[i]
+		if mx < v {
+			ans = append(ans, i)
+			mx = v
+		}
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} heights
+ * @return {number[]}
+ */
+var findBuildings = function (heights) {
+    let mx = 0;
+    let ans = [];
+    for (let i = heights.length - 1; i >= 0; --i) {
+        const v = heights[i];
+        if (mx < v) {
+            ans.push(i);
+            mx = v;
+        }
+    }
+    return ans.reverse();
+};
 ```
 
 ### **...**
