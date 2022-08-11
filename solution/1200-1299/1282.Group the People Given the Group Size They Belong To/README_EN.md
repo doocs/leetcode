@@ -125,6 +125,48 @@ func groupThePeople(groupSizes []int) [][]int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function groupThePeople(groupSizes: number[]): number[][] {
+    const res = [];
+    const map = new Map<number, number[]>();
+    const n = groupSizes.length;
+    for (let i = 0; i < n; i++) {
+        const size = groupSizes[i];
+        map.set(size, [...(map.get(size) ?? []), i]);
+        const arr = map.get(size);
+        if (arr.length === size) {
+            res.push(arr);
+            map.set(size, []);
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn group_the_people(group_sizes: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut res = vec![];
+        let mut map = HashMap::new();
+        for i in 0..group_sizes.len() {
+            let size = group_sizes[i] as usize;
+            let arr = map.entry(size).or_insert(vec![]);
+            arr.push(i as i32);
+            if arr.len() == size {
+                res.push(arr.clone());
+                arr.clear();
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
