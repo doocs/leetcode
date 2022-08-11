@@ -46,13 +46,85 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isOneEditDistance(self, s: str, t: str) -> bool:
+        if len(s) < len(t):
+            return self.isOneEditDistance(t, s)
+        m, n = len(s), len(t)
+        if m - n > 1:
+            return False
+        for i, c in enumerate(t):
+            if c != s[i]:
+                return s[i + 1:] == t[i + 1:] if m == n else s[i + 1:] == t[i:]
+        return m == n + 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isOneEditDistance(String s, String t) {
+        int m = s.length(), n = t.length();
+        if (m < n) {
+            return isOneEditDistance(t, s);
+        }
+        if (m - n > 1) {
+            return false;
+        }
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) != t.charAt(i)) {
+                if (m == n) {
+                    return s.substring(i + 1).equals(t.substring(i + 1));
+                }
+                return s.substring(i + 1).equals(t.substring(i));
+            }
+        }
+        return m == n + 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isOneEditDistance(string s, string t) {
+        int m = s.size(), n = t.size();
+        if (m < n) return isOneEditDistance(t, s);
+        if (m - n > 1) return false;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != t[i]) {
+                if (m == n) return s.substr(i + 1) == t.substr(i + 1);
+                return s.substr(i + 1) == t.substr(i);
+            }
+        }
+        return m == n + 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isOneEditDistance(s string, t string) bool {
+	m, n := len(s), len(t)
+	if m < n {
+		return isOneEditDistance(t, s)
+	}
+	if m-n > 1 {
+		return false
+	}
+	for i := range t {
+		if s[i] != t[i] {
+			if m == n {
+				return s[i+1:] == t[i+1:]
+			}
+			return s[i+1:] == t[i:]
+		}
+	}
+	return m == n+1
+}
 ```
 
 ### **...**

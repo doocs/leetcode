@@ -46,6 +46,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分情况讨论**
+
+记 $m$ 表示字符串 $s$ 的长度，$n$ 表示字符串 $t$ 的长度。我们可以假定 $m$ 恒大于等于 $n$。
+
+若 $m-n\gt1$，直接返回 false；
+
+否则，遍历 $s$ 和 $t$，若遇到 $s[i]$ 不等于 $t[i]$：
+
+- 若 $m \neq n$，比较 $s[i+1:]$ 与 $t[i:]$，相等返回 true，否则返回 false；
+- 若 $m = n$，比较 $s[i:]$ 与 $t[i:]$，相等返回 true，否则返回 false。
+
+遍历结束，说明遍历过的 $s$ 跟 $t$ 所有字符相等，此时需要满足 $m=n+1$。
+
+时间复杂度 $O(m)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +68,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isOneEditDistance(self, s: str, t: str) -> bool:
+        if len(s) < len(t):
+            return self.isOneEditDistance(t, s)
+        m, n = len(s), len(t)
+        if m - n > 1:
+            return False
+        for i, c in enumerate(t):
+            if c != s[i]:
+                return s[i + 1:] == t[i + 1:] if m == n else s[i + 1:] == t[i:]
+        return m == n + 1
 ```
 
 ### **Java**
@@ -61,7 +86,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isOneEditDistance(String s, String t) {
+        int m = s.length(), n = t.length();
+        if (m < n) {
+            return isOneEditDistance(t, s);
+        }
+        if (m - n > 1) {
+            return false;
+        }
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) != t.charAt(i)) {
+                if (m == n) {
+                    return s.substring(i + 1).equals(t.substring(i + 1));
+                }
+                return s.substring(i + 1).equals(t.substring(i));
+            }
+        }
+        return m == n + 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isOneEditDistance(string s, string t) {
+        int m = s.size(), n = t.size();
+        if (m < n) return isOneEditDistance(t, s);
+        if (m - n > 1) return false;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != t[i]) {
+                if (m == n) return s.substr(i + 1) == t.substr(i + 1);
+                return s.substr(i + 1) == t.substr(i);
+            }
+        }
+        return m == n + 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isOneEditDistance(s string, t string) bool {
+	m, n := len(s), len(t)
+	if m < n {
+		return isOneEditDistance(t, s)
+	}
+	if m-n > 1 {
+		return false
+	}
+	for i := range t {
+		if s[i] != t[i] {
+			if m == n {
+				return s[i+1:] == t[i+1:]
+			}
+			return s[i+1:] == t[i:]
+		}
+	}
+	return m == n+1
+}
 ```
 
 ### **...**
