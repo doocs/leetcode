@@ -1,11 +1,6 @@
 class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
-        mp = defaultdict(list)
-        for i, x in enumerate(groupSizes):
-            mp[x].append(i)
-        res = []
-        for x, indexes in mp.items():
-            l = len(indexes)
-            for i in range(0, l, x):
-                res.append(indexes[i : i + x])
-        return res
+        g = defaultdict(list)
+        for i, v in enumerate(groupSizes):
+            g[v].append(i)
+        return [v[j: j + i] for i, v in g.items() for j in range(0, len(v), i)]

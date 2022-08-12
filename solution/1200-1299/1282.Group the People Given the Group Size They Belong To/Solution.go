@@ -1,13 +1,14 @@
 func groupThePeople(groupSizes []int) [][]int {
-	mp := make(map[int][]int)
-	for i, x := range groupSizes {
-		mp[x] = append(mp[x], i)
+	n := len(groupSizes)
+	g := make([][]int, n+1)
+	for i, v := range groupSizes {
+		g[v] = append(g[v], i)
 	}
-	var res [][]int
-	for x, indexes := range mp {
-		for i := 0; i < len(indexes); i += x {
-			res = append(res, indexes[i:i+x])
+	ans := [][]int{}
+	for i, v := range g {
+		for j := 0; j < len(v); j += i {
+			ans = append(ans, v[j:j+i])
 		}
 	}
-	return res
+	return ans
 }

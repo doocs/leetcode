@@ -49,6 +49,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表或数组**
+
+我们用一个哈希表 $g$ 来存放每个 $groupSize$ 都有哪些人。然后对每个 $groupSize$ 中的人划分为 $k$ 等份，每一等份有 $groupSize$ 个人。
+
+由于题目中的 $n$ 范围较小，我们也可以直接创建一个大小为 $n+1$ 的数组来存放数据，运行效率较高。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,15 +66,10 @@
 ```python
 class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
-        mp = defaultdict(list)
-        for i, x in enumerate(groupSizes):
-            mp[x].append(i)
-        res = []
-        for x, indexes in mp.items():
-            l = len(indexes)
-            for i in range(0, l, x):
-                res.append(indexes[i: i + x])
-        return res
+        g = defaultdict(list)
+        for i, v in enumerate(groupSizes):
+            g[v].append(i)
+        return [v[j: j + i] for i, v in g.items() for j in range(0, len(v), i)]
 ```
 
 ### **Java**
@@ -76,19 +79,22 @@ class Solution:
 ```java
 class Solution {
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
-        Map<Integer, List<Integer>> mp = new HashMap<>();
-        for (int i = 0; i < groupSizes.length; ++i) {
-            mp.computeIfAbsent(groupSizes[i], k -> new ArrayList<>()).add(i);
+        int n = groupSizes.length;
+        List<Integer>[] g = new List[n + 1];
+        for (int i = 0; i < g.length; ++i) {
+            g[i] = new ArrayList<>();
         }
-        List<List<Integer>> res = new ArrayList<>();
-        for (Map.Entry<Integer, List<Integer>> entry : mp.entrySet()) {
-            int x = entry.getKey();
-            List<Integer> indexes = entry.getValue();
-            for (int i = 0; i < indexes.size(); i += x) {
-                res.add(new ArrayList<>(indexes.subList(i, i + x)));
+        for (int i = 0; i < n; ++i) {
+            g[groupSizes[i]].add(i);
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < g.length; ++i) {
+            List<Integer> v = g[i];
+            for (int j = 0; j < v.size(); j += i) {
+                ans.add(v.subList(j, j + i));
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -99,20 +105,17 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
-        unordered_map<int, vector<int>> mp;
-        for (int i = 0; i < groupSizes.size(); ++i) mp[groupSizes[i]].push_back(i);
-        vector<vector<int>> res;
-        for (auto& entry : mp)
-        {
-            int x = entry.first;
-            auto indexes = entry.second;
-            for (int i = 0; i < indexes.size(); i += x)
-            {
-                vector<int> t(indexes.begin() + i, indexes.begin() + i + x);
-                res.push_back(t);
+        int n = groupSizes.size();
+        vector<vector<int>> g(n + 1);
+        for (int i = 0; i < n; ++i) g[groupSizes[i]].push_back(i);
+        vector<vector<int>> ans;
+        for (int i = 0; i < g.size(); ++i) {
+            for (int j = 0; j < g[i].size(); j += i) {
+                vector<int> t(g[i].begin() + j, g[i].begin() + j + i);
+                ans.push_back(t);
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -121,17 +124,18 @@ public:
 
 ```go
 func groupThePeople(groupSizes []int) [][]int {
-	mp := make(map[int][]int)
-	for i, x := range groupSizes {
-		mp[x] = append(mp[x], i)
+	n := len(groupSizes)
+	g := make([][]int, n+1)
+	for i, v := range groupSizes {
+		g[v] = append(g[v], i)
 	}
-	var res [][]int
-	for x, indexes := range mp {
-		for i := 0; i < len(indexes); i += x {
-			res = append(res, indexes[i:i+x])
+	ans := [][]int{}
+	for i, v := range g {
+		for j := 0; j < len(v); j += i {
+			ans = append(ans, v[j:j+i])
 		}
 	}
-	return res
+	return ans
 }
 ```
 

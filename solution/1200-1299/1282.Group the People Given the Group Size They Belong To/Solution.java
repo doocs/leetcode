@@ -1,17 +1,20 @@
 class Solution {
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
-        Map<Integer, List<Integer>> mp = new HashMap<>();
-        for (int i = 0; i < groupSizes.length; ++i) {
-            mp.computeIfAbsent(groupSizes[i], k -> new ArrayList<>()).add(i);
+        int n = groupSizes.length;
+        List<Integer>[] g = new List[n + 1];
+        for (int i = 0; i < g.length; ++i) {
+            g[i] = new ArrayList<>();
         }
-        List<List<Integer>> res = new ArrayList<>();
-        for (Map.Entry<Integer, List<Integer>> entry : mp.entrySet()) {
-            int x = entry.getKey();
-            List<Integer> indexes = entry.getValue();
-            for (int i = 0; i < indexes.size(); i += x) {
-                res.add(new ArrayList<>(indexes.subList(i, i + x)));
+        for (int i = 0; i < n; ++i) {
+            g[groupSizes[i]].add(i);
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < g.length; ++i) {
+            List<Integer> v = g[i];
+            for (int j = 0; j < v.size(); j += i) {
+                ans.add(v.subList(j, j + i));
             }
         }
-        return res;
+        return ans;
     }
 }
