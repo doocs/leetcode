@@ -1,29 +1,25 @@
 func restoreArray(adjacentPairs [][]int) []int {
-	graph := make(map[int][]int)
-	for _, pair := range adjacentPairs {
-		graph[pair[0]] = append(graph[pair[0]], pair[1])
-		graph[pair[1]] = append(graph[pair[1]], pair[0])
+	n := len(adjacentPairs) + 1
+	g := map[int][]int{}
+	for _, e := range adjacentPairs {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
 	}
-	ans := make([]int, 0)
-	vis := make(map[int]bool)
-	var start int
-	for idx, adj := range graph {
-		if len(adj) == 1 {
-			start = idx
+	ans := make([]int, n)
+	for k, v := range g {
+		if len(v) == 1 {
+			ans[0] = k
+			ans[1] = v[0]
 			break
 		}
 	}
-	dfs(graph, &ans, vis, start)
+	for i := 2; i < n; i++ {
+		v := g[ans[i-1]]
+		ans[i] = v[0]
+		if v[0] == ans[i-2] {
+			ans[i] = v[1]
+		}
+	}
 	return ans
-}
-
-func dfs(graph map[int][]int, ans *[]int, vis map[int]bool, idx int) {
-	if vis[idx] {
-		return
-	}
-	vis[idx] = true
-	*ans = append(*ans, idx)
-	for _, next := range graph[idx] {
-		dfs(graph, ans, vis, next)
-	}
 }

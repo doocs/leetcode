@@ -61,27 +61,45 @@ Traverse the graph from the point where the degree is one.
 ```python
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
-        graph = defaultdict(list)
-        for pair in adjacentPairs:
-            graph[pair[0]].append(pair[1])
-            graph[pair[1]].append(pair[0])
+        g = defaultdict(list)
+        for a, b in adjacentPairs:
+            g[a].append(b)
+            g[b].append(a)
+        n = len(adjacentPairs) + 1
+        ans = [0] * n
+        for i, v in g.items():
+            if len(v) == 1:
+                ans[0] = i
+                ans[1] = v[0]
+                break
+        for i in range(2, n):
+            v = g[ans[i - 1]]
+            ans[i] = v[0] if v[1] == ans[i - 2] else v[1]
+        return ans
+```
+
+```python
+class Solution:
+    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+        def dfs(i):
+            if i in vis:
+                return
+            vis.add(i)
+            ans.append(i)
+            for j in g[i]:
+                dfs(j)
+
+        g = defaultdict(list)
+        for a, b in adjacentPairs:
+            g[a].append(b)
+            g[b].append(a)
         ans = []
         vis = set()
-
-        def dfs(idx):
-            if idx in vis:
-                return
-            vis.add(idx)
-            ans.append(idx)
-            for nxt in graph[idx]:
-                dfs(nxt)
-
         start = -1
-        for idx, adj in graph.items():
-            if len(adj) == 1:
-                start = idx
+        for i, v in g.items():
+            if len(v) == 1:
+                start = i
                 break
-
         dfs(start)
         return ans
 ```
@@ -91,32 +109,61 @@ class Solution:
 ```java
 class Solution {
     public int[] restoreArray(int[][] adjacentPairs) {
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int[] pair : adjacentPairs) {
-            graph.computeIfAbsent(pair[0], k -> new ArrayList<>()).add(pair[1]);
-            graph.computeIfAbsent(pair[1], k -> new ArrayList<>()).add(pair[0]);
+        int n = adjacentPairs.length + 1;
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int[] e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
+            g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
+        }
+        int[] ans = new int[n];
+        for (Map.Entry<Integer, List<Integer>> entry : g.entrySet()) {
+            if (entry.getValue().size() == 1) {
+                ans[0] = entry.getKey();
+                ans[1] = entry.getValue().get(0);
+                break;
+            }
+        }
+        for (int i = 2; i < n; ++i) {
+            List<Integer> v = g.get(ans[i - 1]);
+            ans[i] = v.get(1) == ans[i - 2] ? v.get(0) : v.get(1);
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] restoreArray(int[][] adjacentPairs) {
+        int n = adjacentPairs.length + 1;
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int[] e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
+            g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
         }
         List<Integer> ans = new ArrayList<>();
         Set<Integer> vis = new HashSet<>();
         int start = -1;
-        for (Map.Entry<Integer, List<Integer>> entry : graph.entrySet()) {
+        for (Map.Entry<Integer, List<Integer>> entry : g.entrySet()) {
             if (entry.getValue().size() == 1) {
                 start = entry.getKey();
                 break;
             }
         }
-        dfs(graph, ans, vis, start);
+        dfs(g, ans, vis, start);
         return ans.stream().mapToInt(Integer::valueOf).toArray();
     }
 
-    private void dfs(Map<Integer, List<Integer>> graph, List<Integer> ans, Set<Integer> vis, int idx) {
-        if (vis.contains(idx)) {
+    private void dfs(Map<Integer, List<Integer>> g, List<Integer> ans, Set<Integer> vis, int i) {
+        if (vis.contains(i)) {
             return;
         }
-        vis.add(idx);
-        ans.add(idx);
-        for (Integer next : graph.get(idx)) {
-            dfs(graph, ans, vis, next);
+        vis.add(i);
+        ans.add(i);
+        for (int j : g.get(i)) {
+            dfs(g, ans, vis, j);
         }
     }
 }
@@ -126,34 +173,128 @@ class Solution {
 
 ```go
 func restoreArray(adjacentPairs [][]int) []int {
-	graph := make(map[int][]int)
-	for _, pair := range adjacentPairs {
-		graph[pair[0]] = append(graph[pair[0]], pair[1])
-		graph[pair[1]] = append(graph[pair[1]], pair[0])
+	n := len(adjacentPairs) + 1
+	g := map[int][]int{}
+	for _, e := range adjacentPairs {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
 	}
-	ans := make([]int, 0)
-	vis := make(map[int]bool)
-	var start int
-	for idx, adj := range graph {
-		if len(adj) == 1 {
-			start = idx
+	ans := make([]int, n)
+	for k, v := range g {
+		if len(v) == 1 {
+			ans[0] = k
+			ans[1] = v[0]
 			break
 		}
 	}
-	dfs(graph, &ans, vis, start)
+	for i := 2; i < n; i++ {
+		v := g[ans[i-1]]
+		ans[i] = v[0]
+		if v[0] == ans[i-2] {
+			ans[i] = v[1]
+		}
+	}
 	return ans
 }
+```
 
-func dfs(graph map[int][]int, ans *[]int, vis map[int]bool, idx int) {
-	if vis[idx] {
-		return
+```go
+func restoreArray(adjacentPairs [][]int) []int {
+	g := map[int][]int{}
+	for _, e := range adjacentPairs {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
 	}
-	vis[idx] = true
-	*ans = append(*ans, idx)
-	for _, next := range graph[idx] {
-		dfs(graph, ans, vis, next)
+	ans := []int{}
+	vis := map[int]bool{}
+	var start int
+	for i, v := range g {
+		if len(v) == 1 {
+			start = i
+			break
+		}
 	}
+	var dfs func(i int)
+	dfs = func(i int) {
+		if vis[i] {
+			return
+		}
+		vis[i] = true
+		ans = append(ans, i)
+		for _, j := range g[i] {
+			dfs(j)
+		}
+	}
+	dfs(start)
+	return ans
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
+        int n = adjacentPairs.size() + 1;
+        unordered_map<int, vector<int>> g;
+        for (auto& e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        for (auto& [k, v] : g) {
+            if (v.size() == 1) {
+                ans[0] = k;
+                ans[1] = v[0];
+                break;
+            }
+        }
+        for (int i = 2; i < n; ++i) {
+            auto v = g[ans[i - 1]];
+            ans[i] = v[0] == ans[i - 2] ? v[1] : v[0];
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
+        int n = adjacentPairs.size() + 1;
+        unordered_map<int, vector<int>> g;
+        for (auto& e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans;
+        unordered_set<int> vis;
+        int start = -1;
+        for (auto& [k, v] : g) {
+            if (v.size() == 1) {
+                start = k;
+                break;
+            }
+        }
+        dfs(g, ans, vis, start);
+        return ans;
+    }
+
+    void dfs(unordered_map<int, vector<int>>& g, vector<int>& ans, unordered_set<int>& vis, int i) {
+        if (vis.count(i)) return;
+        ans.push_back(i);
+        vis.insert(i);
+        for (int j : g[i]) {
+            dfs(g, ans, vis, j);
+        }
+    }
+};
 ```
 
 ### **...**

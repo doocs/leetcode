@@ -1,31 +1,24 @@
 class Solution {
     public int[] restoreArray(int[][] adjacentPairs) {
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int[] pair : adjacentPairs) {
-            graph.computeIfAbsent(pair[0], k -> new ArrayList<>()).add(pair[1]);
-            graph.computeIfAbsent(pair[1], k -> new ArrayList<>()).add(pair[0]);
+        int n = adjacentPairs.length + 1;
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int[] e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
+            g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
         }
-        List<Integer> ans = new ArrayList<>();
-        Set<Integer> vis = new HashSet<>();
-        int start = -1;
-        for (Map.Entry<Integer, List<Integer>> entry : graph.entrySet()) {
+        int[] ans = new int[n];
+        for (Map.Entry<Integer, List<Integer>> entry : g.entrySet()) {
             if (entry.getValue().size() == 1) {
-                start = entry.getKey();
+                ans[0] = entry.getKey();
+                ans[1] = entry.getValue().get(0);
                 break;
             }
         }
-        dfs(graph, ans, vis, start);
-        return ans.stream().mapToInt(Integer::valueOf).toArray();
-    }
-
-    private void dfs(Map<Integer, List<Integer>> graph, List<Integer> ans, Set<Integer> vis, int idx) {
-        if (vis.contains(idx)) {
-            return;
+        for (int i = 2; i < n; ++i) {
+            List<Integer> v = g.get(ans[i - 1]);
+            ans[i] = v.get(1) == ans[i - 2] ? v.get(0) : v.get(1);
         }
-        vis.add(idx);
-        ans.add(idx);
-        for (Integer next : graph.get(idx)) {
-            dfs(graph, ans, vis, next);
-        }
+        return ans;
     }
 }
