@@ -49,13 +49,78 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def checkIfCanBreak(self, s1: str, s2: str) -> bool:
+        cs1 = sorted(s1)
+        cs2 = sorted(s2)
+        return all(a >= b for a, b in zip(cs1, cs2)) or all(
+            a <= b for a, b in zip(cs1, cs2)
+        )
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean checkIfCanBreak(String s1, String s2) {
+        char[] cs1 = s1.toCharArray();
+        char[] cs2 = s2.toCharArray();
+        Arrays.sort(cs1);
+        Arrays.sort(cs2);
+        return check(cs1, cs2) || check(cs2, cs1);
+    }
 
+    private boolean check(char[] cs1, char[] cs2) {
+        for (int i = 0; i < cs1.length; ++i) {
+            if (cs1[i] < cs2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkIfCanBreak(string s1, string s2) {
+        sort(s1.begin(), s1.end());
+        sort(s2.begin(), s2.end());
+        return check(s1, s2) || check(s2, s1);
+    }
+
+    bool check(string& s1, string& s2) {
+        for (int i = 0; i < s1.size(); ++i) {
+            if (s1[i] < s2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkIfCanBreak(s1 string, s2 string) bool {
+	cs1 := []byte(s1)
+	cs2 := []byte(s2)
+	sort.Slice(cs1, func(i, j int) bool { return cs1[i] < cs1[j] })
+	sort.Slice(cs2, func(i, j int) bool { return cs2[i] < cs2[j] })
+	check := func(cs1, cs2 []byte) bool {
+		for i := range cs1 {
+			if cs1[i] < cs2[i] {
+				return false
+			}
+		}
+		return true
+	}
+	return check(cs1, cs2) || check(cs2, cs1)
+}
 ```
 
 ### **...**

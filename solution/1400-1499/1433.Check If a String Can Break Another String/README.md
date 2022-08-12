@@ -47,6 +47,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+将字符串 $s1$, $s2$ 分别进行升序排序。然后同时遍历两个字符串，对应字符进行大小比较。若对于任意 $i∈[0, n)，都有$ $s1[i] \le s2[i]$，或者都有 $s1[i] \ge s2[i]$，则存在一个排列可以打破另一个排列。
+
+时间复杂度 $O(nlogn)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +60,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def checkIfCanBreak(self, s1: str, s2: str) -> bool:
+        cs1 = sorted(s1)
+        cs2 = sorted(s2)
+        return all(a >= b for a, b in zip(cs1, cs2)) or all(
+            a <= b for a, b in zip(cs1, cs2)
+        )
 ```
 
 ### **Java**
@@ -62,7 +74,66 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean checkIfCanBreak(String s1, String s2) {
+        char[] cs1 = s1.toCharArray();
+        char[] cs2 = s2.toCharArray();
+        Arrays.sort(cs1);
+        Arrays.sort(cs2);
+        return check(cs1, cs2) || check(cs2, cs1);
+    }
 
+    private boolean check(char[] cs1, char[] cs2) {
+        for (int i = 0; i < cs1.length; ++i) {
+            if (cs1[i] < cs2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkIfCanBreak(string s1, string s2) {
+        sort(s1.begin(), s1.end());
+        sort(s2.begin(), s2.end());
+        return check(s1, s2) || check(s2, s1);
+    }
+
+    bool check(string& s1, string& s2) {
+        for (int i = 0; i < s1.size(); ++i) {
+            if (s1[i] < s2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkIfCanBreak(s1 string, s2 string) bool {
+	cs1 := []byte(s1)
+	cs2 := []byte(s2)
+	sort.Slice(cs1, func(i, j int) bool { return cs1[i] < cs1[j] })
+	sort.Slice(cs2, func(i, j int) bool { return cs2[i] < cs2[j] })
+	check := func(cs1, cs2 []byte) bool {
+		for i := range cs1 {
+			if cs1[i] < cs2[i] {
+				return false
+			}
+		}
+		return true
+	}
+	return check(cs1, cs2) || check(cs2, cs1)
+}
 ```
 
 ### **...**
