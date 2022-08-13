@@ -142,19 +142,41 @@ func maxChunksToSorted(arr []int) int {
 
 ```ts
 function maxChunksToSorted(arr: number[]): number {
-    let stack = []; // 左进左出
-    for (let num of arr) {
-        if (stack.length && num < stack[0]) {
-            let max = stack.shift();
-            while (stack.length && num < stack[0]) {
-                stack.shift();
+    const stack = [];
+    for (const num of arr) {
+        if (stack.length !== 0 && num < stack[stack.length - 1]) {
+            const max = stack.pop();
+            while (stack.length !== 0 && num < stack[stack.length - 1]) {
+                stack.pop();
             }
-            stack.unshift(max);
+            stack.push(max);
         } else {
-            stack.unshift(num);
+            stack.push(num);
         }
     }
     return stack.length;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
+        let mut stack = vec![];
+        for num in arr.iter() {
+            if !stack.is_empty() && num < stack.last().unwrap() {
+                let max = stack.pop().unwrap();
+                while !stack.is_empty() && num < stack.last().unwrap() {
+                    stack.pop();
+                }
+                stack.push(max)
+            } else {
+                stack.push(*num);
+            }
+        }
+        stack.len() as i32
+    }
 }
 ```
 
