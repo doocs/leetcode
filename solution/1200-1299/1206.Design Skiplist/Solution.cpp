@@ -1,7 +1,9 @@
 struct Node {
     int val;
     vector<Node*> next;
-    Node(int v, int level) : val(v), next(level, nullptr) {}
+    Node(int v, int level)
+        : val(v)
+        , next(level, nullptr) { }
 };
 
 class Skiplist {
@@ -15,41 +17,36 @@ public:
         head = new Node(-1, maxLevel);
         level = 0;
     }
-    
+
     bool search(int target) {
         Node* curr = head;
-        for (int i = level - 1; ~i; --i)
-        {
+        for (int i = level - 1; ~i; --i) {
             curr = findClosest(curr, i, target);
             if (curr->next[i] && curr->next[i]->val == target) return true;
         }
         return false;
     }
-    
+
     void add(int num) {
         Node* curr = head;
         int lv = randomLevel();
         Node* node = new Node(num, lv);
         level = max(level, lv);
-        for (int i = level - 1; ~i; --i)
-        {
+        for (int i = level - 1; ~i; --i) {
             curr = findClosest(curr, i, num);
-            if (i < lv)
-            {
+            if (i < lv) {
                 node->next[i] = curr->next[i];
                 curr->next[i] = node;
             }
         }
     }
-    
+
     bool erase(int num) {
         Node* curr = head;
         bool ok = false;
-        for (int i = level - 1; ~i; --i)
-        {
+        for (int i = level - 1; ~i; --i) {
             curr = findClosest(curr, i, num);
-            if (curr->next[i] && curr->next[i]->val == num)
-            {
+            if (curr->next[i] && curr->next[i]->val == num) {
                 curr->next[i] = curr->next[i]->next[i];
                 ok = true;
             }

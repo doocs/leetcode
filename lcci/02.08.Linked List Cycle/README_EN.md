@@ -49,14 +49,20 @@ Can you solve it without using additional space?</p>
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    def detectCycle(self, head: ListNode) -> ListNode:
         slow = fast = head
-        while fast and fast.next:
+        has_cycle = False
+        while not has_cycle and fast and fast.next:
             slow, fast = slow.next, fast.next.next
-            if slow == fast:
-                return True
-        return False
+            has_cycle = slow == fast
+        if not has_cycle:
+            return None
+        p = head
+        while p != slow:
+            p, slow = p.next, slow.next
+        return p
 ```
 
 ### **Java**
@@ -74,17 +80,23 @@ class Solution:
  * }
  */
 public class Solution {
-    public boolean hasCycle(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast != null && fast.next != null) {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow = head, fast = head;
+        boolean hasCycle = false;
+        while (!hasCycle && fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast) {
-                return true;
-            }
+            hasCycle = slow == fast;
         }
-        return false;
+        if (!hasCycle) {
+            return null;
+        }
+        ListNode p = head;
+        while (p != slow) {
+            p = p.next;
+            slow = slow.next;
+        }
+        return p;
     }
 }
 ```
@@ -102,17 +114,24 @@ public class Solution {
  */
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
+    ListNode* detectCycle(ListNode* head) {
         ListNode* slow = head;
         ListNode* fast = head;
-        while (fast && fast->next) {
+        bool hasCycle = false;
+        while (!hasCycle && fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
-            if (slow == fast) {
-                return true;
-            }
+            hasCycle = slow == fast;
         }
-        return false;
+        if (!hasCycle) {
+            return nullptr;
+        }
+        ListNode* p = head;
+        while (p != slow) {
+            p = p->next;
+            slow = slow->next;
+        }
+        return p;
     }
 };
 ```
@@ -130,19 +149,26 @@ public:
 
 /**
  * @param {ListNode} head
- * @return {boolean}
+ * @return {ListNode}
  */
-var hasCycle = function (head) {
+var detectCycle = function (head) {
     let slow = head;
     let fast = head;
-    while (fast && fast.next) {
+    let hasCycle = false;
+    while (!hasCycle && fast && fast.next) {
         slow = slow.next;
         fast = fast.next.next;
-        if (slow == fast) {
-            return true;
-        }
+        hasCycle = slow == fast;
     }
-    return false;
+    if (!hasCycle) {
+        return null;
+    }
+    let p = head;
+    while (p != slow) {
+        p = p.next;
+        slow = slow.next;
+    }
+    return p;
 };
 ```
 
@@ -156,15 +182,21 @@ var hasCycle = function (head) {
  *     Next *ListNode
  * }
  */
-func hasCycle(head *ListNode) bool {
-    slow, fast := head, head
-    for fast != nil && fast.Next != nil {
-        slow, fast = slow.Next, fast.Next.Next
-        if slow == fast {
-            return true
-        }
-    }
-    return false
+func detectCycle(head *ListNode) *ListNode {
+	slow, fast := head, head
+	hasCycle := false
+	for !hasCycle && fast != nil && fast.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+		hasCycle = slow == fast
+	}
+	if !hasCycle {
+		return nil
+	}
+	p := head
+	for p != slow {
+		p, slow = p.Next, slow.Next
+	}
+	return p
 }
 ```
 

@@ -6,7 +6,7 @@ public:
     OrderedStream(int n) {
         data.resize(n, "");
     }
-    
+
     vector<string> insert(int idKey, string value) {
         data[idKey - 1] = value;
         vector<string> ans;

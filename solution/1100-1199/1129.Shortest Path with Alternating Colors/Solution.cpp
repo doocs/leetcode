@@ -10,11 +10,9 @@ public:
         q.push({0, false});
         int d = -1;
         vector<int> ans(n, -1);
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ++d;
-            for (int t = q.size(); t > 0; --t)
-            {
+            for (int t = q.size(); t > 0; --t) {
                 auto p = q.front();
                 q.pop();
                 int i = p.first;
@@ -24,8 +22,7 @@ public:
                 vis[i] = true;
                 vector<int>& ne = b ? red[i] : blue[i];
                 vector<bool>& v = b ? visRed : visBlue;
-                for (int j : ne)
-                {
+                for (int j : ne) {
                     if (v[j]) continue;
                     v[j] = true;
                     q.push({j, !b});

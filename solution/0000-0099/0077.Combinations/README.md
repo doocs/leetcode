@@ -110,13 +110,11 @@ public:
     }
 
     void dfs(int i, int n, int k, vector<int> t, vector<vector<int>>& res) {
-        if (t.size() == k)
-        {
+        if (t.size() == k) {
             res.push_back(t);
             return;
         }
-        for (int j = i; j <= n; ++j)
-        {
+        for (int j = i; j <= n; ++j) {
             t.push_back(j);
             dfs(j + 1, n, k, t, res);
             t.pop_back();

@@ -14,7 +14,7 @@ public:
     unordered_set<int> nodes;
 
     bool findTarget(TreeNode* root, int k) {
-        return find(root, k);    
+        return find(root, k);
     }
 
     bool find(TreeNode* root, int k) {

@@ -4,8 +4,7 @@ public:
         unordered_map<int, int> counter;
         counter[0] = 1;
         int s = 0, ans = 0;
-        for (int& num : nums)
-        {
+        for (int& num : nums) {
             s += num;
             int t = (s % k + k) % k;
             ans += counter[t];

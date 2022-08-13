@@ -149,7 +149,7 @@ public:
         for (int p = 0, q = nums.size() - 1; p < q;) {
             int s = nums[p] + nums[q];
             if (s == target) {
-                return vector<int>{nums[p], nums[q]};
+                return vector<int> {nums[p], nums[q]};
             }
             if (s < target) {
                 ++p;
@@ -157,7 +157,7 @@ public:
                 --q;
             }
         }
-        return vector<int>{};
+        return vector<int> {};
     }
 };
 ```

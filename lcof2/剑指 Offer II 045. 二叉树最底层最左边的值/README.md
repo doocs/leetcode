@@ -142,10 +142,8 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         int ans = -1;
-        while (!q.empty())
-        {
-            for (int i = 0, n = q.size(); i < n; ++i)
-            {
+        while (!q.empty()) {
+            for (int i = 0, n = q.size(); i < n; ++i) {
                 TreeNode* node = q.front();
                 if (i == 0) ans = node->val;
                 q.pop();

@@ -2,11 +2,9 @@ class Solution {
 public:
     string countAndSay(int n) {
         string s = "1";
-        while (--n)
-        {
+        while (--n) {
             string t = "";
-            for (int i = 0; i < s.size();)
-            {
+            for (int i = 0; i < s.size();) {
                 int j = i;
                 while (j < s.size() && s[j] == s[i]) ++j;
                 t += to_string(j - i);

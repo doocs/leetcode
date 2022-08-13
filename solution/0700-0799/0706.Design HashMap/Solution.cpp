@@ -5,15 +5,15 @@ public:
     MyHashMap() {
         memset(hash, -1, sizeof hash);
     }
-    
+
     void put(int key, int value) {
         hash[key] = value;
     }
-    
+
     int get(int key) {
         return hash[key];
     }
-    
+
     void remove(int key) {
         hash[key] = -1;
     }

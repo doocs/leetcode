@@ -224,15 +224,12 @@ public:
 
     vector<int> pondSizes(vector<vector<int>>& land) {
         int m = land.size(), n = land[0].size();
-        for (int i = 0; i < m * n; ++i)
-        {
+        for (int i = 0; i < m * n; ++i) {
             p.push_back(i);
             size.push_back(1);
         }
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (land[i][j] != 0) continue;
                 int idx = i * n + j;
                 if (i < m - 1 && land[i + 1][j] == 0) unite(idx, (i + 1) * n + j);

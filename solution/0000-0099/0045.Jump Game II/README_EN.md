@@ -142,7 +142,7 @@ public class Solution {
 
 ```c
 #define min(a, b) a < b ? a : b
-int jump(int* nums, int numsSize){
+int jump(int* nums, int numsSize) {
     int dp[numsSize];
     for (int i = 0; i < numsSize; i++) {
         dp[i] = numsSize;

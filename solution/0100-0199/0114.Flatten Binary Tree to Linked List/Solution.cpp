@@ -14,7 +14,7 @@ public:
     void flatten(TreeNode* root) {
         while (root) {
             if (root->left) {
-                TreeNode *pre = root->left;
+                TreeNode* pre = root->left;
                 while (pre->right) {
                     pre = pre->right;
                 }

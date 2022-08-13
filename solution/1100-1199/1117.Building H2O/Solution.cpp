@@ -1,7 +1,8 @@
 class H2O {
 private:
     int n_h;
-    mutex m_h,m_o;
+    mutex m_h, m_o;
+
 public:
     H2O() {
         m_o.lock();
@@ -12,8 +13,10 @@ public:
         m_h.lock();
         releaseHydrogen();
         n_h--;
-        if(n_h > 0)m_h.unlock();
-        else m_o.unlock();
+        if (n_h > 0)
+            m_h.unlock();
+        else
+            m_o.unlock();
     }
 
     void oxygen(function<void()> releaseOxygen) {

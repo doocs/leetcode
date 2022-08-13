@@ -12,19 +12,19 @@ public:
             if (parent[i] != -1)
                 children[parent[i]].push_back(i);
     }
-    
+
     bool lock(int num, int user) {
         if (nums.count(num)) return false;
         nums[num] = user;
         return true;
     }
-    
+
     bool unlock(int num, int user) {
         if (!nums.count(num) || nums[num] != user) return false;
         nums.erase(num);
         return true;
     }
-    
+
     bool upgrade(int num, int user) {
         for (int t = num; t != -1; t = parent[t])
             if (nums.count(t))
@@ -37,10 +37,8 @@ public:
     }
 
     void dfs(int num, bool& find) {
-        for (int child : children[num])
-        {
-            if (nums.count(child))
-            {
+        for (int child : children[num]) {
+            if (nums.count(child)) {
                 nums.erase(child);
                 find = true;
             }

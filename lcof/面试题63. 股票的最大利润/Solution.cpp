@@ -9,8 +9,8 @@ public:
         int maxDiff = prices[1] - prices[0];
 
         for (int i = 2; i < prices.size(); i++) {
-            if (curMin > prices[i-1]) {
-                curMin = prices[i-1];
+            if (curMin > prices[i - 1]) {
+                curMin = prices[i - 1];
             }
 
             int diff = prices[i] - curMin;

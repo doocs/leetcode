@@ -2,12 +2,10 @@ class Solution {
 public:
     int largestPalindrome(int n) {
         int mx = pow(10, n) - 1;
-        for (int a = mx; a > mx / 10; --a)
-        {
+        for (int a = mx; a > mx / 10; --a) {
             int b = a;
             long x = a;
-            while (b)
-            {
+            while (b) {
                 x = x * 10 + b % 10;
                 b /= 10;
             }

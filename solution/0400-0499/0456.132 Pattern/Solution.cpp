@@ -3,11 +3,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) { }
 
     void update(int x, int delta) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] += delta;
             x += lowbit(x);
         }
@@ -15,8 +16,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s += c[x];
             x -= lowbit(x);
         }
@@ -40,8 +40,7 @@ public:
         BinaryIndexedTree* tree = new BinaryIndexedTree(n);
         for (int v : nums) tree->update(m[v], 1);
         int mi = nums[0];
-        for (int v : nums)
-        {
+        for (int v : nums) {
             tree->update(m[v], -1);
             if (tree->query(m[v] - 1) - tree->query(m[mi]) > 0) return true;
             mi = min(mi, v);

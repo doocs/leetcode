@@ -14,15 +14,15 @@ public:
         if (head == nullptr || head->next == nullptr || left == right) {
             return head;
         }
-        ListNode *dummy = new ListNode(0, head);
-        ListNode *pre = dummy;
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* pre = dummy;
         for (int i = 0; i < left - 1; ++i) {
             pre = pre->next;
         }
         ListNode *p = pre, *q = pre->next;
-        ListNode *cur = q;
+        ListNode* cur = q;
         for (int i = 0; i < right - left + 1; ++i) {
-            ListNode *t = cur->next;
+            ListNode* t = cur->next;
             cur->next = pre;
             pre = cur;
             cur = t;

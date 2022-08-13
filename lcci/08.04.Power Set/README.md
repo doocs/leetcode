@@ -193,8 +193,7 @@ public:
     }
 
     void dfs(int u, vector<int>& t, vector<int>& nums, vector<vector<int>>& ans) {
-        if (u == nums.size())
-        {
+        if (u == nums.size()) {
             ans.push_back(t);
             return;
         }

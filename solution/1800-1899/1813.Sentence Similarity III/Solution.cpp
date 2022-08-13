@@ -18,7 +18,7 @@ public:
         return j == n2 || i + j == n2;
     }
 
-    vector<string> split(const string &str) {
+    vector<string> split(const string& str) {
         vector<string> words;
         int i = str.find_first_not_of(' ');
         int j = str.find_first_of(' ', i);

@@ -2,8 +2,7 @@ class Solution {
 public:
     long long maximumImportance(int n, vector<vector<int>>& roads) {
         vector<int> deg(n);
-        for (auto& r : roads)
-        {
+        for (auto& r : roads) {
             ++deg[r[0]];
             ++deg[r[1]];
         }

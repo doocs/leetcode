@@ -10,7 +10,7 @@
 
 class Solution {
 public:
-    int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
+    int leftMostColumnWithOne(BinaryMatrix& binaryMatrix) {
         vector<int> scale = binaryMatrix.dimensions();
         int rows = scale[0], cols = scale[1];
         int res = -1;

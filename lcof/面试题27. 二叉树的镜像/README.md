@@ -145,7 +145,7 @@ func mirrorTree(root *TreeNode) *TreeNode {
 class Solution {
 public:
     TreeNode* mirrorTree(TreeNode* root) {
-        // 后续遍历
+        // 后序遍历
         if (nullptr == root) {
             return nullptr;
         }
@@ -157,7 +157,6 @@ public:
         return root;
     }
 };
-
 ```
 
 ### **TypeScript**

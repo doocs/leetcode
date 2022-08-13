@@ -2,7 +2,7 @@ class Solution {
 public:
     int minimumOperations(vector<int>& nums, int start, int goal) {
         using pii = pair<int, int>;
-        vector<function<int(int, int)>> ops{
+        vector<function<int(int, int)>> ops {
             [](int x, int y) { return x + y; },
             [](int x, int y) { return x - y; },
             [](int x, int y) { return x ^ y; },

@@ -6,7 +6,7 @@ public:
         vector<vector<ll>> memo(m + 1, vector<ll>(n + 1, -1));
         vector<vector<int>> d(m + 1, vector<int>(n + 1));
         for (auto& p : prices) d[p[0]][p[1]] = p[2];
-        return dfs(m, n, d, memo); 
+        return dfs(m, n, d, memo);
     }
 
     ll dfs(int m, int n, vector<vector<int>>& d, vector<vector<ll>>& memo) {

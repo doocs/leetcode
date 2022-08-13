@@ -5,8 +5,7 @@ public:
         if (m != n) return false;
         unordered_set<string> s;
         for (auto e : similarPairs) s.insert(e[0] + "." + e[1]);
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             string a = sentence1[i], b = sentence2[i];
             if (a != b && !s.count(a + "." + b) && !s.count(b + "." + a)) return false;
         }

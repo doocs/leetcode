@@ -7,13 +7,11 @@ public:
     }
 
     void dfs(string t, int n) {
-        if (t.size() == n)
-        {
+        if (t.size() == n) {
             ans.push_back(t);
             return;
         }
-        for (int c = 'a'; c <= 'c'; ++c)
-        {
+        for (int c = 'a'; c <= 'c'; ++c) {
             if (t.size() && t.back() == c) continue;
             t.push_back(c);
             dfs(t, n);

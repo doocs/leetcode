@@ -206,10 +206,8 @@ public:
         target = (s - target) / 2 + 1;
         vector<int> dp(target);
         dp[0] = 1;
-        for (int i = 1; i < nums.size() + 1; ++i)
-        {
-            for (int j = target - 1; j >= nums[i - 1]; --j)
-            {
+        for (int i = 1; i < nums.size() + 1; ++i) {
+            for (int j = target - 1; j >= nums[i - 1]; --j) {
                 dp[j] += dp[j - nums[i - 1]];
             }
         }

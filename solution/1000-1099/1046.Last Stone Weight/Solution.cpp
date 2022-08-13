@@ -8,7 +8,7 @@ public:
             int y = pq.top();
             pq.pop();
             if (x != y)
-                pq.push(x-y);
+                pq.push(x - y);
         }
         return pq.empty() ? 0 : pq.top();
     }

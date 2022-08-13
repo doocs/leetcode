@@ -4,12 +4,11 @@ public:
         int x = 0, y = 0;
         vector<int> cnt1(10);
         vector<int> cnt2(10);
-        for (int i = 0; i < secret.size(); ++i)
-        {
+        for (int i = 0; i < secret.size(); ++i) {
             int a = secret[i] - '0', b = guess[i] - '0';
-            if (a == b) ++x;
-            else
-            {
+            if (a == b)
+                ++x;
+            else {
                 ++cnt1[a];
                 ++cnt2[b];
             }

@@ -269,7 +269,7 @@ func minimumLengthEncoding(words []string) int {
 
 ```cpp
 struct Trie {
-    Trie* children[26] = { nullptr };
+    Trie* children[26] = {nullptr};
 };
 
 class Solution {
@@ -315,11 +315,9 @@ public:
     int insert(string w) {
         Trie* node = this;
         bool pref = true;
-        for (char c : w)
-        {
+        for (char c : w) {
             c -= 'a';
-            if (!node->children[c])
-            {
+            if (!node->children[c]) {
                 pref = false;
                 node->children[c] = new Trie();
             }
@@ -335,8 +333,7 @@ public:
         sort(words.begin(), words.end(), [](string &a, string &b) {return a.size() > b.size();});
         Trie* trie = new Trie();
         int ans = 0;
-        for (auto& w : words)
-        {
+        for (auto& w : words) {
             reverse(w.begin(), w.end());
             ans += trie->insert(w);
         }

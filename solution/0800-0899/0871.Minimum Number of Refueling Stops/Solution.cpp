@@ -4,12 +4,10 @@ public:
         priority_queue<int> q;
         stations.push_back({target, 0});
         int ans = 0, prev = 0;
-        for (auto& s : stations)
-        {
+        for (auto& s : stations) {
             int d = s[0] - prev;
             startFuel -= d;
-            while (startFuel < 0 && !q.empty())
-            {
+            while (startFuel < 0 && !q.empty()) {
                 startFuel += q.top();
                 q.pop();
                 ++ans;

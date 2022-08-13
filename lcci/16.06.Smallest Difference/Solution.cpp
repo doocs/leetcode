@@ -7,8 +7,10 @@ public:
         long res = LONG_MAX;
         while (i < a.size() && j < b.size()) {
             res = min(res, abs((long)a[i] - (long)b[j]));
-            if (a[i] > b[j]) ++j;
-            else ++i;
+            if (a[i] > b[j])
+                ++j;
+            else
+                ++i;
         }
         return res;
     }

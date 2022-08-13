@@ -30,10 +30,9 @@ public:
         modify(l, r, v, root);
     }
 
-    void modify(int l, int r,int v, Node* node) {
+    void modify(int l, int r, int v, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v += v;
             node->add += v;
             return;
@@ -45,17 +44,17 @@ public:
     }
 
     int query(int l, int r) {
-        return query(l, r, root); 
+        return query(l, r, root);
     }
 
     int query(int l, int r, Node* node) {
         if (l > r) return 0;
-        if (node->l >= l && node-> r <= r) return node->v;
+        if (node->l >= l && node->r <= r) return node->v;
         pushdown(node);
         int v = 0;
         if (l <= node->mid) v = max(v, query(l, r, node->left));
         if (r > node->mid) v = max(v, query(l, r, node->right));
-        return v; 
+        return v;
     }
 
     void pushup(Node* node) {
@@ -65,8 +64,7 @@ public:
     void pushdown(Node* node) {
         if (!node->left) node->left = new Node(node->l, node->mid);
         if (!node->right) node->right = new Node(node->mid + 1, node->r);
-        if (node->add)
-        {
+        if (node->add) {
             Node* left = node->left;
             Node* right = node->right;
             left->v += node->add;
@@ -85,7 +83,7 @@ public:
     MyCalendarThree() {
         tree = new SegmentTree();
     }
-    
+
     int book(int start, int end) {
         tree->modify(start + 1, end, 1);
         return tree->query(1, 1e9 + 1);

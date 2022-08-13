@@ -14,10 +14,8 @@ public:
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
         queue<TreeNode*> q;
         q.push(root);
-        while (!q.empty())
-        {
-            for (int i = 0, n = q.size(); i < n; ++i)
-            {
+        while (!q.empty()) {
+            for (int i = 0, n = q.size(); i < n; ++i) {
                 TreeNode* node = q.front();
                 q.pop();
                 if (node == u) return i == n - 1 ? nullptr : q.front();

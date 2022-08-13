@@ -11,7 +11,6 @@
 class Solution {
 public:
     TreeNode* mirrorTree(TreeNode* root) {
-        // 后续遍历
         if (nullptr == root) {
             return nullptr;
         }
@@ -21,6 +20,5 @@ public:
         std::swap(root->left, root->right);
 
         return root;
-
     }
 };

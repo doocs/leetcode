@@ -3,13 +3,13 @@ public:
     MovingAverage(int size) {
         arr.resize(size);
     }
-    
+
     double next(int val) {
         int idx = cnt % arr.size();
         s += val - arr[idx];
         arr[idx] = val;
         ++cnt;
-        return (double) s / min(cnt, (int) arr.size());
+        return (double)s / min(cnt, (int)arr.size());
     }
 
 private:

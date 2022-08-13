@@ -20,8 +20,7 @@ public:
     void build(int u, int l, int r) {
         tr[u]->l = l;
         tr[u]->r = r;
-        if (l != r) 
-        {
+        if (l != r) {
             int mid = (l + r) >> 1;
             build(u << 1, l, mid);
             build(u << 1 | 1, mid + 1, r);
@@ -29,9 +28,9 @@ public:
     }
 
     void modify(int u, int l, int r, int k) {
-        if (tr[u]->l >= l && tr[u]->r <= r) tr[u]->cnt += k;
-        else
-        {
+        if (tr[u]->l >= l && tr[u]->r <= r)
+            tr[u]->cnt += k;
+        else {
             int mid = (tr[u]->l + tr[u]->r) >> 1;
             if (l <= mid) modify(u << 1, l, r, k);
             if (r > mid) modify(u << 1 | 1, l, r, k);
@@ -44,9 +43,12 @@ public:
     }
 
     void pushup(int u) {
-        if (tr[u]->cnt) tr[u]->len = nums[tr[u]->r + 1] - nums[tr[u]->l];
-        else if (tr[u]->l == tr[u]->r) tr[u]->len = 0;
-        else tr[u]->len = tr[u << 1]->len + tr[u << 1 | 1]->len;
+        if (tr[u]->cnt)
+            tr[u]->len = nums[tr[u]->r + 1] - nums[tr[u]->l];
+        else if (tr[u]->l == tr[u]->r)
+            tr[u]->len = 0;
+        else
+            tr[u]->len = tr[u << 1]->len + tr[u << 1 | 1]->len;
     }
 };
 
@@ -57,8 +59,7 @@ public:
         vector<vector<int>> segs;
         set<int> ts;
         int mod = 1e9 + 7;
-        for (auto& rect : rectangles)
-        {
+        for (auto& rect : rectangles) {
             int x1 = rect[0], y1 = rect[1], x2 = rect[2], y2 = rect[3];
             segs.push_back({x1, y1, y2, 1});
             segs.push_back({x2, y1, y2, -1});
@@ -72,13 +73,12 @@ public:
         vector<int> nums(ts.begin(), ts.end());
         SegmentTree* tree = new SegmentTree(nums);
         long long ans = 0;
-        for (int i = 0; i < segs.size(); ++i)
-        {
+        for (int i = 0; i < segs.size(); ++i) {
             int x = segs[i][0], y1 = segs[i][1], y2 = segs[i][2], k = segs[i][3];
-            if (i > 0) ans += (long long) tree->query() * (x - segs[i - 1][0]);
+            if (i > 0) ans += (long long)tree->query() * (x - segs[i - 1][0]);
             tree->modify(1, m[y1], m[y2] - 1, k);
         }
         ans %= mod;
-        return (int) ans;
+        return (int)ans;
     }
 };

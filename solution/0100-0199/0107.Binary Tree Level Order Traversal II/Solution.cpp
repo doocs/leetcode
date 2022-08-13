@@ -14,9 +14,8 @@ public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
         vector<vector<int>> ans;
         if (!root) return ans;
-        queue<TreeNode*> q{{root}};
-        while (!q.empty())
-        {
+        queue<TreeNode*> q {{root}};
+        while (!q.empty()) {
             vector<int> t;
             for (int i = q.size(); i > 0; --i) {
                 TreeNode* node = q.front();

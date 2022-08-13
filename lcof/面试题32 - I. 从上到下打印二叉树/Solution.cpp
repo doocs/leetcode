@@ -9,14 +9,14 @@
  */
 class Solution {
 public:
-    vector<int> levelOrder(TreeNode *root) {
+    vector<int> levelOrder(TreeNode* root) {
         vector<int> res;
-        queue<TreeNode *> q;
+        queue<TreeNode*> q;
         if (root != nullptr) {
             q.push(root);
         }
         while (!q.empty()) {
-            TreeNode *node = q.front();
+            TreeNode* node = q.front();
             q.pop();
             if (node->left != nullptr) {
                 q.push(node->left);

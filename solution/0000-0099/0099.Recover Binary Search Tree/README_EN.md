@@ -146,8 +146,7 @@ public:
     void dfs(TreeNode* root) {
         if (!root) return;
         dfs(root->left);
-        if (prev)
-        {
+        if (prev) {
             if (!first && prev->val > root->val) first = prev;
             if (first && prev->val > root->val) second = root;
         }

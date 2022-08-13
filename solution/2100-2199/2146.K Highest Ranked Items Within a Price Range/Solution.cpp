@@ -11,15 +11,12 @@ public:
         q.emplace(row, col, 0);
         grid[row][col] = 0;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto [i, j, d] = q.front();
             q.pop();
-            for (int l = 0; l < 4; ++l)
-            {
+            for (int l = 0; l < 4; ++l) {
                 int x = i + dirs[l], y = j + dirs[l + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y])
-                {
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y]) {
                     if (low <= grid[x][y] && grid[x][y] <= high) items.emplace_back(d + 1, grid[x][y], x, y);
                     grid[x][y] = 0;
                     q.emplace(x, y, d + 1);
@@ -28,8 +25,7 @@ public:
         }
         sort(items.begin(), items.end());
         vector<vector<int>> ans;
-        for (int i = 0; i < items.size() && i < k; ++i)
-        {
+        for (int i = 0; i < items.size() && i < k; ++i) {
             auto [d, p, x, y] = items[i];
             ans.push_back({x, y});
         }

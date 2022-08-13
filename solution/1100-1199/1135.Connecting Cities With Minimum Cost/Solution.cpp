@@ -5,10 +5,9 @@ public:
     int minimumCost(int n, vector<vector<int>>& connections) {
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        sort(connections.begin(), connections.end(), [](auto& a, auto& b) {return a[2] < b[2];});
+        sort(connections.begin(), connections.end(), [](auto& a, auto& b) { return a[2] < b[2]; });
         int ans = 0;
-        for (auto& e : connections)
-        {
+        for (auto& e : connections) {
             int x = e[0] - 1, y = e[1] - 1, cost = e[2];
             if (find(x) == find(y)) continue;
             p[find(x)] = find(y);

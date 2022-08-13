@@ -15,12 +15,10 @@ public:
         queue<pair<TreeNode*, int>> q;
         q.emplace(root, 1);
         int ans = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ans = max(ans, q.back().second - q.front().second + 1);
             int start = q.front().second;
-            for (int i = 0, n = q.size(); i < n; ++i)
-            {
+            for (int i = 0, n = q.size(); i < n; ++i) {
                 auto node = q.front();
                 q.pop();
                 if (node.first->left != nullptr) q.emplace(node.first->left, node.second * 2 - start * 2);

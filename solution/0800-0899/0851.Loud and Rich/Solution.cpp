@@ -8,8 +8,7 @@ public:
         function<void(int)> dfs = [&](int i) {
             if (ans[i] != -1) return;
             ans[i] = i;
-            for (int j : g[i])
-            {
+            for (int j : g[i]) {
                 dfs(j);
                 if (quiet[ans[j]] < quiet[ans[i]]) ans[i] = ans[j];
             }

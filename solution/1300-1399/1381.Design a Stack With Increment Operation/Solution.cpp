@@ -7,15 +7,15 @@ public:
         s.resize(maxSize);
         t = 0;
     }
-    
+
     void push(int x) {
         if (t < s.size()) s[t++] = x;
     }
-    
+
     int pop() {
         return t == 0 ? -1 : s[--t];
     }
-    
+
     void increment(int k, int val) {
         for (int i = 0; i < min(k, t); ++i) s[i] += val;
     }

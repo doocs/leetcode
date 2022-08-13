@@ -10,7 +10,7 @@
 class Solution {
 public:
     TreeNode* prev;
-    
+
     TreeNode* convertBiNode(TreeNode* root) {
         TreeNode* dummy = new TreeNode(0, nullptr, root);
         prev = dummy;

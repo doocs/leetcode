@@ -16,13 +16,11 @@ public:
 
     void dfs(int u, int s, vector<int>& t) {
         if (s > target) return;
-        if (s == target)
-        {
+        if (s == target) {
             ans.push_back(t);
             return;
         }
-        for (int i = u; i < candidates.size(); ++i)
-        {
+        for (int i = u; i < candidates.size(); ++i) {
             if (i > u && candidates[i] == candidates[i - 1]) continue;
             t.push_back(candidates[i]);
             dfs(i + 1, s + candidates[i], t);

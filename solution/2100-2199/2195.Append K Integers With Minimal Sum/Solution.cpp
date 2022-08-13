@@ -5,8 +5,7 @@ public:
         nums.push_back(2e9);
         sort(nums.begin(), nums.end());
         long long ans = 0;
-        for (int i = 1; i < nums.size(); ++i)
-        {
+        for (int i = 1; i < nums.size(); ++i) {
             int a = nums[i - 1], b = nums[i];
             int n = min(k, b - a - 1);
             if (n <= 0) continue;

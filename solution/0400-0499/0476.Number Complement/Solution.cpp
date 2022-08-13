@@ -3,8 +3,7 @@ public:
     int findComplement(int num) {
         int ans = 0;
         bool find = false;
-        for (int i = 30; i >= 0; --i)
-        {
+        for (int i = 30; i >= 0; --i) {
             int b = num & (1 << i);
             if (!find && b == 0) continue;
             find = true;

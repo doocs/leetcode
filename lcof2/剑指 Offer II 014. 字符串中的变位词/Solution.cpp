@@ -36,7 +36,7 @@ public:
             if (r + 1 >= len2) {
                 break;
             }
-            
+
             ++count[s2[l++] - 'a'];
             --count[s2[++r] - 'a'];
         }

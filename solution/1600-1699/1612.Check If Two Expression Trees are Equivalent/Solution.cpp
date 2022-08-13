@@ -18,8 +18,7 @@ public:
     vector<int> dfs(Node* root) {
         vector<int> ans(26);
         if (!root) return ans;
-        if (root->val == '+' || root->val == '-')
-        {
+        if (root->val == '+' || root->val == '-') {
             auto left = dfs(root->left);
             auto right = dfs(root->right);
             calc(ans, left, right, root->val);

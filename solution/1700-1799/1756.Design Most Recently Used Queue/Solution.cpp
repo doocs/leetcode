@@ -3,11 +3,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) { }
 
     void update(int x, int delta) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] += delta;
             x += lowbit(x);
         }
@@ -15,8 +16,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s += c[x];
             x -= lowbit(x);
         }
@@ -40,14 +40,15 @@ public:
         for (int i = 1; i <= n; ++i) data[i] = i;
         tree = new BinaryIndexedTree(n + 2010);
     }
-    
+
     int fetch(int k) {
         int left = 1, right = data.size();
-        while (left < right)
-        {
+        while (left < right) {
             int mid = (left + right) >> 1;
-            if (mid - tree->query(mid) >= k) right = mid;
-            else left = mid + 1;
+            if (mid - tree->query(mid) >= k)
+                right = mid;
+            else
+                left = mid + 1;
         }
         data.push_back(data[left]);
         tree->update(left, 1);

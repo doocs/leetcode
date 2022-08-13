@@ -17,7 +17,7 @@ public:
         if (nullptr == l1 || nullptr == l2) {
             return l1 == nullptr ? l2 : l1;
         }
-    
+
         ListNode* node = nullptr;
         if (l1->val > l2->val) {
             node = l2;

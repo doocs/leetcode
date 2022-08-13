@@ -104,9 +104,8 @@ public:
         ListNode* dummy = new ListNode(0);
         ListNode* cur = dummy;
         int carry = 0;
-        while (l1 || l2 || carry)
-        {
-            carry += (!l1 ? 0 : l1-> val) + (!l2 ? 0 : l2->val);
+        while (l1 || l2 || carry) {
+            carry += (!l1 ? 0 : l1->val) + (!l2 ? 0 : l2->val);
             cur->next = new ListNode(carry % 10);
             cur = cur->next;
             carry /= 10;

@@ -22,8 +22,7 @@ public:
     int dfs(TreeNode* root) {
         if (!root) return 2;
         int left = dfs(root->left), right = dfs(root->right);
-        if (left == 0 || right == 0)
-        {
+        if (left == 0 || right == 0) {
             ++ans;
             return 1;
         }

@@ -8,17 +8,14 @@ public:
         vector<ull> p(n + 10);
         vector<ull> h(n + 10);
         p[0] = 1;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int t = text[i] - 'a' + 1;
             p[i + 1] = p[i] * base;
             h[i + 1] = h[i] * base + t;
         }
         unordered_set<ull> vis;
-        for (int i = 0; i < n - 1; ++i)
-        {
-            for (int j = i + 1; j < n; j += 2)
-            {
+        for (int i = 0; i < n - 1; ++i) {
+            for (int j = i + 1; j < n; j += 2) {
                 int k = (i + j) >> 1;
                 ull a = get(i + 1, k + 1, p, h);
                 ull b = get(k + 2, j + 1, p, h);

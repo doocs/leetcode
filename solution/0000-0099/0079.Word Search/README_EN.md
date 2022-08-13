@@ -186,8 +186,7 @@ public:
         char t = board[i][j];
         board[i][j] = '0';
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k)
-        {
+        for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
             if (dfs(x, y, cur + 1, m, n, board, word)) return true;
         }

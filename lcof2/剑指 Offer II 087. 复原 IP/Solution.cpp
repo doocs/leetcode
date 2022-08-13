@@ -8,10 +8,8 @@ public:
     }
 
     void dfs(string s, vector<string>& t, vector<string>& ans) {
-        if (t.size() == 4)
-        {
-            if (s == "")
-            {
+        if (t.size() == 4) {
+            if (s == "") {
                 string p = "";
                 for (auto e : t) p += e + ".";
                 p.pop_back();
@@ -19,11 +17,9 @@ public:
             }
             return;
         }
-        for (int i = 1; i < min(4, (int) s.size() + 1); ++i)
-        {
+        for (int i = 1; i < min(4, (int)s.size() + 1); ++i) {
             string c = s.substr(0, i);
-            if (check(c))
-            {
+            if (check(c)) {
                 t.push_back(c);
                 dfs(s.substr(i, s.size() - i), t, ans);
                 t.pop_back();

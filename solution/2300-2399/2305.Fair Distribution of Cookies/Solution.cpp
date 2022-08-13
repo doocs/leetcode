@@ -15,15 +15,12 @@ public:
     }
 
     void dfs(int u) {
-        if (u == cookies.size())
-        {
+        if (u == cookies.size()) {
             ans = min(ans, *max_element(cnt.begin(), cnt.end()));
             return;
         }
-        for (int i = 0; i < k; ++i)
-        {
-            if (cnt[i] + cookies[u] < ans)
-            {
+        for (int i = 0; i < k; ++i) {
+            if (cnt[i] + cookies[u] < ans) {
                 cnt[i] += cookies[u];
                 dfs(u + 1);
                 cnt[i] -= cookies[u];

@@ -14,8 +14,7 @@ public:
         ListNode* dummy = new ListNode(0, head);
         ListNode* slow = dummy;
         ListNode* fast = head;
-        while (fast && fast->next)
-        {
+        while (fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
         }

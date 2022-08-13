@@ -18,7 +18,7 @@ public:
         if (root2 == nullptr) {
             return root1;
         }
-        TreeNode *node = new TreeNode(root1->val + root2->val);
+        TreeNode* node = new TreeNode(root1->val + root2->val);
         node->left = mergeTrees(root1->left, root2->left);
         node->right = mergeTrees(root1->right, root2->right);
         return node;

@@ -15,8 +15,7 @@ public:
         if (t < 0) return false;
         int m = grid.size(), n = grid[0].size();
         if (i == m - 1 && j == n - 1) return t == 0;
-        for (int k = 0; k < 2; ++k)
-        {
+        for (int k = 0; k < 2; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
             if (x < m && y < n && dfs(x, y, t, grid)) return true;
         }

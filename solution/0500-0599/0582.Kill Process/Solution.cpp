@@ -4,8 +4,7 @@ public:
         unordered_map<int, vector<int>> g;
         vector<int> ans;
         int n = pid.size();
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int c = pid[i], p = ppid[i];
             g[p].push_back(c);
         }

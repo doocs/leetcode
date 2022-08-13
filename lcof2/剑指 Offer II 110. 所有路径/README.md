@@ -145,13 +145,11 @@ public:
     }
 
     void dfs(int i, vector<int> path) {
-        if (i == graph.size() - 1)
-        {
+        if (i == graph.size() - 1) {
             ans.push_back(path);
             return;
         }
-        for (int j : graph[i])
-        {
+        for (int j : graph[i]) {
             path.push_back(j);
             dfs(j, path);
             path.pop_back();

@@ -4,10 +4,11 @@ public:
         int n = nums.size();
         vector<int> a;
         vector<int> b;
-        for (int i = 0; i < n; ++i)
-        {
-            if (i % 2 == 0) a.push_back(nums[i]);
-            else b.push_back(nums[i]);
+        for (int i = 0; i < n; ++i) {
+            if (i % 2 == 0)
+                a.push_back(nums[i]);
+            else
+                b.push_back(nums[i]);
         }
         sort(a.begin(), a.end());
         sort(b.begin(), b.end(), greater<int>());

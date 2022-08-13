@@ -123,11 +123,11 @@ public:
         for (right = 0; right < nums.size(); right++) {
             mul *= nums[right];
 
-            while(left <= right && mul >= k) {
+            while (left <= right && mul >= k) {
                 mul /= nums[left++];
             }
 
-            count += right >= left? right - left + 1: 0;
+            count += right >= left ? right - left + 1 : 0;
         }
 
         return count;

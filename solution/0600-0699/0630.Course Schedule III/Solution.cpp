@@ -6,13 +6,11 @@ public:
         });
         int s = 0;
         priority_queue<int> pq;
-        for (auto& course : courses)
-        {
+        for (auto& course : courses) {
             int d = course[0], e = course[1];
             pq.push(d);
             s += d;
-            if (s > e)
-            {
+            if (s > e) {
                 s -= pq.top();
                 pq.pop();
             }

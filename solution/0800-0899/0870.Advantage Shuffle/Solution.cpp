@@ -8,10 +8,11 @@ public:
         sort(nums1.begin(), nums1.end());
         int i = 0, j = n - 1;
         vector<int> ans(n);
-        for (int v : nums1)
-        {
-            if (v <= t[i].first) ans[t[j--].second] = v;
-            else ans[t[i++].second] = v;
+        for (int v : nums1) {
+            if (v <= t[i].first)
+                ans[t[j--].second] = v;
+            else
+                ans[t[i++].second] = v;
         }
         return ans;
     }

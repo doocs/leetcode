@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> p;
-    bool areSentencesSimilarTwo(vector<string> &sentence1, vector<string> &sentence2, vector<vector<string>> &similarPairs) {
+    bool areSentencesSimilarTwo(vector<string>& sentence1, vector<string>& sentence2, vector<vector<string>>& similarPairs) {
         if (sentence1.size() != sentence2.size())
             return false;
         int n = similarPairs.size();
@@ -10,8 +10,7 @@ public:
             p[i] = i;
         unordered_map<string, int> words;
         int idx = 0;
-        for (auto e : similarPairs)
-        {
+        for (auto e : similarPairs) {
             string a = e[0], b = e[1];
             if (!words.count(a))
                 words[a] = idx++;
@@ -19,8 +18,7 @@ public:
                 words[b] = idx++;
             p[find(words[a])] = find(words[b]);
         }
-        for (int i = 0; i < sentence1.size(); ++i)
-        {
+        for (int i = 0; i < sentence1.size(); ++i) {
             if (sentence1[i] == sentence2[i])
                 continue;
             if (!words.count(sentence1[i]) || !words.count(sentence2[i]) || find(words[sentence1[i]]) != find(words[sentence2[i]]))

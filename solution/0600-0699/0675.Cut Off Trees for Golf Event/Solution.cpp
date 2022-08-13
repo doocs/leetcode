@@ -16,8 +16,7 @@ public:
         sort(trees.begin(), trees.end());
         int ans = 0;
         int start = 0;
-        for (auto& tree : trees)
-        {
+        for (auto& tree : trees) {
             int end = tree.second;
             int t = bfs(start, end, forest);
             if (t == -1) return -1;
@@ -33,16 +32,13 @@ public:
         fill(dist.begin(), dist.end(), INT_MAX);
         dist[start] = 0;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int state = q.top().second;
             q.pop();
             if (state == end) return dist[state];
-            for (int k = 0; k < 4; ++k)
-            {
+            for (int k = 0; k < 4; ++k) {
                 int x = state / n + dirs[k], y = state % n + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && forest[x][y] && dist[x * n + y] > dist[state] + 1)
-                {
+                if (x >= 0 && x < m && y >= 0 && y < n && forest[x][y] && dist[x * n + y] > dist[state] + 1) {
                     dist[x * n + y] = dist[state] + 1;
                     q.push({dist[x * n + y] + f(x * n + y, end), x * n + y});
                 }

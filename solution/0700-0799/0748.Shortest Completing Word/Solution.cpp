@@ -4,12 +4,10 @@ public:
         vector<int> counter = count(licensePlate);
         int n = 16;
         string ans;
-        for (auto& word : words)
-        {
+        for (auto& word : words) {
             if (n <= word.size()) continue;
             vector<int> t = count(word);
-            if (check(counter, t))
-            {
+            if (check(counter, t)) {
                 n = word.size();
                 ans = word;
             }

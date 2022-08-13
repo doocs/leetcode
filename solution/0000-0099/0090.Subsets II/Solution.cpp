@@ -10,8 +10,7 @@ public:
 
     void dfs(int u, vector<int>& t, vector<int>& nums, vector<vector<int>>& ans) {
         ans.push_back(t);
-        for (int i = u; i < nums.size(); ++i)
-        {
+        for (int i = u; i < nums.size(); ++i) {
             if (i != u && nums[i] == nums[i - 1]) continue;
             t.push_back(nums[i]);
             dfs(i + 1, t, nums, ans);

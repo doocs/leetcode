@@ -17,7 +17,7 @@ public:
         }
 
         ListNode* dummy = new ListNode(0, head);
-        for (ListNode* pre = dummy, *cur = head; cur != nullptr; cur = cur->next) {
+        for (ListNode *pre = dummy, *cur = head; cur != nullptr; cur = cur->next) {
             if (counter[cur->val] > 1) {
                 pre->next = cur->next;
             } else {

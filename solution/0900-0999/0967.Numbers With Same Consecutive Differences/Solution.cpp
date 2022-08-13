@@ -5,12 +5,11 @@ public:
     vector<int> numsSameConsecDiff(int n, int k) {
         for (int i = 1; i < 10; ++i)
             dfs(n - 1, k, i);
-        return ans;    
+        return ans;
     }
 
     void dfs(int n, int k, int t) {
-        if (n == 0)
-        {
+        if (n == 0) {
             ans.push_back(t);
             return;
         }

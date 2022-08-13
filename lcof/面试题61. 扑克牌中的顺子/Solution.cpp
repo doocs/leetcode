@@ -15,12 +15,12 @@ public:
             zeroNum++;
         }
 
-        for (int i = zeroNum; i < nums.size()-1; i++) {
-            if (nums[i] == nums[i+1]) {
+        for (int i = zeroNum; i < nums.size() - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return false;
             }
         }
-        
+
         return nums[4] - nums[zeroNum] <= 4;
     }
 };

@@ -5,16 +5,14 @@ public:
         int n = nums1.size();
         vector<int> diff(n);
         int s = 0;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             diff[i] = abs(nums1[i] - nums2[i]);
             s = (s + diff[i]) % mod;
         }
         if (s == 0) return 0;
         sort(nums1.begin(), nums1.end());
         int mx = 0;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int d = diff[i];
             if (d == 0) continue;
             int b = nums2[i];

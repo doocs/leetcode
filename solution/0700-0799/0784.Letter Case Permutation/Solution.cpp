@@ -11,20 +11,16 @@ public:
     }
 
     void dfs(int i, string t) {
-        if (i == s.size())
-        {
+        if (i == s.size()) {
             ans.push_back(t);
             return;
         }
-        if (isalpha(s[i]))
-        {
+        if (isalpha(s[i])) {
             char c1 = toupper(s[i]);
             char c2 = tolower(s[i]);
             dfs(i + 1, t + c1);
             dfs(i + 1, t + c2);
-        }
-        else
-        {
+        } else {
             dfs(i + 1, t + s[i]);
         }
     }

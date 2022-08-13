@@ -7,21 +7,17 @@ public:
             for (int j = 0; j < n; ++j)
                 g[i][j] = check(i, j, bombs);
         int ans = 0;
-        for (int k = 0; k < n; ++k)
-        {
-            queue<int> q{{k}};
+        for (int k = 0; k < n; ++k) {
+            queue<int> q {{k}};
             vector<bool> vis(n);
             vis[k] = true;
             int cnt = 0;
-            while (!q.empty())
-            {
+            while (!q.empty()) {
                 int i = q.front();
                 q.pop();
                 ++cnt;
-                for (int j = 0; j < n; ++j)
-                {
-                    if (g[i][j] && !vis[j])
-                    {
+                for (int j = 0; j < n; ++j) {
+                    if (g[i][j] && !vis[j]) {
                         vis[j] = true;
                         q.push(j);
                     }

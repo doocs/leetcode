@@ -5,11 +5,9 @@ public:
         for (int i = 0; i < k; ++i) free.insert(i);
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> busy;
         vector<int> cnt(k);
-        for (int i = 0; i < arrival.size(); ++i)
-        {
+        for (int i = 0; i < arrival.size(); ++i) {
             int start = arrival[i], end = start + load[i];
-            while (!busy.empty() && busy.top().first <= start)
-            {
+            while (!busy.empty() && busy.top().first <= start) {
                 free.insert(busy.top().second);
                 busy.pop();
             }

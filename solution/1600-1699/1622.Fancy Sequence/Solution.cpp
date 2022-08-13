@@ -36,8 +36,7 @@ public:
 
     void modifyAdd(int l, int r, int inc, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v = (node->v + (node->r - node->l + 1) * inc) % MOD;
             node->add = (node->add + inc) % MOD;
             return;
@@ -54,8 +53,7 @@ public:
 
     void modifyMul(int l, int r, int m, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v = (node->v * m) % MOD;
             node->add = (node->add * m) % MOD;
             node->mul = (node->mul * m) % MOD;
@@ -88,8 +86,7 @@ public:
     void pushdown(Node* node) {
         if (!node->left) node->left = new Node(node->l, node->mid);
         if (!node->right) node->right = new Node(node->mid + 1, node->r);
-        if (node->add || node->mul != 1)
-        {
+        if (node->add || node->mul != 1) {
             long add = node->add, mul = node->mul;
             Node* left = node->left;
             Node* right = node->right;
@@ -105,7 +102,6 @@ public:
     }
 };
 
-
 class Fancy {
 public:
     int n;
@@ -115,20 +111,20 @@ public:
         n = 0;
         tree = new SegmentTree();
     }
-    
+
     void append(int val) {
         ++n;
         tree->modifyAdd(n, n, val);
     }
-    
+
     void addAll(int inc) {
         tree->modifyAdd(1, n, inc);
     }
-    
+
     void multAll(int m) {
         tree->modifyMul(1, n, m);
     }
-    
+
     int getIndex(int idx) {
         return idx >= n ? -1 : tree->query(idx + 1, idx + 1);
     }

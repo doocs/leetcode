@@ -4,7 +4,7 @@ private:
     deque<int> d;
 
 public:
-    MaxQueue() {}
+    MaxQueue() { }
 
     int max_value() {
         if (d.empty()) return -1;

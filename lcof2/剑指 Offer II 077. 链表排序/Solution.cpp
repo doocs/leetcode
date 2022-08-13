@@ -14,8 +14,7 @@ public:
         if (!head || !head->next) return head;
         auto* slow = head;
         auto* fast = head->next;
-        while (fast && fast->next)
-        {
+        while (fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
         }
@@ -25,15 +24,11 @@ public:
         auto* l2 = sortList(t);
         auto* dummy = new ListNode();
         auto* cur = dummy;
-        while (l1 && l2)
-        {
-            if (l1->val <= l2->val)
-            {
+        while (l1 && l2) {
+            if (l1->val <= l2->val) {
                 cur->next = l1;
                 l1 = l1->next;
-            }
-            else
-            {
+            } else {
                 cur->next = l2;
                 l2 = l2->next;
             }

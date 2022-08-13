@@ -9,29 +9,22 @@ public:
         vector<vector<int>> cnt(m, vector<int>(n));
         vector<vector<int>> dist(m, vector<int>(n));
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                if (grid[i][j] == 1)
-                {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
                     ++total;
                     q.push({i, j});
                     vector<vector<bool>> vis(m, vector<bool>(n));
                     int d = 0;
-                    while (!q.empty())
-                    {
+                    while (!q.empty()) {
                         ++d;
-                        for (int k = q.size(); k > 0; --k)
-                        {
+                        for (int k = q.size(); k > 0; --k) {
                             auto p = q.front();
                             q.pop();
-                            for (int l = 0; l < 4; ++l)
-                            {
+                            for (int l = 0; l < 4; ++l) {
                                 int x = p.first + dirs[l];
                                 int y = p.second + dirs[l + 1];
-                                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0 && !vis[x][y])
-                                {
+                                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0 && !vis[x][y]) {
                                     ++cnt[x][y];
                                     dist[x][y] += d;
                                     q.push({x, y});

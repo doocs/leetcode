@@ -4,11 +4,9 @@ public:
         int l = (intLength + 1) >> 1;
         long long start = pow(10, l - 1), end = pow(10, l) - 1;
         vector<long long> ans;
-        for (int& q : queries)
-        {
+        for (int& q : queries) {
             long long v = start + q - 1;
-            if (v > end)
-            {
+            if (v > end) {
                 ans.push_back(-1);
                 continue;
             }

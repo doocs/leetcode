@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<string> uncommonFromSentences(string s1, string s2) {
         unordered_map<string, int> counter;
-        
+
         auto add = [&](const string& s) {
             stringstream ss(s);
             string word;

@@ -21,10 +21,11 @@ public:
         if (!root) return;
         dfs(root->left, root, target);
         dfs(root->right, root, target);
-        if (!root->left && !root->right && root->val == target)
-        {
-            if (prev->left == root) prev->left = nullptr;
-            else prev->right = nullptr;
+        if (!root->left && !root->right && root->val == target) {
+            if (prev->left == root)
+                prev->left = nullptr;
+            else
+                prev->right = nullptr;
         }
     }
 };

@@ -6,8 +6,7 @@ public:
 
     int get(char c, int k, string& answerKey) {
         int l = 0, r = 0;
-        while (r < answerKey.size())
-        {
+        while (r < answerKey.size()) {
             if (answerKey[r++] == c) --k;
             if (k < 0 && answerKey[l++] == c) ++k;
         }

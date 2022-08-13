@@ -32,10 +32,9 @@ public:
         modify(l, r, v, root);
     }
 
-    void modify(int l, int r,int v, Node* node) {
+    void modify(int l, int r, int v, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v = (node->v + (node->r - node->l + 1) * v) % MOD;
             node->add += v;
             return;
@@ -47,17 +46,17 @@ public:
     }
 
     int query(int l, int r) {
-        return query(l, r, root); 
+        return query(l, r, root);
     }
 
     int query(int l, int r, Node* node) {
         if (l > r) return 0;
-        if (node->l >= l && node-> r <= r) return node->v;
+        if (node->l >= l && node->r <= r) return node->v;
         pushdown(node);
         int v = 0;
         if (l <= node->mid) v += query(l, r, node->left);
         if (r > node->mid) v += query(l, r, node->right);
-        return v % MOD; 
+        return v % MOD;
     }
 
     void pushup(Node* node) {
@@ -67,8 +66,7 @@ public:
     void pushdown(Node* node) {
         if (!node->left) node->left = new Node(node->l, node->mid);
         if (!node->right) node->right = new Node(node->mid + 1, node->r);
-        if (node->add)
-        {
+        if (node->add) {
             Node* left = node->left;
             Node* right = node->right;
             left->v = (left->v + (left->r - left->l + 1) * node->add) % MOD;
@@ -86,8 +84,7 @@ public:
 
     vector<int> bonus(int n, vector<vector<int>>& leadership, vector<vector<int>>& operations) {
         vector<vector<int>> g(n + 1);
-        for (auto& l : leadership)
-        {
+        for (auto& l : leadership) {
             int a = l[0], b = l[1];
             g[a].push_back(b);
         }
@@ -97,12 +94,14 @@ public:
         dfs(1, begin, end, g);
         vector<int> ans;
         SegmentTree* tree = new SegmentTree(n);
-        for (auto& op : operations)
-        {
+        for (auto& op : operations) {
             int p = op[0], v = op[1];
-            if (p == 1) tree->modify(end[v], end[v], op[2]);
-            else if (p == 2) tree->modify(begin[v], end[v], op[2]);
-            else ans.push_back(tree->query(begin[v], end[v]));
+            if (p == 1)
+                tree->modify(end[v], end[v], op[2]);
+            else if (p == 2)
+                tree->modify(begin[v], end[v], op[2]);
+            else
+                ans.push_back(tree->query(begin[v], end[v]));
         }
         return ans;
     }

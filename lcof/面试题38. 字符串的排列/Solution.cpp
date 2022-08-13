@@ -1,5 +1,5 @@
 class Solution {
-public:    
+public:
     void func(string str, int index, set<string>& mySet) {
         if (index == str.size()) {
             mySet.insert(str);
@@ -9,7 +9,7 @@ public:
                 int temp = index + 1;
                 func(str, temp, mySet);
                 swap(str[i], str[index]);
-            } 
+            }
         }
     }
 

@@ -161,11 +161,12 @@ public:
         int n = presum.size();
         int x = rand() % presum[n - 1] + 1;
         int left = 0, right = n - 2;
-        while (left < right)
-        {
+        while (left < right) {
             int mid = left + right >> 1;
-            if (presum[mid + 1] >= x) right = mid;
-            else left = mid + 1;
+            if (presum[mid + 1] >= x)
+                right = mid;
+            else
+                left = mid + 1;
         }
         return left;
     }

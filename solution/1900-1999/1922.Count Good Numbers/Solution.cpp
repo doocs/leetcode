@@ -3,7 +3,7 @@ int MOD = 1000000007;
 class Solution {
 public:
     int countGoodNumbers(long long n) {
-        return (int) (myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % MOD);
+        return (int)(myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % MOD);
     }
 
 private:

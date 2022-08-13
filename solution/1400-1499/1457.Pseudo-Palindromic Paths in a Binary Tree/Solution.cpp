@@ -14,7 +14,7 @@ public:
     int ans;
     vector<int> counter;
 
-    int pseudoPalindromicPaths (TreeNode* root) {
+    int pseudoPalindromicPaths(TreeNode* root) {
         ans = 0;
         counter.resize(10);
         dfs(root);
@@ -24,16 +24,13 @@ public:
     void dfs(TreeNode* root) {
         if (!root) return;
         ++counter[root->val];
-        if (!root->left && !root->right)
-        {
+        if (!root->left && !root->right) {
             int n = 0;
             for (int i = 1; i < 10; ++i)
                 if (counter[i] % 2 == 1)
                     ++n;
             if (n < 2) ++ans;
-        }
-        else
-        {
+        } else {
             dfs(root->left);
             dfs(root->right);
         }

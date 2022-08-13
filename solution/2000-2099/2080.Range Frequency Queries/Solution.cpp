@@ -5,7 +5,7 @@ public:
         for (int i = 0; i < arr.size(); ++i)
             mp[arr[i]].push_back(i);
     }
-    
+
     int query(int left, int right, int value) {
         if (!mp.count(value)) return 0;
         auto& arr = mp[value];

@@ -3,9 +3,8 @@ public:
     deque<int> q;
 
     RecentCounter() {
-
     }
-    
+
     int ping(int t) {
         q.push_back(t);
         while (q.front() < t - 3000) {

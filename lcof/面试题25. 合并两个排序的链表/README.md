@@ -165,15 +165,24 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 ### **C++**
 
 ```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         if (nullptr == l1 && nullptr == l2) {
-            return nullptr;    // 两个都为空，则直接返回
+            return nullptr;
         }
 
         if (nullptr == l1 || nullptr == l2) {
-            return l1 == nullptr ? l2 : l1;    // 有且仅有一个为空，则返回非空节点
+            return l1 == nullptr ? l2 : l1;
         }
 
         ListNode* node = nullptr;

@@ -14,14 +14,12 @@ public:
         if (num == 0) return res;
         res += ".";
         unordered_map<LL, int> mp;
-        while (num)
-        {
+        while (num) {
             mp[num] = res.size();
             num *= 10;
             res += to_string(num / d);
             num %= d;
-            if (mp.count(num))
-            {
+            if (mp.count(num)) {
                 int idx = mp[num];
                 res.insert(idx, "(");
                 res += ")";

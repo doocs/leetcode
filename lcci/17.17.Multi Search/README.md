@@ -158,12 +158,13 @@ private:
     int idx;
 
 public:
-    Trie() : children(26), idx(-1) {}
+    Trie()
+        : children(26)
+        , idx(-1) { }
 
     void insert(string word, int i) {
         Trie* node = this;
-        for (char c : word)
-        {
+        for (char c : word) {
             int idx = c - 'a';
             if (!node->children[idx]) node->children[idx] = new Trie();
             node = node->children[idx];
@@ -174,8 +175,7 @@ public:
     vector<int> search(string word) {
         Trie* node = this;
         vector<int> res;
-        for (char c : word)
-        {
+        for (char c : word) {
             int idx = c - 'a';
             if (!node->children[idx]) return res;
             node = node->children[idx];
@@ -192,8 +192,7 @@ public:
         int n = smalls.size();
         for (int i = 0; i < n; ++i) tree->insert(smalls[i], i);
         vector<vector<int>> ans(n);
-        for (int i = 0, m = big.size(); i < m; ++i)
-        {
+        for (int i = 0, m = big.size(); i < m; ++i) {
             string s = big.substr(i, m - i);
             vector<int> t = tree->search(s);
             for (int& idx : t) ans[idx].push_back(i);

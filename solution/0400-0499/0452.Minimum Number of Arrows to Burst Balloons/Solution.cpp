@@ -6,11 +6,9 @@ public:
         });
         int ans = 1;
         int x = points[0][1];
-        for (auto& v : points)
-        {
+        for (auto& v : points) {
             int a = v[0], b = v[1];
-            if (a > x)
-            {
+            if (a > x) {
                 ++ans;
                 x = b;
             }

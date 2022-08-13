@@ -8,14 +8,12 @@ public:
         vector<ll> d(m);
         vector<ll> cnt(m);
         cnt[1] = 1;
-        for (int i = 1; i <= n; ++i)
-        {
+        for (int i = 1; i <= n; ++i) {
             if (!cnt[i]) continue;
             d[i] = (d[i] + cnt[i]) % mod;
             d[i + forget] = (d[i + forget] - cnt[i] + mod) % mod;
             int nxt = i + delay;
-            while (nxt < i + forget)
-            {
+            while (nxt < i + forget) {
                 cnt[nxt] = (cnt[nxt] + cnt[i]) % mod;
                 ++nxt;
             }

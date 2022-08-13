@@ -8,8 +8,7 @@ public:
     }
 
     void dfs(int u, vector<int>& nums, vector<int>& t, vector<vector<int>>& ans) {
-        if (u == nums.size())
-        {
+        if (u == nums.size()) {
             ans.push_back(t);
             return;
         }

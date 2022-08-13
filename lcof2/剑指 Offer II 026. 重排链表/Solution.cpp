@@ -21,8 +21,7 @@ public:
     ListNode* middleNode(ListNode* head) {
         ListNode* slow = head;
         ListNode* fast = head;
-        while (fast && fast->next)
-        {
+        while (fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
         }
@@ -32,8 +31,7 @@ public:
     ListNode* reverseList(ListNode* head) {
         ListNode* pre = nullptr;
         ListNode* cur = head;
-        while (cur)
-        {
+        while (cur) {
             ListNode* tmp = cur->next;
             cur->next = pre;
             pre = cur;
@@ -45,8 +43,7 @@ public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode* dummy = new ListNode();
         ListNode* cur = dummy;
-        while (l1 && l2)
-        {
+        while (l1 && l2) {
             cur->next = l1;
             l1 = l1->next;
             cur = cur->next;

@@ -6,8 +6,7 @@ public:
     int next;
 
     int treeDiameter(vector<vector<int>>& edges) {
-        for (auto& e : edges)
-        {
+        for (auto& e : edges) {
             g[e[0]].insert(e[1]);
             g[e[1]].insert(e[0]);
         }
@@ -24,8 +23,7 @@ public:
     void dfs(int u, int t) {
         if (vis[u]) return;
         vis[u] = true;
-        if (ans < t)
-        {
+        if (ans < t) {
             ans = t;
             next = u;
         }

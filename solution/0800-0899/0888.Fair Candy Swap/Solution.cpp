@@ -9,7 +9,7 @@ public:
         for (int& a : aliceSizes) {
             int target = a - diff;
             if (s.count(target)) {
-                ans = vector<int>{a, target};
+                ans = vector<int> {a, target};
                 break;
             }
         }

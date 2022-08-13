@@ -173,7 +173,7 @@ public:
         s += val - arr[idx];
         arr[idx] = val;
         ++cnt;
-        return (double) s / min(cnt, (int) arr.size());
+        return (double)s / min(cnt, (int)arr.size());
     }
 
 private:
@@ -197,8 +197,7 @@ public:
     }
 
     double next(int val) {
-        if (q.size() == n)
-        {
+        if (q.size() == n) {
             s -= q.front();
             q.pop();
         }

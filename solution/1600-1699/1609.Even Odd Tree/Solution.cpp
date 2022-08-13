@@ -15,11 +15,9 @@ public:
         bool even = true;
         queue<TreeNode*> q;
         q.push(root);
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int prev = even ? 0 : 1000000;
-            for (int i = 0, n = q.size(); i < n; ++i)
-            {
+            for (int i = 0, n = q.size(); i < n; ++i) {
                 auto node = q.front();
                 q.pop();
                 if (even && (prev >= node->val || node->val % 2 == 0)) return false;

@@ -11,7 +11,7 @@ public:
         cs = characters;
         size = combinationLength;
     }
-    
+
     string next() {
         while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
         string ans;
@@ -24,7 +24,7 @@ public:
         --curr;
         return ans;
     }
-    
+
     bool hasNext() {
         while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
         return curr >= 0;

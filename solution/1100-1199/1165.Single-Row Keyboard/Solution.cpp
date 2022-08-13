@@ -1,7 +1,7 @@
 class Solution {
 public:
     int calculateTime(string keyboard, string word) {
-        unordered_map <char, int> index;
+        unordered_map<char, int> index;
         for (int i = 0; i < keyboard.size(); ++i) {
             index[keyboard[i]] = i;
         }

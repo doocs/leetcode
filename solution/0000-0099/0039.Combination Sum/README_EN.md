@@ -126,14 +126,12 @@ public:
     }
 
     void dfs(int s, int u, vector<int>& t) {
-        if (s == target)
-        {
+        if (s == target) {
             ans.push_back(t);
             return;
         }
         if (s > target) return;
-        for (int i = u; i < candidates.size(); ++i)
-        {
+        for (int i = u; i < candidates.size(); ++i) {
             int c = candidates[i];
             t.push_back(c);
             dfs(s + c, i, t);

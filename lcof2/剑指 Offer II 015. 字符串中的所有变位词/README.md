@@ -178,7 +178,6 @@ public:
                 res.push_back(i - p.size() + 1);
         }
 
-
         return res;
     }
 };

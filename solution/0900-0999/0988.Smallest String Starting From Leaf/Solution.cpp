@@ -22,8 +22,7 @@ public:
     void dfs(TreeNode* root, string& path) {
         if (!root) return;
         path += 'a' + root->val;
-        if (!root->left && !root->right)
-        {
+        if (!root->left && !root->right) {
             string t = path;
             reverse(t.begin(), t.end());
             if (ans == "" || t < ans) ans = t;

@@ -9,9 +9,10 @@ public:
             if (tmp == "..") {
                 if (!stk.empty())
                     stk.pop_back();
-            } else stk.push_back(tmp);
+            } else
+                stk.push_back(tmp);
         }
-        for (auto str: stk)
+        for (auto str : stk)
             res += "/" + str;
         return res.empty() ? "/" : res;
     }

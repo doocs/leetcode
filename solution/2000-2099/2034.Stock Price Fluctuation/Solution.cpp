@@ -5,12 +5,10 @@ public:
     map<int, int> counter;
 
     StockPrice() {
-
     }
-    
+
     void update(int timestamp, int price) {
-        if (mp.count(timestamp))
-        {
+        if (mp.count(timestamp)) {
             int oldPrice = mp[timestamp];
             --counter[oldPrice];
             if (counter[oldPrice] == 0) counter.erase(oldPrice);
@@ -19,15 +17,15 @@ public:
         ++counter[price];
         lastTs = max(lastTs, timestamp);
     }
-    
+
     int current() {
         return mp[lastTs];
     }
-    
+
     int maximum() {
         return counter.rbegin()->first;
     }
-    
+
     int minimum() {
         return counter.begin()->first;
     }

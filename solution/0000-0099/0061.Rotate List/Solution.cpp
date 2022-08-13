@@ -15,7 +15,7 @@ public:
             return head;
         }
         int n = 0;
-        for (ListNode *cur = head; !!cur; cur = cur->next) {
+        for (ListNode* cur = head; !!cur; cur = cur->next) {
             ++n;
         }
         k %= n;
@@ -31,7 +31,7 @@ public:
             fast = fast->next;
         }
 
-        ListNode *start = slow->next;
+        ListNode* start = slow->next;
         slow->next = nullptr;
         fast->next = head;
         return start;

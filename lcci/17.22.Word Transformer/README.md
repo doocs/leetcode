@@ -144,13 +144,11 @@ public:
 
     void dfs(string begin, string end, vector<string>& t) {
         if (!ans.empty()) return;
-        if (begin == end)
-        {
+        if (begin == end) {
             ans = t;
             return;
         }
-        for (auto word : words)
-        {
+        for (auto word : words) {
             if (visited.count(word) || !check(begin, word)) continue;
             visited.insert(word);
             t.push_back(word);

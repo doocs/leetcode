@@ -431,13 +431,23 @@ struct Node {
     Node* prev;
     Node* next;
 
-    Node(): k(0), v(0), prev(nullptr), next(nullptr) {}
-    Node(int key, int val): k(key), v(val), prev(nullptr), next(nullptr) {}
+    Node()
+        : k(0)
+        , v(0)
+        , prev(nullptr)
+        , next(nullptr) { }
+    Node(int key, int val)
+        : k(key)
+        , v(val)
+        , prev(nullptr)
+        , next(nullptr) { }
 };
 
 class LRUCache {
 public:
-    LRUCache(int capacity): cap(capacity), size(0) {
+    LRUCache(int capacity)
+        : cap(capacity)
+        , size(0) {
         head = new Node();
         tail = new Node();
         head->next = tail;
@@ -452,20 +462,16 @@ public:
     }
 
     void put(int key, int value) {
-        if (cache.count(key))
-        {
+        if (cache.count(key)) {
             Node* node = cache[key];
             node->v = value;
             moveToHead(node);
-        }
-        else
-        {
+        } else {
             Node* node = new Node(key, value);
             cache[key] = node;
             addToHead(node);
             ++size;
-            if (size > cap)
-            {
+            if (size > cap) {
                 node = removeTail();
                 cache.erase(node->k);
                 --size;

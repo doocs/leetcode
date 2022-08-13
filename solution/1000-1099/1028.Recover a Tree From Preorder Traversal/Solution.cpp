@@ -15,12 +15,12 @@ public:
         int num = 0;
         for (int i = 0; i < S.length(); ++i) {
             if (S[i] == '-') {
-                depth ++;
+                depth++;
             } else {
-                num = 10*num + S[i]-'0';
+                num = 10 * num + S[i] - '0';
             }
-            if (i+1 >= S.length() || (isdigit(S[i]) && S[i+1] == '-')) {
-                TreeNode * newNode = new TreeNode(num);
+            if (i + 1 >= S.length() || (isdigit(S[i]) && S[i + 1] == '-')) {
+                TreeNode* newNode = new TreeNode(num);
                 while (st.size() > depth) {
                     st.pop();
                 }

@@ -182,22 +182,20 @@ public:
         int m = matrix[0].size();
         int ans = 0;
         stack<int> st;
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 h[j] = (matrix[i][j] == '1' ? h[j] + 1 : 0);
-                while (st.size() && h[j] <= h[st.top()])
-                {
+                while (st.size() && h[j] <= h[st.top()]) {
                     ans = max(ans, (j - l[st.top()] - 1) * h[st.top()]);
                     st.pop();
                 }
-                if (st.size()) l[j] = st.top();
-                else l[j] = -1;
+                if (st.size())
+                    l[j] = st.top();
+                else
+                    l[j] = -1;
                 st.push(j);
             }
-            while (st.size())
-            {
+            while (st.size()) {
                 ans = max(ans, (m - 1 - l[st.top()]) * h[st.top()]);
                 st.pop();
             }
@@ -215,10 +213,8 @@ public:
         int n = matrix[0].size();
         vector<int> heights(n);
         int ans = 0;
-        for (auto& row : matrix)
-        {
-            for (int j = 0; j < n; ++j)
-            {
+        for (auto& row : matrix) {
+            for (int j = 0; j < n; ++j) {
                 if (row[j] == '1') ++heights[j];
                 else heights[j] = 0;
             }
@@ -232,10 +228,8 @@ public:
         stack<int> stk;
         vector<int> left(n, -1);
         vector<int> right(n, n);
-        for (int i = 0; i < n; ++i)
-        {
-            while (!stk.empty() && heights[stk.top()] >= heights[i])
-            {
+        for (int i = 0; i < n; ++i) {
+            while (!stk.empty() && heights[stk.top()] >= heights[i]) {
                 right[stk.top()] = i;
                 stk.pop();
             }

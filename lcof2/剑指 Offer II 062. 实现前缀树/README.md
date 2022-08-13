@@ -259,8 +259,7 @@ private:
 
     Trie* searchPrefix(string s) {
         Trie* node = this;
-        for (char c : s)
-        {
+        for (char c : s) {
             int idx = c - 'a';
             if (!node->children[idx]) return nullptr;
             node = node->children[idx];
@@ -269,12 +268,13 @@ private:
     }
 
 public:
-    Trie() : children(26), isEnd(false) {}
+    Trie()
+        : children(26)
+        , isEnd(false) { }
 
     void insert(string word) {
         Trie* node = this;
-        for (char c : word)
-        {
+        for (char c : word) {
             int idx = c - 'a';
             if (!node->children[idx]) node->children[idx] = new Trie();
             node = node->children[idx];

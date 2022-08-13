@@ -4,20 +4,18 @@ public:
     map<int, set<int>> t;
 
     NumberContainers() {
-
     }
-    
+
     void change(int index, int number) {
         auto it = mp.find(index);
-        if (it != mp.end())
-        {
+        if (it != mp.end()) {
             t[it->second].erase(index);
             it->second = number;
-        }
-        else mp[index] = number;
+        } else
+            mp[index] = number;
         t[number].insert(index);
     }
-    
+
     int find(int number) {
         auto it = t.find(number);
         return it == t.end() || it->second.empty() ? -1 : *it->second.begin();

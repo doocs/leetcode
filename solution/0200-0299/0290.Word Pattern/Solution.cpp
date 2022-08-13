@@ -9,8 +9,7 @@ public:
 
         unordered_map<char, string> c2str;
         unordered_map<string, char> str2c;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             char k = pattern[i];
             string v = ss[i];
             if (c2str.count(k) && c2str[k] != v) return false;

@@ -100,8 +100,7 @@ public:
     }
 
     void dfs(int left, int right, int n, string t, vector<string>& ans) {
-        if (left == n && right == n)
-        {
+        if (left == n && right == n) {
             ans.push_back(t);
             return;
         }

@@ -19,11 +19,12 @@ public:
         if (i > j || i >= preorder.size()) return nullptr;
         TreeNode* root = new TreeNode(preorder[i]);
         int left = i + 1, right = j + 1;
-        while (left < right)
-        {
+        while (left < right) {
             int mid = (left + right) >> 1;
-            if (preorder[mid] > preorder[i]) right = mid;
-            else left = mid + 1;
+            if (preorder[mid] > preorder[i])
+                right = mid;
+            else
+                left = mid + 1;
         }
         root->left = dfs(preorder, i + 1, left - 1);
         root->right = dfs(preorder, left, j);

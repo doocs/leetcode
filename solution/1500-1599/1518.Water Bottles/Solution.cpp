@@ -2,8 +2,7 @@ class Solution {
 public:
     int numWaterBottles(int numBottles, int numExchange) {
         int ans = numBottles;
-        while (numBottles >= numExchange)
-        {
+        while (numBottles >= numExchange) {
             numBottles -= (numExchange - 1);
             ++ans;
         }

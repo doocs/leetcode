@@ -12,7 +12,7 @@
 class Solution {
 public:
     int ans;
-    
+
     int diameterOfBinaryTree(TreeNode* root) {
         ans = 0;
         dfs(root);

@@ -20,8 +20,7 @@ public:
 
     void dfs(TreeNode* root, string t) {
         t += to_string(root->val);
-        if (!root->left && !root->right)
-        {
+        if (!root->left && !root->right) {
             ans.push_back(t);
             return;
         }

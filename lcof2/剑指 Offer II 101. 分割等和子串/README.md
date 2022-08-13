@@ -160,10 +160,8 @@ public:
         vector<bool> dp(n);
         dp[0] = true;
         if (nums[0] < n) dp[nums[0]] = true;
-        for (int i = 1; i < m; ++i)
-        {
-            for (int j = n - 1; j >= nums[i]; --j)
-            {
+        for (int i = 1; i < m; ++i) {
+            for (int j = n - 1; j >= nums[i]; --j) {
                 dp[j] = dp[j] || dp[j - nums[i]];
             }
         }

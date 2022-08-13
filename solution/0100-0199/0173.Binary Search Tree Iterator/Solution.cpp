@@ -17,7 +17,7 @@ public:
             stack.push(root);
         }
     }
-    
+
     int next() {
         TreeNode* cur = stack.top();
         stack.pop();
@@ -27,7 +27,7 @@ public:
         }
         return cur->val;
     }
-    
+
     bool hasNext() {
         return !stack.empty();
     }

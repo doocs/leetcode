@@ -35,7 +35,7 @@ private:
             return nullptr;
         }
         int mid = (start + end) / 2;
-        TreeNode *root = new TreeNode(nums[mid]);
+        TreeNode* root = new TreeNode(nums[mid]);
         root->left = buildBST(nums, start, mid - 1);
         root->right = buildBST(nums, mid + 1, end);
         return root;

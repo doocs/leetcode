@@ -15,8 +15,7 @@ public:
     }
 
     void dfs(int u) {
-        for (int v : g[u])
-        {
+        for (int v : g[u]) {
             dfs(v);
             value[u] += value[v];
             counter[u] += counter[v];

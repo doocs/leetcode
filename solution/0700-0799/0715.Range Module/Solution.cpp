@@ -1,38 +1,34 @@
 template <class T>
 class CachedObj {
 public:
-    void *operator new(size_t s)
-    {
-        if (!head)
-        {
-            T *a = new T[SIZE];
+    void* operator new(size_t s) {
+        if (!head) {
+            T* a = new T[SIZE];
             for (size_t i = 0; i < SIZE; ++i)
                 add(a + i);
         }
-        T *p = head;
+        T* p = head;
         head = head->CachedObj<T>::next;
         return p;
     }
-    void operator delete(void *p, size_t)
-    {
-        if (p) add(static_cast<T *>(p));
+    void operator delete(void* p, size_t) {
+        if (p) add(static_cast<T*>(p));
     }
-    virtual ~CachedObj() {}
+    virtual ~CachedObj() { }
 
 protected:
-    T *next;
+    T* next;
 
 private:
-    static T *head;
+    static T* head;
     static const size_t SIZE;
-    static void add(T *p)
-    {
+    static void add(T* p) {
         p->CachedObj<T>::next = head;
         head = p;
     }
 };
 template <class T>
-T *CachedObj<T>::head = 0;
+T* CachedObj<T>::head = 0;
 template <class T>
 const size_t CachedObj<T>::SIZE = 10000;
 class Node : public CachedObj<Node> {
@@ -57,8 +53,7 @@ public:
     }
 
     void modify(int left, int right, int v, int l, int r, Node* node) {
-        if (l >= left && r <= right)
-        {
+        if (l >= left && r <= right) {
             node->v = v == 1;
             node->add = v;
             return;
@@ -91,8 +86,7 @@ public:
     void pushdown(Node* node) {
         if (!node->left) node->left = new Node();
         if (!node->right) node->right = new Node();
-        if (node->add)
-        {
+        if (node->add) {
             node->left->add = node->right->add = node->add;
             node->left->v = node->right->v = node->add == 1;
             node->add = 0;
@@ -107,15 +101,15 @@ public:
     RangeModule() {
         tree = new SegmentTree();
     }
-    
+
     void addRange(int left, int right) {
         tree->modify(left, right - 1, 1);
     }
-    
+
     bool queryRange(int left, int right) {
         return tree->query(left, right - 1);
     }
-    
+
     void removeRange(int left, int right) {
         tree->modify(left, right - 1, -1);
     }

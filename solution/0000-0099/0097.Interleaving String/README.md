@@ -207,8 +207,7 @@ public:
             auto it = memo.find(i * 100 + j);
             if (it != memo.end()) return it->second;
 
-            bool ret = (i < m && s1[i] == s3[i + j] && dfs(i + 1, j)) ||
-                       (j < n && s2[j] == s3[i + j] && dfs(i, j + 1));
+            bool ret = (i < m && s1[i] == s3[i + j] && dfs(i + 1, j)) || (j < n && s2[j] == s3[i + j] && dfs(i, j + 1));
 
             memo[i * 100 + j] = ret;
             return ret;

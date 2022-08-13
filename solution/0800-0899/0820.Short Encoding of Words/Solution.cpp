@@ -1,5 +1,5 @@
 struct Trie {
-    Trie* children[26] = { nullptr };
+    Trie* children[26] = {nullptr};
 };
 
 class Solution {

@@ -104,6 +104,7 @@ class MinStack {
 private:
     stack<int> stk;
     stack<int> minStk;
+
 public:
     /** initialize your data structure here. */
     MinStack() = default;

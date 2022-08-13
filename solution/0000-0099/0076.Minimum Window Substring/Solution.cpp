@@ -1,9 +1,9 @@
 class Solution {
 public:
-    string minWindow(string s, string t){
+    string minWindow(string s, string t) {
         unordered_map<char, int> m;
         int begin = 0, end = 0, minlen = INT_MAX, minStart = 0, size = s.size(), counter = t.size();
-        for (auto c: t)
+        for (auto c : t)
             m[c]++;
 
         while (end < size) {

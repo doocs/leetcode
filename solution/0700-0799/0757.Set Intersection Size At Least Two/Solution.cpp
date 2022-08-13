@@ -6,18 +6,14 @@ public:
         });
         int ans = 0;
         int s = -1, e = -1;
-        for (auto& v : intervals)
-        {
+        for (auto& v : intervals) {
             int a = v[0], b = v[1];
             if (a <= s) continue;
-            if (a > e)
-            {
+            if (a > e) {
                 ans += 2;
                 s = b - 1;
                 e = b;
-            }
-            else
-            {
+            } else {
                 ans += 1;
                 s = e;
                 e = b;

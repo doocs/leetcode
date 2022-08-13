@@ -104,7 +104,7 @@ public class Solution {
  */
 class Solution {
 public:
-    ListNode *detectCycle(ListNode *head) {
+    ListNode* detectCycle(ListNode* head) {
         ListNode* slow = head;
         ListNode* fast = head;
         bool hasCycle = false;
@@ -173,20 +173,20 @@ var detectCycle = function (head) {
  * }
  */
 func detectCycle(head *ListNode) *ListNode {
-    slow, fast := head, head
-    hasCycle := false
-    for !hasCycle && fast != nil && fast.Next != nil {
-        slow, fast = slow.Next, fast.Next.Next
-        hasCycle = slow == fast
-    }
-    if !hasCycle {
-        return nil
-    }
-    p := head
-    for p != slow {
-        p, slow = p.Next, slow.Next
-    }
-    return p
+	slow, fast := head, head
+	hasCycle := false
+	for !hasCycle && fast != nil && fast.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+		hasCycle = slow == fast
+	}
+	if !hasCycle {
+		return nil
+	}
+	p := head
+	for p != slow {
+		p, slow = p.Next, slow.Next
+	}
+	return p
 }
 ```
 

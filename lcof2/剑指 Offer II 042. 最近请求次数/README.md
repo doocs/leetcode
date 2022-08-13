@@ -116,7 +116,6 @@ public:
     deque<int> q;
 
     RecentCounter() {
-
     }
 
     int ping(int t) {

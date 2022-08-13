@@ -7,17 +7,16 @@ public:
         for (int i = 0; i < keys.size(); ++i) mp[keys[i]] = values[i];
         for (auto v : dictionary) cnt[encrypt(v)]++;
     }
-    
+
     string encrypt(string word1) {
         string res = "";
-        for (char c : word1)
-        {
+        for (char c : word1) {
             if (!mp.count(c)) return "";
             res += mp[c];
         }
         return res;
     }
-    
+
     int decrypt(string word2) {
         return cnt[word2];
     }

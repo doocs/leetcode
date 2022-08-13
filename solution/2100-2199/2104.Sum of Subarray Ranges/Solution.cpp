@@ -12,23 +12,20 @@ public:
         int n = nums.size();
         vector<int> left(n, -1);
         vector<int> right(n, n);
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             while (!stk.empty() && nums[stk.top()] <= nums[i]) stk.pop();
             if (!stk.empty()) left[i] = stk.top();
             stk.push(i);
         }
         stk = stack<int>();
-        for (int i = n - 1; i >= 0; --i)
-        {
+        for (int i = n - 1; i >= 0; --i) {
             while (!stk.empty() && nums[stk.top()] < nums[i]) stk.pop();
             if (!stk.empty()) right[i] = stk.top();
             stk.push(i);
         }
         long long ans = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            ans += (long long) (i - left[i]) * (right[i] - i) * nums[i];
+        for (int i = 0; i < n; ++i) {
+            ans += (long long)(i - left[i]) * (right[i] - i) * nums[i];
         }
         return ans;
     }

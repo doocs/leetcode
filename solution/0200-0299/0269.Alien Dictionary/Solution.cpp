@@ -5,21 +5,17 @@ public:
         vector<bool> s(26);
         int cnt = 0;
         int n = words.size();
-        for (int i = 0; i < n - 1; ++i)
-        {
-            for (char c : words[i])
-            {
+        for (int i = 0; i < n - 1; ++i) {
+            for (char c : words[i]) {
                 if (cnt == 26) break;
                 c -= 'a';
-                if (!s[c])
-                {
+                if (!s[c]) {
                     ++cnt;
                     s[c] = true;
                 }
             }
             int m = words[i].size();
-            for (int j = 0; j < m; ++j)
-            {
+            for (int j = 0; j < m; ++j) {
                 if (j >= words[i + 1].size()) return "";
                 char c1 = words[i][j], c2 = words[i + 1][j];
                 if (c1 == c2) continue;
@@ -28,12 +24,10 @@ public:
                 break;
             }
         }
-        for (char c : words[n - 1])
-        {
+        for (char c : words[n - 1]) {
             if (cnt == 26) break;
             c -= 'a';
-            if (!s[c])
-            {
+            if (!s[c]) {
                 ++cnt;
                 s[c] = true;
             }
@@ -48,8 +42,7 @@ public:
             if (s[i] && indegree[i] == 0)
                 q.push(i);
         string ans = "";
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int t = q.front();
             ans += (t + 'a');
             q.pop();

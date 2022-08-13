@@ -144,13 +144,11 @@ public:
     }
 
     void dfs(int u, string& S, string& t, vector<string>& ans, unordered_set<char>& vis) {
-        if (u == S.size())
-        {
+        if (u == S.size()) {
             ans.push_back(t);
             return;
         }
-        for (char& c : S)
-        {
+        for (char& c : S) {
             if (vis.count(c)) continue;
             vis.insert(c);
             t.push_back(c);

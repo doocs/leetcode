@@ -15,27 +15,21 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         unordered_set<TreeNode*> s;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int n = q.size();
-            while (n--)
-            {
+            while (n--) {
                 TreeNode* node = q.front();
                 q.pop();
-                if (node->right)
-                {
-                    if (s.count(node->right->right))
-                    {
+                if (node->right) {
+                    if (s.count(node->right->right)) {
                         node->right = nullptr;
                         return root;
                     }
                     q.push(node->right);
                     s.insert(node->right);
                 }
-                if (node->left)
-                {
-                    if (s.count(node->left->right))
-                    {
+                if (node->left) {
+                    if (s.count(node->left->right)) {
                         node->left = nullptr;
                         return root;
                     }

@@ -102,7 +102,7 @@ var reverse = function (x) {
 ### **C**
 
 ```c
-int reverse(int x){
+int reverse(int x) {
     int res = 0;
     while (x != 0) {
         if (res > INT_MAX / 10 || res < INT_MIN / 10) {

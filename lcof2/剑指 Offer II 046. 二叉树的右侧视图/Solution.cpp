@@ -16,8 +16,7 @@ public:
         if (!root) return ans;
         queue<TreeNode*> q;
         q.push(root);
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ans.push_back(q.front()->val);
             for (int i = q.size(); i > 0; --i) {
                 auto node = q.front();

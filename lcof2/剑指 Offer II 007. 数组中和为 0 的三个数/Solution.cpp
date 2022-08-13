@@ -9,14 +9,14 @@ public:
             int j = nums.size() - 1;
             if (k > 0 && nums[k] == nums[k - 1]) continue;
 
-            while(i < j) {
+            while (i < j) {
                 if (nums[i] + nums[j] + nums[k] == 0) {
-                    res.push_back(vector<int>{nums[k], nums[i], nums[j]});
+                    res.push_back(vector<int> {nums[k], nums[i], nums[j]});
                     i++;
                     j--;
 
-                    while(i < j && nums[i] == nums[i - 1]) i++;
-                    while(i < j && nums[j] == nums[j + 1]) j--;
+                    while (i < j && nums[i] == nums[i - 1]) i++;
+                    while (i < j && nums[j] == nums[j + 1]) j--;
                 } else if (nums[i] + nums[j] + nums[k] < 0) {
                     i++;
                 } else {

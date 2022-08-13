@@ -391,28 +391,20 @@ class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
         vector<int> ans;
-        while (root)
-        {
-            if (!root->left)
-            {
+        while (root) {
+            if (!root->left) {
                 ans.push_back(root->val);
                 root = root->right;
-            }
-            else
-            {
+            } else {
                 TreeNode* prev = root->left;
-                while (prev->right && prev->right != root)
-                {
+                while (prev->right && prev->right != root) {
                     prev = prev->right;
                 }
-                if (!prev->right)
-                {
+                if (!prev->right) {
                     ans.push_back(root->val);
                     prev->right = root;
                     root = root->left;
-                }
-                else
-                {
+                } else {
                     prev->right = nullptr;
                     root = root->right;
                 }

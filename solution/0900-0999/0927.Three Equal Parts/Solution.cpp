@@ -10,8 +10,7 @@ public:
         int i = find(arr, 1);
         int j = find(arr, cnt + 1);
         int k = find(arr, cnt * 2 + 1);
-        while (k < n && arr[i] == arr[j] && arr[j] == arr[k])
-        {
+        while (k < n && arr[i] == arr[j] && arr[j] == arr[k]) {
             ++i;
             ++j;
             ++k;
@@ -22,8 +21,7 @@ public:
 
     int find(vector<int>& arr, int cnt) {
         int s = 0;
-        for (int i = 0; i < arr.size(); ++i)
-        {
+        for (int i = 0; i < arr.size(); ++i) {
             s += arr[i];
             if (s == cnt) return i;
         }

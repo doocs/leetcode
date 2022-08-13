@@ -7,15 +7,13 @@ public:
         vector<int> vis(n);
         vector<int> stk(n + 10);
         int cnt = 1;
-        for (int i = 1; i < n; ++i)
-        {
+        for (int i = 1; i < n; ++i) {
             while (cnt > 1 && cross(trees[stk[cnt - 1]], trees[stk[cnt - 2]], trees[i]) < 0) vis[stk[--cnt]] = false;
             vis[i] = true;
             stk[cnt++] = i;
         }
         int m = cnt;
-        for (int i = n - 1; i >= 0; --i)
-        {
+        for (int i = n - 1; i >= 0; --i) {
             if (vis[i]) continue;
             while (cnt > m && cross(trees[stk[cnt - 1]], trees[stk[cnt - 2]], trees[i]) < 0) --cnt;
             stk[cnt++] = i;

@@ -10,17 +10,13 @@ public:
         d["&frasl;"] = "/";
         string ans = "";
         int i = 0, n = text.size();
-        while (i < n)
-        {
+        while (i < n) {
             bool find = false;
-            for (int l = 1; l < 8; ++l)
-            {
+            for (int l = 1; l < 8; ++l) {
                 int j = i + l;
-                if (j <= n)
-                {
+                if (j <= n) {
                     string t = text.substr(i, l);
-                    if (d.count(t))
-                    {
+                    if (d.count(t)) {
                         ans += d[t];
                         i = j;
                         find = true;

@@ -5,10 +5,8 @@ public:
         stack<int> stk;
         vector<int> left(n, -1);
         vector<int> right(n, n);
-        for (int i = 0; i < n; ++i)
-        {
-            while (!stk.empty() && heights[stk.top()] >= heights[i])
-            {
+        for (int i = 0; i < n; ++i) {
+            while (!stk.empty() && heights[stk.top()] >= heights[i]) {
                 right[stk.top()] = i;
                 stk.pop();
             }

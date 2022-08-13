@@ -5,24 +5,19 @@ public:
         vector<int> cnt(10);
         bool neg = num < 0;
         num = abs(num);
-        while (num)
-        {
+        while (num) {
             cnt[num % 10]++;
             num /= 10;
         }
         long long ans = 0;
-        if (neg)
-        {
+        if (neg) {
             for (int i = 9; i >= 0; --i)
                 while (cnt[i]--) ans = ans * 10 + i;
             return -ans;
         }
-        if (cnt[0])
-        {
-            for (int i = 1; i < 10; ++i)
-            {
-                if (cnt[i])
-                {
+        if (cnt[0]) {
+            for (int i = 1; i < 10; ++i) {
+                if (cnt[i]) {
                     ans = ans * 10 + i;
                     cnt[i]--;
                     break;

@@ -7,8 +7,7 @@ public:
         unordered_map<int, int> size;
         mx = 0;
         n = words.size();
-        for (auto& word : words)
-        {
+        for (auto& word : words) {
             int x = 0;
             for (auto& c : word) x |= 1 << (c - 'a');
             p[x] = x;
@@ -16,15 +15,11 @@ public:
             mx = max(mx, size[x]);
             if (size[x] > 1) --n;
         }
-        for (auto& [x, _] : p)
-        {
-            for (int i = 0; i < 26; ++i)
-            {
+        for (auto& [x, _] : p) {
+            for (int i = 0; i < 26; ++i) {
                 unite(x, x ^ (1 << i), p, size);
-                if ((x >> i) & 1)
-                {
-                    for (int j = 0; j < 26; ++j)
-                    {
+                if ((x >> i) & 1) {
+                    for (int j = 0; j < 26; ++j) {
                         if (((x >> j) & 1) == 0) unite(x, x ^ (1 << i) | (1 << j), p, size);
                     }
                 }

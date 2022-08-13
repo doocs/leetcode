@@ -4,10 +4,8 @@ public:
         vector<int> nums;
         int m = grid.size(), n = grid[0].size();
         int base = grid[0][0];
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (abs(grid[i][j] - base) % x != 0) return -1;
                 nums.push_back(grid[i][j]);
             }

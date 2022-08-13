@@ -26,7 +26,8 @@ private:
     trie* root;
 
 public:
-    WordDictionary() : root(new trie) {}
+    WordDictionary()
+        : root(new trie) { }
 
     void addWord(string word) {
         root->insert(word);

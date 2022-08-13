@@ -6,8 +6,10 @@ public:
         while (i < j) {
             int t = (j - i) * min(height[i], height[j]);
             res = max(res, t);
-            if (height[i] < height[j]) ++i;
-            else --j;
+            if (height[i] < height[j])
+                ++i;
+            else
+                --j;
         }
         return res;
     }

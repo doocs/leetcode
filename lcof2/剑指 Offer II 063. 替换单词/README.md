@@ -238,12 +238,13 @@ class Trie {
 public:
     vector<Trie*> children;
     string v;
-    Trie() : children(26), v("") {}
+    Trie()
+        : children(26)
+        , v("") { }
 
     void insert(string word) {
         Trie* node = this;
-        for (char c : word)
-        {
+        for (char c : word) {
             c -= 'a';
             if (!node->children[c]) node->children[c] = new Trie();
             node = node->children[c];
@@ -253,8 +254,7 @@ public:
 
     string search(string word) {
         Trie* node = this;
-        for (char c : word)
-        {
+        for (char c : word) {
             c -= 'a';
             if (!node->children[c]) break;
             node = node->children[c];

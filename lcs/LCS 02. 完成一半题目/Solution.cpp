@@ -6,8 +6,7 @@ public:
         int n = questions.size() >> 1;
         sort(counter.begin(), counter.end());
         int ans = 0;
-        for (int i = counter.size() - 1; n > 0; --i)
-        {
+        for (int i = counter.size() - 1; n > 0; --i) {
             ++ans;
             n -= counter[i];
         }

@@ -4,8 +4,7 @@ public:
         if (n == 0) return 1;
         int ans = 0;
         bool find = false;
-        for (int i = 30; i >= 0; --i)
-        {
+        for (int i = 30; i >= 0; --i) {
             int b = n & (1 << i);
             if (!find && b == 0) continue;
             find = true;

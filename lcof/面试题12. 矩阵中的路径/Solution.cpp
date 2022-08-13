@@ -5,7 +5,7 @@ public:
             for (int j = 0; j < board[0].size(); ++j)
                 if (dfs(i, j, 0, board, word))
                     return 1;
-        return 0;    
+        return 0;
     }
 
     bool dfs(int i, int j, int k, vector<vector<char>>& board, string word) {

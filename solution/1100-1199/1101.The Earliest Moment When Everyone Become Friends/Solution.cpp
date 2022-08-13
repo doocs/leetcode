@@ -6,8 +6,7 @@ public:
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
         sort(logs.begin(), logs.end());
-        for (auto& log : logs)
-        {
+        for (auto& log : logs) {
             int t = log[0], a = log[1], b = log[2];
             if (find(a) == find(b)) continue;
             p[find(a)] = find(b);

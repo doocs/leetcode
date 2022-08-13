@@ -2,20 +2,17 @@ class MagicDictionary {
 public:
     /** Initialize your data structure here. */
     MagicDictionary() {
-
     }
-    
+
     void buildDict(vector<string> dictionary) {
-        for (string word : dictionary)
-        {
+        for (string word : dictionary) {
             s.insert(word);
             for (string p : gen(word)) ++cnt[p];
         }
     }
-    
+
     bool search(string searchWord) {
-        for (string p : gen(searchWord))
-        {
+        for (string p : gen(searchWord)) {
             if (cnt[p] > 1 || (cnt[p] == 1 && !s.count(searchWord))) return true;
         }
         return false;
@@ -27,8 +24,7 @@ private:
 
     vector<string> gen(string word) {
         vector<string> res;
-        for (int i = 0; i < word.size(); ++i)
-        {
+        for (int i = 0; i < word.size(); ++i) {
             char c = word[i];
             word[i] = '*';
             res.push_back(word);

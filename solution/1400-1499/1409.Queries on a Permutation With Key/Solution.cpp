@@ -4,13 +4,10 @@ public:
         vector<int> p(m);
         iota(p.begin(), p.end(), 1);
         vector<int> ans;
-        for (int v : queries)
-        {
+        for (int v : queries) {
             int j = 0;
-            for (int i = 0; i < m; ++i)
-            {
-                if (p[i] == v)
-                {
+            for (int i = 0; i < m; ++i) {
+                if (p[i] == v) {
                     j = i;
                     break;
                 }

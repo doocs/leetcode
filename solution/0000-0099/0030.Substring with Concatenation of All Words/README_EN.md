@@ -133,17 +133,14 @@ public:
         int subLen = words[0].size();
         int n = s.size(), m = words.size();
         vector<int> ans;
-        for (int i = 0; i < subLen; ++i)
-        {
+        for (int i = 0; i < subLen; ++i) {
             unordered_map<string, int> cnt1;
             int l = i, r = i;
             int t = 0;
-            while (r + subLen <= n)
-            {
+            while (r + subLen <= n) {
                 string w = s.substr(r, subLen);
                 r += subLen;
-                if (!cnt.count(w))
-                {
+                if (!cnt.count(w)) {
                     l = r;
                     t = 0;
                     cnt1.clear();
@@ -151,8 +148,7 @@ public:
                 }
                 cnt1[w]++;
                 t++;
-                while (cnt1[w] > cnt[w])
-                {
+                while (cnt1[w] > cnt[w]) {
                     string remove = s.substr(l, subLen);
                     l += subLen;
                     cnt1[remove]--;

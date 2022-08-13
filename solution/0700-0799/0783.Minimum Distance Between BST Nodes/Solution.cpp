@@ -14,7 +14,7 @@ public:
     const int inf = INT_MAX;
     int ans;
     int prev;
-    
+
     int minDiffInBST(TreeNode* root) {
         ans = inf, prev = inf;
         dfs(root);

@@ -148,7 +148,7 @@ public:
             ret;
         }
 
-        while(small < mid) {
+        while (small < mid) {
             if (curSum == target) {
                 ret.push_back(build(small, big));
             }

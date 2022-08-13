@@ -2,8 +2,7 @@ class Solution {
 public:
     int minimumSum(int num) {
         vector<int> nums;
-        while (num)
-        {
+        while (num) {
             nums.push_back(num % 10);
             num /= 10;
         }

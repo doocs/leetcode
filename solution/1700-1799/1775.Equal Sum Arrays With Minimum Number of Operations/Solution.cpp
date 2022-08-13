@@ -10,10 +10,8 @@ public:
         for (int x : nums2) ++freq[x - 1];
         int diff = s2 - s1;
         int ans = 0;
-        for (int i = 5; i > 0 && diff > 0; --i)
-        {
-            while (freq[i] && diff > 0)
-            {
+        for (int i = 5; i > 0 && diff > 0; --i) {
+            while (freq[i] && diff > 0) {
                 diff -= i;
                 --freq[i];
                 ++ans;

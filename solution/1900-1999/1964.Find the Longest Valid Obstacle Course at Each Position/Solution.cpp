@@ -3,11 +3,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) { }
 
     void update(int x, int val) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] = max(c[x], val);
             x += lowbit(x);
         }
@@ -15,8 +16,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s = max(s, c[x]);
             x -= lowbit(x);
         }
@@ -28,7 +28,6 @@ public:
     }
 };
 
-
 class Solution {
 public:
     vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
@@ -39,8 +38,7 @@ public:
         BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
         int n = obstacles.size();
         vector<int> ans(n);
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int v = obstacles[i];
             int x = m[v];
             ans[i] = 1 + tree->query(x);

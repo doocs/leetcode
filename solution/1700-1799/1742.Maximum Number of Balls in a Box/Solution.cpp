@@ -3,11 +3,9 @@ public:
     int countBalls(int lowLimit, int highLimit) {
         vector<int> counter(60);
         int ans = 0;
-        for (int i = lowLimit; i <= highLimit; ++i)
-        {
+        for (int i = lowLimit; i <= highLimit; ++i) {
             int s = 0, j = i;
-            while (j)
-            {
+            while (j) {
                 s += (j % 10);
                 j /= 10;
             }

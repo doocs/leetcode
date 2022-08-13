@@ -7,8 +7,7 @@ public:
         vector<int> keys;
         for (auto& [k, _] : freq) keys.push_back(k);
         sort(keys.begin(), keys.end(), [](int a, int b) { return abs(a) < abs(b); });
-        for (int& k : keys)
-        {
+        for (int& k : keys) {
             if (freq[k * 2] < freq[k]) return false;
             freq[k * 2] -= freq[k];
         }

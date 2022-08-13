@@ -1,9 +1,9 @@
 class RandomizedSet {
     unordered_map<int, int> mp;
     vector<int> nums;
+
 public:
     RandomizedSet() {
-
     }
 
     bool insert(int val) {

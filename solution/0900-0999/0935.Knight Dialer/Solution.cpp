@@ -6,8 +6,7 @@ public:
         if (n == 1) return 10;
         int mod = 1e9 + 7;
         vector<ll> f(10, 1ll);
-        while (--n)
-        {
+        while (--n) {
             vector<ll> t(10);
             t[0] = f[4] + f[6];
             t[1] = f[6] + f[8];
@@ -21,6 +20,6 @@ public:
             for (int i = 0; i < 10; ++i) f[i] = t[i] % mod;
         }
         ll ans = accumulate(f.begin(), f.end(), 0ll);
-        return (int) (ans % mod);
+        return (int)(ans % mod);
     }
 };
