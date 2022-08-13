@@ -48,7 +48,6 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 
 ```python
 class MovingAverage:
-
     def __init__(self, size: int):
         self.arr = [0] * size
         self.s = 0

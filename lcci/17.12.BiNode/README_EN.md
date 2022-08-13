@@ -44,6 +44,7 @@ Similar to [897. Increasing Order Search Tree](/solution/0800-0899/0897.Increasi
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def convertBiNode(self, root: TreeNode) -> TreeNode:
         def dfs(root):

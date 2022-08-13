@@ -66,7 +66,6 @@ customStack.pop();                            // 返回 -1 --&gt; 栈为空，�
 
 ```python
 class CustomStack:
-
     def __init__(self, maxSize: int):
         self.s = [0] * maxSize
         self.t = 0

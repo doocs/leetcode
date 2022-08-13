@@ -81,7 +81,6 @@ iterator.hasNext(); // 返回 false
 
 ```python
 class CombinationIterator:
-
     def __init__(self, characters: str, combinationLength: int):
         def dfs(i):
             if len(t) == combinationLength:
@@ -100,7 +99,6 @@ class CombinationIterator:
         dfs(0)
         self.cs = cs
         self.idx = 0
-
 
     def next(self) -> str:
         ans = self.cs[self.idx]

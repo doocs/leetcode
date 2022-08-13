@@ -48,7 +48,7 @@ Note that the same string can occur multiple times in words, and it should be co
 ```python
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
-        return sum(word == s[:len(word)] for word in words)
+        return sum(word == s[: len(word)] for word in words)
 ```
 
 ### **Java**

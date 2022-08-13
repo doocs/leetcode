@@ -82,7 +82,11 @@ class Solution:
         dirs = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
         for i in range(m):
             for j in range(n):
-                cnt = sum(cb[i + a][j + b] for a, b in dirs if 0 <= i + a < m and 0 <= j + b < n)
+                cnt = sum(
+                    cb[i + a][j + b]
+                    for a, b in dirs
+                    if 0 <= i + a < m and 0 <= j + b < n
+                )
                 if cb[i][j] == 1 and (cnt < 2 or cnt > 3):
                     board[i][j] = 0
                 elif cb[i][j] == 0 and (cnt == 3):

@@ -50,7 +50,6 @@ recentCounter.ping(3002);  // requests = [1, <u>100</u>, <u>3001</u>, <u>3002</u
 
 ```python
 class RecentCounter:
-
     def __init__(self):
         self.q = deque()
 

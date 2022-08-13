@@ -57,17 +57,20 @@ The number of positions that have a 1 in both images is 3 (shown in red).
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

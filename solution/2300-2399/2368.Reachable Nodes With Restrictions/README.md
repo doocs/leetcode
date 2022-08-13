@@ -65,7 +65,9 @@
 
 ```python
 class Solution:
-    def reachableNodes(self, n: int, edges: List[List[int]], restricted: List[int]) -> int:
+    def reachableNodes(
+        self, n: int, edges: List[List[int]], restricted: List[int]
+    ) -> int:
         g = defaultdict(list)
         vis = [False] * n
         for v in restricted:

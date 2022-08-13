@@ -71,7 +71,6 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 
 ```python
 class OrderedStream:
-
     def __init__(self, n: int):
         self.data = [None] * n
         self.ptr = 0

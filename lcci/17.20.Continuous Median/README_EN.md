@@ -45,7 +45,6 @@ findMedian() -&gt; 2
 
 ```python
 class MedianFinder:
-
     def __init__(self):
         """
         initialize your data structure here.

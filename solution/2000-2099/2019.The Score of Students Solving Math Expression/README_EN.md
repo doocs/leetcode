@@ -75,17 +75,20 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

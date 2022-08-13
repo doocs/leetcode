@@ -68,6 +68,7 @@ class Node:
         self.next = next
 """
 
+
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if root is None or (root.left is None and root.right is None):
@@ -85,7 +86,6 @@ class Solution:
                 node.next = cur
                 cur = node
         return root
-
 ```
 
 ### **Java**

@@ -74,7 +74,9 @@
 
 ```python
 class Solution:
-    def digArtifacts(self, n: int, artifacts: List[List[int]], dig: List[List[int]]) -> int:
+    def digArtifacts(
+        self, n: int, artifacts: List[List[int]], dig: List[List[int]]
+    ) -> int:
         def check(artifact):
             r1, c1, r2, c2 = artifact
             for x in range(r1, r2 + 1):

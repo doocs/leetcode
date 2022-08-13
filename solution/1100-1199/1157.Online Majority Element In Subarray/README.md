@@ -28,6 +28,7 @@
 <strong>输出：</strong>
 [null, 1, -1, 2]
 
+
 <b>解释：</b>
 MajorityChecker majorityChecker = new MajorityChecker([1,1,2,2,1,1]);
 majorityChecker.query(0,5,4); // 返回 1
@@ -60,6 +61,7 @@ majorityChecker.query(2,3,2); // 返回 2
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -68,11 +70,13 @@ majorityChecker.query(2,3,2); // 返回 2
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

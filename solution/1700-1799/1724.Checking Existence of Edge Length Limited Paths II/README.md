@@ -27,6 +27,7 @@
 <b>输出：</b>
 [null, true, false, true, false]
 
+
 <b>解释：</b>
 DistanceLimitedPathsExist distanceLimitedPathsExist = new DistanceLimitedPathsExist(6, [[0, 2, 4], [0, 3, 2], [1, 2, 3], [2, 3, 1], [4, 5, 5]]);
 distanceLimitedPathsExist.query(2, 3, 2); // 返回 true。存在一条从 2 到 3 ，距离为 1 的边，
@@ -65,6 +66,7 @@ distanceLimitedPathsExist.query(0, 5, 6); // 返回 false。从 0 到 5 之间�
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -73,11 +75,13 @@ distanceLimitedPathsExist.query(0, 5, 6); // 返回 false。从 0 到 5 之间�
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

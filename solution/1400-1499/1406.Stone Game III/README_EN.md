@@ -60,17 +60,20 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

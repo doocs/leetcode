@@ -57,7 +57,7 @@ class Solution:
                 return res
             for k, op in enumerate(s):
                 if op in '&^|':
-                    left, right = dfs(s[:k]), dfs(s[k + 1:])
+                    left, right = dfs(s[:k]), dfs(s[k + 1 :])
                     for i, v1 in enumerate(left):
                         for j, v2 in enumerate(right):
                             if op == '&':

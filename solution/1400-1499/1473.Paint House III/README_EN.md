@@ -71,17 +71,20 @@ Cost of paint the first and last house (10 + 1) = 11.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

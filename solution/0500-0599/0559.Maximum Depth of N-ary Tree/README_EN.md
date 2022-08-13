@@ -52,6 +52,7 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
     def maxDepth(self, root: 'Node') -> int:
         if root is None:

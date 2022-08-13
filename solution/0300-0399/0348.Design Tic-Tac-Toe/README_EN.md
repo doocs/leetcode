@@ -90,7 +90,6 @@ ticTacToe.move(2, 1, 1); // return 1&nbsp;(player 1 wins)
 
 ```python
 class TicTacToe:
-
     def __init__(self, n: int):
         """
         Initialize your data structure here.
@@ -116,7 +115,12 @@ class TicTacToe:
             self.counter[player - 1][n << 1] += 1
         if row + col == n - 1:
             self.counter[player - 1][(n << 1) + 1] += 1
-        if self.counter[player - 1][row] == n or self.counter[player - 1][col + n] == n or self.counter[player - 1][n << 1] == n or self.counter[player - 1][(n << 1) + 1] == n:
+        if (
+            self.counter[player - 1][row] == n
+            or self.counter[player - 1][col + n] == n
+            or self.counter[player - 1][n << 1] == n
+            or self.counter[player - 1][(n << 1) + 1] == n
+        ):
             return player
         return 0
 

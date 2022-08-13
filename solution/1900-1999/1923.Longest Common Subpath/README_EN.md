@@ -76,7 +76,7 @@ class Solution:
             return max(cnt.values()) == len(paths)
 
         base = 133331
-        mod = 2**64+1
+        mod = 2**64 + 1
         p = [0] * 100010
         p[0] = 1
         for i in range(1, len(p)):

@@ -69,7 +69,7 @@ class Solution:
             for i in range(s2, s1, -1):
                 t.append(grid[i][e2])
             k %= len(t)
-            t = t[-k:] +t[:-k]
+            t = t[-k:] + t[:-k]
             k = 0
             for j in range(e2, e1, -1):
                 grid[s1][j] = t[k]

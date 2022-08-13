@@ -88,7 +88,6 @@ trie.countWordsStartingWith("app"); // 返回 0
 
 ```python
 class Trie:
-
     def __init__(self):
         self.children = [None] * 26
         self.count = 0
@@ -128,6 +127,7 @@ class Trie:
                 return None
             node = node.children[index]
         return node
+
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()

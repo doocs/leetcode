@@ -86,7 +86,9 @@ class Solution:
             return -1
 
         m, n = len(forest), len(forest[0])
-        trees = [(forest[i][j], i, j) for i in range(m) for j in range(n) if forest[i][j] > 1]
+        trees = [
+            (forest[i][j], i, j) for i in range(m) for j in range(n) if forest[i][j] > 1
+        ]
         trees.sort()
         i = j = 0
         ans = 0

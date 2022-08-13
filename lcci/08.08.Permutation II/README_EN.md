@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: S = &quot;qqe&quot;
 
+
 <strong> Output</strong>: [&quot;eqq&quot;,&quot;qeq&quot;,&quot;qqe&quot;]
+
 
 </pre>
 
@@ -20,9 +23,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: S = &quot;ab&quot;
 
+
 <strong> Output</strong>: [&quot;ab&quot;, &quot;ba&quot;]
+
 
 </pre>
 
@@ -41,11 +47,13 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -92,6 +100,7 @@ function dfs(arr, depth, prev, record, res) {
 ### **...**
 
 ```
+
 
 ```
 

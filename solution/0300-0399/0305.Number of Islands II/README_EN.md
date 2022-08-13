@@ -75,7 +75,12 @@ class Solution:
             cnt += 1
             for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
                 x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and grid[x][y] == 1 and find(i * n + j) != find(x * n + y):
+                if (
+                    0 <= x < m
+                    and 0 <= y < n
+                    and grid[x][y] == 1
+                    and find(i * n + j) != find(x * n + y)
+                ):
                     p[find(i * n + j)] = find(x * n + y)
                     cnt -= 1
             ans.append(cnt)

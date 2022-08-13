@@ -70,7 +70,6 @@ bs.toString(); // 返回 "01010" ，即 bitset 的当前组成情况。
 
 ```python
 class Bitset:
-
     def __init__(self, size: int):
         self.a = ['0'] * size
         self.b = ['1'] * size

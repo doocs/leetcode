@@ -54,7 +54,9 @@ We have that [0,5,6] are the only nodes that can be reached from node 0 without 
 
 ```python
 class Solution:
-    def reachableNodes(self, n: int, edges: List[List[int]], restricted: List[int]) -> int:
+    def reachableNodes(
+        self, n: int, edges: List[List[int]], restricted: List[int]
+    ) -> int:
         g = defaultdict(list)
         vis = [False] * n
         for v in restricted:

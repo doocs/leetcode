@@ -111,12 +111,14 @@ From the top left corner, its position is one row below and three columns right.
 #        :rtype void
 #        """
 
+
 class Solution:
     def cleanRoom(self, robot):
         """
         :type robot: Robot
         :rtype: None
         """
+
         def back():
             robot.turnRight()
             robot.turnRight()

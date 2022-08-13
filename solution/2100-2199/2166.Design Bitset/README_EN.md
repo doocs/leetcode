@@ -62,7 +62,6 @@ bs.toString(); // return &quot;01010&quot;, which is the composition of bitset.
 
 ```python
 class Bitset:
-
     def __init__(self, size: int):
         self.a = ['0'] * size
         self.b = ['1'] * size

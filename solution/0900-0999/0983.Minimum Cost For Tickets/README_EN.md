@@ -65,11 +65,13 @@ In total, you spent $17 and covered all the days of your travel.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -94,6 +96,7 @@ function mincostTickets(days: number[], costs: number[]): number {
 ### **...**
 
 ```
+
 
 ```
 

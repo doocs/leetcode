@@ -63,7 +63,6 @@ myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 
 ```python
 class MyHashMap:
-
     def __init__(self):
         self.data = [-1] * 1000001
 

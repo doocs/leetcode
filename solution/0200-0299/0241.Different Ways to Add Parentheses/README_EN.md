@@ -57,7 +57,7 @@ class Solution:
             ans = []
             for i, c in enumerate(exp):
                 if c in '-+*':
-                    left, right = dfs(exp[:i]), dfs(exp[i + 1:])
+                    left, right = dfs(exp[:i]), dfs(exp[i + 1 :])
                     for a in left:
                         for b in right:
                             if c == '-':

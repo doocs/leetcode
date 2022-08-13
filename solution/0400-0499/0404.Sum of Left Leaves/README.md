@@ -56,6 +56,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
         if root is None:

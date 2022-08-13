@@ -12,9 +12,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: box = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
 
+
 <strong> Output</strong>: 6
+
 
 </pre>
 
@@ -22,9 +25,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: box = [[1, 1, 1], [2, 3, 4], [2, 6, 7], [3, 4, 5]]
 
+
 <strong> Output</strong>: 10
+
 
 </pre>
 
@@ -42,17 +48,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

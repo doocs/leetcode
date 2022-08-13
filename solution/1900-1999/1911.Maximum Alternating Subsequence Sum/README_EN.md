@@ -24,11 +24,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> nums = [<u>4</u>,<u>2</u>,<u>5</u>,3]
+
 
 <strong>Output:</strong> 7
 
+
 <strong>Explanation:</strong> It is optimal to choose the subsequence [4,2,5] with alternating sum (4 + 5) - 2 = 7.
+
 
 </pre>
 
@@ -36,11 +40,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> nums = [5,6,7,<u>8</u>]
+
 
 <strong>Output:</strong> 8
 
+
 <strong>Explanation:</strong> It is optimal to choose the subsequence [8] with alternating sum 8.
+
 
 </pre>
 
@@ -48,11 +56,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> nums = [<u>6</u>,2,<u>1</u>,2,4,<u>5</u>]
+
 
 <strong>Output:</strong> 10
 
+
 <strong>Explanation:</strong> It is optimal to choose the subsequence [6,1,5] with alternating sum (6 + 5) - 1 = 10.
+
 
 </pre>
 
@@ -73,17 +85,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

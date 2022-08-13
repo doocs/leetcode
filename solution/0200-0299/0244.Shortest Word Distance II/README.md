@@ -56,7 +56,6 @@ wordDistance.shortest("makes", "coding");    // 返回 1</pre>
 
 ```python
 class WordDistance:
-
     def __init__(self, wordsDict: List[str]):
         self.words = {}
         for i, word in enumerate(wordsDict):

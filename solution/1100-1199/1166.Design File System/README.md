@@ -106,7 +106,6 @@ class Trie:
 
 
 class FileSystem:
-
     def __init__(self):
         self.trie = Trie()
 

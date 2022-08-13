@@ -33,6 +33,7 @@ Minute 3: []      - The leftmost element, 2, is removed.
 Minute 4: [0]     - 0 is added to the end of nums.
 Minute 5: [0,1]   - 1 is added to the end of nums.
 
+
 At minute 0, nums[2] is 2.
 At minute 2, nums[0] is 2.
 At minute 3, nums[2] does not exist.
@@ -48,6 +49,7 @@ Minute 0: [2] - All elements are in the nums.
 Minute 1: []  - The leftmost element, 2, is removed.
 Minute 2: [2] - 2 is added to the end of nums.
 Minute 3: []  - The leftmost element, 2, is removed.
+
 
 At minute 0, nums[0] is 2.
 At minute 1, nums[0] does not exist.
@@ -76,11 +78,13 @@ At minute 3, nums[0] does not exist.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -93,6 +97,7 @@ At minute 3, nums[0] does not exist.
 ### **...**
 
 ```
+
 
 ```
 

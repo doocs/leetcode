@@ -53,17 +53,20 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

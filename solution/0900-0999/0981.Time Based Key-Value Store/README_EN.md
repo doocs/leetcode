@@ -53,7 +53,6 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 
 ```python
 class TimeMap:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -69,7 +68,6 @@ class TimeMap:
         tv = self.ktv[key]
         i = bisect_right(tv, (timestamp, chr(127)))
         return tv[i - 1][1] if i else ''
-
 
 
 # Your TimeMap object will be instantiated and called as such:

@@ -56,7 +56,6 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 
 ```python
 class Leaderboard:
-
     def __init__(self):
         self.player_scores = {}
 

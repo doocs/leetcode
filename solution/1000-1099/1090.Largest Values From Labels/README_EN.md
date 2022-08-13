@@ -60,7 +60,9 @@
 
 ```python
 class Solution:
-    def largestValsFromLabels(self, values: List[int], labels: List[int], numWanted: int, useLimit: int) -> int:
+    def largestValsFromLabels(
+        self, values: List[int], labels: List[int], numWanted: int, useLimit: int
+    ) -> int:
         arr = list(zip(values, labels))
         arr.sort(reverse=True)
         cnt = Counter()

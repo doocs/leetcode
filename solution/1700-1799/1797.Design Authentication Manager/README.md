@@ -70,7 +70,6 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 
 ```python
 class AuthenticationManager:
-
     def __init__(self, timeToLive: int):
         self.timeToLive = timeToLive
         self.tokens = {}

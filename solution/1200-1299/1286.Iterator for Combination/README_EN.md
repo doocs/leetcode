@@ -50,7 +50,6 @@ itr.hasNext(); // return False
 
 ```python
 class CombinationIterator:
-
     def __init__(self, characters: str, combinationLength: int):
         def dfs(i):
             if len(t) == combinationLength:
@@ -69,7 +68,6 @@ class CombinationIterator:
         dfs(0)
         self.cs = cs
         self.idx = 0
-        
 
     def next(self) -> str:
         ans = self.cs[self.idx]
@@ -133,11 +131,11 @@ class CombinationIterator {
         this.characters = characters;
         dfs(0);
     }
-    
+
     public String next() {
         return cs.get(idx++);
     }
-    
+
     public boolean hasNext() {
         return idx < cs.size();
     }
@@ -180,7 +178,7 @@ class CombinationIterator {
             cs[i] = characters.charAt(n - i - 1);
         }
     }
-    
+
     public String next() {
         while (curr >= 0 && Integer.bitCount(curr) != size) {
             --curr;
@@ -194,7 +192,7 @@ class CombinationIterator {
         --curr;
         return ans.reverse().toString();
     }
-    
+
     public boolean hasNext() {
         while (curr >= 0 && Integer.bitCount(curr) != size) {
             --curr;
@@ -274,7 +272,7 @@ public:
         cs = characters;
         size = combinationLength;
     }
-    
+
     string next() {
         while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
         string ans;
@@ -287,7 +285,7 @@ public:
         --curr;
         return ans;
     }
-    
+
     bool hasNext() {
         while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
         return curr >= 0;

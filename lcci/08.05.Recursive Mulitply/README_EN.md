@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: A = 1, B = 10
 
+
 <strong> Output</strong>: 10
+
 
 </pre>
 
@@ -20,9 +23,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: A = 3, B = 4
 
+
 <strong> Output</strong>: 12
+
 
 </pre>
 
@@ -40,11 +46,13 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -86,6 +94,7 @@ impl Solution {
 ### **...**
 
 ```
+
 
 ```
 

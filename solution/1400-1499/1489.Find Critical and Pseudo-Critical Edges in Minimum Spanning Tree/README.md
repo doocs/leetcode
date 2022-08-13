@@ -88,7 +88,9 @@ class UnionFind:
 
 
 class Solution:
-    def findCriticalAndPseudoCriticalEdges(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+    def findCriticalAndPseudoCriticalEdges(
+        self, n: int, edges: List[List[int]]
+    ) -> List[List[int]]:
         for i, e in enumerate(edges):
             e.append(i)
         edges.sort(key=lambda x: x[2])

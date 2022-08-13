@@ -71,8 +71,8 @@ class Solution:
         left = set()
         right = set()
 
-        self.getSubSeqSum(0, 0, nums[:n // 2], left)
-        self.getSubSeqSum(0, 0, nums[n // 2:], right)
+        self.getSubSeqSum(0, 0, nums[: n // 2], left)
+        self.getSubSeqSum(0, 0, nums[n // 2 :], right)
 
         result = inf
         right = sorted(right)

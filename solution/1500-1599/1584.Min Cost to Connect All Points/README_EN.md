@@ -47,7 +47,7 @@ Notice that there is a unique path between every pair of points.
 ```python
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
-        INF = 0x3f3f3f3f
+        INF = 0x3F3F3F3F
         n = len(points)
         g = [[0] * n for _ in range(n)]
         for i in range(n):

@@ -44,6 +44,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def reversePrint(self, head: ListNode) -> List[int]:
         ans = []

@@ -83,7 +83,8 @@ class Solution:
                         for y2 in range(j2 - 1, j2 + 2):
                             if 0 <= y1 < n and 0 <= y2 < n and valid[i - 1][y1][y2]:
                                 dp[i][j1][j2] = max(
-                                    dp[i][j1][j2], dp[i - 1][y1][y2] + t)
+                                    dp[i][j1][j2], dp[i - 1][y1][y2] + t
+                                )
                                 ok = True
                     valid[i][j1][j2] = ok
         return max(dp[m - 1][j1][j2] for j1 in range(n) for j2 in range(n))

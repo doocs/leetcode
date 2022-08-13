@@ -12,11 +12,15 @@
 
 <pre>
 
+
 <strong> Input</strong>: length = 1, w = 32, x1 = 30, x2 = 31, y = 0
+
 
 <strong> Output</strong>: [3]
 
+
 <strong> Explanation</strong>: After drawing a line from (30, 0) to (31, 0), the screen becomes [0b000000000000000000000000000000011].
+
 
 </pre>
 
@@ -24,9 +28,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: length = 3, w = 96, x1 = 0, x2 = 95, y = 0
 
+
 <strong> Output</strong>: [-1, -1, -1]
+
 
 </pre>
 
@@ -38,17 +45,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

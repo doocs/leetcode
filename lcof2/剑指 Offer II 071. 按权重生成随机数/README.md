@@ -81,7 +81,6 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 
 ```python
 class Solution:
-
     def __init__(self, w: List[int]):
         n = len(w)
         self.presum = [0] * (n + 1)
@@ -99,6 +98,7 @@ class Solution:
             else:
                 left = mid + 1
         return left
+
 
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(w)

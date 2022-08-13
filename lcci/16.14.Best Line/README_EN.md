@@ -12,11 +12,15 @@
 
 <pre>
 
+
 <strong>Input: </strong> [[0,0],[1,1],[1,0],[2,0]]
+
 
 <strong>Output: </strong> [0,2]
 
+
 <strong>Explanation: </strong> The numbers of points passed by the line are [0,2,3].
+
 
 </pre>
 
@@ -35,17 +39,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

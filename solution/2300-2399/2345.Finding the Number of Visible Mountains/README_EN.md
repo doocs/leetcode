@@ -48,11 +48,13 @@ Both mountains are not visible since their peaks lie within each other.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -65,6 +67,7 @@ Both mountains are not visible since their peaks lie within each other.
 ### **...**
 
 ```
+
 
 ```
 

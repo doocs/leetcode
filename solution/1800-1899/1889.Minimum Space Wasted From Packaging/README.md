@@ -89,7 +89,7 @@ class Solution:
                 t += (idx - last) * b
                 last = idx
             res = min(res, t)
-        return -1 if res == inf else (res - sum(packages)) % (10 ** 9 + 7)
+        return -1 if res == inf else (res - sum(packages)) % (10**9 + 7)
 ```
 
 ### **Java**

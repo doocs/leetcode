@@ -64,7 +64,6 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 
 ```python
 class FrontMiddleBackQueue:
-
     def __init__(self):
         self.left = deque()
         self.right = deque()

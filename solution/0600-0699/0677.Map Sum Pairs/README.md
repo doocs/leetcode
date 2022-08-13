@@ -65,7 +65,6 @@ mapSum.sum("ap");           // 返回 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 
 ```python
 class MapSum:
-
     def __init__(self):
         """
         Initialize your data structure here.

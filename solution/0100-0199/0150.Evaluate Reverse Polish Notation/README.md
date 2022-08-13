@@ -88,13 +88,14 @@
 ```python
 import operator
 
+
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         opt = {
             "+": operator.add,
             "-": operator.sub,
             "*": operator.mul,
-            "/": operator.truediv
+            "/": operator.truediv,
         }
         s = []
         for token in tokens:

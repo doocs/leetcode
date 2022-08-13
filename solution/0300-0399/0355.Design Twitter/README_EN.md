@@ -55,7 +55,6 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 
 ```python
 class Twitter:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -97,7 +96,6 @@ class Twitter:
         following = self.user_following[followerId]
         if followeeId in following:
             following.remove(followeeId)
-
 
 
 # Your Twitter object will be instantiated and called as such:

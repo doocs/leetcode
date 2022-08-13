@@ -60,7 +60,6 @@ myCircularDeque.getFront();     // return 4
 
 ```python
 class MyCircularDeque:
-
     def __init__(self, k: int):
         """
         Initialize your data structure here. Set the size of the deque to be k.

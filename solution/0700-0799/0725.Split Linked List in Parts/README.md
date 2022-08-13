@@ -67,6 +67,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def splitListToParts(self, root: ListNode, k: int) -> List[ListNode]:
         n, cur = 0, root

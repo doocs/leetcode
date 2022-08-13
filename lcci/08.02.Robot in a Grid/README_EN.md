@@ -16,17 +16,24 @@
 
 <pre>
 
+
 <strong>Input:
+
 
 </strong>[
 
+
 &nbsp; [<strong>0</strong>,<strong>0</strong>,<strong>0</strong>],
+
 
 &nbsp; [0,1,<strong>0</strong>],
 
+
 &nbsp; [0,0,<strong>0</strong>]
 
+
 ]
+
 
 <strong>Output:</strong> [[0,0],[0,1],[0,2],[1,2],[2,2]]</pre>
 
@@ -44,11 +51,13 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -98,6 +107,7 @@ impl Solution {
         false
     }
 
+
     pub fn path_with_obstacles(mut obstacle_grid: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         let mut res = vec![];
         if Self::dfs(&mut obstacle_grid, &mut res, 0, 0) {
@@ -111,6 +121,7 @@ impl Solution {
 ### **...**
 
 ```
+
 
 ```
 

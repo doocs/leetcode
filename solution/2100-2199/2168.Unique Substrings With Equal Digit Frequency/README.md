@@ -65,8 +65,7 @@ class Solution:
             presum[i + 1][int(c)] += 1
             for j in range(10):
                 presum[i + 1][j] += presum[i][j]
-        vis = set(s[i: j + 1] for i in range(n)
-                  for j in range(i, n) if check(i, j))
+        vis = set(s[i : j + 1] for i in range(n) for j in range(i, n) if check(i, j))
         return len(vis)
 ```
 

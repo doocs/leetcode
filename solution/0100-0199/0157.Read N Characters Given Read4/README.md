@@ -21,6 +21,7 @@
 <pre>参数类型: char[] buf4
 返回类型: int
 
+
 注意: buf4[] 是目标缓存区不是源缓存区，read4 的返回结果将会复制到 buf4[] 当中。
 </pre>
 
@@ -44,6 +45,7 @@ read4(buf4); // read4 返回 0。现在 buf = &quot;&quot;，fp 指向文件末�
 
 <pre>参数类型:   char[] buf, int n
 返回类型:   int
+
 
 注意: buf[] 是目标缓存区不是源缓存区，你需要将结果写入 buf[] 中。
 </pre>
@@ -99,6 +101,7 @@ read4(buf4); // read4 返回 0。现在 buf = &quot;&quot;，fp 指向文件末�
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -107,11 +110,13 @@ read4(buf4); // read4 返回 0。现在 buf = &quot;&quot;，fp 指向文件末�
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

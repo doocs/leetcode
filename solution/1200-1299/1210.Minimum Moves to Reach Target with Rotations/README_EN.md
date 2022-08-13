@@ -87,11 +87,21 @@ class Solution:
                     return ans
                 i1, j1 = a // n, a % n
                 i2, j2 = b // n, b % n
-                if j1 + 1 < n and j2 + 1 < n and grid[i1][j1 + 1] == 0 and grid[i2][j2 + 1] == 0:
+                if (
+                    j1 + 1 < n
+                    and j2 + 1 < n
+                    and grid[i1][j1 + 1] == 0
+                    and grid[i2][j2 + 1] == 0
+                ):
                     check(i1 * n + j1 + 1, i2 * n + j2 + 1)
                     if j1 == j2:
                         check(a, i1 * n + j2 + 1)
-                if i1 + 1 < n and i2 + 1 < n and grid[i1 + 1][j1] == 0 and grid[i2 + 1][j2] == 0:
+                if (
+                    i1 + 1 < n
+                    and i2 + 1 < n
+                    and grid[i1 + 1][j1] == 0
+                    and grid[i2 + 1][j2] == 0
+                ):
                     check((i1 + 1) * n + j1, (i2 + 1) * n + j2)
                     if i1 == i2:
                         check(a, (i2 + 1) * n + j1)

@@ -63,7 +63,9 @@ Notice if you had arrived any later, then the 6<sup>th</sup> passenger would hav
 
 ```python
 class Solution:
-    def latestTimeCatchTheBus(self, buses: List[int], passengers: List[int], capacity: int) -> int:
+    def latestTimeCatchTheBus(
+        self, buses: List[int], passengers: List[int], capacity: int
+    ) -> int:
         buses.sort()
         passengers.sort()
         j = 0

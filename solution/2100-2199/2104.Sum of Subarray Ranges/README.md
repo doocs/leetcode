@@ -103,7 +103,7 @@ class Solution:
             for j in range(i + 1, n):
                 mi = min(mi, nums[j])
                 mx = max(mx, nums[j])
-                ans += (mx - mi)
+                ans += mx - mi
         return ans
 ```
 

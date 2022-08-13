@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong>Input: </strong>[5, 3, 1, 2, 3]
 
+
 <strong>Output:</strong>&nbsp;[5, 1, 3, 2, 3]
+
 
 </pre>
 
@@ -30,17 +33,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

@@ -16,11 +16,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> arr1 = [1,5,3,6,7], arr2 = [1,3,2,4]
+
 
 <strong>Output:</strong> 1
 
+
 <strong>Explanation:</strong> Replace <code>5</code> with <code>2</code>, then <code>arr1 = [1, 2, 3, 6, 7]</code>.
+
 
 </pre>
 
@@ -28,11 +32,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> arr1 = [1,5,3,6,7], arr2 = [4,3,1]
+
 
 <strong>Output:</strong> 2
 
+
 <strong>Explanation:</strong> Replace <code>5</code> with <code>3</code> and then replace <code>3</code> with <code>4</code>. <code>arr1 = [1, 3, 4, 6, 7]</code>.
+
 
 </pre>
 
@@ -40,9 +48,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> arr1 = [1,5,3,6,7], arr2 = [1,6,3,3]
 
+
 <strong>Output:</strong> -1
+
 
 <strong>Explanation:</strong> You can&#39;t make <code>arr1</code> strictly increasing.</pre>
 
@@ -65,17 +76,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

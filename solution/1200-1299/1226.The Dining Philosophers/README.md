@@ -68,6 +68,7 @@ output[i] = [a, b, c] (3个整数)
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -75,6 +76,7 @@ output[i] = [a, b, c] (3个整数)
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
 
 ```
 
@@ -84,6 +86,7 @@ output[i] = [a, b, c] (3个整数)
 class DiningPhilosophers {
 public:
     using Act = function<void()>;
+
 
     void wantsToEat(int philosopher, Act pickLeftFork, Act pickRightFork, Act eat, Act putLeftFork, Act putRightFork) {
         /* 这一题实际上是用到了C++17中的scoped_lock知识。
@@ -97,6 +100,7 @@ public:
         putRightFork();
     }
 
+
 private:
     vector<mutex> mutexes_ = vector<mutex>(5);
 };
@@ -105,6 +109,7 @@ private:
 ### **...**
 
 ```
+
 
 ```
 

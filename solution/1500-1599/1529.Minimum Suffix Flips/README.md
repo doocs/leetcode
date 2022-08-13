@@ -64,6 +64,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+从前往后遍历 $target$，判断每个位置是否需要翻转，如果需要翻转，则翻转，并记录翻转次数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +77,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minFlips(self, target: str) -> int:
+        ans = 0
+        for v in target:
+            if (ans & 1) ^ int(v):
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -79,7 +91,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minFlips(String target) {
+        int ans = 0;
+        for (int i = 0; i < target.length(); ++i) {
+            int v = target.charAt(i) - '0';
+            if (((ans & 1) ^ v) != 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minFlips(string target) {
+        int ans = 0;
+        for (char c : target) {
+            int v = c - '0';
+            if ((ans & 1) ^ v) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minFlips(target string) int {
+	ans := 0
+	for _, c := range target {
+		v := int(c - '0')
+		if ((ans & 1) ^ v) != 0 {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

@@ -64,7 +64,9 @@ class Solution:
             return -1 if a > b else 1
 
         def dfs(w):
-            return not w or any(trie.search(w[:i]) and dfs(w[i:]) for i in range(1, len(w) + 1))
+            return not w or any(
+                trie.search(w[:i]) and dfs(w[i:]) for i in range(1, len(w) + 1)
+            )
 
         words.sort(key=cmp_to_key(cmp))
         trie = Trie()

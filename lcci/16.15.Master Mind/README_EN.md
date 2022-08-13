@@ -20,11 +20,15 @@
 
 <pre>
 
+
 <strong>Input: </strong> solution=&quot;RGBY&quot;,guess=&quot;GGRR&quot;
+
 
 <strong>Output: </strong> [1,1]
 
+
 <strong>Explanation: </strong> hit once, pseudo-hit once.
+
 
 </pre>
 
@@ -43,11 +47,13 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -84,6 +90,7 @@ var masterMind = function (solution, guess) {
 ### **...**
 
 ```
+
 
 ```
 

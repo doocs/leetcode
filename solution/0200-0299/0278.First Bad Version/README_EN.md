@@ -49,6 +49,7 @@ Then 4 is the first bad version.
 # @return an integer
 # def isBadVersion(version):
 
+
 class Solution:
     def firstBadVersion(self, n):
         """
@@ -57,7 +58,7 @@ class Solution:
         """
         left, right = 1, n
         while left < right:
-            mid  = (left + right) >> 1
+            mid = (left + right) >> 1
             if isBadVersion(mid):
                 right = mid
             else:

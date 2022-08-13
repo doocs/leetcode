@@ -80,7 +80,7 @@ class Solution:
                 j = i
                 while j < n and s[j] not in '+-':
                     j += 1
-                v = s[i: j]
+                v = s[i:j]
                 if v[-1] == 'x':
                     x += sign * (int(v[:-1]) if len(v) > 1 else 1)
                 else:

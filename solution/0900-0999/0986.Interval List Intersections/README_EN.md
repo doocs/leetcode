@@ -47,8 +47,10 @@
 
 ```python
 class Solution:
-    def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
-        i =  j = 0
+    def intervalIntersection(
+        self, firstList: List[List[int]], secondList: List[List[int]]
+    ) -> List[List[int]]:
+        i = j = 0
         ans = []
         while i < len(firstList) and j < len(secondList):
             s1, e1, s2, e2 = *firstList[i], *secondList[j]

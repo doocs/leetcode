@@ -77,6 +77,7 @@ peekingIterator.hasNext(); // return False
 #         :rtype: int
 #         """
 
+
 class PeekingIterator:
     def __init__(self, iterator):
         """

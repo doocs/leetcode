@@ -60,7 +60,6 @@ wordFilter.f("a", "e"); // 返回 0 ，因为下标为 0 的单词：前缀 pref
 
 ```python
 class WordFilter:
-
     def __init__(self, words: List[str]):
         self.d = {}
         for k, w in enumerate(words):

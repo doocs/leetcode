@@ -59,8 +59,11 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', nodes: 'List[TreeNode]') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: 'TreeNode', nodes: 'List[TreeNode]'
+    ) -> 'TreeNode':
         def dfs(root):
             if root is None or root.val in s:
                 return root

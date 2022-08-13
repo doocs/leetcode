@@ -78,7 +78,6 @@ class BinaryIndexedTree:
 
 
 class StreamRank:
-
     def __init__(self):
         self.tree = BinaryIndexedTree(50010)
 

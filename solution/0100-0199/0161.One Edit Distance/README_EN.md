@@ -55,7 +55,7 @@ class Solution:
             return False
         for i, c in enumerate(t):
             if c != s[i]:
-                return s[i + 1:] == t[i + 1:] if m == n else s[i + 1:] == t[i:]
+                return s[i + 1 :] == t[i + 1 :] if m == n else s[i + 1 :] == t[i:]
         return m == n + 1
 ```
 

@@ -67,7 +67,6 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 
 ```python
 class ATM:
-
     def __init__(self):
         self.cnt = [0] * 5
         self.m = [500, 200, 100, 50, 20]

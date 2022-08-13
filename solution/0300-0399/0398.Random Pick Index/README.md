@@ -74,7 +74,6 @@ solution.pick(3); // 随机返回索引 2, 3 或者 4 之一。每个索引的�
 
 ```python
 class Solution:
-
     def __init__(self, nums: List[int]):
         self.nums = nums
 

@@ -83,7 +83,6 @@ magicDictionary.search("leetcoded"); // 返回 False
 
 ```python
 class MagicDictionary:
-
     def __init__(self):
         self.d = None
 

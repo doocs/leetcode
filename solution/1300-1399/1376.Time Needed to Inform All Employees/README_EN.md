@@ -55,7 +55,9 @@ The tree structure of the employees in the company is shown.
 
 ```python
 class Solution:
-    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+    def numOfMinutes(
+        self, n: int, headID: int, manager: List[int], informTime: List[int]
+    ) -> int:
         def dfs(i):
             ans = 0
             for j in g[i]:

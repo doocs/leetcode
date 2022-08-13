@@ -106,6 +106,7 @@ Morris 遍历无需使用栈，空间复杂度为 O(1)。核心思想是：
 #         self.right = right
 class Solution:
     add = 0
+
     def convertBST(self, root: TreeNode) -> TreeNode:
         if root:
             self.convertBST(root.right)

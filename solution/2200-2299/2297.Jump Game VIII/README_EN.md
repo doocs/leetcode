@@ -57,11 +57,13 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -74,6 +76,7 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 ### **...**
 
 ```
+
 
 ```
 

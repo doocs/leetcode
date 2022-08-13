@@ -100,6 +100,7 @@ class Node:
         self.child = child
 """
 
+
 class Solution:
     def flatten(self, head: 'Node') -> 'Node':
         def preorder(pre, cur):

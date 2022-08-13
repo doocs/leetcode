@@ -73,6 +73,7 @@ class Node:
         self.children = children if children is not None else []
 """
 
+
 class Solution:
     def cloneTree(self, root: 'Node') -> 'Node':
         if root:

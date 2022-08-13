@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: N = 10000000000, M = 10011, i = 2, j = 6
 
+
 <strong> Output</strong>: N = 10001001100
+
 
 </pre>
 
@@ -20,9 +23,12 @@
 
 <pre>
 
+
 <strong> Input</strong>:  N = 0, M = 11111, i = 0, j = 4
 
+
 <strong> Output</strong>: N = 11111
+
 
 </pre>
 
@@ -33,6 +39,7 @@
 ### **Python3**
 
 ```python
+
 
 ```
 
@@ -52,6 +59,7 @@ class Solution {
 ### **...**
 
 ```
+
 
 ```
 

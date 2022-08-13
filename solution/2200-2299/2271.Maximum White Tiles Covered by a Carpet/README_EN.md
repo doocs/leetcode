@@ -50,11 +50,13 @@ It covers 2 white tiles, so we return 2.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -67,6 +69,7 @@ It covers 2 white tiles, so we return 2.
 ### **...**
 
 ```
+
 
 ```
 

@@ -20,6 +20,7 @@
     Parameter:  char[] buf4
     Returns:    int
 
+
 buf4[] is a destination, not a source. The results from read4 will be copied to buf4[].
 </pre>
 
@@ -46,6 +47,7 @@ read4(buf4); // read4 returns 0. Now buf4 = &quot;&quot;, fp points to end of fi
 <pre>
     Parameters:	char[] buf, int n
     Returns:	int
+
 
 buf[] is a destination, not a source. You will need to write the results to buf[].
 </pre>
@@ -105,11 +107,13 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -122,6 +126,7 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 ### **...**
 
 ```
+
 
 ```
 

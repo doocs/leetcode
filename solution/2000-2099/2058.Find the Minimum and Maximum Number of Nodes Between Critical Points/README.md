@@ -102,7 +102,9 @@ class Solution:
         i = 1
         ans = [inf, -inf]
         while curr.next:
-            if curr.val < min(prev.val, curr.next.val) or curr.val > max(prev.val, curr.next.val):
+            if curr.val < min(prev.val, curr.next.val) or curr.val > max(
+                prev.val, curr.next.val
+            ):
                 if last is None:
                     first = last = i
                 else:

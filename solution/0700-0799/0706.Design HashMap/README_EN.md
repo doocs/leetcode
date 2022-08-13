@@ -53,7 +53,6 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 
 ```python
 class MyHashMap:
-
     def __init__(self):
         self.data = [-1] * 1000001
 

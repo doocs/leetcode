@@ -54,7 +54,9 @@ So the minimum time needed to complete 1 trip is 2.
 class Solution:
     def minimumTime(self, time: List[int], totalTrips: int) -> int:
         mx = min(time) * totalTrips
-        return bisect_left(range(mx), totalTrips, key=lambda x: sum(x // v for v in time))
+        return bisect_left(
+            range(mx), totalTrips, key=lambda x: sum(x // v for v in time)
+        )
 ```
 
 ### **Java**

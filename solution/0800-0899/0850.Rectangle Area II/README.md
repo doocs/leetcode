@@ -107,13 +107,11 @@ class SegmentTree:
 
     def pushup(self, u):
         if self.tr[u].cnt:
-            self.tr[u].length = self.nums[self.tr[u].r + 1] - \
-                self.nums[self.tr[u].l]
+            self.tr[u].length = self.nums[self.tr[u].r + 1] - self.nums[self.tr[u].l]
         elif self.tr[u].l == self.tr[u].r:
             self.tr[u].length = 0
         else:
-            self.tr[u].length = self.tr[u << 1].length + \
-                self.tr[u << 1 | 1].length
+            self.tr[u].length = self.tr[u << 1].length + self.tr[u << 1 | 1].length
 
     @property
     def length(self):

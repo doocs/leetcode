@@ -62,7 +62,9 @@
 
 ```python
 class Solution:
-    def shortestDistanceColor(self, colors: List[int], queries: List[List[int]]) -> List[int]:
+    def shortestDistanceColor(
+        self, colors: List[int], queries: List[List[int]]
+    ) -> List[int]:
         color_indexes = defaultdict(list)
         for i, c in enumerate(colors):
             color_indexes[c].append(i)

@@ -84,7 +84,6 @@ class Node:
 
 
 class AllOne:
-
     def __init__(self):
         self.root = Node()
         self.root.next = self.root

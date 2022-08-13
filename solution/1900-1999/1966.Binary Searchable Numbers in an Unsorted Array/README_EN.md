@@ -45,11 +45,14 @@ If -1 was chosen as the pivot, the function would return true.
 If 5 was chosen as the pivot, 5 and 2 would be removed. In the next loop, the sequence would have only -1 and the function would return true.
 If 2 was chosen as the pivot, 2 would be removed. In the next loop, the sequence would have -1 and 5. No matter which number was chosen as the next pivot, the function would find -1 and return true.
 
+
 Searching for value 5 is NOT guaranteed to be found.
 If 2 was chosen as the pivot, -1, 5 and 2 would be removed. The sequence would be empty and the function would return false.
 
+
 Searching for value 2 is NOT guaranteed to be found.
 If 5 was chosen as the pivot, 5 and 2 would be removed. In the next loop, the sequence would have only -1 and the function would return false.
+
 
 Because only -1 is guaranteed to be found, you should return 1.
 </pre>
@@ -74,17 +77,20 @@ Because only -1 is guaranteed to be found, you should return 1.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

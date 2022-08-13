@@ -33,6 +33,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def kthToLast(self, head: ListNode, k: int) -> int:
         slow = fast = head

@@ -64,7 +64,6 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 
 ```python
 class SeatManager:
-
     def __init__(self, n: int):
         self.q = [i for i in range(1, n + 1)]
 

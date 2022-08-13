@@ -56,7 +56,6 @@
 
 ```python
 class AnimalShelf:
-
     def __init__(self):
         self.cats = []
         self.dogs = []
@@ -68,8 +67,10 @@ class AnimalShelf:
             self.dogs.insert(0, animal[0])
 
     def dequeueAny(self) -> List[int]:
-        if len(self.dogs) == 0: return self.dequeueCat()
-        if len(self.cats) == 0: return self.dequeueDog()
+        if len(self.dogs) == 0:
+            return self.dequeueCat()
+        if len(self.cats) == 0:
+            return self.dequeueDog()
         return self.dequeueDog() if self.dogs[-1] < self.cats[-1] else self.dequeueCat()
 
     def dequeueDog(self) -> List[int]:

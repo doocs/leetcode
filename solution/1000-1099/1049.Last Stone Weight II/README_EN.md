@@ -65,8 +65,9 @@ class Solution:
             for j in range(n + 1):
                 dp[i][j] = dp[i - 1][j]
                 if stones[i - 1] <= j:
-                    dp[i][j] = max(dp[i][j], dp[i - 1]
-                                   [j - stones[i - 1]] + stones[i - 1])
+                    dp[i][j] = max(
+                        dp[i][j], dp[i - 1][j - stones[i - 1]] + stones[i - 1]
+                    )
         return s - 2 * dp[-1][-1]
 ```
 

@@ -32,6 +32,7 @@
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> Place all students in available seats. 
 
+
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -65,17 +66,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

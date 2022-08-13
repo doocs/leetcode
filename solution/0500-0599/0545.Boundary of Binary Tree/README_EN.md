@@ -113,7 +113,6 @@ class Solution:
 
     def is_leaf(self, node) -> bool:
         return node and node.left is None and node.right is None
-
 ```
 
 ### **Java**

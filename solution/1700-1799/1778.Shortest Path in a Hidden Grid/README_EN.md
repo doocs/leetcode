@@ -106,6 +106,7 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 #
 #
 
+
 class Solution(object):
     def findShortestPath(self, master: 'GridMaster') -> int:
         def dfs(i, j):
@@ -122,8 +123,12 @@ class Solution(object):
 
         target = None
         s = set()
-        dirs = [['U', 'D', -1, 0], ['D', 'U', 1, 0],
-                ['L', 'R', 0, -1], ['R', 'L', 0, 1]]
+        dirs = [
+            ['U', 'D', -1, 0],
+            ['D', 'U', 1, 0],
+            ['L', 'R', 0, -1],
+            ['R', 'L', 0, 1],
+        ]
         dfs(0, 0)
         if target is None:
             return -1

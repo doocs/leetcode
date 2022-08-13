@@ -56,7 +56,9 @@ Note that we did not use all of the additional rocks.
 
 ```python
 class Solution:
-    def maximumBags(self, capacity: List[int], rocks: List[int], additionalRocks: int) -> int:
+    def maximumBags(
+        self, capacity: List[int], rocks: List[int], additionalRocks: int
+    ) -> int:
         d = [a - b for a, b in zip(capacity, rocks)]
         d.sort()
         ans = 0

@@ -86,7 +86,7 @@ class Solution:
                     start = left
                 window[s[left]] -= 1
                 left += 1
-        return "" if minLen == inf else s[start:start + minLen]
+        return "" if minLen == inf else s[start : start + minLen]
 
     def check(self, need, window):
         for k, v in need.items():

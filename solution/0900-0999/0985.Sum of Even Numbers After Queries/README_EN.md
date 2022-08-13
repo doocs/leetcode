@@ -49,7 +49,9 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 
 ```python
 class Solution:
-    def sumEvenAfterQueries(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def sumEvenAfterQueries(
+        self, nums: List[int], queries: List[List[int]]
+    ) -> List[int]:
         ans = []
         s = sum(num for num in nums if num % 2 == 0)
         for v, i in queries:

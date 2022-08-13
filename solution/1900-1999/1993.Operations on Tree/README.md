@@ -86,7 +86,6 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 
 ```python
 class LockingTree:
-
     def __init__(self, parent: List[int]):
         self.nums = {}
         self.parent = parent

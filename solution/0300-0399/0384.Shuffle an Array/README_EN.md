@@ -52,7 +52,6 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 
 ```python
 class Solution:
-
     def __init__(self, nums: List[int]):
         self.nums = nums
         self.original = nums.copy()

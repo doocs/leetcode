@@ -97,7 +97,6 @@ class Trie:
 
 
 class AutocompleteSystem:
-
     def __init__(self, sentences: List[str], times: List[int]):
         self.trie = Trie()
         for a, b in zip(sentences, times):

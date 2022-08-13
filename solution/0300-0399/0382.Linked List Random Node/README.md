@@ -81,7 +81,6 @@ solution.getRandom(); // 返回 3
 #         self.val = val
 #         self.next = next
 class Solution:
-
     def __init__(self, head: Optional[ListNode]):
         self.head = head
 

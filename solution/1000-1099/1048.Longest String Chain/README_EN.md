@@ -74,7 +74,7 @@ class Solution:
 
         n = len(words)
         dp = [1] * (n + 1)
-        words.sort(key= lambda x: len(x))
+        words.sort(key=lambda x: len(x))
         res = 1
         for i in range(1, n):
             for j in range(i):

@@ -90,7 +90,6 @@ findElements.find(5); // return True
 #         self.left = left
 #         self.right = right
 class FindElements:
-
     def __init__(self, root: TreeNode):
         root.val = 0
         self.nodes = {0}

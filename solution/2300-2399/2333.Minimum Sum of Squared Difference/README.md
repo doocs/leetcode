@@ -62,7 +62,9 @@
 
 ```python
 class Solution:
-    def minSumSquareDiff(self, nums1: List[int], nums2: List[int], k1: int, k2: int) -> int:
+    def minSumSquareDiff(
+        self, nums1: List[int], nums2: List[int], k1: int, k2: int
+    ) -> int:
         d = [abs(a - b) for a, b in zip(nums1, nums2)]
         k = k1 + k2
         if sum(d) <= k:

@@ -74,17 +74,20 @@ Starting with 27 energy, we finish the tasks in the following order:
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

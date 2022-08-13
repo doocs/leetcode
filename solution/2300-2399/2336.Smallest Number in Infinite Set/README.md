@@ -63,7 +63,6 @@ smallestInfiniteSet.popSmallest(); // 返回 5 ，并将其从集合中移除。
 
 ```python
 class SmallestInfiniteSet:
-
     def __init__(self):
         self.black = set()
 

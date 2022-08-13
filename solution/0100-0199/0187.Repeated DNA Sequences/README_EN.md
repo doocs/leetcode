@@ -43,7 +43,7 @@ class Solution:
         cnt = Counter()
         ans = []
         for i in range(n + 1):
-            sub = s[i: i + 10]
+            sub = s[i : i + 10]
             cnt[sub] += 1
             if cnt[sub] == 2:
                 ans.append(sub)

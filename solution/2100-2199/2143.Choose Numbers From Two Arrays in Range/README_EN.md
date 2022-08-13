@@ -73,11 +73,13 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -90,6 +92,7 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 ### **...**
 
 ```
+
 
 ```
 

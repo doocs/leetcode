@@ -8,23 +8,33 @@
 
 <style>
 
+
 table.dungeon, .dungeon th, .dungeon td {
+
 
   border:3px solid black;
 
+
 }
+
+
 
 
 
  .dungeon th, .dungeon td {
 
+
     text-align: center;
+
 
     height: 70px;
 
+
     width: 70px;
 
+
 }
+
 
 </style>
 
@@ -78,7 +88,9 @@ table.dungeon, .dungeon th, .dungeon td {
 
 <!---2K   -3  3
 
+
 -5   -10   1
+
 
 10 30   5P-->
 
@@ -105,6 +117,7 @@ table.dungeon, .dungeon th, .dungeon td {
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -113,11 +126,13 @@ table.dungeon, .dungeon th, .dungeon td {
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

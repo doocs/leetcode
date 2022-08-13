@@ -61,7 +61,9 @@ We made 2 refueling stops along the way, so we return 2.
 
 ```python
 class Solution:
-    def minRefuelStops(self, target: int, startFuel: int, stations: List[List[int]]) -> int:
+    def minRefuelStops(
+        self, target: int, startFuel: int, stations: List[List[int]]
+    ) -> int:
         q = []
         prev = ans = 0
         stations.append([target, 0])

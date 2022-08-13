@@ -53,6 +53,7 @@
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -60,6 +61,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
 
 ```
 
@@ -76,6 +78,7 @@ public:
         heights.insert(heights.begin(), 0);
         heights.push_back(0);
 
+
         for (int i = 0; i < heights.size(); i++) {
             while (!s.empty() && heights[i] < heights[s.top()]) {
                 int h = heights[s.top()];
@@ -83,8 +86,10 @@ public:
                 maxarea = max(maxarea, h * (i - s.top() - 1));
             }
 
+
             s.push(i);
         }
+
 
         return maxarea;
     }
@@ -94,6 +99,7 @@ public:
 ### **...**
 
 ```
+
 
 ```
 

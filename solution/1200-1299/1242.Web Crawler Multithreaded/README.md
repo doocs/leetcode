@@ -114,6 +114,7 @@ startUrl = &quot;http://news.google.com&quot;
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -122,11 +123,13 @@ startUrl = &quot;http://news.google.com&quot;
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

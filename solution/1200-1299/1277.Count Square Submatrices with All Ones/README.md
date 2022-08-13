@@ -74,8 +74,7 @@ class Solution:
                 if i == 0 or j == 0:
                     f[i][j] = 1
                 else:
-                    f[i][j] = min(f[i - 1][j - 1], f[i - 1]
-                                  [j], f[i][j - 1]) + 1
+                    f[i][j] = min(f[i - 1][j - 1], f[i - 1][j], f[i][j - 1]) + 1
                 ans += f[i][j]
         return ans
 ```

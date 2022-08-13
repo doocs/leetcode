@@ -23,6 +23,7 @@
 <strong>Output</strong>
 [null, [-0.02493, -0.38077], [0.82314, 0.38945], [0.36572, 0.17248]]
 
+
 <strong>Explanation</strong>
 Solution solution = new Solution(1.0, 0.0, 0.0);
 solution.randPoint(); // return [-0.02493, -0.38077]
@@ -47,17 +48,20 @@ solution.randPoint(); // return [0.36572, 0.17248]
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

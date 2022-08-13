@@ -72,7 +72,6 @@ and so on.
 
 ```python
 class Solution:
-
     def __init__(self, w: List[int]):
         self.s = [0]
         for c in w:
@@ -88,6 +87,7 @@ class Solution:
             else:
                 left = mid + 1
         return left - 1
+
 
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(w)

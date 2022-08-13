@@ -58,6 +58,7 @@
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -65,6 +66,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
 
 ```
 
@@ -80,6 +82,7 @@ public:
             sum += num;
         }
 
+
         int target = sum - x;
         int res = -1;
         int l = 0;
@@ -94,6 +97,7 @@ public:
                 res = max(res, r - l);
             }
         }
+
 
         if (res == -1) {
             return res;
@@ -140,6 +144,7 @@ impl Solution {
         let n = nums.len();
         let target = nums.iter().sum::<i32>() - x;
 
+
         let (mut l, mut r) = (0, 0);
         let (mut sum, mut max) = (0, -1);
         while r < n {
@@ -150,10 +155,12 @@ impl Solution {
                 l += 1;
             }
 
+
             if sum == target {
                 max = max.max((r - l) as i32);
             }
         }
+
 
         if max == -1 {
             return max;
@@ -166,6 +173,7 @@ impl Solution {
 ### **...**
 
 ```
+
 
 ```
 

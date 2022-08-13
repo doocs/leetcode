@@ -66,7 +66,6 @@ solution.pick(); // 返回 4
 
 ```python
 class Solution:
-
     def __init__(self, n: int, blacklist: List[int]):
         self.k = n - len(blacklist)
         self.d = {}

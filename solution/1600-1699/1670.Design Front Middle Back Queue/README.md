@@ -74,7 +74,6 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 
 ```python
 class FrontMiddleBackQueue:
-
     def __init__(self):
         self.left = deque()
         self.right = deque()

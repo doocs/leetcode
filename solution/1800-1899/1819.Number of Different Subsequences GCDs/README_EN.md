@@ -53,17 +53,20 @@ The different GCDs are 6, 10, 3, 2, and 1.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

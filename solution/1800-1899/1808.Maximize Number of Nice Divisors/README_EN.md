@@ -21,15 +21,21 @@
 
 <pre>
 
+
 <strong>Input:</strong> primeFactors = 5
+
 
 <strong>Output:</strong> 6
 
+
 <strong>Explanation:</strong> 200 is a valid value of n.
+
 
 It has 5 prime factors: [2,2,2,5,5], and it has 6 nice divisors: [10,20,40,50,100,200].
 
+
 There is not other value of n that has at most 5 prime factors and more nice divisors.
+
 
 </pre>
 
@@ -37,9 +43,12 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 <pre>
 
+
 <strong>Input:</strong> primeFactors = 8
 
+
 <strong>Output:</strong> 18
+
 
 </pre>
 
@@ -59,17 +68,20 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

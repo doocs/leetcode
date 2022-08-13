@@ -25,6 +25,7 @@
 <strong>Output</strong>
 [null, 1, -1, 2]
 
+
 <strong>Explanation</strong>
 MajorityChecker majorityChecker = new MajorityChecker([1, 1, 2, 2, 1, 1]);
 majorityChecker.query(0, 5, 4); // return 1
@@ -52,17 +53,20 @@ majorityChecker.query(2, 3, 2); // return 2
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

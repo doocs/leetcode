@@ -241,7 +241,7 @@ public:
     Node* topRight;
     Node* bottomLeft;
     Node* bottomRight;
-    
+
     Node() {
         val = false;
         isLeaf = false;
@@ -250,7 +250,7 @@ public:
         bottomLeft = NULL;
         bottomRight = NULL;
     }
-    
+
     Node(bool _val, bool _isLeaf) {
         val = _val;
         isLeaf = _isLeaf;
@@ -259,7 +259,7 @@ public:
         bottomLeft = NULL;
         bottomRight = NULL;
     }
-    
+
     Node(bool _val, bool _isLeaf, Node* _topLeft, Node* _topRight, Node* _bottomLeft, Node* _bottomRight) {
         val = _val;
         isLeaf = _isLeaf;

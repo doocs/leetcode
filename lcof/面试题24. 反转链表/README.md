@@ -40,6 +40,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         pre, cur = None, head

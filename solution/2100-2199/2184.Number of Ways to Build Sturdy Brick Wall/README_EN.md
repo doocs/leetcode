@@ -49,11 +49,13 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -66,6 +68,7 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 ### **...**
 
 ```
+
 
 ```
 

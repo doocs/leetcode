@@ -70,7 +70,7 @@ class Solution:
                 continue
             find = True
             if b == 0:
-                ans |= (1 << i)
+                ans |= 1 << i
         return ans
 ```
 

@@ -16,9 +16,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> coordinates = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
 
+
 <strong>Output:</strong> true
+
 
 </pre>
 
@@ -28,9 +31,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> coordinates = [[1,1],[2,2],[3,4],[4,5],[5,6],[7,7]]
 
+
 <strong>Output:</strong> false
+
 
 </pre>
 
@@ -53,17 +59,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

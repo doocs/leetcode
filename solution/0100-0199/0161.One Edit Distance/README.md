@@ -54,8 +54,8 @@
 
 否则，遍历 $s$ 和 $t$，若遇到 $s[i]$ 不等于 $t[i]$：
 
-- 若 $m \neq n$，比较 $s[i+1:]$ 与 $t[i:]$，相等返回 true，否则返回 false；
-- 若 $m = n$，比较 $s[i:]$ 与 $t[i:]$，相等返回 true，否则返回 false。
+-   若 $m \neq n$，比较 $s[i+1:]$ 与 $t[i:]$，相等返回 true，否则返回 false；
+-   若 $m = n$，比较 $s[i:]$ 与 $t[i:]$，相等返回 true，否则返回 false。
 
 遍历结束，说明遍历过的 $s$ 跟 $t$ 所有字符相等，此时需要满足 $m=n+1$。
 
@@ -77,7 +77,7 @@ class Solution:
             return False
         for i, c in enumerate(t):
             if c != s[i]:
-                return s[i + 1:] == t[i + 1:] if m == n else s[i + 1:] == t[i:]
+                return s[i + 1 :] == t[i + 1 :] if m == n else s[i + 1 :] == t[i:]
         return m == n + 1
 ```
 

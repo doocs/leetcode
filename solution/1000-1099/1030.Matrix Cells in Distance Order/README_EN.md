@@ -54,7 +54,9 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 
 ```python
 class Solution:
-    def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
+    def allCellsDistOrder(
+        self, rows: int, cols: int, rCenter: int, cCenter: int
+    ) -> List[List[int]]:
         q = deque([(rCenter, cCenter)])
         vis = [[False] * cols for _ in range(rows)]
         vis[rCenter][cCenter] = True

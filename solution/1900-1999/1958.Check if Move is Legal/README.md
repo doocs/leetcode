@@ -60,9 +60,10 @@
 
 ```python
 class Solution:
-    def checkMove(self, board: List[List[str]], rMove: int, cMove: int, color: str) -> bool:
-        dirs = [(1, 0), (0, 1), (-1, 0), (0, -1),
-                (1, 1), (1, -1), (-1, 1), (-1, -1)]
+    def checkMove(
+        self, board: List[List[str]], rMove: int, cMove: int, color: str
+    ) -> bool:
+        dirs = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)]
         n = 8
         for a, b in dirs:
             i, j = rMove, cMove

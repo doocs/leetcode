@@ -63,7 +63,6 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 
 ```python
 class DetectSquares:
-
     def __init__(self):
         self.mp = defaultdict(Counter)
 

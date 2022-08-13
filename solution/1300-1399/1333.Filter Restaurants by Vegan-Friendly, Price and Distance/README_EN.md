@@ -61,17 +61,20 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

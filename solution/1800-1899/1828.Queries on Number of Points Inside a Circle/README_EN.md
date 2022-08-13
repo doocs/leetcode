@@ -56,7 +56,9 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 
 ```python
 class Solution:
-    def countPoints(self, points: List[List[int]], queries: List[List[int]]) -> List[int]:
+    def countPoints(
+        self, points: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
         ans = []
         for x0, y0, r in queries:
             count = 0

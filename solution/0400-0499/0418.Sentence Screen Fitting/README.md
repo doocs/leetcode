@@ -26,12 +26,15 @@
 <pre><strong>输入：</strong>
 rows = 2, cols = 8, 句子 sentence = [&quot;hello&quot;, &quot;world&quot;]
 
+
 <strong>输出：</strong>
 1
+
 
 <strong>解释：</strong>
 hello---
 world---
+
 
 <strong>字符 &#39;-&#39; 表示屏幕上的一个空白位置。</strong>
 </pre>
@@ -43,13 +46,16 @@ world---
 <pre><strong>输入：</strong>
 rows = 3, cols = 6, 句子 sentence = [&quot;a&quot;, &quot;bcd&quot;, &quot;e&quot;]
 
+
 <strong>输出：</strong>
 2
+
 
 <strong>解释：</strong>
 a-bcd- 
 e-a---
 bcd-e-
+
 
 <strong>字符 &#39;-&#39; 表示屏幕上的一个空白位置。</strong>
 </pre>
@@ -61,14 +67,17 @@ bcd-e-
 <pre><strong>输入：</strong>
 rows = 4, cols = 5, 句子 sentence = [&quot;I&quot;, &quot;had&quot;, &quot;apple&quot;, &quot;pie&quot;]
 
+
 <strong>输出：</strong>
 1
+
 
 <strong>解释：</strong>
 I-had
 apple
 pie-I
 had--
+
 
 <strong>字符 &#39;-&#39; 表示屏幕上的一个空白位置。</strong>
 </pre>
@@ -87,6 +96,7 @@ had--
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -95,11 +105,13 @@ had--
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

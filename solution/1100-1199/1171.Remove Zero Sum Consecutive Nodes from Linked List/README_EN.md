@@ -54,6 +54,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def removeZeroSumSublists(self, head: ListNode) -> ListNode:
         dummy = ListNode(0)

@@ -60,7 +60,6 @@ myHashSet.contains(2); // 返回 False ，（已移除）</pre>
 
 ```python
 class MyHashSet:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -78,7 +77,6 @@ class MyHashSet:
         Returns true if this set contains the specified element
         """
         return self.data[key]
-
 
 
 # Your MyHashSet object will be instantiated and called as such:

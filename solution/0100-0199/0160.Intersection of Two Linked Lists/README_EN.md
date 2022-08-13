@@ -84,6 +84,7 @@ Explanation: The two lists do not intersect, so return null.
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         a, b = headA, headB

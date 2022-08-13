@@ -52,7 +52,6 @@ solution.flip();  // return [2, 0], [0,0], [1,0], and [2,0] should be equally li
 
 ```python
 class Solution:
-
     def __init__(self, m: int, n: int):
         self.m = m
         self.n = n
@@ -69,6 +68,7 @@ class Solution:
     def reset(self) -> None:
         self.total = self.m * self.n
         self.mp.clear()
+
 
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(m, n)

@@ -63,6 +63,7 @@ class Solution:
                 return 0
             x = f(n - 1, m)
             return (m + x) % n
+
         return f(n, m)
 ```
 

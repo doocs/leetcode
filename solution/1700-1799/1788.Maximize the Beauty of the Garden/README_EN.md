@@ -23,9 +23,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> flowers = [1,2,3,1,2]
 
+
 <strong>Output:</strong> 8
+
 
 <strong>Explanation:</strong> You can produce the valid garden [2,3,1,2] to have a total beauty of 2 + 3 + 1 + 2 = 8.</pre>
 
@@ -33,11 +36,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> flowers = [100,1,1,-3,1]
+
 
 <strong>Output:</strong> 3
 
+
 <strong>Explanation:</strong> You can produce the valid garden [1,1,1] to have a total beauty of 1 + 1 + 1 = 3.
+
 
 </pre>
 
@@ -45,11 +52,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> flowers = [-1,-2,0,-1]
+
 
 <strong>Output:</strong> -2
 
+
 <strong>Explanation:</strong> You can produce the valid garden [-1,-1] to have a total beauty of -1 + -1 = -2.
+
 
 </pre>
 
@@ -61,7 +72,9 @@
 
     <li><code>2 &lt;= flowers.length &lt;= 10<sup>5</sup></code></li>
 
+
     <li><code>-10<sup>4</sup> &lt;= flowers[i] &lt;= 10<sup>4</sup></code></li>
+
 
     <li>It is possible to create a valid garden by removing some (possibly none) flowers.</li>
 
@@ -75,17 +88,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

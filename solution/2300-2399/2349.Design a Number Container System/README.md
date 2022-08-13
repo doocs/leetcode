@@ -70,7 +70,6 @@ from sortedcontainers import SortedSet
 
 
 class NumberContainers:
-
     def __init__(self):
         self.mp = {}
         self.t = defaultdict(SortedSet)

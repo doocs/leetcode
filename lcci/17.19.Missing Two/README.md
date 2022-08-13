@@ -43,9 +43,9 @@ class Solution:
         res, n = 0, len(nums)
         for i in range(n):
             res ^= nums[i]
-            res ^= (i + 1)
-        res ^= (n + 1)
-        res ^= (n + 2)
+            res ^= i + 1
+        res ^= n + 1
+        res ^= n + 2
         pos = 0
         while (res & 1) == 0:
             pos += 1

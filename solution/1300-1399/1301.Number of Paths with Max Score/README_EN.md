@@ -18,19 +18,25 @@
 
 <pre><strong>Input:</strong> board = ["E23","2X2","12S"]
 
+
 <strong>Output:</strong> [7,1]
+
 
 </pre><p><strong>Example 2:</strong></p>
 
 <pre><strong>Input:</strong> board = ["E12","1X1","21S"]
 
+
 <strong>Output:</strong> [4,2]
+
 
 </pre><p><strong>Example 3:</strong></p>
 
 <pre><strong>Input:</strong> board = ["E11","XXX","11S"]
 
+
 <strong>Output:</strong> [0,0]
+
 
 </pre>
 
@@ -50,17 +56,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

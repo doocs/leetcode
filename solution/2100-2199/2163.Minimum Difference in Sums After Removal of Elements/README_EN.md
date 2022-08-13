@@ -64,11 +64,13 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -81,6 +83,7 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 ### **...**
 
 ```
+
 
 ```
 

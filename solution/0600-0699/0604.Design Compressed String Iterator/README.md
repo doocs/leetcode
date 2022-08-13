@@ -26,6 +26,7 @@
 <b>输出：</b>
 [null, "L", "e", "e", "t", "C", "o", true, "d", true]
 
+
 <strong>解释：</strong>
 StringIterator stringIterator = new StringIterator("L1e2t1C1o1d1e1");
 stringIterator.next(); // 返回 "L"
@@ -61,6 +62,7 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -69,11 +71,13 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

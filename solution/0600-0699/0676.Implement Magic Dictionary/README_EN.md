@@ -55,7 +55,6 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 
 ```python
 class MagicDictionary:
-
     def __init__(self):
         self.d = None
 

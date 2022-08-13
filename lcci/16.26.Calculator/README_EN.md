@@ -12,9 +12,12 @@
 
 <pre>
 
+
 <strong>Input: </strong>&quot;3+2*2&quot;
 
+
 <strong>Output:</strong> 7
+
 
 </pre>
 
@@ -22,7 +25,9 @@
 
 <pre>
 
+
 <strong>Input:</strong> &quot; 3/2 &quot;
+
 
 <strong>Output:</strong> 1</pre>
 
@@ -30,9 +35,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> &quot; 3+5 / 2 &quot;
 
+
 <strong>Output:</strong> 5
+
 
 </pre>
 
@@ -51,17 +59,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

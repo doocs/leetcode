@@ -70,7 +70,9 @@ class Solution:
             return node
         prev, curr = head, head.next
         while curr != head:
-            if prev.val <= insertVal <= curr.val or (prev.val > curr.val and (insertVal >= prev.val or insertVal <= curr.val)):
+            if prev.val <= insertVal <= curr.val or (
+                prev.val > curr.val and (insertVal >= prev.val or insertVal <= curr.val)
+            ):
                 break
             prev, curr = curr, curr.next
         prev.next = node

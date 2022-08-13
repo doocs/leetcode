@@ -77,7 +77,6 @@ from sortedcontainers import SortedDict
 
 
 class StockPrice:
-
     def __init__(self):
         self.last_ts = 0
         self.mp = {}

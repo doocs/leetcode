@@ -53,7 +53,6 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 ```python
 class RandomizedSet:
-
     def __init__(self):
         self.m = {}
         self.l = []

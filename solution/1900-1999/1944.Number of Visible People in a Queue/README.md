@@ -69,7 +69,7 @@ class Solution:
 
         for i in range(n - 1, -1, -1):
             while stack:
-                ans[i] += 1;
+                ans[i] += 1
                 if heights[i] > stack[-1]:
                     stack.pop()
                 else:

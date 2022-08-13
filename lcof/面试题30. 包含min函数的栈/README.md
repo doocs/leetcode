@@ -46,7 +46,6 @@ minStack.min();   --&gt; 返回 -2.
 
 ```python
 class MinStack:
-
     def __init__(self):
         """
         initialize your data structure here.

@@ -64,17 +64,20 @@ There is 1 index that you can remove to make nums fair.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

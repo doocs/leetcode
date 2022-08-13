@@ -30,6 +30,7 @@
 <strong>Output</strong>
 [null, 3, 7, 3, 7, true, 9, 15, 20, false, true, 15, 9]
 
+
 <strong>Explanation</strong>
 // The underlined element is where the pointer currently is.
 BSTIterator bSTIterator = new BSTIterator([7, 3, 15, null, null, 9, 20]); // state is <u> </u> [3, 7, 9, 15, 20]
@@ -67,17 +68,20 @@ bSTIterator.prev(); // state becomes [3, 7, <u>9</u>, 15, 20], return 9
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

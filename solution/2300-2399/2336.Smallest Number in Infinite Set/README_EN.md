@@ -53,7 +53,6 @@ smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
 
 ```python
 class SmallestInfiniteSet:
-
     def __init__(self):
         self.black = set()
 

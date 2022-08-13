@@ -60,17 +60,20 @@ And in round 2, the third senator can just announce the victory since he is the 
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

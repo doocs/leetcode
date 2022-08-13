@@ -61,7 +61,6 @@
 ```python
 class Solution:
     def validTicTacToe(self, board: List[str]) -> bool:
-
         def win(p):
             for i in range(3):
                 if board[i][0] == board[i][1] == board[i][2] == p:

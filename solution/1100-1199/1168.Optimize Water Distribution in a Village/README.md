@@ -79,7 +79,9 @@
 
 ```python
 class Solution:
-    def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
+    def minCostToSupplyWater(
+        self, n: int, wells: List[int], pipes: List[List[int]]
+    ) -> int:
         for i, w in enumerate(wells):
             pipes.append([0, i + 1, w])
         pipes.sort(key=lambda x: x[2])

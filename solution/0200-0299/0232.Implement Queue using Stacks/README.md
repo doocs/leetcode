@@ -77,7 +77,6 @@ myQueue.empty(); // return false
 
 ```python
 class MyQueue:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -85,13 +84,11 @@ class MyQueue:
         self.s1 = []
         self.s2 = []
 
-
     def push(self, x: int) -> None:
         """
         Push element x to the back of queue.
         """
         self.s1.append(x)
-
 
     def pop(self) -> int:
         """
@@ -107,13 +104,11 @@ class MyQueue:
         self._move()
         return self.s2[-1]
 
-
     def empty(self) -> bool:
         """
         Returns whether the queue is empty.
         """
         return len(self.s1) + len(self.s2) == 0
-
 
     def _move(self):
         """

@@ -74,7 +74,9 @@ Since nums is the only shortest supersequence, we return true.
 
 ```python
 class Solution:
-    def sequenceReconstruction(self, nums: List[int], sequences: List[List[int]]) -> bool:
+    def sequenceReconstruction(
+        self, nums: List[int], sequences: List[List[int]]
+    ) -> bool:
         g = defaultdict(list)
         indeg = [0] * len(nums)
         for seq in sequences:

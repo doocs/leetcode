@@ -62,11 +62,13 @@ There are no cornered paths in the grid that result in a product with a trailing
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -122,6 +124,7 @@ function maxTrailingZeros(grid: number[][]): number {
 ### **...**
 
 ```
+
 
 ```
 

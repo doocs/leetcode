@@ -113,7 +113,6 @@ class BinaryIndexedTree:
 
 
 class NumMatrix:
-
     def __init__(self, matrix: List[List[int]]):
         self.trees = []
         n = len(matrix[0])
@@ -129,7 +128,10 @@ class NumMatrix:
         tree.update(col + 1, val - prev)
 
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
-        return sum(tree.query(col2 + 1) - tree.query(col1) for tree in self.trees[row1: row2 + 1])
+        return sum(
+            tree.query(col2 + 1) - tree.query(col1)
+            for tree in self.trees[row1 : row2 + 1]
+        )
 
 
 # Your NumMatrix object will be instantiated and called as such:

@@ -28,6 +28,7 @@
 <strong>Output</strong>
 [null, 0, 9, 4, 2, null, 5]
 
+
 <strong>Explanation</strong>
 ExamRoom examRoom = new ExamRoom(10);
 examRoom.seat(); // return 0, no one is in the room, then the student sits at seat number 0.
@@ -36,6 +37,7 @@ examRoom.seat(); // return 4, the student sits at the last seat number 4.
 examRoom.seat(); // return 2, the student sits at the last seat number 2.
 examRoom.leave(4);
 examRoom.seat(); // return 5, the student sits at the last seat number 5.
+
 
 </pre>
 
@@ -56,17 +58,20 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

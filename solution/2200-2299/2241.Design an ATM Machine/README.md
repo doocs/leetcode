@@ -68,7 +68,6 @@ atm.withdraw(550);        // 返回 [0,1,0,0,1] ，机器会返回 1 张 $50 的
 
 ```python
 class ATM:
-
     def __init__(self):
         self.cnt = [0] * 5
         self.m = [500, 200, 100, 50, 20]

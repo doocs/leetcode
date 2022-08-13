@@ -46,7 +46,7 @@ class Solution:
                     tmp.append(nums[i])
                     i += 1
                 else:
-                    res += (mid - i + 1)
+                    res += mid - i + 1
                     tmp.append(nums[j])
                     j += 1
             while i <= mid:

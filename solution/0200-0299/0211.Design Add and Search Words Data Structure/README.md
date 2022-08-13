@@ -63,14 +63,12 @@ wordDictionary.search("b.."); // 返回 True
 
 ```python
 class Trie:
-
     def __init__(self):
         self.children = [None] * 26
         self.is_end = False
 
 
 class WordDictionary:
-
     def __init__(self):
         self.trie = Trie()
 
@@ -92,13 +90,14 @@ class WordDictionary:
                     return False
                 if c == '.':
                     for child in node.children:
-                        if child is not None and search(word[i + 1:], child):
+                        if child is not None and search(word[i + 1 :], child):
                             return True
                     return False
                 node = node.children[idx]
             return node.is_end
 
         return search(word, self.trie)
+
 
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()

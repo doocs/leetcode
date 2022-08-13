@@ -73,7 +73,9 @@
 
 ```python
 class Solution:
-    def countRectangles(self, rectangles: List[List[int]], points: List[List[int]]) -> List[int]:
+    def countRectangles(
+        self, rectangles: List[List[int]], points: List[List[int]]
+    ) -> List[int]:
         d = defaultdict(list)
         for x, y in rectangles:
             d[y].append(x)

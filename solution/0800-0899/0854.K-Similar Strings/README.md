@@ -59,7 +59,7 @@ class Solution:
                 i += 1
             for j in range(i + 1, n):
                 if s[j] == s2[i] and s[j] != s2[j]:
-                    res.append(s[:i] + s[j] + s[i + 1: j] + s[i] + s[j + 1:])
+                    res.append(s[:i] + s[j] + s[i + 1 : j] + s[i] + s[j + 1 :])
             return res
 
         q = deque([s1])

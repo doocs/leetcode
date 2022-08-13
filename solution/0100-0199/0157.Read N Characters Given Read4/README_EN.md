@@ -20,6 +20,7 @@
     Parameter:  char[] buf4
     Returns:    int
 
+
 buf4[] is a destination, not a source. The results from read4 will be copied to buf4[].
 </pre>
 
@@ -46,6 +47,7 @@ read4(buf4); // read4 returns 0. Now buf4 = &quot;&quot;, fp points to end of fi
 <pre>
     Parameters:	char[] buf, int n
     Returns:	int
+
 
 buf[] is a destination, not a source. You will need to write the results to buf[].
 </pre>
@@ -101,17 +103,20 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

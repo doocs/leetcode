@@ -46,17 +46,20 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

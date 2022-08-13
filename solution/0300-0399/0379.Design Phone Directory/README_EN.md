@@ -53,7 +53,6 @@ phoneDirectory.check(2);   // Number 2 is available again, return true.
 
 ```python
 class PhoneDirectory:
-
     def __init__(self, maxNumbers: int):
         """
         Initialize your data structure here

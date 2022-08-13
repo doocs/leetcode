@@ -85,8 +85,7 @@ class Solution:
         s = [[0] * (n + 1) for _ in range(m + 1)]
         for i, row in enumerate(pizza):
             for j, v in enumerate(row):
-                s[i + 1][j + 1] = s[i + 1][j] + \
-                    s[i][j + 1] - s[i][j] + int(v == 'A')
+                s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + int(v == 'A')
         return dfs(0, 0, k - 1)
 ```
 

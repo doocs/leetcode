@@ -37,6 +37,7 @@
 <strong>Output</strong>
 [null, null, null, &quot;branford&quot;, null, &quot;alps&quot;, null, &quot;bradford&quot;, null, &quot;bradford&quot;, null, &quot;bradford&quot;, &quot;orland&quot;]
 
+
 <strong>Explanation</strong>
 SORTracker tracker = new SORTracker(); // Initialize the tracker system.
 tracker.add(&quot;bradford&quot;, 2); // Add location with name=&quot;bradford&quot; and score=2 to the system.
@@ -81,11 +82,13 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -98,6 +101,7 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 ### **...**
 
 ```
+
 
 ```
 

@@ -60,7 +60,6 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 
 ```python
 class OrderedStream:
-
     def __init__(self, n: int):
         self.data = [None] * n
         self.ptr = 0

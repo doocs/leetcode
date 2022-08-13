@@ -28,6 +28,7 @@
 <strong>Output</strong>
 [null, null, null, null, null, null, null, 5, 7, 5, 4]
 
+
 <strong>Explanation</strong>
 FreqStack freqStack = new FreqStack();
 freqStack.push(5); // The stack is [5]
@@ -59,17 +60,20 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

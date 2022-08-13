@@ -67,6 +67,7 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 #         self.right = right
 #         self.random = random
 
+
 class Solution:
     def copyRandomBinaryTree(self, root: 'Optional[Node]') -> 'Optional[NodeCopy]':
         def dfs(root):

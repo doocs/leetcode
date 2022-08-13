@@ -51,17 +51,20 @@ Their dot product is -1.</pre>
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

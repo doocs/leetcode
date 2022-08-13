@@ -111,12 +111,14 @@ DFS。
 #        :rtype void
 #        """
 
+
 class Solution:
     def cleanRoom(self, robot):
         """
         :type robot: Robot
         :rtype: None
         """
+
         def back():
             robot.turnRight()
             robot.turnRight()

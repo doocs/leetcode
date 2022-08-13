@@ -57,7 +57,6 @@ but the second term did not exist. Since the last term exhausted does not exist,
 
 ```python
 class RLEIterator:
-
     def __init__(self, encoding: List[int]):
         self.encoding = encoding
         self.i = 0

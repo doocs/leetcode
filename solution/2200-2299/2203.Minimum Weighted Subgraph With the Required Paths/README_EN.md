@@ -57,7 +57,9 @@ It can be seen that there does not exist any path from node 1 to node 2, hence t
 
 ```python
 class Solution:
-    def minimumWeight(self, n: int, edges: List[List[int]], src1: int, src2: int, dest: int) -> int:
+    def minimumWeight(
+        self, n: int, edges: List[List[int]], src1: int, src2: int, dest: int
+    ) -> int:
         def dijkstra(g, u):
             dist = [inf] * n
             dist[u] = 0

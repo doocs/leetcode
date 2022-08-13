@@ -98,6 +98,7 @@ class Node:
         self.random = random
 """
 
+
 class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
         if head is None:

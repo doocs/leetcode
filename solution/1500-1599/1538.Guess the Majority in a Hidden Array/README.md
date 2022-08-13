@@ -79,6 +79,7 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -87,11 +88,13 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

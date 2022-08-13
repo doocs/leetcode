@@ -12,21 +12,30 @@
 
 <pre>
 
+
 <strong>Input:
+
 
 </strong>[
 
+
 &nbsp;  [1,0,1],
+
 
 &nbsp;  [<strong>0,0</strong>,1],
 
+
 &nbsp;  [<strong>0,0</strong>,1]
+
 
 ]
 
+
 <strong>Output: </strong>[1,0,2]
 
+
 <strong>Explanation:</strong> 0 represents black, and 1 represents white, bold elements in the input is the answer.
+
 
 </pre>
 
@@ -34,19 +43,27 @@
 
 <pre>
 
+
 <strong>Input:
+
 
 </strong>[
 
+
 &nbsp;  [<strong>0</strong>,1,1],
+
 
 &nbsp;  [1,0,1],
 
+
 &nbsp;  [1,1,0]
+
 
 ]
 
+
 <strong>Output: </strong>[0,0,1]
+
 
 </pre>
 
@@ -64,17 +81,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

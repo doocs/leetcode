@@ -78,7 +78,6 @@ class Solution:
                 matrix[i][j] = 0
 
         return matrix
-
 ```
 
 ### **Java**

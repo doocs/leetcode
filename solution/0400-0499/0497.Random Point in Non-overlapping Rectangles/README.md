@@ -74,7 +74,6 @@ solution.pick(); // 返回 [0, 0]</pre>
 
 ```python
 class Solution:
-
     def __init__(self, rects: List[List[int]]):
         self.rects = rects
         self.s = [0] * len(rects)

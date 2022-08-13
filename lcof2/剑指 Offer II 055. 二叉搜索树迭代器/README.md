@@ -98,7 +98,6 @@ bSTIterator.hasNext(); // 返回 False
 #         self.left = left
 #         self.right = right
 class BSTIterator:
-
     def __init__(self, root: TreeNode):
         def inorder(root):
             if root:

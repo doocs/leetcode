@@ -49,6 +49,7 @@ Explanation: The nodes that are a distance 2 from the target node (with value 5)
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
         def parents(root, prev):

@@ -58,7 +58,7 @@ class Solution:
         nums.sort()
         ans = 0
         for a, b in pairwise(nums):
-            n = min(k,  b - a - 1)
+            n = min(k, b - a - 1)
             if n <= 0:
                 continue
             k -= n

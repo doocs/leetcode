@@ -95,7 +95,9 @@ class Solution:
             dp[i][1][2] = dp[i - 1][1][1]
             # P
             dp[i][0][0] = (dp[i - 1][0][0] + dp[i - 1][0][1] + dp[i - 1][0][2]) % mod
-            dp[i][1][0] = (dp[i][1][0] + dp[i - 1][1][0] + dp[i - 1][1][1] + dp[i - 1][1][2]) % mod
+            dp[i][1][0] = (
+                dp[i][1][0] + dp[i - 1][1][0] + dp[i - 1][1][1] + dp[i - 1][1][2]
+            ) % mod
 
         ans = 0
         for j in range(2):

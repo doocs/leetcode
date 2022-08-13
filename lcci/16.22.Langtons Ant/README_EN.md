@@ -20,9 +20,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> 0
 
+
 <strong>Output: </strong>[&quot;R&quot;]
+
 
 </pre>
 
@@ -30,17 +33,24 @@
 
 <pre>
 
+
 <strong>Input:</strong> 2
+
 
 <strong>Output:
 
+
 </strong>[
+
 
 &nbsp; &quot;_X&quot;,
 
+
 &nbsp; &quot;LX&quot;
 
+
 ]
+
 
 </pre>
 
@@ -48,19 +58,27 @@
 
 <pre>
 
+
 <strong>Input:</strong> 5
+
 
 <strong>Output:
 
+
 </strong>[
+
 
 &nbsp; &quot;_U&quot;,
 
+
 &nbsp; &quot;X_&quot;,
+
 
 &nbsp; &quot;XX&quot;
 
+
 ]
+
 
 </pre>
 
@@ -78,17 +96,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

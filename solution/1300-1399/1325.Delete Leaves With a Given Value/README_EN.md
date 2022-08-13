@@ -61,7 +61,9 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def removeLeafNodes(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
+    def removeLeafNodes(
+        self, root: Optional[TreeNode], target: int
+    ) -> Optional[TreeNode]:
         def dfs(root, prev):
             if root is None:
                 return

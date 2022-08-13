@@ -54,6 +54,7 @@ The input has been split into consecutive parts with size difference at most 1, 
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def splitListToParts(self, root: ListNode, k: int) -> List[ListNode]:
         n, cur = 0, root

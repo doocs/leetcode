@@ -116,6 +116,7 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 #
 #
 
+
 class Solution(object):
     def findShortestPath(self, master: 'GridMaster') -> int:
         def dfs(i, j):
@@ -132,8 +133,12 @@ class Solution(object):
 
         target = None
         s = set()
-        dirs = [['U', 'D', -1, 0], ['D', 'U', 1, 0],
-                ['L', 'R', 0, -1], ['R', 'L', 0, 1]]
+        dirs = [
+            ['U', 'D', -1, 0],
+            ['D', 'U', 1, 0],
+            ['L', 'R', 0, -1],
+            ['R', 'L', 0, 1],
+        ]
         dfs(0, 0)
         if target is None:
             return -1

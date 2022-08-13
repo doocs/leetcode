@@ -60,6 +60,7 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
+
         def dfs(root):
             nonlocal prev, first, second
             if root:

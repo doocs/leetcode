@@ -29,6 +29,7 @@
 <strong>Output</strong>
 [null, null, null, null, 5, 5, 1, 5, 1, 5]
 
+
 <strong>Explanation</strong>
 MaxStack stk = new MaxStack();
 stk.push(5);   // [<strong><u>5</u></strong>] the top of the stack and the maximum number is 5.
@@ -59,17 +60,20 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

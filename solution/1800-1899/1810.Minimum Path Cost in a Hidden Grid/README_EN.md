@@ -109,6 +109,7 @@ We now know that the target is the cell (1, 0), and the minimum total cost to re
 #
 #
 
+
 class Solution(object):
     def findShortestPath(self, master: 'GridMaster') -> int:
         def dfs(i, j):
@@ -124,13 +125,13 @@ class Solution(object):
 
         target = (-1, -1)
         N = 200
-        INF = 0x3f3f3f3f
+        INF = 0x3F3F3F3F
         g = [[-1] * N for _ in range(N)]
         dirs = {
             'U': (-1, 0, 'D'),
             'D': (1, 0, 'U'),
             'L': (0, -1, 'R'),
-            'R': (0, 1, 'L')
+            'R': (0, 1, 'L'),
         }
         dfs(100, 100)
         if target == (-1, -1):
@@ -144,7 +145,12 @@ class Solution(object):
                 return w
             for a, b, _ in dirs.values():
                 x, y = i + a, j + b
-                if 0 <= x < N and 0 <= y < N and g[x][y] != -1 and dist[x][y] > w + g[x][y]:
+                if (
+                    0 <= x < N
+                    and 0 <= y < N
+                    and g[x][y] != -1
+                    and dist[x][y] > w + g[x][y]
+                ):
                     dist[x][y] = w + g[x][y]
                     heappush(q, (dist[x][y], x, y))
         return 0

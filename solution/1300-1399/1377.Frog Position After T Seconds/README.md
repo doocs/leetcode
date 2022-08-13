@@ -70,7 +70,9 @@
 
 ```python
 class Solution:
-    def frogPosition(self, n: int, edges: List[List[int]], t: int, target: int) -> float:
+    def frogPosition(
+        self, n: int, edges: List[List[int]], t: int, target: int
+    ) -> float:
         g = defaultdict(list)
         for u, v in edges:
             g[u].append(v)

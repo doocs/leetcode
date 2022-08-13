@@ -61,17 +61,20 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

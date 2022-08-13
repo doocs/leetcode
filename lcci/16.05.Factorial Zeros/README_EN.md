@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> 3
 
+
 <strong>Output:</strong> 0
+
 
 <strong>Explanation:</strong>&nbsp;3! = 6, no trailing zero.</pre>
 
@@ -20,9 +23,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> 5
 
+
 <strong>Output:</strong> 1
+
 
 <strong>Explanation:</strong>&nbsp;5! = 120, one trailing zero.</pre>
 
@@ -36,17 +42,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

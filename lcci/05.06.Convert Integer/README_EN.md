@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: A = 29 (0b11101), B = 15 (0b01111)
 
+
 <strong> Output</strong>: 2
+
 
 </pre>
 
@@ -20,9 +23,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: A = 1，B = 2
 
+
 <strong> Output</strong>: 2
+
 
 </pre>
 
@@ -39,6 +45,7 @@
 ### **Python3**
 
 ```python
+
 
 ```
 
@@ -81,6 +88,7 @@ impl Solution {
 ### **...**
 
 ```
+
 
 ```
 

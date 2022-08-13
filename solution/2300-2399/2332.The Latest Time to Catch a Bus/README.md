@@ -73,7 +73,9 @@
 
 ```python
 class Solution:
-    def latestTimeCatchTheBus(self, buses: List[int], passengers: List[int], capacity: int) -> int:
+    def latestTimeCatchTheBus(
+        self, buses: List[int], passengers: List[int], capacity: int
+    ) -> int:
         buses.sort()
         passengers.sort()
         j = 0

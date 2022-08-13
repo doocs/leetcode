@@ -57,7 +57,9 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 
 ```python
 class Solution:
-    def maxPerformance(self, n: int, speed: List[int], efficiency: List[int], k: int) -> int:
+    def maxPerformance(
+        self, n: int, speed: List[int], efficiency: List[int], k: int
+    ) -> int:
         team = [(s, e) for s, e in zip(speed, efficiency)]
         team.sort(key=lambda x: -x[1])
         q = []

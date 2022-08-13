@@ -50,6 +50,7 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
         def dfs(root):

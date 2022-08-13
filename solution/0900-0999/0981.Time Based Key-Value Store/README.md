@@ -68,7 +68,6 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 ```python
 class TimeMap:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -85,7 +84,6 @@ class TimeMap:
         # #查找第一个大于timestamp的
         i = bisect_right(tv, (timestamp, chr(127)))
         return tv[i - 1][1] if i else ''
-
 
 
 # Your TimeMap object will be instantiated and called as such:

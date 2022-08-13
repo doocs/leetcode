@@ -56,7 +56,6 @@ stockSpanner.next(85);  // return 6
 
 ```python
 class StockSpanner:
-
     def __init__(self):
         self.stk = []
 
@@ -67,6 +66,7 @@ class StockSpanner:
             res += t
         self.stk.append([price, res])
         return res
+
 
 # Your StockSpanner object will be instantiated and called as such:
 # obj = StockSpanner()

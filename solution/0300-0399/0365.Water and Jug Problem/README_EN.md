@@ -54,7 +54,9 @@
 
 ```python
 class Solution:
-    def canMeasureWater(self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int) -> bool:
+    def canMeasureWater(
+        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
+    ) -> bool:
         stk, seen = [], set()
         stk.append([0, 0])
 
@@ -68,7 +70,11 @@ class Solution:
             seen.add(get_hash(stk[-1]))
             cur = stk.pop()
             cur1, cur2 = cur[0], cur[1]
-            if cur1 == targetCapacity or cur2 == targetCapacity or cur1 + cur2 == targetCapacity:
+            if (
+                cur1 == targetCapacity
+                or cur2 == targetCapacity
+                or cur1 + cur2 == targetCapacity
+            ):
                 return True
             stk.append([jug1Capacity, cur2])
             stk.append([0, cur2])

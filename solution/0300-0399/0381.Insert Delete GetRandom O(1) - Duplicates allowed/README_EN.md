@@ -62,7 +62,6 @@ randomizedCollection.getRandom(); // getRandom should return 1 or 2, both equall
 
 ```python
 class RandomizedCollection:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -107,7 +106,6 @@ class RandomizedCollection:
         Get a random element from the collection.
         """
         return -1 if len(self.l) == 0 else random.choice(self.l)
-
 
 
 # Your RandomizedCollection object will be instantiated and called as such:

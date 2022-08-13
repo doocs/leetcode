@@ -93,12 +93,14 @@ class Node:
         self.children = children if children is not None else []
 """
 
+
 class Solution:
     def diameter(self, root: 'Node') -> int:
         """
         :type root: 'Node'
         :rtype: int
         """
+
         def dfs(root):
             if root is None:
                 return 0

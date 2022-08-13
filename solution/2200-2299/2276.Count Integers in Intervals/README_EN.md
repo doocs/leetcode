@@ -90,7 +90,6 @@ class Node:
 
 
 class CountIntervals:
-
     def __init__(self):
         self.tree = Node()
 
@@ -99,6 +98,7 @@ class CountIntervals:
 
     def count(self) -> int:
         return self.tree.tot
+
 
 # Your CountIntervals object will be instantiated and called as such:
 # obj = CountIntervals()

@@ -80,17 +80,20 @@ We cannot group the segments together because an empty space with no buildings s
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

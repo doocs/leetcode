@@ -59,7 +59,6 @@ customStack.pop();                            // return -1 --&gt; Stack is empty
 
 ```python
 class CustomStack:
-
     def __init__(self, maxSize: int):
         self.s = [0] * maxSize
         self.t = 0

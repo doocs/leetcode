@@ -59,7 +59,6 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 
 ```python
 class TwoSum:
-
     def __init__(self):
         """
         Initialize your data structure here.

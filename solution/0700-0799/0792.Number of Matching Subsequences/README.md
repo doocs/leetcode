@@ -53,8 +53,8 @@
 
 ```python
 buckets = {
-	'a': ["a", "acd", "ace"],
-	'b': ["bb"],
+    'a': ["a", "acd", "ace"],
+    'b': ["bb"],
 }
 ```
 

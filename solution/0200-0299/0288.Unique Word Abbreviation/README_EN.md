@@ -65,7 +65,6 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 
 ```python
 class ValidWordAbbr:
-
     def __init__(self, dictionary: List[str]):
         self.words = defaultdict(set)
         for word in dictionary:

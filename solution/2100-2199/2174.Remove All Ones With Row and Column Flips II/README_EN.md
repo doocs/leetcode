@@ -70,8 +70,7 @@ There are no 1&#39;s to remove so return 0.
 class Solution:
     def removeOnes(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
-        state = sum(1 << (i * n + j) for i in range(m)
-                    for j in range(n) if grid[i][j])
+        state = sum(1 << (i * n + j) for i in range(m) for j in range(n) if grid[i][j])
         q = deque([state])
         vis = {state}
         ans = 0

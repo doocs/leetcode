@@ -69,17 +69,20 @@ Finally, the fourth droplet falls at index k = 3. Since moving left would not ev
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

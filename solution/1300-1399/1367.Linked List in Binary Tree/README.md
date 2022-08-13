@@ -83,7 +83,11 @@ class Solution:
 
         if root is None:
             return False
-        return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
+        return (
+            dfs(head, root)
+            or self.isSubPath(head, root.left)
+            or self.isSubPath(head, root.right)
+        )
 ```
 
 ### **Java**

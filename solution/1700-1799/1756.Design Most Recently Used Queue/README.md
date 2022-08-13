@@ -90,7 +90,6 @@ class BinaryIndexedTree:
 
 
 class MRUQueue:
-
     def __init__(self, n: int):
         self.data = list(range(n + 1))
         self.tree = BinaryIndexedTree(n + 2010)

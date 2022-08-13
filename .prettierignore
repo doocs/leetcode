@@ -1,0 +1,15 @@
+.idea/
+.github/
+node_modules/
+/solution/CONTEST_README.md
+/solution/CONTEST_README_EN.md
+/solution/summary.md
+/solution/summary_en.md
+/solution/README.md
+/solution/README_EN.md
+/solution/readme_template.md
+/solution/readme_template_en.md
+/solution/problem_readme_template.md
+/solution/problem_readme_template_en.md
+/solution/bash_problem_readme_template.md
+/solution/bash_problem_readme_template_en.md

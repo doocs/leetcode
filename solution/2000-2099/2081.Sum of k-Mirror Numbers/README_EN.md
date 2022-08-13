@@ -73,6 +73,7 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -100,6 +101,7 @@ class Solution {
         }
     }
 
+
     private boolean check(char[] c) {
         for (int i = 0, j = c.length - 1; i < j; i++, j--) {
             if (c[i] != c[j]) {
@@ -114,6 +116,7 @@ class Solution {
 ### **...**
 
 ```
+
 
 ```
 

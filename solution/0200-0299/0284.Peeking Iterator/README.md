@@ -88,6 +88,7 @@ peekingIterator.hasNext(); // 返回 False
 #         :rtype: int
 #         """
 
+
 class PeekingIterator:
     def __init__(self, iterator):
         """

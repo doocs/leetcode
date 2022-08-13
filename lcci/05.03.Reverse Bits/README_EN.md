@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> <code>num</code> = 1775(11011101111<sub>2</sub>)
 
+
 <strong>Output:</strong> 8
+
 
 </pre>
 
@@ -20,9 +23,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> <code>num</code> = 7(0111<sub>2</sub>)
 
+
 <strong>Output:</strong> 4
+
 
 </pre>
 
@@ -34,17 +40,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

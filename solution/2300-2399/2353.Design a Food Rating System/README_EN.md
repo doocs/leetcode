@@ -78,7 +78,6 @@ from sortedcontainers import SortedSet
 
 
 class FoodRatings:
-
     def __init__(self, foods: List[str], cuisines: List[str], ratings: List[int]):
         self.mp = {}
         self.t = defaultdict(lambda: SortedSet(key=lambda x: (-x[0], x[1])))

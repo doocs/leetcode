@@ -4,8 +4,14 @@ import re
 path = os.getcwd()
 
 
-def format_cpp_file():
-    for root, __import__, files in os.walk(path):
+def format():
+    for suffix in ['md', 'js', 'ts']:
+        command = f'prettier --write "**/*.{suffix}"'
+        os.system(command)
+
+
+def format_cpp():
+    for root, _, files in os.walk(path):
         for name in files:
             if name.endswith('.cpp') or name.endswith('.c'):
                 local_path = root + '/' + name
@@ -13,8 +19,6 @@ def format_cpp_file():
                 print(command)
                 os.system(command)
 
-
-def format_readme_cpp_code_block():
     for root, _, files in os.walk(path):
         for name in files:
             if name.endswith('.md'):
@@ -40,5 +44,41 @@ def format_readme_cpp_code_block():
                 os.remove(p2)
 
 
+def format_py():
+    command = 'black -S .'
+    os.system(command)
+
+    for root, _, files in os.walk(path):
+        for name in files:
+            if name.endswith('.md'):
+                p1 = root + '/' + name
+                with open(p1, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    x = content
+                res = re.search('```python(.*?)```', content, re.S)
+                if not res:
+                    continue
+                print(p1)
+                res = res.group(1)
+                p2 = root + "/tmp.py"
+                with open(p2, 'w', encoding='utf-8') as f:
+                    f.write(res)
+                os.system(f'black -S "{p2}"')
+                with open(p2, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                content = x.replace(res, '\n' + content)
+                with open(p1, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                os.remove(p2)
+
+
+def git_add():
+    command = 'git add .'
+    os.system(command)
+
+
 if __name__ == '__main__':
-    format_readme_cpp_code_block()
+    # format()
+    # format_cpp()
+    format_py()
+    git_add()

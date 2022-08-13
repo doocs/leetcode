@@ -80,7 +80,9 @@ BFS。
 
 ```python
 class Solution:
-    def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
+    def shortestDistance(
+        self, maze: List[List[int]], start: List[int], destination: List[int]
+    ) -> int:
         m, n = len(maze), len(maze[0])
         rs, cs = start
         rd, cd = destination

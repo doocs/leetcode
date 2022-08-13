@@ -71,8 +71,8 @@ summaryRanges.getIntervals(); // 返回 [[1, 3], [6, 7]]
 ```python
 from sortedcontainers import SortedDict
 
-class SummaryRanges:
 
+class SummaryRanges:
     def __init__(self):
         self.mp = SortedDict()
 
@@ -82,7 +82,12 @@ class SummaryRanges:
         lidx = n if ridx == 0 else ridx - 1
         keys = self.mp.keys()
         values = self.mp.values()
-        if lidx != n and ridx != n and values[lidx][1] + 1 == val and values[ridx][0] - 1 == val:
+        if (
+            lidx != n
+            and ridx != n
+            and values[lidx][1] + 1 == val
+            and values[ridx][0] - 1 == val
+        ):
             self.mp[keys[lidx]][1] = self.mp[keys[ridx]][1]
             self.mp.pop(keys[ridx])
         elif lidx != n and val <= values[lidx][1] + 1:

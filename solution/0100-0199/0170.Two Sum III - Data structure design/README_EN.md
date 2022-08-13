@@ -50,7 +50,6 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 
 ```python
 class TwoSum:
-
     def __init__(self):
         """
         Initialize your data structure here.

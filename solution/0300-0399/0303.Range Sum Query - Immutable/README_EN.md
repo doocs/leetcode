@@ -52,7 +52,6 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 
 ```python
 class NumArray:
-
     def __init__(self, nums: List[int]):
         self.s = [0] + list(accumulate(nums))
 

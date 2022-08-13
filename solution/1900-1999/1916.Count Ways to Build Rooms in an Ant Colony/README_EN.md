@@ -18,11 +18,15 @@
 
 <pre>
 
+
 <strong>Input:</strong> prevRoom = [-1,0,1]
+
 
 <strong>Output:</strong> 1
 
+
 <strong>Explanation:</strong>&nbsp;There is only one way to build the additional rooms: 0 &rarr; 1 &rarr; 2
+
 
 </pre>
 
@@ -32,25 +36,36 @@
 
 <pre>
 
+
 <strong>Input:</strong> prevRoom = [-1,0,0,1,2]
+
 
 <strong>Output:</strong> 6
 
+
 <strong>Explanation:
+
 
 </strong>The 6 ways are:
 
+
 0 &rarr; 1 &rarr; 3 &rarr; 2 &rarr; 4
+
 
 0 &rarr; 2 &rarr; 4 &rarr; 1 &rarr; 3
 
+
 0 &rarr; 1 &rarr; 2 &rarr; 3 &rarr; 4
+
 
 0 &rarr; 1 &rarr; 2 &rarr; 4 &rarr; 3
 
+
 0 &rarr; 2 &rarr; 1 &rarr; 3 &rarr; 4
 
+
 0 &rarr; 2 &rarr; 1 &rarr; 4 &rarr; 3
+
 
 </pre>
 
@@ -74,17 +89,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

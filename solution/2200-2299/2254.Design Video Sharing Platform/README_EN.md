@@ -31,6 +31,7 @@
 <strong>Output</strong>
 [null, 0, 1, null, null, 0, &quot;456&quot;, &quot;45&quot;, null, null, null, [1, 2], 2]
 
+
 <strong>Explanation</strong>
 VideoSharingPlatform videoSharingPlatform = new VideoSharingPlatform();
 videoSharingPlatform.upload(&quot;123&quot;);          // The smallest available videoId is 0, so return 0.
@@ -58,6 +59,7 @@ videoSharingPlatform.getViews(1);            // The video associated with videoI
 [[], [0], [0, 0, 1], [0], [0], [0], [0]]
 <strong>Output</strong>
 [null, null, &quot;-1&quot;, null, null, [-1], -1]
+
 
 <strong>Explanation</strong>
 VideoSharingPlatform videoSharingPlatform = new VideoSharingPlatform();
@@ -91,11 +93,13 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -108,6 +112,7 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 ### **...**
 
 ```
+
 
 ```
 

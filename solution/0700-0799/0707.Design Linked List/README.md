@@ -67,14 +67,12 @@ linkedList.get(1);            //返回3
 
 ```python
 class ListNode:
-
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
 
 class MyLinkedList:
-
     def __init__(self):
         self.dummy = ListNode()
         self.count = 0

@@ -66,6 +66,7 @@
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -73,6 +74,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
 
 ```
 
@@ -147,6 +149,7 @@ impl Solution {
         true
     }
 
+
     fn is_IPv6(s: &String) -> bool {
         let ss = s.split(':').collect::<Vec<&str>>();
         if ss.len() != 8 {
@@ -166,6 +169,7 @@ impl Solution {
         true
     }
 
+
     pub fn valid_ip_address(query_ip: String) -> String {
         if Self::is_IPv4(&query_ip) {
             return String::from("IPv4");
@@ -181,6 +185,7 @@ impl Solution {
 ### **...**
 
 ```
+
 
 ```
 

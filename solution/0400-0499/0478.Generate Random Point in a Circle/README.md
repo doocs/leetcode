@@ -52,6 +52,7 @@ solution.randPoint ();//返回[0.36572,0.17248]</pre>
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -60,11 +61,13 @@ solution.randPoint ();//返回[0.36572,0.17248]</pre>
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

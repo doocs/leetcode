@@ -90,7 +90,7 @@ class Solution:
             for j in range(n):
                 if grid[i][j] == 1:
                     for x, y in [[1, 0], [0, 1]]:
-                        if check(i + x, j +y):
+                        if check(i + x, j + y):
                             union(i * n + j, (i + x) * n + j + y)
 
         res = max(size)

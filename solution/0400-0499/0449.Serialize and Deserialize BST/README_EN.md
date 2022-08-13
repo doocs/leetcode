@@ -41,11 +41,11 @@
 #         self.left = None
 #         self.right = None
 
-class Codec:
 
+class Codec:
     def serialize(self, root: TreeNode) -> str:
-        """Encodes a tree to a single string.
-        """
+        """Encodes a tree to a single string."""
+
         def dfs(root):
             if root is None:
                 return
@@ -62,8 +62,8 @@ class Codec:
         return ''.join(t[:-1])
 
     def deserialize(self, data: str) -> TreeNode:
-        """Decodes your encoded data to tree.
-        """
+        """Decodes your encoded data to tree."""
+
         def build(s, l, r):
             if l > r:
                 return None

@@ -66,6 +66,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> TreeNode:
         def dfs(root):

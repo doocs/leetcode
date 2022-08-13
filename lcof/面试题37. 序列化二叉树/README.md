@@ -43,8 +43,8 @@
 #         self.left = None
 #         self.right = None
 
-class Codec:
 
+class Codec:
     def serialize(self, root):
         """Encodes a tree to a single string.
 
@@ -65,7 +65,6 @@ class Codec:
             else:
                 res.append('null')
         return f'[{",".join(res)}]'
-
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.

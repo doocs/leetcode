@@ -70,14 +70,23 @@ class BinaryIndexedTree:
             x -= BinaryIndexedTree.lowbit(x)
         return s
 
+
 class Solution:
     def kEmptySlots(self, bulbs: List[int], k: int) -> int:
         n = len(bulbs)
         tree = BinaryIndexedTree(n)
         for i, x in enumerate(bulbs, 1):
             tree.update(x, 1)
-            case1 = x - k - 1 > 0 and tree.query(x - k - 1) - tree.query(x - k - 2) == 1 and tree.query(x - 1) - tree.query(x - k - 1) == 0
-            case2 = x + k + 1 <= n and tree.query(x + k + 1) - tree.query(x + k) == 1 and tree.query(x + k) - tree.query(x) == 0
+            case1 = (
+                x - k - 1 > 0
+                and tree.query(x - k - 1) - tree.query(x - k - 2) == 1
+                and tree.query(x - 1) - tree.query(x - k - 1) == 0
+            )
+            case2 = (
+                x + k + 1 <= n
+                and tree.query(x + k + 1) - tree.query(x + k) == 1
+                and tree.query(x + k) - tree.query(x) == 0
+            )
             if case1 or case2:
                 return i
         return -1

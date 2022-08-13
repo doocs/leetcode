@@ -60,7 +60,9 @@ DFS.
 
 ```python
 class Solution:
-    def hasPath(self, maze: List[List[int]], start: List[int], destination: List[int]) -> bool:
+    def hasPath(
+        self, maze: List[List[int]], start: List[int], destination: List[int]
+    ) -> bool:
         def dfs(i, j):
             if vis[i][j]:
                 return

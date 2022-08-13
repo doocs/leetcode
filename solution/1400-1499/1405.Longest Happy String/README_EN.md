@@ -78,7 +78,6 @@ class Solution:
                     cur[0] += 1
                     heappush(h, cur)
 
-
         return ''.join(ans)
 ```
 

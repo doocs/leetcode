@@ -66,17 +66,20 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

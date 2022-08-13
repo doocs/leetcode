@@ -40,6 +40,7 @@
 <strong>输出：</strong>
 [null, null, null, "branford", null, "alps", null, "bradford", null, "bradford", null, "bradford", "orland"]
 
+
 <strong>解释：</strong>
 SORTracker tracker = new SORTracker(); // 初始化系统
 tracker.add("bradford", 2); // 添加 name="bradford" 且 score=2 的景点。
@@ -89,6 +90,7 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -96,6 +98,7 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
 
 ```
 
@@ -110,6 +113,7 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 ### **...**
 
 ```
+
 
 ```
 

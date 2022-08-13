@@ -70,8 +70,10 @@ src = 0, dst = 2, k = 0
 
 ```python
 class Solution:
-    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
-        INF = 0x3f3f3f3f
+    def findCheapestPrice(
+        self, n: int, flights: List[List[int]], src: int, dst: int, k: int
+    ) -> int:
+        INF = 0x3F3F3F3F
         dist = [INF] * n
         dist[src] = 0
         for _ in range(k + 1):

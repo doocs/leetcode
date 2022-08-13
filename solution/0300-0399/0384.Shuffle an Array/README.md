@@ -57,7 +57,6 @@ solution.shuffle();    // 随机返回数组 [1, 2, 3] 打乱后的结果。例�
 
 ```python
 class Solution:
-
     def __init__(self, nums: List[int]):
         self.nums = nums
         self.original = nums.copy()

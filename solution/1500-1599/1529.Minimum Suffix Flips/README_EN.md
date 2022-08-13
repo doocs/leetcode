@@ -59,13 +59,63 @@ We need at least 3 flip operations to form target.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minFlips(self, target: str) -> int:
+        ans = 0
+        for v in target:
+            if (ans & 1) ^ int(v):
+                ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minFlips(String target) {
+        int ans = 0;
+        for (int i = 0; i < target.length(); ++i) {
+            int v = target.charAt(i) - '0';
+            if (((ans & 1) ^ v) != 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minFlips(string target) {
+        int ans = 0;
+        for (char c : target) {
+            int v = c - '0';
+            if ((ans & 1) ^ v) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minFlips(target string) int {
+	ans := 0
+	for _, c := range target {
+		v := int(c - '0')
+		if ((ans & 1) ^ v) != 0 {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

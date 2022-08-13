@@ -18,9 +18,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: A = [2, 1, 0], B = [], C = []
 
+
 <strong> Output</strong>: C = [2, 1, 0]
+
 
 </pre>
 
@@ -28,9 +31,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: A = [1, 0], B = [], C = []
 
+
 <strong> Output</strong>: C = [1, 0]
+
 
 </pre>
 
@@ -48,17 +54,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

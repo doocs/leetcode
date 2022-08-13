@@ -91,9 +91,21 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if i < m - 1:
-                    e.append((abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j))
+                    e.append(
+                        (
+                            abs(heights[i][j] - heights[i + 1][j]),
+                            i * n + j,
+                            (i + 1) * n + j,
+                        )
+                    )
                 if j < n - 1:
-                    e.append((abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1))
+                    e.append(
+                        (
+                            abs(heights[i][j] - heights[i][j + 1]),
+                            i * n + j,
+                            i * n + j + 1,
+                        )
+                    )
         e.sort()
         for h, i, j in e:
             p[find(i)] = find(j)

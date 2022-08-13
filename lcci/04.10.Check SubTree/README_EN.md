@@ -50,6 +50,7 @@ Find the t2 node in t1 first, then use the depth-first search (DFS) algorithm to
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def checkSubTree(self, t1: TreeNode, t2: TreeNode) -> bool:
         def dfs(t1, t2):

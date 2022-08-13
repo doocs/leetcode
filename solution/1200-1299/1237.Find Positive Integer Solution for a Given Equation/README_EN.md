@@ -87,6 +87,7 @@ Binary search.
 
 """
 
+
 class Solution:
     def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
         res = []

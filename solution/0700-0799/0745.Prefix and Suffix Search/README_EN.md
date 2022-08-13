@@ -46,7 +46,6 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 
 ```python
 class WordFilter:
-
     def __init__(self, words: List[str]):
         self.d = {}
         for k, w in enumerate(words):

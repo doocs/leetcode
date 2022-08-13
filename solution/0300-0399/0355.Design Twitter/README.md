@@ -64,7 +64,6 @@ twitter.getNewsFeed(1);  // 用户 1 获取推文应当返回一个列表，其�
 
 ```python
 class Twitter:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -106,7 +105,6 @@ class Twitter:
         following = self.user_following[followerId]
         if followeeId in following:
             following.remove(followeeId)
-
 
 
 # Your Twitter object will be instantiated and called as such:

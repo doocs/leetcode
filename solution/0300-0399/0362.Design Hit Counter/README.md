@@ -68,7 +68,6 @@ counter.getHits(301); // 在时刻 301 统计过去 5 分钟内的敲击次数�
 
 ```python
 class HitCounter:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -81,7 +80,6 @@ class HitCounter:
         @param timestamp - The current timestamp (in seconds granularity).
         """
         self.counter[timestamp] += 1
-
 
     def getHits(self, timestamp: int) -> int:
         """

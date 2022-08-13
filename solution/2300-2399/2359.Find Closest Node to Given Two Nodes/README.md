@@ -101,7 +101,6 @@ class Solution:
                 d = max(a, b)
                 ans = i
         return ans
-
 ```
 
 ### **Java**

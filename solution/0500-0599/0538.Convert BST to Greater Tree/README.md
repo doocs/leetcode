@@ -82,6 +82,7 @@
 #         self.right = right
 class Solution:
     add = 0
+
     def convertBST(self, root: TreeNode) -> TreeNode:
         if root:
             self.convertBST(root.right)

@@ -10,9 +10,12 @@
 
 <pre>
 
+
 <strong> Input</strong>: 0.625
 
+
 <strong> Output</strong>: &quot;0.101&quot;
+
 
 </pre>
 
@@ -20,11 +23,15 @@
 
 <pre>
 
+
 <strong> Input</strong>: 0.1
+
 
 <strong> Output</strong>: &quot;ERROR&quot;
 
+
 <strong> Note</strong>: 0.1 cannot be represented accurately in binary.
+
 
 </pre>
 
@@ -42,17 +49,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

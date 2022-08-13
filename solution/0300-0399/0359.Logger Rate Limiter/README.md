@@ -63,7 +63,6 @@ logger.shouldPrintMessage(11, "foo"); // 11 >= 11 ，返回 true ，下一次 "f
 
 ```python
 class Logger:
-
     def __init__(self):
         """
         Initialize your data structure here.

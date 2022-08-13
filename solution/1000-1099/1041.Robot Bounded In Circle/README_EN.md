@@ -97,7 +97,9 @@ class Solution:
                 cur = (cur + 3) % 4
             else:
                 direction[cur] += 1
-        return cur != 0 or (direction[0] == direction[2] and direction[1] == direction[3])
+        return cur != 0 or (
+            direction[0] == direction[2] and direction[1] == direction[3]
+        )
 ```
 
 ### **Java**

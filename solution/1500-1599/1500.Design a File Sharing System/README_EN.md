@@ -83,7 +83,6 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 
 ```python
 class FileSharing:
-
     def __init__(self, m: int):
         self.cur = 0
         self.chunks = m
@@ -113,6 +112,7 @@ class FileSharing:
         if res:
             self.user_chunks[userID].add(chunkID)
         return sorted(res)
+
 
 # Your FileSharing object will be instantiated and called as such:
 # obj = FileSharing(m)

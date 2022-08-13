@@ -87,7 +87,9 @@ $A$, $B$ 两条路径一定存在着公共点 $p$，因为 $dest$ 一定是其�
 
 ```python
 class Solution:
-    def minimumWeight(self, n: int, edges: List[List[int]], src1: int, src2: int, dest: int) -> int:
+    def minimumWeight(
+        self, n: int, edges: List[List[int]], src1: int, src2: int, dest: int
+    ) -> int:
         def dijkstra(g, u):
             dist = [inf] * n
             dist[u] = 0

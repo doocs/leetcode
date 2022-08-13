@@ -16,25 +16,36 @@
 
 <pre>
 
+
 <strong>Input:</strong> s = &quot;abbcccaa&quot;
+
 
 <strong>Output:</strong> 13
 
+
 <strong>Explanation:</strong> The homogenous substrings are listed as below:
+
 
 &quot;a&quot;   appears 3 times.
 
+
 &quot;aa&quot;  appears 1 time.
+
 
 &quot;b&quot;   appears 2 times.
 
+
 &quot;bb&quot;  appears 1 time.
+
 
 &quot;c&quot;   appears 3 times.
 
+
 &quot;cc&quot;  appears 2 times.
 
+
 &quot;ccc&quot; appears 1 time.
+
 
 3 + 1 + 2 + 1 + 3 + 2 + 1 = 13.</pre>
 
@@ -42,9 +53,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> s = &quot;xy&quot;
 
+
 <strong>Output:</strong> 2
+
 
 <strong>Explanation:</strong> The homogenous substrings are &quot;x&quot; and &quot;y&quot;.</pre>
 
@@ -52,9 +66,12 @@
 
 <pre>
 
+
 <strong>Input:</strong> s = &quot;zzzzz&quot;
 
+
 <strong>Output:</strong> 15
+
 
 </pre>
 
@@ -75,17 +92,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

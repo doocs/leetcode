@@ -80,8 +80,8 @@ class BinaryIndexedTree:
             x -= BinaryIndexedTree.lowbit(x)
         return s
 
-class NumArray:
 
+class NumArray:
     def __init__(self, nums: List[int]):
         self.tree = BinaryIndexedTree(len(nums))
         for i, v in enumerate(nums, 1):

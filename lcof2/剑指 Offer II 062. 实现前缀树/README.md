@@ -91,7 +91,6 @@ trie.search(&quot;app&quot;);     // 返回 True
 
 ```python
 class Trie:
-
     def __init__(self):
         self.children = [None] * 26
         self.is_end = False
@@ -121,6 +120,7 @@ class Trie:
                 return None
             node = node.children[idx]
         return node
+
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()

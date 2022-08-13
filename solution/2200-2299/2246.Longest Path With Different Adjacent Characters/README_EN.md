@@ -48,11 +48,13 @@ It can be proven that there is no longer path that satisfies the conditions.
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -85,6 +87,7 @@ function longestPath(parent: number[], s: string): number {
 ### **...**
 
 ```
+
 
 ```
 

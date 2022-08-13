@@ -63,6 +63,7 @@
 
 ```python
 
+
 ```
 
 ### **Java**
@@ -70,6 +71,7 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
 
 ```
 
@@ -86,9 +88,11 @@ public:
             poss.insert(v[1]);
         }
 
+
         int i = 0;
         for (int pos : poss)
             m.insert(pair<int, int>(pos, i++));
+
 
         vector<int> highs(m.size(), 0);
         for (auto v : buildings) {
@@ -96,6 +100,7 @@ public:
             for (int i = b; i < e; ++i)
                 highs[i] = max(highs[i], v[2]);
         }
+
 
         vector<pair<int, int>> res;
         vector<int> mm(poss.begin(), poss.end());
@@ -117,6 +122,7 @@ public:
 ### **...**
 
 ```
+
 
 ```
 

@@ -64,7 +64,6 @@ rLEIterator.next(2); // 耗去序列的 2 个项，返回 -1。 这是由于第�
 
 ```python
 class RLEIterator:
-
     def __init__(self, encoding: List[int]):
         self.encoding = encoding
         self.i = 0
