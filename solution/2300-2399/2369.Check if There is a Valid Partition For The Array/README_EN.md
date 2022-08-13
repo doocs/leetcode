@@ -163,7 +163,7 @@ public:
 
     bool dfs(int i) {
         if (i == n) return true;
-        if (f[i] != -1 ) return f[i] == 1;
+        if (f[i] != -1) return f[i] == 1;
         bool res = false;
         if (i < n - 1 && nums[i] == nums[i + 1]) res = res || dfs(i + 2);
         if (i < n - 2 && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2]) res = res || dfs(i + 3);
