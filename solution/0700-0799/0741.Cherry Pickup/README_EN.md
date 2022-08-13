@@ -128,12 +128,9 @@ public:
         int n = grid.size();
         vector<vector<vector<int>>> dp(n << 1, vector<vector<int>>(n, vector<int>(n, -1e9)));
         dp[0][0][0] = grid[0][0];
-        for (int k = 1; k < n * 2 - 1; ++k)
-        {
-            for (int i1 = 0; i1 < n; ++i1)
-            {
-                for (int i2 = 0; i2 < n; ++i2)
-                {
+        for (int k = 1; k < n * 2 - 1; ++k) {
+            for (int i1 = 0; i1 < n; ++i1) {
+                for (int i2 = 0; i2 < n; ++i2) {
                     int j1 = k - i1, j2 = k - i2;
                     if (j1 < 0 || j1 >= n || j2 < 0 || j2 >= n || grid[i1][j1] == -1 || grid[i2][j2] == -1) continue;
                     int t = grid[i1][j1];

@@ -197,8 +197,7 @@ public:
 
     int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
         vector<vector<int>> g(n);
-        for (auto& e : edges)
-        {
+        for (auto& e : edges) {
             int a = e[0], b = e[1];
             g[a].push_back(b);
             g[b].push_back(a);

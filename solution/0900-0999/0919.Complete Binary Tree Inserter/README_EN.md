@@ -174,9 +174,8 @@ public:
     vector<TreeNode*> tree;
 
     CBTInserter(TreeNode* root) {
-        queue<TreeNode*> q{{root}};
-        while (!q.empty())
-        {
+        queue<TreeNode*> q {{root}};
+        while (!q.empty()) {
             auto node = q.front();
             q.pop();
             tree.push_back(node);
@@ -190,8 +189,10 @@ public:
         TreeNode* node = new TreeNode(val);
         tree.push_back(node);
         TreeNode* p = tree[pid];
-        if (!p->left) p->left = node;
-        else p->right = node;
+        if (!p->left)
+            p->left = node;
+        else
+            p->right = node;
         return p->val;
     }
 

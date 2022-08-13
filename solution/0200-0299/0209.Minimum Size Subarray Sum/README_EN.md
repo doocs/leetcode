@@ -151,12 +151,10 @@ public:
         vector<int> s(n + 1);
         for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
         int ans = n + 1;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int t = s[i] + target;
             auto p = lower_bound(s.begin(), s.end(), t);
-            if (p != s.end())
-            {
+            if (p != s.end()) {
                 int j = p - s.begin();
                 ans = min(ans, j - i);
             }

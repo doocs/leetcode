@@ -165,22 +165,18 @@ public:
         dist.assign(n + 1, inf);
         f.assign(n + 1, -1);
         dist[n] = 0;
-        for (auto& e : edges)
-        {
+        for (auto& e : edges) {
             int u = e[0], v = e[1], w = e[2];
             g[u].emplace_back(v, w);
             g[v].emplace_back(u, w);
         }
         priority_queue<pii, vector<pii>, greater<pii>> q;
         q.emplace(0, n);
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto [_, u] = q.top();
             q.pop();
-            for (auto [v, w] : g[u])
-            {
-                if (dist[v] > dist[u] + w)
-                {
+            for (auto [v, w] : g[u]) {
+                if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
                     q.emplace(dist[v], v);
                 }
@@ -193,10 +189,8 @@ public:
         if (f[i] != -1) return f[i];
         if (i == n) return 1;
         int ans = 0;
-        for (auto [j, _] : g[i])
-        {
-            if (dist[i] > dist[j])
-            {
+        for (auto [j, _] : g[i]) {
+            if (dist[i] > dist[j]) {
                 ans = (ans + dfs(j)) % mod;
             }
         }

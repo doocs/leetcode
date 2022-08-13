@@ -342,7 +342,9 @@ func randomLevel() int {
 struct Node {
     int val;
     vector<Node*> next;
-    Node(int v, int level) : val(v), next(level, nullptr) {}
+    Node(int v, int level)
+        : val(v)
+        , next(level, nullptr) { }
 };
 
 class Skiplist {
@@ -359,8 +361,7 @@ public:
 
     bool search(int target) {
         Node* curr = head;
-        for (int i = level - 1; ~i; --i)
-        {
+        for (int i = level - 1; ~i; --i) {
             curr = findClosest(curr, i, target);
             if (curr->next[i] && curr->next[i]->val == target) return true;
         }
@@ -372,11 +373,9 @@ public:
         int lv = randomLevel();
         Node* node = new Node(num, lv);
         level = max(level, lv);
-        for (int i = level - 1; ~i; --i)
-        {
+        for (int i = level - 1; ~i; --i) {
             curr = findClosest(curr, i, num);
-            if (i < lv)
-            {
+            if (i < lv) {
                 node->next[i] = curr->next[i];
                 curr->next[i] = node;
             }
@@ -386,11 +385,9 @@ public:
     bool erase(int num) {
         Node* curr = head;
         bool ok = false;
-        for (int i = level - 1; ~i; --i)
-        {
+        for (int i = level - 1; ~i; --i) {
             curr = findClosest(curr, i, num);
-            if (curr->next[i] && curr->next[i]->val == num)
-            {
+            if (curr->next[i] && curr->next[i]->val == num) {
                 curr->next[i] = curr->next[i]->next[i];
                 ok = true;
             }

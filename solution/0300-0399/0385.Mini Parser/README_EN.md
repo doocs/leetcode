@@ -209,15 +209,14 @@ public:
         if (s.size() <= 2) return NestedInteger();
         NestedInteger ans;
         int depth = 0;
-        for (int i = 1, j = 1; i < s.size(); ++i)
-        {
-            if (depth == 0 && (s[i] == ',' || i == s.size() - 1))
-            {
+        for (int i = 1, j = 1; i < s.size(); ++i) {
+            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
                 ans.add(deserialize(s.substr(j, i - j)));
                 j = i + 1;
-            }
-            else if (s[i] == '[') ++depth;
-            else if (s[i] == ']') --depth;
+            } else if (s[i] == '[')
+                ++depth;
+            else if (s[i] == ']')
+                --depth;
         }
         return ans;
     }

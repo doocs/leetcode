@@ -114,8 +114,7 @@ class Solution {
 public:
     int numUniqueEmails(vector<string>& emails) {
         unordered_set<string> s;
-        for (auto& email : emails)
-        {
+        for (auto& email : emails) {
             int i = email.find('@');
             string local = email.substr(0, i);
             string domain = email.substr(i + 1);

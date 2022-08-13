@@ -191,14 +191,11 @@ public:
         vector<string> words;
         string ss;
         while (is >> ss) words.push_back(ss);
-        for (int i = 0; i < words.size(); ++i)
-        {
+        for (int i = 0; i < words.size(); ++i) {
             string word = words[i];
-            for (int j = 1; j <= word.size(); ++j)
-            {
+            for (int j = 1; j <= word.size(); ++j) {
                 string t = word.substr(0, j);
-                if (s.count(t))
-                {
+                if (s.count(t)) {
                     words[i] = t;
                     break;
                 }

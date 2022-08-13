@@ -76,7 +76,7 @@ public:
     int minOperations(vector<int>& nums, int x) {
         int n = nums.size();
         int sum = 0;
-        for (int num: nums) {
+        for (int num : nums) {
             sum += num;
         }
 

@@ -245,10 +245,8 @@ public:
     }
 
     void dfs(int num, bool& find) {
-        for (int child : children[num])
-        {
-            if (nums.count(child))
-            {
+        for (int child : children[num]) {
+            if (nums.count(child)) {
                 nums.erase(child);
                 find = true;
             }

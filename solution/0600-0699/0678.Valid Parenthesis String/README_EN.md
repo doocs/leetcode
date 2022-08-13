@@ -124,9 +124,9 @@ class Solution {
 
 ```cpp
 class Solution {
-   public:
+public:
     bool checkValidString(string s) {
-        int n    = s.size();
+        int n = s.size();
         int left = 0, asterisk = 0;
         for (int i = 0; i < n; ++i) {
             if (s[i] == '(') {
@@ -143,7 +143,7 @@ class Solution {
             }
         }
         int right = 0;
-        asterisk  = 0;
+        asterisk = 0;
         for (int i = n - 1; i >= 0; --i) {
             if (s[i] == ')') {
                 ++right;

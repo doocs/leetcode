@@ -173,7 +173,9 @@ public:
     vector<int> p;
     int n;
 
-    UnionFind(int _n): n(_n), p(_n) {
+    UnionFind(int _n)
+        : n(_n)
+        , p(_n) {
         iota(p.begin(), p.end(), 0);
     }
 
@@ -199,12 +201,11 @@ public:
         for (int i = 0; i <= n; ++i) p[i] = i;
         UnionFind uf(n + 1);
         int conflict = -1, cycle = -1;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int u = edges[i][0], v = edges[i][1];
-            if (p[v] != v) conflict = i;
-            else
-            {
+            if (p[v] != v)
+                conflict = i;
+            else {
                 p[v] = u;
                 if (!uf.unite(u, v)) cycle = i;
             }

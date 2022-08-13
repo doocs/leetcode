@@ -141,10 +141,8 @@ public:
         k = n - blacklist.size();
         int i = k;
         unordered_set<int> black(blacklist.begin(), blacklist.end());
-        for (int& b : blacklist)
-        {
-            if (b < k)
-            {
+        for (int& b : blacklist) {
+            if (b < k) {
                 while (black.count(i)) ++i;
                 d[b] = i++;
             }

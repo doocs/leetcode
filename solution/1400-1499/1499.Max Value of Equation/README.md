@@ -107,8 +107,7 @@ public:
     int findMaxValueOfEquation(vector<vector<int>>& points, int k) {
         deque<vector<int>> q;
         int ans = INT_MIN;
-        for (auto& p : points)
-        {
+        for (auto& p : points) {
             int x = p[0], y = p[1];
             while (!q.empty() && x - q.front()[0] > k) q.pop_front();
             if (!q.empty()) ans = max(ans, y + x + q.front()[1] - q.front()[0]);

@@ -113,8 +113,7 @@ public:
         pos[0] = -1;
         string vowels = "aeiou";
         int state = 0, ans = 0;
-        for (int i = 0; i < s.size(); ++i)
-        {
+        for (int i = 0; i < s.size(); ++i) {
             for (int j = 0; j < 5; ++j)
                 if (s[i] == vowels[j])
                     state ^= (1 << j);

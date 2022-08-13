@@ -141,10 +141,11 @@ public:
         unordered_map<int, unordered_map<int, int>> mp;
         for (int i = 0; i < n; ++i) ++mp[find(i)][source[i]];
         int res = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (mp[find(i)][target[i]] > 0) --mp[find(i)][target[i]];
-            else ++res;
+        for (int i = 0; i < n; ++i) {
+            if (mp[find(i)][target[i]] > 0)
+                --mp[find(i)][target[i]];
+            else
+                ++res;
         }
         return res;
     }

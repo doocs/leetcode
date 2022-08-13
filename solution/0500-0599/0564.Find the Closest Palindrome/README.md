@@ -132,8 +132,7 @@ public:
         res.insert((long)pow(10, l - 1) - 1);
         res.insert((long)pow(10, l) + 1);
         long left = stol(n.substr(0, (l + 1) / 2));
-        for (long i = left - 1; i <= left + 1; ++i)
-        {
+        for (long i = left - 1; i <= left + 1; ++i) {
             string prefix = to_string(i);
             string t = prefix + string(prefix.rbegin() + (l & 1), prefix.rend());
             res.insert(stol(t));

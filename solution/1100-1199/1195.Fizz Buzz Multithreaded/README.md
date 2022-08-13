@@ -77,8 +77,8 @@ private:
     atomic<int> index;
     int n;
 
-// 这里主要运用到了C++11中的RAII锁(lock_guard)的知识。
-// 需要强调的一点是，在进入循环后，要时刻不忘加入index <= n的逻辑
+    // 这里主要运用到了C++11中的RAII锁(lock_guard)的知识。
+    // 需要强调的一点是，在进入循环后，要时刻不忘加入index <= n的逻辑
 public:
     FizzBuzz(int n) {
         this->n = n;
@@ -98,7 +98,7 @@ public:
     void buzz(function<void()> printBuzz) {
         while (index <= n) {
             std::lock_guard<std::mutex> lk(mtx);
-            if (0 == index % 5 && 0 != index % 3 && index <= n){
+            if (0 == index % 5 && 0 != index % 3 && index <= n) {
                 printBuzz();
                 index++;
             }

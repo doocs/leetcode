@@ -434,7 +434,7 @@ private:
         int count = mergeSort(nums, temp, l, m) + mergeSort(nums, temp, m + 1, r);
         int i = l, j = m + 1, k = l;
         while (i <= m && j <= r) {
-            if ((long long) nums[i] <= (long long) 2 * nums[j]) {
+            if ((long long)nums[i] <= (long long)2 * nums[j]) {
                 ++i;
             } else {
                 count += (m - i + 1);

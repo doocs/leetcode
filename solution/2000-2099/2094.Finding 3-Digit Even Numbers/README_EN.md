@@ -154,11 +154,9 @@ public:
     vector<int> findEvenNumbers(vector<int>& digits) {
         vector<int> counter = count(digits);
         vector<int> ans;
-        for (int i = 100; i < 1000; i += 2)
-        {
+        for (int i = 100; i < 1000; i += 2) {
             vector<int> t(3);
-            for (int j = 0, k = i; k > 0; ++j)
-            {
+            for (int j = 0, k = i; k > 0; ++j) {
                 t[j] = k % 10;
                 k /= 10;
             }

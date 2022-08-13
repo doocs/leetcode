@@ -158,26 +158,19 @@ public:
         size = n * n * 4;
         p.resize(size);
         for (int i = 0; i < size; ++i) p[i] = i;
-        for (int i = 0; i < n; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
                 int k = i * n + j;
                 if (i < n - 1) merge(4 * k + 2, (k + n) * 4);
                 if (j < n - 1) merge(4 * k + 1, (k + 1) * 4 + 3);
                 char v = grid[i][j];
-                if (v == '/')
-                {
+                if (v == '/') {
                     merge(4 * k, 4 * k + 3);
                     merge(4 * k + 1, 4 * k + 2);
-                }
-                else if (v == '\\')
-                {
+                } else if (v == '\\') {
                     merge(4 * k, 4 * k + 1);
                     merge(4 * k + 2, 4 * k + 3);
-                }
-                else
-                {
+                } else {
                     merge(4 * k, 4 * k + 1);
                     merge(4 * k + 1, 4 * k + 2);
                     merge(4 * k + 2, 4 * k + 3);

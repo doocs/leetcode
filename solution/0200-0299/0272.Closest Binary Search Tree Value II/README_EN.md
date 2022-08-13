@@ -146,8 +146,7 @@ public:
         this->k = k;
         dfs(root);
         vector<int> ans;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ans.push_back(q.front());
             q.pop();
         }
@@ -157,9 +156,9 @@ public:
     void dfs(TreeNode* root) {
         if (!root) return;
         dfs(root->left);
-        if (q.size() < k) q.push(root->val);
-        else
-        {
+        if (q.size() < k)
+            q.push(root->val);
+        else {
             if (abs(root->val - target) >= abs(q.front() - target)) return;
             q.pop();
             q.push(root->val);

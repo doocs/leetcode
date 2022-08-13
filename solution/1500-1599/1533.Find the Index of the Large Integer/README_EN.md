@@ -157,7 +157,7 @@ class Solution {
 
 class Solution {
 public:
-    int getIndex(ArrayReader &reader) {
+    int getIndex(ArrayReader& reader) {
         int left = 0, right = reader.length() - 1;
         while (left < right) {
             int t1 = left, t2 = left + (right - left) / 3, t3 = left + (right - left) / 3 * 2 + 1;

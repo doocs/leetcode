@@ -166,14 +166,12 @@ public:
 
     int dfs(int i, int k, vector<int>& s, vector<int>& memo) {
         if (memo[i] != inf) return memo[i];
-        if (s[n] - s[i] + n - i - 1 <= k)
-        {
+        if (s[n] - s[i] + n - i - 1 <= k) {
             memo[i] = 0;
             return 0;
         }
         int ans = inf;
-        for (int j = i + 1; j < n; ++j)
-        {
+        for (int j = i + 1; j < n; ++j) {
             int t = s[j] - s[i] + j - i - 1;
             if (t <= k) ans = min(ans, (k - t) * (k - t) + dfs(j, k, s, memo));
         }

@@ -169,7 +169,9 @@ public:
     vector<int> p;
     int n;
 
-    UnionFind(int _n): n(_n), p(_n) {
+    UnionFind(int _n)
+        : n(_n)
+        , p(_n) {
         iota(p.begin(), p.end(), 0);
     }
 
@@ -192,12 +194,12 @@ public:
     int maxNumEdgesToRemove(int n, vector<vector<int>>& edges) {
         UnionFind ufa(n), ufb(n);
         int ans = 0;
-        for (auto& e : edges)
-        {
-            if (e[0] == 3)
-            {
-                if (ufa.unite(e[1], e[2])) ufb.unite(e[1], e[2]);
-                else ++ans;
+        for (auto& e : edges) {
+            if (e[0] == 3) {
+                if (ufa.unite(e[1], e[2]))
+                    ufb.unite(e[1], e[2]);
+                else
+                    ++ans;
             }
         }
         for (auto& e : edges)

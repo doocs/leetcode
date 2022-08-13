@@ -97,7 +97,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int findMinDifference(vector<string> &timePoints) {
+    int findMinDifference(vector<string>& timePoints) {
         if (timePoints.size() > 24 * 60)
             return 0;
         vector<int> mins;

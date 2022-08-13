@@ -158,11 +158,9 @@ public:
         int mx = 0, cur = 0;
         this->times = times;
         vector<int> counter(n);
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int p = persons[i];
-            if (++counter[p] >= mx)
-            {
+            if (++counter[p] >= mx) {
                 mx = counter[p];
                 cur = p;
             }
@@ -172,11 +170,12 @@ public:
 
     int q(int t) {
         int left = 0, right = wins.size() - 1;
-        while (left < right)
-        {
+        while (left < right) {
             int mid = left + right + 1 >> 1;
-            if (times[mid] <= t) left = mid;
-            else right = mid - 1;
+            if (times[mid] <= t)
+                left = mid;
+            else
+                right = mid - 1;
         }
         return wins[left];
     }

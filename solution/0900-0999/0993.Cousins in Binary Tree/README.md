@@ -247,21 +247,17 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         int i = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int n = q.size();
-            while (n--)
-            {
+            while (n--) {
                 auto node = q.front();
                 d[node->val] = i;
                 q.pop();
-                if (node->left)
-                {
+                if (node->left) {
                     q.push(node->left);
                     p[node->left->val] = node->val;
                 }
-                if (node->right)
-                {
+                if (node->right) {
                     q.push(node->right);
                     p[node->right->val] = node->val;
                 }

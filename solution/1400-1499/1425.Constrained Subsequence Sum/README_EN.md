@@ -100,8 +100,7 @@ public:
         vector<int> dp(n);
         int ans = INT_MIN;
         deque<int> q;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             if (!q.empty() && i - q.front() > k) q.pop_front();
             dp[i] = max(0, q.empty() ? 0 : dp[q.front()]) + nums[i];
             ans = max(ans, dp[i]);

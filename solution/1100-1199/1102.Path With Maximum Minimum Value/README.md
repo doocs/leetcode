@@ -168,14 +168,12 @@ public:
                 scores.emplace_back(grid[i][j], i, j);
         sort(scores.begin(), scores.end());
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (find(0) != find(m * n - 1))
-        {
+        while (find(0) != find(m * n - 1)) {
             auto [score, i, j] = scores.back();
             scores.pop_back();
             ans = min(ans, score);
             vis[i][j] = true;
-            for (int k = 0; k < 4; ++k)
-            {
+            for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && vis[x][y])
                     p[find(x * n + y)] = find(i * n + j);

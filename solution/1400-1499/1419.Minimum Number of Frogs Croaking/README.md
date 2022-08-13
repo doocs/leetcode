@@ -137,31 +137,23 @@ class Solution {
 public:
     int minNumberOfFrogs(string croakOfFrogs) {
         int c = 0, r = 0, o = 0, a = 0, k = 0, ans = 0;
-        for (char ch : croakOfFrogs)
-        {
-            if (ch == 'c')
-            {
+        for (char ch : croakOfFrogs) {
+            if (ch == 'c') {
                 ++c;
-                if (k > 0) --k;
-                else ++ans;
-            }
-            else if (ch == 'r')
-            {
+                if (k > 0)
+                    --k;
+                else
+                    ++ans;
+            } else if (ch == 'r') {
                 ++r;
                 --c;
-            }
-            else if (ch == 'o')
-            {
+            } else if (ch == 'o') {
                 ++o;
                 --r;
-            }
-            else if (ch == 'a')
-            {
+            } else if (ch == 'a') {
                 ++a;
                 --o;
-            }
-            else
-            {
+            } else {
                 ++k;
                 --a;
             }

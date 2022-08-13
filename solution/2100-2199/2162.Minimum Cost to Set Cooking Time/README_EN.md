@@ -139,10 +139,10 @@ public:
         if (m < 0 || m > 99 || s < 0 || s > 99) return INT_MAX;
         vector<int> arr = {m / 10, m % 10, s / 10, s % 10};
         int i = 0;
-        for (; i < 4 && arr[i] == 0; ++i);
+        for (; i < 4 && arr[i] == 0; ++i)
+            ;
         int t = 0;
-        for (; i < 4; ++i)
-        {
+        for (; i < 4; ++i) {
             if (arr[i] != prev) t += moveCost;
             t += pushCost;
             prev = arr[i];

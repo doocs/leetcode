@@ -145,12 +145,10 @@ public:
         unordered_map<int, int> seen;
         seen[0] = -1;
         int ans = INT_MAX;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             s += nums[i];
             if (!seen.count(s)) seen[s] = i;
-            if (seen.count(s - x))
-            {
+            if (seen.count(s - x)) {
                 int j = seen[s - x];
                 ans = min(ans, n - (i - j));
             }

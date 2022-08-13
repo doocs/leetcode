@@ -203,20 +203,16 @@ public:
         mp['G'] = "ATC";
         queue<pair<string, int>> q;
         q.push({start, 0});
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto p = q.front();
             q.pop();
             string t = p.first;
             int step = p.second;
             if (t == end) return step;
-            for (int i = 0; i < t.size(); ++i)
-            {
-                for (char c : mp[t[i]])
-                {
+            for (int i = 0; i < t.size(); ++i) {
+                for (char c : mp[t[i]]) {
                     string next = t.substr(0, i) + c + t.substr(i + 1, t.size() - i - 1);
-                    if (s.count(next))
-                    {
+                    if (s.count(next)) {
                         q.push({next, step + 1});
                         s.erase(next);
                     }

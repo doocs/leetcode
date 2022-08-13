@@ -163,15 +163,12 @@ public:
     }
 
     void dfs(int i) {
-        if (i == n + 1)
-        {
+        if (i == n + 1) {
             ++ans;
             return;
         }
-        for (int j : match[i])
-        {
-            if (!vis[j])
-            {
+        for (int j : match[i]) {
+            if (!vis[j]) {
                 vis[j] = true;
                 dfs(i + 1);
                 vis[j] = false;

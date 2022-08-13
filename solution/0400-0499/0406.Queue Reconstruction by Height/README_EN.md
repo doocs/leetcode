@@ -82,7 +82,7 @@ public:
             return a[0] > b[0] || (a[0] == b[0] && a[1] < b[1]);
         });
         vector<vector<int>> ans;
-        for (const vector<int>& p: people)
+        for (const vector<int>& p : people)
             ans.insert(ans.begin() + p[1], p);
         return ans;
     }

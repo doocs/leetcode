@@ -89,8 +89,7 @@ public:
         ull prefix = 0;
         ull suffix = 0;
         int idx = 0, n = s.size();
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int t = s[i] - 'a' + 1;
             prefix = prefix * base + t;
             suffix = suffix + mul * t;

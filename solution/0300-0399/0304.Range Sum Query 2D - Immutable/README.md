@@ -131,10 +131,8 @@ public:
     NumMatrix(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
         s.resize(m + 1, vector<int>(n + 1));
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + matrix[i][j];
             }
         }

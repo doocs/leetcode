@@ -228,14 +228,11 @@ public:
         for (int i = 0; i < p.size(); ++i) p[i] = i;
         vector<vector<bool>> grid(row, vector<bool>(col, false));
         int top = n, bottom = n + 1;
-        for (int k = cells.size() - 1; k >= 0; --k)
-        {
+        for (int k = cells.size() - 1; k >= 0; --k) {
             int i = cells[k][0] - 1, j = cells[k][1] - 1;
             grid[i][j] = true;
-            for (auto e : dirs)
-            {
-                if (check(i + e[0], j + e[1], grid))
-                {
+            for (auto e : dirs) {
+                if (check(i + e[0], j + e[1], grid)) {
                     p[find(i * col + j)] = find((i + e[0]) * col + j + e[1]);
                 }
             }

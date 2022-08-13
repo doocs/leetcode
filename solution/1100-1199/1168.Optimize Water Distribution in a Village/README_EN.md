@@ -148,8 +148,7 @@ public:
             return a[2] < b[2];
         });
         int res = 0;
-        for (auto e : pipes)
-        {
+        for (auto e : pipes) {
             if (find(e[0]) == find(e[1])) continue;
             p[find(e[0])] = find(e[1]);
             res += e[2];

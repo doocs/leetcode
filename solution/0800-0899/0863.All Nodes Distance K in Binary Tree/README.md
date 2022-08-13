@@ -183,8 +183,7 @@ public:
     void dfs(TreeNode* root, int k) {
         if (!root || vis.count(root->val)) return;
         vis.insert(root->val);
-        if (k == 0)
-        {
+        if (k == 0) {
             ans.push_back(root->val);
             return;
         }

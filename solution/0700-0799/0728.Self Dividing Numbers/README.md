@@ -124,8 +124,7 @@ public:
     }
 
     bool check(int num) {
-        for (int t = num; t; t /= 10)
-        {
+        for (int t = num; t; t /= 10) {
             int x = t % 10;
             if (x == 0 || num % x) return false;
         }

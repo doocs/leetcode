@@ -142,7 +142,7 @@ public:
     vector<int> kthSmallestPrimeFraction(vector<int>& arr, int k) {
         using pii = pair<int, int>;
         int n = arr.size();
-        auto cmp = [&](const pii &a, const pii &b) {
+        auto cmp = [&](const pii& a, const pii& b) {
             return arr[a.first] * arr[b.second] > arr[b.first] * arr[a.second];
         };
         priority_queue<pii, vector<pii>, decltype(cmp)> pq(cmp);

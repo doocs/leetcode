@@ -124,8 +124,7 @@ public:
 
     void dfs(int i, int n, int k, vector<int>& t) {
         if (i > 9 || n < 0 || t.size() > k) return;
-        if (n == 0 && t.size() == k)
-        {
+        if (n == 0 && t.size() == k) {
             ans.push_back(t);
             return;
         }

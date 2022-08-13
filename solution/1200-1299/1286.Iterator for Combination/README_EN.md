@@ -222,7 +222,7 @@ public:
     int n;
     int combinationLength;
     string t;
-    
+
     CombinationIterator(string characters, int combinationLength) {
         idx = 0;
         n = characters.size();
@@ -230,11 +230,11 @@ public:
         this->combinationLength = combinationLength;
         dfs(0);
     }
-    
+
     string next() {
         return cs[idx++];
     }
-    
+
     bool hasNext() {
         return idx < cs.size();
     }

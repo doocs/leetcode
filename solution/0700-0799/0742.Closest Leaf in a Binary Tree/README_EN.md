@@ -163,25 +163,20 @@ public:
     int findClosestLeaf(TreeNode* root, int k) {
         dfs(root, nullptr);
         queue<TreeNode*> q;
-        for (auto& e : g)
-        {
-            if (e.first && e.first->val == k)
-            {
+        for (auto& e : g) {
+            if (e.first && e.first->val == k) {
                 q.push(e.first);
                 break;
             }
         }
         unordered_set<TreeNode*> seen;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto node = q.front();
             q.pop();
             seen.insert(node);
-            if (node)
-            {
+            if (node) {
                 if (!node->left && !node->right) return node->val;
-                for (auto next : g[node])
-                {
+                for (auto next : g[node]) {
                     if (!seen.count(next))
                         q.push(next);
                 }

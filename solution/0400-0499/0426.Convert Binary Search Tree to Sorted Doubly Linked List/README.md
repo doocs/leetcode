@@ -212,12 +212,11 @@ public:
     void dfs(Node* root) {
         if (!root) return;
         dfs(root->left);
-        if (prev)
-        {
+        if (prev) {
             prev->right = root;
             root->left = prev;
-        }
-        else head = root;
+        } else
+            head = root;
         prev = root;
         dfs(root->right);
     }

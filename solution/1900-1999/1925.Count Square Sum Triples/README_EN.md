@@ -81,7 +81,7 @@ public:
         for (int a = 1; a <= n; ++a) {
             for (int b = 1; b <= n; ++b) {
                 int t = a * a + b * b;
-                int c = (int) sqrt(t);
+                int c = (int)sqrt(t);
                 if (c <= n && c * c == t) {
                     ++res;
                 }

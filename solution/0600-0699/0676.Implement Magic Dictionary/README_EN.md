@@ -205,7 +205,6 @@ public:
     vector<string> d;
 
     MagicDictionary() {
-
     }
 
     void buildDict(vector<string> dictionary) {
@@ -213,8 +212,7 @@ public:
     }
 
     bool search(string searchWord) {
-        for (auto&& w : d)
-        {
+        for (auto&& w : d) {
             if (w.size() != searchWord.size()) continue;
             int diff = 0;
             for (int i = 0; i < w.size(); ++i) diff += w[i] != searchWord[i];

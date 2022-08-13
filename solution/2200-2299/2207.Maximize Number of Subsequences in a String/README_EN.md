@@ -92,8 +92,7 @@ public:
         long long ans = 0;
         char a = pattern[0], b = pattern[1];
         vector<int> cnt(26);
-        for (char& c : text)
-        {
+        for (char& c : text) {
             if (c == b) ans += cnt[a - 'a'];
             cnt[c - 'a']++;
         }

@@ -129,8 +129,10 @@ public:
             int end = interval[1];
             while (left < right) {
                 int mid = left + right >> 1;
-                if (starts[mid].first >= end) right = mid;
-                else left = mid + 1;
+                if (starts[mid].first >= end)
+                    right = mid;
+                else
+                    left = mid + 1;
             }
             res.push_back(starts[left].first < end ? -1 : starts[left].second);
         }

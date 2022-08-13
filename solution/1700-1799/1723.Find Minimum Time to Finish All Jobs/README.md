@@ -151,8 +151,7 @@ public:
             ans = min(ans, *max_element(cnt.begin(), cnt.end()));
             return;
         }
-        for (int j = 0; j < k; ++j)
-        {
+        for (int j = 0; j < k; ++j) {
             if (cnt[j] + jobs[i] >= ans) continue;
             cnt[j] += jobs[i];
             dfs(i + 1, k, jobs, cnt);

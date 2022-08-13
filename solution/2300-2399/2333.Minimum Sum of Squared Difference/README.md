@@ -151,31 +151,28 @@ public:
         ll s = 0;
         int mx = 0;
         int k = k1 + k2;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             d[i] = abs(nums1[i] - nums2[i]);
             s += d[i];
             mx = max(mx, d[i]);
         }
         if (s <= k) return 0;
         int left = 0, right = mx;
-        while (left < right)
-        {
+        while (left < right) {
             int mid = (left + right) >> 1;
             ll t = 0;
             for (int v : d) t += max(v - mid, 0);
-            if (t <= k) right = mid;
-            else left = mid + 1;
+            if (t <= k)
+                right = mid;
+            else
+                left = mid + 1;
         }
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             k -= max(0, d[i] - left);
             d[i] = min(d[i], left);
         }
-        for (int i = 0; i < n && k; ++i)
-        {
-            if (d[i] == left)
-            {
+        for (int i = 0; i < n && k; ++i) {
+            if (d[i] == left) {
                 --k;
                 --d[i];
             }

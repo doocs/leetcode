@@ -329,15 +329,13 @@ public:
     int dfs(Node* root) {
         if (!root) return 0;
         int m1 = 0, m2 = 0;
-        for (Node* child : root->children)
-        {
+        for (Node* child : root->children) {
             int t = dfs(child);
-            if (t > m1)
-            {
+            if (t > m1) {
                 m2 = m1;
                 m1 = t;
-            }
-            else if (t > m2) m2 = t;
+            } else if (t > m2)
+                m2 = t;
         }
         ans = max(ans, m1 + m2);
         return 1 + m1;

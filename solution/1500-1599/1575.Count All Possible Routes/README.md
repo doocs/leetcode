@@ -154,8 +154,7 @@ public:
         if (f[i][t] != -1) return f[i][t];
         if (abs(locations[i] - locations[target]) > t) return 0;
         int res = i == target;
-        for (int j = 0; j < locations.size(); ++j)
-        {
+        for (int j = 0; j < locations.size(); ++j) {
             if (j == i) continue;
             int cost = abs(locations[i] - locations[j]);
             if (cost <= t) res = (res + dfs(j, t - cost, locations, target, f)) % mod;

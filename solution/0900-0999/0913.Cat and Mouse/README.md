@@ -213,18 +213,18 @@ public:
 
     int dfs(int i, int j, int k) {
         if (memo[i][j][k] != -1) return memo[i][j][k];
-        if (k >= 2 * graph.size()) memo[i][j][k] = 0;
-        else if (i == 0) memo[i][j][k] = 1;
-        else if (i == j) memo[i][j][k] = 2;
-        else if (k % 2)
-        {
+        if (k >= 2 * graph.size())
+            memo[i][j][k] = 0;
+        else if (i == 0)
+            memo[i][j][k] = 1;
+        else if (i == j)
+            memo[i][j][k] = 2;
+        else if (k % 2) {
             bool tie = false, win = false;
-            for (int next : graph[j])
-            {
+            for (int next : graph[j]) {
                 if (next == 0) continue;
                 int x = dfs(i, next, k + 1);
-                if (x == 2)
-                {
+                if (x == 2) {
                     win = true;
                     memo[i][j][k] = 2;
                     break;
@@ -232,15 +232,11 @@ public:
                 if (x == 0) tie = true;
             }
             if (!win) memo[i][j][k] = tie ? 0 : 1;
-        }
-        else
-        {
+        } else {
             bool tie = false, win = false;
-            for (int next : graph[i])
-            {
+            for (int next : graph[i]) {
                 int x = dfs(next, j, k + 1);
-                if (x == 1)
-                {
+                if (x == 1) {
                     win = true;
                     memo[i][j][k] = 1;
                     break;

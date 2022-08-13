@@ -115,13 +115,10 @@ public:
     int shoppingOffers(vector<int>& price, vector<vector<int>>& special, vector<int>& needs) {
         int ans = total(price, needs);
         vector<int> t;
-        for (auto& offer : special)
-        {
+        for (auto& offer : special) {
             t.clear();
-            for (int j = 0; j < needs.size(); ++j)
-            {
-                if (offer[j] > needs[j])
-                {
+            for (int j = 0; j < needs.size(); ++j) {
+                if (offer[j] > needs[j]) {
                     t.clear();
                     break;
                 }

@@ -141,16 +141,12 @@ public:
     }
 
     int next(int n) {
-        while (i < encoding.size())
-        {
-            if (curr + n > encoding[i])
-            {
+        while (i < encoding.size()) {
+            if (curr + n > encoding[i]) {
                 n -= encoding[i] - curr;
                 curr = 0;
                 i += 2;
-            }
-            else
-            {
+            } else {
                 curr += n;
                 return encoding[i + 1];
             }

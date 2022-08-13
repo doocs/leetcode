@@ -214,11 +214,9 @@ public:
 
         vector<bool> ans(m, false);
         int i = 0;
-        for (int j : indexes)
-        {
+        for (int j : indexes) {
             int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
-            while (i < edgeList.size() && edgeList[i][2] < limit)
-            {
+            while (i < edgeList.size() && edgeList[i][2] < limit) {
                 int u = edgeList[i][0], v = edgeList[i][1];
                 p[find(u)] = find(v);
                 ++i;

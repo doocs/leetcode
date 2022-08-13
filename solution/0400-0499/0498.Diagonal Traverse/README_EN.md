@@ -96,8 +96,7 @@ public:
         int m = mat.size(), n = mat[0].size();
         vector<int> ans;
         vector<int> t;
-        for (int k = 0; k < m + n - 1; ++k)
-        {
+        for (int k = 0; k < m + n - 1; ++k) {
             int i = k < n ? 0 : k - n + 1;
             int j = k < n ? k : n - 1;
             while (i < m && j >= 0) t.push_back(mat[i++][j--]);

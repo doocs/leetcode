@@ -105,8 +105,7 @@ public:
         int ans = (n + m - 1) / m;
         string t = "";
         for (int i = 0; i < ans; ++i) t += a;
-        for (int i = 0; i < 3; ++i)
-        {
+        for (int i = 0; i < 3; ++i) {
             if (t.find(b) != -1) return ans;
             ++ans;
             t += a;

@@ -165,10 +165,8 @@ public:
     bool dfs(int u) {
         if (u == n * 2) return 1;
         if (path[u]) return dfs(u + 1);
-        for (int i = n; i > 1; --i)
-        {
-            if (cnt[i] && u + i < n * 2 && !path[u + i])
-            {
+        for (int i = n; i > 1; --i) {
+            if (cnt[i] && u + i < n * 2 && !path[u + i]) {
                 path[u] = path[u + i] = i;
                 cnt[i] = 0;
                 if (dfs(u + 1)) return 1;
@@ -176,8 +174,7 @@ public:
                 path[u] = path[u + i] = 0;
             }
         }
-        if (cnt[1])
-        {
+        if (cnt[1]) {
             path[u] = 1;
             cnt[1] = 0;
             if (dfs(u + 1)) return 1;

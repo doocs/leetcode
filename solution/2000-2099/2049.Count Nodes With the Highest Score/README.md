@@ -209,19 +209,17 @@ public:
     int dfs(int u, unordered_map<int, vector<int>>& g) {
         int size = 1;
         long long score = 1;
-        for (int v : g[u])
-        {
+        for (int v : g[u]) {
             int t = dfs(v, g);
             size += t;
             score *= t;
         }
         if (u > 0) score *= (n - size);
-        if (score > maxScore)
-        {
+        if (score > maxScore) {
             maxScore = score;
             ans = 1;
-        }
-        else if (score == maxScore) ++ans;
+        } else if (score == maxScore)
+            ++ans;
         return size;
     }
 };

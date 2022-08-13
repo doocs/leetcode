@@ -250,10 +250,8 @@ public:
         vis.resize(n);
         this->isConnected = isConnected;
         int ans = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (!vis[i])
-            {
+        for (int i = 0; i < n; ++i) {
+            if (!vis[i]) {
                 dfs(i);
                 ++ans;
             }

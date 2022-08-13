@@ -125,8 +125,7 @@ public:
         sort(buses.begin(), buses.end());
         sort(passengers.begin(), passengers.end());
         int j = 0, c = 0;
-        for (int t : buses)
-        {
+        for (int t : buses) {
             c = capacity;
             while (c && j < passengers.size() && passengers[j] <= t) --c, ++j;
         }

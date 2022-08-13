@@ -164,13 +164,11 @@ public:
         int incr = 1, decr = 1;
         auto left = dfs(root->left);
         auto right = dfs(root->right);
-        if (root->left)
-        {
+        if (root->left) {
             if (root->left->val + 1 == root->val) incr = left[0] + 1;
             if (root->left->val - 1 == root->val) decr = left[1] + 1;
         }
-        if (root->right)
-        {
+        if (root->right) {
             if (root->right->val + 1 == root->val) incr = max(incr, right[0] + 1);
             if (root->right->val - 1 == root->val) decr = max(decr, right[1] + 1);
         }

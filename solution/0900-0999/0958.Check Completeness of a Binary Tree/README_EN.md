@@ -110,9 +110,8 @@ class Solution {
 class Solution {
 public:
     bool isCompleteTree(TreeNode* root) {
-        queue<TreeNode*> q{{root}};
-        while (q.front())
-        {
+        queue<TreeNode*> q {{root}};
+        while (q.front()) {
             root = q.front();
             q.pop();
             q.push(root->left);

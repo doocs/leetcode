@@ -176,7 +176,6 @@ public class Codec {
  */
 class Codec {
 public:
-
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
         if (!root) return "";
@@ -186,9 +185,9 @@ public:
     }
 
     void preorder(TreeNode* root, string& s) {
-        if (!root) s += "# ";
-        else
-        {
+        if (!root)
+            s += "# ";
+        else {
             s += to_string(root->val) + " ";
             preorder(root->left, s);
             preorder(root->right, s);

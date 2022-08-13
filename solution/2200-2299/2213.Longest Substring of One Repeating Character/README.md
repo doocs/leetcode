@@ -313,8 +313,7 @@ public:
     void build(int u, int l, int r) {
         tr[u]->l = l;
         tr[u]->r = r;
-        if (l == r)
-        {
+        if (l == r) {
             tr[u]->lmx = tr[u]->rmx = tr[u]->mx = tr[u]->size = 1;
             tr[u]->lc = tr[u]->rc = s[l - 1];
             return;
@@ -326,14 +325,15 @@ public:
     }
 
     void modify(int u, int x, char v) {
-        if (tr[u]->l == x && tr[u]->r == x)
-        {
+        if (tr[u]->l == x && tr[u]->r == x) {
             tr[u]->lc = tr[u]->rc = v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (x <= mid) modify(u << 1, x, v);
-        else modify(u << 1 | 1, x, v);
+        if (x <= mid)
+            modify(u << 1, x, v);
+        else
+            modify(u << 1 | 1, x, v);
         pushup(u);
     }
 
@@ -358,8 +358,7 @@ public:
         root->lmx = left->lmx;
         root->rmx = right->rmx;
 
-        if (left->rc == right->lc)
-        {
+        if (left->rc == right->lc) {
             if (left->lmx == left->size) root->lmx += right->lmx;
             if (right->rmx == right->size) root->rmx += left->rmx;
             root->mx = max(root->mx, left->rmx + right->lmx);
@@ -377,8 +376,7 @@ public:
         SegmentTree* tree = new SegmentTree(s);
         int k = queryCharacters.size();
         vector<int> ans(k);
-        for (int i = 0; i < k; ++i)
-        {
+        for (int i = 0; i < k; ++i) {
             int x = queryIndices[i] + 1;
             tree->modify(1, x, queryCharacters[i]);
             ans[i] = tree->query(1, 1, s.size())->mx;

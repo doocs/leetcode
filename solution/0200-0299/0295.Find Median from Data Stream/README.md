@@ -123,7 +123,7 @@ class MedianFinder {
 class MedianFinder {
 public:
     /** initialize your data structure here. */
-    MedianFinder() {}
+    MedianFinder() { }
 
     void addNum(int num) {
         max_heap.push(num);

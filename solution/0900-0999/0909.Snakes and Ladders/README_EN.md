@@ -155,25 +155,21 @@ public:
 
     int snakesAndLadders(vector<vector<int>>& board) {
         n = board.size();
-        queue<int> q{{1}};
+        queue<int> q {{1}};
         vector<bool> vis(n * n + 1);
         vis[1] = true;
         int ans = 0;
-        while (!q.empty())
-        {
-            for (int t = q.size(); t; --t)
-            {
+        while (!q.empty()) {
+            for (int t = q.size(); t; --t) {
                 int curr = q.front();
                 if (curr == n * n) return ans;
                 q.pop();
-                for (int k = curr + 1; k <= min(curr + 6, n * n); ++k)
-                {
+                for (int k = curr + 1; k <= min(curr + 6, n * n); ++k) {
                     auto p = get(k);
                     int next = k;
                     int i = p[0], j = p[1];
                     if (board[i][j] != -1) next = board[i][j];
-                    if (!vis[next])
-                    {
+                    if (!vis[next]) {
                         vis[next] = true;
                         q.push(next);
                     }

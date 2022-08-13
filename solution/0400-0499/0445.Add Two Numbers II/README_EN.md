@@ -130,15 +130,12 @@ public:
         for (; l2; l2 = l2->next) s2.push(l2->val);
         int carry = 0;
         ListNode* dummy = new ListNode();
-        while (!s1.empty() || !s2.empty() || carry)
-        {
-            if (!s1.empty())
-            {
+        while (!s1.empty() || !s2.empty() || carry) {
+            if (!s1.empty()) {
                 carry += s1.top();
                 s1.pop();
             }
-            if (!s2.empty())
-            {
+            if (!s2.empty()) {
                 carry += s2.top();
                 s2.pop();
             }

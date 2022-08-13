@@ -116,8 +116,7 @@ public:
         d[' '] = ' ';
         int i = 0;
         string lowcase = "abcdefghijklmnopqrstuvwxyz";
-        for (char c : key)
-        {
+        for (char c : key) {
             if (d.count(c)) continue;
             d[c] = lowcase[i]++;
         }

@@ -202,8 +202,7 @@ public:
     string host(string url) {
         int i = 7;
         string res;
-        for (; i < url.size(); ++i)
-        {
+        for (; i < url.size(); ++i) {
             if (url[i] == '/') break;
             res += url[i];
         }

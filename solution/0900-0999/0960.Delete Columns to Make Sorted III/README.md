@@ -121,12 +121,9 @@ public:
         int n = strs[0].size();
         vector<int> dp(n, 1);
         int mx = 1;
-        for (int i = 1; i < n; ++i)
-        {
-            for (int j = 0; j < i; ++j)
-            {
-                if (check(i, j, strs))
-                {
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (check(i, j, strs)) {
                     dp[i] = max(dp[i], dp[j] + 1);
                 }
             }

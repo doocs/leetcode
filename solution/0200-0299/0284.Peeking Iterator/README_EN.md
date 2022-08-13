@@ -191,34 +191,35 @@ class PeekingIterator implements Iterator<Integer> {
 
 class PeekingIterator : public Iterator {
 public:
-	PeekingIterator(const vector<int>& nums) : Iterator(nums) {
-	    // Initialize any member here.
-	    // **DO NOT** save a copy of nums and manipulate it directly.
-	    // You should only use the Iterator interface methods.
-	    hasPeeked = false;
-	}
+    PeekingIterator(const vector<int>& nums)
+        : Iterator(nums) {
+        // Initialize any member here.
+        // **DO NOT** save a copy of nums and manipulate it directly.
+        // You should only use the Iterator interface methods.
+        hasPeeked = false;
+    }
 
     // Returns the next element in the iteration without advancing the iterator.
-	int peek() {
-        if (!hasPeeked)
-        {
+    int peek() {
+        if (!hasPeeked) {
             peekedElement = Iterator::next();
             hasPeeked = true;
         }
         return peekedElement;
-	}
+    }
 
-	// hasNext() and next() should behave the same as in the Iterator interface.
-	// Override them if needed.
-	int next() {
-	    if (!hasPeeked) return Iterator::next();
+    // hasNext() and next() should behave the same as in the Iterator interface.
+    // Override them if needed.
+    int next() {
+        if (!hasPeeked) return Iterator::next();
         hasPeeked = false;
         return peekedElement;
-	}
+    }
 
-	bool hasNext() const {
-	    return hasPeeked || Iterator::hasNext();
-	}
+    bool hasNext() const {
+        return hasPeeked || Iterator::hasNext();
+    }
+
 private:
     bool hasPeeked;
     int peekedElement;

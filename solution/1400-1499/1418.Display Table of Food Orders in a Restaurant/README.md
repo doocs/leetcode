@@ -136,8 +136,7 @@ public:
         unordered_set<int> tables;
         unordered_set<string> foods;
         unordered_map<string, int> mp;
-        for (auto& order : orders)
-        {
+        for (auto& order : orders) {
             int table = stoi(order[1]);
             string food = order[2];
             tables.insert(table);
@@ -155,12 +154,10 @@ public:
         title.push_back("Table");
         for (auto e : f) title.push_back(e);
         res.push_back(title);
-        for (int table : t)
-        {
+        for (int table : t) {
             vector<string> tmp;
             tmp.push_back(to_string(table));
-            for (string food : f)
-            {
+            for (string food : f) {
                 tmp.push_back(to_string(mp[to_string(table) + "." + food]));
             }
             res.push_back(tmp);

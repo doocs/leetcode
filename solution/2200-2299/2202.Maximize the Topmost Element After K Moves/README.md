@@ -117,8 +117,7 @@ public:
     int maximumTop(vector<int>& nums, int k) {
         if (k == 0) return nums[0];
         int n = nums.size();
-        if (n == 1)
-        {
+        if (n == 1) {
             if (k % 2) return -1;
             return nums[0];
         }

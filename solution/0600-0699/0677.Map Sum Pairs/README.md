@@ -136,14 +136,12 @@ public:
 
     /** Initialize your data structure here. */
     MapSum() {
-
     }
 
     void insert(string key, int val) {
         int old = t[key];
         t[key] = val;
-        for (int i = 1; i < key.size() + 1; ++i)
-        {
+        for (int i = 1; i < key.size() + 1; ++i) {
             string k = key.substr(0, i);
             data[k] += (val - old);
         }

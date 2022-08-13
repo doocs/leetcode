@@ -142,10 +142,8 @@ public:
 
     int pick(int target) {
         int n = 0, ans = 0;
-        for (int i = 0; i < nums.size(); ++i)
-        {
-            if (nums[i] == target)
-            {
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == target) {
                 ++n;
                 int x = 1 + rand() % n;
                 if (n == x) ans = i;

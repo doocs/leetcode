@@ -140,8 +140,7 @@ public:
 
     void dfs(TreeNode* g, TreeNode* p) {
         if (!p) return;
-        if (g->val % 2 == 0)
-        {
+        if (g->val % 2 == 0) {
             if (p->left) res += p->left->val;
             if (p->right) res += p->right->val;
         }

@@ -146,8 +146,7 @@ public:
         int d = node / 10, p = node % 10;
         int l = (d + 1) * 10 + (p * 2) - 1;
         int r = l + 1;
-        if (!mp.count(l) && !mp.count(r))
-        {
+        if (!mp.count(l) && !mp.count(r)) {
             ans += t;
             return;
         }

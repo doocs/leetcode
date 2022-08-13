@@ -291,10 +291,9 @@ public:
         modify(l, r, v, root);
     }
 
-    void modify(int l, int r,int v, Node* node) {
+    void modify(int l, int r, int v, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v = node->r - node->l + 1;
             node->add = v;
             return;
@@ -311,7 +310,7 @@ public:
 
     int query(int l, int r, Node* node) {
         if (l > r) return 0;
-        if (node->l >= l && node-> r <= r) return node->v;
+        if (node->l >= l && node->r <= r) return node->v;
         pushdown(node);
         int v = 0;
         if (l <= node->mid) v += query(l, r, node->left);
@@ -326,8 +325,7 @@ public:
     void pushdown(Node* node) {
         if (!node->left) node->left = new Node(node->l, node->mid);
         if (!node->right) node->right = new Node(node->mid + 1, node->r);
-        if (node->add)
-        {
+        if (node->add) {
             Node* left = node->left;
             Node* right = node->right;
             left->v = left->r - left->l + 1;
@@ -345,8 +343,7 @@ public:
         int n = paint.size();
         vector<int> ans(n);
         SegmentTree* tree = new SegmentTree();
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int l = paint[i][0] + 1;
             int r = paint[i][1];
             int v = tree->query(l, r);

@@ -375,8 +375,7 @@ public:
 
     void modifyAdd(int l, int r, int inc, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v = (node->v + (node->r - node->l + 1) * inc) % MOD;
             node->add = (node->add + inc) % MOD;
             return;
@@ -393,8 +392,7 @@ public:
 
     void modifyMul(int l, int r, int m, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v = (node->v * m) % MOD;
             node->add = (node->add * m) % MOD;
             node->mul = (node->mul * m) % MOD;
@@ -427,8 +425,7 @@ public:
     void pushdown(Node* node) {
         if (!node->left) node->left = new Node(node->l, node->mid);
         if (!node->right) node->right = new Node(node->mid + 1, node->r);
-        if (node->add || node->mul != 1)
-        {
+        if (node->add || node->mul != 1) {
             long add = node->add, mul = node->mul;
             Node* left = node->left;
             Node* right = node->right;
@@ -443,7 +440,6 @@ public:
         }
     }
 };
-
 
 class Fancy {
 public:

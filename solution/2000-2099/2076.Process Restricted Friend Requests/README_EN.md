@@ -154,18 +154,15 @@ public:
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
         vector<bool> ans;
-        for (auto& req : requests)
-        {
+        for (auto& req : requests) {
             int u = req[0], v = req[1];
-            if (find(u) == find(v)) ans.push_back(true);
-            else
-            {
+            if (find(u) == find(v))
+                ans.push_back(true);
+            else {
                 bool valid = true;
-                for (auto& res : restrictions)
-                {
+                for (auto& res : restrictions) {
                     int x = res[0], y = res[1];
-                    if ((find(u) == find(x) && find(v) == find(y)) || (find(u) == find(y) && find(v) == find(x)))
-                    {
+                    if ((find(u) == find(x) && find(v) == find(y)) || (find(u) == find(y) && find(v) == find(x))) {
                         valid = false;
                         break;
                     }

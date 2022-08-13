@@ -201,7 +201,7 @@ public:
         int sum = accumulate(nums.begin(), nums.end(), 0);
         if (sum % k != 0) return false;
 
-        int target  = sum / k;
+        int target = sum / k;
         int n = nums.size();
         vector<int> cur(k, 0);
 

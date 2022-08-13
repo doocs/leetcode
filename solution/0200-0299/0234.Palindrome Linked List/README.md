@@ -140,22 +140,19 @@ public:
         if (!head || !head->next) return true;
         ListNode* slow = head;
         ListNode* fast = head->next;
-        while (fast && fast->next)
-        {
+        while (fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
         }
         ListNode* pre = nullptr;
         ListNode* cur = slow->next;
-        while (cur)
-        {
+        while (cur) {
             ListNode* t = cur->next;
             cur->next = pre;
             pre = cur;
             cur = t;
         }
-        while (pre)
-        {
+        while (pre) {
             if (pre->val != head->val) return false;
             pre = pre->next;
             head = head->next;

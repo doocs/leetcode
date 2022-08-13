@@ -97,7 +97,7 @@ public:
     int findMiddleIndex(vector<int>& nums) {
         int sum = 0;
         int total = 0;
-        for (int num: nums)
+        for (int num : nums)
             sum += num;
 
         for (int i = 0; i < nums.size(); i++) {

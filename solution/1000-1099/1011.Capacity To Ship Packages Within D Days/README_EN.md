@@ -160,37 +160,28 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int shipWithinDays(vector<int> &weights, int days) {
+    int shipWithinDays(vector<int>& weights, int days) {
         int left = 1, right = 25000000;
-        while (left < right)
-        {
+        while (left < right) {
             int mid = left + right >> 1;
-            if (check(weights, days, mid))
-            {
+            if (check(weights, days, mid)) {
                 right = mid;
-            }
-            else
-            {
+            } else {
                 left = mid + 1;
             }
         }
         return left;
     }
 
-    bool check(vector<int> &weights, int days, int capacity) {
+    bool check(vector<int>& weights, int days, int capacity) {
         int cnt = 1, t = 0;
-        for (auto w : weights)
-        {
-            if (w > capacity)
-            {
+        for (auto w : weights) {
+            if (w > capacity) {
                 return false;
             }
-            if (t + w <= capacity)
-            {
+            if (t + w <= capacity) {
                 t += w;
-            }
-            else
-            {
+            } else {
                 ++cnt;
                 t = w;
             }

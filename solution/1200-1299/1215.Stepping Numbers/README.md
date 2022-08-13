@@ -107,8 +107,7 @@ public:
         if (low == 0) ans.push_back(0);
         queue<long long> q;
         for (int i = 1; i < 10; ++i) q.push(i);
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int v = q.front();
             q.pop();
             if (v > high) break;

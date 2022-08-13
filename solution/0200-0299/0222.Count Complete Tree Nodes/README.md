@@ -163,7 +163,8 @@ public:
 
     int depth(TreeNode* root) {
         int res = 0;
-        for (; root != nullptr; ++res, root = root->left);
+        for (; root != nullptr; ++res, root = root->left)
+            ;
         return res;
     }
 };

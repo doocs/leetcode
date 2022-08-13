@@ -141,8 +141,7 @@ public:
     unordered_map<string, unordered_set<string>> words;
 
     ValidWordAbbr(vector<string>& dictionary) {
-        for (auto word : dictionary)
-        {
+        for (auto word : dictionary) {
             auto abbr = wordAbbr(word);
             words[abbr].insert(word);
         }

@@ -153,8 +153,7 @@ public:
 
     int next(int price) {
         int res = 1;
-        while (!stk.empty() && stk.top().first <= price)
-        {
+        while (!stk.empty() && stk.top().first <= price) {
             pair<int, int> t = stk.top();
             stk.pop();
             res += t.second;

@@ -128,18 +128,14 @@ public:
     ListNode* sortLinkedList(ListNode* head) {
         ListNode* prev = head;
         ListNode* curr = head->next;
-        while (curr)
-        {
-            if (curr->val < 0)
-            {
+        while (curr) {
+            if (curr->val < 0) {
                 auto t = curr->next;
                 prev->next = t;
                 curr->next = head;
                 head = curr;
                 curr = t;
-            }
-            else
-            {
+            } else {
                 prev = curr;
                 curr = curr->next;
             }

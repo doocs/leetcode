@@ -182,11 +182,9 @@ public:
         vector<int> dist(n, inf);
         vector<int> backup;
         dist[src] = 0;
-        for (int i = 0; i < k + 1; ++i)
-        {
+        for (int i = 0; i < k + 1; ++i) {
             backup = dist;
-            for (auto& e : flights)
-            {
+            for (auto& e : flights) {
                 int f = e[0], t = e[1], p = e[2];
                 dist[t] = min(dist[t], backup[f] + p);
             }

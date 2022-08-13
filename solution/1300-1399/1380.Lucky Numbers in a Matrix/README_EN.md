@@ -91,14 +91,12 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> luckyNumbers (vector<vector<int>>& matrix) {
+    vector<int> luckyNumbers(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
         vector<int> rows(m, INT_MAX);
         vector<int> cols(n);
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 rows[i] = min(rows[i], matrix[i][j]);
                 cols[j] = max(cols[j], matrix[i][j]);
             }

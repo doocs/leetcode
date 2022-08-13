@@ -144,8 +144,7 @@ public:
         for (int i = 0; i < n; ++i) nums[i] = books[i] - i;
         vector<int> left(n, -1);
         stack<int> stk;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             while (!stk.empty() && nums[stk.top()] >= nums[i]) stk.pop();
             if (!stk.empty()) left[i] = stk.top();
             stk.push(i);
@@ -153,8 +152,7 @@ public:
         vector<ll> dp(n);
         dp[0] = books[0];
         ll ans = 0;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int v = books[i];
             int j = left[i];
             int cnt = min(v, i - j);

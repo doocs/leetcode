@@ -155,10 +155,8 @@ public:
         vis[0][0] = true;
         vis[0][1] = true;
         int ans = 0;
-        while (!q.empty())
-        {
-            for (int t = q.size(); t; --t)
-            {
+        while (!q.empty()) {
+            for (int t = q.size(); t; --t) {
                 auto p = q.front();
                 q.pop();
                 int i = p[0], dir = p[1];
@@ -166,12 +164,10 @@ public:
                 vector<vector<int>> nxt;
                 nxt.push_back({i + a, 1});
                 if (dir) nxt.push_back({i - b, 0});
-                for (auto& e : nxt)
-                {
+                for (auto& e : nxt) {
                     int j = e[0];
                     dir = e[1];
-                    if (j >= 0 && j < N && !s.count(j) && !vis[j][dir])
-                    {
+                    if (j >= 0 && j < N && !s.count(j) && !vis[j][dir]) {
                         vis[j][dir] = true;
                         q.push({j, dir});
                     }

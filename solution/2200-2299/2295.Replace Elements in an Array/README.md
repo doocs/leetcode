@@ -118,8 +118,7 @@ public:
         int n = nums.size();
         unordered_map<int, int> d;
         for (int i = 0; i < n; ++i) d[nums[i]] = i;
-        for (auto& op : operations)
-        {
+        for (auto& op : operations) {
             int a = op[0], b = op[1];
             int idx = d[a];
             d.erase(a);

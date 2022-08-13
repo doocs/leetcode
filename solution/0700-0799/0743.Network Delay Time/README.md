@@ -563,19 +563,15 @@ public:
         vector<bool> vis(n);
         vector<int> dist(n, inf);
         dist[k - 1] = 0;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int t = -1;
-            for (int j = 0; j < n; ++j)
-            {
-                if (!vis[j] && (t == -1 || dist[t] > dist[j]))
-                {
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
                     t = j;
                 }
             }
             vis[t] = true;
-            for (int j = 0; j < n; ++j)
-            {
+            for (int j = 0; j < n; ++j) {
                 dist[j] = min(dist[j], dist[t] + g[t][j]);
             }
         }

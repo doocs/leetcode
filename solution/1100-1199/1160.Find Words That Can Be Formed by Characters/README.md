@@ -109,8 +109,7 @@ public:
     int countCharacters(vector<string>& words, string chars) {
         vector<int> counter = count(chars);
         int ans = 0;
-        for (auto& word : words)
-        {
+        for (auto& word : words) {
             vector<int> cnt = count(word);
             if (check(counter, cnt)) ans += word.size();
         }

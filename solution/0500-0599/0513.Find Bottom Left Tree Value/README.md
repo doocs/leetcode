@@ -272,13 +272,11 @@ function findBottomLeftValue(root: TreeNode | null): number {
 class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
-        queue<TreeNode*> q{{root}};
+        queue<TreeNode*> q {{root}};
         int ans = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ans = q.front()->val;
-            for (int i = q.size(); i; --i)
-            {
+            for (int i = q.size(); i; --i) {
                 TreeNode* node = q.front();
                 q.pop();
                 if (node->left) q.push(node->left);

@@ -118,8 +118,7 @@ public:
         if (num == 0) return "0";
         if (num < 0) return "-" + convertToBase7(-num);
         string ans = "";
-        while (num)
-        {
+        while (num) {
             ans = to_string(num % 7) + ans;
             num /= 7;
         }

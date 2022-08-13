@@ -134,8 +134,7 @@ public:
         vector<int> counter(nums.size() + 1);
         counter[0] = 1;
         int s = 0, ans = 0;
-        for (int& num : nums)
-        {
+        for (int& num : nums) {
             s += num;
             if (s >= goal) ans += counter[s - goal];
             ++counter[s];

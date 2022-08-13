@@ -132,23 +132,19 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int longestConsecutive(vector<int> &nums) {
+    int longestConsecutive(vector<int>& nums) {
         int n = nums.size();
         if (n < 2)
             return n;
         sort(nums.begin(), nums.end());
         int res = 1, t = 1;
-        for (int i = 1; i < n; ++i)
-        {
+        for (int i = 1; i < n; ++i) {
             if (nums[i] == nums[i - 1])
                 continue;
-            if (nums[i] - nums[i - 1] == 1)
-            {
+            if (nums[i] - nums[i - 1] == 1) {
                 ++t;
                 res = max(res, t);
-            }
-            else
-            {
+            } else {
                 t = 1;
             }
         }

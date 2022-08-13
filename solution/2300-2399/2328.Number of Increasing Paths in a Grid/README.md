@@ -145,8 +145,7 @@ public:
         if (f[i][j]) return f[i][j];
         int res = 1;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k)
-        {
+        for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
             if (x >= 0 && x < g.size() && y >= 0 && y < g[0].size() && g[x][y] > g[i][j])
                 res = (res + dfs(x, y, f, g)) % mod;

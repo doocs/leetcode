@@ -224,8 +224,7 @@ public:
 
     void dfs(TreeNode* root, int d) {
         if (!root) return;
-        if (d == depth - 1)
-        {
+        if (d == depth - 1) {
             auto l = new TreeNode(val, root->left, nullptr);
             auto r = new TreeNode(val, nullptr, root->right);
             root->left = l;

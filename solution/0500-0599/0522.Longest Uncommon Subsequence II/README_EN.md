@@ -104,10 +104,8 @@ class Solution {
 public:
     int findLUSlength(vector<string>& strs) {
         int ans = -1;
-        for (int i = 0, j = 0, n = strs.size(); i < n; ++i)
-        {
-            for (j = 0; j < n; ++j)
-            {
+        for (int i = 0, j = 0, n = strs.size(); i < n; ++i) {
+            for (j = 0; j < n; ++j) {
                 if (i == j) continue;
                 if (check(strs[j], strs[i])) break;
             }

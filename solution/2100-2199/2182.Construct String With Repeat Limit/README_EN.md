@@ -120,13 +120,10 @@ public:
         vector<int> cnt(26);
         for (char& c : s) cnt[c - 'a']++;
         string ans;
-        for (int i = 25; ~i; --i)
-        {
+        for (int i = 25; ~i; --i) {
             int j = i - 1;
-            while (true)
-            {
-                for (int k = min(cnt[i], repeatLimit); k; --k)
-                {
+            while (true) {
+                for (int k = min(cnt[i], repeatLimit); k; --k) {
                     cnt[i]--;
                     ans.push_back('a' + i);
                 }

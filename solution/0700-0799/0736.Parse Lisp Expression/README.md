@@ -232,15 +232,12 @@ public:
         if (expr[i] != '(') return islower(expr[i]) ? scope[parseVar()].back() : parseInt();
         int ans = 0;
         ++i;
-        if (expr[i] == 'l')
-        {
+        if (expr[i] == 'l') {
             i += 4;
             vector<string> vars;
-            while (1)
-            {
+            while (1) {
                 string var = parseVar();
-                if (expr[i] == ')')
-                {
+                if (expr[i] == ')') {
                     ans = scope[var].back();
                     break;
                 }
@@ -248,16 +245,13 @@ public:
                 vars.push_back(var);
                 scope[var].push_back(eval());
                 ++i;
-                if (!islower(expr[i]))
-                {
+                if (!islower(expr[i])) {
                     ans = eval();
                     break;
                 }
             }
             for (string v : vars) scope[v].pop_back();
-        }
-        else
-        {
+        } else {
             bool add = expr[i] == 'a';
             i += add ? 4 : 5;
             int a = eval();
@@ -277,13 +271,11 @@ public:
 
     int parseInt() {
         int sign = 1, v = 0;
-        if (expr[i] == '-')
-        {
+        if (expr[i] == '-') {
             sign = -1;
             ++i;
         }
-        while (i < expr.size() && expr[i] >= '0' && expr[i] <= '9')
-        {
+        while (i < expr.size() && expr[i] >= '0' && expr[i] <= '9') {
             v = v * 10 + (expr[i] - '0');
             ++i;
         }

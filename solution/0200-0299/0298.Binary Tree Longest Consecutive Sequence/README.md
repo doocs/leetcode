@@ -138,7 +138,7 @@ public:
 
     void dfs(TreeNode* root, TreeNode* p, int t) {
         if (!root) return;
-        t = p != nullptr && p->val + 1 == root-> val ? t + 1 : 1;
+        t = p != nullptr && p->val + 1 == root->val ? t + 1 : 1;
         ans = max(ans, t);
         dfs(root->left, root, t);
         dfs(root->right, root, t);

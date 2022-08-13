@@ -169,17 +169,13 @@ public:
         unordered_map<int, int> freq;
         for (; i < nums.size(); i += 2) ++freq[nums[i]];
         int a = 0, n1 = 0, b = 0, n2 = 0;
-        for (auto& [k, v] : freq)
-        {
-            if (v > n1)
-            {
+        for (auto& [k, v] : freq) {
+            if (v > n1) {
                 b = a;
                 n2 = n1;
                 a = k;
                 n1 = v;
-            }
-            else if (v > n2)
-            {
+            } else if (v > n2) {
                 b = k;
                 n2 = v;
             }

@@ -155,13 +155,11 @@ class Solution {
 public:
     TreeNode* deleteNode(TreeNode* root, int key) {
         if (!root) return root;
-        if (root->val > key)
-        {
+        if (root->val > key) {
             root->left = deleteNode(root->left, key);
             return root;
         }
-        if (root->val < key)
-        {
+        if (root->val < key) {
             root->right = deleteNode(root->right, key);
             return root;
         }

@@ -100,11 +100,9 @@ public:
     int countBinarySubstrings(string s) {
         int i = 0, n = s.size();
         vector<int> t;
-        while (i < n)
-        {
+        while (i < n) {
             int cnt = 1;
-            while (i + 1 < n && s[i + 1] == s[i])
-            {
+            while (i + 1 < n && s[i + 1] == s[i]) {
                 ++cnt;
                 ++i;
             }

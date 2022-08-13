@@ -288,18 +288,15 @@ public:
         grid2[i][j] = 0;
         bool ans = true;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto p = q.front();
             q.pop();
             i = p.first;
             j = p.second;
             if (grid1[i][j] == 0) ans = false;
-            for (int k = 0; k < 4; ++k)
-            {
+            for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y])
-                {
+                if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y]) {
                     q.push({x, y});
                     grid2[x][y] = 0;
                 }

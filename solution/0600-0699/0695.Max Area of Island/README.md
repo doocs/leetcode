@@ -360,8 +360,7 @@ public:
         grid[i][j] = 0;
         int ans = 1;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k)
-        {
+        for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k];
             int y = j + dirs[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1)

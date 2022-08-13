@@ -143,8 +143,10 @@ public:
     string reformat(string s) {
         string a = "", b = "";
         for (char c : s) {
-            if (isdigit(c)) a += c;
-            else b += c;
+            if (isdigit(c))
+                a += c;
+            else
+                b += c;
         }
         int m = a.size(), n = b.size();
         if (abs(m - n) > 1) return "";

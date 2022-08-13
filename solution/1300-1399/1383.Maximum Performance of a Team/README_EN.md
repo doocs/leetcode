@@ -114,19 +114,17 @@ public:
         long long ans = 0;
         int mod = 1e9 + 7;
         long long t = 0;
-        for (auto& x : team)
-        {
+        for (auto& x : team) {
             int s = x.second, e = -x.first;
             t += s;
             ans = max(ans, e * t);
             q.push(s);
-            if (q.size() >= k)
-            {
+            if (q.size() >= k) {
                 t -= q.top();
                 q.pop();
             }
         }
-        return (int) (ans % mod);
+        return (int)(ans % mod);
     }
 };
 ```

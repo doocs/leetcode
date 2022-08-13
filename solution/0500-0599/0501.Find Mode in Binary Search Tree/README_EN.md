@@ -159,13 +159,12 @@ public:
         if (!root) return;
         dfs(root->left);
         cnt = prev != nullptr && prev->val == root->val ? cnt + 1 : 1;
-        if (cnt > mx)
-        {
+        if (cnt > mx) {
             ans.clear();
             ans.push_back(root->val);
             mx = cnt;
-        }
-        else if (cnt == mx) ans.push_back(root->val);
+        } else if (cnt == mx)
+            ans.push_back(root->val);
         prev = root;
         dfs(root->right);
     }

@@ -379,21 +379,17 @@ public:
         if (start == end) return 0;
         unordered_set<string> vis;
         vis.insert(start);
-        queue<string> q{{start}};
+        queue<string> q {{start}};
         int ans = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ++ans;
-            for (int n = q.size(); n > 0; --n)
-            {
+            for (int n = q.size(); n > 0; --n) {
                 string x = q.front();
                 q.pop();
                 setb(x, board);
-                for (string y : next(board))
-                {
+                for (string y : next(board)) {
                     if (y == end) return ans;
-                    if (!vis.count(y))
-                    {
+                    if (!vis.count(y)) {
                         vis.insert(y);
                         q.push(y);
                     }
@@ -422,11 +418,9 @@ public:
         auto p = find0(board);
         int i = p.first, j = p.second;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k)
-        {
+        for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < 2 && y >= 0 && y < 3)
-            {
+            if (x >= 0 && x < 2 && y >= 0 && y < 3) {
                 swap(i, j, x, y, board);
                 res.push_back(gets(board));
                 swap(i, j, x, y, board);

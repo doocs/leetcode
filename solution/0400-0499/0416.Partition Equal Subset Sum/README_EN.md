@@ -154,10 +154,8 @@ public:
         int m = nums.size(), n = s >> 1;
         vector<vector<bool>> dp(m + 1, vector<bool>(n + 1));
         dp[0][0] = true;
-        for (int i = 1; i <= m; ++i)
-        {
-            for (int j = 0; j <= n; ++j)
-            {
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j <= n; ++j) {
                 dp[i][j] = dp[i - 1][j];
                 if (!dp[i][j] && nums[i - 1] <= j) dp[i][j] = dp[i - 1][j - nums[i - 1]];
             }

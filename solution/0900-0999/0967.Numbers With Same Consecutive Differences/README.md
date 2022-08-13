@@ -131,8 +131,7 @@ public:
     }
 
     void dfs(int n, int k, int t) {
-        if (n == 0)
-        {
+        if (n == 0) {
             ans.push_back(t);
             return;
         }

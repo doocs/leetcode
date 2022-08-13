@@ -138,8 +138,7 @@ public:
 
     void dfs(TreeNode* original, TreeNode* cloned, TreeNode* target) {
         if (!cloned) return;
-        if (original == target)
-        {
+        if (original == target) {
             res = cloned;
             return;
         }

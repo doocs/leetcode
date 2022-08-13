@@ -186,7 +186,7 @@ func dfs(cur *trie, l int) int {
 
 ```cpp
 struct Trie {
-    Trie* children[26] = { nullptr };
+    Trie* children[26] = {nullptr};
 };
 
 class Solution {

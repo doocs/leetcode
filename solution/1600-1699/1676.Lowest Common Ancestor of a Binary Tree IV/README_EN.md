@@ -130,7 +130,7 @@ class Solution {
 public:
     unordered_set<int> s;
 
-    TreeNode* lowestCommonAncestor(TreeNode* root, vector<TreeNode*> &nodes) {
+    TreeNode* lowestCommonAncestor(TreeNode* root, vector<TreeNode*>& nodes) {
         for (auto node : nodes) s.insert(node->val);
         return dfs(root);
     }

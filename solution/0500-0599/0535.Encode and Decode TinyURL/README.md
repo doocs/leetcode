@@ -117,7 +117,6 @@ public class Codec {
 ```cpp
 class Solution {
 public:
-
     // Encodes a URL to a shortened URL.
     string encode(string longUrl) {
         string v = to_string(++idx);

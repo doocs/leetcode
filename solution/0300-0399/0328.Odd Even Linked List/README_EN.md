@@ -145,7 +145,7 @@ public:
             return head;
         }
         ListNode *odd = head, *even = head->next;
-        ListNode *evenHead = even;
+        ListNode* evenHead = even;
         while (even && even->next) {
             odd->next = even->next;
             odd = odd->next;

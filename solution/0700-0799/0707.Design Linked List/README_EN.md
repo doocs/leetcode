@@ -347,13 +347,13 @@ public:
     int size = 0;
 
     MyLinkedList() {
-
     }
 
     int get(int index) {
         if (index < 0 || index >= size) return -1;
         int i = head;
-        for (; index > 0; i = ne[i], index--);
+        for (; index > 0; i = ne[i], index--)
+            ;
         return e[i];
     }
 
@@ -370,13 +370,13 @@ public:
 
     void addAtIndex(int index, int val) {
         if (index > size) return;
-        if (index <= 0)
-        {
+        if (index <= 0) {
             addAtHead(val);
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--);
+        for (; index > 1; i = ne[i], index--)
+            ;
         e[idx] = val;
         ne[idx] = ne[i];
         ne[i] = idx++;
@@ -386,13 +386,13 @@ public:
     void deleteAtIndex(int index) {
         if (index < 0 || index >= size) return;
         size--;
-        if (index == 0)
-        {
+        if (index == 0) {
             head = ne[head];
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--);
+        for (; index > 1; i = ne[i], index--)
+            ;
         ne[i] = ne[ne[i]];
     }
 };

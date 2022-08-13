@@ -171,8 +171,7 @@ public:
     bool check(string& a, string& b) {
         int m = a.size(), n = b.size();
         int i = 0, j = 0;
-        while (i < m && j < n)
-        {
+        while (i < m && j < n) {
             if (a[i] == b[j]) ++j;
             ++i;
         }

@@ -114,11 +114,9 @@ public:
         sort(p.begin(), p.end());
         unordered_map<int, int> counter;
         int ans = 0, num = 0;
-        for (int i = n - 1; i >= 0 && num < numWanted; --i)
-        {
+        for (int i = n - 1; i >= 0 && num < numWanted; --i) {
             int v = p[i].first, l = p[i].second;
-            if (counter[l] < useLimit)
-            {
+            if (counter[l] < useLimit) {
                 ++counter[l];
                 ++num;
                 ans += v;

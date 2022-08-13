@@ -129,8 +129,7 @@ public:
         if (n == 1) return {0};
         vector<vector<int>> g(n);
         vector<int> degree(n);
-        for (auto& e : edges)
-        {
+        for (auto& e : edges) {
             int a = e[0], b = e[1];
             g[a].push_back(b);
             g[b].push_back(a);
@@ -142,11 +141,9 @@ public:
             if (degree[i] == 1)
                 q.push(i);
         vector<int> ans;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ans.clear();
-            for (int i = q.size(); i > 0; --i)
-            {
+            for (int i = q.size(); i > 0; --i) {
                 int a = q.front();
                 q.pop();
                 ans.push_back(a);

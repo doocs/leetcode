@@ -163,8 +163,7 @@ public:
         auto a = f(start);
         auto b = f(target);
         if (a.size() != b.size()) return false;
-        for (int i = 0; i < a.size(); ++i)
-        {
+        for (int i = 0; i < a.size(); ++i) {
             auto x = a[i], y = b[i];
             if (x.first != y.first) return false;
             if (x.first == 1 && x.second < y.second) return false;
@@ -175,10 +174,11 @@ public:
 
     vector<pair<int, int>> f(string s) {
         vector<pii> res;
-        for (int i = 0; i < s.size(); ++i)
-        {
-            if (s[i] == 'L') res.push_back({1, i});
-            else if (s[i] == 'R') res.push_back({2, i});
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == 'L')
+                res.push_back({1, i});
+            else if (s[i] == 'R')
+                res.push_back({2, i});
         }
         return res;
     }

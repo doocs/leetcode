@@ -208,7 +208,7 @@ public:
     Node* topRight;
     Node* bottomLeft;
     Node* bottomRight;
-
+    
     Node() {
         val = false;
         isLeaf = false;
@@ -217,7 +217,7 @@ public:
         bottomLeft = NULL;
         bottomRight = NULL;
     }
-
+    
     Node(bool _val, bool _isLeaf) {
         val = _val;
         isLeaf = _isLeaf;
@@ -226,7 +226,7 @@ public:
         bottomLeft = NULL;
         bottomRight = NULL;
     }
-
+    
     Node(bool _val, bool _isLeaf, Node* _topLeft, Node* _topRight, Node* _bottomLeft, Node* _bottomRight) {
         val = _val;
         isLeaf = _isLeaf;
@@ -246,12 +246,12 @@ public:
 
     Node* dfs(int a, int b, int c, int d, vector<vector<int>>& grid) {
         int zero = 0, one = 0;
-        for (int i = a; i <= c; ++i)
-        {
-            for (int j = b; j <= d; ++j)
-            {
-                if (grid[i][j]) one = 1;
-                else zero = 1;
+        for (int i = a; i <= c; ++i) {
+            for (int j = b; j <= d; ++j) {
+                if (grid[i][j])
+                    one = 1;
+                else
+                    zero = 1;
             }
         }
         bool isLeaf = zero + one == 1;

@@ -108,8 +108,7 @@ public:
         sort(t.begin(), t.end(), greater<int>());
         int ans = 0;
         int n = 0;
-        for (int cnt : t)
-        {
+        for (int cnt : t) {
             n += cnt;
             ++ans;
             if (n * 2 >= arr.size()) break;

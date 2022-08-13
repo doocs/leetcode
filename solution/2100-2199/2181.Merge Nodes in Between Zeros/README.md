@@ -170,11 +170,10 @@ public:
         ListNode* dummy = new ListNode();
         ListNode* tail = dummy;
         int s = 0;
-        for (ListNode* cur = head->next; cur; cur = cur->next)
-        {
-            if (cur->val) s += cur->val;
-            else
-            {
+        for (ListNode* cur = head->next; cur; cur = cur->next) {
+            if (cur->val)
+                s += cur->val;
+            else {
                 tail->next = new ListNode(s);
                 tail = tail->next;
                 s = 0;

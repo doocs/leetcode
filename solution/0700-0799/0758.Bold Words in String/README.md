@@ -214,8 +214,7 @@ public:
 
     void insert(string word) {
         Trie* node = this;
-        for (char c : word)
-        {
+        for (char c : word) {
             if (!node->children[c]) node->children[c] = new Trie();
             node = node->children[c];
         }
@@ -230,11 +229,9 @@ public:
         for (string w : words) trie->insert(w);
         int n = s.size();
         vector<pair<int, int>> pairs;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             Trie* node = trie;
-            for (int j = i; j < n; ++j)
-            {
+            for (int j = i; j < n; ++j) {
                 int idx = s[j];
                 if (!node->children[idx]) break;
                 node = node->children[idx];
@@ -244,23 +241,19 @@ public:
         if (pairs.empty()) return s;
         vector<pair<int, int>> t;
         int st = pairs[0].first, ed = pairs[0].second;
-        for (int i = 1; i < pairs.size(); ++i)
-        {
+        for (int i = 1; i < pairs.size(); ++i) {
             int a = pairs[i].first, b = pairs[i].second;
-            if (ed + 1 < a)
-            {
+            if (ed + 1 < a) {
                 t.push_back({st, ed});
                 st = a, ed = b;
-            }
-            else ed = max(ed, b);
+            } else
+                ed = max(ed, b);
         }
         t.push_back({st, ed});
         string ans = "";
         int i = 0, j = 0;
-        while (i < n)
-        {
-            if (j == t.size())
-            {
+        while (i < n) {
+            if (j == t.size()) {
                 ans += s.substr(i);
                 break;
             }

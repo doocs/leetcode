@@ -1,4 +1,3 @@
-// 区间离散化解法（低效 120ms）
 class Solution {
 public:
     vector<pair<int, int>> getSkyline(vector<vector<int>>& buildings) {

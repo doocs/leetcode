@@ -168,8 +168,7 @@ public:
 
     int getRandom() {
         int n = 0, ans = 0;
-        for (ListNode* node = head; node != nullptr; node = node->next)
-        {
+        for (ListNode* node = head; node != nullptr; node = node->next) {
             n += 1;
             int x = 1 + rand() % n;
             if (n == x) ans = node->val;

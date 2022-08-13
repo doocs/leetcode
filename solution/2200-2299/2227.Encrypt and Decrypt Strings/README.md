@@ -164,8 +164,7 @@ public:
 
     string encrypt(string word1) {
         string res = "";
-        for (char c : word1)
-        {
+        for (char c : word1) {
             if (!mp.count(c)) return "";
             res += mp[c];
         }

@@ -102,7 +102,7 @@ func twoCitySchedCost(costs [][]int) int {
 class Solution {
 public:
     int twoCitySchedCost(vector<vector<int>>& costs) {
-        sort(costs.begin(), costs.end(), [](const std::vector<int> &a, const std::vector<int> &b) {
+        sort(costs.begin(), costs.end(), [](const std::vector<int>& a, const std::vector<int>& b) {
             return a[0] - a[1] < (b[0] - b[1]);
         });
         int ans = 0;

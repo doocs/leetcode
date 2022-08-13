@@ -203,10 +203,8 @@ public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         stack<int> stk;
         unordered_map<int, int> m;
-        for (int& v : nums2)
-        {
-            while (!stk.empty() && stk.top() < v)
-            {
+        for (int& v : nums2) {
+            while (!stk.empty() && stk.top() < v) {
                 m[stk.top()] = v;
                 stk.pop();
             }

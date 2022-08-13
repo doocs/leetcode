@@ -120,11 +120,9 @@ public:
     bool dfs(int state, int t, int maxChoosableInteger, int desiredTotal, unordered_map<int, bool>& memo) {
         if (memo.count(state)) return memo[state];
         bool res = false;
-        for (int i = 1; i <= maxChoosableInteger; ++i)
-        {
+        for (int i = 1; i <= maxChoosableInteger; ++i) {
             if ((state >> i) & 1) continue;
-            if (t + i >= desiredTotal || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal, memo))
-            {
+            if (t + i >= desiredTotal || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal, memo)) {
                 res = true;
                 break;
             }

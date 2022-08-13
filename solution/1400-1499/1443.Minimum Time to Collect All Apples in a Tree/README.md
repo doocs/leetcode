@@ -128,8 +128,7 @@ public:
     int minTime(int n, vector<vector<int>>& edges, vector<bool>& hasApple) {
         vector<bool> vis(n);
         vector<vector<int>> g(n);
-        for (auto& e : edges)
-        {
+        for (auto& e : edges) {
             int u = e[0], v = e[1];
             g[u].push_back(v);
             g[v].push_back(u);

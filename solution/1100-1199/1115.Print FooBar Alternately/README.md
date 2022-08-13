@@ -141,7 +141,7 @@ public:
     void foo(function<void()> printFoo) {
         for (int i = 0; i < n; i++) {
             fooMu.lock();
-        	printFoo();
+            printFoo();
             barMu.unlock();
         }
     }
@@ -149,7 +149,7 @@ public:
     void bar(function<void()> printBar) {
         for (int i = 0; i < n; i++) {
             barMu.lock();
-        	printBar();
+            printBar();
             fooMu.unlock();
         }
     }

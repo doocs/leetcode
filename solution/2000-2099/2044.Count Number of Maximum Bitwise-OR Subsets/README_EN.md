@@ -266,8 +266,7 @@ public:
     }
 
     void dfs(int i, int t) {
-        if (i == nums.size())
-        {
+        if (i == nums.size()) {
             if (t == mx) ++ans;
             return;
         }

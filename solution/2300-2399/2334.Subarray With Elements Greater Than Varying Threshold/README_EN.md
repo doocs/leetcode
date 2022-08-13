@@ -221,8 +221,7 @@ public:
         for (int i = 0; i < n; ++i) arr[i] = {nums[i], i};
         sort(arr.begin(), arr.end());
         vector<bool> vis(n);
-        for (int j = n - 1; ~j; --j)
-        {
+        for (int j = n - 1; ~j; --j) {
             int v = arr[j].first, i = arr[j].second;
             if (i && vis[i - 1]) merge(i, i - 1);
             if (j < n - 1 && vis[i + 1]) merge(i, i + 1);

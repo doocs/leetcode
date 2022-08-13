@@ -87,8 +87,7 @@ class Solution {
 public:
     int findNthDigit(int n) {
         int bits = 1, t = 9;
-        while (n / bits > t)
-        {
+        while (n / bits > t) {
             n -= bits * t;
             ++bits;
             t *= 10;

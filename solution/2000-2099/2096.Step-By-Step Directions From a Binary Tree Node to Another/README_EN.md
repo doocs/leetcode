@@ -195,13 +195,11 @@ public:
 
     void traverse(TreeNode* root) {
         if (!root) return;
-        if (root->left)
-        {
+        if (root->left) {
             edges[root->val].push_back({root->left->val, 'L'});
             edges[root->left->val].push_back({root->val, 'U'});
         }
-        if (root->right)
-        {
+        if (root->right) {
             edges[root->val].push_back({root->right->val, 'R'});
             edges[root->right->val].push_back({root->val, 'U'});
         }
@@ -211,16 +209,13 @@ public:
 
     void dfs(int start, int dest, string& t) {
         if (visited.count(start)) return;
-        if (start == dest)
-        {
+        if (start == dest) {
             if (ans == "" || ans.size() > t.size()) ans = t;
             return;
         }
         visited.insert(start);
-        if (edges.count(start))
-        {
-            for (auto& item : edges[start])
-            {
+        if (edges.count(start)) {
+            for (auto& item : edges[start]) {
                 t += item.second;
                 dfs(item.first, dest, t);
                 t.pop_back();

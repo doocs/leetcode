@@ -233,15 +233,12 @@ public:
     unordered_map<string, int> d;
 
     WordFilter(vector<string>& words) {
-        for (int k = 0; k < words.size(); ++k)
-        {
+        for (int k = 0; k < words.size(); ++k) {
             string w = words[k];
             int n = w.size();
-            for (int i = 0; i <= n; ++i)
-            {
+            for (int i = 0; i <= n; ++i) {
                 string a = w.substr(0, i);
-                for (int j = 0; j <= n; ++j)
-                {
+                for (int j = 0; j <= n; ++j) {
                     string b = w.substr(j, n - j);
                     d[a + "." + b] = k;
                 }

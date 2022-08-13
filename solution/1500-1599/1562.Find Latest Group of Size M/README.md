@@ -240,16 +240,13 @@ public:
         for (int i = 0; i < n; ++i) p[i] = i;
         int ans = -1;
         vector<int> vis(n);
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int v = arr[i] - 1;
-            if (v && vis[v - 1])
-            {
+            if (v && vis[v - 1]) {
                 if (size[find(v - 1)] == m) ans = i;
                 unite(v, v - 1);
             }
-            if (v < n - 1 && vis[v + 1])
-            {
+            if (v < n - 1 && vis[v + 1]) {
                 if (size[find(v + 1)] == m) ans = i;
                 unite(v, v + 1);
             }

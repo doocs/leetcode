@@ -205,13 +205,11 @@ public:
 
     void dfs(TreeNode* root) {
         if (!root) return;
-        if (root->left)
-        {
+        if (root->left) {
             root->left->val = root->val * 2 + 1;
             nodes.insert(root->left->val);
         }
-        if (root->right)
-        {
+        if (root->right) {
             root->right->val = root->val * 2 + 2;
             nodes.insert(root->right->val);
         }

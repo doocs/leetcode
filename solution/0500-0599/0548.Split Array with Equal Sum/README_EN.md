@@ -102,8 +102,7 @@ public:
         int n = nums.size();
         vector<int> s(n + 1);
         for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
-        for (int j = 3; j < n - 3; ++j)
-        {
+        for (int j = 3; j < n - 3; ++j) {
             unordered_set<int> seen;
             for (int i = 1; i < j - 1; ++i)
                 if (s[i] == s[j] - s[i + 1])

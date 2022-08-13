@@ -104,11 +104,9 @@ public:
         long long ans = 0;
         int n = nums.size();
         int mi = nums[n - 1];
-        for (int i = n - 2; ~i; --i)
-        {
+        for (int i = n - 2; ~i; --i) {
             int v = nums[i];
-            if (v <= mi)
-            {
+            if (v <= mi) {
                 mi = v;
                 continue;
             }

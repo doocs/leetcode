@@ -152,8 +152,7 @@ public:
 
     void dfs(TreeNode* root, int mx) {
         if (!root) return;
-        if (mx <= root->val)
-        {
+        if (mx <= root->val) {
             ++ans;
             mx = root->val;
         }

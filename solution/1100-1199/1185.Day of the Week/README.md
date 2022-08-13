@@ -119,8 +119,7 @@ class Solution {
 class Solution {
 public:
     string dayOfTheWeek(int d, int m, int y) {
-        if (m < 3)
-        {
+        if (m < 3) {
             m += 12;
             y -= 1;
         }

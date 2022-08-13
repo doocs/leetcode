@@ -149,7 +149,7 @@ public:
     bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
         unordered_map<int, vector<int>> g;
         for (auto& e : graph) g[e[0]].push_back(e[1]);
-        unordered_set<int> vis{{start}};
+        unordered_set<int> vis {{start}};
         return dfs(start, target, g, vis);
     }
 

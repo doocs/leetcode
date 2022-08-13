@@ -171,12 +171,13 @@ class Trie {
 public:
     vector<Trie*> children;
     string w;
-    Trie() : children(26), w("") {}
+    Trie()
+        : children(26)
+        , w("") { }
 
     void insert(string& w) {
         Trie* node = this;
-        for (char c : w)
-        {
+        for (char c : w) {
             c -= 'a';
             if (!node->children[c]) node->children[c] = new Trie();
             node = node->children[c];
@@ -205,12 +206,11 @@ public:
         int idx = board[i][j] - 'a';
         if (!node->children[idx]) return;
         node = node->children[idx];
-        if(node->w != "") res.insert(node->w);
+        if (node->w != "") res.insert(node->w);
         char c = board[i][j];
         board[i][j] = '0';
 
-        for (int k = 0; k < 4; ++k)
-        {
+        for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
             if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size() && board[x][y] != '0') dfs(node, x, y, board, res);
         }

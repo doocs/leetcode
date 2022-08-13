@@ -142,8 +142,7 @@ public:
         vector<int> ans;
         stack<Node*> stk;
         stk.push(root);
-        while (!stk.empty())
-        {
+        while (!stk.empty()) {
             Node* node = stk.top();
             ans.push_back(node->val);
             stk.pop();

@@ -143,15 +143,12 @@ public:
         if (i == m && j == n) return true;
         if (i == m || j == n || m - i > n - j) return false;
         char c = p[i];
-        for (int k = j + 1; k <= n; ++k)
-        {
+        for (int k = j + 1; k <= n; ++k) {
             string t = s.substr(j, k - j);
-            if (d.count(c) && d[c] == t)
-            {
+            if (d.count(c) && d[c] == t) {
                 if (dfs(i + 1, k, p, s, vis, d)) return true;
             }
-            if (!d.count(c) && !vis.count(t))
-            {
+            if (!d.count(c) && !vis.count(t)) {
                 d[c] = t;
                 vis.insert(t);
                 if (dfs(i + 1, k, p, s, vis, d)) return true;
