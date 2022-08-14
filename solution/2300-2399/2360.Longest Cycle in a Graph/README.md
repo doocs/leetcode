@@ -58,7 +58,7 @@
 
 时间复杂度 $O(n)$。
 
-类似题目：[2127. 参加会议的最多员工数](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
+相似题目：[2127. 参加会议的最多员工数](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
 
 <!-- tabs:start -->
 

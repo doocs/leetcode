@@ -76,7 +76,7 @@
 
 时间复杂度 $O(n)$。
 
-类似题目：[2360. 图中的最长环](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
+相似题目：[2360. 图中的最长环](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
 
 <!-- tabs:start -->
 

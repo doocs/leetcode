@@ -56,7 +56,7 @@
 
 **方法一**：后序遍历求每个结点的深度，此过程中获取每个结点子树的最长两个伸展（深度），迭代获取最长路径。
 
-类似题目：[543. 二叉树的直径](/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README.md)
+相似题目：[543. 二叉树的直径](/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README.md)
 
 **方法二**：两次 DFS。
 
@@ -76,7 +76,7 @@
 
 因此定理成立。
 
-类似题目：[1245. 树的直径](/solution/1200-1299/1245.Tree%20Diameter/README.md)
+相似题目：[1245. 树的直径](/solution/1200-1299/1245.Tree%20Diameter/README.md)
 
 <!-- tabs:start -->
 

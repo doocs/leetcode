@@ -75,7 +75,7 @@
 
 时间复杂度 $O(nlogn)$。
 
-类似题目：[2334. 元素值大于变化阈值的子数组](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
+相似题目：[2334. 元素值大于变化阈值的子数组](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
 
 **方法二：动态维护区间端点的长度**
 
