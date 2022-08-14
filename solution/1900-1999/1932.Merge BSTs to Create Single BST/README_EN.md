@@ -79,20 +79,17 @@ The resulting tree is shown above. This is the only valid operation that can be 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

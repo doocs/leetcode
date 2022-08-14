@@ -66,20 +66,17 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

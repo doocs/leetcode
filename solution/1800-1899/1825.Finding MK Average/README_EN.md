@@ -68,20 +68,17 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

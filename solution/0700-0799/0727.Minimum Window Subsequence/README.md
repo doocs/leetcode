@@ -43,7 +43,6 @@ S = &quot;abcdebdde&quot;, T = &quot;bde&quot;
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -52,13 +51,11 @@ S = &quot;abcdebdde&quot;, T = &quot;bde&quot;
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

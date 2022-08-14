@@ -106,20 +106,17 @@ Thus, the resulting masked number is &quot;***-***-7890&quot;.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

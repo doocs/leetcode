@@ -78,13 +78,11 @@ At minute 3, nums[0] does not exist.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -97,7 +95,6 @@ At minute 3, nums[0] does not exist.
 ### **...**
 
 ```
-
 
 ```
 

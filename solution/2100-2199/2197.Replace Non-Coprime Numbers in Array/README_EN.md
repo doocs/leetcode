@@ -66,13 +66,11 @@ Note that there are other ways to obtain the same resultant array.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -85,7 +83,6 @@ Note that there are other ways to obtain the same resultant array.
 ### **...**
 
 ```
-
 
 ```
 

@@ -82,7 +82,6 @@ matrix[1][1] 的秩为 3 ，因为 matrix[1][1] > matrix[0][1]， matrix[1][1] >
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -91,13 +90,11 @@ matrix[1][1] 的秩为 3 ，因为 matrix[1][1] > matrix[0][1]， matrix[1][1] >
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

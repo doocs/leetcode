@@ -77,20 +77,17 @@ Total: 3 + 4 + 10 + 0 = 17. You cannot make a dessert with a total cost of 18.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -63,7 +63,6 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -71,7 +70,6 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -84,7 +82,6 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 ### **...**
 
 ```
-
 
 ```
 

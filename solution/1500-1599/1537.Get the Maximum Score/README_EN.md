@@ -64,20 +64,17 @@ Maximum sum is obtained with the path [6,7,8,9,10].
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

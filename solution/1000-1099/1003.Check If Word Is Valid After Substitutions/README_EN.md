@@ -58,20 +58,17 @@ Thus, &quot;abcabcababcc&quot; is valid.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

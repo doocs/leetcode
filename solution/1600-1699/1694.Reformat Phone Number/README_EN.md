@@ -70,20 +70,17 @@ Joining the blocks gives &quot;123-456-78&quot;.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

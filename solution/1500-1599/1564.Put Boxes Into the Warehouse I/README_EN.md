@@ -67,20 +67,17 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -47,13 +47,11 @@
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -90,7 +88,6 @@ var masterMind = function (solution, guess) {
 ### **...**
 
 ```
-
 
 ```
 

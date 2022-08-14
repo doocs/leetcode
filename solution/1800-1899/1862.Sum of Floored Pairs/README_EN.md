@@ -46,20 +46,17 @@ We calculate the floor of the division for every pair of indices in the array th
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

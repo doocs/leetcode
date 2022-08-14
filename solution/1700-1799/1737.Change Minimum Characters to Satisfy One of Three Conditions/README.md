@@ -61,7 +61,6 @@
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -69,7 +68,6 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -113,7 +111,6 @@ function minCharacters(a: string, b: string): number {
 ### **...**
 
 ```
-
 
 ```
 

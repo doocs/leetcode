@@ -79,20 +79,17 @@ D.pop()            // Returns -1.  There are still no stacks.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

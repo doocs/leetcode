@@ -39,20 +39,17 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

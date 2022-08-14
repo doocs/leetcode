@@ -56,13 +56,11 @@ Figure B shows the skyline formed by those buildings. The red points in figure B
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -113,7 +111,6 @@ public:
 ### **...**
 
 ```
-
 
 ```
 

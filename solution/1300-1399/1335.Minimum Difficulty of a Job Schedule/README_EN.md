@@ -56,20 +56,17 @@ The difficulty of the schedule = 6 + 1 = 7
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

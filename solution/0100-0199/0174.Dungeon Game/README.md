@@ -117,7 +117,6 @@ table.dungeon, .dungeon th, .dungeon td {
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -126,13 +125,11 @@ table.dungeon, .dungeon th, .dungeon td {
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

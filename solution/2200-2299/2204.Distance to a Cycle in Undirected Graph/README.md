@@ -75,7 +75,6 @@ The distance from 8 to 2 is 2.
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -83,7 +82,6 @@ The distance from 8 to 2 is 2.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -96,7 +94,6 @@ The distance from 8 to 2 is 2.
 ### **...**
 
 ```
-
 
 ```
 

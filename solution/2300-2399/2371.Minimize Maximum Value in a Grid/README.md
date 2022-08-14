@@ -63,7 +63,6 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -71,7 +70,6 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -84,7 +82,6 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 ### **...**
 
 ```
-
 
 ```
 

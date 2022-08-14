@@ -72,20 +72,17 @@ In January 2021 we have two orders from 2 different customers, but only one of t
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

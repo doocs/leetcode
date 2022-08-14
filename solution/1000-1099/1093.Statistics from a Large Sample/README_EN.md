@@ -66,20 +66,17 @@ The mode is 1 as it appears the most in the sample.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

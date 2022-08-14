@@ -50,7 +50,6 @@ Note that you cannot swap s1[0] and s1[1] to make s1 equal to &quot;yx&quot;, ca
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -103,7 +102,6 @@ func minimumSwap(s1 string, s2 string) int {
 ### **...**
 
 ```
-
 
 ```
 

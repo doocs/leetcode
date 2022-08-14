@@ -47,20 +47,17 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

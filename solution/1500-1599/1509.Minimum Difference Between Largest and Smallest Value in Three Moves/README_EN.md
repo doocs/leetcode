@@ -43,20 +43,17 @@ The difference between the maximum and minimum is 1-0 = 1.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

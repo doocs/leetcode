@@ -53,20 +53,17 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

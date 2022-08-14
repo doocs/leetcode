@@ -72,13 +72,11 @@
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -102,7 +100,6 @@ function waysToChange(n: number): number {
 ### **...**
 
 ```
-
 
 ```
 

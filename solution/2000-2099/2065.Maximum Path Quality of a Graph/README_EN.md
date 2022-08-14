@@ -67,13 +67,11 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -127,7 +125,6 @@ function maximalPathQuality(
 ### **...**
 
 ```
-
 
 ```
 

@@ -56,20 +56,17 @@ Flip nums[5],nums[6],nums[7]: nums becomes [1,1,1,1,1,1,1,1]
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

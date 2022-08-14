@@ -57,20 +57,17 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

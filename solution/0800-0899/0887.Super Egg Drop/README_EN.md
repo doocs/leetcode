@@ -55,20 +55,17 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

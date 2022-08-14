@@ -53,13 +53,11 @@ Note that the carpets are able to overlap one another.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -72,7 +70,6 @@ Note that the carpets are able to overlap one another.
 ### **...**
 
 ```
-
 
 ```
 

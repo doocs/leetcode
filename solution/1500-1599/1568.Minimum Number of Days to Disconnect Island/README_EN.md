@@ -50,20 +50,17 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

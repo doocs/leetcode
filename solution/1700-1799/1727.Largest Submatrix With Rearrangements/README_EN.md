@@ -53,20 +53,17 @@ The largest submatrix of 1s, in bold, has an area of 3.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -95,20 +95,17 @@ excel.get(3, &quot;C&quot;); // return 6
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

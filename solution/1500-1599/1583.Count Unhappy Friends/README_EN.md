@@ -76,20 +76,17 @@ Friends 0 and 2 are happy.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

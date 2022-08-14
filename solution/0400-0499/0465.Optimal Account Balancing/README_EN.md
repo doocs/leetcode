@@ -52,20 +52,17 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

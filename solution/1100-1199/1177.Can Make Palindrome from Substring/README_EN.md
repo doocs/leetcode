@@ -51,20 +51,17 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

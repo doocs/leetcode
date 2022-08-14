@@ -64,7 +64,6 @@ There are no people who are not &quot;it&quot; to catch.
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -73,13 +72,11 @@ There are no people who are not &quot;it&quot; to catch.
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

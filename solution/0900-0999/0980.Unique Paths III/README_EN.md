@@ -67,20 +67,17 @@ Note that the starting and ending square can be anywhere in the grid.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

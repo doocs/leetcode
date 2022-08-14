@@ -57,13 +57,11 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -76,7 +74,6 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 ### **...**
 
 ```
-
 
 ```
 

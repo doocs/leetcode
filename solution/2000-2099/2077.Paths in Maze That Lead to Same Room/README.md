@@ -64,7 +64,6 @@ There are no cycles of length 3.
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -73,13 +72,11 @@ There are no cycles of length 3.
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

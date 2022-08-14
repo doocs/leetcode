@@ -66,7 +66,6 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -75,13 +74,11 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

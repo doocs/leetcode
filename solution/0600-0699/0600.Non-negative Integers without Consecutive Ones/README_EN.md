@@ -52,20 +52,17 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

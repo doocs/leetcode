@@ -55,20 +55,17 @@ stringIterator.hasNext(); // return True
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

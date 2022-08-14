@@ -34,13 +34,11 @@
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -64,7 +62,6 @@ var maxSubArray = function (nums) {
 ### **...**
 
 ```
-
 
 ```
 

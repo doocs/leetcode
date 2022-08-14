@@ -63,20 +63,17 @@ Your final score is 12 - 1 = 11.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

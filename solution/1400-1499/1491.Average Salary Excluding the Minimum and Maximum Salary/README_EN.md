@@ -44,13 +44,11 @@ Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -76,7 +74,6 @@ impl Solution {
 ### **...**
 
 ```
-
 
 ```
 

@@ -53,20 +53,17 @@ We have now a = 9 and b = 1 and max difference = 8
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

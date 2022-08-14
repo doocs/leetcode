@@ -86,20 +86,17 @@ String[] strs = decoder.decode(msg);
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

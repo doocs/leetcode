@@ -66,7 +66,6 @@ The third house of cards uses 2 cards.
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -74,7 +73,6 @@ The third house of cards uses 2 cards.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -87,7 +85,6 @@ The third house of cards uses 2 cards.
 ### **...**
 
 ```
-
 
 ```
 

@@ -99,20 +99,17 @@ distanceLimitedPathsExist.query(0, 5, 6); // return false. There are no paths fr
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -54,7 +54,6 @@ Both mountains are not visible since their peaks lie within each other.
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -62,7 +61,6 @@ Both mountains are not visible since their peaks lie within each other.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -75,7 +73,6 @@ Both mountains are not visible since their peaks lie within each other.
 ### **...**
 
 ```
-
 
 ```
 

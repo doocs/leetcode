@@ -85,7 +85,6 @@ func(sequence, target)
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -94,13 +93,11 @@ func(sequence, target)
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

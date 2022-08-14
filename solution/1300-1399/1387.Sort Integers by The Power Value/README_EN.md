@@ -59,20 +59,17 @@ The fourth number in the sorted array is 7.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

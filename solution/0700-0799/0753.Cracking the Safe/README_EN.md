@@ -63,20 +63,17 @@ Thus &quot;01100&quot; will unlock the safe. &quot;01100&quot;, &quot;10011&quot
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

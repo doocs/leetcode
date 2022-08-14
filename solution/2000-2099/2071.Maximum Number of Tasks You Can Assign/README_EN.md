@@ -67,20 +67,17 @@ The last pill is not given because it will not make any worker strong enough for
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

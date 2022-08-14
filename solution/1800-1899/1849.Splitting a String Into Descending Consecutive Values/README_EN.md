@@ -59,20 +59,17 @@ The values are in descending order with adjacent values differing by 1.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

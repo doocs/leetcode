@@ -80,20 +80,17 @@ So the total number of trips is 2 + 2 + 2 = 6.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

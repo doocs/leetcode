@@ -67,20 +67,17 @@ There is no way to make them compete in any other round.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

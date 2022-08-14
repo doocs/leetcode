@@ -51,20 +51,17 @@ There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

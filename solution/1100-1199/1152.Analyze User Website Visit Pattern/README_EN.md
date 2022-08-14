@@ -68,20 +68,17 @@ The pattern (&quot;home&quot;, &quot;home&quot;, &quot;home&quot;) has score 0 (
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

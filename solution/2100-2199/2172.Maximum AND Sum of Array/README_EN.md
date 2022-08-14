@@ -52,13 +52,11 @@ Note that slots 2, 5, 6, and 8 are empty which is permitted.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -71,7 +69,6 @@ Note that slots 2, 5, 6, and 8 are empty which is permitted.
 ### **...**
 
 ```
-
 
 ```
 

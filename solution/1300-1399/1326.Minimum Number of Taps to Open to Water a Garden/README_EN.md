@@ -52,20 +52,17 @@ Opening Only the second tap will water the whole garden [0,5]
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

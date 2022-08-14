@@ -61,20 +61,17 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

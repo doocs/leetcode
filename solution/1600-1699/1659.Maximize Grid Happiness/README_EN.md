@@ -69,20 +69,17 @@ The grid happiness is 90 + 80 + 90 = 260.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

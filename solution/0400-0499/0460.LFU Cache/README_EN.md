@@ -74,7 +74,6 @@ lfu.get(4);      // return 4
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -565,7 +564,6 @@ impl LFUCache {
 ### **...**
 
 ```
-
 
 ```
 

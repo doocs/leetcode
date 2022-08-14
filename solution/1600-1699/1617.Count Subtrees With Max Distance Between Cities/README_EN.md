@@ -89,20 +89,17 @@ No subtree has two nodes where the max distance between them is 3.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

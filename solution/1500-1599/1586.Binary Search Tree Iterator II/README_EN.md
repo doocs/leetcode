@@ -68,20 +68,17 @@ bSTIterator.prev(); // state becomes [3, 7, <u>9</u>, 15, 20], return 9
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

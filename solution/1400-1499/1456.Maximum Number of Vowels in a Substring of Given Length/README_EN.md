@@ -50,13 +50,11 @@
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -83,7 +81,6 @@ function maxVowels(s: string, k: number): number {
 ### **...**
 
 ```
-
 
 ```
 

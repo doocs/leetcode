@@ -79,7 +79,6 @@ robot.getDir(); // 返回 "West"
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -88,13 +87,11 @@ robot.getDir(); // 返回 "West"
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

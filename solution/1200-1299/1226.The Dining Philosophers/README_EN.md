@@ -59,20 +59,17 @@ output[i] = [a, b, c] (three integers)
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

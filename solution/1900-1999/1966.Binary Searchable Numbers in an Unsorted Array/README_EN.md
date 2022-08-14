@@ -77,20 +77,17 @@ Because only -1 is guaranteed to be found, you should return 1.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -37,7 +37,6 @@ operations.divide(5, -2); //返回-2
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -46,13 +45,11 @@ operations.divide(5, -2); //返回-2
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

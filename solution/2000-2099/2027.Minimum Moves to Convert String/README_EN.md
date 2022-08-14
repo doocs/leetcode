@@ -53,20 +53,17 @@ Then we select the last 3 characters and convert them so that the final string c
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

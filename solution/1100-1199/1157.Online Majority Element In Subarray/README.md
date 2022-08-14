@@ -61,7 +61,6 @@ majorityChecker.query(2,3,2); // 返回 2
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -70,13 +69,11 @@ majorityChecker.query(2,3,2); // 返回 2
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

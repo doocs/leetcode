@@ -76,7 +76,6 @@ bms.scatter(5, 1); // 返回 False
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -84,7 +83,6 @@ bms.scatter(5, 1); // 返回 False
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -97,7 +95,6 @@ bms.scatter(5, 1); // 返回 False
 ### **...**
 
 ```
-
 
 ```
 

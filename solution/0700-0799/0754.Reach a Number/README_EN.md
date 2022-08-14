@@ -53,20 +53,17 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -66,7 +66,6 @@ distanceLimitedPathsExist.query(0, 5, 6); // 返回 false。从 0 到 5 之间�
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -75,13 +74,11 @@ distanceLimitedPathsExist.query(0, 5, 6); // 返回 false。从 0 到 5 之间�
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

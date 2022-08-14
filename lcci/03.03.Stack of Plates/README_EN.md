@@ -63,13 +63,11 @@
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -136,7 +134,6 @@ class StackOfPlates {
 ### **...**
 
 ```
-
 
 ```
 

@@ -74,20 +74,17 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

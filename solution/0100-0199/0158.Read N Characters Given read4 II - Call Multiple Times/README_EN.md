@@ -107,13 +107,11 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -126,7 +124,6 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 ### **...**
 
 ```
-
 
 ```
 

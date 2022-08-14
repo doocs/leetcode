@@ -69,7 +69,6 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -78,13 +77,11 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

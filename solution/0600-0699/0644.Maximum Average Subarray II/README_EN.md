@@ -46,20 +46,17 @@ Note that we do not consider the subarrays of length &lt; 4.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

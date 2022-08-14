@@ -67,20 +67,17 @@ Then, the fleet (speed 2) and the car starting at 4 (speed 1) become one fleet, 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

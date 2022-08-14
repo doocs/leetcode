@@ -81,7 +81,6 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;è¿”å›
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -90,13 +89,11 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;è¿”å›
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

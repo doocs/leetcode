@@ -121,20 +121,17 @@ Finally, the backlog has (1000000000-3) sell orders with price 7, and (999999995
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

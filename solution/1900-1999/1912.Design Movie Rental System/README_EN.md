@@ -70,20 +70,17 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

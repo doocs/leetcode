@@ -50,13 +50,11 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -69,7 +67,6 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 ### **...**
 
 ```
-
 
 ```
 

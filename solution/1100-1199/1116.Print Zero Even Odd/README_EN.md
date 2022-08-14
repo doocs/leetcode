@@ -62,20 +62,17 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

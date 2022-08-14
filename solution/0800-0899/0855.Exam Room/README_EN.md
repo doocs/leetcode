@@ -58,20 +58,17 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

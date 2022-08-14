@@ -66,20 +66,17 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

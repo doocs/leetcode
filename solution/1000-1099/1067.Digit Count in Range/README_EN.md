@@ -40,20 +40,17 @@ Note that the digit d = 1 occurs twice in the number 11.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

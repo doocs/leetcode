@@ -50,20 +50,17 @@ The score difference is 18 - 12 = 6.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

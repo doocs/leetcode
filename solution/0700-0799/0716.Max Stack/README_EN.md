@@ -60,20 +60,17 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

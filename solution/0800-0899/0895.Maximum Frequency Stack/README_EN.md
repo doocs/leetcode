@@ -60,20 +60,17 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

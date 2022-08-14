@@ -61,20 +61,17 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

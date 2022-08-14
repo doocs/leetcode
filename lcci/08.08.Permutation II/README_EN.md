@@ -47,13 +47,11 @@
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -100,7 +98,6 @@ function dfs(arr, depth, prev, record, res) {
 ### **...**
 
 ```
-
 
 ```
 

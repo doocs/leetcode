@@ -58,20 +58,17 @@ Query = [2,5]: Room number 3 is the only room with a size of at least 5. The ans
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

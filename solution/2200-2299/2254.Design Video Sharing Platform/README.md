@@ -99,7 +99,6 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -107,7 +106,6 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -120,7 +118,6 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 ### **...**
 
 ```
-
 
 ```
 

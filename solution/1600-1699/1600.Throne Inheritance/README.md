@@ -90,7 +90,6 @@ t.getInheritanceOrder(); // 返回 ["king", "andy", "matthew", "alex", "asha", "
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -99,13 +98,11 @@ t.getInheritanceOrder(); // 返回 ["king", "andy", "matthew", "alex", "asha", "
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

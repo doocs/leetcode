@@ -46,7 +46,6 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -80,7 +79,6 @@ class Solution {
 ### **...**
 
 ```
-
 
 ```
 

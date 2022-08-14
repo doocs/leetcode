@@ -61,20 +61,17 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

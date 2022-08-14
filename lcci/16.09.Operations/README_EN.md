@@ -49,20 +49,17 @@ operations.divide(5, -2); //returns -2
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

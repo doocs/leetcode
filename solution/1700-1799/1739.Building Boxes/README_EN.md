@@ -61,20 +61,17 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

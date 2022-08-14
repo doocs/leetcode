@@ -55,7 +55,6 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -63,7 +62,6 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -76,7 +74,6 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 ### **...**
 
 ```
-
 
 ```
 

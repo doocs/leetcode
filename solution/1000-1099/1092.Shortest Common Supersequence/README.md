@@ -43,7 +43,6 @@ str2 = &quot;cab&quot; 是 &quot;cabac&quot; 的一个子串，因为我们可�
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -52,13 +51,11 @@ str2 = &quot;cab&quot; 是 &quot;cabac&quot; 的一个子串，因为我们可�
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

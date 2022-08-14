@@ -53,20 +53,17 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

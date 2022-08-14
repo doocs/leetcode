@@ -52,20 +52,17 @@ The answer string came from the fourth looped one, where you could cut from the 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

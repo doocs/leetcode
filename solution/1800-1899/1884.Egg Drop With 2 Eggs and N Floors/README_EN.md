@@ -51,20 +51,17 @@ Regardless of the outcome, it takes at most 14 drops to determine f.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -59,13 +59,11 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -78,7 +76,6 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 ### **...**
 
 ```
-
 
 ```
 

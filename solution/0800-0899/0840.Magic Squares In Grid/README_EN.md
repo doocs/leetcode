@@ -47,20 +47,17 @@ In total, there is only one magic square inside the given grid.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -43,20 +43,17 @@ The answer provided is the shortest such string that satisfies these properties.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

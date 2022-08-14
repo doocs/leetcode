@@ -48,20 +48,17 @@ solution.randPoint(); // return [0.36572, 0.17248]
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

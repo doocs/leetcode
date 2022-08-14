@@ -65,7 +65,6 @@ s<sub>9</sub> == "azbazbzaz" ，最长公共前缀为 "azbazbzaz" ，得分为 9
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -73,7 +72,6 @@ s<sub>9</sub> == "azbazbzaz" ，最长公共前缀为 "azbazbzaz" ，得分为 9
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -86,7 +84,6 @@ s<sub>9</sub> == "azbazbzaz" ，最长公共前缀为 "azbazbzaz" ，得分为 9
 ### **...**
 
 ```
-
 
 ```
 

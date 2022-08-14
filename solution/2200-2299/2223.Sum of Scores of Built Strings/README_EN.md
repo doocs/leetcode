@@ -57,13 +57,11 @@ The sum of the scores is 2 + 3 + 9 = 14, so we return 14.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -76,7 +74,6 @@ The sum of the scores is 2 + 3 + 9 = 14, so we return 14.
 ### **...**
 
 ```
-
 
 ```
 

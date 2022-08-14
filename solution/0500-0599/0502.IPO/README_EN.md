@@ -55,20 +55,17 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

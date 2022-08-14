@@ -57,20 +57,17 @@ The perimeter is 2 * 4 = 8.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

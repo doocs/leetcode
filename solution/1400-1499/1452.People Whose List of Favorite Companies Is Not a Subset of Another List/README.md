@@ -60,7 +60,6 @@ favoriteCompanies[3]=[&quot;google&quot;] 是 favoriteCompanies[0]=[&quot;leetco
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -69,13 +68,11 @@ favoriteCompanies[3]=[&quot;google&quot;] 是 favoriteCompanies[0]=[&quot;leetco
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

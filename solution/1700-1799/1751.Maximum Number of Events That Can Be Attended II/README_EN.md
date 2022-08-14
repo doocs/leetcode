@@ -57,20 +57,17 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

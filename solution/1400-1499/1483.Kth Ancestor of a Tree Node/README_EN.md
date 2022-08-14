@@ -51,20 +51,17 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

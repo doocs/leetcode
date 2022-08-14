@@ -68,13 +68,11 @@ bms.scatter(5, 1); // return False
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -87,7 +85,6 @@ bms.scatter(5, 1); // return False
 ### **...**
 
 ```
-
 
 ```
 

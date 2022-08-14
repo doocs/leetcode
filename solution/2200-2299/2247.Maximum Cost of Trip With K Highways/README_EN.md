@@ -55,13 +55,11 @@ Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit th
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -74,7 +72,6 @@ Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit th
 ### **...**
 
 ```
-
 
 ```
 

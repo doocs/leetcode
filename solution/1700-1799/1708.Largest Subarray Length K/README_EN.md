@@ -61,20 +61,17 @@ Of these, [4,5,2,3] is the largest.</pre>
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

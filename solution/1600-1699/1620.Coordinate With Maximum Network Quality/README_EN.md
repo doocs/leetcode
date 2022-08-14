@@ -72,20 +72,17 @@ No other coordinate has a higher network quality.</pre>
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

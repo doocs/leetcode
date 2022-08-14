@@ -70,20 +70,17 @@ Index 2, 4, 6, 7 is also a correct answer.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

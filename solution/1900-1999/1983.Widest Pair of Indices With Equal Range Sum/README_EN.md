@@ -62,20 +62,17 @@ There are no pairs of indices that meet the requirements.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

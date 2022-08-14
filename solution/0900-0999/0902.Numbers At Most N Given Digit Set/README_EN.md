@@ -58,20 +58,17 @@ In total, this is 29523 integers that can be written using the digits array.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

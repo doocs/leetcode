@@ -52,20 +52,17 @@ Another correct solution is to remove the subarray [3,10,4].
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

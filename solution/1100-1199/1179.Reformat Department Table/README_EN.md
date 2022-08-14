@@ -62,20 +62,17 @@ Note that the result table has 13 columns (1 for the department id + 12 for the 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -64,20 +64,17 @@ After that, there are fewer than two non-empty piles, so the game ends.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

@@ -54,20 +54,17 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

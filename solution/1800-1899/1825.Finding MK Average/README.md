@@ -76,7 +76,6 @@ obj.calculateMKAverage(); // 最后 3 个元素为 [5,5,5]
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -85,13 +84,11 @@ obj.calculateMKAverage(); // 最后 3 个元素为 [5,5,5]
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

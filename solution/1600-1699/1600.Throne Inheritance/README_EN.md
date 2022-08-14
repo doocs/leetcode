@@ -82,20 +82,17 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

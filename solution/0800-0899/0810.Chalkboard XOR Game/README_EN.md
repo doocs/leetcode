@@ -54,20 +54,17 @@ If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elem
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

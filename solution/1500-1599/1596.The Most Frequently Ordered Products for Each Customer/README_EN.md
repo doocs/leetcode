@@ -126,20 +126,17 @@ John (customer 5) did not order anything, so we do not include them in the resul
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

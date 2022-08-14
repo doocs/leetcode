@@ -58,20 +58,17 @@ Therefore, the size of the longest subarray is 2.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

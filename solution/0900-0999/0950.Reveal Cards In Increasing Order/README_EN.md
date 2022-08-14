@@ -63,20 +63,17 @@ Since all the cards revealed are in increasing order, the answer is correct.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

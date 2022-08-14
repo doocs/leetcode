@@ -93,13 +93,11 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -112,7 +110,6 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 ### **...**
 
 ```
-
 
 ```
 

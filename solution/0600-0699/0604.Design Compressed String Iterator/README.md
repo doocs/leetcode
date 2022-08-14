@@ -62,7 +62,6 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -71,13 +70,11 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

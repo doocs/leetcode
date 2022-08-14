@@ -62,20 +62,17 @@ Note that there are multiple points connected to point 2 in the first group and 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

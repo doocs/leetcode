@@ -58,20 +58,17 @@ It&#39;s impossible to make all three washing machines have the same number of d
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

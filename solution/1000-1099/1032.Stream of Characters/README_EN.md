@@ -61,20 +61,17 @@ streamChecker.query(&quot;l&quot;); // return True, because &#39;kl&#39; is in t
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

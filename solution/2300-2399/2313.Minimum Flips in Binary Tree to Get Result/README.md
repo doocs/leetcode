@@ -74,7 +74,6 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 
 ```python
 
-
 ```
 
 ### **Java**
@@ -82,7 +81,6 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
 
 ```
 
@@ -95,7 +93,6 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 ### **...**
 
 ```
-
 
 ```
 

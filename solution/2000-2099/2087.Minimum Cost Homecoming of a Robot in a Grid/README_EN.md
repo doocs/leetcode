@@ -59,20 +59,17 @@ The total cost is 3 + 2 + 6 + 7 = 18</pre>
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

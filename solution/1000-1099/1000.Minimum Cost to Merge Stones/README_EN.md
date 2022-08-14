@@ -60,20 +60,17 @@ The total cost was 25, and this is the minimum possible.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

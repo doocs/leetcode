@@ -59,20 +59,17 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

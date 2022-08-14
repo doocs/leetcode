@@ -57,20 +57,17 @@ Therefore, you can&#39;t travel around the circuit once no matter where you star
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

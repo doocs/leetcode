@@ -82,13 +82,11 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -101,7 +99,6 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 ### **...**
 
 ```
-
 
 ```
 

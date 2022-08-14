@@ -61,20 +61,17 @@ The robot has cleaned 1 space, so return 1.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

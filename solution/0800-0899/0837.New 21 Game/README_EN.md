@@ -55,13 +55,11 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -85,7 +83,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 ### **...**
 
 ```
-
 
 ```
 

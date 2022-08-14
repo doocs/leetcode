@@ -52,20 +52,17 @@ For the node with value 0: The sum of its descendants is 0 since it has no desce
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

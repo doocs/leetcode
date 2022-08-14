@@ -46,13 +46,11 @@ You need to output 2.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
-
 
 ```
 
@@ -86,7 +84,6 @@ var findContentChildren = function (g, s) {
 ### **...**
 
 ```
-
 
 ```
 

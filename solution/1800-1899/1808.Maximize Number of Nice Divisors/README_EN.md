@@ -68,20 +68,17 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

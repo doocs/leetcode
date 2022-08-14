@@ -59,20 +59,17 @@ This is the maximum distance possible, so the answer is 3.
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

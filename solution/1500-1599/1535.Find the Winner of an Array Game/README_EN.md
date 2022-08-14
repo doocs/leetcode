@@ -53,20 +53,17 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 
 ```python
 
-
 ```
 
 ### **Java**
 
 ```java
 
-
 ```
 
 ### **...**
 
 ```
-
 
 ```
 
