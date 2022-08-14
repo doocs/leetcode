@@ -117,7 +117,7 @@ def generate_contest_list():
 
 ## 段位与荣誉勋章
 
-竞赛排名根据 竞赛积分（周赛和双周赛）进行计算，注册新用户的基础分值为 1500 分，在竞赛积分 &ge;1600 的用户中，根据比例 5%, 20%, 75% 设定三档段位，段位每周比赛结束后计算一次。
+竞赛排名根据竞赛积分（周赛和双周赛）进行计算，注册新用户的基础分值为 1500 分，在竞赛积分 &ge;1600 的用户中，根据比例 5%, 20%, 75% 设定三档段位，段位每周比赛结束后计算一次。
 
 如果竞赛积分处于段位的临界值，在每周比赛结束重新计算后会出现段位升级或降级的情况。段位升级或降级后会自动替换对应的荣誉勋章。
 
@@ -131,7 +131,7 @@ def generate_contest_list():
 
 ## 赛后估分网站
 
-https://lcpredictor.herokuapp.com/
+https://lcpredictor.herokuapp.com
 
 ## 往期竞赛\n\n"""
     contest_readme_en_prefix = """# LeetCode Contest
@@ -157,7 +157,7 @@ For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange
 
 ## Rating Predictor
 
-Get your rating changes right after the completion of LeetCode contests, https://lcpredictor.herokuapp.com/
+Get your rating changes right after the completion of LeetCode contests, https://lcpredictor.herokuapp.com
 
 ## Past Contests\n\n"""
 

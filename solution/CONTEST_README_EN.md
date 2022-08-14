@@ -21,9 +21,17 @@ For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange
 
 ## Rating Predictor
 
-Get your rating changes right after the completion of LeetCode contests, https://lcpredictor.herokuapp.com
+Get your rating changes right after the completion of LeetCode contests, https://lcpredictor.herokuapp.com/
 
 ## Past Contests
+
+#### Weekly Contest 306
+
+- [2373. Largest Local Values in a Matrix](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README_EN.md)
+- [2374. Node With Highest Edge Score](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md)
+- [2375. Construct Smallest Number From DI String](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md)
+- [2376. Count Special Integers](/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
+
 
 #### Weekly Contest 305
 

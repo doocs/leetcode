@@ -5,7 +5,7 @@
 
 ## 段位与荣誉勋章
 
-竞赛排名根据竞赛积分（周赛和双周赛）进行计算，注册新用户的基础分值为 1500 分，在竞赛积分 &ge;1600 的用户中，根据比例 5%, 20%, 75% 设定三档段位，段位每周比赛结束后计算一次。
+竞赛排名根据 竞赛积分（周赛和双周赛）进行计算，注册新用户的基础分值为 1500 分，在竞赛积分 &ge;1600 的用户中，根据比例 5%, 20%, 75% 设定三档段位，段位每周比赛结束后计算一次。
 
 如果竞赛积分处于段位的临界值，在每周比赛结束重新计算后会出现段位升级或降级的情况。段位升级或降级后会自动替换对应的荣誉勋章。
 
@@ -19,11 +19,19 @@
 
 ## 赛后估分网站
 
-https://lcpredictor.herokuapp.com
+https://lcpredictor.herokuapp.com/
 
 ## 往期竞赛
 
-#### 第 305 场周赛(2022-08-07 10:30, 90 分钟) 参赛人数 7464
+#### 第 306 场周赛(2022-08-14 10:30, 90 分钟) 参赛人数 7500
+
+- [2373. 矩阵中的局部最大值](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md)
+- [2374. 边积分最高的节点](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README.md)
+- [2375. 根据模式串构造最小数字](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md)
+- [2376. 统计特殊整数](/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
+
+
+#### 第 305 场周赛(2022-08-07 10:30, 90 分钟) 参赛人数 7465
 
 - [2367. 算术三元组的数目](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
 - [2368. 受限条件下可到达节点的数目](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)
