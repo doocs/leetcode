@@ -47,6 +47,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 贪心**
+
+时间复杂度 $O(mlogm+nlogn)$，其中 $m$ 表示 $g$ 的长度，$n$ 表示 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +58,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findContentChildren(self, g: List[int], s: List[int]) -> int:
+        g.sort()
+        s.sort()
+        j = 0
+        for i, v in enumerate(g):
+            while j < len(s) and s[j] < v:
+                j += 1
+            if j >= len(s):
+                return i
+            j += 1
+        return len(g)
 ```
 
 ### **Java**
@@ -62,7 +77,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int i = 0, j = 0;
+        for (; i < g.length; ++i) {
+            while (j < s.length && s[j] < g[i]) {
+                ++j;
+            }
+            if (j >= s.length) {
+                break;
+            }
+            ++j;
+        }
+        return i;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findContentChildren(vector<int>& g, vector<int>& s) {
+        sort(g.begin(), g.end());
+        sort(s.begin(), s.end());
+        int i = 0, j = 0;
+        for (; i < g.size(); ++i) {
+            while (j < s.size() && s[j] < g[i]) {
+                ++j;
+            }
+            if (j >= s.size()) {
+                break;
+            }
+            ++j;
+        }
+        return i;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findContentChildren(g []int, s []int) int {
+	sort.Ints(g)
+	sort.Ints(s)
+	i, j := 0, 0
+	for ; i < len(g); i++ {
+		for ; j < len(s) && s[j] < g[i]; j++ {
+		}
+		if j >= len(s) {
+			break
+		}
+		j++
+	}
+	return i
+}
 ```
 
 ### **JavaScript**
@@ -74,19 +147,18 @@
  * @return {number}
  */
 var findContentChildren = function (g, s) {
-    let len1 = g.length,
-        len2 = s.length;
-    if (len2 === 0) return 0;
     g.sort((a, b) => a - b);
     s.sort((a, b) => a - b);
-    let i = 0,
-        j = 0;
-    while (i < len1 && j < len2) {
-        while (s[j] < g[i]) j++;
-        if (s[j] >= g[i]) {
-            i++;
-            j++;
-        } else break;
+    let i = 0;
+    let j = 0;
+    for (; i < g.length; ++i) {
+        while (j < s.length && s[j] < g[i]) {
+            ++j;
+        }
+        if (j >= s.length) {
+            break;
+        }
+        ++j;
     }
     return i;
 };
