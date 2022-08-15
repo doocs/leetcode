@@ -60,7 +60,18 @@ circularDeque.getFront();				// 返回 4
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“循环数组”实现。
+**方法一：数组**
+
+利用循环数组，实现循环双端队列。
+
+基本元素有：
+
+- front：队头元素的下标
+- size：队列中元素的个数
+- capacity：队列的容量
+- q：循环数组，存储队列中的元素
+
+时间复杂度 $O(1)$，空间复杂度 $O(k)$。其中 $k$ 是队列的容量。
 
 <!-- tabs:start -->
 
@@ -262,6 +273,181 @@ class MyCircularDeque {
  * int param_6 = obj.getRear();
  * boolean param_7 = obj.isEmpty();
  * boolean param_8 = obj.isFull();
+ */
+```
+
+### **C++**
+
+```cpp
+class MyCircularDeque {
+public:
+    vector<int> q;
+    int front = 0;
+    int size = 0;
+    int capacity = 0;
+
+    MyCircularDeque(int k) {
+        q.assign(k, 0);
+        capacity = k;
+    }
+    
+    bool insertFront(int value) {
+        if (isFull()) {
+            return false;
+        }
+        if (!isEmpty()) {
+            front = (front - 1 + capacity) % capacity;
+        }
+        q[front] = value;
+        ++size;
+        return true;
+    }
+    
+    bool insertLast(int value) {
+        if (isFull()) {
+            return false;
+        }
+        int idx = (front + size) % capacity;
+        q[idx] = value;
+        ++size;
+        return true;
+    }
+    
+    bool deleteFront() {
+        if (isEmpty()) {
+            return false;
+        }
+        front = (front + 1) % capacity;
+        --size;
+        return true;
+    }
+    
+    bool deleteLast() {
+        if (isEmpty()) {
+            return false;
+        }
+        --size;
+        return true;
+    }
+    
+    int getFront() {
+        return isEmpty() ? -1 : q[front];
+    }
+    
+    int getRear() {
+        return isEmpty() ? -1 : q[(front + size - 1) % capacity];
+    }
+    
+    bool isEmpty() {
+        return size == 0;
+    }
+    
+    bool isFull() {
+        return size == capacity;
+    }
+};
+
+/**
+ * Your MyCircularDeque object will be instantiated and called as such:
+ * MyCircularDeque* obj = new MyCircularDeque(k);
+ * bool param_1 = obj->insertFront(value);
+ * bool param_2 = obj->insertLast(value);
+ * bool param_3 = obj->deleteFront();
+ * bool param_4 = obj->deleteLast();
+ * int param_5 = obj->getFront();
+ * int param_6 = obj->getRear();
+ * bool param_7 = obj->isEmpty();
+ * bool param_8 = obj->isFull();
+ */
+```
+
+### **Go**
+
+```go
+type MyCircularDeque struct {
+	q        []int
+	size     int
+	front    int
+	capacity int
+}
+
+func Constructor(k int) MyCircularDeque {
+	q := make([]int, k)
+	return MyCircularDeque{q, 0, 0, k}
+}
+
+func (this *MyCircularDeque) InsertFront(value int) bool {
+	if this.IsFull() {
+		return false
+	}
+	if !this.IsEmpty() {
+		this.front = (this.front - 1 + this.capacity) % this.capacity
+	}
+	this.q[this.front] = value
+	this.size++
+	return true
+}
+
+func (this *MyCircularDeque) InsertLast(value int) bool {
+	if this.IsFull() {
+		return false
+	}
+	idx := (this.front + this.size) % this.capacity
+	this.q[idx] = value
+	this.size++
+	return true
+}
+
+func (this *MyCircularDeque) DeleteFront() bool {
+	if this.IsEmpty() {
+		return false
+	}
+	this.front = (this.front + 1) % this.capacity
+	this.size -= 1
+	return true
+}
+
+func (this *MyCircularDeque) DeleteLast() bool {
+	if this.IsEmpty() {
+		return false
+	}
+	this.size -= 1
+	return true
+}
+
+func (this *MyCircularDeque) GetFront() int {
+	if this.IsEmpty() {
+		return -1
+	}
+	return this.q[this.front]
+}
+
+func (this *MyCircularDeque) GetRear() int {
+	if this.IsEmpty() {
+		return -1
+	}
+	return this.q[(this.front+this.size-1)%this.capacity]
+}
+
+func (this *MyCircularDeque) IsEmpty() bool {
+	return this.size == 0
+}
+
+func (this *MyCircularDeque) IsFull() bool {
+	return this.size == this.capacity
+}
+
+/**
+ * Your MyCircularDeque object will be instantiated and called as such:
+ * obj := Constructor(k);
+ * param_1 := obj.InsertFront(value);
+ * param_2 := obj.InsertLast(value);
+ * param_3 := obj.DeleteFront();
+ * param_4 := obj.DeleteLast();
+ * param_5 := obj.GetFront();
+ * param_6 := obj.GetRear();
+ * param_7 := obj.IsEmpty();
+ * param_8 := obj.IsFull();
  */
 ```
 
