@@ -223,6 +223,65 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maxScore(s: string): number {
+    const n = s.length;
+    let res = 0;
+    let score = 0;
+    if (s[0] === '0') {
+        score++;
+    }
+    for (let i = 1; i < n; i++) {
+        if (s[i] === '1') {
+            score++;
+        }
+    }
+    res = Math.max(res, score);
+    for (let i = 1; i < n - 1; i++) {
+        if (s[i] === '0') {
+            score++;
+        } else if (s[i] === '1') {
+            score--;
+        }
+        res = Math.max(res, score);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_score(s: String) -> i32 {
+        let n = s.len();
+        let mut res = 0;
+        let mut score = 0;
+        let bs = s.as_bytes();
+        if bs[0] == b'0' {
+            score += 1;
+        }
+        for i in 1..n {
+            if bs[i] == b'1' {
+                score += 1;
+            }
+        }
+        res = res.max(score);
+        for i in 1..n - 1 {
+            if bs[i] == b'0' {
+                score += 1;
+            } else if bs[i] == b'1' {
+                score -= 1;
+            }
+            res = res.max(score);
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
