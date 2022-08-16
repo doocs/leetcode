@@ -1,6 +1,7 @@
 class Solution {
-    public int canCompleteCircuit(int[] gas, int[] cost) {
-        int n = gas.length;
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int n = gas.size();
         int i = n - 1, j = n - 1;
         int cnt = 0, s = 0;
         while (cnt < n) {
@@ -15,4 +16,4 @@ class Solution {
         }
         return s < 0 ? -1 : i;
     }
-}
+};
