@@ -45,8 +45,7 @@
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        counter = Counter(s)
-        return sum(e % 2 for e in counter.values()) < 2
+        return sum(v % 2 for v in Counter(s).values()) <= 1
 ```
 
 ### **Java**
@@ -54,15 +53,15 @@ class Solution:
 ```java
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        int[] counter = new int[26];
+        int[] cnt = new int[26];
         for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+            ++cnt[c - 'a'];
         }
-        int oddCnt = 0;
-        for (int cnt : counter) {
-            oddCnt += cnt % 2;
+        int n = 0;
+        for (int v : cnt) {
+            n += v % 2;
         }
-        return oddCnt < 2;
+        return n < 2;
     }
 }
 ```
@@ -73,11 +72,11 @@ class Solution {
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
-        vector<int> counter(26);
-        for (auto& c : s) ++counter[c - 'a'];
-        int oddCnt = 0;
-        for (int& cnt : counter) oddCnt += cnt % 2;
-        return oddCnt < 2;
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        int n = 0;
+        for (int& v : cnt) n += v & 1;
+        return n < 2;
     }
 };
 ```
@@ -86,16 +85,36 @@ public:
 
 ```go
 func canPermutePalindrome(s string) bool {
-	counter := make([]int, 26)
-	for i := range s {
-		counter[s[i]-'a']++
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
 	}
-	oddCnt := 0
-	for _, cnt := range counter {
-		oddCnt += cnt % 2
+	n := 0
+	for _, v := range cnt {
+		n += v & 1
 	}
-	return oddCnt < 2
+	return n < 2
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var canPermutePalindrome = function (s) {
+    let ss = new Set();
+    for (let c of s) {
+        if (ss.has(c)) {
+            ss.delete(c);
+        } else {
+            ss.add(c);
+        }
+    }
+    return ss.size < 2;
+};
 ```
 
 ### **...**

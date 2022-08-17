@@ -27,7 +27,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-利用 HashMap（字典表）统计每个字符出现的频率，至多有一个字符出现奇数次数即可。
+**方法一：数组**
+
+创建一个长度为 $26$ 的数组，统计每个字母出现的频率，至多有一个字符出现奇数次数即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(26)$。其中 $n$ 是字符串的长度。
+
+**方法二：哈希表**
+
+利用哈希表来维护元素。遍历字符串每个字母 $s[i]$，若 $s[i]$ 在哈希表中，则将 $s[i]$ 从哈希表中删除，否则将 $s[i]$ 加入哈希表。
+
+遍历结束，若哈希表中元素个数不超过 $1$，则返回 true，否则返回 false。
+
+时间复杂度 $O(n)$，空间复杂度 $O(26)$。其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
 
@@ -38,8 +50,7 @@
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        counter = Counter(s)
-        return sum(e % 2 for e in counter.values()) < 2
+        return sum(v % 2 for v in Counter(s).values()) <= 1
 ```
 
 ### **Java**
@@ -49,15 +60,15 @@ class Solution:
 ```java
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        int[] counter = new int[26];
+        int[] cnt = new int[26];
         for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+            ++cnt[c - 'a'];
         }
-        int oddCnt = 0;
-        for (int cnt : counter) {
-            oddCnt += cnt % 2;
+        int n = 0;
+        for (int v : cnt) {
+            n += v % 2;
         }
-        return oddCnt < 2;
+        return n < 2;
     }
 }
 ```
@@ -68,11 +79,11 @@ class Solution {
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
-        vector<int> counter(26);
-        for (auto& c : s) ++counter[c - 'a'];
-        int oddCnt = 0;
-        for (int& cnt : counter) oddCnt += cnt % 2;
-        return oddCnt < 2;
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        int n = 0;
+        for (int& v : cnt) n += v & 1;
+        return n < 2;
     }
 };
 ```
@@ -81,16 +92,36 @@ public:
 
 ```go
 func canPermutePalindrome(s string) bool {
-	counter := make([]int, 26)
-	for i := range s {
-		counter[s[i]-'a']++
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
 	}
-	oddCnt := 0
-	for _, cnt := range counter {
-		oddCnt += cnt % 2
+	n := 0
+	for _, v := range cnt {
+		n += v & 1
 	}
-	return oddCnt < 2
+	return n < 2
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var canPermutePalindrome = function (s) {
+    let ss = new Set();
+    for (let c of s) {
+        if (ss.has(c)) {
+            ss.delete(c);
+        } else {
+            ss.add(c);
+        }
+    }
+    return ss.size < 2;
+};
 ```
 
 ### **...**
