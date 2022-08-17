@@ -47,6 +47,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 表示房子的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,13 +60,10 @@
 ```python
 class Solution:
     def minCost(self, costs: List[List[int]]) -> int:
-        r, g, b = 0, 0, 0
-        for cost in costs:
-            _r, _g, _b = r, g, b
-            r = min(_g, _b) + cost[0]
-            g = min(_r, _b) + cost[1]
-            b = min(_r, _g) + cost[2]
-        return min(r, g, b)
+        a = b = c = 0
+        for ca, cb, cc in costs:
+            a, b, c = min(b, c) + ca, min(a, c) + cb, min(a, b) + cc
+        return min(a, b, c)
 ```
 
 ### **Java**
@@ -122,6 +123,26 @@ func min(x, y int) int {
 	}
 	return y
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} costs
+ * @return {number}
+ */
+var minCost = function (costs) {
+    let [a, b, c] = [0, 0, 0];
+    for (let [ca, cb, cc] of costs) {
+        [a, b, c] = [
+            Math.min(b, c) + ca,
+            Math.min(a, c) + cb,
+            Math.min(a, b) + cc,
+        ];
+    }
+    return Math.min(a, b, c);
+};
 ```
 
 ### **...**
