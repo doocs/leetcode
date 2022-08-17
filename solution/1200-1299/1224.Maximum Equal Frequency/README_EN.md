@@ -39,13 +39,115 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxEqualFreq(self, nums: List[int]) -> int:
+        cnt = Counter()
+        ccnt = Counter()
+        ans = mx = 0
+        for i, v in enumerate(nums, 1):
+            if v in cnt:
+                ccnt[cnt[v]] -= 1
+            cnt[v] += 1
+            mx = max(mx, cnt[v])
+            ccnt[cnt[v]] += 1
+            if mx == 1:
+                ans = i
+            elif ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i and ccnt[mx] == 1:
+                ans = i
+            elif ccnt[mx] * mx + 1 == i and ccnt[1] == 1:
+                ans = i
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static int[] cnt = new int[100010];
+    private static int[] ccnt = new int[100010];
 
+    public int maxEqualFreq(int[] nums) {
+        Arrays.fill(cnt, 0);
+        Arrays.fill(ccnt, 0);
+        int ans = 0;
+        int mx = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            int v = nums[i - 1];
+            if (cnt[v] > 0) {
+                --ccnt[cnt[v]];
+            }
+            ++cnt[v];
+            mx = Math.max(mx, cnt[v]);
+            ++ccnt[cnt[v]];
+            if (mx == 1) {
+                ans = i;
+            } else if (ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i && ccnt[mx] == 1) {
+                ans = i;
+            } else if (ccnt[mx] * mx + 1 == i && ccnt[1] == 1) {
+                ans = i;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxEqualFreq(vector<int>& nums) {
+        unordered_map<int, int> cnt;
+        unordered_map<int, int> ccnt;
+        int ans = 0, mx = 0;
+        for (int i = 1; i <= nums.size(); ++i) {
+            int v = nums[i - 1];
+            if (cnt[v]) --ccnt[cnt[v]];
+            ++cnt[v];
+            mx = max(mx, cnt[v]);
+            ++ccnt[cnt[v]];
+            if (mx == 1) ans = i;
+            else if (ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i && ccnt[mx] == 1) ans = i;
+            else if (ccnt[mx] * mx + 1 == i && ccnt[1] == 1) ans = i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxEqualFreq(nums []int) int {
+	cnt := map[int]int{}
+	ccnt := map[int]int{}
+	ans, mx := 0, 0
+	for i, v := range nums {
+		i++
+		if cnt[v] > 0 {
+			ccnt[cnt[v]]--
+		}
+		cnt[v]++
+		mx = max(mx, cnt[v])
+		ccnt[cnt[v]]++
+		if mx == 1 {
+			ans = i
+		} else if ccnt[mx]*mx+ccnt[mx-1]*(mx-1) == i && ccnt[mx] == 1 {
+			ans = i
+		} else if ccnt[mx]*mx+1 == i && ccnt[1] == 1 {
+			ans = i
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

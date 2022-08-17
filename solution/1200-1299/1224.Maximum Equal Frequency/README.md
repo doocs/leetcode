@@ -44,6 +44,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数组/哈希表**
+
+用 $cnt$ 记录 $nums$ 中每个元素 $v$ 出现的次数，而 $ccnt$ 记录每个次数出现的次数，元素出现的最大次数用 $mx$ 表示。
+
+遍历 $nums$：
+
+-   若最大次数 $mx=1$，说明当前前缀中每个数字均出现 $1$ 次，删除任意一个后，都满足剩余数字次数相同；
+-   若所有数字出现的次数均为 $mx$ 和 $mx-1$，并且只有一个数字的出现次数为 $mx$，那么我们删除出现 $mx$ 次数的一个数字，剩余数字次数均为 $mx-1$，满足条件；
+-   若除了一个数字，其它所有数字出现次数均为 $mx$ 次，那么我们删除出现一次的数字，剩余数字次数均为 $mx$，满足条件。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示 $nums$ 数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +63,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxEqualFreq(self, nums: List[int]) -> int:
+        cnt = Counter()
+        ccnt = Counter()
+        ans = mx = 0
+        for i, v in enumerate(nums, 1):
+            if v in cnt:
+                ccnt[cnt[v]] -= 1
+            cnt[v] += 1
+            mx = max(mx, cnt[v])
+            ccnt[cnt[v]] += 1
+            if mx == 1:
+                ans = i
+            elif ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i and ccnt[mx] == 1:
+                ans = i
+            elif ccnt[mx] * mx + 1 == i and ccnt[1] == 1:
+                ans = i
+        return ans
 ```
 
 ### **Java**
@@ -59,7 +88,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static int[] cnt = new int[100010];
+    private static int[] ccnt = new int[100010];
 
+    public int maxEqualFreq(int[] nums) {
+        Arrays.fill(cnt, 0);
+        Arrays.fill(ccnt, 0);
+        int ans = 0;
+        int mx = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            int v = nums[i - 1];
+            if (cnt[v] > 0) {
+                --ccnt[cnt[v]];
+            }
+            ++cnt[v];
+            mx = Math.max(mx, cnt[v]);
+            ++ccnt[cnt[v]];
+            if (mx == 1) {
+                ans = i;
+            } else if (ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i && ccnt[mx] == 1) {
+                ans = i;
+            } else if (ccnt[mx] * mx + 1 == i && ccnt[1] == 1) {
+                ans = i;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxEqualFreq(vector<int>& nums) {
+        unordered_map<int, int> cnt;
+        unordered_map<int, int> ccnt;
+        int ans = 0, mx = 0;
+        for (int i = 1; i <= nums.size(); ++i) {
+            int v = nums[i - 1];
+            if (cnt[v]) --ccnt[cnt[v]];
+            ++cnt[v];
+            mx = max(mx, cnt[v]);
+            ++ccnt[cnt[v]];
+            if (mx == 1) ans = i;
+            else if (ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i && ccnt[mx] == 1) ans = i;
+            else if (ccnt[mx] * mx + 1 == i && ccnt[1] == 1) ans = i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxEqualFreq(nums []int) int {
+	cnt := map[int]int{}
+	ccnt := map[int]int{}
+	ans, mx := 0, 0
+	for i, v := range nums {
+		i++
+		if cnt[v] > 0 {
+			ccnt[cnt[v]]--
+		}
+		cnt[v]++
+		mx = max(mx, cnt[v])
+		ccnt[cnt[v]]++
+		if mx == 1 {
+			ans = i
+		} else if ccnt[mx]*mx+ccnt[mx-1]*(mx-1) == i && ccnt[mx] == 1 {
+			ans = i
+		} else if ccnt[mx]*mx+1 == i && ccnt[1] == 1 {
+			ans = i
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
