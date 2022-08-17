@@ -31,7 +31,7 @@ Given the <code>root</code> of a binary tree, return <em>the sum of values of it
 
 ## Solutions
 
-BFS.
+DFS or BFS.
 
 <!-- tabs:start -->
 
@@ -45,20 +45,44 @@ BFS.
 #         self.left = left
 #         self.right = right
 class Solution:
-    def deepestLeavesSum(self, root: TreeNode) -> int:
+    def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
         q = deque([root])
-        s = 0
         while q:
-            n = len(q)
-            s = 0
-            for _ in range(n):
-                node = q.popleft()
-                s += node.val
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-        return s
+            ans = 0
+            for _ in range(len(q)):
+                root = q.popleft()
+                ans += root.val
+                if root.left:
+                    q.append(root.left)
+                if root.right:
+                    q.append(root.right)
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
+        def dfs(root, i):
+            nonlocal ans, mx
+            if root is None:
+                return
+            if i == mx:
+                ans += root.val
+            elif i > mx:
+                ans = root.val
+                mx = i
+            dfs(root.left, i + 1)
+            dfs(root.right, i + 1)
+
+        ans = mx = 0
+        dfs(root, 1)
+        return ans
 ```
 
 ### **Java**
@@ -83,22 +107,62 @@ class Solution {
     public int deepestLeavesSum(TreeNode root) {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        int s = 0;
+        int ans = 0;
         while (!q.isEmpty()) {
-            int n = q.size();
-            s = 0;
-            while (n-- > 0) {
-                TreeNode node = q.poll();
-                s += node.val;
-                if (node.left != null) {
-                    q.offer(node.left);
+            ans = 0;
+            for (int n = q.size(); n > 0; --n) {
+                root = q.pollFirst();
+                ans += root.val;
+                if (root.left != null) {
+                    q.offer(root.left);
                 }
-                if (node.right != null) {
-                    q.offer(node.right);
+                if (root.right != null) {
+                    q.offer(root.right);
                 }
             }
         }
-        return s;
+        return ans;
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    int mx;
+    int ans;
+
+    public int deepestLeavesSum(TreeNode root) {
+        dfs(root, 1);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int i) {
+        if (root == null) {
+            return;
+        }
+        if (i > mx) {
+            mx = i;
+            ans = root.val;
+        } else if (i == mx) {
+            ans += root.val;
+        }
+        dfs(root.left, i + 1);
+        dfs(root.right, i + 1);
     }
 }
 ```
@@ -120,21 +184,55 @@ class Solution {
 class Solution {
 public:
     int deepestLeavesSum(TreeNode* root) {
-        queue<TreeNode*> q;
-        q.push(root);
-        int s = 0;
+        int ans = 0;
+        queue<TreeNode*> q {{root}};
         while (!q.empty()) {
-            int n = q.size();
-            s = 0;
-            while (n--) {
-                auto node = q.front();
+            ans = 0;
+            for (int n = q.size(); n; --n) {
+                root = q.front();
                 q.pop();
-                s += node->val;
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
+                ans += root->val;
+                if (root->left) q.push(root->left);
+                if (root->right) q.push(root->right);
             }
         }
-        return s;
+        return ans;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int mx = 0;
+    int ans = 0;
+
+    int deepestLeavesSum(TreeNode* root) {
+        dfs(root, 1);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int i) {
+        if (!root) return;
+        if (i == mx) {
+            ans += root->val;
+        } else if (i > mx) {
+            mx = i;
+            ans = root->val;
+        }
+        dfs(root->left, i + 1);
+        dfs(root->right, i + 1);
     }
 };
 ```
@@ -151,25 +249,53 @@ public:
  * }
  */
 func deepestLeavesSum(root *TreeNode) int {
-	q := []*TreeNode{}
-	q = append(q, root)
-	s := 0
-	for len(q) != 0 {
-		n := len(q)
-		s = 0
-		for i := 0; i < n; i++ {
-			node := q[0]
+	q := []*TreeNode{root}
+	ans := 0
+	for len(q) > 0 {
+		ans = 0
+		for n := len(q); n > 0; n-- {
+			root = q[0]
 			q = q[1:]
-			s += node.Val
-			if node.Left != nil {
-				q = append(q, node.Left)
+			ans += root.Val
+			if root.Left != nil {
+				q = append(q, root.Left)
 			}
-			if node.Right != nil {
-				q = append(q, node.Right)
+			if root.Right != nil {
+				q = append(q, root.Right)
 			}
 		}
 	}
-	return s
+	return ans
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func deepestLeavesSum(root *TreeNode) int {
+	ans, mx := 0, 0
+	var dfs func(*TreeNode, int)
+	dfs = func(root *TreeNode, i int) {
+		if root == nil {
+			return
+		}
+		if i == mx {
+			ans += root.Val
+		} else if i > mx {
+			mx = i
+			ans = root.Val
+		}
+		dfs(root.Left, i+1)
+		dfs(root.Right, i+1)
+	}
+	dfs(root, 1)
+	return ans
 }
 ```
 

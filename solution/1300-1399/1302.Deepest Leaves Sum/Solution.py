@@ -5,17 +5,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def deepestLeavesSum(self, root: TreeNode) -> int:
+    def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
         q = deque([root])
-        s = 0
         while q:
-            n = len(q)
-            s = 0
-            for _ in range(n):
-                node = q.popleft()
-                s += node.val
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-        return s
+            ans = 0
+            for _ in range(len(q)):
+                root = q.popleft()
+                ans += root.val
+                if root.left:
+                    q.append(root.left)
+                if root.right:
+                    q.append(root.right)
+        return ans

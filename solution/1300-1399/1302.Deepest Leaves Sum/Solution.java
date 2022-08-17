@@ -17,21 +17,20 @@ class Solution {
     public int deepestLeavesSum(TreeNode root) {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        int s = 0;
+        int ans = 0;
         while (!q.isEmpty()) {
-            int n = q.size();
-            s = 0;
-            while (n-- > 0) {
-                TreeNode node = q.poll();
-                s += node.val;
-                if (node.left != null) {
-                    q.offer(node.left);
+            ans = 0;
+            for (int n = q.size(); n > 0; --n) {
+                root = q.pollFirst();
+                ans += root.val;
+                if (root.left != null) {
+                    q.offer(root.left);
                 }
-                if (node.right != null) {
-                    q.offer(node.right);
+                if (root.right != null) {
+                    q.offer(root.right);
                 }
             }
         }
-        return s;
+        return ans;
     }
 }
