@@ -49,6 +49,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：使用非 ASCII 码的分隔符**
+
+Python 中可以直接 `chr(257)` 作为字符串的分隔符，这样就可以实现字符串的编码和解码。
+
+时间复杂度 $O(n)$。
+
+**方法二：编码字符串长度**
+
+编码时，将字符串的长度转成固定 $4$ 位的字符串，加上字符串本身，依次拼接到结果字符串。
+
+解码时，先取前四位字符串，得到长度，再通过长度截取后面的字符串。依次截取，最终得到字符串列表。
+
+时间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +70,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Codec:
+    def encode(self, strs: List[str]) -> str:
+        """Encodes a list of strings to a single string.
+        """
+        return chr(257).join(strs)
 
+    def decode(self, s: str) -> List[str]:
+        """Decodes a single string to a list of strings.
+        """
+        return s.split(chr(257))
+
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.decode(codec.encode(strs))
+```
+
+```python
+class Codec:
+    def encode(self, strs: List[str]) -> str:
+        """Encodes a list of strings to a single string.
+        """
+        ans = []
+        for s in strs:
+            ans.append('{:4}'.format(len(s)) + s)
+        return ''.join(ans)
+
+    def decode(self, s: str) -> List[str]:
+        """Decodes a single string to a list of strings.
+        """
+        ans = []
+        i, n = 0, len(s)
+        while i < n:
+            size = int(s[i: i + 4])
+            i += 4
+            ans.append(s[i: i + size])
+            i += size
+        return ans
+
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.decode(codec.encode(strs))
 ```
 
 ### **Java**
@@ -64,7 +120,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+public class Codec {
 
+    // Encodes a list of strings to a single string.
+    public String encode(List<String> strs) {
+        StringBuilder ans = new StringBuilder();
+        for (String s : strs) {
+            ans.append((char) s.length()).append(s);
+        }
+        return ans.toString();
+    }
+
+    // Decodes a single string to a list of strings.
+    public List<String> decode(String s) {
+        List<String> ans = new ArrayList<>();
+        int i = 0, n = s.length();
+        while (i < n) {
+            int size = s.charAt(i++);
+            ans.add(s.substring(i, i + size));
+            i += size;
+        }
+        return ans;
+    }
+}
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.decode(codec.encode(strs));
+```
+
+### **C++**
+
+```cpp
+class Codec {
+public:
+
+    // Encodes a list of strings to a single string.
+    string encode(vector<string>& strs) {
+        string ans;
+        for (string s : strs) {
+            int size = s.size();
+            ans += string((const char*)& size, sizeof(size));
+            ans += s;
+        }
+        return ans;
+    }
+
+    // Decodes a single string to a list of strings.
+    vector<string> decode(string s) {
+        vector<string> ans;
+        int i = 0, n = s.size();
+        int size = 0;
+        while (i < n) {
+            memcpy(&size, s.data() + i, sizeof(size));
+            i += sizeof(size);
+            ans.push_back(s.substr(i, size));
+            i += size;
+        }
+        return ans;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.decode(codec.encode(strs));
+```
+
+### **Go**
+
+```go
+type Codec struct {
+}
+
+// Encodes a list of strings to a single string.
+func (codec *Codec) Encode(strs []string) string {
+	ans := &bytes.Buffer{}
+	for _, s := range strs {
+		t := fmt.Sprintf("%04d", len(s))
+		ans.WriteString(t)
+		ans.WriteString(s)
+	}
+	return ans.String()
+}
+
+// Decodes a single string to a list of strings.
+func (codec *Codec) Decode(strs string) []string {
+	ans := []string{}
+	i, n := 0, len(strs)
+	for i < n {
+		t := strs[i : i+4]
+		i += 4
+		size, _ := strconv.Atoi(t)
+		ans = append(ans, strs[i:i+size])
+		i += size
+	}
+	return ans
+}
+
+// Your Codec object will be instantiated and called as such:
+// var codec Codec
+// codec.Decode(codec.Encode(strs));
 ```
 
 ### **...**
