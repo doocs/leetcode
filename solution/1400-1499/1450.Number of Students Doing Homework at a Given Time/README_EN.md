@@ -51,10 +51,17 @@ class Solution:
     def busyStudent(
         self, startTime: List[int], endTime: List[int], queryTime: int
     ) -> int:
-        count, n = 0, len(startTime)
-        for i in range(n):
-            count += startTime[i] <= queryTime <= endTime[i]
-        return count
+        return sum(a <= queryTime <= b for a, b in zip(startTime, endTime))
+```
+
+```python
+class Solution:
+    def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -> int:
+        c = [0] * 1010
+        for a, b in zip(startTime, endTime):
+            c[a] += 1
+            c[b + 1] -= 1
+        return sum(c[: queryTime + 1])
 ```
 
 ### **Java**
@@ -62,13 +69,30 @@ class Solution:
 ```java
 class Solution {
     public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
-        int count = 0, n = startTime.length;
-        for (int i = 0; i < n; ++i) {
+        int ans = 0;
+        for (int i = 0; i < startTime.length; ++i) {
             if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
-                ++count;
+                ++ans;
             }
         }
-        return count;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
+        int[] c = new int[1010];
+        for (int i = 0; i < startTime.length; ++i) {
+            c[startTime[i]]++;
+            c[endTime[i] + 1]--;
+        }
+        int ans = 0;
+        for (int i = 0; i <= queryTime; ++i) {
+            ans += c[i];
+        }
+        return ans;
     }
 }
 ```
@@ -79,13 +103,29 @@ class Solution {
 class Solution {
 public:
     int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
-        int count = 0, n = startTime.size();
-        for (int i = 0; i < n; ++i) {
-            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
-                ++count;
-            }
+        int ans = 0;
+        for (int i = 0; i < startTime.size(); ++i) {
+            ans += startTime[i] <= queryTime && queryTime <= endTime[i];
         }
-        return count;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
+        vector<int> c(1010);
+        for (int i = 0; i < startTime.size(); ++i) {
+            c[startTime[i]]++;
+            c[endTime[i] + 1]--;
+        }
+        int ans = 0;
+        for (int i = 0; i <= queryTime; ++i) {
+            ans += c[i];
+        }
+        return ans;
     }
 };
 ```
@@ -94,13 +134,30 @@ public:
 
 ```go
 func busyStudent(startTime []int, endTime []int, queryTime int) int {
-	count, n := 0, len(startTime)
-	for i := 0; i < n; i++ {
-		if startTime[i] <= queryTime && queryTime <= endTime[i] {
-			count++
+	ans := 0
+	for i, a := range startTime {
+		b := endTime[i]
+		if a <= queryTime && queryTime <= b {
+			ans++
 		}
 	}
-	return count
+	return ans
+}
+```
+
+```go
+func busyStudent(startTime []int, endTime []int, queryTime int) int {
+	c := make([]int, 1010)
+	for i, a := range startTime {
+		b := endTime[i]
+		c[a]++
+		c[b+1]--
+	}
+	ans := 0
+	for i := 0; i <= queryTime; i++ {
+		ans += c[i]
+	}
+	return ans
 }
 ```
 
