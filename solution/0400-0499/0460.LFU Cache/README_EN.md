@@ -30,7 +30,6 @@
 <strong>Output</strong>
 [null, null, null, 1, null, -1, 3, null, -1, 3, 4]
 
-
 <strong>Explanation</strong>
 // cnt(x) = the use counter for key x
 // cache=[] will show the last used order for tiebreakers (leftmost element is  most recent)

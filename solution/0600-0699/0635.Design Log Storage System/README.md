@@ -26,17 +26,14 @@
 <strong>输出：</strong>
 [null, null, null, null, [3, 2, 1], [2, 1]]
 
-
 <strong>解释：</strong>
 LogSystem logSystem = new LogSystem();
 logSystem.put(1, "2017:01:01:23:59:59");
 logSystem.put(2, "2017:01:01:22:59:59");
 logSystem.put(3, "2016:01:01:00:00:00");
 
-
 // 返回 [3,2,1]，返回从 2016 年到 2017 年所有的日志。
 logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Year");
-
 
 // 返回 [2,1]，返回从 Jan. 1, 2016 01:XX:XX 到 Jan. 1, 2017 23:XX:XX 之间的所有日志
 // 不返回日志 3 因为记录时间 Jan. 1, 2016 00:00:00 超过范围的起始时间

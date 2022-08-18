@@ -47,7 +47,6 @@ Successor(x, curOrder):
 <strong>Output</strong>
 [null, null, null, null, null, null, null, [&quot;king&quot;, &quot;andy&quot;, &quot;matthew&quot;, &quot;bob&quot;, &quot;alex&quot;, &quot;asha&quot;, &quot;catherine&quot;], null, [&quot;king&quot;, &quot;andy&quot;, &quot;matthew&quot;, &quot;alex&quot;, &quot;asha&quot;, &quot;catherine&quot;]]
 
-
 <strong>Explanation</strong>
 ThroneInheritance t= new ThroneInheritance(&quot;king&quot;); // order: <strong>king</strong>
 t.birth(&quot;king&quot;, &quot;andy&quot;); // order: king &gt; <strong>andy</strong>

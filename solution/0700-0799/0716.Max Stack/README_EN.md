@@ -29,7 +29,6 @@
 <strong>Output</strong>
 [null, null, null, null, 5, 5, 1, 5, 1, 5]
 
-
 <strong>Explanation</strong>
 MaxStack stk = new MaxStack();
 stk.push(5);   // [<strong><u>5</u></strong>] the top of the stack and the maximum number is 5.
@@ -48,7 +47,7 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 
 <ul>
 	<li><code>-10<sup>7</sup> &lt;= x &lt;= 10<sup>7</sup></code></li>
-	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, <code>peekMax</code>, and <code>popMax</code>.</li>
+	<li>At most <code>10<sup>5</sup></code>&nbsp;calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, <code>peekMax</code>, and <code>popMax</code>.</li>
 	<li>There will be <strong>at least one element</strong> in the stack when <code>pop</code>, <code>top</code>, <code>peekMax</code>, or <code>popMax</code> is called.</li>
 </ul>
 

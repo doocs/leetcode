@@ -24,7 +24,6 @@
 <strong>输出:</strong> 0.00000
 <strong>解释:</strong> 我们在顶层（下标是（0，0））倒了一杯香槟后，没有溢出，因此所有在顶层以下的玻璃杯都是空的。
 
-
 <strong>示例 2:</strong>
 <strong>输入:</strong> poured(倾倒香槟总杯数) = 2, query_glass(杯子的位置数) = 1, query_row(行数) = 1
 <strong>输出:</strong> 0.50000

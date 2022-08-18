@@ -39,7 +39,6 @@
 <strong>Output</strong>
 [null, [1, 0, 2], null, null, [[0, 1], [1, 2]], null, [0, 1]]
 
-
 <strong>Explanation</strong>
 MovieRentingSystem movieRentingSystem = new MovieRentingSystem(3, [[0, 1, 5], [0, 2, 6], [0, 3, 7], [1, 1, 4], [1, 2, 7], [2, 1, 5]]);
 movieRentingSystem.search(1);  // return [1, 0, 2], Movies of ID 1 are unrented at shops 1, 0, and 2. Shop 1 is cheapest; shop 0 and 2 are the same price, so order by shop number.

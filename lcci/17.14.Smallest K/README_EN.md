@@ -11,10 +11,13 @@
 <pre>
 
 
+
 <strong>Input: </strong> arr = [1,3,5,7,2,4,6,8], k = 4
 
 
+
 <strong>Output: </strong> [1,2,3,4]
+
 
 
 </pre>
@@ -34,17 +37,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

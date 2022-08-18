@@ -13,8 +13,8 @@
 | salesperson_id | int     |
 | name           | varchar |
 +----------------+---------+
-sales_person_id is the primary key for this table.
-Each row in this table shows the ID of a salesperson and the price of one unit.
+salesperson_id is the primary key for this table.
+Each row in this table shows the ID of a salesperson.
 </pre>
 
 <p>&nbsp;</p>
@@ -30,7 +30,7 @@ Each row in this table shows the ID of a salesperson and the price of one unit.
 +----------------+------+
 customer_id is the primary key for this table.
 salesperson_id is a foreign key from the Salesperson table.
-Each row in this table shows the ID of a customer and the ID of the salesperson 
+Each row in this table shows the ID of a customer and the ID of the salesperson. 
 </pre>
 
 <p>&nbsp;</p>

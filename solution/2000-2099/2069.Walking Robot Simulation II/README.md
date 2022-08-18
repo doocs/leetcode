@@ -38,7 +38,6 @@
 <strong>输出：</strong>
 [null, null, null, [4, 0], "East", null, null, null, [1, 2], "West"]
 
-
 <strong>解释：</strong>
 Robot robot = new Robot(6, 3); // 初始化网格图，机器人在 (0, 0) ，朝东。
 robot.move(2);  // 机器人朝东移动 2 步，到达 (2, 0) ，并朝东。
@@ -53,7 +52,6 @@ robot.move(4);  // 下一步继续往北移动将出界，所以逆时针转变�
                 // 然后，移动 4 步到 (1, 2) ，并朝西。
 robot.getPos(); // 返回 [1, 2]
 robot.getDir(); // 返回 "West"
-
 
 </pre>
 

@@ -25,7 +25,6 @@
 <strong>Output</strong>
 [null, false, false, false, true, false, true, false, false, false, false, false, true]
 
-
 <strong>Explanation</strong>
 StreamChecker streamChecker = new StreamChecker([&quot;cd&quot;, &quot;f&quot;, &quot;kl&quot;]);
 streamChecker.query(&quot;a&quot;); // return False

@@ -30,7 +30,6 @@
 <strong>输出</strong>
 [null, null, null, null, 5, 5, 1, 5, 1, 5]
 
-
 <strong>解释</strong>
 MaxStack stk = new MaxStack();
 stk.push(5);   // [<strong>5</strong>] - 5 既是栈顶元素，也是最大元素

@@ -50,7 +50,6 @@ Successor(x, curOrder):
 <strong>输出：</strong>
 [null, null, null, null, null, null, null, ["king", "andy", "matthew", "bob", "alex", "asha", "catherine"], null, ["king", "andy", "matthew", "alex", "asha", "catherine"]]
 
-
 <strong>解释：</strong>
 ThroneInheritance t= new ThroneInheritance("king"); // 继承顺序：<strong>king</strong>
 t.birth("king", "andy"); // 继承顺序：king &gt; <strong>andy</strong>

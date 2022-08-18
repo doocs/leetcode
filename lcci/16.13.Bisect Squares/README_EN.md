@@ -15,19 +15,25 @@
 <pre>
 
 
+
 <strong>Input: </strong>
+
 
 
 square1 = {-1, -1, 2}
 
 
+
 square2 = {0, -1, 2}
+
 
 
 <strong>Output:</strong> {-1,0,2,0}
 
 
+
 <strong>Explanation:</strong> y = 0 is the line that can cut these two squares in half.
+
 
 
 </pre>
@@ -47,17 +53,20 @@ square2 = {0, -1, 2}
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

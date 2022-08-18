@@ -23,7 +23,6 @@
 <strong>Output</strong>
 [null, &quot;L&quot;, &quot;e&quot;, &quot;e&quot;, &quot;t&quot;, &quot;C&quot;, &quot;o&quot;, true, &quot;d&quot;, true]
 
-
 <strong>Explanation</strong>
 StringIterator stringIterator = new StringIterator(&quot;L1e2t1C1o1d1e1&quot;);
 stringIterator.next(); // return &quot;L&quot;

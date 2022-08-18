@@ -39,7 +39,6 @@
 <b>输出:</b>
 [null, null, 4, null, 6]
 
-
 <b>解释:</b>
 Excel excel = new Excel(3, "C");
  // 构造一个 3*3 的二维数组，初始化全是 0。

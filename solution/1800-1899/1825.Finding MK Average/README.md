@@ -35,7 +35,6 @@
 <strong>输出：</strong>
 [null, null, null, -1, null, 3, null, null, null, 5]
 
-
 <strong>解释：</strong>
 MKAverage obj = new MKAverage(3, 1); 
 obj.addElement(3);        // 当前元素为 [3]

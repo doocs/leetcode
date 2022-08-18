@@ -80,7 +80,6 @@ public:
             sum += num;
         }
 
-
         int target = sum - x;
         int res = -1;
         int l = 0;
@@ -95,7 +94,6 @@ public:
                 res = max(res, r - l);
             }
         }
-
 
         if (res == -1) {
             return res;

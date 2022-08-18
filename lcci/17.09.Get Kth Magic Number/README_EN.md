@@ -9,13 +9,18 @@
 <pre>
 
 
+
 <strong>Input: </strong>k = 5
 
 
 
 
 
+
+
+
 <strong>Output: </strong>9
+
 
 
 </pre>
@@ -28,17 +33,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

@@ -13,10 +13,13 @@
 <pre>
 
 
+
 <strong>Input:</strong> num = &quot;8733&quot;, words = [&quot;tree&quot;, &quot;used&quot;]
 
 
+
 <strong>Output:</strong> [&quot;tree&quot;, &quot;used&quot;]
+
 
 
 </pre>
@@ -26,7 +29,9 @@
 <pre>
 
 
+
 <strong>Input:</strong> num = &quot;2&quot;, words = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+
 
 
 <strong>Output:</strong> [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</pre>
@@ -48,17 +53,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

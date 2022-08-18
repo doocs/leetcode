@@ -11,10 +11,13 @@
 <pre>
 
 
+
 <strong> Input</strong>: arr = [15, 16, 19, 20, 25, 1, 3, 4, 5, 7, 10, 14], target = 5
 
 
+
 <strong> Output</strong>: 8 (the index of 5 in the array)
+
 
 
 </pre>
@@ -24,10 +27,13 @@
 <pre>
 
 
+
 <strong> Input</strong>: arr = [15, 16, 19, 20, 25, 1, 3, 4, 5, 7, 10, 14], target = 11
 
 
+
 <strong> Output</strong>: -1 (not found)
+
 
 
 </pre>
@@ -46,17 +52,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

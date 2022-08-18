@@ -28,20 +28,13 @@
 <strong>输入:</strong>1
 </pre>
 
-<p><strong>示例 3:</strong></p>
-
-<pre>
-<strong>输入:</strong>s = "bb"
-<strong>输入:</strong> 2
-</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 2000</code></li>
-	<li><code>s</code>&nbsp;只能由小写和/或大写英文字母组成</li>
+	<li><code>s</code>&nbsp;只由小写 <strong>和/或</strong> 大写英文字母组成</li>
 </ul>
 
 ## 解法

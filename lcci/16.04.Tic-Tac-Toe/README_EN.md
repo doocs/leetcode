@@ -24,10 +24,13 @@
 <pre>
 
 
+
 <strong>Input: </strong> board = [&quot;O X&quot;,&quot; XO&quot;,&quot;X O&quot;]
 
 
+
 <strong>Output: </strong> &quot;X&quot;
+
 
 
 </pre>
@@ -37,13 +40,17 @@
 <pre>
 
 
+
 <strong>Input: </strong> board = [&quot;OOX&quot;,&quot;XXO&quot;,&quot;OXO&quot;]
+
 
 
 <strong>Output: </strong> &quot;Draw&quot;
 
 
+
 <strong>Explanation: </strong> no player wins and no empty grid left
+
 
 
 </pre>
@@ -53,13 +60,17 @@
 <pre>
 
 
+
 <strong>Input: </strong> board = [&quot;OOX&quot;,&quot;XXO&quot;,&quot;OX &quot;]
+
 
 
 <strong>Output: </strong> &quot;Pending&quot;
 
 
+
 <strong>Explanation: </strong> no player wins but there is still a empty grid
+
 
 
 </pre>
@@ -79,17 +90,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

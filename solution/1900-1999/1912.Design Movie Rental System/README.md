@@ -42,7 +42,6 @@
 <strong>输出：</strong>
 [null, [1, 0, 2], null, null, [[0, 1], [1, 2]], null, [0, 1]]
 
-
 <strong>解释：</strong>
 MovieRentingSystem movieRentingSystem = new MovieRentingSystem(3, [[0, 1, 5], [0, 2, 6], [0, 3, 7], [1, 1, 4], [1, 2, 7], [2, 1, 5]]);
 movieRentingSystem.search(1);  // 返回 [1, 0, 2] ，商店 1，0 和 2 有未借出的 ID 为 1 的电影。商店 1 最便宜，商店 0 和 2 价格相同，所以按商店编号排序。

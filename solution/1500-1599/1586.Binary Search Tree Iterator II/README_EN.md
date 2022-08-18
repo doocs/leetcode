@@ -30,7 +30,6 @@
 <strong>Output</strong>
 [null, 3, 7, 3, 7, true, 9, 15, 20, false, true, 15, 9]
 
-
 <strong>Explanation</strong>
 // The underlined element is where the pointer currently is.
 BSTIterator bSTIterator = new BSTIterator([7, 3, 15, null, null, 9, 20]); // state is <u> </u> [3, 7, 9, 15, 20]

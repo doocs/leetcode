@@ -24,17 +24,14 @@
 <strong>Output</strong>
 [null, null, null, null, [3, 2, 1], [2, 1]]
 
-
 <strong>Explanation</strong>
 LogSystem logSystem = new LogSystem();
 logSystem.put(1, &quot;2017:01:01:23:59:59&quot;);
 logSystem.put(2, &quot;2017:01:01:22:59:59&quot;);
 logSystem.put(3, &quot;2016:01:01:00:00:00&quot;);
 
-
 // return [3,2,1], because you need to return all logs between 2016 and 2017.
 logSystem.retrieve(&quot;2016:01:01:01:01:01&quot;, &quot;2017:01:01:23:00:00&quot;, &quot;Year&quot;);
-
 
 // return [2,1], because you need to return all logs between Jan. 1, 2016 01:XX:XX and Jan. 1, 2017 23:XX:XX.
 // Log 3 is not returned because Jan. 1, 2016 00:00:00 comes before the start of the range.

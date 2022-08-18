@@ -7,7 +7,6 @@
  * };
  */
 
-
 void dfs(struct TreeNode* root, int depth, int* maxDepth, int* res) {
     if (!root->left && !root->right) {
         if (depth == *maxDepth) {
@@ -26,7 +25,7 @@ void dfs(struct TreeNode* root, int depth, int* maxDepth, int* res) {
     }
 }
 
-int deepestLeavesSum(struct TreeNode* root){
+int deepestLeavesSum(struct TreeNode* root) {
     int res = 0;
     int maxDepth = 0;
     dfs(root, 0, &maxDepth, &res);

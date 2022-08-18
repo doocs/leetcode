@@ -16,12 +16,9 @@
 
 <pre>
 
-
 <strong>Input:</strong> coordinates = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
 
-
 <strong>Output:</strong> true
-
 
 </pre>
 
@@ -31,12 +28,9 @@
 
 <pre>
 
-
 <strong>Input:</strong> coordinates = [[1,1],[2,2],[3,4],[4,5],[5,6],[7,7]]
 
-
 <strong>Output:</strong> false
-
 
 </pre>
 
@@ -45,10 +39,15 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>2 &lt;=&nbsp;coordinates.length &lt;= 1000</code></li>
+
     <li><code>coordinates[i].length == 2</code></li>
+
     <li><code>-10^4 &lt;=&nbsp;coordinates[i][0],&nbsp;coordinates[i][1] &lt;= 10^4</code></li>
+
     <li><code>coordinates</code>&nbsp;contains no duplicate point.</li>
+
 </ul>
 
 ## Solutions

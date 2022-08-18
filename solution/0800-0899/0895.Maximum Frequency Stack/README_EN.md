@@ -28,7 +28,6 @@
 <strong>Output</strong>
 [null, null, null, null, null, null, null, 5, 7, 5, 4]
 
-
 <strong>Explanation</strong>
 FreqStack freqStack = new FreqStack();
 freqStack.push(5); // The stack is [5]

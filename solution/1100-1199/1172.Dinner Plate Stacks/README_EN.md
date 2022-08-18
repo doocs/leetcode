@@ -25,7 +25,6 @@
 <strong>Output</strong>
 [null, null, null, null, null, null, 2, null, null, 20, 21, 5, 4, 3, 1, -1]
 
-
 <strong>Explanation:</strong> 
 DinnerPlates D = DinnerPlates(2);  // Initialize with capacity = 2
 D.push(1);

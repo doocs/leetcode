@@ -33,7 +33,6 @@
 <strong>输出：</strong>
 [null, null, null, 1, null, -1, 3, null, -1, 3, 4]
 
-
 <strong>解释：</strong>
 // cnt(x) = 键 x 的使用计数
 // cache=[] 将显示最后一次使用的顺序（最左边的元素是最近的）

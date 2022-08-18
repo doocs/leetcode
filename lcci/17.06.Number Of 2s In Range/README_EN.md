@@ -11,10 +11,13 @@
 <pre>
 
 
+
 <strong>Input: </strong>25
 
 
+
 <strong>Output: </strong>9
+
 
 
 <strong>Explanation: </strong>(2, 12, 20, 21, 22, 23, 24, 25)(Note that 22 counts for two 2s.)</pre>
@@ -33,17 +36,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

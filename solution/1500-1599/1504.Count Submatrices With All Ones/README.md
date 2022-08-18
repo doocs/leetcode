@@ -43,7 +43,6 @@
 有 <strong>1</strong> 个 3x2 的子矩形。
 矩形数目总共 = 8 + 5 + 2 + 4 + 2 + 2 + 1 = <strong>24</strong><strong> 。</strong>
 
-
 </pre>
 
 <p>&nbsp;</p>

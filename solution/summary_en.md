@@ -2422,3 +2422,5 @@
   - [2374.Node With Highest Edge Score](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md)
   - [2375.Construct Smallest Number From DI String](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md)
   - [2376.Count Special Integers](/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
+  - [2377.Sort the Olympic Table](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)
+  - [2378.Choose Edges to Maximize Score in a Tree](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README_EN.md)

@@ -13,13 +13,17 @@
 <pre>
 
 
+
 <strong>Input:</strong>
+
 
 
 big = [7,5,9,0,2,1,3,<strong>5,7,9,1</strong>,1,5,8,8,9,7]
 
 
+
 small = [1,5,9]
+
 
 
 <strong>Output: </strong>[7,10]</pre>
@@ -29,13 +33,17 @@ small = [1,5,9]
 <pre>
 
 
+
 <strong>Input:</strong>
+
 
 
 big = [1,2,3]
 
 
+
 small = [4]
+
 
 
 <strong>Output: </strong>[]</pre>
@@ -55,17 +63,20 @@ small = [4]
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

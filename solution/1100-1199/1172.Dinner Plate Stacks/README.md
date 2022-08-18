@@ -27,7 +27,6 @@
 <strong>输出：</strong>
 [null,null,null,null,null,null,2,null,null,20,21,5,4,3,1,-1]
 
-
 <strong>解释：</strong>
 DinnerPlates D = DinnerPlates(2);  // 初始化，栈最大容量 capacity = 2
 D.push(1);

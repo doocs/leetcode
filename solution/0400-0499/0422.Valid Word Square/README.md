@@ -30,17 +30,14 @@
   &quot;dtye&quot;
 ]
 
-
 <strong>输出：</strong>
 true
-
 
 <strong>解释：</strong>
 第 1 行和第 1 列都是 &quot;abcd&quot;。
 第 2 行和第 2 列都是 &quot;bnrt&quot;。
 第 3 行和第 3 列都是 &quot;crmy&quot;。
 第 4 行和第 4 列都是 &quot;dtye&quot;。
-
 
 因此，这是一个有效的单词方块。
 </pre>
@@ -57,17 +54,14 @@ true
   &quot;dt&quot;
 ]
 
-
 <strong>输出：</strong>
 true
-
 
 <strong>解释：</strong>
 第 1 行和第 1 列都是 &quot;abcd&quot;。
 第 2 行和第 2 列都是 &quot;bnrt&quot;。
 第 3 行和第 3 列都是 &quot;crm&quot;。
 第 4 行和第 4 列都是 &quot;dt&quot;。
-
 
 因此，这是一个有效的单词方块。
 </pre>
@@ -84,14 +78,11 @@ true
   &quot;lady&quot;
 ]
 
-
 <strong>输出：</strong>
 false
 
-
 <strong>解释：</strong>
 第 3 行是 &quot;read&quot; ，然而第 3 列是 &quot;lead&quot;。
-
 
 因此，这 <strong>不是</strong> 一个有效的单词方块。
 </pre>

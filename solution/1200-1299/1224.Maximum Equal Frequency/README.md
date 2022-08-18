@@ -133,9 +133,12 @@ public:
             ++cnt[v];
             mx = max(mx, cnt[v]);
             ++ccnt[cnt[v]];
-            if (mx == 1) ans = i;
-            else if (ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i && ccnt[mx] == 1) ans = i;
-            else if (ccnt[mx] * mx + 1 == i && ccnt[1] == 1) ans = i;
+            if (mx == 1)
+                ans = i;
+            else if (ccnt[mx] * mx + ccnt[mx - 1] * (mx - 1) == i && ccnt[mx] == 1)
+                ans = i;
+            else if (ccnt[mx] * mx + 1 == i && ccnt[1] == 1)
+                ans = i;
         }
         return ans;
     }

@@ -66,10 +66,10 @@ circularDeque.getFront();				// 返回 4
 
 基本元素有：
 
-- front：队头元素的下标
-- size：队列中元素的个数
-- capacity：队列的容量
-- q：循环数组，存储队列中的元素
+-   front：队头元素的下标
+-   size：队列中元素的个数
+-   capacity：队列的容量
+-   q：循环数组，存储队列中的元素
 
 时间复杂度 $O(1)$，空间复杂度 $O(k)$。其中 $k$ 是队列的容量。
 
@@ -290,7 +290,7 @@ public:
         q.assign(k, 0);
         capacity = k;
     }
-    
+
     bool insertFront(int value) {
         if (isFull()) {
             return false;
@@ -302,7 +302,7 @@ public:
         ++size;
         return true;
     }
-    
+
     bool insertLast(int value) {
         if (isFull()) {
             return false;
@@ -312,7 +312,7 @@ public:
         ++size;
         return true;
     }
-    
+
     bool deleteFront() {
         if (isEmpty()) {
             return false;
@@ -321,7 +321,7 @@ public:
         --size;
         return true;
     }
-    
+
     bool deleteLast() {
         if (isEmpty()) {
             return false;
@@ -329,19 +329,19 @@ public:
         --size;
         return true;
     }
-    
+
     int getFront() {
         return isEmpty() ? -1 : q[front];
     }
-    
+
     int getRear() {
         return isEmpty() ? -1 : q[(front + size - 1) % capacity];
     }
-    
+
     bool isEmpty() {
         return size == 0;
     }
-    
+
     bool isFull() {
         return size == capacity;
     }

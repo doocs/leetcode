@@ -47,9 +47,13 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= n &lt;= 500</code></li>
+
     <li><code>nums.length == 2n</code></li>
+
     <li><code>1 &lt;= nums[i] &lt;= 10^3</code></li>
+
 </ul>
 
 ## Solutions

@@ -16,7 +16,7 @@
 	<li>If the target array is already built, stop reading more elements.</li>
 </ul>
 
-<p>Return <em>a list of the operations needed to build </em><code>target</code>. The test cases are generated so that the answer is <strong>unique</strong>.</p>
+<p>Return <em>a list of the operations needed to build </em><code>target</code>. If there are multiple valid answers, return any of them.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

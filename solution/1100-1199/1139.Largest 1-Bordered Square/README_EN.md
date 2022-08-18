@@ -12,12 +12,9 @@
 
 <pre>
 
-
 <strong>Input:</strong> grid = [[1,1,1],[1,0,1],[1,1,1]]
 
-
 <strong>Output:</strong> 9
-
 
 </pre>
 
@@ -25,12 +22,9 @@
 
 <pre>
 
-
 <strong>Input:</strong> grid = [[1,1,0,0]]
 
-
 <strong>Output:</strong> 1
-
 
 </pre>
 
@@ -39,9 +33,13 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= grid.length &lt;= 100</code></li>
+
     <li><code>1 &lt;= grid[0].length &lt;= 100</code></li>
+
     <li><code>grid[i][j]</code> is <code>0</code> or <code>1</code></li>
+
 </ul>
 
 ## Solutions

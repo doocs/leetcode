@@ -13,16 +13,21 @@ The absolute error should not exceed 10^-6. If there are more than one intersect
 <pre>
 
 
+
 <strong>Input: </strong>
+
 
 
 line1 = {0, 0}, {1, 0}
 
 
+
 line2 = {1, 1}, {0, -1}
 
 
+
 <strong>Output: </strong> {0.5, 0}
+
 
 
 </pre>
@@ -32,16 +37,21 @@ line2 = {1, 1}, {0, -1}
 <pre>
 
 
+
 <strong>Input: </strong>
+
 
 
 line1 = {0, 0}, {3, 3}
 
 
+
 line2 = {1, 1}, {2, 2}
 
 
+
 <strong>Output: </strong> {1, 1}
+
 
 
 </pre>
@@ -51,16 +61,21 @@ line2 = {1, 1}, {2, 2}
 <pre>
 
 
+
 <strong>Input: </strong>
+
 
 
 line1 = {0, 0}, {1, 1}
 
 
+
 line2 = {1, 0}, {2, 1}
 
 
+
 <strong>Output: </strong> {}  (no intersection)
+
 
 
 </pre>
@@ -80,17 +95,20 @@ line2 = {1, 0}, {2, 1}
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

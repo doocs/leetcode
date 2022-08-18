@@ -13,22 +13,29 @@
 <pre>
 
 
+
 <strong> Input</strong>: 
+
 
 
 [&quot;StackOfPlates&quot;, &quot;push&quot;, &quot;push&quot;, &quot;popAt&quot;, &quot;pop&quot;, &quot;pop&quot;]
 
 
+
 [[1], [1], [2], [1], [], []]
+
 
 
 <strong> Output</strong>: 
 
 
+
 [null, null, null, 2, 1, -1]
 
 
+
 <strong> Explanation</strong>: 
+
 
 
 </pre>
@@ -38,19 +45,25 @@
 <pre>
 
 
+
 <strong> Input</strong>: 
+
 
 
 [&quot;StackOfPlates&quot;, &quot;push&quot;, &quot;push&quot;, &quot;push&quot;, &quot;popAt&quot;, &quot;popAt&quot;, &quot;popAt&quot;]
 
 
+
 [[2], [1], [2], [3], [0], [0], [0]]
+
 
 
 <strong> Output</strong>: 
 
 
+
 [null, null, null, null, 2, 1, 3]
+
 
 
 </pre>
@@ -63,11 +76,13 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
+
 
 ```
 
@@ -134,6 +149,7 @@ class StackOfPlates {
 ### **...**
 
 ```
+
 
 ```
 

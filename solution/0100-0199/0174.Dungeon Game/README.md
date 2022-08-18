@@ -8,33 +8,23 @@
 
 <style>
 
-
 table.dungeon, .dungeon th, .dungeon td {
-
 
   border:3px solid black;
 
-
 }
-
-
 
 
 
  .dungeon th, .dungeon td {
 
-
     text-align: center;
-
 
     height: 70px;
 
-
     width: 70px;
 
-
 }
-
 
 </style>
 
@@ -88,9 +78,7 @@ table.dungeon, .dungeon th, .dungeon td {
 
 <!---2K   -3  3
 
-
 -5   -10   1
-
 
 10 30   5P-->
 
@@ -99,10 +87,15 @@ table.dungeon, .dungeon th, .dungeon td {
 <p><strong>说明:</strong></p>
 
 <ul>
+
     <li>
+
     <p>骑士的健康点数没有上限。</p>
+
     </li>
+
     <li>任何房间都可能对骑士的健康点数造成威胁，也可能增加骑士的健康点数，包括骑士进入的左上角房间以及公主被监禁的右下角房间。</li>
+
 </ul>
 
 ## 解法

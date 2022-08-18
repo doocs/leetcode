@@ -53,7 +53,6 @@ Codec encoder = new Codec();
 String msg = encoder.encode(strs);
 Machine 1 ---msg---&gt; Machine 2
 
-
 Machine 2:
 Codec decoder = new Codec();
 String[] strs = decoder.decode(msg);

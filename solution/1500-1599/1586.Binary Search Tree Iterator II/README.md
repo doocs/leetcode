@@ -34,7 +34,6 @@
 <strong>输出</strong>
 [null, 3, 7, 3, 7, true, 9, 15, 20, false, true, 15, 9]
 
-
 <strong>解释</strong>
 // 划线的元素表示指针当前的位置。
 BSTIterator bSTIterator = new BSTIterator([7, 3, 15, null, null, 9, 20]); // 当前状态为 &lt;u&gt; &lt;/u&gt; [3, 7, 9, 15, 20]

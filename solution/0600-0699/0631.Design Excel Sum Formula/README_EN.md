@@ -44,7 +44,6 @@
 <strong>Output</strong>
 [null, null, 4, null, 6]
 
-
 <strong>Explanation</strong>
 Excel excel = new Excel(3, &quot;C&quot;);
  // construct a 3*3 2D array with all zero.

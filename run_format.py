@@ -78,7 +78,7 @@ def git_add():
 
 
 if __name__ == '__main__':
-    # format()
-    # format_cpp()
+    format_cpp()
+    format()
     format_py()
     git_add()

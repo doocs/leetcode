@@ -36,7 +36,6 @@
 <strong>Output</strong>
 [null, [0, 0], [], true, false]
 
-
 <strong>Explanation</strong>
 BookMyShow bms = new BookMyShow(2, 5); // There are 2 rows with 5 seats each 
 bms.gather(4, 0); // return [0, 0]

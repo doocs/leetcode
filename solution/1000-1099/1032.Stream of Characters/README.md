@@ -28,7 +28,6 @@
 <strong>输出：</strong>
 [null, false, false, false, true, false, true, false, false, false, false, false, true]
 
-
 <strong>解释：</strong>
 StreamChecker streamChecker = new StreamChecker(["cd", "f", "kl"]);
 streamChecker.query("a"); // 返回 False

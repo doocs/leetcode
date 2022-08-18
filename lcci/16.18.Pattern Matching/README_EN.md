@@ -11,10 +11,13 @@
 <pre>
 
 
+
 <strong>Input: </strong> pattern = &quot;abba&quot;, value = &quot;dogcatcatdog&quot;
 
 
+
 <strong>Output: </strong> true
+
 
 
 </pre>
@@ -24,10 +27,13 @@
 <pre>
 
 
+
 <strong>Input: </strong> pattern = &quot;abba&quot;, value = &quot;dogcatcatfish&quot;
 
 
+
 <strong>Output: </strong> false
+
 
 
 </pre>
@@ -37,10 +43,13 @@
 <pre>
 
 
+
 <strong>Input: </strong> pattern = &quot;aaaa&quot;, value = &quot;dogcatcatdog&quot;
 
 
+
 <strong>Output: </strong> false
+
 
 
 </pre>
@@ -50,13 +59,17 @@
 <pre>
 
 
+
 <strong>Input: </strong> pattern = &quot;abba&quot;, value = &quot;dogdogdogdog&quot;
+
 
 
 <strong>Output: </strong> true
 
 
+
 <strong>Explanation: </strong> &quot;a&quot;=&quot;dogdog&quot;,b=&quot;&quot;，vice versa.
+
 
 
 </pre>
@@ -77,17 +90,20 @@
 
 ```python
 
+
 ```
 
 ### **Java**
 
 ```java
 
+
 ```
 
 ### **...**
 
 ```
+
 
 ```
 

@@ -16,12 +16,9 @@
 
 <pre>
 
-
 <strong>Input:</strong> num = 23
 
-
 <strong>Output:</strong> &quot;1000&quot;
-
 
 </pre>
 
@@ -29,12 +26,9 @@
 
 <pre>
 
-
 <strong>Input:</strong> num = 107
 
-
 <strong>Output:</strong> &quot;101100&quot;
-
 
 </pre>
 
@@ -43,7 +37,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>0 &lt;= num &lt;= 10^9</code></li>
+
 </ul>
 
 ## Solutions
