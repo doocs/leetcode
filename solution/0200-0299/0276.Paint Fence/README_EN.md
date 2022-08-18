@@ -53,13 +53,64 @@ Note that painting all the posts red or all the posts green is invalid because t
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numWays(self, n: int, k: int) -> int:
+        dp = [[0] * 2 for _ in range(n)]
+        dp[0][0] = k
+        for i in range(1, n):
+            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1)
+            dp[i][1] = dp[i - 1][0]
+        return sum(dp[-1])
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numWays(int n, int k) {
+        int[][] dp = new int[n][2];
+        dp[0][0] = k;
+        for (int i = 1; i < n; ++i) {
+            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1);
+            dp[i][1] = dp[i - 1][0];
+        }
+        return dp[n - 1][0] + dp[n - 1][1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numWays(int n, int k) {
+        vector<vector<int>> dp(n, vector<int>(2));
+        dp[0][0] = k;
+        for (int i = 1; i < n; ++i) {
+            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1);
+            dp[i][1] = dp[i - 1][0];
+        }
+        return dp[n - 1][0] + dp[n - 1][1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func numWays(n int, k int) int {
+	dp := make([][]int, n)
+	for i := range dp {
+		dp[i] = make([]int, 2)
+	}
+	dp[0][0] = k
+	for i := 1; i < n; i++ {
+		dp[i][0] = (dp[i-1][0] + dp[i-1][1]) * (k - 1)
+		dp[i][1] = dp[i-1][0]
+	}
+	return dp[n-1][0] + dp[n-1][1]
+}
 ```
 
 ### **...**

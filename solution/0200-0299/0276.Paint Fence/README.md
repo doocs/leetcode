@@ -53,6 +53,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+定义 $dp[i][0]$ 表示栅栏 $[0,..i]$ 且最后两个栅栏颜色不同的方案数，$dp[i][1]$ 表示栅栏 $[0,..i]$ 且最后两个栅栏颜色相同的方案数。
+
+初始时 $dp[0][0]=k$。当 $i \ge 1$ 时，有：
+
+$$
+\begin{cases}
+dp[i][0]=(dp[i-1][0]+dp[i-1]) \times (k-1)\\
+dp[i][1]=dp[i-1][0]
+\end{cases}
+$$
+
+答案为 $dp[n-1][0] + dp[n-1][1]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是栅栏柱的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +77,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numWays(self, n: int, k: int) -> int:
+        dp = [[0] * 2 for _ in range(n)]
+        dp[0][0] = k
+        for i in range(1, n):
+            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1)
+            dp[i][1] = dp[i - 1][0]
+        return sum(dp[-1])
 ```
 
 ### **Java**
@@ -68,7 +92,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numWays(int n, int k) {
+        int[][] dp = new int[n][2];
+        dp[0][0] = k;
+        for (int i = 1; i < n; ++i) {
+            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1);
+            dp[i][1] = dp[i - 1][0];
+        }
+        return dp[n - 1][0] + dp[n - 1][1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numWays(int n, int k) {
+        vector<vector<int>> dp(n, vector<int>(2));
+        dp[0][0] = k;
+        for (int i = 1; i < n; ++i) {
+            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1);
+            dp[i][1] = dp[i - 1][0];
+        }
+        return dp[n - 1][0] + dp[n - 1][1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func numWays(n int, k int) int {
+	dp := make([][]int, n)
+	for i := range dp {
+		dp[i] = make([]int, 2)
+	}
+	dp[0][0] = k
+	for i := 1; i < n; i++ {
+		dp[i][0] = (dp[i-1][0] + dp[i-1][1]) * (k - 1)
+		dp[i][1] = dp[i-1][0]
+	}
+	return dp[n-1][0] + dp[n-1][1]
+}
 ```
 
 ### **...**
