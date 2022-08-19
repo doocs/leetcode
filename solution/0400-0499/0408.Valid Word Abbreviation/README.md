@@ -62,6 +62,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+模拟字符匹配替换。
+
+同时遍历 $word$ 和 $abbr$，若 $abbr$ 遇到数字，则 $word$ 跳过对应数字长度的字符数。若数字为空，或者有前导零，则提前返回 false。
+
+时间复杂度 $O(m+n)$，空间复杂度 $O(1)$。其中 $m$ 是 $word$ 的长度，$n$ 是 $abbr$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +77,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def validWordAbbreviation(self, word: str, abbr: str) -> bool:
+        i = j = 0
+        m, n = len(word), len(abbr)
+        while i < m:
+            if j >= n:
+                return False
+            if word[i] == abbr[j]:
+                i, j = i + 1, j + 1
+                continue
+            k = j
+            while k < n and abbr[k].isdigit():
+                k += 1
+            t = abbr[j: k]
+            if not t.isdigit() or t[0] == '0' or int(t) == 0:
+                return False
+            i += int(t)
+            j = k
+        return i == m and j == n
 ```
 
 ### **Java**
@@ -77,7 +103,103 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean validWordAbbreviation(String word, String abbr) {
+        int m = word.length(), n = abbr.length();
+        int i = 0, j = 0;
+        while (i < m) {
+            if (j >= n) {
+                return false;
+            }
+            if (word.charAt(i) == abbr.charAt(j)) {
+                ++i;
+                ++j;
+                continue;
+            }
+            int k = j;
+            while (k < n && Character.isDigit(abbr.charAt(k))) {
+                ++k;
+            }
+            String t = abbr.substring(j, k);
+            if (j == k || t.charAt(0) == '0' || Integer.parseInt(t) == 0) {
+                return false;
+            }
+            i += Integer.parseInt(t);
+            j = k;
+        }
+        return i == m && j == n;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool validWordAbbreviation(string word, string abbr) {
+        int i = 0, j = 0;
+        int m = word.size(), n = abbr.size();
+        while (i < m) {
+            if (j >= n) {
+                return false;
+            }
+            if (word[i] == abbr[j]) {
+                ++i;
+                ++j;
+                continue;
+            }
+            int k = j;
+            while (k < n && isdigit(abbr[k])) {
+                ++k;
+            }
+            string t = abbr.substr(j, k - j);
+            if (k == j || t[0] == '0') {
+                return false;
+            }
+            int x = stoi(t);
+            if (x == 0) {
+                return false;
+            }
+            i += x;
+            j = k;
+        }
+        return i == m && j == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func validWordAbbreviation(word string, abbr string) bool {
+	i, j := 0, 0
+	m, n := len(word), len(abbr)
+	for i < m {
+		if j >= n {
+			return false
+		}
+		if word[i] == abbr[j] {
+			i++
+			j++
+			continue
+		}
+		k := j
+		for k < n && abbr[k] >= '0' && abbr[k] <= '9' {
+			k++
+		}
+		if k == j || abbr[j] == '0' {
+			return false
+		}
+		x, _ := strconv.Atoi(abbr[j:k])
+		if x == 0 {
+			return false
+		}
+		i += x
+		j = k
+	}
+	return i == m && j == n
+}
 ```
 
 ### **...**
