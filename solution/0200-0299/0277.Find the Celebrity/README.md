@@ -67,6 +67,43 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：O(n) 遍历**
+
+经过验证，若暴力遍历，调用 $O(n^2)$ 次 $knows$ 方法，会报 TLE 错误。因此，我们需要寻找更优的解法。
+
+要找出 $n$ 个人中的名人，题目给我们的关键信息是：1. 名人不认识其他所有人；2. 其他所有人都认识名人。
+
+那么，我们初始时假定名人 $ans=0$。然后在 $[1,n)$ 范围内遍历 $i$，若 $ans$ 认识 $i$，说明 $ans$ 不是我们要找的名人，此时我们可以直接将 $ans$ 更新为 $i$。
+
+为什么呢？我们来举个实际的例子。
+
+```bash
+ans = 0
+for i in [1,n) {
+	if (ans knows i) {
+		ans = i
+	}
+}
+
+ans = 0
+
+ans not knows 1
+ans not knows 2
+ans knows 3
+ans = 3
+
+ans not knows 4
+ans not knows 5
+ans not knows 6
+ans = 6 
+```
+
+$ans$ 认识 $3$，说明 $ans$ 不是名人（$0$ 不是名人），那么名人会是 $1$ 或者 $2$ 吗？不会！因为若 $1$ 或者 $2$ 是名人，那么 $0$ 应该认识 $1$ 或者 $2$ 才对，与前面的例子冲突。因此，我们可以直接将 $ans$ 更新为 $i$。
+
+我们找出 $ans$ 之后，接下来再遍历一遍，判断 $ans$ 是否满足名人的条件。若不满足，返回 $-1$。
+
+否则遍历结束，返回 $ans$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +111,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# The knows API is already defined for you.
+# return a bool, whether a knows b
+# def knows(a: int, b: int) -> bool:
 
+class Solution:
+    def findCelebrity(self, n: int) -> int:
+        ans = 0
+        for i in range(1, n):
+            if knows(ans, i):
+                ans = i
+        for i in range(n):
+            if ans != i:
+                if knows(ans, i) or not knows(i, ans):
+                    return -1
+        return ans
 ```
 
 ### **Java**
@@ -82,7 +133,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/* The knows API is defined in the parent class Relation.
+      boolean knows(int a, int b); */
 
+public class Solution extends Relation {
+    public int findCelebrity(int n) {
+        int ans = 0;
+        for (int i = 1; i < n; ++i) {
+            if (knows(ans, i)) {
+                ans = i;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (ans != i) {
+                if (knows(ans, i) || !knows(i, ans)) {
+                    return -1;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/* The knows API is defined for you.
+      bool knows(int a, int b); */
+
+class Solution {
+public:
+    int findCelebrity(int n) {
+        int ans = 0;
+        for (int i = 1; i < n; ++i) {
+            if (knows(ans, i)) {
+                ans = i;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (ans != i) {
+                if (knows(ans, i) || !knows(i, ans)) {
+                    return -1;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * The knows API is already defined for you.
+ *     knows := func(a int, b int) bool
+ */
+func solution(knows func(a int, b int) bool) func(n int) int {
+	return func(n int) int {
+		ans := 0
+		for i := 1; i < n; i++ {
+			if knows(ans, i) {
+				ans = i
+			}
+		}
+		for i := 0; i < n; i++ {
+			if ans != i {
+				if knows(ans, i) || !knows(i, ans) {
+					return -1
+				}
+			}
+		}
+		return ans
+	}
+}
 ```
 
 ### **...**
