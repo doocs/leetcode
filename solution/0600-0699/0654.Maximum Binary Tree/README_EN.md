@@ -76,6 +76,68 @@ class Solution:
         return dfs(nums)
 ```
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        def dfs(l, r):
+            if l > r:
+                return None
+            val = tree.query(1, l, r)
+            root = TreeNode(val)
+            root.left = dfs(l, d[val] - 1)
+            root.right = dfs(d[val] + 1, r)
+            return root
+
+        d = {v: i for i, v in enumerate(nums, 1)}
+        tree = SegmentTree(nums)
+        return dfs(1, len(nums))
+
+
+class Node:
+    def __init__(self):
+        self.l = 0
+        self.r = 0
+        self.v = 0
+
+
+class SegmentTree:
+    def __init__(self, nums):
+        self.nums = nums
+        n = len(nums)
+        self.tr = [Node() for _ in range(n << 2)]
+        self.build(1, 1, n)
+
+    def build(self, u, l, r):
+        self.tr[u].l, self.tr[u].r = l, r
+        if l == r:
+            self.tr[u].v = self.nums[l - 1]
+            return
+        mid = (l + r) >> 1
+        self.build(u << 1, l, mid)
+        self.build(u << 1 | 1, mid + 1, r)
+        self.pushup(u)
+
+    def query(self, u, l, r):
+        if self.tr[u].l >= l and self.tr[u].r <= r:
+            return self.tr[u].v
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        v = 0
+        if l <= mid:
+            v = max(v, self.query(u << 1, l, r))
+        if r > mid:
+            v = max(v, self.query(u << 1 | 1, l, r))
+        return v
+
+    def pushup(self, u):
+        self.tr[u].v = max(self.tr[u << 1].v, self.tr[u << 1 | 1].v)
+```
+
 ### **Java**
 
 ```java
@@ -120,6 +182,103 @@ class Solution {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private SegmentTree tree;
+    private int[] nums;
+    private static int[] d = new int[1010];
+
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        int n = nums.length;
+        this.nums = nums;
+        tree = new SegmentTree(nums);
+        for (int i = 0; i < n; ++i) {
+            d[nums[i]] = i + 1;
+        }
+        return dfs(1, n);
+    }
+
+    private TreeNode dfs(int l, int r) {
+        if (l > r) {
+            return null;
+        }
+        int val = tree.query(1, l, r);
+        TreeNode root = new TreeNode(val);
+        root.left = dfs(l, d[val] - 1);
+        root.right = dfs(d[val] + 1, r);
+        return root;
+    }
+}
+
+class Node {
+    int l;
+    int r;
+    int v;
+}
+
+class SegmentTree {
+    Node[] tr;
+    int[] nums;
+
+    public SegmentTree(int[] nums) {
+        int n = nums.length;
+        this.nums = nums;
+        tr = new Node[n << 2];
+        for (int i = 0; i < tr.length; ++i) {
+            tr[i] = new Node();
+        }
+        build(1, 1, n);
+    }
+
+    private void build(int u, int l, int r) {
+        tr[u].l = l;
+        tr[u].r = r;
+        if (l == r) {
+            tr[u].v = nums[l - 1];
+            return;
+        }
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+        pushup(u);
+    }
+
+    public int query(int u, int l, int r) {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            return tr[u].v;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        int v = 0;
+        if (l <= mid) {
+            v = query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v = Math.max(v, query(u << 1 | 1, l, r));
+        }
+        return v;
+    }
+
+    private void pushup(int u) {
+        tr[u].v = Math.max(tr[u << 1].v, tr[u << 1 | 1].v);
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -156,6 +315,91 @@ public:
 };
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Node {
+public:
+    int l, r, v;
+};
+
+class SegmentTree {
+public:
+    vector<Node*> tr;
+    vector<int> nums;
+
+    SegmentTree(vector<int>& nums) {
+        this->nums = nums;
+        int n = nums.size();
+        tr.resize(n << 2);
+        for (int i = 0; i < tr.size(); ++i) tr[i] = new Node();
+        build(1, 1, n);
+    }
+
+    void build(int u, int l, int r) {
+        tr[u]->l = l;
+        tr[u]->r = r;
+        if (l == r) {
+            tr[u]->v = nums[l - 1];
+            return;
+        }
+        int mid = (l + r) >> 1;
+        build(u << 1, l, mid);
+        build(u << 1 | 1, mid + 1, r);
+        pushup(u);
+    }
+
+    int query(int u, int l, int r) {
+        if (tr[u]->l >= l && tr[u]->r <= r) return tr[u]->v;
+        int mid = (tr[u]->l + tr[u]->r) >> 1;
+        int v = 0;
+        if (l <= mid) v = query(u << 1, l, r);
+        if (r > mid) v = max(v, query(u << 1 | 1, l, r));
+        return v;
+    }
+
+    void pushup(int u) {
+        tr[u]->v = max(tr[u << 1]->v, tr[u << 1 | 1]->v);
+    }
+};
+
+class Solution {
+public:
+    SegmentTree* tree;
+    vector<int> nums;
+    vector<int> d;
+
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        tree = new SegmentTree(nums);
+        this->nums = nums;
+        d.assign(1010, 0);
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) d[nums[i]] = i + 1;
+        return dfs(1, nums.size());
+    }
+
+    TreeNode* dfs(int l, int r) {
+        if (l > r) {
+            return nullptr;
+        }
+        int val = tree->query(1, l, r);
+        TreeNode* root = new TreeNode(val);
+        root->left = dfs(l, d[val] - 1);
+        root->right = dfs(d[val] + 1, r);
+        return root;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -185,6 +429,97 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
         return root
     }
     return dfs(0, len(nums)-1)
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructMaximumBinaryTree(nums []int) *TreeNode {
+	d := make([]int, 1010)
+	for i, v := range nums {
+		d[v] = i + 1
+	}
+	tree := newSegmentTree(nums)
+	var dfs func(l, r int) *TreeNode
+	dfs = func(l, r int) *TreeNode {
+		if l > r {
+			return nil
+		}
+		val := tree.query(1, l, r)
+		root := &TreeNode{Val: val}
+		root.Left = dfs(l, d[val]-1)
+		root.Right = dfs(d[val]+1, r)
+		return root
+	}
+
+	return dfs(1, len(nums))
+}
+
+type node struct {
+	l int
+	r int
+	v int
+}
+
+type segmentTree struct {
+	nums []int
+	tr   []*node
+}
+
+func newSegmentTree(nums []int) *segmentTree {
+	n := len(nums)
+	tr := make([]*node, n<<2)
+	for i := range tr {
+		tr[i] = &node{}
+	}
+	t := &segmentTree{nums, tr}
+	t.build(1, 1, n)
+	return t
+}
+
+func (t *segmentTree) build(u, l, r int) {
+	t.tr[u].l, t.tr[u].r = l, r
+	if l == r {
+		t.tr[u].v = t.nums[l-1]
+		return
+	}
+	mid := (l + r) >> 1
+	t.build(u<<1, l, mid)
+	t.build(u<<1|1, mid+1, r)
+	t.pushup(u)
+}
+
+func (t *segmentTree) query(u, l, r int) int {
+	if t.tr[u].l >= l && t.tr[u].r <= r {
+		return t.tr[u].v
+	}
+	mid := (t.tr[u].l + t.tr[u].r) >> 1
+	v := 0
+	if l <= mid {
+		v = t.query(u<<1, l, r)
+	}
+	if r > mid {
+		v = max(v, t.query(u<<1|1, l, r))
+	}
+	return v
+}
+
+func (t *segmentTree) pushup(u int) {
+	t.tr[u].v = max(t.tr[u<<1].v, t.tr[u<<1|1].v)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
