@@ -7,22 +7,21 @@
  * }
  */
 func constructMaximumBinaryTree(nums []int) *TreeNode {
-	return construct(nums, 0, len(nums)-1)
-}
-
-func construct(nums []int, l, r int) *TreeNode {
-	if l > r {
-		return nil
-	}
-	mx := l
-	for i := l + 1; i <= r; i++ {
-		if nums[mx] < nums[i] {
-			mx = i
+	var dfs func(l, r int) *TreeNode
+	dfs = func(l, r int) *TreeNode {
+		if l > r {
+			return nil
 		}
+		i := l
+		for j := l; j <= r; j++ {
+			if nums[i] < nums[j] {
+				i = j
+			}
+		}
+		root := &TreeNode{Val: nums[i]}
+		root.Left = dfs(l, i-1)
+		root.Right = dfs(i+1, r)
+		return root
 	}
-	return &TreeNode{
-		Val:   nums[mx],
-		Left:  construct(nums, l, mx-1),
-		Right: construct(nums, mx+1, r),
-	}
+	return dfs(0, len(nums)-1)
 }

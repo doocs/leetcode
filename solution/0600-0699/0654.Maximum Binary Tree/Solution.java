@@ -14,20 +14,26 @@
  * }
  */
 class Solution {
+    private int[] nums;
+
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return construct(nums, 0, nums.length - 1);
+        this.nums = nums;
+        return dfs(0, nums.length - 1);
     }
 
-    private TreeNode construct(int[] nums, int l, int r) {
+    private TreeNode dfs(int l, int r) {
         if (l > r) {
             return null;
         }
-        int mx = l;
-        for (int i = l + 1; i <= r; ++i) {
-            if (nums[mx] < nums[i]) {
-                mx = i;
+        int i = l;
+        for (int j = l; j <= r; ++j) {
+            if (nums[i] < nums[j]) {
+                i = j;
             }
         }
-        return new TreeNode(nums[mx], construct(nums, l, mx - 1), construct(nums, mx + 1, r));
+        TreeNode root = new TreeNode(nums[i]);
+        root.left = dfs(l, i - 1);
+        root.right = dfs(i + 1, r);
+        return root;
     }
 }

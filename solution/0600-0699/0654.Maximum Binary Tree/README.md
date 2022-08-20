@@ -56,7 +56,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先找到数组的最大元素所在的位置，作为根节点，然后递归左右两侧的子数组，构建左右子树。
+**方法一：递归**
+
+先找到数组 $nums$ 的最大元素所在的位置 $i$，将 $nums[i]$ 作为根节点，然后递归左右两侧的子数组，构建左右子树。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -72,17 +76,18 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
-        def inner(nums, l, r):
-            if l > r:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        def dfs(nums):
+            if not nums:
                 return None
-            mx = l
-            for i in range(l + 1, r + 1):
-                if nums[mx] < nums[i]:
-                    mx = i
-            return TreeNode(nums[mx], inner(nums, l, mx - 1), inner(nums, mx + 1, r))
-
-        return inner(nums, 0, len(nums) - 1)
+            val = max(nums)
+            i = nums.index(val)
+            root = TreeNode(val)
+            root.left = dfs(nums[:i])
+            root.right = dfs(nums[i + 1:])
+            return root
+        
+        return dfs(nums)
 ```
 
 ### **Java**
@@ -106,21 +111,27 @@ class Solution:
  * }
  */
 class Solution {
+    private int[] nums;
+
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return construct(nums, 0, nums.length - 1);
+        this.nums = nums;
+        return dfs(0, nums.length - 1);
     }
 
-    private TreeNode construct(int[] nums, int l, int r) {
+    private TreeNode dfs(int l, int r) {
         if (l > r) {
             return null;
         }
-        int mx = l;
-        for (int i = l + 1; i <= r; ++i) {
-            if (nums[mx] < nums[i]) {
-                mx = i;
+        int i = l;
+        for (int j = l; j <= r; ++j) {
+            if (nums[i] < nums[j]) {
+                i = j;
             }
         }
-        return new TreeNode(nums[mx], construct(nums, l, mx - 1), construct(nums, mx + 1, r));
+        TreeNode root = new TreeNode(nums[i]);
+        root.left = dfs(l, i - 1);
+        root.right = dfs(i + 1, r);
+        return root;
     }
 }
 ```
@@ -142,18 +153,20 @@ class Solution {
 class Solution {
 public:
     TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
-        return construct(nums, 0, nums.size() - 1);
+        return dfs(nums, 0, nums.size() - 1);
     }
 
-    TreeNode* construct(vector<int>& nums, int l, int r) {
+    TreeNode* dfs(vector<int>& nums, int l, int r) {
         if (l > r) return nullptr;
-        int mx = l;
-        for (int i = l + 1; i <= r; ++i) {
-            if (nums[mx] < nums[i]) mx = i;
+        int i = l;
+        for (int j = l; j <= r; ++j) {
+            if (nums[i] < nums[j]) {
+                i = j;
+            }
         }
-        TreeNode* root = new TreeNode(nums[mx]);
-        root->left = construct(nums, l, mx - 1);
-        root->right = construct(nums, mx + 1, r);
+        TreeNode* root = new TreeNode(nums[i]);
+        root->left = dfs(nums, l, i - 1);
+        root->right = dfs(nums, i + 1, r);
         return root;
     }
 };
@@ -171,24 +184,23 @@ public:
  * }
  */
 func constructMaximumBinaryTree(nums []int) *TreeNode {
-	return construct(nums, 0, len(nums)-1)
-}
-
-func construct(nums []int, l, r int) *TreeNode {
-	if l > r {
-		return nil
-	}
-	mx := l
-	for i := l + 1; i <= r; i++ {
-		if nums[mx] < nums[i] {
-			mx = i
-		}
-	}
-	return &TreeNode{
-		Val:   nums[mx],
-		Left:  construct(nums, l, mx-1),
-		Right: construct(nums, mx+1, r),
-	}
+    var dfs func(l, r int) *TreeNode
+    dfs = func(l, r int) *TreeNode {
+        if l > r {
+            return nil
+        }
+        i := l
+        for j := l; j <= r; j++ {
+            if nums[i] < nums[j] {
+                i = j
+            }
+        }
+        root := &TreeNode{Val: nums[i]}
+        root.Left = dfs(l, i - 1)
+        root.Right = dfs(i + 1, r)
+        return root
+    }
+    return dfs(0, len(nums)-1)
 }
 ```
 

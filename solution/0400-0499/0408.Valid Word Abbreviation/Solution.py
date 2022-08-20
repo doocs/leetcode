@@ -11,7 +11,7 @@ class Solution:
             k = j
             while k < n and abbr[k].isdigit():
                 k += 1
-            t = abbr[j: k]
+            t = abbr[j:k]
             if not t.isdigit() or t[0] == '0' or int(t) == 0:
                 return False
             i += int(t)
