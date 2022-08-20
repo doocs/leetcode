@@ -73,10 +73,30 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def insertIntoMaxTree(self, root: TreeNode, val: int) -> TreeNode:
+    def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if root is None or root.val < val:
-            return TreeNode(val, root, None)
+            return TreeNode(val, root)
         root.right = self.insertIntoMaxTree(root.right, val)
+        return root
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if root.val < val:
+            return TreeNode(val, root)
+        curr = root
+        node = TreeNode(val)
+        while curr.right and curr.right.val > val:
+            curr = curr.right
+        node.left = curr.right
+        curr.right = node
         return root
 ```
 
@@ -109,6 +129,39 @@ class Solution {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode insertIntoMaxTree(TreeNode root, int val) {
+        if (root.val < val) {
+            return new TreeNode(val, root, null);
+        }
+        TreeNode curr = root;
+        TreeNode node = new TreeNode(val);
+        while (curr.right != null && curr.right.val > val) {
+            curr = curr.right;
+        }
+        node.left = curr.right;
+        curr.right = node;
+        return root;
+    }
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -130,10 +183,43 @@ function insertIntoMaxTree(
     root: TreeNode | null,
     val: number,
 ): TreeNode | null {
-    if (root == null || val > root.val) {
+    if (!root || root.val < val) {
         return new TreeNode(val, root);
     }
     root.right = insertIntoMaxTree(root.right, val);
+    return root;
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function insertIntoMaxTree(
+    root: TreeNode | null,
+    val: number,
+): TreeNode | null {
+    if (root.val < val) {
+        return new TreeNode(val, root);
+    }
+    const node = new TreeNode(val);
+    let curr = root;
+    while (curr.right && curr.right.val > val) {
+        curr = curr.right;
+    }
+    node.left = curr.right;
+    curr.right = node;
     return root;
 }
 ```
@@ -155,10 +241,34 @@ function insertIntoMaxTree(
 class Solution {
 public:
     TreeNode* insertIntoMaxTree(TreeNode* root, int val) {
-        if (root == nullptr || root->val < val) {
-            return new TreeNode(val, root, nullptr);
-        }
+        if (!root || root->val < val) return new TreeNode(val, root, nullptr);
         root->right = insertIntoMaxTree(root->right, val);
+        return root;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* insertIntoMaxTree(TreeNode* root, int val) {
+        if (root->val < val) return new TreeNode(val, root, nullptr);
+        TreeNode* curr = root;
+        TreeNode* node = new TreeNode(val);
+        while (curr->right && curr->right->val > val) curr = curr->right;
+        node->left = curr->right;
+        curr->right = node;
         return root;
     }
 };
@@ -177,13 +287,33 @@ public:
  */
 func insertIntoMaxTree(root *TreeNode, val int) *TreeNode {
 	if root == nil || root.Val < val {
-		return &TreeNode{
-			Val:   val,
-			Left:  root,
-			Right: nil,
-		}
+		return &TreeNode{val, root, nil}
 	}
 	root.Right = insertIntoMaxTree(root.Right, val)
+	return root
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func insertIntoMaxTree(root *TreeNode, val int) *TreeNode {
+	if root.Val < val {
+		return &TreeNode{val, root, nil}
+	}
+	node := &TreeNode{Val: val}
+	curr := root
+	for curr.Right != nil && curr.Right.Val > val {
+		curr = curr.Right
+	}
+	node.Left = curr.Right
+	curr.Right = node
 	return root
 }
 ```
