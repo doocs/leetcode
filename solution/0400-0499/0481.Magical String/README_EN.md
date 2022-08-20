@@ -44,13 +44,94 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def magicalString(self, n: int) -> int:
+        s = list('1221121')
+        i = 5
+        while len(s) < n:
+            if s[i] == '1':
+                s.append('2' if s[-1] == '1' else '1')
+            else:
+                s.extend(list('22' if s[-1] == '1' else '11'))
+            i += 1
+        return s[:n].count('1')
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int magicalString(int n) {
+        StringBuilder s = new StringBuilder("1221121");
+        int i = 5;
+        while (s.length() < n) {
+            char c = s.charAt(s.length() - 1);
+            if (s.charAt(i) == '1') {
+                s.append(c == '1' ? '2' : '1');
+            } else {
+                s.append(c == '1' ? "22" : "11");
+            }
+            ++i;
+        }
+        int ans = 0;
+        for (i = 0; i < n; ++i) {
+            if (s.charAt(i) == '1') {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int magicalString(int n) {
+        string s = "1221121";
+        int i = 5;
+        while (s.size() < n) {
+            if (s[i] == '1') {
+                s += s.back() == '1' ? "2" : "1";
+            } else {
+                s += s.back() == '1' ? "22" : "11";
+            }
+            ++i;
+        }
+        return count(s.begin(), s.begin() + n, '1');
+    }
+};
+```
+
+### **Go**
+
+```go
+func magicalString(n int) int {
+	s := []byte("1221121")
+	i := 5
+	for len(s) < n {
+		c := s[len(s)-1]
+		if s[i] == '1' {
+			if c == '1' {
+				s = append(s, '2')
+			} else {
+				s = append(s, '1')
+			}
+		} else {
+			if c == '1' {
+				s = append(s, '2')
+				s = append(s, '2')
+			} else {
+				s = append(s, '1')
+				s = append(s, '1')
+			}
+		}
+		i++
+	}
+	return bytes.Count(s[:n], []byte("1"))
+}
 ```
 
 ### **...**
