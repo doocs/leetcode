@@ -180,6 +180,122 @@ func construct(nums []int, l, r int) *TreeNode {
 }
 ```
 
+### **C**
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+struct TreeNode* construct(int* nums, int start, int end) {
+    if (start >= end) {
+        return NULL;
+    }
+    int idx = 0;
+    int maxVal = -1;
+    for (int i = start; i < end; i++) {
+        if (nums[i] > maxVal) {
+            idx = i;
+            maxVal = nums[i];
+        }
+    }
+    struct TreeNode* res = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    res->val = maxVal;
+    res->left = construct(nums, start, idx);
+    res->right = construct(nums, idx + 1, end);
+    return res;
+}
+
+struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
+    return construct(nums, 0, numsSize);
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
+    const n = nums.length;
+    if (n === 0) {
+        return null;
+    }
+    const [val, i] = nums.reduce((r, v, i) => (r[0] < v ? [v, i] : r), [-1, 0]);
+    return new TreeNode(
+        val,
+        constructMaximumBinaryTree(nums.slice(0, i)),
+        constructMaximumBinaryTree(nums.slice(i + 1)),
+    );
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn construct(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
+        if start >= end {
+            return None;
+        }
+        let mut idx = 0;
+        let mut max_val = -1;
+        for i in start..end {
+            if nums[i] > max_val {
+                idx = i;
+                max_val = nums[i];
+            }
+        }
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: max_val,
+            left: Self::construct(nums, start, idx),
+            right: Self::construct(nums, idx + 1, end),
+        })))
+    }
+
+    pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+        Self::construct(&nums, 0, nums.len())
+    }
+}
+```
+
 ### **...**
 
 ```
