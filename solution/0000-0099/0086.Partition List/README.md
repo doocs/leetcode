@@ -40,7 +40,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
 创建两个链表，一个存放小于 `x` 的节点，另一个存放大于等于 `x` 的节点，之后进行拼接即可。
+
+时间复杂度 $O(n)，空间复杂度 $O(1)$。其中 $n$ 是原链表的长度。
 
 <!-- tabs:start -->
 
@@ -55,7 +59,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def partition(self, head: ListNode, x: int) -> ListNode:
+    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
         d1, d2 = ListNode(), ListNode()
         t1, t2 = d1, d2
         while head:

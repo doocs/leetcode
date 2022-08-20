@@ -45,7 +45,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def partition(self, head: ListNode, x: int) -> ListNode:
+    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
         d1, d2 = ListNode(), ListNode()
         t1, t2 = d1, d2
         while head:
