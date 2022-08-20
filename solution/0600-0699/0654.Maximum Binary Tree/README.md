@@ -68,6 +68,20 @@
 
 最多需要查询 $n$ 次，因此，总的时间复杂度为 $O(nlogn)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
 
+**方法三：单调栈**
+
+题目表达了一个意思：如果 $nums$ 中间有一个数字 $v$，找出它左右两侧最大的数，这两个最大的数应该比 $v$ 小。
+
+了解单调栈的朋友，或许会注意到：
+
+当我们尝试向栈中压入一个数字 $v$ 时，如果栈顶元素比 $v$ 小，则循环弹出栈顶元素，并记录最后一个弹出的元素 $last$。那么循环结束，$last$ 必须位于 $v$ 的左侧，因为 $last$ 是 $v$ 的左侧最大的数。令 $node(val=v).left$ 指向 $last$。
+
+如果此时存在栈顶元素，栈顶元素一定大于 $v$。$v$ 成为栈顶元素的候选右子树节点。令 $stk.top().right$ 指向 $v$。然后 $v$ 入栈。
+
+遍历结束，栈底元素成为树的根节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -156,6 +170,28 @@ class SegmentTree:
 
     def pushup(self, u):
         self.tr[u].v = max(self.tr[u << 1].v, self.tr[u << 1 | 1].v)
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        stk = []
+        for v in nums:
+            node = TreeNode(v)
+            last = None
+            while stk and stk[-1].val < v:
+                last = stk.pop()
+            node.left = last
+            if stk:
+                stk[-1].right = node
+            stk.append(node)
+        return stk[0]
 ```
 
 ### **Java**
@@ -301,6 +337,42 @@ class SegmentTree {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        for (int v : nums) {
+            TreeNode node = new TreeNode(v);
+            TreeNode last = null;
+            while (!stk.isEmpty() && stk.peek().val < v) {
+                last = stk.pop();
+            }
+            node.left = last;
+            if (!stk.isEmpty()) {
+                stk.peek().right = node;
+            }
+            stk.push(node);
+        }
+        return stk.getLast();
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -418,6 +490,43 @@ public:
         root->left = dfs(l, d[val] - 1);
         root->right = dfs(d[val] + 1, r);
         return root;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        stack<TreeNode*> stk;
+        for (int v : nums) {
+            TreeNode* node = new TreeNode(v);
+            TreeNode* last = nullptr;
+            while (!stk.empty() && stk.top()->val < v) {
+                last = stk.top();
+                stk.pop();
+            }
+            node->left = last;
+            if (!stk.empty()) {
+                stk.top()->right = node;
+            }
+            stk.push(node);
+        }
+        while (stk.size() > 1) {
+            stk.pop();
+        }
+        return stk.top();
     }
 };
 ```
@@ -542,6 +651,34 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructMaximumBinaryTree(nums []int) *TreeNode {
+	stk := []*TreeNode{}
+	for _, v := range nums {
+		node := &TreeNode{Val: v}
+		var last *TreeNode
+		for len(stk) > 0 && stk[len(stk)-1].Val < v {
+			last = stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+		}
+		node.Left = last
+		if len(stk) > 0 {
+			stk[len(stk)-1].Right = node
+		}
+		stk = append(stk, node)
+	}
+	return stk[0]
 }
 ```
 

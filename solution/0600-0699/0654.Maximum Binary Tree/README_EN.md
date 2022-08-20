@@ -138,6 +138,28 @@ class SegmentTree:
         self.tr[u].v = max(self.tr[u << 1].v, self.tr[u << 1 | 1].v)
 ```
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        stk = []
+        for v in nums:
+            node = TreeNode(v)
+            last = None
+            while stk and stk[-1].val < v:
+                last = stk.pop()
+            node.left = last
+            if stk:
+                stk[-1].right = node
+            stk.append(node)
+        return stk[0]
+```
+
 ### **Java**
 
 ```java
@@ -279,6 +301,42 @@ class SegmentTree {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        for (int v : nums) {
+            TreeNode node = new TreeNode(v);
+            TreeNode last = null;
+            while (!stk.isEmpty() && stk.peek().val < v) {
+                last = stk.pop();
+            }
+            node.left = last;
+            if (!stk.isEmpty()) {
+                stk.peek().right = node;
+            }
+            stk.push(node);
+        }
+        return stk.getLast();
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -396,6 +454,43 @@ public:
         root->left = dfs(l, d[val] - 1);
         root->right = dfs(d[val] + 1, r);
         return root;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        stack<TreeNode*> stk;
+        for (int v : nums) {
+            TreeNode* node = new TreeNode(v);
+            TreeNode* last = nullptr;
+            while (!stk.empty() && stk.top()->val < v) {
+                last = stk.top();
+                stk.pop();
+            }
+            node->left = last;
+            if (!stk.empty()) {
+                stk.top()->right = node;
+            }
+            stk.push(node);
+        }
+        while (stk.size() > 1) {
+            stk.pop();
+        }
+        return stk.top();
     }
 };
 ```
@@ -520,6 +615,34 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructMaximumBinaryTree(nums []int) *TreeNode {
+	stk := []*TreeNode{}
+	for _, v := range nums {
+		node := &TreeNode{Val: v}
+		var last *TreeNode
+		for len(stk) > 0 && stk[len(stk)-1].Val < v {
+			last = stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+		}
+		node.Left = last
+		if len(stk) > 0 {
+			stk[len(stk)-1].Right = node
+		}
+		stk = append(stk, node)
+	}
+	return stk[0]
 }
 ```
 
