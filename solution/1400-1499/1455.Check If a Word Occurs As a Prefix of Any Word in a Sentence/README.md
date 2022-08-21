@@ -57,7 +57,7 @@
 
 将 $sentence$ 按空格分割为 $words$，然后遍历 $words$，检查 $words[i]$ 是否是 $searchWord$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。
 
-时间复杂度 $O(mn)$。其中 $m$ 是 $sentence$ 的长度，$n$ 是 $searchWord$ 的长度。
+时间复杂度 $O(mn)$。其中 $m$ 是 $sentence$ 的长度，而 $n$ 是 $searchWord$ 的长度。
 
 
 <!-- tabs:start -->

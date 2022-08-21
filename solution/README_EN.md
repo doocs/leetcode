@@ -1449,7 +1449,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1438  |  [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](/solution/1400-1499/1438.Longest%20Continuous%20Subarray%20With%20Absolute%20Diff%20Less%20Than%20or%20Equal%20to%20Limit/README_EN.md)  |  `Queue`,`Array`,`Ordered Set`,`Sliding Window`,`Monotonic Queue`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 187  |
 |  1439  |  [Find the Kth Smallest Sum of a Matrix With Sorted Rows](/solution/1400-1499/1439.Find%20the%20Kth%20Smallest%20Sum%20of%20a%20Matrix%20With%20Sorted%20Rows/README_EN.md)  |  `Array`,`Binary Search`,`Matrix`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 187  |
 |  1440  |  [Evaluate Boolean Expression](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
-|  1441  |  [Build an Array With Stack Operations](/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md)  |  `Stack`,`Array`,`Simulation`  |  Easy  |  Weekly Contest 188  |
+|  1441  |  [Build an Array With Stack Operations](/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md)  |  `Stack`,`Array`,`Simulation`  |  Medium  |  Weekly Contest 188  |
 |  1442  |  [Count Triplets That Can Form Two Arrays of Equal XOR](/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Math`,`Prefix Sum`  |  Medium  |  Weekly Contest 188  |
 |  1443  |  [Minimum Time to Collect All Apples in a Tree](/solution/1400-1499/1443.Minimum%20Time%20to%20Collect%20All%20Apples%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Hash Table`  |  Medium  |  Weekly Contest 188  |
 |  1444  |  [Number of Ways of Cutting a Pizza](/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README_EN.md)  |  `Memoization`,`Array`,`Dynamic Programming`,`Matrix`  |  Hard  |  Weekly Contest 188  |
@@ -2387,6 +2387,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2376  |  [Count Special Integers](/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Hard  |  Weekly Contest 306  |
 |  2377  |  [Sort the Olympic Table](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)  |    |  Easy  |  🔒  |
 |  2378  |  [Choose Edges to Maximize Score in a Tree](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
+|  2379  |  [Minimum Recolors to Get K Consecutive Black Blocks](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README_EN.md)  |    |  Easy  |  Biweekly Contest 85  |
+|  2380  |  [Time Needed to Rearrange a Binary String](/solution/2300-2399/2380.Time%20Needed%20to%20Rearrange%20a%20Binary%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 85  |
+|  2381  |  [Shifting Letters II](/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 85  |
+|  2382  |  [Maximum Segment Sum After Removals](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README_EN.md)  |    |  Hard  |  Biweekly Contest 85  |
+|  2383  |  [Minimum Hours of Training to Win a Competition](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README_EN.md)  |    |  Easy  |  Weekly Contest 307  |
+|  2384  |  [Largest Palindromic Number](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md)  |    |  Medium  |  Weekly Contest 307  |
+|  2385  |  [Amount of Time for Binary Tree to Be Infected](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md)  |    |  Medium  |  Weekly Contest 307  |
+|  2386  |  [Find the K-Sum of an Array](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 307  |
 
 ## Copyright
 

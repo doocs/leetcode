@@ -23,6 +23,22 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 307 场周赛(2022-08-21 10:30, 90 分钟) 参赛人数 7064
+
+- [2383. 赢得比赛需要的最少训练时长](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README.md)
+- [2384. 最大回文数字](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README.md)
+- [2385. 感染二叉树需要的总时间](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README.md)
+- [2386. 找出数组的第 K 大和](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README.md)
+
+
+#### 第 85 场双周赛(2022-08-20 22:30, 90 分钟) 参赛人数 4193
+
+- [2379. 得到 K 个黑块的最少涂色次数](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README.md)
+- [2380. 二进制字符串重新安排顺序需要的时间](/solution/2300-2399/2380.Time%20Needed%20to%20Rearrange%20a%20Binary%20String/README.md)
+- [2381. 字母移位 II](/solution/2300-2399/2381.Shifting%20Letters%20II/README.md)
+- [2382. 删除操作后的最大子段和](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README.md)
+
+
 #### 第 306 场周赛(2022-08-14 10:30, 90 分钟) 参赛人数 7500
 
 - [2373. 矩阵中的局部最大值](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md)
