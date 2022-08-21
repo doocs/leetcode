@@ -46,6 +46,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：差分数组**
+
+用差分数组 $d$ 记录区间的变化，然后对 $d$ 求前缀和，得到每个下标 $i$ 的变化量 $d[i]$。
+
+然后将原字符串中每个字符加上对应的 $d[i]$，最终得到一个新的字符串。
+
+时间复杂度 $O(n+m)$。其中 $n$ 是原字符串 $s$ 的长度，而 $m$ 是移位操作 $shifts$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +61,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+        n = len(s)
+        d = [0] * (n + 1)
+        for i, j, v in shifts:
+            if v == 0:
+                v = -1
+            d[i] += v
+            d[j + 1] -= v
+        for i in range(1, n + 1):
+            d[i] += d[i - 1]
+        return ''.join(chr(ord('a') + (ord(s[i]) - ord('a') + d[i] + 26) % 26) for i in range(n))
 ```
 
 ### **Java**
@@ -61,7 +80,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String shiftingLetters(String s, int[][] shifts) {
+        int n = s.length();
+        int[] d = new int[n + 1];
+        for (int[] e : shifts) {
+            if (e[2] == 0) {
+                e[2]--;
+            }
+            d[e[0]] += e[2];
+            d[e[1] + 1] -= e[2];
+        }
+        for (int i = 1; i <= n; ++i) {
+            d[i] += d[i - 1];
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n; ++i) {
+            int j = (s.charAt(i) - 'a' + d[i] % 26 + 26) % 26;
+            ans.append((char) ('a' + j));
+        }
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string shiftingLetters(string s, vector<vector<int>>& shifts) {
+        int n = s.size();
+        vector<int> d(n + 1);
+        for (auto& e : shifts) {
+            if (e[2] == 0) {
+                e[2]--;
+            }
+            d[e[0]] += e[2];
+            d[e[1] + 1] -= e[2];
+        }
+        for (int i = 1; i <= n; ++i) {
+            d[i] += d[i - 1];
+        }
+        string ans;
+        for (int i = 0; i < n; ++i) {
+            int j = (s[i] - 'a' + d[i] % 26 + 26) % 26;
+            ans += ('a' + j);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shiftingLetters(s string, shifts [][]int) string {
+	n := len(s)
+	d := make([]int, n+1)
+	for _, e := range shifts {
+		if e[2] == 0 {
+			e[2]--
+		}
+		d[e[0]] += e[2]
+		d[e[1]+1] -= e[2]
+	}
+	for i := 1; i <= n; i++ {
+		d[i] += d[i-1]
+	}
+	ans := []byte{}
+	for i, c := range s {
+		j := (int(c-'a') + d[i]%26 + 26) % 26
+		ans = append(ans, byte('a'+j))
+	}
+	return string(ans)
+}
 ```
 
 ### **TypeScript**

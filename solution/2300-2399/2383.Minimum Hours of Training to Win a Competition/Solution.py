@@ -1,5 +1,11 @@
 class Solution:
-    def minNumberOfHours(self, initialEnergy: int, initialExperience: int, energy: List[int], experience: List[int]) -> int:
+    def minNumberOfHours(
+        self,
+        initialEnergy: int,
+        initialExperience: int,
+        energy: List[int],
+        experience: List[int],
+    ) -> int:
         ans = 0
         for a, b in zip(energy, experience):
             if initialEnergy <= a:

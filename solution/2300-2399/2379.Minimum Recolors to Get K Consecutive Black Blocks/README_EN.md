@@ -52,13 +52,92 @@ Therefore, we return 0.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumRecolors(self, blocks: str, k: int) -> int:
+        cnt = blocks[:k].count('W')
+        ans = cnt
+        i, n = k, len(blocks)
+        while i < n:
+            cnt += blocks[i] == 'W'
+            cnt -= blocks[i-k] == 'W'
+            ans = min(ans, cnt)
+            i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumRecolors(String blocks, int k) {
+        int cnt = 0, n = blocks.length();
+        int i = 0;
+        for (; i < k; ++i) {
+            if (blocks.charAt(i) == 'W') {
+                ++cnt;
+            }
+        }
+        int ans = cnt;
+        for (; i < n; ++i) {
+            cnt += blocks.charAt(i) == 'W' ? 1 : 0;
+            cnt -= blocks.charAt(i - k) == 'W' ? 1 : 0;
+            ans = Math.min(ans, cnt);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumRecolors(string blocks, int k) {
+        int cnt = 0, n = blocks.size();
+        int i = 0;
+        for (; i < k; ++i) cnt += blocks[i] == 'W';
+        int ans = cnt;
+        for (; i < n; ++i) {
+            cnt += blocks[i] == 'W';
+            cnt -= blocks[i - k] == 'W';
+            ans = min(ans, cnt);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumRecolors(blocks string, k int) int {
+	cnt, n := 0, len(blocks)
+	i := 0
+	for ; i < k; i++ {
+		if blocks[i] == 'W' {
+			cnt++
+		}
+	}
+	ans := cnt
+	for ; i < n; i++ {
+		if blocks[i] == 'W' {
+			cnt++
+		}
+		if blocks[i-k] == 'W' {
+			cnt--
+		}
+		ans = min(ans, cnt)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

@@ -57,13 +57,167 @@ Finally, we return [16,5,3,0].
 ### **Python3**
 
 ```python
+class Solution:
+    def maximumSegmentSum(self, nums: List[int], removeQueries: List[int]) -> List[int]:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
 
+        def merge(a, b):
+            pa, pb = find(a), find(b)
+            p[pa] = pb
+            s[pb] += s[pa]
+
+        n = len(nums)
+        p = list(range(n))
+        s = [0] * n
+        ans = [0] * n
+        mx = 0
+        for j in range(n - 1, 0, -1):
+            i = removeQueries[j]
+            s[i] = nums[i]
+            if i and s[find(i - 1)]:
+                merge(i, i - 1)
+            if i < n - 1 and s[find(i + 1)]:
+                merge(i, i + 1)
+            mx = max(mx, s[find(i)])
+            ans[j - 1] = mx
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
+    private long[] s;
 
+    public long[] maximumSegmentSum(int[] nums, int[] removeQueries) {
+        int n = nums.length;
+        p = new int[n];
+        s = new long[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        long[] ans = new long[n];
+        long mx = 0;
+        for (int j = n - 1; j > 0; --j) {
+            int i = removeQueries[j];
+            s[i] = nums[i];
+            if (i > 0 && s[find(i - 1)] > 0) {
+                merge(i, i - 1);
+            }
+            if (i < n - 1 && s[find(i + 1)] > 0) {
+                merge(i, i + 1);
+            }
+            mx = Math.max(mx, s[find(i)]);
+            ans[j - 1] = mx;
+        }
+        return ans;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    private void merge(int a, int b) {
+        int pa = find(a), pb = find(b);
+        p[pa] = pb;
+        s[pb] += s[pa];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    vector<int> p;
+    vector<ll> s;
+
+    vector<long long> maximumSegmentSum(vector<int>& nums, vector<int>& removeQueries) {
+        int n = nums.size();
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        s.assign(n, 0);
+        vector<ll> ans(n);
+        ll mx = 0;
+        for (int j = n - 1; j; --j) {
+            int i = removeQueries[j];
+            s[i] = nums[i];
+            if (i && s[find(i - 1)]) merge(i, i - 1);
+            if (i < n - 1 && s[find(i + 1)]) merge(i, i + 1);
+            mx = max(mx, s[find(i)]);
+            ans[j - 1] = mx;
+        }
+        return ans;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+
+    void merge(int a, int b) {
+        int pa = find(a), pb = find(b);
+        p[pa] = pb;
+        s[pb] += s[pa];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumSegmentSum(nums []int, removeQueries []int) []int64 {
+	n := len(nums)
+	p := make([]int, n)
+	s := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	merge := func(a, b int) {
+		pa, pb := find(a), find(b)
+		p[pa] = pb
+		s[pb] += s[pa]
+	}
+	mx := 0
+	ans := make([]int64, n)
+	for j := n - 1; j > 0; j-- {
+		i := removeQueries[j]
+		s[i] = nums[i]
+		if i > 0 && s[find(i-1)] > 0 {
+			merge(i, i-1)
+		}
+		if i < n-1 && s[find(i+1)] > 0 {
+			merge(i, i+1)
+		}
+		mx = max(mx, s[find(i)])
+		ans[j-1] = int64(mx)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
