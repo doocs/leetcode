@@ -124,6 +124,37 @@ func isPrefixOfWord(sentence string, searchWord string) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function isPrefixOfWord(sentence: string, searchWord: string): number {
+    const ss = sentence.split(/\s/);
+    const n = ss.length;
+    for (let i = 0; i < n; i++) {
+        if (ss[i].startsWith(searchWord)) {
+            return i + 1;
+        }
+    }
+    return -1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_prefix_of_word(sentence: String, search_word: String) -> i32 {
+        let ss = sentence.split_whitespace().collect::<Vec<&str>>();
+        for i in 0..ss.len() {
+            if ss[i].starts_with(&search_word) {
+                return (i + 1) as i32;
+            }
+        }
+        -1
+    }
+}
+```
+
 ### **...**
 
 ```
