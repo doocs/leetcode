@@ -53,6 +53,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：字符串分割**
+
+将 $sentence$ 按空格分割为 $words$，然后遍历 $words$，检查 $words[i]$ 是否是 $searchWord$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。
+
+时间复杂度 $O(mn)$。其中 $m$ 是 $sentence$ 的长度，$n$ 是 $searchWord$ 的长度。
+
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,13 +69,9 @@
 ```python
 class Solution:
     def isPrefixOfWord(self, sentence: str, searchWord: str) -> int:
-        words = sentence.split(' ')
-        i, n = 0, len(words)
-        while i < n:
-            word = words[i]
-            if word[: len(searchWord)] == searchWord:
-                return i + 1
-            i += 1
+        for i, s in enumerate(sentence.split(), 1):
+            if s.startswith(searchWord):
+                return i
         return -1
 ```
 
@@ -80,14 +83,44 @@ class Solution:
 class Solution {
     public int isPrefixOfWord(String sentence, String searchWord) {
         String[] words = sentence.split(" ");
-        int i = 0, n = words.length;
-        for (; i < n; ++i) {
-            if (words[i].indexOf(searchWord) == 0) {
+        for (int i = 0; i < words.length; ++i) {
+            if (words[i].startsWith(searchWord)) {
                 return i + 1;
             }
         }
         return -1;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int isPrefixOfWord(string sentence, string searchWord) {
+        stringstream ss(sentence);
+        string s;
+        for (int i = 1; ss >> s; ++i) {
+            if (s.find(searchWord) == 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isPrefixOfWord(sentence string, searchWord string) int {
+	for i, s := range strings.Split(sentence, " ") {
+		if strings.HasPrefix(s, searchWord) {
+			return i + 1
+		}
+	}
+	return -1
 }
 ```
 
