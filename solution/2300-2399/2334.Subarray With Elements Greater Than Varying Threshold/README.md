@@ -66,7 +66,7 @@ $v$ 作为当前连通块的最小值，当前连通块的大小为 $size[find(i
 
 利用单调栈，得到以当前元素 $nums[i]$ 作为最小元素的左右边界 $left[i]$（左边第一个比 $nums[i]$ 小的元素的位置）, $right[i]$（右边第一个比 $nums[i]$ 小的元素的位置）。
 
-那么对于当前元素 $nums[i]$，$k=right[i]-left[i]-1$，若 $nums[i]>\frac{\text{threshold}}{k}$，说明找到了满足条件的子数组，返回 $true$。
+那么对于当前元素 $nums[i]$，有 $k=right[i]-left[i]-1$，若 $nums[i]>\frac{\text{threshold}}{k}$，说明找到了满足条件的子数组，返回 $true$。
 
 否则遍历结束，返回 $-1$。
 

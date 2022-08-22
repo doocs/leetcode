@@ -5,14 +5,12 @@ public:
         for (int i = 0; i < energy.size(); ++i) {
             int a = energy[i], b = experience[i];
             if (initialEnergy <= a) {
-                int t = a - initialEnergy + 1;
-                ans += t;
-                initialEnergy += t;
+                ans += a - initialEnergy + 1;
+                initialEnergy = a + 1;
             }
             if (initialExperience <= b) {
-                int t = b - initialExperience + 1;
-                ans += t;
-                initialExperience += t;
+                ans += b - initialExperience + 1;
+                initialExperience = b + 1;
             }
             initialEnergy -= a;
             initialExperience += b;

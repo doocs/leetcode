@@ -59,6 +59,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 模拟**
+
+对上对手时，需要满足经验和精力都严格超过对手，因此，我们遍历 $n$ 个对手，若经验或者精力不足以超过对手，则补到刚好能超过（每次训练，可以增加 $1$）。然后增加对应的经验值，减少对应的精力值。
+
+遍历结束，返回训练的小时数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是对手的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,17 +75,21 @@
 
 ```python
 class Solution:
-    def minNumberOfHours(self, initialEnergy: int, initialExperience: int, energy: List[int], experience: List[int]) -> int:
+    def minNumberOfHours(
+        self,
+        initialEnergy: int,
+        initialExperience: int,
+        energy: List[int],
+        experience: List[int],
+    ) -> int:
         ans = 0
         for a, b in zip(energy, experience):
             if initialEnergy <= a:
-                t = a - initialEnergy + 1
-                ans += t
-                initialEnergy += t
+                ans += a - initialEnergy + 1
+                initialEnergy = a + 1
             if initialExperience <= b:
-                t = b - initialExperience + 1
-                ans += t
-                initialExperience += t
+                ans += b - initialExperience + 1
+                initialExperience = b + 1
             initialEnergy -= a
             initialExperience += b
         return ans
@@ -94,14 +106,12 @@ class Solution {
         for (int i = 0; i < energy.length; ++i) {
             int a = energy[i], b = experience[i];
             if (initialEnergy <= a) {
-                int t = a - initialEnergy + 1;
-                ans += t;
-                initialEnergy += t;
+                ans += a - initialEnergy + 1;
+                initialEnergy = a + 1;
             }
             if (initialExperience <= b) {
-                int t = b - initialExperience + 1;
-                ans += t;
-                initialExperience += t;
+                ans += b - initialExperience + 1;
+                initialExperience = b + 1;
             }
             initialEnergy -= a;
             initialExperience += b;
@@ -121,14 +131,12 @@ public:
         for (int i = 0; i < energy.size(); ++i) {
             int a = energy[i], b = experience[i];
             if (initialEnergy <= a) {
-                int t = a - initialEnergy + 1;
-                ans += t;
-                initialEnergy += t;
+                ans += a - initialEnergy + 1;
+                initialEnergy = a + 1;
             }
             if (initialExperience <= b) {
-                int t = b - initialExperience + 1;
-                ans += t;
-                initialExperience += t;
+                ans += b - initialExperience + 1;
+                initialExperience = b + 1;
             }
             initialEnergy -= a;
             initialExperience += b;
@@ -146,14 +154,12 @@ func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, ex
 	for i, a := range energy {
 		b := experience[i]
 		if initialEnergy <= a {
-			t := a - initialEnergy + 1
-			ans += t
-			initialEnergy += t
+			ans += a - initialEnergy + 1
+			initialEnergy = a + 1
 		}
 		if initialExperience <= b {
-			t := b - initialExperience + 1
-			ans += t
-			initialExperience += t
+			ans += b - initialExperience + 1
+			initialExperience = b + 1
 		}
 		initialEnergy -= a
 		initialExperience += b
