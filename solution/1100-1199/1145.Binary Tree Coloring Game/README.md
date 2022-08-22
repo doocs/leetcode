@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+先通过 $DFS$，找到 $x$ 所在的节点，我们记为 $node$。然后统计 $node$ 的左子树、右子树、父节点方向上的节点个数。如果这三个方向上有任何一个节点个数超过了节点总数的一半，则存在一个必胜策略。
+
+这里 $node$ 父节点方向上的节点个数，可以由节点总数 $n$ 减去 $node$ 及其 $node$ 的左右子树节点数之和得到。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点总数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +70,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def btreeGameWinningMove(self, root: Optional[TreeNode], n: int, x: int) -> bool:
+        def dfs(root):
+            if root is None or root.val == x:
+                return root
+            return dfs(root.left) or dfs(root.right)
 
+        def count(root):
+            if root is None:
+                return 0
+            return 1 + count(root.left) + count(root.right)
+
+        node = dfs(root)
+        l, r = count(node.left), count(node.right)
+        t = n - l - r - 1
+        m = max(l, r, t)
+        return m > n - m
 ```
 
 ### **Java**
@@ -70,7 +100,129 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean btreeGameWinningMove(TreeNode root, int n, int x) {
+        TreeNode node = dfs(root, x);
+        int l = count(node.left);
+        int r = count(node.right);
+        int m = Math.max(Math.max(l, r), n - l - r - 1);
+        return m > n - m;
+    }
 
+    private int count(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return 1 + count(node.left) + count(node.right);
+    }
+
+    private TreeNode dfs(TreeNode root, int x) {
+        if (root == null || root.val == x) {
+            return root;
+        }
+        TreeNode l = dfs(root.left, x);
+        if (l != null) {
+            return l;
+        }
+        return dfs(root.right, x);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool btreeGameWinningMove(TreeNode* root, int n, int x) {
+        TreeNode* node = dfs(root, x);
+        int l = count(node->left);
+        int r = count(node->right);
+        int m = max(max(l, r), n - l - r - 1);
+        return m > n - m;
+    }
+
+    int count(TreeNode* root) {
+        if (!root) return 0;
+        return 1 + count(root->left) + count(root->right);
+    }
+
+    TreeNode* dfs(TreeNode* root, int x) {
+        if (!root || root->val == x) return root;
+        auto l = dfs(root->left, x);
+        return l ? l : dfs(root->right, x);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func btreeGameWinningMove(root *TreeNode, n int, x int) bool {
+	var dfs func(*TreeNode) *TreeNode
+	dfs = func(root *TreeNode) *TreeNode {
+		if root == nil || root.Val == x {
+			return root
+		}
+		l := dfs(root.Left)
+		if l != nil {
+			return l
+		}
+		return dfs(root.Right)
+	}
+	var count func(*TreeNode) int
+	count = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		return 1 + count(root.Left) + count(root.Right)
+	}
+	node := dfs(root)
+	l, r := count(node.Left), count(node.Right)
+	m := max(max(l, r), n-l-r-1)
+	return m > n-m
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
