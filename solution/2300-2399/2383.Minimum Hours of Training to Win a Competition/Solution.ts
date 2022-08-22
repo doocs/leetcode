@@ -1,4 +1,9 @@
-function minNumberOfHours(initialEnergy: number, initialExperience: number, energy: number[], experience: number[]): number {
+function minNumberOfHours(
+    initialEnergy: number,
+    initialExperience: number,
+    energy: number[],
+    experience: number[],
+): number {
     const n = energy.length;
     let ans = 0;
     for (let i = 0; i < n; i++) {
@@ -18,4 +23,4 @@ function minNumberOfHours(initialEnergy: number, initialExperience: number, ener
         initialExperience += minExperience;
     }
     return ans;
-};
+}

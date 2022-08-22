@@ -171,7 +171,12 @@ func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, ex
 ### **TypeScript**
 
 ```ts
-function minNumberOfHours(initialEnergy: number, initialExperience: number, energy: number[], experience: number[]): number {
+function minNumberOfHours(
+    initialEnergy: number,
+    initialExperience: number,
+    energy: number[],
+    experience: number[],
+): number {
     const n = energy.length;
     let ans = 0;
     for (let i = 0; i < n; i++) {
@@ -191,7 +196,83 @@ function minNumberOfHours(initialEnergy: number, initialExperience: number, ener
         initialExperience += minExperience;
     }
     return ans;
-};
+}
+```
+
+```ts
+function minNumberOfHours(
+    initialEnergy: number,
+    initialExperience: number,
+    energy: number[],
+    experience: number[],
+): number {
+    let res = 0;
+    for (const v of experience) {
+        if (initialExperience <= v) {
+            res += v - initialExperience + 1;
+            initialExperience = v + 1;
+        }
+        initialExperience += v;
+    }
+    for (const v of energy) {
+        if (initialEnergy <= v) {
+            res += v - initialEnergy + 1;
+            initialEnergy = v + 1;
+        }
+        initialEnergy -= v;
+    }
+    return res;
+}
+```
+
+### **C**
+
+```c
+int minNumberOfHours(int initialEnergy, int initialExperience, int* energy, int energySize, int* experience, int experienceSize) {
+    int res = 0;
+    for (int i = 0; i < energySize; i++) {
+        if (initialEnergy <= energy[i]) {
+            res += energy[i] - initialEnergy + 1;
+            initialEnergy = energy[i] + 1;
+        }
+        if (initialExperience <= experience[i]) {
+            res += experience[i] - initialExperience + 1;
+            initialExperience = experience[i] + 1;
+        }
+        initialEnergy -= energy[i];
+        initialExperience += experience[i];
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_number_of_hours(
+        mut initial_energy: i32,
+        mut initial_experience: i32,
+        energy: Vec<i32>,
+        experience: Vec<i32>,
+    ) -> i32 {
+        let n = energy.len();
+        let mut res = 0;
+        for i in 0..n {
+            if initial_energy <= energy[i] {
+                res += energy[i] - initial_energy + 1;
+                initial_energy = energy[i] + 1;
+            }
+            if initial_experience <= experience[i] {
+                res += experience[i] - initial_experience + 1;
+                initial_experience = experience[i] + 1;
+            }
+            initial_energy -= energy[i];
+            initial_experience += experience[i];
+        }
+        res
+    }
+}
 ```
 
 ### **...**
