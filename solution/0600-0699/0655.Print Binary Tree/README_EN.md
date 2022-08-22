@@ -60,7 +60,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def printTree(self, root: TreeNode) -> List[List[str]]:
+    def printTree(self, root: Optional[TreeNode]) -> List[List[str]]:
         def height(root):
             if root is None:
                 return -1
@@ -77,6 +77,42 @@ class Solution:
         m, n = h + 1, 2 ** (h + 1) - 1
         ans = [[""] * n for _ in range(m)]
         dfs(root, 0, (n - 1) // 2)
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def printTree(self, root: Optional[TreeNode]) -> List[List[str]]:
+        def height(root):
+            q = deque([root])
+            h = -1
+            while q:
+                h += 1
+                for _ in range(len(q)):
+                    root = q.popleft()
+                    if root.left:
+                        q.append(root.left)
+                    if root.right:
+                        q.append(root.right)
+            return h
+
+        h = height(root)
+        m, n = h + 1, 2 ** (h + 1) - 1
+        ans = [[""] * n for _ in range(m)]
+        q = deque([(root, 0, (n - 1) // 2)])
+        while q:
+            node, r, c = q.popleft()
+            ans[r][c] = str(node.val)
+            if node.left:
+                q.append((node.left, r + 1, c - 2 ** (h - r - 1)))
+            if node.right:
+                q.append((node.right, r + 1, c + 2 ** (h - r - 1)))
         return ans
 ```
 
@@ -132,6 +168,84 @@ class Solution {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<List<String>> printTree(TreeNode root) {
+        int h = height(root);
+        int m = h + 1, n = (1 << (h + 1)) - 1;
+        String[][] res = new String[m][n];
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(res[i], "");
+        }
+        Deque<Tuple> q = new ArrayDeque<>();
+        q.offer(new Tuple(root, 0, (n - 1) / 2));
+        while (!q.isEmpty()) {
+            Tuple p = q.pollFirst();
+            root = p.node;
+            int r = p.r, c = p.c;
+            res[r][c] = String.valueOf(root.val);
+            if (root.left != null) {
+                q.offer(new Tuple(root.left, r + 1, c - (1 << (h - r - 1))));
+            }
+            if (root.right != null) {
+                q.offer(new Tuple(root.right, r + 1, c + (1 << (h - r - 1))));
+            }
+        }
+        List<List<String>> ans = new ArrayList<>();
+        for (String[] t : res) {
+            ans.add(Arrays.asList(t));
+        }
+        return ans;
+    }
+
+    private int height(TreeNode root) {
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        int h = -1;
+        while (!q.isEmpty()) {
+            ++h;
+            for (int n = q.size(); n > 0; --n) {
+                root = q.pollFirst();
+                if (root.left != null) {
+                    q.offer(root.left);
+                }
+                if (root.right != null) {
+                    q.offer(root.right);
+                }
+            }
+        }
+        return h;
+    }
+}
+
+class Tuple {
+    TreeNode node;
+    int r;
+    int c;
+
+    public Tuple(TreeNode node, int r, int c) {
+        this.node = node;
+        this.r = r;
+        this.c = c;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -166,6 +280,55 @@ public:
     int height(TreeNode* root) {
         if (!root) return -1;
         return 1 + max(height(root->left), height(root->right));
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<string>> printTree(TreeNode* root) {
+        int h = height(root);
+        int m = h + 1, n = (1 << (h + 1)) - 1;
+        vector<vector<string>> ans(m, vector<string>(n, ""));
+        queue<tuple<TreeNode*, int, int>> q;
+        q.push({root, 0, (n - 1) / 2});
+        while (!q.empty()) {
+            auto p = q.front();
+            q.pop();
+            root = get<0>(p);
+            int r = get<1>(p), c = get<2>(p);
+            ans[r][c] = to_string(root->val);
+            if (root->left) q.push({root->left, r + 1, c - pow(2, h - r - 1)});
+            if (root->right) q.push({root->right, r + 1, c + pow(2, h - r - 1)});
+        }
+        return ans;
+    }
+
+    int height(TreeNode* root) {
+        int h = -1;
+        queue<TreeNode*> q {{root}};
+        while (!q.empty()) {
+            ++h;
+            for (int n = q.size(); n; --n) {
+                root = q.front();
+                q.pop();
+                if (root->left) q.push(root->left);
+                if (root->right) q.push(root->right);
+            }
+        }
+        return h;
     }
 };
 ```
@@ -217,6 +380,68 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func printTree(root *TreeNode) [][]string {
+	h := height(root)
+	m, n := h+1, (1<<(h+1))-1
+	ans := make([][]string, m)
+	for i := range ans {
+		ans[i] = make([]string, n)
+		for j := range ans[i] {
+			ans[i][j] = ""
+		}
+	}
+	q := []tuple{tuple{root, 0, (n - 1) / 2}}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		root := p.node
+		r, c := p.r, p.c
+		ans[r][c] = strconv.Itoa(root.Val)
+		if root.Left != nil {
+			q = append(q, tuple{root.Left, r + 1, c - int(math.Pow(float64(2), float64(h-r-1)))})
+		}
+		if root.Right != nil {
+			q = append(q, tuple{root.Right, r + 1, c + int(math.Pow(float64(2), float64(h-r-1)))})
+		}
+	}
+	return ans
+}
+
+func height(root *TreeNode) int {
+	h := -1
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		h++
+		for n := len(q); n > 0; n-- {
+			root := q[0]
+			q = q[1:]
+			if root.Left != nil {
+				q = append(q, root.Left)
+			}
+			if root.Right != nil {
+				q = append(q, root.Right)
+			}
+		}
+	}
+	return h
+}
+
+type tuple struct {
+	node *TreeNode
+	r    int
+	c    int
 }
 ```
 
