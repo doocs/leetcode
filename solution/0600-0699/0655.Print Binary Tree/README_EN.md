@@ -220,6 +220,125 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function printTree(root: TreeNode | null): string[][] {
+    const getHeight = (root: TreeNode | null, h: number) => {
+        if (root == null) {
+            return h - 1;
+        }
+        return Math.max(
+            getHeight(root.left, h + 1),
+            getHeight(root.right, h + 1),
+        );
+    };
+
+    const height = getHeight(root, 0);
+    const m = height + 1;
+    const n = 2 ** (height + 1) - 1;
+    const res: string[][] = Array.from({ length: m }, () =>
+        new Array(n).fill(''),
+    );
+    const dfs = (root: TreeNode | null, i: number, j: number) => {
+        if (root === null) {
+            return;
+        }
+        const { val, left, right } = root;
+        res[i][j] = val + '';
+        dfs(left, i + 1, j - 2 ** (height - i - 1));
+        dfs(right, i + 1, j + 2 ** (height - i - 1));
+    };
+    dfs(root, 0, (n - 1) >>> 1);
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn get_height(root: &Option<Rc<RefCell<TreeNode>>>, h: u32) -> u32 {
+        if let Some(node) = root {
+            let node = node.borrow();
+            return Self::get_height(&node.left, h + 1).max(Self::get_height(&node.right, h + 1));
+        }
+        h - 1
+    }
+
+    fn dfs(
+        root: &Option<Rc<RefCell<TreeNode>>>,
+        i: usize,
+        j: usize,
+        res: &mut Vec<Vec<String>>,
+        height: u32,
+    ) {
+        if root.is_none() {
+            return;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        res[i][j] = node.val.to_string();
+        Self::dfs(
+            &node.left,
+            i + 1,
+            j - 2usize.pow(height - (i as u32) - 1),
+            res,
+            height,
+        );
+        Self::dfs(
+            &node.right,
+            i + 1,
+            j + 2usize.pow(height - (i as u32) - 1),
+            res,
+            height,
+        );
+    }
+
+    pub fn print_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<String>> {
+        let height = Self::get_height(&root, 0);
+        let m = (height + 1) as usize;
+        let n = 2usize.pow(height + 1) - 1;
+        let mut res = vec![vec![String::new(); n]; m];
+        Self::dfs(&root, 0, (n - 1) >> 1, &mut res, height);
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
