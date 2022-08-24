@@ -220,7 +220,7 @@ function canBeEqual(target: number[], arr: number[]): boolean {
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
     const n = target.length;
-    const count = new Array(10001).fill(0);
+    const count = new Array(1001).fill(0);
     for (let i = 0; i < n; i++) {
         count[target[i]]++;
         count[arr[i]]--;
