@@ -45,18 +45,94 @@ Their dot product is -1.</pre>
 
 ## Solutions
 
+Dynamic Programming.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
+        m, n = len(nums1), len(nums2)
+        dp = [[-inf] * (n + 1) for _ in range(m + 1)]
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                v = nums1[i - 1] * nums2[j - 1]
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1],
+                               max(dp[i - 1][j - 1], 0) + v)
+        return dp[-1][-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxDotProduct(int[] nums1, int[] nums2) {
+        int m = nums1.length, n = nums2.length;
+        int[][] dp = new int[m + 1][n + 1];
+        for (int[] e : dp) {
+            Arrays.fill(e, Integer.MIN_VALUE);
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                dp[i][j] = Math.max(dp[i][j], Math.max(0, dp[i - 1][j - 1]) + nums1[i - 1] * nums2[j - 1]);
+            }
+        }
+        return dp[m][n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxDotProduct(vector<int>& nums1, vector<int>& nums2) {
+        int m = nums1.size(), n = nums2.size();
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1, INT_MIN));
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                int v = nums1[i - 1] * nums2[j - 1];
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                dp[i][j] = max(dp[i][j], max(0, dp[i - 1][j - 1]) + v);
+            }
+        }
+        return dp[m][n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxDotProduct(nums1 []int, nums2 []int) int {
+	m, n := len(nums1), len(nums2)
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+		for j := range dp[i] {
+			dp[i][j] = math.MinInt32
+		}
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			v := nums1[i-1] * nums2[j-1]
+			dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+			dp[i][j] = max(dp[i][j], max(0, dp[i-1][j-1])+v)
+		}
+	}
+	return dp[m][n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
