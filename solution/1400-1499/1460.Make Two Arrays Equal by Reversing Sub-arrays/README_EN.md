@@ -155,6 +155,78 @@ func canBeEqual(target []int, arr []int) bool {
 }
 ```
 
+### **C**
+
+```c
+bool canBeEqual(int* target, int targetSize, int* arr, int arrSize){
+    int count[1001] = {0};
+    for (int i = 0 ; i < targetSize; i++) {
+        count[target[i]]++;
+        count[arr[i]]--;
+    }
+    for (int i = 0; i < 1001; i++) {
+        if (count[i] != 0) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+### **TypeScript**
+
+```ts
+function canBeEqual(target: number[], arr: number[]): boolean {
+    target.sort((a, b) => a - b);
+    arr.sort((a, b) => a - b);
+    const n = arr.length;
+    for (let i = 0; i < n; i++) {
+        if (target[i] !== arr[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```ts
+function canBeEqual(target: number[], arr: number[]): boolean {
+    const n = target.length;
+    const count = new Array(10001).fill(0);
+    for (let i = 0; i < n; i++) {
+        count[target[i]]++;
+        count[arr[i]]--;
+    }
+    return count.every(v => v === 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_be_equal(mut target: Vec<i32>, mut arr: Vec<i32>) -> bool {
+        target.sort();
+        arr.sort();
+        target == arr
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn can_be_equal(mut target: Vec<i32>, mut arr: Vec<i32>) -> bool {
+        let n = target.len();
+        let mut count = [0; 1001];
+        for i in 0..n {
+            count[target[i] as usize] += 1;
+            count[arr[i] as usize] -= 1;
+        }
+        count.iter().all(|v| *v == 0)
+    }
+}
+```
+
 ### **...**
 
 ```
