@@ -17,8 +17,9 @@ class Solution:
 
         if root is None:
             return 0
-        ans = self.countPairs(root.left, distance) + \
-            self.countPairs(root.right, distance)
+        ans = self.countPairs(root.left, distance) + self.countPairs(
+            root.right, distance
+        )
         cnt1 = Counter()
         cnt2 = Counter()
         dfs(root.left, cnt1, 1)

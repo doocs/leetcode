@@ -48,7 +48,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历字符串 s，用一个 set 存储所有长度为 k 的不同子串。只需要判断子串数能否达到 2<sup>k</sup> 即可。
+**方法一：哈希表**
+
+遍历字符串 $s$，用一个哈希表存储所有长度为 $k$ 的不同子串。只需要判断子串数能否达到 $2^k$ 即可。
+
+时间复杂度 $O(n \ times k)$，其中 $n$ 是字符串 $s$ 的长度，$k$ 是子串长度。
+
+**方法二：滑动窗口**
+
+方法一中，我们存储了所有长度为 $k$ 的不同子串，子串的处理需要 $O(k)$ 的时间，我们可以改用滑动窗口，每次添加最新字符时，删除窗口最左边的字符。此过程中用一个整型数字 $num$ 来存放子串。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -59,15 +69,24 @@
 ```python
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
-        counter = 1 << k
-        exists = set()
-        for i in range(k, len(s) + 1):
-            if s[i - k : i] not in exists:
-                exists.add(s[i - k : i])
-                counter -= 1
-            if counter == 0:
-                return True
-        return False
+        ss = {s[i: i + k] for i in range(len(s) - k + 1)}
+        return len(ss) == 1 << k
+```
+
+```python
+class Solution:
+    def hasAllCodes(self, s: str, k: int) -> bool:
+        if len(s) - k + 1 < (1 << k):
+            return False
+        vis = [False] * (1 << k)
+        num = int(s[:k], 2)
+        vis[num] = True
+        for i in range(k, len(s)):
+            a = (ord(s[i - k]) - ord('0')) << (k - 1)
+            b = ord(s[i]) - ord('0')
+            num = ((num - a) << 1) + b
+            vis[num] = True
+        return all(v for v in vis)
 ```
 
 ### **Java**
@@ -77,20 +96,112 @@ class Solution:
 ```java
 class Solution {
     public boolean hasAllCodes(String s, int k) {
-        int counter = 1 << k;
-        Set<String> exists = new HashSet<>();
-        for (int i = k; i <= s.length(); ++i) {
-            String t = s.substring(i - k, i);
-            if (!exists.contains(t)) {
-                exists.add(t);
-                --counter;
-            }
-            if (counter == 0) {
-                return true;
+        Set<String> ss = new HashSet<>();
+        for (int i = 0; i < s.length() - k + 1; ++i) {
+            ss.add(s.substring(i, i + k));
+        }
+        return ss.size() == 1 << k;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean hasAllCodes(String s, int k) {
+        int n = s.length();
+        if (n - k + 1 < (1 << k)) {
+            return false;
+        }
+        boolean[] vis = new boolean[1 << k];
+        int num = Integer.parseInt(s.substring(0, k), 2);
+        vis[num] = true;
+        for (int i = k; i < n; ++i) {
+            int a = (s.charAt(i - k) - '0') << (k - 1);
+            int b = s.charAt(i) - '0';
+            num = (num - a) << 1 | b;
+            vis[num] = true;
+        }
+        for (boolean v : vis) {
+            if (!v) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool hasAllCodes(string s, int k) {
+        unordered_set<string> ss;
+        for (int i = 0; i + k <= s.size(); ++i) {
+            ss.insert(move(s.substr(i, k)));
+        }
+        return ss.size() == 1 << k;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool hasAllCodes(string s, int k) {
+        int n = s.size();
+        if (n - k + 1 < (1 << k)) return false;
+        vector<bool> vis(1 << k);
+        int num = stoi(s.substr(0, k), nullptr, 2);
+        vis[num] = true;
+        for (int i = k; i < n; ++i) {
+            int a = (s[i - k] - '0') << (k - 1);
+            int b = s[i] - '0';
+            num = (num - a) << 1 | b;
+            vis[num] = true;
+        }
+        for (bool v : vis) if (!v) return false;
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func hasAllCodes(s string, k int) bool {
+	ss := map[string]bool{}
+	for i := 0; i+k <= len(s); i++ {
+		ss[s[i:i+k]] = true
+	}
+	return len(ss) == 1<<k
+}
+```
+
+```go
+func hasAllCodes(s string, k int) bool {
+	n := len(s)
+	if n-k+1 < (1 << k) {
+		return false
+	}
+	vis := make([]bool, 1<<k)
+	num := 0
+	for i := 0; i < k; i++ {
+		num = num<<1 | int(s[i]-'0')
+	}
+	vis[num] = true
+	for i := k; i < n; i++ {
+		a := int(s[i-k]-'0') << (k - 1)
+		num = (num-a)<<1 | int(s[i]-'0')
+		vis[num] = true
+	}
+	for _, v := range vis {
+		if !v {
+			return false
+		}
+	}
+	return true
 }
 ```
 

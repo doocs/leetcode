@@ -57,7 +57,7 @@
 
 **前言**
 
-由于我们可以对 $arr$ 任意非空子数组进行翻转，也就意味着我们可以交换任何两个相邻元素，使得数组按特定的一种顺序排列。
+由于我们可以对 $arr$ 任意非空子数组进行翻转，也就意味着我们可以交换任意两个相邻元素，使得数组按特定的一种顺序排列。
 
 因此，题目转换为：判断一个数组是否是另一个数组的排列。
 
@@ -69,9 +69,9 @@
 
 **方法二：数组/哈希表**
 
-由于两数组的数据范围都是 $1 \leq x \leq 1000$，因此我们可以使用数组/哈希表来记录每个数字出现的次数。
+由于两数组的数据范围都是 $1 \leq x \leq 1000$，因此我们可以使用数组或哈希表来记录每个数字出现的次数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是数组 $arr$ 的长度，而 $C$ 是数组 $arr$ 元素的值域大小。
 
 <!-- tabs:start -->
 
@@ -91,6 +91,16 @@ class Solution:
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
         return Counter(target) == Counter(arr)
+```
+
+```python
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        cnt = [0] * 1001
+        for a, b in zip(target, arr):
+            cnt[a] += 1
+            cnt[b] -= 1
+        return all(v == 0 for v in cnt)
 ```
 
 ### **Java**
@@ -123,6 +133,23 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        int[] cnt = new int[1001];
+        for (int v : target) {
+            ++cnt[v];
+        }
+        for (int v : arr) {
+            if (--cnt[v] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -145,6 +172,18 @@ public:
         for (int& v : target) ++cnt1[v];
         for (int& v : arr) ++cnt2[v];
         return cnt1 == cnt2;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canBeEqual(vector<int>& target, vector<int>& arr) {
+        vector<int> cnt(1001);
+        for (int& v : target) ++cnt[v];
+        for (int& v : arr) if (--cnt[v] < 0) return false;
+        return true;
     }
 };
 ```
@@ -176,6 +215,22 @@ func canBeEqual(target []int, arr []int) bool {
 	}
 	for i, v := range cnt1 {
 		if v != cnt2[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```go
+func canBeEqual(target []int, arr []int) bool {
+	cnt := make([]int, 1001)
+	for _, v := range target {
+		cnt[v]++
+	}
+	for _, v := range arr {
+		cnt[v]--
+		if cnt[v] < 0 {
 			return false
 		}
 	}

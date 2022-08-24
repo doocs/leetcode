@@ -67,6 +67,16 @@ class Solution:
         return Counter(target) == Counter(arr)
 ```
 
+```python
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        cnt = [0] * 1001
+        for a, b in zip(target, arr):
+            cnt[a] += 1
+            cnt[b] -= 1
+        return all(v == 0 for v in cnt)
+```
+
 ### **Java**
 
 ```java
@@ -95,6 +105,23 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        int[] cnt = new int[1001];
+        for (int v : target) {
+            ++cnt[v];
+        }
+        for (int v : arr) {
+            if (--cnt[v] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -117,6 +144,18 @@ public:
         for (int& v : target) ++cnt1[v];
         for (int& v : arr) ++cnt2[v];
         return cnt1 == cnt2;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canBeEqual(vector<int>& target, vector<int>& arr) {
+        vector<int> cnt(1001);
+        for (int& v : target) ++cnt[v];
+        for (int& v : arr) if (--cnt[v] < 0) return false;
+        return true;
     }
 };
 ```
@@ -148,6 +187,22 @@ func canBeEqual(target []int, arr []int) bool {
 	}
 	for i, v := range cnt1 {
 		if v != cnt2[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```go
+func canBeEqual(target []int, arr []int) bool {
+	cnt := make([]int, 1001)
+	for _, v := range target {
+		cnt[v]++
+	}
+	for _, v := range arr {
+		cnt[v]--
+		if cnt[v] < 0 {
 			return false
 		}
 	}

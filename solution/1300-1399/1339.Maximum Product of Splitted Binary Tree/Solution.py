@@ -23,5 +23,5 @@ class Solution:
         s = sum(root)
         ans = 0
         dfs(root)
-        ans %= (10**9 + 7)
+        ans %= 10**9 + 7
         return ans
