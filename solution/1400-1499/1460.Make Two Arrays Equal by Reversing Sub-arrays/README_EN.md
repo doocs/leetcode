@@ -56,7 +56,15 @@ There are multiple ways to convert arr to target, this is not the only way to do
 ```python
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        return sorted(target) == sorted(arr)
+        target.sort()
+        arr.sort()
+        return target == arr
+```
+
+```python
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        return Counter(target) == Counter(arr)
 ```
 
 ### **Java**
@@ -68,6 +76,82 @@ class Solution {
         Arrays.sort(arr);
         return Arrays.equals(target, arr);
     }
+}
+```
+
+```java
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        int[] cnt1 = new int[1001];
+        int[] cnt2 = new int[1001];
+        for (int v : target) {
+            ++cnt1[v];
+        }
+        for (int v : arr) {
+            ++cnt2[v];
+        }
+        return Arrays.equals(cnt1, cnt2);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canBeEqual(vector<int>& target, vector<int>& arr) {
+        sort(target.begin(), target.end());
+        sort(arr.begin(), arr.end());
+        return target == arr;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canBeEqual(vector<int>& target, vector<int>& arr) {
+        vector<int> cnt1(1001);
+        vector<int> cnt2(1001);
+        for (int& v : target) ++cnt1[v];
+        for (int& v : arr) ++cnt2[v];
+        return cnt1 == cnt2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canBeEqual(target []int, arr []int) bool {
+	sort.Ints(target)
+	sort.Ints(arr)
+	for i, v := range target {
+		if v != arr[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```go
+func canBeEqual(target []int, arr []int) bool {
+	cnt1 := make([]int, 1001)
+	cnt2 := make([]int, 1001)
+	for _, v := range target {
+		cnt1[v]++
+	}
+	for _, v := range arr {
+		cnt2[v]++
+	}
+	for i, v := range cnt1 {
+		if v != cnt2[i] {
+			return false
+		}
+	}
+	return true
 }
 ```
 
