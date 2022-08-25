@@ -45,7 +45,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-找出数组中最大的两个元素的下标 i、j，然后计算 `(nums[i]-1)*(nums[j]-1)` 即可。
+**方法一：暴力枚举**
+
+双重循环，枚举所有的下标对，求出 $(nums[i]-1) \times (nums[j]-1)$ 的最大值。其中 $i \neq j$。
+
+时间复杂度 $O(n^2)$。
+
+**方法二：排序**
+
+对 $nums$ 进行排序，取最后两个元素，计算乘积 $(nums[n-1]-1) \times (nums[n-2]-1)$ 即可。
+
+时间复杂度 $O(nlogn)$。
+
+**方法三：一次遍历**
+
+遍历 $nums$，维护最大值 $a$ 和次大值 $b$。遍历结束，返回 $(a-1) \times (b-1)$。
 
 <!-- tabs:start -->
 
@@ -56,15 +70,30 @@
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        i = 0 if nums[0] > nums[1] else 1
-        j = 1 - i
-        for k in range(2, len(nums)):
-            if nums[k] > nums[i]:
-                j = k
-                i, j = j, i
-            elif nums[k] > nums[j]:
-                j = k
-        return (nums[i] - 1) * (nums[j] - 1)
+        ans = 0
+        for i, a in enumerate(nums):
+            for b in nums[i + 1:]:
+                ans = max(ans, (a - 1) * (b - 1))
+        return ans
+```
+
+```python
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        nums.sort()
+        return (nums[-1] - 1) * (nums[-2] - 1)
+```
+
+```python
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        a = b = 0
+        for v in nums:
+            if v > a:
+                a, b = v, a
+            elif v > b:
+                b = v
+        return (a - 1) * (b - 1)
 ```
 
 ### **Java**
@@ -74,20 +103,127 @@ class Solution:
 ```java
 class Solution {
     public int maxProduct(int[] nums) {
-        int i = nums[0] > nums[1] ? 0 : 1;
-        int j = 1 - i;
-        for (int k = 2; k < nums.length; ++k) {
-            if (nums[k] > nums[i]) {
-                j = k;
-                int t = i;
-                i = j;
-                j = t;
-            } else if (nums[k] > nums[j]) {
-                j = k;
+        int ans = 0;
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                ans = Math.max(ans, (nums[i] - 1) * (nums[j] - 1));
             }
         }
-        return (nums[i] - 1) * (nums[j] - 1);
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public int maxProduct(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        return (nums[n - 1] - 1) * (nums[n - 2] - 1);
+    }
+}
+```
+
+```java
+class Solution {
+    public int maxProduct(int[] nums) {
+        int a = 0, b = 0;
+        for (int v : nums) {
+            if (v > a) {
+                b = a;
+                a = v;
+            } else if (v > b) {
+                b = v;
+            }
+        }
+        return (a - 1) * (b - 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                ans = max(ans, (nums[i] - 1) * (nums[j] - 1));
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        sort(nums.rbegin(), nums.rend());
+        return (nums[0] - 1) * (nums[1] - 1);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int a = 0, b = 0;
+        for (int v : nums) {
+            if (v > a) {
+                b = a;
+                a = v;
+            } else if (v > b) {
+                b = v;
+            }
+        }
+        return (a - 1) * (b - 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProduct(nums []int) int {
+	ans := 0
+	for i, a := range nums {
+		for _, b := range nums[i+1:] {
+			t := (a - 1) * (b - 1)
+			if ans < t {
+				ans = t
+			}
+		}
+	}
+	return ans
+}
+```
+
+```go
+func maxProduct(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	return (nums[n-1] - 1) * (nums[n-2] - 1)
+}
+```
+
+```go
+func maxProduct(nums []int) int {
+	a, b := 0, 0
+	for _, v := range nums {
+		if v > a {
+			b, a = a, v
+		} else if v > b {
+			b = v
+		}
+	}
+	return (a - 1) * (b - 1)
 }
 ```
 
