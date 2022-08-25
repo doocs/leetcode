@@ -202,6 +202,79 @@ func maxProduct(nums []int) int {
 }
 ```
 
+### **C**
+
+```c
+int maxProduct(int* nums, int numsSize){
+    int max = 0;
+    int submax = 0;
+    for (int i = 0; i < numsSize; i++) {
+        int num = nums[i];
+        if (num > max) {
+            submax = max;
+            max = num;
+        } else if (num > submax) {
+            submax = num;
+        }
+    }
+    return (max - 1) * (submax - 1);
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxProduct(nums: number[]): number {
+    const n = nums.length;
+    for (let i = 0; i < 2; i++) {
+        let maxIdx = i;
+        for (let j = i + 1; j < n; j++) {
+            if (nums[j] > nums[maxIdx]) {
+                maxIdx = j;
+            }
+        }
+        [nums[i], nums[maxIdx]] = [nums[maxIdx], nums[i]];
+    }
+    return (nums[0] - 1) * (nums[1] - 1);
+}
+```
+
+```ts
+function maxProduct(nums: number[]): number {
+    let max = 0;
+    let submax = 0;
+    for (const num of nums) {
+        if (num > max) {
+            submax = max;
+            max = num;
+        } else if (num > submax) {
+            submax = num;
+        }
+    }
+    return (max - 1) * (submax - 1);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_product(nums: Vec<i32>) -> i32 {
+        let mut max = 0;
+        let mut submax = 0;
+        for &num in nums.iter() {
+            if num > max {
+                submax = max;
+                max = num;
+            } else if num > submax {
+                submax = num;
+            }
+        }
+        (max - 1) * (submax - 1)
+    }
+}
+```
+
 ### **...**
 
 ```
