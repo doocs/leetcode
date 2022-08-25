@@ -48,21 +48,23 @@
 
 **方法一：排序**
 
-将 `arr` 中的所有元素按照与 `x` 的距离从小到大进行排列。取前 `k` 个元素排序后返回。
+将 $arr$ 中的所有元素按照与 $x$ 的距离从小到大进行排列。取前 $k$ 个元素排序后返回。
 
-时间复杂度：$O(nlogn)$。
+时间复杂度 $O(nlogn)$。
 
 **方法二：双指针**
 
-根据 `arr` 有序的特点，可以声明头尾指针，然后根据 `k - arr[left]` 与 `arr[right] - k` 的判断结果缩小范围，直到 `right - left == k`，
+直觉上，有序数组 $arr$ 最靠近 $x$ 的 $k$ 个数必然是一段连续的子数组。
 
-时间复杂度：$O(n)$。
+我们可以声明头尾指针，记为 $l$ 和 $r$，然后根据 $x-arr[l]$ 与 $arr[r-1] - x$ 的大小比较结果缩小范围，直到 $r - l = k$。
+
+时间复杂度 $O(n)$。
 
 **方法三：二分查找**
 
-查找大小为 `k` 的所有窗口的左边界。
+在方法二的基础上，我们更进一步，查找大小为 $k$ 的窗口的左边界。
 
-时间复杂度：$O(logn)$。
+时间复杂度 $O(logn)$。
 
 <!-- tabs:start -->
 
@@ -73,8 +75,20 @@
 ```python
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
-        arr.sort(key=lambda v: (abs(v - x), x))
+        arr.sort(key=lambda v: abs(v - x))
         return sorted(arr[:k])
+```
+
+```python
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        l, r = 0, len(arr)
+        while r - l > k:
+            if x - arr[l] <= arr[r - 1] - x:
+                r -= 1
+            else:
+                l += 1
+        return arr[l: r]
 ```
 
 ```python
@@ -103,6 +117,26 @@ class Solution {
         }).collect(Collectors.toList());
         ans = ans.subList(0, k);
         Collections.sort(ans);
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        int l = 0, r = arr.length;
+        while (r - l > k) {
+            if (x - arr[l] <= arr[r - 1] - x) {
+                --r;
+            } else {
+                ++l;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = l; i < r; ++i) {
+            ans.add(arr[i]);
+        }
         return ans;
     }
 }
@@ -156,9 +190,25 @@ public:
 class Solution {
 public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+        int l = 0, r = arr.size();
+        while (r - l > k) {
+            if (x - arr[l] <= arr[r - 1] - x) {
+                --r;
+            } else {
+                ++l;
+            }
+        }
+        return vector<int>(arr.begin() + l, arr.begin() + r);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
         int left = 0, right = arr.size() - k;
-        while (left < right)
-        {
+        while (left < right) {
             int mid = (left + right) >> 1;
             if (x - arr[mid] <= arr[mid + k] - x) right = mid;
             else left = mid + 1;
@@ -194,6 +244,20 @@ func abs(x int) int {
 
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
+	l, r := 0, len(arr)
+	for r-l > k {
+		if x-arr[l] <= arr[r-1]-x {
+			r--
+		} else {
+			l++
+		}
+	}
+	return arr[l:r]
+}
+```
+
+```go
+func findClosestElements(arr []int, k int, x int) []int {
 	left, right := 0, len(arr)-k
 	for left < right {
 		mid := (left + right) >> 1
@@ -209,8 +273,6 @@ func findClosestElements(arr []int, k int, x int) []int {
 
 ### **Rust**
 
-双指针：
-
 ```rust
 impl Solution {
     pub fn find_closest_elements(arr: Vec<i32>, k: i32, x: i32) -> Vec<i32> {
@@ -218,7 +280,7 @@ impl Solution {
         let mut l = 0;
         let mut r = n;
         while r - l != k as usize {
-            if (arr[l] - x).abs() <= (arr[r - 1] - x).abs() {
+            if x - arr[l] <= arr[r - 1] - x {
                 r -= 1;
             } else {
                 l += 1;
@@ -246,6 +308,39 @@ impl Solution {
         }
         arr[left..left + k].to_vec()
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function findClosestElements(arr: number[], k: number, x: number): number[] {
+    let l = 0;
+    let r = arr.length;
+    while (r - l > k) {
+        if (x - arr[l] <= arr[r - 1] - x) {
+            --r;
+        } else {
+            ++l;
+        }
+    }
+    return arr.slice(l, r);
+}
+```
+
+```ts
+function findClosestElements(arr: number[], k: number, x: number): number[] {
+    let left = 0;
+    let right = arr.length - k;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (x - arr[mid] <= arr[mid + k] - x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return arr.slice(left, left + k);
 }
 ```
 
