@@ -57,13 +57,91 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
+        horizontalCuts.extend([0, h])
+        verticalCuts.extend([0, w])
+        horizontalCuts.sort()
+        verticalCuts.sort()
+        x = max(b - a for a, b in pairwise(horizontalCuts))
+        y = max(b - a for a, b in pairwise(verticalCuts))
+        return (x * y) % (10**9 + 7)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int maxArea(int h, int w, int[] horizontalCuts, int[] verticalCuts) {
+        Arrays.sort(horizontalCuts);
+        Arrays.sort(verticalCuts);
+        int m = horizontalCuts.length;
+        int n = verticalCuts.length;
+        long x = Math.max(horizontalCuts[0], h - horizontalCuts[m - 1]);
+        long y = Math.max(verticalCuts[0], w - verticalCuts[n - 1]);
+        for (int i = 1; i < m; ++i) {
+            x = Math.max(x, horizontalCuts[i] - horizontalCuts[i - 1]);
+        }
+        for (int i = 1; i < n; ++i) {
+            y = Math.max(y, verticalCuts[i] - verticalCuts[i - 1]);
+        }
+        return (int) ((x * y) % MOD);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxArea(int h, int w, vector<int>& horizontalCuts, vector<int>& verticalCuts) {
+        horizontalCuts.push_back(0);
+        horizontalCuts.push_back(h);
+        verticalCuts.push_back(0);
+        verticalCuts.push_back(w);
+        sort(horizontalCuts.begin(), horizontalCuts.end());
+        sort(verticalCuts.begin(), verticalCuts.end());
+        int x = 0, y = 0;
+        for (int i = 1; i < horizontalCuts.size(); ++i) {
+            x = max(x, horizontalCuts[i] - horizontalCuts[i - 1]);
+        }
+        for (int i = 1; i < verticalCuts.size(); ++i) {
+            y = max(y, verticalCuts[i] - verticalCuts[i - 1]);
+        }
+        int mod = 1e9 + 7;
+        return (int) ((1ll * x * y) % mod);
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
+	horizontalCuts = append(horizontalCuts, []int{0, h}...)
+	verticalCuts = append(verticalCuts, []int{0, w}...)
+	sort.Ints(horizontalCuts)
+	sort.Ints(verticalCuts)
+	x, y := 0, 0
+	mod := int(1e9) + 7
+	for i := 1; i < len(horizontalCuts); i++ {
+		x = max(x, horizontalCuts[i]-horizontalCuts[i-1])
+	}
+	for i := 1; i < len(verticalCuts); i++ {
+		y = max(y, verticalCuts[i]-verticalCuts[i-1])
+	}
+	return (x * y) % mod
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
