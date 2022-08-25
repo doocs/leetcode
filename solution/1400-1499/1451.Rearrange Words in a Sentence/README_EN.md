@@ -60,13 +60,66 @@ Output is ordered by length and the new first word starts with capital letter.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def arrangeWords(self, text: str) -> str:
+        words = text.split()
+        words[0] = words[0].lower()
+        words.sort(key=len)
+        words[0] = words[0].title()
+        return " ".join(words)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String arrangeWords(String text) {
+        String[] words = text.split(" ");
+        words[0] = words[0].toLowerCase();
+        Arrays.sort(words, Comparator.comparingInt(String::length));
+        words[0] = words[0].substring(0, 1).toUpperCase() + words[0].substring(1);
+        return String.join(" ", words);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string arrangeWords(string text) {
+        vector<string> words;
+        stringstream ss(text);
+        string t;
+        while (ss >> t) {
+            words.push_back(t);
+        }
+        words[0][0] = tolower(words[0][0]);
+        stable_sort(words.begin(), words.end(), [](const string& a, const string& b) {
+            return a.size() < b.size();
+        });
+        string ans = "";
+        for (auto& s : words) {
+            ans += s + " ";
+        }
+        ans.pop_back();
+        ans[0] = toupper(ans[0]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrangeWords(text string) string {
+	words := strings.Split(text, " ")
+	words[0] = strings.ToLower(words[0])
+	sort.SliceStable(words, func(i, j int) bool { return len(words[i]) < len(words[j]) })
+	words[0] = strings.Title(words[0])
+	return strings.Join(words, " ")
+}
 ```
 
 ### **...**

@@ -58,6 +58,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+将 `text` 按空格切分为字符串数组 `words`，并将 `words[0]` 转为小写。然后对 `words` 进行排序（这里需要确保长度相同的情况下，相对顺序保持不变，因此是一种稳定排序）。
+
+排完序后，对 `words[0]` 首字母转为大写。最后将 `words` 所有字符串用空格拼接成一个字符串。
+
+时间复杂度 $O(n\log n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +73,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def arrangeWords(self, text: str) -> str:
+        words = text.split()
+        words[0] = words[0].lower()
+        words.sort(key=len)
+        words[0] = words[0].title()
+        return " ".join(words)
 ```
 
 ### **Java**
@@ -73,7 +87,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String arrangeWords(String text) {
+        String[] words = text.split(" ");
+        words[0] = words[0].toLowerCase();
+        Arrays.sort(words, Comparator.comparingInt(String::length));
+        words[0] = words[0].substring(0, 1).toUpperCase() + words[0].substring(1);
+        return String.join(" ", words);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string arrangeWords(string text) {
+        vector<string> words;
+        stringstream ss(text);
+        string t;
+        while (ss >> t) {
+            words.push_back(t);
+        }
+        words[0][0] = tolower(words[0][0]);
+        stable_sort(words.begin(), words.end(), [](const string& a, const string& b) {
+            return a.size() < b.size();
+        });
+        string ans = "";
+        for (auto& s : words) {
+            ans += s + " ";
+        }
+        ans.pop_back();
+        ans[0] = toupper(ans[0]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrangeWords(text string) string {
+	words := strings.Split(text, " ")
+	words[0] = strings.ToLower(words[0])
+	sort.SliceStable(words, func(i, j int) bool { return len(words[i]) < len(words[j]) })
+	words[0] = strings.Title(words[0])
+	return strings.Join(words, " ")
+}
 ```
 
 ### **...**
