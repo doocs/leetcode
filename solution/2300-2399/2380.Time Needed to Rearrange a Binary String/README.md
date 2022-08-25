@@ -45,6 +45,12 @@ s 中没有 "01" 存在，整个过程花费 0 秒。
 	<li><code>s[i]</code>&nbsp;要么是&nbsp;<code>'0'</code>&nbsp;，要么是&nbsp;<code>'1'</code> 。</li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong></p>
+
+<p>你能以 O(n) 的时间复杂度解决这个问题吗？</p>
+
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

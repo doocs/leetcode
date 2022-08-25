@@ -41,6 +41,11 @@ so we return 0.
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong></p>
+
+<p>Can you solve this problem in O(n) time complexity?</p>
+
 ## Solutions
 
 <!-- tabs:start -->

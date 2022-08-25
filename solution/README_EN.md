@@ -2385,16 +2385,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2374  |  [Node With Highest Edge Score](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md)  |  `Graph`,`Hash Table`  |  Medium  |  Weekly Contest 306  |
 |  2375  |  [Construct Smallest Number From DI String](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md)  |  `Stack`,`Greedy`,`String`,`Backtracking`  |  Medium  |  Weekly Contest 306  |
 |  2376  |  [Count Special Integers](/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Hard  |  Weekly Contest 306  |
-|  2377  |  [Sort the Olympic Table](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)  |    |  Easy  |  🔒  |
-|  2378  |  [Choose Edges to Maximize Score in a Tree](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
-|  2379  |  [Minimum Recolors to Get K Consecutive Black Blocks](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README_EN.md)  |    |  Easy  |  Biweekly Contest 85  |
-|  2380  |  [Time Needed to Rearrange a Binary String](/solution/2300-2399/2380.Time%20Needed%20to%20Rearrange%20a%20Binary%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 85  |
-|  2381  |  [Shifting Letters II](/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 85  |
-|  2382  |  [Maximum Segment Sum After Removals](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README_EN.md)  |    |  Hard  |  Biweekly Contest 85  |
-|  2383  |  [Minimum Hours of Training to Win a Competition](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README_EN.md)  |    |  Easy  |  Weekly Contest 307  |
-|  2384  |  [Largest Palindromic Number](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md)  |    |  Medium  |  Weekly Contest 307  |
-|  2385  |  [Amount of Time for Binary Tree to Be Infected](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md)  |    |  Medium  |  Weekly Contest 307  |
-|  2386  |  [Find the K-Sum of an Array](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 307  |
+|  2377  |  [Sort the Olympic Table](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  2378  |  [Choose Edges to Maximize Score in a Tree](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Dynamic Programming`  |  Medium  |  🔒  |
+|  2379  |  [Minimum Recolors to Get K Consecutive Black Blocks](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README_EN.md)  |  `String`,`Sliding Window`  |  Easy  |  Biweekly Contest 85  |
+|  2380  |  [Time Needed to Rearrange a Binary String](/solution/2300-2399/2380.Time%20Needed%20to%20Rearrange%20a%20Binary%20String/README_EN.md)  |  `String`,`Dynamic Programming`,`Simulation`  |  Medium  |  Biweekly Contest 85  |
+|  2381  |  [Shifting Letters II](/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md)  |  `Array`,`String`,`Prefix Sum`  |  Medium  |  Biweekly Contest 85  |
+|  2382  |  [Maximum Segment Sum After Removals](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README_EN.md)  |  `Union Find`,`Array`,`Ordered Set`,`Prefix Sum`  |  Hard  |  Biweekly Contest 85  |
+|  2383  |  [Minimum Hours of Training to Win a Competition](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README_EN.md)  |  `Greedy`,`Array`  |  Easy  |  Weekly Contest 307  |
+|  2384  |  [Largest Palindromic Number](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md)  |  `Greedy`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 307  |
+|  2385  |  [Amount of Time for Binary Tree to Be Infected](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 307  |
+|  2386  |  [Find the K-Sum of an Array](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md)  |  `Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 307  |
 
 ## Copyright
 

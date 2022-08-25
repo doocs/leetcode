@@ -1,4 +1,4 @@
-# [2159. Order Two Columns Independently](https://leetcode.cn/problems/order-two-columns-independently)
+# [2159. 分别排序两列](https://leetcode.cn/problems/order-two-columns-independently)
 
 [English Version](/solution/2100-2199/2159.Order%20Two%20Columns%20Independently/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Data</code></p>
+<p>表：<code>Data</code></p>
 
 <pre>
 +-------------+------+
@@ -15,26 +15,27 @@
 | first_col   | int  |
 | second_col  | int  |
 +-------------+------+
-There is no primary key for this table and it may contain duplicates.
+该表没有主键且可能包含重复数据。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to independently:</p>
+<p>请你编写 SQL 使：</p>
 
 <ul>
-	<li>order <code>first_col</code> in <strong>ascending order</strong>.</li>
-	<li>order <code>second_col</code> in <strong>descending order</strong>.</li>
+	<li><code>first_col</code> 按照<strong> 升序 </strong>排列。</li>
+	<li><code>second_col</code> 按照 <strong>降序 </strong>排列。</li>
 </ul>
 
-<p>The query result format is in the following example.</p>
+<p>查询返回的结果格式如下。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Data table:
+<strong>输入：</strong>
+Data 表：
 +-----------+------------+
 | first_col | second_col |
 +-----------+------------+
@@ -43,7 +44,7 @@ Data table:
 | 3         | 1          |
 | 1         | 4          |
 +-----------+------------+
-<strong>Output:</strong> 
+<strong>输出：</strong>
 +-----------+------------+
 | first_col | second_col |
 +-----------+------------+

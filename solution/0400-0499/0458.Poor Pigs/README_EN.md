@@ -10,7 +10,7 @@
 
 <ol>
 	<li>Choose some live pigs to feed.</li>
-	<li>For each pig, choose which buckets to feed it. The pig will consume all the chosen buckets simultaneously and will take no time.</li>
+	<li>For each pig, choose which buckets to feed it. The pig will consume all the chosen buckets simultaneously and will take no time. Each pig can feed from any number of buckets, and each bucket can be fed from by any number of pigs.</li>
 	<li>Wait for <code>minutesToDie</code> minutes. You may <strong>not</strong> feed any other pigs during this time.</li>
 	<li>After <code>minutesToDie</code> minutes have passed, any pigs that have been fed the poisonous bucket will die, and all others will survive.</li>
 	<li>Repeat this process until you run out of time.</li>
@@ -20,15 +20,32 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> buckets = 1000, minutesToDie = 15, minutesToTest = 60
-<strong>Output:</strong> 5
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> buckets = 4, minutesToDie = 15, minutesToTest = 15
+
+<pre>
+<strong>Input:</strong> buckets = 4, minutesToDie = 15, minutesToTest = 15
 <strong>Output:</strong> 2
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> buckets = 4, minutesToDie = 15, minutesToTest = 30
-<strong>Output:</strong> 2
+<strong>Explanation:</strong> We can determine the poisonous bucket as follows:
+At time 0, feed the first pig buckets 1 and 2, and feed the second pig buckets 2 and 3.
+At time 15, there are 4 possible outcomes:
+- If only the first pig dies, then bucket 1 must be poisonous.
+- If only the second pig dies, then bucket 3 must be poisonous.
+- If both pigs die, then bucket 2 must be poisonous.
+- If neither pig dies, then bucket 4 must be poisonous.
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> buckets = 4, minutesToDie = 15, minutesToTest = 30
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> We can determine the poisonous bucket as follows:
+At time 0, feed the first pig bucket 1, and feed the second pig bucket 2.
+At time 15, there are 2 possible outcomes:
+- If either pig dies, then the poisonous bucket is the one it was fed.
+- If neither pig dies, then feed the first pig bucket 3, and feed the second pig bucket 4.
+At time 30, one of the two pigs must die, and the poisonous bucket is the one it was fed.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

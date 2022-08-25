@@ -59,7 +59,6 @@
 
 时间复杂度 $O(mn)$。其中 $m$ 是 $sentence$ 的长度，而 $n$ 是 $searchWord$ 的长度。
 
-
 <!-- tabs:start -->
 
 ### **Python3**

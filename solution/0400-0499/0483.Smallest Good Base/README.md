@@ -85,7 +85,7 @@ $$
 
 题目 $n$ 取值范围为 $[3, 10^{18}]$，又因为 $k>=2$，因此 $m<\log _{k} n<\log _{2} 10^{18}<60$。
 
-**结论二：** $k=\left \lfloor \sqrt[m]{n}  \right \rfloor $
+**结论二：** $k=\left \lfloor \sqrt[m]{n} \right \rfloor $
 
 $$
 n=k^0+k^1+k^2+...+k^m>k^m
@@ -154,7 +154,7 @@ $$
 k < \sqrt[m]{n} < k+1
 $$
 
-由于 $k$ 是整数，因此 $k=\left \lfloor \sqrt[m]{n}  \right \rfloor $。
+由于 $k$ 是整数，因此 $k=\left \lfloor \sqrt[m]{n} \right \rfloor $。
 
 综上，依据结论一，我们知道 $m$ 的取值范围为 $[1,log_{k}n)$，且 $m=1$ 时必然有解。随着 $m$ 的增大，进制 $k$ 不断减小。所以我们只需要从大到小检查每一个 $m$ 可能的取值，利用结论二快速算出对应的 $k$ 值，然后校验计算出的 $k$ 值是否有效即可。如果 $k$ 值有效，我们即可返回结果。
 

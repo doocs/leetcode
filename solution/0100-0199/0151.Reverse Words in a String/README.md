@@ -1,4 +1,4 @@
-# [151. 颠倒字符串中的单词](https://leetcode.cn/problems/reverse-words-in-a-string)
+# [151. 反转字符串中的单词](https://leetcode.cn/problems/reverse-words-in-a-string)
 
 [English Version](/solution/0100-0199/0151.Reverse%20Words%20in%20a%20String/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个字符串 <code>s</code> ，颠倒字符串中 <strong>单词</strong> 的顺序。</p>
+<p>给你一个字符串 <code>s</code> ，请你反转字符串中 <strong>单词</strong> 的顺序。</p>
 
 <p><strong>单词</strong> 是由非空格字符组成的字符串。<code>s</code> 中使用至少一个空格将字符串中的 <strong>单词</strong> 分隔开。</p>
 
@@ -28,7 +28,7 @@
 <pre>
 <strong>输入：</strong>s = " &nbsp;hello world &nbsp;"
 <strong>输出：</strong>"world hello"
-<strong>解释：</strong>颠倒后的字符串中不能存在前导空格和尾随空格。
+<strong>解释：</strong>反转后的字符串中不能存在前导空格和尾随空格。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -36,7 +36,7 @@
 <pre>
 <strong>输入：</strong>s = "a good &nbsp; example"
 <strong>输出：</strong>"example good a"
-<strong>解释：</strong>如果两个单词间有多余的空格，颠倒后的字符串需要将单词间的空格减少到仅有一个。
+<strong>解释：</strong>如果两个单词间有多余的空格，反转后的字符串需要将单词间的空格减少到仅有一个。
 </pre>
 
 <p>&nbsp;</p>

@@ -127,7 +127,7 @@ public:
             int k = pow(v, 1.0 / m);
             long mul = 1, s = 1;
             for (int i = 0; i < m; ++i) {
-                mul *= k; 
+                mul *= k;
                 s += mul;
             }
             if (s == v) {

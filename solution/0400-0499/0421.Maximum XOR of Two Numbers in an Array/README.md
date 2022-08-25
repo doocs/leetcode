@@ -8,8 +8,6 @@
 
 <p>给你一个整数数组 <code>nums</code> ，返回<em> </em><code>nums[i] XOR nums[j]</code> 的最大运算结果，其中 <code>0 ≤ i ≤ j &lt; n</code> 。</p>
 
-<p><strong>进阶：</strong>你可以在 <code>O(n)</code> 的时间解决这个问题吗？</p>
-
 <p>&nbsp;</p>
 
 <div class="original__bRMd">
@@ -22,27 +20,6 @@
 <strong>解释：</strong>最大运算结果是 5 XOR 25 = 28.</pre>
 
 <p><strong>示例 2：</strong></p>
-
-<pre>
-<strong>输入：</strong>nums = [0]
-<strong>输出：</strong>0
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>nums = [2,4]
-<strong>输出：</strong>6
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>nums = [8,10,2]
-<strong>输出：</strong>10
-</pre>
-
-<p><strong>示例 5：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [14,70,53,83,49,91,36,80,92,51,66,70]

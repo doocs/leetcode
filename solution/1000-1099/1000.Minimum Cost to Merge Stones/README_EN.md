@@ -6,7 +6,7 @@
 
 <p>There are <code>n</code> piles of <code>stones</code> arranged in a row. The <code>i<sup>th</sup></code> pile has <code>stones[i]</code> stones.</p>
 
-<p>A move consists of merging exactly <code>k</code> consecutive piles into one pile, and the cost of this move is equal to the total number of stones in these <code>k</code> piles.</p>
+<p>A move consists of merging exactly <code>k</code> <strong>consecutive</strong> piles into one pile, and the cost of this move is equal to the total number of stones in these <code>k</code> piles.</p>
 
 <p>Return <em>the minimum cost to merge all piles of stones into one pile</em>. If it is impossible, return <code>-1</code>.</p>
 

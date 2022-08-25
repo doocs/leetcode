@@ -106,7 +106,7 @@ class Solution:
             root.left = dfs(nums[:i])
             root.right = dfs(nums[i + 1:])
             return root
-        
+
         return dfs(nums)
 ```
 

@@ -10,9 +10,11 @@
 
 <p>表达式字符串只包含非负整数，算符 <code>+</code>、<code>-</code>、<code>*</code>、<code>/</code> ，左括号 <code>(</code> 和右括号 <code>)</code> 。整数除法需要 <strong>向下截断</strong> 。</p>
 
-<p>你可以假定给定的表达式总是有效的。所有的中间结果的范围为 <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code> 。</p>
+<p>你可以假定给定的表达式总是有效的。所有的中间结果的范围均满足 <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code> 。</p>
 
-<p> </p>
+<p><strong>注意：</strong>你不能使用任何将字符串作为表达式求值的内置函数，比如 <code>eval()</code> 。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -35,33 +37,15 @@
 <strong>输出：</strong>21
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "(2+6*3+5-(3*14/7+2)*5)+3"
-<strong>输出：</strong>-12
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "0"
-<strong>输出：</strong>0
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= s <= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= s &lt;= 10<sup>4</sup></code></li>
 	<li><code>s</code> 由整数、<code>'+'</code>、<code>'-'</code>、<code>'*'</code>、<code>'/'</code>、<code>'('</code> 和 <code>')'</code> 组成</li>
 	<li><code>s</code> 是一个 <strong>有效的</strong> 表达式</li>
 </ul>
-
-<p> </p>
-
-<p><strong>进阶：</strong>你可以在不使用内置库函数的情况下解决此问题吗？</p>
 
 ## 解法
 

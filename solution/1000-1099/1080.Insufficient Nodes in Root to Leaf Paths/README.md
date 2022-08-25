@@ -197,7 +197,7 @@ public:
  * @param {number} limit
  * @return {TreeNode}
  */
- var sufficientSubset = function(root, limit) {
+var sufficientSubset = function (root, limit) {
     if (!root) {
         return null;
     }

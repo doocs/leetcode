@@ -14,7 +14,7 @@
 <pre>
 <strong>Input:</strong> nums = [4,2,3]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> You could modify the first <code>4</code> to <code>1</code> to get a non-decreasing array.
+<strong>Explanation:</strong> You could modify the first 4 to 1 to get a non-decreasing array.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -22,7 +22,7 @@
 <pre>
 <strong>Input:</strong> nums = [4,2,1]
 <strong>Output:</strong> false
-<strong>Explanation:</strong> You can&#39;t get a non-decreasing array by modify at most one element.
+<strong>Explanation:</strong> You cannot get a non-decreasing array by modifying at most one element.
 </pre>
 
 <p>&nbsp;</p>
