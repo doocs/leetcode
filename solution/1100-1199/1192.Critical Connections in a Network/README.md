@@ -44,7 +44,15 @@
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+此题中的「关键连接」即为「桥」。
 
+「桥」：在一连通的无向图中，若去除某一边后会使得图不再连通，则这条边可以视作「桥」。
+
+与之相应的概念还有「割点」。
+
+「割点」：在一连通的无向图中，若去除某一点及所有与其相连的边后会使得图不再连通，则这个点可以视作「割点」。
+
+用于求图中的「桥」与「割点」有一算法：tarjan算法，这个算法使用先递归的访问相邻节点后访问节点自身的dfs方法，通过记录「访问的顺序：DFN」以及在递归结束后访问节点自身时探索其可以回溯到的最早被访问的节点来更新「最早可回溯的节点：low」，可以实现在O(n)时间内找到图的「桥」与「割点」。同时，此种算法可以用于查找有向图中的强连通分量。
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,9 +71,47 @@
 
 ```
 
-### **...**
+### **C++**
 
-```
+```c++
+class Solution{
+public;
+  int count=0;
+  vector<int> dfn,low;
+  vector<vector<int>> graph;
+  vector<vector<int>> res;
+  int tarjan(int u,int fa){
+    dfn[u]=low[u]=++count;
+    for(auto& v:graph[u]){
+      if(v==fa)
+        continue;
+      if(!dfn[v]){
+        tarjan(v,u);
+        low[u]=min(low[u],low[v]);
+        if(dfn[u]<low[v])
+          res.push_back({u,v});
+      }
+      else{
+        low[u]=min(dfn[v],low[u]);
+      }
+    }
+  }
+  
+  vector<vector<int>> criticalConnections(int n,vector<vector<int>& connections){
+    dfn.resize(n);
+    low.resize(n);
+    graph.resize(n);
+    for(auto& edge:connections){
+      graph[edge[0]].push_back(edge[1]);
+      graph[edge[1]].push_back(edge[0]);
+    }
+    for(int i=0;i<n;i++){
+      if(!dfn[i])
+        tarjan(i,-1);
+    }
+    return res;
+  }
+};
 
 ```
 
