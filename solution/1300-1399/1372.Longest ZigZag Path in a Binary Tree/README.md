@@ -58,6 +58,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+时间复杂度 $O(n)$，其中 $n$ 是树中节点的个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +69,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def longestZigZag(self, root: TreeNode) -> int:
+        def dfs(root, l, r):
+            if root is None:
+                return
+            nonlocal ans
+            ans = max(ans, l, r)
+            dfs(root.left, r + 1, 0)
+            dfs(root.right, 0, l + 1)
 
+        ans = 0
+        dfs(root, 0, 0)
+        return ans
 ```
 
 ### **Java**
@@ -73,7 +95,104 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int ans;
 
+    public int longestZigZag(TreeNode root) {
+        dfs(root, 0, 0);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int l, int r) {
+        if (root == null) {
+            return;
+        }
+        ans = Math.max(ans, Math.max(l, r));
+        dfs(root.left, r + 1, 0);
+        dfs(root.right, 0, l + 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans = 0;
+
+    int longestZigZag(TreeNode* root) {
+        dfs(root, 0, 0);
+        return ans;    
+    }
+
+    void dfs(TreeNode* root, int l, int r) {
+        if (!root) return;
+        ans = max(ans, max(l, r));
+        dfs(root->left, r + 1, 0);
+        dfs(root->right, 0, l + 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func longestZigZag(root *TreeNode) int {
+	ans := 0
+	var dfs func(root *TreeNode, l, r int)
+	dfs = func(root *TreeNode, l, r int) {
+		if root == nil {
+			return
+		}
+		ans = max(ans, max(l, r))
+		dfs(root.Left, r+1, 0)
+		dfs(root.Right, 0, l+1)
+	}
+	dfs(root, 0, 0)
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
