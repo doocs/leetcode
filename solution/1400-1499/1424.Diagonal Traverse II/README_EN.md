@@ -38,13 +38,81 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findDiagonalOrder(self, nums: List[List[int]]) -> List[int]:
+        arr = []
+        for i, row in enumerate(nums):
+            for j, v in enumerate(row):
+                arr.append((i + j, j, v))
+        arr.sort()
+        return [v[2] for v in arr]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] findDiagonalOrder(List<List<Integer>> nums) {
+        List<int[]> arr = new ArrayList<>();
+        for (int i = 0; i < nums.size(); ++i) {
+            for (int j = 0; j < nums.get(i).size(); ++j) {
+                arr.add(new int[]{i + j, j, nums.get(i).get(j)});
+            } 
+        }
+        arr.sort((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        int[] ans = new int[arr.size()];
+        for (int i = 0; i < arr.size(); ++i) {
+            ans[i] = arr.get(i)[2];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findDiagonalOrder(vector<vector<int>>& nums) {
+        vector<tuple<int, int, int>> arr;
+        for (int i = 0; i < nums.size(); ++i) {
+            for (int j = 0; j < nums[i].size(); ++j) {
+                arr.push_back({i + j, j, nums[i][j]});
+            }
+        }
+        sort(arr.begin(), arr.end());
+        vector<int> ans;
+        for (auto& e: arr) {
+            ans.push_back(get<2>(e));
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findDiagonalOrder(nums [][]int) []int {
+	arr := [][]int{}
+	for i, row := range nums {
+		for j, v := range row {
+			arr = append(arr, []int{i + j, j, v})
+		}
+	}
+	sort.Slice(arr, func(i, j int) bool {
+		if arr[i][0] == arr[j][0] {
+			return arr[i][1] < arr[j][1]
+		}
+		return arr[i][0] < arr[j][0]
+	})
+	ans := []int{}
+	for _, v := range arr {
+		ans = append(ans, v[2])
+	}
+	return ans
+}
 ```
 
 ### **...**

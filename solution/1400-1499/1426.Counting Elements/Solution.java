@@ -1,15 +1,15 @@
 class Solution {
     public int countElements(int[] arr) {
         Set<Integer> s = new HashSet<>();
-        for (int num : arr) {
-            s.add(num);
+        for (int x : arr) {
+            s.add(x);
         }
-        int res = 0;
-        for (int num : arr) {
-            if (s.contains(num + 1)) {
-                ++res;
+        int ans = 0;
+        for (int x : arr) {
+            if (s.contains(x + 1)) {
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
 }

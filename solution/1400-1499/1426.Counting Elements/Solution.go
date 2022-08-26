@@ -1,13 +1,13 @@
 func countElements(arr []int) int {
-	s := make(map[int]bool)
-	for _, num := range arr {
-		s[num] = true
+	s := map[int]bool{}
+	for _, x := range arr {
+		s[x] = true
 	}
-	res := 0
-	for _, num := range arr {
-		if s[num+1] {
-			res++
+	ans := 0
+	for _, x := range arr {
+		if s[x+1] {
+			ans++
 		}
 	}
-	return res
+	return ans
 }
