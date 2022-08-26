@@ -52,6 +52,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+直接遍历数组 `nums`，比较相邻两个 $1$ 的间距是否小于 $k$，是则返回 `false`，否则遍历结束返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +65,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def kLengthApart(self, nums: List[int], k: int) -> bool:
+        j = -1
+        for i, v in enumerate(nums):
+            if v == 1:
+                if j > -1 and i - j - 1 < k:
+                    return False
+                j = i
+        return True
 ```
 
 ### **Java**
@@ -67,7 +81,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean kLengthApart(int[] nums, int k) {
+        int j = -1;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 1) {
+                if (j != -1 && i - j - 1 < k) {
+                    return false;
+                }
+                j = i;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool kLengthApart(vector<int>& nums, int k) {
+        int j = -1;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == 1) {
+                if (j != -1 && i - j - 1 < k) {
+                    return false;
+                }
+                j = i;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kLengthApart(nums []int, k int) bool {
+	j := -1
+	for i, v := range nums {
+		if v == 1 {
+			if j != -1 && i-j-1 < k {
+				return false
+			}
+			j = i
+		}
+	}
+	return true
+}
 ```
 
 ### **...**

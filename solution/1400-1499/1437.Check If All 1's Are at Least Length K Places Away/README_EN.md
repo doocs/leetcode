@@ -39,13 +39,71 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def kLengthApart(self, nums: List[int], k: int) -> bool:
+        j = -1
+        for i, v in enumerate(nums):
+            if v == 1:
+                if j > -1 and i - j - 1 < k:
+                    return False
+                j = i
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean kLengthApart(int[] nums, int k) {
+        int j = -1;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 1) {
+                if (j != -1 && i - j - 1 < k) {
+                    return false;
+                }
+                j = i;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool kLengthApart(vector<int>& nums, int k) {
+        int j = -1;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == 1) {
+                if (j != -1 && i - j - 1 < k) {
+                    return false;
+                }
+                j = i;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kLengthApart(nums []int, k int) bool {
+	j := -1
+	for i, v := range nums {
+		if v == 1 {
+			if j != -1 && i-j-1 < k {
+				return false
+			}
+			j = i
+		}
+	}
+	return true
+}
 ```
 
 ### **...**

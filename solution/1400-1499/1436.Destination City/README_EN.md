@@ -57,11 +57,8 @@ Clearly the destination city is &quot;A&quot;.
 ```python
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
-        mp = {a: b for a, b in paths}
-        a = paths[0][0]
-        while mp.get(a):
-            a = mp[a]
-        return a
+        s = {a for a, _ in paths}
+        return next(b for _, b in paths if b not in s)
 ```
 
 ### **Java**
@@ -69,15 +66,16 @@ class Solution:
 ```java
 class Solution {
     public String destCity(List<List<String>> paths) {
-        Map<String, String> mp = new HashMap<>();
-        for (List<String> path : paths) {
-            mp.put(path.get(0), path.get(1));
+        Set<String> s = new HashSet<>();
+        for (var p : paths) {
+            s.add(p.get(0));
         }
-        String a = paths.get(0).get(0);
-        while (mp.get(a) != null) {
-            a = mp.get(a);
+        for (var p : paths) {
+            if (!s.contains(p.get(1))) {
+                return p.get(1);
+            }
         }
-        return a;
+        return "";
     }
 }
 ```
@@ -88,11 +86,16 @@ class Solution {
 class Solution {
 public:
     string destCity(vector<vector<string>>& paths) {
-        unordered_map<string, string> mp;
-        for (auto& path : paths) mp[path[0]] = path[1];
-        string a = paths[0][0];
-        while (mp.find(a) != mp.end()) a = mp[a];
-        return a;
+        unordered_set<string> s;
+        for (auto& p : paths) {
+            s.insert(p[0]);
+        }
+        for (auto& p : paths) {
+            if (!s.count(p[1])) {
+                return p[1];
+            }
+        }
+        return "";
     }
 };
 ```
@@ -101,19 +104,38 @@ public:
 
 ```go
 func destCity(paths [][]string) string {
-	mp := make(map[string]string)
-	for _, path := range paths {
-		mp[path[0]] = path[1]
+	s := map[string]bool{}
+	for _, p := range paths {
+		s[p[0]] = true
 	}
-	a := paths[0][0]
-	for true {
-		if _, ok := mp[a]; !ok {
-			return a
+	for _, p := range paths {
+		if !s[p[1]] {
+			return p[1]
 		}
-		a = mp[a]
 	}
 	return ""
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string[][]} paths
+ * @return {string}
+ */
+var destCity = function (paths) {
+    const s = new Set();
+    for (const [a, _] of paths) {
+        s.add(a);
+    }
+    for (const [_, b] of paths) {
+        if (!s.has(b)) {
+            return b;
+        }
+    }
+    return '';
+};
 ```
 
 ### **...**

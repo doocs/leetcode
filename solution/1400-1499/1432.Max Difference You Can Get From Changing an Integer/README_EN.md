@@ -52,13 +52,81 @@ We have now a = 9 and b = 1 and max difference = 8
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxDiff(self, num: int) -> int:
+        a, b = str(num), str(num)
+        for c in a:
+            if c != '9':
+                a = a.replace(c, '9')
+                break
+        for i, c in enumerate(b):
+            if i == 0:
+                if c != '1':
+                    b = b.replace(c, '1')
+                    break
+            else:
+                if c != '0' and c != b[0]:
+                    b = b.replace(c, '0')
+                    break
+        return int(a) - int(b)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxDiff(int num) {
+        String a = String.valueOf(num);
+        String b = String.valueOf(num);
+        for (char c : a.toCharArray()) {
+            if (c != '9') {
+                a = a.replaceAll(String.valueOf(c), "9");
+                break;
+            }
+        }
+        for (int i = 0; i < b.length(); ++i) {
+            char c = b.charAt(i);
+            if (i == 0) {
+                if (c != '1') {
+                    b = b.replaceAll(String.valueOf(c), "1");
+                    break;
+                }
+            } else {
+                if (c != '0' && c != b.charAt(0)) {
+                    b = b.replaceAll(String.valueOf(c), "0");
+                    break;
+                }
+            }
+        }
+        return Integer.parseInt(a) - Integer.parseInt(b);
+    }
+}
+```
 
+### **Go**
+
+```go
+func maxDiff(num int) int {
+	a, b := num, num
+	s := strconv.Itoa(num)
+	for i := range s {
+		if s[i] != '9' {
+			a, _ = strconv.Atoi(strings.ReplaceAll(s, string(s[i]), "9"))
+			break
+		}
+	}
+	if s[0] > '1' {
+		b, _ = strconv.Atoi(strings.ReplaceAll(s, string(s[0]), "1"))
+	} else {
+		for i := 1; i < len(s); i++ {
+			if s[i] != '0' && s[i] != s[0] {
+				b, _ = strconv.Atoi(strings.ReplaceAll(s, string(s[i]), "0"))
+				break
+			}
+		}
+	}
+	return a - b
+}
 ```
 
 ### **...**

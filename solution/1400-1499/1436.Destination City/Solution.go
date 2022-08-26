@@ -1,14 +1,12 @@
 func destCity(paths [][]string) string {
-	mp := make(map[string]string)
-	for _, path := range paths {
-		mp[path[0]] = path[1]
+	s := map[string]bool{}
+	for _, p := range paths {
+		s[p[0]] = true
 	}
-	a := paths[0][0]
-	for true {
-		if _, ok := mp[a]; !ok {
-			return a
+	for _, p := range paths {
+		if !s[p[1]] {
+			return p[1]
 		}
-		a = mp[a]
 	}
 	return ""
 }
