@@ -13,16 +13,18 @@ class Solution {
 public:
     int widthOfBinaryTree(TreeNode* root) {
         queue<pair<TreeNode*, int>> q;
-        q.emplace(root, 1);
+        q.push({root, 1});
         int ans = 0;
         while (!q.empty()) {
             ans = max(ans, q.back().second - q.front().second + 1);
-            int start = q.front().second;
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                auto node = q.front();
+            int i = q.front().second;
+            for (int n = q.size(); n; --n) {
+                auto p = q.front();
                 q.pop();
-                if (node.first->left != nullptr) q.emplace(node.first->left, node.second * 2 - start * 2);
-                if (node.first->right != nullptr) q.emplace(node.first->right, node.second * 2 + 1 - start * 2);
+                root = p.first;
+                int j = p.second;
+                if (root->left) q.push({root->left, (j << 1) - (i << 1)});
+                if (root->right) q.push({root->right, (j << 1 | 1) - (i << 1)});
             }
         }
         return ans;

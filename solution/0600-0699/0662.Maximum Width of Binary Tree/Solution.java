@@ -16,17 +16,19 @@
 class Solution {
     public int widthOfBinaryTree(TreeNode root) {
         Deque<Pair<TreeNode, Integer>> q = new ArrayDeque<>();
-        q.offerLast(new Pair<>(root, 1));
+        q.offer(new Pair<>(root, 1));
         int ans = 0;
         while (!q.isEmpty()) {
             ans = Math.max(ans, q.peekLast().getValue() - q.peekFirst().getValue() + 1);
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                Pair<TreeNode, Integer> node = q.pollFirst();
-                if (node.getKey().left != null) {
-                    q.offerLast(new Pair<>(node.getKey().left, node.getValue() * 2));
+            for (int n = q.size(); n > 0; --n) {
+                var p = q.pollFirst();
+                root = p.getKey();
+                int i = p.getValue();
+                if (root.left != null) {
+                    q.offer(new Pair<>(root.left, i << 1));
                 }
-                if (node.getKey().right != null) {
-                    q.offerLast(new Pair<>(node.getKey().right, node.getValue() * 2 + 1));
+                if (root.right != null) {
+                    q.offer(new Pair<>(root.right, i << 1 | 1));
                 }
             }
         }
