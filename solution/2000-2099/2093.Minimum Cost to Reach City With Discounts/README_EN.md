@@ -67,13 +67,98 @@ It is impossible to go from 0 to 3 so return -1.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumCost(self, n: int, highways: List[List[int]], discounts: int) -> int:
+        g = defaultdict(list)
+        for a, b, c in highways:
+            g[a].append((b, c))
+            g[b].append((a, c))
+        q = [(0, 0, 0)]
+        dist = [[inf] * (discounts + 1) for _ in range(n)]
+        while q:
+            cost, i, k = heappop(q)
+            if k > discounts:
+                continue
+            if i == n - 1:
+                return cost
+            if dist[i][k] > cost:
+                dist[i][k] = cost
+                for j, v in g[i]:
+                    heappush(q, (cost + v, j, k))
+                    heappush(q, (cost + v // 2, j, k + 1))
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumCost(int n, int[][] highways, int discounts) {
+        List<int[]>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (var e : highways) {
+            int a = e[0], b = e[1], c = e[2];
+            g[a].add(new int[]{b, c});
+            g[b].add(new int[]{a, c});
+        }
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        q.offer(new int[]{0, 0, 0});
+        int[][] dist = new int[n][discounts + 1];
+        for (var e : dist) {
+            Arrays.fill(e, Integer.MAX_VALUE);
+        }
+        while (!q.isEmpty()) {
+            var p = q.poll();
+            int cost = p[0], i = p[1], k = p[2];
+            if (k > discounts || dist[i][k] <= cost) {
+                continue;
+            }
+            if (i == n - 1) {
+                return cost;
+            }
+            dist[i][k] = cost;
+            for (int[] nxt : g[i]) {
+                int j = nxt[0], v = nxt[1];
+                q.offer(new int[]{cost + v, j, k});
+                q.offer(new int[]{cost + v / 2, j, k + 1});
+            }
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumCost(int n, vector<vector<int>>& highways, int discounts) {
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : highways) {
+            int a = e[0], b = e[1], c = e[2];
+            g[a].push_back({b, c});
+            g[b].push_back({a, c});
+        }
+        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> q;
+        q.push({0, 0, 0});
+        vector<vector<int>> dist(n, vector<int>(discounts + 1, INT_MAX));
+        while (!q.empty()) {
+            auto [cost, i, k] = q.top();
+            q.pop();
+            if (k > discounts || dist[i][k] <= cost) continue;
+            if (i == n - 1) return cost;
+            dist[i][k] = cost;
+            for (auto [j, v] : g[i]) {
+                q.push({cost + v, j, k});
+                q.push({cost + v / 2, j, k + 1});
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 ### **TypeScript**
