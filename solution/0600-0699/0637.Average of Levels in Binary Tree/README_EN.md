@@ -45,21 +45,45 @@ Hence return [3, 14.5, 11].
 #         self.left = left
 #         self.right = right
 class Solution:
-    def averageOfLevels(self, root: TreeNode) -> List[float]:
-        res = []
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
         q = deque([root])
+        ans = []
         while q:
-            n = len(q)
-            s = 0
+            s, n = 0, len(q)
             for _ in range(n):
-                node = q.popleft()
-                s += node.val
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-            res.append(s / n)
-        return res
+                root = q.popleft()
+                s += root.val
+                if root.left:
+                    q.append(root.left)
+                if root.right:
+                    q.append(root.right)
+            ans.append(s / n)
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        def dfs(root, i):
+            if root is None:
+                return
+            if len(s) == i:
+                s.append([root.val, 1])
+            else:
+                s[i][0] += root.val
+                s[i][1] += 1
+            dfs(root.left, i + 1)
+            dfs(root.right, i + 1)
+
+        s = []
+        dfs(root, 0)
+        return [a / b for a, b in s]
 ```
 
 ### **Java**
@@ -82,24 +106,71 @@ class Solution:
  */
 class Solution {
     public List<Double> averageOfLevels(TreeNode root) {
-        List<Double> res = new ArrayList<>();
-        Queue<TreeNode> q = new LinkedList<>();
+        List<Double> ans = new ArrayList<>();
+        Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            double s = 0, n = q.size();
+            int n = q.size();
+            long s = 0;
             for (int i = 0; i < n; ++i) {
-                TreeNode node = q.poll();
-                s += node.val;
-                if (node.left != null) {
-                    q.offer(node.left);
+                root = q.pollFirst();
+                s += root.val;
+                if (root.left != null) {
+                    q.offer(root.left);
                 }
-                if (node.right != null) {
-                    q.offer(node.right);
+                if (root.right != null) {
+                    q.offer(root.right);
                 }
             }
-            res.add(s / n);
+            ans.add(s * 1.0 / n);
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private List<Long> s = new ArrayList<>();
+    private List<Integer> cnt = new ArrayList<>();
+
+    public List<Double> averageOfLevels(TreeNode root) {
+        dfs(root, 0);
+        List<Double> ans = new ArrayList<>();
+        for (int i = 0; i < s.size(); ++i) {
+            ans.add(s.get(i) * 1.0 / cnt.get(i));
+        }
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int i) {
+        if (root == null) {
+            return;
+        }
+        if (s.size() == i) {
+            s.add((long) root.val);
+            cnt.add(1);
+        } else {
+            s.set(i, s.get(i) + root.val);
+            cnt.set(i, cnt.get(i) + 1);
+        }
+        dfs(root.left, i + 1);
+        dfs(root.right, i + 1);
     }
 }
 ```
@@ -120,24 +191,64 @@ class Solution {
  * @return {number[]}
  */
 var averageOfLevels = function (root) {
-    let res = [];
-    let queue = [root];
-    while (queue.length > 0) {
-        n = queue.length;
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            let node = queue.shift();
-            sum += node.val;
-            if (node.left) {
-                queue.push(node.left);
+    let q = [root];
+    let ans = [];
+    while (q.length) {
+        const n = q.length;
+        let s = 0;
+        for (let i = 0; i < n; ++i) {
+            root = q.shift();
+            s += root.val;
+            if (root.left) {
+                q.push(root.left);
             }
-            if (node.right) {
-                queue.push(node.right);
+            if (root.right) {
+                q.push(root.right);
             }
         }
-        res.push(sum / n);
+        ans.push(s / n);
     }
-    return res;
+    return ans;
+};
+```
+
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var averageOfLevels = function(root) {
+    let s = [];
+    let cnt = [];
+    function dfs(root, i) {
+        if (!root) {
+            return;
+        }
+        if (s.length == i) {
+            s.push(root.val);
+            cnt.push(1);
+        } else {
+            s[i] += root.val;
+            cnt[i]++;
+        }
+        dfs(root.left, i + 1);
+        dfs(root.right, i + 1);
+    }
+    dfs(root, 0);
+    let ans = [];
+    for (let i = 0; i < s.length; ++i) {
+        ans.push(s[i] / cnt[i]);
+    }
+    return ans;
 };
 ```
 
@@ -154,22 +265,58 @@ var averageOfLevels = function (root) {
  */
 func averageOfLevels(root *TreeNode) []float64 {
 	q := []*TreeNode{root}
-	var ans []float64
+	ans := []float64{}
 	for len(q) > 0 {
 		n := len(q)
-		var sum int
+		s := 0
 		for i := 0; i < n; i++ {
-			node := q[0]
+			root = q[0]
 			q = q[1:]
-			sum += node.Val
-			if node.Left != nil {
-				q = append(q, node.Left)
+			s += root.Val
+			if root.Left != nil {
+				q = append(q, root.Left)
 			}
-			if node.Right != nil {
-				q = append(q, node.Right)
+			if root.Right != nil {
+				q = append(q, root.Right)
 			}
 		}
-		ans = append(ans, float64(sum)/float64(n))
+		ans = append(ans, float64(s)/float64(n))
+	}
+	return ans
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func averageOfLevels(root *TreeNode) []float64 {
+	s := []int{}
+	cnt := []int{}
+	var dfs func(root *TreeNode, i int)
+	dfs = func(root *TreeNode, i int) {
+		if root == nil {
+			return
+		}
+		if len(s) == i {
+			s = append(s, root.Val)
+			cnt = append(cnt, 1)
+		} else {
+			s[i] += root.Val
+			cnt[i]++
+		}
+		dfs(root.Left, i+1)
+		dfs(root.Right, i+1)
+	}
+	dfs(root, 0)
+	ans := []float64{}
+	for i, t := range s {
+		ans = append(ans, float64(t)/float64(cnt[i]))
 	}
 	return ans
 }
@@ -192,21 +339,65 @@ func averageOfLevels(root *TreeNode) []float64 {
 class Solution {
 public:
     vector<double> averageOfLevels(TreeNode* root) {
-        queue<TreeNode*> q({root});
+        queue<TreeNode*> q {{root}};
         vector<double> ans;
         while (!q.empty()) {
             int n = q.size();
-            long long sum = 0;
+            long long s = 0;
             for (int i = 0; i < n; ++i) {
-                TreeNode* node = q.front();
+                root = q.front();
                 q.pop();
-                sum += node->val;
-                if (node->left != nullptr) q.push(node->left);
-                if (node->right != nullptr) q.push(node->right);
+                s += root->val;
+                if (root->left) q.push(root->left);
+                if (root->right) q.push(root->right);
             }
-            ans.emplace_back(sum * 1.0 / n);
+            ans.push_back(s * 1.0 / n);
         }
         return ans;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+using ll = long long;
+
+class Solution {
+public:
+    vector<ll> s;
+    vector<int> cnt;
+
+    vector<double> averageOfLevels(TreeNode* root) {
+        dfs(root, 0);
+        vector<double> ans(s.size());
+        for (int i = 0; i < s.size(); ++i) {
+            ans[i] = (s[i] * 1.0 / cnt[i]);
+        }
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int i) {
+        if (!root) return;
+        if (s.size() == i) {
+            s.push_back(root->val);
+            cnt.push_back(1);
+        } else {
+            s[i] += root->val;
+            cnt[i]++;
+        }
+        dfs(root->left, i + 1);
+        dfs(root->right, i + 1);
     }
 };
 ```
