@@ -94,7 +94,7 @@ class Solution:
                 ans = max(ans, i - t[depth] + 1)
             dfs(root.left, depth + 1, i << 1)
             dfs(root.right, depth + 1, i << 1 | 1)
-        
+
         ans = 1
         t = []
         dfs(root, 0, 1)

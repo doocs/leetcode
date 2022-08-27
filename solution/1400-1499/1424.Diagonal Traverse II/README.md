@@ -65,7 +65,6 @@
 
 时间复杂度 $O(n\log n)$，其中 $n$ 是 `nums` 数组元素的个数。
 
-
 <!-- tabs:start -->
 
 ### **Python3**

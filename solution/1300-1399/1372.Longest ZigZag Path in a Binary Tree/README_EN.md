@@ -136,7 +136,7 @@ public:
 
     int longestZigZag(TreeNode* root) {
         dfs(root, 0, 0);
-        return ans;    
+        return ans;
     }
 
     void dfs(TreeNode* root, int l, int r) {

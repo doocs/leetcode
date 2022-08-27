@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given the <code>head</code> of a singly linked list, return <code>true</code> if it is a palindrome.</p>
+<p>Given the <code>head</code> of a singly linked list, return <code>true</code><em> if it is a palindrome or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

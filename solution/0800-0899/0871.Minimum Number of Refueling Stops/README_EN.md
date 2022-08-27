@@ -49,7 +49,7 @@ We made 2 refueling stops along the way, so we return 2.
 <ul>
 	<li><code>1 &lt;= target, startFuel &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= stations.length &lt;= 500</code></li>
-	<li><code>0 &lt;= position<sub>i</sub> &lt;= position<sub>i+1</sub> &lt; target</code></li>
+	<li><code>1 &lt;= position<sub>i</sub> &lt; position<sub>i+1</sub> &lt; target</code></li>
 	<li><code>1 &lt;= fuel<sub>i</sub> &lt; 10<sup>9</sup></code></li>
 </ul>
 

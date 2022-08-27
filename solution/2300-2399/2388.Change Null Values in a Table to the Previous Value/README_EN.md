@@ -59,7 +59,6 @@ For ID 2, the previous value that is not null is from ID 1. We replace the null 
 Note that the rows in the output are the same as in the input.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->
