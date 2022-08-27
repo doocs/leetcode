@@ -47,13 +47,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 500</code></li>
-
     <li><code>nums.length == 2n</code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10^3</code></li>
-
 </ul>
 
 ## Solutions
@@ -70,6 +66,13 @@ class Solution:
             ans.append(nums[i])
             ans.append(nums[i + n])
         return ans
+```
+
+```python
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        nums[::2], nums[1::2] = nums[:n], nums[n:]
+        return nums
 ```
 
 ### **Java**

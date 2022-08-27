@@ -56,31 +56,29 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 
 ### **Python3**
 
-Using list.
-
 ```python
 class BrowserHistory:
+
     def __init__(self, homepage: str):
-        self.urls = []
-        self.cur = -1
-        self.tail = -1
+        self.stk1 = []
+        self.stk2 = []
         self.visit(homepage)
 
     def visit(self, url: str) -> None:
-        self.cur += 1
-        if self.cur < len(self.urls):
-            self.urls[self.cur] = url
-        else:
-            self.urls.append(url)
-        self.tail = self.cur
+        self.stk1.append(url)
+        self.stk2.clear()
 
     def back(self, steps: int) -> str:
-        self.cur = max(0, self.cur - steps)
-        return self.urls[self.cur]
+        while steps and len(self.stk1) > 1:
+            self.stk2.append(self.stk1.pop())
+            steps -= 1
+        return self.stk1[-1]
 
     def forward(self, steps: int) -> str:
-        self.cur = min(self.tail, self.cur + steps)
-        return self.urls[self.cur]
+        while steps and self.stk2:
+            self.stk1.append(self.stk2.pop())
+            steps -= 1
+        return self.stk1[-1]
 
 
 # Your BrowserHistory object will be instantiated and called as such:
@@ -90,75 +88,34 @@ class BrowserHistory:
 # param_3 = obj.forward(steps)
 ```
 
-Using stacks.
-
-```python
-class BrowserHistory:
-
-    def __init__(self, homepage: str):
-        self.s1 = []
-        self.s2 = []
-        self.cur = homepage
-
-    def visit(self, url: str) -> None:
-        self.s2.clear()
-        self.s1.append(self.cur)
-        self.cur = url
-
-    def back(self, steps: int) -> str:
-        while steps > 0 and self.s1:
-            self.s2.append(self.cur)
-            self.cur = self.s1.pop()
-            steps -= 1
-        return self.cur
-
-    def forward(self, steps: int) -> str:
-        while steps > 0 and self.s2:
-            self.s1.append(self.cur)
-            self.cur = self.s2.pop()
-            steps -= 1
-        return self.cur
-
-
-# Your BrowserHistory object will be instantiated and called as such:
-# obj = BrowserHistory(homepage)
-# obj.visit(url)
-# param_2 = obj.back(steps)
-```
-
 ### **Java**
-
-Using list.
 
 ```java
 class BrowserHistory {
-    private List<String> urls;
-    private int cur = -1;
-    private int tail = -1;
+    private Deque<String> stk1 = new ArrayDeque<>();
+    private Deque<String> stk2 = new ArrayDeque<>();
 
     public BrowserHistory(String homepage) {
-        urls = new ArrayList<>();
         visit(homepage);
     }
-
+    
     public void visit(String url) {
-        ++cur;
-        if (cur < urls.size()) {
-            urls.set(cur, url);
-        } else {
-            urls.add(url);
-        }
-        tail = cur;
+        stk1.push(url);
+        stk2.clear();
     }
-
+    
     public String back(int steps) {
-        cur = Math.max(0, cur - steps);
-        return urls.get(cur);
+        for (; steps > 0 && stk1.size() > 1; --steps) {
+            stk2.push(stk1.pop());
+        }
+        return stk1.peek();
     }
-
+    
     public String forward(int steps) {
-        cur = Math.min(tail, cur + steps);
-        return urls.get(cur);
+        for (; steps > 0 && !stk2.isEmpty(); --steps) {
+            stk1.push(stk2.pop());
+        }
+        return stk1.peek();
     }
 }
 
@@ -171,51 +128,90 @@ class BrowserHistory {
  */
 ```
 
-Using stacks.
+### **C++**
 
-```java
+```cpp
 class BrowserHistory {
-    private Deque<String> s1;
-    private Deque<String> s2;
-    private String cur;
+public:
+    stack<string> stk1;
+    stack<string> stk2;
 
-    public BrowserHistory(String homepage) {
-        s1 = new ArrayDeque<>();
-        s2 = new ArrayDeque<>();
-        cur = homepage;
+    BrowserHistory(string homepage) {
+        visit(homepage);
     }
-
-    public void visit(String url) {
-        s2.clear();
-        s1.push(cur);
-        cur = url;
+    
+    void visit(string url) {
+        stk1.push(url);
+        stk2 = stack<string>();
     }
-
-    public String back(int steps) {
-        while (steps > 0 && !s1.isEmpty()) {
-            s2.push(cur);
-            cur = s1.pop();
-            --steps;
+    
+    string back(int steps) {
+        for (; steps && stk1.size() > 1; --steps) {
+            stk2.push(stk1.top());
+            stk1.pop();
         }
-        return cur;
+        return stk1.top();
     }
-
-    public String forward(int steps) {
-        while (steps > 0 && !s2.isEmpty()) {
-            s1.push(cur);
-            cur = s2.pop();
-            --steps;
+    
+    string forward(int steps) {
+        for (; steps && !stk2.empty(); --steps) {
+            stk1.push(stk2.top());
+            stk2.pop();
         }
-        return cur;
+        return stk1.top();
     }
+};
+
+/**
+ * Your BrowserHistory object will be instantiated and called as such:
+ * BrowserHistory* obj = new BrowserHistory(homepage);
+ * obj->visit(url);
+ * string param_2 = obj->back(steps);
+ * string param_3 = obj->forward(steps);
+ */
+```
+
+### **Go**
+
+```go
+type BrowserHistory struct {
+	stk1 []string
+	stk2 []string
+}
+
+func Constructor(homepage string) BrowserHistory {
+	t := BrowserHistory{[]string{}, []string{}}
+	t.Visit(homepage)
+	return t
+}
+
+func (this *BrowserHistory) Visit(url string) {
+	this.stk1 = append(this.stk1, url)
+	this.stk2 = []string{}
+}
+
+func (this *BrowserHistory) Back(steps int) string {
+	for i := 0; i < steps && len(this.stk1) > 1; i++ {
+		this.stk2 = append(this.stk2, this.stk1[len(this.stk1)-1])
+		this.stk1 = this.stk1[:len(this.stk1)-1]
+	}
+	return this.stk1[len(this.stk1)-1]
+}
+
+func (this *BrowserHistory) Forward(steps int) string {
+	for i := 0; i < steps && len(this.stk2) > 0; i++ {
+		this.stk1 = append(this.stk1, this.stk2[len(this.stk2)-1])
+		this.stk2 = this.stk2[:len(this.stk2)-1]
+	}
+	return this.stk1[len(this.stk1)-1]
 }
 
 /**
  * Your BrowserHistory object will be instantiated and called as such:
- * BrowserHistory obj = new BrowserHistory(homepage);
- * obj.visit(url);
- * String param_2 = obj.back(steps);
- * String param_3 = obj.forward(steps);
+ * obj := Constructor(homepage);
+ * obj.Visit(url);
+ * param_2 := obj.Back(steps);
+ * param_3 := obj.Forward(steps);
  */
 ```
 

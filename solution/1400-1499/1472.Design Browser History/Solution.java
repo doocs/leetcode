@@ -1,31 +1,28 @@
 class BrowserHistory {
-    private List<String> urls;
-    private int cur = -1;
-    private int tail = -1;
+    private Deque<String> stk1 = new ArrayDeque<>();
+    private Deque<String> stk2 = new ArrayDeque<>();
 
     public BrowserHistory(String homepage) {
-        urls = new ArrayList<>();
         visit(homepage);
     }
     
     public void visit(String url) {
-        ++cur;
-        if (cur < urls.size()) {
-            urls.set(cur, url);
-        } else {
-            urls.add(url);
-        }
-        tail = cur;
+        stk1.push(url);
+        stk2.clear();
     }
     
     public String back(int steps) {
-        cur = Math.max(0, cur - steps);
-        return urls.get(cur);
+        for (; steps > 0 && stk1.size() > 1; --steps) {
+            stk2.push(stk1.pop());
+        }
+        return stk1.peek();
     }
     
     public String forward(int steps) {
-        cur = Math.min(tail, cur + steps);
-        return urls.get(cur);
+        for (; steps > 0 && !stk2.isEmpty(); --steps) {
+            stk1.push(stk2.pop());
+        }
+        return stk1.peek();
     }
 }
 
