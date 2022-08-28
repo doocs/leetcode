@@ -243,7 +243,7 @@ var averageOfLevels = function (root) {
  * @param {TreeNode} root
  * @return {number[]}
  */
-var averageOfLevels = function(root) {
+var averageOfLevels = function (root) {
     let s = [];
     let cnt = [];
     function dfs(root, i) {

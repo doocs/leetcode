@@ -1,5 +1,4 @@
 class BrowserHistory:
-
     def __init__(self, homepage: str):
         self.stk1 = []
         self.stk2 = []

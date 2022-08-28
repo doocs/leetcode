@@ -23,6 +23,14 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 308 场周赛(2022-08-28 10:30, 90 分钟) 参赛人数 6394
+
+- [2389. 和有限的最长子序列](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md)
+- [2390. 从字符串中移除星号](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README.md)
+- [2391. 收集垃圾的最少总时间](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README.md)
+- [2392. 给定条件下构造矩阵](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README.md)
+
+
 #### 第 307 场周赛(2022-08-21 10:30, 90 分钟) 参赛人数 7064
 
 - [2383. 赢得比赛需要的最少训练时长](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README.md)
