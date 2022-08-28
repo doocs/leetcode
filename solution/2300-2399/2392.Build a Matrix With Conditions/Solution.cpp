@@ -6,7 +6,7 @@ public:
         this->k = k;
         auto row = f(rowConditions);
         auto col = f(colConditions);
-        if (row.empty() || col.empty()) return vector<vector<int>>();
+        if (row.empty() || col.empty()) return {};
         vector<vector<int>> ans(k, vector<int>(k));
         vector<int> m(k + 1);
         for (int i = 0; i < k; ++i) {

@@ -51,7 +51,7 @@
 
 将 `nums` 排序，对于每个 `queries[i]`，求出 `nums` 中所有元素之和小于等于 `queries[i]` 的子序列的最大长度。
 
-时间复杂度 $O(n\log n + m\log n)$。其中 $n$ 为 `nums` 的长度，$m$ 为 `queries` 的长度。
+时间复杂度 $O((n+m)\times logn)$。其中 $n$ 和 $m$ 分别为 `nums` 和 `queries` 的长度。
 
 <!-- tabs:start -->
 
