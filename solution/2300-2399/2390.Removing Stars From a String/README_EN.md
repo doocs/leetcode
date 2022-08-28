@@ -122,13 +122,40 @@ func removeStars(s string) string {
 ### **TypeScript**
 
 ```ts
+function removeStars(s: string): string {
+    const stack = [];
+    for (const c of s) {
+        if (c === '*') {
+            stack.pop();
+        } else {
+            stack.push(c);
+        }
+    }
+    return stack.join('');
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn remove_stars(s: String) -> String {
+        let mut res = String::new();
+        for &c in s.as_bytes().iter() {
+            if c == b'*' {
+                res.pop();
+            } else {
+                res.push(char::from(c));
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

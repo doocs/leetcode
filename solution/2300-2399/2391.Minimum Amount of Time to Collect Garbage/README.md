@@ -223,13 +223,87 @@ func garbageCollection(garbage []string, travel []int) int {
 ### **TypeScript**
 
 ```ts
+function garbageCollection(garbage: string[], travel: number[]): number {
+    const n = garbage.length;
+    const count = [0, 0, 0];
+    const cs = ['G', 'P', 'M'];
+    for (const s of garbage) {
+        for (const c of s) {
+            if (c === 'G') {
+                count[0]++;
+            } else if (c === 'P') {
+                count[1]++;
+            } else if (c === 'M') {
+                count[2]++;
+            }
+        }
+    }
 
+    let res = 0;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < n; j++) {
+            const s = garbage[j];
+            for (const c of s) {
+                if (c === cs[i]) {
+                    res++;
+                    count[i]--;
+                }
+            }
+            if (count[i] === 0) {
+                break;
+            }
+            res += travel[j];
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn garbage_collection(garbage: Vec<String>, travel: Vec<i32>) -> i32 {
+        let n = garbage.len();
+        let cs = [b'M', b'P', b'G'];
+        let mut count = [0, 0, 0];
+        for s in garbage.iter() {
+            for c in s.as_bytes().iter() {
+                count[if c == &b'M' {
+                    0
+                } else if c == &b'P' {
+                    1
+                } else {
+                    2
+                }] += 1;
+            }
+        }
+
+        let mut res = 0;
+        for i in 0..3 {
+            for j in 0..n {
+                let s = &garbage[j];
+                for c in s.as_bytes().iter() {
+                    if c == &cs[i] {
+                        res += 1;
+                        count[i] -= 1;
+                    }
+                }
+                if count[i] == 0 {
+                    break;
+                }
+
+                res += travel[j];
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**
 
 ```
-
 
 ```
 
