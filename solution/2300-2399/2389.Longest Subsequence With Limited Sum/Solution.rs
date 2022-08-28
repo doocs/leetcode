@@ -4,11 +4,11 @@ impl Solution {
         nums.sort();
         queries
             .into_iter()
-            .map(|querie| {
+            .map(|query| {
                 let mut sum = 0;
                 for i in 0..n {
                     sum += nums[i];
-                    if sum > querie {
+                    if sum > query {
                         return i as i32;
                     }
                 }
