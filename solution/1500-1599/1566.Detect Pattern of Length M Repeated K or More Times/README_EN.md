@@ -52,13 +52,103 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def containsPattern(self, arr: List[int], m: int, k: int) -> bool:
+        n = len(arr)
+        for i in range(n - m * k + 1):
+            j = 0
+            while j < m * k:
+                if arr[i + j] != arr[i + (j % m)]:
+                    break
+                j += 1
+            if j == m * k:
+                return True
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean containsPattern(int[] arr, int m, int k) {
+        int n = arr.length;
+        for (int i = 0; i <= n - m * k; ++i) {
+            int j = 0;
+            for (; j < m * k; ++j) {
+                if (arr[i + j] != arr[i + (j % m)]) {
+                    break;
+                }
+            }
+            if (j == m * k) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool containsPattern(vector<int>& arr, int m, int k) {
+        int n = arr.size();
+        for (int i = 0; i <= n - m * k; ++i) {
+            int j = 0;
+            for (; j < m * k; ++j) {
+                if (arr[i + j] != arr[i + (j % m)]) {
+                    break;
+                }
+            }
+            if (j == m * k) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func containsPattern(arr []int, m int, k int) bool {
+	n := len(arr)
+	for i := 0; i <= n-m*k; i++ {
+		j := 0
+		for ; j < m*k; j++ {
+			if arr[i+j] != arr[i+(j%m)] {
+				break
+			}
+		}
+		if j == m*k {
+			return true
+		}
+	}
+	return false
+}
+```
+
+### **TypeScript**
+
+```ts
+function containsPattern(arr: number[], m: number, k: number): boolean {
+    const n = arr.length;
+    for (let i = 0; i <= n - m * k; ++i) {
+        let j = 0;
+        for (; j < m * k; ++j) {
+            if (arr[i + j] != arr[i + (j % m)]) {
+                break;
+            }
+        }
+        if (j == m * k) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 ### **...**

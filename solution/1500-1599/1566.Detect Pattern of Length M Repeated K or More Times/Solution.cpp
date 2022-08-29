@@ -1,6 +1,7 @@
 class Solution {
-    public boolean containsPattern(int[] arr, int m, int k) {
-        int n = arr.length;
+public:
+    bool containsPattern(vector<int>& arr, int m, int k) {
+        int n = arr.size();
         for (int i = 0; i <= n - m * k; ++i) {
             int j = 0;
             for (; j < m * k; ++j) {
@@ -14,4 +15,4 @@ class Solution {
         }
         return false;
     }
-}
+};
