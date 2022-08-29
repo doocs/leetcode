@@ -1,32 +1,21 @@
 class Solution {
 public:
-    vector<string> g;
-    vector<int> travel;
-
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
-        g = garbage;
-        this->travel = travel;
-        return f('M') + f('P') + f('G');   
-    }
-
-    int f(char c) {
-        int tot = 0;
-        for (string& v : g) {
-            for (char ch : v) {
-                tot += ch == c;
+        int ans = 0;
+        vector<int> pos(26);
+        for (int i = 0; i < garbage.size(); ++i) {
+            ans += garbage[i].size();
+            for (char c : garbage[i]) {
+                pos[c - 'A'] = i;
             }
         }
-        int res = 0;
-        for (int i = 0; i < g.size(); ++i) {
-            int t = 0;
-            for (char ch : g[i]) {
-                t += ch == c;
-            }
-            res += t;
-            tot -= t;
-            if (tot == 0) break;
-            if (i < g.size() - 1) res += travel[i];
+        vector<int> s(travel.size() + 1);
+        for (int i = 0; i < travel.size(); ++i) {
+            s[i + 1] = s[i] + travel[i];
         }
-        return res;
+        for (int i : pos) {
+            ans += s[i];
+        }
+        return ans;
     }
 };

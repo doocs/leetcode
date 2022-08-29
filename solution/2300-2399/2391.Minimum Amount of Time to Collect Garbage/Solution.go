@@ -1,32 +1,18 @@
 func garbageCollection(garbage []string, travel []int) int {
-	n := len(garbage)
-	f := func(c rune) int {
-		tot := 0
-		for _, v := range garbage {
-			for _, ch := range v {
-				if ch == c {
-					tot++
-				}
-			}
+	ans := 0
+	pos := map[rune]int{}
+	for i, v := range garbage {
+		ans += len(v)
+		for _, c := range v {
+			pos[c] = i
 		}
-		res := 0
-		for i, v := range garbage {
-			t := 0
-			for _, ch := range v {
-				if ch == c {
-					t++
-				}
-			}
-			res += t
-			tot -= t
-			if tot == 0 {
-				break
-			}
-			if i < n-1 {
-				res += travel[i]
-			}
-		}
-		return res
 	}
-	return f('M') + f('P') + f('G')
+	s := make([]int, len(travel)+1)
+	for i, v := range travel {
+		s[i+1] = s[i] + v
+	}
+	for _, i := range pos {
+		ans += s[i]
+	}
+	return ans
 }

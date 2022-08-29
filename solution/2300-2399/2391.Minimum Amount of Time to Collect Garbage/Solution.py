@@ -1,17 +1,11 @@
 class Solution:
     def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
-        def f(c):
-            tot = sum(v.count(c) for v in garbage)
-            res = 0
-            for i, v in enumerate(garbage):
-                t = v.count(c)
-                res += t
-                tot -= t
-                if tot == 0:
-                    break
-                if i < n - 1:
-                    res += travel[i]
-            return res
-
-        n = len(garbage)
-        return f('M') + f('P') + f('G')
+        ans = 0
+        pos = {}
+        for i, v in enumerate(garbage):
+            ans += len(v)
+            for c in v:
+                pos[c] = i
+        s = list(accumulate(travel, initial=0))
+        ans += sum(s[i] for i in pos.values())
+        return ans

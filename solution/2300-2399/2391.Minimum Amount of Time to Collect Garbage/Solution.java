@@ -1,39 +1,20 @@
 class Solution {
-    private String[] g;
-    private int[] travel;
-
     public int garbageCollection(String[] garbage, int[] travel) {
-        g = garbage;
-        this.travel = travel;
-        return f('M') + f('P') + f('G');
-    }
-
-    private int f(char c) {
-        int tot = 0;
-        for (var v : g) {
-            for (char ch : v.toCharArray()) {
-                if (ch == c) {
-                    ++tot;
-                }
+        int ans = 0;
+        int[] pos = new int[26];
+        for (int i = 0; i < garbage.length; ++i) {
+            ans += garbage[i].length();
+            for (char c : garbage[i].toCharArray()) {
+                pos[c - 'A'] = i;
             }
         }
-        int res = 0;
-        for (int i = 0; i < g.length; ++i) {
-            int t = 0;
-            for (char ch : g[i].toCharArray()) {
-                if (ch == c) {
-                    ++t;
-                }
-            }
-            res += t;
-            tot -= t;
-            if (tot == 0) {
-                break;
-            }
-            if (i < g.length - 1) {
-                res += travel[i];
-            }
+        int[] s = new int[travel.length + 1];
+        for (int i = 0; i < travel.length; ++i) {
+            s[i + 1] = s[i] + travel[i];
         }
-        return res;
+        for (int i : pos) {
+            ans += s[i];
+        }
+        return ans;
     }
 }

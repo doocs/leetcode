@@ -72,6 +72,11 @@
 
 由于题目中说明同一时刻只有一辆车处于使用状态，因此我们直接模拟每辆车的运行过程，累加时间。
 
+更进一步思考，我们发现，答案的总耗时其实可以分成两部分：
+
+1. 所有垃圾的数量，我们遍历 `garbage` 中的每一项 `v`，然后累加 `v.length` 就能得到；
+1. 根据每一种垃圾在 `garbage` 中最后一次出现的位置 `i`，我们累加 `travel[0..i)` 即可。这里可以先算出 `travel` 的前缀和。
+
 时间复杂度 $O(n)$，其中 $n$ 为垃圾的数量。
 
 <!-- tabs:start -->
@@ -98,6 +103,20 @@ class Solution:
 
         n = len(garbage)
         return f('M') + f('P') + f('G')
+```
+
+```python
+class Solution:
+    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
+        ans = 0
+        pos = {}
+        for i, v in enumerate(garbage):
+            ans += len(v)
+            for c in v:
+                pos[c] = i
+        s = list(accumulate(travel, initial=0))
+        ans += sum(s[i] for i in pos.values())
+        return ans
 ```
 
 ### **Java**
@@ -146,6 +165,29 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int garbageCollection(String[] garbage, int[] travel) {
+        int ans = 0;
+        int[] pos = new int[26];
+        for (int i = 0; i < garbage.length; ++i) {
+            ans += garbage[i].length();
+            for (char c : garbage[i].toCharArray()) {
+                pos[c - 'A'] = i;
+            }
+        }
+        int[] s = new int[travel.length + 1];
+        for (int i = 0; i < travel.length; ++i) {
+            s[i + 1] = s[i] + travel[i];
+        }
+        for (int i : pos) {
+            ans += s[i];
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -179,6 +221,30 @@ public:
             if (i < g.size() - 1) res += travel[i];
         }
         return res;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
+        int ans = 0;
+        vector<int> pos(26);
+        for (int i = 0; i < garbage.size(); ++i) {
+            ans += garbage[i].size();
+            for (char c : garbage[i]) {
+                pos[c - 'A'] = i;
+            }
+        }
+        vector<int> s(travel.size() + 1);
+        for (int i = 0; i < travel.size(); ++i) {
+            s[i + 1] = s[i] + travel[i];
+        }
+        for (int i : pos) {
+            ans += s[i];
+        }
+        return ans;
     }
 };
 ```
@@ -220,6 +286,27 @@ func garbageCollection(garbage []string, travel []int) int {
 }
 ```
 
+```go
+func garbageCollection(garbage []string, travel []int) int {
+	ans := 0
+	pos := map[rune]int{}
+	for i, v := range garbage {
+		ans += len(v)
+		for _, c := range v {
+			pos[c] = i
+		}
+	}
+	s := make([]int, len(travel)+1)
+	for i, v := range travel {
+		s[i+1] = s[i] + v
+	}
+	for _, i := range pos {
+		ans += s[i]
+	}
+	return ans
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -256,6 +343,27 @@ function garbageCollection(garbage: string[], travel: number[]): number {
         }
     }
     return res;
+}
+```
+
+```ts
+function garbageCollection(garbage: string[], travel: number[]): number {
+    let ans = 0;
+    let pos = new Map();
+    for (let i = 0; i < garbage.length; ++i) {
+        ans += garbage[i].length;
+        for (const c of garbage[i]) {
+            pos.set(c, i);
+        }
+    }
+    let s = new Array(travel.length + 1).fill(0);
+    for (let i = 0; i < travel.length; ++i) {
+        s[i + 1] = s[i] + travel[i];
+    }
+    for (const [_, i] of pos) {
+        ans += s[i];
+    }
+    return ans;
 }
 ```
 
