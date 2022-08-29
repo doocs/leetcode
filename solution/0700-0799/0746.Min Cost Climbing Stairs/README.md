@@ -52,11 +52,37 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+定义 `dp[i]` 表示到达第 `i` 个台阶的最小花费。可以得到状态转移方程：
+
+$$
+dp[i] = \min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+$$
+
+最终结果为 `dp[n]`。其中 $n$ 表示 `cost` 数组的长度。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+由于 `dp[i]` 只跟 `dp[i-1]` 和 `dp[i-2]` 有关，因此我们还可以对空间进行优化，只用两个变量 `a`, `b` 来记录。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        dp = [0] * (n + 1)
+        for i in range(2, n + 1):
+            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+        return dp[-1]
+```
 
 ```python
 class Solution:
@@ -70,6 +96,19 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        int[] dp = new int[n + 1];
+        for (int i = 2; i <= n; ++i) {
+            dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+        return dp[n];
+    }
+}
+```
 
 ```java
 class Solution {
@@ -89,6 +128,17 @@ class Solution {
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
+    const n = cost.length;
+    const dp = new Array(n + 1).fill(0);
+    for (let i = 2; i <= n; ++i) {
+        dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+    }
+    return dp[n];
+}
+```
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
     let a = 0,
         b = 0;
     for (let i = 1; i < cost.length; ++i) {
@@ -99,6 +149,20 @@ function minCostClimbingStairs(cost: number[]): number {
 ```
 
 ### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> dp(n + 1);
+        for (int i = 2; i <= n; ++i) {
+            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+        return dp[n];
+    }
+};
+```
 
 ```cpp
 class Solution {
@@ -116,6 +180,24 @@ public:
 ```
 
 ### **Go**
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
+	dp := make([]int, n+1)
+	for i := 2; i <= n; i++ {
+		dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
+	}
+	return dp[n]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func minCostClimbingStairs(cost []int) int {

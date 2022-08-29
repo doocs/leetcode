@@ -53,6 +53,16 @@ The total cost is 6.
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        dp = [0] * (n + 1)
+        for i in range(2, n + 1):
+            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+        return dp[-1]
+```
+
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
         a = b = 0
         for i in range(1, len(cost)):
             a, b = b, min(a + cost[i - 1], b + cost[i])
@@ -60,6 +70,19 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        int[] dp = new int[n + 1];
+        for (int i = 2; i <= n; ++i) {
+            dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+        return dp[n];
+    }
+}
+```
 
 ```java
 class Solution {
@@ -79,6 +102,17 @@ class Solution {
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
+    const n = cost.length;
+    const dp = new Array(n + 1).fill(0);
+    for (let i = 2; i <= n; ++i) {
+        dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+    }
+    return dp[n];
+}
+```
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
     let a = 0,
         b = 0;
     for (let i = 1; i < cost.length; ++i) {
@@ -89,6 +123,20 @@ function minCostClimbingStairs(cost: number[]): number {
 ```
 
 ### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> dp(n + 1);
+        for (int i = 2; i <= n; ++i) {
+            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+        return dp[n];
+    }
+};
+```
 
 ```cpp
 class Solution {
@@ -106,6 +154,24 @@ public:
 ```
 
 ### **Go**
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
+	dp := make([]int, n+1)
+	for i := 2; i <= n; i++ {
+		dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
+	}
+	return dp[n]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func minCostClimbingStairs(cost []int) int {
