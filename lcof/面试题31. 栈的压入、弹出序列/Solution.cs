@@ -1,15 +1,15 @@
 public class Solution {
     public bool ValidateStackSequences(int[] pushed, int[] popped) {
-        Stack<int> ans = new Stack<int>();
-        int q = 0;
+        Stack<int> stk = new Stack<int>();
+        int j = 0;
         foreach (int x in pushed)
         {
-            ans.Push(pushed[x]);
-            while (ans.Count != 0 && ans.Peek() == popped[q]) {
-                ans.Pop();
-                q += 1;
+            stk.Push(x);
+            while (stk.Count != 0 && stk.Peek() == popped[j]) {
+                stk.Pop();
+                ++j;
             }
         }
-        return ans.Count == 0;
+        return stk.Count == 0;
     }
 }

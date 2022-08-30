@@ -1,14 +1,14 @@
 class Solution {
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        Deque<Integer> s = new ArrayDeque<>();
-        int q = 0;
-        for (int num : pushed) {
-            s.push(num);
-            while (!s.isEmpty() && s.peek() == popped[q]) {
-                s.pop();
-                ++q;
+        Deque<Integer> stk = new ArrayDeque<>();
+        int j = 0;
+        for (int v : pushed) {
+            stk.push(v);
+            while (!stk.isEmpty() && stk.peek() == popped[j]) {
+                stk.pop();
+                ++j;
             }
         }
-        return s.isEmpty();
+        return j == pushed.length;
     }
 }

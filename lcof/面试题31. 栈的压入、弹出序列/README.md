@@ -40,7 +40,13 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 <!-- 这里可写通用的实现逻辑 -->
 
-借助一个辅助栈实现。
+**方法一：栈模拟**
+
+遍历 `pushed` 序列，将每个数 `v` 依次压入栈中，压入后检查这个数是不是 `popped` 序列中下一个要弹出的值，如果是就循环把栈顶元素弹出。
+
+遍历结束，如果 `popped` 序列已经到末尾，说明是一个合法的序列，否则不是。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是 `pushed` 序列的长度。
 
 <!-- tabs:start -->
 
@@ -51,14 +57,13 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 ```python
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
-        s = []
-        q = 0
-        for num in pushed:
-            s.append(num)
-            while s and s[-1] == popped[q]:
-                s.pop()
-                q += 1
-        return not s
+        j, stk = 0, []
+        for v in pushed:
+            stk.append(v)
+            while stk and stk[-1] == popped[j]:
+                stk.pop()
+                j += 1
+        return j == len(pushed)
 ```
 
 ### **Java**
@@ -68,40 +73,18 @@ class Solution:
 ```java
 class Solution {
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        Deque<Integer> s = new ArrayDeque<>();
-        int q = 0;
-        for (int num : pushed) {
-            s.push(num);
-            while (!s.isEmpty() && s.peek() == popped[q]) {
-                s.pop();
-                ++q;
+        Deque<Integer> stk = new ArrayDeque<>();
+        int j = 0;
+        for (int v : pushed) {
+            stk.push(v);
+            while (!stk.isEmpty() && stk.peek() == popped[j]) {
+                stk.pop();
+                ++j;
             }
         }
-        return s.isEmpty();
+        return j == pushed.length;
     }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} pushed
- * @param {number[]} popped
- * @return {boolean}
- */
-var validateStackSequences = function (pushed, popped) {
-    let s = [];
-    let q = 0;
-    for (let num of pushed) {
-        s.push(num);
-        while (s.length > 0 && s[s.length - 1] == popped[q]) {
-            ++q;
-            s.pop();
-        }
-    }
-    return s.length == 0;
-};
 ```
 
 ### **C++**
@@ -110,34 +93,71 @@ var validateStackSequences = function (pushed, popped) {
 class Solution {
 public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
-        stack<int> s;
-        int i = 0;
-        for (int x : pushed) {
-            s.push(x);
-            while (!s.empty() && s.top() == popped[i]) {
-                s.pop();
-                ++i;
+        stack<int> stk;
+        int j = 0;
+        for (int v : pushed) {
+            stk.push(v);
+            while (!stk.empty() && stk.top() == popped[j]) {
+                stk.pop();
+                ++j;
             }
         }
-        return s.empty();
+        return j == pushed.size();
     }
 };
+```
+
+### **Go**
+
+```go
+func validateStackSequences(pushed []int, popped []int) bool {
+	stk := []int{}
+	j := 0
+	for _, v := range pushed {
+		stk = append(stk, v)
+		for len(stk) > 0 && stk[len(stk)-1] == popped[j] {
+			stk = stk[:len(stk)-1]
+			j++
+		}
+	}
+	return j == len(pushed)
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function validateStackSequences(pushed: number[], popped: number[]): boolean {
-    const stack = [];
-    let i = 0;
-    for (const num of pushed) {
-        stack.push(num);
-        while (stack.length !== 0 && stack[stack.length - 1] === popped[i]) {
-            stack.pop();
-            i++;
+    const stk = [];
+    let j = 0;
+    for (const v of pushed) {
+        stk.push(v);
+        while (stk.length && stk[stk.length - 1] == popped[j]) {
+            stk.pop();
+            ++j;
         }
     }
-    return stack.length === 0;
+    return j == pushed.length;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool ValidateStackSequences(int[] pushed, int[] popped) {
+        Stack<int> stk = new Stack<int>();
+        int j = 0;
+        foreach (int x in pushed)
+        {
+            stk.Push(x);
+            while (stk.Count != 0 && stk.Peek() == popped[j]) {
+                stk.Pop();
+                ++j;
+            }
+        }
+        return stk.Count == 0;
+    }
 }
 ```
 
@@ -160,24 +180,26 @@ impl Solution {
 }
 ```
 
-### **C#**
+### **JavaScript**
 
-```cs
-public class Solution {
-    public bool ValidateStackSequences(int[] pushed, int[] popped) {
-        Stack<int> ans = new Stack<int>();
-        int q = 0;
-        foreach (int x in pushed)
-        {
-            ans.Push(pushed[x]);
-            while (ans.Count != 0 && ans.Peek() == popped[q]) {
-                ans.Pop();
-                q += 1;
-            }
+```js
+/**
+ * @param {number[]} pushed
+ * @param {number[]} popped
+ * @return {boolean}
+ */
+var validateStackSequences = function (pushed, popped) {
+    let stk = [];
+    let j = 0;
+    for (const v of pushed) {
+        stk.push(v);
+        while (stk.length && stk[stk.length - 1] == popped[j]) {
+            stk.pop();
+            ++j;
         }
-        return ans.Count == 0;
     }
-}
+    return j == pushed.length;
+};
 ```
 
 ### **...**
