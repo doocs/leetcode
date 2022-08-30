@@ -56,6 +56,16 @@ There are no cycles of length 3.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+长度为 `3` 的环，由三个顶点、三条边组成。我们假设三个顶点分别为 `a`, `b`, `c`。
+
+那么一定存在 `c <=> a`，`c <=> b` 以及 `a <=> b`，即环中的每个点都与其他两点直接相连。我们可以用哈希表来存放每个点的相邻点。
+
+由于环的长度为 `3`，每个相同的环会被重复统计 `3` 次，因此答案需除以 `3`。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +73,18 @@ There are no cycles of length 3.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfPaths(self, n: int, corridors: List[List[int]]) -> int:
+        g = defaultdict(set)
+        for a, b in corridors:
+            g[a].add(b)
+            g[b].add(a)
+        ans = 0
+        for i in range(1, n + 1):
+            for j, k in combinations(g[i], 2):
+                if j in g[k]:
+                    ans += 1
+        return ans // 3
 ```
 
 ### **Java**
@@ -71,7 +92,95 @@ There are no cycles of length 3.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfPaths(int n, int[][] corridors) {
+        Set<Integer>[] g = new Set[n + 1];
+        for (int i = 0; i <= n; ++i) {
+            g[i] = new HashSet<>();
+        }
+        for (var c : corridors) {
+            int a = c[0], b = c[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int ans = 0;
+        for (int c = 1; c <= n; ++c) {
+            var nxt = new ArrayList<>(g[c]);
+            int m = nxt.size();
+            for (int i = 0; i < m; ++i) {
+                for (int j = i + 1; j < m; ++j) {
+                    int a = nxt.get(i), b = nxt.get(j);
+                    if (g[b].contains(a)) {
+                        ++ans;
+                    }
+                }
+            }
+        }
+        return ans / 3;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfPaths(int n, vector<vector<int>>& corridors) {
+        vector<unordered_set<int>> g(n + 1);
+        for (auto& c : corridors) {
+            int a = c[0], b = c[1];
+            g[a].insert(b);
+            g[b].insert(a);
+        }
+        int ans = 0;
+        for (int c = 1; c <= n; ++c) {
+            vector<int> nxt;
+            nxt.assign(g[c].begin(), g[c].end());
+            int m = nxt.size();
+            for (int i = 0; i < m; ++i) {
+                for (int j = i + 1; j < m; ++j) {
+                    int a = nxt[i], b = nxt[j];
+                    ans += g[b].count(a);
+                }
+            }
+        }
+        return ans / 3;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfPaths(n int, corridors [][]int) int {
+	g := make([]map[int]bool, n+1)
+	for i := range g {
+		g[i] = make(map[int]bool)
+	}
+	for _, c := range corridors {
+		a, b := c[0], c[1]
+		g[a][b] = true
+		g[b][a] = true
+	}
+	ans := 0
+	for c := 1; c <= n; c++ {
+		nxt := []int{}
+		for v := range g[c] {
+			nxt = append(nxt, v)
+		}
+		m := len(nxt)
+		for i := 0; i < m; i++ {
+			for j := i + 1; j < m; j++ {
+				a, b := nxt[i], nxt[j]
+				if g[b][a] {
+					ans++
+				}
+			}
+		}
+	}
+	return ans / 3
+}
 ```
 
 ### **...**
