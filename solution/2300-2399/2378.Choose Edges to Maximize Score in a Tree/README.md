@@ -63,6 +63,8 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树形 DP**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +72,23 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxScore(self, edges: List[List[int]]) -> int:
+        def dfs(i):
+            a = b = 0
+            t = 0
+            for j in g[i]:
+                x, y = dfs(j)
+                a += y
+                b += y
+                t = max(t, x - y + g[i][j])
+            b += t
+            return a, b
 
+        g = defaultdict(lambda: defaultdict(lambda: -inf))
+        for i, (p, w) in enumerate(edges[1:], 1):
+            g[p][i] = w
+        return max(dfs(0))
 ```
 
 ### **Java**
@@ -78,7 +96,106 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Map<Integer, Integer>[] g;
 
+    public long maxScore(int[][] edges) {
+        int n = edges.length;
+        g = new Map[n + 1];
+        for (int i = 0; i < n + 1; ++i)  {
+            g[i] = new HashMap<>();
+        }
+        for (int i = 1; i < n; ++i) {
+            int p = edges[i][0], w = edges[i][1];
+            g[p].put(i, w);
+        }
+        return dfs(0)[1];
+    }
+
+    private long[] dfs(int i) {
+        long a = 0, b = 0;
+        long t = 0;
+        for (int j : g[i].keySet()) {
+            long[] s = dfs(j);
+            a += s[1];
+            b += s[1];
+            t = Math.max(t, s[0] - s[1] + g[i].get(j));
+        }
+        b += t;
+        return new long[]{a, b};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    vector<unordered_map<int, int>> g;
+
+    long long maxScore(vector<vector<int>>& edges) {
+        int n = edges.size();
+        g.resize(n + 1);
+        for (int i = 1; i < n; ++i) {
+            int p = edges[i][0], w = edges[i][1];
+            g[p][i] = w;
+        }
+        return dfs(0).second;
+    }
+
+    pair<ll, ll> dfs(int i) {
+        ll a = 0, b = 0;
+        ll s = 0;
+        for (auto& [j, v] : g[i]) {
+            auto t = dfs(j);
+            a += t.second;
+            b += t.second;
+            s = max(s, t.first - t.second + v);
+        }
+        b += s;
+        return {a, b};
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxScore(edges [][]int) int64 {
+	n := len(edges)
+	g := make([]map[int]int, n+1)
+	for i := range g {
+		g[i] = make(map[int]int)
+	}
+	for i := 1; i < n; i++ {
+		p, w := edges[i][0], edges[i][1]
+		g[p][i] = w
+	}
+	var dfs func(i int) []int
+	dfs = func(i int) []int {
+		a, b := 0, 0
+		s := 0
+		for j, v := range g[i] {
+			t := dfs(j)
+			a += t[1]
+			b += t[1]
+			s = max(s, t[0]-t[1]+v)
+		}
+		b += s
+		return []int{a, b}
+	}
+	return int64(dfs(0)[1])
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
