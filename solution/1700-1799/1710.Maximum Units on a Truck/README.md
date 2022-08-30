@@ -52,6 +52,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序**
+
+根据题意，我们应该选择尽可能多的单元数，因此，我们对 `boxTypes` 按照单元数从大到小的顺序排列。然后遍历从前往后 `boxTypes`，选择至多 `truckSize` 个箱子，累加单元数。
+
+时间复杂度 $O(n\log n)$，其中 $n$ 表示二维数组 `boxTypes` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +65,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        boxTypes.sort(key=lambda x: -x[1])
+        ans = 0
+        for a, b in boxTypes:
+            a = min(a, truckSize)
+            truckSize -= a
+            ans += a * b
+            if truckSize == 0:
+                break
+        return ans
 ```
 
 ### **Java**
@@ -67,7 +83,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximumUnits(int[][] boxTypes, int truckSize) {
+        Arrays.sort(boxTypes, (a, b) -> b[1] - a[1]);
+        int ans = 0;
+        for (var v : boxTypes) {
+            int a = Math.min(v[0], truckSize);
+            truckSize -= a;
+            ans += a * v[1];
+            if (truckSize == 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
+        sort(boxTypes.begin(), boxTypes.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[1] > b[1];
+        });
+        int ans = 0;
+        for (auto& v : boxTypes) {
+            int a = min(v[0], truckSize);
+            truckSize -= a;
+            ans += a * v[1];
+            if (!truckSize) break;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumUnits(boxTypes [][]int, truckSize int) int {
+	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
+	ans := 0
+	for _, v := range boxTypes {
+		a := min(v[0], truckSize)
+		truckSize -= a
+		ans += a * v[1]
+		if truckSize == 0 {
+			break
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
