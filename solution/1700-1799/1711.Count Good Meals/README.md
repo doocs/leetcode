@@ -43,7 +43,19 @@
 
 ## 解法
 
+**方法一：哈希表**
+
 用最暴力的方法枚举每对元素肯定会超时，可以用哈希表优化对**之前元素出现次数**的查询。
+
+**方法二：枚举二的幂**
+
+用哈希表 `cnt` 记录数组中每个元素出现的次数。
+
+枚举二的幂次方作为两数之和 `s`，然后枚举其中一个数 `a`，判断 `s-a` 是否出现在哈希表 `cnt` 中。若出现，判断 `a` 与 `b` 是否相等，是则答案累加 `cnt[a] * (cnt[a]-1)`，否则答案累加 `cnt[a] * cnt[b]`。
+
+由于每个 `a`，`b` 会重复枚举，因此最后答案需要除以 `2`。注意取模操作。
+
+时间复杂度 $O(n\log C)$，其中 $n$ 是数组 `deliciousness` 的长度，而 $C$ 是元素的上限，对于本题，上限 $C=2^{20}$。
 
 <!-- 这里可写通用的实现逻辑 -->
 
@@ -69,6 +81,23 @@ class Solution:
         return pairs
 ```
 
+```python
+class Solution:
+    def countPairs(self, deliciousness: List[int]) -> int:
+        cnt = Counter(deliciousness)
+        ans = 0
+        mod = 10**9 + 7
+        for i in range(22):
+            s = 1 << i
+            for a, m in cnt.items():
+                if (b := s - a) in cnt:
+                    if a == b:
+                        ans += m * (m - 1)
+                    else:
+                        ans += m * cnt[b]
+        return (ans >> 1) % mod
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -90,6 +119,37 @@ class Solution {
             freq.merge(d, 1, Integer::sum);
         }
         return pairs;
+    }
+}
+```
+
+```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int countPairs(int[] deliciousness) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int v : deliciousness) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        }
+        long ans = 0;
+        for (int i = 0; i < 22; ++i) {
+            int s = 1 << i;
+            for (var x : cnt.entrySet()) {
+                int a = x.getKey(), m = x.getValue();
+                int b = s - a;
+                if (!cnt.containsKey(b)) {
+                    continue;
+                }
+                if (a == b) {
+                    ans += (long) m * (m - 1);
+                } else {
+                    ans += (long) m * cnt.get(b);
+                }
+            }
+        }
+        ans >>= 1;
+        return (int) (ans % MOD);
     }
 }
 ```
@@ -122,6 +182,57 @@ func max(x, y int) int {
 	}
 	return y
 }
+```
+
+```go
+func countPairs(deliciousness []int) int {
+	cnt := map[int]int{}
+	for _, v := range deliciousness {
+		cnt[v]++
+	}
+	ans := 0
+	mod := int(1e9) + 7
+	for i := 0; i < 22; i++ {
+		s := 1 << i
+		for a, m := range cnt {
+			b := s - a
+			if n, ok := cnt[b]; ok {
+				if a == b {
+					ans += m * (m - 1)
+				} else {
+					ans += m * n
+				}
+			}
+		}
+	}
+	ans >>= 1
+	return ans % mod
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countPairs(vector<int>& deliciousness) {
+        unordered_map<int, int> cnt;
+        for (int v : deliciousness) ++cnt[v];
+        long long ans = 0;
+        for (int i = 0; i < 22; ++i) {
+            int s = 1 << i;
+            for (auto& [a, m] : cnt) {
+                int b = s - a;
+                if (!cnt.count(b)) continue;
+                if (a == b) ans += 1ll * m * (m - 1);
+                else ans += 1ll * m * cnt[b];
+            }
+        }
+        ans >>= 1;
+        int mod = 1e9 + 7;
+        return (int) (ans % mod);
+    }
+};
 ```
 
 ### **...**

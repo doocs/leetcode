@@ -59,6 +59,23 @@ class Solution:
         return pairs
 ```
 
+```python
+class Solution:
+    def countPairs(self, deliciousness: List[int]) -> int:
+        cnt = Counter(deliciousness)
+        ans = 0
+        mod = 10**9 + 7
+        for i in range(22):
+            s = 1 << i
+            for a, m in cnt.items():
+                if (b := s - a) in cnt:
+                    if a == b:
+                        ans += m * (m - 1)
+                    else:
+                        ans += m * cnt[b]
+        return (ans >> 1) % mod
+```
+
 ### **Java**
 
 ```java
@@ -78,6 +95,37 @@ class Solution {
             freq.merge(d, 1, Integer::sum);
         }
         return pairs;
+    }
+}
+```
+
+```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int countPairs(int[] deliciousness) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int v : deliciousness) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        }
+        long ans = 0;
+        for (int i = 0; i < 22; ++i) {
+            int s = 1 << i;
+            for (var x : cnt.entrySet()) {
+                int a = x.getKey(), m = x.getValue();
+                int b = s - a;
+                if (!cnt.containsKey(b)) {
+                    continue;
+                }
+                if (a == b) {
+                    ans += (long) m * (m - 1);
+                } else {
+                    ans += (long) m * cnt.get(b);
+                }
+            }
+        }
+        ans >>= 1;
+        return (int) (ans % MOD);
     }
 }
 ```
@@ -110,6 +158,57 @@ func max(x, y int) int {
 	}
 	return y
 }
+```
+
+```go
+func countPairs(deliciousness []int) int {
+	cnt := map[int]int{}
+	for _, v := range deliciousness {
+		cnt[v]++
+	}
+	ans := 0
+	mod := int(1e9) + 7
+	for i := 0; i < 22; i++ {
+		s := 1 << i
+		for a, m := range cnt {
+			b := s - a
+			if n, ok := cnt[b]; ok {
+				if a == b {
+					ans += m * (m - 1)
+				} else {
+					ans += m * n
+				}
+			}
+		}
+	}
+	ans >>= 1
+	return ans % mod
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countPairs(vector<int>& deliciousness) {
+        unordered_map<int, int> cnt;
+        for (int v : deliciousness) ++cnt[v];
+        long long ans = 0;
+        for (int i = 0; i < 22; ++i) {
+            int s = 1 << i;
+            for (auto& [a, m] : cnt) {
+                int b = s - a;
+                if (!cnt.count(b)) continue;
+                if (a == b) ans += 1ll * m * (m - 1);
+                else ans += 1ll * m * cnt[b];
+            }
+        }
+        ans >>= 1;
+        int mod = 1e9 + 7;
+        return (int) (ans % mod);
+    }
+};
 ```
 
 ### **...**
