@@ -24,29 +24,11 @@
 
 ## 解法
 
-**双指针**
+**方法一：双指针**
 
-定义两个指针，分别指向数组左右边缘。
+定义指针 `i`, `j` 分别指向数组的头部和尾部，`i` 向右移动，`j` 向左移动，当 `i` 指向偶数，`j` 指向奇数时，交换两个指针指向的元素，直到 `i` 和 `j` 相遇。
 
--   查看左指针所指向的元素。
-    -   若为 **奇数**，则左指针往右移动。
-    -   若为 **偶数**，则与右指针交换元素，并将右指针往左移动。
--   重复该过程，直到左指针超过右指针。
-
-```txt
-EXCHANGE(n)
-    l = 0
-    r = n.length - 1
-    while l < r
-        if n[l] % 2 == 0
-            t = n[l]
-            n[l] = n[r]
-            n[r] = t
-            r--
-        else
-            l++
-    return n
-```
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -55,15 +37,13 @@ EXCHANGE(n)
 ```python
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
-        p, q = 0, len(nums) - 1
-        while p < q:
-            if nums[p] & 1 == 1:
-                p += 1
-                continue
-            if nums[q] & 1 == 0:
-                q -= 1
-                continue
-            nums[p], nums[q] = nums[q], nums[p]
+        i, j = 0, len(nums) - 1
+        while i < j:
+            while i < j and nums[i] & 1:
+                i += 1
+            while i < j and (nums[j] & 1) == 0:
+                j -= 1
+            nums[i], nums[j] = nums[j], nums[i]
         return nums
 ```
 
@@ -72,25 +52,19 @@ class Solution:
 ```java
 class Solution {
     public int[] exchange(int[] nums) {
-        int p = 0, q = nums.length - 1;
-        while (p < q) {
-            if ((nums[p] & 1) == 1) {
-                ++p;
-                continue;
+        int i = 0, j = nums.length - 1;
+        while (i < j) {
+            while (i < j && nums[i] % 2 == 1) {
+                ++i;
             }
-            if ((nums[q] & 1) == 0) {
-                --q;
-                continue;
+            while (i < j && nums[j] % 2 == 0) {
+                --j;
             }
-            swap(nums, p, q);
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
         }
         return nums;
-    }
-
-    private void swap(int[] nums, int p, int q) {
-        int t = nums[p];
-        nums[p] = nums[q];
-        nums[q] = t;
     }
 }
 ```
@@ -103,18 +77,18 @@ class Solution {
  * @return {number[]}
  */
 var exchange = function (nums) {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        let c = nums[left];
-        nums[left] = nums[right];
-        nums[right] = c;
-        while (nums[left] % 2) {
-            left++;
+    let i = 0;
+    let j = nums.length - 1;
+    while (i < j) {
+        while (i < j && nums[i] % 2 == 1) {
+            i++;
         }
-        while (nums[right] % 2 === 0) {
-            right--;
+        while (i < j && nums[j] % 2 == 0) {
+            --j;
         }
+        const t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
     return nums;
 };
@@ -126,34 +100,55 @@ var exchange = function (nums) {
 class Solution {
 public:
     vector<int> exchange(vector<int>& nums) {
-        int left = 0, right = nums.size() - 1;
-        while (left < right) {
-            while (left < right && (nums[left] & 1) == 1) {
-                ++left;
+        int i = 0, j = nums.size() - 1;
+        while (i < j) {
+            while (i < j && nums[i] % 2 == 1) {
+                ++i;
             }
-            while (left < right && (nums[right] & 1) == 0) {
-                --right;
+            while (i < j && nums[j] % 2 == 0) {
+                --j;
             }
-            swap(nums[left], nums[right]);
+            swap(nums[i], nums[j]);
         }
         return nums;
     }
 };
 ```
 
+### **Go**
+
+```go
+func exchange(nums []int) []int {
+	i, j := 0, len(nums)-1
+	for i < j {
+		for i < j && nums[i]%2 == 1 {
+			i++
+		}
+		for i < j && nums[j]%2 == 0 {
+			j--
+		}
+		nums[i], nums[j] = nums[j], nums[i]
+	}
+	return nums
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function exchange(nums: number[]): number[] {
-    let l = 0;
-    let r = nums.length - 1;
-    while (l < r) {
-        if (nums[l] % 2 === 0) {
-            [nums[l], nums[r]] = [nums[r], nums[l]];
-            r--;
-        } else {
-            l++;
+    let i = 0;
+    let j = nums.length - 1;
+    while (i < j) {
+        while (i < j && nums[i] % 2 == 1) {
+            i++;
         }
+        while (i < j && nums[j] % 2 == 0) {
+            --j;
+        }
+        const t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
     return nums;
 }
@@ -186,20 +181,18 @@ impl Solution {
 
 ```cs
 public class Solution {
-    public int[] Excahnge(int[] nums) {
-        int p = 0, q = nums.Length - 1;
-        while (p < q) {
-            if (nums[p] % 2 == 1) {
-                p += 1;
-                continue;
+    public int[] Exchange(int[] nums) {
+        int i = 0, j = nums.Length - 1;
+        while (i < j) {
+            while (i < j && nums[i] % 2 == 1) {
+                ++i;
             }
-            if (nums[q] % 2 == 0) {
-                q -= 1;
-                continue;
+            while (i < j && nums[j] % 2 == 0) {
+                --j;
             }
-            nums[p] = nums[p] + nums[q];
-            nums[q] = nums[p] - nums[q];
-            nums[p] = nums[p] - nums[q];
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
         }
         return nums;
     }

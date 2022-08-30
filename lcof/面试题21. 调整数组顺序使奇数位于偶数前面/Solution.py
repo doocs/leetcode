@@ -1,12 +1,10 @@
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
-        p, q = 0, len(nums) - 1
-        while p < q:
-            if nums[p] & 1 == 1:
-                p += 1
-                continue
-            if nums[q] & 1 == 0:
-                q -= 1
-                continue
-            nums[p], nums[q] = nums[q], nums[p]
+        i, j = 0, len(nums) - 1
+        while i < j:
+            while i < j and nums[i] & 1:
+                i += 1
+            while i < j and (nums[j] & 1) == 0:
+                j -= 1
+            nums[i], nums[j] = nums[j], nums[i]
         return nums

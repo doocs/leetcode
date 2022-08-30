@@ -1,23 +1,17 @@
 class Solution {
     public int[] exchange(int[] nums) {
-        int p = 0, q = nums.length - 1;
-        while (p < q) {
-            if ((nums[p] & 1) == 1) {
-                ++p;
-                continue;
+        int i = 0, j = nums.length - 1;
+        while (i < j) {
+            while (i < j && nums[i] % 2 == 1) {
+                ++i;
             }
-            if ((nums[q] & 1) == 0) {
-                --q;
-                continue;
+            while (i < j && nums[j] % 2 == 0) {
+                --j;
             }
-            swap(nums, p, q);
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
         }
         return nums;
-    }
-
-    private void swap(int[] nums, int p, int q) {
-        int t = nums[p];
-        nums[p] = nums[q];
-        nums[q] = t;
     }
 }

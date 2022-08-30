@@ -1,18 +1,16 @@
 public class Solution {
-    public int[] Excahnge(int[] nums) {
-        int p = 0, q = nums.Length - 1;
-        while (p < q) {
-            if (nums[p] % 2 == 1) {
-                p += 1;
-                continue;
+    public int[] Exchange(int[] nums) {
+        int i = 0, j = nums.Length - 1;
+        while (i < j) {
+            while (i < j && nums[i] % 2 == 1) {
+                ++i;
             }
-            if (nums[q] % 2 == 0) {
-                q -= 1;
-                continue;
+            while (i < j && nums[j] % 2 == 0) {
+                --j;
             }
-            nums[p] = nums[p] + nums[q];
-            nums[q] = nums[p] - nums[q];
-            nums[p] = nums[p] - nums[q];
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
         }
         return nums;
     }
