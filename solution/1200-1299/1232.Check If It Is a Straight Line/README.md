@@ -43,6 +43,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学**
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 表示 `coordinates` 数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,7 +54,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def checkStraightLine(self, coordinates: List[List[int]]) -> bool:
+        x1, y1 = coordinates[0]
+        x2, y2 = coordinates[1]
+        for x, y in coordinates[2:]:
+            if (x - x1) * (y2 - y1) != (y - y1) * (x2 - x1):
+                return False
+        return True
 ```
 
 ### **Java**
@@ -58,7 +69,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean checkStraightLine(int[][] coordinates) {
+        int x1 = coordinates[0][0], y1 = coordinates[0][1];
+        int x2 = coordinates[1][0], y2 = coordinates[1][1];
+        for (int i = 2; i < coordinates.length; ++i) {
+            int x = coordinates[i][0], y = coordinates[i][1];
+            if ((x - x1) * (y2 - y1) != (y - y1) * (x2 - x1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& coordinates) {
+        int x1 = coordinates[0][0], y1 = coordinates[0][1];
+        int x2 = coordinates[1][0], y2 = coordinates[1][1];
+        for (int i = 2; i < coordinates.size(); ++i) {
+            int x = coordinates[i][0], y = coordinates[i][1];
+            if ((x - x1) * (y2 - y1) != (y - y1) * (x2 - x1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkStraightLine(coordinates [][]int) bool {
+	x1, y1 := coordinates[0][0], coordinates[0][1]
+	x2, y2 := coordinates[1][0], coordinates[1][1]
+	for i := 2; i < len(coordinates); i++ {
+		x, y := coordinates[i][0], coordinates[i][1]
+		if (x-x1)*(y2-y1) != (y-y1)*(x2-x1) {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
