@@ -1,37 +1,31 @@
 class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+    
     public int waysToSplit(int[] nums) {
-        double mod = 1e9 + 7;
         int n = nums.length;
-        long[] pre = new long[n + 1];
-        for (int i = 1; i < n + 1; i++) {
-            pre[i] = pre[i - 1] + nums[i - 1];
+        int[] s = new int[n];
+        s[0] = nums[0];
+        for (int i = 1; i < n; ++i) {
+            s[i] = s[i - 1] + nums[i];
         }
-        double ans = 0;
-        for (int i = 1; i < n - 1; i++) {
-            if (pre[i] * 3 > pre[n]) {
-                break;
-            }
-            int left = i + 1, right = n - 1;
-            while (left < right) {
-                int mid = (left + right + 1) >> 1;
-                if (pre[mid] - pre[i] <= pre[n] - pre[mid]) {
-                    left = mid;
-                } else {
-                    right = mid - 1;
-                }
-            }
-            int midRight = left;
-            left = i + 1; right = n - 1;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (pre[mid] - pre[i] >= pre[i]) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            ans += (midRight - left + 1) % mod;
+        int ans = 0;
+        for (int i = 0; i < n - 2; ++i) {
+            int j0 = lowerBound(s, s[i] * 2, i + 1, n - 1);
+            int j1 = lowerBound(s, (s[i] + s[n - 1]) / 2 + 1, j0, n - 1);
+            ans = (ans + j1 - j0) % MOD;
         }
-        return (int) (ans % mod);
+        return ans;
+    }
+
+    private int lowerBound(int[] s, int x, int left, int right) {
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (s[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
     }
 }
