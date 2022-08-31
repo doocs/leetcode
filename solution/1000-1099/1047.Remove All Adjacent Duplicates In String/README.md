@@ -35,11 +35,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-栈实现。
+**方法一：栈**
 
-遍历字符串 S 中的每个字符 s，若栈为空或者栈顶值不等于字符 s，s 入栈，否则栈顶元素出栈。
+遍历字符串 `s` 中的每个字符 `c`，若栈为空或者栈顶值不等于字符 `c`，将 `c` 入栈，否则栈顶元素出栈。
 
 最后返回栈中元素所组成的字符串。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
 
 <!-- tabs:start -->
 
@@ -49,14 +51,14 @@
 
 ```python
 class Solution:
-    def removeDuplicates(self, S: str) -> str:
-        res = []
-        for s in S:
-            if not res or res[-1] != s:
-                res.append(s)
+    def removeDuplicates(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if stk and stk[-1] == c:
+                stk.pop()
             else:
-                res.pop()
-        return ''.join(res)
+                stk.append(c)
+        return ''.join(stk)
 ```
 
 ### **Java**
@@ -65,22 +67,73 @@ class Solution:
 
 ```java
 class Solution {
-    public String removeDuplicates(String S) {
+    public String removeDuplicates(String s) {
         StringBuilder sb = new StringBuilder();
-        int top = -1;
-        for (int i = 0, n = S.length(); i < n; ++i) {
-            char s = S.charAt(i);
-            if (top == -1 || sb.charAt(top) != s) {
-                sb.append(s);
-                ++top;
+        for (char c : s.toCharArray()) {
+            if (sb.length() > 0 && sb.charAt(sb.length() - 1) == c) {
+                sb.deleteCharAt(sb.length() - 1);
             } else {
-                sb.deleteCharAt(top);
-                --top;
+                sb.append(c);
             }
         }
         return sb.toString();
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string stk;
+        for (char c : s) {
+            if (!stk.empty() && stk[stk.size() - 1] == c) {
+                stk.pop_back();
+            } else {
+                stk += c;
+            }
+        }
+        return stk;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeDuplicates(s string) string {
+	stk := []rune{}
+	for _, c := range s {
+		if len(stk) > 0 && stk[len(stk)-1] == c {
+			stk = stk[:len(stk)-1]
+		} else {
+			stk = append(stk, c)
+		}
+	}
+	return string(stk)
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeDuplicates = function (s) {
+    const stk = [];
+    for (const c of s) {
+        if (stk.length && stk[stk.length - 1] == c) {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.join('');
+};
 ```
 
 ### **...**

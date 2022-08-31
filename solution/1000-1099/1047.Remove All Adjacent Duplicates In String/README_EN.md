@@ -43,36 +43,87 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 
 ```python
 class Solution:
-    def removeDuplicates(self, S: str) -> str:
-        res = []
-        for s in S:
-            if not res or res[-1] != s:
-                res.append(s)
+    def removeDuplicates(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if stk and stk[-1] == c:
+                stk.pop()
             else:
-                res.pop()
-        return ''.join(res)
+                stk.append(c)
+        return ''.join(stk)
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public String removeDuplicates(String S) {
+    public String removeDuplicates(String s) {
         StringBuilder sb = new StringBuilder();
-        int top = -1;
-        for (int i = 0, n = S.length(); i < n; ++i) {
-            char s = S.charAt(i);
-            if (top == -1 || sb.charAt(top) != s) {
-                sb.append(s);
-                ++top;
+        for (char c : s.toCharArray()) {
+            if (sb.length() > 0 && sb.charAt(sb.length() - 1) == c) {
+                sb.deleteCharAt(sb.length() - 1);
             } else {
-                sb.deleteCharAt(top);
-                --top;
+                sb.append(c);
             }
         }
         return sb.toString();
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string stk;
+        for (char c : s) {
+            if (!stk.empty() && stk[stk.size() - 1] == c) {
+                stk.pop_back();
+            } else {
+                stk += c;
+            }
+        }
+        return stk;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeDuplicates(s string) string {
+	stk := []rune{}
+	for _, c := range s {
+		if len(stk) > 0 && stk[len(stk)-1] == c {
+			stk = stk[:len(stk)-1]
+		} else {
+			stk = append(stk, c)
+		}
+	}
+	return string(stk)
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeDuplicates = function (s) {
+    const stk = [];
+    for (const c of s) {
+        if (stk.length && stk[stk.length - 1] == c) {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.join('');
+};
 ```
 
 ### **...**
