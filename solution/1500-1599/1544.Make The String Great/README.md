@@ -61,6 +61,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：栈模拟**
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是字符串 `s` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +72,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def makeGood(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if not stk or abs(ord(stk[-1]) - ord(c)) != 32:
+                stk.append(c)
+            else:
+                stk.pop()
+        return "".join(stk)
 ```
 
 ### **Java**
@@ -76,8 +88,63 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String makeGood(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (sb.length() == 0 || Math.abs(sb.charAt(sb.length() - 1) - c) != 32) {
+                sb.append(c);
+            } else {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+        }
+        return sb.toString();
+    }
+}
 ```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string makeGood(string s) {
+        string stk;
+        for (char c : s) {
+            if (stk.empty() || abs(stk.back() - c) != 32) {
+                stk += c;
+            } else {
+                stk.pop_back();
+            }
+        }
+        return stk;
+    }
+};
+```
+
+### **Go**
+
+```go
+func makeGood(s string) string {
+	stk := []rune{}
+	for _, c := range s {
+		if len(stk) == 0 || abs(int(stk[len(stk)-1]-c)) != 32 {
+			stk = append(stk, c)
+		} else {
+			stk = stk[:len(stk)-1]
+		}
+	}
+	return string(stk)
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
 
 ### **...**
 
