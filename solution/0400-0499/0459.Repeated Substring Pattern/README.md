@@ -48,6 +48,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双倍字符串**
+
+若长度为 $n$ 的字符串 `s` 由 $m$ 个重复子串组成，将 `s` 拼接在自身上，得到字符串 `ss`，长度为 $2n$，此时若从下标 `1` 开始查找 `s`，那么查找到的下标一定小于 `s.length`。
+
+若长度为 $n$ 的字符串 `s` 不由重复子串组成，将 `s` 拼接在自身上，得到字符串 `ss`，长度为 $2n$，此时若从下标 `1` 开始查找 `s`，那么查找到的下标一定等于 `s.length`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +61,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def repeatedSubstringPattern(self, s: str) -> bool:
+        return (s + s).index(s, 1) < len(s)
 ```
 
 ### **Java**
@@ -68,6 +76,25 @@ class Solution {
         String str = s + s;
         return str.substring(1, str.length() - 1).contains(s);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool repeatedSubstringPattern(string s) {
+        return (s + s).find(s, 1) < s.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func repeatedSubstringPattern(s string) bool {
+	return strings.Index(s[1:]+s, s) < len(s)-1
 }
 ```
 

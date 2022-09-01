@@ -45,7 +45,9 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def repeatedSubstringPattern(self, s: str) -> bool:
+        return (s + s).index(s, 1) < len(s)
 ```
 
 ### **Java**
@@ -56,6 +58,25 @@ class Solution {
         String str = s + s;
         return str.substring(1, str.length() - 1).contains(s);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool repeatedSubstringPattern(string s) {
+        return (s + s).find(s, 1) < s.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func repeatedSubstringPattern(s string) bool {
+	return strings.Index(s[1:]+s, s) < len(s)-1
 }
 ```
 
