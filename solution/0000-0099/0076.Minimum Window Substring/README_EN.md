@@ -47,7 +47,7 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 </ul>
 
 <p>&nbsp;</p>
-<strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?
+<p><strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?</p>
 
 ## Solutions
 

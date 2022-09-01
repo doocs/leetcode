@@ -1,14 +1,10 @@
 # [2393. Count Strictly Increasing Subarrays](https://leetcode.cn/problems/count-strictly-increasing-subarrays)
 
-
 [English Version](/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README_EN.md)
-
 
 ## 题目描述
 
-
 <!-- 这里写题目描述 -->
-
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
 
@@ -45,54 +41,39 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
-
 ## 解法
-
 
 <!-- 这里可写通用的实现逻辑 -->
 
-
 <!-- tabs:start -->
-
 
 ### **Python3**
 
-
 <!-- 这里可写当前语言的特殊实现逻辑 -->
-
 
 ```python
 
 ```
 
-
 ### **Java**
 
-
 <!-- 这里可写当前语言的特殊实现逻辑 -->
-
 
 ```java
 
 ```
 
-
 ### **TypeScript**
-
 
 ```ts
 
 ```
 
-
 ### **...**
 
-
 ```
 
 
 ```
-
 
 <!-- tabs:end -->

@@ -1,4 +1,4 @@
-# [2372. Calculate the Influence of Each Salesperson](https://leetcode.cn/problems/calculate-the-influence-of-each-salesperson)
+# [2372. 计算每个销售人员的影响力](https://leetcode.cn/problems/calculate-the-influence-of-each-salesperson)
 
 [English Version](/solution/2300-2399/2372.Calculate%20the%20Influence%20of%20Each%20Salesperson/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Salesperson</code></p>
+<p>表：&nbsp;<code>Salesperson</code></p>
 
 <pre>
 +----------------+---------+
@@ -15,13 +15,13 @@
 | salesperson_id | int     |
 | name           | varchar |
 +----------------+---------+
-sales_person_id is the primary key for this table.
-Each row in this table shows the ID of a salesperson and the price of one unit.
+sales_person_id 是这个表的主键。
+这个表中的每一行都显示一个销售人员的 ID。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Customer</code></p>
+<p>表：<code>Customer</code></p>
 
 <pre>
 +----------------+------+
@@ -30,14 +30,14 @@ Each row in this table shows the ID of a salesperson and the price of one unit.
 | customer_id    | int  |
 | salesperson_id | int  |
 +----------------+------+
-customer_id is the primary key for this table.
-salesperson_id is a foreign key from the Salesperson table.
-Each row in this table shows the ID of a customer and the ID of the salesperson 
+customer_id 是这个表的主键。
+salesperson_id 是一个来自于 <code>Salesperson 表的外键</code>
+<code>Customer </code>表中的每一行都显示了一个客户的 ID 和销售人员的 ID。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Sales</code></p>
+<p>表：<code>Sales</code></p>
 
 <pre>
 +-------------+------+
@@ -47,25 +47,24 @@ Each row in this table shows the ID of a customer and the ID of the salesperson
 | customer_id | int  |
 | price       | int  |
 +-------------+------+
-sale_id is the primary key for this table.
-customer_id is a foreign key from the Customer table.
-Each row in this table shows ID of a customer and the price they paid for the sale with sale_id.
+sale_id 是这个表的主键。
+customer_id 是一个来自于 Customer 表的外键。
+<code>Sales </code>表中的每一行都显示了一个客户的 ID 以及他们在 sale_id 指代的交易中所支付的金额。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the sum of prices paid by the customers of each salesperson. If a salesperson does not have any customers, the total value should be <code>0</code>.</p>
-
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is shown in the following example.</p>
+<p>编写一个 SQL 查询用来报告每个销售人员的客户所支付的价格总和。如果销售人员没有任何客户，则总值应该为 <code>0</code> 。<br />
+以 <strong>任意顺序</strong> 返回结果表。<br />
+查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Salesperson table:
+<strong>输入:</strong> 
+Salesperson 表:
 +----------------+-------+
 | salesperson_id | name  |
 +----------------+-------+
@@ -73,7 +72,7 @@ Salesperson table:
 | 2              | Bob   |
 | 3              | Jerry |
 +----------------+-------+
-Customer table:
+Customer 表:
 +-------------+----------------+
 | customer_id | salesperson_id |
 +-------------+----------------+
@@ -81,7 +80,7 @@ Customer table:
 | 2           | 1              |
 | 3           | 2              |
 +-------------+----------------+
-Sales table:
+Sales 表:
 +---------+-------------+-------+
 | sale_id | customer_id | price |
 +---------+-------------+-------+
@@ -90,7 +89,7 @@ Sales table:
 | 3       | 3           | 988   |
 | 4       | 3           | 856   |
 +---------+-------------+-------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +----------------+-------+-------+
 | salesperson_id | name  | total |
 +----------------+-------+-------+
@@ -98,19 +97,18 @@ Sales table:
 | 2              | Bob   | 1844  |
 | 3              | Jerry | 0     |
 +----------------+-------+-------+
-<strong>Explanation:</strong> 
-Alice is the salesperson for customers 1 and 2.
-  - Customer 1 made one purchase with 354.
-  - Customer 2 made one purchase with 892.
-The total for Alice is 354 + 892 = 1246.
+<strong>解释:</strong> 
+Alice 是客户 1 和客户 2 的销售人员。
+  - 客户 1 一次购买花费了 354。
+  - 客户 2 一次购买花费了 892。
+Alice 的总数是 354 + 892 = 1246。
 
-Bob is the salesperson for customers 3.
-  - Customer 1 made one purchase with 988 and 856.
-The total for Bob is 988 + 856 = 1844.
+Bob 是客户 3 的销售人员。
+  - 客户 3 一次购买花费了 988，另一次购买花费了 856。
+Bob 的总数是 988 + 856 = 1844。
 
-Jerry is not the salesperson of any customer.
-The total for Jerry is 0.
-</pre>
+Jerry 没有客户。
+Jerry 的总数是 0。</pre>
 
 ## 解法
 

@@ -44,6 +44,7 @@
 	<li><code>beginWord</code>, <code>endWord</code>, and <code>wordList[i]</code> consist of lowercase English letters.</li>
 	<li><code>beginWord != endWord</code></li>
 	<li>All the words in <code>wordList</code> are <strong>unique</strong>.</li>
+	<li>The <strong>sum</strong> of all shortest transformation sequences does not exceed <code>10<sup>5</sup></code>.</li>
 </ul>
 
 ## Solutions

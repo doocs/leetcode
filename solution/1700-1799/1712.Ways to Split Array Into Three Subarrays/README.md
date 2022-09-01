@@ -89,7 +89,7 @@ class Solution:
 ```java
 class Solution {
     private static final int MOD = (int) 1e9 + 7;
-    
+
     public int waysToSplit(int[] nums) {
         int n = nums.length;
         int[] s = new int[n];
@@ -141,7 +141,7 @@ public:
 };
 ```
 
-### ****
+### \*\*\*\*
 
 ```go
 func waysToSplit(nums []int) int {

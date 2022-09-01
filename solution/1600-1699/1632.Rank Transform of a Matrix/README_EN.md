@@ -134,7 +134,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private void union(int a, int b) {
         p.put(find(a), find(b));
     }
