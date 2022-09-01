@@ -40,12 +40,31 @@ class Solution:
         return True
 ```
 
+```python
+class Solution:
+    def queryString(self, s: str, n: int) -> bool:
+        return all(bin(i)[2:] in s for i in range(1, n + 1))
+```
+
 ### **Java**
 
 ```java
 class Solution {
     public boolean queryString(String s, int n) {
         for (int i = n; i > n / 2; i--) {
+            if (!s.contains(Integer.toBinaryString(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean queryString(String s, int n) {
+        for (int i = 1; i <= n; ++i) {
             if (!s.contains(Integer.toBinaryString(i))) {
                 return false;
             }
@@ -68,6 +87,17 @@ func queryString(s string, n int) bool {
 }
 ```
 
+```go
+func queryString(s string, n int) bool {
+	for i := 1; i <= n; i++ {
+		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
+			return false
+		}
+	}
+	return true
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -82,6 +112,33 @@ public:
         return true;
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    bool queryString(string s, int n) {
+        for (int i = 1; i <= n; ++i) {
+            string b = bitset<32>(i).to_string();
+            b = b.substr(b.find_first_not_of('0'));
+            if (s.find(b) == string::npos) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **TypeScript**
+
+```ts
+function queryString(s: string, n: number): boolean {
+    for (let i = 1; i <= n; ++i) {
+        if (s.indexOf(i.toString(2)) === -1) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 ### **...**
