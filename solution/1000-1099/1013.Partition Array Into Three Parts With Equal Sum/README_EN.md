@@ -47,13 +47,118 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canThreePartsEqualSum(self, arr: List[int]) -> bool:
+        s = sum(arr)
+        if s % 3 != 0:
+            return False
+        i, j = 0, len(arr) - 1
+        a = b = 0
+        while i < len(arr):
+            a += arr[i]
+            if a == s // 3:
+                break
+            i += 1
+        while ~j:
+            b += arr[j]
+            if b == s // 3:
+                break
+            j -= 1
+        return i < j - 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canThreePartsEqualSum(int[] arr) {
+        int s = 0;
+        for (int v : arr) {
+            s += v;
+        }
+        if (s % 3 != 0) {
+            return false;
+        }
+        int i = 0, j = arr.length - 1;
+        int a = 0, b = 0;
+        while (i < arr.length) {
+            a += arr[i];
+            if (a == s / 3) {
+                break;
+            }
+            ++i;
+        }
+        while (j >= 0) {
+            b += arr[j];
+            if (b == s / 3) {
+                break;
+            }
+            --j;
+        }
+        return i < j - 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canThreePartsEqualSum(vector<int>& arr) {
+        int s = 0;
+        for (int v : arr) s += v;
+        if (s % 3) return false;
+        int i = 0, j = arr.size() - 1;
+        int a = 0, b = 0;
+        while (i < arr.size()) {
+            a += arr[i];
+            if (a == s / 3) {
+                break;
+            }
+            ++i;
+        }
+        while (~j) {
+            b += arr[j];
+            if (b == s / 3) {
+                break;
+            }
+            --j;
+        }
+        return i < j - 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canThreePartsEqualSum(arr []int) bool {
+	s := 0
+	for _, v := range arr {
+		s += v
+	}
+	if s%3 != 0 {
+		return false
+	}
+	i, j := 0, len(arr)-1
+	a, b := 0, 0
+	for i < len(arr) {
+		a += arr[i]
+		if a == s/3 {
+			break
+		}
+		i++
+	}
+	for j >= 0 {
+		b += arr[j]
+		if b == s/3 {
+			break
+		}
+		j--
+	}
+	return i < j-1
+}
 ```
 
 ### **...**
