@@ -62,6 +62,20 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def finalPrices(self, prices: List[int]) -> List[int]:
+        stk = []
+        ans = prices[:]
+        for i in range(len(prices) - 1, -1, -1):
+            while stk and prices[stk[-1]] > prices[i]:
+                stk.pop()
+            if stk:
+                ans[i] -= prices[stk[-1]]
+            stk.append(i)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -74,6 +88,27 @@ class Solution {
             ans[i] = prices[i];
             while (!stk.isEmpty() && prices[stk.peek()] >= prices[i]) {
                 ans[stk.pop()] -= prices[i];
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] finalPrices(int[] prices) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int n = prices.length;
+        int[] ans = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            ans[i] = prices[i];
+            while (!stk.isEmpty() && prices[stk.peek()] > prices[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                ans[i] -= prices[stk.peek()];
             }
             stk.push(i);
         }
@@ -102,6 +137,28 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> finalPrices(vector<int>& prices) {
+        stack<int> stk;
+        int n = prices.size();
+        vector<int> ans(n);
+        for (int i = n - 1; i >= 0; --i) {
+            ans[i] = prices[i];
+            while (!stk.empty() && prices[stk.top()] > prices[i]) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                ans[i] -= prices[stk.top()];
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -121,7 +178,42 @@ func finalPrices(prices []int) []int {
 }
 ```
 
+```go
+func finalPrices(prices []int) []int {
+	stk := []int{}
+	n := len(prices)
+	ans := make([]int, n)
+	for i := n - 1; i >= 0; i-- {
+		ans[i] = prices[i]
+		for len(stk) > 0 && prices[stk[len(stk)-1]] > prices[i] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			ans[i] -= prices[stk[len(stk)-1]]
+		}
+		stk = append(stk, i)
+	}
+	return ans
+}
+```
+
 ### **TypeScript**
+
+```ts
+function finalPrices(prices: number[]): number[] {
+    const n = prices.length;
+    const stk = [];
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        ans[i] = prices[i];
+        while (stk.length && prices[stk[stk.length - 1]] >= prices[i]) {
+            ans[stk.pop()] -= prices[i];
+        }
+        stk.push(i);
+    }
+    return ans;
+}
+```
 
 ```ts
 function finalPrices(prices: number[]): number[] {
