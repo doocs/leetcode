@@ -245,7 +245,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0234  |  [Palindrome Linked List](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)  |  `Stack`,`Recursion`,`Linked List`,`Two Pointers`  |  Easy  |    |
 |  0235  |  [Lowest Common Ancestor of a Binary Search Tree](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Search Tree`,`Binary Tree`  |  Easy  |    |
 |  0236  |  [Lowest Common Ancestor of a Binary Tree](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |    |
-|  0237  |  [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)  |  `Linked List`  |  Easy  |    |
+|  0237  |  [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)  |  `Linked List`  |  Medium  |    |
 |  0238  |  [Product of Array Except Self](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |    |
 |  0239  |  [Sliding Window Maximum](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md)  |  `Queue`,`Array`,`Sliding Window`,`Monotonic Queue`,`Heap (Priority Queue)`  |  Hard  |    |
 |  0240  |  [Search a 2D Matrix II](/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/README_EN.md)  |  `Array`,`Binary Search`,`Divide and Conquer`,`Matrix`  |  Medium  |    |
@@ -1833,7 +1833,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1822  |  [Sign of the Product of an Array](/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 236  |
 |  1823  |  [Find the Winner of the Circular Game](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README_EN.md)  |  `Recursion`,`Queue`,`Array`,`Math`,`Simulation`  |  Medium  |  Weekly Contest 236  |
 |  1824  |  [Minimum Sideway Jumps](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 236  |
-|  1825  |  [Finding MK Average](/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md)  |  `Design`,`Queue`,`Ordered Set`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 236  |
+|  1825  |  [Finding MK Average](/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md)  |  `Design`,`Queue`,`Data Stream`,`Ordered Set`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 236  |
 |  1826  |  [Faulty Sensor](/solution/1800-1899/1826.Faulty%20Sensor/README_EN.md)  |  `Array`,`Two Pointers`  |  Easy  |  🔒  |
 |  1827  |  [Minimum Operations to Make the Array Increasing](/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README_EN.md)  |  `Greedy`,`Array`  |  Easy  |  Biweekly Contest 50  |
 |  1828  |  [Queries on Number of Points Inside a Circle](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README_EN.md)  |  `Geometry`,`Array`,`Math`  |  Medium  |  Biweekly Contest 50  |
@@ -2395,11 +2395,13 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2384  |  [Largest Palindromic Number](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md)  |  `Greedy`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 307  |
 |  2385  |  [Amount of Time for Binary Tree to Be Infected](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 307  |
 |  2386  |  [Find the K-Sum of an Array](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md)  |  `Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 307  |
-|  2388  |  [Change Null Values in a Table to the Previous Value](/solution/2300-2399/2388.Change%20Null%20Values%20in%20a%20Table%20to%20the%20Previous%20Value/README_EN.md)  |    |  Medium  |  🔒  |
-|  2389  |  [Longest Subsequence With Limited Sum](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README_EN.md)  |    |  Easy  |  Weekly Contest 308  |
-|  2390  |  [Removing Stars From a String](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 308  |
-|  2391  |  [Minimum Amount of Time to Collect Garbage](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README_EN.md)  |    |  Medium  |  Weekly Contest 308  |
-|  2392  |  [Build a Matrix With Conditions](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README_EN.md)  |    |  Hard  |  Weekly Contest 308  |
+|  2387  |  [Median of a Row Wise Sorted Matrix](/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README_EN.md)  |  `Array`,`Matrix`  |  Medium  |  🔒  |
+|  2388  |  [Change Null Values in a Table to the Previous Value](/solution/2300-2399/2388.Change%20Null%20Values%20in%20a%20Table%20to%20the%20Previous%20Value/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2389  |  [Longest Subsequence With Limited Sum](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Prefix Sum`,`Sorting`  |  Easy  |  Weekly Contest 308  |
+|  2390  |  [Removing Stars From a String](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README_EN.md)  |  `Stack`,`String`,`Simulation`  |  Medium  |  Weekly Contest 308  |
+|  2391  |  [Minimum Amount of Time to Collect Garbage](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README_EN.md)  |  `Array`,`String`,`Prefix Sum`  |  Medium  |  Weekly Contest 308  |
+|  2392  |  [Build a Matrix With Conditions](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README_EN.md)  |  `Graph`,`Topological Sort`,`Array`,`Matrix`  |  Hard  |  Weekly Contest 308  |
+|  2393  |  [Count Strictly Increasing Subarrays](/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

@@ -247,7 +247,7 @@
 |  0234  |  [回文链表](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)  |  `栈`,`递归`,`链表`,`双指针`  |  简单  |    |
 |  0235  |  [二叉搜索树的最近公共祖先](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)  |  `树`,`深度优先搜索`,`二叉搜索树`,`二叉树`  |  简单  |    |
 |  0236  |  [二叉树的最近公共祖先](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |    |
-|  0237  |  [删除链表中的节点](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)  |  `链表`  |  简单  |    |
+|  0237  |  [删除链表中的节点](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)  |  `链表`  |  中等  |    |
 |  0238  |  [除自身以外数组的乘积](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README.md)  |  `数组`,`前缀和`  |  中等  |    |
 |  0239  |  [滑动窗口最大值](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md)  |  `队列`,`数组`,`滑动窗口`,`单调队列`,`堆（优先队列）`  |  困难  |    |
 |  0240  |  [搜索二维矩阵 II](/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/README.md)  |  `数组`,`二分查找`,`分治`,`矩阵`  |  中等  |    |
@@ -1655,7 +1655,7 @@
 |  1642  |  [可以到达的最远建筑](/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README.md)  |  `贪心`,`数组`,`堆（优先队列）`  |  中等  |  第 213 场周赛  |
 |  1643  |  [第 K 条最小指令](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md)  |  `数组`,`数学`,`动态规划`,`组合数学`  |  困难  |  第 213 场周赛  |
 |  1644  |  [二叉树的最近公共祖先 II](/solution/1600-1699/1644.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20II/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |  🔒  |
-|  1645  |  [Hopper Company Queries II](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
+|  1645  |  [1645.Hopper 公司查询 II](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  1646  |  [获取生成数组中的最大值](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README.md)  |  `数组`,`动态规划`,`模拟`  |  简单  |  第 214 场周赛  |
 |  1647  |  [字符频次唯一的最小删除次数](/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README.md)  |  `贪心`,`字符串`,`排序`  |  中等  |  第 214 场周赛  |
 |  1648  |  [销售价值减少的颜色球](/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/README.md)  |  `贪心`,`数组`,`数学`,`二分查找`,`排序`,`堆（优先队列）`  |  中等  |  第 214 场周赛  |
@@ -1835,7 +1835,7 @@
 |  1822  |  [数组元素积的符号](/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README.md)  |  `数组`,`数学`  |  简单  |  第 236 场周赛  |
 |  1823  |  [找出游戏的获胜者](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md)  |  `递归`,`队列`,`数组`,`数学`,`模拟`  |  中等  |  第 236 场周赛  |
 |  1824  |  [最少侧跳次数](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |  第 236 场周赛  |
-|  1825  |  [求出 MK 平均值](/solution/1800-1899/1825.Finding%20MK%20Average/README.md)  |  `设计`,`队列`,`有序集合`,`堆（优先队列）`  |  困难  |  第 236 场周赛  |
+|  1825  |  [求出 MK 平均值](/solution/1800-1899/1825.Finding%20MK%20Average/README.md)  |  `设计`,`队列`,`数据流`,`有序集合`,`堆（优先队列）`  |  困难  |  第 236 场周赛  |
 |  1826  |  [有缺陷的传感器](/solution/1800-1899/1826.Faulty%20Sensor/README.md)  |  `数组`,`双指针`  |  简单  |  🔒  |
 |  1827  |  [最少操作使数组递增](/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README.md)  |  `贪心`,`数组`  |  简单  |  第 50 场双周赛  |
 |  1828  |  [统计一个圆中点的数目](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README.md)  |  `几何`,`数组`,`数学`  |  中等  |  第 50 场双周赛  |
@@ -2185,7 +2185,7 @@
 |  2172  |  [数组的最大与和](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README.md)  |  `位运算`,`数组`,`动态规划`,`状态压缩`  |  困难  |  第 280 场周赛  |
 |  2173  |  [最多连胜的次数](/solution/2100-2199/2173.Longest%20Winning%20Streak/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  2174  |  [Remove All Ones With Row and Column Flips II](/solution/2100-2199/2174.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips%20II/README.md)  |  `位运算`,`广度优先搜索`,`数组`,`矩阵`  |  中等  |  🔒  |
-|  2175  |  [The Change in Global Rankings](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2175  |  [世界排名的变化](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2176  |  [统计数组中相等且可以被整除的数对](/solution/2100-2199/2176.Count%20Equal%20and%20Divisible%20Pairs%20in%20an%20Array/README.md)  |  `数组`  |  简单  |  第 72 场双周赛  |
 |  2177  |  [找到和为给定整数的三个连续整数](/solution/2100-2199/2177.Find%20Three%20Consecutive%20Integers%20That%20Sum%20to%20a%20Given%20Number/README.md)  |  `数学`,`模拟`  |  中等  |  第 72 场双周赛  |
 |  2178  |  [拆分成最多数目的正偶数之和](/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README.md)  |  `贪心`,`数学`  |  中等  |  第 72 场双周赛  |
@@ -2382,7 +2382,7 @@
 |  2369  |  [检查数组是否存在有效划分](/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README.md)  |  `数组`,`动态规划`  |  中等  |  第 305 场周赛  |
 |  2370  |  [最长理想子序列](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)  |  `哈希表`,`字符串`,`动态规划`  |  中等  |  第 305 场周赛  |
 |  2371  |  [Minimize Maximum Value in a Grid](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README.md)  |  `贪心`,`并查集`,`图`,`拓扑排序`,`数组`,`矩阵`,`排序`  |  困难  |  🔒  |
-|  2372  |  [ Calculate the Influence of Each Salesperson](/solution/2300-2399/2372.Calculate%20the%20Influence%20of%20Each%20Salesperson/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2372  |  [计算每个销售人员的影响力](/solution/2300-2399/2372.Calculate%20the%20Influence%20of%20Each%20Salesperson/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2373  |  [矩阵中的局部最大值](/solution/2300-2399/2373.Largest%20Local%20Values%20in%20a%20Matrix/README.md)  |  `数组`,`矩阵`  |  简单  |  第 306 场周赛  |
 |  2374  |  [边积分最高的节点](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README.md)  |  `图`,`哈希表`  |  中等  |  第 306 场周赛  |
 |  2375  |  [根据模式串构造最小数字](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md)  |  `栈`,`贪心`,`字符串`,`回溯`  |  中等  |  第 306 场周赛  |
@@ -2397,11 +2397,13 @@
 |  2384  |  [最大回文数字](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README.md)  |  `贪心`,`哈希表`,`字符串`  |  中等  |  第 307 场周赛  |
 |  2385  |  [感染二叉树需要的总时间](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`二叉树`  |  中等  |  第 307 场周赛  |
 |  2386  |  [找出数组的第 K 大和](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README.md)  |  `数组`,`排序`,`堆（优先队列）`  |  困难  |  第 307 场周赛  |
-|  2388  |  [Change Null Values in a Table to the Previous Value](/solution/2300-2399/2388.Change%20Null%20Values%20in%20a%20Table%20to%20the%20Previous%20Value/README.md)  |    |  中等  |  🔒  |
-|  2389  |  [和有限的最长子序列](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md)  |    |  简单  |  第 308 场周赛  |
-|  2390  |  [从字符串中移除星号](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README.md)  |    |  中等  |  第 308 场周赛  |
-|  2391  |  [收集垃圾的最少总时间](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README.md)  |    |  中等  |  第 308 场周赛  |
-|  2392  |  [给定条件下构造矩阵](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README.md)  |    |  困难  |  第 308 场周赛  |
+|  2387  |  [Median of a Row Wise Sorted Matrix](/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README.md)  |  `数组`,`矩阵`  |  中等  |  🔒  |
+|  2388  |  [Change Null Values in a Table to the Previous Value](/solution/2300-2399/2388.Change%20Null%20Values%20in%20a%20Table%20to%20the%20Previous%20Value/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2389  |  [和有限的最长子序列](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md)  |  `贪心`,`数组`,`二分查找`,`前缀和`,`排序`  |  简单  |  第 308 场周赛  |
+|  2390  |  [从字符串中移除星号](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README.md)  |  `栈`,`字符串`,`模拟`  |  中等  |  第 308 场周赛  |
+|  2391  |  [收集垃圾的最少总时间](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README.md)  |  `数组`,`字符串`,`前缀和`  |  中等  |  第 308 场周赛  |
+|  2392  |  [给定条件下构造矩阵](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README.md)  |  `图`,`拓扑排序`,`数组`,`矩阵`  |  困难  |  第 308 场周赛  |
+|  2393  |  [Count Strictly Increasing Subarrays](/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
