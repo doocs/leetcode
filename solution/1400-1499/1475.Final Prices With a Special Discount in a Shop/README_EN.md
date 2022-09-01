@@ -53,6 +53,19 @@ For items 3 and 4 you will not receive any discount at all.
 ```python
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
+        ans = []
+        for i, v in enumerate(prices):
+            ans.append(v)
+            for j in range(i + 1, len(prices)):
+                if prices[j] <= v:
+                    ans[-1] -= prices[j]
+                    break
+        return ans
+```
+
+```python
+class Solution:
+    def finalPrices(self, prices: List[int]) -> List[int]:
         stk = []
         ans = prices[:]
         for i, v in enumerate(prices):
@@ -77,6 +90,25 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    public int[] finalPrices(int[] prices) {
+        int n = prices.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = prices[i];
+            for (int j = i + 1; j < n; ++j) {
+                if (prices[j] <= prices[i]) {
+                    ans[i] -= prices[j];
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -123,6 +155,26 @@ class Solution {
 class Solution {
 public:
     vector<int> finalPrices(vector<int>& prices) {
+        int n = prices.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = prices[i];
+            for (int j = i + 1; j < n; ++j) {
+                if (prices[j] <= prices[i]) {
+                    ans[i] -= prices[j];
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> finalPrices(vector<int>& prices) {
         stack<int> stk;
         vector<int> ans = prices;
         for (int i = 0; i < prices.size(); ++i) {
@@ -163,6 +215,23 @@ public:
 
 ```go
 func finalPrices(prices []int) []int {
+	n := len(prices)
+	ans := make([]int, n)
+	for i, v := range prices {
+		ans[i] = v
+		for j := i + 1; j < n; j++ {
+			if prices[j] <= v {
+				ans[i] -= prices[j]
+				break
+			}
+		}
+	}
+	return ans
+}
+```
+
+```go
+func finalPrices(prices []int) []int {
 	var stk []int
 	n := len(prices)
 	ans := make([]int, n)
@@ -198,6 +267,23 @@ func finalPrices(prices []int) []int {
 ```
 
 ### **TypeScript**
+
+```ts
+function finalPrices(prices: number[]): number[] {
+    const n = prices.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        ans[i] = prices[i];
+        for (let j = i + 1; j < n; ++j) {
+            if (prices[j] <= prices[i]) {
+                ans[i] -= prices[j];
+                break;
+            }
+        }
+    }
+    return ans;
+}
+```
 
 ```ts
 function finalPrices(prices: number[]): number[] {

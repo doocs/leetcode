@@ -51,7 +51,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：单调栈**
+**方法一：暴力枚举**
+
+按题意模拟，采用双重循环枚举 `i` 和 `j`。
+
+时间复杂度为 $O(n^2)$，忽略结果数组的空间消耗，空间复杂度 $O(1)$。
+
+**方法二：单调栈**
 
 单调栈常见模型：找出每个数左/右边**离它最近的**且**比它大/小的数**。模板：
 
@@ -72,6 +78,19 @@ for i in range(n):
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def finalPrices(self, prices: List[int]) -> List[int]:
+        ans = []
+        for i, v in enumerate(prices):
+            ans.append(v)
+            for j in range(i + 1, len(prices)):
+                if prices[j] <= v:
+                    ans[-1] -= prices[j]
+                    break
+        return ans
+```
 
 ```python
 class Solution:
@@ -102,6 +121,25 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public int[] finalPrices(int[] prices) {
+        int n = prices.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = prices[i];
+            for (int j = i + 1; j < n; ++j) {
+                if (prices[j] <= prices[i]) {
+                    ans[i] -= prices[j];
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -148,6 +186,26 @@ class Solution {
 class Solution {
 public:
     vector<int> finalPrices(vector<int>& prices) {
+        int n = prices.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = prices[i];
+            for (int j = i + 1; j < n; ++j) {
+                if (prices[j] <= prices[i]) {
+                    ans[i] -= prices[j];
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> finalPrices(vector<int>& prices) {
         stack<int> stk;
         vector<int> ans = prices;
         for (int i = 0; i < prices.size(); ++i) {
@@ -188,6 +246,23 @@ public:
 
 ```go
 func finalPrices(prices []int) []int {
+	n := len(prices)
+	ans := make([]int, n)
+	for i, v := range prices {
+		ans[i] = v
+		for j := i + 1; j < n; j++ {
+			if prices[j] <= v {
+				ans[i] -= prices[j]
+				break
+			}
+		}
+	}
+	return ans
+}
+```
+
+```go
+func finalPrices(prices []int) []int {
 	var stk []int
 	n := len(prices)
 	ans := make([]int, n)
@@ -223,6 +298,23 @@ func finalPrices(prices []int) []int {
 ```
 
 ### **TypeScript**
+
+```ts
+function finalPrices(prices: number[]): number[] {
+    const n = prices.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        ans[i] = prices[i];
+        for (let j = i + 1; j < n; ++j) {
+            if (prices[j] <= prices[i]) {
+                ans[i] -= prices[j];
+                break;
+            }
+        }
+    }
+    return ans;
+}
+```
 
 ```ts
 function finalPrices(prices: number[]): number[] {
