@@ -60,6 +60,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：字符串模拟**
+
+统计字符串 `text` 中的空格数，记为 `cnt`。将 `text` 按空格分割成字符串数组 `words`。然后计算相邻字符串之间需要拼接的空格数，进行拼接。最后将剩余的空格拼接在末尾。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 表示字符串 `text` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +73,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reorderSpaces(self, text: str) -> str:
+        cnt = text.count(' ')
+        words = text.split()
+        m = len(words) - 1
+        if m == 0:
+            return words[0] + ' ' * cnt
+        return (' ' * (cnt // m)).join(words) + ' ' * (cnt % m)
 ```
 
 ### **Java**
@@ -75,7 +88,44 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String reorderSpaces(String text) {
+        int cnt = 0;
+        for (char c : text.toCharArray()) {
+            if (c == ' ') {
+                ++cnt;
+            }
+        }
+        String[] words = text.split("\\s+");
+        List<String> res = new ArrayList<>();
+        for (String w : words) {
+            if (!"".equals(w)) {
+                res.add(w);
+            }
+        }
+        int m = res.size() - 1;
+        if (m == 0) {
+            return res.get(0) + " ".repeat(cnt);
+        }
+        String ans = String.join(" ".repeat(cnt / m), res);
+        ans += " ".repeat(cnt % m);
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func reorderSpaces(text string) string {
+	cnt := strings.Count(text, " ")
+	words := strings.Fields(text)
+	m := len(words) - 1
+	if m == 0 {
+		return words[0] + strings.Repeat(" ", cnt)
+	}
+	return strings.Join(words, strings.Repeat(" ", cnt/m)) + strings.Repeat(" ", cnt%m)
+}
 ```
 
 ### **...**
