@@ -53,6 +53,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学**
+
+由于对称性，我们将 `target` 统计取绝对值。
+
+定义 `s`，一直循环累加，直至满足 $s\ge target$ 并且 $(s-target)\mod 2 = 0$。返回循环次数即可。
+
+证明：如果 $s\ge target$ 且 $(s-target)\mod 2 = 0$，那么只需要把前面 $(s-target)/2$ 这个数变为负数即可。
+
+时间复杂度 $O(\sqrt{target})$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +70,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reachNumber(self, target: int) -> int:
+        target = abs(target)
+        k = s = 0
+        while 1:
+            if s >= target and (s - target) % 2 == 0:
+                break
+            k += 1
+            s += k
+        return k
 ```
 
 ### **Java**
@@ -68,7 +87,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int reachNumber(int target) {
+        target = Math.abs(target);
+        int s = 0;
+        int k = 0;
+        while (true) {
+            if (s >= target && (s - target) % 2 == 0) {
+                break;
+            }
+            ++k;
+            s += k;
+        }
+        return k;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int reachNumber(int target) {
+        target = abs(target);
+        int s = 0, k = 0;
+        while (true) {
+            if (s >= target && (s - target) % 2 == 0) {
+                break;
+            }
+            ++k;
+            s += k;
+        }
+        return k;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reachNumber(target int) int {
+	s, k := 0, 0
+	if target < 0 {
+		target = -target
+	}
+	for {
+		if s >= target && (s-target)%2 == 0 {
+			break
+		}
+		k++
+		s += k
+	}
+	return k
+}
 ```
 
 ### **...**

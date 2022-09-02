@@ -52,13 +52,75 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reachNumber(self, target: int) -> int:
+        target = abs(target)
+        k = s = 0
+        while 1:
+            if s >= target and (s - target) % 2 == 0:
+                break
+            k += 1
+            s += k
+        return k
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int reachNumber(int target) {
+        target = Math.abs(target);
+        int s = 0;
+        int k = 0;
+        while (true) {
+            if (s >= target && (s - target) % 2 == 0) {
+                break;
+            }
+            ++k;
+            s += k;
+        }
+        return k;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int reachNumber(int target) {
+        target = abs(target);
+        int s = 0, k = 0;
+        while (true) {
+            if (s >= target && (s - target) % 2 == 0) {
+                break;
+            }
+            ++k;
+            s += k;
+        }
+        return k;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reachNumber(target int) int {
+	s, k := 0, 0
+	if target < 0 {
+		target = -target
+	}
+	for {
+		if s >= target && (s-target)%2 == 0 {
+			break
+		}
+		k++
+		s += k
+	}
+	return k
+}
 ```
 
 ### **...**
