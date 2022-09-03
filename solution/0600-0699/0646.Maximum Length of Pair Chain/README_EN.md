@@ -199,6 +199,78 @@ func findLongestChain(pairs [][]int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function findLongestChain(pairs: number[][]): number {
+    pairs.sort((a, b) => a[0] - b[0]);
+    const n = pairs.length;
+    const dp = new Array(n).fill(1);
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (pairs[i][0] > pairs[j][1]) {
+                dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+    return dp[n - 1];
+}
+```
+
+```ts
+function findLongestChain(pairs: number[][]): number {
+    pairs.sort((a, b) => a[1] - b[1]);
+    let res = 0;
+    let pre = -Infinity;
+    for (const [a, b] of pairs) {
+        if (pre < a) {
+            pre = b;
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_longest_chain(mut pairs: Vec<Vec<i32>>) -> i32 {
+        pairs.sort_by(|a, b| a[0].cmp(&b[0]));
+        let n = pairs.len();
+        let mut dp = vec![1; n];
+        for i in 0..n {
+            for j in 0..i {
+                if pairs[i][0] > pairs[j][1] {
+                    dp[i] = dp[i].max(dp[j] + 1);
+                }
+            }
+        }
+        dp[n - 1]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_longest_chain(mut pairs: Vec<Vec<i32>>) -> i32 {
+        pairs.sort_by(|a, b| a[1].cmp(&b[1]));
+        let mut res = 0;
+        let mut pre = i32::MIN;
+        for pair in pairs.iter() {
+            let a = pair[0];
+            let b = pair[1];
+            if pre < a {
+                pre = b;
+                res += 1;
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
