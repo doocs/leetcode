@@ -53,6 +53,14 @@ We cannot draw 3 uncrossed lines, because the line from nums1[1] = 4 to nums2[2]
 
 Longest common sub-sequences
 
+$$
+dp[i][j]=
+\begin{cases}
+dp[i-1][j-1]+1, & nums1[i-1]=nums2[j-1] \\
+\max(dp[i-1][j], dp[i][j-1]), & nums1[i-1]\neq nums2[j-1]
+\end{cases}
+$$
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -113,6 +121,54 @@ public:
         return dp[m][n];
     }
 };
+```
+
+### **Go**
+
+```go
+func maxUncrossedLines(nums1 []int, nums2 []int) int {
+	m, n := len(nums1), len(nums2)
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if nums1[i-1] == nums2[j-1] {
+				dp[i][j] = dp[i-1][j-1] + 1
+			} else {
+				dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+			}
+		}
+	}
+	return dp[m][n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxUncrossedLines(nums1: number[], nums2: number[]): number {
+    const m = nums1.length;
+    const n = nums2.length;
+    const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            if (nums1[i - 1] == nums2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            }
+        }
+    }
+    return dp[m][n];
+}
 ```
 
 ### **...**

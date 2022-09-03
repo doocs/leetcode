@@ -62,7 +62,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-最长公共子序列问题
+**方法一：动态规划**
+
+最长公共子序列问题。
+
+定义 $dp[i][j]$ 表示数组 `nums1` 的前 $i$ 个元素和数组 `nums2` 的前 $j$ 个元素的最长公共子序列的长度。则有：
+
+$$
+dp[i][j]=
+\begin{cases}
+dp[i-1][j-1]+1, & nums1[i-1]=nums2[j-1] \\
+\max(dp[i-1][j], dp[i][j-1]), & nums1[i-1]\neq nums2[j-1]
+\end{cases}
+$$
+
+时间复杂度 $O(m\times n)$，空间复杂度 $O(m\times n)$。其中 $m$, $n$ 分别为数组 `nums1` 和 `nums2` 的长度。
 
 <!-- tabs:start -->
 
@@ -128,6 +142,54 @@ public:
         return dp[m][n];
     }
 };
+```
+
+### **Go**
+
+```go
+func maxUncrossedLines(nums1 []int, nums2 []int) int {
+	m, n := len(nums1), len(nums2)
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if nums1[i-1] == nums2[j-1] {
+				dp[i][j] = dp[i-1][j-1] + 1
+			} else {
+				dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+			}
+		}
+	}
+	return dp[m][n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxUncrossedLines(nums1: number[], nums2: number[]): number {
+    const m = nums1.length;
+    const n = nums2.length;
+    const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            if (nums1[i - 1] == nums2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            }
+        }
+    }
+    return dp[m][n];
+}
 ```
 
 ### **...**
