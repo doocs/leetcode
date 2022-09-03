@@ -60,6 +60,16 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀树**
+
+构建前缀树，每个节点保存一个字符，从根节点开始，每次遍历到一个字符，就将其加入到当前节点的子节点中，同时将当前节点的 `isEnd` 标记为 `true`。当遍历到字符串的末尾时，将当前节点的 `isEnd` 标记为 `true`。
+
+查询时，从根节点开始，每次遍历到一个字符，就将其加入到当前节点的子节点中，同时将当前节点的 `isEnd` 标记为 `true`。当遍历到字符串的末尾时，将当前节点的 `isEnd` 标记为 `true`。
+
+对于本题，我们采用**字符串的反序**来构建前缀树，这样在查询时，只需要从根节点开始，遍历到当前字符即可，不需要遍历到字符串的末尾。
+
+初始化前缀树的时间复杂度为 $O(n)$，其中 $n$ 为 `words` 所有字符总数。单次查询的时间复杂度为 $O(m)$，其中 $m$ 为 `words` 中单词的最大长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +77,47 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.is_end = False
 
+    def insert(self, w):
+        node = self
+        for c in w[::-1]:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.is_end = True
+
+    def search(self, w):
+        node = self
+        for c in w[::-1]:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                return False
+            node = node.children[idx]
+            if node.is_end:
+                return True
+        return False
+
+
+class StreamChecker:
+
+    def __init__(self, words: List[str]):
+        self.trie = Trie()
+        self.s = []
+        for w in words:
+            self.trie.insert(w)
+
+    def query(self, letter: str) -> bool:
+        self.s.append(letter)
+        return self.trie.search(self.s[-201:])
+
+# Your StreamChecker object will be instantiated and called as such:
+# obj = StreamChecker(words)
+# param_1 = obj.query(letter)
 ```
 
 ### **Java**
@@ -75,7 +125,181 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+    boolean isEnd = false;
 
+    public void insert(String w) {
+        Trie node = this;
+        for (int i = w.length() - 1; i >= 0; --i) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        node.isEnd = true;
+    }
+
+    public boolean query(StringBuilder s) {
+        Trie node = this;
+        for (int i = s.length() - 1, j = 0; i >= 0 && j < 201; --i, ++j) {
+            int idx = s.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                return false;
+            }
+            node = node.children[idx];
+            if (node.isEnd) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+class StreamChecker {
+    private StringBuilder sb = new StringBuilder();
+    private Trie trie = new Trie();
+
+    public StreamChecker(String[] words) {
+        for (String w : words) {
+            trie.insert(w);
+        }
+    }
+
+    public boolean query(char letter) {
+        sb.append(letter);
+        return trie.query(sb);
+    }
+}
+
+/**
+ * Your StreamChecker object will be instantiated and called as such:
+ * StreamChecker obj = new StreamChecker(words);
+ * boolean param_1 = obj.query(letter);
+ */
+```
+
+### **C++**
+
+```cpp
+class Trie {
+public:
+    vector<Trie*> children;
+    bool isEnd;
+
+    Trie()
+        : children(26)
+        , isEnd(false) { }
+
+    void insert(string& w) {
+        Trie* node = this;
+        reverse(w.begin(), w.end());
+        for (char c : w) {
+            int idx = c - 'a';
+            if (!node->children[idx]) node->children[idx] = new Trie();
+            node = node->children[idx];
+        }
+        node->isEnd = true;
+    }
+
+    bool search(string& w) {
+        Trie* node = this;
+        for (int i = w.size() - 1, j = 0; ~i && j < 201; --i, ++j) {
+            int idx = w[i] - 'a';
+            if (!node->children[idx]) return false;
+            node = node->children[idx];
+            if (node->isEnd) return true;
+        }
+        return false;
+    }
+};
+
+class StreamChecker {
+public:
+    Trie* trie = new Trie();
+    string s;
+    StreamChecker(vector<string>& words) {
+        for (string& w : words) {
+            trie->insert(w);
+        }
+    }
+
+    bool query(char letter) {
+        s += letter;
+        return trie->search(s);
+    }
+};
+
+/**
+ * Your StreamChecker object will be instantiated and called as such:
+ * StreamChecker* obj = new StreamChecker(words);
+ * bool param_1 = obj->query(letter);
+ */
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
+}
+
+func newTrie() Trie {
+	return Trie{}
+}
+
+func (this *Trie) Insert(word string) {
+	node := this
+	for i := len(word) - 1; i >= 0; i-- {
+		idx := word[i] - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
+		}
+		node = node.children[idx]
+	}
+	node.isEnd = true
+}
+
+func (this *Trie) Search(word []byte) bool {
+	node := this
+	for i, j := len(word)-1, 0; i >= 0 && j < 201; i, j = i-1, j+1 {
+		idx := word[i] - 'a'
+		if node.children[idx] == nil {
+			return false
+		}
+		node = node.children[idx]
+		if node.isEnd {
+			return true
+		}
+	}
+	return false
+}
+
+type StreamChecker struct {
+	trie Trie
+	s    []byte
+}
+
+func Constructor(words []string) StreamChecker {
+	trie := newTrie()
+	for _, w := range words {
+		trie.Insert(w)
+	}
+	return StreamChecker{trie, []byte{}}
+}
+
+func (this *StreamChecker) Query(letter byte) bool {
+	this.s = append(this.s, letter)
+	return this.trie.Search(this.s)
+}
+
+/**
+ * Your StreamChecker object will be instantiated and called as such:
+ * obj := Constructor(words);
+ * param_1 := obj.Query(letter);
+ */
 ```
 
 ### **...**
