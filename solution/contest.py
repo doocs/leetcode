@@ -1,5 +1,6 @@
 import json
 import time
+from datetime import timedelta, timezone, datetime
 from itertools import chain
 
 import requests
@@ -12,11 +13,12 @@ biweekly_url = 'https://leetcode.cn/contest/api/info/biweekly-contest-{}/'
 questions = {}
 
 
-def format_time(timestamp):
-    return time.strftime('%Y-%m-%d %H:%M', time.localtime(timestamp))
+def format_time(timestamp) -> str:
+    tz = timezone(timedelta(hours=+8))
+    return datetime.fromtimestamp(timestamp, tz).strftime('%Y-%m-%d %H:%M')
 
 
-def format_duration(seconds):
+def format_duration(seconds) -> str:
     m = seconds // 60
     return f'{m} 分钟'
 
@@ -166,11 +168,11 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
     for _, title, title_en, qs, start_time, duration, user_num in contest_list:
         v = (
-            "#### "
-            + title
-            + f'({format_time(start_time) + ", " + format_duration(duration)}) '
-            + f'参赛人数 {user_num}'
-            + "\n\n"
+                "#### "
+                + title
+                + f'({format_time(start_time) + ", " + format_duration(duration)}) '
+                + f'参赛人数 {user_num}'
+                + "\n\n"
         )
         v_en = "#### " + title_en + "\n\n"
         for q in qs:

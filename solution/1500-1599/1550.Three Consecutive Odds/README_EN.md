@@ -38,13 +38,102 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 ### **Python3**
 
 ```python
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        cnt = 0
+        for v in arr:
+            if v & 1:
+                cnt += 1
+            else:
+                cnt = 0
+            if cnt == 3:
+                return True
+        return False
+```
 
+```python
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        for i in range(len(arr) - 2):
+            if arr[i] % 2 + arr[i + 1] % 2 + arr[i + 2] % 2 == 3:
+                return True
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean threeConsecutiveOdds(int[] arr) {
+        int cnt = 0;
+        for (int v : arr) {
+            if (v % 2 == 1) {
+                ++cnt;
+            } else {
+                cnt = 0;
+            }
+            if (cnt == 3) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool threeConsecutiveOdds(vector<int>& arr) {
+        int cnt = 0;
+        for (int v : arr) {
+            if (v & 1) ++cnt;
+            else cnt = 0;
+            if (cnt == 3) return true;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func threeConsecutiveOdds(arr []int) bool {
+	cnt := 0
+	for _, v := range arr {
+		if v%2 == 1 {
+			cnt++
+		} else {
+			cnt = 0
+		}
+		if cnt == 3 {
+			return true
+		}
+	}
+	return false
+}
+```
+
+### **TypeScript**
+
+```ts
+function threeConsecutiveOdds(arr: number[]): boolean {
+    let cnt = 0;
+    for (const v of arr) {
+        if (v & 1) {
+            ++cnt;
+        } else {
+            cnt = 0;
+        }
+        if (cnt == 3) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 ### **...**

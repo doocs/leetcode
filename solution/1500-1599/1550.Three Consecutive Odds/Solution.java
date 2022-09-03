@@ -1,14 +1,14 @@
 class Solution {
     public boolean threeConsecutiveOdds(int[] arr) {
-        int count = 0;
-        for (int n : arr) {
-            if (n % 2 == 0) {
-                count = 0;
+        int cnt = 0;
+        for (int v : arr) {
+            if (v % 2 == 1) {
+                ++cnt;
             } else {
-                count++;
-                if (count >= 3) {
-                    return true;
-                }
+                cnt = 0;
+            }
+            if (cnt == 3) {
+                return true;
             }
         }
         return false;
