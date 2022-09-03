@@ -27,7 +27,7 @@
   - [0025.Reverse Nodes in k-Group](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README_EN.md)
   - [0026.Remove Duplicates from Sorted Array](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
   - [0027.Remove Element](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
-  - [0028.Implement strStr()](/solution/0000-0099/0028.Implement%20strStr%28%29/README_EN.md)
+  - [0028.Find the Index of the First Occurrence in a String](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README_EN.md)
   - [0029.Divide Two Integers](/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md)
   - [0030.Substring with Concatenation of All Words](/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README_EN.md)
   - [0031.Next Permutation](/solution/0000-0099/0031.Next%20Permutation/README_EN.md)
@@ -2439,3 +2439,4 @@
   - [2391.Minimum Amount of Time to Collect Garbage](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README_EN.md)
   - [2392.Build a Matrix With Conditions](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README_EN.md)
   - [2393.Count Strictly Increasing Subarrays](/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README_EN.md)
+  - [2394.Employees With Deductions](/solution/2300-2399/2394.Employees%20With%20Deductions/README_EN.md)

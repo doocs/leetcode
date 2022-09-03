@@ -46,6 +46,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+先初始化结果数组 `ans` 为 `[1, 2, 3, ..., n+1]`。
+
+假定某个连续 `D` 子数组区间为 `[i, j)`，那么只要翻转 `ans[i: j + 1]` 即可。
+
+因此，遍历字符串 `s`，找出所有的连续 `D` 子数组区间，将其翻转。
+
+时间复杂度 $O(n)$，其中 $n$ 表示字符串 `s` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +63,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findPermutation(self, s: str) -> List[int]:
+        n = len(s)
+        ans = list(range(1, n + 2))
+        i = 0
+        while i < n:
+            j = i
+            while j < n and s[j] == 'D':
+                j += 1
+            ans[i: j + 1] = ans[i: j + 1][::-1]
+            i = max(i + 1, j)
+        return ans
 ```
 
 ### **Java**
@@ -61,7 +82,90 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] findPermutation(String s) {
+        int n = s.length();
+        int[] ans = new int[n + 1];
+        for (int i = 0; i < n + 1; ++i) {
+            ans[i] = i + 1;
+        }
+        int i = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && s.charAt(j) == 'D') {
+                ++j;
+            }
+            reverse(ans, i, j);
+            i = Math.max(i + 1, j);
+        }
+        return ans;
+    }
 
+    private void reverse(int[] arr, int i, int j) {
+        for (; i < j; ++i, --j) {
+            int t = arr[i];
+            arr[i] = arr[j];
+            arr[j] = t;
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findPermutation(string s) {
+        int n = s.size();
+        vector<int> ans(n + 1);
+        iota(ans.begin(), ans.end(), 1);
+        int i = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && s[j] == 'D') {
+                ++j;
+            }
+            reverse(ans.begin() + i, ans.begin() + j + 1);
+            i = max(i + 1, j);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findPermutation(s string) []int {
+	n := len(s)
+	ans := make([]int, n+1)
+	for i := range ans {
+		ans[i] = i + 1
+	}
+	i := 0
+	for i < n {
+		j := i
+		for ; j < n && s[j] == 'D'; j++ {
+		}
+		reverse(ans, i, j)
+		i = max(i+1, j)
+	}
+	return ans
+}
+
+func reverse(arr []int, i, j int) {
+	for ; i < j; i, j = i+1, j-1 {
+		arr[i], arr[j] = arr[j], arr[i]
+	}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -1,6 +1,6 @@
-# [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr)
+# [28. 实现 strStr()](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string)
 
-[English Version](/solution/0000-0099/0028.Implement%20strStr%28%29/README_EN.md)
+[English Version](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README_EN.md)
 
 ## 题目描述
 
@@ -40,6 +40,7 @@
 	<li><code>1 &lt;= haystack.length, needle.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>haystack</code> 和 <code>needle</code> 仅由小写英文字符组成</li>
 </ul>
+
 
 ## 解法
 

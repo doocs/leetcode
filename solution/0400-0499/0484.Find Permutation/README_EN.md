@@ -45,13 +45,107 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findPermutation(self, s: str) -> List[int]:
+        n = len(s)
+        ans = list(range(1, n + 2))
+        i = 0
+        while i < n:
+            j = i
+            while j < n and s[j] == 'D':
+                j += 1
+            ans[i: j + 1] = ans[i: j + 1][::-1]
+            i = max(i + 1, j)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] findPermutation(String s) {
+        int n = s.length();
+        int[] ans = new int[n + 1];
+        for (int i = 0; i < n + 1; ++i) {
+            ans[i] = i + 1;
+        }
+        int i = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && s.charAt(j) == 'D') {
+                ++j;
+            }
+            reverse(ans, i, j);
+            i = Math.max(i + 1, j);
+        }
+        return ans;
+    }
 
+    private void reverse(int[] arr, int i, int j) {
+        for (; i < j; ++i, --j) {
+            int t = arr[i];
+            arr[i] = arr[j];
+            arr[j] = t;
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findPermutation(string s) {
+        int n = s.size();
+        vector<int> ans(n + 1);
+        iota(ans.begin(), ans.end(), 1);
+        int i = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && s[j] == 'D') {
+                ++j;
+            }
+            reverse(ans.begin() + i, ans.begin() + j + 1);
+            i = max(i + 1, j);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findPermutation(s string) []int {
+	n := len(s)
+	ans := make([]int, n+1)
+	for i := range ans {
+		ans[i] = i + 1
+	}
+	i := 0
+	for i < n {
+		j := i
+		for ; j < n && s[j] == 'D'; j++ {
+		}
+		reverse(ans, i, j)
+		i = max(i+1, j)
+	}
+	return ans
+}
+
+func reverse(arr []int, i, j int) {
+	for ; i < j; i, j = i+1, j-1 {
+		arr[i], arr[j] = arr[j], arr[i]
+	}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
