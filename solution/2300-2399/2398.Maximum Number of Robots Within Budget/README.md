@@ -44,7 +44,6 @@
 	<li><code>1 &lt;= budget &lt;= 10<sup>15</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -39,7 +39,6 @@ Therefore, we return false.
 	<li><code>4 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

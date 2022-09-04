@@ -40,7 +40,6 @@ It can be shown that it is not possible to run more than 3 consecutive robots wi
 	<li><code>1 &lt;= budget &lt;= 10<sup>15</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

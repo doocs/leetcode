@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2022/07/14/rowscovered.png" style="width: 250px; height: 417px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/images/rowscovered.png" style="width: 250px; height: 417px;"></strong></p>
 
 <pre><b>输入：</b>mat = [[0,0,0],[1,0,1],[0,1,1],[0,0,1]], cols = 2
 <b>输出：</b>3
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2022/07/14/rowscovered2.png" style="width: 83px; height: 247px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/images/rowscovered2.png" style="width: 83px; height: 247px;"></strong></p>
 
 <pre><b>输入：</b>mat = [[1],[0]], cols = 1
 <b>输出：</b>2
@@ -47,7 +47,6 @@
 	<li><code>mat[i][j]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;要么是&nbsp;<code>1</code>&nbsp;。</li>
 	<li><code>1 &lt;= cols &lt;= n</code></li>
 </ul>
-
 
 ## 解法
 

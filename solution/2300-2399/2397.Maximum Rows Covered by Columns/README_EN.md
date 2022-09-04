@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2022/07/14/rowscovered.png" style="width: 250px; height: 417px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/images/rowscovered.png" style="width: 250px; height: 417px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[0,0,0],[1,0,1],[0,1,1],[0,0,1]], cols = 2
@@ -25,7 +25,7 @@ It can be shown that no more than 3 rows can be covered, so we return 3.
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2022/07/14/rowscovered2.png" style="width: 83px; height: 247px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/images/rowscovered2.png" style="width: 83px; height: 247px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[1],[0]], cols = 1
@@ -45,7 +45,6 @@ Therefore, we return 2.
 	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li><code>1 &lt;= cols &lt;= n</code></li>
 </ul>
-
 
 ## Solutions
 
