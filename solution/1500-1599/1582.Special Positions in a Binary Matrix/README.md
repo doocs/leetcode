@@ -176,6 +176,97 @@ func numSpecial(mat [][]int) int {
 }
 ```
 
+### **C**
+
+```c
+int numSpecial(int **mat, int matSize, int *matColSize) {
+    int m = matSize;
+    int n = *matColSize;
+    int *rows = (int *) malloc(sizeof(int) * m);
+    int *cols = (int *) malloc(sizeof(int) * n);
+    memset(rows, 0, sizeof(int) * m);
+    memset(cols, 0, sizeof(int) * n);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (mat[i][j] == 1) {
+                rows[i]++;
+                cols[j]++;
+            }
+        }
+    }
+    int res = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1) {
+                res++;
+            }
+        }
+    }
+    free(rows);
+    free(cols);
+    return res;
+}
+```
+
+### **TypeScript**
+
+```ts
+function numSpecial(mat: number[][]): number {
+    const m = mat.length;
+    const n = mat[0].length;
+    const rows = new Array(m).fill(0);
+    const cols = new Array(n).fill(0);
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j] === 1) {
+                rows[i]++;
+                cols[j]++;
+            }
+        }
+    }
+
+    let res = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j] === 1 && rows[i] === 1 && cols[j] === 1) {
+                res++;
+            }
+        }
+    }
+
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn num_special(mat: Vec<Vec<i32>>) -> i32 {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut rows = vec![0; m];
+        let mut cols = vec![0; n];
+        for i in 0..m {
+            for j in 0..n {
+                rows[i] += mat[i][j];
+                cols[j] += mat[i][j];
+            }
+        }
+
+        let mut res = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1 {
+                    res += 1;
+                }
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
