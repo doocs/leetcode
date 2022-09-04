@@ -23,6 +23,14 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 86 场双周赛(2022-09-03 22:30, 90 分钟) 参赛人数 4401
+
+- [2395. 和相等的子数组](/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README.md)
+- [2396. 严格回文的数字](/solution/2300-2399/2396.Strictly%20Palindromic%20Number/README.md)
+- [2397. 被列覆盖的最多行数](/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/README.md)
+- [2398. 预算内的最多机器人数目](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md)
+
+
 #### 第 308 场周赛(2022-08-28 10:30, 90 分钟) 参赛人数 6394
 
 - [2389. 和有限的最长子序列](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md)
