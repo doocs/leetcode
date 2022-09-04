@@ -132,10 +132,59 @@ func checkDistances(s string, distance []int) bool {
 }
 ```
 
+### **C**
+
+```c
+bool checkDistances(char *s, int *distance, int distanceSize) {
+    int n = strlen(s);
+    int d[26] = {0};
+    for (int i = 0; i < n; i++) {
+        int j = s[i] - 'a';
+        if (d[j] > 0 && i - d[j] != distance[j]) {
+            return false;
+        }
+        d[j] = i + 1;
+    }
+    return true;
+}
+```
+
 ### **TypeScript**
 
 ```ts
+function checkDistances(s: string, distance: number[]): boolean {
+    const n = s.length;
+    const d = new Array(26).fill(0);
+    for (let i = 0; i < n; i++) {
+        const j = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        if (d[j] > 0 && i - d[j] !== distance[j]) {
+            return false;
+        }
+        d[j] = i + 1;
+    }
+    return true;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn check_distances(s: String, distance: Vec<i32>) -> bool {
+        let n = s.len();
+        let s = s.as_bytes();
+        let mut d = [0; 26];
+        for i in 0..n {
+            let j = (s[i] - b'a') as usize;
+            let i = i as i32;
+            if d[j] > 0 && i - d[j] != distance[j] {
+                return false;
+            }
+            d[j] = i + 1;
+        }
+        true
+    }
+}
 ```
 
 ### **...**
