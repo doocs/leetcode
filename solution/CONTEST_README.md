@@ -23,6 +23,14 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 309 场周赛(2022-09-04 10:30, 90 分钟) 参赛人数 7972
+
+- [2399. 检查相同字母间的距离](/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README.md)
+- [2400. 恰好移动 k 步到达某一位置的方法数目](/solution/2400-2499/2400.Number%20of%20Ways%20to%20Reach%20a%20Position%20After%20Exactly%20k%20Steps/README.md)
+- [2401. 最长优雅子数组](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md)
+- [2402. 会议室 III](/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
+
+
 #### 第 86 场双周赛(2022-09-03 22:30, 90 分钟) 参赛人数 4401
 
 - [2395. 和相等的子数组](/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README.md)

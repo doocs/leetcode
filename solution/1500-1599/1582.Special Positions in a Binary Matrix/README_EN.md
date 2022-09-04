@@ -42,13 +42,99 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numSpecial(self, mat: List[List[int]]) -> int:
+        m, n = len(mat), len(mat[0])
+        r = [0] * m
+        c = [0] * n
+        for i, row in enumerate(mat):
+            for j, v in enumerate(row):
+                r[i] += v
+                c[j] += v
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if mat[i][j] == 1 and r[i] == 1 and c[j] == 1:
+                    ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numSpecial(int[][] mat) {
+        int m = mat.length, n = mat[0].length;
+        int[] r = new int[m];
+        int[] c = new int[n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                r[i] += mat[i][j];
+                c[j] += mat[i][j];
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] == 1 && r[i] == 1 && c[j] == 1) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSpecial(vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+        vector<int> r(m), c(n);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                r[i] += mat[i][j];
+                c[j] += mat[i][j];
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] == 1 && r[i] == 1 && c[j] == 1) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSpecial(mat [][]int) int {
+	m, n := len(mat), len(mat[0])
+	r, c := make([]int, m), make([]int, n)
+	for i, row := range mat {
+		for j, v := range row {
+			r[i] += v
+			c[j] += v
+		}
+	}
+	ans := 0
+	for i, x := range r {
+		for j, y := range c {
+			if mat[i][j] == 1 && x == 1 && y == 1 {
+				ans++
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
