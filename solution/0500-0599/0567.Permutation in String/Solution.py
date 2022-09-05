@@ -1,21 +1,27 @@
 class Solution:
-    def checkInclusion(self, s1, s2):
-        """
-        :type s1: str
-        :type s2: str
-        :rtype: bool
-        """
-        if len(s1) > len(s2):
-            return False
-        flag1 = [0] * 26
-        flag2 = [0] * 26
-        for i, x in enumerate(s1):
-            flag1[ord(x) - ord('a')] += 1
-
-        for i, x in enumerate(s2):
-            flag2[ord(x) - ord('a')] += 1
-            if i >= len(s1):
-                flag2[ord(s2[i - len(s1)]) - ord('a')] -= 1
-            if flag1 == flag2:
-                return True
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        need, window = {}, {}
+        validate, left, right = 0, 0, 0
+        for c in s1:
+            window[c] = 0
+            if c in need:
+                need[c] += 1
+            else:
+                need[c] = 1
+        # sliding window
+        for right in range(len(s2)):
+            c = s2[right]
+            if c in need:
+                window[c] += 1
+                if window[c] == need[c]:
+                    validate += 1
+            while right - left + 1 >= len(s1):
+                if validate == len(need):
+                    return True
+                d = s2[left]
+                left += 1
+                if d in need:
+                    if window[d] == need[d]:
+                        validate -= 1
+                    window[d] -= 1
         return False
