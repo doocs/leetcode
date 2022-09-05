@@ -1,5 +1,5 @@
 class Solution {
-     int mod = (int) 1e9 + 7;
+    int mod = (int) 1e9 + 7;
 
     public int numOfWays(int[] nums) {
         if (nums.length < 2) {
@@ -12,12 +12,12 @@ class Solution {
         if (list.isEmpty()) {
             return 1;
         }
-        List<Integer> left = list.stream().filter(n -> n < list.get(0))
-                .collect(Collectors.toList());
-        List<Integer> right = list.stream().filter(n -> n > list.get(0))
-                .collect(Collectors.toList());
+        List<Integer> left
+            = list.stream().filter(n -> n < list.get(0)).collect(Collectors.toList());
+        List<Integer> right
+            = list.stream().filter(n -> n > list.get(0)).collect(Collectors.toList());
         return (int) ((long) c[list.size() - 1][left.size()] * dfs(left, c) % mod * dfs(right, c)
-                % mod);
+            % mod);
     }
 
     private int[][] calc(int n) {

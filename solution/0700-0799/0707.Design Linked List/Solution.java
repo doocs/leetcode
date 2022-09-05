@@ -6,29 +6,29 @@ class MyLinkedList {
     private int size;
 
     public MyLinkedList() {
-
     }
-    
+
     public int get(int index) {
         if (index < 0 || index >= size) {
             return -1;
         }
         int i = head;
-        for (; index > 0; i = ne[i], index--);
+        for (; index > 0; i = ne[i], index--)
+            ;
         return e[i];
     }
-    
+
     public void addAtHead(int val) {
         e[idx] = val;
         ne[idx] = head;
         head = idx++;
         size++;
     }
-    
+
     public void addAtTail(int val) {
         addAtIndex(size, val);
     }
-    
+
     public void addAtIndex(int index, int val) {
         if (index > size) {
             return;
@@ -38,13 +38,14 @@ class MyLinkedList {
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--);
+        for (; index > 1; i = ne[i], index--)
+            ;
         e[idx] = val;
         ne[idx] = ne[i];
         ne[i] = idx++;
         size++;
     }
-    
+
     public void deleteAtIndex(int index) {
         if (index < 0 || index >= size) {
             return;
@@ -55,7 +56,8 @@ class MyLinkedList {
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--);
+        for (; index > 1; i = ne[i], index--)
+            ;
         ne[i] = ne[ne[i]];
     }
 }

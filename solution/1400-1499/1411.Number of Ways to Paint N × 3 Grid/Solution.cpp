@@ -11,6 +11,6 @@ public:
             f0 = g0;
             f1 = g1;
         }
-        return (int)(f0 + f1) % mod;
+        return (int) (f0 + f1) % mod;
     }
 };

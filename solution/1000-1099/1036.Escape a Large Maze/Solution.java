@@ -1,5 +1,5 @@
 class Solution {
-    private int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    private int[][] dirs = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     private static final int N = (int) 1e6;
     private Set<Integer> blocked;
 
@@ -14,7 +14,8 @@ class Solution {
     private boolean dfs(int[] source, int[] target, Set<Integer> seen) {
         int sx = source[0], sy = source[1];
         int tx = target[0], ty = target[1];
-        if (sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N || blocked.contains(sx * N + sy) || seen.contains(sx * N + sy)) {
+        if (sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N
+            || blocked.contains(sx * N + sy) || seen.contains(sx * N + sy)) {
             return false;
         }
         seen.add(sx * N + sy);
@@ -22,7 +23,7 @@ class Solution {
             return true;
         }
         for (int[] dir : dirs) {
-            if (dfs(new int[]{sx + dir[0], sy + dir[1]}, target, seen)) {
+            if (dfs(new int[] {sx + dir[0], sy + dir[1]}, target, seen)) {
                 return true;
             }
         }

@@ -1,7 +1,7 @@
 class Solution {
 public:
     int minStickers(vector<string>& stickers, string target) {
-        queue<int> q {{0}};
+        queue<int> q{{0}};
         int ans = 0;
         int n = target.size();
         vector<bool> vis(1 << n);

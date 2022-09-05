@@ -5,7 +5,7 @@ public:
 
     BinaryIndexedTree(int _n)
         : n(_n + 1e5 + 1)
-        , c(_n + 1 + 1e5 + 1) { }
+        , c(_n + 1 + 1e5 + 1) {}
 
     void update(int x, int delta) {
         x += 1e5 + 1;

@@ -23,7 +23,8 @@ class Solution {
         for (int i = 0, n = pressedKeys.length(); i < n; ++i) {
             int j = i;
             char c = pressedKeys.charAt(i);
-            for (; j + 1 < n && pressedKeys.charAt(j + 1) == c; ++j);
+            for (; j + 1 < n && pressedKeys.charAt(j + 1) == c; ++j)
+                ;
             int cnt = j - i + 1;
             ans = c == '7' || c == '9' ? ans * g[cnt] : ans * f[cnt];
             ans %= MOD;

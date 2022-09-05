@@ -20,7 +20,7 @@ class Solution {
                 server = free.first();
             }
             ++cnt[server];
-            busy.offer(new int[]{end, server});
+            busy.offer(new int[] {end, server});
             free.remove(server);
         }
         int mx = 0;

@@ -12,7 +12,6 @@ class Solution {
         return left;
     }
 
-
     public boolean canCarry(int[] weights, int days, int carry) {
         int useDay = 1;
         int curCarry = 0;

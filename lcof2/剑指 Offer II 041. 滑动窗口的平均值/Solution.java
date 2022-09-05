@@ -6,7 +6,7 @@ class MovingAverage {
     public MovingAverage(int size) {
         arr = new int[size];
     }
-    
+
     public double next(int val) {
         int idx = cnt % arr.length;
         s += val - arr[idx];

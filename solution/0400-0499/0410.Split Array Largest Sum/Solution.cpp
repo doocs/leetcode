@@ -1,7 +1,7 @@
 class Solution {
 public:
     int splitArray(vector<int>& nums, int m) {
-        int left = *max_element(nums.begin(), nums.end()), right = (int)1e9;
+        int left = *max_element(nums.begin(), nums.end()), right = (int) 1e9;
         while (left < right) {
             int mid = left + right >> 1;
             if (check(nums, m, mid))

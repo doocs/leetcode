@@ -37,6 +37,6 @@ class Solution {
         if (i % 2 == 1) {
             j = n - 1 - j;
         }
-        return new int[]{n - 1 - i, j};
+        return new int[] {n - 1 - i, j};
     }
 }

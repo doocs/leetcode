@@ -3,7 +3,7 @@ public class ZigzagIterator {
     private int size;
     private List<Integer> indexes = new ArrayList<>();
     private List<List<Integer>> vectors = new ArrayList<>();
-    
+
     public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
         cur = 0;
         size = 2;

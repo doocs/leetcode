@@ -1,7 +1,8 @@
 class Solution {
     public String toGoatLatin(String sentence) {
         List<String> ans = new ArrayList<>();
-        Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+        Set<Character> vowels
+            = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
         int i = 1;
         for (String word : sentence.split(" ")) {
             StringBuilder t = new StringBuilder();

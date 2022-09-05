@@ -7,7 +7,7 @@ class MedianFinder {
         minHeap = new PriorityQueue<>();
         maxHeap = new PriorityQueue<>((a, b) -> b - a);
     }
-    
+
     public void addNum(int num) {
         if (maxHeap.size() == minHeap.size()) {
             maxHeap.offer(num);
@@ -19,7 +19,7 @@ class MedianFinder {
             maxHeap.offer(minHeap.poll());
         }
     }
-    
+
     public double findMedian() {
         if (((maxHeap.size() + minHeap.size()) & 1) == 0) {
             // 偶数个，取两个堆顶平均值

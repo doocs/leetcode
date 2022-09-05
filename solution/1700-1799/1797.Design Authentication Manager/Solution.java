@@ -6,11 +6,11 @@ class AuthenticationManager {
         this.timeToLive = timeToLive;
         tokens = new HashMap<>();
     }
-    
+
     public void generate(String tokenId, int currentTime) {
         tokens.put(tokenId, currentTime + timeToLive);
     }
-    
+
     public void renew(String tokenId, int currentTime) {
         Integer expireTime = tokens.get(tokenId);
         if (expireTime == null || expireTime <= currentTime) {
@@ -18,7 +18,7 @@ class AuthenticationManager {
         }
         tokens.put(tokenId, currentTime + timeToLive);
     }
-    
+
     public int countUnexpiredTokens(int currentTime) {
         int unexpiredCount = 0;
         for (Integer val : tokens.values()) {

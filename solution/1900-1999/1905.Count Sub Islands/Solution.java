@@ -20,7 +20,8 @@ class Solution {
         for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k];
             int y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 && !dfs(x, y, m, n, grid1, grid2)) {
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1
+                && !dfs(x, y, m, n, grid1, grid2)) {
                 ans = false;
             }
         }

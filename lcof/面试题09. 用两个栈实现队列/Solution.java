@@ -3,13 +3,12 @@ class CQueue {
     private Deque<Integer> stk2 = new ArrayDeque<>();
 
     public CQueue() {
-
     }
-    
+
     public void appendTail(int value) {
         stk1.push(value);
     }
-    
+
     public int deleteHead() {
         if (stk2.isEmpty()) {
             while (!stk1.isEmpty()) {

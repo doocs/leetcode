@@ -19,6 +19,6 @@ class Solution {
 
         // 每 n/3 的地方为分界线
         return (int) ((p.get(l / 3) - p.get(l / 3 - 1)) * (p.get(2 * l / 3) - p.get(2 * l / 3 - 1))
-                % MOD);
+            % MOD);
     }
 }

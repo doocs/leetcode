@@ -1,7 +1,7 @@
 class Solution {
     public int findPaths(int m, int n, int N, int i, int j) {
         final int MOD = (int) (1e9 + 7);
-        final int[] dirs = new int[]{-1, 0, 1, 0, -1};
+        final int[] dirs = new int[] {-1, 0, 1, 0, -1};
         int[][] f = new int[m][n];
         f[i][j] = 1;
         int res = 0;

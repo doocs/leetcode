@@ -13,7 +13,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private int search(int[] s, int v) {
         int left = 1, right = s.length;
         while (left < right) {

@@ -7,6 +7,6 @@ public:
             mi = min(mi, num);
             mx = max(mx, num);
         }
-        return max(0, (int)(upper - lower - (mx - mi) + 1));
+        return max(0, (int) (upper - lower - (mx - mi) + 1));
     }
 };

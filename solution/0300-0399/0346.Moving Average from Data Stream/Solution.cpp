@@ -9,7 +9,7 @@ public:
         s += val - arr[idx];
         arr[idx] = val;
         ++cnt;
-        return (double)s / min(cnt, (int)arr.size());
+        return (double) s / min(cnt, (int) arr.size());
     }
 
 private:

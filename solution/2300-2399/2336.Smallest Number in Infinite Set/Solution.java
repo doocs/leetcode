@@ -2,16 +2,16 @@ class SmallestInfiniteSet {
     private Set<Integer> black = new HashSet<>();
 
     public SmallestInfiniteSet() {
-
     }
-    
+
     public int popSmallest() {
         int i = 1;
-        for (; black.contains(i); ++i);
+        for (; black.contains(i); ++i)
+            ;
         black.add(i);
         return i;
     }
-    
+
     public void addBack(int num) {
         black.remove(num);
     }

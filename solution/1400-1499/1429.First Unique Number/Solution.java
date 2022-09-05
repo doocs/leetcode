@@ -14,11 +14,11 @@ class FirstUnique {
             }
         }
     }
-    
+
     public int showFirstUnique() {
         return uniqueNums.isEmpty() ? -1 : uniqueNums.iterator().next();
     }
-    
+
     public void add(int value) {
         if (!counter.containsKey(value)) {
             counter.put(value, 1);

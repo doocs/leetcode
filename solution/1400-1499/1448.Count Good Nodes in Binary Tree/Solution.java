@@ -19,7 +19,7 @@ class Solution {
     public int goodNodes(TreeNode root) {
         ans = 0;
         dfs(root, -10000);
-        return ans;    
+        return ans;
     }
 
     private void dfs(TreeNode root, int mx) {

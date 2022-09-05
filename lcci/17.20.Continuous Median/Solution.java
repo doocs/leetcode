@@ -7,7 +7,7 @@ class MedianFinder {
         minHeap = new PriorityQueue<>();
         maxHeap = new PriorityQueue<>(Collections.reverseOrder());
     }
-    
+
     public void addNum(int num) {
         minHeap.offer(num);
         maxHeap.offer(minHeap.poll());
@@ -15,7 +15,7 @@ class MedianFinder {
             minHeap.offer(maxHeap.poll());
         }
     }
-    
+
     public double findMedian() {
         if (maxHeap.size() > minHeap.size()) {
             return maxHeap.peek();

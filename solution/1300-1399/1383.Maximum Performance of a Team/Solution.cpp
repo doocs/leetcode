@@ -18,6 +18,6 @@ public:
                 q.pop();
             }
         }
-        return (int)(ans % mod);
+        return (int) (ans % mod);
     }
 };

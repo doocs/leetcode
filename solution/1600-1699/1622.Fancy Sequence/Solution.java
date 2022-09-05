@@ -20,7 +20,6 @@ class SegmentTree {
     private static final int MOD = (int) 1e9 + 7;
 
     public SegmentTree() {
-
     }
 
     public void modifyAdd(int l, int r, int inc) {
@@ -122,22 +121,21 @@ class Fancy {
     private SegmentTree tree = new SegmentTree();
 
     public Fancy() {
-
     }
-    
+
     public void append(int val) {
         ++n;
         tree.modifyAdd(n, n, val);
     }
-    
+
     public void addAll(int inc) {
         tree.modifyAdd(1, n, inc);
     }
-    
+
     public void multAll(int m) {
         tree.modifyMul(1, n, m);
     }
-    
+
     public int getIndex(int idx) {
         return idx >= n ? -1 : tree.query(idx + 1, idx + 1);
     }

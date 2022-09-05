@@ -14,13 +14,15 @@ class Solution {
                 ccnt.put(c, ccnt.getOrDefault(c, 0) + 1);
                 dgcnt.put(r - c, dgcnt.getOrDefault(r - c, 0) + 1);
                 udgcnt.put(r + c, udgcnt.getOrDefault(r + c, 0) + 1);
-            }   
+            }
         }
-        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}, {0, 0}, {1, 1}, {-1, 1}, {1, -1}, {-1, -1}};
+        int[][] dirs
+            = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}, {0, 0}, {1, 1}, {-1, 1}, {1, -1}, {-1, -1}};
         int[] ans = new int[queries.length];
         for (int i = 0; i < queries.length; ++i) {
             int r = queries[i][0], c = queries[i][1];
-            if (rcnt.getOrDefault(r, 0) > 0 || ccnt.getOrDefault(c, 0) > 0 || dgcnt.getOrDefault(r - c, 0) > 0 || udgcnt.getOrDefault(r + c, 0) > 0) {
+            if (rcnt.getOrDefault(r, 0) > 0 || ccnt.getOrDefault(c, 0) > 0
+                || dgcnt.getOrDefault(r - c, 0) > 0 || udgcnt.getOrDefault(r + c, 0) > 0) {
                 ans[i] = 1;
                 for (int[] d : dirs) {
                     int x = r + d[0], y = c + d[1];

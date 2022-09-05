@@ -8,7 +8,7 @@ class ValidWordAbbr {
             words.computeIfAbsent(abbr, k -> new HashSet<>()).add(word);
         }
     }
-    
+
     public boolean isUnique(String word) {
         String abbr = abbr(word);
         Set<String> vals = words.get(abbr);

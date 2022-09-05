@@ -8,7 +8,7 @@ class Solution {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                g.add(new int[]{Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
+                g.add(new int[] {Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
             }
         }
         g.sort(Comparator.comparingInt(a -> a[0]));

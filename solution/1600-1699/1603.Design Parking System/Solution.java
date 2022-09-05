@@ -7,7 +7,7 @@ class ParkingSystem {
         spaces[1] = medium;
         spaces[2] = small;
     }
-    
+
     public boolean addCar(int carType) {
         if (spaces[carType - 1] <= 0) {
             return false;

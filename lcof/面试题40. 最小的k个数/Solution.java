@@ -1,7 +1,7 @@
 class Solution {
     public int[] getLeastNumbers(int[] arr, int k) {
         if (k == 0) {
-            return new int[]{};
+            return new int[] {};
         }
         PriorityQueue<Integer> bigRoot = new PriorityQueue<>(k, Collections.reverseOrder());
         for (int e : arr) {

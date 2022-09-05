@@ -1,5 +1,6 @@
 class Solution {
-    public List<String> findAllRecipes(String[] recipes, List<List<String>> ingredients, String[] supplies) {
+    public List<String> findAllRecipes(
+        String[] recipes, List<List<String>> ingredients, String[] supplies) {
         Map<String, List<String>> g = new HashMap<>();
         Map<String, Integer> indeg = new HashMap<>();
         for (int i = 0; i < recipes.length; ++i) {

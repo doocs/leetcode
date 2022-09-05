@@ -13,7 +13,8 @@ class Solution {
         Map<Integer, Map<Integer, Integer>> mp = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             int root = find(i);
-            mp.computeIfAbsent(root, k -> new HashMap<>()).put(source[i], mp.get(root).getOrDefault(source[i], 0) + 1);
+            mp.computeIfAbsent(root, k -> new HashMap<>())
+                .put(source[i], mp.get(root).getOrDefault(source[i], 0) + 1);
         }
         int res = 0;
         for (int i = 0; i < n; ++i) {

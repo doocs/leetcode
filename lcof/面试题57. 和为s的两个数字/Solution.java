@@ -3,7 +3,7 @@ class Solution {
         for (int p = 0, q = nums.length - 1; p < q;) {
             int s = nums[p] + nums[q];
             if (s == target) {
-                return new int[]{nums[p], nums[q]};
+                return new int[] {nums[p], nums[q]};
             }
             if (s < target) {
                 ++p;

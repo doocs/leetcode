@@ -27,7 +27,7 @@ class Solution {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
                     fire[i][j] = true;
-                    f.offer(new int[]{i, j});
+                    f.offer(new int[] {i, j});
                 }
             }
         }
@@ -39,7 +39,7 @@ class Solution {
         }
         Deque<int[]> q = new ArrayDeque<>();
         boolean[][] vis = new boolean[m][n];
-        q.offer(new int[]{0, 0});
+        q.offer(new int[] {0, 0});
         vis[0][0] = true;
         while (!q.isEmpty()) {
             for (int i = q.size(); i > 0; --i) {
@@ -49,12 +49,13 @@ class Solution {
                 }
                 for (int k = 0; k < 4; ++k) {
                     int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !fire[x][y] && !vis[x][y] && grid[x][y] == 0) {
+                    if (x >= 0 && x < m && y >= 0 && y < n && !fire[x][y] && !vis[x][y]
+                        && grid[x][y] == 0) {
                         if (x == m - 1 && y == n - 1) {
                             return true;
                         }
                         vis[x][y] = true;
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                     }
                 }
             }
@@ -71,7 +72,7 @@ class Solution {
                 int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && !fire[x][y] && grid[x][y] == 0) {
                     fire[x][y] = true;
-                    nf.offer(new int[]{x, y});
+                    nf.offer(new int[] {x, y});
                 }
             }
         }

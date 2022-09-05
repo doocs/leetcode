@@ -13,7 +13,7 @@ class Solution {
             lmx[i] = Math.max(lmx[i - 1], height[i]);
             rmx[n - 1 - i] = Math.max(rmx[n - i], height[n - i - 1]);
         }
-        
+
         int res = 0;
         for (int i = 0; i < n; ++i) {
             res += Math.min(lmx[i], rmx[i]) - height[i];

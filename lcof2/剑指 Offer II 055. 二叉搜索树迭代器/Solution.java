@@ -21,7 +21,7 @@ class BSTIterator {
             stack.offerLast(root);
         }
     }
-    
+
     public int next() {
         TreeNode cur = stack.pollLast();
         for (TreeNode node = cur.right; node != null; node = node.left) {
@@ -29,7 +29,7 @@ class BSTIterator {
         }
         return cur.val;
     }
-    
+
     public boolean hasNext() {
         return !stack.isEmpty();
     }

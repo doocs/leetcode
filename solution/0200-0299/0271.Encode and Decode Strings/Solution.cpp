@@ -1,12 +1,11 @@
 class Codec {
 public:
-
     // Encodes a list of strings to a single string.
     string encode(vector<string>& strs) {
         string ans;
         for (string s : strs) {
             int size = s.size();
-            ans += string((const char*)& size, sizeof(size));
+            ans += string((const char*) &size, sizeof(size));
             ans += s;
         }
         return ans;

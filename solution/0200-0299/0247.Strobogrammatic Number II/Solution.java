@@ -14,7 +14,7 @@ class Solution {
             return Arrays.asList("0", "1", "8");
         }
         List<String> ans = new ArrayList<>();
-        int[][] pairs = new int[][]{{1, 1}, {8, 8}, {6, 9}, {9, 6}};
+        int[][] pairs = new int[][] {{1, 1}, {8, 8}, {6, 9}, {9, 6}};
         for (String v : dfs(u - 2)) {
             for (int[] p : pairs) {
                 ans.add(p[0] + v + p[1]);

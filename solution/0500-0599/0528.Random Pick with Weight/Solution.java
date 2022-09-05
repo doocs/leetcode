@@ -9,7 +9,7 @@ class Solution {
             s[i + 1] = s[i] + w[i];
         }
     }
-    
+
     public int pickIndex() {
         int x = 1 + random.nextInt(s[s.length - 1]);
         int left = 1, right = s.length - 1;

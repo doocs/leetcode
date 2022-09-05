@@ -2,7 +2,7 @@ class Solution {
 public:
     int minimumObstacles(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        deque<tuple<int, int, int>> q {{0, 0, 0}};
+        deque<tuple<int, int, int>> q{{0, 0, 0}};
         vector<vector<bool>> vis(m, vector<bool>(n));
         vector<int> dirs = {-1, 0, 1, 0, -1};
         while (!q.empty()) {

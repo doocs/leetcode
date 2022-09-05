@@ -18,7 +18,8 @@ class Solution {
             boolean flag = true;
             c[cur] = i;
             for (int j = 0; j < cur; j++) {
-                if ((c[cur] == c[j]) || ((c[cur] - cur) == (c[j] - j)) || ((c[cur] + cur) == (c[j] + j))) {
+                if ((c[cur] == c[j]) || ((c[cur] - cur) == (c[j] - j))
+                    || ((c[cur] + cur) == (c[j] + j))) {
                     flag = false;
                     break;
                 }

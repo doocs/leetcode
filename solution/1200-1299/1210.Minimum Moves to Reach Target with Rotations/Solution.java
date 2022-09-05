@@ -1,9 +1,9 @@
 class Solution {
     public int minimumMoves(int[][] grid) {
         int n = grid.length;
-        int[] target = new int[]{n * n - 2, n * n - 1};
+        int[] target = new int[] {n * n - 2, n * n - 1};
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{0, 1});
+        q.offer(new int[] {0, 1});
         boolean[][] vis = new boolean[n * n][n * n];
         int ans = 0;
         vis[0][1] = true;
@@ -37,7 +37,7 @@ class Solution {
     private void check(int a, int b, Deque<int[]> q, boolean[][] vis) {
         if (!vis[a][b]) {
             vis[a][b] = true;
-            q.offer(new int[]{a, b});
+            q.offer(new int[] {a, b});
         }
     }
 }

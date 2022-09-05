@@ -32,9 +32,8 @@ class Solution {
             prev.next = reverse(node, left);
         }
         return dummy.next;
-    
     }
-    
+
     private ListNode reverse(ListNode head, int l) {
         ListNode prev = null;
         ListNode cur = head;

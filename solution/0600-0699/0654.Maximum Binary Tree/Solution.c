@@ -19,7 +19,7 @@ struct TreeNode* construct(int* nums, int start, int end) {
             maxVal = nums[i];
         }
     }
-    struct TreeNode* res = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    struct TreeNode* res = (struct TreeNode*) malloc(sizeof(struct TreeNode));
     res->val = maxVal;
     res->left = construct(nums, start, idx);
     res->right = construct(nums, idx + 1, end);

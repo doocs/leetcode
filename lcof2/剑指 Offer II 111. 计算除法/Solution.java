@@ -2,7 +2,8 @@ class Solution {
     private int[] p;
     private double[] w;
 
-    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+    public double[] calcEquation(
+        List<List<String>> equations, double[] values, List<List<String>> queries) {
         int n = equations.size();
         p = new int[n << 1];
         w = new double[n << 1];

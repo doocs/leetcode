@@ -1,7 +1,7 @@
 class Solution {
     public long kMirror(int k, int n) {
         long ans = 0;
-        for (int l = 1; ; ++l) {
+        for (int l = 1;; ++l) {
             int x = (int) Math.pow(10, (l - 1) / 2);
             int y = (int) Math.pow(10, (l + 1) / 2);
             for (int i = x; i < y; i++) {

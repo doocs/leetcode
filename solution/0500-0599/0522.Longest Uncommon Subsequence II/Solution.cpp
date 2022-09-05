@@ -7,7 +7,7 @@ public:
                 if (i == j) continue;
                 if (check(strs[j], strs[i])) break;
             }
-            if (j == n) ans = max(ans, (int)strs[i].size());
+            if (j == n) ans = max(ans, (int) strs[i].size());
         }
         return ans;
     }

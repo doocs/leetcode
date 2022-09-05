@@ -19,7 +19,7 @@ class Solution {
             }
         }
     }
-    
+
     public int pick() {
         int x = rand.nextInt(k);
         return d.getOrDefault(x, x);

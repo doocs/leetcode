@@ -23,7 +23,7 @@ public:
     vector<int> postorder(Node* root) {
         vector<int> ans;
         if (!root) return ans;
-        stack<Node*> stk {{root}};
+        stack<Node*> stk{{root}};
         while (!stk.empty()) {
             root = stk.top();
             ans.push_back(root->val);

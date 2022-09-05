@@ -3,7 +3,8 @@ class Solution {
         long x = Long.parseLong(n);
         long ans = -1;
         for (long t : get(n)) {
-            if (ans == -1 || Math.abs(t - x) < Math.abs(ans - x) || (Math.abs(t - x) == Math.abs(ans - x) && t < ans)) {
+            if (ans == -1 || Math.abs(t - x) < Math.abs(ans - x)
+                || (Math.abs(t - x) == Math.abs(ans - x) && t < ans)) {
                 ans = t;
             }
         }

@@ -2,7 +2,7 @@ class Solution {
     public int longestDecomposition(String text) {
         char[] cs = text.toCharArray();
         int res = 0;
-        for (int i = 0, j = cs.length - 1; i <= j; ) {
+        for (int i = 0, j = cs.length - 1; i <= j;) {
             boolean flag = true;
             for (int k = 1; i + k - 1 < j - k + 1; ++k) {
                 if (check(cs, i, j - k + 1, k)) {

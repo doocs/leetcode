@@ -11,7 +11,8 @@
 class Solution {
     private TreeNode res;
 
-    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+    public final TreeNode getTargetCopy(
+        final TreeNode original, final TreeNode cloned, final TreeNode target) {
         dfs(original, cloned, target);
         return res;
     }

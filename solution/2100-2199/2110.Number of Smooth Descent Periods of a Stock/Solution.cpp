@@ -7,7 +7,7 @@ public:
             for (; j + 1 < n && prices[j] - prices[j + 1] == 1; ++j)
                 ;
             int t = j - i + 1;
-            ans += (long long)t * (t + 1) / 2;
+            ans += (long long) t * (t + 1) / 2;
             i = j + 1;
         }
         return ans;

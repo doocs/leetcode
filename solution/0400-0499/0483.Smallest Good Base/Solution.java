@@ -14,8 +14,10 @@ class Solution {
         long l = 2, r = num - 1;
         while (l < r) {
             long mid = l + r >>> 1;
-            if (calc(mid, len) >= num) r = mid;
-            else l = mid + 1;
+            if (calc(mid, len) >= num)
+                r = mid;
+            else
+                l = mid + 1;
         }
         return calc(r, len) == num ? r : -1;
     }

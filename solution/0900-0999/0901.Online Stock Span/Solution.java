@@ -4,14 +4,14 @@ class StockSpanner {
     public StockSpanner() {
         stk = new ArrayDeque<>();
     }
-    
+
     public int next(int price) {
         int res = 1;
         while (!stk.isEmpty() && stk.peek()[0] <= price) {
             int[] t = stk.pop();
             res += t[1];
         }
-        stk.push(new int[]{price, res});
+        stk.push(new int[] {price, res});
         return res;
     }
 }

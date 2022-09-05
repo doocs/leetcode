@@ -4,8 +4,10 @@ class Solution {
         int lcm = A * B / gcd(A, B);
         while (l < r) {
             long mid = l + r >>> 1;
-            if (mid / A + mid / B - mid / lcm >= N) r = mid;
-            else l = mid + 1;
+            if (mid / A + mid / B - mid / lcm >= N)
+                r = mid;
+            else
+                l = mid + 1;
         }
         return (int) (r % 1000000007);
     }

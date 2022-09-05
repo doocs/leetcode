@@ -4,8 +4,10 @@ class Solution {
         int l = 0, r = length - 1;
         while (l < r) {
             int mid = l + r >>> 1;
-            if (mountainArr.get(mid) > mountainArr.get(mid + 1)) r = mid;
-            else l = mid + 1;
+            if (mountainArr.get(mid) > mountainArr.get(mid + 1))
+                r = mid;
+            else
+                l = mid + 1;
         }
         int topIndex = r;
         int topValue = mountainArr.get(topIndex);
@@ -15,8 +17,10 @@ class Solution {
         r = topIndex - 1;
         while (l < r) {
             int mid = l + r >>> 1;
-            if (mountainArr.get(mid) >= target) r = mid;
-            else l = mid + 1;
+            if (mountainArr.get(mid) >= target)
+                r = mid;
+            else
+                l = mid + 1;
         }
         if (mountainArr.get(r) == target) {
             return r;
@@ -25,8 +29,10 @@ class Solution {
         r = length - 1;
         while (l < r) {
             int mid = l + r >>> 1;
-            if (mountainArr.get(mid) <= target) r = mid;
-            else l = mid + 1;
+            if (mountainArr.get(mid) <= target)
+                r = mid;
+            else
+                l = mid + 1;
         }
         return mountainArr.get(r) == target ? r : -1;
     }

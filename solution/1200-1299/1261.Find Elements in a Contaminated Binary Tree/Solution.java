@@ -22,11 +22,11 @@ class FindElements {
         nodes.add(0);
         dfs(root);
     }
-    
+
     public boolean find(int target) {
         return nodes.contains(target);
     }
-    
+
     private void dfs(TreeNode root) {
         if (root == null) {
             return;

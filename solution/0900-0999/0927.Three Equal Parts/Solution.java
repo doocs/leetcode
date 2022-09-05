@@ -8,10 +8,10 @@ class Solution {
         int cnt = cnt1 / 3;
         int mod = cnt1 % 3;
         if (mod != 0) {
-            return new int[]{-1, -1};
+            return new int[] {-1, -1};
         }
         if (cnt == 0) {
-            return new int[]{0, n - 1};
+            return new int[] {0, n - 1};
         }
         int i = find(arr, 1);
         int j = find(arr, cnt + 1);
@@ -22,9 +22,9 @@ class Solution {
             ++k;
         }
         if (k == n) {
-            return new int[]{i - 1, j};
+            return new int[] {i - 1, j};
         }
-        return new int[]{-1, -1};
+        return new int[] {-1, -1};
     }
 
     private int find(int[] arr, int cnt) {

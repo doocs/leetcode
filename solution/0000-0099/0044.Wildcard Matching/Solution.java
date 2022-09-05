@@ -13,7 +13,8 @@ class Solution {
             } else if (ip != -1) {
                 j = ip + 1;
                 i = ++is;
-            } else return false;
+            } else
+                return false;
         }
         while (j < pp.length && pp[j] == '*') j++;
         return j == p.length();

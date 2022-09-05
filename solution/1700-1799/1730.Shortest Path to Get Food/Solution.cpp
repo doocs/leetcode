@@ -4,7 +4,7 @@ class Solution {
 public:
     int getFood(vector<vector<char>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        queue<pii> q {{pos(grid)}};
+        queue<pii> q{{pos(grid)}};
         int ans = 0;
         vector<int> dirs = {-1, 0, 1, 0, -1};
         while (!q.empty()) {

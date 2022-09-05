@@ -26,9 +26,9 @@ class Solution {
         }
         Node p = head;
         for (;;) {
-            if (p.val <= insertVal && insertVal <= p.next.val ||
-                    p.val > p.next.val && (insertVal <= p.next.val || insertVal >= p.val) ||
-                    p.next == head) {
+            if (p.val <= insertVal && insertVal <= p.next.val
+                || p.val > p.next.val && (insertVal <= p.next.val || insertVal >= p.val)
+                || p.next == head) {
                 node.next = p.next;
                 p.next = node;
                 break;

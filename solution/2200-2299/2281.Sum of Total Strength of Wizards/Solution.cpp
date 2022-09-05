@@ -25,10 +25,10 @@ public:
         for (int i = 0; i < n; ++i) {
             int v = strength[i];
             int l = left[i] + 1, r = right[i] - 1;
-            long a = (long)(i - l + 1) * (ss[r + 2] - ss[i + 1]);
-            long b = (long)(r - i + 1) * (ss[i + 1] - ss[l]);
+            long a = (long) (i - l + 1) * (ss[r + 2] - ss[i + 1]);
+            long b = (long) (r - i + 1) * (ss[i + 1] - ss[l]);
             ans = (ans + v * ((a - b) % mod)) % mod;
         }
-        return (int)(ans + mod) % mod;
+        return (int) (ans + mod) % mod;
     }
 };

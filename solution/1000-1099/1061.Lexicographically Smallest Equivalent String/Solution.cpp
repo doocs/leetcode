@@ -16,7 +16,7 @@ public:
         }
         string res = "";
         for (char a : baseStr) {
-            char b = (char)(find(a - 'a') + 'a');
+            char b = (char) (find(a - 'a') + 'a');
             res += b;
         }
         return res;

@@ -38,7 +38,7 @@ class WordFilter {
             s.insert(new StringBuilder(w).reverse().toString(), i);
         }
     }
-    
+
     public int f(String pref, String suff) {
         suff = new StringBuilder(suff).reverse().toString();
         List<Integer> a = p.search(pref);

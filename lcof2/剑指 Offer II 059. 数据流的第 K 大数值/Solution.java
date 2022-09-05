@@ -9,7 +9,7 @@ class KthLargest {
             add(num);
         }
     }
-    
+
     public int add(int val) {
         q.offer(val);
         if (q.size() > size) {

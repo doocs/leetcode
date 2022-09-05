@@ -3,7 +3,7 @@ class SortedStack {
     public SortedStack() {
         s = new Stack<>();
     }
-    
+
     public void push(int val) {
         Stack<Integer> t = new Stack<>();
         while (!isEmpty() && s.peek() < val) {
@@ -14,17 +14,17 @@ class SortedStack {
             s.push(t.pop());
         }
     }
-    
+
     public void pop() {
         if (!isEmpty()) {
             s.pop();
         }
     }
-    
+
     public int peek() {
         return isEmpty() ? -1 : s.peek();
     }
-    
+
     public boolean isEmpty() {
         return s.isEmpty();
     }

@@ -24,6 +24,6 @@ public:
             long long t = nums[i] * (s[right[i]] - s[left[i] + 1]);
             ans = max(ans, t);
         }
-        return (int)(ans % mod);
+        return (int) (ans % mod);
     }
 };

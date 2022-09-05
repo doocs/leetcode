@@ -3,9 +3,8 @@ class NumberContainers {
     private Map<Integer, TreeSet<Integer>> t = new HashMap<>();
 
     public NumberContainers() {
-
     }
-    
+
     public void change(int index, int number) {
         if (mp.containsKey(index)) {
             int v = mp.get(index);
@@ -17,7 +16,7 @@ class NumberContainers {
         mp.put(index, number);
         t.computeIfAbsent(number, k -> new TreeSet<>()).add(index);
     }
-    
+
     public int find(int number) {
         return t.containsKey(number) ? t.get(number).first() : -1;
     }

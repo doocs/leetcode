@@ -36,6 +36,6 @@ class Solution {
                 break;
             }
         }
-        return new double[]{min, max, avg, mid, mode};
+        return new double[] {min, max, avg, mid, mode};
     }
 }

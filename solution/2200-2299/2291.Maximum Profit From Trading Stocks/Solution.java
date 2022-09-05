@@ -3,7 +3,7 @@ class Solution {
         List<int[]> arr = new ArrayList<>();
         for (int i = 0; i < present.length; ++i) {
             if (future[i] > present[i]) {
-                arr.add(new int[]{present[i], future[i] - present[i]});
+                arr.add(new int[] {present[i], future[i] - present[i]});
             }
         }
         int[] dp = new int[budget + 1];

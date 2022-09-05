@@ -22,6 +22,6 @@ public:
         long long ans = 0;
         for (int i = 1; i < 1 << n; ++i) ans = (ans + dp[i]) % MOD;
         while (counter[1]--) ans = (ans << 1) % MOD;
-        return (int)ans;
+        return (int) ans;
     }
 };

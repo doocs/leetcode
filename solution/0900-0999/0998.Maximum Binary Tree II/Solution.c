@@ -7,10 +7,9 @@
  * };
  */
 
-
-struct TreeNode *insertIntoMaxTree(struct TreeNode *root, int val) {
+struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
     if (!root || root->val < val) {
-        struct TreeNode *res = (struct TreeNode *) malloc(sizeof(struct TreeNode));
+        struct TreeNode* res = (struct TreeNode*) malloc(sizeof(struct TreeNode));
         res->val = val;
         res->left = root;
         res->right = NULL;

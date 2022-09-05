@@ -12,9 +12,7 @@ class Solution {
             }
         }
         List<String> res = new ArrayList<>();
-        domains.forEach((domain, count) -> {
-            res.add(count + " " + domain);
-        });
+        domains.forEach((domain, count) -> { res.add(count + " " + domain); });
         return res;
     }
 }

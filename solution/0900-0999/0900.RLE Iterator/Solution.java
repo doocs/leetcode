@@ -8,7 +8,7 @@ class RLEIterator {
         curr = 0;
         i = 0;
     }
-    
+
     public int next(int n) {
         while (i < encoding.length) {
             if (curr + n > encoding[i]) {

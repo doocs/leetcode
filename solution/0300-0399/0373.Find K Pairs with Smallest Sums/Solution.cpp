@@ -14,7 +14,7 @@ public:
         while (k-- && !pq.empty()) {
             auto [x, y] = pq.top();
             pq.pop();
-            ans.emplace_back(initializer_list<int> {nums1[x], nums2[y]});
+            ans.emplace_back(initializer_list<int>{nums1[x], nums2[y]});
             if (y + 1 < n)
                 pq.emplace(x, y + 1);
         }

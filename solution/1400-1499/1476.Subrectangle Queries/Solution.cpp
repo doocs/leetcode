@@ -6,11 +6,11 @@ public:
     SubrectangleQueries(vector<vector<int>>& rectangle) {
         g = rectangle;
     }
-    
+
     void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
         ops.push_back({row1, col1, row2, col2, newValue});
     }
-    
+
     int getValue(int row, int col) {
         for (int i = ops.size() - 1; ~i; --i) {
             auto op = ops[i];

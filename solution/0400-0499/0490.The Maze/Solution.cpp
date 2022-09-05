@@ -3,7 +3,7 @@ public:
     bool hasPath(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
         int m = maze.size();
         int n = maze[0].size();
-        queue<vector<int>> q {{start}};
+        queue<vector<int>> q{{start}};
         vector<vector<bool>> vis(m, vector<bool>(n));
         vis[start[0]][start[1]] = true;
         vector<int> dirs = {-1, 0, 1, 0, -1};

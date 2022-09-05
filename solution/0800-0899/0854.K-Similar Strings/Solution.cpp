@@ -1,8 +1,8 @@
 class Solution {
 public:
     int kSimilarity(string s1, string s2) {
-        queue<string> q {{s1}};
-        unordered_set<string> vis {{s1}};
+        queue<string> q{{s1}};
+        unordered_set<string> vis{{s1}};
         int ans = 0;
         while (!q.empty()) {
             for (int i = q.size(); i; --i) {

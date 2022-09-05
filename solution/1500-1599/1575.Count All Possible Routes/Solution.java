@@ -3,7 +3,7 @@ class Solution {
     private int[] locations;
     private int target;
     private static final int MOD = (int) 1e9 + 7;
-    
+
     public int countRoutes(int[] locations, int start, int finish, int fuel) {
         int n = locations.length;
         f = new int[n + 1][fuel + 1];

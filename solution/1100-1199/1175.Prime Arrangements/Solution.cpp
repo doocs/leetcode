@@ -6,7 +6,7 @@ public:
     int numPrimeArrangements(int n) {
         int cnt = count(n);
         ll ans = f(cnt) * f(n - cnt);
-        return (int)(ans % MOD);
+        return (int) (ans % MOD);
     }
 
     ll f(int n) {

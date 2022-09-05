@@ -6,7 +6,7 @@ public:
 
     int numberOfWays(int startPos, int endPos, int k) {
         j = endPos;
-        return dfs(startPos, k);  
+        return dfs(startPos, k);
     }
 
     int dfs(int i, int k) {

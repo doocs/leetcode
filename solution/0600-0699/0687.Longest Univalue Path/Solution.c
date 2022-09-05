@@ -7,9 +7,9 @@
  * };
  */
 
-#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int dfs(struct TreeNode *root, int target, int *res) {
+int dfs(struct TreeNode* root, int target, int* res) {
     if (!root) {
         return 0;
     }
@@ -22,7 +22,7 @@ int dfs(struct TreeNode *root, int target, int *res) {
     return 0;
 }
 
-int longestUnivaluePath(struct TreeNode *root) {
+int longestUnivaluePath(struct TreeNode* root) {
     if (!root) {
         return 0;
     }

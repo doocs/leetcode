@@ -4,7 +4,7 @@ public:
     string w;
     Trie()
         : children(26)
-        , w("") { }
+        , w("") {}
 
     void insert(string& w) {
         Trie* node = this;

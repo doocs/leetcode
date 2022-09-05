@@ -26,7 +26,8 @@ class Solution {
     private List<String> next(String s, String s2) {
         int i = 0;
         int n = s.length();
-        for (; i < n && s.charAt(i) == s2.charAt(i); ++i);
+        for (; i < n && s.charAt(i) == s2.charAt(i); ++i)
+            ;
         char[] cs = s.toCharArray();
         List<String> res = new ArrayList<>();
         for (int j = i + 1; j < n; ++j) {

@@ -6,6 +6,7 @@ class Solution {
                 ++cnt;
             }
         }
-        return cnt == 0 || cnt == word.length() || (cnt == 1 && Character.isUpperCase(word.charAt(0)));
+        return cnt == 0 || cnt == word.length()
+            || (cnt == 1 && Character.isUpperCase(word.charAt(0)));
     }
 }

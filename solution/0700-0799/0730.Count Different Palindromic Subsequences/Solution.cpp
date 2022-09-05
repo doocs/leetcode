@@ -24,6 +24,6 @@ public:
             }
         }
         ll ans = accumulate(dp[0][n - 1].begin(), dp[0][n - 1].end(), 0ll);
-        return (int)(ans % mod);
+        return (int) (ans % mod);
     }
 };

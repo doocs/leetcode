@@ -6,7 +6,7 @@ class Bank {
         this.balance = balance;
         this.n = balance.length;
     }
-    
+
     public boolean transfer(int account1, int account2, long money) {
         if (account1 > n || account2 > n || balance[account1 - 1] < money) {
             return false;
@@ -15,7 +15,7 @@ class Bank {
         balance[account2 - 1] += money;
         return true;
     }
-    
+
     public boolean deposit(int account, long money) {
         if (account > n) {
             return false;
@@ -23,7 +23,7 @@ class Bank {
         balance[account - 1] += money;
         return true;
     }
-    
+
     public boolean withdraw(int account, long money) {
         if (account > n || balance[account - 1] < money) {
             return false;

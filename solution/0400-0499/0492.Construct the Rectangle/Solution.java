@@ -4,6 +4,6 @@ class Solution {
         while (area % w != 0) {
             --w;
         }
-        return new int[]{area / w, w};
+        return new int[] {area / w, w};
     }
 }

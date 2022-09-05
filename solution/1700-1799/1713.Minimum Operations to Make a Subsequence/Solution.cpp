@@ -3,11 +3,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int val) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] = max(c[x], val);
             x += lowbit(x);
         }
@@ -15,8 +16,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s = max(s, c[x]);
             x -= lowbit(x);
         }

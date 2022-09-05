@@ -18,7 +18,6 @@ class Solution {
         return (int) curr;
     }
 
-
     public int count(long curr) {
         long next = curr + 1;
         long cnt = 0;

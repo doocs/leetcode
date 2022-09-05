@@ -3,7 +3,7 @@ public:
     vector<Trie*> children;
     string v;
     Trie()
-        : children(2) { }
+        : children(2) {}
 
     void insert(int x) {
         Trie* node = this;

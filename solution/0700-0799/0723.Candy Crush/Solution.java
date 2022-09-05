@@ -6,7 +6,8 @@ class Solution {
             run = false;
             for (int i = 0; i < m; ++i) {
                 for (int j = 0; j < n - 2; ++j) {
-                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i][j + 1]) && Math.abs(board[i][j]) == Math.abs(board[i][j + 2])) {
+                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i][j + 1])
+                        && Math.abs(board[i][j]) == Math.abs(board[i][j + 2])) {
                         run = true;
                         board[i][j] = board[i][j + 1] = board[i][j + 2] = -Math.abs(board[i][j]);
                     }
@@ -14,7 +15,8 @@ class Solution {
             }
             for (int j = 0; j < n; ++j) {
                 for (int i = 0; i < m - 2; ++i) {
-                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i + 1][j]) && Math.abs(board[i][j]) == Math.abs(board[i + 2][j])) {
+                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i + 1][j])
+                        && Math.abs(board[i][j]) == Math.abs(board[i + 2][j])) {
                         run = true;
                         board[i][j] = board[i + 1][j] = board[i + 2][j] = -Math.abs(board[i][j]);
                     }

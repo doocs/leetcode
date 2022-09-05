@@ -4,7 +4,8 @@ class Solution {
         List<Integer> ans = new ArrayList<>();
         for (int i = n - 1; i > 0; --i) {
             int j = i;
-            for (; j > 0 && arr[j] != i + 1; --j);
+            for (; j > 0 && arr[j] != i + 1; --j)
+                ;
             if (j < i) {
                 if (j > 0) {
                     ans.add(j + 1);

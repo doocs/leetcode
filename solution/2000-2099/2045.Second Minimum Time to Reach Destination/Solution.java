@@ -10,7 +10,7 @@ class Solution {
             g[v].add(u);
         }
         Deque<int[]> q = new LinkedList<>();
-        q.offerLast(new int[]{1, 0});
+        q.offerLast(new int[] {1, 0});
         int[][] dist = new int[n + 1][2];
         for (int i = 0; i < n + 1; ++i) {
             Arrays.fill(dist[i], Integer.MAX_VALUE);
@@ -22,13 +22,13 @@ class Solution {
             for (int v : g[u]) {
                 if (d + 1 < dist[v][0]) {
                     dist[v][0] = d + 1;
-                    q.offerLast(new int[]{v, d + 1});
+                    q.offerLast(new int[] {v, d + 1});
                 } else if (dist[v][0] < d + 1 && d + 1 < dist[v][1]) {
                     dist[v][1] = d + 1;
                     if (v == n) {
                         break;
                     }
-                    q.offerLast(new int[]{v, d + 1});
+                    q.offerLast(new int[] {v, d + 1});
                 }
             }
         }

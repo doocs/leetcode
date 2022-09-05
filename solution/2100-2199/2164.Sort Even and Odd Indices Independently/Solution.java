@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
         int[] a = new int[(n + 1) >> 1];
         int[] b = new int[n >> 1];
-        for (int i = 0, j = 0; j < n >> 1; i += 2, ++j) {
+        for (int i = 0, j = 0; j<n> > 1; i += 2, ++j) {
             a[j] = nums[i];
             b[j] = nums[i + 1];
         }

@@ -5,11 +5,11 @@ class TimeMap {
     public TimeMap() {
         ktv = new HashMap<>();
     }
-    
+
     public void set(String key, String value, int timestamp) {
         ktv.computeIfAbsent(key, k -> new TreeMap<>()).put(timestamp, value);
     }
-    
+
     public String get(String key, int timestamp) {
         if (!ktv.containsKey(key)) {
             return "";

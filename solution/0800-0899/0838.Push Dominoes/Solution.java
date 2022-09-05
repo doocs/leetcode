@@ -38,6 +38,5 @@ public class Solution {
         }
         return new String(ans);
     }
-}class Solution {
-    
 }
+class Solution {}

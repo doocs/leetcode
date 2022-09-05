@@ -7,7 +7,7 @@ class MagicDictionary {
         words = new HashSet<>();
         counter = new HashMap<>();
     }
-    
+
     public void buildDict(String[] dictionary) {
         for (String word : dictionary) {
             words.add(word);
@@ -16,7 +16,7 @@ class MagicDictionary {
             }
         }
     }
-    
+
     public boolean search(String searchWord) {
         for (String p : patterns(searchWord)) {
             int cnt = counter.getOrDefault(p, 0);

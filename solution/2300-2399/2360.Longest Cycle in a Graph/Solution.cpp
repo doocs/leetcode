@@ -16,7 +16,7 @@ public:
             if (curr == -1) continue;
             for (int j = 0; j < cycle.size(); ++j) {
                 if (cycle[j] == curr) {
-                    ans = max(ans, (int)cycle.size() - j);
+                    ans = max(ans, (int) cycle.size() - j);
                     break;
                 }
             }

@@ -5,8 +5,8 @@ class Solution {
         boolean[] visBlue = new boolean[n];
         boolean[] visRed = new boolean[n];
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{0, 1});
-        q.offer(new int[]{0, 0});
+        q.offer(new int[] {0, 1});
+        q.offer(new int[] {0, 0});
         int d = -1;
         int[] ans = new int[n];
         Arrays.fill(ans, -1);
@@ -26,7 +26,7 @@ class Solution {
                 for (int j : ne) {
                     if (!v[j]) {
                         v[j] = true;
-                        q.offer(new int[]{j, 1 - p[1]});
+                        q.offer(new int[] {j, 1 - p[1]});
                     }
                 }
             }

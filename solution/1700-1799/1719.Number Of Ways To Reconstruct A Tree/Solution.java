@@ -25,7 +25,8 @@ class Solution {
         for (int i = 0; i < nodes.size(); ++i) {
             int x = nodes.get(i);
             int j = i + 1;
-            for (; j < nodes.size() && !g[x][nodes.get(j)]; ++j);
+            for (; j < nodes.size() && !g[x][nodes.get(j)]; ++j)
+                ;
             if (j < nodes.size()) {
                 int y = nodes.get(j);
                 if (v[x].size() == v[y].size()) {

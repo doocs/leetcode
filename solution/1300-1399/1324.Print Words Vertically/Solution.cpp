@@ -7,7 +7,7 @@ public:
         int n = 0;
         while (in >> word) {
             words.push_back(word);
-            n = max(n, (int)word.size());
+            n = max(n, (int) word.size());
         }
         int m = words.size();
         vector<string> ans;

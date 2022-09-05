@@ -23,7 +23,7 @@ class Solution {
         }
         int v = edges[conflict][1];
         if (cycle != -1) {
-            return new int[]{p[v], v};
+            return new int[] {p[v], v};
         }
         return edges[conflict];
     }

@@ -9,7 +9,7 @@
  */
 class Solution {
     private TreeNode prev;
-    
+
     public TreeNode convertBiNode(TreeNode root) {
         TreeNode dummy = new TreeNode(0, null, root);
         prev = dummy;

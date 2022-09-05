@@ -1,7 +1,8 @@
 class Solution {
     public boolean canBeIncreasing(int[] nums) {
         int i = 1, n = nums.length;
-        for (; i < n && nums[i - 1] < nums[i]; ++i);
+        for (; i < n && nums[i - 1] < nums[i]; ++i)
+            ;
         return check(nums, i - 1) || check(nums, i);
     }
 

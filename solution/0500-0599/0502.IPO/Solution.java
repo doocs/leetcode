@@ -3,9 +3,11 @@ class Solution {
      * 贪心算法
      */
     public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {
-        // 首先检查是否存在所有项目都可投资且初始资本 W >= max(Capital) 的情况。如果是，返回利润中前 k 个最大元素的和。
+        // 首先检查是否存在所有项目都可投资且初始资本 W >= max(Capital) 的情况。如果是，返回利润中前
+        // k 个最大元素的和。
         boolean speedUp = true;
-        for (int c : Capital) if (W < c) speedUp = false;
+        for (int c : Capital)
+            if (W < c) speedUp = false;
         if (speedUp) {
             PriorityQueue<Integer> heap = new PriorityQueue<>();
             for (int p : Profits) {
@@ -23,8 +25,10 @@ class Solution {
             // 找到获取利润最多的项目
             for (int j = 0; j < n; ++j) {
                 if (W >= Capital[j]) {
-                    if (idx == -1) idx = j;
-                    else if (Profits[idx] < Profits[j]) idx = j;
+                    if (idx == -1)
+                        idx = j;
+                    else if (Profits[idx] < Profits[j])
+                        idx = j;
                 }
             }
             // 找不到合适的项目
@@ -35,4 +39,4 @@ class Solution {
         }
         return W;
     }
-} 
+}

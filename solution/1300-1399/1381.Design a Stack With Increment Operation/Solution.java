@@ -5,17 +5,17 @@ class CustomStack {
     public CustomStack(int maxSize) {
         s = new int[maxSize];
     }
-    
+
     public void push(int x) {
         if (t < s.length) {
             s[t++] = x;
         }
     }
-    
+
     public int pop() {
         return t == 0 ? -1 : s[--t];
     }
-    
+
     public void increment(int k, int val) {
         for (int i = 0; i < Math.min(k, t); ++i) {
             s[i] += val;

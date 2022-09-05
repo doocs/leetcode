@@ -5,7 +5,7 @@ public:
 
     Trie()
         : children(26)
-        , isEnd(false) { }
+        , isEnd(false) {}
 
     void insert(string& w) {
         Trie* node = this;
@@ -39,7 +39,7 @@ public:
             trie->insert(w);
         }
     }
-    
+
     bool query(char letter) {
         s += letter;
         return trie->search(s);

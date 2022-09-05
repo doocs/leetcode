@@ -18,7 +18,6 @@ class SegmentTree {
     private Node root = new Node(1, 100010);
 
     public SegmentTree() {
-
     }
 
     public void modify(int l, int r, int v) {

@@ -18,7 +18,7 @@ class Solution {
                         if (x == 0 || x == m - 1 || y == 0 || y == n - 1) {
                             return ans;
                         }
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                         maze[x][y] = '+';
                     }
                 }

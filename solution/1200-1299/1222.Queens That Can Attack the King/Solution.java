@@ -1,6 +1,7 @@
 class Solution {
     private static final int N = 8;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+    private int[][] dirs
+        = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
 
     public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
         Set<Integer> s = get(queens);

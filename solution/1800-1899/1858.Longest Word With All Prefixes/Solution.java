@@ -35,7 +35,9 @@ class Solution {
         }
         String ans = "";
         for (String w : words) {
-            if (!"".equals(ans) && (ans.length() > w.length() || (ans.length() == w.length() && ans.compareTo(w) < 0))) {
+            if (!"".equals(ans)
+                && (ans.length() > w.length()
+                    || (ans.length() == w.length() && ans.compareTo(w) < 0))) {
                 continue;
             }
             if (trie.search(w)) {

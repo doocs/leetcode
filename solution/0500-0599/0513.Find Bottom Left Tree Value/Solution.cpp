@@ -12,7 +12,7 @@
 class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         int ans = 0;
         while (!q.empty()) {
             ans = q.front()->val;

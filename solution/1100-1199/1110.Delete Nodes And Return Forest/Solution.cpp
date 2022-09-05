@@ -16,7 +16,7 @@ public:
         unordered_set<int> s(to_delete.begin(), to_delete.end());
         if (!s.count(root->val)) ans.push_back(root);
         dfs(nullptr, root, s, ans);
-        return ans; 
+        return ans;
     }
 
     void dfs(TreeNode* fa, TreeNode* root, unordered_set<int>& s, vector<TreeNode*>& ans) {

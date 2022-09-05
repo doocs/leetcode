@@ -19,6 +19,6 @@ class Solution {
                 ++n0;
             }
         }
-        return new int[]{n0, s.length() - n0};
+        return new int[] {n0, s.length() - n0};
     }
 }

@@ -16,7 +16,7 @@ class SummaryRanges {
         } else if (r != null && val >= mp.get(r)[0] - 1) {
             mp.get(r)[0] = Math.min(val, mp.get(r)[0]);
         } else {
-            mp.put(val, new int[]{val, val});
+            mp.put(val, new int[] {val, val});
         }
     }
 

@@ -1,4 +1,4 @@
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number

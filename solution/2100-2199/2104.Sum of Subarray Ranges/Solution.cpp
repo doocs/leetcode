@@ -25,7 +25,7 @@ public:
         }
         long long ans = 0;
         for (int i = 0; i < n; ++i) {
-            ans += (long long)(i - left[i]) * (right[i] - i) * nums[i];
+            ans += (long long) (i - left[i]) * (right[i] - i) * nums[i];
         }
         return ans;
     }

@@ -38,12 +38,12 @@ class NumArray {
             tree.update(i + 1, nums[i]);
         }
     }
-    
+
     public void update(int index, int val) {
         int prev = sumRange(index, index);
         tree.update(index + 1, val - prev);
     }
-    
+
     public int sumRange(int left, int right) {
         return tree.query(right + 1) - tree.query(left);
     }

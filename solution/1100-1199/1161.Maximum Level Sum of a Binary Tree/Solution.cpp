@@ -12,7 +12,7 @@
 class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         int mx = INT_MIN;
         int ans = 0;
         int i = 0;

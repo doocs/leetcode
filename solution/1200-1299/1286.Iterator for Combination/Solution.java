@@ -12,7 +12,7 @@ class CombinationIterator {
             cs[i] = characters.charAt(n - i - 1);
         }
     }
-    
+
     public String next() {
         while (curr >= 0 && Integer.bitCount(curr) != size) {
             --curr;
@@ -26,7 +26,7 @@ class CombinationIterator {
         --curr;
         return ans.reverse().toString();
     }
-    
+
     public boolean hasNext() {
         while (curr >= 0 && Integer.bitCount(curr) != size) {
             --curr;

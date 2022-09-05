@@ -6,12 +6,12 @@ public:
     BrowserHistory(string homepage) {
         visit(homepage);
     }
-    
+
     void visit(string url) {
         stk1.push(url);
         stk2 = stack<string>();
     }
-    
+
     string back(int steps) {
         for (; steps && stk1.size() > 1; --steps) {
             stk2.push(stk1.top());
@@ -19,7 +19,7 @@ public:
         }
         return stk1.top();
     }
-    
+
     string forward(int steps) {
         for (; steps && !stk2.empty(); --steps) {
             stk1.push(stk2.top());

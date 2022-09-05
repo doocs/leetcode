@@ -5,11 +5,11 @@ class SubrectangleQueries {
     public SubrectangleQueries(int[][] rectangle) {
         g = rectangle;
     }
-    
+
     public void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
-        ops.addFirst(new int[]{row1, col1, row2, col2, newValue});
+        ops.addFirst(new int[] {row1, col1, row2, col2, newValue});
     }
-    
+
     public int getValue(int row, int col) {
         for (var op : ops) {
             if (op[0] <= row && row <= op[2] && op[1] <= col && col <= op[3]) {

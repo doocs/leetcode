@@ -17,7 +17,7 @@ class Solution {
 
         cnt[1] = counter['o' - 'a'] - cnt[0] - cnt[2] - cnt[4];
         cnt[9] = counter['i' - 'a'] - cnt[5] - cnt[6] - cnt[8];
-        
+
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 10; ++i) {
             for (int j = 0; j < cnt[i]; ++j) {

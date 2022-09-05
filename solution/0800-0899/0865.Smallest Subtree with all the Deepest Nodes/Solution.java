@@ -17,7 +17,7 @@ class Solution {
     public TreeNode subtreeWithAllDeepest(TreeNode root) {
         return dfs(root).getKey();
     }
-    
+
     private Pair<TreeNode, Integer> dfs(TreeNode root) {
         if (root == null) {
             return new Pair<>(null, 0);

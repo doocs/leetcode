@@ -17,7 +17,7 @@ class Solution {
         int i = 0, j = 0;
         n1 = words1.length;
         n2 = words2.length;
-        while (i < n2 &&  words1[i].equals(words2[i])) {
+        while (i < n2 && words1[i].equals(words2[i])) {
             ++i;
         }
         if (i == n2) {

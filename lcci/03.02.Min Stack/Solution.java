@@ -8,21 +8,21 @@ class MinStack {
         mins = new ArrayDeque<>();
         mins.push(Integer.MAX_VALUE);
     }
-    
+
     public void push(int val) {
         s.push(val);
         mins.push(Math.min(mins.peek(), val));
     }
-    
+
     public void pop() {
         s.pop();
         mins.pop();
     }
-    
+
     public int top() {
         return s.peek();
     }
-    
+
     public int getMin() {
         return mins.peek();
     }

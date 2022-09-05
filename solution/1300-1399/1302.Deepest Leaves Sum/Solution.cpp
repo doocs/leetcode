@@ -13,7 +13,7 @@ class Solution {
 public:
     int deepestLeavesSum(TreeNode* root) {
         int ans = 0;
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         while (!q.empty()) {
             ans = 0;
             for (int n = q.size(); n; --n) {

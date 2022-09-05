@@ -3,7 +3,7 @@ class Solution {
         int n = intervals.length;
         List<int[]> starts = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
-            starts.add(new int[]{intervals[i][0], i});
+            starts.add(new int[] {intervals[i][0], i});
         }
         starts.sort(Comparator.comparingInt(a -> a[0]));
         int[] res = new int[n];

@@ -1,5 +1,5 @@
 class Solution {
-      public char findKthBit(int n, int k) {
+    public char findKthBit(int n, int k) {
         if (k == 1 || n == 1) {
             return '0';
         }

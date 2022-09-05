@@ -7,8 +7,8 @@ public:
             for (int j = 0; j < n; ++j)
                 if (grid[i][j])
                     state |= (1 << (i * n + j));
-        queue<int> q {{state}};
-        unordered_set<int> vis {{state}};
+        queue<int> q{{state}};
+        unordered_set<int> vis{{state}};
         int ans = 0;
         while (!q.empty()) {
             for (int k = q.size(); k > 0; --k) {

@@ -75,10 +75,10 @@ public:
         long long ans = 0;
         for (int i = 0; i < segs.size(); ++i) {
             int x = segs[i][0], y1 = segs[i][1], y2 = segs[i][2], k = segs[i][3];
-            if (i > 0) ans += (long long)tree->query() * (x - segs[i - 1][0]);
+            if (i > 0) ans += (long long) tree->query() * (x - segs[i - 1][0]);
             tree->modify(1, m[y1], m[y2] - 1, k);
         }
         ans %= mod;
-        return (int)ans;
+        return (int) ans;
     }
 };

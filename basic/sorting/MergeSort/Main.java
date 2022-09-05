@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     private static int[] tmp = new int[100010];
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -15,7 +15,7 @@ public class Main {
             System.out.print(x + " ");
         }
     }
-    
+
     public static void mergeSort(int[] nums, int left, int right) {
         if (left >= right) {
             return;
@@ -30,7 +30,6 @@ public class Main {
             } else {
                 tmp[k++] = nums[j++];
             }
-            
         }
         while (i <= mid) {
             tmp[k++] = nums[i++];

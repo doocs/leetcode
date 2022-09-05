@@ -14,9 +14,10 @@ class Solution {
         ListNode curr = head.next;
         int first = 0, last = 0;
         int i = 1;
-        int[] ans = new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE};
+        int[] ans = new int[] {Integer.MAX_VALUE, Integer.MIN_VALUE};
         while (curr.next != null) {
-            if (curr.val < Math.min(prev.val, curr.next.val) || curr.val > Math.max(prev.val, curr.next.val)) {
+            if (curr.val < Math.min(prev.val, curr.next.val)
+                || curr.val > Math.max(prev.val, curr.next.val)) {
                 if (last == 0) {
                     first = i;
                     last = i;
@@ -30,6 +31,6 @@ class Solution {
             prev = curr;
             curr = curr.next;
         }
-        return first == last ? new int[]{-1, -1} : ans;
+        return first == last ? new int[] {-1, -1} : ans;
     }
 }

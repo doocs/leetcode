@@ -10,7 +10,8 @@ class Solution {
             for (int i = 0; i + l < n; ++i) {
                 int j = i + l;
                 for (int k = i + 1; k < j; ++k) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i][k] + dp[k][j] + vals[i] * vals[k] * vals[j]);
+                    dp[i][j]
+                        = Math.max(dp[i][j], dp[i][k] + dp[k][j] + vals[i] * vals[k] * vals[j]);
                 }
             }
         }

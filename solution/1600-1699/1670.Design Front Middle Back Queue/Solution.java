@@ -6,22 +6,22 @@ class FrontMiddleBackQueue {
         left = new LinkedList<>();
         right = new LinkedList<>();
     }
-    
+
     public void pushFront(int val) {
         left.offerFirst(val);
         rebalance();
     }
-    
+
     public void pushMiddle(int val) {
         left.offerLast(val);
         rebalance();
     }
-    
+
     public void pushBack(int val) {
         right.offerLast(val);
         rebalance();
     }
-    
+
     public int popFront() {
         if (empty()) {
             return -1;
@@ -30,7 +30,7 @@ class FrontMiddleBackQueue {
         rebalance();
         return val;
     }
-    
+
     public int popMiddle() {
         if (empty()) {
             return -1;
@@ -39,7 +39,7 @@ class FrontMiddleBackQueue {
         rebalance();
         return val;
     }
-    
+
     public int popBack() {
         if (empty()) {
             return -1;

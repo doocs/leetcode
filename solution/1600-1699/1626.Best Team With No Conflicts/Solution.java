@@ -3,11 +3,9 @@ class Solution {
         int n = ages.length;
         int[][] nums = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            nums[i] = new int[]{ages[i], scores[i]};
+            nums[i] = new int[] {ages[i], scores[i]};
         }
-        Arrays.sort(nums, (a, b) -> {
-            return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0];
-        });
+        Arrays.sort(nums, (a, b) -> { return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]; });
         int[] dp = new int[n];
         int ans = 0;
         for (int i = 0; i < n; ++i) {

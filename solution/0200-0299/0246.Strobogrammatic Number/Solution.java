@@ -9,16 +9,16 @@ class Solution {
 
     private boolean match(char a, char b) {
         switch (a) {
-            case '0':
-            case '1':
-            case '8':
-                return a == b;
-            case '6':
-                return b == '9';
-            case '9':
-                return b == '6';
-            default:
-                return false;
+        case '0':
+        case '1':
+        case '8':
+            return a == b;
+        case '6':
+            return b == '9';
+        case '9':
+            return b == '6';
+        default:
+            return false;
         }
     }
 }

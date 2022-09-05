@@ -7,7 +7,7 @@ class MapSum {
         data = new HashMap<>();
         t = new HashMap<>();
     }
-    
+
     public void insert(String key, int val) {
         int old = t.getOrDefault(key, 0);
         t.put(key, val);
@@ -16,7 +16,7 @@ class MapSum {
             data.put(k, data.getOrDefault(k, 0) + (val - old));
         }
     }
-    
+
     public int sum(String prefix) {
         return data.getOrDefault(prefix, 0);
     }

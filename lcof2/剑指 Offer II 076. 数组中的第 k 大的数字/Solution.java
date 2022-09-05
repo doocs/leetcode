@@ -11,8 +11,10 @@ class Solution {
         int i = left - 1, j = right + 1;
         int x = nums[(left + right) >>> 1];
         while (i < j) {
-            while (nums[++i] < x);
-            while (nums[--j] > x);
+            while (nums[++i] < x)
+                ;
+            while (nums[--j] > x)
+                ;
             if (i < j) {
                 int t = nums[i];
                 nums[i] = nums[j];
@@ -23,6 +25,5 @@ class Solution {
             return quickSort(nums, j + 1, right, k);
         }
         return quickSort(nums, left, j, k);
-
     }
 }

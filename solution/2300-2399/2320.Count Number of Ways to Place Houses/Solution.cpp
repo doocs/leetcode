@@ -9,6 +9,6 @@ public:
             f[i][1] = f[i - 1][0];
         }
         long s = f[n - 1][0] + f[n - 1][1];
-        return (int)((s * s) % mod);
+        return (int) ((s * s) % mod);
     }
 };

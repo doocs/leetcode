@@ -2,7 +2,7 @@ class Solution {
 public:
     bool canReach(vector<int>& arr, int start) {
         int n = arr.size();
-        queue<int> q {{start}};
+        queue<int> q{{start}};
         while (!q.empty()) {
             int i = q.front();
             if (arr[i] == 0)

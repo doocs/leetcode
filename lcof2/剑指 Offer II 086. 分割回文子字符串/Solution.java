@@ -16,7 +16,7 @@ class Solution {
             }
         }
         dfs(s, 0, new ArrayList<>());
-        String [][] res = new String [ans.size()][];
+        String[][] res = new String[ans.size()][];
         for (int i = 0; i < ans.size(); ++i) {
             res[i] = ans.get(i).toArray(new String[0]);
         }

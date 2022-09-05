@@ -4,8 +4,10 @@ class Solution {
         Deque<Character> q = new ArrayDeque<>();
         for (char ch : chars) {
             boolean left = ch == '(' || ch == '[' || ch == '{';
-            if (left) q.push(ch);
-            else if (q.isEmpty() || !match(q.pop(), ch)) return false;
+            if (left)
+                q.push(ch);
+            else if (q.isEmpty() || !match(q.pop(), ch))
+                return false;
         }
         return q.isEmpty();
     }

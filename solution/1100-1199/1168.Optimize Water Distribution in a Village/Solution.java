@@ -8,7 +8,7 @@ class Solution {
             all[idx++] = pipe;
         }
         for (int j = 0; j < n; ++j) {
-            all[idx++] = new int[]{0, j + 1, wells[j]};
+            all[idx++] = new int[] {0, j + 1, wells[j]};
         }
         p = new int[n + 1];
         for (int i = 0; i < p.length; ++i) {

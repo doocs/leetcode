@@ -6,7 +6,7 @@ class OrderedStream {
         data = new String[n];
         ptr = 0;
     }
-    
+
     public List<String> insert(int idKey, String value) {
         data[idKey - 1] = value;
         List<String> ans = new ArrayList<>();

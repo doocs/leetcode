@@ -7,7 +7,8 @@ class Solution {
             if (s.charAt(i - 1) != '0') {
                 c += b;
             }
-            if (i > 1 && s.charAt(i - 2) != '0' && ((s.charAt(i - 2) - '0') * 10 + s.charAt(i - 1) - '0') <= 26) {
+            if (i > 1 && s.charAt(i - 2) != '0'
+                && ((s.charAt(i - 2) - '0') * 10 + s.charAt(i - 1) - '0') <= 26) {
                 c += a;
             }
             a = b;

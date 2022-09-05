@@ -4,8 +4,9 @@ class Solution {
 
     public int[] spiralOrder(int[][] matrix) {
         int m, n;
-        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0)
-            return new int[]{};
+        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null
+            || (n = matrix[0].length) == 0)
+            return new int[] {};
         res = new int[m * n];
         index = 0;
         int i1 = 0, i2 = m - 1;

@@ -16,7 +16,7 @@ public:
                 curr *= 10;
             }
         }
-        return (int)curr;
+        return (int) curr;
     }
 
     int count(long long curr) {

@@ -14,16 +14,16 @@ class Solution {
             Arrays.sort(nums);
         }
     }
-    
+
     private void reverse(int[] nums, int start) {
         int end = nums.length - 1;
         while (start < end) {
             swap(nums, start++, end--);
         }
     }
-    
+
     /**
-     * 找出从start开始的比val大的最小元素的下标，如果有多个，选择后者 
+     * 找出从start开始的比val大的最小元素的下标，如果有多个，选择后者
      *
      * @param name
      * @param start
@@ -40,7 +40,7 @@ class Solution {
         }
         return i;
     }
-    
+
     private void swap(int[] nums, int i, int j) {
         int t = nums[i];
         nums[i] = nums[j];

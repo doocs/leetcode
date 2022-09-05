@@ -4,9 +4,8 @@ class StockPrice {
     private TreeMap<Integer, Integer> counter = new TreeMap<>();
 
     public StockPrice() {
-
     }
-    
+
     public void update(int timestamp, int price) {
         if (mp.containsKey(timestamp)) {
             int oldPrice = mp.get(timestamp);
@@ -19,15 +18,15 @@ class StockPrice {
         counter.put(price, counter.getOrDefault(price, 0) + 1);
         lastTs = Math.max(lastTs, timestamp);
     }
-    
+
     public int current() {
         return mp.get(lastTs);
     }
-    
+
     public int maximum() {
         return counter.lastKey();
     }
-    
+
     public int minimum() {
         return counter.firstKey();
     }

@@ -6,7 +6,7 @@ class Solution {
         this.questions = questions;
         memo = new long[questions.length];
         Arrays.fill(memo, -1);
-        return dfs(0);    
+        return dfs(0);
     }
 
     private long dfs(int i) {

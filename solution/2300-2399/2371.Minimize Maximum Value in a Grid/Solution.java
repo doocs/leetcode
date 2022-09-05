@@ -4,7 +4,7 @@ class Solution {
         List<int[]> nums = new ArrayList<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                nums.add(new int[]{grid[i][j], i, j});
+                nums.add(new int[] {grid[i][j], i, j});
             }
         }
         Collections.sort(nums, (a, b) -> a[0] - b[0]);

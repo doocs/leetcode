@@ -5,7 +5,7 @@ class Trie {
     public Trie() {
         children = new Trie[26];
     }
-    
+
     public void insert(String word) {
         Trie node = this;
         for (char c : word.toCharArray()) {
@@ -17,12 +17,12 @@ class Trie {
         }
         node.isEnd = true;
     }
-    
+
     public boolean search(String word) {
         Trie node = searchPrefix(word);
         return node != null && node.isEnd;
     }
-    
+
     public boolean startsWith(String prefix) {
         Trie node = searchPrefix(prefix);
         return node != null;

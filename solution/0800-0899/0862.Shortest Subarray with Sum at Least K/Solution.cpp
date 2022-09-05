@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         vector<long long> s(n + 1);
         for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
-        deque<int> q {{0}};
+        deque<int> q{{0}};
         int ans = INT_MAX;
         for (int i = 1; i <= n; ++i) {
             while (!q.empty() && s[i] - s[q.front()] >= k) {

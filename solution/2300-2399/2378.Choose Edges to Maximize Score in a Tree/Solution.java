@@ -4,7 +4,7 @@ class Solution {
     public long maxScore(int[][] edges) {
         int n = edges.length;
         g = new Map[n + 1];
-        for (int i = 0; i < n + 1; ++i)  {
+        for (int i = 0; i < n + 1; ++i) {
             g[i] = new HashMap<>();
         }
         for (int i = 1; i < n; ++i) {
@@ -24,6 +24,6 @@ class Solution {
             t = Math.max(t, s[0] - s[1] + g[i].get(j));
         }
         b += t;
-        return new long[]{a, b};
+        return new long[] {a, b};
     }
 }

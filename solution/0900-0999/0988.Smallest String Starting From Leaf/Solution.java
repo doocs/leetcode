@@ -21,7 +21,7 @@ class Solution {
         path = new StringBuilder();
         ans = String.valueOf((char) ('z' + 1));
         dfs(root, path);
-        return ans;    
+        return ans;
     }
 
     private void dfs(TreeNode root, StringBuilder path) {

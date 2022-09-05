@@ -13,7 +13,8 @@ class Solution {
         int res = 0, flag = Integer.MAX_VALUE / 10;
         for (; i < n; ++i) {
             if (str.charAt(i) < '0' || str.charAt(i) > '9') break;
-            if (res > flag || (res == flag) && str.charAt(i) > '7') return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            if (res > flag || (res == flag) && str.charAt(i) > '7')
+                return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             res = res * 10 + (str.charAt(i) - '0');
         }
         return sign * res;

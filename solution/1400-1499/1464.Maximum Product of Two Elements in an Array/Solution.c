@@ -1,4 +1,4 @@
-int maxProduct(int* nums, int numsSize){
+int maxProduct(int* nums, int numsSize) {
     int max = 0;
     int submax = 0;
     for (int i = 0; i < numsSize; i++) {

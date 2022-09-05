@@ -17,7 +17,7 @@ class Solution {
             if (i == start.length() || j == start.length() || start.charAt(i) != end.charAt(j)) {
                 return false;
             }
-            if (start.charAt(i) == 'L' && i < j || start.charAt(i) == 'R'  && i > j) {
+            if (start.charAt(i) == 'L' && i < j || start.charAt(i) == 'R' && i > j) {
                 return false;
             }
             ++i;

@@ -11,7 +11,7 @@ public:
                 j = i + 1;
             }
         }
-        sort(ans.begin(), ans.end(), greater<string> {});
+        sort(ans.begin(), ans.end(), greater<string>{});
         return accumulate(ans.begin(), ans.end(), ""s);
     }
 };

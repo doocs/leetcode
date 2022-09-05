@@ -6,11 +6,11 @@ class MaxQueue {
         p = new ArrayDeque<>();
         q = new ArrayDeque<>();
     }
-    
+
     public int max_value() {
         return q.isEmpty() ? -1 : q.peekFirst();
     }
-    
+
     public void push_back(int value) {
         while (!q.isEmpty() && q.peekLast() < value) {
             q.pollLast();
@@ -18,7 +18,7 @@ class MaxQueue {
         p.offerLast(value);
         q.offerLast(value);
     }
-    
+
     public int pop_front() {
         if (p.isEmpty()) return -1;
         int res = p.pollFirst();

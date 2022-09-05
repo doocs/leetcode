@@ -1,5 +1,5 @@
 class Solution {
-     public int minInsertions(String s) {
+    public int minInsertions(String s) {
         int left = 0;
         int res = 0;
         char[] chars = s.toCharArray();
@@ -26,7 +26,6 @@ class Solution {
                     i++;
                 }
             }
-
         }
         if (left > 0) {
             res += 2 * left;

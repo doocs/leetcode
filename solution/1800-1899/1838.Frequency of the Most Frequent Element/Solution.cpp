@@ -28,7 +28,7 @@ public:
     bool check(int count) {
         for (int i = 0; i < n - count + 1; ++i) {
             int j = i + count - 1;
-            if ((long long)nums[j] * count - (presum[j + 1] - presum[i]) <= k) return true;
+            if ((long long) nums[j] * count - (presum[j + 1] - presum[i]) <= k) return true;
         }
         return false;
     }

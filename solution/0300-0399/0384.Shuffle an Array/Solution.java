@@ -8,12 +8,12 @@ class Solution {
         this.original = Arrays.copyOf(nums, nums.length);
         this.rand = new Random();
     }
-    
+
     public int[] reset() {
         nums = Arrays.copyOf(original, original.length);
         return nums;
     }
-    
+
     public int[] shuffle() {
         for (int i = 0; i < nums.length; ++i) {
             swap(i, i + rand.nextInt(nums.length - i));

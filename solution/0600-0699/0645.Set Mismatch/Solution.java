@@ -17,9 +17,9 @@ class Solution {
         int b = eor ^ a;
         for (int num : nums) {
             if (a == num) {
-                return new int[]{a, b};
+                return new int[] {a, b};
             }
         }
-        return new int[]{b, a};
+        return new int[] {b, a};
     }
 }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     private static int[] h = new int[100010];
     private static int size;
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(), m = sc.nextInt();
@@ -20,7 +20,7 @@ public class Main {
             down(1);
         }
     }
-    
+
     public static void down(int u) {
         int t = u;
         if (u * 2 <= size && h[u * 2] < h[t]) {
@@ -34,14 +34,14 @@ public class Main {
             down(t);
         }
     }
-    
+
     public static void up(int u) {
         while (u / 2 > 0 && h[u / 2] > h[u]) {
             swap(u / 2, u);
             u /= 2;
         }
     }
-    
+
     public static void swap(int i, int j) {
         int t = h[i];
         h[i] = h[j];

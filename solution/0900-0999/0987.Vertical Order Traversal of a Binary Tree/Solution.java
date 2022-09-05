@@ -26,7 +26,7 @@ class Solution {
         if (root == null) {
             return;
         }
-        list.add(new int[]{x, y, root.val});
+        list.add(new int[] {x, y, root.val});
         dfs(root.left, x - 1, y - 1, list);
         dfs(root.right, x + 1, y - 1, list);
     }

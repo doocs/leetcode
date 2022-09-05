@@ -1,5 +1,4 @@
-```java
-class Solution {
+```java class Solution {
     public long subArrayRanges(int[] nums) {
         long mx = f(nums);
         for (int i = 0; i < nums.length; ++i) {

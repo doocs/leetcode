@@ -1,5 +1,6 @@
 class Solution {
-    public List<Boolean> checkIfPrerequisite(int numCourses, int[][] prerequisites, int[][] queries) {
+    public List<Boolean> checkIfPrerequisite(
+        int numCourses, int[][] prerequisites, int[][] queries) {
         int[][] g = new int[numCourses][numCourses];
         for (int i = 0; i < numCourses; ++i) {
             Arrays.fill(g[i], -1);

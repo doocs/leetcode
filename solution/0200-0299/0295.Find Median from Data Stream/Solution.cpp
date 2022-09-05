@@ -1,7 +1,7 @@
 class MedianFinder {
 public:
     /** initialize your data structure here. */
-    MedianFinder() { }
+    MedianFinder() {}
 
     void addNum(int num) {
         max_heap.push(num);
@@ -17,7 +17,7 @@ public:
         if (max_heap.size() > min_heap.size()) {
             return max_heap.top();
         }
-        return (double)(max_heap.top() + min_heap.top()) / 2;
+        return (double) (max_heap.top() + min_heap.top()) / 2;
     }
 
 private:

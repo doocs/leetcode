@@ -24,7 +24,7 @@ class Solution {
 
     private int[] dfs(TreeNode root) {
         if (root == null) {
-            return new int[]{0, 0};
+            return new int[] {0, 0};
         }
         int incr = 1, decr = 1;
         int[] left = dfs(root.left);
@@ -46,6 +46,6 @@ class Solution {
             }
         }
         ans = Math.max(ans, incr + decr - 1);
-        return new int[]{incr, decr};
+        return new int[] {incr, decr};
     }
 }

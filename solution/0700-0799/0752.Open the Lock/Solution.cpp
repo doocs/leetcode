@@ -18,8 +18,8 @@ public:
         unordered_map<string, int> m2;
         m1[start] = 0;
         m2[target] = 0;
-        queue<string> q1 {{start}};
-        queue<string> q2 {{target}};
+        queue<string> q1{{start}};
+        queue<string> q2{{target}};
         while (!q1.empty() && !q2.empty()) {
             int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
             if (t != -1) return t;
@@ -46,9 +46,9 @@ public:
         vector<string> res;
         for (int i = 0; i < 4; ++i) {
             char c = t[i];
-            t[i] = c == '0' ? '9' : (char)(c - 1);
+            t[i] = c == '0' ? '9' : (char) (c - 1);
             res.push_back(t);
-            t[i] = c == '9' ? '0' : (char)(c + 1);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
             res.push_back(t);
             t[i] = c;
         }

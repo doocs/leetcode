@@ -8,7 +8,7 @@ class Solution {
             presum[i + 1] = presum[i] + w[i];
         }
     }
-    
+
     public int pickIndex() {
         int n = presum.length;
         int x = (int) (Math.random() * presum[n - 1]) + 1;

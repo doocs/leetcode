@@ -4,7 +4,7 @@ class ProductOfNumbers {
     public ProductOfNumbers() {
         preProduct = new ArrayList<>();
     }
-    
+
     public void add(int num) {
         if (num == 0) {
             preProduct.clear();
@@ -15,9 +15,11 @@ class ProductOfNumbers {
         }
         preProduct.add(num * preProduct.get(preProduct.size() - 1));
     }
-    
+
     public int getProduct(int k) {
-        return preProduct.size() <= k ? 0 : preProduct.get(preProduct.size() - 1) / preProduct.get(preProduct.size() - 1 - k); 
+        return preProduct.size() <= k
+            ? 0
+            : preProduct.get(preProduct.size() - 1) / preProduct.get(preProduct.size() - 1 - k);
     }
 }
 

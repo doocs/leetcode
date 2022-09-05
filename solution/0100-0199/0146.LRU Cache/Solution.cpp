@@ -8,12 +8,12 @@ struct Node {
         : k(0)
         , v(0)
         , prev(nullptr)
-        , next(nullptr) { }
+        , next(nullptr) {}
     Node(int key, int val)
         : k(key)
         , v(val)
         , prev(nullptr)
-        , next(nullptr) { }
+        , next(nullptr) {}
 };
 
 class LRUCache {

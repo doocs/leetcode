@@ -7,7 +7,7 @@ class WordsFrequency {
             counter.put(word, counter.getOrDefault(word, 0) + 1);
         }
     }
-    
+
     public int get(String word) {
         return counter.containsKey(word) ? counter.get(word) : 0;
     }

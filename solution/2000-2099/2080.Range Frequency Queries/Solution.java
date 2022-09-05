@@ -6,7 +6,7 @@ class RangeFreqQuery {
             mp.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
         }
     }
-    
+
     public int query(int left, int right, int value) {
         if (!mp.containsKey(value)) {
             return 0;

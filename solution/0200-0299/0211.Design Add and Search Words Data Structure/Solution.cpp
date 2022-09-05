@@ -27,7 +27,7 @@ private:
 
 public:
     WordDictionary()
-        : root(new trie) { }
+        : root(new trie) {}
 
     void addWord(string word) {
         root->insert(word);

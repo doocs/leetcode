@@ -4,7 +4,7 @@ class Solution {
     private int[] size;
     private int mx;
     private int[][] grid;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    private int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     public int largestIsland(int[][] grid) {
         n = grid.length;

@@ -43,13 +43,13 @@ class NumMatrix {
             trees[i] = tree;
         }
     }
-    
+
     public void update(int row, int col, int val) {
         BinaryIndexedTree tree = trees[row];
         int prev = tree.query(col + 1) - tree.query(col);
         tree.update(col + 1, val - prev);
     }
-    
+
     public int sumRegion(int row1, int col1, int row2, int col2) {
         int s = 0;
         for (int i = row1; i <= row2; ++i) {

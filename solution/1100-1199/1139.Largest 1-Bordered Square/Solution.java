@@ -14,7 +14,8 @@ class Solution {
         for (int len = Math.min(m, n); len > 0; --len) {
             for (int i = 0; i <= m - len; ++i) {
                 for (int j = 0; j <= n - len; ++j) {
-                    if (down[i][j] >= len && right[i][j] >= len && right[i + len - 1][j] >= len && down[i][j + len - 1] >= len) {
+                    if (down[i][j] >= len && right[i][j] >= len && right[i + len - 1][j] >= len
+                        && down[i][j + len - 1] >= len) {
                         return len * len;
                     }
                 }

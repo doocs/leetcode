@@ -15,7 +15,7 @@ class Solution {
     public Solution(ListNode head) {
         this.head = head;
     }
-    
+
     public int getRandom() {
         int ans = 0, n = 0;
         for (ListNode node = head; node != null; node = node.next) {

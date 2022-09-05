@@ -47,10 +47,9 @@ class MyNode extends Node {
     }
 }
 
-
 /**
  * This is the TreeBuilder class.
- * You can treat it as the driver code that takes the postinfix input 
+ * You can treat it as the driver code that takes the postinfix input
  * and returns the expression tree represnting it as a Node.
  */
 
@@ -68,7 +67,6 @@ class TreeBuilder {
         return stk.peek();
     }
 };
-
 
 /**
  * Your TreeBuilder object will be instantiated and called as such:

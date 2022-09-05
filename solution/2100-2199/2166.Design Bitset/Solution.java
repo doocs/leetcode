@@ -9,7 +9,7 @@ class Bitset {
         Arrays.fill(a, '0');
         Arrays.fill(b, '1');
     }
-    
+
     public void fix(int idx) {
         if (a[idx] == '0') {
             a[idx] = '1';
@@ -17,7 +17,7 @@ class Bitset {
         }
         b[idx] = '0';
     }
-    
+
     public void unfix(int idx) {
         if (a[idx] == '1') {
             a[idx] = '0';
@@ -25,26 +25,26 @@ class Bitset {
         }
         b[idx] = '1';
     }
-    
+
     public void flip() {
         char[] t = a;
         a = b;
         b = t;
         cnt = a.length - cnt;
     }
-    
+
     public boolean all() {
         return cnt == a.length;
     }
-    
+
     public boolean one() {
         return cnt > 0;
     }
-    
+
     public int count() {
         return cnt;
     }
-    
+
     public String toString() {
         return String.valueOf(a);
     }

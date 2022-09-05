@@ -20,7 +20,7 @@ class Solution {
         res = 0;
         dfs(root, root.left);
         dfs(root, root.right);
-        return res;    
+        return res;
     }
 
     private void dfs(TreeNode g, TreeNode p) {

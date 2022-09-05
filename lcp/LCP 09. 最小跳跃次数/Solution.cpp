@@ -3,7 +3,7 @@ public:
     int minJump(vector<int>& jump) {
         int n = jump.size();
         vector<bool> vis(n + 1);
-        queue<int> q {{0}};
+        queue<int> q{{0}};
         vis[0] = true;
         int ans = 0, mx = 1;
         while (!q.empty()) {

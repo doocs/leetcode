@@ -10,14 +10,20 @@ class RandomizedCollection {
         rnd = new Random();
     }
 
-    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+    /**
+     * Inserts a value to the collection. Returns true if the collection did not already contain
+     * the specified element.
+     */
     public boolean insert(int val) {
         m.computeIfAbsent(val, k -> new HashSet<>()).add(l.size());
         l.add(val);
         return m.get(val).size() == 1;
     }
 
-    /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+    /**
+     * Removes a value from the collection. Returns true if the collection contained the specified
+     * element.
+     */
     public boolean remove(int val) {
         if (!m.containsKey(val)) {
             return false;

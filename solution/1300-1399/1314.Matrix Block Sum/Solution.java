@@ -7,7 +7,7 @@ class Solution {
         int[][] pre = new int[m + 1][n + 1];
         for (int i = 1; i < m + 1; ++i) {
             for (int j = 1; j < n + 1; ++j) {
-                pre[i][j] = pre[i - 1][j] + pre[i][j - 1] + - pre[i - 1][j - 1] + mat[i - 1][j - 1];
+                pre[i][j] = pre[i - 1][j] + pre[i][j - 1] + -pre[i - 1][j - 1] + mat[i - 1][j - 1];
             }
         }
         this.pre = pre;
@@ -16,7 +16,8 @@ class Solution {
         int[][] ans = new int[m][n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans[i][j] = get(i + k + 1, j + k + 1) - get(i + k + 1, j - k) - get(i - k, j + k + 1) + get(i - k, j - k);
+                ans[i][j] = get(i + k + 1, j + k + 1) - get(i + k + 1, j - k)
+                    - get(i - k, j + k + 1) + get(i - k, j - k);
             }
         }
         return ans;

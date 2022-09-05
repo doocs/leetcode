@@ -1,5 +1,5 @@
 class Solution {
-    private int[] dirs = new int[]{-1, 0, 1, 0, -1};
+    private int[] dirs = new int[] {-1, 0, 1, 0, -1};
 
     public int[][] colorBorder(int[][] grid, int r0, int c0, int color) {
         boolean[][] vis = new boolean[grid.length][grid[0].length];

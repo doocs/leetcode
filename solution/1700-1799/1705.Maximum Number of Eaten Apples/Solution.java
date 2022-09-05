@@ -4,7 +4,7 @@ class Solution {
         int ans = 0, i = 0, n = apples.length;
         while (i < n || !q.isEmpty()) {
             if (i < n && apples[i] > 0) {
-                q.offer(new int[]{i + days[i] - 1, apples[i]});
+                q.offer(new int[] {i + days[i] - 1, apples[i]});
             }
             while (!q.isEmpty() && q.peek()[0] < i) {
                 q.poll();

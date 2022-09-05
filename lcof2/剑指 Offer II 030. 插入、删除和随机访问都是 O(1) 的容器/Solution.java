@@ -8,7 +8,10 @@ class RandomizedSet {
         this.a = new ArrayList<>();
     }
 
-    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    /**
+     * Inserts a value to the set. Returns true if the set did not already contain the specified
+     * element.
+     */
     public boolean insert(int val) {
         if (this.m.containsKey(val)) {
             return false;

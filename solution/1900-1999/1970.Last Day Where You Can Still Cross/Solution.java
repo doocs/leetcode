@@ -3,7 +3,7 @@ class Solution {
     private int row;
     private int col;
     private boolean[][] grid;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    private int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     public int latestDayToCross(int row, int col, int[][] cells) {
         int n = row * col;

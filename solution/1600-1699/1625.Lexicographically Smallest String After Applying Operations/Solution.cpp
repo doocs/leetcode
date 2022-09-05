@@ -1,8 +1,8 @@
 class Solution {
 public:
     string findLexSmallestString(string s, int a, int b) {
-        unordered_set<string> vis {{s}};
-        queue<string> q {{s}};
+        unordered_set<string> vis{{s}};
+        queue<string> q{{s}};
         string ans = s;
         int n = s.size();
         while (!q.empty()) {

@@ -5,7 +5,7 @@ class RecentCounter {
     public RecentCounter() {
         q = new ArrayDeque<>();
     }
-    
+
     public int ping(int t) {
         q.offerLast(t);
         while (q.peekFirst() < t - 3000) {

@@ -12,7 +12,8 @@ class Solution {
         f = new int[m][n][k];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + (pizza[i].charAt(j) == 'A' ? 1 : 0);
+                s[i + 1][j + 1]
+                    = s[i + 1][j] + s[i][j + 1] - s[i][j] + (pizza[i].charAt(j) == 'A' ? 1 : 0);
                 Arrays.fill(f[i][j], -1);
             }
         }

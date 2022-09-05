@@ -5,7 +5,7 @@ class Solution {
             int v = nums[i];
             int x = target - v;
             if (m.containsKey(x)) {
-                return new int[]{m.get(x), i};
+                return new int[] {m.get(x), i};
             }
             m.put(v, i);
         }

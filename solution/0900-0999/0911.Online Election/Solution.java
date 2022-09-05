@@ -17,7 +17,7 @@ class TopVotedCandidate {
             wins[i] = cur;
         }
     }
-    
+
     public int q(int t) {
         int left = 0, right = wins.length - 1;
         while (left < right) {

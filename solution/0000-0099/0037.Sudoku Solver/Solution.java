@@ -29,7 +29,8 @@ class Solution {
         if (y == 8) {
             x++;
             y = 0;
-        } else y++;
+        } else
+            y++;
         if (board[i][j] == '.') {
             for (int k = 1; k <= 9; k++) {
                 if (!rows[i][k - 1] && !cols[j][k - 1] && !subBox[(i / 3) * 3 + j / 3][k - 1]) {
@@ -46,6 +47,7 @@ class Solution {
                 }
             }
             return false;
-        } else return fillSudoku(x, y);
+        } else
+            return fillSudoku(x, y);
     }
 }

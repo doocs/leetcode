@@ -10,7 +10,7 @@ class NumMatrix {
             }
         }
     }
-    
+
     public int sumRegion(int row1, int col1, int row2, int col2) {
         return s[row2 + 1][col2 + 1] - s[row2 + 1][col1] - s[row1][col2 + 1] + s[row1][col1];
     }

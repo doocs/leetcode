@@ -5,7 +5,8 @@ class Solution {
         }
         int len = A.length, wordLen = A[0].length(), res = 0;
         boolean[] cut = new boolean[len];
-        search: for (int j = 0; j < wordLen; j++) {
+    search:
+        for (int j = 0; j < wordLen; j++) {
             // 判断第 j 列是否应当保留
             for (int i = 0; i < len - 1; i++) {
                 if (!cut[i] && A[i].charAt(j) > A[i + 1].charAt(j)) {

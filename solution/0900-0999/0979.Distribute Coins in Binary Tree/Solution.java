@@ -19,7 +19,7 @@ class Solution {
     public int distributeCoins(TreeNode root) {
         ans = 0;
         dfs(root);
-        return ans;    
+        return ans;
     }
 
     private int dfs(TreeNode root) {

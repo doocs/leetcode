@@ -8,9 +8,9 @@ class Solution {
         int[] res = new int[n];
         res[0] = 0;
         res[1] = chars[1] == ')' && chars[0] == '(' ? 2 : 0;
-        
+
         int max = res[1];
-        
+
         for (int i = 2; i < n; ++i) {
             if (chars[i] == ')') {
                 if (chars[i - 1] == '(') {
@@ -25,8 +25,7 @@ class Solution {
             }
             max = Math.max(max, res[i]);
         }
-        
+
         return max;
-        
     }
 }

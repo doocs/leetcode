@@ -2,7 +2,7 @@ class Solution {
     private List<Integer>[] g;
     private boolean[] vis;
     private int ans;
-    
+
     public int reachableNodes(int n, int[][] edges, int[] restricted) {
         g = new List[n];
         for (int i = 0; i < n; ++i) {
@@ -17,12 +17,12 @@ class Solution {
             g[a].add(b);
             g[b].add(a);
         }
-        
+
         ans = 0;
         dfs(0);
         return ans;
     }
-    
+
     private void dfs(int u) {
         if (vis[u]) {
             return;

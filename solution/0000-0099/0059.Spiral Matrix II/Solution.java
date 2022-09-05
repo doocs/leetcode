@@ -22,7 +22,7 @@ class Solution {
         if (m1 == m2) {
             res[m1][m1] = num;
         }
-        
+
         return res;
     }
 }

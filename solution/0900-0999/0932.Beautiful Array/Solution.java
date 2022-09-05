@@ -1,7 +1,7 @@
 class Solution {
     public int[] beautifulArray(int n) {
         if (n == 1) {
-            return new int[]{1};
+            return new int[] {1};
         }
         int[] left = beautifulArray((n + 1) >> 1);
         int[] right = beautifulArray(n >> 1);

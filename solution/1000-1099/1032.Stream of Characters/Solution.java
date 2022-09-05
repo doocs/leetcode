@@ -39,7 +39,7 @@ class StreamChecker {
             trie.insert(w);
         }
     }
-    
+
     public boolean query(char letter) {
         sb.append(letter);
         return trie.query(sb);

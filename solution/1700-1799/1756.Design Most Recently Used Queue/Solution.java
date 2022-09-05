@@ -41,7 +41,7 @@ class MRUQueue {
         }
         tree = new BinaryIndexedTree(n + 2010);
     }
-    
+
     public int fetch(int k) {
         int left = 1;
         int right = n++;

@@ -4,7 +4,7 @@ class Solution {
         int[] counter = new int[310];
         for (int b = n - 3; b > 0; --b) {
             int c = b + 1;
-            for (int d =  c + 1; d < n; ++d) {
+            for (int d = c + 1; d < n; ++d) {
                 if (nums[d] - nums[c] >= 0) {
                     ++counter[nums[d] - nums[c]];
                 }

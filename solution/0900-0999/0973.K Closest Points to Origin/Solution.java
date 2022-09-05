@@ -34,6 +34,5 @@ class Solution {
             res[i][1] = curr.y;
         }
         return res;
-
     }
 }

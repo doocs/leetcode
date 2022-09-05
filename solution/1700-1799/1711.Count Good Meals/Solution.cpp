@@ -9,8 +9,10 @@ public:
             for (auto& [a, m] : cnt) {
                 int b = s - a;
                 if (!cnt.count(b)) continue;
-                if (a == b) ans += 1ll * m * (m - 1);
-                else ans += 1ll * m * cnt[b];
+                if (a == b)
+                    ans += 1ll * m * (m - 1);
+                else
+                    ans += 1ll * m * cnt[b];
             }
         }
         ans >>= 1;

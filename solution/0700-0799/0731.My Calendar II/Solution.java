@@ -2,9 +2,8 @@ class MyCalendarTwo {
     private Map<Integer, Integer> tm = new TreeMap<>();
 
     public MyCalendarTwo() {
-
     }
-    
+
     public boolean book(int start, int end) {
         tm.put(start, tm.getOrDefault(start, 0) + 1);
         tm.put(end, tm.getOrDefault(end, 0) - 1);

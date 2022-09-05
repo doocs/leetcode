@@ -17,7 +17,7 @@ class Solution {
     private long ans;
     private long s;
     private static final int MOD = (int) 1e9 + 7;
-    
+
     public int maxProduct(TreeNode root) {
         s = sum(root);
         dfs(root);

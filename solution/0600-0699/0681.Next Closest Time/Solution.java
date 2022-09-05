@@ -30,7 +30,8 @@ class Solution {
             if (!check(curr)) {
                 return;
             }
-            int p = Integer.parseInt(curr.substring(0, 2)) * 60 + Integer.parseInt(curr.substring(2));
+            int p
+                = Integer.parseInt(curr.substring(0, 2)) * 60 + Integer.parseInt(curr.substring(2));
             if (p > t && p - t < d) {
                 d = p - t;
                 ans = curr.substring(0, 2) + ":" + curr.substring(2);

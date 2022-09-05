@@ -2,7 +2,7 @@ class Solution {
     public int[] searchRange(int[] nums, int target) {
         int l = search(nums, target);
         int r = search(nums, target + 1);
-        return l == nums.length || l >= r ? new int[]{-1, -1} : new int[]{l, r - 1};
+        return l == nums.length || l >= r ? new int[] {-1, -1} : new int[] {l, r - 1};
     }
 
     private int search(int[] nums, int target) {

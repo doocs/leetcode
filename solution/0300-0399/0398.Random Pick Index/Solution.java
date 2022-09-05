@@ -5,7 +5,7 @@ class Solution {
     public Solution(int[] nums) {
         this.nums = nums;
     }
-    
+
     public int pick(int target) {
         int n = 0, ans = 0;
         for (int i = 0; i < nums.length; ++i) {

@@ -5,7 +5,7 @@ class Solution {
         PriorityQueue<Integer> q = new PriorityQueue<>();
         PriorityQueue<int[]> busy = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         for (int i = 0; i < n; ++i) {
-            ts[i] = new int[]{times[i][0], times[i][1], i};
+            ts[i] = new int[] {times[i][0], times[i][1], i};
             q.offer(i);
         }
         Arrays.sort(ts, (a, b) -> a[0] - b[0]);
@@ -18,7 +18,7 @@ class Solution {
             if (i == targetFriend) {
                 return c;
             }
-            busy.offer(new int[]{b, c});
+            busy.offer(new int[] {b, c});
         }
         return -1;
     }

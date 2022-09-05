@@ -7,7 +7,7 @@ class Solution {
         List<int[]> t = new ArrayList<>();
         for (int i = 0; i < cnt.length; ++i) {
             if (cnt[i] > 0) {
-                t.add(new int[]{cnt[i], i});
+                t.add(new int[] {cnt[i], i});
             }
         }
         t.sort((a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
