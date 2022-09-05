@@ -48,13 +48,74 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxA(self, n: int) -> int:
+        dp = list(range(n + 1))
+        for i in range(3, n + 1):
+            for j in range(2, i - 1):
+                dp[i] = max(dp[i], dp[j - 1] * (i - j))
+        return dp[-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxA(int n) {
+        int[] dp = new int[n + 1];
+        for (int i = 0; i < n + 1; ++i) {
+            dp[i] = i;
+        }
+        for (int i = 3; i < n + 1; ++i) {
+            for (int j = 2; j < i - 1; ++j) {
+                dp[i] = Math.max(dp[i], dp[j - 1] * (i - j));
+            }
+        }
+        return dp[n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxA(int n) {
+        vector<int> dp(n + 1);
+        iota(dp.begin(), dp.end(), 0);
+        for (int i = 3; i < n + 1; ++i) {
+            for (int j = 2; j < i - 1; ++j) {
+                dp[i] = max(dp[i], dp[j - 1] * (i - j));
+            }
+        }
+        return dp[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxA(n int) int {
+	dp := make([]int, n+1)
+	for i := range dp {
+		dp[i] = i
+	}
+	for i := 3; i < n+1; i++ {
+		for j := 2; j < i-1; j++ {
+			dp[i] = max(dp[i], dp[j-1]*(i-j))
+		}
+	}
+	return dp[n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
