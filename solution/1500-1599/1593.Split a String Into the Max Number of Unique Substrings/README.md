@@ -52,6 +52,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+经典 DFS 回溯问题。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +63,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxUniqueSplit(self, s: str) -> int:
+        def dfs(i, t):
+            if i >= len(s):
+                nonlocal ans
+                ans = max(ans, t)
+                return
+            for j in range(i + 1, len(s) + 1):
+                if s[i: j] not in vis:
+                    vis.add(s[i: j])
+                    dfs(j, t + 1)
+                    vis.remove(s[i: j])
 
+        vis = set()
+        ans = 1
+        dfs(0, 0)
+        return ans
 ```
 
 ### **Java**
@@ -67,7 +87,97 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Set<String> vis = new HashSet<>();
+    private int ans = 1;
+    private String s;
 
+    public int maxUniqueSplit(String s) {
+        this.s = s;
+        dfs(0, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int t) {
+        if (i >= s.length()) {
+            ans = Math.max(ans, t);
+            return;
+        }
+        for (int j = i + 1; j <= s.length(); ++j) {
+            String x = s.substring(i, j);
+            if (vis.add(x)) {
+                dfs(j, t + 1);
+                vis.remove(x);
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    unordered_set<string> vis;
+    string s;
+    int ans = 1;
+
+    int maxUniqueSplit(string s) {
+        this->s = s;
+        dfs(0, 0);
+        return ans;
+    }
+
+    void dfs(int i, int t) {
+        if (i >= s.size()) {
+            ans = max(ans, t);
+            return;
+        }
+        for (int j = i + 1; j <= s.size(); ++j) {
+            string x = s.substr(i, j - i);
+            if (!vis.count(x)) {
+                vis.insert(x);
+                dfs(j, t + 1);
+                vis.erase(x);
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxUniqueSplit(s string) int {
+	ans := 1
+	vis := map[string]bool{}
+
+	var dfs func(i, t int)
+	dfs = func(i, t int) {
+		if i >= len(s) {
+			ans = max(ans, t)
+			return
+		}
+		for j := i + 1; j <= len(s); j++ {
+			x := s[i:j]
+			if !vis[x] {
+				vis[x] = true
+				dfs(j, t+1)
+				vis[x] = false
+			}
+		}
+	}
+	dfs(0, 0)
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
