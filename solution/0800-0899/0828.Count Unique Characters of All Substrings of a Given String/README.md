@@ -54,6 +54,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计算每个字符的贡献**
+
+对于字符串 `s` 的每个字符 $c_i$，当它在某个子字符串中仅出现一次时，它会对这个子字符串统计唯一字符时有贡献。只需对每个字符 $c_i$，计算有多少子字符串仅包含该字符一次即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 `s` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +67,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def uniqueLetterString(self, s: str) -> int:
+        d = defaultdict(list)
+        for i, c in enumerate(s):
+            d[c].append(i)
+        ans = 0
+        for v in d.values():
+            v = [-1] + v + [len(s)]
+            for i in range(1, len(v) - 1):
+                ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i])
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +85,70 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int uniqueLetterString(String s) {
+        List<Integer>[] d = new List[26];
+        for (int i = 0; i < 26; ++i) {
+            d[i] = new ArrayList<>();
+            d[i].add(-1);
+        }
+        for (int i = 0; i < s.length(); ++i) {
+            d[s.charAt(i) - 'A'].add(i);
+        }
+        int ans = 0;
+        for (var v : d) {
+            v.add(s.length());
+            for (int i = 1; i < v.size() - 1; ++i) {
+                ans += (v.get(i) - v.get(i - 1)) * (v.get(i + 1) - v.get(i));
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int uniqueLetterString(string s) {
+        vector<vector<int>> d(26, {-1});
+        for (int i = 0; i < s.size(); ++i) {
+            d[s[i] - 'A'].push_back(i);
+        }
+        int ans = 0;
+        for (auto& v : d) {
+            v.push_back(s.size());
+            for (int i = 1; i < v.size() - 1; ++i) {
+                ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func uniqueLetterString(s string) int {
+	d := make([][]int, 26)
+	for i := range d {
+		d[i] = []int{-1}
+	}
+	for i, c := range s {
+		d[c-'A'] = append(d[c-'A'], i)
+	}
+	ans := 0
+	for _, v := range d {
+		v = append(v, len(s))
+		for i := 1; i < len(v)-1; i++ {
+			ans += (v[i] - v[i-1]) * (v[i+1] - v[i])
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

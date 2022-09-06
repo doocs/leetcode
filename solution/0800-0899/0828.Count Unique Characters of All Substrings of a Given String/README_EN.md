@@ -55,13 +55,86 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 ### **Python3**
 
 ```python
-
+class Solution:
+    def uniqueLetterString(self, s: str) -> int:
+        d = defaultdict(list)
+        for i, c in enumerate(s):
+            d[c].append(i)
+        ans = 0
+        for v in d.values():
+            v = [-1] + v + [len(s)]
+            for i in range(1, len(v) - 1):
+                ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int uniqueLetterString(String s) {
+        List<Integer>[] d = new List[26];
+        for (int i = 0; i < 26; ++i) {
+            d[i] = new ArrayList<>();
+            d[i].add(-1);
+        }
+        for (int i = 0; i < s.length(); ++i) {
+            d[s.charAt(i) - 'A'].add(i);
+        }
+        int ans = 0;
+        for (var v : d) {
+            v.add(s.length());
+            for (int i = 1; i < v.size() - 1; ++i) {
+                ans += (v.get(i) - v.get(i - 1)) * (v.get(i + 1) - v.get(i));
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int uniqueLetterString(string s) {
+        vector<vector<int>> d(26, {-1});
+        for (int i = 0; i < s.size(); ++i) {
+            d[s[i] - 'A'].push_back(i);
+        }
+        int ans = 0;
+        for (auto& v : d) {
+            v.push_back(s.size());
+            for (int i = 1; i < v.size() - 1; ++i) {
+                ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func uniqueLetterString(s string) int {
+	d := make([][]int, 26)
+	for i := range d {
+		d[i] = []int{-1}
+	}
+	for i, c := range s {
+		d[c-'A'] = append(d[c-'A'], i)
+	}
+	ans := 0
+	for _, v := range d {
+		v = append(v, len(s))
+		for i := 1; i < len(v)-1; i++ {
+			ans += (v[i] - v[i-1]) * (v[i+1] - v[i])
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
