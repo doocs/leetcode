@@ -93,7 +93,6 @@ Employee 3:
  - Employee 3 did not work their hours and will be deducted.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

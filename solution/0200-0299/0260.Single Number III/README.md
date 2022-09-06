@@ -6,13 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个整数数组 <code>nums</code>，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。你可以按 <strong>任意顺序</strong> 返回答案。</p>
+<p>给你一个整数数组&nbsp;<code>nums</code>，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。你可以按 <strong>任意顺序</strong> 返回答案。</p>
 
-<p> </p>
+<p>你必须设计并实现线性时间复杂度的算法且仅使用常量额外空间来解决此问题。</p>
 
-<p><strong>进阶：</strong>你的算法应该具有线性时间复杂度。你能否仅使用常数空间复杂度来实现？</p>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -36,11 +34,13 @@
 <strong>输出：</strong>[1,0]
 </pre>
 
+<p>&nbsp;</p>
+
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>2 <= nums.length <= 3 * 10<sup>4</sup></code></li>
-	<li><code>-2<sup>31</sup> <= nums[i] <= 2<sup>31</sup> - 1</code></li>
+	<li><code>2 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 	<li>除两个只出现一次的整数外，<code>nums</code> 中的其他数字都出现两次</li>
 </ul>
 

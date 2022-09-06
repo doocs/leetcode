@@ -6,18 +6,18 @@
 
 <!-- 这里写题目描述 -->
 
-<p>如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个回文串。</p>
+<p>如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 <strong>回文串</strong> 。</p>
 
 <p>字母和数字都属于字母数字字符。</p>
 
-<p>给你一个字符串 <code>s</code>，如果它是回文串，返回 <code>true</code><em> </em>；否则，返回<em> </em><code>false</code><em> </em>。</p>
+<p>给你一个字符串 <code>s</code>，如果它是 <strong>回文串</strong> ，返回 <code>true</code><em> </em>；否则，返回<em> </em><code>false</code><em> </em>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> "A man, a plan, a canal: Panama"
+<strong>输入:</strong> s = "A man, a plan, a canal: Panama"
 <strong>输出：</strong>true
 <strong>解释：</strong>"amanaplanacanalpanama" 是回文串。
 </pre>
@@ -25,7 +25,7 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>"race a car"
+<strong>输入：</strong>s = "race a car"
 <strong>输出：</strong>false
 <strong>解释：</strong>"raceacar" 不是回文串。
 </pre>

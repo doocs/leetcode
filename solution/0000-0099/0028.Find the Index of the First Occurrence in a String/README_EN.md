@@ -32,7 +32,6 @@ The first occurrence is at index 0, so we return 0.
 	<li><code>haystack</code> and <code>needle</code> consist of only lowercase English characters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

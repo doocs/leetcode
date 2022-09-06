@@ -75,7 +75,7 @@ class Solution:
                 j = bisect_left(days, days[i] + d)
                 res = min(res, c + dfs(j))
             return res
-        
+
         return dfs(0)
 ```
 

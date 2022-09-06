@@ -95,7 +95,6 @@ Employee 3:
  - Employee 3 did not work their hours and will be deducted.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

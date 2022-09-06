@@ -146,7 +146,7 @@ class StreamChecker {
             trie.insert(w);
         }
     }
-    
+
     public boolean query(char letter) {
         sb.append(letter);
         return trie.query(sb);
@@ -204,7 +204,7 @@ public:
             trie->insert(w);
         }
     }
-    
+
     bool query(char letter) {
         s += letter;
         return trie->search(s);

@@ -4,27 +4,42 @@
 
 ## Description
 
-<p>An integer interval <code>[a, b]</code> (for integers <code>a &lt; b</code>) is a set of all consecutive integers from <code>a</code> to <code>b</code>, including <code>a</code> and <code>b</code>.</p>
+<p>You are given a 2D integer array <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> represents all the integers from <code>start<sub>i</sub></code> to <code>end<sub>i</sub></code> inclusively.</p>
 
-<p>Find the minimum size of a set S such that for every integer interval A in <code>intervals</code>, the intersection of S with A has a size of at least two.</p>
+<p>A <strong>containing set</strong> is an array <code>nums</code> where each interval from <code>intervals</code> has <strong>at least two</strong> integers in <code>nums</code>.</p>
+
+<ul>
+	<li>For example, if <code>intervals = [[1,3], [3,7], [8,9]]</code>, then <code>[1,2,4,7,8,9]</code> and <code>[2,3,4,8,9]</code> are <strong>containing sets</strong>.</li>
+</ul>
+
+<p>Return <em>the minimum possible size of a containing set</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[1,3],[3,7],[8,9]]
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> let nums = [2, 3, 4, 8, 9].
+It can be shown that there cannot be any containing array of size 4.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[1,3],[1,4],[2,5],[3,5]]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> Consider the set S = {2, 3, 4}.  For each interval, there are at least 2 elements from S in the interval.
-Also, there isn&#39;t a smaller size set that fulfills the above condition.
-Thus, we output the size of this set, which is 3.
+<strong>Explanation:</strong> let nums = [2, 3, 4].
+It can be shown that there cannot be any containing array of size 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[1,2],[2,3],[2,4],[4,5]]
 <strong>Output:</strong> 5
-<strong>Explanation:</strong> An example of a minimum sized set is {1, 2, 3, 4, 5}.
+<strong>Explanation:</strong> let nums = [1, 2, 3, 4, 5].
+It can be shown that there cannot be any containing array of size 4.
 </pre>
 
 <p>&nbsp;</p>
@@ -33,7 +48,7 @@ Thus, we output the size of this set, which is 3.
 <ul>
 	<li><code>1 &lt;= intervals.length &lt;= 3000</code></li>
 	<li><code>intervals[i].length == 2</code></li>
-	<li><code>0 &lt;= a<sub>i</sub> &lt;&nbsp;b<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
+	<li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 </ul>
 
 ## Solutions

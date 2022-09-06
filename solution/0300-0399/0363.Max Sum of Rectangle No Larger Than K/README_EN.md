@@ -30,7 +30,7 @@
 <ul>
 	<li><code>m == matrix.length</code></li>
 	<li><code>n == matrix[i].length</code></li>
-	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>1 &lt;= m, n &lt;= 200</code></li>
 	<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 	<li><code>-10<sup>5</sup> &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
