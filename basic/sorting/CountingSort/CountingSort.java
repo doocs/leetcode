@@ -1,5 +1,4 @@
-public static void
-sort(int[] nums, int min, int max) {
+public static void sort(int[] nums, int min, int max) {
     int n = nums.length;
     int k = max - min + 1;
     int[] c = new int[k];

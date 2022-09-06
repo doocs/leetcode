@@ -1,4 +1,4 @@
-bool checkDistances(char *s, int *distance, int distanceSize) {
+bool checkDistances(char* s, int* distance, int distanceSize) {
     int n = strlen(s);
     int d[26] = {0};
     for (int i = 0; i < n; i++) {

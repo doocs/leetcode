@@ -1,5 +1,5 @@
 class Solution {
-    private static final int[] T = new int[]{1, 7, 30};
+    private static final int[] T = new int[] {1, 7, 30};
     private int[] costs;
     private int[] days;
     private int[] f;
