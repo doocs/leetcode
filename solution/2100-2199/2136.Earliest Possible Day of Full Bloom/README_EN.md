@@ -85,7 +85,7 @@ class Solution {
         int n = plantTime.length;
         int[][] arr = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[]{plantTime[i], growTime[i]};
+            arr[i] = new int[] {plantTime[i], growTime[i]};
         }
         Arrays.sort(arr, (a, b) -> b[1] - a[1]);
         int ans = 0;

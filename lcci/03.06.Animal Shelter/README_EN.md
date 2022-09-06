@@ -108,15 +108,18 @@ class AnimalShelf {
     }
 
     public int[] dequeueAny() {
-        return dogs.isEmpty() ? dequeueCat() : (cats.isEmpty() ? dequeueDog() : (dogs.peek() < cats.peek() ? dequeueDog() : dequeueCat()));
+        return dogs.isEmpty()
+            ? dequeueCat()
+            : (cats.isEmpty() ? dequeueDog()
+                              : (dogs.peek() < cats.peek() ? dequeueDog() : dequeueCat()));
     }
 
     public int[] dequeueDog() {
-        return dogs.isEmpty() ? new int[]{-1, -1} : new int[]{dogs.poll(), 1};
+        return dogs.isEmpty() ? new int[] {-1, -1} : new int[] {dogs.poll(), 1};
     }
 
     public int[] dequeueCat() {
-        return cats.isEmpty() ? new int[]{-1, -1} : new int[]{cats.poll(), 0};
+        return cats.isEmpty() ? new int[] {-1, -1} : new int[] {cats.poll(), 0};
     }
 }
 

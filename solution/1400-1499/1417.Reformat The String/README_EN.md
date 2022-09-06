@@ -93,7 +93,6 @@ class Solution {
                 ans.append(b.charAt(i));
                 ans.append(a.charAt(i));
             }
-
         }
         if (m > n) {
             ans.append(a.charAt(m - 1));

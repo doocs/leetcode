@@ -118,7 +118,7 @@ class Solution {
         List<int[]> scores = new ArrayList<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                scores.add(new int[]{grid[i][j], i, j});
+                scores.add(new int[] {grid[i][j], i, j});
             }
         }
         scores.sort(Comparator.comparingInt(a -> a[0]));

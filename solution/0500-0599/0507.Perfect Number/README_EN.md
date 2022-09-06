@@ -74,7 +74,6 @@ class Solution {
         return s == num;
     }
 }
-
 ```
 
 ### **C++**

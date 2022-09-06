@@ -100,7 +100,7 @@ class Solution:
 
 ```java
 class Solution {
-    private int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    private int[][] dirs = new int[][] {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
     public int[][] highestPeak(int[][] isWater) {
         int m = isWater.length, n = isWater[0].length;
@@ -113,7 +113,7 @@ class Solution {
             for (int j = 0; j < n; ++j) {
                 if (isWater[i][j] == 1) {
                     ans[i][j] = 0;
-                    q.offerLast(new int[]{i, j});
+                    q.offerLast(new int[] {i, j});
                 }
             }
         }
@@ -124,7 +124,7 @@ class Solution {
                 int x = i + dir[0], y = j + dir[1];
                 if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
                     ans[x][y] = ans[i][j] + 1;
-                    q.offerLast(new int[]{x, y});
+                    q.offerLast(new int[] {x, y});
                 }
             }
         }

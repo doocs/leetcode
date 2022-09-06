@@ -120,7 +120,6 @@ class TextEditor {
     private StringBuilder s = new StringBuilder();
 
     public TextEditor() {
-
     }
 
     public void addText(String text) {

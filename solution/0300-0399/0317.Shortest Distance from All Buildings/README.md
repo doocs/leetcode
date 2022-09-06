@@ -133,7 +133,7 @@ class Solution {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
                     ++total;
-                    q.offer(new int[]{i, j});
+                    q.offer(new int[] {i, j});
                     int d = 0;
                     boolean[][] vis = new boolean[m][n];
                     while (!q.isEmpty()) {
@@ -143,10 +143,11 @@ class Solution {
                             for (int l = 0; l < 4; ++l) {
                                 int x = p[0] + dirs[l];
                                 int y = p[1] + dirs[l + 1];
-                                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0 && !vis[x][y]) {
+                                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0
+                                    && !vis[x][y]) {
                                     ++cnt[x][y];
                                     dist[x][y] += d;
-                                    q.offer(new int[]{x, y});
+                                    q.offer(new int[] {x, y});
                                     vis[x][y] = true;
                                 }
                             }

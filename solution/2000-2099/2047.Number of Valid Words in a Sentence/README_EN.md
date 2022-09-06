@@ -110,7 +110,8 @@ class Solution {
                 return false;
             }
             if (c == '-') {
-                if (hyphen || i == 0 || i == n - 1 || !Character.isLetter(token.charAt(i - 1)) || !Character.isLetter(token.charAt(i + 1))) {
+                if (hyphen || i == 0 || i == n - 1 || !Character.isLetter(token.charAt(i - 1))
+                    || !Character.isLetter(token.charAt(i + 1))) {
                     return false;
                 }
                 hyphen = true;

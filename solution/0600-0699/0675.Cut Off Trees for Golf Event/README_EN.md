@@ -118,7 +118,7 @@ class Solution {
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (forest.get(i).get(j) > 1) {
-                    trees.add(new int[]{forest.get(i).get(j), i * n + j});
+                    trees.add(new int[] {forest.get(i).get(j), i * n + j});
                 }
             }
         }
@@ -139,7 +139,7 @@ class Solution {
 
     private int bfs(int start, int end) {
         PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        q.offer(new int[]{f(start, end), start});
+        q.offer(new int[] {f(start, end), start});
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[start] = 0;
         int[] dirs = {-1, 0, 1, 0, -1};
@@ -154,7 +154,7 @@ class Solution {
                 if (x >= 0 && x < m && y >= 0 && y < n && forest.get(x).get(y) > 0) {
                     if (dist[x * n + y] > dist[state] + 1) {
                         dist[x * n + y] = dist[state] + 1;
-                        q.offer(new int[]{dist[x * n + y] + f(x * n + y, end), x * n + y});
+                        q.offer(new int[] {dist[x * n + y] + f(x * n + y, end), x * n + y});
                     }
                 }
             }

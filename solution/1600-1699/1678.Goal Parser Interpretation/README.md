@@ -90,8 +90,7 @@ class Solution {
         int p = 0, q = 1;
         for (; p < command.length(); p++, q++) {
             char c = command.charAt(p);
-            if (c == 'G')
-                sb.append('G');
+            if (c == 'G') sb.append('G');
             if (c == '(') {
                 if (command.charAt(q) == ')') {
                     sb.append("o");

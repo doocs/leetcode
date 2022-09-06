@@ -101,7 +101,8 @@ class Solution:
 
 ```java
 class Solution {
-    public int maxCandies(int[] status, int[] candies, int[][] keys, int[][] containedBoxes, int[] initialBoxes) {
+    public int maxCandies(
+        int[] status, int[] candies, int[][] keys, int[][] containedBoxes, int[] initialBoxes) {
         int ans = 0;
         int n = status.length;
         boolean[] has = new boolean[n];

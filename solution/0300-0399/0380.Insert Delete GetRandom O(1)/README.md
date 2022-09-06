@@ -128,7 +128,6 @@ class RandomizedSet {
     private Random rnd = new Random();
 
     public RandomizedSet() {
-
     }
 
     public boolean insert(int val) {

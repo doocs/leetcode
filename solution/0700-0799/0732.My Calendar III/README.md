@@ -176,7 +176,6 @@ class SegmentTree {
     private Node root = new Node(1, (int) 1e9 + 1);
 
     public SegmentTree() {
-
     }
 
     public void modify(int l, int r, int v) {
@@ -250,12 +249,11 @@ class MyCalendarThree {
     private SegmentTree tree = new SegmentTree();
 
     public MyCalendarThree() {
-
     }
 
     public int book(int start, int end) {
         tree.modify(start + 1, end, 1);
-        return tree.query(1, (int) 1e9 +1);
+        return tree.query(1, (int) 1e9 + 1);
     }
 }
 

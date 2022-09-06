@@ -87,7 +87,7 @@ class Solution {
         int y = a + b + c - x - z;
         int max = z - x - 2;
         int min = y - x == 1 && z - y == 1 ? 0 : y - x <= 2 || z - y <= 2 ? 1 : 2;
-        return new int[]{min, max};
+        return new int[] {min, max};
     }
 }
 ```

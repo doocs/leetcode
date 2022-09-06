@@ -114,7 +114,8 @@ class Solution {
         Arrays.sort(meetings, Comparator.comparingInt(a -> a[2]));
         for (int i = 0; i < m;) {
             int j = i;
-            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2]; ++j);
+            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2]; ++j)
+                ;
             Map<Integer, List<Integer>> g = new HashMap<>();
             Set<Integer> s = new HashSet<>();
             for (int k = i; k <= j; ++k) {

@@ -81,7 +81,7 @@ class Solution {
         int n = nums1.length;
         int[][] t = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            t[i] = new int[]{nums2[i], i};
+            t[i] = new int[] {nums2[i], i};
         }
         Arrays.sort(t, (a, b) -> a[0] - b[0]);
         Arrays.sort(nums1);

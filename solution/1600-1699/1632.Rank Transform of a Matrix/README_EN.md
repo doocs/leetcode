@@ -107,7 +107,7 @@ class Solution {
         TreeMap<Integer, List<int[]>> d = new TreeMap<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                d.computeIfAbsent(matrix[i][j], k -> new ArrayList<>()).add(new int[]{i, j});
+                d.computeIfAbsent(matrix[i][j], k -> new ArrayList<>()).add(new int[] {i, j});
             }
         }
         int[] rowMax = new int[m];
@@ -123,7 +123,8 @@ class Solution {
             }
             for (int[] x : g) {
                 int i = x[0], j = x[1];
-                rank.put(find(i), Math.max(rank.getOrDefault(find(i), 0), Math.max(rowMax[i], colMax[j])));
+                rank.put(find(i),
+                    Math.max(rank.getOrDefault(find(i), 0), Math.max(rowMax[i], colMax[j])));
             }
             for (int[] x : g) {
                 int i = x[0], j = x[1];

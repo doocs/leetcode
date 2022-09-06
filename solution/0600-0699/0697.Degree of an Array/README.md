@@ -91,7 +91,7 @@ class Solution {
                 ++arr[0];
                 arr[2] = i;
             } else {
-                int[] arr = new int[]{1, i, i};
+                int[] arr = new int[] {1, i, i};
                 mapper.put(nums[i], arr);
             }
         }

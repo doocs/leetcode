@@ -54,7 +54,7 @@ class Solution {
             return new int[0];
         }
         if (longer == shorter) {
-            return new int[]{longer * k};
+            return new int[] {longer * k};
         }
         int[] ans = new int[k + 1];
         for (int i = 0; i < k + 1; ++i) {

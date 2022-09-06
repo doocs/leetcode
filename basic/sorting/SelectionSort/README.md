@@ -37,7 +37,6 @@ public class SelectionSort {
         System.out.println(Arrays.toString(nums));
     }
 }
-
 ```
 
 ### **JavaScript**

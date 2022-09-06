@@ -117,10 +117,10 @@ class Solution {
         }
 
         if (area != (long) (maxX - minX) * (maxY - minY)
-                || cnt.getOrDefault(new Pair(minX, minY), 0) != 1
-                || cnt.getOrDefault(new Pair(minX, maxY), 0) != 1
-                || cnt.getOrDefault(new Pair(maxX, maxY), 0) != 1
-                || cnt.getOrDefault(new Pair(maxX, minY), 0) != 1) {
+            || cnt.getOrDefault(new Pair(minX, minY), 0) != 1
+            || cnt.getOrDefault(new Pair(minX, maxY), 0) != 1
+            || cnt.getOrDefault(new Pair(maxX, maxY), 0) != 1
+            || cnt.getOrDefault(new Pair(maxX, minY), 0) != 1) {
             return false;
         }
 

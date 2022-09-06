@@ -156,7 +156,7 @@ class Solution {
                 }
                 node = node.children[idx];
                 if (node.isEnd) {
-                    pairs.add(new int[]{i, j});
+                    pairs.add(new int[] {i, j});
                 }
             }
         }
@@ -168,14 +168,14 @@ class Solution {
         for (int j = 1; j < pairs.size(); ++j) {
             int a = pairs.get(j)[0], b = pairs.get(j)[1];
             if (ed + 1 < a) {
-                t.add(new int[]{st, ed});
+                t.add(new int[] {st, ed});
                 st = a;
                 ed = b;
             } else {
                 ed = Math.max(ed, b);
             }
         }
-        t.add(new int[]{st, ed});
+        t.add(new int[] {st, ed});
         int i = 0, j = 0;
         StringBuilder ans = new StringBuilder();
         while (i < n) {

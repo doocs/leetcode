@@ -163,7 +163,7 @@ class Solution {
         int[] indeg = new int[n];
         int[] dist = new int[n];
         Arrays.fill(dist, 1);
-        for(int v : fa) {
+        for (int v : fa) {
             indeg[v]++;
         }
         Deque<Integer> q = new ArrayDeque<>();

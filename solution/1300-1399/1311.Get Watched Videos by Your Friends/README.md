@@ -106,7 +106,8 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> watchedVideosByFriends(List<List<String>> watchedVideos, int[][] friends, int id, int level) {
+    public List<String> watchedVideosByFriends(
+        List<List<String>> watchedVideos, int[][] friends, int id, int level) {
         int n = friends.length;
         boolean[] vis = new boolean[n];
         Deque<Integer> q = new LinkedList<>();
@@ -115,7 +116,7 @@ class Solution {
         while (level-- > 0) {
             for (int i = q.size(); i > 0; --i) {
                 int u = q.pollFirst();
-                for(int v : friends[u]) {
+                for (int v : friends[u]) {
                     if (!vis[v]) {
                         q.offerLast(v);
                         vis[v] = true;

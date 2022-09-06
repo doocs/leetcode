@@ -110,7 +110,6 @@ class Solution {
         return s[n] - mi;
     }
 }
-
 ```
 
 ### **C++**

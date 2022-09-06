@@ -149,9 +149,9 @@ class Solution {
         List<int[]> res = new ArrayList<>();
         for (int i = 0; i < s.length(); ++i) {
             if (s.charAt(i) == 'L') {
-                res.add(new int[]{1, i});
+                res.add(new int[] {1, i});
             } else if (s.charAt(i) == 'R') {
-                res.add(new int[]{2, i});
+                res.add(new int[] {2, i});
             }
         }
         return res;

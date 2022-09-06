@@ -168,8 +168,8 @@ class Solution {
         m2.put(x * n + y, 0);
         Queue<int[]> q1 = new ArrayDeque<>();
         Queue<int[]> q2 = new ArrayDeque<>();
-        q1.offer(new int[]{310, 310});
-        q2.offer(new int[]{x, y});
+        q1.offer(new int[] {310, 310});
+        q2.offer(new int[] {x, y});
         while (!q1.isEmpty() && !q2.isEmpty()) {
             int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
             if (t != -1) {
@@ -194,7 +194,7 @@ class Solution {
                     return step + 1 + m2.get(x * n + y);
                 }
                 m1.put(x * n + y, step + 1);
-                q.offer(new int[]{x, y});
+                q.offer(new int[] {x, y});
             }
         }
         return -1;

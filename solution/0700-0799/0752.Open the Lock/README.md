@@ -398,7 +398,8 @@ class Solution {
         if (s.contains(start)) {
             return -1;
         }
-        PriorityQueue<Pair<Integer, String>> q = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        PriorityQueue<Pair<Integer, String>> q
+            = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
         q.offer(new Pair<>(f(start), start));
         Map<String, Integer> dist = new HashMap<>();
         dist.put(start, 0);

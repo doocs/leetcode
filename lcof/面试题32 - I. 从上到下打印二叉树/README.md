@@ -77,7 +77,7 @@ class Solution:
  */
 class Solution {
     public int[] levelOrder(TreeNode root) {
-        if (root == null) return new int[]{};
+        if (root == null) return new int[] {};
         Deque<TreeNode> q = new ArrayDeque<>();
         List<Integer> t = new ArrayList<>();
         q.offer(root);

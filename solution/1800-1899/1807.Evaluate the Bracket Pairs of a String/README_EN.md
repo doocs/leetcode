@@ -123,7 +123,7 @@ class Solution {
     }
 
     private int findRightBracket(String s, int start, int end) {
-        for (int i =  start; i < end; ++i) {
+        for (int i = start; i < end; ++i) {
             if (s.charAt(i) == ')') {
                 return i;
             }

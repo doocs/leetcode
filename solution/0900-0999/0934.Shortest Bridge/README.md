@@ -136,7 +136,7 @@ class Solution {
                         }
                         if (grid[x][y] == 0) {
                             grid[x][y] = 2;
-                            q.offer(new int[]{x, y});
+                            q.offer(new int[] {x, y});
                         }
                     }
                 }
@@ -147,7 +147,7 @@ class Solution {
 
     private void dfs(int i, int j, Queue<int[]> q) {
         grid[i][j] = 2;
-        q.offer(new int[]{i, j});
+        q.offer(new int[] {i, j});
         for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k];
             int y = j + dirs[k + 1];
@@ -161,11 +161,11 @@ class Solution {
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
-                    return new int[]{i, j};
+                    return new int[] {i, j};
                 }
             }
         }
-        return new int[]{0, 0};
+        return new int[] {0, 0};
     }
 }
 ```

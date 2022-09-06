@@ -100,7 +100,7 @@ class SparseVector {
         }
     }
 
-	// Return the dotProduct of two sparse vectors
+    // Return the dotProduct of two sparse vectors
     public int dotProduct(SparseVector vec) {
         int res = 0;
         if (v.size() > vec.v.size()) {

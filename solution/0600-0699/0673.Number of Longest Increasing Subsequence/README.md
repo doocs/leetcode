@@ -230,7 +230,7 @@ class BinaryIndexedTree {
             }
             x -= lowbit(x);
         }
-        return new int[]{val, cnt};
+        return new int[] {val, cnt};
     }
 
     public static int lowbit(int x) {

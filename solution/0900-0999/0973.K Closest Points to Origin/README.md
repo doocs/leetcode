@@ -66,21 +66,17 @@
 ```java
 import java.util.*;
 
-
 /**
  * @author Furaha Damien
  */
 
-
 class Solution {
-
 
     // Helper inner class
     public class Point {
         int x;
         int y;
         int distance;
-
 
         public Point(int x, int y, int distance) {
             this.x = x;
@@ -89,13 +85,10 @@ class Solution {
         }
     }
 
-
     public int[][] kClosest(int[][] points, int K) {
-
 
         PriorityQueue<Point> que = new PriorityQueue<Point>((a, b) -> (a.distance - b.distance));
         int[][] res = new int[K][2];
-
 
         for (int[] temp : points) {
             int dist = (temp[0] * temp[0] + temp[1] * temp[1]);
@@ -107,8 +100,6 @@ class Solution {
             res[i][1] = curr.y;
         }
         return res;
-
-
     }
 }
 ```

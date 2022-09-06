@@ -124,18 +124,21 @@ class Solution {
             for (int k = 0; k < 4; ++k) {
                 int x = i, y = j, step = dist[i][j];
                 int a = dirs[k], b = dirs[k + 1];
-                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0) {
+                while (
+                    x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0) {
                     x += a;
                     y += b;
                     ++step;
                 }
                 if (step < dist[x][y]) {
                     dist[x][y] = step;
-                    q.offer(new int[]{x, y});
+                    q.offer(new int[] {x, y});
                 }
             }
         }
-        return dist[destination[0]][destination[1]] == Integer.MAX_VALUE ? -1 : dist[destination[0]][destination[1]];
+        return dist[destination[0]][destination[1]] == Integer.MAX_VALUE
+            ? -1
+            : dist[destination[0]][destination[1]];
     }
 }
 ```

@@ -92,7 +92,7 @@ class Solution {
                 }
                 if (mx12 + s3 > s) {
                     s = mx12 + s3;
-                    ans = new int[]{idx121, idx122, i - k + 1};
+                    ans = new int[] {idx121, idx122, i - k + 1};
                 }
                 s1 -= nums[i - k * 3 + 1];
                 s2 -= nums[i - k * 2 + 1];

@@ -117,7 +117,7 @@ class Solution {
             return dfs(u + 1);
         }
         for (int i = n; i > 1; --i) {
-            if (cnt[i] > 0 && u + i < n * 2 &&  path[u + i] == 0) {
+            if (cnt[i] > 0 && u + i < n * 2 && path[u + i] == 0) {
                 cnt[i] = 0;
                 path[u] = i;
                 path[u + i] = i;

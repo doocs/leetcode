@@ -134,7 +134,7 @@ class Solution {
             return 0;
         }
         for (int i = 1; i <= 10; ++i) {
-            if ((k * i) % 10 ==  num % 10 && k * i <= num) {
+            if ((k * i) % 10 == num % 10 && k * i <= num) {
                 return i;
             }
         }

@@ -280,7 +280,8 @@ class Solution {
         if (!check(seq)) {
             return -1;
         }
-        PriorityQueue<Pair<Integer, String>> q = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        PriorityQueue<Pair<Integer, String>> q
+            = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
         Map<String, Integer> dist = new HashMap<>();
         dist.put(start, 0);
         q.offer(new Pair<>(f(start), start));

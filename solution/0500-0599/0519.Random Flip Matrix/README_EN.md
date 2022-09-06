@@ -96,7 +96,7 @@ class Solution {
         int x = rand.nextInt(total--);
         int idx = mp.getOrDefault(x, x);
         mp.put(x, mp.getOrDefault(total, total));
-        return new int[]{idx / n, idx % n};
+        return new int[] {idx / n, idx % n};
     }
 
     public void reset() {

@@ -78,7 +78,6 @@ class Solution {
         return cnt;
     }
 }
-
 ```
 
 ### **C++**

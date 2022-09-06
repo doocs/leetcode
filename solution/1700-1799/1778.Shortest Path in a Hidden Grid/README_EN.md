@@ -180,7 +180,7 @@ class Solution {
         }
         s.remove(0);
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{0, 0});
+        q.offer(new int[] {0, 0});
         int ans = -1;
         while (!q.isEmpty()) {
             ++ans;
@@ -194,7 +194,7 @@ class Solution {
                     int x = i + dirs[k], y = j + dirs[k + 1];
                     if (s.contains(x * N + y)) {
                         s.remove(x * N + y);
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                     }
                 }
             }
@@ -204,7 +204,7 @@ class Solution {
 
     private void dfs(int i, int j, GridMaster master) {
         if (master.isTarget()) {
-            target = new int[]{i, j};
+            target = new int[] {i, j};
         }
         for (int k = 0; k < 4; ++k) {
             char d = dir[k], nd = ndir[k];

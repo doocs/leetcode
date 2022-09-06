@@ -76,7 +76,7 @@ class Solution {
             }
             ++i;
         }
-        return new int[]{i, memory1, memory2};
+        return new int[] {i, memory1, memory2};
     }
 }
 ```

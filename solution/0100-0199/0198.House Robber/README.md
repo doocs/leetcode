@@ -65,26 +65,23 @@ class Solution:
 
 ```java
 class Solution {
-public:
-    int rob(vector<int>& nums) {
-        int n = nums.size();
+    public int rob(int[] nums) {
         int a = 0, b = nums[0];
-        for (int i = 1; i < n; ++i) {
-            int c = max(nums[i] + a, b);
+        for (int i = 1; i < nums.length; ++i) {
+            int c = Math.max(nums[i] + a, b);
             a = b;
             b = c;
         }
         return b;
     }
-};
+}
 ```
 
 ### **C++**
 
 ```cpp
 class Solution {
-public:
-    int rob(vector<int>& nums) {
+    public : int rob(vector<int>& nums) {
         int n = nums.size();
         int a = 0, b = nums[0];
         for (int i = 1; i < n; ++i) {

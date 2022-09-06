@@ -100,7 +100,7 @@ class Solution {
     private int ans;
     private int[] counter;
 
-    public int pseudoPalindromicPaths (TreeNode root) {
+    public int pseudoPalindromicPaths(TreeNode root) {
         ans = 0;
         counter = new int[10];
         dfs(root);

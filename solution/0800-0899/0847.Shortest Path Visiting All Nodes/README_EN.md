@@ -156,7 +156,7 @@ class Solution {
         }
         PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
         for (int i = 0; i < n; ++i) {
-            q.offer(new int[]{f(1 << i), i, 1 << i});
+            q.offer(new int[] {f(1 << i), i, 1 << i});
             dist[i][1 << i] = 0;
         }
         while (!q.isEmpty()) {
@@ -169,7 +169,7 @@ class Solution {
                 int nxt = state | (1 << v);
                 if (dist[v][nxt] > dist[u][state] + 1) {
                     dist[v][nxt] = dist[u][state] + 1;
-                    q.offer(new int[]{dist[v][nxt] + f(nxt), v, nxt});
+                    q.offer(new int[] {dist[v][nxt] + f(nxt), v, nxt});
                 }
             }
         }

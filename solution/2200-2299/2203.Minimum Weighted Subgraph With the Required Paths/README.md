@@ -158,7 +158,8 @@ class Solution {
         long[] dist = new long[n];
         Arrays.fill(dist, INF);
         dist[u] = 0;
-        PriorityQueue<Pair<Long, Integer>> q = new PriorityQueue<>(Comparator.comparingLong(Pair::getKey));
+        PriorityQueue<Pair<Long, Integer>> q
+            = new PriorityQueue<>(Comparator.comparingLong(Pair::getKey));
         q.offer(new Pair<>(0L, u));
         while (!q.isEmpty()) {
             Pair<Long, Integer> p = q.poll();

@@ -191,7 +191,6 @@ class FileSystem {
     private Trie root = new Trie();
 
     public FileSystem() {
-
     }
 
     public List<String> ls(String path) {

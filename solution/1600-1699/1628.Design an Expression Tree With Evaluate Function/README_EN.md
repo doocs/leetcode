@@ -170,7 +170,6 @@ class MyNode extends Node {
     }
 }
 
-
 /**
  * This is the TreeBuilder class.
  * You can treat it as the driver code that takes the postinfix input
@@ -191,7 +190,6 @@ class TreeBuilder {
         return stk.peek();
     }
 };
-
 
 /**
  * Your TreeBuilder object will be instantiated and called as such:

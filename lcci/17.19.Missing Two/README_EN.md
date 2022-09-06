@@ -103,7 +103,7 @@ class Solution {
                 b ^= i;
             }
         }
-        return new int[]{a, b};
+        return new int[] {a, b};
     }
 }
 ```

@@ -121,8 +121,10 @@ class Solution {
     private void dfs(Node cur) {
         if (cur == null) return;
         dfs(cur.left);
-        if (pre == null) head = cur;
-        else pre.right = cur;
+        if (pre == null)
+            head = cur;
+        else
+            pre.right = cur;
         cur.left = pre;
         pre = cur;
         dfs(cur.right);

@@ -83,7 +83,7 @@ class Solution {
             return m + n - 2;
         }
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{0, 0, k});
+        q.offer(new int[] {0, 0, k});
         boolean[][][] vis = new boolean[m][n][k + 1];
         vis[0][0][k] = true;
         int ans = 0;
@@ -101,10 +101,10 @@ class Solution {
                             return ans;
                         }
                         if (grid[x][y] == 0 && !vis[x][y][k]) {
-                            q.offer(new int[]{x, y, k});
+                            q.offer(new int[] {x, y, k});
                             vis[x][y][k] = true;
                         } else if (grid[x][y] == 1 && k > 0 && !vis[x][y][k - 1]) {
-                            q.offer(new int[]{x, y, k - 1});
+                            q.offer(new int[] {x, y, k - 1});
                             vis[x][y][k - 1] = true;
                         }
                     }

@@ -89,7 +89,7 @@ class Solution {
                 last = w;
             }
         }
-        return new int[]{row, last};
+        return new int[] {row, last};
     }
 }
 ```

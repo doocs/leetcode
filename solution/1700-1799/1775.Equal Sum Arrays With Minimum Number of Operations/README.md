@@ -128,7 +128,7 @@ class Solution {
                 ++ans;
             }
         }
-        return diff > 0 ? - 1 : ans;
+        return diff > 0 ? -1 : ans;
     }
 
     private int sum(int[] nums) {

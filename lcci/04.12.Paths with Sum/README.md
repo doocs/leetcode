@@ -93,7 +93,7 @@ class Solution {
     void traverse(TreeNode root, int sum) {
         if (root == null) return;
         ans += dfs(root, sum, 0);
-        traverse(root.left,  sum);
+        traverse(root.left, sum);
         traverse(root.right, sum);
     }
 
@@ -103,7 +103,7 @@ class Solution {
         cur += root.val;
         int res = 0;
         if (cur == sum) res++;
-        res += dfs(root.left,  sum, cur);
+        res += dfs(root.left, sum, cur);
         res += dfs(root.right, sum, cur);
         return res;
     }

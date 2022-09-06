@@ -114,7 +114,6 @@ class StockPrice {
     private TreeMap<Integer, Integer> counter = new TreeMap<>();
 
     public StockPrice() {
-
     }
 
     public void update(int timestamp, int price) {

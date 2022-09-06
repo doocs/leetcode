@@ -135,7 +135,7 @@ class Solution {
             }
         }
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{sx, sy, 0});
+        q.offer(new int[] {sx, sy, 0});
         int[] dirs = {-1, 0, 1, 0, -1};
         int ans = 0;
         int mask = (1 << cnt) - 1;
@@ -153,7 +153,8 @@ class Solution {
                     int x = i + dirs[k], y = j + dirs[k + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x].charAt(y);
-                        if (c == '#' || (Character.isUpperCase(c) && (nxt & (1 << (c - 'A'))) == 0)) {
+                        if (c == '#'
+                            || (Character.isUpperCase(c) && (nxt & (1 << (c - 'A'))) == 0)) {
                             continue;
                         }
                         if (Character.isLowerCase(c)) {
@@ -161,7 +162,7 @@ class Solution {
                         }
                         if (!vis[x][y][nxt]) {
                             vis[x][y][nxt] = true;
-                            q.offer(new int[]{x, y, nxt});
+                            q.offer(new int[] {x, y, nxt});
                         }
                     }
                 }

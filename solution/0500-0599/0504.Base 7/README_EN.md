@@ -60,7 +60,6 @@ class Solution {
         return sb.reverse().toString();
     }
 }
-
 ```
 
 ### **TypeScript**

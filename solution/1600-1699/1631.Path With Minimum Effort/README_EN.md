@@ -253,7 +253,7 @@ class Solution {
         }
         dist[0][0] = 0;
         PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        q.offer(new int[]{0, 0, 0});
+        q.offer(new int[] {0, 0, 0});
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
             int[] p = q.poll();
@@ -264,7 +264,7 @@ class Solution {
                     int nd = Math.max(t, Math.abs(heights[x][y] - heights[i][j]));
                     if (nd < dist[x][y]) {
                         dist[x][y] = nd;
-                        q.offer(new int[]{nd, x, y});
+                        q.offer(new int[] {nd, x, y});
                     }
                 }
             }

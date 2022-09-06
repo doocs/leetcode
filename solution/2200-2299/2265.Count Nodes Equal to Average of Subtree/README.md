@@ -112,7 +112,7 @@ class Solution {
 
     private int[] dfs(TreeNode root) {
         if (root == null) {
-            return new int[]{0, 0};
+            return new int[] {0, 0};
         }
         int[] l = dfs(root.left);
         int[] r = dfs(root.right);
@@ -121,7 +121,7 @@ class Solution {
         if (s / n == root.val) {
             ++ans;
         }
-        return new int[]{s, n};
+        return new int[] {s, n};
     }
 }
 ```

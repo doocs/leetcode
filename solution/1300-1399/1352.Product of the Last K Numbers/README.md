@@ -120,7 +120,9 @@ class ProductOfNumbers {
     }
 
     public int getProduct(int k) {
-        return preProduct.size() <= k ? 0 : preProduct.get(preProduct.size() - 1) / preProduct.get(preProduct.size() - 1 - k);
+        return preProduct.size() <= k
+            ? 0
+            : preProduct.get(preProduct.size() - 1) / preProduct.get(preProduct.size() - 1 - k);
     }
 }
 

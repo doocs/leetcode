@@ -107,7 +107,6 @@ class Solution {
         return 1 + findMinFibonacciNumbers(k - a);
     }
 }
-
 ```
 
 ### **TypeScript**

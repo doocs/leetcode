@@ -127,17 +127,18 @@ class Solution:
 
 ```java
 class Solution {
-    public List<List<Integer>> highestRankedKItems(int[][] grid, int[] pricing, int[] start, int k) {
+    public List<List<Integer>> highestRankedKItems(
+        int[][] grid, int[] pricing, int[] start, int k) {
         int m = grid.length, n = grid[0].length;
         int row = start[0], col = start[1];
         int low = pricing[0], high = pricing[1];
         List<int[]> items = new ArrayList<>();
         if (low <= grid[row][col] && grid[row][col] <= high) {
-            items.add(new int[]{0, grid[row][col], row, col});
+            items.add(new int[] {0, grid[row][col], row, col});
         }
         grid[row][col] = 0;
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{row, col, 0});
+        q.offer(new int[] {row, col, 0});
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
             int[] p = q.poll();
@@ -146,10 +147,10 @@ class Solution {
                 int x = i + dirs[l], y = j + dirs[l + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0) {
                     if (low <= grid[x][y] && grid[x][y] <= high) {
-                        items.add(new int[]{d + 1, grid[x][y], x, y});
+                        items.add(new int[] {d + 1, grid[x][y], x, y});
                     }
                     grid[x][y] = 0;
-                    q.offer(new int[]{x, y, d + 1});
+                    q.offer(new int[] {x, y, d + 1});
                 }
             }
         }

@@ -89,7 +89,8 @@ class Solution:
 
 ```java
 class Solution {
-    public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
+    public int shoppingOffers(
+        List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
         int ans = total(price, needs);
         List<Integer> t = new ArrayList<>();
         for (List<Integer> offer : special) {
@@ -102,7 +103,8 @@ class Solution {
                 t.add(needs.get(j) - offer.get(j));
             }
             if (!t.isEmpty()) {
-                ans = Math.min(ans, offer.get(offer.size() - 1) + shoppingOffers(price, special, t));
+                ans = Math.min(
+                    ans, offer.get(offer.size() - 1) + shoppingOffers(price, special, t));
             }
         }
         return ans;

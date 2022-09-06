@@ -151,7 +151,6 @@ class Solution {
         return node.parent;
     }
 }
-
 ```
 
 ### **C++**

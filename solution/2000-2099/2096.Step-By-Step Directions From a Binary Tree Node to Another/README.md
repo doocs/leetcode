@@ -148,12 +148,16 @@ class Solution {
             return;
         }
         if (root.left != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>()).add(Arrays.asList(String.valueOf(root.left.val), "L"));
-            edges.computeIfAbsent(root.left.val, k -> new ArrayList<>()).add(Arrays.asList(String.valueOf(root.val), "U"));
+            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
+                .add(Arrays.asList(String.valueOf(root.left.val), "L"));
+            edges.computeIfAbsent(root.left.val, k -> new ArrayList<>())
+                .add(Arrays.asList(String.valueOf(root.val), "U"));
         }
         if (root.right != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>()).add(Arrays.asList(String.valueOf(root.right.val), "R"));
-            edges.computeIfAbsent(root.right.val, k -> new ArrayList<>()).add(Arrays.asList(String.valueOf(root.val), "U"));
+            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
+                .add(Arrays.asList(String.valueOf(root.right.val), "R"));
+            edges.computeIfAbsent(root.right.val, k -> new ArrayList<>())
+                .add(Arrays.asList(String.valueOf(root.val), "U"));
         }
         traverse(root.left);
         traverse(root.right);

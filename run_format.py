@@ -30,11 +30,11 @@ def clang_format():
                     x = content
                 print(p1)
                 for suf in suffix:
-                    res = re.findall(f'```{suf}(.*?)```', content, re.A)
+                    res = re.findall(f'```{suf}\n(.*?)```', content, re.S)
                     if not res:
                         continue
                     for v in res:
-                        p2 = f'root/tmp.{suf}'
+                        p2 = f'{root}/Solution2.{suf}'
                         with open(p2, 'w', encoding='utf-8') as f:
                             f.write(v)
                         command = f'clang-format -i --style=file "{p2}"'
@@ -58,8 +58,7 @@ def format_py():
                 with open(p1, 'r', encoding='utf-8') as f:
                     content = f.read()
                     x = content
-                
-                res = re.findall(f'```python(.*?)```', content, re.A)
+                res = re.findall(f'```python\n(.*?)```', content, re.S)
                 if not res:
                     continue
                 print(p1)
@@ -70,7 +69,7 @@ def format_py():
                     os.system(f'black -S "{p2}"')
                     with open(p2, 'r', encoding='utf-8') as f:
                         content = f.read()
-                    content = x.replace(v, '\n' + content)
+                    content = x.replace(v, content)
                     with open(p1, 'w', encoding='utf-8') as f:
                         f.write(content)
                     os.remove(p2)

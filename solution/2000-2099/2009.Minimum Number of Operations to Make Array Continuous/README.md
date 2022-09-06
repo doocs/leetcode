@@ -93,8 +93,7 @@ class Solution {
         Arrays.sort(nums);
         int M = 1;
         for (int i = 1; i < N; i++) {
-            if (nums[i] != nums[i - 1])
-                nums[M++] = nums[i];
+            if (nums[i] != nums[i - 1]) nums[M++] = nums[i];
         }
 
         int j = 0;

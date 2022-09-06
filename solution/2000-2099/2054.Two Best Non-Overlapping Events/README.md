@@ -91,7 +91,7 @@ class Solution {
     public int maxTwoEvents(int[][] events) {
         Arrays.sort(events, (a, b) -> a[0] - b[0]);
         int n = events.length;
-        int[] f = new int [n + 1];
+        int[] f = new int[n + 1];
         for (int i = n - 1; i >= 0; --i) {
             f[i] = Math.max(f[i + 1], events[i][2]);
         }

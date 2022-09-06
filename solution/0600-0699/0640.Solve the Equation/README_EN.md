@@ -111,7 +111,7 @@ class Solution {
             }
             i = j;
         }
-        return new int[]{x, y};
+        return new int[] {x, y};
     }
 }
 ```

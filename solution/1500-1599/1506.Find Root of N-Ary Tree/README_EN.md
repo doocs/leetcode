@@ -128,7 +128,7 @@ class Solution {
                 xor ^= child.val;
             }
         }
-        for (Node node :tree) {
+        for (Node node : tree) {
             if (node.val == xor) {
                 return node;
             }

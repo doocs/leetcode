@@ -153,7 +153,6 @@ class LRUCache {
         Node prev;
         Node next;
         Node() {
-
         }
         Node(int key, int value) {
             this.key = key;

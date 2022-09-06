@@ -83,7 +83,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             idx.add(i);
         }
-        idx.sort(Comparator.comparingInt(i -> -nums[i]));
+        idx.sort(Comparator.comparingInt(i -> - nums[i]));
         int[] t = new int[k];
         for (int i = 0; i < k; ++i) {
             t[i] = idx.get(i);

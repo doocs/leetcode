@@ -209,7 +209,6 @@ class SegmentTree {
     private Node root = new Node(1, (int) 1e9 + 1);
 
     public SegmentTree() {
-
     }
 
     public void modify(int l, int r, int v) {
@@ -283,7 +282,6 @@ class MyCalendarTwo {
     private SegmentTree tree = new SegmentTree();
 
     public MyCalendarTwo() {
-
     }
 
     public boolean book(int start, int end) {

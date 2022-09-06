@@ -165,7 +165,6 @@ class SegmentTree {
     private Node root = new Node();
 
     public SegmentTree() {
-
     }
 
     public void modify(int left, int right, int v) {
@@ -234,7 +233,6 @@ class RangeModule {
     private SegmentTree tree = new SegmentTree();
 
     public RangeModule() {
-
     }
 
     public void addRange(int left, int right) {

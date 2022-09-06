@@ -219,7 +219,6 @@ class Solution {
         return ans.length() < cnt ? "" : ans.toString();
     }
 }
-
 ```
 
 ### **C++**

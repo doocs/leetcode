@@ -89,7 +89,8 @@ class Solution {
         return res;
     }
 
-    private void dfs(int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
+    private void dfs(
+        int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
         if (u == n) {
             res.add(new ArrayList<>(path));
             return;

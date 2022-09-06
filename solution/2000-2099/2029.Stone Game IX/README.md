@@ -117,7 +117,7 @@ class Solution {
         for (int s : stones) {
             ++c[s % 3];
         }
-        int[] t = new int[]{c[0], c[2], c[1]};
+        int[] t = new int[] {c[0], c[2], c[1]};
         return check(c) || check(t);
     }
 

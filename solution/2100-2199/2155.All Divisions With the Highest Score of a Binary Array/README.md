@@ -134,7 +134,6 @@ class Solution {
         return s;
     }
 }
-
 ```
 
 ### **TypeScript**

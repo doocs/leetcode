@@ -134,7 +134,8 @@ class Solution {
                 boolean valid = true;
                 for (int[] res : restrictions) {
                     int x = res[0], y = res[1];
-                    if ((find(u) == find(x) && find(v) == find(y)) || (find(u) == find(y) && find(v) == find(x))) {
+                    if ((find(u) == find(x) && find(v) == find(y))
+                        || (find(u) == find(y) && find(v) == find(x))) {
                         valid = false;
                         break;
                     }

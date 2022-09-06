@@ -121,7 +121,6 @@ class MyQueue {
 
     /** Initialize your data structure here. */
     public MyQueue() {
-
     }
 
     /** Push element x to the back of queue. */

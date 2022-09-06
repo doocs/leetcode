@@ -103,7 +103,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             d[i] = Math.abs(nums1[i] - nums2[i]);
             s += d[i];
-            mx = Math.max(mx ,d[i]);
+            mx = Math.max(mx, d[i]);
         }
         if (s <= k) {
             return 0;

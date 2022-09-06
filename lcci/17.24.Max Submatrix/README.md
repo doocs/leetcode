@@ -86,7 +86,7 @@ class Solution {
             }
         }
         int mx = matrix[0][0];
-        int[] ans = new int[]{0, 0, 0, 0};
+        int[] ans = new int[] {0, 0, 0, 0};
         for (int i1 = 0; i1 < m; ++i1) {
             for (int i2 = i1; i2 < m; ++i2) {
                 int[] nums = new int[n];
@@ -104,7 +104,7 @@ class Solution {
                     }
                     if (f > mx) {
                         mx = f;
-                        ans = new int[]{i1, start, i2, j};
+                        ans = new int[] {i1, start, i2, j};
                     }
                 }
             }

@@ -75,7 +75,7 @@ class Solution {
             }
         }
         int b = eor ^ a;
-        return new int[]{a, b};
+        return new int[] {a, b};
     }
 }
 ```

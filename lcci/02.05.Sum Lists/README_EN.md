@@ -75,8 +75,7 @@ class Solution {
         ListNode dummy = new ListNode(-1);
         ListNode cur = dummy;
         while (l1 != null || l2 != null || carry != 0) {
-            int s =
-                (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
+            int s = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
             carry = s / 10;
             cur.next = new ListNode(s % 10);
             cur = cur.next;

@@ -119,7 +119,9 @@ class Solution:
 ```java
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
-        String[] codes = new String[]{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+        String[] codes = new String[] {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+            "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
+            "..-", "...-", ".--", "-..-", "-.--", "--.."};
         Set<String> s = new HashSet<>();
         for (String word : words) {
             StringBuilder t = new StringBuilder();

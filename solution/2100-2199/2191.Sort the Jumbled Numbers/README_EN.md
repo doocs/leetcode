@@ -98,7 +98,7 @@ class Solution {
                     break;
                 }
             }
-            m.add(new int[]{b, i, v});
+            m.add(new int[] {b, i, v});
         }
         m.sort((a, b) -> {
             if (a[0] != b[0]) {

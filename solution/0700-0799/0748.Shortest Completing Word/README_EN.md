@@ -105,7 +105,6 @@ class Solution {
             if (Character.isLetter(c)) {
                 ++counter[c - 'a'];
             }
-
         }
         return counter;
     }

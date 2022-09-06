@@ -151,7 +151,8 @@ class Solution {
                     for (int k = 0; k < 2; ++k) {
                         int x = i + dirs[k];
                         int y = j + dirs[k + 1];
-                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(i * n + j) != find(x * n + y)) {
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1
+                            && find(i * n + j) != find(x * n + y)) {
                             size[find(x * n + y)] += size[find(i * n + j)];
                             p[find(i * n + j)] = find(x * n + y);
                         }

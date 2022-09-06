@@ -72,18 +72,13 @@ class Solution {
         }
         List<Integer> ans = new ArrayList<>();
         counter.forEach((k, v) -> {
-            if (
-                v == 1 &&
-                !counter.containsKey(k - 1) &&
-                !counter.containsKey(k + 1)
-            ) {
+            if (v == 1 && !counter.containsKey(k - 1) && !counter.containsKey(k + 1)) {
                 ans.add(k);
             }
         });
         return ans;
     }
 }
-
 ```
 
 ### **C++**

@@ -105,7 +105,8 @@ class Solution {
             for (int j = 0; j <= i; ++j) {
                 if (i != j) {
                     // 没有跳过
-                    dp[i][j] = Math.min(dp[i][j], ((dp[i - 1][j] + dist[i - 1] - 1) / speed + 1) * speed);
+                    dp[i][j] = Math.min(
+                        dp[i][j], ((dp[i - 1][j] + dist[i - 1] - 1) / speed + 1) * speed);
                 }
                 if (j > 0) {
                     // 跳过

@@ -116,9 +116,7 @@ class Solution {
         if (n < 4) {
             return trees;
         }
-        Arrays.sort(trees, (a, b) -> {
-            return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0];
-        });
+        Arrays.sort(trees, (a, b) -> { return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]; });
         boolean[] vis = new boolean[n];
         int[] stk = new int[n + 10];
         int cnt = 1;

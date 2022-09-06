@@ -168,7 +168,6 @@ class FileSystem {
     private Trie trie = new Trie();
 
     public FileSystem() {
-
     }
 
     public boolean createPath(String path, int value) {

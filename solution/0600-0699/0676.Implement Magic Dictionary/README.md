@@ -183,7 +183,6 @@ class MagicDictionary {
 
     /** Initialize your data structure here. */
     public MagicDictionary() {
-
     }
 
     public void buildDict(String[] dictionary) {

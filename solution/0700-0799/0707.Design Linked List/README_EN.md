@@ -268,7 +268,6 @@ class MyLinkedList {
     private int size;
 
     public MyLinkedList() {
-
     }
 
     public int get(int index) {
@@ -276,7 +275,8 @@ class MyLinkedList {
             return -1;
         }
         int i = head;
-        for (; index > 0; i = ne[i], index--);
+        for (; index > 0; i = ne[i], index--)
+            ;
         return e[i];
     }
 
@@ -300,7 +300,8 @@ class MyLinkedList {
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--);
+        for (; index > 1; i = ne[i], index--)
+            ;
         e[idx] = val;
         ne[idx] = ne[i];
         ne[i] = idx++;
@@ -317,7 +318,8 @@ class MyLinkedList {
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--);
+        for (; index > 1; i = ne[i], index--)
+            ;
         ne[i] = ne[ne[i]];
     }
 }

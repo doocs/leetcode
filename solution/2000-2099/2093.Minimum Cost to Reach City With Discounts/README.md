@@ -114,11 +114,11 @@ class Solution {
         }
         for (var e : highways) {
             int a = e[0], b = e[1], c = e[2];
-            g[a].add(new int[]{b, c});
-            g[b].add(new int[]{a, c});
+            g[a].add(new int[] {b, c});
+            g[b].add(new int[] {a, c});
         }
         PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        q.offer(new int[]{0, 0, 0});
+        q.offer(new int[] {0, 0, 0});
         int[][] dist = new int[n][discounts + 1];
         for (var e : dist) {
             Arrays.fill(e, Integer.MAX_VALUE);
@@ -135,8 +135,8 @@ class Solution {
             dist[i][k] = cost;
             for (int[] nxt : g[i]) {
                 int j = nxt[0], v = nxt[1];
-                q.offer(new int[]{cost + v, j, k});
-                q.offer(new int[]{cost + v / 2, j, k + 1});
+                q.offer(new int[] {cost + v, j, k});
+                q.offer(new int[] {cost + v / 2, j, k + 1});
             }
         }
         return -1;

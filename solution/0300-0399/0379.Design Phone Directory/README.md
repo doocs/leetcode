@@ -112,14 +112,18 @@ class PhoneDirectory {
 
     private boolean[] provided;
 
-    /** Initialize your data structure here
-        @param maxNumbers - The maximum numbers that can be stored in the phone directory. */
+    /**
+       Initialize your data structure here
+        @param maxNumbers - The maximum numbers that can be stored in the phone directory.
+     */
     public PhoneDirectory(int maxNumbers) {
         provided = new boolean[maxNumbers];
     }
 
-    /** Provide a number which is not assigned to anyone.
-        @return - Return an available number. Return -1 if none is available. */
+    /**
+       Provide a number which is not assigned to anyone.
+        @return - Return an available number. Return -1 if none is available.
+     */
     public int get() {
         for (int i = 0; i < provided.length; ++i) {
             if (!provided[i]) {

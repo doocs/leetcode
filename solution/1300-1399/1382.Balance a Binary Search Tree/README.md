@@ -132,7 +132,6 @@ class Solution {
         return root;
     }
 }
-
 ```
 
 ### **C++**

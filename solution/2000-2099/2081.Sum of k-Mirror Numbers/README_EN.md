@@ -81,7 +81,7 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 class Solution {
     public long kMirror(int k, int n) {
         long ans = 0;
-        for (int l = 1; ; ++l) {
+        for (int l = 1;; ++l) {
             int x = (int) Math.pow(10, (l - 1) / 2);
             int y = (int) Math.pow(10, (l + 1) / 2);
             for (int i = x; i < y; i++) {
@@ -99,7 +99,6 @@ class Solution {
             }
         }
     }
-
 
     private boolean check(char[] c) {
         for (int i = 0, j = c.length - 1; i < j; i++, j--) {

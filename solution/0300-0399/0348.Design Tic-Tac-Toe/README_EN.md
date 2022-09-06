@@ -143,14 +143,16 @@ class TicTacToe {
         this.n = n;
     }
 
-    /** Player {player} makes a move at ({row}, {col}).
+    /**
+       Player {player} makes a move at ({row}, {col}).
         @param row The row of the board.
         @param col The column of the board.
         @param player The player, can be either 1 or 2.
         @return The current winning condition, can be either:
                 0: No one wins.
                 1: Player 1 wins.
-                2: Player 2 wins. */
+                2: Player 2 wins.
+     */
     public int move(int row, int col, int player) {
         counter[player - 1][row] += 1;
         counter[player - 1][col + n] += 1;
@@ -160,7 +162,8 @@ class TicTacToe {
         if (row + col == n - 1) {
             counter[player - 1][(n << 1) + 1] += 1;
         }
-        if (counter[player - 1][row] == n || counter[player - 1][col + n] == n || counter[player - 1][n << 1] == n || counter[player - 1][(n << 1) + 1] == n) {
+        if (counter[player - 1][row] == n || counter[player - 1][col + n] == n
+            || counter[player - 1][n << 1] == n || counter[player - 1][(n << 1) + 1] == n) {
             return player;
         }
         return 0;

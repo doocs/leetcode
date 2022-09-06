@@ -91,9 +91,7 @@ class Solution {
             d.put(b, idx);
         }
         int[] ans = new int[n];
-        d.forEach((v, i) -> {
-            ans[i] = v;
-        });
+        d.forEach((v, i) -> { ans[i] = v; });
         return ans;
     }
 }

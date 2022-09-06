@@ -62,7 +62,7 @@ class Solution:
 
 ```java
 class Solution {
-    public List<Integer> luckyNumbers (int[][] matrix) {
+    public List<Integer> luckyNumbers(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         int[] rows = new int[m];
         int[] cols = new int[n];

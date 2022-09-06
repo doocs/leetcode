@@ -153,7 +153,7 @@ class Solution {
         return -1;
     }
 
-    private char prev(char c)  {
+    private char prev(char c) {
         return c == '0' ? '9' : (char) (c - 1);
     }
 

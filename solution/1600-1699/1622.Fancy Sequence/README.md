@@ -215,7 +215,6 @@ class SegmentTree {
     private static final int MOD = (int) 1e9 + 7;
 
     public SegmentTree() {
-
     }
 
     public void modifyAdd(int l, int r, int inc) {
@@ -317,7 +316,6 @@ class Fancy {
     private SegmentTree tree = new SegmentTree();
 
     public Fancy() {
-
     }
 
     public void append(int val) {

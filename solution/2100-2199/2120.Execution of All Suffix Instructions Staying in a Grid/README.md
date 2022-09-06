@@ -114,10 +114,10 @@ class Solution {
         int m = s.length();
         int[] ans = new int[m];
         Map<Character, int[]> mp = new HashMap<>(4);
-        mp.put('L', new int[]{0, -1});
-        mp.put('R', new int[]{0, 1});
-        mp.put('U', new int[]{-1, 0});
-        mp.put('D', new int[]{1, 0});
+        mp.put('L', new int[] {0, -1});
+        mp.put('R', new int[] {0, 1});
+        mp.put('U', new int[] {-1, 0});
+        mp.put('D', new int[] {1, 0});
         for (int i = 0; i < m; ++i) {
             int x = startPos[0], y = startPos[1];
             int t = 0;

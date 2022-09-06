@@ -84,7 +84,8 @@ class Solution {
             }
         }
         Arrays.sort(nums);
-        PriorityQueue<Pair<Long, Integer>> pq = new PriorityQueue<>(Comparator.comparing(Pair::getKey));
+        PriorityQueue<Pair<Long, Integer>> pq
+            = new PriorityQueue<>(Comparator.comparing(Pair::getKey));
         pq.offer(new Pair<>(0L, 0));
         while (--k > 0) {
             var p = pq.poll();

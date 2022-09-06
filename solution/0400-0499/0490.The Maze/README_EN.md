@@ -166,7 +166,8 @@ class Solution {
             for (int k = 0; k < 4; ++k) {
                 int x = i, y = j;
                 int a = dirs[k], b = dirs[k + 1];
-                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0) {
+                while (
+                    x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0) {
                     x += a;
                     y += b;
                 }
@@ -175,7 +176,7 @@ class Solution {
                 }
                 if (!vis[x][y]) {
                     vis[x][y] = true;
-                    q.offer(new int[]{x, y});
+                    q.offer(new int[] {x, y});
                 }
             }
         }

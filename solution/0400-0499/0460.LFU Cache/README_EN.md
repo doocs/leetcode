@@ -80,19 +80,16 @@ lfu.get(4);      // return 4
 ```java
 class LFUCache {
 
-
     private final Map<Integer, Node> map;
     private final Map<Integer, DoublyLinkedList> freqMap;
     private final int capacity;
     private int minFreq;
-
 
     public LFUCache(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>(capacity, 1);
         freqMap = new HashMap<>();
     }
-
 
     public int get(int key) {
         if (capacity == 0) {
@@ -105,7 +102,6 @@ class LFUCache {
         incrFreq(node);
         return node.value;
     }
-
 
     public void put(int key, int value) {
         if (capacity == 0) {
@@ -127,7 +123,6 @@ class LFUCache {
         minFreq = 1;
     }
 
-
     private void incrFreq(Node node) {
         int freq = node.freq;
         DoublyLinkedList list = freqMap.get(freq);
@@ -142,14 +137,12 @@ class LFUCache {
         addNode(node);
     }
 
-
     private void addNode(Node node) {
         int freq = node.freq;
         DoublyLinkedList list = freqMap.getOrDefault(freq, new DoublyLinkedList());
         list.addFirst(node);
         freqMap.put(freq, list);
     }
-
 
     private static class Node {
         int key;
@@ -158,7 +151,6 @@ class LFUCache {
         Node prev;
         Node next;
 
-
         Node(int key, int value) {
             this.key = key;
             this.value = value;
@@ -166,13 +158,10 @@ class LFUCache {
         }
     }
 
-
     private static class DoublyLinkedList {
-
 
         private final Node head;
         private final Node tail;
-
 
         public DoublyLinkedList() {
             head = new Node(-1, -1);
@@ -181,14 +170,12 @@ class LFUCache {
             tail.prev = head;
         }
 
-
         public void addFirst(Node node) {
             node.prev = head;
             node.next = head.next;
             head.next.prev = node;
             head.next = node;
         }
-
 
         public Node remove(Node node) {
             node.next.prev = node.prev;
@@ -198,11 +185,9 @@ class LFUCache {
             return node;
         }
 
-
         public Node removeLast() {
             return remove(tail.prev);
         }
-
 
         public boolean isEmpty() {
             return head.next == tail;

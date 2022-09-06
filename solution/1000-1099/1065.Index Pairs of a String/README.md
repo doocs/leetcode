@@ -137,7 +137,7 @@ class Solution {
                 }
                 node = node.children[idx];
                 if (node.isEnd) {
-                    ans.add(new int[]{i, j});
+                    ans.add(new int[] {i, j});
                 }
             }
         }

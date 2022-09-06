@@ -78,7 +78,7 @@ class Solution {
             }
         }
         Frac f = pq.peek();
-        return new int[] { f.x, f.y };
+        return new int[] {f.x, f.y};
     }
 
     static class Frac implements Comparable {

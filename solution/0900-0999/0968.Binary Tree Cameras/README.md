@@ -143,7 +143,6 @@ class Solution {
         return 0;
     }
 }
-
 ```
 
 ### **C++**

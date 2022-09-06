@@ -135,7 +135,7 @@ class Solution {
             }
             String nxt1 = String.valueOf(cs);
             String nxt2 = s.substring(b) + s.substring(0, b);
-            for (String nxt : new String[]{nxt1, nxt2}) {
+            for (String nxt : new String[] {nxt1, nxt2}) {
                 if (!vis.contains(nxt)) {
                     vis.add(nxt);
                     q.offer(nxt);

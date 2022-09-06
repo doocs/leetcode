@@ -129,7 +129,6 @@ class SegmentTree {
     private Node root = new Node(1, (int) 1e9 + 1);
 
     public SegmentTree() {
-
     }
 
     public void modify(int l, int r, int v) {
@@ -203,7 +202,6 @@ class CountIntervals {
     private SegmentTree tree = new SegmentTree();
 
     public CountIntervals() {
-
     }
 
     public void add(int left, int right) {
@@ -221,7 +219,6 @@ class CountIntervals {
  * obj.add(left,right);
  * int param_2 = obj.count();
  */
-
 ```
 
 ### **TypeScript**

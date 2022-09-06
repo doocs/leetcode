@@ -101,7 +101,6 @@ class Solution {
         return l == r;
     }
 }
-
 ```
 
 ### **C++**

@@ -126,8 +126,8 @@ class Solution {
             return memo.get(i * 100 + j);
         }
 
-        boolean ret = (i < m && s1.charAt(i) == s3.charAt(i + j) && dfs(i + 1, j)) ||
-                (j < n && s2.charAt(j) == s3.charAt(i + j) && dfs(i, j + 1));
+        boolean ret = (i < m && s1.charAt(i) == s3.charAt(i + j) && dfs(i + 1, j))
+            || (j < n && s2.charAt(j) == s3.charAt(i + j) && dfs(i, j + 1));
 
         memo.put(i * 100 + j, ret);
         return ret;

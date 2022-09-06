@@ -78,9 +78,7 @@ class Solution:
 ```java
 class Solution {
     public int maxEnvelopes(int[][] envelopes) {
-        Arrays.sort(envelopes, (a, b) -> {
-            return a[0] == b[0] ? b[1] - a[1] : a[0] - b[0];
-        });
+        Arrays.sort(envelopes, (a, b) -> { return a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]; });
         int n = envelopes.length;
         int[] d = new int[n + 1];
         d[1] = envelopes[0][1];

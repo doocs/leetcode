@@ -84,7 +84,8 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int[][] DIRS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+    private static final int[][] DIRS
+        = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
     private static final int N = 8;
 
     public boolean checkMove(char[][] board, int rMove, int cMove, char color) {

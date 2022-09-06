@@ -80,7 +80,7 @@ class Solution {
         for (int v : cnt) {
             s += v / 2;
         }
-        return new int[]{s, nums.length - s * 2};
+        return new int[] {s, nums.length - s * 2};
     }
 }
 ```

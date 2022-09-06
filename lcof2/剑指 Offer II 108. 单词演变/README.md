@@ -96,11 +96,7 @@ class Solution:
 ```java
 class Solution {
 
-    public int ladderLength(
-        String beginWord,
-        String endWord,
-        List<String> wordList
-    ) {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> words = new HashSet<>(wordList);
         Queue<String> q = new LinkedList<>();
         q.offer(beginWord);
@@ -131,7 +127,6 @@ class Solution {
         return 0;
     }
 }
-
 ```
 
 ### **C++**

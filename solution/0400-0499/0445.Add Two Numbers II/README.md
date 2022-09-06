@@ -120,8 +120,7 @@ class Solution {
         int carry = 0;
         ListNode dummy = new ListNode();
         while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
-            carry +=
-                (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
+            carry += (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
             ListNode node = new ListNode(carry % 10, dummy.next);
             dummy.next = node;
             carry /= 10;
@@ -129,7 +128,6 @@ class Solution {
         return dummy.next;
     }
 }
-
 ```
 
 ### **C++**

@@ -85,7 +85,8 @@ class Solution {
         return res;
     }
 
-    private void dfs(int u, int n, boolean[] col, boolean[] dg, boolean[] udg, String[][] g, List<List<String>> res) {
+    private void dfs(int u, int n, boolean[] col, boolean[] dg, boolean[] udg, String[][] g,
+        List<List<String>> res) {
         if (u == n) {
             List<String> t = new ArrayList<>();
             for (String[] e : g) {

@@ -144,7 +144,7 @@ class Solution {
             return image;
         }
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{sr, sc});
+        q.offer(new int[] {sr, sc});
         int oc = image[sr][sc];
         image[sr][sc] = newColor;
         int[] dirs = {-1, 0, 1, 0, -1};
@@ -153,8 +153,9 @@ class Solution {
             int i = p[0], j = p[1];
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < image.length && y >= 0 && y < image[0].length && image[x][y] == oc) {
-                    q.offer(new int[]{x, y});
+                if (x >= 0 && x < image.length && y >= 0 && y < image[0].length
+                    && image[x][y] == oc) {
+                    q.offer(new int[] {x, y});
                     image[x][y] = newColor;
                 }
             }

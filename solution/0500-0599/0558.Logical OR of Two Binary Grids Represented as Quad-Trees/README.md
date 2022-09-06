@@ -184,13 +184,9 @@ class Node {
 
     public Node() {}
 
-    public Node(boolean _val,boolean _isLeaf,Node _topLeft,Node _topRight,Node _bottomLeft,Node _bottomRight) {
-        val = _val;
-        isLeaf = _isLeaf;
-        topLeft = _topLeft;
-        topRight = _topRight;
-        bottomLeft = _bottomLeft;
-        bottomRight = _bottomRight;
+    public Node(boolean _val,boolean _isLeaf,Node _topLeft,Node _topRight,Node _bottomLeft,Node
+_bottomRight) { val = _val; isLeaf = _isLeaf; topLeft = _topLeft; topRight = _topRight; bottomLeft =
+_bottomLeft; bottomRight = _bottomRight;
     }
 };
 */
@@ -215,8 +211,10 @@ class Solution {
         res.topRight = dfs(t1.topRight, t2.topRight);
         res.bottomLeft = dfs(t1.bottomLeft, t2.bottomLeft);
         res.bottomRight = dfs(t1.bottomRight, t2.bottomRight);
-        boolean isLeaf = res.topLeft.isLeaf && res.topRight.isLeaf && res.bottomLeft.isLeaf && res.bottomRight.isLeaf;
-        boolean sameVal = res.topLeft.val == res.topRight.val && res.topRight.val == res.bottomLeft.val && res.bottomLeft.val == res.bottomRight.val;
+        boolean isLeaf = res.topLeft.isLeaf && res.topRight.isLeaf && res.bottomLeft.isLeaf
+            && res.bottomRight.isLeaf;
+        boolean sameVal = res.topLeft.val == res.topRight.val
+            && res.topRight.val == res.bottomLeft.val && res.bottomLeft.val == res.bottomRight.val;
         if (isLeaf && sameVal) {
             res = res.topLeft;
         }

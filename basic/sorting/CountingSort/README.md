@@ -17,7 +17,8 @@
 ### **Java**
 
 ```java
-public static void sort(int[] nums, int min, int max) {
+public static void
+sort(int[] nums, int min, int max) {
     int[] c = new int[max - min + 1];
     for (int v : nums) {
         c[v - min]++;

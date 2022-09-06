@@ -139,7 +139,8 @@ class Solution {
             // not a number, exit the loop
             if (s.charAt(i) < '0' || s.charAt(i) > '9') break;
             // if overflows
-            if (res > flag || (res == flag && s.charAt(i) > '7')) return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            if (res > flag || (res == flag && s.charAt(i) > '7'))
+                return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             res = res * 10 + (s.charAt(i) - '0');
         }
         return sign * res;

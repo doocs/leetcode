@@ -161,7 +161,6 @@ class Solution {
             prev.next = reverse(node, left);
         }
         return dummy.next;
-
     }
 
     private ListNode reverse(ListNode head, int l) {

@@ -121,7 +121,7 @@ class Solution {
                 n2 = v;
             }
         }
-        return new int[][]{{a, n1}, {b, n2}};
+        return new int[][] {{a, n1}, {b, n2}};
     }
 }
 ```

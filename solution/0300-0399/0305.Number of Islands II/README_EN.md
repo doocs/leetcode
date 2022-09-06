@@ -114,7 +114,8 @@ class Solution {
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k];
                 int y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(x * n + y) != find(i * n + j)) {
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1
+                    && find(x * n + y) != find(i * n + j)) {
                     p[find(x * n + y)] = find(i * n + j);
                     --cnt;
                 }

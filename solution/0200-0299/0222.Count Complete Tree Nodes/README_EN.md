@@ -104,7 +104,8 @@ class Solution {
 
     private int depth(TreeNode root) {
         int res = 0;
-        for (; root != null; root = root.left, ++res);
+        for (; root != null; root = root.left, ++res)
+            ;
         return res;
     }
 }

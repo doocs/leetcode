@@ -118,7 +118,6 @@ class Solution {
         dfs(root.right);
     }
 }
-
 ```
 
 ### **C++**

@@ -133,7 +133,6 @@ class Solution {
         return left + right + root.val - 1;
     }
 }
-
 ```
 
 ### **C++**

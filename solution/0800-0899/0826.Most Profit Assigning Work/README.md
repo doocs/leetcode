@@ -88,7 +88,7 @@ class Solution {
         int n = difficulty.length;
         List<int[]> job = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
-            job.add(new int[]{difficulty[i], profit[i]});
+            job.add(new int[] {difficulty[i], profit[i]});
         }
         job.sort(Comparator.comparing(a -> a[0]));
         Arrays.sort(worker);

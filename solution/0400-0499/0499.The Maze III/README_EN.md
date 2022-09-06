@@ -110,7 +110,7 @@ class Solution {
         int r = ball[0], c = ball[1];
         int rh = hole[0], ch = hole[1];
         Deque<int[]> q = new LinkedList<>();
-        q.offer(new int[]{r, c});
+        q.offer(new int[] {r, c});
         int[][] dist = new int[m][n];
         for (int i = 0; i < m; ++i) {
             Arrays.fill(dist[i], Integer.MAX_VALUE);
@@ -127,16 +127,18 @@ class Solution {
                 String d = String.valueOf((char) (dir[2]));
                 int x = i, y = j;
                 int step = dist[i][j];
-                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0 && (x != rh || y != ch)) {
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0
+                    && (x != rh || y != ch)) {
                     x += a;
                     y += b;
                     ++step;
                 }
-                if (dist[x][y] > step || (dist[x][y] == step && (path[i][j] + d).compareTo(path[x][y]) < 0)) {
+                if (dist[x][y] > step
+                    || (dist[x][y] == step && (path[i][j] + d).compareTo(path[x][y]) < 0)) {
                     dist[x][y] = step;
                     path[x][y] = path[i][j] + d;
                     if (x != rh || y != ch) {
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                     }
                 }
             }

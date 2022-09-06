@@ -117,11 +117,11 @@ class Solution {
             for (int j = 0; j < n; ++j) {
                 if (i == 0 || j == 0) {
                     vis1.add(i * n + j);
-                    q1.offer(new int[]{i, j});
+                    q1.offer(new int[] {i, j});
                 }
                 if (i == m - 1 || j == n - 1) {
                     vis2.add(i * n + j);
-                    q2.offer(new int[]{i, j});
+                    q2.offer(new int[] {i, j});
                 }
             }
         }
@@ -147,9 +147,10 @@ class Solution {
                 for (int i = 0; i < 4; ++i) {
                     int x = p[0] + dirs[i];
                     int y = p[1] + dirs[i + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !vis.contains(x * n + y) && heights[x][y] >= heights[p[0]][p[1]]) {
+                    if (x >= 0 && x < m && y >= 0 && y < n && !vis.contains(x * n + y)
+                        && heights[x][y] >= heights[p[0]][p[1]]) {
                         vis.add(x * n + y);
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                     }
                 }
             }

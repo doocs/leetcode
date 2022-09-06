@@ -102,7 +102,6 @@ class NumberContainers {
     private Map<Integer, TreeSet<Integer>> t = new HashMap<>();
 
     public NumberContainers() {
-
     }
 
     public void change(int index, int number) {

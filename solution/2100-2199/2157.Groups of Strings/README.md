@@ -161,7 +161,7 @@ class Solution {
                 }
             }
         }
-        return new int[]{n, mx};
+        return new int[] {n, mx};
     }
 
     private int find(int x) {

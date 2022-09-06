@@ -73,7 +73,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
-                    q.offer(new int[]{i, j});
+                    q.offer(new int[] {i, j});
                 }
             }
         }
@@ -90,7 +90,7 @@ class Solution {
                     if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
                         valid = true;
                         grid[x][y] = 1;
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                     }
                 }
             }

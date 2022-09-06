@@ -72,7 +72,8 @@ class Solution {
     public List<String> letterCombinations(String digits) {
         int n;
         if ((n = digits.length()) == 0) return Collections.emptyList();
-        List<String> chars = Arrays.asList("abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz");
+        List<String> chars
+            = Arrays.asList("abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz");
 
         List<String> strs = new ArrayList<>();
         for (char c : digits.toCharArray()) {

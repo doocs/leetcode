@@ -112,11 +112,11 @@ class Solution {
         }
         for (int[] e : edges) {
             int u = e[0], v = e[1], w = e[2];
-            g[u].add(new int[]{v, w});
-            g[v].add(new int[]{u, w});
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
         }
         PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        q.offer(new int[]{0, n});
+        q.offer(new int[] {0, n});
         dist = new int[n + 1];
         f = new int[n + 1];
         Arrays.fill(dist, INF);
@@ -129,7 +129,7 @@ class Solution {
                 int v = ne[0], w = ne[1];
                 if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
-                    q.offer(new int[]{dist[v], v});
+                    q.offer(new int[] {dist[v], v});
                 }
             }
         }

@@ -246,7 +246,7 @@ class Solution {
         }
         for (int[] t : times) {
             int u = t[0] - 1, v = t[1] - 1, w = t[2];
-            g[u].add(new int[]{v, w});
+            g[u].add(new int[] {v, w});
         }
         --k;
         dist[k] = 0;

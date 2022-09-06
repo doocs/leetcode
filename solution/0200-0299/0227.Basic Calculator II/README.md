@@ -107,18 +107,18 @@ class Solution {
             }
             if (i == n - 1 || (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ')) {
                 switch (preSign) {
-                    case '+':
-                        stack.push(num);
-                        break;
-                    case '-':
-                        stack.push(-num);
-                        break;
-                    case '*':
-                        stack.push(stack.pop() * num);
-                        break;
-                    case '/':
-                        stack.push(stack.pop() / num);
-                        break;
+                case '+':
+                    stack.push(num);
+                    break;
+                case '-':
+                    stack.push(-num);
+                    break;
+                case '*':
+                    stack.push(stack.pop() * num);
+                    break;
+                case '/':
+                    stack.push(stack.pop() / num);
+                    break;
                 }
                 preSign = s.charAt(i);
                 num = 0;

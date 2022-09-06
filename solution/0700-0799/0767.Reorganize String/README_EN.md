@@ -76,7 +76,7 @@ class Solution {
         k = 0;
         for (int i = 0; i < 26; ++i) {
             if (cnt[i] > 0) {
-                m[k++] = new int[]{cnt[i], i};
+                m[k++] = new int[] {cnt[i], i};
             }
         }
         Arrays.sort(m, (a, b) -> b[0] - a[0]);

@@ -113,7 +113,6 @@ class RecentCounter {
     private int idx;
 
     public RecentCounter() {
-
     }
 
     public int ping(int t) {

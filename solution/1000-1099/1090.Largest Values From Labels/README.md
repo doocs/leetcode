@@ -97,7 +97,7 @@ class Solution {
         int n = values.length;
         int[][] p = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            p[i] = new int[]{values[i], labels[i]};
+            p[i] = new int[] {values[i], labels[i]};
         }
         Arrays.sort(p, (a, b) -> b[0] - a[0]);
         int ans = 0;

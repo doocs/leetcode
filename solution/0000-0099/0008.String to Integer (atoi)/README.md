@@ -152,7 +152,8 @@ class Solution {
             // 非数字，跳出循环体
             if (s.charAt(i) < '0' || s.charAt(i) > '9') break;
             // 溢出判断
-            if (res > flag || (res == flag && s.charAt(i) > '7')) return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            if (res > flag || (res == flag && s.charAt(i) > '7'))
+                return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             res = res * 10 + (s.charAt(i) - '0');
         }
         return sign * res;

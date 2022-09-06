@@ -107,7 +107,8 @@ class Solution {
             }
         }
         int[] rect = rects[left - 1];
-        return new int[]{rect[0] + random.nextInt(rect[2] - rect[0] + 1), rect[1] + random.nextInt(rect[3] - rect[1] + 1)};
+        return new int[] {rect[0] + random.nextInt(rect[2] - rect[0] + 1),
+            rect[1] + random.nextInt(rect[3] - rect[1] + 1)};
     }
 }
 

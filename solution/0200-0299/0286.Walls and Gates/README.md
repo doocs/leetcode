@@ -105,7 +105,7 @@ class Solution {
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (rooms[i][j] == 0) {
-                    q.offer(new int[]{i, j});
+                    q.offer(new int[] {i, j});
                 }
             }
         }
@@ -120,7 +120,7 @@ class Solution {
                     int y = p[1] + dirs[j + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n && rooms[x][y] == Integer.MAX_VALUE) {
                         rooms[x][y] = d;
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                     }
                 }
             }

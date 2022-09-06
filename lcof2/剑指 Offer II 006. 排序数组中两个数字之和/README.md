@@ -89,7 +89,7 @@ class Solution {
             } else if (numbers[i] + numbers[j] > target) {
                 j--;
             } else {
-                return new int[]{i, j};
+                return new int[] {i, j};
             }
         }
     }

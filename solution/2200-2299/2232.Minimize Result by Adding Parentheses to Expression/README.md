@@ -102,7 +102,8 @@ class Solution {
                 int t = a * b * c;
                 if (t < mi) {
                     mi = t;
-                    ans = String.format("%s(%s+%s)%s", l.substring(0, i), l.substring(i), r.substring(0, j + 1), r.substring(j + 1));
+                    ans = String.format("%s(%s+%s)%s", l.substring(0, i), l.substring(i),
+                        r.substring(0, j + 1), r.substring(j + 1));
                 }
             }
         }

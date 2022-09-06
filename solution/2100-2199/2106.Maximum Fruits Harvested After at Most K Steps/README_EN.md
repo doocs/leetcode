@@ -112,7 +112,10 @@ class Solution {
         }
         int t = ans;
         while (i < n && fruits[i][0] - startPos <= k) {
-            while (!q.isEmpty() && q.peekFirst()[0] < startPos && fruits[i][0] - q.peekFirst()[0] + Math.min(startPos - q.peekFirst()[0], fruits[i][0] - startPos) > k) {
+            while (!q.isEmpty() && q.peekFirst()[0] < startPos
+                && fruits[i][0] - q.peekFirst()[0]
+                        + Math.min(startPos - q.peekFirst()[0], fruits[i][0] - startPos)
+                    > k) {
                 t -= q.pollFirst()[1];
             }
             t += fruits[i][1];

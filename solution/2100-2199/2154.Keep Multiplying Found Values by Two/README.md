@@ -87,7 +87,6 @@ class Solution {
         return original;
     }
 }
-
 ```
 
 ### **TypeScript**

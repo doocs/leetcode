@@ -36,7 +36,7 @@ public class ShellSort {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(shellSort(new int[]{1, 2, 7, 9, 5, 8})));
+        System.out.println(Arrays.toString(shellSort(new int[] {1, 2, 7, 9, 5, 8})));
     }
 }
 ```

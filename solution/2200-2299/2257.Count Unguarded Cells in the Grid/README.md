@@ -99,12 +99,13 @@ class Solution {
             int r = e[0], c = e[1];
             g[r][c] = 'w';
         }
-        int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+        int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
         for (int[] p : guards) {
             for (int[] dir : dirs) {
                 int a = dir[0], b = dir[1];
                 int x = p[0], y = p[1];
-                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] != 'w' && g[x + a][y + b] != 'g') {
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] != 'w'
+                    && g[x + a][y + b] != 'g') {
                     x += a;
                     y += b;
                     g[x][y] = 'v';

@@ -130,18 +130,18 @@ class Solution {
                 int y = stk.pop();
                 int x = stk.pop();
                 switch (t) {
-                    case "+":
-                        stk.push(x + y);
-                        break;
-                    case "-":
-                        stk.push(x - y);
-                        break;
-                    case "*":
-                        stk.push(x * y);
-                        break;
-                    default:
-                        stk.push(x / y);
-                        break;
+                case "+":
+                    stk.push(x + y);
+                    break;
+                case "-":
+                    stk.push(x - y);
+                    break;
+                case "*":
+                    stk.push(x * y);
+                    break;
+                default:
+                    stk.push(x / y);
+                    break;
                 }
             }
         }

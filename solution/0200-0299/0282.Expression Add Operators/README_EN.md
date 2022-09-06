@@ -98,7 +98,7 @@ class Solution {
     private void dfs(int u, long prev, long curr, String path) {
         if (u == num.length()) {
             if (curr == target) ans.add(path);
-            return ;
+            return;
         }
         for (int i = u; i < num.length(); i++) {
             if (i != u && num.charAt(u) == '0') {
@@ -108,7 +108,7 @@ class Solution {
             if (u == 0) {
                 dfs(i + 1, next, next, path + next);
             } else {
-                dfs(i + 1,  next, curr + next, path + "+" + next);
+                dfs(i + 1, next, curr + next, path + "+" + next);
                 dfs(i + 1, -next, curr - next, path + "-" + next);
                 dfs(i + 1, prev * next, curr - prev + prev * next, path + "*" + next);
             }

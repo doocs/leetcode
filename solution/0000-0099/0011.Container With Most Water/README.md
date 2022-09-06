@@ -93,8 +93,10 @@ class Solution {
         while (i < j) {
             int t = (j - i) * Math.min(height[i], height[j]);
             res = Math.max(res, t);
-            if (height[i] < height[j]) ++i;
-            else --j;
+            if (height[i] < height[j])
+                ++i;
+            else
+                --j;
         }
         return res;
     }

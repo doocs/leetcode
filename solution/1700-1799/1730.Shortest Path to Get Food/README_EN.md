@@ -113,7 +113,7 @@ class Solution {
                         }
                         if (grid[x][y] == 'O') {
                             grid[x][y] = 'X';
-                            q.offer(new int[]{x, y});
+                            q.offer(new int[] {x, y});
                         }
                     }
                 }
@@ -126,11 +126,11 @@ class Solution {
         for (int i = 0; i < grid.length; ++i) {
             for (int j = 0; j < grid[0].length; ++j) {
                 if (grid[i][j] == '*') {
-                    return new int[]{i, j};
+                    return new int[] {i, j};
                 }
             }
         }
-        return new int[]{-1, -1};
+        return new int[] {-1, -1};
     }
 }
 ```

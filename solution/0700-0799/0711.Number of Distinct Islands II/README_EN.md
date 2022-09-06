@@ -116,14 +116,14 @@ class Solution {
         for (int e : shape) {
             int i = e / n;
             int j = e % n;
-            shapes[0].add(new int[]{i, j});
-            shapes[1].add(new int[]{i, -j});
-            shapes[2].add(new int[]{-i, j});
-            shapes[3].add(new int[]{-i, -j});
-            shapes[4].add(new int[]{j, i});
-            shapes[5].add(new int[]{j, -i});
-            shapes[6].add(new int[]{-j, i});
-            shapes[7].add(new int[]{-j, -i});
+            shapes[0].add(new int[] {i, j});
+            shapes[1].add(new int[] {i, -j});
+            shapes[2].add(new int[] {-i, j});
+            shapes[3].add(new int[] {-i, -j});
+            shapes[4].add(new int[] {j, i});
+            shapes[5].add(new int[] {j, -i});
+            shapes[6].add(new int[] {-j, i});
+            shapes[7].add(new int[] {-j, -i});
         }
         for (List<int[]> e : shapes) {
             e.sort((a, b) -> {
@@ -141,7 +141,7 @@ class Solution {
             for (int k = e.size() - 1; k >= 0; --k) {
                 int i = e.get(k)[0];
                 int j = e.get(k)[1];
-                e.set(k, new int[]{i - a, j - b});
+                e.set(k, new int[] {i - a, j - b});
             }
         }
         Arrays.sort(shapes, (a, b) -> {

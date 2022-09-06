@@ -107,7 +107,7 @@ class Solution {
             s.add(v);
         }
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{0, 2});
+        q.offer(new int[] {0, 2});
         boolean[][] vis = new boolean[N][2];
         vis[0][0] = true;
         vis[0][1] = true;
@@ -120,16 +120,16 @@ class Solution {
                     return ans;
                 }
                 List<int[]> nxt = new ArrayList<>();
-                nxt.add(new int[]{i + a, 1});
+                nxt.add(new int[] {i + a, 1});
                 if (dir != 0) {
-                    nxt.add(new int[]{i - b, 0});
+                    nxt.add(new int[] {i - b, 0});
                 }
                 for (int[] e : nxt) {
                     int j = e[0];
                     dir = e[1];
                     if (j >= 0 && j < N && !s.contains(j) && !vis[j][dir]) {
                         vis[j][dir] = true;
-                        q.offer(new int[]{j, dir});
+                        q.offer(new int[] {j, dir});
                     }
                 }
             }

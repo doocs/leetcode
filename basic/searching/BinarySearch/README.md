@@ -25,9 +25,12 @@ int search(int left, int right) {
 ### 模板 2
 
 ```java
-boolean check(int x) {}
+boolean
+check(int x) {
+}
 
-int search(int left, int right) {
+int
+search(int left, int right) {
     while (left < right) {
         int mid = (left + right + 1) >> 1;
         if (check(mid)) {

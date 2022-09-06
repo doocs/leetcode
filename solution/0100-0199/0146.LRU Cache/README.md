@@ -185,7 +185,6 @@ class Node {
     Node next;
 
     Node() {
-
     }
 
     Node(int key, int val) {

@@ -83,10 +83,10 @@ class Solution {
         PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
         counter.forEach((num, freq) -> {
             if (pq.size() == k) {
-                pq.offer(new int[]{num, freq});
+                pq.offer(new int[] {num, freq});
                 pq.poll();
             } else {
-                pq.offer(new int[]{num, freq});
+                pq.offer(new int[] {num, freq});
             }
         });
         return pq.stream().mapToInt(e -> e[0]).toArray();

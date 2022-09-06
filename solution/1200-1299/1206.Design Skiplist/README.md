@@ -156,7 +156,6 @@ class Skiplist {
     private int level = 0;
 
     public Skiplist() {
-
     }
 
     public boolean search(int target) {

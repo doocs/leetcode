@@ -142,7 +142,7 @@ class Solution {
     public List<String> fullJustify(String[] words, int maxWidth) {
         List<String> ans = new ArrayList<>();
         int n = words.length;
-        for (int i = 0; i < n; ) {
+        for (int i = 0; i < n;) {
             List<String> t = new ArrayList<>();
             int cnt = words[i].length();
             t.add(words[i++]);

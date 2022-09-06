@@ -77,7 +77,7 @@ class Solution {
         for (int a : aliceSizes) {
             int target = a - diff;
             if (s.contains(target)) {
-                return new int[]{a, target};
+                return new int[] {a, target};
             }
         }
         return null;

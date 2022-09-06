@@ -89,7 +89,7 @@ class StockSpanner {
             int[] t = stk.pop();
             res += t[1];
         }
-        stk.push(new int[]{price, res});
+        stk.push(new int[] {price, res});
         return res;
     }
 }

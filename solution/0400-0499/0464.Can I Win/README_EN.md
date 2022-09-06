@@ -93,7 +93,8 @@ class Solution {
         boolean res = false;
         for (int i = 1; i <= maxChoosableInteger; ++i) {
             if (((state >> i) & 1) == 0) {
-                if (t + i >= desiredTotal || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal)) {
+                if (t + i >= desiredTotal
+                    || !dfs(state | 1 << i, t + i, maxChoosableInteger, desiredTotal)) {
                     res = true;
                     break;
                 }

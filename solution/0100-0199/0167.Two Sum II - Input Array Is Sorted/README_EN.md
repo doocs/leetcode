@@ -121,7 +121,7 @@ class Solution {
         while (i < j) {
             int x = numbers[i - 1] + numbers[j - 1];
             if (x == target) {
-                return new int[]{i, j};
+                return new int[] {i, j};
             }
             if (x < target) {
                 ++i;
@@ -129,7 +129,7 @@ class Solution {
                 --j;
             }
         }
-        return new int[]{-1, -1};
+        return new int[] {-1, -1};
     }
 }
 ```

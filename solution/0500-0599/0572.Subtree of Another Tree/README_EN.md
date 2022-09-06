@@ -91,7 +91,8 @@ class Solution {
         if (root == null) {
             return false;
         }
-        return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+        return dfs(root, subRoot) || isSubtree(root.left, subRoot)
+            || isSubtree(root.right, subRoot);
     }
 
     private boolean dfs(TreeNode root1, TreeNode root2) {
@@ -101,7 +102,8 @@ class Solution {
         if (root1 == null || root2 == null) {
             return false;
         }
-        return root1.val == root2.val && dfs(root1.left, root2.left) && dfs(root1.right, root2.right);
+        return root1.val == root2.val && dfs(root1.left, root2.left)
+            && dfs(root1.right, root2.right);
     }
 }
 ```

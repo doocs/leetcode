@@ -187,8 +187,8 @@ class Solution {
         TreeSet<Integer> ts = new TreeSet<>();
         for (int[] rect : rectangles) {
             int x1 = rect[0], y1 = rect[1], x2 = rect[2], y2 = rect[3];
-            segs[idx++] = new int[]{x1, y1, y2, 1};
-            segs[idx++] = new int[]{x2, y1, y2, -1};
+            segs[idx++] = new int[] {x1, y1, y2, 1};
+            segs[idx++] = new int[] {x2, y1, y2, -1};
             ts.add(y1);
             ts.add(y2);
         }
