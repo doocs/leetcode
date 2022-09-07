@@ -1,8 +1,4 @@
-/**
- * @param {string} s
- * @return {string}
- */
-var sortSentence = function (s) {
+function sortSentence(s: string): string {
     const words = s.split(' ');
     const ans = new Array(words.length);
     for (const w of words) {
@@ -10,4 +6,4 @@ var sortSentence = function (s) {
         ans[i] = w.slice(0, w.length - 1);
     }
     return ans.join(' ');
-};
+}
