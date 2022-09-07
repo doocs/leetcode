@@ -1,9 +1,4 @@
-/**
- * @param {number} memory1
- * @param {number} memory2
- * @return {number[]}
- */
-var memLeak = function (memory1, memory2) {
+function memLeak(memory1: number, memory2: number): number[] {
     let i = 1;
     for (; i <= Math.max(memory1, memory2); ++i) {
         if (memory1 >= memory2) {
@@ -13,4 +8,4 @@ var memLeak = function (memory1, memory2) {
         }
     }
     return [i, memory1, memory2];
-};
+}
