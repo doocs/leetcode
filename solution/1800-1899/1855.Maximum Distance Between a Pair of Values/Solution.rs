@@ -3,18 +3,12 @@ impl Solution {
         let m = nums1.len();
         let n = nums2.len();
         let mut res = 0;
+        let mut j = 0;
         for i in 0..m {
-            let mut left = i;
-            let mut right = n;
-            while left < right {
-                let mid = left + (right - left) / 2;
-                if nums2[mid] >= nums1[i] {
-                    left = mid + 1;
-                } else {
-                    right = mid;
-                }
+            while j < n && nums1[i] <= nums2[j] {
+                j += 1
             }
-            res = res.max((left - i - 1) as i32)
+            res = res.max((j - i - 1) as i32)
         }
         res
     }

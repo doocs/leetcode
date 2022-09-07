@@ -59,7 +59,17 @@
 
 **方法一：二分查找**
 
-遍历数组 nums1，对于每个数字 `nums1[i]`，二分查找 nums2 `[i, len(nums2)- 1]` 范围内的数字，找到最后一个大于等于 `nums1[i]` 的位置，计算此位置与 i 的距离，并更新最大距离值 ans。
+假设 `nums1`、`nums2` 的长度分别为 $m$ 和 $n$。
+
+遍历数组 `nums1`，对于每个数字 `nums1[i]`，二分查找 `nums2` 在 $[i,n)$ 范围内的数字，找到**最后一个**大于等于 `nums1[i]` 的位置 $j$，计算此位置与 $i$ 的距离，并更新最大距离值 `ans`。
+
+时间复杂度 $O(m\log n)$，其中 $m$ 和 $n$ 分别为 `nums1` 和 `nums2` 的长度。
+
+**方法二：双指针**
+
+在方法一中，我们只利用到 `nums2` 是非递增数组这一条件，实际上，`nums1` 也是非递增数组，我们可以用双指针 $i$ 和 $j$ 来遍历 `nums1` 和 `nums2`。
+
+时间复杂度 $O(m+n)$。
 
 <!-- tabs:start -->
 
@@ -70,16 +80,24 @@
 ```python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
-        ans, n = 0, len(nums2)
-        for i, num in enumerate(nums1):
-            left, right = i, n - 1
-            while left < right:
-                mid = (left + right + 1) >> 1
-                if nums2[mid] >= num:
-                    left = mid
-                else:
-                    right = mid - 1
-            ans = max(ans, left - i)
+        ans = 0
+        nums2 = nums2[::-1]
+        for i, v in enumerate(nums1):
+            j = len(nums2) - bisect_left(nums2, v) - 1
+            ans = max(ans, j - i)
+        return ans
+```
+
+```python
+class Solution:
+    def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
+        m, n = len(nums1), len(nums2)
+        ans = i = j = 0
+        while i < m:
+            while j < n and nums1[i] <= nums2[j]:
+                j += 1
+            ans = max(ans, j - i - 1)
+            i += 1
         return ans
 ```
 
@@ -109,6 +127,22 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int maxDistance(int[] nums1, int[] nums2) {
+        int m = nums1.length, n = nums2.length;
+        int ans = 0;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < n && nums1[i] <= nums2[j]) {
+                ++j;
+            }
+            ans = Math.max(ans, j - i - 1);
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -116,18 +150,27 @@ class Solution {
 public:
     int maxDistance(vector<int>& nums1, vector<int>& nums2) {
         int ans = 0;
+        reverse(nums2.begin(), nums2.end());
+        for (int i = 0; i < nums1.size(); ++i) {
+            int j = nums2.size() - (lower_bound(nums2.begin(), nums2.end(), nums1[i]) - nums2.begin()) - 1;
+            ans = max(ans, j - i);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxDistance(vector<int>& nums1, vector<int>& nums2) {
         int m = nums1.size(), n = nums2.size();
-        for (int i = 0; i < m; ++i) {
-            int left = i, right = n - 1;
-            while (left < right) {
-                int mid = (left + right + 1) >> 1;
-                if (nums2[mid] >= nums1[i]) {
-                    left = mid;
-                } else {
-                    right = mid - 1;
-                }
+        int ans = 0;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < n && nums1[i] <= nums2[j]) {
+                ++j;
             }
-            ans = max(ans, left - i);
+            ans = max(ans, j - i - 1);
         }
         return ans;
     }
@@ -151,6 +194,22 @@ func maxDistance(nums1 []int, nums2 []int) int {
 		}
 		if ans < left-i {
 			ans = left - i
+		}
+	}
+	return ans
+}
+```
+
+```go
+func maxDistance(nums1 []int, nums2 []int) int {
+	m, n := len(nums1), len(nums2)
+	ans := 0
+	for i, j := 0, 0; i < m; i++ {
+		for j < n && nums1[i] <= nums2[j] {
+			j++
+		}
+		if ans < j-i-1 {
+			ans = j - i - 1
 		}
 	}
 	return ans
@@ -186,6 +245,26 @@ var maxDistance = function (nums1, nums2) {
 };
 ```
 
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var maxDistance = function (nums1, nums2) {
+    let ans = 0;
+    const m = nums1.length;
+    const n = nums2.length;
+    for (let i = 0, j = 0; i < m; ++i) {
+        while (j < n && nums1[i] <= nums2[j]) {
+            j++;
+        }
+        ans = Math.max(ans, j - i - 1);
+    }
+    return ans;
+};
+```
+
 ### **TypeScript**
 
 ```ts
@@ -205,6 +284,21 @@ function maxDistance(nums1: number[], nums2: number[]): number {
             }
         }
         ans = Math.max(ans, left - i);
+    }
+    return ans;
+}
+```
+
+```ts
+function maxDistance(nums1: number[], nums2: number[]): number {
+    let ans = 0;
+    const m = nums1.length;
+    const n = nums2.length;
+    for (let i = 0, j = 0; i < m; ++i) {
+        while (j < n && nums1[i] <= nums2[j]) {
+            j++;
+        }
+        ans = Math.max(ans, j - i - 1);
     }
     return ans;
 }
@@ -230,6 +324,24 @@ impl Solution {
                 }
             }
             res = res.max((left - i - 1) as i32)
+        }
+        res
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_distance(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
+        let m = nums1.len();
+        let n = nums2.len();
+        let mut res = 0;
+        let mut j = 0;
+        for i in 0..m {
+            while j < n && nums1[i] <= nums2[j] {
+                j += 1
+            }
+            res = res.max((j - i - 1) as i32)
         }
         res
     }
