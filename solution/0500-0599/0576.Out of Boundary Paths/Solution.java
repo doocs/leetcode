@@ -1,28 +1,40 @@
 class Solution {
-    public int findPaths(int m, int n, int N, int i, int j) {
-        final int MOD = (int) (1e9 + 7);
-        final int[] dirs = new int[] {-1, 0, 1, 0, -1};
-        int[][] f = new int[m][n];
-        f[i][j] = 1;
-        int res = 0;
-        for (int step = 0; step < N; ++step) {
-            int[][] temp = new int[m][n];
-            for (int x = 0; x < m; ++x) {
-                for (int y = 0; y < n; ++y) {
-                    for (int k = 0; k < 4; ++k) {
-                        int tx = x + dirs[k], ty = y + dirs[k + 1];
-                        if (tx >= 0 && tx < m && ty >= 0 && ty < n) {
-                            temp[tx][ty] += f[x][y];
-                            temp[tx][ty] %= MOD;
-                        } else {
-                            res += f[x][y];
-                            res %= MOD;
-                        }
-                    }
-                }
+    private int m;
+    private int n;
+    private int[][][] f;
+    private static final int[] DIRS = {-1, 0, 1, 0, -1};
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
+        this.m = m;
+        this.n = n;
+        f = new int[m + 1][n + 1][maxMove + 1];
+        for (var a : f) {
+            for (var b : a) {
+                Arrays.fill(b, -1);
             }
-            f = temp;
         }
+        return dfs(startRow, startColumn, maxMove);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i < 0 || i >= m || j < 0 || j >= n) {
+            return 1;
+        }
+        if (f[i][j][k] != -1) {
+            return f[i][j][k];
+        }
+        if (k == 0) {
+            return 0;
+        }
+        int res = 0;
+        for (int t = 0; t < 4; ++t) {
+            int x = i + DIRS[t];
+            int y = j + DIRS[t + 1];
+            res += dfs(x, y, k - 1);
+            res %= MOD;
+        }
+        f[i][j][k] = res;
         return res;
     }
 }
