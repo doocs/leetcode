@@ -74,6 +74,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+直接模拟摩天轮的轮转过程，每次轮转时，累加等待的游客以及新到达的游客，然后最多 4 个人上船，更新等待的游客数和利润，记录最大利润与其对应的轮转次数。
+
+时间复杂度 $O(n)$。其中 $n$ 为数组 `customers` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +87,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minOperationsMaxProfit(
+        self, customers: List[int], boardingCost: int, runningCost: int
+    ) -> int:
+        ans = -1
+        mx = t = 0
+        wait = 0
+        i = 0
+        while wait or i < len(customers):
+            wait += customers[i] if i < len(customers) else 0
+            up = min(wait, 4)
+            wait -= up
+            t += up * boardingCost - runningCost
+            i += 1
+            if t > mx:
+                mx = t
+                ans = i
+        return ans
 ```
 
 ### **Java**
@@ -89,7 +112,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minOperationsMaxProfit(int[] customers, int boardingCost, int runningCost) {
+        int ans = -1;
+        int mx = 0, t = 0;
+        int wait = 0, i = 0;
+        while (wait > 0 || i < customers.length) {
+            wait += i < customers.length ? customers[i] : 0;
+            int up = Math.min(4, wait);
+            wait -= up;
+            ++i;
+            t += up * boardingCost - runningCost;
+            if (t > mx) {
+                mx = t;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minOperationsMaxProfit(vector<int>& customers, int boardingCost, int runningCost) {
+        int ans = -1;
+        int mx = 0, t = 0;
+        int wait = 0, i = 0;
+        while (wait || i < customers.size()) {
+            wait += i < customers.size() ? customers[i] : 0;
+            int up = min(4, wait);
+            wait -= up;
+            ++i;
+            t += up * boardingCost - runningCost;
+            if (t > mx) {
+                t = mx;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minOperationsMaxProfit(customers []int, boardingCost int, runningCost int) int {
+	ans := -1
+	t, mx := 0, 0
+	wait, i := 0, 0
+	for wait > 0 || i < len(customers) {
+		if i < len(customers) {
+			wait += customers[i]
+		}
+		up := min(4, wait)
+		wait -= up
+		t += up*boardingCost - runningCost
+		i++
+		if t > mx {
+			mx = t
+			ans = i
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
