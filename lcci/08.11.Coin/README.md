@@ -1,6 +1,9 @@
 # [面试题 08.11. 硬币](https://leetcode.cn/problems/coin-lcci)
+
 [English Version](/lcci/08.11.Coin/README_EN.md)
+
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>硬币。给定数量不限的硬币，币值为25分、10分、5分和1分，编写代码计算n分有几种表示法。(结果可能会很大，你需要将结果模上1000000007)</p>
 <p> <strong>示例1:</strong></p>
@@ -27,21 +30,31 @@
 <ul>
     <li>0 &lt;= n (总金额) &lt;= 1000000</li>
 </ul>
+
 ## 解法
-完全背包问题
+
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：动态规划**
+
 <!-- tabs:start -->
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
 ```python
 
 ```
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
 ```java
 
 ```
+
 ### **TypeScript**
+
 ```ts
 function waysToChange(n: number): number {
     const MOD = 10 ** 9 + 7;
@@ -56,8 +69,11 @@ function waysToChange(n: number): number {
     return dp.pop() % MOD;
 }
 ```
+
 ### **...**
+
 ```
 
 ```
+
 <!-- tabs:end -->

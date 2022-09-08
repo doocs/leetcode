@@ -36,11 +36,11 @@
 
 **1. Sort**
 
-Sort the array then compare each value. `O(nlogn)`, `O(1)`.
+Sort the array then compare each value. $O(n\log n)$, $O(1)$.
 
 **2. HashSet**
 
-Making use of hash set. `O(n)`, `O(n)`.
+Making use of hash set. $O(n)$, $O(n)$.
 
 <!-- tabs:start -->
 

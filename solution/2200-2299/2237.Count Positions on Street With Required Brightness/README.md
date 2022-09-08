@@ -62,7 +62,7 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 
 **方法一：差分数组**
 
-时间复杂度 O(n)。
+时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
