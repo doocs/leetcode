@@ -43,13 +43,107 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 ### **Python3**
 
 ```python
-
+class Solution:
+    def constructArray(self, n: int, k: int) -> List[int]:
+        l, r = 1, n
+        ans = []
+        for i in range(k):
+            if i % 2 == 0:
+                ans.append(l)
+                l += 1
+            else:
+                ans.append(r)
+                r -= 1
+        for i in range(k, n):
+            if k % 2 == 0:
+                ans.append(r)
+                r -= 1
+            else:
+                ans.append(l)
+                l += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] constructArray(int n, int k) {
+        int l = 1, r = n;
+        int[] ans = new int[n];
+        for (int i = 0; i < k; ++i) {
+            ans[i] = i % 2 == 0 ? l++ : r--;
+        }
+        for (int i = k; i < n; ++i) {
+            ans[i] = k % 2 == 0 ? r-- : l++;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> constructArray(int n, int k) {
+        int l = 1, r = n;
+        vector<int> ans(n);
+        for (int i = 0; i < k; ++i) {
+            ans[i] = i % 2 == 0 ? l++ : r--;
+        }
+        for (int i = k; i < n; ++i) {
+            ans[i] = k % 2 == 0 ? r-- : l++;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func constructArray(n int, k int) []int {
+	l, r := 1, n
+	ans := make([]int, n)
+	for i := 0; i < k; i++ {
+		if i%2 == 0 {
+			ans[i] = l
+			l++
+		} else {
+			ans[i] = r
+			r--
+		}
+	}
+	for i := k; i < n; i++ {
+		if k%2 == 0 {
+			ans[i] = r
+			r--
+		} else {
+			ans[i] = l
+			l++
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function constructArray(n: number, k: number): number[] {
+    let l = 1;
+    let r = n;
+    const ans = new Array(n);
+    for (let i = 0; i < k; ++i) {
+        ans[i] = i % 2 == 0 ? l++ : r--;
+    }
+    for (let i = k; i < n; ++i) {
+        ans[i] = k % 2 == 0 ? r-- : l++;
+    }
+    return ans;
+}
 ```
 
 ### **...**
