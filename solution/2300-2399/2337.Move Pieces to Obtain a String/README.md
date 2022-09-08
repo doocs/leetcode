@@ -56,6 +56,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+替换操作可以实际上是将 `L` 往左移动（`L` 左边为 `_` 时才能移动），`R` 往右移动（`R` 右边是 `_` 时才能移动），但 `L` 无法穿过 `R`。所以，如果去掉 `start` 和 `target` 中的所有 `_`，剩下的字符应该时相同的，否则返回 `false`。
+
+双指针遍历 `start` 和 `target`：
+
+-   如果当前字符为 `L` 且 $i\lt j$，那么这个 `L` 无法向右移动，返回 `false`；
+-   如果当前字符为 `R` 且 $i\gt j$，那么这个 `R` 无法向左移动，返回 `false`。
+
+如果双指针均遍历到末尾，返回 `true`。
+
+时间复杂度 $O(n)$，其中 $n$ 表示字符串 `start` 或 `target` 的长度。
+
+相似题目：[777. 在LR字符串中交换相邻字符](/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -83,38 +98,21 @@ class Solution:
 class Solution:
     def canChange(self, start: str, target: str) -> bool:
         n = len(start)
-        a = []
-        b = []
-        for i in range(n):
-            if start[i] != '_':
-                a.append(start[i])
-            if target[i] != '_':
-                b.append(target[i])
-        if a != b:
-            return False
-        i = j = n - 1
-        start = list(start)
-        target = list(target)
-        while j >= 0:
-            if target[j] == 'R':
-                i = min(i, j)
-                while i >= 0 and start[i] == '_':
-                    i -= 1
-                if i < 0 or start[i] != 'R':
-                    return False
-                start[i] = '_'
-            j -= 1
         i = j = 0
-        while j < n:
-            if target[j] == 'L':
-                i = max(i, j)
-                while i < n and start[i] == '_':
-                    i += 1
-                if i >= n or start[i] != 'L':
-                    return False
-                start[i] = '_'
-            j += 1
-        return True
+        while 1:
+            while i < n and start[i] == '_':
+                i += 1
+            while j < n and target[j] == '_':
+                j += 1
+            if i >= n and j >= n:
+                return True
+            if i >= n or j >= n or start[i] != target[j]:
+                return False
+            if start[i] == 'L' and i < j:
+                return False
+            if start[i] == 'R' and i > j:
+                return False
+            i, j = i + 1, j + 1
 ```
 
 ### **Java**
@@ -159,6 +157,34 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public boolean canChange(String start, String target) {
+        int n = start.length();
+        int i = 0, j = 0;
+        while (true) {
+            while (i < n && start.charAt(i) == '_') {
+                ++i;
+            }
+            while (j < n && target.charAt(j) == '_') {
+                ++j;
+            }
+            if (i == n && j == n) {
+                return true;
+            }
+            if (i == n || j == n || start.charAt(i) != target.charAt(j)) {
+                return false;
+            }
+            if (start.charAt(i) == 'L' && i < j || start.charAt(i) == 'R' && i > j) {
+                return false;
+            }
+            ++i;
+            ++j;
+        }
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -188,6 +214,26 @@ public:
                 res.push_back({2, i});
         }
         return res;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canChange(string start, string target) {
+        int n = start.size();
+        int i = 0, j = 0;
+        while (true) {
+            while (i < n && start[i] == '_') ++i;
+            while (j < n && target[j] == '_') ++j;
+            if (i == n && j == n) return true;
+            if (i == n || j == n || start[i] != target[j]) return false;
+            if (start[i] == 'L' && i < j) return false;
+            if (start[i] == 'R' && i > j) return false;
+            ++i;
+            ++j;
+        }
     }
 };
 ```
@@ -225,6 +271,34 @@ func canChange(start string, target string) bool {
 		}
 	}
 	return true
+}
+```
+
+```go
+func canChange(start string, target string) bool {
+	n := len(start)
+	i, j := 0, 0
+	for {
+		for i < n && start[i] == '_' {
+			i++
+		}
+		for j < n && target[j] == '_' {
+			j++
+		}
+		if i == n && j == n {
+			return true
+		}
+		if i == n || j == n || start[i] != target[j] {
+			return false
+		}
+		if start[i] == 'L' && i < j {
+			return false
+		}
+		if start[i] == 'R' && i > j {
+			return false
+		}
+		i, j = i+1, j+1
+	}
 }
 ```
 

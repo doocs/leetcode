@@ -43,13 +43,106 @@ XRLXXRRLX
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canTransform(self, start: str, end: str) -> bool:
+        n = len(start)
+        i = j = 0
+        while 1:
+            while i < n and start[i] == 'X':
+                i += 1
+            while j < n and end[j] == 'X':
+                j += 1
+            if i >= n and j >= n:
+                return True
+            if i >= n or j >= n or start[i] != end[j]:
+                return False
+            if start[i] == 'L' and i < j:
+                return False
+            if start[i] == 'R' and i > j:
+                return False
+            i, j = i + 1, j + 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canTransform(String start, String end) {
+        int n = start.length();
+        int i = 0, j = 0;
+        while (true) {
+            while (i < n && start.charAt(i) == 'X') {
+                ++i;
+            }
+            while (j < n && end.charAt(j) == 'X') {
+                ++j;
+            }
+            if (i == n && j == n) {
+                return true;
+            }
+            if (i == n || j == n || start.charAt(i) != end.charAt(j)) {
+                return false;
+            }
+            if (start.charAt(i) == 'L' && i < j || start.charAt(i) == 'R' && i > j) {
+                return false;
+            }
+            ++i;
+            ++j;
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canTransform(string start, string end) {
+        int n = start.size();
+        int i = 0, j = 0;
+        while (true) {
+            while (i < n && start[i] == 'X') ++i;
+            while (j < n && end[j] == 'X') ++j;
+            if (i == n && j == n) return true;
+            if (i == n || j == n || start[i] != end[j]) return false;
+            if (start[i] == 'L' && i < j) return false;
+            if (start[i] == 'R' && i > j) return false;
+            ++i;
+            ++j;
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func canTransform(start string, end string) bool {
+	n := len(start)
+	i, j := 0, 0
+	for {
+		for i < n && start[i] == 'X' {
+			i++
+		}
+		for j < n && end[j] == 'X' {
+			j++
+		}
+		if i == n && j == n {
+			return true
+		}
+		if i == n || j == n || start[i] != end[j] {
+			return false
+		}
+		if start[i] == 'L' && i < j {
+			return false
+		}
+		if start[i] == 'R' && i > j {
+			return false
+		}
+		i, j = i+1, j+1
+	}
+}
 ```
 
 ### **...**
