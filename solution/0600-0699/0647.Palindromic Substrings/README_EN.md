@@ -44,6 +44,18 @@
 ```python
 class Solution:
     def countSubstrings(self, s: str) -> int:
+        ans, n = 0, len(s)
+        for k in range(n * 2 - 1):
+            i, j = k // 2, (k + 1) // 2
+            while ~i and j < n and s[i] == s[j]:
+                ans += 1
+                i, j = i - 1, j + 1
+        return ans
+```
+
+```python
+class Solution:
+    def countSubstrings(self, s: str) -> int:
         t = '^#' + '#'.join(s) + '#$'
         n = len(t)
         p = [0 for _ in range(n)]
@@ -61,6 +73,24 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    public int countSubstrings(String s) {
+        int ans = 0;
+        int n = s.length();
+        for (int k = 0; k < n * 2 - 1; ++k) {
+            int i = k / 2, j = (k + 1) / 2;
+            while (i >= 0 && j < n && s.charAt(i) == s.charAt(j)) {
+                ++ans;
+                --i;
+                ++j;
+            }
+        }
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -88,6 +118,66 @@ class Solution {
         return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int ans = 0;
+        int n = s.size();
+        for (int k = 0; k < n * 2 - 1; ++k) {
+            int i = k / 2, j = (k + 1) / 2;
+            while (~i && j < n && s[i] == s[j]) {
+                ++ans;
+                --i;
+                ++j;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSubstrings(s string) int {
+	ans, n := 0, len(s)
+	for k := 0; k < n*2-1; k++ {
+		i, j := k/2, (k+1)/2
+		for i >= 0 && j < n && s[i] == s[j] {
+			ans++
+			i, j = i-1, j+1
+		}
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countSubstrings = function (s) {
+    let ans = 0;
+    const n = s.length;
+    for (let k = 0; k < n * 2 - 1; ++k) {
+        let i = k >> 1;
+        let j = (k + 1) >> 1;
+        while (~i && j < n && s[i] == s[j]) {
+            ++ans;
+            --i;
+            ++j;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
