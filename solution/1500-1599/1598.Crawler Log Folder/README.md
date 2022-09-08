@@ -144,6 +144,59 @@ func minOperations(logs []string) int {
 }
 ```
 
+### **C**
+
+```c
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+
+int minOperations(char **logs, int logsSize) {
+    int depth = 0;
+    for (int i = 0; i < logsSize; i++) {
+        char *log = logs[i];
+        if (!strcmp(log, "../")) {
+            depth = max(0, depth - 1);
+        } else if (strcmp(log, "./")) {
+            depth++;
+        }
+    }
+    return depth;
+}
+```
+
+### **TypeScript**
+
+```ts
+function minOperations(logs: string[]): number {
+    let depth = 0;
+    for (const log of logs) {
+        if (log === '../') {
+            depth = Math.max(0, depth - 1);
+        } else if (log !== './') {
+            depth++;
+        }
+    }
+    return depth;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_operations(logs: Vec<String>) -> i32 {
+        let mut depth = 0;
+        for log in logs.iter() {
+            if log == "../" {
+                depth = 0.max(depth - 1);
+            } else if log != "./" {
+                depth += 1;
+            }
+        }
+        depth
+    }
+}
+```
+
 ### **...**
 
 ```
