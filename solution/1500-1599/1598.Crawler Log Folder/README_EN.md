@@ -65,13 +65,70 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, logs: List[str]) -> int:
+        ans = 0
+        for v in logs:
+            if v == "../":
+                ans = max(0, ans - 1)
+            elif v[0] != ".":
+                ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minOperations(String[] logs) {
+        int ans = 0;
+        for (var v : logs) {
+            if ("../".equals(v)) {
+                ans = Math.max(0, ans - 1);
+            } else if (v.charAt(0) != '.') {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<string>& logs) {
+        int ans = 0;
+        for (auto& v : logs) {
+            if (v == "../") {
+                ans = max(0, ans - 1);
+            } else if (v[0] != '.') {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minOperations(logs []string) int {
+	ans := 0
+	for _, v := range logs {
+		if v == "../" {
+			if ans > 0 {
+				ans--
+			}
+		} else if v[0] != '.' {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
