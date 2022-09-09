@@ -80,13 +80,176 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 ### **Python3**
 
 ```python
+class ThroneInheritance:
 
+    def __init__(self, kingName: str):
+        self.g = defaultdict(list)
+        self.dead = set()
+        self.king = kingName
+
+    def birth(self, parentName: str, childName: str) -> None:
+        self.g[parentName].append(childName)
+
+    def death(self, name: str) -> None:
+        self.dead.add(name)
+
+    def getInheritanceOrder(self) -> List[str]:
+        def dfs(x):
+            if x not in self.dead:
+                ans.append(x)
+            for y in self.g[x]:
+                dfs(y)
+
+        ans = []
+        dfs(self.king)
+        return ans
+
+# Your ThroneInheritance object will be instantiated and called as such:
+# obj = ThroneInheritance(kingName)
+# obj.birth(parentName,childName)
+# obj.death(name)
+# param_3 = obj.getInheritanceOrder()
 ```
 
 ### **Java**
 
 ```java
+class ThroneInheritance {
+    private Map<String, List<String>> g = new HashMap<>();
+    private Set<String> dead = new HashSet<>();
+    private List<String> ans;
+    private String king;
 
+    public ThroneInheritance(String kingName) {
+        king = kingName;
+    }
+
+    public void birth(String parentName, String childName) {
+        g.computeIfAbsent(parentName, k -> new ArrayList<>()).add(childName);
+    }
+
+    public void death(String name) {
+        dead.add(name);
+    }
+
+    public List<String> getInheritanceOrder() {
+        ans = new ArrayList<>();
+        dfs(king);
+        return ans;
+    }
+
+    private void dfs(String x) {
+        if (!dead.contains(x)) {
+            ans.add(x);
+        }
+        for (String y : g.getOrDefault(x, Collections.emptyList())) {
+            dfs(y);
+        }
+    }
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance obj = new ThroneInheritance(kingName);
+ * obj.birth(parentName,childName);
+ * obj.death(name);
+ * List<String> param_3 = obj.getInheritanceOrder();
+ */
+```
+
+### **C++**
+
+```cpp
+class ThroneInheritance {
+public:
+    unordered_map<string, vector<string>> g;
+    unordered_set<string> dead;
+    string king;
+    vector<string> ans;
+
+    ThroneInheritance(string kingName) {
+        king = kingName;
+    }
+
+    void birth(string parentName, string childName) {
+        g[parentName].push_back(childName);
+    }
+
+    void death(string name) {
+        dead.insert(name);
+    }
+
+    vector<string> getInheritanceOrder() {
+        ans.resize(0);
+        dfs(king);
+        return ans;
+    }
+
+    void dfs(string& x) {
+        if (!dead.count(x)) {
+            ans.push_back(x);
+        }
+        for (auto& y : g[x]) {
+            dfs(y);
+        }
+    }
+};
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * ThroneInheritance* obj = new ThroneInheritance(kingName);
+ * obj->birth(parentName,childName);
+ * obj->death(name);
+ * vector<string> param_3 = obj->getInheritanceOrder();
+ */
+```
+
+### **Go**
+
+```go
+type ThroneInheritance struct {
+	g    map[string][]string
+	dead map[string]bool
+	king string
+}
+
+func Constructor(kingName string) ThroneInheritance {
+	g := map[string][]string{}
+	dead := map[string]bool{}
+	return ThroneInheritance{g, dead, kingName}
+}
+
+func (this *ThroneInheritance) Birth(parentName string, childName string) {
+	this.g[parentName] = append(this.g[parentName], childName)
+}
+
+func (this *ThroneInheritance) Death(name string) {
+	this.dead[name] = true
+}
+
+func (this *ThroneInheritance) GetInheritanceOrder() []string {
+	var dfs func(x string)
+	ans := []string{}
+
+	dfs = func(x string) {
+		if !this.dead[x] {
+			ans = append(ans, x)
+		}
+		for _, y := range this.g[x] {
+			dfs(y)
+		}
+	}
+	dfs(this.king)
+	return ans
+}
+
+/**
+ * Your ThroneInheritance object will be instantiated and called as such:
+ * obj := Constructor(kingName);
+ * obj.Birth(parentName,childName);
+ * obj.Death(name);
+ * param_3 := obj.GetInheritanceOrder();
+ */
 ```
 
 ### **...**
