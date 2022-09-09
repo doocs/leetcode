@@ -9,20 +9,20 @@
 func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		t := q
-		q = nil
-		for i, node := range t {
-			if node == u {
-				if i == len(t)-1 {
-					return nil
+		for i := len(q); i > 0; i-- {
+			root = q[0]
+			q = q[1:]
+			if root == u {
+				if i > 1 {
+					return q[0]
 				}
-				return t[i+1]
+				return nil
 			}
-			if node.Left != nil {
-				q = append(q, node.Left)
+			if root.Left != nil {
+				q = append(q, root.Left)
 			}
-			if node.Right != nil {
-				q = append(q, node.Right)
+			if root.Right != nil {
+				q = append(q, root.Right)
 			}
 		}
 	}

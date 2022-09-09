@@ -5,15 +5,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findNearestRightNode(self, root: TreeNode, u: TreeNode) -> TreeNode:
+    def findNearestRightNode(self, root: TreeNode, u: TreeNode) -> Optional[TreeNode]:
         q = deque([root])
         while q:
-            n = len(q)
-            for i in range(n):
-                node = q.popleft()
-                if node == u:
-                    return None if i == n - 1 else q.popleft()
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+            for i in range(len(q) - 1, -1, -1):
+                root = q.popleft()
+                if root == u:
+                    return q[0] if i else None
+                if root.left:
+                    q.append(root.left)
+                if root.right:
+                    q.append(root.right)

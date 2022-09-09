@@ -12,15 +12,14 @@
 class Solution {
 public:
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
-        queue<TreeNode*> q;
-        q.push(root);
-        while (!q.empty()) {
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                TreeNode* node = q.front();
+        queue<TreeNode*> q{{root}};
+        while (q.size()) {
+            for (int i = q.size(); i; --i) {
+                root = q.front();
                 q.pop();
-                if (node == u) return i == n - 1 ? nullptr : q.front();
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
+                if (root == u) return i > 1 ? q.front() : nullptr;
+                if (root->left) q.push(root->left);
+                if (root->right) q.push(root->right);
             }
         }
         return nullptr;

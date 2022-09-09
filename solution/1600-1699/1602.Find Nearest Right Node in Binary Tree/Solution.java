@@ -18,16 +18,16 @@ class Solution {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                TreeNode node = q.poll();
-                if (node == u) {
-                    return i == n - 1 ? null : q.poll();
+            for (int i = q.size(); i > 0; --i) {
+                root = q.pollFirst();
+                if (root == u) {
+                    return i > 1 ? q.peekFirst() : null;
                 }
-                if (node.left != null) {
-                    q.offer(node.left);
+                if (root.left != null) {
+                    q.offer(root.left);
                 }
-                if (node.right != null) {
-                    q.offer(node.right);
+                if (root.right != null) {
+                    q.offer(root.right);
                 }
             }
         }
