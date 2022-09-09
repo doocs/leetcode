@@ -48,7 +48,11 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 
 <!-- 这里可写通用的实现逻辑 -->
 
-为每种车维护一个计数器，初始值为车位的数目。此后，每来一辆车，就将对应类型的计数器减 1。当计数器为 0 时，说明车位已满。
+**方法一：模拟**
+
+为每种车维护一个计数器，初始值为车位的数目。此后，每来一辆车，就将对应类型的计数器减 `1`。当计数器为 `0` 时，说明车位已满。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -79,20 +83,17 @@ class ParkingSystem:
 
 ```java
 class ParkingSystem {
-
-    private int[] spaces = new int[3];
+    private int[] cnt;
 
     public ParkingSystem(int big, int medium, int small) {
-        spaces[0] = big;
-        spaces[1] = medium;
-        spaces[2] = small;
+        cnt = new int[]{0, big, medium, small};
     }
-
+    
     public boolean addCar(int carType) {
-        if (spaces[carType - 1] <= 0) {
+        if (cnt[carType] == 0) {
             return false;
         }
-        --spaces[carType - 1];
+        --cnt[carType];
         return true;
     }
 }
@@ -101,6 +102,57 @@ class ParkingSystem {
  * Your ParkingSystem object will be instantiated and called as such:
  * ParkingSystem obj = new ParkingSystem(big, medium, small);
  * boolean param_1 = obj.addCar(carType);
+ */
+```
+
+### **C++**
+
+```cpp
+class ParkingSystem {
+public:
+    vector<int> cnt;
+
+    ParkingSystem(int big, int medium, int small) {
+        cnt = {0, big, medium, small};
+    }
+    
+    bool addCar(int carType) {
+        if (cnt[carType] == 0) return false;
+        --cnt[carType];
+        return true;
+    }
+};
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * ParkingSystem* obj = new ParkingSystem(big, medium, small);
+ * bool param_1 = obj->addCar(carType);
+ */
+```
+
+### **Go**
+
+```go
+type ParkingSystem struct {
+	cnt []int
+}
+
+func Constructor(big int, medium int, small int) ParkingSystem {
+	return ParkingSystem{[]int{0, big, medium, small}}
+}
+
+func (this *ParkingSystem) AddCar(carType int) bool {
+	if this.cnt[carType] == 0 {
+		return false
+	}
+	this.cnt[carType]--
+	return true
+}
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * obj := Constructor(big, medium, small);
+ * param_1 := obj.AddCar(carType);
  */
 ```
 

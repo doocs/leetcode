@@ -48,13 +48,14 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 
 ```python
 class ParkingSystem:
+
     def __init__(self, big: int, medium: int, small: int):
-        self.spaces = [big, medium, small]
+        self.cnt = [0, big, medium, small]
 
     def addCar(self, carType: int) -> bool:
-        if self.spaces[carType - 1] <= 0:
+        if self.cnt[carType] == 0:
             return False
-        self.spaces[carType - 1] -= 1
+        self.cnt[carType] -= 1
         return True
 
 
@@ -67,20 +68,17 @@ class ParkingSystem:
 
 ```java
 class ParkingSystem {
-
-    private int[] spaces = new int[3];
+    private int[] cnt;
 
     public ParkingSystem(int big, int medium, int small) {
-        spaces[0] = big;
-        spaces[1] = medium;
-        spaces[2] = small;
+        cnt = new int[]{0, big, medium, small};
     }
-
+    
     public boolean addCar(int carType) {
-        if (spaces[carType - 1] <= 0) {
+        if (cnt[carType] == 0) {
             return false;
         }
-        --spaces[carType - 1];
+        --cnt[carType];
         return true;
     }
 }
@@ -89,6 +87,57 @@ class ParkingSystem {
  * Your ParkingSystem object will be instantiated and called as such:
  * ParkingSystem obj = new ParkingSystem(big, medium, small);
  * boolean param_1 = obj.addCar(carType);
+ */
+```
+
+### **C++**
+
+```cpp
+class ParkingSystem {
+public:
+    vector<int> cnt;
+
+    ParkingSystem(int big, int medium, int small) {
+        cnt = {0, big, medium, small};
+    }
+    
+    bool addCar(int carType) {
+        if (cnt[carType] == 0) return false;
+        --cnt[carType];
+        return true;
+    }
+};
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * ParkingSystem* obj = new ParkingSystem(big, medium, small);
+ * bool param_1 = obj->addCar(carType);
+ */
+```
+
+### **Go**
+
+```go
+type ParkingSystem struct {
+	cnt []int
+}
+
+func Constructor(big int, medium int, small int) ParkingSystem {
+	return ParkingSystem{[]int{0, big, medium, small}}
+}
+
+func (this *ParkingSystem) AddCar(carType int) bool {
+	if this.cnt[carType] == 0 {
+		return false
+	}
+	this.cnt[carType]--
+	return true
+}
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * obj := Constructor(big, medium, small);
+ * param_1 := obj.AddCar(carType);
  */
 ```
 
