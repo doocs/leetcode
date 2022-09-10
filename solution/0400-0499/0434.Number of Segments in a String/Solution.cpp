@@ -1,11 +1,12 @@
 ﻿class Solution {
 public:
     int countSegments(string s) {
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < s.size(); ++i) {
-            if (s[i] != ' ' && (i == 0 || s[i - 1] == ' '))
-                ++res;
+            if (s[i] != ' ' && (i == 0 || s[i - 1] == ' ')) {
+                ++ans;
+            }
         }
-        return res;
+        return ans;
     }
 };

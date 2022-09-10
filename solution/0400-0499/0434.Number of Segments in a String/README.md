@@ -21,7 +21,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-split 切分字符串，或者直接遍历计数。
+**方法一：字符串分割**
+
+将字符串 `s` 按照空格进行分割，然后统计不为空的单词个数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+**方法二：模拟**
+
+直接模拟，遍历字符串，检测每个字符，统计个数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -38,11 +48,11 @@ class Solution:
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
-        res = 0
-        for i in range(len(s)):
-            if s[i] != ' ' and (i == 0 or s[i - 1] == ' '):
-                res += 1
-        return res
+        ans = 0
+        for i, c in enumerate(s):
+            if c != ' ' and (i == 0 or s[i - 1] == ' '):
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -52,13 +62,13 @@ class Solution:
 ```java
 class Solution {
     public int countSegments(String s) {
-        int res = 0;
+        int ans = 0;
         for (String t : s.split(" ")) {
             if (!"".equals(t)) {
-                ++res;
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -66,13 +76,13 @@ class Solution {
 ```java
 class Solution {
     public int countSegments(String s) {
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < s.length(); ++i) {
             if (s.charAt(i) != ' ' && (i == 0 || s.charAt(i - 1) == ' ')) {
-                ++res;
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -83,12 +93,25 @@ class Solution {
 class Solution {
 public:
     int countSegments(string s) {
-        int res = 0;
+        int ans = 0;
+        istringstream ss(s);
+        while (ss >> s) ++ans;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countSegments(string s) {
+        int ans = 0;
         for (int i = 0; i < s.size(); ++i) {
-            if (s[i] != ' ' && (i == 0 || s[i - 1] == ' '))
-                ++res;
+            if (s[i] != ' ' && (i == 0 || s[i - 1] == ' ')) {
+                ++ans;
+            }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -97,13 +120,25 @@ public:
 
 ```go
 func countSegments(s string) int {
-	res := 0
-	for i, c := range s {
-		if c != ' ' && (i == 0 || s[i-1] == ' ') {
-			res++
+	ans := 0
+	for _, t := range strings.Split(s, " ") {
+		if len(t) > 0 {
+			ans++
 		}
 	}
-	return res
+	return ans
+}
+```
+
+```go
+func countSegments(s string) int {
+	ans := 0
+	for i, c := range s {
+		if c != ' ' && (i == 0 || s[i-1] == ' ') {
+			ans++
+		}
+	}
+	return ans
 }
 ```
 
