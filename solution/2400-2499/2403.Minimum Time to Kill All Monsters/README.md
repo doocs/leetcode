@@ -73,6 +73,14 @@ It can be proven that 6 is the minimum number of days needed.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：状态压缩 + 动态规划**
+
+由于打怪才能增加每天法力的收益 `gain`，不同的打怪顺序对结果有影响，需要枚举。注意到题目的数据范围较小，考虑使用状态压缩动态规划求解。
+
+我们定义状态 `mask` 表示当前已经打怪的情况，其二进制中的 `1` 表示已经被打倒的怪物，`0` 表示未被打倒的怪物。
+
+时间复杂度 $O(n\times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是怪物数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -80,7 +88,21 @@ It can be proven that 6 is the minimum number of days needed.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumTime(self, power: List[int]) -> int:
+        @cache
+        def dfs(mask):
+            cnt = mask.bit_count()
+            if cnt == len(power):
+                return 0
+            ans = inf
+            for i, v in enumerate(power):
+                if mask & (1 << i):
+                    continue
+                ans = min(ans, dfs(mask | 1 << i) + (v + cnt) // (cnt + 1))
+            return ans
 
+        return dfs(0)
 ```
 
 ### **Java**
@@ -88,13 +110,151 @@ It can be proven that 6 is the minimum number of days needed.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int n;
+    private long[] f;
+    private int[] power;
 
+    public long minimumTime(int[] power) {
+        n = power.length;
+        f = new long[1 << n];
+        Arrays.fill(f, -1);
+        this.power = power;
+        return dfs(0);
+    }
+
+    private long dfs(int mask) {
+        if (f[mask] != -1) {
+            return f[mask];
+        }
+        int cnt = Integer.bitCount(mask);
+        if (cnt == n) {
+            return 0;
+        }
+        long ans = Long.MAX_VALUE;
+        for (int i = 0; i < n; ++i) {
+            if (((mask >> i) & 1) == 1) {
+                continue;
+            }
+            ans = Math.min(ans, dfs(mask | 1 << i) + (power[i] + cnt) / (cnt + 1));
+        }
+        f[mask] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    vector<ll> f;
+    vector<int> power;
+    int n;
+
+    long long minimumTime(vector<int>& power) {
+        n = power.size();
+        f.assign(1 << n, -1);
+        this->power = power;
+        return dfs(0);
+    }
+
+    ll dfs(int mask) {
+        if (f[mask] != -1) return f[mask];
+        int cnt = __builtin_popcount(mask);
+        if (cnt == n) return 0;
+        ll ans = LONG_MAX;
+        for (int i = 0; i < n; ++i) {
+            if ((mask >> i) & 1) continue;
+            ans = min(ans, dfs(mask | 1 << i) + (power[i] + cnt) / (cnt + 1));
+        }
+        f[mask] = ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumTime(power []int) int64 {
+	n := len(power)
+	f := make([]int64, 1<<n)
+	for i := range f {
+		f[i] = -1
+	}
+	var dfs func(mask int) int64
+	dfs = func(mask int) int64 {
+		if f[mask] != -1 {
+			return f[mask]
+		}
+		cnt := bits.OnesCount(uint(mask))
+		if cnt == n {
+			return 0
+		}
+		var ans int64 = math.MaxInt64
+		for i, v := range power {
+			if (mask >> i & 1) == 1 {
+				continue
+			}
+			ans = min(ans, dfs(mask|1<<i)+int64((v+cnt)/(cnt+1)))
+		}
+		f[mask] = ans
+		return ans
+	}
+	return dfs(0)
+}
+
+func min(a, b int64) int64 {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function minimumTime(power: number[]): number {
+    const n = power.length;
+    const f = new Array(1 << n).fill(-1);
+    function dfs(mask) {
+        if (f[mask] != -1) {
+            return f[mask];
+        }
+        const cnt = bitCount(mask);
+        if (cnt == n) {
+            return 0;
+        }
+        let ans = Infinity;
+        for (let i = 0; i < n; ++i) {
+            if ((mask >> i) & 1) {
+                continue;
+            }
+            ans = Math.min(
+                ans,
+                dfs(mask | (1 << i)) + Math.ceil(power[i] / (cnt + 1)),
+            );
+        }
+        f[mask] = ans;
+        return ans;
+    }
+    return dfs(0);
+}
 
+function bitCount(x) {
+    let cnt = 0;
+    for (let i = 0; i < 32; ++i) {
+        if ((x >> i) & 1) {
+            ++cnt;
+        }
+    }
+    return cnt;
+}
 ```
 
 ### **...**

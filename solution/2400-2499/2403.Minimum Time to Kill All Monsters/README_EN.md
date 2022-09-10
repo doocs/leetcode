@@ -74,19 +74,171 @@ It can be proven that 6 is the minimum number of days needed.
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumTime(self, power: List[int]) -> int:
+        @cache
+        def dfs(mask):
+            cnt = mask.bit_count()
+            if cnt == len(power):
+                return 0
+            ans = inf
+            for i, v in enumerate(power):
+                if mask & (1 << i):
+                    continue
+                ans = min(ans, dfs(mask | 1 << i) + (v + cnt) // (cnt + 1))
+            return ans
 
+        return dfs(0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private long[] f;
+    private int[] power;
 
+    public long minimumTime(int[] power) {
+        n = power.length;
+        f = new long[1 << n];
+        Arrays.fill(f, -1);
+        this.power = power;
+        return dfs(0);
+    }
+
+    private long dfs(int mask) {
+        if (f[mask] != -1) {
+            return f[mask];
+        }
+        int cnt = Integer.bitCount(mask);
+        if (cnt == n) {
+            return 0;
+        }
+        long ans = Long.MAX_VALUE;
+        for (int i = 0; i < n; ++i) {
+            if (((mask >> i) & 1) == 1) {
+                continue;
+            }
+            ans = Math.min(ans, dfs(mask | 1 << i) + (power[i] + cnt) / (cnt + 1));
+        }
+        f[mask] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    vector<ll> f;
+    vector<int> power;
+    int n;
+
+    long long minimumTime(vector<int>& power) {
+        n = power.size();
+        f.assign(1 << n, -1);
+        this->power = power;
+        return dfs(0);    
+    }
+
+    ll dfs(int mask) {
+        if (f[mask] != -1) return f[mask];
+        int cnt = __builtin_popcount(mask);
+        if (cnt == n) return 0;
+        ll ans = LONG_MAX;
+        for (int i = 0; i < n; ++i) {
+            if ((mask >> i) & 1) continue;
+            ans = min(ans, dfs(mask | 1 << i) + (power[i] + cnt) / (cnt + 1));
+        }
+        f[mask] = ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumTime(power []int) int64 {
+	n := len(power)
+	f := make([]int64, 1<<n)
+	for i := range f {
+		f[i] = -1
+	}
+	var dfs func(mask int) int64
+	dfs = func(mask int) int64 {
+		if f[mask] != -1 {
+			return f[mask]
+		}
+		cnt := bits.OnesCount(uint(mask))
+		if cnt == n {
+			return 0
+		}
+		var ans int64 = math.MaxInt64
+		for i, v := range power {
+			if (mask >> i & 1) == 1 {
+				continue
+			}
+			ans = min(ans, dfs(mask|1<<i)+int64((v+cnt)/(cnt+1)))
+		}
+		f[mask] = ans
+		return ans
+	}
+	return dfs(0)
+}
+
+func min(a, b int64) int64 {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function minimumTime(power: number[]): number {
+    const n = power.length;
+    const f = new Array(1 << n).fill(-1);
+    function dfs(mask) {
+        if (f[mask] != -1) {
+            return f[mask];
+        }
+        const cnt = bitCount(mask);
+        if (cnt == n) {
+            return 0;
+        }
+        let ans = Infinity;
+        for (let i = 0; i < n; ++i) {
+            if ((mask >> i) & 1) {
+                continue;
+            }
+            ans = Math.min(
+                ans,
+                dfs(mask | (1 << i)) + Math.ceil(power[i] / (cnt + 1)),
+            );
+        }
+        f[mask] = ans;
+        return ans;
+    }
+    return dfs(0);
+}
 
+function bitCount(x) {
+    let cnt = 0;
+    for (let i = 0; i < 32; ++i) {
+        if ((x >> i) & 1) {
+            ++cnt;
+        }
+    }
+    return cnt;
+}
 ```
 
 ### **...**
