@@ -390,6 +390,121 @@ var trimBST = function (root, low, high) {
 };
 ```
 
+### **C**
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+
+struct TreeNode *trimBST(struct TreeNode *root, int low, int high) {
+    if (!root) {
+        return root;
+    }
+    if (root->val < low) {
+        return trimBST(root->right, low, high);
+    }
+    if (root->val > high) {
+        return trimBST(root->left, low, high);
+    }
+    root->left = trimBST(root->left, low, high);
+    root->right = trimBST(root->right, low, high);
+    return root;
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function trimBST(
+    root: TreeNode | null,
+    low: number,
+    high: number,
+): TreeNode | null {
+    const dfs = (root: TreeNode | null) => {
+        if (root == null) {
+            return root;
+        }
+        const { val, left, right } = root;
+        if (val < low || val > high) {
+            return dfs(left) || dfs(right);
+        }
+        root.left = dfs(left);
+        root.right = dfs(right);
+        return root;
+    };
+    return dfs(root);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn trim_bst(
+        mut root: Option<Rc<RefCell<TreeNode>>>,
+        low: i32,
+        high: i32,
+    ) -> Option<Rc<RefCell<TreeNode>>> {
+        if root.is_none() {
+            return root;
+        }
+        {
+            let mut node = root.as_mut().unwrap().borrow_mut();
+            if node.val < low {
+                return Self::trim_bst(node.right.take(), low, high);
+            }
+            if node.val > high {
+                return Self::trim_bst(node.left.take(), low, high);
+            }
+            node.left = Self::trim_bst(node.left.take(), low, high);
+            node.right = Self::trim_bst(node.right.take(), low, high);
+        }
+        root
+    }
+}
+```
+
 ### **...**
 
 ```
