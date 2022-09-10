@@ -1,6 +1,9 @@
 # [16.09. Operations](https://leetcode.cn/problems/operations-lcci)
+
 [中文文档](/lcci/16.09.Operations/README.md)
+
 ## Description
+
 <p>rite methods to implement the multiply, subtract, and divide operations for integers. The results of all of these are integers. Use only the add operator.</p>
 <p>You should implement following methods:</p>
 <ul>
@@ -26,18 +29,27 @@ operations.divide(5, -2); //returns -2
     <li>You can assume inputs are always valid, that is, e.g., denominator will not be 0 in division.</li>
     <li>The number of calls will not exceed 1000.</li>
 </ul>
+
 ## Solutions
+
 <!-- tabs:start -->
+
 ### **Python3**
+
 ```python
 
 ```
+
 ### **Java**
+
 ```java
 
 ```
+
 ### **...**
+
 ```
 
 ```
+
 <!-- tabs:end -->

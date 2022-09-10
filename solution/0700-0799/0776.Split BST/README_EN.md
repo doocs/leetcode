@@ -103,7 +103,7 @@ class Solution {
             root.left = ans[1];
             ans[1] = root;
             return ans;
-        }        
+        }
     }
 }
 ```

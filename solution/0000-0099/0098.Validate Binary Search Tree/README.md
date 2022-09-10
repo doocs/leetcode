@@ -101,7 +101,7 @@ class Solution:
             if root.val <= l or root.val >= r:
                 return False
             return dfs(root.left, l, root.val) and dfs(root.right, root.val, r)
-        
+
         return dfs(root, -inf, inf)
 ```
 

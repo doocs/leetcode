@@ -10,8 +10,8 @@
 
 <ul>
 	<li><code>SummaryRanges()</code> Initializes the object with an empty stream.</li>
-	<li><code>void addNum(int val)</code> Adds the integer <code>val</code> to the stream.</li>
-	<li><code>int[][] getIntervals()</code> Returns a summary of the integers in the stream currently as a list of disjoint intervals <code>[start<sub>i</sub>, end<sub>i</sub>]</code>.</li>
+	<li><code>void addNum(int value)</code> Adds the integer <code>value</code> to the stream.</li>
+	<li><code>int[][] getIntervals()</code> Returns a summary of the integers in the stream currently as a list of disjoint intervals <code>[start<sub>i</sub>, end<sub>i</sub>]</code>. The answer should be sorted by <code>start<sub>i</sub></code>.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -42,7 +42,7 @@ summaryRanges.getIntervals(); // return [[1, 3], [6, 7]]
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= val &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= value &lt;= 10<sup>4</sup></code></li>
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>addNum</code> and <code>getIntervals</code>.</li>
 </ul>
 

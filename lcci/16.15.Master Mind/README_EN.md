@@ -1,6 +1,9 @@
 # [16.15. Master Mind](https://leetcode.cn/problems/master-mind-lcci)
+
 [中文文档](/lcci/16.15.Master%20Mind/README.md)
+
 ## Description
+
 <p>The Game of Master Mind is played as follows:</p>
 <p>The computer has four slots, and each slot will contain a ball that is red (R). yellow (Y). green (G) or blue (B). For example, the computer might have RGGB (Slot #1 is red, Slots #2 and #3 are green, Slot #4 is blue).</p>
 <p>You, the user, are trying to guess the solution. You might, for example, guess YRGB.</p>
@@ -22,17 +25,25 @@
 	<li><code>len(solution) = len(guess) = 4</code></li>
 	<li>There are only <code>&quot;R&quot;</code>,<code>&quot;G&quot;</code>,<code>&quot;B&quot;</code>,<code>&quot;Y&quot;</code> in <code>solution</code>&nbsp;and&nbsp;<code>guess</code>.</li>
 </ul>
+
 ## Solutions
+
 <!-- tabs:start -->
+
 ### **Python3**
+
 ```python
 
 ```
+
 ### **Java**
+
 ```java
 
 ```
+
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} solution
@@ -60,8 +71,11 @@ var masterMind = function (solution, guess) {
     return [res1, res2];
 };
 ```
+
 ### **...**
+
 ```
 
 ```
+
 <!-- tabs:end -->

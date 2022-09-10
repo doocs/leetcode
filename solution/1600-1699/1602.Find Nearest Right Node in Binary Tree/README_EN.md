@@ -155,7 +155,7 @@ class Solution {
     public TreeNode findNearestRightNode(TreeNode root, TreeNode u) {
         this.u = u;
         dfs(root, 1);
-        return ans;    
+        return ans;
     }
 
     private void dfs(TreeNode root, int i) {
@@ -229,7 +229,7 @@ public:
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
         this->u = u;
         dfs(root, 1);
-        return ans;    
+        return ans;
     }
 
     void dfs(TreeNode* root, int i) {

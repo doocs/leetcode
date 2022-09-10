@@ -527,7 +527,7 @@
   - [0515.在每个树行中找最大值](/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/README.md)
   - [0516.最长回文子序列](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README.md)
   - [0517.超级洗衣机](/solution/0500-0599/0517.Super%20Washing%20Machines/README.md)
-  - [0518.零钱兑换 II](/solution/0500-0599/0518.Coin%20Change%202/README.md)
+  - [0518.Coin Change 2](/solution/0500-0599/0518.Coin%20Change%202/README.md)
   - [0519.随机翻转矩阵](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)
   - [0520.检测大写字母](/solution/0500-0599/0520.Detect%20Capital/README.md)
   - [0521.最长特殊序列 Ⅰ](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
@@ -2450,3 +2450,4 @@
   - [2400.恰好移动 k 步到达某一位置的方法数目](/solution/2400-2499/2400.Number%20of%20Ways%20to%20Reach%20a%20Position%20After%20Exactly%20k%20Steps/README.md)
   - [2401.最长优雅子数组](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md)
   - [2402.会议室 III](/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
+  - [2403.Minimum Time to Kill All Monsters](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README.md)

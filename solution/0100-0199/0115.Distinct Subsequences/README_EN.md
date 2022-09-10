@@ -17,7 +17,7 @@
 <strong>Input:</strong> s = &quot;rabbbit&quot;, t = &quot;rabbit&quot;
 <strong>Output:</strong> 3
 <strong>Explanation:</strong>
-As shown below, there are 3 ways you can generate &quot;rabbit&quot; from S.
+As shown below, there are 3 ways you can generate &quot;rabbit&quot; from s.
 <code><strong><u>rabb</u></strong>b<strong><u>it</u></strong></code>
 <code><strong><u>ra</u></strong>b<strong><u>bbit</u></strong></code>
 <code><strong><u>rab</u></strong>b<strong><u>bit</u></strong></code>
@@ -29,7 +29,7 @@ As shown below, there are 3 ways you can generate &quot;rabbit&quot; from S.
 <strong>Input:</strong> s = &quot;babgbag&quot;, t = &quot;bag&quot;
 <strong>Output:</strong> 5
 <strong>Explanation:</strong>
-As shown below, there are 5 ways you can generate &quot;bag&quot; from S.
+As shown below, there are 5 ways you can generate &quot;bag&quot; from s.
 <code><strong><u>ba</u></strong>b<u><strong>g</strong></u>bag</code>
 <code><strong><u>ba</u></strong>bgba<strong><u>g</u></strong></code>
 <code><u><strong>b</strong></u>abgb<strong><u>ag</u></strong></code>

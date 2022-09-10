@@ -1,6 +1,9 @@
 # [16.22. Langtons Ant](https://leetcode.cn/problems/langtons-ant-lcci)
+
 [中文文档](/lcci/16.22.Langtons%20Ant/README.md)
+
 ## Description
+
 <p>An ant is sitting on an infinite grid of white and black squares. It initially faces right. All squares are white initially.</p>
 <p>At each step, it does the following:</p>
 <p>(1) At a white square, flip the color of the square, turn 90 degrees right (clockwise), and move forward one unit.</p>
@@ -24,7 +27,7 @@
 
 </strong>[
 
-&nbsp; &quot;_X&quot;,
+&nbsp; &quot;\_X&quot;,
 
 &nbsp; &quot;LX&quot;
 
@@ -40,9 +43,9 @@
 
 </strong>[
 
-&nbsp; &quot;_U&quot;,
+&nbsp; &quot;\_U&quot;,
 
-&nbsp; &quot;X_&quot;,
+&nbsp; &quot;X\_&quot;,
 
 &nbsp; &quot;XX&quot;
 
@@ -53,18 +56,27 @@
 <ul>
 	<li><code>K &lt;= 100000</code></li>
 </ul>
+
 ## Solutions
+
 <!-- tabs:start -->
+
 ### **Python3**
+
 ```python
 
 ```
+
 ### **Java**
+
 ```java
 
 ```
+
 ### **...**
+
 ```
 
 ```
+
 <!-- tabs:end -->

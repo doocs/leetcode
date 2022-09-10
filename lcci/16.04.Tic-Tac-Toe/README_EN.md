@@ -1,6 +1,9 @@
 # [16.04. Tic-Tac-Toe](https://leetcode.cn/problems/tic-tac-toe-lcci)
+
 [中文文档](/lcci/16.04.Tic-Tac-Toe/README.md)
+
 ## Description
+
 <p>Design an algorithm to figure out if someone has won a game of tic-tac-toe.&nbsp;Input is a string array&nbsp;of size N x N, including characters &quot; &quot;, &quot;X&quot; and &quot;O&quot;, where &quot; &quot; represents a empty grid.</p>
 <p>The rules of tic-tac-toe are as follows:</p>
 <ul>
@@ -45,18 +48,27 @@
 	<li><code>1 &lt;= board.length == board[i].length &lt;= 100</code></li>
 	<li>Input follows the rules.</li>
 </ul>
+
 ## Solutions
+
 <!-- tabs:start -->
+
 ### **Python3**
+
 ```python
 
 ```
+
 ### **Java**
+
 ```java
 
 ```
+
 ### **...**
+
 ```
 
 ```
+
 <!-- tabs:end -->

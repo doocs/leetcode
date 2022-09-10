@@ -7,19 +7,26 @@
 <p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array if you can flip at most one</em> <code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,0,1,1,0]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> Flip the first zero will get the maximum number of consecutive 1s. After flipping, the maximum number of consecutive 1s is 4.
+<strong>Explanation:</strong> 
+- If we flip the first zero, nums becomes [1,1,1,1,0] and we have 4 consecutive ones.
+- If we flip the second zero, nums becomes [1,0,1,1,1] and we have 3 consecutive ones.
+The max number of consecutive ones is 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,0,1,1,0,1]
 <strong>Output:</strong> 4
+<strong>Explanation:</strong> 
+- If we flip the first zero, nums becomes [1,1,1,1,0,1] and we have 4 consecutive ones.
+- If we flip the second zero, nums becomes [1,0,1,1,1,1] and we have 4 consecutive ones.
+The max number of consecutive ones is 4.
 </pre>
 
 <p>&nbsp;</p>

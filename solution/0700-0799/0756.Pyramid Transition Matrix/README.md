@@ -25,7 +25,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid1-grid.jpg" style="height: 232px; width: 600px;" /></p>
 
 <pre>
-<strong>输入：</strong>bottom = "BCD", allowed = ["BCG", "CDE", "GEA", "FFF"]
+<strong>输入：</strong>bottom = "BCD", allowed = ["BCC","CDE","CEA","FFF"]
 <strong>输出：</strong>true
 <strong>解释：</strong>允许的三角形模式显示在右边。
 从最底层(第3层)开始，我们可以在第2层构建“CE”，然后在第1层构建“E”。
@@ -37,7 +37,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid2-grid.jpg" style="height: 359px; width: 600px;" /></p>
 
 <pre>
-<strong>输入：</strong>bottom = "AABA", allowed = ["AAA", "AAB", "ABA", "ABB", "BAC"]
+<strong>输入：</strong>bottom = "AABA", allowed = ["AAB","AAC","BCD","BBE","DEF"]
 <strong>输出：</strong>false
 <strong>解释：</strong>允许的三角形模式显示在右边。
 从最底层(游戏邦注:即第4个关卡)开始，创造第3个关卡有多种方法，但如果尝试所有可能性，你便会在创造第1个关卡前陷入困境。
@@ -54,8 +54,6 @@
 	<li>所有输入字符串中的字母来自集合&nbsp;<code>{'A', 'B', 'C', 'D', 'E', 'F', 'G'}</code>。</li>
 	<li>&nbsp;<code>allowed</code>&nbsp;中所有值都是 <strong>唯一的</strong></li>
 </ul>
-
-<p>&nbsp;</p>
 
 ## 解法
 

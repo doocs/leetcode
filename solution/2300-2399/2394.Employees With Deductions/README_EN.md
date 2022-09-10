@@ -86,7 +86,7 @@ Employee 1:
  - Employee 1 worked a total of 20 hours and 5 minutes across sessions and will not be deducted.
 Employee 2:
  - Worked for one session:
-    - On 2022-10-29, they worked for 7 hours and 59 minutes.
+    - On 2022-10-29, they worked for 11 hours and 59 minutes.
  - Employee 2 did not work their hours and will be deducted.
 Employee 3:
  - Did not work any session.

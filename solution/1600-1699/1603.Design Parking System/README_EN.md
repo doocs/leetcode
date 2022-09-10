@@ -73,7 +73,7 @@ class ParkingSystem {
     public ParkingSystem(int big, int medium, int small) {
         cnt = new int[]{0, big, medium, small};
     }
-    
+
     public boolean addCar(int carType) {
         if (cnt[carType] == 0) {
             return false;
@@ -100,7 +100,7 @@ public:
     ParkingSystem(int big, int medium, int small) {
         cnt = {0, big, medium, small};
     }
-    
+
     bool addCar(int carType) {
         if (cnt[carType] == 0) return false;
         --cnt[carType];
