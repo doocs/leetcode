@@ -1,38 +1,32 @@
 class Solution {
-    public double mincostToHireWorkers(int[] quality, int[] wage, int K) {
-        Worker[] workers = new Worker[quality.length];
-        for (int i = 0; i < quality.length; ++i) {
-            workers[i] = new Worker((double) wage[i] / quality[i], quality[i]);
+    public double mincostToHireWorkers(int[] quality, int[] wage, int k) {
+        int n = quality.length;
+        Pair[] t = new Pair[n];
+        for (int i = 0; i < n; ++i) {
+            t[i] = new Pair(quality[i], wage[i]);
         }
-        Arrays.sort(workers);
-        double res = 1e9;
-        Queue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder());
-        int s = 0;
-        for (Worker worker : workers) {
-            s += worker.quality;
-            queue.offer(worker.quality);
-            if (queue.size() > K) {
-                s -= queue.poll();
-            }
-            if (queue.size() == K) {
-                res = Math.min(res, s * worker.x);
+        Arrays.sort(t, (a, b) -> Double.compare(a.x, b.x));
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        double ans = 1e9;
+        int tot = 0;
+        for (var e : t) {
+            tot += e.q;
+            pq.offer(e.q);
+            if (pq.size() == k) {
+                ans = Math.min(ans, tot * e.x);
+                tot -= pq.poll();
             }
         }
-        return res;
+        return ans;
     }
+}
 
-    class Worker implements Comparable<Worker> {
-        double x;
-        int quality;
+class Pair {
+    double x;
+    int q;
 
-        public Worker(double x, int quality) {
-            this.x = x;
-            this.quality = quality;
-        }
-
-        @Override
-        public int compareTo(Worker o) {
-            return Double.compare(x, o.x);
-        }
+    Pair(int q, int w) {
+        this.q = q;
+        this.x = (double) w / q;
     }
 }
