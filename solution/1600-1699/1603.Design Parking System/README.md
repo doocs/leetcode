@@ -62,13 +62,14 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 
 ```python
 class ParkingSystem:
+
     def __init__(self, big: int, medium: int, small: int):
-        self.spaces = [big, medium, small]
+        self.cnt = [0, big, medium, small]
 
     def addCar(self, carType: int) -> bool:
-        if self.spaces[carType - 1] <= 0:
+        if self.cnt[carType] == 0:
             return False
-        self.spaces[carType - 1] -= 1
+        self.cnt[carType] -= 1
         return True
 
 
