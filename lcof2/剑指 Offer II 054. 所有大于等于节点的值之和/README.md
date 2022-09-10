@@ -72,13 +72,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二叉搜索树的中序遍历（左根右）结果是一个单调递增的有序序列，我们反序进行中序遍历（右根左），即可以得到一个单调递减的有序序列。通过累加单调递减的有序序列，我们可以得到大于等于 node.val 的新值，并重新赋值给 node。
+**前言**
+
+二叉搜索树的中序遍历（左根右）结果是一个单调递增的有序序列，我们反序进行中序遍历（右根左），即可以得到一个单调递减的有序序列。通过累加单调递减的有序序列，我们可以得到大于等于 `node.val` 的新值，并重新赋值给 `node`。
 
 关于反序中序遍历，有三种方法，一是递归遍历，二是栈实现非递归遍历，三是 Morris 遍历。
 
-Morris 遍历无需使用栈，空间复杂度为 O(1)。核心思想是：
+**方法一：递归**
 
-定义 s 表示二叉搜索树节点值累加之和。遍历二叉树节点，
+按照“右根左”的顺序，递归遍历二叉搜索树，累加遍历到的所有节点值到 $s$ 中，然后每次赋值给对应的 `node` 节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点数。
+
+**方法二：Morris 遍历**
+
+Morris 遍历无需使用栈，时间复杂度 $O(n)$，空间复杂度为 $O(1)$。核心思想是：
+
+定义 s 表示二叉搜索树节点值累加和。遍历二叉树节点：
 
 1. 若当前节点 root 的右子树为空，**将当前节点值添加至 s** 中，更新当前节点值为 s，并将当前节点更新为 `root.left`。
 2. 若当前节点 root 的右子树不为空，找到右子树的最左节点 next（也即是 root 节点在中序遍历下的后继节点）：
@@ -105,14 +115,18 @@ Morris 遍历无需使用栈，空间复杂度为 O(1)。核心思想是：
 #         self.left = left
 #         self.right = right
 class Solution:
-    add = 0
-
     def convertBST(self, root: TreeNode) -> TreeNode:
-        if root:
-            self.convertBST(root.right)
-            root.val += self.add
-            self.add = root.val
-            self.convertBST(root.left)
+        def dfs(root):
+            nonlocal s
+            if root is None:
+                return
+            dfs(root.right)
+            s += root.val
+            root.val = s
+            dfs(root.left)
+
+        s = 0
+        dfs(root)
         return root
 ```
 
@@ -156,16 +170,37 @@ class Solution:
 递归遍历：
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-    int add = 0;
+    private int s;
+
     public TreeNode convertBST(TreeNode root) {
-        if (root != null) {
-            convertBST(root.right);
-            root.val += add;
-            add = root.val;
-            convertBST(root.left);
-        }
+        dfs(root);
         return root;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
     }
 }
 ```
@@ -236,15 +271,19 @@ class Solution {
  */
 class Solution {
 public:
-    int add = 0;
+    int s = 0;
+
     TreeNode* convertBST(TreeNode* root) {
-        if (root) {
-            convertBST(root->right);
-            root->val += add;
-            add = root->val;
-            convertBST(root->left);
-        }
+        dfs(root);
         return root;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->right);
+        s += root->val;
+        root->val = s;
+        dfs(root->left);
     }
 };
 ```
@@ -296,6 +335,34 @@ public:
 
 ### **Go**
 
+递归遍历：
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func convertBST(root *TreeNode) *TreeNode {
+	s := 0
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Right)
+		s += root.Val
+		root.Val = s
+		dfs(root.Left)
+	}
+	dfs(root)
+	return root
+}
+```
+
 Morris 遍历：
 
 ```go
@@ -333,6 +400,37 @@ func convertBST(root *TreeNode) *TreeNode {
 	}
 	return node
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var convertBST = function (root) {
+    let s = 0;
+    function dfs(root) {
+        if (!root) {
+            return;
+        }
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
+    }
+    dfs(root);
+    return root;
+};
 ```
 
 ### **...**

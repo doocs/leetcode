@@ -55,14 +55,18 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    add = 0
-
     def bstToGst(self, root: TreeNode) -> TreeNode:
-        if root:
-            self.bstToGst(root.right)
-            root.val += self.add
-            self.add = root.val
-            self.bstToGst(root.left)
+        def dfs(root):
+            nonlocal s
+            if root is None:
+                return
+            dfs(root.right)
+            s += root.val
+            root.val = s
+            dfs(root.left)
+
+        s = 0
+        dfs(root)
         return root
 ```
 
@@ -116,15 +120,21 @@ class Solution:
  * }
  */
 class Solution {
-    int add = 0;
+    private int s;
+
     public TreeNode bstToGst(TreeNode root) {
-        if (root != null) {
-            bstToGst(root.right);
-            root.val += add;
-            add = root.val;
-            bstToGst(root.left);
-        }
+        dfs(root);
         return root;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
     }
 }
 ```
@@ -191,15 +201,19 @@ class Solution {
  */
 class Solution {
 public:
-    int add = 0;
+    int s = 0;
+
     TreeNode* bstToGst(TreeNode* root) {
-        if (root) {
-            bstToGst(root->right);
-            root->val += add;
-            add = root->val;
-            bstToGst(root->left);
-        }
+        dfs(root);
         return root;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->right);
+        s += root->val;
+        root->val = s;
+        dfs(root->left);
     }
 };
 ```
@@ -266,15 +280,16 @@ public:
  * }
  */
 func bstToGst(root *TreeNode) *TreeNode {
-	add := 0
+	s := 0
 	var dfs func(*TreeNode)
-	dfs = func(node *TreeNode) {
-		if node != nil {
-			dfs(node.Right)
-			node.Val += add
-			add = node.Val
-			dfs(node.Left)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
 		}
+		dfs(root.Right)
+		s += root.Val
+		root.Val = s
+		dfs(root.Left)
 	}
 	dfs(root)
 	return root
@@ -316,6 +331,37 @@ func bstToGst(root *TreeNode) *TreeNode {
 	}
 	return node
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var bstToGst = function (root) {
+    let s = 0;
+    function dfs(root) {
+        if (!root) {
+            return;
+        }
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
+    }
+    dfs(root);
+    return root;
+};
 ```
 
 ### **...**
