@@ -59,13 +59,63 @@ The remaining words have a length of at least 3, so the first letter of each rem
 ### **Python3**
 
 ```python
-
+class Solution:
+    def capitalizeTitle(self, title: str) -> str:
+        words = [w.lower() if len(w) < 3 else w.capitalize() for w in title.split()]
+        return " ".join(words)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String capitalizeTitle(String title) {
+        List<String> ans = new ArrayList<>();
+        for (String s : title.split(" ")) {
+            if (s.length() < 3) {
+                ans.add(s.toLowerCase());
+            } else {
+                ans.add(s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase());
+            }
+        }
+        return String.join(" ", ans);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string capitalizeTitle(string title) {
+        transform(title.begin(), title.end(), title.begin(), ::tolower);
+        istringstream ss(title);
+        string ans;
+        while (ss >> title) {
+            if (title.size() > 2) title[0] = toupper(title[0]);
+            ans += title;
+            ans += " ";
+        }
+        ans.pop_back();
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func capitalizeTitle(title string) string {
+	title = strings.ToLower(title)
+	words := strings.Split(title, " ")
+	for i, s := range words {
+		if len(s) > 2 {
+			words[i] = strings.Title(s)
+		}
+	}
+	return strings.Join(words, " ")
+}
 ```
 
 ### **TypeScript**
