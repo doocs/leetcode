@@ -2,7 +2,7 @@ class Solution {
     public int specialArray(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
-        for (int x = 0; x <= n; ++x) {
+        for (int x = 1; x <= n; ++x) {
             int left = 0, right = n;
             while (left < right) {
                 int mid = (left + right) >> 1;
@@ -12,7 +12,7 @@ class Solution {
                     left = mid + 1;
                 }
             }
-            int cnt = n - 1 - left + 1;
+            int cnt = n - left;
             if (cnt == x) {
                 return x;
             }

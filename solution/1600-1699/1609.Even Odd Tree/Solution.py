@@ -5,22 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isEvenOddTree(self, root: TreeNode) -> bool:
-        even = True
+    def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:
+        even = 1
         q = deque([root])
         while q:
-            n = len(q)
-            prev = 0 if even else 10**6
-            for _ in range(n):
-                node = q.popleft()
-                if even and (prev >= node.val or node.val % 2 == 0):
+            prev = 0 if even else inf
+            for _ in range(len(q)):
+                root = q.popleft()
+                if even and (root.val % 2 == 0 or prev >= root.val):
                     return False
-                if not even and (prev <= node.val or node.val % 2 == 1):
+                if not even and (root.val % 2 == 1 or prev <= root.val):
                     return False
-                prev = node.val
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-            even = not even
+                prev = root.val
+                if root.left:
+                    q.append(root.left)
+                if root.right:
+                    q.append(root.right)
+            even ^= 1
         return True

@@ -1,7 +1,7 @@
 func specialArray(nums []int) int {
-	n := len(nums)
 	sort.Ints(nums)
-	for x := 0; x <= n; x++ {
+	n := len(nums)
+	for x := 1; x <= n; x++ {
 		left, right := 0, n
 		for left < right {
 			mid := (left + right) >> 1
@@ -11,7 +11,7 @@ func specialArray(nums []int) int {
 				left = mid + 1
 			}
 		}
-		cnt := n - 1 - left + 1
+		cnt := n - left
 		if cnt == x {
 			return x
 		}

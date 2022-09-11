@@ -56,11 +56,20 @@ x cannot be greater since there are only 2 numbers in nums.
 ```python
 class Solution:
     def specialArray(self, nums: List[int]) -> int:
-        n = len(nums)
+        for x in range(1, len(nums) + 1):
+            cnt = sum(v >= x for v in nums)
+            if cnt == x:
+                return x
+        return -1
+```
+
+```python
+class Solution:
+    def specialArray(self, nums: List[int]) -> int:
         nums.sort()
-        for x in range(n + 1):
-            idx = bisect_left(nums, x)
-            cnt = n - 1 - idx + 1
+        n = len(nums)
+        for x in range(1, n + 1):
+            cnt = n - bisect_left(nums, x)
             if cnt == x:
                 return x
         return -1
@@ -71,9 +80,28 @@ class Solution:
 ```java
 class Solution {
     public int specialArray(int[] nums) {
+        for (int x = 1; x <= nums.length; ++x) {
+            int cnt = 0;
+            for (int v : nums) {
+                if (v >= x) {
+                    ++cnt;
+                }
+            }
+            if (cnt == x) {
+                return x;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int specialArray(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
-        for (int x = 0; x <= n; ++x) {
+        for (int x = 1; x <= n; ++x) {
             int left = 0, right = n;
             while (left < right) {
                 int mid = (left + right) >> 1;
@@ -83,7 +111,7 @@ class Solution {
                     left = mid + 1;
                 }
             }
-            int cnt = n - 1 - left + 1;
+            int cnt = n - left;
             if (cnt == x) {
                 return x;
             }
@@ -99,11 +127,24 @@ class Solution {
 class Solution {
 public:
     int specialArray(vector<int>& nums) {
+        for (int x = 1; x <= nums.size(); ++x) {
+            int cnt = 0;
+            for (int v : nums) cnt += v >= x;
+            if (cnt == x) return x;
+        }
+        return -1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int specialArray(vector<int>& nums) {
         int n = nums.size();
         sort(nums.begin(), nums.end());
-        for (int x = 0; x <= n; ++x) {
-            int idx = lower_bound(nums.begin(), nums.end(), x) - nums.begin();
-            int cnt = n - 1 - idx + 1;
+        for (int x = 1; x <= n; ++x) {
+            int cnt = n - (lower_bound(nums.begin(), nums.end(), x) - nums.begin());
             if (cnt == x) return x;
         }
         return -1;
@@ -115,9 +156,26 @@ public:
 
 ```go
 func specialArray(nums []int) int {
-	n := len(nums)
+	for x := 1; x <= len(nums); x++ {
+		cnt := 0
+		for _, v := range nums {
+			if v >= x {
+				cnt++
+			}
+		}
+		if cnt == x {
+			return x
+		}
+	}
+	return -1
+}
+```
+
+```go
+func specialArray(nums []int) int {
 	sort.Ints(nums)
-	for x := 0; x <= n; x++ {
+	n := len(nums)
+	for x := 1; x <= n; x++ {
 		left, right := 0, n
 		for left < right {
 			mid := (left + right) >> 1
@@ -127,7 +185,7 @@ func specialArray(nums []int) int {
 				left = mid + 1
 			}
 		}
-		cnt := n - 1 - left + 1
+		cnt := n - left
 		if cnt == x {
 			return x
 		}

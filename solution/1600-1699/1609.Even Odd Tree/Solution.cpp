@@ -12,21 +12,20 @@
 class Solution {
 public:
     bool isEvenOddTree(TreeNode* root) {
-        bool even = true;
-        queue<TreeNode*> q;
-        q.push(root);
+        int even = 1;
+        queue<TreeNode*> q{{root}};
         while (!q.empty()) {
-            int prev = even ? 0 : 1000000;
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                auto node = q.front();
+            int prev = even ? 0 : 1e6;
+            for (int n = q.size(); n; --n) {
+                root = q.front();
                 q.pop();
-                if (even && (prev >= node->val || node->val % 2 == 0)) return false;
-                if (!even && (prev <= node->val || node->val % 2 == 1)) return false;
-                prev = node->val;
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
+                if (even && (root->val % 2 == 0 || prev >= root->val)) return false;
+                if (!even && (root->val % 2 == 1 || prev <= root->val)) return false;
+                prev = root->val;
+                if (root->left) q.push(root->left);
+                if (root->right) q.push(root->right);
             }
-            even = !even;
+            even ^= 1;
         }
         return true;
     }
