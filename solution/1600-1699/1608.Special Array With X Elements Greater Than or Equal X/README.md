@@ -220,6 +220,97 @@ func specialArray(nums []int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function specialArray(nums: number[]): number {
+    const n = nums.length;
+    for (let i = 0; i <= n; i++) {
+        if (i === nums.reduce((r, v) => r + (v >= i ? 1 : 0), 0)) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
+```ts
+function specialArray(nums: number[]): number {
+    const n = nums.length;
+    let left = 0;
+    let right = n + 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        const count = nums.reduce((r, v) => r + (v >= mid ? 1 : 0), 0);
+
+        if (count === mid) {
+            return mid;
+        }
+
+        if (count > mid) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return -1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn special_array(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        for i in 0..=n {
+            let mut count = 0;
+            for &num in nums.iter() {
+                if num >= i {
+                    count += 1;
+                }
+            }
+            if count == i {
+                return i;
+            }
+        }
+        -1
+    }
+}
+```
+
+```rust
+use std::cmp::Ordering;
+impl Solution {
+    pub fn special_array(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut left = 0;
+        let mut right = n + 1;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            let mut count = 0;
+            for &num in nums.iter() {
+                if num >= mid {
+                    count += 1;
+                }
+            }
+            match count.cmp(&mid) {
+                Ordering::Equal => {
+                    return mid;
+                }
+                Ordering::Less => {
+                    right = mid;
+                }
+                Ordering::Greater => {
+                    left = mid + 1;
+                }
+            }
+        }
+        -1
+    }
+}
+```
+
 ### **...**
 
 ```
