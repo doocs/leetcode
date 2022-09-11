@@ -56,7 +56,9 @@
 
 **方法一：二分查找**
 
-二分枚举速度值，找到能在 h 小时内吃完所有香蕉的最小速度值。
+二分枚举速度值，找到能在 $h$ 小时内吃完所有香蕉的最小速度值。
+
+时间复杂度 $O(n\log m)$，空间复杂度 $O(1)$。其中 $n$ 是 `piles` 的长度，而 $m$ 是 `piles` 中的最大值。
 
 <!-- tabs:start -->
 
@@ -142,6 +144,28 @@ func minEatingSpeed(piles []int, h int) int {
 		}
 	}
 	return left
+}
+```
+
+### **TypeScript**
+
+```ts
+function minEatingSpeed(piles: number[], h: number): number {
+    let left = 1;
+    let right = Math.max(...piles);
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let s = 0;
+        for (const x of piles) {
+            s += Math.ceil(x / mid);
+        }
+        if (s <= h) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 }
 ```
 
