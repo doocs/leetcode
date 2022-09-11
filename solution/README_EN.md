@@ -2411,6 +2411,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2401  |  [Longest Nice Subarray](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md)  |  `Bit Manipulation`,`Array`,`Sliding Window`  |  Medium  |  Weekly Contest 309  |
 |  2402  |  [Meeting Rooms III](/solution/2400-2499/2402.Meeting%20Rooms%20III/README_EN.md)  |  `Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 309  |
 |  2403  |  [Minimum Time to Kill All Monsters](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README_EN.md)  |    |  Hard  |  🔒  |
+|  2404  |  [Most Frequent Even Element](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README_EN.md)  |    |  Easy  |  Weekly Contest 310  |
+|  2405  |  [Optimal Partition of String](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 310  |
+|  2406  |  [Divide Intervals Into Minimum Number of Groups](/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README_EN.md)  |    |  Medium  |  Weekly Contest 310  |
+|  2407  |  [Longest Increasing Subsequence II](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 310  |
 
 ## Copyright
 

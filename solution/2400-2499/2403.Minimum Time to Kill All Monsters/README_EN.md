@@ -177,7 +177,7 @@ public:
         n = power.size();
         f.assign(1 << n, -1);
         this->power = power;
-        return dfs(0);    
+        return dfs(0);
     }
 
     ll dfs(int mask) {

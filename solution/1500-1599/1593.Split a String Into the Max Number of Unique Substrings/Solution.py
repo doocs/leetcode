@@ -6,10 +6,10 @@ class Solution:
                 ans = max(ans, t)
                 return
             for j in range(i + 1, len(s) + 1):
-                if s[i: j] not in vis:
-                    vis.add(s[i: j])
+                if s[i:j] not in vis:
+                    vis.add(s[i:j])
                     dfs(j, t + 1)
-                    vis.remove(s[i: j])
+                    vis.remove(s[i:j])
 
         vis = set()
         ans = 1

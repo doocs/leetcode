@@ -2413,6 +2413,10 @@
 |  2401  |  [最长优雅子数组](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md)  |  `位运算`,`数组`,`滑动窗口`  |  中等  |  第 309 场周赛  |
 |  2402  |  [会议室 III](/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)  |  `数组`,`排序`,`堆（优先队列）`  |  困难  |  第 309 场周赛  |
 |  2403  |  [Minimum Time to Kill All Monsters](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README.md)  |    |  困难  |  🔒  |
+|  2404  |  [出现最频繁的偶数元素](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README.md)  |    |  简单  |  第 310 场周赛  |
+|  2405  |  [子字符串的最优划分](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md)  |    |  中等  |  第 310 场周赛  |
+|  2406  |  [将区间分为最少组数](/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README.md)  |    |  中等  |  第 310 场周赛  |
+|  2407  |  [最长递增子序列 II](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md)  |    |  困难  |  第 310 场周赛  |
 
 ## 版权
 

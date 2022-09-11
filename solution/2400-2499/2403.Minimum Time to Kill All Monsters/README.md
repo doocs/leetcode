@@ -297,7 +297,6 @@ func min(a, b int64) int64 {
 }
 ```
 
-
 ### **TypeScript**
 
 ```ts

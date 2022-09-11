@@ -82,6 +82,8 @@ def run():
             break
         biweekly_res.append(res)
     for v in chain(weekly_res, biweekly_res):
+        if not v or 'contest' not in v:
+            continue
         handle(v)
         contest_list.append(
             [
@@ -168,11 +170,11 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
     for _, title, title_en, qs, start_time, duration, user_num in contest_list:
         v = (
-                "#### "
-                + title
-                + f'({format_time(start_time) + ", " + format_duration(duration)}) '
-                + f'参赛人数 {user_num}'
-                + "\n\n"
+            "#### "
+            + title
+            + f'({format_time(start_time) + ", " + format_duration(duration)}) '
+            + f'参赛人数 {user_num}'
+            + "\n\n"
         )
         v_en = "#### " + title_en + "\n\n"
         for q in qs:
