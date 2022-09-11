@@ -41,11 +41,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-贪心。
+**方法一：贪心**
 
-每一行的数字要尽可能大，因此，遍历每一行，若行首元素为 0，则将该行每个元素进行翻转，即 `grid[i][j] ^= 1`；
+每一行的数字要尽可能大，因此，遍历每一行，若行首元素为 0，则将该行每个元素进行翻转，即 `grid[i][j] ^= 1`。
 
-接着，遍历每一列，统计列中元素为 1 的个数 `cnt`，若 `cnt`(1 的个数) 比 `m - cnt`(0 的个数) 小，则将该列进行翻转。实际过程中，并不需要对列进行翻转，只需要取 `max(cnt, m - cnt)`，即表示 1 的个数，再乘上该位的大小 `n - j - 1`，即求得当前列的大小。累加每一列大小即可。
+接着，遍历每一列，若该列中 1 的个数小于 0 的个数，则将该列进行翻转。实际过程中，并不需要对列进行翻转，只需要取 `max(cnt, m - cnt)`，即表示 1 的个数，再乘上该位的大小 `1 << (n - j - 1)`，即求得当前列的大小。累加每一列大小即可。
+
+时间复杂度 $O(m\times n)$，空间复杂度 $O(1)$。其中 $m$, $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -61,14 +63,11 @@ class Solution:
             if grid[i][0] == 0:
                 for j in range(n):
                     grid[i][j] ^= 1
-
-        res = 0
+        ans = 0
         for j in range(n):
-            cnt = 0
-            for i in range(m):
-                cnt += grid[i][j]
-            res += max(cnt, m - cnt) * (1 << (n - j - 1))
-        return res
+            cnt = sum(grid[i][j] for i in range(m))
+            ans += max(cnt, m - cnt) * (1 << (n - j - 1))
+        return ans
 ```
 
 ### **Java**
@@ -86,15 +85,15 @@ class Solution {
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int j = 0; j < n; ++j) {
             int cnt = 0;
             for (int i = 0; i < m; ++i) {
                 cnt += grid[i][j];
             }
-            res += Math.max(cnt, m - cnt) * (1 << (n - j - 1));
+            ans += Math.max(cnt, m - cnt) * (1 << (n - j - 1));
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -108,16 +107,20 @@ public:
         int m = grid.size(), n = grid[0].size();
         for (int i = 0; i < m; ++i) {
             if (grid[i][0] == 0) {
-                for (int j = 0; j < n; ++j) grid[i][j] ^= 1;
+                for (int j = 0; j < n; ++j) {
+                    grid[i][j] ^= 1;
+                }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int j = 0; j < n; ++j) {
             int cnt = 0;
-            for (int i = 0; i < m; ++i) cnt += grid[i][j];
-            res += max(cnt, m - cnt) * (1 << (n - j - 1));
+            for (int i = 0; i < m; ++i) {
+                cnt += grid[i][j];
+            }
+            ans += max(cnt, m - cnt) * (1 << (n - j - 1));
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -134,22 +137,43 @@ func matrixScore(grid [][]int) int {
 			}
 		}
 	}
-	res := 0
+	ans := 0
 	for j := 0; j < n; j++ {
 		cnt := 0
 		for i := 0; i < m; i++ {
 			cnt += grid[i][j]
 		}
-		res += max(cnt, m-cnt) * (1 << (n - j - 1))
+		if cnt < m-cnt {
+			cnt = m - cnt
+		}
+		ans += cnt * (1 << (n - j - 1))
 	}
-	return res
+	return ans
 }
+```
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+### **TypeScript**
+
+```ts
+function matrixScore(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    for (let i = 0; i < m; ++i) {
+        if (grid[i][0] == 0) {
+            for (let j = 0; j < n; ++j) {
+                grid[i][j] ^= 1;
+            }
+        }
+    }
+    let ans = 0;
+    for (let j = 0; j < n; ++j) {
+        let cnt = 0;
+        for (let i = 0; i < m; ++i) {
+            cnt += grid[i][j];
+        }
+        ans += Math.max(cnt, m - cnt) * (1 << (n - j - 1));
+    }
+    return ans;
 }
 ```
 
