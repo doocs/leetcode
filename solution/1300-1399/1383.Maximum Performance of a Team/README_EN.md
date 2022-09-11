@@ -60,18 +60,16 @@ class Solution:
     def maxPerformance(
         self, n: int, speed: List[int], efficiency: List[int], k: int
     ) -> int:
-        team = [(s, e) for s, e in zip(speed, efficiency)]
-        team.sort(key=lambda x: -x[1])
-        q = []
-        t = 0
-        ans = 0
-        mod = int(1e9) + 7
-        for s, e in team:
-            t += s
-            ans = max(ans, t * e)
-            heappush(q, s)
-            if len(q) >= k:
-                t -= heappop(q)
+        t = sorted(zip(speed, efficiency), key=lambda x: -x[1])
+        ans = tot = 0
+        mod = 10**9 + 7
+        h = []
+        for s, e in t:
+            tot += s
+            ans = max(ans, tot * e)
+            heappush(h, s)
+            if len(h) == k:
+                tot -= heappop(h)
         return ans % mod
 ```
 
@@ -79,26 +77,27 @@ class Solution:
 
 ```java
 class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
     public int maxPerformance(int n, int[] speed, int[] efficiency, int k) {
-        int[][] team = new int[n][2];
+        int[][] t = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            team[i] = new int[] {speed[i], efficiency[i]};
+            t[i] = new int[] {speed[i], efficiency[i]};
         }
-        Arrays.sort(team, (a, b) -> b[1] - a[1]);
-        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> a - b);
-        long t = 0;
+        Arrays.sort(t, (a, b) -> b[1] - a[1]);
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        long tot = 0;
         long ans = 0;
-        int mod = (int) 1e9 + 7;
-        for (int[] x : team) {
+        for (var x : t) {
             int s = x[0], e = x[1];
-            t += s;
-            ans = Math.max(ans, t * e);
+            tot += s;
+            ans = Math.max(ans, tot * e);
             q.offer(s);
-            if (q.size() >= k) {
-                t -= q.poll();
+            if (q.size() == k) {
+                tot -= q.poll();
             }
         }
-        return (int) (ans % mod);
+        return (int) (ans % MOD);
     }
 }
 ```
@@ -109,26 +108,68 @@ class Solution {
 class Solution {
 public:
     int maxPerformance(int n, vector<int>& speed, vector<int>& efficiency, int k) {
-        vector<pair<int, int>> team;
-        for (int i = 0; i < n; ++i) team.push_back({-efficiency[i], speed[i]});
-        sort(team.begin(), team.end());
+        vector<pair<int, int>> t(n);
+        for (int i = 0; i < n; ++i) t[i] = {-efficiency[i], speed[i]};
+        sort(t.begin(), t.end());
         priority_queue<int, vector<int>, greater<int>> q;
-        long long ans = 0;
+        long long ans = 0, tot = 0;
         int mod = 1e9 + 7;
-        long long t = 0;
-        for (auto& x : team) {
+        for (auto& x : t) {
             int s = x.second, e = -x.first;
-            t += s;
-            ans = max(ans, e * t);
+            tot += s;
+            ans = max(ans, tot * e);
             q.push(s);
-            if (q.size() >= k) {
-                t -= q.top();
+            if (q.size() == k) {
+                tot -= q.top();
                 q.pop();
             }
         }
-        return (int)(ans % mod);
+        return (int) (ans % mod);
     }
 };
+```
+
+### **Go**
+
+```go
+func maxPerformance(n int, speed []int, efficiency []int, k int) int {
+	t := make([][]int, n)
+	for i, s := range speed {
+		t[i] = []int{s, efficiency[i]}
+	}
+	sort.Slice(t, func(i, j int) bool { return t[i][1] > t[j][1] })
+	var mod int = 1e9 + 7
+	ans, tot := 0, 0
+	pq := hp{}
+	for _, x := range t {
+		s, e := x[0], x[1]
+		tot += s
+		ans = max(ans, tot*e)
+		heap.Push(&pq, s)
+		if pq.Len() == k {
+			tot -= heap.Pop(&pq).(int)
+		}
+	}
+	return ans % mod
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 ```
 
 ### **...**

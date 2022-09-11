@@ -103,7 +103,6 @@ class Solution:
  * }
  */
 class Solution {
-
     private List<Integer> vals;
 
     public TreeNode balanceBST(TreeNode root) {
