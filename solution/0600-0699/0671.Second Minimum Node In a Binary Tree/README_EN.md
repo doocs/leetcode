@@ -52,17 +52,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findSecondMinimumValue(self, root: TreeNode) -> int:
-        def dfs(root, val):
+    def findSecondMinimumValue(self, root: Optional[TreeNode]) -> int:
+        def dfs(root):
             if root:
-                dfs(root.left, val)
-                dfs(root.right, val)
-                nonlocal ans
-                if root.val > val:
+                dfs(root.left)
+                dfs(root.right)
+                nonlocal ans, v
+                if root.val > v:
                     ans = root.val if ans == -1 else min(ans, root.val)
 
-        ans = -1
-        dfs(root, root.val)
+        ans, v = -1, root.val
+        dfs(root)
         return ans
 ```
 
@@ -85,10 +85,9 @@ class Solution:
  * }
  */
 class Solution {
-    private int ans;
+    private int ans = -1;
 
     public int findSecondMinimumValue(TreeNode root) {
-        ans = -1;
         dfs(root, root.val);
         return ans;
     }
@@ -121,10 +120,9 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
+    int ans = -1;
 
     int findSecondMinimumValue(TreeNode* root) {
-        ans = -1;
         dfs(root, root->val);
         return ans;
     }
@@ -150,34 +148,58 @@ public:
  * }
  */
 func findSecondMinimumValue(root *TreeNode) int {
-	ans := -1
-
-	var dfs func(root *TreeNode, val int)
-	dfs = func(root *TreeNode, val int) {
+	ans, v := -1, root.Val
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
 		if root == nil {
 			return
 		}
-		dfs(root.Left, val)
-		dfs(root.Right, val)
-		if root.Val > val {
-			if ans == -1 {
+		dfs(root.Left)
+		dfs(root.Right)
+		if root.Val > v {
+			if ans == -1 || ans > root.Val {
 				ans = root.Val
-			} else {
-				ans = min(ans, root.Val)
 			}
 		}
 	}
-
-	dfs(root, root.Val)
+	dfs(root)
 	return ans
 }
+```
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var findSecondMinimumValue = function (root) {
+    let ans = -1;
+    const v = root.val;
+    function dfs(root) {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        dfs(root.right);
+        if (root.val > v) {
+            if (ans == -1 || ans > root.val) {
+                ans = root.val;
+            }
+        }
+    }
+    dfs(root);
+    return ans;
+};
 ```
 
 ### **...**

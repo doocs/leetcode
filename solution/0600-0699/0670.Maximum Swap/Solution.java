@@ -1,21 +1,25 @@
 class Solution {
     public int maximumSwap(int num) {
-        char[] chars = String.valueOf(num).toCharArray();
-        int n = chars.length;
-        for (int i = 0; i < n - 1; ++i) {
-            int mx = i + 1;
-            for (int j = i + 1; j < n; ++j) {
-                if (chars[j] >= chars[mx]) {
-                    mx = j;
-                }
+        char[] s = String.valueOf(num).toCharArray();
+        int n = s.length;
+        int[] d = new int[n];
+        for (int i = 0; i < n; ++i) {
+            d[i] = i;
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            if (s[i] <= s[d[i + 1]]) {
+                d[i] = d[i + 1];
             }
-            if (chars[i] < chars[mx]) {
-                char t = chars[i];
-                chars[i] = chars[mx];
-                chars[mx] = t;
+        }
+        for (int i = 0; i < n; ++i) {
+            int j = d[i];
+            if (s[i] < s[j]) {
+                char t = s[i];
+                s[i] = s[j];
+                s[j] = t;
                 break;
             }
         }
-        return Integer.parseInt(String.valueOf(chars));
+        return Integer.parseInt(String.valueOf(s));
     }
 }

@@ -14,10 +14,9 @@
  * }
  */
 class Solution {
-    private int ans;
+    private int ans = -1;
 
     public int findSecondMinimumValue(TreeNode root) {
-        ans = -1;
         dfs(root, root.val);
         return ans;
     }

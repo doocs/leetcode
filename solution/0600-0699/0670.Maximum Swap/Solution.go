@@ -1,19 +1,21 @@
 func maximumSwap(num int) int {
-	s := strconv.Itoa(num)
-	chars := []byte(s)
-	n := len(chars)
-	for i := range chars[:n-1] {
-		mx := i + 1
-		for j := i + 1; j < n; j++ {
-			if chars[j] >= chars[mx] {
-				mx = j
-			}
+	s := []byte(strconv.Itoa(num))
+	n := len(s)
+	d := make([]int, n)
+	for i := range d {
+		d[i] = i
+	}
+	for i := n - 2; i >= 0; i-- {
+		if s[i] <= s[d[i+1]] {
+			d[i] = d[i+1]
 		}
-		if chars[i] < chars[mx] {
-			chars[i], chars[mx] = chars[mx], chars[i]
+	}
+	for i, j := range d {
+		if s[i] < s[j] {
+			s[i], s[j] = s[j], s[i]
 			break
 		}
 	}
-	ans, _ := strconv.Atoi(string(chars))
+	ans, _ := strconv.Atoi(string(s))
 	return ans
 }

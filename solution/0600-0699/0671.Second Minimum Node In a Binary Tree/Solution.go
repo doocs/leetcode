@@ -7,31 +7,20 @@
  * }
  */
 func findSecondMinimumValue(root *TreeNode) int {
-	ans := -1
-
-	var dfs func(root *TreeNode, val int)
-	dfs = func(root *TreeNode, val int) {
+	ans, v := -1, root.Val
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
 		if root == nil {
 			return
 		}
-		dfs(root.Left, val)
-		dfs(root.Right, val)
-		if root.Val > val {
-			if ans == -1 {
+		dfs(root.Left)
+		dfs(root.Right)
+		if root.Val > v {
+			if ans == -1 || ans > root.Val {
 				ans = root.Val
-			} else {
-				ans = min(ans, root.Val)
 			}
 		}
 	}
-
-	dfs(root, root.Val)
+	dfs(root)
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }

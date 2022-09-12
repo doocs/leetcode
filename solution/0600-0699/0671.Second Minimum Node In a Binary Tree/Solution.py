@@ -5,15 +5,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findSecondMinimumValue(self, root: TreeNode) -> int:
-        def dfs(root, val):
+    def findSecondMinimumValue(self, root: Optional[TreeNode]) -> int:
+        def dfs(root):
             if root:
-                dfs(root.left, val)
-                dfs(root.right, val)
-                nonlocal ans
-                if root.val > val:
+                dfs(root.left)
+                dfs(root.right)
+                nonlocal ans, v
+                if root.val > v:
                     ans = root.val if ans == -1 else min(ans, root.val)
 
-        ans = -1
-        dfs(root, root.val)
+        ans, v = -1, root.val
+        dfs(root)
         return ans

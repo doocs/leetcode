@@ -34,6 +34,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+先将数字转为字符串 `s`，然后从右往左遍历字符串 `s`，用数组 `d` 记录每个字符右侧的最大位置（可以是字符本身的位置）。
+
+接着从左到右遍历 `d`，如果 `s[i] < s[d[i]]`，则进行交换，并退出遍历的过程。
+
+最后将字符串 `s` 转为数字，即为答案。
+
+时间复杂度 $O(\log C)$，空间复杂度 $O(\log C)$。其中 $C$ 是数字 `num` 的值域。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -43,17 +53,17 @@
 ```python
 class Solution:
     def maximumSwap(self, num: int) -> int:
-        chars = list(str(num))
-        n = len(chars)
-        for i in range(n - 1):
-            mx = i + 1
-            for j in range(i + 1, n):
-                if ord(chars[j]) >= ord(chars[mx]):
-                    mx = j
-            if ord(chars[i]) < ord(chars[mx]):
-                chars[i], chars[mx] = chars[mx], chars[i]
+        s = list(str(num))
+        n = len(s)
+        d = list(range(n))
+        for i in range(n - 2, -1, -1):
+            if s[i] <= s[d[i + 1]]:
+                d[i] = d[i + 1]
+        for i, j in enumerate(d):
+            if s[i] < s[j]:
+                s[i], s[j] = s[j], s[i]
                 break
-        return int(''.join(chars))
+        return int(''.join(s))
 ```
 
 ### **Java**
@@ -63,23 +73,27 @@ class Solution:
 ```java
 class Solution {
     public int maximumSwap(int num) {
-        char[] chars = String.valueOf(num).toCharArray();
-        int n = chars.length;
-        for (int i = 0; i < n - 1; ++i) {
-            int mx = i + 1;
-            for (int j = i + 1; j < n; ++j) {
-                if (chars[j] >= chars[mx]) {
-                    mx = j;
-                }
+        char[] s = String.valueOf(num).toCharArray();
+        int n = s.length;
+        int[] d = new int[n];
+        for (int i = 0; i < n; ++i) {
+            d[i] = i;
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            if (s[i] <= s[d[i + 1]]) {
+                d[i] = d[i + 1];
             }
-            if (chars[i] < chars[mx]) {
-                char t = chars[i];
-                chars[i] = chars[mx];
-                chars[mx] = t;
+        }
+        for (int i = 0; i < n; ++i) {
+            int j = d[i];
+            if (s[i] < s[j]) {
+                char t = s[i];
+                s[i] = s[j];
+                s[j] = t;
                 break;
             }
         }
-        return Integer.parseInt(String.valueOf(chars));
+        return Integer.parseInt(String.valueOf(s));
     }
 }
 ```
@@ -92,13 +106,17 @@ public:
     int maximumSwap(int num) {
         string s = to_string(num);
         int n = s.size();
-        for (int i = 0; i < n - 1; ++i) {
-            int mx = i + 1;
-            for (int j = i + 1; j < n; ++j) {
-                if (s[j] >= s[mx]) mx = j;
+        vector<int> d(n);
+        iota(d.begin(), d.end(), 0);
+        for (int i = n - 2; ~i; --i) {
+            if (s[i] <= s[d[i + 1]]) {
+                d[i] = d[i + 1];
             }
-            if (s[i] < s[mx]) {
-                swap(s[i], s[mx]);
+        }
+        for (int i = 0; i < n; ++i) {
+            int j = d[i];
+            if (s[i] < s[j]) {
+                swap(s[i], s[j]);
                 break;
             }
         }
@@ -111,22 +129,24 @@ public:
 
 ```go
 func maximumSwap(num int) int {
-	s := strconv.Itoa(num)
-	chars := []byte(s)
-	n := len(chars)
-	for i := range chars[:n-1] {
-		mx := i + 1
-		for j := i + 1; j < n; j++ {
-			if chars[j] >= chars[mx] {
-				mx = j
-			}
+	s := []byte(strconv.Itoa(num))
+	n := len(s)
+	d := make([]int, n)
+	for i := range d {
+		d[i] = i
+	}
+	for i := n - 2; i >= 0; i-- {
+		if s[i] <= s[d[i+1]] {
+			d[i] = d[i+1]
 		}
-		if chars[i] < chars[mx] {
-			chars[i], chars[mx] = chars[mx], chars[i]
+	}
+	for i, j := range d {
+		if s[i] < s[j] {
+			s[i], s[j] = s[j], s[i]
 			break
 		}
 	}
-	ans, _ := strconv.Atoi(string(chars))
+	ans, _ := strconv.Atoi(string(s))
 	return ans
 }
 ```

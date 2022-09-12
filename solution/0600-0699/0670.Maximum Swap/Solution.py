@@ -1,13 +1,13 @@
 class Solution:
     def maximumSwap(self, num: int) -> int:
-        chars = list(str(num))
-        n = len(chars)
-        for i in range(n - 1):
-            mx = i + 1
-            for j in range(i + 1, n):
-                if ord(chars[j]) >= ord(chars[mx]):
-                    mx = j
-            if ord(chars[i]) < ord(chars[mx]):
-                chars[i], chars[mx] = chars[mx], chars[i]
+        s = list(str(num))
+        n = len(s)
+        d = list(range(n))
+        for i in range(n - 2, -1, -1):
+            if s[i] <= s[d[i + 1]]:
+                d[i] = d[i + 1]
+        for i, j in enumerate(d):
+            if s[i] < s[j]:
+                s[i], s[j] = s[j], s[i]
                 break
-        return int(''.join(chars))
+        return int(''.join(s))

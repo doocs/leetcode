@@ -11,10 +11,9 @@
  */
 class Solution {
 public:
-    int ans;
+    int ans = -1;
 
     int findSecondMinimumValue(TreeNode* root) {
-        ans = -1;
         dfs(root, root->val);
         return ans;
     }
