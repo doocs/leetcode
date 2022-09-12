@@ -49,13 +49,114 @@ The best solution that has 4 ones is:
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumNumberOfOnes(
+        self, width: int, height: int, sideLength: int, maxOnes: int
+    ) -> int:
+        x = sideLength
+        cnt = [0] * (x * x)
+        for i in range(width):
+            for j in range(height):
+                k = (i % x) * x + (j % x)
+                cnt[k] += 1
+        cnt.sort(reverse=True)
+        return sum(cnt[:maxOnes])
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maximumNumberOfOnes(int width, int height, int sideLength, int maxOnes) {
+        int x = sideLength;
+        int[] cnt = new int[x * x];
+        for (int i = 0; i < width; ++i) {
+            for (int j = 0; j < height; ++j) {
+                int k = (i % x) * x + (j % x);
+                ++cnt[k];
+            }
+        }
+        Arrays.sort(cnt);
+        int ans = 0;
+        for (int i = 0; i < maxOnes; ++i) {
+            ans += cnt[cnt.length - i - 1];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumNumberOfOnes(int width, int height, int sideLength, int maxOnes) {
+        int x = sideLength;
+        vector<int> cnt(x * x);
+        for (int i = 0; i < width; ++i) {
+            for (int j = 0; j < height; ++j) {
+                int k = (i % x) * x + (j % x);
+                ++cnt[k];
+            }
+        }
+        sort(cnt.rbegin(), cnt.rend());
+        int ans = 0;
+        for (int i = 0; i < maxOnes; ++i) {
+            ans += cnt[i];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumNumberOfOnes(width int, height int, sideLength int, maxOnes int) int {
+	x := sideLength
+	cnt := make([]int, x*x)
+	for i := 0; i < width; i++ {
+		for j := 0; j < height; j++ {
+			k := (i%x)*x + (j % x)
+			cnt[k]++
+		}
+	}
+	sort.Ints(cnt)
+	ans := 0
+	for i := range cnt[:maxOnes] {
+		ans += cnt[len(cnt)-i-1]
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} width
+ * @param {number} height
+ * @param {number} sideLength
+ * @param {number} maxOnes
+ * @return {number}
+ */
+var maximumNumberOfOnes = function (width, height, sideLength, maxOnes) {
+    const x = sideLength;
+    const cnt = new Array(x * x).fill(0);
+    for (let i = 0; i < width; ++i) {
+        for (let j = 0; j < height; ++j) {
+            const k = (i % x) * x + (j % x);
+            ++cnt[k];
+        }
+    }
+    cnt.sort((a, b) => b - a);
+    let ans = 0;
+    for (let i = 0; i < maxOnes; ++i) {
+        ans += cnt[i];
+    }
+    return ans;
+};
 ```
 
 ### **...**
