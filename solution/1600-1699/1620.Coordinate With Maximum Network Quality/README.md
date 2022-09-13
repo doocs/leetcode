@@ -73,6 +73,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力枚举**
+
+由于坐标点的范围是 `[0, 50]`，因此我们可以直接暴力枚举所有的坐标点 $(i, j)$，计算每个坐标点的信号强度，然后找出信号强度最大的坐标点。
+
+时间复杂度 $O(n \times C^2)$，其中 $n$ 是信号塔的数量，而 $C$ 是坐标点的范围大小。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -80,7 +86,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def bestCoordinate(self, towers: List[List[int]], radius: int) -> List[int]:
+        mx = 0
+        ans = [0, 0]
+        for i in range(51):
+            for j in range(51):
+                t = 0
+                for x, y, q in towers:
+                    d = ((x - i) ** 2 + (y - j) ** 2) ** 0.5
+                    if d <= radius:
+                        t += floor(q / (1 + d))
+                if t > mx:
+                    mx = t
+                    ans = [i, j]
+        return ans
 ```
 
 ### **Java**
@@ -88,7 +108,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] bestCoordinate(int[][] towers, int radius) {
+        int mx = 0;
+        int[] ans = new int[] {0, 0};
+        for (int i = 0; i < 51; ++i) {
+            for (int j = 0; j < 51; ++j) {
+                int t = 0;
+                for (var e : towers) {
+                    double d = Math.sqrt((i - e[0]) * (i - e[0]) + (j - e[1]) * (j - e[1]));
+                    if (d <= radius) {
+                        t += Math.floor(e[2] / (1 + d));
+                    }
+                }
+                if (mx < t) {
+                    mx = t;
+                    ans = new int[] {i, j};
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> bestCoordinate(vector<vector<int>>& towers, int radius) {
+        int mx = 0;
+        vector<int> ans = {0, 0};
+        for (int i = 0; i < 51; ++i) {
+            for (int j = 0; j < 51; ++j) {
+                int t = 0;
+                for (auto& e : towers) {
+                    double d = sqrt((i - e[0]) * (i - e[0]) + (j - e[1]) * (j - e[1]));
+                    if (d <= radius) {
+                        t += floor(e[2] / (1 + d));
+                    }
+                }
+                if (mx < t) {
+                    mx = t;
+                    ans = {i, j};
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func bestCoordinate(towers [][]int, radius int) []int {
+	ans := []int{0, 0}
+	mx := 0
+	for i := 0; i < 51; i++ {
+		for j := 0; j < 51; j++ {
+			t := 0
+			for _, e := range towers {
+				d := math.Sqrt(float64((i-e[0])*(i-e[0]) + (j-e[1])*(j-e[1])))
+				if d <= float64(radius) {
+					t += int(float64(e[2]) / (1 + d))
+				}
+			}
+			if mx < t {
+				mx = t
+				ans = []int{i, j}
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
