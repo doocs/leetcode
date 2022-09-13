@@ -43,19 +43,18 @@
 ```python
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
-        count, in_stack = [0 for _ in range(128)], [False for _ in range(128)]
+        count, in_stack = [0] * 128, [False] * 128
         stack = []
         for c in s:
             count[ord(c)] += 1
-        
         for c in s:
             count[ord(c)] -= 1
             if in_stack[ord(c)]:
                 continue
-            while len(stack) > 0 and stack[len(stack)-1] > c:
-                peek = stack[len(stack)-1]
+            while len(stack) and stack[-1] > c:
+                peek = stack[-1]
                 if count[ord(peek)] < 1:
-                  break
+                    break
                 in_stack[ord(peek)] = False
                 stack.pop()
             stack.append(c)
