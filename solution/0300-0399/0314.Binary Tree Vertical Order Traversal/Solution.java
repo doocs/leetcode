@@ -15,28 +15,27 @@
  */
 class Solution {
     public List<List<Integer>> verticalOrder(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
-        Map<Integer, List<Integer>> offsetVals = new TreeMap<>();
-        Map<TreeNode, Integer> nodeOffsets = new HashMap<>();
-        Deque<TreeNode> q = new ArrayDeque<>();
-        q.offer(root);
-        nodeOffsets.put(root, 0);
-
+        Deque<Pair<TreeNode, Integer>> q = new ArrayDeque<>();
+        q.offer(new Pair<>(root, 0));
+        TreeMap<Integer, List<Integer>> d = new TreeMap<>();
         while (!q.isEmpty()) {
-            TreeNode node = q.poll();
-            int offset = nodeOffsets.get(node);
-            offsetVals.computeIfAbsent(offset, k -> new ArrayList<>()).add(node.val);
-            if (node.left != null) {
-                q.offer(node.left);
-                nodeOffsets.put(node.left, offset - 1);
-            }
-            if (node.right != null) {
-                q.offer(node.right);
-                nodeOffsets.put(node.right, offset + 1);
+            for (int n = q.size(); n > 0; --n) {
+                var p = q.pollFirst();
+                root = p.getKey();
+                int offset = p.getValue();
+                d.computeIfAbsent(offset, k -> new ArrayList()).add(root.val);
+                if (root.left != null) {
+                    q.offer(new Pair<>(root.left, offset - 1));
+                }
+                if (root.right != null) {
+                    q.offer(new Pair<>(root.right, offset + 1));
+                }
             }
         }
-        return new ArrayList<>(offsetVals.values());
+        return new ArrayList<>(d.values());
     }
 }
