@@ -137,6 +137,77 @@ func maximumSwap(num int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maximumSwap(num: number): number {
+    const list = new Array();
+    while (num !== 0) {
+        list.push(num % 10);
+        num = Math.floor(num / 10);
+    }
+    const n = list.length;
+    const idx = new Array();
+    for (let i = 0, j = 0; i < n; i++) {
+        if (list[i] > list[j]) {
+            j = i;
+        }
+        idx.push(j);
+    }
+    for (let i = n - 1; i >= 0; i--) {
+        if (list[idx[i]] !== list[i]) {
+            [list[idx[i]], list[i]] = [list[i], list[idx[i]]];
+            break;
+        }
+    }
+    let res = 0;
+    for (let i = n - 1; i >= 0; i--) {
+        res = res * 10 + list[i];
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn maximum_swap(mut num: i32) -> i32 {
+        let mut list = {
+            let mut res = Vec::new();
+            while num != 0 {
+                res.push(num % 10);
+                num /= 10;
+            }
+            res
+        };
+        let n = list.len();
+        let idx = {
+            let mut i = 0;
+            (0..n)
+                .map(|j| {
+                    if list[j] > list[i] {
+                        i = j;
+                    }
+                    i
+                })
+                .collect::<Vec<usize>>()
+        };
+        for i in (0..n).rev() {
+            if list[i] != list[idx[i]] {
+                list.swap(i, idx[i]);
+                break;
+            }
+        }
+        let mut res = 0;
+        for i in list.iter().rev() {
+            res = res * 10 + i;
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
