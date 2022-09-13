@@ -52,6 +52,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数组/哈希表**
+
+用数组或哈希表记录每个字符第一次出现的位置。
+
+遍历字符串每个字符 $c$，若 $c$ 在数组中的值为 $-1$，则更新为当前位置，否则答案更新为当前位置与数组中的值的差值的最大值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度，而 $C$ 为字符集大小。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +67,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        d = {}
+        ans = -1
+        for i, c in enumerate(s):
+            if c in d:
+                ans = max(ans, i - d[c] - 1)
+            else:
+                d[c] = i
+        return ans
 ```
 
 ### **Java**
@@ -67,7 +84,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxLengthBetweenEqualCharacters(String s) {
+        int[] d = new int[26];
+        Arrays.fill(d, -1);
+        int ans = -1;
+        for (int i = 0; i < s.length(); ++i) {
+            int j = s.charAt(i) - 'a';
+            if (d[j] == -1) {
+                d[j] = i;
+            } else {
+                ans = Math.max(ans, i - d[j] - 1);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxLengthBetweenEqualCharacters(string s) {
+        vector<int> d(26, -1);
+        int ans = -1;
+        for (int i = 0; i < s.size(); ++i) {
+            int j = s[i] - 'a';
+            if (d[j] == -1) {
+                d[j] = i;
+            } else {
+                ans = max(ans, i - d[j] - 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxLengthBetweenEqualCharacters(s string) int {
+	d := make([]int, 26)
+	for i := range d {
+		d[i] = -1
+	}
+	ans := -1
+	for i, c := range s {
+		c -= 'a'
+		if d[c] == -1 {
+			d[c] = i
+		} else {
+			ans = max(ans, i-d[c]-1)
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

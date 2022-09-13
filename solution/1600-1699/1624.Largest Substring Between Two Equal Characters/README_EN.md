@@ -47,13 +47,86 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        d = {}
+        ans = -1
+        for i, c in enumerate(s):
+            if c in d:
+                ans = max(ans, i - d[c] - 1)
+            else:
+                d[c] = i
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxLengthBetweenEqualCharacters(String s) {
+        int[] d = new int[26];
+        Arrays.fill(d, -1);
+        int ans = -1;
+        for (int i = 0; i < s.length(); ++i) {
+            int j = s.charAt(i) - 'a';
+            if (d[j] == -1) {
+                d[j] = i;
+            } else {
+                ans = Math.max(ans, i - d[j] - 1);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxLengthBetweenEqualCharacters(string s) {
+        vector<int> d(26, -1);
+        int ans = -1;
+        for (int i = 0; i < s.size(); ++i) {
+            int j = s[i] - 'a';
+            if (d[j] == -1) {
+                d[j] = i;
+            } else {
+                ans = max(ans, i - d[j] - 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxLengthBetweenEqualCharacters(s string) int {
+	d := make([]int, 26)
+	for i := range d {
+		d[i] = -1
+	}
+	ans := -1
+	for i, c := range s {
+		c -= 'a'
+		if d[c] == -1 {
+			d[c] = i
+		} else {
+			ans = max(ans, i-d[c]-1)
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
