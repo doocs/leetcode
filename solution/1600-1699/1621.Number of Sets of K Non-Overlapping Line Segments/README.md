@@ -63,6 +63,32 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+记 $f[i][j]$ 表示使用前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点不为 $i$ 的方案数；记 $g[i][j]$ 表示使用了前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点为 $i$ 的方案数。初始时 $f[1][0]=1$。
+
+考虑 $f[i][j]$，由于第 $j$ 条线段的右端点不为 $i$，因此前 $i-1$ 个点构造了 $j$ 条线段，因此有：
+
+$$
+f[i][j] = f[i-1][j] + g[i - 1][j]
+$$
+
+考虑 $g[i][j]$，第 $j$ 条线段的右端点为 $i$，如果第 $j$ 条线段的长度超过 $1$，则前 $i-1$ 个点构造了 $j$ 条线段，且第 $j$ 条线段的右端点一定覆盖了 $i-1$，因此有：
+
+$$
+g[i][j] = g[i - 1][j]
+$$
+
+如果第 $j$ 条线段的长度为 $1$，则前 $i-1$ 个点构造了 $j-1$ 条线段，有：
+
+$$
+g[i][j] = f[i - 1][j - 1] + g[i - 1][j - 1]
+$$
+
+答案为 $f[n][k]+g[n][k]$。
+
+时间复杂度 $O(n\times k)$，空间复杂度 $O(n\times k)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +96,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfSets(self, n: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        g = [[0] * (k + 1) for _ in range(n + 1)]
+        f[1][0] = 1
+        for i in range(2, n + 1):
+            for j in range(k + 1):
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod
+                g[i][j] = g[i - 1][j]
+                if j:
+                    g[i][j] += f[i - 1][j - 1]
+                    g[i][j] %= mod
+                    g[i][j] += g[i - 1][j - 1]
+                    g[i][j] %= mod
+        return (f[-1][-1] + g[-1][-1]) % mod
 ```
 
 ### **Java**
@@ -78,7 +119,86 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int numberOfSets(int n, int k) {
+        int[][] f = new int[n + 1][k + 1];
+        int[][] g = new int[n + 1][k + 1];
+        f[1][0] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % MOD;
+                g[i][j] = g[i - 1][j];
+                if (j > 0) {
+                    g[i][j] += f[i - 1][j - 1];
+                    g[i][j] %= MOD;
+                    g[i][j] += g[i - 1][j - 1];
+                    g[i][j] %= MOD;
+                }
+            }
+        }
+        return (f[n][k] + g[n][k]) % MOD;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int f[1010][1010];
+    int g[1010][1010];
+    const int mod = 1e9 + 7;
+
+    int numberOfSets(int n, int k) {
+        memset(f, 0, sizeof(f));
+        memset(g, 0, sizeof(g));
+        f[1][0] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
+                g[i][j] = g[i - 1][j];
+                if (j > 0) {
+                    g[i][j] += f[i - 1][j - 1];
+                    g[i][j] %= mod;
+                    g[i][j] += g[i - 1][j - 1];
+                    g[i][j] %= mod;
+                }
+            }
+        }
+        return (f[n][k] + g[n][k]) % mod;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfSets(n int, k int) int {
+	f := make([][]int, n+1)
+	g := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+		g[i] = make([]int, k+1)
+	}
+	f[1][0] = 1
+	var mod int = 1e9 + 7
+	for i := 2; i <= n; i++ {
+		for j := 0; j <= k; j++ {
+			f[i][j] = (f[i-1][j] + g[i-1][j]) % mod
+			g[i][j] = g[i-1][j]
+			if j > 0 {
+				g[i][j] += f[i-1][j-1]
+				g[i][j] %= mod
+				g[i][j] += g[i-1][j-1]
+				g[i][j] %= mod
+			}
+		}
+	}
+	return (f[n][k] + g[n][k]) % mod
+}
 ```
 
 ### **...**

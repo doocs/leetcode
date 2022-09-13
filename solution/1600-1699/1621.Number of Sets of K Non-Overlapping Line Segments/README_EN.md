@@ -49,13 +49,107 @@ The image above shows the 5 different ways {(0,2),(2,3)}, {(0,1),(1,3)}, {(0,1),
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfSets(self, n: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        g = [[0] * (k + 1) for _ in range(n + 1)]
+        f[1][0] = 1
+        for i in range(2, n + 1):
+            for j in range(k + 1):
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod
+                g[i][j] = g[i - 1][j]
+                if j:
+                    g[i][j] += f[i - 1][j - 1]
+                    g[i][j] %= mod
+                    g[i][j] += g[i - 1][j - 1]
+                    g[i][j] %= mod
+        return (f[-1][-1] + g[-1][-1]) % mod
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int numberOfSets(int n, int k) {
+        int[][] f = new int[n + 1][k + 1];
+        int[][] g = new int[n + 1][k + 1];
+        f[1][0] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % MOD;
+                g[i][j] = g[i - 1][j];
+                if (j > 0) {
+                    g[i][j] += f[i - 1][j - 1];
+                    g[i][j] %= MOD;
+                    g[i][j] += g[i - 1][j - 1];
+                    g[i][j] %= MOD;
+                }
+            }
+        }
+        return (f[n][k] + g[n][k]) % MOD;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int f[1010][1010];
+    int g[1010][1010];
+    const int mod = 1e9 + 7;
+
+    int numberOfSets(int n, int k) {
+        memset(f, 0, sizeof(f));
+        memset(g, 0, sizeof(g));
+        f[1][0] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
+                g[i][j] = g[i - 1][j];
+                if (j > 0) {
+                    g[i][j] += f[i - 1][j - 1];
+                    g[i][j] %= mod;
+                    g[i][j] += g[i - 1][j - 1];
+                    g[i][j] %= mod;
+                }
+            }
+        }
+        return (f[n][k] + g[n][k]) % mod;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfSets(n int, k int) int {
+	f := make([][]int, n+1)
+	g := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+		g[i] = make([]int, k+1)
+	}
+	f[1][0] = 1
+	var mod int = 1e9 + 7
+	for i := 2; i <= n; i++ {
+		for j := 0; j <= k; j++ {
+			f[i][j] = (f[i-1][j] + g[i-1][j]) % mod
+			g[i][j] = g[i-1][j]
+			if j > 0 {
+				g[i][j] += f[i-1][j-1]
+				g[i][j] %= mod
+				g[i][j] += g[i-1][j-1]
+				g[i][j] %= mod
+			}
+		}
+	}
+	return (f[n][k] + g[n][k]) % mod
+}
 ```
 
 ### **...**
