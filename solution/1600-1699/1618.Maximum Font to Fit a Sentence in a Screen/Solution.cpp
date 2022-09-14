@@ -13,31 +13,23 @@
 class Solution {
 public:
     int maxFont(string text, int w, int h, vector<int>& fonts, FontInfo fontInfo) {
+        auto check = [&](int size) {
+            if (fontInfo.getHeight(size) > h) return false;
+            int width = 0;
+            for (char& c : text) {
+                width += fontInfo.getWidth(size, c);
+            }
+            return width <= w;
+        };
         int left = 0, right = fonts.size() - 1;
         while (left < right) {
-            int mid = left + right + 1 >> 1;
-            int fontSize = fonts[mid];
-            if (check(text, fontSize, w, h, fontInfo)) {
+            int mid = (left + right + 1) >> 1;
+            if (check(fonts[mid])) {
                 left = mid;
             } else {
                 right = mid - 1;
             }
         }
-        return check(text, fonts[left], w, h, fontInfo) ? fonts[left] : -1;
-    }
-
-private:
-    bool check(string s, int fontSize, int w, int h, FontInfo fontInfo) {
-        if (fontInfo.getHeight(fontSize) > h) {
-            return false;
-        }
-        int width = 0;
-        for (auto ch : s) {
-            width += fontInfo.getWidth(fontSize, ch);
-            if (width > w) {
-                return false;
-            }
-        }
-        return true;
+        return check(fonts[left]) ? fonts[left] : -1;
     }
 };

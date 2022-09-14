@@ -13,8 +13,7 @@ class Solution {
         int left = 0, right = fonts.length - 1;
         while (left < right) {
             int mid = (left + right + 1) >> 1;
-            int fontSize = fonts[mid];
-            if (check(text, fontSize, w, h, fontInfo)) {
+            if (check(text, fonts[mid], w, h, fontInfo)) {
                 left = mid;
             } else {
                 right = mid - 1;
@@ -23,18 +22,14 @@ class Solution {
         return check(text, fonts[left], w, h, fontInfo) ? fonts[left] : -1;
     }
 
-    private boolean check(String s, int fontSize, int w, int h, FontInfo fontInfo) {
-        if (fontInfo.getHeight(fontSize) > h) {
+    private boolean check(String text, int size, int w, int h, FontInfo fontInfo) {
+        if (fontInfo.getHeight(size) > h) {
             return false;
         }
         int width = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            char ch = s.charAt(i);
-            width += fontInfo.getWidth(fontSize, ch);
-            if (width > w) {
-                return false;
-            }
+        for (char c : text.toCharArray()) {
+            width += fontInfo.getWidth(size, c);
         }
-        return true;
+        return width <= w;
     }
 }
