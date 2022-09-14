@@ -49,93 +49,226 @@ The max number of consecutive ones is 4.
 ```python
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        ans = nums.count(1)
         n = len(nums)
-        prefix = [0] * n
-        suffix = [0] * n
-        res = 0
-        for i in range(n):
-            if i == 0:
-                prefix[i] = nums[i]
-            else:
-                prefix[i] = 0 if nums[i] == 0 else prefix[i - 1] + 1
-            res = max(res, prefix[i])
-
+        left = [0] * n
+        right = [0] * n
+        for i, v in enumerate(nums):
+            if v:
+                left[i] = 1 if i == 0 else left[i - 1] + 1
         for i in range(n - 1, -1, -1):
-            if i == n - 1:
-                suffix[i] = nums[i]
-            else:
-                suffix[i] = 0 if nums[i] == 0 else suffix[i + 1] + 1
+            v = nums[i]
+            if v:
+                right[i] = 1 if i == n - 1 else right[i + 1] + 1
+        ans = 0
+        for i, v in enumerate(nums):
+            t = 0
+            if i:
+                t += left[i - 1]
+            if i < n - 1:
+                t += right[i + 1]
+            ans = max(ans, t + 1)
+        return ans
+```
 
-        for i in range(n):
-            if nums[i] == 0:
-                t = 1
-                if i > 0:
-                    t += prefix[i - 1]
-                if i < n - 1:
-                    t += suffix[i + 1]
-                res = max(res, t)
-        return res
+```python
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        ans = 1
+        cnt = j = 0
+        for i, v in enumerate(nums):
+            if v == 0:
+                cnt += 1
+            while cnt > 1:
+                if nums[j] == 0:
+                    cnt -= 1
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
 ```
 
 ### **Java**
 
--   Two Pointers, time complexity: $O(n^2)$, memory complexity: $O(1)$
-
 ```java
 class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {
         int n = nums.length;
-        int res = 0;
+        int[] left = new int[n];
+        int[] right = new int[n];
         for (int i = 0; i < n; ++i) {
-            int cnt = 1;
-            int j = i;
-            while (j < n && (cnt > 0 || nums[j] == 1)) {
-                if (nums[j] == 0) --cnt;
-                ++j;
+            if (nums[i] == 1) {
+                left[i] = i == 0 ? 1 : left[i - 1] + 1;
             }
-            res = Math.max(res, j - i);
         }
-        return res;
+        for (int i = n - 1; i >= 0; --i) {
+            if (nums[i] == 1) {
+                right[i] = i == n - 1 ? 1 : right[i + 1] + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int t = 0;
+            if (i > 0) {
+                t += left[i - 1];
+            }
+            if (i < n - 1) {
+                t += right[i + 1];
+            }
+            ans = Math.max(ans, t + 1);
+        }
+        return ans;
     }
 }
 ```
 
--   Prefix Array & Suffix Array, time complexity: $O(n)$, memory complexity: $O(n)$
-
 ```java
 class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {
-        int n = nums.length;
-
-        int[] prefix = new int[n];
-        int[] suffix = new int[n];
-
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
-            if (i == 0)
-                prefix[0] = nums[0];
-            else
-                prefix[i] = nums[i] == 0 ? 0 : prefix[i - 1] + 1;
-            res = Math.max(res, prefix[i]);
-        }
-
-        for (int i = n - 1; i >= 0; --i) {
-            if (i == n - 1)
-                suffix[n - 1] = nums[n - 1];
-            else
-                suffix[i] = nums[i] == 0 ? 0 : suffix[i + 1] + 1;
-        }
-
-        for (int i = 0; i < n; ++i) {
+        int j = 0, cnt = 0;
+        int ans = 1;
+        for (int i = 0; i < nums.length; ++i) {
             if (nums[i] == 0) {
-                int t = 1;
-                if (i > 0) t += prefix[i - 1];
-                if (i < n - 1) t += suffix[i + 1];
-                res = Math.max(res, t);
+                ++cnt;
+            }
+            while (cnt > 1) {
+                if (nums[j++] == 0) {
+                    --cnt;
+                }
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> left(n), right(n);
+        for (int i = 0; i < n; ++i) {
+            if (nums[i]) {
+                left[i] = i == 0 ? 1 : left[i - 1] + 1;
             }
         }
-        return res;
+        for (int i = n - 1; ~i; --i) {
+            if (nums[i]) {
+                right[i] = i == n - 1 ? 1 : right[i + 1] + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int t = 0;
+            if (i) {
+                t += left[i - 1];
+            }
+            if (i < n - 1) {
+                t += right[i + 1];
+            }
+            ans = max(ans, t + 1);
+        }
+        return ans;
     }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int ans = 1;
+        int cnt = 0, j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == 0) {
+                ++cnt;
+            }
+            while (cnt > 1) {
+                if (nums[j++] == 0) {
+                    --cnt;
+                }
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMaxConsecutiveOnes(nums []int) int {
+	n := len(nums)
+	left := make([]int, n)
+	right := make([]int, n)
+	for i, v := range nums {
+		if v == 1 {
+			if i == 0 {
+				left[i] = 1
+			} else {
+				left[i] = left[i-1] + 1
+			}
+		}
+	}
+	for i := n - 1; i >= 0; i-- {
+		if nums[i] == 1 {
+			if i == n-1 {
+				right[i] = 1
+			} else {
+				right[i] = right[i+1] + 1
+			}
+		}
+	}
+	ans := 0
+	for i := range nums {
+		t := 0
+		if i > 0 {
+			t += left[i-1]
+		}
+		if i < n-1 {
+			t += right[i+1]
+		}
+		ans = max(ans, t+1)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func findMaxConsecutiveOnes(nums []int) int {
+	ans := 1
+	j, cnt := 0, 0
+	for i, v := range nums {
+		if v == 0 {
+			cnt++
+		}
+		for cnt > 1 {
+			if nums[j] == 0 {
+				cnt--
+			}
+			j++
+		}
+		ans = max(ans, i-j+1)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
