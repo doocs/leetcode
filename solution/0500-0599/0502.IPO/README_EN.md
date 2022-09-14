@@ -54,13 +54,117 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
+        h1 = [(c, p) for c, p in zip(capital, profits)]
+        heapify(h1)
+        h2 = []
+        while k:
+            while h1 and h1[0][0] <= w:
+                heappush(h2, -heappop(h1)[1])
+            if not h2:
+                break
+            w -= heappop(h2)
+            k -= 1
+        return w
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
+        int n = capital.length;
+        PriorityQueue<int[]> q1 = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        for (int i = 0; i < n; ++i) {
+            q1.offer(new int[] {capital[i], profits[i]});
+        }
+        PriorityQueue<Integer> q2 = new PriorityQueue<>((a, b) -> b - a);
+        while (k-- > 0) {
+            while (!q1.isEmpty() && q1.peek()[0] <= w) {
+                q2.offer(q1.poll()[1]);
+            }
+            if (q2.isEmpty()) {
+                break;
+            }
+            w += q2.poll();
+        }
+        return w;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) {
+        priority_queue<pii, vector<pii>, greater<pii>> q1;
+        int n = profits.size();
+        for (int i = 0; i < n; ++i) {
+            q1.push({capital[i], profits[i]});
+        }
+        priority_queue<int> q2;
+        while (k--) {
+            while (!q1.empty() && q1.top().first <= w) {
+                q2.push(q1.top().second);
+                q1.pop();
+            }
+            if (q2.empty()) {
+                break;
+            }
+            w += q2.top();
+            q2.pop();
+        }
+        return w;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMaximizedCapital(k int, w int, profits []int, capital []int) int {
+	q1 := hp2{}
+	for i, c := range capital {
+		heap.Push(&q1, pair{c, profits[i]})
+	}
+	q2 := hp{}
+	for k > 0 {
+		for len(q1) > 0 && q1[0].c <= w {
+			heap.Push(&q2, heap.Pop(&q1).(pair).p)
+		}
+		if q2.Len() == 0 {
+			break
+		}
+		w += heap.Pop(&q2).(int)
+		k--
+	}
+	return w
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+
+type pair struct{ c, p int }
+type hp2 []pair
+
+func (h hp2) Len() int            { return len(h) }
+func (h hp2) Less(i, j int) bool  { return h[i].c < h[j].c }
+func (h hp2) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp2) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp2) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**
