@@ -87,6 +87,22 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        l = r = 0
+        k = 1
+        while r < len(nums):
+            if nums[r] == 0:
+                k -= 1
+            if k < 0:
+                if nums[l] == 0:
+                    k += 1
+                l += 1
+            r += 1
+        return r - l
+```
+
 ### **Java**
 
 ```java
@@ -138,6 +154,24 @@ class Solution {
             ans = Math.max(ans, i - j + 1);
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int l = 0, r = 0;
+        int k = 1;
+        while (r < nums.length) {
+            if (nums[r++] == 0) {
+                --k;
+            }
+            if (k < 0 && nums[l++] == 0) {
+                ++k;
+            }
+        }
+        return r - l;
     }
 }
 ```
@@ -194,6 +228,25 @@ public:
             ans = max(ans, i - j + 1);
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int l = 0, r = 0;
+        int k = 1;
+        while (r < nums.size()) {
+            if (nums[r++] == 0) {
+                --k;
+            }
+            if (k < 0 && nums[l++] == 0) {
+                ++k;
+            }
+        }
+        return r - l;
     }
 };
 ```
@@ -269,6 +322,25 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func findMaxConsecutiveOnes(nums []int) int {
+	l, r := 0, 0
+	k := 1
+	for ; r < len(nums); r++ {
+		if nums[r] == 0 {
+			k--
+		}
+		if k < 0 {
+			if nums[l] == 0 {
+				k++
+			}
+			l++
+		}
+	}
+	return r - l
 }
 ```
 

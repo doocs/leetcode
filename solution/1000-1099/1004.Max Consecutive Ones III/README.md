@@ -40,9 +40,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-思路同 [2024. 考试的最大困扰度](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
+**方法一：滑动窗口**
 
-维护一个单调变长的窗口。这种窗口经常出现在寻求“最大窗口”的问题中：因为要求的是”最大“，所以我们没有必要缩短窗口，于是代码就少了缩短窗口的部分；从另一个角度讲，本题里的 K 是资源数，一旦透支，窗口就不能再增长了。
+定义一个滑动窗口，窗口内的 $0$ 的个数不超过 $k$，窗口的右边界不断向右移动，当窗口内的 $0$ 的个数超过 $k$ 时，窗口的左边界向右移动，直到窗口内的 $0$ 的个数不超过 $k$ 为止。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
+相似题目：[487. 最大连续 1 的个数 II](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
+
+以下是滑动窗口的优化版本。
+
+维护一个单调变长的窗口。这种窗口经常出现在寻求“最大窗口”的问题中：因为求的是“最大”，所以我们没有必要缩短窗口，于是代码就少了缩短窗口的部分；从另一个角度讲，本题里的 K 是资源数，一旦透支，窗口就不能再增长了。
 
 -   l 是窗口左端点，负责移动起始位置
 -   r 是窗口右端点，负责扩展窗口
@@ -50,11 +58,29 @@
 -   `r++` 每次都会执行，`l++` 只有资源 `k < 0` 时才触发，因此 `r - l` 的值只会单调递增（或保持不变）
 -   移动左端点时，如果当前元素是 0，说明可以释放一个资源，k 加 1
 
+相似题目： [2024. 考试的最大困扰度](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        ans = 0
+        cnt = j = 0
+        for i, v in enumerate(nums):
+            if v == 0:
+                cnt += 1
+            while cnt > k:
+                if nums[j] == 0:
+                    cnt -= 1
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
+```
 
 ```python
 class Solution:
@@ -74,6 +100,27 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int j = 0, cnt = 0;
+        int ans = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 0) {
+                ++cnt;
+            }
+            while (cnt > k) {
+                if (nums[j++] == 0) {
+                    --cnt;
+                }
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -98,6 +145,28 @@ class Solution {
 class Solution {
 public:
     int longestOnes(vector<int>& nums, int k) {
+        int ans = 0;
+        int cnt = 0, j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == 0) {
+                ++cnt;
+            }
+            while (cnt > k) {
+                if (nums[j++] == 0) {
+                    --cnt;
+                }
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
         int l = 0, r = 0;
         while (r < nums.size()) {
             if (nums[r++] == 0) --k;
@@ -109,6 +178,33 @@ public:
 ```
 
 ### **Go**
+
+```go
+func longestOnes(nums []int, k int) int {
+	ans := 0
+	j, cnt := 0, 0
+	for i, v := range nums {
+		if v == 0 {
+			cnt++
+		}
+		for cnt > k {
+			if nums[j] == 0 {
+				cnt--
+			}
+			j++
+		}
+		ans = max(ans, i-j+1)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func longestOnes(nums []int, k int) int {

@@ -59,6 +59,18 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `nums` 的长度。
 
+相似题目：[1004. 最大连续 1 的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
+
+以下是滑动窗口的优化版本。
+
+维护一个单调变长的窗口。这种窗口经常出现在寻求“最大窗口”的问题中：因为求的是“最大”，所以我们没有必要缩短窗口，于是代码就少了缩短窗口的部分；从另一个角度讲，本题里的 K 是资源数，一旦透支，窗口就不能再增长了。
+
+-   l 是窗口左端点，负责移动起始位置
+-   r 是窗口右端点，负责扩展窗口
+-   k 是资源数，每次要替换 0，k 减 1，同时 r 向右移动
+-   `r++` 每次都会执行，`l++` 只有资源 `k < 0` 时才触发，因此 `r - l` 的值只会单调递增（或保持不变）
+-   移动左端点时，如果当前元素是 0，说明可以释放一个资源，k 加 1
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -104,6 +116,22 @@ class Solution:
                 j += 1
             ans = max(ans, i - j + 1)
         return ans
+```
+
+```python
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        l = r = 0
+        k = 1
+        while r < len(nums):
+            if nums[r] == 0:
+                k -= 1
+            if k < 0:
+                if nums[l] == 0:
+                    k += 1
+                l += 1
+            r += 1
+        return r - l
 ```
 
 ### **Java**
@@ -163,6 +191,24 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int l = 0, r = 0;
+        int k = 1;
+        while (r < nums.length) {
+            if (nums[r++] == 0) {
+                --k;
+            }
+            if (k < 0 && nums[l++] == 0) {
+                ++k;
+            }
+        }
+        return r - l;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -215,6 +261,25 @@ public:
             ans = max(ans, i - j + 1);
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int l = 0, r = 0;
+        int k = 1;
+        while (r < nums.size()) {
+            if (nums[r++] == 0) {
+                --k;
+            }
+            if (k < 0 && nums[l++] == 0) {
+                ++k;
+            }
+        }
+        return r - l;
     }
 };
 ```
@@ -290,6 +355,25 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func findMaxConsecutiveOnes(nums []int) int {
+	l, r := 0, 0
+	k := 1
+	for ; r < len(nums); r++ {
+		if nums[r] == 0 {
+			k--
+		}
+		if k < 0 {
+			if nums[l] == 0 {
+				k++
+			}
+			l++
+		}
+	}
+	return r - l
 }
 ```
 

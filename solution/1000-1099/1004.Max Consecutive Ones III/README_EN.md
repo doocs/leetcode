@@ -42,6 +42,22 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 ```python
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
+        ans = 0
+        cnt = j = 0
+        for i, v in enumerate(nums):
+            if v == 0:
+                cnt += 1
+            while cnt > k:
+                if nums[j] == 0:
+                    cnt -= 1
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
+```
+
+```python
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
         l = r = -1
         while r < len(nums) - 1:
             r += 1
@@ -55,6 +71,27 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int j = 0, cnt = 0;
+        int ans = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 0) {
+                ++cnt;
+            }
+            while (cnt > k) {
+                if (nums[j++] == 0) {
+                    --cnt;
+                }
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -79,6 +116,28 @@ class Solution {
 class Solution {
 public:
     int longestOnes(vector<int>& nums, int k) {
+        int ans = 0;
+        int cnt = 0, j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == 0) {
+                ++cnt;
+            }
+            while (cnt > k) {
+                if (nums[j++] == 0) {
+                    --cnt;
+                }
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
         int l = 0, r = 0;
         while (r < nums.size()) {
             if (nums[r++] == 0) --k;
@@ -90,6 +149,33 @@ public:
 ```
 
 ### **Go**
+
+```go
+func longestOnes(nums []int, k int) int {
+	ans := 0
+	j, cnt := 0, 0
+	for i, v := range nums {
+		if v == 0 {
+			cnt++
+		}
+		for cnt > k {
+			if nums[j] == 0 {
+				cnt--
+			}
+			j++
+		}
+		ans = max(ans, i-j+1)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func longestOnes(nums []int, k int) int {
