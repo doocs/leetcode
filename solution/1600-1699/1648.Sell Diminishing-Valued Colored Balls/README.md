@@ -63,6 +63,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 优化模拟**
+
+要使得总价值最大，我们可以贪心地每次卖出数量最多的一种颜色的球。由于 `orders` 值域较大，如果直接简单地模拟，会超时。因此，我们需要优化模拟的过程。
+
+实际上，我们不需要一次次进行模拟，我们可以跟踪数量最多的同色球的种类数 `cnt`，每一次可以卖出一批球，从而达到加速模拟的目的。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `inventory` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +78,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProfit(self, inventory: List[int], orders: int) -> int:
+        inventory.sort(reverse=True)
+        mod = 10**9 + 7
+        ans = i = 0
+        n = len(inventory)
+        while orders > 0:
+            while i < n and inventory[i] >= inventory[0]:
+                i += 1
+            nxt = 0
+            if i < n:
+                nxt = inventory[i]
+            cnt = i
+            x = inventory[0] - nxt
+            tot = cnt * x
+            if tot > orders:
+                decr = orders // cnt
+                a1, an = inventory[0] - decr + 1, inventory[0]
+                ans += (a1 + an) * decr // 2 * cnt
+                ans += (inventory[0] - decr) * (orders % cnt)
+            else:
+                a1, an = nxt + 1, inventory[0]
+                ans += (a1 + an) * x // 2 * cnt
+                inventory[0] = nxt
+            orders -= tot
+            ans %= mod
+        return ans
 ```
 
 ### **Java**
@@ -78,7 +112,116 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int maxProfit(int[] inventory, int orders) {
+        Arrays.sort(inventory);
+        int n = inventory.length;
+        for (int i = 0, j = n - 1; i < j; ++i, --j) {
+            int t = inventory[i];
+            inventory[i] = inventory[j];
+            inventory[j] = t;
+        }
+        long ans = 0;
+        int i = 0;
+        while (orders > 0) {
+            while (i < n && inventory[i] >= inventory[0]) {
+                ++i;
+            }
+            int nxt = i < n ? inventory[i] : 0;
+            int cnt = i;
+            long x = inventory[0] - nxt;
+            long tot = cnt * x;
+            if (tot > orders) {
+                int decr = orders / cnt;
+                long a1 = inventory[0] - decr + 1, an = inventory[0];
+                ans += (a1 + an) * decr / 2 * cnt;
+                ans += (a1 - 1) * (orders % cnt);
+            } else {
+                long a1 = nxt + 1, an = inventory[0];
+                ans += (a1 + an) * x / 2 * cnt;
+                inventory[0] = nxt;
+            }
+            orders -= tot;
+            ans %= MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& inventory, int orders) {
+        long ans = 0, mod = 1e9 + 7;
+        int i = 0, n = inventory.size();
+        sort(inventory.rbegin(), inventory.rend());
+        while (orders > 0) {
+            while (i < n && inventory[i] >= inventory[0]) {
+                ++i;
+            }
+            int nxt = i < n ? inventory[i] : 0;
+            int cnt = i;
+            long x = inventory[0] - nxt;
+            long tot = cnt * x;
+            if (tot > orders) {
+                int decr = orders / cnt;
+                long a1 = inventory[0] - decr + 1, an = inventory[0];
+                ans += (a1 + an) * decr / 2 * cnt;
+                ans += (a1 - 1) * (orders % cnt);
+            } else {
+                long a1 = nxt + 1, an = inventory[0];
+                ans += (a1 + an) * x / 2 * cnt;
+                inventory[0] = nxt;
+            }
+            orders -= tot;
+            ans %= mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProfit(inventory []int, orders int) int {
+	var mod int = 1e9 + 7
+	i, n, ans := 0, len(inventory), 0
+	sort.Ints(inventory)
+	for i, j := 0, n-1; i < j; i, j = i+1, j-1 {
+		inventory[i], inventory[j] = inventory[j], inventory[i]
+	}
+	for orders > 0 {
+		for i < n && inventory[i] >= inventory[0] {
+			i++
+		}
+		nxt := 0
+		if i < n {
+			nxt = inventory[i]
+		}
+		cnt := i
+		x := inventory[0] - nxt
+		tot := cnt * x
+		if tot > orders {
+			decr := orders / cnt
+			a1, an := inventory[0]-decr+1, inventory[0]
+			ans += (a1 + an) * decr / 2 * cnt
+			ans += (a1 - 1) * (orders % cnt)
+		} else {
+			a1, an := nxt+1, inventory[0]
+			ans += (a1 + an) * x / 2 * cnt
+			inventory[0] = nxt
+		}
+		orders -= tot
+		ans %= mod
+	}
+	return ans
+}
 ```
 
 ### **...**
