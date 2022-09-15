@@ -38,7 +38,7 @@
 |  0025  |  [K 个一组翻转链表](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md)  |  `递归`,`链表`  |  困难  |    |
 |  0026  |  [删除有序数组中的重复项](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)  |  `数组`,`双指针`  |  简单  |    |
 |  0027  |  [移除元素](/solution/0000-0099/0027.Remove%20Element/README.md)  |  `数组`,`双指针`  |  简单  |    |
-|  0028  |  [实现 strStr()](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README.md)  |  `双指针`,`字符串`,`字符串匹配`  |  中等  |    |
+|  0028  |  [找出字符串中第一个匹配项的下标](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README.md)  |  `双指针`,`字符串`,`字符串匹配`  |  中等  |    |
 |  0029  |  [两数相除](/solution/0000-0099/0029.Divide%20Two%20Integers/README.md)  |  `位运算`,`数学`  |  中等  |    |
 |  0030  |  [串联所有单词的子串](/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  困难  |    |
 |  0031  |  [下一个排列](/solution/0000-0099/0031.Next%20Permutation/README.md)  |  `数组`,`双指针`  |  中等  |    |

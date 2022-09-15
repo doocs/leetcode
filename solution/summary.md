@@ -27,7 +27,7 @@
   - [0025.K 个一组翻转链表](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md)
   - [0026.删除有序数组中的重复项](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
   - [0027.移除元素](/solution/0000-0099/0027.Remove%20Element/README.md)
-  - [0028.实现 strStr()](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README.md)
+  - [0028.找出字符串中第一个匹配项的下标](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README.md)
   - [0029.两数相除](/solution/0000-0099/0029.Divide%20Two%20Integers/README.md)
   - [0030.串联所有单词的子串](/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README.md)
   - [0031.下一个排列](/solution/0000-0099/0031.Next%20Permutation/README.md)

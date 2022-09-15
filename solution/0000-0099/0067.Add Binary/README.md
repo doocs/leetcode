@@ -6,30 +6,30 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你两个二进制字符串，返回它们的和（用二进制表示）。</p>
-
-<p>输入为 <strong>非空 </strong>字符串且只包含数字&nbsp;<code>1</code>&nbsp;和&nbsp;<code>0</code>。</p>
+<p>给你两个二进制字符串 <code>a</code> 和 <code>b</code> ，以二进制字符串的形式返回它们的和。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p><strong>示例&nbsp;1：</strong></p>
 
-<pre><strong>输入:</strong> a = &quot;11&quot;, b = &quot;1&quot;
-<strong>输出:</strong> &quot;100&quot;</pre>
+<pre>
+<strong>输入:</strong>a = "11", b = "1"
+<strong>输出：</strong>"100"</pre>
 
-<p><strong>示例&nbsp;2:</strong></p>
+<p><strong>示例&nbsp;2：</strong></p>
 
-<pre><strong>输入:</strong> a = &quot;1010&quot;, b = &quot;1011&quot;
-<strong>输出:</strong> &quot;10101&quot;</pre>
+<pre>
+<strong>输入：</strong>a = "1010", b = "1011"
+<strong>输出：</strong>"10101"</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>每个字符串仅由字符 <code>&#39;0&#39;</code> 或 <code>&#39;1&#39;</code> 组成。</li>
-	<li><code>1 &lt;= a.length, b.length &lt;= 10^4</code></li>
-	<li>字符串如果不是 <code>&quot;0&quot;</code> ，就都不含前导零。</li>
+	<li><code>1 &lt;= a.length, b.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>a</code> 和 <code>b</code> 仅由字符 <code>'0'</code> 或 <code>'1'</code> 组成</li>
+	<li>字符串如果不是 <code>"0"</code> ，就不含前导零</li>
 </ul>
 
 ## 解法

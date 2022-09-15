@@ -14,40 +14,31 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre>11000
-11000
-00011
-00011
-</pre>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/images/distinctisland1-1-grid.jpg" /></p>
 
-<p>给定上图，返回结果 <code>1</code> 。</p>
+<pre>
+<strong>输入:</strong> grid = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
+<b>输出：</b>1
+</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre>11011
-10000
-00001
-11011</pre>
+<pre>
+<strong>输入:</strong> grid = [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,0,1],[1,1,0,1,1]]
+<b>输出</b><strong>:</strong> 3</pre>
 
-<p>给定上图，返回结果 <code>3</code> 。<br>
-<br>
-<strong>注意：</strong></p>
-
-<pre>11
-1
-</pre>
-
-<p>和</p>
-
-<pre> 1
-11
-</pre>
-
-<p>是不同的岛屿，因为我们不考虑旋转、翻转操作。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/images/distinctisland1-2-grid.jpg" /></p>
 
 <p>&nbsp;</p>
 
-<p><strong>提示：</strong>二维数组每维的大小都不会超过 50 。</p>
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 50</code></li>
+	<li><code>grid[i][j]</code>&nbsp;仅包含&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code></li>
+</ul>
 
 ## 解法
 

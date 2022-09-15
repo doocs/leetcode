@@ -21,7 +21,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>裁剪到剩下 <code>x</code>&nbsp;个数位的意思是不断删除最左边的数位，直到剩下 <code>x</code>&nbsp;个数位。</li>
+	<li>裁剪到剩下最右边 <code>x</code>&nbsp;个数位的意思是不断删除最左边的数位，直到剩下 <code>x</code>&nbsp;个数位。</li>
 	<li><code>nums</code>&nbsp;中的字符串可能会有前导 0 。</li>
 </ul>
 
@@ -65,6 +65,10 @@
 	<li><code>1 &lt;= k<sub>i</sub> &lt;= nums.length</code></li>
 	<li><code>1 &lt;= trim<sub>i</sub> &lt;= nums[0].length</code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你能使用 <strong>基数排序算法</strong> 解决此问题吗？这种解法的复杂度又是多少？</p>
 
 ## 解法
 

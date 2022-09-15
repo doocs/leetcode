@@ -6,39 +6,64 @@
 
 <!-- 这里写题目描述 -->
 
-<p>现有一个房间，墙上挂有&nbsp;<code>n</code>&nbsp;只已经打开的灯泡和 4 个按钮。在进行了&nbsp;<code>m</code>&nbsp;次未知操作后，你需要返回这&nbsp;<code>n</code>&nbsp;只灯泡可能有多少种不同的状态。</p>
+<p>房间中有 <code>n</code>&nbsp;只已经打开的灯泡，编号从 <code>1</code> 到 <code>n</code> 。墙上挂着 <strong>4 个开关</strong> 。</p>
 
-<p>假设这 <code>n</code> 只灯泡被编号为 [1, 2, 3 ..., n]，这 4 个按钮的功能如下：</p>
+<p>这 4 个开关各自都具有不同的功能，其中：</p>
 
-<ol>
-	<li>将所有灯泡的状态反转（即开变为关，关变为开）</li>
-	<li>将编号为偶数的灯泡的状态反转</li>
-	<li>将编号为奇数的灯泡的状态反转</li>
-	<li>将编号为 <code>3k+1</code> 的灯泡的状态反转（k = 0, 1, 2, ...)</li>
-</ol>
+<ul>
+	<li><strong>开关 1 ：</strong>反转当前所有灯的状态（即开变为关，关变为开）</li>
+	<li><strong>开关 2 ：</strong>反转编号为偶数的灯的状态（即 <code>2, 4, ...</code>）</li>
+	<li><strong>开关 3 ：</strong>反转编号为奇数的灯的状态（即 <code>1, 3, ...</code>）</li>
+	<li><strong>开关 4 ：</strong>反转编号为 <code>j = 3k + 1</code> 的灯的状态，其中 <code>k = 0, 1, 2, ...</code>（即 <code>1, 4, 7, 10, ...</code>）</li>
+</ul>
 
-<p><strong>示例 1:</strong></p>
+<p>你必须 <strong>恰好</strong> 按压开关 <code>presses</code> 次。每次按压，你都需要从 4 个开关中选出一个来执行按压操作。</p>
 
-<pre><strong>输入:</strong> n = 1, m = 1.
-<strong>输出:</strong> 2
-<strong>说明:</strong> 状态为: [开], [关]
+<p>给你两个整数 <code>n</code> 和 <code>presses</code> ，执行完所有按压之后，返回 <strong>不同可能状态</strong> 的数量。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 1, presses = 1
+<strong>输出：</strong>2
+<strong>解释：</strong>状态可以是：
+- 按压开关 1 ，[关]
+- 按压开关 2 ，[开]
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> n = 2, m = 1.
-<strong>输出:</strong> 3
-<strong>说明:</strong> 状态为: [开, 关], [关, 开], [关, 关]
+<pre>
+<strong>输入：</strong>n = 2, presses = 1
+<strong>输出：</strong>3
+<strong>解释：</strong>状态可以是：
+- 按压开关 1 ，[关, 关]
+- 按压开关 2 ，[开, 关]
+- 按压开关 3 ，[关, 开]
 </pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong>示例 3：</strong></p>
 
-<pre><strong>输入:</strong> n = 3, m = 1.
-<strong>输出:</strong> 4
-<strong>说明:</strong> 状态为: [关, 开, 关], [开, 关, 开], [关, 关, 关], [关, 开, 开].
+<pre>
+<strong>输入：</strong>n = 3, presses = 1
+<strong>输出：</strong>4
+<strong>解释：</strong>状态可以是：
+- 按压开关 1 ，[关, 关, 关]
+- 按压开关 2 ，[关, 开, 关]
+- 按压开关 3 ，[开, 关, 开]
+- 按压开关 4 ，[关, 开, 开]
 </pre>
 
-<p><strong>注意：</strong>&nbsp;<code>n</code>&nbsp;和&nbsp;<code>m</code> 都属于 [0, 1000].</p>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 1000</code></li>
+	<li><code>0 &lt;= presses &lt;= 1000</code></li>
+</ul>
 
 ## 解法
 

@@ -8,7 +8,7 @@
 
 <p>The <strong>same</strong> number may be chosen from <code>candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the frequency of at least one of the chosen numbers is different.</p>
 
-<p>It is <strong>guaranteed</strong> that the number of unique combinations that sum up to <code>target</code> is less than <code>150</code> combinations for the given input.</p>
+<p>The test cases are generated such that the number of unique combinations that sum up to <code>target</code> is less than <code>150</code> combinations for the given input.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -41,7 +41,7 @@ These are the only two combinations.
 
 <ul>
 	<li><code>1 &lt;= candidates.length &lt;= 30</code></li>
-	<li><code>1 &lt;= candidates[i] &lt;= 200</code></li>
+	<li><code>2 &lt;= candidates[i] &lt;= 40</code></li>
 	<li>All elements of <code>candidates</code> are <strong>distinct</strong>.</li>
 	<li><code>1 &lt;= target &lt;= 500</code></li>
 </ul>

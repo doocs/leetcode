@@ -31,8 +31,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= k &lt;= 100</code></li>
-	<li><code>0 &lt;= prices.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= k &lt;= 100</code></li>
+	<li><code>1 &lt;= prices.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
 </ul>
 
