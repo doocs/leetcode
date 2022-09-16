@@ -62,6 +62,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 优先队列（小根堆）**
+
+梯子最好用在高度差较大的地方，因此我们可以将所有的高度差存入优先队列中，每次取出最小的高度差，如果梯子不够用，则用砖块填补，如果砖块不够用，则返回当前位置。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `heights` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +75,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
+        h = []
+        for i, a in enumerate(heights[:-1]):
+            b = heights[i + 1]
+            d = b - a
+            if d > 0:
+                heappush(h, d)
+                if len(h) > ladders:
+                    bricks -= heappop(h)
+                    if bricks < 0:
+                        return i
+        return len(heights) - 1
 ```
 
 ### **Java**
@@ -77,7 +95,86 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int furthestBuilding(int[] heights, int bricks, int ladders) {
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        int n = heights.length;
+        for (int i = 0; i < n - 1; ++i) {
+            int a = heights[i], b = heights[i + 1];
+            int d = b - a;
+            if (d > 0) {
+                q.offer(d);
+                if (q.size() > ladders) {
+                    bricks -= q.poll();
+                    if (bricks < 0) {
+                        return i;
+                    }
+                }
+            }
+        }
+        return n - 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
+        priority_queue<int, vector<int>, greater<int>> q;
+        int n = heights.size();
+        for (int i = 0; i < n - 1; ++i) {
+            int a = heights[i], b = heights[i + 1];
+            int d = b - a;
+            if (d > 0) {
+                q.push(d);
+                if (q.size() > ladders) {
+                    bricks -= q.top();
+                    q.pop();
+                    if (bricks < 0) {
+                        return i;
+                    }
+                }
+            }
+        }
+        return n - 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func furthestBuilding(heights []int, bricks int, ladders int) int {
+	q := hp{}
+	n := len(heights)
+	for i, a := range heights[:n-1] {
+		b := heights[i+1]
+		d := b - a
+		if d > 0 {
+			heap.Push(&q, d)
+			if q.Len() > ladders {
+				bricks -= heap.Pop(&q).(int)
+				if bricks < 0 {
+					return i
+				}
+			}
+		}
+	}
+	return n - 1
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
 ```
 
 ### **...**
