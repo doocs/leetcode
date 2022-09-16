@@ -51,6 +51,8 @@
 
 两遍二分，分别查找出左边界和右边界。
 
+时间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+
 以下是二分查找的两个通用模板：
 
 模板 1：
@@ -111,7 +113,7 @@ class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         l = bisect_left(nums, target)
         r = bisect_left(nums, target + 1)
-        return [-1, -1] if l == len(nums) or l >= r else [l, r - 1]
+        return [-1, -1] if l == r else [l, r - 1]
 ```
 
 ### **Java**
@@ -123,14 +125,14 @@ class Solution {
     public int[] searchRange(int[] nums, int target) {
         int l = search(nums, target);
         int r = search(nums, target + 1);
-        return l == nums.length || l >= r ? new int[] {-1, -1} : new int[] {l, r - 1};
+        return l == r ? new int[] {-1, -1} : new int[] {l, r - 1};
     }
 
-    private int search(int[] nums, int target) {
+    private int search(int[] nums, int x) {
         int left = 0, right = nums.length;
         while (left < right) {
             int mid = (left + right) >>> 1;
-            if (nums[mid] >= target) {
+            if (nums[mid] >= x) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -149,7 +151,7 @@ public:
     vector<int> searchRange(vector<int>& nums, int target) {
         int l = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
         int r = lower_bound(nums.begin(), nums.end(), target + 1) - nums.begin();
-        if (l == nums.size() || l >= r) return {-1, -1};
+        if (l == r) return {-1, -1};
         return {l, r - 1};
     }
 };
@@ -164,12 +166,12 @@ public:
  * @return {number[]}
  */
 var searchRange = function (nums, target) {
-    function search(target) {
+    function search(x) {
         let left = 0,
             right = nums.length;
         while (left < right) {
             const mid = (left + right) >> 1;
-            if (nums[mid] >= target) {
+            if (nums[mid] >= x) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -179,7 +181,7 @@ var searchRange = function (nums, target) {
     }
     const l = search(target);
     const r = search(target + 1);
-    return l == nums.length || l >= r ? [-1, -1] : [l, r - 1];
+    return l == r ? [-1, -1] : [l, r - 1];
 };
 ```
 
@@ -187,23 +189,23 @@ var searchRange = function (nums, target) {
 
 ```go
 func searchRange(nums []int, target int) []int {
-	search := func(target int) int {
-		left, right := 0, len(nums)
-		for left < right {
-			mid := (left + right) >> 1
-			if nums[mid] >= target {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		return left
-	}
-	l, r := search(target), search(target+1)
-	if l == len(nums) || l >= r {
-		return []int{-1, -1}
-	}
-	return []int{l, r - 1}
+    search := func(x int) int {
+        left, right := 0, len(nums)
+        for left < right {
+            mid := (left + right) >> 1
+            if nums[mid] >= x {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+        return left
+    }
+    l, r := search(target), search(target+1)
+    if l == r {
+        return []int{-1, -1}
+    }
+    return []int{l, r - 1}
 }
 ```
 
@@ -213,12 +215,12 @@ func searchRange(nums []int, target int) []int {
 impl Solution {
     pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let n = nums.len();
-        let search = |target| {
+        let search = |x| {
             let mut left = 0;
             let mut right = n;
             while left < right {
                 let mid = left + (right - left) / 2;
-                if nums[mid] < target {
+                if nums[mid] < x {
                     left = mid + 1;
                 } else {
                     right = mid;
@@ -226,12 +228,12 @@ impl Solution {
             }
             left
         };
-        let start = search(target);
-        let end = search(target + 1) - 1;
-        if start >= n || nums[start] != target {
+        let l = search(target);
+        let r = search(target + 1);
+        if l == r {
             return vec![-1, -1];
         }
-        vec![start as i32, end as i32]
+        vec![l as i32, (r - 1) as i32]
     }
 }
 ```
@@ -240,12 +242,12 @@ impl Solution {
 
 ```ts
 function searchRange(nums: number[], target: number): number[] {
-    function search(target) {
+    function search(x) {
         let left = 0,
             right = nums.length;
         while (left < right) {
             const mid = (left + right) >> 1;
-            if (nums[mid] >= target) {
+            if (nums[mid] >= x) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -255,32 +257,7 @@ function searchRange(nums: number[], target: number): number[] {
     }
     const l = search(target);
     const r = search(target + 1);
-    return l == nums.length || l >= r ? [-1, -1] : [l, r - 1];
-}
-```
-
-```ts
-function searchRange(nums: number[], target: number): number[] {
-    const n = nums.length;
-    const search = (target: number) => {
-        let left = 0;
-        let right = n;
-        while (left < right) {
-            const mid = (left + right) >>> 1;
-            if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-        return left;
-    };
-    const start = search(target);
-    const end = search(target + 1) - 1;
-    if (nums[start] !== target) {
-        return [-1, -1];
-    }
-    return [start, end];
+    return l == r ? [-1, -1] : [l, r - 1];
 }
 ```
 
