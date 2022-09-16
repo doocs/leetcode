@@ -1,8 +1,5 @@
 class Node {
-    int l;
-    int r;
-    int cnt;
-    int len;
+    int l, r, cnt, length;
 }
 
 class SegmentTree {
@@ -10,8 +7,8 @@ class SegmentTree {
     private int[] nums;
 
     public SegmentTree(int[] nums) {
-        int n = nums.length - 1;
         this.nums = nums;
+        int n = nums.length - 1;
         tr = new Node[n << 2];
         for (int i = 0; i < tr.length; ++i) {
             tr[i] = new Node();
@@ -19,7 +16,7 @@ class SegmentTree {
         build(1, 0, n - 1);
     }
 
-    public void build(int u, int l, int r) {
+    private void build(int u, int l, int r) {
         tr[u].l = l;
         tr[u].r = r;
         if (l != r) {
@@ -44,18 +41,18 @@ class SegmentTree {
         pushup(u);
     }
 
-    public int query() {
-        return tr[1].len;
+    private void pushup(int u) {
+        if (tr[u].cnt > 0) {
+            tr[u].length = nums[tr[u].r + 1] - nums[tr[u].l];
+        } else if (tr[u].l == tr[u].r) {
+            tr[u].length = 0;
+        } else {
+            tr[u].length = tr[u << 1].length + tr[u << 1 | 1].length;
+        }
     }
 
-    public void pushup(int u) {
-        if (tr[u].cnt > 0) {
-            tr[u].len = nums[tr[u].r + 1] - nums[tr[u].l];
-        } else if (tr[u].l == tr[u].r) {
-            tr[u].len = 0;
-        } else {
-            tr[u].len = tr[u << 1].len + tr[u << 1 | 1].len;
-        }
+    public int query() {
+        return tr[1].length;
     }
 }
 
@@ -65,27 +62,29 @@ class Solution {
     public int rectangleArea(int[][] rectangles) {
         int n = rectangles.length;
         int[][] segs = new int[n << 1][4];
-        int idx = 0;
+        int i = 0;
         TreeSet<Integer> ts = new TreeSet<>();
-        for (int[] rect : rectangles) {
-            int x1 = rect[0], y1 = rect[1], x2 = rect[2], y2 = rect[3];
-            segs[idx++] = new int[] {x1, y1, y2, 1};
-            segs[idx++] = new int[] {x2, y1, y2, -1};
+        for (var e : rectangles) {
+            int x1 = e[0], y1 = e[1], x2 = e[2], y2 = e[3];
+            segs[i++] = new int[] {x1, y1, y2, 1};
+            segs[i++] = new int[] {x2, y1, y2, -1};
             ts.add(y1);
             ts.add(y2);
         }
-        Map<Integer, Integer> m = new HashMap<>();
+        Arrays.sort(segs, (a, b) -> a[0] - b[0]);
+        Map<Integer, Integer> m = new HashMap<>(ts.size());
+        i = 0;
         int[] nums = new int[ts.size()];
-        idx = 0;
         for (int v : ts) {
-            nums[idx] = v;
-            m.put(v, idx++);
+            m.put(v, i);
+            nums[i++] = v;
         }
-        Arrays.sort(segs, Comparator.comparingInt(a -> a[0]));
+        
         SegmentTree tree = new SegmentTree(nums);
         long ans = 0;
-        for (int i = 0; i < segs.length; ++i) {
-            int x = segs[i][0], y1 = segs[i][1], y2 = segs[i][2], k = segs[i][3];
+        for (i = 0; i < segs.length; ++i) {
+            var e = segs[i];
+            int x = e[0], y1 = e[1], y2 = e[2], k = e[3];
             if (i > 0) {
                 ans += (long) tree.query() * (x - segs[i - 1][0]);
             }

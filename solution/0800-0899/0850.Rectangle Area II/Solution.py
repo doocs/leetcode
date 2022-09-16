@@ -1,9 +1,7 @@
 class Node:
     def __init__(self):
-        self.l = 0
-        self.r = 0
-        self.cnt = 0
-        self.length = 0
+        self.l = self.r = 0
+        self.cnt = self.length = 0
 
 
 class SegmentTree:
@@ -33,11 +31,13 @@ class SegmentTree:
 
     def pushup(self, u):
         if self.tr[u].cnt:
-            self.tr[u].length = self.nums[self.tr[u].r + 1] - self.nums[self.tr[u].l]
+            self.tr[u].length = self.nums[self.tr[u].r + 1] - \
+                self.nums[self.tr[u].l]
         elif self.tr[u].l == self.tr[u].r:
             self.tr[u].length = 0
         else:
-            self.tr[u].length = self.tr[u << 1].length + self.tr[u << 1 | 1].length
+            self.tr[u].length = self.tr[u << 1].length + \
+                self.tr[u << 1 | 1].length
 
     @property
     def length(self):
@@ -51,15 +51,15 @@ class Solution:
         for x1, y1, x2, y2 in rectangles:
             segs.append((x1, y1, y2, 1))
             segs.append((x2, y1, y2, -1))
-            alls.add(y1)
-            alls.add(y2)
-        alls = sorted(alls)
-        m = {v: i for i, v in enumerate(alls)}
-        tree = SegmentTree(alls)
+            alls.update([y1, y2])
+
         segs.sort()
+        alls = sorted(alls)
+        tree = SegmentTree(alls)
+        m = {v: i for i, v in enumerate(alls)}
         ans = 0
         for i, (x, y1, y2, k) in enumerate(segs):
-            if i > 0:
+            if i:
                 ans += tree.length * (x - segs[i - 1][0])
             tree.modify(1, m[y1], m[y2] - 1, k)
         ans %= int(1e9 + 7)
