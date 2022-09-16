@@ -44,7 +44,10 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+**方法一：递归**  
+1. 以preorder的第一个元素或postorder的最后一个元素为根节点的值  
+2. 以preorder的第二个元素作为左子树的根节点，在postorder中找到该元素的索引i，然后基于索引i可以计算出左右子树的长度  
+3. 最后基于左右子树的长度，分别划分出前序和后序遍历序列中的左右子树，递归构造左右子树即可  
 
 <!-- tabs:start -->
 
@@ -80,12 +83,78 @@ class Solution:
                 return root
 ```
 
-### **Java**
+### **Go**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```java
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
+	postMap := make(map[int]int)
+	for index, v := range postorder {
+		postMap[v] = index
+	}
+	var dfs func(prel, prer, postl, postr int) *TreeNode
+	dfs = func(prel, prer, postl, postr int) *TreeNode {
+		if prel > prer {
+			return nil
+		}
+		root := &TreeNode{Val: preorder[prel]}
+		if prel == prer {
+			return root
+		}
+		leftRootIndex := postMap[preorder[prel+1]]
+		leftLength := leftRootIndex - postl + 1
+		root.Left = dfs(prel+1, prel+leftLength, postl, leftRootIndex)
+		root.Right = dfs(prel+leftLength+1, prer, leftRootIndex+1, postr-1)
+		return root
+	}
+	return dfs(0, len(preorder)-1, 0, len(postorder)-1)
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_map<int, int> postMap;
+    TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
+        for (int i = 0; i < postorder.size(); i++) {
+            postMap[postorder[i]] = i;
+        }
+        return build(preorder, 0, preorder.size() - 1, postorder, 0, postorder.size() - 1);
+    }
+
+    TreeNode* build(vector<int>& preorder, int prel, int prer, vector<int>& postorder, int postl, int postr) {
+        if (prel > prer) return nullptr;
+        TreeNode* root = new TreeNode(preorder[prel]);
+        if (prel == prer) return root;
+        int leftRootIndex = postMap[preorder[prel + 1]];
+        int leftLength = leftRootIndex - postl + 1;
+        root->left = build(preorder, prel + 1, prel + leftLength, postorder, postl, leftRootIndex);
+        root->right = build(preorder, prel + leftLength + 1, prer, postorder, leftRootIndex + 1, postr - 1);
+        return root;
+    }
+};
 ```
 
 ### **...**
