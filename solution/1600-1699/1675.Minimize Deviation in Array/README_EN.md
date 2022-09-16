@@ -65,13 +65,117 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumDeviation(self, nums: List[int]) -> int:
+        h = []
+        mi = inf
+        for v in nums:
+            if v & 1:
+                v <<= 1
+            h.append(-v)
+            mi = min(mi, v)
+        heapify(h)
+        ans = -h[0] - mi
+        while h[0] % 2 == 0:
+            x = heappop(h) // 2
+            heappush(h, x)
+            mi = min(mi, -x)
+            ans = min(ans, -h[0] - mi)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumDeviation(int[] nums) {
+        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> b - a);
+        int mi = Integer.MAX_VALUE;
+        for (int v : nums) {
+            if (v % 2 == 1) {
+                v <<= 1;
+            }
+            q.offer(v);
+            mi = Math.min(mi, v);
+        }
+        int ans = q.peek() - mi;
+        while (q.peek() % 2 == 0) {
+            int x = q.poll() / 2;
+            q.offer(x);
+            mi = Math.min(mi, x);
+            ans = Math.min(ans, q.peek() - mi);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumDeviation(vector<int>& nums) {
+        int mi = INT_MAX;
+        priority_queue<int> pq;
+        for (int v : nums) {
+            if (v & 1) v <<= 1;
+            pq.push(v);
+            mi = min(mi, v);
+        }
+        int ans = pq.top() - mi;
+        while (pq.top() % 2 == 0) {
+            int x = pq.top() >> 1;
+            pq.pop();
+            pq.push(x);
+            mi = min(mi, x);
+            ans = min(ans, pq.top() - mi);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumDeviation(nums []int) int {
+	q := hp{}
+	mi := math.MaxInt32
+	for _, v := range nums {
+		if v%2 == 1 {
+			v <<= 1
+		}
+		heap.Push(&q, v)
+		mi = min(mi, v)
+	}
+	ans := q.IntSlice[0] - mi
+	for q.IntSlice[0]%2 == 0 {
+		x := heap.Pop(&q).(int) >> 1
+		heap.Push(&q, x)
+		mi = min(mi, x)
+		ans = min(ans, q.IntSlice[0]-mi)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 ```
 
 ### **...**
