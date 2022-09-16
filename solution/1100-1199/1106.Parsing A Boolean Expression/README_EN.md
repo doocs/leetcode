@@ -4,38 +4,48 @@
 
 ## Description
 
-<p>Return the result of evaluating a given boolean <code>expression</code>, represented as a string.</p>
-
-<p>An expression can either be:</p>
+<p>A <strong>boolean expression</strong> is an expression that evaluates to either <code>true</code> or <code>false</code>. It can be in one of the following shapes:</p>
 
 <ul>
-	<li><code>&quot;t&quot;</code>, evaluating to <code>True</code>;</li>
-	<li><code>&quot;f&quot;</code>, evaluating to <code>False</code>;</li>
-	<li><code>&quot;!(expr)&quot;</code>, evaluating to the logical NOT of the inner expression <code>expr</code>;</li>
-	<li><code>&quot;&amp;(expr1,expr2,...)&quot;</code>, evaluating to the logical AND of 2 or more inner expressions <code>expr1, expr2, ...</code>;</li>
-	<li><code>&quot;|(expr1,expr2,...)&quot;</code>, evaluating to the logical OR of 2 or more inner expressions <code>expr1, expr2, ...</code></li>
+	<li><code>&#39;t&#39;</code> that evaluates to <code>true</code>.</li>
+	<li><code>&#39;f&#39;</code> that evaluates to <code>false</code>.</li>
+	<li><code>&#39;!(subExpr)&#39;</code> that evaluates to <strong>the logical NOT</strong> of the inner expression <code>subExpr</code>.</li>
+	<li><code>&#39;&amp;(subExpr<sub>1</sub>, subExpr<sub>2</sub>, ..., subExpr<sub>n</sub>)&#39;</code> that evaluates to <strong>the logical AND</strong> of the inner expressions <code>subExpr<sub>1</sub>, subExpr<sub>2</sub>, ..., subExpr<sub>n</sub></code> where <code>n &gt;= 1</code>.</li>
+	<li><code>&#39;|(subExpr<sub>1</sub>, subExpr<sub>2</sub>, ..., subExpr<sub>n</sub>)&#39;</code> that evaluates to <strong>the logical OR</strong> of the inner expressions <code>subExpr<sub>1</sub>, subExpr<sub>2</sub>, ..., subExpr<sub>n</sub></code> where <code>n &gt;= 1</code>.</li>
 </ul>
 
+<p>Given a string <code>expression</code> that represents a <strong>boolean expression</strong>, return <em>the evaluation of that expression</em>.</p>
+
+<p>It is <strong>guaranteed</strong> that the given expression is valid and follows the given rules.</p>
+
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> expression = &quot;!(f)&quot;
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> expression = &quot;|(f,t)&quot;
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> expression = &quot;&amp;(t,f)&quot;
+<strong>Input:</strong> expression = &quot;&amp;(|(f))&quot;
 <strong>Output:</strong> false
+<strong>Explanation:</strong> 
+First, evaluate |(f) --&gt; f. The expression is now &quot;&amp;(f)&quot;.
+Then, evaluate &amp;(f) --&gt; f. The expression is now &quot;f&quot;.
+Finally, return false.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> expression = &quot;|(f,f,f,t)&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> The evaluation of (false OR false OR false OR true) is true.
+</pre>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> expression = &quot;!(&amp;(f,t))&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> 
+First, evaluate &amp;(f,t) --&gt; (false AND true) --&gt; false --&gt; f. The expression is now &quot;!(f)&quot;.
+Then, evaluate !(f) --&gt; NOT false --&gt; true. We return true.
 </pre>
 
 <p>&nbsp;</p>
@@ -43,8 +53,7 @@
 
 <ul>
 	<li><code>1 &lt;= expression.length &lt;= 2 * 10<sup>4</sup></code></li>
-	<li><code>expression[i]</code> consists of characters in <code>{&#39;(&#39;, &#39;)&#39;, &#39;&amp;&#39;, &#39;|&#39;, &#39;!&#39;, &#39;t&#39;, &#39;f&#39;, &#39;,&#39;}</code>.</li>
-	<li><code>expression</code> is a valid expression representing a boolean, as given in the description.</li>
+	<li>expression[i] is one following characters: <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;&amp;&#39;</code>, <code>&#39;|&#39;</code>, <code>&#39;!&#39;</code>, <code>&#39;t&#39;</code>, <code>&#39;f&#39;</code>, and <code>&#39;,&#39;</code>.</li>
 </ul>
 
 ## Solutions

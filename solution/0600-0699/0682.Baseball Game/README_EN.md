@@ -4,18 +4,36 @@
 
 ## Description
 
-<p>You are keeping score for a baseball game with strange rules. The game consists of several rounds, where the scores of past rounds may affect future rounds&#39; scores.</p>
+<p>You are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.</p>
 
-<p>At the beginning of the game, you start with an empty record. You are given a list of strings <code>ops</code>, where <code>ops[i]</code> is the <code>i<sup>th</sup></code> operation you must apply to the record and is one of the following:</p>
+<p>You are given a list of strings <code>operations</code>, where <code>operations[i]</code> is the <code>i<sup>th</sup></code> operation you must apply to the record and is one of the following:</p>
 
-<ol>
-	<li>An integer <code>x</code> - Record a new score of <code>x</code>.</li>
-	<li><code>&quot;+&quot;</code> - Record a new score that is the sum of the previous two scores. It is guaranteed there will always be two previous scores.</li>
-	<li><code>&quot;D&quot;</code> - Record a new score that is double the previous score. It is guaranteed there will always be a previous score.</li>
-	<li><code>&quot;C&quot;</code> - Invalidate the previous score, removing it from the record. It is guaranteed there will always be a previous score.</li>
-</ol>
+<ul>
+	<li>An integer <code>x</code>.
+    <ul>
+    	<li>Record a new score of <code>x</code>.</li>
+    </ul>
+    </li>
+    <li><code>&#39;+&#39;</code>.
+    <ul>
+    	<li>Record a new score that is the sum of the previous two scores.</li>
+    </ul>
+    </li>
+    <li><code>&#39;D&#39;</code>.
+    <ul>
+    	<li>Record a new score that is the double of the previous score.</li>
+    </ul>
+    </li>
+    <li><code>&#39;C&#39;</code>.
+    <ul>
+    	<li>Invalidate the previous score, removing it from the record.</li>
+    </ul>
+    </li>
+</ul>
 
-<p>Return <em>the sum of all the scores on the record</em>. The test cases are generated so that the answer fits in a 32-bit integer.</p>
+<p>Return <em>the sum of all the scores on the record after applying all the operations</em>.</p>
+
+<p>The test cases are generated such that the answer and all intermediate calculations fit in a <strong>32-bit</strong> integer and that all operations are valid.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -64,8 +82,8 @@ Since the record is empty, the total sum is 0.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= ops.length &lt;= 1000</code></li>
-	<li><code>ops[i]</code> is <code>&quot;C&quot;</code>, <code>&quot;D&quot;</code>, <code>&quot;+&quot;</code>, or a string representing an integer in the range <code>[-3 * 10<sup>4</sup>, 3 * 10<sup>4</sup>]</code>.</li>
+	<li><code>1 &lt;= operations.length &lt;= 1000</code></li>
+	<li><code>operations[i]</code> is <code>&quot;C&quot;</code>, <code>&quot;D&quot;</code>, <code>&quot;+&quot;</code>, or a string representing an integer in the range <code>[-3 * 10<sup>4</sup>, 3 * 10<sup>4</sup>]</code>.</li>
 	<li>For operation <code>&quot;+&quot;</code>, there will always be at least two previous scores on the record.</li>
 	<li>For operations <code>&quot;C&quot;</code> and <code>&quot;D&quot;</code>, there will always be at least one previous score on the record.</li>
 </ul>

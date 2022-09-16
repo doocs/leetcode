@@ -197,7 +197,7 @@ class Solution {
             m.put(v, i);
             nums[i++] = v;
         }
-        
+
         SegmentTree tree = new SegmentTree(nums);
         long ans = 0;
         for (i = 0; i < segs.length; ++i) {

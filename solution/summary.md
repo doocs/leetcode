@@ -2455,3 +2455,4 @@
   - [2405.子字符串的最优划分](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md)
   - [2406.将区间分为最少组数](/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README.md)
   - [2407.最长递增子序列 II](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md)
+  - [2408.Design SQL](/solution/2400-2499/2408.Design%20SQL/README.md)

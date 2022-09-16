@@ -2455,3 +2455,4 @@
   - [2405.Optimal Partition of String](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README_EN.md)
   - [2406.Divide Intervals Into Minimum Number of Groups](/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README_EN.md)
   - [2407.Longest Increasing Subsequence II](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README_EN.md)
+  - [2408.Design SQL](/solution/2400-2499/2408.Design%20SQL/README_EN.md)
