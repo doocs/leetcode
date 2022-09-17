@@ -63,13 +63,102 @@ After that, there are fewer than two non-empty piles, so the game ends.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumScore(self, a: int, b: int, c: int) -> int:
+        h = [-a, -b, -c]
+        heapify(h)
+        ans = 0
+        while 1:
+            a, b = heappop(h), heappop(h)
+            if b == 0:
+                break
+            heappush(h, a + 1)
+            heappush(h, b + 1)
+            ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maximumScore(int a, int b, int c) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);
+        pq.offer(a);
+        pq.offer(b);
+        pq.offer(c);
+        int ans = 0;
+        while (true) {
+            int x = pq.poll(), y = pq.poll();
+            if (y == 0) {
+                break;
+            }
+            pq.offer(x - 1);
+            pq.offer(y - 1);
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumScore(int a, int b, int c) {
+        priority_queue<int> pq;
+        pq.push(a);
+        pq.push(b);
+        pq.push(c);
+        int ans = 0;
+        while (1) {
+            a = pq.top(), pq.pop();
+            b = pq.top(), pq.pop();
+            if (b == 0) {
+                break;
+            }
+            pq.push(a - 1);
+            pq.push(b - 1);
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumScore(a int, b int, c int) int {
+	q := hp{[]int{a, b, c}}
+	ans := 0
+	for {
+		a = q.IntSlice[0]
+		heap.Pop(&q)
+		b = q.IntSlice[0]
+		heap.Pop(&q)
+		if b == 0 {
+			break
+		}
+		heap.Push(&q, a-1)
+		heap.Push(&q, b-1)
+		ans++
+	}
+	return ans
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 ```
 
 ### **...**
