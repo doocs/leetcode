@@ -1,69 +1,57 @@
-var p []int
-var size []int
-var n int
-var mx int
-
 func largestIsland(grid [][]int) int {
-	n, mx = len(grid), 1
-	p = make([]int, n*n)
-	size = make([]int, n*n)
-	for i := 0; i < len(p); i++ {
+	n := len(grid)
+	p := make([]int, n*n)
+	size := make([]int, n*n)
+	for i := range p {
 		p[i] = i
 		size[i] = 1
 	}
-
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-	for i := 0; i < n; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				for _, e := range dirs {
-					if check(i+e[0], j+e[1], grid) {
-						union(i*n+j, (i+e[0])*n+j+e[1])
-					}
-				}
-			}
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
 		}
+		return p[x]
 	}
-	res := mx
-	for i := 0; i < n; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 0 {
-				t := 1
-				s := make(map[int]bool)
-				for _, e := range dirs {
-					if check(i+e[0], j+e[1], grid) {
-						root := find((i+e[0])*n + j + e[1])
-						if !s[root] {
-							t += size[root]
-							s[root] = true
+	dirs := []int{-1, 0, 1, 0, -1}
+	ans := 1
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 1 {
+				for k := 0; k < 4; k++ {
+					x, y := i+dirs[k], j+dirs[k+1]
+					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 {
+						pa, pb := find(x*n+y), find(i*n+j)
+						if pa != pb {
+							p[pa] = pb
+							size[pb] += size[pa]
+							ans = max(ans, size[pb])
 						}
 					}
 				}
-				res = max(res, t)
 			}
 		}
 	}
-	return res
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 0 {
+				t := 1
+				vis := map[int]struct{}{}
+				for k := 0; k < 4; k++ {
+					x, y := i+dirs[k], j+dirs[k+1]
+					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 {
+						root := find(x*n + y)
+						if _, ok := vis[root]; !ok {
+							vis[root] = struct{}{}
+							t += size[root]
+						}
+					}
+				}
+				ans = max(ans, t)
+			}
+		}
 	}
-	return p[x]
-}
-
-func union(a, b int) {
-	pa, pb := find(a), find(b)
-	if pa != pb {
-		size[pb] += size[pa]
-		mx = max(mx, size[pb])
-		p[pa] = pb
-	}
-}
-
-func check(i, j int, grid [][]int) bool {
-	return i >= 0 && i < n && j >= 0 && j < n && grid[i][j] == 1
+	return ans
 }
 
 func max(a, b int) int {

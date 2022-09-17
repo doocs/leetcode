@@ -68,10 +68,6 @@ Union find.
 ```python
 class Solution:
     def largestIsland(self, grid: List[List[int]]) -> int:
-        n = len(grid)
-        p = list(range(n * n))
-        size = [1] * (n * n)
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -79,34 +75,36 @@ class Solution:
 
         def union(a, b):
             pa, pb = find(a), find(b)
-            if pa != pb:
-                size[pb] += size[pa]
-                p[pa] = pb
+            if pa == pb:
+                return
+            p[pa] = pb
+            size[pb] += size[pa]
 
-        def check(i, j):
-            return 0 <= i < n and 0 <= j < n and grid[i][j] == 1
-
-        for i in range(n):
-            for j in range(n):
-                if grid[i][j] == 1:
-                    for x, y in [[1, 0], [0, 1]]:
-                        if check(i + x, j + y):
-                            union(i * n + j, (i + x) * n + j + y)
-
-        res = max(size)
-        for i in range(n):
-            for j in range(n):
-                if grid[i][j] == 0:
+        n = len(grid)
+        p = list(range(n * n))
+        size = [1] * (n * n)
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                if v:
+                    for a, b in [[0, -1], [-1, 0]]:
+                        x, y = i + a, j + b
+                        if 0 <= x < n and 0 <= y < n and grid[x][y]:
+                            union(x * n + y, i * n + j)
+        ans = max(size)
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                if v == 0:
+                    vis = set()
                     t = 1
-                    s = set()
-                    for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                        if check(i + x, j + y):
-                            root = find((i + x) * n + j + y)
-                            if root not in s:
+                    for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                        x, y = i + a, j + b
+                        if 0 <= x < n and 0 <= y < n and grid[x][y]:
+                            root = find(x * n + y)
+                            if root not in vis:
+                                vis.add(root)
                                 t += size[root]
-                                s.add(root)
-                    res = max(res, t)
-        return res
+                    ans = max(ans, t)
+        return ans
 ```
 
 ### **Java**
@@ -116,14 +114,11 @@ class Solution {
     private int n;
     private int[] p;
     private int[] size;
-    private int mx;
-    private int[][] grid;
-    private int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    private int ans = 1;
+    private int[] dirs = new int[] {-1, 0, 1, 0, -1};
 
     public int largestIsland(int[][] grid) {
         n = grid.length;
-        mx = 1;
-        this.grid = grid;
         p = new int[n * n];
         size = new int[n * n];
         for (int i = 0; i < p.length; ++i) {
@@ -133,34 +128,41 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
-                    for (int[] e : dirs) {
-                        if (check(i + e[0], j + e[1])) {
-                            union(i * n + j, (i + e[0]) * n + j + e[1]);
+                    for (int k = 0; k < 4; ++k) {
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
+                            int pa = find(x * n + y), pb = find(i * n + j);
+                            if (pa == pb) {
+                                continue;
+                            }
+                            p[pa] = pb;
+                            size[pb] += size[pa];
+                            ans = Math.max(ans, size[pb]);
                         }
                     }
                 }
             }
         }
-        int res = mx;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 0) {
                     int t = 1;
-                    Set<Integer> s = new HashSet<>();
-                    for (int[] e : dirs) {
-                        if (check(i + e[0], j + e[1])) {
-                            int root = find((i + e[0]) * n + j + e[1]);
-                            if (!s.contains(root)) {
+                    Set<Integer> vis = new HashSet<>();
+                    for (int k = 0; k < 4; ++k) {
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
+                            int root = find(x * n + y);
+                            if (!vis.contains(root)) {
+                                vis.add(root);
                                 t += size[root];
-                                s.add(root);
                             }
                         }
                     }
-                    res = Math.max(res, t);
+                    ans = Math.max(ans, t);
                 }
             }
         }
-        return res;
+        return ans;
     }
 
     private int find(int x) {
@@ -168,19 +170,6 @@ class Solution {
             p[x] = find(p[x]);
         }
         return p[x];
-    }
-
-    private void union(int a, int b) {
-        int pa = find(a), pb = find(b);
-        if (pa != pb) {
-            size[pb] += size[pa];
-            mx = Math.max(mx, size[pb]);
-            p[pa] = pb;
-        }
-    }
-
-    private boolean check(int i, int j) {
-        return i >= 0 && i < n && j >= 0 && j < n && grid[i][j] == 1;
     }
 }
 ```
@@ -190,67 +179,59 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-    vector<int> size;
-    int n, mx;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    const static inline vector<int> dirs = {-1, 0, 1, 0, -1};
 
     int largestIsland(vector<vector<int>>& grid) {
-        n = grid.size();
-        mx = 1;
-        p.resize(n * n);
-        size.resize(n * n);
-        for (int i = 0; i < p.size(); ++i) {
-            p[i] = i;
-            size[i] = 1;
-        }
+        int n = grid.size();
+        vector<int> p(n * n);
+        vector<int> size(n * n, 1);
+        iota(p.begin(), p.end(), 0);
+
+        function<int(int)> find;
+        find = [&](int x) {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+
+        int ans = 1;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    for (auto e : dirs) {
-                        if (check(i + e[0], j + e[1], grid)) unite(i * n + j, (i + e[0]) * n + j + e[1]);
+                if (grid[i][j]) {
+                    for (int k = 0; k < 4; ++k) {
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y]) {
+                            int pa = find(x * n + y), pb = find(i * n + j);
+                            if (pa == pb) continue;
+                            p[pa] = pb;
+                            size[pb] += size[pa];
+                            ans = max(ans,size[pb]);
+                        }
                     }
                 }
             }
         }
-        int res = mx;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 0) {
+                if (!grid[i][j]) {
                     int t = 1;
-                    unordered_set<int> s;
-                    for (auto e : dirs) {
-                        if (check(i + e[0], j + e[1], grid)) {
-                            int root = find((i + e[0]) * n + j + e[1]);
-                            if (!s.count(root)) {
+                    unordered_set<int> vis;
+                    for (int k = 0; k < 4; ++k) {
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y]) {
+                            int root = find(x * n + y);
+                            if (!vis.count(root)) {
+                                vis.insert(root);
                                 t += size[root];
-                                s.insert(root);
                             }
                         }
                     }
-                    res = max(res, t);
+                    ans = max(ans, t);
                 }
             }
         }
-        return res;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
-    }
-
-    void unite(int a, int b) {
-        int pa = find(a), pb = find(b);
-        if (pa != pb) {
-            size[pb] += size[pa];
-            mx = max(mx, size[pb]);
-            p[pa] = pb;
-        }
-    }
-
-    bool check(int i, int j, vector<vector<int>>& grid) {
-        return i >= 0 && i < n && j >= 0 && j < n && grid[i][j] == 1;
+        return ans;
     }
 };
 ```
@@ -258,72 +239,60 @@ public:
 ### **Go**
 
 ```go
-var p []int
-var size []int
-var n int
-var mx int
-
 func largestIsland(grid [][]int) int {
-	n, mx = len(grid), 1
-	p = make([]int, n*n)
-	size = make([]int, n*n)
-	for i := 0; i < len(p); i++ {
+	n := len(grid)
+	p := make([]int, n*n)
+	size := make([]int, n*n)
+	for i := range p {
 		p[i] = i
 		size[i] = 1
 	}
-
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-	for i := 0; i < n; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				for _, e := range dirs {
-					if check(i+e[0], j+e[1], grid) {
-						union(i*n+j, (i+e[0])*n+j+e[1])
-					}
-				}
-			}
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
 		}
+		return p[x]
 	}
-	res := mx
-	for i := 0; i < n; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 0 {
-				t := 1
-				s := make(map[int]bool)
-				for _, e := range dirs {
-					if check(i+e[0], j+e[1], grid) {
-						root := find((i+e[0])*n + j + e[1])
-						if !s[root] {
-							t += size[root]
-							s[root] = true
+	dirs := []int{-1, 0, 1, 0, -1}
+	ans := 1
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 1 {
+				for k := 0; k < 4; k++ {
+					x, y := i+dirs[k], j+dirs[k+1]
+					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 {
+						pa, pb := find(x*n+y), find(i*n+j)
+						if pa != pb {
+							p[pa] = pb
+							size[pb] += size[pa]
+							ans = max(ans, size[pb])
 						}
 					}
 				}
-				res = max(res, t)
 			}
 		}
 	}
-	return res
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 0 {
+				t := 1
+				vis := map[int]struct{}{}
+				for k := 0; k < 4; k++ {
+					x, y := i+dirs[k], j+dirs[k+1]
+					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1 {
+						root := find(x*n + y)
+						if _, ok := vis[root]; !ok {
+							vis[root] = struct{}{}
+							t += size[root]
+						}
+					}
+				}
+				ans = max(ans, t)
+			}
+		}
 	}
-	return p[x]
-}
-
-func union(a, b int) {
-	pa, pb := find(a), find(b)
-	if pa != pb {
-		size[pb] += size[pa]
-		mx = max(mx, size[pb])
-		p[pa] = pb
-	}
-}
-
-func check(i, j int, grid [][]int) bool {
-	return i >= 0 && i < n && j >= 0 && j < n && grid[i][j] == 1
+	return ans
 }
 
 func max(a, b int) int {
