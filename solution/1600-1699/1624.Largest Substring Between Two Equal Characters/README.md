@@ -151,6 +151,71 @@ func max(a, b int) int {
 }
 ```
 
+### **C**
+
+```c
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+
+int maxLengthBetweenEqualCharacters(char *s) {
+    int pos[26];
+    memset(pos, -1, sizeof(pos));
+    int n = strlen(s);
+    int res = -1;
+    for (int i = 0; i < n; i++) {
+        char c = s[i];
+        int j = c - 'a';
+        if (pos[j] == -1) {
+            pos[j] = i;
+        } else {
+            res = max(res, i - pos[j] - 1);
+        }
+    }
+    return res;
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxLengthBetweenEqualCharacters(s: string): number {
+    const n = s.length;
+    const pos = new Array(26).fill(-1);
+    let res = -1;
+    for (let i = 0; i < n; i++) {
+        const j = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        if (pos[j] === -1) {
+            pos[j] = i;
+        } else {
+            res = Math.max(res, i - pos[j] - 1);
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_length_between_equal_characters(s: String) -> i32 {
+        let s = s.as_bytes();
+        let n = s.len();
+        let mut pos = [-1; 26];
+        let mut res = -1;
+        for i in 0..n {
+            let j = (s[i] - b'a') as usize;
+            let i = i as i32;
+            if pos[j] == -1 {
+                pos[j] = i;
+            } else {
+                res = res.max(i - pos[j] - 1);
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
