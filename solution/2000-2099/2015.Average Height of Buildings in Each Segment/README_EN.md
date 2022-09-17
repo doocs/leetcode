@@ -79,13 +79,136 @@ We cannot group the segments together because an empty space with no buildings s
 ### **Python3**
 
 ```python
-
+class Solution:
+    def averageHeightOfBuildings(self, buildings: List[List[int]]) -> List[List[int]]:
+        height = defaultdict(int)
+        cnt = defaultdict(int)
+        for s, e, h in buildings:
+            cnt[s] += 1
+            cnt[e] -= 1
+            height[s] += h
+            height[e] -= h
+        ans = []
+        i = h = n = 0
+        for j in sorted(cnt.keys()):
+            if n:
+                t = [i, j, h // n]
+                if ans and ans[-1][1] == i and ans[-1][2] == t[-1]:
+                    ans[-1][1] = j
+                else:
+                    ans.append(t)
+            i = j
+            h += height[j]
+            n += cnt[j]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[][] averageHeightOfBuildings(int[][] buildings) {
+        TreeMap<Integer, Integer> height = new TreeMap<>();
+        TreeMap<Integer, Integer> cnt = new TreeMap<>();
+        for (var v : buildings) {
+            int s = v[0], e = v[1], h = v[2];
+            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+            cnt.put(e, cnt.getOrDefault(e, 0) - 1);
+            height.put(s, height.getOrDefault(s, 0) + h);
+            height.put(e, height.getOrDefault(e, 0) - h);
+        }
+        int i = 0, h = 0, n = 0;
+        List<int[]> res = new ArrayList<>();
+        for (int j : cnt.keySet()) {
+            if (n > 0) {
+                int[] t = new int[] {i, j, h / n};
+                int k = res.size() - 1;
+                if (k >= 0 && res.get(k)[1] == i && res.get(k)[2] == t[2]) {
+                    res.get(k)[1] = j;
+                } else {
+                    res.add(t);
+                }
+            }
+            h += height.get(j);
+            n += cnt.get(j);
+            i = j;
+        }
+        int[][] ans = new int[res.size()][3];
+        for (i = 0; i < ans.length; ++i) {
+            ans[i] = res.get(i);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> averageHeightOfBuildings(vector<vector<int>>& buildings) {
+        map<int, int> height, cnt;
+        for (auto& v : buildings) {
+            int s = v[0], e = v[1], h = v[2];
+            cnt[s]++, cnt[e]--;
+            height[s] += h, height[e] -= h;
+        }
+        vector<vector<int>> ans;
+        int i = 0, h = 0, n = 0;
+        for (auto& [j, _] : cnt) {
+            if (n) {
+                vector<int> t = {i, j, h / n};
+                if (ans.size() && ans.back()[1] == i && ans.back()[2] == t[2]) {
+                    ans.back()[1] = j;
+                } else {
+                    ans.push_back(t);
+                }
+            }
+            i = j;
+            h += height[j];
+            n += cnt[j];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func averageHeightOfBuildings(buildings [][]int) [][]int {
+	height := make(map[int]int)
+	cnt := make(map[int]int)
+	for _, v := range buildings {
+		s, e, h := v[0], v[1], v[2]
+		cnt[s]++
+		cnt[e]--
+		height[s] += h
+		height[e] -= h
+	}
+	keys := make([]int, len(cnt))
+	for k := range cnt {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+	i, h, n := 0, 0, 0
+	ans := [][]int{}
+	for _, j := range keys {
+		if n > 0 {
+			t := []int{i, j, h / n}
+			if len(ans) > 0 && ans[len(ans)-1][1] == i && ans[len(ans)-1][2] == t[2] {
+				ans[len(ans)-1][1] = j
+			} else {
+				ans = append(ans, t)
+			}
+		}
+		i = j
+		h += height[j]
+		n += cnt[j]
+	}
+	return ans
+}
 ```
 
 ### **...**
