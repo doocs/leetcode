@@ -44,6 +44,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接比较前两条边的点**
+
+中心点的特点是，它与其他所有点都相连，因此只要比较前两条边的点，如果有相同的点，那么这个点就是中心点。
+
+时间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -119,6 +125,20 @@ impl Solution {
         edges[0][1]
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var findCenter = function (edges) {
+    const [a, b] = edges[0];
+    const [c, d] = edges[1];
+    return a == c || a == d ? a : b;
+};
 ```
 
 ### **...**
