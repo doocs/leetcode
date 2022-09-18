@@ -1,10 +1,10 @@
-# [1460. Make Two Arrays Equal by Reversing Sub-arrays](https://leetcode.com/problems/make-two-arrays-equal-by-reversing-sub-arrays)
+# [1460. Make Two Arrays Equal by Reversing Subarrays](https://leetcode.com/problems/make-two-arrays-equal-by-reversing-subarrays)
 
-[中文文档](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Sub-arrays/README.md)
+[中文文档](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README.md)
 
 ## Description
 
-<p>You are given two integer arrays of equal length <code>target</code> and <code>arr</code>. In one step, you can select any <strong>non-empty sub-array</strong> of <code>arr</code> and reverse it. You are allowed to make any number of steps.</p>
+<p>You are given two integer arrays of equal length <code>target</code> and <code>arr</code>. In one step, you can select any <strong>non-empty subarray</strong> of <code>arr</code> and reverse it. You are allowed to make any number of steps.</p>
 
 <p>Return <code>true</code> <em>if you can make </em><code>arr</code><em> equal to </em><code>target</code><em>&nbsp;or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -15,9 +15,9 @@
 <strong>Input:</strong> target = [1,2,3,4], arr = [2,4,1,3]
 <strong>Output:</strong> true
 <strong>Explanation:</strong> You can follow the next steps to convert arr to target:
-1- Reverse sub-array [2,4,1], arr becomes [1,4,2,3]
-2- Reverse sub-array [4,2], arr becomes [1,2,4,3]
-3- Reverse sub-array [4,3], arr becomes [1,2,3,4]
+1- Reverse subarray [2,4,1], arr becomes [1,4,2,3]
+2- Reverse subarray [4,2], arr becomes [1,2,4,3]
+3- Reverse subarray [4,3], arr becomes [1,2,3,4]
 There are multiple ways to convert arr to target, this is not the only way to do so.
 </pre>
 

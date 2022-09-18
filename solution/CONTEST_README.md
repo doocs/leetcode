@@ -23,6 +23,22 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 311 场周赛(2022-09-18 10:30, 90 分钟) 参赛人数 6710
+
+- [2413. 最小偶倍数](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README.md)
+- [2414. 最长的字母序连续子字符串的长度](/solution/2400-2499/2414.Length%20of%20the%20Longest%20Alphabetical%20Continuous%20Substring/README.md)
+- [2415. 反转二叉树的奇数层](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README.md)
+- [2416. 字符串的前缀分数和](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README.md)
+
+
+#### 第 87 场双周赛(2022-09-17 22:30, 90 分钟) 参赛人数 4005
+
+- [2409. 统计共同度过的日子数](/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README.md)
+- [2410. 运动员和训练师的最大匹配数](/solution/2400-2499/2410.Maximum%20Matching%20of%20Players%20With%20Trainers/README.md)
+- [2411. 按位或最大的最小子数组长度](/solution/2400-2499/2411.Smallest%20Subarrays%20With%20Maximum%20Bitwise%20OR/README.md)
+- [2412. 完成所有交易的初始最少钱数](/solution/2400-2499/2412.Minimum%20Money%20Required%20Before%20Transactions/README.md)
+
+
 #### 第 310 场周赛(2022-09-11 10:30, 90 分钟) 参赛人数 6081
 
 - [2404. 出现最频繁的偶数元素](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README.md)
@@ -1457,7 +1473,7 @@ https://lcpredictor.herokuapp.com
 
 #### 第 27 场双周赛(2020-05-30 22:30, 90 分钟) 参赛人数 1966
 
-- [1460. 通过翻转子数组使两个数组相等](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Sub-arrays/README.md)
+- [1460. 通过翻转子数组使两个数组相等](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README.md)
 - [1461. 检查一个字符串是否包含所有长度为 K 的二进制子串](/solution/1400-1499/1461.Check%20If%20a%20String%20Contains%20All%20Binary%20Codes%20of%20Size%20K/README.md)
 - [1462. 课程表 IV](/solution/1400-1499/1462.Course%20Schedule%20IV/README.md)
 - [1463. 摘樱桃 II](/solution/1400-1499/1463.Cherry%20Pickup%20II/README.md)

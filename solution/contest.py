@@ -25,7 +25,7 @@ def format_duration(seconds) -> str:
 
 def weekly(contest):
     url = weekly_url.format(contest)
-    time.sleep(1)
+    time.sleep(0.2)
     try:
         res = requests.get(url, timeout=6).json()
         res['title'] = f'第 {contest} 场周赛'
@@ -38,7 +38,7 @@ def weekly(contest):
 
 def biweekly(contest):
     url = biweekly_url.format(contest)
-    time.sleep(1)
+    time.sleep(0.2)
     try:
         res = requests.get(url, timeout=6).json()
         res['title'] = f'第 {contest} 场双周赛'
