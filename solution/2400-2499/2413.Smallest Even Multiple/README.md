@@ -88,16 +88,38 @@ func smallestEvenMultiple(n int) int {
 }
 ```
 
+### **C**
+
+```c
+int smallestEvenMultiple(int n) {
+    return n % 2 == 0 ? n : n * 2;
+}
+```
+
 ### **TypeScript**
 
 ```ts
+function smallestEvenMultiple(n: number): number {
+    return n % 2 === 0 ? n : n * 2;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn smallest_even_multiple(n: i32) -> i32 {
+        if n % 2 == 0 {
+            return n;
+        }
+        n * 2
+    }
+}
 ```
 
 ### **...**
 
 ```
-
 
 ```
 

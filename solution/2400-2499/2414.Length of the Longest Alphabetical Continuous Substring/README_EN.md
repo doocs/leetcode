@@ -121,16 +121,65 @@ func max(a, b int) int {
 }
 ```
 
+### **C**
+
+```c
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+
+int longestContinuousSubstring(char *s) {
+    int n = strlen(s);
+    int i = 0;
+    int res = 1;
+    for (int j = 1; j < n; j++) {
+        if (s[j] - s[j - 1] != 1) {
+            res = max(res, j - i);
+            i = j;
+        }
+    }
+    return max(res, n - i);
+}
+```
+
 ### **TypeScript**
 
 ```ts
+function longestContinuousSubstring(s: string): number {
+    const n = s.length;
+    let res = 1;
+    let i = 0;
+    for (let j = 1; j < n; j++) {
+        if (s[j].charCodeAt(0) - s[j - 1].charCodeAt(0) !== 1) {
+            res = Math.max(res, j - i);
+            i = j;
+        }
+    }
+    return Math.max(res, n - i);
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn longest_continuous_substring(s: String) -> i32 {
+        let s = s.as_bytes();
+        let n = s.len();
+        let mut res = 1;
+        let mut i = 0;
+        for j in 1..n {
+            if s[j] - s[j - 1] != 1 {
+                res = res.max(j - i);
+                i = j;
+            }
+        }
+        res.max(n - i) as i32
+    }
+}
 ```
 
 ### **...**
 
 ```
-
 
 ```
 
