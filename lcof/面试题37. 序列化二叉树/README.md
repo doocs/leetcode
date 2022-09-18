@@ -27,7 +27,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-层次遍历解决。
+**方法一：层序遍历**
+
+**方法二：前序遍历**
+
+当二叉树的前中后序列不包含叶子节点时需要前中、前后、中后三种组合方式之一才能确定一颗二叉树，但当前序和后序遍历序列中包含叶子节点时，可以仅通过前序或后序遍历序列构建一颗二叉树。
+
+在前序遍历序列化时，我们以任意特殊字符表示叶子节点，返回序列化后的字符串；反序列化时对序列化字符串根据分隔符进行切分后使用列表的第一个元素作为二叉树的根节点，然后利用列表的其他元素递归生成左右子树即可。
+
+**方法三：后序遍历**
+
+在后序遍历序列化时，我们以任意特殊字符表示叶子节点，返回序列化后的字符串；反序列化时对序列化字符串根据分隔符进行切分后使用列表的最后一个元素作为二叉树的根节点，然后利用列表的其他元素递归生成左右子树即可。
 
 <!-- tabs:start -->
 
@@ -340,6 +350,195 @@ public class Codec {
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));
+```
+
+### **C++**
+
+层序遍历：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+    string empty = "#";
+    string sep = ",";
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (!root) return "";
+        string res = "";
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty()) {
+            TreeNode* node = q.front();
+            q.pop();
+            if (!node) {
+                res += empty + sep;
+                continue;
+            }
+            res += to_string(node->val) + sep;
+            q.push(node->left);
+            q.push(node->right);
+        }
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        if (data.empty()) return nullptr;
+        vector<string> nodes;
+        size_t pos = 0;
+        string node;
+        while ((pos = data.find(sep)) != string::npos) {
+            node = data.substr(0, pos);
+            nodes.push_back(node);
+            data.erase(0, pos + sep.length());
+        }
+        queue<TreeNode*> q;
+        TreeNode* root = new TreeNode(stoi(nodes[0]));
+        q.push(root);
+
+        for (size_t i = 1; i < nodes.size();) {
+            TreeNode* front = q.front();
+            q.pop();
+            // 左子树
+            node = nodes[i++];
+            if (node != empty) {
+                front->left = new TreeNode(stoi(node));
+                q.push(front->left);
+            }
+            // 右子树
+            node = nodes[i++];
+            if (node != empty) {
+                front->right = new TreeNode(stoi(node));
+                q.push(front->right);
+            }
+        }
+        return root;
+    }
+};
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
+```
+
+前序遍历：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+    string empty = "#";
+    string sep = ",";
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (!root) return empty + sep;
+        string res = to_string(root->val) + sep;
+        res += serialize(root->left);
+        res += serialize(root->right);
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        list<string> nodes;
+        size_t pos = 0;
+        string node;
+        while ((pos = data.find(sep)) != string::npos) {
+            node = data.substr(0, pos);
+            nodes.push_back(node);
+            data.erase(0, pos + sep.length());
+        }
+        return deserialize(nodes);
+    }
+
+    TreeNode* deserialize(list<string>& data) {
+        if (data.empty()) return nullptr;
+        string first = data.front();
+        data.pop_front();
+        if (first == empty) return nullptr;
+        TreeNode* root = new TreeNode(stoi(first));
+        root->left = deserialize(data);
+        root->right = deserialize(data);
+        return root;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
+```
+
+后序遍历：
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+    string empty = "#";
+    string sep = ",";
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (!root) return empty + sep;
+        string res = "";
+        res += serialize(root->left);
+        res += serialize(root->right);
+        res += to_string(root->val) + sep;
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        vector<string> nodes;
+        size_t pos = 0;
+        string node;
+        while ((pos = data.find(sep)) != string::npos) {
+            node = data.substr(0, pos);
+            nodes.push_back(node);
+            data.erase(0, pos + sep.length());
+        }
+        return deserialize(nodes);
+    }
+
+    TreeNode* deserialize(vector<string>& nodes) {
+        if (nodes.empty()) return nullptr;
+        string front = nodes.back();
+        nodes.pop_back();
+        if (front == empty) return nullptr;
+        TreeNode* root = new TreeNode(stoi(front));
+        // 先构造右子树，后构造左子树
+        root->right = deserialize(nodes);
+        root->left = deserialize(nodes);
+        return root;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
 // codec.deserialize(codec.serialize(root));
 ```
 
