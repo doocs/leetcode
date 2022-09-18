@@ -50,13 +50,126 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxMatrixSum(self, matrix: List[List[int]]) -> int:
+        s = cnt = 0
+        mi = inf
+        for row in matrix:
+            for v in row:
+                s += abs(v)
+                mi = min(mi, abs(v))
+                if v < 0:
+                    cnt += 1
+        if cnt % 2 == 0 or mi == 0:
+            return s
+        return s - mi * 2
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long maxMatrixSum(int[][] matrix) {
+        long s = 0;
+        int cnt = 0;
+        int mi = Integer.MAX_VALUE;
+        for (var row : matrix) {
+            for (var v : row) {
+                s += Math.abs(v);
+                mi = Math.min(mi, Math.abs(v));
+                if (v < 0) {
+                    ++cnt;
+                }
+            }
+        }
+        if (cnt % 2 == 0 || mi == 0) {
+            return s;
+        }
+        return s - mi * 2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maxMatrixSum(vector<vector<int>>& matrix) {
+        long long s = 0;
+        int cnt = 0, mi = INT_MAX;
+        for (auto& row : matrix) {
+            for (int& v : row) {
+                s += abs(v);
+                mi = min(mi, abs(v));
+                cnt += v < 0;
+            }
+        }
+        if (cnt % 2 == 0 || mi == 0) return s;
+        return s - mi * 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxMatrixSum(matrix [][]int) int64 {
+	s := 0
+	cnt, mi := 0, math.MaxInt32
+	for _, row := range matrix {
+		for _, v := range row {
+			s += abs(v)
+			mi = min(mi, abs(v))
+			if v < 0 {
+				cnt++
+			}
+		}
+	}
+	if cnt%2 == 1 {
+		s -= mi * 2
+	}
+	return int64(s)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {number}
+ */
+var maxMatrixSum = function (matrix) {
+    let cnt = 0;
+    let s = 0;
+    let mi = Infinity;
+    for (const row of matrix) {
+        for (const v of row) {
+            s += Math.abs(v);
+            mi = Math.min(mi, Math.abs(v));
+            cnt += v < 0;
+        }
+    }
+    if (cnt % 2 == 0) {
+        return s;
+    }
+    return s - mi * 2;
+};
 ```
 
 ### **...**
