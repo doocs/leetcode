@@ -110,6 +110,40 @@ func frequencySort(nums []int) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function frequencySort(nums: number[]): number[] {
+    const map = new Map<number, number>();
+    for (const num of nums) {
+        map.set(num, (map.get(num) ?? 0) + 1);
+    }
+    return nums.sort((a, b) => map.get(a) - map.get(b) || b - a);
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn frequency_sort(mut nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut map = HashMap::new();
+        for &num in nums.iter() {
+            *map.entry(num).or_insert(0) += 1;
+        }
+        nums.sort_by(|a, b| {
+            if map.get(a) == map.get(b) {
+                return b.cmp(a);
+            }
+            map.get(a).cmp(&map.get(b))
+        });
+        nums
+    }
+}
+```
+
 ### **...**
 
 ```
