@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+遍历字符串 $s$，只要遇到 `X`，指针就直接往后移动三格，并且答案加 $1$；否则指针往后移动一格。
+
+时间复杂度 $O(n)$。其中 $n$ 表示字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumMoves(self, s: str) -> int:
+        ans = i = 0
+        while i < len(s):
+            if s[i] == "X":
+                ans += 1
+                i += 3
+            else:
+                i += 1
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +83,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumMoves(String s) {
+        int ans = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == 'X') {
+                ++ans;
+                i += 2;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumMoves(string s) {
+        int ans = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == 'X') {
+                ++ans;
+                i += 2;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumMoves(s string) int {
+	ans := 0
+	for i := 0; i < len(s); i++ {
+		if s[i] == 'X' {
+			ans++
+			i += 2
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
