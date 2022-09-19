@@ -1,22 +1,17 @@
 class Solution {
     public int[] frequencySort(int[] nums) {
         int[] cnt = new int[201];
+        List<Integer> t = new ArrayList<>();
         for (int v : nums) {
-            ++cnt[v + 100];
+            v += 100;
+            ++cnt[v];
+            t.add(v);
         }
-        List<int[]> t = new ArrayList<>();
-        for (int i = 0; i < cnt.length; ++i) {
-            if (cnt[i] > 0) {
-                t.add(new int[] {cnt[i], i});
-            }
-        }
-        t.sort((a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+        t.sort((a, b) -> cnt[a] == cnt[b] ? b - a : cnt[a] - cnt[b]);
         int[] ans = new int[nums.length];
         int i = 0;
-        for (int[] e : t) {
-            for (int j = 0; j < e[0]; ++j) {
-                ans[i++] = e[1] - 100;
-            }
+        for (int v : t) {
+            ans[i++] = v - 100;
         }
         return ans;
     }

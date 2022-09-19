@@ -49,11 +49,7 @@
 class Solution:
     def frequencySort(self, nums: List[int]) -> List[int]:
         cnt = Counter(nums)
-        cnt = sorted(cnt.items(), key=lambda x: (x[1], -x[0]))
-        ans = []
-        for v, freq in cnt:
-            ans.extend([v] * freq)
-        return ans
+        return sorted(nums, key=lambda x: (cnt[x], -x))
 ```
 
 ### **Java**
@@ -62,22 +58,17 @@ class Solution:
 class Solution {
     public int[] frequencySort(int[] nums) {
         int[] cnt = new int[201];
+        List<Integer> t = new ArrayList<>();
         for (int v : nums) {
-            ++cnt[v + 100];
+            v += 100;
+            ++cnt[v];
+            t.add(v);
         }
-        List<int[]> t = new ArrayList<>();
-        for (int i = 0; i < cnt.length; ++i) {
-            if (cnt[i] > 0) {
-                t.add(new int[] {cnt[i], i});
-            }
-        }
-        t.sort((a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+        t.sort((a, b) -> cnt[a] == cnt[b] ? b - a : cnt[a] - cnt[b]);
         int[] ans = new int[nums.length];
         int i = 0;
-        for (int[] e : t) {
-            for (int j = 0; j < e[0]; ++j) {
-                ans[i++] = e[1] - 100;
-            }
+        for (int v : t) {
+            ans[i++] = v - 100;
         }
         return ans;
     }
@@ -91,17 +82,14 @@ class Solution {
 public:
     vector<int> frequencySort(vector<int>& nums) {
         vector<int> cnt(201);
-        for (int& v : nums) ++cnt[v + 100];
-        vector<vector<int>> t;
-        for (int i = 0; i < cnt.size(); ++i)
-            if (cnt[i])
-                t.push_back({cnt[i], -i});
-        sort(t.begin(), t.end());
-        vector<int> ans;
-        for (auto& e : t)
-            for (int j = 0; j < e[0]; ++j)
-                ans.push_back(-e[1] - 100);
-        return ans;
+        for (int v : nums) {
+            ++cnt[v + 100];
+        }
+        sort(nums.begin(), nums.end(), [&](const int a, const int b) {
+            if (cnt[a + 100] == cnt[b + 100]) return a > b;
+            return cnt[a + 100] < cnt[b + 100];
+        });
+        return nums;
     }
 };
 ```
@@ -114,25 +102,11 @@ func frequencySort(nums []int) []int {
 	for _, v := range nums {
 		cnt[v+100]++
 	}
-	var t [][]int
-	for i, v := range cnt {
-		if v > 0 {
-			t = append(t, []int{v, i})
-		}
-	}
-	sort.Slice(t, func(i, j int) bool {
-		if t[i][0] == t[j][0] {
-			return t[i][1] > t[j][1]
-		}
-		return t[i][0] < t[j][0]
+	sort.Slice(nums, func(i, j int) bool {
+		a, b := nums[i]+100, nums[j]+100
+		return cnt[a] < cnt[b] || cnt[a] == cnt[b] && a > b
 	})
-	var ans []int
-	for _, e := range t {
-		for i := 0; i < e[0]; i++ {
-			ans = append(ans, e[1]-100)
-		}
-	}
-	return ans
+	return nums
 }
 ```
 
