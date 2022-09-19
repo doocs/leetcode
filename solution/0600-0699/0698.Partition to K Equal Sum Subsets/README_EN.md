@@ -40,26 +40,22 @@
 ```python
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
-        s = sum(nums)
-        target, m = divmod(s, k)
-        if m != 0:
-            return False
-
-        cur = [0] * k
-        n = len(nums)
-
-        def dfs(i: int) -> bool:
-            if i == n:
+        def dfs(i):
+            if i == len(nums):
                 return True
             for j in range(k):
-                if j > 0 and cur[j - 1] == cur[j]:
+                if j and cur[j] == cur[j - 1]:
                     continue
                 cur[j] += nums[i]
-                if cur[j] <= target and dfs(i + 1):
+                if cur[j] <= s and dfs(i + 1):
                     return True
                 cur[j] -= nums[i]
             return False
 
+        s, mod = divmod(sum(nums), k)
+        if mod:
+            return False
+        cur = [0] * k
         nums.sort(reverse=True)
         return dfs(0)
 ```
@@ -69,21 +65,22 @@ class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
         @cache
         def dfs(state, t):
-            if state == (1 << len(nums)) - 1:
+            if state == mask:
                 return True
             for i, v in enumerate(nums):
-                if (state & (1 << i)):
+                if (state >> i) & 1:
                     continue
                 if t + v > s:
                     break
-                if dfs(state | (1 << i), (t + v) % s):
+                if dfs(state | 1 << i, (t + v) % s):
                     return True
             return False
 
         s, mod = divmod(sum(nums), k)
-        nums.sort()
         if mod:
             return False
+        nums.sort(reverse=True)
+        mask = (1 << len(nums)) - 1
         return dfs(0, 0)
 ```
 
@@ -91,34 +88,34 @@ class Solution:
 
 ```java
 class Solution {
+    private int[] nums;
+    private int[] cur;
+    private int s;
+
     public boolean canPartitionKSubsets(int[] nums, int k) {
-        int sum = (int) Arrays.stream(nums).sum();
-        if (sum % k != 0) {
+        for (int v : nums) {
+            s += v;
+        }
+        if (s % k != 0) {
             return false;
         }
-
+        s /= k;
+        cur = new int[k];
         Arrays.sort(nums);
-        int low = 0, high = nums.length - 1;
-        while (low < high) {
-            int temp = nums[low];
-            nums[low] = nums[high];
-            nums[high] = temp;
-            low++;
-            high--;
-        }
-        return dfs(nums, new int[k], 0, sum / k);
+        this.nums = nums;
+        return dfs(nums.length - 1);
     }
 
-    private boolean dfs(int[] nums, int[] cur, int i, int target) {
-        if (i == nums.length) {
+    private boolean dfs(int i) {
+        if (i < 0) {
             return true;
         }
-        for (int j = 0; j < cur.length; j++) {
-            if (j > 0 && cur[j - 1] == cur[j]) {
+        for (int j = 0; j < cur.length; ++j) {
+            if (j > 0 && cur[j] == cur[j - 1]) {
                 continue;
             }
             cur[j] += nums[i];
-            if (cur[j] <= target && dfs(nums, cur, i + 1, target)) {
+            if (cur[j] <= s && dfs(i - 1)) {
                 return true;
             }
             cur[j] -= nums[i];
@@ -128,35 +125,156 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    private int[] f;
+    private int[] nums;
+    private int n;
+    private int s;
+    
+    public boolean canPartitionKSubsets(int[] nums, int k) {
+        for (int v : nums) {
+            s += v;
+        }
+        if (s % k != 0) {
+            return false;
+        }
+        s /= k;
+        Arrays.sort(nums);
+        this.nums = nums;
+        n = nums.length;
+        f = new int[1 << n];
+        return dfs(0, 0);
+    }
+
+    private boolean dfs(int state, int t) {
+        if (state == (1 << n) - 1) {
+            return true;
+        }
+        if (f[state] != 0) {
+            return f[state] == 1;
+        }
+        for (int i = 0; i < nums.length; ++i) {
+            if (((state >> i) & 1) == 1) {
+                continue;
+            }
+            if (t + nums[i] > s) {
+                break;
+            }
+            if (dfs(state | 1 << i, (t + nums[i]) % s)) {
+                f[state] = 1;
+                return true;
+            }
+        }
+        f[state] = -1;
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canPartitionKSubsets(vector<int>& nums, int k) {
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        if (s % k) {
+            return false;
+        }
+        s /= k;
+        int n = nums.size();
+        vector<int> cur(k);
+        function<bool(int)> dfs;
+        dfs = [&](int i) {
+            if (i == n) {
+                return true;
+            }
+            for (int j = 0; j < k; ++j) {
+                if (j && cur[j] == cur[j - 1]) {
+                    continue;
+                }
+                cur[j] += nums[i];
+                if (cur[j] <= s && dfs(i + 1)) {
+                    return true;
+                }
+                cur[j] -= nums[i];
+            }
+            return false;
+        };
+        sort(nums.begin(), nums.end(), greater<int>());
+        return dfs(0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canPartitionKSubsets(vector<int>& nums, int k) {
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        if (s % k) {
+            return false;
+        }
+        s /= k;
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int mask = (1 << n) - 1;
+        vector<int> f(1 << n);
+        function<bool(int, int)> dfs;
+        dfs = [&](int state, int t) {
+            if (state == mask) {
+                return true;
+            }
+            if (f[state]) {
+                return f[state] == 1;
+            }
+            for (int i = 0; i < n; ++i) {
+                if (state >> i & 1) {
+                    continue;
+                }
+                if (t + nums[i] > s) {
+                    break;
+                }
+                if (dfs(state | 1 << i, (t + nums[i]) % s)) {
+                    f[state] = 1;
+                    return true;
+                }
+            }
+            f[state] = -1;
+            return false;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
 ### **Go**
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
-	sum := 0
-	for _, num := range nums {
-		sum += num
+	s := 0
+	for _, v := range nums {
+		s += v
 	}
-	if sum%k != 0 {
+	if s%k != 0 {
 		return false
 	}
+	s /= k
+	cur := make([]int, k)
+	n := len(nums)
 
-	var (
-		target = sum / k
-		cur    = make([]int, k)
-		n      = len(nums)
-	)
-
-	var dfs func(i int) bool
+	var dfs func(int) bool
 	dfs = func(i int) bool {
 		if i == n {
 			return true
 		}
 		for j := 0; j < k; j++ {
-			if j > 0 && cur[j-1] == cur[j] {
+			if j > 0 && cur[j] == cur[j-1] {
 				continue
 			}
 			cur[j] += nums[i]
-			if cur[j] <= target && dfs(i+1) {
+			if cur[j] <= s && dfs(i+1) {
 				return true
 			}
 			cur[j] -= nums[i]
@@ -169,35 +287,47 @@ func canPartitionKSubsets(nums []int, k int) bool {
 }
 ```
 
-### **C++**
+```go
+func canPartitionKSubsets(nums []int, k int) bool {
+	s := 0
+	for _, v := range nums {
+		s += v
+	}
+	if s%k != 0 {
+		return false
+	}
+	s /= k
+	n := len(nums)
+	f := make([]int, 1<<n)
+	mask := (1 << n) - 1
 
-```cpp
-class Solution {
-public:
-    bool canPartitionKSubsets(vector<int>& nums, int k) {
-        int sum = accumulate(nums.begin(), nums.end(), 0);
-        if (sum % k != 0) return false;
+	var dfs func(int, int) bool
+	dfs = func(state, t int) bool {
+		if state == mask {
+			return true
+		}
+		if f[state] != 0 {
+			return f[state] == 1
+		}
+		for i, v := range nums {
+			if (state >> i & 1) == 1 {
+				continue
+			}
+			if t+v > s {
+				break
+			}
+			if dfs(state|1<<i, (t+v)%s) {
+				f[state] = 1
+				return true
+			}
+		}
+		f[state] = -1
+		return false
+	}
 
-        int target = sum / k;
-        int n = nums.size();
-        vector<int> cur(k, 0);
-
-        function<bool(int)> dfs;
-        dfs = [&](int i) {
-            if (i == n) return true;
-            for (int j = 0; j < k; ++j) {
-                if (j > 0 && cur[j - 1] == cur[j]) continue;
-                cur[j] += nums[i];
-                if (cur[j] <= target && dfs(i + 1)) return true;
-                cur[j] -= nums[i];
-            }
-            return false;
-        };
-
-        sort(nums.begin(), nums.end(), greater<int>());
-        return dfs(0);
-    }
-};
+	sort.Ints(nums)
+	return dfs(0, 0)
+}
 ```
 
 ### **...**

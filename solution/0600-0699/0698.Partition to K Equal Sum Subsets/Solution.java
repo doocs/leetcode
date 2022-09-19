@@ -1,32 +1,32 @@
 class Solution {
+    private int[] nums;
+    private int[] cur;
+    private int s;
+
     public boolean canPartitionKSubsets(int[] nums, int k) {
-        int sum = (int) Arrays.stream(nums).sum();
-        if (sum % k != 0) {
+        for (int v : nums) {
+            s += v;
+        }
+        if (s % k != 0) {
             return false;
         }
-
+        s /= k;
+        cur = new int[k];
         Arrays.sort(nums);
-        int low = 0, high = nums.length - 1;
-        while (low < high) {
-            int temp = nums[low];
-            nums[low] = nums[high];
-            nums[high] = temp;
-            low++;
-            high--;
-        }
-        return dfs(nums, new int[k], 0, sum / k);
+        this.nums = nums;
+        return dfs(nums.length - 1);
     }
 
-    private boolean dfs(int[] nums, int[] cur, int i, int target) {
-        if (i == nums.length) {
+    private boolean dfs(int i) {
+        if (i < 0) {
             return true;
         }
-        for (int j = 0; j < cur.length; j++) {
-            if (j > 0 && cur[j - 1] == cur[j]) {
+        for (int j = 0; j < cur.length; ++j) {
+            if (j > 0 && cur[j] == cur[j - 1]) {
                 continue;
             }
             cur[j] += nums[i];
-            if (cur[j] <= target && dfs(nums, cur, i + 1, target)) {
+            if (cur[j] <= s && dfs(i - 1)) {
                 return true;
             }
             cur[j] -= nums[i];
