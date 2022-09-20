@@ -6,7 +6,7 @@ class Solution:
             if arr[i] not in d:
                 return False
             p = d[arr[i]]
-            if arr[i: i + len(p)] != p:
+            if arr[i : i + len(p)] != p:
                 return False
             i += len(p)
         return True

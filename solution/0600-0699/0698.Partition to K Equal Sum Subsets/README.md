@@ -191,7 +191,7 @@ class Solution {
         if (f[state] != 0) {
             return f[state] == 1;
         }
-        for (int i = 0; i < nums.length; ++i) {
+        for (int i = 0; i < n; ++i) {
             if (((state >> i) & 1) == 1) {
                 continue;
             }

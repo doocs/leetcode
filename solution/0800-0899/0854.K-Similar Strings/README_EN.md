@@ -46,18 +46,18 @@ class Solution:
     def kSimilarity(self, s1: str, s2: str) -> int:
         def next(s):
             i = 0
-            res = []
             while s[i] == s2[i]:
                 i += 1
+            res = []
             for j in range(i + 1, n):
                 if s[j] == s2[i] and s[j] != s2[j]:
-                    res.append(s[:i] + s[j] + s[i + 1 : j] + s[i] + s[j + 1 :])
+                    res.append(s2[: i + 1] + s[i + 1 : j] + s[i] + s[j + 1 :])
             return res
 
         q = deque([s1])
         vis = {s1}
         ans, n = 0, len(s1)
-        while q:
+        while 1:
             for _ in range(len(q)):
                 s = q.popleft()
                 if s == s2:
@@ -67,7 +67,36 @@ class Solution:
                         vis.add(nxt)
                         q.append(nxt)
             ans += 1
-        return -1
+```
+
+```python
+class Solution:
+    def kSimilarity(self, s1: str, s2: str) -> int:
+        def f(s):
+            cnt = sum(c != s2[i] for i, c in enumerate(s))
+            return (cnt + 1) >> 1
+
+        def next(s):
+            i = 0
+            while s[i] == s2[i]:
+                i += 1
+            res = []
+            for j in range(i + 1, n):
+                if s[j] == s2[i] and s[j] != s2[j]:
+                    res.append(s2[: i + 1] + s[i + 1 : j] + s[i] + s[j + 1 :])
+            return res
+
+        q = [(f(s1), s1)]
+        dist = {s1: 0}
+        n = len(s1)
+        while 1:
+            _, s = heappop(q)
+            if s == s2:
+                return dist[s]
+            for nxt in next(s):
+                if nxt not in dist or dist[nxt] > dist[s] + 1:
+                    dist[nxt] = dist[s] + 1
+                    heappush(q, (dist[nxt] + f(nxt), nxt))
 ```
 
 ### **Java**
@@ -80,13 +109,13 @@ class Solution {
         q.offer(s1);
         vis.add(s1);
         int ans = 0;
-        while (!q.isEmpty()) {
+        while (true) {
             for (int i = q.size(); i > 0; --i) {
-                s1 = q.poll();
-                if (s1.equals(s2)) {
+                String s = q.pollFirst();
+                if (s.equals(s2)) {
                     return ans;
                 }
-                for (String nxt : next(s1, s2)) {
+                for (String nxt : next(s, s2)) {
                     if (!vis.contains(nxt)) {
                         vis.add(nxt);
                         q.offer(nxt);
@@ -95,15 +124,70 @@ class Solution {
             }
             ++ans;
         }
-        return -1;
     }
 
     private List<String> next(String s, String s2) {
-        int i = 0;
-        int n = s.length();
-        for (; i < n && s.charAt(i) == s2.charAt(i); ++i)
-            ;
+        int i = 0, n = s.length();
         char[] cs = s.toCharArray();
+        for (; cs[i] == s2.charAt(i); ++i) {
+        }
+
+        List<String> res = new ArrayList<>();
+        for (int j = i + 1; j < n; ++j) {
+            if (cs[j] == s2.charAt(i) && cs[j] != s2.charAt(j)) {
+                swap(cs, i, j);
+                res.add(new String(cs));
+                swap(cs, i, j);
+            }
+        }
+        return res;
+    }
+
+    private void swap(char[] cs, int i, int j) {
+        char t = cs[i];
+        cs[i] = cs[j];
+        cs[j] = t;
+    }
+}
+```
+
+```java
+class Solution {
+    public int kSimilarity(String s1, String s2) {
+        PriorityQueue<Pair<Integer, String>> q = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        q.offer(new Pair<>(f(s1, s2), s1));
+        Map<String, Integer> dist = new HashMap<>();
+        dist.put(s1, 0);
+        while (true) {
+            String s = q.poll().getValue();
+            if (s.equals(s2)) {
+                return dist.get(s);
+            }
+            for (String nxt : next(s, s2)) {
+                if (!dist.containsKey(nxt) || dist.get(nxt) > dist.get(s) + 1) {
+                    dist.put(nxt, dist.get(s) + 1);
+                    q.offer(new Pair<>(dist.get(nxt) + f(nxt, s2), nxt));
+                }
+            }
+        }
+    }
+
+    private int f(String s, String s2) {
+        int cnt = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) != s2.charAt(i)) {
+                ++cnt;
+            }
+        }
+        return (cnt + 1) >> 1;
+    }
+
+    private List<String> next(String s, String s2) {
+        int i = 0, n = s.length();
+        char[] cs = s.toCharArray();
+        for (; cs[i] == s2.charAt(i); ++i) {
+        }
+
         List<String> res = new ArrayList<>();
         for (int j = i + 1; j < n; ++j) {
             if (cs[j] == s2.charAt(i) && cs[j] != s2.charAt(j)) {
@@ -129,15 +213,17 @@ class Solution {
 class Solution {
 public:
     int kSimilarity(string s1, string s2) {
-        queue<string> q {{s1}};
-        unordered_set<string> vis {{s1}};
+        queue<string> q{{s1}};
+        unordered_set<string> vis{{s1}};
         int ans = 0;
-        while (!q.empty()) {
+        while (1) {
             for (int i = q.size(); i; --i) {
-                s1 = q.front();
+                auto s = q.front();
                 q.pop();
-                if (s1 == s2) return ans;
-                for (string nxt : next(s1, s2)) {
+                if (s == s2) {
+                    return ans;
+                }
+                for (auto& nxt : next(s, s2)) {
                     if (!vis.count(nxt)) {
                         vis.insert(nxt);
                         q.push(nxt);
@@ -146,13 +232,60 @@ public:
             }
             ++ans;
         }
-        return -1;
     }
 
     vector<string> next(string& s, string& s2) {
         int i = 0, n = s.size();
-        for (; i < n && s[i] == s2[i]; ++i)
-            ;
+        for (; s[i] == s2[i]; ++i) {}
+        vector<string> res;
+        for (int j = i + 1; j < n; ++j) {
+            if (s[j] == s2[i] && s[j] != s2[j]) {
+                swap(s[i], s[j]);
+                res.push_back(s);
+                swap(s[i], s[j]);
+            }
+        }
+        return res;
+    }
+};
+```
+
+```cpp
+using pis = pair<int, string>;
+
+class Solution {
+public:
+    int kSimilarity(string s1, string s2) {
+        priority_queue<pis, vector<pis>, greater<pis>> q;
+        q.push({f(s1, s2), s1});
+        unordered_map<string, int> dist;
+        dist[s1] = 0;
+        while (1) {
+            auto [_, s] = q.top();
+            q.pop();
+            if (s == s2) {
+                return dist[s];
+            }
+            for (auto& nxt : next(s, s2)) {
+                if (!dist.count(nxt) || dist[nxt] > dist[s] + 1) {
+                    dist[nxt] = dist[s] + 1;
+                    q.push({dist[nxt] + f(nxt, s2), nxt});
+                }
+            }
+        }
+    }
+
+    int f(string& s, string& s2) {
+        int cnt = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            cnt += s[i] != s2[i];
+        }
+        return (cnt + 1) >> 1;
+    }
+
+    vector<string> next(string& s, string& s2) {
+        int i = 0, n = s.size();
+        for (; s[i] == s2[i]; ++i) {}
         vector<string> res;
         for (int j = i + 1; j < n; ++j) {
             if (s[j] == s2[i] && s[j] != s2[j]) {
@@ -173,12 +306,11 @@ func kSimilarity(s1 string, s2 string) int {
 	next := func(s string) []string {
 		i := 0
 		res := []string{}
-		for s[i] == s2[i] {
-			i++
+		for ; s[i] == s2[i]; i++ {
 		}
 		for j := i + 1; j < len(s1); j++ {
 			if s[j] == s2[i] && s[j] != s2[j] {
-				res = append(res, s[0:i]+string(s[j])+s[i+1:j]+string(s[i])+s[j+1:])
+				res = append(res, s[:i]+string(s[j])+s[i+1:j]+string(s[i])+s[j+1:])
 			}
 		}
 		return res
@@ -187,14 +319,14 @@ func kSimilarity(s1 string, s2 string) int {
 	q := []string{s1}
 	vis := map[string]bool{s1: true}
 	ans := 0
-	for len(q) > 0 {
+	for {
 		for i := len(q); i > 0; i-- {
-			s1 = q[0]
+			s := q[0]
 			q = q[1:]
-			if s1 == s2 {
+			if s == s2 {
 				return ans
 			}
-			for _, nxt := range next(s1) {
+			for _, nxt := range next(s) {
 				if !vis[nxt] {
 					vis[nxt] = true
 					q = append(q, nxt)
@@ -203,8 +335,64 @@ func kSimilarity(s1 string, s2 string) int {
 		}
 		ans++
 	}
-	return -1
 }
+```
+
+```go
+func kSimilarity(s1 string, s2 string) int {
+	next := func(s string) []string {
+		i := 0
+		res := []string{}
+		for ; s[i] == s2[i]; i++ {
+		}
+		for j := i + 1; j < len(s1); j++ {
+			if s[j] == s2[i] && s[j] != s2[j] {
+				res = append(res, s[:i]+string(s[j])+s[i+1:j]+string(s[i])+s[j+1:])
+			}
+		}
+		return res
+	}
+
+	f := func(s string) int {
+		cnt := 0
+		for i := range s {
+			if s[i] != s2[i] {
+				cnt++
+			}
+		}
+		return (cnt + 1) >> 1
+	}
+
+	q := hp{pair{f(s1), s1}}
+	dist := map[string]int{s1: 0}
+	for {
+		s := heap.Pop(&q).(pair).s
+		if s == s2 {
+			return dist[s]
+		}
+		for _, nxt := range next(s) {
+			if v, ok := dist[nxt]; !ok || v > dist[s]+1 {
+				dist[nxt] = dist[s] + 1
+				heap.Push(&q, pair{dist[nxt] + f(nxt), nxt})
+			}
+		}
+	}
+}
+
+type pair struct {
+	v int
+	s string
+}
+type hp []pair
+
+func (h hp) Len() int { return len(h) }
+func (h hp) Less(i, j int) bool {
+	a, b := h[i], h[j]
+	return a.v < b.v
+}
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**
