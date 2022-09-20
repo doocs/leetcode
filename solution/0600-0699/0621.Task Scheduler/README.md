@@ -58,6 +58,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 构造**
+
+不妨设 $m$ 是任务的个数，统计每种任务出现的次数，记录在数组 `cnt` 中。
+
+假设出现次数最多的任务为 `A`，出现次数为 $x$，则至少需要 $(x-1)\times(n+1) + 1$ 个时间单位才能安排完所有任务。如果出现次数最多的任务有 $s$ 个，则需要再加上出现次数最多的任务的个数。
+
+答案是 $\max ((x-1) \times(n+1)+s, m)$。
+
+时间复杂度 $O(m+|\Sigma|)$。其中 $|\Sigma|$ 是任务的种类数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +75,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        cnt = Counter(tasks)
+        x = max(cnt.values())
+        s = sum(v == x for v in cnt.values())
+        return max(len(tasks), (x - 1) * (n + 1) + s)
 ```
 
 ### **Java**
@@ -73,7 +88,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+        int[] cnt = new int[26];
+        int x = 0;
+        for (char c : tasks) {
+            c -= 'A';
+            ++cnt[c];
+            x = Math.max(x, cnt[c]);
+        }
+        int s = 0;
+        for (int v : cnt) {
+            if (v == x) {
+                ++s;
+            }
+        }
+        return Math.max(tasks.length, (x - 1) * (n + 1) + s);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int leastInterval(vector<char>& tasks, int n) {
+        vector<int> cnt(26);
+        int x = 0;
+        for (char c : tasks) {
+            c -= 'A';
+            ++cnt[c];
+            x = max(x, cnt[c]);
+        }
+        int s = 0;
+        for (int v : cnt) {
+            s += v == x;
+        }
+        return max((int) tasks.size(), (x - 1) * (n + 1) + s);
+    }
+};
+```
+
+### **Go**
+
+
+```go
+func leastInterval(tasks []byte, n int) int {
+	cnt := make([]int, 26)
+	x := 0
+	for _, c := range tasks {
+		c -= 'A'
+		cnt[c]++
+		x = max(x, cnt[c])
+	}
+	s := 0
+	for _, v := range cnt {
+		if v == x {
+			s++
+		}
+	}
+	return max(len(tasks), (x-1)*(n+1)+s)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
