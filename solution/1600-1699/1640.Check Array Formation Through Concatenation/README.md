@@ -52,7 +52,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“哈希表”实现。
+**方法一：哈希表**
+
+创建一个哈希表，键为 `pieces` 中每个数组项的首元素，值为数组项。
+
+遍历 `arr`，如果当前元素在哈希表中不存在，直接返回 `false`；否则，取出哈希表中对应的数组项，判断其与 `arr` 中的元素是否相等，如果不相等，直接返回 `false`。
+
+否则，遍历结束，返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `arr` 的长度。
 
 <!-- tabs:start -->
 
@@ -63,16 +71,15 @@
 ```python
 class Solution:
     def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
-        mapper = {piece[0]: piece for piece in pieces}
+        d = {p[0]: p for p in pieces}
         i, n = 0, len(arr)
         while i < n:
-            if arr[i] not in mapper:
+            if arr[i] not in d:
                 return False
-            vals = mapper[arr[i]]
-            for val in vals:
-                if arr[i] != val:
-                    return False
-                i += 1
+            p = d[arr[i]]
+            if arr[i: i + len(p)] != p:
+                return False
+            i += len(p)
         return True
 ```
 
@@ -83,24 +90,73 @@ class Solution:
 ```java
 class Solution {
     public boolean canFormArray(int[] arr, int[][] pieces) {
-        Map<Integer, int[]> map = new HashMap<>();
-        for (int[] piece : pieces) {
-            map.put(piece[0], piece);
+        Map<Integer, int[]> d = new HashMap<>();
+        for (var p : pieces) {
+            d.put(p[0], p);
         }
         for (int i = 0; i < arr.length;) {
-            int[] vals = map.get(arr[i]);
-            if (vals == null) {
+            if (!d.containsKey(arr[i])) {
                 return false;
             }
-            for (int val : vals) {
-                if (arr[i] != val) {
+            var p = d.get(arr[i]);
+            for (int v : d.get(arr[i])) {
+                if (arr[i++] != v) {
                     return false;
                 }
-                ++i;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canFormArray(vector<int>& arr, vector<vector<int>>& pieces) {
+        unordered_map<int, vector<int>> d;
+        for (auto& p : pieces) {
+            d[p[0]] = p;
+        }
+        for (int i = 0; i < arr.size();) {
+            if (!d.count(arr[i])) {
+                return false;
+            }
+            auto& p = d[arr[i]];
+            for (int& v : p) {
+                if (arr[i++] != v) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canFormArray(arr []int, pieces [][]int) bool {
+	d := map[int][]int{}
+	for _, p := range pieces {
+		d[p[0]] = p
+	}
+	for i := 0; i < len(arr); {
+		p, ok := d[arr[i]]
+		if !ok {
+			return false
+		}
+		for _, v := range p {
+			if arr[i] != v {
+				return false
+			}
+			i++
+		}
+	}
+	return true
 }
 ```
 
@@ -113,19 +169,19 @@ class Solution {
  * @return {boolean}
  */
 var canFormArray = function (arr, pieces) {
-    let mapper = new Map();
-    for (let i = 0; i < pieces.length; i++) {
-        mapper.set(pieces[i][0], pieces[i]);
+    const d = new Map();
+    for (const p of pieces) {
+        d.set(p[0], p);
     }
-    let i = 0,
-        n = arr.length;
-    while (i < n) {
-        let cur = arr[i];
-        let nums = mapper.get(cur);
-        if (nums == undefined) return false;
-        for (let num of nums) {
-            if (arr[i] != num) return false;
-            i++;
+    for (let i = 0; i < arr.length; ) {
+        if (!d.has(arr[i])) {
+            return false;
+        }
+        const p = d.get(arr[i]);
+        for (const v of p) {
+            if (arr[i++] != v) {
+                return false;
+            }
         }
     }
     return true;

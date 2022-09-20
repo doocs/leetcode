@@ -4,19 +4,19 @@
  * @return {boolean}
  */
 var canFormArray = function (arr, pieces) {
-    let mapper = new Map();
-    for (let i = 0; i < pieces.length; i++) {
-        mapper.set(pieces[i][0], pieces[i]);
+    const d = new Map();
+    for (const p of pieces) {
+        d.set(p[0], p);
     }
-    let i = 0,
-        n = arr.length;
-    while (i < n) {
-        let cur = arr[i];
-        let nums = mapper.get(cur);
-        if (nums == undefined) return false;
-        for (let num of nums) {
-            if (arr[i] != num) return false;
-            i++;
+    for (let i = 0; i < arr.length; ) {
+        if (!d.has(arr[i])) {
+            return false;
+        }
+        const p = d.get(arr[i]);
+        for (const v of p) {
+            if (arr[i++] != v) {
+                return false;
+            }
         }
     }
     return true;
