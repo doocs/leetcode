@@ -79,7 +79,7 @@ class Solution:
         s, mod = divmod(sum(nums), k)
         if mod:
             return False
-        nums.sort(reverse=True)
+        nums.sort()
         mask = (1 << len(nums)) - 1
         return dfs(0, 0)
 ```

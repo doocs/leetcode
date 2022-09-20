@@ -47,8 +47,6 @@
 
 如果能将所有元素都加入到 `cur` 中，说明可以划分为 $k$ 个子集，返回 `true`。
 
-时间复杂度 $O(k^n)$，其中 $n$ 表示数组 $nums$ 的长度。每个数可以被加入到 $k$ 个子集中，因此，时间复杂度为 $O(k^n)$。
-
 **方法二：状态压缩 + 记忆化搜索**
 
 与方法一相同，我们依然先判断数组 `nums` 是否有可能被划分为 $k$ 个子集。如果不能被 $k$ 整除，直接返回 `false`。
@@ -116,7 +114,7 @@ class Solution:
         s, mod = divmod(sum(nums), k)
         if mod:
             return False
-        nums.sort(reverse=True)
+        nums.sort()
         mask = (1 << len(nums)) - 1
         return dfs(0, 0)
 ```
