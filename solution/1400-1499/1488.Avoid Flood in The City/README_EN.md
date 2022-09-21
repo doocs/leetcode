@@ -76,13 +76,119 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 ### **Python3**
 
 ```python
-
+class Solution:
+    def avoidFlood(self, rains: List[int]) -> List[int]:
+        n = len(rains)
+        ans = [-1] * n
+        sunny = []
+        rainy = {}
+        for i, v in enumerate(rains):
+            if v:
+                if v in rainy:
+                    idx = bisect_right(sunny, rainy[v])
+                    if idx == len(sunny):
+                        return []
+                    ans[sunny.pop(idx)] = v
+                rainy[v] = i
+            else:
+                sunny.append(i)
+                ans[i] = 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] avoidFlood(int[] rains) {
+        int n = rains.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        TreeSet<Integer> sunny = new TreeSet<>();
+        Map<Integer, Integer> rainy = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            int v = rains[i];
+            if (v > 0) {
+                if (rainy.containsKey(v)) {
+                    Integer t = sunny.higher(rainy.get(v));
+                    if (t == null) {
+                        return new int[0];
+                    }
+                    ans[t] = v;
+                    sunny.remove(t);
+                }
+                rainy.put(v, i);
+            } else {
+                sunny.add(i);
+                ans[i] = 1;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> avoidFlood(vector<int>& rains) {
+        int n = rains.size();
+        vector<int> ans(n, -1);
+        set<int> sunny;
+        unordered_map<int, int> rainy;
+        for (int i = 0; i < n; ++i) {
+            int v = rains[i];
+            if (v) {
+                if (rainy.count(v)) {
+                    auto it = sunny.upper_bound(rainy[v]);
+                    if (it == sunny.end()) {
+                        return {};
+                    }
+                    ans[*it] = v;
+                    sunny.erase(it);
+                }
+                rainy[v] = i;
+            } else {
+                sunny.insert(i);
+                ans[i] = 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func avoidFlood(rains []int) []int {
+	n := len(rains)
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = -1
+	}
+	sunny := []int{}
+	rainy := map[int]int{}
+	for i, v := range rains {
+		if v > 0 {
+			if j, ok := rainy[v]; ok {
+				idx := sort.Search(len(sunny), func(i int) bool { return sunny[i] > j })
+				if idx == len(sunny) {
+					return []int{}
+				}
+				ans[sunny[idx]] = v
+				sunny = append(sunny[:idx], sunny[idx+1:]...)
+			}
+			rainy[v] = i
+		} else {
+			sunny = append(sunny, i)
+			ans[i] = 1
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

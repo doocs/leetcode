@@ -77,6 +77,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 二分查找**
+
+将所有晴天都存入 `sunny` 数组或者有序集合中，使用哈希表 `rainy` 记录每个湖泊最近一次下雨的日期。初始化答案数组 `ans` 每个元素为 `-1`。
+
+遍历 `rains` 数组，对于每个下雨的日期 $i$，如果 `rainy[rains[i]]` 存在，说明该湖泊在之前下过雨，那么我们需要找到 `sunny` 数组中第一个大于 `rainy[rains[i]]` 的日期，将其替换为下雨的日期，否则说明无法阻止洪水，返回空数组。对于没下雨的日期 $i$，我们将 $i$ 存入 `sunny` 数组中，并且将 `ans[i]` 置为 `1`。
+
+遍历结束，返回答案数组。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为 `rains` 数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -84,7 +94,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def avoidFlood(self, rains: List[int]) -> List[int]:
+        n = len(rains)
+        ans = [-1] * n
+        sunny = []
+        rainy = {}
+        for i, v in enumerate(rains):
+            if v:
+                if v in rainy:
+                    idx = bisect_right(sunny, rainy[v])
+                    if idx == len(sunny):
+                        return []
+                    ans[sunny.pop(idx)] = v
+                rainy[v] = i
+            else:
+                sunny.append(i)
+                ans[i] = 1
+        return ans
 ```
 
 ### **Java**
@@ -92,7 +119,96 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] avoidFlood(int[] rains) {
+        int n = rains.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        TreeSet<Integer> sunny = new TreeSet<>();
+        Map<Integer, Integer> rainy = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            int v = rains[i];
+            if (v > 0) {
+                if (rainy.containsKey(v)) {
+                    Integer t = sunny.higher(rainy.get(v));
+                    if (t == null) {
+                        return new int[0];
+                    }
+                    ans[t] = v;
+                    sunny.remove(t);
+                }
+                rainy.put(v, i);
+            } else {
+                sunny.add(i);
+                ans[i] = 1;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> avoidFlood(vector<int>& rains) {
+        int n = rains.size();
+        vector<int> ans(n, -1);
+        set<int> sunny;
+        unordered_map<int, int> rainy;
+        for (int i = 0; i < n; ++i) {
+            int v = rains[i];
+            if (v) {
+                if (rainy.count(v)) {
+                    auto it = sunny.upper_bound(rainy[v]);
+                    if (it == sunny.end()) {
+                        return {};
+                    }
+                    ans[*it] = v;
+                    sunny.erase(it);
+                }
+                rainy[v] = i;
+            } else {
+                sunny.insert(i);
+                ans[i] = 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func avoidFlood(rains []int) []int {
+	n := len(rains)
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = -1
+	}
+	sunny := []int{}
+	rainy := map[int]int{}
+	for i, v := range rains {
+		if v > 0 {
+			if j, ok := rainy[v]; ok {
+				idx := sort.Search(len(sunny), func(i int) bool { return sunny[i] > j })
+				if idx == len(sunny) {
+					return []int{}
+				}
+				ans[sunny[idx]] = v
+				sunny = append(sunny[:idx], sunny[idx+1:]...)
+			}
+			rainy[v] = i
+		} else {
+			sunny = append(sunny, i)
+			ans[i] = 1
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
