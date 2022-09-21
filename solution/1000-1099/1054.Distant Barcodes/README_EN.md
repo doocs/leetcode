@@ -31,13 +31,139 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def rearrangeBarcodes(self, barcodes: List[int]) -> List[int]:
+        cnt = Counter(barcodes)
+        h = [(-v, k) for k, v in cnt.items()]
+        heapify(h)
+        q = deque()
+        ans = []
+        while h:
+            v, k = heappop(h)
+            ans.append(k)
+            q.append((v + 1, k))
+            while len(q) > 1:
+                p = q.popleft()
+                if p[0]:
+                    heappush(h, p)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] rearrangeBarcodes(int[] barcodes) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int v : barcodes) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
+        for (var e : cnt.entrySet()) {
+            pq.offer(new int[] {e.getKey(), e.getValue()});
+        }
+        Deque<int[]> q = new ArrayDeque<>();
+        int[] ans = new int[barcodes.length];
+        int i = 0;
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            ans[i++] = p[0];
+            p[1]--;
+            q.offer(p);
+            while (q.size() > 1) {
+                p = q.pollFirst();
+                if (p[1] > 0) {
+                    pq.offer(p);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    vector<int> rearrangeBarcodes(vector<int>& barcodes) {
+        unordered_map<int, int> cnt;
+        for (auto& v : barcodes) {
+            ++cnt[v];
+        }
+        priority_queue<pii> pq;
+        for (auto& [k, v] : cnt) {
+            pq.push({v, k});
+        }
+        vector<int> ans;
+        queue<pii> q;
+        while (pq.size()) {
+            auto p = pq.top();
+            pq.pop();
+            ans.push_back(p.second);
+            p.first--;
+            q.push(p);
+            while (q.size() > 1) {
+                p = q.front();
+                q.pop();
+                if (p.first) {
+                    pq.push(p);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func rearrangeBarcodes(barcodes []int) []int {
+	cnt := map[int]int{}
+	for _, v := range barcodes {
+		cnt[v]++
+	}
+	pq := hp{}
+	for k, v := range cnt {
+		heap.Push(&pq, pair{v, k})
+	}
+	ans := []int{}
+	q := []pair{}
+	for len(pq) > 0 {
+		p := heap.Pop(&pq).(pair)
+		v, k := p.v, p.k
+		ans = append(ans, k)
+		q = append(q, pair{v - 1, k})
+		for len(q) > 1 {
+			p = q[0]
+			q = q[1:]
+			if p.v > 0 {
+				heap.Push(&pq, p)
+			}
+		}
+	}
+	return ans
+}
+
+type pair struct {
+	v int
+	k int
+}
+
+type hp []pair
+
+func (h hp) Len() int { return len(h) }
+func (h hp) Less(i, j int) bool {
+	a, b := h[i], h[j]
+	return a.v > b.v
+}
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**

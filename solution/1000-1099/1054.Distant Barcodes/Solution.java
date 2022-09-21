@@ -1,39 +1,28 @@
 class Solution {
     public int[] rearrangeBarcodes(int[] barcodes) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int x : barcodes) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int v : barcodes) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
         }
-        Data[] ds = new Data[map.size()];
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
+        for (var e : cnt.entrySet()) {
+            pq.offer(new int[] {e.getKey(), e.getValue()});
+        }
+        Deque<int[]> q = new ArrayDeque<>();
+        int[] ans = new int[barcodes.length];
         int i = 0;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            ds[i++] = new Data(entry.getKey(), entry.getValue());
-        }
-        Arrays.sort(ds);
-        i = 0;
-        for (Data d : ds) {
-            while (d.cnt-- > 0) {
-                barcodes[i] = d.x;
-                i += 2;
-                if (i >= barcodes.length) {
-                    i = 1;
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            ans[i++] = p[0];
+            p[1]--;
+            q.offer(p);
+            while (q.size() > 1) {
+                p = q.pollFirst();
+                if (p[1] > 0) {
+                    pq.offer(p);
                 }
             }
         }
-        return barcodes;
-    }
-
-    class Data implements Comparable<Data> {
-        int x, cnt;
-
-        public Data(int x, int cnt) {
-            this.x = x;
-            this.cnt = cnt;
-        }
-
-        @Override
-        public int compareTo(Data o) {
-            return Integer.compare(o.cnt, cnt);
-        }
+        return ans;
     }
 }

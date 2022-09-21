@@ -57,7 +57,10 @@
 
 时间复杂度 $O(n\log n)$，其中 $n$ 是字符串 `s` 的长度。
 
-相似题目：[358. K 距离间隔重排字符串](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md)
+相似题目：
+
+-   [358. K 距离间隔重排字符串](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md)
+-   [1054. 距离相等的条形码](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
 
 <!-- tabs:start -->
 
