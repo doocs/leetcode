@@ -49,6 +49,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 贪心 + 优先队列**
+
+定义哈希表记录每个会议的开始和结束时间，其中键为会议开始时间，值为结束时间列表。
+
+枚举当前时间 $s$，找出所有开始时间等于当前时间的会议，将其结束时间加入优先队列（小根堆）中。同时，优先队列要移除所有结束时间小于当前时间的会议。
+
+然后从优先队列中取出结束时间最小的会议，即为当前时间可以参加的会议，累加答案数。如果优先队列为空，则说明当前时间没有可以参加的会议。
+
+时间复杂度 $O(m\log n)$。其中 $m$, $n$ 分别表示会议的最大结束时间，以及会议的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +66,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxEvents(self, events: List[List[int]]) -> int:
+        d = defaultdict(list)
+        i, j = inf, 0
+        for s, e in events:
+            d[s].append(e)
+            i = min(i, s)
+            j = max(j, e)
+        h = []
+        ans = 0
+        for s in range(i, j + 1):
+            while h and h[0] < s:
+                heappop(h)
+            for e in d[s]:
+                heappush(h, e)
+            if h:
+                ans += 1
+                heappop(h)
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +92,121 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxEvents(int[][] events) {
+        Map<Integer, List<Integer>> d = new HashMap<>();
+        int i = Integer.MAX_VALUE, j = 0;
+        for (var v : events) {
+            int s = v[0], e = v[1];
+            d.computeIfAbsent(s, k -> new ArrayList<>()).add(e);
+            i = Math.min(i, s);
+            j = Math.max(j, e);
+        }
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        int ans = 0;
+        for (int s = i; s <= j; ++s) {
+            while (!q.isEmpty() && q.peek() < s) {
+                q.poll();
+            }
+            for (int e : d.getOrDefault(s, Collections.emptyList())) {
+                q.offer(e);
+            }
+            if (!q.isEmpty()) {
+                q.poll();
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxEvents(vector<vector<int>>& events) {
+        unordered_map<int, vector<int>> d;
+        int i = INT_MAX, j = 0;
+        for (auto& v : events) {
+            int s = v[0], e = v[1];
+            d[s].push_back(e);
+            i = min(i, s);
+            j = max(j, e);
+        }
+        priority_queue<int, vector<int>, greater<int>> q;
+        int ans = 0;
+        for (int s = i; s <= j; ++s) {
+            while (q.size() && q.top() < s) {
+                q.pop();
+            }
+            for (int e : d[s]) {
+                q.push(e);
+            }
+            if (q.size()) {
+                ++ans;
+                q.pop();
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxEvents(events [][]int) int {
+	d := map[int][]int{}
+	i, j := math.MaxInt32, 0
+	for _, v := range events {
+		s, e := v[0], v[1]
+		d[s] = append(d[s], e)
+		i = min(i, s)
+		j = max(j, e)
+	}
+	q := hp{}
+	ans := 0
+	for s := i; s <= j; s++ {
+		for q.Len() > 0 && q.IntSlice[0] < s {
+			heap.Pop(&q)
+		}
+		for _, e := range d[s] {
+			heap.Push(&q, e)
+		}
+		if q.Len() > 0 {
+			heap.Pop(&q)
+			ans++
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 ```
 
 ### **...**

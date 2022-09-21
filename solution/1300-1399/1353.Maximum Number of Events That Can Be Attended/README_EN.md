@@ -46,13 +46,145 @@ Attend the third event on day 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxEvents(self, events: List[List[int]]) -> int:
+        d = defaultdict(list)
+        i, j = inf, 0
+        for s, e in events:
+            d[s].append(e)
+            i = min(i, s)
+            j = max(j, e)
+        h = []
+        ans = 0
+        for s in range(i, j + 1):
+            while h and h[0] < s:
+                heappop(h)
+            for e in d[s]:
+                heappush(h, e)
+            if h:
+                ans += 1
+                heappop(h)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxEvents(int[][] events) {
+        Map<Integer, List<Integer>> d = new HashMap<>();
+        int i = Integer.MAX_VALUE, j = 0;
+        for (var v : events) {
+            int s = v[0], e = v[1];
+            d.computeIfAbsent(s, k -> new ArrayList<>()).add(e);
+            i = Math.min(i, s);
+            j = Math.max(j, e);
+        }
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        int ans = 0;
+        for (int s = i; s <= j; ++s) {
+            while (!q.isEmpty() && q.peek() < s) {
+                q.poll();
+            }
+            for (int e : d.getOrDefault(s, Collections.emptyList())) {
+                q.offer(e);
+            }
+            if (!q.isEmpty()) {
+                q.poll();
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxEvents(vector<vector<int>>& events) {
+        unordered_map<int, vector<int>> d;
+        int i = INT_MAX, j = 0;
+        for (auto& v : events) {
+            int s = v[0], e = v[1];
+            d[s].push_back(e);
+            i = min(i, s);
+            j = max(j, e);
+        }
+        priority_queue<int, vector<int>, greater<int>> q;
+        int ans = 0;
+        for (int s = i; s <= j; ++s) {
+            while (q.size() && q.top() < s) {
+                q.pop();
+            }
+            for (int e : d[s]) {
+                q.push(e);
+            }
+            if (q.size()) {
+                ++ans;
+                q.pop();
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxEvents(events [][]int) int {
+	d := map[int][]int{}
+	i, j := math.MaxInt32, 0
+	for _, v := range events {
+		s, e := v[0], v[1]
+		d[s] = append(d[s], e)
+		i = min(i, s)
+		j = max(j, e)
+	}
+	q := hp{}
+	ans := 0
+	for s := i; s <= j; s++ {
+		for q.Len() > 0 && q.IntSlice[0] < s {
+			heap.Pop(&q)
+		}
+		for _, e := range d[s] {
+			heap.Push(&q, e)
+		}
+		if q.Len() > 0 {
+			heap.Pop(&q)
+			ans++
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 ```
 
 ### **...**
