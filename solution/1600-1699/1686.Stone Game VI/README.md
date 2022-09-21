@@ -70,6 +70,12 @@ Bob 会获胜。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序**
+
+选取石头的最优化的策略是，让自己得分最高，同时让对手失分最多。因此，我们创建一个数组 `arr`，其中 `arr[i] = aliceValues[i] + bobValues[i]`，然后对 `arr` 进行降序排序。然后，我们从 `arr` 中取出石头，每次取出两个石头，分别给 Alice 和 Bob，直到 `arr` 中没有石头为止。最后，我们比较 Alice 和 Bob 的得分，得分高的人获胜。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -77,7 +83,18 @@ Bob 会获胜。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def stoneGameVI(self, aliceValues: List[int], bobValues: List[int]) -> int:
+        arr = [(a + b, i)
+               for i, (a, b) in enumerate(zip(aliceValues, bobValues))]
+        arr.sort(reverse=True)
+        a = sum(aliceValues[v[1]] for i, v in enumerate(arr) if i % 2 == 0)
+        b = sum(bobValues[v[1]] for i, v in enumerate(arr) if i % 2 == 1)
+        if a > b:
+            return 1
+        if a < b:
+            return -1
+        return 0
 ```
 
 ### **Java**
@@ -85,7 +102,84 @@ Bob 会获胜。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int stoneGameVI(int[] aliceValues, int[] bobValues) {
+        int n = aliceValues.length;
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[] {aliceValues[i] + bobValues[i], i};
+        }
+        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        int a = 0, b = 0;
+        for (int i = 0; i < n; ++i) {
+            int j = arr[i][1];
+            if (i % 2 == 0) {
+                a += aliceValues[j];
+            } else {
+                b += bobValues[j];
+            }
+        }
+        if (a == b) {
+            return 0;
+        }
+        return a > b ? 1 : -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int stoneGameVI(vector<int>& aliceValues, vector<int>& bobValues) {
+        int n = aliceValues.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = {aliceValues[i] + bobValues[i], i};
+        }
+        sort(arr.rbegin(), arr.rend());
+        int a = 0, b = 0;
+        for (int i = 0; i < n; ++i) {
+            int j = arr[i].second;
+            if (i % 2 == 0) {
+                a += aliceValues[j];
+            } else {
+                b += bobValues[j];
+            }
+        }
+        if (a == b) return 0;
+        return a > b ? 1 : -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func stoneGameVI(aliceValues []int, bobValues []int) int {
+	arr := make([][]int, len(aliceValues))
+	for i, a := range aliceValues {
+		b := bobValues[i]
+		arr[i] = []int{a + b, i}
+	}
+	sort.Slice(arr, func(i, j int) bool { return arr[i][0] > arr[j][0] })
+	a, b := 0, 0
+	for i, v := range arr {
+		if i%2 == 0 {
+			a += aliceValues[v[1]]
+		} else {
+			b += bobValues[v[1]]
+		}
+	}
+	if a == b {
+		return 0
+	}
+	if a > b {
+		return 1
+	}
+	return -1
+}
 ```
 
 ### **...**
