@@ -118,7 +118,7 @@ class Ranking:
                 right = mid - 1
         page = self.load_page(left)
         print('校准中...')
-        left, right = 0, len(page)
+        left, right = 0, len(page) - 1
         while left < right:
             mid = (left + right + 1) >> 1
             ranking, score = self.get_user_ranking(page[mid][1])

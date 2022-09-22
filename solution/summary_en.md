@@ -2464,3 +2464,4 @@
   - [2414.Length of the Longest Alphabetical Continuous Substring](/solution/2400-2499/2414.Length%20of%20the%20Longest%20Alphabetical%20Continuous%20Substring/README_EN.md)
   - [2415.Reverse Odd Levels of Binary Tree](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README_EN.md)
   - [2416.Sum of Prefix Scores of Strings](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README_EN.md)
+  - [2417.Closest Fair Integer](/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md)
