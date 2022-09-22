@@ -47,29 +47,35 @@ linkedList.get(1);            //返回3
 
 **方法一：指针引用实现单链表**
 
-我们创建链表虚拟头结点 `dummy`，用变量 `cnt` 记录当前链表结点个数。
+我们创建链表虚拟头节点 `dummy`，用变量 `cnt` 记录当前链表节点个数。
 
 具体的方法如下：
 
--   `get(index)`：遍历链表，找到第 `index` 个结点，返回其值，如果不存在，返回 `-1`。时间复杂度 $O(n)$。
--   `addAtHead(val)`：创建新结点，将其插入到虚拟头结点后面。时间复杂度 $O(1)$。
--   `addAtTail(val)`：创建新结点，将其插入到链表尾部。时间复杂度 $O(n)$。
--   `addAtIndex(index, val)`：如果 `index` 等于链表长度，则该节点将附加到链表的末尾。如果 `index` 大于链表长度，则不会插入节点。如果 `index` 小于 0，则在头部插入节点。否则，遍历链表，找到第 `index` 个结点的前一个结点，将新结点插入到该结点后面。时间复杂度 $O(n)$。
+-   `get(index)`：遍历链表，找到第 `index` 个节点，返回其值，如果不存在，返回 $-1$。时间复杂度 $O(n)$。
+-   `addAtHead(val)`：创建新节点，将其插入到虚拟头节点后面。时间复杂度 $O(1)$。
+-   `addAtTail(val)`：创建新节点，将其插入到链表尾部。时间复杂度 $O(n)$。
+-   `addAtIndex(index, val)`：如果 `index` 等于链表长度，则该节点将附加到链表的末尾。如果 `index` 大于链表长度，则不会插入节点。如果 `index` 小于 $0$，则在头部插入节点。否则，遍历链表，找到第 `index` 个节点的前一个节点，将新节点插入到该节点后面。时间复杂度 $O(n)$。
 -   `deleteAtIndex(index)`：如果索引 `index` 有效，则删除链表中的第 `index` 个节点。否则，不做任何操作。时间复杂度 $O(n)$。
 
 时间复杂度见具体的方法说明。其中 $n$ 为链表长度。
 
-注意：LeetCode 平台已经内置 ListNode 单链表结点类，可以直接使用。
+注意：LeetCode 平台已经内置 ListNode 单链表节点类，可以直接使用。
 
 **方法二：静态数组实现单链表**
 
-我们也可以用静态数组来实现单链表，其中：
+在方法一中，我们使用了指针引用的方式，每次动态创建一个链表节点。在链表节点数量达到 $10^5$ 甚至更大时，频繁执行 new 操作，会大大增加程序的执行耗时。
 
--   `head` 存放链表头
--   `e` 存储链表节点的值
--   `ne` 存储链表节点的 `next` 指针
--   `idx` 指向当前可分配的节点下标
--   `size` 存储链表节点的个数
+因此，我们可以使用静态数组来实现单链表，预先申请一块大小略大于数据范围的内存空间，每次插入节点时，从数组中取出一个空闲的位置，将新节点插入到该位置，同时更新该位置的前驱和后继节点的指针引用。
+
+我们定义以下几个变量，其中：
+
+-   `head` 存放链表头节点的索引，初始时指向 $-1$。
+-   `e` 存放链表所有节点的值（预先申请）。
+-   `ne` 存放链表所有节点的 `next` 指针（预先申请）。
+-   `idx` 指向当前可分配的节点索引，初始时指向索引 $0$。
+-   `cnt` 记录当前链表节点个数，初始时为 $0$。
+
+具体操作可参考以下代码。时间复杂度与方法一相同。
 
 <!-- tabs:start -->
 
@@ -132,19 +138,18 @@ class MyLinkedList:
 class MyLinkedList:
 
     def __init__(self):
-        self.e = [0] * 1000
-        self.ne = [0] * 1000
-        self.head = -1
+        self.e = [0] * 1010
+        self.ne = [0] * 1010
         self.idx = 0
-        self.size = 0
+        self.head = -1
+        self.cnt = 0
 
     def get(self, index: int) -> int:
-        if index < 0 or index >= self.size:
+        if index < 0 or index >= self.cnt:
             return -1
         i = self.head
-        while index:
+        for _ in range(index):
             i = self.ne[i]
-            index -= 1
         return self.e[i]
 
     def addAtHead(self, val: int) -> None:
@@ -152,38 +157,36 @@ class MyLinkedList:
         self.ne[self.idx] = self.head
         self.head = self.idx
         self.idx += 1
-        self.size += 1
+        self.cnt += 1
 
     def addAtTail(self, val: int) -> None:
-        self.addAtIndex(self.size, val)
+        self.addAtIndex(self.cnt, val)
 
     def addAtIndex(self, index: int, val: int) -> None:
-        if index > self.size:
+        if index > self.cnt:
             return
         if index <= 0:
             self.addAtHead(val)
             return
         i = self.head
-        while index > 1:
+        for _ in range(index - 1):
             i = self.ne[i]
-            index -= 1
         self.e[self.idx] = val
         self.ne[self.idx] = self.ne[i]
         self.ne[i] = self.idx
         self.idx += 1
-        self.size += 1
+        self.cnt += 1
 
     def deleteAtIndex(self, index: int) -> None:
-        if index < 0 or index >= self.size:
-            return
-        self.size -= 1
+        if index < 0 or index >= self.cnt:
+            return -1
+        self.cnt -= 1
         if index == 0:
             self.head = self.ne[self.head]
             return
         i = self.head
-        while index > 1:
+        for _ in range(index - 1):
             i = self.ne[i]
-            index -= 1
         self.ne[i] = self.ne[self.ne[i]]
 
 
@@ -268,22 +271,24 @@ class MyLinkedList {
 
 ```java
 class MyLinkedList {
-    private int[] e = new int[1000];
-    private int[] ne = new int[1000];
+    private int[] e = new int[1010];
+    private int[] ne = new int[1010];
     private int head = -1;
     private int idx;
-    private int size;
+    private int cnt;
 
     public MyLinkedList() {
+
     }
 
     public int get(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= cnt) {
             return -1;
         }
         int i = head;
-        for (; index > 0; i = ne[i], index--)
-            ;
+        while (index-- > 0) {
+            i = ne[i];
+        }
         return e[i];
     }
 
@@ -291,15 +296,15 @@ class MyLinkedList {
         e[idx] = val;
         ne[idx] = head;
         head = idx++;
-        size++;
+        ++cnt;
     }
 
     public void addAtTail(int val) {
-        addAtIndex(size, val);
+        addAtIndex(cnt, val);
     }
 
     public void addAtIndex(int index, int val) {
-        if (index > size) {
+        if (index > cnt) {
             return;
         }
         if (index <= 0) {
@@ -307,26 +312,28 @@ class MyLinkedList {
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
+        while (--index > 0) {
+            i = ne[i];
+        }
         e[idx] = val;
         ne[idx] = ne[i];
         ne[i] = idx++;
-        size++;
+        ++cnt;
     }
 
     public void deleteAtIndex(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= cnt) {
             return;
         }
-        size--;
+        --cnt;
         if (index == 0) {
             head = ne[head];
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
+        while (--index > 0) {
+            i = ne[i];
+        }
         ne[i] = ne[ne[i]];
     }
 }
@@ -413,21 +420,22 @@ public:
 
 ```cpp
 class MyLinkedList {
-public:
-    int e[1000];
-    int ne[1000];
-    int head = -1;
-    int idx = 0;
-    int size = 0;
+private:
+    int e[1010], ne[1010];
+    int head = -1, idx = 0, cnt = 0;
 
+public:
     MyLinkedList() {
     }
 
     int get(int index) {
-        if (index < 0 || index >= size) return -1;
+        if (index < 0 || index >= cnt) {
+            return -1;
+        }
         int i = head;
-        for (; index > 0; i = ne[i], index--)
-            ;
+        while (index--) {
+            i = ne[i];
+        }
         return e[i];
     }
 
@@ -435,38 +443,44 @@ public:
         e[idx] = val;
         ne[idx] = head;
         head = idx++;
-        size++;
+        ++cnt;
     }
 
     void addAtTail(int val) {
-        addAtIndex(size, val);
+        addAtIndex(cnt, val);
     }
 
     void addAtIndex(int index, int val) {
-        if (index > size) return;
-        if (index <= 0) {
+        if (index > cnt) {
+            return;
+        }
+        if (index == 0) {
             addAtHead(val);
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
+        while (--index) {
+            i = ne[i];
+        }
         e[idx] = val;
         ne[idx] = ne[i];
         ne[i] = idx++;
-        size++;
+        ++cnt;
     }
 
     void deleteAtIndex(int index) {
-        if (index < 0 || index >= size) return;
-        size--;
+        if (index < 0 || index >= cnt) {
+            return;
+        }
+        --cnt;
         if (index == 0) {
             head = ne[head];
             return;
         }
         int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
+        while (--index) {
+            i = ne[i];
+        }
         ne[i] = ne[ne[i]];
     }
 };
@@ -554,24 +568,24 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
 type MyLinkedList struct {
 	e    []int
 	ne   []int
-	head int
 	idx  int
-	size int
+	head int
+	cnt  int
 }
 
 func Constructor() MyLinkedList {
-	e := make([]int, 1000)
-	ne := make([]int, 1000)
-	head, idx, size := -1, 0, 0
-	return MyLinkedList{e, ne, head, idx, size}
+	e := make([]int, 1010)
+	ne := make([]int, 1010)
+	return MyLinkedList{e, ne, 0, -1, 0}
 }
 
 func (this *MyLinkedList) Get(index int) int {
-	if index < 0 || index >= this.size {
+	if index < 0 || index >= this.cnt {
 		return -1
 	}
 	i := this.head
-	for ; index > 0; i, index = this.ne[i], index-1 {
+	for ; index > 0; index-- {
+		i = this.ne[i]
 	}
 	return this.e[i]
 }
@@ -581,15 +595,15 @@ func (this *MyLinkedList) AddAtHead(val int) {
 	this.ne[this.idx] = this.head
 	this.head = this.idx
 	this.idx++
-	this.size++
+	this.cnt++
 }
 
 func (this *MyLinkedList) AddAtTail(val int) {
-	this.AddAtIndex(this.size, val)
+	this.AddAtIndex(this.cnt, val)
 }
 
 func (this *MyLinkedList) AddAtIndex(index int, val int) {
-	if index > this.size {
+	if index > this.cnt {
 		return
 	}
 	if index <= 0 {
@@ -597,26 +611,28 @@ func (this *MyLinkedList) AddAtIndex(index int, val int) {
 		return
 	}
 	i := this.head
-	for ; index > 1; i, index = this.ne[i], index-1 {
+	for ; index > 1; index-- {
+		i = this.ne[i]
 	}
 	this.e[this.idx] = val
 	this.ne[this.idx] = this.ne[i]
 	this.ne[i] = this.idx
 	this.idx++
-	this.size++
+	this.cnt++
 }
 
 func (this *MyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index >= this.size {
+	if index < 0 || index >= this.cnt {
 		return
 	}
-	this.size--
+	this.cnt--
 	if index == 0 {
 		this.head = this.ne[this.head]
 		return
 	}
 	i := this.head
-	for ; index > 1; i, index = this.ne[i], index-1 {
+	for ; index > 1; index-- {
+		i = this.ne[i]
 	}
 	this.ne[i] = this.ne[this.ne[i]]
 }
@@ -718,6 +734,90 @@ class MyLinkedList {
             idxCur++;
         }
         cur.next = (cur.next || {}).next;
+    }
+}
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * var obj = new MyLinkedList()
+ * var param_1 = obj.get(index)
+ * obj.addAtHead(val)
+ * obj.addAtTail(val)
+ * obj.addAtIndex(index,val)
+ * obj.deleteAtIndex(index)
+ */
+```
+
+```ts
+class MyLinkedList {
+    e: Array<number>;
+    ne: Array<number>;
+    idx: number;
+    head: number;
+    cnt: number;
+
+    constructor() {
+        this.e = new Array(1010).fill(0);
+        this.ne = new Array(1010).fill(0);
+        this.head = -1;
+        this.idx = 0;
+        this.cnt = 0;
+    }
+
+    get(index: number): number {
+        if (index < 0 || index >= this.cnt) {
+            return -1;
+        }
+        let i = this.head;
+        while (index--) {
+            i = this.ne[i];
+        }
+        return this.e[i];
+    }
+
+    addAtHead(val: number): void {
+        this.e[this.idx] = val;
+        this.ne[this.idx] = this.head;
+        this.head = this.idx++;
+        this.cnt++;
+    }
+
+    addAtTail(val: number): void {
+        this.addAtIndex(this.cnt, val);
+    }
+
+    addAtIndex(index: number, val: number): void {
+        if (index > this.cnt) {
+            return;
+        }
+        if (index <= 0) {
+            this.addAtHead(val);
+            return;
+        }
+        let i = this.head;
+        while (--index) {
+            i = this.ne[i];
+        }
+        this.e[this.idx] = val;
+        this.ne[this.idx] = this.ne[i];
+        this.ne[i] = this.idx++;
+        this.cnt++;
+    }
+
+    deleteAtIndex(index: number): void {
+        if (index < 0 || index >= this.cnt) {
+            return;
+        }
+        this.cnt--;
+        if (index == 0) {
+            this.head = this.ne[this.head];
+            return;
+        }
+        let i = this.head;
+        while (--index) {
+            i = this.ne[i];
+        }
+        this.ne[i] = this.ne[this.ne[i]];
     }
 }
 
