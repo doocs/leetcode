@@ -49,6 +49,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+根据题意，字符串 $s$ 仅由字符 `a`, `b` 组成。
+
+要使得所有 `a` 都在 `b` 之前出现，需要满足 `b` 之后不会出现 `a`，也就是说，字符串 "ba" 不是字符串 $s$ 的子串，条件才能成立。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +64,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def checkString(self, s: str) -> bool:
+        return "ba" not in s
 ```
 
 ### **Java**
@@ -64,12 +74,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean checkString(String s) {
+        return !s.contains("ba");
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkString(string s) {
+        return s.find("ba") == string::npos;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkString(s string) bool {
+	return !strings.Contains(s, "ba")
+}
 ```
 
 ### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 

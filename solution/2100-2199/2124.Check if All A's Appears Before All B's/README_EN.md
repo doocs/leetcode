@@ -51,13 +51,38 @@ There are no &#39;a&#39;s, hence, every &#39;a&#39; appears before every &#39;b&
 ### **Python3**
 
 ```python
-
+class Solution:
+    def checkString(self, s: str) -> bool:
+        return "ba" not in s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean checkString(String s) {
+        return !s.contains("ba");
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkString(string s) {
+        return s.find("ba") == string::npos;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkString(s string) bool {
+	return !strings.Contains(s, "ba")
+}
 ```
 
 ### **TypeScript**
