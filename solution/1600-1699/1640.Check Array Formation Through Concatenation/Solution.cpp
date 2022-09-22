@@ -9,8 +9,7 @@ public:
             if (!d.count(arr[i])) {
                 return false;
             }
-            auto& p = d[arr[i]];
-            for (int& v : p) {
+            for (int& v : d[arr[i]]) {
                 if (arr[i++] != v) {
                     return false;
                 }

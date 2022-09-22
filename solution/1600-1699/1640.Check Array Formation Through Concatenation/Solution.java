@@ -8,7 +8,6 @@ class Solution {
             if (!d.containsKey(arr[i])) {
                 return false;
             }
-            var p = d.get(arr[i]);
             for (int v : d.get(arr[i])) {
                 if (arr[i++] != v) {
                     return false;

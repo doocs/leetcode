@@ -54,6 +54,22 @@
 ```python
 class Solution:
     def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+        i = 0
+        while i < len(arr):
+            k = 0
+            while k < len(pieces) and pieces[k][0] != arr[i]:
+                k += 1
+            if k == len(pieces):
+                return False
+            j = 0
+            while j < len(pieces[k]) and arr[i] == pieces[k][j]:
+                i, j = i + 1, j + 1
+        return True
+```
+
+```python
+class Solution:
+    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
         d = {p[0]: p for p in pieces}
         i, n = 0, len(arr)
         while i < n:
@@ -71,6 +87,28 @@ class Solution:
 ```java
 class Solution {
     public boolean canFormArray(int[] arr, int[][] pieces) {
+        for (int i = 0; i < arr.length;) {
+            int k = 0;
+            while (k < pieces.length && pieces[k][0] != arr[i]) {
+                ++k;
+            }
+            if (k == pieces.length) {
+                return false;
+            }
+            int j = 0;
+            while (j < pieces[k].length && arr[i] == pieces[k][j]) {
+                ++i;
+                ++j;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean canFormArray(int[] arr, int[][] pieces) {
         Map<Integer, int[]> d = new HashMap<>();
         for (var p : pieces) {
             d.put(p[0], p);
@@ -79,7 +117,6 @@ class Solution {
             if (!d.containsKey(arr[i])) {
                 return false;
             }
-            var p = d.get(arr[i]);
             for (int v : d.get(arr[i])) {
                 if (arr[i++] != v) {
                     return false;
@@ -97,6 +134,29 @@ class Solution {
 class Solution {
 public:
     bool canFormArray(vector<int>& arr, vector<vector<int>>& pieces) {
+        for (int i = 0; i < arr.size();) {
+            int k = 0;
+            while (k < pieces.size() && pieces[k][0] != arr[i]) {
+                ++k;
+            }
+            if (k == pieces.size()) {
+                return false;
+            }
+            int j = 0;
+            while (j < pieces[k].size() && arr[i] == pieces[k][j]) {
+                ++i;
+                ++j;
+            }
+        }
+        return true;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canFormArray(vector<int>& arr, vector<vector<int>>& pieces) {
         unordered_map<int, vector<int>> d;
         for (auto& p : pieces) {
             d[p[0]] = p;
@@ -105,8 +165,7 @@ public:
             if (!d.count(arr[i])) {
                 return false;
             }
-            auto& p = d[arr[i]];
-            for (int& v : p) {
+            for (int& v : d[arr[i]]) {
                 if (arr[i++] != v) {
                     return false;
                 }
@@ -118,6 +177,25 @@ public:
 ```
 
 ### **Go**
+
+```go
+func canFormArray(arr []int, pieces [][]int) bool {
+	for i := 0; i < len(arr); {
+		k := 0
+		for k < len(pieces) && pieces[k][0] != arr[i] {
+			k++
+		}
+		if k == len(pieces) {
+			return false
+		}
+		j := 0
+		for j < len(pieces[k]) && arr[i] == pieces[k][j] {
+			i, j = i+1, j+1
+		}
+	}
+	return true
+}
+```
 
 ```go
 func canFormArray(arr []int, pieces [][]int) bool {
