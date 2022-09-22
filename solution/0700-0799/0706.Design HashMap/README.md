@@ -53,7 +53,13 @@ myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 
 <!-- 这里可写通用的实现逻辑 -->
 
-数组实现。
+**方法一：静态数组实现**
+
+直接创建一个大小为 $1000001$ 的数组，初始时数组中的每个元素都为 $-1$，表示哈希表中不存在该键值对。
+
+调用 `put` 方法时，将数组中对应的位置赋值为 `value`；调用 `get` 方法时，返回数组中对应的位置的值；调用 `remove` 方法时，将数组中对应的位置赋值为 $-1$。
+
+以上操作，时间复杂度均为 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -153,22 +159,22 @@ class MyHashMap {
 ```cpp
 class MyHashMap {
 public:
-    int hash[1000010];
+    int data[1000001];
 
     MyHashMap() {
-        memset(hash, -1, sizeof hash);
+        memset(data, -1, sizeof data);
     }
 
     void put(int key, int value) {
-        hash[key] = value;
+        data[key] = value;
     }
 
     int get(int key) {
-        return hash[key];
+        return data[key];
     }
 
     void remove(int key) {
-        hash[key] = -1;
+        data[key] = -1;
     }
 };
 
@@ -178,6 +184,42 @@ public:
  * obj->put(key,value);
  * int param_2 = obj->get(key);
  * obj->remove(key);
+ */
+```
+
+### **Go**
+
+```go
+type MyHashMap struct {
+	data []int
+}
+
+func Constructor() MyHashMap {
+	data := make([]int, 1000010)
+	for i := range data {
+		data[i] = -1
+	}
+	return MyHashMap{data}
+}
+
+func (this *MyHashMap) Put(key int, value int) {
+	this.data[key] = value
+}
+
+func (this *MyHashMap) Get(key int) int {
+	return this.data[key]
+}
+
+func (this *MyHashMap) Remove(key int) {
+	this.data[key] = -1
+}
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Put(key,value);
+ * param_2 := obj.Get(key);
+ * obj.Remove(key);
  */
 ```
 

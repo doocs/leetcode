@@ -1,5 +1,4 @@
 class MyLinkedList:
-
     def __init__(self):
         self.dummy = ListNode()
         self.cnt = 0
