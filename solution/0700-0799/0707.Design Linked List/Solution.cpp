@@ -1,59 +1,55 @@
 class MyLinkedList {
-public:
-    int e[1000];
-    int ne[1000];
-    int head = -1;
-    int idx = 0;
-    int size = 0;
+private:
+    ListNode* dummy = new ListNode();
+    int cnt = 0;
 
+public:
     MyLinkedList() {
     }
-
+    
     int get(int index) {
-        if (index < 0 || index >= size) return -1;
-        int i = head;
-        for (; index > 0; i = ne[i], index--)
-            ;
-        return e[i];
+        if (index < 0 || index >= cnt) {
+            return -1;
+        }
+        auto cur = dummy->next;
+        while (index--) {
+            cur = cur->next;
+        }
+        return cur->val;
     }
-
+    
     void addAtHead(int val) {
-        e[idx] = val;
-        ne[idx] = head;
-        head = idx++;
-        size++;
+        addAtIndex(0, val);
     }
-
+    
     void addAtTail(int val) {
-        addAtIndex(size, val);
+        addAtIndex(cnt, val);
     }
-
+    
     void addAtIndex(int index, int val) {
-        if (index > size) return;
-        if (index <= 0) {
-            addAtHead(val);
+        if (index < 0 || index > cnt) {
             return;
         }
-        int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
-        e[idx] = val;
-        ne[idx] = ne[i];
-        ne[i] = idx++;
-        size++;
+        auto pre = dummy;
+        while (index--) {
+            pre = pre->next;
+        }
+        pre->next = new ListNode(val, pre->next);
+        ++cnt;
     }
-
+    
     void deleteAtIndex(int index) {
-        if (index < 0 || index >= size) return;
-        size--;
-        if (index == 0) {
-            head = ne[head];
+        if (index >= cnt) {
             return;
         }
-        int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
-        ne[i] = ne[ne[i]];
+        auto pre = dummy;
+        while (index-- > 0) {
+            pre = pre->next;
+        }
+        auto t = pre->next;
+        pre->next = t->next;
+        t->next = nullptr;
+        --cnt;
     }
 };
 

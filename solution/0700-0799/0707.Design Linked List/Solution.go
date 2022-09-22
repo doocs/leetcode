@@ -1,71 +1,55 @@
 type MyLinkedList struct {
-	e    []int
-	ne   []int
-	head int
-	idx  int
-	size int
+	dummy *ListNode
+	cnt   int
 }
 
 func Constructor() MyLinkedList {
-	e := make([]int, 1000)
-	ne := make([]int, 1000)
-	head, idx, size := -1, 0, 0
-	return MyLinkedList{e, ne, head, idx, size}
+	return MyLinkedList{&ListNode{}, 0}
 }
 
 func (this *MyLinkedList) Get(index int) int {
-	if index < 0 || index >= this.size {
+	if index < 0 || index >= this.cnt {
 		return -1
 	}
-	i := this.head
-	for ; index > 0; i, index = this.ne[i], index-1 {
+	cur := this.dummy.Next
+	for ; index > 0; index-- {
+		cur = cur.Next
 	}
-	return this.e[i]
+	return cur.Val
 }
 
 func (this *MyLinkedList) AddAtHead(val int) {
-	this.e[this.idx] = val
-	this.ne[this.idx] = this.head
-	this.head = this.idx
-	this.idx++
-	this.size++
+	this.AddAtIndex(0, val)
 }
 
 func (this *MyLinkedList) AddAtTail(val int) {
-	this.AddAtIndex(this.size, val)
+	this.AddAtIndex(this.cnt, val)
 }
 
 func (this *MyLinkedList) AddAtIndex(index int, val int) {
-	if index > this.size {
+	if index > this.cnt {
 		return
 	}
-	if index <= 0 {
-		this.AddAtHead(val)
-		return
+	pre := this.dummy
+	for ; index > 0; index-- {
+		pre = pre.Next
 	}
-	i := this.head
-	for ; index > 1; i, index = this.ne[i], index-1 {
-	}
-	this.e[this.idx] = val
-	this.ne[this.idx] = this.ne[i]
-	this.ne[i] = this.idx
-	this.idx++
-	this.size++
+	pre.Next = &ListNode{val, pre.Next}
+	this.cnt++
 }
 
 func (this *MyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index >= this.size {
+	if index < 0 || index >= this.cnt {
 		return
 	}
-	this.size--
-	if index == 0 {
-		this.head = this.ne[this.head]
-		return
+	pre := this.dummy
+	for ; index > 0; index-- {
+		pre = pre.Next
 	}
-	i := this.head
-	for ; index > 1; i, index = this.ne[i], index-1 {
-	}
-	this.ne[i] = this.ne[this.ne[i]]
+	t := pre.Next
+	pre.Next = t.Next
+	t.Next = nil
+	this.cnt--
 }
 
 /**

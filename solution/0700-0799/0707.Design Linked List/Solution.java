@@ -1,64 +1,54 @@
 class MyLinkedList {
-    private int[] e = new int[1000];
-    private int[] ne = new int[1000];
-    private int head = -1;
-    private int idx;
-    private int size;
+    private ListNode dummy = new ListNode();
+    private int cnt;
 
     public MyLinkedList() {
-    }
 
+    }
+    
     public int get(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= cnt) {
             return -1;
         }
-        int i = head;
-        for (; index > 0; i = ne[i], index--)
-            ;
-        return e[i];
+        var cur = dummy.next;
+        while (index-- > 0) {
+            cur = cur.next;
+        }
+        return cur.val;
     }
-
+    
     public void addAtHead(int val) {
-        e[idx] = val;
-        ne[idx] = head;
-        head = idx++;
-        size++;
+        addAtIndex(0, val);
     }
-
+    
     public void addAtTail(int val) {
-        addAtIndex(size, val);
+        addAtIndex(cnt, val);
     }
-
+    
     public void addAtIndex(int index, int val) {
-        if (index > size) {
+        if (index > cnt) {
             return;
         }
-        if (index <= 0) {
-            addAtHead(val);
-            return;
+        var pre = dummy;
+        while (index-- > 0) {
+            pre = pre.next;
         }
-        int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
-        e[idx] = val;
-        ne[idx] = ne[i];
-        ne[i] = idx++;
-        size++;
+        pre.next = new ListNode(val, pre.next);
+        ++cnt;
     }
-
+    
     public void deleteAtIndex(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= cnt) {
             return;
         }
-        size--;
-        if (index == 0) {
-            head = ne[head];
-            return;
+        var pre = dummy;
+        while (index-- > 0) {
+            pre = pre.next;
         }
-        int i = head;
-        for (; index > 1; i = ne[i], index--)
-            ;
-        ne[i] = ne[ne[i]];
+        var t = pre.next;
+        pre.next = t.next;
+        t.next = null;
+        --cnt;
     }
 }
 

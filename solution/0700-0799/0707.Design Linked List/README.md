@@ -45,19 +45,31 @@ linkedList.get(1);            //返回3
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：指针引用**
+**方法一：指针引用实现单链表**
 
-定义虚拟头结点 dummy，count 记录当前链表结点个数。
+我们创建链表虚拟头结点 `dummy`，用变量 `cnt` 记录当前链表结点个数。
 
-**方法二：数组**
+具体的方法如下：
 
-数组模拟单链表，其中：
+-   `get(index)`：遍历链表，找到第 `index` 个结点，返回其值，如果不存在，返回 `-1`。时间复杂度 $O(n)$。
+-   `addAtHead(val)`：创建新结点，将其插入到虚拟头结点后面。时间复杂度 $O(1)$。
+-   `addAtTail(val)`：创建新结点，将其插入到链表尾部。时间复杂度 $O(n)$。
+-   `addAtIndex(index, val)`：如果 `index` 等于链表长度，则该节点将附加到链表的末尾。如果 `index` 大于链表长度，则不会插入节点。如果 `index` 小于 0，则在头部插入节点。否则，遍历链表，找到第 `index` 个结点的前一个结点，将新结点插入到该结点后面。时间复杂度 $O(n)$。
+-   `deleteAtIndex(index)`：如果索引 `index` 有效，则删除链表中的第 `index` 个节点。否则，不做任何操作。时间复杂度 $O(n)$。
 
--   head 存放链表头
--   e 存储链表节点的值
--   ne 存储链表节点的 next 指针
--   idx 指向当前可分配的节点下标
--   size 存储链表节点的个数
+时间复杂度见具体的方法说明。其中 $n$ 为链表长度。
+
+注意：LeetCode 平台已经内置 ListNode 单链表结点类，可以直接使用。
+
+**方法二：静态数组实现单链表**
+
+我们也可以用静态数组来实现单链表，其中：
+
+-   `head` 存放链表头
+-   `e` 存储链表节点的值
+-   `ne` 存储链表节点的 `next` 指针
+-   `idx` 指向当前可分配的节点下标
+-   `size` 存储链表节点的个数
 
 <!-- tabs:start -->
 
@@ -66,19 +78,14 @@ linkedList.get(1);            //返回3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
 class MyLinkedList:
+
     def __init__(self):
         self.dummy = ListNode()
-        self.count = 0
+        self.cnt = 0
 
     def get(self, index: int) -> int:
-        if index < 0 or index >= self.count:
+        if index < 0 or index >= self.cnt:
             return -1
         cur = self.dummy.next
         for _ in range(index):
@@ -89,19 +96,19 @@ class MyLinkedList:
         self.addAtIndex(0, val)
 
     def addAtTail(self, val: int) -> None:
-        self.addAtIndex(self.count, val)
+        self.addAtIndex(self.cnt, val)
 
     def addAtIndex(self, index: int, val: int) -> None:
-        if index > self.count:
+        if index > self.cnt:
             return
         pre = self.dummy
         for _ in range(index):
             pre = pre.next
         pre.next = ListNode(val, pre.next)
-        self.count += 1
+        self.cnt += 1
 
     def deleteAtIndex(self, index: int) -> None:
-        if index < 0 or index >= self.count:
+        if index >= self.cnt:
             return
         pre = self.dummy
         for _ in range(index):
@@ -109,7 +116,7 @@ class MyLinkedList:
         t = pre.next
         pre.next = t.next
         t.next = None
-        self.count -= 1
+        self.cnt -= 1
 
 
 # Your MyLinkedList object will be instantiated and called as such:
@@ -195,31 +202,18 @@ class MyLinkedList:
 
 ```java
 class MyLinkedList {
-    private class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int val) {
-            this(val, null);
-        }
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    private ListNode dummy;
-    private int count;
+    private ListNode dummy = new ListNode();
+    private int cnt;
 
     public MyLinkedList() {
-        dummy = new ListNode(0);
-        count = 0;
+
     }
 
     public int get(int index) {
-        if (index < 0 || index >= count) {
+        if (index < 0 || index >= cnt) {
             return -1;
         }
-        ListNode cur = dummy.next;
+        var cur = dummy.next;
         while (index-- > 0) {
             cur = cur.next;
         }
@@ -231,33 +225,33 @@ class MyLinkedList {
     }
 
     public void addAtTail(int val) {
-        addAtIndex(count, val);
+        addAtIndex(cnt, val);
     }
 
     public void addAtIndex(int index, int val) {
-        if (index > count) {
+        if (index > cnt) {
             return;
         }
-        ListNode pre = dummy;
+        var pre = dummy;
         while (index-- > 0) {
             pre = pre.next;
         }
         pre.next = new ListNode(val, pre.next);
-        ++count;
+        ++cnt;
     }
 
     public void deleteAtIndex(int index) {
-        if (index < 0 || index >= count) {
+        if (index < 0 || index >= cnt) {
             return;
         }
-        ListNode pre = dummy;
+        var pre = dummy;
         while (index-- > 0) {
             pre = pre.next;
         }
-        ListNode t = pre.next;
+        var t = pre.next;
         pre.next = t.next;
         t.next = null;
-        --count;
+        --cnt;
     }
 }
 
@@ -352,6 +346,73 @@ class MyLinkedList {
 
 ```cpp
 class MyLinkedList {
+private:
+    ListNode* dummy = new ListNode();
+    int cnt = 0;
+
+public:
+    MyLinkedList() {
+    }
+
+    int get(int index) {
+        if (index < 0 || index >= cnt) {
+            return -1;
+        }
+        auto cur = dummy->next;
+        while (index--) {
+            cur = cur->next;
+        }
+        return cur->val;
+    }
+
+    void addAtHead(int val) {
+        addAtIndex(0, val);
+    }
+
+    void addAtTail(int val) {
+        addAtIndex(cnt, val);
+    }
+
+    void addAtIndex(int index, int val) {
+        if (index < 0 || index > cnt) {
+            return;
+        }
+        auto pre = dummy;
+        while (index--) {
+            pre = pre->next;
+        }
+        pre->next = new ListNode(val, pre->next);
+        ++cnt;
+    }
+
+    void deleteAtIndex(int index) {
+        if (index >= cnt) {
+            return;
+        }
+        auto pre = dummy;
+        while (index-- > 0) {
+            pre = pre->next;
+        }
+        auto t = pre->next;
+        pre->next = t->next;
+        t->next = nullptr;
+        --cnt;
+    }
+};
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList* obj = new MyLinkedList();
+ * int param_1 = obj->get(index);
+ * obj->addAtHead(val);
+ * obj->addAtTail(val);
+ * obj->addAtIndex(index,val);
+ * obj->deleteAtIndex(index);
+ */
+```
+
+```cpp
+class MyLinkedList {
 public:
     int e[1000];
     int ne[1000];
@@ -422,6 +483,72 @@ public:
 ```
 
 ### **Go**
+
+```go
+type MyLinkedList struct {
+	dummy *ListNode
+	cnt   int
+}
+
+func Constructor() MyLinkedList {
+	return MyLinkedList{&ListNode{}, 0}
+}
+
+func (this *MyLinkedList) Get(index int) int {
+	if index < 0 || index >= this.cnt {
+		return -1
+	}
+	cur := this.dummy.Next
+	for ; index > 0; index-- {
+		cur = cur.Next
+	}
+	return cur.Val
+}
+
+func (this *MyLinkedList) AddAtHead(val int) {
+	this.AddAtIndex(0, val)
+}
+
+func (this *MyLinkedList) AddAtTail(val int) {
+	this.AddAtIndex(this.cnt, val)
+}
+
+func (this *MyLinkedList) AddAtIndex(index int, val int) {
+	if index > this.cnt {
+		return
+	}
+	pre := this.dummy
+	for ; index > 0; index-- {
+		pre = pre.Next
+	}
+	pre.Next = &ListNode{val, pre.Next}
+	this.cnt++
+}
+
+func (this *MyLinkedList) DeleteAtIndex(index int) {
+	if index < 0 || index >= this.cnt {
+		return
+	}
+	pre := this.dummy
+	for ; index > 0; index-- {
+		pre = pre.Next
+	}
+	t := pre.Next
+	pre.Next = t.Next
+	t.Next = nil
+	this.cnt--
+}
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Get(index);
+ * obj.AddAtHead(val);
+ * obj.AddAtTail(val);
+ * obj.AddAtIndex(index,val);
+ * obj.DeleteAtIndex(index);
+ */
+```
 
 ```go
 type MyLinkedList struct {
