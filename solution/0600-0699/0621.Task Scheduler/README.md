@@ -132,7 +132,6 @@ public:
 
 ### **Go**
 
-
 ```go
 func leastInterval(tasks []byte, n int) int {
 	cnt := make([]int, 26)

@@ -1,4 +1,4 @@
-# [462. 最少移动次数使数组元素相等 II](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements-ii)
+# [462. 最小操作次数使数组元素相等 II](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements-ii)
 
 [English Version](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md)
 
@@ -6,9 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，返回使所有数组元素相等需要的最少移动数。</p>
+<p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，返回使所有数组元素相等需要的最小操作数。</p>
 
-<p>在一步操作中，你可以使数组中的一个元素加 <code>1</code> 或者减 <code>1</code> 。</p>
+<p>在一次操作中，你可以使数组中的一个元素加 <code>1</code> 或者减 <code>1</code> 。</p>
 
 <p>&nbsp;</p>
 
@@ -18,7 +18,7 @@
 <strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>2
 <strong>解释：</strong>
-只需要两步操作（每步操作指南使一个元素加 1 或减 1）：
+只需要两次操作（每次操作指南使一个元素加 1 或减 1）：
 [<strong><em>1</em></strong>,2,3]  =&gt;  [2,2,<strong><em>3</em></strong>]  =&gt;  [2,2,2]
 </pre>
 

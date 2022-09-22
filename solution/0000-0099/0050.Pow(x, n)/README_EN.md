@@ -35,6 +35,7 @@
 <ul>
 	<li><code>-100.0 &lt; x &lt; 100.0</code></li>
 	<li><code>-2<sup>31</sup> &lt;= n &lt;= 2<sup>31</sup>-1</code></li>
+	<li><code>n</code> is an integer.</li>
 	<li><code>-10<sup>4</sup> &lt;= x<sup>n</sup> &lt;= 10<sup>4</sup></code></li>
 </ul>
 

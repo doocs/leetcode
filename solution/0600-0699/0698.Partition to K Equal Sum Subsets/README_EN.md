@@ -131,7 +131,7 @@ class Solution {
     private int[] nums;
     private int n;
     private int s;
-    
+
     public boolean canPartitionKSubsets(int[] nums, int k) {
         for (int v : nums) {
             s += v;
