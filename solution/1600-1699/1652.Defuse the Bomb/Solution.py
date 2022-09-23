@@ -1,14 +1,13 @@
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
         n = len(code)
-        res = [0] * n
+        ans = [0] * n
         if k == 0:
-            return res
+            return ans
+        s = list(accumulate(code + code, initial=0))
         for i in range(n):
             if k > 0:
-                for j in range(i + 1, i + k + 1):
-                    res[i] += code[j % n]
+                ans[i] = s[i + k + 1] - s[i + 1]
             else:
-                for j in range(i + k, i):
-                    res[i] += code[(j + n) % n]
-        return res
+                ans[i] = s[i + n] - s[i + k + n]
+        return ans

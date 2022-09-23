@@ -63,17 +63,33 @@
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
         n = len(code)
-        res = [0] * n
+        ans = [0] * n
         if k == 0:
-            return res
+            return ans
         for i in range(n):
             if k > 0:
                 for j in range(i + 1, i + k + 1):
-                    res[i] += code[j % n]
+                    ans[i] += code[j % n]
             else:
                 for j in range(i + k, i):
-                    res[i] += code[(j + n) % n]
-        return res
+                    ans[i] += code[(j + n) % n]
+        return ans
+```
+
+```python
+class Solution:
+    def decrypt(self, code: List[int], k: int) -> List[int]:
+        n = len(code)
+        ans = [0] * n
+        if k == 0:
+            return ans
+        s = list(accumulate(code + code, initial=0))
+        for i in range(n):
+            if k > 0:
+                ans[i] = s[i + k + 1] - s[i + 1]
+            else:
+                ans[i] = s[i + n] - s[i + k + n]
+        return ans
 ```
 
 ### **Java**
@@ -82,21 +98,145 @@ class Solution:
 class Solution {
     public int[] decrypt(int[] code, int k) {
         int n = code.length;
-        int[] res = new int[n];
-        if (k == 0) return res;
+        int[] ans = new int[n];
+        if (k == 0) {
+            return ans;
+        }
         for (int i = 0; i < n; ++i) {
             if (k > 0) {
-                for (int j = i + 1; j <= i + k; ++j) {
-                    res[i] += code[j % n];
+                for (int j = i + 1; j < i + k + 1; ++j) {
+                    ans[i] += code[j % n];
                 }
             } else {
-                for (int j = i + k; j <= i - 1; ++j) {
-                    res[i] += code[(j + n) % n];
+                for (int j = i + k; j < i; ++j) {
+                    ans[i] += code[(j + n) % n];
                 }
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public int[] decrypt(int[] code, int k) {
+        int n = code.length;
+        int[] ans = new int[n];
+        if (k == 0) {
+            return ans;
+        }
+        int[] s = new int[n << 1 | 1];
+        for (int i = 0; i < n << 1; ++i) {
+            s[i + 1] = s[i] + code[i % n];
+        }
+        for (int i = 0; i < n; ++i) {
+            if (k > 0) {
+                ans[i] = s[i + k + 1] - s[i + 1];
+            } else {
+                ans[i] = s[i + n] - s[i + k + n];
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> decrypt(vector<int>& code, int k) {
+        int n = code.size();
+        vector<int> ans(n);
+        if (k == 0) {
+            return ans;
+        }
+        for (int i = 0; i < n; ++i) {
+            if (k > 0) {
+                for (int j = i + 1; j < i + k + 1; ++j) {
+                    ans[i] += code[j % n];
+                }
+            } else {
+                for (int j = i + k; j < i; ++j) {
+                    ans[i] += code[(j + n) % n];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> decrypt(vector<int>& code, int k) {
+        int n = code.size();
+        vector<int> ans(n);
+        if (k == 0) {
+            return ans;
+        }
+        vector<int> s(n << 1 | 1);
+        for (int i = 0; i < n << 1; ++i) {
+            s[i + 1] = s[i] + code[i % n];
+        }
+        for (int i = 0; i < n; ++i) {
+            if (k > 0) {
+                ans[i] = s[i + k + 1] - s[i + 1];
+            } else {
+                ans[i] = s[i + n] - s[i + k + n];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func decrypt(code []int, k int) []int {
+	n := len(code)
+	ans := make([]int, n)
+	if k == 0 {
+		return ans
+	}
+	for i := 0; i < n; i++ {
+		if k > 0 {
+			for j := i + 1; j < i+k+1; j++ {
+				ans[i] += code[j%n]
+			}
+		} else {
+			for j := i + k; j < i; j++ {
+				ans[i] += code[(j+n)%n]
+			}
+		}
+	}
+	return ans
+}
+```
+
+```go
+func decrypt(code []int, k int) []int {
+	n := len(code)
+	ans := make([]int, n)
+	if k == 0 {
+		return ans
+	}
+	s := make([]int, n<<1|1)
+	for i := 0; i < n<<1; i++ {
+		s[i+1] = s[i] + code[i%n]
+	}
+	for i := range code {
+		if k > 0 {
+			ans[i] = s[i+k+1] - s[i+1]
+		} else {
+			ans[i] = s[i+n] - s[i+k+n]
+		}
+	}
+	return ans
 }
 ```
 
