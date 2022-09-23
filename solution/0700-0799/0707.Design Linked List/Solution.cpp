@@ -6,7 +6,7 @@ private:
 public:
     MyLinkedList() {
     }
-    
+
     int get(int index) {
         if (index < 0 || index >= cnt) {
             return -1;
@@ -17,27 +17,27 @@ public:
         }
         return cur->val;
     }
-    
+
     void addAtHead(int val) {
         addAtIndex(0, val);
     }
-    
+
     void addAtTail(int val) {
         addAtIndex(cnt, val);
     }
-    
+
     void addAtIndex(int index, int val) {
-        if (index < 0 || index > cnt) {
+        if (index > cnt) {
             return;
         }
         auto pre = dummy;
-        while (index--) {
+        while (index-- > 0) {
             pre = pre->next;
         }
         pre->next = new ListNode(val, pre->next);
         ++cnt;
     }
-    
+
     void deleteAtIndex(int index) {
         if (index >= cnt) {
             return;

@@ -381,11 +381,11 @@ public:
     }
 
     void addAtIndex(int index, int val) {
-        if (index < 0 || index > cnt) {
+        if (index > cnt) {
             return;
         }
         auto pre = dummy;
-        while (index--) {
+        while (index-- > 0) {
             pre = pre->next;
         }
         pre->next = new ListNode(val, pre->next);
@@ -454,7 +454,7 @@ public:
         if (index > cnt) {
             return;
         }
-        if (index == 0) {
+        if (index <= 0) {
             addAtHead(val);
             return;
         }

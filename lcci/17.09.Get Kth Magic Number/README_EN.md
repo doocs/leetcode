@@ -19,13 +19,200 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def getKthMagicNumber(self, k: int) -> int:
+        h = [1]
+        vis = {1}
+        for _ in range(k - 1):
+            cur = heappop(h)
+            for f in (3, 5, 7):
+                if (nxt := cur * f) not in vis:
+                    vis.add(nxt)
+                    heappush(h, nxt)
+        return h[0]
+```
 
+```python
+class Solution:
+    def getKthMagicNumber(self, k: int) -> int:
+        dp = [1] * (k + 1)
+        p3 = p5 = p7 = 1
+        for i in range(2, k + 1):
+            a, b, c = dp[p3] * 3, dp[p5] * 5, dp[p7] * 7
+            v = min(a, b, c)
+            dp[i] = v
+            if v == a:
+                p3 += 1
+            if v == b:
+                p5 += 1
+            if v == c:
+                p7 += 1
+        return dp[k]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int[] FACTORS = new int[] {3, 5, 7};
 
+    public int getKthMagicNumber(int k) {
+        PriorityQueue<Long> q = new PriorityQueue<>();
+        Set<Long> vis = new HashSet<>();
+        q.offer(1L);
+        vis.add(1L);
+        while (--k > 0) {
+            long cur = q.poll();
+            for (int f : FACTORS) {
+                long nxt = cur * f;
+                if (!vis.contains(nxt)) {
+                    q.offer(nxt);
+                    vis.add(nxt);
+                }
+            }
+        }
+        long ans = q.poll();
+        return (int) ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int getKthMagicNumber(int k) {
+        int[] dp = new int[k + 1];
+        Arrays.fill(dp, 1);
+        int p3 = 1, p5 = 1, p7 = 1;
+        for (int i = 2; i <= k; ++i) {
+            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
+            int v = Math.min(Math.min(a, b), c);
+            dp[i] = v;
+            if (v == a) {
+                ++p3;
+            }
+            if (v == b) {
+                ++p5;
+            }
+            if (v == c) {
+                ++p7;
+            }
+        }
+        return dp[k];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const vector<int> factors = {3, 5, 7};
+
+    int getKthMagicNumber(int k) {
+        priority_queue<long, vector<long>, greater<long>> q;
+        unordered_set<long> vis;
+        q.push(1l);
+        vis.insert(1l);
+        for (int i = 0; i < k - 1; ++i) {
+            long cur = q.top();
+            q.pop();
+            for (int f : factors) {
+                long nxt = cur * f;
+                if (!vis.count(nxt)) {
+                    vis.insert(nxt);
+                    q.push(nxt);
+                }
+            }
+        }
+        return (int) q.top();
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int getKthMagicNumber(int k) {
+        vector<int> dp(k + 1, 1);
+        int p3 = 1, p5 = 1, p7 = 1;
+        for (int i = 2; i <= k; ++i) {
+            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
+            int v = min(min(a, b), c);
+            dp[i] = v;
+            if (v == a) {
+                ++p3;
+            }
+            if (v == b) {
+                ++p5;
+            }
+            if (v == c) {
+                ++p7;
+            }
+        }
+        return dp[k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func getKthMagicNumber(k int) int {
+	q := hp{[]int{1}}
+	vis := map[int]bool{1: true}
+	for i := 0; i < k-1; i++ {
+		cur := heap.Pop(&q).(int)
+		for _, f := range []int{3, 5, 7} {
+			nxt := cur * f
+			if !vis[nxt] {
+				vis[nxt] = true
+				heap.Push(&q, nxt)
+			}
+		}
+	}
+	return q.IntSlice[0]
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+```go
+func getKthMagicNumber(k int) int {
+	dp := make([]int, k+1)
+	dp[1] = 1
+	p3, p5, p7 := 1, 1, 1
+	for i := 2; i <= k; i++ {
+		a, b, c := dp[p3]*3, dp[p5]*5, dp[p7]*7
+		v := min(min(a, b), c)
+		dp[i] = v
+		if v == a {
+			p3++
+		}
+		if v == b {
+			p5++
+		}
+		if v == c {
+			p7++
+		}
+	}
+	return dp[k]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

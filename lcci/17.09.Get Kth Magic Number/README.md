@@ -17,6 +17,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：优先队列（小根堆）**
+
+用一个小根堆维护当前最小的数，每次取出最小的数，然后乘以 $3$, $5$, $7$，分别加入堆中，直到取出第 $k$ 个数。
+
+时间复杂度 $O(k\times \log k)$，空间复杂度 $O(k)$。
+
+**方法二：动态规划**
+
+定义数组 `dp`，其中 `dp[i]` 表示第 $i$ 个数，答案即为 `dp[k]`。
+
+定义三个指针 `p3`, `p5`, `p7`，表示下一个数是当前指针指向的数乘以对应的质因数，初始值都为 $1$。
+
+当 $2\le i \le k$ 时，令 $dp[i] = \min(dp[p_3\times 3], dp[p_5]\times 5, dp[p_7]\times 7)$，然后分别比较 $dp[i]$ 和 $dp[p_3]\times 3, dp[p_5]\times 5, dp[p_7]\times 7$，如果相等，则将对应的指针加 $1$。
+
+时间复杂度 $O(k)$，空间复杂度 $O(k)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -24,7 +40,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def getKthMagicNumber(self, k: int) -> int:
+        h = [1]
+        vis = {1}
+        for _ in range(k - 1):
+            cur = heappop(h)
+            for f in (3, 5, 7):
+                if (nxt := cur * f) not in vis:
+                    vis.add(nxt)
+                    heappush(h, nxt)
+        return h[0]
+```
 
+```python
+class Solution:
+    def getKthMagicNumber(self, k: int) -> int:
+        dp = [1] * (k + 1)
+        p3 = p5 = p7 = 1
+        for i in range(2, k + 1):
+            a, b, c = dp[p3] * 3, dp[p5] * 5, dp[p7] * 7
+            v = min(a, b, c)
+            dp[i] = v
+            if v == a:
+                p3 += 1
+            if v == b:
+                p5 += 1
+            if v == c:
+                p7 += 1
+        return dp[k]
 ```
 
 ### **Java**
@@ -32,7 +76,166 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int[] FACTORS = new int[] {3, 5, 7};
 
+    public int getKthMagicNumber(int k) {
+        PriorityQueue<Long> q = new PriorityQueue<>();
+        Set<Long> vis = new HashSet<>();
+        q.offer(1L);
+        vis.add(1L);
+        while (--k > 0) {
+            long cur = q.poll();
+            for (int f : FACTORS) {
+                long nxt = cur * f;
+                if (!vis.contains(nxt)) {
+                    q.offer(nxt);
+                    vis.add(nxt);
+                }
+            }
+        }
+        long ans = q.poll();
+        return (int) ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int getKthMagicNumber(int k) {
+        int[] dp = new int[k + 1];
+        Arrays.fill(dp, 1);
+        int p3 = 1, p5 = 1, p7 = 1;
+        for (int i = 2; i <= k; ++i) {
+            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
+            int v = Math.min(Math.min(a, b), c);
+            dp[i] = v;
+            if (v == a) {
+                ++p3;
+            }
+            if (v == b) {
+                ++p5;
+            }
+            if (v == c) {
+                ++p7;
+            }
+        }
+        return dp[k];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const vector<int> factors = {3, 5, 7};
+
+    int getKthMagicNumber(int k) {
+        priority_queue<long, vector<long>, greater<long>> q;
+        unordered_set<long> vis;
+        q.push(1l);
+        vis.insert(1l);
+        for (int i = 0; i < k - 1; ++i) {
+            long cur = q.top();
+            q.pop();
+            for (int f : factors) {
+                long nxt = cur * f;
+                if (!vis.count(nxt)) {
+                    vis.insert(nxt);
+                    q.push(nxt);
+                }
+            }
+        }
+        return (int) q.top();
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int getKthMagicNumber(int k) {
+        vector<int> dp(k + 1, 1);
+        int p3 = 1, p5 = 1, p7 = 1;
+        for (int i = 2; i <= k; ++i) {
+            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
+            int v = min(min(a, b), c);
+            dp[i] = v;
+            if (v == a) {
+                ++p3;
+            }
+            if (v == b) {
+                ++p5;
+            }
+            if (v == c) {
+                ++p7;
+            }
+        }
+        return dp[k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func getKthMagicNumber(k int) int {
+	q := hp{[]int{1}}
+	vis := map[int]bool{1: true}
+	for i := 0; i < k-1; i++ {
+		cur := heap.Pop(&q).(int)
+		for _, f := range []int{3, 5, 7} {
+			nxt := cur * f
+			if !vis[nxt] {
+				vis[nxt] = true
+				heap.Push(&q, nxt)
+			}
+		}
+	}
+	return q.IntSlice[0]
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+```go
+func getKthMagicNumber(k int) int {
+	dp := make([]int, k+1)
+	dp[1] = 1
+	p3, p5, p7 := 1, 1, 1
+	for i := 2; i <= k; i++ {
+		a, b, c := dp[p3]*3, dp[p5]*5, dp[p7]*7
+		v := min(min(a, b), c)
+		dp[i] = v
+		if v == a {
+			p3++
+		}
+		if v == b {
+			p5++
+		}
+		if v == c {
+			p7++
+		}
+	}
+	return dp[k]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
