@@ -1,15 +1,13 @@
 class Solution {
     public int findNthDigit(int n) {
-        int bits = 1, t = 9;
-        while (n / bits > t) {
-            n -= bits * t;
-            ++bits;
-            t *= 10;
+        int k = 1, cnt = 9;
+        while ((long) k * cnt < n) {
+            n -= k * cnt;
+            ++k;
+            cnt *= 10;
         }
-        int start = (int) Math.pow(10, bits - 1) + (n / bits) - 1;
-        if (n % bits == 0) {
-            return start % 10;
-        }
-        return String.valueOf(start + 1).charAt((n % bits) - 1) - '0';
+        int num = (int) Math.pow(10, k - 1) + (n - 1) / k;
+        int idx = (n - 1) % k;
+        return String.valueOf(num).charAt(idx) - '0';
     }
 }

@@ -35,11 +35,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
--   pow = 0：0~9 有 10 位
--   pow = 1: 10~99 有 `90*2=180` 位
--   pow = 2: 100~999 有 `900*3=2700` 位。
+**方法一：数学**
 
-先求出第 n 位所在的 pow 和真实数字，进而求出真实数字的第 `n % (pow + 1)` 位即可。
+位数为 $k$ 的最小整数和最大整数分别为 $10^{k-1}$ 和 $10^k-1$，因此 $k$ 位数的总位数为 $k \times 9 \times 10^{k-1}$。
+
+我们用 $k$ 表示当前数字的位数，用 $cnt$ 表示当前位数的数字的总数，初始时 $k=1$, $cnt=9$。
+
+每次将 $n$ 减去 $cnt \times k$，当 $n$ 小于等于 $cnt \times k$ 时，说明 $n$ 对应的数字在当前位数的数字范围内，此时可以计算出对应的数字。
+
+具体做法是，首先计算出 $n$ 对应的是当前位数的哪一个数字，然后计算出是该数字的第几位，从而得到该位上的数字。
+
+时间复杂度 $O(\log_{10} n)$。
 
 <!-- tabs:start -->
 
@@ -50,20 +56,14 @@
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
-        def get_bit_num():
-            return 10 if p == 0 else 9 * pow(10, p) * (p + 1)
-
-        if n < 10:
-            return n
-        p = count = 0
-        while 1:
-            count = get_bit_num()
-            if n < count:
-                break
-            n -= count
-            p += 1
-        num = n // (p + 1) + pow(10, p)
-        return int(str(num)[n % (p + 1)])
+        k, cnt = 1, 9
+        while k * cnt < n:
+            n -= k * cnt
+            k += 1
+            cnt *= 10
+        num = 10 ** (k - 1) + (n - 1) // k
+        idx = (n - 1) % k
+        return int(str(num)[idx])
 ```
 
 ### **Java**
@@ -73,24 +73,51 @@ class Solution:
 ```java
 class Solution {
     public int findNthDigit(int n) {
-        if (n < 10) return n;
-        int pow = 0, count;
-        while (true) {
-            count = getBitNum(pow);
-            if (n < count) break;
-            n -= count;
-            ++pow;
+        int k = 1, cnt = 9;
+        while ((long) k * cnt < n) {
+            n -= k * cnt;
+            ++k;
+            cnt *= 10;
         }
-        int num = n / (pow + 1) + (int) Math.pow(10, pow);
-        return String.valueOf(num).charAt(n % (pow + 1)) - '0';
+        int num = (int) Math.pow(10, k - 1) + (n - 1) / k;
+        int idx = (n - 1) % k;
+        return String.valueOf(num).charAt(idx) - '0';
     }
+}
+```
 
-    private int getBitNum(int pow) {
-        if (pow == 0) {
-            return 10;
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findNthDigit(int n) {
+        int k = 1, cnt = 9;
+        while (1ll * k * cnt < n) {
+            n -= k * cnt;
+            ++k;
+            cnt *= 10;
         }
-        return (int) (9 * Math.pow(10, pow) * (pow + 1));
+        int num = pow(10, k - 1) + (n - 1) / k;
+        int idx = (n - 1) % k;
+        return to_string(num)[idx] - '0';
     }
+};
+```
+
+### **Go**
+
+```go
+func findNthDigit(n int) int {
+	k, cnt := 1, 9
+	for k*cnt < n {
+		n -= k * cnt
+		k++
+		cnt *= 10
+	}
+	num := int(math.Pow10(k-1)) + (n-1)/k
+	idx := (n - 1) % k
+	return int(strconv.Itoa(num)[idx] - '0')
 }
 ```
 
@@ -102,42 +129,16 @@ class Solution {
  * @return {number}
  */
 var findNthDigit = function (n) {
-    let i = 9;
-    let a = 1;
-    let remain = n;
-    while (i * a < remain) {
-        remain -= i * a;
-        i *= 10;
-        a++;
+    let k = 1,
+        cnt = 9;
+    while (k * cnt < n) {
+        n -= k * cnt;
+        ++k;
+        cnt *= 10;
     }
-    let b = remain % a;
-    let res = 10 ** (a - 1) + ~~(remain / a);
-    if (b === 0) {
-        b = a;
-        res--;
-    }
-    return res.toString()[b - 1];
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findNthDigit(int n) {
-        int digit = 1;
-        long long start = 0;
-        long long count = 10;
-        while (n > count) {
-            n -= count;
-            ++digit;
-            start = start == 0 ? 10 : start * 10;
-            count = 9 * start * digit;
-        }
-        long long num = start + n / digit;
-        return to_string(num)[n % digit] - '0';
-    }
+    const num = Math.pow(10, k - 1) + (n - 1) / k;
+    const idx = (n - 1) % k;
+    return num.toString()[idx];
 };
 ```
 
@@ -146,32 +147,17 @@ public:
 ```cs
 public class Solution {
     public int FindNthDigit(int n) {
-        long length = 1;
-        long count = 10;
-        long tenBase = 9;
-        long lastCount = 0;
-
-        while (count < n)
-        {
-            length++;
-            tenBase *= 10;
-            var currentCount = tenBase * length;
-            lastCount = count;
-            count += currentCount;
+        int k = 1, cnt = 9;
+        while ((long) k * cnt < n) {
+            n -= k * cnt;
+            ++k;
+            cnt *= 10;
         }
-
-        var remainder = n - lastCount;
-        var value = remainder / length;
-        if (length > 1)
-        {
-            value += (int)Math.Pow(10, length - 1);
-        }
-
-        remainder %= length;
-        return value.ToString()[(int)remainder] - '0';
+        int num = (int) Math.Pow(10, k - 1) + (n - 1) / k;
+        int idx = (n - 1) % k;
+        return num.ToString()[idx] - '0';
     }
 }
-
 ```
 
 ### **...**

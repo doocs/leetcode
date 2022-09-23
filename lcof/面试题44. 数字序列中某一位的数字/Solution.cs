@@ -1,27 +1,13 @@
 public class Solution {
     public int FindNthDigit(int n) {
-        long length = 1;
-        long count = 10;
-        long tenBase = 9;
-        long lastCount = 0;
-
-        while (count < n)
-        {
-            length++;
-            tenBase *= 10;
-            var currentCount = tenBase * length;
-            lastCount = count;
-            count += currentCount;
+        int k = 1, cnt = 9;
+        while ((long) k * cnt < n) {
+            n -= k * cnt;
+            ++k;
+            cnt *= 10;
         }
-
-        var remainder = n - lastCount;
-        var value = remainder / length;
-        if (length > 1)
-        {
-            value += (int)Math.Pow(10, length - 1);
-        }
-
-        remainder %= length;
-        return value.ToString()[(int)remainder] - '0';
+        int num = (int) Math.Pow(10, k - 1) + (n - 1) / k;
+        int idx = (n - 1) % k;
+        return num.ToString()[idx] - '0';
     }
 }

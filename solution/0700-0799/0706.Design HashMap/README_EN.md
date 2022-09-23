@@ -146,15 +146,15 @@ public:
     MyHashMap() {
         memset(data, -1, sizeof data);
     }
-    
+
     void put(int key, int value) {
         data[key] = value;
     }
-    
+
     int get(int key) {
         return data[key];
     }
-    
+
     void remove(int key) {
         data[key] = -1;
     }

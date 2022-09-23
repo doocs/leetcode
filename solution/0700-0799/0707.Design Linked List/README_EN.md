@@ -249,7 +249,7 @@ class MyLinkedList {
     public MyLinkedList() {
 
     }
-    
+
     public int get(int index) {
         if (index < 0 || index >= cnt) {
             return -1;
@@ -260,18 +260,18 @@ class MyLinkedList {
         }
         return e[i];
     }
-    
+
     public void addAtHead(int val) {
         e[idx] = val;
         ne[idx] = head;
         head = idx++;
         ++cnt;
     }
-    
+
     public void addAtTail(int val) {
         addAtIndex(cnt, val);
     }
-    
+
     public void addAtIndex(int index, int val) {
         if (index > cnt) {
             return;
@@ -289,7 +289,7 @@ class MyLinkedList {
         ne[i] = idx++;
         ++cnt;
     }
-    
+
     public void deleteAtIndex(int index) {
         if (index < 0 || index >= cnt) {
             return;
@@ -396,7 +396,7 @@ private:
 public:
     MyLinkedList() {
     }
-    
+
     int get(int index) {
         if (index < 0 || index >= cnt) {
             return -1;
@@ -407,18 +407,18 @@ public:
         }
         return e[i];
     }
-    
+
     void addAtHead(int val) {
         e[idx] = val;
         ne[idx] = head;
         head = idx++;
         ++cnt;
     }
-    
+
     void addAtTail(int val) {
         addAtIndex(cnt, val);
     }
-    
+
     void addAtIndex(int index, int val) {
         if (index > cnt) {
             return;
@@ -436,7 +436,7 @@ public:
         ne[i] = idx++;
         ++cnt;
     }
-    
+
     void deleteAtIndex(int index) {
         if (index < 0 || index >= cnt) {
             return;

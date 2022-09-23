@@ -115,15 +115,15 @@ class MyHashSet {
     public MyHashSet() {
 
     }
-    
+
     public void add(int key) {
         data[key] = true;
     }
-    
+
     public void remove(int key) {
         data[key] = false;
     }
-    
+
     public boolean contains(int key) {
         return data[key];
     }
@@ -149,7 +149,7 @@ class MyHashSet {
             data[i] = new LinkedList<Integer>();
         }
     }
-    
+
     public void add(int key) {
         if (contains(key)) {
             return;
@@ -157,7 +157,7 @@ class MyHashSet {
         int idx = hash(key);
         data[idx].addFirst(key);
     }
-    
+
     public void remove(int key) {
         if (!contains(key)) {
             return;
@@ -165,7 +165,7 @@ class MyHashSet {
         int idx = hash(key);
         data[idx].remove(Integer.valueOf(key));
     }
-    
+
     public boolean contains(int key) {
         int idx = hash(key);
         Iterator<Integer> it = data[idx].iterator();
@@ -198,19 +198,19 @@ class MyHashSet {
 class MyHashSet {
 public:
     bool data[1000001];
-    
+
     MyHashSet() {
         memset(data, false, sizeof data);
     }
-    
+
     void add(int key) {
         data[key] = true;
     }
-    
+
     void remove(int key) {
         data[key] = false;
     }
-    
+
     bool contains(int key) {
         return data[key];
     }
@@ -235,7 +235,7 @@ public:
     MyHashSet(): data(size) {
 
     }
-    
+
     void add(int key) {
         if (contains(key)) {
             return;
@@ -243,7 +243,7 @@ public:
         int idx = hash(key);
         data[idx].push_back(key);
     }
-    
+
     void remove(int key) {
         if (!contains(key)) {
             return;
@@ -251,7 +251,7 @@ public:
         int idx = hash(key);
         data[idx].remove(key);
     }
-    
+
     bool contains(int key) {
         int idx = hash(key);
         for (auto it = data[idx].begin(); it != data[idx].end(); it++) {
