@@ -1,27 +1,43 @@
 class Solution {
 public:
-    unordered_map<int, int> d{{0, 0}, {1, 1}, {8, 8}, {2, 5}, {5, 2}, {6, 9}, {9, 6}};
+    int a[6];
+    int dp[6][2];
 
     int rotatedDigits(int n) {
+        return f(n);
+    }
+
+    int f(int x) {
+        memset(dp, -1, sizeof dp);
+        int len = 0;
+        while (x) {
+            a[++len] = x % 10;
+            x /= 10;
+        }
+        return dfs(len, 0, true);
+    }
+
+    int dfs(int pos, int ok, bool limit) {
+        if (pos <= 0) {
+            return ok;
+        }
+        if (!limit && dp[pos][ok] != -1) {
+            return dp[pos][ok];
+        }
+        int up = limit ? a[pos] : 9;
         int ans = 0;
-        for (int i = 1; i <= n; ++i) {
-            ans += check(i);
+        for (int i = 0; i <= up; ++i) {
+            if (i == 0 || i == 1 || i == 8) {
+                ans += dfs(pos - 1, ok, limit && i == up);
+            }
+            if (i == 2 || i == 5 || i == 6 || i == 9) {
+                ans += dfs(pos - 1, 1, limit && i == up);
+            }
+        }
+        if (!limit) {
+            dp[pos][ok] = ans;
         }
         return ans;
     }
 
-    bool check(int x) {
-        int y = 0, t = x;
-        int k = 1;
-        while (t) {
-            int v = t % 10;
-            if (!d.count(v)) {
-                return false;
-            }
-            y = d[v] * k + y;
-            k *= 10;
-            t /= 10;
-        }
-        return x != y;
-    }
 };

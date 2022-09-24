@@ -1,37 +1,43 @@
 class Solution {
-    private static final Map<Integer, Integer> d = new HashMap<>();
-    static {
-        d.put(0, 0);
-        d.put(1, 1);
-        d.put(8, 8);
-        d.put(2, 5);
-        d.put(5, 2);
-        d.put(6, 9);
-        d.put(9, 6);
-    }
+    private int[] a = new int[6];
+    private int[][] dp = new int[6][2];
 
     public int rotatedDigits(int n) {
-        int ans = 0;
-        for (int i = 1; i <= n; ++i) {
-            if (check(i)) {
-                ++ans;
-            }
-        }
-        return ans;
+        return f(n);
     }
 
-    private boolean check(int x) {
-        int y = 0, t = x;
-        int k = 1;
-        while (t > 0) {
-            int v = t % 10;
-            if (!d.containsKey(v)) {
-                return false;
-            }
-            y = d.get(v) * k + y;
-            k *= 10;
-            t /= 10;
+    private int f(int x) {
+        int len = 0;
+        for (var e : dp) {
+            Arrays.fill(e, -1);
         }
-        return x != y;
+        while (x > 0) {
+            a[++len] = x % 10;
+            x /= 10;
+        }
+        return dfs(len, 0, true);
+    }
+
+    private int dfs(int pos, int ok, boolean limit) {
+        if (pos <= 0) {
+            return ok;
+        }
+        if (!limit && dp[pos][ok] != -1) {
+            return dp[pos][ok];
+        }
+        int up = limit ? a[pos] : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if (i == 0 || i == 1 || i == 8) {
+                ans += dfs(pos - 1, ok, limit && i == up);
+            }
+            if (i == 2 || i == 5 || i == 6 || i == 9) {
+                ans += dfs(pos - 1, 1, limit && i == up);
+            }
+        }
+        if (!limit) {
+            dp[pos][ok] = ans;
+        }
+        return ans;
     }
 }
