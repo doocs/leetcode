@@ -55,13 +55,151 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumTeachings(self, n: int, languages: List[List[int]], friendships: List[List[int]]) -> int:
+        def check(u, v):
+            for x in languages[u - 1]:
+                for y in languages[v - 1]:
+                    if x == y:
+                        return True
+            return False
 
+        s = set()
+        for u, v in friendships:
+            if not check(u, v):
+                s.add(u)
+                s.add(v)
+        cnt = Counter()
+        for u in s:
+            for l in languages[u - 1]:
+                cnt[l] += 1
+        return len(s) - max(cnt.values(), default=0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumTeachings(int n, int[][] languages, int[][] friendships) {
+        Set<Integer> s = new HashSet<>();
+        for (var e : friendships) {
+            int u = e[0], v = e[1];
+            if (!check(u, v, languages)) {
+                s.add(u);
+                s.add(v);
+            }
+        }
+        if (s.isEmpty()) {
+            return 0;
+        }
+        int[] cnt = new int[n + 1];
+        for (int u : s) {
+            for (int l : languages[u - 1]) {
+                ++cnt[l];
+            }
+        }
+        int mx = 0;
+        for (int v : cnt) {
+            mx = Math.max(mx, v);
+        }
+        return s.size() - mx;
+    }
 
+    private boolean check(int u, int v, int[][] languages) {
+        for (int x : languages[u - 1]) {
+            for (int y : languages[v - 1]) {
+                if (x == y) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumTeachings(int n, vector<vector<int>>& languages, vector<vector<int>>& friendships) {
+        unordered_set<int> s;
+        for (auto& e : friendships) {
+            int u = e[0], v = e[1];
+            if (!check(u, v, languages)) {
+                s.insert(u);
+                s.insert(v);
+            }
+        }
+        if (s.empty()) {
+            return 0;
+        }
+        vector<int> cnt(n + 1);
+        for (int u : s) {
+            for (int& l : languages[u - 1]) {
+                ++cnt[l];
+            }
+        }
+        return s.size() - *max_element(cnt.begin(), cnt.end());
+    }
+
+    bool check(int u, int v, vector<vector<int>>& languages) {
+        for (int x : languages[u - 1]) {
+            for (int y : languages[v - 1]) {
+                if (x == y) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
+	check := func(u, v int) bool {
+		for _, x := range languages[u-1] {
+			for _, y := range languages[v-1] {
+				if x == y {
+					return true
+				}
+			}
+		}
+		return false
+	}
+	s := map[int]bool{}
+	for _, e := range friendships {
+		u, v := e[0], e[1]
+		if !check(u, v) {
+			s[u], s[v] = true, true
+		}
+	}
+	if len(s) == 0 {
+		return 0
+	}
+	cnt := make([]int, n+1)
+	for u := range s {
+		for _, l := range languages[u-1] {
+			cnt[l]++
+		}
+	}
+	mx := 0
+	for _, v := range cnt {
+		mx = max(mx, v)
+	}
+	return len(s) - mx
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
