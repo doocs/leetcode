@@ -3,17 +3,13 @@ class Solution {
     private int[][] dp = new int[6][2];
 
     public int rotatedDigits(int n) {
-        return f(n);
-    }
-
-    private int f(int x) {
         int len = 0;
         for (var e : dp) {
             Arrays.fill(e, -1);
         }
-        while (x > 0) {
-            a[++len] = x % 10;
-            x /= 10;
+        while (n > 0) {
+            a[++len] = n % 10;
+            n /= 10;
         }
         return dfs(len, 0, true);
     }

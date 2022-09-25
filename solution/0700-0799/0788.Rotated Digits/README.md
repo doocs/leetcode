@@ -37,13 +37,13 @@
 
 **方法一：直接枚举**
 
-一种直观且有效的思路是，直接枚举 $[1, n]$ 中的每个数，判断其是否为好数，若为好数，则答案加一。
+一种直观且有效的思路是，直接枚举 $[1,2,..n]$ 中的每个数，判断其是否为好数，若为好数，则答案加一。
 
 那么题目的重点转化为如何判断一个数字 $x$ 是否为好数。判断的逻辑如下：
 
-我们先用哈希表 $d$ 记录每个有效数字对应的旋转数字，在这道题中，有效数字有 `0, 1, 8, 2, 5, 6, 9`，分别对应旋转数字 `0, 1, 8, 5, 2, 9, 6`。
+我们先用一个长度为 $10$ 的数组 $d$ 记录每个有效数字对应的旋转数字，在这道题中，有效数字有 $[0, 1, 8, 2, 5, 6, 9]$，分别对应旋转数字 $[0, 1, 8, 5, 2, 9, 6]$。如果不是有效数字，我们将对应的旋转数字设为 $-1$。
 
-然后遍历数字 $x$ 的每一位数字 $v$，如果 $v$ 不在哈希表 $d$ 中，则说明 $x$ 不是好数，直接返回 `false`。否则，将数字 $v$ 对应的旋转数字 $d[v]$ 加入到 $y$ 中。最后，判断 $x$ 和 $y$ 是否相等，若不相等，则说明 $x$ 是好数，返回 `true`。
+然后遍历数字 $x$ 的每一位数字 $v$，如果 $v$ 不是有效数字，说明 $x$ 不是好数，直接返回 `false`。否则，我们将数字 $v$ 对应的旋转数字 $d[v]$ 加入到 $y$ 中。最后，判断 $x$ 和 $y$ 是否相等，若不相等，则说明 $x$ 是好数，返回 `true`。
 
 时间复杂度 $O(n\times \log n)$。
 
@@ -51,28 +51,28 @@
 
 方法一的做法足以通过本题，但时间复杂度较高。如果题目的数据范围达到 $10^9$ 级别，则方法一的做法会超出时间限制。
 
-这道题实际上是求在给定区间 $[l, r]$ 中，满足条件的数的个数。条件与数的大小无关，而只与数的组成有关，因此可以使用数位 DP 的思想求解。数位 DP 中，数的大小对复杂度的影响很小。
+这道题实际上是求在给定区间 $[l,..r]$ 中，满足条件的数的个数。条件与数的大小无关，而只与数的组成有关，因此可以使用数位 DP 的思想求解。数位 DP 中，数的大小对复杂度的影响很小。
 
-对于区间 $[l, r]$ 问题，我们一般会将其转化为 $[1, r]$ 问题，然后再减去 $[1, l - 1]$ 问题，即：
+对于区间 $[l,..r]$ 问题，我们一般会将其转化为 $[1,..r]$ 然后再减去 $[1,..l - 1]$ 的问题，即：
 
 $$
 ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
 $$
 
-不过对于本题而言，我们只需要求出区间 $[1, r]$ 的值即可。
+不过对于本题而言，我们只需要求出区间 $[1,..r]$ 的值即可。
 
 这里我们用记忆化搜索来实现数位 DP。从起点向下搜索，到最底层得到方案数，一层层向上返回答案并累加，最后从搜索起点得到最终的答案。
 
 基本步骤如下：
 
-1. 将数字 $x$ 转为 int 数组 $a$，其中 $a[1]$ 为最低位，而 $a[len]$ 为最高位；
+1. 将数字 $n$ 转为 int 数组 $a$，其中 $a[1]$ 为最低位，而 $a[len]$ 为最高位；
 1. 根据题目信息，设计函数 $dfs()$，对于本题，我们定义 $dfs(pos, ok, limit)$，答案为 $dfs(len, 0, true)$。
 
 其中：
 
 -   `pos` 表示数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此，`pos` 的初始值为 `len`；
--   `ok` 表示当前数字是否满足题目要求（对于本题，如果数字出现 `2, 5, 6, 9` 则满足）
--   `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0, 9]$，否则，只能选择 $[0, a[pos]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
+-   `ok` 表示当前数字是否满足题目要求（对于本题，如果数字出现 $[2, 5, 6, 9]$ 则满足）
+-   `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1,..9]$，否则，只能选择 $[0,..a[pos]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
 
 关于函数的实现细节，可以参考下面的代码。
 
@@ -92,14 +92,14 @@ class Solution:
             k = 1
             while t:
                 v = t % 10
-                if v not in d:
+                if d[v] == -1:
                     return False
                 y = d[v] * k + y
                 k *= 10
                 t //= 10
             return x != y
 
-        d = {0: 0, 1: 1, 8: 8, 2: 5, 5: 2, 6: 9, 9: 6}
+        d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
         return sum(check(i) for i in range(1, n + 1))
 ```
 
@@ -134,16 +134,7 @@ class Solution:
 
 ```java
 class Solution {
-    private static final Map<Integer, Integer> d = new HashMap<>();
-    static {
-        d.put(0, 0);
-        d.put(1, 1);
-        d.put(8, 8);
-        d.put(2, 5);
-        d.put(5, 2);
-        d.put(6, 9);
-        d.put(9, 6);
-    }
+    private int[] d = new int[] {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
 
     public int rotatedDigits(int n) {
         int ans = 0;
@@ -160,10 +151,10 @@ class Solution {
         int k = 1;
         while (t > 0) {
             int v = t % 10;
-            if (!d.containsKey(v)) {
+            if (d[v] == -1) {
                 return false;
             }
-            y = d.get(v) * k + y;
+            y = d[v] * k + y;
             k *= 10;
             t /= 10;
         }
@@ -178,17 +169,13 @@ class Solution {
     private int[][] dp = new int[6][2];
 
     public int rotatedDigits(int n) {
-        return f(n);
-    }
-
-    private int f(int x) {
         int len = 0;
         for (var e : dp) {
             Arrays.fill(e, -1);
         }
-        while (x > 0) {
-            a[++len] = x % 10;
-            x /= 10;
+        while (n > 0) {
+            a[++len] = n % 10;
+            n /= 10;
         }
         return dfs(len, 0, true);
     }
@@ -223,7 +210,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_map<int, int> d{{0, 0}, {1, 1}, {8, 8}, {2, 5}, {5, 2}, {6, 9}, {9, 6}};
+    const vector<int> d = {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
 
     int rotatedDigits(int n) {
         int ans = 0;
@@ -238,7 +225,7 @@ public:
         int k = 1;
         while (t) {
             int v = t % 10;
-            if (!d.count(v)) {
+            if (d[v] == -1) {
                 return false;
             }
             y = d[v] * k + y;
@@ -257,15 +244,11 @@ public:
     int dp[6][2];
 
     int rotatedDigits(int n) {
-        return f(n);
-    }
-
-    int f(int x) {
         memset(dp, -1, sizeof dp);
         int len = 0;
-        while (x) {
-            a[++len] = x % 10;
-            x /= 10;
+        while (n) {
+            a[++len] = n % 10;
+            n /= 10;
         }
         return dfs(len, 0, true);
     }
@@ -292,7 +275,6 @@ public:
         }
         return ans;
     }
-
 };
 ```
 
@@ -300,13 +282,13 @@ public:
 
 ```go
 func rotatedDigits(n int) int {
-	d := map[int]int{0: 0, 1: 1, 8: 8, 2: 5, 5: 2, 6: 9, 9: 6}
+	d := []int{0, 1, 5, -1, -1, 2, 9, -1, 8, 6}
 	check := func(x int) bool {
 		y, t := 0, x
 		k := 1
 		for ; t > 0; t /= 10 {
 			v := t % 10
-			if _, ok := d[v]; !ok {
+			if d[v] == -1 {
 				return false
 			}
 			y = d[v]*k + y

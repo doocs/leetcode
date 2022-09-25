@@ -62,14 +62,14 @@ class Solution:
             k = 1
             while t:
                 v = t % 10
-                if v not in d:
+                if d[v] == -1:
                     return False
                 y = d[v] * k + y
                 k *= 10
                 t //= 10
             return x != y
 
-        d = {0: 0, 1: 1, 8: 8, 2: 5, 5: 2, 6: 9, 9: 6}
+        d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
         return sum(check(i) for i in range(1, n + 1))
 ```
 
@@ -102,16 +102,7 @@ class Solution:
 
 ```java
 class Solution {
-    private static final Map<Integer, Integer> d = new HashMap<>();
-    static {
-        d.put(0, 0);
-        d.put(1, 1);
-        d.put(8, 8);
-        d.put(2, 5);
-        d.put(5, 2);
-        d.put(6, 9);
-        d.put(9, 6);
-    }
+    private int[] d = new int[] {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
 
     public int rotatedDigits(int n) {
         int ans = 0;
@@ -128,10 +119,10 @@ class Solution {
         int k = 1;
         while (t > 0) {
             int v = t % 10;
-            if (!d.containsKey(v)) {
+            if (d[v] == -1) {
                 return false;
             }
-            y = d.get(v) * k + y;
+            y = d[v] * k + y;
             k *= 10;
             t /= 10;
         }
@@ -146,17 +137,13 @@ class Solution {
     private int[][] dp = new int[6][2];
 
     public int rotatedDigits(int n) {
-        return f(n);
-    }
-
-    private int f(int x) {
         int len = 0;
         for (var e : dp) {
             Arrays.fill(e, -1);
         }
-        while (x > 0) {
-            a[++len] = x % 10;
-            x /= 10;
+        while (n > 0) {
+            a[++len] = n % 10;
+            n /= 10;
         }
         return dfs(len, 0, true);
     }
@@ -191,7 +178,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_map<int, int> d{{0, 0}, {1, 1}, {8, 8}, {2, 5}, {5, 2}, {6, 9}, {9, 6}};
+    const vector<int> d = {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
 
     int rotatedDigits(int n) {
         int ans = 0;
@@ -206,7 +193,7 @@ public:
         int k = 1;
         while (t) {
             int v = t % 10;
-            if (!d.count(v)) {
+            if (d[v] == -1) {
                 return false;
             }
             y = d[v] * k + y;
@@ -225,15 +212,11 @@ public:
     int dp[6][2];
 
     int rotatedDigits(int n) {
-        return f(n);
-    }
-
-    int f(int x) {
         memset(dp, -1, sizeof dp);
         int len = 0;
-        while (x) {
-            a[++len] = x % 10;
-            x /= 10;
+        while (n) {
+            a[++len] = n % 10;
+            n /= 10;
         }
         return dfs(len, 0, true);
     }
@@ -260,7 +243,6 @@ public:
         }
         return ans;
     }
-
 };
 ```
 
@@ -268,13 +250,13 @@ public:
 
 ```go
 func rotatedDigits(n int) int {
-	d := map[int]int{0: 0, 1: 1, 8: 8, 2: 5, 5: 2, 6: 9, 9: 6}
+	d := []int{0, 1, 5, -1, -1, 2, 9, -1, 8, 6}
 	check := func(x int) bool {
 		y, t := 0, x
 		k := 1
 		for ; t > 0; t /= 10 {
 			v := t % 10
-			if _, ok := d[v]; !ok {
+			if d[v] == -1 {
 				return false
 			}
 			y = d[v]*k + y

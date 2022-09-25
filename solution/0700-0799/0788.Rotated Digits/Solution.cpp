@@ -4,15 +4,11 @@ public:
     int dp[6][2];
 
     int rotatedDigits(int n) {
-        return f(n);
-    }
-
-    int f(int x) {
         memset(dp, -1, sizeof dp);
         int len = 0;
-        while (x) {
-            a[++len] = x % 10;
-            x /= 10;
+        while (n) {
+            a[++len] = n % 10;
+            n /= 10;
         }
         return dfs(len, 0, true);
     }
@@ -39,5 +35,4 @@ public:
         }
         return ans;
     }
-
 };
