@@ -11,9 +11,9 @@ class Solution:
             return ans
 
         a = [0] * 12
-        l = 1
+        l = 0
         while n:
+            l += 1
             a[l] = n % 10
             n //= 10
-            l += 1
         return dfs(l, 0, True)

@@ -71,11 +71,11 @@ class Solution:
             return ans
 
         a = [0] * 12
-        l = 1
+        l = 0
         while n:
+            l += 1
             a[l] = n % 10
             n //= 10
-            l += 1
         return dfs(l, 0, True)
 ```
 
@@ -89,9 +89,9 @@ class Solution {
     private int[][] dp = new int[12][12];
 
     public int numberOf2sInRange(int n) {
-        int len = 1;
+        int len = 0;
         while (n > 0) {
-            a[len++] = n % 10;
+            a[++len] = n % 10;
             n /= 10;
         }
         for (var e : dp) {
@@ -129,9 +129,9 @@ public:
     int dp[12][12];
 
     int numberOf2sInRange(int n) {
-        int len = 1;
+        int len = 0;
         while (n) {
-            a[len++] = n % 10;
+            a[++len] = n % 10;
             n /= 10;
         }
         memset(dp, -1, sizeof dp);
@@ -170,11 +170,11 @@ func numberOf2sInRange(n int) int {
 			dp[i][j] = -1
 		}
 	}
-	l := 1
+	l := 0
 	for n > 0 {
+        l++
 		a[l] = n % 10
 		n /= 10
-		l++
 	}
 	var dfs func(int, int, bool) int
 	dfs = func(pos, cnt int, limit bool) int {

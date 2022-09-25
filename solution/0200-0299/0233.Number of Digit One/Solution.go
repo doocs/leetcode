@@ -7,11 +7,11 @@ func countDigitOne(n int) int {
 			dp[i][j] = -1
 		}
 	}
-	l := 1
+	l := 0
 	for n > 0 {
+		l++
 		a[l] = n % 10
 		n /= 10
-		l++
 	}
 	var dfs func(int, int, bool) int
 	dfs = func(pos, cnt int, limit bool) int {

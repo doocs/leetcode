@@ -4,9 +4,9 @@ public:
     int dp[12][12];
 
     int numberOf2sInRange(int n) {
-        int len = 1;
+        int len = 0;
         while (n) {
-            a[len++] = n % 10;
+            a[++len] = n % 10;
             n /= 10;
         }
         memset(dp, -1, sizeof dp);

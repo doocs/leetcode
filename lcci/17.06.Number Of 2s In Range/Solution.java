@@ -3,9 +3,9 @@ class Solution {
     private int[][] dp = new int[12][12];
 
     public int numberOf2sInRange(int n) {
-        int len = 1;
+        int len = 0;
         while (n > 0) {
-            a[len++] = n % 10;
+            a[++len] = n % 10;
             n /= 10;
         }
         for (var e : dp) {

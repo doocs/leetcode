@@ -57,13 +57,171 @@ In total, this is 29523 integers that can be written using the digits array.
 ### **Python3**
 
 ```python
+class Solution:
+    def atMostNGivenDigitSet(self, digits: List[str], n: int) -> int:
+        @cache
+        def dfs(pos, lead, limit):
+            if pos <= 0:
+                return lead == False
+            up = a[pos] if limit else 9
+            ans = 0
+            for i in range(up + 1):
+                if i == 0 and lead:
+                    ans += dfs(pos - 1, lead, limit and i == up)
+                elif i in s:
+                    ans += dfs(pos - 1, False, limit and i == up)
+            return ans
 
+        l = 0
+        a = [0] * 12
+        s = {int(d) for d in digits}
+        while n:
+            l += 1
+            a[l] = n % 10
+            n //= 10
+        return dfs(l, True, True)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] a = new int[12];
+    private int[][] dp = new int[12][2];
+    private Set<Integer> s = new HashSet<>();
 
+    public int atMostNGivenDigitSet(String[] digits, int n) {
+        for (var e : dp) {
+            Arrays.fill(e, -1);
+        }
+        for (String d : digits) {
+            s.add(Integer.parseInt(d));
+        }
+        int len = 0;
+        while (n > 0) {
+            a[++len] = n % 10;
+            n /= 10;
+        }
+        return dfs(len, 1, true);
+    }
+
+    private int dfs(int pos, int lead, boolean limit) {
+        if (pos <= 0) {
+            return lead ^ 1;
+        }
+        if (!limit && lead != 1 && dp[pos][lead] != -1) {
+            return dp[pos][lead];
+        }
+        int ans = 0;
+        int up = limit ? a[pos] : 9;
+        for (int i = 0; i <= up; ++i) {
+            if (i == 0 && lead == 1) {
+                ans += dfs(pos - 1, lead, limit && i == up);
+            } else if (s.contains(i)) {
+                ans += dfs(pos - 1, 0, limit && i == up);
+            }
+        }
+        if (!limit && lead == 0) {
+            dp[pos][lead] = ans;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int a[12];
+    int dp[12][2];
+    unordered_set<int> s;
+
+    int atMostNGivenDigitSet(vector<string>& digits, int n) {
+        memset(dp, -1, sizeof dp);
+        for (auto& d : digits) {
+            s.insert(stoi(d));
+        }
+        int len = 0;
+        while (n) {
+            a[++len] = n % 10;
+            n /= 10;
+        }
+        return dfs(len, 1, true);
+    }
+
+    int dfs(int pos, int lead, bool limit) {
+        if (pos <= 0) {
+            return lead ^ 1;
+        }
+        if (!limit && !lead && dp[pos][lead] != -1) {
+            return dp[pos][lead];
+        }
+        int ans = 0;
+        int up = limit ? a[pos] : 9;
+        for (int i = 0; i <= up; ++i) {
+            if (i == 0 && lead) {
+                ans += dfs(pos - 1, lead, limit && i == up);
+            } else if (s.count(i)) {
+                ans += dfs(pos - 1, 0, limit && i == up);
+            }
+        }
+        if (!limit && !lead) {
+            dp[pos][lead] = ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func atMostNGivenDigitSet(digits []string, n int) int {
+	s := map[int]bool{}
+	for _, d := range digits {
+		i, _ := strconv.Atoi(d)
+		s[i] = true
+	}
+	a := make([]int, 12)
+	dp := make([][2]int, 12)
+	for i := range a {
+		dp[i] = [2]int{-1, -1}
+	}
+	l := 0
+	for n > 0 {
+		l++
+		a[l] = n % 10
+		n /= 10
+	}
+	var dfs func(int, int, bool) int
+	dfs = func(pos, lead int, limit bool) int {
+		if pos <= 0 {
+			return lead ^ 1
+		}
+		if !limit && lead == 0 && dp[pos][lead] != -1 {
+			return dp[pos][lead]
+		}
+		up := 9
+		if limit {
+			up = a[pos]
+		}
+		ans := 0
+		for i := 0; i <= up; i++ {
+			if i == 0 && lead == 1 {
+				ans += dfs(pos-1, lead, limit && i == up)
+			} else if s[i] {
+				ans += dfs(pos-1, 0, limit && i == up)
+			}
+		}
+		if !limit {
+			dp[pos][lead] = ans
+		}
+		return ans
+	}
+	return dfs(l, 1, true)
+}
 ```
 
 ### **...**
