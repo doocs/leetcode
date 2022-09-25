@@ -51,6 +51,37 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数位 DP**
+
+这道题实际上是求在给定区间 $[l,..r]$ 中，数字的二进制表示不包含连续的 $1$ 的个数。个数与数的位数以及每个二进制位上的数字有关。我们可以用数位 DP 的思路来解决这道题。数位 DP 中，数的大小对复杂度的影响很小。
+
+对于区间 $[l,..r]$ 问题，我们一般会将其转化为 $[1,..r]$ 然后再减去 $[1,..l - 1]$ 的问题，即：
+
+$$
+ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+$$
+
+不过对于本题而言，我们只需要求出区间 $[0,..r]$ 的值即可。
+
+这里我们用记忆化搜索来实现数位 DP。从起点向下搜索，到最底层得到方案数，一层层向上返回答案并累加，最后从搜索起点得到最终的答案。
+
+基本步骤如下：
+
+1. 将数字 $n$ 转为二进制数组 $a$，其中 $a[1]$ 为最低位，而 $a[len]$ 为最高位；
+1. 根据题目信息，设计函数 $dfs()$，对于本题，我们定义 $dfs(pos, pre, limit)$，答案为 $dfs(len, 1, true)$。
+
+其中：
+
+-   `pos` 表示数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此，`pos` 的初始值为 `len`；
+-   `pre` 表示当前数字二进制位上的数字，对于本题，`pre` 的初始值为 `1`；
+-   `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1]$，否则，只能选择 $[0,..a[pos]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
+
+关于函数的实现细节，可以参考下面的代码。
+
+时间复杂度 $O(\log n)$。
+
+相似题目：[233. 数字 1 的个数](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +89,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findIntegers(self, n: int) -> int:
+        @cache
+        def dfs(pos, pre, limit):
+            if pos <= 0:
+                return 1
+            up = a[pos] if limit else 1
+            ans = 0
+            for i in range(up + 1):
+                if pre == 1 and i == 1:
+                    continue
+                ans += dfs(pos - 1, i, limit and i == up)
+            return ans
 
+        a = [0] * 33
+        l = 1
+        while n:
+            a[l] = n & 1
+            n >>= 1
+            l += 1
+        return dfs(l, 1, True)
 ```
 
 ### **Java**
@@ -66,7 +117,127 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] a = new int[33];
+    private int[][] dp = new int[33][2];
 
+    public int findIntegers(int n) {
+        int len = 1;
+        while (n > 0) {
+            a[len++] = n & 1;
+            n >>= 1;
+        }
+        for (var e : dp) {
+            Arrays.fill(e, -1);
+        }
+        return dfs(len, 1, true);
+    }
+
+    private int dfs(int pos, int pre, boolean limit) {
+        if (pos <= 0) {
+            return 1;
+        }
+        if (!limit && dp[pos][pre] != -1) {
+            return dp[pos][pre];
+        }
+        int up = limit ? a[pos] : 1;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if (!(pre == 1 && i == 1)) {
+                ans += dfs(pos - 1, i, limit && i == up);
+            }
+        }
+        if (!limit) {
+            dp[pos][pre] = ans;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int a[33];
+    int dp[33][2];
+
+    int findIntegers(int n) {
+        int len = 1;
+        while (n) {
+            a[len++] = n & 1;
+            n >>= 1;
+        }
+        memset(dp, -1, sizeof dp);
+        return dfs(len, 1, true);
+    }
+
+    int dfs(int pos, int pre, bool limit) {
+        if (pos <= 0) {
+            return 1;
+        }
+        if (!limit && dp[pos][pre] != -1) {
+            return dp[pos][pre];
+        }
+        int ans = 0;
+        int up = limit ? a[pos] : 1;
+        for (int i = 0; i <= up; ++i) {
+            if (!(pre == 1 && i == 1)) {
+                ans += dfs(pos - 1, i, limit && i == up);
+            }
+        }
+        if (!limit) {
+            dp[pos][pre] = ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findIntegers(n int) int {
+	a := make([]int, 33)
+	dp := make([][]int, 33)
+	for i := range dp {
+		dp[i] = make([]int, 2)
+		for j := range dp[i] {
+			dp[i][j] = -1
+		}
+	}
+	l := 1
+	for n > 0 {
+		a[l] = n & 1
+		n >>= 1
+		l++
+	}
+	var dfs func(int, int, bool) int
+	dfs = func(pos, pre int, limit bool) int {
+		if pos <= 0 {
+			return 1
+		}
+		if !limit && dp[pos][pre] != -1 {
+			return dp[pos][pre]
+		}
+		up := 1
+		if limit {
+			up = a[pos]
+		}
+		ans := 0
+		for i := 0; i <= up; i++ {
+			if !(pre == 1 && i == 1) {
+				ans += dfs(pos-1, i, limit && i == up)
+			}
+		}
+		if !limit {
+			dp[pos][pre] = ans
+		}
+		return ans
+	}
+	return dfs(l, 1, true)
+}
 ```
 
 ### **...**

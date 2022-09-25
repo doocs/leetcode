@@ -51,13 +51,153 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 ### **Python3**
 
 ```python
+class Solution:
+    def findIntegers(self, n: int) -> int:
+        @cache
+        def dfs(pos, pre, limit):
+            if pos <= 0:
+                return 1
+            up = a[pos] if limit else 1
+            ans = 0
+            for i in range(up + 1):
+                if pre == 1 and i == 1:
+                    continue
+                ans += dfs(pos - 1, i, limit and i == up)
+            return ans
 
+        a = [0] * 33
+        l = 1
+        while n:
+            a[l] = n & 1
+            n >>= 1
+            l += 1
+        return dfs(l, 1, True)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] a = new int[33];
+    private int[][] dp = new int[33][2];
 
+    public int findIntegers(int n) {
+        int len = 1;
+        while (n > 0) {
+            a[len++] = n & 1;
+            n >>= 1;
+        }
+        for (var e : dp) {
+            Arrays.fill(e, -1);
+        }
+        return dfs(len, 1, true);
+    }
+
+    private int dfs(int pos, int pre, boolean limit) {
+        if (pos <= 0) {
+            return 1;
+        }
+        if (!limit && dp[pos][pre] != -1) {
+            return dp[pos][pre];
+        }
+        int up = limit ? a[pos] : 1;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if (!(pre == 1 && i == 1)) {
+                ans += dfs(pos - 1, i, limit && i == up);
+            }
+        }
+        if (!limit) {
+            dp[pos][pre] = ans;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int a[33];
+    int dp[33][2];
+
+    int findIntegers(int n) {
+        int len = 1;
+        while (n) {
+            a[len++] = n & 1;
+            n >>= 1;
+        }
+        memset(dp, -1, sizeof dp);
+        return dfs(len, 1, true);
+    }
+
+    int dfs(int pos, int pre, bool limit) {
+        if (pos <= 0) {
+            return 1;
+        }
+        if (!limit && dp[pos][pre] != -1) {
+            return dp[pos][pre];
+        }
+        int ans = 0;
+        int up = limit ? a[pos] : 1;
+        for (int i = 0; i <= up; ++i) {
+            if (!(pre == 1 && i == 1)) {
+                ans += dfs(pos - 1, i, limit && i == up);
+            }
+        }
+        if (!limit) {
+            dp[pos][pre] = ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findIntegers(n int) int {
+	a := make([]int, 33)
+	dp := make([][]int, 33)
+	for i := range dp {
+		dp[i] = make([]int, 2)
+		for j := range dp[i] {
+			dp[i][j] = -1
+		}
+	}
+	l := 1
+	for n > 0 {
+		a[l] = n & 1
+		n >>= 1
+		l++
+	}
+	var dfs func(int, int, bool) int
+	dfs = func(pos, pre int, limit bool) int {
+		if pos <= 0 {
+			return 1
+		}
+		if !limit && dp[pos][pre] != -1 {
+			return dp[pos][pre]
+		}
+		up := 1
+		if limit {
+			up = a[pos]
+		}
+		ans := 0
+		for i := 0; i <= up; i++ {
+			if !(pre == 1 && i == 1) {
+				ans += dfs(pos-1, i, limit && i == up)
+			}
+		}
+		if !limit {
+			dp[pos][pre] = ans
+		}
+		return ans
+	}
+	return dfs(l, 1, true)
+}
 ```
 
 ### **...**
