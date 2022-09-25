@@ -36,7 +36,36 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-经典数位 dp 问题，也可以用找规律解决
+**方法一：数位 DP**
+
+这道题实际上是求在给定区间 $[l,..r]$ 中，数字中出现 $1$ 个数。个数与数的位数以及每一位上的数字有关。我们可以用数位 DP 的思路来解决这道题。数位 DP 中，数的大小对复杂度的影响很小。
+
+对于区间 $[l,..r]$ 问题，我们一般会将其转化为 $[1,..r]$ 然后再减去 $[1,..l - 1]$ 的问题，即：
+
+$$
+ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+$$
+
+不过对于本题而言，我们只需要求出区间 $[1,..r]$ 的值即可。
+
+这里我们用记忆化搜索来实现数位 DP。从起点向下搜索，到最底层得到方案数，一层层向上返回答案并累加，最后从搜索起点得到最终的答案。
+
+基本步骤如下：
+
+1. 将数字 $n$ 转为 int 数组 $a$，其中 $a[1]$ 为最低位，而 $a[len]$ 为最高位；
+1. 根据题目信息，设计函数 $dfs()$，对于本题，我们定义 $dfs(pos, cnt, limit)$，答案为 $dfs(len, 0, true)$。
+
+其中：
+
+-   `pos` 表示数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此，`pos` 的初始值为 `len`；
+-   `cnt` 表示当前数字中包含的 $1$ 的个数。
+-   `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1,..9]$，否则，只能选择 $[0,..a[pos]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
+
+关于函数的实现细节，可以参考下面的代码。
+
+时间复杂度 $O(\log n)$。
+
+相似题目：[788. 旋转数字](/solution/0700-0799/0788.Rotated%20Digits/README.md)
 
 <!-- tabs:start -->
 
@@ -47,27 +76,23 @@
 ```python
 class Solution:
     def countDigitOne(self, n: int) -> int:
-        dp = [[-1] * 10 for _ in range(10)]
-        digit = []
-        while n:
-            digit.append(n % 10)
-            n //= 10
-
-        def dfs(pos: int, cnt: int, limit: bool) -> int:
-            if pos == -1:
+        @cache
+        def dfs(pos, cnt, limit):
+            if pos <= 0:
                 return cnt
-            if not limit and dp[pos][cnt] != -1:
-                return dp[pos][cnt]
-            up = digit[pos] if limit else 9
+            up = a[pos] if limit else 9
             ans = 0
             for i in range(up + 1):
-                nxt = cnt + 1 if i == 1 else cnt
-                ans += dfs(pos - 1, nxt, limit and i == digit[pos])
-            if not limit:
-                dp[pos][cnt] = ans
+                ans += dfs(pos - 1, cnt + (i == 1), limit and i == up)
             return ans
 
-        return dfs(len(digit) - 1, 0, True)
+        a = [0] * 12
+        l = 1
+        while n:
+            a[l] = n % 10
+            n //= 10
+            l += 1
+        return dfs(l, 0, True)
 ```
 
 ### **Java**
@@ -76,21 +101,123 @@ class Solution:
 
 ```java
 class Solution {
+    private int[] a = new int[12];
+    private int[][] dp = new int[12][12];
+
     public int countDigitOne(int n) {
-        int index = 1;
-        int count = 0;
-        int high = n, cur = 0, low = 0;
-        while (high > 0) {
-            high /= 10;
-            cur = (n / index) % 10;
-            low = n - (n / index) * index;
-            if (cur == 0) count += high * index;
-            if (cur == 1) count += high * index + low + 1;
-            if (cur > 1) count += (high + 1) * index;
-            index *= 10;
+        int len = 1;
+        while (n > 0) {
+            a[len++] = n % 10;
+            n /= 10;
         }
-        return count;
+        for (var e : dp) {
+            Arrays.fill(e, -1);
+        }
+        return dfs(len, 0, true);
     }
+
+    private int dfs(int pos, int cnt, boolean limit) {
+        if (pos <= 0) {
+            return cnt;
+        }
+        if (!limit && dp[pos][cnt] != -1) {
+            return dp[pos][cnt];
+        }
+        int up = limit ? a[pos] : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            ans += dfs(pos - 1, cnt + (i == 1 ? 1 : 0), limit && i == up);
+        }
+        if (!limit) {
+            dp[pos][cnt] = ans;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int a[12];
+    int dp[12][12];
+
+    int countDigitOne(int n) {
+        int len = 1;
+        while (n) {
+            a[len++] = n % 10;
+            n /= 10;
+        }
+        memset(dp, -1, sizeof dp);
+        return dfs(len, 0, true);
+    }
+
+    int dfs(int pos, int cnt, bool limit) {
+        if (pos <= 0) {
+            return cnt;
+        }
+        if (!limit && dp[pos][cnt] != -1) {
+            return dp[pos][cnt];
+        }
+        int ans = 0;
+        int up = limit ? a[pos] : 9;
+        for (int i = 0; i <= up; ++i) {
+            ans += dfs(pos - 1, cnt + (i == 1), limit && i == up);
+        }
+        if (!limit) {
+            dp[pos][cnt] = ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countDigitOne(n int) int {
+	a := make([]int, 12)
+	dp := make([][]int, 12)
+	for i := range dp {
+		dp[i] = make([]int, 12)
+		for j := range dp[i] {
+			dp[i][j] = -1
+		}
+	}
+	l := 1
+	for n > 0 {
+		a[l] = n % 10
+		n /= 10
+		l++
+	}
+	var dfs func(int, int, bool) int
+	dfs = func(pos, cnt int, limit bool) int {
+		if pos <= 0 {
+			return cnt
+		}
+		if !limit && dp[pos][cnt] != -1 {
+			return dp[pos][cnt]
+		}
+		up := 9
+		if limit {
+			up = a[pos]
+		}
+		ans := 0
+		for i := 0; i <= up; i++ {
+			t := cnt
+			if i == 1 {
+				t++
+			}
+			ans += dfs(pos-1, t, limit && i == up)
+		}
+		if !limit {
+			dp[pos][cnt] = ans
+		}
+		return ans
+	}
+	return dfs(l, 0, true)
 }
 ```
 
@@ -113,53 +240,6 @@ public class Solution {
         }
         return count;
     }
-}
-```
-
-### **Go**
-
-```go
-func countDigitOne(n int) int {
-	digit := make([]int, 0)
-	for i := n; i > 0; i /= 10 {
-		digit = append(digit, i%10)
-	}
-
-	dp := make([][]int, 10)
-	for i := range dp {
-		dp[i] = make([]int, 10)
-		for j := 0; j < 10; j++ {
-			dp[i][j] = -1
-		}
-	}
-
-	var dfs func(pos, cnt int, limit bool) int
-	dfs = func(pos, cnt int, limit bool) int {
-		if pos == -1 {
-			return cnt
-		}
-		if !limit && dp[pos][cnt] != -1 {
-			return dp[pos][cnt]
-		}
-		up := 9
-		if limit {
-			up = digit[pos]
-		}
-		ans := 0
-		for i := 0; i <= up; i++ {
-			next := cnt
-			if i == 1 {
-				next++
-			}
-			ans += dfs(pos-1, next, limit && i == digit[pos])
-		}
-		if !limit {
-			dp[pos][cnt] = ans
-		}
-		return ans
-	}
-
-	return dfs(len(digit)-1, 0, true)
 }
 ```
 

@@ -39,48 +39,146 @@ simple digital dp problem (or it can be solved by finding a rule)
 ```python
 class Solution:
     def countDigitOne(self, n: int) -> int:
-        dp = [[-1] * 10 for _ in range(10)]
-        digit = []
-        while n:
-            digit.append(n % 10)
-            n //= 10
-
-        def dfs(pos: int, cnt: int, limit: bool) -> int:
-            if pos == -1:
+        @cache
+        def dfs(pos, cnt, limit):
+            if pos <= 0:
                 return cnt
-            if not limit and dp[pos][cnt] != -1:
-                return dp[pos][cnt]
-            up = digit[pos] if limit else 9
+            up = a[pos] if limit else 9
             ans = 0
             for i in range(up + 1):
-                nxt = cnt + 1 if i == 1 else cnt
-                ans += dfs(pos - 1, nxt, limit and i == digit[pos])
-            if not limit:
-                dp[pos][cnt] = ans
+                ans += dfs(pos - 1, cnt + (i == 1), limit and i == up)
             return ans
 
-        return dfs(len(digit) - 1, 0, True)
+        a = [0] * 12
+        l = 1
+        while n:
+            a[l] = n % 10
+            n //= 10
+            l += 1
+        return dfs(l, 0, True)
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private int[] a = new int[12];
+    private int[][] dp = new int[12][12];
+
     public int countDigitOne(int n) {
-        int index = 1;
-        int count = 0;
-        int high = n, cur = 0, low = 0;
-        while (high > 0) {
-            high /= 10;
-            cur = (n / index) % 10;
-            low = n - (n / index) * index;
-            if (cur == 0) count += high * index;
-            if (cur == 1) count += high * index + low + 1;
-            if (cur > 1) count += (high + 1) * index;
-            index *= 10;
+        int len = 1;
+        while (n > 0) {
+            a[len++] = n % 10;
+            n /= 10;
         }
-        return count;
+        for (var e : dp) {
+            Arrays.fill(e, -1);
+        }
+        return dfs(len, 0, true);
     }
+
+    private int dfs(int pos, int cnt, boolean limit) {
+        if (pos <= 0) {
+            return cnt;
+        }
+        if (!limit && dp[pos][cnt] != -1) {
+            return dp[pos][cnt];
+        }
+        int up = limit ? a[pos] : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            ans += dfs(pos - 1, cnt + (i == 1 ? 1 : 0), limit && i == up);
+        }
+        if (!limit) {
+            dp[pos][cnt] = ans;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int a[12];
+    int dp[12][12];
+
+    int countDigitOne(int n) {
+        int len = 1;
+        while (n) {
+            a[len++] = n % 10;
+            n /= 10;
+        }
+        memset(dp, -1, sizeof dp);
+        return dfs(len, 0, true);
+    }
+
+    int dfs(int pos, int cnt, bool limit) {
+        if (pos <= 0) {
+            return cnt;
+        }
+        if (!limit && dp[pos][cnt] != -1) {
+            return dp[pos][cnt];
+        }
+        int ans = 0;
+        int up = limit ? a[pos] : 9;
+        for (int i = 0; i <= up; ++i) {
+            ans += dfs(pos - 1, cnt + (i == 1), limit && i == up);
+        }
+        if (!limit) {
+            dp[pos][cnt] = ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countDigitOne(n int) int {
+	a := make([]int, 12)
+	dp := make([][]int, 12)
+	for i := range dp {
+		dp[i] = make([]int, 12)
+		for j := range dp[i] {
+			dp[i][j] = -1
+		}
+	}
+	l := 1
+	for n > 0 {
+		a[l] = n % 10
+		n /= 10
+		l++
+	}
+	var dfs func(int, int, bool) int
+	dfs = func(pos, cnt int, limit bool) int {
+		if pos <= 0 {
+			return cnt
+		}
+		if !limit && dp[pos][cnt] != -1 {
+			return dp[pos][cnt]
+		}
+		up := 9
+		if limit {
+			up = a[pos]
+		}
+		ans := 0
+		for i := 0; i <= up; i++ {
+			t := cnt
+			if i == 1 {
+				t++
+			}
+			ans += dfs(pos-1, t, limit && i == up)
+		}
+		if !limit {
+			dp[pos][cnt] = ans
+		}
+		return ans
+	}
+	return dfs(l, 0, true)
 }
 ```
 
@@ -103,53 +201,6 @@ public class Solution {
         }
         return count;
     }
-}
-```
-
-### **Go**
-
-```go
-func countDigitOne(n int) int {
-	digit := make([]int, 0)
-	for i := n; i > 0; i /= 10 {
-		digit = append(digit, i%10)
-	}
-
-	dp := make([][]int, 10)
-	for i := range dp {
-		dp[i] = make([]int, 10)
-		for j := 0; j < 10; j++ {
-			dp[i][j] = -1
-		}
-	}
-
-	var dfs func(pos, cnt int, limit bool) int
-	dfs = func(pos, cnt int, limit bool) int {
-		if pos == -1 {
-			return cnt
-		}
-		if !limit && dp[pos][cnt] != -1 {
-			return dp[pos][cnt]
-		}
-		up := 9
-		if limit {
-			up = digit[pos]
-		}
-		ans := 0
-		for i := 0; i <= up; i++ {
-			next := cnt
-			if i == 1 {
-				next++
-			}
-			ans += dfs(pos-1, next, limit && i == digit[pos])
-		}
-		if !limit {
-			dp[pos][cnt] = ans
-		}
-		return ans
-	}
-
-	return dfs(len(digit)-1, 0, true)
 }
 ```
 
