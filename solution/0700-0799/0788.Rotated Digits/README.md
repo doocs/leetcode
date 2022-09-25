@@ -311,18 +311,15 @@ func rotatedDigits(n int) int {
 ```go
 func rotatedDigits(n int) int {
 	a := make([]int, 6)
-	dp := make([][]int, 6)
+	dp := make([][2]int, 6)
 	for i := range a {
-		dp[i] = make([]int, 2)
-		for j := range dp[i] {
-			dp[i][j] = -1
-		}
+		dp[i] = [2]int{-1, -1}
 	}
-	l := 1
+	l := 0
 	for n > 0 {
+		l++
 		a[l] = n % 10
 		n /= 10
-		l++
 	}
 
 	var dfs func(int, int, bool) int

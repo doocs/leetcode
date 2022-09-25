@@ -13,9 +13,9 @@ class Solution:
             return ans
 
         a = [0] * 33
-        l = 1
+        l = 0
         while n:
+            l += 1
             a[l] = n & 1
             n >>= 1
-            l += 1
-        return dfs(l, 1, True)
+        return dfs(l, 0, True)

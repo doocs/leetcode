@@ -73,7 +73,7 @@ $$
 其中：
 
 -   `pos` 表示数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此，`pos` 的初始值为 `len`；
--   `pre` 表示当前数字二进制位上的数字，对于本题，`pre` 的初始值为 `1`；
+-   `pre` 表示当前数字二进制位上的数字，对于本题，`pre` 的初始值为 `0`；
 -   `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1]$，否则，只能选择 $[0,..a[pos]]$。如果 `limit` 为 `true` 且已经取到了能取到的最大值，那么下一个 `limit` 同样为 `true`；如果 `limit` 为 `true` 但是还没有取到最大值，或者 `limit` 为 `false`，那么下一个 `limit` 为 `false`。
 
 关于函数的实现细节，可以参考下面的代码。
@@ -104,12 +104,12 @@ class Solution:
             return ans
 
         a = [0] * 33
-        l = 1
+        l = 0
         while n:
+            l += 1
             a[l] = n & 1
             n >>= 1
-            l += 1
-        return dfs(l, 1, True)
+        return dfs(l, 0, True)
 ```
 
 ### **Java**
@@ -122,15 +122,15 @@ class Solution {
     private int[][] dp = new int[33][2];
 
     public int findIntegers(int n) {
-        int len = 1;
+        int len = 0;
         while (n > 0) {
-            a[len++] = n & 1;
+            a[++len] = n & 1;
             n >>= 1;
         }
         for (var e : dp) {
             Arrays.fill(e, -1);
         }
-        return dfs(len, 1, true);
+        return dfs(len, 0, true);
     }
 
     private int dfs(int pos, int pre, boolean limit) {
@@ -164,13 +164,13 @@ public:
     int dp[33][2];
 
     int findIntegers(int n) {
-        int len = 1;
+        int len = 0;
         while (n) {
-            a[len++] = n & 1;
+            a[++len] = n & 1;
             n >>= 1;
         }
         memset(dp, -1, sizeof dp);
-        return dfs(len, 1, true);
+        return dfs(len, 0, true);
     }
 
     int dfs(int pos, int pre, bool limit) {
@@ -200,18 +200,15 @@ public:
 ```go
 func findIntegers(n int) int {
 	a := make([]int, 33)
-	dp := make([][]int, 33)
+	dp := make([][2]int, 33)
 	for i := range dp {
-		dp[i] = make([]int, 2)
-		for j := range dp[i] {
-			dp[i][j] = -1
-		}
+		dp[i] = [2]int{-1, -1}
 	}
-	l := 1
+	l := 0
 	for n > 0 {
+		l++
 		a[l] = n & 1
 		n >>= 1
-		l++
 	}
 	var dfs func(int, int, bool) int
 	dfs = func(pos, pre int, limit bool) int {
@@ -236,7 +233,7 @@ func findIntegers(n int) int {
 		}
 		return ans
 	}
-	return dfs(l, 1, true)
+	return dfs(l, 0, true)
 }
 ```
 

@@ -1,17 +1,14 @@
 func findIntegers(n int) int {
 	a := make([]int, 33)
-	dp := make([][]int, 33)
+	dp := make([][2]int, 33)
 	for i := range dp {
-		dp[i] = make([]int, 2)
-		for j := range dp[i] {
-			dp[i][j] = -1
-		}
+		dp[i] = [2]int{-1, -1}
 	}
-	l := 1
+	l := 0
 	for n > 0 {
+		l++
 		a[l] = n & 1
 		n >>= 1
-		l++
 	}
 	var dfs func(int, int, bool) int
 	dfs = func(pos, pre int, limit bool) int {
@@ -36,5 +33,5 @@ func findIntegers(n int) int {
 		}
 		return ans
 	}
-	return dfs(l, 1, true)
+	return dfs(l, 0, true)
 }

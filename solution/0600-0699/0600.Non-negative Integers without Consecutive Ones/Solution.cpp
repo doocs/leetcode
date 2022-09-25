@@ -4,13 +4,13 @@ public:
     int dp[33][2];
 
     int findIntegers(int n) {
-        int len = 1;
+        int len = 0;
         while (n) {
-            a[len++] = n & 1;
+            a[++len] = n & 1;
             n >>= 1;
         }
         memset(dp, -1, sizeof dp);
-        return dfs(len, 1, true);
+        return dfs(len, 0, true);
     }
 
     int dfs(int pos, int pre, bool limit) {

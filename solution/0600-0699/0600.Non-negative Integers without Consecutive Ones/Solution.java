@@ -3,15 +3,15 @@ class Solution {
     private int[][] dp = new int[33][2];
 
     public int findIntegers(int n) {
-        int len = 1;
+        int len = 0;
         while (n > 0) {
-            a[len++] = n & 1;
+            a[++len] = n & 1;
             n >>= 1;
         }
         for (var e : dp) {
             Arrays.fill(e, -1);
         }
-        return dfs(len, 1, true);
+        return dfs(len, 0, true);
     }
 
     private int dfs(int pos, int pre, boolean limit) {

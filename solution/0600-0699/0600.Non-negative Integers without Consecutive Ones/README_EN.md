@@ -66,12 +66,12 @@ class Solution:
             return ans
 
         a = [0] * 33
-        l = 1
+        l = 0
         while n:
+            l += 1
             a[l] = n & 1
             n >>= 1
-            l += 1
-        return dfs(l, 1, True)
+        return dfs(l, 0, True)
 ```
 
 ### **Java**
@@ -82,15 +82,15 @@ class Solution {
     private int[][] dp = new int[33][2];
 
     public int findIntegers(int n) {
-        int len = 1;
+        int len = 0;
         while (n > 0) {
-            a[len++] = n & 1;
+            a[++len] = n & 1;
             n >>= 1;
         }
         for (var e : dp) {
             Arrays.fill(e, -1);
         }
-        return dfs(len, 1, true);
+        return dfs(len, 0, true);
     }
 
     private int dfs(int pos, int pre, boolean limit) {
@@ -124,13 +124,13 @@ public:
     int dp[33][2];
 
     int findIntegers(int n) {
-        int len = 1;
+        int len = 0;
         while (n) {
-            a[len++] = n & 1;
+            a[++len] = n & 1;
             n >>= 1;
         }
         memset(dp, -1, sizeof dp);
-        return dfs(len, 1, true);
+        return dfs(len, 0, true);
     }
 
     int dfs(int pos, int pre, bool limit) {
@@ -160,18 +160,15 @@ public:
 ```go
 func findIntegers(n int) int {
 	a := make([]int, 33)
-	dp := make([][]int, 33)
+	dp := make([][2]int, 33)
 	for i := range dp {
-		dp[i] = make([]int, 2)
-		for j := range dp[i] {
-			dp[i][j] = -1
-		}
+		dp[i] = [2]int{-1, -1}
 	}
-	l := 1
+	l := 0
 	for n > 0 {
+		l++
 		a[l] = n & 1
 		n >>= 1
-		l++
 	}
 	var dfs func(int, int, bool) int
 	dfs = func(pos, pre int, limit bool) int {
@@ -196,7 +193,7 @@ func findIntegers(n int) int {
 		}
 		return ans
 	}
-	return dfs(l, 1, true)
+	return dfs(l, 0, true)
 }
 ```
 
