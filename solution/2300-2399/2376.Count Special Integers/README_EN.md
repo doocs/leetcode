@@ -73,6 +73,36 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def countSpecialNumbers(self, n: int) -> int:
+        return self.f(n)
+
+    def f(self, n):
+        @cache
+        def dfs(pos, mask, lead, limit):
+            if pos <= 0:
+                return lead ^ 1
+            up = a[pos] if limit else 9
+            ans = 0
+            for i in range(up + 1):
+                if (mask >> i) & 1:
+                    continue
+                if i == 0 and lead:
+                    ans += dfs(pos - 1, mask, lead, limit and i == up)
+                else:
+                    ans += dfs(pos - 1, mask | 1 << i, False, limit and i == up)
+            return ans
+
+        a = [0] * 11
+        l = 0
+        while n:
+            l += 1
+            a[l] = n % 10
+            n //= 10
+        return dfs(l, 0, True, True)
+```
+
 ### **Java**
 
 ```java
@@ -114,6 +144,54 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    private int[] a = new int[11];
+    private int[][] dp = new int[11][1 << 11];
+    
+    public int countSpecialNumbers(int n) {
+        return f(n);
+    }
+
+    private int f(int n) {
+        for (var e : dp) {
+            Arrays.fill(e, -1);
+        }
+        int len = 0;
+        while (n > 0) {
+            a[++len] = n % 10;
+            n /= 10;
+        }
+        return dfs(len, 0, true, true);
+    }
+
+    private int dfs(int pos, int mask, boolean lead, boolean limit) {
+        if (pos <= 0) {
+            return lead ? 0 : 1;
+        }
+        if (!lead && !limit && dp[pos][mask] != -1) {
+            return dp[pos][mask];
+        }
+        int up = limit ? a[pos] : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if (((mask >> i) & 1) == 1) {
+                continue;
+            }
+            if (i == 0 && lead) {
+                ans += dfs(pos - 1, mask, lead, limit && i == up);
+            } else {
+                ans += dfs(pos - 1, mask | 1 << i, false, limit && i == up);
+            }
+        }
+        if (!lead && !limit) {
+            dp[pos][mask] = ans;
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -151,6 +229,51 @@ public:
 
     int A(int m, int n) {
         return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int a[11];
+    int dp[11][1 << 11];
+
+    int countSpecialNumbers(int n) {
+        return f(n);
+    }
+
+    int f(int n) {
+        memset(dp, -1, sizeof dp);
+        int len = 0;
+        while (n) {
+            a[++len] = n % 10;
+            n /= 10;
+        }
+        return dfs(len, 0, true, true);
+    }
+
+    int dfs(int pos, int mask, bool lead, bool limit) {
+        if (pos <= 0) {
+            return lead ? 0 : 1;
+        }
+        if (!lead && !limit && dp[pos][mask] != -1) {
+            return dp[pos][mask];
+        }
+        int up = limit ? a[pos] : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if ((mask >> i) & 1) continue;
+            if (i == 0 && lead) {
+                ans += dfs(pos - 1, mask, lead, limit && i == up);
+            } else {
+                ans += dfs(pos - 1, mask | 1 << i, false, limit && i == up);
+            }
+        }
+        if (!lead && !limit) {
+            dp[pos][mask] = ans;
+        }
+        return ans;
     }
 };
 ```
@@ -197,6 +320,62 @@ func A(m, n int) int {
 		return 1
 	}
 	return A(m, n-1) * (m - n + 1)
+}
+```
+
+```go
+func countSpecialNumbers(n int) int {
+    return f(n)
+}
+
+func f(n int) int {
+	a := make([]int, 11)
+	dp := make([][]int, 11)
+	for i := range dp {
+		dp[i] = make([]int, 1<<11)
+		for j := range dp[i] {
+			dp[i][j] = -1
+		}
+	}
+	l := 0
+	for n > 0 {
+		l++
+		a[l] = n % 10
+		n /= 10
+	}
+	var dfs func(int, int, bool, bool) int
+	dfs = func(pos, mask int, lead, limit bool) int {
+		if pos <= 0 {
+			if lead {
+				return 0
+			}
+			return 1
+		}
+		if !lead && !limit && dp[pos][mask] != -1 {
+			return dp[pos][mask]
+		}
+		ans := 0
+		up := 9
+		if limit {
+			up = a[pos]
+		}
+		for i := 0; i <= up; i++ {
+			if ((mask >> i) & 1) == 1 {
+				continue
+			}
+			if i == 0 && lead {
+				ans += dfs(pos-1, mask, lead, limit && i == up)
+			} else {
+				ans += dfs(pos-1, mask|1<<i, false, limit && i == up)
+			}
+		}
+		if !lead && !limit {
+			dp[pos][mask] = ans
+		}
+		return ans
+	}
+
+	return dfs(l, 0, true, true)
 }
 ```
 
