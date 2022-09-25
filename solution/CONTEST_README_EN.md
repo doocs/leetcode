@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 312
+
+- [2418. Sort the People](/solution/2400-2499/2418.Sort%20the%20People/README_EN.md)
+- [2419. Longest Subarray With Maximum Bitwise AND](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md)
+- [2420. Find All Good Indices](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)
+- [2421. Number of Good Paths](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)
+
+
 #### Weekly Contest 311
 
 - [2413. Smallest Even Multiple](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README_EN.md)

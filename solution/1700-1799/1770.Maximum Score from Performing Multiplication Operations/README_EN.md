@@ -4,14 +4,18 @@
 
 ## Description
 
-<p>You are given two integer arrays <code>nums</code> and <code>multipliers</code><strong> </strong>of size <code>n</code> and <code>m</code> respectively, where <code>n &gt;= m</code>. The arrays are <strong>1-indexed</strong>.</p>
+<p>You are given two <strong>0-indexed</strong> integer arrays <code>nums</code> and <code>multipliers</code><strong> </strong>of size <code>n</code> and <code>m</code> respectively, where <code>n &gt;= m</code>.</p>
 
-<p>You begin with a score of <code>0</code>. You want to perform <strong>exactly</strong> <code>m</code> operations. On the <code>i<sup>th</sup></code> operation <strong>(1-indexed)</strong>, you will:</p>
+<p>You begin with a score of <code>0</code>. You want to perform <strong>exactly</strong> <code>m</code> operations. On the <code>i<sup>th</sup></code> operation (<strong>0-indexed</strong>) you will:</p>
 
 <ul>
-	<li>Choose one integer <code>x</code> from <strong>either the start or the end </strong>of the array <code>nums</code>.</li>
-	<li>Add <code>multipliers[i] * x</code> to your score.</li>
-	<li>Remove <code>x</code> from the array <code>nums</code>.</li>
+    <li>Choose one integer <code>x</code> from <strong>either the start or the end </strong>of the array <code>nums</code>.</li>
+    <li>Add <code>multipliers[i] * x</code> to your score.
+    <ul>
+        <li>Note that <code>multipliers[0]</code> corresponds to the first operation, <code>multipliers[1]</code> to the second operation, and so on.</li>
+    </ul>
+    </li>
+    <li>Remove <code>x</code> from <code>nums</code>.</li>
 </ul>
 
 <p>Return <em>the <strong>maximum</strong> score after performing </em><code>m</code> <em>operations.</em></p>
@@ -48,7 +52,7 @@ The total score is 50 + 15 - 9 + 4 + 42 = 102.
 <ul>
 	<li><code>n == nums.length</code></li>
 	<li><code>m == multipliers.length</code></li>
-	<li><code>1 &lt;= m &lt;= 10<sup>3</sup></code></li>
+	<li><code>1 &lt;= m &lt;= 300</code></li>
 	<li><code>m &lt;= n &lt;= 10<sup>5</sup></code><code> </code></li>
 	<li><code>-1000 &lt;= nums[i], multipliers[i] &lt;= 1000</code></li>
 </ul>

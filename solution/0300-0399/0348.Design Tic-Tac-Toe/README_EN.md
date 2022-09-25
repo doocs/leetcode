@@ -12,11 +12,17 @@
 	<li>A player who succeeds in placing <code>n</code> of their marks in a horizontal, vertical, or diagonal row wins the game.</li>
 </ol>
 
-<p>Implement the&nbsp;<code>TicTacToe</code> class:</p>
+<p>Implement the <code>TicTacToe</code> class:</p>
 
 <ul>
 	<li><code>TicTacToe(int n)</code> Initializes the object the size of the board <code>n</code>.</li>
-	<li><code>int move(int row, int col, int player)</code> Indicates that the player with id <code>player</code> plays at the cell <code>(row, col)</code> of the board. The move is guaranteed to be a valid move.</li>
+	<li><code>int move(int row, int col, int player)</code> Indicates that the player with id <code>player</code> plays at the cell <code>(row, col)</code> of the board. The move is guaranteed to be a valid move, and the two players alternate in making moves. Return
+	<ul>
+		<li><code>0</code> if there is <strong>no winner</strong> after the move,</li>
+		<li><code>1</code> if <strong>player 1</strong> is the winner after the move, or</li>
+		<li><code>2</code> if <strong>player 2</strong> is the winner after the move.</li>
+	</ul>
+	</li>
 </ul>
 
 <p>&nbsp;</p>

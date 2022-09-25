@@ -23,6 +23,14 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 312 场周赛(2022-09-25 10:30, 90 分钟) 参赛人数 6637
+
+- [2418. 按身高排序](/solution/2400-2499/2418.Sort%20the%20People/README.md)
+- [2419. 按位与最大的最长子数组](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README.md)
+- [2420. 找到所有好下标](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md)
+- [2421. 好路径的数目](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)
+
+
 #### 第 311 场周赛(2022-09-18 10:30, 90 分钟) 参赛人数 6710
 
 - [2413. 最小偶倍数](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README.md)
@@ -1385,7 +1393,7 @@ https://lcpredictor.herokuapp.com
 
 #### 第 198 场周赛(2020-07-19 10:30, 90 分钟) 参赛人数 5780
 
-- [1518. 换酒问题](/solution/1500-1599/1518.Water%20Bottles/README.md)
+- [1518. 换水问题](/solution/1500-1599/1518.Water%20Bottles/README.md)
 - [1519. 子树中标签相同的节点数](/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/README.md)
 - [1520. 最多的不重叠子字符串](/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README.md)
 - [1521. 找到最接近目标值的函数值](/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README.md)

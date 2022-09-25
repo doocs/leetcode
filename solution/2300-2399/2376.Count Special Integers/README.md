@@ -178,7 +178,7 @@ class Solution {
 class Solution {
     private int[] a = new int[11];
     private int[][] dp = new int[11][1 << 11];
-    
+
     public int countSpecialNumbers(int n) {
         return f(n);
     }

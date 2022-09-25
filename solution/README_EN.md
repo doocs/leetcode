@@ -1777,7 +1777,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1767  |  [Find the Subtasks That Did Not Execute](/solution/1700-1799/1767.Find%20the%20Subtasks%20That%20Did%20Not%20Execute/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  1768  |  [Merge Strings Alternately](/solution/1700-1799/1768.Merge%20Strings%20Alternately/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |  Weekly Contest 229  |
 |  1769  |  [Minimum Number of Operations to Move All Balls to Each Box](/solution/1700-1799/1769.Minimum%20Number%20of%20Operations%20to%20Move%20All%20Balls%20to%20Each%20Box/README_EN.md)  |  `Array`,`String`  |  Medium  |  Weekly Contest 229  |
-|  1770  |  [Maximum Score from Performing Multiplication Operations](/solution/1700-1799/1770.Maximum%20Score%20from%20Performing%20Multiplication%20Operations/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 229  |
+|  1770  |  [Maximum Score from Performing Multiplication Operations](/solution/1700-1799/1770.Maximum%20Score%20from%20Performing%20Multiplication%20Operations/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 229  |
 |  1771  |  [Maximize Palindrome Length From Subsequences](/solution/1700-1799/1771.Maximize%20Palindrome%20Length%20From%20Subsequences/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 229  |
 |  1772  |  [Sort Features by Popularity](/solution/1700-1799/1772.Sort%20Features%20by%20Popularity/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |  🔒  |
 |  1773  |  [Count Items Matching a Rule](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README_EN.md)  |  `Array`,`String`  |  Easy  |  Weekly Contest 230  |
@@ -2425,6 +2425,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2415  |  [Reverse Odd Levels of Binary Tree](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 311  |
 |  2416  |  [Sum of Prefix Scores of Strings](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README_EN.md)  |  `Trie`,`Array`,`String`,`Counting`  |  Hard  |  Weekly Contest 311  |
 |  2417  |  [Closest Fair Integer](/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md)  |    |  Medium  |  🔒  |
+|  2418  |  [Sort the People](/solution/2400-2499/2418.Sort%20the%20People/README_EN.md)  |    |  Easy  |  Weekly Contest 312  |
+|  2419  |  [Longest Subarray With Maximum Bitwise AND](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md)  |    |  Medium  |  Weekly Contest 312  |
+|  2420  |  [Find All Good Indices](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)  |    |  Medium  |  Weekly Contest 312  |
+|  2421  |  [Number of Good Paths](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)  |    |  Hard  |  Weekly Contest 312  |
 
 ## Copyright
 

@@ -7,7 +7,7 @@
 <p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>the maximum length of a subarray that appears in <strong>both</strong> arrays</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,2,3,2,1], nums2 = [3,2,1,4,7]
@@ -15,11 +15,12 @@
 <strong>Explanation:</strong> The repeated subarray with maximum length is [3,2,1].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [0,0,0,0,0], nums2 = [0,0,0,0,0]
 <strong>Output:</strong> 5
+<strong>Explanation:</strong> The repeated subarray with maximum length is [0,0,0,0,0].
 </pre>
 
 <p>&nbsp;</p>

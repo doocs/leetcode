@@ -77,7 +77,7 @@ class Solution:
 class Solution:
     def numDupDigitsAtMostN(self, n: int) -> int:
         return n - self.f(n)
-    
+
     def f(self, n):
         @cache
         def dfs(pos, mask, lead, limit):

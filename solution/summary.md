@@ -2465,3 +2465,7 @@
   - [2415.反转二叉树的奇数层](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README.md)
   - [2416.字符串的前缀分数和](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README.md)
   - [2417.Closest Fair Integer](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
+  - [2418.按身高排序](/solution/2400-2499/2418.Sort%20the%20People/README.md)
+  - [2419.按位与最大的最长子数组](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README.md)
+  - [2420.找到所有好下标](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md)
+  - [2421.好路径的数目](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)

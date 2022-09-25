@@ -2465,3 +2465,7 @@
   - [2415.Reverse Odd Levels of Binary Tree](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README_EN.md)
   - [2416.Sum of Prefix Scores of Strings](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README_EN.md)
   - [2417.Closest Fair Integer](/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md)
+  - [2418.Sort the People](/solution/2400-2499/2418.Sort%20the%20People/README_EN.md)
+  - [2419.Longest Subarray With Maximum Bitwise AND](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md)
+  - [2420.Find All Good Indices](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)
+  - [2421.Number of Good Paths](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)

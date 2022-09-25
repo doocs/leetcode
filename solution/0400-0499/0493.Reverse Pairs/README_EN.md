@@ -6,7 +6,12 @@
 
 <p>Given an integer array <code>nums</code>, return <em>the number of <strong>reverse pairs</strong> in the array</em>.</p>
 
-<p>A reverse pair is a pair <code>(i, j)</code> where <code>0 &lt;= i &lt; j &lt; nums.length</code> and <code>nums[i] &gt; 2 * nums[j]</code>.</p>
+<p>A <strong>reverse pair</strong> is a pair <code>(i, j)</code> where:</p>
+
+<ul>
+	<li><code>0 &lt;= i &lt; j &lt; nums.length</code> and</li>
+	<li><code>nums[i] &gt; 2 * nums[j]</code>.</li>
+</ul>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -27,7 +32,7 @@
 <strong>Explanation:</strong> The reverse pairs are:
 (1, 4) --&gt; nums[1] = 4, nums[4] = 1, 4 &gt; 2 * 1
 (2, 4) --&gt; nums[2] = 3, nums[4] = 1, 3 &gt; 2 * 1
-(3, 4) --&gt; nums[3] = 3, nums[4] = 1, 5 &gt; 2 * 1
+(3, 4) --&gt; nums[3] = 5, nums[4] = 1, 5 &gt; 2 * 1
 </pre>
 
 <p>&nbsp;</p>
