@@ -87,6 +87,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：简单模拟**
+
+先按照题意，去除字符串中的所有空格和破折号。
+
+记当前字符串长度为 $n$，然后从前往后遍历字符串，每 $3$ 个字符为一组，将其加入结果字符串中，共取 $n / 3$ 组。
+
+若最后剩余 $1$ 个字符，则将前面的最后一组的最后一个字符与该字符组成一个新的两个字符的组，加入结果字符串中；若最后剩余 $2$ 个字符，直接将这连个字符组成一个新的组，加入结果字符串中。
+
+最后将所有组之间加上破折号，返回结果字符串即可。
+
+时间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -94,7 +106,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reformatNumber(self, number: str) -> str:
+        number = number.replace("-", "").replace(" ", "")
+        n = len(number)
+        ans = [number[i * 3 : i * 3 + 3] for i in range(n // 3)]
+        if n % 3 == 1:
+            ans[-1] = ans[-1][:2]
+            ans.append(number[-2:])
+        elif n % 3 == 2:
+            ans.append(number[-2:])
+        return "-".join(ans)
 ```
 
 ### **Java**
@@ -102,7 +124,78 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String reformatNumber(String number) {
+        number = number.replace("-", "").replace(" ", "");
+        int n = number.length();
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < n / 3; ++i) {
+            ans.add(number.substring(i * 3, i * 3 + 3));
+        }
+        if (n % 3 == 1) {
+            ans.set(ans.size() - 1, ans.get(ans.size() - 1).substring(0, 2));
+            ans.add(number.substring(n - 2));
+        } else if (n % 3 == 2) {
+            ans.add(number.substring(n - 2));
+        }
+        return String.join("-", ans);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string reformatNumber(string number) {
+        string s;
+        for (char c : number) {
+            if (c != ' ' && c != '-') {
+                s.push_back(c);
+            }
+        }
+        int n = s.size();
+        vector<string> res;
+        for (int i = 0; i < n / 3; ++i) {
+            res.push_back(s.substr(i * 3, 3));
+        }
+        if (n % 3 == 1) {
+            res.back() = res.back().substr(0, 2);
+            res.push_back(s.substr(n - 2));
+        } else if (n % 3 == 2) {
+            res.push_back(s.substr(n - 2));
+        }
+        string ans;
+        for (auto& v : res) {
+            ans += v;
+            ans += "-";
+        }
+        ans.pop_back();
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reformatNumber(number string) string {
+	number = strings.ReplaceAll(number, " ", "")
+	number = strings.ReplaceAll(number, "-", "")
+	n := len(number)
+	ans := []string{}
+	for i := 0; i < n/3; i++ {
+		ans = append(ans, number[i*3:i*3+3])
+	}
+	if n%3 == 1 {
+		ans[len(ans)-1] = ans[len(ans)-1][:2]
+		ans = append(ans, number[n-2:])
+	} else if n%3 == 2 {
+		ans = append(ans, number[n-2:])
+	}
+	return strings.Join(ans, "-")
+}
 ```
 
 ### **...**
