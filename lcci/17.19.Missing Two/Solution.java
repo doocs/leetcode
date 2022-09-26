@@ -1,36 +1,26 @@
 class Solution {
     public int[] missingTwo(int[] nums) {
-        int res = 0, n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            res ^= nums[i];
-            res ^= (i + 1);
+        int n = nums.length + 2;
+        int xor = 0;
+        for (int v : nums) {
+            xor ^= v;
         }
-        res ^= (n + 1);
-        res ^= (n + 2);
-
-        int pos = 0;
-        while ((res & 1) == 0) {
-            pos += 1;
-            res >>= 1;
+        for (int i = 1; i <= n; ++i) {
+            xor ^= i;
         }
-
-        int a = 0, b = 0;
-        for (int num : nums) {
-            int t = num >> pos;
-            if ((t & 1) == 0) {
-                a ^= num;
-            } else {
-                b ^= num;
+        int diff = xor & (-xor);
+        int a = 0;
+        for (int v : nums) {
+            if ((v & diff) != 0) {
+                a ^= v;
             }
         }
-        for (int i = 1; i <= n + 2; ++i) {
-            int t = i >> pos;
-            if ((t & 1) == 0) {
+        for (int i = 1; i <= n; ++i) {
+            if ((i & diff) != 0) {
                 a ^= i;
-            } else {
-                b ^= i;
             }
         }
+        int b = xor ^ a;
         return new int[] {a, b};
     }
 }

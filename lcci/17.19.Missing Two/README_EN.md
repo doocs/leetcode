@@ -39,31 +39,22 @@
 ```python
 class Solution:
     def missingTwo(self, nums: List[int]) -> List[int]:
-        res, n = 0, len(nums)
-        for i in range(n):
-            res ^= nums[i]
-            res ^= i + 1
-        res ^= n + 1
-        res ^= n + 2
-        pos = 0
-        while (res & 1) == 0:
-            pos += 1
-            res >>= 1
+        n = len(nums) + 2
+        xor = 0
+        for v in nums:
+            xor ^= v
+        for i in range(1, n + 1):
+            xor ^= i
 
-        a = b = 0
-        for num in nums:
-            t = num >> pos
-            if (t & 1) == 0:
-                a ^= num
-            else:
-                b ^= num
-
-        for i in range(1, n + 3):
-            t = i >> pos
-            if (t & 1) == 0:
+        diff = xor & (-xor)
+        a = 0
+        for v in nums:
+            if v & diff:
+                a ^= v
+        for i in range(1, n + 1):
+            if i & diff:
                 a ^= i
-            else:
-                b ^= i
+        b = xor ^ a
         return [a, b]
 ```
 
@@ -72,39 +63,79 @@ class Solution:
 ```java
 class Solution {
     public int[] missingTwo(int[] nums) {
-        int res = 0, n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            res ^= nums[i];
-            res ^= (i + 1);
+        int n = nums.length + 2;
+        int xor = 0;
+        for (int v : nums) {
+            xor ^= v;
         }
-        res ^= (n + 1);
-        res ^= (n + 2);
-
-        int pos = 0;
-        while ((res & 1) == 0) {
-            pos += 1;
-            res >>= 1;
+        for (int i = 1; i <= n; ++i) {
+            xor ^= i;
         }
-
-        int a = 0, b = 0;
-        for (int num : nums) {
-            int t = num >> pos;
-            if ((t & 1) == 0) {
-                a ^= num;
-            } else {
-                b ^= num;
+        int diff = xor & (-xor);
+        int a = 0;
+        for (int v : nums) {
+            if ((v & diff) != 0) {
+                a ^= v;
             }
         }
-        for (int i = 1; i <= n + 2; ++i) {
-            int t = i >> pos;
-            if ((t & 1) == 0) {
+        for (int i = 1; i <= n; ++i) {
+            if ((i & diff) != 0) {
                 a ^= i;
-            } else {
-                b ^= i;
             }
         }
+        int b = xor ^ a;
         return new int[] {a, b};
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> missingTwo(vector<int>& nums) {
+        int n = nums.size() + 2;
+        int eor = 0;
+        for (int v : nums) eor ^= v;
+        for (int i = 1; i <= n; ++i) eor ^= i;
+
+        int diff = eor & -eor;
+        int a = 0;
+        for (int v : nums) if (v & diff) a ^= v;
+        for (int i = 1; i <= n; ++i) if (i & diff) a ^= i;
+        int b = eor ^ a;
+        return {a, b};
+    }
+};
+```
+
+### **Go**
+
+```go
+func missingTwo(nums []int) []int {
+	n := len(nums) + 2
+	xor := 0
+	for _, v := range nums {
+		xor ^= v
+	}
+	for i := 1; i <= n; i++ {
+		xor ^= i
+	}
+	diff := xor & -xor
+	a := 0
+	for _, v := range nums {
+		if (v & diff) != 0 {
+			a ^= v
+		}
+	}
+	for i := 1; i <= n; i++ {
+		if (i & diff) != 0 {
+			a ^= i
+		}
+	}
+	b := xor ^ a
+	return []int{a, b}
 }
 ```
 

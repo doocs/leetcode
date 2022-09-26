@@ -29,7 +29,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-异或运算。与[面试题 56 - I. 数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md) 类似。
+**方法一：位运算**
+
+利用位运算的性质：
+
+1. 对于任何数 $x$，都有 $x \oplus x = 0$
+1. 异或运算满足结合律，即 $(a \oplus b) \oplus c = a \oplus (b \oplus c)$
+1. lowbit 运算获取最低一位的 $1$ 及其后面的所有 $0$，公式为 $lowbit(x) = x \& (-x)$
+
+我们将 nums 中所有数进行异或到 $x$，再将 $[1,2..n]$ 的所有数也异或到 $x$。得到的 $x$ 是两个缺失的正整数的异或和。
+
+然后我们运用 lowbit 获取最低一位的 $1$，那么这两个缺失的正整数在这一位上必然一个为 $1$，一个为 $0$。我们据此进行分组异或。最终得到两个缺失的正整数 $a$ 和 $b$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -40,31 +52,22 @@
 ```python
 class Solution:
     def missingTwo(self, nums: List[int]) -> List[int]:
-        res, n = 0, len(nums)
-        for i in range(n):
-            res ^= nums[i]
-            res ^= i + 1
-        res ^= n + 1
-        res ^= n + 2
-        pos = 0
-        while (res & 1) == 0:
-            pos += 1
-            res >>= 1
+        n = len(nums) + 2
+        xor = 0
+        for v in nums:
+            xor ^= v
+        for i in range(1, n + 1):
+            xor ^= i
 
-        a = b = 0
-        for num in nums:
-            t = num >> pos
-            if (t & 1) == 0:
-                a ^= num
-            else:
-                b ^= num
-
-        for i in range(1, n + 3):
-            t = i >> pos
-            if (t & 1) == 0:
+        diff = xor & (-xor)
+        a = 0
+        for v in nums:
+            if v & diff:
+                a ^= v
+        for i in range(1, n + 1):
+            if i & diff:
                 a ^= i
-            else:
-                b ^= i
+        b = xor ^ a
         return [a, b]
 ```
 
@@ -75,39 +78,79 @@ class Solution:
 ```java
 class Solution {
     public int[] missingTwo(int[] nums) {
-        int res = 0, n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            res ^= nums[i];
-            res ^= (i + 1);
+        int n = nums.length + 2;
+        int xor = 0;
+        for (int v : nums) {
+            xor ^= v;
         }
-        res ^= (n + 1);
-        res ^= (n + 2);
-
-        int pos = 0;
-        while ((res & 1) == 0) {
-            pos += 1;
-            res >>= 1;
+        for (int i = 1; i <= n; ++i) {
+            xor ^= i;
         }
-
-        int a = 0, b = 0;
-        for (int num : nums) {
-            int t = num >> pos;
-            if ((t & 1) == 0) {
-                a ^= num;
-            } else {
-                b ^= num;
+        int diff = xor & (-xor);
+        int a = 0;
+        for (int v : nums) {
+            if ((v & diff) != 0) {
+                a ^= v;
             }
         }
-        for (int i = 1; i <= n + 2; ++i) {
-            int t = i >> pos;
-            if ((t & 1) == 0) {
+        for (int i = 1; i <= n; ++i) {
+            if ((i & diff) != 0) {
                 a ^= i;
-            } else {
-                b ^= i;
             }
         }
+        int b = xor ^ a;
         return new int[] {a, b};
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> missingTwo(vector<int>& nums) {
+        int n = nums.size() + 2;
+        int eor = 0;
+        for (int v : nums) eor ^= v;
+        for (int i = 1; i <= n; ++i) eor ^= i;
+
+        int diff = eor & -eor;
+        int a = 0;
+        for (int v : nums) if (v & diff) a ^= v;
+        for (int i = 1; i <= n; ++i) if (i & diff) a ^= i;
+        int b = eor ^ a;
+        return {a, b};
+    }
+};
+```
+
+### **Go**
+
+```go
+func missingTwo(nums []int) []int {
+	n := len(nums) + 2
+	xor := 0
+	for _, v := range nums {
+		xor ^= v
+	}
+	for i := 1; i <= n; i++ {
+		xor ^= i
+	}
+	diff := xor & -xor
+	a := 0
+	for _, v := range nums {
+		if (v & diff) != 0 {
+			a ^= v
+		}
+	}
+	for i := 1; i <= n; i++ {
+		if (i & diff) != 0 {
+			a ^= i
+		}
+	}
+	b := xor ^ a
+	return []int{a, b}
 }
 ```
 
