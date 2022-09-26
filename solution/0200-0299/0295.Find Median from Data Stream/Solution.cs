@@ -1,60 +1,56 @@
-using System;
-using System.Collections.Generic;
-
-public class Comparer : IComparer<Tuple<double, int>>
-{
-    public int Compare(Tuple<double, int> x, Tuple<double, int> y)
-    {
-        var result = x.Item1.CompareTo(y.Item1);
-        if (result != 0)
-        {
-            return result;
-        }
-        return x.Item2.CompareTo(y.Item2);
-    }
-}
-
 public class MedianFinder {
+    private List<int> nums;
+    private int curIndex;
 
-    private SortedSet<Tuple<double, int>> smallerHeap = new SortedSet<Tuple<double, int>>();
-    private SortedSet<Tuple<double, int>> biggerHeap = new SortedSet<Tuple<double, int>>();
-
-    private int index;
-
-    public void AddNum(double num) {
-        if (smallerHeap.Count == 0 || smallerHeap.Max.Item1 >= num)
-        {
-            smallerHeap.Add(Tuple.Create(num, index++));
-        }
-        else
-        {
-            biggerHeap.Add(Tuple.Create(num, index++));
-        }
-
-        if (smallerHeap.Count == biggerHeap.Count + 2)
-        {
-            biggerHeap.Add(smallerHeap.Max);
-            smallerHeap.Remove(smallerHeap.Max);
-        }
-        else if (biggerHeap.Count == smallerHeap.Count + 2)
-        {
-            smallerHeap.Add(biggerHeap.Min);
-            biggerHeap.Remove(biggerHeap.Min);
-        }
+    /** initialize your data structure here. */
+    public MedianFinder() {
+        nums = new List<int>();
     }
 
+    private int FindIndex(int val) {
+        int left = 0;
+        int right = nums.Count - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (val > nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+    
+    public void AddNum(int num) {
+        if (nums.Count == 0) {
+            nums.Add(num);
+            curIndex = 0;
+        } else {
+            curIndex = FindIndex(num);
+            if (curIndex == nums.Count) {
+                nums.Add(num);
+            } else {
+                nums.Insert(curIndex, num);
+            }
+        }
+    }
+    
     public double FindMedian() {
-        if (smallerHeap.Count == biggerHeap.Count)
-        {
-            return (smallerHeap.Max.Item1 + biggerHeap.Min.Item1) / 2;
-        }
-        else if (smallerHeap.Count < biggerHeap.Count)
-        {
-            return biggerHeap.Min.Item1;
-        }
-        else
-        {
-            return smallerHeap.Max.Item1;
+        if (nums.Count % 2 == 1) {
+            return (double)nums[nums.Count / 2];
+        } else {
+            if (nums.Count == 0) {
+                return 0;
+            } else {
+                return (double) (nums[nums.Count / 2 - 1] + nums[nums.Count / 2]) / 2;
+            }
         }
     }
 }
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder obj = new MedianFinder();
+ * obj.AddNum(num);
+ * double param_2 = obj.FindMedian();
+ */

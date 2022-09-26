@@ -48,9 +48,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
--   创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
--   添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多 1）；若不等，放入大根堆（使得大小根堆元素个数相等）
--   取中位数时，若两堆元素个数相等，取两堆顶求平均值；若不等，取小根堆堆顶。
+**方法一：优先队列（双堆）**
+
+创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
+
+添加元素时，先放入小根堆，然后将小根堆对顶元素弹出并放入大根堆（使得大根堆个数多 $1$）；若大小根堆元素个数差超过 $1$，则将大根堆元素弹出放入小根堆。
+
+取中位数时，若大根堆元素较多，取大根堆堆顶，否则取两堆顶元素和的平均值。
+
+**时间复杂度分析：**
+
+每次添加元素的时间复杂度为 $O(\log n)$，取中位数的时间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -60,25 +68,24 @@
 
 ```python
 class MedianFinder:
+
     def __init__(self):
         """
         initialize your data structure here.
         """
-        self.max_heap = []
-        self.min_heap = []
+        self.h1 = []
+        self.h2 = []
 
     def addNum(self, num: int) -> None:
-        if len(self.max_heap) == len(self.min_heap):
-            heappush(self.min_heap, -heappushpop(self.max_heap, -num))
-        else:
-            heappush(self.max_heap, -heappushpop(self.min_heap, num))
+        heappush(self.h1, num)
+        heappush(self.h2, -heappop(self.h1))
+        if len(self.h2) - len(self.h1) > 1:
+            heappush(self.h1, -heappop(self.h2))
 
     def findMedian(self) -> float:
-        return (
-            (-self.max_heap[0] + self.min_heap[0]) / 2
-            if len(self.max_heap) == len(self.min_heap)
-            else self.min_heap[0]
-        )
+        if len(self.h2) > len(self.h1):
+            return -self.h2[0]
+        return (self.h1[0] - self.h2[0]) / 2
 
 
 # Your MedianFinder object will be instantiated and called as such:
@@ -93,33 +100,27 @@ class MedianFinder:
 
 ```java
 class MedianFinder {
-    Queue<Integer> minHeap;
-    Queue<Integer> maxHeap;
+    private PriorityQueue<Integer> q1 = new PriorityQueue<>();
+    private PriorityQueue<Integer> q2 = new PriorityQueue<>(Collections.reverseOrder());
 
     /** initialize your data structure here. */
     public MedianFinder() {
-        minHeap = new PriorityQueue<>();
-        maxHeap = new PriorityQueue<>((a, b) -> b - a);
+
     }
 
     public void addNum(int num) {
-        if (maxHeap.size() == minHeap.size()) {
-            maxHeap.offer(num);
-            // 放入小根堆(小根堆多1)
-            minHeap.offer(maxHeap.poll());
-        } else {
-            minHeap.offer(num);
-            // 放入大根堆(大小堆数量相等)
-            maxHeap.offer(minHeap.poll());
+        q1.offer(num);
+        q2.offer(q1.poll());
+        if (q2.size() - q1.size() > 1) {
+            q1.offer(q2.poll());
         }
     }
 
     public double findMedian() {
-        if (((maxHeap.size() + minHeap.size()) & 1) == 0) {
-            // 偶数个，取两个堆顶平均值
-            return (maxHeap.peek() + minHeap.peek()) / 2.0;
+        if (q2.size() > q1.size()) {
+            return q2.peek();
         }
-        return minHeap.peek();
+        return (q1.peek() + q2.peek()) * 1.0 / 2;
     }
 }
 
@@ -129,6 +130,93 @@ class MedianFinder {
  * obj.addNum(num);
  * double param_2 = obj.findMedian();
  */
+```
+
+### **C++**
+
+```cpp
+class MedianFinder {
+public:
+    /** initialize your data structure here. */
+    MedianFinder() {
+
+    }
+
+    void addNum(int num) {
+        q1.push(num);
+        q2.push(q1.top());
+        q1.pop();
+        if (q2.size() - q1.size() > 1) {
+            q1.push(q2.top());
+            q2.pop();
+        }
+    }
+
+    double findMedian() {
+        if (q2.size() > q1.size()) {
+            return q2.top();
+        }
+        return (double) (q1.top() + q2.top()) / 2;
+    }
+
+private:
+    priority_queue<int, vector<int>, greater<int>> q1;
+    priority_queue<int> q2;
+};
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder* obj = new MedianFinder();
+ * obj->addNum(num);
+ * double param_2 = obj->findMedian();
+ */
+```
+
+### **Go**
+
+```go
+type MedianFinder struct {
+	q1 hp
+	q2 hp
+}
+
+/** initialize your data structure here. */
+func Constructor() MedianFinder {
+	return MedianFinder{hp{}, hp{}}
+}
+
+func (this *MedianFinder) AddNum(num int) {
+	heap.Push(&this.q1, num)
+	heap.Push(&this.q2, -heap.Pop(&this.q1).(int))
+	if this.q2.Len()-this.q1.Len() > 1 {
+		heap.Push(&this.q1, -heap.Pop(&this.q2).(int))
+	}
+}
+
+func (this *MedianFinder) FindMedian() float64 {
+	if this.q2.Len() > this.q1.Len() {
+		return -float64(this.q2.IntSlice[0])
+	}
+	return float64(this.q1.IntSlice[0]-this.q2.IntSlice[0]) / 2.0
+}
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.AddNum(num);
+ * param_2 := obj.FindMedian();
+ */
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
 ```
 
 ### **JavaScript**
@@ -167,42 +255,6 @@ MedianFinder.prototype.findMedian = function () {
     return this.val.length % 2
         ? this.val[mid]
         : (this.val[mid - 1] + this.val[mid]) / 2;
-};
-```
-
-### **C++**
-
-```cpp
-class MedianFinder {
-public:
-    /** initialize your data structure here. */
-    MedianFinder() {
-    }
-
-    void addNum(int num) {
-        if (maxHeap.size() == minHeap.size()) {
-            maxHeap.push(num);
-            int temp = maxHeap.top();
-            maxHeap.pop();
-            minHeap.push(temp);
-        } else {
-            minHeap.push(num);
-            int temp = minHeap.top();
-            minHeap.pop();
-            maxHeap.push(temp);
-        }
-    }
-
-    double findMedian() {
-        if (maxHeap.size() == minHeap.size()) {
-            return (maxHeap.top() + minHeap.top()) / 2.0;
-        }
-        return minHeap.top();
-    }
-
-private:
-    priority_queue<int> maxHeap;
-    priority_queue<int, vector<int>, greater<int>> minHeap;
 };
 ```
 
