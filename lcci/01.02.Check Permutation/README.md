@@ -159,8 +159,8 @@ function CheckPermutation(s1: string, s2: string): boolean {
     }
     const map = new Map<string, number>();
     for (let i = 0; i < n; i++) {
-        map.set(s1[i], (map.get(s1[i]) || 0) + 1);
-        map.set(s2[i], (map.get(s2[i]) || 0) - 1);
+        map.set(s1[i], (map.get(s1[i]) ?? 0) + 1);
+        map.set(s2[i], (map.get(s2[i]) ?? 0) - 1);
     }
     for (const v of map.values()) {
         if (v !== 0) {
@@ -173,19 +173,7 @@ function CheckPermutation(s1: string, s2: string): boolean {
 
 ```ts
 function CheckPermutation(s1: string, s2: string): boolean {
-    if (s1.length !== s2.length) {
-        return false;
-    }
-    return (
-        s1
-            .split('')
-            .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
-            .join('') ===
-        s2
-            .split('')
-            .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
-            .join('')
-    );
+    return [...s1].sort().join('') === [...s2].sort().join('');
 }
 ```
 
@@ -193,7 +181,6 @@ function CheckPermutation(s1: string, s2: string): boolean {
 
 ```rust
 use std::collections::HashMap;
-
 impl Solution {
     pub fn check_permutation(s1: String, s2: String) -> bool {
         let n = s1.len();
@@ -201,12 +188,12 @@ impl Solution {
         if n != m {
             return false;
         }
-        let s1: Vec<char> = s1.chars().collect();
-        let s2: Vec<char> = s2.chars().collect();
+        let s1 = s1.as_bytes();
+        let s2 = s2.as_bytes();
         let mut map = HashMap::new();
         for i in 0..n {
-            map.insert(s1[i], map.get(&s1[i]).unwrap_or(&0) + 1);
-            map.insert(s2[i], map.get(&s2[i]).unwrap_or(&0) - 1);
+            *map.entry(s1[i]).or_insert(0) += 1;
+            *map.entry(s2[i]).or_insert(0) -= 1;
         }
         map.values().all(|i| *i == 0)
     }
@@ -216,11 +203,11 @@ impl Solution {
 ```rust
 impl Solution {
     pub fn check_permutation(s1: String, s2: String) -> bool {
-        let mut v1: Vec<char> = s1.chars().collect();
-        let mut v2: Vec<char> = s2.chars().collect();
-        v1.sort();
-        v2.sort();
-        v1 == v2
+        let mut s1: Vec<char> = s1.chars().collect();
+        let mut s2: Vec<char> = s2.chars().collect();
+        s1.sort();
+        s2.sort();
+        s1 == s2
     }
 }
 ```
