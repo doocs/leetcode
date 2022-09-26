@@ -55,6 +55,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：脑筋急转弯**
+
+由于按位与的操作，不会使得数字变大，因此最大值就是数组中的最大值。
+
+题目可以转换为求最大值在数组中最多连续出现的次数。
+
+先遍历一遍数组，求出最大值，然后再遍历一遍数组，求出最大值连续出现的次数，最后返回这个次数即可。
+
+时间复杂度 $O(n)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +72,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def longestSubarray(self, nums: List[int]) -> int:
+        mx = max(nums)
+        ans = cnt = 0
+        for v in nums:
+            if v == mx:
+                cnt += 1
+                ans = max(ans, cnt)
+            else:
+                cnt = 0
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +90,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int longestSubarray(int[] nums) {
+        int mx = 0;
+        for (int v : nums) {
+            mx = Math.max(mx, v);
+        }
+        int ans = 0, cnt = 0;
+        for (int v : nums) {
+            if (v == mx) {
+                ++cnt;
+                ans = Math.max(ans, cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        int mx = *max_element(nums.begin(), nums.end());
+        int ans = 0, cnt = 0;
+        for (int v : nums) {
+            if (v == mx) {
+                ++cnt;
+                ans = max(ans, cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestSubarray(nums []int) int {
+	mx := 0
+	for _, v := range nums {
+		mx = max(mx, v)
+	}
+	ans, cnt := 0, 0
+	for _, v := range nums {
+		if v == mx {
+			cnt++
+			ans = max(ans, cnt)
+		} else {
+			cnt = 0
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

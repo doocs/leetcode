@@ -73,6 +73,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 并查集**
+
+要保证路径起点（终点）大于等于路径上的所有点，因此我们可以考虑先把所有点按值从小到大排序，然后再进行遍历，添加到连通块中，具体如下：
+
+当遍历到点 $a$ 时， 对于小于等于 $vals[a]$ 的邻接点 $b$ 来说，若二者不在同一个连通块，则可以合并，并且可以以点 $a$ 所在的连通块中所有值为 $vals[a]$ 的点为起点，以点 $b$ 所在的连通块中所有值为 $vals[a]$ 的点为终点，两种点的个数的乘积即为加入点 $a$ 时对答案的贡献。
+
+时间复杂度 $O(n\log n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -80,7 +88,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def numberOfGoodPaths(self, vals: List[int], edges: List[List[int]]) -> int:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
 
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+
+        n = len(vals)
+        p = list(range(n))
+        size = defaultdict(Counter)
+        for i, v in enumerate(vals):
+            size[i][v] = 1
+
+        ans = n
+        for v, a in sorted(zip(vals, range(n))):
+            for b in g[a]:
+                if vals[b] > v:
+                    continue
+                pa, pb = find(a), find(b)
+                if pa != pb:
+                    ans += size[pa][v] * size[pb][v]
+                    p[pa] = pb
+                    size[pb][v] += size[pa][v]
+        return ans
 ```
 
 ### **Java**
@@ -88,7 +124,154 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int numberOfGoodPaths(int[] vals, int[][] edges) {
+        int n = vals.length;
+        p = new int[n];
+        int[][] arr = new int[n][2];
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        Map<Integer, Map<Integer, Integer>> size = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            arr[i] = new int[] {vals[i], i};
+            size.computeIfAbsent(i, k -> new HashMap<>()).put(vals[i], 1);
+        }
+        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
+        int ans = n;
+        for (var e : arr) {
+            int v = e[0], a = e[1];
+            for (int b : g[a]) {
+                if (vals[b] > v) {
+                    continue;
+                }
+                int pa = find(a), pb = find(b);
+                if (pa != pb) {
+                    ans += size.get(pa).getOrDefault(v, 0) * size.get(pb).getOrDefault(v, 0);
+                    p[pa] = pb;
+                    size.get(pb).put(v, size.get(pb).getOrDefault(v, 0) + size.get(pa).getOrDefault(v, 0));
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfGoodPaths(vector<int>& vals, vector<vector<int>>& edges) {
+        int n = vals.size();
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find;
+        find = [&](int x) {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        unordered_map<int, unordered_map<int, int>> size;
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = {vals[i], i};
+            size[i][vals[i]] = 1;
+        }
+        sort(arr.begin(), arr.end());
+        int ans = n;
+        for (auto [v, a] : arr) {
+            for (int b : g[a]) {
+                if (vals[b] > v) {
+                    continue;
+                }
+                int pa = find(a), pb = find(b);
+                if (pa != pb) {
+                    ans += size[pa][v] * size[pb][v];
+                    p[pa] = pb;
+                    size[pb][v] += size[pa][v];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfGoodPaths(vals []int, edges [][]int) int {
+	n := len(vals)
+	p := make([]int, n)
+	size := map[int]map[int]int{}
+	type pair struct{ v, i int }
+	arr := make([]pair, n)
+	for i, v := range vals {
+		p[i] = i
+		if size[i] == nil {
+			size[i] = map[int]int{}
+		}
+		size[i][v] = 1
+		arr[i] = pair{v, i}
+	}
+
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+
+	sort.Slice(arr, func(i, j int) bool { return arr[i].v < arr[j].v })
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := n
+	for _, e := range arr {
+		v, a := e.v, e.i
+		for _, b := range g[a] {
+			if vals[b] > v {
+				continue
+			}
+			pa, pb := find(a), find(b)
+			if pa != pb {
+				ans += size[pb][v] * size[pa][v]
+				p[pa] = pb
+				size[pb][v] += size[pa][v]
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

@@ -52,6 +52,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递推**
+
+定义两个数组 `decr` 和 `incr`，分别表示从左到右和从右到左的非递增和非递减的最长子数组长度。
+
+遍历数组，更新 `decr` 和 `incr` 数组。
+
+然后顺序遍历下标 $i$（其中 $k\le i \lt n - k$），若 `decr[i] >= k && incr[i] >= k`，则 `i` 为好下标。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +69,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def goodIndices(self, nums: List[int], k: int) -> List[int]:
+        n = len(nums)
+        decr = [1] * (n + 1)
+        incr = [1] * (n + 1)
+        for i in range(2, n - 1):
+            if nums[i - 1] <= nums[i - 2]:
+                decr[i] = decr[i - 1] + 1
+        for i in range(n - 3, -1, -1):
+            if nums[i + 1] <= nums[i + 2]:
+                incr[i] = incr[i + 1] + 1
+        return [i for i in range(k, n - k) if decr[i] >= k and incr[i] >= k]
 ```
 
 ### **Java**
@@ -67,7 +88,93 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> goodIndices(int[] nums, int k) {
+        int n = nums.length;
+        int[] decr = new int[n];
+        int[] incr = new int[n];
+        Arrays.fill(decr, 1);
+        Arrays.fill(incr, 1);
+        for (int i = 2; i < n - 1; ++i) {
+            if (nums[i - 1] <= nums[i - 2]) {
+                decr[i] = decr[i - 1] + 1;
+            }
+        }
+        for (int i = n - 3; i >= 0; --i) {
+            if (nums[i + 1] <= nums[i + 2]) {
+                incr[i] = incr[i + 1] + 1;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = k; i < n - k; ++i) {
+            if (decr[i] >= k && incr[i] >= k) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> goodIndices(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> decr(n, 1);
+        vector<int> incr(n, 1);
+        for (int i = 2; i < n; ++i) {
+            if (nums[i - 1] <= nums[i - 2]) {
+                decr[i] = decr[i - 1] + 1;
+            }
+        }
+        for (int i = n - 3; ~i; --i) {
+            if (nums[i + 1] <= nums[i + 2]) {
+                incr[i] = incr[i + 1] + 1;
+            }
+        }
+        vector<int> ans;
+        for (int i = k; i < n - k; ++i) {
+            if (decr[i] >= k && incr[i] >= k) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func goodIndices(nums []int, k int) []int {
+	n := len(nums)
+	decr := make([]int, n)
+	incr := make([]int, n)
+	for i := range decr {
+		decr[i] = 1
+		incr[i] = 1
+	}
+	for i := 2; i < n; i++ {
+		if nums[i-1] <= nums[i-2] {
+			decr[i] = decr[i-1] + 1
+		}
+	}
+	for i := n - 3; i >= 0; i-- {
+		if nums[i+1] <= nums[i+2] {
+			incr[i] = incr[i+1] + 1
+		}
+	}
+	ans := []int{}
+	for i := k; i < n-k; i++ {
+		if decr[i] >= k && incr[i] >= k {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

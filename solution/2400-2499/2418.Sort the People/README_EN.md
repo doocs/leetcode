@@ -46,13 +46,71 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        idx = list(range(len(heights)))
+        idx.sort(key=lambda i: -heights[i])
+        return [names[i] for i in idx]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+        int n = heights.length;
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[] {heights[i], i};
+        }
+        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        String[] ans = new String[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = names[arr[i][1]];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        int n = heights.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = {-heights[i], i};
+        }
+        sort(arr.begin(), arr.end());
+        vector<string> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = names[arr[i].second];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortPeople(names []string, heights []int) []string {
+	n := len(heights)
+	type pair struct{ v, i int }
+	arr := make([]pair, n)
+	for i, v := range heights {
+		arr[i] = pair{v, i}
+	}
+	sort.Slice(arr, func(i, j int) bool { return arr[i].v > arr[j].v })
+	ans := make([]string, n)
+	for i, v := range arr {
+		ans[i] = names[v.i]
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

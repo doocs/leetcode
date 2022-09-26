@@ -54,13 +54,89 @@ The longest subarray with that value is [4], so we return 1.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestSubarray(self, nums: List[int]) -> int:
+        mx = max(nums)
+        ans = cnt = 0
+        for v in nums:
+            if v == mx:
+                cnt += 1
+                ans = max(ans, cnt)
+            else:
+                cnt = 0
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int longestSubarray(int[] nums) {
+        int mx = 0;
+        for (int v : nums) {
+            mx = Math.max(mx, v);
+        }
+        int ans = 0, cnt = 0;
+        for (int v : nums) {
+            if (v == mx) {
+                ++cnt;
+                ans = Math.max(ans, cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        int mx = *max_element(nums.begin(), nums.end());
+        int ans = 0, cnt = 0;
+        for (int v : nums) {
+            if (v == mx) {
+                ++cnt;
+                ans = max(ans, cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestSubarray(nums []int) int {
+	mx := 0
+	for _, v := range nums {
+		mx = max(mx, v)
+	}
+	ans, cnt := 0, 0
+	for _, v := range nums {
+		if v == mx {
+			cnt++
+			ans = max(ans, cnt)
+		} else {
+			cnt = 0
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
