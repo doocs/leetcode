@@ -56,6 +56,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力枚举**
+
+“因子”是指能整除某个数的数。因此，我们只需要从小到大枚举 $[1,2,..n]$，找到所有能整除 $n$ 的数，然后返回第 $k$ 个即可。
+
+时间复杂度 $O(n)$。
+
+**方法二：枚举优化**
+
+我们可以发现，如果 $n$ 有一个因子 $x$，那么 $n$ 一定也有一个因子 $n/x$。
+
+因此，我们先需要枚举 $[1,2,...\left \lfloor \sqrt{n}  \right \rfloor ]$，找到所有能整除 $n$ 的数，如果找到第 $k$ 个因子，那么直接返回即可。如果没有找到第 $k$ 个因子，那么我们再倒序枚举 $[\left \lfloor \sqrt{n}  \right \rfloor ,..1]$，找到第 $k$ 个因子即可。
+
+时间复杂度 $O(\sqrt{n})$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +77,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def kthFactor(self, n: int, k: int) -> int:
+        for i in range(1, n + 1):
+            if n % i == 0:
+                k -= 1
+                if k == 0:
+                    return i
+        return -1
+```
 
+```python
+class Solution:
+    def kthFactor(self, n: int, k: int) -> int:
+        i = 1
+        while i * i < n:
+            if n % i == 0:
+                k -= 1
+                if k == 0:
+                    return i
+            i += 1
+        if i * i != n:
+            i -= 1
+        while i:
+            if (n % (n // i)) == 0:
+                k -= 1
+                if k == 0:
+                    return n // i
+            i -= 1
+        return -1
 ```
 
 ### **Java**
@@ -71,7 +113,105 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int kthFactor(int n, int k) {
+        for (int i = 1; i <= n; ++i) {
+            if (n % i == 0 && (--k == 0)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
 
+```java
+class Solution {
+    public int kthFactor(int n, int k) {
+        int i = 1;
+        for (; i < n / i; ++i) {
+            if (n % i == 0 && (--k == 0)) {
+                return i;
+            }
+        }
+        if (i * i != n) {
+            --i;
+        }
+        for (; i > 0; --i) {
+            if (n % (n / i) == 0 && (--k == 0)) {
+                return n / i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kthFactor(int n, int k) {
+        int i = 1;
+        for (; i < n / i; ++i) {
+            if (n % i == 0 && (--k == 0)) {
+                return i;
+            }
+        }
+        if (i * i != n) {
+            --i;
+        }
+        for (; i > 0; --i) {
+            if (n % (n / i) == 0 && (--k == 0)) {
+                return n / i;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthFactor(n int, k int) int {
+	for i := 1; i <= n; i++ {
+		if n%i == 0 {
+			k--
+			if k == 0 {
+				return i
+			}
+		}
+	}
+	return -1
+}
+```
+
+```go
+func kthFactor(n int, k int) int {
+	i := 1
+	for ; i < n/i; i++ {
+		if n%i == 0 {
+			k--
+			if k == 0 {
+				return i
+			}
+		}
+	}
+	if i*i != n {
+		i--
+	}
+	for ; i > 0; i-- {
+		if n%(n/i) == 0 {
+			k--
+			if k == 0 {
+				return n / i
+			}
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**
