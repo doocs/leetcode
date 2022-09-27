@@ -1,11 +1,11 @@
 func isUnique(astr string) bool {
-	bitmap := 0
-	for _, r := range astr {
-		pos := r - 'a'
-		if (bitmap & (1 << pos)) != 0 {
+	mask := 0
+	for _, c := range astr {
+		i := c - 'a'
+		if mask>>i&1 == 1 {
 			return false
 		}
-		bitmap |= (1 << pos)
+		mask |= 1 << i
 	}
 	return true
 }

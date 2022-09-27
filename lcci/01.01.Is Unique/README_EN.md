@@ -41,12 +41,12 @@
 ```python
 class Solution:
     def isUnique(self, astr: str) -> bool:
-        bitmap = 0
+        mask = 0
         for c in astr:
-            pos = ord(c) - ord('a')
-            if (bitmap & (1 << pos)) != 0:
+            i = ord(c) - ord('a')
+            if (mask >> i) & 1:
                 return False
-            bitmap |= 1 << pos
+            mask |= 1 << i
         return True
 ```
 
@@ -55,16 +55,51 @@ class Solution:
 ```java
 class Solution {
     public boolean isUnique(String astr) {
-        int bitmap = 0;
+        int mask = 0;
         for (char c : astr.toCharArray()) {
-            int pos = c - 'a';
-            if ((bitmap & (1 << pos)) != 0) {
+            int i = c - 'a';
+            if (((mask >> i) & 1) == 1) {
                 return false;
             }
-            bitmap |= (1 << pos);
+            mask |= 1 << i;
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isUnique(string astr) {
+        int mask = 0;
+        for (char c : astr) {
+            int i = c - 'a';
+            if (mask >> i & 1) {
+                return false;
+            }
+            mask |= 1 << i;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isUnique(astr string) bool {
+	mask := 0
+	for _, c := range astr {
+		i := c - 'a'
+		if mask>>i&1 == 1 {
+			return false
+		}
+		mask |= 1 << i
+	}
+	return true
 }
 ```
 
@@ -76,51 +111,32 @@ class Solution {
  * @return {boolean}
  */
 var isUnique = function (astr) {
-    let bitmap = 0;
-    for (let i = 0; i < astr.length; ++i) {
-        const pos = astr[i].charCodeAt() - 'a'.charCodeAt();
-        if ((bitmap & (1 << pos)) != 0) {
+    let mask = 0;
+    for (const c of astr) {
+        const i = c.charCodeAt() - 'a'.charCodeAt();
+        if ((mask >> i) & 1) {
             return false;
         }
-        bitmap |= 1 << pos;
+        mask |= 1 << i;
     }
     return true;
 };
 ```
 
-### **Go**
+### **TypeScript**
 
-```go
-func isUnique(astr string) bool {
-	bitmap := 0
-	for _, r := range astr {
-		pos := r - 'a'
-		if (bitmap & (1 << pos)) != 0 {
-			return false
-		}
-		bitmap |= (1 << pos)
-	}
-	return true
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isUnique(string astr) {
-        int bitmap = 0;
-        for (char c : astr) {
-            int pos = c - 'a';
-            if ((bitmap & (1 << pos)) != 0) {
-                return false;
-            }
-            bitmap |= (1 << pos);
+```ts
+function isUnique(astr: string): boolean {
+    let mask = 0;
+    for (let j = 0; j < astr.length; ++j) {
+        const i = astr.charCodeAt(j) - 'a'.charCodeAt(0);
+        if ((mask >> i) & 1) {
+            return false;
         }
-        return true;
+        mask |= 1 << i;
     }
-};
+    return true;
+}
 ```
 
 ### **...**
