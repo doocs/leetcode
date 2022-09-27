@@ -30,15 +30,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表**
+**方法一：数组或哈希表**
 
-使用哈希表作为字符计数器。
+先判断两个字符串的长度是否相等，若不相等则直接返回 `false`。
 
-时间复杂度 $O(n)$。
+然后用一个数组或哈希表统计字符串 $s1$ 中字符出现的次数。
+
+接着遍历另一个字符串 $s2$，每遍历到一个字符，就将该字符对应的次数减一，如果减一后的次数小于 $0$，则说明两个字符串中字符出现的次数不同，直接返回 `false`。
+
+最后遍历完字符串 $s2$，返回 `true`。
+
+注意：本题测试用例所有字符串仅包含小写字母，因此我们可以直接开一个长度为 $26$ 的数组来计数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串的长度，而 $C$ 为字符集的大小，本题 $C=26$。
 
 **方法二：排序**
 
-按照字符编码重新排序字符串，再检查两者一致性。
+按照字典序对两个字符串进行排序，然后比较两个字符串是否相等。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -49,14 +59,13 @@
 ```python
 class Solution:
     def CheckPermutation(self, s1: str, s2: str) -> bool:
-        n1, n2 = len(s1), len(s2)
-        if n1 != n2:
-            return False
-        counter = Counter()
-        for i in range(n1):
-            counter[s1[i]] += 1
-            counter[s2[i]] -= 1
-        return all(v == 0 for v in counter.values())
+        return Counter(s1) == Counter(s2)
+```
+
+```python
+class Solution:
+    def CheckPermutation(self, s1: str, s2: str) -> bool:
+        return sorted(s1) == sorted(s2)
 ```
 
 ### **Java**
@@ -66,18 +75,15 @@ class Solution:
 ```java
 class Solution {
     public boolean CheckPermutation(String s1, String s2) {
-        int n1 = s1.length();
-        int n2 = s2.length();
-        if (n1 != n2) {
+        if (s1.length() != s2.length()) {
             return false;
         }
-        int[] counter = new int[128];
-        for (int i = 0; i < n1; ++i) {
-            ++counter[s1.charAt(i)];
-            --counter[s2.charAt(i)];
+        int[] cnt = new int[26];
+        for (char c : s1.toCharArray()) {
+            ++cnt[c - 'a'];
         }
-        for (int v : counter) {
-            if (v != 0) {
+        for (char c : s2.toCharArray()) {
+            if (--cnt[c - 'a'] < 0) {
                 return false;
             }
         }
@@ -86,44 +92,15 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-var CheckPermutation = function (s1, s2) {
-    let n1 = s1.length,
-        n2 = s2.length;
-    if (n1 != n2) return false;
-    let counter = {};
-    for (let i = 0; i < n1; i++) {
-        let cur1 = s1.charAt(i),
-            cur2 = s2.charAt(i);
-        counter[cur1] = (counter[cur1] || 0) + 1;
-        counter[cur2] = (counter[cur2] || 0) - 1;
+```java
+class Solution {
+    public boolean CheckPermutation(String s1, String s2) {
+        char[] cs1 = s1.toCharArray();
+        char[] cs2 = s2.toCharArray();
+        Arrays.sort(cs1);
+        Arrays.sort(cs2);
+        return Arrays.equals(cs1, cs2);
     }
-    return Object.values(counter).every(v => v == 0);
-};
-```
-
-### **Go**
-
-```go
-func CheckPermutation(s1 string, s2 string) bool {
-	freq := make(map[rune]int)
-	for _, r := range s1 {
-		freq[r]++
-	}
-	for _, r := range s2 {
-		if freq[r] == 0 {
-			return false
-		}
-		freq[r]--
-	}
-	for _, v := range freq {
-		if v != 0 {
-			return false
-		}
-	}
-	return true
 }
 ```
 
@@ -133,18 +110,80 @@ func CheckPermutation(s1 string, s2 string) bool {
 class Solution {
 public:
     bool CheckPermutation(string s1, string s2) {
-        int n1 = s1.size();
-        int n2 = s2.size();
-        if (n1 != n2) return 0;
-        vector<int> counter(128);
-        for (int i = 0; i < n1; ++i) {
-            ++counter[s1[i]];
-            --counter[s2[i]];
-        }
-        for (int v : counter)
-            if (v) return 0;
-        return 1;
+        if (s1.size() != s2.size()) return false;
+        int cnt[26] = {0};
+        for (char & c : s1) ++cnt[c - 'a'];
+        for (char & c : s2) if (--cnt[c - 'a'] < 0) return false;
+        return true;
     }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool CheckPermutation(string s1, string s2) {
+        sort(s1.begin(), s1.end());
+        sort(s2.begin(), s2.end());
+        return s1 == s2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func CheckPermutation(s1 string, s2 string) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+	cnt := make([]int, 26)
+	for _, c := range s1 {
+		cnt[c-'a']++
+	}
+	for _, c := range s2 {
+		cnt[c-'a']--
+		if cnt[c-'a'] < 0 {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```go
+func CheckPermutation(s1 string, s2 string) bool {
+	cs1, cs2 := []byte(s1), []byte(s2)
+	sort.Slice(cs1, func(i, j int) bool { return cs1[i] < cs1[j] })
+	sort.Slice(cs2, func(i, j int) bool { return cs2[i] < cs2[j] })
+	return string(cs1) == string(cs2)
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
+ */
+var CheckPermutation = function(s1, s2) {
+    if (s1.length != s2.length) {
+        return false;
+    }
+    const cnt = new Array(26).fill(0);
+    for (let i = 0; i < s1.length; ++i) {
+        const j = s1.codePointAt(i) - 'a'.codePointAt(0);
+        ++cnt[j];
+    }
+    for (let i = 0; i < s2.length; ++i) {
+        const j = s2.codePointAt(i) - 'a'.codePointAt(0);
+        if (--cnt[j] < 0) {
+            return false;
+        }
+    }
+    return true;
 };
 ```
 
