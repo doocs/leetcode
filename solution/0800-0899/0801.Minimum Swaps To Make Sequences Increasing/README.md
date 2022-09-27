@@ -55,6 +55,20 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+定义 $a$, $b$ 分别表示当前位置不交换和交换的最小交换次数，当 $i=0$ 时，有 $a=0, b=1$。
+
+对于 $i\gt 0$，我们先将此时 $a$, $b$ 的值保存在 $x$, $y$ 中，然后分情况讨论：
+
+如果 $nums1[i - 1] \ge nums1[i]$ 或者 $nums2[i - 1] \ge nums2[i]$，那么下标 $i-1$ 和 $i$ 对应的元素的相对位置必须发生变化，此时，如果前一个位置交换了，那么当前位置不交换，因此有 $a = y$；如果前一个位置没有交换，那么当前位置必须交换，因此有 $b = x + 1$。
+
+否则，下标 $i-1$ 和 $i$ 对应的元素的相对位置可以不发生变化，那么有 $b=y+1$；另外，如果满足 $nums1[i - 1] \lt nums2[i]$ 并且 $nums2[i - 1] \lt nums1[i]$，那么下标 $i-1$ 和 $i$ 对应的元素的相对位置可以发生变化。此时 $a$ 和 $b$ 可以取较小值，因此有 $a = \min(a, y)$ 和 $b = \min(b, x + 1)$。
+
+最后，返回 $a$ 和 $b$ 中较小值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +76,18 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSwap(self, nums1: List[int], nums2: List[int]) -> int:
+        a, b = 0, 1
+        for i in range(1, len(nums1)):
+            x, y = a, b
+            if nums1[i - 1] >= nums1[i] or nums2[i - 1] >= nums2[i]:
+                a, b = y, x + 1
+            else:
+                b = y + 1
+                if nums1[i - 1] < nums2[i] and nums2[i - 1] < nums1[i]:
+                    a, b = min(a, y), min(b, x + 1)
+        return min(a, b)
 ```
 
 ### **Java**
@@ -70,7 +95,77 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSwap(int[] nums1, int[] nums2) {
+        int a = 0, b = 1;
+        for (int i = 1; i < nums1.length; ++i) {
+            int x = a, y = b;
+            if (nums1[i - 1] >= nums1[i] || nums2[i - 1] >= nums2[i]) {
+                a = y;
+                b = x + 1;
+            } else {
+                b = y + 1;
+                if (nums1[i - 1] < nums2[i] && nums2[i - 1] < nums1[i]) {
+                    a = Math.min(a, y);
+                    b = Math.min(b, x + 1);
+                }
+            }
+        }
+        return Math.min(a, b);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSwap(vector<int>& nums1, vector<int>& nums2) {
+        int a = 0, b = 1, n = nums1.size();
+        for (int i = 1; i < n; ++i) {
+            int x = a, y = b;
+            if (nums1[i - 1] >= nums1[i] || nums2[i - 1] >= nums2[i]) {
+                a = y, b = x + 1;
+            } else {
+                b = y + 1;
+                if (nums1[i - 1] < nums2[i] && nums2[i - 1] < nums1[i]) {
+                    a = min(a, y);
+                    b = min(b, x + 1);
+                }
+            }
+        }
+        return min(a, b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSwap(nums1 []int, nums2 []int) int {
+	a, b, n := 0, 1, len(nums1)
+	for i := 1; i < n; i++ {
+		x, y := a, b
+		if nums1[i-1] >= nums1[i] || nums2[i-1] >= nums2[i] {
+			a, b = y, x+1
+		} else {
+			b = y + 1
+			if nums1[i-1] < nums2[i] && nums2[i-1] < nums1[i] {
+				a = min(a, y)
+				b = min(b, x+1)
+			}
+		}
+	}
+	return min(a, b)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
