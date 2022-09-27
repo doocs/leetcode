@@ -43,13 +43,77 @@ Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 ### **Python3**
 
 ```python
-
+class Solution:
+    def average(self, salary: List[int]) -> float:
+        s = sum(salary) - min(salary) - max(salary)
+        return s / (len(salary) - 2)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double average(int[] salary) {
+        int s = 0;
+        int mi = 10000000, mx = 0;
+        for (int v : salary) {
+            mi = Math.min(mi, v);
+            mx = Math.max(mx, v);
+            s += v;
+        }
+        s -= (mi + mx);
+        return s * 1.0 / (salary.length - 2);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double average(vector<int>& salary) {
+        int s = 0;
+        int mi = 1e7, mx = 0;
+        for (int v : salary) {
+            s += v;
+            mi = min(mi, v);
+            mx = max(mx, v);
+        }
+        s -= (mi + mx);
+        return (double) s / (salary.size() - 2);
+    }
+};
+```
+
+### **Go**
+
+```go
+func average(salary []int) float64 {
+	s := 0
+	mi, mx := 10000000, 0
+	for _, v := range salary {
+		s += v
+		mi = min(mi, v)
+		mx = max(mx, v)
+	}
+	s -= (mi + mx)
+	return float64(s) / float64(len(salary)-2)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **Rust**

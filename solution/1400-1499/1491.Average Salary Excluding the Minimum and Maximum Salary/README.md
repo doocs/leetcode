@@ -55,13 +55,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历 `salary`，做三件事：
+**方法一：模拟**
 
--   记录总和
--   记录最小值
--   记录最大值
+按题意模拟即可。
 
-然后进行对应的计算，注意进行类型转换即可。
+遍历数组，求出最大值和最小值，并且累加和，然后求出去掉最大值和最小值后的平均值。
+
+时间复杂度 $O(n)$。其中 $n$ 为数组 `salary` 的长度。
 
 <!-- tabs:start -->
 
@@ -70,7 +70,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def average(self, salary: List[int]) -> float:
+        s = sum(salary) - min(salary) - max(salary)
+        return s / (len(salary) - 2)
 ```
 
 ### **Java**
@@ -78,7 +81,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public double average(int[] salary) {
+        int s = 0;
+        int mi = 10000000, mx = 0;
+        for (int v : salary) {
+            mi = Math.min(mi, v);
+            mx = Math.max(mx, v);
+            s += v;
+        }
+        s -= (mi + mx);
+        return s * 1.0 / (salary.length - 2);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double average(vector<int>& salary) {
+        int s = 0;
+        int mi = 1e7, mx = 0;
+        for (int v : salary) {
+            s += v;
+            mi = min(mi, v);
+            mx = max(mx, v);
+        }
+        s -= (mi + mx);
+        return (double) s / (salary.size() - 2);
+    }
+};
+```
+
+### **Go**
+
+```go
+func average(salary []int) float64 {
+	s := 0
+	mi, mx := 10000000, 0
+	for _, v := range salary {
+		s += v
+		mi = min(mi, v)
+		mx = max(mx, v)
+	}
+	s -= (mi + mx)
+	return float64(s) / float64(len(salary)-2)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **Rust**
