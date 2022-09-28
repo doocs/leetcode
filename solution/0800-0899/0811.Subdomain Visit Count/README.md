@@ -51,6 +51,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们用哈希表 `cnt` 存储每个域名（子域名）对应的访问次数。
+
+然后遍历数组，对于每个域名，我们将其拆分为子域名，然后更新哈希表 `cnt` 中对应的访问次数。
+
+最后，我们将哈希表中的键值对转换为数组，即可得到答案。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 是数组 `cpdomains` 中所有域名的长度之和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,15 +70,13 @@
 ```python
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
-        domains = Counter()
-        for item in cpdomains:
-            count, domain = item.split()
-            count = int(count)
-            subs = domain.split('.')
-            for i in range(len(subs)):
-                key = '.'.join(subs[i:])
-                domains[key] += count
-        return [f'{cnt} {domain}' for domain, cnt in domains.items()]
+        cnt = Counter()
+        for s in cpdomains:
+            v = int(s[:s.index(' ')])
+            for i, c in enumerate(s):
+                if c in (' ', '.'):
+                    cnt[s[i + 1:]] += v
+        return [f'{v} {s}' for s, v in cnt.items()]
 ```
 
 ### **Java**
@@ -78,21 +86,70 @@ class Solution:
 ```java
 class Solution {
     public List<String> subdomainVisits(String[] cpdomains) {
-        Map<String, Integer> domains = new HashMap<>();
-        for (String domain : cpdomains) {
-            String[] t = domain.split(" ");
-            int count = Integer.parseInt(t[0]);
-            String[] subs = t[1].split("\\.");
-            String cur = "";
-            for (int i = subs.length - 1; i >= 0; --i) {
-                cur = subs[i] + (i == subs.length - 1 ? "" : ".") + cur;
-                domains.put(cur, domains.getOrDefault(cur, 0) + count);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String s : cpdomains) {
+            int i = s.indexOf(" ");
+            int v = Integer.parseInt(s.substring(0, i));
+            for (; i < s.length(); ++i) {
+                if (s.charAt(i) == ' ' || s.charAt(i) == '.') {
+                    String t = s.substring(i + 1);
+                    cnt.put(t, cnt.getOrDefault(t, 0) + v);
+                }
             }
         }
-        List<String> res = new ArrayList<>();
-        domains.forEach((domain, count) -> { res.add(count + " " + domain); });
-        return res;
+        List<String> ans = new ArrayList<>();
+        for (var e : cnt.entrySet()) {
+            ans.add(e.getValue() + " " + e.getKey());
+        }
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> subdomainVisits(vector<string>& cpdomains) {
+        unordered_map<string, int> cnt;
+        for (auto& s : cpdomains) {
+            int i = s.find(' ');
+            int v = stoi(s.substr(0, i));
+            for (; i < s.size(); ++i) {
+                if (s[i] == ' ' || s[i] == '.') {
+                    cnt[s.substr(i + 1)] += v;
+                }
+            }
+        }
+        vector<string> ans;
+        for (auto& [s, v] : cnt) {
+            ans.push_back(to_string(v) + " " + s);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func subdomainVisits(cpdomains []string) []string {
+    cnt := map[string]int{}
+    for _, s := range cpdomains {
+        i := strings.IndexByte(s, ' ')
+        v, _ := strconv.Atoi(s[:i])
+        for ; i < len(s); i++ {
+            if s[i] == ' ' || s[i] == '.' {
+                cnt[s[i+1:]] += v
+            }
+        }
+    }
+    ans := make([]string, 0, len(cnt))
+    for s, v := range cnt {
+        ans = append(ans, strconv.Itoa(v)+" "+s)
+    }
+    return ans
 }
 ```
 

@@ -1,18 +1,20 @@
 class Solution {
     public List<String> subdomainVisits(String[] cpdomains) {
-        Map<String, Integer> domains = new HashMap<>();
-        for (String domain : cpdomains) {
-            String[] t = domain.split(" ");
-            int count = Integer.parseInt(t[0]);
-            String[] subs = t[1].split("\\.");
-            String cur = "";
-            for (int i = subs.length - 1; i >= 0; --i) {
-                cur = subs[i] + (i == subs.length - 1 ? "" : ".") + cur;
-                domains.put(cur, domains.getOrDefault(cur, 0) + count);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String s : cpdomains) {
+            int i = s.indexOf(" ");
+            int v = Integer.parseInt(s.substring(0, i));
+            for (; i < s.length(); ++i) {
+                if (s.charAt(i) == ' ' || s.charAt(i) == '.') {
+                    String t = s.substring(i + 1);
+                    cnt.put(t, cnt.getOrDefault(t, 0) + v);
+                }
             }
         }
-        List<String> res = new ArrayList<>();
-        domains.forEach((domain, count) -> { res.add(count + " " + domain); });
-        return res;
+        List<String> ans = new ArrayList<>();
+        for (var e : cnt.entrySet()) {
+            ans.add(e.getValue() + " " + e.getKey());
+        }
+        return ans;
     }
 }
