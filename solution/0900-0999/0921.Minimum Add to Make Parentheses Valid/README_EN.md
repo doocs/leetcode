@@ -54,14 +54,26 @@ class Solution:
     def minAddToMakeValid(self, s: str) -> int:
         stk = []
         for c in s:
-            if c == '(':
-                stk.append(c)
+            if c == ')' and stk and stk[-1] == '(':
+                stk.pop()
             else:
-                if stk and stk[-1] == '(':
-                    stk.pop()
-                else:
-                    stk.append(c)
+                stk.append(c)
         return len(stk)
+```
+
+```python
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        ans = cnt = 0
+        for c in s:
+            if c == '(':
+                cnt += 1
+            elif cnt:
+                cnt -= 1
+            else:
+                ans += 1
+        ans += cnt
+        return ans
 ```
 
 ### **Java**
@@ -71,17 +83,32 @@ class Solution {
     public int minAddToMakeValid(String s) {
         Deque<Character> stk = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
-            if (c == '(') {
-                stk.push(c);
+            if (c == ')' && !stk.isEmpty() && stk.peek() == '(') {
+                stk.pop();
             } else {
-                if (!stk.isEmpty() && stk.peek() == '(') {
-                    stk.pop();
-                } else {
-                    stk.push(c);
-                }
+                stk.push(c);
             }
         }
         return stk.size();
+    }
+}
+```
+
+```java
+class Solution {
+    public int minAddToMakeValid(String s) {
+        int ans = 0, cnt = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                ++cnt;
+            } else if (cnt > 0) {
+                --cnt;
+            } else {
+                ++ans;
+            }
+        }
+        ans += cnt;
+        return ans;
     }
 }
 ```
@@ -92,18 +119,31 @@ class Solution {
 class Solution {
 public:
     int minAddToMakeValid(string s) {
-        stack<char> stk;
-        for (char& c : s) {
-            if (c == '(')
-                stk.push(c);
-            else {
-                if (!stk.empty() && stk.top() == '(') {
-                    stk.pop();
-                } else
-                    stk.push(c);
-            }
+        string stk;
+        for (char c : s) {
+            if (c == ')' && stk.size() && stk.back() == '(') stk.pop_back();
+            else stk.push_back(c);
         }
         return stk.size();
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minAddToMakeValid(string s) {
+        int ans = 0, cnt = 0;
+        for (char c : s) {
+            if (c == '(')
+                ++cnt;
+            else if (cnt)
+                --cnt;
+            else
+                ++ans;
+        }
+        ans += cnt;
+        return ans;
     }
 };
 ```
@@ -112,19 +152,32 @@ public:
 
 ```go
 func minAddToMakeValid(s string) int {
-	var stk []rune
+	stk := []rune{}
 	for _, c := range s {
-		if c == '(' {
-			stk = append(stk, c)
+		if c == ')' && len(stk) > 0 && stk[len(stk)-1] == '(' {
+			stk = stk[:len(stk)-1]
 		} else {
-			if len(stk) > 0 && stk[len(stk)-1] == '(' {
-				stk = stk[:len(stk)-1]
-			} else {
-				stk = append(stk, c)
-			}
+			stk = append(stk, c)
 		}
 	}
 	return len(stk)
+}
+```
+
+```go
+func minAddToMakeValid(s string) int {
+	ans, cnt := 0, 0
+	for _, c := range s {
+		if c == '(' {
+			cnt++
+		} else if cnt > 0 {
+			cnt--
+		} else {
+			ans++
+		}
+	}
+	ans += cnt
+	return ans
 }
 ```
 

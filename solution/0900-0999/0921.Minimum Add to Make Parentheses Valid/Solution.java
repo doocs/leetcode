@@ -1,17 +1,16 @@
 class Solution {
     public int minAddToMakeValid(String s) {
-        Deque<Character> stk = new ArrayDeque<>();
+        int ans = 0, cnt = 0;
         for (char c : s.toCharArray()) {
             if (c == '(') {
-                stk.push(c);
+                ++cnt;
+            } else if (cnt > 0) {
+                --cnt;
             } else {
-                if (!stk.isEmpty() && stk.peek() == '(') {
-                    stk.pop();
-                } else {
-                    stk.push(c);
-                }
+                ++ans;
             }
         }
-        return stk.size();
+        ans += cnt;
+        return ans;
     }
 }
