@@ -57,6 +57,14 @@ return res</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+根据题意要求可以将 NestedInteger 数据结构视作一个 N 叉树，当为一个整数时该节点是 N 叉树的叶子节点，当为一个整数数组时该节点是 N 叉树的非叶子节点，数组中的每一个元素包含子树的所有节点。故直接递归遍历 N 叉树并记录所有的叶子节点即可。
+
+**方法二：直接展开**
+
+调用 hasNext 时，如果 nestedList 的第一个元素是列表类型，则不断展开这个元素，直到第一个元素是整数类型。 调用 Next 方法时，由 hasNext 方法已确保 nestedList 第一个元素为整数类型，直接返回即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -310,6 +318,129 @@ impl NestedIterator {
  * let ret_1: i32 = obj.next();
  * let ret_2: bool = obj.has_next();
  */
+```
+
+### **Go**
+
+递归:
+
+```go
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * type NestedInteger struct {
+ * }
+ *
+ * // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ * func (this NestedInteger) IsInteger() bool {}
+ *
+ * // Return the single integer that this NestedInteger holds, if it holds a single integer
+ * // The result is undefined if this NestedInteger holds a nested list
+ * // So before calling this method, you should have a check
+ * func (this NestedInteger) GetInteger() int {}
+ *
+ * // Set this NestedInteger to hold a single integer.
+ * func (n *NestedInteger) SetInteger(value int) {}
+ *
+ * // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ * func (this *NestedInteger) Add(elem NestedInteger) {}
+ *
+ * // Return the nested list that this NestedInteger holds, if it holds a nested list
+ * // The list length is zero if this NestedInteger holds a single integer
+ * // You can access NestedInteger's List element directly if you want to modify it
+ * func (this NestedInteger) GetList() []*NestedInteger {}
+ */
+
+type NestedIterator struct {
+	iterator      []int
+	index, length int
+}
+
+func Constructor(nestedList []*NestedInteger) *NestedIterator {
+	result := make([]int, 0)
+	var traversal func(nodes []*NestedInteger)
+	traversal = func(nodes []*NestedInteger) {
+		for _, child := range nodes {
+			if child.IsInteger() {
+				result = append(result, child.GetInteger())
+			} else {
+				traversal(child.GetList())
+			}
+		}
+	}
+	traversal(nestedList)
+	return &NestedIterator{iterator: result, index: 0, length: len(result)}
+}
+
+func (this *NestedIterator) Next() int {
+	res := this.iterator[this.index]
+	this.index++
+	return res
+}
+
+func (this *NestedIterator) HasNext() bool {
+	return this.index < this.length
+}
+```
+
+直接展开:
+
+```go
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * type NestedInteger struct {
+ * }
+ *
+ * // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ * func (this NestedInteger) IsInteger() bool {}
+ *
+ * // Return the single integer that this NestedInteger holds, if it holds a single integer
+ * // The result is undefined if this NestedInteger holds a nested list
+ * // So before calling this method, you should have a check
+ * func (this NestedInteger) GetInteger() int {}
+ *
+ * // Set this NestedInteger to hold a single integer.
+ * func (n *NestedInteger) SetInteger(value int) {}
+ *
+ * // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ * func (this *NestedInteger) Add(elem NestedInteger) {}
+ *
+ * // Return the nested list that this NestedInteger holds, if it holds a nested list
+ * // The list length is zero if this NestedInteger holds a single integer
+ * // You can access NestedInteger's List element directly if you want to modify it
+ * func (this NestedInteger) GetList() []*NestedInteger {}
+ */
+
+type NestedIterator struct {
+	nested *list.List
+}
+
+func Constructor(nestedList []*NestedInteger) *NestedIterator {
+	nested := list.New()
+	for _, v := range nestedList {
+		nested.PushBack(v)
+	}
+	return &NestedIterator{nested: nested}
+}
+
+func (this *NestedIterator) Next() int {
+	res := this.nested.Front().Value.(*NestedInteger)
+	this.nested.Remove(this.nested.Front())
+	return res.GetInteger()
+}
+
+func (this *NestedIterator) HasNext() bool {
+	for this.nested.Len() > 0 && !this.nested.Front().Value.(*NestedInteger).IsInteger() {
+		front := this.nested.Front().Value.(*NestedInteger)
+		this.nested.Remove(this.nested.Front())
+		nodes := front.GetList()
+		for i := len(nodes) - 1; i >= 0; i-- {
+			this.nested.PushFront(nodes[i])
+		}
+	}
+	return this.nested.Len() > 0
+}
 ```
 
 ### **...**
