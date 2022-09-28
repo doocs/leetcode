@@ -65,13 +65,171 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 ### **Python3**
 
 ```python
+class Solution:
+    def dietPlanPerformance(self, calories: List[int], k: int, lower: int, upper: int) -> int:
+        s = list(accumulate(calories, initial=0))
+        ans, n = 0, len(calories)
+        for i in range(n - k + 1):
+            t = s[i + k] - s[i]
+            if t < lower:
+                ans -= 1
+            elif t > upper:
+                ans += 1
+        return ans
+```
 
+```python
+class Solution:
+    def dietPlanPerformance(self, calories: List[int], k: int, lower: int, upper: int) -> int:
+        def check(s):
+            if s < lower:
+                return -1
+            if s > upper:
+                return 1
+            return 0
+
+        s, n = sum(calories[:k]), len(calories)
+        ans = check(s)
+        for i in range(k, n):
+            s += calories[i] - calories[i - k]
+            ans += check(s)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int dietPlanPerformance(int[] calories, int k, int lower, int upper) {
+        int n = calories.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + calories[i];
+        }
+        int ans = 0;
+        for (int i = 0; i < n - k + 1; ++i) {
+            int t = s[i + k] - s[i];
+            if (t < lower) {
+                --ans;
+            } else if (t > upper) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+```java
+class Solution {
+    public int dietPlanPerformance(int[] calories, int k, int lower, int upper) {
+        int s = 0, n = calories.length;
+        for (int i = 0; i < k; ++i) {
+            s += calories[i];
+        }
+        int ans = 0;
+        if (s < lower) {
+            --ans;
+        } else if (s > upper) {
+            ++ans;
+        }
+        for (int i = k; i < n; ++i) {
+            s += calories[i] - calories[i - k];
+            if (s < lower) {
+                --ans;
+            } else if (s > upper) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int dietPlanPerformance(vector<int>& calories, int k, int lower, int upper) {
+        int n = calories.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + calories[i];
+        int ans = 0;
+        for (int i = 0; i < n - k + 1; ++i) {
+            int t = s[i + k] - s[i];
+            if (t < lower) --ans;
+            else if (t > upper) ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int dietPlanPerformance(vector<int>& calories, int k, int lower, int upper) {
+        int n = calories.size();
+        int s = accumulate(calories.begin(), calories.begin() + k, 0);
+        int ans = 0;
+        if (s < lower) --ans;
+        else if (s > upper) ++ans;
+        for (int i = k; i < n; ++i) {
+            s += calories[i] - calories[i - k];
+            if (s < lower) --ans;
+            else if (s > upper) ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func dietPlanPerformance(calories []int, k int, lower int, upper int) int {
+	n := len(calories)
+	s := make([]int, n+1)
+	for i, v := range calories {
+		s[i+1] = s[i] + v
+	}
+	ans := 0
+	for i := 0; i < n-k+1; i++ {
+		t := s[i+k] - s[i]
+		if t < lower {
+			ans--
+		} else if t > upper {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+```go
+func dietPlanPerformance(calories []int, k int, lower int, upper int) int {
+	check := func(s int) int {
+		if s < lower {
+			return -1
+		}
+		if s > upper {
+			return 1
+		}
+		return 0
+	}
+	n := len(calories)
+	s := 0
+	for i := 0; i < k; i++ {
+		s += calories[i]
+	}
+	ans := check(s)
+	for i := k; i < n; i++ {
+		s += calories[i] - calories[i-k]
+		ans += check(s)
+	}
+	return ans
+}
 ```
 
 ### **...**
