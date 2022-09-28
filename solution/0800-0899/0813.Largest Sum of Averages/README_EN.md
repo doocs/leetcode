@@ -45,13 +45,144 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 ### **Python3**
 
 ```python
+class Solution:
+    def largestSumOfAverages(self, nums: List[int], k: int) -> float:
+        @cache
+        def dfs(i, k):
+            if i == n:
+                return 0
+            if k == 1:
+                return (s[-1] - s[i]) / (n - i)
+            ans = 0
+            for j in range(i, n):
+                t = (s[j + 1] - s[i]) / (j - i + 1) + dfs(j + 1, k - 1)
+                ans = max(ans, t)
+            return ans
 
+        n = len(nums)
+        s = list(accumulate(nums, initial=0))
+        return dfs(0, k)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private double[][] f;
+    private int[] s;
+    private int n;
 
+    public double largestSumOfAverages(int[] nums, int k) {
+        n = nums.length;
+        s = new int[n + 1];
+        f = new double[n + 1][k + 1];
+        for (var e : f) {
+            Arrays.fill(e, -1);
+        }
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        return dfs(0, k);
+    }
+
+    private double dfs(int i, int k) {
+        if (i == n) {
+            return 0;
+        }
+        if (k == 1) {
+            return (s[n] - s[i]) * 1.0 / (n - i);
+        }
+        if (f[i][k] >= 0) {
+            return f[i][k];
+        }
+        double ans = 0;
+        for (int j = i; j < n; ++j) {
+            double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
+            ans = Math.max(ans, t);
+        }
+        f[i][k] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double f[110][110];
+    int s[110];
+    int n;
+
+    double largestSumOfAverages(vector<int>& nums, int k) {
+        n = nums.size();
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        memset(f, -1, sizeof f);
+        return dfs(0, k);
+    }
+
+    double dfs(int i, int k) {
+        if (i == n) {
+            return 0;
+        }
+        if (k == 1) {
+            return (s[n] - s[i]) * 1.0 / (n - i);
+        }
+        if (f[i][k] >= 0) {
+            return f[i][k];
+        }
+        double ans = 0;
+        for (int j = i; j < n; ++j) {
+            double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
+            ans = max(ans, t); 
+        }
+        f[i][k] = ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestSumOfAverages(nums []int, k int) float64 {
+	n := len(nums)
+	s := make([]int, n+1)
+	f := make([][]float64, n+1)
+	for i := range f {
+		f[i] = make([]float64, k+1)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	for i, v := range nums {
+		s[i+1] = s[i] + v
+	}
+	var dfs func(i, k int) float64
+	dfs = func(i, k int) float64 {
+		if i == n {
+			return 0
+		}
+		if k == 1 {
+			return float64(s[n]-s[i]) / float64(n-i)
+		}
+		if f[i][k] >= 0 {
+			return f[i][k]
+		}
+		var ans float64
+		for j := i; j < n; j++ {
+			t := float64(s[j+1]-s[i])/float64(j-i+1) + dfs(j+1, k-1)
+			ans = math.Max(ans, t)
+		}
+		f[i][k] = ans
+		return ans
+	}
+	return dfs(0, k)
+}
 ```
 
 ### **...**
