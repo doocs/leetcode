@@ -238,6 +238,92 @@ func min(a, b int) int {
 }
 ```
 
+### **C**
+
+```c
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+
+int getKthMagicNumber(int k) {
+    int *dp = (int *) malloc(sizeof(int) * k);
+    dp[0] = 1;
+    int index[3] = {0, 0, 0};
+    for (int i = 1; i < k; i++) {
+        int a = dp[index[0]] * 3;
+        int b = dp[index[1]] * 5;
+        int c = dp[index[2]] * 7;
+        int num = min(a, min(b, c));
+        dp[i] = num;
+        if (a == num) {
+            index[0]++;
+        }
+        if (b == num) {
+            index[1]++;
+        }
+        if (c == num) {
+            index[2]++;
+        }
+    }
+    int res = dp[k - 1];
+    free(dp);
+    return res;
+}
+```
+
+### **TypeScript**
+
+```ts
+function getKthMagicNumber(k: number): number {
+    const dp = [1];
+    const index = [0, 0, 0];
+    while (dp.length < k) {
+        const a = dp[index[0]] * 3;
+        const b = dp[index[1]] * 5;
+        const c = dp[index[2]] * 7;
+        const num = Math.min(a, b, c);
+        dp.push(num);
+        if (a === num) {
+            index[0]++;
+        }
+        if (b === num) {
+            index[1]++;
+        }
+        if (c === num) {
+            index[2]++;
+        }
+    }
+    return dp[k - 1];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn get_kth_magic_number(k: i32) -> i32 {
+        let k = k as usize;
+        let mut dp = vec![1];
+        let mut index = [0, 0, 0];
+        for _ in 1..k {
+            let a = dp[index[0]] * 3;
+            let b = dp[index[1]] * 5;
+            let c = dp[index[2]] * 7;
+            let num = a.min(b.min(c));
+            dp.push(num);
+            if a == num {
+                index[0] += 1;
+            }
+            if b == num {
+                index[1] += 1;
+            }
+            if c == num {
+                index[2] += 1;
+            }
+        }
+        dp[k - 1]
+    }
+}
+```
+
 ### **...**
 
 ```
