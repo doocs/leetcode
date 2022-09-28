@@ -43,13 +43,58 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minElements(self, nums: List[int], limit: int, goal: int) -> int:
+        d = abs(sum(nums) - goal)
+        return (d + limit - 1) // limit
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minElements(int[] nums, int limit, int goal) {
+        long s = 0;
+        for (int v : nums) {
+            s += v;
+        }
+        long d = Math.abs(s - goal);
+        return (int) ((d + limit - 1) / limit);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minElements(vector<int>& nums, int limit, int goal) {
+        long long s = accumulate(nums.begin(), nums.end(), 0ll);
+        long long d = abs(s - goal);
+        return (d + limit - 1) / limit;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minElements(nums []int, limit int, goal int) int {
+	s := 0
+	for _, v := range nums {
+		s += v
+	}
+	d := abs(s - goal)
+	return (d + limit - 1) / limit
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**

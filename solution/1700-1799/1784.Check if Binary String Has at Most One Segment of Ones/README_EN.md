@@ -39,16 +39,6 @@
 ```python
 class Solution:
     def checkOnesSegment(self, s: str) -> bool:
-        for i, c in enumerate(s):
-            if c == '0':
-                if s[:i].count('1') and s[i + 1 :].count('1'):
-                    return False
-        return True
-```
-
-```python
-class Solution:
-    def checkOnesSegment(self, s: str) -> bool:
         return '01' not in s
 ```
 

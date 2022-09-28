@@ -42,23 +42,19 @@
 
 **方法一：0 后面不能有 1**
 
-注意到字符串 $s$ 不含前导零，说明 $s$ 以 "1" 开头，若字符串后面出现 "01"，则不满足题意。
+注意到字符串 $s$ 不含前导零，说明 $s$ 以 '1' 开头。
+
+若字符串 $s$ 存在 "01" 串，那么 $s$ 就变成形如 "1...01..." 的字符串，此时 $s$ 出现了至少两个连续的 '1' 片段，不满足题意，返回 `false`。
+
+若字符串 $s$ 不存在 "01" 串，那么 $s$ 只能是形如 "1..1000..." 的字符串，此时 $s$ 只有一个连续的 '1' 片段，满足题意，返回 `true`。
+
+因此，只需要判断字符串 $s$ 是否存在 "01" 串即可。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def checkOnesSegment(self, s: str) -> bool:
-        for i, c in enumerate(s):
-            if c == '0':
-                if s[:i].count('1') and s[i + 1 :].count('1'):
-                    return False
-        return True
-```
 
 ```python
 class Solution:

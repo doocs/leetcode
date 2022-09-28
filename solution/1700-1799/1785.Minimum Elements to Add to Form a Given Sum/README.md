@@ -44,6 +44,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+先计算数组元素总和 $s$，然后计算 $s$ 与 $goal$ 的差值 $d$。
+
+那么需要添加的元素数量为 $d$ 的绝对值除以 $limit$ 向上取整，即 $\lceil \frac{|d|}{limit} \rceil$。
+
+注意，本题中数组元素的数据范围为 $[-10^6, 10^6]$，元素个数最大为 $10^5$，总和 $s$ 以及差值 $d$ 可能会超过 $32$ 位整数的表示范围，因此需要使用 $64$ 位整数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +61,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minElements(self, nums: List[int], limit: int, goal: int) -> int:
+        d = abs(sum(nums) - goal)
+        return (d + limit - 1) // limit
 ```
 
 ### **Java**
@@ -59,7 +72,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minElements(int[] nums, int limit, int goal) {
+        long s = 0;
+        for (int v : nums) {
+            s += v;
+        }
+        long d = Math.abs(s - goal);
+        return (int) ((d + limit - 1) / limit);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minElements(vector<int>& nums, int limit, int goal) {
+        long long s = accumulate(nums.begin(), nums.end(), 0ll);
+        long long d = abs(s - goal);
+        return (d + limit - 1) / limit;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minElements(nums []int, limit int, goal int) int {
+	s := 0
+	for _, v := range nums {
+		s += v
+	}
+	d := abs(s - goal)
+	return (d + limit - 1) / limit
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
