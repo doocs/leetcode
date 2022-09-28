@@ -59,11 +59,11 @@ return res</pre>
 
 **方法一：递归**
 
-根据题意要求可以将 NestedInteger 数据结构视作一个 N 叉树，当为一个整数时该节点是 N 叉树的叶子节点，当为一个整数数组时该节点是 N 叉树的非叶子节点，数组中的每一个元素包含子树的所有节点。故直接递归遍历 N 叉树并记录所有的叶子节点即可。
+根据题意要求可以将 NestedInteger 数据结构视作一个 N 叉树，当元素为一个整数时，该节点是 N 叉树的叶子节点，当元素为一个整数数组时，该节点是 N 叉树的非叶子节点，数组中的每一个元素包含子树的所有节点。故直接递归遍历 N 叉树并记录所有的叶子节点即可。
 
 **方法二：直接展开**
 
-调用 hasNext 时，如果 nestedList 的第一个元素是列表类型，则不断展开这个元素，直到第一个元素是整数类型。 调用 Next 方法时，由 hasNext 方法已确保 nestedList 第一个元素为整数类型，直接返回即可。
+调用 hasNext 时，如果 nestedList 的第一个元素是列表类型，则不断展开这个元素，直到第一个元素是整数类型。 调用 Next 方法时，由于 `hasNext()` 方法已确保 nestedList 第一个元素为整数类型，直接返回即可。
 
 <!-- tabs:start -->
 
@@ -181,6 +181,62 @@ public class NestedIterator implements Iterator<Integer> {
  * Your NestedIterator object will be instantiated and called as such:
  * NestedIterator i = new NestedIterator(nestedList);
  * while (i.hasNext()) v[f()] = i.next();
+ */
+```
+
+### **C++**
+
+```cpp
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * class NestedInteger {
+ *   public:
+ *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     bool isInteger() const;
+ *
+ *     // Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // The result is undefined if this NestedInteger holds a nested list
+ *     int getInteger() const;
+ *
+ *     // Return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // The result is undefined if this NestedInteger holds a single integer
+ *     const vector<NestedInteger> &getList() const;
+ * };
+ */
+
+class NestedIterator {
+public:
+    NestedIterator(vector<NestedInteger> &nestedList) {
+        dfs(nestedList);
+    }
+    
+    int next() {
+        return vals[cur++];
+    }
+    
+    bool hasNext() {
+        return cur < vals.size();
+    }
+private:
+    vector<int> vals;
+    int cur = 0;
+
+    void dfs(vector<NestedInteger> &nestedList) {
+        for (auto& e : nestedList) {
+            if (e.isInteger()) {
+                vals.push_back(e.getInteger());
+            } else {
+                dfs(e.getList());
+            }
+        }
+    }
+};
+
+/**
+ * Your NestedIterator object will be instantiated and called as such:
+ * NestedIterator i(nestedList);
+ * while (i.hasNext()) cout << i.next();
  */
 ```
 
