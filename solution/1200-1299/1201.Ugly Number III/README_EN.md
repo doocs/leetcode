@@ -49,13 +49,95 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def f(self, num: int, a: int, b: int, c: int) -> int:
+        return num // a + num // b + num // c - num // math.lcm(a, b) - num // math.lcm(a, c) - num // math.lcm(b, c) \
+            + num // math.lcm(a, b, c)
 
+    def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
+        left, right = 1, int(2e9)
+        while left <= right:
+            mid = left + (right - left) // 2
+            if self.f(mid, a, b, c) < n:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return left
 ```
 
-### **Java**
+### **Go**
 
-```java
+```go
+func nthUglyNumber(n int, a int, b int, c int) int {
+	left, right := 1, int(2e9)
+	for left <= right {
+		mid := left + (right-left)/2
+		if f(mid, a, b, c) < n {
+			left = mid + 1
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
 
+func f(num int, a int, b int, c int) int {
+	return num/a + num/b + num/c - num/lcm(a, b) - num/lcm(a, c) - num/lcm(b, c) + num/lcm(lcm(a, b), c)
+}
+
+// Least common multiple
+func lcm(a, b int) int {
+	// Greatest common divisor
+	gcd := func(x, y int) int {
+		for y != 0 {
+			if x < y {
+				x, y = y, x
+			}
+			x, y = y, x%y
+		}
+		return x
+	}
+	return a * b / gcd(a, b)
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long gcd(long x, long y) {
+        while (y != 0) {
+            if (x < y)
+                swap(x, y);
+            long tmp = x % y;
+            x = y;
+            y = tmp;
+        }
+        return x;
+    }
+
+    long lcm(long x, long y) { return x * y / gcd(x, y); }
+
+    long f(int num, int a, int b, int c) {
+        long sumabc = long(num / a) + num / b + num / c;
+        long intersections = long(num / lcm(a, b)) + num / lcm(a, c) + num / lcm(b, c) - num / lcm(lcm(a, b), c);
+        return sumabc - intersections;
+    }
+
+    int nthUglyNumber(int n, int a, int b, int c) {
+        int left = 1, right = int(2e9);
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (f(mid, a, b, c) < n) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+};
 ```
 
 ### **...**
