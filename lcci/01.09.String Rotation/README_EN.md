@@ -43,7 +43,7 @@
 ```python
 class Solution:
     def isFlipedString(self, s1: str, s2: str) -> bool:
-        return len(s1) == len(s2) and s1 in (s2 * 2)
+        return len(s1) == len(s2) and s2 in s1 * 2
 ```
 
 ### **Java**
@@ -51,9 +51,20 @@ class Solution:
 ```java
 class Solution {
     public boolean isFlipedString(String s1, String s2) {
-        return s1.length() == s2.length() && (s2 + s2).indexOf(s1) != -1;
+        return s1.length() == s2.length() && (s1 + s1).contains(s2);
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isFlipedString(string s1, string s2) {
+        return s1.size() == s2.size() && (s1 + s1).find(s2) != string::npos;
+    }
+};
 ```
 
 ### **Go**

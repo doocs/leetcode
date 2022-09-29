@@ -38,22 +38,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-字符串只是旋转的，将前后拼接起来，就能得到一个包含旋转前字符串在内的新字符串。如：
+**方法一：字符串匹配**
 
-```txt
+首先，如果字符串 $s1$ 和 $s2$ 长度不相等，那么肯定不是旋转字符串。
+
+其次，如果字符串 $s1$ 和 $s2$ 长度相等，那么将两个 $s1$ 连接，得到的 $s1 + s1$ 这个字符串一定包含了 $s1$ 旋转的所有情况，这时候我们只要判断 $s2$ 是否是 $s1 + s1$ 的子串即可。
+
+```bash
 # 成立
 s1 = "aba"
 s2 = "baa"
-s3 = "baabaa" = s2 + s2
-        ^^^
-```
+s1 + s1 = "abaaba"
+            ^^^
 
-```txt
 # 不成立
 s1 = "aba"
 s2 = "bab"
-s3 = "babbab" = s2 + s2
+s1 + s1 = "abaaba"
 ```
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s1$ 的长度。
 
 <!-- tabs:start -->
 
@@ -62,7 +66,7 @@ s3 = "babbab" = s2 + s2
 ```python
 class Solution:
     def isFlipedString(self, s1: str, s2: str) -> bool:
-        return len(s1) == len(s2) and s1 in (s2 * 2)
+        return len(s1) == len(s2) and s2 in s1 * 2
 ```
 
 ### **Java**
@@ -72,9 +76,20 @@ class Solution:
 ```java
 class Solution {
     public boolean isFlipedString(String s1, String s2) {
-        return s1.length() == s2.length() && (s2 + s2).indexOf(s1) != -1;
+        return s1.length() == s2.length() && (s1 + s1).contains(s2);
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isFlipedString(string s1, string s2) {
+        return s1.size() == s2.size() && (s1 + s1).find(s2) != string::npos;
+    }
+};
 ```
 
 ### **Go**
