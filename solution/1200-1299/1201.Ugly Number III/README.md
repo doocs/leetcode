@@ -56,6 +56,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二分搜索**
+
+根据题目提示结果在 [1, 2 * 10<sup>9</sup>] 的闭区间上，所以定义二分搜索的左边界 left=1，右边界 right=2e9。此时我们只需要在 [left,right] 的闭区间内找到一个最小的数 num，使其满足 [1,num] 内的丑数总数等于 n，则 num 就是第 n 个丑数。计算在 [1,num] 的范围内丑数的数目，即可以被 a、b 或 c 任意一个数整除的数的总数，其方法如下：
+
+`f(num, a, b, c) = num/a + num/b + num/c - a⋂b - a⋂c - b⋂c + a⋂b⋂c`
+
+-   num/a 表示在 [1,num] 内可以整除 a 的数目，num/b 表示在 [1,num] 内可以整除 b 的数目，num/c 表示在 [1,num] 内可以整除 c 的数目。
+-   a⋂b 表示在 [1,num] 内可以同时整除 a 和 b 的数目，a⋂c 表示在 [1,num] 内可以同时整除 a 和 c 的数，b⋂c 表示在 [1,num] 内可以同时整除 b 和 c 的数。
+-   a⋂b⋂c 表示在 [1,num] 内可以同时整除 a、b 和 c 的数。
+-   a⋂b = num/least_common_multiple(a, b)，其他情况依次类推。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,15 +74,99 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def f(self, num: int, a: int, b: int, c: int) -> int:
+        return num // a + num // b + num // c - num // math.lcm(a, b) - num // math.lcm(a, c) - num // math.lcm(b, c) \
+            + num // math.lcm(a, b, c)
 
+    def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
+        left, right = 1, int(2e9)
+        while left <= right:
+            mid = left + (right - left) // 2
+            if self.f(mid, a, b, c) < n:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return left
 ```
 
-### **Java**
+### **Go**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```java
+```go
+func nthUglyNumber(n int, a int, b int, c int) int {
+	left, right := 1, int(2e9)
+	for left <= right {
+		mid := left + (right-left)/2
+		if f(mid, a, b, c) < n {
+			left = mid + 1
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
 
+func f(num int, a int, b int, c int) int {
+	return num/a + num/b + num/c - num/lcm(a, b) - num/lcm(a, c) - num/lcm(b, c) + num/lcm(lcm(a, b), c)
+}
+
+// Least common multiple
+func lcm(a, b int) int {
+	// Greatest common divisor
+	gcd := func(x, y int) int {
+		for y != 0 {
+			if x < y {
+				x, y = y, x
+			}
+			x, y = y, x%y
+		}
+		return x
+	}
+	return a * b / gcd(a, b)
+}
+```
+
+### **C++**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```cpp
+class Solution {
+public:
+    long gcd(long x, long y) {
+        while (y != 0) {
+            if (x < y)
+                swap(x, y);
+            long tmp = x % y;
+            x = y;
+            y = tmp;
+        }
+        return x;
+    }
+
+    long lcm(long x, long y) { return x * y / gcd(x, y); }
+
+    long f(int num, int a, int b, int c) {
+        long sumabc = long(num / a) + num / b + num / c;
+        long intersections = long(num / lcm(a, b)) + num / lcm(a, c) + num / lcm(b, c) - num / lcm(lcm(a, b), c);
+        return sumabc - intersections;
+    }
+
+    int nthUglyNumber(int n, int a, int b, int c) {
+        int left = 1, right = int(2e9);
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (f(mid, a, b, c) < n) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+};
 ```
 
 ### **...**
