@@ -59,6 +59,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+定义哈希表 $d$ 存放允许的三角形图案，其中键为两个字符，值为对应的字符列表，表示两个字符可以组成一个三角形图案，三角形图案的顶部为值列表的每一项。
+
+从最底层开始，对于每一层的每两个相邻的字符，如果它们可以组成一个三角形图案，那么就将三角形图案的顶部字符加入到下一层的对应位置的字符列表中，然后对下一层进行递归处理。
+
+时间复杂度 $O(C^N)$。其中 $C$ 是字符集的大小，而 $N$ 是 `bottom` 字符串的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +74,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def pyramidTransition(self, bottom: str, allowed: List[str]) -> bool:
+        @cache
+        def dfs(s):
+            if len(s) == 1:
+                return True
+            t = []
+            for a, b in pairwise(s):
+                cs = d[a, b]
+                if not cs:
+                    return False
+                t.append(cs)
+            return any(dfs(''.join(nxt)) for nxt in product(*t))
 
+        d = defaultdict(list)
+        for a, b, c in allowed:
+            d[a, b].append(c)
+        return dfs(bottom)
 ```
 
 ### **Java**
@@ -74,7 +99,133 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[][] f = new int[7][7];
+    private Map<String, Boolean> dp = new HashMap<>();
 
+    public boolean pyramidTransition(String bottom, List<String> allowed) {
+        for (String s : allowed) {
+            int a = s.charAt(0) - 'A', b = s.charAt(1) - 'A';
+            f[a][b] |= 1 << (s.charAt(2) - 'A');
+        }
+        return dfs(bottom, new StringBuilder());
+    }
+
+    boolean dfs(String s, StringBuilder t) {
+        if (s.length() == 1) {
+            return true;
+        }
+        if (t.length() + 1 == s.length()) {
+            return dfs(t.toString(), new StringBuilder());
+        }
+        String k = s + "." + t.toString();
+        if (dp.containsKey(k)) {
+            return dp.get(k);
+        }
+        int a = s.charAt(t.length()) - 'A', b = s.charAt(t.length() + 1) - 'A';
+        int cs = f[a][b];
+        for (int i = 0; i < 7; ++i) {
+            if (((cs >> i) & 1) == 1) {
+                t.append((char) ('A' + i));
+                if (dfs(s, t)) {
+                    dp.put(k, true);
+                    return true;
+                }
+                t.deleteCharAt(t.length() - 1);
+            }
+        }
+        dp.put(k, false);
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int f[7][7];
+    unordered_map<string, bool> dp;
+
+    bool pyramidTransition(string bottom, vector<string>& allowed) {
+        memset(f, 0, sizeof f);
+        for (auto& s : allowed) {
+            int a = s[0] - 'A', b = s[1] - 'A';
+            f[a][b] |= 1 << (s[2] - 'A');
+        }
+        return dfs(bottom, "");
+    }
+
+    bool dfs(string& s, string t) {
+        if (s.size() == 1) {
+            return true;
+        }
+        if (t.size() + 1 == s.size()) {
+            return dfs(t, "");
+        }
+        string k = s + "." + t;
+        if (dp.count(k)) {
+            return dp[k];
+        }
+        int a = s[t.size()] - 'A', b = s[t.size() + 1] - 'A';
+        int cs = f[a][b];
+        for (int i = 0; i < 7; ++i) {
+            if ((cs >> i) & 1) {
+                if (dfs(s, t + (char) (i + 'A'))) {
+                    dp[k] = true;
+                    return true;
+                }
+            }
+        }
+        dp[k] = false;
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func pyramidTransition(bottom string, allowed []string) bool {
+	f := make([][]int, 7)
+	for i := range f {
+		f[i] = make([]int, 7)
+	}
+	for _, s := range allowed {
+		a, b := s[0]-'A', s[1]-'A'
+		f[a][b] |= 1 << (s[2] - 'A')
+	}
+	dp := map[string]bool{}
+	var dfs func(s string, t []byte) bool
+	dfs = func(s string, t []byte) bool {
+		if len(s) == 1 {
+			return true
+		}
+		if len(t)+1 == len(s) {
+			return dfs(string(t), []byte{})
+		}
+		k := s + "." + string(t)
+		if v, ok := dp[k]; ok {
+			return v
+		}
+		a, b := s[len(t)]-'A', s[len(t)+1]-'A'
+		cs := f[a][b]
+		for i := 0; i < 7; i++ {
+			if ((cs >> i) & 1) == 1 {
+				t = append(t, byte('A'+i))
+				if dfs(s, t) {
+					dp[k] = true
+					return true
+				}
+				t = t[:len(t)-1]
+			}
+		}
+		dp[k] = false
+		return false
+	}
+	return dfs(bottom, []byte{})
+}
 ```
 
 ### **...**
