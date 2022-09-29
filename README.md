@@ -126,6 +126,13 @@
 -   [零钱兑换](/solution/0300-0399/0322.Coin%20Change/README.md) - `完全背包问题`
 -   [组合总和 Ⅳ](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md) - `完全背包问题`
 -   [从栈中取出 K 个硬币的最大面值和](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md) - `分组背包问题`
+-   [数字 1 的个数](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md) - `数位 DP`、`记忆化搜索`
+-   [统计各位数字都不同的数字个数](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md) - `数位 DP`、`记忆化搜索`、`状态压缩`
+-   [不含连续 1 的非负整数](/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md) - `数位 DP`、`记忆化搜索`
+-   [旋转数字](/solution/0700-0799/0788.Rotated%20Digits/README.md) - `数位 DP`、`记忆化搜索`
+-   [最大为 N 的数字组合](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md) - `数位 DP`、`记忆化搜索`
+-   [统计特殊整数](/solution/2300-2399/2376.Count%20Special%20Integers/README.md) - `数位 DP`、`记忆化搜索`
+
 <!-- 背包问题、状态机模型、状压DP、区间DP、树形DP、数位DP 待补充 -->
 
 ### 5. 高级数据结构
