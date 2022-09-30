@@ -58,13 +58,143 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        @cache
+        def dfs(i):
+            if i == destination:
+                return not g[i]
+            if i in vis or not g[i]:
+                return False
+            vis.add(i)
+            for j in g[i]:
+                if not dfs(j):
+                    return False
+            return True
 
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+        vis = set()
+        return dfs(source)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] f;
+    private boolean[] vis;
+    private int k;
 
+    public boolean leadsToDestination(int n, int[][] edges, int source, int destination) {
+        vis = new boolean[n];
+        g = new List[n];
+        k = destination;
+        f = new int[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (var e : edges) {
+            g[e[0]].add(e[1]);
+        }
+        return dfs(source);
+    }
+
+    private boolean dfs(int i) {
+        if (i == k) {
+            return g[i].isEmpty();
+        }
+        if (f[i] != 0) {
+            return f[i] == 1;
+        }
+        if (vis[i] || g[i].isEmpty()) {
+            return false;
+        }
+        vis[i] = true;
+        for (int j : g[i]) {
+            if (!dfs(j)) {
+                f[i] = -1;
+                return false;
+            }
+        }
+        f[i] = 1;
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool leadsToDestination(int n, vector<vector<int>>& edges, int source, int destination) {
+        vector<bool> vis(n);
+        vector<vector<int>> g(n);
+        vector<int> f(n);
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+        }
+        function<bool(int)> dfs = [&](int i) {
+            if (i == destination) {
+                return g[i].empty();
+            }
+            if (f[i]) {
+                return f[i] == 1;
+            }
+            if (vis[i] || g[i].empty()) {
+                return false;
+            }
+            vis[i] = true;
+            for (int j : g[i]) {
+                if (!dfs(j)) {
+                    f[i] = -1;
+                    return false;
+                }
+            }
+            f[i] = 1;
+            return true;
+        };
+        return dfs(source);
+    }
+};
+```
+
+### **Go**
+
+```go
+func leadsToDestination(n int, edges [][]int, source int, destination int) bool {
+	vis := make([]bool, n)
+	g := make([][]int, n)
+	f := make([]int, n)
+	for _, e := range edges {
+		g[e[0]] = append(g[e[0]], e[1])
+	}
+	var dfs func(int) bool
+	dfs = func(i int) bool {
+		if i == destination {
+			return len(g[i]) == 0
+		}
+		if f[i] != 0 {
+			return f[i] == 1
+		}
+		if vis[i] || len(g[i]) == 0 {
+			return false
+		}
+		vis[i] = true
+		for _, j := range g[i] {
+			if !dfs(j) {
+				f[i] = -1
+				return false
+			}
+		}
+		f[i] = 1
+		return true
+	}
+	return dfs(source)
+}
 ```
 
 ### **...**
