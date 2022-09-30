@@ -50,6 +50,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序**
+
+遍历价格数组 `prices`，先将每个价格 $p$ 向下舍入，累加到 `mi` 中，同时将每个价格的小数点部分添加到数组 `arr` 中。
+
+遍历结束后，判断 `target` 是否在 `mi` 和 `mi + arr.length` 之间，如果不在，直接返回 `"-1"`。
+
+接下来，我们计算 `target - mi`，即需要向上入的价格个数，然后将 `arr` 从大到小排序，从前往后遍历，将前 `target - mi` 个价格向上入，其余价格向下舍入，累计到 `ans` 中。
+
+时间复杂度 $O(n\log n)$。其中 $n$ 为 `prices` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +67,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimizeError(self, prices: List[str], target: int) -> str:
+        mi = 0
+        arr = []
+        for p in prices:
+            p = float(p)
+            mi += int(p)
+            if d := p - int(p):
+                arr.append(d)
+        if not mi <= target <= mi + len(arr):
+            return "-1"
+        d = target - mi
+        arr.sort(reverse=True)
+        ans = d - sum(arr[:d]) + sum(arr[d:])
+        return f'{ans:.3f}'
 ```
 
 ### **Java**
@@ -65,7 +89,98 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String minimizeError(String[] prices, int target) {
+        int mi = 0;
+        List<Double> arr = new ArrayList<>();
+        for (String p : prices) {
+            double price = Double.valueOf(p);
+            mi += (int) price;
+            double d = price - (int) price;
+            if (d > 0) {
+                arr.add(d);
+            }
+        }
+        if (target < mi || target > mi + arr.size()) {
+            return "-1";
+        }
+        int d = target - mi;
+        arr.sort(Collections.reverseOrder());
+        double ans = d;
+        for (int i = 0; i < d; ++i) {
+            ans -= arr.get(i);
+        }
+        for (int i = d; i < arr.size(); ++i) {
+            ans += arr.get(i);
+        }
+        DecimalFormat df = new DecimalFormat("#0.000");
+        return df.format(ans);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string minimizeError(vector<string>& prices, int target) {
+        int mi = 0;
+        vector<double> arr;
+        for (auto& p : prices) {
+            double price = stod(p);
+            mi += (int) price;
+            double d = price - (int) price;
+            if (d > 0) {
+                arr.push_back(d);
+            }
+        }
+        if (target < mi || target > mi + arr.size()) {
+            return "-1";
+        }
+        int d = target - mi;
+        sort(arr.rbegin(), arr.rend());
+        double ans = d;
+        for (int i = 0; i < d; ++i) {
+            ans -= arr[i];
+        }
+        for (int i = d; i < arr.size(); ++i) {
+            ans += arr[i];
+        }
+        string s = to_string(ans);
+        return s.substr(0, s.find('.') + 4);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimizeError(prices []string, target int) string {
+	arr := []float64{}
+	mi := 0
+	for _, p := range prices {
+		price, _ := strconv.ParseFloat(p, 64)
+		mi += int(math.Floor(price))
+		d := price - float64(math.Floor(price))
+		if d > 0 {
+			arr = append(arr, d)
+		}
+	}
+	if target < mi || target > mi+len(arr) {
+		return "-1"
+	}
+	d := target - mi
+	sort.Float64s(arr)
+	ans := float64(d)
+	for i := 0; i < d; i++ {
+		ans -= arr[len(arr)-i-1]
+	}
+	for i := d; i < len(arr); i++ {
+		ans += arr[len(arr)-i-1]
+	}
+	return fmt.Sprintf("%.3f", ans)
+}
 ```
 
 ### **...**
