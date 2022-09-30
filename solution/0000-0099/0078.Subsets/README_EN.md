@@ -74,11 +74,10 @@ class Solution:
 
 ```java
 class Solution {
-    private List<List<Integer>> ans;
+    private List<List<Integer>> ans = new ArrayList<>();
     private int[] nums;
 
     public List<List<Integer>> subsets(int[] nums) {
-        ans = new ArrayList<>();
         this.nums = nums;
         dfs(0, new ArrayList<>());
         return ans;
