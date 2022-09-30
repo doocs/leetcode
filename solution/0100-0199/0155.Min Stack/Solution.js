@@ -2,46 +2,49 @@
  * initialize your data structure here.
  */
 var MinStack = function () {
-    this.s = [];
-    this.mins = [Infinity];
+    this.stack = [];
+    this.minStack = [];
 };
 
 /**
- * @param {number} val
+ * @param {number} x
  * @return {void}
  */
-MinStack.prototype.push = function (val) {
-    this.s.push(val);
-    this.mins.push(Math.min(this.mins[this.mins.length - 1], val));
+MinStack.prototype.push = function (x) {
+    this.stack.unshift(x);
+    if (!this.minStack.length || this.minStack[0] >= x) {
+        this.minStack.unshift(x);
+    }
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-    this.s.pop();
-    this.mins.pop();
+    if (this.stack.shift() === this.minStack[0]) {
+        this.minStack.shift();
+    }
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.top = function () {
-    return this.s[this.s.length - 1];
+    return this.stack[0];
 };
 
 /**
  * @return {number}
  */
-MinStack.prototype.getMin = function () {
-    return this.mins[this.mins.length - 1];
+MinStack.prototype.min = function () {
+    return this.minStack[0];
 };
 
 /**
  * Your MinStack object will be instantiated and called as such:
  * var obj = new MinStack()
- * obj.push(val)
+ * obj.push(x)
  * obj.pop()
  * var param_3 = obj.top()
- * var param_4 = obj.getMin()
+ * var param_4 = obj.min()
  */

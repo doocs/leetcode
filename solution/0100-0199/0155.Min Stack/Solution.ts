@@ -1,38 +1,35 @@
 class MinStack {
-    private stack: number[];
-    private min: number[];
+    stk1: number[];
+    stk2: number[];
 
     constructor() {
-        this.stack = [];
-        this.min = [];
+        this.stk1 = [];
+        this.stk2 = [Infinity];
     }
 
-    push(val: number): void {
-        this.stack.push(val);
-        if (val <= (this.min[this.min.length - 1] ?? Infinity)) {
-            this.min.push(val);
-        }
+    push(x: number): void {
+        this.stk1.push(x);
+        this.stk2.push(Math.min(x, this.stk2[this.stk2.length - 1]));
     }
 
     pop(): void {
-        if (this.stack.pop() === this.min[this.min.length - 1]) {
-            this.min.pop();
-        }
+        this.stk1.pop();
+        this.stk2.pop();
     }
 
     top(): number {
-        return this.stack[this.stack.length - 1];
+        return this.stk1[this.stk1.length - 1];
     }
 
     getMin(): number {
-        return this.min[this.min.length - 1];
+        return this.stk2[this.stk2.length - 1];
     }
 }
 
 /**
  * Your MinStack object will be instantiated and called as such:
  * var obj = new MinStack()
- * obj.push(val)
+ * obj.push(x)
  * obj.pop()
  * var param_3 = obj.top()
  * var param_4 = obj.getMin()

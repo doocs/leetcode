@@ -1,7 +1,14 @@
 class Solution:
     def f(self, num: int, a: int, b: int, c: int) -> int:
-        return num // a + num // b + num // c - num // math.lcm(a, b) - num // math.lcm(a, c) - num // math.lcm(b, c) \
+        return (
+            num // a
+            + num // b
+            + num // c
+            - num // math.lcm(a, b)
+            - num // math.lcm(a, c)
+            - num // math.lcm(b, c)
             + num // math.lcm(a, b, c)
+        )
 
     def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
         left, right = 1, int(2e9)

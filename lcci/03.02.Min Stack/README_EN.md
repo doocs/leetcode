@@ -34,31 +34,29 @@ minStack.getMin();   --&gt; return -2.</pre>
 
 ```python
 class MinStack:
-    def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.s = []
-        self.mins = [inf]
 
-    def push(self, val: int) -> None:
-        self.s.append(val)
-        self.mins.append(min(self.mins[-1], val))
+    def __init__(self):
+        self.stk1 = []
+        self.stk2 = [inf]
+
+    def push(self, x: int) -> None:
+        self.stk1.append(x)
+        self.stk2.append(min(x, self.stk2[-1]))
 
     def pop(self) -> None:
-        self.s.pop()
-        self.mins.pop()
+        self.stk1.pop()
+        self.stk2.pop()
 
     def top(self) -> int:
-        return self.s[-1]
+        return self.stk1[-1]
 
     def getMin(self) -> int:
-        return self.mins[-1]
+        return self.stk2[-1]
 
 
 # Your MinStack object will be instantiated and called as such:
 # obj = MinStack()
-# obj.push(val)
+# obj.push(x)
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
@@ -68,39 +66,37 @@ class MinStack:
 
 ```java
 class MinStack {
-    private Deque<Integer> s;
-    private Deque<Integer> mins;
+    private Deque<Integer> stk1 = new ArrayDeque<>();
+    private Deque<Integer> stk2 = new ArrayDeque<>();
 
     /** initialize your data structure here. */
     public MinStack() {
-        s = new ArrayDeque<>();
-        mins = new ArrayDeque<>();
-        mins.push(Integer.MAX_VALUE);
+        stk2.push(Integer.MAX_VALUE);
     }
-
-    public void push(int val) {
-        s.push(val);
-        mins.push(Math.min(mins.peek(), val));
+    
+    public void push(int x) {
+        stk1.push(x);
+        stk2.push(Math.min(x, stk2.peek()));
     }
-
+    
     public void pop() {
-        s.pop();
-        mins.pop();
+        stk1.pop();
+        stk2.pop();
     }
-
+    
     public int top() {
-        return s.peek();
+        return stk1.peek();
     }
-
+    
     public int getMin() {
-        return mins.peek();
+        return stk2.peek();
     }
 }
 
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack obj = new MinStack();
- * obj.push(val);
+ * obj.push(x);
  * obj.pop();
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
@@ -111,36 +107,33 @@ class MinStack {
 
 ```cpp
 class MinStack {
-private:
-    stack<int> stk;
-    stack<int> minStk;
-
 public:
     /** initialize your data structure here. */
-    MinStack() = default;
+    MinStack() {
+        stk2.push(INT_MAX);
+    }
 
     void push(int x) {
-        if (minStk.empty() || minStk.top() >= x) {
-            minStk.push(x);
-        }
-        stk.push(x);
+        stk1.push(x);
+        stk2.push(min(x, stk2.top()));
     }
 
     void pop() {
-        int val = stk.top();
-        stk.pop();
-        if (val == minStk.top()) {
-            minStk.pop();
-        }
+        stk1.pop();
+        stk2.pop();
     }
 
     int top() {
-        return stk.top();
+        return stk1.top();
     }
 
     int getMin() {
-        return minStk.top();
+        return stk2.top();
     }
+
+private:
+    stack<int> stk1;
+    stack<int> stk2;
 };
 
 /**
@@ -153,35 +146,83 @@ public:
  */
 ```
 
+### **Go**
+
+```go
+type MinStack struct {
+	stk1 []int
+	stk2 []int
+}
+
+/** initialize your data structure here. */
+func Constructor() MinStack {
+	return MinStack{[]int{}, []int{math.MaxInt32}}
+}
+
+func (this *MinStack) Push(x int) {
+	this.stk1 = append(this.stk1, x)
+	this.stk2 = append(this.stk2, min(x, this.stk2[len(this.stk2)-1]))
+}
+
+func (this *MinStack) Pop() {
+	this.stk1 = this.stk1[:len(this.stk1)-1]
+	this.stk2 = this.stk2[:len(this.stk2)-1]
+}
+
+func (this *MinStack) Top() int {
+	return this.stk1[len(this.stk1)-1]
+}
+
+func (this *MinStack) GetMin() int {
+	return this.stk2[len(this.stk2)-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Push(x);
+ * obj.Pop();
+ * param_3 := obj.Top();
+ * param_4 := obj.GetMin();
+ */
+```
+
+
 ### **TypeScript**
 
 ```ts
 class MinStack {
-    stack: number[];
-    mins: number[];
+    stk1: number[];
+    stk2: number[];
+
     constructor() {
-        this.stack = [];
-        this.mins = [];
+        this.stk1 = [];
+        this.stk2 = [Infinity];
     }
 
     push(x: number): void {
-        this.stack.push(x);
-        this.mins.push(Math.min(this.getMin(), x));
+        this.stk1.push(x);
+        this.stk2.push(Math.min(x, this.stk2[this.stk2.length - 1]));
     }
 
     pop(): void {
-        this.stack.pop();
-        this.mins.pop();
+        this.stk1.pop();
+        this.stk2.pop();
     }
 
     top(): number {
-        return this.stack[this.stack.length - 1];
+        return this.stk1[this.stk1.length - 1];
     }
 
     getMin(): number {
-        return this.mins.length == 0
-            ? Infinity
-            : this.mins[this.mins.length - 1];
+        return this.stk2[this.stk2.length - 1];
     }
 }
 
@@ -192,55 +233,6 @@ class MinStack {
  * obj.pop()
  * var param_3 = obj.top()
  * var param_4 = obj.getMin()
- */
-```
-
-### **Go**
-
-```go
-type MinStack struct {
-	stack    []int
-	minStack []int
-}
-
-/** initialize your data structure here. */
-func Constructor() MinStack {
-	return MinStack{
-		stack:    make([]int, 0),
-		minStack: make([]int, 0),
-	}
-}
-
-func (this *MinStack) Push(x int) {
-	this.stack = append(this.stack, x)
-	if len(this.minStack) == 0 || x <= this.minStack[len(this.minStack)-1] {
-		this.minStack = append(this.minStack, x)
-	}
-}
-
-func (this *MinStack) Pop() {
-	v := this.stack[len(this.stack)-1]
-	this.stack = this.stack[:len(this.stack)-1]
-	if v == this.minStack[len(this.minStack)-1] {
-		this.minStack = this.minStack[:len(this.minStack)-1]
-	}
-}
-
-func (this *MinStack) Top() int {
-	return this.stack[len(this.stack)-1]
-}
-
-func (this *MinStack) GetMin() int {
-	return this.minStack[len(this.minStack)-1]
-}
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Push(x);
- * obj.Pop();
- * param_3 := obj.Top();
- * param_4 := obj.GetMin();
  */
 ```
 
@@ -295,6 +287,47 @@ impl MinStack {
  * obj.pop();
  * let ret_3: i32 = obj.top();
  * let ret_4: i32 = obj.get_min();
+ */
+```
+
+### **C#**
+
+```cs
+public class MinStack {
+    private Stack<int> stk1 = new Stack<int>();
+    private Stack<int> stk2 = new Stack<int>();
+
+    /** initialize your data structure here. */
+    public MinStack() {
+        stk2.Push(int.MaxValue);
+    }
+    
+    public void Push(int x) {
+        stk1.Push(x);
+        stk2.Push(Math.Min(x, GetMin()));
+    }
+    
+    public void Pop() {
+        stk1.Pop();
+        stk2.Pop();
+    }
+    
+    public int Top() {
+        return stk1.Peek();
+    }
+    
+    public int GetMin() {
+        return stk2.Peek();
+    }
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack obj = new MinStack();
+ * obj.Push(x);
+ * obj.Pop();
+ * int param_3 = obj.Top();
+ * int param_4 = obj.GetMin();
  */
 ```
 
