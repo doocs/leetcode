@@ -402,6 +402,242 @@ var setZeroes = function (matrix) {
 };
 ```
 
+### **C**
+
+```c
+void setZeroes(int **matrix, int matrixSize, int *matrixColSize) {
+    int m = matrixSize;
+    int n = matrixColSize[0];
+    int *rows = (int *) malloc(sizeof(int) * m);
+    int *cols = (int *) malloc(sizeof(int) * n);
+    memset(rows, 0, sizeof(int) * m);
+    memset(cols, 0, sizeof(int) * n);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; ++j) {
+            if (matrix[i][j] == 0) {
+                rows[i] = 1;
+                cols[j] = 1;
+            }
+        }
+    }
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; ++j) {
+            if (rows[i] || cols[j]) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+    free(rows);
+    free(cols);
+}
+```
+
+```c
+void setZeroes(int **matrix, int matrixSize, int *matrixColSize) {
+    int m = matrixSize;
+    int n = matrixColSize[0];
+    int l0 = 0;
+    int r0 = 0;
+    for (int i = 0; i < m; i++) {
+        if (matrix[i][0] == 0) {
+            l0 = 1;
+            break;
+        }
+    }
+    for (int j = 0; j < n; j++) {
+        if (matrix[0][j] == 0) {
+            r0 = 1;
+            break;
+        }
+    }
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (matrix[i][j] == 0) {
+                matrix[i][0] = 0;
+                matrix[0][j] = 0;
+            }
+        }
+    }
+    for (int i = 1; i < m; i++) {
+        for (int j = 1; j < n; j++) {
+            if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+    if (l0) {
+        for (int i = 0; i < m; i++) {
+            matrix[i][0] = 0;
+        }
+    }
+    if (r0) {
+        for (int j = 0; j < n; j++) {
+            matrix[0][j] = 0;
+        }
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ Do not return anything, modify matrix in-place instead.
+ */
+function setZeroes(matrix: number[][]): void {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const rows = new Array(m).fill(false);
+    const cols = new Array(n).fill(false);
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (matrix[i][j] === 0) {
+                rows[i] = true;
+                cols[j] = true;
+            }
+        }
+    }
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (rows[i] || cols[j]) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+}
+```
+
+```ts
+/**
+ Do not return anything, modify matrix in-place instead.
+ */
+function setZeroes(matrix: number[][]): void {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let l0 = false;
+    let r0 = false;
+    for (let i = 0; i < m; i++) {
+        if (matrix[i][0] === 0) {
+            l0 = true;
+            break;
+        }
+    }
+    for (let j = 0; j < n; j++) {
+        if (matrix[0][j] === 0) {
+            r0 = true;
+            break;
+        }
+    }
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (matrix[i][j] === 0) {
+                matrix[i][0] = 0;
+                matrix[0][j] = 0;
+            }
+        }
+    }
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            if (matrix[i][0] === 0 || matrix[0][j] === 0) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+    if (l0) {
+        for (let i = 0; i < m; i++) {
+            matrix[i][0] = 0;
+        }
+    }
+    if (r0) {
+        for (let j = 0; j < n; j++) {
+            matrix[0][j] = 0;
+        }
+    }
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
+        let m = matrix.len();
+        let n = matrix[0].len();
+        let mut rows = vec![false; m];
+        let mut cols = vec![false; n];
+        for i in 0..m {
+            for j in 0..n {
+                if matrix[i][j] == 0 {
+                    rows[i] = true;
+                    cols[j] = true;
+                }
+            }
+        }
+        for i in 0..m {
+            for j in 0..n {
+                if rows[i] || cols[j] {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
+        let m = matrix.len();
+        let n = matrix[0].len();
+        let l0 = {
+            let mut res = false;
+            for j in 0..n {
+                if matrix[0][j] == 0 {
+                    res = true;
+                    break;
+                }
+            }
+            res
+        };
+        let r0 = {
+            let mut res = false;
+            for i in 0..m {
+                if matrix[i][0] == 0 {
+                    res = true;
+                    break;
+                }
+            }
+            res
+        };
+        for i in 0..m {
+            for j in 0..n {
+                if matrix[i][j] == 0 {
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
+                }
+            }
+        }
+        for i in 1..m {
+            for j in 1..n {
+                if matrix[i][0] == 0 || matrix[0][j] == 0 {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        if l0 {
+            for j in 0..n {
+                matrix[0][j] = 0;
+            }
+        }
+        if r0 {
+            for i in 0..m {
+                matrix[i][0] = 0;
+            }
+        }
+    }
+}
+```
+
 ### **...**
 
 ```
