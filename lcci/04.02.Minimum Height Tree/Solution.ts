@@ -13,12 +13,12 @@
  */
 
 function sortedArrayToBST(nums: number[]): TreeNode | null {
-    const dfs = (start: number, end: number): TreeNode | null => {
-        if (start >= end) {
+    const dfs = (l: number, r: number): TreeNode | null => {
+        if (l > r) {
             return null;
         }
-        const mid = Math.floor(start + (end - start) / 2);
-        return new TreeNode(nums[mid], dfs(start, mid), dfs(mid + 1, end));
+        const mid = (l + r) >> 1;
+        return new TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r));
     };
-    return dfs(0, nums.length);
+    return dfs(0, nums.length - 1);
 }

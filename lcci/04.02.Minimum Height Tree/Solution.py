@@ -5,18 +5,12 @@
 #         self.left = None
 #         self.right = None
 
-
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
-        def dfs(i, j):
-            if i > j:
+        def dfs(l, r):
+            if l > r:
                 return None
-            if i == j:
-                return TreeNode(nums[i])
-            mid = (i + j) >> 1
-            node = TreeNode(nums[mid])
-            node.left = dfs(i, mid - 1)
-            node.right = dfs(mid + 1, j)
-            return node
+            mid = (l + r) >> 1
+            return TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r))
 
         return dfs(0, len(nums) - 1)

@@ -9,20 +9,12 @@
  */
 class Solution {
 public:
-    vector<int> nums;
-
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        this->nums = nums;
+        function<TreeNode*(int, int)> dfs = [&](int l, int r) -> TreeNode* {
+            if (l > r) return nullptr;
+            int mid = l + r >> 1;
+            return new TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r));
+        };
         return dfs(0, nums.size() - 1);
-    }
-
-    TreeNode* dfs(int i, int j) {
-        if (i > j) return nullptr;
-        if (i == j) return new TreeNode(nums[i]);
-        int mid = i + j >> 1;
-        TreeNode* node = new TreeNode(nums[mid]);
-        node->left = dfs(i, mid - 1);
-        node->right = dfs(mid + 1, j);
-        return node;
     }
 };

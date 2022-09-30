@@ -7,16 +7,13 @@
  * }
  */
 func sortedArrayToBST(nums []int) *TreeNode {
-	var dfs func(i, j int) *TreeNode
-	dfs = func(i, j int) *TreeNode {
-		if i > j {
+	var dfs func(int, int) *TreeNode
+	dfs = func(l, r int) *TreeNode {
+		if l > r {
 			return nil
 		}
-		if i == j {
-			return &TreeNode{Val: nums[i]}
-		}
-		mid := (i + j) >> 1
-		return &TreeNode{Val: nums[mid], Left: dfs(i, mid-1), Right: dfs(mid+1, j)}
+		mid := (l + r) >> 1
+		return &TreeNode{nums[mid], dfs(l, mid-1), dfs(mid+1, r)}
 	}
 
 	return dfs(0, len(nums)-1)
