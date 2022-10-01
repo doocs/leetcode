@@ -62,45 +62,27 @@ myQueue.empty(); // return false
 ```python
 class MyQueue:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.s1 = []
-        self.s2 = []
+        self.stk1 = []
+        self.stk2 = []
 
     def push(self, x: int) -> None:
-        """
-        Push element x to the back of queue.
-        """
-        self.s1.append(x)
+        self.stk1.append(x)
 
     def pop(self) -> int:
-        """
-        Removes the element from in front of queue and returns that element.
-        """
-        self._move()
-        return self.s2.pop()
+        self.move()
+        return self.stk2.pop()
 
     def peek(self) -> int:
-        """
-        Get the front element.
-        """
-        self._move()
-        return self.s2[-1]
+        self.move()
+        return self.stk2[-1]
 
     def empty(self) -> bool:
-        """
-        Returns whether the queue is empty.
-        """
-        return len(self.s1) + len(self.s2) == 0
+        return not self.stk1 and not self.stk2
 
-    def _move(self):
-        """
-        Move elements from s1 to s2.
-        """
-        if len(self.s2) == 0:
-            while len(self.s1) > 0:
-                self.s2.append(self.s1.pop())
+    def move(self):
+        if not self.stk2:
+            while self.stk1:
+                self.stk2.append(self.stk1.pop())
 
 
 # Your MyQueue object will be instantiated and called as such:
@@ -115,41 +97,35 @@ class MyQueue:
 
 ```java
 class MyQueue {
+    private Deque<Integer> stk1 = new ArrayDeque<>();
+    private Deque<Integer> stk2 = new ArrayDeque<>();
 
-    private Deque<Integer> s1 = new ArrayDeque<>();
-    private Deque<Integer> s2 = new ArrayDeque<>();
-
-    /** Initialize your data structure here. */
     public MyQueue() {
-    }
 
-    /** Push element x to the back of queue. */
+    }
+    
     public void push(int x) {
-        s1.push(x);
+        stk1.push(x);
     }
-
-    /** Removes the element from in front of queue and returns that element. */
+    
     public int pop() {
         move();
-        return s2.pop();
+        return stk2.pop();
     }
-
-    /** Get the front element. */
+    
     public int peek() {
         move();
-        return s2.peek();
+        return stk2.peek();
     }
-
-    /** Returns whether the queue is empty. */
+    
     public boolean empty() {
-        return s1.isEmpty() && s2.isEmpty();
+        return stk1.isEmpty() && stk2.isEmpty();
     }
 
-    /** Move elements from s1 to s2. */
     private void move() {
-        if (s2.isEmpty()) {
-            while (!s1.isEmpty()) {
-                s2.push(s1.pop());
+        while (stk2.isEmpty()) {
+            while (!stk1.isEmpty()) {
+                stk2.push(stk1.pop());
             }
         }
     }
@@ -165,41 +141,145 @@ class MyQueue {
  */
 ```
 
+### **C++**
+
+```cpp
+class MyQueue {
+public:
+    MyQueue() {
+    }
+
+    void push(int x) {
+        stk1.push(x);
+    }
+
+    int pop() {
+        move();
+        int ans = stk2.top();
+        stk2.pop();
+        return ans;
+    }
+
+    int peek() {
+        move();
+        return stk2.top();
+    }
+
+    bool empty() {
+        return stk1.empty() && stk2.empty();
+    }
+
+private:
+    stack<int> stk1;
+    stack<int> stk2;
+
+    void move() {
+        if (stk2.empty()) {
+            while (!stk1.empty()) {
+                stk2.push(stk1.top());
+                stk1.pop();
+            }
+        }
+    }
+};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
+```
+
+### **Go**
+
+```go
+type MyQueue struct {
+	stk1 []int
+	stk2 []int
+}
+
+func Constructor() MyQueue {
+	return MyQueue{[]int{}, []int{}}
+}
+
+func (this *MyQueue) Push(x int) {
+	this.stk1 = append(this.stk1, x)
+}
+
+func (this *MyQueue) Pop() int {
+	this.move()
+	ans := this.stk2[len(this.stk2)-1]
+	this.stk2 = this.stk2[:len(this.stk2)-1]
+	return ans
+}
+
+func (this *MyQueue) Peek() int {
+	this.move()
+	return this.stk2[len(this.stk2)-1]
+}
+
+func (this *MyQueue) Empty() bool {
+	return len(this.stk1) == 0 && len(this.stk2) == 0
+}
+
+func (this *MyQueue) move() {
+	if len(this.stk2) == 0 {
+		for len(this.stk1) > 0 {
+			this.stk2 = append(this.stk2, this.stk1[len(this.stk1)-1])
+			this.stk1 = this.stk1[:len(this.stk1)-1]
+		}
+	}
+}
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Push(x);
+ * param_2 := obj.Pop();
+ * param_3 := obj.Peek();
+ * param_4 := obj.Empty();
+ */
+```
+
 ### **TypeScript**
 
 ```ts
 class MyQueue {
-    stack1: number[];
-    stack2: number[];
+    stk1: number[];
+    stk2: number[];
+
     constructor() {
-        this.stack1 = [];
-        this.stack2 = [];
+        this.stk1 = [];
+        this.stk2 = [];
     }
 
     push(x: number): void {
-        this.stack1.push(x);
+        this.stk1.push(x);
     }
 
     pop(): number {
-        if (!this.stack2.length) {
-            while (this.stack1.length) {
-                this.stack2.push(this.stack1.pop());
-            }
-        }
-        return this.stack2.pop();
+        this.move();
+        return this.stk2.pop();
     }
 
     peek(): number {
-        if (!this.stack2.length) {
-            while (this.stack1.length) {
-                this.stack2.push(this.stack1.pop());
-            }
-        }
-        return this.stack2[this.stack2.length - 1];
+        this.move();
+        return this.stk2[this.stk2.length - 1];
     }
 
     empty(): boolean {
-        return !this.stack1.length && !this.stack2.length;
+        return !this.stk1.length && !this.stk2.length;
+    }
+
+    move(): void {
+        if (!this.stk2.length) {
+            while (this.stk1.length) {
+                this.stk2.push(this.stk1.pop());
+            }
+        }
     }
 }
 

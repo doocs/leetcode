@@ -10,8 +10,7 @@ class Solution:
         city, n = 0, len(buildings)
         for line in lines:
             while city < n and buildings[city][0] <= line:
-                pq.put([-buildings[city][2], buildings[city]
-                       [0], buildings[city][1]])
+                pq.put([-buildings[city][2], buildings[city][0], buildings[city][1]])
                 city += 1
             while not pq.empty() and pq.queue[0][2] <= line:
                 pq.get()

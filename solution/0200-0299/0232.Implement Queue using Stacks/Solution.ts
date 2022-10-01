@@ -1,35 +1,36 @@
 class MyQueue {
-    stack1: number[];
-    stack2: number[];
+    stk1: number[];
+    stk2: number[];
+
     constructor() {
-        this.stack1 = [];
-        this.stack2 = [];
+        this.stk1 = [];
+        this.stk2 = [];
     }
 
     push(x: number): void {
-        this.stack1.push(x);
+        this.stk1.push(x);
     }
 
     pop(): number {
-        if (!this.stack2.length) {
-            while (this.stack1.length) {
-                this.stack2.push(this.stack1.pop());
-            }
-        }
-        return this.stack2.pop();
+        this.move();
+        return this.stk2.pop();
     }
 
     peek(): number {
-        if (!this.stack2.length) {
-            while (this.stack1.length) {
-                this.stack2.push(this.stack1.pop());
-            }
-        }
-        return this.stack2[this.stack2.length - 1];
+        this.move();
+        return this.stk2[this.stk2.length - 1];
     }
 
     empty(): boolean {
-        return !this.stack1.length && !this.stack2.length;
+        return !this.stk1.length && !this.stk2.length;
+    }
+
+    move(): void {
+        if (!this.stk2.length) {
+            while (this.stk1.length) {
+                this.stk2.push(this.stk1.pop());
+            }
+        }
     }
 }
 
