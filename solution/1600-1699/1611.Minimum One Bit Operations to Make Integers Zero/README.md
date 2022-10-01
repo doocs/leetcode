@@ -51,6 +51,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+通过找规律可以发现动态规划转移方程如下：
+
+dp[n] = dp[2<sup>k</sup>] - dp[n-2<sup>k</sup>]
+
+其中 dp[2<sup>k</sup>] = 2<sup>k+1</sup>-1。k 表示小于等于 n 的最大的 2 的整数次幂的位数，即 2<sup>k</sup> 是小于等于 n 的最大的 2 的整数次幂。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,15 +64,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumOneBitOperations(self, n: int) -> int:
+        if n <= 1:
+            return n
+        for i in range(64):
+            if (n >> i) == 1:
+                base = 1 << i
+                break
+        return 2*base-1 - self.minimumOneBitOperations(n-base)
 ```
 
-### **Java**
+### **Go**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```java
-
+```go
+func minimumOneBitOperations(n int) int {
+	if n <= 1 {
+		return n
+	}
+	base := 0
+	for i := 0; i < 64; i++ {
+		if (n >> i) == 1 {
+			base = 1 << i
+			break
+		}
+	}
+	return (base << 1) - 1 - minimumOneBitOperations(n-base)
+}
 ```
 
 ### **...**
