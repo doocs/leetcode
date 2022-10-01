@@ -1,23 +1,21 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        num, n = 0, len(s)
-        pre_sign = '+'
-        stack = []
-        for i in range(n):
-            if s[i].isdigit():
-                num = num * 10 + int(s[i])
-            if i == n - 1 or (not s[i].isdigit() and s[i] != ' '):
-                if pre_sign == '+':
-                    stack.append(num)
-                elif pre_sign == '-':
-                    stack.append(-num)
-                elif pre_sign == '*':
-                    stack.append(stack.pop() * num)
-                else:
-                    stack.append(int(stack.pop() / num))
-                pre_sign = s[i]
-                num = 0
-        res = 0
-        while stack:
-            res += stack.pop()
-        return res
+        v, n = 0, len(s)
+        sign = '+'
+        stk = []
+        for i, c in enumerate(s):
+            if c.isdigit():
+                v = v * 10 + int(c)
+            if i == n - 1 or c in '+-*/':
+                match sign:
+                    case '+':
+                        stk.append(v)
+                    case '-':
+                        stk.append(-v)
+                    case '*':
+                        stk.append(stk.pop() * v)
+                    case '/':
+                        stk.append(int(stk.pop() / v))
+                sign = c
+                v = 0
+        return sum(stk)

@@ -1,36 +1,31 @@
 class Solution {
     public int calculate(String s) {
-        int num = 0;
-        char preSign = '+';
-        Deque<Integer> stack = new ArrayDeque<>();
-        for (int i = 0, n = s.length(); i < n; ++i) {
-            if (Character.isDigit(s.charAt(i))) {
-                num = num * 10 + (s.charAt(i) - '0');
+        Deque<Integer> stk = new ArrayDeque<>();
+        char sign = '+';
+        int v = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                v = v * 10 + (c - '0');
             }
-            if (i == n - 1 || (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ')) {
-                switch (preSign) {
-                case '+':
-                    stack.push(num);
-                    break;
-                case '-':
-                    stack.push(-num);
-                    break;
-                case '*':
-                    stack.push(stack.pop() * num);
-                    break;
-                case '/':
-                    stack.push(stack.pop() / num);
-                    break;
+            if (i == s.length() - 1 || c == '+' || c == '-' || c == '*' || c == '/') {
+                if (sign == '+') {
+                    stk.push(v);
+                } else if (sign == '-') {
+                    stk.push(-v);
+                } else if (sign == '*') {
+                    stk.push(stk.pop() * v);
+                } else {
+                    stk.push(stk.pop() / v);
                 }
-                preSign = s.charAt(i);
-                num = 0;
+                sign = c;
+                v = 0;
             }
         }
-
-        int res = 0;
-        while (!stack.isEmpty()) {
-            res += stack.pop();
+        int ans = 0;
+        while (!stk.isEmpty()) {
+            ans += stk.pop();
         }
-        return res;
+        return ans;
     }
 }

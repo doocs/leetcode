@@ -43,27 +43,25 @@
 ```python
 class Solution:
     def calculate(self, s: str) -> int:
-        num, n = 0, len(s)
-        pre_sign = '+'
-        stack = []
-        for i in range(n):
-            if s[i].isdigit():
-                num = num * 10 + int(s[i])
-            if i == n - 1 or (not s[i].isdigit() and s[i] != ' '):
-                if pre_sign == '+':
-                    stack.append(num)
-                elif pre_sign == '-':
-                    stack.append(-num)
-                elif pre_sign == '*':
-                    stack.append(stack.pop() * num)
-                else:
-                    stack.append(int(stack.pop() / num))
-                pre_sign = s[i]
-                num = 0
-        res = 0
-        while stack:
-            res += stack.pop()
-        return res
+        v, n = 0, len(s)
+        sign = '+'
+        stk = []
+        for i, c in enumerate(s):
+            if c.isdigit():
+                v = v * 10 + int(c)
+            if i == n - 1 or c in '+-*/':
+                match sign:
+                    case '+':
+                        stk.append(v)
+                    case '-':
+                        stk.append(-v)
+                    case '*':
+                        stk.append(stk.pop() * v)
+                    case '/':
+                        stk.append(int(stk.pop() / v))
+                sign = c
+                v = 0
+        return sum(stk)
 ```
 
 ### **Java**
@@ -71,39 +69,107 @@ class Solution:
 ```java
 class Solution {
     public int calculate(String s) {
-        int num = 0;
-        char preSign = '+';
-        Deque<Integer> stack = new ArrayDeque<>();
-        for (int i = 0, n = s.length(); i < n; ++i) {
-            if (Character.isDigit(s.charAt(i))) {
-                num = num * 10 + (s.charAt(i) - '0');
+        Deque<Integer> stk = new ArrayDeque<>();
+        char sign = '+';
+        int v = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                v = v * 10 + (c - '0');
             }
-            if (i == n - 1 || (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ')) {
-                switch (preSign) {
-                case '+':
-                    stack.push(num);
-                    break;
-                case '-':
-                    stack.push(-num);
-                    break;
-                case '*':
-                    stack.push(stack.pop() * num);
-                    break;
-                case '/':
-                    stack.push(stack.pop() / num);
-                    break;
+            if (i == s.length() - 1 || c == '+' || c == '-' || c == '*' || c == '/') {
+                if (sign == '+') {
+                    stk.push(v);
+                } else if (sign == '-') {
+                    stk.push(-v);
+                } else if (sign == '*') {
+                    stk.push(stk.pop() * v);
+                } else {
+                    stk.push(stk.pop() / v);
                 }
-                preSign = s.charAt(i);
-                num = 0;
+                sign = c;
+                v = 0;
             }
         }
-
-        int res = 0;
-        while (!stack.isEmpty()) {
-            res += stack.pop();
+        int ans = 0;
+        while (!stk.isEmpty()) {
+            ans += stk.pop();
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int calculate(string s) {
+        int v = 0, n = s.size();
+        char sign = '+';
+        stack<int> stk;
+        for (int i = 0; i < n; ++i) {
+            char c = s[i];
+            if (isdigit(c)) v = v * 10 + (c - '0');
+            if (i == n - 1 || c == '+' || c == '-' || c == '*' || c == '/') {
+                if (sign == '+') stk.push(v);
+                else if (sign == '-') stk.push(-v);
+                else if (sign == '*') {
+                    int t = stk.top();
+                    stk.pop();
+                    stk.push(t * v);
+                } else {
+                    int t = stk.top();
+                    stk.pop();
+                    stk.push(t / v);
+                }
+                sign = c;
+                v = 0;
+            }
+        }
+        int ans = 0;
+        while (!stk.empty()) {
+            ans += stk.top();
+            stk.pop();
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func calculate(s string) int {
+	sign := '+'
+	stk := []int{}
+	v := 0
+	for i, c := range s {
+		digit := '0' <= c && c <= '9'
+		if digit {
+			v = v*10 + int(c-'0')
+		}
+		if i == len(s)-1 || !digit && c != ' ' {
+			switch sign {
+			case '+':
+				stk = append(stk, v)
+			case '-':
+				stk = append(stk, -v)
+			case '*':
+				stk[len(stk)-1] *= v
+			case '/':
+				stk[len(stk)-1] /= v
+			}
+			sign = c
+			v = 0
+		}
+	}
+	ans := 0
+	for _, v := range stk {
+		ans += v
+	}
+	return ans
 }
 ```
 
