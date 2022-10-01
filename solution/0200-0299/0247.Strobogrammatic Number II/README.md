@@ -37,6 +37,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+若长度为 $1$，则中心对称数只有 $0, 1, 8$；若长度为 $2$，则中心对称数只有 $11, 69, 88, 96$。
+
+我们设计递归函数 $dfs(u)$，其返回长度为 $u$ 的中心对称数。答案为 $dfs(n)$。
+
+若 $u$ 为 $0$，返回包含一个空串的列表，即 `[""]`；若 $u$ 为 $1$，返回列表 `["0", "1", "8"]`。
+
+若 $u$ 大于 $1$，我们对长度为 $u - 2$ 的所有中心对称数进行遍历，对于每个中心对称数 $v$，在其左右两侧分别添加 $1, 8, 6, 9$，即可得到长度为 `u` 的中心对称数。
+
+注意，如果 $u\neq n$，我们还可以在中心对称数的左右两侧分别添加 $0$。
+
+最终，我们将所有长度为 $n$ 的中心对称数返回即可。
+
+时间复杂度为 $O(4\times 2^ n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +69,7 @@ class Solution:
                 return ['0', '1', '8']
             ans = []
             for v in dfs(u - 2):
-                for l, r in [['1', '1'], ['8', '8'], ['6', '9'], ['9', '6']]:
+                for l, r in ('11', '88', '69', '96'):
                     ans.append(l + v + r)
                 if u != n:
                     ans.append('0' + v + '0')
@@ -68,6 +84,7 @@ class Solution:
 
 ```java
 class Solution {
+    private static final int[][] PAIRS = {{1, 1}, {8, 8}, {6, 9}, {9, 6}};
     private int n;
 
     public List<String> findStrobogrammatic(int n) {
@@ -83,13 +100,12 @@ class Solution {
             return Arrays.asList("0", "1", "8");
         }
         List<String> ans = new ArrayList<>();
-        int[][] pairs = new int[][] {{1, 1}, {8, 8}, {6, 9}, {9, 6}};
         for (String v : dfs(u - 2)) {
-            for (int[] p : pairs) {
+            for (var p : PAIRS) {
                 ans.add(p[0] + v + p[1]);
             }
             if (u != n) {
-                ans.add("0" + v + "0");
+                ans.add(0 + v + 0);
             }
         }
         return ans;
@@ -102,22 +118,20 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int n;
-    vector<string> findStrobogrammatic(int n) {
-        this->n = n;
-        return dfs(n);
-    }
+    const vector<pair<char, char>> pairs = {{'1', '1'}, {'8', '8'}, {'6', '9'}, {'9', '6'}};
 
-    vector<string> dfs(int u) {
-        if (u == 0) return {""};
-        if (u == 1) return {"0", "1", "8"};
-        vector<string> ans;
-        vector<vector<char>> pairs = {{'1', '1'}, {'8', '8'}, {'6', '9'}, {'9', '6'}};
-        for (string v : dfs(u - 2)) {
-            for (auto& p : pairs) ans.push_back({p[0] + v + p[1]});
-            if (u != n) ans.push_back('0' + v + '0');
-        }
-        return ans;
+    vector<string> findStrobogrammatic(int n) {
+        function<vector<string>(int)> dfs = [&](int u) {
+            if (u == 0) return vector<string>{""};
+            if (u == 1) return vector<string>{"0", "1", "8"};
+            vector<string> ans;
+            for (auto& v : dfs(u - 2)) {
+                for (auto& [l, r] : pairs) ans.push_back(l + v + r);
+                if (u != n) ans.push_back('0' + v + '0');
+            }
+            return ans;
+        };
+        return dfs(n);
     }
 };
 ```

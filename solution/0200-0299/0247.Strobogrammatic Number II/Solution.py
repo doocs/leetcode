@@ -7,7 +7,7 @@ class Solution:
                 return ['0', '1', '8']
             ans = []
             for v in dfs(u - 2):
-                for l, r in [['1', '1'], ['8', '8'], ['6', '9'], ['9', '6']]:
+                for l, r in ('11', '88', '69', '96'):
                     ans.append(l + v + r)
                 if u != n:
                     ans.append('0' + v + '0')
