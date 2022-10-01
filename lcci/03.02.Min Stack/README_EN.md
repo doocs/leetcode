@@ -73,21 +73,21 @@ class MinStack {
     public MinStack() {
         stk2.push(Integer.MAX_VALUE);
     }
-    
+
     public void push(int x) {
         stk1.push(x);
         stk2.push(Math.min(x, stk2.peek()));
     }
-    
+
     public void pop() {
         stk1.pop();
         stk2.pop();
     }
-    
+
     public int top() {
         return stk1.peek();
     }
-    
+
     public int getMin() {
         return stk2.peek();
     }
@@ -193,7 +193,6 @@ func min(a, b int) int {
  * param_4 := obj.GetMin();
  */
 ```
-
 
 ### **TypeScript**
 
@@ -301,21 +300,21 @@ public class MinStack {
     public MinStack() {
         stk2.Push(int.MaxValue);
     }
-    
+
     public void Push(int x) {
         stk1.Push(x);
         stk2.Push(Math.Min(x, GetMin()));
     }
-    
+
     public void Pop() {
         stk1.Pop();
         stk2.Pop();
     }
-    
+
     public int Top() {
         return stk1.Peek();
     }
-    
+
     public int GetMin() {
         return stk2.Peek();
     }

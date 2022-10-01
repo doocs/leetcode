@@ -22,7 +22,8 @@
 
 <p><strong>示例：</strong></p>
 
-<pre>MyLinkedList linkedList = new MyLinkedList();
+<pre>
+MyLinkedList linkedList = new MyLinkedList();
 linkedList.addAtHead(1);
 linkedList.addAtTail(3);
 linkedList.addAtIndex(1,2);   //链表变为1-&gt; 2-&gt; 3
@@ -36,9 +37,9 @@ linkedList.get(1);            //返回3
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>所有<code>val</code>值都在&nbsp;<code>[1, 1000]</code>&nbsp;之内。</li>
-	<li>操作次数将在&nbsp;&nbsp;<code>[1, 1000]</code>&nbsp;之内。</li>
+	<li><code>0 &lt;= index, val &lt;= 1000</code></li>
 	<li>请不要使用内置的 LinkedList 库。</li>
+	<li><code>get</code>,&nbsp;<code>addAtHead</code>,&nbsp;<code>addAtTail</code>,&nbsp;<code>addAtIndex</code>&nbsp;和&nbsp;<code>deleteAtIndex</code>&nbsp;的操作次数不超过&nbsp;<code>2000</code>。</li>
 </ul>
 
 ## 解法

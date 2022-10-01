@@ -4,11 +4,9 @@
 
 ## Description
 
-<p>Return all <strong>non-negative</strong> integers of length <code>n</code> such that the absolute difference between every two consecutive digits is <code>k</code>.</p>
+<p>Given two integers n and k, return <em>an array of all the integers of length </em><code>n</code><em> where the difference between every two consecutive digits is </em><code>k</code>. You may return the answer in <strong>any order</strong>.</p>
 
-<p>Note that <strong>every</strong> number in the answer <strong>must not</strong> have leading zeros. For example, <code>01</code> has one leading zero and is invalid.</p>
-
-<p>You may return the answer in <strong>any order</strong>.</p>
+<p>Note that the integers should not have leading zeros. Integers as <code>02</code> and <code>043</code> are not allowed.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

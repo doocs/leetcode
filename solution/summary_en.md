@@ -2469,3 +2469,4 @@
   - [2419.Longest Subarray With Maximum Bitwise AND](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md)
   - [2420.Find All Good Indices](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)
   - [2421.Number of Good Paths](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)
+  - [2422.Merge Operations to Turn Array Into a Palindrome](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)

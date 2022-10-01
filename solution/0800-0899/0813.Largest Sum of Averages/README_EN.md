@@ -138,7 +138,7 @@ public:
         double ans = 0;
         for (int j = i; j < n; ++j) {
             double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
-            ans = max(ans, t); 
+            ans = max(ans, t);
         }
         f[i][k] = ans;
         return ans;

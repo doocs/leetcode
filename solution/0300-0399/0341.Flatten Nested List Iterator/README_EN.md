@@ -194,11 +194,11 @@ public:
     NestedIterator(vector<NestedInteger> &nestedList) {
         dfs(nestedList);
     }
-    
+
     int next() {
         return vals[cur++];
     }
-    
+
     bool hasNext() {
         return cur < vals.size();
     }

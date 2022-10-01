@@ -168,7 +168,7 @@ func CheckPermutation(s1 string, s2 string) bool {
  * @param {string} s2
  * @return {boolean}
  */
-var CheckPermutation = function(s1, s2) {
+var CheckPermutation = function (s1, s2) {
     if (s1.length != s2.length) {
         return false;
     }
