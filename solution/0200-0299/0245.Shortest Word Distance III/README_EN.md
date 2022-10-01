@@ -35,23 +35,24 @@
 ```python
 class Solution:
     def shortestWordDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
-        i1 = i2 = -1
-        shortest_distance = len(wordsDict)
-        same = word1 == word2
-        for i in range(len(wordsDict)):
-            if same:
-                if word1 == wordsDict[i]:
-                    if i1 != -1:
-                        shortest_distance = min(shortest_distance, i - i1)
-                    i1 = i
-            else:
-                if word1 == wordsDict[i]:
-                    i1 = i
-                if word2 == wordsDict[i]:
-                    i2 = i
-                if i1 != -1 and i2 != -1:
-                    shortest_distance = min(shortest_distance, abs(i1 - i2))
-        return shortest_distance
+        ans = len(wordsDict)
+        if word1 == word2:
+            j = -1
+            for i, w in enumerate(wordsDict):
+                if w == word1:
+                    if j != -1:
+                        ans = min(ans, i - j)
+                    j = i
+        else:
+            i = j = -1
+            for k, w in enumerate(wordsDict):
+                if w == word1:
+                    i = k
+                if w == word2:
+                    j = k
+                if i != -1 and j != -1:
+                    ans = min(ans, abs(i - j))
+        return ans
 ```
 
 ### **Java**
@@ -59,31 +60,113 @@ class Solution:
 ```java
 class Solution {
     public int shortestWordDistance(String[] wordsDict, String word1, String word2) {
-        int i1 = -1, i2 = -1;
-        int shortestDistance = wordsDict.length;
-        boolean same = word1.equals(word2);
-        for (int i = 0; i < wordsDict.length; ++i) {
-            if (same) {
-                if (word1.equals(wordsDict[i])) {
-                    if (i1 != -1) {
-                        shortestDistance = Math.min(shortestDistance, i - i1);
+        int ans = wordsDict.length;
+        if (word1.equals(word2)) {
+            for (int i = 0, j = -1; i < wordsDict.length; ++i) {
+                if (wordsDict[i].equals(word1)) {
+                    if (j != -1) {
+                        ans = Math.min(ans, i - j);
                     }
-                    i1 = i;
+                    j = i;
                 }
-            } else {
-                if (word1.equals(wordsDict[i])) {
-                    i1 = i;
+            }
+        } else {
+            for (int k = 0, i = -1, j = -1; k < wordsDict.length; ++k) {
+                if (wordsDict[k].equals(word1)) {
+                    i = k;
                 }
-                if (word2.equals(wordsDict[i])) {
-                    i2 = i;
+                if (wordsDict[k].equals(word2)) {
+                    j = k;
                 }
-                if (i1 != -1 && i2 != -1) {
-                    shortestDistance = Math.min(shortestDistance, Math.abs(i1 - i2));
+                if (i != -1 && j != -1) {
+                    ans = Math.min(ans, Math.abs(i - j));
                 }
             }
         }
-        return shortestDistance;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int shortestWordDistance(vector<string>& wordsDict, string word1, string word2) {
+        int n = wordsDict.size();
+        int ans = n;
+        if (word1 == word2) {
+            for (int i = 0, j = -1; i < n; ++i) {
+                if (wordsDict[i] == word1) {
+                    if (j != -1) {
+                        ans = min(ans, i - j);
+                    }
+                    j = i;
+                }
+            }
+        } else {
+            for (int k = 0, i = -1, j = -1; k < n; ++k) {
+                if (wordsDict[k] == word1) {
+                    i = k;
+                }
+                if (wordsDict[k] == word2) {
+                    j = k;
+                }
+                if (i != -1 && j != -1) {
+                    ans = min(ans, abs(i - j));
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shortestWordDistance(wordsDict []string, word1 string, word2 string) int {
+	ans := len(wordsDict)
+	if word1 == word2 {
+		j := -1
+		for i, w := range wordsDict {
+			if w == word1 {
+				if j != -1 {
+					ans = min(ans, i-j)
+				}
+				j = i
+			}
+		}
+	} else {
+		i, j := -1, -1
+		for k, w := range wordsDict {
+			if w == word1 {
+				i = k
+			}
+			if w == word2 {
+				j = k
+			}
+			if i != -1 && j != -1 {
+				ans = min(ans, abs(i-j))
+			}
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 

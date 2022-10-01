@@ -50,24 +50,21 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 ```python
 class WordDistance:
     def __init__(self, wordsDict: List[str]):
-        self.words = {}
-        for i, word in enumerate(wordsDict):
-            indexes = self.words.get(word, [])
-            indexes.append(i)
-            self.words[word] = indexes
+        self.d = defaultdict(list)
+        for i, w in enumerate(wordsDict):
+            self.d[w].append(i)
 
     def shortest(self, word1: str, word2: str) -> int:
-        idx1, idx2 = self.words[word1], self.words[word2]
-        i1 = i2 = 0
-        shortest = inf
-        while i1 < len(idx1) and i2 < len(idx2):
-            shortest = min(shortest, abs(idx1[i1] - idx2[i2]))
-            smaller = idx1[i1] < idx2[i2]
-            if smaller:
-                i1 += 1
+        a, b = self.d[word1], self.d[word2]
+        ans = inf
+        i = j = 0
+        while i < len(a) and j < len(b):
+            ans = min(ans, abs(a[i] - b[j]))
+            if a[i] <= b[j]:
+                i += 1
             else:
-                i2 += 1
-        return shortest
+                j += 1
+        return ans
 
 
 # Your WordDistance object will be instantiated and called as such:
@@ -79,29 +76,27 @@ class WordDistance:
 
 ```java
 class WordDistance {
-    private Map<String, List<Integer>> words;
+    private Map<String, List<Integer>> d = new HashMap<>();
 
     public WordDistance(String[] wordsDict) {
-        words = new HashMap<>();
         for (int i = 0; i < wordsDict.length; ++i) {
-            words.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
+            d.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
         }
     }
-
+    
     public int shortest(String word1, String word2) {
-        List<Integer> idx1 = words.get(word1);
-        List<Integer> idx2 = words.get(word2);
-        int i1 = 0, i2 = 0, shortest = Integer.MAX_VALUE;
-        while (i1 < idx1.size() && i2 < idx2.size()) {
-            shortest = Math.min(shortest, Math.abs(idx1.get(i1) - idx2.get(i2)));
-            boolean smaller = idx1.get(i1) < idx2.get(i2);
-            if (smaller) {
-                ++i1;
+        List<Integer> a = d.get(word1), b = d.get(word2);
+        int ans = 0x3f3f3f3f;
+        int i = 0, j = 0;
+        while (i < a.size() && j < b.size()) {
+            ans = Math.min(ans, Math.abs(a.get(i) - b.get(j)));
+            if (a.get(i) <= b.get(j)) {
+                ++i;
             } else {
-                ++i2;
+                ++j;
             }
         }
-        return shortest;
+        return ans;
     }
 }
 
@@ -109,6 +104,93 @@ class WordDistance {
  * Your WordDistance object will be instantiated and called as such:
  * WordDistance obj = new WordDistance(wordsDict);
  * int param_1 = obj.shortest(word1,word2);
+ */
+```
+
+### **C++**
+
+```cpp
+class WordDistance {
+public:
+    WordDistance(vector<string>& wordsDict) {
+        for (int i = 0; i < wordsDict.size(); ++i) {
+            d[wordsDict[i]].push_back(i);
+        }
+    }
+    
+    int shortest(string word1, string word2) {
+        auto a = d[word1], b = d[word2];
+        int i = 0, j = 0;
+        int ans = INT_MAX;
+        while (i < a.size() && j < b.size()) {
+            ans = min(ans, abs(a[i] - b[j]));
+            if (a[i] <= b[j]) {
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return ans;
+    }
+private:
+    unordered_map<string, vector<int>> d;
+};
+
+/**
+ * Your WordDistance object will be instantiated and called as such:
+ * WordDistance* obj = new WordDistance(wordsDict);
+ * int param_1 = obj->shortest(word1,word2);
+ */
+```
+
+### **Go**
+
+```go
+type WordDistance struct {
+	d map[string][]int
+}
+
+func Constructor(wordsDict []string) WordDistance {
+	d := map[string][]int{}
+	for i, w := range wordsDict {
+		d[w] = append(d[w], i)
+	}
+	return WordDistance{d}
+}
+
+func (this *WordDistance) Shortest(word1 string, word2 string) int {
+	a, b := this.d[word1], this.d[word2]
+	ans := 0x3f3f3f3f
+	i, j := 0, 0
+	for i < len(a) && j < len(b) {
+		ans = min(ans, abs(a[i]-b[j]))
+		if a[i] <= b[j] {
+			i++
+		} else {
+			j++
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+/**
+ * Your WordDistance object will be instantiated and called as such:
+ * obj := Constructor(wordsDict);
+ * param_1 := obj.Shortest(word1,word2);
  */
 ```
 

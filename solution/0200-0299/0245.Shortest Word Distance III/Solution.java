@@ -1,28 +1,28 @@
 class Solution {
     public int shortestWordDistance(String[] wordsDict, String word1, String word2) {
-        int i1 = -1, i2 = -1;
-        int shortestDistance = wordsDict.length;
-        boolean same = word1.equals(word2);
-        for (int i = 0; i < wordsDict.length; ++i) {
-            if (same) {
-                if (word1.equals(wordsDict[i])) {
-                    if (i1 != -1) {
-                        shortestDistance = Math.min(shortestDistance, i - i1);
+        int ans = wordsDict.length;
+        if (word1.equals(word2)) {
+            for (int i = 0, j = -1; i < wordsDict.length; ++i) {
+                if (wordsDict[i].equals(word1)) {
+                    if (j != -1) {
+                        ans = Math.min(ans, i - j);
                     }
-                    i1 = i;
+                    j = i;
                 }
-            } else {
-                if (word1.equals(wordsDict[i])) {
-                    i1 = i;
+            }
+        } else {
+            for (int k = 0, i = -1, j = -1; k < wordsDict.length; ++k) {
+                if (wordsDict[k].equals(word1)) {
+                    i = k;
                 }
-                if (word2.equals(wordsDict[i])) {
-                    i2 = i;
+                if (wordsDict[k].equals(word2)) {
+                    j = k;
                 }
-                if (i1 != -1 && i2 != -1) {
-                    shortestDistance = Math.min(shortestDistance, Math.abs(i1 - i2));
+                if (i != -1 && j != -1) {
+                    ans = Math.min(ans, Math.abs(i - j));
                 }
             }
         }
-        return shortestDistance;
+        return ans;
     }
 }

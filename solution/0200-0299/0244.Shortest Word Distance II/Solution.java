@@ -1,27 +1,25 @@
 class WordDistance {
-    private Map<String, List<Integer>> words;
+    private Map<String, List<Integer>> d = new HashMap<>();
 
     public WordDistance(String[] wordsDict) {
-        words = new HashMap<>();
         for (int i = 0; i < wordsDict.length; ++i) {
-            words.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
+            d.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
         }
     }
-
+    
     public int shortest(String word1, String word2) {
-        List<Integer> idx1 = words.get(word1);
-        List<Integer> idx2 = words.get(word2);
-        int i1 = 0, i2 = 0, shortest = Integer.MAX_VALUE;
-        while (i1 < idx1.size() && i2 < idx2.size()) {
-            shortest = Math.min(shortest, Math.abs(idx1.get(i1) - idx2.get(i2)));
-            boolean smaller = idx1.get(i1) < idx2.get(i2);
-            if (smaller) {
-                ++i1;
+        List<Integer> a = d.get(word1), b = d.get(word2);
+        int ans = 0x3f3f3f3f;
+        int i = 0, j = 0;
+        while (i < a.size() && j < b.size()) {
+            ans = Math.min(ans, Math.abs(a.get(i) - b.get(j)));
+            if (a.get(i) <= b.get(j)) {
+                ++i;
             } else {
-                ++i2;
+                ++j;
             }
         }
-        return shortest;
+        return ans;
     }
 }
 

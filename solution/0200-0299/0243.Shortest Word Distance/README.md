@@ -39,7 +39,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-用两个指针 `i1`, `i2` 保存 `word1` 和 `word2` 最近出现的位置，然后每次计算距离 `Math.abs(i1 - i2)` 是否比此前的记录更小，是则更新最短距离。
+**方法一：双指针**
+
+遍历数组 `wordsDict`，找到 `word1` 和 `word2` 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `wordsDict` 的长度。
 
 <!-- tabs:start -->
 
@@ -50,16 +54,16 @@
 ```python
 class Solution:
     def shortestDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
-        i1 = i2 = -1
-        shortest_distance = len(wordsDict)
-        for i in range(len(wordsDict)):
-            if wordsDict[i] == word1:
-                i1 = i
-            elif wordsDict[i] == word2:
-                i2 = i
-            if i1 != -1 and i2 != -1:
-                shortest_distance = min(shortest_distance, abs(i1 - i2))
-        return shortest_distance
+        i = j = -1
+        ans = inf
+        for k, w in enumerate(wordsDict):
+            if w == word1:
+                i = k
+            if w == word2:
+                j = k
+            if i != -1 and j != -1:
+                ans = min(ans, abs(i - j))
+        return ans
 ```
 
 ### **Java**
@@ -69,34 +73,78 @@ class Solution:
 ```java
 class Solution {
     public int shortestDistance(String[] wordsDict, String word1, String word2) {
-        int i1 = -1, i2 = -1;
-        int shortestDistance = wordsDict.length;
-        for (int i = 0; i < wordsDict.length; ++i) {
-            if (word1.equals(wordsDict[i])) {
-                i1 = i;
-            } else if (word2.equals(wordsDict[i])) {
-                i2 = i;
+        int ans = 0x3f3f3f3f;
+        for (int k = 0, i = -1, j = -1; k < wordsDict.length; ++k) {
+            if (wordsDict[k].equals(word1)) {
+                i = k;
             }
-            if (i1 != -1 && i2 != -1) {
-                shortestDistance = Math.min(shortestDistance, Math.abs(i1 - i2));
+            if (wordsDict[k].equals(word2)) {
+                j = k;
+            }
+            if (i != -1 && j != -1) {
+                ans = Math.min(ans, Math.abs(i - j));
             }
         }
-        return shortestDistance;
+        return ans;
     }
 }
 ```
 
-### **TypeScript**
+### **C++**
 
-```ts
-function integerBreak(n: number): number {
-    let dp = new Array(n + 1).fill(1);
-    for (let i = 3; i <= n; i++) {
-        for (let j = 1; j < i; j++) {
-            dp[i] = Math.max(dp[i], j * (i - j), j * dp[i - j]);
+```cpp
+class Solution {
+public:
+    int shortestDistance(vector<string>& wordsDict, string word1, string word2) {
+        int ans = INT_MAX;
+        for (int k = 0, i = -1, j = -1; k < wordsDict.size(); ++k) {
+            if (wordsDict[k] == word1) {
+                i = k;
+            }
+            if (wordsDict[k] == word2) {
+                j = k;
+            }
+            if (i != -1 && j != -1) {
+                ans = min(ans, abs(i - j));
+            }
         }
+        return ans;
     }
-    return dp.pop();
+};
+```
+
+### **Go**
+
+```go
+func shortestDistance(wordsDict []string, word1 string, word2 string) int {
+	ans := 0x3f3f3f3f
+	i, j := -1, -1
+	for k, w := range wordsDict {
+		if w == word1 {
+			i = k
+		}
+		if w == word2 {
+			j = k
+		}
+		if i != -1 && j != -1 {
+			ans = min(ans, abs(i-j))
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 
