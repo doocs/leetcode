@@ -51,7 +51,9 @@
 
 最终，我们将所有长度为 $n$ 的中心对称数返回即可。
 
-时间复杂度为 $O(4\times 2^ n)$。
+时间复杂度为 $O(2^{n+2})$。
+
+相似题目：[248. 中心对称数 III](/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README.md)
 
 <!-- tabs:start -->
 
