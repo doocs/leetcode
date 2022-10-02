@@ -65,30 +65,14 @@ distanceLimitedPathsExist.query(0, 5, 6); // return false. There are no paths fr
 <p><code><strong>Constraints:</strong></code></p>
 
 <ul>
-
     <li><code>2 &lt;= n &lt;= 10<sup>4</sup></code></li>
-
-
     <li><code>0 &lt;= edgeList.length &lt;= 10<sup>4</sup></code></li>
-
-
     <li><code>edgeList[i].length == 3</code></li>
-
-
     <li><code>0 &lt;= u<sub>i</sub>, v<sub>i</sub>, p, q &lt;= n-1</code></li>
-
-
     <li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
-
-
     <li><code>p != q</code></li>
-
-
     <li><code>1 &lt;= dis<sub>i</sub>, limit &lt;= 10<sup>9</sup></code></li>
-
-
     <li>At most&nbsp;<code>10<sup>4</sup></code> calls will be made to <code>query</code>.</li>
-
 </ul>
 
 ## Solutions

@@ -17,7 +17,6 @@
     </ul>
     </li>
     <li><code>int length()</code>：返回数组的长度。</li>
-
 </ul>
 
 <p>你最多可以调用函数&nbsp;<code>compareSub()</code>&nbsp;<strong>20 次</strong>。你可以认为这两个函数的时间复杂度都为&nbsp;<code>O(1)</code>&nbsp;。</p>

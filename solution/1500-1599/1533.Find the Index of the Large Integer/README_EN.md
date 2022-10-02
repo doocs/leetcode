@@ -15,7 +15,6 @@
     </ul>
     </li>
     <li><code>int length()</code>: Returns the size of the array.</li>
-
 </ul>
 
 <p>You are allowed to call <code>compareSub()</code> <b>20 times</b> at most. You can assume both functions work in <code>O(1)</code> time.</p>

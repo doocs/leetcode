@@ -16,14 +16,12 @@
 
 <ul>
 	<li>A coordinate <code>(x1, y1)</code> is lexicographically smaller than <code>(x2, y2)</code> if either:
-
     <ul>
     	<li><code>x1 &lt; x2</code>, or</li>
     	<li><code>x1 == x2</code> and <code>y1 &lt; y2</code>.</li>
     </ul>
     </li>
     <li><code>&lfloor;val&rfloor;</code> is the greatest integer less than or equal to <code>val</code> (the floor function).</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -50,9 +50,7 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 
 <ul>
     <li><code>4 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-
 </ul>
 
 ## Solutions

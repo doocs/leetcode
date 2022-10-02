@@ -69,15 +69,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= flowers.length &lt;= 10<sup>5</sup></code></li>
-
-
     <li><code>-10<sup>4</sup> &lt;= flowers[i] &lt;= 10<sup>4</sup></code></li>
-
-
     <li>It is possible to create a valid garden by removing some (possibly none) flowers.</li>
-
 </ul>
 
 ## Solutions

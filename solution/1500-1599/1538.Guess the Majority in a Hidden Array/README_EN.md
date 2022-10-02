@@ -15,7 +15,6 @@
     </ul>
     </li>
     <li><code>int length()</code>: Returns the size of the array.</li>
-
 </ul>
 
 <p>You are allowed to call <code>query()</code> <b>2 * n times</b> at most where n is equal to <code>ArrayReader.length()</code>.</p>

@@ -17,7 +17,6 @@
     </ul>
     </li>
     <li><code>int length()</code>：返回数组的长度。</li>
-
 </ul>
 
 <p>你可以调用&nbsp;<code>query()</code>&nbsp;最多&nbsp;<strong>2 * n 次</strong>，其中 n 等于&nbsp;<code>ArrayReader.length()</code>。</p>

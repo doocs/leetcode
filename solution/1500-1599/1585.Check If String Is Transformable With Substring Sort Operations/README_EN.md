@@ -8,12 +8,10 @@
 
 <ul>
 	<li>Choose a <strong>non-empty</strong> substring in <code>s</code> and sort it in place so the characters are in <strong>ascending order</strong>.
-
     <ul>
     	<li>For example, applying the operation on the underlined substring in <code>&quot;1<u>4234</u>&quot;</code> results in <code>&quot;1<u>2344</u>&quot;</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <code>true</code> if <em>it is possible to transform <code>s</code> into <code>t</code></em>. Otherwise, return <code>false</code>.</p>

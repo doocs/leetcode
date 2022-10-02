@@ -100,11 +100,8 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= instructions.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= instructions[i] &lt;= 10<sup>5</sup></code></li>
-
 </ul>
 
 ## Solutions

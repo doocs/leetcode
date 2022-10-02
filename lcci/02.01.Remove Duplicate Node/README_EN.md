@@ -31,7 +31,6 @@
 <ol>
 	<li>The length of the list is within the range[0, 20000].</li>
     <li>The values of the list elements are within the range [0, 20000].</li>
-
 </ol>
 
 <p><strong>Follow Up: </strong></p>
