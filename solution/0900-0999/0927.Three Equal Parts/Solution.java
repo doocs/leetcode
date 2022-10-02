@@ -1,40 +1,35 @@
 class Solution {
+    private int[] arr;
+
     public int[] threeEqualParts(int[] arr) {
+        this.arr = arr;
+        int cnt = 0;
         int n = arr.length;
-        int cnt1 = 0;
         for (int v : arr) {
-            cnt1 += v;
+            cnt += v;
         }
-        int cnt = cnt1 / 3;
-        int mod = cnt1 % 3;
-        if (mod != 0) {
-            return new int[] {-1, -1};
+        if (cnt % 3 != 0) {
+            return new int[]{-1, -1};
         }
         if (cnt == 0) {
-            return new int[] {0, n - 1};
+            return new int[]{0, n - 1};
         }
-        int i = find(arr, 1);
-        int j = find(arr, cnt + 1);
-        int k = find(arr, cnt * 2 + 1);
-        while (k < n && arr[i] == arr[j] && arr[j] == arr[k]) {
-            ++i;
-            ++j;
-            ++k;
+        cnt /= 3;
+
+        int i = find(1), j = find(cnt + 1), k = find(cnt * 2 + 1);
+        for (; k < n && arr[i] == arr[j] && arr[j] == arr[k]; ++i, ++j, ++k) {
         }
-        if (k == n) {
-            return new int[] {i - 1, j};
-        }
-        return new int[] {-1, -1};
+        return k == n ? new int[]{i - 1, j} : new int[]{-1, -1};
     }
 
-    private int find(int[] arr, int cnt) {
+    private int find(int x) {
         int s = 0;
         for (int i = 0; i < arr.length; ++i) {
             s += arr[i];
-            if (s == cnt) {
+            if (s == x) {
                 return i;
             }
         }
-        return -1;
+        return 0;
     }
 }

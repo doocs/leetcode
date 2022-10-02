@@ -47,13 +47,12 @@
 ```python
 class Solution:
     def threeEqualParts(self, arr: List[int]) -> List[int]:
-        def find(cnt):
+        def find(x):
             s = 0
             for i, v in enumerate(arr):
                 s += v
-                if s == cnt:
+                if s == x:
                     return i
-            return -1
 
         n = len(arr)
         cnt, mod = divmod(sum(arr), 3)
@@ -61,57 +60,49 @@ class Solution:
             return [-1, -1]
         if cnt == 0:
             return [0, n - 1]
-        i = find(1)
-        j = find(cnt + 1)
-        k = find(cnt * 2 + 1)
+
+        i, j, k = find(1), find(cnt + 1), find(cnt * 2 + 1)
         while k < n and arr[i] == arr[j] == arr[k]:
             i, j, k = i + 1, j + 1, k + 1
-        if k == n:
-            return [i - 1, j]
-        return [-1, -1]
+        return [i - 1, j] if k == n else [-1, -1]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private int[] arr;
+
     public int[] threeEqualParts(int[] arr) {
+        this.arr = arr;
+        int cnt = 0;
         int n = arr.length;
-        int cnt1 = 0;
         for (int v : arr) {
-            cnt1 += v;
+            cnt += v;
         }
-        int cnt = cnt1 / 3;
-        int mod = cnt1 % 3;
-        if (mod != 0) {
-            return new int[] {-1, -1};
+        if (cnt % 3 != 0) {
+            return new int[]{-1, -1};
         }
         if (cnt == 0) {
-            return new int[] {0, n - 1};
+            return new int[]{0, n - 1};
         }
-        int i = find(arr, 1);
-        int j = find(arr, cnt + 1);
-        int k = find(arr, cnt * 2 + 1);
-        while (k < n && arr[i] == arr[j] && arr[j] == arr[k]) {
-            ++i;
-            ++j;
-            ++k;
+        cnt /= 3;
+
+        int i = find(1), j = find(cnt + 1), k = find(cnt * 2 + 1);
+        for (; k < n && arr[i] == arr[j] && arr[j] == arr[k]; ++i, ++j, ++k) {
         }
-        if (k == n) {
-            return new int[] {i - 1, j};
-        }
-        return new int[] {-1, -1};
+        return k == n ? new int[]{i - 1, j} : new int[]{-1, -1};
     }
 
-    private int find(int[] arr, int cnt) {
+    private int find(int x) {
         int s = 0;
         for (int i = 0; i < arr.length; ++i) {
             s += arr[i];
-            if (s == cnt) {
+            if (s == x) {
                 return i;
             }
         }
-        return -1;
+        return 0;
     }
 }
 ```
@@ -123,30 +114,22 @@ class Solution {
 public:
     vector<int> threeEqualParts(vector<int>& arr) {
         int n = arr.size();
-        int cnt1 = accumulate(arr.begin(), arr.end(), 0);
-        int cnt = cnt1 / 3;
-        int mod = cnt1 % 3;
-        if (mod) return {-1, -1};
-        if (cnt == 0) return {0, n - 1};
-        int i = find(arr, 1);
-        int j = find(arr, cnt + 1);
-        int k = find(arr, cnt * 2 + 1);
-        while (k < n && arr[i] == arr[j] && arr[j] == arr[k]) {
-            ++i;
-            ++j;
-            ++k;
-        }
-        if (k == n) return {i - 1, j};
-        return {-1, -1};
-    }
+        int cnt = accumulate(arr.begin(), arr.end(), 0);
+        if (cnt % 3) return {-1, -1};
+        if (!cnt) return {0, n - 1};
+        cnt /= 3;
 
-    int find(vector<int>& arr, int cnt) {
-        int s = 0;
-        for (int i = 0; i < arr.size(); ++i) {
-            s += arr[i];
-            if (s == cnt) return i;
-        }
-        return -1;
+        auto find = [&](int x) {
+            int s = 0;
+            for (int i = 0; i < n; ++i) {
+                s += arr[i];
+                if (s == x) return i;
+            }
+            return 0;
+        };
+        int i = find(1), j = find(cnt + 1), k = find(cnt * 2 + 1);
+        for (; k < n && arr[i] == arr[j] && arr[j] == arr[k]; ++i, ++j, ++k) {}
+        return k == n ? vector<int>{i - 1, j} : vector<int>{-1, -1};
     }
 };
 ```
@@ -155,40 +138,72 @@ public:
 
 ```go
 func threeEqualParts(arr []int) []int {
-	n := len(arr)
-	cnt1 := 0
-	for _, v := range arr {
-		cnt1 += v
+	find := func(x int) int {
+		s := 0
+		for i, v := range arr {
+			s += v
+			if s == x {
+				return i
+			}
+		}
+		return 0
 	}
-	cnt := cnt1 / 3
-	mod := cnt1 % 3
-	if mod != 0 {
+	n := len(arr)
+	cnt := 0
+	for _, v := range arr {
+		cnt += v
+	}
+	if cnt%3 != 0 {
 		return []int{-1, -1}
 	}
 	if cnt == 0 {
 		return []int{0, n - 1}
 	}
-	find := func(cnt int) int {
-		s := 0
-		for i, v := range arr {
-			s += v
-			if s == cnt {
-				return i
-			}
-		}
-		return -1
-	}
+	cnt /= 3
 	i, j, k := find(1), find(cnt+1), find(cnt*2+1)
-	for k < n && arr[i] == arr[j] && arr[j] == arr[k] {
-		i++
-		j++
-		k++
+	for ; k < n && arr[i] == arr[j] && arr[j] == arr[k]; i, j, k = i+1, j+1, k+1 {
 	}
 	if k == n {
 		return []int{i - 1, j}
 	}
 	return []int{-1, -1}
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+var threeEqualParts = function (arr) {
+    function find(x) {
+        let s = 0;
+        for (let i = 0; i < n; ++i) {
+            s += arr[i];
+            if (s == x) {
+                return i;
+            }
+        }
+        return 0;
+    }
+    const n = arr.length;
+    let cnt = 0;
+    for (const v of arr) {
+        cnt += v;
+    }
+    if (cnt % 3) {
+        return [-1, -1];
+    }
+    if (cnt == 0) {
+        return [0, n - 1];
+    }
+    cnt = Math.floor(cnt / 3);
+    let [i, j, k] = [find(1), find(cnt + 1), find(cnt * 2 + 1)];
+    for (; k < n && arr[i] == arr[j] && arr[j] == arr[k]; ++i, ++j, ++k) {}
+    return k == n ? [i - 1, j] : [-1, -1];
+};
 ```
 
 ### **...**
