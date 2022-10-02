@@ -2432,6 +2432,14 @@
 |  2420  |  [找到所有好下标](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md)  |  `数组`,`动态规划`,`前缀和`  |  中等  |  第 312 场周赛  |
 |  2421  |  [好路径的数目](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README.md)  |  `树`,`并查集`,`图`,`数组`  |  困难  |  第 312 场周赛  |
 |  2422  |  [Merge Operations to Turn Array Into a Palindrome](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README.md)  |    |  中等  |  🔒  |
+|  2423  |  [删除字符使频率相同](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README.md)  |    |  简单  |  第 88 场双周赛  |
+|  2424  |  [最长上传前缀](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md)  |    |  中等  |  第 88 场双周赛  |
+|  2425  |  [所有数对的异或和](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README.md)  |    |  中等  |  第 88 场双周赛  |
+|  2426  |  [满足不等式的数对数目](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README.md)  |    |  困难  |  第 88 场双周赛  |
+|  2427  |  [公因子的数目](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)  |    |  简单  |  第 313 场周赛  |
+|  2428  |  [沙漏的最大总和](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README.md)  |    |  中等  |  第 313 场周赛  |
+|  2429  |  [最小 XOR](/solution/2400-2499/2429.Minimize%20XOR/README.md)  |    |  中等  |  第 313 场周赛  |
+|  2430  |  [对字母串可执行的最大删除数](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)  |    |  困难  |  第 313 场周赛  |
 
 ## 版权
 

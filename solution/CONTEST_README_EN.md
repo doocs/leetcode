@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 313
+
+- [2427. Number of Common Factors](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md)
+- [2428. Maximum Sum of an Hourglass](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md)
+- [2429. Minimize XOR](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)
+- [2430. Maximum Deletions on a String](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)
+
+
+#### Biweekly Contest 88
+
+- [2423. Remove Letter To Equalize Frequency](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README_EN.md)
+- [2424. Longest Uploaded Prefix](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)
+- [2425. Bitwise XOR of All Pairings](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md)
+- [2426. Number of Pairs Satisfying Inequality](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md)
+
+
 #### Weekly Contest 312
 
 - [2418. Sort the People](/solution/2400-2499/2418.Sort%20the%20People/README_EN.md)

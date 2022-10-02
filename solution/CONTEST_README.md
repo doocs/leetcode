@@ -23,7 +23,23 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
-#### 第 312 场周赛(2022-09-25 10:30, 90 分钟) 参赛人数 6637
+#### 第 313 场周赛(2022-10-02 10:30, 90 分钟) 参赛人数 5445
+
+- [2427. 公因子的数目](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)
+- [2428. 沙漏的最大总和](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README.md)
+- [2429. 最小 XOR](/solution/2400-2499/2429.Minimize%20XOR/README.md)
+- [2430. 对字母串可执行的最大删除数](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
+
+
+#### 第 88 场双周赛(2022-10-01 22:30, 90 分钟) 参赛人数 3905
+
+- [2423. 删除字符使频率相同](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README.md)
+- [2424. 最长上传前缀](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md)
+- [2425. 所有数对的异或和](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README.md)
+- [2426. 满足不等式的数对数目](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README.md)
+
+
+#### 第 312 场周赛(2022-09-25 10:30, 90 分钟) 参赛人数 6638
 
 - [2418. 按身高排序](/solution/2400-2499/2418.Sort%20the%20People/README.md)
 - [2419. 按位与最大的最长子数组](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README.md)
