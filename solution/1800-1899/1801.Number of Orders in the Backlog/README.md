@@ -68,6 +68,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：优先队列 + 模拟**
+
+我们可以使用优先队列（大小根堆）维护当前的积压订单，优先队列中的元素为 `[price, amount]` ，表示价格为 `price` 的订单数量为 `amount` ，其中大根堆 `buy` 维护积压的采购订单，小根堆 `sell` 维护积压的销售订单。
+
+遍历订单数组 `orders` ，根据题意模拟即可。
+
+时间复杂度 $O(n\log n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,7 +83,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getNumberOfBacklogOrders(self, orders: List[List[int]]) -> int:
+        buy, sell = [], []
+        for p, a, t in orders:
+            if t == 0:
+                while a and sell and sell[0][0] <= p:
+                    x, y = heappop(sell)
+                    if a >= y:
+                        a -= y
+                    else:
+                        heappush(sell, (x, y - a))
+                        a = 0
+                if a:
+                    heappush(buy, (-p, a))
+            else:
+                while a and buy and -buy[0][0] >= p:
+                    x, y = heappop(buy)
+                    if a >= y:
+                        a -= y
+                    else:
+                        heappush(buy, (x, y - a))
+                        a = 0
+                if a:
+                    heappush(sell, (p, a))
+        ans, mod = 0, 10**9 + 7
+        for _, v in buy:
+            ans = (ans + v) % mod
+        for _, v in sell:
+            ans = (ans + v) % mod
+        return ans
 ```
 
 ### **Java**
@@ -83,7 +120,177 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int getNumberOfBacklogOrders(int[][] orders) {
+        PriorityQueue<int[]> buy = new PriorityQueue<>((a, b) -> b[0] - a[0]);
+        PriorityQueue<int[]> sell = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        for (var e : orders) {
+            int p = e[0], a = e[1], t = e[2];
+            if (t == 0) {
+                while (a > 0 && !sell.isEmpty() && sell.peek()[0] <= p) {
+                    var q = sell.poll();
+                    int x = q[0], y = q[1];
+                    if (a >= y) {
+                        a -= y;
+                    } else {
+                        sell.offer(new int[] {x, y - a});
+                        a = 0;
+                    }
+                }
+                if (a > 0) {
+                    buy.offer(new int[] {p, a});
+                }
+            } else {
+                while (a > 0 && !buy.isEmpty() && buy.peek()[0] >= p) {
+                    var q = buy.poll();
+                    int x = q[0], y = q[1];
+                    if (a >= y) {
+                        a -= y;
+                    } else {
+                        buy.offer(new int[] {x, y - a});
+                        a = 0;
+                    }
+                }
+                if (a > 0) {
+                    sell.offer(new int[] {p, a});
+                }
+            }
+        }
+        long ans = 0;
+        while (!buy.isEmpty()) {
+            ans += buy.poll()[1];
+            ans %= MOD;
+        }
+        while (!sell.isEmpty()) {
+            ans += sell.poll()[1];
+            ans %= MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int getNumberOfBacklogOrders(vector<vector<int>>& orders) {
+        priority_queue<pii, vector<pii>, greater<pii>> sell;
+        priority_queue<pii> buy;
+        for (auto& e : orders) {
+            int p = e[0], a = e[1], t = e[2];
+            if (t == 0) {
+                while (a && !sell.empty() && sell.top().first <= p) {
+                    auto [x, y] = sell.top();
+                    sell.pop();
+                    if (a >= y) {
+                        a -= y;
+                    } else {
+                        sell.push({x, y - a});
+                        a = 0;
+                    }
+                }
+                if (a) {
+                    buy.push({p, a});
+                }
+            } else {
+                while (a && !buy.empty() && buy.top().first >= p) {
+                    auto [x, y] = buy.top();
+                    buy.pop();
+                    if (a >= y) {
+                        a -= y;
+                    } else {
+                        buy.push({x, y - a});
+                        a = 0;
+                    }
+                }
+                if (a) {
+                    sell.push({p, a});
+                }
+            }
+        }
+        long ans = 0;
+        while (!buy.empty()) {
+            ans += buy.top().second;
+            ans %= mod;
+            buy.pop();
+        }
+        while (!sell.empty()) {
+            ans += sell.top().second;
+            ans %= mod;
+            sell.pop();
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getNumberOfBacklogOrders(orders [][]int) int {
+	sell := hp{}
+	buy := hp{}
+	for _, e := range orders {
+		p, a, t := e[0], e[1], e[2]
+		if t == 0 {
+			for a > 0 && len(sell) > 0 && sell[0].p <= p {
+				q := heap.Pop(&sell).(pair)
+				x, y := q.p, q.a
+				if a >= y {
+					a -= y
+				} else {
+					heap.Push(&sell, pair{x, y - a})
+					a = 0
+				}
+			}
+			if a > 0 {
+				heap.Push(&buy, pair{-p, a})
+			}
+		} else {
+			for a > 0 && len(buy) > 0 && -buy[0].p >= p {
+				q := heap.Pop(&buy).(pair)
+				x, y := q.p, q.a
+				if a >= y {
+					a -= y
+				} else {
+					heap.Push(&buy, pair{x, y - a})
+					a = 0
+				}
+			}
+			if a > 0 {
+				heap.Push(&sell, pair{p, a})
+			}
+		}
+	}
+	mod := int(1e9) + 7
+	ans := 0
+	for len(buy) > 0 {
+		ans += heap.Pop(&buy).(pair).a
+		ans %= mod
+	}
+	for len(sell) > 0 {
+		ans += heap.Pop(&sell).(pair).a
+		ans %= mod
+	}
+	return ans
+}
+
+type pair struct{ p, a int }
+type hp []pair
+
+func (h hp) Len() int            { return len(h) }
+func (h hp) Less(i, j int) bool  { return h[i].p < h[j].p }
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**

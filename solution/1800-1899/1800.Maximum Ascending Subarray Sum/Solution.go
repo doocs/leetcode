@@ -1,17 +1,14 @@
 func maxAscendingSum(nums []int) int {
-	res, cur := 0, nums[0]
-	for i := 1; i < len(nums); i++ {
-		if nums[i] > nums[i-1] {
-			cur += nums[i]
-		} else {
-			if res < cur {
-				res = cur
+	ans, t := 0, 0
+	for i, v := range nums {
+		if i == 0 || v > nums[i-1] {
+			t += v
+			if ans < t {
+				ans = t
 			}
-			cur = nums[i]
+		} else {
+			t = v
 		}
 	}
-	if res < cur {
-		res = cur
-	}
-	return res
+	return ans
 }

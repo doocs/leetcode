@@ -1,14 +1,13 @@
 function maxAscendingSum(nums: number[]): number {
-    let res = 0,
-        sum = nums[0];
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] > nums[i - 1]) {
-            sum += nums[i];
+    let ans = 0;
+    let t = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (i == 0 || nums[i] > nums[i - 1]) {
+            t += nums[i];
+            ans = Math.max(ans, t);
         } else {
-            res = Math.max(res, sum);
-            sum = nums[i];
+            t = nums[i];
         }
     }
-    res = Math.max(res, sum);
-    return res;
+    return ans;
 }

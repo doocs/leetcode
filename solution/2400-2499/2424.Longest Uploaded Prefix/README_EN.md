@@ -85,14 +85,14 @@ class LUPrefix {
     public LUPrefix(int n) {
 
     }
-    
+
     public void upload(int video) {
         s.add(video);
         while (s.contains(r + 1)) {
             ++r;
         }
     }
-    
+
     public int longest() {
         return r;
     }
@@ -114,14 +114,14 @@ public:
     LUPrefix(int n) {
 
     }
-    
+
     void upload(int video) {
         s.insert(video);
         while (s.count(r + 1)) {
             ++r;
         }
     }
-    
+
     int longest() {
         return r;
     }

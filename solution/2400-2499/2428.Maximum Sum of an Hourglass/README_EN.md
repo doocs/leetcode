@@ -39,7 +39,6 @@
 	<li><code>0 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

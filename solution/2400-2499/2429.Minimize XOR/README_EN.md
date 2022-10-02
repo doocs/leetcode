@@ -45,7 +45,6 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 	<li><code>1 &lt;= num1, num2 &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

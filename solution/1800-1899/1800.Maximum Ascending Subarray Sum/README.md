@@ -58,6 +58,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接模拟**
+
+我们用变量 `t` 记录当前升序子数组的和，用变量 `ans` 记录最大的升序子数组和。
+
+遍历数组 `nums`：
+
+如果当前元素是数组的第一个元素，或者当前元素大于前一个元素，那么将当前元素加入到当前升序子数组的和，即 `t += nums[i]`，并且更新最大升序子数组和 `ans = max(ans, t)`；否则，当前元素不满足升序子数组的条件，那么将当前升序子数组的和 `t` 重置为当前元素，即 `t = nums[i]`。
+
+遍历结束，返回最大升序子数组和 `ans`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,15 +79,14 @@
 ```python
 class Solution:
     def maxAscendingSum(self, nums: List[int]) -> int:
-        res, cur = 0, nums[0]
-        for i in range(1, len(nums)):
-            if nums[i] > nums[i - 1]:
-                cur += nums[i]
+        ans = t = 0
+        for i, v in enumerate(nums):
+            if i == 0 or v > nums[i - 1]:
+                t += v
+                ans = max(ans, t)
             else:
-                res = max(res, cur)
-                cur = nums[i]
-        res = max(res, cur)
-        return res
+                t = v
+        return ans
 ```
 
 ### **Java**
@@ -85,38 +96,17 @@ class Solution:
 ```java
 class Solution {
     public int maxAscendingSum(int[] nums) {
-        int cur = nums[0];
-        int res = 0;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] > nums[i - 1]) {
-                cur += nums[i];
+        int ans = 0, t = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i == 0 || nums[i] > nums[i - 1]) {
+                t += nums[i];
+                ans = Math.max(ans, t);
             } else {
-                res = Math.max(res, cur);
-                cur = nums[i];
+                t = nums[i];
             }
         }
-        res = Math.max(res, cur);
-        return res;
+        return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function maxAscendingSum(nums: number[]): number {
-    let res = 0,
-        sum = nums[0];
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] > nums[i - 1]) {
-            sum += nums[i];
-        } else {
-            res = Math.max(res, sum);
-            sum = nums[i];
-        }
-    }
-    res = Math.max(res, sum);
-    return res;
 }
 ```
 
@@ -126,17 +116,16 @@ function maxAscendingSum(nums: number[]): number {
 class Solution {
 public:
     int maxAscendingSum(vector<int>& nums) {
-        int res = 0, cur = nums[0];
-        for (int i = 1; i < nums.size(); ++i) {
-            if (nums[i] > nums[i - 1]) {
-                cur += nums[i];
+        int ans = 0, t = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i == 0 || nums[i] > nums[i - 1]) {
+                t += nums[i];
+                ans = max(ans, t);
             } else {
-                res = max(res, cur);
-                cur = nums[i];
+                t = nums[i];
             }
         }
-        res = max(res, cur);
-        return res;
+        return ans;
     }
 };
 ```
@@ -145,21 +134,36 @@ public:
 
 ```go
 func maxAscendingSum(nums []int) int {
-	res, cur := 0, nums[0]
-	for i := 1; i < len(nums); i++ {
-		if nums[i] > nums[i-1] {
-			cur += nums[i]
-		} else {
-			if res < cur {
-				res = cur
+	ans, t := 0, 0
+	for i, v := range nums {
+		if i == 0 || v > nums[i-1] {
+			t += v
+			if ans < t {
+				ans = t
 			}
-			cur = nums[i]
+		} else {
+			t = v
 		}
 	}
-	if res < cur {
-		res = cur
-	}
-	return res
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxAscendingSum(nums: number[]): number {
+    let ans = 0;
+    let t = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (i == 0 || nums[i] > nums[i - 1]) {
+            t += nums[i];
+            ans = Math.max(ans, t);
+        } else {
+            t = nums[i];
+        }
+    }
+    return ans;
 }
 ```
 

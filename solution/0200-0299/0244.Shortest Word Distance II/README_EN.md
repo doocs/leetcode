@@ -83,7 +83,7 @@ class WordDistance {
             d.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
         }
     }
-    
+
     public int shortest(String word1, String word2) {
         List<Integer> a = d.get(word1), b = d.get(word2);
         int ans = 0x3f3f3f3f;
@@ -117,7 +117,7 @@ public:
             d[wordsDict[i]].push_back(i);
         }
     }
-    
+
     int shortest(string word1, string word2) {
         auto a = d[word1], b = d[word2];
         int i = 0, j = 0;
