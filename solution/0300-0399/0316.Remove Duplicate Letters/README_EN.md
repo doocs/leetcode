@@ -34,11 +34,29 @@
 
 ## Solutions
 
-**Monotonic Stack**
+**Stack**
 
 <!-- tabs:start -->
 
 ### **Python3**
+
+```python
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        last = defaultdict(int)
+        for i, c in enumerate(s):
+            last[c] = i
+        stk = []
+        vis = set()
+        for i, c in enumerate(s):
+            if c in vis:
+                continue
+            while stk and stk[-1] > c and last[stk[-1]] > i:
+                vis.remove(stk.pop())
+            stk.append(c)
+            vis.add(c)
+        return ''.join(stk)
+```
 
 ```python
 class Solution:
@@ -62,7 +80,92 @@ class Solution:
         return ''.join(stack)
 ```
 
+### **Java**
+
+```java
+class Solution {
+    public String removeDuplicateLetters(String s) {
+        int n = s.length();
+        int[] last = new int[26];
+        for (int i = 0; i < n; ++i) {
+            last[s.charAt(i) - 'a'] = i;
+        }
+        Deque<Character> stk = new ArrayDeque<>();
+        int mask = 0;
+        for (int i = 0; i < n; ++i) {
+            char c = s.charAt(i);
+            if (((mask >> (c - 'a')) & 1) == 1) {
+                continue;
+            }
+            while (!stk.isEmpty() && stk.peek() > c && last[stk.peek() - 'a'] > i) {
+                mask ^= 1 << (stk.pop() - 'a');
+            }
+            stk.push(c);
+            mask |= 1 << (c - 'a');
+        }
+        StringBuilder ans = new StringBuilder();
+        for (char c : stk) {
+            ans.append(c);
+        }
+        return ans.reverse().toString();
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeDuplicateLetters(string s) {
+        int n = s.size();
+        int last[26] = {0};
+        for (int i = 0; i < n; ++i) {
+            last[s[i] - 'a'] = i;
+        }
+        string ans;
+        int mask = 0;
+        for (int i = 0; i < n; ++i) {
+            char c = s[i];
+            if ((mask >> (c - 'a')) & 1) {
+                continue;
+            }
+            while (!ans.empty() && ans.back() > c && last[ans.back() - 'a'] > i) {
+                mask ^= 1 << (ans.back() - 'a');
+                ans.pop_back();
+            }
+            ans.push_back(c);
+            mask |= 1 << (c - 'a');
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
+
+```go
+func removeDuplicateLetters(s string) string {
+	last := make([]int, 26)
+	for i, c := range s {
+		last[c-'a'] = i
+	}
+	stk := []rune{}
+	vis := make([]bool, 128)
+	for i, c := range s {
+		if vis[c] {
+			continue
+		}
+		for len(stk) > 0 && stk[len(stk)-1] > c && last[stk[len(stk)-1]-'a'] > i {
+			vis[stk[len(stk)-1]] = false
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, c)
+		vis[c] = true
+	}
+	return string(stk)
+}
+```
 
 ```go
 func removeDuplicateLetters(s string) string {

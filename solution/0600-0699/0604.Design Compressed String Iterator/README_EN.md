@@ -107,7 +107,7 @@ class StringIterator {
             d.add(new Node(c, x));
         }
     }
-    
+
     public char next() {
         if (!hasNext()) {
             return ' ';
@@ -118,7 +118,7 @@ class StringIterator {
         }
         return ans;
     }
-    
+
     public boolean hasNext() {
         return p < d.size() && d.get(p).x > 0;
     }
@@ -159,7 +159,7 @@ public:
             d.push_back({c, x});
         }
     }
-    
+
     char next() {
         if (!hasNext()) return ' ';
         char ans = d[p].first;
@@ -168,7 +168,7 @@ public:
         }
         return ans;
     }
-    
+
     bool hasNext() {
         return p < d.size() && d[p].second > 0;
     }

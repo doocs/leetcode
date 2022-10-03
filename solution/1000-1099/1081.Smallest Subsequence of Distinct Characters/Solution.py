@@ -1,20 +1,15 @@
 class Solution:
     def smallestSubsequence(self, s: str) -> str:
-        count, in_stack = [0] * 128, [False] * 128
-        stack = []
-        for c in s:
-            count[ord(c)] += 1
-
-        for c in s:
-            count[ord(c)] -= 1
-            if in_stack[ord(c)]:
+        last = defaultdict(int)
+        for i, c in enumerate(s):
+            last[c] = i
+        stk = []
+        vis = set()
+        for i, c in enumerate(s):
+            if c in vis:
                 continue
-            while len(stack) and stack[-1] > c:
-                peek = stack[-1]
-                if count[ord(peek)] < 1:
-                    break
-                in_stack[ord(peek)] = False
-                stack.pop()
-            stack.append(c)
-            in_stack[ord(c)] = True
-        return ''.join(stack)
+            while stk and stk[-1] > c and last[stk[-1]] > i:
+                vis.remove(stk.pop())
+            stk.append(c)
+            vis.add(c)
+        return ''.join(stk)

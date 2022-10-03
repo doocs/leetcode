@@ -1,5 +1,4 @@
 class StringIterator:
-
     def __init__(self, compressedString: str):
         self.d = []
         self.p = 0

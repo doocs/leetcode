@@ -1,21 +1,20 @@
 func removeDuplicateLetters(s string) string {
-	count, in_stack, stack := make([]int, 128), make([]bool, 128), make([]rune, 0)
-	for _, c := range s {
-		count[c] += 1
+	last := make([]int, 26)
+	for i, c := range s {
+		last[c-'a'] = i
 	}
-
-	for _, c := range s {
-		count[c] -= 1
-		if in_stack[c] {
+	stk := []rune{}
+	vis := make([]bool, 128)
+	for i, c := range s {
+		if vis[c] {
 			continue
 		}
-		for len(stack) > 0 && stack[len(stack)-1] > c && count[stack[len(stack)-1]] > 0 {
-			peek := stack[len(stack)-1]
-			stack = stack[0 : len(stack)-1]
-			in_stack[peek] = false
+		for len(stk) > 0 && stk[len(stk)-1] > c && last[stk[len(stk)-1]-'a'] > i {
+			vis[stk[len(stk)-1]] = false
+			stk = stk[:len(stk)-1]
 		}
-		stack = append(stack, c)
-		in_stack[c] = true
+		stk = append(stk, c)
+		vis[c] = true
 	}
-	return string(stack)
+	return string(stk)
 }
