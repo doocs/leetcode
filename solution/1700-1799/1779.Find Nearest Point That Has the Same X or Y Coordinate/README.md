@@ -49,6 +49,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接遍历**
+
+直接遍历 `points` 数组，对于 `points[i]`，如果 `points[i][0] == x` 或者 `points[i][1] == y`，则说明 `points[i]` 是有效点，计算曼哈顿距离，更新最小距离和最小距离的下标。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `points` 数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +62,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def nearestValidPoint(self, x: int, y: int, points: List[List[int]]) -> int:
+        ans, mi = -1, inf
+        for i, (a, b) in enumerate(points):
+            if a == x or b == y:
+                d = abs(a - x) + abs(b - y)
+                if mi > d:
+                    ans, mi = i, d
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +78,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int nearestValidPoint(int x, int y, int[][] points) {
+        int ans = -1, mi = 1000000;
+        for (int i = 0; i < points.length; ++i) {
+            int a = points[i][0], b = points[i][1];
+            if (a == x || b == y) {
+                int d = Math.abs(a - x) + Math.abs(b - y);
+                if (d < mi) {
+                    mi = d;
+                    ans = i;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int nearestValidPoint(int x, int y, vector<vector<int>>& points) {
+        int ans = -1, mi = 1e6;
+        for (int i = 0; i < points.size(); ++i) {
+            int a = points[i][0], b = points[i][1];
+            if (a == x || b == y) {
+                int d = abs(a - x) + abs(b - y);
+                if (d < mi) {
+                    mi = d;
+                    ans = i;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func nearestValidPoint(x int, y int, points [][]int) int {
+	ans, mi := -1, 1000000
+	for i, p := range points {
+		a, b := p[0], p[1]
+		if a == x || b == y {
+			d := abs(a-x) + abs(b-y)
+			if d < mi {
+				ans, mi = i, d
+			}
+		}
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **TypeScript**
