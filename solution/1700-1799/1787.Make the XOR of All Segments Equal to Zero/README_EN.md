@@ -47,13 +47,140 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minChanges(self, nums: List[int], k: int) -> int:
+        n = 1 << 10
+        cnt = [Counter() for _ in range(k)]
+        size = [0] * k
+        for i, v in enumerate(nums):
+            cnt[i % k][v] += 1
+            size[i % k] += 1
+        f = [inf] * n
+        f[0] = 0
+        for i in range(k):
+            g = [min(f) + size[i]] * n
+            for j in range(n):
+                for v, c in cnt[i].items():
+                    g[j] = min(g[j], f[j ^ v] + size[i] - c)
+            f = g
+        return f[0]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minChanges(int[] nums, int k) {
+        int n = 1 << 10;
+        Map<Integer, Integer>[] cnt = new Map[k];
+        int[] size = new int[k];
+        for (int i = 0; i < k; ++i) {
+            cnt[i] = new HashMap<>();
+        }
+        for (int i = 0; i < nums.length; ++i) {
+            cnt[i % k].put(nums[i], cnt[i % k].getOrDefault(nums[i], 0) + 1);
+            size[i % k]++;
+        }
+        int[] f = new int[n];
+        Arrays.fill(f, 0x3f3f3f3f);
+        f[0] = 0;
+        for (int i = 0; i < k; ++i) {
+            int[] g = new int[n];
+            Arrays.fill(g, min(f) + size[i]);
+            for (int j = 0; j < n; ++j) {
+                for (var e : cnt[i].entrySet()) {
+                    int v = e.getKey(), c = e.getValue();
+                    g[j] = Math.min(g[j], f[j ^ v] + size[i] - c);
+                }
+            }
+            f = g;
+        }
+        return f[0];
+    }
 
+    private int min(int[] arr) {
+        int mi = arr[0];
+        for (int v : arr) {
+            mi = Math.min(mi, v);
+        }
+        return mi;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minChanges(vector<int>& nums, int k) {
+        int n = 1 << 10;
+        vector<unordered_map<int, int>> cnt(k);
+        vector<int> size(k);
+        for (int i = 0; i < nums.size(); ++i) {
+            cnt[i % k][nums[i]]++;
+            size[i % k]++;
+        }
+        vector<int> f(n, 0x3f3f3f3f);
+        f[0] = 0;
+        for (int i = 0; i < k; ++i) {
+            int mi = *min_element(f.begin(), f.end());
+            vector<int> g(n, mi + size[i]);
+            for (int j = 0; j < n; ++j) {
+                for (auto& [v, c] : cnt[i]) {
+                    g[j] = min(g[j], f[j ^ v] + size[i] - c);
+                }
+            }
+            f = move(g);
+        }
+        return f[0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minChanges(nums []int, k int) int {
+	n := 1 << 10
+	cnt := make([]map[int]int, k)
+	for i := range cnt {
+		cnt[i] = map[int]int{}
+	}
+	size := make([]int, k)
+	for i, v := range nums {
+		cnt[i%k][v]++
+		size[i%k]++
+	}
+	f := make([]int, n)
+	for i := 1; i < n; i++ {
+		f[i] = 0x3f3f3f3f
+	}
+	for i, sz := range size {
+		g := make([]int, n)
+		x := min(f...) + sz
+		for i := range g {
+			g[i] = x
+		}
+		for j := 0; j < n; j++ {
+			for v, c := range cnt[i] {
+				g[j] = min(g[j], f[j^v]+sz-c)
+			}
+		}
+		f = g
+	}
+	return f[0]
+}
+
+func min(a ...int) int {
+	mi := a[0]
+	for _, v := range a {
+		if mi > v {
+			mi = v
+		}
+	}
+	return mi
+}
 ```
 
 ### **...**
