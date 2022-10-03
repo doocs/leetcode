@@ -1,11 +1,19 @@
 class Solution {
     public int movesToMakeZigzag(int[] nums) {
-        int[] res = new int[2];
-        for (int i = 0, n = nums.length; i < n; ++i) {
-            int left = i > 0 ? nums[i - 1] : Integer.MAX_VALUE;
-            int right = i + 1 < n ? nums[i + 1] : Integer.MAX_VALUE;
-            res[i & 1] += Math.max(0, nums[i] - (Math.min(left, right) - 1));
+        int[] ans = new int[2];
+        int n = nums.length;
+        for (int i = 0; i < 2; ++i) {
+            for (int j = i; j < n; j += 2) {
+                int d = 0;
+                if (j > 0) {
+                    d = Math.max(d, nums[j] - nums[j - 1] + 1);
+                }
+                if (j < n - 1) {
+                    d = Math.max(d, nums[j] - nums[j + 1] + 1);
+                }
+                ans[i] += d;
+            }
         }
-        return Math.min(res[0], res[1]);
+        return Math.min(ans[0], ans[1]);
     }
 }

@@ -46,13 +46,100 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def movesToMakeZigzag(self, nums: List[int]) -> int:
+        ans = [0, 0]
+        n = len(nums)
+        for i in range(2):
+            for j in range(i, n, 2):
+                d = 0
+                if j:
+                    d = max(d, nums[j] - nums[j - 1] + 1)
+                if j < n - 1:
+                    d = max(d, nums[j] - nums[j + 1] + 1)
+                ans[i] += d
+        return min(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int movesToMakeZigzag(int[] nums) {
+        int[] ans = new int[2];
+        int n = nums.length;
+        for (int i = 0; i < 2; ++i) {
+            for (int j = i; j < n; j += 2) {
+                int d = 0;
+                if (j > 0) {
+                    d = Math.max(d, nums[j] - nums[j - 1] + 1);
+                }
+                if (j < n - 1) {
+                    d = Math.max(d, nums[j] - nums[j + 1] + 1);
+                }
+                ans[i] += d;
+            }
+        }
+        return Math.min(ans[0], ans[1]);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int movesToMakeZigzag(vector<int>& nums) {
+        vector<int> ans(2);
+        int n = nums.size();
+        for (int i = 0; i < 2; ++i) {
+            for (int j = i; j < n; j += 2) {
+                int d = 0;
+                if (j) d = max(d, nums[j] - nums[j - 1] + 1);
+                if (j < n - 1) d = max(d, nums[j] - nums[j + 1] + 1);
+                ans[i] += d;
+            }
+        }
+        return min(ans[0], ans[1]);
+    }
+};
+```
+
+### **Go**
+
+```go
+func movesToMakeZigzag(nums []int) int {
+	ans := make([]int, 2)
+	n := len(nums)
+	for i := 0; i < 2; i++ {
+		for j := i; j < n; j += 2 {
+			d := 0
+			if j > 0 {
+				d = max(d, nums[j]-nums[j-1]+1)
+			}
+			if j < n-1 {
+				d = max(d, nums[j]-nums[j+1]+1)
+			}
+			ans[i] += d
+		}
+	}
+	return min(ans[0], ans[1])
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
