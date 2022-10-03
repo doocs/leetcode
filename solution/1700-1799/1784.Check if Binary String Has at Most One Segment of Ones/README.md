@@ -97,6 +97,37 @@ func checkOnesSegment(s string) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function checkOnesSegment(s: string): boolean {
+    let pre = s[0];
+    for (const c of s) {
+        if (pre !== c && c === '1') {
+            return false;
+        }
+        pre = c;
+    }
+    return true;
+}
+```
+
+```ts
+function checkOnesSegment(s: string): boolean {
+    return !s.includes('01');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn check_ones_segment(s: String) -> bool {
+        !s.contains("01")
+    }
+}
+```
+
 ### **...**
 
 ```
