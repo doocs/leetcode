@@ -46,13 +46,58 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def checkPowersOfThree(self, n: int) -> bool:
+        while n:
+            if n % 3 > 1:
+                return False
+            n //= 3
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean checkPowersOfThree(int n) {
+        while (n > 0) {
+            if (n % 3 > 1) {
+                return false;
+            }
+            n /= 3;
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkPowersOfThree(int n) {
+        while (n) {
+            if (n % 3 > 1) return false;
+            n /= 3;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkPowersOfThree(n int) bool {
+	for n > 0 {
+		if n%3 > 1 {
+			return false
+		}
+		n /= 3
+	}
+	return true
+}
 ```
 
 ### **...**
