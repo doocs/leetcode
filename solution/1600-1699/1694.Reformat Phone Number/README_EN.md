@@ -159,6 +159,46 @@ func reformatNumber(number string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function reformatNumber(number: string): string {
+    const cs = [...number].filter(c => c !== ' ' && c !== '-');
+    const n = cs.length;
+    return cs
+        .map((v, i) => {
+            if (
+                ((i + 1) % 3 === 0 && i < n - 2) ||
+                (n % 3 === 1 && n - 3 === i)
+            ) {
+                return v + '-';
+            }
+            return v;
+        })
+        .join('');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn reformat_number(number: String) -> String {
+        let cs: Vec<char> = number.chars().filter(|&c| c != ' ' && c != '-').collect();
+        let n = cs.len();
+        cs.iter()
+            .enumerate()
+            .map(|(i, c)| {
+                if (i + 1) % 3 == 0 && i < n - 2 || n % 3 == 1 && i == n - 3 {
+                    return c.to_string() + &"-";
+                }
+                c.to_string()
+            })
+            .collect()
+    }
+}
+```
+
 ### **...**
 
 ```
