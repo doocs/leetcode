@@ -1,11 +1,14 @@
 class Solution {
-public:
-    bool checkValidString(string s) {
-        int x = 0, n = s.size();
+    public boolean canBeValid(String s, String locked) {
+        int n = s.length();
+        if (n % 2 == 1) {
+            return false;
+        }
+        int x = 0;
         for (int i = 0; i < n; ++i) {
-            if (s[i] != ')') {
+            if (s.charAt(i) == '(' || locked.charAt(i) == '0') {
                 ++x;
-            } else if (x) {
+            } else if (x > 0) {
                 --x;
             } else {
                 return false;
@@ -13,9 +16,9 @@ public:
         }
         x = 0;
         for (int i = n - 1; i >= 0; --i) {
-            if (s[i] != '(') {
+            if (s.charAt(i) == ')' || locked.charAt(i) == '0') {
                 ++x;
-            } else if (x) {
+            } else if (x > 0) {
                 --x;
             } else {
                 return false;
@@ -23,4 +26,4 @@ public:
         }
         return true;
     }
-};
+}

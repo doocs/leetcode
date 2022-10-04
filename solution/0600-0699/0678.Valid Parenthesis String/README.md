@@ -66,6 +66,8 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `s` 的长度。
 
+相似题目：[2116. 判断一个括号字符串是否有效](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -93,33 +95,22 @@ class Solution:
 ```python
 class Solution:
     def checkValidString(self, s: str) -> bool:
-        n = len(s)
-        left = asterisk = 0
-        for i in range(n):
-            if s[i] == "(":
-                left += 1
-            elif s[i] == ")":
-                if left > 0:
-                    left -= 1
-                elif asterisk > 0:
-                    asterisk -= 1
-                else:
-                    return False
+        x = 0
+        for c in s:
+            if c in '(*':
+                x += 1
+            elif x:
+                x -= 1
             else:
-                asterisk += 1
-        right = asterisk = 0
-        for i in range(n - 1, -1, -1):
-            if s[i] == ")":
-                right += 1
-            elif s[i] == "(":
-                if right > 0:
-                    right -= 1
-                elif asterisk > 0:
-                    asterisk -= 1
-                else:
-                    return False
+                return False
+        x = 0
+        for c in s[::-1]:
+            if c in '*)':
+                x += 1
+            elif x:
+                x -= 1
             else:
-                asterisk += 1
+                return False
         return True
 ```
 
@@ -152,39 +143,25 @@ class Solution {
 ```java
 class Solution {
     public boolean checkValidString(String s) {
+        int x = 0;
         int n = s.length();
-        char[] a = s.toCharArray();
-        int left = 0, asterisk = 0;
-        for (int i = 0; i < n; i++) {
-            if (a[i] == '(') {
-                left++;
-            } else if (a[i] == ')') {
-                if (left > 0) {
-                    left--;
-                } else if (asterisk > 0) {
-                    asterisk--;
-                } else {
-                    return false;
-                }
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) != ')') {
+                ++x;
+            } else if (x > 0) {
+                --x;
             } else {
-                asterisk++;
+                return false;
             }
         }
-        int right = 0;
-        asterisk = 0;
-        for (int i = n - 1; i >= 0; i--) {
-            if (a[i] == ')') {
-                right++;
-            } else if (a[i] == '(') {
-                if (right > 0) {
-                    right--;
-                } else if (asterisk > 0) {
-                    asterisk--;
-                } else {
-                    return false;
-                }
+        x = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            if (s.charAt(i) != '(') {
+                ++x;
+            } else if (x > 0) {
+                --x;
             } else {
-                asterisk++;
+                return false;
             }
         }
         return true;
@@ -221,36 +198,24 @@ public:
 class Solution {
 public:
     bool checkValidString(string s) {
-        int n = s.size();
-        int left = 0, asterisk = 0;
+        int x = 0, n = s.size();
         for (int i = 0; i < n; ++i) {
-            if (s[i] == '(') {
-                ++left;
-            } else if (s[i] == ')') {
-                if (left > 0)
-                    --left;
-                else if (asterisk > 0)
-                    --asterisk;
-                else
-                    return false;
+            if (s[i] != ')') {
+                ++x;
+            } else if (x) {
+                --x;
             } else {
-                ++asterisk;
+                return false;
             }
         }
-        int right = 0;
-        asterisk = 0;
+        x = 0;
         for (int i = n - 1; i >= 0; --i) {
-            if (s[i] == ')') {
-                ++right;
-            } else if (s[i] == '(') {
-                if (right > 0)
-                    --right;
-                else if (asterisk > 0)
-                    --asterisk;
-                else
-                    return false;
+            if (s[i] != '(') {
+                ++x;
+            } else if (x) {
+                --x;
             } else {
-                ++asterisk;
+                return false;
             }
         }
         return true;
@@ -283,38 +248,24 @@ func checkValidString(s string) bool {
 
 ```go
 func checkValidString(s string) bool {
-	n := len(s)
-	left, asterisk := 0, 0
-	for i := 0; i < n; i++ {
-		if s[i] == '(' {
-			left++
-		} else if s[i] == ')' {
-			if left > 0 {
-				left--
-			} else if asterisk > 0 {
-				asterisk--
-			} else {
-				return false
-			}
+	x := 0
+	for _, c := range s {
+		if c != ')' {
+			x++
+		} else if x > 0 {
+			x--
 		} else {
-			asterisk++
+			return false
 		}
 	}
-	asterisk = 0
-	right := 0
-	for i := n - 1; i >= 0; i-- {
-		if s[i] == ')' {
-			right++
-		} else if s[i] == '(' {
-			if right > 0 {
-				right--
-			} else if asterisk > 0 {
-				asterisk--
-			} else {
-				return false
-			}
+	x = 0
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] != '(' {
+			x++
+		} else if x > 0 {
+			x--
 		} else {
-			asterisk++
+			return false
 		}
 	}
 	return true

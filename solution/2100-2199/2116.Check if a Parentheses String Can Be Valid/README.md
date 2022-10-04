@@ -67,6 +67,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 两次遍历**
+
+我们观察发现，奇数长度的字符串一定不是有效的括号字符串，因为无论怎么匹配，都会剩下一个括号。因此，如果字符串 $s$ 的长度是奇数，提前返回 `false`。
+
+接下来，我们进行两次遍历。
+
+第一次从左到右，判断所有的 `'('` 括号是否可以被 `')'` 或者可变括号匹配，如果不可以，直接返回 `false`。
+
+第二次从右到左，判断所有的 `')'` 括号是否可以被 `'('` 或者可变括号匹配，如果不可以，直接返回 `false`。
+
+遍历结束，说明所有的括号都可以被匹配，字符串 $s$ 是有效的括号字符串，返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
+相似题目：[678. 有效的括号字符串](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +90,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canBeValid(self, s: str, locked: str) -> bool:
+        n = len(s)
+        if n & 1:
+            return False
+        x = 0
+        for i in range(n):
+            if s[i] == '(' or locked[i] == '0':
+                x += 1
+            elif x:
+                x -= 1
+            else:
+                return False
+        x = 0
+        for i in range(n - 1, -1, -1):
+            if s[i] == ')' or locked[i] == '0':
+                x += 1
+            elif x:
+                x -= 1
+            else:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -82,7 +119,102 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean canBeValid(String s, String locked) {
+        int n = s.length();
+        if (n % 2 == 1) {
+            return false;
+        }
+        int x = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '(' || locked.charAt(i) == '0') {
+                ++x;
+            } else if (x > 0) {
+                --x;
+            } else {
+                return false;
+            }
+        }
+        x = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            if (s.charAt(i) == ')' || locked.charAt(i) == '0') {
+                ++x;
+            } else if (x > 0) {
+                --x;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canBeValid(string s, string locked) {
+        int n = s.size();
+        if (n & 1) {
+            return false;
+        }
+        int x = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == '(' || locked[i] == '0') {
+                ++x;
+            } else if (x) {
+                --x;
+            } else {
+                return false;
+            }
+        }
+        x = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[i] == ')' || locked[i] == '0') {
+                ++x;
+            } else if (x) {
+                --x;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canBeValid(s string, locked string) bool {
+	n := len(s)
+	if n%2 == 1 {
+		return false
+	}
+	x := 0
+	for i := range s {
+		if s[i] == '(' || locked[i] == '0' {
+			x++
+		} else if x > 0 {
+			x--
+		} else {
+			return false
+		}
+	}
+	x = 0
+	for i := n - 1; i >= 0; i-- {
+		if s[i] == ')' || locked[i] == '0' {
+			x++
+		} else if x > 0 {
+			x--
+		} else {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **TypeScript**

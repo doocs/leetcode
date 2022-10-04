@@ -1,9 +1,13 @@
 class Solution {
 public:
-    bool checkValidString(string s) {
-        int x = 0, n = s.size();
+    bool canBeValid(string s, string locked) {
+        int n = s.size();
+        if (n & 1) {
+            return false;
+        }
+        int x = 0;
         for (int i = 0; i < n; ++i) {
-            if (s[i] != ')') {
+            if (s[i] == '(' || locked[i] == '0') {
                 ++x;
             } else if (x) {
                 --x;
@@ -13,7 +17,7 @@ public:
         }
         x = 0;
         for (int i = n - 1; i >= 0; --i) {
-            if (s[i] != '(') {
+            if (s[i] == ')' || locked[i] == '0') {
                 ++x;
             } else if (x) {
                 --x;
