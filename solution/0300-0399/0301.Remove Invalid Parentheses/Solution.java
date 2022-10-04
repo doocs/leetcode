@@ -1,49 +1,46 @@
 class Solution {
-    private int tdel;
     private String s;
-    private Set<String> ans;
+    private int n;
+    private Set<String> ans = new HashSet<>();
 
     public List<String> removeInvalidParentheses(String s) {
-        int ldel = 0, rdel = 0;
+        this.s = s;
+        this.n = s.length();
+        int l = 0, r = 0;
         for (char c : s.toCharArray()) {
             if (c == '(') {
-                ++ldel;
+                ++l;
             } else if (c == ')') {
-                if (ldel == 0) {
-                    ++rdel;
+                if (l > 0) {
+                    --l;
                 } else {
-                    --ldel;
+                    ++r;
                 }
             }
         }
-        tdel = ldel + rdel;
-        this.s = s;
-        ans = new HashSet<>();
-        dfs(0, "", 0, 0, ldel, rdel);
+        dfs(0, l, r, 0, 0, "");
         return new ArrayList<>(ans);
     }
 
-    private void dfs(int i, String t, int lcnt, int rcnt, int ldel, int rdel) {
-        if (ldel * rdel < 0 || lcnt < rcnt || ldel + rdel > s.length() - i) {
-            return;
-        }
-        if (ldel == 0 && rdel == 0) {
-            if (s.length() - t.length() == tdel) {
+    private void dfs(int i, int l, int r, int lcnt, int rcnt, String t) {
+        if (i == n) {
+            if (l == 0 && r == 0) {
                 ans.add(t);
             }
+            return;
         }
-        if (i == s.length()) {
+        if (n - i < l + r || lcnt < rcnt) {
             return;
         }
         char c = s.charAt(i);
-        if (c == '(') {
-            dfs(i + 1, t, lcnt, rcnt, ldel - 1, rdel);
-            dfs(i + 1, t + String.valueOf(c), lcnt + 1, rcnt, ldel, rdel);
-        } else if (c == ')') {
-            dfs(i + 1, t, lcnt, rcnt, ldel, rdel - 1);
-            dfs(i + 1, t + String.valueOf(c), lcnt, rcnt + 1, ldel, rdel);
-        } else {
-            dfs(i + 1, t + String.valueOf(c), lcnt, rcnt, ldel, rdel);
+        if (c == '(' && l > 0) {
+            dfs(i + 1, l - 1, r, lcnt, rcnt, t);
         }
+        if (c == ')' && r > 0) {
+            dfs(i + 1, l, r - 1, lcnt, rcnt, t);
+        }
+        int x = c == '(' ? 1 : 0;
+        int y = c == ')' ? 1 : 0;
+        dfs(i + 1, l, r, lcnt + x, rcnt + y, t + c);
     }
 }

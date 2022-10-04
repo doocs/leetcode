@@ -1,33 +1,29 @@
 class Solution:
     def removeInvalidParentheses(self, s: str) -> List[str]:
-        def dfs(i, t, lcnt, rcnt, ldel, rdel):
-            nonlocal tdel, ans
-            if ldel * rdel < 0 or lcnt < rcnt or ldel + rdel > len(s) - i:
-                return
-            if ldel == 0 and rdel == 0:
-                if len(s) - len(t) == tdel:
+        def dfs(i, l, r, lcnt, rcnt, t):
+            if i == n:
+                if l == 0 and r == 0:
                     ans.add(t)
-            if i == len(s):
                 return
-            if s[i] == '(':
-                dfs(i + 1, t, lcnt, rcnt, ldel - 1, rdel)
-                dfs(i + 1, t + '(', lcnt + 1, rcnt, ldel, rdel)
-            elif s[i] == ')':
-                dfs(i + 1, t, lcnt, rcnt, ldel, rdel - 1)
-                dfs(i + 1, t + ')', lcnt, rcnt + 1, ldel, rdel)
-            else:
-                dfs(i + 1, t + s[i], lcnt, rcnt, ldel, rdel)
+            if n - i < l + r or lcnt < rcnt:
+                return
+            if s[i] == '(' and l:
+                dfs(i + 1, l - 1, r, lcnt, rcnt, t)
+            elif s[i] == ')' and r:
+                dfs(i + 1, l, r - 1, lcnt, rcnt, t)
+            dfs(i + 1, l, r, lcnt + (s[i] == '('),
+                rcnt + (s[i] == ')'), t + s[i])
 
-        ldel = rdel = 0
+        l = r = 0
         for c in s:
             if c == '(':
-                ldel += 1
+                l += 1
             elif c == ')':
-                if ldel == 0:
-                    rdel += 1
+                if l:
+                    l -= 1
                 else:
-                    ldel -= 1
-        tdel = ldel + rdel
+                    r += 1
         ans = set()
-        dfs(0, '', 0, 0, ldel, rdel)
+        n = len(s)
+        dfs(0, l, r, 0, 0, '')
         return list(ans)
