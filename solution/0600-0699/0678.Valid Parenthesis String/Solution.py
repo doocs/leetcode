@@ -1,7 +1,7 @@
 class Solution:
     def checkValidString(self, s: str) -> bool:
         n = len(s)
-        left, asterisk = 0, 0
+        left = asterisk = 0
         for i in range(n):
             if s[i] == "(":
                 left += 1
@@ -14,7 +14,7 @@ class Solution:
                     return False
             else:
                 asterisk += 1
-        right, asterisk = 0, 0
+        right = asterisk = 0
         for i in range(n - 1, -1, -1):
             if s[i] == ")":
                 right += 1
