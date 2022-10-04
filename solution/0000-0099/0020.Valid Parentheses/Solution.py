@@ -1,10 +1,10 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        q = []
-        parentheses = {'()', '[]', '{}'}
-        for ch in s:
-            if ch in '([{':
-                q.append(ch)
-            elif not q or q.pop() + ch not in parentheses:
+        stk = []
+        d = {'()', '[]', '{}'}
+        for c in s:
+            if c in '({[':
+                stk.append(c)
+            elif not stk or stk.pop() + c not in d:
                 return False
-        return not q
+        return not stk

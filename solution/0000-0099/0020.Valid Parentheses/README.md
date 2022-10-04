@@ -52,21 +52,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-栈实现。
+**方法一：栈**
 
-遍历括号字符串 `s`：
+遍历括号字符串 $s$，遇到左括号时，压入当前的左括号；遇到右括号时，弹出栈顶元素（若栈为空，直接返回 `false`），判断是否匹配，若不匹配，直接返回 `false`。
 
--   遇到左括号时，将右括号压入栈中；
--   遇到右括号时，弹出栈顶元素（若栈为空，直接返回 `false`），判断是否是相等。若不匹配，直接返回 `false`。
-
-也可以选择：
-
--   遇到左括号时，压入当前的左括号。
--   遇到右括号时，弹出栈顶元素（若栈为空，直接返回 `false`），判断是否是匹配，若不匹配，直接返回 `false`。
+也可以选择遇到左括号时，将右括号压入栈中；遇到右括号时，弹出栈顶元素（若栈为空，直接返回 `false`），判断是否是相等。若不匹配，直接返回 `false`。
 
 > 两者的区别仅限于括号转换时机，一个是在入栈时，一个是在出栈时。
 
-遍历结束，若栈为空，说明括号字符串有效。
+遍历结束，若栈为空，说明括号字符串有效，返回 `true`；否则，返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为括号字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -77,14 +73,14 @@
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
-        q = []
-        parentheses = {'()', '[]', '{}'}
-        for ch in s:
-            if ch in '([{':
-                q.append(ch)
-            elif not q or q.pop() + ch not in parentheses:
+        stk = []
+        d = {'()', '[]', '{}'}
+        for c in s:
+            if c in '({[':
+                stk.append(c)
+            elif not stk or stk.pop() + c not in d:
                 return False
-        return not q
+        return not stk
 ```
 
 ### **Java**
@@ -94,16 +90,15 @@ class Solution:
 ```java
 class Solution {
     public boolean isValid(String s) {
-        char[] chars = s.toCharArray();
-        Deque<Character> q = new ArrayDeque<>();
-        for (char ch : chars) {
-            boolean left = ch == '(' || ch == '[' || ch == '{';
-            if (left)
-                q.push(ch);
-            else if (q.isEmpty() || !match(q.pop(), ch))
+        Deque<Character> stk = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stk.push(c);
+            } else if (stk.isEmpty() || !match(stk.pop(), c)) {
                 return false;
+            }
         }
-        return q.isEmpty();
+        return stk.isEmpty();
     }
 
     private boolean match(char l, char r) {
@@ -118,19 +113,18 @@ class Solution {
 class Solution {
 public:
     bool isValid(string s) {
-        stack<char> q;
-        for (int i = 0, n = s.length(); i < n; ++i) {
-            if (s[i] == '{' || s[i] == '[' || s[i] == '(')
-                q.push(s[i]);
-            else if (q.empty() || !match(q.top(), s[i]))
+        string stk;
+        for (char c : s) {
+            if (c == '(' || c == '{' || c == '[')
+                stk.push_back(c);
+            else if (stk.empty() || !match(stk.back(), c))
                 return false;
             else
-                q.pop();
+                stk.pop_back();
         }
-        return q.empty();
+        return stk.empty();
     }
 
-private:
     bool match(char l, char r) {
         return (l == '(' && r == ')') || (l == '[' && r == ']') || (l == '{' && r == '}');
     }
@@ -141,58 +135,21 @@ private:
 
 ```go
 func isValid(s string) bool {
-	stack := newStack()
-	for _, str := range s {
-		if str == '(' || str == '[' || str == '{' {
-			stack.push(byte(str))
-		} else if str == ')' {
-			if stack.pop() != (byte('(')) {
-				return false
-			}
-		} else if str == ']' {
-			if stack.pop() != (byte('[')) {
-				return false
-			}
-		} else if str == '}' {
-			if stack.pop() != (byte('{')) {
-				return false
-			}
+	stk := []rune{}
+	for _, c := range s {
+		if c == '(' || c == '{' || c == '[' {
+			stk = append(stk, c)
+		} else if len(stk) == 0 || !match(stk[len(stk)-1], c) {
+			return false
+		} else {
+			stk = stk[:len(stk)-1]
 		}
 	}
-	return stack.size() == 0
+	return len(stk) == 0
 }
 
-type Stack struct {
-	data  []byte
-	index int
-}
-
-func newStack() *Stack {
-	return &Stack{
-		data: make([]byte, 10),
-	}
-}
-
-func (s *Stack) pop() byte {
-	if s.index == 0 {
-		return 0
-	}
-	s.index--
-	r := s.data[s.index]
-	return r
-}
-
-func (s *Stack) push(b byte) {
-	if len(s.data)-1 <= s.index {
-		newData := make([]byte, len(s.data))
-		s.data = append(s.data, newData[:]...)
-	}
-	s.data[s.index] = b
-	s.index++
-}
-
-func (s *Stack) size() int {
-	return s.index
+func match(l, r rune) bool {
+	return (l == '(' && r == ')') || (l == '[' && r == ']') || (l == '{' && r == '}')
 }
 ```
 
@@ -204,19 +161,26 @@ func (s *Stack) size() int {
  * @return {boolean}
  */
 var isValid = function (s) {
-    let arr = [];
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === '{' || s[i] === '[' || s[i] === '(') {
-            arr.push(s[i]);
+    let stk = [];
+    for (const c of s) {
+        if (c == '(' || c == '{' || c == '[') {
+            stk.push(c);
+        } else if (stk.length == 0 || !match(stk[stk.length - 1], c)) {
+            return false;
         } else {
-            if (s[i] === ')' && arr[arr.length - 1] === '(') arr.pop();
-            else if (s[i] === ']' && arr[arr.length - 1] === '[') arr.pop();
-            else if (s[i] === '}' && arr[arr.length - 1] === '{') arr.pop();
-            else return false;
+            stk.pop();
         }
     }
-    return arr.length === 0;
+    return stk.length == 0;
 };
+
+function match(l, r) {
+    return (
+        (l == '(' && r == ')') ||
+        (l == '[' && r == ']') ||
+        (l == '{' && r == '}')
+    );
+}
 ```
 
 ### **Ruby**

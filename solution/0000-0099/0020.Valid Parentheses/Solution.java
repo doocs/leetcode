@@ -1,15 +1,14 @@
 class Solution {
     public boolean isValid(String s) {
-        char[] chars = s.toCharArray();
-        Deque<Character> q = new ArrayDeque<>();
-        for (char ch : chars) {
-            boolean left = ch == '(' || ch == '[' || ch == '{';
-            if (left)
-                q.push(ch);
-            else if (q.isEmpty() || !match(q.pop(), ch))
+        Deque<Character> stk = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stk.push(c);
+            } else if (stk.isEmpty() || !match(stk.pop(), c)) {
                 return false;
+            }
         }
-        return q.isEmpty();
+        return stk.isEmpty();
     }
 
     private boolean match(char l, char r) {
