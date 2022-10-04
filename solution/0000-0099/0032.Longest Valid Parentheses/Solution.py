@@ -1,24 +1,15 @@
 class Solution:
-    def longestValidParentheses(self, s):
-        """
-        :type s: string
-        :rtype int
-        """
-
-        Longest = temp = 0
-        stack = []
-
-        for i in s:
-            if i == '(':
-                stack.append(i)
-            elif len(stack) != 0 and stack[-1] == '(':
-                stack.pop()
-                temp += 2
-            else:
-                stack = []
-                if temp > Longest:
-                    Longest = temp
-                temp = 0
-        if temp > Longest:
-            Longest = temp
-        return Longest
+    def longestValidParentheses(self, s: str) -> int:
+        n = len(s)
+        if n < 2:
+            return 0
+        dp = [0] * n
+        for i in range(1, n):
+            if s[i] == ')':
+                if s[i - 1] == '(':
+                    dp[i] = 2 + (dp[i - 2] if i > 1 else 0)
+                else:
+                    j = i - dp[i - 1] - 1
+                    if j >= 0 and s[j] == '(':
+                        dp[i] = 2 + dp[i - 1] + (dp[j - 1] if j else 0)
+        return max(dp)
