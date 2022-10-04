@@ -47,22 +47,14 @@
 ```python
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
-        n = len(digits)
-        if n == 0:
+        if not digits:
             return []
-        chars = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
-        strs = [chars[int(d) - 2] for d in digits]
-        res = []
-        for s in strs:
-            if not res:
-                res = list(s)
-            else:
-                cache = []
-                for item in res:
-                    for letter in s:
-                        cache.append(item + letter)
-                res = cache
-        return res
+        d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
+        ans = ['']
+        for i in digits:
+            s = d[int(i) - 2]
+            ans = [a + b for a in ans for b in s]
+        return ans
 ```
 
 ### **Java**
@@ -70,107 +62,124 @@ class Solution:
 ```java
 class Solution {
     public List<String> letterCombinations(String digits) {
-        int n;
-        if ((n = digits.length()) == 0) return Collections.emptyList();
-        List<String> chars
-            = Arrays.asList("abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz");
-
-        List<String> strs = new ArrayList<>();
-        for (char c : digits.toCharArray()) {
-            strs.add(chars.get(c - '0' - 2));
+        List<String> ans = new ArrayList<>();
+        if (digits.length() == 0) {
+            return ans;
         }
-        List<String> res = new ArrayList<>();
-        for (String str : strs) {
-            if (res.size() == 0) {
-                for (char c : str.toCharArray()) {
-                    res.add(String.valueOf(c));
+        ans.add("");
+        String[] d = new String[] {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        for (char i : digits.toCharArray()) {
+            String s = d[i - '2'];
+            List<String> t = new ArrayList<>();
+            for (String a : ans) {
+                for (String b : s.split("")) {
+                    t.add(a + b);
                 }
-            } else {
-                List<String> cache = new ArrayList<>();
-                for (String item : res) {
-                    for (char c : str.toCharArray()) {
-                        cache.add(item + String.valueOf(c));
-                    }
-                }
-                res = cache;
             }
+            ans = t;
         }
-        return res;
+        return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        if (digits.empty()) return {};
+        vector<string> d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        vector<string> ans = {""};
+        for (auto i : digits) {
+            string s = d[i - '2'];
+            vector<string> t;
+            for (auto& a : ans) {
+                for (auto& b : s) {
+                    t.push_back(a + b);
+                }
+            }
+            ans = move(t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-var table = map[string][]string{
-	"2": {"a", "b", "c"},
-	"3": {"d", "e", "f"},
-	"4": {"g", "h", "i"},
-	"5": {"j", "k", "l"},
-	"6": {"m", "n", "o"},
-	"7": {"p", "q", "r", "s"},
-	"8": {"t", "u", "v"},
-	"9": {"w", "x", "y", "z"},
-}
-
 func letterCombinations(digits string) []string {
-	if digits == "" {
-		return make([]string, 0)
+	ans := []string{}
+	if len(digits) == 0 {
+		return ans
 	}
-	var result = table[string(digits[0])]
-	for i := 1; i < len(digits); i++ {
-		t := table[string(digits[i])]
-		nr := make([]string, len(result)*len(t))
-		for j := 0; j < len(result); j++ {
-			for k := 0; k < len(t); k++ {
-				nr[len(t)*j+k] = result[j] + t[k]
+	ans = append(ans, "")
+	d := []string{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
+	for _, i := range digits {
+		s := d[i-'2']
+		t := []string{}
+		for _, a := range ans {
+			for _, b := range s {
+				t = append(t, a+string(b))
 			}
 		}
-		result = nr
+		ans = t
 	}
-	return result
+	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function (digits) {
+    if (digits.length == 0) {
+        return [];
+    }
+    let ans = [''];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    for (const i of digits) {
+        const s = d[parseInt(i) - 2];
+        const t = [];
+        for (const a of ans) {
+            for (const b of s) {
+                t.push(a + b);
+            }
+        }
+        ans = t;
+    }
+    return ans;
+};
 ```
 
 ### **C#**
 
 ```cs
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
-    private static string[] chars = {
-        "abc",
-        "def",
-        "ghi",
-        "jkl",
-        "mno",
-        "pqrs",
-        "tuv",
-        "wxyz"
-    };
-
     public IList<string> LetterCombinations(string digits) {
-        var numbers = digits.Where(d => d >= '2' && d <= '9').Select(d => d - '2').ToArray();
-        var states = new int[numbers.Length];
-        var results = new List<string>();
-        if (numbers.Length == 0) return results;
-        while (true) {
-            results.Add(new string(states.Select((s, j) => chars[numbers[j]][s]).ToArray()));
-            var i = states.Length - 1;
-            ++states[i];
-            while (i >= 0 && states[i] == chars[numbers[i]].Length)
-            {
-                states[i] = 0;
-                --i;
-                if (i >= 0)
-                {
-                    ++states[i];
+        var ans = new List<string>();
+        if (digits.Length == 0) {
+            return ans;
+        }
+        ans.Add("");
+        string[] d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        foreach (char i in digits) {
+            string s = d[i - '2'];
+            var t = new List<string>();
+            foreach (string a in ans) {
+                foreach (char b in s) {
+                    t.Add(a + b);
                 }
             }
-            if (i < 0) return results;
+            ans = t;
         }
+        return ans;
     }
 }
 ```
