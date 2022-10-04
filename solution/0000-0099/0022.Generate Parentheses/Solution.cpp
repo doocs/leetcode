@@ -2,16 +2,17 @@ class Solution {
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> ans;
-        dfs(0, 0, n, "", ans);
+        function<void(int, int, string)> dfs;
+        dfs = [&](int l, int r, string t) {
+            if (l > n || r > n || l < r) return;
+            if (l == n && r == n) {
+                ans.push_back(t);
+                return;
+            }
+            dfs(l + 1, r, t + "(");
+            dfs(l, r + 1, t + ")");
+        };
+        dfs(0, 0, "");
         return ans;
-    }
-
-    void dfs(int left, int right, int n, string t, vector<string>& ans) {
-        if (left == n && right == n) {
-            ans.push_back(t);
-            return;
-        }
-        if (left < n) dfs(left + 1, right, n, t + "(", ans);
-        if (right < left) dfs(left, right + 1, n, t + ")", ans);
     }
 };

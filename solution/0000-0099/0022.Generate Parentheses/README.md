@@ -36,7 +36,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-深度优先搜索 DFS。
+**方法一：DFS + 剪枝**
+
+题目中 $n$ 的范围为 $[1, 8]$，因此我们直接通过“暴力搜索 + 剪枝”的方式快速解决本题。
+
+我们设计函数 `dfs(l, r, t)`，其中 $l$ 和 $r$ 分别表示左括号和右括号的数量，而 $t$ 表示当前的括号序列。那么我们可以得到如下的递归结构：
+
+- 如果 $l \gt n$ 或者 $r \gt n$ 或者 $l \lt r$，那么当前括号组合 $t$ 不合法，直接返回；
+- 如果 $l = n$ 且 $r = n$，那么当前括号组合 $t$ 合法，将其加入答案数组 `ans` 中，直接返回；
+- 我们可以选择添加一个左括号，递归执行 `dfs(l + 1, r, t + "(")`；
+- 我们也可以选择添加一个右括号，递归执行 `dfs(l, r + 1, t + ")")`。
+
+时间复杂度 $O(2^{n\times 2} \times n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -47,14 +58,14 @@
 ```python
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        def dfs(left, right, t):
-            if left == n and right == n:
+        def dfs(l, r, t):
+            if l > n or r > n or l < r:
+                return
+            if l == n and r == n:
                 ans.append(t)
                 return
-            if left < n:
-                dfs(left + 1, right, t + '(')
-            if right < left:
-                dfs(left, right + 1, t + ')')
+            dfs(l + 1, r, t + '(')
+            dfs(l, r + 1, t + ')')
 
         ans = []
         dfs(0, 0, '')
@@ -67,23 +78,25 @@ class Solution:
 
 ```java
 class Solution {
+    private List<String> ans = new ArrayList<>();
+    private int n;
+
     public List<String> generateParenthesis(int n) {
-        List<String> ans = new ArrayList<>();
-        dfs(0, 0, n, "", ans);
+        this.n = n;
+        dfs(0, 0, "");
         return ans;
     }
 
-    private void dfs(int left, int right, int n, String t, List<String> ans) {
-        if (left == n && right == n) {
+    private void dfs(int l, int r, String t) {
+        if (l > n || r > n || l < r) {
+            return;
+        }
+        if (l == n && r == n) {
             ans.add(t);
             return;
         }
-        if (left < n) {
-            dfs(left + 1, right, n, t + "(", ans);
-        }
-        if (right < left) {
-            dfs(left, right + 1, n, t + ")", ans);
-        }
+        dfs(l + 1, r, t + "(");
+        dfs(l, r + 1, t + ")");
     }
 }
 ```
@@ -95,17 +108,18 @@ class Solution {
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> ans;
-        dfs(0, 0, n, "", ans);
+        function<void(int, int, string)> dfs;
+        dfs = [&](int l, int r, string t) {
+            if (l > n || r > n || l < r) return;
+            if (l == n && r == n) {
+                ans.push_back(t);
+                return;
+            }
+            dfs(l + 1, r, t + "(");
+            dfs(l, r + 1, t + ")");
+        };
+        dfs(0, 0, "");
         return ans;
-    }
-
-    void dfs(int left, int right, int n, string t, vector<string>& ans) {
-        if (left == n && right == n) {
-            ans.push_back(t);
-            return;
-        }
-        if (left < n) dfs(left + 1, right, n, t + "(", ans);
-        if (right < left) dfs(left, right + 1, n, t + ")", ans);
     }
 };
 ```
@@ -114,19 +128,18 @@ public:
 
 ```go
 func generateParenthesis(n int) []string {
-	var ans []string
-	var dfs func(left, right int, t string)
-	dfs = func(left, right int, t string) {
-		if left == n && right == n {
+	ans := []string{}
+	var dfs func(int, int, string)
+	dfs = func(l, r int, t string) {
+		if l > n || r > n || l < r {
+			return
+		}
+		if l == n && r == n {
 			ans = append(ans, t)
 			return
 		}
-		if left < n {
-			dfs(left+1, right, t+"(")
-		}
-		if right < left {
-			dfs(left, right+1, t+")")
-		}
+		dfs(l+1, r, t+"(")
+		dfs(l, r+1, t+")")
 	}
 	dfs(0, 0, "")
 	return ans
@@ -141,19 +154,18 @@ func generateParenthesis(n int) []string {
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-    let ans = [];
-    let dfs = function (left, right, t) {
-        if (left == n && right == n) {
+    function dfs(l, r, t) {
+        if (l > n || r > n || l < r) {
+            return;
+        }
+        if (l == n && r == n) {
             ans.push(t);
             return;
         }
-        if (left < n) {
-            dfs(left + 1, right, t + '(');
-        }
-        if (right < left) {
-            dfs(left, right + 1, t + ')');
-        }
-    };
+        dfs(l + 1, r, t + '(');
+        dfs(l, r + 1, t + ')');
+    }
+    let ans = [];
     dfs(0, 0, '');
     return ans;
 };
@@ -163,19 +175,18 @@ var generateParenthesis = function (n) {
 
 ```ts
 function generateParenthesis(n: number): string[] {
-    const ans: string[] = [];
-    const dfs = (left: number, right: number, t: string) => {
-        if (left == n && right == n) {
+    function dfs(l, r, t) {
+        if (l > n || r > n || l < r) {
+            return;
+        }
+        if (l == n && r == n) {
             ans.push(t);
             return;
         }
-        if (left < n) {
-            dfs(left + 1, right, t + '(');
-        }
-        if (right < left) {
-            dfs(left, right + 1, t + ')');
-        }
-    };
+        dfs(l + 1, r, t + '(');
+        dfs(l, r + 1, t + ')');
+    }
+    let ans = [];
     dfs(0, 0, '');
     return ans;
 }
