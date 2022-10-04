@@ -56,6 +56,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：栈模拟**
+
+先判断字符串长度是否为 $3$ 的倍数，若不是直接返回 `false`。
+
+接下来我们使用栈模拟操作，遍历字符串 $s$ 的每个字符 $c$：
+
+若 $c$ 等于 `'c'`，且栈顶的两个元素分别为 `'a'` 和 `'b'`，则将栈顶的两个元素出栈；否则将 $c$ 入栈。
+
+最后判断栈是否为空，若为空则返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +75,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s) % 3:
+            return False
+        stk = []
+        for c in s:
+            if c == 'c' and len(stk) > 1 and stk[-2] == 'a' and stk[-1] == 'b':
+                stk = stk[:-2]
+            else:
+                stk.append(c)
+        return not stk
 ```
 
 ### **Java**
@@ -71,7 +93,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isValid(String s) {
+        if (s.length() % 3 > 0) {
+            return false;
+        }
+        StringBuilder stk = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            int n = stk.length();
+            if (c == 'c' && n > 1 && stk.charAt(n - 2) == 'a' && stk.charAt(n - 1) == 'b') {
+                stk.deleteCharAt(n - 1);
+                stk.deleteCharAt(n - 2);
+            } else {
+                stk.append(c);
+            }
+        }
+        return stk.length() == 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        if (s.size() % 3) {
+            return false;
+        }
+        string stk;
+        for (char c : s) {
+            int n = stk.size();
+            if (c == 'c' && n > 1 && stk[n - 2] == 'a' && stk[n - 1] == 'b') {
+                stk.pop_back();
+                stk.pop_back();
+            } else {
+                stk.push_back(c);
+            }
+        }
+        return stk.empty();
+    }
+};
+```
+
+### **Go**
+
+```go
+func isValid(s string) bool {
+	if len(s)%3 > 0 {
+		return false
+	}
+	stk := []rune{}
+	for _, c := range s {
+		n := len(stk)
+		if c == 'c' && n > 1 && stk[n-2] == 'a' && stk[n-1] == 'b' {
+			stk = stk[:n-2]
+		} else {
+			stk = append(stk, c)
+		}
+	}
+	return len(stk) == 0
+}
 ```
 
 ### **...**
