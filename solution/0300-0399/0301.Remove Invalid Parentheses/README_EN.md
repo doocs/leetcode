@@ -168,7 +168,7 @@ public:
             int y = s[i] == ')' ? 1 : 0;
             dfs(i + 1, l, r, lcnt + x, rcnt + y, t + s[i]);
         };
-        
+
         dfs(0, l, r, 0, 0, "");
         return vector<string>(ans.begin(), ans.end());
     }

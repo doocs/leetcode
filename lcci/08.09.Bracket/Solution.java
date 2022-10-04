@@ -1,20 +1,22 @@
 class Solution {
+    private List<String> ans = new ArrayList<>();
+    private int n;
+
     public List<String> generateParenthesis(int n) {
-        List<String> ans = new ArrayList<>();
-        dfs(0, 0, n, "", ans);
+        this.n = n;
+        dfs(0, 0, "");
         return ans;
     }
 
-    private void dfs(int left, int right, int n, String t, List<String> ans) {
-        if (left == n && right == n) {
+    private void dfs(int l, int r, String t) {
+        if (l > n || r > n || l < r) {
+            return;
+        }
+        if (l == n && r == n) {
             ans.add(t);
             return;
         }
-        if (left < n) {
-            dfs(left + 1, right, n, t + "(", ans);
-        }
-        if (right < left) {
-            dfs(left, right + 1, n, t + ")", ans);
-        }
+        dfs(l + 1, r, t + "(");
+        dfs(l, r + 1, t + ")");
     }
 }

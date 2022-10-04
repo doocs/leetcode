@@ -1,18 +1,16 @@
 function generateParenthesis(n: number): string[] {
+    function dfs(l, r, t) {
+        if (l > n || r > n || l < r) {
+            return;
+        }
+        if (l == n && r == n) {
+            ans.push(t);
+            return;
+        }
+        dfs(l + 1, r, t + '(');
+        dfs(l, r + 1, t + ')');
+    }
     let ans = [];
-    dfs(0, 0, n, '', ans);
+    dfs(0, 0, '');
     return ans;
-}
-
-function dfs(left: number, right: number, n: number, t: string, ans: string[]) {
-    if (left == n && right == n) {
-        ans.push(t);
-        return;
-    }
-    if (left < n) {
-        dfs(left + 1, right, n, t + '(', ans);
-    }
-    if (right < left) {
-        dfs(left, right + 1, n, t + ')', ans);
-    }
 }

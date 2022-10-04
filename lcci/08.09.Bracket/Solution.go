@@ -1,18 +1,17 @@
 func generateParenthesis(n int) []string {
-	var ans []string
-	dfs(0, 0, n, "", &ans)
+	ans := []string{}
+	var dfs func(int, int, string)
+	dfs = func(l, r int, t string) {
+		if l > n || r > n || l < r {
+			return
+		}
+		if l == n && r == n {
+			ans = append(ans, t)
+			return
+		}
+		dfs(l+1, r, t+"(")
+		dfs(l, r+1, t+")")
+	}
+	dfs(0, 0, "")
 	return ans
-}
-
-func dfs(left, right, n int, t string, ans *[]string) {
-	if left == n && right == n {
-		*ans = append(*ans, t)
-		return
-	}
-	if left < n {
-		dfs(left+1, right, n, t+"(", ans)
-	}
-	if right < left {
-		dfs(left, right+1, n, t+")", ans)
-	}
 }
