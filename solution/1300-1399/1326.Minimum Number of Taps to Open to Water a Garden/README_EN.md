@@ -51,13 +51,115 @@ Opening Only the second tap will water the whole garden [0,5]
 ### **Python3**
 
 ```python
+class Solution:
+    def minTaps(self, n: int, ranges: List[int]) -> int:
+        last = [0] * (n + 1)
+        for i, v in enumerate(ranges):
+            l, r = max(0, i - v), min(n, i + v)
+            last[l] = max(last[l], r)
 
+        ans = mx = pre = 0
+        for i in range(n):
+            mx = max(mx, last[i])
+            if mx <= i:
+                return -1
+            if pre == i:
+                ans += 1
+                pre = mx
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minTaps(int n, int[] ranges) {
+        int[] last = new int[n + 1];
+        for (int i = 0; i < n + 1; ++i) {
+            int v = ranges[i];
+            int l = Math.max(0, i - v), r = Math.min(n, i + v);
+            last[l] = Math.max(last[l], r);
+        }
+        int ans = 0, mx = 0, pre = 0;
+        for (int i = 0; i < n; ++i) {
+            mx = Math.max(mx, last[i]);
+            if (mx <= i) {
+                return -1;
+            }
+            if (pre == i) {
+                ++ans;
+                pre = mx;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minTaps(int n, vector<int>& ranges) {
+        vector<int> last(n + 1);
+        for (int i = 0; i < n + 1; ++i) {
+            int v = ranges[i];
+            int l = max(0, i - v), r = min(n, i + v);
+            last[l] = max(last[l], r);
+        }
+        int ans = 0, mx = 0, pre = 0;
+        for (int i = 0; i < n; ++i) {
+            mx = max(mx, last[i]);
+            if (mx <= i) {
+                return -1;
+            }
+            if (pre == i) {
+                ++ans;
+                pre = mx;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minTaps(n int, ranges []int) int {
+	last := make([]int, n+1)
+	for i, v := range ranges {
+		l, r := max(0, i-v), min(n, i+v)
+		last[l] = max(last[l], r)
+	}
+	ans, mx, pre := 0, 0, 0
+	for i := 0; i < n; i++ {
+		mx = max(mx, last[i])
+		if mx <= i {
+			return -1
+		}
+		if pre == i {
+			ans++
+			pre = mx
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
