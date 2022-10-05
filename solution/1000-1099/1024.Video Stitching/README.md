@@ -80,7 +80,11 @@
 
 时间复杂度 $O(n+m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 `clips` 的长度和 `time` 的值。
 
-相似题目：[1326. 灌溉花园的最少水龙头数目](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README.md)
+相似题目：
+
+-   [45. 跳跃游戏 II](/solution/0000-0099/0045.Jump%20Game%20II/README.md)
+-   [55. 跳跃游戏](/solution/0000-0099/0055.Jump%20Game/README.md)
+-   [1326. 灌溉花园的最少水龙头数目](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README.md)
 
 <!-- tabs:start -->
 

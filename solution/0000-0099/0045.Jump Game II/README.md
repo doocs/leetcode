@@ -49,6 +49,20 @@
 
 **方法二：贪心**
 
+我们可以用变量 `mx` 记录当前位置能够到达的最远位置，用变量 `end` 记录上一次跳跃的位置，用变量 `steps` 记录跳跃的次数。
+
+接下来，我们从 $0$ 开始枚举所有位置，用 $i+nums[i]$ 来更新 `mx`，当 $i=end$ 时，我们就需要进行一次跳跃，此时我们将 `end` 更新为 `mx`，并将 `steps` 加 $1$。
+
+遍历结束，返回 `steps` 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
+相似题目：
+
+-   [55. 跳跃游戏](/solution/0000-0099/0055.Jump%20Game/README.md)
+-   [1024. 视频拼接](/solution/1000-1099/1024.Video%20Stitching/README.md)
+-   [1326. 灌溉花园的最少水龙头数目](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
