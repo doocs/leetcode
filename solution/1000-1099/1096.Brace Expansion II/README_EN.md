@@ -71,13 +71,116 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def braceExpansionII(self, expression: str) -> List[str]:
+        def dfs(exp):
+            j = exp.find('}')
+            if j == -1:
+                s.add(exp)
+                return
+            i = j
+            while exp[i] != '{':
+                i -= 1
+            a, c, = exp[:i], exp[j + 1:]
+            for b in exp[i + 1: j].split(','):
+                dfs(a + b + c)
 
+        s = set()
+        dfs(expression)
+        return sorted(s)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private TreeSet<String> s = new TreeSet<>();
 
+    public List<String> braceExpansionII(String expression) {
+        dfs(expression);
+        return new ArrayList<>(s);
+    }
+
+    private void dfs(String exp) {
+        int j = exp.indexOf('}');
+        if (j == -1) {
+            s.add(exp);
+            return;
+        }
+        int i = j;
+        while (exp.charAt(i) != '{') {
+            --i;
+        }
+        String a = exp.substring(0, i);
+        String c  = exp.substring(j + 1);
+        for (String b : exp.substring(i + 1, j).split(",")) {
+            dfs(a + b + c);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    set<string> s;
+    vector<string> braceExpansionII(string expression) {
+        dfs(expression);
+        return vector<string>(s.begin(), s.end());
+    }
+
+    void dfs(string exp) {
+        int j = exp.find('}');
+        if (j == -1) {
+            s.insert(exp);
+            return;
+        }
+        int i = j;
+        while (exp[i] != '{') {
+            --i;
+        }
+        string a = exp.substr(0, i);
+        string c = exp.substr(j + 1);
+        stringstream ss(exp.substr(i + 1, j - i - 1));
+        string b;
+        while (getline(ss, b, ',')) {
+            dfs(a + b + c);
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func braceExpansionII(expression string) []string {
+	s := map[string]struct{}{}
+	var dfs func(exp string)
+	dfs = func(exp string) {
+		j := strings.IndexByte(exp, '}')
+		if j == -1 {
+			s[exp] = struct{}{}
+			return
+		}
+		i := j
+		for exp[i] != '{' {
+			i--
+		}
+		a, c := exp[:i], exp[j+1:]
+		for _, b := range strings.Split(exp[i+1:j], ",") {
+			dfs(a + b + c)
+		}
+	}
+	dfs(expression)
+	ans := []string{}
+	for v := range s {
+		ans = append(ans, v)
+	}
+	sort.Strings(ans)
+	return ans
+}
 ```
 
 ### **...**

@@ -71,6 +71,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+设计递归函数 `dfs(exp)`：
+
+-   如果 `exp` 不包含 `{}`，将 `exp` 中的字符加入结果集 `s` 中，返回；
+-   否则，找到第一个 `}` 的位置 $j$，从 $j$ 往前找到第一个 `{` 的位置 $i$，将 $exp[i+1..j-1]$ 之间的字符串按照 `,` 分割，得到一个字符串数组 `bs`。将 `exp[0..i-1]` 和 `exp[j+1..]` 作为前缀 $a$ 和后缀 $c$，分别与 `bs` 中的每个字符串 $b$ 拼接，然后递归调用 `dfs(a+b+c)`。
+
+最后对结果集排序，返回。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -78,7 +87,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def braceExpansionII(self, expression: str) -> List[str]:
+        def dfs(exp):
+            j = exp.find('}')
+            if j == -1:
+                s.add(exp)
+                return
+            i = j
+            while exp[i] != '{':
+                i -= 1
+            a, c, = exp[:i], exp[j + 1:]
+            for b in exp[i + 1: j].split(','):
+                dfs(a + b + c)
 
+        s = set()
+        dfs(expression)
+        return sorted(s)
 ```
 
 ### **Java**
@@ -86,7 +111,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private TreeSet<String> s = new TreeSet<>();
 
+    public List<String> braceExpansionII(String expression) {
+        dfs(expression);
+        return new ArrayList<>(s);
+    }
+
+    private void dfs(String exp) {
+        int j = exp.indexOf('}');
+        if (j == -1) {
+            s.add(exp);
+            return;
+        }
+        int i = j;
+        while (exp.charAt(i) != '{') {
+            --i;
+        }
+        String a = exp.substring(0, i);
+        String c  = exp.substring(j + 1);
+        for (String b : exp.substring(i + 1, j).split(",")) {
+            dfs(a + b + c);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    set<string> s;
+    vector<string> braceExpansionII(string expression) {
+        dfs(expression);
+        return vector<string>(s.begin(), s.end());
+    }
+
+    void dfs(string exp) {
+        int j = exp.find('}');
+        if (j == -1) {
+            s.insert(exp);
+            return;
+        }
+        int i = j;
+        while (exp[i] != '{') {
+            --i;
+        }
+        string a = exp.substr(0, i);
+        string c = exp.substr(j + 1);
+        stringstream ss(exp.substr(i + 1, j - i - 1));
+        string b;
+        while (getline(ss, b, ',')) {
+            dfs(a + b + c);
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func braceExpansionII(expression string) []string {
+	s := map[string]struct{}{}
+	var dfs func(exp string)
+	dfs = func(exp string) {
+		j := strings.IndexByte(exp, '}')
+		if j == -1 {
+			s[exp] = struct{}{}
+			return
+		}
+		i := j
+		for exp[i] != '{' {
+			i--
+		}
+		a, c := exp[:i], exp[j+1:]
+		for _, b := range strings.Split(exp[i+1:j], ",") {
+			dfs(a + b + c)
+		}
+	}
+	dfs(expression)
+	ans := []string{}
+	for v := range s {
+		ans = append(ans, v)
+	}
+	sort.Strings(ans)
+	return ans
+}
 ```
 
 ### **...**
