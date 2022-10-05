@@ -3,31 +3,30 @@
  * @return {string}
  */
 var reverseParentheses = function (s) {
-    let stack = [];
-    let hashMap = {};
     const n = s.length;
-    for (let i = 0; i < n; i++) {
-        let cur = s.charAt(i);
-        if (cur == '(') {
-            stack.push(i);
-        } else if (cur == ')') {
-            let left = stack.pop();
-            hashMap[left] = i;
-            hashMap[i] = left;
+    const d = new Array(n).fill(0);
+    const stk = [];
+    for (let i = 0; i < n; ++i) {
+        if (s[i] == '(') {
+            stk.push(i);
+        } else if (s[i] == ')') {
+            const j = stk.pop();
+            d[i] = j;
+            d[j] = i;
         }
     }
-    let res = [];
     let i = 0;
-    let step = 1; // 1向右，-1向左
-    while (i > -1 && i < n) {
-        let cur = s.charAt(i);
-        if (cur == '(' || cur == ')') {
-            step = -step;
-            i = hashMap[i];
+    let x = 1;
+    const ans = [];
+    while (i < n) {
+        const c = s.charAt(i);
+        if (c == '(' || c == ')') {
+            i = d[i];
+            x = -x;
         } else {
-            res.push(cur);
+            ans.push(c);
         }
-        i += step;
+        i += x;
     }
-    return res.join('');
+    return ans.join('');
 };
