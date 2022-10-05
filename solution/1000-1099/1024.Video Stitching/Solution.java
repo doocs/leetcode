@@ -1,17 +1,15 @@
 class Solution {
-public:
-    int videoStitching(vector<vector<int>>& clips, int time) {
-        vector<int> last(time);
-        for (auto& v : clips) {
-            int a = v[0], b = v[1];
+    public int videoStitching(int[][] clips, int time) {
+        int[] last = new int[time];
+        for (var e : clips) {
+            int a = e[0], b = e[1];
             if (a < time) {
-                last[a] = max(last[a], b);
+                last[a] = Math.max(last[a], b);
             }
         }
-        int mx = 0, ans = 0;
-        int pre = 0;
+        int ans = 0, mx = 0, pre = 0;
         for (int i = 0; i < time; ++i) {
-            mx = max(mx, last[i]);
+            mx = Math.max(mx, last[i]);
             if (mx <= i) {
                 return -1;
             }
@@ -22,4 +20,4 @@ public:
         }
         return ans;
     }
-};
+}

@@ -64,6 +64,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+注意到，如果相同起点的子区间有多个，那么选择右端点最大的那个子区间是最优的。
+
+因此，我们可以预处理所有子区间，对于每一个位置 $i$，算出所有以 $i$ 为起点的子区间中，右端点最大的那个位置，记录在数组 $last[i]$ 中。
+
+我们定义变量 `mx` 表示当前能够到达的最远位置，变量 `ans` 表示当前需要的最少子区间数，变量 `pre` 表示上一个被使用的子区间的右端点。
+
+接下来，我们从 $0$ 开始枚举所有位置 $i$，用 $last[i]$ 来更新 `mx`。如果更新后 $mx = i$，说明无法覆盖下一个位置，因此无法完成任务，返回 $-1$。
+
+同时我们记录上一个被使用的子区间的右端点 `pre`，如果 $pre = i$，说明需要使用一个新的子区间，因此我们将 `ans` 加 $1$，并将 `pre` 更新为 `mx`。
+
+遍历结束后，返回 `ans` 即可。
+
+时间复杂度 $O(n+m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别是数组 `clips` 的长度和 `time` 的值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +87,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def videoStitching(self, clips: List[List[int]], time: int) -> int:
+        last = [0] * time
+        for a, b in clips:
+            if a < time:
+                last[a] = max(last[a], b)
+        ans = mx = pre = 0
+        for i, v in enumerate(last):
+            mx = max(mx, v)
+            if mx <= i:
+                return -1
+            if pre == i:
+                ans += 1
+                pre = mx
+        return ans
 ```
 
 ### **Java**
@@ -79,7 +109,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int videoStitching(int[][] clips, int time) {
+        int[] last = new int[time];
+        for (var e : clips) {
+            int a = e[0], b = e[1];
+            if (a < time) {
+                last[a] = Math.max(last[a], b);
+            }
+        }
+        int ans = 0, mx = 0, pre = 0;
+        for (int i = 0; i < time; ++i) {
+            mx = Math.max(mx, last[i]);
+            if (mx <= i) {
+                return -1;
+            }
+            if (pre == i) {
+                ++ans;
+                pre = mx;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int videoStitching(vector<vector<int>>& clips, int time) {
+        vector<int> last(time);
+        for (auto& v : clips) {
+            int a = v[0], b = v[1];
+            if (a < time) {
+                last[a] = max(last[a], b);
+            }
+        }
+        int mx = 0, ans = 0;
+        int pre = 0;
+        for (int i = 0; i < time; ++i) {
+            mx = max(mx, last[i]);
+            if (mx <= i) {
+                return -1;
+            }
+            if (pre == i) {
+                ++ans;
+                pre = mx;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func videoStitching(clips [][]int, time int) int {
+	last := make([]int, time)
+	for _, v := range clips {
+		a, b := v[0], v[1]
+		if a < time {
+			last[a] = max(last[a], b)
+		}
+	}
+	ans, mx, pre := 0, 0, 0
+	for i, v := range last {
+		mx = max(mx, v)
+		if mx <= i {
+			return -1
+		}
+		if pre == i {
+			ans++
+			pre = mx
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -60,13 +60,112 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 ### **Python3**
 
 ```python
-
+class Solution:
+    def videoStitching(self, clips: List[List[int]], time: int) -> int:
+        last = [0] * time
+        for a, b in clips:
+            if a < time:
+                last[a] = max(last[a], b)
+        ans = mx = pre = 0
+        for i, v in enumerate(last):
+            mx = max(mx, v)
+            if mx <= i:
+                return -1
+            if pre == i:
+                ans += 1
+                pre = mx
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int videoStitching(int[][] clips, int time) {
+        int[] last = new int[time];
+        for (var e : clips) {
+            int a = e[0], b = e[1];
+            if (a < time) {
+                last[a] = Math.max(last[a], b);
+            }
+        }
+        int ans = 0, mx = 0, pre = 0;
+        for (int i = 0; i < time; ++i) {
+            mx = Math.max(mx, last[i]);
+            if (mx <= i) {
+                return -1;
+            }
+            if (pre == i) {
+                ++ans;
+                pre = mx;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int videoStitching(vector<vector<int>>& clips, int time) {
+        vector<int> last(time);
+        for (auto& v : clips) {
+            int a = v[0], b = v[1];
+            if (a < time) {
+                last[a] = max(last[a], b);
+            }
+        }
+        int mx = 0, ans = 0;
+        int pre = 0;
+        for (int i = 0; i < time; ++i) {
+            mx = max(mx, last[i]);
+            if (mx <= i) {
+                return -1;
+            }
+            if (pre == i) {
+                ++ans;
+                pre = mx;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func videoStitching(clips [][]int, time int) int {
+	last := make([]int, time)
+	for _, v := range clips {
+		a, b := v[0], v[1]
+		if a < time {
+			last[a] = max(last[a], b)
+		}
+	}
+	ans, mx, pre := 0, 0, 0
+	for i, v := range last {
+		mx = max(mx, v)
+		if mx <= i {
+			return -1
+		}
+		if pre == i {
+			ans++
+			pre = mx
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
