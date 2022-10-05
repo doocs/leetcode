@@ -58,25 +58,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-主体分为两步：
+**方法一：两遍扫描**
 
-1. 遍历字符串 `s`，统计其中**成对**的括号数量。流程：
-    1. 从前往后遍历 `s`，统计 `(` 的数量。
-    2. 当遇到 `)` 时，对比当前 `(` 记录的数量，在 `)` 统计数量不超过 `(` 时才可算有效的数据。
-        > `)` 有效的前提：在其前方存在对应的 `(`。
-2. 再次遍历，生成返回值。流程：
-    1. 准备一变量，记录加入返回值当中 `(` 的数量。
-    2. 遍历字符串 `s`，流程：
-        - 遇到 `(`
-            - 确定当前还缺少成对括号时（查看成对统计数据），才让其加入，并使 `(` 统计数量 + 1。
-        - 遇到 `)`
-            - 确定前方存在 `(`（查看 `(` 统计数量）时，才让其加入，并删减 `(` 统计数据与成对数量（-1 操作）。
-        - 其他字符串正常加入。
+先从左向右扫描，将多余的右括号删除，再从右向左扫描，将多余的左括号删除。
 
-疑问：为什么要同时调整 `(` 统计数据与成对数量？
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
--   需要确保前方存在可用的 `(`，才能安心放入 `)`。
--   而删减成对数量是防止放入过量的 `(`。
+相似题目：
+
+-   [678. 有效的括号字符串](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
+-   [2116. 判断一个括号字符串是否有效](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
 
 <!-- tabs:start -->
 
@@ -85,7 +76,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        stk = []
+        x = 0
+        for c in s:
+            if c == ')' and x == 0:
+                continue
+            if c == '(':
+                x += 1
+            elif c == ')':
+                x -= 1
+            stk.append(c)
+        x = 0
+        ans = []
+        for c in stk[::-1]:
+            if c == '(' and x == 0:
+                continue
+            if c == ')':
+                x += 1
+            elif c == '(':
+                x -= 1
+            ans.append(c)
+        return ''.join(ans[::-1])
 ```
 
 ### **Java**
@@ -93,7 +106,108 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String minRemoveToMakeValid(String s) {
+        Deque<Character> stk = new ArrayDeque<>();
+        int x = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c == ')' && x == 0) {
+                continue;
+            }
+            if (c == '(') {
+                ++x;
+            } else if (c == ')') {
+                --x;
+            }
+            stk.push(c);
+        }
+        StringBuilder ans = new StringBuilder();
+        x = 0;
+        while (!stk.isEmpty()) {
+            char c = stk.pop();
+            if (c == '(' && x == 0) {
+                continue;
+            }
+            if (c == ')') {
+                ++x;
+            } else if (c == '(') {
+                --x;
+            }
+            ans.append(c);
+        }
+        return ans.reverse().toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        string stk;
+        int x = 0;
+        for (char& c : s) {
+            if (c == ')' && x == 0) continue;
+            if (c == '(') ++x;
+            else if (c == ')') --x;
+            stk.push_back(c);
+        }
+        string ans;
+        x = 0;
+        while (stk.size()) {
+            char c = stk.back();
+            stk.pop_back();
+            if (c == '(' && x == 0) continue;
+            if (c == ')') ++x;
+            else if (c == '(') --x;
+            ans.push_back(c);
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minRemoveToMakeValid(s string) string {
+	stk := []byte{}
+	x := 0
+	for i := range s {
+		c := s[i]
+		if c == ')' && x == 0 {
+			continue
+		}
+		if c == '(' {
+			x++
+		} else if c == ')' {
+			x--
+		}
+		stk = append(stk, c)
+	}
+	ans := []byte{}
+	x = 0
+	for i := len(stk) - 1; i >= 0; i-- {
+		c := stk[i]
+		if c == '(' && x == 0 {
+			continue
+		}
+		if c == ')' {
+			x++
+		} else if c == '(' {
+			x--
+		}
+		ans = append(ans, c)
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return string(ans)
+}
 ```
 
 ### **TypeScript**
