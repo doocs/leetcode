@@ -61,13 +61,79 @@ So it takes only 2 operations.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reinitializePermutation(self, n: int) -> int:
+        ans, i = 0, 1
+        while 1:
+            ans += 1
+            if i < n >> 1:
+                i <<= 1
+            else:
+                i = (i - (n >> 1)) << 1 | 1
+            if i == 1:
+                return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int reinitializePermutation(int n) {
+        int ans = 0, i = 1;
+        while (true) {
+            ++ans;
+            if (i < (n >> 1)) {
+                i <<= 1;
+            } else {
+                i = (i - (n >> 1)) << 1 | 1;
+            }
+            if (i == 1) {
+                return ans;
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int reinitializePermutation(int n) {
+        int ans = 0, i = 1;
+        while (1) {
+            ++ans;
+            if (i < (n >> 1)) {
+                i <<= 1;
+            } else {
+                i = (i - (n >> 1)) << 1 | 1;
+            }
+            if (i == 1) {
+                return ans;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func reinitializePermutation(n int) int {
+	ans, i := 0, 1
+	for {
+		ans++
+		if i < (n >> 1) {
+			i <<= 1
+		} else {
+			i = (i-(n>>1))<<1 | 1
+		}
+		if i == 1 {
+			return ans
+		}
+	}
+}
 ```
 
 ### **...**

@@ -60,6 +60,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：脑筋急转弯**
+
+我们观察数字的变化规律，发现：
+
+1. 新数组的偶数位数字依次是原数组的前半段数字；
+1. 新数组的奇数位数字依次是原数组的后半段数字。
+
+即，如果原数组的某个数字下标 $i$ 在 `[0, n >> 1)` 范围内，那么这个数字的新下标就是 `i << 1`；否则，新下标就是 `(i - (n >> 1)) << 1 | 1`。
+
+另外，每一轮操作，数字移动的路径都是一样的，只要有一个数字（数字 $0$ 和 $n-1$ 除外）回到了它原来的位置，那么整个序列就和之前的一致了。
+
+因此，我们选择数字 $1$，初始时下标也是 $1$，每次将数字 $1$ 移动到新的位置，直到数字 $1$ 回到原来的位置，就可以得到最小的操作次数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +82,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reinitializePermutation(self, n: int) -> int:
+        ans, i = 0, 1
+        while 1:
+            ans += 1
+            if i < n >> 1:
+                i <<= 1
+            else:
+                i = (i - (n >> 1)) << 1 | 1
+            if i == 1:
+                return ans
 ```
 
 ### **Java**
@@ -75,7 +100,63 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int reinitializePermutation(int n) {
+        int ans = 0, i = 1;
+        while (true) {
+            ++ans;
+            if (i < (n >> 1)) {
+                i <<= 1;
+            } else {
+                i = (i - (n >> 1)) << 1 | 1;
+            }
+            if (i == 1) {
+                return ans;
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int reinitializePermutation(int n) {
+        int ans = 0, i = 1;
+        while (1) {
+            ++ans;
+            if (i < (n >> 1)) {
+                i <<= 1;
+            } else {
+                i = (i - (n >> 1)) << 1 | 1;
+            }
+            if (i == 1) {
+                return ans;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func reinitializePermutation(n int) int {
+	ans, i := 0, 1
+	for {
+		ans++
+		if i < (n >> 1) {
+			i <<= 1
+		} else {
+			i = (i-(n>>1))<<1 | 1
+		}
+		if i == 1 {
+			return ans
+		}
+	}
+}
 ```
 
 ### **...**
