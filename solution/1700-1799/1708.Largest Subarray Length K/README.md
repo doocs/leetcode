@@ -58,6 +58,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+数组中所有整数都不同，我们可以先在 $[0,..n-k]$ 范围内找到最大的元素的下标，然后从该下标开始取 $k$ 个元素即可。
+
+时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +71,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestSubarray(self, nums: List[int], k: int) -> List[int]:
+        mx = max(nums[: len(nums) - k + 1])
+        i = nums.index(mx)
+        return nums[i: i + k]
 ```
 
 ### **Java**
@@ -73,7 +83,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] largestSubarray(int[] nums, int k) {
+        int i = 0, mx = 0;
+        for (int j = 0; j < nums.length - k + 1; ++j) {
+            if (mx < nums[j]) {
+                mx = nums[j];
+                i = j;
+            }
+        }
+        int[] ans = new int[k];
+        for (int j = 0; j < k; ++j) {
+            ans[j] = nums[i + j];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> largestSubarray(vector<int>& nums, int k) {
+        auto pos = max_element(nums.begin(), nums.begin() + nums.size() - k + 1);
+        return {pos, pos + k};
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestSubarray(nums []int, k int) []int {
+	i, mx := 0, 0
+	for j := 0; j < len(nums)-k+1; j++ {
+		if mx < nums[j] {
+			mx = nums[j]
+			i = j
+		}
+	}
+	return nums[i : i+k]
+}
 ```
 
 ### **...**

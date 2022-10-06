@@ -60,13 +60,59 @@ Of these, [4,5,2,3] is the largest.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestSubarray(self, nums: List[int], k: int) -> List[int]:
+        mx = max(nums[: len(nums) - k + 1])
+        i = nums.index(mx)
+        return nums[i: i + k]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] largestSubarray(int[] nums, int k) {
+        int i = 0, mx = 0;
+        for (int j = 0; j < nums.length - k + 1; ++j) {
+            if (mx < nums[j]) {
+                mx = nums[j];
+                i = j;
+            }
+        }
+        int[] ans = new int[k];
+        for (int j = 0; j < k; ++j) {
+            ans[j] = nums[i + j];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> largestSubarray(vector<int>& nums, int k) {
+        auto pos = max_element(nums.begin(), nums.begin() + nums.size() - k + 1);
+        return {pos, pos + k};
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestSubarray(nums []int, k int) []int {
+	i, mx := 0, 0
+	for j := 0; j < len(nums)-k+1; j++ {
+		if mx < nums[j] {
+			mx = nums[j]
+			i = j
+		}
+	}
+	return nums[i : i+k]
+}
 ```
 
 ### **...**
