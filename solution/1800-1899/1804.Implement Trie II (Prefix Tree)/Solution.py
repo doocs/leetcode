@@ -1,42 +1,41 @@
 class Trie:
     def __init__(self):
         self.children = [None] * 26
-        self.count = 0
-        self.pre_count = 0
+        self.v = self.pv = 0
 
     def insert(self, word: str) -> None:
         node = self
         for c in word:
-            index = ord(c) - ord('a')
-            if node.children[index] is None:
-                node.children[index] = Trie()
-            node = node.children[index]
-            node.pre_count += 1
-        node.count += 1
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+            node.pv += 1
+        node.v += 1
 
     def countWordsEqualTo(self, word: str) -> int:
-        node = self._search_prefix(word)
-        return 0 if node is None else node.count
+        node = self.search(word)
+        return 0 if node is None else node.v
 
     def countWordsStartingWith(self, prefix: str) -> int:
-        node = self._search_prefix(prefix)
-        return 0 if node is None else node.pre_count
+        node = self.search(prefix)
+        return 0 if node is None else node.pv
 
     def erase(self, word: str) -> None:
         node = self
         for c in word:
-            index = ord(c) - ord('a')
-            node = node.children[index]
-            node.pre_count -= 1
-        node.count -= 1
+            idx = ord(c) - ord('a')
+            node = node.children[idx]
+            node.pv -= 1
+        node.v -= 1
 
-    def _search_prefix(self, prefix: str):
+    def search(self, word):
         node = self
-        for c in prefix:
-            index = ord(c) - ord('a')
-            if node.children[index] is None:
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
                 return None
-            node = node.children[index]
+            node = node.children[idx]
         return node
 
 

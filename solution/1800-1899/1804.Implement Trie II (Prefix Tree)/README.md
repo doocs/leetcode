@@ -56,20 +56,24 @@ trie.countWordsStartingWith("app"); // 返回 0
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数组实现前缀树**
+
 前缀树每个节点包括三部分：
 
 1. 指向子节点的指针数组 children，对于本题而言，数组长度为 26，即小写英文字母的数量。`children[0]` 对应小写字母 a，...，`children[25]` 对应小写字母 z。
-1. int 变量 `count`，表示以该节点结尾的字符串个数。
-1. int 变量 `preCount`，表示以该节点作为前缀节点的字符串个数。
+1. int 变量 `v`，表示以该节点结尾的字符串个数。
+1. int 变量 `pv`，表示以该节点作为前缀节点的字符串个数。
 
 ### 1. 插入字符串
 
 我们从字典树的根开始，插入字符串。对于当前字符对应的子节点，有两种情况：
 
 -   子节点存在。沿着指针移动到子节点，继续处理下一个字符。
--   子节点不存在。创建一个新的子节点，记录在 `children` 数组的对应位置上，然后沿着指针移动到子节点，让子节点的 `preCount` 值加 1。继续搜索下一个字符。
+-   子节点不存在。创建一个新的子节点，记录在 `children` 数组的对应位置上，然后沿着指针移动到子节点，让子节点的 `pv` 值加 1。继续搜索下一个字符。
 
-重复以上步骤，直到处理字符串的最后一个字符，然后将当前节点的 `count` 值加 1。
+重复以上步骤，直到处理字符串的最后一个字符，然后将当前节点的 `v` 值加 1。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。
 
 ### 2. 查找前缀
 
@@ -79,6 +83,14 @@ trie.countWordsStartingWith("app"); // 返回 0
 -   子节点不存在。说明字典树中不包含该前缀，返回空指针。
 
 重复以上步骤，直到返回空指针或搜索完前缀的最后一个字符。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。
+
+### 3. 移除字符串
+
+我们从字典树的根节点开始，依次将对应的子节点的 `pv` 值减 1，直到搜索完字符串的最后一个字符。然后将当前节点的 `v` 值减 1。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
 
@@ -90,42 +102,41 @@ trie.countWordsStartingWith("app"); // 返回 0
 class Trie:
     def __init__(self):
         self.children = [None] * 26
-        self.count = 0
-        self.pre_count = 0
+        self.v = self.pv = 0
 
     def insert(self, word: str) -> None:
         node = self
         for c in word:
-            index = ord(c) - ord('a')
-            if node.children[index] is None:
-                node.children[index] = Trie()
-            node = node.children[index]
-            node.pre_count += 1
-        node.count += 1
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+            node.pv += 1
+        node.v += 1
 
     def countWordsEqualTo(self, word: str) -> int:
-        node = self._search_prefix(word)
-        return 0 if node is None else node.count
+        node = self.search(word)
+        return 0 if node is None else node.v
 
     def countWordsStartingWith(self, prefix: str) -> int:
-        node = self._search_prefix(prefix)
-        return 0 if node is None else node.pre_count
+        node = self.search(prefix)
+        return 0 if node is None else node.pv
 
     def erase(self, word: str) -> None:
         node = self
         for c in word:
-            index = ord(c) - ord('a')
-            node = node.children[index]
-            node.pre_count -= 1
-        node.count -= 1
+            idx = ord(c) - ord('a')
+            node = node.children[idx]
+            node.pv -= 1
+        node.v -= 1
 
-    def _search_prefix(self, prefix: str):
+    def search(self, word):
         node = self
-        for c in prefix:
-            index = ord(c) - ord('a')
-            if node.children[index] is None:
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
                 return None
-            node = node.children[index]
+            node = node.children[idx]
         return node
 
 
@@ -143,57 +154,55 @@ class Trie:
 
 ```java
 class Trie {
-    private Trie[] children;
-    private int count;
-    private int preCount;
+    private Trie[] children = new Trie[26];
+    private int v;
+    private int pv;
 
     public Trie() {
-        children = new Trie[26];
-        count = 0;
-        preCount = 0;
+
     }
 
     public void insert(String word) {
         Trie node = this;
-        for (int i = 0; i < word.length(); ++i) {
-            int index = word.charAt(i) - 'a';
-            if (node.children[index] == null) {
-                node.children[index] = new Trie();
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
             }
-            node = node.children[index];
-            node.preCount += 1;
+            node = node.children[c];
+            ++node.pv;
         }
-        node.count += 1;
+        ++node.v;
     }
 
     public int countWordsEqualTo(String word) {
-        Trie node = searchPrefix(word);
-        return node == null ? 0 : node.count;
+        Trie node = search(word);
+        return node == null ? 0 : node.v;
     }
 
     public int countWordsStartingWith(String prefix) {
-        Trie node = searchPrefix(prefix);
-        return node == null ? 0 : node.preCount;
+        Trie node = search(prefix);
+        return node == null ? 0 : node.pv;
     }
 
     public void erase(String word) {
         Trie node = this;
-        for (int i = 0; i < word.length(); ++i) {
-            int index = word.charAt(i) - 'a';
-            node = node.children[index];
-            node.preCount -= 1;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            node = node.children[c];
+            --node.pv;
         }
-        node.count -= 1;
+        --node.v;
     }
 
-    private Trie searchPrefix(String prefix) {
+    private Trie search(String word) {
         Trie node = this;
-        for (int i = 0; i < prefix.length(); ++i) {
-            int index = prefix.charAt(i) - 'a';
-            if (node.children[index] == null) {
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
                 return null;
             }
-            node = node.children[index];
+            node = node.children[c];
         }
         return node;
     }
@@ -206,6 +215,149 @@ class Trie {
  * int param_2 = obj.countWordsEqualTo(word);
  * int param_3 = obj.countWordsStartingWith(prefix);
  * obj.erase(word);
+ */
+```
+
+### **C++**
+
+```cpp
+class Trie {
+public:
+    Trie()
+        : children(26)
+        , v(0)
+        , pv(0) {
+    }
+
+    void insert(string word) {
+        Trie* node = this;
+        for (char c : word) {
+            c -= 'a';
+            if (!node->children[c]) {
+                node->children[c] = new Trie();
+            }
+            node = node->children[c];
+            ++node->pv;
+        }
+        ++node->v;
+    }
+
+    int countWordsEqualTo(string word) {
+        Trie* node = search(word);
+        return node ? node->v : 0;
+    }
+
+    int countWordsStartingWith(string prefix) {
+        Trie* node = search(prefix);
+        return node ? node->pv : 0;
+    }
+
+    void erase(string word) {
+        Trie* node = this;
+        for (char c : word) {
+            c -= 'a';
+            node = node->children[c];
+            --node->pv;
+        }
+        --node->v;
+    }
+
+private:
+    vector<Trie*> children;
+    int v, pv;
+
+    Trie* search(string& word) {
+        Trie* node = this;
+        for (char c : word) {
+            c -= 'a';
+            if (!node->children[c]) {
+                return nullptr;
+            }
+            node = node->children[c];
+        }
+        return node;
+    }
+};
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * int param_2 = obj->countWordsEqualTo(word);
+ * int param_3 = obj->countWordsStartingWith(prefix);
+ * obj->erase(word);
+ */
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children [26]*Trie
+	v        int
+	pv       int
+}
+
+func Constructor() (_ Trie) { return }
+
+func (this *Trie) Insert(word string) {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = &Trie{}
+		}
+		node = node.children[c]
+		node.pv++
+	}
+	node.v++
+}
+
+func (this *Trie) CountWordsEqualTo(word string) int {
+	node := this.search(word)
+	if node == nil {
+		return 0
+	}
+	return node.v
+}
+
+func (this *Trie) CountWordsStartingWith(prefix string) int {
+	node := this.search(prefix)
+	if node == nil {
+		return 0
+	}
+	return node.pv
+}
+
+func (this *Trie) Erase(word string) {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		node = node.children[c]
+		node.pv--
+	}
+	node.v--
+}
+
+func (this *Trie) search(word string) *Trie {
+	node := this
+	for _, c := range word {
+		c -= 'a'
+		if node.children[c] == nil {
+			return nil
+		}
+		node = node.children[c]
+	}
+	return node
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Insert(word);
+ * param_2 := obj.CountWordsEqualTo(word);
+ * param_3 := obj.CountWordsStartingWith(prefix);
+ * obj.Erase(word);
  */
 ```
 

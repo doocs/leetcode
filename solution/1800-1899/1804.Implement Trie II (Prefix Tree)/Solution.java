@@ -1,55 +1,53 @@
 class Trie {
-    private Trie[] children;
-    private int count;
-    private int preCount;
+    private Trie[] children = new Trie[26];
+    private int v;
+    private int pv;
 
     public Trie() {
-        children = new Trie[26];
-        count = 0;
-        preCount = 0;
-    }
 
+    }
+    
     public void insert(String word) {
         Trie node = this;
-        for (int i = 0; i < word.length(); ++i) {
-            int index = word.charAt(i) - 'a';
-            if (node.children[index] == null) {
-                node.children[index] = new Trie();
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
             }
-            node = node.children[index];
-            node.preCount += 1;
+            node = node.children[c];
+            ++node.pv;
         }
-        node.count += 1;
+        ++node.v;
     }
-
+    
     public int countWordsEqualTo(String word) {
-        Trie node = searchPrefix(word);
-        return node == null ? 0 : node.count;
+        Trie node = search(word);
+        return node == null ? 0 : node.v;
     }
-
+    
     public int countWordsStartingWith(String prefix) {
-        Trie node = searchPrefix(prefix);
-        return node == null ? 0 : node.preCount;
+        Trie node = search(prefix);
+        return node == null ? 0 : node.pv;
     }
-
+    
     public void erase(String word) {
         Trie node = this;
-        for (int i = 0; i < word.length(); ++i) {
-            int index = word.charAt(i) - 'a';
-            node = node.children[index];
-            node.preCount -= 1;
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            node = node.children[c];
+            --node.pv;
         }
-        node.count -= 1;
+        --node.v;
     }
 
-    private Trie searchPrefix(String prefix) {
+    private Trie search(String word) {
         Trie node = this;
-        for (int i = 0; i < prefix.length(); ++i) {
-            int index = prefix.charAt(i) - 'a';
-            if (node.children[index] == null) {
+        for (char c : word.toCharArray()) {
+            c -= 'a';
+            if (node.children[c] == null) {
                 return null;
             }
-            node = node.children[index];
+            node = node.children[c];
         }
         return node;
     }
