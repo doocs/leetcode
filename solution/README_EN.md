@@ -333,7 +333,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0322  |  [Coin Change](/solution/0300-0399/0322.Coin%20Change/README_EN.md)  |  `Breadth-First Search`,`Array`,`Dynamic Programming`  |  Medium  |    |
 |  0323  |  [Number of Connected Components in an Undirected Graph](/solution/0300-0399/0323.Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`  |  Medium  |  🔒  |
 |  0324  |  [Wiggle Sort II](/solution/0300-0399/0324.Wiggle%20Sort%20II/README_EN.md)  |  `Array`,`Divide and Conquer`,`Quickselect`,`Sorting`  |  Medium  |    |
-|  0325  |  [Maximum Size Subarray Sum Equals k](/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  🔒  |
+|  0325  |  [Maximum Size Subarray Sum Equals k](/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  🔒  |
 |  0326  |  [Power of Three](/solution/0300-0399/0326.Power%20of%20Three/README_EN.md)  |  `Recursion`,`Math`  |  Easy  |    |
 |  0327  |  [Count of Range Sum](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Divide and Conquer`,`Ordered Set`,`Merge Sort`  |  Hard  |    |
 |  0328  |  [Odd Even Linked List](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)  |  `Linked List`  |  Medium  |    |
@@ -665,7 +665,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0655  |  [Print Binary Tree](/solution/0600-0699/0655.Print%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |    |
 |  0656  |  [Coin Path](/solution/0600-0699/0656.Coin%20Path/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  🔒  |
 |  0657  |  [Robot Return to Origin](/solution/0600-0699/0657.Robot%20Return%20to%20Origin/README_EN.md)  |  `String`,`Simulation`  |  Easy  |    |
-|  0658  |  [Find K Closest Elements](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |    |
+|  0658  |  [Find K Closest Elements](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`,`Sliding Window`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0659  |  [Split Array into Consecutive Subsequences](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0660  |  [Remove 9](/solution/0600-0699/0660.Remove%209/README_EN.md)  |  `Math`  |  Hard  |  🔒  |
 |  0661  |  [Image Smoother](/solution/0600-0699/0661.Image%20Smoother/README_EN.md)  |  `Array`,`Matrix`  |  Easy  |    |
@@ -1318,7 +1318,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1308  |  [Running Total for Different Genders](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1309  |  [Decrypt String from Alphabet to Integer Mapping](/solution/1300-1399/1309.Decrypt%20String%20from%20Alphabet%20to%20Integer%20Mapping/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 170  |
 |  1310  |  [XOR Queries of a Subarray](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README_EN.md)  |  `Bit Manipulation`,`Array`,`Prefix Sum`  |  Medium  |  Weekly Contest 170  |
-|  1311  |  [Get Watched Videos by Your Friends](/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README_EN.md)  |  `Breadth-First Search`,`Array`,`Hash Table`,`Sorting`  |  Medium  |  Weekly Contest 170  |
+|  1311  |  [Get Watched Videos by Your Friends](/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Array`,`Hash Table`,`Sorting`  |  Medium  |  Weekly Contest 170  |
 |  1312  |  [Minimum Insertion Steps to Make a String Palindrome](/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 170  |
 |  1313  |  [Decompress Run-Length Encoded List](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README_EN.md)  |  `Array`  |  Easy  |  Biweekly Contest 17  |
 |  1314  |  [Matrix Block Sum](/solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md)  |  `Array`,`Matrix`,`Prefix Sum`  |  Medium  |  Biweekly Contest 17  |
@@ -2429,15 +2429,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2419  |  [Longest Subarray With Maximum Bitwise AND](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`  |  Medium  |  Weekly Contest 312  |
 |  2420  |  [Find All Good Indices](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)  |  `Array`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 312  |
 |  2421  |  [Number of Good Paths](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)  |  `Tree`,`Union Find`,`Graph`,`Array`  |  Hard  |  Weekly Contest 312  |
-|  2422  |  [Merge Operations to Turn Array Into a Palindrome](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)  |    |  Medium  |  🔒  |
-|  2423  |  [Remove Letter To Equalize Frequency](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README_EN.md)  |    |  Easy  |  Biweekly Contest 88  |
-|  2424  |  [Longest Uploaded Prefix](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)  |    |  Medium  |  Biweekly Contest 88  |
-|  2425  |  [Bitwise XOR of All Pairings](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md)  |    |  Medium  |  Biweekly Contest 88  |
-|  2426  |  [Number of Pairs Satisfying Inequality](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md)  |    |  Hard  |  Biweekly Contest 88  |
-|  2427  |  [Number of Common Factors](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md)  |    |  Easy  |  Weekly Contest 313  |
-|  2428  |  [Maximum Sum of an Hourglass](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md)  |    |  Medium  |  Weekly Contest 313  |
-|  2429  |  [Minimize XOR](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)  |    |  Medium  |  Weekly Contest 313  |
-|  2430  |  [Maximum Deletions on a String](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)  |    |  Hard  |  Weekly Contest 313  |
+|  2422  |  [Merge Operations to Turn Array Into a Palindrome](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`  |  Medium  |  🔒  |
+|  2423  |  [Remove Letter To Equalize Frequency](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Biweekly Contest 88  |
+|  2424  |  [Longest Uploaded Prefix](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)  |  `Union Find`,`Design`,`Binary Indexed Tree`,`Segment Tree`,`Binary Search`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 88  |
+|  2425  |  [Bitwise XOR of All Pairings](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`  |  Medium  |  Biweekly Contest 88  |
+|  2426  |  [Number of Pairs Satisfying Inequality](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Divide and Conquer`,`Ordered Set`,`Merge Sort`  |  Hard  |  Biweekly Contest 88  |
+|  2427  |  [Number of Common Factors](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md)  |  `Math`,`Enumeration`,`Number Theory`  |  Easy  |  Weekly Contest 313  |
+|  2428  |  [Maximum Sum of an Hourglass](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md)  |  `Array`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 313  |
+|  2429  |  [Minimize XOR](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)  |  `Greedy`,`Bit Manipulation`  |  Medium  |  Weekly Contest 313  |
+|  2430  |  [Maximum Deletions on a String](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)  |  `String`,`Dynamic Programming`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 313  |
+|  2431  |  [Maximize Total Tastiness of Purchased Fruits](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

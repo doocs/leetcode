@@ -2478,3 +2478,4 @@
   - [2428.Maximum Sum of an Hourglass](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md)
   - [2429.Minimize XOR](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)
   - [2430.Maximum Deletions on a String](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)
+  - [2431.Maximize Total Tastiness of Purchased Fruits](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md)

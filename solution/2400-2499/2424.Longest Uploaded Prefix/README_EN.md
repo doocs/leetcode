@@ -42,7 +42,7 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= video &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= video &lt;= n</code></li>
 	<li>All values of <code>video</code> are <strong>distinct</strong>.</li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>upload</code> and <code>longest</code>.</li>
 	<li>At least one call will be made to <code>longest</code>.</li>

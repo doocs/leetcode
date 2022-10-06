@@ -2478,3 +2478,4 @@
   - [2428.沙漏的最大总和](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README.md)
   - [2429.最小 XOR](/solution/2400-2499/2429.Minimize%20XOR/README.md)
   - [2430.对字母串可执行的最大删除数](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
+  - [2431.Maximize Total Tastiness of Purchased Fruits](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README.md)
