@@ -1,17 +1,20 @@
 class Solution {
     public int numDifferentIntegers(String word) {
-        String[] nums = word.split("[a-z]+");
-        Set<String> numSet = new HashSet<>();
-        for (String num : nums) {
-            if ("".equals(num)) {
-                continue;
+        Set<String> s = new HashSet<>();
+        int n = word.length();
+        for (int i = 0; i < n; ++i) {
+            if (Character.isDigit(word.charAt(i))) {
+                while (i < n && word.charAt(i) == '0') {
+                    ++i;
+                }
+                int j = i;
+                while (j < n && Character.isDigit(word.charAt(j))) {
+                    ++j;
+                }
+                s.add(word.substring(i, j));
+                i = j;
             }
-            int j = 0;
-            while (j < num.length() - 1 && num.charAt(j) == '0') {
-                ++j;
-            }
-            numSet.add(num.substring(j));
         }
-        return numSet.size();
+        return s.size();
     }
 }

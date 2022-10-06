@@ -141,7 +141,7 @@ public:
             if (c == ')') ++x;
             else if (c == '(') --x;
             ans.push_back(c);
-        }   
+        }
         reverse(ans.begin(), ans.end());
         return ans;
     }

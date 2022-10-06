@@ -52,13 +52,21 @@ the leading zeros are ignored when comparing their decimal values.
 ### **Python3**
 
 ```python
-import re
-
-
 class Solution:
     def numDifferentIntegers(self, word: str) -> int:
-        nums = re.split(r'[a-z]+', word)
-        return len({int(num) for num in nums if num != ''})
+        s = set()
+        i, n = 0, len(word)
+        while i < n:
+            if word[i].isdigit():
+                while i < n and word[i] == '0':
+                    i += 1
+                j = i
+                while j < n and word[j].isdigit():
+                    j += 1
+                s.add(word[i: j])
+                i = j
+            i += 1
+        return len(s)
 ```
 
 ### **Java**
@@ -66,20 +74,72 @@ class Solution:
 ```java
 class Solution {
     public int numDifferentIntegers(String word) {
-        String[] nums = word.split("[a-z]+");
-        Set<String> numSet = new HashSet<>();
-        for (String num : nums) {
-            if ("".equals(num)) {
-                continue;
+        Set<String> s = new HashSet<>();
+        int n = word.length();
+        for (int i = 0; i < n; ++i) {
+            if (Character.isDigit(word.charAt(i))) {
+                while (i < n && word.charAt(i) == '0') {
+                    ++i;
+                }
+                int j = i;
+                while (j < n && Character.isDigit(word.charAt(j))) {
+                    ++j;
+                }
+                s.add(word.substring(i, j));
+                i = j;
             }
-            int j = 0;
-            while (j < num.length() - 1 && num.charAt(j) == '0') {
-                ++j;
-            }
-            numSet.add(num.substring(j));
         }
-        return numSet.size();
+        return s.size();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numDifferentIntegers(string word) {
+        unordered_set<string> s;
+        int n = word.size();
+        for (int i = 0; i < n; ++i) {
+            if (isdigit(word[i])) {
+                while (i < n && word[i] == '0') {
+                    ++i;
+                }
+                int j = i;
+                while (j < n && isdigit(word[j])) {
+                    ++j;
+                }
+                s.insert(word.substr(i, j - i));
+                i = j;
+            }
+        }
+        return s.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func numDifferentIntegers(word string) int {
+	s := map[string]struct{}{}
+	n := len(word)
+	for i := 0; i < n; i++ {
+		if word[i] >= '0' && word[i] <= '9' {
+			for i < n && word[i] == '0' {
+				i++
+			}
+			j := i
+			for j < n && word[j] >= '0' && word[j] <= '9' {
+				j++
+			}
+			s[word[i:j]] = struct{}{}
+			i = j
+		}
+	}
+	return len(s)
 }
 ```
 
