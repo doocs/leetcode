@@ -53,6 +53,33 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+在这道题中，由于每次操作都是 $25$ 的倍数，因此，我们可以将每 `25ml` 的汤视为一份。这样就能将数据规模缩小到 $\left \lceil \frac{n}{25} \right \rceil $。
+
+我们设计一个函数 $dfs(i, j)$，表示当前剩余 $i$ 份汤 $A$ 和 $j$ 份汤 $B$ 的结果概率。
+
+当 $i \leq 0 \cap j \leq 0$ 时，表示两种汤都分配完了，此时应该返回 $0.5$；当 $i \leq 0$ 时，表示汤 $A$ 先分配完了，此时应该返回 $1$；当 $j \leq 0$ 时，表示汤 $B$ 先分配完了，此时应该返回 $0$。
+
+接下来，对于每一次操作，我们都有四种选择，即：
+
+-   从 $i$ 份汤 $A$ 中取出 $4$ 份，从 $j$ 份汤 $B$ 中取出 $0$ 份；
+-   从 $i$ 份汤 $A$ 中取出 $3$ 份，从 $j$ 份汤 $B$ 中取出 $1$ 份；
+-   从 $i$ 份汤 $A$ 中取出 $2$ 份，从 $j$ 份汤 $B$ 中取出 $2$ 份；
+-   从 $i$ 份汤 $A$ 中取出 $1$ 份，从 $j$ 份汤 $B$ 中取出 $3$ 份；
+
+每一种选择的概率都是 $0.25$，因此，我们可以得到：
+
+$$
+dfs(i, j) = 0.25 \times (dfs(i - 4, j) + dfs(i - 3, j - 1) + dfs(i - 2, j - 2) + dfs(i - 1, j - 3))
+$$
+
+记忆化搜索即可。
+
+另外，我们发现在 $n=4800$ 时，结果为 $0.999994994426$，而题目要求的精度为 $10^{-5}$，并且随着 $n$ 的增大，结果越来越接近 $1$，因此，当 $n \ge 4800$ 时，直接返回 $1$ 即可。
+
+时间复杂度 $O(C^2)$，空间复杂度 $O(C^2)$。本题中 $C=200$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +87,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def soupServings(self, n: int) -> float:
+        @cache
+        def dfs(i, j):
+            if i <= 0 and j <= 0:
+                return 0.5
+            if i <= 0:
+                return 1
+            if j <= 0:
+                return 0
+            return 0.25 * (
+                dfs(i - 4, j)
+                + dfs(i - 3, j - 1)
+                + dfs(i - 2, j - 2)
+                + dfs(i - 1, j - 3)
+            )
 
+        return 1 if n > 4800 else dfs((n + 24) // 25, (n + 24) // 25)
 ```
 
 ### **Java**
@@ -68,7 +112,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private double[][] f = new double[200][200];
 
+    public double soupServings(int n) {
+        return n > 4800 ? 1 : dfs((n + 24) / 25, (n + 24) / 25);
+    }
+
+    private double dfs(int i, int j) {
+        if (i <= 0 && j <= 0) {
+            return 0.5;
+        }
+        if (i <= 0) {
+            return 1.0;
+        }
+        if (j <= 0) {
+            return 0;
+        }
+        if (f[i][j] > 0) {
+            return f[i][j];
+        }
+        double ans = 0.25 * (dfs(i - 4, j) + dfs(i - 3, j - 1) + dfs(i - 2, j - 2) + dfs(i - 1, j - 3));
+        f[i][j] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double f[200][200];
+
+    double soupServings(int n) {
+        memset(f, 0, sizeof f);
+        return n > 4800 ? 1 : dfs((n + 24) / 25, (n + 24) / 25);
+    }
+
+    double dfs(int i, int j) {
+        if (i <= 0 && j <= 0) return 0.5;
+        if (i <= 0) return 1;
+        if (j <= 0) return 0;
+        if (f[i][j] > 0) return f[i][j];
+        double ans = 0.25 * (dfs(i - 4, j) + dfs(i - 3, j - 1) + dfs(i - 2, j - 2) + dfs(i - 1, j - 3));
+        f[i][j] = ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func soupServings(n int) float64 {
+	if n > 4800 {
+		return 1
+	}
+	f := make([][]float64, 200)
+	for i := range f {
+		f[i] = make([]float64, 200)
+	}
+	var dfs func(i, j int) float64
+	dfs = func(i, j int) float64 {
+		if i <= 0 && j <= 0 {
+			return 0.5
+		}
+		if i <= 0 {
+			return 1.0
+		}
+		if j <= 0 {
+			return 0
+		}
+		if f[i][j] > 0 {
+			return f[i][j]
+		}
+		ans := 0.25 * (dfs(i-4, j) + dfs(i-3, j-1) + dfs(i-2, j-2) + dfs(i-1, j-3))
+		f[i][j] = ans
+		return ans
+	}
+	return dfs((n+24)/25, (n+24)/25)
+}
 ```
 
 ### **...**
