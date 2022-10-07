@@ -54,13 +54,110 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minDistance(
+        self,
+        height: int,
+        width: int,
+        tree: List[int],
+        squirrel: List[int],
+        nuts: List[List[int]],
+    ) -> int:
+        x, y, a, b = *tree, *squirrel
+        s = sum(abs(i - x) + abs(j - y) for i, j in nuts) * 2
+        ans = inf
+        for i, j in nuts:
+            c = abs(i - x) + abs(j - y)
+            d = abs(i - a) + abs(j - b) + c
+            ans = min(ans, s + d - c * 2)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minDistance(int height, int width, int[] tree, int[] squirrel, int[][] nuts) {
+        int ans = Integer.MAX_VALUE;
+        int s = 0;
+        for (int[] a : nuts) {
+            s += f(a, tree);
+        }
+        s *= 2;
+        for (int[] a : nuts) {
+            int c = f(a, tree);
+            int d = f(a, squirrel) + c;
+            ans = Math.min(ans, s + d - c * 2);
+        }
+        return ans;
+    }
 
+    private int f(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDistance(int height, int width, vector<int>& tree, vector<int>& squirrel, vector<vector<int>>& nuts) {
+        int ans = INT_MAX;
+        int s = 0;
+        for (auto& a : nuts) {
+            s += f(a, tree);
+        }
+        s *= 2;
+        for (auto& a : nuts) {
+            int c = f(a, tree);
+            int d = f(a, squirrel) + c;
+            ans = min(ans, s + d - c * 2);
+        }
+        return ans;
+    }
+
+    int f(vector<int>& a, vector<int>& b) {
+        return abs(a[0] - b[0]) + abs(a[1] - b[1]);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDistance(height int, width int, tree []int, squirrel []int, nuts [][]int) int {
+	f := func(a, b []int) int {
+		return abs(a[0]-b[0]) + abs(a[1]-b[1])
+	}
+	ans := math.MaxInt32
+	s := 0
+	for _, a := range nuts {
+		s += f(a, tree)
+	}
+	s *= 2
+	for _, a := range nuts {
+		c := f(a, tree)
+		d := f(a, squirrel) + c
+		ans = min(ans, s+d-c*2)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**

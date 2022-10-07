@@ -35,6 +35,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：路径分析**
+
+我们观察松鼠的移动路径，可以发现，松鼠会首先移动到某个坚果的位置，然后移动到树的位置。接下来，松鼠的移动路径之和等于“其余坚果到树的位置之和”再乘以 $2$。
+
+因此，我们只需要选出一个坚果，作为松鼠的第一个目标，使得其到树的位置之和最小，即可得到最小路径。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为坚果的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,7 +50,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minDistance(
+        self,
+        height: int,
+        width: int,
+        tree: List[int],
+        squirrel: List[int],
+        nuts: List[List[int]],
+    ) -> int:
+        x, y, a, b = *tree, *squirrel
+        s = sum(abs(i - x) + abs(j - y) for i, j in nuts) * 2
+        ans = inf
+        for i, j in nuts:
+            c = abs(i - x) + abs(j - y)
+            d = abs(i - a) + abs(j - b) + c
+            ans = min(ans, s + d - c * 2)
+        return ans
 ```
 
 ### **Java**
@@ -50,7 +74,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minDistance(int height, int width, int[] tree, int[] squirrel, int[][] nuts) {
+        int ans = Integer.MAX_VALUE;
+        int s = 0;
+        for (int[] a : nuts) {
+            s += f(a, tree);
+        }
+        s *= 2;
+        for (int[] a : nuts) {
+            int c = f(a, tree);
+            int d = f(a, squirrel) + c;
+            ans = Math.min(ans, s + d - c * 2);
+        }
+        return ans;
+    }
 
+    private int f(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDistance(int height, int width, vector<int>& tree, vector<int>& squirrel, vector<vector<int>>& nuts) {
+        int ans = INT_MAX;
+        int s = 0;
+        for (auto& a : nuts) {
+            s += f(a, tree);
+        }
+        s *= 2;
+        for (auto& a : nuts) {
+            int c = f(a, tree);
+            int d = f(a, squirrel) + c;
+            ans = min(ans, s + d - c * 2);
+        }
+        return ans;
+    }
+
+    int f(vector<int>& a, vector<int>& b) {
+        return abs(a[0] - b[0]) + abs(a[1] - b[1]);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDistance(height int, width int, tree []int, squirrel []int, nuts [][]int) int {
+	f := func(a, b []int) int {
+		return abs(a[0]-b[0]) + abs(a[1]-b[1])
+	}
+	ans := math.MaxInt32
+	s := 0
+	for _, a := range nuts {
+		s += f(a, tree)
+	}
+	s *= 2
+	for _, a := range nuts {
+		c := f(a, tree)
+		d := f(a, squirrel) + c
+		ans = min(ans, s+d-c*2)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
