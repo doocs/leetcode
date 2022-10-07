@@ -55,13 +55,147 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 ### **Python3**
 
 ```python
+class Solution:
+    def expressiveWords(self, s: str, words: List[str]) -> int:
+        def check(s, t):
+            m, n = len(s), len(t)
+            if n > m:
+                return False
+            i = j = 0
+            while i < m and j < n:
+                if s[i] != t[j]:
+                    return False
+                k = i
+                while k < m and s[k] == s[i]:
+                    k += 1
+                c1 = k - i
+                i, k = k, j
+                while k < n and t[k] == t[j]:
+                    k += 1
+                c2 = k - j
+                j = k
+                if c1 < c2 or (c1 < 3 and c1 != c2):
+                    return False
+            return i == m and j == n
 
+        return sum(check(s, t) for t in words)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int expressiveWords(String s, String[] words) {
+        int ans = 0;
+        for (String t : words) {
+            if (check(s, t)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(String s, String t) {
+        int m = s.length(), n = t.length();
+        if (n > m) {
+            return false;
+        }
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (s.charAt(i) != t.charAt(j)) {
+                return false;
+            }
+            int k = i;
+            while (k < m && s.charAt(k) == s.charAt(i)) {
+                ++k;
+            }
+            int c1 = k - i;
+            i = k;
+            k = j;
+            while (k < n && t.charAt(k) == t.charAt(j)) {
+                ++k;
+            }
+            int c2 = k - j;
+            j = k;
+            if (c1 < c2 || (c1 < 3 && c1 != c2)) {
+                return false;
+            }
+        }
+        return i == m && j == n;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int expressiveWords(string s, vector<string>& words) {
+        int ans = 0;
+        for (string& t : words) ans += check(s, t);
+        return ans;
+    }
+
+    int check(string& s, string& t) {
+        int m = s.size(), n = t.size();
+        if (n > m) return 0;
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (s[i] != t[j]) return 0;
+            int k = i;
+            while (k < m && s[k] == s[i]) ++k;
+            int c1 = k - i;
+            i = k, k = j;
+            while (k < n && t[k] == t[j]) ++k;
+            int c2 = k - j;
+            j = k;
+            if (c1 < c2 || (c1 < 3 && c1 != c2)) return 0;
+        }
+        return i == m && j == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func expressiveWords(s string, words []string) int {
+	check := func(s, t string) bool {
+		m, n := len(s), len(t)
+		if n > m {
+			return false
+		}
+		i, j := 0, 0
+		for i < m && j < n {
+			if s[i] != t[j] {
+				return false
+			}
+			k := i
+			for k < m && s[k] == s[i] {
+				k++
+			}
+			c1 := k - i
+			i, k = k, j
+			for k < n && t[k] == t[j] {
+				k++
+			}
+			c2 := k - j
+			j = k
+			if c1 < c2 || (c1 != c2 && c1 < 3) {
+				return false
+			}
+		}
+		return i == m && j == n
+	}
+	ans := 0
+	for _, t := range words {
+		if check(s, t) {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
