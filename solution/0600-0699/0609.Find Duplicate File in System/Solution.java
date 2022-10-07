@@ -1,22 +1,19 @@
 class Solution {
     public List<List<String>> findDuplicate(String[] paths) {
-        Map<String, List<String>> map = new HashMap<>();
-        for (String path : paths) {
-            String[] a = path.split(" ");
-            for (int i = 1; i < a.length; i++) {
-                int j = a[i].indexOf('(');
-                String content = a[i].substring(j + 1, a[i].length() - 1);
-                String name = a[0] + '/' + a[i].substring(0, j);
-                List<String> list = map.getOrDefault(content, new ArrayList<>());
-                list.add(name);
-                map.put(content, list);
+        Map<String, List<String>> d = new HashMap<>();
+        for (String p : paths) {
+            String[] ps = p.split(" ");
+            for (int i = 1; i < ps.length; ++i) {
+                int j = ps[i].indexOf('(');
+                String content = ps[i].substring(j + 1, ps[i].length() - 1);
+                String name = ps[0] + '/' + ps[i].substring(0, j);
+                d.computeIfAbsent(content, k -> new ArrayList<>()).add(name);
             }
         }
-
         List<List<String>> ans = new ArrayList<>();
-        for (List<String> names : map.values()) {
-            if (names.size() > 1) {
-                ans.add(names);
+        for (var e : d.values()) {
+            if (e.size() > 1) {
+                ans.add(e);
             }
         }
         return ans;
