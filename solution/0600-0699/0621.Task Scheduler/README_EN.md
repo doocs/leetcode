@@ -143,7 +143,7 @@ func max(a, b int) int {
 
 ### **C#**
 
-```C#
+```cs
 public class Solution {
     public int LeastInterval(char[] tasks, int n) {
         int[] cnt = new int[26];
@@ -159,6 +159,12 @@ public class Solution {
         return Math.Max(tasks.Length, (x - 1) * (n + 1) + s);
     }
 }
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->
