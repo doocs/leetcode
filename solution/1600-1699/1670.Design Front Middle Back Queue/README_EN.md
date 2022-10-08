@@ -65,56 +65,53 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 ```python
 class FrontMiddleBackQueue:
     def __init__(self):
-        self.left = deque()
-        self.right = deque()
+        self.q1 = deque()
+        self.q2 = deque()
 
     def pushFront(self, val: int) -> None:
-        self.left.appendleft(val)
+        self.q1.appendleft(val)
         self.rebalance()
 
     def pushMiddle(self, val: int) -> None:
-        self.left.append(val)
+        self.q1.append(val)
         self.rebalance()
 
     def pushBack(self, val: int) -> None:
-        self.right.append(val)
+        self.q2.append(val)
         self.rebalance()
 
     def popFront(self) -> int:
-        if self.empty():
+        if not self.q1 and not self.q2:
             return -1
-        if self.left:
-            val = self.left.popleft()
+        if self.q1:
+            val = self.q1.popleft()
         else:
-            val = self.right.popleft()
+            val = self.q2.popleft()
         self.rebalance()
         return val
 
     def popMiddle(self) -> int:
-        if self.empty():
+        if not self.q1 and not self.q2:
             return -1
-        if len(self.left) >= len(self.right):
-            val = self.left.pop()
+        if len(self.q1) == len(self.q2):
+            val = self.q1.pop()
         else:
-            val = self.right.popleft()
+            val = self.q2.popleft()
         self.rebalance()
         return val
 
     def popBack(self) -> int:
-        if self.empty():
+        if not self.q2:
             return -1
-        val = self.right.pop()
+        val = self.q2.pop()
         self.rebalance()
         return val
 
-    def empty(self) -> bool:
-        return not self.left and not self.right
-
-    def rebalance(self) -> None:
-        while len(self.left) > len(self.right):
-            self.right.appendleft(self.left.pop())
-        while len(self.right) - len(self.left) > 1:
-            self.left.append(self.right.popleft())
+    def rebalance(self):
+        if len(self.q1) > len(self.q2):
+            self.q2.appendleft(self.q1.pop())
+        if len(self.q2) > len(self.q1) + 1:
+            self.q1.append(self.q2.popleft())
 
 
 # Your FrontMiddleBackQueue object will be instantiated and called as such:
@@ -131,66 +128,61 @@ class FrontMiddleBackQueue:
 
 ```java
 class FrontMiddleBackQueue {
-    private Deque<Integer> left;
-    private Deque<Integer> right;
+    private Deque<Integer> q1 = new ArrayDeque<>();
+    private Deque<Integer> q2 = new ArrayDeque<>();
 
     public FrontMiddleBackQueue() {
-        left = new LinkedList<>();
-        right = new LinkedList<>();
-    }
 
+    }
+    
     public void pushFront(int val) {
-        left.offerFirst(val);
+        q1.offerFirst(val);
         rebalance();
     }
-
+    
     public void pushMiddle(int val) {
-        left.offerLast(val);
+        q1.offerLast(val);
         rebalance();
     }
-
+    
     public void pushBack(int val) {
-        right.offerLast(val);
+        q2.offerLast(val);
         rebalance();
     }
-
+    
     public int popFront() {
-        if (empty()) {
+        if (q1.isEmpty() && q2.isEmpty()) {
             return -1;
         }
-        int val = left.isEmpty() ? right.pollFirst() : left.pollFirst();
+        int val = q1.isEmpty() ? q2.pollFirst() : q1.pollFirst();
         rebalance();
         return val;
     }
-
+    
     public int popMiddle() {
-        if (empty()) {
+        if (q1.isEmpty() && q2.isEmpty()) {
             return -1;
         }
-        int val = left.size() >= right.size() ? left.pollLast() : right.pollFirst();
+        int val = q1.size() == q2.size() ? q1.pollLast() : q2.pollFirst();
         rebalance();
         return val;
     }
-
+    
     public int popBack() {
-        if (empty()) {
+        if (q2.isEmpty()) {
             return -1;
         }
-        int val = right.pollLast();
+        int val = q2.pollLast();
         rebalance();
         return val;
-    }
-
-    private boolean empty() {
-        return left.isEmpty() && right.isEmpty();
     }
 
     private void rebalance() {
-        while (left.size() > right.size()) {
-            right.offerFirst(left.pollLast());
+        if (q1.size() > q2.size()) {
+            q2.offerFirst(q1.pollLast());
         }
-        while (right.size() - left.size() > 1) {
-            left.offerLast(right.pollFirst());
+        if (q2.size() > q1.size() + 1) {
+            q1.offerLast(q2.pollFirst());
         }
     }
 }
@@ -205,6 +197,148 @@ class FrontMiddleBackQueue {
  * int param_5 = obj.popMiddle();
  * int param_6 = obj.popBack();
  */
+```
+
+### **C++**
+
+```cpp
+class FrontMiddleBackQueue {
+public:
+    FrontMiddleBackQueue() {
+
+    }
+    
+    void pushFront(int val) {
+        q1.push_front(val);
+        rebalance();
+    }
+    
+    void pushMiddle(int val) {
+        q1.push_back(val);
+        rebalance();
+    }
+    
+    void pushBack(int val) {
+        q2.push_back(val);
+        rebalance();
+    }
+    
+    int popFront() {
+        if (q1.empty() && q2.empty()) return -1;
+        int val = 0;
+        if (q1.size()) {
+            val = q1.front();
+            q1.pop_front();
+        } else {
+            val = q2.front();
+            q2.pop_front();
+        }
+        rebalance();
+        return val;
+    }
+    
+    int popMiddle() {
+        if (q1.empty() && q2.empty()) return -1;
+        int val = 0;
+        if (q1.size() == q2.size()) {
+            val = q1.back();
+            q1.pop_back();
+        } else {
+            val = q2.front();
+            q2.pop_front();
+        }
+        rebalance();
+        return val;
+    }
+    
+    int popBack() {
+        if (q2.empty()) return -1;
+        int val = q2.back();
+        q2.pop_back();
+        rebalance();
+        return val;
+    }
+
+private:
+    deque<int> q1;
+    deque<int> q2;
+
+    void rebalance() {
+        if (q1.size() > q2.size()) {
+            q2.push_front(q1.back());
+            q1.pop_back();
+        }
+        if (q2.size() > q1.size() + 1) {
+            q1.push_back(q2.front());
+            q2.pop_front();
+        }
+    }
+};
+
+/**
+ * Your FrontMiddleBackQueue object will be instantiated and called as such:
+ * FrontMiddleBackQueue* obj = new FrontMiddleBackQueue();
+ * obj->pushFront(val);
+ * obj->pushMiddle(val);
+ * obj->pushBack(val);
+ * int param_4 = obj->popFront();
+ * int param_5 = obj->popMiddle();
+ * int param_6 = obj->popBack();
+ */
+```
+
+### **Go**
+
+```go
+type FrontMiddleBackQueue struct{}
+
+var a []int
+
+func Constructor() (_ FrontMiddleBackQueue) {
+	a = nil
+	return
+}
+
+func (FrontMiddleBackQueue) PushFront(v int) {
+	a = append([]int{v}, a...)
+}
+
+func (FrontMiddleBackQueue) PushMiddle(v int) {
+	p := len(a) / 2
+	a = append(a[:p], append([]int{v}, a[p:]...)...)
+}
+
+func (FrontMiddleBackQueue) PushBack(v int) {
+	a = append(a, v)
+}
+
+func (FrontMiddleBackQueue) PopFront() (ans int) {
+	if len(a) == 0 {
+		return -1
+	}
+	ans = a[0]
+	a = a[1:]
+	return
+}
+
+func (FrontMiddleBackQueue) PopMiddle() (ans int) {
+	if len(a) == 0 {
+		return -1
+	}
+	p := (len(a) - 1) / 2
+	ans = a[p]
+	a = append(a[:p], a[p+1:]...)
+	return
+}
+
+func (FrontMiddleBackQueue) PopBack() (ans int) {
+	if len(a) == 0 {
+		return -1
+	}
+	ans = a[len(a)-1]
+	a = a[:len(a)-1]
+	return
+}
 ```
 
 ### **JavaScript**

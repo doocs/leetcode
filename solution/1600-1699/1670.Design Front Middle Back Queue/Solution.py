@@ -1,55 +1,52 @@
 class FrontMiddleBackQueue:
     def __init__(self):
-        self.left = deque()
-        self.right = deque()
+        self.q1 = deque()
+        self.q2 = deque()
 
     def pushFront(self, val: int) -> None:
-        self.left.appendleft(val)
+        self.q1.appendleft(val)
         self.rebalance()
 
     def pushMiddle(self, val: int) -> None:
-        self.left.append(val)
+        self.q1.append(val)
         self.rebalance()
 
     def pushBack(self, val: int) -> None:
-        self.right.append(val)
+        self.q2.append(val)
         self.rebalance()
 
     def popFront(self) -> int:
-        if self.empty():
+        if not self.q1 and not self.q2:
             return -1
-        if self.left:
-            val = self.left.popleft()
+        if self.q1:
+            val = self.q1.popleft()
         else:
-            val = self.right.popleft()
+            val = self.q2.popleft()
         self.rebalance()
         return val
 
     def popMiddle(self) -> int:
-        if self.empty():
+        if not self.q1 and not self.q2:
             return -1
-        if len(self.left) >= len(self.right):
-            val = self.left.pop()
+        if len(self.q1) == len(self.q2):
+            val = self.q1.pop()
         else:
-            val = self.right.popleft()
+            val = self.q2.popleft()
         self.rebalance()
         return val
 
     def popBack(self) -> int:
-        if self.empty():
+        if not self.q2:
             return -1
-        val = self.right.pop()
+        val = self.q2.pop()
         self.rebalance()
         return val
 
-    def empty(self) -> bool:
-        return not self.left and not self.right
-
-    def rebalance(self) -> None:
-        while len(self.left) > len(self.right):
-            self.right.appendleft(self.left.pop())
-        while len(self.right) - len(self.left) > 1:
-            self.left.append(self.right.popleft())
+    def rebalance(self):
+        if len(self.q1) > len(self.q2):
+            self.q2.appendleft(self.q1.pop())
+        if len(self.q2) > len(self.q1) + 1:
+            self.q1.append(self.q2.popleft())
 
 
 # Your FrontMiddleBackQueue object will be instantiated and called as such:
