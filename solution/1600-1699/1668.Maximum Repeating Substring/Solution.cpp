@@ -1,30 +1,15 @@
 class Solution {
 public:
-    int minOperations(vector<int>& nums, int x) {
-        int n = nums.size();
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-
-        int target = sum - x;
-        int res = -1;
-        int l = 0;
-        int r = 0;
-        sum = 0;
-        while (r < n) {
-            sum += nums[r++];
-            while (sum > target && l < n) {
-                sum -= nums[l++];
+    int maxRepeating(string sequence, string word) {
+        int ans = 0;
+        string t = word;
+        int x = sequence.size() / word.size();
+        for (int k = 1; k <= x; ++k) {
+            if (sequence.find(t) != string::npos) {
+                ans = k;
             }
-            if (sum == target) {
-                res = max(res, r - l);
-            }
+            t += word;
         }
-
-        if (res == -1) {
-            return res;
-        }
-        return n - res;
+        return ans;
     }
 };

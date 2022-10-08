@@ -92,33 +92,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minOperations(nums: number[], x: number): number {
-    const total = nums.reduce((a, c) => a + c, 0);
-    if (total < x) return -1;
-    // 前缀和 + 哈希表, 求何为total - x的最长子序列
-    const n = nums.length;
-    const target = total - x;
-    let hashMap = new Map();
-    hashMap.set(0, -1);
-    let pre = 0;
-    let ans = -1;
-    for (let right = 0; right < n; right++) {
-        pre += nums[right];
-        if (!hashMap.has(pre)) {
-            hashMap.set(pre, right);
-        }
-        if (hashMap.has(pre - target)) {
-            let left = hashMap.get(pre - target);
-            ans = Math.max(right - left, ans);
-        }
-    }
-    return ans == -1 ? -1 : n - ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -175,6 +148,66 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minOperations(nums: number[], x: number): number {
+    const total = nums.reduce((a, c) => a + c, 0);
+    if (total < x) return -1;
+    const n = nums.length;
+    const target = total - x;
+    let hashMap = new Map();
+    hashMap.set(0, -1);
+    let pre = 0;
+    let ans = -1;
+    for (let right = 0; right < n; right++) {
+        pre += nums[right];
+        if (!hashMap.has(pre)) {
+            hashMap.set(pre, right);
+        }
+        if (hashMap.has(pre - target)) {
+            let left = hashMap.get(pre - target);
+            ans = Math.max(right - left, ans);
+        }
+    }
+    return ans == -1 ? -1 : n - ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>, x: i32) -> i32 {
+        let n = nums.len();
+        let target = nums.iter().sum::<i32>() - x;
+
+
+        let (mut l, mut r) = (0, 0);
+        let (mut sum, mut max) = (0, -1);
+        while r < n {
+            sum += nums[r];
+            r += 1;
+            while sum > target && l < r {
+                sum -= nums[l];
+                l += 1;
+            }
+
+
+            if sum == target {
+                max = max.max((r - l) as i32);
+            }
+        }
+
+
+        if max == -1 {
+            return max;
+        }
+        return n as i32 - max;
+    }
 }
 ```
 
