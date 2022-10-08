@@ -59,10 +59,11 @@ class Solution:
             p = p.next
         for _ in range(b + 1):
             q = q.next
+        t = list2
+        while t.next:
+            t = t.next
+        t.next = q
         p.next = list2
-        while list2.next:
-            list2 = list2.next
-        list2.next = q
         return list1
 ```
 
@@ -81,21 +82,83 @@ class Solution:
  */
 class Solution {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-        ListNode p = list1;
+        ListNode p = list1, q = list1;
         for (int i = 0; i < a - 1; ++i) {
             p = p.next;
         }
-        ListNode q = list1;
         for (int i = 0; i < b + 1; ++i) {
             q = q.next;
         }
-        p.next = list2;
-        while (list2.next != null) {
-            list2 = list2.next;
+        ListNode t = list2;
+        while (t.next != null) {
+            t = t.next;
         }
-        list2.next = q;
+        t.next = q;
+        p.next = list2;
         return list1;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
+        auto p = list1, q = list1;
+        for (int i = 0; i < a - 1; ++i) {
+            p = p->next;
+        }
+        for (int i = 0; i < b + 1; ++i) {
+            q = q->next;
+        }
+        auto t = list2;
+        while (t->next) {
+            t = t->next;
+        }
+        t->next = q;
+        p->next = list2;
+        return list1;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
+	p, q := list1, list1
+	for i := 0; i < a-1; i++ {
+		p = p.Next
+	}
+	for i := 0; i < b+1; i++ {
+		q = q.Next
+	}
+	t := list2
+	for t.Next != nil {
+		t = t.Next
+	}
+	t.Next = q
+	p.Next = list2
+	return list1
 }
 ```
 

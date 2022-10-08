@@ -12,8 +12,9 @@ class Solution:
             p = p.next
         for _ in range(b + 1):
             q = q.next
+        t = list2
+        while t.next:
+            t = t.next
+        t.next = q
         p.next = list2
-        while list2.next:
-            list2 = list2.next
-        list2.next = q
         return list1
