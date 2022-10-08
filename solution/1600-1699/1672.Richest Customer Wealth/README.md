@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：求和**
+
+遍历 `accounts`，求出每一行的和，然后求出最大值。
+
+时间复杂度 $O(m\times n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +68,7 @@
 ```python
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
-        return max(sum(account) for account in accounts)
+        return max(sum(v) for v in accounts)
 ```
 
 ### **Java**
@@ -72,15 +78,15 @@ class Solution:
 ```java
 class Solution {
     public int maximumWealth(int[][] accounts) {
-        int res = 0;
-        for (int[] account : accounts) {
-            int t = 0;
-            for (int money : account) {
-                t += money;
+        int ans = 0;
+        for (var e : accounts) {
+            int s = 0;
+            for (int v : e) {
+                s += v;
             }
-            res = Math.max(res, t);
+            ans = Math.max(ans, s);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -91,10 +97,11 @@ class Solution {
 class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
-        int res = 0;
-        for (auto& account : accounts)
-            res = max(res, accumulate(account.begin(), account.end(), 0));
-        return res;
+        int ans = 0;
+        for (auto& v : accounts) {
+            ans = max(ans, accumulate(v.begin(), v.end(), 0));
+        }
+        return ans;
     }
 };
 ```
@@ -103,17 +110,17 @@ public:
 
 ```go
 func maximumWealth(accounts [][]int) int {
-	res := 0
-	for _, account := range accounts {
-		t := 0
-		for _, money := range account {
-			t += money
-		}
-		if t > res {
-			res = t
-		}
-	}
-	return res
+    ans := 0
+    for _, e := range accounts {
+        s := 0
+        for _, v := range e {
+            s += v
+        }
+        if ans < s {
+            ans = s
+        }
+    }
+    return ans
 }
 ```
 

@@ -43,6 +43,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：栈**
+
+我们从左到右遍历数组 `nums`，维护一个栈 `stk`，遍历过程中，如果当前元素 `nums[i]` 小于栈顶元素，且栈中元素个数加上 $n-i$ 大于 $k$，则将栈顶元素出栈，直到不满足上述条件为止。此时如果栈中元素个数小于 $k$，则将当前元素入栈。
+
+遍历结束后，栈中元素即为所求。
+
+时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,7 +58,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
+        stk = []
+        n = len(nums)
+        for i, v in enumerate(nums):
+            while stk and stk[-1] > v and len(stk) + n - i > k:
+                stk.pop()
+            if len(stk) < k:
+                stk.append(v)
+        return stk
 ```
 
 ### **Java**
@@ -58,7 +75,64 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] mostCompetitive(int[] nums, int k) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int n = nums.length;
+        for (int i = 0; i < nums.length; ++i) {
+            while (!stk.isEmpty() && stk.peek() > nums[i] && stk.size() + n - i > k) {
+                stk.pop();
+            }
+            if (stk.size() < k) {
+                stk.push(nums[i]);
+            }
+        }
+        int[] ans = new int[stk.size()];
+        for (int i = ans.length - 1; i >= 0; --i) {
+            ans[i] = stk.pop();
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> mostCompetitive(vector<int>& nums, int k) {
+        vector<int> stk;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            while (stk.size() && stk.back() > nums[i] && stk.size() + n - i > k) {
+                stk.pop_back();
+            }
+            if (stk.size() < k) {
+                stk.push_back(nums[i]);
+            }
+        }
+        return stk;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostCompetitive(nums []int, k int) []int {
+	stk := []int{}
+	n := len(nums)
+	for i, v := range nums {
+		for len(stk) > 0 && stk[len(stk)-1] > v && len(stk)+n-i > k {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) < k {
+			stk = append(stk, v)
+		}
+	}
+	return stk
+}
 ```
 
 ### **...**

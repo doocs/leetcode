@@ -60,6 +60,8 @@
 
 那么最终答案就是 $n - \max(left[i] + right[i] - 1)$，其中 $1 \leq i \leq n$，并且 $left[i] \gt 1$ 且 $right[i] \gt 1$。
 
+时间复杂度 $O(n^2)$。
+
 <!-- tabs:start -->
 
 ### **Python3**

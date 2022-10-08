@@ -1,13 +1,13 @@
 func maximumWealth(accounts [][]int) int {
-	res := 0
-	for _, account := range accounts {
-		t := 0
-		for _, money := range account {
-			t += money
+	ans := 0
+	for _, e := range accounts {
+		s := 0
+		for _, v := range e {
+			s += v
 		}
-		if t > res {
-			res = t
+		if ans < s {
+			ans = s
 		}
 	}
-	return res
+	return ans
 }

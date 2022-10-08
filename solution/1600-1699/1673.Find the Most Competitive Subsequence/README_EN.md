@@ -42,13 +42,79 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
+        stk = []
+        n = len(nums)
+        for i, v in enumerate(nums):
+            while stk and stk[-1] > v and len(stk) + n - i > k:
+                stk.pop()
+            if len(stk) < k:
+                stk.append(v)
+        return stk
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] mostCompetitive(int[] nums, int k) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int n = nums.length;
+        for (int i = 0; i < nums.length; ++i) {
+            while (!stk.isEmpty() && stk.peek() > nums[i] && stk.size() + n - i > k) {
+                stk.pop();
+            }
+            if (stk.size() < k) {
+                stk.push(nums[i]);
+            }
+        }
+        int[] ans = new int[stk.size()];
+        for (int i = ans.length - 1; i >= 0; --i) {
+            ans[i] = stk.pop();
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> mostCompetitive(vector<int>& nums, int k) {
+        vector<int> stk;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            while (stk.size() && stk.back() > nums[i] && stk.size() + n - i > k) {
+                stk.pop_back();
+            }
+            if (stk.size() < k) {
+                stk.push_back(nums[i]);
+            }
+        }
+        return stk;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostCompetitive(nums []int, k int) []int {
+	stk := []int{}
+	n := len(nums)
+	for i, v := range nums {
+		for len(stk) > 0 && stk[len(stk)-1] > v && len(stk)+n-i > k {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) < k {
+			stk = append(stk, v)
+		}
+	}
+	return stk
+}
 ```
 
 ### **...**
