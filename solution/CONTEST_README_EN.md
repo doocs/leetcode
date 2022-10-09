@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 314
+
+- [2432. The Employee That Worked on the Longest Task](/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README_EN.md)
+- [2433. Find The Original Array of Prefix Xor](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md)
+- [2434. Using a Robot to Print the Lexicographically Smallest String](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README_EN.md)
+- [2435. Paths in Matrix Whose Sum Is Divisible by K](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README_EN.md)
+
+
 #### Weekly Contest 313
 
 - [2427. Number of Common Factors](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md)

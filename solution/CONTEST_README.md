@@ -23,6 +23,14 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 314 场周赛(2022-10-09 10:30, 90 分钟) 参赛人数 4838
+
+- [2432. 处理用时最长的那个任务的员工](/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README.md)
+- [2433. 找出前缀异或的原始数组](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md)
+- [2434. 使用机器人打印字典序最小的字符串](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README.md)
+- [2435. 矩阵中和能被 K 整除的路径](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README.md)
+
+
 #### 第 313 场周赛(2022-10-02 10:30, 90 分钟) 参赛人数 5445
 
 - [2427. 公因子的数目](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)

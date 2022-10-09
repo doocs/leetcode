@@ -2479,3 +2479,7 @@
   - [2429.最小 XOR](/solution/2400-2499/2429.Minimize%20XOR/README.md)
   - [2430.对字母串可执行的最大删除数](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
   - [2431.Maximize Total Tastiness of Purchased Fruits](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README.md)
+  - [2432.处理用时最长的那个任务的员工](/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README.md)
+  - [2433.找出前缀异或的原始数组](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md)
+  - [2434.使用机器人打印字典序最小的字符串](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README.md)
+  - [2435.矩阵中和能被 K 整除的路径](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README.md)

@@ -59,9 +59,26 @@
 
 我们用 $d$ 维护当前括号的深度，对于每个 `(`，我们将深度加一，对于每个 `)`，我们将深度减一。当我们遇到 `()` 时，我们将 $2^d$ 加到答案中。
 
-我们举个实际的例子，以 `(()(()))` 为例，我们首先计算内部结构 `()(())` 的分数，然后将分数乘以 2。实际上，我们是在计算 `(()) + ((()))` 的分数。
+我们举个实际的例子，以 `(()(()))` 为例，我们首先找到内部两个闭合括号 `()`，然后将分数加上对应的 $2^d$。实际上，我们是在计算 `(()) + ((()))` 的分数。
+
+```bash
+( ( ) ( ( ) ) )
+  ^ ^   ^ ^
+
+( ( ) ) + ( ( ( ) ) )
+  ^ ^         ^ ^
+```
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串的长度。
+
+括号相关类型题：
+
+-   [678. 有效的括号字符串](https://github.com/doocs/leetcode/tree/main/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
+-   [1021. 删除最外层的括号](https://github.com/doocs/leetcode/tree/main/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README.md)
+-   [1096. 花括号展开 II](https://github.com/doocs/leetcode/tree/main/solution/1000-1099/1096.Brace%20Expansion%20II/README.md)
+-   [1249. 移除无效的括号](https://github.com/doocs/leetcode/tree/main/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README.md)
+-   [1541. 平衡括号字符串的最少插入次数](https://github.com/doocs/leetcode/tree/main/solution/1500-1599/1541.Minimum%20Insertions%20to%20Balance%20a%20Parentheses%20String/README.md)
+-   [2116. 判断一个括号字符串是否有效](https://github.com/doocs/leetcode/tree/main/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
 
 <!-- tabs:start -->
 

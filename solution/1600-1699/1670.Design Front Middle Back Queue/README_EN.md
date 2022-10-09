@@ -134,22 +134,22 @@ class FrontMiddleBackQueue {
     public FrontMiddleBackQueue() {
 
     }
-    
+
     public void pushFront(int val) {
         q1.offerFirst(val);
         rebalance();
     }
-    
+
     public void pushMiddle(int val) {
         q1.offerLast(val);
         rebalance();
     }
-    
+
     public void pushBack(int val) {
         q2.offerLast(val);
         rebalance();
     }
-    
+
     public int popFront() {
         if (q1.isEmpty() && q2.isEmpty()) {
             return -1;
@@ -158,7 +158,7 @@ class FrontMiddleBackQueue {
         rebalance();
         return val;
     }
-    
+
     public int popMiddle() {
         if (q1.isEmpty() && q2.isEmpty()) {
             return -1;
@@ -167,7 +167,7 @@ class FrontMiddleBackQueue {
         rebalance();
         return val;
     }
-    
+
     public int popBack() {
         if (q2.isEmpty()) {
             return -1;
@@ -207,22 +207,22 @@ public:
     FrontMiddleBackQueue() {
 
     }
-    
+
     void pushFront(int val) {
         q1.push_front(val);
         rebalance();
     }
-    
+
     void pushMiddle(int val) {
         q1.push_back(val);
         rebalance();
     }
-    
+
     void pushBack(int val) {
         q2.push_back(val);
         rebalance();
     }
-    
+
     int popFront() {
         if (q1.empty() && q2.empty()) return -1;
         int val = 0;
@@ -236,7 +236,7 @@ public:
         rebalance();
         return val;
     }
-    
+
     int popMiddle() {
         if (q1.empty() && q2.empty()) return -1;
         int val = 0;
@@ -250,7 +250,7 @@ public:
         rebalance();
         return val;
     }
-    
+
     int popBack() {
         if (q2.empty()) return -1;
         int val = q2.back();

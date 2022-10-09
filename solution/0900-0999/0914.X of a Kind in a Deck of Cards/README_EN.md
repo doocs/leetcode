@@ -4,14 +4,16 @@
 
 ## Description
 
-<p>In a deck of cards, each card has an integer written on it.</p>
+<p>You are given an integer array <code>deck</code> where <code>deck[i]</code> represents the number written on the <code>i<sup>th</sup></code> card.</p>
 
-<p>Return <code>true</code> if and only if you can choose <code>X &gt;= 2</code> such that it is possible to split the entire deck into 1 or more groups of cards, where:</p>
+<p>Partition the cards into <strong>one or more groups</strong> such that:</p>
 
 <ul>
-	<li>Each group has exactly <code>X</code> cards.</li>
-	<li>All the cards in each group have the same integer.</li>
+	<li>Each group has <strong>exactly</strong> <code>x</code> cards where <code>x &gt; 1</code>, and</li>
+	<li>All the cards in one group have the same integer written on them.</li>
 </ul>
+
+<p>Return <code>true</code><em> if such partition is possible, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

@@ -2479,3 +2479,7 @@
   - [2429.Minimize XOR](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)
   - [2430.Maximum Deletions on a String](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)
   - [2431.Maximize Total Tastiness of Purchased Fruits](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md)
+  - [2432.The Employee That Worked on the Longest Task](/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README_EN.md)
+  - [2433.Find The Original Array of Prefix Xor](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md)
+  - [2434.Using a Robot to Print the Lexicographically Smallest String](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README_EN.md)
+  - [2435.Paths in Matrix Whose Sum Is Divisible by K](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README_EN.md)

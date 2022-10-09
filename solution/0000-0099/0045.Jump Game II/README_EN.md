@@ -9,7 +9,7 @@
 <p>Each element <code>nums[i]</code> represents the maximum length of a forward jump from index <code>i</code>. In other words, if you are at <code>nums[i]</code>, you can jump to any <code>nums[i + j]</code> where:</p>
 
 <ul>
-	<li><code>1 &lt;= j &lt;= nums[i]</code> and</li>
+	<li><code>0 &lt;= j &lt;= nums[i]</code> and</li>
 	<li><code>i + j &lt; n</code></li>
 </ul>
 
