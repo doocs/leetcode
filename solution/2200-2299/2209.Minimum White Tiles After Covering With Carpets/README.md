@@ -55,6 +55,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+设计函数 $dfs(i, j)$ 表示从下标 $i$ 开始，使用 $j$ 条地毯，最少有多少个白色砖块没有被覆盖。答案即为 $dfs(0, numCarpets)$。
+
+对于下标 $i$，我们分情况讨论：
+
+-   如果 $i \ge n$，说明已经覆盖完所有砖块，返回 $0$；
+-   如果 $floor[i] = 0$，则不需要使用地毯，直接跳过即可，即 $dfs(i, j) = dfs(i + 1, j)$；
+-   如果 $j = 0$，那么我们可以直接利用前缀和数组 $s$ 计算出剩余未被覆盖的白色砖块的数目，即 $dfs(i, j) = s[n] - s[i]$；
+-   如果 $floor[i] = 1$，那么我们可以选择使用地毯覆盖，也可以选择不使用地毯覆盖，取两者的最小值即可，即 $dfs(i, j) = min(dfs(i + 1, j), dfs(i + carpetLen, j - 1))$。
+
+记忆化搜索即可。
+
+时间复杂度 $O(n\times m)$，空间复杂度 $O(n\times m)$。其中 $n$ 和 $m$ 分别为字符串 $floor$ 的长度和 $numCarpets$ 的值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +77,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumWhiteTiles(self, floor: str, numCarpets: int, carpetLen: int) -> int:
+        @cache
+        def dfs(i, j):
+            if i >= n:
+                return 0
+            if floor[i] == '0':
+                return dfs(i + 1, j)
+            if j == 0:
+                return s[-1] - s[i]
+            return min(1 + dfs(i + 1, j), dfs(i + carpetLen, j - 1))
 
+        n = len(floor)
+        s = [0] * (n + 1)
+        for i, c in enumerate(floor):
+            s[i + 1] = s[i] + int(c == '1')
+        ans = dfs(0, numCarpets)
+        dfs.cache_clear()
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +103,116 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[][] f;
+    private int[] s;
+    private int n;
+    private int k;
 
+    public int minimumWhiteTiles(String floor, int numCarpets, int carpetLen) {
+        n = floor.length();
+        f = new int[n][numCarpets + 1];
+        for (var e : f) {
+            Arrays.fill(e, -1);
+        }
+        s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + (floor.charAt(i) == '1' ? 1 : 0);
+        }
+        k = carpetLen;
+        return dfs(0, numCarpets);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= n) {
+            return 0;
+        }
+        if (j == 0) {
+            return s[n] - s[i];
+        }
+        if (f[i][j] != -1) {
+            return f[i][j];
+        }
+        if (s[i + 1] == s[i]) {
+            return dfs(i + 1, j);
+        }
+        int ans = Math.min(1 + dfs(i + 1, j), dfs(i + k, j - 1));
+        f[i][j] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumWhiteTiles(string floor, int numCarpets, int carpetLen) {
+        int n = floor.size();
+        vector<vector<int>> f(n, vector<int>(numCarpets + 1, -1));
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + (floor[i] == '1');
+        }
+        function<int(int, int)> dfs;
+        dfs = [&](int i, int j) {
+            if (i >= n) return 0;
+            if (j == 0) return s[n] - s[i];
+            if (f[i][j] != -1) return f[i][j];
+            if (s[i + 1] == s[i]) return dfs(i + 1, j);
+            int ans = min(1 + dfs(i + 1, j), dfs(i + carpetLen, j - 1));
+            f[i][j] = ans;
+            return ans;
+        };
+        return dfs(0, numCarpets);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
+	n := len(floor)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, numCarpets+1)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	s := make([]int, n+1)
+	for i, c := range floor {
+		s[i+1] = s[i] + int(c-'0')
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= n {
+			return 0
+		}
+		if j == 0 {
+			return s[n] - s[i]
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		if s[i+1] == s[i] {
+			return dfs(i+1, j)
+		}
+		ans := min(1+dfs(i+1, j), dfs(i+carpetLen, j-1))
+		f[i][j] = ans
+		return ans
+	}
+	return dfs(0, numCarpets)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
