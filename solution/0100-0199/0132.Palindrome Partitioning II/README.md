@@ -71,7 +71,7 @@ class Solution:
                 if g[i][j]:
                     ans = min(ans, dfs(j + 1) + (j < n - 1))
             return ans
-        
+
         n = len(s)
         g = [[True] * n for _ in range(n)]
         for i in range(n - 1, -1, -1):
@@ -174,7 +174,6 @@ class Solution {
 ```
 
 ### **Go**
-
 
 ```go
 func minCut(s string) int {

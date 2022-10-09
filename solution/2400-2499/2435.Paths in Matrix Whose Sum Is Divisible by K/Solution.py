@@ -9,8 +9,8 @@ class Solution:
                 for s in range(k):
                     t = ((s - grid[i][j] % k) + k) % k
                     if i:
-                        dp[i][j][s] += (dp[i - 1][j][t])
+                        dp[i][j][s] += dp[i - 1][j][t]
                     if j:
-                        dp[i][j][s] += (dp[i][j - 1][t])
+                        dp[i][j][s] += dp[i][j - 1][t]
                     dp[i][j][s] %= mod
         return dp[-1][-1][0]

@@ -56,13 +56,138 @@ Installing any would create some section that does not have exactly two seats.
 ### **Python3**
 
 ```python
+class Solution:
+    def numberOfWays(self, corridor: str) -> int:
+        @cache
+        def dfs(i, cnt):
+            if i == n:
+                return int(cnt == 2)
+            cnt += corridor[i] == 'S'
+            if cnt > 2:
+                return 0
+            ans = dfs(i + 1, cnt)
+            if cnt == 2:
+                ans += dfs(i + 1, 0)
+                ans %= mod
+            return ans
 
+        n = len(corridor)
+        mod = 10**9 + 7
+        ans = dfs(0, 0)
+        dfs.cache_clear()
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private String s;
+    private int n;
+    private int[][] f;
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int numberOfWays(String corridor) {
+        s = corridor;
+        n = s.length();
+        f = new int[n][3];
+        for (var e : f) {
+            Arrays.fill(e, -1);
+        }
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int cnt) {
+        if (i == n) {
+            return cnt == 2 ? 1 : 0;
+        }
+        cnt += s.charAt(i) == 'S' ? 1 : 0;
+        if (cnt > 2) {
+            return 0;
+        }
+        if (f[i][cnt] != -1) {
+            return f[i][cnt];
+        }
+        int ans = dfs(i + 1, cnt);
+        if (cnt == 2) {
+            ans += dfs(i + 1, 0);
+            ans %= MOD;
+        }
+        f[i][cnt] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int numberOfWays(string corridor) {
+        int n = corridor.size();
+        vector<vector<int>> f(n, vector<int>(3, -1));
+        function<int(int, int)> dfs;
+        dfs = [&](int i, int cnt) {
+            if (i == n) return cnt == 2 ? 1 : 0;
+            cnt += corridor[i] == 'S';
+            if (cnt > 2) return 0;
+            if (f[i][cnt] != -1) return f[i][cnt];
+            int ans = dfs(i + 1, cnt);
+            if (cnt == 2) {
+                ans += dfs(i + 1, 0);
+                ans %= mod;
+            }
+            f[i][cnt] = ans;
+            return ans;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfWays(corridor string) int {
+	n := len(corridor)
+	var mod int = 1e9 + 7
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, 3)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(i, cnt int) int
+	dfs = func(i, cnt int) int {
+		if i == n {
+			if cnt == 2 {
+				return 1
+			}
+			return 0
+		}
+		if corridor[i] == 'S' {
+			cnt++
+		}
+		if cnt > 2 {
+			return 0
+		}
+		if f[i][cnt] != -1 {
+			return f[i][cnt]
+		}
+		ans := dfs(i+1, cnt)
+		if cnt == 2 {
+			ans += dfs(i+1, 0)
+			ans %= mod
+		}
+		f[i][cnt] = ans
+		return ans
+	}
+	return dfs(0, 0)
+}
 ```
 
 ### **TypeScript**
