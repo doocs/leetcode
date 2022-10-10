@@ -51,6 +51,10 @@
 
 对于本题，二分枚举长度，找到满足条件的最大长度即可。
 
+时间复杂度 $O(n\log n)$。其中 $n$ 为字符串长度。
+
+相似题目：[1062. 最长重复子串](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

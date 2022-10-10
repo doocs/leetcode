@@ -54,13 +54,104 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestDecomposition(self, text: str) -> int:
+        n = len(text)
+        if n < 2:
+            return n
+        for i in range(n // 2 + 1):
+            if text[:i] == text[-i:]:
+                return 2 + self.longestDecomposition(text[i: -i])
+        return 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int longestDecomposition(String text) {
+        int n = text.length();
+        if (n < 2) {
+            return n;
+        }
+        for (int i = 1; i <= n >> 1; ++i) {
+            if (text.substring(0, i).equals(text.substring(n - i))) {
+                return 2 + longestDecomposition(text.substring(i, n - i));
+            }
+        }
+        return 1;
+    }
+}
+```
 
+```java
+class Solution {
+    public int longestDecomposition(String text) {
+        char[] cs = text.toCharArray();
+        int res = 0;
+        for (int i = 0, j = cs.length - 1; i <= j;) {
+            boolean flag = true;
+            for (int k = 1; i + k - 1 < j - k + 1; ++k) {
+                if (check(cs, i, j - k + 1, k)) {
+                    res += 2;
+                    i += k;
+                    j -= k;
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                ++res;
+                break;
+            }
+        }
+        return res;
+    }
+
+    private boolean check(char[] cs, int i, int j, int k) {
+        while (k-- > 0) {
+            if (cs[i++] != cs[j++]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestDecomposition(string text) {
+        int n = text.size();
+        if (n < 2) return n;
+        for (int i = 1; i <= n >> 1; ++i) {
+            if (text.substr(0, i) == text.substr(n - i)) {
+                return 2 + longestDecomposition(text.substr(i, n - i - i));
+            }
+        }
+        return 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestDecomposition(text string) int {
+	n := len(text)
+	if n < 2 {
+		return n
+	}
+	for i := 1; i <= n>>1; i++ {
+		if text[:i] == text[n-i:] {
+			return 2 + longestDecomposition(text[i:n-i])
+		}
+	}
+	return 1
+}
 ```
 
 ### **...**
