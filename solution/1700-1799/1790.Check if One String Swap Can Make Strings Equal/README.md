@@ -53,6 +53,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：简单计数**
+
+我们用变量 $cnt$ 记录两个字符串中相同位置字符不同的个数，两个字符串若满足题目要求，那么 $cnt$ 一定为 $0$ 或 $2$。另外用两个字符变量 $c1$ 和 $c2$ 记录两个字符串中相同位置字符不同的字符。
+
+同时遍历两个字符串，对于相同位置的两个字符 $a$ 和 $b$，如果 $a \ne b$，那么 $cnt$ 自增 $1$。如果此时 $cnt$ 大于 $2$，或者 $cnt$ 为 $2$ 且 $a \ne c2$ 或 $b \ne c1$，那么直接返回 `false`。注意记录一下 $c1$ 和 $c2$。
+
+遍历结束，若 $cnt\neq 1$，返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,15 +72,15 @@
 ```python
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
-        cnt, n = 0, len(s1)
+        cnt = 0
         c1 = c2 = None
-        for i in range(n):
-            if s1[i] != s2[i]:
+        for a, b in zip(s1, s2):
+            if a != b:
                 cnt += 1
-                if (cnt == 2 and (s1[i] != c2 or s2[i] != c1)) or cnt > 2:
+                if cnt > 2 or (cnt == 2 and (a != c2 or b != c1)):
                     return False
-                c1, c2 = s1[i], s2[i]
-        return cnt == 0 or cnt == 2
+                c1, c2 = a, b
+        return cnt != 1
 ```
 
 ### **Java**
@@ -80,22 +90,19 @@ class Solution:
 ```java
 class Solution {
     public boolean areAlmostEqual(String s1, String s2) {
-        int n = s1.length();
         int cnt = 0;
-        char c1 = 0;
-        char c2 = 0;
-        for (int i = 0; i < n; ++i) {
-            char t1 = s1.charAt(i), t2 = s2.charAt(i);
-            if (t1 != t2) {
-                ++cnt;
-                if ((cnt == 2 && (c1 != t2 || c2 != t1)) || cnt > 2) {
+        char c1 = 0, c2 = 0;
+        for (int i = 0; i < s1.length(); ++i) {
+            char a = s1.charAt(i), b = s2.charAt(i);
+            if (a != b) {
+                if (++cnt > 2 || (cnt == 2 && (a != c2 || b != c1))) {
                     return false;
                 }
-                c1 = t1;
-                c2 = t2;
+                c1 = a;
+                c2 = b;
             }
         }
-        return cnt == 0 || cnt == 2;
+        return cnt != 1;
     }
 }
 ```
@@ -106,18 +113,18 @@ class Solution {
 class Solution {
 public:
     bool areAlmostEqual(string s1, string s2) {
-        char c1 = 0, c2 = 0;
-        int n = s1.size();
         int cnt = 0;
-        for (int i = 0; i < n; ++i) {
-            if (s1[i] != s2[i]) {
-                ++cnt;
-                if ((cnt == 2 && (c1 != s2[i] || c2 != s1[i])) || cnt > 2) return false;
-                c1 = s1[i];
-                c2 = s2[i];
+        char c1 = 0, c2 = 0;
+        for (int i = 0; i < s1.size(); ++i) {
+            char a = s1[i], b = s2[i];
+            if (a != b) {
+                if (++cnt > 2 || (cnt == 2 && (a != c2 || b != c1))) {
+                    return false;
+                }
+                c1 = a, c2 = b;
             }
         }
-        return cnt == 0 || cnt == 2;
+        return cnt != 1;
     }
 };
 ```
@@ -126,18 +133,40 @@ public:
 
 ```go
 func areAlmostEqual(s1 string, s2 string) bool {
+	cnt := 0
 	var c1, c2 byte
-	cnt, n := 0, len(s1)
-	for i := 0; i < n; i++ {
-		if s1[i] != s2[i] {
+	for i := range s1 {
+		a, b := s1[i], s2[i]
+		if a != b {
 			cnt++
-			if (cnt == 2 && (c1 != s2[i] || c2 != s1[i])) || cnt > 2 {
+			if cnt > 2 || (cnt == 2 && (a != c2 || b != c1)) {
 				return false
 			}
-			c1, c2 = s1[i], s2[i]
+			c1, c2 = a, b
 		}
 	}
-	return cnt == 0 || cnt == 2
+	return cnt != 1
+}
+```
+
+### **TypeScript**
+
+```ts
+function areAlmostEqual(s1: string, s2: string): boolean {
+    let c1, c2;
+    let cnt = 0;
+    for (let i = 0; i < s1.length; ++i) {
+        const a = s1.charAt(i);
+        const b = s2.charAt(i);
+        if (a != b) {
+            if (++cnt > 2 || (cnt == 2 && (a != c2 || b != c1))) {
+                return false;
+            }
+            c1 = a;
+            c2 = b;
+        }
+    }
+    return cnt != 1;
 }
 ```
 

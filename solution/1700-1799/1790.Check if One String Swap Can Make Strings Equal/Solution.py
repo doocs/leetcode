@@ -1,11 +1,11 @@
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
-        cnt, n = 0, len(s1)
+        cnt = 0
         c1 = c2 = None
-        for i in range(n):
-            if s1[i] != s2[i]:
+        for a, b in zip(s1, s2):
+            if a != b:
                 cnt += 1
-                if (cnt == 2 and (s1[i] != c2 or s2[i] != c1)) or cnt > 2:
+                if cnt > 2 or (cnt == 2 and (a != c2 or b != c1)):
                     return False
-                c1, c2 = s1[i], s2[i]
-        return cnt == 0 or cnt == 2
+                c1, c2 = a, b
+        return cnt != 1

@@ -1,20 +1,17 @@
 class Solution {
     public boolean areAlmostEqual(String s1, String s2) {
-        int n = s1.length();
         int cnt = 0;
-        char c1 = 0;
-        char c2 = 0;
-        for (int i = 0; i < n; ++i) {
-            char t1 = s1.charAt(i), t2 = s2.charAt(i);
-            if (t1 != t2) {
-                ++cnt;
-                if ((cnt == 2 && (c1 != t2 || c2 != t1)) || cnt > 2) {
+        char c1 = 0, c2 = 0;
+        for (int i = 0; i < s1.length(); ++i) {
+            char a = s1.charAt(i), b = s2.charAt(i);
+            if (a != b) {
+                if (++cnt > 2 || (cnt == 2 && (a != c2 || b != c1))) {
                     return false;
                 }
-                c1 = t1;
-                c2 = t2;
+                c1 = a;
+                c2 = b;
             }
         }
-        return cnt == 0 || cnt == 2;
+        return cnt != 1;
     }
 }
