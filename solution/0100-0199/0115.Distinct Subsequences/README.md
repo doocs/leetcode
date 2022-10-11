@@ -52,7 +52,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划，`dp[i][j]` 表示 `s[:i]` 的子序列中 `t[:j]` 的出现次数
+**方法一：动态规划**
+
+定义 `dp[i][j]` 表示 `s[0..i]` 的子序列中 `t[0..j]` 出现的个数。初始时 `dp[i][0]=1`，表示空串是任意字符串的子序列。答案为 `dp[m][n]`。
+
+当 `s[i] == t[j]` 时，`dp[i][j] = dp[i-1][j-1] + dp[i-1][j]`，即 `s[0..i]` 的子序列中 `t[0..j]` 出现的个数等于 `s[0..i-1]` 的子序列中 `t[0..j-1]` 出现的个数加上 `s[0..i-1]` 的子序列中 `t[0..j]` 出现的个数。
+
+当 `s[i] != t[j]` 时，`dp[i][j] = dp[i-1][j]`，即 `s[0..i]` 的子序列中 `t[0..j]` 出现的个数等于 `s[0..i-1]` 的子序列中 `t[0..j]` 出现的个数。
+
+因此，可以得到状态转移方程：
+
+$$
+dp[i][j]=
+\begin{cases}
+dp[i-1][j-1]+dp[i-1][j], & s[i]=t[j] \\
+dp[i-1][j], & s[i]\neq t[j]
+\end{cases}
+$$
+
+时间复杂度 $O(m\times n)$，空间复杂度 $O(m\times n)$。其中 $m$, $n$ 分别是字符串 `s` 和 `t` 的长度。
 
 <!-- tabs:start -->
 
@@ -82,15 +100,14 @@ class Solution:
 ```java
 class Solution {
     public int numDistinct(String s, String t) {
-        int m = s.length();
-        int n = t.length();
+        int m = s.length(), n = t.length();
         int[][] dp = new int[m + 1][n + 1];
-        for (int i = 0; i <= m; i++) {
+        for (int i = 0; i <= m; ++i) {
             dp[i][0] = 1;
         }
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                dp[i][j] = dp[i - 1][j];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                dp[i][j] += dp[i - 1][j];
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
                     dp[i][j] += dp[i - 1][j - 1];
                 }
@@ -145,6 +162,30 @@ public:
         return dp[m][n];
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+function numDistinct(s: string, t: string): number {
+    const m = s.length;
+    const n = t.length;
+    const dp: number[][] = new Array(m + 1)
+        .fill(0)
+        .map(() => new Array(n + 1).fill(0));
+    for (let i = 0; i <= m; ++i) {
+        dp[i][0] = 1;
+    }
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            dp[i][j] = dp[i - 1][j];
+            if (s.charAt(i - 1) === t.charAt(j - 1)) {
+                dp[i][j] += dp[i - 1][j - 1];
+            }
+        }
+    }
+    return dp[m][n];
+}
 ```
 
 ### **...**
