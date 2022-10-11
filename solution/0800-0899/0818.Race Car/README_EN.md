@@ -60,13 +60,90 @@ Your position goes from 0 --&gt; 1 --&gt; 3 --&gt; 7 --&gt; 7 --&gt; 6.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def racecar(self, target: int) -> int:
+        dp = [0] * (target + 1)
+        for i in range(1, target + 1):
+            k = i.bit_length()
+            if i == 2**k - 1:
+                dp[i] = k
+                continue
+            dp[i] = dp[2**k - 1 - i] + k + 1
+            for j in range(k - 1):
+                dp[i] = min(dp[i], dp[i - (2 ** (k - 1) - 2**j)] + k - 1 + j + 2)
+        return dp[target]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int racecar(int target) {
+        int[] dp = new int[target + 1];
+        for (int i = 1; i <= target; ++i) {
+            int k = 32 - Integer.numberOfLeadingZeros(i);
+            if (i == (1 << k) - 1) {
+                dp[i] = k;
+                continue;
+            }
+            dp[i] = dp[(1 << k) - 1 - i] + k + 1;
+            for (int j = 0; j < k; ++j) {
+                dp[i] = Math.min(dp[i], dp[i - (1 << (k - 1)) + (1 << j)] + k - 1 + j + 2);
+            }
+        }
+        return dp[target];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int racecar(int target) {
+        vector<int> dp(target + 1);
+        for (int i = 1; i <= target; ++i) {
+            int k = 32 - __builtin_clz(i);
+            if (i == (1 << k) - 1) {
+                dp[i] = k;
+                continue;
+            }
+            dp[i] = dp[(1 << k) - 1 - i] + k + 1;
+            for (int j = 0; j < k; ++j) {
+                dp[i] = min(dp[i], dp[i - (1 << (k - 1)) + (1 << j)] + k - 1 + j + 2);
+            }
+        }
+        return dp[target];
+    }
+};
+```
+
+### **Go**
+
+```go
+func racecar(target int) int {
+	dp := make([]int, target+1)
+	for i := 1; i <= target; i++ {
+		k := bits.Len(uint(i))
+		if i == (1<<k)-1 {
+			dp[i] = k
+			continue
+		}
+		dp[i] = dp[(1<<k)-1-i] + k + 1
+		for j := 0; j < k; j++ {
+			dp[i] = min(dp[i], dp[i-(1<<(k-1))+(1<<j)]+k-1+j+2)
+		}
+	}
+	return dp[target]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

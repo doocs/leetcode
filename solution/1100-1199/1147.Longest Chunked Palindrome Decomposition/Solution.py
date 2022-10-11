@@ -5,5 +5,5 @@ class Solution:
             return n
         for i in range(n // 2 + 1):
             if text[:i] == text[-i:]:
-                return 2 + self.longestDecomposition(text[i: -i])
+                return 2 + self.longestDecomposition(text[i:-i])
         return 1

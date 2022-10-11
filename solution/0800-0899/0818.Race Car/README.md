@@ -61,6 +61,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+设 $dp[i]$ 表示到达位置 $i$ 的最短指令序列的长度。答案为 $dp[target]$。
+
+对于任意位置 $i$，都有 $2^{k-1} \leq i \lt 2^k$，并且我们可以有三种方式到达位置 $i$：
+
+-   如果 $i$ 等于 $2^k-1$，那么我们可以直接执行 $k$ 个 `A` 指令到达位置 $i$，此时 $dp[i] = k$；
+-   否则，我们可以先执行 $k$ 个 `A` 指令到达位置 $2^k-1$，然后执行 `R` 指令，剩余距离为 $2^k-1-i$，此时 $dp[i] = dp[2^k-1-i] + k + 1$；我们也可以先执行 $k-1$ 个 `A` 指令到达位置 $2^{k-1}-1$，然后执行 `R` 指令，接着执行 $j$（其中 $0 \le j \lt k$） 个 `A`，再执行 `R`，剩余距离为 $i - 2^{k-1} + 2^j$，此时 $dp[i] = dp[i - 2^{k-1} + 2^j] + k - 1 + j + 2$。求出 $dp[i]$ 的最小值即可。
+
+时间复杂度 $O(n \log n)$，其中 $n$ 为 $target$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +79,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def racecar(self, target: int) -> int:
+        dp = [0] * (target + 1)
+        for i in range(1, target + 1):
+            k = i.bit_length()
+            if i == 2**k - 1:
+                dp[i] = k
+                continue
+            dp[i] = dp[2**k - 1 - i] + k + 1
+            for j in range(k - 1):
+                dp[i] = min(dp[i], dp[i - (2 ** (k - 1) - 2**j)] + k - 1 + j + 2)
+        return dp[target]
 ```
 
 ### **Java**
@@ -76,7 +98,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int racecar(int target) {
+        int[] dp = new int[target + 1];
+        for (int i = 1; i <= target; ++i) {
+            int k = 32 - Integer.numberOfLeadingZeros(i);
+            if (i == (1 << k) - 1) {
+                dp[i] = k;
+                continue;
+            }
+            dp[i] = dp[(1 << k) - 1 - i] + k + 1;
+            for (int j = 0; j < k; ++j) {
+                dp[i] = Math.min(dp[i], dp[i - (1 << (k - 1)) + (1 << j)] + k - 1 + j + 2);
+            }
+        }
+        return dp[target];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int racecar(int target) {
+        vector<int> dp(target + 1);
+        for (int i = 1; i <= target; ++i) {
+            int k = 32 - __builtin_clz(i);
+            if (i == (1 << k) - 1) {
+                dp[i] = k;
+                continue;
+            }
+            dp[i] = dp[(1 << k) - 1 - i] + k + 1;
+            for (int j = 0; j < k; ++j) {
+                dp[i] = min(dp[i], dp[i - (1 << (k - 1)) + (1 << j)] + k - 1 + j + 2);
+            }
+        }
+        return dp[target];
+    }
+};
+```
+
+### **Go**
+
+```go
+func racecar(target int) int {
+	dp := make([]int, target+1)
+	for i := 1; i <= target; i++ {
+		k := bits.Len(uint(i))
+		if i == (1<<k)-1 {
+			dp[i] = k
+			continue
+		}
+		dp[i] = dp[(1<<k)-1-i] + k + 1
+		for j := 0; j < k; j++ {
+			dp[i] = min(dp[i], dp[i-(1<<(k-1))+(1<<j)]+k-1+j+2)
+		}
+	}
+	return dp[target]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
