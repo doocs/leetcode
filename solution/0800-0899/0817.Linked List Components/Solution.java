@@ -10,23 +10,20 @@
  */
 class Solution {
     public int numComponents(ListNode head, int[] nums) {
+        int ans = 0;
         Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            s.add(num);
+        for (int v : nums) {
+            s.add(v);
         }
-        int res = 0;
-        boolean pre = true;
         while (head != null) {
-            if (s.contains(head.val)) {
-                if (pre) {
-                    ++res;
-                    pre = false;
-                }
-            } else {
-                pre = true;
+            while (head != null && !s.contains(head.val)) {
+                head = head.next;
             }
-            head = head.next;
+            ans += head != null ? 1 : 0;
+            while (head != null && s.contains(head.val)) {
+                head = head.next;
+            }
         }
-        return res;
+        return ans;
     }
 }

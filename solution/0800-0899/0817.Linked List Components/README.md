@@ -48,14 +48,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-定义 pre 表示是否可加 1，初始为 true。
+**方法一：哈希表 + 链表一次遍历**
 
-遍历链表各个结点：
+题目中需要判断链表中节点的值是否在数组 `nums` 中，因此我们可以使用哈希表 $s$ 存储数组 `nums` 中的值。
 
--   若当前结点值在 nums 中，并且当前为可加 1 的状态，则 `res++`，并且将 pre 状态置为 false；
--   若当前结点值不在 nums 中，则将 pre 置为 true，表示可加 1。
+然后遍历链表，找到第一个在哈希表 $s$ 中的节点，然后从该节点开始遍历，直到遇到不在哈希表 $s$ 中的节点，这样就找到了一个组件，然后继续遍历链表，直到遍历完整个链表。
 
-最后返回 res 即可。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的节点个数。
 
 <!-- tabs:start -->
 
@@ -70,18 +69,16 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def numComponents(self, head: ListNode, nums: List[int]) -> int:
+    def numComponents(self, head: Optional[ListNode], nums: List[int]) -> int:
+        ans = 0
         s = set(nums)
-        res, pre = 0, True
         while head:
-            if head.val in s:
-                if pre:
-                    res += 1
-                    pre = False
-            else:
-                pre = True
-            head = head.next
-        return res
+            while head and head.val not in s:
+                head = head.next
+            ans += head is not None
+            while head and head.val in s:
+                head = head.next
+        return ans
 ```
 
 ### **Java**
@@ -101,26 +98,116 @@ class Solution:
  */
 class Solution {
     public int numComponents(ListNode head, int[] nums) {
+        int ans = 0;
         Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            s.add(num);
+        for (int v : nums) {
+            s.add(v);
         }
-        int res = 0;
-        boolean pre = true;
         while (head != null) {
-            if (s.contains(head.val)) {
-                if (pre) {
-                    ++res;
-                    pre = false;
-                }
-            } else {
-                pre = true;
+            while (head != null && !s.contains(head.val)) {
+                head = head.next;
             }
-            head = head.next;
+            ans += head != null ? 1 : 0;
+            while (head != null && s.contains(head.val)) {
+                head = head.next;
+            }
         }
-        return res;
+        return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    int numComponents(ListNode* head, vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        int ans = 0;
+        while (head) {
+            while (head && !s.count(head->val)) head = head->next;
+            ans += head != nullptr;
+            while (head && s.count(head->val)) head = head->next;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func numComponents(head *ListNode, nums []int) int {
+	s := map[int]bool{}
+	for _, v := range nums {
+		s[v] = true
+	}
+	ans := 0
+	for head != nil {
+		for head != nil && !s[head.Val] {
+			head = head.Next
+		}
+		if head != nil {
+			ans++
+		}
+		for head != nil && s[head.Val] {
+			head = head.Next
+		}
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number[]} nums
+ * @return {number}
+ */
+var numComponents = function (head, nums) {
+    const s = new Set();
+    for (const v of nums) {
+        s.add(v);
+    }
+    let ans = 0;
+    while (head) {
+        while (head && !s.has(head.val)) {
+            head = head.next;
+        }
+        ans += head != null;
+        while (head && s.has(head.val)) {
+            head = head.next;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
