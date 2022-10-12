@@ -13,14 +13,14 @@
 <p><strong>Note:</strong> The merging process must start from the root nodes of both trees.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/images/merge.jpg" style="width: 600px; height: 163px;" />
 <pre>
 <strong>Input:</strong> root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
 <strong>Output:</strong> [3,4,5,5,4,null,7]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root1 = [1], root2 = [1,2]

@@ -11,14 +11,14 @@
 <p>Return <code>arr</code> <em>after applying all the</em> <code>updates</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0370.Range%20Addition/images/rangeadd-grid.jpg" style="width: 413px; height: 573px;" />
 <pre>
 <strong>Input:</strong> length = 5, updates = [[1,3,2],[2,4,3],[0,2,-2]]
 <strong>Output:</strong> [-2,0,3,5,3]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> length = 10, updates = [[2,4,6],[5,6,8],[1,9,-4]]

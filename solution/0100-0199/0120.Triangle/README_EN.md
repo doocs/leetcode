@@ -9,7 +9,7 @@
 <p>For each step, you may move to an adjacent number of the row below. More formally, if you are on index <code>i</code> on the current row, you may move to either index <code>i</code> or index <code>i + 1</code> on the next row.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
@@ -22,7 +22,7 @@
 The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> triangle = [[-10]]

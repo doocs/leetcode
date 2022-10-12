@@ -15,7 +15,7 @@
 <p>Return the largest possible value of <code>k</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;ghiabcdefhelloadamhelloabcdefghi&quot;
@@ -23,7 +23,7 @@
 <strong>Explanation:</strong> We can split the string on &quot;(ghi)(abcdef)(hello)(adam)(hello)(abcdef)(ghi)&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;merchant&quot;
@@ -31,7 +31,7 @@
 <strong>Explanation:</strong> We can split the string on &quot;(merchant)&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;antaprezatepzapreanta&quot;

@@ -18,7 +18,7 @@
 <p>Return <em>the <strong>minimum</strong> cost to jump to the index </em><code>n - 1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,2,4,4,1], costs = [3,7,6,4,2]
@@ -31,7 +31,7 @@ Two other possible paths are from index 0 -&gt; 1 -&gt; 4 and index 0 -&gt; 2 -&
 These have a total cost of 9 and 12, respectively.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,2], costs = [1,1,1]

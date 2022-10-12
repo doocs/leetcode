@@ -15,7 +15,7 @@
 <p>Return <em>the <strong>maximum</strong> number of consecutive</em> <code>&#39;T&#39;</code>s or <code>&#39;F&#39;</code>s <em>in the answer key after performing the operation at most</em> <code>k</code> <em>times</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> answerKey = &quot;TTFF&quot;, k = 2
@@ -24,7 +24,7 @@
 There are four consecutive &#39;T&#39;s.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> answerKey = &quot;TFFT&quot;, k = 1
@@ -34,7 +34,7 @@ Alternatively, we can replace the second &#39;T&#39; with an &#39;F&#39; to make
 In both cases, there are three consecutive &#39;F&#39;s.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> answerKey = &quot;TTFTTFTT&quot;, k = 1

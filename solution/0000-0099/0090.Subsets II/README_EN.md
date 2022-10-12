@@ -9,10 +9,10 @@
 <p>The solution set <strong>must not</strong> contain duplicate subsets. Return the solution in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [1,2,2]
 <strong>Output:</strong> [[],[1],[1,2],[1,2,2],[2],[2,2]]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> nums = [0]
 <strong>Output:</strong> [[],[0]]
 </pre>

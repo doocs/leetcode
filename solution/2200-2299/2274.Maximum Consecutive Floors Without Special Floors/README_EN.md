@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> number of consecutive floors without a special floor</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> bottom = 2, top = 9, special = [4,6]
@@ -23,7 +23,7 @@
 Therefore, we return the maximum number which is 3 floors.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> bottom = 6, top = 8, special = [7,6,8]

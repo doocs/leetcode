@@ -15,7 +15,7 @@
 <p>Return <em>the number of unique <strong>arithmetic triplets</strong>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,4,6,7,10], diff = 3
@@ -25,7 +25,7 @@
 (2, 4, 5) is an arithmetic triplet because both 10 - 7 == 3 and 7 - 4 == 3. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,5,6,7,8,9], diff = 2

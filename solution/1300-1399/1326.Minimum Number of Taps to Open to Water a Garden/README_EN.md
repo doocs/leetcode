@@ -13,7 +13,7 @@
 <p>Return <em>the minimum number of taps</em> that should be open to water the whole garden, If the garden cannot be watered return <strong>-1</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/images/1685_example_1.png" style="width: 525px; height: 255px;" />
 <pre>
 <strong>Input:</strong> n = 5, ranges = [3,4,1,1,0,0]
@@ -27,7 +27,7 @@ The tap at point 5 can cover the interval [5,5]
 Opening Only the second tap will water the whole garden [0,5]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 3, ranges = [0,0,0,0]

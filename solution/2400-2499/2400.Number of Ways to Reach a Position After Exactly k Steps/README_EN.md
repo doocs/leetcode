@@ -13,7 +13,7 @@
 <p><strong>Note</strong> that the number line includes negative integers.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> startPos = 1, endPos = 2, k = 3
@@ -24,7 +24,7 @@
 - 1 -&gt; 0 -&gt; 1 -&gt; 2.
 It can be proven that no other way is possible, so we return 3.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> startPos = 2, endPos = 5, k = 10

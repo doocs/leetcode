@@ -11,7 +11,7 @@
 <p>Return <em>the maximum number of rows that have all values equal after some number of flips</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[0,1],[1,1]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> After flipping no values, 1 row has all values equal.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[0,1],[1,0]]
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> After flipping values in the first column, both rows have equal values.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[0,0,0],[0,0,1],[1,1,0]]

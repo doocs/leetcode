@@ -18,7 +18,7 @@
 <p>Return <em>the lexicographically largest resulting string possible after applying the mentioned operations on the string</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;11011000&quot;
@@ -27,7 +27,7 @@
 This is the lexicographically largest string possible after some number of swaps.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;10&quot;

@@ -40,14 +40,14 @@
 <p>Given an expression representing a set of words under the given grammar, return <em>the sorted list of words that the expression represents</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;{a,b}{c,{d,e}}&quot;
 <strong>Output:</strong> [&quot;ac&quot;,&quot;ad&quot;,&quot;ae&quot;,&quot;bc&quot;,&quot;bd&quot;,&quot;be&quot;]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;{{a,z},a{b,c},{ab,z}}&quot;

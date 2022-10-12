@@ -9,7 +9,7 @@
 <p>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,1,4,3], left = 2, right = 3
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> There are three subarrays that meet the requirements: [2], [2, 1], [3].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,9,2,5,6], left = 2, right = 8

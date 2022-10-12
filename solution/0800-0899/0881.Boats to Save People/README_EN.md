@@ -9,7 +9,7 @@
 <p>Return <em>the minimum number of boats to carry every given person</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> people = [1,2], limit = 3
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> 1 boat (1, 2)
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> people = [3,2,2,1], limit = 3
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> 3 boats (1, 2), (2) and (3)
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> people = [3,5,3,4], limit = 5

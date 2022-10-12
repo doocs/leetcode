@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -24,7 +24,7 @@
 
 </pre>
 
-<strong>Example 2:</strong>
+<strong class="example">Example 2:</strong>
 
 <pre>
 
@@ -39,9 +39,13 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= arr.length&nbsp;&lt;= 10^5</code></li>
+
     <li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
+
     <li><code>0 &lt;= k&nbsp;&lt;= arr.length</code></li>
+
 </ul>
 
 ## Solutions

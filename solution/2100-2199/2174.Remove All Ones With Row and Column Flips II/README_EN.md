@@ -19,7 +19,7 @@
 <p>Return <em>the <strong>minimum</strong> number of operations needed to remove all </em><code>1</code><em>&#39;s from </em><code>grid</code><em>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2174.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips%20II/images/image-20220213162716-1.png" style="width: 709px; height: 200px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,1],[1,1,1],[0,1,0]]
@@ -29,7 +29,7 @@ In the first operation, change all cell values of row 1 and column 1 to zero.
 In the second operation, change all cell values of row 0 and column 0 to zero.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2174.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips%20II/images/image-20220213162737-2.png" style="width: 734px; height: 200px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,0],[1,0,1],[0,1,0]]
@@ -40,7 +40,7 @@ In the second operation, change all cell values of row 2 and column 1 to zero.
 Note that we cannot perform an operation using row 1 and column 1 because grid[1][1] != 1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2174.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips%20II/images/image-20220213162752-3.png" style="width: 156px; height: 150px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,0],[0,0]]

@@ -9,7 +9,7 @@
 <p>A <strong>majority</strong> element in an array <code>nums</code> is an element that appears more than <code>nums.length / 2</code> times in the array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,4,5,5,5,5,5,6,6], target = 5
@@ -18,7 +18,7 @@
 Thus, 5 is a majority element because 5 &gt; 9/2 is true.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,100,101,101], target = 101

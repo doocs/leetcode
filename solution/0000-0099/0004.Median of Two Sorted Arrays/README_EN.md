@@ -9,7 +9,7 @@
 <p>The overall run time complexity should be <code>O(log (m+n))</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,3], nums2 = [2]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> merged array = [1,2,3] and median is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,2], nums2 = [3,4]

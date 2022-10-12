@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> number of matchings between </em><code>players</code><em> and </em><code>trainers</code><em> that satisfy these conditions.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> players = [4,7,9], trainers = [8,2,5,8]
@@ -23,7 +23,7 @@ One of the ways we can form two matchings is as follows:
 It can be proven that 2 is the maximum number of matchings that can be formed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> players = [1,1,1], trainers = [10]

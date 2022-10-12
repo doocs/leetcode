@@ -13,7 +13,7 @@
 <p>A <strong>subpath</strong> of a path is a contiguous sequence of cities within that path.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 5, paths = [[0,1,<u>2,3</u>,4],
@@ -23,7 +23,7 @@
 <strong>Explanation:</strong> The longest common subpath is [2,3].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 3, paths = [[0],[1],[2]]
@@ -31,7 +31,7 @@
 <strong>Explanation:</strong> There is no common subpath shared by the three paths.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 5, paths = [[<u>0</u>,1,2,3,4],

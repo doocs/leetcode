@@ -9,7 +9,7 @@
 <p>Return <em>the maximum amount of profit you can make.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> present = [5,4,6,2,3], future = [8,5,4,3,5], budget = 10
@@ -21,7 +21,7 @@ The profit you made is 16 - 10 = 6.
 It can be shown that the maximum profit you can make is 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> present = [2,2,5], future = [3,4,10], budget = 6
@@ -31,7 +31,7 @@ Buy the 2<sup>nd</sup> stock, and make a profit of 10 - 5 = 5.
 It can be shown that the maximum profit you can make is 5.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> present = [3,3,12], future = [0,3,15], budget = 10

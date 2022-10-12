@@ -11,7 +11,7 @@
 <p>Given an integer <code>k</code>, return <em>the <strong>minimum integer</strong> number of days for <strong>any</strong> point to contain <strong>at least</strong> </em><code>k</code><em> of the unique virus variants</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/images/case-1.png" style="width: 421px; height: 256px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[6,1]], k = 2
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> On day 3, points (3,1) and (4,1) will contain both virus variants. Note that these are not the only points that will contain both virus variants.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/images/case-2.png" style="width: 416px; height: 257px;" />
 <pre>
 <strong>Input:</strong> points = [[3,3],[1,2],[9,2]], k = 2
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> On day 2, points (1,3), (2,3), (2,2), and (3,2) will contain the first two viruses. Note that these are not the only points that will contain both virus variants.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/images/case-2.png" style="width: 416px; height: 257px;" />
 <pre>
 <strong>Input:</strong> points = [[3,3],[1,2],[9,2]], k = 3

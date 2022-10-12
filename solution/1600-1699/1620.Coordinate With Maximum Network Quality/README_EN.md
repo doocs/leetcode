@@ -16,16 +16,18 @@
 
 <ul>
 	<li>A coordinate <code>(x1, y1)</code> is lexicographically smaller than <code>(x2, y2)</code> if either:
+
     <ul>
     	<li><code>x1 &lt; x2</code>, or</li>
     	<li><code>x1 == x2</code> and <code>y1 &lt; y2</code>.</li>
     </ul>
     </li>
     <li><code>&lfloor;val&rfloor;</code> is the greatest integer less than or equal to <code>val</code> (the floor function).</li>
+
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/images/untitled-diagram.png" style="width: 176px; height: 176px;" />
 <pre>
 <strong>Input:</strong> towers = [[1,2,5],[2,1,7],[3,1,9]], radius = 2
@@ -36,7 +38,7 @@
 - Quality of 9 from (3, 1) results in &lfloor;9 / (1 + sqrt(1)&rfloor; = &lfloor;4.5&rfloor; = 4
 No other coordinate has a higher network quality.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> towers = [[23,11,21]], radius = 9
@@ -44,7 +46,7 @@ No other coordinate has a higher network quality.</pre>
 <strong>Explanation:</strong> Since there is only one tower, the network quality is highest right at the tower&#39;s location.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> towers = [[1,2,13],[2,1,7],[0,1,9]], radius = 2

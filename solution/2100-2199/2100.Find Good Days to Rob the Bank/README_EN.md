@@ -19,7 +19,7 @@
 <p>Return <em>a list of <strong>all</strong> days <strong>(0-indexed) </strong>that are good days to rob the bank</em>.<em> The order that the days are returned in does<strong> </strong><strong>not</strong> matter.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> security = [5,3,3,3,5,6,2], time = 2
@@ -30,7 +30,7 @@ On day 3, we have security[1] &gt;= security[2] &gt;= security[3] &lt;= security
 No other days satisfy this condition, so days 2 and 3 are the only good days to rob the bank.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> security = [1,1,1,1,1], time = 0
@@ -39,7 +39,7 @@ No other days satisfy this condition, so days 2 and 3 are the only good days to 
 Since time equals 0, every day is a good day to rob the bank, so return every day.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> security = [1,2,3,4,5,6], time = 2

@@ -23,7 +23,7 @@
 <p>You must solve the problem without using the built-in queue data structure in your programming language.&nbsp;</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input</strong>

@@ -13,7 +13,7 @@
 <p>Return<em> the probability</em> that the two boxes have the same number of distinct balls. Answers within <code>10<sup>-5</sup></code> of the actual value will be accepted as correct.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> balls = [1,1]
@@ -24,7 +24,7 @@
 In both ways, the number of distinct colors in each box is equal. The probability is 2/2 = 1
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> balls = [2,1,1]
@@ -37,7 +37,7 @@ We can see that 8 of these 12 possible random distributions have the same number
 Probability is 8/12 = 0.66667
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> balls = [1,2,1,2]

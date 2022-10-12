@@ -9,10 +9,10 @@
 <p>The digits are stored such that the most significant digit is at the <code>head</code> of the list.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> head = [1,2,3]
 <strong>Output:</strong> [1,2,4]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> head = [0]
 <strong>Output:</strong> [1]
 </pre>

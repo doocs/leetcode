@@ -18,7 +18,7 @@
 <p>Return <em>the largest possible <strong>score</strong> you can achieve after playing any number of tokens</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> tokens = [100], power = 50
@@ -26,7 +26,7 @@
 <strong>Explanation</strong><strong>:</strong> Playing the only token in the bag is impossible because you either have too little power or too little score.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> tokens = [100,200], power = 150
@@ -35,7 +35,7 @@
 There is no need to play the 1<sup>st</sup> token since you cannot play it face up to add to your score.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> tokens = [100,200,300,400], power = 200

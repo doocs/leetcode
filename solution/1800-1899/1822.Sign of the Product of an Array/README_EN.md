@@ -17,7 +17,7 @@
 <p>Return <code>signFunc(product)</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,-2,-3,-4,3,2,1]
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> The product of all values in the array is 144, and signFunc(144) = 1
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,5,0,2,-3]
@@ -33,7 +33,7 @@
 <strong>Explanation:</strong> The product of all values in the array is 0, and signFunc(0) = 0
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,1,-1,1,-1]

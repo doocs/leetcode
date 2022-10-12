@@ -13,7 +13,7 @@
 <p>Return <em>the original array </em><code>nums</code><em>. If there are multiple solutions, return <strong>any of them</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> adjacentPairs = [[2,1],[3,4],[3,2]]
@@ -22,7 +22,7 @@
 Notice that adjacentPairs[i] may not be in left-to-right order.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> adjacentPairs = [[4,-2],[1,4],[-3,1]]
@@ -31,7 +31,7 @@ Notice that adjacentPairs[i] may not be in left-to-right order.
 Another solution is [-3,1,4,-2], which would also be accepted.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> adjacentPairs = [[100000,-100000]]

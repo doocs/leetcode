@@ -9,7 +9,7 @@
 <p>As the answer can be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,1,2,2,3,3,4,4,5,5], target = 8
@@ -22,7 +22,7 @@ Enumerating by the values (arr[i], arr[j], arr[k]):
 (2, 3, 3) occurs 2 times.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,1,2,2,2,2], target = 5
@@ -33,7 +33,7 @@ We choose one 1 from [1,1] in 2 ways,
 and two 2s from [2,2,2,2] in 6 ways.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,1,3], target = 6

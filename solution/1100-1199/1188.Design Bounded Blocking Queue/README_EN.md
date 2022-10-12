@@ -18,7 +18,7 @@
 <p>Please do not use built-in implementations of bounded blocking queue as this will not be accepted in an interview.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong>
@@ -47,7 +47,7 @@ queue.dequeue();    // The consumer thread returns 2 from the queue. The produce
 queue.size();       // 2 elements remaining in the queue. size() is always called at the end of each test case.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong>

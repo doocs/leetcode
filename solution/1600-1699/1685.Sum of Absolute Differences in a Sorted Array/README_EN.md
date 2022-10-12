@@ -11,7 +11,7 @@
 <p>In other words, <code>result[i]</code> is equal to <code>sum(|nums[i]-nums[j]|)</code> where <code>0 &lt;= j &lt; nums.length</code> and <code>j != i</code> (<strong>0-indexed</strong>).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,3,5]
@@ -22,7 +22,7 @@ result[1] = |3-2| + |3-3| + |3-5| = 1 + 0 + 2 = 3,
 result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,4,6,8,10]

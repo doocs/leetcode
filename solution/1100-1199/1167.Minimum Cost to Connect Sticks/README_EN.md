@@ -11,7 +11,7 @@
 <p>Return&nbsp;<em>the minimum cost of connecting all the given sticks into one stick in this way</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> sticks = [2,4,3]
@@ -22,7 +22,7 @@
 There is only one stick left, so you are done. The total cost is 5 + 9 = 14.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> sticks = [1,8,3,5]
@@ -34,7 +34,7 @@ There is only one stick left, so you are done. The total cost is 5 + 9 = 14.
 There is only one stick left, so you are done. The total cost is 4 + 9 + 17 = 30.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> sticks = [5]

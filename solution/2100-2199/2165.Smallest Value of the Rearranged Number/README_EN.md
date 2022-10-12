@@ -11,7 +11,7 @@
 <p>Note that the sign of the number does not change after rearranging the digits.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 310
@@ -20,7 +20,7 @@
 The arrangement with the smallest value that does not contain any leading zeros is 103.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = -7605

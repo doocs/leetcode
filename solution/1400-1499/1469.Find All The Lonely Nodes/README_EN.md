@@ -9,7 +9,7 @@
 <p>Given the <code>root</code> of a binary tree, return <em>an array containing the values of all lonely nodes</em> in the tree. Return the list <strong>in any order</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/images/e1.png" style="width: 203px; height: 202px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,null,4]
@@ -19,7 +19,7 @@ Node 1 is the root and is not lonely.
 Nodes 2 and 3 have the same parent and are not lonely.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/images/e2.png" style="width: 442px; height: 282px;" />
 <pre>
 <strong>Input:</strong> root = [7,1,4,6,null,5,3,null,null,null,null,null,2]
@@ -28,7 +28,7 @@ Nodes 2 and 3 have the same parent and are not lonely.
 Please remember that order doesn&#39;t matter, [2,6] is also an acceptable answer.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/images/tree.png" style="width: 363px; height: 202px;" />
 <pre>
 <strong>

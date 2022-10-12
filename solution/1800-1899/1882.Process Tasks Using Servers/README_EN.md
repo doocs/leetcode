@@ -19,7 +19,7 @@
 <p>Return <em>the array </em><code>ans</code>​​​​.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> servers = [3,3,2], tasks = [1,2,3,2,1,2]
@@ -32,7 +32,7 @@
 - At second 4, task 4 is added and processed using server 1 until second 5.
 - At second 5, all servers become free. Task 5 is added and processed using server 2 until second 7.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> servers = [5,1,4,3,2], tasks = [2,1,2,4,5,2,1]

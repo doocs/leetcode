@@ -29,7 +29,7 @@
 <p>Note that duplicates may exist in the Skiplist, your code needs to handle this situation.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input</strong>

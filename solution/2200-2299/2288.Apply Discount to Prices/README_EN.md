@@ -17,7 +17,7 @@
 <p>Note that all prices will contain <strong>at most</strong> <code>10</code> digits.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> sentence = &quot;there are $1 $2 and 5$ candies in the shop&quot;, discount = 50
@@ -28,7 +28,7 @@ The words which represent prices are &quot;$1&quot; and &quot;$2&quot;.
 - A 50% discount on &quot;$2&quot; yields &quot;$1&quot;. Since we need to have exactly 2 decimal places after a price, we replace &quot;$2&quot; with &quot;$1.00&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> sentence = &quot;1 2 $3 4 $5 $6 7 8$ $9 $10$&quot;, discount = 100

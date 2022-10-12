@@ -9,7 +9,7 @@
 <p>Given a string <code>text</code> of words separated by a single space (no leading or trailing spaces) and a string <code>brokenLetters</code> of all <strong>distinct</strong> letter keys that are broken, return <em>the <strong>number of words</strong> in</em> <code>text</code> <em>you can fully type using this keyboard</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;hello world&quot;, brokenLetters = &quot;ad&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> We cannot type &quot;world&quot; because the &#39;d&#39; key is broken.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;leet code&quot;, brokenLetters = &quot;lt&quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> We cannot type &quot;leet&quot; because the &#39;l&#39; and &#39;t&#39; keys are broken.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;leet code&quot;, brokenLetters = &quot;e&quot;

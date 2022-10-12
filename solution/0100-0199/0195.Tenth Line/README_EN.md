@@ -6,7 +6,7 @@
 
 <p>Given a text file&nbsp;<code>file.txt</code>, print&nbsp;just the 10th line of the&nbsp;file.</p>
 
-<p><strong>Example:</strong></p>
+<p><strong class="example">Example:</strong></p>
 
 <p>Assume that <code>file.txt</code> has the following content:</p>
 

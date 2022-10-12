@@ -17,7 +17,7 @@
 <p>Return <em>the <strong>XOR sum</strong> of the aforementioned list</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr1 = [1,2,3], arr2 = [6,5]
@@ -26,7 +26,7 @@
 The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr1 = [12], arr2 = [4]

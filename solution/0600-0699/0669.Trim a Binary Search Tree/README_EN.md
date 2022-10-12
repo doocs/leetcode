@@ -9,14 +9,14 @@
 <p>Return <em>the root of the trimmed binary search tree</em>. Note that the root may change depending on the given bounds.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/images/trim1.jpg" style="width: 450px; height: 126px;" />
 <pre>
 <strong>Input:</strong> root = [1,0,2], low = 1, high = 2
 <strong>Output:</strong> [1,null,2]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/images/trim2.jpg" style="width: 450px; height: 277px;" />
 <pre>
 <strong>Input:</strong> root = [3,0,4,null,2,null,null,1], low = 1, high = 3

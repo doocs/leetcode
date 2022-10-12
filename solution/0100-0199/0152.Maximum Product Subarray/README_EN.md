@@ -11,7 +11,7 @@
 <p>A <strong>subarray</strong> is a contiguous subsequence of the array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,3,-2,4]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> [2,3] has the largest product 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-2,0,-1]

@@ -11,7 +11,7 @@
 <p>Given an array <code>stones</code> of length <code>n</code> where <code>stones[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of the <code>i<sup>th</sup></code> stone, return <em>the largest possible number of stones that can be removed</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> stones = [[0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]
@@ -25,7 +25,7 @@
 Stone [0,0] cannot be removed since it does not share a row/column with another stone still on the plane.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> stones = [[0,0],[0,2],[1,1],[2,0],[2,2]]
@@ -37,7 +37,7 @@ Stone [0,0] cannot be removed since it does not share a row/column with another 
 Stones [0,0] and [1,1] cannot be removed since they do not share a row/column with another stone still on the plane.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> stones = [[0,0]]

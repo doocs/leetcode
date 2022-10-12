@@ -11,10 +11,10 @@
 <p>Find the number that occurs twice and the number that is missing and return <em>them in the form of an array</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [1,2,2,4]
 <strong>Output:</strong> [2,3]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> nums = [1,1]
 <strong>Output:</strong> [1,2]
 </pre>

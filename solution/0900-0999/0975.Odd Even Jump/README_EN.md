@@ -19,7 +19,7 @@
 <p>Return <em>the number of <strong>good</strong> starting indices</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [10,13,12,14,15]
@@ -33,7 +33,7 @@ In total, there are 2 different starting indices i = 3 and i = 4, where we can r
 jumps.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,3,1,1,4]
@@ -53,7 +53,7 @@ In total, there are 3 different starting indices i = 1, i = 3, and i = 4, where 
 number of jumps.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [5,1,3,4,2]

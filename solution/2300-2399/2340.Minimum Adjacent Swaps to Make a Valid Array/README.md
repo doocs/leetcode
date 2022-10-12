@@ -20,7 +20,7 @@
 <p>Return <em>the <strong>minimum</strong> swaps required to make </em><code>nums</code><em> a valid array</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,4,5,5,3,1]
@@ -35,7 +35,7 @@
 It can be shown that 6 swaps is the minimum swaps required to make a valid array.
 </pre>
 
-<strong>Example 2:</strong>
+<strong class="example">Example 2:</strong>
 
 <pre>
 <strong>Input:</strong> nums = [9]

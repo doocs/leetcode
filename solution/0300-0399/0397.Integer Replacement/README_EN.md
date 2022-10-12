@@ -14,7 +14,7 @@
 <p>Return <em>the minimum number of operations needed for</em> <code>n</code> <em>to become</em> <code>1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 8
@@ -22,7 +22,7 @@
 <strong>Explanation:</strong> 8 -&gt; 4 -&gt; 2 -&gt; 1
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 7
@@ -31,7 +31,7 @@
 or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4

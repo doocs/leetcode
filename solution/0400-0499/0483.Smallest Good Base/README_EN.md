@@ -9,7 +9,7 @@
 <p>We call <code>k &gt;= 2</code> a <strong>good base</strong> of <code>n</code>, if all digits of <code>n</code> base <code>k</code> are <code>1</code>&#39;s.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = &quot;13&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> 13 base 3 is 111.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = &quot;4681&quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> 4681 base 8 is 11111.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = &quot;1000000000000000000&quot;

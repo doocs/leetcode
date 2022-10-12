@@ -11,7 +11,7 @@
 <p>Return <em>any permutation of </em><code>s</code><em> that satisfies this property</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> order = &quot;cba&quot;, s = &quot;abcd&quot;
@@ -21,7 +21,7 @@
 Since &quot;d&quot; does not appear in order, it can be at any position in the returned string. &quot;dcba&quot;, &quot;cdba&quot;, &quot;cbda&quot; are also valid outputs.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> order = &quot;cbafg&quot;, s = &quot;abcd&quot;

@@ -17,7 +17,7 @@
 <p>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> binary = &quot;001&quot;
@@ -26,7 +26,7 @@
 The unique good subsequences are &quot;0&quot; and &quot;1&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> binary = &quot;11&quot;
@@ -34,7 +34,7 @@ The unique good subsequences are &quot;0&quot; and &quot;1&quot;.
 <strong>Explanation:</strong> The good subsequences of binary are [&quot;1&quot;, &quot;1&quot;, &quot;11&quot;].
 The unique good subsequences are &quot;1&quot; and &quot;11&quot;.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> binary = &quot;101&quot;

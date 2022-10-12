@@ -11,7 +11,7 @@
 <p>Return <em>an </em><code>m x n</code><em> 2D array constructed according to the above procedure, or an empty 2D array if it is impossible</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/images/image-20210826114243-1.png" style="width: 500px; height: 174px;" />
 <pre>
 <strong>Input:</strong> original = [1,2,3,4], m = 2, n = 2
@@ -21,7 +21,7 @@ The first group of n=2 elements in original, [1,2], becomes the first row in the
 The second group of n=2 elements in original, [3,4], becomes the second row in the constructed 2D array.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> original = [1,2,3], m = 1, n = 3
@@ -30,7 +30,7 @@ The second group of n=2 elements in original, [3,4], becomes the second row in t
 Put all three elements in original into the first row of the constructed 2D array.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> original = [1,2], m = 1, n = 1

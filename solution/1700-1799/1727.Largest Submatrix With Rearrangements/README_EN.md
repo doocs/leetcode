@@ -9,7 +9,7 @@
 <p>Return <em>the area of the largest submatrix within </em><code>matrix</code><em> where <strong>every</strong> element of the submatrix is </em><code>1</code><em> after reordering the columns optimally.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/images/screenshot-2020-12-30-at-40536-pm.png" style="width: 500px; height: 240px;" />
 <pre>
 <strong>Input:</strong> matrix = [[0,0,1],[1,1,1],[1,0,1]]
@@ -18,7 +18,7 @@
 The largest submatrix of 1s, in bold, has an area of 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/images/screenshot-2020-12-30-at-40852-pm.png" style="width: 500px; height: 62px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,0,1,0,1]]
@@ -27,7 +27,7 @@ The largest submatrix of 1s, in bold, has an area of 4.
 The largest submatrix of 1s, in bold, has an area of 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[1,1,0],[1,0,1]]

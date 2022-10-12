@@ -20,7 +20,7 @@
 <p>Write synchronization code for oxygen and hydrogen molecules that enforces these constraints.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> water = &quot;HOH&quot;
@@ -28,7 +28,7 @@
 <strong>Explanation:</strong> &quot;HOH&quot; and &quot;OHH&quot; are also valid answers.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> water = &quot;OOHHHH&quot;

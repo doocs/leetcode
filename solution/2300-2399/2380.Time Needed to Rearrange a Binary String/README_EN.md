@@ -9,7 +9,7 @@
 <p>Return<em> the number of seconds needed to complete this process.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;0110101&quot;
@@ -23,7 +23,7 @@ No occurrence of &quot;01&quot; exists any longer, and the process needed 4 seco
 so we return 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;11100&quot;

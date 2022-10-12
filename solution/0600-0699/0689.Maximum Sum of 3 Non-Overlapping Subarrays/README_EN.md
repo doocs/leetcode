@@ -9,7 +9,7 @@
 <p>Return the result as a list of indices representing the starting position of each interval (<strong>0-indexed</strong>). If there are multiple answers, return the lexicographically smallest one.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,1,2,6,7,5,1], k = 2
@@ -18,7 +18,7 @@
 We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically larger.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,1,2,1,2,1,2,1], k = 2

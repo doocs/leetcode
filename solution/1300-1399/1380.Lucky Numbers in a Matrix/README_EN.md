@@ -9,7 +9,7 @@
 <p>A <strong>lucky number</strong> is an element of the matrix such that it is the minimum element in its row and maximum in its column.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[3,7,8],[9,11,13],[15,16,17]]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> 15 is the only lucky number since it is the minimum in its row and the maximum in its column.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> 12 is the only lucky number since it is the minimum in its row and the maximum in its column.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[7,8],[1,2]]

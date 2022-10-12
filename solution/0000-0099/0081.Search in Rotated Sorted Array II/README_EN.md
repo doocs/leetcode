@@ -13,10 +13,10 @@
 <p>You must decrease the overall operation steps as much as possible.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [2,5,6,0,0,1,2], target = 0
 <strong>Output:</strong> true
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> nums = [2,5,6,0,0,1,2], target = 3
 <strong>Output:</strong> false
 </pre>

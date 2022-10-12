@@ -9,7 +9,7 @@
 <p>Given two positive integers <code>left</code> and <code>right</code> represented as strings, return <em>the number of <strong>super-palindromes</strong> integers in the inclusive range</em> <code>[left, right]</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> left = &quot;4&quot;, right = &quot;1000&quot;
@@ -18,7 +18,7 @@
 Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrome.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> left = &quot;1&quot;, right = &quot;2&quot;

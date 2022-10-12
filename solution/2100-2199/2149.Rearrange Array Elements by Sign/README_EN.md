@@ -17,7 +17,7 @@
 <p>Return <em>the modified array after rearranging the elements to satisfy the aforementioned conditions</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,-2,-5,2,-4]
@@ -28,7 +28,7 @@ The only possible way to rearrange them such that they satisfy all conditions is
 Other ways such as [1,-2,2,-5,3,-4], [3,1,2,-2,-5,-4], [-2,3,-5,1,-4,2] are incorrect because they do not satisfy one or more conditions.  
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,1]

@@ -13,21 +13,21 @@
 <p>The test cases are generated so that the length of the output will never exceed <code>10<sup>5</sup></code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;3[a]2[bc]&quot;
 <strong>Output:</strong> &quot;aaabcbc&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;3[a2[c]]&quot;
 <strong>Output:</strong> &quot;accaccacc&quot;
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;2[abc]3[cd]ef&quot;

@@ -20,7 +20,7 @@
 <p>Return <em>the simplified <strong>canonical path</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> path = &quot;/home/&quot;
@@ -28,7 +28,7 @@
 <strong>Explanation:</strong> Note that there is no trailing slash after the last directory name.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> path = &quot;/../&quot;
@@ -36,7 +36,7 @@
 <strong>Explanation:</strong> Going one level up from the root directory is a no-op, as the root level is the highest level you can go.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> path = &quot;/home//foo/&quot;

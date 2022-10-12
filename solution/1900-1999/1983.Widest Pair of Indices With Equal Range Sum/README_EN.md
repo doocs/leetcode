@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>distance</strong> of the <strong>widest</strong> pair of indices. If no pair of indices meets the conditions, return </em><code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,1,0,1], nums2 = [0,1,1,0]
@@ -23,7 +23,7 @@ nums2[1] + nums2[2] + nums2[3] = 1 + 1 + 0 = 2.
 The distance between i and j is j - i + 1 = 3 - 1 + 1 = 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [0,1], nums2 = [1,1]
@@ -35,7 +35,7 @@ nums2[1] = 1.
 The distance between i and j is j - i + 1 = 1 - 1 + 1 = 1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [0], nums2 = [1]

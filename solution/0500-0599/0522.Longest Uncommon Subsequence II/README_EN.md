@@ -15,10 +15,10 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> strs = ["aba","cdc","eae"]
 <strong>Output:</strong> 3
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> strs = ["aaa","aaa","aa"]
 <strong>Output:</strong> -1
 </pre>

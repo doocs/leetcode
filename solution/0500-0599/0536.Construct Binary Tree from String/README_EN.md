@@ -11,21 +11,21 @@
 <p>You always start to construct the <b>left</b> child node of the parent first if it exists.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/images/butree.jpg" style="width: 382px; height: 322px;" />
 <pre>
 <strong>Input:</strong> s = &quot;4(2(3)(1))(6(5))&quot;
 <strong>Output:</strong> [4,2,6,3,1,5]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;4(2(3)(1))(6(5)(7))&quot;
 <strong>Output:</strong> [4,2,6,3,1,5,7]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;-4(2(3)(1))(6(5)(7))&quot;

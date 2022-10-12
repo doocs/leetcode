@@ -9,7 +9,7 @@
 <p>Return the <strong>smallest</strong> level <code>x</code> such that the sum of all the values of nodes at level <code>x</code> is <strong>maximal</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1161.Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/images/capture.jpg" style="width: 200px; height: 175px;" />
 <pre>
 <strong>Input:</strong> root = [1,7,0,7,-8,null,null]
@@ -21,7 +21,7 @@ Level 3 sum = 7 + -8 = -1.
 So we return the level with the maximum sum which is level 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [989,null,10250,98693,-89388,null,null,null,-32127]

@@ -19,7 +19,7 @@
 <p>Return any Fibonacci-like sequence split from <code>num</code>, or return <code>[]</code> if it cannot be done.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;1101111&quot;
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> The output [110, 1, 111] would also be accepted.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;112358130&quot;
@@ -35,7 +35,7 @@
 <strong>Explanation:</strong> The task is impossible.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;0123&quot;

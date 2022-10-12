@@ -26,7 +26,7 @@
 <p>Return <em>the stack operations needed to build </em><code>target</code> following the mentioned rules. If there are multiple valid answers, return <strong>any of them</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = [1,3], n = 3
@@ -38,7 +38,7 @@ Pop the integer on the top of the stack. s = [1].
 Read 3 from the stream and push it to the stack. s = [1,3].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = [1,2,3], n = 3
@@ -49,7 +49,7 @@ Read 2 from the stream and push it to the stack. s = [1,2].
 Read 3 from the stream and push it to the stack. s = [1,2,3].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = [1,2], n = 4

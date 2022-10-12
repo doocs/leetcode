@@ -11,7 +11,7 @@
 <p><strong>Note</strong> that there can be repeated points.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_1.png" style="width: 389px; height: 340px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[-1,1]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> We can choose the line x = 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_2.png" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[-1,-1]]

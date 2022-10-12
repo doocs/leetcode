@@ -15,7 +15,7 @@
 <p>Return <em>an integer array </em><code>ans</code><em> where </em><code>ans[i]</code><em> represents the height described above after dropping the </em><code>i<sup>th</sup></code><em> square</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0699.Falling%20Squares/images/fallingsq1-plane.jpg" style="width: 500px; height: 505px;" />
 <pre>
 <strong>Input:</strong> positions = [[1,2],[2,3],[6,1]]
@@ -27,7 +27,7 @@ After the third drop, the tallest stack is still squares 1 and 2 with a height o
 Thus, we return an answer of [2, 5, 5].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> positions = [[100,100],[200,100]]

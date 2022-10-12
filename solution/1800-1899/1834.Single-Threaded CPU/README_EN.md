@@ -18,7 +18,7 @@
 <p>Return <em>the order in which the CPU will process the tasks.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [[1,2],[2,4],[3,2],[4,1]]
@@ -35,7 +35,7 @@
 - At time = 10, the CPU finishes task 1 and becomes idle.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [[7,10],[7,12],[7,5],[7,4],[7,2]]

@@ -16,7 +16,7 @@
 <p>Return <em>the <strong>maximum</strong> possible number of ways to <strong>partition</strong> </em><code>nums</code><em> to satisfy both conditions after changing <strong>at most</strong> one element</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,-1,2], k = 3
@@ -26,7 +26,7 @@ There is one way to partition the array:
 - For pivot = 2, we have the partition [3,-1 | 2]: 3 + -1 == 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,0,0], k = 1
@@ -37,7 +37,7 @@ There are two ways to partition the array:
 - For pivot = 2, we have the partition [0,0 | 0]: 0 + 0 == 0.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [22,4,-25,-20,-15,15,-16,7,19,-10,0,-13,-14], k = -33

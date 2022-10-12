@@ -13,7 +13,7 @@
 <p>Given an integer <code>kill</code> representing the ID of a process you want to kill, return <em>a list of the IDs of the processes that will be killed. You may return the answer in <strong>any order</strong>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0582.Kill%20Process/images/ptree.jpg" style="width: 207px; height: 302px;" />
 <pre>
 <strong>Input:</strong> pid = [1,3,10,5], ppid = [3,0,5,3], kill = 5
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong>&nbsp;The processes colored in red are the processes that should be killed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> pid = [1], ppid = [0], kill = 1

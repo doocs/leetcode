@@ -14,7 +14,7 @@
 <p>Return <em>the number of matches played in the tournament until a winner is decided.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 7
@@ -26,7 +26,7 @@
 Total number of matches = 3 + 2 + 1 = 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 14

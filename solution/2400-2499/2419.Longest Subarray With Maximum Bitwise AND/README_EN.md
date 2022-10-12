@@ -19,7 +19,7 @@
 <p>A <strong>subarray</strong> is a contiguous sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,3,2,2]
@@ -29,7 +29,7 @@ The maximum possible bitwise AND of a subarray is 3.
 The longest subarray with that value is [3,3], so we return 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4]

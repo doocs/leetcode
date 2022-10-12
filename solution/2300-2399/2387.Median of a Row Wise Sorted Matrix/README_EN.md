@@ -9,7 +9,7 @@
 <p>You must solve the problem in less than <code>O(m * n)</code> time complexity.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,2],[2,3,3],[1,3,4]]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> The elements of the matrix in sorted order are 1,1,1,2,<u>2</u>,3,3,3,4. The median is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,3,3,4]]

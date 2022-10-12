@@ -13,7 +13,7 @@
 <p>Since the answer may be too large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> hats = [[3,4],[4,5],[5]]
@@ -22,7 +22,7 @@
 First person choose hat 3, Second person choose hat 4 and last one hat 5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> hats = [[3,5,1],[3,5]]
@@ -31,7 +31,7 @@ First person choose hat 3, Second person choose hat 4 and last one hat 5.
 (3,5), (5,3), (1,3) and (1,5)
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> hats = [[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]]

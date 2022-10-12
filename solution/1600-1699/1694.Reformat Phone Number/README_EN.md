@@ -19,7 +19,7 @@
 <p>Return <em>the phone number after formatting.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> number = &quot;1-23-45 6&quot;
@@ -30,7 +30,7 @@ Step 2: There are 3 digits remaining, so put them in a single block of length 3.
 Joining the blocks gives &quot;123-456&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> number = &quot;123 4-567&quot;
@@ -41,7 +41,7 @@ Step 2: There are 4 digits left, so split them into two blocks of length 2. The 
 Joining the blocks gives &quot;123-45-67&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> number = &quot;123 4-5678&quot;

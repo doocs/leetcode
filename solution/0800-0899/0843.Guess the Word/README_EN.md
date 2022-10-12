@@ -25,7 +25,7 @@
 <p>The test cases are generated such that you can guess the secret word with a reasonable strategy (other than using the bruteforce method).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> secret = &quot;acckzz&quot;, words = [&quot;acckzz&quot;,&quot;ccbazz&quot;,&quot;eiowzz&quot;,&quot;abcczz&quot;], allowedGuesses = 10
@@ -39,7 +39,7 @@ master.guess(&quot;abcczz&quot;) returns 4, because &quot;abcczz&quot; has 4 mat
 We made 5 calls to master.guess, and one of them was the secret, so we pass the test case.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> secret = &quot;hamada&quot;, words = [&quot;hamada&quot;,&quot;khaled&quot;], allowedGuesses = 10

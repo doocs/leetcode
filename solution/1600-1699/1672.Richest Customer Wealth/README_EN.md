@@ -9,7 +9,7 @@
 <p>A customer&#39;s <strong>wealth</strong> is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum <strong>wealth</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> accounts = [[1,2,3],[3,2,1]]
@@ -20,7 +20,7 @@
 </code>Both customers are considered the richest with a wealth of 6 each, so return 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> accounts = [[1,5],[7,3],[3,5]]
@@ -31,7 +31,7 @@
 3rd customer has wealth = 8
 The 2nd customer is the richest with a wealth of 10.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> accounts = [[2,8,7],[7,1,3],[1,9,5]]

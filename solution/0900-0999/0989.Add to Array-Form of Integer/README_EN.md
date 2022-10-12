@@ -13,7 +13,7 @@
 <p>Given <code>num</code>, the <strong>array-form</strong> of an integer, and an integer <code>k</code>, return <em>the <strong>array-form</strong> of the integer</em> <code>num + k</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = [1,2,0,0], k = 34
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> 1200 + 34 = 1234
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = [2,7,4], k = 181
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> 274 + 181 = 455
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = [2,1,5], k = 806

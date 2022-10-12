@@ -13,7 +13,7 @@
 <p>Return <code>true</code><em> if it is possible to escape regardless of how the ghosts move, otherwise return </em><code>false</code><em>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> ghosts = [[1,0],[0,3]], target = [0,1]
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> You can reach the destination (0, 1) after 1 turn, while the ghosts located at (1, 0) and (0, 3) cannot catch up with you.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> ghosts = [[1,0]], target = [2,0]
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> You need to reach the destination (2, 0), but the ghost at (1, 0) lies between you and the destination.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> ghosts = [[2,0]], target = [1,0]

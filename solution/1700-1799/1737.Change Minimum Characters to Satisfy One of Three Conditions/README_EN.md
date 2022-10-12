@@ -17,7 +17,7 @@
 <p>Return <em>the <strong>minimum</strong> number of operations needed to achieve your goal.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = &quot;aba&quot;, b = &quot;caa&quot;
@@ -29,7 +29,7 @@
 The best way was done in 2 operations (either condition 1 or condition 3).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = &quot;dabadd&quot;, b = &quot;cda&quot;

@@ -7,7 +7,7 @@
 Given a digit string <code>s</code>, return <em>the number of <strong>unique substrings </strong>of </em><code>s</code><em> where every digit appears the same number of times.</em>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1212&quot;
@@ -16,7 +16,7 @@ Given a digit string <code>s</code>, return <em>the number of <strong>unique sub
 Note that although the substring &quot;12&quot; appears twice, it is only counted once.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;12321&quot;

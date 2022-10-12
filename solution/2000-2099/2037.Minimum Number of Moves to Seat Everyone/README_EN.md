@@ -17,7 +17,7 @@
 <p>Note that there may be <strong>multiple</strong> seats or students in the <strong>same </strong>position at the beginning.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> seats = [3,1,5], students = [2,7,4]
@@ -29,7 +29,7 @@
 In total, 1 + 2 + 1 = 4 moves were used.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> seats = [4,1,5,9], students = [1,3,2,6]
@@ -42,7 +42,7 @@ In total, 1 + 2 + 1 = 4 moves were used.
 In total, 0 + 1 + 3 + 3 = 7 moves were used.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> seats = [2,2,6,6], students = [1,3,2,6]

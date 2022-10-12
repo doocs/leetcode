@@ -9,7 +9,7 @@
 <p>Since the answer can be very large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,3,5]
@@ -19,7 +19,7 @@ All sub-arrays sum are [1,4,9,3,8,5].
 Odd sums are [1,9,3,5] so the answer is 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,4,6]
@@ -29,7 +29,7 @@ All sub-arrays sum are [2,6,12,4,10,6].
 All sub-arrays have even sum and the answer is 0.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,3,4,5,6,7]

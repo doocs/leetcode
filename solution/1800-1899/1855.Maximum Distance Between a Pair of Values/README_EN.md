@@ -13,7 +13,7 @@
 <p>An array <code>arr</code> is <strong>non-increasing</strong> if <code>arr[i-1] &gt;= arr[i]</code> for every <code>1 &lt;= i &lt; arr.length</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [55,30,5,4,2], nums2 = [100,20,10,10,5]
@@ -22,7 +22,7 @@
 The maximum distance is 2 with pair (2,4).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [2,2,2], nums2 = [10,10,1]
@@ -31,7 +31,7 @@ The maximum distance is 2 with pair (2,4).
 The maximum distance is 1 with pair (0,1).
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [30,29,19,5], nums2 = [25,25,25,25,25]

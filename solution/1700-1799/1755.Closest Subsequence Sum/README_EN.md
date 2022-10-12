@@ -13,7 +13,7 @@
 <p>Note that a subsequence of an array is an array formed by removing some elements <strong>(possibly all or none)</strong> of the original array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [5,-7,3,5], goal = 6
@@ -22,7 +22,7 @@
 This is equal to the goal, so the absolute difference is 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [7,-9,15,-2], goal = -5
@@ -31,7 +31,7 @@ This is equal to the goal, so the absolute difference is 0.
 The absolute difference is abs(-4 - (-5)) = abs(1) = 1, which is the minimum.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3], goal = -7

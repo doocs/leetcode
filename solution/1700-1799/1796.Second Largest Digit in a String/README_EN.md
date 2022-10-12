@@ -9,7 +9,7 @@
 <p>An <strong>alphanumeric</strong><strong> </strong>string is a string consisting of lowercase English letters and digits.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;dfa12321afd&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> The digits that appear in s are [1, 2, 3]. The second largest digit is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abc1111&quot;

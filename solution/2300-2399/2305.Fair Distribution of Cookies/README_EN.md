@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum</strong> unfairness of all distributions</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> cookies = [8,15,10,20,8], k = 2
@@ -23,7 +23,7 @@ The unfairness of the distribution is max(31,30) = 31.
 It can be shown that there is no distribution with an unfairness less than 31.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> cookies = [6,1,3,2,2,4,1,2], k = 3

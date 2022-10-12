@@ -27,7 +27,7 @@ Each row of this table indicates a student&#39;s ID, the ID of the department in
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

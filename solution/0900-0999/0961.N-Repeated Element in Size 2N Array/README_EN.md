@@ -15,13 +15,13 @@
 <p>Return <em>the element that is repeated </em><code>n</code><em> times</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [1,2,3,3]
 <strong>Output:</strong> 3
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> nums = [2,1,2,5,3,2]
 <strong>Output:</strong> 2
-</pre><p><strong>Example 3:</strong></p>
+</pre><p><strong class="example">Example 3:</strong></p>
 <pre><strong>Input:</strong> nums = [5,1,5,2,5,3,5,4]
 <strong>Output:</strong> 5
 </pre>

@@ -29,7 +29,7 @@
 <p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;*&quot;
@@ -39,7 +39,7 @@ Each of these can be decoded to the strings &quot;A&quot;, &quot;B&quot;, &quot;
 Hence, there are a total of 9 ways to decode &quot;*&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1*&quot;
@@ -49,7 +49,7 @@ Each of these encoded messages have 2 ways to be decoded (e.g. &quot;11&quot; ca
 Hence, there are a total of 9 * 2 = 18 ways to decode &quot;1*&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;2*&quot;

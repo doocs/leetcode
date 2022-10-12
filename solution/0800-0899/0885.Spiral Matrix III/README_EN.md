@@ -11,14 +11,14 @@
 <p>Return <em>an array of coordinates representing the positions of the grid in the order you visited them</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0885.Spiral%20Matrix%20III/images/example_1.png" style="width: 174px; height: 99px;" />
 <pre>
 <strong>Input:</strong> rows = 1, cols = 4, rStart = 0, cStart = 0
 <strong>Output:</strong> [[0,0],[0,1],[0,2],[0,3]]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0885.Spiral%20Matrix%20III/images/example_2.png" style="width: 202px; height: 142px;" />
 <pre>
 <strong>Input:</strong> rows = 5, cols = 6, rStart = 1, cStart = 4

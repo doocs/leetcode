@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum height</strong> of the stacked</em> <code>cuboids</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/images/image.jpg" style="width: 420px; height: 299px;" /></strong></p>
 
@@ -25,7 +25,7 @@ Cuboid 2 is placed next with the 23x12 side facing down with height 45.
 The total height is 95 + 50 + 45 = 190.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> cuboids = [[38,25,45],[76,35,3]]
@@ -35,7 +35,7 @@ You can&#39;t place any of the cuboids on the other.
 We choose cuboid 1 and rotate it so that the 35x3 side is facing down and its height is 76.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> cuboids = [[7,11,17],[7,17,11],[11,7,17],[11,17,7],[17,7,11],[17,11,7]]

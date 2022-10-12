@@ -18,7 +18,7 @@
 <p>Return <code>true</code> <em>if and only if Alice wins the game, assuming both players play optimally</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 2
@@ -26,7 +26,7 @@
 <strong>Explanation:</strong> Alice chooses 1, and Bob has no more moves.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 3

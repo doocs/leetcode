@@ -15,7 +15,7 @@
 <p>Return <em>the largest possible sum of the array after modifying it in this way</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,2,3], k = 1
@@ -23,7 +23,7 @@
 <strong>Explanation:</strong> Choose index 1 and nums becomes [4,-2,3].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,-1,0,2], k = 3
@@ -31,7 +31,7 @@
 <strong>Explanation:</strong> Choose indices (1, 2, 2) and nums becomes [3,1,0,2].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,-3,-1,5,-4], k = 2

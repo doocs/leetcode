@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum</strong> number of days needed to complete all the jobs after assignment.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> jobs = [5,2,4], workers = [1,7,5]
@@ -24,7 +24,7 @@ It takes 2 days for all the jobs to be completed, so return 2.
 It can be proven that 2 days is the minimum number of days needed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> jobs = [3,18,15,9], workers = [6,5,1,3]

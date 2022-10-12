@@ -16,7 +16,7 @@
 <p>Return <em>the minimum possible</em> <code>x</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 6, quantities = [11,6]
@@ -27,7 +27,7 @@
 The maximum number of products given to any store is max(2, 3, 3, 3, 3, 3) = 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 7, quantities = [15,10,10]
@@ -39,7 +39,7 @@ The maximum number of products given to any store is max(2, 3, 3, 3, 3, 3) = 3.
 The maximum number of products given to any store is max(5, 5, 5, 5, 5, 5, 5) = 5.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 1, quantities = [100000]

@@ -24,7 +24,7 @@
 <p>Return <em>the number of <strong>different</strong> ranges that are balanced. </em>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code><em>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,2,5], nums2 = [2,6,3]
@@ -40,7 +40,7 @@ Note that the second and third balanced ranges are different.
 In the second balanced range, we choose nums2[1] and in the third balanced range, we choose nums1[1].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [0,1], nums2 = [1,0]

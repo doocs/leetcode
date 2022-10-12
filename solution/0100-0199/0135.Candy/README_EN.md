@@ -16,7 +16,7 @@
 <p>Return <em>the minimum number of candies you need to have to distribute the candies to the children</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> ratings = [1,0,2]
@@ -24,7 +24,7 @@
 <strong>Explanation:</strong> You can allocate to the first, second and third child with 2, 1, 2 candies respectively.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> ratings = [1,2,2]

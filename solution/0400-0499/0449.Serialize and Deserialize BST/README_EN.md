@@ -11,10 +11,10 @@
 <p><b>The encoded string should be as compact as possible.</b></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> root = [2,1,3]
 <strong>Output:</strong> [2,1,3]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> root = []
 <strong>Output:</strong> []
 </pre>

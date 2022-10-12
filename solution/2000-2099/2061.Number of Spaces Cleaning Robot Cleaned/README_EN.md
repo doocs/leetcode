@@ -11,7 +11,7 @@
 <p>Return <em>the number of <strong>clean</strong> spaces in the room if the robot runs indefinetely.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong><br />
+<p><strong class="example">Example 1:</strong><br />
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/images/image-20211101204703-1.png" style="width: 250px; height: 242px;" /></p>
 
 <pre>
@@ -26,7 +26,7 @@ The robot cleans the spaces at (2, 1), and (2, 0).
 The robot has cleaned all 7 empty spaces, so return 7.
 </pre>
 
-<p><strong>Example 2:</strong><br />
+<p><strong class="example">Example 2:</strong><br />
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/images/image-20211101204736-2.png" style="width: 250px; height: 245px;" /></p>
 
 <pre>

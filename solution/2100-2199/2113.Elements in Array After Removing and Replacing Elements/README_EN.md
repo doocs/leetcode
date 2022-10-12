@@ -20,7 +20,7 @@
 <p>Return <em>an integer array <code>ans</code> of size </em><code>n</code> <em>where </em><code>ans[j]</code><em> is the answer to the </em><code>j<sup>th</sup></code><em> query</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,2], queries = [[0,2],[2,0],[3,2],[5,0]]
@@ -39,7 +39,7 @@ At minute 3, nums[2] does not exist.
 At minute 5, nums[0] is 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2], queries = [[0,0],[1,0],[2,0],[3,0]]

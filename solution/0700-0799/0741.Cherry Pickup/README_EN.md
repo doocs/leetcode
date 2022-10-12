@@ -22,7 +22,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0741.Cherry%20Pickup/images/grid.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,-1],[1,0,-1],[1,1,1]]
@@ -33,7 +33,7 @@ Then, the player went left, up, up, left to return home, picking up one more che
 The total number of cherries picked up is 5, and this is the maximum possible.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,-1],[1,-1,1],[-1,1,1]]

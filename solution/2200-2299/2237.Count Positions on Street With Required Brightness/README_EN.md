@@ -11,7 +11,7 @@
 <p>Return <em>the number of positions </em><code>i</code><em> on the street between </em><code>0</code><em> and </em><code>n - 1</code><em> that have a <strong>brightness</strong> </em><em>of <strong>at least</strong> </em><code>requirement[i]</code><em>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/images/screenshot-2022-04-11-at-22-24-43-diagramdrawio-diagramsnet.png" style="height: 150px; width: 579px;" />
 <pre>
 <strong>Input:</strong> n = 5, lights = [[0,1],[2,1],[3,2]], requirement = [0,2,1,4,1]
@@ -31,7 +31,7 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 1, lights = [[0,1]], requirement = [2]

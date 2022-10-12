@@ -21,21 +21,21 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> date = &quot;20th Oct 2052&quot;
 <strong>Output:</strong> &quot;2052-10-20&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> date = &quot;6th Jun 1933&quot;
 <strong>Output:</strong> &quot;1933-06-06&quot;
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> date = &quot;26th May 1960&quot;

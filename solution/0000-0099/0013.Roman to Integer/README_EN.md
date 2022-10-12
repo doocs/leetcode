@@ -29,7 +29,7 @@ M             1000</pre>
 <p>Given a roman numeral, convert it to an integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;III&quot;
@@ -37,7 +37,7 @@ M             1000</pre>
 <strong>Explanation:</strong> III = 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;LVIII&quot;
@@ -45,7 +45,7 @@ M             1000</pre>
 <strong>Explanation:</strong> L = 50, V= 5, III = 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;MCMXCIV&quot;

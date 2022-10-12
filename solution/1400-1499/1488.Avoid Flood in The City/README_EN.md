@@ -26,7 +26,7 @@
 <p>Notice that if you chose to dry a full lake, it becomes empty, but if you chose to dry an empty lake, nothing changes.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> rains = [1,2,3,4]
@@ -38,7 +38,7 @@ After the fourth day full lakes are [1,2,3,4]
 There&#39;s no day to dry any lake and there is no flood in any lake.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> rains = [1,2,0,0,2,1]
@@ -52,7 +52,7 @@ After the sixth day, full lakes are [1,2].
 It is easy that this scenario is flood-free. [-1,-1,1,2,-1,-1] is another acceptable scenario.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> rains = [1,2,0,1,2]

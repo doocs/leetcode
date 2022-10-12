@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> number of white tiles that can be covered by the carpet</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2271.Maximum%20White%20Tiles%20Covered%20by%20a%20Carpet/images/example1drawio3.png" style="width: 644px; height: 158px;" />
 <pre>
 <strong>Input:</strong> tiles = [[1,5],[10,11],[12,18],[20,25],[30,32]], carpetLen = 10
@@ -22,7 +22,7 @@ Note that there may be other places where the carpet covers 9 white tiles.
 It can be shown that the carpet cannot cover more than 9 white tiles.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2271.Maximum%20White%20Tiles%20Covered%20by%20a%20Carpet/images/example2drawio.png" style="width: 231px; height: 168px;" />
 <pre>
 <strong>Input:</strong> tiles = [[10,11],[1,1]], carpetLen = 2

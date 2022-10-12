@@ -17,7 +17,7 @@
 <p>A <strong>subarray</strong> is a contiguous non-empty sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,0,2,1,3]
@@ -32,7 +32,7 @@ The maximum possible bitwise OR starting at any index is 3.
 Therefore, we return [3,3,2,2,1]. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2]

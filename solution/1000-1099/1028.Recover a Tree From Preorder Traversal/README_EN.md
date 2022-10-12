@@ -13,21 +13,21 @@
 <p>Given the output <code>traversal</code> of this traversal, recover the tree and return <em>its</em> <code>root</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/images/recover-a-tree-from-preorder-traversal.png" style="width: 320px; height: 200px;" />
 <pre>
 <strong>Input:</strong> traversal = &quot;1-2--3--4-5--6--7&quot;
 <strong>Output:</strong> [1,2,5,3,4,6,7]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/images/screen-shot-2019-04-10-at-114101-pm.png" style="width: 256px; height: 250px;" />
 <pre>
 <strong>Input:</strong> traversal = &quot;1-2--3---4-5--6---7&quot;
 <strong>Output:</strong> [1,2,5,3,null,6,null,4,null,7]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/images/screen-shot-2019-04-10-at-114955-pm.png" style="width: 276px; height: 250px;" />
 <pre>
 <strong>Input:</strong> traversal = &quot;1-401--349---90--88&quot;

@@ -9,7 +9,7 @@
 <p>A <em>subsequence</em> of an array is obtained by deleting some number of elements (can be zero) from the array, leaving the remaining elements in their original order.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,2,-10,5,20], k = 2
@@ -17,7 +17,7 @@
 <b>Explanation:</b> The subsequence is [10, 2, 5, 20].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,-2,-3], k = 1
@@ -25,7 +25,7 @@
 <b>Explanation:</b> The subsequence must be non-empty, so we choose the largest number.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,-2,-10,-5,20], k = 2

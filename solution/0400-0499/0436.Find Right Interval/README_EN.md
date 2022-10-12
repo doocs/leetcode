@@ -11,7 +11,7 @@
 <p>Return <em>an array of <strong>right interval</strong> indices for each interval <code>i</code></em>. If no <strong>right interval</strong> exists for interval <code>i</code>, then put <code>-1</code> at index <code>i</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[1,2]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> There is only one interval in the collection, so it outputs -1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[3,4],[2,3],[1,2]]
@@ -29,7 +29,7 @@ The right interval for [2,3] is [3,4] since start<sub>0</sub> = 3 is the smalles
 The right interval for [1,2] is [2,3] since start<sub>1</sub> = 2 is the smallest start that is &gt;= end<sub>2</sub> = 2.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[1,4],[2,3],[3,4]]

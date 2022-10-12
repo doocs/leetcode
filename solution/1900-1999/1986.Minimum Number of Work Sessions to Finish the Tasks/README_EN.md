@@ -19,7 +19,7 @@
 <p>The tests are generated such that <code>sessionTime</code> is <strong>greater</strong> than or <strong>equal</strong> to the <strong>maximum</strong> element in <code>tasks[i]</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [1,2,3], sessionTime = 3
@@ -29,7 +29,7 @@
 - Second work session: finish the third task in 3 hours.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [3,1,3,1,1], sessionTime = 8
@@ -39,7 +39,7 @@
 - Second work session: finish the last task in 1 hour.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [1,2,3,4,5], sessionTime = 15

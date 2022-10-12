@@ -27,7 +27,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/images/a1.png" style="width: 215px; height: 215px;" />
 <pre>
 <strong>Input:</strong> pieces = [&quot;rook&quot;], positions = [[1,1]]
@@ -35,7 +35,7 @@
 <strong>Explanation:</strong> The image above shows the possible squares the piece can move to.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/images/a2.png" style="width: 215px; height: 215px;" />
 <pre>
 <strong>Input:</strong> pieces = [&quot;queen&quot;], positions = [[1,1]]
@@ -43,7 +43,7 @@
 <strong>Explanation:</strong> The image above shows the possible squares the piece can move to.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/images/a3.png" style="width: 214px; height: 215px;" />
 <pre>
 <strong>Input:</strong> pieces = [&quot;bishop&quot;], positions = [[4,3]]

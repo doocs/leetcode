@@ -16,7 +16,7 @@
 <p>The test cases are generated so that there is at least one valid solution. If there are many valid solutions you can return any of them.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 2
@@ -24,7 +24,7 @@
 <strong>Explanation:</strong> A = 1, B = 1. A + B = n and both A and B do not contain any 0 in their decimal representation.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 11

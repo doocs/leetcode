@@ -27,7 +27,7 @@ recyclable is an ENUM of types (&#39;Y&#39;, &#39;N&#39;) where &#39;Y&#39; mean
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

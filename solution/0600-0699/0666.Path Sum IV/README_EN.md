@@ -17,7 +17,7 @@
 <p>It is <strong>guaranteed</strong> that the given array represents a valid connected binary tree.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-1-tree.jpg" style="width: 212px; height: 183px;" />
 <pre>
 <strong>Input:</strong> nums = [113,215,221]
@@ -26,7 +26,7 @@
 The path sum is (3 + 5) + (3 + 1) = 12.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-2-tree.jpg" style="width: 132px; height: 183px;" />
 <pre>
 <strong>Input:</strong> nums = [113,221]

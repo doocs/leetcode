@@ -11,7 +11,7 @@
 <p>Return the array of restaurant <em><strong>IDs</strong></em> after filtering, ordered by <strong>rating</strong> from highest to lowest. For restaurants with the same rating, order them by <em><strong>id</strong></em> from highest to lowest. For simplicity <code>veganFriendly<sub>i</sub></code> and <code>veganFriendly</code> take value <em>1</em> when it is <em>true</em>, and <em>0</em> when it is <em>false</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> restaurants = [[1,4,1,40,10],[2,8,0,50,5],[3,8,1,30,4],[4,10,0,10,3],[5,1,1,15,1]], veganFriendly = 1, maxPrice = 50, maxDistance = 10
@@ -26,7 +26,7 @@ Restaurant 5 [id=5, rating=1, veganFriendly=1, price=15, distance=1]
 After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance = 10 we have restaurant 3, restaurant 1 and restaurant 5 (ordered by rating from highest to lowest). 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> restaurants = [[1,4,1,40,10],[2,8,0,50,5],[3,8,1,30,4],[4,10,0,10,3],[5,1,1,15,1]], veganFriendly = 0, maxPrice = 50, maxDistance = 10
@@ -34,7 +34,7 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 <strong>Explanation:</strong> The restaurants are the same as in example 1, but in this case the filter veganFriendly = 0, therefore all restaurants are considered.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> restaurants = [[1,4,1,40,10],[2,8,0,50,5],[3,8,1,30,4],[4,10,0,10,3],[5,1,1,15,1]], veganFriendly = 0, maxPrice = 30, maxDistance = 3

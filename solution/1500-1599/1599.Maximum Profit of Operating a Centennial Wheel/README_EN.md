@@ -13,7 +13,7 @@
 <p>Return<em> the minimum number of rotations you need to perform to maximize your profit.</em> If there is <strong>no scenario</strong> where the profit is positive, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/images/wheeldiagram12.png" style="width: 700px; height: 225px;" />
 <pre>
 <strong>Input:</strong> customers = [8,3], boardingCost = 5, runningCost = 6
@@ -25,7 +25,7 @@
 The highest profit was $37 after rotating the wheel 3 times.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> customers = [10,9,6], boardingCost = 6, runningCost = 4
@@ -41,7 +41,7 @@ The highest profit was $37 after rotating the wheel 3 times.
 The highest profit was $122 after rotating the wheel 7 times.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> customers = [3,4,0,5,1], boardingCost = 1, runningCost = 92

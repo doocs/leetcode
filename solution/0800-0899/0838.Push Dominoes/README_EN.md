@@ -23,7 +23,7 @@
 <p>Return <em>a string representing the final state</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> dominoes = &quot;RR.L&quot;
@@ -31,7 +31,7 @@
 <strong>Explanation:</strong> The first domino expends no additional force on the second domino.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0838.Push%20Dominoes/images/domino.png" style="height: 196px; width: 512px;" />
 <pre>
 <strong>Input:</strong> dominoes = &quot;.L.R...LR..L..&quot;

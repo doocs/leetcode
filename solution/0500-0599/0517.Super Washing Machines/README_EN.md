@@ -11,7 +11,7 @@
 <p>Given an integer array <code>machines</code> representing the number of dresses in each washing machine from left to right on the line, return <em>the minimum number of moves to make all the washing machines have the same number of dresses</em>. If it is not possible to do it, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> machines = [1,0,5]
@@ -22,7 +22,7 @@
 3rd move:    2     1 &lt;-- 3    =&gt;    2     2     2
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> machines = [0,3,0]
@@ -32,7 +32,7 @@
 2nd move:    1     2 --&gt; 0    =&gt;    1     1     1
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> machines = [0,2,0]

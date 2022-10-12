@@ -11,7 +11,7 @@
 <p>Return <em>the minimum possible good integer after flipping the cards</em>. If there are no good integers, return <code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> fronts = [1,2,4,4,7], backs = [1,3,4,1,3]
@@ -22,7 +22,7 @@ If we flip the second card, the face up numbers are [1,3,4,4,7] and the face dow
 It can be shown that 2 is the minimum possible good integer obtainable after flipping some cards.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> fronts = [1], backs = [1]

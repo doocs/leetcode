@@ -11,7 +11,7 @@
 <p>Return<em> the minimum amount of </em><code>money</code><em> required before any transaction so that all of the transactions can be completed <strong>regardless of the order</strong> of the transactions.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> transactions = [[2,1],[5,0],[4,2]]
@@ -21,7 +21,7 @@
 It can be shown that starting with money &lt; 10 will fail to complete all transactions in some order.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> transactions = [[3,0],[0,3]]

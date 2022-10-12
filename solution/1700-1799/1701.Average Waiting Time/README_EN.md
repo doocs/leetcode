@@ -16,7 +16,7 @@
 <p>Return <em>the <strong>average</strong> waiting time of all customers</em>. Solutions within <code>10<sup>-5</sup></code> from the actual answer are considered accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> customers = [[1,2],[2,5],[4,3]]
@@ -28,7 +28,7 @@
 So the average waiting time = (2 + 6 + 7) / 3 = 5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> customers = [[5,2],[5,4],[10,3],[20,1]]

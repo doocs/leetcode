@@ -11,10 +11,10 @@
 <p>Given two <strong>sentences</strong> <code>s1</code> and <code>s2</code>, return <em>a list of all the <strong>uncommon words</strong></em>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> s1 = "this apple is sweet", s2 = "this apple is sour"
 <strong>Output:</strong> ["sweet","sour"]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> s1 = "apple apple", s2 = "banana"
 <strong>Output:</strong> ["banana"]
 </pre>

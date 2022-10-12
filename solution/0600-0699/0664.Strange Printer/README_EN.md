@@ -14,7 +14,7 @@
 <p>Given a string <code>s</code>, return <em>the minimum number of turns the printer needed to print it</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aaabbb&quot;
@@ -22,7 +22,7 @@
 <strong>Explanation:</strong> Print &quot;aaa&quot; first and then print &quot;bbb&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aba&quot;

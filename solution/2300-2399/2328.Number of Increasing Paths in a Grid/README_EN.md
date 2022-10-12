@@ -11,7 +11,7 @@
 <p>Two paths are considered different if they do not have exactly the same sequence of visited cells.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/images/griddrawio-4.png" style="width: 181px; height: 121px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1],[3,4]]
@@ -23,7 +23,7 @@
 The total number of paths is 4 + 3 + 1 = 8.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1],[2]]

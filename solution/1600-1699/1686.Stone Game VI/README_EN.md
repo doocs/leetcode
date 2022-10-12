@@ -21,7 +21,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> aliceValues = [1,3], bobValues = [2,1]
@@ -32,7 +32,7 @@ Bob can only choose stone 0, and will only receive 2 points.
 Alice wins.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> aliceValues = [1,2], bobValues = [3,1]
@@ -42,7 +42,7 @@ If Alice takes stone 0, and Bob takes stone 1, they will both have 1 point.
 Draw.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> aliceValues = [2,4,3], bobValues = [1,6,7]

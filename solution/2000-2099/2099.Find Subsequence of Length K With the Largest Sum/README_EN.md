@@ -11,7 +11,7 @@
 <p>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,1,3,3], k = 2
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong>
 The subsequence has the largest sum of 3 + 3 = 6.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,-2,3,4], k = 3
@@ -28,7 +28,7 @@ The subsequence has the largest sum of 3 + 3 = 6.</pre>
 The subsequence has the largest sum of -1 + 3 + 4 = 6.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,4,3,3], k = 2

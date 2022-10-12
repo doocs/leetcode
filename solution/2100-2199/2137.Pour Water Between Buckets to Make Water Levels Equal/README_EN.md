@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> amount of water in each bucket after making the amount of water equal. </em>Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> buckets = [1,2,7], loss = 80
@@ -21,7 +21,7 @@
 All buckets have 2 gallons of water in them so return 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> buckets = [2,4,6], loss = 50
@@ -34,7 +34,7 @@ Pour 2.5 gallons of water from buckets[2] to buckets[0].
 All buckets have 3.5 gallons of water in them so return 3.5.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> buckets = [3,3,3,3], loss = 40

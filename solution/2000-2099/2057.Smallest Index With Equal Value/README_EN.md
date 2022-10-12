@@ -9,7 +9,7 @@
 <p><code>x mod y</code> denotes the <strong>remainder</strong> when <code>x</code> is divided by <code>y</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,2]
@@ -21,7 +21,7 @@ i=2: 2 mod 10 = 2 == nums[2].
 All indices have i mod 10 == nums[i], so we return the smallest index 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,3,2,1]
@@ -34,7 +34,7 @@ i=3: 3 mod 10 = 3 != nums[3].
 2 is the only index which has i mod 10 == nums[i].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,5,6,7,8,9,0]

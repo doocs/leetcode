@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum</strong> number of moves required so that all the characters of </em><code>s</code><em> are converted to </em><code>&#39;O&#39;</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;XXX&quot;
@@ -20,7 +20,7 @@
 We select all the 3 characters and convert them in one move.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;XXOX&quot;
@@ -29,7 +29,7 @@ We select all the 3 characters and convert them in one move.
 We select the first 3 characters in the first move, and convert them to <code>&#39;O&#39;</code>.
 Then we select the last 3 characters and convert them so that the final string contains all <code>&#39;O&#39;</code>s.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;OOOO&quot;

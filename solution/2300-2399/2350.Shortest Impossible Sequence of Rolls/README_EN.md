@@ -13,7 +13,7 @@
 <p><strong>Note</strong> that the sequence taken does not have to be consecutive as long as it is in order.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> rolls = [4,2,1,2,3,3,2,4,1], k = 4
@@ -23,7 +23,7 @@ Every sequence of rolls of length 2, [1, 1], [1, 2], ..., [4, 4], can be taken f
 The sequence [1, 4, 2] cannot be taken from rolls, so we return 3.
 Note that there are other sequences that cannot be taken from rolls.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> rolls = [1,1,2,2], k = 2
@@ -33,7 +33,7 @@ The sequence [2, 1] cannot be taken from rolls, so we return 2.
 Note that there are other sequences that cannot be taken from rolls but [2, 1] is the shortest.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> rolls = [1,1,3,2,2,2,3,3], k = 4

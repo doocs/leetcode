@@ -18,7 +18,7 @@
 <p><strong>Note</strong> that the initial positions of your two fingers are considered free so do not count towards your total distance, also your two fingers do not have to start at the first letter or the first two letters.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;CAKE&quot;
@@ -31,7 +31,7 @@ Finger 2 on letter &#39;E&#39; -&gt; cost = Distance from letter &#39;K&#39; to 
 Total distance = 3
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;HAPPY&quot;

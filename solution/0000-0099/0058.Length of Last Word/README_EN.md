@@ -9,7 +9,7 @@
 <p>A <strong>word</strong> is a maximal substring consisting of non-space characters only.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;Hello World&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> The last word is &quot;World&quot; with length 5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;   fly me   to   the moon  &quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> The last word is &quot;moon&quot; with length 4.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;luffy is still joyboy&quot;

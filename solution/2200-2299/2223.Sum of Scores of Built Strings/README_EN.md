@@ -15,7 +15,7 @@
 <p>Given the final string <code>s</code>, return<em> the <strong>sum</strong> of the <strong>score</strong> of every </em><code>s<sub>i</sub></code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;babab&quot;
@@ -28,7 +28,7 @@ For s<sub>4</sub> == &quot;abab&quot;, there is no common prefix so the score is
 For s<sub>5</sub> == &quot;babab&quot;, the longest common prefix is &quot;babab&quot; which has a score of 5.
 The sum of the scores is 1 + 0 + 3 + 0 + 5 = 9, so we return 9.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;azbazbzaz&quot;

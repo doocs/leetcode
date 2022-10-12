@@ -9,10 +9,10 @@
 <p>Return <em>an array of all the words</em> <code>third</code> <em>for each occurrence of</em> <code>&quot;first second third&quot;</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> text = "alice is a good girl she is a good student", first = "a", second = "good"
 <strong>Output:</strong> ["girl","student"]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> text = "we will we will rock you", first = "we", second = "will"
 <strong>Output:</strong> ["we","rock"]
 </pre>

@@ -11,14 +11,14 @@
 <p>Given an integer <code>n</code>, return <em>the</em> <code>n<sup>th</sup></code> (<strong>1-indexed</strong>) integer in the new sequence.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 9
 <strong>Output:</strong> 10
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 10

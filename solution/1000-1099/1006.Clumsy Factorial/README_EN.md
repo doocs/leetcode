@@ -23,7 +23,7 @@
 <p>Given an integer <code>n</code>, return <em>the clumsy factorial of </em><code>n</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4
@@ -31,7 +31,7 @@
 <strong>Explanation:</strong> 7 = 4 * 3 / 2 + 1
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 10

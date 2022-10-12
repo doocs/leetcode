@@ -24,7 +24,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input</strong>
@@ -52,7 +52,7 @@ videoSharingPlatform.getLikesAndDislikes(1); // There is 1 like and 2 dislikes o
 videoSharingPlatform.getViews(1);            // The video associated with videoId 1 has 2 views, so return 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input</strong>

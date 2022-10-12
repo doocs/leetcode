@@ -18,7 +18,7 @@
 <p>Return <em>the maximum number of boxes you can put into the warehouse.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/images/11.png" style="width: 400px; height: 242px;" />
 <pre>
 <strong>Input:</strong> boxes = [4,3,4,1], warehouse = [5,3,3,4,1]
@@ -29,7 +29,7 @@ We can first put the box of height 1 in room 4. Then we can put the box of heigh
 There is no way we can fit all 4 boxes in the warehouse.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/images/21.png" style="width: 400px; height: 202px;" />
 <pre>
 <strong>Input:</strong> boxes = [1,2,2,3,4], warehouse = [3,4,1,2]
@@ -42,7 +42,7 @@ We can fit 3 boxes maximum as shown above. The yellow box can also be put in roo
 Swapping the orange and green boxes is also valid, or swapping one of them with the red box.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxes = [1,2,3], warehouse = [1,2,3,4]

@@ -13,7 +13,7 @@
 <p>The input has been generated such that the original value of <code>expression</code>, and the value of <code>expression</code> after adding any pair of parentheses that meets the requirements fits within a signed 32-bit integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;247+38&quot;
@@ -23,7 +23,7 @@ Note that &quot;2(4)7+38&quot; is invalid because the right parenthesis must be 
 It can be shown that 170 is the smallest possible value.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;12+34&quot;
@@ -31,7 +31,7 @@ It can be shown that 170 is the smallest possible value.
 <strong>Explanation:</strong> The expression evaluates to 1 * (2 + 3) * 4 = 1 * 5 * 4 = 20.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;999+999&quot;

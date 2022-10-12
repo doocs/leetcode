@@ -13,7 +13,7 @@
 <p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,0], k = 1
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> Flip nums[0], then flip nums[2].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,0], k = 2
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> No matter how we flip subarrays of size 2, we cannot make the array become [1,1,1].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,0,0,1,0,1,1,0], k = 3

@@ -14,19 +14,19 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> board = ["E23","2X2","12S"]
 
 <strong>Output:</strong> [7,1]
 
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> board = ["E12","1X1","21S"]
 
 <strong>Output:</strong> [4,2]
 
-</pre><p><strong>Example 3:</strong></p>
+</pre><p><strong class="example">Example 3:</strong></p>
 
 <pre><strong>Input:</strong> board = ["E11","XXX","11S"]
 
@@ -39,7 +39,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>2 &lt;= board.length == board[i].length &lt;= 100</code></li>
+
 </ul>
 
 ## Solutions

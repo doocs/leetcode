@@ -11,7 +11,7 @@
 <p>Return a list of indices <strong>(0-indexed)</strong> of buildings that have an ocean view, sorted in increasing order.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> heights = [4,2,3,1]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> heights = [4,3,2,1]
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> All the buildings have an ocean view.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> heights = [1,3,2,4]

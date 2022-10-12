@@ -25,7 +25,7 @@
 <p><strong>Note</strong>: The test cases are generated such that the number of consecutive digits in <code>s1</code> and <code>s2</code> does not exceed <code>3</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;internationalization&quot;, s2 = &quot;i18n&quot;
@@ -41,7 +41,7 @@
   -&gt; Concatenate:  &quot;i18n&quot;, which is s2
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;l123e&quot;, s2 = &quot;44&quot;
@@ -57,7 +57,7 @@
   -&gt; Concatenate: &quot;44&quot;, which is s2.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;a5b&quot;, s2 = &quot;c5b&quot;

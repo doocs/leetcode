@@ -14,7 +14,7 @@
 <p>Return <em>the <strong>minimum</strong> number of operations to make every element in </em><code>nums</code><em> equal to </em><code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,5,0,3,5]
@@ -25,7 +25,7 @@ In the second operation, choose x = 2. Now, nums = [0,2,0,0,2].
 In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0]

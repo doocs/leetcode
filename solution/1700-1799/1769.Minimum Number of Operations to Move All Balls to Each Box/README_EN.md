@@ -13,7 +13,7 @@
 <p>Each <code>answer[i]</code> is calculated considering the <strong>initial</strong> state of the boxes.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxes = &quot;110&quot;
@@ -24,7 +24,7 @@
 3) Third box: you will have to move one ball from the first box to the third box in two operations, and move one ball from the second box to the third box in one operation.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxes = &quot;001011&quot;

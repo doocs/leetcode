@@ -9,7 +9,7 @@
 <p>Return <em>the sorted string</em>. If there are multiple answers, return <em>any of them</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;tree&quot;
@@ -18,7 +18,7 @@
 So &#39;e&#39; must appear before both &#39;r&#39; and &#39;t&#39;. Therefore &quot;eetr&quot; is also a valid answer.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;cccaaa&quot;
@@ -27,7 +27,7 @@ So &#39;e&#39; must appear before both &#39;r&#39; and &#39;t&#39;. Therefore &q
 Note that &quot;cacaca&quot; is incorrect, as the same characters must be together.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;Aabb&quot;

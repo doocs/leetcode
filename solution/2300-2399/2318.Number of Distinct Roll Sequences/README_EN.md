@@ -16,7 +16,7 @@
 <p>Two sequences are considered distinct if at least one element is different.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4
@@ -27,7 +27,7 @@ Some invalid sequences are (1, 2, 1, 3), (1, 2, 3, 6).
 (1, 2, 3, 6) is invalid since the greatest common divisor of 3 and 6 = 3.
 There are a total of 184 distinct sequences possible, so we return 184.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 2

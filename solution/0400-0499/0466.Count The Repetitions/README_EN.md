@@ -21,10 +21,10 @@
 <p>Return <em>the maximum integer </em><code>m</code><em> such that </em><code>str = [str2, m]</code><em> can be obtained from </em><code>str1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> s1 = "acb", n1 = 4, s2 = "ab", n2 = 2
 <strong>Output:</strong> 2
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> s1 = "acb", n1 = 1, s2 = "acb", n2 = 1
 <strong>Output:</strong> 1
 </pre>

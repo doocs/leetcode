@@ -9,7 +9,7 @@
 <p>The words in <code>paragraph</code> are <strong>case-insensitive</strong> and the answer should be returned in <strong>lowercase</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> paragraph = &quot;Bob hit a ball, the hit BALL flew far after it was hit.&quot;, banned = [&quot;hit&quot;]
@@ -22,7 +22,7 @@ that punctuation is ignored (even if adjacent to words, such as &quot;ball,&quot
 and that &quot;hit&quot; isn&#39;t the answer even though it occurs more because it is banned.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> paragraph = &quot;a.&quot;, banned = []

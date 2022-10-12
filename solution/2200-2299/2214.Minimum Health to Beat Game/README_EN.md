@@ -13,7 +13,7 @@
 <p>Return <em>the <strong>minimum</strong> health you need to start with to beat the game.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> damage = [2,7,4,3], armor = 4
@@ -26,7 +26,7 @@ On round 4, take 3 damage. You have 4 - 3 = 1 health.
 Note that 13 is the minimum health you need to start with to beat the game.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> damage = [2,5,3,4], armor = 7
@@ -39,7 +39,7 @@ On round 4, take 4 damage. You have 5 - 4 = 1 health.
 Note that 10 is the minimum health you need to start with to beat the game.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> damage = [3,3,3], armor = 0

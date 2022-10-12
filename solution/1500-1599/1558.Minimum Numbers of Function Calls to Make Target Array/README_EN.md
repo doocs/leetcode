@@ -13,7 +13,7 @@
 <p>The test cases are generated so that the answer fits in a <strong>32-bit</strong> signed integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,5]
@@ -24,7 +24,7 @@ Increment by 1 (both elements)  [0, 4] -&gt; [1, 4] -&gt; <strong>[1, 5]</strong
 Total of operations: 1 + 2 + 2 = 5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,2]
@@ -34,7 +34,7 @@ Double all the elements: [1, 1] -&gt; <strong>[2, 2]</strong> (1 operation).
 Total of operations: 2 + 1 = 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,2,5]

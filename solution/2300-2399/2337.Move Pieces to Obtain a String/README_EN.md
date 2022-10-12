@@ -14,7 +14,7 @@
 <p>Return <code>true</code> <em>if it is possible to obtain the string</em> <code>target</code><em> by moving the pieces of the string </em><code>start</code><em> <strong>any</strong> number of times</em>. Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> start = &quot;_L__R__R_&quot;, target = &quot;L______RR&quot;
@@ -26,7 +26,7 @@
 Since it is possible to get the string target from start, we return true.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> start = &quot;R_L_&quot;, target = &quot;__LR&quot;
@@ -35,7 +35,7 @@ Since it is possible to get the string target from start, we return true.
 After that, no pieces can move anymore, so it is impossible to obtain the string target from start.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> start = &quot;_R&quot;, target = &quot;R_&quot;

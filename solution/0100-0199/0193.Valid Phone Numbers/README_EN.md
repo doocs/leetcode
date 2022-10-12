@@ -10,7 +10,7 @@
 
 <p>You may also assume each line in the text file must not contain leading or trailing white spaces.</p>
 
-<p><strong>Example:</strong></p>
+<p><strong class="example">Example:</strong></p>
 
 <p>Assume that <code>file.txt</code> has the following content:</p>
 

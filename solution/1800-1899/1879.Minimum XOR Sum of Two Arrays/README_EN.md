@@ -17,7 +17,7 @@
 <p>Return <em>the <strong>XOR sum</strong> after the rearrangement</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,2], nums2 = [2,3]
@@ -25,7 +25,7 @@
 <b>Explanation:</b> Rearrange <code>nums2</code> so that it becomes <code>[3,2]</code>.
 The XOR sum is (1 XOR 3) + (2 XOR 2) = 2 + 0 = 2.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,0,3], nums2 = [5,3,4]

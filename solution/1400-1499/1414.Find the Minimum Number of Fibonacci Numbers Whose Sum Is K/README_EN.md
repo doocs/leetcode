@@ -15,7 +15,7 @@
 </ul>
 It is guaranteed that for the given constraints we can always find such Fibonacci numbers that sum up to <code>k</code>.
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 7
@@ -23,7 +23,7 @@ It is guaranteed that for the given constraints we can always find such Fibonacc
 <strong>Explanation:</strong> The Fibonacci numbers are: 1, 1, 2, 3, 5, 8, 13, ... 
 For k = 7 we can use 2 + 5 = 7.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 10
@@ -31,7 +31,7 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 <strong>Explanation:</strong> For k = 10 we can use 2 + 8 = 10.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 19

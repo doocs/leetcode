@@ -16,7 +16,7 @@
 <p>Return the number of teams you can form given the conditions. (soldiers can be part of multiple teams).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> rating = [2,5,3,4,1]
@@ -24,7 +24,7 @@
 <strong>Explanation:</strong> We can form three teams given the conditions. (2,3,4), (5,4,1), (5,3,1). 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> rating = [2,1,3]
@@ -32,7 +32,7 @@
 <strong>Explanation:</strong> We can&#39;t form any team given the conditions.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> rating = [1,2,3,4]

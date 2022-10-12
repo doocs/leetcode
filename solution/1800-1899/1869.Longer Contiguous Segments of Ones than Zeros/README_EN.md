@@ -13,7 +13,7 @@
 <p>Note that if there are no <code>0</code>&#39;s, then the longest continuous segment of <code>0</code>&#39;s is considered to have a length <code>0</code>. The same applies if there is no <code>1</code>&#39;s.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1101&quot;
@@ -24,7 +24,7 @@ The longest contiguous segment of 0s has length 1: &quot;11<u>0</u>1&quot;
 The segment of 1s is longer, so return true.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;111000&quot;
@@ -35,7 +35,7 @@ The longest contiguous segment of 0s has length 3: &quot;111<u>000</u>&quot;
 The segment of 1s is not longer, so return false.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;110100010&quot;

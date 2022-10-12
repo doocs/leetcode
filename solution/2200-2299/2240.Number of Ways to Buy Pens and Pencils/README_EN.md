@@ -9,7 +9,7 @@
 <p>Return <em>the <strong>number of distinct ways</strong> you can buy some number of pens and pencils.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> total = 20, cost1 = 10, cost2 = 5
@@ -21,7 +21,7 @@
 The total number of ways to buy pens and pencils is 5 + 3 + 1 = 9.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> total = 5, cost1 = 10, cost2 = 10

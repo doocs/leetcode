@@ -11,7 +11,7 @@
 <p>Return the letter that was added to <code>t</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcd&quot;, t = &quot;abcde&quot;
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> &#39;e&#39; is the letter that was added.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;&quot;, t = &quot;y&quot;

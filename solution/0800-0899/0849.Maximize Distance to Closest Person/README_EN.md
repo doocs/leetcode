@@ -13,7 +13,7 @@
 <p>Return <em>that maximum distance to the closest person</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/images/distance.jpg" style="width: 650px; height: 257px;" />
 <pre>
 <strong>Input:</strong> seats = [1,0,0,0,1,0,1]
@@ -24,7 +24,7 @@ If Alex sits in any other open seat, the closest person has distance 1.
 Thus, the maximum distance to the closest person is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> seats = [1,0,0,0]
@@ -34,7 +34,7 @@ If Alex sits in the last seat (i.e. seats[3]), the closest person is 3 seats awa
 This is the maximum distance possible, so the answer is 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> seats = [0,1]

@@ -11,7 +11,7 @@
 <p>Return the number of possible results. Results that occur more than once are only counted once in the final answer</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [0]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> There is only one possible result: 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,1,2]
@@ -29,7 +29,7 @@ These yield the results 1, 1, 2, 1, 3, 3.
 There are 3 unique values, so the answer is 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,4]

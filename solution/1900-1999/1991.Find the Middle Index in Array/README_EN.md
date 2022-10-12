@@ -13,7 +13,7 @@
 <p>Return <em>the <strong>leftmost</strong> </em><code>middleIndex</code><em> that satisfies the condition, or </em><code>-1</code><em> if there is no such index</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,3,-1,<u>8</u>,4]
@@ -22,7 +22,7 @@
 The sum of the numbers after index 3 is: 4 = 4
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,-1,<u>4</u>]
@@ -31,7 +31,7 @@ The sum of the numbers after index 3 is: 4 = 4
 The sum of the numbers after index 2 is: 0
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,5]

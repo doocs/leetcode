@@ -11,7 +11,7 @@
 <p><strong>Note</strong> that each <code>&#39;|&#39;</code> will belong to <strong>exactly</strong> one pair.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;l|*e*et|c**o|*de|&quot;
@@ -21,7 +21,7 @@ The characters between the first and second &#39;|&#39; are excluded from the an
 Also, the characters between the third and fourth &#39;|&#39; are excluded from the answer.
 There are 2 asterisks considered. Therefore, we return 2.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;iamprogrammer&quot;
@@ -29,7 +29,7 @@ There are 2 asterisks considered. Therefore, we return 2.</pre>
 <strong>Explanation:</strong> In this example, there are no asterisks in s. Therefore, we return 0.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;yo|uar|e**|b|e***au|tifu|l&quot;

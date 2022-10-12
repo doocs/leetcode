@@ -17,7 +17,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1001010&quot;, k = 5
@@ -27,7 +27,7 @@ Note that &quot;00100&quot; and &quot;00101&quot; are also possible, which are e
 The length of this subsequence is 5, so 5 is returned.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;00101001&quot;, k = 1

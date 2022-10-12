@@ -11,7 +11,7 @@
 <p>Return <em>a list of integers representing the size of these parts</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ababcbacadefegdehijhklij&quot;
@@ -22,7 +22,7 @@ This is a partition so that each letter appears in at most one part.
 A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect, because it splits s into less parts.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;eccbbbbdec&quot;

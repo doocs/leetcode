@@ -18,7 +18,7 @@
 <p>Return <em>the max difference</em> between <code>a</code> and <code>b</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 555
@@ -28,7 +28,7 @@ The second time pick x = 5 and y = 1 and store the new integer in b.
 We have now a = 999 and b = 111 and max difference = 888
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 9

@@ -9,7 +9,7 @@
 <p>An integer <code>x</code> is a multiple of <code>k</code> if there exists an integer <code>n</code> such that <code>x = n * k</code>. <code>0</code> is <strong>always</strong> a multiple of <code>k</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [23,<u>2,4</u>,6,7], k = 6
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> [2, 4] is a continuous subarray of size 2 whose elements sum up to 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [<u>23,2,6,4,7</u>], k = 6
@@ -26,7 +26,7 @@
 42 is a multiple of 6 because 42 = 7 * 6 and 7 is an integer.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [23,2,6,4,7], k = 13

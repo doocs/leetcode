@@ -11,14 +11,14 @@
 <p>Return <em>an array of the two roots of the two subtrees</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0776.Split%20BST/images/split-tree.jpg" style="width: 600px; height: 193px;" />
 <pre>
 <strong>Input:</strong> root = [4,2,6,1,3,5,7], target = 2
 <strong>Output:</strong> [[2,1],[4,3,6,null,null,5,7]]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [1], target = 1

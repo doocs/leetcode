@@ -13,7 +13,7 @@
 <p>Return the length of the longest well-performing interval.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> hours = [9,9,6,0,6,6,9]
@@ -21,7 +21,7 @@
 <strong>Explanation: </strong>The longest well-performing interval is [9,9,6].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> hours = [6,6,6]

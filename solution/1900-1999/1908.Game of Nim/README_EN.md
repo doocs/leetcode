@@ -13,7 +13,7 @@
 <p>Both Alice and Bob play <strong>optimally</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> piles = [1]
@@ -23,7 +23,7 @@
 - On the second turn, there are no stones left for Bob to remove. Alice wins.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> piles = [1,1]
@@ -34,7 +34,7 @@
 - On the third turn, there are no stones left for Alice to remove. Bob wins.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> piles = [1,2,3]

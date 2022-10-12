@@ -9,7 +9,7 @@
 <p>Given the array <code>answers</code>, return <em>the minimum number of rabbits that could be in the forest</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> answers = [1,1,2]
@@ -22,7 +22,7 @@ Then there should be 2 other blue rabbits in the forest that didn&#39;t answer i
 The smallest possible number of rabbits in the forest is therefore 5: 3 that answered plus 2 that didn&#39;t.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> answers = [10,10,10]

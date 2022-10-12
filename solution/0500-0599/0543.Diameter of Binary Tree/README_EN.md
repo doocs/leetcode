@@ -11,7 +11,7 @@
 <p>The <strong>length</strong> of a path between two nodes is represented by the number of edges between them.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/images/diamtree.jpg" style="width: 292px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> 3 is the length of the path [4,2,1,3] or [5,2,1,3].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [1,2]

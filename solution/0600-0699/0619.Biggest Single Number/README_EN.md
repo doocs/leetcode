@@ -25,7 +25,7 @@ Each row of this table contains an integer.
 <p>The query result format is in the following example.</p>
 <ptable> </ptable>
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 
@@ -52,7 +52,7 @@ MyNumbers table:
 Since 6 is the largest single number, we return it.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

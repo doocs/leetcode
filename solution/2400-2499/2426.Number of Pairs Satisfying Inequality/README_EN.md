@@ -14,7 +14,7 @@
 <p>Return<em> the <strong>number of pairs</strong> that satisfy the conditions.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [3,2,5], nums2 = [2,2,1], diff = 1
@@ -27,7 +27,7 @@ There are 3 pairs that satisfy the conditions:
 Therefore, we return 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [3,-1], nums2 = [-2,2], diff = -1

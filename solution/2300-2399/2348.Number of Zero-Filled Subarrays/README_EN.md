@@ -9,7 +9,7 @@
 <p>A <strong>subarray</strong> is a contiguous non-empty sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3,0,0,2,0,0,4]
@@ -19,7 +19,7 @@ There are 4 occurrences of [0] as a subarray.
 There are 2 occurrences of [0,0] as a subarray.
 There is no occurrence of a subarray with a size more than 2 filled with 0. Therefore, we return 6.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,0,0,2,0,0]
@@ -31,7 +31,7 @@ There is 1 occurrence of [0,0,0] as a subarray.
 There is no occurrence of a subarray with a size more than 3 filled with 0. Therefore, we return 9.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,10,2019]

@@ -17,7 +17,7 @@
 <p>Return <em>the <strong>number of car fleets</strong> that will arrive at the destination</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
@@ -29,7 +29,7 @@ The cars starting at 5 (speed 1) and 3 (speed 3) become a fleet, meeting each ot
 Note that no other cars meet these fleets before the destination, so the answer is 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 10, position = [3], speed = [3]
@@ -37,7 +37,7 @@ Note that no other cars meet these fleets before the destination, so the answer 
 <strong>Explanation:</strong> There is only one car, hence there is only one fleet.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 100, position = [0,2,4], speed = [4,2,1]

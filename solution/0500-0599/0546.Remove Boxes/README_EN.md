@@ -11,7 +11,7 @@
 <p>Return <em>the maximum points you can get</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxes = [1,3,2,2,2,3,4,3,1]
@@ -24,14 +24,14 @@
 ----&gt; [] (2*2=4 points)
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxes = [1,1,1]
 <strong>Output:</strong> 9
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxes = [1]
@@ -79,7 +79,7 @@ class Solution:
 class Solution {
     private int[][][] f;
     private int[] b;
-    
+
     public int removeBoxes(int[] boxes) {
         b = boxes;
         int n = b.length;

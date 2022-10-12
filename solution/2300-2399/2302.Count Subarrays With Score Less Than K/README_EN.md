@@ -15,7 +15,7 @@
 <p>A <strong>subarray</strong> is a contiguous sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,1,4,3,5], k = 10
@@ -30,7 +30,7 @@ The 6 subarrays having scores less than 10 are:
 - [2,1] with score (2 + 1) * 2 = 6.
 Note that subarrays such as [1,4] and [4,3,5] are not considered because their scores are 10 and 36 respectively, while we need scores strictly less than 10.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,1], k = 5

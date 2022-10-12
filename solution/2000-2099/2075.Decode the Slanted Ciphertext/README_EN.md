@@ -23,7 +23,7 @@
 <p><strong>Note:</strong> <code>originalText</code> <strong>does not</strong> have any trailing spaces <code>&#39; &#39;</code>. The test cases are generated such that there is only one possible <code>originalText</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> encodedText = &quot;ch   ie   pr&quot;, rows = 3
@@ -31,7 +31,7 @@
 <strong>Explanation:</strong> This is the same example described in the problem description.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/images/exam1.png" style="width: 250px; height: 168px;" />
 <pre>
 <strong>Input:</strong> encodedText = &quot;iveo    eed   l te   olc&quot;, rows = 4
@@ -40,7 +40,7 @@
 The blue arrows show how we can find originalText from encodedText.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/images/eg2.png" style="width: 300px; height: 51px;" />
 <pre>
 <strong>Input:</strong> encodedText = &quot;coding&quot;, rows = 1

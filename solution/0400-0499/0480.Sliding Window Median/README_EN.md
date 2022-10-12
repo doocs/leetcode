@@ -16,7 +16,7 @@
 <p>Return <em>the median array for each window in the original array</em>. Answers within <code>10<sup>-5</sup></code> of the actual value will be accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3,-1,-3,5,3,6,7], k = 3
@@ -32,7 +32,7 @@ Window position                Median
  1  3  -1  -3  5 [<strong>3  6  7</strong>]       6
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,2,3,1,4,2], k = 3

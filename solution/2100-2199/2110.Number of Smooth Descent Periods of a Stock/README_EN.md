@@ -11,7 +11,7 @@
 <p>Return <em>the number of <strong>smooth descent periods</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [3,2,1,4]
@@ -21,7 +21,7 @@
 Note that a period with one day is a smooth descent period by the definition.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [8,6,7,7]
@@ -30,7 +30,7 @@ Note that a period with one day is a smooth descent period by the definition.
 Note that [8,6] is not a smooth descent period as 8 - 6 &ne; 1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [1]

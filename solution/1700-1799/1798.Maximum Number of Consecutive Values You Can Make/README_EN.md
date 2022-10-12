@@ -11,7 +11,7 @@
 <p>Note that you may have multiple coins of the same value.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> coins = [1,3]
@@ -21,7 +21,7 @@
 - 1: take [1]
 You can make 2 consecutive integer values starting from 0.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> coins = [1,1,1,4]
@@ -37,7 +37,7 @@ You can make 2 consecutive integer values starting from 0.</pre>
 - 7: take [4,1,1,1]
 You can make 8 consecutive integer values starting from 0.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,4,10,3,1]

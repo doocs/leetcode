@@ -11,7 +11,7 @@
 <p>Given two integers <code>lowLimit</code> and <code>highLimit</code>, return<em> the number of balls in the box with the most balls.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> lowLimit = 1, highLimit = 10
@@ -21,7 +21,7 @@ Box Number:  1 2 3 4 5 6 7 8 9 10 11 ...
 Ball Count:  2 1 1 1 1 1 1 1 1 0  0  ...
 Box 1 has the most number of balls with 2 balls.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> lowLimit = 5, highLimit = 15
@@ -32,7 +32,7 @@ Ball Count:  1 1 1 1 2 2 1 1 1 0  0  ...
 Boxes 5 and 6 have the most number of balls with 2 balls in each.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> lowLimit = 19, highLimit = 28

@@ -9,7 +9,7 @@
 <p>The <strong>digit sum</strong> of a positive integer is the sum of all its digits.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 4
@@ -18,7 +18,7 @@
 The only integers less than or equal to 4 whose digit sums are even are 2 and 4.    
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 30

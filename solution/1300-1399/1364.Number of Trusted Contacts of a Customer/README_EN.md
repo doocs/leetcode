@@ -67,7 +67,7 @@ Each row of this table indicates that user_id has an invoice with invoice_id and
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

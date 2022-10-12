@@ -9,7 +9,7 @@
 <p>Given a string <code>s</code>, return <code>true</code><em> if it is a <strong>palindrome</strong>, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;A man, a plan, a canal: Panama&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> &quot;amanaplanacanalpanama&quot; is a palindrome.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;race a car&quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> &quot;raceacar&quot; is not a palindrome.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot; &quot;

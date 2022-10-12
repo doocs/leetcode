@@ -9,7 +9,7 @@
 <p>Notice that you can not jump outside of the array at any time.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [4,2,3,0,3,1,2], start = 5
@@ -20,7 +20,7 @@ index 5 -&gt; index 4 -&gt; index 1 -&gt; index 3
 index 5 -&gt; index 6 -&gt; index 4 -&gt; index 1 -&gt; index 3 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [4,2,3,0,3,1,2], start = 0
@@ -30,7 +30,7 @@ index 5 -&gt; index 6 -&gt; index 4 -&gt; index 1 -&gt; index 3
 index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [3,0,2,1,2], start = 2

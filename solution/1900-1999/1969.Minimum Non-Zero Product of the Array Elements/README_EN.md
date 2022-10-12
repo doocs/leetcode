@@ -18,7 +18,7 @@
 <p><strong>Note:</strong> The answer should be the minimum product <strong>before</strong> the modulo operation is done.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> p = 1
@@ -27,7 +27,7 @@
 There is only one element, so the product equals that element.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> p = 2
@@ -37,7 +37,7 @@ Any swap would either make the product 0 or stay the same.
 Thus, the array product of 1 * 2 * 3 = 6 is already minimized.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> p = 3

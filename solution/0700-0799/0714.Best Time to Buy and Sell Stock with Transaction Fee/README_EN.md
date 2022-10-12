@@ -11,7 +11,7 @@
 <p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [1,3,2,8,4,9], fee = 2
@@ -24,7 +24,7 @@
 The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [1,3,7,5,10,3], fee = 3

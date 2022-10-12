@@ -11,10 +11,10 @@
 <p><strong>Note:&nbsp;</strong>You are not allowed to use any built-in library method to directly solve this problem.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> num = 26
 <strong>Output:</strong> "1a"
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> num = -1
 <strong>Output:</strong> "ffffffff"
 </pre>

@@ -21,7 +21,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;6<strong><u>777</u></strong>133339&quot;
@@ -30,7 +30,7 @@
 &quot;777&quot; is the largest, so we return &quot;777&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;23<strong><u>000</u></strong>19&quot;
@@ -38,7 +38,7 @@
 <strong>Explanation:</strong> &quot;000&quot; is the only good integer.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;42352338&quot;

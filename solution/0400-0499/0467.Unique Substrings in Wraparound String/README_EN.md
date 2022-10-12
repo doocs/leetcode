@@ -13,7 +13,7 @@
 <p>Given a string <code>p</code>, return <em>the number of <strong>unique non-empty substrings</strong> of </em><code>p</code><em> are present in </em><code>s</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> p = &quot;a&quot;
@@ -21,7 +21,7 @@
 Explanation: Only the substring &quot;a&quot; of p is in s.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> p = &quot;cac&quot;
@@ -29,7 +29,7 @@ Explanation: Only the substring &quot;a&quot; of p is in s.
 <strong>Explanation:</strong> There are two substrings (&quot;a&quot;, &quot;c&quot;) of p in s.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> p = &quot;zab&quot;

@@ -17,7 +17,7 @@
 <p>Return <em>the lexicographically <strong>smallest</strong> possible string </em><code>num</code><em> that meets the conditions.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> pattern = &quot;IIIDIDDD&quot;
@@ -29,7 +29,7 @@ Some possible values of num are &quot;245639871&quot;, &quot;135749862&quot;, an
 It can be proven that &quot;123549876&quot; is the smallest possible num that meets the conditions.
 Note that &quot;123414321&quot; is not possible because the digit &#39;1&#39; is used more than once.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> pattern = &quot;DDD&quot;

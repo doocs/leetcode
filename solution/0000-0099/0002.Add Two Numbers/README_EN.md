@@ -9,7 +9,7 @@
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0002.Add%20Two%20Numbers/images/addtwonumber1.jpg" style="width: 483px; height: 342px;" />
 <pre>
 <strong>Input:</strong> l1 = [2,4,3], l2 = [5,6,4]
@@ -17,14 +17,14 @@
 <strong>Explanation:</strong> 342 + 465 = 807.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> l1 = [0], l2 = [0]
 <strong>Output:</strong> [0]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]

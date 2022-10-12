@@ -15,7 +15,7 @@
 <p>Return <em>the <strong>smallest</strong> such integer. If no such integer exists or the integer exceeds the limit of a signed 32-bit integer (</em><code>2<sup>31</sup> - 1</code><em>), return </em><code>-1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 2, digit1 = 0, digit2 = 2
@@ -24,7 +24,7 @@
 20 is the first integer larger than 2, a multiple of 2, and comprised of only the digits 0 and/or 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 3, digit1 = 4, digit2 = 2
@@ -33,7 +33,7 @@
 24 is the first integer larger than 3, a multiple of 3, and comprised of only the digits 4 and/or 2.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 2, digit1 = 0, digit2 = 0

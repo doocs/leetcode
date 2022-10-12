@@ -9,7 +9,7 @@
 <p>A <strong>falling path with non-zero shifts</strong> is a choice of exactly one element from each row of <code>grid</code> such that no two elements chosen in adjacent rows are in the same column.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/images/falling-grid.jpg" style="width: 244px; height: 245px;" />
 <pre>
 <strong>Input:</strong> arr = [[1,2,3],[4,5,6],[7,8,9]]
@@ -22,7 +22,7 @@ The possible falling paths are:
 The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[7]]

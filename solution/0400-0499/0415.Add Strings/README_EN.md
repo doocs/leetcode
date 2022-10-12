@@ -9,21 +9,21 @@
 <p>You must solve the problem without using any built-in library for handling large integers (such as <code>BigInteger</code>). You must also not convert the inputs to integers directly.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num1 = &quot;11&quot;, num2 = &quot;123&quot;
 <strong>Output:</strong> &quot;134&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num1 = &quot;456&quot;, num2 = &quot;77&quot;
 <strong>Output:</strong> &quot;533&quot;
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> num1 = &quot;0&quot;, num2 = &quot;0&quot;

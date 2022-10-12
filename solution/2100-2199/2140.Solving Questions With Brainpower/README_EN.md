@@ -10,17 +10,19 @@
 
 <ul>
 	<li>For example, given <code>questions = [[3, 2], [4, 3], [4, 4], [2, 5]]</code>:
+
     <ul>
     	<li>If question <code>0</code> is solved, you will earn <code>3</code> points but you will be unable to solve questions <code>1</code> and <code>2</code>.</li>
     	<li>If instead, question <code>0</code> is skipped and question <code>1</code> is solved, you will earn <code>4</code> points but you will be unable to solve questions <code>2</code> and <code>3</code>.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>Return <em>the <strong>maximum</strong> points you can earn for the exam</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> questions = [[3,2],[4,3],[4,4],[2,5]]
@@ -32,7 +34,7 @@
 Total points earned: 3 + 2 = 5. There is no other way to earn 5 or more points.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> questions = [[1,1],[2,2],[3,3],[4,4],[5,5]]

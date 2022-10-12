@@ -61,7 +61,7 @@ buf[] is a destination, not a source. You will need to write the results to buf[
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> file = &quot;abc&quot;, queries = [1,2,1]
@@ -75,7 +75,7 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 Assume buf is allocated and guaranteed to have enough space for storing all characters from the file.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> file = &quot;abc&quot;, queries = [4,1]

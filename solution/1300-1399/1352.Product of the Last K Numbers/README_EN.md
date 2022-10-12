@@ -17,7 +17,7 @@
 <p>The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example:</strong></p>
+<p><strong class="example">Example:</strong></p>
 
 <pre>
 <strong>Input</strong>

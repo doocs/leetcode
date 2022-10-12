@@ -15,7 +15,7 @@
 <p>The answer is guaranteed to fit in a 32-bit signed integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 2, w = 0, profits = [1,2,3], capital = [0,1,1]
@@ -27,7 +27,7 @@ Since you can choose at most 2 projects, you need to finish the project indexed 
 Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 3, w = 0, profits = [1,2,3], capital = [0,1,2]

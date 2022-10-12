@@ -9,21 +9,21 @@
 <p>If there is exactly one solution for the equation, we ensure that the value of <code>&#39;x&#39;</code> is an integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> equation = &quot;x+5-3+x=6+x-2&quot;
 <strong>Output:</strong> &quot;x=2&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> equation = &quot;x=x&quot;
 <strong>Output:</strong> &quot;Infinite solutions&quot;
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> equation = &quot;2x=x&quot;

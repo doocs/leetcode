@@ -9,7 +9,7 @@
 <p>Return <em>the largest <strong>lucky integer</strong> in the array</em>. If there is no <strong>lucky integer</strong> return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,2,3,4]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> The only lucky number in the array is 2 because frequency[2] == 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,2,3,3,3]
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> 1, 2 and 3 are all lucky numbers, return the largest of them.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,2,2,3,3]

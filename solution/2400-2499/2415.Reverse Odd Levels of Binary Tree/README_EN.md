@@ -17,7 +17,7 @@
 <p>The <strong>level</strong> of a node is the number of edges along the path between it and the root node.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/images/first_case1.png" style="width: 626px; height: 191px;" />
 <pre>
 <strong>Input:</strong> root = [2,3,5,8,13,21,34]
@@ -27,7 +27,7 @@ The tree has only one odd level.
 The nodes at level 1 are 3, 5 respectively, which are reversed and become 5, 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/images/second_case3.png" style="width: 591px; height: 111px;" />
 <pre>
 <strong>Input:</strong> root = [7,13,11]
@@ -36,7 +36,7 @@ The nodes at level 1 are 3, 5 respectively, which are reversed and become 5, 3.
 The nodes at level 1 are 13, 11, which are reversed and become 11, 13.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,2,0,0,0,0,1,1,1,1,2,2,2,2]

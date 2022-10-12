@@ -11,7 +11,7 @@
 <p>Return <em>the minimum number of flips to make </em><code>s</code><em> monotone increasing</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;00110&quot;
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> We flip the last digit to get 00111.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;010110&quot;
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> We flip to get 011111, or alternatively 000111.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;00011000&quot;

@@ -20,12 +20,14 @@
 
 <ul>
 	<li>坐标&nbsp;<code>(x1, y1)</code>&nbsp;字典序比另一个坐标&nbsp;<code>(x2, y2)</code> 小，需满足以下条件之一：
+
     <ul>
     	<li>要么&nbsp;<code>x1 &lt; x2</code>&nbsp;，</li>
     	<li>要么&nbsp;<code>x1 == x2</code> 且&nbsp;<code>y1 &lt; y2</code>&nbsp;。</li>
     </ul>
     </li>
     <li><code>⌊val⌋</code>&nbsp;表示小于等于&nbsp;<code>val</code>&nbsp;的最大整数（向下取整函数）。</li>
+
 </ul>
 
 <p>&nbsp;</p>

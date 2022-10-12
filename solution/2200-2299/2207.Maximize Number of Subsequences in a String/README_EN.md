@@ -13,7 +13,7 @@
 <p>A <b>subsequence</b> is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;abdcdbc&quot;, pattern = &quot;ac&quot;
@@ -25,7 +25,7 @@ However, strings such as &quot;abdc<u><strong>a</strong></u>dbc&quot;, &quot;abd
 It can be shown that it is not possible to get more than 4 subsequences &quot;ac&quot; by adding only one character.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;aabb&quot;, pattern = &quot;ab&quot;

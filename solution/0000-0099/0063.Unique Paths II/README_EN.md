@@ -13,7 +13,7 @@
 <p>The testcases are generated so that the answer will be less than or equal to <code>2 * 10<sup>9</sup></code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0063.Unique%20Paths%20II/images/robot1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
@@ -24,7 +24,7 @@ There are two ways to reach the bottom-right corner:
 2. Down -&gt; Down -&gt; Right -&gt; Right
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0063.Unique%20Paths%20II/images/robot2.jpg" style="width: 162px; height: 162px;" />
 <pre>
 <strong>Input:</strong> obstacleGrid = [[0,1],[0,0]]

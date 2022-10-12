@@ -26,7 +26,7 @@
 <p>Return <em>the number of different <strong>transformations</strong> among all words we have</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;gin&quot;,&quot;zen&quot;,&quot;gig&quot;,&quot;msg&quot;]
@@ -39,7 +39,7 @@
 There are 2 different transformations: &quot;--...-.&quot; and &quot;--...--.&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;a&quot;]

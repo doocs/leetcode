@@ -15,7 +15,7 @@
 <p>It&#39;s <strong>guaranteed</strong> that each city can reach city <code>0</code> after reorder.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1466.Reorder%20Routes%20to%20Make%20All%20Paths%20Lead%20to%20the%20City%20Zero/images/sample_1_1819.png" style="width: 311px; height: 189px;" />
 <pre>
 <strong>Input:</strong> n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
@@ -23,7 +23,7 @@
 <strong>Explanation: </strong>Change the direction of edges show in red such that each node can reach the node 0 (capital).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1466.Reorder%20Routes%20to%20Make%20All%20Paths%20Lead%20to%20the%20City%20Zero/images/sample_2_1819.png" style="width: 509px; height: 79px;" />
 <pre>
 <strong>Input:</strong> n = 5, connections = [[1,0],[1,2],[3,2],[3,4]]
@@ -31,7 +31,7 @@
 <strong>Explanation: </strong>Change the direction of edges show in red such that each node can reach the node 0 (capital).
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 3, connections = [[1,0],[2,0]]

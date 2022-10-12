@@ -11,7 +11,7 @@
 <p>Return <em><strong>any</strong> rearrangement of </em><code>nums</code><em> that meets the requirements</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,5]
@@ -22,7 +22,7 @@ When i=2, nums[i] = 4, and the average of its neighbors is (2+5) / 2 = 3.5.
 When i=3, nums[i] = 5, and the average of its neighbors is (4+3) / 2 = 3.5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [6,2,0,9,7]

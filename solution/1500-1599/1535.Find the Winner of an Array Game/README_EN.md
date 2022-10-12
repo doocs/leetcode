@@ -13,7 +13,7 @@
 <p>It is <strong>guaranteed</strong> that there will be a winner of the game.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,1,3,5,4,6,7], k = 2
@@ -27,7 +27,7 @@ Round |       arr       | winner | win_count
 So we can see that 4 rounds will be played and 5 is the winner because it wins 2 consecutive games.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [3,2,1], k = 10

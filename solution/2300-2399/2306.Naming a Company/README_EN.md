@@ -16,7 +16,7 @@
 <p>Return <em>the number of <strong>distinct</strong> valid names for the company</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> ideas = [&quot;coffee&quot;,&quot;donuts&quot;,&quot;time&quot;,&quot;toffee&quot;]
@@ -36,7 +36,7 @@ The following are some examples of invalid selections:
 - (&quot;coffee&quot;, &quot;toffee&quot;): Both names formed after swapping already exist in the original array.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> ideas = [&quot;lack&quot;,&quot;back&quot;]

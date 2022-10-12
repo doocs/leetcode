@@ -11,7 +11,7 @@
 <p>Given an integer <code>n</code>, the length of the array, return <em>the minimum number of operations</em> needed to make all the elements of arr equal.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 3
@@ -21,7 +21,7 @@ First operation choose x = 2 and y = 0, this leads arr to be [2, 3, 4]
 In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 6

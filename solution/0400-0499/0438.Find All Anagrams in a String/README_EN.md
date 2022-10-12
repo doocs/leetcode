@@ -9,7 +9,7 @@
 <p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;cbaebabacd&quot;, p = &quot;abc&quot;
@@ -19,7 +19,7 @@ The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &q
 The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abab&quot;, p = &quot;ab&quot;

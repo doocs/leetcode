@@ -9,7 +9,7 @@
 <p>Return <em>the lexicographically smallest string you could have after applying the mentioned step any number of moves</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;cba&quot;, k = 1
@@ -19,7 +19,7 @@ In the first move, we move the 1<sup>st</sup> character &#39;c&#39; to the end, 
 In the second move, we move the 1<sup>st</sup> character &#39;b&#39; to the end, obtaining the final result &quot;acb&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;baaca&quot;, k = 3

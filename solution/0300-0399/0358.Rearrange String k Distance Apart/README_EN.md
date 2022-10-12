@@ -7,7 +7,7 @@
 <p>Given a string <code>s</code> and an integer <code>k</code>, rearrange <code>s</code> such that the same characters are <strong>at least</strong> distance <code>k</code> from each other. If it is not possible to rearrange the string, return an empty string <code>&quot;&quot;</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aabbcc&quot;, k = 3
@@ -15,7 +15,7 @@
 <strong>Explanation:</strong> The same letters are at least a distance of 3 from each other.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aaabc&quot;, k = 3
@@ -23,7 +23,7 @@
 <strong>Explanation:</strong> It is not possible to rearrange the string.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aaadbbcc&quot;, k = 2

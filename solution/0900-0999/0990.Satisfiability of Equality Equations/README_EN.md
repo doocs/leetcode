@@ -9,7 +9,7 @@
 <p>Return <code>true</code><em> if it is possible to assign integers to variable names so as to satisfy all the given equations, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> equations = [&quot;a==b&quot;,&quot;b!=a&quot;]
@@ -18,7 +18,7 @@
 There is no way to assign the variables to satisfy both equations.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> equations = [&quot;b==a&quot;,&quot;a==b&quot;]

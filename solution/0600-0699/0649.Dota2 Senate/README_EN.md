@@ -20,7 +20,7 @@
 <p>Suppose every senator is smart enough and will play the best strategy for his own party. Predict which party will finally announce the victory and change the Dota2 game. The output should be <code>&quot;Radiant&quot;</code> or <code>&quot;Dire&quot;</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> senate = &quot;RD&quot;
@@ -31,7 +31,7 @@ And the second senator can&#39;t exercise any rights anymore since his right has
 And in round 2, the first senator can just announce the victory since he is the only guy in the senate who can vote.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> senate = &quot;RDD&quot;

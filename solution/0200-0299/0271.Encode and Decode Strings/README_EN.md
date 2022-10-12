@@ -42,7 +42,7 @@ vector&lt;string&gt; strs2 = decode(encoded_string);
 <p>You are not allowed to&nbsp;solve the problem using any serialize methods (such as <code>eval</code>).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> dummy_input = [&quot;Hello&quot;,&quot;World&quot;]
@@ -58,7 +58,7 @@ Codec decoder = new Codec();
 String[] strs = decoder.decode(msg);
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> dummy_input = [&quot;&quot;]

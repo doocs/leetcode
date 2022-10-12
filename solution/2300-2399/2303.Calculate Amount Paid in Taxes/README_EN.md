@@ -18,7 +18,7 @@
 <p>You are given an integer <code>income</code> representing the amount of money you earned. Return <em>the amount of money that you have to pay in taxes.</em> Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> brackets = [[3,50],[7,10],[12,25]], income = 10
@@ -29,7 +29,7 @@ The tax rate for the three tax brackets is 50%, 10%, and 25%, respectively.
 In total, you pay $3 * 50% + $4 * 10% + $3 * 25% = $2.65 in taxes.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> brackets = [[1,0],[4,25],[5,50]], income = 2
@@ -40,7 +40,7 @@ The tax rate for the two tax brackets is 0% and 25%, respectively.
 In total, you pay $1 * 0% + $1 * 25% = $0.25 in taxes.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> brackets = [[2,50]], income = 0

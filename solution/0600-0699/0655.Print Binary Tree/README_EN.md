@@ -18,7 +18,7 @@
 <p>Return <em>the constructed matrix </em><code>res</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0655.Print%20Binary%20Tree/images/print1-tree.jpg" style="width: 141px; height: 181px;" />
 <pre>
 <strong>Input:</strong> root = [1,2]
@@ -27,7 +27,7 @@
 &nbsp;[&quot;2&quot;,&quot;&quot;,&quot;&quot;]]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0655.Print%20Binary%20Tree/images/print2-tree.jpg" style="width: 207px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,null,4]

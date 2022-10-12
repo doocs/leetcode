@@ -13,14 +13,14 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[1,2,3],[4,5,6],[7,8,9]], k = 1
 <strong>Output:</strong> [[12,21,16],[27,45,33],[24,39,28]]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[1,2,3],[4,5,6],[7,8,9]], k = 2

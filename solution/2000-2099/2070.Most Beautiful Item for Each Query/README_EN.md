@@ -11,7 +11,7 @@
 <p>Return <em>an array </em><code>answer</code><em> of the same length as </em><code>queries</code><em> where </em><code>answer[j]</code><em> is the answer to the </em><code>j<sup>th</sup></code><em> query</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> items = [[1,2],[3,2],[2,4],[5,6],[3,5]], queries = [1,2,3,4,5,6]
@@ -26,7 +26,7 @@
   Hence, the answer for them is the maximum beauty of all items, i.e., 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> items = [[1,2],[1,2],[1,3],[1,4]], queries = [1]
@@ -36,7 +36,7 @@ The price of every item is equal to 1, so we choose the item with the maximum be
 Note that multiple items can have the same price and/or beauty.  
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> items = [[10,1000]], queries = [5]

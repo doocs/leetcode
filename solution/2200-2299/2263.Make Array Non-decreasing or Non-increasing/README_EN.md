@@ -14,7 +14,7 @@
 <p>Return <em>the <strong>minimum</strong> number of operations to make </em><code>nums</code><em> <strong>non-decreasing</strong> or <strong>non-increasing</strong>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,2,4,5,0]
@@ -29,7 +29,7 @@ Note that it is also possible to turn nums into [4,4,4,4,0] in 4 operations.
 It can be proven that 4 is the minimum number of operations needed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,2,3,4]
@@ -37,7 +37,7 @@ It can be proven that 4 is the minimum number of operations needed.
 <strong>Explanation:</strong> nums is already in non-decreasing order, so no operations are needed and we return 0.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0]

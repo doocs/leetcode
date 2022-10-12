@@ -18,7 +18,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,3,50,75], lower = 0, upper = 99
@@ -30,7 +30,7 @@
 [76,99] --&gt; &quot;76-&gt;99&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1], lower = -1, upper = -1

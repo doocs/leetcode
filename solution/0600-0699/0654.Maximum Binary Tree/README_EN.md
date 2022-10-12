@@ -15,7 +15,7 @@
 <p>Return <em>the <strong>maximum binary tree</strong> built from </em><code>nums</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0654.Maximum%20Binary%20Tree/images/tree1.jpg" style="width: 302px; height: 421px;" />
 <pre>
 <strong>Input:</strong> nums = [3,2,1,6,0,5]
@@ -32,7 +32,7 @@
         - Empty array, so no child.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0654.Maximum%20Binary%20Tree/images/tree2.jpg" style="width: 182px; height: 301px;" />
 <pre>
 <strong>Input:</strong> nums = [3,2,1]

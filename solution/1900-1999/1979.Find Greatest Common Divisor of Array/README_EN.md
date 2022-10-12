@@ -9,7 +9,7 @@
 <p>The <strong>greatest common divisor</strong> of two numbers is the largest positive integer that evenly divides both numbers.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,5,6,9,10]
@@ -20,7 +20,7 @@ The largest number in nums is 10.
 The greatest common divisor of 2 and 10 is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [7,5,6,8,3]
@@ -31,7 +31,7 @@ The largest number in nums is 8.
 The greatest common divisor of 3 and 8 is 1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,3]

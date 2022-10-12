@@ -13,7 +13,7 @@
 <p><strong>Note:</strong> The same index will <strong>not</strong> be removed more than once.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,5,6,1], removeQueries = [0,3,2,4,1]
@@ -26,7 +26,7 @@ Query 4: Remove the 4th element, nums becomes [0,2,0,0,0] and the maximum segmen
 Query 5: Remove the 1st element, nums becomes [0,0,0,0,0] and the maximum segment sum is 0, since there are no segments.
 Finally, we return [14,7,2,2,0].</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,2,11,1], removeQueries = [3,2,1,0]

@@ -19,7 +19,7 @@
 <p>Given a <strong>0-indexed</strong> integer array <code>plants</code> of <code>n</code> integers, where <code>plants[i]</code> is the amount of water the <code>i<sup>th</sup></code> plant needs, and an integer <code>capacity</code> representing the watering can capacity, return <em>the <strong>number of steps</strong> needed to water all the plants</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> plants = [2,2,3,3], capacity = 5
@@ -34,7 +34,7 @@
 Steps needed = 1 + 1 + 2 + 3 + 3 + 4 = 14.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> plants = [1,1,1,4,2,3], capacity = 4
@@ -47,7 +47,7 @@ Steps needed = 1 + 1 + 2 + 3 + 3 + 4 = 14.
 Steps needed = 3 + 3 + 4 + 4 + 5 + 5 + 6 = 30.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> plants = [7,7,7,7,7,7,7], capacity = 8

@@ -49,7 +49,7 @@ Each row contains information about the score of one student from California Uni
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 
@@ -77,7 +77,7 @@ California table:
 New York University has 1 excellent student, and California University has 0 excellent students.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> 
@@ -105,7 +105,7 @@ California table:
 New York University has 0 excellent students, and California University has 1 excellent student.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

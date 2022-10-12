@@ -36,7 +36,7 @@ The salary of each candidate is guaranteed to be <strong>unique</strong>.</pre>
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong>
@@ -65,7 +65,7 @@ We can hire 2 seniors with IDs (11, 2). Since the budget is $70000 and the sum o
 We can hire 2 juniors with IDs (1, 9). Since the remaining budget is $34000 and the sum of their salaries is $25000, we still have $9000 but they are not enough to hire the junior candidate with ID 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong>

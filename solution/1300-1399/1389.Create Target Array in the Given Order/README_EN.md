@@ -17,7 +17,7 @@
 <p>It is guaranteed that the insertion operations will be valid.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,2,3,4], index = [0,1,2,2,1]
@@ -31,7 +31,7 @@ nums       index     target
 4            1        [0,4,1,3,2]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,0], index = [0,1,2,3,0]
@@ -45,7 +45,7 @@ nums       index     target
 0            0        [0,1,2,3,4]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1], index = [0]

@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>earliest</strong> year with the <strong>maximum population</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> logs = [[1993,1999],[2000,2010]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The maximum population is 1, and 1993 is the earliest year with this population.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> logs = [[1950,1961],[1960,1971],[1970,1981]]

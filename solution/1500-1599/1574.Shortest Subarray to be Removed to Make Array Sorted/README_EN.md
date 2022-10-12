@@ -11,7 +11,7 @@
 <p>A <strong>subarray</strong> is a contiguous subsequence of the array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,3,10,4,2,3,5]
@@ -20,7 +20,7 @@
 Another correct solution is to remove the subarray [3,10,4].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [5,4,3,2,1]
@@ -28,7 +28,7 @@ Another correct solution is to remove the subarray [3,10,4].
 <strong>Explanation:</strong> Since the array is strictly decreasing, we can only keep a single element. Therefore we need to remove a subarray of length 4, either [5,4,3,2] or [4,3,2,1].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,3]

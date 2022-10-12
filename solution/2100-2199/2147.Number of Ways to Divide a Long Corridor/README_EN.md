@@ -13,7 +13,7 @@
 <p>Return <em>the number of ways to divide the corridor</em>. Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>. If there is no way, return <code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2147.Number%20of%20Ways%20to%20Divide%20a%20Long%20Corridor/images/1.png" style="width: 410px; height: 199px;" />
 <pre>
 <strong>Input:</strong> corridor = &quot;SSPPSPS&quot;
@@ -23,7 +23,7 @@ The black bars in the above image indicate the two room dividers already install
 Note that in each of the ways, <strong>each</strong> section has exactly <strong>two</strong> seats.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2147.Number%20of%20Ways%20to%20Divide%20a%20Long%20Corridor/images/2.png" style="width: 357px; height: 68px;" />
 <pre>
 <strong>Input:</strong> corridor = &quot;PPSPSP&quot;
@@ -32,7 +32,7 @@ Note that in each of the ways, <strong>each</strong> section has exactly <strong
 Installing any would create some section that does not have exactly two seats.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2147.Number%20of%20Ways%20to%20Divide%20a%20Long%20Corridor/images/3.png" style="width: 115px; height: 68px;" />
 <pre>
 <strong>Input:</strong> corridor = &quot;S&quot;

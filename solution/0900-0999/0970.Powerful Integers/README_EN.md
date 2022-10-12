@@ -11,7 +11,7 @@
 <p>You may return the answer in <strong>any order</strong>. In your answer, each value should occur <strong>at most once</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> x = 2, y = 3, bound = 10
@@ -26,7 +26,7 @@
 10 = 2<sup>0</sup> + 3<sup>2</sup>
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> x = 3, y = 5, bound = 15

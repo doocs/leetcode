@@ -9,7 +9,7 @@
 <p>Return <em>the average salary of employees excluding the minimum and maximum salary</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> salary = [4000,3000,1000,2000]
@@ -18,7 +18,7 @@
 Average salary excluding minimum and maximum salary is (2000+3000) / 2 = 2500
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> salary = [1000,2000,3000]

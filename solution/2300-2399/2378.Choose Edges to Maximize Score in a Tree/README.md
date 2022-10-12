@@ -26,7 +26,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/images/treedrawio.png" style="width: 271px; height: 221px;" />
 <pre>
 <strong>Input:</strong> edges = [[-1,-1],[0,5],[0,10],[2,6],[2,4]]
@@ -36,7 +36,7 @@ The total score is 5 + 6 = 11.
 It can be shown that no better score can be obtained.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/images/treee1293712983719827.png" style="width: 221px; height: 181px;" />
 <pre>
 <strong>Input:</strong> edges = [[-1,-1],[0,5],[0,-6],[0,7]]

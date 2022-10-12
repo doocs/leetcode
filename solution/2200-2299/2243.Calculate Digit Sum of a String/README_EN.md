@@ -17,7 +17,7 @@
 <p>Return <code>s</code> <em>after all rounds have been completed</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;11111222223&quot;, k = 3
@@ -32,7 +32,7 @@
 Now, s.length &lt;= k, so we return &quot;135&quot; as the answer.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;00000000&quot;, k = 3

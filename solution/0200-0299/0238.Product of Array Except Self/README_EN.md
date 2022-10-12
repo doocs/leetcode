@@ -11,10 +11,10 @@
 <p>You must write an algorithm that runs in&nbsp;<code>O(n)</code>&nbsp;time and without using the division operation.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [1,2,3,4]
 <strong>Output:</strong> [24,12,8,6]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> nums = [-1,1,0,-3,3]
 <strong>Output:</strong> [0,0,9,0,0]
 </pre>

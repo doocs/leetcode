@@ -12,7 +12,7 @@ Each word would be put on only one column and that in one column there will be o
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -30,7 +30,7 @@ Each word would be put on only one column and that in one column there will be o
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -48,7 +48,7 @@ Each word would be put on only one column and that in one column there will be o
 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 
@@ -63,9 +63,13 @@ Each word would be put on only one column and that in one column there will be o
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= s.length &lt;= 200</code></li>
+
     <li><code>s</code>&nbsp;contains only upper case English letters.</li>
+
     <li>It&#39;s guaranteed that there is only one&nbsp;space between 2 words.</li>
+
 </ul>
 
 ## Solutions

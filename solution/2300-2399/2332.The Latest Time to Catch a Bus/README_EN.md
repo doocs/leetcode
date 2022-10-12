@@ -22,7 +22,7 @@
 <p><strong>Note: </strong>The arrays <code>buses</code> and <code>passengers</code> are not necessarily sorted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> buses = [10,20], passengers = [2,17,18,19], capacity = 2
@@ -32,7 +32,7 @@ At time 10, the first bus departs with the 0<sup>th</sup> passenger.
 At time 20, the second bus departs with you and the 1<sup>st</sup> passenger.
 Note that you may not arrive at the same time as another passenger, which is why you must arrive before the 1<sup>st</sup> passenger to catch the bus.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> buses = [20,30,10], passengers = [19,13,26,4,25,11,21], capacity = 2

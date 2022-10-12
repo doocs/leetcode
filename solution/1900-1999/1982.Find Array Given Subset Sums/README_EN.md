@@ -13,7 +13,7 @@
 <p><strong>Note:</strong> Test cases are generated such that there will <strong>always</strong> be at least one correct answer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 3, sums = [-3,-2,-1,0,0,1,2,3]
@@ -30,7 +30,7 @@
 Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will also be accepted.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 2, sums = [0,0,0,0]
@@ -38,7 +38,7 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 <strong>Explanation:</strong> The only correct answer is [0,0].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, sums = [0,0,5,5,4,-1,4,9,9,-1,4,3,4,8,3,8]

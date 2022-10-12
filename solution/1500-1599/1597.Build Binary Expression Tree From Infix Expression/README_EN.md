@@ -17,7 +17,7 @@
 <p>Operands must also appear in the <strong>same order</strong> in both <code>s</code> and the in-order traversal of the tree.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/images/ex1-4.png" style="width: 250px; height: 161px;" />
 <pre>
 <strong>Input:</strong> s = &quot;3*4-2*5&quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> The tree above is the only valid tree whose inorder traversal produces s.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/images/ex1-2.png" style="width: 150px; height: 210px;" />
 <pre>
 <strong>Input:</strong> s = &quot;2-3/(5*2)+1&quot;
@@ -37,7 +37,7 @@ The third tree below is also not valid. Although it produces the same result and
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/images/ex1-3.png" style="width: 281px; height: 281px;" />
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1+2+3+4+5&quot;

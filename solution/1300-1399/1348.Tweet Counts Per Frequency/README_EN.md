@@ -31,7 +31,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example:</strong></p>
+<p><strong class="example">Example:</strong></p>
 
 <pre>
 <strong>Input</strong>

@@ -11,7 +11,7 @@
 <p>Given a string <code>word</code>, return <em>the number of <strong>vowel substrings</strong> in</em> <code>word</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;aeiouu&quot;
@@ -21,7 +21,7 @@
 - &quot;<strong><u>aeiouu</u></strong>&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;unicornarihan&quot;
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> Not all 5 vowels are present, so there are no vowel substrings.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;cuaieuouac&quot;

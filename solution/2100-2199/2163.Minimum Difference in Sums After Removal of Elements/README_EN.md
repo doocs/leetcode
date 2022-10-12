@@ -23,7 +23,7 @@
 <p>Return <em>the <strong>minimum difference</strong> possible between the sums of the two parts after the removal of </em><code>n</code><em> elements</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,2]
@@ -36,7 +36,7 @@ Thus we have to remove 1 element from nums and divide the array into two equal p
 The minimum difference between sums of the two parts is min(-1,1,2) = -1. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [7,9,5,8,1,3]

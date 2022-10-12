@@ -11,7 +11,7 @@
 <p>The test cases are generated so that the answer fits in a 32-bit integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,2]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> After 1 move, the array could be [1, 2, 3].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,2,1,2,1,7]

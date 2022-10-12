@@ -13,7 +13,7 @@
 <p>Given two integers <code>maxChoosableInteger</code> and <code>desiredTotal</code>, return <code>true</code> if the first player to move can force a win, otherwise, return <code>false</code>. Assume both players play <strong>optimally</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> maxChoosableInteger = 10, desiredTotal = 11
@@ -26,14 +26,14 @@ The second player will win by choosing 10 and get a total = 11, which is &gt;= d
 Same with other integers chosen by the first player, the second player will always win.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> maxChoosableInteger = 10, desiredTotal = 0
 <strong>Output:</strong> true
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> maxChoosableInteger = 10, desiredTotal = 1

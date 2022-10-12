@@ -11,7 +11,7 @@
 <p>Return <em>the number of times the binary string is <strong>prefix-aligned</strong> during the flipping process</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> flips = [3,2,4,1,5]
@@ -25,7 +25,7 @@ After applying step 5: The string becomes &quot;11111&quot;, which is prefix-ali
 We can see that the string was prefix-aligned 2 times, so we return 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> flips = [4,1,2,3]

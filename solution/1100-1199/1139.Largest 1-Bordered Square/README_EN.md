@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -18,7 +18,7 @@
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -33,9 +33,13 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= grid.length &lt;= 100</code></li>
+
     <li><code>1 &lt;= grid[0].length &lt;= 100</code></li>
+
     <li><code>grid[i][j]</code> is <code>0</code> or <code>1</code></li>
+
 </ul>
 
 ## Solutions

@@ -11,7 +11,7 @@
 <p>Given a <strong>binary</strong> <strong>circular</strong> array <code>nums</code>, return <em>the minimum number of swaps required to group all </em><code>1</code><em>&#39;s present in the array together at <strong>any location</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,0,1,1,0,0]
@@ -24,7 +24,7 @@ There is no way to group all 1&#39;s together with 0 swaps.
 Thus, the minimum number of swaps required is 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,1,1,0,0,1,1,0]
@@ -36,7 +36,7 @@ There is no way to group all 1&#39;s together with 0 or 1 swaps.
 Thus, the minimum number of swaps required is 2.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,0,0,1]

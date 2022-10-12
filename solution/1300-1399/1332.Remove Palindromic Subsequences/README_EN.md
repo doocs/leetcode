@@ -13,7 +13,7 @@
 <p>A string is called <strong>palindrome</strong> if is one that reads the same backward as well as forward.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ababa&quot;
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> s is already a palindrome, so its entirety can be removed in a single step.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abb&quot;
@@ -30,7 +30,7 @@
 Remove palindromic subsequence &quot;a&quot; then &quot;bb&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;baabb&quot;

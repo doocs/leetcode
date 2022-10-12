@@ -17,7 +17,7 @@
 <p>Return<em> the <strong>chair number</strong> that the friend numbered </em><code>targetFriend</code><em> will sit on</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> times = [[1,4],[2,3],[4,6]], targetFriend = 1
@@ -31,7 +31,7 @@
 Since friend 1 sat on chair 1, we return 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> times = [[3,10],[1,5],[2,6]], targetFriend = 0

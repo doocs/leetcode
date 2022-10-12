@@ -17,7 +17,7 @@
 <p>After some days, the array does not change. Return that final array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [6,2,3,4]
@@ -27,7 +27,7 @@ On the first day, the array is changed from [6,2,3,4] to [6,3,3,4].
 No more operations can be done to this array.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,6,3,4,3,5]

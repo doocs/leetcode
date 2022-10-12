@@ -13,7 +13,7 @@
 <p><strong>Note:</strong> You cannot rotate an envelope.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> envelopes = [[5,4],[6,4],[6,7],[2,3]]
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> The maximum number of envelopes you can Russian doll is <code>3</code> ([2,3] =&gt; [5,4] =&gt; [6,7]).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> envelopes = [[1,1],[1,1],[1,1]]

@@ -11,7 +11,7 @@
 <p>Return <em>the maximum number of courses that you can take</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
@@ -24,14 +24,14 @@ Third, take the 2<sup>nd</sup> course, it costs 200 days so you will finish it o
 The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3300<sup>th</sup> day, which exceeds the closed date.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> courses = [[1,2]]
 <strong>Output:</strong> 1
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> courses = [[3,2],[4,3]]

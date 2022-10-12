@@ -11,7 +11,7 @@
 <p><strong>Note:</strong> The inputs will be generated such that there exists a valid arrangement of <code>pairs</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> pairs = [[5,1],[4,5],[11,9],[9,4]]
@@ -23,7 +23,7 @@ end<sub>1</sub> = 4 == 4 = start<sub>2</sub>
 end<sub>2</sub> = 5 == 5 = start<sub>3</sub>
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> pairs = [[1,3],[3,2],[2,1]]
@@ -35,7 +35,7 @@ end<sub>1</sub> = 2 == 2 = start<sub>2</sub>
 The arrangements [[2,1],[1,3],[3,2]] and [[3,2],[2,1],[1,3]] are also valid.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[1,3],[2,1]]

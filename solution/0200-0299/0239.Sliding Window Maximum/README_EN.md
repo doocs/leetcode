@@ -9,7 +9,7 @@
 <p>Return <em>the max sliding window</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3,-1,-3,5,3,6,7], k = 3
@@ -25,7 +25,7 @@ Window position                Max
  1  3  -1  -3  5 [3  6  7]      <strong>7</strong>
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1], k = 1

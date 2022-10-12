@@ -59,7 +59,7 @@ Each row in this table shows ID of a customer and the price they paid for the sa
 <p>The query result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

@@ -18,7 +18,7 @@
 <p>Return <em>the smallest possible weight of the left stone</em>. If there are no stones left, return <code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> stones = [2,7,4,1,8,1]
@@ -30,7 +30,7 @@ we can combine 2 and 1 to get 1, so the array converts to [1,1,1] then,
 we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s the optimal value.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> stones = [31,26,33,21,40]

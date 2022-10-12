@@ -30,7 +30,7 @@ Each row in this table contains the ID of an order, the id of the product purcha
 <p>The query result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

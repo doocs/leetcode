@@ -15,7 +15,7 @@
 <p><strong>Note</strong> that the empty subsequence is considered to have a sum of <code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,4,-2], k = 5
@@ -25,7 +25,7 @@
 The 5-Sum of the array is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,-2,3,4,-10,12], k = 16

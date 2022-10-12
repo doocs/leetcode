@@ -10,12 +10,14 @@
 
 <ul>
 	<li>For example, if <code>buildings = [[1,5,2],[3,10,4]],</code> the street could be represented by <code>street = [[1,3,2],[3,5,3],[5,10,4]]</code> because:
+
     <ul>
     	<li>From 1 to 3, there is only the first building with an average height of <code>2 / 1 = 2</code>.</li>
     	<li>From 3 to 5, both the first and the second building are there with an average height of <code>(2+4) / 2 = 3</code>.</li>
     	<li>From 5 to 10, there is only the second building with an average height of <code>4 / 1 = 4</code>.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>Given <code>buildings</code>, return <em>the 2D integer array </em><code>street</code><em> as described above (<strong>excluding</strong> any areas of the street where there are no buldings). You may return the array in <strong>any order</strong></em>.</p>
@@ -25,7 +27,7 @@
 <p>A <strong>half-closed segment</strong> <code>[a, b)</code> is the section of the number line between points <code>a</code> and <code>b</code> <strong>including</strong> point <code>a</code> and <strong>not including</strong> point <code>b</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/images/image-20210921224001-2.png" style="width: 500px; height: 349px;" />
 <pre>
 <strong>Input:</strong> buildings = [[1,4,2],[3,9,4]]
@@ -36,7 +38,7 @@ From 3 to 4, both the first and the second building are there with an average he
 From 4 to 9, there is only the second building with an average height of 4 / 1 = 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> buildings = [[1,3,2],[2,5,3],[2,8,3]]
@@ -50,7 +52,7 @@ The average height from 1 to 3 is the same so we can group them into one segment
 The average height from 3 to 8 is the same so we can group them into one segment.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> buildings = [[1,2,1],[5,6,1]]

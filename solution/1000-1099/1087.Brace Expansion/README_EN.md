@@ -16,10 +16,10 @@
 <p>Return all words that can be formed in this manner, <strong>sorted</strong> in lexicographical order.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> s = "{a,b}c{d,e}f"
 <strong>Output:</strong> ["acdf","acef","bcdf","bcef"]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> s = "abcd"
 <strong>Output:</strong> ["abcd"]
 </pre>

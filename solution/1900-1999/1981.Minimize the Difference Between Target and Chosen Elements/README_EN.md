@@ -13,7 +13,7 @@
 <p>The <strong>absolute difference</strong> between two numbers <code>a</code> and <code>b</code> is the absolute value of <code>a - b</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/images/matrix1.png" style="width: 181px; height: 181px;" />
 <pre>
 <strong>Input:</strong> mat = [[1,2,3],[4,5,6],[7,8,9]], target = 13
@@ -25,7 +25,7 @@
 The sum of the chosen elements is 13, which equals the target, so the absolute difference is 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/images/matrix1-1.png" style="width: 61px; height: 181px;" />
 <pre>
 <strong>Input:</strong> mat = [[1],[2],[3]], target = 100
@@ -37,7 +37,7 @@ The sum of the chosen elements is 13, which equals the target, so the absolute d
 The sum of the chosen elements is 6, and the absolute difference is 94.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/images/matrix1-3.png" style="width: 301px; height: 61px;" />
 <pre>
 <strong>Input:</strong> mat = [[1,2,9,8,7]], target = 6

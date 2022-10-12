@@ -15,7 +15,7 @@
 <p><strong>Note</strong> that subarrays of length <code>1</code> are always considered nice.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3,8,48,10]
@@ -26,7 +26,7 @@
 - 8 AND 48 = 0.
 It can be proven that no longer nice subarray can be obtained, so we return 3.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,5,11,13]

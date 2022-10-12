@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -38,7 +38,7 @@
 
 3 + 1 + 2 + 1 + 3 + 2 + 1 = 13.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -48,7 +48,7 @@
 
 <strong>Explanation:</strong> The homogenous substrings are &quot;x&quot; and &quot;y&quot;.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 
@@ -63,8 +63,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+
     <li><code>s</code> consists of lowercase letters.</li>
+
 </ul>
 
 ## Solutions

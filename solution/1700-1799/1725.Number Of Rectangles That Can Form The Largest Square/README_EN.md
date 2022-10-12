@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -28,7 +28,7 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -43,10 +43,15 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= rectangles.length &lt;= 1000</code></li>
+
     <li><code>rectangles[i].length == 2</code></li>
+
     <li><code>1 &lt;= l<sub>i</sub>, w<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
+
     <li><code>l<sub>i</sub> != w<sub>i</sub></code></li>
+
 </ul>
 
 ## Solutions

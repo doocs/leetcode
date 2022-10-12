@@ -14,7 +14,7 @@
 <p>Return <em>the <strong>maximum</strong> number of groups that can be formed</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> grades = [10,6,12,7,3,5]
@@ -26,7 +26,7 @@
 It can be shown that it is not possible to form more than 3 groups.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grades = [8,8]

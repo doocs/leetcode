@@ -13,7 +13,7 @@
 <p>Return <code>true</code><em> if and only if it is possible to reach the </em><code>target</code><em> square from the </em><code>source</code><em> square through a sequence of valid moves</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> blocked = [[0,1],[1,0]], source = [0,0], target = [0,2]
@@ -23,7 +23,7 @@ We cannot move north or east because those squares are blocked.
 We cannot move south or west because we cannot go outside of the grid.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> blocked = [], source = [0,0], target = [999999,999999]

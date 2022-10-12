@@ -14,7 +14,7 @@
 </ol>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_1.jpg" style="width: 800px; height: 214px;" />
 <pre>
 <strong>Input:</strong> root = [5,3,6,2,4,null,7], key = 3
@@ -25,7 +25,7 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/images/del_node_supp.jpg" style="width: 350px; height: 255px;" />
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [5,3,6,2,4,null,7], key = 0
@@ -33,7 +33,7 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 <strong>Explanation:</strong> The tree does not contain a node with value = 0.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [], key = 0

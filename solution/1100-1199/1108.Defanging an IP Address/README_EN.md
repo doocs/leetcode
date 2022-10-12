@@ -10,13 +10,13 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> address = "1.1.1.1"
 
 <strong>Output:</strong> "1[.]1[.]1[.]1"
 
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> address = "255.100.50.0"
 
@@ -29,7 +29,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li>The given <code>address</code> is a valid IPv4 address.</li>
+
 </ul>
 
 ## Solutions

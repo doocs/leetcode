@@ -11,7 +11,7 @@
 <p>Return <em>the maximum coins you can collect by bursting the balloons wisely</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,5,8]
@@ -20,7 +20,7 @@
 nums = [3,1,5,8] --&gt; [3,5,8] --&gt; [3,8] --&gt; [8] --&gt; []
 coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,5]

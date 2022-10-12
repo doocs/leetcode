@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>number</strong> of pairs of <strong>interchangeable</strong> rectangles in </em><code>rectangles</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> rectangles = [[4,8],[3,6],[10,20],[15,30]]
@@ -25,7 +25,7 @@
 - Rectangle 2 with rectangle 3: 10/20 == 15/30.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> rectangles = [[4,5],[7,8]]

@@ -16,7 +16,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;444947137&quot;
@@ -26,7 +26,7 @@ Use the digits &quot;4449477&quot; from &quot;<u><strong>44494</strong></u><u><s
 It can be shown that &quot;7449447&quot; is the largest palindromic integer that can be formed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;00009&quot;

@@ -18,7 +18,7 @@
 <p>Given a <strong>0-indexed</strong> integer array <code>plants</code> of <code>n</code> integers, where <code>plants[i]</code> is the amount of water the <code>i<sup>th</sup></code> plant needs, and two integers <code>capacityA</code> and <code>capacityB</code> representing the capacities of Alice&#39;s and Bob&#39;s watering cans respectively, return <em>the <strong>number of times</strong> they have to refill to water all the plants</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> plants = [2,2,3,3], capacityA = 5, capacityB = 5
@@ -31,7 +31,7 @@
 So, the total number of times they have to refill to water all the plants is 0 + 0 + 1 + 0 = 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> plants = [2,2,3,3], capacityA = 3, capacityB = 4
@@ -44,7 +44,7 @@ So, the total number of times they have to refill to water all the plants is 0 +
 So, the total number of times they have to refill to water all the plants is 0 + 1 + 1 + 0 = 2.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> plants = [5], capacityA = 10, capacityB = 8

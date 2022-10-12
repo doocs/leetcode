@@ -15,7 +15,7 @@
 <p>Given a <strong>0-indexed</strong> integer array <code>cost</code>, where <code>cost[i]</code> denotes the cost of the <code>i<sup>th</sup></code> candy, return <em>the <strong>minimum cost</strong> of buying <strong>all</strong> the candies</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> cost = [1,2,3]
@@ -26,7 +26,7 @@ Note that we cannot buy candies with costs 1 and 3, and then take the candy with
 The cost of the free candy has to be less than or equal to the minimum cost of the purchased candies.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> cost = [6,5,7,9,2,2]
@@ -39,7 +39,7 @@ The cost of the free candy has to be less than or equal to the minimum cost of t
 Hence, the minimum cost to buy all candies is 9 + 7 + 5 + 2 = 23.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> cost = [5,5]

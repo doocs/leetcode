@@ -11,14 +11,14 @@
 <p>Your result should <strong>not</strong> contain any brackets.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;(abcd)&quot;
 <strong>Output:</strong> &quot;dcba&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;(u(love)i)&quot;
@@ -26,7 +26,7 @@
 <strong>Explanation:</strong> The substring &quot;love&quot; is reversed first, then the whole string is reversed.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;(ed(et(oc))el)&quot;

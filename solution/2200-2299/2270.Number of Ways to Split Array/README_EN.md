@@ -16,7 +16,7 @@
 <p>Return <em>the number of <strong>valid splits</strong> in</em> <code>nums</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,4,-8,7]
@@ -29,7 +29,7 @@ There are three ways of splitting nums into two non-empty parts:
 Thus, the number of valid splits in nums is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,3,1,0]

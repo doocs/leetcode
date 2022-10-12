@@ -9,7 +9,7 @@
 <p>In one <strong>step</strong>, you can delete exactly one character in either string.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> word1 = &quot;sea&quot;, word2 = &quot;eat&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> You need one step to make &quot;sea&quot; to &quot;ea&quot; and another step to make &quot;eat&quot; to &quot;ea&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> word1 = &quot;leetcode&quot;, word2 = &quot;etco&quot;

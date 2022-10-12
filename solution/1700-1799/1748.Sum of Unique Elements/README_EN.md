@@ -9,7 +9,7 @@
 <p>Return <em>the <strong>sum</strong> of all the unique elements of </em><code>nums</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,2]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> The unique elements are [1,3], and the sum is 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,1,1,1]
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> There are no unique elements, and the sum is 0.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,5]

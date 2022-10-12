@@ -9,7 +9,7 @@
 <p>The test cases are generated so that the answer can fit in a <strong>32-bit</strong> integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3], target = 4
@@ -26,7 +26,7 @@ The possible combination ways are:
 Note that different sequences are counted as different combinations.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [9], target = 3

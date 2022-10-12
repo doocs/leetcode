@@ -13,7 +13,7 @@
 <p>Return <em>a string of all teams</em> <strong>sorted</strong> by the ranking system.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> votes = [&quot;ABC&quot;,&quot;ACB&quot;,&quot;ABC&quot;,&quot;ACB&quot;,&quot;ACB&quot;]
@@ -24,7 +24,7 @@ Team C was ranked second by 3 voters and was ranked third by 2 voters.
 As most of the voters ranked C second, team C is the second team and team B is the third.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> votes = [&quot;WXYZ&quot;,&quot;XYZW&quot;]
@@ -32,7 +32,7 @@ As most of the voters ranked C second, team C is the second team and team B is t
 <strong>Explanation:</strong> X is the winner due to tie-breaking rule. X has same votes as W for the first position but X has one vote as second position while W doesn&#39;t have any votes as second position. 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> votes = [&quot;ZMNAGUEDSJYLBOPHRQICWFXTVK&quot;]

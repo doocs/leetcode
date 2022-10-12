@@ -11,7 +11,7 @@
 <p>Given <code>arr</code>, return <em>the removed value</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [5,7,11,13]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The previous array was [5,7,<strong>9</strong>,11,13].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [15,13,12]

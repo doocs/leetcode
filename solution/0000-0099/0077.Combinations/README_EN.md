@@ -9,7 +9,7 @@
 <p>You may return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, k = 2
@@ -18,7 +18,7 @@
 Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be the same combination.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 1, k = 1

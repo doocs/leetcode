@@ -9,7 +9,7 @@
 Return the number of servers&nbsp;that communicate with any other server.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/images/untitled-diagram-6.jpg" style="width: 202px; height: 203px;" /></p>
 
@@ -18,7 +18,7 @@ Return the number of servers&nbsp;that communicate with any other server.</p>
 <strong>Output:</strong> 0
 <b>Explanation:</b>&nbsp;No servers can communicate with others.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/images/untitled-diagram-4.jpg" style="width: 203px; height: 203px;" /></strong></p>
 
@@ -28,7 +28,7 @@ Return the number of servers&nbsp;that communicate with any other server.</p>
 <b>Explanation:</b>&nbsp;All three servers can communicate with at least one other server.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/images/untitled-diagram-1-3.jpg" style="width: 443px; height: 443px;" /></p>
 

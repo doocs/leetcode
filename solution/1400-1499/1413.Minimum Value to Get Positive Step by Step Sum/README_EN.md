@@ -11,7 +11,7 @@
 <p>Return the minimum <strong>positive</strong> value of&nbsp;<em>startValue</em> such that the step by step sum is never less than 1.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-3,2,-3,4,2]
@@ -26,7 +26,7 @@
   (4 <strong>+2</strong> ) = 6  | (5 <strong>+2</strong> ) = 7    |   2
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2]
@@ -34,7 +34,7 @@
 <strong>Explanation:</strong> Minimum start value should be positive. 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,-2,-3]

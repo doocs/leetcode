@@ -9,10 +9,10 @@
 <p>Return <em>any permutation of </em><code>nums1</code><em> that maximizes its <strong>advantage</strong> with respect to </em><code>nums2</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> nums1 = [2,7,11,15], nums2 = [1,10,4,11]
 <strong>Output:</strong> [2,11,7,15]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> nums1 = [12,24,8,32], nums2 = [13,25,32,11]
 <strong>Output:</strong> [24,32,8,12]
 </pre>

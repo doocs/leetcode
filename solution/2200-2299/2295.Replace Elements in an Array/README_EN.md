@@ -16,7 +16,7 @@
 <p>Return <em>the array obtained after applying all the operations</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,4,6], operations = [[1,3],[4,7],[6,1]]
@@ -28,7 +28,7 @@
 We return the final array [3,2,7,1].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2], operations = [[1,3],[2,1],[3,2]]

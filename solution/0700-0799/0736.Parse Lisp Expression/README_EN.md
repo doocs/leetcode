@@ -19,7 +19,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;(let x 2 (mult x (let x 3 y 4 (add x y))))&quot;
@@ -29,7 +29,7 @@ we check from the innermost scope to the outermost in the context of the variabl
 Since x = 3 is found first, the value of x is 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;(let x 3 x 2 x)&quot;
@@ -37,7 +37,7 @@ Since x = 3 is found first, the value of x is 3.
 <strong>Explanation:</strong> Assignment in let statements is processed sequentially.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> expression = &quot;(let x 1 y 2 x (add x y) (add x y))&quot;

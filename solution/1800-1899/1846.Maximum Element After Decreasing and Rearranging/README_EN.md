@@ -21,7 +21,7 @@
 <p>Return <em>the <strong>maximum</strong> possible value of an element in </em><code>arr</code><em> after performing the operations to satisfy the conditions</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,2,1,2,1]
@@ -31,7 +31,7 @@ We can satisfy the conditions by rearranging <code>arr</code> so it becomes <cod
 The largest element in <code>arr</code> is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [100,1,1000]
@@ -45,7 +45,7 @@ Now <code>arr = [1,2,3], which </code>satisfies the conditions.
 The largest element in <code>arr is 3.</code>
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,3,4,5]

@@ -7,7 +7,7 @@
 <p>Given a <code>m * n</code> matrix of ones and zeros, return how many <strong>square</strong> submatrices have all ones.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix =
@@ -24,7 +24,7 @@ There is  <strong>1</strong> square of side 3.
 Total number of squares = 10 + 4 + 1 = <strong>15</strong>.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = 

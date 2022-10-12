@@ -16,7 +16,7 @@
 <p>Return the new text&nbsp;following the format shown above.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;Leetcode is cool&quot;
@@ -25,7 +25,7 @@
 Output is ordered by length and the new first word starts with capital letter.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;Keep calm and code on&quot;
@@ -38,7 +38,7 @@ Output is ordered by length and the new first word starts with capital letter.
 &quot;code&quot; 4 letters.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;To be or not to be&quot;

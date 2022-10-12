@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -18,7 +18,7 @@
 
 <b>Explanation: </b>The odd numbers between 3 and 7 are [3,5,7].</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -33,7 +33,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>0 &lt;= low &lt;= high&nbsp;&lt;= 10^9</code></li>
+
 </ul>
 
 ## Solutions

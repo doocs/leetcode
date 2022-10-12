@@ -17,7 +17,7 @@
 <p><strong>Any answer</strong> which has the same highest similarity as the best answer will be accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> color = &quot;#09f166&quot;
@@ -27,7 +27,7 @@ The similarity is -(0x09 - 0x11)<sup>2</sup> -(0xf1 - 0xee)<sup>2</sup> - (0x66 
 This is the highest among any shorthand color.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> color = &quot;#4e3fe1&quot;

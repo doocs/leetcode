@@ -37,15 +37,18 @@ interface FontInfo {
 <p>It is also guaranteed that for any font size <code>fontSize</code> and any character <code>ch</code>:</p>
 
 <ul>
+
     <li><code>getHeight(fontSize) &lt;= getHeight(fontSize+1)</code></li>
+
     <li><code>getWidth(fontSize, ch) &lt;= getWidth(fontSize+1, ch)</code></li>
+
 </ul>
 
 <p>Return <em>the maximum font size you can use to display </em><code>text</code><em> on the screen</em>. If <code>text</code> cannot fit on the display with any font size, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -55,7 +58,7 @@ interface FontInfo {
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -65,7 +68,7 @@ interface FontInfo {
 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 
@@ -80,13 +83,21 @@ interface FontInfo {
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= text.length &lt;= 50000</code></li>
+
     <li><code>text</code> contains only lowercase English letters.</li>
+
     <li><code>1 &lt;= w &lt;= 10<sup>7</sup></code></li>
+
     <li><code>1 &lt;= h &lt;= 10<sup>4</sup></code></li>
+
     <li><code>1 &lt;= fonts.length &lt;= 10<sup>5</sup></code></li>
+
     <li><code>1 &lt;= fonts[i] &lt;= 10<sup>5</sup></code></li>
+
     <li><code>fonts</code> is sorted in ascending order and does not contain duplicates.</li>
+
 </ul>
 
 ## Solutions

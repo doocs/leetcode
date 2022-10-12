@@ -15,7 +15,7 @@
 <p>Initially, there is only <strong>one</strong> worker.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> blocks = [1], split = 1
@@ -23,7 +23,7 @@
 <strong>Explanation: </strong>We use 1 worker to build 1 block in 1 time unit.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> blocks = [1,2], split = 5
@@ -31,7 +31,7 @@
 <strong>Explanation: </strong>We split the worker into 2 workers in 5 time units then assign each of them to a block so the cost is 5 + max(1, 2) = 7.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> blocks = [1,2,3], split = 1

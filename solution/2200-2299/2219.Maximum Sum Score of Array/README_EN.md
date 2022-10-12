@@ -16,7 +16,7 @@
 <p>Return <em>the <strong>maximum</strong> <strong>sum </strong><strong>score</strong> of </em><code>nums</code><em> at any index.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,3,-2,5]
@@ -29,7 +29,7 @@ The sum score at index 3 is max(4 + 3 + -2 + 5, 5) = max(10, 5) = 10.
 The maximum sum score of nums is 10.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-3,-5]

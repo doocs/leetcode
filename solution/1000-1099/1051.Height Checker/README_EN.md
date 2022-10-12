@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>number of indices</strong> where </em><code>heights[i] != expected[i]</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> heights = [1,1,4,2,1,3]
@@ -22,7 +22,7 @@ expected: [1,1,<u>1</u>,2,<u>3</u>,<u>4</u>]
 Indices 2, 4, and 5 do not match.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> heights = [5,1,2,3,4]
@@ -33,7 +33,7 @@ expected: [<u>1</u>,<u>2</u>,<u>3</u>,<u>4</u>,<u>5</u>]
 All indices do not match.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> heights = [1,2,3,4,5]

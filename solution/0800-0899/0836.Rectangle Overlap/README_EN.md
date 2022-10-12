@@ -11,13 +11,13 @@
 <p>Given two axis-aligned rectangles <code>rec1</code> and <code>rec2</code>, return <code>true</code><em> if they overlap, otherwise return </em><code>false</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> rec1 = [0,0,2,2], rec2 = [1,1,3,3]
 <strong>Output:</strong> true
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> rec1 = [0,0,1,1], rec2 = [1,0,2,1]
 <strong>Output:</strong> false
-</pre><p><strong>Example 3:</strong></p>
+</pre><p><strong class="example">Example 3:</strong></p>
 <pre><strong>Input:</strong> rec1 = [0,0,1,1], rec2 = [2,2,3,3]
 <strong>Output:</strong> false
 </pre>

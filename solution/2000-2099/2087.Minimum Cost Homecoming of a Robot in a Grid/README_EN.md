@@ -16,7 +16,7 @@
 <p>Return <em>the <strong>minimum total cost</strong> for this robot to return home</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/images/eg-1.png" style="width: 282px; height: 217px;" />
 <pre>
 <strong>Input:</strong> startPos = [1, 0], homePos = [2, 3], rowCosts = [5, 4, 3], colCosts = [8, 2, 6, 7]
@@ -29,7 +29,7 @@ Starting from (1, 0)
 -&gt; It goes right to (2, <u><strong>3</strong></u>). This move costs colCosts[3] = 7.
 The total cost is 3 + 2 + 6 + 7 = 18</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> startPos = [0, 0], homePos = [0, 0], rowCosts = [5], colCosts = [26]

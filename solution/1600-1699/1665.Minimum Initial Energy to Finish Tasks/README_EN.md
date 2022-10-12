@@ -18,7 +18,7 @@
 <p>Return <em>the <strong>minimum</strong> initial amount of energy you will need</em> <em>to finish all the tasks</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [[1,2],[2,4],[4,8]]
@@ -30,7 +30,7 @@ Starting with 8 energy, we finish the tasks in the following order:
     - 1st task. Now energy = 2 - 1 = 1.
 Notice that even though we have leftover energy, starting with 7 energy does not work because we cannot do the 3rd task.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [[1,3],[2,4],[10,11],[10,12],[8,9]]
@@ -43,7 +43,7 @@ Starting with 32 energy, we finish the tasks in the following order:
     - 4th task. Now energy = 19 - 10 = 9.
     - 5th task. Now energy = 9 - 8 = 1.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [[1,7],[2,8],[3,9],[4,10],[5,11],[6,12]]

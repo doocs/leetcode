@@ -11,7 +11,7 @@
 <p><strong>Note:</strong>&nbsp;The solution set must not contain duplicate combinations.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> candidates = [10,1,2,7,6,1,5], target = 8
@@ -24,7 +24,7 @@
 ]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> candidates = [2,5,2,1,2], target = 5

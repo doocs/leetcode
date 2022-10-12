@@ -17,7 +17,7 @@
 <p>Return <em>the <strong>final</strong> value of </em><code>original</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [5,3,6,1,12], original = 3
@@ -29,7 +29,7 @@
 - 24 is not found in nums. Thus, 24 is returned.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,7,9], original = 4

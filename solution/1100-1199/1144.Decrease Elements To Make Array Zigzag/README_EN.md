@@ -16,7 +16,7 @@
 <p>Return the minimum number of moves to transform the given array <code>nums</code> into a zigzag array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3]
@@ -24,7 +24,7 @@
 <strong>Explanation:</strong> We can decrease 2 to 0 or 3 to 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [9,6,1,6,2]

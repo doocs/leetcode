@@ -11,7 +11,7 @@
 <p>Return <em>the minimum cost it takes to connect the two groups</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/images/ex1.jpg" style="width: 322px; height: 243px;" />
 <pre>
 <strong>Input:</strong> cost = [[15, 96], [36, 2]]
@@ -22,7 +22,7 @@
 This results in a total cost of 17.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/images/ex2.jpg" style="width: 322px; height: 403px;" />
 <pre>
 <strong>Input:</strong> cost = [[1, 3, 5], [4, 1, 1], [1, 5, 3]]
@@ -36,7 +36,7 @@ This results in a total cost of 4.
 Note that there are multiple points connected to point 2 in the first group and point A in the second group. This does not matter as there is no limit to the number of points that can be connected. We only care about the minimum total cost.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> cost = [[2, 5, 1], [3, 4, 7], [8, 1, 2], [6, 2, 4], [3, 8, 8]]

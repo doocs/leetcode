@@ -13,7 +13,7 @@
 <p>The <strong>subtree</strong> of a node is a tree consisting of that node, plus the set of all descendants of that node.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/images/sketch1.png" style="width: 600px; height: 510px;" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4]
@@ -23,7 +23,7 @@ The nodes coloured in blue are the deepest nodes of the tree.
 Notice that nodes 5, 3 and 2 contain the deepest nodes in the tree but node 2 is the smallest subtree among them, so we return it.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [1]
@@ -31,7 +31,7 @@ Notice that nodes 5, 3 and 2 contain the deepest nodes in the tree but node 2 is
 <strong>Explanation:</strong> The root is the deepest node in the tree.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,3,null,2]

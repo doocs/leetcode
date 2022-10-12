@@ -11,14 +11,14 @@
 <p>Return <em>the coordinates of trees that are exactly located on the fence perimeter</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect2-plane.jpg" style="width: 509px; height: 500px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
 <strong>Output:</strong> [[1,1],[2,0],[3,3],[2,4],[4,2]]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect1-plane.jpg" style="width: 509px; height: 500px;" />
 <pre>
 <strong>Input:</strong> points = [[1,2],[2,2],[4,2]]

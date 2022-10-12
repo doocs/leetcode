@@ -9,7 +9,7 @@
 <p>Return <em>the array after sorting it</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [0,1,2,3,4,5,6,7,8]
@@ -21,7 +21,7 @@
 The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1024,512,256,128,64,32,16,8,4,2,1]

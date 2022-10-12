@@ -13,7 +13,7 @@
 <p>Return <em>the resulting string</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;<u>abcd</u>efd&quot;, ch = &quot;d&quot;
@@ -22,7 +22,7 @@
 Reverse the part of word from 0 to 3 (inclusive), the resulting string is &quot;dcbaefd&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;<u>xyxz</u>xe&quot;, ch = &quot;z&quot;
@@ -31,7 +31,7 @@ Reverse the part of word from 0 to 3 (inclusive), the resulting string is &quot;
 Reverse the part of word from 0 to 3 (inclusive), the resulting string is &quot;zxyxxe&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;abcd&quot;, ch = &quot;z&quot;

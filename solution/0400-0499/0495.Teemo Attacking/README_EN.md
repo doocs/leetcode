@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>total</strong> number of seconds that Ashe is poisoned</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> timeSeries = [1,4], duration = 2
@@ -22,7 +22,7 @@
 Ashe is poisoned for seconds 1, 2, 4, and 5, which is 4 seconds in total.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> timeSeries = [1,2], duration = 2

@@ -9,7 +9,7 @@
 <p>A matrix is <strong>Toeplitz</strong> if every diagonal from top-left to bottom-right has the same elements.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0766.Toeplitz%20Matrix/images/ex1.jpg" style="width: 322px; height: 242px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
@@ -20,7 +20,7 @@ In the above grid, the&nbsp;diagonals are:
 In each diagonal all elements are the same, so the answer is True.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0766.Toeplitz%20Matrix/images/ex2.jpg" style="width: 162px; height: 162px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,2],[2,2]]

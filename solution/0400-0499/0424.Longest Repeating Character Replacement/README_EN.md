@@ -9,7 +9,7 @@
 <p>Return <em>the length of the longest substring containing the same letter you can get after performing the above operations</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ABAB&quot;, k = 2
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> Replace the two &#39;A&#39;s with two &#39;B&#39;s or vice versa.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;AABABBA&quot;, k = 1

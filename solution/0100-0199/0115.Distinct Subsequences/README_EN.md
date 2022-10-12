@@ -11,7 +11,7 @@
 <p>The test cases are generated so that the answer fits on a 32-bit signed integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;rabbbit&quot;, t = &quot;rabbit&quot;
@@ -23,7 +23,7 @@ As shown below, there are 3 ways you can generate &quot;rabbit&quot; from s.
 <code><strong><u>rab</u></strong>b<strong><u>bit</u></strong></code>
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;babgbag&quot;, t = &quot;bag&quot;

@@ -13,7 +13,7 @@
 <p>Return <em>the count of all possible routes from </em><code>start</code> <em>to</em> <code>finish</code>. Since the answer may be too large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> locations = [2,3,6,8,4], start = 1, finish = 3, fuel = 5
@@ -25,7 +25,7 @@
 1 -&gt; 4 -&gt; 2 -&gt; 3
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> locations = [4,3,1], start = 1, finish = 0, fuel = 6
@@ -38,7 +38,7 @@
 1 -&gt; 0 -&gt; 1 -&gt; 0 -&gt; 1 -&gt; 0, used fuel = 5
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> locations = [5,2,1], start = 0, finish = 2, fuel = 3

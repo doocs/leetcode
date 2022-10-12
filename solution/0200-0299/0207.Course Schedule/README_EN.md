@@ -13,7 +13,7 @@
 <p>Return <code>true</code> if you can finish all courses. Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> numCourses = 2, prerequisites = [[1,0]]
@@ -22,7 +22,7 @@
 To take course 1 you should have finished course 0. So it is possible.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> numCourses = 2, prerequisites = [[1,0],[0,1]]

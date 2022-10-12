@@ -19,7 +19,7 @@
 <p>Notice that you can not jump outside of the array at any time.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [100,-23,-23,404,100,23,23,23,3,404]
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> You need three jumps from index 0 --&gt; 4 --&gt; 3 --&gt; 9. Note that index 9 is the last index of the array.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [7]
@@ -35,7 +35,7 @@
 <strong>Explanation:</strong> Start index is the last index. You do not need to jump.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [7,6,9,6,9,6,9,7]

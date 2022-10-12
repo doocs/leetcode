@@ -13,7 +13,7 @@
 <p>Assuming Alice and Bob play optimally, return <code>true</code><em> if Alice wins the game, or </em><code>false</code><em> if Bob wins</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> piles = [5,3,4,5]
@@ -26,7 +26,7 @@ If Bob takes the last 5, then the board is [3, 4], and Alice takes 4 to win with
 This demonstrated that taking the first 5 was a winning move for Alice, so we return true.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> piles = [3,7,2,3]

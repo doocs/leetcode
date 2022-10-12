@@ -15,7 +15,7 @@
 <p>Return<em> the <strong>minimum</strong> number of minutes needed to pick up all the garbage.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> garbage = [&quot;G&quot;,&quot;P&quot;,&quot;GP&quot;,&quot;GG&quot;], travel = [2,4,3]
@@ -39,7 +39,7 @@ Since there is no metal garbage, we do not need to consider the metal garbage tr
 Therefore, it takes a total of 8 + 13 = 21 minutes to collect all the garbage.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> garbage = [&quot;MMM&quot;,&quot;PGM&quot;,&quot;GP&quot;], travel = [3,10]

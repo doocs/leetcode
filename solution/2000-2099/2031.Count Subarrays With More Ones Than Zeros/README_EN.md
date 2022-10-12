@@ -9,7 +9,7 @@
 <p>A <strong>subarray</strong> is a contiguous sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,1,0,1]
@@ -22,7 +22,7 @@ The subarrays of size 4 that have more ones than zeros are: [1,1,0,1]
 The subarrays of size 5 that have more ones than zeros are: [0,1,1,0,1]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0]
@@ -31,7 +31,7 @@ The subarrays of size 5 that have more ones than zeros are: [0,1,1,0,1]
 No subarrays have more ones than zeros.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1]

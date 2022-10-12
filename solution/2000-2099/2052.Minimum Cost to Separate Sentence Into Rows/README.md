@@ -14,12 +14,14 @@
 
 <ul>
 	<li>以&nbsp;<code>sentence = "i love leetcode"</code> 和<code>k = 12</code>为例：
+
     <ul>
     	<li>将<code>sentence</code> 分成&nbsp;<code>"i"</code>, <code>"love"</code>, 和<code>"leetcode"</code> 的成本为&nbsp;<code>(12 - 1)<sup>2</sup> + (12 - 4)<sup>2</sup> = 185</code>。</li>
     	<li>将<code>sentence</code> 分成&nbsp;<code>"i love"</code>, 和<code>"leetcode"</code> 的成本为 <code>(12 - 6)<sup>2</sup> = 36</code>。</li>
     	<li>将<code>sentence</code> 分成&nbsp;<code>"i"</code>, 和<code>"love leetcode"</code>&nbsp;是不可能的，因为&nbsp;<code>"love leetcode"</code>&nbsp;的长度大于&nbsp;<code>k</code>。</li>
     </ul>
     </li>
+
 </ul>
 
 <p>返回<em>将</em><code>sentence</code><em>分隔成行的<strong>最低的</strong>可能总成本。</em></p>

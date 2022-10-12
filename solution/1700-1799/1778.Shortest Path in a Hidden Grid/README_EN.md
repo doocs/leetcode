@@ -36,7 +36,7 @@
 <p>There is exactly one <code>-1</code> and <code>2</code> in <code>grid</code>. Remember that you will <strong>not</strong> have this information in your code.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,2],[-1,0]]
@@ -58,14 +58,14 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 We now know that the target is the cell (0, 1), and the shortest path to the target cell is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[0,0,-1],[1,1,1],[2,0,0]]
 <strong>Output:</strong> 4
 <strong>Explanation:</strong>&nbsp;The minimum distance between the robot and the target cell is 4.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[-1,0],[0,2]]

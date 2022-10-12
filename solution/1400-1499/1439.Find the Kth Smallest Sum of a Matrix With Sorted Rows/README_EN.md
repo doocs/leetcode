@@ -11,7 +11,7 @@
 <p>Return <em>the </em><code>k<sup>th</sup></code><em> smallest array sum among all possible arrays</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[1,3,11],[2,4,6]], k = 5
@@ -20,14 +20,14 @@
 [1,2], [1,4], [3,2], [3,4], [1,6]. Where the 5th sum is 7.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[1,3,11],[2,4,6]], k = 9
 <strong>Output:</strong> 17
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[1,10,10],[1,4,5],[2,3,6]], k = 7

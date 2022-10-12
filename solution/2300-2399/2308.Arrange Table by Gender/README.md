@@ -30,7 +30,7 @@ The table has an equal number of &#39;female&#39;, &#39;male&#39;, and &#39;othe
 <p>The query result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

@@ -9,7 +9,7 @@
 <p>After doing so, return the array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [17,18,5,4,6,1]
@@ -23,7 +23,7 @@
 - index 5 --&gt; there are no elements to the right of index 5, so we put -1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [400]

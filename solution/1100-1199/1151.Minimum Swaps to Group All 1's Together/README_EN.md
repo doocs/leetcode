@@ -7,7 +7,7 @@
 <p>Given a&nbsp;binary array <code>data</code>, return&nbsp;the minimum number of swaps required to group all <code>1</code>&rsquo;s present in the array together in <strong>any place</strong> in the array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> data = [1,0,1,0,1]
@@ -19,7 +19,7 @@
 The minimum is 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> data = [0,0,0,1,0]
@@ -27,7 +27,7 @@ The minimum is 1.
 <strong>Explanation:</strong> Since there is only one 1 in the array, no swaps are needed.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> data = [1,0,1,0,1,0,0,1,1,0,1]

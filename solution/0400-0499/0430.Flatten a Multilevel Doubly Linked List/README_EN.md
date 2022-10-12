@@ -11,7 +11,7 @@
 <p>Return <em>the </em><code>head</code><em> of the flattened list. The nodes in the list must have <strong>all</strong> of their child pointers set to </em><code>null</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten11.jpg" style="width: 700px; height: 339px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
@@ -21,7 +21,7 @@ After flattening the multilevel linked list it becomes:
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten12.jpg" style="width: 1000px; height: 69px;" />
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/flatten2.1jpg" style="width: 200px; height: 200px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,null,3]
@@ -31,7 +31,7 @@ After flattening the multilevel linked list it becomes:
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/list.jpg" style="width: 300px; height: 87px;" />
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> head = []
@@ -50,7 +50,7 @@ After flattening the multilevel linked list it becomes:
 <p>&nbsp;</p>
 <p><strong>How the multilevel linked list is represented in test cases:</strong></p>
 
-<p>We use the multilevel linked list from <strong>Example 1</strong> above:</p>
+<p>We use the multilevel linked list from <strong class="example">Example 1</strong> above:</p>
 
 <pre>
  1---2---3---4---5---6--NULL

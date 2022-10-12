@@ -18,7 +18,7 @@
 <p>A <strong>subarray</strong> is a contiguous sequence of elements in an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,2,4]
@@ -38,7 +38,7 @@ i=3:
 - There is only one value, so the maximum is 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,20,50,10]

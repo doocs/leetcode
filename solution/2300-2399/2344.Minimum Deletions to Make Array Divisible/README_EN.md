@@ -11,7 +11,7 @@
 <p>Note that an integer <code>x</code> divides <code>y</code> if <code>y % x == 0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,3,2,4,3], numsDivide = [9,6,9,3,15]
@@ -23,7 +23,7 @@ The smallest element in [3,4,3] is 3, which divides all the elements of numsDivi
 It can be shown that 2 is the minimum number of deletions needed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,3,6], numsDivide = [8,2,6,10]

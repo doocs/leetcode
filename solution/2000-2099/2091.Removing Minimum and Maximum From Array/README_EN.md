@@ -13,7 +13,7 @@
 <p>Return <em>the <strong>minimum</strong> number of deletions it would take to remove <strong>both</strong> the minimum and maximum element from the array.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,<u><strong>10</strong></u>,7,5,4,<u><strong>1</strong></u>,8,6]
@@ -25,7 +25,7 @@ We can remove both the minimum and maximum by removing 2 elements from the front
 This results in 2 + 3 = 5 deletions, which is the minimum number possible.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,<u><strong>-4</strong></u>,<u><strong>19</strong></u>,1,8,-2,-3,5]
@@ -37,7 +37,7 @@ We can remove both the minimum and maximum by removing 3 elements from the front
 This results in only 3 deletions, which is the minimum number possible.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [<u><strong>101</strong></u>]

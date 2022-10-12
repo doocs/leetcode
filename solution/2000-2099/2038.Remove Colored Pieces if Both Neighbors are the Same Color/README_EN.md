@@ -18,7 +18,7 @@
 <p>Assuming Alice and Bob play optimally, return <code>true</code><em> if Alice wins, or return </em><code>false</code><em> if Bob wins</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> colors = &quot;AAABABB&quot;
@@ -33,7 +33,7 @@ Bob cannot make a move on his turn since there are no &#39;B&#39;s whose neighbo
 Thus, Alice wins, so return true.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> colors = &quot;AA&quot;
@@ -44,7 +44,7 @@ There are only two &#39;A&#39;s and both are on the edge of the line, so she can
 Thus, Bob wins, so return false.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> colors = &quot;ABBBBBBBAAA&quot;

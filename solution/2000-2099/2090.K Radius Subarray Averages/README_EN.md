@@ -17,7 +17,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/images/eg1.png" style="width: 343px; height: 119px;" />
 <pre>
 <strong>Input:</strong> nums = [7,4,3,9,1,8,5,2,6], k = 3
@@ -31,7 +31,7 @@
 - avg[6], avg[7], and avg[8] are -1 because there are less than k elements <strong>after</strong> each index.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [100000], k = 0
@@ -41,7 +41,7 @@
   avg[0] = 100000 / 1 = 100000.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [8], k = 100000

@@ -27,7 +27,7 @@ return res
 <p>If <code>res</code> matches the expected flattened list, then your code will be judged as correct.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nestedList = [[1,1],2,[1,1]]
@@ -35,7 +35,7 @@ return res
 <strong>Explanation:</strong> By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nestedList = [1,[4,[6]]]

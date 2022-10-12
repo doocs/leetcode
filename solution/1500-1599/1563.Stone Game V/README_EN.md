@@ -13,7 +13,7 @@
 <p>Return <i>the maximum score that Alice can obtain</i>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> stoneValue = [6,2,3,4,5,5]
@@ -23,14 +23,14 @@ In the second round Alice divides the row to [6], [2,3]. This time Bob throws aw
 The last round Alice has only one choice to divide the row which is [2], [3]. Bob throws away the right row and Alice&#39;s score is now 18 (16 + 2). The game ends because only one stone is remaining in the row.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> stoneValue = [7,7,7,7,7,7,7]
 <strong>Output:</strong> 28
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> stoneValue = [4]

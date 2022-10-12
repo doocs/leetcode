@@ -9,7 +9,7 @@
 <p>Given an array <code>changed</code>, return <code>original</code><em> if </em><code>changed</code><em> is a <strong>doubled</strong> array. If </em><code>changed</code><em> is not a <strong>doubled</strong> array, return an empty array. The elements in</em> <code>original</code> <em>may be returned in <strong>any</strong> order</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> changed = [1,3,4,2,6,8]
@@ -21,7 +21,7 @@
 Other original arrays could be [4,3,1] or [3,1,4].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> changed = [6,3,0,1]
@@ -29,7 +29,7 @@ Other original arrays could be [4,3,1] or [3,1,4].
 <strong>Explanation:</strong> changed is not a doubled array.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> changed = [1]

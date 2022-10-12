@@ -15,7 +15,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ab&quot;, t = &quot;acb&quot;
@@ -23,7 +23,7 @@
 <strong>Explanation:</strong> We can insert &#39;c&#39; into s&nbsp;to get&nbsp;t.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;&quot;, t = &quot;&quot;

@@ -11,7 +11,7 @@
 <p>Given two integer arrays <code>days</code> and <code>apples</code> of length <code>n</code>, return <em>the maximum number of apples you can eat.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> apples = [1,2,3,5,2], days = [3,2,1,4,2]
@@ -23,7 +23,7 @@
 - On the fourth to the seventh days, you eat apples that grew on the fourth day.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> apples = [3,0,0,0,0,2], days = [3,0,0,0,0,2]

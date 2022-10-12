@@ -14,7 +14,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,2,1], k = 1
@@ -26,7 +26,7 @@
 - [1,2,<strong><u>2</u></strong>,<strong><u>1</u></strong>]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3], k = 3
@@ -34,7 +34,7 @@
 <strong>Explanation:</strong> There are no pairs with an absolute difference of 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,2,1,5,4], k = 2

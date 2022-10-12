@@ -11,7 +11,7 @@
 <p>Return <em>the minimum cost to make all points connected.</em> All points are connected if there is <strong>exactly one</strong> simple path between any two points.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/images/d.png" style="width: 214px; height: 268px;" />
 <pre>
 <strong>Input:</strong> points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
@@ -22,7 +22,7 @@ We can connect the points as shown above to get the minimum cost of 20.
 Notice that there is a unique path between every pair of points.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> points = [[3,12],[-2,5],[-4,1]]

@@ -16,7 +16,7 @@
 <p>Return <em>a string representing the <strong>maximum</strong> value of </em><code>n</code><em>​​​​​​ after the insertion</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = &quot;99&quot;, x = 9
@@ -24,7 +24,7 @@
 <strong>Explanation:</strong> The result is the same regardless of where you insert 9.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = &quot;-13&quot;, x = 2

@@ -13,13 +13,13 @@
 <p>You must write an algorithm with <code>O(log n)</code> runtime complexity.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0
 <strong>Output:</strong> 4
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 3
 <strong>Output:</strong> -1
-</pre><p><strong>Example 3:</strong></p>
+</pre><p><strong class="example">Example 3:</strong></p>
 <pre><strong>Input:</strong> nums = [1], target = 0
 <strong>Output:</strong> -1
 </pre>

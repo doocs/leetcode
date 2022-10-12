@@ -11,7 +11,7 @@
 <p>You may assume that you have an infinite number of each kind of coin.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> coins = [1,2,5], amount = 11
@@ -19,14 +19,14 @@
 <strong>Explanation:</strong> 11 = 5 + 5 + 1
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> coins = [2], amount = 3
 <strong>Output:</strong> -1
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> coins = [1], amount = 0

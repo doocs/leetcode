@@ -18,7 +18,7 @@
 <p><strong>Note</strong> that an erasure may refer to a location with no brick, and if it does, no bricks drop.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,0,0,0],[1,1,1,0]], hits = [[1,0]]
@@ -35,7 +35,7 @@ The two underlined bricks are no longer stable as they are no longer connected t
 Hence the result is [2].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,0,0,0],[1,1,0,0]], hits = [[1,1],[1,0]]

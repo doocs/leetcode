@@ -11,7 +11,7 @@
 <p>Return <code>true</code><em> If you can find a way to do that or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,3,4,5,10,6,7,8,9], k = 5
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> Pairs are (1,9),(2,8),(3,7),(4,6) and (5,10).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,3,4,5,6], k = 7
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> Pairs are (1,6),(2,5) and(3,4).
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,2,3,4,5,6], k = 10

@@ -11,7 +11,7 @@
 <p>Any two characters may be swapped, even if they are&nbsp;<strong>not adjacent</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;111000&quot;
@@ -20,7 +20,7 @@
 The string is now alternating.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;010&quot;
@@ -28,7 +28,7 @@ The string is now alternating.
 <strong>Explanation:</strong> The string is already alternating, no swaps are needed.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1110&quot;

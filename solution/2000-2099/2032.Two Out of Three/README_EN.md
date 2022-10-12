@@ -7,7 +7,7 @@
 Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>nums3</code>, return <em>a <strong>distinct</strong> array containing all the values that are present in <strong>at least two</strong> out of the three arrays. You may return the values in <strong>any</strong> order</em>.
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,1,3,2], nums2 = [2,3], nums3 = [3]
@@ -17,7 +17,7 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 - 2, in nums1 and nums2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [3,1], nums2 = [2,3], nums3 = [1,2]
@@ -28,7 +28,7 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 - 1, in nums1 and nums3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,2,2], nums2 = [4,3,3], nums3 = [5]

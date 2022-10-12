@@ -7,7 +7,7 @@
 <p>Given a binary string <code>s</code>, return <em>the number of substrings with all characters</em> <code>1</code><em>&#39;s</em>. Since the answer may be too large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;0110111&quot;
@@ -17,7 +17,7 @@
 &quot;11&quot; -&gt; 3 times.
 &quot;111&quot; -&gt; 1 time.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;101&quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> Substring &quot;1&quot; is shown 2 times in s.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;111111&quot;

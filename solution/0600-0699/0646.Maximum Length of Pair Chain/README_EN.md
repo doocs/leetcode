@@ -13,7 +13,7 @@
 <p>You do not need to use up all the given intervals. You can select pairs in any order.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[2,3],[3,4]]
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> The longest chain is [1,2] -&gt; [3,4].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[7,8],[4,5]]

@@ -22,7 +22,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> version1 = &quot;1.01&quot;, version2 = &quot;1.001&quot;
@@ -30,7 +30,7 @@
 <strong>Explanation:</strong> Ignoring leading zeroes, both &quot;01&quot; and &quot;001&quot; represent the same integer &quot;1&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> version1 = &quot;1.0&quot;, version2 = &quot;1.0.0&quot;
@@ -38,7 +38,7 @@
 <strong>Explanation:</strong> version1 does not specify revision 2, which means it is treated as &quot;0&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> version1 = &quot;0.1&quot;, version2 = &quot;1.1&quot;

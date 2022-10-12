@@ -15,7 +15,7 @@
 <p>Initially, the leaderboard is empty.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <b>Input: </b>

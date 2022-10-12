@@ -9,10 +9,10 @@
 <p><strong>Note:</strong>&nbsp;You must not use any built-in BigInteger library or convert the inputs to integer directly.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> num1 = "2", num2 = "3"
 <strong>Output:</strong> "6"
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> num1 = "123", num2 = "456"
 <strong>Output:</strong> "56088"
 </pre>

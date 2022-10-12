@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -38,7 +38,7 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -56,7 +56,7 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 
@@ -81,8 +81,11 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= days &lt;= weights.length &lt;= 5 * 10<sup>4</sup></code></li>
+
     <li><code>1 &lt;= weights[i] &lt;= 500</code></li>
+
 </ul>
 
 ## Solutions

@@ -11,7 +11,7 @@
 <p><strong>Note</strong> that you need to maximize the answer before taking the mod and not after taking it.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_1_1699.png" style="width: 500px; height: 167px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,6]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> Remove the red edge and get 2 binary trees with sum 11 and 10. Their product is 110 (11*10)
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_2_1699.png" style="width: 500px; height: 211px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3,4,null,null,5,6]

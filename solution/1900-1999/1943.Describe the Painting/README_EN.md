@@ -18,11 +18,13 @@
 
 <ul>
 	<li>For example, the painting created with <code>segments = [[1,4,5],[1,7,7]]</code> can be described by <code>painting = [[1,4,12],[4,7,7]]</code> because:
+
     <ul>
     	<li><code>[1,4)</code> is colored <code>{5,7}</code> (with a sum of <code>12</code>) from both the first and second segments.</li>
     	<li><code>[4,7)</code> is colored <code>{7}</code> from only the second segment.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>Return <em>the 2D array </em><code>painting</code><em> describing the finished painting (excluding any parts that are <strong>not </strong>painted). You may return the segments in <strong>any order</strong></em>.</p>
@@ -30,7 +32,7 @@
 <p>A <strong>half-closed segment</strong> <code>[a, b)</code> is the section of the number line between points <code>a</code> and <code>b</code> <strong>including</strong> point <code>a</code> and <strong>not including</strong> point <code>b</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/1.png" style="width: 529px; height: 241px;" />
 <pre>
 <strong>Input:</strong> segments = [[1,4,5],[4,7,7],[1,7,9]]
@@ -40,7 +42,7 @@
 - [4,7) is colored {7,9} (with a sum of 16) from the second and third segments.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/2.png" style="width: 532px; height: 219px;" />
 <pre>
 <strong>Input:</strong> segments = [[1,7,9],[6,8,15],[8,10,7]]
@@ -52,7 +54,7 @@
 - [8,10) is colored 7 from the third segment.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/c1.png" style="width: 529px; height: 289px;" />
 <pre>
 <strong>Input:</strong> segments = [[1,4,5],[1,4,7],[4,7,1],[4,7,11]]

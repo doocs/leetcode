@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum </strong>number of buckets needed so that for <strong>every</strong> house, there is <strong>at least</strong> one bucket collecting rainwater from it, or </em><code>-1</code><em> if it is impossible.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> street = &quot;H..H&quot;
@@ -23,7 +23,7 @@ The house at index 0 has a bucket to its right, and the house at index 3 has a b
 Thus, for every house, there is at least one bucket collecting rainwater from it.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> street = &quot;.H.H.&quot;
@@ -35,7 +35,7 @@ The house at index 1 has a bucket to its right, and the house at index 3 has a b
 Thus, for every house, there is at least one bucket collecting rainwater from it.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> street = &quot;.HHH.&quot;

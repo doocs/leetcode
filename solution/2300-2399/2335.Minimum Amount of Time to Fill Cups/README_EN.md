@@ -9,7 +9,7 @@
 <p>You are given a <strong>0-indexed</strong> integer array <code>amount</code> of length <code>3</code> where <code>amount[0]</code>, <code>amount[1]</code>, and <code>amount[2]</code> denote the number of cold, warm, and hot water cups you need to fill respectively. Return <em>the <strong>minimum</strong> number of seconds needed to fill up all the cups</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> amount = [1,4,2]
@@ -22,7 +22,7 @@ Second 4: Fill up a warm cup.
 It can be proven that 4 is the minimum number of seconds needed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> amount = [5,4,4]
@@ -37,7 +37,7 @@ Second 6: Fill up a cold cup, and a warm cup.
 Second 7: Fill up a hot cup.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> amount = [5,0,0]

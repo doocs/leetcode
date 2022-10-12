@@ -17,7 +17,7 @@
 <p>Return <code>s</code><em> after replacing all digits. It is <strong>guaranteed</strong> that </em><code>shift(s[i-1], s[i])</code><em> will never exceed </em><code>&#39;z&#39;</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;a1c1e1&quot;
@@ -27,7 +27,7 @@
 - s[3] -&gt; shift(&#39;c&#39;,1) = &#39;d&#39;
 - s[5] -&gt; shift(&#39;e&#39;,1) = &#39;f&#39;</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;a1b2c3d4e&quot;

@@ -31,7 +31,7 @@ primary_flag is an ENUM of type (&#39;Y&#39;, &#39;N&#39;). If the flag is &#39;
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

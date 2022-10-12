@@ -9,7 +9,7 @@
 <p>Increment the large integer by one and return <em>the resulting array of digits</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> digits = [1,2,3]
@@ -19,7 +19,7 @@ Incrementing by one gives 123 + 1 = 124.
 Thus, the result should be [1,2,4].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> digits = [4,3,2,1]
@@ -29,7 +29,7 @@ Incrementing by one gives 4321 + 1 = 4322.
 Thus, the result should be [4,3,2,2].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> digits = [9]

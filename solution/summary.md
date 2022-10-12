@@ -527,7 +527,7 @@
   - [0515.在每个树行中找最大值](/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/README.md)
   - [0516.最长回文子序列](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README.md)
   - [0517.超级洗衣机](/solution/0500-0599/0517.Super%20Washing%20Machines/README.md)
-  - [0518.Coin Change 2](/solution/0500-0599/0518.Coin%20Change%202/README.md)
+  - [0518.零钱兑换 II](/solution/0500-0599/0518.Coin%20Change%20II/README.md)
   - [0519.随机翻转矩阵](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)
   - [0520.检测大写字母](/solution/0500-0599/0520.Detect%20Capital/README.md)
   - [0521.最长特殊序列 Ⅰ](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
@@ -2483,3 +2483,4 @@
   - [2433.找出前缀异或的原始数组](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md)
   - [2434.使用机器人打印字典序最小的字符串](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README.md)
   - [2435.矩阵中和能被 K 整除的路径](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README.md)
+  - [2436.Minimum Split Into Subarrays With GCD Greater Than One](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README.md)

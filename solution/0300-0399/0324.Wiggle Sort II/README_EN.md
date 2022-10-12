@@ -9,7 +9,7 @@
 <p>You may assume the input array always has a valid answer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,5,1,1,6,4]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> [1,4,1,5,1,6] is also accepted.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3,2,2,3,1]

@@ -9,7 +9,7 @@
 <p>Return <em>the maximum valued number you can get</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 2736
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> Swap the number 2 and the number 7.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 9973

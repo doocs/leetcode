@@ -13,7 +13,7 @@
 <p>Return <em>the maximum number of achievable requests</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move1.jpg" style="width: 600px; height: 406px;" />
 <pre>
 <strong>Input:</strong> n = 5, requests = [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
@@ -28,7 +28,7 @@ We can achieve the requests of users x and b by swapping their places.
 We can achieve the requests of users y, a and z by swapping the places in the 3 buildings.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move2.jpg" style="width: 450px; height: 327px;" />
 <pre>
 <strong>Input:</strong> n = 3, requests = [[0,0],[1,2],[2,1]]
@@ -39,7 +39,7 @@ From building 1 we have employee y and they want to move to building 2.
 From building 2 we have employee z and they want to move to building 1.
 We can achieve all the requests. </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, requests = [[0,3],[3,1],[1,2],[2,0]]

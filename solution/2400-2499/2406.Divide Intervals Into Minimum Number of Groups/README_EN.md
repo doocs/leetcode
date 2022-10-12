@@ -13,7 +13,7 @@
 <p>Two intervals <strong>intersect</strong> if there is at least one common number between them. For example, the intervals <code>[1, 5]</code> and <code>[5, 8]</code> intersect.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[5,10],[6,8],[1,5],[2,3],[1,10]]
@@ -25,7 +25,7 @@
 It can be proven that it is not possible to divide the intervals into fewer than 3 groups.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[1,3],[5,6],[8,10],[11,13]]

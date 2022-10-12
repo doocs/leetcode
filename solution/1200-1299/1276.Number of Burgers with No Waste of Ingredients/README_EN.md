@@ -14,7 +14,7 @@
 <p>Return <code>[total_jumbo, total_small]</code> so that the number of remaining <code>tomatoSlices</code> equal to <code>0</code> and the number of remaining <code>cheeseSlices</code> equal to <code>0</code>. If it is not possible to make the remaining <code>tomatoSlices</code> and <code>cheeseSlices</code> equal to <code>0</code> return <code>[]</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> tomatoSlices = 16, cheeseSlices = 7
@@ -23,7 +23,7 @@
 There will be no remaining ingredients.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> tomatoSlices = 17, cheeseSlices = 4
@@ -31,7 +31,7 @@ There will be no remaining ingredients.
 <strong>Explantion:</strong> There will be no way to use all ingredients to make small and jumbo burgers.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> tomatoSlices = 4, cheeseSlices = 17

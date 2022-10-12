@@ -11,7 +11,7 @@
 <p>Return <em>the number of ways to build a <strong>sturdy </strong>wall.</em> Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/images/image-20220220190749-1.png" style="width: 919px; height: 250px;" />
 <pre>
 <strong>Input:</strong> height = 2, width = 3, bricks = [1,2]
@@ -21,7 +21,7 @@ The first two walls in the diagram show the only two ways to build a sturdy bric
 Note that the third wall in the diagram is not sturdy because adjacent rows join bricks 2 units from the left.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> height = 1, width = 1, bricks = [5]

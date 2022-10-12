@@ -7,7 +7,7 @@
 <p>Given a string <code>s</code>, return <em>the length of the longest substring that contains at most <strong>two distinct characters</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;eceba&quot;
@@ -15,7 +15,7 @@
 <strong>Explanation:</strong> The substring is &quot;ece&quot; which its length is 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ccaabbb&quot;

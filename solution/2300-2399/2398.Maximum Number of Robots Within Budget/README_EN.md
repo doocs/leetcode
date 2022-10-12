@@ -11,7 +11,7 @@
 <p>Return<em> the <strong>maximum</strong> number of <strong>consecutive</strong> robots you can run such that the total cost <strong>does not</strong> exceed </em><code>budget</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> chargeTimes = [3,6,1,3,4], runningCosts = [2,1,3,4,5], budget = 25
@@ -22,7 +22,7 @@ To obtain answer 3, consider the first 3 robots. The total cost will be max(3,6,
 It can be shown that it is not possible to run more than 3 consecutive robots within budget, so we return 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> chargeTimes = [11,12,19], runningCosts = [10,8,7], budget = 19

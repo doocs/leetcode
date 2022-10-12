@@ -13,7 +13,7 @@
 <p>A <strong>palindrome</strong> is a string that reads the same forward and backward.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;lc&quot;,&quot;cl&quot;,&quot;gg&quot;]
@@ -22,7 +22,7 @@
 Note that &quot;clgglc&quot; is another longest palindrome that can be created.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;ab&quot;,&quot;ty&quot;,&quot;yt&quot;,&quot;lc&quot;,&quot;cl&quot;,&quot;ab&quot;]
@@ -31,7 +31,7 @@ Note that &quot;clgglc&quot; is another longest palindrome that can be created.
 Note that &quot;lcyttycl&quot; is another longest palindrome that can be created.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;cc&quot;,&quot;ll&quot;,&quot;xx&quot;]

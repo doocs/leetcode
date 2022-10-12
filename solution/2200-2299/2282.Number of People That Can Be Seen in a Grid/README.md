@@ -18,7 +18,7 @@
 <p>Return<em> an </em><code>m x n</code><em> 2D array of integers </em><code>answer</code><em> where </em><code>answer[i][j]</code><em> is the number of people that the person at position </em><code>(i, j)</code><em> can see.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/images/image-20220524180458-1.png" style="width: 700px; height: 164px;" />
 <pre>
 <strong>Input:</strong> heights = [[3,1,4,2,5]]
@@ -32,7 +32,7 @@
 - The person at (0, 4) cannot see anybody.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/images/image-20220523113533-2.png" style="width: 400px; height: 249px;" />
 <pre>
 <strong>Input:</strong> heights = [[5,1],[3,1],[4,1]]

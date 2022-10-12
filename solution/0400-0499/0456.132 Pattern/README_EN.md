@@ -9,7 +9,7 @@
 <p>Return <code>true</code><em> if there is a <strong>132 pattern</strong> in </em><code>nums</code><em>, otherwise, return </em><code>false</code><em>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> There is no 132 pattern in the sequence.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,4,2]
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> There is a 132 pattern in the sequence: [1, 4, 2].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,3,2,0]

@@ -9,7 +9,7 @@
 <p>Return <em>the minimum number of transactions required to settle the debt</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> transactions = [[0,1,10],[2,0,5]]
@@ -20,7 +20,7 @@ Person #2 gave person #0 $5.
 Two transactions are needed. One way to settle the debt is person #1 pays person #0 and #2 $5 each.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> transactions = [[0,1,10],[1,0,1],[1,2,5],[2,0,5]]

@@ -9,7 +9,7 @@
 <p>Given three integers <code>a</code>​​​​​, <code>b</code>,​​​​​ and <code>c</code>​​​​​, return <em>the</em> <strong><em>maximum</em> </strong><em><strong>score</strong> you can get.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 2, b = 4, c = 6
@@ -24,7 +24,7 @@
 There are fewer than two non-empty piles, so the game ends. Total: 6 points.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 4, b = 4, c = 6
@@ -40,7 +40,7 @@ There are fewer than two non-empty piles, so the game ends. Total: 6 points.
 There are fewer than two non-empty piles, so the game ends. Total: 7 points.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 1, b = 8, c = 8

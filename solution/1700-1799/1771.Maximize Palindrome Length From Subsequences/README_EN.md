@@ -19,21 +19,21 @@
 <p>A <strong>palindrome</strong> is a string that reads the same forward&nbsp;as well as backward.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> word1 = &quot;cacb&quot;, word2 = &quot;cbba&quot;
 <strong>Output:</strong> 5
 <strong>Explanation:</strong> Choose &quot;ab&quot; from word1 and &quot;cba&quot; from word2 to make &quot;abcba&quot;, which is a palindrome.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> word1 = &quot;ab&quot;, word2 = &quot;ab&quot;
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> Choose &quot;ab&quot; from word1 and &quot;a&quot; from word2 to make &quot;aba&quot;, which is a palindrome.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> word1 = &quot;aa&quot;, word2 = &quot;bb&quot;

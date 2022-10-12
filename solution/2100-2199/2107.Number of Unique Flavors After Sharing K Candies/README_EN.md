@@ -9,7 +9,7 @@
 <p>Return <em>the <strong>maximum</strong> number of <strong>unique</strong> flavors of candy you can keep after sharing </em><em> with your sister.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = [1,<u>2,2,3</u>,4,3], k = 3
@@ -20,7 +20,7 @@ You can eat candies with flavors [1,4,3].
 There are 3 unique flavors, so return 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = [2,2,2,<u>2,3</u>,3], k = 2
@@ -32,7 +32,7 @@ There are 2 unique flavors, so return 2.
 Note that you can also share the candies with flavors [2,2] and eat the candies with flavors [2,2,3,3].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = [2,4,5], k = 0

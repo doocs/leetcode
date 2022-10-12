@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> possible number of accepted invitations.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,1],
@@ -23,7 +23,7 @@ Explanation:</strong> The invitations are sent as follows:
 - The 2<sup>nd</sup> boy invites the 1<sup>st</sup> girl.
 - The 3<sup>rd</sup> boy invites the 3<sup>rd</sup> girl.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,0,1,0],

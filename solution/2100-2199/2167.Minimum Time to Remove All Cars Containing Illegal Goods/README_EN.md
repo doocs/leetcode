@@ -19,7 +19,7 @@
 <p>Note that an empty sequence of cars is considered to have no cars containing illegal goods.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;<strong><u>11</u></strong>00<strong><u>1</u></strong>0<strong><u>1</u></strong>&quot;
@@ -40,7 +40,7 @@ This also obtains a total time of 2 + 3 = 5.
 There are no other ways to remove them with less time.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;00<strong><u>1</u></strong>0&quot;

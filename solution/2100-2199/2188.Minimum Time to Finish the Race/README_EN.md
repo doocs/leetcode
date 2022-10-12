@@ -17,7 +17,7 @@
 <p>Return<em> the <strong>minimum</strong> time to finish the race.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> tires = [[2,3],[3,4]], changeTime = 5, numLaps = 4
@@ -31,7 +31,7 @@ Total time = 2 + 6 + 5 + 2 + 6 = 21 seconds.
 The minimum time to complete the race is 21 seconds.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> tires = [[1,10],[2,2],[3,4]], changeTime = 6, numLaps = 5

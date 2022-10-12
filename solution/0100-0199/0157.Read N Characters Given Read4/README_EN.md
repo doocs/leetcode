@@ -59,7 +59,7 @@ buf[] is a destination, not a source. You will need to write the results to buf[
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> file = &quot;abc&quot;, n = 4
@@ -68,7 +68,7 @@ buf[] is a destination, not a source. You will need to write the results to buf[
 Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destination buffer that you will have to write the results to.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> file = &quot;abcde&quot;, n = 5
@@ -76,7 +76,7 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 <strong>Explanation:</strong> After calling your read method, buf should contain &quot;abcde&quot;. We read a total of 5 characters from the file, so return 5.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> file = &quot;abcdABCD1234&quot;, n = 12

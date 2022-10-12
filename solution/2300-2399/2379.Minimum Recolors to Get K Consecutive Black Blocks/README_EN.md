@@ -13,7 +13,7 @@
 <p>Return<em> the <strong>minimum</strong> number of operations needed such that there is at least <strong>one</strong> occurrence of </em><code>k</code><em> consecutive black blocks.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> blocks = &quot;WBBWWBBWBW&quot;, k = 7
@@ -25,7 +25,7 @@ It can be shown that there is no way to achieve 7 consecutive black blocks in le
 Therefore, we return 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> blocks = &quot;WBWBBBW&quot;, k = 2

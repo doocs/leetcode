@@ -30,7 +30,7 @@ All the degrees are recorded in the year 2022.
 <p>The query result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

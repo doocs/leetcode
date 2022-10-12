@@ -12,6 +12,7 @@
 
 <ul>
 	<li>如果只给出单一的元素&nbsp;<code>x</code>，那么表达式表示的字符串就只有&nbsp;<code>"x"</code>。<code>R(x) = {x}</code>
+
     <ul>
     	<li>例如，表达式 <code>"a"</code> 表示字符串 <code>"a"</code>。</li>
     	<li>而表达式 <code>"w"</code> 就表示字符串 <code>"w"</code>。</li>

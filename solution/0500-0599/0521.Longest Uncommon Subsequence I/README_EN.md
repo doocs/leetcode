@@ -15,7 +15,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = &quot;aba&quot;, b = &quot;cdc&quot;
@@ -24,7 +24,7 @@
 Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = &quot;aaa&quot;, b = &quot;bbb&quot;
@@ -32,7 +32,7 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 <strong>Explanation:</strong>&nbsp;The longest uncommon subsequences are &quot;aaa&quot; and &quot;bbb&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = &quot;aaa&quot;, b = &quot;aaa&quot;

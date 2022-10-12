@@ -13,7 +13,7 @@
 <p>Note that items with different indices are considered different even if they have the same deliciousness value.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> deliciousness = [1,3,5,7,9]
@@ -22,7 +22,7 @@
 Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> deliciousness = [1,1,1,3,3,3,7]

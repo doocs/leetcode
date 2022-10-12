@@ -13,7 +13,7 @@
 <p>The test cases are guaranteed so that the ray will meet a receptor eventually.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0858.Mirror%20Reflection/images/reflection.png" style="width: 218px; height: 217px;" />
 <pre>
 <strong>Input:</strong> p = 2, q = 1
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> The ray meets receptor 2 the first time it gets reflected back to the left wall.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> p = 3, q = 1

@@ -11,7 +11,7 @@
 <p>A string is <strong>palindromic</strong> if it reads the same forward and backward.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 9
@@ -22,7 +22,7 @@ Therefore, 9 is not strictly palindromic so we return false.
 Note that in bases 4, 5, 6, and 7, n = 9 is also not palindromic.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4

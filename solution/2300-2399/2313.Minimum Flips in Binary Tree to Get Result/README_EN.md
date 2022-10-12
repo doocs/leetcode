@@ -29,7 +29,7 @@
 <p>Note: <code>NOT</code> nodes have either a left child or a right child, but other non-leaf nodes have both a left child and a right child.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/images/operationstree.png" style="width: 500px; height: 179px;" />
 <pre>
 <strong>Input:</strong> root = [3,5,4,2,null,1,1,1,0], result = true
@@ -39,7 +39,7 @@ It can be shown that a minimum of 2 nodes have to be flipped to make the root of
 evaluate to true. One way to achieve this is shown in the diagram above.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0], result = false

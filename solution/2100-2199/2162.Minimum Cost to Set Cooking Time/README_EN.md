@@ -29,7 +29,7 @@
 <p>Remember that one minute consists of <code>60</code> seconds.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/images/1.png" style="width: 506px; height: 210px;" />
 <pre>
 <strong>Input:</strong> startAt = 1, moveCost = 2, pushCost = 1, targetSeconds = 600
@@ -46,7 +46,7 @@
 &nbsp; The cost is: 2 + 1 + 2 + 1 + 2 + 1 = 9.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/images/2.png" style="width: 505px; height: 73px;" />
 <pre>
 <strong>Input:</strong> startAt = 0, moveCost = 1, pushCost = 2, targetSeconds = 76

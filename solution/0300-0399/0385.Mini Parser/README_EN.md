@@ -9,7 +9,7 @@
 <p>Each element is either an integer or a list whose elements may also be integers or other lists.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;324&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> You should return a NestedInteger object which contains a single integer 324.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;[123,[456,[789]]]&quot;

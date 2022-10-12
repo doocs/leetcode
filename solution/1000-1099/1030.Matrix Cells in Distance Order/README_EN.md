@@ -11,7 +11,7 @@
 <p>The <strong>distance</strong> between two cells <code>(r<sub>1</sub>, c<sub>1</sub>)</code> and <code>(r<sub>2</sub>, c<sub>2</sub>)</code> is <code>|r<sub>1</sub> - r<sub>2</sub>| + |c<sub>1</sub> - c<sub>2</sub>|</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> rows = 1, cols = 2, rCenter = 0, cCenter = 0
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The distances from (0, 0) to other cells are: [0,1]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> rows = 2, cols = 2, rCenter = 0, cCenter = 1
@@ -28,7 +28,7 @@
 The answer [[0,1],[1,1],[0,0],[1,0]] would also be accepted as correct.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> rows = 2, cols = 3, rCenter = 1, cCenter = 2

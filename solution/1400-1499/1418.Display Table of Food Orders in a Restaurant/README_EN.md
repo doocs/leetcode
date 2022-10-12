@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -38,7 +38,7 @@ For the table 10: Corina orders &quot;Beef Burrito&quot;.
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -54,7 +54,7 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 
@@ -69,11 +69,17 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;=&nbsp;orders.length &lt;= 5 * 10^4</code></li>
+
     <li><code>orders[i].length == 3</code></li>
+
     <li><code>1 &lt;= customerName<sub>i</sub>.length, foodItem<sub>i</sub>.length &lt;= 20</code></li>
+
     <li><code>customerName<sub>i</sub></code> and <code>foodItem<sub>i</sub></code> consist of lowercase and uppercase English letters and the space character.</li>
+
     <li><code>tableNumber<sub>i</sub>&nbsp;</code>is a valid integer between <code>1</code> and <code>500</code>.</li>
+
 </ul>
 
 ## Solutions

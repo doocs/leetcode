@@ -21,7 +21,7 @@
 <p>Return <em>the <strong>minimum number of skips required</strong> to arrive at the meeting on time, or</em> <code>-1</code><em> if it is<strong> impossible</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> dist = [1,3,2], speed = 4, hoursBefore = 2
@@ -32,7 +32,7 @@ You can skip the first rest to arrive in ((1/4 + <u>0</u>) + (3/4 + 0)) + (2/4) 
 Note that the second rest is shortened because you finish traveling the second road at an integer hour due to skipping the first rest.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> dist = [7,3,5,5], speed = 2, hoursBefore = 10
@@ -42,7 +42,7 @@ Without skipping any rests, you will arrive in (7/2 + 1/2) + (3/2 + 1/2) + (5/2 
 You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)) + ((5/2 + <u>0</u>) + (5/2)) = 10 hours.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> dist = [7,3,5,5], speed = 1, hoursBefore = 10

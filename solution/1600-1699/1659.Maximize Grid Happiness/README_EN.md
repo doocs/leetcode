@@ -20,7 +20,7 @@
 <p>The <strong>grid happiness</strong> is the <strong>sum</strong> of each person&#39;s happiness. Return<em> the <strong>maximum possible grid happiness</strong>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1659.Maximize%20Grid%20Happiness/images/grid_happiness.png" style="width: 261px; height: 121px;" />
 <pre>
 <strong>Input:</strong> m = 2, n = 3, introvertsCount = 1, extrovertsCount = 2
@@ -34,7 +34,7 @@ The grid happiness is 120 + 60 + 60 = 240.
 The above figure shows the grid in this example with each person&#39;s happiness. The introvert stays in the light green cell while the extroverts live on the light purple cells.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> m = 3, n = 1, introvertsCount = 2, extrovertsCount = 1
@@ -46,7 +46,7 @@ The above figure shows the grid in this example with each person&#39;s happiness
 The grid happiness is 90 + 80 + 90 = 260.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> m = 2, n = 2, introvertsCount = 4, extrovertsCount = 0

@@ -34,7 +34,7 @@
 <p>An <strong>ancestor</strong> of a node is any node on the path from the root to that node (excluding the node itself). The root has no ancestors.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/images/trees2.png" style="width: 208px; height: 221px;" />
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[2,3]]
@@ -42,7 +42,7 @@
 <strong>Explanation:</strong> There is exactly one valid rooted tree, which is shown in the above figure.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/images/tree.png" style="width: 234px; height: 241px;" />
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[2,3],[1,3]]
@@ -50,7 +50,7 @@
 <strong>Explanation:</strong> There are multiple valid rooted trees. Three of them are shown in the above figures.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[2,3],[2,4],[1,5]]

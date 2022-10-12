@@ -64,7 +64,7 @@ Order_date is the date in format (&#39;YYYY-MM-DD&#39;) when the order was shipp
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

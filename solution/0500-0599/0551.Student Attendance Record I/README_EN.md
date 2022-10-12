@@ -22,7 +22,7 @@
 <p>Return <code>true</code><em> if the student is eligible for an attendance award, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;PPALLP&quot;
@@ -30,7 +30,7 @@
 <strong>Explanation:</strong> The student has fewer than 2 absences and was never late 3 or more consecutive days.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;PPALLL&quot;

@@ -11,7 +11,7 @@
 <p>Return <em>an array </em><code>answer</code><em> of length </em><code>n</code><em>, where </em><code>answer[i]</code><em> is the total number of seats reserved for flight </em><code>i</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5
@@ -25,7 +25,7 @@ Total seats:         10  55  45  25  25
 Hence, answer = [10,55,45,25,25]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> bookings = [[1,2,10],[2,2,15]], n = 2

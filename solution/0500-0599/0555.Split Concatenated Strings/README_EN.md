@@ -18,7 +18,7 @@
 <p>And your job is to find the lexicographically largest one among all the possible regular strings.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> strs = [&quot;abc&quot;,&quot;xyz&quot;]
@@ -27,7 +27,7 @@
 The answer string came from the fourth looped one, where you could cut from the middle character &#39;a&#39; and get &quot;zyxcba&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> strs = [&quot;abc&quot;]

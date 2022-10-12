@@ -9,7 +9,7 @@
 <p>Only include the sum of all the elements on the primary diagonal and all the elements on the secondary diagonal that are not part of the primary diagonal.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/images/sample_1911.png" style="width: 336px; height: 174px;" />
 <pre>
 <strong>Input:</strong> mat = [[<strong>1</strong>,2,<strong>3</strong>],
@@ -20,7 +20,7 @@
 Notice that element mat[1][1] = 5 is counted only once.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[<strong>1</strong>,1,1,<strong>1</strong>],
@@ -30,7 +30,7 @@ Notice that element mat[1][1] = 5 is counted only once.
 <strong>Output:</strong> 8
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[<strong>5</strong>]]

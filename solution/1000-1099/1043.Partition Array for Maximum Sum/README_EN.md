@@ -9,7 +9,7 @@
 <p>Return <em>the largest sum of the given array after partitioning. Test cases are generated so that the answer fits in a <strong>32-bit</strong> integer.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,15,7,9,2,5,10], k = 3
@@ -17,14 +17,14 @@
 <strong>Explanation:</strong> arr becomes [15,15,15,9,10,10,10]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,4,1,5,7,3,6,1,9,9,3], k = 4
 <strong>Output:</strong> 83
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1], k = 1

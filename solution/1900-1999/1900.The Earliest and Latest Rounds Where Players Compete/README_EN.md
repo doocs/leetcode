@@ -10,12 +10,14 @@
 
 <ul>
 	<li>For example, if the row consists of players <code>1, 2, 4, 6, 7</code>
+
     <ul>
     	<li>Player <code>1</code> competes against player <code>7</code>.</li>
     	<li>Player <code>2</code> competes against player <code>6</code>.</li>
     	<li>Player <code>4</code> automatically advances to the next round.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>After each round is over, the winners are lined back up in the row based on the <strong>original ordering</strong> assigned to them initially (ascending order).</p>
@@ -25,7 +27,7 @@
 <p>Given the integers <code>n</code>, <code>firstPlayer</code>, and <code>secondPlayer</code>, return <em>an integer array containing two values, the <strong>earliest</strong> possible round number and the&nbsp;<strong>latest</strong> possible round number in which these two players will compete against each other, respectively</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 11, firstPlayer = 2, secondPlayer = 4
@@ -42,7 +44,7 @@ Third round: 1, 2, 4
 Fourth round: 2, 4
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 5, firstPlayer = 1, secondPlayer = 5

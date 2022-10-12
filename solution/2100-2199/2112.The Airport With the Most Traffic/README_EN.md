@@ -27,7 +27,7 @@ Each row of this table indicates that there were flights_count flights that depa
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 
@@ -52,7 +52,7 @@ Airport 4 was engaged with 5 flights (5 arrivals).
 The airport with the most traffic is airport 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

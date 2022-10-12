@@ -9,21 +9,21 @@
 <p>Return <em>all the possible results</em>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;()())()&quot;
 <strong>Output:</strong> [&quot;(())()&quot;,&quot;()()()&quot;]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;(a)())()&quot;
 <strong>Output:</strong> [&quot;(a())()&quot;,&quot;(a)()()&quot;]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;)(&quot;

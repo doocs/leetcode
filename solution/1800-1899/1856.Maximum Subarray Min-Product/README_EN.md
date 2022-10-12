@@ -17,7 +17,7 @@
 <p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,<u>2,3,2</u>]
@@ -26,7 +26,7 @@
 2 * (2+3+2) = 2 * 7 = 14.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,<u>3,3</u>,1,2]
@@ -35,7 +35,7 @@
 3 * (3+3) = 3 * 6 = 18.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,<u>5,6,4</u>,2]

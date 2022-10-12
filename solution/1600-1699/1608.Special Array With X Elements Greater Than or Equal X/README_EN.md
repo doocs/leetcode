@@ -11,7 +11,7 @@
 <p>Return <code>x</code> <em>if the array is <strong>special</strong>, otherwise, return </em><code>-1</code>. It can be proven that if <code>nums</code> is special, the value for <code>x</code> is <strong>unique</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,5]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> There are 2 values (3 and 5) that are greater than or equal to 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,0]
@@ -31,7 +31,7 @@ If x = 2, there should be 2 numbers &gt;= x, but there are 0.
 x cannot be greater since there are only 2 numbers in nums.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,4,3,0,4]

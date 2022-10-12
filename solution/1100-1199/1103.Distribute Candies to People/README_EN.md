@@ -15,7 +15,7 @@
 <p>Return an array (of length <code>num_people</code>&nbsp;and sum <code>candies</code>) that represents the final distribution of candies.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = 7, num_people = 4
@@ -27,7 +27,7 @@ On the third turn, ans[2] += 3, and the array is [1,2,3,0].
 On the fourth turn, ans[3] += 1 (because there is only one candy left), and the final array is [1,2,3,1].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = 10, num_people = 3

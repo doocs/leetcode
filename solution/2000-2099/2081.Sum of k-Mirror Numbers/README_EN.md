@@ -14,7 +14,7 @@
 <p>Given the base <code>k</code> and the number <code>n</code>, return <em>the <strong>sum</strong> of the</em> <code>n</code> <em><strong>smallest</strong> k-mirror numbers</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 2, n = 5
@@ -30,7 +30,7 @@
 Their sum = 1 + 3 + 5 + 7 + 9 = 25. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 3, n = 7
@@ -48,7 +48,7 @@ Their sum = 1 + 3 + 5 + 7 + 9 = 25.
 Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> k = 7, n = 17

@@ -9,7 +9,7 @@
 <p>An integer <code>x</code> is a <strong>common factor</strong> of <code>a</code> and <code>b</code> if <code>x</code> divides both <code>a</code> and <code>b</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 12, b = 6
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> The common factors of 12 and 6 are 1, 2, 3, 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 25, b = 30
@@ -99,10 +99,10 @@ function commonFactors(a: number, b: number): number {
     const n = Math.min(a, b);
     let ans = 0;
     for (let i = 1; i <= n; i++) {
-        if(a % i == 0 && b % i == 0) ans += 1;
+        if (a % i == 0 && b % i == 0) ans += 1;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

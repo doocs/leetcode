@@ -11,7 +11,7 @@
 <p>The <strong>cost</strong> is the sum of the connections&#39; costs used.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/images/1314_ex2.png" style="width: 161px; height: 141px;" />
 <pre>
 <strong>Input:</strong> n = 3, connections = [[1,2,5],[1,3,6],[2,3,1]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> Choosing any 2 edges will connect all cities so we choose the minimum 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/images/1314_ex1.png" style="width: 136px; height: 91px;" />
 <pre>
 <strong>Input:</strong> n = 4, connections = [[1,2,3],[3,4,4]]

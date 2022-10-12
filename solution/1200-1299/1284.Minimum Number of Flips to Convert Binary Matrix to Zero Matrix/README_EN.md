@@ -13,7 +13,7 @@
 <p>A <strong>zero matrix</strong> is a matrix with all cells equal to <code>0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1284.Minimum%20Number%20of%20Flips%20to%20Convert%20Binary%20Matrix%20to%20Zero%20Matrix/images/matrix.png" style="width: 409px; height: 86px;" />
 <pre>
 <strong>Input:</strong> mat = [[0,0],[0,1]]
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> One possible solution is to flip (1, 0) then (0, 1) and finally (1, 1) as shown.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[0]]
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> Given matrix is a zero matrix. We do not need to change it.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[1,0,0],[1,0,0]]

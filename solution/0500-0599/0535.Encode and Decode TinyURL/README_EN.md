@@ -19,7 +19,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> url = &quot;https://leetcode.com/problems/design-tinyurl&quot;

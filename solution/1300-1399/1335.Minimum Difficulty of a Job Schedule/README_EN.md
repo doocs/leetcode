@@ -13,7 +13,7 @@
 <p>Return <em>the minimum difficulty of a job schedule</em>. If you cannot find a schedule for the jobs return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/images/untitled.png" style="width: 365px; height: 370px;" />
 <pre>
 <strong>Input:</strong> jobDifficulty = [6,5,4,3,2,1], d = 2
@@ -23,7 +23,7 @@ Second day you can finish the last job, total difficulty = 1.
 The difficulty of the schedule = 6 + 1 = 7 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> jobDifficulty = [9,9,9], d = 4
@@ -31,7 +31,7 @@ The difficulty of the schedule = 6 + 1 = 7
 <strong>Explanation:</strong> If you finish a job per day you will still have a free day. you cannot find a schedule for the given jobs.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> jobDifficulty = [1,1,1], d = 3

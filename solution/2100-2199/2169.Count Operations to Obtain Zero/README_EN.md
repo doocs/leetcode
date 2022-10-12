@@ -15,7 +15,7 @@
 <p>Return <em>the <strong>number of operations</strong> required to make either</em> <code>num1 = 0</code> <em>or</em> <code>num2 = 0</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num1 = 2, num2 = 3
@@ -28,7 +28,7 @@ Now num1 = 0 and num2 = 1. Since num1 == 0, we do not need to perform any furthe
 So the total number of operations required is 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num1 = 10, num2 = 10

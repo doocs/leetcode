@@ -17,7 +17,7 @@
 <p>A node is a <strong>leaf</strong> if and only if it has zero children.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/images/tree1.jpg" style="width: 500px; height: 169px;" />
 <pre>
 <strong>Input:</strong> arr = [6,2,4]
@@ -26,7 +26,7 @@
 The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/images/tree2.jpg" style="width: 224px; height: 145px;" />
 <pre>
 <strong>Input:</strong> arr = [4,11]

@@ -15,7 +15,7 @@
 <p>Return <i>the array </i><code>answer</code><i> as described above</i>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> logs = [[0,5],[1,2],[0,2],[0,5],[1,3]], k = 5
@@ -26,7 +26,7 @@ The user with ID=1 performed actions at minutes 2 and 3. Hence, they have a UAM 
 Since both users have a UAM of 2, answer[2] is 2, and the remaining answer[j] values are 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> logs = [[1,1],[2,2],[2,3]], k = 4

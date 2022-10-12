@@ -32,7 +32,7 @@ class FooBar {
 <p>Modify the given program to output <code>&quot;foobar&quot;</code> <code>n</code> times.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 1
@@ -41,7 +41,7 @@ class FooBar {
 &quot;foobar&quot; is being output 1 time.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 2

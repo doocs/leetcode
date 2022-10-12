@@ -26,7 +26,7 @@
 <p>Given a target position <code>target</code>, return <em>the length of the shortest sequence of instructions to get there</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 3
@@ -36,7 +36,7 @@ The shortest instruction sequence is &quot;AA&quot;.
 Your position goes from 0 --&gt; 1 --&gt; 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 6

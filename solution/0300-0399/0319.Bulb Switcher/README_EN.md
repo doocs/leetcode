@@ -11,7 +11,7 @@
 <p>Return <em>the number of bulbs that are on after <code>n</code> rounds</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0319.Bulb%20Switcher/images/bulb.jpg" style="width: 421px; height: 321px;" />
 <pre>
 <strong>Input:</strong> n = 3
@@ -22,14 +22,14 @@ After the second round, the three bulbs are [on, off, on].
 After the third round, the three bulbs are [on, off, off]. 
 So you should return 1 because there is only one bulb is on.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 0
 <strong>Output:</strong> 0
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 1

@@ -9,7 +9,7 @@
 <p>In other words, return <code>true</code> if one of <code>s1</code>&#39;s permutations is the substring of <code>s2</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;ab&quot;, s2 = &quot;eidbaooo&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> s2 contains one permutation of s1 (&quot;ba&quot;).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;ab&quot;, s2 = &quot;eidboaoo&quot;

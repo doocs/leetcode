@@ -11,7 +11,7 @@
 <p>Return <em>the maximum length of a subarray with positive product</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,-2,-3,4]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The array nums already has a positive product of 24.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,-2,-3,-4]
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> The longest subarray with positive product is [1,-2,-3] which has a product of 6.
 Notice that we cannot include 0 in the subarray since that&#39;ll make the product 0 which is not positive.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,-2,-3,0,1]

@@ -14,7 +14,7 @@
 <p>Return <em>the <strong>capitalized</strong> </em><code>title</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> title = &quot;capiTalIze tHe titLe&quot;
@@ -23,7 +23,7 @@
 Since all the words have a length of at least 3, the first letter of each word is uppercase, and the remaining letters are lowercase.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> title = &quot;First leTTeR of EACH Word&quot;
@@ -33,7 +33,7 @@ The word &quot;of&quot; has length 2, so it is all lowercase.
 The remaining words have a length of at least 3, so the first letter of each remaining word is uppercase, and the remaining letters are lowercase.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> title = &quot;i lOve leetcode&quot;

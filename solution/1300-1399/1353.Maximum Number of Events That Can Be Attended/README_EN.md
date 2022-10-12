@@ -11,7 +11,7 @@
 <p>Return <em>the maximum number of events you can attend</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1353.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended/images/e1.png" style="width: 400px; height: 267px;" />
 <pre>
 <strong>Input:</strong> events = [[1,2],[2,3],[3,4]]
@@ -23,7 +23,7 @@ Attend the second event on day 2.
 Attend the third event on day 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> events= [[1,2],[2,3],[3,4],[1,2]]

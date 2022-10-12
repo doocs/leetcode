@@ -11,7 +11,7 @@
 <p>The <strong>most significant bit</strong> is at the head of the linked list.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/images/graph-1.png" style="width: 426px; height: 108px;" />
 <pre>
 <strong>Input:</strong> head = [1,0,1]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> (101) in base 2 = (5) in base 10
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> head = [0]

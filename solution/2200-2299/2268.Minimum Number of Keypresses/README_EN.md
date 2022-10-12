@@ -19,7 +19,7 @@
 <p><strong>Note</strong> that the characters mapped to by each button, and the order they are mapped in cannot be changed.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/images/image-20220505184346-1.png" style="width: 300px; height: 293px;" />
 <pre>
 <strong>Input:</strong> s = &quot;apple&quot;
@@ -33,7 +33,7 @@ Type &#39;e&#39; by pressing button 3 once.
 A total of 5 button presses are needed, so return 5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/images/image-20220505203823-1.png" style="width: 300px; height: 288px;" />
 <pre>
 <strong>Input:</strong> s = &quot;abcdefghijkl&quot;

@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>diameter</strong> of the tree</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree1.jpg" style="width: 224px; height: 145px;" />
 <pre>
 <strong>Input:</strong> edges = [[0,1],[0,2]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The longest path of the tree is the path 1 - 0 - 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree2.jpg" style="width: 224px; height: 225px;" />
 <pre>
 <strong>Input:</strong> edges = [[0,1],[1,2],[2,3],[1,4],[4,5]]

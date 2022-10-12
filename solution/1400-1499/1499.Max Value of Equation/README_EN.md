@@ -11,7 +11,7 @@
 <p>It is guaranteed that there exists at least one pair of points that satisfy the constraint <code>|x<sub>i</sub> - x<sub>j</sub>| &lt;= k</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> points = [[1,3],[2,0],[5,10],[6,-10]], k = 1
@@ -20,7 +20,7 @@
 No other pairs satisfy the condition, so we return the max of 4 and 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> points = [[0,0],[3,0],[9,2]], k = 3

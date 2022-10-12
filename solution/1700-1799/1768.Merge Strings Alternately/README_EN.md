@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -28,7 +28,7 @@ merged: a p b q c r
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -46,7 +46,7 @@ merged: a p b q   r   s
 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 
@@ -69,8 +69,11 @@ merged: a p b q c   d
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>1 &lt;= word1.length, word2.length &lt;= 100</code></li>
+
     <li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
+
 </ul>
 
 ## Solutions

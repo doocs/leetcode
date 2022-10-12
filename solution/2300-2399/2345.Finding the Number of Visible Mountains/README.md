@@ -13,7 +13,7 @@
 <p>Return <em>the number of visible mountains</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/images/ex1.png" style="width: 402px; height: 210px;" />
 <pre>
 <strong>Input:</strong> peaks = [[2,2],[6,3],[5,4]]
@@ -24,7 +24,7 @@
 - Mountain 2 is visible since its peak does not lie within another mountain or its sides.
 There are 2 mountains that are visible.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/images/ex2new1.png" style="width: 300px; height: 180px;" />
 <pre>
 <strong>Input:</strong> peaks = [[1,3],[1,3]]

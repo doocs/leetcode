@@ -11,7 +11,7 @@
 <p>Return <em>an array </em><code>answer</code><em> where </em><code>answer.length == queries.length</code><em> and </em><code>answer[i]</code><em> is the answer to the </em><code>i<sup>th</sup></code><em> query <b>modulo</b> </em><code>10<sup>9 </sup>+ 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,2,3,4,5,6,7], queries = [[0,3],[5,1],[4,2]]
@@ -22,7 +22,7 @@
 3) The j indices that satisfy this query are 4 and 6. nums[4] + nums[6] = 10
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [100,200,101,201,102,202,103,203], queries = [[0,7]]

@@ -9,7 +9,7 @@
 <p>The <code>floor()</code> function returns the integer part of the division.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,5,9]
@@ -23,7 +23,7 @@ floor(9 / 5) = 1
 We calculate the floor of the division for every pair of indices in the array then sum them up.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [7,7,7,7,7,7,7]

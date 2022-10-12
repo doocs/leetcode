@@ -16,7 +16,7 @@
 <p>Return <code>true</code><em> if such partition is possible, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> deck = [1,2,3,4,4,3,2,1]
@@ -24,7 +24,7 @@
 <strong>Explanation</strong>: Possible partition [1,1],[2,2],[3,3],[4,4].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> deck = [1,1,1,2,2,2,3,3]

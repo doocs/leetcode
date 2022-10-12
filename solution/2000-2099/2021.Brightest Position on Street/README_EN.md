@@ -11,7 +11,7 @@
 <p>Given <code>lights</code>, return <em>the <strong>brightest</strong> position on the</em><em> street. If there are multiple brightest positions, return the <strong>smallest</strong> one.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2021.Brightest%20Position%20on%20Street/images/image-20210928155140-1.png" style="width: 700px; height: 165px;" />
 <pre>
 <strong>Input:</strong> lights = [[-3,2],[1,2],[3,3]]
@@ -27,7 +27,7 @@ Out of all these positions, -1 is the smallest, so return it.
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> lights = [[1,0],[0,1]]
@@ -40,7 +40,7 @@ Position 1 has a brightness of 2, illuminated by the first and second street lig
 Return 1 because it is the brightest position on the street.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> lights = [[1,2]]

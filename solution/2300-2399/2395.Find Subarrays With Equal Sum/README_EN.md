@@ -11,7 +11,7 @@
 <p>A <b>subarray</b> is a contiguous non-empty sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,2,4]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The subarrays with elements [4,2] and [2,4] have the same sum of 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,5]
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> No two subarrays of size 2 have the same sum.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,0,0]

@@ -9,10 +9,15 @@
 <p>A triplet <code>(arr[i], arr[j], arr[k])</code>&nbsp;is <strong>good</strong> if the following conditions are true:</p>
 
 <ul>
+
     <li><code>0 &lt;= i &lt; j &lt; k &lt;&nbsp;arr.length</code></li>
+
     <li><code>|arr[i] - arr[j]| &lt;= a</code></li>
+
     <li><code>|arr[j] - arr[k]| &lt;= b</code></li>
+
     <li><code>|arr[i] - arr[k]| &lt;= c</code></li>
+
 </ul>
 
 <p>Where <code>|x|</code> denotes the absolute value of <code>x</code>.</p>
@@ -21,7 +26,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -33,7 +38,7 @@
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -50,9 +55,13 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>3 &lt;= arr.length &lt;= 100</code></li>
+
     <li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
+
     <li><code>0 &lt;= a, b, c &lt;= 1000</code></li>
+
 </ul>
 
 ## Solutions

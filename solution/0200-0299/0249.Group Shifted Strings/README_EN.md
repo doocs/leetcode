@@ -19,10 +19,10 @@
 <p>Given an array of strings <code>strings</code>, group all <code>strings[i]</code> that belong to the same shifting sequence. You may return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> strings = ["abc","bcd","acef","xyz","az","ba","a","z"]
 <strong>Output:</strong> [["acef"],["a","z"],["abc","bcd","xyz"],["az","ba"]]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> strings = ["a"]
 <strong>Output:</strong> [["a"]]
 </pre>

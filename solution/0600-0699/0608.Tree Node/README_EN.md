@@ -35,7 +35,7 @@ The given structure is always a valid tree.
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0608.Tree%20Node/images/tree1.jpg" style="width: 304px; height: 224px;" />
 <pre>
 <strong>Input:</strong> 
@@ -65,7 +65,7 @@ Node 2 is an inner node because it has parent node 1 and child node 4 and 5.
 Nodes 3, 4, and 5 are leaf nodes because they have parent nodes and they do not have child nodes.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0608.Tree%20Node/images/tree2.jpg" style="width: 64px; height: 65px;" />
 <pre>
 <strong>Input:</strong> 

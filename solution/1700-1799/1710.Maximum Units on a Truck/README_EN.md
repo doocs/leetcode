@@ -16,7 +16,7 @@
 <p>Return <em>the <strong>maximum</strong> total number of <strong>units</strong> that can be put on the truck.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxTypes = [[1,3],[2,2],[3,1]], truckSize = 4
@@ -29,7 +29,7 @@ You can take all the boxes of the first and second types, and one box of the thi
 The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> boxTypes = [[5,10],[2,5],[4,7],[3,9]], truckSize = 10

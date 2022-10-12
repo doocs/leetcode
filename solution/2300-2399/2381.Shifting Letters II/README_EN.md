@@ -11,7 +11,7 @@
 <p>Return <em>the final string after all such shifts to </em><code>s</code><em> are applied</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abc&quot;, shifts = [[0,1,0],[1,2,1],[0,2,1]]
@@ -20,7 +20,7 @@
 Secondly, shift the characters from index 1 to index 2 forward. Now s = &quot;zbd&quot;.
 Finally, shift the characters from index 0 to index 2 forward. Now s = &quot;ace&quot;.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;dztz&quot;, shifts = [[0,0,0],[1,1,1]]

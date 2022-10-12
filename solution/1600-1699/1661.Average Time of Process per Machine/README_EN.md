@@ -37,7 +37,7 @@ The &#39;start&#39; timestamp will always be before the &#39;end&#39; timestamp 
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

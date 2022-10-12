@@ -11,7 +11,7 @@
 <p>Return <em>the largest number of chunks we can make to sort the array</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [5,4,3,2,1]
@@ -21,7 +21,7 @@ Splitting into two or more chunks will not return the required result.
 For example, splitting into [5, 4], [3, 2, 1] will result in [4, 5, 1, 2, 3], which isn&#39;t sorted.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,1,3,4,4]

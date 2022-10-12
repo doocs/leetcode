@@ -9,7 +9,7 @@
 <p>The score after splitting a string is the number of <strong>zeros</strong> in the <strong>left</strong> substring plus the number of <strong>ones</strong> in the <strong>right</strong> substring.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;011101&quot;
@@ -23,7 +23,7 @@ left = &quot;0111&quot; and right = &quot;01&quot;, score = 1 + 1 = 2
 left = &quot;01110&quot; and right = &quot;1&quot;, score = 2 + 1 = 3
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;00111&quot;
@@ -31,7 +31,7 @@ left = &quot;01110&quot; and right = &quot;1&quot;, score = 2 + 1 = 3
 <strong>Explanation:</strong> When left = &quot;00&quot; and right = &quot;111&quot;, we get the maximum score = 2 + 3 = 5
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1111&quot;

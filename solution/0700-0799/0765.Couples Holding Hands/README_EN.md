@@ -11,7 +11,7 @@
 <p>Return <em>the minimum number of swaps so that every couple is sitting side by side</em>. A swap consists of choosing any two people, then they stand up and switch seats.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> row = [0,2,1,3]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> We only need to swap the second (row[1]) and third (row[2]) person.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> row = [3,2,0,1]

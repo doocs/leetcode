@@ -9,7 +9,7 @@
 <p>Return the maximum possible number of ones that the matrix <code>M</code> can have.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> width = 3, height = 3, sideLength = 2, maxOnes = 1
@@ -22,7 +22,7 @@ The best solution that has 4 ones is:
 [1,0,1]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> width = 3, height = 3, sideLength = 2, maxOnes = 2

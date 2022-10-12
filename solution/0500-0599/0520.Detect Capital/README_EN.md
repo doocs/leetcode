@@ -15,10 +15,10 @@
 <p>Given a string <code>word</code>, return <code>true</code> if the usage of capitals in it is right.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> word = "USA"
 <strong>Output:</strong> true
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> word = "FlaG"
 <strong>Output:</strong> false
 </pre>

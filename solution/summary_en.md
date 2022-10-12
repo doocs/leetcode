@@ -527,7 +527,7 @@
   - [0515.Find Largest Value in Each Tree Row](/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/README_EN.md)
   - [0516.Longest Palindromic Subsequence](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README_EN.md)
   - [0517.Super Washing Machines](/solution/0500-0599/0517.Super%20Washing%20Machines/README_EN.md)
-  - [0518.Coin Change 2](/solution/0500-0599/0518.Coin%20Change%202/README_EN.md)
+  - [0518.Coin Change II](/solution/0500-0599/0518.Coin%20Change%20II/README_EN.md)
   - [0519.Random Flip Matrix](/solution/0500-0599/0519.Random%20Flip%20Matrix/README_EN.md)
   - [0520.Detect Capital](/solution/0500-0599/0520.Detect%20Capital/README_EN.md)
   - [0521.Longest Uncommon Subsequence I](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README_EN.md)
@@ -2483,3 +2483,4 @@
   - [2433.Find The Original Array of Prefix Xor](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md)
   - [2434.Using a Robot to Print the Lexicographically Smallest String](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README_EN.md)
   - [2435.Paths in Matrix Whose Sum Is Divisible by K](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README_EN.md)
+  - [2436.Minimum Split Into Subarrays With GCD Greater Than One](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README_EN.md)

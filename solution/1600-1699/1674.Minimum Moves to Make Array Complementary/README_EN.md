@@ -11,7 +11,7 @@
 <p>Return the <em><strong>minimum</strong> number of moves required to make </em><code>nums</code><em> <strong>complementary</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,4,3], limit = 4
@@ -24,7 +24,7 @@ nums[3] + nums[0] = 3 + 1 = 4.
 Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,2,1], limit = 2
@@ -32,7 +32,7 @@ Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 <strong>Explanation:</strong> In 2 moves, you can change nums to [<u>2</u>,2,2,<u>2</u>]. You cannot change any number to 3 since 3 &gt; limit.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,1,2], limit = 2

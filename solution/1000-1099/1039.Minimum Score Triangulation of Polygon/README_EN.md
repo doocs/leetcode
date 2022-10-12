@@ -11,7 +11,7 @@
 <p>Return <em>the smallest possible total score that you can achieve with some triangulation of the polygon</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape1.jpg" style="width: 201px; height: 133px;" />
 <pre>
 <strong>Input:</strong> values = [1,2,3]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The polygon is already triangulated, and the score of the only triangle is 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape2.jpg" style="width: 446px; height: 163px;" />
 <pre>
 <strong>Input:</strong> values = [3,7,4,5]
@@ -28,7 +28,7 @@
 The minimum score is 144.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape3.jpg" style="width: 207px; height: 163px;" />
 <pre>
 <strong>Input:</strong> values = [1,3,1,4,1,5]

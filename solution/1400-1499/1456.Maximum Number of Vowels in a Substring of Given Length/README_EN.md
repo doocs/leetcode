@@ -9,7 +9,7 @@
 <p><strong>Vowel letters</strong> in English are <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abciiidef&quot;, k = 3
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> The substring &quot;iii&quot; contains 3 vowel letters.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aeiou&quot;, k = 2
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> Any substring of length 2 contains 2 vowels.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;leetcode&quot;, k = 3

@@ -11,7 +11,7 @@
 <p>Return <em>the number of <strong>weak</strong> characters</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> properties = [[5,5],[6,3],[3,6]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> No character has strictly greater attack and defense than the other.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> properties = [[2,2],[3,3]]
@@ -27,7 +27,7 @@
 <strong>Explanation:</strong> The first character is weak because the second character has a strictly greater attack and defense.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> properties = [[1,5],[10,4],[4,3]]

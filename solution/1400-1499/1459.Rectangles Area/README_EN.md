@@ -33,7 +33,7 @@ Each point is represented as a 2D coordinate (x_value, y_value).</pre>
 <p>The query result format is in the following table.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1459.Rectangles%20Area/images/rect.png" style="width: 303px; height: 500px;" />
 <pre>
 <strong>Input:</strong> 

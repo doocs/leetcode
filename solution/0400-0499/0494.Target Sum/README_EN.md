@@ -15,7 +15,7 @@
 <p>Return the number of different <strong>expressions</strong> that you can build, which evaluates to <code>target</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,1,1,1], target = 3
@@ -28,7 +28,7 @@
 +1 + 1 + 1 + 1 - 1 = 3
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1], target = 1

@@ -11,7 +11,7 @@
 <p>A <strong>substring</strong> is a contiguous non-empty sequence of characters within a string.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aaabcbbcc&quot;, count = 3
@@ -25,7 +25,7 @@ The substring that starts at index 0 and ends at index 8 is &quot;aaabcbbcc&quot
 The letters &#39;a&#39;, &#39;b&#39;, and &#39;c&#39; in the substring appear exactly 3 times.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcd&quot;, count = 2
@@ -35,7 +35,7 @@ The number of times each letter appears in s is less than count.
 Therefore, no substrings in s are equal count substrings, so return 0.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;a&quot;, count = 5

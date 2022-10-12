@@ -11,7 +11,7 @@
 <p>An <strong>anagram</strong> of a string is a string that contains the same characters with a different (or the same) ordering.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;<strong><u>lee</u></strong>tco<u><strong>de</strong></u>&quot;, t = &quot;co<u><strong>a</strong></u>t<u><strong>s</strong></u>&quot;
@@ -24,7 +24,7 @@ We used a total of 2 + 5 = 7 steps.
 It can be shown that there is no way to make them anagrams of each other with less than 7 steps.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;night&quot;, t = &quot;thing&quot;

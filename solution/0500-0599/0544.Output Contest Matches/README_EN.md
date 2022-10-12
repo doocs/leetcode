@@ -13,7 +13,7 @@
 <p>We will use parentheses <code>&#39;(&#39;</code>, and <code>&#39;)&#39;</code> and commas <code>&#39;,&#39;</code> to represent the contest team pairing. We use the parentheses for pairing and the commas for partition. During the pairing process in each round, you always need to follow the strategy of making the rather strong one pair with the rather weak one.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4
@@ -25,7 +25,7 @@ In the second round, the winners of (1, 4) and (2, 3) need to play again to gene
 And we got the final answer ((1,4),(2,3)).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 8

@@ -15,7 +15,7 @@
 <p>Return <em>the <strong>maximum</strong> number of monsters that you can eliminate before you lose, or </em><code>n</code><em> if you can eliminate all the monsters before they reach the city.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> dist = [1,3,4], speed = [1,1,1]
@@ -26,7 +26,7 @@ After a minute, the distances of the monsters are [X,2,3]. You eliminate the sec
 After a minute, the distances of the monsters are [X,X,2]. You eliminate the thrid monster.
 All 3 monsters can be eliminated.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> dist = [1,1,2,3], speed = [1,1,1,1]
@@ -37,7 +37,7 @@ After a minute, the distances of the monsters are [X,0,1,2], so you lose.
 You can only eliminate 1 monster.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> dist = [3,2,4], speed = [5,3,2]

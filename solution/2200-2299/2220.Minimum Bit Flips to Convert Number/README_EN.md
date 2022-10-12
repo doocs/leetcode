@@ -13,7 +13,7 @@
 <p>Given two integers <code>start</code> and <code>goal</code>, return<em> the <strong>minimum</strong> number of <strong>bit flips</strong> to convert </em><code>start</code><em> to </em><code>goal</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> start = 10, goal = 7
@@ -24,7 +24,7 @@
 - Flip the fourth bit from the right: <u>1</u>111 -&gt; <u>0</u>111.
 It can be shown we cannot convert 10 to 7 in less than 3 steps. Hence, we return 3.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> start = 3, goal = 4

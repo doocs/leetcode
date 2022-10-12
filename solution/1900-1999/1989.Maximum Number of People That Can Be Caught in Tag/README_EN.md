@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> number of people that the people who are &quot;it&quot; can catch</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> team = [0,1,0,1,0], dist = 3
@@ -23,7 +23,7 @@ The person who is &quot;it&quot; at index 3 can catch people in the range [i-dis
 They can catch the person who is not &quot;it&quot; at index 0.
 The person who is not &quot;it&quot; at index 4 will not be caught because the people at indices 1 and 3 are already catching one person.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> team = [1], dist = 1
@@ -32,7 +32,7 @@ The person who is not &quot;it&quot; at index 4 will not be caught because the p
 There are no people who are not &quot;it&quot; to catch.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> team = [0], dist = 1

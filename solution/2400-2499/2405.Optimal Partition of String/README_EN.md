@@ -11,7 +11,7 @@
 <p>Note that each character should belong to exactly one substring in a partition.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abacaba&quot;
@@ -21,7 +21,7 @@ Two possible partitions are (&quot;a&quot;,&quot;ba&quot;,&quot;cab&quot;,&quot;
 It can be shown that 4 is the minimum number of substrings needed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ssssss&quot;

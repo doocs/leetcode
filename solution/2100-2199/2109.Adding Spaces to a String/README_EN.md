@@ -13,7 +13,7 @@
 <p>Return<strong> </strong><em>the modified string <strong>after</strong> the spaces have been added.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;LeetcodeHelpsMeLearn&quot;, spaces = [8,13,15]
@@ -23,7 +23,7 @@ The indices 8, 13, and 15 correspond to the underlined characters in &quot;Leetc
 We then place spaces before those characters.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;icodeinpython&quot;, spaces = [1,5,7,9]
@@ -33,7 +33,7 @@ The indices 1, 5, 7, and 9 correspond to the underlined characters in &quot;i<u>
 We then place spaces before those characters.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;spacing&quot;, spaces = [0,1,2,3,4,5,6]

@@ -11,7 +11,7 @@
 <p>Given the array <code>points</code>, return <em>the <strong>minimum</strong> number of arrows that must be shot to burst all balloons</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> points = [[10,16],[2,8],[1,6],[7,12]]
@@ -21,7 +21,7 @@
 - Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> points = [[1,2],[3,4],[5,6],[7,8]]
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> One arrow needs to be shot for each balloon for a total of 4 arrows.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> points = [[1,2],[2,3],[3,4],[4,5]]

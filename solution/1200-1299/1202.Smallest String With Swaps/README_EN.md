@@ -11,7 +11,7 @@
 <p>Return the&nbsp;lexicographically smallest string that <code>s</code>&nbsp;can be changed to after using the swaps.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;dcab&quot;, pairs = [[0,3],[1,2]]
@@ -21,7 +21,7 @@ Swap s[0] and s[3], s = &quot;bcad&quot;
 Swap s[1] and s[2], s = &quot;bacd&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;dcab&quot;, pairs = [[0,3],[1,2],[0,2]]
@@ -31,7 +31,7 @@ Swap s[0] and s[3], s = &quot;bcad&quot;
 Swap s[0] and s[2], s = &quot;acbd&quot;
 Swap s[1] and s[2], s = &quot;abcd&quot;</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;cba&quot;, pairs = [[0,1],[1,2]]

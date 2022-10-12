@@ -9,7 +9,7 @@
 <p>Substrings that occur multiple times are counted the number of times they occur.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;00110011&quot;
@@ -19,7 +19,7 @@ Notice that some of these substrings repeat and are counted the number of times 
 Also, &quot;00110011&quot; is not a valid substring because all the 0&#39;s (and 1&#39;s) are not grouped together.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;10101&quot;

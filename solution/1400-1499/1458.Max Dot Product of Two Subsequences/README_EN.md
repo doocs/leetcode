@@ -11,7 +11,7 @@
 <p>A subsequence of a array is a new array which is formed from the original array by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie,&nbsp;<code>[2,3,5]</code>&nbsp;is a subsequence of&nbsp;<code>[1,2,3,4,5]</code>&nbsp;while <code>[1,5,3]</code>&nbsp;is not).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [2,1,-2,5], nums2 = [3,0,-6]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> Take subsequence [2,-2] from nums1 and subsequence [3,-6] from nums2.
 Their dot product is (2*3 + (-2)*(-6)) = 18.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [3,-2], nums2 = [2,-6,7]
@@ -27,7 +27,7 @@ Their dot product is (2*3 + (-2)*(-6)) = 18.</pre>
 <strong>Explanation:</strong> Take subsequence [3] from nums1 and subsequence [7] from nums2.
 Their dot product is (3*7) = 21.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [-1,-1], nums2 = [1,1]

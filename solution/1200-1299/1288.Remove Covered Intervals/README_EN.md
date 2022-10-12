@@ -11,7 +11,7 @@
 <p>Return <em>the number of remaining intervals</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[1,4],[3,6],[2,8]]
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> Interval [3,6] is covered by [2,8], therefore it is removed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> intervals = [[1,4],[2,3]]

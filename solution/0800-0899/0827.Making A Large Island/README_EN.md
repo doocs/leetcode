@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 
@@ -24,7 +24,7 @@
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 
@@ -34,7 +34,7 @@
 
 <strong>Explanation: </strong>Change the 0 to 1 and make the island bigger, only one island with area = 4.</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 
@@ -51,10 +51,15 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>n == grid.length</code></li>
+
     <li><code>n == grid[i].length</code></li>
+
     <li><code>1 &lt;= n &lt;= 500</code></li>
+
     <li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+
 </ul>
 
 ## Solutions

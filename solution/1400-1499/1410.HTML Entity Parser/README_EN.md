@@ -22,7 +22,7 @@
 <p>Return <em>the text after replacing the entities by the special characters</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;&amp;amp; is an HTML entity but &amp;ambassador; is not.&quot;
@@ -30,7 +30,7 @@
 <strong>Explanation:</strong> The parser will replace the &amp;amp; entity by &amp;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;and I quote: &amp;quot;...&amp;quot;&quot;

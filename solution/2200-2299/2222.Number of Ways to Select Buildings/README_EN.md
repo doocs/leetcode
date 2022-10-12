@@ -20,7 +20,7 @@
 <p>Return <em>the <b>number of valid ways</b> to select 3 buildings.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;001101&quot;
@@ -36,7 +36,7 @@ The following sets of indices selected are valid:
 No other selection is valid. Thus, there are 6 total ways.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;11100&quot;

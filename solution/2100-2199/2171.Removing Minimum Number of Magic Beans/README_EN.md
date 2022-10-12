@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum</strong> number of magic beans that you have to remove</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> beans = [4,<u><strong>1</strong></u>,6,5]
@@ -27,7 +27,7 @@ We removed a total of 1 + 2 + 1 = 4 beans to make the remaining non-empty bags h
 There are no other solutions that remove 4 beans or fewer.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> beans = [<strong><u>2</u></strong>,10,<u><strong>3</strong></u>,<strong><u>2</u></strong>]

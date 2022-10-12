@@ -25,7 +25,7 @@
 <p>Return <em>the closest possible cost of the dessert to </em><code>target</code>. If there are multiple, return <em>the <strong>lower</strong> one.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> baseCosts = [1,7], toppingCosts = [3,4], target = 10
@@ -37,7 +37,7 @@
 Total: 7 + 3 + 0 = 10.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> baseCosts = [2,3], toppingCosts = [4,5,100], target = 18
@@ -50,7 +50,7 @@ Total: 7 + 3 + 0 = 10.
 Total: 3 + 4 + 10 + 0 = 17. You cannot make a dessert with a total cost of 18.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> baseCosts = [3,10], toppingCosts = [2,5], target = 9

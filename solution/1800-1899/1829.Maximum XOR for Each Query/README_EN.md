@@ -14,7 +14,7 @@
 <p>Return <em>an array</em> <code>answer</code><em>, where </em><code>answer[i]</code><em> is the answer to the </em><code>i<sup>th</sup></code><em> query</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,1,3], maximumBit = 2
@@ -26,7 +26,7 @@
 4<sup>th</sup> query: nums = [0], k = 3 since 0 XOR 3 = 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,3,4,7], maximumBit = 3
@@ -38,7 +38,7 @@
 4<sup>th</sup> query: nums = [2], k = 5 since 2 XOR 5 = 7.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [0,1,2,2,5,7], maximumBit = 3

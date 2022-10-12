@@ -9,14 +9,14 @@
 <p>Note that the subarray needs to be <strong>non-empty</strong> after deleting one element.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,-2,0,3]
 <strong>Output:</strong> 4
 <strong>Explanation: </strong>Because we can choose [1, -2, 0, 3] and drop -2, thus the subarray [1, 0, 3] becomes the maximum value.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [1,-2,-2,3]
@@ -24,7 +24,7 @@
 <strong>Explanation: </strong>We just choose [3] and it&#39;s the maximum sum.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [-1,-1,-1,-1]

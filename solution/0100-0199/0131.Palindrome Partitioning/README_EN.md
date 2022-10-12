@@ -9,10 +9,10 @@
 <p>A <strong>palindrome</strong> string is a string that reads the same backward as forward.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> s = "aab"
 <strong>Output:</strong> [["a","a","b"],["aa","b"]]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> s = "a"
 <strong>Output:</strong> [["a"]]
 </pre>

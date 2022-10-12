@@ -7,7 +7,7 @@
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the maximum length of a subarray that sums to</em> <code>k</code>. If there is not one, return <code>0</code> instead.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,-1,5,-2,3], k = 3
@@ -15,7 +15,7 @@
 <strong>Explanation:</strong> The subarray [1, -1, 5, -2] sums to 3 and is the longest.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-2,-1,2,1], k = 1

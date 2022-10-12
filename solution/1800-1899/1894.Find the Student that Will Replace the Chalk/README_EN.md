@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>index</strong> of the student that will <strong>replace</strong> the chalk</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> chalk = [5,1,5], k = 22
@@ -25,7 +25,7 @@
 - Student number 2 uses 5 chalk, so k = 0.
 Student number 0 does not have enough chalk, so they will have to replace it.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> chalk = [3,4,1,2], k = 25

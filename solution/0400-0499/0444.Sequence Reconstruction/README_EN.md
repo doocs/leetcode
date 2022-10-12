@@ -18,7 +18,7 @@
 <p>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3], sequences = [[1,2],[1,3]]
@@ -29,7 +29,7 @@ The sequence [1,3] is a subsequence of both: [<strong><u>1</u></strong>,2,<stron
 Since nums is not the only shortest supersequence, we return false.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3], sequences = [[1,2]]
@@ -39,7 +39,7 @@ The sequence [1,2] is a subsequence of it: [<strong><u>1</u></strong>,<strong><u
 Since nums is not the shortest supersequence, we return false.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3], sequences = [[1,2],[1,3],[2,3]]

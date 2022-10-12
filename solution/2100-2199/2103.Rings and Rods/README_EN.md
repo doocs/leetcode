@@ -18,7 +18,7 @@
 <p>Return <em>the number of rods that have <strong>all three colors</strong> of rings on them.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2103.Rings%20and%20Rods/images/ex1final.png" style="width: 258px; height: 130px;" />
 <pre>
 <strong>Input:</strong> rings = &quot;B0B6G0R6R0R6G9&quot;
@@ -30,7 +30,7 @@
 Thus, the number of rods with all three colors is 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2103.Rings%20and%20Rods/images/ex2final.png" style="width: 266px; height: 130px;" />
 <pre>
 <strong>Input:</strong> rings = &quot;B0R0G0R9R0B0G0&quot;
@@ -41,7 +41,7 @@ Thus, the number of rods with all three colors is 1.
 Thus, the number of rods with all three colors is 1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> rings = &quot;G4&quot;

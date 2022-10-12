@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum</strong> possible difference</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [90], k = 1
@@ -21,7 +21,7 @@
 The minimum possible difference is 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [9,4,1,7], k = 2

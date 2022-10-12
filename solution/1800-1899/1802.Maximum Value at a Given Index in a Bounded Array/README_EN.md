@@ -19,7 +19,7 @@
 <p>Note that <code>abs(x)</code> equals <code>x</code> if <code>x &gt;= 0</code>, and <code>-x</code> otherwise.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, index = 2,  maxSum = 6
@@ -28,7 +28,7 @@
 There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 is the maximum nums[2].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 6, index = 1,  maxSum = 10

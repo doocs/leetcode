@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> possible bitwise XOR of all elements of </em><code>nums</code><em> after applying the operation <strong>any number</strong> of times</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,2,4,6]
@@ -21,7 +21,7 @@ Now, nums = [3, 2, 4, 2] and the bitwise XOR of all the elements = 3 XOR 2 XOR 4
 It can be shown that 7 is the maximum possible bitwise XOR.
 Note that other operations may be used to achieve a bitwise XOR of 7.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,9,2]

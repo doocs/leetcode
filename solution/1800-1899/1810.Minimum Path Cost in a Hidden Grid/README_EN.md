@@ -38,7 +38,7 @@
 <p>Remember that you will <strong>not</strong> have this information in your code.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[2,3],[1,1]], r1 = 0, c1 = 1, r2 = 1, c2 = 0
@@ -61,7 +61,7 @@ The robot is initially standing on cell (0, 1), denoted by the 3.
 - master.move(&#39;R&#39;) moves the robot to the cell (1, 1) and returns 1.
 We now know that the target is the cell (1, 0), and the minimum total cost to reach it is 2. </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[0,3,1],[3,4,2],[1,2,0]], r1 = 2, c1 = 0, r2 = 0, c2 = 2
@@ -69,7 +69,7 @@ We now know that the target is the cell (1, 0), and the minimum total cost to re
 <strong>Explanation:</strong> The minimum cost path is (2,0) -&gt; (2,1) -&gt; (1,1) -&gt; (1,2) -&gt; (0,2).
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,0],[0,1]], r1 = 0, c1 = 0, r2 = 1, c2 = 1

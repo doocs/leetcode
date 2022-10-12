@@ -19,7 +19,7 @@
 <p>Return <em>a <strong>sorted</strong> array of the unique integers.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> digits = [2,1,3,0]
@@ -28,7 +28,7 @@
 Notice that there are no <strong>odd</strong> integers or integers with <strong>leading zeros</strong>.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> digits = [2,2,8,8,2]
@@ -37,7 +37,7 @@ Notice that there are no <strong>odd</strong> integers or integers with <strong>
 In this example, the digit 8 is used twice each time in 288, 828, and 882. 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> digits = [3,7,5]

@@ -9,10 +9,10 @@
 <p>Rearrange the barcodes so that no two adjacent barcodes are equal. You may return any answer, and it is guaranteed an answer exists.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> barcodes = [1,1,1,2,2,2]
 <strong>Output:</strong> [2,1,2,1,2,1]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> barcodes = [1,1,1,1,2,2,3,3]
 <strong>Output:</strong> [1,3,1,3,1,2,1,2]
 </pre>

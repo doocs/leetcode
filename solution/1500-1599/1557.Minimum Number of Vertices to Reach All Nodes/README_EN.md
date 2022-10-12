@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/images/untitled22.png" style="width: 231px; height: 181px;" /></p>
 
@@ -24,7 +24,7 @@
 
 <b>Explanation: </b>It&#39;s not possible to reach all the nodes from a single vertex. From 0 we can reach [0,1,2,5]. From 3 we can reach [3,4,2,5]. So we output [0,3].</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/images/untitled.png" style="width: 201px; height: 201px;" /></p>
 
@@ -43,11 +43,17 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>2 &lt;= n &lt;= 10^5</code></li>
+
     <li><code>1 &lt;= edges.length &lt;= min(10^5, n * (n - 1) / 2)</code></li>
+
     <li><code>edges[i].length == 2</code></li>
+
     <li><code>0 &lt;= from<sub>i,</sub>&nbsp;to<sub>i</sub> &lt; n</code></li>
+
     <li>All pairs <code>(from<sub>i</sub>, to<sub>i</sub>)</code> are distinct.</li>
+
 </ul>
 
 ## Solutions

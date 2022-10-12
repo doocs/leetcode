@@ -15,7 +15,7 @@
 <p>Notice that some substrings can be repeated so in this case you have to count the repeated ones too.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ABC&quot;
@@ -25,7 +25,7 @@ Every substring is composed with only unique letters.
 Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ABA&quot;
@@ -33,7 +33,7 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 <strong>Explanation: </strong>The same as example 1, except <code>countUniqueChars</code>(&quot;ABA&quot;) = 1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;LEETCODE&quot;

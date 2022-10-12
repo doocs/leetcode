@@ -19,7 +19,7 @@
 <p>Given <code>buckets</code>, <code>minutesToDie</code>, and <code>minutesToTest</code>, return <em>the <strong>minimum</strong> number of pigs needed to figure out which bucket is poisonous within the allotted time</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> buckets = 4, minutesToDie = 15, minutesToTest = 15
@@ -33,7 +33,7 @@ At time 15, there are 4 possible outcomes:
 - If neither pig dies, then bucket 4 must be poisonous.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> buckets = 4, minutesToDie = 15, minutesToTest = 30

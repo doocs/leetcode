@@ -13,7 +13,7 @@
 <p>The coordinate will always represent a valid chessboard square. The coordinate will always have the letter first, and the number second.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> coordinates = &quot;a1&quot;
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> From the chessboard above, the square with coordinates &quot;a1&quot; is black, so return false.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> coordinates = &quot;h3&quot;
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> From the chessboard above, the square with coordinates &quot;h3&quot; is white, so return true.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> coordinates = &quot;c7&quot;

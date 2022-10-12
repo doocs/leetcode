@@ -18,7 +18,7 @@
 <p>Return <em>the triangular sum of</em> <code>nums</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2221.Find%20Triangular%20Sum%20of%20an%20Array/images/ex1drawio.png" style="width: 250px; height: 250px;" />
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,5]
@@ -26,7 +26,7 @@
 <strong>Explanation:</strong>
 The above diagram depicts the process from which we obtain the triangular sum of the array.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [5]

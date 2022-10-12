@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum</strong> number of books you can take from the bookshelf.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> books = [8,5,2,7,9]
@@ -25,7 +25,7 @@ You have taken 19 books, so return 19.
 It can be proven that 19 is the maximum number of books you can take.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> books = [7,0,3,4,5]
@@ -38,7 +38,7 @@ You have taken 12 books so return 12.
 It can be proven that 12 is the maximum number of books you can take.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> books = [8,2,3,7,3,4,0,1,4,3]

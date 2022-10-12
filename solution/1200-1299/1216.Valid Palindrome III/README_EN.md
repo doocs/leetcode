@@ -9,7 +9,7 @@
 <p>A string is <code>k</code><strong>-palindrome</strong> if it can be transformed into a palindrome by removing at most <code>k</code> characters from it.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcdeca&quot;, k = 2
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> Remove &#39;b&#39; and &#39;e&#39; characters.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abbababa&quot;, k = 1

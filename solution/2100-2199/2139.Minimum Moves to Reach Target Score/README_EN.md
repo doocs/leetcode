@@ -18,7 +18,7 @@
 <p>Given the two integers <code>target</code> and <code>maxDoubles</code>, return <em>the minimum number of moves needed to reach </em><code>target</code><em> starting with </em><code>1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 5, maxDoubles = 0
@@ -26,7 +26,7 @@
 <strong>Explanation:</strong> Keep incrementing by 1 until you reach target.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 19, maxDoubles = 2
@@ -39,7 +39,7 @@ Double again so x = 18
 Increment once so x = 19
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 10, maxDoubles = 4

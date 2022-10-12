@@ -9,7 +9,7 @@
 <p>Given an integer array <code>weight</code> where <code>weight[i]</code> is the weight of the <code>i<sup>th</sup></code> apple, return <em>the maximum number of apples you can put in the basket</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> weight = [100,200,150,1000]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> All 4 apples can be carried by the basket since their sum of weights is 1450.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> weight = [900,950,800,1000,700,800]

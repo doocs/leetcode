@@ -18,7 +18,7 @@
 </ol>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0514.Freedom%20Trail/images/ring.jpg" style="width: 450px; height: 450px;" />
 <pre>
 <strong>Input:</strong> ring = &quot;godding&quot;, key = &quot;gd&quot;
@@ -30,7 +30,7 @@ Also, we need 1 more step for spelling.
 So the final output is 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> ring = &quot;godding&quot;, key = &quot;godding&quot;

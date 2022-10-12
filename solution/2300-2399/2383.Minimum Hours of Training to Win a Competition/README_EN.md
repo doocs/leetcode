@@ -17,7 +17,7 @@
 <p>Return <em>the <strong>minimum</strong> number of training hours required to defeat all </em><code>n</code><em> opponents</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> initialEnergy = 5, initialExperience = 3, energy = [1,4,3,2], experience = [2,6,3,1]
@@ -36,7 +36,7 @@ You did a total of 6 + 2 = 8 hours of training before the competition, so we ret
 It can be proven that no smaller answer exists.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> initialEnergy = 2, initialExperience = 4, energy = [1], experience = [3]

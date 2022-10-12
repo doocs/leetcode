@@ -11,7 +11,7 @@
 <p>Given an integer <code>n</code>, return<em> the number of people who know the secret at the end of day </em><code>n</code>. Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 6, delay = 2, forget = 4
@@ -25,7 +25,7 @@ Day 5: A forgets the secret, and B shares the secret with a new person, D. (3 pe
 Day 6: B shares the secret with E, and C shares the secret with F. (5 people)
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, delay = 1, forget = 3

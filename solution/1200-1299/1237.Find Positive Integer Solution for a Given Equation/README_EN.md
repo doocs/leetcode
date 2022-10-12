@@ -33,7 +33,7 @@ public:
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> function_id = 1, z = 5
@@ -46,7 +46,7 @@ x=3, y=2 -&gt; f(3, 2) = 3 + 2 = 5.
 x=4, y=1 -&gt; f(4, 1) = 4 + 1 = 5.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> function_id = 2, z = 5

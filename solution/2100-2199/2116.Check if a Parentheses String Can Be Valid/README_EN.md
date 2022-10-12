@@ -22,7 +22,7 @@
 <p>Return <code>true</code> <em>if you can make <code>s</code> a valid parentheses string</em>. Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/images/eg1.png" style="width: 311px; height: 101px;" />
 <pre>
 <strong>Input:</strong> s = &quot;))()))&quot;, locked = &quot;010100&quot;
@@ -30,7 +30,7 @@
 <strong>Explanation:</strong> locked[1] == &#39;1&#39; and locked[3] == &#39;1&#39;, so we cannot change s[1] or s[3].
 We change s[0] and s[4] to &#39;(&#39; while leaving s[2] and s[5] unchanged to make s valid.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;()()&quot;, locked = &quot;0000&quot;
@@ -38,7 +38,7 @@ We change s[0] and s[4] to &#39;(&#39; while leaving s[2] and s[5] unchanged to 
 <strong>Explanation:</strong> We do not need to make any changes because s is already valid.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;)&quot;, locked = &quot;0&quot;

@@ -16,7 +16,7 @@
 <p>Given the integer <code>target</code>, return <em>the <strong>minimum</strong> number of moves required (i.e., the minimum </em><code>numMoves</code><em>) to reach the destination</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 2
@@ -27,7 +27,7 @@ On the 2<sup>nd</sup> move, we step from 1 to -1 (2 steps).
 On the 3<sup>rd</sup> move, we step from -1 to 2 (3 steps).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = 3

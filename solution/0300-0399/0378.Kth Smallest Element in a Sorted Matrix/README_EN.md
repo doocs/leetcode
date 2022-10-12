@@ -11,7 +11,7 @@
 <p>You must find a solution with a memory complexity better than <code>O(n<sup>2</sup>)</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The elements in the matrix are [1,5,9,10,11,12,13,<u><strong>13</strong></u>,15], and the 8<sup>th</sup> smallest number is 13
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[-5]], k = 1

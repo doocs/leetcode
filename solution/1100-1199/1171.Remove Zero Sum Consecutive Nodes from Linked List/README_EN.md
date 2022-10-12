@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p>(Note that in the examples below, all sequences are serializations of <code>ListNode</code> objects.)</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> head = [1,2,-3,3,1]
@@ -19,14 +19,14 @@
 <strong>Note:</strong> The answer [1,2,1] would also be accepted.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> head = [1,2,3,-3,4]
 <strong>Output:</strong> [1,2,4]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> head = [1,2,3,-3,-2]

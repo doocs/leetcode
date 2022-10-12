@@ -17,7 +17,7 @@
 <p>Return <em>the final string after all such shifts to s are applied</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abc&quot;, shifts = [3,5,9]
@@ -28,7 +28,7 @@ After shifting the first 2 letters of s by 5, we have &quot;igc&quot;.
 After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answer.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aaa&quot;, shifts = [1,2,3]

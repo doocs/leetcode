@@ -13,7 +13,7 @@
 <p>A <strong>substring</strong> is a contiguous sequence of characters within a string.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aba&quot;, t = &quot;baba&quot;
@@ -28,7 +28,7 @@
 The underlined portions are the substrings that are chosen from s and t.
 </pre>
 
-​​<strong>Example 2:</strong>
+​​<strong class="example">Example 2:</strong>
 
 <pre>
 <strong>Input:</strong> s = &quot;ab&quot;, t = &quot;bb&quot;

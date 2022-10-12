@@ -15,7 +15,7 @@
 <p>Return <em>the minimum cost to paint all houses</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> costs = [[17,2,17],[16,16,5],[14,3,19]]
@@ -24,7 +24,7 @@
 Minimum cost: 2 + 5 + 3 = 10.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> costs = [[7,6,2]]

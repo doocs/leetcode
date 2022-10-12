@@ -11,7 +11,7 @@
 <p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3]
@@ -25,7 +25,7 @@
 [1,2,3], range = 3 - 1 = 2
 So the sum of all ranges is 0 + 0 + 0 + 1 + 1 + 2 = 4.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3,3]
@@ -40,7 +40,7 @@ So the sum of all ranges is 0 + 0 + 0 + 1 + 1 + 2 = 4.</pre>
 So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [4,-2,-3,4,1]

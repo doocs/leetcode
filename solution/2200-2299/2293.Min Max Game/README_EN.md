@@ -19,7 +19,7 @@
 <p>Return <em>the last number that remains in </em><code>nums</code><em> after applying the algorithm.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2293.Min%20Max%20Game/images/example1drawio-1.png" style="width: 500px; height: 240px;" />
 <pre>
 <strong>Input:</strong> nums = [1,3,5,2,4,8,2,2]
@@ -31,7 +31,7 @@ Third: nums = [1]
 1 is the last remaining number, so we return 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3]

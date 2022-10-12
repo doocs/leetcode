@@ -9,7 +9,7 @@
 <p>Return<em> the <strong>bitwise XOR</strong> of all integers in </em><code>nums3</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [2,1,3], nums2 = [10,2,5,0]
@@ -19,7 +19,7 @@ A possible nums3 array is [8,0,7,2,11,3,4,1,9,1,6,3].
 The bitwise XOR of all these numbers is 13, so we return 13.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,2], nums2 = [3,4]

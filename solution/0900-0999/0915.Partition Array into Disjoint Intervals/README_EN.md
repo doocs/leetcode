@@ -17,7 +17,7 @@
 <p>Test cases are generated such that partitioning exists.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [5,0,3,8,6]
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> left = [5,0,3], right = [8,6]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,1,0,6,12]

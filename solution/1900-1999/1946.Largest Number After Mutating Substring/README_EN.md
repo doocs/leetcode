@@ -13,7 +13,7 @@
 <p>A <strong>substring</strong> is a contiguous sequence of characters within the string.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;<u>1</u>32&quot;, change = [9,8,5,0,3,6,4,2,6,8]
@@ -24,7 +24,7 @@ Thus, &quot;<u>1</u>32&quot; becomes &quot;<u>8</u>32&quot;.
 &quot;832&quot; is the largest number that can be created, so return it.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;<u>021</u>&quot;, change = [9,4,3,5,7,2,1,9,0,6]
@@ -37,7 +37,7 @@ Thus, &quot;<u>021</u>&quot; becomes &quot;<u>934</u>&quot;.
 &quot;934&quot; is the largest number that can be created, so return it.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = &quot;5&quot;, change = [1,4,7,5,3,2,5,6,9,4]

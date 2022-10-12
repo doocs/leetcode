@@ -18,7 +18,7 @@
 <p>The hint should be formatted as <code>&quot;xAyB&quot;</code>, where <code>x</code> is the number of bulls and <code>y</code> is the number of cows. Note that both <code>secret</code> and <code>guess</code> may contain duplicate digits.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> secret = &quot;1807&quot;, guess = &quot;7810&quot;
@@ -28,7 +28,7 @@
   |
 &quot;<u>7</u>8<u>10</u>&quot;</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> secret = &quot;1123&quot;, guess = &quot;0111&quot;

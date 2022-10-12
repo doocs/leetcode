@@ -11,7 +11,7 @@
 <p><strong>Note:</strong> Due to the large constraints, the answer may not fit in a signed 32-bit integer. Please be careful during the calculations.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;aba&quot;
@@ -24,7 +24,7 @@ All possible substrings are: &quot;a&quot;, &quot;ab&quot;, &quot;aba&quot;, &qu
 Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;abc&quot;
@@ -36,7 +36,7 @@ All possible substrings are: &quot;a&quot;, &quot;ab&quot;, &quot;abc&quot;, &qu
 Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;ltcd&quot;

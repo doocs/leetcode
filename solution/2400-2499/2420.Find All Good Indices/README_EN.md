@@ -16,7 +16,7 @@
 <p>Return <em>an array of all good indices sorted in <strong>increasing</strong> order</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,1,1,1,3,4,1], k = 2
@@ -26,7 +26,7 @@
 - Index 3. The subarray [1,1] is in non-increasing order, and the subarray [3,4] is in non-decreasing order.
 Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,1,1,2], k = 2

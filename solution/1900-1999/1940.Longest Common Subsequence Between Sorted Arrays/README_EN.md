@@ -9,7 +9,7 @@
 <p>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some elements (possibly none) without changing the order of the remaining elements.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arrays = [[<u>1</u>,3,<u>4</u>],
@@ -18,7 +18,7 @@
 <strong>Explanation:</strong> The longest common subsequence in the two arrays is [1,4].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arrays = [[<u>2</u>,<u>3</u>,<u>6</u>,8],
@@ -28,7 +28,7 @@
 <strong>Explanation:</strong> The longest common subsequence in all three arrays is [2,3,6].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arrays = [[1,2,3,4,5],

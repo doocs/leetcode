@@ -50,7 +50,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;LeetCode@LeetCode.com&quot;
@@ -59,7 +59,7 @@
 The name and domain are converted to lowercase, and the middle of the name is replaced by 5 asterisks.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;AB@qq.com&quot;
@@ -69,7 +69,7 @@ The name and domain are converted to lowercase, and the middle of the name is re
 Note that even though &quot;ab&quot; is 2 characters, it still must have 5 asterisks in the middle.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;1(234)567-890&quot;

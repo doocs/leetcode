@@ -11,7 +11,7 @@
 <p>The <strong>average</strong> value of a tree is the sum of its values, divided by the number of nodes.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1120.Maximum%20Average%20Subtree/images/1308_example_1.png" style="width: 132px; height: 123px;" />
 <pre>
 <strong>Input:</strong> root = [5,6,1]
@@ -23,7 +23,7 @@ For the node with value = 1 we have an average of 1 / 1 = 1.
 So the answer is 6 which is the maximum.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,null,1]

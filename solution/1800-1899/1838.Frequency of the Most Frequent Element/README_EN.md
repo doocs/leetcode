@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>maximum possible frequency</strong> of an element after performing <strong>at most</strong> </em><code>k</code><em> operations</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,4], k = 5
@@ -19,7 +19,7 @@
 Explanation:</strong> Increment the first element three times and the second element two times to make nums = [4,4,4].
 4 has a frequency of 3.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,4,8,13], k = 5
@@ -30,7 +30,7 @@ Explanation:</strong> Increment the first element three times and the second ele
 - Increment the third element five times to make nums = [1,4,13,13]. 13 has a frequency of 2.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,9,6], k = 2

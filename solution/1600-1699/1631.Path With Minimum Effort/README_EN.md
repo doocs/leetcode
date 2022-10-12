@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/images/ex1.png" style="width: 300px; height: 300px;" /></p>
 
@@ -28,7 +28,7 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/images/ex2.png" style="width: 300px; height: 300px;" /></p>
 
@@ -42,7 +42,7 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/images/ex3.png" style="width: 300px; height: 300px;" />
 
@@ -61,10 +61,15 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>rows == heights.length</code></li>
+
     <li><code>columns == heights[i].length</code></li>
+
     <li><code>1 &lt;= rows, columns &lt;= 100</code></li>
+
     <li><code>1 &lt;= heights[i][j] &lt;= 10<sup>6</sup></code></li>
+
 </ul>
 
 ## Solutions

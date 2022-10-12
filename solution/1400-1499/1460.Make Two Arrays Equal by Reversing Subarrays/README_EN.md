@@ -9,7 +9,7 @@
 <p>Return <code>true</code> <em>if you can make </em><code>arr</code><em> equal to </em><code>target</code><em>&nbsp;or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = [1,2,3,4], arr = [2,4,1,3]
@@ -21,7 +21,7 @@
 There are multiple ways to convert arr to target, this is not the only way to do so.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = [7], arr = [7]
@@ -29,7 +29,7 @@ There are multiple ways to convert arr to target, this is not the only way to do
 <strong>Explanation:</strong> arr is equal to target without any reverses.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = [3,7,9], arr = [3,7,11]

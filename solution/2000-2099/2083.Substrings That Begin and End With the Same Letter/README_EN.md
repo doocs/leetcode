@@ -9,7 +9,7 @@
 <p>A <strong>substring</strong> is a contiguous non-empty sequence of characters within a string.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcba&quot;
@@ -20,7 +20,7 @@ The substring of length 3 that starts and ends with the same letter is: &quot;bc
 The substring of length 5 that starts and ends with the same letter is: &quot;abcba&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abacad&quot;
@@ -31,7 +31,7 @@ The substrings of length 3 that start and end with the same letter are: &quot;ab
 The substring of length 5 that starts and ends with the same letter is: &quot;abaca&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;a&quot;

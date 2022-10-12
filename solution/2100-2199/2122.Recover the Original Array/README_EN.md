@@ -18,7 +18,7 @@
 <p><strong>Note:</strong> The test cases are generated such that there exists <strong>at least one</strong> valid array <code>arr</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,10,6,4,8,12]
@@ -29,7 +29,7 @@ Combining lower and higher gives us [2,6,10,4,8,12], which is a permutation of n
 Another valid possibility is that arr = [5,7,9] and k = 3. In that case, lower = [2,4,6] and higher = [8,10,12]. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,3,3]
@@ -41,7 +41,7 @@ Note that arr cannot be [1,3] because in that case, the only possible way to obt
 This is invalid since k must be positive.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [5,435]

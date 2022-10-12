@@ -11,21 +11,21 @@
 <p>Return an array of the <code>k</code> digits representing the answer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [3,4,6,5], nums2 = [9,1,2,5,8,3], k = 5
 <strong>Output:</strong> [9,8,6,5,3]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [6,7], nums2 = [6,0,4], k = 5
 <strong>Output:</strong> [6,7,6,0,4]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [3,9], nums2 = [8,9], k = 3

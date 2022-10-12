@@ -9,14 +9,14 @@
 <p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
 <strong>Output:</strong> &quot;fl&quot;
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> strs = [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
@@ -175,7 +175,7 @@ end
  * @param {string[]} strs
  * @return {string}
  */
-var longestCommonPrefix = function(strs) {
+var longestCommonPrefix = function (strs) {
     for (let j = 0; j < strs[0].length; j++) {
         for (let i = 0; i < strs.length; i++) {
             if (strs[0][j] !== strs[i][j]) {

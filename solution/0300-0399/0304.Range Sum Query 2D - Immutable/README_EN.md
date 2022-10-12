@@ -20,7 +20,7 @@
 <p>You must design an algorithm where <code>sumRegion</code> works on <code>O(1)</code> time complexity.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/images/sum-grid.jpg" style="width: 415px; height: 415px;" />
 <pre>
 <strong>Input</strong>

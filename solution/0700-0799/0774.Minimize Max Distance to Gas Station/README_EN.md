@@ -13,10 +13,10 @@
 <p>Return <em>the smallest possible value of</em> <code>penalty()</code>. Answers within <code>10<sup>-6</sup></code> of the actual answer will be accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> stations = [1,2,3,4,5,6,7,8,9,10], k = 9
 <strong>Output:</strong> 0.50000
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> stations = [23,24,36,39,46,56,57,65,84,98], k = 1
 <strong>Output:</strong> 14.00000
 </pre>

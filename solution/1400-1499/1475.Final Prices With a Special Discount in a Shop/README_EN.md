@@ -11,7 +11,7 @@
 <p>Return an integer array <code>answer</code> where <code>answer[i]</code> is the final price you will pay for the <code>i<sup>th</sup></code> item of the shop, considering the special discount.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [8,4,6,2,3]
@@ -23,7 +23,7 @@ For item 2 with price[2]=6 you will receive a discount equivalent to prices[3]=2
 For items 3 and 4 you will not receive any discount at all.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [1,2,3,4,5]
@@ -31,7 +31,7 @@ For items 3 and 4 you will not receive any discount at all.
 <strong>Explanation:</strong> In this case, for all items, you will not receive any discount at all.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [10,1,1,6]

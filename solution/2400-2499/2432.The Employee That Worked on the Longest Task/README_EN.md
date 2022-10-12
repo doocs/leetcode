@@ -18,7 +18,7 @@
 <p>Return <em>the id of the employee that worked the task with the longest time.</em> If there is a tie between two or more employees, return<em> the <strong>smallest</strong> id among them</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 10, logs = [[0,3],[2,5],[0,9],[1,15]]
@@ -31,7 +31,7 @@ Task 3 started at 9 and ended at 15 with 6 units of times.
 The task with the longest time is task 3 and the employee with id 1 is the one that worked on it, so we return 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 26, logs = [[1,1],[3,7],[2,12],[7,17]]
@@ -44,7 +44,7 @@ Task 3 started at 12 and ended at 17 with 5 units of times.
 The tasks with the longest time is task 1. The employees that worked on it is 3, so we return 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 2, logs = [[0,10],[1,20]]

@@ -24,7 +24,7 @@
 <p>Return <em>the number of <strong>groups of special-equivalent strings</strong> from </em><code>words</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;abcd&quot;,&quot;cdab&quot;,&quot;cbad&quot;,&quot;xyzz&quot;,&quot;zzxy&quot;,&quot;zzyx&quot;]
@@ -35,7 +35,7 @@ The other two groups are [&quot;xyzz&quot;, &quot;zzxy&quot;] and [&quot;zzyx&qu
 Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzyx&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;abc&quot;,&quot;acb&quot;,&quot;bac&quot;,&quot;bca&quot;,&quot;cab&quot;,&quot;cba&quot;]

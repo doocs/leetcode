@@ -34,7 +34,7 @@ interface HtmlParser {
 <p>Below are two examples explaining the functionality of the problem. For custom testing purposes, you&#39;ll have three variables <code>urls</code>, <code>edges</code> and <code>startUrl</code>. Notice that you will only have access to <code>startUrl</code> in your code, while <code>urls</code> and <code>edges</code> are not directly accessible to you in code.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/sample_2_1497.png" style="width: 610px; height: 300px;" /></p>
 
@@ -57,7 +57,7 @@ startUrl = &quot;http://news.yahoo.com/news/topics/&quot;
 ]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/sample_3_1497.png" style="width: 540px; height: 270px;" /></strong></p>
 

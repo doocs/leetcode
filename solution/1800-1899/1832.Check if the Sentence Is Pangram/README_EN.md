@@ -9,7 +9,7 @@
 <p>Given a string <code>sentence</code> containing only lowercase English letters, return<em> </em><code>true</code><em> if </em><code>sentence</code><em> is a <strong>pangram</strong>, or </em><code>false</code><em> otherwise.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> sentence = &quot;thequickbrownfoxjumpsoverthelazydog&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> sentence contains at least one of every letter of the English alphabet.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> sentence = &quot;leetcode&quot;

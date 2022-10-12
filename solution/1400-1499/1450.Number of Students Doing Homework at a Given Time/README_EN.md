@@ -11,7 +11,7 @@
 <p>Return <em>the number of students</em> doing their homework at time <code>queryTime</code>. More formally, return the number of students where <code>queryTime</code> lays in the interval <code>[startTime[i], endTime[i]]</code> inclusive.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> startTime = [1,2,3], endTime = [3,2,7], queryTime = 4
@@ -22,7 +22,7 @@ The second student started doing homework at time 2 and finished at time 2 and a
 The third student started doing homework at time 3 and finished at time 7 and was the only student doing homework at time 4.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> startTime = [4], endTime = [4], queryTime = 4

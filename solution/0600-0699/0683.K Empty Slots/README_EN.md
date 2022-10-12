@@ -11,7 +11,7 @@
 <p>Given an integer <code>k</code>, return&nbsp;<em>the <strong>minimum day number</strong> such that there exists two <strong>turned on</strong> bulbs that have <strong>exactly</strong>&nbsp;<code>k</code> bulbs between them that are <strong>all turned off</strong>. If there isn&#39;t such day, return <code>-1</code>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> bulbs = [1,3,2], k = 1
@@ -22,7 +22,7 @@ On the second day: bulbs[1] = 3, third bulb is turned on: [1,0,1]
 On the third day: bulbs[2] = 2, second bulb is turned on: [1,1,1]
 We return 2 because on the second day, there were two on bulbs with one off bulb between them.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> bulbs = [1,2,3], k = 1

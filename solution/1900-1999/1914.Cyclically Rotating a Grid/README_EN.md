@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/images/rod2.png" style="width: 421px; height: 191px;" />
 
@@ -32,7 +32,7 @@
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/images/ringofgrid5.png" style="width: 231px; height: 262px;" /></strong> <strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/images/ringofgrid6.png" style="width: 231px; height: 262px;" /></strong> <strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/images/ringofgrid7.png" style="width: 231px; height: 262px;" /></strong>
 
@@ -51,12 +51,19 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>m == grid.length</code></li>
+
     <li><code>n == grid[i].length</code></li>
+
     <li><code>2 &lt;= m, n &lt;= 50</code></li>
+
     <li>Both <code>m</code> and <code>n</code> are <strong>even</strong> integers.</li>
+
     <li><code>1 &lt;= grid[i][j] &lt;=<sup> </sup>5000</code></li>
+
     <li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
+
 </ul>
 
 ## Solutions

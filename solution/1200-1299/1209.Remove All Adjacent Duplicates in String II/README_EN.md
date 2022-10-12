@@ -11,14 +11,14 @@
 <p>Return <em>the final string after all such duplicate removals have been made</em>. It is guaranteed that the answer is <strong>unique</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcd&quot;, k = 2
 <strong>Output:</strong> &quot;abcd&quot;
 <strong>Explanation: </strong>There&#39;s nothing to delete.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;deeedbbcccbdaa&quot;, k = 3
@@ -28,7 +28,7 @@
 Then delete &quot;bbb&quot;, get &quot;dddaa&quot;
 Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;pbbcggttciiippooaais&quot;, k = 2

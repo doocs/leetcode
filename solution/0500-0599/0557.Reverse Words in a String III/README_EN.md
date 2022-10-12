@@ -7,10 +7,10 @@
 <p>Given a string <code>s</code>, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> s = "Let's take LeetCode contest"
 <strong>Output:</strong> "s'teL ekat edoCteeL tsetnoc"
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> s = "God Ding"
 <strong>Output:</strong> "doG gniD"
 </pre>

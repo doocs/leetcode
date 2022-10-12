@@ -20,7 +20,7 @@
 <p>Return <em>the number of unhappy friends</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, preferences = [[1, 2, 3], [3, 2, 0], [3, 1, 0], [1, 2, 0]], pairs = [[0, 1], [2, 3]]
@@ -35,7 +35,7 @@ Friend 3 is unhappy because:
 Friends 0 and 2 are happy.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 2, preferences = [[1], [0]], pairs = [[1, 0]]
@@ -43,7 +43,7 @@ Friends 0 and 2 are happy.
 <strong>Explanation:</strong> Both friends 0 and 1 are happy.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, preferences = [[1, 3, 2], [2, 3, 0], [1, 3, 0], [0, 2, 1]], pairs = [[1, 3], [0, 2]]

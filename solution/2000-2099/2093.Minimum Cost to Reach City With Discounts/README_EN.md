@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum total cost</strong> to go from city </em><code>0</code><em> to city </em><code>n - 1</code><em>, or </em><code>-1</code><em> if it is not possible to go from city </em><code>0</code><em> to city </em><code>n - 1</code><em>.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong><br />
+<p><strong class="example">Example 1:</strong><br />
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/images/image-20211129222429-1.png" style="height: 250px; width: 404px;" /></p>
 
 <pre>
@@ -23,7 +23,7 @@ Go from 1 to 4 and use a discount for a cost of 11 / 2 = 5.
 The minimum cost to go from 0 to 4 is 4 + 5 = 9.
 </pre>
 
-<p><strong>Example 2:</strong><br />
+<p><strong class="example">Example 2:</strong><br />
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/images/image-20211129222650-4.png" style="width: 284px; height: 250px;" /></p>
 
 <pre>
@@ -36,7 +36,7 @@ Go from 2 to 3 and use a discount for a cost of 5 / 2 = 2.
 The minimum cost to go from 0 to 3 is 3 + 3 + 2 = 8.
 </pre>
 
-<p><strong>Example 3:</strong><br />
+<p><strong class="example">Example 3:</strong><br />
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/images/image-20211129222531-3.png" style="width: 275px; height: 250px;" /></p>
 
 <pre>

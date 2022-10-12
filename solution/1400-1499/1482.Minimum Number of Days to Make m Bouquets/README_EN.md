@@ -13,7 +13,7 @@
 <p>Return <em>the minimum number of days you need to wait to be able to make </em><code>m</code><em> bouquets from the garden</em>. If it is impossible to make m bouquets return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> bloomDay = [1,10,3,10,2], m = 3, k = 1
@@ -25,7 +25,7 @@ After day 2: [x, _, _, _, x]   // we can only make two bouquets.
 After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> bloomDay = [1,10,3,10,2], m = 3, k = 2
@@ -33,7 +33,7 @@ After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
 <strong>Explanation:</strong> We need 3 bouquets each has 2 flowers, that means we need 6 flowers. We only have 5 flowers so it is impossible to get the needed bouquets and we return -1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> bloomDay = [7,7,7,7,12,7,7], m = 2, k = 3

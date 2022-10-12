@@ -21,7 +21,7 @@
 <p>Return <em>the <strong>maximum</strong> score after performing </em><code>m</code> <em>operations.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3], multipliers = [3,2,1]
@@ -32,7 +32,7 @@
 - Choose from the end, [<strong><u>1</u></strong>], adding 1 * 1 = 1 to the score.
 The total score is 9 + 4 + 1 = 14.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-5,-3,-3,-2,7,1], multipliers = [-10,-5,3,4,6]

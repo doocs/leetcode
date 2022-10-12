@@ -20,7 +20,7 @@ If you want to use the doubly linked list, you will need one more attribute <cod
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input</strong>

@@ -17,7 +17,7 @@
 <p>Return <em>the label of the <strong>first</strong> day where you have been in <strong>all</strong> the rooms</em>. It can be shown that such a day exists. Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nextVisit = [0,0]
@@ -30,7 +30,7 @@
 - On day 2, you visit room 1. This is the first day where you have been in all the rooms.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nextVisit = [0,0,2]
@@ -40,7 +40,7 @@ Your room visiting order for each day is: [0,0,1,0,0,1,2,...].
 Day 6 is the first day where you have been in all the rooms.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nextVisit = [0,1,2,0]

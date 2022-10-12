@@ -13,7 +13,7 @@
 <p>Find the <strong>maximum total sweetness</strong> of the&nbsp;piece you can get by cutting the chocolate bar optimally.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> sweetness = [1,2,3,4,5,6,7,8,9], k = 5
@@ -21,7 +21,7 @@
 <b>Explanation: </b>You can divide the chocolate to [1,2,3], [4,5], [6], [7], [8], [9]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> sweetness = [5,6,7,8,9,1,2,3,4], k = 8
@@ -29,7 +29,7 @@
 <b>Explanation: </b>There is only one way to cut the bar into 9 pieces.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> sweetness = [1,2,2,1,2,2,1,2,2], k = 2

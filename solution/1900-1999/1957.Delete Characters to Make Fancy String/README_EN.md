@@ -11,7 +11,7 @@
 <p>Return <em>the final string after the deletion</em>. It can be shown that the answer will always be <strong>unique</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;le<u>e</u>etcode&quot;
@@ -21,7 +21,7 @@ Remove an &#39;e&#39; from the first group of &#39;e&#39;s to create &quot;leetc
 No three consecutive characters are equal, so return &quot;leetcode&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;<u>a</u>aab<u>aa</u>aa&quot;
@@ -32,7 +32,7 @@ Remove two &#39;a&#39;s from the second group of &#39;a&#39;s to create &quot;aa
 No three consecutive characters are equal, so return &quot;aabaa&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aab&quot;

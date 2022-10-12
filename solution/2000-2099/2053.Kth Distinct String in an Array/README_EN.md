@@ -11,7 +11,7 @@
 <p>Note that the strings are considered in the <strong>order in which they appear</strong> in the array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [&quot;d&quot;,&quot;b&quot;,&quot;c&quot;,&quot;b&quot;,&quot;c&quot;,&quot;a&quot;], k = 2
@@ -23,7 +23,7 @@ The only distinct strings in arr are &quot;d&quot; and &quot;a&quot;.
 Since k == 2, &quot;a&quot; is returned. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [&quot;aaa&quot;,&quot;aa&quot;,&quot;a&quot;], k = 1
@@ -32,7 +32,7 @@ Since k == 2, &quot;a&quot; is returned.
 All strings in arr are distinct, so the 1<sup>st</sup> string &quot;aaa&quot; is returned.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [&quot;a&quot;,&quot;b&quot;,&quot;a&quot;], k = 3

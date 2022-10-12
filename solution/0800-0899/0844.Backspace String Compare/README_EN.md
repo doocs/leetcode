@@ -9,7 +9,7 @@
 <p>Note that after backspacing an empty text, the text will continue empty.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ab#c&quot;, t = &quot;ad#c&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> Both s and t become &quot;ac&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;ab##&quot;, t = &quot;c#d#&quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> Both s and t become &quot;&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;a#c&quot;, t = &quot;b&quot;

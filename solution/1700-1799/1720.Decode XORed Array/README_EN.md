@@ -13,7 +13,7 @@
 <p>Return <em>the original array</em> <code>arr</code>. It can be proved that the answer exists and is unique.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> encoded = [1,2,3], first = 1
@@ -21,7 +21,7 @@
 <strong>Explanation:</strong> If arr = [1,0,2,1], then first = 1 and encoded = [1 XOR 0, 0 XOR 2, 2 XOR 1] = [1,2,3]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> encoded = [6,2,7,3], first = 4

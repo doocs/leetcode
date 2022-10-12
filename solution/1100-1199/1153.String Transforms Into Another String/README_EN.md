@@ -11,7 +11,7 @@
 <p>Return <code>true</code> if and only if you can transform <code>str1</code> into <code>str2</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> str1 = &quot;aabcc&quot;, str2 = &quot;ccdee&quot;
@@ -19,7 +19,7 @@
 <strong>Explanation: </strong>Convert &#39;c&#39; to &#39;e&#39; then &#39;b&#39; to &#39;d&#39; then &#39;a&#39; to &#39;c&#39;. Note that the order of conversions matter.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> str1 = &quot;leetcode&quot;, str2 = &quot;codeleet&quot;

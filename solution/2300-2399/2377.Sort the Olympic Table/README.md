@@ -37,7 +37,7 @@ Each row in this table shows a country name and the number of gold, silver, and 
 <p>The query result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> 

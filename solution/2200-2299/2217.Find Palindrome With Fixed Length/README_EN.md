@@ -9,7 +9,7 @@
 <p>A <strong>palindrome</strong> is a number that reads the same backwards and forwards. Palindromes cannot have leading zeros.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> queries = [1,2,3,4,5,90], intLength = 3
@@ -20,7 +20,7 @@ The first few palindromes of length 3 are:
 The 90<sup>th</sup> palindrome of length 3 is 999.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> queries = [2,4,6], intLength = 4

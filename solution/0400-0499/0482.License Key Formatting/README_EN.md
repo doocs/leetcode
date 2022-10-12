@@ -11,7 +11,7 @@
 <p>Return <em>the reformatted license key</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;5F3Z-2e-9-w&quot;, k = 4
@@ -20,7 +20,7 @@
 Note that the two extra dashes are not needed and can be removed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;2-5g-3-J&quot;, k = 2

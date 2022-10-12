@@ -22,7 +22,7 @@
 <p>Return <em>the sum of the points of the students</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/images/student_solving_math.png" style="width: 678px; height: 109px;" />
 <pre>
 <strong>Input:</strong> s = &quot;7+3*1*2&quot;, answers = [20,13,42]
@@ -32,7 +32,7 @@ A student might have applied the operators in this wrong order: ((7+3)*1)*2 = 20
 The points for the students are: [2,5,0]. The sum of the points is 2+5+0=7.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;3+5*2&quot;, answers = [13,0,10,13,13,16,16]
@@ -42,7 +42,7 @@ A student might have applied the operators in this wrong order: ((3+5)*2 = 16. T
 The points for the students are: [5,0,0,5,5,2,2]. The sum of the points is 5+0+0+5+5+2+2=19.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;6+0*1&quot;, answers = [12,9,6,4,8,6]

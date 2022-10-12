@@ -11,7 +11,7 @@
 <p>Return <em>the maximum possible <strong>score</strong> of a <strong>good</strong> subarray.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,4,3,7,4,5], k = 3
@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> The optimal subarray is (1, 5) with a score of min(4,3,7,4,5) * (5-1+1) = 3 * 5 = 15. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [5,5,4,5,4,1,1,1], k = 0

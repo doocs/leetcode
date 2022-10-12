@@ -13,7 +13,7 @@
 <p><strong>Note:</strong> The array can have <strong>any size</strong> at the start and does<strong> not </strong>count towards the number of resizing operations.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,20], k = 0
@@ -23,7 +23,7 @@ We can set the initial size to be 20.
 The total wasted space is (20 - 10) + (20 - 20) = 10.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,20,30], k = 1
@@ -33,7 +33,7 @@ We can set the initial size to be 20 and resize to 30 at time 2.
 The total wasted space is (20 - 10) + (20 - 20) + (30 - 30) = 10.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [10,20,15,30,20], k = 2

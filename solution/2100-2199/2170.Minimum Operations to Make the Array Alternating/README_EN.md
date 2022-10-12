@@ -18,7 +18,7 @@
 <p>Return <em>the <strong>minimum number of operations</strong> required to make the array alternating</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,3,2,4,3]
@@ -29,7 +29,7 @@ The number of operations required in this case is 3.
 It can be proven that it is not possible to make the array alternating in less than 3 operations. 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,2,2,2]

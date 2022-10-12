@@ -9,7 +9,7 @@
 <p>Return <em>the minimum difference between the largest and smallest value of <code>nums</code> after performing <strong>at most three moves</strong></em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [5,3,2,4]
@@ -18,7 +18,7 @@
 The difference between the maximum and minimum is 2-2 = 0.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,5,0,10,14]

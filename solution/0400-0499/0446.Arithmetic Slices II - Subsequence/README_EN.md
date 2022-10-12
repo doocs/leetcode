@@ -22,7 +22,7 @@
 <p>The test cases are generated so that the answer fits in <strong>32-bit</strong> integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,4,6,8,10]
@@ -37,7 +37,7 @@
 [2,6,10]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [7,7,7,7,7]

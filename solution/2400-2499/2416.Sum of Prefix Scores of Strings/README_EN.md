@@ -17,7 +17,7 @@
 <p><strong>Note</strong> that a string is considered as a prefix of itself.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;abc&quot;,&quot;ab&quot;,&quot;bc&quot;,&quot;b&quot;]
@@ -37,7 +37,7 @@ The total is answer[2] = 2 + 1 = 3.
 The total is answer[3] = 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;abcd&quot;]

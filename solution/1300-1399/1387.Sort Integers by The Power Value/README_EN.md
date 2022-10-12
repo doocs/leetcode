@@ -20,7 +20,7 @@
 <p>Notice that for any integer <code>x</code> <code>(lo &lt;= x &lt;= hi)</code> it is <strong>guaranteed</strong> that <code>x</code> will transform into <code>1</code> using these steps and that the power of <code>x</code> is will <strong>fit</strong> in a 32-bit signed integer.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> lo = 12, hi = 15, k = 2
@@ -33,7 +33,7 @@ The interval sorted by the power value [12,13,14,15]. For k = 2 answer is the se
 Notice that 12 and 13 have the same power value and we sorted them in ascending order. Same for 14 and 15.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> lo = 7, hi = 11, k = 4

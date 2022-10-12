@@ -9,10 +9,10 @@
 <p>Return the probability that the number of coins facing heads equals <code>target</code> if you toss every coin exactly once.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> prob = [0.4], target = 1
 <strong>Output:</strong> 0.40000
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> prob = [0.5,0.5,0.5,0.5,0.5], target = 0
 <strong>Output:</strong> 0.03125
 </pre>

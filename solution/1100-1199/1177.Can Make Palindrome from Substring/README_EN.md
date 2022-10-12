@@ -13,7 +13,7 @@
 <p>Note that each letter is counted individually for replacement, so if, for example <code>s[left<sub>i</sub>...right<sub>i</sub>] = &quot;aaa&quot;</code>, and <code>k<sub>i</sub> = 2</code>, we can only replace two of the letters. Also, note that no query modifies the initial string <code>s</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example :</strong></p>
+<p><strong class="example">Example :</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcda&quot;, queries = [[3,3,0],[1,2,0],[0,3,1],[0,3,2],[0,4,1]]
@@ -26,7 +26,7 @@ queries[3]: substring = &quot;abcd&quot;, could be changed to &quot;abba&quot; w
 queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot; which is palidrome.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;lyb&quot;, queries = [[0,1,0],[2,2,1]]

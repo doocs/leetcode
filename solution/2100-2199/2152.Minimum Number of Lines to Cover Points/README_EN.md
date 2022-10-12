@@ -11,7 +11,7 @@
 <p>Return <em>the <strong>minimum </strong>number of <strong>straight lines</strong> needed to cover all the points</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/images/image-20220123200023-1.png" style="width: 350px; height: 402px;" />
 <pre>
 <strong>Input:</strong> points = [[0,1],[2,3],[4,5],[4,3]]
@@ -21,7 +21,7 @@
 - Another line connecting the point at (2, 3) to the point at (4, 3).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/images/image-20220123200057-3.png" style="width: 350px; height: 480px;" />
 <pre>
 <strong>Input:</strong> points = [[0,2],[-2,-2],[1,4]]

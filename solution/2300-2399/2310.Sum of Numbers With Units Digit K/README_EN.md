@@ -21,7 +21,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 58, k = 9
@@ -32,7 +32,7 @@ Another valid set is [19,39].
 It can be shown that 2 is the minimum possible size of a valid set.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 37, k = 2
@@ -40,7 +40,7 @@ It can be shown that 2 is the minimum possible size of a valid set.
 <strong>Explanation:</strong> It is not possible to obtain a sum of 37 using only integers that have a units digit of 2.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> num = 0, k = 7

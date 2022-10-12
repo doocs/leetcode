@@ -7,7 +7,7 @@
 Given an integer number <code>n</code>, return the difference between the product of its digits and the sum of its digits.
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 234
@@ -18,7 +18,7 @@ Sum of digits = 2 + 3 + 4 = 9
 Result = 24 - 9 = 15
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4421

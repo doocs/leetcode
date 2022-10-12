@@ -18,7 +18,7 @@
 <p>Notice that you can not jump outside of the array at any time.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1340.Jump%20Game%20V/images/meta-chart.jpeg" style="width: 633px; height: 419px;" />
 <pre>
 <strong>Input:</strong> arr = [6,4,14,6,8,13,9,7,10,6,12], d = 2
@@ -28,7 +28,7 @@ Note that if you start at index 6 you can only jump to index 7. You cannot jump 
 Similarly You cannot jump from index 3 to index 2 or index 1.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [3,3,3,3,3], d = 3
@@ -36,7 +36,7 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 <strong>Explanation:</strong> You can start at any index. You always cannot jump to any index.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [7,6,5,4,3,2,1], d = 1

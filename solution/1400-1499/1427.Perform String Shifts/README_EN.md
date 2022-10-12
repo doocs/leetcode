@@ -16,7 +16,7 @@
 <p>Return the final string after all operations.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abc&quot;, shift = [[0,1],[1,2]]
@@ -25,7 +25,7 @@
 [0,1] means shift to left by 1. &quot;abc&quot; -&gt; &quot;bca&quot;
 [1,2] means shift to right by 2. &quot;bca&quot; -&gt; &quot;cab&quot;</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcdefg&quot;, shift = [[1,1],[1,1],[0,2],[1,3]]

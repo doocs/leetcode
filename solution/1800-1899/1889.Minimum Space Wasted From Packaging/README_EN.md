@@ -17,7 +17,7 @@
 <p>Return <em>the <strong>minimum total wasted space</strong> by choosing the box supplier <strong>optimally</strong>, or </em><code>-1</code> <i>if it is <strong>impossible</strong> to fit all the packages inside boxes. </i>Since the answer may be <strong>large</strong>, return it <strong>modulo </strong><code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> packages = [2,3,5], boxes = [[4,8],[2,8]]
@@ -26,7 +26,7 @@
 The total waste is (4-2) + (4-3) + (8-5) = 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> packages = [2,3,5], boxes = [[1,4],[2,3],[3,4]]
@@ -34,7 +34,7 @@ The total waste is (4-2) + (4-3) + (8-5) = 6.
 <strong>Explanation:</strong> There is no box that the package of size 5 can fit in.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> packages = [3,5,8,10,11,12], boxes = [[12],[11,9],[10,5,14]]

@@ -11,7 +11,7 @@
 <p>Note that <strong>multiple</strong> kids can have the <strong>greatest</strong> number of candies.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = [2,3,5,1,3], extraCandies = 3
@@ -24,7 +24,7 @@
 - Kid 5, they will have 3 + 3 = 6 candies, which is the greatest among the kids.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = [4,2,1,1,2], extraCandies = 1
@@ -33,7 +33,7 @@
 Kid 1 will always have the greatest number of candies, even if a different kid is given the extra candy.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> candies = [12,1,12], extraCandies = 10

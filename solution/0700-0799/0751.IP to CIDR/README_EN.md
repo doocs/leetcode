@@ -21,7 +21,7 @@
 <p>Return <em>the <strong>shortest</strong> list of <strong>CIDR blocks</strong> that covers the range of IP addresses. If there are multiple answers, return <strong>any</strong> of them</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> ip = &quot;255.0.0.7&quot;, n = 10
@@ -44,7 +44,7 @@ The CIDR block &quot;255.0.0.16/32&quot; covers the last address.
 Note that while the CIDR block &quot;255.0.0.0/28&quot; does cover all the addresses, it also includes addresses outside of the range, so we cannot use it.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> ip = &quot;117.145.102.62&quot;, n = 8

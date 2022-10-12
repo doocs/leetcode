@@ -9,7 +9,7 @@
 <p>A string is <strong>palindromic</strong> if it reads the same forward and backward.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;abc&quot;,&quot;car&quot;,&quot;ada&quot;,&quot;racecar&quot;,&quot;cool&quot;]
@@ -18,7 +18,7 @@
 Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;notapalindrome&quot;,&quot;racecar&quot;]
@@ -26,7 +26,7 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 <strong>Explanation:</strong> The first and only string that is palindromic is &quot;racecar&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> words = [&quot;def&quot;,&quot;ghi&quot;]

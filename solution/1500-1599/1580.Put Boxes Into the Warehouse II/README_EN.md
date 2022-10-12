@@ -18,7 +18,7 @@
 <p>Return <em>the maximum number of boxes you can put into the warehouse.</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22.png" style="width: 401px; height: 202px;" />
 <pre>
 <strong>Input:</strong> boxes = [1,2,2,3,4], warehouse = [3,4,1,2]
@@ -33,7 +33,7 @@ We can store the boxes in the following order:
 Notice that there are other valid ways to put 4 boxes such as swapping the red and green boxes or the red and orange boxes.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-2.png" style="width: 401px; height: 242px;" />
 <pre>
 <strong>Input:</strong> boxes = [3,5,5,2], warehouse = [2,1,3,4,5]

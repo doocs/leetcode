@@ -11,7 +11,7 @@
 <p>Return the result of adding <code>arr1</code> and <code>arr2</code> in the same format: as an array of 0s and 1s with no leading zeros.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr1 = [1,1,1,1,1], arr2 = [1,0,1]
@@ -19,14 +19,14 @@
 <strong>Explanation: </strong>arr1 represents 11, arr2 represents 5, the output represents 16.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr1 = [0], arr2 = [0]
 <strong>Output:</strong> [0]
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr1 = [0], arr2 = [1]

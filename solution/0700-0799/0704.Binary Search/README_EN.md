@@ -9,7 +9,7 @@
 <p>You must write an algorithm with <code>O(log n)</code> runtime complexity.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 9
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> 9 exists in nums and its index is 4
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 2

@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1916.Count%20Ways%20to%20Build%20Rooms%20in%20an%20Ant%20Colony/images/d1.jpg" style="width: 200px; height: 212px;" />
 
@@ -26,7 +26,7 @@
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1916.Count%20Ways%20to%20Build%20Rooms%20in%20an%20Ant%20Colony/images/d2.jpg" style="width: 200px; height: 239px;" /></strong>
 
@@ -59,11 +59,17 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+
     <li><code>n == prevRoom.length</code></li>
+
     <li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
+
     <li><code>prevRoom[0] == -1</code></li>
+
     <li><code>0 &lt;= prevRoom[i] &lt; n</code> for all <code>1 &lt;= i &lt; n</code></li>
+
     <li>Every room is reachable from room <code>0</code> once all the rooms are built.</li>
+
 </ul>
 
 ## Solutions

@@ -21,7 +21,7 @@
 <p><strong>Note</strong> that the first entry in the answer is considered to be the top of the deck.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> deck = [17,13,11,2,3,5,7]
@@ -39,7 +39,7 @@ We reveal 17.
 Since all the cards revealed are in increasing order, the answer is correct.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> deck = [1,1000]

@@ -18,7 +18,7 @@
 <p>Return<em> the <strong>minimum</strong> number of days needed to complete all tasks</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [1,2,1,2,3,1], space = 3
@@ -37,7 +37,7 @@ Day 9: Complete the 5th task.
 It can be shown that the tasks cannot be completed in less than 9 days.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> tasks = [5,8,8,5], space = 2

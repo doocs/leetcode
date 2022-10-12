@@ -11,7 +11,7 @@
 <p>Return <em>an integer array </em><code>answer</code><em> of length </em><code>m</code><em>, where </em><code>answer[i]</code><em> is the answer to the </em><code>i<sup>th</sup></code><em> query</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132158-1.png" style="width: 300px; height: 211px;" />
 <pre>
 <strong>Input:</strong> n = 7, edges = [[0,1],[0,2],[0,3],[1,4],[2,5],[2,6]], query = [[5,3,4],[5,3,6]]
@@ -24,7 +24,7 @@ The distance between node 6 and node 2 is 1.
 Node 2 is the node on the path closest to node 6, so the answer to the second query is 2.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132318-2.png" style="width: 300px; height: 89px;" />
 <pre>
 <strong>Input:</strong> n = 3, edges = [[0,1],[1,2]], query = [[0,1,2]]
@@ -35,7 +35,7 @@ The distance between node 2 and node 1 is 1.
 Node 1 is the node on the path closest to node 2, so the answer to the first query is 1.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/images/image-20220514132333-3.png" style="width: 300px; height: 89px;" />
 <pre>
 <strong>Input:</strong> n = 3, edges = [[0,1],[1,2]], query = [[0,0,0]]

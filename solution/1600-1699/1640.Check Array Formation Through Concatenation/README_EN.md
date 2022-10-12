@@ -9,7 +9,7 @@
 <p>Return <code>true</code> <em>if it is possible </em><em>to form the array </em><code>arr</code><em> from </em><code>pieces</code>. Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [15,88], pieces = [[88],[15]]
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> Concatenate [15] then [88]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [49,18,16], pieces = [[16,18,49]]
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> Even though the numbers match, we cannot reorder pieces[0].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [91,4,64,78], pieces = [[78],[4,64],[91]]

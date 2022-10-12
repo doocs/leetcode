@@ -21,7 +21,7 @@ Implement the <code>FileSharing</code> class:</p>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example:</strong></p>
+<p><strong class="example">Example:</strong></p>
 
 <pre>
 <b>Input:</b>

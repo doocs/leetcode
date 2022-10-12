@@ -11,7 +11,7 @@
 <p>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,6,1,2,5], k = 2
@@ -23,7 +23,7 @@ The difference between the maximum and minimum value in the second subsequence i
 Since two subsequences were created, we return 2. It can be shown that 2 is the minimum number of subsequences needed.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3], k = 1
@@ -35,7 +35,7 @@ The difference between the maximum and minimum value in the second subsequence i
 Since two subsequences were created, we return 2. Note that another optimal solution is to partition nums into the two subsequences [1] and [2,3].
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,2,4,5], k = 0

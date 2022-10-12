@@ -15,13 +15,13 @@
 <p>Return <em>the final grid</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> grid = [[1,1],[1,2]], row = 0, col = 0, color = 3
 <strong>Output:</strong> [[3,3],[3,2]]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> grid = [[1,2,2],[2,3,2]], row = 0, col = 1, color = 3
 <strong>Output:</strong> [[1,3,3],[2,3,3]]
-</pre><p><strong>Example 3:</strong></p>
+</pre><p><strong class="example">Example 3:</strong></p>
 <pre><strong>Input:</strong> grid = [[1,1,1],[1,1,1],[1,1,1]], row = 1, col = 1, color = 2
 <strong>Output:</strong> [[2,2,2],[2,1,2],[2,2,2]]
 </pre>

@@ -20,7 +20,7 @@
 <p>Return the state of the prison after <code>n</code> days (i.e., <code>n</code> such changes described above).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> cells = [0,1,0,1,1,0,0,1], n = 7
@@ -36,7 +36,7 @@ Day 6: [0, 0, 1, 0, 1, 1, 0, 0]
 Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> cells = [1,0,0,1,0,0,1,0], n = 1000000000

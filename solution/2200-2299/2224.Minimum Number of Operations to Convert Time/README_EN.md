@@ -13,7 +13,7 @@
 <p>Return <em>the <strong>minimum number of operations</strong> needed to convert </em><code>current</code><em> to </em><code>correct</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> current = &quot;02:30&quot;, correct = &quot;04:35&quot;
@@ -25,7 +25,7 @@
 - Add 5 minutes to current. current becomes &quot;04:35&quot;.
 It can be proven that it is not possible to convert current to correct in fewer than 3 operations.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> current = &quot;11:00&quot;, correct = &quot;11:01&quot;

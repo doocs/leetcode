@@ -21,7 +21,7 @@
 <p>Return <em>the total number of friend requests made</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> ages = [16,16]
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> 2 people friend request each other.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> ages = [16,17,18]
@@ -37,7 +37,7 @@
 <strong>Explanation:</strong> Friend requests are made 17 -&gt; 16, 18 -&gt; 17.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> ages = [20,30,100,110,120]

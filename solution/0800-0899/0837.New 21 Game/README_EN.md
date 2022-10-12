@@ -15,7 +15,7 @@
 <p>Answers within <code>10<sup>-5</sup></code> of the actual answer are considered accepted.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 10, k = 1, maxPts = 10
@@ -23,7 +23,7 @@
 <strong>Explanation:</strong> Alice gets a single card, then stops.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 6, k = 1, maxPts = 10
@@ -32,7 +32,7 @@
 In 6 out of 10 possibilities, she is at or below 6 points.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> n = 21, k = 17, maxPts = 10

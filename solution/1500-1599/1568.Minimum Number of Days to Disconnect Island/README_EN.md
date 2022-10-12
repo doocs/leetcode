@@ -13,7 +13,7 @@
 <p>Return <em>the minimum number of days to disconnect the grid</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/images/land1.jpg" style="width: 500px; height: 169px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]]
@@ -24,7 +24,7 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/images/land2.jpg" style="width: 404px; height: 85px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1]]

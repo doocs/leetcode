@@ -11,7 +11,7 @@
 <p>Find and return <em>the <strong>maximum</strong> profit you can achieve</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [7,1,5,3,6,4]
@@ -21,7 +21,7 @@ Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
 Total profit is 4 + 3 = 7.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [1,2,3,4,5]
@@ -30,7 +30,7 @@ Total profit is 4 + 3 = 7.
 Total profit is 4.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> prices = [7,6,4,3,1]

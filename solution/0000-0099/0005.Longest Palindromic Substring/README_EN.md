@@ -9,7 +9,7 @@
 <p>A string is called a palindrome string if the reverse of that string is the same as the original string.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;babad&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> &quot;aba&quot; is also a valid answer.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;cbbd&quot;

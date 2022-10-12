@@ -18,7 +18,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 1, b = 2, c = 5
@@ -26,7 +26,7 @@
 <strong>Explanation:</strong> Move the stone from 5 to 3, or move the stone from 5 to 4 to 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 4, b = 3, c = 2
@@ -34,7 +34,7 @@
 <strong>Explanation:</strong> We cannot make any moves.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> a = 3, b = 5, c = 1
