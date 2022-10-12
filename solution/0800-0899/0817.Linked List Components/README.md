@@ -192,10 +192,7 @@ func numComponents(head *ListNode, nums []int) int {
  * @return {number}
  */
 var numComponents = function (head, nums) {
-    const s = new Set();
-    for (const v of nums) {
-        s.add(v);
-    }
+    const s = new Set(nums);
     let ans = 0;
     while (head) {
         while (head && !s.has(head.val)) {
@@ -208,6 +205,83 @@ var numComponents = function (head, nums) {
     }
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function numComponents(head: ListNode | null, nums: number[]): number {
+    const set = new Set<number>(nums);
+    let res = 0;
+    let cur = head;
+    let inSet = false;
+    while (cur != null) {
+        if (set.has(cur.val)) {
+            if (!inSet) {
+                inSet = true;
+                res++;
+            }
+        } else {
+            inSet = false;
+        }
+        cur = cur.next;
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+use std::collections::HashSet;
+impl Solution {
+    pub fn num_components(head: Option<Box<ListNode>>, nums: Vec<i32>) -> i32 {
+        let set = nums.into_iter().collect::<HashSet<i32>>();
+        let mut res = 0;
+        let mut in_set = false;
+        let mut cur = &head;
+        while let Some(node) = cur {
+            if set.contains(&node.val) {
+                if !in_set {
+                    in_set = true;
+                    res += 1;
+                }
+            } else {
+                in_set = false;
+            }
+            cur = &node.next;
+        }
+        res
+    }
+}
 ```
 
 ### **...**

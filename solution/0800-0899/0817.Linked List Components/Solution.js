@@ -11,10 +11,7 @@
  * @return {number}
  */
 var numComponents = function (head, nums) {
-    const s = new Set();
-    for (const v of nums) {
-        s.add(v);
-    }
+    const s = new Set(nums);
     let ans = 0;
     while (head) {
         while (head && !s.has(head.val)) {
