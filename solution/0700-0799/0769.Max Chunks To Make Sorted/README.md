@@ -49,11 +49,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：一次遍历**
+**方法一：贪心 + 一次遍历**
 
 由于 $arr$ 是 $[0,..,n-1]$ 的一个排列，若已遍历过的数中的最大值 $mx$ 与当前遍历到的下标 $i$ 相等，说明可以进行一次分割，累加答案。
 
-时间复杂度 $O(n)$，其中 $n$ 表示 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+
+**方法二：单调栈**
+
+方法一的解法有一定的局限性，若数组中存在重复元素，就无法得到正确的答案。
+
+根据题目，我们可以发现，从左到右，每个分块都有一个最大值，并且这些分块的最大值呈单调递增。我们可以用一个栈来存储这些分块的最大值。最后得到的栈的大小，也就是题目所求的最多能完成排序的块。
+
+以上这种解法，不仅可以解决本题，也可以解决 [768. 最多能完成排序的块 II](https://leetcode-cn.com/problems/max-chunks-to-make-sorted-ii/) 这道困难题。大家可以自行尝试。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 
@@ -72,6 +82,21 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        stk = []
+        for v in arr:
+            if not stk or v >= stk[-1]:
+                stk.append(v)
+            else:
+                mx = stk.pop()
+                while stk and stk[-1] > v:
+                    stk.pop()
+                stk.append(mx)
+        return len(stk)
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -79,8 +104,7 @@ class Solution:
 ```java
 class Solution {
     public int maxChunksToSorted(int[] arr) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int i = 0; i < arr.length; ++i) {
             mx = Math.max(mx, arr[i]);
             if (i == mx) {
@@ -92,19 +116,60 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int maxChunksToSorted(int[] arr) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int v : arr) {
+            if (stk.isEmpty() || v >= stk.peek()) {
+                stk.push(v);
+            } else {
+                int mx = stk.pop();
+                while (!stk.isEmpty() && stk.peek() > v) {
+                    stk.pop();
+                }
+                stk.push(mx);
+            }
+        }
+        return stk.size();
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     int maxChunksToSorted(vector<int>& arr) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int i = 0; i < arr.size(); ++i) {
             mx = max(mx, arr[i]);
             ans += i == mx;
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        stack<int> stk;
+        for (int v : arr) {
+            if (stk.empty() || v >= stk.top()) {
+                stk.push(v);
+            } else {
+                int mx = stk.top();
+                stk.pop();
+                while (!stk.empty() && stk.top() > v) {
+                    stk.pop();
+                }
+                stk.push(mx);
+            }
+        }
+        return stk.size();
     }
 };
 ```
@@ -128,6 +193,25 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func maxChunksToSorted(arr []int) int {
+	stk := []int{}
+	for _, v := range arr {
+		if len(stk) == 0 || v >= stk[len(stk)-1] {
+			stk = append(stk, v)
+		} else {
+			mx := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for len(stk) > 0 && stk[len(stk)-1] > v {
+				stk = stk[:len(stk)-1]
+			}
+			stk = append(stk, mx)
+		}
+	}
+	return len(stk)
 }
 ```
 

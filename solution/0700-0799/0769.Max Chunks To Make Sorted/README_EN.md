@@ -58,13 +58,27 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        stk = []
+        for v in arr:
+            if not stk or v >= stk[-1]:
+                stk.append(v)
+            else:
+                mx = stk.pop()
+                while stk and stk[-1] > v:
+                    stk.pop()
+                stk.append(mx)
+        return len(stk)
+```
+
 ### **Java**
 
 ```java
 class Solution {
     public int maxChunksToSorted(int[] arr) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int i = 0; i < arr.length; ++i) {
             mx = Math.max(mx, arr[i]);
             if (i == mx) {
@@ -76,19 +90,60 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int maxChunksToSorted(int[] arr) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int v : arr) {
+            if (stk.isEmpty() || v >= stk.peek()) {
+                stk.push(v);
+            } else {
+                int mx = stk.pop();
+                while (!stk.isEmpty() && stk.peek() > v) {
+                    stk.pop();
+                }
+                stk.push(mx);
+            }
+        }
+        return stk.size();
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     int maxChunksToSorted(vector<int>& arr) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int i = 0; i < arr.size(); ++i) {
             mx = max(mx, arr[i]);
             ans += i == mx;
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        stack<int> stk;
+        for (int v : arr) {
+            if (stk.empty() || v >= stk.top()) {
+                stk.push(v);
+            } else {
+                int mx = stk.top();
+                stk.pop();
+                while (!stk.empty() && stk.top() > v) {
+                    stk.pop();
+                }
+                stk.push(mx);
+            }
+        }
+        return stk.size();
     }
 };
 ```
@@ -112,6 +167,25 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func maxChunksToSorted(arr []int) int {
+	stk := []int{}
+	for _, v := range arr {
+		if len(stk) == 0 || v >= stk[len(stk)-1] {
+			stk = append(stk, v)
+		} else {
+			mx := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for len(stk) > 0 && stk[len(stk)-1] > v {
+				stk = stk[:len(stk)-1]
+			}
+			stk = append(stk, mx)
+		}
+	}
+	return len(stk)
 }
 ```
 
