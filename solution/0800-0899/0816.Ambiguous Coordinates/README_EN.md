@@ -57,24 +57,19 @@
 ```python
 class Solution:
     def ambiguousCoordinates(self, s: str) -> List[str]:
-        def convert(i, j):
+        def f(i, j):
             res = []
             for k in range(1, j - i + 1):
-                left, right = s[i : i + k], s[i + k : j]
-                valid = (
-                    left == '0' or not left.startswith('0')
-                ) and not right.endswith('0')
-                if valid:
-                    res.append(left + ('.' if k < j - i else '') + right)
+                l, r = s[i : i + k], s[i + k : j]
+                ok = (l == '0' or not l.startswith('0')) and not r.endswith('0')
+                if ok:
+                    res.append(l + ('.' if k < j - i else '') + r)
             return res
 
         n = len(s)
-        ans = []
-        for i in range(2, n - 1):
-            for x in convert(1, i):
-                for y in convert(i, n - 1):
-                    ans.append(f'({x}, {y})')
-        return ans
+        return [
+            f'({x}, {y})' for i in range(2, n - 1) for x in f(1, i) for y in f(i, n - 1)
+        ]
 ```
 
 ### **Java**
@@ -85,8 +80,8 @@ class Solution {
         int n = s.length();
         List<String> ans = new ArrayList<>();
         for (int i = 2; i < n - 1; ++i) {
-            for (String x : convert(s, 1, i)) {
-                for (String y : convert(s, i, n - 1)) {
+            for (String x : f(s, 1, i)) {
+                for (String y : f(s, i, n - 1)) {
                     ans.add(String.format("(%s, %s)", x, y));
                 }
             }
@@ -94,18 +89,83 @@ class Solution {
         return ans;
     }
 
-    private List<String> convert(String s, int i, int j) {
+    private List<String> f(String s, int i, int j) {
         List<String> res = new ArrayList<>();
         for (int k = 1; k <= j - i; ++k) {
-            String left = s.substring(i, i + k);
-            String right = s.substring(i + k, j);
-            boolean valid = ("0".equals(left) || !left.startsWith("0")) && !right.endsWith("0");
-            if (valid) {
-                res.add(left + (k < j - i ? "." : "") + right);
+            String l = s.substring(i, i + k);
+            String r = s.substring(i + k, j);
+            boolean ok = ("0".equals(l) || !l.startsWith("0")) && !r.endsWith("0");
+            if (ok) {
+                res.add(l + (k < j - i ? "." : "") + r);
             }
         }
         return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> ambiguousCoordinates(string s) {
+        int n = s.size();
+        vector<string> ans;
+        auto f = [&](int i, int j) {
+            vector<string> res;
+            for (int k = 1; k <= j - i; ++k) {
+                string l = s.substr(i, k);
+                string r = s.substr(i + k, j - i - k);
+                bool ok = (l == "0" || l[0] != '0') && r.back() != '0';
+                if (ok) {
+                    res.push_back(l + (k < j - i ? "." : "") + r);
+                }
+            }
+            return res;
+        };
+        for (int i = 2; i < n - 1; ++i) {
+            for (auto& x : f(1, i)) {
+                for (auto& y : f(i, n - 1)) {
+                    ans.emplace_back("(" + x + ", " + y + ")");
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func ambiguousCoordinates(s string) []string {
+	f := func(i, j int) []string {
+		res := []string{}
+		for k := 1; k <= j-i; k++ {
+			l, r := s[i:i+k], s[i+k:j]
+			ok := (l == "0" || l[0] != '0') && (r == "" || r[len(r)-1] != '0')
+			if ok {
+				t := ""
+				if k < j-i {
+					t = "."
+				}
+				res = append(res, l+t+r)
+			}
+		}
+		return res
+	}
+
+	n := len(s)
+	ans := []string{}
+	for i := 2; i < n-1; i++ {
+		for _, x := range f(1, i) {
+			for _, y := range f(i, n-1) {
+				ans = append(ans, "("+x+", "+y+")")
+			}
+		}
+	}
+	return ans
 }
 ```
 
