@@ -55,6 +55,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：队列模拟**
+
+根据题目描述，我们知道，数组 `deck` 逆序排列后的序列就是最终的结果。我们可以从最终结果入手，逆向推导出卡片顺序。
+
+遍历逆序排列后的数组 `deck`，先判断队列是否为空，若不为空，则将队尾元素移动到队首，然后将当前元素入队（题目中的逆过程）。若为空，则直接将当前元素入队。
+
+最后，将队列中的元素依次出队，即可得到最终的结果。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `deck` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +72,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+        q = deque()
+        for v in sorted(deck, reverse=True):
+            if q:
+                q.appendleft(q.pop())
+            q.appendleft(v)
+        return list(q)
 ```
 
 ### **Java**
@@ -70,7 +87,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+        Deque<Integer> q = new ArrayDeque<>();
+        Arrays.sort(deck);
+        int n = deck.length;
+        for (int i = n - 1; i >= 0; --i) {
+            if (!q.isEmpty()) {
+                q.offerFirst(q.pollLast());
+            }
+            q.offerFirst(deck[i]);
+        }
+        int[] ans = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            ans[i] = q.pollLast();
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> deckRevealedIncreasing(vector<int>& deck) {
+        sort(deck.rbegin(), deck.rend());
+        deque<int> q;
+        for (int v : deck) {
+            if (!q.empty()) {
+                q.push_front(q.back());
+                q.pop_back();
+            }
+            q.push_front(v);
+        }
+        return vector<int>(q.begin(), q.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func deckRevealedIncreasing(deck []int) []int {
+	sort.Sort(sort.Reverse(sort.IntSlice(deck)))
+	q := []int{}
+	for _, v := range deck {
+		if len(q) > 0 {
+			q = append([]int{q[len(q)-1]}, q[:len(q)-1]...)
+		}
+		q = append([]int{v}, q...)
+	}
+	return q
+}
 ```
 
 ### **...**

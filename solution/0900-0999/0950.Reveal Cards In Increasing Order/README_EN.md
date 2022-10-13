@@ -62,13 +62,73 @@ Since all the cards revealed are in increasing order, the answer is correct.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+        q = deque()
+        for v in sorted(deck, reverse=True):
+            if q:
+                q.appendleft(q.pop())
+            q.appendleft(v)
+        return list(q)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+        Deque<Integer> q = new ArrayDeque<>();
+        Arrays.sort(deck);
+        int n = deck.length;
+        for (int i = n - 1; i >= 0; --i) {
+            if (!q.isEmpty()) {
+                q.offerFirst(q.pollLast());
+            }
+            q.offerFirst(deck[i]);
+        }
+        int[] ans = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            ans[i] = q.pollLast();
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> deckRevealedIncreasing(vector<int>& deck) {
+        sort(deck.rbegin(), deck.rend());
+        deque<int> q;
+        for (int v : deck) {
+            if (!q.empty()) {
+                q.push_front(q.back());
+                q.pop_back();
+            }
+            q.push_front(v);
+        }
+        return vector<int>(q.begin(), q.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func deckRevealedIncreasing(deck []int) []int {
+	sort.Sort(sort.Reverse(sort.IntSlice(deck)))
+	q := []int{}
+	for _, v := range deck {
+		if len(q) > 0 {
+			q = append([]int{q[len(q)-1]}, q[:len(q)-1]...)
+		}
+		q = append([]int{v}, q...)
+	}
+	return q
+}
 ```
 
 ### **...**
