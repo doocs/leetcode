@@ -42,13 +42,119 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def largestTimeFromDigits(self, arr: List[int]) -> str:
+        cnt = [0] * 10
+        for v in arr:
+            cnt[v] += 1
+        for h in range(23, -1, -1):
+            for m in range(59, -1, -1):
+                t = [0] * 10
+                t[h // 10] += 1
+                t[h % 10] += 1
+                t[m // 10] += 1
+                t[m % 10] += 1
+                if cnt == t:
+                    return f'{h:02}:{m:02}'
+        return ''
+```
 
+```python
+class Solution:
+    def largestTimeFromDigits(self, arr: List[int]) -> str:
+        ans = -1
+        for i in range(4):
+            for j in range(4):
+                for k in range(4):
+                    if i != j and i != k and j != k:
+                        h = arr[i] * 10 + arr[j]
+                        m = arr[k] * 10 + arr[6 - i - j - k]
+                        if h < 24 and m < 60:
+                            ans = max(ans, h * 60 + m)
+        return '' if ans < 0 else f'{ans // 60:02}:{ans % 60:02}'
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String largestTimeFromDigits(int[] arr) {
+        int ans = -1;
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                for (int k = 0; k < 4; ++k) {
+                    if (i != j && j != k && i != k) {
+                        int h = arr[i] * 10 + arr[j];
+                        int m = arr[k] * 10 + arr[6 - i - j - k];
+                        if (h < 24 && m < 60) {
+                            ans = Math.max(ans, h * 60 + m);
+                        }
+                    }
+                }
+            }
+        }
+        return ans < 0 ? "" : String.format("%02d:%02d", ans / 60, ans % 60);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string largestTimeFromDigits(vector<int>& arr) {
+        int ans = -1;
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                for (int k = 0; k < 4; ++k) {
+                    if (i != j && j != k && i != k) {
+                        int h = arr[i] * 10 + arr[j];
+                        int m = arr[k] * 10 + arr[6 - i - j - k];
+                        if (h < 24 && m < 60) {
+                            ans = max(ans, h * 60 + m);
+                        }
+                    }
+                }
+            }
+        }
+        if (ans < 0) return "";
+        int h = ans / 60, m = ans % 60;
+        return to_string(h / 10) + to_string(h % 10) + ":" + to_string(m / 10) + to_string(m % 10);
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestTimeFromDigits(arr []int) string {
+	ans := -1
+	for i := 0; i < 4; i++ {
+		for j := 0; j < 4; j++ {
+			for k := 0; k < 4; k++ {
+				if i != j && j != k && i != k {
+					h := arr[i]*10 + arr[j]
+					m := arr[k]*10 + arr[6-i-j-k]
+					if h < 24 && m < 60 {
+						ans = max(ans, h*60+m)
+					}
+				}
+			}
+		}
+	}
+	if ans < 0 {
+		return ""
+	}
+	return fmt.Sprintf("%02d:%02d", ans/60, ans%60)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
