@@ -46,13 +46,161 @@ A <strong>subsequence</strong> of a string is a new string that is formed from t
 ### **Python3**
 
 ```python
+class Solution:
+    def distinctSubseqII(self, s: str) -> int:
+        mod = 10**9 + 7
+        n = len(s)
+        dp = [[0] * 26 for _ in range(n + 1)]
+        for i, c in enumerate(s, 1):
+            k = ord(c) - ord('a')
+            for j in range(26):
+                if j == k:
+                    dp[i][j] = sum(dp[i - 1]) % mod + 1
+                else:
+                    dp[i][j] = dp[i - 1][j]
+        return sum(dp[-1]) % mod
+```
 
+```python
+class Solution:
+    def distinctSubseqII(self, s: str) -> int:
+        mod = 10**9 + 7
+        dp = [0] * 26
+        for c in s:
+            i = ord(c) - ord('a')
+            dp[i] = sum(dp) % mod + 1
+        return sum(dp) % mod
+```
+
+```python
+class Solution:
+    def distinctSubseqII(self, s: str) -> int:
+        mod = 10**9 + 7
+        dp = [0] * 26
+        ans = 0
+        for c in s:
+            i = ord(c) - ord('a')
+            add = ans - dp[i] + 1
+            ans = (ans + add) % mod
+            dp[i] += add
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int distinctSubseqII(String s) {
+        int[] dp = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            int j = s.charAt(i) - 'a';
+            dp[j] = sum(dp) + 1;
+        }
+        return sum(dp);
+    }
+
+    private int sum(int[] arr) {
+        int x = 0;
+        for (int v : arr) {
+            x = (x + v) % MOD;
+        }
+        return x;
+    }
+}
+```
+
+```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int distinctSubseqII(String s) {
+        int[] dp = new int[26];
+        int ans = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            int j = s.charAt(i) - 'a';
+            int add = (ans - dp[j] + 1) % MOD;
+            ans = (ans + add) % MOD;
+            dp[j] = (dp[j] + add) % MOD;
+        }
+        return (ans + MOD) % MOD;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int distinctSubseqII(string s) {
+        vector<long> dp(26);
+        for (char& c : s) {
+            int i = c - 'a';
+            dp[i] = accumulate(dp.begin(), dp.end(), 1l) % mod;
+        }
+        return accumulate(dp.begin(), dp.end(), 0l) % mod;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int distinctSubseqII(string s) {
+        vector<long> dp(26);
+        long ans = 0;
+        for (char& c : s) {
+            int i = c - 'a';
+            long add = ans - dp[i] + 1;
+            ans = (ans + add + mod) % mod;
+            dp[i] = (dp[i] + add) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func distinctSubseqII(s string) int {
+	const mod int = 1e9 + 7
+	sum := func(arr []int) int {
+		x := 0
+		for _, v := range arr {
+			x = (x + v) % mod
+		}
+		return x
+	}
+
+	dp := make([]int, 26)
+	for _, c := range s {
+		c -= 'a'
+		dp[c] = sum(dp) + 1
+	}
+	return sum(dp)
+}
+```
+
+```go
+func distinctSubseqII(s string) int {
+	const mod int = 1e9 + 7
+	dp := make([]int, 26)
+	ans := 0
+	for _, c := range s {
+		c -= 'a'
+		add := ans - dp[c] + 1
+		ans = (ans + add) % mod
+		dp[c] = (dp[c] + add) % mod
+	}
+	return (ans + mod) % mod
+}
 ```
 
 ### **...**
