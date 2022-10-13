@@ -62,6 +62,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序 + 双指针**
+
+令牌的使用方法有两种，一种是消耗能量得到分数，一种是消耗分数得到能量。显然，我们应该消耗尽可能少的能量来得到尽可能多的分数。
+
+因此，我们可以将令牌按照消耗能量的多少进行排序，然后使用双指针，一个指针从左向右遍历，一个指针从右向左遍历，每次遍历都尽可能地消耗能量得到分数，然后更新最大分数。如果当前能量不足以消耗当前令牌，那么我们就尝试使用分数来消耗当前令牌，如果分数不足以消耗当前令牌，那么我们就停止遍历。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为令牌的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +77,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
+        tokens.sort()
+        i, j = 0, len(tokens) - 1
+        ans = t = 0
+        while i <= j:
+            if power >= tokens[i]:
+                power -= tokens[i]
+                i, t = i + 1, t + 1
+                ans = max(ans, t)
+            elif t:
+                power += tokens[j]
+                j, t = j - 1, t - 1
+            else:
+                break
+        return ans
 ```
 
 ### **Java**
@@ -77,7 +100,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int bagOfTokensScore(int[] tokens, int power) {
+        Arrays.sort(tokens);
+        int i = 0, j = tokens.length - 1;
+        int ans = 0, t = 0;
+        while (i <= j) {
+            if (power >= tokens[i]) {
+                power -= tokens[i++];
+                ++t;
+                ans = Math.max(ans, t);
+            } else if (t > 0) {
+                power += tokens[j--];
+                --t;
+            } else {
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int bagOfTokensScore(vector<int>& tokens, int power) {
+        sort(tokens.begin(), tokens.end());
+        int i = 0, j = tokens.size() - 1;
+        int ans = 0, t = 0;
+        while (i <= j) {
+            if (power >= tokens[i]) {
+                power -= tokens[i++];
+                ans = max(ans, ++t);
+            } else if (t) {
+                power += tokens[j--];
+                --t;
+            } else {
+                break;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func bagOfTokensScore(tokens []int, power int) int {
+	sort.Ints(tokens)
+	i, j := 0, len(tokens)-1
+	ans, t := 0, 0
+	for i <= j {
+		if power >= tokens[i] {
+			power -= tokens[i]
+			i, t = i+1, t+1
+			ans = max(ans, t)
+		} else if t > 0 {
+			power += tokens[j]
+			j, t = j-1, t-1
+		} else {
+			break
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
