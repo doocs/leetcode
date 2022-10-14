@@ -1,11 +1,11 @@
 class Solution {
     public boolean hasGroupsSizeX(int[] deck) {
-        int[] counter = new int[10000];
-        for (int d : deck) {
-            ++counter[d];
+        int[] cnt = new int[10000];
+        for (int v : deck) {
+            ++cnt[v];
         }
         int g = -1;
-        for (int v : counter) {
+        for (int v : cnt) {
             if (v > 0) {
                 g = g == -1 ? v : gcd(g, v);
             }

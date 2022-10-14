@@ -58,12 +58,12 @@ class Solution:
 ```java
 class Solution {
     public boolean hasGroupsSizeX(int[] deck) {
-        int[] counter = new int[10000];
-        for (int d : deck) {
-            ++counter[d];
+        int[] cnt = new int[10000];
+        for (int v : deck) {
+            ++cnt[v];
         }
         int g = -1;
-        for (int v : counter) {
+        for (int v : cnt) {
             if (v > 0) {
                 g = g == -1 ? v : gcd(g, v);
             }
@@ -83,17 +83,15 @@ class Solution {
 class Solution {
 public:
     bool hasGroupsSizeX(vector<int>& deck) {
-        vector<int> counter(10000);
-        for (int& d : deck) ++counter[d];
+        int cnt[10000] = {0};
+        for (int& v : deck) ++cnt[v];
         int g = -1;
-        for (int& v : counter)
-            if (v > 0)
-                g = g == -1 ? v : gcd(g, v);
+        for (int& v : cnt) {
+            if (v) {
+                g = g == -1 ? v : __gcd(g, v);
+            }
+        }
         return g >= 2;
-    }
-
-    int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
     }
 };
 ```
@@ -102,19 +100,12 @@ public:
 
 ```go
 func hasGroupsSizeX(deck []int) bool {
-	counter := make([]int, 10000)
-	for _, d := range deck {
-		counter[d]++
-	}
-	var gcd func(a, b int) int
-	gcd = func(a, b int) int {
-		if b == 0 {
-			return a
-		}
-		return gcd(b, a%b)
+	cnt := make([]int, 10000)
+	for _, v := range deck {
+		cnt[v]++
 	}
 	g := -1
-	for _, v := range counter {
+	for _, v := range cnt {
 		if v > 0 {
 			if g == -1 {
 				g = v
@@ -124,6 +115,13 @@ func hasGroupsSizeX(deck []int) bool {
 		}
 	}
 	return g >= 2
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
 }
 ```
 

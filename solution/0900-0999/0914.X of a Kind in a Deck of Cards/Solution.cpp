@@ -1,16 +1,14 @@
 class Solution {
 public:
     bool hasGroupsSizeX(vector<int>& deck) {
-        vector<int> counter(10000);
-        for (int& d : deck) ++counter[d];
+        int cnt[10000] = {0};
+        for (int& v : deck) ++cnt[v];
         int g = -1;
-        for (int& v : counter)
-            if (v > 0)
-                g = g == -1 ? v : gcd(g, v);
+        for (int& v : cnt) {
+            if (v) {
+                g = g == -1 ? v : __gcd(g, v);
+            }
+        }
         return g >= 2;
-    }
-
-    int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
     }
 };

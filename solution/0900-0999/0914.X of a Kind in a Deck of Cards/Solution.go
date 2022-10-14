@@ -1,17 +1,10 @@
 func hasGroupsSizeX(deck []int) bool {
-	counter := make([]int, 10000)
-	for _, d := range deck {
-		counter[d]++
-	}
-	var gcd func(a, b int) int
-	gcd = func(a, b int) int {
-		if b == 0 {
-			return a
-		}
-		return gcd(b, a%b)
+	cnt := make([]int, 10000)
+	for _, v := range deck {
+		cnt[v]++
 	}
 	g := -1
-	for _, v := range counter {
+	for _, v := range cnt {
 		if v > 0 {
 			if g == -1 {
 				g = v
@@ -21,4 +14,11 @@ func hasGroupsSizeX(deck []int) bool {
 		}
 	}
 	return g >= 2
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
 }
