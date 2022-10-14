@@ -80,14 +80,13 @@ The answers that read integer 3 from the stream are not accepted.
 ```python
 class Solution:
     def buildArray(self, target: List[int], n: int) -> List[str]:
-        cur, ans = 1, []
-        for t in target:
-            for i in range(cur, n + 1):
-                ans.append('Push')
-                if t == i:
-                    cur = i + 1
-                    break
-                ans.append('Pop')
+        cur, ans = 0, []
+        for v in target:
+            cur += 1
+            while cur < v:
+                ans.extend(['Push', 'Pop'])
+                cur += 1
+            ans.append('Push')
         return ans
 ```
 
@@ -96,17 +95,14 @@ class Solution:
 ```java
 class Solution {
     public List<String> buildArray(int[] target, int n) {
+        int cur = 0;
         List<String> ans = new ArrayList<>();
-        int cur = 1;
-        for (int t : target) {
-            for (int i = cur; i <= n; ++i) {
+        for (int v : target) {
+            while (++cur < v) {
                 ans.add("Push");
-                if (t == i) {
-                    cur = i + 1;
-                    break;
-                }
                 ans.add("Pop");
             }
+            ans.add("Push");
         }
         return ans;
     }
@@ -119,17 +115,14 @@ class Solution {
 class Solution {
 public:
     vector<string> buildArray(vector<int>& target, int n) {
+        int cur = 0;
         vector<string> ans;
-        int cur = 1;
-        for (int t : target) {
-            for (int i = cur; i <= n; ++i) {
-                ans.push_back("Push");
-                if (t == i) {
-                    cur = i + 1;
-                    break;
-                }
-                ans.push_back("Pop");
+        for (int& v : target) {
+            while (++cur < v) {
+                ans.emplace_back("Push");
+                ans.emplace_back("Pop");
             }
+            ans.emplace_back("Push");
         }
         return ans;
     }
@@ -140,17 +133,13 @@ public:
 
 ```go
 func buildArray(target []int, n int) []string {
-	var ans []string
-	cur := 1
-	for _, t := range target {
-		for i := cur; i <= n; i++ {
-			ans = append(ans, "Push")
-			if t == i {
-				cur = i + 1
-				break
-			}
-			ans = append(ans, "Pop")
+	cur := 0
+	ans := []string{}
+	for _, v := range target {
+		for cur = cur + 1; cur < v; cur++ {
+			ans = append(ans, "Push", "Pop")
 		}
+		ans = append(ans, "Push")
 	}
 	return ans
 }

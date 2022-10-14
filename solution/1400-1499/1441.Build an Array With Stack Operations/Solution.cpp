@@ -1,17 +1,14 @@
 class Solution {
 public:
     vector<string> buildArray(vector<int>& target, int n) {
+        int cur = 0;
         vector<string> ans;
-        int cur = 1;
-        for (int t : target) {
-            for (int i = cur; i <= n; ++i) {
-                ans.push_back("Push");
-                if (t == i) {
-                    cur = i + 1;
-                    break;
-                }
-                ans.push_back("Pop");
+        for (int& v : target) {
+            while (++cur < v) {
+                ans.emplace_back("Push");
+                ans.emplace_back("Pop");
             }
+            ans.emplace_back("Push");
         }
         return ans;
     }

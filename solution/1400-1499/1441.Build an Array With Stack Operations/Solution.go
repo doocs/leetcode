@@ -1,15 +1,11 @@
 func buildArray(target []int, n int) []string {
-	var ans []string
-	cur := 1
-	for _, t := range target {
-		for i := cur; i <= n; i++ {
-			ans = append(ans, "Push")
-			if t == i {
-				cur = i + 1
-				break
-			}
-			ans = append(ans, "Pop")
+	cur := 0
+	ans := []string{}
+	for _, v := range target {
+		for cur = cur + 1; cur < v; cur++ {
+			ans = append(ans, "Push", "Pop")
 		}
+		ans = append(ans, "Push")
 	}
 	return ans
 }
