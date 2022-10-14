@@ -43,9 +43,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划，用 `dp[i][k]` 表示最后一次跳跃为 `k` 个单位时，能否到达 `i` ，定义 base case 为 `dp[0][0] = True`（起点在下标 0）。
+**方法一：动态规划**
 
-因为 “青蛙上一步跳跃了 `k` 个单位，那么它接下来的跳跃距离只能选择为 `k - 1`、`k` 或 `k + 1` 个单位”，所以 `dp[j][k - 1], dp[j][k], dp[j][k + 1]` 中有任一为真，即可从 `j` 跳跃到 `i`。
+动态规划转移方程如下：
+
+$$
+dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
+$$
+
+其中 `dp[i][k]` 表示最后一次跳跃为 `k` 个单位时，能否到达 `i`，定义 base case 为 `dp[0][0] = True`（起点在下标 0）。
+
+对于从 `j` 跳到 `i` 的青蛙，因为跳跃的距离确定为 `k` 个单位，所以根据题意最后一次跳跃到达 `j` 的跳跃距离只能选择为 `k - 1`、`k` 或 `k + 1` 个单位，故只要 `dp[j][k - 1], dp[j][k], dp[j][k + 1]` 中有任一为 `True`，即可从 `j` 跳跃到 `i`。
+
+**方法二：回溯+剪枝**
+
+这是最直观的解题思路。显然青蛙在第 `1` 个石子的起始跳跃距离为 `1`，对于第 `2` 个石子，根据题意很容易得到青蛙的跳跃距离只能是 `0、1 或 2`。依次类推，可以得到青蛙在第 `i` 个石子可能的跳跃距离集合，借助这个思路验证当青蛙在 `i` 处跳跃距离为集合之一时是否可以刚好过河，如不能过河继续验证其他取值即可。
+
+注意为避免提交超时，需要添加一个辅助变量减少重复搜索。
 
 <!-- tabs:start -->
 
@@ -94,6 +108,68 @@ class Solution {
         }
         return false;
     }
+}
+```
+
+### **Go**
+
+动态规划：
+
+```go
+func canCross(stones []int) bool {
+	n := len(stones)
+	dp := make([][]bool, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([]bool, n)
+	}
+	dp[0][0] = true
+
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			k := stones[i] - stones[j]
+			// 第 j 个石子上至多只能跳出 j+1 的距离
+			if k > j+1 {
+				continue
+			}
+			dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
+			if i == n-1 && dp[i][k] {
+				return true
+			}
+		}
+	}
+	return false
+}
+```
+
+回溯+剪枝：
+
+```go
+func canCross(stones []int) bool {
+	n := len(stones)
+	help := make(map[int]map[int]bool)
+	var dfs func(start, step int) bool
+
+	dfs = func(start, step int) bool {
+		if start >= n-1 {
+			return true
+		}
+
+		if _, ok := help[start]; !ok {
+			help[start] = make(map[int]bool)
+		}
+		if v, ok := help[start][step]; ok {
+			return v
+		}
+		for i := start + 1; i < n; i++ {
+			if stones[start]+step == stones[i] {
+				help[start][step] = dfs(i, step-1) || dfs(i, step) || dfs(i, step+1)
+				return help[start][step]
+			}
+		}
+		help[start][step] = false
+		return false
+	}
+	return dfs(0, 1)
 }
 ```
 
