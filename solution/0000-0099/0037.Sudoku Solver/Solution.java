@@ -1,53 +1,48 @@
 class Solution {
+    private boolean ok;
     private char[][] board;
-    private boolean[][] rows;
-    private boolean[][] cols;
-    private boolean[][] subBox;
+    private List<Integer> t = new ArrayList<>();
+    private boolean[][] row = new boolean[9][9];
+    private boolean[][] col = new boolean[9][9];
+    private boolean[][][] block = new boolean[3][3][9];
 
     public void solveSudoku(char[][] board) {
         this.board = board;
-        this.rows = new boolean[9][9];
-        this.cols = new boolean[9][9];
-        this.subBox = new boolean[9][9];
-        int val;
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (board[i][j] != '.') {
-                    val = board[i][j] - '0';
-                    rows[i][val - 1] = true;
-                    cols[j][val - 1] = true;
-                    subBox[(i / 3) * 3 + j / 3][val - 1] = true;
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                if (board[i][j] == '.') {
+                    t.add(i * 9 + j);
+                } else {
+                    int v = board[i][j] - '1';
+                    row[i][v] = true;
+                    col[j][v] = true;
+                    block[i / 3][j / 3][v] = true;
                 }
             }
         }
-        fillSudoku(0, 0);
+        dfs(0);
     }
 
-    private boolean fillSudoku(int i, int j) {
-        if (i == 9) return true;
-        int x = i, y = j;
-        if (y == 8) {
-            x++;
-            y = 0;
-        } else
-            y++;
-        if (board[i][j] == '.') {
-            for (int k = 1; k <= 9; k++) {
-                if (!rows[i][k - 1] && !cols[j][k - 1] && !subBox[(i / 3) * 3 + j / 3][k - 1]) {
-                    rows[i][k - 1] = true;
-                    cols[j][k - 1] = true;
-                    subBox[(i / 3) * 3 + j / 3][k - 1] = true;
-                    if (fillSudoku(x, y)) {
-                        board[i][j] = (char) (k + '0');
-                        return true;
-                    }
-                    rows[i][k - 1] = false;
-                    cols[j][k - 1] = false;
-                    subBox[(i / 3) * 3 + j / 3][k - 1] = false;
-                }
+    private void dfs(int k) {
+        if (k == t.size()) {
+            ok = true;
+            return;
+        }
+        int i = t.get(k) / 9, j = t.get(k) % 9;
+        for (int v = 0; v < 9; ++v) {
+            if (!row[i][v] && !col[j][v] && !block[i / 3][j / 3][v]) {
+                row[i][v] = true;
+                col[j][v] = true;
+                block[i / 3][j / 3][v] = true;
+                board[i][j] = (char) (v + '1');
+                dfs(k + 1);
+                row[i][v] = false;
+                col[j][v] = false;
+                block[i / 3][j / 3][v] = false;
             }
-            return false;
-        } else
-            return fillSudoku(x, y);
+            if (ok) {
+                return;
+            }
+        }
     }
 }
