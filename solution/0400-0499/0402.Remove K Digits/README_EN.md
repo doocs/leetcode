@@ -42,18 +42,45 @@
 
 ## Solutions
 
+**Approach 1: Greedy Algorithm**
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeKdigits(self, num: str, k: int) -> str:
+        stack, remain = [], len(num)-k
+        for value in num:
+            while k and stack and stack[-1] > value:
+                k = k-1
+                stack.pop()
+            stack.append(value)
+        return "".join(stack[:remain]).lstrip('0') or '0'
 ```
 
-### **Java**
+### **Go**
 
-```java
+```go
+func removeKdigits(num string, k int) string {
+	stack, remain := make([]byte, 0), len(num)-k
+	for i := 0; i < len(num); i++ {
+		n := len(stack)
+		for k > 0 && n > 0 && stack[n-1] > num[i] {
+			stack = stack[:n-1]
+			n, k = n-1, k-1
+		}
+		stack = append(stack, num[i])
+	}
 
+	for i := 0; i < len(stack) && i < remain; i++ {
+		if stack[i] != '0' {
+			return string(stack[i:remain])
+		}
+	}
+	return "0"
+}
 ```
 
 ### **TypeScript**
