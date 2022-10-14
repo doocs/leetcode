@@ -47,7 +47,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-贪心算法
+**方法一：贪心算法**
+
+前置知识：两个相同位数的数字大小关系取决于第一个不同位的数的大小。
+
+基本的思路如下：
+
+-   从左到右遍历数组元素；
+-   对于遍历到的当前元素，选择保留；
+-   但可以选择性丢弃前面的相邻元素，丢弃与否取决于当前元素和前面相邻元素的大小；
+-   根据前置知识可知当当前元素小于前面相邻元素时可以移除前面相邻的元素。
 
 <!-- tabs:start -->
 
@@ -56,15 +65,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def removeKdigits(self, num: str, k: int) -> str:
+        stack, remain = [], len(num)-k
+        for value in num:
+            while k and stack and stack[-1] > value:
+                k = k-1
+                stack.pop()
+            stack.append(value)
+        return "".join(stack[:remain]).lstrip('0') or '0'
 ```
 
-### **Java**
+### **Go**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```java
-
+```go
+func removeKdigits(num string, k int) string {
+	stack, remain := make([]byte, 0), len(num)-k
+	for i := 0; i < len(num); i++ {
+		n := len(stack)
+		for k > 0 && n > 0 && stack[n-1] > num[i] {
+			stack = stack[:n-1]
+			n, k = n-1, k-1
+		}
+		stack = append(stack, num[i])
+	}
+	// 返回删除 k 个字符之后的字符串，需要去除可能存在的前置 0
+	for i := 0; i < len(stack) && i < remain; i++ {
+		if stack[i] != '0' {
+			return string(stack[i:remain])
+		}
+	}
+	return "0"
+}
 ```
 
 ### **TypeScript**
