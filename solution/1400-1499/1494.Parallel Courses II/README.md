@@ -60,6 +60,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：状态压缩 + BFS + 枚举子集**
+
+我们用数组 $d[i]$ 表示课程 $i$ 的先修课程的集合。由于数据规模 $n\lt 15$，我们可以用一个整数的二进制位来表示集合，其中第 $j$ 位为 $1$ 表示课程 $j$ 是课程 $i$ 的先修课程。
+
+我们用一个状态变量 $cur$ 表示当前已经上过的课程的集合，初始时 $cur=0$。如果 $cur=2^{n+1}-2$，表示所有课程都上过了，返回当前学期即可。
+
+如果课程 $i$ 的先修课程 $d[i]$ 的集合是 $cur$ 的子集，说明课程 $i$ 可以上。这样我们可以找到当前 $cur$ 状态的下一个状态 $nxt$，表示后续学期可以上的课程集合。
+
+如果 $nxt$ 的二进制表示中 $1$ 的个数小于等于 $k$，说明后续学期可以上的课程数不超过 $k$，我们就可以将 $nxt$ 加入队列中。否则，说明后续学期可以上的课程数超过 $k$，那么我们就应该从后续可以上的课程中选择 $k$ 门课程，这样才能保证后续学期可以上的课程数不超过 $k$。我们可以枚举 $nxt$ 的所有子集，将子集加入队列中。
+
+时间复杂度 $O(2^n\times n)$，空间复杂度 $O(2^n\times)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +79,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minNumberOfSemesters(self, n: int, relations: List[List[int]], k: int) -> int:
+        d = [0] * (n + 1)
+        for x, y in relations:
+            d[y] |= 1 << x
+        q = deque([(0, 0)])
+        vis = {0}
+        while q:
+            cur, t = q.popleft()
+            if cur == (1 << (n + 1)) - 2:
+                return t
+            nxt = 0
+            for i in range(1, n + 1):
+                if (cur & d[i]) == d[i]:
+                    nxt |= 1 << i
+            nxt ^= cur
+            if nxt.bit_count() <= k:
+                if (nxt | cur) not in vis:
+                    vis.add(nxt | cur)
+                    q.append((nxt | cur, t + 1))
+            else:
+                x = nxt
+                while nxt:
+                    if nxt.bit_count() == k and (nxt | cur) not in vis:
+                        vis.add(nxt | cur)
+                        q.append((nxt | cur, t + 1))
+                    nxt = (nxt - 1) & x
 ```
 
 ### **Java**
@@ -75,7 +113,140 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minNumberOfSemesters(int n, int[][] relations, int k) {
+        int[] d = new int[n + 1];
+        for (var e : relations) {
+            d[e[1]] |= 1 << e[0];
+        }
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[] {0, 0});
+        Set<Integer> vis = new HashSet<>();
+        vis.add(0);
+        while (!q.isEmpty()) {
+            var p = q.pollFirst();
+            int cur = p[0], t = p[1];
+            if (cur == (1 << (n + 1)) - 2) {
+                return t;
+            }
+            int nxt = 0;
+            for (int i = 1; i <= n; ++i) {
+                if ((cur & d[i]) == d[i]) {
+                    nxt |= 1 << i;
+                }
+            }
+            nxt ^= cur;
+            if (Integer.bitCount(nxt) <= k) {
+                if (vis.add(nxt | cur)) {
+                    q.offer(new int[] {nxt | cur, t + 1});
+                }
+            } else {
+                int x = nxt;
+                while (nxt > 0) {
+                   if (Integer.bitCount(nxt) == k && vis.add(nxt | cur)) {
+                       q.offer(new int[] {nxt | cur, t + 1});
+                   }
+                   nxt = (nxt - 1) & x;
+                }
+            }
+        }
+        return 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    int minNumberOfSemesters(int n, vector<vector<int>>& relations, int k) {
+        vector<int> d(n + 1);
+        for (auto& e : relations) {
+            d[e[1]] |= 1 << e[0];
+        }
+        queue<pii> q;
+        q.push({0, 0});
+        unordered_set<int> vis{{0}};
+        while (!q.empty()) {
+            auto [cur, t] = q.front();
+            q.pop();
+            if (cur == (1 << (n + 1)) - 2) {
+                return t;
+            }
+            int nxt = 0;
+            for (int i = 1; i <= n; ++i) {
+                if ((cur & d[i]) == d[i]) {
+                    nxt |= 1 << i;
+                }
+            }
+            nxt ^= cur;
+            if (__builtin_popcount(nxt) <= k) {
+                if (!vis.count(nxt | cur)) {
+                    vis.insert(nxt | cur);
+                    q.push({nxt | cur, t + 1});
+                }
+            } else {
+                int x = nxt;
+                while (nxt) {
+                    if (__builtin_popcount(nxt) == k && !vis.count(nxt | cur)) {
+                        vis.insert(nxt | cur);
+                        q.push({nxt | cur, t + 1});
+                    }
+                    nxt = (nxt - 1) & x;
+                }
+            }
+        }
+        return 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minNumberOfSemesters(n int, relations [][]int, k int) int {
+	d := make([]int, n+1)
+	for _, e := range relations {
+		d[e[1]] |= 1 << e[0]
+	}
+	type pair struct{ v, t int }
+	q := []pair{pair{0, 0}}
+	vis := map[int]bool{0: true}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		cur, t := p.v, p.t
+		if cur == (1<<(n+1))-2 {
+			return t
+		}
+		nxt := 0
+		for i := 1; i <= n; i++ {
+			if (cur & d[i]) == d[i] {
+				nxt |= 1 << i
+			}
+		}
+		nxt ^= cur
+		if bits.OnesCount(uint(nxt)) <= k {
+			if !vis[nxt|cur] {
+				vis[nxt|cur] = true
+				q = append(q, pair{nxt | cur, t + 1})
+			}
+		} else {
+			x := nxt
+			for nxt > 0 {
+				if bits.OnesCount(uint(nxt)) == k && !vis[nxt|cur] {
+					vis[nxt|cur] = true
+					q = append(q, pair{nxt | cur, t + 1})
+				}
+				nxt = (nxt - 1) & x
+			}
+		}
+	}
+	return 0
+}
 ```
 
 ### **...**
