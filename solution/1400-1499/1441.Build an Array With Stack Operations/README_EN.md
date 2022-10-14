@@ -145,6 +145,68 @@ func buildArray(target []int, n int) []string {
 }
 ```
 
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+char **buildArray(int *target, int targetSize, int n, int *returnSize) {
+    char **res = (char **) malloc(sizeof(char *) * n * 2);
+    int cur = 1;
+    int i = 0;
+    for (int j = 0; j < targetSize; j++) {
+        while (++cur < target[j]) {
+            res[i] = (char *) malloc(sizeof(char) * 8);
+            strcpy(res[i++], "Push");
+            res[i] = (char *) malloc(sizeof(char) * 8);
+            strcpy(res[i++], "Pop");
+        }
+        res[i] = (char *) malloc(sizeof(char) * 8);
+        strcpy(res[i++], "Push");
+    }
+    *returnSize = i;
+    return res;
+}
+```
+
+### **TypeScript**
+
+```ts
+function buildArray(target: number[], n: number): string[] {
+    const res = [];
+    let cur = 0;
+    for (const num of target) {
+        while (++cur < num) {
+            res.push('Push', 'Pop');
+        }
+        res.push('Push');
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn build_array(target: Vec<i32>, n: i32) -> Vec<String> {
+        let mut res = Vec::new();
+        let mut cur = 1;
+        for &num in target.iter() {
+            while cur < num {
+                res.push("Push");
+                res.push("Pop");
+                cur += 1;
+            }
+            res.push("Push");
+            cur += 1;
+        }
+        res.into_iter().map(String::from).collect()
+    }
+}
+```
+
 ### **...**
 
 ```
