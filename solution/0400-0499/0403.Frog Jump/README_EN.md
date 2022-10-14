@@ -39,9 +39,13 @@
 
 ## Solutions
 
+**Approach 1: Dynamic Programming**
+
 DP, use `dp[i][k]` to indicate whether `i` can be reached when the last jump was `k` units, and define the base case as `dp[0][0] = True` (starting point is at index 0).
 
 Because "the frog's last jump was `k` units, its next jump must be either `k - 1`, `k`, or `k + 1` units", so if any of `dp[j][k-1], dp[j][k], dp[j][k + 1]` is true, frog can jump from `j` to `i`.
+
+**Approach 2: Backtracking**
 
 <!-- tabs:start -->
 
@@ -86,6 +90,67 @@ class Solution {
         }
         return false;
     }
+}
+```
+
+### **Go**
+
+dp:
+
+```go
+func canCross(stones []int) bool {
+	n := len(stones)
+	dp := make([][]bool, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([]bool, n)
+	}
+	dp[0][0] = true
+
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			k := stones[i] - stones[j]
+			if k > j+1 {
+				continue
+			}
+			dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
+			if i == n-1 && dp[i][k] {
+				return true
+			}
+		}
+	}
+	return false
+}
+```
+
+dfs:
+
+```go
+func canCross(stones []int) bool {
+	n := len(stones)
+	help := make(map[int]map[int]bool)
+	var dfs func(start, step int) bool
+
+	dfs = func(start, step int) bool {
+		if start >= n-1 {
+			return true
+		}
+
+		if _, ok := help[start]; !ok {
+			help[start] = make(map[int]bool)
+		}
+		if v, ok := help[start][step]; ok {
+			return v
+		}
+		for i := start + 1; i < n; i++ {
+			if stones[start]+step == stones[i] {
+				help[start][step] = dfs(i, step-1) || dfs(i, step) || dfs(i, step+1)
+				return help[start][step]
+			}
+		}
+		help[start][step] = false
+		return false
+	}
+	return dfs(0, 1)
 }
 ```
 
