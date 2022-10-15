@@ -59,40 +59,165 @@ If we had started at the first tree, we would only pick from trees [1,2].
 
 ```python
 class Solution:
-    def totalFruit(self, tree: List[int]) -> int:
-        counter = Counter()
-        i = res = 0
-        for j, type in enumerate(tree):
-            counter[type] += 1
-            while len(counter) > 2:
-                counter[tree[i]] -= 1
-                if counter[tree[i]] == 0:
-                    counter.pop(tree[i])
-                i += 1
-            res = max(res, j - i + 1)
-        return res
+    def totalFruit(self, fruits: List[int]) -> int:
+        cnt = Counter()
+        ans = j = 0
+        for i, x in enumerate(fruits):
+            cnt[x] += 1
+            while len(cnt) > 2:
+                y = fruits[j]
+                cnt[y] -= 1
+                if cnt[y] == 0:
+                    cnt.pop(y)
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
+```
+
+```python
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        cnt = Counter()
+        j = 0
+        for x in fruits:
+            cnt[x] += 1
+            if len(cnt) > 2:
+                y = fruits[j]
+                cnt[y] -= 1
+                if cnt[y] == 0:
+                    cnt.pop(y)
+                j += 1
+        return len(fruits) - j
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public int totalFruit(int[] tree) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        int i = 0, res = 0;
-        for (int j = 0; j < tree.length; ++j) {
-            counter.put(tree[j], counter.getOrDefault(tree[j], 0) + 1);
-            while (counter.size() > 2) {
-                counter.put(tree[i], counter.get(tree[i]) - 1);
-                if (counter.get(tree[i]) == 0) {
-                    counter.remove(tree[i]);
+    public int totalFruit(int[] fruits) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (int i = 0, j = 0; i < fruits.length; ++i) {
+            int x = fruits[i];
+            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            while (cnt.size() > 2) {
+                int y = fruits[j++];
+                cnt.put(y, cnt.get(y) - 1);
+                if (cnt.get(y) == 0) {
+                    cnt.remove(y);
                 }
-                ++i;
             }
-            res = Math.max(res, j - i + 1);
+            ans = Math.max(ans, i - j + 1);
         }
-        return res;
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public int totalFruit(int[] fruits) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int j = 0, n = fruits.length;
+        for (int x : fruits) {
+            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            if (cnt.size() > 2) {
+                int y = fruits[j++];
+                cnt.put(y, cnt.get(y) - 1);
+                if (cnt.get(y) == 0) {
+                    cnt.remove(y);
+                }
+            }
+        }
+        return n - j;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        unordered_map<int, int> cnt;
+        int ans = 0;
+        for (int i = 0, j = 0; i < fruits.size(); ++i) {
+            int x = fruits[i];
+            ++cnt[x];
+            while (cnt.size() > 2) {
+                int y = fruits[j++];
+                if (--cnt[y] == 0) cnt.erase(y);
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        unordered_map<int, int> cnt;
+        int j = 0, n = fruits.size();
+        for (int& x : fruits) {
+            ++cnt[x];
+            if (cnt.size() > 2) {
+                int y = fruits[j++];
+                if (--cnt[y] == 0) cnt.erase(y);
+            }
+        }
+        return n - j;
+    }
+};
+```
+
+### **Go**
+
+```go
+func totalFruit(fruits []int) int {
+	cnt := map[int]int{}
+	ans, j := 0, 0
+	for i, x := range fruits {
+		cnt[x]++
+		for ; len(cnt) > 2; j++ {
+			y := fruits[j]
+			cnt[y]--
+			if cnt[y] == 0 {
+				delete(cnt, y)
+			}
+		}
+		ans = max(ans, i-j+1)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func totalFruit(fruits []int) int {
+	cnt := map[int]int{}
+	j := 0
+	for _, x := range fruits {
+		cnt[x]++
+		if len(cnt) > 2 {
+			y := fruits[j]
+			cnt[y]--
+			if cnt[y] == 0 {
+				delete(cnt, y)
+			}
+			j++
+		}
+	}
+	return len(fruits) - j
 }
 ```
 
