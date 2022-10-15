@@ -53,6 +53,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 哈希表**
+
+我们先用哈希表 `cnt` 统计每个单词出现的次数。
+
+遍历 `cnt` 中的每个单词 $k$ 以及其出现次数 $v$：
+
+如果 $k$ 中两个字母相同，那么我们可以将 $\left \lfloor \frac{v}{2}  \right \rfloor \times 2$ 个 $k$ 连接到回文串的前后，此时如果 $k$ 还剩余一个，那么我们可以先记录到 $x$ 中。
+
+如果 $k$ 中两个字母不同，那么我们要找到一个单词 $k'$，使得 $k'$ 中的两个字母与 $k$ 相反，即 $k' = k[1] + k[0]$。如果 $k'$ 存在，那么我们可以将 $\min(v, cnt[k'])$ 个 $k$ 连接到回文串的前后。
+
+遍历结束后，如果 $x$ 不为空，那么我们还可以将一个单词连接到回文串的中间。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `words` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +74,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def longestPalindrome(self, words: List[str]) -> int:
+        cnt = Counter(words)
+        ans = x = 0
+        for k, v in cnt.items():
+            if k[0] == k[1]:
+                x += v & 1
+                ans += v // 2 * 2 * 2
+            else:
+                ans += min(v, cnt[k[::-1]]) * 2
+        ans += 2 if x else 0
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +93,87 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int longestPalindrome(String[] words) {
+        Map<String, Integer> cnt = new HashMap<>();
+        for (var w : words) {
+            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+        }
+        int ans = 0, x = 0;
+        for (var e : cnt.entrySet()) {
+            var k = e.getKey();
+            var rk = new StringBuilder(k).reverse().toString();
+            int v = e.getValue();
+            if (k.charAt(0) == k.charAt(1)) {
+                x += v & 1;
+                ans += v / 2 * 2 * 2;
+            } else {
+                ans += Math.min(v, cnt.getOrDefault(rk, 0)) * 2;
+            }
+        }
+        ans += x > 0 ? 2 : 0;
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestPalindrome(vector<string>& words) {
+        unordered_map<string, int> cnt;
+        for (auto& w : words) cnt[w]++;
+        int ans = 0, x = 0;
+        for (auto& [k, v] : cnt) {
+            string rk = k;
+            reverse(rk.begin(), rk.end());
+            if (k[0] == k[1]) {
+                x += v & 1;
+                ans += v / 2 * 2 * 2;
+            } else if (cnt.count(rk)) {
+                ans += min(v, cnt[rk]) * 2;
+            }
+        }
+        ans += x ? 2 : 0;
+        return ans;
+    }
+};
+```
+
+## **Go**
+
+```go
+func longestPalindrome(words []string) int {
+	cnt := map[string]int{}
+	for _, w := range words {
+		cnt[w]++
+	}
+	ans, x := 0, 0
+	for k, v := range cnt {
+		if k[0] == k[1] {
+			x += v & 1
+			ans += v / 2 * 2 * 2
+		} else {
+			rk := string([]byte{k[1], k[0]})
+			if y, ok := cnt[rk]; ok {
+				ans += min(v, y) * 2
+			}
+		}
+	}
+	if x > 0 {
+		ans += 2
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
