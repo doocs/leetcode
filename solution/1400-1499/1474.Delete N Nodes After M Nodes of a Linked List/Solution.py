@@ -7,13 +7,13 @@ class Solution:
     def deleteNodes(self, head: ListNode, m: int, n: int) -> ListNode:
         pre = head
         while pre:
-            for i in range(m - 1):
+            for _ in range(m - 1):
                 if pre:
                     pre = pre.next
             if pre is None:
                 return head
             cur = pre
-            for i in range(n):
+            for _ in range(n):
                 if cur:
                     cur = cur.next
             pre.next = None if cur is None else cur.next

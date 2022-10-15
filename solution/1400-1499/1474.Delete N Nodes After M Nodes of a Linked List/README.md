@@ -72,7 +72,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历链表，修改指针指向即可。
+**方法一：模拟**
+
+按照题意模拟，遍历链表，每次遍历 $m$ 个节点，然后删除 $n$ 个节点，直到链表尾部。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -90,13 +94,13 @@ class Solution:
     def deleteNodes(self, head: ListNode, m: int, n: int) -> ListNode:
         pre = head
         while pre:
-            for i in range(m - 1):
+            for _ in range(m - 1):
                 if pre:
                     pre = pre.next
             if pre is None:
                 return head
             cur = pre
-            for i in range(n):
+            for _ in range(n):
                 if cur:
                     cur = cur.next
             pre.next = None if cur is None else cur.next
@@ -138,6 +142,75 @@ class Solution {
         }
         return head;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteNodes(ListNode* head, int m, int n) {
+        auto pre = head;
+        while (pre) {
+            for (int i = 0; i < m - 1 && pre; ++i) {
+                pre = pre->next;
+            }
+            if (!pre) {
+                return head;
+            }
+            auto cur = pre;
+            for (int i = 0; i < n && cur; ++i) {
+                cur = cur->next;
+            }
+            pre->next = cur ? cur->next : nullptr;
+            pre = pre->next;
+        }
+        return head;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNodes(head *ListNode, m int, n int) *ListNode {
+	pre := head
+	for pre != nil {
+		for i := 0; i < m-1 && pre != nil; i++ {
+			pre = pre.Next
+		}
+		if pre == nil {
+			return head
+		}
+		cur := pre
+		for i := 0; i < n && cur != nil; i++ {
+			cur = cur.Next
+		}
+		pre.Next = nil
+		if cur != nil {
+			pre.Next = cur.Next
+		}
+		pre = pre.Next
+	}
+	return head
 }
 ```
 
