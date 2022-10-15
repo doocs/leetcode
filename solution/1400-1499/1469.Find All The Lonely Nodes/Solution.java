@@ -14,25 +14,24 @@
  * }
  */
 class Solution {
-    private List<Integer> res;
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> getLonelyNodes(TreeNode root) {
-        res = new ArrayList<>();
-        traverse(root);
-        return res;
+        dfs(root);
+        return ans;
     }
 
-    private void traverse(TreeNode root) {
-        if (root == null) {
+    private void dfs(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
             return;
         }
-        if (root.left == null && root.right != null) {
-            res.add(root.right.val);
+        if (root.left == null) {
+            ans.add(root.right.val);
         }
-        if (root.left != null && root.right == null) {
-            res.add(root.left.val);
+        if (root.right == null) {
+            ans.add(root.left.val);
         }
-        traverse(root.left);
-        traverse(root.right);
+        dfs(root.left);
+        dfs(root.right);
     }
 }

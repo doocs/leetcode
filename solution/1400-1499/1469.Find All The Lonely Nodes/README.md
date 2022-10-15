@@ -72,6 +72,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+递归搜索二叉树，如果当前节点的左右子节点都不为空，则继续递归搜索左右子树；如果当前节点的左右子节点有一个为空，则将不为空的子节点的值加入结果数组中，然后继续递归搜索左右子树。
+
+时间复杂度 $O(n)$，其中 $n$ 为二叉树的节点个数。需要对二叉树进行一次遍历。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -86,20 +92,20 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getLonelyNodes(self, root: TreeNode) -> List[int]:
-        def traverse(root):
-            if root is None:
+    def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs(root):
+            if root is None or (root.left is None and root.right is None):
                 return
-            if root.left is None and root.right is not None:
-                self.res.append(root.right.val)
-            if root.left is not None and root.right is None:
-                self.res.append(root.left.val)
-            traverse(root.left)
-            traverse(root.right)
+            if root.left is None:
+                ans.append(root.right.val)
+            if root.right is None:
+                ans.append(root.left.val)
+            dfs(root.left)
+            dfs(root.right)
 
-        self.res = []
-        traverse(root)
-        return self.res
+        ans = []
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
@@ -123,27 +129,90 @@ class Solution:
  * }
  */
 class Solution {
-    private List<Integer> res;
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> getLonelyNodes(TreeNode root) {
-        res = new ArrayList<>();
-        traverse(root);
-        return res;
+        dfs(root);
+        return ans;
     }
 
-    private void traverse(TreeNode root) {
-        if (root == null) {
+    private void dfs(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
             return;
         }
-        if (root.left == null && root.right != null) {
-            res.add(root.right.val);
+        if (root.left == null) {
+            ans.add(root.right.val);
         }
-        if (root.left != null && root.right == null) {
-            res.add(root.left.val);
+        if (root.right == null) {
+            ans.add(root.left.val);
         }
-        traverse(root.left);
-        traverse(root.right);
+        dfs(root.left);
+        dfs(root.right);
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> getLonelyNodes(TreeNode* root) {
+        vector<int> ans;
+        function<void(TreeNode* root)> dfs;
+        dfs = [&](TreeNode* root) {
+            if (!root || (!root->left && !root->right)) return;
+            if (!root->left) ans.push_back(root->right->val);
+            if (!root->right) ans.push_back(root->left->val);
+            dfs(root->left);
+            dfs(root->right);
+        };
+        dfs(root);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func getLonelyNodes(root *TreeNode) []int {
+	ans := []int{}
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil || (root.Left == nil && root.Right == nil) {
+			return
+		}
+		if root.Left == nil {
+			ans = append(ans, root.Right.Val)
+		}
+		if root.Right == nil {
+			ans = append(ans, root.Left.Val)
+		}
+		dfs(root.Left)
+		dfs(root.Right)
+	}
+	dfs(root)
+	return ans
 }
 ```
 

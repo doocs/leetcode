@@ -5,17 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getLonelyNodes(self, root: TreeNode) -> List[int]:
-        def traverse(root):
-            if root is None:
+    def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs(root):
+            if root is None or (root.left is None and root.right is None):
                 return
-            if root.left is None and root.right is not None:
-                self.res.append(root.right.val)
-            if root.left is not None and root.right is None:
-                self.res.append(root.left.val)
-            traverse(root.left)
-            traverse(root.right)
+            if root.left is None:
+                ans.append(root.right.val)
+            if root.right is None:
+                ans.append(root.left.val)
+            dfs(root.left)
+            dfs(root.right)
 
-        self.res = []
-        traverse(root)
-        return self.res
+        ans = []
+        dfs(root)
+        return ans
