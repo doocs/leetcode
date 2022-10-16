@@ -51,13 +51,14 @@
 class Solution:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
         people.sort()
-        num, i, j = 0, 0, len(people) - 1
+        ans = 0
+        i, j = 0, len(people) - 1
         while i <= j:
             if people[i] + people[j] <= limit:
                 i += 1
             j -= 1
-            num += 1
-        return num
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -66,17 +67,50 @@ class Solution:
 class Solution {
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
-        int num = 0;
-        int i = 0, j = people.length - 1;
-        while (i <= j) {
+        int ans = 0;
+        for (int i = 0, j = people.length - 1; i <= j; --j) {
             if (people[i] + people[j] <= limit) {
                 ++i;
             }
-            --j;
-            ++num;
+            ++ans;
         }
-        return num;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numRescueBoats(vector<int>& people, int limit) {
+        sort(people.begin(), people.end());
+        int ans = 0;
+        for (int i = 0, j = people.size() - 1; i <= j; --j) {
+            if (people[i] + people[j] <= limit) {
+                ++i;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numRescueBoats(people []int, limit int) int {
+	sort.Ints(people)
+	ans := 0
+	for i, j := 0, len(people)-1; i <= j; j-- {
+		if people[i]+people[j] <= limit {
+			i++
+		}
+		ans++
+	}
+	return ans
 }
 ```
 

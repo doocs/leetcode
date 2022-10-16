@@ -50,7 +50,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“排序 + 双指针”实现。
+**方法一：贪心 + 双指针**
+
+排序后，使用双指针分别指向数组首尾，每次取两个指针指向的元素之和与 `limit` 比较，如果小于等于 `limit`，则两个指针同时向中间移动一位，否则只移动右指针。累加答案即可。
+
+时间复杂度 $O(n\log n)$，其中 $n$ 为数组 `people` 的长度。
 
 <!-- tabs:start -->
 
@@ -62,13 +66,14 @@
 class Solution:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
         people.sort()
-        num, i, j = 0, 0, len(people) - 1
+        ans = 0
+        i, j = 0, len(people) - 1
         while i <= j:
             if people[i] + people[j] <= limit:
                 i += 1
             j -= 1
-            num += 1
-        return num
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -79,17 +84,50 @@ class Solution:
 class Solution {
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
-        int num = 0;
-        int i = 0, j = people.length - 1;
-        while (i <= j) {
+        int ans = 0;
+        for (int i = 0, j = people.length - 1; i <= j; --j) {
             if (people[i] + people[j] <= limit) {
                 ++i;
             }
-            --j;
-            ++num;
+            ++ans;
         }
-        return num;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numRescueBoats(vector<int>& people, int limit) {
+        sort(people.begin(), people.end());
+        int ans = 0;
+        for (int i = 0, j = people.size() - 1; i <= j; --j) {
+            if (people[i] + people[j] <= limit) {
+                ++i;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numRescueBoats(people []int, limit int) int {
+	sort.Ints(people)
+	ans := 0
+	for i, j := 0, len(people)-1; i <= j; j-- {
+		if people[i]+people[j] <= limit {
+			i++
+		}
+		ans++
+	}
+	return ans
 }
 ```
 
