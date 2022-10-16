@@ -164,10 +164,84 @@ func max(a, b int) int {
 }
 ```
 
+### **C**
+
+```c
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+
+long long countSubarrays(int *nums, int numsSize, int minK, int maxK) {
+    long long res = 0;
+    int minIndex = -1;
+    int maxIndex = -1;
+    int k = -1;
+    for (int i = 0; i < numsSize; i++) {
+        int num = nums[i];
+        if (num == minK) {
+            minIndex = i;
+        }
+        if (num == maxK) {
+            maxIndex = i;
+        }
+        if (num < minK || num > maxK) {
+            k = i;
+        }
+        res += max(min(minIndex, maxIndex) - k, 0);
+    }
+    return res;
+}
+```
+
 ### **TypeScript**
 
 ```ts
+function countSubarrays(nums: number[], minK: number, maxK: number): number {
+    let res = 0;
+    let minIndex = -1;
+    let maxIndex = -1;
+    let k = -1;
+    nums.forEach((num, i) => {
+        if (num === minK) {
+            minIndex = i;
+        }
+        if (num === maxK) {
+            maxIndex = i;
+        }
+        if (num < minK || num > maxK) {
+            k = i;
+        }
+        res += Math.max(Math.min(minIndex, maxIndex) - k, 0);
+    });
+    return res;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_subarrays(nums: Vec<i32>, min_k: i32, max_k: i32) -> i64 {
+        let mut res = 0;
+        let mut min_index = -1;
+        let mut max_index = -1;
+        let mut k = -1;
+        for i in 0..nums.len() {
+            let num = nums[i];
+            let i = i as i64;
+            if num == min_k {
+                min_index = i;
+            }
+            if num == max_k {
+                max_index = i;
+            }
+            if num < min_k || num > max_k {
+                k = i;
+            }
+            res += 0.max(min_index.min(max_index) - k);
+        }
+        res
+    }
+}
 ```
 
 ### **...**
