@@ -130,7 +130,34 @@ func findMaxK(nums []int) int {
 ### **TypeScript**
 
 ```ts
+function findMaxK(nums: number[]): number {
+    const set = new Set(nums);
+    let res = -1;
+    for (const num of set) {
+        if (set.has(-num)) {
+            res = Math.max(num, res);
+        }
+    }
+    return res;
+}
+```
 
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn find_max_k(nums: Vec<i32>) -> i32 {
+        let set = nums.into_iter().collect::<HashSet<i32>>();
+        let mut res = -1;
+        for &num in set.iter() {
+            if set.contains(&(-num)) {
+                res = res.max(num);
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**

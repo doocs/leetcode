@@ -111,10 +111,60 @@ func sumOfNumberAndReverse(num int) bool {
 }
 ```
 
+### **C**
+
+```c
+bool sumOfNumberAndReverse(int num) {
+    for (int i = 0; i <= num; i++) {
+        int t = i;
+        int j = 0;
+        while (t > 0) {
+            j = j * 10 + t % 10;
+            t /= 10;
+        }
+        if (i + j == num) {
+            return 1;
+        }
+    }
+    return 0;
+}
+```
+
 ### **TypeScript**
 
 ```ts
+function sumOfNumberAndReverse(num: number): boolean {
+    for (let i = 0; i <= num; i++) {
+        if (i + Number([...(i + '')].reverse().join('')) === num) {
+            return true;
+        }
+    }
+    return false;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sum_of_number_and_reverse(num: i32) -> bool {
+        for i in 0..=num {
+            if i + {
+                let mut t = i;
+                let mut j = 0;
+                while t > 0 {
+                    j = j * 10 + t % 10;
+                    t /= 10;
+                }
+                j
+            } == num
+            {
+                return true;
+            }
+        }
+        false
+    }
+}
 ```
 
 ### **...**
