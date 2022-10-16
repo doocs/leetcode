@@ -221,6 +221,102 @@ func totalFruit(fruits []int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function totalFruit(fruits: number[]): number {
+    const n = fruits.length;
+    const map = new Map<number, number>();
+    let res = 0;
+    let left = 0;
+    let right = 0;
+    while (right < n) {
+        map.set(fruits[right], (map.get(fruits[right]) ?? 0) + 1);
+        right++;
+        while (map.size > 2) {
+            const k = fruits[left++];
+            map.set(k, map.get(k) - 1);
+            if (map.get(k) === 0) {
+                map.delete(k);
+            }
+        }
+        res = Math.max(res, right - left);
+    }
+    return res;
+}
+```
+
+```ts
+function totalFruit(fruits: number[]): number {
+    const n = fruits.length;
+    const map = new Map<number, number>();
+    let i = 0;
+    for (const fruit of fruits) {
+        map.set(fruit, (map.get(fruit) ?? 0) + 1);
+        if (map.size > 2) {
+            const k = fruits[i++];
+            map.set(k, map.get(k) - 1);
+            if (map.get(k) == 0) {
+                map.delete(k);
+            }
+        }
+    }
+    return n - i;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn total_fruit(fruits: Vec<i32>) -> i32 {
+        let n = fruits.len();
+        let mut map = HashMap::new();
+        let mut res = 0;
+        let mut left = 0;
+        let mut right = 0;
+        while right < n {
+            *map.entry(fruits[right]).or_insert(0) += 1;
+            right += 1;
+            while map.len() > 2 {
+                let k = fruits[left];
+                map.insert(k, map[&k] - 1);
+                if map[&k] == 0 {
+                    map.remove(&k);
+                }
+                left += 1;
+            }
+            res = res.max(right - left);
+        }
+        res as i32
+    }
+}
+```
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn total_fruit(fruits: Vec<i32>) -> i32 {
+        let n = fruits.len();
+        let mut map = HashMap::new();
+        let mut i = 0;
+        for &fruit in fruits.iter() {
+            *map.entry(fruit).or_insert(0) += 1;
+            if map.len() > 2 {
+                let k = fruits[i];
+                map.insert(k, map[&k] - 1);
+                if map[&k] == 0 {
+                    map.remove(&k);
+                }
+                i += 1;
+            }
+        }
+        (n - i) as i32
+    }
+}
+```
+
 ### **...**
 
 ```
