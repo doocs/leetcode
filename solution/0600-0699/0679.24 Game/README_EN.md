@@ -29,7 +29,7 @@
 <p>Return <code>true</code> if you can get such expression that evaluates to <code>24</code>, and <code>false</code> otherwise.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> cards = [4,1,8,7]
@@ -37,7 +37,7 @@
 <strong>Explanation:</strong> (8-4) * (7-1) = 24
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> cards = [1,2,1,2]

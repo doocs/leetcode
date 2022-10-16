@@ -23,6 +23,22 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 315 场周赛(2022-10-16 10:30, 90 分钟) 参赛人数 6490
+
+- [2441. 与对应负数同时存在的最大正整数](/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README.md)
+- [2442. 反转之后不同整数的数目](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README.md)
+- [2443. 反转之后的数字和](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README.md)
+- [2444. 统计定界子数组的数目](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md)
+
+
+#### 第 89 场双周赛(2022-10-15 22:30, 90 分钟) 参赛人数 3984
+
+- [2437. 有效时间的数目](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README.md)
+- [2438. 二的幂数组中查询范围内的乘积](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README.md)
+- [2439. 最小化数组中的最大值](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README.md)
+- [2440. 创建价值相同的连通块](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README.md)
+
+
 #### 第 314 场周赛(2022-10-09 10:30, 90 分钟) 参赛人数 4838
 
 - [2432. 处理用时最长的那个任务的员工](/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README.md)

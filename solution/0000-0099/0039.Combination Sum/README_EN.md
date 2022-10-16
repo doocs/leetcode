@@ -11,7 +11,7 @@
 <p>The test cases are generated such that the number of unique combinations that sum up to <code>target</code> is less than <code>150</code> combinations for the given input.</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> candidates = [2,3,6,7], target = 7
@@ -22,14 +22,14 @@
 These are the only two combinations.
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> candidates = [2,3,5], target = 8
 <strong>Output:</strong> [[2,2,2,2],[2,3,3],[3,5]]
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> candidates = [2], target = 1
@@ -43,7 +43,7 @@ These are the only two combinations.
 	<li><code>1 &lt;= candidates.length &lt;= 30</code></li>
 	<li><code>2 &lt;= candidates[i] &lt;= 40</code></li>
 	<li>All elements of <code>candidates</code> are <strong>distinct</strong>.</li>
-	<li><code>1 &lt;= target &lt;= 500</code></li>
+	<li><code>1 &lt;= target &lt;= 40</code></li>
 </ul>
 
 ## Solutions

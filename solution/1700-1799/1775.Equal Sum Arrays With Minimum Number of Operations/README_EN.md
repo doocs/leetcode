@@ -11,7 +11,7 @@
 <p>Return <em>the minimum number of operations required to make the sum of values in </em><code>nums1</code><em> equal to the sum of values in </em><code>nums2</code><em>.</em> Return <code>-1</code>​​​​​ if it is not possible to make the sum of the two arrays equal.</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,2,3,4,5,6], nums2 = [1,1,2,2,2,2]
@@ -22,7 +22,7 @@
 - Change nums1[2] to 2. nums1 = [1,2,<strong><u>2</u></strong>,4,5,1], nums2 = [6,1,2,2,2,2].
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [1,1,1,1,1,1,1], nums2 = [6]
@@ -30,7 +30,7 @@
 <strong>Explanation:</strong> There is no way to decrease the sum of nums1 or to increase the sum of nums2 to make them equal.
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [6,6], nums2 = [1]

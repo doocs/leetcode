@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given two positive integers <code>num1</code> and <code>num2</code>, find the integer <code>x</code> such that:</p>
+<p>Given two positive integers <code>num1</code> and <code>num2</code>, find the positive integer <code>x</code> such that:</p>
 
 <ul>
 	<li><code>x</code> has the same number of set bits as <code>num2</code>, and</li>
@@ -18,7 +18,7 @@
 <p>The number of <strong>set bits</strong> of an integer is the number of <code>1</code>&#39;s in its binary representation.</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> num1 = 3, num2 = 5
@@ -28,7 +28,7 @@ The binary representations of num1 and num2 are 0011 and 0101, respectively.
 The integer <strong>3</strong> has the same number of set bits as num2, and the value <code>3 XOR 3 = 0</code> is minimal.
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> num1 = 1, num2 = 12
@@ -161,8 +161,14 @@ func minimizeXor(num1 int, num2 int) int {
 ```ts
 function minimizeXor(num1: number, num2: number): number {
     let ans = num1;
-    let target = num1.toString(2).split('').reduce((a, c) => a + Number(c), 0);
-    let count = num2.toString(2).split('').reduce((a, c) => a + Number(c), 0);
+    let target = num1
+        .toString(2)
+        .split('')
+        .reduce((a, c) => a + Number(c), 0);
+    let count = num2
+        .toString(2)
+        .split('')
+        .reduce((a, c) => a + Number(c), 0);
     while (count > target) {
         ans |= ans + 1;
         count -= 1;
@@ -172,7 +178,7 @@ function minimizeXor(num1: number, num2: number): number {
         count += 1;
     }
     return ans;
-};
+}
 ```
 
 ### **...**

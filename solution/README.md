@@ -2447,6 +2447,14 @@
 |  2434  |  [使用机器人打印字典序最小的字符串](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README.md)  |  `栈`,`贪心`,`哈希表`,`字符串`  |  中等  |  第 314 场周赛  |
 |  2435  |  [矩阵中和能被 K 整除的路径](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README.md)  |  `数组`,`动态规划`,`矩阵`  |  困难  |  第 314 场周赛  |
 |  2436  |  [Minimum Split Into Subarrays With GCD Greater Than One](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README.md)  |    |  中等  |  🔒  |
+|  2437  |  [有效时间的数目](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README.md)  |    |  简单  |  第 89 场双周赛  |
+|  2438  |  [二的幂数组中查询范围内的乘积](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README.md)  |    |  中等  |  第 89 场双周赛  |
+|  2439  |  [最小化数组中的最大值](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README.md)  |    |  中等  |  第 89 场双周赛  |
+|  2440  |  [创建价值相同的连通块](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README.md)  |    |  困难  |  第 89 场双周赛  |
+|  2441  |  [与对应负数同时存在的最大正整数](/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README.md)  |    |  简单  |  第 315 场周赛  |
+|  2442  |  [反转之后不同整数的数目](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README.md)  |    |  中等  |  第 315 场周赛  |
+|  2443  |  [反转之后的数字和](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README.md)  |    |  中等  |  第 315 场周赛  |
+|  2444  |  [统计定界子数组的数目](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md)  |    |  困难  |  第 315 场周赛  |
 
 ## 版权
 

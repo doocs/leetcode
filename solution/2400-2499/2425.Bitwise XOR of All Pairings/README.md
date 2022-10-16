@@ -151,7 +151,7 @@ function xorAllNums(nums1: number[], nums2: number[]): number {
         ans ^= nums2.reduce((a, c) => a ^ c, 0);
     }
     return ans;
-};
+}
 ```
 
 ### **...**

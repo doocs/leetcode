@@ -26,10 +26,10 @@
 <p>Given a string <code>word</code>, return <em>a list of all the possible <strong>generalized abbreviations</strong> of</em> <code>word</code>. Return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <pre><strong>Input:</strong> word = "word"
 <strong>Output:</strong> ["4","3d","2r1","2rd","1o2","1o1d","1or1","1ord","w3","w2d","w1r1","w1rd","wo2","wo1d","wor1","word"]
-</pre><p><strong>Example 2:</strong></p>
+</pre><p><strong class="example">Example 2:</strong></p>
 <pre><strong>Input:</strong> word = "a"
 <strong>Output:</strong> ["1","a"]
 </pre>

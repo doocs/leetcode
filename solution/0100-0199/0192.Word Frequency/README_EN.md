@@ -14,7 +14,7 @@
     <li>Words are separated by one or more whitespace characters.</li>
 </ul>
 
-<p><strong>Example:</strong></p>
+<p><strong class="example">Example:</strong></p>
 
 <p>Assume that <code>words.txt</code> has the following content:</p>
 

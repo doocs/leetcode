@@ -13,7 +13,7 @@
 <p><strong>Note:</strong> Numbers in the additive sequence <strong>cannot</strong> have leading zeros, so sequence <code>1, 2, 03</code> or <code>1, 02, 3</code> is invalid.</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> &quot;112358&quot;
@@ -23,7 +23,7 @@ The digits can form an additive sequence: 1, 1, 2, 3, 5, 8.
 1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> &quot;199100199&quot;

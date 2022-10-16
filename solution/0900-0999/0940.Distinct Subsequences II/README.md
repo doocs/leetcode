@@ -247,7 +247,7 @@ int distinctSubseqII(char * s){
     for (int i = 0 ; i < n; i++) {
         int sum = 0;
         for (int j = 0; j < 26; j++) {
-            sum = (sum + dp[j]) % mod; 
+            sum = (sum + dp[j]) % mod;
         }
         dp[s[i] - 'a'] = sum + 1;
     }
