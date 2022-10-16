@@ -54,24 +54,43 @@ Union find.
 ```python
 class Solution:
     def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
-        p = list(range(n))
+        def dfs(i, c):
+            color[i] = c
+            for j in g[i]:
+                if color[j] == c:
+                    return False
+                if color[j] == 0 and not dfs(j, 3 - c):
+                    return False
+            return True
 
+        g = defaultdict(list)
+        color = [0] * n
+        for a, b in dislikes:
+            a, b = a - 1, b - 1
+            g[a].append(b)
+            g[b].append(a)
+        return all(c or dfs(i, 1) for i, c in enumerate(color))
+```
+
+```python
+class Solution:
+    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        dis = defaultdict(list)
+        g = defaultdict(list)
         for a, b in dislikes:
             a, b = a - 1, b - 1
-            dis[a].append(b)
-            dis[b].append(a)
-
+            g[a].append(b)
+            g[b].append(a)
+        p = list(range(n))
         for i in range(n):
-            for j in dis[i]:
+            for j in g[i]:
                 if find(i) == find(j):
                     return False
-                p[find(j)] = find(dis[i][0])
+                p[find(j)] = find(g[i][0])
         return True
 ```
 
@@ -79,26 +98,67 @@ class Solution:
 
 ```java
 class Solution {
+    private List<Integer>[] g;
+    private int[] color;
+
+    public boolean possibleBipartition(int n, int[][] dislikes) {
+        g = new List[n];
+        color = new int[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (var e : dislikes) {
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].add(b);
+            g[b].add(a);
+        }
+        for (int i = 0; i < n; ++i) {
+            if (color[i] == 0) {
+                if (!dfs(i, 1)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean dfs(int i, int c) {
+        color[i] = c;
+        for (int j : g[i]) {
+            if (color[j] == c) {
+                return false;
+            }
+            if (color[j] == 0 && !dfs(j, 3 - c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
     private int[] p;
 
     public boolean possibleBipartition(int n, int[][] dislikes) {
         p = new int[n];
-        List<Integer>[] dis = new List[n];
+        List<Integer>[] g = new List[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
-            dis[i] = new ArrayList<>();
+            g[i] = new ArrayList<>();
         }
-        for (int[] d : dislikes) {
-            int a = d[0] - 1, b = d[1] - 1;
-            dis[a].add(b);
-            dis[b].add(a);
+        for (var e : dislikes) {
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].add(b);
+            g[b].add(a);
         }
         for (int i = 0; i < n; ++i) {
-            for (int j : dis[i]) {
+            for (int j : g[i]) {
                 if (find(i) == find(j)) {
                     return false;
                 }
-                p[find(j)] = find(dis[i].get(0));
+                p[find(j)] = find(g[i].get(0));
             }
         }
         return true;
@@ -118,29 +178,53 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        unordered_map<int, vector<int>> dis;
-        for (auto& d : dislikes) {
-            int a = d[0] - 1, b = d[1] - 1;
-            dis[a].push_back(b);
-            dis[b].push_back(a);
+        unordered_map<int, vector<int>> g;
+        for (auto& e : dislikes) {
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].push_back(b);
+            g[b].push_back(a);
         }
-        for (int i = 0; i < n; ++i) {
-            for (int j : dis[i]) {
-                if (find(i) == find(j)) return false;
-                p[find(j)] = find(dis[i][0]);
+        vector<int> color(n);
+        function<bool(int, int)> dfs = [&](int i, int c) -> bool {
+            color[i] = c;
+            for (int j : g[i]) {
+                if (!color[j] && !dfs(j, 3 - c)) return false;
+                if (color[j] == c) return false;
             }
+            return true;
+        };
+        for (int i = 0; i < n; ++i) {
+            if (!color[i] && !dfs(i, 1)) return false;
         }
         return true;
     }
+};
+```
 
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+```cpp
+class Solution {
+public:
+    bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        unordered_map<int, vector<int>> g;
+        for (auto& e : dislikes) {
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) p[x] = find(p[x]);
+            return p[x];
+        };
+        for (int i = 0; i < n; ++i) {
+            for (int j : g[i]) {
+                if (find(i) == find(j)) return false;
+                p[find(j)] = find(g[i][0]);
+            }
+        }
+        return true;
     }
 };
 ```
@@ -149,29 +233,60 @@ public:
 
 ```go
 func possibleBipartition(n int, dislikes [][]int) bool {
+	g := make([][]int, n)
+	for _, e := range dislikes {
+		a, b := e[0]-1, e[1]-1
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	color := make([]int, n)
+	var dfs func(int, int) bool
+	dfs = func(i, c int) bool {
+		color[i] = c
+		for _, j := range g[i] {
+			if color[j] == c {
+				return false
+			}
+			if color[j] == 0 && !dfs(j, 3-c) {
+				return false
+			}
+		}
+		return true
+	}
+	for i, c := range color {
+		if c == 0 && !dfs(i, 1) {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```go
+func possibleBipartition(n int, dislikes [][]int) bool {
 	p := make([]int, n)
-	dis := make([][]int, n)
+	g := make([][]int, n)
 	for i := range p {
 		p[i] = i
 	}
-	var find func(x int) int
+	for _, e := range dislikes {
+		a, b := e[0]-1, e[1]-1
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	for _, d := range dislikes {
-		a, b := d[0]-1, d[1]-1
-		dis[a] = append(dis[a], b)
-		dis[b] = append(dis[b], a)
-	}
 	for i := 0; i < n; i++ {
-		for _, j := range dis[i] {
+		for _, j := range g[i] {
 			if find(i) == find(j) {
 				return false
 			}
-			p[find(j)] = find(dis[i][0])
+			p[find(j)] = find(g[i][0])
 		}
 	}
 	return true
