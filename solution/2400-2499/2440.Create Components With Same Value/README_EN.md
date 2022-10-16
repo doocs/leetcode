@@ -49,13 +49,204 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+        def dfs(i, fa):
+            x = nums[i]
+            for j in g[i]:
+                if j != fa:
+                    y = dfs(j, i)
+                    if y == -1:
+                        return -1
+                    x += y
+            if x > t:
+                return -1
+            return x if x < t else 0
 
+        n = len(nums)
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        s = sum(nums)
+        mx = max(nums)
+        for k in range(min(n, s // mx), 1, -1):
+            if s % k == 0:
+                t = s // k
+                if dfs(0, -1) == 0:
+                    return k - 1
+        return 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] nums;
+    private int t;
 
+    public int componentValue(int[] nums, int[][] edges) {
+        int n = nums.length;
+        g = new List[n];
+        this.nums = nums;
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int s = sum(nums), mx = max(nums);
+        for (int k = Math.min(n, s / mx); k > 1; --k) {
+            if (s % k == 0) {
+                t = s / k;
+                if (dfs(0, -1) == 0) {
+                    return k - 1;
+                }
+            }
+        }
+        return 0;
+    }
+
+    private int dfs(int i, int fa) {
+        int x = nums[i];
+        for (int j : g[i]) {
+            if (j != fa) {
+                int y = dfs(j, i);
+                if (y == -1) {
+                    return -1;
+                }
+                x += y;
+            }
+        }
+        if (x > t) {
+            return -1;
+        }
+        return x < t ? x : 0;
+    }
+
+    private int sum(int[] arr) {
+        int x = 0;
+        for (int v : arr) {
+            x += v;
+        }
+        return x;
+    }
+
+    private int max(int[] arr) {
+        int x = arr[0];
+        for (int v : arr) {
+            x = Math.max(x, v);
+        }
+        return x;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int componentValue(vector<int>& nums, vector<vector<int>>& edges) {
+        int n = nums.size();
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        int mx = *max_element(nums.begin(), nums.end());
+        int t = 0;
+        unordered_map<int, vector<int>> g;
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        function<int(int, int)> dfs = [&](int i, int fa) -> int {
+            int x = nums[i];
+            for (int j : g[i]) {
+                if (j != fa) {
+                    int y = dfs(j, i);
+                    if (y == -1) return -1;
+                    x += y;
+                }
+            }
+            if (x > t) return -1;
+            return x < t ? x : 0;
+        };
+        for (int k = min(n, s / mx); k > 1; --k) {
+            if (s % k == 0) {
+                t = s / k;
+                if (dfs(0, -1) == 0) {
+                    return k - 1;
+                }
+            }
+        }
+        return 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func componentValue(nums []int, edges [][]int) int {
+	s, mx := 0, 0
+	for _, x := range nums {
+		s += x
+		mx = max(mx, x)
+	}
+	n := len(nums)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	t := 0
+	var dfs func(int, int) int
+	dfs = func(i, fa int) int {
+		x := nums[i]
+		for _, j := range g[i] {
+			if j != fa {
+				y := dfs(j, i)
+				if y == -1 {
+					return -1
+				}
+				x += y
+			}
+		}
+		if x > t {
+			return -1
+		}
+		if x < t {
+			return x
+		}
+		return 0
+	}
+	for k := min(n, s/mx); k > 1; k-- {
+		if s%k == 0 {
+			t = s / k
+			if dfs(0, -1) == 0 {
+				return k - 1
+			}
+		}
+	}
+	return 0
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

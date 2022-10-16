@@ -52,13 +52,89 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def countTime(self, time: str) -> int:
+        def check(s, t):
+            for a, b in zip(s, t):
+                if a != b and b != '?':
+                    return 0
+            return 1
 
+        return sum(
+            check(f'{h:02d}:{m:02d}', time) for h in range(24) for m in range(60)
+        )
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countTime(String time) {
+        int ans = 0;
+        for (int h = 0; h < 24; ++h) {
+            for (int m = 0; m < 60; ++m) {
+                String s = String.format("%02d:%02d", h, m);
+                int ok = 1;
+                for (int i = 0; i < 5; ++i) {
+                    if (s.charAt(i) != time.charAt(i) && time.charAt(i) != '?') {
+                        ok = 0;
+                        break;
+                    }
+                }
+                ans += ok;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countTime(string time) {
+        int ans = 0;
+        for (int h = 0; h < 24; ++h) {
+            for (int m = 0; m < 60; ++m) {
+                char s[20];
+                sprintf(s, "%02d:%02d", h, m);
+                int ok = 1;
+                for (int i = 0; i < 5; ++i) {
+                    if (s[i] != time[i] && time[i] != '?') {
+                        ok = 0;
+                        break;
+                    }
+                }
+                ans += ok;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countTime(time string) int {
+	ans := 0
+	for h := 0; h < 24; h++ {
+		for m := 0; m < 60; m++ {
+			s := fmt.Sprintf("%02d:%02d", h, m)
+			ok := 1
+			for i := 0; i < 5; i++ {
+				if s[i] != time[i] && time[i] != '?' {
+					ok = 0
+					break
+				}
+			}
+			ans += ok
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

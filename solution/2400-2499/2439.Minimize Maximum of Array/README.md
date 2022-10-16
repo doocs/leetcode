@@ -55,6 +55,12 @@ nums 中最大值为 5 。无法得到比 5 更小的最大值。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二分查找**
+
+最小化数组的最大值，容易想到二分查找。我们二分枚举数组的最大值 $mx$，找到一个满足题目要求的、且值最小的 $mx$ 即可。
+
+时间复杂度 $O(n\times \log M)$，其中 $n$ 为数组的长度，而 $M$ 为数组中的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +68,22 @@ nums 中最大值为 5 。无法得到比 5 更小的最大值。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimizeArrayValue(self, nums: List[int]) -> int:
+        def check(mx):
+            d = 0
+            for x in nums[:0:-1]:
+                d = max(0, d + x - mx)
+            return nums[0] + d <= mx
 
+        left, right = 0, max(nums)
+        while left < right:
+            mid = (left + right) >> 1
+            if check(mid):
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -70,7 +91,97 @@ nums 中最大值为 5 。无法得到比 5 更小的最大值。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] nums;
 
+    public int minimizeArrayValue(int[] nums) {
+        this.nums = nums;
+        int left = 0, right = max(nums);
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (check(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean check(int mx) {
+        long d = 0;
+        for (int i = nums.length - 1; i > 0; --i) {
+            d = Math.max(0, d + nums[i] - mx);
+        }
+        return nums[0] + d <= mx;
+    }
+
+    private int max(int[] nums) {
+        int v = nums[0];
+        for (int x : nums) {
+            v = Math.max(v, x);
+        }
+        return v;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimizeArrayValue(vector<int>& nums) {
+        int left = 0, right = *max_element(nums.begin(), nums.end());
+        auto check = [&](int mx) {
+            long d = 0;
+            for (int i = nums.size() - 1; i; --i) {
+                d = max(0l, d + nums[i] - mx);
+            }
+            return nums[0] + d <= mx;
+        };
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (check(mid)) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimizeArrayValue(nums []int) int {
+	left, right := 0, 0
+	for _, x := range nums {
+		right = max(right, x)
+	}
+	check := func(mx int) bool {
+		d := 0
+		for i := len(nums) - 1; i > 0; i-- {
+			d = max(0, nums[i]+d-mx)
+		}
+		return nums[0]+d <= mx
+	}
+	for left < right {
+		mid := (left + right) >> 1
+		if check(mid) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

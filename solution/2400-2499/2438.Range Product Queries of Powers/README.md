@@ -49,6 +49,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算 + 模拟**
+
+我们先通过位运算（lowbit）得到 powers 数组，然后通过模拟的方式求出每个查询的答案。
+
+时间复杂度 $O(n\times \log n)$，忽略答案的空间消耗，空间复杂度 $O(\log n)$。其中 $n$ 为 $queries$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +62,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def productQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+        powers = []
+        while n:
+            x = n & -n
+            powers.append(x)
+            n -= x
+        mod = 10**9 + 7
+        ans = []
+        for l, r in queries:
+            x = 1
+            for y in powers[l: r + 1]:
+                x = (x * y) % mod
+            ans.append(x)
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +84,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int[] productQueries(int n, int[][] queries) {
+        int[] powers = new int[Integer.bitCount(n)];
+        for (int i = 0; n > 0; ++i) {
+            int x = n & -n;
+            powers[i] = x;
+            n -= x;
+        }
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < ans.length; ++i) {
+            long x = 1;
+            int l = queries[i][0], r = queries[i][1];
+            for (int j = l; j <= r; ++j) {
+                x = (x * powers[j]) % MOD;
+            }
+            ans[i] = (int) x;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    vector<int> productQueries(int n, vector<vector<int>>& queries) {
+        vector<int> powers;
+        while (n) {
+            int x = n & -n;
+            powers.emplace_back(x);
+            n -= x;
+        }
+        vector<int> ans;
+        for (auto& q : queries) {
+            int l = q[0], r = q[1];
+            long long x = 1l;
+            for (int j = l; j <= r; ++j) {
+                x = (x * powers[j]) % mod;
+            }
+            ans.emplace_back(x);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func productQueries(n int, queries [][]int) []int {
+	var mod int = 1e9 + 7
+	powers := []int{}
+	for n > 0 {
+		x := n & -n
+		powers = append(powers, x)
+		n -= x
+	}
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		l, r := q[0], q[1]
+		x := 1
+		for _, y := range powers[l : r+1] {
+			x = (x * y) % mod
+		}
+		ans[i] = x
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
