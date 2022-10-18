@@ -1,11 +1,12 @@
 class Solution {
     public double averageWaitingTime(int[][] customers) {
-        int f = 0;
-        double totalWaitingTime = 0;
-        for (int[] customer : customers) {
-            f = Math.max(f, customer[0]) + customer[1];
-            totalWaitingTime += (f - customer[0]);
+        double tot = 0;
+        int t = 0;
+        for (var e : customers) {
+            int a = e[0], b = e[1];
+            t = Math.max(t, a) + b;
+            tot += t - a;
         }
-        return totalWaitingTime / customers.length;
+        return tot / customers.length;
     }
 }

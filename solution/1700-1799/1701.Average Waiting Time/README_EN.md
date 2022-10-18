@@ -59,11 +59,11 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 ```python
 class Solution:
     def averageWaitingTime(self, customers: List[List[int]]) -> float:
-        f = total_waiting_time = 0
-        for arrival, time in customers:
-            f = max(arrival, f) + time
-            total_waiting_time += f - arrival
-        return total_waiting_time / len(customers)
+        tot = t = 0
+        for a, b in customers:
+            t = max(t, a) + b
+            tot += t - a
+        return tot / len(customers)
 ```
 
 ### **Java**
@@ -71,14 +71,54 @@ class Solution:
 ```java
 class Solution {
     public double averageWaitingTime(int[][] customers) {
-        int f = 0;
-        double totalWaitingTime = 0;
-        for (int[] customer : customers) {
-            f = Math.max(f, customer[0]) + customer[1];
-            totalWaitingTime += (f - customer[0]);
+        double tot = 0;
+        int t = 0;
+        for (var e : customers) {
+            int a = e[0], b = e[1];
+            t = Math.max(t, a) + b;
+            tot += t - a;
         }
-        return totalWaitingTime / customers.length;
+        return tot / customers.length;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double averageWaitingTime(vector<vector<int>>& customers) {
+        double tot = 0;
+        int t = 0;
+        for (auto& e : customers) {
+            int a = e[0], b = e[1];
+            t = max(t, a) + b;
+            tot += t - a;
+        }
+        return tot / customers.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func averageWaitingTime(customers [][]int) float64 {
+	tot, t := 0, 0
+	for _, e := range customers {
+		a, b := e[0], e[1]
+		t = max(t, a) + b
+		tot += t - a
+	}
+	return float64(tot) / float64(len(customers))
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
