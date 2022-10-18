@@ -143,6 +143,64 @@ func countStudents(students []int, sandwiches []int) int {
 }
 ```
 
+### **C**
+
+```c
+int countStudents(int *students, int studentsSize, int *sandwiches, int sandwichesSize) {
+    int count[2] = {0};
+    for (int i = 0; i < studentsSize; i++) {
+        count[students[i]]++;
+    }
+    for (int i = 0; i < sandwichesSize; i++) {
+        int j = sandwiches[i];
+        if (count[j] == 0) {
+            return count[j ^ 1];
+        }
+        count[j]--;
+    }
+    return 0;
+}
+```
+
+### **TypeScript**
+
+```ts
+function countStudents(students: number[], sandwiches: number[]): number {
+    const count = [0, 0];
+    for (const v of students) {
+        count[v]++;
+    }
+    for (const v of sandwiches) {
+        if (count[v] === 0) {
+            return count[v ^ 1];
+        }
+        count[v]--;
+    }
+    return 0;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_students(students: Vec<i32>, sandwiches: Vec<i32>) -> i32 {
+        let mut count = [0, 0];
+        for &v in students.iter() {
+            count[v as usize] += 1;
+        }
+        for &v in sandwiches.iter() {
+            let v = v as usize;
+            if count[v as usize] == 0 {
+                return count[v ^ 1];
+            }
+            count[v] -= 1;
+        }
+        0
+    }
+}
+```
+
 ### **...**
 
 ```
