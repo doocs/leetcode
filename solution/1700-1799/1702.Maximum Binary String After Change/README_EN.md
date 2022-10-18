@@ -8,7 +8,6 @@
 
 <ul>
 	<li>Operation 1: If the number contains the substring <code>&quot;00&quot;</code>, you can replace it with <code>&quot;10&quot;</code>.
-
     <ul>
     	<li>For example, <code>&quot;<u>00</u>010&quot; -&gt; &quot;<u>10</u>010</code>&quot;</li>
     </ul>
@@ -18,7 +17,6 @@
     	<li>For example, <code>&quot;000<u>10</u>&quot; -&gt; &quot;000<u>01</u>&quot;</code></li>
     </ul>
     </li>
-
 </ul>
 
 <p><em>Return the <strong>maximum binary string</strong> you can obtain after any number of operations. Binary string <code>x</code> is greater than binary string <code>y</code> if <code>x</code>&#39;s decimal representation is greater than <code>y</code>&#39;s decimal representation.</em></p>
@@ -60,13 +58,77 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumBinaryString(self, binary: str) -> str:
+        k = binary.find('0')
+        if k == -1:
+            return binary
+        k += binary[k + 1:].count('0')
+        return '1' * k + '0' + '1' * (len(binary) - k - 1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String maximumBinaryString(String binary) {
+        int k = binary.indexOf('0');
+        if (k == -1) {
+            return binary;
+        }
+        int n = binary.length();
+        for (int i = k + 1; i < n; ++i) {
+            if (binary.charAt(i) == '0') {
+                ++k;
+            }
+        }
+        char[] ans = binary.toCharArray();
+        Arrays.fill(ans, '1');
+        ans[k] = '0';
+        return String.valueOf(ans);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string maximumBinaryString(string binary) {
+        int k = binary.find('0');
+        if (k == binary.npos) return binary;
+        int n = binary.size();
+        for (int i = k + 1; i < n; ++i) {
+            if (binary[i] == '0') {
+                ++k;
+            }
+        }
+        return string(k, '1') + '0' + string(n - k - 1, '1');
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumBinaryString(binary string) string {
+	k := strings.IndexByte(binary, '0')
+	if k == -1 {
+		return binary
+	}
+	for _, c := range binary[k+1:] {
+		if c == '0' {
+			k++
+		}
+	}
+	ans := []byte(binary)
+	for i := range ans {
+		ans[i] = '1'
+	}
+	ans[k] = '0'
+	return string(ans)
+}
 ```
 
 ### **...**
