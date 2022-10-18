@@ -57,9 +57,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-学生位置可调整，而三明治位置不可调整。也就是说，若前面的三明治没被拿走，则往后的所有三明治也无法被拿走。
+**方法一：计数**
 
-因此，先用计数器 counter 统计学生喜欢的三明治种类和对应的数量，然后遍历三明治，若在 counter 中找不到喜欢此三明治的学生，说明已经找到答案，当前以及往后的三明治均无法被拿走，数量为 `n - i`。
+我们观察发现，学生位置可调整，而三明治位置不可调整。也就是说，若前面的三明治没被拿走，则往后的所有三明治也无法被拿走。
+
+因此，我们先用计数器 `cnt` 统计学生喜欢的三明治种类和对应的数量。
+
+然后遍历三明治，若在 `cnt` 中找不到喜欢此三明治的学生，说明已经找到答案，当前以及往后的三明治均无法被拿走，数量为 $n - i$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为三明治数量。
 
 <!-- tabs:start -->
 
@@ -70,11 +76,11 @@
 ```python
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
-        counter = Counter(students)
-        for i, sandwich in enumerate(sandwiches):
-            if counter[sandwich] == 0:
+        cnt = Counter(students)
+        for i, v in enumerate(sandwiches):
+            if cnt[v] == 0:
                 return len(students) - i
-            counter[sandwich] -= 1
+            cnt[v] -= 1
         return 0
 ```
 
@@ -85,18 +91,55 @@ class Solution:
 ```java
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
-        int[] counter = new int[2];
-        for (int i : students) {
-            counter[i] += 1;
+        int[] cnt = new int[2];
+        for (int v : students) {
+            ++cnt[v];
         }
-        for (int i = 0; i < sandwiches.length; ++i) {
-            if (counter[sandwiches[i]] == 0) {
-                return sandwiches.length - i;
+        int n = students.length;
+        for (int i = 0; i < n; ++i) {
+            if (cnt[sandwiches[i]]-- == 0) {
+                return n - i;
             }
-            counter[sandwiches[i]] -= 1;
         }
         return 0;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countStudents(vector<int>& students, vector<int>& sandwiches) {
+        int cnt[2] = {0};
+        for (int& v : students) ++cnt[v];
+        int n = students.size();
+        for (int i = 0; i < n; ++i) {
+            if (cnt[sandwiches[i]]-- == 0) {
+                return n - i;
+            }
+        }
+        return 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countStudents(students []int, sandwiches []int) int {
+	cnt := [2]int{}
+	for _, v := range students {
+		cnt[v]++
+	}
+	for i, v := range sandwiches {
+		if cnt[v] == 0 {
+			return len(students) - i
+		}
+		cnt[v]--
+	}
+	return 0
 }
 ```
 

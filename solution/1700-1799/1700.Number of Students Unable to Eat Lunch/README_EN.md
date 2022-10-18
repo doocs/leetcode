@@ -61,11 +61,11 @@ Hence all students are able to eat.
 ```python
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
-        counter = Counter(students)
-        for i, sandwich in enumerate(sandwiches):
-            if counter[sandwich] == 0:
+        cnt = Counter(students)
+        for i, v in enumerate(sandwiches):
+            if cnt[v] == 0:
                 return len(students) - i
-            counter[sandwich] -= 1
+            cnt[v] -= 1
         return 0
 ```
 
@@ -74,18 +74,55 @@ class Solution:
 ```java
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
-        int[] counter = new int[2];
-        for (int i : students) {
-            counter[i] += 1;
+        int[] cnt = new int[2];
+        for (int v : students) {
+            ++cnt[v];
         }
-        for (int i = 0; i < sandwiches.length; ++i) {
-            if (counter[sandwiches[i]] == 0) {
-                return sandwiches.length - i;
+        int n = students.length;
+        for (int i = 0; i < n; ++i) {
+            if (cnt[sandwiches[i]]-- == 0) {
+                return n - i;
             }
-            counter[sandwiches[i]] -= 1;
         }
         return 0;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countStudents(vector<int>& students, vector<int>& sandwiches) {
+        int cnt[2] = {0};
+        for (int& v : students) ++cnt[v];
+        int n = students.size();
+        for (int i = 0; i < n; ++i) {
+            if (cnt[sandwiches[i]]-- == 0) {
+                return n - i;
+            }
+        }
+        return 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countStudents(students []int, sandwiches []int) int {
+	cnt := [2]int{}
+	for _, v := range students {
+		cnt[v]++
+	}
+	for i, v := range sandwiches {
+		if cnt[v] == 0 {
+			return len(students) - i
+		}
+		cnt[v]--
+	}
+	return 0
 }
 ```
 
