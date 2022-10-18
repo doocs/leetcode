@@ -41,7 +41,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class StackOfPlates {
+    List<Stack<Integer>> list = new ArrayList<>();
+    int cap = 0;
+    public StackOfPlates(int cap) {
+        this.cap = cap;
+    }
+    
+    public void push(int val) {
+        if (this.cap == 0) return;
+        if (list.isEmpty() || list.get(list.size()-1).size() == cap) list.add(new Stack<>());
+        list.get(list.size()-1).push(val);
+    }
+    
+    public int pop() {
+        return popAt(list.size()-1);
+    }
+    
+    public int popAt(int index) {
+        if (index >= list.size() || index < 0) return -1;
+        Stack<Integer> s = list.get(index);
+        int res = s.pop();
+        if (s.isEmpty()) list.remove(index);
+        return res;
+    }
+}
 
+/**
+ * Your StackOfPlates object will be instantiated and called as such:
+ * StackOfPlates obj = new StackOfPlates(cap);
+ * obj.push(val);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.popAt(index);
+ */
 ```
 
 ### **TypeScript**
