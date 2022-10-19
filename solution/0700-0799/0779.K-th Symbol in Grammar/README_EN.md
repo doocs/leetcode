@@ -65,6 +65,12 @@ class Solution:
         return self.kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1
 ```
 
+```python
+class Solution:
+    def kthGrammar(self, n: int, k: int) -> int:
+        return (k - 1).bit_count() & 1
+```
+
 ### **Java**
 
 ```java
@@ -77,6 +83,14 @@ class Solution {
             return kthGrammar(n - 1, k);
         }
         return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int kthGrammar(int n, int k) {
+        return Integer.bitCount(k - 1) & 1;
     }
 }
 ```
@@ -94,6 +108,15 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int kthGrammar(int n, int k) {
+        return __builtin_popcount(k - 1) & 1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -105,6 +128,12 @@ func kthGrammar(n int, k int) int {
 		return kthGrammar(n-1, k)
 	}
 	return kthGrammar(n-1, k-(1<<(n-2))) ^ 1
+}
+```
+
+```go
+func kthGrammar(n int, k int) int {
+	return bits.OnesCount(uint(k-1)) & 1
 }
 ```
 
