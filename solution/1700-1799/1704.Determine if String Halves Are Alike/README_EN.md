@@ -46,32 +46,66 @@ Notice that the vowel o is counted twice.
 ```python
 class Solution:
     def halvesAreAlike(self, s: str) -> bool:
-        half = len(s) >> 1
-        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
-        s1 = sum(1 for c in s[:half] if c in vowels)
-        s2 = sum(1 for c in s[half:] if c in vowels)
-        return s1 == s2
+        cnt, n = 0, len(s) >> 1
+        vowels = set('aeiouAEIOU')
+        for i in range(n):
+            cnt += s[i] in vowels
+            cnt -= s[i + n] in vowels
+        return cnt == 0
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private static final Set<Character> VOWELS = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+
     public boolean halvesAreAlike(String s) {
-        int half = s.length() >> 1;
-        Set<Character> vowels
-            = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
-        int s1 = 0, s2 = 0;
-        for (int i = 0; i < half; ++i) {
-            if (vowels.contains(s.charAt(i))) {
-                ++s1;
-            }
-            if (vowels.contains(s.charAt(half + i))) {
-                ++s2;
-            }
+        int cnt = 0, n = s.length() >> 1;
+        for (int i = 0; i < n; ++i) {
+            cnt += VOWELS.contains(s.charAt(i)) ? 1 : 0;
+            cnt -= VOWELS.contains(s.charAt(i + n)) ? 1 : 0;
         }
-        return s1 == s2;
+        return cnt == 0;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool halvesAreAlike(string s) {
+        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+        int cnt = 0, n = s.size() / 2;
+        for (int i = 0; i < n; ++i) {
+            cnt += vowels.count(s[i]);
+            cnt -= vowels.count(s[i + n]);
+        }
+        return cnt == 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func halvesAreAlike(s string) bool {
+	vowels := map[byte]bool{}
+	for _, c := range "aeiouAEIOU" {
+		vowels[byte(c)] = true
+	}
+	cnt, n := 0, len(s)>>1
+	for i := 0; i < n; i++ {
+		if vowels[s[i]] {
+			cnt++
+		}
+		if vowels[s[i+n]] {
+			cnt--
+		}
+	}
+	return cnt == 0
 }
 ```
 

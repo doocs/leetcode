@@ -3,9 +3,9 @@ func countStudents(students []int, sandwiches []int) int {
 	for _, v := range students {
 		cnt[v]++
 	}
-	for i, v := range sandwiches {
+	for _, v := range sandwiches {
 		if cnt[v] == 0 {
-			return len(students) - i
+			return cnt[v^1]
 		}
 		cnt[v]--
 	}

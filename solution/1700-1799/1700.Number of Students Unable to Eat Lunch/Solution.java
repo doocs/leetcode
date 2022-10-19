@@ -4,10 +4,9 @@ class Solution {
         for (int v : students) {
             ++cnt[v];
         }
-        int n = students.length;
-        for (int i = 0; i < n; ++i) {
-            if (cnt[sandwiches[i]]-- == 0) {
-                return n - i;
+        for (int v : sandwiches) {
+            if (cnt[v]-- == 0) {
+                return cnt[v ^ 1];
             }
         }
         return 0;

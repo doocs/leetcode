@@ -63,7 +63,9 @@
 
 因此，我们先用计数器 `cnt` 统计学生喜欢的三明治种类和对应的数量。
 
-然后遍历三明治，若在 `cnt` 中找不到喜欢此三明治的学生，说明已经找到答案，当前以及往后的三明治均无法被拿走，数量为 $n - i$。
+然后遍历三明治，若在 `cnt` 中找不到喜欢此三明治的学生，说明后面的三明治也无法被拿走，返回当前剩余的学生数量。
+
+遍历
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为三明治数量。
 
@@ -77,9 +79,9 @@
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
         cnt = Counter(students)
-        for i, v in enumerate(sandwiches):
+        for v in sandwiches:
             if cnt[v] == 0:
-                return len(students) - i
+                return cnt[v ^ 1]
             cnt[v] -= 1
         return 0
 ```
@@ -95,10 +97,9 @@ class Solution {
         for (int v : students) {
             ++cnt[v];
         }
-        int n = students.length;
-        for (int i = 0; i < n; ++i) {
-            if (cnt[sandwiches[i]]-- == 0) {
-                return n - i;
+        for (int v : sandwiches) {
+            if (cnt[v]-- == 0) {
+                return cnt[v ^ 1];
             }
         }
         return 0;
@@ -114,10 +115,9 @@ public:
     int countStudents(vector<int>& students, vector<int>& sandwiches) {
         int cnt[2] = {0};
         for (int& v : students) ++cnt[v];
-        int n = students.size();
-        for (int i = 0; i < n; ++i) {
-            if (cnt[sandwiches[i]]-- == 0) {
-                return n - i;
+        for (int& v : sandwiches) {
+            if (cnt[v]-- == 0) {
+                return cnt[v ^ 1];
             }
         }
         return 0;
@@ -133,9 +133,9 @@ func countStudents(students []int, sandwiches []int) int {
 	for _, v := range students {
 		cnt[v]++
 	}
-	for i, v := range sandwiches {
+	for _, v := range sandwiches {
 		if cnt[v] == 0 {
-			return len(students) - i
+			return cnt[v^1]
 		}
 		cnt[v]--
 	}

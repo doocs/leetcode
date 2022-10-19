@@ -62,9 +62,9 @@ Hence all students are able to eat.
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
         cnt = Counter(students)
-        for i, v in enumerate(sandwiches):
+        for v in sandwiches:
             if cnt[v] == 0:
-                return len(students) - i
+                return cnt[v ^ 1]
             cnt[v] -= 1
         return 0
 ```
@@ -78,10 +78,9 @@ class Solution {
         for (int v : students) {
             ++cnt[v];
         }
-        int n = students.length;
-        for (int i = 0; i < n; ++i) {
-            if (cnt[sandwiches[i]]-- == 0) {
-                return n - i;
+        for (int v : sandwiches) {
+            if (cnt[v]-- == 0) {
+                return cnt[v ^ 1];
             }
         }
         return 0;
@@ -97,10 +96,9 @@ public:
     int countStudents(vector<int>& students, vector<int>& sandwiches) {
         int cnt[2] = {0};
         for (int& v : students) ++cnt[v];
-        int n = students.size();
-        for (int i = 0; i < n; ++i) {
-            if (cnt[sandwiches[i]]-- == 0) {
-                return n - i;
+        for (int& v : sandwiches) {
+            if (cnt[v]-- == 0) {
+                return cnt[v ^ 1];
             }
         }
         return 0;
@@ -116,9 +114,9 @@ func countStudents(students []int, sandwiches []int) int {
 	for _, v := range students {
 		cnt[v]++
 	}
-	for i, v := range sandwiches {
+	for _, v := range sandwiches {
 		if cnt[v] == 0 {
-			return len(students) - i
+			return cnt[v^1]
 		}
 		cnt[v]--
 	}
