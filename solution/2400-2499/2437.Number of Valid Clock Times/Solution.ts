@@ -1,7 +1,7 @@
 function countTime(time: string): number {
     let [hh, mm] = time.split(':');
     return count(hh, 24) * count(mm, 60);
-};
+}
 
 function count(str: string, limit: number): number {
     let [a, b] = str.split('').map(d => Number(d));

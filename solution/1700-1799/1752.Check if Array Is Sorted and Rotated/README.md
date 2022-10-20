@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
+要满足题目要求，那么数组 `nums` 中最多只能存在一个元素，其值大于下一个元素，即 `nums[i] > nums[i + 1]`。如果存在多个这样的元素，那么数组 `nums` 无法通过轮转得到。
+
+注意，数组 `nums` 最后一个元素的下一个元素是数组 `nums` 的第一个元素。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +70,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def check(self, nums: List[int]) -> bool:
+        n = len(nums)
+        return sum(v > nums[(i + 1) % n] for i, v in enumerate(nums)) <= 1
 ```
 
 ### **Java**
@@ -70,7 +81,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean check(int[] nums) {
+        int n = nums.length;
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] > nums[(i + 1) % n]) {
+                ++cnt;
+            }
+        }
+        return cnt <= 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int n = nums.size();
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            cnt += nums[i] > (nums[(i + 1) % n]);
+        }
+        return cnt <= 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func check(nums []int) bool {
+	n := len(nums)
+	cnt := 0
+	for i, v := range nums {
+		if v > nums[(i+1)%n] {
+			cnt++
+		}
+	}
+	return cnt <= 1
+}
 ```
 
 ### **...**
