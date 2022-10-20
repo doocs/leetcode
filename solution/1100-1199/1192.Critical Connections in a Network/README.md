@@ -1,4 +1,4 @@
-# [1192. 查找集群内的「关键连接」](https://leetcode.cn/problems/critical-connections-in-a-network)
+# [1192. 查找集群内的关键连接](https://leetcode.cn/problems/critical-connections-in-a-network)
 
 [English Version](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md)
 
@@ -6,11 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>力扣数据中心有&nbsp;<code>n</code>&nbsp;台服务器，分别按从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n-1</code>&nbsp;的方式进行了编号。它们之间以「服务器到服务器」点对点的形式相互连接组成了一个内部集群，其中连接&nbsp;<code>connections</code> 是无向的。从形式上讲，<code>connections[i] = [a, b]</code>&nbsp;表示服务器 <code>a</code>&nbsp;和 <code>b</code>&nbsp;之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。</p>
+<p>力扣数据中心有&nbsp;<code>n</code>&nbsp;台服务器，分别按从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n-1</code>&nbsp;的方式进行了编号。它们之间以 <strong>服务器到服务器</strong> 的形式相互连接组成了一个内部集群，连接是无向的。用 &nbsp;<code>connections</code> 表示集群网络，<code>connections[i] = [a, b]</code>&nbsp;表示服务器 <code>a</code>&nbsp;和 <code>b</code>&nbsp;之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。</p>
 
-<p><em>「关键连接」</em>&nbsp;是在该集群中的重要连接，也就是说，假如我们将它移除，便会导致某些服务器无法访问其他服务器。</p>
+<p><strong>关键连接</strong><em> </em>是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。</p>
 
-<p>请你以任意顺序返回该集群内的所有 「关键连接」。</p>
+<p>请你以任意顺序返回该集群内的所有 <strong>关键连接</strong> 。</p>
 
 <p>&nbsp;</p>
 
@@ -35,9 +35,10 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10^5</code></li>
-	<li><code>n-1 &lt;= connections.length &lt;= 10^5</code></li>
-	<li><code>connections[i][0] != connections[i][1]</code></li>
+	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>n - 1 &lt;= connections.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n - 1</code></li>
+	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>不存在重复的连接</li>
 </ul>
 

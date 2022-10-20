@@ -2444,15 +2444,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2433  |  [Find The Original Array of Prefix Xor](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |  Weekly Contest 314  |
 |  2434  |  [Using a Robot to Print the Lexicographically Smallest String](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README_EN.md)  |  `Stack`,`Greedy`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 314  |
 |  2435  |  [Paths in Matrix Whose Sum Is Divisible by K](/solution/2400-2499/2435.Paths%20in%20Matrix%20Whose%20Sum%20Is%20Divisible%20by%20K/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Hard  |  Weekly Contest 314  |
-|  2436  |  [Minimum Split Into Subarrays With GCD Greater Than One](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README_EN.md)  |    |  Medium  |  🔒  |
-|  2437  |  [Number of Valid Clock Times](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md)  |    |  Easy  |  Biweekly Contest 89  |
-|  2438  |  [Range Product Queries of Powers](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README_EN.md)  |    |  Medium  |  Biweekly Contest 89  |
-|  2439  |  [Minimize Maximum of Array](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 89  |
-|  2440  |  [Create Components With Same Value](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README_EN.md)  |    |  Hard  |  Biweekly Contest 89  |
-|  2441  |  [Largest Positive Integer That Exists With Its Negative](/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README_EN.md)  |    |  Easy  |  Weekly Contest 315  |
-|  2442  |  [Count Number of Distinct Integers After Reverse Operations](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md)  |    |  Medium  |  Weekly Contest 315  |
-|  2443  |  [Sum of Number and Its Reverse](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md)  |    |  Medium  |  Weekly Contest 315  |
-|  2444  |  [Count Subarrays With Fixed Bounds](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md)  |    |  Hard  |  Weekly Contest 315  |
+|  2436  |  [Minimum Split Into Subarrays With GCD Greater Than One](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Dynamic Programming`,`Number Theory`  |  Medium  |  🔒  |
+|  2437  |  [Number of Valid Clock Times](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md)  |  `String`,`Enumeration`  |  Easy  |  Biweekly Contest 89  |
+|  2438  |  [Range Product Queries of Powers](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README_EN.md)  |  `Bit Manipulation`,`Array`,`Prefix Sum`  |  Medium  |  Biweekly Contest 89  |
+|  2439  |  [Minimize Maximum of Array](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Biweekly Contest 89  |
+|  2440  |  [Create Components With Same Value](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Math`,`Enumeration`  |  Hard  |  Biweekly Contest 89  |
+|  2441  |  [Largest Positive Integer That Exists With Its Negative](/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  Weekly Contest 315  |
+|  2442  |  [Count Number of Distinct Integers After Reverse Operations](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md)  |  `Array`,`Hash Table`,`Math`  |  Medium  |  Weekly Contest 315  |
+|  2443  |  [Sum of Number and Its Reverse](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md)  |  `Math`,`Enumeration`  |  Medium  |  Weekly Contest 315  |
+|  2444  |  [Count Subarrays With Fixed Bounds](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md)  |  `Queue`,`Array`,`Sliding Window`,`Monotonic Queue`  |  Hard  |  Weekly Contest 315  |
+|  2445  |  [Number of Nodes With Value One](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

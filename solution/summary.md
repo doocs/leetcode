@@ -1213,7 +1213,7 @@
   - [1189.“气球” 的最大数量](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md)
   - [1190.反转每对括号间的子串](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README.md)
   - [1191.K 次串联后最大子数组之和](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)
-  - [1192.查找集群内的「关键连接」](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)
+  - [1192.查找集群内的关键连接](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)
   - [1193.每月交易 I](/solution/1100-1199/1193.Monthly%20Transactions%20I/README.md)
   - [1194.锦标赛优胜者](/solution/1100-1199/1194.Tournament%20Winners/README.md)
   - [1195.交替打印字符串](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README.md)
@@ -2492,3 +2492,4 @@
   - [2442.反转之后不同整数的数目](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README.md)
   - [2443.反转之后的数字和](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README.md)
   - [2444.统计定界子数组的数目](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md)
+  - [2445.Number of Nodes With Value One](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README.md)

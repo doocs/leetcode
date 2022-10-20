@@ -109,7 +109,6 @@ n = 5: 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
 
 时间复杂度 $O(\log k)$，空间复杂度 $O(1)$。
 
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -149,7 +148,6 @@ class Solution {
     }
 }
 ```
-
 
 ```java
 class Solution {

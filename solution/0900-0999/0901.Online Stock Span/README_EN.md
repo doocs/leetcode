@@ -81,7 +81,7 @@ class StockSpanner {
     public StockSpanner() {
 
     }
-    
+
     public int next(int price) {
         int cnt = 1;
         while (!stk.isEmpty() && stk.peek()[0] <= price) {
@@ -107,7 +107,7 @@ public:
     StockSpanner() {
 
     }
-    
+
     int next(int price) {
         int cnt = 1;
         while (!stk.empty() && stk.top().first <= price) {
