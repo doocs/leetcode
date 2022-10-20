@@ -88,6 +88,32 @@ class Solution:
         self.getSubSeqSum(i + 1, curr + arr[i], arr, result)
 ```
 
+```python
+class Solution:
+    def minAbsDifference(self, nums: List[int], goal: int) -> int:
+        def dfs(arr, res, i, s):
+            if i == len(arr):
+                res.add(s)
+                return
+            dfs(arr, res, i + 1, s)
+            dfs(arr, res, i + 1, s + arr[i])
+        
+        n = len(nums)
+        left, right = set(), set()
+        dfs(nums[: n >> 1], left, 0, 0)
+        dfs(nums[n >> 1:], right, 0, 0)
+        right = sorted(right)
+        ans = inf
+        for l in left:
+            x = goal - l
+            i = bisect_left(right, x)
+            if i < len(right):
+                ans = min(ans, abs(x - right[i]))
+            if i:
+                ans = min(ans, abs(x - right[i - 1]))
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -132,6 +158,49 @@ class Solution {
 
         dfs(nums, sum, i + 1, n, cur);
         dfs(nums, sum, i + 1, n, cur + nums[i]);
+    }
+}
+```
+
+```java
+class Solution {
+    public int minAbsDifference(int[] nums, int goal) {
+        int n = nums.length;
+        Set<Integer> left = new HashSet<>();
+        Set<Integer> right = new HashSet<>();
+        dfs(nums, 0, n >> 1, 0, left);
+        dfs(nums, n >> 1, n, 0, right);
+        List<Integer> rs = new ArrayList<>(right);
+        Collections.sort(rs);
+        int ans = Integer.MAX_VALUE;
+        for (int x : left) {
+            int y = goal - x;
+            int l = 0, r = rs.size();
+            while (l < r) {
+                int mid = (l + r) >> 1;
+                if (rs.get(mid) >= y) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            if (l < rs.size()) {
+                ans = Math.min(ans, Math.abs(y - rs.get(l)));
+            }
+            if (l > 0) {
+                ans = Math.min(ans, Math.abs(y - rs.get(l - 1)));
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(int[] arr, int i, int n, int s, Set<Integer> res) {
+        if (i == n) {
+            res.add(s);
+            return;
+        }
+        dfs(arr, i + 1, n, s, res);
+        dfs(arr, i + 1, n, s + arr[i], res);
     }
 }
 ```
@@ -197,6 +266,60 @@ func abs(x int) int {
 }
 ```
 
+```go
+func minAbsDifference(nums []int, goal int) int {
+	n := len(nums)
+	left := []int{}
+	right := []int{}
+	dfs(nums[:n>>1], &left, 0, 0)
+	dfs(nums[n>>1:], &right, 0, 0)
+	sort.Ints(right)
+	ans := math.MaxInt32
+	for _, x := range left {
+		y := goal - x
+		l, r := 0, len(right)
+		for l < r {
+			mid := (l + r) >> 1
+			if right[mid] >= y {
+				r = mid
+			} else {
+				l = mid + 1
+			}
+		}
+		if l < len(right) {
+			ans = min(ans, abs(y-right[l]))
+		}
+		if l > 0 {
+			ans = min(ans, abs(y-right[l-1]))
+		}
+	}
+	return ans
+}
+
+func dfs(arr []int, res *[]int, i, s int) {
+	if i == len(arr) {
+		*res = append(*res, s)
+		return
+	}
+	dfs(arr, res, i+1, s)
+	dfs(arr, res, i+1, s+arr[i])
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -243,6 +366,38 @@ private:
 
         dfs(nums, sum, i + 1, n, cur);
         dfs(nums, sum, i + 1, n, cur + nums[i]);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minAbsDifference(vector<int>& nums, int goal) {
+        int n = nums.size();
+        vector<int> left;
+        vector<int> right;
+        dfs(nums, left, 0, n >> 1, 0);
+        dfs(nums, right, n >> 1, n, 0);
+        sort(right.begin(), right.end());
+        int ans = INT_MAX;
+        for (int x : left) {
+            int y = goal - x;
+            int idx = lower_bound(right.begin(), right.end(), y) - right.begin();
+            if (idx < right.size()) ans = min(ans, abs(y - right[idx]));
+            if (idx) ans = min(ans, abs(y - right[idx - 1]));
+        }
+        return ans;
+    }
+
+private:
+    void dfs(vector<int>& arr, vector<int>& res, int i, int n, int s) {
+        if (i == n) {
+            res.emplace_back(s);
+            return;
+        }
+        dfs(arr, res, i + 1, n, s);
+        dfs(arr, res, i + 1, n, s + arr[i]);
     }
 };
 ```
