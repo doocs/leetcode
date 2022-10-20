@@ -60,12 +60,11 @@ class StockSpanner:
         self.stk = []
 
     def next(self, price: int) -> int:
-        res = 1
+        cnt = 1
         while self.stk and self.stk[-1][0] <= price:
-            _, t = self.stk.pop()
-            res += t
-        self.stk.append([price, res])
-        return res
+            cnt += self.stk.pop()[1]
+        self.stk.append((price, cnt))
+        return cnt
 
 
 # Your StockSpanner object will be instantiated and called as such:
@@ -77,20 +76,19 @@ class StockSpanner:
 
 ```java
 class StockSpanner {
-    private Deque<int[]> stk;
+    private Deque<int[]> stk = new ArrayDeque<>();
 
     public StockSpanner() {
-        stk = new ArrayDeque<>();
-    }
 
+    }
+    
     public int next(int price) {
-        int res = 1;
+        int cnt = 1;
         while (!stk.isEmpty() && stk.peek()[0] <= price) {
-            int[] t = stk.pop();
-            res += t[1];
+            cnt += stk.pop()[1];
         }
-        stk.push(new int[] {price, res});
-        return res;
+        stk.push(new int[] {price, cnt});
+        return cnt;
     }
 }
 
@@ -101,53 +99,27 @@ class StockSpanner {
  */
 ```
 
-### **TypeScript**
-
-```ts
-class StockSpanner {
-    stack: number[][];
-    constructor() {
-        this.stack = [];
-    }
-
-    next(price: number): number {
-        let ans = 1;
-        while (this.stack.length > 0 && this.stack[0][0] <= price) {
-            let [p, c] = this.stack.shift();
-            ans += c;
-        }
-        this.stack.unshift([price, ans]);
-        return ans;
-    }
-}
-
-/**
- * Your StockSpanner object will be instantiated and called as such:
- * var obj = new StockSpanner()
- * var param_1 = obj.next(price)
- */
-```
-
 ### **C++**
 
 ```cpp
 class StockSpanner {
 public:
-    stack<pair<int, int>> stk;
-
     StockSpanner() {
+
+    }
+    
+    int next(int price) {
+        int cnt = 1;
+        while (!stk.empty() && stk.top().first <= price) {
+            cnt += stk.top().second;
+            stk.pop();
+        }
+        stk.push({price, cnt});
+        return cnt;
     }
 
-    int next(int price) {
-        int res = 1;
-        while (!stk.empty() && stk.top().first <= price) {
-            pair<int, int> t = stk.top();
-            stk.pop();
-            res += t.second;
-        }
-        stk.push({price, res});
-        return res;
-    }
+private:
+    stack<pair<int, int>> stk;
 };
 
 /**
@@ -161,30 +133,56 @@ public:
 
 ```go
 type StockSpanner struct {
-	stk [][]int
+	stk []pair
 }
 
 func Constructor() StockSpanner {
-	return StockSpanner{
-		stk: make([][]int, 0),
-	}
+	return StockSpanner{[]pair{}}
 }
 
 func (this *StockSpanner) Next(price int) int {
-	res := 1
-	for len(this.stk) > 0 && this.stk[len(this.stk)-1][0] <= price {
-		t := this.stk[len(this.stk)-1]
-		res += t[1]
+	cnt := 1
+	for len(this.stk) > 0 && this.stk[len(this.stk)-1].price <= price {
+		cnt += this.stk[len(this.stk)-1].cnt
 		this.stk = this.stk[:len(this.stk)-1]
 	}
-	this.stk = append(this.stk, []int{price, res})
-	return res
+	this.stk = append(this.stk, pair{price, cnt})
+	return cnt
 }
+
+type pair struct{ price, cnt int }
 
 /**
  * Your StockSpanner object will be instantiated and called as such:
  * obj := Constructor();
  * param_1 := obj.Next(price);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class StockSpanner {
+    stk: number[][];
+
+    constructor() {
+        this.stk = [];
+    }
+
+    next(price: number): number {
+        let cnt = 1;
+        while (this.stk.length && this.stk[this.stk.length - 1][0] <= price) {
+            cnt += this.stk.pop()[1];
+        }
+        this.stk.push([price, cnt]);
+        return cnt;
+    }
+}
+
+/**
+ * Your StockSpanner object will be instantiated and called as such:
+ * var obj = new StockSpanner()
+ * var param_1 = obj.next(price)
  */
 ```
 

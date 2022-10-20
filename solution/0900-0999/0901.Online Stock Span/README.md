@@ -47,17 +47,19 @@ S.next(85) 被调用并返回 6。
 
 <!-- 这里可写通用的实现逻辑 -->
 
-单调栈。
+**方法一：单调栈**
 
-单调栈常见模型：找出每个数左/右边**离它最近的**且**比它大/小的数**。模板：
+根据题目描述，我们可以知道，对于当日价格 `price`，从这个价格开始往前找，找到第一个比这个价格大的价格，这两个价格的下标差 `cnt` 就是当日价格的跨度。
 
-```python
-stk = []
-for i in range(n):
-    while stk and check(stk[-1], i):
-        stk.pop()
-    stk.append(i)
-```
+这实际上是经典的单调栈模型，找出左侧第一个比当前元素大的元素。
+
+我们维护一个从栈底到栈顶单调递减的栈，栈中每个元素存放的是 `(price, cnt)` 数据对，其中 `price` 表示价格，`cnt` 表示当前价格的跨度。
+
+出现价格 `price` 时，我们将其与栈顶元素进行比较，如果栈顶元素的价格小于等于 `price`，则将当日价格的跨度 `cnt` 加上栈顶元素的跨度，然后将栈顶元素出栈，直到栈顶元素的价格大于 `price`，或者栈为空为止。
+
+最后将 `(price, cnt)` 入栈，返回 `cnt` 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为 `next` 函数的调用次数。
 
 <!-- tabs:start -->
 
@@ -67,17 +69,16 @@ for i in range(n):
 
 ```python
 class StockSpanner:
-
     def __init__(self):
         self.stk = []
 
     def next(self, price: int) -> int:
-        res = 1
+        cnt = 1
         while self.stk and self.stk[-1][0] <= price:
-            _, t = self.stk.pop()
-            res += t
-        self.stk.append([price, res])
-        return res
+            cnt += self.stk.pop()[1]
+        self.stk.append((price, cnt))
+        return cnt
+
 
 # Your StockSpanner object will be instantiated and called as such:
 # obj = StockSpanner()
@@ -90,20 +91,19 @@ class StockSpanner:
 
 ```java
 class StockSpanner {
-    private Deque<int[]> stk;
+    private Deque<int[]> stk = new ArrayDeque<>();
 
     public StockSpanner() {
-        stk = new ArrayDeque<>();
+
     }
 
     public int next(int price) {
-        int res = 1;
+        int cnt = 1;
         while (!stk.isEmpty() && stk.peek()[0] <= price) {
-            int[] t = stk.pop();
-            res += t[1];
+            cnt += stk.pop()[1];
         }
-        stk.push(new int[] {price, res});
-        return res;
+        stk.push(new int[] {price, cnt});
+        return cnt;
     }
 }
 
@@ -114,23 +114,83 @@ class StockSpanner {
  */
 ```
 
+### **C++**
+
+```cpp
+class StockSpanner {
+public:
+    StockSpanner() {
+
+    }
+
+    int next(int price) {
+        int ans = 1;
+        while (!stk.empty() && stk.top().first <= price) {
+            ans += stk.top().second;
+            stk.pop();
+        }
+        stk.push({price, ans});
+        return ans;
+    }
+
+private:
+    stack<pair<int, int>> stk;
+};
+
+/**
+ * Your StockSpanner object will be instantiated and called as such:
+ * StockSpanner* obj = new StockSpanner();
+ * int param_1 = obj->next(price);
+ */
+```
+
+### **Go**
+
+```go
+type StockSpanner struct {
+	stk []pair
+}
+
+func Constructor() StockSpanner {
+	return StockSpanner{[]pair{}}
+}
+
+func (this *StockSpanner) Next(price int) int {
+	cnt := 1
+	for len(this.stk) > 0 && this.stk[len(this.stk)-1].price <= price {
+		cnt += this.stk[len(this.stk)-1].cnt
+		this.stk = this.stk[:len(this.stk)-1]
+	}
+	this.stk = append(this.stk, pair{price, cnt})
+	return cnt
+}
+
+type pair struct{ price, cnt int }
+
+/**
+ * Your StockSpanner object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Next(price);
+ */
+```
+
 ### **TypeScript**
 
 ```ts
 class StockSpanner {
-    stack: number[][];
+    stk: number[][];
+
     constructor() {
-        this.stack = [];
+        this.stk = [];
     }
 
     next(price: number): number {
-        let ans = 1;
-        while (this.stack.length > 0 && this.stack[0][0] <= price) {
-            let [p, c] = this.stack.shift();
-            ans += c;
+        let cnt = 1;
+        while (this.stk.length && this.stk[this.stk.length - 1][0] <= price) {
+            cnt += this.stk.pop()[1];
         }
-        this.stack.unshift([price, ans]);
-        return ans;
+        this.stk.push([price, cnt]);
+        return cnt;
     }
 }
 
@@ -138,35 +198,6 @@ class StockSpanner {
  * Your StockSpanner object will be instantiated and called as such:
  * var obj = new StockSpanner()
  * var param_1 = obj.next(price)
- */
-```
-
-### **C++**
-
-```cpp
-class StockSpanner {
-public:
-    stack<pair<int, int>> stk;
-
-    StockSpanner() {
-    }
-
-    int next(int price) {
-        int res = 1;
-        while (!stk.empty() && stk.top().first <= price) {
-            pair<int, int> t = stk.top();
-            stk.pop();
-            res += t.second;
-        }
-        stk.push({price, res});
-        return res;
-    }
-};
-
-/**
- * Your StockSpanner object will be instantiated and called as such:
- * StockSpanner* obj = new StockSpanner();
- * int param_1 = obj->next(price);
  */
 ```
 

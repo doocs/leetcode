@@ -3,12 +3,11 @@ class StockSpanner:
         self.stk = []
 
     def next(self, price: int) -> int:
-        res = 1
+        cnt = 1
         while self.stk and self.stk[-1][0] <= price:
-            _, t = self.stk.pop()
-            res += t
-        self.stk.append([price, res])
-        return res
+            cnt += self.stk.pop()[1]
+        self.stk.append((price, cnt))
+        return cnt
 
 
 # Your StockSpanner object will be instantiated and called as such:
