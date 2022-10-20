@@ -48,6 +48,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
+根据题意，如果得到交替字符串 `01010101...` 所需要的操作数为 `cnt`，那么得到交替字符串 `10101010...` 所需要的操作数为 `n - cnt`。
+
+因此，我们只需要遍历一次字符串 `s`，统计出 `cnt` 的值，那么答案即为 `min(cnt, n - cnt)`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `s` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -92,6 +100,28 @@ public:
         return min(cnt, n - cnt);
     }
 };
+```
+
+### **Go**
+
+```go
+func minOperations(s string) int {
+	cnt := 0
+	t := []rune("01")
+	for i, c := range s {
+		if t[i&1] != c {
+			cnt++
+		}
+	}
+	return min(cnt, len(s)-cnt)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
