@@ -53,7 +53,7 @@ S.next(85) 被调用并返回 6。
 
 这实际上是经典的单调栈模型，找出左侧第一个比当前元素大的元素。
 
-我们维护一个从栈底到栈顶单调递减的栈，栈中每个元素存放的是 `(price, cnt)` 数据对，其中 `price` 表示价格，`cnt` 表示当前价格的跨度。
+我们维护一个从栈底到栈顶价格单调递减的栈，栈中每个元素存放的是 `(price, cnt)` 数据对，其中 `price` 表示价格，`cnt` 表示当前价格的跨度。
 
 出现价格 `price` 时，我们将其与栈顶元素进行比较，如果栈顶元素的价格小于等于 `price`，则将当日价格的跨度 `cnt` 加上栈顶元素的跨度，然后将栈顶元素出栈，直到栈顶元素的价格大于 `price`，或者栈为空为止。
 
@@ -122,15 +122,15 @@ public:
     StockSpanner() {
 
     }
-
+    
     int next(int price) {
-        int ans = 1;
+        int cnt = 1;
         while (!stk.empty() && stk.top().first <= price) {
-            ans += stk.top().second;
+            cnt += stk.top().second;
             stk.pop();
         }
-        stk.push({price, ans});
-        return ans;
+        stk.push({price, cnt});
+        return cnt;
     }
 
 private:
