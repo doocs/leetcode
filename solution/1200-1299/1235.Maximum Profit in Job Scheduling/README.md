@@ -96,7 +96,10 @@ $$
 
 时间复杂度 $O(n \times \log n)$，其中 $n$ 是工作的数量。
 
-相似题目：[1751. 最多可以参加的会议数目 II](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md)
+相似题目：
+
+-   [2008. 出租车的最大盈利](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
+-   [1751. 最多可以参加的会议数目 II](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md)
 
 <!-- tabs:start -->
 

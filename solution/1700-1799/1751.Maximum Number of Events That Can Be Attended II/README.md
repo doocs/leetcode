@@ -91,7 +91,10 @@ $$
 
 时间复杂度 $O(n\times \log n + n\times k)$，其中 $n$ 为会议数量。
 
-相似题目：[1235. 规划兼职工作](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md)
+相似题目：
+
+-   [1235. 规划兼职工作](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md)
+-   [2008. 出租车的最大盈利](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
 
 <!-- tabs:start -->
 
