@@ -62,19 +62,18 @@ Thus, it is impossible to collect the rainwater from all the houses.
 ```python
 class Solution:
     def minimumBuckets(self, street: str) -> int:
-        n, last = len(street), -2
         ans = 0
-        for i, v in enumerate(street):
-            if v == 'H':
-                if last == i - 1:
-                    continue
+        i, n = 0, len(street)
+        while i < n:
+            if street[i] == 'H':
                 if i + 1 < n and street[i + 1] == '.':
-                    last = i + 1
-                elif i - 1 >= 0 and street[i - 1] == '.':
-                    last = i - 1
+                    i += 2
+                    ans += 1
+                elif i and street[i - 1] == '.':
+                    ans += 1
                 else:
                     return -1
-                ans += 1
+            i += 1
         return ans
 ```
 
@@ -83,26 +82,68 @@ class Solution:
 ```java
 class Solution {
     public int minimumBuckets(String street) {
-        int last = -2, n = street.length();
+        int n = street.length();
         int ans = 0;
-        for (int i = 0; i < n; i++) {
-            char c = street.charAt(i);
-            if (c == 'H') {
-                if (last == i - 1) {
-                    continue;
-                }
+        for (int i = 0; i < n; ++i) {
+            if (street.charAt(i) == 'H') {
                 if (i + 1 < n && street.charAt(i + 1) == '.') {
-                    last = i + 1;
-                } else if (i - 1 >= 0 && street.charAt(i - 1) == '.') {
-                    last = i - 1;
+                    ++ans;
+                    i += 2;
+                } else if (i > 0 && street.charAt(i - 1) == '.') {
+                    ++ans;
                 } else {
                     return -1;
                 }
-                ans++;
             }
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumBuckets(string street) {
+        int n = street.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (street[i] == 'H') {
+                if (i + 1 < n && street[i + 1] == '.') {
+                    ++ans;
+                    i += 2;
+                } else if (i && street[i - 1] == '.') {
+                    ++ans;
+                } else {
+                    return -1;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumBuckets(street string) int {
+	ans, n := 0, len(street)
+	for i := 0; i < n; i++ {
+		if street[i] == 'H' {
+			if i+1 < n && street[i+1] == '.' {
+				ans++
+				i += 2
+			} else if i > 0 && street[i-1] == '.' {
+				ans++
+			} else {
+				return -1
+			}
+		}
+	}
+	return ans
 }
 ```
 

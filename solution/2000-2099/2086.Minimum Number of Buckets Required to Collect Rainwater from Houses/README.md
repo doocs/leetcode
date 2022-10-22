@@ -76,6 +76,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+从左到右遍历字符串，遇到 `H` 时，优先考虑右边是否有空位，如果有则放置水桶，并且跳过水桶的下一个位置；如果右边没有空位，则考虑左边是否有空位，如果有则放置水桶，否则无解。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `street` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -85,19 +91,18 @@
 ```python
 class Solution:
     def minimumBuckets(self, street: str) -> int:
-        n, last = len(street), -2
         ans = 0
-        for i, v in enumerate(street):
-            if v == 'H':
-                if last == i - 1:
-                    continue
+        i, n = 0, len(street)
+        while i < n:
+            if street[i] == 'H':
                 if i + 1 < n and street[i + 1] == '.':
-                    last = i + 1
-                elif i - 1 >= 0 and street[i - 1] == '.':
-                    last = i - 1
+                    i += 2
+                    ans += 1
+                elif i and street[i - 1] == '.':
+                    ans += 1
                 else:
                     return -1
-                ans += 1
+            i += 1
         return ans
 ```
 
@@ -108,26 +113,68 @@ class Solution:
 ```java
 class Solution {
     public int minimumBuckets(String street) {
-        int last = -2, n = street.length();
+        int n = street.length();
         int ans = 0;
-        for (int i = 0; i < n; i++) {
-            char c = street.charAt(i);
-            if (c == 'H') {
-                if (last == i - 1) {
-                    continue;
-                }
+        for (int i = 0; i < n; ++i) {
+            if (street.charAt(i) == 'H') {
                 if (i + 1 < n && street.charAt(i + 1) == '.') {
-                    last = i + 1;
-                } else if (i - 1 >= 0 && street.charAt(i - 1) == '.') {
-                    last = i - 1;
+                    ++ans;
+                    i += 2;
+                } else if (i > 0 && street.charAt(i - 1) == '.') {
+                    ++ans;
                 } else {
                     return -1;
                 }
-                ans++;
             }
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumBuckets(string street) {
+        int n = street.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (street[i] == 'H') {
+                if (i + 1 < n && street[i + 1] == '.') {
+                    ++ans;
+                    i += 2;
+                } else if (i && street[i - 1] == '.') {
+                    ++ans;
+                } else {
+                    return -1;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumBuckets(street string) int {
+	ans, n := 0, len(street)
+	for i := 0; i < n; i++ {
+		if street[i] == 'H' {
+			if i+1 < n && street[i+1] == '.' {
+				ans++
+				i += 2
+			} else if i > 0 && street[i-1] == '.' {
+				ans++
+			} else {
+				return -1
+			}
+		}
+	}
+	return ans
 }
 ```
 

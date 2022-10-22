@@ -1,13 +1,14 @@
 class Solution {
-    public int minimumBuckets(String street) {
-        int n = street.length();
+public:
+    int minimumBuckets(string street) {
+        int n = street.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            if (street.charAt(i) == 'H') {
-                if (i + 1 < n && street.charAt(i + 1) == '.') {
+            if (street[i] == 'H') {
+                if (i + 1 < n && street[i + 1] == '.') {
                     ++ans;
                     i += 2;
-                } else if (i > 0 && street.charAt(i - 1) == '.') {
+                } else if (i && street[i - 1] == '.') {
                     ++ans;
                 } else {
                     return -1;
@@ -16,4 +17,4 @@ class Solution {
         }
         return ans;
     }
-}
+};
