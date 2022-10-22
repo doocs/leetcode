@@ -58,6 +58,12 @@ word2：    p   q
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接模拟**
+
+遍历 `word1`, `word2` 两个字符串，依次取出字符，拼接到结果字符串中。Python 代码可以简化为一行。
+
+时间复杂度 $O(m + n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是两个字符串的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,15 +73,7 @@ word2：    p   q
 ```python
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        i, m, n = 0, len(word1), len(word2)
-        res = []
-        while i < m or i < n:
-            if i < m:
-                res.append(word1[i])
-            if i < n:
-                res.append(word2[i])
-            i += 1
-        return ''.join(res)
+        return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 ```
 
 ### **Java**
@@ -86,16 +84,16 @@ class Solution:
 class Solution {
     public String mergeAlternately(String word1, String word2) {
         int m = word1.length(), n = word2.length();
-        StringBuilder res = new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         for (int i = 0; i < m || i < n; ++i) {
             if (i < m) {
-                res.append(word1.charAt(i));
+                ans.append(word1.charAt(i));
             }
             if (i < n) {
-                res.append(word2.charAt(i));
+                ans.append(word2.charAt(i));
             }
         }
-        return res.toString();
+        return ans.toString();
     }
 }
 ```
@@ -107,18 +105,32 @@ class Solution {
 public:
     string mergeAlternately(string word1, string word2) {
         int m = word1.size(), n = word2.size();
-        string res;
+        string ans;
         for (int i = 0; i < m || i < n; ++i) {
-            if (i < m) {
-                res.push_back(word1[i]);
-            }
-            if (i < n) {
-                res.push_back(word2[i]);
-            }
+            if (i < m) ans += word1[i];
+            if (i < n) ans += word2[i];
         }
-        return res;
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func mergeAlternately(word1 string, word2 string) string {
+	m, n := len(word1), len(word2)
+	ans := make([]byte, 0, m+n)
+	for i := 0; i < m || i < n; i++ {
+		if i < m {
+			ans = append(ans, word1[i])
+		}
+		if i < n {
+			ans = append(ans, word2[i])
+		}
+	}
+	return string(ans)
+}
 ```
 
 ### **Rust**
