@@ -44,20 +44,21 @@
 class StackOfPlates {
     List<Stack<Integer>> list = new ArrayList<>();
     int cap = 0;
+
     public StackOfPlates(int cap) {
         this.cap = cap;
     }
-    
+
     public void push(int val) {
         if (this.cap == 0) return;
-        if (list.isEmpty() || list.get(list.size()-1).size() == cap) list.add(new Stack<>());
-        list.get(list.size()-1).push(val);
+        if (list.isEmpty() || list.get(list.size() - 1).size() == cap) list.add(new Stack<>());
+        list.get(list.size() - 1).push(val);
     }
-    
+
     public int pop() {
-        return popAt(list.size()-1);
+        return popAt(list.size() - 1);
     }
-    
+
     public int popAt(int index) {
         if (index >= list.size() || index < 0) return -1;
         Stack<Integer> s = list.get(index);
