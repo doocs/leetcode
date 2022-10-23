@@ -55,6 +55,16 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 分类讨论**
+
+我们先找出数组中第一个最小值和最后一个最大值的位置，分别记为 $i$ 和 $j$。
+
+如果 $i$ 和 $j$ 相等，说明数组已经是有效的，直接返回 $0$ 即可。
+
+否则，我们判断 $i$ 是否在 $j$ 的左边，如果是，那么交换次数为 $i + n - 1 - j$；否则，交换次数为 $i + n - 2 - j$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +72,21 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumSwaps(self, nums: List[int]) -> int:
+        mi, mx = min(nums), max(nums)
+        i, j = -1, -1
+        for k, v in enumerate(nums):
+            if v == mi and i == -1:
+                i = k
+            if v == mx:
+                j = k
+        if i == j:
+            return 0
+        n = len(nums)
+        if i < j:
+            return i + n - 1 - j
+        return i + n - 2 - j
 ```
 
 ### **Java**
@@ -70,7 +94,104 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumSwaps(int[] nums) {
+        int n = nums.length;
+        int mi = min(nums), mx = max(nums);
+        int i = -1, j = -1;
+        for (int k = 0; k < n; ++k) {
+            if (nums[k] == mi && i == -1) {
+                i = k;
+            }
+            if (nums[k] == mx) {
+                j = k;
+            }
+        }
+        if (i == j) {
+            return 0;
+        }
+        return i < j ? i + n - 1 - j : i + n - 2 - j;
+    }
 
+    private int max(int[] nums) {
+        int v = 0;
+        for (int x : nums) {
+            v = Math.max(v, x);
+        }
+        return v;
+    }
+
+    private int min(int[] nums) {
+        int v = nums[0];
+        for (int x : nums) {
+            v = Math.min(v, x);
+        }
+        return v;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumSwaps(vector<int>& nums) {
+        int n = nums.size();
+        int mi = *min_element(nums.begin(), nums.end());
+        int mx = *max_element(nums.begin(), nums.end());
+        int i = -1, j = -1;
+        for (int k = 0; k < n; ++k) {
+            if (nums[k] == mi && i == -1) i = k;
+            if (nums[k] == mx) j = k;
+        }
+        if (i == j) return 0;
+        return i < j ? i + n - 1 - j : i + n - 2 - j;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumSwaps(nums []int) int {
+	mi, mx := nums[0], 0
+	for _, v := range nums {
+		mi = min(mi, v)
+		mx = max(mx, v)
+	}
+	i, j := -1, -1
+	for k, v := range nums {
+		if v == mi && i == -1 {
+			i = k
+		}
+		if v == mx {
+			j = k
+		}
+	}
+	if i == j {
+		return 0
+	}
+	n := len(nums)
+	if i < j {
+		return i + n - 1 - j
+	}
+	return i + n - 2 - j
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
