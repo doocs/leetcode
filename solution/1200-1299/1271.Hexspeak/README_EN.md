@@ -40,13 +40,66 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def toHexspeak(self, num: str) -> str:
+        s = set('ABCDEFIO')
+        t = hex(int(num))[2:].upper().replace('0', 'O').replace('1', 'I')
+        return t if all(c in s for c in t) else 'ERROR'
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final Set<Character> S = Set.of('A', 'B', 'C', 'D', 'E', 'F', 'I', 'O');
 
+    public String toHexspeak(String num) {
+        String t = Long.toHexString(Long.valueOf(num)).toUpperCase().replace("0", "O").replace("1", "I");
+        for (char c : t.toCharArray()) {
+            if (!S.contains(c)) {
+                return "ERROR";
+            }
+        }
+        return t;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string toHexspeak(string num) {
+        stringstream ss;
+        ss << hex << stol(num);
+        string t = ss.str();
+        for (int i = 0; i < t.size(); ++i) {
+            if (t[i] >= '2' && t[i] <= '9') return "ERROR";
+            if (t[i] == '0') t[i] = 'O';
+            else if (t[i] == '1') t[i] = 'I';
+            else t[i] = t[i] - 32;
+        }
+        return t;
+    }
+};
+```
+
+### **Go**
+
+```go
+func toHexspeak(num string) string {
+	x, _ := strconv.Atoi(num)
+	t := strings.ToUpper(fmt.Sprintf("%x", x))
+	t = strings.ReplaceAll(t, "0", "O")
+	t = strings.ReplaceAll(t, "1", "I")
+	for _, c := range t {
+		if c >= '2' && c <= '9' {
+			return "ERROR"
+		}
+	}
+	return t
+}
 ```
 
 ### **...**
