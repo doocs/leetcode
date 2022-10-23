@@ -110,7 +110,7 @@ class Solution:
                 return
             dfs(arr, res, i + 1, s)
             dfs(arr, res, i + 1, s + arr[i])
-        
+
         n = len(nums)
         left, right = set(), set()
         dfs(nums[: n >> 1], left, 0, 0)

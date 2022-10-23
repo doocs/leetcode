@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个 <strong>无重复元素</strong> 的整数数组&nbsp;<code>candidates</code> 和一个目标整数&nbsp;<code>target</code>&nbsp;，找出&nbsp;<code>candidates</code>&nbsp;中可以使数字和为目标数&nbsp;<code>target</code> 的 <em>所有&nbsp;</em><strong>不同组合</strong> ，并以列表形式返回。你可以按 <strong>任意顺序</strong> 返回这些组合。</p>
+<p>给你一个 <strong>无重复元素</strong> 的整数数组&nbsp;<code>candidates</code> 和一个目标整数&nbsp;<code>target</code>&nbsp;，找出&nbsp;<code>candidates</code>&nbsp;中可以使数字和为目标数&nbsp;<code>target</code> 的 所有<em>&nbsp;</em><strong>不同组合</strong> ，并以列表形式返回。你可以按 <strong>任意顺序</strong> 返回这些组合。</p>
 
 <p><code>candidates</code> 中的 <strong>同一个</strong> 数字可以 <strong>无限制重复被选取</strong> 。如果至少一个数字的被选数量不同，则两种组合是不同的。&nbsp;</p>
 
@@ -43,9 +43,9 @@
 
 <ul>
 	<li><code>1 &lt;= candidates.length &lt;= 30</code></li>
-	<li><code>1 &lt;= candidates[i] &lt;= 200</code></li>
-	<li><code>candidate</code> 中的每个元素都 <strong>互不相同</strong></li>
-	<li><code>1 &lt;= target &lt;= 500</code></li>
+	<li><code>2 &lt;= candidates[i] &lt;= 40</code></li>
+	<li><code>candidates</code> 的所有元素 <strong>互不相同</strong></li>
+	<li><code>1 &lt;= target &lt;= 40</code></li>
 </ul>
 
 ## 解法

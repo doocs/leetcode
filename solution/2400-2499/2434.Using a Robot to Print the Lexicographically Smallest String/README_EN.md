@@ -14,7 +14,7 @@
 <p>Return <em>the lexicographically smallest string that can be written on the paper.</em></p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;zza&quot;
@@ -25,7 +25,7 @@ Perform first operation three times p=&quot;&quot;, s=&quot;&quot;, t=&quot;zza&
 Perform second operation three times p=&quot;azz&quot;, s=&quot;&quot;, t=&quot;&quot;.
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;bac&quot;
@@ -37,7 +37,7 @@ Perform first operation p=&quot;ab&quot;, s=&quot;&quot;, t=&quot;c&quot;.
 Perform second operation p=&quot;abc&quot;, s=&quot;&quot;, t=&quot;&quot;.
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;bdda&quot;

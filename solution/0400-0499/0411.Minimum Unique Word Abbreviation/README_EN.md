@@ -21,7 +21,7 @@
 <p>Given a target string <code>target</code> and an array of strings <code>dictionary</code>, return <em>an <strong>abbreviation</strong> of </em><code>target</code><em> with the <strong>shortest possible length</strong> such that it is <strong>not an abbreviation</strong> of <strong>any</strong> string in </em><code>dictionary</code><em>. If there are multiple shortest abbreviations, return any of them</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = &quot;apple&quot;, dictionary = [&quot;blade&quot;]
@@ -31,7 +31,7 @@ The next shortest abbreviations are &quot;a4&quot; and &quot;4e&quot;. &quot;4e&
 Hence, return &quot;a4&quot;.
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = &quot;apple&quot;, dictionary = [&quot;blade&quot;,&quot;plain&quot;,&quot;amber&quot;]
@@ -54,6 +54,7 @@ Since none of them are abbreviations of words in the dictionary, returning any o
 	<li><code>1 &lt;= dictionary[i].length &lt;= 100</code></li>
 	<li><code>log<sub>2</sub>(n) + m &lt;= 21</code> if <code>n &gt; 0</code></li>
 	<li><code>target</code> and <code>dictionary[i]</code> consist of lowercase English letters.</li>
+	<li><code>dictionary</code> does not contain <code>target</code>.</li>
 </ul>
 
 ## Solutions

@@ -23,6 +23,14 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 316 场周赛(2022-10-23 10:30, 90 分钟) 参赛人数 6387
+
+- [2446. 判断两个事件是否存在冲突](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README.md)
+- [2447. 最大公因数等于 K 的子数组数目](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README.md)
+- [2448. 使数组相等的最小开销](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
+- [2449. 使数组相似的最少操作次数](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README.md)
+
+
 #### 第 315 场周赛(2022-10-16 10:30, 90 分钟) 参赛人数 6490
 
 - [2441. 与对应负数同时存在的最大正整数](/solution/2400-2499/2441.Largest%20Positive%20Integer%20That%20Exists%20With%20Its%20Negative/README.md)
@@ -1964,7 +1972,7 @@ https://lcpredictor.herokuapp.com
 - [1189. “气球” 的最大数量](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md)
 - [1190. 反转每对括号间的子串](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README.md)
 - [1191. K 次串联后最大子数组之和](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)
-- [1192. 查找集群内的「关键连接」](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)
+- [1192. 查找集群内的关键连接](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)
 
 
 #### 第 153 场周赛(2019-09-08 10:30, 90 分钟) 参赛人数 1434
