@@ -74,6 +74,17 @@ $$
 
 时间复杂度 $O(n\times \log n)$。其中 $n$ 为数组 `nums` 的长度。主要是排序的时间复杂度。
 
+**方法二：排序 + 中位数**
+
+我们还可以把 $b_i$ 看作是 $a_i$ 的出现次数，那么中位数下标是 $\frac{\sum_{i=1}^{n} b_i}{2}$。把所有数变成中位数，一定是最优的。
+
+时间复杂度 $O(n\times \log n)$。其中 $n$ 为数组 `nums` 的长度。主要是排序的时间复杂度。
+
+相似题目：
+
+-   [296. 最佳的碰头地点](/solution/0200-0299/0296.Best%20Meeting%20Point/README.md)
+-   [462. 最少移动次数使数组元素相等 II](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -98,6 +109,18 @@ class Solution:
             r = f[n] - f[i] - a * (g[n] - g[i])
             ans = min(ans, l + r)
         return ans
+```
+
+```python
+class Solution:
+    def minCost(self, nums: List[int], cost: List[int]) -> int:
+        arr = sorted(zip(nums, cost))
+        mid = sum(cost) // 2
+        s = 0
+        for x, c in arr:
+            s += c
+            if s > mid:
+                return sum(abs(v - x) * c for v, c in arr)
 ```
 
 ### **Java**
@@ -132,6 +155,40 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public long minCost(int[] nums, int[] cost) {
+        int n = nums.length;
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[]{nums[i], cost[i]};
+        }
+        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
+        long mid = sum(cost) / 2;
+        long s = 0, ans = 0;
+        for (var e : arr) {
+            int x = e[0], c = e[1];
+            s += c;
+            if (s > mid) {
+                for (var t : arr) {
+                    ans += (long) Math.abs(t[0] - x) * t[1];
+                }
+                break;
+            }
+        }
+        return ans;
+    }
+
+    private long sum(int[] arr) {
+        long s = 0;
+        for (int v : arr) {
+            s += v;
+        }
+        return s;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -156,6 +213,32 @@ public:
             ll l = 1ll * a * g[i - 1] - f[i - 1];
             ll r = f[n] - f[i] - 1ll * a * (g[n] - g[i]);
             ans = min(ans, l + r);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    long long minCost(vector<int>& nums, vector<int>& cost) {
+        int n = nums.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; ++i) arr[i] = {nums[i], cost[i]};
+        sort(arr.begin(), arr.end());
+        ll mid = accumulate(cost.begin(), cost.end(), 0ll) / 2;
+        ll s = 0, ans = 0;
+        for (auto [x, c] : arr) {
+            s += c;
+            if (s > mid) {
+                for (auto [v, d] : arr) {
+                    ans += 1ll * abs(v - x) * d;
+                }
+                break;
+            }
         }
         return ans;
     }
@@ -196,6 +279,42 @@ func min(a, b int64) int64 {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func minCost(nums []int, cost []int) int64 {
+	n := len(nums)
+	type pair struct{ a, b int }
+	arr := make([]pair, n)
+	mid := 0
+	for i, a := range nums {
+		b := cost[i]
+		mid += b
+		arr[i] = pair{a, b}
+	}
+	mid /= 2
+	sort.Slice(arr, func(i, j int) bool { return arr[i].a < arr[j].a })
+	s, ans := 0, 0
+	for _, e := range arr {
+		x, c := e.a, e.b
+		s += c
+		if s > mid {
+			for _, t := range arr {
+				ans += abs(t.a-x) * t.b
+			}
+			break
+		}
+	}
+	return int64(ans)
+
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 

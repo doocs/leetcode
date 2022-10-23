@@ -46,6 +46,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 中位数**
+
+对于每一行，我们可以将所有的 $1$ 的下标排序，然后取中位数 $i$ 作为碰头地点的横坐标。
+
+对于每一列，我们可以将所有的 $1$ 的下标排序，然后取中位数 $i$ 作为碰头地点的纵坐标。
+
+最后，我们计算所有 $1$ 到碰头地点 $(i, j)$ 的曼哈顿距离之和即可。
+
+时间复杂度 $O(m\times n\times \log(m\times n))$。最多有 $m\times n$ 个 $1$，排序的时间复杂度为 $\log(m\times n)$。
+
+相似题目：
+
+-   [462. 最少移动次数使数组元素相等 II](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
+-   [2448. 使数组相等的最小开销](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +68,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minTotalDistance(self, grid: List[List[int]]) -> int:
+        def f(arr, x):
+            return sum(abs(v - x) for v in arr)
 
+        rows, cols = [], []
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                if v:
+                    rows.append(i)
+                    cols.append(j)
+        cols.sort()
+        i = rows[len(rows) >> 1]
+        j = cols[len(cols) >> 1]
+        return f(rows, i) + f(cols, j)
 ```
 
 ### **Java**
@@ -61,7 +90,99 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minTotalDistance(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        List<Integer> rows = new ArrayList<>();
+        List<Integer> cols = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    rows.add(i);
+                    cols.add(j);
+                }
+            }
+        }
+        Collections.sort(cols);
+        int i = rows.get(rows.size() >> 1);
+        int j = cols.get(cols.size() >> 1);
+        return f(rows, i) + f(cols, j);
+    }
 
+    private int f(List<Integer> arr, int x) {
+        int s = 0;
+        for (int v : arr) {
+            s += Math.abs(v - x);
+        }
+        return s;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minTotalDistance(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<int> rows;
+        vector<int> cols;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j]) {
+                    rows.emplace_back(i);
+                    cols.emplace_back(j);
+                }
+            }
+        }
+        sort(cols.begin(), cols.end());
+        int i = rows[rows.size() / 2];
+        int j = cols[cols.size() / 2];
+        auto f = [](vector<int>& arr, int x) {
+            int s = 0;
+            for (int v : arr) {
+                s += abs(v - x);
+            }
+            return s;
+        };
+        return f(rows, i) + f(cols, j);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minTotalDistance(grid [][]int) int {
+	rows, cols := []int{}, []int{}
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 1 {
+				rows = append(rows, i)
+				cols = append(cols, j)
+			}
+		}
+	}
+	sort.Ints(cols)
+	i := rows[len(rows)>>1]
+	j := cols[len(cols)>>1]
+	f := func(arr []int, x int) int {
+		s := 0
+		for _, v := range arr {
+			s += abs(v - x)
+		}
+		return s
+	}
+	return f(rows, i) + f(cols, j)
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
