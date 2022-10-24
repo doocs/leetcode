@@ -49,13 +49,115 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestVariance(self, s: str) -> int:
+        ans = 0
+        for a, b in permutations(ascii_lowercase, 2):
+            if a == b:
+                continue
+            f = [0, -inf]
+            for c in s:
+                if c == a:
+                    f[0], f[1] = f[0] + 1, f[1] + 1
+                elif c == b:
+                    f[1] = max(f[1] - 1, f[0] - 1)
+                    f[0] = 0
+                if ans < f[1]:
+                    ans = f[1]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int largestVariance(String s) {
+        int n = s.length();
+        int ans = 0;
+        for (char a = 'a'; a <= 'z'; ++a) {
+            for (char b = 'a'; b <= 'z'; ++b) {
+                if (a == b) {
+                    continue;
+                }
+                int[] f = new int[] {0, -n};
+                for (int i = 0; i < n; ++i) {
+                    if (s.charAt(i) == a) {
+                        f[0]++;
+                        f[1]++;
+                    } else if (s.charAt(i) == b) {
+                        f[1] = Math.max(f[0] - 1, f[1] - 1);
+                        f[0] = 0;
+                    }
+                    ans = Math.max(ans, f[1]);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestVariance(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (char a = 'a'; a <= 'z'; ++a) {
+            for (char b = 'a'; b <= 'z'; ++b) {
+                if (a == b) continue;
+                int f[2] = {0, -n};
+                for (char c : s) {
+                    if (c == a) {
+                        f[0]++;
+                        f[1]++;
+                    } else if (c == b) {
+                        f[1] = max(f[1] - 1, f[0] - 1);
+                        f[0] = 0;
+                    }
+                    ans = max(ans, f[1]);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestVariance(s string) int {
+	ans, n := 0, len(s)
+	for a := 'a'; a <= 'z'; a++ {
+		for b := 'a'; b <= 'z'; b++ {
+			if a == b {
+				continue
+			}
+			f := [2]int{0, -n}
+			for _, c := range s {
+				if c == a {
+					f[0]++
+					f[1]++
+				} else if c == b {
+					f[1] = max(f[1]-1, f[0]-1)
+					f[0] = 0
+				}
+				ans = max(ans, f[1])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

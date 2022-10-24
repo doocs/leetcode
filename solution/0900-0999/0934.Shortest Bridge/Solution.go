@@ -1,4 +1,4 @@
-func shortestBridge(grid [][]int) int {
+func shortestBridge(grid [][]int) (ans int) {
 	n := len(grid)
 	dirs := []int{-1, 0, 1, 0, -1}
 	type pair struct{ i, j int }
@@ -23,7 +23,6 @@ func shortestBridge(grid [][]int) int {
 			}
 		}
 	}
-	ans := 0
 	for {
 		for i := len(q); i > 0; i-- {
 			p := q[0]
@@ -32,7 +31,7 @@ func shortestBridge(grid [][]int) int {
 				x, y := p.i+dirs[k], p.j+dirs[k+1]
 				if x >= 0 && x < n && y >= 0 && y < n {
 					if grid[x][y] == 1 {
-						return ans
+						return
 					}
 					if grid[x][y] == 0 {
 						grid[x][y] = 2

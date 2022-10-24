@@ -50,6 +50,22 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举 + 动态规划**
+
+由于字符集只包含小写字母，我们可以考虑枚举出现次数最多的字符 $a$ 以及出现次数最少的字符 $b$。对于一个子串来说，这两种字符出现的次数之差就是子串的波动值。
+
+具体实现上，我们使用双重循环枚举 $a$ 和 $b$，用 $f[0]$ 记录以当前字符结尾的连续出现字符 $a$ 的个数，用 $f[1]$ 记录以当前字符结尾的，并且包含 $a$ 和 $b$ 的子串的波动值。迭代取 $f[1]$ 的最大值即可。
+
+递推公式如下：
+
+1. 如果当前字符为 $a$，则 $f[0]$ 和 $f[1]$ 都加 $1$；
+1. 如果当前字符为 $b$，则 $f[1]=\max(f[1]-1, f[0]-1)$，而 $f[0]=0$；
+1. 否则，无需考虑。
+
+注意，初始时将 $f[1]$ 赋值为一个负数最大值，可以保证更新答案时是合法的。
+
+时间复杂度 $O(n\times C^2)$，其中 $n$ 表示字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C=26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +73,22 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestVariance(self, s: str) -> int:
+        ans = 0
+        for a, b in permutations(ascii_lowercase, 2):
+            if a == b:
+                continue
+            f = [0, -inf]
+            for c in s:
+                if c == a:
+                    f[0], f[1] = f[0] + 1, f[1] + 1
+                elif c == b:
+                    f[1] = max(f[1] - 1, f[0] - 1)
+                    f[0] = 0
+                if ans < f[1]:
+                    ans = f[1]
+        return ans
 ```
 
 ### **Java**
@@ -65,7 +96,94 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int largestVariance(String s) {
+        int n = s.length();
+        int ans = 0;
+        for (char a = 'a'; a <= 'z'; ++a) {
+            for (char b = 'a'; b <= 'z'; ++b) {
+                if (a == b) {
+                    continue;
+                }
+                int[] f = new int[] {0, -n};
+                for (int i = 0; i < n; ++i) {
+                    if (s.charAt(i) == a) {
+                        f[0]++;
+                        f[1]++;
+                    } else if (s.charAt(i) == b) {
+                        f[1] = Math.max(f[0] - 1, f[1] - 1);
+                        f[0] = 0;
+                    }
+                    ans = Math.max(ans, f[1]);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestVariance(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (char a = 'a'; a <= 'z'; ++a) {
+            for (char b = 'a'; b <= 'z'; ++b) {
+                if (a == b) continue;
+                int f[2] = {0, -n};
+                for (char c : s) {
+                    if (c == a) {
+                        f[0]++;
+                        f[1]++;
+                    } else if (c == b) {
+                        f[1] = max(f[1] - 1, f[0] - 1);
+                        f[0] = 0;
+                    }
+                    ans = max(ans, f[1]);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestVariance(s string) int {
+	ans, n := 0, len(s)
+	for a := 'a'; a <= 'z'; a++ {
+		for b := 'a'; b <= 'z'; b++ {
+			if a == b {
+				continue
+			}
+			f := [2]int{0, -n}
+			for _, c := range s {
+				if c == a {
+					f[0]++
+					f[1]++
+				} else if c == b {
+					f[1] = max(f[1]-1, f[0]-1)
+					f[0] = 0
+				}
+				ans = max(ans, f[1])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
