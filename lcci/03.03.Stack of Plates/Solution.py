@@ -1,5 +1,4 @@
 class StackOfPlates:
-
     def __init__(self, cap: int):
         self.cap = cap
         self.stk = []

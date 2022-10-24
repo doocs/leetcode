@@ -54,6 +54,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序 + 滑动窗口**
+
+直觉上，毯子的左端点一定与某块瓷砖的左端点重合，这样才能使得毯子覆盖的瓷砖最多。
+
+我们可以来简单证明一下。
+
+如果毯子落在某块瓷砖的中间某个位置，将毯子右移一个，毯子覆盖的瓷砖数量可能减少，也可能不变，但不可能增加；将毯子左移一个，毯子覆盖的瓷砖数量可能不变，也可能增加，但不可能减少。
+
+也就是说，将毯子左移至某块瓷砖的左端点，一定可以使得毯子覆盖的瓷砖数量最多。
+
+因此，我们可以将所有瓷砖按照左端点从小到大排序，然后枚举每块瓷砖的左端点，计算出以该左端点为起点的毯子覆盖的瓷砖数量，取最大值即可。
+
+为了计算以某块瓷砖的左端点为起点的毯子覆盖的瓷砖数量，我们可以使用滑动窗口的思想，维护一个右端点不断右移的窗口，窗口内的瓷砖数量即为毯子覆盖的瓷砖数量。
+
+时间复杂度 $O(n\log n)$，其中 $n$ 为瓷砖的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +77,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumWhiteTiles(self, tiles: List[List[int]], carpetLen: int) -> int:
+        tiles.sort()
+        n = len(tiles)
+        s = ans = j = 0
+        for i, (li, ri) in enumerate(tiles):
+            while j < n and tiles[j][1] - li + 1 <= carpetLen:
+                s += tiles[j][1] - tiles[j][0] + 1
+                j += 1
+            if j < n and li + carpetLen > tiles[j][0]:
+                ans = max(ans, s + li + carpetLen - tiles[j][0])
+            else:
+                ans = max(ans, s)
+            s -= (ri - li + 1)
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +99,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximumWhiteTiles(int[][] tiles, int carpetLen) {
+        Arrays.sort(tiles, (a, b) -> a[0] - b[0]);
+        int n = tiles.length;
+        int s = 0, ans = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (j < n && tiles[j][1] - tiles[i][0] + 1 <= carpetLen) {
+                s += tiles[j][1] - tiles[j][0] + 1;
+                ++j;
+            }
+            if (j < n && tiles[i][0] + carpetLen > tiles[j][0]) {
+                ans = Math.max(ans, s + tiles[i][0] + carpetLen - tiles[j][0]);
+            } else {
+                ans = Math.max(ans, s);
+            }
+            s -= (tiles[i][1] - tiles[i][0] + 1);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumWhiteTiles(vector<vector<int>>& tiles, int carpetLen) {
+        sort(tiles.begin(), tiles.end());
+        int s = 0, ans = 0, n = tiles.size();
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (j < n && tiles[j][1] - tiles[i][0] + 1 <= carpetLen) {
+                s += tiles[j][1] - tiles[j][0] + 1;
+                ++j;
+            }
+            if (j < n && tiles[i][0] + carpetLen > tiles[j][0]) {
+                ans = max(ans, s + tiles[i][0] + carpetLen - tiles[j][0]);
+            } else {
+                ans = max(ans, s);
+            }
+            s -= (tiles[i][1] - tiles[i][0] + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumWhiteTiles(tiles [][]int, carpetLen int) int {
+	sort.Slice(tiles, func(i, j int) bool { return tiles[i][0] < tiles[j][0] })
+	n := len(tiles)
+	s, ans := 0, 0
+	for i, j := 0, 0; i < n; i++ {
+		for j < n && tiles[j][1]-tiles[i][0]+1 <= carpetLen {
+			s += tiles[j][1] - tiles[j][0] + 1
+			j++
+		}
+		if j < n && tiles[i][0]+carpetLen > tiles[j][0] {
+			ans = max(ans, s+tiles[i][0]+carpetLen-tiles[j][0])
+		} else {
+			ans = max(ans, s)
+		}
+		s -= (tiles[i][1] - tiles[i][0] + 1)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
