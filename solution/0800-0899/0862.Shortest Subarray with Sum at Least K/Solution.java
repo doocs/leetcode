@@ -6,17 +6,16 @@ class Solution {
             s[i + 1] = s[i] + nums[i];
         }
         Deque<Integer> q = new ArrayDeque<>();
-        q.offer(0);
-        int ans = Integer.MAX_VALUE;
-        for (int i = 1; i <= n; ++i) {
+        int ans = n + 1;
+        for (int i = 0; i <= n; ++i) {
             while (!q.isEmpty() && s[i] - s[q.peek()] >= k) {
                 ans = Math.min(ans, i - q.poll());
             }
-            while (!q.isEmpty() && s[i] <= s[q.peekLast()]) {
+            while (!q.isEmpty() && s[q.peekLast()] >= s[i]) {
                 q.pollLast();
             }
             q.offer(i);
         }
-        return ans == Integer.MAX_VALUE ? -1 : ans;
+        return ans > n ? -1 : ans;
     }
 }
