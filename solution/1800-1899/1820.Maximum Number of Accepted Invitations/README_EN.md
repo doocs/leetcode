@@ -54,13 +54,131 @@ Explanation:</strong> The invitations are sent as follows:
 ### **Python3**
 
 ```python
+class Solution:
+    def maximumInvitations(self, grid: List[List[int]]) -> int:
+        def find(i):
+            for j, v in enumerate(grid[i]):
+                if v and j not in vis:
+                    vis.add(j)
+                    if match[j] == -1 or find(match[j]):
+                        match[j] = i
+                        return True
+            return False
 
+        m, n = len(grid), len(grid[0])
+        match = [-1] * n
+        ans = 0
+        for i in range(m):
+            vis = set()
+            ans += find(i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[][] grid;
+    private boolean[] vis;
+    private int[] match;
+    private int n;
 
+    public int maximumInvitations(int[][] grid) {
+        int m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
+        vis = new boolean[n];
+        match = new int[n];
+        Arrays.fill(match, -1);
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(vis, false);
+            if (find(i)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private boolean find(int i) {
+        for (int j = 0; j < n; ++j) {
+            if (grid[i][j] == 1 && !vis[j]) {
+                vis[j] = true;
+                if (match[j] == -1 || find(match[j])) {
+                    match[j] = i;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumInvitations(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        bool vis[210];
+        int match[210];
+        memset(match, -1, sizeof match);
+        int ans = 0;
+        function<bool(int)> find = [&](int i) -> bool {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] && !vis[j]) {
+                    vis[j] = true;
+                    if (match[j] == -1 || find(match[j])) {
+                        match[j] = i;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+        for (int i = 0; i < m; ++i) {
+            memset(vis, 0, sizeof vis);
+            ans += find(i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumInvitations(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	var vis map[int]bool
+	match := make([]int, n)
+	for i := range match {
+		match[i] = -1
+	}
+	var find func(i int) bool
+	find = func(i int) bool {
+		for j, v := range grid[i] {
+			if v == 1 && !vis[j] {
+				vis[j] = true
+				if match[j] == -1 || find(match[j]) {
+					match[j] = i
+					return true
+				}
+			}
+		}
+		return false
+	}
+	ans := 0
+	for i := 0; i < m; i++ {
+		vis = map[int]bool{}
+		if find(i) {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
