@@ -58,13 +58,13 @@
 ```python
 class Solution:
     def arraySign(self, nums: List[int]) -> int:
-        res = 1
-        for num in nums:
-            if num == 0:
+        ans = 1
+        for v in nums:
+            if v == 0:
                 return 0
-            if num < 0:
-                res *= -1
-        return res
+            if v < 0:
+                ans *= -1
+        return ans
 ```
 
 ### **Java**
@@ -72,13 +72,50 @@ class Solution:
 ```java
 class Solution {
     public int arraySign(int[] nums) {
-        int res = 1;
-        for (int num : nums) {
-            if (num == 0) return 0;
-            if (num < 0) res *= -1;
+        int ans = 1;
+        for (int v : nums) {
+            if (v == 0) {
+                return 0;
+            }
+            if (v < 0) {
+                ans *= -1;
+            }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int arraySign(vector<int>& nums) {
+        int ans = 1;
+        for (int v : nums) {
+            if (!v) return 0;
+            if (v < 0) ans *= -1;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arraySign(nums []int) int {
+	ans := 1
+	for _, v := range nums {
+		if v == 0 {
+			return 0
+		}
+		if v < 0 {
+			ans *= -1
+		}
+	}
+	return ans
 }
 ```
 
@@ -90,50 +127,17 @@ class Solution {
  * @return {number}
  */
 var arraySign = function (nums) {
-    let res = 1;
-    for (let num of nums) {
-        if (num == 0) return 0;
-        if (num < 0) res *= -1;
-    }
-    return res;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int arraySign(vector<int>& nums) {
-        int res = 1;
-        for (auto& num : nums) {
-            if (num == 0) {
-                return 0;
-            }
-            if (num < 0) {
-                res *= -1;
-            }
+    let ans = 1;
+    for (const v of nums) {
+        if (!v) {
+            return 0;
         }
-        return res;
+        if (v < 0) {
+            ans *= -1;
+        }
     }
+    return ans;
 };
-```
-
-### **Go**
-
-```go
-func arraySign(nums []int) int {
-	res := 1
-	for _, num := range nums {
-		if num == 0 {
-			return 0
-		}
-		if num < 0 {
-			res *= -1
-		}
-	}
-	return res
-}
 ```
 
 ### **Rust**

@@ -57,7 +57,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-不可模拟乘积过程，给定的范围有可能导致数值溢出，只关注数值的符号变化即可。
+**方法一：直接遍历**
+
+题目要求返回数组元素乘积的符号，即正数返回 $1$，负数返回 $-1$， 等于 $0$ 则返回 $0$。
+
+我们可以定义一个答案变量 `ans`，初始值为 $1$。
+
+然后遍历数组每个元素 $v$，如果 $v$ 为负数，则将 `ans` 乘上 $-1$，如果 $v$ 为 $0$，则提前返回 $0$。
+
+遍历结束后，返回 `ans` 即可。
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -68,13 +78,13 @@
 ```python
 class Solution:
     def arraySign(self, nums: List[int]) -> int:
-        res = 1
-        for num in nums:
-            if num == 0:
+        ans = 1
+        for v in nums:
+            if v == 0:
                 return 0
-            if num < 0:
-                res *= -1
-        return res
+            if v < 0:
+                ans *= -1
+        return ans
 ```
 
 ### **Java**
@@ -84,13 +94,50 @@ class Solution:
 ```java
 class Solution {
     public int arraySign(int[] nums) {
-        int res = 1;
-        for (int num : nums) {
-            if (num == 0) return 0;
-            if (num < 0) res *= -1;
+        int ans = 1;
+        for (int v : nums) {
+            if (v == 0) {
+                return 0;
+            }
+            if (v < 0) {
+                ans *= -1;
+            }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int arraySign(vector<int>& nums) {
+        int ans = 1;
+        for (int v : nums) {
+            if (!v) return 0;
+            if (v < 0) ans *= -1;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arraySign(nums []int) int {
+	ans := 1
+	for _, v := range nums {
+		if v == 0 {
+			return 0
+		}
+		if v < 0 {
+			ans *= -1
+		}
+	}
+	return ans
 }
 ```
 
@@ -102,50 +149,17 @@ class Solution {
  * @return {number}
  */
 var arraySign = function (nums) {
-    let res = 1;
-    for (let num of nums) {
-        if (num == 0) return 0;
-        if (num < 0) res *= -1;
-    }
-    return res;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int arraySign(vector<int>& nums) {
-        int res = 1;
-        for (auto& num : nums) {
-            if (num == 0) {
-                return 0;
-            }
-            if (num < 0) {
-                res *= -1;
-            }
+    let ans = 1;
+    for (const v of nums) {
+        if (!v) {
+            return 0;
         }
-        return res;
+        if (v < 0) {
+            ans *= -1;
+        }
     }
+    return ans;
 };
-```
-
-### **Go**
-
-```go
-func arraySign(nums []int) int {
-	res := 1
-	for _, num := range nums {
-		if num == 0 {
-			return 0
-		}
-		if num < 0 {
-			res *= -1
-		}
-	}
-	return res
-}
 ```
 
 ### **Rust**

@@ -1,12 +1,12 @@
 func arraySign(nums []int) int {
-	res := 1
-	for _, num := range nums {
-		if num == 0 {
+	ans := 1
+	for _, v := range nums {
+		if v == 0 {
 			return 0
 		}
-		if num < 0 {
-			res *= -1
+		if v < 0 {
+			ans *= -1
 		}
 	}
-	return res
+	return ans
 }
