@@ -126,35 +126,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function sumNumbers(root: TreeNode | null): number {
-    return dfs(root);
-}
-
-function dfs(root: TreeNode | null, preSum: number = 0): number {
-    if (!root) return 0;
-    preSum = preSum * 10 + root.val;
-    if (!root.left && !root.right) return preSum;
-    return dfs(root.left, preSum) + dfs(root.right, preSum);
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -208,6 +179,105 @@ func sumNumbers(root *TreeNode) int {
         return dfs(root.Left, presum) + dfs(root.Right, presum)
     }
     return dfs(root, 0)
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+int dfs(struct TreeNode *root, int num) {
+    if (!root) {
+        return 0;
+    }
+    num = num * 10 + root->val;
+    if (!root->left && !root->right) {
+        return num;
+    }
+    return dfs(root->left, num) + dfs(root->right, num);
+}
+
+int sumNumbers(struct TreeNode *root) {
+    return dfs(root, 0);
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function sumNumbers(root: TreeNode | null): number {
+    return dfs(root);
+}
+
+function dfs(root: TreeNode | null, preSum: number = 0): number {
+    if (!root) return 0;
+    preSum = preSum * 10 + root.val;
+    if (!root.left && !root.right) return preSum;
+    return dfs(root.left, preSum) + dfs(root.right, preSum);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(node: &Option<Rc<RefCell<TreeNode>>>, mut num: i32) -> i32 {
+        if node.is_none() {
+            return 0;
+        }
+        let node = node.as_ref().unwrap().borrow();
+        num = num * 10 + node.val;
+        if node.left.is_none() && node.right.is_none() {
+            return num;
+        }
+        Self::dfs(&node.left, num) + Self::dfs(&node.right, num)
+    }
+
+    pub fn sum_numbers(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        Self::dfs(&root, 0)
+    }
 }
 ```
 
