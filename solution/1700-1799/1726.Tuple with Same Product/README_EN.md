@@ -40,18 +40,48 @@
 
 ## Solutions
 
+**Approach 1: Number of Combinations + Hash Table**
+
+Time complexity $O(n^2)$, Space complexity $O(n^2)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def tupleSameProduct(self, nums: List[int]) -> int:
+        product, n = {}, len(nums)
+        for i in range(1, n):
+            for j in range(0, i):
+                multiplier = nums[i]*nums[j]
+                product[multiplier] = product.setdefault(multiplier, 0) + 1
+        ans = int(0)
+        for v in product.values():
+            ans += int(v*(v-1)/2)
+        return ans << 3
 ```
 
-### **Java**
+### **Go**
 
-```java
-
+```go
+func tupleSameProduct(nums []int) int {
+	product, n := make(map[int]int), len(nums)
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			multiplier := nums[i] * nums[j]
+			if _, ok := product[multiplier]; !ok {
+				product[multiplier] = 0
+			}
+			product[multiplier] += 1
+		}
+	}
+	ans := 0
+	for _, v := range product {
+		ans += v * (v - 1) / 2
+	}
+	return ans << 3
+}
 ```
 
 ### **...**
