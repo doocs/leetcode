@@ -63,15 +63,12 @@
 ```python
 class Solution:
     def tupleSameProduct(self, nums: List[int]) -> int:
-        product, n = {}, len(nums)
-        for i in range(1, n):
-            for j in range(0, i):
-                multiplier = nums[i]*nums[j]
-                product[multiplier] = product.setdefault(multiplier, 0) + 1
-        ans = int(0)
-        for v in product.values():
-            ans += int(v*(v-1)/2)
-        return ans << 3
+        cnt = defaultdict(int)
+        for i in range(1, len(nums)):
+            for j in range(i):
+                x = nums[i] * nums[j]
+                cnt[x] += 1
+        return sum(v * (v - 1) // 2 for v in cnt.values()) << 3
 ```
 
 ### **Go**
