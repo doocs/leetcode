@@ -52,13 +52,100 @@ The largest submatrix of 1s, in bold, has an area of 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestSubmatrix(self, matrix: List[List[int]]) -> int:
+        for i in range(1, len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]:
+                    matrix[i][j] = matrix[i - 1][j] + 1
+        ans = 0
+        for row in matrix:
+            row.sort(reverse=True)
+            for j, v in enumerate(row, 1):
+                ans = max(ans, j * v)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int largestSubmatrix(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        for (int i = 1; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j] == 1) {
+                    matrix[i][j] = matrix[i - 1][j] + 1;
+                }
+            }
+        }
+        int ans = 0;
+        for (var row : matrix) {
+            Arrays.sort(row);
+            for (int j = n - 1, k = 1; j >= 0 && row[j] > 0; --j, ++k) {
+                int s = row[j] * k;
+                ans = Math.max(ans, s);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestSubmatrix(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        for (int i = 1; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j]) {
+                    matrix[i][j] = matrix[i - 1][j] + 1;
+                }
+            }
+        }
+        int ans = 0;
+        for (auto& row : matrix) {
+            sort(row.rbegin(), row.rend());
+            for (int j = 0; j < n; ++j) {
+                ans = max(ans, (j + 1) * row[j]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestSubmatrix(matrix [][]int) int {
+	m, n := len(matrix), len(matrix[0])
+	for i := 1; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if matrix[i][j] == 1 {
+				matrix[i][j] = matrix[i-1][j] + 1
+			}
+		}
+	}
+	ans := 0
+	for _, row := range matrix {
+		sort.Ints(row)
+		for j, k := n-1, 1; j >= 0 && row[j] > 0; j, k = j-1, k+1 {
+			ans = max(ans, row[j]*k)
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
