@@ -59,6 +59,49 @@ class Solution:
         return sum(v * (v - 1) // 2 for v in cnt.values()) << 3
 ```
 
+### **Java**
+
+```java
+class Solution {
+    public int tupleSameProduct(int[] nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int i = 1; i < nums.length; ++i) {
+            for (int j = 0; j < i; ++j) {
+                int x = nums[i] * nums[j];
+                cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            }
+        }
+        int ans = 0;
+        for (int v : cnt.values()) {
+            ans += v * (v - 1) / 2;
+        }
+        return ans << 3;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int tupleSameProduct(vector<int>& nums) {
+        unordered_map<int, int> cnt;
+        for (int i = 1; i < nums.size(); ++i) {
+            for (int j = 0; j < i; ++j) {
+                int x = nums[i] * nums[j];
+                ++cnt[x];
+            }
+        }
+        int ans = 0;
+        for (auto& [_, v] : cnt) {
+            ans += v * (v - 1) / 2;
+        }
+        return ans << 3;
+    }
+};
+```
+
 ### **Go**
 
 ```go
