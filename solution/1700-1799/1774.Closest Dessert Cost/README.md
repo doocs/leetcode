@@ -84,6 +84,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举子集和 + 排序 + 二分查找**
+
+每种类型的配料最多可以选两份，因此，我们可以复制一份配料，然后利用 `DFS` 枚举子集之和。在实现上，我们可以只枚举一半的配料，然后在另一半配料中利用二分查找找到最接近的配料。
+
+时间复杂度 $O(n\times 2^m \times \log {2^m})$。
+
+相似题目：[1755. 最接近目标值的子序列和](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -91,7 +99,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def closestCost(self, baseCosts: List[int], toppingCosts: List[int], target: int) -> int:
+        def dfs(i, t):
+            if i >= len(toppingCosts):
+                arr.append(t)
+                return
+            dfs(i + 1, t)
+            dfs(i + 1, t + toppingCosts[i])
 
+        arr = []
+        dfs(0, 0)
+        arr.sort()
+        d = ans = inf
+        for x in baseCosts:
+            for y in arr:
+                i = bisect_left(arr, target - x - y)
+                for j in (i, i - 1):
+                    if 0 <= j < len(arr):
+                        t = abs(x + y + arr[j] - target)
+                        if d > t or (d == t and ans > x + y + arr[j]):
+                            d = t
+                            ans = x + y + arr[j]
+        return ans
 ```
 
 ### **Java**
@@ -99,7 +129,135 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<Integer> arr = new ArrayList<>();
+    private int[] ts;
+    private int inf = 0x3f3f3f3f;
 
+    public int closestCost(int[] baseCosts, int[] toppingCosts, int target) {
+        ts = toppingCosts;
+        dfs(0, 0);
+        Collections.sort(arr);
+        int d = inf, ans = inf;
+        for (int x : baseCosts) {
+            for (int y : arr) {
+                int i = search(target - x - y);
+                for (int j : new int[] {i, i - 1}) {
+                    if (j >= 0 && j < arr.size()) {
+                        int t = Math.abs(x + y + arr.get(j) - target);
+                        if (d > t || (d == t && ans > x + y + arr.get(j))) {
+                            d = t;
+                            ans = x + y + arr.get(j);
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int search(int x) {
+        int left = 0, right = arr.size();
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arr.get(mid) >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    private void dfs(int i, int t) {
+        if (i >= ts.length) {
+            arr.add(t);
+            return;
+        }
+        dfs(i + 1, t);
+        dfs(i + 1, t + ts[i]);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int inf = 0x3f3f3f3f;
+    int closestCost(vector<int>& baseCosts, vector<int>& toppingCosts, int target) {
+        vector<int> arr;
+        function<void(int, int)> dfs = [&](int i, int t) {
+            if (i >= toppingCosts.size()) {
+                arr.push_back(t);
+                return;
+            }
+            dfs(i + 1, t);
+            dfs(i + 1, t + toppingCosts[i]);
+        };
+        dfs(0, 0);
+        sort(arr.begin(), arr.end());
+        int d = inf, ans = inf;
+        for (int x : baseCosts) {
+            for (int y : arr) {
+                int i = lower_bound(arr.begin(), arr.end(), target - x - y) - arr.begin();
+                for (int j = i - 1; j < i + 1; ++j) {
+                    if (j >= 0 && j < arr.size()) {
+                        int t = abs(x + y + arr[j] - target);
+                        if (d > t || (d == t && ans > x + y + arr[j])) {
+                            d = t;
+                            ans = x + y + arr[j];
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func closestCost(baseCosts []int, toppingCosts []int, target int) int {
+	arr := []int{}
+	var dfs func(int, int)
+	dfs = func(i, t int) {
+		if i >= len(toppingCosts) {
+			arr = append(arr, t)
+			return
+		}
+		dfs(i+1, t)
+		dfs(i+1, t+toppingCosts[i])
+	}
+	dfs(0, 0)
+	sort.Ints(arr)
+	ans, d := math.MaxInt32, math.MaxInt32
+	for _, x := range baseCosts {
+		for _, y := range arr {
+			i := sort.Search(len(arr), func(i int) bool { return arr[i] >= target-x-y })
+			for j := i - 1; j < i+1; j++ {
+				if j >= 0 && j < len(arr) {
+					t := abs(x + y + arr[j] - target)
+					if d > t || (d == t && ans > x+y+arr[j]) {
+						d = t
+						ans = x + y + arr[j]
+					}
+				}
+			}
+		}
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**

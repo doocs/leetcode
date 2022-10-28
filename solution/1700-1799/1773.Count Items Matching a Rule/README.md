@@ -52,9 +52,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：直接模拟**
+**方法一：计数模拟**
 
-由于 `ruleKey` 只可能是 `"type"`、`"color"` 或 `"name"`，我们可以直接取 `ruleKey` 的第一个字符 $x$ 来确定 `item` 的下标 $i$。然后遍历 `items` 数组，统计 `item[i] == ruleValue` 的个数即可。
+由于 `ruleKey` 只可能是 `"type"`、`"color"` 或 `"name"`，我们可以直接取 `ruleKey` 的第一个字符来确定 `item` 的下标 $i$。然后遍历 `items` 数组，统计 `item[i] == ruleValue` 的个数即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `items` 的长度。
 
@@ -78,8 +78,7 @@ class Solution:
 ```java
 class Solution {
     public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
-        char x = ruleKey.charAt(0);
-        int i = x == 't' ? 0 : (x == 'c' ? 1 : 2);
+        int i = ruleKey.charAt(0) == 't' ? 0 : (ruleKey.charAt(0) == 'c' ? 1 : 2);
         int ans = 0;
         for (var v : items) {
             if (v.get(i).equals(ruleValue)) {
@@ -97,8 +96,7 @@ class Solution {
 class Solution {
 public:
     int countMatches(vector<vector<string>>& items, string ruleKey, string ruleValue) {
-        char x = ruleKey[0];
-        int i = x == 't' ? 0 : (x == 'c' ? 1 : 2);
+        int i = ruleKey[0] == 't' ? 0 : (ruleKey[0] == 'c' ? 1 : 2);
         return count_if(items.begin(), items.end(), [&](auto& v) { return v[i] == ruleValue; });
     }
 };
