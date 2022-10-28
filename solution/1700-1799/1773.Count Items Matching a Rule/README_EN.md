@@ -51,9 +51,8 @@
 ```python
 class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
-        count = 0
-        m = {'type': 0, 'color': 1, 'name': 2}
-        return sum([item[m[ruleKey]] == ruleValue for item in items])
+        i = 0 if ruleKey[0] == 't' else (1 if ruleKey[0] == 'c' else 2)
+        return sum(v[i] == ruleValue for v in items)
 ```
 
 ### **Java**
@@ -61,19 +60,43 @@ class Solution:
 ```java
 class Solution {
     public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
-        int count = 0;
-        for (List<String> item : items) {
-            String t = item.get(0), c = item.get(1), n = item.get(2);
-            if ("type".equals(ruleKey) && t.equals(ruleValue)) {
-                ++count;
-            } else if ("color".equals(ruleKey) && c.equals(ruleValue)) {
-                ++count;
-            } else if ("name".equals(ruleKey) && n.equals(ruleValue)) {
-                ++count;
+        char x = ruleKey.charAt(0);
+        int i = x == 't' ? 0 : (x == 'c' ? 1 : 2);
+        int ans = 0;
+        for (var v : items) {
+            if (v.get(i).equals(ruleValue)) {
+                ++ans;
             }
         }
-        return count;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countMatches(vector<vector<string>>& items, string ruleKey, string ruleValue) {
+        char x = ruleKey[0];
+        int i = x == 't' ? 0 : (x == 'c' ? 1 : 2);
+        return count_if(items.begin(), items.end(), [&](auto& v) { return v[i] == ruleValue; });
+    }
+};
+```
+
+### **Go**
+
+```go
+func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) {
+	i := map[byte]int{'t': 0, 'c': 1, 'n': 2}[ruleKey[0]]
+	for _, v := range items {
+		if v[i] == ruleValue {
+			ans++
+		}
+	}
+	return
 }
 ```
 

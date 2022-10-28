@@ -52,6 +52,7 @@ class Solution:
             if stk:
                 left[i] = stk[-1]
             stk.append(i)
+
         stk = []
         for i in range(n - 1, -1, -1):
             while stk and arr[stk[-1]] > arr[i]:
@@ -59,7 +60,7 @@ class Solution:
             if stk:
                 right[i] = stk[-1]
             stk.append(i)
-        mod = int(1e9) + 7
+        mod = 10**9 + 7
         return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(arr)) % mod
 ```
 

@@ -52,6 +52,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接模拟**
+
+由于 `ruleKey` 只可能是 `"type"`、`"color"` 或 `"name"`，我们可以直接取 `ruleKey` 的第一个字符 $x$ 来确定 `item` 的下标 $i$。然后遍历 `items` 数组，统计 `item[i] == ruleValue` 的个数即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `items` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,9 +67,8 @@
 ```python
 class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
-        count = 0
-        m = {'type': 0, 'color': 1, 'name': 2}
-        return sum([item[m[ruleKey]] == ruleValue for item in items])
+        i = 0 if ruleKey[0] == 't' else (1 if ruleKey[0] == 'c' else 2)
+        return sum(v[i] == ruleValue for v in items)
 ```
 
 ### **Java**
@@ -73,19 +78,43 @@ class Solution:
 ```java
 class Solution {
     public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
-        int count = 0;
-        for (List<String> item : items) {
-            String t = item.get(0), c = item.get(1), n = item.get(2);
-            if ("type".equals(ruleKey) && t.equals(ruleValue)) {
-                ++count;
-            } else if ("color".equals(ruleKey) && c.equals(ruleValue)) {
-                ++count;
-            } else if ("name".equals(ruleKey) && n.equals(ruleValue)) {
-                ++count;
+        char x = ruleKey.charAt(0);
+        int i = x == 't' ? 0 : (x == 'c' ? 1 : 2);
+        int ans = 0;
+        for (var v : items) {
+            if (v.get(i).equals(ruleValue)) {
+                ++ans;
             }
         }
-        return count;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countMatches(vector<vector<string>>& items, string ruleKey, string ruleValue) {
+        char x = ruleKey[0];
+        int i = x == 't' ? 0 : (x == 'c' ? 1 : 2);
+        return count_if(items.begin(), items.end(), [&](auto& v) { return v[i] == ruleValue; });
+    }
+};
+```
+
+### **Go**
+
+```go
+func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) {
+	i := map[byte]int{'t': 0, 'c': 1, 'n': 2}[ruleKey[0]]
+	for _, v := range items {
+		if v[i] == ruleValue {
+			ans++
+		}
+	}
+	return
 }
 ```
 
