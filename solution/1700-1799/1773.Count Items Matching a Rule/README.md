@@ -116,6 +116,51 @@ func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) 
 }
 ```
 
+### **C**
+
+```c
+int countMatches(char ***items, int itemsSize, int *itemsColSize, char *ruleKey, char *ruleValue) {
+    int k = strcmp(ruleKey, "type") == 0 ? 0 : strcmp(ruleKey, "color") == 0 ? 1 : 2;
+    int res = 0;
+    for (int i = 0; i < itemsSize; i++) {
+        if (strcmp(items[i][k], ruleValue) == 0) {
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+### **TypeScript**
+
+```ts
+function countMatches(
+    items: string[][],
+    ruleKey: string,
+    ruleValue: string,
+): number {
+    const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
+    return items.reduce((r, v) => r + (v[key] === ruleValue ? 1 : 0), 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_matches(items: Vec<Vec<String>>, rule_key: String, rule_value: String) -> i32 {
+        let key = if rule_key == "type" {
+            0
+        } else if rule_key == "color" {
+            1
+        } else {
+            2
+        };
+        items.iter().filter(|v| v[key] == rule_value).count() as i32
+    }
+}
+```
+
 ### **...**
 
 ```
