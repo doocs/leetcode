@@ -39,7 +39,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS 回溯法。
+**方法一：DFS**
+
+由于 $s$ 中的每个字母都可以转换为大写或小写，因此可以使用 DFS 深度优先搜索的方法，枚举所有可能的情况。
+
+具体地，从左到右遍历字符串 $s$，对于遍历到的每个字母，可以选择将其转变为大写或小写，然后继续遍历后面的字母。当遍历到字符串的末尾时，得到一个转换方案，将该方案加入答案即可。
+
+转变大小写的方法可以使用位运算实现。对于一个字母，小写形式与大写形式的 ASCII 码之差为 $32$，因此，我们可以通过将该字母的 ASCII 码与 $32$ 进行异或运算来实现大小写转换。
+
+时间复杂度 $O(n\times 2^n)$，其中 $n$ 是字符串 $s$ 的长度。对于每个字母，我们可以选择将其转换为大写或小写，因此一共有 $2^n$ 种转换方案。对于每种转换方案，我们需要 $O(n)$ 的时间生成一个新的字符串。
 
 <!-- tabs:start -->
 
@@ -50,36 +58,18 @@ DFS 回溯法。
 ```python
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        def dfs(i, t):
-            if i == len(t):
+        def dfs(i):
+            if i >= len(s):
                 ans.append(''.join(t))
                 return
-            dfs(i + 1, t)
+            dfs(i + 1)
             if t[i].isalpha():
-                t[i] = t[i].upper() if t[i].islower() else t[i].lower()
-                dfs(i + 1, t)
+                t[i] = chr(ord(t[i]) ^ 32)
+                dfs(i + 1)
 
-        ans = []
         t = list(s)
-        dfs(0, t)
-        return ans
-```
-
-```python
-class Solution:
-    def letterCasePermutation(self, s: str) -> List[str]:
-        def dfs(i, t):
-            if i == len(s):
-                ans.append(t)
-                return
-            if s[i].isalpha():
-                dfs(i + 1, t + s[i].upper())
-                dfs(i + 1, t + s[i].lower())
-            else:
-                dfs(i + 1, t + s[i])
-
         ans = []
-        dfs(0, '')
+        dfs(0)
         return ans
 ```
 
@@ -89,22 +79,24 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> letterCasePermutation(String S) {
-        char[] cs = S.toCharArray();
-        List<String> res = new ArrayList<>();
-        dfs(cs, 0, res);
-        return res;
+    private List<String> ans = new ArrayList<>();
+    private char[] t;
+
+    public List<String> letterCasePermutation(String s) {
+        t = s.toCharArray();
+        dfs(0);
+        return ans;
     }
 
-    private void dfs(char[] cs, int i, List<String> res) {
-        if (i == cs.length) {
-            res.add(String.valueOf(cs));
+    private void dfs(int i) {
+        if (i >= t.length) {
+            ans.add(String.valueOf(t));
             return;
         }
-        dfs(cs, i + 1, res);
-        if (cs[i] >= 'A') {
-            cs[i] ^= 32;
-            dfs(cs, i + 1, res);
+        dfs(i + 1);
+        if (t[i] >= 'A') {
+            t[i] ^= 32;
+            dfs(i + 1);
         }
     }
 }
@@ -115,31 +107,48 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> ans;
-    string s;
-
     vector<string> letterCasePermutation(string s) {
-        this->s = s;
-        string t = "";
-        dfs(0, t);
+        vector<string> ans;
+        function<void(int)> dfs = [&](int i) {
+            if (i >= s.size()) {
+                ans.emplace_back(s);
+                return;
+            }
+            dfs(i + 1);
+            if (s[i] >= 'A') {
+                s[i] ^= 32;
+                dfs(i + 1);
+            }
+        };
+        dfs(0);
         return ans;
     }
-
-    void dfs(int i, string t) {
-        if (i == s.size()) {
-            ans.push_back(t);
-            return;
-        }
-        if (isalpha(s[i])) {
-            char c1 = toupper(s[i]);
-            char c2 = tolower(s[i]);
-            dfs(i + 1, t + c1);
-            dfs(i + 1, t + c2);
-        } else {
-            dfs(i + 1, t + s[i]);
-        }
-    }
 };
+```
+
+### **Go**
+
+```go
+func letterCasePermutation(s string) []string {
+	ans := []string{}
+	t := []byte(s)
+
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= len(t) {
+			ans = append(ans, string(t))
+			return
+		}
+		dfs(i + 1)
+		if t[i] >= 'A' {
+			t[i] ^= 32
+			dfs(i + 1)
+		}
+	}
+
+	dfs(0)
+	return ans
+}
 ```
 
 ### **...**

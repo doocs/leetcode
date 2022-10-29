@@ -47,13 +47,106 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getCollisionTimes(self, cars: List[List[int]]) -> List[float]:
+        stk = []
+        n = len(cars)
+        ans = [-1] * n
+        for i in range(n - 1, -1, -1):
+            while stk:
+                j = stk[-1]
+                if cars[i][1] > cars[j][1]:
+                    t = (cars[j][0] - cars[i][0]) / (cars[i][1] - cars[j][1])
+                    if ans[j] == -1 or t <= ans[j]:
+                        ans[i] = t
+                        break
+                stk.pop()
+            stk.append(i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double[] getCollisionTimes(int[][] cars) {
+        int n = cars.length;
+        double[] ans = new double[n];
+        Arrays.fill(ans, -1.0);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty()) {
+                int j = stk.peek();
+                if (cars[i][1] > cars[j][1]) {
+                    double t = (cars[j][0] - cars[i][0]) * 1.0 / (cars[i][1] - cars[j][1]);
+                    if (ans[j] < 0 || t <= ans[j]) {
+                        ans[i] = t;
+                        break;
+                    }
+                }
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<double> getCollisionTimes(vector<vector<int>>& cars) {
+        int n = cars.size();
+        vector<double> ans(n, -1.0);
+        stack<int> stk;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size()) {
+                int j = stk.top();
+                if (cars[i][1] > cars[j][1]) {
+                    double t = (cars[j][0] - cars[i][0]) * 1.0 / (cars[i][1] - cars[j][1]);
+                    if (ans[j] < 0 || t <= ans[j]) {
+                        ans[i] = t;
+                        break;
+                    }
+                }
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getCollisionTimes(cars [][]int) []float64 {
+	n := len(cars)
+	ans := make([]float64, n)
+	for i := range ans {
+		ans[i] = -1.0
+	}
+	stk := []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 {
+			j := stk[len(stk)-1]
+			if cars[i][1] > cars[j][1] {
+				t := float64(cars[j][0]-cars[i][0]) / float64(cars[i][1]-cars[j][1])
+				if ans[j] < 0 || t <= ans[j] {
+					ans[i] = t
+					break
+				}
+			}
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	return ans
+}
 ```
 
 ### **...**

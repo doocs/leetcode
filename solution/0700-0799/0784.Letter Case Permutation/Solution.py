@@ -1,15 +1,15 @@
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        def dfs(i, t):
-            if i == len(t):
+        def dfs(i):
+            if i >= len(s):
                 ans.append(''.join(t))
                 return
-            dfs(i + 1, t)
+            dfs(i + 1)
             if t[i].isalpha():
-                t[i] = t[i].upper() if t[i].islower() else t[i].lower()
-                dfs(i + 1, t)
+                t[i] = chr(ord(t[i]) ^ 32)
+                dfs(i + 1)
 
-        ans = []
         t = list(s)
-        dfs(0, t)
+        ans = []
+        dfs(0)
         return ans

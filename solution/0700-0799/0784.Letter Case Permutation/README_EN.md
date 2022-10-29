@@ -42,36 +42,18 @@ DFS.
 ```python
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        def dfs(i, t):
-            if i == len(t):
+        def dfs(i):
+            if i >= len(s):
                 ans.append(''.join(t))
                 return
-            dfs(i + 1, t)
+            dfs(i + 1)
             if t[i].isalpha():
-                t[i] = t[i].upper() if t[i].islower() else t[i].lower()
-                dfs(i + 1, t)
+                t[i] = chr(ord(t[i]) ^ 32)
+                dfs(i + 1)
 
-        ans = []
         t = list(s)
-        dfs(0, t)
-        return ans
-```
-
-```python
-class Solution:
-    def letterCasePermutation(self, s: str) -> List[str]:
-        def dfs(i, t):
-            if i == len(s):
-                ans.append(t)
-                return
-            if s[i].isalpha():
-                dfs(i + 1, t + s[i].upper())
-                dfs(i + 1, t + s[i].lower())
-            else:
-                dfs(i + 1, t + s[i])
-
         ans = []
-        dfs(0, '')
+        dfs(0)
         return ans
 ```
 
@@ -79,22 +61,24 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> letterCasePermutation(String S) {
-        char[] cs = S.toCharArray();
-        List<String> res = new ArrayList<>();
-        dfs(cs, 0, res);
-        return res;
+    private List<String> ans = new ArrayList<>();
+    private char[] t;
+
+    public List<String> letterCasePermutation(String s) {
+        t = s.toCharArray();
+        dfs(0);
+        return ans;
     }
 
-    private void dfs(char[] cs, int i, List<String> res) {
-        if (i == cs.length) {
-            res.add(String.valueOf(cs));
+    private void dfs(int i) {
+        if (i >= t.length) {
+            ans.add(String.valueOf(t));
             return;
         }
-        dfs(cs, i + 1, res);
-        if (cs[i] >= 'A') {
-            cs[i] ^= 32;
-            dfs(cs, i + 1, res);
+        dfs(i + 1);
+        if (t[i] >= 'A') {
+            t[i] ^= 32;
+            dfs(i + 1);
         }
     }
 }
@@ -105,31 +89,48 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> ans;
-    string s;
-
     vector<string> letterCasePermutation(string s) {
-        this->s = s;
-        string t = "";
-        dfs(0, t);
+        vector<string> ans;
+        function<void(int)> dfs = [&](int i) {
+            if (i >= s.size()) {
+                ans.emplace_back(s);
+                return;
+            }
+            dfs(i + 1);
+            if (s[i] >= 'A') {
+                s[i] ^= 32;
+                dfs(i + 1);
+            }
+        };
+        dfs(0);
         return ans;
     }
-
-    void dfs(int i, string t) {
-        if (i == s.size()) {
-            ans.push_back(t);
-            return;
-        }
-        if (isalpha(s[i])) {
-            char c1 = toupper(s[i]);
-            char c2 = tolower(s[i]);
-            dfs(i + 1, t + c1);
-            dfs(i + 1, t + c2);
-        } else {
-            dfs(i + 1, t + s[i]);
-        }
-    }
 };
+```
+
+### **Go**
+
+```go
+func letterCasePermutation(s string) []string {
+	ans := []string{}
+	t := []byte(s)
+
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= len(t) {
+			ans = append(ans, string(t))
+			return
+		}
+		dfs(i + 1)
+		if t[i] >= 'A' {
+			t[i] ^= 32
+			dfs(i + 1)
+		}
+	}
+
+	dfs(0)
+	return ans
+}
 ```
 
 ### **...**

@@ -48,6 +48,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：栈**
+
+由于每一辆车最终追上其右边第一辆车的时间与其左边的车没有关系，因此，我们可以从右往左遍历，计算每辆车与其右边第一辆车相遇的时间。
+
+具体地，我们维护一个栈，栈中存放的是车辆的编号，栈顶元素表示当前最慢的车辆编号，栈底元素表示当前最快的车辆编号。
+
+当我们遍历到第 $i$ 辆车时，如果第 $i$ 辆车的速度大于栈顶元素对应的车辆 $j$ 的速度，此时我们计算两车相遇的时间，记为 $t$。如果车辆 $j$ 与右边车辆不会相遇，或者 $t$ 小于等于 $j$ 与右辆车相遇的时间，说明车辆 $i$ 可以在 $t$ 时间追上车辆 $j$，更新答案。否则，说明车辆 $i$ 不会与车辆 $j$ 相遇，我们将车辆 $j$ 出栈，继续判断车辆 $i$ 与栈顶元素对应的车辆相遇的时间。如果栈为空，说明车辆 $i$ 不会与任何车辆相遇，更新答案为 $-1$。最后，将车辆 $i$ 入栈。
+
+遍历完所有车辆后，即可得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为车辆数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +67,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getCollisionTimes(self, cars: List[List[int]]) -> List[float]:
+        stk = []
+        n = len(cars)
+        ans = [-1] * n
+        for i in range(n - 1, -1, -1):
+            while stk:
+                j = stk[-1]
+                if cars[i][1] > cars[j][1]:
+                    t = (cars[j][0] - cars[i][0]) / (cars[i][1] - cars[j][1])
+                    if ans[j] == -1 or t <= ans[j]:
+                        ans[i] = t
+                        break
+                stk.pop()
+            stk.append(i)
+        return ans
 ```
 
 ### **Java**
@@ -63,7 +90,85 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public double[] getCollisionTimes(int[][] cars) {
+        int n = cars.length;
+        double[] ans = new double[n];
+        Arrays.fill(ans, -1.0);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty()) {
+                int j = stk.peek();
+                if (cars[i][1] > cars[j][1]) {
+                    double t = (cars[j][0] - cars[i][0]) * 1.0 / (cars[i][1] - cars[j][1]);
+                    if (ans[j] < 0 || t <= ans[j]) {
+                        ans[i] = t;
+                        break;
+                    }
+                }
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<double> getCollisionTimes(vector<vector<int>>& cars) {
+        int n = cars.size();
+        vector<double> ans(n, -1.0);
+        stack<int> stk;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size()) {
+                int j = stk.top();
+                if (cars[i][1] > cars[j][1]) {
+                    double t = (cars[j][0] - cars[i][0]) * 1.0 / (cars[i][1] - cars[j][1]);
+                    if (ans[j] < 0 || t <= ans[j]) {
+                        ans[i] = t;
+                        break;
+                    }
+                }
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getCollisionTimes(cars [][]int) []float64 {
+	n := len(cars)
+	ans := make([]float64, n)
+	for i := range ans {
+		ans[i] = -1.0
+	}
+	stk := []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 {
+			j := stk[len(stk)-1]
+			if cars[i][1] > cars[j][1] {
+				t := float64(cars[j][0]-cars[i][0]) / float64(cars[i][1]-cars[j][1])
+				if ans[j] < 0 || t <= ans[j] {
+					ans[i] = t
+					break
+				}
+			}
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	return ans
+}
 ```
 
 ### **...**

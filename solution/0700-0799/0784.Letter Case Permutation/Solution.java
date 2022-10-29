@@ -1,20 +1,22 @@
 class Solution {
-    public List<String> letterCasePermutation(String S) {
-        char[] cs = S.toCharArray();
-        List<String> res = new ArrayList<>();
-        dfs(cs, 0, res);
-        return res;
+    private List<String> ans = new ArrayList<>();
+    private char[] t;
+
+    public List<String> letterCasePermutation(String s) {
+        t = s.toCharArray();
+        dfs(0);
+        return ans;
     }
 
-    private void dfs(char[] cs, int i, List<String> res) {
-        if (i == cs.length) {
-            res.add(String.valueOf(cs));
+    private void dfs(int i) {
+        if (i >= t.length) {
+            ans.add(String.valueOf(t));
             return;
         }
-        dfs(cs, i + 1, res);
-        if (cs[i] >= 'A') {
-            cs[i] ^= 32;
-            dfs(cs, i + 1, res);
+        dfs(i + 1);
+        if (t[i] >= 'A') {
+            t[i] ^= 32;
+            dfs(i + 1);
         }
     }
 }
