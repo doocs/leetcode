@@ -59,6 +59,12 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学**
+
+假设字符串 $s$ 长度为 $n$，那么长度为 $k$ 的子串共有 $n - k + 1$ 个，每个子串都可以翻转，因此共有 $2^{n - k + 1}$ 种翻转方式。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +72,9 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countDistinctStrings(self, s: str, k: int) -> int:
+        return pow(2, len(s) - k + 1) % (10**9 + 7)
 ```
 
 ### **Java**
@@ -74,7 +82,47 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public static final int MOD = (int) 1e9 + 7;
 
+    public int countDistinctStrings(String s, int k) {
+        int ans = 1;
+        for (int i = 0; i < s.length() - k + 1; ++i) {
+            ans = (ans * 2) % MOD;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countDistinctStrings(string s, int k) {
+        int ans = 1;
+        for (int i = 0; i < s.size() - k + 1; ++i) {
+            ans = (ans * 2) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countDistinctStrings(s string, k int) int {
+	const mod int = 1e9 + 7
+	ans := 1
+	for i := 0; i < len(s)-k+1; i++ {
+		ans = (ans * 2) % mod
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

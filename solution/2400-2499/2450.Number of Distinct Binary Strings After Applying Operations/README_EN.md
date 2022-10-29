@@ -60,13 +60,55 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countDistinctStrings(self, s: str, k: int) -> int:
+        return pow(2, len(s) - k + 1) % (10**9 + 7)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public static final int MOD = (int) 1e9 + 7;
 
+    public int countDistinctStrings(String s, int k) {
+        int ans = 1;
+        for (int i = 0; i < s.length() - k + 1; ++i) {
+            ans = (ans * 2) % MOD;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countDistinctStrings(string s, int k) {
+        int ans = 1;
+        for (int i = 0; i < s.size() - k + 1; ++i) {
+            ans = (ans * 2) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countDistinctStrings(s string, k int) int {
+	const mod int = 1e9 + 7
+	ans := 1
+	for i := 0; i < len(s)-k+1; i++ {
+		ans = (ans * 2) % mod
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
