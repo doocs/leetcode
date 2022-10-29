@@ -57,13 +57,150 @@ The answers for each of the queries are as follows:
 ### **Python3**
 
 ```python
+class Solution:
+    def countPairs(self, n: int, edges: List[List[int]], queries: List[int]) -> List[int]:
+        cnt = [0] * n
+        g = defaultdict(int)
+        for a, b in edges:
+            a, b = a - 1, b - 1
+            cnt[a] += 1
+            cnt[b] += 1
+            if a > b:
+                a, b = b, a
+            g[(a, b)] += 1
 
+        s = sorted(cnt)
+        ans = [0] * len(queries)
+        for i, t in enumerate(queries):
+            for j, x in enumerate(s):
+                k = bisect_right(s, t - x, lo=j+1)
+                ans[i] += n - k
+            for (a, b), v in g.items():
+                if cnt[a] + cnt[b] > t and cnt[a] + cnt[b] - v <= t:
+                    ans[i] -= 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] countPairs(int n, int[][] edges, int[] queries) {
+        int[] cnt = new int[n];
+        Map<Integer, Integer> g = new HashMap<>();
+        for (var e : edges) {
+            int a = e[0] - 1, b = e[1] - 1;
+            ++cnt[a];
+            ++cnt[b];
+            int k = Math.min(a, b) * n + Math.max(a, b);
+            g.put(k, g.getOrDefault(k, 0) + 1);
+        }
+        int[] s = cnt.clone();
+        Arrays.sort(s);
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < queries.length; ++i) {
+            int t = queries[i];
+            for (int j = 0; j < n; ++j) {
+                int x = s[j];
+                int k = search(s, t - x, j + 1);
+                ans[i] += n - k;
+            }
+            for (var e : g.entrySet()) {
+                int a = e.getKey() / n, b = e.getKey() % n;
+                int v = e.getValue();
+                if (cnt[a] + cnt[b] > t && cnt[a] + cnt[b] - v <= t) {
+                    --ans[i];
+                }
+            }
+        }
+        return ans;
+    }
 
+    private int search(int[] arr, int x, int i) {
+        int left = i, right = arr.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arr[mid] > x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> countPairs(int n, vector<vector<int>>& edges, vector<int>& queries) {
+        vector<int> cnt(n);
+        unordered_map<int, int> g;
+        for (auto& e : edges) {
+            int a = e[0] - 1, b = e[1] - 1;
+            ++cnt[a];
+            ++cnt[b];
+            int k = min(a, b) * n + max(a, b);
+            ++g[k];
+        }
+        vector<int> s = cnt;
+        sort(s.begin(), s.end());
+        vector<int> ans(queries.size());
+        for (int i = 0; i < queries.size(); ++i) {
+            int t = queries[i];
+            for (int j = 0; j < n; ++j) {
+                int x = s[j];
+                int k = upper_bound(s.begin() + j + 1, s.end(), t - x) - s.begin();
+                ans[i] += n - k;
+            }
+            for (auto& [k, v] : g) {
+                int a = k / n, b = k % n;
+                if (cnt[a] + cnt[b] > t && cnt[a] + cnt[b] - v <= t) {
+                    --ans[i];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPairs(n int, edges [][]int, queries []int) []int {
+	cnt := make([]int, n)
+	g := map[int]int{}
+	for _, e := range edges {
+		a, b := e[0]-1, e[1]-1
+		cnt[a]++
+		cnt[b]++
+		if a > b {
+			a, b = b, a
+		}
+		g[a*n+b]++
+	}
+	s := make([]int, n)
+	copy(s, cnt)
+	sort.Ints(s)
+	ans := make([]int, len(queries))
+	for i, t := range queries {
+		for j, x := range s {
+			k := sort.Search(n, func(h int) bool { return s[h] > t-x && h > j })
+			ans[i] += n - k
+		}
+		for k, v := range g {
+			a, b := k/n, k%n
+			if cnt[a]+cnt[b] > t && cnt[a]+cnt[b]-v <= t {
+				ans[i]--
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
