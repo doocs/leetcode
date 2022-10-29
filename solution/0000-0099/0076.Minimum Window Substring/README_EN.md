@@ -42,7 +42,7 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 <ul>
 	<li><code>m == s.length</code></li>
 	<li><code>n == t.length</code></li>
-	<li><code>1 &lt;= m, n&nbsp;&lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= m, n &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> and <code>t</code> consist of uppercase and lowercase English letters.</li>
 </ul>
 

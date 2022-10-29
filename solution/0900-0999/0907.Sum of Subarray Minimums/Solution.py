@@ -10,7 +10,7 @@ class Solution:
             if stk:
                 left[i] = stk[-1]
             stk.append(i)
-        
+
         stk = []
         for i in range(n - 1, -1, -1):
             while stk and arr[stk[-1]] > arr[i]:

@@ -4,9 +4,11 @@
 
 ## Description
 
-<p>Given an integer array&nbsp;<code>arr</code>, in one move you can select a <strong>palindromic</strong>&nbsp;subarray <code>arr[i], arr[i+1], ..., arr[j]</code>&nbsp;where <code>i &lt;= j</code>, and remove that subarray from the given array. Note that after removing a subarray, the elements on the left and on the right of that subarray move to fill the gap left by the removal.</p>
+<p>You are given an integer array <code>arr</code>.</p>
 
-<p>Return the minimum number of moves needed&nbsp;to remove all numbers from the array.</p>
+<p>In one move, you can select a <strong>palindromic</strong> subarray <code>arr[i], arr[i + 1], ..., arr[j]</code> where <code>i &lt;= j</code>, and remove that subarray from the given array. Note that after removing a subarray, the elements on the left and on the right of that subarray move to fill the gap left by the removal.</p>
+
+<p>Return <em>the minimum number of moves needed to remove all numbers from the array</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

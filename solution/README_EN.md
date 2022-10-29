@@ -872,7 +872,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0861  |  [Score After Flipping Matrix](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`,`Matrix`  |  Medium  |  Weekly Contest 91  |
 |  0862  |  [Shortest Subarray with Sum at Least K](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md)  |  `Queue`,`Array`,`Binary Search`,`Prefix Sum`,`Sliding Window`,`Monotonic Queue`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 91  |
 |  0863  |  [All Nodes Distance K in Binary Tree](/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 91  |
-|  0864  |  [Shortest Path to Get All Keys](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md)  |  `Bit Manipulation`,`Breadth-First Search`  |  Hard  |  Weekly Contest 92  |
+|  0864  |  [Shortest Path to Get All Keys](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md)  |  `Bit Manipulation`,`Breadth-First Search`,`Array`,`Matrix`  |  Hard  |  Weekly Contest 92  |
 |  0865  |  [Smallest Subtree with all the Deepest Nodes](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Hash Table`,`Binary Tree`  |  Medium  |  Weekly Contest 92  |
 |  0866  |  [Prime Palindrome](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 92  |
 |  0867  |  [Transpose Matrix](/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Easy  |  Weekly Contest 92  |
@@ -2453,11 +2453,12 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2442  |  [Count Number of Distinct Integers After Reverse Operations](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md)  |  `Array`,`Hash Table`,`Math`  |  Medium  |  Weekly Contest 315  |
 |  2443  |  [Sum of Number and Its Reverse](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md)  |  `Math`,`Enumeration`  |  Medium  |  Weekly Contest 315  |
 |  2444  |  [Count Subarrays With Fixed Bounds](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md)  |  `Queue`,`Array`,`Sliding Window`,`Monotonic Queue`  |  Hard  |  Weekly Contest 315  |
-|  2445  |  [Number of Nodes With Value One](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md)  |    |  Medium  |  🔒  |
-|  2446  |  [Determine if Two Events Have Conflict](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README_EN.md)  |    |  Easy  |  Weekly Contest 316  |
-|  2447  |  [Number of Subarrays With GCD Equal to K](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 316  |
-|  2448  |  [Minimum Cost to Make Array Equal](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)  |    |  Hard  |  Weekly Contest 316  |
-|  2449  |  [Minimum Number of Operations to Make Arrays Similar](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README_EN.md)  |    |  Hard  |  Weekly Contest 316  |
+|  2445  |  [Number of Nodes With Value One](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
+|  2446  |  [Determine if Two Events Have Conflict](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README_EN.md)  |  `Array`,`String`  |  Easy  |  Weekly Contest 316  |
+|  2447  |  [Number of Subarrays With GCD Equal to K](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 316  |
+|  2448  |  [Minimum Cost to Make Array Equal](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sorting`  |  Hard  |  Weekly Contest 316  |
+|  2449  |  [Minimum Number of Operations to Make Arrays Similar](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Hard  |  Weekly Contest 316  |
+|  2450  |  [Number of Distinct Binary Strings After Applying Operations](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

@@ -88,7 +88,7 @@ class Solution:
 ```java
 class Solution {
     private int inf = 0x3f3f3f3f;
-    
+
     public int minSideJumps(int[] obstacles) {
         int[] f = new int[] {1, 0, 1};
         for (int i = 1; i < obstacles.length; ++i) {

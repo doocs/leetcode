@@ -4,9 +4,21 @@
 
 ## Description
 
-<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> <em>if </em><code>nums</code><em> has a continuous subarray of size <strong>at least two</strong> whose elements sum up to a multiple of</em> <code>k</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
+<p>Given an integer array nums and an integer k, return <code>true</code> <em>if </em><code>nums</code><em> has a <strong>good subarray</strong> or </em><code>false</code><em> otherwise</em>.</p>
 
-<p>An integer <code>x</code> is a multiple of <code>k</code> if there exists an integer <code>n</code> such that <code>x = n * k</code>. <code>0</code> is <strong>always</strong> a multiple of <code>k</code>.</p>
+<p>A <strong>good subarray</strong> is a subarray where:</p>
+
+<ul>
+	<li>its length is <strong>at least two</strong>, and</li>
+	<li>the sum of the elements of the subarray is a multiple of <code>k</code>.</li>
+</ul>
+
+<p><strong>Note</strong> that:</p>
+
+<ul>
+	<li>A <strong>subarray</strong> is a contiguous part of the array.</li>
+	<li>An integer <code>x</code> is a multiple of <code>k</code> if there exists an integer <code>n</code> such that <code>x = n * k</code>. <code>0</code> is <strong>always</strong> a multiple of <code>k</code>.</li>
+</ul>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

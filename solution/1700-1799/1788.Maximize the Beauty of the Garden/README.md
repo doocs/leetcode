@@ -62,7 +62,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumBeauty(self, flowers: List[int]) -> int:
+        s = [0] * (len(flowers) + 1)
+        d = {}
+        ans = -inf
+        for i, v in enumerate(flowers):
+            if v in d:
+                ans = max(ans, s[i] - s[d[v] + 1] + v * 2)
+            else:
+                d[v] = i
+            s[i + 1] = s[i] + max(v, 0)
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +81,74 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximumBeauty(int[] flowers) {
+        int[] s = new int[flowers.length + 1];
+        Map<Integer, Integer> d = new HashMap<>();
+        int ans = Integer.MIN_VALUE;
+        for (int i = 0; i < flowers.length; ++i) {
+            int v = flowers[i];
+            if (d.containsKey(v)) {
+                ans = Math.max(ans, s[i] - s[d.get(v) + 1] + v * 2);
+            } else {
+                d.put(v, i);
+            }
+            s[i + 1] = s[i] + Math.max(v, 0);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumBeauty(vector<int>& flowers) {
+        int n = flowers.size();
+        vector<int> s(n + 1);
+        unordered_map<int, int> d;
+        int ans = INT_MIN;
+        for (int i = 0; i < n; ++i) {
+            int v = flowers[i];
+            if (d.count(v)) {
+                ans = max(ans, s[i] - s[d[v] + 1] + v * 2);
+            } else {
+                d[v] = i;
+            }
+            s[i + 1] = s[i] + max(v, 0);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumBeauty(flowers []int) int {
+	n := len(flowers)
+	s := make([]int, n+1)
+	d := map[int]int{}
+	ans := math.MinInt32
+	for i, v := range flowers {
+		if j, ok := d[v]; ok {
+			ans = max(ans, s[i]-s[j+1]+v*2)
+		} else {
+			d[v] = i
+		}
+		s[i+1] = s[i] + max(v, 0)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

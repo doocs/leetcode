@@ -1,4 +1,4 @@
-# [2263. Make Array Non-decreasing or Non-increasing](https://leetcode.cn/problems/make-array-non-decreasing-or-non-increasing)
+# [2263. 数组变为有序的最小操作次数](https://leetcode.cn/problems/make-array-non-decreasing-or-non-increasing)
 
 [English Version](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README_EN.md)
 
@@ -6,49 +6,50 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation, you can:</p>
+<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。在一步操作中，你可以：</p>
 
 <ul>
-	<li>Choose an index <code>i</code> in the range <code>0 &lt;= i &lt; nums.length</code></li>
-	<li>Set <code>nums[i]</code> to <code>nums[i] + 1</code> <strong>or</strong> <code>nums[i] - 1</code></li>
+	<li>在范围&nbsp;<code>0 &lt;= i &lt; nums.length</code> 内选出一个下标 <code>i</code></li>
+	<li>将 <code>nums[i]</code> 的值变为 <code>nums[i] + 1</code> <strong>或</strong> <code>nums[i] - 1</code></li>
 </ul>
 
-<p>Return <em>the <strong>minimum</strong> number of operations to make </em><code>nums</code><em> <strong>non-decreasing</strong> or <strong>non-increasing</strong>.</em></p>
+<p>返回将数组 <code>nums</code> 变为 <strong>非递增</strong> 或<strong> 非递减 </strong>所需的 <strong>最小</strong> 操作次数。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [3,2,4,5,0]
-<strong>Output:</strong> 4
-<strong>Explanation:</strong>
-One possible way to turn nums into non-increasing order is to:
-- Add 1 to nums[1] once so that it becomes 3.
-- Subtract 1 from nums[2] once so it becomes 3.
-- Subtract 1 from nums[3] twice so it becomes 3.
-After doing the 4 operations, nums becomes [3,3,3,3,0] which is in non-increasing order.
-Note that it is also possible to turn nums into [4,4,4,4,0] in 4 operations.
-It can be proven that 4 is the minimum number of operations needed.
+<strong>输入：</strong>nums = [3,2,4,5,0]
+<strong>输出：</strong>4
+<strong>解释：</strong>
+一种可行的操作顺序，能够将 nums 变为非递增排列：
+- nums[1] 加 1 一次，使其变为 3 。
+- nums[2] 减 1 一次，使其变为 3 。
+- nums[3] 减 1 两次，使其变为 3 。
+经过 4 次操作后，nums 变为 [3,3,3,3,0] ，按非递增顺序排列。
+注意，也可以用 4 步操作将 nums 变为 [4,4,4,4,0] ，同样满足题目要求。
+可以证明最少需要 4 步操作才能将数组变为非递增或非递减排列。</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [2,2,3,4]
+<strong>输出：</strong>0
+<strong>解释：</strong>数组已经是按非递减顺序排列了，无需执行任何操作，返回 0 。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [2,2,3,4]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> nums is already in non-decreasing order, so no operations are needed and we return 0.
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [0]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> nums is already in non-decreasing order, so no operations are needed and we return 0.
+<strong>输入：</strong>nums = [0]
+<strong>输出：</strong>0
+<strong>解释：</strong>数组已经是按非递减顺序排列了，无需执行任何操作，返回 0 。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
@@ -56,7 +57,8 @@ It can be proven that 4 is the minimum number of operations needed.
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Follow up:</strong> Can you solve it in <code>O(n*log(n))</code> time complexity?</p>
+
+<p><strong>进阶：</strong>你可以设计并实现时间复杂度为 <code>O(n*log(n))</code> 的解法吗?</p>
 
 ## 解法
 

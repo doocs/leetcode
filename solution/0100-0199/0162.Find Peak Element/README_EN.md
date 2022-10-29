@@ -13,14 +13,14 @@
 <p>You must write an algorithm that runs in <code>O(log n)</code> time.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,1]
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> 3 is a peak element and your function should return the index number 2.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,1,3,5,6,4]
