@@ -150,6 +150,45 @@ func magicalString(n int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function magicalString(n: number): number {
+    const cs = [...'1221121'];
+    let i = 5;
+    while (cs.length < n) {
+        const c = cs[cs.length - 1];
+        cs.push(c === '1' ? '2' : '1');
+        if (cs[i] !== '1') {
+            cs.push(c === '1' ? '2' : '1');
+        }
+        i++;
+    }
+    return cs.slice(0, n).reduce((r, c) => r + (c === '1' ? 1 : 0), 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn magical_string(n: i32) -> i32 {
+        let n = n as usize;
+        let mut s = String::from("1221121");
+        let mut i = 5;
+        while s.len() < n {
+            let c = s.as_bytes()[s.len() - 1];
+            s.push(if c == b'1' { '2' } else { '1' });
+            if s.as_bytes()[i] != b'1' {
+                s.push(if c == b'1' { '2' } else { '1' });
+            }
+            i += 1;
+        }
+        s.as_bytes()[0..n].iter().filter(|&v| v == &b'1').count() as i32
+    }
+}
+```
+
 ### **...**
 
 ```
