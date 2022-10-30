@@ -50,6 +50,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力枚举**
+
+遍历 `queries` 中的每个单词，对于每个单词，遍历 `dictionary` 中的每个单词，判断两个单词不同字符的位置数是否小于 $3$，如果是，则将该单词加入结果集。
+
+时间复杂度 $O(m\times n\times k)$。其中 $m$ 和 $n$ 分别是 `queries` 和 `dictionary` 的长度，而 $k$ 是 `queries` 和 `dictionary` 中单词的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -1,20 +1,18 @@
 class Solution:
     def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
-        ans = []
-        cnt = Counter()
-        d = defaultdict(int)
-        x = defaultdict(str)
-        for c, idx, view in zip(creators, ids, views):
-            cnt[c] += view
-            if c not in d or d[c] < view or (d[c] == view and x[c] > idx):
-                d[c] = view
-                x[c] = idx
+        cnt = defaultdict(int)
+        d = {}
+        x = {}
+        for c, i, v in zip(creators, ids, views):
+            cnt[c] += v
+            if c not in d or d[c] < v or (d[c] == v and x[c] > i):
+                d[c], x[c] = v, i
         ans = []
         pre = -1
-        for a, b in cnt.most_common():
-            if b >= pre:
+        for a, b in cnt.items():
+            if b > pre:
+                ans = [[a, x[a]]]
                 pre = b
+            elif b == pre:
                 ans.append([a, x[a]])
-            else:
-                break
         return ans

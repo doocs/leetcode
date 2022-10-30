@@ -61,6 +61,12 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 
 **方法一：哈希表**
 
+我们用哈希表 `cnt` 统计每个创作者的视频播放量总和，用哈希表 `d` 和 `x` 记录每个创作者的最大播放量和对应的视频 `id`。
+
+然后遍历哈希表 `cnt`，找到最大视频播放量总和的创作者，将其对应的视频 `id` 加入答案数组 `ans` 中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为视频数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,25 +76,22 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 ```python
 class Solution:
     def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
-        ans = []
-        cnt = Counter()
-        d = defaultdict(int)
-        x = defaultdict(str)
-        for c, idx, view in zip(creators, ids, views):
-            cnt[c] += view
-            if c not in d or d[c] < view or (d[c] == view and x[c] > idx):
-                d[c] = view
-                x[c] = idx
+        cnt = defaultdict(int)
+        d = {}
+        x = {}
+        for c, i, v in zip(creators, ids, views):
+            cnt[c] += v
+            if c not in d or d[c] < v or (d[c] == v and x[c] > i):
+                d[c], x[c] = v, i
         ans = []
         pre = -1
-        for a, b in cnt.most_common():
-            if b >= pre:
+        for a, b in cnt.items():
+            if b > pre:
+                ans = [[a, x[a]]]
                 pre = b
+            elif b == pre:
                 ans.append([a, x[a]])
-            else:
-                break
         return ans
-
 ```
 
 ### **Java**
@@ -96,7 +99,102 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<List<String>> mostPopularCreator(String[] creators, String[] ids, int[] views) {
+        Map<String, Integer> cnt = new HashMap<>();
+        Map<String, Integer> d = new HashMap<>();
+        Map<String, String> x = new HashMap<>();
+        int n = ids.length;
+        for (int k = 0; k < n; ++k) {
+            var c = creators[k];
+            var i = ids[k];
+            int v = views[k];
+            cnt.put(c, cnt.getOrDefault(c, 0) + v);
+            if (!d.containsKey(c) || d.get(c) < v || (d.get(c) == v && x.get(c).compareTo(i) > 0)) {
+                d.put(c, v);
+                x.put(c, i);
+            }
+        }
+        List<List<String>> ans = new ArrayList<>();
+        int pre = -1;
+        for (var e : cnt.entrySet()) {
+            String a = e.getKey();
+            int b = e.getValue();
+            if (b > pre) {
+                ans.clear();
+                ans.add(Arrays.asList(a, x.get(a)));
+                pre = b;
+            } else if (b == pre) {
+                ans.add(Arrays.asList(a, x.get(a)));
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<string>> mostPopularCreator(vector<string>& creators, vector<string>& ids, vector<int>& views) {
+        unordered_map<string, long> cnt;
+        unordered_map<string, int> d;
+        unordered_map<string, string> x;
+        int n = ids.size();
+        for (int k = 0; k < n; ++k) {
+            auto c = creators[k];
+            auto i = ids[k];
+            int v = views[k];
+            cnt[c] += v;
+            if (!d.count(c) || d[c] < v || (d[c] == v && x[c] > i)) {
+                d[c] = v;
+                x[c] = i;
+            }
+        }
+        long pre = -1;
+        vector<vector<string>> ans;
+        for (auto& [a, b] : cnt) {
+            if (b > pre) {
+                ans.clear();
+                ans.push_back({a, x[a]});
+                pre = b;
+            } else if (b == pre) {
+                ans.push_back({a, x[a]});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]string) {
+	cnt := map[string]int{}
+	d := map[string]int{}
+	x := map[string]string{}
+	for k, c := range creators {
+		i, v := ids[k], views[k]
+		cnt[c] += v
+		if t, ok := d[c]; !ok || t < v || (t == v && x[c] > i) {
+			d[c] = v
+			x[c] = i
+		}
+	}
+	pre := -1
+	for a, b := range cnt {
+		if b > pre {
+			ans = [][]string{[]string{a, x[a]}}
+			pre = b
+		} else if b == pre {
+			ans = append(ans, []string{a, x[a]})
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
