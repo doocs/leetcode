@@ -49,6 +49,16 @@
 
 时间复杂度 $O(n\times 2^n)$，其中 $n$ 是字符串 $s$ 的长度。对于每个字母，我们可以选择将其转换为大写或小写，因此一共有 $2^n$ 种转换方案。对于每种转换方案，我们需要 $O(n)$ 的时间生成一个新的字符串。
 
+**方法二：二进制枚举**
+
+对于一个字母，我们可以将其转换为大写或小写，因此对于每个字母，我们可以使用一个二进制位表示其转换的方案，即 $0$ 表示大写，而 $1$ 表示小写。
+
+我们先统计字符串 $s$ 中字母的个数，记为 $n$，那么一共有 $2^n$ 种转换方案，我们可以使用二进制数的每一位表示每个字母的转换方案，从 $0$ 到 $2^n-1$ 进行枚举。
+
+具体地，我们可以使用一个变量 $i$ 表示当前枚举到的二进制数，其中 $i$ 的第 $j$ 位表示第 $j$ 个字母的转换方案。即 $i$ 的第 $j$ 位为 $0$ 表示第 $j$ 个字母转换为大写，而 $i$ 的第 $j$ 位为 $1$ 表示第 $j$ 个字母转换为小写。
+
+时间复杂度 $O(n\times 2^n)$，其中 $n$ 是字符串 $s$ 的长度。对于每个字母，我们可以选择将其转换为大写或小写，因此一共有 $2^n$ 种转换方案。对于每种转换方案，我们需要 $O(n)$ 的时间生成一个新的字符串。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,6 +80,22 @@ class Solution:
         t = list(s)
         ans = []
         dfs(0)
+        return ans
+```
+
+```python
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+        ans = []
+        n = sum(c.isalpha() for c in s)
+        for i in range(1 << n):
+            j, t = 0, []
+            for c in s:
+                if c.isalpha():
+                    c = c.lower() if (i >> j) & 1 else c.upper()
+                    j += 1
+                t.append(c)
+            ans.append(''.join(t))
         return ans
 ```
 
@@ -102,6 +128,34 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public List<String> letterCasePermutation(String s) {
+        int n = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) >= 'A') {
+                ++n;
+            }
+        }
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << n; ++i) {
+            int j = 0;
+            StringBuilder t = new StringBuilder();
+            for (int k = 0; k < s.length(); ++k) {
+                char x = s.charAt(k);
+                if (x >= 'A') {
+                    x = ((i >> j) & 1) == 1 ? Character.toUpperCase(x) : Character.toLowerCase(x);
+                    ++j;
+                }
+                t.append(x);
+            }
+            ans.add(t.toString());
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -126,13 +180,35 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<string> letterCasePermutation(string s) {
+        int n = 0;
+        for (char c : s) if (isalpha(c)) ++n;
+        vector<string> ans;
+        for (int i = 0; i < 1 << n; ++i) {
+            int j = 0;
+            string t;
+            for (char c : s) {
+                if (isalpha(c)) {
+                    c = (i >> j & 1) ? toupper(c) : tolower(c);
+                    ++j;
+                }
+                t += c;
+            }
+            ans.emplace_back(t);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func letterCasePermutation(s string) []string {
-	ans := []string{}
+func letterCasePermutation(s string) (ans []string) {
 	t := []byte(s)
-
 	var dfs func(int)
 	dfs = func(i int) {
 		if i >= len(t) {
@@ -147,6 +223,34 @@ func letterCasePermutation(s string) []string {
 	}
 
 	dfs(0)
+	return ans
+}
+```
+
+```go
+func letterCasePermutation(s string) (ans []string) {
+	n := 0
+	for _, c := range s {
+		if c >= 'A' {
+			n++
+		}
+	}
+	for i := 0; i < 1<<n; i++ {
+		j := 0
+		t := []rune{}
+		for _, c := range s {
+			if c >= 'A' {
+				if ((i >> j) & 1) == 1 {
+					c = unicode.ToUpper(c)
+				} else {
+					c = unicode.ToLower(c)
+				}
+				j++
+			}
+			t = append(t, c)
+		}
+		ans = append(ans, string(t))
+	}
 	return ans
 }
 ```

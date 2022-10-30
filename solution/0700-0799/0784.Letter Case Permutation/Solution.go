@@ -1,7 +1,5 @@
-func letterCasePermutation(s string) []string {
-	ans := []string{}
+func letterCasePermutation(s string) (ans []string) {
 	t := []byte(s)
-
 	var dfs func(int)
 	dfs = func(i int) {
 		if i >= len(t) {

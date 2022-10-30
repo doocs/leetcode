@@ -57,6 +57,22 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+        ans = []
+        n = sum(c.isalpha() for c in s)
+        for i in range(1 << n):
+            j, t = 0, []
+            for c in s:
+                if c.isalpha():
+                    c = c.lower() if (i >> j) & 1 else c.upper()
+                    j += 1
+                t.append(c)
+            ans.append(''.join(t))
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -80,6 +96,34 @@ class Solution {
             t[i] ^= 32;
             dfs(i + 1);
         }
+    }
+}
+```
+
+```java
+class Solution {
+    public List<String> letterCasePermutation(String s) {
+        int n = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) >= 'A') {
+                ++n;
+            }
+        }
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << n; ++i) {
+            int j = 0;
+            StringBuilder t = new StringBuilder();
+            for (int k = 0; k < s.length(); ++k) {
+                char x = s.charAt(k);
+                if (x >= 'A') {
+                    x = ((i >> j) & 1) == 1 ? Character.toUpperCase(x) : Character.toLowerCase(x);
+                    ++j;
+                }
+                t.append(x);
+            }
+            ans.add(t.toString());
+        }
+        return ans;
     }
 }
 ```
@@ -108,13 +152,35 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<string> letterCasePermutation(string s) {
+        int n = 0;
+        for (char c : s) if (isalpha(c)) ++n;
+        vector<string> ans;
+        for (int i = 0; i < 1 << n; ++i) {
+            int j = 0;
+            string t;
+            for (char c : s) {
+                if (isalpha(c)) {
+                    c = (i >> j & 1) ? toupper(c) : tolower(c);
+                    ++j;
+                }
+                t += c;
+            }
+            ans.emplace_back(t);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func letterCasePermutation(s string) []string {
-	ans := []string{}
+func letterCasePermutation(s string) (ans []string) {
 	t := []byte(s)
-
 	var dfs func(int)
 	dfs = func(i int) {
 		if i >= len(t) {
@@ -129,6 +195,34 @@ func letterCasePermutation(s string) []string {
 	}
 
 	dfs(0)
+	return ans
+}
+```
+
+```go
+func letterCasePermutation(s string) (ans []string) {
+	n := 0
+	for _, c := range s {
+		if c >= 'A' {
+			n++
+		}
+	}
+	for i := 0; i < 1<<n; i++ {
+		j := 0
+		t := []rune{}
+		for _, c := range s {
+			if c >= 'A' {
+				if ((i >> j) & 1) == 1 {
+					c = unicode.ToUpper(c)
+				} else {
+					c = unicode.ToLower(c)
+				}
+				j++
+			}
+			t = append(t, c)
+		}
+		ans = append(ans, string(t))
+	}
 	return ans
 }
 ```
