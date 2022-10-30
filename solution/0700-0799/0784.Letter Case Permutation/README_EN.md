@@ -116,7 +116,7 @@ class Solution {
             for (int k = 0; k < s.length(); ++k) {
                 char x = s.charAt(k);
                 if (x >= 'A') {
-                    x = ((i >> j) & 1) == 1 ? Character.toUpperCase(x) : Character.toLowerCase(x);
+                    x = ((i >> j) & 1) == 1 ? Character.toLowerCase(x) : Character.toUpperCase(x);
                     ++j;
                 }
                 t.append(x);
@@ -164,7 +164,7 @@ public:
             string t;
             for (char c : s) {
                 if (isalpha(c)) {
-                    c = (i >> j & 1) ? toupper(c) : tolower(c);
+                    c = (i >> j & 1) ? tolower(c) : toupper(c);
                     ++j;
                 }
                 t += c;
@@ -213,9 +213,9 @@ func letterCasePermutation(s string) (ans []string) {
 		for _, c := range s {
 			if c >= 'A' {
 				if ((i >> j) & 1) == 1 {
-					c = unicode.ToUpper(c)
-				} else {
 					c = unicode.ToLower(c)
+				} else {
+					c = unicode.ToUpper(c)
 				}
 				j++
 			}

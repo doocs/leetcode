@@ -51,11 +51,11 @@
 
 **方法二：二进制枚举**
 
-对于一个字母，我们可以将其转换为大写或小写，因此对于每个字母，我们可以使用一个二进制位表示其转换的方案，即 $0$ 表示大写，而 $1$ 表示小写。
+对于一个字母，我们可以将其转换为大写或小写，因此对于每个字母，我们可以使用一个二进制位表示其转换的方案，其中 $1$ 表示小写，而 $0$ 表示大写。
 
 我们先统计字符串 $s$ 中字母的个数，记为 $n$，那么一共有 $2^n$ 种转换方案，我们可以使用二进制数的每一位表示每个字母的转换方案，从 $0$ 到 $2^n-1$ 进行枚举。
 
-具体地，我们可以使用一个变量 $i$ 表示当前枚举到的二进制数，其中 $i$ 的第 $j$ 位表示第 $j$ 个字母的转换方案。即 $i$ 的第 $j$ 位为 $0$ 表示第 $j$ 个字母转换为大写，而 $i$ 的第 $j$ 位为 $1$ 表示第 $j$ 个字母转换为小写。
+具体地，我们可以使用一个变量 $i$ 表示当前枚举到的二进制数，其中 $i$ 的第 $j$ 位表示第 $j$ 个字母的转换方案。即 $i$ 的第 $j$ 位为 $1$ 表示第 $j$ 个字母转换为小写，而 $i$ 的第 $j$ 位为 $0$ 表示第 $j$ 个字母转换为大写。
 
 时间复杂度 $O(n\times 2^n)$，其中 $n$ 是字符串 $s$ 的长度。对于每个字母，我们可以选择将其转换为大写或小写，因此一共有 $2^n$ 种转换方案。对于每种转换方案，我们需要 $O(n)$ 的时间生成一个新的字符串。
 
@@ -144,7 +144,7 @@ class Solution {
             for (int k = 0; k < s.length(); ++k) {
                 char x = s.charAt(k);
                 if (x >= 'A') {
-                    x = ((i >> j) & 1) == 1 ? Character.toUpperCase(x) : Character.toLowerCase(x);
+                    x = ((i >> j) & 1) == 1 ? Character.toLowerCase(x) : Character.toUpperCase(x);
                     ++j;
                 }
                 t.append(x);
@@ -192,7 +192,7 @@ public:
             string t;
             for (char c : s) {
                 if (isalpha(c)) {
-                    c = (i >> j & 1) ? toupper(c) : tolower(c);
+                    c = (i >> j & 1) ? tolower(c) : toupper(c);
                     ++j;
                 }
                 t += c;
@@ -241,9 +241,9 @@ func letterCasePermutation(s string) (ans []string) {
 		for _, c := range s {
 			if c >= 'A' {
 				if ((i >> j) & 1) == 1 {
-					c = unicode.ToUpper(c)
-				} else {
 					c = unicode.ToLower(c)
+				} else {
+					c = unicode.ToUpper(c)
 				}
 				j++
 			}

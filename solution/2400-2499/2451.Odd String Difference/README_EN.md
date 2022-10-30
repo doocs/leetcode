@@ -54,13 +54,83 @@ The odd array out is [1, 1], so we return the corresponding string, &quot;abc&qu
 ### **Python3**
 
 ```python
-
+class Solution:
+    def oddString(self, words: List[str]) -> str:
+        cnt = defaultdict(list)
+        for w in words:
+            d = [str(ord(b) - ord(a)) for a, b in pairwise(w)]
+            cnt[','.join(d)].append(w)
+        return next(v[0] for v in cnt.values() if len(v) == 1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String oddString(String[] words) {
+        Map<String, List<String>> cnt = new HashMap<>();
+        for (var w : words) {
+            List<String> d = new ArrayList<>();
+            for (int i = 0; i < w.length() - 1; ++i) {
+                d.add(String.valueOf(w.charAt(i + 1) - w.charAt(i)));
+            }
+            cnt.computeIfAbsent(String.join(",", d), k -> new ArrayList<>()).add(w);
+        }
+        for (var v : cnt.values()) {
+            if (v.size() == 1) {
+                return v.get(0);
+            }
+        }
+        return "";
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string oddString(vector<string>& words) {
+        unordered_map<string, vector<string>> cnt;
+        for (auto& w : words) {
+            string d;
+            for (int i = 0; i < w.size() - 1; ++i) {
+                d += (char) (w[i + 1] - w[i]);
+                d += ',';
+            }
+            cnt[d].emplace_back(w);
+        }
+        for (auto& [_, v] : cnt) {
+            if (v.size() == 1) {
+                return v[0];
+            }
+        }
+        return "";
+    }
+};
+```
+
+### **Go**
+
+```go
+func oddString(words []string) string {
+	cnt := map[string][]string{}
+	for _, w := range words {
+		d := make([]byte, len(w)-1)
+		for i := 0; i < len(w)-1; i++ {
+			d[i] = w[i+1] - w[i]
+		}
+		t := string(d)
+		cnt[t] = append(cnt[t], w)
+	}
+	for _, v := range cnt {
+		if len(v) == 1 {
+			return v[0]
+		}
+	}
+	return ""
+}
 ```
 
 ### **TypeScript**

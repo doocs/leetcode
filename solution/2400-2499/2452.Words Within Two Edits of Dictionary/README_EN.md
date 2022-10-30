@@ -50,13 +50,85 @@ Applying any two edits to &quot;yes&quot; cannot make it equal to &quot;not&quot
 ### **Python3**
 
 ```python
-
+class Solution:
+    def twoEditWords(self, queries: List[str], dictionary: List[str]) -> List[str]:
+        ans = []
+        for s in queries:
+            for t in dictionary:
+                if sum(a != b for a, b in zip(s, t)) < 3:
+                    ans.append(s)
+                    break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> twoEditWords(String[] queries, String[] dictionary) {
+        List<String> ans = new ArrayList<>();
+        int n = queries[0].length();
+        for (var s : queries) {
+            for (var t : dictionary) {
+                int cnt = 0;
+                for (int i = 0; i < n; ++i) {
+                    if (s.charAt(i) != t.charAt(i)) {
+                        ++cnt;
+                    }
+                }
+                if (cnt < 3) {
+                    ans.add(s);
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> twoEditWords(vector<string>& queries, vector<string>& dictionary) {
+        vector<string> ans;
+        for (auto& s : queries) {
+            for (auto& t : dictionary) {
+                int cnt = 0;
+                for (int i = 0; i < s.size(); ++i) cnt += s[i] != t[i];
+                if (cnt < 3) {
+                    ans.emplace_back(s);
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func twoEditWords(queries []string, dictionary []string) (ans []string) {
+	for _, s := range queries {
+		for _, t := range dictionary {
+			cnt := 0
+			for i := range s {
+				if s[i] != t[i] {
+					cnt++
+				}
+			}
+			if cnt < 3 {
+				ans = append(ans, s)
+				break
+			}
+		}
+	}
+	return
+}
 ```
 
 ### **TypeScript**

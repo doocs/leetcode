@@ -61,13 +61,113 @@ We return [-1,-1] since neither integer has any integer greater than it.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def secondGreaterElement(self, nums: List[int]) -> List[int]:
+        stk = []
+        q = []
+        ans = [-1] * len(nums)
+        for i, v in enumerate(nums):
+            while q and q[0][0] < v:
+                ans[q[0][1]] = v
+                heappop(q)
+            while stk and nums[stk[-1]] < v:
+                heappush(q, (nums[stk[-1]], stk.pop()))
+            stk.append(i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] secondGreaterElement(int[] nums) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        int n = nums.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            while (!q.isEmpty() && q.peek()[0] < v) {
+                ans[q.peek()[1]] = v;
+                q.poll();
+            }
+            while (!stk.isEmpty() && nums[stk.peek()] < v) {
+                q.offer(new int[] {nums[stk.peek()], stk.pop()});
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    vector<int> secondGreaterElement(vector<int>& nums) {
+        stack<int> stk;
+        priority_queue<pii, vector<pii>, greater<pii>> q;
+        int n = nums.size();
+        vector<int> ans(n, -1);
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            while (!q.empty() && q.top().first < v) {
+                ans[q.top().second] = v;
+                q.pop();
+            }
+            while (!stk.empty() && nums[stk.top()] < v) {
+                q.push({nums[stk.top()], stk.top()});
+                stk.pop();
+            }
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func secondGreaterElement(nums []int) []int {
+	stk := []int{}
+	q := hp{}
+	n := len(nums)
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = -1
+	}
+	for i, v := range nums {
+		for len(q) > 0 && q[0].v < v {
+			ans[q[0].i] = v
+			heap.Pop(&q)
+		}
+		for len(stk) > 0 && nums[stk[len(stk)-1]] < v {
+			heap.Push(&q, pair{nums[stk[len(stk)-1]], stk[len(stk)-1]})
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	return ans
+}
+
+type pair struct{ v, i int }
+
+type hp []pair
+
+func (h hp) Len() int { return len(h) }
+func (h hp) Less(i, j int) bool {
+	a, b := h[i], h[j]
+	return a.v < b.v
+}
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **TypeScript**
