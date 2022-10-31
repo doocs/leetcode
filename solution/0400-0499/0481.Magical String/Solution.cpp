@@ -1,16 +1,16 @@
 class Solution {
 public:
     int magicalString(int n) {
-        string s = "1221121";
-        int i = 5;
+        vector<int> s = {1, 2, 2};
+        int i = 2;
         while (s.size() < n) {
-            if (s[i] == '1') {
-                s += s.back() == '1' ? "2" : "1";
-            } else {
-                s += s.back() == '1' ? "22" : "11";
+            int pre = s.back();
+            int cur = 3 - pre;
+            for (int j = 0; j < s[i]; ++j) {
+                s.emplace_back(cur);
             }
             ++i;
         }
-        return count(s.begin(), s.begin() + n, '1');
+        return count(s.begin(), s.begin() + n, 1);
     }
 };

@@ -1,24 +1,18 @@
-func magicalString(n int) int {
-	s := []byte("1221121")
-	i := 5
+func magicalString(n int) (ans int) {
+	s := []int{1, 2, 2}
+	i := 2
 	for len(s) < n {
-		c := s[len(s)-1]
-		if s[i] == '1' {
-			if c == '1' {
-				s = append(s, '2')
-			} else {
-				s = append(s, '1')
-			}
-		} else {
-			if c == '1' {
-				s = append(s, '2')
-				s = append(s, '2')
-			} else {
-				s = append(s, '1')
-				s = append(s, '1')
-			}
+		pre := s[len(s)-1]
+		cur := 3 - pre
+		for j := 0; j < s[i]; j++ {
+			s = append(s, cur)
 		}
 		i++
 	}
-	return bytes.Count(s[:n], []byte("1"))
+	for j := 0; j < n; j++ {
+		if s[j] == 1 {
+			ans++
+		}
+	}
+	return
 }

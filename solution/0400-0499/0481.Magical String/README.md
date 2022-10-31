@@ -45,9 +45,37 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：模拟**
+**方法一：模拟构造过程**
 
-直接模拟字符串添加。
+根据题目，我们得知，字符串 $s$ 的每一组数字都可以由字符串 $s$ 自身的数字得到。
+
+字符串 $s$ 前两组数字为 $1$ 和 $22$，是由字符串 $s$ 的第一个数字 $1$ 和第二个数字 $2$ 得到的，并且第一组数字只包含 $1$，第二组数字只包含 $2$，第三组数字只包含 $1$，以此类推。
+
+由于前两组数字已知，我们初始化字符串 $s$ 为 $122$，然后从第三组开始构造，第三组数字是由字符串 $s$ 的第三个数字（下标 $i=2$）得到，因此我们此时将指针 $i$ 指向字符串 $s$ 的第三个数字 $2$。
+
+```
+1 2 2
+    ^
+    i
+```
+
+指向 $i$ 的数字为 $2$，表示第三组的数字会出现两次，并且，由于前一组数字为 $2$，组之间数字交替出现，因此第三组数字为两个 $1$，即 $11$。构造后，指针 $i$ 移动到下一个位置，即指向字符串 $s$ 的第四个数字 $1$。
+
+```
+1 2 2 1 1
+      ^
+      i
+```
+
+这时候指针 $i$ 指向的数字为 $1$，表示第四组的数字会出现一次，并且，由于前一组数字为 $1$，组之间数字交替出现，因此第四组数字为一个 $2$，即 $2$。构造后，指针 $i$ 移动到下一个位置，即指向字符串 $s$ 的第五个数字 $1$。
+
+```
+1 2 2 1 1 2
+        ^
+        i
+```
+
+我们按照这个规则，依次模拟构造过程，直到字符串 $s$ 的长度大于等于 $n$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
@@ -60,15 +88,15 @@
 ```python
 class Solution:
     def magicalString(self, n: int) -> int:
-        s = list('1221121')
-        i = 5
+        s = [1, 2, 2]
+        i = 2
         while len(s) < n:
-            if s[i] == '1':
-                s.append('2' if s[-1] == '1' else '1')
-            else:
-                s.extend(list('22' if s[-1] == '1' else '11'))
+            pre = s[-1]
+            cur = 3 - pre
+            # cur 表示这一组的数字，s[i] 表示这一组数字出现的次数
+            s += [cur] * s[i]
             i += 1
-        return s[:n].count('1')
+        return s[:n].count(1)
 ```
 
 ### **Java**
@@ -78,20 +106,19 @@ class Solution:
 ```java
 class Solution {
     public int magicalString(int n) {
-        StringBuilder s = new StringBuilder("1221121");
-        int i = 5;
-        while (s.length() < n) {
-            char c = s.charAt(s.length() - 1);
-            if (s.charAt(i) == '1') {
-                s.append(c == '1' ? '2' : '1');
-            } else {
-                s.append(c == '1' ? "22" : "11");
+        List<Integer> s = new ArrayList<>(Arrays.asList(1, 2, 2));
+        int i = 2;
+        while (s.size() < n) {
+            int pre = s.get(s.size() - 1);
+            int cur = 3 - pre;
+            for (int j = 0; j < s.get(i); ++j) {
+                s.add(cur);
             }
             ++i;
         }
         int ans = 0;
-        for (i = 0; i < n; ++i) {
-            if (s.charAt(i) == '1') {
+        for (int j = 0; j < n; ++j) {
+            if (s.get(j) == 1) {
                 ++ans;
             }
         }
@@ -106,17 +133,17 @@ class Solution {
 class Solution {
 public:
     int magicalString(int n) {
-        string s = "1221121";
-        int i = 5;
+        vector<int> s = {1, 2, 2};
+        int i = 2;
         while (s.size() < n) {
-            if (s[i] == '1') {
-                s += s.back() == '1' ? "2" : "1";
-            } else {
-                s += s.back() == '1' ? "22" : "11";
+            int pre = s.back();
+            int cur = 3 - pre;
+            for (int j = 0; j < s[i]; ++j) {
+                s.emplace_back(cur);
             }
             ++i;
         }
-        return count(s.begin(), s.begin() + n, '1');
+        return count(s.begin(), s.begin() + n, 1);
     }
 };
 ```
@@ -124,29 +151,23 @@ public:
 ### **Go**
 
 ```go
-func magicalString(n int) int {
-	s := []byte("1221121")
-	i := 5
+func magicalString(n int) (ans int) {
+	s := []int{1, 2, 2}
+	i := 2
 	for len(s) < n {
-		c := s[len(s)-1]
-		if s[i] == '1' {
-			if c == '1' {
-				s = append(s, '2')
-			} else {
-				s = append(s, '1')
-			}
-		} else {
-			if c == '1' {
-				s = append(s, '2')
-				s = append(s, '2')
-			} else {
-				s = append(s, '1')
-				s = append(s, '1')
-			}
+		pre := s[len(s)-1]
+		cur := 3 - pre
+		for j := 0; j < s[i]; j++ {
+			s = append(s, cur)
 		}
 		i++
 	}
-	return bytes.Count(s[:n], []byte("1"))
+	for j := 0; j < n; j++ {
+		if s[j] == 1 {
+			ans++
+		}
+	}
+	return
 }
 ```
 

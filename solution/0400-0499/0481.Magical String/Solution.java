@@ -1,27 +1,18 @@
 class Solution {
     public int magicalString(int n) {
-        StringBuilder s = new StringBuilder("1221121");
-        int i = 5;
-        while (s.length() < n) {
-            char c = s.charAt(s.length() - 1);
-            if (s.charAt(i) == '1') {
-                if (c == '1') {
-                    s.append('2');
-                } else {
-                    s.append('1');
-                }
-            } else {
-                if (c == '1') {
-                    s.append("22");
-                } else {
-                    s.append("11");
-                }
+        List<Integer> s = new ArrayList<>(Arrays.asList(1, 2, 2));
+        int i = 2;
+        while (s.size() < n) {
+            int pre = s.get(s.size() - 1);
+            int cur = 3 - pre;
+            for (int j = 0; j < s.get(i); ++j) {
+                s.add(cur);
             }
             ++i;
         }
         int ans = 0;
-        for (i = 0; i < n; ++i) {
-            if (s.charAt(i) == '1') {
+        for (int j = 0; j < n; ++j) {
+            if (s.get(j) == 1) {
                 ++ans;
             }
         }

@@ -46,15 +46,14 @@
 ```python
 class Solution:
     def magicalString(self, n: int) -> int:
-        s = list('1221121')
-        i = 5
+        s = [1, 2, 2]
+        i = 2
         while len(s) < n:
-            if s[i] == '1':
-                s.append('2' if s[-1] == '1' else '1')
-            else:
-                s.extend(list('22' if s[-1] == '1' else '11'))
+            pre = s[-1]
+            cur = 3 - pre
+            s += [cur] * s[i]
             i += 1
-        return s[:n].count('1')
+        return s[:n].count(1)
 ```
 
 ### **Java**
@@ -62,20 +61,19 @@ class Solution:
 ```java
 class Solution {
     public int magicalString(int n) {
-        StringBuilder s = new StringBuilder("1221121");
-        int i = 5;
-        while (s.length() < n) {
-            char c = s.charAt(s.length() - 1);
-            if (s.charAt(i) == '1') {
-                s.append(c == '1' ? '2' : '1');
-            } else {
-                s.append(c == '1' ? "22" : "11");
+        List<Integer> s = new ArrayList<>(Arrays.asList(1, 2, 2));
+        int i = 2;
+        while (s.size() < n) {
+            int pre = s.get(s.size() - 1);
+            int cur = 3 - pre;
+            for (int j = 0; j < s.get(i); ++j) {
+                s.add(cur);
             }
             ++i;
         }
         int ans = 0;
-        for (i = 0; i < n; ++i) {
-            if (s.charAt(i) == '1') {
+        for (int j = 0; j < n; ++j) {
+            if (s.get(j) == 1) {
                 ++ans;
             }
         }
@@ -90,17 +88,17 @@ class Solution {
 class Solution {
 public:
     int magicalString(int n) {
-        string s = "1221121";
-        int i = 5;
+        vector<int> s = {1, 2, 2};
+        int i = 2;
         while (s.size() < n) {
-            if (s[i] == '1') {
-                s += s.back() == '1' ? "2" : "1";
-            } else {
-                s += s.back() == '1' ? "22" : "11";
+            int pre = s.back();
+            int cur = 3 - pre;
+            for (int j = 0; j < s[i]; ++j) {
+                s.emplace_back(cur);
             }
             ++i;
         }
-        return count(s.begin(), s.begin() + n, '1');
+        return count(s.begin(), s.begin() + n, 1);
     }
 };
 ```
@@ -108,29 +106,23 @@ public:
 ### **Go**
 
 ```go
-func magicalString(n int) int {
-	s := []byte("1221121")
-	i := 5
+func magicalString(n int) (ans int) {
+	s := []int{1, 2, 2}
+	i := 2
 	for len(s) < n {
-		c := s[len(s)-1]
-		if s[i] == '1' {
-			if c == '1' {
-				s = append(s, '2')
-			} else {
-				s = append(s, '1')
-			}
-		} else {
-			if c == '1' {
-				s = append(s, '2')
-				s = append(s, '2')
-			} else {
-				s = append(s, '1')
-				s = append(s, '1')
-			}
+		pre := s[len(s)-1]
+		cur := 3 - pre
+		for j := 0; j < s[i]; j++ {
+			s = append(s, cur)
 		}
 		i++
 	}
-	return bytes.Count(s[:n], []byte("1"))
+	for j := 0; j < n; j++ {
+		if s[j] == 1 {
+			ans++
+		}
+	}
+	return
 }
 ```
 

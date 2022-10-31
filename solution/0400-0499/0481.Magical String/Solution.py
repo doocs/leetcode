@@ -1,11 +1,10 @@
 class Solution:
     def magicalString(self, n: int) -> int:
-        s = list('1221121')
-        i = 5
+        s = [1, 2, 2]
+        i = 2
         while len(s) < n:
-            if s[i] == '1':
-                s.append('2' if s[-1] == '1' else '1')
-            else:
-                s.extend(list('22' if s[-1] == '1' else '11'))
+            pre = s[-1]
+            cur = 3 - pre
+            s += [cur] * s[i]
             i += 1
-        return s[:n].count('1')
+        return s[:n].count(1)
