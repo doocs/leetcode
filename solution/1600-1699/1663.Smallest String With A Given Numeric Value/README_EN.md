@@ -43,13 +43,74 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getSmallestString(self, n: int, k: int) -> str:
+        ans = ['a'] * n
+        i, d = n - 1, k - n
+        while d > 25:
+            ans[i] = 'z'
+            d -= 25
+            i -= 1
+        ans[i] = chr(ord(ans[i]) + d)
+        return ''.join(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String getSmallestString(int n, int k) {
+        char[] ans = new char[n];
+        Arrays.fill(ans, 'a');
+        int i = n - 1;
+        int d = k - n;
+        while (d > 25) {
+            ans[i--] = 'z';
+            d -= 25;
+        }
+        ans[i] = (char) ('a' + d);
+        return String.valueOf(ans);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string getSmallestString(int n, int k) {
+        string ans(n, 'a');
+        int i = n - 1;
+        int d = k - n;
+        while (d > 25) {
+            ans[i--] += 25;
+            d -= 25;
+        }
+        ans[i] += d;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getSmallestString(n int, k int) string {
+	ans := make([]byte, n)
+	for i := range ans {
+		ans[i] = 'a'
+	}
+	i := n - 1
+	d := k - n
+	for d > 25 {
+		ans[i] = 'z'
+		i--
+		d -= 25
+	}
+	ans[i] += byte(d)
+	return string(ans)
+}
 ```
 
 ### **...**

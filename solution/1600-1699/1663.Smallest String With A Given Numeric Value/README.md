@@ -48,6 +48,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们先将字符串的每个字符都初始化为 `'a'`，此时剩余的数值为 $k-n$。从后往前遍历字符串，每次贪心将当前位置的字符替换为能够使得剩余的数字最小的字符，直到剩余的数字不超过 $25$。最后将剩余的数字加到我们遍历到的位置上即可。
+
+时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为字符串的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +61,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getSmallestString(self, n: int, k: int) -> str:
+        ans = ['a'] * n
+        i, d = n - 1, k - n
+        while d > 25:
+            ans[i] = 'z'
+            d -= 25
+            i -= 1
+        ans[i] = chr(ord(ans[i]) + d)
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -63,7 +78,59 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String getSmallestString(int n, int k) {
+        char[] ans = new char[n];
+        Arrays.fill(ans, 'a');
+        int i = n - 1;
+        int d = k - n;
+        while (d > 25) {
+            ans[i--] = 'z';
+            d -= 25;
+        }
+        ans[i] = (char) ('a' + d);
+        return String.valueOf(ans);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string getSmallestString(int n, int k) {
+        string ans(n, 'a');
+        int i = n - 1;
+        int d = k - n;
+        while (d > 25) {
+            ans[i--] += 25;
+            d -= 25;
+        }
+        ans[i] += d;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getSmallestString(n int, k int) string {
+	ans := make([]byte, n)
+	for i := range ans {
+		ans[i] = 'a'
+	}
+	i := n - 1
+	d := k - n
+	for d > 25 {
+		ans[i] = 'z'
+		i--
+		d -= 25
+	}
+	ans[i] += byte(d)
+	return string(ans)
+}
 ```
 
 ### **...**
