@@ -53,6 +53,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学**
+
+设返回结果初始值 $ans = 0$，每次循环对于给定的数 $x$，若 $x \ne 0$，求出个位数字 $digit = x \ \% \ 10$，根据题意当 $ans \times 10 + digit > INT32\\_MAX$ 或者 $ans \times 10 + digit < INT32\\_MIN$ 时返回 $0$，否则我们令 $ans = ans \times 10 + digit$，然后结束本次循环，同时更新 $x = x/10$。
+
+但题目要求不允许存储 64 位整数，故其中的判断条件需要修改为当 $ans > (INT32\\_MAX-digit)/10$ 或者 $ans < (INT32\\_MIN-digit)/10$ 时返回 $0$。
+
+更进一步来看，在 $x > 0$ 时，若 $x$ 的位数小于 $INT32\\_MAX$ 的位数则一定可以反转数字；若 $x$ 的位数等于 $INT32\\_MAX$ 的位数，能否反转则取决于 $x$ 的最高位数字 $digit$，而 $x \leq INT32\\_MAX$，故最高位数字 $digit \leq 2 < INT32\\_MAX \\% 10$，所以判断条件可以简化为 $ans > INT32\\_MAX/10$。同理，当 $x < 0$ 时，判断条件可以简化为 $ans < INT32\\_MIN/10$。
+
+时间复杂度 $O(log|x|)$，空间复杂度 $O(1)$，其中 $log|x|$ 表示有符号整数 $x$ 的位数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -93,12 +103,13 @@ class Solution {
 class Solution {
 public:
     int reverse(int x) {
-        long long ans = 0;
-        while (x) {
+        int ans = 0;
+        for (; x != 0; x /= 10) {
+            if (ans > INT32_MAX / 10 || ans < INT32_MIN / 10)
+                return 0;
             ans = ans * 10 + x % 10;
-            x /= 10;
         }
-        return ans < INT_MIN || ans > INT_MAX ? 0 : ans;
+        return ans;
     }
 };
 ```
@@ -161,27 +172,14 @@ impl Solution {
 
 ```go
 func reverse(x int) int {
-	slot := make([]int, 11)
-	count := 0
-	for x != 0 {
-		n := x % 10
-		slot[count] = n
-		count++
-		x /= 10
-	}
-	result := 0
-	flag := true
-	for i := 0; i < count; i++ {
-		if flag && slot[i] == 0 {
-			continue
+	ans, INT32_MAX, INT32_MIN := 0, math.MaxInt32, math.MinInt32
+	for ; x != 0; x /= 10 {
+		if ans > INT32_MAX/10 || ans < INT32_MIN/10 {
+			return 0
 		}
-		flag = false
-		result = 10*result + slot[i]
+		ans = ans*10 + x % 10
 	}
-	if result > math.MaxInt32 || result < math.MinInt32 {
-		return 0
-	}
-	return result
+	return ans
 }
 ```
 
