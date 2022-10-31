@@ -64,6 +64,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：预处理 + 枚举**
+
+我们先预处理得到数组 `nums` 的奇数下标元素之和 $x$ 以及偶数下标元素之和 $y$。
+
+然后从前往后枚举数组 `nums` 的每个元素 $v$，用变量 $a$ 和 $b$ 分别记录已遍历的奇数下标元素之和以及偶数下标元素之和。
+
+我们观察发现，对于当前遍历到的元素 $v$，如果删除了，那么该元素之后的奇偶下标元素之和会发生交换。此时，我们先判断该位置下标 $i$ 是奇数还是偶数。
+
+如果是奇数下标，删除该元素后，数组的偶数下标元素之和为 $x-v-a+b$，而奇数下标元素之和为 $y-b+a$，如果这两个和相等，那么就是一个平衡数组，答案加一。
+
+如果是偶数下标，删除该元素后，数组的奇数下标元素之和为 $y-v-b+a$，而偶数下标元素之和为 $x-a+b$，如果这两个和相等，那么就是一个平衡数组，答案加一。
+
+然后我们更新 $a$ 和 $b$，继续遍历下一个元素。
+
+遍历完数组后，即可得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +89,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def waysToMakeFair(self, nums: List[int]) -> int:
+        x, y = sum(nums[1::2]), sum(nums[::2])
+        ans = 0
+        a = b = 0
+        for i, v in enumerate(nums):
+            if (i & 1) and x - v - a + b == y - b + a:
+                ans += 1
+            elif (i & 1) == 0 and y - v - b + a == x - a + b:
+                ans += 1
+            if i & 1:
+                a += v
+            else:
+                b += v
+        return ans
 ```
 
 ### **Java**
@@ -79,7 +111,95 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int waysToMakeFair(int[] nums) {
+        int n = nums.length;
+        int x = 0, y = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i % 2 == 1) {
+                x += nums[i];
+            } else {
+                y += nums[i];
+            }
+        }
+        int ans = 0;
+        int a = 0, b = 0;
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            if (i % 2 == 1 && x - v - a + b == y - b + a) {
+                ++ans;
+            } else if (i % 2 == 0 && y - v - b + a == x - a + b) {
+                ++ans;
+            }
+            if (i % 2 == 1) {
+                a += v;
+            } else {
+                b += v;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int waysToMakeFair(vector<int>& nums) {
+        int n = nums.size();
+        int x = 0, y = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i & 1)
+                x += nums[i];
+            else
+                y += nums[i];
+        }
+        int ans = 0;
+        int a = 0, b = 0;
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            if (i % 2 == 1 && x - v - a + b == y - b + a) ++ans;
+            if (i % 2 == 0 && y - v - b + a == x - a + b) ++ans;
+            if (i % 2 == 1)
+                a += v;
+            else
+                b += v;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func waysToMakeFair(nums []int) (ans int) {
+	x, y := 0, 0
+	for i, v := range nums {
+		if i%2 == 1 {
+			x += v
+		} else {
+			y += v
+		}
+	}
+	a, b := 0, 0
+	for i, v := range nums {
+		if i%2 == 1 && x-v-a+b == y-b+a {
+			ans++
+		}
+		if i%2 == 0 && y-v-b+a == x-a+b {
+			ans++
+		}
+		if i%2 == 1 {
+			a += v
+		} else {
+			b += v
+		}
+	}
+	return
+}
 ```
 
 ### **...**

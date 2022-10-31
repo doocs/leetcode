@@ -63,13 +63,115 @@ There is 1 index that you can remove to make nums fair.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def waysToMakeFair(self, nums: List[int]) -> int:
+        x, y = sum(nums[1::2]), sum(nums[::2])
+        ans = 0
+        a = b = 0
+        for i, v in enumerate(nums):
+            if (i & 1) and x - v - a + b == y - b + a:
+                ans += 1
+            elif (i & 1) == 0 and y - v - b + a == x - a + b:
+                ans += 1
+            if i & 1:
+                a += v
+            else:
+                b += v
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int waysToMakeFair(int[] nums) {
+        int n = nums.length;
+        int x = 0, y = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i % 2 == 1) {
+                x += nums[i];
+            } else {
+                y += nums[i];
+            }
+        }
+        int ans = 0;
+        int a = 0, b = 0;
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            if (i % 2 == 1 && x - v - a + b == y - b + a) {
+                ++ans;
+            } else if (i % 2 == 0 && y - v - b + a == x - a + b) {
+                ++ans;
+            }
+            if (i % 2 == 1) {
+                a += v;
+            } else {
+                b += v;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int waysToMakeFair(vector<int>& nums) {
+        int n = nums.size();
+        int x = 0, y = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i & 1)
+                x += nums[i];
+            else
+                y += nums[i];
+        }
+        int ans = 0;
+        int a = 0, b = 0;
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            if (i % 2 == 1 && x - v - a + b == y - b + a) ++ans;
+            if (i % 2 == 0 && y - v - b + a == x - a + b) ++ans;
+            if (i % 2 == 1)
+                a += v;
+            else
+                b += v;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func waysToMakeFair(nums []int) (ans int) {
+	x, y := 0, 0
+	for i, v := range nums {
+		if i%2 == 1 {
+			x += v
+		} else {
+			y += v
+		}
+	}
+	a, b := 0, 0
+	for i, v := range nums {
+		if i%2 == 1 && x-v-a+b == y-b+a {
+			ans++
+		}
+		if i%2 == 0 && y-v-b+a == x-a+b {
+			ans++
+		}
+		if i%2 == 1 {
+			a += v
+		} else {
+			b += v
+		}
+	}
+	return
+}
 ```
 
 ### **...**
