@@ -103,10 +103,66 @@ func averageValue(nums []int) int {
 }
 ```
 
+### **C**
+
+```c
+int averageValue(int *nums, int numsSize) {
+    int sum = 0;
+    int n = 0;
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] % 6 == 0) {
+            sum += nums[i];
+            n++;
+        }
+    }
+
+    if (n == 0) {
+        return 0;
+    }
+    return sum / n;
+}
+```
+
 ### **TypeScript**
 
 ```ts
+function averageValue(nums: number[]): number {
+    let sum = 0;
+    let n = 0;
+    for (const num of nums) {
+        if (num % 6 === 0) {
+            sum += num;
+            n++;
+        }
+    }
 
+    if (n === 0) {
+        return 0;
+    }
+    return Math.floor(sum / n);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn average_value(nums: Vec<i32>) -> i32 {
+        let mut sum = 0;
+        let mut n = 0;
+        for num in nums.iter() {
+            if num % 6 == 0 {
+                sum += num;
+                n += 1;
+            }
+        }
+
+        if n == 0 {
+            return 0;
+        }
+        sum / n
+    }
+}
 ```
 
 ### **...**
