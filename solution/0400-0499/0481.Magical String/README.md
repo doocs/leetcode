@@ -59,7 +59,7 @@
     i
 ```
 
-指向 $i$ 的数字为 $2$，表示第三组的数字会出现两次，并且，由于前一组数字为 $2$，组之间数字交替出现，因此第三组数字为两个 $1$，即 $11$。构造后，指针 $i$ 移动到下一个位置，即指向字符串 $s$ 的第四个数字 $1$。
+指针 $i$ 指向的数字为 $2$，表示第三组的数字会出现两次，并且，由于前一组数字为 $2$，组之间数字交替出现，因此第三组数字为两个 $1$，即 $11$。构造后，指针 $i$ 移动到下一个位置，即指向字符串 $s$ 的第四个数字 $1$。
 
 ```
 1 2 2 1 1
@@ -107,18 +107,16 @@ class Solution:
 class Solution {
     public int magicalString(int n) {
         List<Integer> s = new ArrayList<>(Arrays.asList(1, 2, 2));
-        int i = 2;
-        while (s.size() < n) {
+        for (int i = 2; s.size() < n; ++i) {
             int pre = s.get(s.size() - 1);
             int cur = 3 - pre;
             for (int j = 0; j < s.get(i); ++j) {
                 s.add(cur);
             }
-            ++i;
         }
         int ans = 0;
-        for (int j = 0; j < n; ++j) {
-            if (s.get(j) == 1) {
+        for (int i = 0; i < n; ++i) {
+            if (s.get(i) == 1) {
                 ++ans;
             }
         }
@@ -134,14 +132,12 @@ class Solution {
 public:
     int magicalString(int n) {
         vector<int> s = {1, 2, 2};
-        int i = 2;
-        while (s.size() < n) {
+        for (int i = 2; s.size() < n; ++i) {
             int pre = s.back();
             int cur = 3 - pre;
             for (int j = 0; j < s[i]; ++j) {
                 s.emplace_back(cur);
             }
-            ++i;
         }
         return count(s.begin(), s.begin() + n, 1);
     }
@@ -153,17 +149,15 @@ public:
 ```go
 func magicalString(n int) (ans int) {
 	s := []int{1, 2, 2}
-	i := 2
-	for len(s) < n {
+	for i := 2; len(s) < n; i++ {
 		pre := s[len(s)-1]
 		cur := 3 - pre
 		for j := 0; j < s[i]; j++ {
 			s = append(s, cur)
 		}
-		i++
 	}
-	for j := 0; j < n; j++ {
-		if s[j] == 1 {
+	for _, c := range s[:n] {
+		if c == 1 {
 			ans++
 		}
 	}
