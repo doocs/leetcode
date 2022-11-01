@@ -83,7 +83,7 @@ class Solution {
 }
 ```
 
-### **C+++**
+### **C++**
 
 ```cpp
 class Solution {
