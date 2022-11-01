@@ -54,7 +54,9 @@
 
 ## 解法
 
-动态规划法，`dp[i][j]` 表示 s 的前 i 项和 p 的前 j 项是否匹配。
+**方法一：动态规划**
+
+定义 `dp[i][j]` 表示 s 的前 i 项和 p 的前 j 项是否匹配。
 
 现在如果已知了 `dp[i-1][j-1]` 的状态，我们该如何确定 `dp[i][j]` 的状态呢？我们可以分三种情况讨论，其中，前两种情况考虑了所有能匹配的情况，剩下的就是不能匹配的情况了：
 
@@ -63,6 +65,14 @@
     - `p[j-1] != s[i]`：如果 `*` 前一个字符匹配不上，`*` 匹配了 0 次，应忽略这两个字符，看 `p[j-2]` 和 `s[i]` 是否匹配。 这时 `dp[i][j] = dp[i][j-2]`。
     - `p[j-1] == s[i]` or `p[j-1] == '.'`：`*` 前面的字符可以与 s[i] 匹配，这种情况下，`*` 可能匹配了前面的字符的 0 个，也可能匹配了前面字符的多个，当匹配 0 个时，如 `ab` 和 `abb*`，或者 `ab` 和 `ab.*` ，这时我们需要去掉 p 中的 `b*` 或 `.*` 后进行比较，即 `dp[i][j] = dp[i][j-2]`；当匹配多个时，如 `abbb` 和 `ab*`，或者 `abbb` 和 `a.*`，我们需要将 s[i] 前面的与 p 重新比较，即 `dp[i][j] = dp[i-1][j]`。
 3. 其他情况：以上两种情况把能匹配的都考虑全面了，所以其他情况为不匹配，即 `dp[i][j] = False`。
+
+设 s 的长度为 m，p 的长度为 n，则时间复杂度为 $O(m \times n)$，空间复杂度为 $O(m \times n)$。
+
+**方法二：递归**
+
+方法一的递归形式实现，相比于方法一，代码更容易理解。
+
+设 s 的长度为 m，p 的长度为 n，则时间复杂度为 $O(m \times n)$，由于是尾递归，故空间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -160,6 +170,8 @@ public:
 
 ### **Go**
 
+动态规划非递归实现：
+
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -190,6 +202,34 @@ func isMatch(s string, p string) bool {
 		}
 	}
 	return dp[m][n]
+}
+```
+
+动态规划递归实现：
+
+```go
+func isMatch(s string, p string) bool {
+	var dp func(x, y int) bool
+	dp = func(x, y int) bool {
+		if y == len(p) {
+			return x == len(s)
+		}
+
+		// 匹配
+		if x < len(s) && (s[x] == p[y] || p[y] == '.') {
+			// 下一个为 '*'
+			if y+1 < len(p) && p[y+1] == '*' {
+				return dp(x, y+2) || dp(x+1, y)
+			}
+			return dp(x+1, y+1)
+		}
+		// 不匹配但下一个元素为 '*'
+		if y+1 < len(p) && p[y+1] == '*' {
+			return dp(x, y+2)
+		}
+		return false
+	}
+	return dp(0, 0)
 }
 ```
 
