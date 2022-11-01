@@ -1,30 +1,23 @@
 func isMatch(s string, p string) bool {
-	m, n := len(s), len(p)
-	if n == 0 {
-		return m == 0
-	}
-	dp := make([][]bool, m+1)
-	for i := 0; i < m+1; i++ {
-		dp[i] = make([]bool, n+1)
-	}
-	dp[0][0] = true
-	for j := 1; j < n+1; j++ {
-		if p[j-1] == '*' {
-			dp[0][j] = dp[0][j-2]
+	var dp func(x, y int) bool
+	dp = func(x, y int) bool {
+		if y == len(p) {
+			return x == len(s)
 		}
-	}
-	for i := 1; i < m+1; i++ {
-		for j := 1; j < n+1; j++ {
-			if s[i-1] == p[j-1] || p[j-1] == '.' {
-				dp[i][j] = dp[i-1][j-1]
-			} else if p[j-1] == '*' {
-				if s[i-1] == p[j-2] || p[j-2] == '.' {
-					dp[i][j] = dp[i][j-2] || dp[i-1][j]
-				} else {
-					dp[i][j] = dp[i][j-2]
-				}
+
+		// 匹配
+		if x < len(s) && (s[x] == p[y] || p[y] == '.') {
+			// 下一个为 '*'
+			if y+1 < len(p) && p[y+1] == '*' {
+				return dp(x, y+2) || dp(x+1, y)
 			}
+			return dp(x+1, y+1)
 		}
+		// 不匹配但下一个元素为 '*'
+		if y+1 < len(p) && p[y+1] == '*' {
+			return dp(x, y+2)
+		}
+		return false
 	}
-	return dp[m][n]
+	return dp(0, 0)
 }
