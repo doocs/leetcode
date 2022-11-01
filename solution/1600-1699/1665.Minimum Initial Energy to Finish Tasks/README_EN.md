@@ -73,13 +73,71 @@ Starting with 27 energy, we finish the tasks in the following order:
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumEffort(self, tasks: List[List[int]]) -> int:
+        ans = t = 0
+        for a, m in sorted(tasks, key=lambda x: x[0] - x[1]):
+            if t < m:
+                ans += m - t
+                t = m
+            t -= a
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumEffort(int[][] tasks) {
+        Arrays.sort(tasks, (a, b) -> a[0] - b[0] - a[1] + b[1]);
+        int ans = 0, t = 0;
+        for (var e : tasks) {
+            if (t < e[1]) {
+                ans += e[1] - t;
+                t = e[1];
+            }
+            t -= e[0];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumEffort(vector<vector<int>>& tasks) {
+        sort(tasks.begin(), tasks.end(), [&](auto& a, auto& b) -> bool { return a[0] - a[1] < b[0] - b[1]; });
+        int ans = 0, t = 0;
+        for (auto& e : tasks) {
+            if (t < e[1]) {
+                ans += e[1] - t;
+                t = e[1];
+            }
+            t -= e[0];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumEffort(tasks [][]int) int {
+	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0]-tasks[i][1] < tasks[j][0]-tasks[j][1] })
+	var ans, t int
+	for _, e := range tasks {
+		if t < e[1] {
+			ans += e[1] - t
+			t = e[1]
+		}
+		t -= e[0]
+	}
+	return ans
+}
 ```
 
 ### **...**

@@ -71,6 +71,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 自定义排序**
+
+我们假设任务数为 $n$，初始能量值为 $E$，考虑完成最后一个任务，这需要我们完成前 $n-1$ 个任务后，剩余的能量值不小于完成最后一个任务需要达到的能量值 $m_n$，即：
+
+$$
+E-\sum_{i=1}^{n-1} a_i \geq m_n
+$$
+
+我们可以将 $m_n$ 表示成 $a_n+(m_n - a_n)$，然后将上面的式子变形，得到：
+
+$$
+E-\sum_{i=1}^{n-1} a_i \geq a_n+(m_n - a_n)
+$$
+
+整理可得：
+
+$$
+E \geq \sum_{i=1}^{n} a_i + (m_n - a_n)
+$$
+
+其中 $\sum_{i=1}^{n} a_i$ 是固定不变的，要使得初始值能量值 $E$ 最小，我们需要让 $m_n - a_n$ 最小，即 $a_n-m_n$ 最大。因此，我们可以将任务按照 $a_n-m_n$ 从小到大排序，然后依次完成任务，算出所需要的初始能量值。
+
+时间复杂度 $O(n\times \log n)$。其中 $n$ 为任务数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -78,7 +102,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumEffort(self, tasks: List[List[int]]) -> int:
+        ans = t = 0
+        for a, m in sorted(tasks, key=lambda x: x[0] - x[1]):
+            if t < m:
+                ans += m - t
+                t = m
+            t -= a
+        return ans
 ```
 
 ### **Java**
@@ -86,7 +118,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumEffort(int[][] tasks) {
+        Arrays.sort(tasks, (a, b) -> a[0] - b[0] - a[1] + b[1]);
+        int ans = 0, t = 0;
+        for (var e : tasks) {
+            if (t < e[1]) {
+                ans += e[1] - t;
+                t = e[1];
+            }
+            t -= e[0];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumEffort(vector<vector<int>>& tasks) {
+        sort(tasks.begin(), tasks.end(), [&](auto& a, auto& b) -> bool { return a[0] - a[1] < b[0] - b[1]; });
+        int ans = 0, t = 0;
+        for (auto& e : tasks) {
+            if (t < e[1]) {
+                ans += e[1] - t;
+                t = e[1];
+            }
+            t -= e[0];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumEffort(tasks [][]int) int {
+	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0]-tasks[i][1] < tasks[j][0]-tasks[j][1] })
+	var ans, t int
+	for _, e := range tasks {
+		if t < e[1] {
+			ans += e[1] - t
+			t = e[1]
+		}
+		t -= e[0]
+	}
+	return ans
+}
 ```
 
 ### **...**
