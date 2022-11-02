@@ -18,7 +18,7 @@
 <p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,3,5,2,7,5], minK = 1, maxK = 5
@@ -26,7 +26,7 @@
 <strong>Explanation:</strong> The fixed-bound subarrays are [1,3,5] and [1,3,5,2].
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,1,1,1], minK = 1, maxK = 1

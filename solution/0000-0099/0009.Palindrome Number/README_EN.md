@@ -4,13 +4,7 @@
 
 ## Description
 
-<p>Given an integer <code>x</code>, return <code>true</code> if <code>x</code> is palindrome integer.</p>
-
-<p>An integer is a <strong>palindrome</strong> when it reads the same backward as forward.</p>
-
-<ul>
-	<li>For example, <code>121</code> is a palindrome while <code>123</code> is not.</li>
-</ul>
+<p>Given an integer <code>x</code>, return <code>true</code><em> if </em><code>x</code><em> is a </em><span data-keyword="palindrome-integer"><em><strong>palindrome</strong></em></span><em>, and </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

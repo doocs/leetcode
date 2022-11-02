@@ -6,7 +6,7 @@
 
 <p>Given a string <code>s</code> consisting of words and spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
 
-<p>A <strong>word</strong> is a maximal substring consisting of non-space characters only.</p>
+<p>A <strong>word</strong> is a maximal <span data-keyword="substring-nonempty">substring</span> consisting of non-space characters only.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -36,7 +36,7 @@ The orders could be of type 0 or type 1.
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>Input:</strong>
 Orders table:
 +----------+-------------+------------+
 | order_id | customer_id | order_type |
@@ -50,7 +50,7 @@ Orders table:
 | 31       | 4           | 1          |
 | 32       | 4           | 1          |
 +----------+-------------+------------+
-<strong>Output:</strong> 
+<strong>Output:</strong>
 +----------+-------------+------------+
 | order_id | customer_id | order_type |
 +----------+-------------+------------+
@@ -61,11 +61,12 @@ Orders table:
 | 11       | 2           | 0          |
 | 22       | 3           | 0          |
 +----------+-------------+------------+
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Customer 1 has two orders of type 0. We return both of them.
 Customer 2 has one order of type 0 and one order of type 1. We only return the order of type 0.
 Customer 3 has one order of type 0 and one order of type 1. We only return the order of type 0.
 Customer 4 has two orders of type 1. We return both of them.
+
 </pre>
 
 ## Solutions

@@ -4,9 +4,7 @@
 
 ## Description
 
-<p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return <em>its sum</em>.</p>
-
-<p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
+<p>Given an integer array <code>nums</code>, find the <span data-keyword="subarray-nonempty">subarray</span> which has the largest sum and return <em>its sum</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

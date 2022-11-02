@@ -1089,7 +1089,7 @@
 |  1076  |  [项目员工II](/solution/1000-1099/1076.Project%20Employees%20II/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  1077  |  [项目员工 III](/solution/1000-1099/1077.Project%20Employees%20III/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  1078  |  [Bigram 分词](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md)  |  `字符串`  |  简单  |  第 140 场周赛  |
-|  1079  |  [活字印刷](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)  |  `字符串`,`回溯`  |  中等  |  第 140 场周赛  |
+|  1079  |  [活字印刷](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)  |  `哈希表`,`字符串`,`回溯`,`计数`  |  中等  |  第 140 场周赛  |
 |  1080  |  [根到叶路径上的不足节点](/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |  第 140 场周赛  |
 |  1081  |  [不同字符的最小子序列](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README.md)  |  `栈`,`贪心`,`字符串`,`单调栈`  |  中等  |  第 140 场周赛  |
 |  1082  |  [销售分析 I ](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)  |  `数据库`  |  简单  |  🔒  |
@@ -2096,7 +2096,7 @@
 |  2083  |  [求以相同字母开头和结尾的子串总数](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README.md)  |  `哈希表`,`数学`,`字符串`,`计数`,`前缀和`  |  中等  |  🔒  |
 |  2084  |  [为订单类型为 0 的客户删除类型为 1 的订单](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2085  |  [统计出现过一次的公共字符串](/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README.md)  |  `数组`,`哈希表`,`字符串`,`计数`  |  简单  |  第 66 场双周赛  |
-|  2086  |  [从房屋收集雨水需要的最少水桶数](/solution/2000-2099/2086.Minimum%20Number%20of%20Buckets%20Required%20to%20Collect%20Rainwater%20from%20Houses/README.md)  |  `贪心`,`字符串`,`动态规划`  |  中等  |  第 66 场双周赛  |
+|  2086  |  [从房屋收集雨水需要的最少水桶数](/solution/2000-2099/2086.Minimum%20Number%20of%20Food%20Buckets%20to%20Feed%20the%20Hamsters/README.md)  |  `贪心`,`字符串`,`动态规划`  |  中等  |    |
 |  2087  |  [网格图中机器人回家的最小代价](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README.md)  |  `贪心`,`数组`,`矩阵`  |  中等  |  第 66 场双周赛  |
 |  2088  |  [统计农场中肥沃金字塔的数目](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md)  |  `数组`,`动态规划`,`矩阵`  |  困难  |  第 66 场双周赛  |
 |  2089  |  [找出数组排序后的目标下标](/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README.md)  |  `数组`,`二分查找`,`排序`  |  简单  |  第 269 场周赛  |
@@ -2460,15 +2460,16 @@
 |  2447  |  [最大公因数等于 K 的子数组数目](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README.md)  |  `数组`,`数学`,`数论`  |  中等  |  第 316 场周赛  |
 |  2448  |  [使数组相等的最小开销](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)  |  `数组`,`二分查找`,`前缀和`,`排序`  |  困难  |  第 316 场周赛  |
 |  2449  |  [使数组相似的最少操作次数](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README.md)  |  `贪心`,`数组`,`排序`  |  困难  |  第 316 场周赛  |
-|  2450  |  [Number of Distinct Binary Strings After Applying Operations](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README.md)  |    |  中等  |  🔒  |
-|  2451  |  [差值数组不同的字符串](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)  |    |  简单  |  第 90 场双周赛  |
-|  2452  |  [距离字典两次编辑以内的单词](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md)  |    |  中等  |  第 90 场双周赛  |
-|  2453  |  [摧毁一系列目标](/solution/2400-2499/2453.Destroy%20Sequential%20Targets/README.md)  |    |  中等  |  第 90 场双周赛  |
-|  2454  |  [下一个更大元素 IV](/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README.md)  |    |  困难  |  第 90 场双周赛  |
-|  2455  |  [可被三整除的偶数的平均值](/solution/2400-2499/2455.Average%20Value%20of%20Even%20Numbers%20That%20Are%20Divisible%20by%20Three/README.md)  |    |  简单  |  第 317 场周赛  |
-|  2456  |  [最流行的视频创作者](/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README.md)  |    |  中等  |  第 317 场周赛  |
-|  2457  |  [美丽整数的最小增量](/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README.md)  |    |  中等  |  第 317 场周赛  |
-|  2458  |  [移除子树后的二叉树高度](/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README.md)  |    |  困难  |  第 317 场周赛  |
+|  2450  |  [Number of Distinct Binary Strings After Applying Operations](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README.md)  |  `数学`,`字符串`  |  中等  |  🔒  |
+|  2451  |  [差值数组不同的字符串](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)  |  `哈希表`,`数学`,`字符串`  |  简单  |  第 90 场双周赛  |
+|  2452  |  [距离字典两次编辑以内的单词](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md)  |  `数组`,`字符串`  |  中等  |  第 90 场双周赛  |
+|  2453  |  [摧毁一系列目标](/solution/2400-2499/2453.Destroy%20Sequential%20Targets/README.md)  |  `数组`,`哈希表`,`计数`  |  中等  |  第 90 场双周赛  |
+|  2454  |  [下一个更大元素 IV](/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README.md)  |  `栈`,`数组`,`二分查找`,`排序`,`单调栈`,`堆（优先队列）`  |  困难  |  第 90 场双周赛  |
+|  2455  |  [可被三整除的偶数的平均值](/solution/2400-2499/2455.Average%20Value%20of%20Even%20Numbers%20That%20Are%20Divisible%20by%20Three/README.md)  |  `数组`,`数学`  |  简单  |  第 317 场周赛  |
+|  2456  |  [最流行的视频创作者](/solution/2400-2499/2456.Most%20Popular%20Video%20Creator/README.md)  |  `数组`,`哈希表`,`字符串`,`排序`,`堆（优先队列）`  |  中等  |  第 317 场周赛  |
+|  2457  |  [美丽整数的最小增量](/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README.md)  |  `贪心`,`数学`  |  中等  |  第 317 场周赛  |
+|  2458  |  [移除子树后的二叉树高度](/solution/2400-2499/2458.Height%20of%20Binary%20Tree%20After%20Subtree%20Removal%20Queries/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`数组`,`二叉树`  |  困难  |  第 317 场周赛  |
+|  2459  |  [Sort Array by Moving Items to Empty Space](/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README.md)  |  `贪心`,`数组`,`排序`  |  困难  |  🔒  |
 
 ## 版权
 

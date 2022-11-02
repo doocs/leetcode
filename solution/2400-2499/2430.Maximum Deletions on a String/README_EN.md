@@ -16,7 +16,7 @@
 <p>Return <em>the <strong>maximum</strong> number of operations needed to delete all of </em><code>s</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;abcabcdabc&quot;
@@ -28,7 +28,7 @@ We used 2 operations so return 2. It can be proven that 2 is the maximum number 
 Note that in the second operation we cannot delete &quot;abc&quot; again because the next occurrence of &quot;abc&quot; does not happen in the next 3 letters.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aaabaab&quot;
@@ -41,7 +41,7 @@ Note that in the second operation we cannot delete &quot;abc&quot; again because
 We used 4 operations so return 4. It can be proven that 4 is the maximum number of operations needed.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;aaaaa&quot;

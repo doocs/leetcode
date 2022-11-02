@@ -9,7 +9,7 @@
 <p>Return <code>true</code> <em>if it is possible to make both strings equal by performing <strong>at most one string swap </strong>on <strong>exactly one</strong> of the strings. </em>Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;bank&quot;, s2 = &quot;kanb&quot;
@@ -17,7 +17,7 @@
 <strong>Explanation:</strong> For example, swap the first character with the last character of s2 to make &quot;bank&quot;.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;attack&quot;, s2 = &quot;defend&quot;
@@ -25,7 +25,7 @@
 <strong>Explanation:</strong> It is impossible to make them equal with one string swap.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s1 = &quot;kelb&quot;, s2 = &quot;kelb&quot;

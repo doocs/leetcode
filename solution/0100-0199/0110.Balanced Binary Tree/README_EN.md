@@ -4,13 +4,7 @@
 
 ## Description
 
-<p>Given a binary tree, determine if it is height-balanced.</p>
-
-<p>For this problem, a height-balanced binary tree is defined as:</p>
-
-<blockquote>
-<p>a binary tree in which the left and right subtrees of <em>every</em> node differ in height by no more than 1.</p>
-</blockquote>
+<p>Given a binary tree, determine if it is <span data-keyword="height-balanced"><strong>height-balanced</strong></span>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
