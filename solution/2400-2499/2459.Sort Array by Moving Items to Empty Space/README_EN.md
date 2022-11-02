@@ -68,13 +68,139 @@ It can be proven that 2 is the minimum number of operations needed.
 ### **Python3**
 
 ```python
+class Solution:
+    def sortArray(self, nums: List[int]) -> int:
+        def f(nums, k):
+            vis = [False] * n
+            cnt = 0
+            for i, v in enumerate(nums):
+                if i == v or vis[i]:
+                    continue
+                cnt += 1
+                j = i
+                while not vis[j]:
+                    vis[j] = True
+                    cnt += 1
+                    j = nums[j]
+            return cnt - 2 * (nums[k] != k)
 
+        n = len(nums)
+        a = f(nums, 0)
+        b = f([(v - 1 + n) % n for v in nums], n - 1)
+        return min(a, b)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int sortArray(int[] nums) {
+        int n = nums.length;
+        int[] arr = new int[n];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = (nums[i] - 1 + n) % n;
+        }
+        int a = f(nums, 0);
+        int b = f(arr, n - 1);
+        return Math.min(a, b);
+    }
 
+    private int f(int[] nums, int k) {
+        boolean[] vis = new boolean[nums.length];
+        int cnt = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i == nums[i] || vis[i]) {
+                continue;
+            }
+            ++cnt;
+            int j = nums[i];
+            while (!vis[j]) {
+                vis[j] = true;
+                ++cnt;
+                j = nums[j];
+            }
+        }
+        if (nums[k] != k) {
+            cnt -= 2;
+        }
+        return cnt;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int sortArray(vector<int>& nums) {
+        int n = nums.size();
+        auto f = [&](vector<int>& nums, int k) {
+            vector<bool> vis(n);
+            int cnt = 0;
+            for (int i = 0; i < n; ++i) {
+                if (i == nums[i] || vis[i]) continue;
+                int j = i;
+                ++cnt;
+                while (!vis[j]) {
+                    vis[j] = true;
+                    ++cnt;
+                    j = nums[j];
+                }
+            }
+            if (nums[k] != k) cnt -= 2;
+            return cnt;
+        };
+        
+        int a = f(nums, 0);
+        vector<int> arr = nums;
+        for (int& v : arr) v = (v - 1 + n) % n;
+        int b = f(arr, n - 1);
+        return min(a, b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortArray(nums []int) int {
+	n := len(nums)
+	f := func(nums []int, k int) int {
+		vis := make([]bool, n)
+		cnt := 0
+		for i, v := range nums {
+			if i == v || vis[i] {
+				continue
+			}
+			cnt++
+			j := i
+			for !vis[j] {
+				vis[j] = true
+				cnt++
+				j = nums[j]
+			}
+		}
+		if nums[k] != k {
+			cnt -= 2
+		}
+		return cnt
+	}
+	a := f(nums, 0)
+	arr := make([]int, n)
+	for i, v := range nums {
+		arr[i] = (v - 1 + n) % n
+	}
+	b := f(arr, n-1)
+	return min(a, b)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
