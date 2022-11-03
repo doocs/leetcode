@@ -121,6 +121,73 @@ func maxRepeating(sequence string, word string) int {
 }
 ```
 
+### **C**
+
+```c
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+
+int findWord(int i, char *sequence, char *word) {
+    int n = strlen(word);
+    for (int j = 0; j < n; j++) {
+        if (sequence[j + i] != word[j]) {
+            return 0;
+        }
+    }
+    return 1 + findWord(i + n, sequence, word);
+}
+
+int maxRepeating(char *sequence, char *word) {
+    int n = strlen(sequence);
+    int m = strlen(word);
+    int ans = 0;
+    for (int i = 0; i <= n - m; i++) {
+        ans = max(ans, findWord(i, sequence, word));
+    }
+    return ans;
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxRepeating(sequence: string, word: string): number {
+    let n = sequence.length;
+    let m = word.length;
+    for (let k = Math.floor(n / m); k > 0; k--) {
+        if (sequence.includes(word.repeat(k))) {
+            return k;
+        }
+    }
+    return 0;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_repeating(sequence: String, word: String) -> i32 {
+        let n = sequence.len();
+        let m = word.len();
+        if n < m {
+            return 0;
+        }
+        let mut dp = vec![0; n - m + 1];
+        for i in 0..=n - m {
+            let s = &sequence[i..i + m];
+            if s == word {
+                dp[i] = if (i as i32) - (m as i32) < 0 {
+                    0
+                } else {
+                    dp[i - m]
+                } + 1;
+            }
+        }
+        *dp.iter().max().unwrap()
+    }
+}
+```
+
 ### **...**
 
 ```
