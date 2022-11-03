@@ -50,9 +50,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：暴力枚举**
+**方法一：直接枚举**
 
-直接从大到小枚举 `word` 的重复次数，判断 `word` 重复该次数后是否是 `sequence` 的子串即可。
+注意到字符串长度不超过 $100$，我们直接从大到小枚举 `word` 的重复次数 $k$，判断 `word` 重复该次数后是否是 `sequence` 的子串，是则直接返回当前的重复次数 $k$。
 
 时间复杂度为 $O(n^2)$，其中 $n$ 为 `sequence` 的长度。
 
@@ -65,11 +65,9 @@
 ```python
 class Solution:
     def maxRepeating(self, sequence: str, word: str) -> int:
-        x = len(sequence) // len(word)
-        for k in range(x, 0, -1):
+        for k in range(len(sequence) // len(word), -1, -1):
             if word * k in sequence:
                 return k
-        return 0
 ```
 
 ### **Java**
@@ -79,8 +77,7 @@ class Solution:
 ```java
 class Solution {
     public int maxRepeating(String sequence, String word) {
-        int x = sequence.length() / word.length();
-        for (int k = x; k > 0; --k) {
+        for (int k = sequence.length() / word.length(); k > 0; --k) {
             if (sequence.contains(word.repeat(k))) {
                 return k;
             }
@@ -100,6 +97,7 @@ public:
         string t = word;
         int x = sequence.size() / word.size();
         for (int k = 1; k <= x; ++k) {
+            // C++ 这里从小到大枚举重复值
             if (sequence.find(t) != string::npos) {
                 ans = k;
             }
@@ -114,8 +112,7 @@ public:
 
 ```go
 func maxRepeating(sequence string, word string) int {
-	x := len(sequence) / len(word)
-	for k := x; k > 0; k-- {
+	for k := len(sequence) / len(word); k > 0; k-- {
 		if strings.Contains(sequence, strings.Repeat(word, k)) {
 			return k
 		}

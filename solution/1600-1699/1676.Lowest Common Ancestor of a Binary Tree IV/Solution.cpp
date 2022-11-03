@@ -11,19 +11,17 @@
  */
 class Solution {
 public:
-    unordered_set<int> s;
-
     TreeNode* lowestCommonAncestor(TreeNode* root, vector<TreeNode*>& nodes) {
+        unordered_set<int> s;
         for (auto node : nodes) s.insert(node->val);
+        function<TreeNode*(TreeNode*)> dfs = [&](TreeNode* root) -> TreeNode* {
+            if (!root || s.count(root->val)) return root;
+            auto left = dfs(root->left);
+            auto right = dfs(root->right);
+            if (!left) return right;
+            if (!right) return left;
+            return root;
+        };
         return dfs(root);
-    }
-
-    TreeNode* dfs(TreeNode* root) {
-        if (!root || s.count(root->val)) return root;
-        auto left = dfs(root->left);
-        auto right = dfs(root->right);
-        if (!left) return right;
-        if (!right) return left;
-        return root;
     }
 };

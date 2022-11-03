@@ -51,11 +51,9 @@
 ```python
 class Solution:
     def maxRepeating(self, sequence: str, word: str) -> int:
-        x = len(sequence) // len(word)
-        for k in range(x, 0, -1):
+        for k in range(len(sequence) // len(word), -1, -1):
             if word * k in sequence:
                 return k
-        return 0
 ```
 
 ### **Java**
@@ -63,8 +61,7 @@ class Solution:
 ```java
 class Solution {
     public int maxRepeating(String sequence, String word) {
-        int x = sequence.length() / word.length();
-        for (int k = x; k > 0; --k) {
+        for (int k = sequence.length() / word.length(); k > 0; --k) {
             if (sequence.contains(word.repeat(k))) {
                 return k;
             }
@@ -98,8 +95,7 @@ public:
 
 ```go
 func maxRepeating(sequence string, word string) int {
-	x := len(sequence) / len(word)
-	for k := x; k > 0; k-- {
+	for k := len(sequence) / len(word); k > 0; k-- {
 		if strings.Contains(sequence, strings.Repeat(word, k)) {
 			return k
 		}
