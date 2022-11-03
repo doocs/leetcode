@@ -77,7 +77,11 @@ M             1000</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
 贪心算法实现。
+
+时间复杂度为 $O(1)$，空间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -151,6 +155,22 @@ public:
         return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func intToRoman(num int) string {
+	ans := ""
+	values := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
+	romans := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
+	for i, value := range values {
+		for value <= num {
+			ans, num = ans+romans[i], num-value
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

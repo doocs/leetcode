@@ -62,6 +62,10 @@ M             1000</pre>
 
 ## Solutions
 
+**Approach 1: Simulation**
+
+Time complexity $O(1)$, Space complexity $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -130,6 +134,22 @@ public:
         return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func intToRoman(num int) string {
+	ans := ""
+	values := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
+	romans := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
+	for i, value := range values {
+		for value <= num {
+			ans, num = ans+romans[i], num-value
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
