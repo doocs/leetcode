@@ -1,14 +1,13 @@
 func reachNumber(target int) int {
-	s, k := 0, 0
 	if target < 0 {
 		target = -target
 	}
+	var s, k int
 	for {
 		if s >= target && (s-target)%2 == 0 {
-			break
+			return k
 		}
 		k++
 		s += k
 	}
-	return k
 }

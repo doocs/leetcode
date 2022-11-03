@@ -53,15 +53,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：数学**
+**方法一：数学分析**
 
-由于对称性，我们将 `target` 统计取绝对值。
+由于对称性，每次可以选择向左或向右移动，因此，我们可以将 $target$ 统一取绝对值。
 
-定义 `s`，一直循环累加，直至满足 $s\ge target$ 并且 $(s-target)\mod 2 = 0$。返回循环次数即可。
+定义 $s$ 表示当前所处的位置，用变量 $k$ 记录移动的次数。初始时 $s$ 和 $k$ 均为 $0$。
 
-证明：如果 $s\ge target$ 且 $(s-target)\mod 2 = 0$，那么只需要把前面 $(s-target)/2$ 这个数变为负数即可。
+我们将 $s$ 一直循环累加，直到满足 $s\ge target$ 并且 $(s-target)\mod 2 = 0$，此时的移动次数 $k$ 就是答案，直接返回。
 
-时间复杂度 $O(\sqrt{target})$。
+为什么？因为如果 $s\ge target$ 且 $(s-target)\mod 2 = 0$，我们只需要把前面 $\frac{s-target}{2}$ 这个正整数变为负数，就能使得 $s$ 与 $target$ 相等。正整数变负数的过程，实际上是将移动的方向改变，但实际移动次数仍然不变。
+
+时间复杂度 $O(\sqrt{\left | target \right | })$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -73,13 +75,12 @@
 class Solution:
     def reachNumber(self, target: int) -> int:
         target = abs(target)
-        k = s = 0
+        s = k = 0
         while 1:
             if s >= target and (s - target) % 2 == 0:
-                break
+                return k
             k += 1
             s += k
-        return k
 ```
 
 ### **Java**
@@ -90,16 +91,14 @@ class Solution:
 class Solution {
     public int reachNumber(int target) {
         target = Math.abs(target);
-        int s = 0;
-        int k = 0;
+        int s = 0, k = 0;
         while (true) {
             if (s >= target && (s - target) % 2 == 0) {
-                break;
+                return k;
             }
             ++k;
             s += k;
         }
-        return k;
     }
 }
 ```
@@ -112,14 +111,11 @@ public:
     int reachNumber(int target) {
         target = abs(target);
         int s = 0, k = 0;
-        while (true) {
-            if (s >= target && (s - target) % 2 == 0) {
-                break;
-            }
+        while (1) {
+            if (s >= target && (s - target) % 2 == 0) return k;
             ++k;
             s += k;
         }
-        return k;
     }
 };
 ```
@@ -128,19 +124,38 @@ public:
 
 ```go
 func reachNumber(target int) int {
-	s, k := 0, 0
 	if target < 0 {
 		target = -target
 	}
+	var s, k int
 	for {
 		if s >= target && (s-target)%2 == 0 {
-			break
+			return k
 		}
 		k++
 		s += k
 	}
-	return k
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} target
+ * @return {number}
+ */
+var reachNumber = function (target) {
+    target = Math.abs(target);
+    let [s, k] = [0, 0];
+    while (1) {
+        if (s >= target && (s - target) % 2 == 0) {
+            return k;
+        }
+        ++k;
+        s += k;
+    }
+};
 ```
 
 ### **...**

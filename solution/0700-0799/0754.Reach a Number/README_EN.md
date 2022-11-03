@@ -55,13 +55,12 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 class Solution:
     def reachNumber(self, target: int) -> int:
         target = abs(target)
-        k = s = 0
+        s = k = 0
         while 1:
             if s >= target and (s - target) % 2 == 0:
-                break
+                return k
             k += 1
             s += k
-        return k
 ```
 
 ### **Java**
@@ -70,16 +69,14 @@ class Solution:
 class Solution {
     public int reachNumber(int target) {
         target = Math.abs(target);
-        int s = 0;
-        int k = 0;
+        int s = 0, k = 0;
         while (true) {
             if (s >= target && (s - target) % 2 == 0) {
-                break;
+                return k;
             }
             ++k;
             s += k;
         }
-        return k;
     }
 }
 ```
@@ -92,14 +89,11 @@ public:
     int reachNumber(int target) {
         target = abs(target);
         int s = 0, k = 0;
-        while (true) {
-            if (s >= target && (s - target) % 2 == 0) {
-                break;
-            }
+        while (1) {
+            if (s >= target && (s - target) % 2 == 0) return k;
             ++k;
             s += k;
         }
-        return k;
     }
 };
 ```
@@ -108,19 +102,38 @@ public:
 
 ```go
 func reachNumber(target int) int {
-	s, k := 0, 0
 	if target < 0 {
 		target = -target
 	}
+	var s, k int
 	for {
 		if s >= target && (s-target)%2 == 0 {
-			break
+			return k
 		}
 		k++
 		s += k
 	}
-	return k
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} target
+ * @return {number}
+ */
+var reachNumber = function (target) {
+    target = Math.abs(target);
+    let [s, k] = [0, 0];
+    while (1) {
+        if (s >= target && (s - target) % 2 == 0) {
+            return k;
+        }
+        ++k;
+        s += k;
+    }
+};
 ```
 
 ### **...**
