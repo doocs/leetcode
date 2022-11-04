@@ -176,6 +176,82 @@ func parseBoolExpr(expression string) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function parseBoolExpr(expression: string): boolean {
+    const expr = expression;
+    const n = expr.length;
+    let i = 0;
+    const dfs = () => {
+        let res: boolean[] = [];
+        while (i < n) {
+            const c = expr[i++];
+            if (c === ')') {
+                break;
+            }
+
+            if (c === '!') {
+                res.push(!dfs()[0]);
+            } else if (c === '|') {
+                res.push(dfs().some(v => v));
+            } else if (c === '&') {
+                res.push(dfs().every(v => v));
+            } else if (c === 't') {
+                res.push(true);
+            } else if (c === 'f') {
+                res.push(false);
+            }
+        }
+        return res;
+    };
+    return dfs()[0];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn dfs(i: &mut usize, expr: &[u8]) -> Vec<bool> {
+        let n = expr.len();
+        let mut res = Vec::new();
+        while *i < n {
+            let c = expr[*i];
+            *i += 1;
+            match c {
+                b')' => {
+                    break;
+                }
+                b't' => {
+                    res.push(true);
+                }
+                b'f' => {
+                    res.push(false);
+                }
+                b'!' => {
+                    res.push(!Self::dfs(i, expr)[0]);
+                }
+                b'&' => {
+                    res.push(Self::dfs(i, expr).iter().all(|v| *v));
+                }
+                b'|' => {
+                    res.push(Self::dfs(i, expr).iter().any(|v| *v));
+                }
+                _ => {}
+            }
+        }
+        res
+    }
+
+    pub fn parse_bool_expr(expression: String) -> bool {
+        let expr = expression.as_bytes();
+        let mut i = 0;
+        Self::dfs(&mut i, expr)[0]
+    }
+}
+```
+
 ### **...**
 
 ```
