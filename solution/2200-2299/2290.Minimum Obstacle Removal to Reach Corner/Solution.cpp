@@ -13,7 +13,7 @@ public:
             vis[i][j] = true;
             for (int o = 0; o < 4; ++o) {
                 int x = i + dirs[o], y = j + dirs[o + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n) {
+                if (x >= 0 && x < m && y >= 0 && y < n && !vis[i][j]) {
                     if (grid[x][y] == 0)
                         q.push_front({x, y, k});
                     else
