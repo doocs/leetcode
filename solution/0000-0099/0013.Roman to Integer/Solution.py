@@ -1,26 +1,11 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        nums = {
-            'M': 1000,
-            'CM': 900,
-            'D': 500,
-            'CD': 400,
-            'C': 100,
-            'XC': 90,
-            'L': 50,
-            'XL': 40,
-            'X': 10,
-            'IX': 9,
-            'V': 5,
-            'IV': 4,
-            'I': 1,
-        }
-        i = res = 0
-        while i < len(s):
-            if i + 1 < len(s) and s[i : i + 2] in nums:
-                res += nums[s[i : i + 2]]
-                i += 2
+        romans = {'I': 1, 'V': 5, 'X': 10,
+                  'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        ans = 0
+        for i in range(len(s)-1):
+            if romans[s[i]] < romans[s[i+1]]:
+                ans -= romans[s[i]]
             else:
-                res += nums[s[i : i + 1]]
-                i += 1
-        return res
+                ans += romans[s[i]]
+        return ans+romans[s[-1]]
