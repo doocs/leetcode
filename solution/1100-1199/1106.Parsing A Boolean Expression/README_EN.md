@@ -63,13 +63,131 @@ Then, evaluate !(f) --&gt; NOT false --&gt; true. We return true.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def parseBoolExpr(self, expression: str) -> bool:
+        stk = []
+        for c in expression:
+            if c in 'tf!&|':
+                stk.append(c)
+            elif c == ')':
+                t = f = 0
+                while stk[-1] in 'tf':
+                    t += stk[-1] == 't'
+                    f += stk[-1] == 'f'
+                    stk.pop()
+                match stk.pop():
+                    case '!':
+                        c = 't' if f else 'f'
+                    case '&':
+                        c = 'f' if f else 't'
+                    case '|':
+                        c = 't' if t else 'f'
+                stk.append(c)
+        return stk[0] == 't'
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean parseBoolExpr(String expression) {
+        Deque<Character> stk = new ArrayDeque<>();
+        for (int i = 0; i < expression.length(); ++i) {
+            char c = expression.charAt(i);
+            if (c != '(' && c != ')' && c != ',') {
+                stk.push(c);
+            } else if (c == ')') {
+                int t = 0, f = 0;
+                while (stk.peek() == 't' || stk.peek() == 'f') {
+                    t += stk.peek() == 't' ? 1 : 0;
+                    f += stk.peek() == 'f' ? 1 : 0;
+                    stk.pop();
+                }
+                char op = stk.pop();
+                if (op == '!') {
+                    c = f > 0 ? 't' : 'f';
+                } else if (op == '&') {
+                    c = f > 0 ? 'f' : 't';
+                } else {
+                    c = t > 0 ? 't' : 'f';
+                }
+                stk.push(c);
+            }
+        }
+        return stk.peek() == 't';
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool parseBoolExpr(string expression) {
+        stack<char> stk;
+        for (char c : expression) {
+            if (c != '(' && c != ')' && c != ',') stk.push(c);
+            else if (c == ')') {
+                int t = 0, f = 0;
+                while (stk.top() == 't' || stk.top() == 'f') {
+                    t += stk.top() == 't';
+                    f += stk.top() == 'f';
+                    stk.pop();
+                }
+                char op = stk.top();
+                stk.pop();
+                if (op == '!') c = f ? 't' : 'f';
+                if (op == '&') c = f ? 'f' : 't';
+                if (op == '|') c = t ? 't' : 'f';
+                stk.push(c);
+            }
+        }
+        return stk.top() == 't';
+    }
+};
+```
+
+### **Go**
+
+```go
+func parseBoolExpr(expression string) bool {
+	stk := []rune{}
+	for _, c := range expression {
+		if c != '(' && c != ')' && c != ',' {
+			stk = append(stk, c)
+		} else if c == ')' {
+			var t, f int
+			for stk[len(stk)-1] == 't' || stk[len(stk)-1] == 'f' {
+				if stk[len(stk)-1] == 't' {
+					t++
+				} else {
+					f++
+				}
+				stk = stk[:len(stk)-1]
+			}
+			op := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			c = 'f'
+			switch op {
+			case '!':
+				if f > 0 {
+					c = 't'
+				}
+			case '&':
+				if f == 0 {
+					c = 't'
+				}
+			case '|':
+				if t > 0 {
+					c = 't'
+				}
+			}
+			stk = append(stk, c)
+		}
+	}
+	return stk[0] == 't'
+}
 ```
 
 ### **...**
