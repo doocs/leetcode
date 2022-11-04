@@ -13,12 +13,9 @@ class Solution {
                     stk.pop();
                 }
                 char op = stk.pop();
-                if (op == '!') {
-                    c = f > 0 ? 't' : 'f';
-                } else if (op == '&') {
-                    c = f > 0 ? 'f' : 't';
-                } else {
-                    c = t > 0 ? 't' : 'f';
+                c = 'f';
+                if ((op == '!' && f > 0) || (op == '&' && f == 0) || (op == '|' && t > 0)) {
+                    c = 't';
                 }
                 stk.push(c);
             }

@@ -64,6 +64,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接枚举**
+
+从 $1$ 开始枚举 $a$，判断 $a$ 和 $n - a$ 是否满足条件，如果满足则返回。
+
+时间复杂度 $O(n\times \log n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +77,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getNoZeroIntegers(self, n: int) -> List[int]:
+        for a in range(1, n):
+            b = n - a
+            if "0" not in str(a) + str(b):
+                return [a, b]
 ```
 
 ### **Java**
@@ -79,7 +90,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] getNoZeroIntegers(int n) {
+        for (int a = 1; a < n; ++a) {
+            int b = n - a;
+            if (!(a + "" + b).contains("0")) {
+                return new int[] {a, b};
+            }
+        }
+        return null;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getNoZeroIntegers(int n) {
+        for (int a = 1; a < n; ++a) {
+            int b = n - a;
+            if ((to_string(a) + to_string(b)).find('0') == string::npos) return {a, b};
+        }
+        return {};
+    }
+};
+```
+
+### **Go**
+
+```go
+func getNoZeroIntegers(n int) []int {
+	for a := 1; a < n; a++ {
+		b := n - a
+		if !strings.Contains(strconv.Itoa(a)+strconv.Itoa(b), "0") {
+			return []int{a, b}
+		}
+	}
+	return nil
+}
 ```
 
 ### **...**

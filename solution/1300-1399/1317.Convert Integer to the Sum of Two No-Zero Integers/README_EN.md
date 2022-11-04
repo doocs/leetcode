@@ -45,13 +45,57 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getNoZeroIntegers(self, n: int) -> List[int]:
+        for a in range(1, n):
+            b = n - a
+            if "0" not in str(a) + str(b):
+                return [a, b]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] getNoZeroIntegers(int n) {
+        for (int a = 1; a < n; ++a) {
+            int b = n - a;
+            if (!(a + "" + b).contains("0")) {
+                return new int[] {a, b};
+            }
+        }
+        return null;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getNoZeroIntegers(int n) {
+        for (int a = 1; a < n; ++a) {
+            int b = n - a;
+            if ((to_string(a) + to_string(b)).find('0') == string::npos) return {a, b};
+        }
+        return {};
+    }
+};
+```
+
+### **Go**
+
+```go
+func getNoZeroIntegers(n int) []int {
+	for a := 1; a < n; a++ {
+		b := n - a
+		if !strings.Contains(strconv.Itoa(a)+strconv.Itoa(b), "0") {
+			return []int{a, b}
+		}
+	}
+	return nil
+}
 ```
 
 ### **...**

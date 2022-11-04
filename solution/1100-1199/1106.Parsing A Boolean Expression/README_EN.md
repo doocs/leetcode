@@ -104,12 +104,9 @@ class Solution {
                     stk.pop();
                 }
                 char op = stk.pop();
-                if (op == '!') {
-                    c = f > 0 ? 't' : 'f';
-                } else if (op == '&') {
-                    c = f > 0 ? 'f' : 't';
-                } else {
-                    c = t > 0 ? 't' : 'f';
+                c = 'f';
+                if ((op == '!' && f > 0) || (op == '&' && f == 0) || (op == '|' && t > 0)) {
+                    c = 't';
                 }
                 stk.push(c);
             }
@@ -169,19 +166,8 @@ func parseBoolExpr(expression string) bool {
 			op := stk[len(stk)-1]
 			stk = stk[:len(stk)-1]
 			c = 'f'
-			switch op {
-			case '!':
-				if f > 0 {
-					c = 't'
-				}
-			case '&':
-				if f == 0 {
-					c = 't'
-				}
-			case '|':
-				if t > 0 {
-					c = 't'
-				}
+			if (op == '!' && f > 0) || (op == '&' && f == 0) || (op == '|' && t > 0) {
+				c = 't'
 			}
 			stk = append(stk, c)
 		}
