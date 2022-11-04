@@ -48,13 +48,72 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def concatenatedBinary(self, n: int) -> int:
+        mod = 10**9 + 7
+        ans = shift = 0
+        for i in range(1, n + 1):
+            if (i & (i - 1)) == 0:
+                shift += 1
+            ans = ((ans << shift) + i) % mod
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int concatenatedBinary(int n) {
+        long ans = 0;
+        int shift = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((i & (i - 1)) == 0) {
+                ++shift;
+            }
+            ans = ((ans << shift) + i) % MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int concatenatedBinary(int n) {
+        long ans = 0;
+        int shift = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((i & (i - 1)) == 0) {
+                ++shift;
+            }
+            ans = ((ans << shift) + i) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func concatenatedBinary(n int) int {
+	var ans, shift int
+	const mod int = 1e9 + 7
+	for i := 1; i <= n; i++ {
+		if i&(i-1) == 0 {
+			shift++
+		}
+		ans = ((ans << shift) + i) % mod
+	}
+	return ans
+}
 ```
 
 ### **...**
