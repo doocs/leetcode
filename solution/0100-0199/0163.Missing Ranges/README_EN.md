@@ -55,13 +55,118 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def findMissingRanges(self, nums: List[int], lower: int, upper: int) -> List[str]:
+        def f(a, b):
+            return str(a) if a == b else f'{a}->{b}'
 
+        n = len(nums)
+        if n == 0:
+            return [f(lower, upper)]
+        ans = []
+        if nums[0] > lower:
+            ans.append(f(lower, nums[0] - 1))
+        for a, b in pairwise(nums):
+            if b - a > 1:
+                ans.append(f(a + 1, b - 1))
+        if nums[-1] < upper:
+            ans.append(f(nums[-1] + 1, upper))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+        int n = nums.length;
+        List<String> ans = new ArrayList<>();
+        if (n == 0) {
+            ans.add(f(lower, upper));
+            return ans;
+        }
+        if (nums[0] > lower) {
+            ans.add(f(lower, nums[0] - 1));
+        }
+        for (int i = 1; i < n; ++i) {
+            int a = nums[i - 1], b = nums[i];
+            if (b - a > 1) {
+                ans.add(f(a + 1, b - 1));
+            }
+        }
+        if (nums[n - 1] < upper) {
+            ans.add(f(nums[n - 1] + 1, upper));
+        }
+        return ans;
+    }
 
+    private String f(int a, int b) {
+        return a == b ? a + "" : a + "->" + b;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> findMissingRanges(vector<int>& nums, int lower, int upper) {
+        auto f = [](int a, int b) {
+            return a == b ? to_string(a) : to_string(a) + "->" + to_string(b);
+        };
+        int n = nums.size();
+        vector<string> ans;
+        if (n == 0) {
+            ans.emplace_back(f(lower, upper));
+            return ans;
+        }
+        if (nums[0] > lower) {
+            ans.emplace_back(f(lower, nums[0] - 1));
+        }
+        for (int i = 1; i < n; ++i) {
+            int a = nums[i - 1], b = nums[i];
+            if (b - a > 1) {
+                ans.emplace_back(f(a + 1, b - 1));
+            }
+        }
+        if (nums[n - 1] < upper) {
+            ans.emplace_back(f(nums[n - 1] + 1, upper));
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMissingRanges(nums []int, lower int, upper int) (ans []string) {
+	f := func(a, b int) string {
+		if a == b {
+			return strconv.Itoa(a)
+		}
+		return strconv.Itoa(a) + "->" + strconv.Itoa(b)
+	}
+	n := len(nums)
+	if n == 0 {
+		ans = append(ans, f(lower, upper))
+		return
+	}
+	if nums[0] > lower {
+		ans = append(ans, f(lower, nums[0]-1))
+	}
+	for i := 1; i < n; i++ {
+		a, b := nums[i-1], nums[i]
+		if b-a > 1 {
+			ans = append(ans, f(a+1, b-1))
+		}
+	}
+	if nums[n-1] < upper {
+		ans = append(ans, f(nums[n-1]+1, upper))
+	}
+	return
+}
 ```
 
 ### **...**
