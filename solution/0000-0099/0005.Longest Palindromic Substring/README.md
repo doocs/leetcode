@@ -45,7 +45,13 @@
 -   当 $j - i \lt 2$，即字符串长度为 `2` 时，只要 $s[i] == s[j]$，那么 $dp[i][j]$ 就为 `true`。
 -   当 $j - i \ge 2$，有 $dp[i][j] = dp[i + 1][j - 1] \cap s[i] == s[j]$。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是字符串 $s$ 的长度。
+
+**方法二：枚举回文中间点**
+
+我们可以枚举回文中间点，向两边扩散，找到最长的回文串。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -68,6 +74,26 @@ class Solution:
                 if dp[i][j] and mx < j - i + 1:
                     start, mx = i, j - i + 1
         return s[start : start + mx]
+```
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def f(l, r):
+            while l >= 0 and r < n and s[l] == s[r]:
+                l, r = l - 1, r + 1
+            return r - l - 1
+
+        n = len(s)
+        start, mx = 0, 1
+        for i in range(n):
+            a = f(i, i)
+            b = f(i, i + 1)
+            t = max(a, b)
+            if mx < t:
+                mx = t
+                start = i - ((t - 1) >> 1)
+        return s[start: start + mx]
 ```
 
 ### **Java**
@@ -94,6 +120,37 @@ class Solution {
             }
         }
         return s.substring(start, start + mx);
+    }
+}
+```
+
+```java
+class Solution {
+    private String s;
+    private int n;
+
+    public String longestPalindrome(String s) {
+        this.s = s;
+        n = s.length();
+        int start = 0, mx = 1;
+        for (int i = 0; i < n; ++i) {
+            int a = f(i, i);
+            int b = f(i, i + 1);
+            int t = Math.max(a, b);
+            if (mx < t) {
+                mx = t;
+                start = i - ((t - 1) >> 1);
+            }
+        }
+        return s.substring(start, start + mx);
+    }
+
+    private int f(int l, int r) {
+        while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+            --l;
+            ++r;
+        }
+        return r - l - 1;
     }
 }
 ```
@@ -125,6 +182,32 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size();
+        int start = 0, mx = 1;
+        auto f = [&](int l, int r) {
+            while (l >= 0 && r < n && s[l] == s[r]) {
+                l--, r++;
+            }
+            return r - l - 1;
+        };
+        for (int i = 0; i < n; ++i) {
+            int a = f(i, i);
+            int b = f(i, i + 1);
+            int t = max(a, b);
+            if (mx < t) {
+                mx = t;
+                start = i - (t - 1 >> 1);
+            }
+        }
+        return s.substr(start, mx);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -148,6 +231,35 @@ func longestPalindrome(s string) string {
 		}
 	}
 	return s[start : start+mx]
+}
+```
+
+```go
+func longestPalindrome(s string) string {
+	n := len(s)
+	start, mx := 0, 1
+	f := func(l, r int) int {
+		for l >= 0 && r < n && s[l] == s[r] {
+			l, r = l-1, r+1
+		}
+		return r - l - 1
+	}
+	for i := range s {
+		a, b := f(i, i), f(i, i+1)
+		t := max(a, b)
+		if mx < t {
+			mx = t
+			start = i - ((t - 1) >> 1)
+		}
+	}
+	return s[start : start+mx]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
