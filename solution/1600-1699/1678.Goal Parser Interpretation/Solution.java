@@ -1,22 +1,14 @@
 class Solution {
     public String interpret(String command) {
-        StringBuilder sb = new StringBuilder();
-        int p = 0, q = 1;
-        for (; p < command.length(); p++, q++) {
-            char c = command.charAt(p);
-            if (c == 'G') sb.append('G');
-            if (c == '(') {
-                if (command.charAt(q) == ')') {
-                    sb.append("o");
-                    p++;
-                    q++;
-                } else {
-                    sb.append("al");
-                    p += 2;
-                    q += 2;
-                }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < command.length(); ++i) {
+            char c = command.charAt(i);
+            if (c == 'G') {
+                ans.append(c);
+            } else if (c == '(') {
+                ans.append(command.charAt(i + 1) == ')' ? "o" : "al");
             }
         }
-        return sb.toString();
+        return ans.toString();
     }
 }

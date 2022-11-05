@@ -76,6 +76,10 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `obstacles` 的长度。
 
+相似题目：
+
+-   [221028 天池-03. 小鸡酷跑](https://leetcode.cn/problems/FJxjiD/solution/by-lcbin-rum4/)
+
 <!-- tabs:start -->
 
 ### **Python3**

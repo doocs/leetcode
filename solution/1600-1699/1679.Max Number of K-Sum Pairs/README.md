@@ -58,7 +58,7 @@
 
 循环结束，返回 ans。
 
-时间复杂度 O(nlogn)，其中 n 为 nums 的长度。
+时间复杂度 $O(n\times \log n)$，其中 $n$ 为 `nums` 的长度。
 
 <!-- tabs:start -->
 

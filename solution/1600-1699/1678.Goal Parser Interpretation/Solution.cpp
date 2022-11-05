@@ -1,21 +1,12 @@
 class Solution {
 public:
     string interpret(string command) {
-        string res = "";
-        int i = 0, n = command.size();
-        while (i < n) {
+        string ans;
+        for (int i = 0; i < command.size(); ++i) {
             char c = command[i];
-            if (c == 'G') {
-                res += "G";
-                i += 1;
-            } else if (c == '(' && command[i + 1] != ')') {
-                res += "al";
-                i += 4;
-            } else {
-                res += "o";
-                i += 2;
-            }
+            if (c == 'G') ans += c;
+            else if (c == '(') ans += command[i + 1] == ')' ? "o" : "al";
         }
-        return res;
+        return ans;
     }
 };

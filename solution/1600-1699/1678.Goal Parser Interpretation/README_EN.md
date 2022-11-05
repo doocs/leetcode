@@ -58,20 +58,13 @@ class Solution:
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
-        res = ''
-        i, n = 0, len(command)
-        while i < n:
-            c = command[i]
+        ans = []
+        for i, c in enumerate(command):
             if c == 'G':
-                res += c
-                i += 1
-            elif c == '(' and command[i + 1] != ')':
-                res += 'al'
-                i += 4
-            else:
-                res += 'o'
-                i += 2
-        return res
+                ans.append(c)
+            elif c == '(':
+                ans.append('o' if command[i + 1] == ')' else 'al')
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -79,24 +72,24 @@ class Solution:
 ```java
 class Solution {
     public String interpret(String command) {
-        StringBuilder sb = new StringBuilder();
-        int p = 0, q = 1;
-        for (; p < command.length(); p++, q++) {
-            char c = command.charAt(p);
-            if (c == 'G') sb.append('G');
-            if (c == '(') {
-                if (command.charAt(q) == ')') {
-                    sb.append("o");
-                    p++;
-                    q++;
-                } else {
-                    sb.append("al");
-                    p += 2;
-                    q += 2;
-                }
+        return command.replace("()", "o").replace("(al)", "al");
+    }
+}
+```
+
+```java
+class Solution {
+    public String interpret(String command) {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < command.length(); ++i) {
+            char c = command.charAt(i);
+            if (c == 'G') {
+                ans.append(c);
+            } else if (c == '(') {
+                ans.append(command.charAt(i + 1) == ')' ? "o" : "al");
             }
         }
-        return sb.toString();
+        return ans.toString();
     }
 }
 ```
@@ -107,22 +100,24 @@ class Solution {
 class Solution {
 public:
     string interpret(string command) {
-        string res = "";
-        int i = 0, n = command.size();
-        while (i < n) {
+        while (command.find("()") != -1) command.replace(command.find("()"), 2, "o");
+        while (command.find("(al)") != -1) command.replace(command.find("(al)"), 4, "al");
+        return command;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string interpret(string command) {
+        string ans;
+        for (int i = 0; i < command.size(); ++i) {
             char c = command[i];
-            if (c == 'G') {
-                res += "G";
-                i += 1;
-            } else if (c == '(' && command[i + 1] != ')') {
-                res += "al";
-                i += 4;
-            } else {
-                res += "o";
-                i += 2;
-            }
+            if (c == 'G') ans += c;
+            else if (c == '(') ans += command[i + 1] == ')' ? "o" : "al";
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -131,22 +126,27 @@ public:
 
 ```go
 func interpret(command string) string {
-	var res string
-	i, n := 0, len(command)
-	for i < n {
-		c := command[i]
+    command = strings.ReplaceAll(command, "()", "o")
+    command = strings.ReplaceAll(command, "(al)", "al")
+    return command
+}
+```
+
+```go
+func interpret(command string) string {
+	ans := &strings.Builder{}
+	for i, c := range command {
 		if c == 'G' {
-			res += "G"
-			i += 1
-		} else if c == '(' && command[i+1] != ')' {
-			res += "al"
-			i += 4
-		} else {
-			res += "o"
-			i += 2
+			ans.WriteRune(c)
+		} else if c == '(' {
+			if command[i+1] == ')' {
+				ans.WriteByte('o')
+			} else {
+				ans.WriteString("al")
+			}
 		}
 	}
-	return res
+	return ans.String()
 }
 ```
 
