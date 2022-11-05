@@ -109,8 +109,7 @@ class Solution:
 class Solution {
     public boolean parseBoolExpr(String expression) {
         Deque<Character> stk = new ArrayDeque<>();
-        for (int i = 0; i < expression.length(); ++i) {
-            char c = expression.charAt(i);
+        for (char c : expression.toCharArray()) {
             if (c != '(' && c != ')' && c != ',') {
                 stk.push(c);
             } else if (c == ')') {
