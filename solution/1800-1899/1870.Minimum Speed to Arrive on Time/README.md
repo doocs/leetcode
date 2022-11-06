@@ -70,6 +70,8 @@
 
 二分枚举速度值，找到满足条件的最小速度。
 
+时间复杂度 $O(n\times \log m)$，其中 $n$ 和 $m$ 分别为数组 `dist` 和最大速度值。
+
 以下是二分查找的两个通用模板：
 
 模板 1：
@@ -245,28 +247,22 @@ function arriveOnTime(dist, speed, hour) {
 ```go
 func minSpeedOnTime(dist []int, hour float64) int {
 	n := len(dist)
-	left, right := 1, int(1e7)
-	check := func(speed float64) bool {
+	const mx int = 1e7 + 1
+	x := sort.Search(mx, func(s int) bool {
+		if s == 0 {
+			return false
+		}
 		var cost float64
 		for _, v := range dist[:n-1] {
-			cost += math.Ceil(float64(v) / speed)
+			cost += math.Ceil(float64(v) / float64(s))
 		}
-		cost += float64(dist[n-1]) / speed
+		cost += float64(dist[n-1]) / float64(s)
 		return cost <= hour
-
+	})
+	if x < 0 || x == mx {
+		return -1
 	}
-	for left < right {
-		mid := (left + right) >> 1
-		if check(float64(mid)) {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	if check(float64(left)) {
-		return left
-	}
-	return -1
+	return x
 }
 ```
 

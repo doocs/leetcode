@@ -49,9 +49,9 @@
 
 **方法一：二分查找**
 
-两遍二分，分别查找出左边界和右边界。
+我们可以进行两次二分查找，分别查找出左边界和右边界。
 
-时间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
 
 以下是二分查找的两个通用模板：
 
@@ -189,23 +189,12 @@ var searchRange = function (nums, target) {
 
 ```go
 func searchRange(nums []int, target int) []int {
-    search := func(x int) int {
-        left, right := 0, len(nums)
-        for left < right {
-            mid := (left + right) >> 1
-            if nums[mid] >= x {
-                right = mid
-            } else {
-                left = mid + 1
-            }
-        }
-        return left
-    }
-    l, r := search(target), search(target+1)
-    if l == r {
-        return []int{-1, -1}
-    }
-    return []int{l, r - 1}
+	l := sort.Search(len(nums), func(i int) bool { return nums[i] >= target })
+	r := sort.Search(len(nums), func(i int) bool { return nums[i] > target })
+	if l == r {
+		return []int{-1, -1}
+	}
+	return []int{l, r - 1}
 }
 ```
 
