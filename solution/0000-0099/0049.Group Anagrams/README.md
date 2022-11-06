@@ -45,6 +45,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
 1. 遍历字符串，对每个字符串按照**字符字典序**排序，得到一个新的字符串。
 2. 以新字符串为 `key`，`[str]` 为 `value`，存入哈希表当中（`HashMap<String, List<String>>`）。
 3. 后续遍历得到相同 `key` 时，将其加入到对应的 `value` 当中即可。
@@ -59,6 +61,14 @@
 
 最后返回哈希表的 `value` 列表即可。
 
+时间复杂度 $O(n\times k\times \log k)$。其中 $n$ 和 $k$ 分别是字符串数组的长度和字符串的最大长度。
+
+**方法二：计数**
+
+我们也可以将方法一中的排序部分改为计数，也就是说，将每个字符串 $s$ 中的字符以及出现的次数作为 `key`，将字符串 $s$ 作为 `value` 存入哈希表当中。
+
+时间复杂度 $O(n\times (k + C))$。其中 $n$ 和 $k$ 分别是字符串数组的长度和字符串的最大长度，而 $C$ 是字符集的大小，本题中 $C = 26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,11 +78,23 @@
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        chars = defaultdict(list)
+        d = defaultdict(list)
         for s in strs:
-            k = ''.join(sorted(list(s)))
-            chars[k].append(s)
-        return list(chars.values())
+            k = ''.join(sorted(s))
+            d[k].append(s)
+        return list(d.values())
+```
+
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        d = defaultdict(list)
+        for s in strs:
+            cnt = [0] * 26
+            for c in s:
+                cnt[ord(c) - ord('a')] += 1
+            d[tuple(cnt)].append(s)
+        return list(d.values())
 ```
 
 ### **Java**
@@ -82,15 +104,116 @@ class Solution:
 ```java
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String, List<String>> chars = new HashMap<>();
+        Map<String, List<String>> d = new HashMap<>();
         for (String s : strs) {
             char[] t = s.toCharArray();
             Arrays.sort(t);
-            String k = new String(t);
-            chars.computeIfAbsent(k, key -> new ArrayList<>()).add(s);
+            String k = String.valueOf(t);
+            d.computeIfAbsent(k, key -> new ArrayList<>()).add(s);
         }
-        return new ArrayList<>(chars.values());
+        return new ArrayList<>(d.values());
     }
+}
+```
+
+```java
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> d = new HashMap<>();
+        for (String s : strs) {
+            int[] cnt = new int[26];
+            for (int i = 0; i < s.length(); ++i) {
+                ++cnt[s.charAt(i) - 'a'];
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 26; ++i) {
+                if (cnt[i] > 0) {
+                    sb.append((char) ('a' + i)).append(cnt[i]);
+                }
+            }
+            String k = sb.toString();
+            d.computeIfAbsent(k, key -> new ArrayList<>()).add(s);
+        }
+        return new ArrayList<>(d.values());
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> d;
+        for (auto& s : strs) {
+            string k = s;
+            sort(k.begin(), k.end());
+            d[k].emplace_back(s);
+        }
+        vector<vector<string>> ans;
+        for (auto& [_, v] : d) ans.emplace_back(v);
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> d;
+        for (auto& s : strs) {
+            int cnt[26] = {0};
+            for (auto& c : s) ++cnt[c - 'a'];
+            string k;
+            for (int i = 0; i < 26; ++i) {
+                if (cnt[i]) {
+                    k += 'a' + i;
+                    k += to_string(cnt[i]);
+                }
+            }
+            d[k].emplace_back(s);
+        }
+        vector<vector<string>> ans;
+        for (auto& [_, v] : d) ans.emplace_back(v);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func groupAnagrams(strs []string) (ans [][]string) {
+	d := map[string][]string{}
+	for _, s := range strs {
+		t := []byte(s)
+		sort.Slice(t, func(i, j int) bool { return t[i] < t[j] })
+		k := string(t)
+		d[k] = append(d[k], s)
+	}
+	for _, v := range d {
+		ans = append(ans, v)
+	}
+	return
+}
+```
+
+```go
+func groupAnagrams(strs []string) (ans [][]string) {
+	d := map[[26]int][]string{}
+	for _, s := range strs {
+		cnt := [26]int{}
+		for _, c := range s {
+			cnt[c-'a']++
+		}
+		d[cnt] = append(d[cnt], s)
+	}
+	for _, v := range d {
+		ans = append(ans, v)
+	}
+	return
 }
 ```
 
@@ -119,47 +242,6 @@ function groupAnagrams(strs: string[]): string[][] {
         map.set(k, (map.get(k) ?? []).concat([str]));
     }
     return [...map.values()];
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        unordered_map<string, vector<string>> chars;
-        for (auto s : strs) {
-            string k = s;
-            sort(k.begin(), k.end());
-            chars[k].emplace_back(s);
-        }
-        vector<vector<string>> res;
-        for (auto it = chars.begin(); it != chars.end(); ++it) {
-            res.emplace_back(it->second);
-        }
-        return res;
-    }
-};
-```
-
-### **Go**
-
-```go
-func groupAnagrams(strs []string) [][]string {
-	chars := map[string][]string{}
-	for _, s := range strs {
-		key := []byte(s)
-		sort.Slice(key, func(i, j int) bool {
-			return key[i] < key[j]
-		})
-		chars[string(key)] = append(chars[string(key)], s)
-	}
-	var res [][]string
-	for _, v := range chars {
-		res = append(res, v)
-	}
-	return res
 }
 ```
 
