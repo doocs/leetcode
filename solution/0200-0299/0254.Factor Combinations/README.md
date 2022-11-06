@@ -61,6 +61,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：回溯**
+
+我们设计函数 $dfs(n, i)$，其中 $n$ 表示当前待分解的数，$i$ 表示当前分解的数的最大因子，函数的作用是将 $n$ 分解为若干个因子，其中每个因子都不小于 $i$，并将所有分解结果保存到 $ans$ 中。
+
+在函数 $dfs(n, i)$ 中，我们从 $i$ 开始枚举 $n$ 的因子 $j$，如果 $j$ 是 $n$ 的因子，那么我们将 $j$ 加入当前分解结果，然后继续分解 $n / j$，即调用函数 $dfs(n / j, j)$。
+
+时间复杂度 $O(\sqrt{n})$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +76,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getFactors(self, n: int) -> List[List[int]]:
+        def dfs(n, i):
+            if t:
+                ans.append(t + [n])
+            j = i
+            while j * j <= n:
+                if n % j == 0:
+                    t.append(j)
+                    dfs(n // j, j)
+                    t.pop()
+                j += 1
+        t = []
+        ans = []
+        dfs(n, 2)
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +99,85 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<Integer> t = new ArrayList<>();
+    private List<List<Integer>> ans = new ArrayList<>();
 
+    public List<List<Integer>> getFactors(int n) {
+        dfs(n, 2);
+        return ans;
+    }
+
+    private void dfs(int n, int i) {
+        if (!t.isEmpty()) {
+            List<Integer> cp = new ArrayList<>(t);
+            cp.add(n);
+            ans.add(cp);
+        }
+        for (int j = i; j <= n / j; ++j) {
+            if (n % j == 0) {
+                t.add(j);
+                dfs(n / j, j);
+                t.remove(t.size() - 1);
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> getFactors(int n) {
+        vector<int> t;
+        vector<vector<int>> ans;
+        function<void(int, int)> dfs = [&](int n, int i) {
+            if (t.size()) {
+                vector<int> cp = t;
+                cp.emplace_back(n);
+                ans.emplace_back(cp);
+            }
+            for (int j = i; j <= n / j; ++j) {
+                if (n % j == 0) {
+                    t.emplace_back(j);
+                    dfs(n / j, j);
+                    t.pop_back();
+                }
+            }
+        };
+        dfs(n, 2);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getFactors(n int) [][]int {
+	t := []int{}
+	ans := [][]int{}
+	var dfs func(n, i int)
+	dfs = func(n, i int) {
+		if len(t) > 0 {
+			cp := make([]int, len(t))
+			copy(cp, t)
+			cp = append(cp, n)
+			ans = append(ans, cp)
+		}
+		for j := i; j <= n/j; j++ {
+			if n%j == 0 {
+				t = append(t, j)
+				dfs(n/j, j)
+				t = t[:len(t)-1]
+			}
+		}
+	}
+	dfs(n, 2)
+	return ans
+}
 ```
 
 ### **...**
