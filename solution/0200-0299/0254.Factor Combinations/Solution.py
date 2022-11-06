@@ -10,6 +10,7 @@ class Solution:
                     dfs(n // j, j)
                     t.pop()
                 j += 1
+
         t = []
         ans = []
         dfs(n, 2)

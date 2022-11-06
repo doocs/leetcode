@@ -23,6 +23,14 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 318 场周赛(2022-11-06 10:30, 90 分钟) 参赛人数 5670
+
+- [2460. 对数组执行操作](/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README.md)
+- [2461. 长度为 K 子数组中的最大和](/solution/2400-2499/2461.Maximum%20Sum%20of%20Distinct%20Subarrays%20With%20Length%20K/README.md)
+- [2462. 雇佣 K 位工人的总代价](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README.md)
+- [2463. 最小移动总距离](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README.md)
+
+
 #### 第 317 场周赛(2022-10-30 10:30, 90 分钟) 参赛人数 5660
 
 - [2455. 可被三整除的偶数的平均值](/solution/2400-2499/2455.Average%20Value%20of%20Even%20Numbers%20That%20Are%20Divisible%20by%20Three/README.md)
@@ -610,7 +618,7 @@ https://lcpredictor.herokuapp.com
 #### 第 66 场双周赛(2021-11-27 22:30, 90 分钟) 参赛人数 2803
 
 - [2085. 统计出现过一次的公共字符串](/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README.md)
-- [2086. 从房屋收集雨水需要的最少水桶数](/solution/2000-2099/2086.Minimum%20Number%20of%20Buckets%20Required%20to%20Collect%20Rainwater%20from%20Houses/README.md)
+- [2086. 从房屋收集雨水需要的最少水桶数](/solution/2000-2099/2086.Minimum%20Number%20of%20Food%20Buckets%20to%20Feed%20the%20Hamsters/README.md)
 - [2087. 网格图中机器人回家的最小代价](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README.md)
 - [2088. 统计农场中肥沃金字塔的数目](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md)
 
@@ -1699,7 +1707,7 @@ https://lcpredictor.herokuapp.com
 
 - [1365. 有多少小于当前数字的数字](/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README.md)
 - [1366. 通过投票对团队排名](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md)
-- [1367. 二叉树中的列表](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README.md)
+- [1367. 二叉树中的链表](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README.md)
 - [1368. 使网格图至少有一条有效路径的最小代价](/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README.md)
 
 

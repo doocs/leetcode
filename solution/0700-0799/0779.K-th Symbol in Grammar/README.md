@@ -30,7 +30,7 @@
 <strong>输出:</strong> 0
 <strong>解释:</strong> 
 第一行: 0 
-第二行: 0<u>1</u>
+第二行: <u>0</u>1
 </pre>
 
 <p><strong>示例 3:</strong></p>

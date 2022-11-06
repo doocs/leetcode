@@ -151,7 +151,7 @@ public:
             if (nums[k] != k) cnt -= 2;
             return cnt;
         };
-        
+
         int a = f(nums, 0);
         vector<int> arr = nums;
         for (int& v : arr) v = (v - 1 + n) % n;

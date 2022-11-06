@@ -1,6 +1,7 @@
 # The read4 API is already defined for you.
 # def read4(buf4: List[str]) -> int:
 
+
 class Solution:
     def __init__(self):
         self.buf4 = [None] * 4

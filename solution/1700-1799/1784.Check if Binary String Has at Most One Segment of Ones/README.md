@@ -10,8 +10,6 @@
 
 <p>如果 <code>s</code> 包含 <strong>零个或一个由连续的 <code>'1'</code> 组成的字段</strong> ，返回 <code>true</code>​​​ 。否则，返回 <code>false</code> 。</p>
 
-<p>如果 <code>s</code>&nbsp;中&nbsp;<strong>由连续若干个&nbsp;<code>'1'</code> 组成的字段</strong>&nbsp;数量不超过 <code>1</code>，返回 <code>true</code>​​​ 。否则，返回 <code>false</code> 。</p>
-
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>

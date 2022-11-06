@@ -105,7 +105,7 @@ class Solution {
 class Solution {
     private String s;
     private int n;
-    
+
     public String longestPalindrome(String s) {
         this.s = s;
         n = s.length();
@@ -121,7 +121,7 @@ class Solution {
         }
         return s.substring(start, start + mx);
     }
-    
+
     private int f(int l, int r) {
         while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
             --l;
