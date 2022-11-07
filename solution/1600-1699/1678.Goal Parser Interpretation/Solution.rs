@@ -1,22 +1,21 @@
 impl Solution {
     pub fn interpret(command: String) -> String {
-        const ss: [&str; 3] = ["G", "o", "al"];
-        let n = command.len();
+        let mut ans = String::new();
         let bs = command.as_bytes();
-        let mut res = String::new();
-        let mut i = 0;
-        while i < n {
+        for i in 0..bs.len() {
             if bs[i] == b'G' {
-                res.push_str(ss[0]);
-                i += 1;
-            } else if bs[i + 1] == b')' {
-                res.push_str(ss[1]);
-                i += 2
-            } else {
-                res.push_str(ss[2]);
-                i += 4
+                ans.push_str("G");
+            }
+            if bs[i] == b'(' {
+                ans.push_str({
+                    if bs[i + 1] == b')' {
+                        "o"
+                    } else {
+                        "al"
+                    }
+                })
             }
         }
-        res
+        ans
     }
 }

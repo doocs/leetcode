@@ -172,29 +172,60 @@ func interpret(command string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function interpret(command: string): string {
+    return command.replace(/\(\)/g, 'o').replace(/\(al\)/g, 'al');
+}
+```
+
+```ts
+function interpret(command: string): string {
+    const n = command.length;
+    const ans: string[] = [];
+    for (let i = 0; i < n; i++) {
+        const c = command[i];
+        if (c === 'G') {
+            ans.push(c);
+        } else if (c === '(') {
+            ans.push(command[i + 1] === ')' ? 'o' : 'al');
+        }
+    }
+    return ans.join('');
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn interpret(command: String) -> String {
-        const ss: [&str; 3] = ["G", "o", "al"];
-        let n = command.len();
+        command.replace("()", "o").replace("(al)", "al")
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn interpret(command: String) -> String {
+        let mut ans = String::new();
         let bs = command.as_bytes();
-        let mut res = String::new();
-        let mut i = 0;
-        while i < n {
+        for i in 0..bs.len() {
             if bs[i] == b'G' {
-                res.push_str(ss[0]);
-                i += 1;
-            } else if bs[i + 1] == b')' {
-                res.push_str(ss[1]);
-                i += 2
-            } else {
-                res.push_str(ss[2]);
-                i += 4
+                ans.push_str("G");
+            }
+            if bs[i] == b'(' {
+                ans.push_str({
+                    if bs[i + 1] == b')' {
+                        "o"
+                    } else {
+                        "al"
+                    }
+                })
             }
         }
-        res
+        ans
     }
 }
 ```
