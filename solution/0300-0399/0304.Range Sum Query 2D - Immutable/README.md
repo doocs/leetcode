@@ -59,11 +59,21 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (蓝色矩形框的元素总和)
 
 **方法一：二维前缀和**
 
-`s[i + 1][j + 1]` 表示第 i 行第 j 列左上部分所有元素之和，其中 i, j 下标从 0 开始。
+我们用 $s[i + 1][j + 1]$ 表示第 $i$ 行第 $j$ 列左上部分所有元素之和，下标 $i$ 和 $j$ 均从 $0$ 开始。可以得到以下前缀和公式：
 
-则 `s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]`。
+$$
+s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]
+$$
 
-以 (x1, y1) 为左上角，(x2, y2) 为右下角的子矩阵和 `sub = s[x2 + 1][y2 + 1] - s[x2 + 1][y1] - s[x1][y2 + 1] + s[x1][y1]`。
+那么分别以 $(x_1, y_1)$ 和 $(x_2, y_2)$ 为左上角和右下角的矩形的元素之和为：
+
+$$
+s[x_2 + 1][y_2 + 1] - s[x_2 + 1][y_1] - s[x_1][y_2 + 1] + s[x_1][y_1]
+$$
+
+我们在初始化方法中预处理出前缀和数组 $s$，在查询方法中直接返回上述公式的结果即可。
+
+初始化的时间复杂度为 $O(m\times n)$，查询的时间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -223,6 +233,44 @@ NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
         this.s[row1][col1]
     );
 };
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * var obj = new NumMatrix(matrix)
+ * var param_1 = obj.sumRegion(row1,col1,row2,col2)
+ */
+```
+
+### **TypeScript**
+
+```ts
+class NumMatrix {
+    private s: number[][];
+
+    constructor(matrix: number[][]) {
+        const m = matrix.length;
+        const n = matrix[0].length;
+        this.s = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+        for (let i = 0; i < m; ++i) {
+            for (let j = 0; j < n; ++j) {
+                this.s[i + 1][j + 1] =
+                    this.s[i + 1][j] +
+                    this.s[i][j + 1] -
+                    this.s[i][j] +
+                    matrix[i][j];
+            }
+        }
+    }
+
+    sumRegion(row1: number, col1: number, row2: number, col2: number): number {
+        return (
+            this.s[row2 + 1][col2 + 1] -
+            this.s[row2 + 1][col1] -
+            this.s[row1][col2 + 1] +
+            this.s[row1][col1]
+        );
+    }
+}
 
 /**
  * Your NumMatrix object will be instantiated and called as such:

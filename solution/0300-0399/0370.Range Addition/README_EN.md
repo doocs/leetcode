@@ -44,12 +44,12 @@
 ```python
 class Solution:
     def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
-        delta = [0] * length
-        for start, end, inc in updates:
-            delta[start] += inc
-            if end + 1 < length:
-                delta[end + 1] -= inc
-        return list(accumulate(delta))
+        d = [0] * length
+        for l, r, c in updates:
+            d[l] += c
+            if r + 1 < length:
+                d[r + 1] -= c
+        return list(accumulate(d))
 ```
 
 ```python
@@ -89,17 +89,18 @@ class Solution:
 ```java
 class Solution {
     public int[] getModifiedArray(int length, int[][] updates) {
-        int[] delta = new int[length];
-        for (int[] e : updates) {
-            delta[e[0]] += e[2];
-            if (e[1] + 1 < length) {
-                delta[e[1] + 1] -= e[2];
+        int[] d = new int[length];
+        for (var e : updates) {
+            int l = e[0], r = e[1], c = e[2];
+            d[l] += c;
+            if (r + 1 < length) {
+                d[r + 1] -= c;
             }
         }
         for (int i = 1; i < length; ++i) {
-            delta[i] += delta[i - 1];
+            d[i] += d[i - 1];
         }
-        return delta;
+        return d;
     }
 }
 ```
@@ -158,13 +159,14 @@ class BinaryIndexedTree {
 class Solution {
 public:
     vector<int> getModifiedArray(int length, vector<vector<int>>& updates) {
-        vector<int> delta(length);
-        for (auto e : updates) {
-            delta[e[0]] += e[2];
-            if (e[1] + 1 < length) delta[e[1] + 1] -= e[2];
+        vector<int> d(length);
+        for (auto& e : updates) {
+            int l = e[0], r = e[1], c = e[2];
+            d[l] += c;
+            if (r + 1 < length) d[r + 1] -= c;
         }
-        for (int i = 1; i < length; ++i) delta[i] += delta[i - 1];
-        return delta;
+        for (int i = 1; i < length; ++i) d[i] += d[i - 1];
+        return d;
     }
 };
 ```
@@ -221,17 +223,18 @@ public:
 
 ```go
 func getModifiedArray(length int, updates [][]int) []int {
-	delta := make([]int, length)
+	d := make([]int, length)
 	for _, e := range updates {
-		delta[e[0]] += e[2]
-		if e[1]+1 < length {
-			delta[e[1]+1] -= e[2]
+		l, r, c := e[0], e[1], e[2]
+		d[l] += c
+		if r+1 < length {
+			d[r+1] -= c
 		}
 	}
 	for i := 1; i < length; i++ {
-		delta[i] += delta[i-1]
+		d[i] += d[i-1]
 	}
-	return delta
+	return d
 }
 ```
 
@@ -290,17 +293,17 @@ func getModifiedArray(length int, updates [][]int) []int {
  * @return {number[]}
  */
 var getModifiedArray = function (length, updates) {
-    let delta = new Array(length).fill(0);
-    for (let [start, end, inc] of updates) {
-        delta[start] += inc;
-        if (end + 1 < length) {
-            delta[end + 1] -= inc;
+    const d = new Array(length).fill(0);
+    for (const [l, r, c] of updates) {
+        d[l] += c;
+        if (r + 1 < length) {
+            d[r + 1] -= c;
         }
     }
     for (let i = 1; i < length; ++i) {
-        delta[i] += delta[i - 1];
+        d[i] += d[i - 1];
     }
-    return delta;
+    return d;
 };
 ```
 
