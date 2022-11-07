@@ -1,7 +1,6 @@
-func singleNumber(nums []int) int {
-	res := 0
+func singleNumber(nums []int) (ans int) {
 	for _, v := range nums {
-		res ^= v
+		ans ^= v
 	}
-	return res
+	return
 }

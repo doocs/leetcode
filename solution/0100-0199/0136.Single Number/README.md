@@ -27,9 +27,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-异或运算求解。
+**方法一：位运算**
 
-首先明确，两个相同的数异或之后的结果为 0。对该数组所有元素进行异或运算，结果就是那个只出现一次的数字。
+异或运算的性质：
+
+-   任何数和 $0$ 做异或运算，结果仍然是原来的数，即 $x \oplus 0 = x$；
+-   任何数和其自身做异或运算，结果是 $0$，即 $x \oplus x = 0$；
+
+我们对该数组所有元素进行异或运算，结果就是那个只出现一次的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -40,10 +47,7 @@
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        res = 0
-        for num in nums:
-            res ^= num
-        return res
+        return reduce(xor, nums)
 ```
 
 ### **Java**
@@ -53,12 +57,44 @@ class Solution:
 ```java
 class Solution {
     public int singleNumber(int[] nums) {
-        int res = 0;
-        for (int num : nums) {
-            res ^= num;
+        int ans = 0;
+        for (int v : nums) {
+            ans ^= v;
         }
-        return res;
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public int singleNumber(int[] nums) {
+        return Arrays.stream(nums).reduce(0, (a, b) -> a ^ b);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for (int v : nums) ans ^= v;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func singleNumber(nums []int) (ans int) {
+	for _, v := range nums {
+		ans ^= v
+	}
+	return
 }
 ```
 
@@ -70,38 +106,11 @@ class Solution {
  * @return {number}
  */
 var singleNumber = function (nums) {
-    let res = 0;
-    for (let num of nums) {
-        res ^= num;
+    let ans = 0;
+    for (const v of nums) {
+        ans ^= v;
     }
-    return res;
-};
-```
-
-### **Go**
-
-```go
-func singleNumber(nums []int) int {
-	res := 0
-	for _, v := range nums {
-		res ^= v
-	}
-	return res
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int singleNumber(vector<int>& nums) {
-        int res = 0;
-        for (auto num : nums) {
-            res ^= num;
-        }
-        return res;
-    }
+    return ans;
 };
 ```
 

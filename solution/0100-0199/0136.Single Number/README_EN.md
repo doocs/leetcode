@@ -37,10 +37,7 @@
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        res = 0
-        for num in nums:
-            res ^= num
-        return res
+        return reduce(xor, nums)
 ```
 
 ### **Java**
@@ -48,12 +45,44 @@ class Solution:
 ```java
 class Solution {
     public int singleNumber(int[] nums) {
-        int res = 0;
-        for (int num : nums) {
-            res ^= num;
+        int ans = 0;
+        for (int v : nums) {
+            ans ^= v;
         }
-        return res;
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public int singleNumber(int[] nums) {
+        return Arrays.stream(nums).reduce(0, (a, b) -> a ^ b);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for (int v : nums) ans ^= v;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func singleNumber(nums []int) (ans int) {
+	for _, v := range nums {
+		ans ^= v
+	}
+	return
 }
 ```
 
@@ -65,38 +94,11 @@ class Solution {
  * @return {number}
  */
 var singleNumber = function (nums) {
-    let res = 0;
-    for (let num of nums) {
-        res ^= num;
+    let ans = 0;
+    for (const v of nums) {
+        ans ^= v;
     }
-    return res;
-};
-```
-
-### **Go**
-
-```go
-func singleNumber(nums []int) int {
-	res := 0
-	for _, v := range nums {
-		res ^= v
-	}
-	return res
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int singleNumber(vector<int>& nums) {
-        int res = 0;
-        for (auto num : nums) {
-            res ^= num;
-        }
-        return res;
-    }
+    return ans;
 };
 ```
 
