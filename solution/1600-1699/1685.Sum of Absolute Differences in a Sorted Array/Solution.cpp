@@ -1,16 +1,15 @@
 class Solution {
 public:
     vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> presum(n + 1);
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        int t = 0, n = nums.size();
+        vector<int> ans(n);
         for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + nums[i];
+            int v = nums[i];
+            int x = s - t - (n - i) * v + v * i - t;
+            t += v;
+            ans[i] = x;
         }
-        vector<int> res;
-        for (int i = 0; i < n; ++i) {
-            int t = nums[i] * i - presum[i] + presum[n] - presum[i + 1] - nums[i] * (n - i - 1);
-            res.push_back(t);
-        }
-        return res;
+        return ans;
     }
 };

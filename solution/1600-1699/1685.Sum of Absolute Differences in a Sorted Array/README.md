@@ -45,7 +45,15 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和实现。
+**方法一：求和 + 枚举**
+
+我们记数组长度为 $n$，求出数组 `nums` 的所有元素之和，记为 $s$。
+
+然后枚举数组 `nums` 中的每个元素 `nums[i]`，用变量 $t$ 记录 `nums[i]` 前面的元素之和。
+
+由于数组是非递减的，我们可以得到 $result[i]= s - t - (n - i) \times nums[i] + nums[i] \times i - t$。
+
+遍历结束后，返回答案数组即可。
 
 <!-- tabs:start -->
 
@@ -56,15 +64,14 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 ```python
 class Solution:
     def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        presum = [0] * (n + 1)
-        for i in range(n):
-            presum[i + 1] = presum[i] + nums[i]
-        res = []
-        for i, num in enumerate(nums):
-            t = num * i - presum[i] + presum[n] - presum[i + 1] - num * (n - i - 1)
-            res.append(t)
-        return res
+        s = sum(nums)
+        t, n = 0, len(nums)
+        ans = []
+        for i, v in enumerate(nums):
+            x = s - t - (n - i) * v + v * i - t
+            t += v
+            ans.append(x)
+        return ans
 ```
 
 ### **Java**
@@ -74,16 +81,19 @@ class Solution:
 ```java
 class Solution {
     public int[] getSumAbsoluteDifferences(int[] nums) {
-        int n = nums.length;
-        int[] presum = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + nums[i];
+        int s = 0;
+        for (int v : nums) {
+            s += v;
         }
-        int[] res = new int[n];
+        int t = 0, n = nums.length;
+        int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            res[i] = nums[i] * i - presum[i] + presum[n] - presum[i + 1] - nums[i] * (n - i - 1);
+            int v = nums[i];
+            int x = s - t - (n - i) * v + v * i - t;
+            t += v;
+            ans[i] = x;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -94,17 +104,16 @@ class Solution {
 class Solution {
 public:
     vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> presum(n + 1);
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        int t = 0, n = nums.size();
+        vector<int> ans(n);
         for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + nums[i];
+            int v = nums[i];
+            int x = s - t - (n - i) * v + v * i - t;
+            t += v;
+            ans[i] = x;
         }
-        vector<int> res;
-        for (int i = 0; i < n; ++i) {
-            int t = nums[i] * i - presum[i] + presum[n] - presum[i + 1] - nums[i] * (n - i - 1);
-            res.push_back(t);
-        }
-        return res;
+        return ans;
     }
 };
 ```
@@ -113,18 +122,44 @@ public:
 
 ```go
 func getSumAbsoluteDifferences(nums []int) []int {
-	n := len(nums)
-	presum := make([]int, n+1)
-	for i := 0; i < n; i++ {
-		presum[i+1] = presum[i] + nums[i]
+	s := 0
+	for _, v := range nums {
+		s += v
 	}
-	var res []int
-	for i := 0; i < n; i++ {
-		t := nums[i]*i - presum[i] + presum[n] - presum[i+1] - nums[i]*(n-i-1)
-		res = append(res, t)
+	t, n := 0, len(nums)
+	ans := make([]int, n)
+	for i, v := range nums {
+		x := s - t - (n-i)*v + v*i - t
+		t += v
+		ans[i] = x
 	}
-	return res
+	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var getSumAbsoluteDifferences = function (nums) {
+    let s = 0;
+    for (const v of nums) {
+        s += v;
+    }
+    let t = 0;
+    const n = nums.length;
+    const ans = [];
+    for (let i = 0; i < n; ++i) {
+        const v = nums[i];
+        const x = s - t - (n - i) * v + v * i - t;
+        t += v;
+        ans.push(x);
+    }
+    return ans;
+};
 ```
 
 ### **...**
