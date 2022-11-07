@@ -53,17 +53,18 @@
 ```python
 class Solution:
     def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
-        res = 0
-        chars = set(allowed)
-        for word in words:
-            find = True
-            for c in word:
-                if c not in chars:
-                    find = False
-                    break
-            if find:
-                res += 1
-        return res
+        s = set(allowed)
+        return sum(all(c in s for c in w) for w in words)
+```
+
+```python
+class Solution:
+    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        def f(w):
+            return reduce(or_, (1 << (ord(c) - ord('a')) for c in w))
+        
+        mask = f(allowed)
+        return sum((mask | f(w)) == mask for w in words)
 ```
 
 ### **Java**
@@ -71,24 +72,49 @@ class Solution:
 ```java
 class Solution {
     public int countConsistentStrings(String allowed, String[] words) {
-        boolean[] chars = new boolean[26];
+        boolean[] s = new boolean[26];
         for (char c : allowed.toCharArray()) {
-            chars[c - 'a'] = true;
+            s[c - 'a'] = true;
         }
-        int res = 0;
-        for (String word : words) {
-            boolean find = true;
-            for (char c : word.toCharArray()) {
-                if (!chars[c - 'a']) {
-                    find = false;
-                    break;
-                }
-            }
-            if (find) {
-                ++res;
+        int ans = 0;
+        for (String w : words) {
+            if (check(w, s)) {
+                ++ans;
             }
         }
-        return res;
+        return ans;
+    }
+
+    private boolean check(String w, boolean[] s) {
+        for (int i = 0; i < w.length(); ++i) {
+            if (!s[w.charAt(i) - 'a']) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countConsistentStrings(String allowed, String[] words) {
+        int mask = f(allowed);
+        int ans = 0;
+        for (String w : words) {
+            if ((mask | f(w)) == mask) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private int f(String w) {
+        int mask = 0;
+        for (int i = 0; i < w.length(); ++i) {
+            mask |= 1 << (w.charAt(i) - 'a');
+        }
+        return mask;
     }
 }
 ```
@@ -99,22 +125,32 @@ class Solution {
 class Solution {
 public:
     int countConsistentStrings(string allowed, vector<string>& words) {
-        vector<bool> chars(26, false);
-        for (char c : allowed) {
-            chars[c - 'a'] = true;
-        }
-        int res = 0;
-        for (string word : words) {
-            bool find = true;
-            for (char c : word) {
-                if (!chars[c - 'a']) {
-                    find = false;
-                    break;
-                }
-            }
-            if (find) ++res;
-        }
-        return res;
+        bitset<26> s;
+        for (auto& c : allowed) s[c - 'a'] = 1;
+        int ans = 0;
+        auto check = [&](string& w) {
+            for (auto& c : w) if (!s[c - 'a']) return false;
+            return true;
+        };
+        for (auto& w : words) ans += check(w);
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countConsistentStrings(string allowed, vector<string>& words) {
+        auto f = [](string& w) {
+            int mask = 0;
+            for (auto& c : w) mask |= 1 << (c - 'a');
+            return mask;
+        };
+        int mask = f(allowed);
+        int ans = 0;
+        for (auto& w : words) ans += (mask | f(w)) == mask;
+        return ans;
     }
 };
 ```
@@ -122,25 +158,44 @@ public:
 ### **Go**
 
 ```go
-func countConsistentStrings(allowed string, words []string) int {
-	chars := [26]bool{}
+func countConsistentStrings(allowed string, words []string) (ans int) {
+	s := [26]bool{}
 	for _, c := range allowed {
-		chars[c-'a'] = true
+		s[c-'a'] = true
 	}
-	res := 0
-	for _, word := range words {
-		find := true
-		for _, c := range word {
-			if !chars[c-'a'] {
-				find = false
-				break
+	check := func(w string) bool {
+		for _, c := range w {
+			if !s[c-'a'] {
+				return false
 			}
 		}
-		if find {
-			res++
+		return true
+	}
+	for _, w := range words {
+		if check(w) {
+			ans++
 		}
 	}
-	return res
+	return ans
+}
+```
+
+```go
+func countConsistentStrings(allowed string, words []string) (ans int) {
+	f := func(w string) (mask int) {
+		for _, c := range w {
+			mask |= 1 << (c - 'a')
+		}
+		return
+	}
+
+	mask := f(allowed)
+	for _, w := range words {
+		if (mask | f(w)) == mask {
+			ans++
+		}
+	}
+	return
 }
 ```
 

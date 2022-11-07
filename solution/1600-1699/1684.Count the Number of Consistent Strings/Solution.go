@@ -1,20 +1,20 @@
-func countConsistentStrings(allowed string, words []string) int {
-	chars := [26]bool{}
+func countConsistentStrings(allowed string, words []string) (ans int) {
+	s := [26]bool{}
 	for _, c := range allowed {
-		chars[c-'a'] = true
+		s[c-'a'] = true
 	}
-	res := 0
-	for _, word := range words {
-		find := true
-		for _, c := range word {
-			if !chars[c-'a'] {
-				find = false
-				break
+	check := func(w string) bool {
+		for _, c := range w {
+			if !s[c-'a'] {
+				return false
 			}
 		}
-		if find {
-			res++
+		return true
+	}
+	for _, w := range words {
+		if check(w) {
+			ans++
 		}
 	}
-	return res
+	return ans
 }
