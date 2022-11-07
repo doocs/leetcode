@@ -50,6 +50,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+我们设计一个函数 $dfs(i, j, x)$ 表示字符串 $s$ 中下标范围 $[i, j]$ 内，且以字符 $x$ 结尾的最长“好的回文子序列”的长度。答案为 $dfs(0, n - 1, 26)$。
+
+函数 $dfs(i, j, x)$ 的计算过程如下：
+
+-   如果 $i >= j$，则 $dfs(i, j, x) = 0$；
+-   如果 $s[i] = s[j]$，且 $s[i] \neq x$，那么 $dfs(i, j, x) = dfs(i + 1, j - 1, s[i]) + 2$；
+-   如果 $s[i] \neq s[j]$，那么 $dfs(i, j, x) = max(dfs(i + 1, j, x), dfs(i, j - 1, x))$。
+
+过程中，我们可以使用记忆化搜索的方式，避免重复计算。
+
+时间复杂度 $O(n^2 \times C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +71,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def longestPalindromeSubseq(self, s: str) -> int:
+        @cache
+        def dfs(i, j, x):
+            if i >= j:
+                return 0
+            if s[i] == s[j] and s[i] != x:
+                return dfs(i + 1, j - 1, s[i]) + 2
+            return max(dfs(i + 1, j, x), dfs(i, j - 1, x))
 
+        ans = dfs(0, len(s) - 1, '')
+        dfs.cache_clear()
+        return ans
 ```
 
 ### **Java**
@@ -65,7 +91,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[][][] f;
+    private String s;
 
+    public int longestPalindromeSubseq(String s) {
+        int n = s.length();
+        this.s = s;
+        f = new int[n][n][27];
+        for (var a : f) {
+            for (var b : a) {
+                Arrays.fill(b, -1);
+            }
+        }
+        return dfs(0, n - 1, 26);
+    }
+
+    private int dfs(int i, int j, int x) {
+        if (i >= j) {
+            return 0;
+        }
+        if (f[i][j][x] != -1) {
+            return f[i][j][x];
+        }
+        int ans = 0;
+        if (s.charAt(i) == s.charAt(j) && s.charAt(i) - 'a' != x) {
+            ans = dfs(i + 1, j - 1, s.charAt(i) - 'a') + 2;
+        } else {
+            ans = Math.max(dfs(i + 1, j, x), dfs(i, j - 1, x));
+        }
+        f[i][j][x] = ans;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int f[251][251][27];
+
+    int longestPalindromeSubseq(string s) {
+        int n = s.size();
+        memset(f, -1, sizeof f);
+        function<int(int, int, int)> dfs = [&](int i, int j, int x) -> int {
+            if (i >= j) return 0;
+            if (f[i][j][x] != -1) return f[i][j][x];
+            int ans = 0;
+            if (s[i] == s[j] && s[i] - 'a' != x) ans = dfs(i + 1, j - 1, s[i] - 'a') + 2;
+            else ans = max(dfs(i + 1, j, x), dfs(i, j - 1, x));
+            f[i][j][x] = ans;
+            return ans;
+        };
+        return dfs(0, n - 1, 26);
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestPalindromeSubseq(s string) int {
+	n := len(s)
+	f := make([][][]int, n)
+	for i := range f {
+		f[i] = make([][]int, n)
+		for j := range f[i] {
+			f[i][j] = make([]int, 27)
+			for k := range f[i][j] {
+				f[i][j][k] = -1
+			}
+		}
+	}
+	var dfs func(i, j, x int) int
+	dfs = func(i, j, x int) int {
+		if i >= j {
+			return 0
+		}
+		if f[i][j][x] != -1 {
+			return f[i][j][x]
+		}
+		ans := 0
+		if s[i] == s[j] && int(s[i]-'a') != x {
+			ans = dfs(i+1, j-1, int(s[i]-'a')) + 2
+		} else {
+			ans = max(dfs(i+1, j, x), dfs(i, j-1, x))
+		}
+		f[i][j][x] = ans
+		return ans
+	}
+	return dfs(0, n-1, 26)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
