@@ -5,9 +5,6 @@ impl Solution {
         nums.sort();
         let n = nums.len();
         let mut res = vec![];
-        if n < 3 {
-            return res;
-        }
         let mut i = 0;
         while i < n - 2 && nums[i] <= 0 {
             let mut l = i + 1;
