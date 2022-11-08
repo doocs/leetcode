@@ -52,16 +52,27 @@
 
 类似完全背包的思路，硬币数量不限，求凑成总金额所需的最少的硬币个数。
 
-定义 `dp[i][j]` 表示从前 i 种硬币选出总金额为 j 所需的最少硬币数。
+定义 $dp[i][j]$ 表示从前 $i$ 种硬币选出总金额为 $j$ 所需的最少硬币数。
 
-由于：
+那么有：
 
--   `dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2v] + 2, ... , dp[i - 1][j - kv] + k)`
--   `dp[i][j - v] = min( dp[i - 1][j - v], dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
+$$
+dp[i][j] = \min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2\times v] + 2, ... , dp[i - 1][j - k\times v] + k)
+$$
 
-因此 `dp[i][j] = min(dp[i - 1][j], dp[i][j - v] + 1)`。
+令 $j=j-v$，则有：
 
-时间复杂度：$O(m*amount)$，其中 m 表示 `coins` 长度。
+$$
+dp[i][j - v] = \min( dp[i - 1][j - v], dp[i - 1][j - 2\times v] + 1, ... , dp[i - 1][j - k\times v] + k - 1)
+$$
+
+因此，我们可以得到状态转移方程：
+
+$$
+dp[i][j] = \min(dp[i - 1][j], dp[i][j - v] + 1)
+$$
+
+时间复杂度 $O(m\times n)$，空间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为硬币数量和总金额。
 
 <!-- tabs:start -->
 
