@@ -68,36 +68,29 @@
 class Solution:
     def shortestPathAllKeys(self, grid: List[str]) -> int:
         m, n = len(grid), len(grid[0])
-        cnt, start = 0, None
-        for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                cnt += v.islower()
-                if v == '@':
-                    start = (i, j)
-        q = deque([(start[0], start[1], 0)])
-        dirs = [-1, 0, 1, 0, -1]
+        si, sj = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '@')
+        k = sum(v.islower() for row in grid for v in row)
+        dirs = (-1, 0, 1, 0, -1)
+        q = deque([(si, sj, 0)])
+        vis = {(si, sj, 0)}
         ans = 0
-        mask = (1 << cnt) - 1
-        vis = {(*start, 0)}
         while q:
             for _ in range(len(q)):
                 i, j, state = q.popleft()
-                if state == mask:
+                if state == (1 << k) - 1:
                     return ans
-                for k in range(4):
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
                     nxt = state
-                    x, y = i + dirs[k], j + dirs[k + 1]
-                    if 0 <= x < m and 0 <= y < n and grid[x][y] != '#':
-                        if (
-                            grid[x][y].isupper()
-                            and (nxt & (1 << (ord(grid[x][y]) - ord('A')))) == 0
-                        ):
+                    if 0 <= x < m and 0 <= y < n:
+                        c = grid[x][y]
+                        if c == '#' or c.isupper() and (state & (1 << (ord(c) - ord('A')))) == 0:
                             continue
-                        if grid[x][y].islower():
-                            nxt |= 1 << (ord(grid[x][y]) - ord('a'))
+                        if c.islower():
+                            nxt |= 1 << (ord(c) - ord('a'))
                         if (x, y, nxt) not in vis:
-                            q.append((x, y, nxt))
                             vis.add((x, y, nxt))
+                            q.append((x, y, nxt))
             ans += 1
         return -1
 ```
@@ -106,44 +99,43 @@ class Solution:
 
 ```java
 class Solution {
+    private int[] dirs = {-1, 0, 1, 0, -1};
+
     public int shortestPathAllKeys(String[] grid) {
         int m = grid.length, n = grid[0].length();
-        int cnt = 0;
-        int sx = 0, sy = 0;
+        int k = 0;
+        int si = 0, sj = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 char c = grid[i].charAt(j);
                 if (Character.isLowerCase(c)) {
-                    ++cnt;
+                    ++k;
                 } else if (c == '@') {
-                    sx = i;
-                    sy = j;
+                    si = i;
+                    sj = j;
                 }
             }
         }
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[] {sx, sy, 0});
-        int[] dirs = {-1, 0, 1, 0, -1};
+        q.offer(new int[] {si, sj, 0});
+        boolean[][][] vis = new boolean[m][n][1 << k];
+        vis[si][sj][0] = true;
         int ans = 0;
-        int mask = (1 << cnt) - 1;
-        boolean[][][] vis = new boolean[m][n][1 << cnt];
-        vis[sx][sy][0] = true;
         while (!q.isEmpty()) {
             for (int t = q.size(); t > 0; --t) {
-                int[] p = q.poll();
+                var p = q.poll();
                 int i = p[0], j = p[1], state = p[2];
-                if (state == mask) {
+                if (state == (1 << k) - 1) {
                     return ans;
                 }
-                for (int k = 0; k < 4; ++k) {
-                    int nxt = state;
-                    int x = i + dirs[k], y = j + dirs[k + 1];
+                for (int h = 0; h < 4; ++h) {
+                    int x = i + dirs[h], y = j + dirs[h + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x].charAt(y);
-                        if (c == '#'
-                            || (Character.isUpperCase(c) && (nxt & (1 << (c - 'A'))) == 0)) {
+                        if (c == '#' || (Character.isUpperCase(c) && ((state >> (c - 'A')) & 1) == 0)) {
                             continue;
                         }
+                        int nxt = state;
                         if (Character.isLowerCase(c)) {
                             nxt |= 1 << (c - 'a');
                         }
@@ -166,40 +158,34 @@ class Solution {
 ```cpp
 class Solution {
 public:
+    const static inline vector<int> dirs = {-1, 0, 1, 0, -1};
+    
     int shortestPathAllKeys(vector<string>& grid) {
         int m = grid.size(), n = grid[0].size();
-        int cnt = 0;
-        int sx = 0, sy = 0;
+        int k = 0;
+        int si = 0, sj = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 char c = grid[i][j];
-                if (islower(c))
-                    ++cnt;
-                else if (c == '@') {
-                    sx = i;
-                    sy = j;
-                }
+                if (islower(c)) ++k;
+                else if (c == '@') si = i, sj = j;
             }
         }
-        queue<vector<int>> q;
-        q.push({sx, sy, 0});
-        int mask = (1 << cnt) - 1;
-        vector<vector<vector<bool>>> vis(m, vector<vector<bool>>(n, vector<bool>(1 << cnt)));
-        vis[sx][sy][0] = true;
+        queue<tuple<int, int, int>> q{{{si, sj, 0}}};
+        vector<vector<vector<bool>>> vis(m, vector<vector<bool>>(n, vector<bool>(1 << k)));
+        vis[si][sj][0] = true;
         int ans = 0;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
         while (!q.empty()) {
             for (int t = q.size(); t; --t) {
-                auto p = q.front();
+                auto [i, j, state] = q.front();
                 q.pop();
-                int i = p[0], j = p[1], state = p[2];
-                if (state == mask) return ans;
-                for (int k = 0; k < 4; ++k) {
-                    int nxt = state;
-                    int x = i + dirs[k], y = j + dirs[k + 1];
+                if (state == (1 << k) - 1) return ans;
+                for (int h = 0; h < 4; ++h) {
+                    int x = i + dirs[h], y = j + dirs[h + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x][y];
-                        if (c == '#' || (isupper(c) && (nxt & (1 << (c - 'A'))) == 0)) continue;
+                        if (c == '#' || (isupper(c) && (state >> (c - 'A') & 1) == 0)) continue;
+                        int nxt = state;
                         if (islower(c)) nxt |= 1 << (c - 'a');
                         if (!vis[x][y][nxt]) {
                             vis[x][y][nxt] = true;
@@ -220,54 +206,43 @@ public:
 ```go
 func shortestPathAllKeys(grid []string) int {
 	m, n := len(grid), len(grid[0])
-	cnt := 0
-	sx, sy := 0, 0
+	var k, si, sj int
 	for i, row := range grid {
 		for j, c := range row {
-			if 'a' <= c && c <= 'z' {
-				cnt++
+			if c >= 'a' && c <= 'z' {
+				k++
 			} else if c == '@' {
-				sx, sy = i, j
+				si, sj = i, j
 			}
 		}
 	}
-	q := [][]int{{sx, sy, 0}}
-	vis := make([][][]bool, m)
-	for i := range vis {
-		vis[i] = make([][]bool, n)
-		for j := range vis[i] {
-			vis[i][j] = make([]bool, 1<<cnt)
-		}
-	}
-	vis[sx][sy][0] = true
+	type tuple struct{ i, j, state int }
+	q := []tuple{tuple{si, sj, 0}}
+	vis := map[tuple]bool{tuple{si, sj, 0}: true}
 	dirs := []int{-1, 0, 1, 0, -1}
 	ans := 0
-	mask := (1 << cnt) - 1
 	for len(q) > 0 {
 		for t := len(q); t > 0; t-- {
 			p := q[0]
 			q = q[1:]
-			i, j, state := p[0], p[1], p[2]
-			if state == mask {
+			i, j, state := p.i, p.j, p.state
+			if state == 1<<k-1 {
 				return ans
 			}
-			for k := 0; k < 4; k++ {
-				nxt := state
-				x, y := i+dirs[k], j+dirs[k+1]
+			for h := 0; h < 4; h++ {
+				x, y := i+dirs[h], j+dirs[h+1]
 				if x >= 0 && x < m && y >= 0 && y < n {
 					c := grid[x][y]
-					if c == '#' {
+					if c == '#' || (c >= 'A' && c <= 'Z' && (state>>(c-'A')&1 == 0)) {
 						continue
 					}
-					if 'A' <= c && c <= 'Z' && (nxt&(1<<(c-'A'))) == 0 {
-						continue
-					}
-					if 'a' <= c && c <= 'z' {
+					nxt := state
+					if c >= 'a' && c <= 'z' {
 						nxt |= 1 << (c - 'a')
 					}
-					if !vis[x][y][nxt] {
-						vis[x][y][nxt] = true
-						q = append(q, []int{x, y, nxt})
+					if !vis[tuple{x, y, nxt}] {
+						vis[tuple{x, y, nxt}] = true
+						q = append(q, tuple{x, y, nxt})
 					}
 				}
 			}
