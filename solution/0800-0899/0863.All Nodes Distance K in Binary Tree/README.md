@@ -50,7 +50,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先用哈希表存放每个节点的父节点，然后 DFS 找到距离目标节点 target 为 k 的节点即可。
+**方法一：DFS + 哈希表**
+
+我们先用 DFS 遍历整棵树，记录每个结点的父结点，然后从目标结点开始，向上、向下分别搜索距离为 $k$ 的结点，添加到答案数组中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的结点数。
 
 <!-- tabs:start -->
 
@@ -94,6 +98,40 @@ class Solution:
         ans = []
         vis = set()
         dfs(target, k)
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        def dfs1(root, fa):
+            if root is None:
+                return
+            p[root] = fa
+            dfs1(root.left, root)
+            dfs1(root.right, root)
+
+        def dfs2(root, fa, k):
+            if root is None:
+                return
+            if k == 0:
+                ans.append(root.val)
+                return
+            for nxt in (root.left, root.right, p[root]):
+                if nxt != fa:
+                    dfs2(nxt, root, k - 1)
+
+        p = {}
+        dfs1(root, None)
+        ans = []
+        dfs2(target, None, k)
         return ans
 ```
 
