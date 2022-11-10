@@ -11,7 +11,7 @@
 <ul>
 	<li><code>0 &lt;= i, j &lt; word.length</code>,</li>
 	<li><code>i != j</code>, and</li>
-	<li><code>words[i] + words[j]</code> (the concatenation of the two strings) is a palindrome string.</li>
+	<li><code>words[i] + words[j]</code> (the concatenation of the two strings) is a <span data-keyword="palindrome-string">palindrome</span>.</li>
 </ul>
 
 <p>Return <em>an array of all the <strong>palindrome pairs</strong> of </em><code>words</code>.</p>

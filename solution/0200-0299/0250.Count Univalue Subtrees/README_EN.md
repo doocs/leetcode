@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary tree, return the number of <strong>uni-value</strong> subtrees.</p>
+<p>Given the <code>root</code> of a binary tree, return <em>the number of <strong>uni-value</strong> </em><span data-keyword="subtree"><em>subtrees</em></span>.</p>
 
 <p>A <strong>uni-value subtree</strong> means all nodes of the subtree have the same value.</p>
 

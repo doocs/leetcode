@@ -2511,3 +2511,4 @@
   - [2461.Maximum Sum of Distinct Subarrays With Length K](/solution/2400-2499/2461.Maximum%20Sum%20of%20Distinct%20Subarrays%20With%20Length%20K/README_EN.md)
   - [2462.Total Cost to Hire K Workers](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README_EN.md)
   - [2463.Minimum Total Distance Traveled](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md)
+  - [2464.Minimum Subarrays in a Valid Split](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)
