@@ -88,11 +88,7 @@ class Solution {
                 dp[k][i] = Math.min(dp[k][i], down);
             }
         }
-        int ans = 0;
-        for (var e : dp) {
-            ans = Math.max(ans, Arrays.stream(e).max().getAsInt());
-        }
-        return ans;
+        return Arrays.stream(dp).flatMapToInt(Arrays::stream).max().getAsInt();
     }
 }
 ```
