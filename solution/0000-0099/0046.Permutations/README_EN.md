@@ -37,86 +37,83 @@ DFS.
 ```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        n = len(nums)
-        res = []
-        path = [0] * n
-        used = [False] * n
+        return list(permutations(nums))
+```
 
-        def dfs(u):
-            if u == n:
-                res.append(path.copy())
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(i):
+            if i == n:
+                ans.append(t[:])
                 return
-            for i in range(n):
-                if not used[i]:
-                    path[u] = nums[i]
-                    used[i] = True
-                    dfs(u + 1)
-                    used[i] = False
+            for j in range(n):
+                if not vis[j]:
+                    vis[j] = True
+                    t[i] = nums[j]
+                    dfs(i + 1)
+                    vis[j] = False
 
+        n = len(nums)
+        vis = [False] * n
+        t = [0] * n
+        ans = []
         dfs(0)
-        return res
+        return ans
+```
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(i):
+            nonlocal mask
+            if i == n:
+                ans.append(t[:])
+                return
+            for j in range(n):
+                if (mask >> j & 1) == 0:
+                    mask |= 1 << j
+                    t[i] = nums[j]
+                    dfs(i + 1)
+                    mask ^= 1 << j
+
+        n = len(nums)
+        mask = 0
+        t = [0] * n
+        ans = []
+        dfs(0)
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
+    private boolean[] vis;
+    private int[] nums;
+
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
-        int n = nums.length;
-        boolean[] used = new boolean[n];
-        dfs(0, n, nums, used, path, res);
-        return res;
+        this.nums = nums;
+        vis = new boolean[nums.length];
+        dfs(0);
+        return ans;
     }
 
-    private void dfs(
-        int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
-        if (u == n) {
-            res.add(new ArrayList<>(path));
+    private void dfs(int i) {
+        if (i == nums.length) {
+            ans.add(new ArrayList<>(t));
             return;
         }
-        for (int i = 0; i < n; ++i) {
-            if (!used[i]) {
-                path.add(nums[i]);
-                used[i] = true;
-                dfs(u + 1, n, nums, used, path, res);
-                used[i] = false;
-                path.remove(path.size() - 1);
+        for (int j = 0; j < nums.length; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                t.add(nums[j]);
+                dfs(i + 1);
+                t.remove(t.size() - 1);
+                vis[j] = false;
             }
-        }
-    }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
-var permute = function (nums) {
-    const n = nums.length;
-    let res = [];
-    let path = [];
-    let used = new Array(n).fill(false);
-    dfs(0, n, nums, used, path, res);
-    return res;
-};
-
-function dfs(u, n, nums, used, path, res) {
-    if (u == n) {
-        res.push(path.slice());
-        return;
-    }
-    for (let i = 0; i < n; ++i) {
-        if (!used[i]) {
-            path.push(nums[i]);
-            used[i] = true;
-            dfs(u + 1, n, nums, used, path, res);
-            used[i] = false;
-            path.pop();
         }
     }
 }
@@ -129,93 +126,117 @@ class Solution {
 public:
     vector<vector<int>> permute(vector<int>& nums) {
         int n = nums.size();
-        vector<vector<int>> res;
-        vector<int> path(n, 0);
-        vector<bool> used(n, false);
-        dfs(0, n, nums, used, path, res);
-        return res;
+        vector<vector<int>> ans;
+        vector<int> t(n);
+        vector<bool> vis(n);
+        function<void(int)> dfs = [&](int i) {
+            if (i == n) {
+                ans.emplace_back(t);
+                return;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    t[i] = nums[j];
+                    dfs(i + 1);
+                    vis[j] = false;
+                }
+            }
+        };
+        dfs(0);
+        return ans;
     }
+};
+```
 
-    void dfs(int u, int n, vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
-        if (u == n) {
-            res.emplace_back(path);
+### **Go**
+
+```go
+func permute(nums []int) (ans [][]int) {
+	n := len(nums)
+	t := make([]int, n)
+	vis := make([]bool, n)
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == n {
+			cp := make([]int, n)
+			copy(cp, t)
+			ans = append(ans, cp)
+			return
+		}
+		for j, v := range nums {
+			if !vis[j] {
+				vis[j] = true
+				t[i] = v
+				dfs(i + 1)
+				vis[j] = false
+			}
+		}
+	}
+	dfs(0)
+	return
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function (nums) {
+    const n = nums.length;
+    const ans = [];
+    const t = [];
+    const vis = new Array(n).fill(false);
+    function dfs(i) {
+        if (i >= n) {
+            ans.push([...t]);
             return;
         }
-        for (int i = 0; i < n; ++i) {
-            if (!used[i]) {
-                path[u] = nums[i];
-                used[i] = true;
-                dfs(u + 1, n, nums, used, path, res);
-                used[i] = false;
+        for (let j = 0; j < n; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                t.push(nums[j]);
+                dfs(i + 1);
+                vis[j] = false;
+                t.pop();
             }
         }
     }
+    dfs(0);
+    return ans;
 };
 ```
 
 ### **C#**
 
 ```cs
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
     public IList<IList<int>> Permute(int[] nums) {
-        var results = new List<IList<int>>();
-        var temp = new List<int>();
-        var visited = new bool[nums.Length];
-        Search(nums, visited, temp, results);
-        return results;
+        var ans = new List<IList<int>>();
+        var t = new List<int>();
+        var vis = new bool[nums.Length];
+        dfs(nums, 0, t, vis, ans);
+        return ans;
     }
 
-    private void Search(int[] nums, bool[] visited, IList<int> temp, IList<IList<int>> results)
-    {
-        int count = 0;
-        for (var i = 0; i < nums.Length; ++i)
-        {
-            if (visited[i]) continue;
-            ++count;
-            temp.Add(nums[i]);
-            visited[i] = true;
-            Search(nums, visited, temp, results);
-            temp.RemoveAt(temp.Count - 1);
-            visited[i] = false;
+    private void dfs(int[] nums, int i, IList<int> t, bool[] vis, IList<IList<int>> ans) {
+        if (i >= nums.Length) {
+            ans.Add(new List<int>(t));
+            return;
         }
-        if (count == 0 && temp.Any())
-        {
-            results.Add(new List<int>(temp));
+        for (int j = 0; j < nums.Length; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                t.Add(nums[j]);
+                dfs(nums, i + 1, t, vis, ans);
+                t.RemoveAt(t.Count - 1);
+                vis[j] = false;
+            }
         }
     }
-}
-```
-
-### **Go**
-
-```go
-func permute(nums []int) [][]int {
-	n := len(nums)
-	res := make([][]int, 0)
-	path := make([]int, n)
-	used := make([]bool, n)
-	dfs(0, n, nums, used, path, &res)
-	return res
-}
-
-func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
-	if u == n {
-		t := make([]int, n)
-		copy(t, path)
-		*res = append(*res, t)
-		return
-	}
-	for i := 0; i < n; i++ {
-		if !used[i] {
-			path[u] = nums[i]
-			used[i] = true
-			dfs(u+1, n, nums, used, path, res)
-			used[i] = false
-		}
-	}
 }
 ```
 
