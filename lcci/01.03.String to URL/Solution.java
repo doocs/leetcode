@@ -1,16 +1,13 @@
 class Solution {
-    public String replaceSpaces(String S, int length) {
-        char[] chars = S.toCharArray();
-        int j = chars.length;
-        for (int i = length - 1; i >= 0; --i) {
-            if (chars[i] == ' ') {
-                chars[--j] = '0';
-                chars[--j] = '2';
-                chars[--j] = '%';
-            } else {
-                chars[--j] = chars[i];
+    public static String replaceSpaces(String S, int length) {
+        StringBuffer str1 = new StringBuffer();
+        for (char c:S.toCharArray()){
+            if (c == ' '){
+                str1.append("%20");
+            } else{
+                str1.append(c);
             }
         }
-        return new String(chars, j, chars.length - j);
+        return str1.toString();
     }
 }
