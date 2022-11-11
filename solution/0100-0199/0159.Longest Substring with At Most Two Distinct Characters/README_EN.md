@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given a string <code>s</code>, return <em>the length of the longest substring that contains at most <strong>two distinct characters</strong></em>.</p>
+<p>Given a string <code>s</code>, return <em>the length of the longest </em><span data-keyword="substring-nonempty"><em>substring</em></span><em> that contains at most <strong>two distinct characters</strong></em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

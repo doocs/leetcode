@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given a string <code>s</code>. You can convert <code>s</code> to a palindrome by adding characters in front of it.</p>
+<p>You are given a string <code>s</code>. You can convert <code>s</code> to a <span data-keyword="palindrome-string">palindrome</span> by adding characters in front of it.</p>
 
 <p>Return <em>the shortest palindrome you can find by performing this transformation</em>.</p>
 

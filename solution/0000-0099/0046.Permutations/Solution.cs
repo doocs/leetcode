@@ -1,31 +1,25 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
     public IList<IList<int>> Permute(int[] nums) {
-        var results = new List<IList<int>>();
-        var temp = new List<int>();
-        var visited = new bool[nums.Length];
-        Search(nums, visited, temp, results);
-        return results;
+        var ans = new List<IList<int>>();
+        var t = new List<int>();
+        var vis = new bool[nums.Length];
+        dfs(nums, 0, t, vis, ans);
+        return ans;
     }
 
-    private void Search(int[] nums, bool[] visited, IList<int> temp, IList<IList<int>> results)
-    {
-        int count = 0;
-        for (var i = 0; i < nums.Length; ++i)
-        {
-            if (visited[i]) continue;
-            ++count;
-            temp.Add(nums[i]);
-            visited[i] = true;
-            Search(nums, visited, temp, results);
-            temp.RemoveAt(temp.Count - 1);
-            visited[i] = false;
+    private void dfs(int[] nums, int i, IList<int> t, bool[] vis, IList<IList<int>> ans) {
+        if (i >= nums.Length) {
+            ans.Add(new List<int>(t));
+            return;
         }
-        if (count == 0 && temp.Any())
-        {
-            results.Add(new List<int>(temp));
+        for (int j = 0; j < nums.Length; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                t.Add(nums[j]);
+                dfs(nums, i + 1, t, vis, ans);
+                t.RemoveAt(t.Count - 1);
+                vis[j] = false;
+            }
         }
     }
 }

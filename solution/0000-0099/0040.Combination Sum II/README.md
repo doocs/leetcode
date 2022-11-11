@@ -48,14 +48,13 @@
 
 ## 解法
 
-DFS 回溯法。需要先对 candidates 数组进行排序。
+**方法一：排序 + 回溯**
 
-去重技巧：
+题目要求组合不能重复，我们可以先对数组进行排序，方便跳过重复的数字。
 
-```python
-if i > u and candidates[i] == candidates[i - 1]:
-    continue
-```
+然后从左到右遍历数组，每次遍历到一个数，就将其加入到当前组合中，然后继续遍历下一个数，直到当前组合的和等于目标值，此时将当前组合加入到结果集中，然后回溯到上一层，继续遍历下一个数。
+
+时间复杂度 $O(2^n \times n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- 这里可写通用的实现逻辑 -->
 
@@ -68,22 +67,23 @@ if i > u and candidates[i] == candidates[i - 1]:
 ```python
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        def dfs(u, s, t):
+        def dfs(i, s):
             if s > target:
                 return
             if s == target:
                 ans.append(t[:])
                 return
-            for i in range(u, len(candidates)):
-                if i > u and candidates[i] == candidates[i - 1]:
+            for j in range(i, len(candidates)):
+                if j > i and candidates[j] == candidates[j - 1]:
                     continue
-                t.append(candidates[i])
-                dfs(i + 1, s + candidates[i], t)
+                t.append(candidates[j])
+                dfs(j + 1, s + candidates[j])
                 t.pop()
 
         ans = []
         candidates.sort()
-        dfs(0, 0, [])
+        t = []
+        dfs(0, 0)
         return ans
 ```
 
@@ -93,20 +93,20 @@ class Solution:
 
 ```java
 class Solution {
-    private List<List<Integer>> ans;
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
     private int[] candidates;
     private int target;
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        ans = new ArrayList<>();
         Arrays.sort(candidates);
         this.target = target;
         this.candidates = candidates;
-        dfs(0, 0, new ArrayList<>());
+        dfs(0, 0);
         return ans;
     }
 
-    private void dfs(int u, int s, List<Integer> t) {
+    private void dfs(int i, int s) {
         if (s > target) {
             return;
         }
@@ -114,12 +114,12 @@ class Solution {
             ans.add(new ArrayList<>(t));
             return;
         }
-        for (int i = u; i < candidates.length; ++i) {
-            if (i > u && candidates[i] == candidates[i - 1]) {
+        for (int j = i; j < candidates.length; ++j) {
+            if (j > i && candidates[j] == candidates[j - 1]) {
                 continue;
             }
-            t.add(candidates[i]);
-            dfs(i + 1, s + candidates[i], t);
+            t.add(candidates[j]);
+            dfs(j + 1, s + candidates[j]);
             t.remove(t.size() - 1);
         }
     }
@@ -131,32 +131,25 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> candidates;
-    vector<vector<int>> ans;
-    vector<int> t;
-    int target;
-
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         sort(candidates.begin(), candidates.end());
-        this->candidates = candidates;
-        this->target = target;
+        vector<vector<int>> ans;
         vector<int> t;
-        dfs(0, 0, t);
+        function<void(int, int)> dfs = [&](int i, int s) {
+            if (s > target) return;
+            if (s == target) {
+                ans.emplace_back(t);
+                return;
+            }
+            for (int j = i; j < candidates.size(); ++j) {
+                if (j > i && candidates[j] == candidates[j - 1]) continue;
+                t.emplace_back(candidates[j]);
+                dfs(j + 1, s + candidates[j]);
+                t.pop_back();
+            }
+        };
+        dfs(0, 0);
         return ans;
-    }
-
-    void dfs(int u, int s, vector<int>& t) {
-        if (s > target) return;
-        if (s == target) {
-            ans.push_back(t);
-            return;
-        }
-        for (int i = u; i < candidates.size(); ++i) {
-            if (i > u && candidates[i] == candidates[i - 1]) continue;
-            t.push_back(candidates[i]);
-            dfs(i + 1, s + candidates[i], t);
-            t.pop_back();
-        }
     }
 };
 ```
@@ -164,12 +157,11 @@ public:
 ### **Go**
 
 ```go
-func combinationSum2(candidates []int, target int) [][]int {
-	var ans [][]int
-	var t []int
+func combinationSum2(candidates []int, target int) (ans [][]int) {
 	sort.Ints(candidates)
-	var dfs func(u, s int, t []int)
-	dfs = func(u, s int, t []int) {
+	t := []int{}
+	var dfs func(i, s int)
+	dfs = func(i, s int) {
 		if s > target {
 			return
 		}
@@ -179,19 +171,54 @@ func combinationSum2(candidates []int, target int) [][]int {
 			ans = append(ans, cp)
 			return
 		}
-		for i := u; i < len(candidates); i++ {
-			if i > u && candidates[i] == candidates[i-1] {
+		for j := i; j < len(candidates); j++ {
+			if j > i && candidates[j] == candidates[j-1] {
 				continue
 			}
-			t = append(t, candidates[i])
-			dfs(i+1, s+candidates[i], t)
+			t = append(t, candidates[j])
+			dfs(j+1, s+candidates[j])
 			t = t[:len(t)-1]
 		}
 	}
-
-	dfs(0, 0, t)
-	return ans
+	dfs(0, 0)
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+var combinationSum2 = function (candidates, target) {
+    candidates.sort((a, b) => a - b);
+    const n = candidates.length;
+    const t = [];
+    const ans = [];
+    const dfs = (i, s) => {
+        if (s > target) {
+            return;
+        }
+        if (s === target) {
+            ans.push([...t]);
+            return;
+        }
+        for (let j = i; j < n; j++) {
+            const num = candidates[j];
+            if (j > i && num === candidates[j - 1]) {
+                continue;
+            }
+            t.push(num);
+            dfs(j + 1, s + num);
+            t.pop();
+        }
+    };
+    dfs(0, 0);
+    return ans;
+};
 ```
 
 ### **TypeScript**
@@ -253,6 +280,38 @@ impl Solution {
         let mut res = Vec::new();
         Self::dfs(0, target, &candidates, &mut vec![], &mut res);
         res
+    }
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public IList<IList<int>> CombinationSum2(int[] candidates, int target) {
+        Array.Sort(candidates);
+        var ans = new List<IList<int>>();
+        var t = new List<int>();
+        dfs(candidates, 0, 0, target, t, ans);
+        return ans;
+    }
+
+    private void dfs(int[] candidates, int i, int s, int target, IList<int> t, IList<IList<int>> ans) {
+        if (s > target) {
+            return;
+        }
+        if (s == target) {
+            ans.Add(new List<int>(t));
+            return;
+        }
+        for (int j = i; j < candidates.Length; ++j) {
+            if (j > i && candidates[j] == candidates[j - 1]) {
+                continue;
+            }
+            t.Add(candidates[j]);
+            dfs(candidates, j + 1, s + candidates[j], target, t, ans);
+            t.RemoveAt(t.Count - 1);
+        }
     }
 }
 ```

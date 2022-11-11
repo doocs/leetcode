@@ -1,19 +1,20 @@
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        def dfs(u, s, t):
+        def dfs(i, s):
             if s > target:
                 return
             if s == target:
                 ans.append(t[:])
                 return
-            for i in range(u, len(candidates)):
-                if i > u and candidates[i] == candidates[i - 1]:
+            for j in range(i, len(candidates)):
+                if j > i and candidates[j] == candidates[j - 1]:
                     continue
-                t.append(candidates[i])
-                dfs(i + 1, s + candidates[i], t)
+                t.append(candidates[j])
+                dfs(j + 1, s + candidates[j])
                 t.pop()
 
         ans = []
         candidates.sort()
-        dfs(0, 0, [])
+        t = []
+        dfs(0, 0)
         return ans

@@ -68,6 +68,14 @@ class Solution:
         return cnt == 0
 ```
 
+```python
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        vowels = set('aeiouAEIOU')
+        a, b = s[:len(s) >> 1], s[len(s) >> 1:]
+        return sum(c in vowels for c in a) == sum(c in vowels for c in b)
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -122,6 +130,46 @@ func halvesAreAlike(s string) bool {
 		}
 	}
 	return cnt == 0
+}
+```
+
+### **TypeScript**
+
+```ts
+function halvesAreAlike(s: string): boolean {
+    const set = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    const n = s.length >> 1;
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        set.has(s[i]) && count++;
+        set.has(s[n + i]) && count--;
+    }
+    return count === 0;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn halves_are_alike(s: String) -> bool {
+        let set: HashSet<&u8> = [b'a', b'e', b'i', b'o', b'u', b'A', b'E', b'I', b'O', b'U']
+            .into_iter()
+            .collect();
+        let s = s.as_bytes();
+        let n = s.len() >> 1;
+        let mut count = 0;
+        for i in 0..n {
+            if set.contains(&s[i]) {
+                count += 1;
+            }
+            if set.contains(&s[n + i]) {
+                count -= 1;
+            }
+        }
+        count == 0
+    }
 }
 ```
 

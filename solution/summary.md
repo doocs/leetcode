@@ -2511,3 +2511,4 @@
   - [2461.长度为 K 子数组中的最大和](/solution/2400-2499/2461.Maximum%20Sum%20of%20Distinct%20Subarrays%20With%20Length%20K/README.md)
   - [2462.雇佣 K 位工人的总代价](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README.md)
   - [2463.最小移动总距离](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README.md)
+  - [2464.Minimum Subarrays in a Valid Split](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README.md)

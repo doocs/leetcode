@@ -1,25 +1,24 @@
-func permute(nums []int) [][]int {
+func permute(nums []int) (ans [][]int) {
 	n := len(nums)
-	res := make([][]int, 0)
-	path := make([]int, n)
-	used := make([]bool, n)
-	dfs(0, n, nums, used, path, &res)
-	return res
-}
-
-func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
-	if u == n {
-		t := make([]int, n)
-		copy(t, path)
-		*res = append(*res, t)
-		return
-	}
-	for i := 0; i < n; i++ {
-		if !used[i] {
-			path[u] = nums[i]
-			used[i] = true
-			dfs(u+1, n, nums, used, path, res)
-			used[i] = false
+	t := make([]int, n)
+	vis := make([]bool, n)
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == n {
+			cp := make([]int, n)
+			copy(cp, t)
+			ans = append(ans, cp)
+			return
+		}
+		for j, v := range nums {
+			if !vis[j] {
+				vis[j] = true
+				t[i] = v
+				dfs(i + 1)
+				vis[j] = false
+			}
 		}
 	}
+	dfs(0)
+	return
 }
