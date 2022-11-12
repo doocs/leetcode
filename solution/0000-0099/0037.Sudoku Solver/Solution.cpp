@@ -18,8 +18,7 @@ public:
                 }
             }
         }
-        function<void(int k)> dfs;
-        dfs = [&](int k) {
+        function<void(int k)> dfs = [&](int k) {
             if (k == t.size()) {
                 ok = true;
                 return;

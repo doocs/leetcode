@@ -119,9 +119,7 @@ class Solution {
                     t.add(i * 9 + j);
                 } else {
                     int v = board[i][j] - '1';
-                    row[i][v] = true;
-                    col[j][v] = true;
-                    block[i / 3][j / 3][v] = true;
+                    row[i][v] = col[j][v] = block[i / 3][j / 3][v] = true;
                 }
             }
         }
@@ -136,14 +134,10 @@ class Solution {
         int i = t.get(k) / 9, j = t.get(k) % 9;
         for (int v = 0; v < 9; ++v) {
             if (!row[i][v] && !col[j][v] && !block[i / 3][j / 3][v]) {
-                row[i][v] = true;
-                col[j][v] = true;
-                block[i / 3][j / 3][v] = true;
+                row[i][v] = col[j][v] = block[i / 3][j / 3][v] = true;
                 board[i][j] = (char) (v + '1');
                 dfs(k + 1);
-                row[i][v] = false;
-                col[j][v] = false;
-                block[i / 3][j / 3][v] = false;
+                row[i][v] = col[j][v] = block[i / 3][j / 3][v] = false;
             }
             if (ok) {
                 return;
@@ -176,8 +170,7 @@ public:
                 }
             }
         }
-        function<void(int k)> dfs;
-        dfs = [&](int k) {
+        function<void(int k)> dfs = [&](int k) {
             if (k == t.size()) {
                 ok = true;
                 return;
