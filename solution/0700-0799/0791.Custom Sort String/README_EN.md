@@ -47,10 +47,8 @@ Since &quot;d&quot; does not appear in order, it can be at any position in the r
 ```python
 class Solution:
     def customSortString(self, order: str, s: str) -> str:
-        cs = list(s)
-        m = {v: i for i, v in enumerate(order)}
-        cs.sort(key=lambda x: m.get(x, -1))
-        return ''.join(cs)
+        d = {c: i for i, c in enumerate(order)}
+        return ''.join(sorted(s, key=lambda x: d.get(x, 0)))
 ```
 
 ```python
@@ -59,11 +57,10 @@ class Solution:
         cnt = Counter(s)
         ans = []
         for c in order:
-            ans.append(cnt[c] * c)
+            ans.append(c * cnt[c])
             cnt[c] = 0
-        for c in s:
-            ans.append(cnt[c] * c)
-            cnt[c] = 0
+        for c, v in cnt.items():
+            ans.append(c * v)
         return ''.join(ans)
 ```
 
@@ -72,20 +69,16 @@ class Solution:
 ```java
 class Solution {
     public String customSortString(String order, String s) {
-        Map<Character, Integer> m = new HashMap<>();
+        int[] d = new int[26];
         for (int i = 0; i < order.length(); ++i) {
-            m.put(order.charAt(i), i);
+            d[order.charAt(i) - 'a'] = i;
         }
         List<Character> cs = new ArrayList<>();
-        for (char c : s.toCharArray()) {
-            cs.add(c);
+        for (int i = 0; i < s.length(); ++i) {
+            cs.add(s.charAt(i));
         }
-        cs.sort((a, b) -> m.getOrDefault(a, -1) - m.getOrDefault(b, -1));
-        StringBuilder ans = new StringBuilder();
-        for (char c : cs) {
-            ans.append(c);
-        }
-        return ans.toString();
+        cs.sort((a, b) -> d[a - 'a'] - d[b - 'a']);
+        return cs.stream().map(String::valueOf).collect(Collectors.joining());
     }
 }
 ```
@@ -94,18 +87,19 @@ class Solution {
 class Solution {
     public String customSortString(String order, String s) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt[c - 'a'];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
         StringBuilder ans = new StringBuilder();
-        for (char c : order.toCharArray()) {
+        for (int i = 0; i < order.length(); ++i) {
+            char c = order.charAt(i);
             while (cnt[c - 'a']-- > 0) {
                 ans.append(c);
             }
         }
-        for (char c : s.toCharArray()) {
-            while (cnt[c - 'a']-- > 0) {
-                ans.append(c);
+        for (int i = 0; i < 26; ++i) {
+            while (cnt[i]-- > 0) {
+                ans.append((char) ('a' + i));
             }
         }
         return ans.toString();
@@ -119,19 +113,23 @@ class Solution {
 class Solution {
 public:
     string customSortString(string order, string s) {
-        vector<int> cnt(26);
-        for (char c : s) ++cnt[c - 'a'];
-        string ans = "";
-        for (char c : order) {
-            while (cnt[c - 'a']-- > 0) {
-                ans += c;
-            }
-        }
-        for (char c : s) {
-            while (cnt[c - 'a']-- > 0) {
-                ans += c;
-            }
-        }
+        int d[26] = {0};
+        for (int i = 0; i < order.size(); ++i) d[order[i] - 'a'] = i;
+        sort(s.begin(), s.end(), [&](auto a, auto b) { return d[a - 'a'] < d[b - 'a']; });
+        return s;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        int cnt[26] = {0};
+        for (char& c : s) ++cnt[c - 'a'];
+        string ans;
+        for (char& c : order) while (cnt[c - 'a']-- > 0) ans += c;
+        for (int i = 0; i < 26; ++i) if (cnt[i] > 0) ans += string(cnt[i], i + 'a');
         return ans;
     }
 };
@@ -141,7 +139,19 @@ public:
 
 ```go
 func customSortString(order string, s string) string {
-	cnt := make([]int, 26)
+	d := [26]int{}
+	for i := range order {
+		d[order[i]-'a'] = i
+	}
+	cs := []byte(s)
+	sort.Slice(cs, func(i, j int) bool { return d[cs[i]-'a'] < d[cs[j]-'a'] })
+	return string(cs)
+}
+```
+
+```go
+func customSortString(order string, s string) string {
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
@@ -152,10 +162,9 @@ func customSortString(order string, s string) string {
 			cnt[c-'a']--
 		}
 	}
-	for _, c := range s {
-		for cnt[c-'a'] > 0 {
-			ans = append(ans, c)
-			cnt[c-'a']--
+	for i, v := range cnt {
+		for j := 0; j < v; j++ {
+			ans = append(ans, rune('a'+i))
 		}
 	}
 	return string(ans)
