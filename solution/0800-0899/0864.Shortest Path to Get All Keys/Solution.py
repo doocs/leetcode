@@ -1,8 +1,7 @@
 class Solution:
     def shortestPathAllKeys(self, grid: List[str]) -> int:
         m, n = len(grid), len(grid[0])
-        si, sj = next((i, j) for i in range(m)
-                      for j in range(n) if grid[i][j] == '@')
+        si, sj = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '@')
         k = sum(v.islower() for row in grid for v in row)
         dirs = (-1, 0, 1, 0, -1)
         q = deque([(si, sj, 0)])
@@ -18,7 +17,11 @@ class Solution:
                     nxt = state
                     if 0 <= x < m and 0 <= y < n:
                         c = grid[x][y]
-                        if c == '#' or c.isupper() and (state & (1 << (ord(c) - ord('A')))) == 0:
+                        if (
+                            c == '#'
+                            or c.isupper()
+                            and (state & (1 << (ord(c) - ord('A')))) == 0
+                        ):
                             continue
                         if c.islower():
                             nxt |= 1 << (ord(c) - ord('a'))

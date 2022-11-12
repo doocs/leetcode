@@ -2,8 +2,7 @@ class Solution {
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> ans;
-        function<void(int, int, string)> dfs;
-        dfs = [&](int l, int r, string t) {
+        function<void(int, int, string)> dfs = [&](int l, int r, string t) {
             if (l > n || r > n || l < r) return;
             if (l == n && r == n) {
                 ans.push_back(t);

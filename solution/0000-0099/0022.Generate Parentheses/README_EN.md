@@ -80,8 +80,7 @@ class Solution {
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> ans;
-        function<void(int, int, string)> dfs;
-        dfs = [&](int l, int r, string t) {
+        function<void(int, int, string)> dfs = [&](int l, int r, string t) {
             if (l > n || r > n || l < r) return;
             if (l == n && r == n) {
                 ans.push_back(t);
@@ -99,8 +98,7 @@ public:
 ### **Go**
 
 ```go
-func generateParenthesis(n int) []string {
-	ans := []string{}
+func generateParenthesis(n int) (ans []string) {
 	var dfs func(int, int, string)
 	dfs = func(l, r int, t string) {
 		if l > n || r > n || l < r {

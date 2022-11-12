@@ -17,14 +17,14 @@ public:
         queue<TreeNode*> q{{root}};
         while (!q.empty()) {
             vector<int> t;
-            for (int i = q.size(); i > 0; --i) {
-                TreeNode* node = q.front();
+            for (int i = q.size(); i; --i) {
+                auto node = q.front();
                 q.pop();
-                t.push_back(node->val);
+                t.emplace_back(node->val);
                 if (node->left) q.push(node->left);
                 if (node->right) q.push(node->right);
             }
-            ans.push_back(t);
+            ans.emplace_back(t);
         }
         reverse(ans.begin(), ans.end());
         return ans;
