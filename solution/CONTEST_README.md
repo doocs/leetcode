@@ -23,6 +23,22 @@ https://lcpredictor.herokuapp.com
 
 ## 往期竞赛
 
+#### 第 319 场周赛(2022-11-13 10:30, 90 分钟) 参赛人数 6175
+
+- [2469. 温度转换](/solution/2400-2499/2469.Convert%20the%20Temperature/README.md)
+- [2470. 最小公倍数为 K 的子数组数目](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README.md)
+- [2471. 逐层排序二叉树所需的最少操作数目](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README.md)
+- [2472. 不重叠回文子字符串的最大数目](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README.md)
+
+
+#### 第 91 场双周赛(2022-11-12 22:30, 90 分钟) 参赛人数 3535
+
+- [2465. 不同的平均值数目](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README.md)
+- [2466. 统计构造好字符串的方案数](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README.md)
+- [2467. 树上最大得分和路径](/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README.md)
+- [2468. 根据限制分割消息](/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README.md)
+
+
 #### 第 318 场周赛(2022-11-06 10:30, 90 分钟) 参赛人数 5670
 
 - [2460. 对数组执行操作](/solution/2400-2499/2460.Apply%20Operations%20to%20an%20Array/README.md)

@@ -27,7 +27,7 @@ def weekly(contest):
     url = weekly_url.format(contest)
     time.sleep(0.2)
     try:
-        res = requests.get(url, timeout=6).json()
+        res = requests.get(url, timeout=6, verify=False).json()
         res['title'] = f'第 {contest} 场周赛'
         res['title_en'] = f'Weekly Contest {contest}'
         print(res)
@@ -40,7 +40,7 @@ def biweekly(contest):
     url = biweekly_url.format(contest)
     time.sleep(0.2)
     try:
-        res = requests.get(url, timeout=6).json()
+        res = requests.get(url, timeout=6, verify=False).json()
         res['title'] = f'第 {contest} 场双周赛'
         res['title_en'] = f'Biweekly Contest {contest}'
         print(res)

@@ -56,7 +56,7 @@ class Solution:
             else:
                 ans = dfs(i + 2, j) + dfs(i + 2, j + 1)
             return ans % mod
-        
+
         mod = 10**9 + 7
         return dfs(0, 0)
 ```

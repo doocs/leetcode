@@ -2473,6 +2473,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2462  |  [Total Cost to Hire K Workers](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README_EN.md)  |  `Array`,`Two Pointers`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 318  |
 |  2463  |  [Minimum Total Distance Traveled](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sorting`  |  Hard  |  Weekly Contest 318  |
 |  2464  |  [Minimum Subarrays in a Valid Split](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)  |    |  Medium  |  🔒  |
+|  2465  |  [Number of Distinct Averages](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md)  |    |  Easy  |  Biweekly Contest 91  |
+|  2466  |  [Count Ways To Build Good Strings](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md)  |    |  Medium  |  Biweekly Contest 91  |
+|  2467  |  [Most Profitable Path in a Tree](/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md)  |    |  Medium  |  Biweekly Contest 91  |
+|  2468  |  [Split Message Based on Limit](/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README_EN.md)  |    |  Hard  |  Biweekly Contest 91  |
+|  2469  |  [Convert the Temperature](/solution/2400-2499/2469.Convert%20the%20Temperature/README_EN.md)  |    |  Easy  |    |
+|  2470  |  [Number of Subarrays With LCM Equal to K](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README_EN.md)  |    |  Medium  |    |
+|  2471  |  [Minimum Number of Operations to Sort a Binary Tree by Level](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README_EN.md)  |    |  Medium  |    |
+|  2472  |  [Maximum Number of Non-overlapping Palindrome Substrings](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
