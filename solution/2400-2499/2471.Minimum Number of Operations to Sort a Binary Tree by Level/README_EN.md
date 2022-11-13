@@ -280,7 +280,108 @@ func minimumOperations(root *TreeNode) (ans int) {
 ### **TypeScript**
 
 ```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
 
+function minimumOperations(root: TreeNode | null): number {
+    const queue = [root];
+    let ans = 0;
+    while (queue.length !== 0) {
+        const n = queue.length;
+        const row: number[] = [];
+        for (let i = 0; i < n; i++) {
+            const { val, left, right } = queue.shift();
+            row.push(val);
+            left && queue.push(left);
+            right && queue.push(right);
+        }
+        for (let i = 0; i < n - 1; i++) {
+            let minIdx = i;
+            for (let j = i + 1; j < n; j++) {
+                if (row[j] < row[minIdx]) {
+                    minIdx = j;
+                }
+            }
+            if (i !== minIdx) {
+                [row[i], row[minIdx]] = [row[minIdx], row[i]];
+                ans++;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn minimum_operations(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut queue = VecDeque::new();
+        queue.push_back(root);
+        let mut ans = 0;
+        while !queue.is_empty() {
+            let n = queue.len();
+            let mut row = Vec::new();
+            for _ in 0..n {
+                let mut node = queue.pop_front().unwrap();
+                let mut node = node.as_mut().unwrap().borrow_mut();
+                row.push(node.val);
+                if node.left.is_some() {
+                    queue.push_back(node.left.take());
+                }
+                if node.right.is_some() {
+                    queue.push_back(node.right.take());
+                }
+            }
+            for i in 0..n - 1 {
+                let mut min_idx = i;
+                for j in i + 1..n {
+                    if row[j] < row[min_idx] {
+                        min_idx = j;
+                    }
+                }
+                if i != min_idx {
+                    row.swap(i, min_idx);
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
+}
 ```
 
 ### **...**

@@ -98,7 +98,34 @@ func convertTemperature(celsius float64) []float64 {
 ### **TypeScript**
 
 ```ts
+function convertTemperature(celsius: number): number[] {
+    return [celsius + 273.15, celsius * 1.8 + 32];
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn convert_temperature(celsius: f64) -> Vec<f64> {
+        vec![celsius + 273.15, celsius * 1.8 + 32.0]
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+double *convertTemperature(double celsius, int *returnSize) {
+    double *ans = malloc(sizeof(double) * 2);
+    ans[0] = celsius + 273.15;
+    ans[1] = celsius * 1.8 + 32;
+    *returnSize = 2;
+    return ans;
+}
 ```
 
 ### **...**
