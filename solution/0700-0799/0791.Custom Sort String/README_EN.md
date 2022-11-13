@@ -171,6 +171,82 @@ func customSortString(order string, s string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function customSortString(order: string, s: string): string {
+    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const n = order.length;
+    const d = new Array(26).fill(n);
+    for (let i = 0; i < n; i++) {
+        d[toIndex(order[i])] = i;
+    }
+    return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
+}
+```
+
+```ts
+function customSortString(order: string, s: string): string {
+    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const count = new Array(26).fill(0);
+    for (const c of s) {
+        count[toIndex(c)]++;
+    }
+    const ans: string[] = [];
+    for (const c of order) {
+        const i = toIndex(c);
+        ans.push(c.repeat(count[i]));
+        count[i] = 0;
+    }
+    for (let i = 0; i < 26; i++) {
+        if (!count[i]) continue;
+        ans.push(String.fromCharCode('a'.charCodeAt(0) + i).repeat(count[i]));
+    }
+    return ans.join('');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn custom_sort_string(order: String, s: String) -> String {
+        let n = order.len();
+        let mut d = [n; 26];
+        for (i, c) in order.as_bytes().iter().enumerate() {
+            d[(c - b'a') as usize] = i;
+        }
+        let mut ans = s.chars().collect::<Vec<_>>();
+        ans.sort_by(|&a, &b| d[(a as u8 - 'a' as u8) as usize].cmp(&d[(b as u8 - 'a' as u8) as usize]));
+        ans.into_iter().collect()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn custom_sort_string(order: String, s: String) -> String {
+        let mut count = [0; 26];
+        for c in s.as_bytes() {
+            count[(c - b'a') as usize] += 1;
+        }
+        let mut ans = String::new();
+        for c in order.as_bytes() {
+            for _ in 0..count[(c - b'a') as usize] {
+                ans.push(char::from(*c));
+            }
+            count[(c - b'a') as usize] = 0;
+        }
+        for i in 0..count.len() {
+            for _ in 0..count[i] {
+                ans.push(char::from(b'a' + i as u8));
+            }
+        }
+        ans
+    }
+}
+```
+
 ### **...**
 
 ```
