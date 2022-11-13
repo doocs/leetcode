@@ -51,6 +51,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+我们设计一个函数 $dfs(i)$ 表示从第 $i$ 位开始构造的好字符串的个数，答案即为 $dfs(0)$。
+
+函数 $dfs(i)$ 的计算过程如下：
+
+-   如果 $i \gt high$，返回 $0$；
+-   如果 $ low \leq i \leq high$，答案累加 $1$，然后 $i$ 之后既可以添加 `zero` 个 $0$，也可以添加 `one` 个 $1$，因此答案累加上 $dfs(i + zero) + dfs(i + one)$。
+
+过程中，我们需要对答案取模，并且可以使用记忆化搜索减少重复计算。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = high$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +71,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def countGoodStrings(self, low: int, high: int, zero: int, one: int) -> int:
+        @cache
+        def dfs(i):
+            if i > high:
+                return 0
+            ans = 0
+            if low <= i <= high:
+                ans += 1
+            ans += dfs(i + zero) + dfs(i + one)
+            return ans % mod
 
+        mod = 10**9 + 7
+        return dfs(0)
 ```
 
 ### **Java**
@@ -66,7 +92,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+    private int[] f;
+    private int lo;
+    private int hi;
+    private int zero;
+    private int one;
 
+    public int countGoodStrings(int low, int high, int zero, int one) {
+        f = new int[high + 1];
+        Arrays.fill(f, -1);
+        lo = low;
+        hi = high;
+        this.zero = zero;
+        this.one = one;
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (i > hi) {
+            return 0;
+        }
+        if (f[i] != -1) {
+            return f[i];
+        }
+        long ans = 0;
+        if (i >= lo && i <= hi) {
+            ++ans;
+        }
+        ans += dfs(i + zero) + dfs(i + one);
+        ans %= MOD;
+        f[i] = (int) ans;
+        return f[i];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countGoodStrings(int low, int high, int zero, int one) {
+        vector<int> f(high + 1, -1);
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i > high) return 0;
+            if (f[i] != -1) return f[i];
+            long ans = i >= low && i <= high;
+            ans += dfs(i + zero) + dfs(i + one);
+            ans %= mod;
+            f[i] = ans;
+            return ans;
+        };
+        return dfs(0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func countGoodStrings(low int, high int, zero int, one int) int {
+	f := make([]int, high+1)
+	for i := range f {
+		f[i] = -1
+	}
+	const mod int = 1e9 + 7
+	var dfs func(i int) int
+	dfs = func(i int) int {
+		if i > high {
+			return 0
+		}
+		if f[i] != -1 {
+			return f[i]
+		}
+		ans := 0
+		if i >= low && i <= high {
+			ans++
+		}
+		ans += dfs(i+zero) + dfs(i+one)
+		ans %= mod
+		f[i] = ans
+		return ans
+	}
+	return dfs(0)
+}
 ```
 
 ### **TypeScript**

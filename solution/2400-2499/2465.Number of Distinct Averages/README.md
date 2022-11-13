@@ -61,6 +61,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 哈希表**
+
+我们先对数组进行排序，然后遍历数组，将 $nums[i]$ 与 $nums[n-i-1]$ 求和后放入哈希表中，最后返回哈希表的大小即可。
+
+时间复杂度 $O(n\times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +74,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def distinctAverages(self, nums: List[int]) -> int:
+        n = len(nums)
+        nums.sort()
+        return len(set(nums[i] + nums[n - i - 1] for i in range(n >> 1)))
 ```
 
 ### **Java**
@@ -76,7 +86,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int distinctAverages(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        Set<Integer> s = new HashSet<>();
+        for (int i = 0; i < n >> 1; ++i) {
+            s.add(nums[i] + nums[n - i - 1]);
+        }
+        return s.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int distinctAverages(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        unordered_set<int> s;
+        for (int i = 0; i < n >> 1; ++i) s.insert(nums[i] + nums[n - i - 1]);
+        return s.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func distinctAverages(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	s := map[int]struct{}{}
+	for i := 0; i < n>>1; i++ {
+		s[nums[i]+nums[n-i-1]] = struct{}{}
+	}
+	return len(s)
+}
 ```
 
 ### **TypeScript**

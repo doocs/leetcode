@@ -84,6 +84,20 @@ Alice 按照路径 0-&gt;1 移动，同时 Bob 按照路径 1-&gt;0 移动。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：两次 DFS**
+
+根据题意，我们可以知道，Bob 的移动路径是固定的，即从节点 $bob$ 出发，最终到达节点 $0$。因此，我们可以先跑一遍 DFS，求出 Bob 到达每个节点的时间，记在数组 $ts$ 中。
+
+然后我们再跑一遍 DFS，求出 Alice 每条移动路径的最大得分，我们记 Alice 到达节点 $i$ 的时间为 $t$，当前累计得分为 $v$，那么 Alice 在经过节点 $i$ 处后，累计的分数有三种情况：
+
+1. Alice 到达节点 $i$ 的时间 $t$ 与 Bob 到达节点 $i$ 的时间 $ts[i]$ 相同，那么 Alice 和 Bob 同时打开节点 $i$ 处的门，Alice 获得的分数为 $v + \frac{amount[i]}{2}$；
+1. Alice 到达节点 $i$ 的时间 $t$ 小于 Bob 到达节点 $i$ 的时间 $ts[i]$，那么 Alice 打开节点 $i$ 处的门，Alice 获得的分数为 $v + amount[i]$。
+1. Alice 到达节点 $i$ 的时间 $t$ 大于 Bob 到达节点 $i$ 的时间 $ts[i]$，那么 Alice 不打开节点 $i$ 处的门，Alice 获得的分数为 $v$，即不变。
+
+当 Alice 到达叶子节点时，更新最大得分。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -91,7 +105,42 @@ Alice 按照路径 0-&gt;1 移动，同时 Bob 按照路径 1-&gt;0 移动。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def mostProfitablePath(self, edges: List[List[int]], bob: int, amount: List[int]) -> int:
+        def dfs1(i, fa, t):
+            if i == 0:
+                ts[i] = min(ts[i], t)
+                return True
+            for j in g[i]:
+                if j != fa and dfs1(j, i, t + 1):
+                    ts[j] = min(ts[j], t + 1)
+                    return True
+            return False
 
+        def dfs2(i, fa, t, v):
+            if t == ts[i]:
+                v += amount[i] // 2
+            elif t < ts[i]:
+                v += amount[i]
+            nonlocal ans
+            if len(g[i]) == 1 and g[i][0] == fa:
+                ans = max(ans, v)
+                return
+            for j in g[i]:
+                if j != fa:
+                    dfs2(j, i, t + 1, v)
+
+        n = len(edges) + 1
+        g = defaultdict(list)
+        ts = [n] * n
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        dfs1(bob, -1, 0)
+        ts[bob] = 0
+        ans = -inf
+        dfs2(0, -1, 0, 0)
+        return ans
 ```
 
 ### **Java**
@@ -99,7 +148,176 @@ Alice 按照路径 0-&gt;1 移动，同时 Bob 按照路径 1-&gt;0 移动。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] amount;
+    private int[] ts;
+    private int ans = Integer.MIN_VALUE;
 
+    public int mostProfitablePath(int[][] edges, int bob, int[] amount) {
+        int n = edges.length + 1;
+        g = new List[n];
+        ts = new int[n];
+        this.amount = amount;
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+            ts[i] = n;
+        }
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        dfs1(bob, -1, 0);
+        ts[bob] = 0;
+        dfs2(0, -1, 0, 0);
+        return ans;
+    }
+
+    private boolean dfs1(int i, int fa, int t) {
+        if (i == 0) {
+            ts[i] = Math.min(ts[i], t);
+            return true;
+        }
+        for (int j : g[i]) {
+            if (j != fa && dfs1(j, i, t + 1)) {
+                ts[j] = Math.min(ts[j], t + 1);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void dfs2(int i, int fa, int t, int v) {
+        if (t == ts[i]) {
+            v += amount[i] >> 1;
+        } else if (t < ts[i]) {
+            v += amount[i];
+        }
+        if (g[i].size() == 1 && g[i].get(0) == fa) {
+            ans = Math.max(ans, v);
+            return;
+        }
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs2(j, i, t + 1, v);
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int mostProfitablePath(vector<vector<int>>& edges, int bob, vector<int>& amount) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        vector<int> ts(n, n);
+        function<bool(int i, int fa, int t)> dfs1 = [&](int i, int fa, int t) -> bool {
+            if (i == 0) {
+                ts[i] = t;
+                return true;
+            }
+            for (int j : g[i]) {
+                if (j != fa && dfs1(j, i, t + 1)) {
+                    ts[j] = min(ts[j], t + 1);
+                    return true;
+                }
+            }
+            return false;
+        };
+        dfs1(bob, -1, 0);
+        ts[bob] = 0;
+        int ans = INT_MIN;
+        function<void(int i, int fa, int t, int v)> dfs2 = [&](int i, int fa, int t, int v) {
+            if (t == ts[i]) v += amount[i] >> 1;
+            else if (t < ts[i]) v += amount[i];
+            if (g[i].size() == 1 && g[i][0] == fa) {
+                ans = max(ans, v);
+                return;
+            }
+            for (int j : g[i]) if (j != fa) dfs2(j, i, t + 1, v);
+        };
+        dfs2(0, -1, 0, 0);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostProfitablePath(edges [][]int, bob int, amount []int) int {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ts := make([]int, n)
+	for i := range ts {
+		ts[i] = n
+	}
+	var dfs1 func(int, int, int) bool
+	dfs1 = func(i, fa, t int) bool {
+		if i == 0 {
+			ts[i] = min(ts[i], t)
+			return true
+		}
+		for _, j := range g[i] {
+			if j != fa && dfs1(j, i, t+1) {
+				ts[j] = min(ts[j], t+1)
+				return true
+			}
+		}
+		return false
+	}
+	dfs1(bob, -1, 0)
+	ts[bob] = 0
+	ans := -0x3f3f3f3f
+	var dfs2 func(int, int, int, int)
+	dfs2 = func(i, fa, t, v int) {
+		if t == ts[i] {
+			v += amount[i] >> 1
+		} else if t < ts[i] {
+			v += amount[i]
+		}
+		if len(g[i]) == 1 && g[i][0] == fa {
+			ans = max(ans, v)
+			return
+		}
+		for _, j := range g[i] {
+			if j != fa {
+				dfs2(j, i, t+1, v)
+			}
+		}
+	}
+	dfs2(0, -1, 0, 0)
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

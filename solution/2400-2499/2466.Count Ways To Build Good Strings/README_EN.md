@@ -52,13 +52,113 @@ All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in t
 ### **Python3**
 
 ```python
+class Solution:
+    def countGoodStrings(self, low: int, high: int, zero: int, one: int) -> int:
+        @cache
+        def dfs(i):
+            if i > high:
+                return 0
+            ans = 0
+            if low <= i <= high:
+                ans += 1
+            ans += dfs(i + zero) + dfs(i + one)
+            return ans % mod
 
+        mod = 10**9 + 7
+        return dfs(0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+    private int[] f;
+    private int lo;
+    private int hi;
+    private int zero;
+    private int one;
 
+    public int countGoodStrings(int low, int high, int zero, int one) {
+        f = new int[high + 1];
+        Arrays.fill(f, -1);
+        lo = low;
+        hi = high;
+        this.zero = zero;
+        this.one = one;
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (i > hi) {
+            return 0;
+        }
+        if (f[i] != -1) {
+            return f[i];
+        }
+        long ans = 0;
+        if (i >= lo && i <= hi) {
+            ++ans;
+        }
+        ans += dfs(i + zero) + dfs(i + one);
+        ans %= MOD;
+        f[i] = (int) ans;
+        return f[i];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countGoodStrings(int low, int high, int zero, int one) {
+        vector<int> f(high + 1, -1);
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i > high) return 0;
+            if (f[i] != -1) return f[i];
+            long ans = i >= low && i <= high;
+            ans += dfs(i + zero) + dfs(i + one);
+            ans %= mod;
+            f[i] = ans;
+            return ans;
+        };
+        return dfs(0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func countGoodStrings(low int, high int, zero int, one int) int {
+	f := make([]int, high+1)
+	for i := range f {
+		f[i] = -1
+	}
+	const mod int = 1e9 + 7
+	var dfs func(i int) int
+	dfs = func(i int) int {
+		if i > high {
+			return 0
+		}
+		if f[i] != -1 {
+			return f[i]
+		}
+		ans := 0
+		if i >= low && i <= high {
+			ans++
+		}
+		ans += dfs(i+zero) + dfs(i+one)
+		ans %= mod
+		f[i] = ans
+		return ans
+	}
+	return dfs(0)
+}
 ```
 
 ### **TypeScript**
