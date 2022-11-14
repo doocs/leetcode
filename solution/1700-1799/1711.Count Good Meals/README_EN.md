@@ -46,33 +46,30 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 ```python
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
-        mod = 1000000007
-        limit = max(deliciousness) * 2
-        pairs = 0
-        freq = defaultdict(int)
+        mod = 10**9 + 7
+        mx = max(deliciousness) << 1
+        cnt = Counter()
+        ans = 0
         for d in deliciousness:
-            target = 1
-            while target <= limit:
-                pairs = (pairs + freq[target - d]) % mod
-                target = target << 1
-            freq[d] += 1
-        return pairs
+            s = 1
+            while s <= mx:
+                ans = (ans + cnt[s - d]) % mod
+                s <<= 1
+            cnt[d] += 1
+        return ans
 ```
 
 ```python
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
+        mod = 10**9 + 7
         cnt = Counter(deliciousness)
         ans = 0
-        mod = 10**9 + 7
         for i in range(22):
             s = 1 << i
             for a, m in cnt.items():
                 if (b := s - a) in cnt:
-                    if a == b:
-                        ans += m * (m - 1)
-                    else:
-                        ans += m * cnt[b]
+                    ans += m * (m - 1) if a == b else m * cnt[b]
         return (ans >> 1) % mod
 ```
 
@@ -80,21 +77,19 @@ class Solution:
 
 ```java
 class Solution {
-
-    private static final int MOD = 1000000007;
+    private static final int MOD = (int) 1e9 + 7;
 
     public int countPairs(int[] deliciousness) {
-        int limit = Arrays.stream(deliciousness).max().getAsInt() * 2;
-        int pairs = 0;
-        Map<Integer, Integer> freq = new HashMap<>();
+        int mx = Arrays.stream(deliciousness).max().getAsInt() << 1;
+        int ans = 0;
+        Map<Integer, Integer> cnt = new HashMap<>();
         for (int d : deliciousness) {
-            for (int sum = 1; sum <= limit; sum <<= 1) {
-                int count = freq.getOrDefault(sum - d, 0);
-                pairs = (pairs + count) % MOD;
+            for (int s = 1; s <= mx; s <<= 1) {
+                ans = (ans + cnt.getOrDefault(s - d, 0)) % MOD;
             }
-            freq.merge(d, 1, Integer::sum);
+            cnt.merge(d, 1, Integer::sum);
         }
-        return pairs;
+        return ans;
     }
 }
 ```
@@ -105,8 +100,8 @@ class Solution {
 
     public int countPairs(int[] deliciousness) {
         Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : deliciousness) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        for (int d : deliciousness) {
+            cnt.put(d, cnt.getOrDefault(d, 0) + 1);
         }
         long ans = 0;
         for (int i = 0; i < 22; ++i) {
@@ -117,11 +112,7 @@ class Solution {
                 if (!cnt.containsKey(b)) {
                     continue;
                 }
-                if (a == b) {
-                    ans += (long) m * (m - 1);
-                } else {
-                    ans += (long) m * cnt.get(b);
-                }
+                ans += 1L * m * (a == b ? m - 1 : cnt.get(b));
             }
         }
         ans >>= 1;
@@ -130,85 +121,102 @@ class Solution {
 }
 ```
 
-### **Go**
-
-```go
-const mod int = 1e9 + 7
-
-func countPairs(deliciousness []int) int {
-	limit := 0
-	for _, d := range deliciousness {
-		limit = max(limit, d)
-	}
-	limit *= 2
-	pairs := 0
-	freq := make(map[int]int)
-	for _, d := range deliciousness {
-		for sum := 1; sum <= limit; sum <<= 1 {
-			pairs = (pairs + freq[sum-d]) % mod
-		}
-		freq[d]++
-	}
-	return pairs
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-```
-
-```go
-func countPairs(deliciousness []int) int {
-	cnt := map[int]int{}
-	for _, v := range deliciousness {
-		cnt[v]++
-	}
-	ans := 0
-	mod := int(1e9) + 7
-	for i := 0; i < 22; i++ {
-		s := 1 << i
-		for a, m := range cnt {
-			b := s - a
-			if n, ok := cnt[b]; ok {
-				if a == b {
-					ans += m * (m - 1)
-				} else {
-					ans += m * n
-				}
-			}
-		}
-	}
-	ans >>= 1
-	return ans % mod
-}
-```
-
 ### **C++**
 
 ```cpp
 class Solution {
 public:
+    const int mod = 1e9 + 7;
+
+    int countPairs(vector<int>& deliciousness) {
+        int mx = *max_element(deliciousness.begin(), deliciousness.end()) << 1;
+        unordered_map<int, int> cnt;
+        int ans = 0;
+        for (auto& d : deliciousness) {
+            for (int s = 1; s <= mx; s <<= 1) {
+                ans = (ans + cnt[s - d]) % mod;
+            }
+            ++cnt[d];
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
     int countPairs(vector<int>& deliciousness) {
         unordered_map<int, int> cnt;
-        for (int v : deliciousness) ++cnt[v];
+        for (int& d : deliciousness) ++cnt[d];
         long long ans = 0;
         for (int i = 0; i < 22; ++i) {
             int s = 1 << i;
             for (auto& [a, m] : cnt) {
                 int b = s - a;
                 if (!cnt.count(b)) continue;
-                if (a == b) ans += 1ll * m * (m - 1);
-                else ans += 1ll * m * cnt[b];
+                ans += 1ll * m * (a == b ? (m - 1) : cnt[b]);
             }
         }
         ans >>= 1;
-        int mod = 1e9 + 7;
-        return (int) (ans % mod);
+        return ans % mod;
     }
 };
+```
+
+### **Go**
+
+```go
+func countPairs(deliciousness []int) (ans int) {
+	mx := 0
+	for _, d := range deliciousness {
+		mx = max(mx, d)
+	}
+	mx <<= 1
+	const mod int = 1e9 + 7
+	cnt := map[int]int{}
+	for _, d := range deliciousness {
+		for s := 1; s <= mx; s <<= 1 {
+			ans = (ans + cnt[s-d]) % mod
+		}
+		cnt[d]++
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func countPairs(deliciousness []int) (ans int) {
+    cnt := map[int]int{}
+    for _, d := range deliciousness {
+        cnt[d]++
+    }
+    const mod int = 1e9 + 7
+    for i := 0; i < 22; i++ {
+        s := 1 << i
+        for a, m := range cnt {
+            b := s - a
+            if n, ok := cnt[b]; ok {
+                if a == b {
+                    ans += m * (m - 1)
+                } else {
+                    ans += m * n
+                }
+            }
+        }
+    }
+    ans >>= 1
+    return ans % mod
+}
 ```
 
 ### **...**
