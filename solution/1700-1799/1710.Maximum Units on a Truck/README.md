@@ -143,6 +143,48 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maximumUnits(boxTypes: number[][], truckSize: number): number {
+    boxTypes.sort((a, b) => b[1] - a[1]);
+    let sum = 0;
+    let ans = 0;
+    for (const [count, size] of boxTypes) {
+        if (sum + count < truckSize) {
+            ans += size * count;
+            sum += count;
+        } else {
+            ans += (truckSize - sum) * size;
+            break;
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn maximum_units(mut box_types: Vec<Vec<i32>>, truck_size: i32) -> i32 {
+        box_types.sort_by(|a, b| b[1].cmp(&a[1]));
+        let mut sum = 0;
+        let mut ans = 0;
+        for box_type in box_types.iter() {
+            if sum + box_type[0] < truck_size {
+                sum += box_type[0];
+                ans += box_type[0] * box_type[1];
+            } else {
+                ans += (truck_size - sum) * box_type[1];
+                break;
+            }
+        }
+        ans
+    }
+}
+```
+
 ### **...**
 
 ```
