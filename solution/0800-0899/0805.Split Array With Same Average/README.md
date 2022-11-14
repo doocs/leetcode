@@ -12,7 +12,7 @@
 
 <p>如果可以完成则返回<code>true</code>&nbsp;， 否则返回 <code>false</code>&nbsp;&nbsp;。</p>
 
-<p><strong>注意：</strong>对于数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;, <meta charset="UTF-8" />&nbsp;<code>average(arr)</code>&nbsp;是<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;的所有元素除以<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;长度的和。</p>
+<p><strong>注意：</strong>对于数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;, <meta charset="UTF-8" />&nbsp;<code>average(arr)</code>&nbsp;是<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;的所有元素的和除以<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;长度。</p>
 
 <p>&nbsp;</p>
 
