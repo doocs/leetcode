@@ -1,15 +1,14 @@
-func maximumUnits(boxTypes [][]int, truckSize int) int {
+func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
-	ans := 0
-	for _, v := range boxTypes {
-		a := min(v[0], truckSize)
+	for _, e := range boxTypes {
+		a, b := e[0], e[1]
+		ans += b * min(truckSize, a)
 		truckSize -= a
-		ans += a * v[1]
-		if truckSize == 0 {
+		if truckSize <= 0 {
 			break
 		}
 	}
-	return ans
+	return
 }
 
 func min(a, b int) int {

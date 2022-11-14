@@ -54,13 +54,11 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 ```python
 class Solution:
     def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
-        boxTypes.sort(key=lambda x: -x[1])
         ans = 0
-        for a, b in boxTypes:
-            a = min(a, truckSize)
+        for a, b in sorted(boxTypes, key=lambda x: -x[1]):
+            ans += b * min(truckSize, a)
             truckSize -= a
-            ans += a * b
-            if truckSize == 0:
+            if truckSize <= 0:
                 break
         return ans
 ```
@@ -72,11 +70,11 @@ class Solution {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         Arrays.sort(boxTypes, (a, b) -> b[1] - a[1]);
         int ans = 0;
-        for (var v : boxTypes) {
-            int a = Math.min(v[0], truckSize);
+        for (var e : boxTypes) {
+            int a = e[0], b = e[1];
+            ans += b * Math.min(truckSize, a);
             truckSize -= a;
-            ans += a * v[1];
-            if (truckSize == 0) {
+            if (truckSize <= 0) {
                 break;
             }
         }
@@ -91,15 +89,13 @@ class Solution {
 class Solution {
 public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
-        sort(boxTypes.begin(), boxTypes.end(), [](const vector<int>& a, const vector<int>& b) {
-            return a[1] > b[1];
-        });
+        sort(boxTypes.begin(), boxTypes.end(), [](auto& a, auto& b) { return a[1] > b[1]; });
         int ans = 0;
-        for (auto& v : boxTypes) {
-            int a = min(v[0], truckSize);
+        for (auto& e : boxTypes) {
+            int a = e[0], b = e[1];
+            ans += b * min(truckSize, a);
             truckSize -= a;
-            ans += a * v[1];
-            if (!truckSize) break;
+            if (truckSize <= 0) break;
         }
         return ans;
     }
@@ -109,18 +105,17 @@ public:
 ### **Go**
 
 ```go
-func maximumUnits(boxTypes [][]int, truckSize int) int {
+func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
-	ans := 0
-	for _, v := range boxTypes {
-		a := min(v[0], truckSize)
+	for _, e := range boxTypes {
+		a, b := e[0], e[1]
+		ans += b * min(truckSize, a)
 		truckSize -= a
-		ans += a * v[1]
-		if truckSize == 0 {
+		if truckSize <= 0 {
 			break
 		}
 	}
-	return ans
+	return
 }
 
 func min(a, b int) int {

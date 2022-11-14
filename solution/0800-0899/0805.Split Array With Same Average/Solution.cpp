@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         if (n == 1) return false;
         int s = accumulate(nums.begin(), nums.end(), 0);
-        for (int i = 0; i < n; ++i) nums[i] = nums[i] * n - s;
+        for (int& v : nums) v = v * n - s;
         int m = n >> 1;
         unordered_set<int> vis;
         for (int i = 1; i < 1 << m; ++i) {
