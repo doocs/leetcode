@@ -4,7 +4,7 @@ class Solution:
         s = list(accumulate(nums))
         ans, n = 0, len(nums)
         for i in range(n - 2):
-            j0 = bisect_left(s, s[i] * 2, i + 1, n - 1)
-            j1 = bisect_right(s, (s[-1] + s[i]) // 2, j0, n - 1)
-            ans += j1 - j0
+            j = bisect_left(s, s[i] << 1, i + 1, n - 1)
+            k = bisect_right(s, (s[-1] + s[i]) >> 1, j, n - 1)
+            ans += k - j
         return ans % mod

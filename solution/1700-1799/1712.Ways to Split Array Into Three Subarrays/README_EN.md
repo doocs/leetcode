@@ -60,9 +60,9 @@ class Solution:
         s = list(accumulate(nums))
         ans, n = 0, len(nums)
         for i in range(n - 2):
-            j0 = bisect_left(s, s[i] * 2, i + 1, n - 1)
-            j1 = bisect_right(s, (s[-1] + s[i]) // 2, j0, n - 1)
-            ans += j1 - j0
+            j = bisect_left(s, s[i] << 1, i + 1, n - 1)
+            k = bisect_right(s, (s[-1] + s[i]) >> 1, j, n - 1)
+            ans += k - j
         return ans % mod
 ```
 
@@ -81,14 +81,14 @@ class Solution {
         }
         int ans = 0;
         for (int i = 0; i < n - 2; ++i) {
-            int j0 = lowerBound(s, s[i] * 2, i + 1, n - 1);
-            int j1 = lowerBound(s, (s[i] + s[n - 1]) / 2 + 1, j0, n - 1);
-            ans = (ans + j1 - j0) % MOD;
+            int j = search(s, s[i] << 1, i + 1, n - 1);
+            int k = search(s, ((s[n - 1] + s[i]) >> 1) + 1, j, n - 1);
+            ans = (ans + k - j) % MOD;
         }
         return ans;
     }
 
-    private int lowerBound(int[] s, int x, int left, int right) {
+    private int search(int[] s, int x, int left, int right) {
         while (left < right) {
             int mid = (left + right) >> 1;
             if (s[mid] >= x) {
@@ -107,53 +107,76 @@ class Solution {
 ```cpp
 class Solution {
 public:
+    const int mod = 1e9 + 7;
+    
     int waysToSplit(vector<int>& nums) {
         int n = nums.size();
         vector<int> s(n, nums[0]);
         for (int i = 1; i < n; ++i) s[i] = s[i - 1] + nums[i];
         int ans = 0;
-        int mod = 1e9 + 7;
         for (int i = 0; i < n - 2; ++i) {
-            int j0 = lower_bound(s.begin() + i + 1, s.begin() + n - 1, s[i] * 2) - s.begin();
-            int j1 = upper_bound(s.begin() + j0, s.begin() + n - 1, (s[i] + s[n - 1]) / 2) - s.begin();
-            ans = (ans + j1 - j0) % mod;
+            int j = lower_bound(s.begin() + i + 1, s.begin() + n - 1, s[i] << 1) - s.begin();
+            int k = upper_bound(s.begin() + j, s.begin() + n - 1, (s[n - 1] + s[i]) >> 1) - s.begin();
+            ans = (ans + k - j) % mod;
         }
         return ans;
     }
 };
 ```
 
-### \*\*\*\*
+### **Go**
 
 ```go
-func waysToSplit(nums []int) int {
-	search := func(s []int, x, left, right int) int {
-		for left < right {
-			mid := (left + right) >> 1
-			if s[mid] >= x {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		return left
-	}
-	var mod int = 1e9 + 7
+func waysToSplit(nums []int) (ans int) {
+	const mod int = 1e9 + 7
 	n := len(nums)
 	s := make([]int, n)
 	s[0] = nums[0]
 	for i := 1; i < n; i++ {
 		s[i] = s[i-1] + nums[i]
 	}
-	ans := 0
 	for i := 0; i < n-2; i++ {
-		j0 := search(s, s[i]*2, i+1, n-1)
-		j1 := search(s, (s[i]+s[n-1])/2+1, j0, n-1)
-		ans += j1 - j0
+		j := sort.Search(n-1, func(h int) bool { return h > i && s[h] >= (s[i]<<1) })
+		k := sort.Search(n-1, func(h int) bool { return h >= j && s[h] > (s[n-1]+s[i])>>1 })
+		ans = (ans + k - j) % mod
 	}
-	ans %= mod
-	return ans
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var waysToSplit = function (nums) {
+    const mod = 1e9 + 7;
+    const n = nums.length;
+    const s = new Array(n).fill(nums[0]);
+    for (let i = 1; i < n; ++i) {
+        s[i] = s[i - 1] + nums[i];
+    }
+    function search(s, x, left, right) {
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (s[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+    let ans = 0;
+    for (let i = 0; i < n - 2; ++i) {
+        const j = search(s, s[i] << 1, i + 1, n - 1);
+        const k = search(s, ((s[n - 1] + s[i]) >> 1) + 1, j, n - 1);
+        ans = (ans + k - j) % mod;
+    }
+    return ans;
+};
 ```
 
 ### **...**
