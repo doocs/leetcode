@@ -60,15 +60,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+    def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
         ans = []
         if root is None:
             return ans
         q = deque([root])
         while q:
-            n = len(q)
             t = []
-            for _ in range(n):
+            for _ in range(len(q)):
                 node = q.popleft()
                 t.append(node.val)
                 if node.left:
@@ -145,17 +144,17 @@ public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
         vector<vector<int>> ans;
         if (!root) return ans;
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         while (!q.empty()) {
             vector<int> t;
-            for (int i = q.size(); i > 0; --i) {
-                TreeNode* node = q.front();
+            for (int i = q.size(); i; --i) {
+                auto node = q.front();
                 q.pop();
-                t.push_back(node->val);
+                t.emplace_back(node->val);
                 if (node->left) q.push(node->left);
                 if (node->right) q.push(node->right);
             }
-            ans.push_back(t);
+            ans.emplace_back(t);
         }
         reverse(ans.begin(), ans.end());
         return ans;

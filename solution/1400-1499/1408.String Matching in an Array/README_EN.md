@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an array of string <code>words</code>. Return all strings in <code>words</code> which is substring of another word in <strong>any</strong> order.&nbsp;</p>
+<p>Given an array of string <code>words</code>, return <em>all strings in </em><code>words</code><em> that is a <strong>substring</strong> of another word</em>. You can return the answer in <strong>any order</strong>.</p>
 
-<p>String <code>words[i]</code> is substring of <code>words[j]</code>,&nbsp;if&nbsp;can be obtained removing some characters to left and/or right side of <code>words[j]</code>.</p>
+<p>A <strong>substring</strong> is a contiguous sequence of characters within a string</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -31,6 +31,7 @@
 <pre>
 <strong>Input:</strong> words = [&quot;blue&quot;,&quot;green&quot;,&quot;bu&quot;]
 <strong>Output:</strong> []
+<strong>Explanation:</strong> No string of words is substring of another string.
 </pre>
 
 <p>&nbsp;</p>
@@ -40,7 +41,7 @@
 	<li><code>1 &lt;= words.length &lt;= 100</code></li>
 	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
 	<li><code>words[i]</code> contains only lowercase English letters.</li>
-	<li>It&#39;s <strong>guaranteed</strong>&nbsp;that <code>words[i]</code>&nbsp;will be unique.</li>
+	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
 
 ## Solutions

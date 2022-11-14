@@ -1,5 +1,4 @@
-func generateParenthesis(n int) []string {
-	ans := []string{}
+func generateParenthesis(n int) (ans []string) {
 	var dfs func(int, int, string)
 	dfs = func(l, r int, t string) {
 		if l > n || r > n || l < r {

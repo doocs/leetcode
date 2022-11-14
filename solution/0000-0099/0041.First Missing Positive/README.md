@@ -45,37 +45,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-从简单到复杂。
+**方法一：原地交换**
 
-**哈希表：**
+我们假设数组 `nums` 长度为 $n$，那么最小的正整数一定在 $[1, .., n + 1]$ 之间。我们可以遍历数组，将数组中的每个数 $x$ 交换到它应该在的位置上，即 $x$ 应该在的位置为 $x - 1$。如果 $x$ 不在 $[1, n + 1]$ 之间，那么我们就不用管它。
 
-无视空间需求，使用哈希表或数组来记录 `nums` 中所有出现过的**正整数**。然后在其中查找 `(1 ~ nums.length)`，返回第一个不存在记录的正整数即可。
+遍历结束后，我们再遍历数组，如果 $i+1$ 不等于 $nums[i]$，那么 $i+1$ 就是我们要找的最小的正整数。
 
-**排序：**
-
-方法之一
-
-```txt
-FRRST-MISSING-POSITIVE(A)
-    A.sort()
-    r = 1
-    for n in A
-        if n == r
-            r++
-        else if n > r
-            break
-    return r
-```
-
-**常数空间：**
-
-有一个现成的记录容器，那就是 `nums` 本身。
-
-使用下标来记录数据，只关注正整数，对于正整数 `x`，将其归为至 `nums[x - 1]` 位置（与对应位置的元素进行交换）。
-
-当所有的正整数归位之后，再次遍历 `nums`，找到第一个不满足 `nums[i] != i + 1` 表达式的位置，返回 `i + 1`。若是全部满足，则返回 `nums.length + 1`。
-
-> 因为存在重复元素，只要 `nums[x - 1] == x` 条件已满足，那么再遇到 `x` 时，直接跳过。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -85,16 +61,18 @@ FRRST-MISSING-POSITIVE(A)
 
 ```python
 class Solution:
-    def firstMissingPositive(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        def swap(i, j):
+            nums[i], nums[j] = nums[j], nums[i]
 
-        i = 1
-        while i in nums:
-            i += 1
-        return i
+        n = len(nums)
+        for i in range(n):
+            while 1 <= nums[i] <= n and nums[i] != nums[nums[i] - 1]:
+                swap(i, nums[i] - 1)
+        for i in range(n):
+            if i + 1 != nums[i]:
+                return i + 1
+        return n + 1
 ```
 
 ### **Java**
@@ -102,28 +80,26 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-public class Solution {
-    public int firstMissingPositive(int[] num) {
-        for (int i = 0; i < num.length; i++) {
-            if (num[i] > 0 && num[i] < num.length && num[num[i] - 1] != num[i]) {
-                swap(num, i, num[i] - 1);
-                i--;
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                swap(nums, i, nums[i] - 1);
             }
         }
-
-        for (int i = 0; i < num.length; i++) {
-            if (i + 1 != num[i]) {
+        for (int i = 0; i < n; ++i) {
+            if (i + 1 != nums[i]) {
                 return i + 1;
             }
         }
-
-        return num.length + 1;
+        return n + 1;
     }
 
-    private void swap(int[] num, int i, int j) {
-        int temp = num[i];
-        num[i] = num[j];
-        num[j] = temp;
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
 ```
@@ -134,23 +110,39 @@ public class Solution {
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int len = nums.size();
-        if (len == 0) return 1;
-        int i = 0;
-        while (nums[i] <= 0 && i < len) i++;
-        if (i == len) return 1;
-
-        int tmp = 1;
-        while (i < len) {
-            if (nums[i] != tmp) return tmp;
-            while (len > i + 1 && nums[i] == nums[i + 1]) i++; //去重
-            i++;
-            tmp++;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                swap(nums[i], nums[nums[i] - 1]);
+            }
         }
-        return tmp;
+        for (int i = 0; i < n; ++i) {
+            if (i + 1 != nums[i]) {
+                return i + 1;
+            }
+        }
+        return n + 1;
     }
 };
+```
+
+### **Go**
+
+```go
+func firstMissingPositive(nums []int) int {
+	n := len(nums)
+	for i := range nums {
+		for nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i]-1] {
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
+	for i, v := range nums {
+		if i+1 != v {
+			return i + 1
+		}
+	}
+	return n + 1
+}
 ```
 
 ### **C**

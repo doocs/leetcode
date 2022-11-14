@@ -96,7 +96,7 @@ class Solution:
             p[root] = fa
             dfs1(root.left, root)
             dfs1(root.right, root)
-        
+
         def dfs2(root, fa, k):
             if root is None:
                 return

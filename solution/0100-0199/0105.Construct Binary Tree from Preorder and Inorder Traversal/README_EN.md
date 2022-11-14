@@ -48,7 +48,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         if not preorder:
             return None
         v = preorder[0]
@@ -57,6 +57,29 @@ class Solution:
         root.left = self.buildTree(preorder[1 : 1 + i], inorder[:i])
         root.right = self.buildTree(preorder[1 + i :], inorder[i + 1 :])
         return root
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        def dfs(i, j, n):
+            if n <= 0:
+                return None
+            v = preorder[i]
+            k = d[v]
+            root = TreeNode(v)
+            root.left = dfs(i + 1, j, k - j)
+            root.right = dfs(i + 1 + k - j, k + 1, n - k + j - 1)
+            return root
+
+        d = {v: i for i, v in enumerate(inorder)}
+        return dfs(0, 0, len(preorder))
 ```
 
 ### **Java**
@@ -241,6 +264,42 @@ impl Solution {
         Self::to_tree(&preorder[..], &inorder[..])
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function (preorder, inorder) {
+    function dfs(i, j, n) {
+        if (n <= 0) {
+            return null;
+        }
+        const v = preorder[i];
+        const k = d[v];
+        const root = new TreeNode(v);
+        root.left = dfs(i + 1, j, k - j);
+        root.right = dfs(i + 1 + k - j, k + 1, n - k + j - 1);
+        return root;
+    }
+    const d = new Map();
+    for (const [i, v] of inorder.entries()) {
+        d[v] = i;
+    }
+    return dfs(0, 0, inorder.length);
+};
 ```
 
 ### **...**

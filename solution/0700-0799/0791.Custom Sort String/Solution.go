@@ -1,5 +1,5 @@
 func customSortString(order string, s string) string {
-	cnt := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
@@ -10,10 +10,9 @@ func customSortString(order string, s string) string {
 			cnt[c-'a']--
 		}
 	}
-	for _, c := range s {
-		for cnt[c-'a'] > 0 {
-			ans = append(ans, c)
-			cnt[c-'a']--
+	for i, v := range cnt {
+		for j := 0; j < v; j++ {
+			ans = append(ans, rune('a'+i))
 		}
 	}
 	return string(ans)

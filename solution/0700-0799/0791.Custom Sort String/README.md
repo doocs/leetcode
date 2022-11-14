@@ -45,19 +45,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表 + 自定义排序**
+**方法一：自定义排序**
 
-将字符串中的字符按照 $order$ 中出现的位置（下标）排序，未在 $order$ 中出现的，下标默认视为 $-1$。
+一种比较直接的思路是，用哈希表或数组 $d$ 记录字符串 $order$ 中每个字符的位置，然后对字符串 $s$ 中每个字符按照其在 $d$ 中的位置进行排序。如果某个字符不在 $d$ 中，我们可以将其位置置为 $0$。
 
-时间复杂度 $O(nlogn+m)$，空间复杂度 $O(m)$，其中 $m$ 和 $n$ 分别为 $order$ 和 $s$ 的长度。
+时间复杂度 $O(m + n\times \log n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是字符串 $order$ 和 $s$ 的长度。
 
 **方法二：字符计数**
 
-统计 $s$ 中每个字符的出现次数，存储在 $cnt$ 数组中。
+我们还可以先统计 $s$ 中每个字符的出现次数，存储在 $cnt$ 数组中。
 
-然后把在 $order$ 中出现的字符按照 $order$ 中的顺序排序，剩余字符添加到当前字符串的后面。
+然后把字符串 $s$ 在 $order$ 中出现的字符按照 $order$ 中的顺序排序，添加到结果字符串中。最后把剩余的字符直接追加到结果字符串中。
 
-时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别为 $order$ 和 $s$ 的长度。空间复杂度 $O(n)$。
+时间复杂度 $O(m+n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是字符串 $order$ 和 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -68,10 +68,8 @@
 ```python
 class Solution:
     def customSortString(self, order: str, s: str) -> str:
-        cs = list(s)
-        m = {v: i for i, v in enumerate(order)}
-        cs.sort(key=lambda x: m.get(x, -1))
-        return ''.join(cs)
+        d = {c: i for i, c in enumerate(order)}
+        return ''.join(sorted(s, key=lambda x: d.get(x, 0)))
 ```
 
 ```python
@@ -80,11 +78,10 @@ class Solution:
         cnt = Counter(s)
         ans = []
         for c in order:
-            ans.append(cnt[c] * c)
+            ans.append(c * cnt[c])
             cnt[c] = 0
-        for c in s:
-            ans.append(cnt[c] * c)
-            cnt[c] = 0
+        for c, v in cnt.items():
+            ans.append(c * v)
         return ''.join(ans)
 ```
 
@@ -95,20 +92,16 @@ class Solution:
 ```java
 class Solution {
     public String customSortString(String order, String s) {
-        Map<Character, Integer> m = new HashMap<>();
+        int[] d = new int[26];
         for (int i = 0; i < order.length(); ++i) {
-            m.put(order.charAt(i), i);
+            d[order.charAt(i) - 'a'] = i;
         }
         List<Character> cs = new ArrayList<>();
-        for (char c : s.toCharArray()) {
-            cs.add(c);
+        for (int i = 0; i < s.length(); ++i) {
+            cs.add(s.charAt(i));
         }
-        cs.sort((a, b) -> m.getOrDefault(a, -1) - m.getOrDefault(b, -1));
-        StringBuilder ans = new StringBuilder();
-        for (char c : cs) {
-            ans.append(c);
-        }
-        return ans.toString();
+        cs.sort((a, b) -> d[a - 'a'] - d[b - 'a']);
+        return cs.stream().map(String::valueOf).collect(Collectors.joining());
     }
 }
 ```
@@ -117,18 +110,19 @@ class Solution {
 class Solution {
     public String customSortString(String order, String s) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt[c - 'a'];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
         StringBuilder ans = new StringBuilder();
-        for (char c : order.toCharArray()) {
+        for (int i = 0; i < order.length(); ++i) {
+            char c = order.charAt(i);
             while (cnt[c - 'a']-- > 0) {
                 ans.append(c);
             }
         }
-        for (char c : s.toCharArray()) {
-            while (cnt[c - 'a']-- > 0) {
-                ans.append(c);
+        for (int i = 0; i < 26; ++i) {
+            while (cnt[i]-- > 0) {
+                ans.append((char) ('a' + i));
             }
         }
         return ans.toString();
@@ -142,19 +136,23 @@ class Solution {
 class Solution {
 public:
     string customSortString(string order, string s) {
-        vector<int> cnt(26);
-        for (char c : s) ++cnt[c - 'a'];
-        string ans = "";
-        for (char c : order) {
-            while (cnt[c - 'a']-- > 0) {
-                ans += c;
-            }
-        }
-        for (char c : s) {
-            while (cnt[c - 'a']-- > 0) {
-                ans += c;
-            }
-        }
+        int d[26] = {0};
+        for (int i = 0; i < order.size(); ++i) d[order[i] - 'a'] = i;
+        sort(s.begin(), s.end(), [&](auto a, auto b) { return d[a - 'a'] < d[b - 'a']; });
+        return s;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        int cnt[26] = {0};
+        for (char& c : s) ++cnt[c - 'a'];
+        string ans;
+        for (char& c : order) while (cnt[c - 'a']-- > 0) ans += c;
+        for (int i = 0; i < 26; ++i) if (cnt[i] > 0) ans += string(cnt[i], i + 'a');
         return ans;
     }
 };
@@ -164,7 +162,19 @@ public:
 
 ```go
 func customSortString(order string, s string) string {
-	cnt := make([]int, 26)
+	d := [26]int{}
+	for i := range order {
+		d[order[i]-'a'] = i
+	}
+	cs := []byte(s)
+	sort.Slice(cs, func(i, j int) bool { return d[cs[i]-'a'] < d[cs[j]-'a'] })
+	return string(cs)
+}
+```
+
+```go
+func customSortString(order string, s string) string {
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
@@ -175,13 +185,88 @@ func customSortString(order string, s string) string {
 			cnt[c-'a']--
 		}
 	}
-	for _, c := range s {
-		for cnt[c-'a'] > 0 {
-			ans = append(ans, c)
-			cnt[c-'a']--
+	for i, v := range cnt {
+		for j := 0; j < v; j++ {
+			ans = append(ans, rune('a'+i))
 		}
 	}
 	return string(ans)
+}
+```
+
+### **TypeScript**
+
+```ts
+function customSortString(order: string, s: string): string {
+    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const n = order.length;
+    const d = new Array(26).fill(n);
+    for (let i = 0; i < n; i++) {
+        d[toIndex(order[i])] = i;
+    }
+    return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
+}
+```
+
+```ts
+function customSortString(order: string, s: string): string {
+    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const count = new Array(26).fill(0);
+    for (const c of s) {
+        count[toIndex(c)]++;
+    }
+    const ans: string[] = [];
+    for (const c of order) {
+        const i = toIndex(c);
+        ans.push(c.repeat(count[i]));
+        count[i] = 0;
+    }
+    for (let i = 0; i < 26; i++) {
+        if (!count[i]) continue;
+        ans.push(String.fromCharCode('a'.charCodeAt(0) + i).repeat(count[i]));
+    }
+    return ans.join('');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn custom_sort_string(order: String, s: String) -> String {
+        let n = order.len();
+        let mut d = [n; 26];
+        for (i, c) in order.as_bytes().iter().enumerate() {
+            d[(c - b'a') as usize] = i;
+        }
+        let mut ans = s.chars().collect::<Vec<_>>();
+        ans.sort_by(|&a, &b| d[(a as u8 - 'a' as u8) as usize].cmp(&d[(b as u8 - 'a' as u8) as usize]));
+        ans.into_iter().collect()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn custom_sort_string(order: String, s: String) -> String {
+        let mut count = [0; 26];
+        for c in s.as_bytes() {
+            count[(c - b'a') as usize] += 1;
+        }
+        let mut ans = String::new();
+        for c in order.as_bytes() {
+            for _ in 0..count[(c - b'a') as usize] {
+                ans.push(char::from(*c));
+            }
+            count[(c - b'a') as usize] = 0;
+        }
+        for i in 0..count.len() {
+            for _ in 0..count[i] {
+                ans.push(char::from(b'a' + i as u8));
+            }
+        }
+        ans
+    }
 }
 ```
 

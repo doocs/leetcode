@@ -49,43 +49,43 @@
 
 ```python
 class Solution:
-    def firstMissingPositive(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        def swap(i, j):
+            nums[i], nums[j] = nums[j], nums[i]
 
-        i = 1
-        while i in nums:
-            i += 1
-        return i
+        n = len(nums)
+        for i in range(n):
+            while 1 <= nums[i] <= n and nums[i] != nums[nums[i] - 1]:
+                swap(i, nums[i] - 1)
+        for i in range(n):
+            if i + 1 != nums[i]:
+                return i + 1
+        return n + 1
 ```
 
 ### **Java**
 
 ```java
-public class Solution {
-    public int firstMissingPositive(int[] num) {
-        for (int i = 0; i < num.length; i++) {
-            if (num[i] > 0 && num[i] < num.length && num[num[i] - 1] != num[i]) {
-                swap(num, i, num[i] - 1);
-                i--;
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                swap(nums, i, nums[i] - 1);
             }
         }
-
-        for (int i = 0; i < num.length; i++) {
-            if (i + 1 != num[i]) {
+        for (int i = 0; i < n; ++i) {
+            if (i + 1 != nums[i]) {
                 return i + 1;
             }
         }
-
-        return num.length + 1;
+        return n + 1;
     }
 
-    private void swap(int[] num, int i, int j) {
-        int temp = num[i];
-        num[i] = num[j];
-        num[j] = temp;
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
 ```
@@ -96,23 +96,39 @@ public class Solution {
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int len = nums.size();
-        if (len == 0) return 1;
-        int i = 0;
-        while (nums[i] <= 0 && i < len) i++;
-        if (i == len) return 1;
-
-        int tmp = 1;
-        while (i < len) {
-            if (nums[i] != tmp) return tmp;
-            while (len > i + 1 && nums[i] == nums[i + 1]) i++; //去重
-            i++;
-            tmp++;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                swap(nums[i], nums[nums[i] - 1]);
+            }
         }
-        return tmp;
+        for (int i = 0; i < n; ++i) {
+            if (i + 1 != nums[i]) {
+                return i + 1;
+            }
+        }
+        return n + 1;
     }
 };
+```
+
+### **Go**
+
+```go
+func firstMissingPositive(nums []int) int {
+	n := len(nums)
+	for i := range nums {
+		for nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i]-1] {
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
+	for i, v := range nums {
+		if i+1 != v {
+			return i + 1
+		}
+	}
+	return n + 1
+}
 ```
 
 ### **C**
