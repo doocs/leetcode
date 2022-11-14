@@ -110,32 +110,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number}
- */
-var minDepth = function (root) {
-    function dfs(root) {
-        if (!root) return 0;
-        if (!root.left) return 1 + dfs(root.right);
-        if (!root.right) return 1 + dfs(root.left);
-        return 1 + Math.min(dfs(root.left), dfs(root.right));
-    }
-    return dfs(root);
-};
-```
-
 ### **C++**
 
 ```cpp
@@ -198,6 +172,138 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var minDepth = function (root) {
+    function dfs(root) {
+        if (!root) return 0;
+        if (!root.left) return 1 + dfs(root.right);
+        if (!root.right) return 1 + dfs(root.left);
+        return 1 + Math.min(dfs(root.left), dfs(root.right));
+    }
+    return dfs(root);
+};
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function minDepth(root: TreeNode | null): number {
+    if (root == null) {
+        return 0;
+    }
+    const { left, right } = root;
+    if (left == null) {
+        return 1 + minDepth(right);
+    }
+    if (right == null) {
+        return 1 + minDepth(left);
+    }
+    return 1 + Math.min(minDepth(left), minDepth(right));
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if root.is_none() {
+            return 0;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        if node.left.is_none() {
+            return 1 + Self::dfs(&node.right);
+        }
+        if node.right.is_none() {
+            return 1 + Self::dfs(&node.left);
+        }
+        1 + Self::dfs(&node.left).min(Self::dfs(&node.right))
+    }
+
+    pub fn min_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        Self::dfs(&root)
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+
+int minDepth(struct TreeNode *root) {
+    if (!root) {
+        return 0;
+    }
+    if (!root->left) {
+        return 1 + minDepth(root->right);
+    }
+    if (!root->right) {
+        return 1 + minDepth(root->left);
+    }
+    int left = minDepth(root->left);
+    int right = minDepth(root->right);
+    return 1 + min(left, right);
 }
 ```
 
