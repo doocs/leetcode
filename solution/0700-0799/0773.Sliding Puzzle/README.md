@@ -99,16 +99,9 @@ class Solution:
                 for j in range(3):
                     board[i][j] = int(s[i * 3 + j])
 
-        def next():
-            def find0():
-                for i in range(2):
-                    for j in range(3):
-                        if board[i][j] == 0:
-                            return (i, j)
-                return (0, 0)
-
+        def f():
             res = []
-            i, j = find0()
+            i, j = next((i, j) for i in range(2) for j in range(3) if board[i][j] == 0)
             for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
                 x, y = i + a, j + b
                 if 0 <= x < 2 and 0 <= y < 3:
@@ -129,7 +122,7 @@ class Solution:
             for _ in range(len(q)):
                 x = q.popleft()
                 setb(x)
-                for y in next():
+                for y in f():
                     if y == end:
                         return ans
                     if y not in vis:

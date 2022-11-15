@@ -1,13 +1,10 @@
-func numJewelsInStones(jewels string, stones string) int {
-	s := make(map[rune]bool)
+func numJewelsInStones(jewels string, stones string) (ans int) {
+	s := make([]int, 128)
 	for _, c := range jewels {
-		s[c] = true
+		s[c] = 1
 	}
-	res := 0
 	for _, c := range stones {
-		if s[c] {
-			res++
-		}
+		ans += s[c]
 	}
-	return res
+	return
 }
