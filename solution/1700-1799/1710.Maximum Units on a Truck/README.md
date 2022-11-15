@@ -60,6 +60,14 @@
 
 时间复杂度 $O(n\times \log n)$，其中 $n$ 表示二维数组 `boxTypes` 的长度。
 
+**方法二：计数排序**
+
+我们还可以利用计数排序的思想，开一个长度为 $1001$ 的数组 $cnt$，其中 $cnt[b]$ 表示单元数为 $b$ 的箱子的数量。
+
+然后从单元数最大的箱子开始，选择最多 `truckSize` 个箱子，累加单元数。
+
+时间复杂度 $O(M)$，其中 $M$ 是单元数的最大值。本题中 $M=1000$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,6 +83,23 @@ class Solution:
             truckSize -= a
             if truckSize <= 0:
                 break
+        return ans
+```
+
+```python
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        cnt = [0] * 1001
+        for a, b in boxTypes:
+            cnt[b] += a
+        ans = 0
+        for b in range(1000, 0, -1):
+            a = cnt[b]
+            if a:
+                ans += b * min(truckSize, a)
+                truckSize -= a
+                if truckSize <= 0:
+                    break
         return ans
 ```
 
@@ -100,6 +125,27 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int maximumUnits(int[][] boxTypes, int truckSize) {
+        int[] cnt = new int[1001];
+        for (var e : boxTypes) {
+            int a = e[0], b = e[1];
+            cnt[b] += a;
+        }
+        int ans = 0;
+        for (int b = 1000; b > 0 && truckSize > 0; --b) {
+            int a = cnt[b];
+            if (a > 0) {
+                ans += b * Math.min(truckSize, a);
+                truckSize -= a;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -113,6 +159,28 @@ public:
             ans += b * min(truckSize, a);
             truckSize -= a;
             if (truckSize <= 0) break;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
+        int cnt[1001] = {0};
+        for (auto& e : boxTypes) {
+            int a = e[0], b = e[1];
+            cnt[b] += a;
+        }
+        int ans = 0;
+        for (int b = 1000; b > 0 && truckSize > 0; --b) {
+            int a = cnt[b];
+            if (a) {
+                ans += b * min(truckSize, a);
+                truckSize -= a;
+            }
         }
         return ans;
     }
@@ -143,6 +211,31 @@ func min(a, b int) int {
 }
 ```
 
+```go
+func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
+	cnt := [1001]int{}
+	for _, e := range boxTypes {
+		a, b := e[0], e[1]
+		cnt[b] += a
+	}
+	for b := 1000; b > 0 && truckSize > 0; b-- {
+		a := cnt[b]
+		if a > 0 {
+			ans += b * min(truckSize, a)
+			truckSize -= a
+		}
+	}
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -157,6 +250,24 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
         } else {
             ans += (truckSize - sum) * size;
             break;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function maximumUnits(boxTypes: number[][], truckSize: number): number {
+    const cnt = new Array(1001).fill(0);
+    for (const [a, b] of boxTypes) {
+        cnt[b] += a;
+    }
+    let ans = 0;
+    for (let b = 1000; b > 0 && truckSize > 0; --b) {
+        const a = cnt[b];
+        if (a > 0) {
+            ans += b * Math.min(truckSize, a);
+            truckSize -= a;
         }
     }
     return ans;
