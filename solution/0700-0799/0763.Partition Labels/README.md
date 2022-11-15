@@ -34,14 +34,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先用数组或哈希表 last 记录每个字母最后一次出现的位置。
+**方法一：数组或哈希表 + 贪心**
+
+我们先用数组或哈希表 `last` 记录字符串 $s$ 中每个字母最后一次出现的位置。
 
 接下来使用贪心的方法，将字符串划分为尽可能多的片段：
 
--   从左到右遍历字符串，遍历的同时维护当前片段的开始下标 left 和结束下标 right，初始均为 0；
--   对于每个访问到的字母 c，获取到最后一次出现的位置 `last[c]`。由于当前片段的结束下标一定不会小于 `last[c]`，因此令 `right = max(right, last[c])`；
--   当访问到下标 right 时，当前片段访问结束，当前片段的下标范围是 `[left, right]`，长度为 `right - left + 1`，将其添加到结果数组中，然后令 left = right + 1, 继续寻找下一个片段；
--   重复上述过程，直至字符串遍历结束。
+从左到右遍历字符串，遍历的同时维护当前片段的开始下标 $left$ 和结束下标 $right$，初始均为 $0$。
+
+对于每个访问到的字母 $c$，获取到最后一次出现的位置 $last[c]$。由于当前片段的结束下标一定不会小于 $last[c]$，因此令 $right = \max(right, last[c])$。
+
+当访问到下标 $right$ 时，意味着当前片段访问结束，当前片段的下标范围是 $[left,.. right]$，长度为 $right - left + 1$，我们将其添加到结果数组中。然后令 $left = right + 1$, 继续寻找下一个片段。
+
+重复上述过程，直至字符串遍历结束，即可得到所有片段的长度。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -52,13 +59,11 @@
 ```python
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        last = [0] * 26
-        for i, c in enumerate(s):
-            last[ord(c) - ord('a')] = i
+        last = {c: i for i, c in enumerate(s)}
         ans = []
         left = right = 0
         for i, c in enumerate(s):
-            right = max(right, last[ord(c) - ord('a')])
+            right = max(right, last[c])
             if i == right:
                 ans.append(right - left + 1)
                 left = right + 1
@@ -90,36 +95,13 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function partitionLabels(s: string): number[] {
-    const n = s.length;
-    let last = new Array(26);
-    for (let i = 0; i < n; i++) {
-        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
-    }
-    let ans = [];
-    let left = 0,
-        right = 0;
-    for (let i = 0; i < n; i++) {
-        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
-        if (i == right) {
-            ans.push(right - left + 1);
-            left = right + 1;
-        }
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
-        vector<int> last(26);
+        int last[26] = {0};
         int n = s.size();
         for (int i = 0; i < n; ++i) last[s[i] - 'a'] = i;
         vector<int> ans;
@@ -163,6 +145,29 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function partitionLabels(s: string): number[] {
+    const n = s.length;
+    let last = new Array(26);
+    for (let i = 0; i < n; i++) {
+        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
+    }
+    let ans = [];
+    let left = 0,
+        right = 0;
+    for (let i = 0; i < n; i++) {
+        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
+        if (i == right) {
+            ans.push(right - left + 1);
+            left = right + 1;
+        }
+    }
+    return ans;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -187,6 +192,33 @@ impl Solution {
         res
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number[]}
+ */
+var partitionLabels = function (s) {
+    const n = s.length;
+    let last = new Array(26);
+    for (let i = 0; i < n; i++) {
+        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
+    }
+    let ans = [];
+    let left = 0,
+        right = 0;
+    for (let i = 0; i < n; i++) {
+        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
+        if (i == right) {
+            ans.push(right - left + 1);
+            left = right + 1;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
