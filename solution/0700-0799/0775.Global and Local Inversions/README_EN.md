@@ -57,13 +57,231 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def isIdealPermutation(self, nums: List[int]) -> bool:
+        mx = 0
+        for i in range(2, len(nums)):
+            mx = max(mx, nums[i - 2])
+            if mx > nums[i]:
+                return False
+        return True
+```
 
+```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x, delta):
+        while x <= self.n:
+            self.c[x] += delta
+            x += x & -x
+
+    def query(self, x):
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class Solution:
+    def isIdealPermutation(self, nums: List[int]) -> bool:
+        n = len(nums)
+        tree = BinaryIndexedTree(n)
+        cnt = 0
+        for i, v in enumerate(nums):
+            cnt += (i < n - 1 and v > nums[i + 1])
+            cnt -= (i - tree.query(v))
+            if cnt < 0:
+                return False
+            tree.update(v + 1, 1)
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isIdealPermutation(int[] nums) {
+        int mx = 0;
+        for (int i = 2; i < nums.length; ++i) {
+            mx = Math.max(mx, nums[i - 2]);
+            if (mx > nums[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class Solution {
+    public boolean isIdealPermutation(int[] nums) {
+        int n = nums.length;
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        int cnt = 0;
+        for (int i = 0; i < n && cnt >= 0; ++i) {
+            cnt += (i < n - 1 && nums[i] > nums[i + 1] ? 1 : 0);
+            cnt -= (i - tree.query(nums[i]));
+            tree.update(nums[i] + 1, 1);
+        }
+        return cnt == 0;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isIdealPermutation(vector<int>& nums) {
+        int mx = 0;
+        for (int i = 2; i < nums.size(); ++i) {
+            mx = max(mx, nums[i - 2]);
+            if (mx > nums[i]) return false;
+        }
+        return true;
+    }
+};
+```
+
+```cpp
+class BinaryIndexedTree {
+public:
+    BinaryIndexedTree(int _n) : n(_n), c(_n + 1) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+
+private:
+    int n;
+    vector<int> c;
+};
+
+class Solution {
+public:
+    bool isIdealPermutation(vector<int>& nums) {
+        int n = nums.size();
+        BinaryIndexedTree tree(n);
+        long cnt = 0;
+        for (int i = 0; i < n && ~cnt; ++i) {
+            cnt += (i < n - 1 && nums[i] > nums[i + 1]);
+            cnt -= (i - tree.query(nums[i]));
+            tree.update(nums[i] + 1, 1);
+        }
+        return cnt == 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isIdealPermutation(nums []int) bool {
+	mx := 0
+	for i := 2; i < len(nums); i++ {
+		mx = max(mx, nums[i-2])
+		if mx > nums[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func isIdealPermutation(nums []int) bool {
+	n := len(nums)
+	tree := newBinaryIndexedTree(n)
+	cnt := 0
+	for i, v := range nums {
+		if i < n-1 && v > nums[i+1] {
+			cnt++
+		}
+		cnt -= (i - tree.query(v))
+		if cnt < 0 {
+			break
+		}
+		tree.update(v+1, 1)
+	}
+	return cnt == 0
+}
+
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) BinaryIndexedTree {
+	c := make([]int, n+1)
+	return BinaryIndexedTree{n, c}
+}
+
+func (this BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += x & -x
+	}
+}
+
+func (this BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= x & -x
+	}
+	return s
+}
 ```
 
 ### **...**
