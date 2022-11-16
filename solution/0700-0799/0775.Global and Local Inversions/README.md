@@ -60,7 +60,7 @@
 
 根据题意，我们可以发现，一个数组中的局部倒置一定是全局倒置，但是全局倒置不一定是局部倒置。也就是说，全局倒置的数量一定大于等于局部倒置的数量。
 
-因此，我们枚举每个数 `nums[i]`，其中 $2 \leq i \leq n - 1$，维护前缀数组 $nums[0,..i-2]$ 中的最大值，记为 $mx$。如果存在 $mx$ 大于 $nums[i]$，则说明全局倒置的数量大于局部倒置的数量，返回 `false` 即可。
+因此，我们枚举每个数 $nums[i]$，其中 $2 \leq i \leq n - 1$，维护前缀数组 $nums[0,..i-2]$ 中的最大值，记为 $mx$。如果存在 $mx$ 大于 $nums[i]$，则说明全局倒置的数量大于局部倒置的数量，返回 `false` 即可。
 
 遍历结束后，返回 `true`。
 
@@ -92,8 +92,7 @@ class Solution:
     def isIdealPermutation(self, nums: List[int]) -> bool:
         mx = 0
         for i in range(2, len(nums)):
-            mx = max(mx, nums[i - 2])
-            if mx > nums[i]:
+            if (mx := max(mx, nums[i - 2])) > nums[i]:
                 return False
         return True
 ```

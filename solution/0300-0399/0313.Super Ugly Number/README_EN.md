@@ -47,26 +47,104 @@ Priority Queue.
 ### **Python3**
 
 ```python
-from queue import PriorityQueue
-
-
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
-        ugly, pq, p = [0]*(n+1), PriorityQueue(), 2
-        ugly[1] = 1
-        for prime in primes:
-            pq.put([prime, prime, 2])
+        q = [1]
+        x = 0
+        mx = (1 << 31) - 1
+        for _ in range(n):
+            x = heappop(q)
+            for k in primes:
+                if x <= mx // k:
+                    heappush(q, k * x)
+                if x % k == 0:
+                    break
+        return x
+```
 
-        while p <= n:
-            top = pq.get()
-            if top[0] != ugly[p-1]:
-                ugly[p], p = top[0], p+1
-            top[0], top[2] = ugly[top[2]]*top[1], top[2]+1
-            pq.put(top)
-        return ugly[n]
+### **Java**
+
+```java
+class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        q.offer(1);
+        int x = 0;
+        while (n-- > 0) {
+            x = q.poll();
+            while (!q.isEmpty() && q.peek() == x) {
+                q.poll();
+            }
+            for (int k : primes) {
+                if (k <= Integer.MAX_VALUE / x) {
+                    q.offer(k * x);
+                }
+                if (x % k == 0) {
+                    break;
+                }
+            }
+        }
+        return x;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int nthSuperUglyNumber(int n, vector<int>& primes) {
+        priority_queue<int, vector<int>, greater<int>> q;
+        q.push(1);
+        int x = 0;
+        while (n--) {
+            x = q.top();
+            q.pop();
+            for (int& k : primes) {
+                if (x <= INT_MAX / k) {
+                    q.push(k * x);
+                }
+                if (x % k == 0) {
+                    break;
+                }
+            }
+        }
+        return x;
+    }
+};
 ```
 
 ### **Go**
+
+```go
+func nthSuperUglyNumber(n int, primes []int) (x int) {
+	q := hp{[]int{1}}
+	for n > 0 {
+		n--
+		x = heap.Pop(&q).(int)
+		for _, k := range primes {
+			if x <= math.MaxInt32/k {
+				heap.Push(&q, k*x)
+			}
+			if x%k == 0 {
+				break
+			}
+		}
+	}
+	return
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
 
 ```go
 type Ugly struct{ value, prime, index int }
