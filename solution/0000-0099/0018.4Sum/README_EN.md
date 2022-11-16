@@ -40,6 +40,10 @@
 
 ## Solutions
 
+**Approach 1: Two Pointers**
+
+Time complexity $O(n^3)$, Space complexity $O(\log n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -159,40 +163,35 @@ public:
 
 ```go
 func fourSum(nums []int, target int) [][]int {
-	n, res := len(nums), make([][]int, 0)
-	if n < 4 {
-		return res
-	}
+	ans, n := [][]int{}, len(nums)
 	sort.Ints(nums)
-	for i := 0; i < n-3; i++ {
-		if i > 0 && nums[i] == nums[i-1] {
-			continue
-		}
-		for j := i + 1; j < n-2; j++ {
-			if j > i+1 && nums[j] == nums[j-1] {
-				continue
-			}
-			k, l := j+1, n-1
-			for k < l {
-				if nums[i]+nums[j]+nums[k]+nums[l] == target {
-					res = append(res, []int{nums[i], nums[j], nums[k], nums[l]})
-					k++
-					l--
-					for k < n && nums[k] == nums[k-1] {
-						k++
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			for l, r := j+1, n-1; l < r; {
+				if nums[i]+nums[j]+nums[l]+nums[r] == target {
+					ans = append(ans, []int{nums[i], nums[j], nums[l], nums[r]})
+					l, r = l+1, r-1
+					for l < r && nums[l] == nums[l-1] {
+						l++
 					}
-					for l > j && nums[l] == nums[l+1] {
-						l--
+					for l < r && nums[r] == nums[r+1] {
+						r--
 					}
-				} else if nums[i]+nums[j]+nums[k]+nums[l] < target {
-					k++
+				} else if nums[i]+nums[j]+nums[l]+nums[r] < target {
+					l++
 				} else {
-					l--
+					r--
 				}
 			}
+			for j+1 < n && nums[j+1] == nums[j] {
+				j++
+			}
+		}
+		for i+1 < n && nums[i+1] == nums[i] {
+			i++
 		}
 	}
-	return res
+	return ans
 }
 ```
 
