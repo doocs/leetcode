@@ -190,24 +190,24 @@ impl Solution {
     pub fn hammingWeight(mut n: u32) -> i32 {
         let mut res = 0;
         while n != 0 {
-            res += n & 1;
-            n >>= 1;
-        }
-        res as i32
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn hammingWeight(mut n: u32) -> i32 {
-        let mut res = 0;
-        while n != 0 {
-            n &= (n - 1);
+            n &= n - 1;
             res += 1;
         }
         res
     }
+}
+```
+
+### **C**
+
+```c
+int hammingWeight(uint32_t n) {
+    int ans = 0;
+    while (n) {
+        n &= n - 1;
+        ans++;
+    }
+    return ans;
 }
 ```
 

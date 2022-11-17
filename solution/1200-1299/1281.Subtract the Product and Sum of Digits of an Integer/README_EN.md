@@ -104,21 +104,53 @@ func subtractProductAndSum(n int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function subtractProductAndSum(n: number): number {
+    let p = 1;
+    let s = 0;
+    while (n) {
+        const num = n % 10;
+        n = Math.floor(n / 10);
+        p *= num;
+        s += num;
+    }
+    return p - s;
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn subtract_product_and_sum(mut n: i32) -> i32 {
-        let mut mul = 1;
-        let mut sum = 0;
+        let mut p = 1;
+        let mut s = 0;
         while n != 0 {
             let num = n % 10;
             n /= 10;
-            mul *= num;
-            sum += num;
+            p *= num;
+            s += num;
         }
-        mul - sum
+        p - s
     }
+}
+```
+
+### **C**
+
+```c
+int subtractProductAndSum(int n) {
+    int p = 1;
+    int s = 0;
+    while (n) {
+        int num = n % 10;
+        n /= 10;
+        p *= num;
+        s += num;
+    }
+    return p - s;
 }
 ```
 
