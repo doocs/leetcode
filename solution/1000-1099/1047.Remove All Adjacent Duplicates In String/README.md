@@ -136,6 +136,44 @@ var removeDuplicates = function (s) {
 };
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn remove_duplicates(s: String) -> String {
+        let mut stack = Vec::new();
+        for c in s.chars() {
+            if !stack.is_empty() && *stack.last().unwrap() == c {
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+        stack.into_iter().collect()
+    }
+}
+```
+
+### **C**
+
+```c
+char *removeDuplicates(char *s) {
+    int n = strlen(s);
+    char *stack = malloc(sizeof(char) * (n + 1));
+    int i = 0;
+    for (int j = 0; j < n; j++) {
+        char c = s[j];
+        if (i && stack[i - 1] == c) {
+            i--;
+        } else {
+            stack[i++] = c;
+        }
+    }
+    stack[i] = '\0';
+    return stack;
+}
+```
+
 ### **...**
 
 ```
