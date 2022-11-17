@@ -87,22 +87,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function isSubsequence(s: string, t: string): boolean {
-    let m = s.length,
-        n = t.length;
-    let i = 0;
-    for (let j = 0; j < n && i < m; ++j) {
-        if (s.charAt(i) == t.charAt(j)) {
-            ++i;
-        }
-    }
-    return i == m;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -132,6 +116,63 @@ func isSubsequence(s string, t string) bool {
 		j++
 	}
 	return i == m
+}
+```
+
+### **TypeScript**
+
+```ts
+function isSubsequence(s: string, t: string): boolean {
+    let m = s.length,
+        n = t.length;
+    let i = 0;
+    for (let j = 0; j < n && i < m; ++j) {
+        if (s.charAt(i) == t.charAt(j)) {
+            ++i;
+        }
+    }
+    return i == m;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_subsequence(s: String, t: String) -> bool {
+        let (s, t) = (s.as_bytes(), t.as_bytes());
+        let n = t.len();
+        let mut i = 0;
+        for &c in s.iter() {
+            while i < n && t[i] != c {
+                i += 1;
+            }
+            if i == n {
+                return false;
+            }
+            i += 1;
+        }
+        true
+    }
+}
+```
+
+### **C**
+
+```c
+bool isSubsequence(char *s, char *t) {
+    int n = strlen(s);
+    int i = 0;
+    for (int j = 0; j < n; j++) {
+        while (t[i] && t[i] != s[j]) {
+            i++;
+        }
+        if (!t[i]) {
+            return 0;
+        }
+        i++;
+    }
+    return 1;
 }
 ```
 
