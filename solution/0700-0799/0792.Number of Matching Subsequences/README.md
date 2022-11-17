@@ -49,7 +49,7 @@
 
 **方法一：分桶**
 
-题目中字符串 $s$ 的数据规模最高达到 $5 \times 10^4$，如果暴力枚举 $words$ 中的每个字符串 $w$，判断其是否为 $s$ 的子序列，必然会超时。
+题目中字符串 $s$ 的数据规模最高达到 $5 \times 10^4$，如果暴力枚举 $words$ 中的每个字符串 $w$，判断其是否为 $s$ 的子序列，很有可能会超时。
 
 我们不妨将 $words$ 中的所有单词根据首字母来分桶，即：把所有单词按照首字母分到 $26$ 个桶中，每个桶中存储的是所有以该字母开头的所有单词。
 
@@ -60,7 +60,7 @@ a: ["a", "acd", "ace"]
 b: ["bb"]
 ```
 
-然后我们从 $s$ 的第一个字符开始遍历，假设当前字符为 `'a'`，我们从 `'a'` 开头的桶中取出所有单词。对于取出的每个单词，如果此时单词长度为 $1$，说明该单词已经匹配完毕，我们将答案加 $1$；否则我们将单词的首字母去掉，然后放入下一个字母开头的桶中，比如对于单词 `acd`，去掉首字母 `'a'` 后，我们将其放入 `'c'` 开头的桶中。这一轮结束后，分桶结果变为：
+然后我们从 $s$ 的第一个字符开始遍历，假设当前字符为 `'a'`，我们从 `'a'` 开头的桶中取出所有单词。对于取出的每个单词，如果此时单词长度为 $1$，说明该单词已经匹配完毕，我们将答案加 $1$；否则我们将单词的首字母去掉，然后放入下一个字母开头的桶中，比如对于单词 `"acd"`，去掉首字母 `'a'` 后，我们将其放入 `'c'` 开头的桶中。这一轮结束后，分桶结果变为：
 
 ```text
 c: ["cd", "ce"]
@@ -132,8 +132,6 @@ class Solution:
         def check(w):
             i = -1
             for c in w:
-                if c not in d:
-                    return False
                 j = bisect_right(d[c], i)
                 if j == len(d[c]):
                     return False
@@ -229,9 +227,6 @@ class Solution {
         int i = -1;
         for (int k = 0; k < w.length(); ++k) {
             int c = w.charAt(k) - 'a';
-            if (d[c].isEmpty()) {
-                return false;
-            }
             int j = search(d[c], i);
             if (j == d[c].size()) {
                 return false;
@@ -311,7 +306,6 @@ public:
             int i = -1;
             for (char& c : w) {
                 auto& t = d[c - 'a'];
-                if (t.empty()) return false;
                 int j = upper_bound(t.begin(), t.end(), i) - t.begin();
                 if (j == t.size()) return false;
                 i = t[j];
@@ -380,9 +374,6 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 		i := -1
 		for _, c := range w {
 			t := d[c-'a']
-			if len(t) == 0 {
-				return false
-			}
 			j := sort.SearchInts(t, i+1)
 			if j == len(t) {
 				return false

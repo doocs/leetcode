@@ -60,6 +60,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分类讨论**
+
+我们先统计当前棋盘上 `'X'` 和 `'O'` 的数量，记为 $x$ 和 $o$。接下来，我们分情况讨论：
+
+-   如果 $x \neq o$ 且 $x - 1 \neq o$，则当前棋盘不可能是有效棋盘，返回 `false`。
+-   如果当前棋盘上玩家 1 获胜，但 $x-1 \neq o$，则当前棋盘不可能是有效棋盘，返回 `false`。
+-   如果当前棋盘上玩家 2 获胜，但 $x \neq o$，则当前棋盘不可能是有效棋盘，返回 `false`。
+-   其他情况下，当前棋盘是有效棋盘，返回 `true`。
+
+时间复杂度 $O(C)$，空间复杂度 $O(1)$。其中 $C$ 是棋盘上的格子数。本题中 $C = 9$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,30 +80,22 @@
 ```python
 class Solution:
     def validTicTacToe(self, board: List[str]) -> bool:
-        def win(p):
+        def win(x):
             for i in range(3):
-                if board[i][0] == board[i][1] == board[i][2] == p:
+                if all(board[i][j] == x for j in range(3)):
                     return True
-                if board[0][i] == board[1][i] == board[2][i] == p:
+                if all(board[j][i] == x for j in range(3)):
                     return True
-            if board[0][0] == board[1][1] == board[2][2] == p:
+            if all(board[i][i] == x for i in range(3)):
                 return True
-            return board[0][2] == board[1][1] == board[2][0] == p
+            return all(board[i][2 - i] == x for i in range(3))
 
-        x, o = 0, 0
-        for i in range(3):
-            for j in range(3):
-                if board[i][j] == 'X':
-                    x += 1
-                elif board[i][j] == 'O':
-                    o += 1
-
+        x = sum(board[i][j] == 'X' for i in range(3) for j in range(3))
+        o = sum(board[i][j] == 'O' for i in range(3) for j in range(3))
         if x != o and x - 1 != o:
             return False
-
         if win('X') and x - 1 != o:
             return False
-
         return not (win('O') and x != o)
 ```
 
@@ -102,79 +105,46 @@ class Solution:
 
 ```java
 class Solution {
+    private String[] board;
+
     public boolean validTicTacToe(String[] board) {
-        int x = 0, o = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board[i].charAt(j) == 'X') {
-                    x++;
-                } else if (board[i].charAt(j) == 'O') {
-                    o++;
-                }
-            }
-        }
+        this.board = board;
+        int x = count('X'), o = count('O');
         if (x != o && x - 1 != o) {
             return false;
         }
-        if (win(board, 'X') && x - 1 != o) {
+        if (win('X') && x - 1 != o) {
             return false;
         }
-        return !(win(board, 'O') && x != o);
+        return !(win('O') && x != o);
     }
 
-    private boolean win(String[] b, char p) {
-        for (int i = 0; i < 3; i++) {
-            if (b[i].charAt(0) == p && b[i].charAt(1) == p && b[i].charAt(2) == p) {
+    private boolean win(char x) {
+        for (int i = 0; i < 3; ++i) {
+            if (board[i].charAt(0) == x && board[i].charAt(1) == x && board[i].charAt(2) == x) {
                 return true;
             }
-            if (b[0].charAt(i) == p && b[1].charAt(i) == p && b[2].charAt(i) == p) {
+            if (board[0].charAt(i) == x && board[1].charAt(i) == x && board[2].charAt(i) == x) {
                 return true;
             }
         }
-        if (b[0].charAt(0) == p && b[1].charAt(1) == p && b[2].charAt(2) == p) {
+        if (board[0].charAt(0) == x && board[1].charAt(1) == x && board[2].charAt(2) == x) {
             return true;
         }
-        return b[0].charAt(2) == p && b[1].charAt(1) == p && b[2].charAt(0) == p;
+        return board[0].charAt(2) == x && board[1].charAt(1) == x && board[2].charAt(0) == x;
     }
-}
-```
 
-### **Go**
-
-```go
-func validTicTacToe(board []string) bool {
-	x, o := 0, 0
-	for i := 0; i < 3; i++ {
-		for j := 0; j < 3; j++ {
-			if board[i][j] == 'X' {
-				x++
-			} else if board[i][j] == 'O' {
-				o++
-			}
-		}
-	}
-	if x != o && x-1 != o {
-		return false
-	}
-	if win(board, 'X') && x-1 != o {
-		return false
-	}
-	return !(win(board, 'O') && x != o)
-}
-
-func win(b []string, p byte) bool {
-	for i := 0; i < 3; i++ {
-		if b[i][0] == p && b[i][1] == p && b[i][2] == p {
-			return true
-		}
-		if b[0][i] == p && b[1][i] == p && b[2][i] == p {
-			return true
-		}
-	}
-	if b[0][0] == p && b[1][1] == p && b[2][2] == p {
-		return true
-	}
-	return b[0][2] == p && b[1][1] == p && b[2][0] == p
+    private int count(char x) {
+        int cnt = 0;
+        for (var row : board) {
+            for (var c : row.toCharArray()) {
+                if (c == x) {
+                    ++cnt;
+                }
+            }
+        }
+        return cnt;
+    }
 }
 ```
 
@@ -184,39 +154,104 @@ func win(b []string, p byte) bool {
 class Solution {
 public:
     bool validTicTacToe(vector<string>& board) {
-        int x = 0, o = 0;
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                if (board[i][j] == 'X') {
-                    ++x;
-                } else if (board[i][j] == 'O') {
-                    ++o;
-                }
+        auto count = [&](char x) {
+            int ans = 0;
+            for (auto& row : board) for (auto& c : row) ans += c == x;
+            return ans;
+        };
+        auto win = [&](char x) {
+            for (int i = 0; i < 3; ++i) {
+                if (board[i][0] == x && board[i][1] == x && board[i][2] == x) return true;
+                if (board[0][i] == x && board[1][i] == x && board[2][i] == x) return true;
             }
-        }
-        if (x != o && x - 1 != o) {
-            return false;
-        }
-        if (win(board, 'X') && x - 1 != o) {
-            return false;
-        }
-        return !(win(board, 'O') && x != o);
+            if (board[0][0] == x && board[1][1] == x && board[2][2] == x) return true;
+            return board[0][2] == x && board[1][1] == x && board[2][0] == x;
+        };
+        int x = count('X'), o = count('O');
+        if (x != o && x - 1 != o) return false;
+        if (win('X') && x - 1 != o) return false;
+        return !(win('O') && x != o);
     }
+};
+```
 
-    bool win(vector<string>& b, char p) {
-        for (int i = 0; i < 3; ++i) {
-            if (b[i][0] == p && b[i][1] == p && b[i][2] == p) {
+### **Go**
+
+```go
+func validTicTacToe(board []string) bool {
+	var x, o int
+	for _, row := range board {
+		for _, c := range row {
+			if c == 'X' {
+				x++
+			} else if c == 'O' {
+				o++
+			}
+		}
+	}
+	win := func(x byte) bool {
+		for i := 0; i < 3; i++ {
+			if board[i][0] == x && board[i][1] == x && board[i][2] == x {
+				return true
+			}
+			if board[0][i] == x && board[1][i] == x && board[2][i] == x {
+				return true
+			}
+		}
+		if board[0][0] == x && board[1][1] == x && board[2][2] == x {
+			return true
+		}
+		return board[0][2] == x && board[1][1] == x && board[2][0] == x
+	}
+	if x != o && x-1 != o {
+		return false
+	}
+	if win('X') && x-1 != o {
+		return false
+	}
+	return !(win('O') && x != o)
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string[]} board
+ * @return {boolean}
+ */
+var validTicTacToe = function (board) {
+    function count(x) {
+        let cnt = 0;
+        for (const row of board) {
+            for (const c of row) {
+                cnt += c == x;
+            }
+        }
+        return cnt;
+    }
+    function win(x) {
+        for (let i = 0; i < 3; ++i) {
+            if (board[i][0] == x && board[i][1] == x && board[i][2] == x) {
                 return true;
             }
-            if (b[0][i] == p && b[1][i] == p && b[2][i] == p) {
+            if (board[0][i] == x && board[1][i] == x && board[2][i] == x) {
                 return true;
             }
         }
-        if (b[0][0] == p && b[1][1] == p && b[2][2] == p) {
+        if (board[0][0] == x && board[1][1] == x && board[2][2] == x) {
             return true;
         }
-        return b[0][2] == p && b[1][1] == p && b[2][0] == p;
+        return board[0][2] == x && board[1][1] == x && board[2][0] == x;
     }
+    const [x, o] = [count('X'), count('O')];
+    if (x != o && x - 1 != o) {
+        return false;
+    }
+    if (win('X') && x - 1 != o) {
+        return false;
+    }
+    return !(win('O') && x != o);
 };
 ```
 

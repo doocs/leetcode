@@ -1,27 +1,19 @@
 class Solution:
     def validTicTacToe(self, board: List[str]) -> bool:
-        def win(p):
+        def win(x):
             for i in range(3):
-                if board[i][0] == board[i][1] == board[i][2] == p:
+                if all(board[i][j] == x for j in range(3)):
                     return True
-                if board[0][i] == board[1][i] == board[2][i] == p:
+                if all(board[j][i] == x for j in range(3)):
                     return True
-            if board[0][0] == board[1][1] == board[2][2] == p:
+            if all(board[i][i] == x for i in range(3)):
                 return True
-            return board[0][2] == board[1][1] == board[2][0] == p
+            return all(board[i][2 - i] == x for i in range(3))
 
-        x, o = 0, 0
-        for i in range(3):
-            for j in range(3):
-                if board[i][j] == 'X':
-                    x += 1
-                elif board[i][j] == 'O':
-                    o += 1
-
+        x = sum(board[i][j] == 'X' for i in range(3) for j in range(3))
+        o = sum(board[i][j] == 'O' for i in range(3) for j in range(3))
         if x != o and x - 1 != o:
             return False
-
         if win('X') and x - 1 != o:
             return False
-
         return not (win('O') and x != o)

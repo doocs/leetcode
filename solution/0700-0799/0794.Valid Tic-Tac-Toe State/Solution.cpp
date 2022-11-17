@@ -1,37 +1,22 @@
 class Solution {
 public:
     bool validTicTacToe(vector<string>& board) {
-        int x = 0, o = 0;
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                if (board[i][j] == 'X') {
-                    ++x;
-                } else if (board[i][j] == 'O') {
-                    ++o;
-                }
+        auto count = [&](char x) {
+            int ans = 0;
+            for (auto& row : board) for (auto& c : row) ans += c == x;
+            return ans;
+        };
+        auto win = [&](char x) {
+            for (int i = 0; i < 3; ++i) {
+                if (board[i][0] == x && board[i][1] == x && board[i][2] == x) return true;
+                if (board[0][i] == x && board[1][i] == x && board[2][i] == x) return true;
             }
-        }
-        if (x != o && x - 1 != o) {
-            return false;
-        }
-        if (win(board, 'X') && x - 1 != o) {
-            return false;
-        }
-        return !(win(board, 'O') && x != o);
-    }
-
-    bool win(vector<string>& b, char p) {
-        for (int i = 0; i < 3; ++i) {
-            if (b[i][0] == p && b[i][1] == p && b[i][2] == p) {
-                return true;
-            }
-            if (b[0][i] == p && b[1][i] == p && b[2][i] == p) {
-                return true;
-            }
-        }
-        if (b[0][0] == p && b[1][1] == p && b[2][2] == p) {
-            return true;
-        }
-        return b[0][2] == p && b[1][1] == p && b[2][0] == p;
+            if (board[0][0] == x && board[1][1] == x && board[2][2] == x) return true;
+            return board[0][2] == x && board[1][1] == x && board[2][0] == x;
+        };
+        int x = count('X'), o = count('O');
+        if (x != o && x - 1 != o) return false;
+        if (win('X') && x - 1 != o) return false;
+        return !(win('O') && x != o);
     }
 };

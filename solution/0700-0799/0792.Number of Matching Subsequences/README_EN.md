@@ -85,8 +85,6 @@ class Solution:
         def check(w):
             i = -1
             for c in w:
-                if c not in d:
-                    return False
                 j = bisect_right(d[c], i)
                 if j == len(d[c]):
                     return False
@@ -180,9 +178,6 @@ class Solution {
         int i = -1;
         for (int k = 0; k < w.length(); ++k) {
             int c = w.charAt(k) - 'a';
-            if (d[c].isEmpty()) {
-                return false;
-            }
             int j = search(d[c], i);
             if (j == d[c].size()) {
                 return false;
@@ -262,7 +257,6 @@ public:
             int i = -1;
             for (char& c : w) {
                 auto& t = d[c - 'a'];
-                if (t.empty()) return false;
                 int j = upper_bound(t.begin(), t.end(), i) - t.begin();
                 if (j == t.size()) return false;
                 i = t[j];
@@ -331,9 +325,6 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 		i := -1
 		for _, c := range w {
 			t := d[c-'a']
-			if len(t) == 0 {
-				return false
-			}
 			j := sort.SearchInts(t, i+1)
 			if j == len(t) {
 				return false
