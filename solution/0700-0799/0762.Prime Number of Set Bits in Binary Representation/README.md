@@ -57,11 +57,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-题目中 `left` 和 `right` 的范围均在 10<sup>6</sup> 内，而 2<sup>20</sup>=1048576，因此二进制中 1 的个数最多也就 20 个，20 以内的质数为 {2, 3, 5, 7, 11, 13, 17, 19}。
+**方法一：数学 + 位运算**
 
-我们可以遍历 `[left, right]` 范围内的每个数，计算出每个数的二进制表示中 1 的个数，判断此个数是否在上述列举的质数中，是则累加结果。
+题目中 $left$ 和 $right$ 的范围均在 $10^6$ 以内，而 $2^{20} = 1048576$，因此，二进制中 $1$ 的个数最多也就 $20$ 个，而 $20$ 以内的质数有 `[2, 3, 5, 7, 11, 13, 17, 19]`。
 
-时间复杂度 `O((right-left)*log right)`，其中求二进制中 1 的个数的时间为 `O(log right)`。
+我们枚举 $[left,.. right]$ 范围内的每个数，统计其二进制中 $1$ 的个数，然后判断该个数是否为质数，如果是，答案加一。
+
+时间复杂度 $O(n\times \log m)$。其中 $n = right - left + 1$，而 $m$ 为 $[left,.. right]$ 范围内的最大数。
 
 <!-- tabs:start -->
 
@@ -82,7 +84,7 @@ class Solution:
 
 ```java
 class Solution {
-    private static Set<Integer> primes = new HashSet<>(Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19));
+    private static Set<Integer> primes = Set.of(2, 3, 5, 7, 11, 13, 17, 19);
 
     public int countPrimeSetBits(int left, int right) {
         int ans = 0;
@@ -101,13 +103,10 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_set<int> primes {2, 3, 5, 7, 11, 13, 17, 19};
-
     int countPrimeSetBits(int left, int right) {
+        unordered_set<int> primes {2, 3, 5, 7, 11, 13, 17, 19};
         int ans = 0;
-        for (int i = left; i <= right; ++i)
-            if (primes.count(__builtin_popcount(i)))
-                ++ans;
+        for (int i = left; i <= right; ++i) ans += primes.count(__builtin_popcount(i));
         return ans;
     }
 };
@@ -116,15 +115,15 @@ public:
 ### **Go**
 
 ```go
-func countPrimeSetBits(left int, right int) int {
-	primes := map[int]bool{2: true, 3: true, 5: true, 7: true, 11: true, 13: true, 17: true, 19: true}
-	ans := 0
-	for i := left; i <= right; i++ {
-		if primes[bits.OnesCount(uint(i))] {
-			ans++
-		}
+func countPrimeSetBits(left int, right int) (ans int) {
+	primes := map[int]int{}
+	for _, v := range []int{2, 3, 5, 7, 11, 13, 17, 19} {
+		primes[v] = 1
 	}
-	return ans
+	for i := left; i <= right; i++ {
+		ans += primes[bits.OnesCount(uint(i))]
+	}
+	return
 }
 ```
 

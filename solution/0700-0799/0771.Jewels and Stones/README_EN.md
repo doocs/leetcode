@@ -35,7 +35,7 @@
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
         s = set(jewels)
-        return sum([1 for c in stones if c in s])
+        return sum(c in s for c in stones)
 ```
 
 ### **Java**
@@ -43,15 +43,15 @@ class Solution:
 ```java
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
-        Set<Character> s = new HashSet<>();
+        int[] s = new int[128];
         for (char c : jewels.toCharArray()) {
-            s.add(c);
+            s[c] = 1;
         }
-        int res = 0;
+        int ans = 0;
         for (char c : stones.toCharArray()) {
-            res += (s.contains(c) ? 1 : 0);
+            ans += s[c];
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -62,15 +62,11 @@ class Solution {
 class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
-        unordered_set<char> s;
-        for (char c : jewels) {
-            s.insert(c);
-        }
-        int res = 0;
-        for (char c : stones) {
-            res += s.count(c);
-        }
-        return res;
+        int s[128] = {0};
+        for (char c : jewels) s[c] = 1;
+        int ans = 0;
+        for (char c : stones) ans += s[c];
+        return ans;
     }
 };
 ```
@@ -78,19 +74,30 @@ public:
 ### **Go**
 
 ```go
-func numJewelsInStones(jewels string, stones string) int {
-	s := make(map[rune]bool)
+func numJewelsInStones(jewels string, stones string) (ans int) {
+	s := make([]int, 128)
 	for _, c := range jewels {
-		s[c] = true
+		s[c] = 1
 	}
-	res := 0
 	for _, c := range stones {
-		if s[c] {
-			res++
-		}
+		ans += s[c]
 	}
-	return res
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} jewels
+ * @param {string} stones
+ * @return {number}
+ */
+var numJewelsInStones = function (jewels, stones) {
+    const s = new Set(jewels.split(''));
+    return stones.split('').reduce((prev, val) => prev + s.has(val), 0);
+};
 ```
 
 ### **...**

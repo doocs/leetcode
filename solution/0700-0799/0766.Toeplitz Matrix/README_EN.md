@@ -57,11 +57,7 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 class Solution:
     def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
         m, n = len(matrix), len(matrix[0])
-        for i in range(1, m):
-            for j in range(1, n):
-                if matrix[i][j] != matrix[i - 1][j - 1]:
-                    return False
-        return True
+        return all(matrix[i][j] == matrix[i - 1][j - 1] for i in range(1, m) for j in range(1, n))
 ```
 
 ### **Java**
@@ -80,6 +76,62 @@ class Solution {
         return true;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isToeplitzMatrix(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (matrix[i][j] != matrix[i - 1][j - 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isToeplitzMatrix(matrix [][]int) bool {
+	m, n := len(matrix), len(matrix[0])
+	for i := 1; i < m; i++ {
+		for j := 1; j < n; j++ {
+			if matrix[i][j] != matrix[i-1][j-1] {
+				return false
+			}
+		}
+	}
+	return true
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {boolean}
+ */
+var isToeplitzMatrix = function (matrix) {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            if (matrix[i][j] != matrix[i - 1][j - 1]) {
+                return false;
+            }
+        }
+    }
+    return true;
+};
 ```
 
 ### **...**

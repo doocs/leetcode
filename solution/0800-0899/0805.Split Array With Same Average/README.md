@@ -12,7 +12,7 @@
 
 <p>如果可以完成则返回<code>true</code>&nbsp;， 否则返回 <code>false</code>&nbsp;&nbsp;。</p>
 
-<p><strong>注意：</strong>对于数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;, <meta charset="UTF-8" />&nbsp;<code>average(arr)</code>&nbsp;是<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;的所有元素除以<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;长度的和。</p>
+<p><strong>注意：</strong>对于数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;, <meta charset="UTF-8" />&nbsp;<code>average(arr)</code>&nbsp;是<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;的所有元素的和除以<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;长度。</p>
 
 <p>&nbsp;</p>
 
@@ -86,7 +86,7 @@ $$
 
 我们可以使用二进制枚举的方法，先枚举左半部分所有子数组的和，如果存在一个子数组和为 $0$，直接返回 `true`，否则我们将其存入哈希表 `vis` 中；然后枚举右半部分所有子数组的和，如果存在一个子数组和为 $0$，直接返回 `true`，否则我们判断此时哈希表 `vis` 中是否存在该和的相反数，如果存在，直接返回 `true`。
 
-需要注意的是，我们不能同时全选左半部分和右半部分，因为这样会导致子数组 $B$ 为空，这是不符合题意的。
+需要注意的是，我们不能同时全选左半部分和右半部分，因为这样会导致子数组 $B$ 为空，这是不符合题意的。在实现上，我们只需要考虑数组的 $n-1$ 个数。
 
 时间复杂度 $O(n\times 2^{\frac{n}{2}})$，空间复杂度 $O(2^{\frac{n}{2}})$。
 
@@ -173,7 +173,7 @@ public:
         int n = nums.size();
         if (n == 1) return false;
         int s = accumulate(nums.begin(), nums.end(), 0);
-        for (int i = 0; i < n; ++i) nums[i] = nums[i] * n - s;
+        for (int& v : nums) v = v * n - s;
         int m = n >> 1;
         unordered_set<int> vis;
         for (int i = 1; i < 1 << m; ++i) {

@@ -1,24 +1,25 @@
 class Solution {
     public int numMatchingSubseq(String s, String[] words) {
-        List<String>[] buckets = new List[26];
-        for (int i = 0; i < buckets.length; ++i) {
-            buckets[i] = new ArrayList<>();
+        Deque<int[]>[] d = new Deque[26];
+        for (int i = 0; i < 26; ++i) {
+            d[i] = new ArrayDeque<>();
         }
-        for (String word : words) {
-            buckets[word.charAt(0) - 'a'].add(word);
+        for (int i = 0; i < words.length; ++i) {
+            d[words[i].charAt(0) - 'a'].offer(new int[] {i, 0});
         }
-        int res = 0;
+        int ans = 0;
         for (char c : s.toCharArray()) {
-            List<String> old = new ArrayList<>(buckets[c - 'a']);
-            buckets[c - 'a'].clear();
-            for (String t : old) {
-                if (t.length() == 1) {
-                    ++res;
+            var q = d[c - 'a'];
+            for (int t = q.size(); t > 0; --t) {
+                var p = q.pollFirst();
+                int i = p[0], j = p[1] + 1;
+                if (j ==  words[i].length()) {
+                    ++ans;
                 } else {
-                    buckets[t.charAt(1) - 'a'].add(t.substring(1));
+                    d[words[i].charAt(j) - 'a'].offer(new int[] {i, j});
                 }
             }
         }
-        return res;
+        return ans;
     }
 }

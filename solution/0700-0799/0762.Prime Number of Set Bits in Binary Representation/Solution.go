@@ -1,10 +1,10 @@
-func countPrimeSetBits(left int, right int) int {
-	primes := map[int]bool{2: true, 3: true, 5: true, 7: true, 11: true, 13: true, 17: true, 19: true}
-	ans := 0
-	for i := left; i <= right; i++ {
-		if primes[bits.OnesCount(uint(i))] {
-			ans++
-		}
+func countPrimeSetBits(left int, right int) (ans int) {
+	primes := map[int]int{}
+	for _, v := range []int{2, 3, 5, 7, 11, 13, 17, 19} {
+		primes[v] = 1
 	}
-	return ans
+	for i := left; i <= right; i++ {
+		ans += primes[bits.OnesCount(uint(i))]
+	}
+	return
 }

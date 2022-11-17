@@ -47,20 +47,43 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-由于字符串 S 长度较大，如果暴力求解，会报超时错误，因此要避免对 S 的多次遍历。
+**方法一：分桶**
 
-可以将所有单词根据首字母不同放入不同的 buckets 中，比如对于 `words = ["a", "bb", "acd", "ace"]`，可以初始化 buckets 为如下形式：
+题目中字符串 $s$ 的数据规模最高达到 $5 \times 10^4$，如果暴力枚举 $words$ 中的每个字符串 $w$，判断其是否为 $s$ 的子序列，必然会超时。
 
-```python
-buckets = {
-    'a': ["a", "acd", "ace"],
-    'b': ["bb"],
-}
+我们不妨将 $words$ 中的所有单词根据首字母来分桶，即：把所有单词按照首字母分到 $26$ 个桶中，每个桶中存储的是所有以该字母开头的所有单词。
+
+比如对于 `words = ["a", "bb", "acd", "ace"]`，我们得到以下的分桶结果：
+
+```text
+a: ["a", "acd", "ace"]
+b: ["bb"]
 ```
 
-然后遍历 S 中每个字符 c，在 buckets 中找到对应的 bucket 并取出所有元素 old。对于每个元素 t，如果长度为 1，说明 t 对应的单词已经遍历结束，该单词属于 S 的一个子序列，累加 res；否则将 t 取子串 `t[1:]` 放入 buckets 中。继续往下遍历 S，直至结束。
+然后我们从 $s$ 的第一个字符开始遍历，假设当前字符为 `'a'`，我们从 `'a'` 开头的桶中取出所有单词。对于取出的每个单词，如果此时单词长度为 $1$，说明该单词已经匹配完毕，我们将答案加 $1$；否则我们将单词的首字母去掉，然后放入下一个字母开头的桶中，比如对于单词 `acd`，去掉首字母 `'a'` 后，我们将其放入 `'c'` 开头的桶中。这一轮结束后，分桶结果变为：
 
-最后返回 res 即可。
+```text
+c: ["cd", "ce"]
+b: ["bb"]
+```
+
+遍历完 $s$ 后，我们就得到了答案。
+
+实际上，每个桶可以只存储单词的下标 $i$ 以及该单词当前匹配到的位置 $j$，这样可以节省空间。
+
+时间复杂度 $O(n + \sum_{i=0}^{m-1} |w_i|)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
+
+**方法二：二分查找**
+
+我们还可以先用数组或哈希表 $d$ 存放字符串 $s$ 每个字符的下标，即 $d[c]$ 为 $s$ 中所有字符 $c$ 的下标组成的数组。
+
+然后我们遍历 $words$ 中的每个单词 $w$，我们通过二分查找的方法，判断 $w$ 是否为 $s$ 的子序列，是则答案加 $1$。判断逻辑如下：
+
+1. 定义指针 $i$ 表示当前指向字符串 $s$ 的第 $i$ 个字符，初始化为 $-1$。
+1. 遍历字符串 $w$ 中的每个字符 $c$，在 $d[c]$ 中二分查找第一个大于 $i$ 的位置 $j$，如果不存在，则说明 $w$ 不是 $s$ 的子序列，直接跳出循环；否则，将 $i$ 更新为 $d[c][j]$，继续遍历下一个字符。
+1. 如果遍历完 $w$ 中的所有字符，说明 $w$ 是 $s$ 的子序列。
+
+时间复杂度 $O(\sum_{i=0}^{m-1} |w_i| \times \log n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
 
 <!-- tabs:start -->
 
@@ -71,19 +94,56 @@ buckets = {
 ```python
 class Solution:
     def numMatchingSubseq(self, s: str, words: List[str]) -> int:
-        buckets = defaultdict(list)
-        for word in words:
-            buckets[word[0]].append(word)
-        res = 0
+        d = defaultdict(deque)
+        for w in words:
+            d[w[0]].append(w)
+        ans = 0
         for c in s:
-            old = buckets[c][::1]
-            buckets[c].clear()
-            for t in old:
+            for _ in range(len(d[c])):
+                t = d[c].popleft()
                 if len(t) == 1:
-                    res += 1
+                    ans += 1
                 else:
-                    buckets[t[1]].append(t[1:])
-        return res
+                    d[t[1]].append(t[1:])
+        return ans
+```
+
+```python
+class Solution:
+    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+        d = defaultdict(deque)
+        for i, w in enumerate(words):
+            d[w[0]].append((i, 0))
+        ans = 0
+        for c in s:
+            for _ in range(len(d[c])):
+                i, j = d[c].popleft()
+                j += 1
+                if j == len(words[i]):
+                    ans += 1
+                else:
+                    d[words[i][j]].append((i, j))
+        return ans
+```
+
+```python
+class Solution:
+    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+        def check(w):
+            i = -1
+            for c in w:
+                if c not in d:
+                    return False
+                j = bisect_right(d[c], i)
+                if j == len(d[c]):
+                    return False
+                i = d[c][j]
+            return True
+
+        d = defaultdict(list)
+        for i, c in enumerate(s):
+            d[c].append(i)
+        return sum(check(w) for w in words)
 ```
 
 ### **Java**
@@ -93,26 +153,105 @@ class Solution:
 ```java
 class Solution {
     public int numMatchingSubseq(String s, String[] words) {
-        List<String>[] buckets = new List[26];
-        for (int i = 0; i < buckets.length; ++i) {
-            buckets[i] = new ArrayList<>();
+        Deque<String>[] d = new Deque[26];
+        for (int i = 0; i < 26; ++i) {
+            d[i] = new ArrayDeque<>();
         }
-        for (String word : words) {
-            buckets[word.charAt(0) - 'a'].add(word);
+        for (String w : words) {
+            d[w.charAt(0) - 'a'].add(w);
         }
-        int res = 0;
+        int ans = 0;
         for (char c : s.toCharArray()) {
-            List<String> old = new ArrayList<>(buckets[c - 'a']);
-            buckets[c - 'a'].clear();
-            for (String t : old) {
+            var q = d[c - 'a'];
+            for (int k = q.size(); k > 0; --k) {
+                String t = q.pollFirst();
                 if (t.length() == 1) {
-                    ++res;
+                    ++ans;
                 } else {
-                    buckets[t.charAt(1) - 'a'].add(t.substring(1));
+                    d[t.charAt(1) - 'a'].offer(t.substring(1));
                 }
             }
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int numMatchingSubseq(String s, String[] words) {
+        Deque<int[]>[] d = new Deque[26];
+        for (int i = 0; i < 26; ++i) {
+            d[i] = new ArrayDeque<>();
+        }
+        for (int i = 0; i < words.length; ++i) {
+            d[words[i].charAt(0) - 'a'].offer(new int[] {i, 0});
+        }
+        int ans = 0;
+        for (char c : s.toCharArray()) {
+            var q = d[c - 'a'];
+            for (int t = q.size(); t > 0; --t) {
+                var p = q.pollFirst();
+                int i = p[0], j = p[1] + 1;
+                if (j ==  words[i].length()) {
+                    ++ans;
+                } else {
+                    d[words[i].charAt(j) - 'a'].offer(new int[] {i, j});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    private List<Integer>[] d = new List[26];
+
+    public int numMatchingSubseq(String s, String[] words) {
+        for (int i = 0; i < 26; ++i) {
+            d[i] = new ArrayList<>();
+        }
+        for (int i = 0; i < s.length(); ++i) {
+            d[s.charAt(i) - 'a'].add(i);
+        }
+        int ans = 0;
+        for (String w : words) {
+            if (check(w)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private boolean check(String w) {
+        int i = -1;
+        for (int k = 0; k < w.length(); ++k) {
+            int c = w.charAt(k) - 'a';
+            if (d[c].isEmpty()) {
+                return false;
+            }
+            int j = search(d[c], i);
+            if (j == d[c].size()) {
+                return false;
+            }
+            i = d[c].get(j);
+        }
+        return true;
+    }
+
+    private int search(List<Integer> t, int x) {
+        int left = 0, right = t.size();
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (t.get(mid) > x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
     }
 }
 ```
@@ -123,20 +262,64 @@ class Solution {
 class Solution {
 public:
     int numMatchingSubseq(string s, vector<string>& words) {
-        vector<vector<string>> buckets(26);
-        for (auto word : words) buckets[word[0] - 'a'].push_back(word);
-        int res = 0;
-        for (auto c : s) {
-            auto old = buckets[c - 'a'];
-            buckets[c - 'a'].clear();
-            for (auto t : old) {
-                if (t.size() == 1)
-                    ++res;
-                else
-                    buckets[t[1] - 'a'].push_back(t.substr(1));
+        vector<queue<string>> d(26);
+        for (auto& w : words) d[w[0] - 'a'].emplace(w);
+        int ans = 0;
+        for (char& c : s) {
+            auto& q = d[c - 'a'];
+            for (int k = q.size(); k; --k) {
+                auto t = q.front();
+                q.pop();
+                if (t.size() == 1) ++ans;
+                else d[t[1] - 'a'].emplace(t.substr(1));
             }
         }
-        return res;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int numMatchingSubseq(string s, vector<string>& words) {
+        vector<queue<pair<int, int>>> d(26);
+        for (int i = 0; i < words.size(); ++i) d[words[i][0] - 'a'].emplace(i, 0);
+        int ans = 0;
+        for (char& c : s) {
+            auto& q = d[c - 'a'];
+            for (int t = q.size(); t; --t) {
+                auto [i, j] = q.front();
+                q.pop();
+                if (++j == words[i].size()) ++ans;
+                else d[words[i][j] - 'a'].emplace(i, j);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int numMatchingSubseq(string s, vector<string>& words) {
+        vector<vector<int>> d(26);
+        for (int i = 0; i < s.size(); ++i) d[s[i] - 'a'].emplace_back(i);
+        int ans = 0;
+        auto check = [&](string& w) {
+            int i = -1;
+            for (char& c : w) {
+                auto& t = d[c - 'a'];
+                if (t.empty()) return false;
+                int j = upper_bound(t.begin(), t.end(), i) - t.begin();
+                if (j == t.size()) return false;
+                i = t[j];
+            }
+            return true;
+        };
+        for (auto& w : words) ans += check(w);
+        return ans;
     }
 };
 ```
@@ -144,24 +327,76 @@ public:
 ### **Go**
 
 ```go
-func numMatchingSubseq(s string, words []string) int {
-	buckets := make([][]string, 26)
-	for _, word := range words {
-		buckets[word[0]-'a'] = append(buckets[word[0]-'a'], word)
+func numMatchingSubseq(s string, words []string) (ans int) {
+	d := [26][]string{}
+	for _, w := range words {
+		d[w[0]-'a'] = append(d[w[0]-'a'], w)
 	}
-	res := 0
 	for _, c := range s {
-		old := buckets[c-'a']
-		buckets[c-'a'] = nil
-		for _, t := range old {
+		q := d[c-'a']
+		d[c-'a'] = nil
+		for _, t := range q {
 			if len(t) == 1 {
-				res++
+				ans++
 			} else {
-				buckets[t[1]-'a'] = append(buckets[t[1]-'a'], t[1:])
+				d[t[1]-'a'] = append(d[t[1]-'a'], t[1:])
 			}
 		}
 	}
-	return res
+	return
+}
+```
+
+```go
+func numMatchingSubseq(s string, words []string) (ans int) {
+	type pair struct{ i, j int }
+	d := [26][]pair{}
+	for i, w := range words {
+		d[w[0]-'a'] = append(d[w[0]-'a'], pair{i, 0})
+	}
+	for _, c := range s {
+		q := d[c-'a']
+		d[c-'a'] = nil
+		for _, p := range q {
+			i, j := p.i, p.j+1
+			if j == len(words[i]) {
+				ans++
+			} else {
+				d[words[i][j]-'a'] = append(d[words[i][j]-'a'], pair{i, j})
+			}
+		}
+	}
+	return
+}
+```
+
+```go
+func numMatchingSubseq(s string, words []string) (ans int) {
+	d := [26][]int{}
+	for i, c := range s {
+		d[c-'a'] = append(d[c-'a'], i)
+	}
+	check := func(w string) bool {
+		i := -1
+		for _, c := range w {
+			t := d[c-'a']
+			if len(t) == 0 {
+				return false
+			}
+			j := sort.SearchInts(t, i+1)
+			if j == len(t) {
+				return false
+			}
+			i = t[j]
+		}
+		return true
+	}
+	for _, w := range words {
+		if check(w) {
+			ans++
+		}
+	}
+	return
 }
 ```
 

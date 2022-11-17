@@ -10,14 +10,14 @@ class Solution {
         }
         int ans = 0;
         for (int i = 0; i < n - 2; ++i) {
-            int j0 = lowerBound(s, s[i] * 2, i + 1, n - 1);
-            int j1 = lowerBound(s, (s[i] + s[n - 1]) / 2 + 1, j0, n - 1);
-            ans = (ans + j1 - j0) % MOD;
+            int j = search(s, s[i] << 1, i + 1, n - 1);
+            int k = search(s, ((s[n - 1] + s[i]) >> 1) + 1, j, n - 1);
+            ans = (ans + k - j) % MOD;
         }
         return ans;
     }
 
-    private int lowerBound(int[] s, int x, int left, int right) {
+    private int search(int[] s, int x, int left, int right) {
         while (left < right) {
             int mid = (left + right) >> 1;
             if (s[mid] >= x) {

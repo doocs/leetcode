@@ -1,19 +1,18 @@
 class Solution {
 public:
     int numMatchingSubseq(string s, vector<string>& words) {
-        vector<vector<string>> buckets(26);
-        for (auto word : words) buckets[word[0] - 'a'].push_back(word);
-        int res = 0;
-        for (auto c : s) {
-            auto old = buckets[c - 'a'];
-            buckets[c - 'a'].clear();
-            for (auto t : old) {
-                if (t.size() == 1)
-                    ++res;
-                else
-                    buckets[t[1] - 'a'].push_back(t.substr(1));
+        vector<queue<pair<int, int>>> d(26);
+        for (int i = 0; i < words.size(); ++i) d[words[i][0] - 'a'].emplace(i, 0);
+        int ans = 0;
+        for (char& c : s) {
+            auto& q = d[c - 'a'];
+            for (int t = q.size(); t; --t) {
+                auto [i, j] = q.front();
+                q.pop();
+                if (++j == words[i].size()) ++ans;
+                else d[words[i][j] - 'a'].emplace(i, j);
             }
         }
-        return res;
+        return ans;
     }
 };

@@ -55,13 +55,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：双指针 + 二分查找**
+**方法一：前缀和 + 二分查找**
 
-计算数组 `nums` 的前缀和 `s`。由于 `nums[i]` 是非负整数，可以得知 `s` 是一个单调递增数组。
+我们先预处理出数组 `nums` 的前缀和数组 $s$，其中 $s[i]$ 表述数组 `nums` 前 $i+1$ 个元素之和。
 
-我们枚举 `left` 子数组所能到达的下标，记为 `i`。然后二分查找 `mid` 子数组分割的合理范围，记为 `[j0, j1)`，累加方案数 `j1-j0`。注意答案取模操作。
+由于数组 `nums` 的元素都是非负整数，因此前缀和数组 $s$ 是一个单调递增数组。
 
-时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
+我们在 $[0,..n-2)$ 的范围内枚举 `left` 子数组所能到达的下标 $i$，然后利用前缀和数组单调递增的特性，通过二分查找的方式找到 `mid` 子数组分割的合理范围，记为 $[j, k)$，累加方案数 $k-j$。
+
+二分细节上，子数组分割必须满足 $s[j] \geq s[i]$，并且 $s[n - 1] - s[k] \geq s[k] - s[i]$。即 $s[j] \geq s[i]$，且 $s[k] \leq \frac{s[n - 1] + s[i]}{2}$。
+
+最后，将方案数对 $10^9+7$ 取模后返回即可。
+
+时间复杂度 $O(n\times \log n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -76,9 +82,9 @@ class Solution:
         s = list(accumulate(nums))
         ans, n = 0, len(nums)
         for i in range(n - 2):
-            j0 = bisect_left(s, s[i] * 2, i + 1, n - 1)
-            j1 = bisect_right(s, (s[-1] + s[i]) // 2, j0, n - 1)
-            ans += j1 - j0
+            j = bisect_left(s, s[i] << 1, i + 1, n - 1)
+            k = bisect_right(s, (s[-1] + s[i]) >> 1, j, n - 1)
+            ans += k - j
         return ans % mod
 ```
 
@@ -99,14 +105,14 @@ class Solution {
         }
         int ans = 0;
         for (int i = 0; i < n - 2; ++i) {
-            int j0 = lowerBound(s, s[i] * 2, i + 1, n - 1);
-            int j1 = lowerBound(s, (s[i] + s[n - 1]) / 2 + 1, j0, n - 1);
-            ans = (ans + j1 - j0) % MOD;
+            int j = search(s, s[i] << 1, i + 1, n - 1);
+            int k = search(s, ((s[n - 1] + s[i]) >> 1) + 1, j, n - 1);
+            ans = (ans + k - j) % MOD;
         }
         return ans;
     }
 
-    private int lowerBound(int[] s, int x, int left, int right) {
+    private int search(int[] s, int x, int left, int right) {
         while (left < right) {
             int mid = (left + right) >> 1;
             if (s[mid] >= x) {
@@ -125,53 +131,76 @@ class Solution {
 ```cpp
 class Solution {
 public:
+    const int mod = 1e9 + 7;
+
     int waysToSplit(vector<int>& nums) {
         int n = nums.size();
         vector<int> s(n, nums[0]);
         for (int i = 1; i < n; ++i) s[i] = s[i - 1] + nums[i];
         int ans = 0;
-        int mod = 1e9 + 7;
         for (int i = 0; i < n - 2; ++i) {
-            int j0 = lower_bound(s.begin() + i + 1, s.begin() + n - 1, s[i] * 2) - s.begin();
-            int j1 = upper_bound(s.begin() + j0, s.begin() + n - 1, (s[i] + s[n - 1]) / 2) - s.begin();
-            ans = (ans + j1 - j0) % mod;
+            int j = lower_bound(s.begin() + i + 1, s.begin() + n - 1, s[i] << 1) - s.begin();
+            int k = upper_bound(s.begin() + j, s.begin() + n - 1, (s[n - 1] + s[i]) >> 1) - s.begin();
+            ans = (ans + k - j) % mod;
         }
         return ans;
     }
 };
 ```
 
-### \*\*\*\*
+### **Go**
 
 ```go
-func waysToSplit(nums []int) int {
-	search := func(s []int, x, left, right int) int {
-		for left < right {
-			mid := (left + right) >> 1
-			if s[mid] >= x {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		return left
-	}
-	var mod int = 1e9 + 7
+func waysToSplit(nums []int) (ans int) {
+	const mod int = 1e9 + 7
 	n := len(nums)
 	s := make([]int, n)
 	s[0] = nums[0]
 	for i := 1; i < n; i++ {
 		s[i] = s[i-1] + nums[i]
 	}
-	ans := 0
 	for i := 0; i < n-2; i++ {
-		j0 := search(s, s[i]*2, i+1, n-1)
-		j1 := search(s, (s[i]+s[n-1])/2+1, j0, n-1)
-		ans += j1 - j0
+		j := sort.Search(n-1, func(h int) bool { return h > i && s[h] >= (s[i]<<1) })
+		k := sort.Search(n-1, func(h int) bool { return h >= j && s[h] > (s[n-1]+s[i])>>1 })
+		ans = (ans + k - j) % mod
 	}
-	ans %= mod
-	return ans
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var waysToSplit = function (nums) {
+    const mod = 1e9 + 7;
+    const n = nums.length;
+    const s = new Array(n).fill(nums[0]);
+    for (let i = 1; i < n; ++i) {
+        s[i] = s[i - 1] + nums[i];
+    }
+    function search(s, x, left, right) {
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (s[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+    let ans = 0;
+    for (let i = 0; i < n - 2; ++i) {
+        const j = search(s, s[i] << 1, i + 1, n - 1);
+        const k = search(s, ((s[n - 1] + s[i]) >> 1) + 1, j, n - 1);
+        ans = (ans + k - j) % mod;
+    }
+    return ans;
+};
 ```
 
 ### **...**

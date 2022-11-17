@@ -59,9 +59,7 @@
 ```python
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
-        last = defaultdict(int)
-        for i, c in enumerate(s):
-            last[c] = i
+        last = {c: i for i, c in enumerate(s)}
         stk = []
         vis = set()
         for i, c in enumerate(s):

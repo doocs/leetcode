@@ -51,9 +51,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：优先队列**
+**方法一：优先队列（小根堆）**
 
-根据题目要求，模拟第 1 ～ n 个丑数，显然任意一个丑数 `ugly[i]` 乘以 `primes` 数组中的质数 `primes[i]` 仍旧是丑数。已知 `ugly[1]=1`，`ugly[2] = min(ugly[1]*primes[i])`，则 `ugly[3]` 应该等于集合 `ugly[2]*primes[i], ugly[1]*primes[i]` 中排除 `ugly[2]` 之后的最小值，依次类推可以得到 `ugly[n]` 的值。
+我们用一个优先队列（小根堆）维护所有可能的超级丑数，初始时将 $1$ 放入队列中。
+
+每次从队列中取出最小的超级丑数 $x$，将 $x$ 乘以数组 `primes` 中的每个数，将乘积放入队列中，然后重复上述操作 $n$ 次即可得到第 $n$ 个超级丑数。
+
+由于题目保证第 $n$ 个超级丑数在 $32$ 位带符号整数范围内，因此，我们将乘积放入队列之前，可以先判断乘积是否超过 $2^{31} - 1$，如果超过，则不需要将乘积放入队列中。另外，可以使用欧拉筛优化。
+
+时间复杂度 $O(n \times m \times \log (n \times m))$，空间复杂度 $O(n \times m)$。其中 $m$ 和 $n$ 分别为数组 `primes` 的长度和给定的整数 $n$。
 
 <!-- tabs:start -->
 
@@ -62,28 +68,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-from queue import PriorityQueue
-
-
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
-        ugly, pq, p = [0]*(n+1), PriorityQueue(), 2
-        ugly[1] = 1
-        for prime in primes:
-            pq.put([prime, prime, 2])
+        q = [1]
+        x = 0
+        mx = (1 << 31) - 1
+        for _ in range(n):
+            x = heappop(q)
+            for k in primes:
+                if x <= mx // k:
+                    heappush(q, k * x)
+                if x % k == 0:
+                    break
+        return x
+```
 
-        while p <= n:
-            top = pq.get()
-            if top[0] != ugly[p-1]:
-                ugly[p], p = top[0], p+1
-            top[0], top[2] = ugly[top[2]]*top[1], top[2]+1
-            pq.put(top)
-        return ugly[n]
+### **Java**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        q.offer(1);
+        int x = 0;
+        while (n-- > 0) {
+            x = q.poll();
+            while (!q.isEmpty() && q.peek() == x) {
+                q.poll();
+            }
+            for (int k : primes) {
+                if (k <= Integer.MAX_VALUE / x) {
+                    q.offer(k * x);
+                }
+                if (x % k == 0) {
+                    break;
+                }
+            }
+        }
+        return x;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int nthSuperUglyNumber(int n, vector<int>& primes) {
+        priority_queue<int, vector<int>, greater<int>> q;
+        q.push(1);
+        int x = 0;
+        while (n--) {
+            x = q.top();
+            q.pop();
+            for (int& k : primes) {
+                if (x <= INT_MAX / k) {
+                    q.push(k * x);
+                }
+                if (x % k == 0) {
+                    break;
+                }
+            }
+        }
+        return x;
+    }
+};
 ```
 
 ### **Go**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+```go
+func nthSuperUglyNumber(n int, primes []int) (x int) {
+	q := hp{[]int{1}}
+	for n > 0 {
+		n--
+		x = heap.Pop(&q).(int)
+		for _, k := range primes {
+			if x <= math.MaxInt32/k {
+				heap.Push(&q, k*x)
+			}
+			if x%k == 0 {
+				break
+			}
+		}
+	}
+	return
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
 
 ```go
 type Ugly struct{ value, prime, index int }

@@ -145,6 +145,22 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function average(salary: number[]): number {
+    let max = -Infinity;
+    let min = Infinity;
+    let sum = 0;
+    for (const v of salary) {
+        sum += v;
+        max = Math.max(max, v);
+        min = Math.min(min, v);
+    }
+    return (sum - max - min) / (salary.length - 2);
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -161,6 +177,25 @@ impl Solution {
         }
         f64::from(sum - min - max) / f64::from(n - 2)
     }
+}
+```
+
+### **C**
+
+```c
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+
+double average(int* salary, int salarySize) {
+    int ma = INT_MIN;
+    int mi = INT_MAX;
+    int sum = 0;
+    for (int i = 0 ; i < salarySize; i++) {
+        sum += salary[i];
+        ma = max(ma, salary[i]);
+        mi = min(mi, salary[i]);
+    }    
+    return (sum - mi - ma) * 1.0 / (salarySize - 2);
 }
 ```
 

@@ -2,11 +2,11 @@ class Solution {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         Arrays.sort(boxTypes, (a, b) -> b[1] - a[1]);
         int ans = 0;
-        for (var v : boxTypes) {
-            int a = Math.min(v[0], truckSize);
+        for (var e : boxTypes) {
+            int a = e[0], b = e[1];
+            ans += b * Math.min(truckSize, a);
             truckSize -= a;
-            ans += a * v[1];
-            if (truckSize == 0) {
+            if (truckSize <= 0) {
                 break;
             }
         }

@@ -46,13 +46,11 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 ```python
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        last = [0] * 26
-        for i, c in enumerate(s):
-            last[ord(c) - ord('a')] = i
+        last = {c: i for i, c in enumerate(s)}
         ans = []
         left = right = 0
         for i, c in enumerate(s):
-            right = max(right, last[ord(c) - ord('a')])
+            right = max(right, last[c])
             if i == right:
                 ans.append(right - left + 1)
                 left = right + 1
@@ -82,36 +80,13 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function partitionLabels(s: string): number[] {
-    const n = s.length;
-    let last = new Array(26);
-    for (let i = 0; i < n; i++) {
-        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
-    }
-    let ans = [];
-    let left = 0,
-        right = 0;
-    for (let i = 0; i < n; i++) {
-        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
-        if (i == right) {
-            ans.push(right - left + 1);
-            left = right + 1;
-        }
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
-        vector<int> last(26);
+        int last[26] = {0};
         int n = s.size();
         for (int i = 0; i < n; ++i) last[s[i] - 'a'] = i;
         vector<int> ans;
@@ -155,6 +130,29 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function partitionLabels(s: string): number[] {
+    const n = s.length;
+    let last = new Array(26);
+    for (let i = 0; i < n; i++) {
+        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
+    }
+    let ans = [];
+    let left = 0,
+        right = 0;
+    for (let i = 0; i < n; i++) {
+        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
+        if (i == right) {
+            ans.push(right - left + 1);
+            left = right + 1;
+        }
+    }
+    return ans;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -179,6 +177,33 @@ impl Solution {
         res
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number[]}
+ */
+var partitionLabels = function (s) {
+    const n = s.length;
+    let last = new Array(26);
+    for (let i = 0; i < n; i++) {
+        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
+    }
+    let ans = [];
+    let left = 0,
+        right = 0;
+    for (let i = 0; i < n; i++) {
+        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
+        if (i == right) {
+            ans.push(right - left + 1);
+            left = right + 1;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
