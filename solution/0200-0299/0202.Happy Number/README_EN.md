@@ -126,6 +126,7 @@ func isHappy(n int) bool {
 	}
 	return n == 1
 }
+
 func getSum(n int) (sum int) {
 	for n > 0 {
 		sum += (n % 10) * (n % 10)
