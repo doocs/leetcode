@@ -74,7 +74,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先旋转，再挪动箱子。
+**方法一：队列模拟**
+
+我们先将矩阵顺时针旋转 90 度，然后模拟每一列石头的下落过程。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -86,25 +90,22 @@
 class Solution:
     def rotateTheBox(self, box: List[List[str]]) -> List[List[str]]:
         m, n = len(box), len(box[0])
-        res = [[None] * m for _ in range(n)]
+        ans = [[None] * m for _ in range(n)]
         for i in range(m):
             for j in range(n):
-                res[j][m - i - 1] = box[i][j]
+                ans[j][m - i - 1] = box[i][j]
         for j in range(m):
             q = deque()
             for i in range(n - 1, -1, -1):
-                if res[i][j] == '*':
+                if ans[i][j] == '*':
                     q.clear()
-                    continue
-                if res[i][j] == '.':
+                elif ans[i][j] == '.':
                     q.append(i)
-                else:
-                    if not q:
-                        continue
-                    res[q.popleft()][j] = '#'
-                    res[i][j] = '.'
+                elif q:
+                    ans[q.popleft()][j] = '#'
+                    ans[i][j] = '.'
                     q.append(i)
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -115,33 +116,95 @@ class Solution:
 class Solution {
     public char[][] rotateTheBox(char[][] box) {
         int m = box.length, n = box[0].length;
-        char[][] res = new char[n][m];
+        char[][] ans = new char[n][m];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                res[j][m - i - 1] = box[i][j];
+                ans[j][m - i - 1] = box[i][j];
             }
         }
         for (int j = 0; j < m; ++j) {
             Deque<Integer> q = new ArrayDeque<>();
             for (int i = n - 1; i >= 0; --i) {
-                if (res[i][j] == '*') {
+                if (ans[i][j] == '*') {
                     q.clear();
-                    continue;
-                }
-                if (res[i][j] == '.') {
+                } else if (ans[i][j] == '.') {
                     q.offer(i);
-                } else {
-                    if (q.isEmpty()) {
-                        continue;
-                    }
-                    res[q.poll()][j] = '#';
-                    res[i][j] = '.';
+                } else if (!q.isEmpty()) {
+                    ans[q.pollFirst()][j] = '#';
+                    ans[i][j] = '.';
                     q.offer(i);
                 }
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<char>> rotateTheBox(vector<vector<char>>& box) {
+        int m = box.size(), n = box[0].size();
+        vector<vector<char>> ans(n, vector<char>(m));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans[j][m - i - 1] = box[i][j];
+            }
+        }
+        for (int j = 0; j < m; ++j) {
+            queue<int> q;
+            for (int i = n - 1; ~i; --i) {
+                if (ans[i][j] == '*') {
+                    queue<int> t;
+                    swap(t, q);
+                } else if (ans[i][j] == '.') {
+                    q.push(i);
+                } else if (!q.empty()) {
+                    ans[q.front()][j] = '#';
+                    q.pop();
+                    ans[i][j] = '.';
+                    q.push(i);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func rotateTheBox(box [][]byte) [][]byte {
+	m, n := len(box), len(box[0])
+	ans := make([][]byte, n)
+	for i := range ans {
+		ans[i] = make([]byte, m)
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			ans[j][m-i-1] = box[i][j]
+		}
+	}
+	for j := 0; j < m; j++ {
+		q := []int{}
+		for i := n - 1; i >= 0; i-- {
+			if ans[i][j] == '*' {
+				q = []int{}
+			} else if ans[i][j] == '.' {
+				q = append(q, i)
+			} else if len(q) > 0 {
+				ans[q[0]][j] = '#'
+				q = q[1:]
+				ans[i][j] = '.'
+				q = append(q, i)
+			}
+		}
+	}
+	return ans
 }
 ```
 
