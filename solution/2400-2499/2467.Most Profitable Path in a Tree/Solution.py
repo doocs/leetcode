@@ -1,5 +1,7 @@
 class Solution:
-    def mostProfitablePath(self, edges: List[List[int]], bob: int, amount: List[int]) -> int:
+    def mostProfitablePath(
+        self, edges: List[List[int]], bob: int, amount: List[int]
+    ) -> int:
         def dfs1(i, fa, t):
             if i == 0:
                 ts[i] = min(ts[i], t)
