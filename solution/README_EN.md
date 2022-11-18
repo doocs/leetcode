@@ -821,7 +821,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0810  |  [Chalkboard XOR Game](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`,`Math`,`Game Theory`  |  Hard  |    |
 |  0811  |  [Subdomain Visit Count](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Counting`  |  Medium  |    |
 |  0812  |  [Largest Triangle Area](/solution/0800-0899/0812.Largest%20Triangle%20Area/README_EN.md)  |  `Geometry`,`Array`,`Math`  |  Easy  |    |
-|  0813  |  [Largest Sum of Averages](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
+|  0813  |  [Largest Sum of Averages](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README_EN.md)  |  `Array`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |    |
 |  0814  |  [Binary Tree Pruning](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |    |
 |  0815  |  [Bus Routes](/solution/0800-0899/0815.Bus%20Routes/README_EN.md)  |  `Breadth-First Search`,`Array`,`Hash Table`  |  Hard  |    |
 |  0816  |  [Ambiguous Coordinates](/solution/0800-0899/0816.Ambiguous%20Coordinates/README_EN.md)  |  `String`,`Backtracking`  |  Medium  |    |
@@ -1592,7 +1592,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1581  |  [Customer Who Visited but Did Not Make Any Transactions](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README_EN.md)  |  `Database`  |  Easy  |    |
 |  1582  |  [Special Positions in a Binary Matrix](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README_EN.md)  |  `Array`,`Matrix`  |  Easy  |  Weekly Contest 206  |
 |  1583  |  [Count Unhappy Friends](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md)  |  `Array`,`Simulation`  |  Medium  |  Weekly Contest 206  |
-|  1584  |  [Min Cost to Connect All Points](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md)  |  `Union Find`,`Array`,`Minimum Spanning Tree`  |  Medium  |  Weekly Contest 206  |
+|  1584  |  [Min Cost to Connect All Points](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md)  |  `Union Find`,`Graph`,`Array`,`Minimum Spanning Tree`  |  Medium  |  Weekly Contest 206  |
 |  1585  |  [Check If String Is Transformable With Substring Sort Operations](/solution/1500-1599/1585.Check%20If%20String%20Is%20Transformable%20With%20Substring%20Sort%20Operations/README_EN.md)  |  `Greedy`,`String`,`Sorting`  |  Hard  |  Weekly Contest 206  |
 |  1586  |  [Binary Search Tree Iterator II](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README_EN.md)  |  `Stack`,`Tree`,`Design`,`Binary Search Tree`,`Binary Tree`,`Iterator`  |  Medium  |  🔒  |
 |  1587  |  [Bank Account Summary II](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README_EN.md)  |  `Database`  |  Easy  |    |
@@ -1727,7 +1727,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1716  |  [Calculate Money in Leetcode Bank](/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README_EN.md)  |  `Math`  |  Easy  |  Biweekly Contest 43  |
 |  1717  |  [Maximum Score From Removing Substrings](/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README_EN.md)  |  `Stack`,`Greedy`,`String`  |  Medium  |  Biweekly Contest 43  |
 |  1718  |  [Construct the Lexicographically Largest Valid Sequence](/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |  Biweekly Contest 43  |
-|  1719  |  [Number Of Ways To Reconstruct A Tree](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README_EN.md)  |  `Tree`,`Graph`,`Topological Sort`  |  Hard  |  Biweekly Contest 43  |
+|  1719  |  [Number Of Ways To Reconstruct A Tree](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README_EN.md)  |  `Tree`,`Graph`  |  Hard  |  Biweekly Contest 43  |
 |  1720  |  [Decode XORed Array](/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Easy  |  Weekly Contest 223  |
 |  1721  |  [Swapping Nodes in a Linked List](/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |  Weekly Contest 223  |
 |  1722  |  [Minimize Hamming Distance After Swap Operations](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md)  |  `Depth-First Search`,`Union Find`,`Array`  |  Medium  |  Weekly Contest 223  |
@@ -2472,15 +2472,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2461  |  [Maximum Sum of Distinct Subarrays With Length K](/solution/2400-2499/2461.Maximum%20Sum%20of%20Distinct%20Subarrays%20With%20Length%20K/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 318  |
 |  2462  |  [Total Cost to Hire K Workers](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README_EN.md)  |  `Array`,`Two Pointers`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 318  |
 |  2463  |  [Minimum Total Distance Traveled](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sorting`  |  Hard  |  Weekly Contest 318  |
-|  2464  |  [Minimum Subarrays in a Valid Split](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)  |    |  Medium  |  🔒  |
-|  2465  |  [Number of Distinct Averages](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md)  |    |  Easy  |  Biweekly Contest 91  |
-|  2466  |  [Count Ways To Build Good Strings](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md)  |    |  Medium  |  Biweekly Contest 91  |
-|  2467  |  [Most Profitable Path in a Tree](/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md)  |    |  Medium  |  Biweekly Contest 91  |
-|  2468  |  [Split Message Based on Limit](/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README_EN.md)  |    |  Hard  |  Biweekly Contest 91  |
-|  2469  |  [Convert the Temperature](/solution/2400-2499/2469.Convert%20the%20Temperature/README_EN.md)  |    |  Easy  |  Weekly Contest 319  |
-|  2470  |  [Number of Subarrays With LCM Equal to K](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 319  |
-|  2471  |  [Minimum Number of Operations to Sort a Binary Tree by Level](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README_EN.md)  |    |  Medium  |  Weekly Contest 319  |
-|  2472  |  [Maximum Number of Non-overlapping Palindrome Substrings](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README_EN.md)  |    |  Hard  |  Weekly Contest 319  |
+|  2464  |  [Minimum Subarrays in a Valid Split](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`,`Number Theory`  |  Medium  |  🔒  |
+|  2465  |  [Number of Distinct Averages](/solution/2400-2499/2465.Number%20of%20Distinct%20Averages/README_EN.md)  |  `Array`,`Hash Table`,`Two Pointers`,`Sorting`  |  Easy  |  Biweekly Contest 91  |
+|  2466  |  [Count Ways To Build Good Strings](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  Biweekly Contest 91  |
+|  2467  |  [Most Profitable Path in a Tree](/solution/2400-2499/2467.Most%20Profitable%20Path%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Graph`,`Array`  |  Medium  |  Biweekly Contest 91  |
+|  2468  |  [Split Message Based on Limit](/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README_EN.md)  |  `String`,`Binary Search`  |  Hard  |  Biweekly Contest 91  |
+|  2469  |  [Convert the Temperature](/solution/2400-2499/2469.Convert%20the%20Temperature/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 319  |
+|  2470  |  [Number of Subarrays With LCM Equal to K](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 319  |
+|  2471  |  [Minimum Number of Operations to Sort a Binary Tree by Level](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README_EN.md)  |  `Tree`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 319  |
+|  2472  |  [Maximum Number of Non-overlapping Palindrome Substrings](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 319  |
+|  2473  |  [Minimum Cost to Buy Apples](/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

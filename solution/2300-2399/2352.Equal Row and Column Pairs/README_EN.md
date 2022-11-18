@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code>, <em>return the number of pairs </em><code>(R<sub>i</sub>, C<sub>j</sub>)</code><em> such that row </em><code>R<sub>i</sub></code><em> and column </em><code>C<sub>j</sub></code><em> are equal</em>.</p>
+<p>Given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code>, <em>return the number of pairs </em><code>(r<sub>i</sub>, c<sub>j</sub>)</code><em> such that row </em><code>r<sub>i</sub></code><em> and column </em><code>c<sub>j</sub></code><em> are equal</em>.</p>
 
-<p>A row and column pair is considered equal if they contain the same elements in the same order (i.e. an equal array).</p>
+<p>A row and column pair is considered equal if they contain the same elements in the same order (i.e., an equal array).</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

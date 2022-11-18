@@ -194,7 +194,7 @@ double average(int* salary, int salarySize) {
         sum += salary[i];
         ma = max(ma, salary[i]);
         mi = min(mi, salary[i]);
-    }    
+    }
     return (sum - mi - ma) * 1.0 / (salarySize - 2);
 }
 ```

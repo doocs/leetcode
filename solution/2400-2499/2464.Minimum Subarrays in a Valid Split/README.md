@@ -11,17 +11,17 @@
 <p>Splitting of an integer array <code>nums</code> into <strong>subarrays</strong> is <strong>valid</strong> if:</p>
 
 <ul>
-	<li>the <em>greatest common divisor</em> of the first and last elements of each subarray is <strong>greater</strong> than 1, and</li>
-	<li>each element of nums belongs to exactly one subarray.</li>
+	<li>the <em>greatest common divisor</em> of the first and last elements of each subarray is <strong>greater</strong> than <code>1</code>, and</li>
+	<li>each element of <code>nums</code> belongs to exactly one subarray.</li>
 </ul>
 
-<p>Return <em>the <strong>minimum</strong> number of subarrays in <strong>valid</strong> subarray splitting of</em> <code>nums</code>.</p>
+<p>Return <em>the <strong>minimum</strong> number of subarrays in a <strong>valid</strong> subarray splitting of</em> <code>nums</code>. If a valid subarray splitting is not possible, return <code>-1</code>.</p>
 
 <p><strong>Note</strong> that:</p>
 
 <ul>
 	<li>The <strong>greatest common divisor</strong> of two numbers is the largest positive integer that evenly divides both numbers.</li>
-	<li>A <strong>subarray</strong> is a contiguous part of an array.</li>
+	<li>A <strong>subarray</strong> is a contiguous non-empty part of an array.</li>
 </ul>
 
 <p>&nbsp;</p>

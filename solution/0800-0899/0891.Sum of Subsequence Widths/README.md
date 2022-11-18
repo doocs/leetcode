@@ -44,7 +44,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：排序 + 枚举贡献**
+**方法一：排序 + 枚举元素计算贡献**
 
 题目求解的是数组 `nums` 中所有子序列中最大值与最小值差值之和，注意到“子序列”，并且涉及到“最大值”与“最小值”，我们考虑先对数组 `nums` 进行排序。
 
@@ -66,7 +66,7 @@ $$
 \end{aligned}
 $$
 
-我们将上述式子展开，可以得到：
+我们将上式展开，可以得到：
 
 $$
 \begin{aligned}
@@ -79,6 +79,14 @@ $$
 $$
 \begin{aligned}
 (nums[0] - nums[n-1]) \times 2^0 + (nums[1] - nums[n-2]) \times 2^1 + ... + (nums[n-1] - nums[0]) \times 2^{n-1}
+\end{aligned}
+$$
+
+即：
+
+$$
+\begin{aligned}
+\sum_{i=0}^{n-1} (nums[i] - nums[n-i-1]) \times 2^i
 \end{aligned}
 $$
 

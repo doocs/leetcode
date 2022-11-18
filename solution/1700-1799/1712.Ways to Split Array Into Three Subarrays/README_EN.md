@@ -108,7 +108,7 @@ class Solution {
 class Solution {
 public:
     const int mod = 1e9 + 7;
-    
+
     int waysToSplit(vector<int>& nums) {
         int n = nums.size();
         vector<int> s(n, nums[0]);
