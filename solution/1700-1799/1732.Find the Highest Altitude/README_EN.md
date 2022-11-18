@@ -117,6 +117,38 @@ var largestAltitude = function (gain) {
 };
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn largest_altitude(gain: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut h = 0;
+        for v in gain.iter() {
+            h += v;
+            ans = ans.max(h);
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int largestAltitude(int *gain, int gainSize) {
+    int ans = 0;
+    int h = 0;
+    for (int i = 0; i < gainSize; i++) {
+        h += gain[i];
+        ans = max(ans, h);
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
