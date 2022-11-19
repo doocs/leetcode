@@ -55,11 +55,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>0 &lt;=&nbsp;poured &lt;= 10<sup>9</sup></code></li>
-
     <li><code>0 &lt;= query_glass &lt;= query_row&nbsp;&lt; 100</code></li>
-
 </ul>
 
 ## Solutions
@@ -71,16 +68,31 @@
 ```python
 class Solution:
     def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
-        g = [[0] * 110 for _ in range(110)]
-        g[0][0] = poured
+        f = [[0] * 101 for _ in range(101)]
+        f[0][0] = poured
         for i in range(query_row + 1):
             for j in range(i + 1):
-                if g[i][j] > 1:
-                    half = (g[i][j] - 1) / 2
-                    g[i][j] = 1
-                    g[i + 1][j] += half
-                    g[i + 1][j + 1] += half
-        return g[query_row][query_glass]
+                if f[i][j] > 1:
+                    half = (f[i][j] - 1) / 2
+                    f[i][j] = 1
+                    f[i + 1][j] += half
+                    f[i + 1][j + 1] += half
+        return f[query_row][query_glass]
+```
+
+```python
+class Solution:
+    def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
+        f = [poured]
+        for i in range(1, query_row + 1):
+            g = [0] * (i + 1)
+            for j, v in enumerate(f):
+                if v > 1:
+                    half = (v - 1) / 2
+                    g[j] += half
+                    g[j + 1] += half
+            f = g
+        return min(1, f[query_glass])
 ```
 
 ### **Java**
@@ -88,19 +100,39 @@ class Solution:
 ```java
 class Solution {
     public double champagneTower(int poured, int query_row, int query_glass) {
-        double[][] g = new double[110][110];
-        g[0][0] = poured;
+        double[][] f = new double[101][101];
+        f[0][0] = poured;
         for (int i = 0; i <= query_row; ++i) {
             for (int j = 0; j <= i; ++j) {
-                if (g[i][j] > 1) {
-                    double half = (g[i][j] - 1) / 2.0;
-                    g[i][j] = 1;
-                    g[i + 1][j] += half;
-                    g[i + 1][j + 1] += half;
+                if (f[i][j] > 1) {
+                    double half = (f[i][j] - 1) / 2.0;
+                    f[i][j] = 1;
+                    f[i + 1][j] += half;
+                    f[i + 1][j + 1] += half;
                 }
             }
         }
-        return g[query_row][query_glass];
+        return f[query_row][query_glass];
+    }
+}
+```
+
+```java
+class Solution {
+    public double champagneTower(int poured, int query_row, int query_glass) {
+        double[] f = {poured};
+        for (int i = 1; i <= query_row; ++i) {
+            double[] g = new double[i + 1];
+            for (int j = 0; j < i; ++j) {
+                if (f[j] > 1) {
+                    double half = (f[j] - 1) / 2.0;
+                    g[j] += half;
+                    g[j + 1] += half;
+                }
+            }
+            f = g;
+        }
+        return Math.min(1, f[query_glass]);
     }
 }
 ```
@@ -111,19 +143,41 @@ class Solution {
 class Solution {
 public:
     double champagneTower(int poured, int query_row, int query_glass) {
-        double g[110][110] = {0.0};
-        g[0][0] = poured;
+        double f[101][101] = {0.0};
+        f[0][0] = poured;
         for (int i = 0; i <= query_row; ++i) {
             for (int j = 0; j <= i; ++j) {
-                if (g[i][j] > 1) {
-                    double half = (g[i][j] - 1) / 2.0;
-                    g[i][j] = 1;
-                    g[i + 1][j] += half;
-                    g[i + 1][j + 1] += half;
+                if (f[i][j] > 1) {
+                    double half = (f[i][j] - 1) / 2.0;
+                    f[i][j] = 1;
+                    f[i + 1][j] += half;
+                    f[i + 1][j + 1] += half;
                 }
             }
         }
-        return g[query_row][query_glass];
+        return f[query_row][query_glass];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    double champagneTower(int poured, int query_row, int query_glass) {
+        double f[101] = {(double) poured};
+        double g[101];
+        for (int i = 1; i <= query_row; ++i) {
+            memset(g, 0, sizeof g);
+            for (int j = 0; j < i; ++j) {
+                if (f[j] > 1) {
+                    double half = (f[j] - 1) / 2.0;
+                    g[j] += half;
+                    g[j + 1] += half;
+                }
+            }
+            memcpy(f, g, sizeof g);
+        }
+        return min(1.0, f[query_glass]);
     }
 };
 ```
@@ -132,22 +186,37 @@ public:
 
 ```go
 func champagneTower(poured int, query_row int, query_glass int) float64 {
-	g := make([][]float64, 110)
-	for i := range g {
-		g[i] = make([]float64, 110)
-	}
-	g[0][0] = float64(poured)
+	f := [101][101]float64{}
+	f[0][0] = float64(poured)
 	for i := 0; i <= query_row; i++ {
 		for j := 0; j <= i; j++ {
-			if g[i][j] > 1 {
-				half := (g[i][j] - 1) / 2.0
-				g[i][j] = 1
-				g[i+1][j] += half
-				g[i+1][j+1] += half
+			if f[i][j] > 1 {
+				half := (f[i][j] - 1) / 2.0
+				f[i][j] = 1
+				f[i+1][j] += half
+				f[i+1][j+1] += half
 			}
 		}
 	}
-	return g[query_row][query_glass]
+	return f[query_row][query_glass]
+}
+```
+
+```go
+func champagneTower(poured int, query_row int, query_glass int) float64 {
+	f := []float64{float64(poured)}
+	for i := 1; i <= query_row; i++ {
+		g := make([]float64, i+1)
+		for j, v := range f {
+			if v > 1 {
+				half := (v - 1) / 2.0
+				g[j] += half
+				g[j+1] += half
+			}
+		}
+		f = g
+	}
+	return math.Min(1, f[query_glass])
 }
 ```
 
