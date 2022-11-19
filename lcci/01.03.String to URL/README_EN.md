@@ -44,23 +44,16 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 
 ### **Python3**
 
-Use `replace()` function.
-
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
         return S[:length].replace(' ', '%20')
 ```
 
-Use list:
-
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
-        chars = []
-        for c in S[:length]:
-            chars.append('%20' if c == ' ' else c)
-        return ''.join(chars)
+        return ''.join(['%20' if c == ' ' else c for c in S[:length]])
 ```
 
 ### **Java**
@@ -68,18 +61,18 @@ class Solution:
 ```java
 class Solution {
     public String replaceSpaces(String S, int length) {
-        char[] chars = S.toCharArray();
-        int j = chars.length;
+        char[] cs = S.toCharArray();
+        int j = cs.length;
         for (int i = length - 1; i >= 0; --i) {
-            if (chars[i] == ' ') {
-                chars[--j] = '0';
-                chars[--j] = '2';
-                chars[--j] = '%';
+            if (cs[i] == ' ') {
+                cs[--j] = '0';
+                cs[--j] = '2';
+                cs[--j] = '%';
             } else {
-                chars[--j] = chars[i];
+                cs[--j] = cs[i];
             }
         }
-        return new String(chars, j, chars.length - j);
+        return new String(cs, j, cs.length - j);
     }
 }
 ```
