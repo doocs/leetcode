@@ -1,18 +1,26 @@
 class Solution {
+    private int[] dirs = {-1, 0, 1, 0, -1};
+
     public int getFood(char[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
-        Deque<int[]> q = new LinkedList<>();
-        q.offer(pos(grid));
+        int m = grid.length, n = grid[0].length;
+        Deque<int[]> q = new ArrayDeque<>();
+        for (int i = 0, x = 1; i < m && x == 1; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '*') {
+                    q.offer(new int[] {i, j});
+                    x = 0;
+                    break;
+                }
+            }
+        }
         int ans = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
             ++ans;
-            for (int i = q.size(); i > 0; --i) {
-                int[] p = q.poll();
-                for (int j = 0; j < 4; ++j) {
-                    int x = p[0] + dirs[j];
-                    int y = p[1] + dirs[j + 1];
+            for (int t = q.size(); t > 0; --t) {
+                var p = q.poll();
+                for (int k = 0; k < 4; ++k) {
+                    int x = p[0] + dirs[k];
+                    int y = p[1] + dirs[k + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         if (grid[x][y] == '#') {
                             return ans;
@@ -26,16 +34,5 @@ class Solution {
             }
         }
         return -1;
-    }
-
-    private int[] pos(char[][] grid) {
-        for (int i = 0; i < grid.length; ++i) {
-            for (int j = 0; j < grid[0].length; ++j) {
-                if (grid[i][j] == '*') {
-                    return new int[] {i, j};
-                }
-            }
-        }
-        return new int[] {-1, -1};
     }
 }

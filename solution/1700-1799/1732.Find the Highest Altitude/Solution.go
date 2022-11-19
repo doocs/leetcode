@@ -1,9 +1,9 @@
 func largestAltitude(gain []int) (ans int) {
-	s := 0
+	h := 0
 	for _, v := range gain {
-		s += v
-		if ans < s {
-			ans = s
+		h += v
+		if ans < h {
+			ans = h
 		}
 	}
 	return

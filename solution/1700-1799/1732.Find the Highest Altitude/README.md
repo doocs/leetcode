@@ -77,10 +77,10 @@ class Solution:
 ```python
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
-        ans = s = 0
+        ans = h = 0
         for v in gain:
-            s += v
-            ans = max(ans, s)
+            h += v
+            ans = max(ans, h)
         return ans
 ```
 
@@ -91,10 +91,10 @@ class Solution:
 ```java
 class Solution {
     public int largestAltitude(int[] gain) {
-        int ans = 0, s = 0;
+        int ans = 0, h = 0;
         for (int v : gain) {
-            s += v;
-            ans = Math.max(ans, s);
+            h += v;
+            ans = Math.max(ans, h);
         }
         return ans;
     }
@@ -107,8 +107,8 @@ class Solution {
 class Solution {
 public:
     int largestAltitude(vector<int>& gain) {
-        int ans = 0, s = 0;
-        for (int v : gain) s += v, ans = max(ans, s);
+        int ans = 0, h = 0;
+        for (int v : gain) h += v, ans = max(ans, h);
         return ans;
     }
 };
@@ -118,11 +118,11 @@ public:
 
 ```go
 func largestAltitude(gain []int) (ans int) {
-	s := 0
+	h := 0
 	for _, v := range gain {
-		s += v
-		if ans < s {
-			ans = s
+		h += v
+		if ans < h {
+			ans = h
 		}
 	}
 	return
@@ -138,10 +138,10 @@ func largestAltitude(gain []int) (ans int) {
  */
 var largestAltitude = function (gain) {
     let ans = 0;
-    let s = 0;
+    let h = 0;
     for (const v of gain) {
-        s += v;
-        ans = Math.max(ans, s);
+        h += v;
+        ans = Math.max(ans, h);
     }
     return ans;
 };
