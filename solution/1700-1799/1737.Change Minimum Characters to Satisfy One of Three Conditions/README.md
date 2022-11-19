@@ -51,7 +51,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和
+**方法一：计数 + 枚举**
+
+我们先统计字符串 $a$ 和 $b$ 中每个字母出现的次数，记为 $cnt_1$ 和 $cnt_2$。
+
+然后考虑条件 $3$，即 $a$ 和 $b$ 中的每个字母都相同。我们只需要枚举最终的字母 $c$，然后统计 $a$ 和 $b$ 中不是 $c$ 的字母的个数，即为需要改变的字符个数。
+
+然后考虑条件 $1$ 和 $2$，即 $a$ 中的每个字母都小于 $b$ 中的每个字母，或者 $b$ 中的每个字母都小于 $a$ 中的每个字母。对于条件 $1$，我们令字符串 $a$ 所有字符都小于字符 $c$，字符串 $b$ 所有字符都不小于 $c$，枚举 $c$ 找出最小的答案即可。条件 $2$ 同理。
+
+最终的答案即为上述三种情况的最小值。
+
+时间复杂度 $O(m + n + C^2)$，其中 $m$ 和 $n$ 分别为字符串 $a$ 和 $b$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -60,7 +70,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minCharacters(self, a: str, b: str) -> int:
+        def f(cnt1, cnt2):
+            for i in range(1, 26):
+                t = sum(cnt1[i:]) + sum(cnt2[:i])
+                nonlocal ans
+                ans = min(ans, t)
 
+        m, n = len(a), len(b)
+        cnt1 = [0] * 26
+        cnt2 = [0] * 26
+        for c in a:
+            cnt1[ord(c) - ord('a')] += 1
+        for c in b:
+            cnt2[ord(c) - ord('a')] += 1
+        ans = m + n
+        for c1, c2 in zip(cnt1, cnt2):
+            ans = min(ans, m + n - c1 - c2)
+        f(cnt1, cnt2)
+        f(cnt2, cnt1)
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +98,111 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int ans;
 
+    public int minCharacters(String a, String b) {
+        int m = a.length(), n = b.length();
+        int[] cnt1 = new int[26];
+        int[] cnt2 = new int[26];
+        for (int i = 0; i < m; ++i) {
+            ++cnt1[a.charAt(i) - 'a'];
+        }
+        for (int i = 0; i < n; ++i) {
+            ++cnt2[b.charAt(i) - 'a'];
+        }
+        ans = m + n;
+        for (int i = 0; i < 26; ++i) {
+            ans = Math.min(ans, m + n - cnt1[i] - cnt2[i]);
+        }
+        f(cnt1, cnt2);
+        f(cnt2, cnt1);
+        return ans;
+    }
+
+    private void f(int[] cnt1, int[] cnt2) {
+        for (int i = 1; i < 26; ++i) {
+            int t = 0;
+            for (int j = i; j < 26; ++j) {
+                t += cnt1[j];
+            }
+            for (int j = 0; j < i; ++j) {
+                t += cnt2[j];
+            }
+            ans = Math.min(ans, t);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCharacters(string a, string b) {
+        int m = a.size(), n = b.size();
+        vector<int> cnt1(26);
+        vector<int> cnt2(26);
+        for (char& c : a) ++cnt1[c - 'a'];
+        for (char& c : b) ++cnt2[c - 'a'];
+        int ans = m + n;
+        for (int i = 0; i < 26; ++i) ans = min(ans, m + n - cnt1[i] - cnt2[i]);
+        auto f = [&](vector<int>& cnt1, vector<int>& cnt2) {
+            for (int i = 1; i < 26; ++i) {
+                int t = 0;
+                for (int j = i; j < 26; ++j) t += cnt1[j];
+                for (int j = 0; j < i; ++j) t += cnt2[j];
+                ans = min(ans, t);
+            }
+        };
+        f(cnt1, cnt2);
+        f(cnt2, cnt1);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCharacters(a string, b string) int {
+	cnt1 := [26]int{}
+	cnt2 := [26]int{}
+	for _, c := range a {
+		cnt1[c-'a']++
+	}
+	for _, c := range b {
+		cnt2[c-'a']++
+	}
+	m, n := len(a), len(b)
+	ans := m + n
+	for i := 0; i < 26; i++ {
+		ans = min(ans, m+n-cnt1[i]-cnt2[i])
+	}
+	f := func(cnt1, cnt2 [26]int) {
+		for i := 1; i < 26; i++ {
+			t := 0
+			for j := i; j < 26; j++ {
+				t += cnt1[j]
+			}
+			for j := 0; j < i; j++ {
+				t += cnt2[j]
+			}
+			ans = min(ans, t)
+		}
+	}
+	f(cnt1, cnt2)
+	f(cnt2, cnt1)
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
