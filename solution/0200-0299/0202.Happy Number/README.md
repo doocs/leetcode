@@ -164,6 +164,29 @@ function isHappy(n: number): boolean {
         }
         return res;
     };
+    const set = new Set();
+    while (n !== 1) {
+        const next = getNext(n);
+        if (set.has(next)) {
+            return false;
+        }
+        set.add(next);
+        n = next;
+    }
+    return true;
+}
+```
+
+```ts
+function isHappy(n: number): boolean {
+    const getNext = (n: number) => {
+        let res = 0;
+        while (n !== 0) {
+            res += (n % 10) ** 2;
+            n = Math.floor(n / 10);
+        }
+        return res;
+    };
 
     let slow = n;
     let fast = getNext(n);
@@ -176,6 +199,33 @@ function isHappy(n: number): boolean {
 ```
 
 ### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    fn get_next(mut n: i32) -> i32 {
+        let mut res = 0;
+        while n != 0 {
+            res += (n % 10).pow(2);
+            n /= 10;
+        }
+        res
+    }
+
+    pub fn is_happy(mut n: i32) -> bool {
+        let mut set = HashSet::new();
+        while n != 1 {
+            let next = Self::get_next(n);
+            if set.contains(&next) {
+                return false;
+            }
+            set.insert(next);
+            n = next;
+        }
+        true
+    }
+}
+```
 
 ```rust
 impl Solution {
@@ -196,6 +246,29 @@ impl Solution {
         }
         slow == 1
     }
+}
+```
+
+### **C**
+
+```c
+int getNext(int n) {
+    int res = 0;
+    while (n) {
+        res += (n % 10) * (n % 10);
+        n /= 10;
+    }
+    return res;
+}
+
+bool isHappy(int n) {
+    int slow = n;
+    int fast = getNext(n);
+    while (slow != fast) {
+        slow = getNext(slow);
+        fast = getNext(getNext(fast));
+    }
+    return fast == 1;
 }
 ```
 
