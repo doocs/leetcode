@@ -81,6 +81,48 @@ var canMakeArithmeticProgression = function (arr) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function canMakeArithmeticProgression(arr: number[]): boolean {
+    arr.sort((a, b) => a - b);
+    const n = arr.length;
+    for (let i = 2; i < n; i++) {
+        if (arr[i - 2] - arr[i - 1] !== arr[i - 1] - arr[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```ts
+function canMakeArithmeticProgression(arr: number[]): boolean {
+    const n = arr.length;
+    const map = new Map<number, number>();
+    let min = Infinity;
+    let max = -Infinity;
+    for (const num of arr) {
+        map.set(num, (map.get(num) ?? 0) + 1);
+        min = Math.min(min, num);
+        max = Math.max(max, num);
+    }
+    if (max === min) {
+        return true;
+    }
+    if ((max - min) % (arr.length - 1)) {
+        return false;
+    }
+    const diff = (max - min) / (arr.length - 1);
+    for (let i = min; i <= max; i += diff) {
+        if (map.get(i) !== 1) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -88,14 +130,63 @@ impl Solution {
     pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
         arr.sort();
         let n = arr.len();
-        let target = arr[0] - arr[1];
         for i in 2..n {
-            if arr[i - 1] - arr[i] != target {
+            if arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i] {
                 return false;
             }
         }
         true
     }
+}
+```
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn can_make_arithmetic_progression(arr: Vec<i32>) -> bool {
+        let n = arr.len() as i32;
+        let mut min = i32::MAX;
+        let mut max = i32::MIN;
+        let mut map = HashMap::new();
+        for &num in arr.iter() {
+            *map.entry(num).or_insert(0) += 1;
+            min = min.min(num);
+            max = max.max(num);
+        }
+        if min == max {
+            return true;
+        }
+        if (max - min) % (n - 1) != 0 {
+            return false;
+        }
+        let diff = (max - min) / (n - 1);
+        let mut k = min;
+        while k <= max {
+            if *map.get(&k).unwrap_or(&0) != 1 {
+                return false;
+            }
+            k += diff;
+        }
+        true
+    }
+}
+```
+
+### **C**
+
+```c
+int cmp(const void *a, const void *b) {
+    return *(int *) a - *(int *) b;
+}
+
+bool canMakeArithmeticProgression(int *arr, int arrSize) {
+    qsort(arr, arrSize, sizeof(int), cmp);
+    for (int i = 2; i < arrSize; i++) {
+        if (arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i]) {
+            return 0;
+        }
+    }
+    return 1;
 }
 ```
 
