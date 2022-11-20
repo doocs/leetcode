@@ -511,7 +511,7 @@ class BSTIterator {
 //   }
 // }
 use std::rc::Rc;
-use std::cell::RefCell; 
+use std::cell::RefCell;
 struct BSTIterator {
     stack: Vec<i32>
 }

@@ -135,7 +135,7 @@ class Solution {
 class Solution {
 public:
     const static inline vector<int> dirs = {-1, 0, 1, 0, -1};
-    
+
     int getFood(vector<vector<char>>& grid) {
         int m = grid.size(), n = grid[0].size();
         queue<pair<int, int>> q;

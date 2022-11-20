@@ -1,4 +1,4 @@
-# [882. 细分图中的可到达结点](https://leetcode.cn/problems/reachable-nodes-in-subdivided-graph)
+# [882. 细分图中的可到达节点](https://leetcode.cn/problems/reachable-nodes-in-subdivided-graph)
 
 [English Version](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README_EN.md)
 

@@ -19,9 +19,18 @@
 
 ## 赛后估分网站
 
-https://lcpredictor.herokuapp.com
+- https://lcpredictor.herokuapp.com
+- https://lccn.lbao.site
 
 ## 往期竞赛
+
+#### 第 320 场周赛(2022-11-20 10:30, 90 分钟) 参赛人数 5678
+
+- [2475. 数组中不等三元组的数目](/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README.md)
+- [2476. 二叉搜索树最近节点查询](/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README.md)
+- [2477. 到达首都的最少油耗](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md)
+- [2478. 完美分割的方案数](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)
+
 
 #### 第 319 场周赛(2022-11-13 10:30, 90 分钟) 参赛人数 6175
 
@@ -2540,7 +2549,7 @@ https://lcpredictor.herokuapp.com
 - [883. 三维形体投影面积](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README.md)
 - [881. 救生艇](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
 - [880. 索引处的解码字符串](/solution/0800-0899/0880.Decoded%20String%20at%20Index/README.md)
-- [882. 细分图中的可到达结点](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md)
+- [882. 细分图中的可到达节点](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md)
 
 
 #### 第 95 场周赛(2018-07-29 09:30, 90 分钟) 参赛人数 831

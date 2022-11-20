@@ -892,7 +892,7 @@
 |  0879  |  [盈利计划](/solution/0800-0899/0879.Profitable%20Schemes/README.md)  |  `数组`,`动态规划`  |  困难  |  第 95 场周赛  |
 |  0880  |  [索引处的解码字符串](/solution/0800-0899/0880.Decoded%20String%20at%20Index/README.md)  |  `栈`,`字符串`  |  中等  |  第 96 场周赛  |
 |  0881  |  [救生艇](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)  |  `贪心`,`数组`,`双指针`,`排序`  |  中等  |  第 96 场周赛  |
-|  0882  |  [细分图中的可到达结点](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md)  |  `图`,`最短路`,`堆（优先队列）`  |  困难  |  第 96 场周赛  |
+|  0882  |  [细分图中的可到达节点](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md)  |  `图`,`最短路`,`堆（优先队列）`  |  困难  |  第 96 场周赛  |
 |  0883  |  [三维形体投影面积](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README.md)  |  `几何`,`数组`,`数学`,`矩阵`  |  简单  |  第 96 场周赛  |
 |  0884  |  [两句话中的不常见单词](/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README.md)  |  `哈希表`,`字符串`  |  简单  |  第 97 场周赛  |
 |  0885  |  [螺旋矩阵 III](/solution/0800-0899/0885.Spiral%20Matrix%20III/README.md)  |  `数组`,`矩阵`,`模拟`  |  中等  |  第 97 场周赛  |
@@ -2484,6 +2484,11 @@
 |  2471  |  [逐层排序二叉树所需的最少操作数目](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README.md)  |  `树`,`广度优先搜索`,`二叉树`  |  中等  |  第 319 场周赛  |
 |  2472  |  [不重叠回文子字符串的最大数目](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README.md)  |  `字符串`,`动态规划`  |  困难  |  第 319 场周赛  |
 |  2473  |  [Minimum Cost to Buy Apples](/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README.md)  |    |  中等  |  🔒  |
+|  2474  |  [Customers With Strictly Increasing Purchases](/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README.md)  |    |  中等  |  🔒  |
+|  2475  |  [数组中不等三元组的数目](/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README.md)  |    |  简单  |  第 320 场周赛  |
+|  2476  |  [二叉搜索树最近节点查询](/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README.md)  |    |  中等  |  第 320 场周赛  |
+|  2477  |  [到达首都的最少油耗](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md)  |    |  中等  |  第 320 场周赛  |
+|  2478  |  [完美分割的方案数](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)  |    |  困难  |  第 320 场周赛  |
 
 ## 版权
 

@@ -2,10 +2,7 @@ func soupServings(n int) float64 {
 	if n > 4800 {
 		return 1
 	}
-	f := make([][]float64, 200)
-	for i := range f {
-		f[i] = make([]float64, 200)
-	}
+	f := [200][200]float64{}
 	var dfs func(i, j int) float64
 	dfs = func(i, j int) float64 {
 		if i <= 0 && j <= 0 {

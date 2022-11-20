@@ -135,7 +135,8 @@ def generate_contest_list():
 
 ## 赛后估分网站
 
-https://lcpredictor.herokuapp.com
+- https://lcpredictor.herokuapp.com
+- https://lccn.lbao.site
 
 ## 往期竞赛\n\n"""
     contest_readme_en_prefix = """# LeetCode Contest

@@ -107,21 +107,18 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    double f[200][200];
-
     double soupServings(int n) {
-        memset(f, 0, sizeof f);
+        double f[200][200] = {0.0};
+        function<double(int, int)> dfs = [&](int i, int j) -> double {
+            if (i <= 0 && j <= 0) return 0.5;
+            if (i <= 0) return 1;
+            if (j <= 0) return 0;
+            if (f[i][j] > 0) return f[i][j];
+            double ans = 0.25 * (dfs(i - 4, j) + dfs(i - 3, j - 1) + dfs(i - 2, j - 2) + dfs(i - 1, j - 3));
+            f[i][j] = ans;
+            return ans;
+        };
         return n > 4800 ? 1 : dfs((n + 24) / 25, (n + 24) / 25);
-    }
-
-    double dfs(int i, int j) {
-        if (i <= 0 && j <= 0) return 0.5;
-        if (i <= 0) return 1;
-        if (j <= 0) return 0;
-        if (f[i][j] > 0) return f[i][j];
-        double ans = 0.25 * (dfs(i - 4, j) + dfs(i - 3, j - 1) + dfs(i - 2, j - 2) + dfs(i - 1, j - 3));
-        f[i][j] = ans;
-        return ans;
     }
 };
 ```
@@ -133,10 +130,7 @@ func soupServings(n int) float64 {
 	if n > 4800 {
 		return 1
 	}
-	f := make([][]float64, 200)
-	for i := range f {
-		f[i] = make([]float64, 200)
-	}
+	f := [200][200]float64{}
 	var dfs func(i, j int) float64
 	dfs = func(i, j int) float64 {
 		if i <= 0 && j <= 0 {
