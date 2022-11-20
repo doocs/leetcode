@@ -241,16 +241,52 @@ function preorder(root: Node | null): number[] {
  */
 
 function preorder(root: Node | null): number[] {
-    if (root == null) {
-        return [];
+    const ans = [];
+    const dfs = (root: Node | null) => {
+        if (root == null) {
+            return;
+        }
+        ans.push(root.val);
+        for (const node of root.children) {
+            dfs(node);
+        }
+    };
+    dfs(root);
+    return ans;
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for a Node.
+ * struct Node {
+ *     int val;
+ *     int numChildren;
+ *     struct Node** children;
+ * };
+ */
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+void dfs(struct Node *root, int *ans, int *i) {
+    if (!root) {
+        return;
     }
-    const { val, children } = root;
-    return [
-        val,
-        ...children
-            .map(node => preorder(node))
-            .reduce((p, v) => p.concat(v), []),
-    ];
+    ans[(*i)++] = root->val;
+    for (int j = 0; j < root->numChildren; j++) {
+        dfs(root->children[j], ans, i);
+    }
+}
+
+int *preorder(struct Node *root, int *returnSize) {
+    int *ans = malloc(sizeof(int) * 10000);
+    *returnSize = 0;
+    dfs(root, ans, returnSize);
+    return ans;
 }
 ```
 

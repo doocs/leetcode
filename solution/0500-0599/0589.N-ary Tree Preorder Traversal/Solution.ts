@@ -11,18 +11,16 @@
  */
 
 function preorder(root: Node | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
-    }
-    const stack = [root];
-    while (stack.length !== 0) {
-        const { val, children } = stack.pop();
-        res.push(val);
-        const n = children.length;
-        for (let i = n - 1; i >= 0; i--) {
-            stack.push(children[i]);
+    const ans = [];
+    const dfs = (root: Node | null) => {
+        if (root == null) {
+            return;
         }
-    }
-    return res;
+        ans.push(root.val);
+        for (const node of root.children) {
+            dfs(node);
+        }
+    };
+    dfs(root);
+    return ans;
 }
