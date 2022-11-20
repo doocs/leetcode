@@ -50,6 +50,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：迭代**
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(1)$，其中 $n$ 是链表的长度。
+
+**方法二：递归**
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(\log _k n)$，其中 $n$ 是链表的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -244,6 +252,8 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
 
 ### **Go**
 
+迭代：
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -253,40 +263,64 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
  * }
  */
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	dummy := &ListNode{0, head}
-	pre := dummy
-	cur := dummy
-	for cur.Next != nil {
-		for i := 0; i < k && cur != nil; i++ {
+	var dummy *ListNode = &ListNode{}
+	p, cur := dummy, head
+	for cur != nil {
+		start := cur
+		for i := 0; i < k; i++ {
+			if cur == nil {
+				p.Next = start
+				return dummy.Next
+			}
 			cur = cur.Next
 		}
-		if cur == nil {
-			return dummy.Next
-		}
-		t := cur.Next
-		cur.Next = nil
-		start := pre.Next
-		pre.Next = reverseList(start)
-		start.Next = t
-		pre = start
-		cur = pre
+		p.Next, p = reverse(start, cur), start
 	}
 	return dummy.Next
 }
 
-func reverseList(head *ListNode) *ListNode {
-	if head == nil || head.Next == nil {
-		return head
+func reverse(start, end *ListNode) *ListNode {
+	var pre *ListNode = nil
+	for start != end {
+		tmp := start.Next
+		start.Next, pre = pre, start
+		start = tmp
 	}
-	dummyHead := &ListNode{}
-	cur := head
-	for cur != nil {
-		tmp := cur.Next
-		cur.Next = dummyHead.Next
-		dummyHead.Next = cur
-		cur = tmp
+	return pre
+}
+```
+
+递归：
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	start, end := head, head
+	for i := 0; i < k; i++ {
+		if end == nil {
+			return head
+		}
+		end = end.Next
 	}
-	return dummyHead.Next
+	res := reverse(start, end)
+	start.Next = reverseKGroup(end, k)
+	return res
+}
+
+func reverse(start, end *ListNode) *ListNode {
+	var pre *ListNode = nil
+	for start != end {
+		tmp := start.Next
+		start.Next, pre = pre, start
+		start = tmp
+	}
+	return pre
 }
 ```
 
