@@ -60,9 +60,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-异或求解。两个相同的数异或的结果为 0。
+**方法一：位运算**
 
-也可以用数学求解。求出 `[0..n]` 的和，减去数组中所有数的和，就得到了缺失的数字。
+对于数组中的每个元素，都可以与下标进行异或运算，最终的结果就是缺失的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
+**方法二：数学**
+
+我们也可以用数学求解。求出 $[0,..n]$ 的和，减去数组中所有数的和，就得到了缺失的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -73,40 +81,42 @@
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        res = len(nums)
-        for i, v in enumerate(nums):
-            res ^= i ^ v
-        return res
+        return reduce(xor, (i ^ v for i, v in enumerate(nums, 1)))
+```
+
+```python
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        return (1 + n) * n // 2 - sum(nums)
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
--   异或
-
 ```java
 class Solution {
     public int missingNumber(int[] nums) {
-        int res = nums.length;
-        for (int i = 0, n = res; i < n; ++i) {
-            res ^= (i ^ nums[i]);
+        int n = nums.length;
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            ans ^= (i ^ nums[i]);
         }
-        return res;
+        return ans;
     }
 }
 ```
 
--   数学
-
 ```java
 class Solution {
     public int missingNumber(int[] nums) {
-        int res = nums.length;
-        for (int i = 0, n = res; i < n; ++i) {
-            res += (i - nums[i]);
+        int n = nums.length;
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            ans += i - nums[i];
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -118,11 +128,21 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
-        int res = n;
+        int ans = n;
         for (int i = 0; i < n; ++i) {
-            res ^= (i ^ nums[i]);
+            ans ^= (i ^ nums[i]);
         }
-        return res;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        return (1 + n) * n / 2 - accumulate(nums.begin(), nums.end(), 0);
     }
 };
 ```
@@ -130,14 +150,57 @@ public:
 ### **Go**
 
 ```go
-func missingNumber(nums []int) int {
+func missingNumber(nums []int) (ans int) {
 	n := len(nums)
-	res := n
-	for i := 0; i < n; i++ {
-		res ^= (i ^ nums[i])
+	ans = n
+	for i, v := range nums {
+		ans ^= (i ^ v)
 	}
-	return res
+	return
 }
+```
+
+```go
+func missingNumber(nums []int) (ans int) {
+	n := len(nums)
+	ans = n
+	for i, v := range nums {
+		ans += i - v
+	}
+	return
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans ^= i ^ nums[i];
+    }
+    return ans;
+};
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans += i - nums[i];
+    }
+    return ans;
+};
 ```
 
 ### **...**

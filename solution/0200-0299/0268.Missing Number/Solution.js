@@ -1,6 +1,12 @@
-const missingNumber = function (nums) {
-    return (
-        ((1 + nums.length) * nums.length) / 2 -
-        nums.reduce((prev, cur) => (prev += cur), 0)
-    );
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans ^= i ^ nums[i];
+    }
+    return ans;
 };

@@ -1,8 +1,8 @@
-func missingNumber(nums []int) int {
+func missingNumber(nums []int) (ans int) {
 	n := len(nums)
-	res := n
-	for i := 0; i < n; i++ {
-		res ^= (i ^ nums[i])
+	ans = n
+	for i, v := range nums {
+		ans ^= (i ^ v)
 	}
-	return res
+	return
 }
