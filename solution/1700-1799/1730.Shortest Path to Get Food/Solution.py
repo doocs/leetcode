@@ -1,8 +1,7 @@
 class Solution:
     def getFood(self, grid: List[List[str]]) -> int:
         m, n = len(grid), len(grid[0])
-        i, j = next((i, j) for i in range(m)
-                    for j in range(n) if grid[i][j] == '*')
+        i, j = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '*')
         q = deque([(i, j)])
         dirs = (-1, 0, 1, 0, -1)
         ans = 0

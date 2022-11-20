@@ -5,7 +5,9 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def closestNodes(self, root: Optional[TreeNode], queries: List[int]) -> List[List[int]]:
+    def closestNodes(
+        self, root: Optional[TreeNode], queries: List[int]
+    ) -> List[List[int]]:
         def dfs(root):
             if root is None:
                 return
