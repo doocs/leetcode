@@ -58,15 +58,15 @@ from sortedcontainers import SortedSet
 
 
 class Solution:
-    def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
+    def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
         s = SortedSet()
-        for i, num in enumerate(nums):
-            idx = s.bisect_left(num - t)
-            if 0 <= idx < len(s) and s[idx] <= num + t:
+        for i, v in enumerate(nums):
+            j = s.bisect_left(v - valueDiff)
+            if j < len(s) and s[j] <= v + valueDiff:
                 return True
-            s.add(num)
-            if i >= k:
-                s.remove(nums[i - k])
+            s.add(v)
+            if i >= indexDiff:
+                s.remove(nums[i - indexDiff])
         return False
 ```
 
@@ -74,16 +74,16 @@ class Solution:
 
 ```java
 class Solution {
-    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
         TreeSet<Long> ts = new TreeSet<>();
         for (int i = 0; i < nums.length; ++i) {
-            Long x = ts.ceiling((long) nums[i] - (long) t);
-            if (x != null && x <= (long) nums[i] + (long) t) {
+            Long x = ts.ceiling((long) nums[i] - (long) valueDiff);
+            if (x != null && x <= (long) nums[i] + (long) valueDiff) {
                 return true;
             }
             ts.add((long) nums[i]);
-            if (i >= k) {
-                ts.remove((long) nums[i - k]);
+            if (i >= indexDiff) {
+                ts.remove((long) nums[i - indexDiff]);
             }
         }
         return false;
@@ -96,13 +96,13 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int indexDiff, int valueDiff) {
         set<long> s;
         for (int i = 0; i < nums.size(); ++i) {
-            auto it = s.lower_bound((long)nums[i] - t);
-            if (it != s.end() && *it <= (long)nums[i] + t) return true;
-            s.insert((long)nums[i]);
-            if (i >= k) s.erase((long)nums[i - k]);
+            auto it = s.lower_bound((long) nums[i] - valueDiff);
+            if (it != s.end() && *it <= (long) nums[i] + valueDiff) return true;
+            s.insert((long) nums[i]);
+            if (i >= indexDiff) s.erase((long) nums[i - indexDiff]);
         }
         return false;
     }
@@ -132,6 +132,34 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 		}
 	}
 	return false
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if (k <= 0 || t < 0) return false;
+        var index = new SortedList<int, object>();
+        for (int i = 0; i < nums.Length; ++i) {
+            if (index.ContainsKey(nums[i])) {
+                return true;
+            }
+            index.Add(nums[i], null);
+            var j = index.IndexOfKey(nums[i]);
+            if (j > 0 && (long)nums[i] - index.Keys[j - 1] <= t) {
+                return true;
+            }
+            if (j < index.Count - 1 && (long)index.Keys[j + 1] - nums[i] <= t) {
+                return true;
+            }
+            if (index.Count > k) {
+                index.Remove(nums[i - k]);
+            }
+        }
+        return false;
+    }
 }
 ```
 

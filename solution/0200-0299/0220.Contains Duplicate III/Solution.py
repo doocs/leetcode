@@ -2,13 +2,13 @@ from sortedcontainers import SortedSet
 
 
 class Solution:
-    def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
+    def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
         s = SortedSet()
-        for i, num in enumerate(nums):
-            idx = s.bisect_left(num - t)
-            if 0 <= idx < len(s) and s[idx] <= num + t:
+        for i, v in enumerate(nums):
+            j = s.bisect_left(v - valueDiff)
+            if j < len(s) and s[j] <= v + valueDiff:
                 return True
-            s.add(num)
-            if i >= k:
-                s.remove(nums[i - k])
+            s.add(v)
+            if i >= indexDiff:
+                s.remove(nums[i - indexDiff])
         return False
