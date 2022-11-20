@@ -38,6 +38,14 @@
 
 ## Solutions
 
+**Approach 1: Iteration**
+
+Time complexity $O(n)$, Space complexity $O(1)$.
+
+**Approach 2: Recursion**
+
+Time complexity $O(n)$, Space complexity $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -154,6 +162,8 @@ public:
 
 ### **Go**
 
+Iteration:
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -174,6 +184,27 @@ func swapPairs(head *ListNode) *ListNode {
         cur = cur.Next
     }
     return dummy.Next
+}
+```
+
+Recursion:
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func swapPairs(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	res := swapPairs(head.Next.Next)
+	p := head.Next
+	p.Next, head.Next = head, res
+	return p
 }
 ```
 
