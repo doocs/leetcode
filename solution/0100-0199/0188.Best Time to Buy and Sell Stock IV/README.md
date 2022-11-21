@@ -43,15 +43,45 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划。
+**方法一：记忆化搜索**
 
-`dp[i][j][2]` 表示第 i 天，进行了 j 次交易后是否持有股票。其中 `dp[i][j][0]` 表示未持有股票，`dp[i][j][1]` 表示持有股票。
+我们设计一个函数 $dfs(i, j, k)$，表示从第 $i$ 天开始，最多进行 $j$ 笔交易，以及当前持有股票的状态为 $k$（不持有股票用 $0$ 表示，持有股票用 $1$ 表示）时，所能获得的最大利润。答案即为 $dfs(0, k, 0)$。
+
+函数 $dfs(i, j, k)$ 的执行逻辑如下：
+
+-   如果 $i$ 大于等于 $n$，直接返回 $0$；
+-   第 $i$ 天可以不进行任何操作，那么 $dfs(i, j, k) = dfs(i + 1, j, k)$；
+-   如果 $k \gt 0$，那么第 $i$ 天可以选择卖出股票，那么 $dfs(i, j, k) = max(dfs(i + 1, j - 1, 0) + prices[i], dfs(i + 1, j, k))$；
+-   否则，如果 $j \gt 0$，那么第 $i$ 天可以选择买入股票，那么 $dfs(i, j, k) = max(dfs(i + 1, j - 1, 1) - prices[i], dfs(i + 1, j, k))$。
+
+取上述三种情况的最大值即为 $dfs(i, j, k)$ 的值。
+
+过程中，我们可以使用记忆化搜索的方法，将每次计算的结果保存下来，避免重复计算。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别为数组 $prices$ 的长度和 $k$ 的值。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+        @cache
+        def dfs(i, j, k):
+            if i >= len(prices):
+                return 0
+            ans = dfs(i + 1, j, k)
+            if k:
+                ans = max(ans, prices[i] + dfs(i + 1, j, 0))
+            elif j:
+                ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1))
+            return ans
+
+        return dfs(0, k, 0)
+```
 
 ```python
 class Solution:
@@ -72,6 +102,38 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    private Integer[][][] f;
+    private int[] prices;
+    private int n;
+
+    public int maxProfit(int k, int[] prices) {
+        n = prices.length;
+        this.prices = prices;
+        f = new Integer[n][k + 1][2];
+        return dfs(0, k, 0);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        int ans = dfs(i + 1, j, k);
+        if (k > 0) {
+            ans = Math.max(ans, prices[i] + dfs(i + 1, j, 0));
+        } else if (j > 0) {
+            ans = Math.max(ans, -prices[i] + dfs(i + 1, j - 1, 1));
+        }
+        f[i][j][k] = ans;
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -97,14 +159,25 @@ class Solution {
 
 ### **C++**
 
-`dp[i][0]` 表示第 _i_ 次买入后的收益，`dp[i][1]` 表示第 _i_ 次卖出后的收益。
-
-状态转移方程：
-
-```bash
-dp[i][0] = max{dp[i][0], dp[i - 1][1] - prices[i]}
-
-dp[i][1] = max{dp[i][1], dp[i][0] + prices[i]}
+```cpp
+class Solution {
+public:
+    int maxProfit(int k, vector<int>& prices) {
+        int n = prices.size();
+        int f[n][k + 1][2];
+        memset(f, 0x3f, sizeof f);
+        function<int(int, int, int)> dfs = [&](int i, int j, int k) -> int {
+            if (i >= n) return 0;
+            if (f[i][j][k] != 0x3f3f3f3f) return f[i][j][k];
+            int ans = dfs(i + 1, j, k);
+            if (k) ans = max(ans, prices[i] + dfs(i + 1, j, 0));
+            else if (j) ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1));
+            f[i][j][k] = ans;
+            return ans;
+        };
+        return dfs(0, k, 0);
+    }
+};
 ```
 
 ```cpp
@@ -128,6 +201,45 @@ public:
 ```
 
 ### **Go**
+
+```go
+func maxProfit(k int, prices []int) int {
+	n := len(prices)
+	f := make([][][2]int, n)
+	const inf int = 0x3f3f3f3f
+	for i := range f {
+		f[i] = make([][2]int, k+1)
+		for j := range f[i] {
+			f[i][j] = [2]int{inf, inf}
+		}
+	}
+	var dfs func(i, j, k int) int
+	dfs = func(i, j, k int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i][j][k] != inf {
+			return f[i][j][k]
+		}
+		ans := dfs(i+1, j, k)
+		if k > 0 {
+			ans = max(ans, prices[i]+dfs(i+1, j, 0))
+		} else if j > 0 {
+			ans = max(ans, -prices[i]+dfs(i+1, j-1, 1))
+		}
+		f[i][j][k] = ans
+		return ans
+	}
+	return dfs(0, k, 0)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func maxProfit(k int, prices []int) int {

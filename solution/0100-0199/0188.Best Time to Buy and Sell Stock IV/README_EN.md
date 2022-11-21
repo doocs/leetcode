@@ -47,6 +47,23 @@ Dynamic programming.
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
+        @cache
+        def dfs(i, j, k):
+            if i >= len(prices):
+                return 0
+            ans = dfs(i + 1, j, k)
+            if k:
+                ans = max(ans, prices[i] + dfs(i + 1, j, 0))
+            elif j:
+                ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1))
+            return ans
+
+        return dfs(0, k, 0)
+```
+
+```python
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
         n = len(prices)
         if n < 2:
             return 0
@@ -61,6 +78,38 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    private Integer[][][] f;
+    private int[] prices;
+    private int n;
+
+    public int maxProfit(int k, int[] prices) {
+        n = prices.length;
+        this.prices = prices;
+        f = new Integer[n][k + 1][2];
+        return dfs(0, k, 0);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        int ans = dfs(i + 1, j, k);
+        if (k > 0) {
+            ans = Math.max(ans, prices[i] + dfs(i + 1, j, 0));
+        } else if (j > 0) {
+            ans = Math.max(ans, -prices[i] + dfs(i + 1, j - 1, 1));
+        }
+        f[i][j][k] = ans;
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -86,14 +135,25 @@ class Solution {
 
 ### **C++**
 
-`dp[i][0]` Indicates the income after the _i<sup>th_ purchase, `dp[i][1]` Indicates the income after the _i<sup>th_ sell.
-
-State transition equation:
-
-```bash
-dp[i][0] = max{dp[i][0], dp[i - 1][1] - prices[i]}
-
-dp[i][1] = max{dp[i][1], dp[i][0] + prices[i]}
+```cpp
+class Solution {
+public:
+    int maxProfit(int k, vector<int>& prices) {
+        int n = prices.size();
+        int f[n][k + 1][2];
+        memset(f, 0x3f, sizeof f);
+        function<int(int, int, int)> dfs = [&](int i, int j, int k) -> int {
+            if (i >= n) return 0;
+            if (f[i][j][k] != 0x3f3f3f3f) return f[i][j][k];
+            int ans = dfs(i + 1, j, k);
+            if (k) ans = max(ans, prices[i] + dfs(i + 1, j, 0));
+            else if (j) ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1));
+            f[i][j][k] = ans;
+            return ans;
+        };
+        return dfs(0, k, 0);
+    }
+};
 ```
 
 ```cpp
@@ -117,6 +177,45 @@ public:
 ```
 
 ### **Go**
+
+```go
+func maxProfit(k int, prices []int) int {
+	n := len(prices)
+	f := make([][][2]int, n)
+	const inf int = 0x3f3f3f3f
+	for i := range f {
+		f[i] = make([][2]int, k+1)
+		for j := range f[i] {
+			f[i][j] = [2]int{inf, inf}
+		}
+	}
+	var dfs func(i, j, k int) int
+	dfs = func(i, j, k int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i][j][k] != inf {
+			return f[i][j][k]
+		}
+		ans := dfs(i+1, j, k)
+		if k > 0 {
+			ans = max(ans, prices[i]+dfs(i+1, j, 0))
+		} else if j > 0 {
+			ans = max(ans, -prices[i]+dfs(i+1, j-1, 1))
+		}
+		f[i][j][k] = ans
+		return ans
+	}
+	return dfs(0, k, 0)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func maxProfit(k int, prices []int) int {
