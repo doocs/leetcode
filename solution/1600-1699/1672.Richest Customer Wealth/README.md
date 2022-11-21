@@ -129,10 +129,10 @@ func maximumWealth(accounts [][]int) int {
 ```ts
 function maximumWealth(accounts: number[][]): number {
     return accounts.reduce(
-        (res, account) =>
+        (r, v) =>
             Math.max(
-                res,
-                account.reduce((p, v) => p + v),
+                r,
+                v.reduce((r, v) => r + v),
             ),
         0,
     );
@@ -146,10 +146,28 @@ impl Solution {
     pub fn maximum_wealth(accounts: Vec<Vec<i32>>) -> i32 {
         accounts
             .iter()
-            .map(|account| account.iter().sum())
+            .map(|v| v.iter().sum())
             .max()
             .unwrap()
     }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int maximumWealth(int **accounts, int accountsSize, int *accountsColSize) {
+    int ans = INT_MIN;
+    for (int i = 0; i < accountsSize; i++) {
+        int sum = 0;
+        for (int j = 0; j < accountsColSize[i]; j++) {
+            sum += accounts[i][j];
+        }
+        ans = max(ans, sum);
+    }
+    return ans;
 }
 ```
 

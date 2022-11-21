@@ -3,7 +3,7 @@ impl Solution {
         let mut i = 0;
         for j in 0..nums.len() {
             if nums[j] != 0 {
-                if i != j {
+                if j > i {
                     nums[i] = nums[j];
                     nums[j] = 0;
                 }

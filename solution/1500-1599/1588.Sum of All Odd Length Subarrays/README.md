@@ -157,14 +157,10 @@ function sumOddLengthSubarrays(arr: number[]): number {
     const n = arr.length;
     let res = 0;
     for (let i = 1; i <= n; i += 2) {
-        let sum = 0;
-        for (let j = 0; j < i; j++) {
-            sum += arr[j];
-        }
+        let sum = arr.slice(0, i).reduce((r, v) => r + v);
         res += sum;
         for (let j = i; j < n; j++) {
-            sum -= arr[j - i];
-            sum += arr[j];
+            sum += arr[j] - arr[j - i];
             res += sum;
         }
     }
@@ -184,14 +180,33 @@ impl Solution {
             let mut sum: i32 = arr[0..i].iter().sum();
             res += sum;
             for j in i..n {
-                sum -= arr[j - i];
-                sum += arr[j];
+                sum += arr[j] - arr[j - i];
                 res += sum;
             }
             i += 2;
         }
         res
     }
+}
+```
+
+### **C**
+
+```c
+int sumOddLengthSubarrays(int *arr, int arrSize) {
+    int ans = 0;
+    for (int i = 1; i <= arrSize; i += 2) {
+        int sum = 0;
+        for (int j = 0; j < i; j++) {
+            sum += arr[j];
+        }
+        ans += sum;
+        for (int j = i; j < arrSize; j++) {
+            sum += arr[j] - arr[j - i];
+            ans += sum;
+        }
+    }
+    return ans;
 }
 ```
 

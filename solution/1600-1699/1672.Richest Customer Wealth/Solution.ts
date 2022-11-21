@@ -1,9 +1,9 @@
 function maximumWealth(accounts: number[][]): number {
     return accounts.reduce(
-        (res, account) =>
+        (r, v) =>
             Math.max(
-                res,
-                account.reduce((p, v) => p + v),
+                r,
+                v.reduce((r, v) => r + v),
             ),
         0,
     );

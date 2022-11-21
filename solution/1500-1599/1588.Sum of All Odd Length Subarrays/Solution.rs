@@ -7,8 +7,7 @@ impl Solution {
             let mut sum: i32 = arr[0..i].iter().sum();
             res += sum;
             for j in i..n {
-                sum -= arr[j - i];
-                sum += arr[j];
+                sum += arr[j] - arr[j - i];
                 res += sum;
             }
             i += 2;
