@@ -1,15 +1,18 @@
 class Solution {
-    public int nthMagicalNumber(int N, int A, int B) {
-        long l = 1, r = Long.MAX_VALUE;
-        int lcm = A * B / gcd(A, B);
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int nthMagicalNumber(int n, int a, int b) {
+        int c = a * b / gcd(a, b);
+        long l = 0, r = (long) (a + b) * n;
         while (l < r) {
             long mid = l + r >>> 1;
-            if (mid / A + mid / B - mid / lcm >= N)
+            if (mid / a + mid / b - mid / c >= n) {
                 r = mid;
-            else
+            } else {
                 l = mid + 1;
+            }
         }
-        return (int) (r % 1000000007);
+        return (int) (l % MOD);
     }
 
     private int gcd(int a, int b) {
