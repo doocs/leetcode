@@ -77,23 +77,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function diagonalSum(mat: number[][]): number {
-    let n = mat.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        ans += mat[i][i];
-        let j = n - 1 - i;
-        if (i != j) {
-            ans += mat[i][j];
-        }
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -125,21 +108,52 @@ func diagonalSum(mat [][]int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function diagonalSum(mat: number[][]): number {
+    const n = mat.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        ans += mat[i][i] + mat[i][n - 1 - i];
+    }
+    if (n & 1) {
+        ans -= mat[n >> 1][n >> 1];
+    }
+    return ans;
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn diagonal_sum(mat: Vec<Vec<i32>>) -> i32 {
         let n = mat.len();
-        let mut res = 0;
+        let mut ans = 0;
         for i in 0..n {
-            res += mat[i][i] + mat[n - i - 1][i];
+            ans += mat[i][i] + mat[n - 1 - i][i];
         }
         if n & 1 == 1 {
-            return res - mat[n / 2][n / 2];
+            ans -= mat[n >> 1][n >> 1];
         }
-        res
+        ans
     }
+}
+```
+
+### **C**
+
+```c
+int diagonalSum(int **mat, int matSize, int *matColSize) {
+    int ans = 0;
+    for (int i = 0; i < matSize; i++) {
+        ans += mat[i][i] + mat[i][matSize - 1 - i];
+    }
+    if (matSize & 1) {
+        ans -= mat[matSize >> 1][matSize >> 1];
+    }
+    return ans;
 }
 ```
 

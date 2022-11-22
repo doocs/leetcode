@@ -99,4 +99,80 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+function canSeePersonsCount(heights: number[]): number[] {
+    const n = heights.length;
+    const ans = new Array(n).fill(0);
+    const stack = [];
+    for (let i = n - 1; i >= 0; i--) {
+        while (stack.length !== 0) {
+            ans[i]++;
+            if (heights[i] <= heights[stack[stack.length - 1]]) {
+                break;
+            }
+            stack.pop();
+        }
+        stack.push(i);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_see_persons_count(heights: Vec<i32>) -> Vec<i32> {
+        let n = heights.len();
+        let mut ans = vec![0; n];
+        let mut stack = Vec::new();
+        for i in (0..n).rev() {
+            while !stack.is_empty() {
+                ans[i] += 1;
+                if heights[i] <= heights[*stack.last().unwrap()] {
+                    break;
+                }
+                stack.pop();
+            }
+            stack.push(i);
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *canSeePersonsCount(int *heights, int heightsSize, int *returnSize) {
+    int *ans = malloc(sizeof(int) * heightsSize);
+    memset(ans, 0, sizeof(int) * heightsSize);
+    int stack[heightsSize];
+    int i = 0;
+    for (int j = heightsSize - 1; j >= 0; j--) {
+        while (i) {
+            ans[j]++;
+            if (heights[j] <= heights[stack[i - 1]]) {
+                break;
+            }
+            i--;
+        }
+        stack[i++] = j;
+    }
+    *returnSize = heightsSize;
+    return ans;
+}
+```
+
+### **...**
+
+```
+
+```
+
 <!-- tabs:end -->
