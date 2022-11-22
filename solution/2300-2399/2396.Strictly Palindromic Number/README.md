@@ -100,7 +100,27 @@ func isStrictlyPalindromic(n int) bool {
 ### **TypeScript**
 
 ```ts
+function isStrictlyPalindromic(n: number): boolean {
+    return false;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_strictly_palindromic(n: i32) -> bool {
+        false
+    }
+}
+```
+
+### **C**
+
+```c
+bool isStrictlyPalindromic(int n) {
+    return 0;
+}
 ```
 
 ### **...**

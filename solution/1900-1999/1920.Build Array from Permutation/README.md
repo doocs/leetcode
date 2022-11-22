@@ -72,22 +72,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var buildArray = function (nums) {
-    let ans = [];
-    for (let i = 0; i < nums.length; ++i) {
-        ans[i] = nums[nums[i]];
-    }
-    return ans;
-};
-```
-
 ### **C++**
 
 ```cpp
@@ -112,6 +96,56 @@ func buildArray(nums []int) []int {
 		ans[i] = nums[num]
 	}
 	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var buildArray = function (nums) {
+    let ans = [];
+    for (let i = 0; i < nums.length; ++i) {
+        ans[i] = nums[nums[i]];
+    }
+    return ans;
+};
+```
+
+### **TypeScript**
+
+```ts
+function buildArray(nums: number[]): number[] {
+    return nums.map(v => nums[v]);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn build_array(nums: Vec<i32>) -> Vec<i32> {
+        nums.iter().map(|&v| nums[v as usize]).collect()
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *buildArray(int *nums, int numsSize, int *returnSize) {
+    int *ans = malloc(sizeof(int) * numsSize);
+    for (int i = 0; i < numsSize; i++) {
+        ans[i] = nums[nums[i]];
+    }
+    *returnSize = numsSize;
+    return ans;
 }
 ```
 
