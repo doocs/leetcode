@@ -45,9 +45,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**朴素解法：**
+**方法一：哈希表**
 
-使用哈希表，记录所有连续长度为 10 的子字符串出现次数（字符串为 Key，次数为 Value），当出现一次以上时，将其加入返回列表当中。
+朴素解法，用哈希表保存所有长度为 10 的子序列出现的次数，当子序列出现次数大于 1 时，把该子序列作为结果之一。
+
+假设字符串 `s` 长度为 `n`，则时间复杂度 $O(n \times 10)$，空间复杂度 $O(n)$。
+
+**方法二：Rabin-Karp 字符串匹配算法**
+
+本质上是滑动窗口和哈希的结合方法，和 [0028.找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) 类似，本题可以借助哈希函数将子序列计数的时间复杂度降低到 $O(1)$。
+
+假设字符串 `s` 长度为 `n`，则时间复杂度为 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -115,17 +123,40 @@ var findRepeatedDnaSequences = function (s) {
 
 ### **Go**
 
+哈希表：
+
 ```go
 func findRepeatedDnaSequences(s string) []string {
-	cnt := make(map[string]int)
-	n := len(s) - 10
-	ans := make([]string, 0)
-	for i := 0; i <= n; i++ {
+	ans, cnt := []string{}, map[string]int{}
+	for i := 0; i <= len(s)-10; i++ {
 		sub := s[i : i+10]
 		cnt[sub]++
 		if cnt[sub] == 2 {
 			ans = append(ans, sub)
 		}
+	}
+	return ans
+}
+```
+
+Rabin-Karp:
+
+```go
+func findRepeatedDnaSequences(s string) []string {
+	hashCode := map[byte]int{'A': 0, 'C': 1, 'G': 2, 'T': 3}
+	ans, cnt, left, right := []string{}, map[int]int{}, 0, 0
+
+	sha, multi := 0, int(math.Pow(4, 9))
+	for ; right < len(s); right++ {
+		sha = sha*4 + hashCode[s[right]]
+		if right-left+1 < 10 {
+			continue
+		}
+		cnt[sha]++
+		if cnt[sha] == 2 {
+			ans = append(ans, s[left:right+1])
+		}
+		sha, left = sha-multi*hashCode[s[left]], left+1
 	}
 	return ans
 }
