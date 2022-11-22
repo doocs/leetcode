@@ -40,6 +40,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历**
+
+以字符串 `haystack` 的每一个字符为起点与字符串 `needle` 进行比较，若发现能够匹配的索引，直接返回即可。
+
+假设字符串 `haystack` 长度为 `n`，字符串 `needle` 长度为 `m`，则时间复杂度为 $O((n-m) \times m)$，空间复杂度 $O(1)$。
+
+**方法二：Rabin-Karp 字符串匹配算法**
+
+[Rabin-Karp 算法](https://zh.wikipedia.org/zh-hans/%E6%8B%89%E5%AE%BE-%E5%8D%A1%E6%99%AE%E7%AE%97%E6%B3%95)本质上是利用滑动窗口配合哈希函数对固定长度的字符串哈希之后进行比较，可以将比较两个字符串是否相同的时间复杂度降为 $O(1)$。
+
+假设字符串 `haystack` 长度为 `n`，字符串 `needle` 长度为 `m`，则时间复杂度为 $O(n+m)$，空间复杂度 $O(1)$。
+
+**方法三：KMP 字符串匹配算法**
+
+假设字符串 `haystack` 长度为 `n`，字符串 `needle` 长度为 `m`，则时间复杂度为 $O(n+m)$，空间复杂度 $O(m)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,22 +64,11 @@
 
 ```python
 class Solution:
-    def strStr(self, haystack, needle):
-        """
-        :type haystack: str
-        :type needle: str
-        :rtype: int
-        """
-        for i in range(len(haystack) - len(needle) + 1):
-            p = i
-            q = 0
-            while p < len(haystack) and q < len(needle) and haystack[p] == needle[q]:
-                p += 1
-                q += 1
-
-            if q == len(needle):
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, m = len(haystack), len(needle)
+        for i in range(n-m+1):
+            if haystack[i:i+m] == needle:
                 return i
-
         return -1
 ```
 
@@ -177,30 +182,47 @@ public class Solution {
 
 ### **Go**
 
+遍历：
+
 ```go
 func strStr(haystack string, needle string) int {
-	switch {
-	case len(needle) == 0:
-		return 0
-	case len(needle) > len(haystack):
-		return -1
-	case len(needle) == len(haystack):
-		if needle == haystack {
-			return 0
+	n, m := len(haystack), len(needle)
+	for i := 0; i <= n-m; i++ {
+		if haystack[i:i+m] == needle {
+			return i
 		}
-		return -1
 	}
-	cursor := 0
-	for i := 0; i < len(haystack); i++ {
-		if haystack[i] == needle[cursor] {
-			cursor++
-			if cursor == len(needle) {
-				return i - cursor + 1
-			}
-		} else {
-			i -= cursor
-			cursor = 0
+	return -1
+}
+```
+
+Rabin-Karp 字符串匹配算法：
+
+```go
+func strStr(haystack string, needle string) int {
+	n, m := len(haystack), len(needle)
+	sha, target, left, right, mod := 0, 0, 0, 0, 1<<31-1
+	multi := 1
+	for i := 0; i < m; i++ {
+		target = (target*256%mod + int(needle[i])) % mod
+	}
+	for i := 1; i < m; i++ {
+		multi = multi * 256 % mod
+	}
+
+	for ; right < n; right++ {
+		sha = (sha*256%mod + int(haystack[right])) % mod
+		if right-left+1 < m {
+			continue
 		}
+		// 此时 left~right 的长度已经为 needle 的长度 m 了，只需要比对 sha 值与 target 是否一致即可
+		// 为避免 hash 冲突，还需要确保 haystack[left:right+1] 与 needle 相同
+		if sha == target && haystack[left:right+1] == needle {
+			return left
+		}
+		// 未匹配成功，left 右移一位
+		sha = (sha - (int(haystack[left])*multi)%mod + mod) % mod
+		left++
 	}
 	return -1
 }
