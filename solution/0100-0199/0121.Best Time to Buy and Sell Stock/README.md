@@ -44,7 +44,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-参考本站 [面试题 63. 股票的最大利润](/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9863.%20%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/README.md?id=%E8%A7%A3%E6%B3%95)（题意相同）。
+**方法一：枚举 + 维护前缀最小值**
+
+遍历数组 `nums`，对于每个元素 $v$，计算其与前面元素的最小值 $mi$ 的差值，取最大值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -55,11 +59,11 @@
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        res, mi = 0, prices[0]
-        for price in prices[1:]:
-            res = max(res, price - mi)
-            mi = min(mi, price)
-        return res
+        ans, mi = 0, inf
+        for v in prices:
+            ans = max(ans, v - mi)
+            mi = min(mi, v)
+        return ans
 ```
 
 ### **Java**
@@ -69,12 +73,12 @@ class Solution:
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
-        int res = 0, mi = prices[0];
-        for (int i = 1; i < prices.length; ++i) {
-            res = Math.max(res, prices[i] - mi);
-            mi = Math.min(mi, prices[i]);
+        int ans = 0, mi = prices[0];
+        for (int v : prices) {
+            ans = Math.max(ans, v - mi);
+            mi = Math.min(mi, v);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -85,12 +89,12 @@ class Solution {
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int res = 0, mi = prices[0];
-        for (int i = 1; i < prices.size(); ++i) {
-            res = max(res, prices[i] - mi);
-            mi = min(mi, prices[i]);
+        int ans = 0, mi = prices[0];
+        for (int& v : prices) {
+            ans = max(ans, v - mi);
+            mi = min(mi, v);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -98,13 +102,13 @@ public:
 ### **Go**
 
 ```go
-func maxProfit(prices []int) int {
-	res, mi := 0, prices[0]
-	for i := 1; i < len(prices); i++ {
-		res = max(res, prices[i]-mi)
-		mi = min(min, prices[i])
+func maxProfit(prices []int) (ans int) {
+	mi := prices[0]
+	for _, v := range prices {
+		ans = max(ans, v-mi)
+		mi = min(mi, v)
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
@@ -130,13 +134,13 @@ func min(a, b int) int {
  * @return {number}
  */
 var maxProfit = function (prices) {
-    let res = 0;
+    let ans = 0;
     let mi = prices[0];
-    for (let i = 1; i < prices.length; ++i) {
-        res = Math.max(res, prices[i] - mi);
-        mi = Math.min(mi, prices[i]);
+    for (const v of prices) {
+        ans = Math.max(ans, v - mi);
+        mi = Math.min(mi, v);
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -145,13 +149,12 @@ var maxProfit = function (prices) {
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
-        int res = 0, mi = prices[0];
-        for (int i = 1; i < prices.Length; ++i)
-        {
-            res = Math.Max(res, prices[i] - mi);
-            mi = Math.Min(mi, prices[i]);
+        int ans = 0, mi = prices[0];
+        foreach (int v in prices) {
+            ans = Math.Max(ans, v - mi);
+            mi = Math.Min(mi, v);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -160,13 +163,13 @@ public class Solution {
 
 ```ts
 function maxProfit(prices: number[]): number {
-    let res = 0;
-    let min = Infinity;
-    for (const price of prices) {
-        res = Math.max(res, price - min);
-        min = Math.min(min, price);
+    let ans = 0;
+    let mi = prices[0];
+    for (const v of prices) {
+        ans = Math.max(ans, v - mi);
+        mi = Math.min(mi, v);
     }
-    return res;
+    return ans;
 }
 ```
 

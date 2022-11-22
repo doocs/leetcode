@@ -54,59 +54,181 @@ Greedy or Dynamic Programming.
 
 ### **Python3**
 
-Greedy:
-
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        res = 0
-        for i in range(1, len(prices)):
-            t = prices[i] - prices[i - 1]
-            res += max(t, 0)
-        return res
+        return sum(max(0, b - a) for a, b in pairwise(prices))
 ```
 
-Dynamic Programming:
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        f = [[0] * 2 for _ in range(n)]
+        f[0][0] = -prices[0]
+        for i in range(1, n):
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] - prices[i])
+            f[i][1] = max(f[i - 1][1], f[i - 1][0] + prices[i])
+        return f[n - 1][1]
+```
 
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        f1, f2 = -prices[0], 0
-        for price in prices[1:]:
-            f1 = max(f1, f2 - price)
-            f2 = max(f2, f1 + price)
-        return f2
+        n = len(prices)
+        f = [-prices[0], 0]
+        for i in range(1, n):
+            g = [0] * 2
+            g[0] = max(f[0], f[1] - prices[i])
+            g[1] = max(f[1], f[0] + prices[i])
+            f = g
+        return f[1]
 ```
 
 ### **Java**
 
-Greedy:
-
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
-        int res = 0;
+        int ans = 0;
         for (int i = 1; i < prices.length; ++i) {
-            int t = prices[i] - prices[i - 1];
-            res += Math.max(t, 0);
+            ans += Math.max(0, prices[i] - prices[i - 1]);
         }
-        return res;
+        return ans;
     }
 }
 ```
 
-Dynamic Programming:
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[][] f = new int[n][2];
+        f[0][0] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = Math.max(f[i - 1][0], f[i - 1][1] - prices[i]);
+            f[i][1] = Math.max(f[i - 1][1], f[i - 1][0] + prices[i]);
+        }
+        return f[n - 1][1];
+    }
+}
+```
 
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
-        int f1 = -prices[0], f2 = 0;
-        for (int i = 1; i < prices.length; ++i) {
-            f1 = Math.max(f1, f2 - prices[i]);
-            f2 = Math.max(f2, f1 + prices[i]);
+        int n = prices.length;
+        int[] f = new int[] {-prices[0], 0};
+        for (int i = 1; i < n; ++i) {
+            int[] g = new int[2];
+            g[0] = Math.max(f[0], f[1] - prices[i]);
+            g[1] = Math.max(f[1], f[0] + prices[i]);
+            f = g;
         }
-        return f2;
+        return f[1];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans = 0;
+        for (int i = 1; i < prices.size(); ++i) ans += max(0, prices[i] - prices[i - 1]);
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int f[n][2];
+        f[0][0] = -prices[0];
+        f[0][1] = 0;
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] - prices[i]);
+            f[i][1] = max(f[i - 1][1], f[i - 1][0] + prices[i]);
+        }
+        return f[n - 1][1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int f[2] = {-prices[0], 0};
+        for (int i = 1; i < n; ++i) {
+            int g[2];
+            g[0] = max(f[0], f[1] - prices[i]);
+            g[1] = max(f[1], f[0] + prices[i]);
+            f[0] = g[0], f[1] = g[1];
+        }
+        return f[1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProfit(prices []int) (ans int) {
+	for i, v := range prices[1:] {
+		t := v - prices[i]
+		if t > 0 {
+			ans += t
+		}
+	}
+	return
+}
+```
+
+```go
+func maxProfit(prices []int) int {
+	n := len(prices)
+	f := make([][2]int, n)
+	f[0][0] = -prices[0]
+	for i := 1; i < n; i++ {
+		f[i][0] = max(f[i-1][0], f[i-1][1]-prices[i])
+		f[i][1] = max(f[i-1][1], f[i-1][0]+prices[i])
+	}
+	return f[n-1][1]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maxProfit(prices []int) int {
+	n := len(prices)
+	f := [2]int{-prices[0], 0}
+	for i := 1; i < n; i++ {
+		g := [2]int{}
+		g[0] = max(f[0], f[1]-prices[i])
+		g[1] = max(f[1], f[0]+prices[i])
+		f = g
+	}
+	return f[1]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -122,119 +244,19 @@ function maxProfit(prices: number[]): number {
 }
 ```
 
-```ts
-function maxProfit(prices: number[]): number {
-    const n = prices.length;
-    let res = 0;
-    let max = prices[0];
-    let min = prices[0];
-    for (let i = 1; i < n; i++) {
-        const price = prices[i];
-        if (price < max) {
-            res += max - min;
-            max = price;
-            min = price;
-        } else {
-            max = price;
-        }
-    }
-    if (min < max) {
-        res += max - min;
-    }
-    return res;
-}
-```
-
-### **C++**
-
-Greedy:
-
-```cpp
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int res = 0;
-        for (int i = 1; i < prices.size(); ++i) {
-            int t = prices[i] - prices[i - 1];
-            res += max(t, 0);
-        }
-        return res;
-    }
-};
-```
-
-Dynamic Programming:
-
-```cpp
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int f1 = -prices[0], f2 = 0;
-        for (int i = 1; i < prices.size(); ++i) {
-            f1 = max(f1, f2 - prices[i]);
-            f2 = max(f2, f1 + prices[i]);
-        }
-        return f2;
-    }
-};
-```
-
-### **Go**
-
-Greedy:
-
-```go
-func maxProfit(prices []int) int {
-	res := 0
-	for i := 1; i < len(prices); i++ {
-		t := prices[i] - prices[i-1]
-		if t > 0 {
-			res += t
-		}
-	}
-	return res
-}
-```
-
-Dynamic Programming:
-
-```go
-func maxProfit(prices []int) int {
-	f1, f2 := -prices[0], 0
-	for _, price := range prices[1:] {
-		f1 = max(f1, f2-price)
-		f2 = max(f2, f1+price)
-	}
-	return f2
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-```
-
 ### **C#**
-
-Greedy:
 
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
-        int res = 0;
-        for (int i = 1; i < prices.Length; ++i)
-        {
-            int t = prices[i] - prices[i - 1];
-            res += Math.Max(t, 0);
+        int ans = 0;
+        for (int i = 1; i < prices.Length; ++i) {
+            ans += Math.Max(0, prices[i] - prices[i - 1]);
         }
-        return res;
+        return ans;
     }
 }
 ```
-
-Dynamic Programming:
 
 ```cs
 public class Solution {
@@ -248,6 +270,22 @@ public class Solution {
         return f2;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+    let ans = 0;
+    for (let i = 1; i < prices.length; i++) {
+        ans += Math.max(0, prices[i] - prices[i - 1]);
+    }
+    return ans;
+};
 ```
 
 ### **Rust**

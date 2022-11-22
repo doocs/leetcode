@@ -3,11 +3,11 @@
  * @return {number}
  */
 var maxProfit = function (prices) {
-    let res = 0;
+    let ans = 0;
     let mi = prices[0];
-    for (let i = 1; i < prices.length; ++i) {
-        res = Math.max(res, prices[i] - mi);
-        mi = Math.min(mi, prices[i]);
+    for (const v of prices) {
+        ans = Math.max(ans, v - mi);
+        mi = Math.min(mi, v);
     }
-    return res;
+    return ans;
 };

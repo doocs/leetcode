@@ -1,10 +1,9 @@
-func maxProfit(prices []int) int {
-	res := 0
-	for i := 1; i < len(prices); i++ {
-		t := prices[i] - prices[i-1]
+func maxProfit(prices []int) (ans int) {
+	for i, v := range prices[1:] {
+		t := v - prices[i]
 		if t > 0 {
-			res += t
+			ans += t
 		}
 	}
-	return res
+	return
 }
