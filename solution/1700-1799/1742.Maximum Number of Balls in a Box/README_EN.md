@@ -59,14 +59,14 @@ Box 10 has the most number of balls with 2 balls.
 ```python
 class Solution:
     def countBalls(self, lowLimit: int, highLimit: int) -> int:
-        counter = [0] * 60
-        for i in range(lowLimit, highLimit + 1):
-            s = 0
-            while i:
-                s += i % 10
-                i //= 10
-            counter[s] += 1
-        return max(counter)
+        cnt = [0] * 50
+        for x in range(lowLimit, highLimit + 1):
+            y = 0
+            while x:
+                y += x % 10
+                x //= 10
+            cnt[y] += 1
+        return max(cnt)
 ```
 
 ### **Java**
@@ -74,19 +74,15 @@ class Solution:
 ```java
 class Solution {
     public int countBalls(int lowLimit, int highLimit) {
-        int[] counter = new int[60];
-        int ans = 0;
+        int[] cnt = new int[50];
         for (int i = lowLimit; i <= highLimit; ++i) {
-            int s = 0;
-            int j = i;
-            while (j > 0) {
-                s += (j % 10);
-                j /= 10;
+            int x = i, y = 0;
+            for (; x > 0; x /= 10) {
+                y += x % 10;
             }
-            ++counter[s];
-            ans = Math.max(ans, counter[s]);
+            ++cnt[y];
         }
-        return ans;
+        return Arrays.stream(cnt).max().getAsInt();
     }
 }
 ```
@@ -97,16 +93,14 @@ class Solution {
 class Solution {
 public:
     int countBalls(int lowLimit, int highLimit) {
-        vector<int> counter(60);
+        int cnt[50] = {0};
         int ans = 0;
         for (int i = lowLimit; i <= highLimit; ++i) {
-            int s = 0, j = i;
-            while (j) {
-                s += (j % 10);
-                j /= 10;
+            int x = i, y = 0;
+            for (; x; x /= 10) {
+                y += x % 10;
             }
-            ++counter[s];
-            ans = max(ans, counter[s]);
+            ans = max(ans, ++cnt[y]);
         }
         return ans;
     }
@@ -116,21 +110,19 @@ public:
 ### **Go**
 
 ```go
-func countBalls(lowLimit int, highLimit int) int {
-	counter := make([]int, 60)
-	ans := 0
+func countBalls(lowLimit int, highLimit int) (ans int) {
+	cnt := [50]int{}
 	for i := lowLimit; i <= highLimit; i++ {
-		s, j := 0, i
-		for j > 0 {
-			s += (j % 10)
-			j /= 10
+		x, y := i, 0
+		for ; x > 0; x /= 10 {
+			y += x % 10
 		}
-		counter[s]++
-		if counter[s] > ans {
-			ans = counter[s]
+		cnt[y]++
+		if ans < cnt[y] {
+			ans = cnt[y]
 		}
 	}
-	return ans
+	return
 }
 ```
 
