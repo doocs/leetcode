@@ -42,6 +42,19 @@
 ```python
 class Solution:
     def numSubarrayBoundedMax(self, nums: List[int], left: int, right: int) -> int:
+        def f(x):
+            cnt = t = 0
+            for v in nums:
+                t = 0 if v > x else t + 1
+                cnt += t
+            return cnt
+
+        return f(right) - f(left - 1)
+```
+
+```python
+class Solution:
+    def numSubarrayBoundedMax(self, nums: List[int], left: int, right: int) -> int:
         n = len(nums)
         l, r = [-1] * n, [n] * n
         stk = []
@@ -62,6 +75,23 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    public int numSubarrayBoundedMax(int[] nums, int left, int right) {
+        return f(nums, right) - f(nums, left - 1);
+    }
+
+    private int f(int[] nums, int x) {
+        int cnt = 0, t = 0;
+        for (int v : nums) {
+            t = v > x ? 0 : t + 1;
+            cnt += t;
+        }
+        return cnt;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -110,6 +140,23 @@ class Solution {
 class Solution {
 public:
     int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
+        auto f = [&](int x) {
+            int cnt = 0, t = 0;
+            for (int& v : nums) {
+                t = v > x ? 0 : t + 1;
+                cnt += t;
+            }
+            return cnt;
+        };
+        return f(right) - f(left -1);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
         int n = nums.size();
         vector<int> l(n, -1);
         vector<int> r(n, n);
@@ -139,6 +186,23 @@ public:
 ```
 
 ### **Go**
+
+```go
+func numSubarrayBoundedMax(nums []int, left int, right int) int {
+	f := func(x int) (cnt int) {
+		t := 0
+		for _, v := range nums {
+			t++
+			if v > x {
+				t = 0
+			}
+			cnt += t
+		}
+		return
+	}
+	return f(right) - f(left-1)
+}
+```
 
 ```go
 func numSubarrayBoundedMax(nums []int, left int, right int) (ans int) {
