@@ -43,11 +43,19 @@
 
 **方法一：排序**
 
-排序数组，然后两个相邻元素是否相同即可。
+我们先对数组 `nums` 进行排序。
+
+然后遍历数组，如果存在相邻两个元素相同，说明数组中存在重复元素，直接返回 `true`。
+
+否则，遍历结束，返回 `false`。
+
+时间复杂度 $O(n \times \log n)$。其中 $n$ 是数组 `nums` 的长度。
 
 **方法二：哈希表**
 
-遍历元素并记录，当第二次出现时，直接返回 `true`。
+遍历数组，将出现过的元素记录在哈希表 $s$ 中。若元素第二次出现时，说明数组中存在重复元素，直接返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -58,7 +66,13 @@
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        return len(nums) != len(set(nums))
+        return any(a == b for a, b in pairwise(sorted(nums)))
+```
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(set(nums)) < len(nums)
 ```
 
 ### **Java**
@@ -68,24 +82,28 @@ class Solution:
 ```java
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            if (s.contains(num)) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
-            s.add(num);
         }
         return false;
     }
 }
 ```
 
-### **TypeScript**
-
-```ts
-function containsDuplicate(nums: number[]): boolean {
-    let unique: Set<number> = new Set(nums);
-    return unique.size != nums.length;
+```java
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (!s.add(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 ```
 
@@ -95,12 +113,23 @@ function containsDuplicate(nums: number[]): boolean {
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int e : nums) {
-            if (s.count(e)) return true;
-            s.insert(e);
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                return true;
+            }
         }
         return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        return s.size() < nums.size();
     }
 };
 ```
@@ -109,14 +138,35 @@ public:
 
 ```go
 func containsDuplicate(nums []int) bool {
-	s := make(map[int]bool)
-	for _, e := range nums {
-		if s[e] {
+	sort.Ints(nums)
+	for i, v := range nums[1:] {
+		if v == nums[i] {
 			return true
 		}
-		s[e] = true
 	}
 	return false
+}
+```
+
+```go
+func containsDuplicate(nums []int) bool {
+    s := map[int]bool{}
+    for _, v := range nums {
+        if s[v] {
+            return true
+        }
+        s[v] = true
+    }
+    return false
+}
+```
+
+### **TypeScript**
+
+```ts
+function containsDuplicate(nums: number[]): boolean {
+    let unique: Set<number> = new Set(nums);
+    return unique.size != nums.length;
 }
 ```
 

@@ -34,7 +34,13 @@
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        return len(nums) != len(set(nums))
+        return any(a == b for a, b in pairwise(sorted(nums)))
+```
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(set(nums)) < len(nums)
 ```
 
 ### **Java**
@@ -42,24 +48,28 @@ class Solution:
 ```java
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            if (s.contains(num)) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
-            s.add(num);
         }
         return false;
     }
 }
 ```
 
-### **TypeScript**
-
-```ts
-function containsDuplicate(nums: number[]): boolean {
-    let unique: Set<number> = new Set(nums);
-    return unique.size != nums.length;
+```java
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (!s.add(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 ```
 
@@ -69,12 +79,23 @@ function containsDuplicate(nums: number[]): boolean {
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int e : nums) {
-            if (s.count(e)) return true;
-            s.insert(e);
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 1; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                return true;
+            }
         }
         return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        return s.size() < nums.size();
     }
 };
 ```
@@ -83,14 +104,35 @@ public:
 
 ```go
 func containsDuplicate(nums []int) bool {
-	s := make(map[int]bool)
-	for _, e := range nums {
-		if s[e] {
+	sort.Ints(nums)
+	for i, v := range nums[1:] {
+		if v == nums[i] {
 			return true
 		}
-		s[e] = true
 	}
 	return false
+}
+```
+
+```go
+func containsDuplicate(nums []int) bool {
+    s := map[int]bool{}
+    for _, v := range nums {
+        if s[v] {
+            return true
+        }
+        s[v] = true
+    }
+    return false
+}
+```
+
+### **TypeScript**
+
+```ts
+function containsDuplicate(nums: number[]): boolean {
+    let unique: Set<number> = new Set(nums);
+    return unique.size != nums.length;
 }
 ```
 
