@@ -43,7 +43,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-计数器实现。
+**方法一：计数**
+
+使用数组（`cnt`）统计 `s` 与 `t` 当中字符出现的次数：`s[i]` 进行 `cnt[s[i] - 'a']++`，`t[i]` 进行 `cnt[t[i] - 'a']--`。
+
+完成统计后，找到符合 `cnt[i] == -1` 的 `i`，返回即可（`return 'a' + i`）。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
+**方法二：求和**
+
+由于 `s` 与 `t` 只存在一个不同元素，可以统计两者所有字符 ASCII 码之和，再进行相减（`sum(t) - sum(s)`），即可得到 `t` 中那一个额外字符的 ASCII 码。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -86,6 +98,32 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function findTheDifference(s: string, t: string): string {
+    const n = s.length;
+    const count = new Array(26).fill(0);
+    for (let i = 0; i < n; i++) {
+        count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+        count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+    }
+    count[t.charCodeAt(n) - 'a'.charCodeAt(0)]--;
+    return String.fromCharCode(
+        'a'.charCodeAt(0) + count.findIndex(v => v !== 0),
+    );
+}
+```
+
+```ts
+function findTheDifference(s: string, t: string): string {
+    return String.fromCharCode(
+        [...t].reduce((r, v) => r + v.charCodeAt(0), 0) -
+            [...s].reduce((r, v) => r + v.charCodeAt(0), 0),
+    );
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -96,18 +134,61 @@ impl Solution {
         let n = s.len();
         let mut count = [0; 26];
         for i in 0..n {
-            count[(s[i] - b'a') as usize] -= 1;
-            count[(t[i] - b'a') as usize] += 1;
+            count[(s[i] - b'a') as usize] += 1;
+            count[(t[i] - b'a') as usize] -= 1;
         }
-        let mut res = *t.last().unwrap();
-        for i in 0..26 {
-            if count[i] == 1 {
-                res = (i as u8) + b'a';
-                break;
-            }
-        }
-        char::from(res)
+        count[(t[n] - b'a') as usize] -= 1;
+        char::from(b'a' + count.iter().position(|&v| v != 0).unwrap() as u8)
     }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_the_difference(s: String, t: String) -> char {
+        let mut ans = 0;
+        for c in s.as_bytes() {
+            ans ^= c;
+        }
+        for c in t.as_bytes() {
+            ans ^= c;
+        }
+        char::from(ans)
+    }
+}
+```
+
+### **C**
+
+```c
+char findTheDifference(char *s, char *t) {
+    int n = strlen(s);
+    int count[26] = {0};
+    for (int i = 0; i < n; i++) {
+        count[s[i] - 'a']++;
+        count[t[i] - 'a']--;
+    }
+    count[t[n] - 'a']--;
+    int i;
+    for (i = 0; i < 26; i++) {
+        if (count[i]) {
+            break;
+        }
+    }
+    return 'a' + i;
+}
+```
+
+```c
+char findTheDifference(char *s, char *t) {
+    int n = strlen(s);
+    char ans = 0;
+    for (int i = 0; i < n; i++) {
+        ans ^= s[i];
+        ans ^= t[i];
+    }
+    ans ^= t[n];
+    return ans;
 }
 ```
 
