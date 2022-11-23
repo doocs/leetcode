@@ -4,8 +4,8 @@ public:
         int cnt[50] = {0};
         int ans = 0;
         for (int i = lowLimit; i <= highLimit; ++i) {
-            int x = i, y = 0;
-            for (; x; x /= 10) {
+            int y = 0;
+            for (int x = i; x; x /= 10) {
                 y += x % 10;
             }
             ans = max(ans, ++cnt[y]);

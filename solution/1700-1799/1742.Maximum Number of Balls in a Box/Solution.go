@@ -1,8 +1,8 @@
 func countBalls(lowLimit int, highLimit int) (ans int) {
 	cnt := [50]int{}
 	for i := lowLimit; i <= highLimit; i++ {
-		x, y := i, 0
-		for ; x > 0; x /= 10 {
+		y := 0
+		for x := i; x > 0; x /= 10 {
 			y += x % 10
 		}
 		cnt[y]++

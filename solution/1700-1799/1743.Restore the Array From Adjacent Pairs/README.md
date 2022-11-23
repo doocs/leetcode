@@ -93,26 +93,19 @@ class Solution:
 ```python
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
-        def dfs(i):
-            if i in vis:
-                return
-            vis.add(i)
+        def dfs(i, fa):
             ans.append(i)
             for j in g[i]:
-                dfs(j)
+                if j != fa:
+                    dfs(j, i)
 
         g = defaultdict(list)
         for a, b in adjacentPairs:
             g[a].append(b)
             g[b].append(a)
+        i = next(i for i, v in g.items() if len(v) == 1)
         ans = []
-        vis = set()
-        start = -1
-        for i, v in g.items():
-            if len(v) == 1:
-                start = i
-                break
-        dfs(start)
+        dfs(i, 1e6)
         return ans
 ```
 
@@ -149,38 +142,96 @@ class Solution {
 
 ```java
 class Solution {
+    private Map<Integer, List<Integer>> g = new HashMap<>();
+    private int[] ans;
+
     public int[] restoreArray(int[][] adjacentPairs) {
-        int n = adjacentPairs.length + 1;
-        Map<Integer, List<Integer>> g = new HashMap<>();
-        for (int[] e : adjacentPairs) {
+        for (var e : adjacentPairs) {
             int a = e[0], b = e[1];
             g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
             g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
         }
-        List<Integer> ans = new ArrayList<>();
-        Set<Integer> vis = new HashSet<>();
-        int start = -1;
-        for (Map.Entry<Integer, List<Integer>> entry : g.entrySet()) {
-            if (entry.getValue().size() == 1) {
-                start = entry.getKey();
+        int n = adjacentPairs.length + 1;
+        ans = new int[n];
+        for (var e : g.entrySet()) {
+            if (e.getValue().size() == 1) {
+                dfs(e.getKey(), 1000000, 0);
                 break;
             }
         }
-        dfs(g, ans, vis, start);
-        return ans.stream().mapToInt(Integer::valueOf).toArray();
+        return ans;
     }
 
-    private void dfs(Map<Integer, List<Integer>> g, List<Integer> ans, Set<Integer> vis, int i) {
-        if (vis.contains(i)) {
-            return;
-        }
-        vis.add(i);
-        ans.add(i);
+    private void dfs(int i, int fa, int k) {
+        ans[k++] = i;
         for (int j : g.get(i)) {
-            dfs(g, ans, vis, j);
+            if (j != fa) {
+                dfs(j, i, k);
+            }
         }
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
+        int n = adjacentPairs.size() + 1;
+        unordered_map<int, vector<int>> g;
+        for (auto& e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        for (auto& [k, v] : g) {
+            if (v.size() == 1) {
+                ans[0] = k;
+                ans[1] = v[0];
+                break;
+            }
+        }
+        for (int i = 2; i < n; ++i) {
+            auto v = g[ans[i - 1]];
+            ans[i] = v[0] == ans[i - 2] ? v[1] : v[0];
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
+        unordered_map<int, vector<int>> g;
+        for (auto& e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        int n = adjacentPairs.size() + 1;
+        vector<int> ans;
+        function<void(int, int)> dfs = [&](int i, int fa) {
+            ans.emplace_back(i);
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs(j, i);
+                }
+            }
+        };
+        for (auto& [i, v] : g) {
+            if (v.size() == 1) {
+                dfs(i, 1e6);
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
@@ -222,93 +273,23 @@ func restoreArray(adjacentPairs [][]int) []int {
 		g[b] = append(g[b], a)
 	}
 	ans := []int{}
-	vis := map[int]bool{}
-	var start int
+	var dfs func(i, fa int)
+	dfs = func(i, fa int) {
+		ans = append(ans, i)
+		for _, j := range g[i] {
+			if j != fa {
+				dfs(j, i)
+			}
+		}
+	}
 	for i, v := range g {
 		if len(v) == 1 {
-			start = i
+			dfs(i, 1000000)
 			break
 		}
 	}
-	var dfs func(i int)
-	dfs = func(i int) {
-		if vis[i] {
-			return
-		}
-		vis[i] = true
-		ans = append(ans, i)
-		for _, j := range g[i] {
-			dfs(j)
-		}
-	}
-	dfs(start)
 	return ans
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
-        int n = adjacentPairs.size() + 1;
-        unordered_map<int, vector<int>> g;
-        for (auto& e : adjacentPairs) {
-            int a = e[0], b = e[1];
-            g[a].push_back(b);
-            g[b].push_back(a);
-        }
-        vector<int> ans(n);
-        for (auto& [k, v] : g) {
-            if (v.size() == 1) {
-                ans[0] = k;
-                ans[1] = v[0];
-                break;
-            }
-        }
-        for (int i = 2; i < n; ++i) {
-            auto v = g[ans[i - 1]];
-            ans[i] = v[0] == ans[i - 2] ? v[1] : v[0];
-        }
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
-        int n = adjacentPairs.size() + 1;
-        unordered_map<int, vector<int>> g;
-        for (auto& e : adjacentPairs) {
-            int a = e[0], b = e[1];
-            g[a].push_back(b);
-            g[b].push_back(a);
-        }
-        vector<int> ans;
-        unordered_set<int> vis;
-        int start = -1;
-        for (auto& [k, v] : g) {
-            if (v.size() == 1) {
-                start = k;
-                break;
-            }
-        }
-        dfs(g, ans, vis, start);
-        return ans;
-    }
-
-    void dfs(unordered_map<int, vector<int>>& g, vector<int>& ans, unordered_set<int>& vis, int i) {
-        if (vis.count(i)) return;
-        ans.push_back(i);
-        vis.insert(i);
-        for (int j : g[i]) {
-            dfs(g, ans, vis, j);
-        }
-    }
-};
 ```
 
 ### **...**

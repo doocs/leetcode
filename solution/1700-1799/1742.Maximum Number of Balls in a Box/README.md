@@ -60,9 +60,9 @@
 
 **方法一：数组 + 模拟**
 
-根据题意我们知道，小球的编号最大不超过 $10^5$，每个编号的各个位数之和的最大值小于 $50$，因此，我们可以用一个长度为 $50$ 的数组来统计每个编号的各个位数之和的数量。
+观察题目的数据范围，小球的编号最大不超过 $10^5$，那么每个编号的各个位数之和的最大值小于 $50$。因此，我们可以直接开一个长度为 $50$ 的数组 `cnt` 来统计每个编号的各个位数之和的数量。
 
-答案就是这个数组中的最大值。
+答案就是数组 `cnt` 中的最大值。
 
 时间复杂度 $O(n \times \log_{10}m)$。其中 $n = highLimit - lowLimit + 1$，而 $m = highLimit$。
 
@@ -94,8 +94,8 @@ class Solution {
     public int countBalls(int lowLimit, int highLimit) {
         int[] cnt = new int[50];
         for (int i = lowLimit; i <= highLimit; ++i) {
-            int x = i, y = 0;
-            for (; x > 0; x /= 10) {
+            int y = 0;
+            for (int x = i; x > 0; x /= 10) {
                 y += x % 10;
             }
             ++cnt[y];
@@ -114,8 +114,8 @@ public:
         int cnt[50] = {0};
         int ans = 0;
         for (int i = lowLimit; i <= highLimit; ++i) {
-            int x = i, y = 0;
-            for (; x; x /= 10) {
+            int y = 0;
+            for (int x = i; x; x /= 10) {
                 y += x % 10;
             }
             ans = max(ans, ++cnt[y]);
@@ -131,8 +131,8 @@ public:
 func countBalls(lowLimit int, highLimit int) (ans int) {
 	cnt := [50]int{}
 	for i := lowLimit; i <= highLimit; i++ {
-		x, y := i, 0
-		for ; x > 0; x /= 10 {
+		y := 0
+		for x := i; x > 0; x /= 10 {
 			y += x % 10
 		}
 		cnt[y]++
