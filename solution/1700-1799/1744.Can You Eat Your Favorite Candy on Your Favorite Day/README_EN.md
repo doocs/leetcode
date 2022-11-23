@@ -59,13 +59,76 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canEat(self, candiesCount: List[int], queries: List[List[int]]) -> List[bool]:
+        s = list(accumulate(candiesCount, initial=0))
+        ans = []
+        for t, day, mx in queries:
+            least, most = day, (day + 1) * mx
+            ans.append(least < s[t + 1] and most > s[t])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean[] canEat(int[] candiesCount, int[][] queries) {
+        int n = candiesCount.length;
+        long[] s = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + candiesCount[i];
+        }
+        int m = queries.length;
+        boolean[] ans = new boolean[m];
+        for (int i = 0; i < m; ++i) {
+            int t = queries[i][0], day = queries[i][1], mx = queries[i][2];
+            long least = day, most = (long) (day + 1) * mx;
+            ans[i] = least < s[t + 1] && most > s[t];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    vector<bool> canEat(vector<int>& candiesCount, vector<vector<int>>& queries) {
+        int n = candiesCount.size();
+        vector<ll> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + candiesCount[i];
+        vector<bool> ans;
+        for (auto& q : queries) {
+            int t = q[0], day = q[1], mx = q[2];
+            ll least = day, most = 1ll * (day + 1) * mx;
+            ans.emplace_back(least < s[t + 1] && most > s[t]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canEat(candiesCount []int, queries [][]int) (ans []bool) {
+	n := len(candiesCount)
+	s := make([]int, n+1)
+	for i, v := range candiesCount {
+		s[i+1] = s[i] + v
+	}
+	for _, q := range queries {
+		t, day, mx := q[0], q[1], q[2]
+		least, most := day, (day+1)*mx
+		ans = append(ans, least < s[t+1] && most > s[t])
+	}
+	return
+}
 ```
 
 ### **...**
