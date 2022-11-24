@@ -155,6 +155,37 @@ func isAlienSorted(words []string, order string) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function isAlienSorted(words: string[], order: string): boolean {
+    const map = new Map();
+    for (const c of order) {
+        map.set(c, map.size);
+    }
+    const n = words.length;
+    for (let i = 1; i < n; i++) {
+        const s1 = words[i - 1];
+        const s2 = words[i];
+        const m = Math.min(s1.length, s2.length);
+        let isEqual = false;
+        for (let j = 0; j < m; j++) {
+            if (map.get(s1[j]) > map.get(s2[j])) {
+                return false;
+            }
+            if (map.get(s1[j]) < map.get(s2[j])) {
+                isEqual = true;
+                break;
+            }
+        }
+        if (!isEqual && s1.length > s2.length) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -185,6 +216,40 @@ impl Solution {
         }
         true
     }
+}
+```
+
+### **C**
+
+```c
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+
+bool isAlienSorted(char **words, int wordsSize, char *order) {
+    int map[26] = {0};
+    for (int i = 0; i < 26; i++) {
+        map[order[i] - 'a'] = i;
+    }
+    for (int i = 1; i < wordsSize; i++) {
+        char *s1 = words[i - 1];
+        char *s2 = words[i];
+        int n = strlen(s1);
+        int m = strlen(s2);
+        int len = min(n, m);
+        int isEqual = 1;
+        for (int j = 0; j < len; j++) {
+            if (map[s1[j] - 'a'] > map[s2[j] - 'a']) {
+                return 0;
+            }
+            if (map[s1[j] - 'a'] < map[s2[j] - 'a']) {
+                isEqual = 0;
+                break;
+            }
+        }
+        if (isEqual && n > m) {
+            return 0;
+        }
+    }
+    return 1;
 }
 ```
 
