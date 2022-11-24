@@ -40,18 +40,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-通过下面这段伪代码，不难理解除法本质上就是减法，但是一次循环只能做一次减法，效率太低会导致超时，所以再加上快速幂的思想优化即可
+**方法一：模拟 + 快速幂**
 
-```py
-sign = -1 if a * b < 0 else 1
-a = abs(a)
-b = abs(b)
-cnt = 0
-while a >= b:
-    a -= b
-    cnt += 1
-return sign * cnt
-```
+除法本质上就是减法，题目要求我们计算出两个数相除之后的取整结果，其实就是计算被除数是多少个除数加上一个小于除数的数构成的。但是一次循环只能做一次减法，效率太低会导致超时，可借助快速幂的思想进行优化。
+
+需要注意的是，由于题目明确要求最大只能使用 32 位有符号整数，所以需要将除数和被除数同时转换为负数进行计算。因为转换正数可能会导致溢出，如当被除数为 `INT32_MIN` 时，转换为正数时会大于 `INT32_MAX`。
+
+假设被除数为 `a`，除数为 `b`，则时间复杂度为 $O(\log a \times \log b)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -112,36 +107,34 @@ class Solution {
 
 ```go
 func divide(a int, b int) int {
-	sign := 1
-	if a*b < 0 {
-		sign = -1
+	sign, ans, INT32_MAX, INT32_MIN, LIMIT := false, 0, 1<<31-1, -1<<31, -1<<31/2
+	if (a > 0 && b < 0) || (a < 0 && b > 0) {
+		sign = true
 	}
-
-	a = abs(a)
-	b = abs(b)
-
-	tot := 0
-	for a >= b {
+	a, b = convert(a), convert(b)
+	for a <= b {
 		cnt := 0
-		for a >= (b << (cnt + 1)) {
+		// (b<<cnt) >= LIMIT 是为了避免 b<<(cnt+1) 发生溢出
+		for (b<<cnt) >= LIMIT && a <= (b<<(cnt+1)) {
 			cnt++
 		}
-		tot += 1 << cnt
-		a -= b << cnt
+		ans = ans + -1<<cnt
+		a = a - b<<cnt
 	}
-
-	ans := sign * tot
-	if ans >= math.MinInt32 && ans <= math.MaxInt32 {
+	if sign {
 		return ans
 	}
-	return math.MaxInt32
+	if ans == INT32_MIN {
+		return INT32_MAX
+	}
+	return -ans
 }
 
-func abs(a int) int {
-	if a < 0 {
-		return -a
+func convert(v int) int {
+	if v > 0 {
+		return -v
 	}
-	return a
+	return v
 }
 ```
 
