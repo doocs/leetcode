@@ -104,20 +104,20 @@ class Solution {
 ```ts
 function freqAlphabets(s: string): string {
     const n = s.length;
-    const res = [];
+    const ans = [];
     let i = 0;
     while (i < n) {
-        let code: string;
-        if (s[i + 2] === '#') {
-            code = s.slice(i, i + 2);
+        if (s[i + 2] == '#') {
+            ans.push(s.slice(i, i + 2));
             i += 3;
         } else {
-            code = s[i];
+            ans.push(s[i]);
             i += 1;
         }
-        res.push(code);
     }
-    return res.map(v => String.fromCharCode(96 + Number(v))).join('');
+    return ans
+        .map(c => String.fromCharCode('a'.charCodeAt(0) + Number(c) - 1))
+        .join('');
 }
 ```
 
@@ -139,10 +139,34 @@ impl Solution {
                 code = s[i];
                 i += 1;
             }
-            res.push(char::from(97 + code - b'1'));
+            res.push(char::from('a' as u8 + code - b'1'));
         }
         res
     }
+}
+```
+
+### **C**
+
+```c
+char *freqAlphabets(char *s) {
+    int n = strlen(s);
+    int i = 0;
+    int j = 0;
+    char *ans = malloc(sizeof(s) * n);
+    while (i < n) {
+        int t;
+        if (i + 2 < n && s[i + 2] == '#') {
+            t = (s[i] - '0') * 10 + s[i + 1];
+            i += 3;
+        } else {
+            t = s[i];
+            i += 1;
+        }
+        ans[j++] = 'a' + t - '1';
+    }
+    ans[j] = '\0';
+    return ans;
 }
 ```
 

@@ -1,17 +1,17 @@
 function freqAlphabets(s: string): string {
     const n = s.length;
-    const res = [];
+    const ans = [];
     let i = 0;
     while (i < n) {
-        let code: string;
-        if (s[i + 2] === '#') {
-            code = s.slice(i, i + 2);
+        if (s[i + 2] == '#') {
+            ans.push(s.slice(i, i + 2));
             i += 3;
         } else {
-            code = s[i];
+            ans.push(s[i]);
             i += 1;
         }
-        res.push(code);
     }
-    return res.map(v => String.fromCharCode(96 + Number(v))).join('');
+    return ans
+        .map(c => String.fromCharCode('a'.charCodeAt(0) + Number(c) - 1))
+        .join('');
 }
