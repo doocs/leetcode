@@ -1,4 +1,4 @@
-func expressiveWords(s string, words []string) int {
+func expressiveWords(s string, words []string) (ans int) {
 	check := func(s, t string) bool {
 		m, n := len(s), len(t)
 		if n > m {
@@ -26,7 +26,6 @@ func expressiveWords(s string, words []string) int {
 		}
 		return i == m && j == n
 	}
-	ans := 0
 	for _, t := range words {
 		if check(s, t) {
 			ans++

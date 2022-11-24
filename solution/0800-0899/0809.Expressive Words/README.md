@@ -45,17 +45,17 @@ words = ["hello", "hi", "helo"]
 
 **方法一：双指针**
 
-遍历 `words` 数组，对于每个单词 `t`，判断当前单词 `t` 是否可以通过扩张得到 `s`，如果可以，答案加一。
+遍历数组 `words`，对于每个单词 $t$，判断当前单词 $t$ 是否可以通过扩张得到 $s$，如果可以，那么答案加一。
 
-问题的关键在于判断当前单词 `t` 是否可以通过扩张得到 `s`。
+因此，问题的关键在于判断单词 $t$ 是否可以通过扩张得到 $s$。这里我们通过一个 $check(s, t)$ 函数来判断。函数的具体实现逻辑如下：
 
-我们可以使用双指针 `i` 和 `j` 分别指向 `s` 和 `t`，初始时 `i = j = 0`。
+我们首先用双指针 $i$ 和 $j$ 分别指向 $s$ 和 $t$，初始时 $i$ 和 $j$ 的值均为 $0$。
 
-如果 `i` 和 `j` 指向的字符不同，那么 `t` 无法通过扩张得到 `s`，直接返回 `false`；否则，我们需要判断 `s` 中 `i` 指向的字符的连续出现次数 `c1` 和 `t` 中 `j` 指向的字符的连续出现次数 `c2` 的关系。如果 `c1 < c2` 或者 `c1 < 3 && c1 != c2`，那么 `t` 无法通过扩张得到 `s`，直接返回 `false`；否则，将 `i` 和 `j` 分别右移 `c1` 和 `c2` 次。
+如果 $i$ 和 $j$ 指向的字符不同，那么 $t$ 无法通过扩张得到 $s$，直接返回 `false`；否则，我们需要判断 $i$ 指向的字符的连续出现次数 $c_1$ 和 $j$ 指向的字符的连续出现次数 $c_2$ 的关系。如果 $c_1 \lt c_2$ 或者 $c_1 \lt 3$ 并且 $c_1 \neq c_2$，那么 $t$ 无法通过扩张得到 $s$，直接返回 `false`；否则，将 $i$ 和 $j$ 分别右移 $c_1$ 和 $c_2$ 次。继续判断。
 
-如果 `i` 和 `j` 都到达了字符串的末尾，那么 `t` 可以通过扩张得到 `s`，返回 `true`，否则返回 `false`。
+如果 $i$ 和 $j$ 都到达了字符串的末尾，那么 $t$ 可以通过扩张得到 $s$，返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(L)$，空间复杂度 $O(1)$。其中 $L$ 为 `words` 数组中所有单词的长度之和。
+时间复杂度 $O(n \times m + \sum_{i=0}^{m-1} w_i)$，其中 $n$ 和 $m$ 分别为字符串 $s$ 和数组 $words$ 的长度，而 $w_i$ 为数组 $words$ 中第 $i$ 个单词的长度。
 
 <!-- tabs:start -->
 
@@ -143,27 +143,27 @@ class Solution {
 class Solution {
 public:
     int expressiveWords(string s, vector<string>& words) {
+        auto check = [](string&s, string& t) -> int {
+            int m = s.size(), n = t.size();
+            if (n > m) return 0;
+            int i = 0, j = 0;
+            while (i < m && j < n) {
+                if (s[i] != t[j]) return 0;
+                int k = i;
+                while (k < m && s[k] == s[i]) ++k;
+                int c1 = k - i;
+                i = k, k = j;
+                while (k < n && t[k] == t[j]) ++k;
+                int c2 = k - j;
+                j = k;
+                if (c1 < c2 || (c1 < 3 && c1 != c2)) return 0;
+            }
+            return i == m && j == n;
+        };
+
         int ans = 0;
         for (string& t : words) ans += check(s, t);
         return ans;
-    }
-
-    int check(string& s, string& t) {
-        int m = s.size(), n = t.size();
-        if (n > m) return 0;
-        int i = 0, j = 0;
-        while (i < m && j < n) {
-            if (s[i] != t[j]) return 0;
-            int k = i;
-            while (k < m && s[k] == s[i]) ++k;
-            int c1 = k - i;
-            i = k, k = j;
-            while (k < n && t[k] == t[j]) ++k;
-            int c2 = k - j;
-            j = k;
-            if (c1 < c2 || (c1 < 3 && c1 != c2)) return 0;
-        }
-        return i == m && j == n;
     }
 };
 ```
@@ -171,7 +171,7 @@ public:
 ### **Go**
 
 ```go
-func expressiveWords(s string, words []string) int {
+func expressiveWords(s string, words []string) (ans int) {
 	check := func(s, t string) bool {
 		m, n := len(s), len(t)
 		if n > m {
@@ -199,7 +199,6 @@ func expressiveWords(s string, words []string) int {
 		}
 		return i == m && j == n
 	}
-	ans := 0
 	for _, t := range words {
 		if check(s, t) {
 			ans++
