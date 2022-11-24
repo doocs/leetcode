@@ -1,54 +1,30 @@
 func threeSumClosest(nums []int, target int) int {
-	sort(nums)
-	lenNums := len(nums)
-	result := nums[0] + nums[1] + nums[2]
-	for i, n := range nums {
-		left := i + 1
-		right := lenNums - 1
-		for left < right {
-			r := nums[left] + nums[right] + n
-			if abs(r - target) < abs(result - target) {
-				result = r
+	sort.Ints(nums)
+	ans := 1 << 30
+	n := len(nums)
+	for i, v := range nums {
+		j, k := i+1, n-1
+		for j < k {
+			t := v + nums[j] + nums[k]
+			if t == target {
+				return t
 			}
-			if r > target {
-				right--
-			} else if r < target {
-				left++
+			if abs(t-target) < abs(ans-target) {
+				ans = t
+			}
+			if t > target {
+				k--
 			} else {
-				return result
+				j++
 			}
 		}
 	}
-	return result
+	return ans
 }
 
-func abs(a int) int {
-	if a >= 0 {
-		return a
+func abs(x int) int {
+	if x < 0 {
+		return -x
 	}
-	return -a;
-}
-
-// quick sort
-func sort(array []int) {
-	if len(array) == 0 {
-		return
-	}
-	left := 0
-	right := len(array) - 1
-	obj := array[left]
-	for left < right {
-		for left < right && array[right] >= obj {
-			right--
-		}
-		array[left] = array[right]
-
-		for left < right && array[left] <= obj {
-			left++
-		}
-		array[right] = array[left]
-	}
-	array[left] = obj
-	sort(array[:left])
-	sort(array[right+1:])
+	return x
 }

@@ -45,31 +45,22 @@
 ```python
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
-        def twoSumClosest(nums, start, end, target):
-            res = 0
-            diff = 10000
-            while start < end:
-                val = nums[start] + nums[end]
-                if val == target:
-                    return val
-                if abs(val - target) < diff:
-                    res = val
-                    diff = abs(val - target)
-                if val < target:
-                    start += 1
-                else:
-                    end -= 1
-            return res
-
         nums.sort()
-        res, n = 0, len(nums)
-        diff = 10000
-        for i in range(n - 2):
-            t = twoSumClosest(nums, i + 1, n - 1, target - nums[i])
-            if abs(nums[i] + t - target) < diff:
-                res = nums[i] + t
-                diff = abs(nums[i] + t - target)
-        return res
+        n = len(nums)
+        ans = inf
+        for i, v in enumerate(nums):
+            j, k = i + 1, n - 1
+            while j < k:
+                t = v + nums[j] + nums[k]
+                if t == target:
+                    return t
+                if abs(t - target) < abs(ans - target):
+                    ans = t
+                if t > target:
+                    k -= 1
+                else:
+                    j += 1
+        return ans
 ```
 
 ### **Java**
@@ -78,39 +69,86 @@ class Solution:
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
-        int res = 0;
+        int ans = 1 << 30;
         int n = nums.length;
-        int diff = Integer.MAX_VALUE;
-        for (int i = 0; i < n - 2; ++i) {
-            int t = twoSumClosest(nums, i + 1, n - 1, target - nums[i]);
-            if (Math.abs(nums[i] + t - target) < diff) {
-                res = nums[i] + t;
-                diff = Math.abs(nums[i] + t - target);
+        for (int i = 0; i < n; ++i) {
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                int t = nums[i] + nums[j] + nums[k];
+                if (t == target) {
+                    return t;
+                }
+                if (Math.abs(t - target) < Math.abs(ans - target)) {
+                    ans = t;
+                }
+                if (t > target) {
+                    --k;
+                } else {
+                    ++j;
+                }
             }
         }
-        return res;
+        return ans;
     }
+}
+```
 
-    private int twoSumClosest(int[] nums, int start, int end, int target) {
-        int res = 0;
-        int diff = Integer.MAX_VALUE;
-        while (start < end) {
-            int val = nums[start] + nums[end];
-            if (val == target) {
-                return val;
-            }
-            if (Math.abs(val - target) < diff) {
-                res = val;
-                diff = Math.abs(val - target);
-            }
-            if (val < target) {
-                ++start;
-            } else {
-                --end;
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        int ans = 1 << 30;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                int t = nums[i] + nums[j] + nums[k];
+                if (t == target) return t;
+                if (abs(t - target) < abs(ans - target)) ans = t;
+                if (t > target) -- k;
+                else ++j;
             }
         }
-        return res;
+        return ans;
     }
+};
+```
+
+### **Go**
+
+```go
+func threeSumClosest(nums []int, target int) int {
+	sort.Ints(nums)
+	ans := 1 << 30
+	n := len(nums)
+	for i, v := range nums {
+		j, k := i+1, n-1
+		for j < k {
+			t := v + nums[j] + nums[k]
+			if t == target {
+				return t
+			}
+			if abs(t-target) < abs(ans-target) {
+				ans = t
+			}
+			if t > target {
+				k--
+			} else {
+				j++
+			}
+		}
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 
@@ -123,43 +161,28 @@ class Solution {
  * @return {number}
  */
 var threeSumClosest = function (nums, target) {
-    let len = nums.length;
     nums.sort((a, b) => a - b);
-    let diff = Infinity;
-    let res;
-    for (let i = 0; i < len - 2; i++) {
-        if (i > 0 && nums[i] === nums[i - 1]) continue;
-        let left = i + 1,
-            right = len - 1;
-        let cur = nums[i] + nums[i + 1] + nums[i + 2];
-        if (cur > target) {
-            let newDiff = Math.abs(cur - target);
-            if (newDiff < diff) {
-                diff = newDiff;
-                res = cur;
+    let ans = 1 << 30;
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        let j = i + 1;
+        let k = n - 1;
+        while (j < k) {
+            const t = nums[i] + nums[j] + nums[k];
+            if (t == target) {
+                return t;
             }
-            break;
-        }
-        while (left < right) {
-            cur = nums[i] + nums[left] + nums[right];
-            if (cur === target) return target;
-            let newDiff = Math.abs(cur - target);
-            if (newDiff < diff) {
-                diff = newDiff;
-                res = cur;
+            if (Math.abs(t - target) < Math.abs(ans - target)) {
+                ans = t;
             }
-            if (cur < target) {
-                while (nums[left] === nums[left + 1]) left++;
-                left++;
-                continue;
+            if (t > target) {
+                --k;
             } else {
-                while (nums[right] === nums[right - 1]) right--;
-                right--;
-                continue;
+                ++j;
             }
         }
     }
-    return res;
+    return ans;
 };
 ```
 
