@@ -1524,7 +1524,7 @@
 |  1511  |  [消费者下单频率](/solution/1500-1599/1511.Customer%20Order%20Frequency/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  1512  |  [好数对的数目](/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README.md)  |  `数组`,`哈希表`,`数学`,`计数`  |  简单  |  第 197 场周赛  |
 |  1513  |  [仅含 1 的子串数](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)  |  `数学`,`字符串`  |  中等  |  第 197 场周赛  |
-|  1514  |  [概率最大的路径](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md)  |  `图`,`最短路`,`堆（优先队列）`  |  中等  |  第 197 场周赛  |
+|  1514  |  [概率最大的路径](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md)  |  `图`,`数组`,`最短路`,`堆（优先队列）`  |  中等  |  第 197 场周赛  |
 |  1515  |  [服务中心的最佳位置](/solution/1500-1599/1515.Best%20Position%20for%20a%20Service%20Centre/README.md)  |  `几何`,`数学`,`随机化`  |  困难  |  第 197 场周赛  |
 |  1516  |  [移动 N 叉树的子树](/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README.md)  |  `树`,`深度优先搜索`  |  困难  |  🔒  |
 |  1517  |  [查找拥有有效邮箱的用户](/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README.md)  |  `数据库`  |  简单  |  🔒  |
@@ -2483,12 +2483,14 @@
 |  2470  |  [最小公倍数为 K 的子数组数目](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README.md)  |  `数组`,`数学`,`数论`  |  中等  |  第 319 场周赛  |
 |  2471  |  [逐层排序二叉树所需的最少操作数目](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README.md)  |  `树`,`广度优先搜索`,`二叉树`  |  中等  |  第 319 场周赛  |
 |  2472  |  [不重叠回文子字符串的最大数目](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README.md)  |  `字符串`,`动态规划`  |  困难  |  第 319 场周赛  |
-|  2473  |  [Minimum Cost to Buy Apples](/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README.md)  |    |  中等  |  🔒  |
-|  2474  |  [Customers With Strictly Increasing Purchases](/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README.md)  |    |  中等  |  🔒  |
-|  2475  |  [数组中不等三元组的数目](/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README.md)  |    |  简单  |  第 320 场周赛  |
-|  2476  |  [二叉搜索树最近节点查询](/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README.md)  |    |  中等  |  第 320 场周赛  |
-|  2477  |  [到达首都的最少油耗](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md)  |    |  中等  |  第 320 场周赛  |
-|  2478  |  [完美分割的方案数](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)  |    |  困难  |  第 320 场周赛  |
+|  2473  |  [Minimum Cost to Buy Apples](/solution/2400-2499/2473.Minimum%20Cost%20to%20Buy%20Apples/README.md)  |  `图`,`数组`,`最短路`,`堆（优先队列）`  |  中等  |  🔒  |
+|  2474  |  [Customers With Strictly Increasing Purchases](/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README.md)  |  `数据库`  |  困难  |  🔒  |
+|  2475  |  [数组中不等三元组的数目](/solution/2400-2499/2475.Number%20of%20Unequal%20Triplets%20in%20Array/README.md)  |  `数组`,`哈希表`  |  简单  |  第 320 场周赛  |
+|  2476  |  [二叉搜索树最近节点查询](/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README.md)  |  `树`,`深度优先搜索`,`数组`,`二分查找`,`二叉树`  |  中等  |  第 320 场周赛  |
+|  2477  |  [到达首都的最少油耗](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`图`  |  中等  |  第 320 场周赛  |
+|  2478  |  [完美分割的方案数](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)  |  `字符串`,`动态规划`  |  困难  |  第 320 场周赛  |
+|  2479  |  [Maximum XOR of Two Non-Overlapping Subtrees](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README.md)  |    |  困难  |  🔒  |
+|  2480  |  [Form a Chemical Bond](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 

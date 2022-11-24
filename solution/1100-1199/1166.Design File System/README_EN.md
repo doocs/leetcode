@@ -53,9 +53,10 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of&nbsp;calls to the two functions&nbsp;is less than or equal to <code>10<sup>4</sup></code> in total.</li>
 	<li><code>2 &lt;= path.length &lt;= 100</code></li>
 	<li><code>1 &lt;= value &lt;= 10<sup>9</sup></code></li>
+	<li>Each <code>path</code> is <strong>valid</strong> and consists of lowercase English letters and <code>&#39;/&#39;</code>.</li>
+	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>createPath</code> and <code>get</code>.</li>
 </ul>
 
 ## Solutions

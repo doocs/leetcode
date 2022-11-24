@@ -18,7 +18,7 @@
 | price        | int  |
 +--------------+------+
 order_id is the primary key for this table.
-Each row contains the id of an order, the id of 
+Each row contains the id of an order, the id of customer that ordered it, the date of the order, and its price.
 </pre>
 
 <p>&nbsp;</p>

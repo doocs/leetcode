@@ -21,7 +21,7 @@ This table contains information of the patients in the hospital.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the patient_id, patient_name all conditions of patients who have Type I Diabetes. Type I Diabetes always starts with <code>DIAB1</code> prefix</p>
+<p>Write an SQL query to report the patient_id, patient_name and conditions of the patients who have Type I Diabetes. Type I Diabetes always starts with <code>DIAB1</code> prefix.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
