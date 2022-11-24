@@ -54,7 +54,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         dummy = ListNode(next=head)
         fast = slow = dummy
         for _ in range(n):
@@ -138,19 +138,16 @@ public:
  * }
  */
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-    dummy := &ListNode{0, head}
-    fast := dummy
-    slow := dummy
-    for n > 0 {
-        fast = fast.Next
-        n -= 1
-    }
-    for fast.Next != nil {
-        slow = slow.Next
-        fast = fast.Next
-    }
-    slow.Next = slow.Next.Next
-    return dummy.Next
+	dummy := &ListNode{0, head}
+	fast, slow := dummy, dummy
+	for ; n > 0; n-- {
+		fast = fast.Next
+	}
+	for fast.Next != nil {
+		slow, fast = slow.Next, fast.Next
+	}
+	slow.Next = slow.Next.Next
+	return dummy.Next
 }
 ```
 
@@ -249,6 +246,37 @@ impl Solution {
         slow.as_mut().unwrap().next = slow.as_mut().unwrap().next.as_mut().unwrap().next.take();
         dummy.unwrap().next
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+    const dummy = new ListNode(0, head);
+    let fast = dummy;
+    let slow = dummy;
+    while (n--) {
+        fast = fast.next;
+    }
+    while (fast.next) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    slow.next = slow.next.next;
+    return dummy.next;
 }
 ```
 
