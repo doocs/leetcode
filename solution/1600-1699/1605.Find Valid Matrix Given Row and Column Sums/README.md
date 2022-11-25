@@ -76,6 +76,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 构造**
+
+从左上角开始，每次选择行和列中较小的值，作为当前位置的值。即 `ans[i][j] = min(rowSum[i], colSum[j])`。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是 `rowSum` 和 `colSum` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -166,6 +172,31 @@ func min(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} rowSum
+ * @param {number[]} colSum
+ * @return {number[][]}
+ */
+var restoreMatrix = function (rowSum, colSum) {
+    const [m, n] = [rowSum.length, colSum.length];
+    const ans = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = Math.min(rowSum[i], colSum[j]);
+            ans[i][j] = x;
+            rowSum[i] -= x;
+            colSum[j] -= x;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
