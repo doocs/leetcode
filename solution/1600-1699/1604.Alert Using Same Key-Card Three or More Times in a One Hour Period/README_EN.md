@@ -50,13 +50,116 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def alertNames(self, keyName: List[str], keyTime: List[str]) -> List[str]:
+        d = defaultdict(list)
+        for name, t in zip(keyName, keyTime):
+            t = int(t[:2]) * 60 + int(t[3:])
+            d[name].append(t)
+        ans = []
+        for name, ts in d.items():
+            if (n := len(ts)) > 2:
+                ts.sort()
+                for i in range(n - 2):
+                    if ts[i + 2] - ts[i] <= 60:
+                        ans.append(name)
+                        break
+        ans.sort()
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> alertNames(String[] keyName, String[] keyTime) {
+        Map<String, List<Integer>> d = new HashMap<>();
+        for (int i = 0; i < keyName.length; ++i) {
+            String name = keyName[i];
+            String time = keyTime[i];
+            int t = Integer.parseInt(time.substring(0, 2)) * 60 + Integer.parseInt(time.substring(3));
+            d.computeIfAbsent(name, k -> new ArrayList<>()).add(t);
+        }
+        List<String> ans = new ArrayList<>();
+        for (var e : d.entrySet()) {
+            var ts = e.getValue();
+            int n = ts.size();
+            if (n > 2) {
+                Collections.sort(ts);
+                for (int i = 0; i < n - 2; ++i) {
+                    if (ts.get(i + 2) - ts.get(i) <= 60) {
+                        ans.add(e.getKey());
+                        break;
+                    }
+                }
+            }
+        }
+        Collections.sort(ans);
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> alertNames(vector<string>& keyName, vector<string>& keyTime) {
+        unordered_map<string, vector<int>> d;
+        for (int i = 0; i < keyName.size(); ++i) {
+            auto name = keyName[i];
+            auto time = keyTime[i];
+            int a, b;
+            sscanf(time.c_str(), "%d:%d", &a, &b);
+            int t = a * 60 + b;
+            d[name].emplace_back(t);
+        }
+        vector<string> ans;
+        for (auto& [name, ts] : d) {
+            int n = ts.size();
+            if (n > 2) {
+                sort(ts.begin(), ts.end());
+                for (int i = 0; i < n - 2; ++i) {
+                    if (ts[i + 2] - ts[i] <= 60) {
+                        ans.emplace_back(name);
+                        break;
+                    }
+                }
+            }
+        }
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func alertNames(keyName []string, keyTime []string) (ans []string) {
+	d := map[string][]int{}
+	for i, name := range keyName {
+		var a, b int
+		fmt.Sscanf(keyTime[i], "%d:%d", &a, &b)
+		t := a*60 + b
+		d[name] = append(d[name], t)
+	}
+	for name, ts := range d {
+		n := len(ts)
+		if n > 2 {
+			sort.Ints(ts)
+			for i := 0; i < n-2; i++ {
+				if ts[i+2]-ts[i] <= 60 {
+					ans = append(ans, name)
+					break
+				}
+			}
+		}
+	}
+	sort.Strings(ans)
+	return
+}
 ```
 
 ### **...**
