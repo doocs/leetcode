@@ -16,13 +16,12 @@
 // }
 impl Solution {
     pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
+        let mut ans = 0;
         let mut cur = &head;
-        let mut res = 0;
         while let Some(node) = cur {
-            res <<= 1;
-            res |= node.val;
+            ans = (ans << 1) | node.val;
             cur = &node.next;
         }
-        res
+        ans
     }
 }

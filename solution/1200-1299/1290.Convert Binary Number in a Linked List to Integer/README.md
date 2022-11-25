@@ -111,30 +111,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {number}
- */
-var getDecimalValue = function (head) {
-    let res = 0;
-    while (head != null) {
-        res = (res << 1) + head.val;
-        head = head.next;
-    }
-    return res;
-};
-```
-
 ### **C++**
 
 ```cpp
@@ -159,6 +135,56 @@ public:
 };
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number}
+ */
+var getDecimalValue = function (head) {
+    let res = 0;
+    while (head != null) {
+        res = (res << 1) + head.val;
+        head = head.next;
+    }
+    return res;
+};
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function getDecimalValue(head: ListNode | null): number {
+    let ans = 0;
+    let cur = head;
+    while (cur) {
+        ans = (ans << 1) | cur.val;
+        cur = cur.next;
+    }
+    return ans;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -180,15 +206,37 @@ public:
 // }
 impl Solution {
     pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
+        let mut ans = 0;
         let mut cur = &head;
-        let mut res = 0;
         while let Some(node) = cur {
-            res <<= 1;
-            res |= node.val;
+            ans = (ans << 1) | node.val;
             cur = &node.next;
         }
-        res
+        ans
     }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+int getDecimalValue(struct ListNode *head) {
+    int ans = 0;
+    struct ListNode *cur = head;
+    while (cur) {
+        ans = (ans << 1) | cur->val;
+        cur = cur->next;
+    }
+    return ans;
 }
 ```
 
