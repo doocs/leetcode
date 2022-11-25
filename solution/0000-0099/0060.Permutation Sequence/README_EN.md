@@ -45,13 +45,134 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getPermutation(self, n: int, k: int) -> str:
+        ans = []
+        vis = [False] * (n + 1)
+        for i in range(n):
+            fact = 1
+            for j in range(1, n - i):
+                fact *= j
+            for j in range(1, n + 1):
+                if not vis[j]:
+                    if k > fact:
+                        k -= fact
+                    else:
+                        ans.append(str(j))
+                        vis[j] = True
+                        break
+        return ''.join(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String getPermutation(int n, int k) {
+        StringBuilder ans = new StringBuilder();
+        boolean[] vis = new boolean[n + 1];
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) {
+                fact *= j;
+            }
+            for (int j = 1; j <= n; ++j) {
+                if (!vis[j]) {
+                    if (k > fact) {
+                        k -= fact;
+                    } else {
+                        ans.append(j);
+                        vis[j] = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        string ans;
+        bitset<10> vis;
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) fact *= j;
+            for (int j = 1; j <= n; ++j) {
+                if (vis[j]) continue;
+                if (k > fact) k -= fact;
+                else {
+                    ans += to_string(j);
+                    vis[j] = 1;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getPermutation(n int, k int) string {
+	ans := make([]byte, n)
+	vis := make([]bool, n+1)
+	for i := 0; i < n; i++ {
+		fact := 1
+		for j := 1; j < n-i; j++ {
+			fact *= j
+		}
+		for j := 1; j <= n; j++ {
+			if !vis[j] {
+				if k > fact {
+					k -= fact
+				} else {
+					ans[i] = byte('0' + j)
+					vis[j] = true
+					break
+				}
+			}
+		}
+	}
+	return string(ans)
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public string GetPermutation(int n, int k) {
+        var ans = new StringBuilder();
+        int vis = 0;
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) {
+                fact *= j;
+            }
+            for (int j = 1; j <= n; ++j) {
+                if (((vis >> j) & 1) == 0) {
+                    if (k > fact) {
+                        k -= fact;
+                    } else {
+                        ans.Append(j);
+                        vis |= 1 << j;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans.ToString();
+    }
+}
 ```
 
 ### **...**

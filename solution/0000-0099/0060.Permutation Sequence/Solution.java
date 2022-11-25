@@ -1,18 +1,24 @@
 class Solution {
     public String getPermutation(int n, int k) {
-        StringBuilder s = new StringBuilder();
-        int[] fact = new int[n];
-        fact[0] = 1;
-        for (int i = 1; i < n; i++) fact[i] = fact[i - 1] * i;
-        List<Integer> list = new ArrayList<>();
-        for (int i = 1; i <= n; i++) list.add(i);
-        k--;
-        for (int i = n; i >= 1; i--) {
-            int j = k / fact[i - 1];
-            k = k % fact[i - 1];
-            s.append(list.get(j));
-            list.remove(j);
+        StringBuilder ans = new StringBuilder();
+        boolean[] vis = new boolean[n + 1];
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) {
+                fact *= j;
+            }
+            for (int j = 1; j <= n; ++j) {
+                if (!vis[j]) {
+                    if (k > fact) {
+                        k -= fact;
+                    } else {
+                        ans.append(j);
+                        vis[j] = true;
+                        break;
+                    }
+                }
+            }
         }
-        return s.toString();
+        return ans.toString();
     }
 }

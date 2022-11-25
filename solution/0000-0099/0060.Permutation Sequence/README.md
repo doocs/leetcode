@@ -57,6 +57,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们知道，集合 $[1,2,..n]$ 一共有 $n!$ 种排列，如果我们确定首位，那剩余位能组成的排列数量为 $(n-1)!$。
+
+因此，我们枚举每一位 $i$，如果此时 $k$ 大于当前位置确定后的排列数量，那么我们可以直接减去这个数量；否则，说明我们找到了当前位置的数。
+
+对于每一位 $i$，其中 $0 \leq i \lt n$，剩余位能组成的排列数量为 $(n-i-1)!$，我们记为 $fact$。过程中已使用的数记录在 `vis` 中。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +74,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getPermutation(self, n: int, k: int) -> str:
+        ans = []
+        vis = [False] * (n + 1)
+        for i in range(n):
+            fact = 1
+            for j in range(1, n - i):
+                fact *= j
+            for j in range(1, n + 1):
+                if not vis[j]:
+                    if k > fact:
+                        k -= fact
+                    else:
+                        ans.append(str(j))
+                        vis[j] = True
+                        break
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -72,7 +98,112 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String getPermutation(int n, int k) {
+        StringBuilder ans = new StringBuilder();
+        boolean[] vis = new boolean[n + 1];
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) {
+                fact *= j;
+            }
+            for (int j = 1; j <= n; ++j) {
+                if (!vis[j]) {
+                    if (k > fact) {
+                        k -= fact;
+                    } else {
+                        ans.append(j);
+                        vis[j] = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        string ans;
+        bitset<10> vis;
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) fact *= j;
+            for (int j = 1; j <= n; ++j) {
+                if (vis[j]) continue;
+                if (k > fact) k -= fact;
+                else {
+                    ans += to_string(j);
+                    vis[j] = 1;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getPermutation(n int, k int) string {
+	ans := make([]byte, n)
+	vis := make([]bool, n+1)
+	for i := 0; i < n; i++ {
+		fact := 1
+		for j := 1; j < n-i; j++ {
+			fact *= j
+		}
+		for j := 1; j <= n; j++ {
+			if !vis[j] {
+				if k > fact {
+					k -= fact
+				} else {
+					ans[i] = byte('0' + j)
+					vis[j] = true
+					break
+				}
+			}
+		}
+	}
+	return string(ans)
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public string GetPermutation(int n, int k) {
+        var ans = new StringBuilder();
+        int vis = 0;
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) {
+                fact *= j;
+            }
+            for (int j = 1; j <= n; ++j) {
+                if (((vis >> j) & 1) == 0) {
+                    if (k > fact) {
+                        k -= fact;
+                    } else {
+                        ans.Append(j);
+                        vis |= 1 << j;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans.ToString();
+    }
+}
 ```
 
 ### **...**
