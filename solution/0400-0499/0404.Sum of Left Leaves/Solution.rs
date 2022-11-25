@@ -20,23 +20,19 @@ use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, is_left: bool) -> i32 {
+        if root.is_none() {
+            return 0;
+        }
         let node = root.as_ref().unwrap().borrow();
         let left = &node.left;
         let right = &node.right;
-        let mut res = 0;
         if left.is_none() && right.is_none() {
             if is_left {
                 return node.val;
             }
-            return res;
+            return 0;
         }
-        if left.is_some() {
-            res += Self::dfs(left, true);
-        }
-        if right.is_some() {
-            res += Self::dfs(right, false);
-        }
-        res
+        Self::dfs(left, true) + Self::dfs(right, false)
     }
 
     pub fn sum_of_left_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {

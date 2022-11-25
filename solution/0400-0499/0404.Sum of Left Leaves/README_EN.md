@@ -87,6 +87,31 @@ class Solution {
 }
 ```
 
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func sumOfLeftLeaves(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	res := 0
+	if root.Left != nil && root.Left.Left == nil && root.Left.Right == nil {
+		res += root.Left.Val
+	}
+	res += sumOfLeftLeaves(root.Left)
+	res += sumOfLeftLeaves(root.Right)
+	return res
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -105,21 +130,17 @@ class Solution {
  */
 
 const dfs = (root: TreeNode | null, isLeft: boolean) => {
-    let res = 0;
+    if (!root) {
+        return 0;
+    }
     const { val, left, right } = root;
-    if (left == null && right == null) {
+    if (!left && !right) {
         if (isLeft) {
             return val;
         }
-        return res;
+        return 0;
     }
-    if (left != null) {
-        res += dfs(left, true);
-    }
-    if (right != null) {
-        res += dfs(right, false);
-    }
-    return res;
+    return dfs(left, true) + dfs(right, false);
 };
 
 function sumOfLeftLeaves(root: TreeNode | null): number {
@@ -152,23 +173,19 @@ use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, is_left: bool) -> i32 {
+        if root.is_none() {
+            return 0;
+        }
         let node = root.as_ref().unwrap().borrow();
         let left = &node.left;
         let right = &node.right;
-        let mut res = 0;
         if left.is_none() && right.is_none() {
             if is_left {
                 return node.val;
             }
-            return res;
+            return 0;
         }
-        if left.is_some() {
-            res += Self::dfs(left, true);
-        }
-        if right.is_some() {
-            res += Self::dfs(right, false);
-        }
-        res
+        Self::dfs(left, true) + Self::dfs(right, false)
     }
 
     pub fn sum_of_left_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
@@ -177,28 +194,30 @@ impl Solution {
 }
 ```
 
-### **Go**
+### **C**
 
-```go
+```c
 /**
  * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
  */
-func sumOfLeftLeaves(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	res := 0
-	if root.Left != nil && root.Left.Left == nil && root.Left.Right == nil {
-		res += root.Left.Val
-	}
-	res += sumOfLeftLeaves(root.Left)
-	res += sumOfLeftLeaves(root.Right)
-	return res
+
+int dfs(struct TreeNode *root, int isLeft) {
+    if (!root) {
+        return 0;
+    }
+    if (!root->left && !root->right) {
+        return isLeft ? root->val : 0;
+    }
+    return dfs(root->left, 1) + dfs(root->right, 0);
+}
+
+int sumOfLeftLeaves(struct TreeNode *root) {
+    return dfs(root, 0);
 }
 ```
 

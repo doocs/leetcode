@@ -13,21 +13,17 @@
  */
 
 const dfs = (root: TreeNode | null, isLeft: boolean) => {
-    let res = 0;
+    if (!root) {
+        return 0;
+    }
     const { val, left, right } = root;
-    if (left == null && right == null) {
+    if (!left && !right) {
         if (isLeft) {
             return val;
         }
-        return res;
+        return 0;
     }
-    if (left != null) {
-        res += dfs(left, true);
-    }
-    if (right != null) {
-        res += dfs(right, false);
-    }
-    return res;
+    return dfs(left, true) + dfs(right, false);
 };
 
 function sumOfLeftLeaves(root: TreeNode | null): number {
