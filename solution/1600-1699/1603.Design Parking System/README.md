@@ -157,11 +157,37 @@ func (this *ParkingSystem) AddCar(carType int) bool {
  */
 ```
 
+### **TypeScript**
+
+```ts
+class ParkingSystem {
+    private count: [number, number, number];
+
+    constructor(big: number, medium: number, small: number) {
+        this.count = [big, medium, small];
+    }
+
+    addCar(carType: number): boolean {
+        if (this.count[carType - 1] === 0) {
+            return false;
+        }
+        this.count[carType - 1]--;
+        return true;
+    }
+}
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * var obj = new ParkingSystem(big, medium, small)
+ * var param_1 = obj.addCar(carType)
+ */
+```
+
 ### **Rust**
 
 ```rust
 struct ParkingSystem {
-    list: [i32; 3],
+    count: [i32; 3],
 }
 
 
@@ -173,16 +199,16 @@ impl ParkingSystem {
 
     fn new(big: i32, medium: i32, small: i32) -> Self {
         Self {
-            list: [big, medium, small]
+            count: [big, medium, small]
         }
     }
 
     fn add_car(&mut self, car_type: i32) -> bool {
         let i = (car_type - 1) as usize;
-        if self.list[i] == 0 {
+        if self.count[i] == 0 {
             return false;
         }
-        self.list[i] -= 1;
+        self.count[i] -= 1;
         true
     }
 }
@@ -192,6 +218,45 @@ impl ParkingSystem {
  * let obj = ParkingSystem::new(big, medium, small);
  * let ret_1: bool = obj.add_car(carType);
  */
+```
+
+### **C**
+
+```c
+typedef struct {
+    int *count;
+} ParkingSystem;
+
+
+ParkingSystem *parkingSystemCreate(int big, int medium, int small) {
+    ParkingSystem *res = malloc(sizeof(ParkingSystem));
+    res->count = malloc(sizeof(int) * 3);
+    res->count[0] = big;
+    res->count[1] = medium;
+    res->count[2] = small;
+    return res;
+}
+
+bool parkingSystemAddCar(ParkingSystem *obj, int carType) {
+    int i = carType - 1;
+    if (!obj->count[i]) {
+        return 0;
+    }
+    obj->count[i]--;
+    return 1;
+}
+
+void parkingSystemFree(ParkingSystem *obj) {
+    free(obj);
+}
+
+/**
+ * Your ParkingSystem struct will be instantiated and called as such:
+ * ParkingSystem* obj = parkingSystemCreate(big, medium, small);
+ * bool param_1 = parkingSystemAddCar(obj, carType);
+
+ * parkingSystemFree(obj);
+*/
 ```
 
 ### **...**

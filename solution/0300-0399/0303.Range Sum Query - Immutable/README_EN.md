@@ -142,6 +142,36 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ */
+var NumArray = function (nums) {
+    const n = nums.length;
+    this.s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        this.s[i + 1] = this.s[i] + nums[i];
+    }
+};
+
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+NumArray.prototype.sumRange = function (left, right) {
+    return this.s[right + 1] - this.s[left];
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * var param_1 = obj.sumRange(left,right)
+ */
+```
+
 ### **TypeScript**
 
 ```ts
@@ -203,7 +233,7 @@ impl NumArray {
 
 ```rust
 struct NumArray {
-    nums: Vec<i32>
+    sums: Vec<i32>,
 }
 
 
@@ -215,17 +245,15 @@ impl NumArray {
 
     fn new(mut nums: Vec<i32>) -> Self {
         let n = nums.len();
-        for i in 1..n {
-            nums[i] += nums[i - 1];
+        let mut sums = vec![0; n + 1];
+        for i in 0..n {
+            sums[i + 1] = sums[i] + nums[i];
         }
-        Self {
-            nums
-        }
+        Self { sums }
     }
 
     fn sum_range(&self, left: i32, right: i32) -> i32 {
-        let (left, right) = (left as usize, right as usize);
-        self.nums[right] - if left == 0 { 0 } else { self.nums[left - 1] }
+        self.sums[(right + 1) as usize] - self.sums[left as usize]
     }
 }
 
@@ -236,34 +264,40 @@ impl NumArray {
  */
 ```
 
-### **JavaScript**
+### **C**
 
-```js
-/**
- * @param {number[]} nums
- */
-var NumArray = function (nums) {
-    const n = nums.length;
-    this.s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        this.s[i + 1] = this.s[i] + nums[i];
+```c
+typedef struct {
+    int *sums;
+} NumArray;
+
+
+NumArray *numArrayCreate(int *nums, int numsSize) {
+    int *sums = malloc(sizeof(int) * (numsSize + 1));
+    memset(sums, 0, numsSize + 1);
+    for (int i = 0; i < numsSize; i++) {
+        sums[i + 1] = sums[i] + nums[i];
     }
-};
+    NumArray *res = malloc(sizeof(NumArray));
+    res->sums = sums;
+    return res;
+}
+
+int numArraySumRange(NumArray *obj, int left, int right) {
+    return obj->sums[right + 1] - obj->sums[left];
+}
+
+void numArrayFree(NumArray *obj) {
+    free(obj);
+}
 
 /**
- * @param {number} left
- * @param {number} right
- * @return {number}
- */
-NumArray.prototype.sumRange = function (left, right) {
-    return this.s[right + 1] - this.s[left];
-};
+ * Your NumArray struct will be instantiated and called as such:
+ * NumArray* obj = numArrayCreate(nums, numsSize);
+ * int param_1 = numArraySumRange(obj, left, right);
 
-/**
- * Your NumArray object will be instantiated and called as such:
- * var obj = new NumArray(nums)
- * var param_1 = obj.sumRange(left,right)
- */
+ * numArrayFree(obj);
+*/
 ```
 
 ### **...**

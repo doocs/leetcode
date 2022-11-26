@@ -1,5 +1,5 @@
 struct ParkingSystem {
-    list: [i32; 3],
+    count: [i32; 3],
 }
 
 
@@ -11,16 +11,16 @@ impl ParkingSystem {
 
     fn new(big: i32, medium: i32, small: i32) -> Self {
         Self {
-            list: [big, medium, small]
+            count: [big, medium, small]
         }
     }
 
     fn add_car(&mut self, car_type: i32) -> bool {
         let i = (car_type - 1) as usize;
-        if self.list[i] == 0 {
+        if self.count[i] == 0 {
             return false;
         }
-        self.list[i] -= 1;
+        self.count[i] -= 1;
         true
     }
 }
