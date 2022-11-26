@@ -87,21 +87,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function isAnagram(s: string, t: string): boolean {
-    if (s.length != t.length) return false;
-    let record = new Array(26).fill(0);
-    let base = 'a'.charCodeAt(0);
-    for (let i = 0; i < s.length; ++i) {
-        ++record[s.charCodeAt(i) - base];
-        --record[t.charCodeAt(i) - base];
-    }
-    return record.every(v => v == 0);
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -165,23 +150,112 @@ var isAnagram = function (s, t) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function isAnagram(s: string, t: string): boolean {
+    const n = s.length;
+    const m = t.length;
+    return n === m && [...s].sort().join('') === [...t].sort().join('');
+}
+```
+
+```ts
+function isAnagram(s: string, t: string): boolean {
+    const n = s.length;
+    const m = t.length;
+    if (n !== m) {
+        return false;
+    }
+    const count = new Array(26).fill(0);
+    for (let i = 0; i < n; i++) {
+        count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+        count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+    }
+    return count.every(v => v === 0);
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn is_anagram(s: String, t: String) -> bool {
-        if s.len() != t.len() {
+        let n = s.len();
+        let m = t.len();
+        if n != m {
+            return false;
+        }
+        let mut s = s.chars().collect::<Vec<char>>();
+        let mut t = t.chars().collect::<Vec<char>>();
+        s.sort();
+        t.sort();
+        for i in 0..n {
+            if s[i] != t[i] {
+                return false;
+            }
+        }
+        true
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn is_anagram(s: String, t: String) -> bool {
+        let n = s.len();
+        let m = t.len();
+        if n != m {
             return false;
         }
         let (s, t) = (s.as_bytes(), t.as_bytes());
-        let mut record = [0; 26];
-        let n = s.len();
+        let mut count = [0; 26];
         for i in 0..n {
-            record[(s[i] - b'a') as usize] += 1;
-            record[(t[i] - b'a') as usize] -= 1;
+            count[(s[i] - b'a') as usize] += 1;
+            count[(t[i] - b'a') as usize] -= 1;
         }
-        record.iter().all(|&c| c == 0)
+        count.iter().all(|&c| c == 0)
     }
+}
+```
+
+### **C**
+
+```c
+int cmp(const void *a, const void *b) {
+    return *(char *) a - *(char *) b;
+}
+
+bool isAnagram(char *s, char *t) {
+    int n = strlen(s);
+    int m = strlen(t);
+    if (n != m) {
+        return 0;
+    }
+    qsort(s, n, sizeof(char), cmp);
+    qsort(t, n, sizeof(char), cmp);
+    return !strcmp(s, t);
+}
+```
+
+```c
+bool isAnagram(char *s, char *t) {
+    int n = strlen(s);
+    int m = strlen(t);
+    if (n != m) {
+        return 0;
+    }
+    int count[26] = {0};
+    for (int i = 0; i < n; i++) {
+        count[s[i] - 'a']++;
+        count[t[i] - 'a']--;
+    }
+    for (int i = 0; i < 26; i++) {
+        if (count[i]) {
+            return 0;
+        }
+    }
+    return 1;
 }
 ```
 
