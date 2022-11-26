@@ -301,7 +301,84 @@ func unequalTriplets(nums []int) (ans int) {
 ### **TypeScript**
 
 ```ts
+function unequalTriplets(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n - 2; i++) {
+        for (let j = i + 1; j < n - 1; j++) {
+            for (let k = j + 1; k < n; k++) {
+                if (
+                    nums[i] !== nums[j] &&
+                    nums[j] !== nums[k] &&
+                    nums[i] !== nums[k]
+                ) {
+                    ans++;
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
 
+```ts
+function unequalTriplets(nums: number[]): number {
+    const n = nums.length;
+    const cnt = new Map<number, number>();
+    for (const num of nums) {
+        cnt.set(num, (cnt.get(num) ?? 0) + 1);
+    }
+    let ans = 0;
+    let a = 0;
+    for (const b of cnt.values()) {
+        const c = n - a - b;
+        ans += a * b * c;
+        a += b;
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn unequal_triplets(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+        for i in 0..n - 2 {
+            for j in i + 1..n - 1 {
+                for k in j + 1..n {
+                    if nums[i] != nums[j] && nums[j] != nums[k] && nums[i] != nums[k] {
+                        ans += 1;
+                    }
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn unequal_triplets(nums: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        for num in nums.iter() {
+            *cnt.entry(num).or_insert(0) += 1;
+        }
+        let n = nums.len();
+        let mut ans = 0;
+        let mut a = 0;
+        for v in cnt.values() {
+            let b = n - a - v;
+            ans += v * a * b;;
+            a += v;
+        }
+        ans as i32
+    }
+}
 ```
 
 ### **...**
