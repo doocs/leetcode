@@ -127,25 +127,6 @@ func containsDuplicate(nums []int) bool {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function containsDuplicate(nums: number[]): boolean {
-    let unique: Set<number> = new Set(nums);
-    return unique.size != nums.length;
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool ContainsDuplicate(int[] nums) {
-        return nums.Distinct().Count() < nums.Length;
-    }
-}
-```
-
 ### **JavaScript**
 
 ```js
@@ -158,16 +139,28 @@ var containsDuplicate = function (nums) {
 };
 ```
 
-### **Rust**
+### **TypeScript**
 
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-        nums.iter().collect::<HashSet<&i32>>().len() != nums.len()
+```ts
+function containsDuplicate(nums: number[]): boolean {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    for (let i = 1; i < n; i++) {
+        if (nums[i - 1] === nums[i]) {
+            return true;
+        }
     }
+    return false;
 }
 ```
+
+```ts
+function containsDuplicate(nums: number[]): boolean {
+    return new Set<number>(nums).size !== nums.length;
+}
+```
+
+### **Rust**
 
 ```rust
 impl Solution {
@@ -180,6 +173,43 @@ impl Solution {
             }
         }
         false
+    }
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+        nums.iter().collect::<HashSet<&i32>>().len() != nums.len()
+    }
+}
+```
+
+### **C**
+
+```c
+int cmp(const void *a, const void *b) {
+    return *(int *) a - *(int *) b;
+}
+
+bool containsDuplicate(int *nums, int numsSize) {
+    qsort(nums, numsSize, sizeof(int), cmp);
+    for (int i = 1; i < numsSize; i++) {
+        if (nums[i - 1] == nums[i]) {
+            return 1;
+        }
+    }
+    return 0;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool ContainsDuplicate(int[] nums) {
+        return nums.Distinct().Count() < nums.Length;
     }
 }
 ```
