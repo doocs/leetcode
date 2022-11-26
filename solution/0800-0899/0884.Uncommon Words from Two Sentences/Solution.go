@@ -1,17 +1,15 @@
-func uncommonFromSentences(s1 string, s2 string) []string {
-	counter := make(map[string]int)
-	add := func(s string) {
-		for _, w := range strings.Split(s, " ") {
-			counter[w]++
+func uncommonFromSentences(s1 string, s2 string) (ans []string) {
+	cnt := map[string]int{}
+	for _, s := range strings.Split(s1, " ") {
+		cnt[s]++
+	}
+	for _, s := range strings.Split(s2, " ") {
+		cnt[s]++
+	}
+	for s, v := range cnt {
+		if v == 1 {
+			ans = append(ans, s)
 		}
 	}
-	add(s1)
-	add(s2)
-	var ans []string
-	for word, n := range counter {
-		if n == 1 {
-			ans = append(ans, word)
-		}
-	}
-	return ans
+	return
 }

@@ -37,51 +37,30 @@
 ```python
 class Solution:
     def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
-        c = Counter(s1.split()) + Counter(s2.split())
-        return [w for w, n in c.items() if n == 1]
+        cnt = Counter(s1.split()) + Counter(s2.split())
+        return [s for s, v in cnt.items() if v == 1]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-
     public String[] uncommonFromSentences(String s1, String s2) {
-        Map<String, Integer> counter = new HashMap<>();
-        add(s1, counter);
-        add(s2, counter);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String s : s1.split(" ")) {
+            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+        }
+        for (String s : s2.split(" ")) {
+            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+        }
         List<String> ans = new ArrayList<>();
-        for (Map.Entry<String, Integer> e : counter.entrySet()) {
+        for (var e : cnt.entrySet()) {
             if (e.getValue() == 1) {
                 ans.add(e.getKey());
             }
         }
         return ans.toArray(new String[0]);
     }
-
-    private void add(String s, Map<String, Integer> counter) {
-        for (String w : s.split(" ")) {
-            counter.put(w, counter.getOrDefault(w, 0) + 1);
-        }
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function uncommonFromSentences(s1: string, s2: string): string[] {
-    let hashMap: Map<string, number> = new Map();
-    for (let str of [...s1.split(' '), ...s2.split(' ')]) {
-        hashMap.set(str, (hashMap.get(str) || 0) + 1);
-    }
-    let ans: Array<string> = [];
-    for (let [key, count] of hashMap.entries()) {
-        if (count == 1) {
-            ans.push(key);
-        }
-    }
-    return ans;
 }
 ```
 
@@ -91,20 +70,16 @@ function uncommonFromSentences(s1: string, s2: string): string[] {
 class Solution {
 public:
     vector<string> uncommonFromSentences(string s1, string s2) {
-        unordered_map<string, int> counter;
-
-        auto add = [&](const string& s) {
+        unordered_map<string, int> cnt;
+        auto add = [&](string& s) {
             stringstream ss(s);
-            string word;
-            while (ss >> word) ++counter[move(word)];
+            string w;
+            while (ss >> w) ++cnt[move(w)];
         };
-
         add(s1);
         add(s2);
         vector<string> ans;
-        for (auto& [word, n] : counter)
-            if (n == 1)
-                ans.push_back(word);
+        for (auto& [s, v] : cnt) if (v == 1) ans.emplace_back(s);
         return ans;
     }
 };
@@ -113,22 +88,38 @@ public:
 ### **Go**
 
 ```go
-func uncommonFromSentences(s1 string, s2 string) []string {
-	counter := make(map[string]int)
-	add := func(s string) {
-		for _, w := range strings.Split(s, " ") {
-			counter[w]++
-		}
-	}
-	add(s1)
-	add(s2)
-	var ans []string
-	for word, n := range counter {
-		if n == 1 {
-			ans = append(ans, word)
-		}
-	}
-	return ans
+func uncommonFromSentences(s1 string, s2 string) (ans []string) {
+    cnt := map[string]int{}
+    for _, s := range strings.Split(s1, " ") {
+        cnt[s]++
+    }
+    for _, s := range strings.Split(s2, " ") {
+        cnt[s]++
+    }
+    for s, v := range cnt {
+        if v == 1 {
+            ans = append(ans, s)
+        }
+    }
+    return
+}
+```
+
+### **TypeScript**
+
+```ts
+function uncommonFromSentences(s1: string, s2: string): string[] {
+    const cnt: Map<string, number> = new Map();
+    for (const s of [...s1.split(' '), ...s2.split(' ')]) {
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+    }
+    const ans: Array<string> = [];
+    for (const [s, v] of cnt.entries()) {
+        if (v == 1) {
+            ans.push(s);
+        }
+    }
+    return ans;
 }
 ```
 
@@ -155,6 +146,29 @@ impl Solution {
         res
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {string[]}
+ */
+var uncommonFromSentences = function (s1, s2) {
+    const cnt = new Map();
+    for (const s of [...s1.split(' '), ...s2.split(' ')]) {
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+    }
+    const ans = [];
+    for (const [s, v] of cnt.entries()) {
+        if (v == 1) {
+            ans.push(s);
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
