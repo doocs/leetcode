@@ -149,9 +149,7 @@ class Solution {
 
     private List<Integer>[] get(int n, int[][] edges) {
         List<Integer>[] res = new List[n];
-        for (int i = 0; i < n; ++i) {
-            res[i] = new ArrayList<>();
-        }
+        Arrays.setAll(res, k -> new ArrayList<>());
         for (int[] e : edges) {
             res[e[0]].add(e[1]);
         }

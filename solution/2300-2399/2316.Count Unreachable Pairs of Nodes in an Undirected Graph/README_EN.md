@@ -82,9 +82,7 @@ class Solution {
     public long countPairs(int n, int[][] edges) {
         vis = new boolean[n];
         g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);

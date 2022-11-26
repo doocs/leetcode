@@ -103,9 +103,7 @@ class Solution {
         int n = nums.length;
         int[] indeg = new int[n];
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (var seq : sequences) {
             for (int i = 1; i < seq.size(); ++i) {
                 int a = seq.get(i - 1) - 1, b = seq.get(i) - 1;

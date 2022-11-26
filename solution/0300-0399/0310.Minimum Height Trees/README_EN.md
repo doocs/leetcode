@@ -85,10 +85,8 @@ class Solution {
             return Collections.singletonList(0);
         }
         List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
         int[] degree = new int[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
         for (int[] e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);

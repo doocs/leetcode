@@ -86,9 +86,7 @@ class Solution {
     public int[] countRectangles(int[][] rectangles, int[][] points) {
         int n = 101;
         List<Integer>[] d = new List[n];
-        for (int i = 0; i < n; ++i) {
-            d[i] = new ArrayList<>();
-        }
+        Arrays.setAll(d, k -> new ArrayList<>());
         for (int[] r : rectangles) {
             d[r[1]].add(r[0]);
         }

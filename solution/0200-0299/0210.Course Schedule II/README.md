@@ -91,9 +91,7 @@ class Solution:
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         List<Integer>[] g = new List[numCourses];
-        for (int i = 0; i < numCourses; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         int[] indeg = new int[numCourses];
         for (var p : prerequisites) {
             int a = p[0], b = p[1];

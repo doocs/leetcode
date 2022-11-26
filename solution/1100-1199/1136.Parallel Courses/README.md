@@ -93,9 +93,7 @@ class Solution:
 class Solution {
     public int minimumSemesters(int n, int[][] relations) {
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         int[] indeg = new int[n];
         for (int[] r : relations) {
             int a = r[0] - 1, b = r[1] - 1;

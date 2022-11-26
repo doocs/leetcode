@@ -3,9 +3,7 @@ class Solution {
         int n = nums.length;
         int[] indeg = new int[n];
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] seq : sequences) {
             for (int i = 1; i < seq.length; ++i) {
                 int a = seq[i - 1] - 1, b = seq[i] - 1;

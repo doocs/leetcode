@@ -81,9 +81,7 @@ class Solution:
 class Solution {
     public int[] gardenNoAdj(int n, int[][] paths) {
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] p : paths) {
             int x = p[0] - 1, y = p[1] - 1;
             g[x].add(y);

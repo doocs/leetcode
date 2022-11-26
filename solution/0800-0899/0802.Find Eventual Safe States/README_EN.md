@@ -95,9 +95,7 @@ class Solution {
         int n = graph.length;
         int[] indeg = new int[n];
         List<Integer>[] rg = new List[n];
-        for (int i = 0; i < n; ++i) {
-            rg[i] = new ArrayList<>();
-        }
+        Arrays.setAll(rg, k -> new ArrayList<>());
         Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
             for (int j : graph[i]) {

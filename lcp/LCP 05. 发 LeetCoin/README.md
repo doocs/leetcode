@@ -289,9 +289,7 @@ class Solution {
 
     public int[] bonus(int n, int[][] leadership, int[][] operations) {
         g = new List[n + 1];
-        for (int i = 0; i < g.length; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] l : leadership) {
             int a = l[0], b = l[1];
             g[a].add(b);

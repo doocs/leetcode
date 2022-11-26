@@ -1,9 +1,7 @@
 class Solution {
     public int minimumTime(int n, int[][] relations, int[] time) {
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         int[] indeg = new int[n];
         for (int[] e : relations) {
             int a = e[0] - 1, b = e[1] - 1;

@@ -87,9 +87,7 @@ class Solution {
 
     public int numberWays(List<List<Integer>> hats) {
         List<Integer>[] d = new List[41];
-        for (int i = 0; i < d.length; ++i) {
-            d[i] = new ArrayList<>();
-        }
+        Arrays.setAll(d, k -> new ArrayList<>());
         int n = hats.size();
         int mx = 0;
         for (int i = 0; i < n; ++i) {

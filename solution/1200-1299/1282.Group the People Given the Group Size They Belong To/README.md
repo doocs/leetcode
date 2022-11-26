@@ -81,9 +81,7 @@ class Solution {
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
         int n = groupSizes.length;
         List<Integer>[] g = new List[n + 1];
-        for (int i = 0; i < g.length; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
             g[groupSizes[i]].add(i);
         }

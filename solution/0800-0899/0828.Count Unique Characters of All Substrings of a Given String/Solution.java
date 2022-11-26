@@ -1,8 +1,8 @@
 class Solution {
     public int uniqueLetterString(String s) {
         List<Integer>[] d = new List[26];
+        Arrays.setAll(d, k -> new ArrayList<>());
         for (int i = 0; i < 26; ++i) {
-            d[i] = new ArrayList<>();
             d[i].add(-1);
         }
         for (int i = 0; i < s.length(); ++i) {

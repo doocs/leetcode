@@ -92,9 +92,7 @@ class Solution {
     public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
         boolean[] vis = new boolean[n];
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             int u = e[0], v = e[1];
             g[u].add(v);

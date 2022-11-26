@@ -1,9 +1,7 @@
 class Solution {
     public int reachableNodes(int[][] edges, int maxMoves, int n) {
         List<int[]>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, e -> new ArrayList<>());
         for (var e : edges) {
             int u = e[0], v = e[1], cnt = e[2] + 1;
             g[u].add(new int[] {v, cnt});

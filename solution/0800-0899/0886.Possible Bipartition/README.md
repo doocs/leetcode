@@ -171,9 +171,7 @@ class Solution {
     public boolean possibleBipartition(int n, int[][] dislikes) {
         g = new List[n];
         color = new int[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (var e : dislikes) {
             int a = e[0] - 1, b = e[1] - 1;
             g[a].add(b);
@@ -211,9 +209,9 @@ class Solution {
     public boolean possibleBipartition(int n, int[][] dislikes) {
         p = new int[n];
         List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
             p[i] = i;
-            g[i] = new ArrayList<>();
         }
         for (var e : dislikes) {
             int a = e[0] - 1, b = e[1] - 1;

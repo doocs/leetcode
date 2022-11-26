@@ -120,10 +120,10 @@ class Solution {
         int n = routes.length;
         Set<Integer>[] s = new Set[n];
         List<Integer>[] g = new List[n];
+        Arrays.setAll(s, k -> new HashSet<>());
+        Arrays.setAll(g, k -> new ArrayList<>());
         Map<Integer, List<Integer>> d = new HashMap<>();
         for (int i = 0; i < n; ++i) {
-            s[i] = new HashSet<>();
-            g[i] = new ArrayList<>();
             for (int v : routes[i]) {
                 s[i].add(v);
                 d.computeIfAbsent(v, k -> new ArrayList<>()).add(i);

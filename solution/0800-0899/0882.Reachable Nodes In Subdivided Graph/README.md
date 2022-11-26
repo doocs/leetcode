@@ -82,7 +82,7 @@
 
 因此，我们再遍历所有的边，统计其中能到达的新节点个数，累加到答案中即可。
 
-时间复杂度 $O(m \times \log n)$，其中 $m$ 和 $n$ 分别为边数和节点数。
+时间复杂度 $O(n + m \times \log n)$，其中 $m$ 和 $n$ 分别为边数和节点数。
 
 <!-- tabs:start -->
 
@@ -121,9 +121,7 @@ class Solution:
 class Solution {
     public int reachableNodes(int[][] edges, int maxMoves, int n) {
         List<int[]>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, e -> new ArrayList<>());
         for (var e : edges) {
             int u = e[0], v = e[1], cnt = e[2] + 1;
             g[u].add(new int[] {v, cnt});
@@ -224,9 +222,9 @@ func reachableNodes(edges [][]int, maxMoves int, n int) (ans int) {
 		d, u := p.v, p.i
 		for _, nxt := range g[u] {
 			v, cnt := nxt.i, nxt.v
-			if d+cnt < dist[v] {
-				dist[v] = d + cnt
-				heap.Push(&q, pair{dist[v], v})
+			if t := d + cnt; t < dist[v] {
+				dist[v] = t
+				heap.Push(&q, pair{t, v})
 			}
 		}
 	}

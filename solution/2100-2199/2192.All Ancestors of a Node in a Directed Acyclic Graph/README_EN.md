@@ -96,9 +96,7 @@ class Solution:
 class Solution {
     public List<List<Integer>> getAncestors(int n, int[][] edges) {
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             g[e[1]].add(e[0]);
         }

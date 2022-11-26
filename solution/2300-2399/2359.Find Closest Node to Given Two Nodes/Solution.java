@@ -4,9 +4,7 @@ class Solution {
     public int closestMeetingNode(int[] edges, int node1, int node2) {
         int n = edges.length;
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
             if (edges[i] != -1) {
                 g[i].add(edges[i]);

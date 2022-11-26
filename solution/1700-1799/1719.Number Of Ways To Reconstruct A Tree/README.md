@@ -134,9 +134,7 @@ class Solution {
     public int checkWays(int[][] pairs) {
         boolean[][] g = new boolean[510][510];
         List<Integer>[] v = new List[510];
-        for (int i = 0; i < 510; ++i) {
-            v[i] = new ArrayList<>();
-        }
+        Arrays.setAll(v, k -> new ArrayList<>());
         for (int[] p : pairs) {
             int x = p[0], y = p[1];
             g[x][y] = true;

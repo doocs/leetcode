@@ -133,10 +133,8 @@ class Solution {
         g = new List[n];
         ts = new int[n];
         this.amount = amount;
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-            ts[i] = n;
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
+        Arrays.fill(ts, n);
         for (var e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);

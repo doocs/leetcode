@@ -139,9 +139,7 @@ class LockingTree {
         this.parent = parent;
         int n = parent.length;
         children = new List[n];
-        for (int i = 0; i < n; ++i) {
-            children[i] = new ArrayList<>();
-        }
+        Arrays.setAll(children, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
             if (parent[i] != -1) {
                 children[parent[i]].add(i);

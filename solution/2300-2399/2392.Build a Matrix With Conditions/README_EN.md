@@ -129,9 +129,7 @@ class Solution {
 
     private List<Integer> f(int[][] cond) {
         List<Integer>[] g = new List[k + 1];
-        for (int i = 0; i < k + 1; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, key -> new ArrayList<>());
         int[] indeg = new int[k + 1];
         for (var e : cond) {
             int a = e[0], b = e[1];

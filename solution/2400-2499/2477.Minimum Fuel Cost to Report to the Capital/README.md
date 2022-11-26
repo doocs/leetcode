@@ -122,10 +122,8 @@ class Solution {
     public long minimumFuelCost(int[][] roads, int seats) {
         int n = roads.length + 1;
         g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
         this.seats = seats;
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
         for (var e : roads) {
             int a = e[0], b = e[1];
             g[a].add(b);

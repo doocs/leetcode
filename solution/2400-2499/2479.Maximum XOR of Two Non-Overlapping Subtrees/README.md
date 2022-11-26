@@ -179,9 +179,7 @@ class Solution {
         g = new List[n];
         s = new long[n];
         vals = values;
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (var e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);

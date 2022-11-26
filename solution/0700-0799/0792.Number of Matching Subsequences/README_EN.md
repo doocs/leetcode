@@ -103,9 +103,7 @@ class Solution:
 class Solution {
     public int numMatchingSubseq(String s, String[] words) {
         Deque<String>[] d = new Deque[26];
-        for (int i = 0; i < 26; ++i) {
-            d[i] = new ArrayDeque<>();
-        }
+        Arrays.setAll(d, k -> new ArrayDeque<>());
         for (String w : words) {
             d[w.charAt(0) - 'a'].add(w);
         }
@@ -130,9 +128,7 @@ class Solution {
 class Solution {
     public int numMatchingSubseq(String s, String[] words) {
         Deque<int[]>[] d = new Deque[26];
-        for (int i = 0; i < 26; ++i) {
-            d[i] = new ArrayDeque<>();
-        }
+        Arrays.setAll(d, k -> new ArrayDeque<>());
         for (int i = 0; i < words.length; ++i) {
             d[words[i].charAt(0) - 'a'].offer(new int[] {i, 0});
         }
@@ -159,9 +155,7 @@ class Solution {
     private List<Integer>[] d = new List[26];
 
     public int numMatchingSubseq(String s, String[] words) {
-        for (int i = 0; i < 26; ++i) {
-            d[i] = new ArrayList<>();
-        }
+        Arrays.setAll(d, k -> new ArrayList<>());
         for (int i = 0; i < s.length(); ++i) {
             d[s.charAt(i) - 'a'].add(i);
         }

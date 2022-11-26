@@ -9,9 +9,7 @@ class Solution {
         g = new List[n];
         k = destination;
         f = new int[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, key -> new ArrayList<>());
         for (var e : edges) {
             g[e[0]].add(e[1]);
         }

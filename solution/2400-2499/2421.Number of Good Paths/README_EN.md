@@ -111,9 +111,7 @@ class Solution {
         p = new int[n];
         int[][] arr = new int[n][2];
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);

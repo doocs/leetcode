@@ -5,9 +5,7 @@ class Solution {
 
     public int reachableNodes(int n, int[][] edges, int[] restricted) {
         g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         vis = new boolean[n];
         for (int v : restricted) {
             vis[v] = true;

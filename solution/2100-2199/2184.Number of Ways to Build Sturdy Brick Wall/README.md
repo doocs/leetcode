@@ -134,9 +134,7 @@ class Solution {
         dfs(0);
         int n = res.size();
         List<Integer>[] g = new List[n];
-        for (int i = 0; i < g.length; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
             if (check(res.get(i), res.get(i))) {
                 g[i].add(i);
