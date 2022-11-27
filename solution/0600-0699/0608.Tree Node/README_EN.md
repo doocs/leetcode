@@ -30,7 +30,7 @@ The given structure is always a valid tree.
 
 <p>Write an SQL query to report the type of each node in the tree.</p>
 
-<p>Return the result table <strong>ordered</strong> by <code>id</code> <strong>in ascending order</strong>.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
 <p>The query result format is in the following example.</p>
 
