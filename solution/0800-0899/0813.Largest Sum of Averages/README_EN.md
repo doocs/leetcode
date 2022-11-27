@@ -68,17 +68,14 @@ class Solution:
 
 ```java
 class Solution {
-    private double[][] f;
+    private Double[][] f;
     private int[] s;
     private int n;
 
     public double largestSumOfAverages(int[] nums, int k) {
         n = nums.length;
         s = new int[n + 1];
-        f = new double[n + 1][k + 1];
-        for (var e : f) {
-            Arrays.fill(e, -1);
-        }
+        f = new Double[n + 1][k + 1];
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + nums[i];
         }
@@ -92,7 +89,7 @@ class Solution {
         if (k == 1) {
             return (s[n] - s[i]) * 1.0 / (n - i);
         }
-        if (f[i][k] >= 0) {
+        if (f[i][k] != null) {
             return f[i][k];
         }
         double ans = 0;
@@ -100,8 +97,7 @@ class Solution {
             double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
             ans = Math.max(ans, t);
         }
-        f[i][k] = ans;
-        return ans;
+        return f[i][k] = ans;
     }
 }
 ```
@@ -111,37 +107,25 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    double f[110][110];
-    int s[110];
-    int n;
-
     double largestSumOfAverages(vector<int>& nums, int k) {
-        n = nums.size();
+        int n = nums.size();
+        int s[n + 1];
+        double f[n][k + 1];
         s[0] = 0;
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
-        memset(f, -1, sizeof f);
+        memset(f, 0, sizeof f);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+        function<double(int, int)> dfs = [&](int i, int k) -> double {
+            if (i == n) return 0;
+            if (k == 1) return (s[n] - s[i]) * 1.0 / (n - i);
+            if (f[i][k]) return f[i][k];
+            double ans = 0;
+            for (int j = i; j < n; ++j) {
+                double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
+                ans = max(ans, t);
+            }
+            return f[i][k] = ans;
+        };
         return dfs(0, k);
-    }
-
-    double dfs(int i, int k) {
-        if (i == n) {
-            return 0;
-        }
-        if (k == 1) {
-            return (s[n] - s[i]) * 1.0 / (n - i);
-        }
-        if (f[i][k] >= 0) {
-            return f[i][k];
-        }
-        double ans = 0;
-        for (int j = i; j < n; ++j) {
-            double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
-            ans = max(ans, t);
-        }
-        f[i][k] = ans;
-        return ans;
     }
 };
 ```
@@ -152,13 +136,7 @@ public:
 func largestSumOfAverages(nums []int, k int) float64 {
 	n := len(nums)
 	s := make([]int, n+1)
-	f := make([][]float64, n+1)
-	for i := range f {
-		f[i] = make([]float64, k+1)
-		for j := range f[i] {
-			f[i][j] = -1
-		}
-	}
+	f := [110][110]float64{}
 	for i, v := range nums {
 		s[i+1] = s[i] + v
 	}
@@ -170,7 +148,7 @@ func largestSumOfAverages(nums []int, k int) float64 {
 		if k == 1 {
 			return float64(s[n]-s[i]) / float64(n-i)
 		}
-		if f[i][k] >= 0 {
+		if f[i][k] > 0 {
 			return f[i][k]
 		}
 		var ans float64

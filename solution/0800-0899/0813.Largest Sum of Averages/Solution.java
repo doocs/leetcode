@@ -1,15 +1,12 @@
 class Solution {
-    private double[][] f;
+    private Double[][] f;
     private int[] s;
     private int n;
 
     public double largestSumOfAverages(int[] nums, int k) {
         n = nums.length;
         s = new int[n + 1];
-        f = new double[n + 1][k + 1];
-        for (var e : f) {
-            Arrays.fill(e, -1);
-        }
+        f = new Double[n + 1][k + 1];
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + nums[i];
         }
@@ -23,7 +20,7 @@ class Solution {
         if (k == 1) {
             return (s[n] - s[i]) * 1.0 / (n - i);
         }
-        if (f[i][k] >= 0) {
+        if (f[i][k] != null) {
             return f[i][k];
         }
         double ans = 0;
@@ -31,7 +28,6 @@ class Solution {
             double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
             ans = Math.max(ans, t);
         }
-        f[i][k] = ans;
-        return ans;
+        return f[i][k] = ans;
     }
 }

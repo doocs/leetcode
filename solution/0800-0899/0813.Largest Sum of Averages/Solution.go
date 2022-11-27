@@ -1,13 +1,7 @@
 func largestSumOfAverages(nums []int, k int) float64 {
 	n := len(nums)
 	s := make([]int, n+1)
-	f := make([][]float64, n+1)
-	for i := range f {
-		f[i] = make([]float64, k+1)
-		for j := range f[i] {
-			f[i][j] = -1
-		}
-	}
+	f := [110][110]float64{}
 	for i, v := range nums {
 		s[i+1] = s[i] + v
 	}
@@ -19,7 +13,7 @@ func largestSumOfAverages(nums []int, k int) float64 {
 		if k == 1 {
 			return float64(s[n]-s[i]) / float64(n-i)
 		}
-		if f[i][k] >= 0 {
+		if f[i][k] > 0 {
 			return f[i][k]
 		}
 		var ans float64

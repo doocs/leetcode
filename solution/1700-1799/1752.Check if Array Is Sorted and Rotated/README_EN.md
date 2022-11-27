@@ -54,7 +54,7 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 ```python
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        return sum(v > nums[(i + 1) % len(nums)] for i, v in enumerate(nums)) <= 1
+        return sum(nums[i - 1] > v for i, v in enumerate(nums)) <= 1
 ```
 
 ### **Java**
