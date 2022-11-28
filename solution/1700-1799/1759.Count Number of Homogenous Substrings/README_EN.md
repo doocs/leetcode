@@ -63,11 +63,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>s</code> consists of lowercase letters.</li>
-
 </ul>
 
 ## Solutions
@@ -77,13 +74,84 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countHomogenous(self, s: str) -> int:
+        mod = 10**9 + 7
+        i, n = 0, len(s)
+        ans = 0
+        while i < n:
+            j = i
+            while j < n and s[j] == s[i]:
+                j += 1
+            cnt = j - i
+            ans += (1 + cnt) * cnt // 2
+            ans %= mod
+            i = j
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int countHomogenous(String s) {
+        int n = s.length();
+        long ans = 0;
+        for (int i = 0, j = 0; i < n; i = j) {
+            j = i;
+            while (j < n && s.charAt(j) == s.charAt(i)) {
+                ++j;
+            }
+            int cnt = j - i;
+            ans += (long) (1 + cnt) * cnt / 2;
+            ans %= MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countHomogenous(string s) {
+        int n = s.size();
+        long ans = 0;
+        for (int i = 0, j = 0; i < n; i = j) {
+            j = i;
+            while (j < n && s[j] == s[i]) ++j;
+            int cnt = j -  i;
+            ans += 1ll * (1 + cnt) * cnt / 2;
+            ans %= mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countHomogenous(s string) (ans int) {
+	n := len(s)
+	const mod int = 1e9 + 7
+	for i, j := 0, 0; i < n; i = j {
+		j = i
+		for j < n && s[j] == s[i] {
+			j++
+		}
+		cnt := j - i
+		ans += (1 + cnt) * cnt / 2
+		ans %= mod
+	}
+	return
+}
 ```
 
 ### **...**

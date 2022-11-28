@@ -53,6 +53,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+遍历字符串 $s$，用指针 $i$ 指向当前字符，指针 $j$ 指向下一个不同的字符，那么 $[i,..j-1]$ 区间内的字符都是相同的，假设 $cnt=j-i$，那么该区间内的同构子字符串个数为 $\frac{(1 + cnt) \times cnt}{2}$，将其累加到答案中即可。继续遍历，直到指针 $i$ 到达字符串末尾。
+
+遍历完字符串 $s$ 后，返回答案即可。注意答案的取模操作。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +68,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countHomogenous(self, s: str) -> int:
+        mod = 10**9 + 7
+        i, n = 0, len(s)
+        ans = 0
+        while i < n:
+            j = i
+            while j < n and s[j] == s[i]:
+                j += 1
+            cnt = j - i
+            ans += (1 + cnt) * cnt // 2
+            ans %= mod
+            i = j
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +89,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int countHomogenous(String s) {
+        int n = s.length();
+        long ans = 0;
+        for (int i = 0, j = 0; i < n; i = j) {
+            j = i;
+            while (j < n && s.charAt(j) == s.charAt(i)) {
+                ++j;
+            }
+            int cnt = j - i;
+            ans += (long) (1 + cnt) * cnt / 2;
+            ans %= MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countHomogenous(string s) {
+        int n = s.size();
+        long ans = 0;
+        for (int i = 0, j = 0; i < n; i = j) {
+            j = i;
+            while (j < n && s[j] == s[i]) ++j;
+            int cnt = j -  i;
+            ans += 1ll * (1 + cnt) * cnt / 2;
+            ans %= mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countHomogenous(s string) (ans int) {
+	n := len(s)
+	const mod int = 1e9 + 7
+	for i, j := 0, 0; i < n; i = j {
+		j = i
+		for j < n && s[j] == s[i] {
+			j++
+		}
+		cnt := j - i
+		ans += (1 + cnt) * cnt / 2
+		ans %= mod
+	}
+	return
+}
 ```
 
 ### **...**
