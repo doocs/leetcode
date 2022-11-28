@@ -64,15 +64,10 @@ Binary search.
 ```python
 class Solution:
     def minimumSize(self, nums: List[int], maxOperations: int) -> int:
-        left, right = 1, max(nums)
-        while left < right:
-            mid = (left + right) >> 1
-            ops = sum((num - 1) // mid for num in nums)
-            if ops <= maxOperations:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        def f(x):
+            return sum((v - 1) // x for v in nums) <= maxOperations
+
+        return bisect_left(range(1, max(nums) + 1), True, key=f) + 1
 ```
 
 ### **Java**
@@ -83,11 +78,11 @@ class Solution {
         int left = 1, right = (int) 1e9;
         while (left < right) {
             int mid = (left + right) >>> 1;
-            long ops = 0;
-            for (int num : nums) {
-                ops += (num - 1) / mid;
+            long s = 0;
+            for (int v : nums) {
+                s += (v - 1) / mid;
             }
-            if (ops <= maxOperations) {
+            if (s <= maxOperations) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -104,15 +99,13 @@ class Solution {
 class Solution {
 public:
     int minimumSize(vector<int>& nums, int maxOperations) {
-        int left = 1, right = 1e9;
+        int left = 1, right = *max_element(nums.begin(), nums.end());
         while (left < right) {
-            int mid = left + ((right - left) >> 1);
-            long long ops = 0;
-            for (int num : nums) ops += (num - 1) / mid;
-            if (ops <= maxOperations)
-                right = mid;
-            else
-                left = mid + 1;
+            int mid = left + right >> 1;
+            long s = 0;
+            for (int v : nums) s += (v - 1) / mid;
+            if (s <= maxOperations) right = mid;
+            else left = mid + 1;
         }
         return left;
     }
@@ -123,21 +116,42 @@ public:
 
 ```go
 func minimumSize(nums []int, maxOperations int) int {
-	left, right := 1, int(1e9)
-	for left < right {
-		mid := (left + right) >> 1
-		var ops int
-		for _, num := range nums {
-			ops += (num - 1) / mid
+	return 1 + sort.Search(1e9, func(x int) bool {
+		x++
+		s := 0
+		for _, v := range nums {
+			s += (v - 1) / x
 		}
-		if ops <= maxOperations {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return s <= maxOperations
+	})
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} maxOperations
+ * @return {number}
+ */
+var minimumSize = function (nums, maxOperations) {
+    let left = 1;
+    let right = 1e9;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let s = 0;
+        for (const v of nums) {
+            s += Math.floor((v - 1) / mid);
+        }
+        if (s <= maxOperations) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
 ```
 
 ### **...**

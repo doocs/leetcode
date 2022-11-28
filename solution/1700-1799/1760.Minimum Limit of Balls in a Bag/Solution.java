@@ -3,11 +3,11 @@ class Solution {
         int left = 1, right = (int) 1e9;
         while (left < right) {
             int mid = (left + right) >>> 1;
-            long ops = 0;
-            for (int num : nums) {
-                ops += (num - 1) / mid;
+            long s = 0;
+            for (int v : nums) {
+                s += (v - 1) / mid;
             }
-            if (ops <= maxOperations) {
+            if (s <= maxOperations) {
                 right = mid;
             } else {
                 left = mid + 1;

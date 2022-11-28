@@ -1,11 +1,6 @@
 class Solution:
     def minimumSize(self, nums: List[int], maxOperations: int) -> int:
-        left, right = 1, max(nums)
-        while left < right:
-            mid = (left + right) >> 1
-            ops = sum((num - 1) // mid for num in nums)
-            if ops <= maxOperations:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        def f(x):
+            return sum((v - 1) // x for v in nums) <= maxOperations
+
+        return bisect_left(range(1, max(nums) + 1), True, key=f) + 1
