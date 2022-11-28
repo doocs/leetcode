@@ -2495,10 +2495,10 @@
 |  2482  |  [行和列中一和零的差值](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README.md)  |    |  中等  |  第 92 场双周赛  |
 |  2483  |  [商店的最少代价](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README.md)  |    |  中等  |  第 92 场双周赛  |
 |  2484  |  [统计回文子序列数目](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README.md)  |    |  困难  |  第 92 场双周赛  |
-|  2485  |  [找出中枢整数](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md)  |    |  简单  |    |
-|  2486  |  [追加字符以获得子序列](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README.md)  |    |  中等  |    |
-|  2487  |  [从链表中移除节点](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)  |    |  中等  |    |
-|  2488  |  [统计中位数为 K 的子数组](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)  |    |  困难  |    |
+|  2485  |  [找出中枢整数](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md)  |    |  简单  |  第 321 场周赛  |
+|  2486  |  [追加字符以获得子序列](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README.md)  |    |  中等  |  第 321 场周赛  |
+|  2487  |  [从链表中移除节点](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)  |    |  中等  |  第 321 场周赛  |
+|  2488  |  [统计中位数为 K 的子数组](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)  |    |  困难  |  第 321 场周赛  |
 
 ## 版权
 

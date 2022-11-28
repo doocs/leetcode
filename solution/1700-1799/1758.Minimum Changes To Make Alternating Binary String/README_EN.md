@@ -52,9 +52,7 @@
 ```python
 class Solution:
     def minOperations(self, s: str) -> int:
-        cnt = 0
-        for i, c in enumerate(s):
-            cnt += c == '01'[i & 1]
+        cnt = sum(c != '01'[i & 1] for i, c in enumerate(s))
         return min(cnt, len(s) - cnt)
 ```
 
@@ -65,7 +63,7 @@ class Solution {
     public int minOperations(String s) {
         int cnt = 0, n = s.length();
         for (int i = 0; i < n; ++i) {
-            cnt += (s.charAt(i) == "01".charAt(i & 1) ? 1 : 0);
+            cnt += (s.charAt(i) != "01".charAt(i & 1) ? 1 : 0);
         }
         return Math.min(cnt, n - cnt);
     }
@@ -79,9 +77,7 @@ class Solution {
 public:
     int minOperations(string s) {
         int cnt = 0, n = s.size();
-        for (int i = 0; i < n; ++i) {
-            cnt += s[i] == "01"[i & 1];
-        }
+        for (int i = 0; i < n; ++i) cnt += s[i] != "01"[i & 1];
         return min(cnt, n - cnt);
     }
 };
@@ -92,9 +88,8 @@ public:
 ```go
 func minOperations(s string) int {
 	cnt := 0
-	t := []rune("01")
 	for i, c := range s {
-		if t[i&1] != c {
+		if c != []rune("01")[i&1] {
 			cnt++
 		}
 	}

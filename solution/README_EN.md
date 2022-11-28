@@ -2493,10 +2493,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2482  |  [Difference Between Ones and Zeros in Row and Column](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README_EN.md)  |    |  Medium  |  Biweekly Contest 92  |
 |  2483  |  [Minimum Penalty for a Shop](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README_EN.md)  |    |  Medium  |  Biweekly Contest 92  |
 |  2484  |  [Count Palindromic Subsequences](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README_EN.md)  |    |  Hard  |  Biweekly Contest 92  |
-|  2485  |  [Find the Pivot Integer](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md)  |    |  Easy  |    |
-|  2486  |  [Append Characters to String to Make Subsequence](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)  |    |  Medium  |    |
-|  2487  |  [Remove Nodes From Linked List](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)  |    |  Medium  |    |
-|  2488  |  [Count Subarrays With Median K](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)  |    |  Hard  |    |
+|  2485  |  [Find the Pivot Integer](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md)  |    |  Easy  |  Weekly Contest 321  |
+|  2486  |  [Append Characters to String to Make Subsequence](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)  |    |  Medium  |  Weekly Contest 321  |
+|  2487  |  [Remove Nodes From Linked List](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)  |    |  Medium  |  Weekly Contest 321  |
+|  2488  |  [Count Subarrays With Median K](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 321  |
 
 ## Copyright
 

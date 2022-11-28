@@ -1,8 +1,7 @@
 func minOperations(s string) int {
 	cnt := 0
-	t := []rune("01")
 	for i, c := range s {
-		if t[i&1] != c {
+		if c != []rune("01")[i&1] {
 			cnt++
 		}
 	}

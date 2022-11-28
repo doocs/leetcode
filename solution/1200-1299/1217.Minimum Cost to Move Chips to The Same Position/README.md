@@ -55,8 +55,8 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= chips.length &lt;= 100</code></li>
-	<li><code>1 &lt;= chips[i] &lt;= 10^9</code></li>
+	<li><code>1 &lt;= position.length &lt;= 100</code></li>
+	<li><code>1 &lt;= position[i] &lt;= 10^9</code></li>
 </ul>
 
 ## 解法
