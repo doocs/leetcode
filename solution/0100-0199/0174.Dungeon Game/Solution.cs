@@ -1,22 +1,17 @@
-using System;
-
 public class Solution {
     public int CalculateMinimumHP(int[][] dungeon) {
-        var len1 = dungeon.Length;
-        var len2 = len1 == 0 ? 0 : dungeon[0].Length;
-        var f = new long[len1, len2];
-        for (var i = len1 - 1; i >= 0; --i)
-        {
-            for (var j = len2 - 1; j >= 0; --j)
-            {
-                var down = (i == len1 - 1) ? long.MaxValue : f[i + 1, j];
-                var right = (j == len2 - 1) ? long.MaxValue : f[i, j + 1];
-                f[i, j] = Math.Min(down, right);
-                if (f[i, j] == long.MaxValue) f[i, j] = 1;
-                f[i, j] -= dungeon[i][j];
-                if (f[i, j] < 1) f[i, j] = 1;
+        int m = dungeon.Length, n = dungeon[0].Length;
+        int[][] dp = new int[m + 1][];
+        for (int i = 0; i < m + 1; ++i) {
+            dp[i] = new int[n + 1];
+            Array.Fill(dp[i], 1 << 30);
+        }
+        dp[m][n - 1] = dp[m - 1][n] = 1;
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                dp[i][j] = Math.Max(1, Math.Min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j]);
             }
         }
-        return (int) f[0, 0];
+        return dp[0][0];
     }
 }

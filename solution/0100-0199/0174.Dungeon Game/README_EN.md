@@ -49,13 +49,115 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
+        m, n = len(dungeon), len(dungeon[0])
+        dp = [[inf] * (n + 1) for _ in range(m + 1)]
+        dp[m][n - 1] = dp[m - 1][n] = 1
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                dp[i][j] = max(
+                    1, min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j])
+        return dp[0][0]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int calculateMinimumHP(int[][] dungeon) {
+        int m = dungeon.length, n = dungeon[0].length;
+        int[][] dp = new int[m + 1][n + 1];
+        for (var e : dp) {
+            Arrays.fill(e, 1 << 30);
+        }
+        dp[m][n - 1] = dp[m - 1][n] = 1;
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                dp[i][j] = Math.max(1, Math.min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j]);
+            }
+        }
+        return dp[0][0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int calculateMinimumHP(vector<vector<int>>& dungeon) {
+        int m = dungeon.size(), n = dungeon[0].size();
+        int dp[m + 1][n + 1];
+        memset(dp, 0x3f, sizeof dp);
+        dp[m][n - 1] = dp[m - 1][n] = 1;
+        for (int i = m - 1; ~i; --i) {
+            for (int j = n - 1; ~j; --j) {
+                dp[i][j] = max(1, min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j]);
+            }
+        }
+        return dp[0][0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func calculateMinimumHP(dungeon [][]int) int {
+	m, n := len(dungeon), len(dungeon[0])
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+		for j := range dp[i] {
+			dp[i][j] = 1 << 30
+		}
+	}
+	dp[m][n-1], dp[m-1][n] = 1, 1
+	for i := m - 1; i >= 0; i-- {
+		for j := n - 1; j >= 0; j-- {
+			dp[i][j] = max(1, min(dp[i+1][j], dp[i][j+1])-dungeon[i][j])
+		}
+	}
+	return dp[0][0]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int CalculateMinimumHP(int[][] dungeon) {
+        int m = dungeon.Length, n = dungeon[0].Length;
+        int[][] dp = new int[m + 1][];
+        for (int i = 0; i < m + 1; ++i) {
+            dp[i] = new int[n + 1];
+            Array.Fill(dp[i], 1 << 30);
+        }
+        dp[m][n - 1] = dp[m - 1][n] = 1;
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                dp[i][j] = Math.Max(1, Math.Min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j]);
+            }
+        }
+        return dp[0][0];
+    }
+}
 ```
 
 ### **...**
