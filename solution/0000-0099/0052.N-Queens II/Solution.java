@@ -1,30 +1,33 @@
 class Solution {
-
-    int count = 0;
+    private int n;
+    private int ans;
+    private boolean[] cols = new boolean[10];
+    private boolean[] dg = new boolean[20];
+    private boolean[] udg = new boolean[20];
 
     public int totalNQueens(int n) {
-        int[] c = new int[n];
-        search(0, n, c);
-        return count;
+        this.n = n;
+        dfs(0);
+        return ans;
     }
 
-    public void search(int cur, int n, int[] c) {
-        if (cur == n) {
-            count++;
+    private void dfs(int i) {
+        if (i == n) {
+            ++ans;
             return;
         }
-
-        for (int i = 0; i < n; i++) {
-            boolean flag = true;
-            c[cur] = i;
-            for (int j = 0; j < cur; j++) {
-                if ((c[cur] == c[j]) || ((c[cur] - cur) == (c[j] - j))
-                    || ((c[cur] + cur) == (c[j] + j))) {
-                    flag = false;
-                    break;
-                }
+        for (int j = 0; j < n; ++j) {
+            int a = i + j, b = i - j + n;
+            if (cols[j] || dg[a] || udg[b]) {
+                continue;
             }
-            if (flag) search(cur + 1, n, c);
+            cols[j] = true;
+            dg[a] = true;
+            udg[b] = true;
+            dfs(i + 1);
+            cols[j] = false;
+            dg[a] = false;
+            udg[b] = false;
         }
     }
 }
