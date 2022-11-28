@@ -1,31 +1,37 @@
 class Solution {
     public boolean isNumber(String s) {
-        if (null == s || 0 == s.length()) return false;
-        int start = 0, end = s.length() - 1;
-        char[] c = s.toCharArray();
-        while (start <= end && ' ' == c[start]) start++;
-        while (end >= start && ' ' == c[end]) end--;
-        if (start > end) return false;
-        if ('+' == c[start] || '-' == c[start]) start++;
-        boolean hasNum = false;
-        boolean hasDot = false;
-        boolean hasE = false;
-        while (start <= end) {
-            if (c[start] >= '0' && c[start] <= '9')
-                hasNum = true;
-            else if (c[start] == 'e') {
-                if (hasE || !hasNum) return false;
-                hasE = true;
-                hasNum = false;
-            } else if (c[start] == '.') {
-                if (hasDot || hasE) return false;
-                hasDot = true;
-            } else if ('+' == c[start] || '-' == c[start]) {
-                if (c[start - 1] != 'e') return false;
-            } else
-                return false;
-            start++;
+        int n = s.length();
+        int i = 0;
+        if (s.charAt(i) == '+' || s.charAt(i) == '-') {
+            ++i;
         }
-        return hasNum;
+        if (i == n) {
+            return false;
+        }
+        if (s.charAt(i) == '.' && (i + 1 == n || s.charAt(i + 1) == 'e' || s.charAt(i + 1) == 'E')) {
+            return false;
+        }
+        int dot = 0, e = 0;
+        for (int j = i; j < n; ++j) {
+            if (s.charAt(j) == '.') {
+                if (e > 0 || dot > 0) {
+                    return false;
+                }
+                ++dot;
+            } else if (s.charAt(j) == 'e' || s.charAt(j) == 'E') {
+                if (e > 0 || j == i || j == n - 1) {
+                    return false;
+                }
+                ++e;
+                if (s.charAt(j + 1) == '+' || s.charAt(j + 1) == '-') {
+                    if (++j == n - 1) {
+                        return false;
+                    }
+                }
+            } else if (s.charAt(j) < '0' || s.charAt(j) > '9') {
+                return false;
+            }
+        }
+        return true;
     }
 }
