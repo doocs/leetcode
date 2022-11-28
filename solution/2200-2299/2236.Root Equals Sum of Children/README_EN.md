@@ -78,28 +78,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function checkTree(root: TreeNode | null): boolean {
-    return root.val === root.left.val + root.right.val;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -135,6 +113,79 @@ public:
  */
 func checkTree(root *TreeNode) bool {
 	return root.Val == root.Left.Val+root.Right.Val
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function checkTree(root: TreeNode | null): boolean {
+    return root.val === root.left.val + root.right.val;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn check_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        let node = root.as_ref().unwrap().borrow();
+        let left = node.left.as_ref().unwrap().borrow().val;
+        let right = node.right.as_ref().unwrap().borrow().val;
+        node.val == left + right
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+
+bool checkTree(struct TreeNode *root) {
+    return root->val == root->left->val + root->right->val;
 }
 ```
 

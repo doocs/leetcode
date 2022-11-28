@@ -75,16 +75,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minPartitions(n: string): number {
-    let nums = n.split('').map(d => parseInt(d));
-    let ans = Math.max(...nums);
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -112,6 +102,45 @@ func minPartitions(n string) int {
 		}
 	}
 	return res
+}
+```
+
+### **TypeScript**
+
+```ts
+function minPartitions(n: string): number {
+    let nums = n.split('').map(d => parseInt(d));
+    let ans = Math.max(...nums);
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_partitions(n: String) -> i32 {
+        let mut ans = 0;
+        for c in n.as_bytes() {
+            ans = ans.max((c - b'0') as i32);
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int minPartitions(char *n) {
+    int ans = 0;
+    for (int i = 0; n[i]; i++) {
+        int v = n[i] - '0';
+        if (v > ans) {
+            ans = v;
+        }
+    }
+    return ans;
 }
 ```
 
