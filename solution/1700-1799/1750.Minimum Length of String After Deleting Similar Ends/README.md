@@ -62,6 +62,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们定义两个指针 $i$ 和 $j$ 分别指向字符串 $s$ 的头部和尾部，然后向中间移动，直到 $i$ 和 $j$ 指向的字符不相等，此时 $\max(0, j - i + 1)$ 即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +75,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumLength(self, s: str) -> int:
+        i, j = 0, len(s) - 1
+        while i < j and s[i] == s[j]:
+            while i + 1 < j and s[i] == s[i + 1]:
+                i += 1
+            while i < j - 1 and s[j - 1] == s[j]:
+                j -= 1
+            i, j = i + 1, j - 1
+        return max(0, j - i + 1)
 ```
 
 ### **Java**
@@ -77,7 +92,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumLength(String s) {
+        int i = 0, j = s.length() - 1;
+        while (i < j && s.charAt(i) == s.charAt(j)) {
+            while (i + 1 < j && s.charAt(i) == s.charAt(i + 1)) {
+                ++i;
+            }
+            while (i < j - 1 && s.charAt(j) == s.charAt(j - 1)) {
+                --j;
+            }
+            ++i;
+            --j;
+        }
+        return Math.max(0, j - i + 1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumLength(string s) {
+        int i = 0, j = s.size() - 1;
+        while (i < j && s[i] == s[j]) {
+            while (i + 1 < j && s[i] == s[i + 1]) {
+                ++i;
+            }
+            while (i < j - 1 && s[j] == s[j - 1]) {
+                --j;
+            }
+            ++i;
+            --j;
+        }
+        return max(0, j - i + 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumLength(s string) int {
+	i, j := 0, len(s)-1
+	for i < j && s[i] == s[j] {
+		for i+1 < j && s[i] == s[i+1] {
+			i++
+		}
+		for i < j-1 && s[j] == s[j-1] {
+			j--
+		}
+		i, j = i+1, j-1
+	}
+	return max(0, j-i+1)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
