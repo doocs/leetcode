@@ -119,6 +119,51 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minOperations(s: string): number {
+    const n = s.length;
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        count += s[i] !== '01'[i & 1] ? 1 : 0;
+    }
+    return Math.min(count, n - count);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_operations(s: String) -> i32 {
+        let n = s.len();
+        let s = s.as_bytes();
+        let cs = [b'0', b'1'];
+        let mut count = 0;
+        for i in 0..n {
+            count += if s[i] != cs[i & 1] { 1 } else { 0 };
+        }
+        count.min(n - count) as i32
+    }
+}
+```
+
+### **C**
+
+```c
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+
+int minOperations(char *s) {
+    int n = strlen(s);
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        count += s[i] != ('0' + (i & 1)) ? 0 : 1;
+    }
+    return min(count, n - count);
+}
+```
+
 ### **...**
 
 ```
