@@ -59,13 +59,48 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        n = len(nums)
+        i = next((i for i in range(n - 2, -1, -1) if nums[i] < nums[i + 1]), -1)
+        if ~i:
+            j = next((j for j in range(n - 1, i, -1) if nums[j] > nums[i]))
+            nums[i], nums[j] = nums[j], nums[i]
+        nums[i + 1 :] = nums[i + 1 :][::-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int n = nums.length;
+        int i = n - 2;
+        for (; i >= 0; --i) {
+            if (nums[i] < nums[i + 1]) {
+                break;
+            }
+        }
+        if (i >= 0) {
+            for (int j = n - 1; j > i; --j) {
+                if (nums[j] > nums[i]) {
+                    swap(nums, i, j);
+                    break;
+                }
+            }
+        }
 
+        for (int j = i + 1, k = n - 1; j < k; ++j, --k) {
+            swap(nums, j, k);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[j];
+        nums[j] = nums[i];
+        nums[i] = t;
+    }
+}
 ```
 
 ### **C++**
@@ -74,26 +109,51 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
-        int i, j;
         int n = nums.size();
-        for (i = n - 2; i >= 0; i--) {
-            if (nums[i] < nums[i + 1]) {
-                break;
-            }
-        }
-        if (i < 0)
-            reverse(nums.begin(), nums.end());
-        else {
-            for (j = n - 1; j >= 0; j--) {
-                if (nums[i] < nums[j]) {
+        int i = n - 2;
+        for (; ~i; --i) if (nums[i] < nums[i + 1]) break;
+        if (~i) {
+            for (int j = n - 1; j > i; --j) {
+                if (nums[j] > nums[i]) {
+                    swap(nums[i], nums[j]);
                     break;
                 }
             }
-            swap(nums[i], nums[j]);
-            reverse(nums.begin() + i + 1, nums.end());
         }
+        reverse(nums.begin() + i + 1, nums.end());
     }
 };
+```
+
+### **Go**
+
+```go
+func nextPermutation(nums []int) {
+	n := len(nums)
+	i := n - 2
+	for ; i >= 0; i-- {
+		if nums[i] < nums[i+1] {
+			break
+		}
+	}
+	if i >= 0 {
+		for j := n - 1; j > i; j-- {
+			if nums[j] > nums[i] {
+				nums[i], nums[j] = nums[j], nums[i]
+				break
+			}
+		}
+	}
+	for j, k := i+1, n-1; j < k; j, k = j+1, k-1 {
+		nums[j], nums[k] = nums[k], nums[j]
+	}
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->
