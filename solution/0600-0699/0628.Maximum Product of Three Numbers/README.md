@@ -80,6 +80,26 @@ class Solution {
 }
 ```
 
+### **Go**
+
+```go
+func maximumProduct(nums []int) int {
+    n := len(nums)
+    sort.Ints(nums)
+    // 全负 0 1 n-1
+    // 全正 n-1 n-2 n-3
+    // 有正有负 max([0 1 n-1], [n-1 n-2 n-3])
+    return max(nums[0]*nums[1]*nums[n-1], nums[n-1]*nums[n-2]*nums[n-3])
+}
+
+func max(a, b int) int {
+    if a > b {
+	return a
+    }
+    return b
+}
+```
+
 ### **...**
 
 ```
