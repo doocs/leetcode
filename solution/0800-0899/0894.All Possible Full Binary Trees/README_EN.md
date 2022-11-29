@@ -126,26 +126,23 @@ class Solution {
  */
 class Solution {
 public:
-    unordered_map<int, vector<TreeNode*>> f;
-
     vector<TreeNode*> allPossibleFBT(int n) {
-        return dfs(n);
-    }
-
-    vector<TreeNode*> dfs(int n) {
-        if (f.count(n)) return f[n];
-        if (n == 1) return {new TreeNode()};
-        vector<TreeNode*> res;
-        for (int i = 0; i < n - 1; ++i) {
-            int j = n - i - 1;
-            for (auto left : dfs(i)) {
-                for (auto right : dfs(j)) {
-                    res.push_back(new TreeNode(0, left, right));
+        vector<TreeNode*> f[21];
+        function<vector<TreeNode*>(int)> dfs = [&](int n) -> vector<TreeNode*> {
+            if (f[n].size()) return f[n];
+            if (n == 1) return vector<TreeNode*>{new TreeNode()};
+            vector<TreeNode*> res;
+            for (int i = 0; i < n - 1; ++i) {
+                int j = n - i - 1;
+                for (auto left : dfs(i)) {
+                    for (auto right : dfs(j)) {
+                        res.push_back(new TreeNode(0, left, right));
+                    }
                 }
             }
-        }
-        f[n] = res;
-        return res;
+            return f[n] = res;
+        };
+        return dfs(n);
     }
 };
 ```
