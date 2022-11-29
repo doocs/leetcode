@@ -10,7 +10,6 @@
 
 <ul>
 	<li>如果 <code>word1</code> 非空，将 <code>word1</code> 中的第一个字符附加到 <code>merge</code> 的末尾，并将其从 <code>word1</code> 中移除。
-
     <ul>
     	<li>例如，<code>word1 = "abc" </code>且 <code>merge = "dv"</code> ，在执行此选项操作之后，<code>word1 = "bc"</code> ，同时 <code>merge = "dva"</code> 。</li>
     </ul>
@@ -20,7 +19,6 @@
     	<li>例如，<code>word2 = "abc" </code>且 <code>merge = ""</code> ，在执行此选项操作之后，<code>word2 = "bc"</code> ，同时 <code>merge = "a"</code> 。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>返回你可以构造的字典序 <strong>最大</strong> 的合并字符串<em> </em><code>merge</code><em> 。</em></p>
@@ -63,6 +61,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 双指针**
+
+我们用指针 $i$ 和 $j$ 分别指向字符串 `word1` 和 `word2` 的第一个字符。然后循环，每次比较 $word1[i:]$ 和 $word2[j:]$ 的大小，如果 $word1[i:]$ 比 $word2[j:]$ 大，那么我们就将 $word1[i]$ 加入答案，否则我们就将 $word2[j]$ 加入答案。循环，直至 $i$ 到达字符串 `word1` 的末尾，或者 $j$ 到达字符串 `word2` 的末尾。
+
+然后我们将剩余的字符串加入答案即可。
+
+时间复杂度 $O(n^2)$。其中 $n$ 是字符串 `word1` 和 `word2` 的长度之和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +76,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestMerge(self, word1: str, word2: str) -> str:
+        i = j = 0
+        ans = []
+        while i < len(word1) and j < len(word2):
+            if word1[i:] > word2[j:]:
+                ans.append(word1[i])
+                i += 1
+            else:
+                ans.append(word2[j])
+                j += 1
+        ans.append(word1[i:])
+        ans.append(word2[j:])
+        return "".join(ans)
 ```
 
 ### **Java**
@@ -78,7 +97,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String largestMerge(String word1, String word2) {
+        int m = word1.length(), n = word2.length();
+        int i = 0, j = 0;
+        StringBuilder ans = new StringBuilder();
+        while (i < m && j < n) {
+            boolean gt = word1.substring(i).compareTo(word2.substring(j)) > 0;
+            ans.append(gt ? word1.charAt(i++) : word2.charAt(j++));
+        }
+        ans.append(word1.substring(i));
+        ans.append(word2.substring(j));
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string largestMerge(string word1, string word2) {
+        int m = word1.size(), n = word2.size();
+        int i = 0, j = 0;
+        string ans;
+        while (i < m && j < n) {
+            bool gt = word1.substr(i) > word2.substr(j);
+            ans += gt ? word1[i++] : word2[j++];
+        }
+        ans += word1.substr(i);
+        ans += word2.substr(j);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestMerge(word1 string, word2 string) string {
+	m, n := len(word1), len(word2)
+	i, j := 0, 0
+	var ans strings.Builder
+	for i < m && j < n {
+		if word1[i:] > word2[j:] {
+			ans.WriteByte(word1[i])
+			i++
+		} else {
+			ans.WriteByte(word2[j])
+			j++
+		}
+	}
+	ans.WriteString(word1[i:])
+	ans.WriteString(word2[j:])
+	return ans.String()
+}
 ```
 
 ### **...**

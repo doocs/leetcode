@@ -8,7 +8,6 @@
 
 <ul>
 	<li>If <code>word1</code> is non-empty, append the <strong>first</strong> character in <code>word1</code> to <code>merge</code> and delete it from <code>word1</code>.
-
     <ul>
     	<li>For example, if <code>word1 = &quot;abc&quot; </code>and <code>merge = &quot;dv&quot;</code>, then after choosing this operation, <code>word1 = &quot;bc&quot;</code> and <code>merge = &quot;dva&quot;</code>.</li>
     </ul>
@@ -18,7 +17,6 @@
     	<li>For example, if <code>word2 = &quot;abc&quot; </code>and <code>merge = &quot;&quot;</code>, then after choosing this operation, <code>word2 = &quot;bc&quot;</code> and <code>merge = &quot;a&quot;</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <em>the lexicographically <strong>largest</strong> </em><code>merge</code><em> you can construct</em>.</p>
@@ -62,13 +60,81 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestMerge(self, word1: str, word2: str) -> str:
+        i = j = 0
+        ans = []
+        while i < len(word1) and j < len(word2):
+            if word1[i:] > word2[j:]:
+                ans.append(word1[i])
+                i += 1
+            else:
+                ans.append(word2[j])
+                j += 1
+        ans.append(word1[i:])
+        ans.append(word2[j:])
+        return "".join(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String largestMerge(String word1, String word2) {
+        int m = word1.length(), n = word2.length();
+        int i = 0, j = 0;
+        StringBuilder ans = new StringBuilder();
+        while (i < m && j < n) {
+            boolean gt = word1.substring(i).compareTo(word2.substring(j)) > 0;
+            ans.append(gt ? word1.charAt(i++) : word2.charAt(j++));
+        }
+        ans.append(word1.substring(i));
+        ans.append(word2.substring(j));
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string largestMerge(string word1, string word2) {
+        int m = word1.size(), n = word2.size();
+        int i = 0, j = 0;
+        string ans;
+        while (i < m && j < n) {
+            bool gt = word1.substr(i) > word2.substr(j);
+            ans += gt ? word1[i++] : word2[j++];
+        }
+        ans += word1.substr(i);
+        ans += word2.substr(j);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestMerge(word1 string, word2 string) string {
+	m, n := len(word1), len(word2)
+	i, j := 0, 0
+	var ans strings.Builder
+	for i < m && j < n {
+		if word1[i:] > word2[j:] {
+			ans.WriteByte(word1[i])
+			i++
+		} else {
+			ans.WriteByte(word2[j])
+			j++
+		}
+	}
+	ans.WriteString(word1[i:])
+	ans.WriteString(word2[j:])
+	return ans.String()
+}
 ```
 
 ### **...**
