@@ -51,12 +51,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历数组：
+**方法一：一次遍历**
 
--   出现递增，将 `isIncr` 置为 `true`；
--   出现递减，将 `isDecr` 置为 `true`；
--   既是递增也是递减，提前返回 `false`；
--   正常遍历结束，返回 `true`。
+遍历数组，如果出现递增或递减的情况，记录下来。判断是否出现过递增和递减的情况，如果都出现过，说明不是单调数组，返回 `false`。
+
+否则遍历结束，说明是单调数组，返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -76,6 +77,14 @@ class Solution:
             if isIncr and isDecr:
                 return False
         return True
+```
+
+```python
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        incr = all(a <= b for a, b in pairwise(nums))
+        decr = all(a >= b for a, b in pairwise(nums))
+        return incr or decr
 ```
 
 ### **Java**
