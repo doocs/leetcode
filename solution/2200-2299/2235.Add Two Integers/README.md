@@ -89,6 +89,32 @@ func sum(num1 int, num2 int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function sum(num1: number, num2: number): number {
+    return num1 + num2;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sum(num1: i32, num2: i32) -> i32 {
+        num1 + num2
+    }
+}
+```
+
+### **C**
+
+```c
+int sum(int num1, int num2) {
+    return num1 + num2;
+}
+```
+
 ### **...**
 
 ```
