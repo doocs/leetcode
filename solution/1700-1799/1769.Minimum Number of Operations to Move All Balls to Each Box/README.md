@@ -45,6 +45,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：预处理 + 枚举**
+
+我们可以预处理出把每个位置 $i$ 左边的小球移动到 $i$ 的操作数，记为 $left[i]$；把每个位置 $i$ 右边的小球移动到 $i$ 的操作数，记为 $right[i]$。那么答案数组的第 $i$ 个元素就是 $left[i] + right[i]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `boxes` 的长度。
+
+我们还可以进一步优化空间复杂度，只用一个答案数组 $ans$ 以及若干个变量即可。
+
+时间复杂度 $O(n)$，忽略答案数组的空间复杂度，空间复杂度 $O(1)$。其中 $n$ 为 `boxes` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,19 +65,38 @@
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
         n = len(boxes)
-        res = [0] * n
-        total = 0
-        for i, b in enumerate(boxes):
-            if b == '1':
-                res[0] += i
-                total += 1
-        left, right = 0, total
+        left = [0] * n
+        right = [0] * n
+        cnt = 0
         for i in range(1, n):
             if boxes[i - 1] == '1':
-                left += 1
-                right -= 1
-            res[i] = res[i - 1] + left - right
-        return res
+                cnt += 1
+            left[i] = left[i - 1] + cnt
+        cnt = 0
+        for i in range(n - 2, -1, -1):
+            if boxes[i + 1] == '1':
+                cnt += 1
+            right[i] = right[i + 1] + cnt
+        return [a + b for a, b in zip(left, right)]
+```
+
+```python
+class Solution:
+    def minOperations(self, boxes: str) -> List[int]:
+        n = len(boxes)
+        ans = [0] * n
+        cnt = 0
+        for i in range(1, n):
+            if boxes[i - 1] == '1':
+                cnt += 1
+            ans[i] = ans[i - 1] + cnt
+        cnt = s = 0
+        for i in range(n - 2, -1, -1):
+            if boxes[i + 1] == '1':
+                cnt += 1
+            s += cnt
+            ans[i] += s
+        return ans
 ```
 
 ### **Java**
@@ -78,23 +107,48 @@ class Solution:
 class Solution {
     public int[] minOperations(String boxes) {
         int n = boxes.length();
-        int[] res = new int[n];
-        int total = 0;
-        for (int i = 0; i < n; ++i) {
-            if (boxes.charAt(i) == '1') {
-                res[0] += i;
-                ++total;
-            }
-        }
-        int left = 0, right = total;
-        for (int i = 1; i < n; ++i) {
+        int[] left = new int[n];
+        int[] right = new int[n];
+        for (int i = 1, cnt = 0; i < n; ++i) {
             if (boxes.charAt(i - 1) == '1') {
-                ++left;
-                --right;
+                ++cnt;
             }
-            res[i] = res[i - 1] + left - right;
+            left[i] = left[i - 1] + cnt;
         }
-        return res;
+        for (int i = n - 2, cnt = 0; i >= 0; --i) {
+            if (boxes.charAt(i + 1) == '1') {
+                ++cnt;
+            }
+            right[i] = right[i + 1] + cnt;
+        }
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = left[i] + right[i];
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] minOperations(String boxes) {
+        int n = boxes.length();
+        int[] ans = new int[n];
+        for (int i = 1, cnt = 0; i < n; ++i) {
+            if (boxes.charAt(i - 1) == '1') {
+                ++cnt;
+            }
+            ans[i] = ans[i - 1] + cnt;
+        }
+        for (int i = n - 2, cnt = 0, s = 0; i >= 0; --i) {
+            if (boxes.charAt(i + 1) == '1') {
+                ++cnt;
+            }
+            s += cnt;
+            ans[i] += s;
+        }
+        return ans;
     }
 }
 ```
@@ -106,23 +160,41 @@ class Solution {
 public:
     vector<int> minOperations(string boxes) {
         int n = boxes.size();
-        vector<int> res(n);
-        int total = 0;
-        for (int i = 0; i < n; ++i) {
-            if (boxes[i] == '1') {
-                res[0] += i;
-                ++total;
-            }
+        int left[n];
+        int right[n];
+        memset(left, 0, sizeof left);
+        memset(right, 0, sizeof right);
+        for (int i = 1, cnt = 0; i < n; ++i) {
+            cnt += boxes[i - 1] == '1';
+            left[i] = left[i - 1] + cnt;
         }
-        int left = 0, right = total;
-        for (int i = 1; i < n; ++i) {
-            if (boxes[i - 1] == '1') {
-                ++left;
-                --right;
-            }
-            res[i] = res[i - 1] + left - right;
+        for (int i = n - 2, cnt = 0; ~i; --i) {
+            cnt += boxes[i + 1] == '1';
+            right[i] = right[i + 1] + cnt;
         }
-        return res;
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) ans[i] = left[i] + right[i];
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+        int n = boxes.size();
+        vector<int> ans(n);
+        for (int i = 1, cnt = 0; i < n; ++i) {
+            cnt += boxes[i - 1] == '1';
+            ans[i] = ans[i - 1] + cnt;
+        }
+        for (int i = n - 2, cnt = 0, s = 0; ~i; --i) {
+            cnt += boxes[i + 1] == '1';
+            s += cnt;
+            ans[i] += s;
+        }
+        return ans;
     }
 };
 ```
@@ -132,23 +204,46 @@ public:
 ```go
 func minOperations(boxes string) []int {
 	n := len(boxes)
-	res := make([]int, n)
-	total := 0
-	for i, b := range boxes {
-		if b == '1' {
-			res[0] += i
-			total++
-		}
-	}
-	left, right := 0, total
-	for i := 1; i < n; i++ {
+	left := make([]int, n)
+	right := make([]int, n)
+	for i, cnt := 1, 0; i < n; i++ {
 		if boxes[i-1] == '1' {
-			left++
-			right--
+			cnt++
 		}
-		res[i] = res[i-1] + left - right
+		left[i] = left[i-1] + cnt
 	}
-	return res
+	for i, cnt := n-2, 0; i >= 0; i-- {
+		if boxes[i+1] == '1' {
+			cnt++
+		}
+		right[i] = right[i+1] + cnt
+	}
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = left[i] + right[i]
+	}
+	return ans
+}
+```
+
+```go
+func minOperations(boxes string) []int {
+	n := len(boxes)
+	ans := make([]int, n)
+	for i, cnt := 1, 0; i < n; i++ {
+		if boxes[i-1] == '1' {
+			cnt++
+		}
+		ans[i] = ans[i-1] + cnt
+	}
+	for i, cnt, s := n-2, 0, 0; i >= 0; i-- {
+		if boxes[i+1] == '1' {
+			cnt++
+		}
+		s += cnt
+		ans[i] += s
+	}
+	return ans
 }
 ```
 

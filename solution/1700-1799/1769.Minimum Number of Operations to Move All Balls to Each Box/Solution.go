@@ -1,20 +1,18 @@
 func minOperations(boxes string) []int {
 	n := len(boxes)
-	res := make([]int, n)
-	total := 0
-	for i, b := range boxes {
-		if b == '1' {
-			res[0] += i
-			total++
-		}
-	}
-	left, right := 0, total
-	for i := 1; i < n; i++ {
+	ans := make([]int, n)
+	for i, cnt := 1, 0; i < n; i++ {
 		if boxes[i-1] == '1' {
-			left++
-			right--
+			cnt++
 		}
-		res[i] = res[i-1] + left - right
+		ans[i] = ans[i-1] + cnt
 	}
-	return res
+	for i, cnt, s := n-2, 0, 0; i >= 0; i-- {
+		if boxes[i+1] == '1' {
+			cnt++
+		}
+		s += cnt
+		ans[i] += s
+	}
+	return ans
 }
