@@ -87,18 +87,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function finalValueAfterOperations(operations: string[]): number {
-    let ans = 0;
-    for (let operation of operations) {
-        ans += operation.includes('+') ? 1 : -1;
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -125,6 +113,50 @@ func finalValueAfterOperations(operations []string) int {
         }
     }
     return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function finalValueAfterOperations(operations: string[]): number {
+    let ans = 0;
+    for (let operation of operations) {
+        ans += operation.includes('+') ? 1 : -1;
+    }
+    return ans;
+}
+```
+
+```ts
+function finalValueAfterOperations(operations: string[]): number {
+    return operations.reduce((r, v) => r + (v[1] === '+' ? 1 : -1), 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn final_value_after_operations(operations: Vec<String>) -> i32 {
+        let mut ans = 0;
+        for s in operations.iter() {
+            ans += if s.as_bytes()[1] == b'+' { 1 } else { -1 };
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int finalValueAfterOperations(char **operations, int operationsSize) {
+    int ans = 0;
+    for (int i = 0; i < operationsSize; i++) {
+        ans += operations[i][1] == '+' ? 1 : -1;
+    }
+    return ans;
 }
 ```
 
