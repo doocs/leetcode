@@ -60,6 +60,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 去重 + 二分查找**
+
+我们先将数组排序，去重。
+
+然后遍历数组，枚举以当前元素 $nums[i]$ 作为连续数组的最小值，通过二分查找找到第一个大于 $nums[i] + n - 1$ 的位置 $j$，那么 $j-i$ 就是当前元素作为最小值时，连续数组的长度，更新答案，即 $ans = \min(ans, n - (j - i))$。
+
+最后返回 $ans$ 即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+
+**方法二：排序 + 去重 + 双指针**
+
+与方法一类似，我们先将数组排序，去重。
+
+然后遍历数组，枚举以当前元素 $nums[i]$ 作为连续数组的最小值，通过双指针找到第一个大于 $nums[i] + n - 1$ 的位置 $j$，那么 $j-i$ 就是当前元素作为最小值时，连续数组的长度，更新答案，即 $ans = \min(ans, n - (j - i))$。
+
+最后返回 $ans$ 即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,15 +89,24 @@
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
+        ans = n = len(nums)
+        nums = sorted(set(nums))
+        for i, v in enumerate(nums):
+            j = bisect_right(nums, v + n - 1)
+            ans = min(ans, n - (j - i))
+        return ans
+```
+
+```python
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
         n = len(nums)
         nums = sorted(set(nums))
-
-        ans = n
-        for i, start in enumerate(nums):
-            end = start + n - 1
-            j = bisect_right(nums, end)
-            remainLen = j - i
-            ans = min(ans, n - remainLen)
+        ans, j = n, 0
+        for i, v in enumerate(nums):
+            while j < len(nums) and nums[j] - v <= n - 1:
+                j += 1
+            ans = min(ans, n - (j - i))
         return ans
 ```
 
@@ -88,21 +117,54 @@ class Solution:
 ```java
 class Solution {
     public int minOperations(int[] nums) {
-        int N = nums.length;
-        if (N == 1) return 0;
+        int n = nums.length;
         Arrays.sort(nums);
-        int M = 1;
-        for (int i = 1; i < N; i++) {
-            if (nums[i] != nums[i - 1]) nums[M++] = nums[i];
+        int m = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] != nums[i - 1]) {
+                nums[m++] = nums[i];
+            }
         }
-
-        int j = 0;
-        int ans = N;
-        for (int i = 0; i < M; i++) {
-            while (j < M && nums[j] <= N + nums[i] - 1) j++;
-            ans = Math.min(ans, N - j + i);
+        int ans = n;
+        for (int i = 0; i < m; ++i) {
+            int j = search(nums, nums[i] + n - 1, i, m);
+            ans = Math.min(ans, n - (j - i));
         }
+        return ans;
+    }
 
+    private int search(int[] nums, int x, int left, int right) {
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] > x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minOperations(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+        int m = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] != nums[i - 1]) {
+                nums[m++] = nums[i];
+            }
+        }
+        int ans = n;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < m && nums[j] - nums[i] <= n - 1) {
+                ++j;
+            }
+            ans = Math.min(ans, n - (j - i));
+        }
         return ans;
     }
 }
@@ -115,17 +177,93 @@ class Solution {
 public:
     int minOperations(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int End = unique(nums.begin(), nums.end()) - nums.begin();
+        int m = unique(nums.begin(), nums.end()) - nums.begin();
         int n = nums.size();
-
-        int len = 0;
-        for (int i = 0; i < End; ++i) {
-            int temp = upper_bound(nums.begin(), nums.begin() + End, n + nums[i] - 1) - nums.begin() - i;
-            len = max(len, temp);
+        int ans = n;
+        for (int i = 0; i < m; ++i) {
+            int j = upper_bound(nums.begin() + i, nums.begin() + m, nums[i] + n - 1) - nums.begin();
+            ans = min(ans, n - (j - i));
         }
-        return n - len;
+        return ans;
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int m = unique(nums.begin(), nums.end()) - nums.begin();
+        int n = nums.size();
+        int ans = n;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < m && nums[j] - nums[i] <= n - 1) {
+                ++j;
+            }
+            ans = min(ans, n - (j - i));
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minOperations(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	m := 1
+	for i := 1; i < n; i++ {
+		if nums[i] != nums[i-1] {
+			nums[m] = nums[i]
+			m++
+		}
+	}
+	ans := n
+	for i := 0; i < m; i++ {
+		j := sort.Search(m, func(k int) bool { return nums[k] > nums[i]+n-1 })
+		ans = min(ans, n-(j-i))
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minOperations(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	m := 1
+	for i := 1; i < n; i++ {
+		if nums[i] != nums[i-1] {
+			nums[m] = nums[i]
+			m++
+		}
+	}
+	ans := n
+	for i, j := 0, 0; i < m; i++ {
+		for j < m && nums[j]-nums[i] <= n-1 {
+			j++
+		}
+		ans = min(ans, n-(j-i))
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
