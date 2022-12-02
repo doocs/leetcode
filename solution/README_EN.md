@@ -2487,16 +2487,17 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2476  |  [Closest Nodes Queries in a Binary Search Tree](/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Binary Search`,`Binary Tree`  |  Medium  |  Weekly Contest 320  |
 |  2477  |  [Minimum Fuel Cost to Report to the Capital](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Graph`  |  Medium  |  Weekly Contest 320  |
 |  2478  |  [Number of Beautiful Partitions](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 320  |
-|  2479  |  [Maximum XOR of Two Non-Overlapping Subtrees](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README_EN.md)  |    |  Hard  |  🔒  |
-|  2480  |  [Form a Chemical Bond](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md)  |    |  Easy  |  🔒  |
-|  2481  |  [Minimum Cuts to Divide a Circle](/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README_EN.md)  |    |  Easy  |  Biweekly Contest 92  |
-|  2482  |  [Difference Between Ones and Zeros in Row and Column](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README_EN.md)  |    |  Medium  |  Biweekly Contest 92  |
-|  2483  |  [Minimum Penalty for a Shop](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README_EN.md)  |    |  Medium  |  Biweekly Contest 92  |
-|  2484  |  [Count Palindromic Subsequences](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README_EN.md)  |    |  Hard  |  Biweekly Contest 92  |
-|  2485  |  [Find the Pivot Integer](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md)  |    |  Easy  |  Weekly Contest 321  |
-|  2486  |  [Append Characters to String to Make Subsequence](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)  |    |  Medium  |  Weekly Contest 321  |
-|  2487  |  [Remove Nodes From Linked List](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)  |    |  Medium  |  Weekly Contest 321  |
-|  2488  |  [Count Subarrays With Median K](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 321  |
+|  2479  |  [Maximum XOR of Two Non-Overlapping Subtrees](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README_EN.md)  |  `Tree`,`Depth-First Search`,`Graph`,`Trie`  |  Hard  |  🔒  |
+|  2480  |  [Form a Chemical Bond](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  2481  |  [Minimum Cuts to Divide a Circle](/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README_EN.md)  |  `Geometry`,`Math`  |  Easy  |  Biweekly Contest 92  |
+|  2482  |  [Difference Between Ones and Zeros in Row and Column](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Medium  |  Biweekly Contest 92  |
+|  2483  |  [Minimum Penalty for a Shop](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README_EN.md)  |  `String`,`Prefix Sum`  |  Medium  |  Biweekly Contest 92  |
+|  2484  |  [Count Palindromic Subsequences](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 92  |
+|  2485  |  [Find the Pivot Integer](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md)  |  `Math`,`Prefix Sum`  |  Easy  |  Weekly Contest 321  |
+|  2486  |  [Append Characters to String to Make Subsequence](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`  |  Medium  |  Weekly Contest 321  |
+|  2487  |  [Remove Nodes From Linked List](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)  |  `Stack`,`Recursion`,`Linked List`,`Monotonic Stack`  |  Medium  |  Weekly Contest 321  |
+|  2488  |  [Count Subarrays With Median K](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Hard  |  Weekly Contest 321  |
+|  2489  |  [Number of Substrings With Fixed Ratio](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

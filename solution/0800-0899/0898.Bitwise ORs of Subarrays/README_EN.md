@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>We have an array <code>arr</code> of non-negative integers.</p>
+<p>Given an integer array <code>arr</code>, return <em>the number of distinct bitwise ORs of all the non-empty subarrays of</em> <code>arr</code>.</p>
 
-<p>For every (contiguous) subarray <code>sub = [arr[i], arr[i + 1], ..., arr[j]]</code> (with <code>i &lt;= j</code>), we take the bitwise OR of all the elements in <code>sub</code>, obtaining a result <code>arr[i] | arr[i + 1] | ... | arr[j]</code>.</p>
+<p>The bitwise OR of a subarray is the bitwise OR of each integer in the subarray. The bitwise OR of a subarray of one integer is that integer.</p>
 
-<p>Return the number of possible results. Results that occur more than once are only counted once in the final answer</p>
+<p>A <strong>subarray</strong> is a contiguous non-empty sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -41,8 +41,8 @@ There are 3 unique values, so the answer is 3.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= arr.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

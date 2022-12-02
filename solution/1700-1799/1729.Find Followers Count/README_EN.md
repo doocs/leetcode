@@ -20,7 +20,7 @@ This table contains the IDs of a user and a follower in a social media app where
 
 <p>Write an SQL query that will, for each user, return the number of followers.</p>
 
-<p>Return the result table ordered by <code>user_id</code>.</p>
+<p>Return the result table ordered by <code>user_id</code> in ascending order.</p>
 
 <p>The query result format is in the following example.</p>
 

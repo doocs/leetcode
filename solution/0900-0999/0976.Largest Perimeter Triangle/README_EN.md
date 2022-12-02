@@ -12,13 +12,19 @@
 <pre>
 <strong>Input:</strong> nums = [2,1,2]
 <strong>Output:</strong> 5
+<strong>Explanation:</strong> You can form a triangle with three side lengths: 1, 2, and 2.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,2,1]
+<strong>Input:</strong> nums = [1,2,1,10]
 <strong>Output:</strong> 0
+<strong>Explanation:</strong> 
+You cannot use the side lengths 1, 1, and 2 to form a triangle.
+You cannot use the side lengths 1, 1, and 10 to form a triangle.
+You cannot use the side lengths 1, 2, and 10 to form a triangle.
+As we cannot use any three side lengths to form a triangle of non-zero area, we return 0.
 </pre>
 
 <p>&nbsp;</p>

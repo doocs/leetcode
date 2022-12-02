@@ -2536,3 +2536,4 @@
   - [2486.Append Characters to String to Make Subsequence](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)
   - [2487.Remove Nodes From Linked List](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)
   - [2488.Count Subarrays With Median K](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)
+  - [2489.Number of Substrings With Fixed Ratio](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README_EN.md)

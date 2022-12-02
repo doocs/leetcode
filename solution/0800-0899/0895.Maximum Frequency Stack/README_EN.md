@@ -120,12 +120,12 @@ class FreqStack {
     public FreqStack() {
 
     }
-    
+
     public void push(int val) {
         cnt.put(val, cnt.getOrDefault(val, 0) + 1);
         q.offer(new int[] {cnt.get(val), ++ts, val});
     }
-    
+
     public int pop() {
         int val = q.poll()[2];
         cnt.put(val, cnt.get(val) - 1);
@@ -150,14 +150,14 @@ class FreqStack {
     public FreqStack() {
 
     }
-    
+
     public void push(int val) {
         cnt.put(val, cnt.getOrDefault(val, 0) + 1);
         int t = cnt.get(val);
         d.computeIfAbsent(t, k -> new ArrayDeque<>()).push(val);
         mx = Math.max(mx, t);
     }
-    
+
     public int pop() {
         int val = d.get(mx).pop();
         cnt.put(val, cnt.get(val) - 1);
@@ -184,12 +184,12 @@ public:
     FreqStack() {
 
     }
-    
+
     void push(int val) {
         ++cnt[val];
         q.emplace(cnt[val], ++ts, val);
     }
-    
+
     int pop() {
         auto [a, b, val] = q.top();
         q.pop();
@@ -217,13 +217,13 @@ public:
     FreqStack() {
 
     }
-    
+
     void push(int val) {
         ++cnt[val];
         d[cnt[val]].push(val);
         mx = max(mx, cnt[val]);
     }
-    
+
     int pop() {
         int val = d[mx].top();
         --cnt[val];

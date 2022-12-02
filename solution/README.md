@@ -2489,16 +2489,17 @@
 |  2476  |  [二叉搜索树最近节点查询](/solution/2400-2499/2476.Closest%20Nodes%20Queries%20in%20a%20Binary%20Search%20Tree/README.md)  |  `树`,`深度优先搜索`,`数组`,`二分查找`,`二叉树`  |  中等  |  第 320 场周赛  |
 |  2477  |  [到达首都的最少油耗](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`图`  |  中等  |  第 320 场周赛  |
 |  2478  |  [完美分割的方案数](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)  |  `字符串`,`动态规划`  |  困难  |  第 320 场周赛  |
-|  2479  |  [Maximum XOR of Two Non-Overlapping Subtrees](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README.md)  |    |  困难  |  🔒  |
-|  2480  |  [Form a Chemical Bond](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README.md)  |    |  简单  |  🔒  |
-|  2481  |  [分割圆的最少切割次数](/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README.md)  |    |  简单  |  第 92 场双周赛  |
-|  2482  |  [行和列中一和零的差值](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README.md)  |    |  中等  |  第 92 场双周赛  |
-|  2483  |  [商店的最少代价](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README.md)  |    |  中等  |  第 92 场双周赛  |
-|  2484  |  [统计回文子序列数目](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README.md)  |    |  困难  |  第 92 场双周赛  |
-|  2485  |  [找出中枢整数](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md)  |    |  简单  |  第 321 场周赛  |
-|  2486  |  [追加字符以获得子序列](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README.md)  |    |  中等  |  第 321 场周赛  |
-|  2487  |  [从链表中移除节点](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)  |    |  中等  |  第 321 场周赛  |
-|  2488  |  [统计中位数为 K 的子数组](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)  |    |  困难  |  第 321 场周赛  |
+|  2479  |  [Maximum XOR of Two Non-Overlapping Subtrees](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README.md)  |  `树`,`深度优先搜索`,`图`,`字典树`  |  困难  |  🔒  |
+|  2480  |  [Form a Chemical Bond](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  2481  |  [分割圆的最少切割次数](/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README.md)  |  `几何`,`数学`  |  简单  |  第 92 场双周赛  |
+|  2482  |  [行和列中一和零的差值](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README.md)  |  `数组`,`矩阵`,`模拟`  |  中等  |  第 92 场双周赛  |
+|  2483  |  [商店的最少代价](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README.md)  |  `字符串`,`前缀和`  |  中等  |  第 92 场双周赛  |
+|  2484  |  [统计回文子序列数目](/solution/2400-2499/2484.Count%20Palindromic%20Subsequences/README.md)  |  `字符串`,`动态规划`  |  困难  |  第 92 场双周赛  |
+|  2485  |  [找出中枢整数](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md)  |  `数学`,`前缀和`  |  简单  |  第 321 场周赛  |
+|  2486  |  [追加字符以获得子序列](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README.md)  |  `贪心`,`双指针`,`字符串`  |  中等  |  第 321 场周赛  |
+|  2487  |  [从链表中移除节点](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)  |  `栈`,`递归`,`链表`,`单调栈`  |  中等  |  第 321 场周赛  |
+|  2488  |  [统计中位数为 K 的子数组](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)  |  `数组`,`哈希表`,`前缀和`  |  困难  |  第 321 场周赛  |
+|  2489  |  [Number of Substrings With Fixed Ratio](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

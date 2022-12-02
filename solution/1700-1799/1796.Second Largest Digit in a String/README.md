@@ -41,15 +41,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-假设字符串最大的数为 `largestDigit`，第二大的数为 `secondLargestDigit`，初始化均为 -1。
+**方法一：一次遍历**
 
-遍历字符串，判断当前字符是否为数字型字符。若是，先转为数字 `num`。然后判断数字与 `largestDigit`、`secondLargestDigit` 的大小关系：
+我们定义 $a$ 和 $b$ 分别表示字符串中出现的最大数字和第二大数字，初始时 $a = b = -1$。
 
--   若 `num > largestDigit`，将 `secondLargestDigit` 更新为 `largestDigit`，而 `largestDigit` 更新为 num；
--   若 `num > secondLargestDigit`，并且 `num < largestDigit`，将 `secondLargestDigit` 更新为 num；
--   其他情况不做处理。
+遍历字符串 $s$，如果当前字符是数字，我们将其转换为数字 $v$，如果 $v \gt a$，说明 $v$ 是当前出现的最大数字，我们将 $b$ 更新为 $a$，并将 $a$ 更新为 $v$；如果 $v \lt a$，说明 $v$ 是当前出现的第二大数字，我们将 $b$ 更新为 $v$。
 
-最后返回 `secondLargestDigit` 即可。
+遍历结束，返回 $b$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
+**方法二：位运算**
+
+我们可以用一个整数 $mask$ 来标识字符串中出现的数字，其中 $mask$ 的第 $i$ 位表示数字 $i$ 是否出现过。
+
+遍历字符串 $s$，如果当前字符是数字，我们将其转换为数字 $v$，将 $mask$ 的第 $v$ 个二进制位的值置为 $1$。
+
+最后，我们从高位向低位遍历 $mask$，找到第二个为 $1$ 的二进制位，其对应的数字即为第二大数字。如果不存在第二大数字，返回 $-1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -60,15 +70,28 @@
 ```python
 class Solution:
     def secondHighest(self, s: str) -> int:
-        largest_digit = second_largest_digit = -1
+        a = b = -1
         for c in s:
             if c.isdigit():
-                num = int(c)
-                if num > largest_digit:
-                    second_largest_digit, largest_digit = largest_digit, num
-                elif num > second_largest_digit and num < largest_digit:
-                    second_largest_digit = num
-        return second_largest_digit
+                v = int(c)
+                if v > a:
+                    a, b = v, a
+                elif b < v < a:
+                    b = v
+        return b
+```
+
+```python
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        mask = reduce(or_, (1 << int(c) for c in s if c.isdigit()), 0)
+        cnt = 0
+        for i in range(9, -1, -1):
+            if (mask >> i) & 1:
+                cnt += 1
+            if cnt == 2:
+                return i
+        return -1
 ```
 
 ### **Java**
@@ -78,21 +101,114 @@ class Solution:
 ```java
 class Solution {
     public int secondHighest(String s) {
-        int largestDigit = -1, secondLargestDigit = -1;
+        int a = -1, b = -1;
         for (int i = 0; i < s.length(); ++i) {
             char c = s.charAt(i);
-            if (c >= '0' && c <= '9') {
-                int num = c - '0';
-                if (num > largestDigit) {
-                    secondLargestDigit = largestDigit;
-                    largestDigit = num;
-                } else if (num > secondLargestDigit && num < largestDigit) {
-                    secondLargestDigit = num;
+            if (Character.isDigit(c)) {
+                int v = c - '0';
+                if (v > a) {
+                    b = a;
+                    a = v;
+                } else if (v > b && v < a) {
+                    b = v;
                 }
             }
         }
-        return secondLargestDigit;
+        return b;
     }
+}
+```
+
+```java
+class Solution {
+    public int secondHighest(String s) {
+        int mask = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                mask |= 1 << (c - '0');
+            }
+        }
+        for (int i = 9, cnt = 0; i >= 0; --i) {
+            if (((mask >> i) & 1) == 1 && ++cnt == 2) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int secondHighest(string s) {
+        int a = -1, b = -1;
+        for (char& c : s) {
+            if (isdigit(c)) {
+                int v = c - '0';
+                if (v > a) {
+                    b = a, a = v;
+                } else if (v > b && v < a) {
+                    b = v;
+                }
+            }
+        }
+        return b;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int secondHighest(string s) {
+        int mask = 0;
+        for (char& c : s) if (isdigit(c)) mask |= 1 << c - '0';
+        for (int i = 9, cnt = 0; ~i; --i) if (mask >> i & 1 && ++cnt == 2) return i;
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func secondHighest(s string) int {
+	a, b := -1, -1
+	for _, c := range s {
+		if c >= '0' && c <= '9' {
+			v := int(c - '0')
+			if v > a {
+				b, a = a, v
+			} else if v > b && v < a {
+				b = v
+			}
+		}
+	}
+	return b
+}
+```
+
+```go
+func secondHighest(s string) int {
+	mask := 0
+	for _, c := range s {
+		if c >= '0' && c <= '9' {
+			mask |= 1 << int(c-'0')
+		}
+	}
+	for i, cnt := 9, 0; i >= 0; i-- {
+		if mask>>i&1 == 1 {
+			cnt++
+			if cnt == 2 {
+				return i
+			}
+		}
+	}
+	return -1
 }
 ```
 

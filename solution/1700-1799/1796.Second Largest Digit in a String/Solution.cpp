@@ -1,13 +1,12 @@
 class Solution {
-    public int secondHighest(String s) {
+public:
+    int secondHighest(string s) {
         int a = -1, b = -1;
-        for (int i = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            if (Character.isDigit(c)) {
+        for (char& c : s) {
+            if (isdigit(c)) {
                 int v = c - '0';
                 if (v > a) {
-                    b = a;
-                    a = v;
+                    b = a, a = v;
                 } else if (v > b && v < a) {
                     b = v;
                 }
@@ -15,4 +14,4 @@ class Solution {
         }
         return b;
     }
-}
+};

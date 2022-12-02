@@ -2536,3 +2536,4 @@
   - [2486.追加字符以获得子序列](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README.md)
   - [2487.从链表中移除节点](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)
   - [2488.统计中位数为 K 的子数组](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)
+  - [2489.Number of Substrings With Fixed Ratio](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README.md)
