@@ -247,6 +247,166 @@ func minOperations(boxes string) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minOperations(boxes: string): number[] {
+    const n = boxes.length;
+    const left = new Array(n).fill(0);
+    const right = new Array(n).fill(0);
+    for (let i = 1, count = 0; i < n; i++) {
+        if (boxes[i - 1] == '1') {
+            count++;
+        }
+        left[i] = left[i - 1] + count;
+    }
+    for (let i = n - 2, count = 0; i >= 0; i--) {
+        if (boxes[i + 1] == '1') {
+            count++;
+        }
+        right[i] = right[i + 1] + count;
+    }
+    return left.map((v, i) => v + right[i]);
+}
+```
+
+```ts
+function minOperations(boxes: string): number[] {
+    const n = boxes.length;
+    const ans = new Array(n).fill(0);
+    for (let i = 1, count = 0; i < n; i++) {
+        if (boxes[i - 1] === '1') {
+            count++;
+        }
+        ans[i] = ans[i - 1] + count;
+    }
+    for (let i = n - 2, count = 0, sum = 0; i >= 0; i--) {
+        if (boxes[i + 1] === '1') {
+            count++;
+        }
+        sum += count;
+        ans[i] += sum;
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_operations(boxes: String) -> Vec<i32> {
+        let s = boxes.as_bytes();
+        let n = s.len();
+        let mut left = vec![0; n];
+        let mut right = vec![0; n];
+        let mut count = 0;
+        for i in 1..n {
+            if s[i - 1] == b'1' {
+                count += 1;
+            }
+            left[i] = left[i - 1] + count;
+        }
+        count = 0;
+        for i in (0..n - 1).rev() {
+            if s[i + 1] == b'1' {
+                count += 1;
+            }
+            right[i] = right[i + 1] + count;
+        }
+        (0..n).into_iter().map(|i| left[i] + right[i]).collect()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_operations(boxes: String) -> Vec<i32> {
+        let s = boxes.as_bytes();
+        let n = s.len();
+        let mut ans = vec![0; n];
+        let mut count = 0;
+        for i in 1..n {
+            if s[i - 1] == b'1' {
+                count += 1;
+            }
+            ans[i] = ans[i - 1] + count;
+        }
+        let mut sum = 0;
+        count = 0;
+        for i in (0..n - 1).rev() {
+            if s[i + 1] == b'1' {
+                count += 1;
+            }
+            sum += count;
+            ans[i] += sum;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *minOperations(char *boxes, int *returnSize) {
+    int n = strlen(boxes);
+    int *left = malloc(sizeof(int) * n);
+    int *right = malloc(sizeof(int) * n);
+    memset(left, 0, sizeof(int) * n);
+    memset(right, 0, sizeof(int) * n);
+    for (int i = 1, count = 0; i < n; i++) {
+        if (boxes[i - 1] == '1') {
+            count++;
+        }
+        left[i] = left[i - 1] + count;
+    }
+    for (int i = n - 2, count = 0; i >= 0; i--) {
+        if (boxes[i + 1] == '1') {
+            count++;
+        }
+        right[i] = right[i + 1] + count;
+    }
+    int *ans = malloc(sizeof(int) * n);
+    for (int i = 0; i < n; i++) {
+        ans[i] = left[i] + right[i];
+    }
+    free(left);
+    free(right);
+    *returnSize = n;
+    return ans;
+}
+```
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *minOperations(char *boxes, int *returnSize) {
+    int n = strlen(boxes);
+    int *ans = malloc(sizeof(int) * n);
+    memset(ans, 0, sizeof(int) * n);
+    for (int i = 1, count = 0; i < n; i++) {
+        if (boxes[i - 1] == '1') {
+            count++;
+        }
+        ans[i] = ans[i - 1] + count;
+    }
+    for (int i = n - 2, count = 0, sum = 0; i >= 0; i--) {
+        if (boxes[i + 1] == '1') {
+            count++;
+        }
+        sum += count;
+        ans[i] += sum;
+    }
+    *returnSize = n;
+    return ans;
+}
+```
+
 ### **...**
 
 ```
