@@ -59,6 +59,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心枚举**
+
+我们贪心地枚举 `nums` 中每一个数 $nums[j]$ 作为子数组的开始，判断其是否与当前 $groups[i]$ 匹配，是则将指针 $i$ 往后移一位，将指针 $j$ 往后移动 $groups[i].length$ 位，否则将指针 $j$ 往后移动一位。
+
+如果 $i$ 走到了 $groups.length$，说明所有的子数组都匹配上了，返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n \times m)，空间复杂度 O(1)$。其中 $n$ 和 $m$ 分别为 `groups` 和 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +74,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canChoose(self, groups: List[List[int]], nums: List[int]) -> bool:
+        n, m = len(groups), len(nums)
+        i = j = 0
+        while i < n and j < m:
+            g = groups[i]
+            if g == nums[j : j + len(g)]:
+                j += len(g)
+                i += 1
+            else:
+                j += 1
+        return i == n
 ```
 
 ### **Java**
@@ -74,7 +93,91 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean canChoose(int[][] groups, int[] nums) {
+        int n = groups.length, m = nums.length;
+        int i = 0;
+        for (int j = 0; i < n && j < m;) {
+            if (check(groups[i], nums, j)) {
+                j += groups[i].length;
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return i == n;
+    }
 
+    private boolean check(int[] a, int[] b, int j) {
+        int m = a.length, n = b.length;
+        int i = 0;
+        for (; i < m && j < n; ++i, ++j) {
+            if (a[i] != b[j]) {
+                return false;
+            }
+        }
+        return i == m;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canChoose(vector<vector<int>>& groups, vector<int>& nums) {
+        auto check = [&](vector<int>& a, vector<int>& b, int j) {
+            int m = a.size(), n = b.size();
+            int i = 0;
+            for (; i < m && j < n; ++i, ++j) {
+                if (a[i] != b[j]) {
+                    return false;
+                }
+            }
+            return i == m;
+        };
+        int n = groups.size(), m = nums.size();
+        int i = 0;
+        for (int j = 0; i < n && j < m;) {
+            if (check(groups[i], nums, j)) {
+                j += groups[i].size();
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return i == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canChoose(groups [][]int, nums []int) bool {
+	check := func(a, b []int, j int) bool {
+		m, n := len(a), len(b)
+		i := 0
+		for ; i < m && j < n; i, j = i+1, j+1 {
+			if a[i] != b[j] {
+				return false
+			}
+		}
+		return i == m
+	}
+	n, m := len(groups), len(nums)
+	i := 0
+	for j := 0; i < n && j < m; {
+		if check(groups[i], nums, j) {
+			j += len(groups[i])
+			i++
+		} else {
+			j++
+		}
+	}
+	return i == n
+}
 ```
 
 ### **...**
