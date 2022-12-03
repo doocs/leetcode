@@ -60,17 +60,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先对 `coins` 数组进行排序。
+**方法一：排序 + 贪心**
 
-假设前 i 个数所有构造的的连续整数的个数为 res，初始化为 1。
+我们先对数组进行排序。然后定义 $ans$ 表示当前能够构造的连续整数的个数，初始化为 $1$。
 
-遍历排序后的 `coins` 数组：
+遍历数组，对于当前遍历到的元素 $v$，如果 $v \gt ans$，说明无法构造出 $ans+1$ 个连续的整数，因此直接跳出循环，返回 $ans$ 即可。否则，说明可以构造出 $ans+v$ 个连续的整数，因此更新 $ans$ 为 $ans+v$。
 
--   若 `coins[i] > res`，说明接下来无法组成 `res + 1` 个连续整数，跳出循环。
+最后返回 $ans$ 即可。
 
-    > 对于 `1, 3`，若遍历到 3，此时前面的连续整数个数为 2，即连续整数为：`0, 1`。此时 3 大于 2，无法构成连续整数 `0, 1, 2`，所以最大连续整数个数为 2。
-
--   若 `coins[i] <= res`，说明有 `coins[i]` 个数也能构成连续整数。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -81,12 +79,12 @@
 ```python
 class Solution:
     def getMaximumConsecutive(self, coins: List[int]) -> int:
-        res = 1
-        for coin in sorted(coins):
-            if coin > res:
+        ans = 1
+        for v in sorted(coins):
+            if v > ans:
                 break
-            res += coin
-        return res
+            ans += v
+        return ans
 ```
 
 ### **Java**
@@ -96,16 +94,49 @@ class Solution:
 ```java
 class Solution {
     public int getMaximumConsecutive(int[] coins) {
-        int res = 1;
         Arrays.sort(coins);
-        for (int coin : coins) {
-            if (coin > res) {
+        int ans = 1;
+        for (int v : coins) {
+            if (v > ans) {
                 break;
             }
-            res += coin;
+            ans += v;
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getMaximumConsecutive(vector<int>& coins) {
+        sort(coins.begin(), coins.end());
+        int ans = 1;
+        for (int& v : coins) {
+            if (v > ans) break;
+            ans += v;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getMaximumConsecutive(coins []int) int {
+	sort.Ints(coins)
+	ans := 1
+	for _, v := range coins {
+		if v > ans {
+			break
+		}
+		ans += v
+	}
+	return ans
 }
 ```
 

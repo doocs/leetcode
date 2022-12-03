@@ -1,8 +1,8 @@
 class Solution:
     def getMaximumConsecutive(self, coins: List[int]) -> int:
-        res = 1
-        for coin in sorted(coins):
-            if coin > res:
+        ans = 1
+        for v in sorted(coins):
+            if v > ans:
                 break
-            res += coin
-        return res
+            ans += v
+        return ans
