@@ -212,6 +212,70 @@ func secondHighest(s string) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function secondHighest(s: string): number {
+    let first = -1;
+    let second = -1;
+    for (const c of s) {
+        if (c >= '0' && c <= '9') {
+            const num = c.charCodeAt(0) - '0'.charCodeAt(0);
+            if (first < num) {
+                [first, second] = [num, first];
+            } else if (first !== num && second < num) {
+                second = num;
+            }
+        }
+    }
+    return second;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn second_highest(s: String) -> i32 {
+        let mut first = -1;
+        let mut second = -1;
+        for c in s.as_bytes() {
+            if char::is_digit(*c as char, 10) {
+                let num = (c - b'0') as i32;
+                if first < num {
+                    second = first;
+                    first = num;
+                } else if num < first && second < num {
+                    second = num;
+                }
+            }
+        }
+        second
+    }
+}
+```
+
+### **C**
+
+```c
+int secondHighest(char *s) {
+    int first = -1;
+    int second = -1;
+    for (int i = 0; s[i]; i++) {
+        if (isdigit(s[i])) {
+            int num = s[i] - '0';
+            if (num > first) {
+                second = first;
+                first = num;
+            } else if (num < first && second < num) {
+                second = num;
+            }
+        }
+    }
+    return second;
+}
+```
+
 ### **...**
 
 ```

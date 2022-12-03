@@ -133,7 +133,57 @@ func max(a, b int) int {
 ### **TypeScript**
 
 ```ts
+function mostWordsFound(sentences: string[]): number {
+    return sentences.reduce(
+        (r, s) =>
+            Math.max(
+                r,
+                [...s].reduce((r, c) => r + (c === ' ' ? 1 : 0), 1),
+            ),
+        0,
+    );
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn most_words_found(sentences: Vec<String>) -> i32 {
+        let mut ans = 0;
+        for s in sentences.iter() {
+            let mut count = 1;
+            for c in s.as_bytes() {
+                if *c == b' ' {
+                    count += 1;
+                }
+            }
+            ans = ans.max(count);
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int mostWordsFound(char **sentences, int sentencesSize) {
+    int ans = 0;
+    for (int i = 0; i < sentencesSize; i++) {
+        char *s = sentences[i];
+        int count = 1;
+        for (int j = 0; s[j]; j++) {
+            if (s[j] == ' ') {
+                count++;
+            }
+        }
+        ans = max(ans, count);
+    }
+    return ans;
+}
 ```
 
 ### **...**
