@@ -1,23 +1,19 @@
 class AuthenticationManager:
+
     def __init__(self, timeToLive: int):
-        self.timeToLive = timeToLive
-        self.tokens = {}
+        self.t = timeToLive
+        self.d = defaultdict(int)
 
     def generate(self, tokenId: str, currentTime: int) -> None:
-        self.tokens[tokenId] = currentTime + self.timeToLive
+        self.d[tokenId] = currentTime + self.t
 
     def renew(self, tokenId: str, currentTime: int) -> None:
-        expire_time = self.tokens.get(tokenId)
-        if expire_time is None or expire_time <= currentTime:
+        if self.d[tokenId] <= currentTime:
             return
-        self.tokens[tokenId] = currentTime + self.timeToLive
+        self.d[tokenId] = currentTime + self.t
 
     def countUnexpiredTokens(self, currentTime: int) -> int:
-        unexpiredCount = 0
-        for val in self.tokens.values():
-            if val > currentTime:
-                unexpiredCount += 1
-        return unexpiredCount
+        return sum(exp > currentTime for exp in self.d.values())
 
 
 # Your AuthenticationManager object will be instantiated and called as such:

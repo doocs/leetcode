@@ -1,32 +1,30 @@
 class AuthenticationManager {
-    private int timeToLive;
-    private Map<String, Integer> tokens;
+    private int t;
+    private Map<String, Integer> d = new HashMap<>();
 
     public AuthenticationManager(int timeToLive) {
-        this.timeToLive = timeToLive;
-        tokens = new HashMap<>();
+        t = timeToLive;
     }
-
+    
     public void generate(String tokenId, int currentTime) {
-        tokens.put(tokenId, currentTime + timeToLive);
+        d.put(tokenId, currentTime + t);
     }
-
+    
     public void renew(String tokenId, int currentTime) {
-        Integer expireTime = tokens.get(tokenId);
-        if (expireTime == null || expireTime <= currentTime) {
+        if (d.getOrDefault(tokenId, 0) <= currentTime) {
             return;
         }
-        tokens.put(tokenId, currentTime + timeToLive);
+        generate(tokenId, currentTime);
     }
-
+    
     public int countUnexpiredTokens(int currentTime) {
-        int unexpiredCount = 0;
-        for (Integer val : tokens.values()) {
-            if (val > currentTime) {
-                ++unexpiredCount;
+        int ans = 0;
+        for (int exp : d.values()) {
+            if (exp > currentTime) {
+                ++ans;
             }
         }
-        return unexpiredCount;
+        return ans;
     }
 }
 
