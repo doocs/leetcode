@@ -93,25 +93,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countPoints(points: number[][], queries: number[][]): number[] {
-    let ans = [];
-    for (let [cx, cy, r] of queries) {
-        let square = r ** 2;
-        let count = 0;
-        for (let [px, py] of points) {
-            if ((px - cx) ** 2 + (py - cy) ** 2 <= square) {
-                ++count;
-            }
-        }
-        ans.push(count);
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -152,6 +133,72 @@ func countPoints(points [][]int, queries [][]int) []int {
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function countPoints(points: number[][], queries: number[][]): number[] {
+    return queries.map(([cx, cy, r]) => {
+        let res = 0;
+        for (const [px, py] of points) {
+            if (Math.sqrt((cx - px) ** 2 + (cy - py) ** 2) <= r) {
+                res++;
+            }
+        }
+        return res;
+    });
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_points(points: Vec<Vec<i32>>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        queries
+            .iter()
+            .map(|v| {
+                let cx = v[0];
+                let cy = v[1];
+                let r = v[2].pow(2);
+                let mut count = 0;
+                for p in points.iter() {
+                    if ((p[0] - cx).pow(2) + (p[1] - cy).pow(2)) <= r {
+                        count += 1;
+                    }
+                }
+                count
+            })
+            .collect()
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *countPoints(int **points, int pointsSize, int *pointsColSize, int **queries, int queriesSize, int *queriesColSize,
+                 int *returnSize) {
+    int *ans = malloc(sizeof(int) * queriesSize);
+    for (int i = 0; i < queriesSize; i++) {
+        int cx = queries[i][0];
+        int cy = queries[i][1];
+        int r = queries[i][2];
+        int count = 0;
+        for (int j = 0; j < pointsSize; j++) {
+            if (sqrt(pow(points[j][0] - cx, 2) + pow(points[j][1] - cy, 2)) <= r) {
+                count++;
+            }
+        }
+        ans[i] = count;
+    }
+    *returnSize = queriesSize;
+    return ans;
 }
 ```
 

@@ -1,14 +1,11 @@
 function countPoints(points: number[][], queries: number[][]): number[] {
-    let ans = [];
-    for (let [cx, cy, r] of queries) {
-        let square = r ** 2;
-        let count = 0;
-        for (let [px, py] of points) {
-            if ((px - cx) ** 2 + (py - cy) ** 2 <= square) {
-                ++count;
+    return queries.map(([cx, cy, r]) => {
+        let res = 0;
+        for (const [px, py] of points) {
+            if (Math.sqrt((cx - px) ** 2 + (cy - py) ** 2) <= r) {
+                res++;
             }
         }
-        ans.push(count);
-    }
-    return ans;
+        return res;
+    });
 }
