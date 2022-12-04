@@ -2537,3 +2537,7 @@
   - [2487.从链表中移除节点](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)
   - [2488.统计中位数为 K 的子数组](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README.md)
   - [2489.Number of Substrings With Fixed Ratio](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README.md)
+  - [2490.回环句](/solution/2400-2499/2490.Circular%20Sentence/README.md)
+  - [2491.划分技能点相等的团队](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README.md)
+  - [2492.两个城市间路径的最小分数](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README.md)
+  - [2493.将节点分成尽可能多的组](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md)

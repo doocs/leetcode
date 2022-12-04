@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 322 场周赛(2022-12-04 10:30, 90 分钟) 参赛人数 5085
+
+- [2490. 回环句](/solution/2400-2499/2490.Circular%20Sentence/README.md)
+- [2491. 划分技能点相等的团队](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README.md)
+- [2492. 两个城市间路径的最小分数](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README.md)
+- [2493. 将节点分成尽可能多的组](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md)
+
+
 #### 第 321 场周赛(2022-11-27 10:30, 90 分钟) 参赛人数 5115
 
 - [2485. 找出中枢整数](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README.md)

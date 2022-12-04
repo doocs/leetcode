@@ -2537,3 +2537,7 @@
   - [2487.Remove Nodes From Linked List](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md)
   - [2488.Count Subarrays With Median K](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)
   - [2489.Number of Substrings With Fixed Ratio](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README_EN.md)
+  - [2490.Circular Sentence](/solution/2400-2499/2490.Circular%20Sentence/README_EN.md)
+  - [2491.Divide Players Into Teams of Equal Skill](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README_EN.md)
+  - [2492.Minimum Score of a Path Between Two Cities](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README_EN.md)
+  - [2493.Divide Nodes Into the Maximum Number of Groups](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md)

@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 322
+
+- [2490. Circular Sentence](/solution/2400-2499/2490.Circular%20Sentence/README_EN.md)
+- [2491. Divide Players Into Teams of Equal Skill](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README_EN.md)
+- [2492. Minimum Score of a Path Between Two Cities](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README_EN.md)
+- [2493. Divide Nodes Into the Maximum Number of Groups](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md)
+
+
 #### Weekly Contest 321
 
 - [2485. Find the Pivot Integer](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md)
