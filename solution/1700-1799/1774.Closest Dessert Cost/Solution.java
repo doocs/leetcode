@@ -1,7 +1,7 @@
 class Solution {
     private List<Integer> arr = new ArrayList<>();
     private int[] ts;
-    private int inf = 0x3f3f3f3f;
+    private int inf = 1 << 30;
 
     public int closestCost(int[] baseCosts, int[] toppingCosts, int target) {
         ts = toppingCosts;

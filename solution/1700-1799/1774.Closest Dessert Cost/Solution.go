@@ -11,7 +11,8 @@ func closestCost(baseCosts []int, toppingCosts []int, target int) int {
 	}
 	dfs(0, 0)
 	sort.Ints(arr)
-	ans, d := math.MaxInt32, math.MaxInt32
+	const inf = 1 << 30
+	ans, d := inf, inf
 	for _, x := range baseCosts {
 		for _, y := range arr {
 			i := sort.Search(len(arr), func(i int) bool { return arr[i] >= target-x-y })

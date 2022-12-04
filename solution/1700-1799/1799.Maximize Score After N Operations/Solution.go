@@ -1,12 +1,12 @@
 func maxScore(nums []int) int {
 	m := len(nums)
-	f := [14][14]int{}
+	g := [14][14]int{}
 	for i := 0; i < m; i++ {
 		for j := i + 1; j < m; j++ {
-			f[i][j] = gcd(nums[i], nums[j])
+			g[i][j] = gcd(nums[i], nums[j])
 		}
 	}
-	dp := make([]int, 1<<m)
+	f := make([]int, 1<<m)
 	for k := 0; k < 1<<m; k++ {
 		cnt := bits.OnesCount(uint(k))
 		if cnt%2 == 0 {
@@ -14,14 +14,14 @@ func maxScore(nums []int) int {
 				if k>>i&1 == 1 {
 					for j := i + 1; j < m; j++ {
 						if k>>j&1 == 1 {
-							dp[k] = max(dp[k], dp[k^(1<<i)^(1<<j)]+cnt/2*f[i][j])
+							f[k] = max(f[k], f[k^(1<<i)^(1<<j)]+cnt/2*g[i][j])
 						}
 					}
 				}
 			}
 		}
 	}
-	return dp[1<<m-1]
+	return f[1<<m-1]
 }
 
 func max(a, b int) int {

@@ -86,7 +86,7 @@
 
 **方法一：枚举子集和 + 排序 + 二分查找**
 
-每种类型的配料最多可以选两份，因此，我们可以复制一份配料，然后利用 `DFS` 枚举子集之和。在实现上，我们可以只枚举一半的配料，然后在另一半配料中利用二分查找找到最接近的配料。
+每种类型的配料最多可以选两份，因此，我们可以复制一份配料，然后利用 `DFS` 枚举子集之和。在实现上，我们可以只枚举一半的配料的所有子集和，然后在另一半配料子集和中，利用二分查找找到最接近的配料。
 
 时间复杂度 $O(n\times 2^m \times \log {2^m})$。
 
@@ -112,8 +112,12 @@ class Solution:
         dfs(0, 0)
         arr.sort()
         d = ans = inf
+
+        # 选择一种冰激淋基料
         for x in baseCosts:
+            # 枚举子集和
             for y in arr:
+                # 二分查找
                 i = bisect_left(arr, target - x - y)
                 for j in (i, i - 1):
                     if 0 <= j < len(arr):
@@ -132,15 +136,19 @@ class Solution:
 class Solution {
     private List<Integer> arr = new ArrayList<>();
     private int[] ts;
-    private int inf = 0x3f3f3f3f;
+    private int inf = 1 << 30;
 
     public int closestCost(int[] baseCosts, int[] toppingCosts, int target) {
         ts = toppingCosts;
         dfs(0, 0);
         Collections.sort(arr);
         int d = inf, ans = inf;
+
+        // 选择一种冰激淋基料
         for (int x : baseCosts) {
+            // 枚举子集和
             for (int y : arr) {
+                // 二分查找
                 int i = search(target - x - y);
                 for (int j : new int[] {i, i - 1}) {
                     if (j >= 0 && j < arr.size()) {
@@ -185,7 +193,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int inf = 0x3f3f3f3f;
+    const int inf = INT_MAX;
     int closestCost(vector<int>& baseCosts, vector<int>& toppingCosts, int target) {
         vector<int> arr;
         function<void(int, int)> dfs = [&](int i, int t) {
@@ -199,8 +207,11 @@ public:
         dfs(0, 0);
         sort(arr.begin(), arr.end());
         int d = inf, ans = inf;
+        // 选择一种冰激淋基料
         for (int x : baseCosts) {
+            // 枚举子集和
             for (int y : arr) {
+                // 二分查找
                 int i = lower_bound(arr.begin(), arr.end(), target - x - y) - arr.begin();
                 for (int j = i - 1; j < i + 1; ++j) {
                     if (j >= 0 && j < arr.size()) {
@@ -234,9 +245,13 @@ func closestCost(baseCosts []int, toppingCosts []int, target int) int {
 	}
 	dfs(0, 0)
 	sort.Ints(arr)
-	ans, d := math.MaxInt32, math.MaxInt32
+	const inf = 1 << 30
+	ans, d := inf, inf
+    // 选择一种冰激淋基料
 	for _, x := range baseCosts {
+        // 枚举子集和
 		for _, y := range arr {
+            // 二分查找
 			i := sort.Search(len(arr), func(i int) bool { return arr[i] >= target-x-y })
 			for j := i - 1; j < i+1; j++ {
 				if j >= 0 && j < len(arr) {

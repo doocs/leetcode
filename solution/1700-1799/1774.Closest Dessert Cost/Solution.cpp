@@ -1,6 +1,6 @@
 class Solution {
 public:
-    const int inf = 0x3f3f3f3f;
+    const int inf = INT_MAX;
     int closestCost(vector<int>& baseCosts, vector<int>& toppingCosts, int target) {
         vector<int> arr;
         function<void(int, int)> dfs = [&](int i, int t) {

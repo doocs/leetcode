@@ -1,5 +1,4 @@
 class AuthenticationManager:
-
     def __init__(self, timeToLive: int):
         self.t = timeToLive
         self.d = defaultdict(int)

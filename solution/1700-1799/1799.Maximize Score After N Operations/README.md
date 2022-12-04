@@ -62,15 +62,15 @@
 
 **方法一：状态压缩 + 动态规划**
 
-我们可以先预处理得到数组 `nums` 中任意两个数的最大公约数，存储在二维数组 $f$ 中，其中 $f[i][j]$ 表示 $nums[i]$ 和 $nums[j]$ 的最大公约数。
+我们可以先预处理得到数组 `nums` 中任意两个数的最大公约数，存储在二维数组 $g$ 中，其中 $g[i][j]$ 表示 $nums[i]$ 和 $nums[j]$ 的最大公约数。
 
-然后定义 $dp[k]$ 表示当前操作后的状态为 $k$ 时，可以获得的最大分数和。假设 $m$ 为数组 `nums` 中的元素个数，那么状态一共有 $2^m$ 种，即 $k$ 的取值范围为 $[0, 2^m - 1]$。
+然后定义 $f[k]$ 表示当前操作后的状态为 $k$ 时，可以获得的最大分数和。假设 $m$ 为数组 `nums` 中的元素个数，那么状态一共有 $2^m$ 种，即 $k$ 的取值范围为 $[0, 2^m - 1]$。
 
 从小到大枚举所有状态，对于每个状态 $k$，先判断此状态中二进制位的个数 $cnt$ 是否为偶数，是则进行如下操作：
 
-枚举 $k$ 中二进制位为 1 的位置，假设为 $i$ 和 $j$，则 $i$ 和 $j$ 两个位置的元素可以进行一次操作，此时可以获得的分数为 $\frac{cnt}{2} * f[i][j]$，更新 $dp[k]$ 的最大值。
+枚举 $k$ 中二进制位为 1 的位置，假设为 $i$ 和 $j$，则 $i$ 和 $j$ 两个位置的元素可以进行一次操作，此时可以获得的分数为 $\frac{cnt}{2} * g[i][j]$，更新 $f[k]$ 的最大值。
 
-最终答案即为 $dp[2^m - 1]$。
+最终答案即为 $f[2^m - 1]$。
 
 时间复杂度 $O(2^m * m^2)$，空间复杂度 $O(2^m)$。其中 $m$ 为数组 `nums` 中的元素个数。
 
@@ -84,20 +84,22 @@
 class Solution:
     def maxScore(self, nums: List[int]) -> int:
         m = len(nums)
-        f = [[0] * m for _ in range(m)]
+        g = [[0] * m for _ in range(m)]
         for i in range(m):
             for j in range(i + 1, m):
-                f[i][j] = gcd(nums[i], nums[j])
-        dp = [0] * (1 << m)
+                g[i][j] = gcd(nums[i], nums[j])
+        f = [0] * (1 << m)
         for k in range(1 << m):
             if (cnt := k.bit_count()) % 2 == 0:
                 for i in range(m):
                     if k >> i & 1:
                         for j in range(i + 1, m):
                             if k >> j & 1:
-                                dp[k] = max(dp[k], dp[k ^ (1 << i) ^ (
-                                    1 << j)] + cnt // 2 * f[i][j])
-        return dp[-1]
+                                f[k] = max(
+                                    f[k],
+                                    f[k ^ (1 << i) ^ (1 << j)] + cnt // 2 * g[i][j],
+                                )
+        return f[-1]
 ```
 
 ### **Java**
@@ -108,13 +110,13 @@ class Solution:
 class Solution {
     public int maxScore(int[] nums) {
         int m = nums.length;
-        int[][] f = new int[m][m];
+        int[][] g = new int[m][m];
         for (int i = 0; i < m; ++i) {
             for (int j = i + 1; j < m; ++j) {
-                f[i][j] = gcd(nums[i], nums[j]);
+                g[i][j] = gcd(nums[i], nums[j]);
             }
         }
-        int[] dp = new int[1 << m];
+        int[] f = new int[1 << m];
         for (int k = 0; k < 1 << m; ++k) {
             int cnt = Integer.bitCount(k);
             if (cnt % 2 == 0) {
@@ -122,14 +124,14 @@ class Solution {
                     if (((k >> i) & 1) == 1) {
                         for (int j = i + 1; j < m; ++j) {
                             if (((k >> j) & 1) == 1) {
-                                dp[k] = Math.max(dp[k], dp[k ^ (1 << i) ^ (1 << j)] + cnt / 2 * f[i][j]);
+                                f[k] = Math.max(f[k], f[k ^ (1 << i) ^ (1 << j)] + cnt / 2 * g[i][j]);
                             }
                         }
                     }
                 }
             }
         }
-        return dp[(1 << m) - 1];
+        return f[(1 << m) - 1];
     }
 
     private int gcd(int a, int b) {
@@ -145,14 +147,14 @@ class Solution {
 public:
     int maxScore(vector<int>& nums) {
         int m = nums.size();
-        int f[m][m];
+        int g[m][m];
         for (int i = 0; i < m; ++i) {
             for (int j = i + 1; j < m; ++j) {
-                f[i][j] = gcd(nums[i], nums[j]);
+                g[i][j] = gcd(nums[i], nums[j]);
             }
         }
-        int dp[1 << m];
-        memset(dp, 0, sizeof dp);
+        int f[1 << m];
+        memset(f, 0, sizeof f);
         for (int k = 0; k < 1 << m; ++k) {
             int cnt = __builtin_popcount(k);
             if (cnt % 2 == 0) {
@@ -160,14 +162,14 @@ public:
                     if (k >> i & 1) {
                         for (int j = i + 1; j < m; ++j) {
                             if (k >> j & 1) {
-                                dp[k] = max(dp[k], dp[k ^ (1 << i) ^ (1 << j)] + cnt / 2 * f[i][j]);
+                                f[k] = max(f[k], f[k ^ (1 << i) ^ (1 << j)] + cnt / 2 * g[i][j]);
                             }
                         }
                     }
                 }
             }
         }
-        return dp[(1 << m) - 1];
+        return f[(1 << m) - 1];
     }
 };
 ```
@@ -177,13 +179,13 @@ public:
 ```go
 func maxScore(nums []int) int {
 	m := len(nums)
-	f := [14][14]int{}
+	g := [14][14]int{}
 	for i := 0; i < m; i++ {
 		for j := i + 1; j < m; j++ {
-			f[i][j] = gcd(nums[i], nums[j])
+			g[i][j] = gcd(nums[i], nums[j])
 		}
 	}
-	dp := make([]int, 1<<m)
+	f := make([]int, 1<<m)
 	for k := 0; k < 1<<m; k++ {
 		cnt := bits.OnesCount(uint(k))
 		if cnt%2 == 0 {
@@ -191,14 +193,14 @@ func maxScore(nums []int) int {
 				if k>>i&1 == 1 {
 					for j := i + 1; j < m; j++ {
 						if k>>j&1 == 1 {
-							dp[k] = max(dp[k], dp[k^(1<<i)^(1<<j)]+cnt/2*f[i][j])
+							f[k] = max(f[k], f[k^(1<<i)^(1<<j)]+cnt/2*g[i][j])
 						}
 					}
 				}
 			}
 		}
 	}
-	return dp[1<<m-1]
+	return f[1<<m-1]
 }
 
 func max(a, b int) int {

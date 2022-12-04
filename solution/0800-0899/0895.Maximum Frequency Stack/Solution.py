@@ -1,5 +1,4 @@
 class FreqStack:
-
     def __init__(self):
         self.cnt = defaultdict(int)
         self.d = defaultdict(list)
