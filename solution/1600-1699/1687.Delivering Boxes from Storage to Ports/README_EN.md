@@ -79,13 +79,131 @@ So the total number of trips is 2 + 2 + 2 = 6.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def boxDelivering(
+        self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
+    ) -> int:
+        n = len(boxes)
+        ws = list(accumulate((box[1] for box in boxes), initial=0))
+        c = [int(a != b) for a, b in pairwise(box[0] for box in boxes)]
+        cs = list(accumulate(c, initial=0))
+        f = [0] * (n + 1)
+        q = deque([0])
+        for i in range(1, n + 1):
+            while q and (i - q[0] > maxBoxes or ws[i] - ws[q[0]] > maxWeight):
+                q.popleft()
+            if q:
+                f[i] = cs[i - 1] + f[q[0]] - cs[q[0]] + 2
+            if i < n:
+                while q and f[q[-1]] - cs[q[-1]] >= f[i] - cs[i]:
+                    q.pop()
+                q.append(i)
+        return f[n]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int boxDelivering(int[][] boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.length;
+        long[] ws = new long[n + 1];
+        int[] cs = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) {
+                cs[i + 1] = cs[i] + (p != boxes[i + 1][0] ? 1 : 0);
+            }
+        }
+        int[] f = new int[n + 1];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        for (int i = 1; i <= n; ++i) {
+            while (!q.isEmpty() && (i - q.peekFirst() > maxBoxes || ws[i] - ws[q.peekFirst()] > maxWeight)) {
+                q.pollFirst();
+            }
+            if (!q.isEmpty()) {
+                f[i] = cs[i - 1] + f[q.peekFirst()] - cs[q.peekFirst()] + 2;
+            }
+            if (i < n) {
+                while (!q.isEmpty() && f[q.peekLast()] - cs[q.peekLast()] >= f[i] - cs[i]) {
+                    q.pollLast();
+                }
+                q.offer(i);
+            }
+        }
+        return f[n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int boxDelivering(vector<vector<int>>& boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.size();
+        long ws[n + 1];
+        int f[n + 1];
+        int cs[n];
+        ws[0] = cs[0] = f[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) cs[i + 1] = cs[i] + (p != boxes[i + 1][0]);
+        }
+        deque<int> q{{0}};
+        for (int i = 1; i <= n; ++i) {
+            while (!q.empty() && (i - q.front() > maxBoxes || ws[i] - ws[q.front()] > maxWeight)) q.pop_front();
+            if (!q.empty()) f[i] = cs[i - 1] + f[q.front()] - cs[q.front()] + 2;
+            if (i < n) {
+                while (!q.empty() && f[q.back()] - cs[q.back()] >= f[i] - cs[i]) q.pop_back();
+                q.push_back(i);
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
+	n := len(boxes)
+	ws := make([]int, n+1)
+	cs := make([]int, n)
+	for i, box := range boxes {
+		p, w := box[0], box[1]
+		ws[i+1] = ws[i] + w
+		if i < n-1 {
+			t := 0
+			if p != boxes[i+1][0] {
+				t++
+			}
+			cs[i+1] = cs[i] + t
+		}
+	}
+	f := make([]int, n+1)
+	q := []int{0}
+	for i := 1; i <= n; i++ {
+		for len(q) > 0 && (i-q[0] > maxBoxes || ws[i]-ws[q[0]] > maxWeight) {
+			q = q[1:]
+		}
+		if len(q) > 0 {
+			f[i] = cs[i-1] + f[q[0]] - cs[q[0]] + 2
+		}
+		if i < n {
+			for len(q) > 0 && f[q[len(q)-1]]-cs[q[len(q)-1]] >= f[i]-cs[i] {
+				q = q[:len(q)-1]
+			}
+			q = append(q, i)
+		}
+	}
+	return f[n]
+}
 ```
 
 ### **...**

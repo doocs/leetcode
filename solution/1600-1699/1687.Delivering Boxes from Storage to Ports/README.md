@@ -91,6 +91,158 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划 + 单调队列优化**
+
+我们定义 $f[i]$ 表示把前 $i$ 个箱子从仓库运送到相应码头的最少行程数，那么答案就是 $f[n]$。
+
+箱子需要按数组顺序运输，每一次运输，卡车会按顺序取出连续的几个箱子，然后依次送往对应的码头，全部送达之后，又回到了仓库。
+
+因此，我们可以枚举上一次运输的最后一个箱子的编号 $j$，那么 $f[i]$ 就可以从 $f[j]$ 转移而来，转移的时候，我们需要考虑以下几个问题：
+
+-   从 $f[j]$ 转移过来的时候，卡车上的箱子数量不能超过 $maxBoxes$
+-   从 $f[j]$ 转移过来的时候，卡车上的箱子总重量不能超过 $maxWeight$
+
+状态转移方程为：
+
+$$
+f[i] = \min_{j \in [i - maxBoxes, i - 1]} \left(f[j] + \sum_{k = j + 1}^i \text{cost}(k)\right)
+$$
+
+其中 $\sum_{k = j + 1}^i \text{cost}(k)$ 表示通过一次运输，把 $[j+1,..i]$ 这些箱子送往对应的码头所需要的行程数。这部分行程数可以通过前缀和快速计算出来。
+
+简单举个例子，假设我们取出了 $1, 2, 3$ 这三个箱子，需要送往 $4, 4, 5$ 这三个码头，那么我们首先要从仓库到 $4$ 号码头，然后再从 $4$ 号码头到 $5$ 号码头，最后再从 $5$ 号码头回到仓库。可以发现，从仓库到码头，以及从码头到仓库，需要花费 $2$ 趟行程，而从码头到码头的行程数，取决于相邻两个码头是否相同，如果不相同，那么行程数会增加 $1$，否则不变。因此，我们可以通过前缀和，计算出码头之间的行程数，再加上首尾两趟行程，就能把 $[j+1,..i]$ 这些箱子送往对应的码头所需要的行程数计算出来。
+
+代码实现如下：
+
+```python
+# 33/39 个通过测试用例，超出时间限制
+class Solution:
+    def boxDelivering(self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int) -> int:
+        n = len(boxes)
+        ws = list(accumulate((box[1] for box in boxes), initial=0))
+        c = [int(a != b) for a, b in pairwise(box[0] for box in boxes)]
+        cs = list(accumulate(c, initial=0))
+        f = [inf] * (n + 1)
+        f[0] = 0
+        for i in range(1, n + 1):
+            for j in range(max(0, i - maxBoxes), i):
+                if ws[i] - ws[j] <= maxWeight:
+                    f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
+        return f[n]
+```
+
+```java
+// 35/39 个通过测试用例，超出时间限制
+class Solution {
+    public int boxDelivering(int[][] boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.length;
+        long[] ws = new long[n + 1];
+        int[] cs = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) {
+                cs[i + 1] = cs[i] + (p != boxes[i + 1][0] ? 1 : 0);
+            }
+        }
+        int[] f = new int[n + 1];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = Math.max(0, i - maxBoxes); j < i; ++j) {
+                if (ws[i] - ws[j] <= maxWeight) {
+                    f[i] = Math.min(f[i], f[j] + cs[i - 1] - cs[j] + 2);
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+// 35/39 个通过测试用例，超出时间限制
+class Solution {
+public:
+    int boxDelivering(vector<vector<int>>& boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.size();
+        long ws[n + 1];
+        int cs[n];
+        ws[0] = cs[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) cs[i + 1] = cs[i] + (p != boxes[i + 1][0]);
+        }
+        int f[n + 1];
+        memset(f, 0x3f, sizeof f);
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = max(0, i - maxBoxes); j < i; ++j) {
+                if (ws[i] - ws[j] <= maxWeight) {
+                    f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2);
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+// 35/39 个通过测试用例，超出时间限制
+func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
+	n := len(boxes)
+	ws := make([]int, n+1)
+	cs := make([]int, n)
+	for i, box := range boxes {
+		p, w := box[0], box[1]
+		ws[i+1] = ws[i] + w
+		if i < n-1 {
+			t := 0
+			if p != boxes[i+1][0] {
+				t++
+			}
+			cs[i+1] = cs[i] + t
+		}
+	}
+	f := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		f[i] = 1 << 30
+		for j := max(0, i-maxBoxes); j < i; j++ {
+			if ws[i]-ws[j] <= maxWeight {
+				f[i] = min(f[i], f[j]+cs[i-1]-cs[j]+2)
+			}
+		}
+	}
+	return f[n]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+本题数据规模达到 $10^5$，而以上代码的时间复杂度为 $O(n^2)$，会超出时间限制。我们仔细观察：
+
+$$
+f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
+$$
+
+实际上我们是要在 $[i-maxBoxes,..i-1]$ 这个窗口内找到一个 $j$，使得 $f[j] - cs[j]$ 的值最小，求滑动窗口的最小值，一种常用的做法是使用单调队列，可以在 $O(1)$ 时间内获取到满足条件的最小值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是题目中箱子的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -98,7 +250,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def boxDelivering(
+        self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
+    ) -> int:
+        n = len(boxes)
+        ws = list(accumulate((box[1] for box in boxes), initial=0))
+        c = [int(a != b) for a, b in pairwise(box[0] for box in boxes)]
+        cs = list(accumulate(c, initial=0))
+        f = [0] * (n + 1)
+        q = deque([0])
+        for i in range(1, n + 1):
+            while q and (i - q[0] > maxBoxes or ws[i] - ws[q[0]] > maxWeight):
+                q.popleft()
+            if q:
+                f[i] = cs[i - 1] + f[q[0]] - cs[q[0]] + 2
+            if i < n:
+                while q and f[q[-1]] - cs[q[-1]] >= f[i] - cs[i]:
+                    q.pop()
+                q.append(i)
+        return f[n]
 ```
 
 ### **Java**
@@ -106,7 +277,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int boxDelivering(int[][] boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.length;
+        long[] ws = new long[n + 1];
+        int[] cs = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) {
+                cs[i + 1] = cs[i] + (p != boxes[i + 1][0] ? 1 : 0);
+            }
+        }
+        int[] f = new int[n + 1];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        for (int i = 1; i <= n; ++i) {
+            while (!q.isEmpty() && (i - q.peekFirst() > maxBoxes || ws[i] - ws[q.peekFirst()] > maxWeight)) {
+                q.pollFirst();
+            }
+            if (!q.isEmpty()) {
+                f[i] = cs[i - 1] + f[q.peekFirst()] - cs[q.peekFirst()] + 2;
+            }
+            if (i < n) {
+                while (!q.isEmpty() && f[q.peekLast()] - cs[q.peekLast()] >= f[i] - cs[i]) {
+                    q.pollLast();
+                }
+                q.offer(i);
+            }
+        }
+        return f[n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int boxDelivering(vector<vector<int>>& boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.size();
+        long ws[n + 1];
+        int f[n + 1];
+        int cs[n];
+        ws[0] = cs[0] = f[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) cs[i + 1] = cs[i] + (p != boxes[i + 1][0]);
+        }
+        deque<int> q{{0}};
+        for (int i = 1; i <= n; ++i) {
+            while (!q.empty() && (i - q.front() > maxBoxes || ws[i] - ws[q.front()] > maxWeight)) q.pop_front();
+            if (!q.empty()) f[i] = cs[i - 1] + f[q.front()] - cs[q.front()] + 2;
+            if (i < n) {
+                while (!q.empty() && f[q.back()] - cs[q.back()] >= f[i] - cs[i]) q.pop_back();
+                q.push_back(i);
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
+	n := len(boxes)
+	ws := make([]int, n+1)
+	cs := make([]int, n)
+	for i, box := range boxes {
+		p, w := box[0], box[1]
+		ws[i+1] = ws[i] + w
+		if i < n-1 {
+			t := 0
+			if p != boxes[i+1][0] {
+				t++
+			}
+			cs[i+1] = cs[i] + t
+		}
+	}
+	f := make([]int, n+1)
+	q := []int{0}
+	for i := 1; i <= n; i++ {
+		for len(q) > 0 && (i-q[0] > maxBoxes || ws[i]-ws[q[0]] > maxWeight) {
+			q = q[1:]
+		}
+		if len(q) > 0 {
+			f[i] = cs[i-1] + f[q[0]] - cs[q[0]] + 2
+		}
+		if i < n {
+			for len(q) > 0 && f[q[len(q)-1]]-cs[q[len(q)-1]] >= f[i]-cs[i] {
+				q = q[:len(q)-1]
+			}
+			q = append(q, i)
+		}
+	}
+	return f[n]
+}
 ```
 
 ### **...**
