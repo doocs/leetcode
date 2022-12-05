@@ -70,6 +70,26 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def dividePlayers(self, skill: List[int]) -> int:
+        s = sum(skill)
+        m = len(skill) >> 1
+        if s % m:
+            return -1
+        t = s // m
+        d = defaultdict(int)
+        ans = 0
+        for v in skill:
+            if d[t - v]:
+                ans += v * (t - v)
+                m -= 1
+                d[t - v] -= 1
+            else:
+                d[v] += 1
+        return -1 if m else ans
+```
+
 ### **Java**
 
 ```java
@@ -86,6 +106,31 @@ class Solution {
             ans += (long) skill[i] * skill[j];
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public long dividePlayers(int[] skill) {
+        int s = Arrays.stream(skill).sum();
+        int m = skill.length >> 1;
+        if (s % m != 0) {
+            return -1;
+        }
+        int t = s / m;
+        int[] d = new int[1010];
+        long ans = 0;
+        for (int v : skill) {
+            if (d[t - v] > 0) {
+                ans += (long) v * (t - v);
+                --d[t - v];
+                --m;
+            } else {
+                ++d[v];
+            }
+        }
+        return m == 0 ? ans : -1;
     }
 }
 ```
@@ -109,6 +154,30 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    long long dividePlayers(vector<int>& skill) {
+        int s = accumulate(skill.begin(), skill.end(), 0);
+        int m = skill.size() / 2;
+        if (s % m) return -1;
+        int t = s / m;
+        int d[1010] = {0};
+        long long ans = 0;
+        for (int& v : skill) {
+            if (d[t - v]) {
+                ans += 1ll * v * (t - v);
+                --d[t - v];
+                --m;
+            } else {
+                ++d[v];
+            }
+        }
+        return m == 0 ? ans : -1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -123,6 +192,35 @@ func dividePlayers(skill []int) (ans int64) {
 		ans += int64(skill[i] * skill[j])
 	}
 	return
+}
+```
+
+```go
+func dividePlayers(skill []int) int64 {
+	s := 0
+	for _, v := range skill {
+		s += v
+	}
+	m := len(skill) >> 1
+	if s%m != 0 {
+		return -1
+	}
+	t := s / m
+	d := [1010]int{}
+	ans := 0
+	for _, v := range skill {
+		if d[t-v] > 0 {
+			ans += v * (t - v)
+			d[t-v]--
+			m--
+		} else {
+			d[v]++
+		}
+	}
+	if m == 0 {
+		return int64(ans)
+	}
+	return -1
 }
 ```
 

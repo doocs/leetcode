@@ -1,10 +1,8 @@
-func minPartitions(n string) int {
-	res := 0
+func minPartitions(n string) (ans int) {
 	for _, c := range n {
-		t := int(c - '0')
-		if t > res {
-			res = t
+		if t := int(c - '0'); ans < t {
+			ans = t
 		}
 	}
-	return res
+	return
 }

@@ -57,11 +57,11 @@ class Solution:
 ```java
 class Solution {
     public int minPartitions(String n) {
-        int res = 0;
-        for (char c : n.toCharArray()) {
-            res = Math.max(res, c - '0');
+        int ans = 0;
+        for (int i = 0; i < n.length(); ++i) {
+            ans = Math.max(ans, n.charAt(i) - '0');
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -72,11 +72,9 @@ class Solution {
 class Solution {
 public:
     int minPartitions(string n) {
-        int res = 0;
-        for (auto& c : n) {
-            res = max(res, c - '0');
-        }
-        return res;
+        int ans = 0;
+        for (char& c : n) ans = max(ans, c - '0');
+        return ans;
     }
 };
 ```
@@ -84,15 +82,13 @@ public:
 ### **Go**
 
 ```go
-func minPartitions(n string) int {
-	res := 0
+func minPartitions(n string) (ans int) {
 	for _, c := range n {
-		t := int(c - '0')
-		if t > res {
-			res = t
+		if t := int(c - '0'); ans < t {
+			ans = t
 		}
 	}
-	return res
+	return
 }
 ```
 
