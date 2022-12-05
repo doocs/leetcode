@@ -153,7 +153,7 @@ func isCircularSentence(sentence string) bool {
 ### **JavaScript**
 
 ```js
-var isCircularSentence = function(sentence) {
+var isCircularSentence = function (sentence) {
     const words = sentence.split(' ');
     const post = words[0].charCodeAt(0);
     let prev = words[0].charCodeAt(words[0].length - 1);
@@ -168,6 +168,45 @@ var isCircularSentence = function(sentence) {
     return post === prev;
 };
 ```
+
+### **TypeScript**
+
+```ts
+function isCircularSentence(sentence: string): boolean {
+    const ss = sentence.split(' ');
+    const n = ss.length;
+    if (ss[0][0] !== ss[n - 1][ss[n - 1].length - 1]) {
+        return false;
+    }
+    for (let i = 0; i < n - 1; i++) {
+        if (ss[i][ss[i].length - 1] !== ss[i + 1][0]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_circular_sentence(sentence: String) -> bool {
+        let ss: Vec<String> = sentence.split(' ').map(String::from).collect();
+        let n = ss.len();
+        if ss[0].as_bytes()[0] != ss[n - 1].as_bytes()[ss[n - 1].len() - 1] {
+            return false;
+        }
+        for i in 1..n {
+            if ss[i - 1].as_bytes()[ss[i - 1].len() - 1] != ss[i].as_bytes()[0] {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
 
 ### **...**
 
