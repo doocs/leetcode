@@ -158,6 +158,48 @@ func dfs(i int, nums, t []int, res *[][]int) {
 }
 ```
 
+### **TypeScipt**
+
+```ts
+function subsets(nums: number[]): number[][] {
+    const n = nums.length;
+    const ans = [];
+    const dfs = (i: number, t: number[]) => {
+        ans.push([...t]);
+        while (i < n) {
+            t.push(nums[i++]);
+            dfs(i, t);
+            t.pop();
+        }
+    };
+    dfs(0, []);
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn dfs(mut i: usize, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>, nums: &Vec<i32>) {
+        ans.push(t.clone());
+        while i < nums.len() {
+            t.push(nums[i]);
+            i += 1;
+            Self::dfs(i, t, ans, nums);
+            t.pop();
+        }
+    }
+
+    pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut ans = Vec::new();
+        let mut t = Vec::new();
+        Self::dfs(0, &mut t, &mut ans, &nums);
+        ans
+    }
+}
+```
+
 ### **...**
 
 ```
