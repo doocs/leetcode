@@ -71,6 +71,29 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool squareIsWhite(string coordinates) {
+        int x = coordinates[0] - 'a' + 1;
+        int y = coordinates[1] - '0';
+        return ((x + y) & 1) == 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func squareIsWhite(coordinates string) bool {
+	x := coordinates[0] - 'a' + 1
+	y := coordinates[1] - '0'
+	return ((x + y) & 1) == 1
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -79,8 +102,8 @@ class Solution {
  * @return {boolean}
  */
 var squareIsWhite = function (coordinates) {
-    let x = coordinates.charAt(0).charCodeAt() - 'a'.charCodeAt() + 1;
-    let y = Number(coordinates.charAt(1));
+    const x = coordinates.charAt(0).charCodeAt() - 'a'.charCodeAt() + 1;
+    const y = Number(coordinates.charAt(1));
     return ((x + y) & 1) == 1;
 };
 ```

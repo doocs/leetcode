@@ -1,4 +1,4 @@
-var isCircularSentence = function(sentence) {
+var isCircularSentence = function (sentence) {
     const words = sentence.split(' ');
     const post = words[0].charCodeAt(0);
     let prev = words[0].charCodeAt(words[0].length - 1);

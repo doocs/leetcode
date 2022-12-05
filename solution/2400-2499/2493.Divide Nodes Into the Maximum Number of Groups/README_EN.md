@@ -115,7 +115,7 @@ class Solution {
     private List<Integer> arr = new ArrayList<>();
     private boolean[] vis;
     private int n;
-    
+
     public int magnificentSets(int n, int[][] edges) {
         g = new List[n + 1];
         this.n = n;
@@ -125,7 +125,7 @@ class Solution {
             g[a].add(b);
             g[b].add(a);
         }
-        
+
         vis = new boolean[n + 1];
         int ans = 0;
         for (int i = 1; i <= n; ++i) {
@@ -351,8 +351,8 @@ func abs(x int) int {
 ### **JavaScript**
 
 ```js
-var magnificentSets = function(n, edges) {
-    const graph = Array.from({length: n + 1}, () => new Set());
+var magnificentSets = function (n, edges) {
+    const graph = Array.from({ length: n + 1 }, () => new Set());
     for (const [u, v] of edges) {
         graph[u].add(v);
         graph[v].add(u);
@@ -364,7 +364,8 @@ var magnificentSets = function(n, edges) {
         let queue = [i];
         const dis = Array(n + 1).fill(0);
         dis[i] = 1;
-        let mx = 1, mn = n;
+        let mx = 1,
+            mn = n;
         while (queue.length) {
             let next = [];
             for (let u of queue) {
@@ -382,7 +383,7 @@ var magnificentSets = function(n, edges) {
             }
             queue = next;
         }
-        hash.set(mn, Math.max(mx, (hash.get(mn) || 0)));
+        hash.set(mn, Math.max(mx, hash.get(mn) || 0));
     }
 
     let ans = 0;
@@ -392,7 +393,6 @@ var magnificentSets = function(n, edges) {
     return ans;
 };
 ```
-
 
 ### **...**
 

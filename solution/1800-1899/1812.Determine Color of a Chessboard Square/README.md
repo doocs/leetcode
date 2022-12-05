@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：奇偶判断**
+
+根据 `coordinates` 获取对应的坐标 $(x, y)$，如果 $(x + y)$ 为奇数，则格子为白色，返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,6 +87,29 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool squareIsWhite(string coordinates) {
+        int x = coordinates[0] - 'a' + 1;
+        int y = coordinates[1] - '0';
+        return ((x + y) & 1) == 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func squareIsWhite(coordinates string) bool {
+	x := coordinates[0] - 'a' + 1
+	y := coordinates[1] - '0'
+	return ((x + y) & 1) == 1
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -89,8 +118,8 @@ class Solution {
  * @return {boolean}
  */
 var squareIsWhite = function (coordinates) {
-    let x = coordinates.charAt(0).charCodeAt() - 'a'.charCodeAt() + 1;
-    let y = Number(coordinates.charAt(1));
+    const x = coordinates.charAt(0).charCodeAt() - 'a'.charCodeAt() + 1;
+    const y = Number(coordinates.charAt(1));
     return ((x + y) & 1) == 1;
 };
 ```
