@@ -11,19 +11,16 @@
  */
 
 function mergeNodes(head: ListNode | null): ListNode | null {
-    let dummy = new ListNode(-1);
-    let p = dummy;
+    const dummy = new ListNode();
+    let cur = dummy;
     let sum = 0;
-    head = head.next;
-    while (head != null) {
-        let cur = head.val;
-        if (cur) {
-            sum += cur;
-        } else {
-            p.next = new ListNode(sum);
-            p = p.next;
+    while (head) {
+        if (head.val === 0 && sum !== 0) {
+            cur.next = new ListNode(sum);
+            cur = cur.next;
             sum = 0;
         }
+        sum += head.val;
         head = head.next;
     }
     return dummy.next;

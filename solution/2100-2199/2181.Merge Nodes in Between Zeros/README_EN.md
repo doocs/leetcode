@@ -104,41 +104,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function mergeNodes(head: ListNode | null): ListNode | null {
-    let dummy = new ListNode(-1);
-    let p = dummy;
-    let sum = 0;
-    head = head.next;
-    while (head != null) {
-        let cur = head.val;
-        if (cur) {
-            sum += cur;
-        } else {
-            p.next = new ListNode(sum);
-            p = p.next;
-            sum = 0;
-        }
-        head = head.next;
-    }
-    return dummy.next;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -196,6 +161,107 @@ func mergeNodes(head *ListNode) *ListNode {
 		}
 	}
 	return dummy.Next
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function mergeNodes(head: ListNode | null): ListNode | null {
+    const dummy = new ListNode();
+    let cur = dummy;
+    let sum = 0;
+    while (head) {
+        if (head.val === 0 && sum !== 0) {
+            cur.next = new ListNode(sum);
+            cur = cur.next;
+            sum = 0;
+        }
+        sum += head.val;
+        head = head.next;
+    }
+    return dummy.next;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_nodes(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut dummy = Box::new(ListNode::new(-1));
+        let mut cur = &mut dummy;
+        let mut sum = 0;
+        while let Some(node) = head {
+            if node.val == 0 && sum != 0 {
+                cur.next = Some(Box::new(ListNode::new(sum)));
+                cur = cur.as_mut().next.as_mut().unwrap();
+                sum = 0;
+            }
+            sum += node.val;
+            head = node.next;
+        }
+        dummy.next.take()
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+struct ListNode *mergeNodes(struct ListNode *head) {
+    struct ListNode dummy;
+    struct ListNode *cur = &dummy;
+    int sum = 0;
+    while (head) {
+        if (head->val == 0 && sum != 0) {
+            cur->next = malloc(sizeof(struct ListNode));
+            cur->next->val = sum;
+            cur->next->next = NULL;
+            cur = cur->next;
+            sum = 0;
+        }
+        sum += head->val;
+        head = head->next;
+    }
+    return dummy.next;
 }
 ```
 
