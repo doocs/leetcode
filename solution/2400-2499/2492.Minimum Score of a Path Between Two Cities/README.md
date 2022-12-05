@@ -332,14 +332,14 @@ func min(a, b int) int {
 ### **JavaScript**
 
 ```js
-var minScore = function(n, roads) {
+var minScore = function (n, roads) {
     // 构建点到点的映射表
-    const graph = Array.from({length: n + 1}, () => new Map());
+    const graph = Array.from({ length: n + 1 }, () => new Map());
     for (let [u, v, w] of roads) {
         graph[u].set(v, w);
         graph[v].set(u, w);
     }
-    
+
     // DFS
     const vis = new Array(n).fill(false);
     let ans = Infinity;
@@ -349,11 +349,68 @@ var minScore = function(n, roads) {
             ans = Math.min(ans, w);
             if (!vis[v]) dfs(v);
         }
-    }
+    };
     dfs(1);
-    
+
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function minScore(n: number, roads: number[][]): number {
+    const vis = new Array(n + 1).fill(false);
+    const g = Array.from({ length: n + 1 }, () => []);
+    for (const [a, b, v] of roads) {
+        g[a].push([b, v]);
+        g[b].push([a, v]);
+    }
+    let ans = Infinity;
+    const dfs = (i: number) => {
+        if (vis[i]) {
+            return;
+        }
+        vis[i] = true;
+        for (const [j, v] of g[i]) {
+            ans = Math.min(ans, v);
+            dfs(j);
+        }
+    };
+    dfs(1);
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn dfs(i: usize, mut ans: i32, g: &Vec<Vec<(usize, i32)>>, vis: &mut Vec<bool>) -> i32 {
+        if vis[i] {
+            return ans;
+        }
+        vis[i] = true;
+        for (j, v) in g[i].iter() {
+            ans = ans.min(*v.min(&Self::dfs(*j, ans, g, vis)));
+        }
+        ans
+    }
+
+    pub fn min_score(n: i32, roads: Vec<Vec<i32>>) -> i32 {
+        let n = n as usize;
+        let mut vis = vec![false; n + 1];
+        let mut g = vec![Vec::new(); n + 1];
+        for road in roads.iter() {
+            let a = road[0] as usize;
+            let b = road[1] as usize;
+            let v = road[2];
+            g[a].push((b, v));
+            g[b].push((a, v));
+        }
+        Self::dfs(1, i32::MAX, &g, &mut vis)
+    }
+}
 ```
 
 ### **...**

@@ -1,11 +1,11 @@
-var minScore = function(n, roads) {
+var minScore = function (n, roads) {
     // 构建点到点的映射表
-    const graph = Array.from({length: n + 1}, () => new Map());
+    const graph = Array.from({ length: n + 1 }, () => new Map());
     for (let [u, v, w] of roads) {
         graph[u].set(v, w);
         graph[v].set(u, w);
     }
-    
+
     // DFS
     const vis = new Array(n).fill(false);
     let ans = Infinity;
@@ -15,8 +15,8 @@ var minScore = function(n, roads) {
             ans = Math.min(ans, w);
             if (!vis[v]) dfs(v);
         }
-    }
+    };
     dfs(1);
-    
+
     return ans;
 };
