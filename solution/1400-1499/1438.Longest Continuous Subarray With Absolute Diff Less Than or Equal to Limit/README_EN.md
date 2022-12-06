@@ -57,13 +57,102 @@ Therefore, the size of the longest subarray is 2.
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Solution:
+    def longestSubarray(self, nums: List[int], limit: int) -> int:
+        sl = SortedList()
+        ans = j = 0
+        for i, v in enumerate(nums):
+            sl.add(v)
+            while sl[-1] - sl[0] > limit:
+                sl.remove(nums[j])
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int longestSubarray(int[] nums, int limit) {
+        TreeMap<Integer, Integer> tm = new TreeMap<>();
+        int ans = 0, j = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            tm.put(nums[i], tm.getOrDefault(nums[i], 0) + 1);
+            while (tm.lastKey() - tm.firstKey() > limit) {
+                tm.put(nums[j], tm.get(nums[j]) - 1);
+                if (tm.get(nums[j]) == 0) {
+                    tm.remove(nums[j]);
+                }
+                ++j;
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums, int limit) {
+        multiset<int> s;
+        int ans = 0, j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            s.insert(nums[i]);
+            while (*s.rbegin() - *s.begin() > limit) {
+                s.erase(s.find(nums[j++]));
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestSubarray(nums []int, limit int) (ans int) {
+	tm := treemap.NewWithIntComparator()
+	j := 0
+	for i, v := range nums {
+		if x, ok := tm.Get(v); ok {
+			tm.Put(v, x.(int)+1)
+		} else {
+			tm.Put(v, 1)
+		}
+		for {
+			a, _ := tm.Min()
+			b, _ := tm.Max()
+			if b.(int)-a.(int) > limit {
+				if x, _ := tm.Get(nums[j]); x.(int) == 1 {
+					tm.Remove(nums[j])
+				} else {
+					tm.Put(nums[j], x.(int)-1)
+				}
+				j++
+			} else {
+				break
+			}
+		}
+		ans = max(ans, i-j+1)
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
