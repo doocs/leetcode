@@ -56,6 +56,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力枚举**
+
+注意到 $k$ 的值不超过 $200$，我们逐层遍历，每一层最多保留 $k$ 个数，然后与下一层的 $n$ 个数累加，排序。
+
+最后返回第 $k$ 个数即可。
+
+时间复杂度 $O(m \times n \times k \times \log (n \times k))$，空间复杂度 $O(n \times k)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +71,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def kthSmallest(self, mat: List[List[int]], k: int) -> int:
+        pre = [0]
+        for cur in mat:
+            t = [a + b for a in pre for b in cur[:k]]
+            t.sort()
+            pre = t[:k]
+        return pre[k - 1]
 ```
 
 ### **Java**
@@ -71,7 +86,82 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int kthSmallest(int[][] mat, int k) {
+        int m = mat.length, n = mat[0].length;
+        List<Integer> pre = new ArrayList<>(k);
+        List<Integer> cur = new ArrayList<>(n * k);
+        pre.add(0);
+        for (int[] row : mat) {
+            cur.clear();
+            for (int a : pre) {
+                for (int b : row) {
+                    cur.add(a + b);
+                }
+            }
+            Collections.sort(cur);
+            pre.clear();
+            for (int i = 0; i < Math.min(k, cur.size()); ++i) {
+                pre.add(cur.get(i));
+            }
+        }
+        return pre.get(k - 1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kthSmallest(vector<vector<int>>& mat, int k) {
+        int pre[k];
+        int cur[mat[0].size() * k];
+        memset(pre, 0, sizeof pre);
+        int size = 1;
+        for (auto& row : mat) {
+            int i = 0;
+            for (int j = 0; j < size; ++j) {
+                for (int& v : row) {
+                    cur[i++] = pre[j] + v;
+                }
+            }
+            sort(cur, cur + i);
+            size = min(i, k);
+            for (int j = 0; j < size; ++j) {
+                pre[j] = cur[j];
+            }
+        }
+        return pre[k - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthSmallest(mat [][]int, k int) int {
+	pre := []int{0}
+	for _, row := range mat {
+		cur := []int{}
+		for _, a := range pre {
+			for _, b := range row {
+				cur = append(cur, a+b)
+			}
+		}
+		sort.Ints(cur)
+		pre = cur[:min(k, len(cur))]
+	}
+	return pre[k-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

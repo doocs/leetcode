@@ -55,13 +55,95 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def kthSmallest(self, mat: List[List[int]], k: int) -> int:
+        pre = [0]
+        for cur in mat:
+            t = [a + b for a in pre for b in cur[:k]]
+            t.sort()
+            pre = t[:k]
+        return pre[k - 1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int kthSmallest(int[][] mat, int k) {
+        int m = mat.length, n = mat[0].length;
+        List<Integer> pre = new ArrayList<>(k);
+        List<Integer> cur = new ArrayList<>(n * k);
+        pre.add(0);
+        for (int[] row : mat) {
+            cur.clear();
+            for (int a : pre) {
+                for (int b : row) {
+                    cur.add(a + b);
+                }
+            }
+            Collections.sort(cur);
+            pre.clear();
+            for (int i = 0; i < Math.min(k, cur.size()); ++i) {
+                pre.add(cur.get(i));
+            }
+        }
+        return pre.get(k - 1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kthSmallest(vector<vector<int>>& mat, int k) {
+        int pre[k];
+        int cur[mat[0].size() * k];
+        memset(pre, 0, sizeof pre);
+        int size = 1;
+        for (auto& row : mat) {
+            int i = 0;
+            for (int j = 0; j < size; ++j) {
+                for (int& v : row) {
+                    cur[i++] = pre[j] + v;
+                }
+            }
+            sort(cur, cur + i);
+            size = min(i, k);
+            for (int j = 0; j < size; ++j) {
+                pre[j] = cur[j];
+            }
+        }
+        return pre[k - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthSmallest(mat [][]int, k int) int {
+	pre := []int{0}
+	for _, row := range mat {
+		cur := []int{}
+		for _, a := range pre {
+			for _, b := range row {
+				cur = append(cur, a+b)
+			}
+		}
+		sort.Ints(cur)
+		pre = cur[:min(k, len(cur))]
+	}
+	return pre[k-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
