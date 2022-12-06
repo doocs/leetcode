@@ -433,6 +433,79 @@ var convertBST = function (root) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function convertBST(root: TreeNode | null): TreeNode | null {
+    let sum = 0;
+    const dfs = (root: TreeNode | null) => {
+        if (root == null) {
+            return;
+        }
+        dfs(root.right);
+        root.val += sum;
+        sum = root.val;
+        dfs(root.left);
+    };
+    dfs(root);
+    return root;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, sum: &mut i32) {
+        if let Some(node) = root {
+            Self::dfs(&node.borrow().right, sum);
+            node.borrow_mut().val += *sum;
+            *sum = node.borrow().val;
+            Self::dfs(&node.borrow().left, sum);
+        }
+    }
+
+    pub fn convert_bst(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        Self::dfs(&root, &mut 0);
+        root
+    }
+}
+```
+
 ### **...**
 
 ```
