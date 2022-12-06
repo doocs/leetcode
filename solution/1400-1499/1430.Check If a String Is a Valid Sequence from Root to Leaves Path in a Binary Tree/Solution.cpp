@@ -12,12 +12,11 @@
 class Solution {
 public:
     bool isValidSequence(TreeNode* root, vector<int>& arr) {
-        return dfs(root, arr, 0);
-    }
-
-    bool dfs(TreeNode* root, vector<int>& arr, int u) {
-        if (!root || root->val != arr[u]) return false;
-        if (u == arr.size() - 1) return !root->left && !root->right;
-        return dfs(root->left, arr, u + 1) || dfs(root->right, arr, u + 1);
+        function<bool(TreeNode*, int)> dfs = [&](TreeNode* root, int u) -> bool {
+            if (!root || root->val != arr[u]) return false;
+            if (u == arr.size() - 1) return !root->left && !root->right;
+            return dfs(root->left, u + 1) || dfs(root->right, u + 1);
+        };
+        return dfs(root, 0);
     }
 };

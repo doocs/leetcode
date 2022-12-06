@@ -60,7 +60,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS。
+**方法一：DFS**
+
+根据题目，我们设计一个递归函数 $dfs(root, u)$，表示从当前节点 $root$ 开始，且当前已经遍历到数组的第 $u$ 个元素，是否存在一条从根节点到叶子节点的路径，且路径上的元素与数组中的元素一一对应。那么答案就是 $dfs(root, 0)$。
+
+在递归函数中，如果当前节点为空，或者当前节点的值与数组中的值不相等，那么直接返回 $false$。如果当前节点是叶子节点，且当前节点的值与数组中的值相等，那么返回 $u$ 是否等于数组的长度减 $1$。否则，返回 $dfs(root.left, u + 1)$ 或者 $dfs(root.right, u + 1)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -144,13 +150,12 @@ class Solution {
 class Solution {
 public:
     bool isValidSequence(TreeNode* root, vector<int>& arr) {
-        return dfs(root, arr, 0);
-    }
-
-    bool dfs(TreeNode* root, vector<int>& arr, int u) {
-        if (!root || root->val != arr[u]) return false;
-        if (u == arr.size() - 1) return !root->left && !root->right;
-        return dfs(root->left, arr, u + 1) || dfs(root->right, arr, u + 1);
+        function<bool(TreeNode*, int)> dfs = [&](TreeNode* root, int u) -> bool {
+            if (!root || root->val != arr[u]) return false;
+            if (u == arr.size() - 1) return !root->left && !root->right;
+            return dfs(root->left, u + 1) || dfs(root->right, u + 1);
+        };
+        return dfs(root, 0);
     }
 };
 ```

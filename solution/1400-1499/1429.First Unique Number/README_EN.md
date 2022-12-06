@@ -86,29 +86,42 @@ firstUnique.showFirstUnique(); // return -1
 
 ```python
 class FirstUnique:
+
     def __init__(self, nums: List[int]):
-        self.counter = OrderedDict()
-        self.unique_nums = OrderedDict()
-        for num in nums:
-            self.counter[num] = self.counter.get(num, 0) + 1
-        for k, v in self.counter.items():
-            if v == 1:
-                self.unique_nums[k] = 1
+        self.cnt = Counter(nums)
+        self.unique = OrderedDict({v: 1 for v in nums if self.cnt[v] == 1})
 
     def showFirstUnique(self) -> int:
-        if len(self.unique_nums) == 0:
-            return -1
-        for k in self.unique_nums.keys():
-            return k
+        return -1 if not self.unique else next(v for v in self.unique.keys())
 
     def add(self, value: int) -> None:
-        if value not in self.counter:
-            self.counter[value] = 1
-            self.unique_nums[value] = 1
-        else:
-            self.counter[value] += 1
-            if value in self.unique_nums:
-                self.unique_nums.pop(value)
+        self.cnt[value] += 1
+        if self.cnt[value] == 1:
+            self.unique[value] = 1
+        elif value in self.unique:
+            self.unique.pop(value)
+
+# Your FirstUnique object will be instantiated and called as such:
+# obj = FirstUnique(nums)
+# param_1 = obj.showFirstUnique()
+# obj.add(value)
+```
+
+```python
+class FirstUnique:
+
+    def __init__(self, nums: List[int]):
+        self.cnt = Counter(nums)
+        self.q = deque(nums)
+
+    def showFirstUnique(self) -> int:
+        while self.q and self.cnt[self.q[0]] != 1:
+            self.q.popleft()
+        return -1 if not self.q else self.q[0]
+
+    def add(self, value: int) -> None:
+        self.cnt[value] += 1
+        self.q.append(value)
 
 
 # Your FirstUnique object will be instantiated and called as such:
@@ -121,33 +134,30 @@ class FirstUnique:
 
 ```java
 class FirstUnique {
-    private Map<Integer, Integer> counter;
-    private Set<Integer> uniqueNums;
+    private Map<Integer, Integer> cnt = new HashMap<>();
+    private Set<Integer> unique = new LinkedHashSet<>();
 
     public FirstUnique(int[] nums) {
-        counter = new LinkedHashMap<>();
-        uniqueNums = new LinkedHashSet<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        for (int v : nums) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
         }
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            if (entry.getValue() == 1) {
-                uniqueNums.add(entry.getKey());
+        for (int v : nums) {
+            if (cnt.get(v) == 1) {
+                unique.add(v);
             }
         }
     }
 
     public int showFirstUnique() {
-        return uniqueNums.isEmpty() ? -1 : uniqueNums.iterator().next();
+        return unique.isEmpty() ? -1 : unique.iterator().next();
     }
 
     public void add(int value) {
-        if (!counter.containsKey(value)) {
-            counter.put(value, 1);
-            uniqueNums.add(value);
+        cnt.put(value, cnt.getOrDefault(value, 0) + 1);
+        if (cnt.get(value) == 1) {
+            unique.add(value);
         } else {
-            counter.put(value, counter.get(value) + 1);
-            uniqueNums.remove(value);
+            unique.remove(value);
         }
     }
 }
@@ -157,6 +167,113 @@ class FirstUnique {
  * FirstUnique obj = new FirstUnique(nums);
  * int param_1 = obj.showFirstUnique();
  * obj.add(value);
+ */
+```
+
+```java
+class FirstUnique {
+    private Map<Integer, Integer> cnt = new HashMap<>();
+    private Deque<Integer> q = new ArrayDeque<>();
+
+    public FirstUnique(int[] nums) {
+        for (int v : nums) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            q.offer(v);
+        }
+    }
+
+    public int showFirstUnique() {
+        while (!q.isEmpty() && cnt.get(q.peekFirst()) != 1) {
+            q.poll();
+        }
+        return q.isEmpty() ? -1 : q.peekFirst();
+    }
+
+    public void add(int value) {
+        cnt.put(value, cnt.getOrDefault(value, 0) + 1);
+        q.offer(value);
+    }
+}
+
+/**
+ * Your FirstUnique object will be instantiated and called as such:
+ * FirstUnique obj = new FirstUnique(nums);
+ * int param_1 = obj.showFirstUnique();
+ * obj.add(value);
+ */
+```
+
+### **C++**
+
+```cpp
+class FirstUnique {
+public:
+    FirstUnique(vector<int>& nums) {
+        for (int& v : nums) {
+            ++cnt[v];
+            q.push_back(v);
+        }
+    }
+
+    int showFirstUnique() {
+        while (q.size() && cnt[q.front()] != 1) q.pop_front();
+        return q.size() ? q.front() : -1;
+    }
+
+    void add(int value) {
+        ++cnt[value];
+        q.push_back(value);
+    }
+
+private:
+    unordered_map<int, int> cnt;
+    deque<int> q;
+};
+
+/**
+ * Your FirstUnique object will be instantiated and called as such:
+ * FirstUnique* obj = new FirstUnique(nums);
+ * int param_1 = obj->showFirstUnique();
+ * obj->add(value);
+ */
+```
+
+### **Go**
+
+```go
+type FirstUnique struct {
+	cnt map[int]int
+	q   []int
+}
+
+func Constructor(nums []int) FirstUnique {
+	cnt := map[int]int{}
+	for _, v := range nums {
+		cnt[v]++
+	}
+	return FirstUnique{cnt, nums}
+}
+
+func (this *FirstUnique) ShowFirstUnique() int {
+	for len(this.q) > 0 && this.cnt[this.q[0]] != 1 {
+		this.q = this.q[1:]
+	}
+	if len(this.q) > 0 {
+		return this.q[0]
+	}
+	return -1
+}
+
+func (this *FirstUnique) Add(value int) {
+	this.cnt[value]++
+	this.q = append(this.q, value)
+}
+
+/**
+ * Your FirstUnique object will be instantiated and called as such:
+ * obj := Constructor(nums);
+ * param_1 := obj.ShowFirstUnique();
+ * obj.Add(value);
  */
 ```
 

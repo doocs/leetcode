@@ -1,32 +1,24 @@
 class FirstUnique {
-    private Map<Integer, Integer> counter;
-    private Set<Integer> uniqueNums;
+    private Map<Integer, Integer> cnt = new HashMap<>();
+    private Deque<Integer> q = new ArrayDeque<>();
 
     public FirstUnique(int[] nums) {
-        counter = new LinkedHashMap<>();
-        uniqueNums = new LinkedHashSet<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
-        }
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            if (entry.getValue() == 1) {
-                uniqueNums.add(entry.getKey());
-            }
+        for (int v : nums) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            q.offer(v);
         }
     }
-
+    
     public int showFirstUnique() {
-        return uniqueNums.isEmpty() ? -1 : uniqueNums.iterator().next();
-    }
-
-    public void add(int value) {
-        if (!counter.containsKey(value)) {
-            counter.put(value, 1);
-            uniqueNums.add(value);
-        } else {
-            counter.put(value, counter.get(value) + 1);
-            uniqueNums.remove(value);
+        while (!q.isEmpty() && cnt.get(q.peekFirst()) != 1) {
+            q.poll();
         }
+        return q.isEmpty() ? -1 : q.peekFirst();
+    }
+    
+    public void add(int value) {
+        cnt.put(value, cnt.getOrDefault(value, 0) + 1);
+        q.offer(value);
     }
 }
 
