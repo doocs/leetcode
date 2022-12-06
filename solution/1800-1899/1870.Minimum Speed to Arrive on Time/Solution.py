@@ -1,16 +1,11 @@
 class Solution:
     def minSpeedOnTime(self, dist: List[int], hour: float) -> int:
-        def arrive_on_time(speed):
+        def check(speed):
             res = 0
             for i, d in enumerate(dist):
                 res += (d / speed) if i == len(dist) - 1 else math.ceil(d / speed)
             return res <= hour
 
-        left, right = 1, 10**7
-        while left < right:
-            mid = (left + right) >> 1
-            if arrive_on_time(mid):
-                right = mid
-            else:
-                left = mid + 1
-        return left if arrive_on_time(left) else -1
+        r = 10**7 + 1
+        ans = bisect_left(range(1, r), True, key=check) + 1
+        return -1 if ans == r else ans
