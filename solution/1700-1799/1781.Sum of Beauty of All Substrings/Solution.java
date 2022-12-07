@@ -3,12 +3,11 @@ class Solution {
         int ans = 0;
         int n = s.length();
         for (int i = 0; i < n; ++i) {
-            int[] counter = new int[26];
+            int[] cnt = new int[26];
             for (int j = i; j < n; ++j) {
-                ++counter[s.charAt(j) - 'a'];
-                int mi = 1000;
-                int mx = 0;
-                for (int v : counter) {
+                ++cnt[s.charAt(j) - 'a'];
+                int mi = 1000, mx = 0;
+                for (int v : cnt) {
                     if (v > 0) {
                         mi = Math.min(mi, v);
                         mx = Math.max(mx, v);

@@ -1,32 +1,21 @@
-func beautySum(s string) int {
-	ans, n := 0, len(s)
-	for i := 0; i < n; i++ {
-		counter := make([]int, 26)
-		for j := i; j < n; j++ {
-			counter[s[j]-'a']++
+func beautySum(s string) (ans int) {
+	for i := range s {
+		cnt := [26]int{}
+		for j := i; j < len(s); j++ {
+			cnt[s[j]-'a']++
 			mi, mx := 1000, 0
-			for _, v := range counter {
+			for _, v := range cnt {
 				if v > 0 {
-					mi = min(mi, v)
-					mx = max(mx, v)
+					if mi > v {
+						mi = v
+					}
+					if mx < v {
+						mx = v
+					}
 				}
 			}
 			ans += mx - mi
 		}
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+	return
 }
