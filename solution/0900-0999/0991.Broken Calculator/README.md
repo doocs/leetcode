@@ -46,7 +46,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= x, y &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= startValue, target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## 解法

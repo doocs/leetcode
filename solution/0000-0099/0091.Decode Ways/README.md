@@ -48,11 +48,9 @@
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "0"
+<strong>输入：</strong>s = "06"
 <strong>输出：</strong>0
-<strong>解释：</strong>没有字符映射到以 0 开头的数字。
-含有 0 的有效映射是 'J' -&gt; "10" 和 'T'-&gt; "20" 。
-由于没有字符，因此没有有效的方法对此进行解码，因为所有数字都需要映射。
+<strong>解释：</strong>"06" 无法映射到 "F" ，因为存在前导零（"6" 和 "06" 并不等价）。
 </pre>
 
 <p>&nbsp;</p>

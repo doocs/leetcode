@@ -6,11 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个正整数的数组 <code>A</code>（其中的元素不一定完全不同），请你返回可在 <strong>一次交换</strong>（交换两数字 <code>A[i]</code> 和 <code>A[j]</code> 的位置）后得到的、按字典序排列小于 <code>A</code> 的最大可能排列。</p>
+<p>给你一个正整数数组 <code>arr</code>（其中的元素不一定完全不同），请你返回可在&nbsp;<strong>一次交换</strong>（交换两数字 <code>arr[i]</code> 和 <code>arr[j]</code> 的位置）后得到的、按字典序排列小于 <code>arr</code> 的最大可能排列。</p>
 
 <p>如果无法这么操作，就请返回原数组。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -36,21 +36,13 @@
 <strong>解释：</strong>交换 9 和 7
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>arr = [3,1,1,3]
-<strong>输出：</strong>[1,3,1,3]
-<strong>解释：</strong>交换 1 和 3
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= arr.length <= 10<sup>4</sup></code></li>
-	<li><code>1 <= arr[i] <= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## 解法
