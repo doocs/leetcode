@@ -113,7 +113,49 @@ func minimumSum(num int) int {
 ### **TypeScript**
 
 ```ts
+function minimumSum(num: number): number {
+    const nums = new Array(4).fill(0);
+    for (let i = 0; i < 4; i++) {
+        nums[i] = num % 10;
+        num = Math.floor(num / 10);
+    }
+    nums.sort((a, b) => a - b);
+    return 10 * (nums[0] + nums[1]) + nums[2] + nums[3];
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn minimum_sum(mut num: i32) -> i32 {
+        let mut nums = [0; 4];
+        for i in 0..4 {
+            nums[i] = num % 10;
+            num /= 10;
+        }
+        nums.sort();
+        10 * (nums[0] + nums[1]) + nums[2] + nums[3]
+    }
+}
+```
+
+### **C**
+
+```c
+int cmp(const void *a, const void *b) {
+    return *(int *) a - *(int *) b;
+}
+
+int minimumSum(int num) {
+    int nums[4] = {0};
+    for (int i = 0; i < 4; i++) {
+        nums[i] = num % 10;
+        num /= 10;
+    }
+    qsort(nums, 4, sizeof(int), cmp);
+    return 10 * (nums[0] + nums[1])  + nums[2] + nums[3];
+}
 ```
 
 ### **...**
