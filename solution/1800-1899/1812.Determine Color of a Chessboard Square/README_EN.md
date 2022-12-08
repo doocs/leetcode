@@ -54,9 +54,7 @@
 ```python
 class Solution:
     def squareIsWhite(self, coordinates: str) -> bool:
-        x = ord(coordinates[0]) - ord('a') + 1
-        y = int(coordinates[1])
-        return ((x + y) & 1) == 1
+        return (ord(coordinates[0]) + ord(coordinates[1])) % 2 == 1
 ```
 
 ### **Java**
@@ -64,9 +62,7 @@ class Solution:
 ```java
 class Solution {
     public boolean squareIsWhite(String coordinates) {
-        int x = coordinates.charAt(0) - 'a' + 1;
-        int y = coordinates.charAt(1) - '0';
-        return ((x + y) & 1) == 1;
+        return (coordinates.charAt(0) + coordinates.charAt(1)) % 2 == 1; 
     }
 }
 ```
@@ -77,9 +73,7 @@ class Solution {
 class Solution {
 public:
     bool squareIsWhite(string coordinates) {
-        int x = coordinates[0] - 'a' + 1;
-        int y = coordinates[1] - '0';
-        return ((x + y) & 1) == 1;
+        return (coordinates[0] + coordinates[1]) % 2;
     }
 };
 ```
@@ -88,9 +82,7 @@ public:
 
 ```go
 func squareIsWhite(coordinates string) bool {
-	x := coordinates[0] - 'a' + 1
-	y := coordinates[1] - '0'
-	return ((x + y) & 1) == 1
+	return (coordinates[0]+coordinates[1])%2 == 1
 }
 ```
 
@@ -102,9 +94,9 @@ func squareIsWhite(coordinates string) bool {
  * @return {boolean}
  */
 var squareIsWhite = function (coordinates) {
-    const x = coordinates.charAt(0).charCodeAt() - 'a'.charCodeAt() + 1;
-    const y = Number(coordinates.charAt(1));
-    return ((x + y) & 1) == 1;
+    const x = coordinates.charAt(0).charCodeAt();
+    const y = coordinates.charAt(1).charCodeAt();
+    return (x + y) % 2 == 1;
 };
 ```
 
