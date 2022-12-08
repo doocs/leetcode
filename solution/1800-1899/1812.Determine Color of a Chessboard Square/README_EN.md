@@ -100,6 +100,33 @@ var squareIsWhite = function (coordinates) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function squareIsWhite(coordinates: string): boolean {
+    return ((coordinates.charCodeAt(0) + coordinates.charCodeAt(1)) & 1) === 1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn square_is_white(coordinates: String) -> bool {
+        let s = coordinates.as_bytes();
+        s[0] + s[1] & 1 == 1
+    }
+}
+```
+
+### **C**
+
+```c
+bool squareIsWhite(char *coordinates) {
+    return (coordinates[0] + coordinates[1]) & 1;
+}
+```
+
 ### **...**
 
 ```

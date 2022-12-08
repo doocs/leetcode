@@ -80,7 +80,7 @@ class Solution:
 ```java
 class Solution {
     public boolean squareIsWhite(String coordinates) {
-        return (coordinates.charAt(0) + coordinates.charAt(1)) % 2 == 1; 
+        return (coordinates.charAt(0) + coordinates.charAt(1)) % 2 == 1;
     }
 }
 ```
@@ -116,6 +116,33 @@ var squareIsWhite = function (coordinates) {
     const y = coordinates.charAt(1).charCodeAt();
     return (x + y) % 2 == 1;
 };
+```
+
+### **TypeScript**
+
+```ts
+function squareIsWhite(coordinates: string): boolean {
+    return ((coordinates.charCodeAt(0) + coordinates.charCodeAt(1)) & 1) === 1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn square_is_white(coordinates: String) -> bool {
+        let s = coordinates.as_bytes();
+        s[0] + s[1] & 1 == 1
+    }
+}
+```
+
+### **C**
+
+```c
+bool squareIsWhite(char *coordinates) {
+    return (coordinates[0] + coordinates[1]) & 1;
+}
 ```
 
 ### **...**
