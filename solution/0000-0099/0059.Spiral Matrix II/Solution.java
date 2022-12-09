@@ -1,28 +1,19 @@
 class Solution {
     public int[][] generateMatrix(int n) {
-        int[][] res = new int[n][n];
-        int num = 1;
-        int m1 = 0, m2 = n - 1;
-        while (m1 < m2) {
-            for (int j = m1; j < m2; ++j) {
-                res[m1][j] = num++;
+        int[][] ans = new int[n][n];
+        int i = 0, j = 0, k = 0;
+        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        for (int v = 1; v <= n * n; ++v) {
+            ans[i][j] = v;
+            int x = i + dirs[k][0], y = j + dirs[k][1];
+            if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0) {
+                k = (k + 1) % 4;
+                x = i + dirs[k][0];
+                y = j + dirs[k][1];
             }
-            for (int i = m1; i < m2; ++i) {
-                res[i][m2] = num++;
-            }
-            for (int j = m2; j > m1; --j) {
-                res[m2][j] = num++;
-            }
-            for (int i = m2; i > m1; --i) {
-                res[i][m1] = num++;
-            }
-            ++m1;
-            --m2;
+            i = x;
+            j = y;
         }
-        if (m1 == m2) {
-            res[m1][m1] = num;
-        }
-
-        return res;
+        return ans;
     }
 }

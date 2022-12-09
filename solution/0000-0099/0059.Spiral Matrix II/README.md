@@ -36,6 +36,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+直接模拟螺旋矩阵的生成过程。
+
+定义一个二维数组 `ans`，用于存储螺旋矩阵。用 `i` 和 `j` 分别表示当前位置的行号和列号，用 `k` 表示当前的方向编号，`dirs` 表示方向编号与方向的对应关系。
+
+从 `1` 开始，依次填入矩阵中的每个位置。每次填入一个位置后，计算下一个位置的行号和列号，如果下一个位置不在矩阵中或者已经被填过，则改变方向，再计算下一个位置的行号和列号。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是矩阵的边长。忽略输出数组不计，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,27 +55,17 @@
 ```python
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
-        res = [[0] * n for _ in range(n)]
-        num = 1
-        m1, m2 = 0, n - 1
-        while m1 < m2:
-            for j in range(m1, m2):
-                res[m1][j] = num
-                num += 1
-            for i in range(m1, m2):
-                res[i][m2] = num
-                num += 1
-            for j in range(m2, m1, -1):
-                res[m2][j] = num
-                num += 1
-            for i in range(m2, m1, -1):
-                res[i][m1] = num
-                num += 1
-            m1 += 1
-            m2 -= 1
-        if m1 == m2:
-            res[m1][m1] = num
-        return res
+        ans = [[0] * n for _ in range(n)]
+        dirs = ((0, 1), (1, 0), (0, -1), (-1, 0))
+        i = j = k = 0
+        for v in range(1, n * n + 1):
+            ans[i][j] = v
+            x, y = i + dirs[k][0], j + dirs[k][1]
+            if x < 0 or y < 0 or x >= n or y >= n or ans[x][y]:
+                k = (k + 1) % 4
+                x, y = i + dirs[k][0], j + dirs[k][1]
+            i, j = x, y
+        return ans
 ```
 
 ### **Java**
@@ -75,32 +75,99 @@ class Solution:
 ```java
 class Solution {
     public int[][] generateMatrix(int n) {
-        int[][] res = new int[n][n];
-        int num = 1;
-        int m1 = 0, m2 = n - 1;
-        while (m1 < m2) {
-            for (int j = m1; j < m2; ++j) {
-                res[m1][j] = num++;
+        int[][] ans = new int[n][n];
+        int i = 0, j = 0, k = 0;
+        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        for (int v = 1; v <= n * n; ++v) {
+            ans[i][j] = v;
+            int x = i + dirs[k][0], y = j + dirs[k][1];
+            if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0) {
+                k = (k + 1) % 4;
+                x = i + dirs[k][0];
+                y = j + dirs[k][1];
             }
-            for (int i = m1; i < m2; ++i) {
-                res[i][m2] = num++;
-            }
-            for (int j = m2; j > m1; --j) {
-                res[m2][j] = num++;
-            }
-            for (int i = m2; i > m1; --i) {
-                res[i][m1] = num++;
-            }
-            ++m1;
-            --m2;
+            i = x;
+            j = y;
         }
-        if (m1 == m2) {
-            res[m1][m1] = num;
-        }
-
-        return res;
+        return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int dirs[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>> ans(n, vector<int>(n));
+        int i = 0, j = 0, k = 0;
+        for (int v = 1; v <= n * n; ++v) {
+            ans[i][j] = v;
+            int x = i + dirs[k][0], y = j + dirs[k][1];
+            if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y]) {
+                k = (k + 1) % 4;
+                x = i + dirs[k][0], y = j + dirs[k][1];
+            }
+            i = x, j = y;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func generateMatrix(n int) [][]int {
+	ans := make([][]int, n)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	dirs := [4][2]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+	var i, j, k int
+	for v := 1; v <= n*n; v++ {
+		ans[i][j] = v
+		x, y := i+dirs[k][0], j+dirs[k][1]
+		if x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0 {
+			k = (k + 1) % 4
+			x, y = i+dirs[k][0], j+dirs[k][1]
+		}
+		i, j = x, y
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number[][]}
+ */
+var generateMatrix = function (n) {
+    const ans = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    let [i, j, k] = [0, 0, 0];
+    const dirs = [
+        [0, 1],
+        [1, 0],
+        [0, -1],
+        [-1, 0],
+    ];
+    for (let v = 1; v <= n * n; ++v) {
+        ans[i][j] = v;
+        let [x, y] = [i + dirs[k][0], j + dirs[k][1]];
+        if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0) {
+            k = (k + 1) % 4;
+            [x, y] = [i + dirs[k][0], j + dirs[k][1]];
+        }
+        [i, j] = [x, y];
+    }
+    return ans;
+};
 ```
 
 ### **TypeScript**
@@ -155,39 +222,6 @@ function generateMatrix(n: number): number[][] {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> res(n, vector<int>(n, 0));
-        int num = 1;
-        int m1 = 0, m2 = n - 1;
-        while (m1 < m2) {
-            for (int j = m1; j < m2; ++j) {
-                res[m1][j] = num++;
-            }
-            for (int i = m1; i < m2; ++i) {
-                res[i][m2] = num++;
-            }
-            for (int j = m2; j > m1; --j) {
-                res[m2][j] = num++;
-            }
-            for (int i = m2; i > m1; --i) {
-                res[i][m1] = num++;
-            }
-            ++m1;
-            --m2;
-        }
-        if (m1 == m2) {
-            res[m1][m1] = num;
-        }
-        return res;
-    }
-};
-```
-
 ### **Rust**
 
 ```rust
@@ -219,42 +253,6 @@ impl Solution {
         }
         res
     }
-}
-```
-
-### **Go**
-
-```go
-func generateMatrix(n int) [][]int {
-	res := make([][]int, n)
-	for i := range res {
-		res[i] = make([]int, n)
-	}
-	elem := 1
-	top, bottom, left, right := 0, n-1, 0, n-1
-	for elem <= n*n {
-		for i := left; i <= right; i++ {
-			res[top][i], elem = elem, elem+1
-		}
-		top++
-		for i := top; i <= bottom; i++ {
-			res[i][right], elem = elem, elem+1
-		}
-		right--
-		if top <= bottom {
-			for i := right; i >= left; i-- {
-				res[bottom][i], elem = elem, elem+1
-			}
-			bottom--
-		}
-		if left <= right {
-			for i := bottom; i >= top; i-- {
-				res[i][left], elem = elem, elem+1
-			}
-			left++
-		}
-	}
-	return res
 }
 ```
 
