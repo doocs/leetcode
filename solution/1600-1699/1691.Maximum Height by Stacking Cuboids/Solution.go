@@ -1,4 +1,4 @@
-func maxHeight(cuboids [][]int) int {
+func maxHeight(cuboids [][]int) (ans int) {
 	for _, c := range cuboids {
 		sort.Ints(c)
 	}
@@ -12,18 +12,17 @@ func maxHeight(cuboids [][]int) int {
 		return cuboids[i][2] < cuboids[j][2]
 	})
 	n := len(cuboids)
-	dp := make([]int, n)
-	ans := 0
-	for i := 0; i < n; i++ {
+	f := make([]int, n)
+	for i := range f {
 		for j := 0; j < i; j++ {
 			if cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2] {
-				dp[i] = max(dp[i], dp[j])
+				f[i] = max(f[i], f[j])
 			}
 		}
-		dp[i] += cuboids[i][2]
-		ans = max(ans, dp[i])
+		f[i] += cuboids[i][2]
+		ans = max(ans, f[i])
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {

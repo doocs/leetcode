@@ -68,13 +68,13 @@ class Solution:
             c.sort()
         cuboids.sort()
         n = len(cuboids)
-        dp = [0] * n
+        f = [0] * n
         for i in range(n):
             for j in range(i):
                 if cuboids[j][1] <= cuboids[i][1] and cuboids[j][2] <= cuboids[i][2]:
-                    dp[i] = max(dp[i], dp[j])
-            dp[i] += cuboids[i][2]
-        return max(dp)
+                    f[i] = max(f[i], f[j])
+            f[i] += cuboids[i][2]
+        return max(f)
 ```
 
 ### **Java**
@@ -82,31 +82,21 @@ class Solution:
 ```java
 class Solution {
     public int maxHeight(int[][] cuboids) {
-        for (int[] c : cuboids) {
+        for (var c : cuboids) {
             Arrays.sort(c);
         }
-        Arrays.sort(cuboids, (a, b) -> {
-            if (a[0] != b[0]) {
-                return a[0] - b[0];
-            }
-            if (a[1] != b[1]) {
-                return a[1] - b[1];
-            }
-            return a[2] - b[2];
-        });
+        Arrays.sort(cuboids, (a, b) -> a[0] == b[0] ? (a[1] == b[1] ? a[2] - b[2] : a[1] - b[1]) : a[0] - b[0]);
         int n = cuboids.length;
-        int[] dp = new int[n];
-        int ans = 0;
+        int[] f = new int[n];
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
                 if (cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2]) {
-                    dp[i] = Math.max(dp[i], dp[j]);
+                    f[i] = Math.max(f[i], f[j]);
                 }
             }
-            dp[i] += cuboids[i][2];
-            ans = Math.max(ans, dp[i]);
+            f[i] += cuboids[i][2];
         }
-        return ans;
+        return Arrays.stream(f).max().getAsInt();
     }
 }
 ```
@@ -120,18 +110,16 @@ public:
         for (auto& c : cuboids) sort(c.begin(), c.end());
         sort(cuboids.begin(), cuboids.end());
         int n = cuboids.size();
-        vector<int> dp(n);
-        int ans = 0;
+        vector<int> f(n);
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
                 if (cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2]) {
-                    dp[i] = max(dp[i], dp[j]);
+                    f[i] = max(f[i], f[j]);
                 }
             }
-            dp[i] += cuboids[i][2];
-            ans = max(ans, dp[i]);
+            f[i] += cuboids[i][2];
         }
-        return ans;
+        return *max_element(f.begin(), f.end());
     }
 };
 ```
@@ -139,7 +127,7 @@ public:
 ### **Go**
 
 ```go
-func maxHeight(cuboids [][]int) int {
+func maxHeight(cuboids [][]int) (ans int) {
 	for _, c := range cuboids {
 		sort.Ints(c)
 	}
@@ -153,18 +141,17 @@ func maxHeight(cuboids [][]int) int {
 		return cuboids[i][2] < cuboids[j][2]
 	})
 	n := len(cuboids)
-	dp := make([]int, n)
-	ans := 0
-	for i := 0; i < n; i++ {
+	f := make([]int, n)
+	for i := range f {
 		for j := 0; j < i; j++ {
 			if cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2] {
-				dp[i] = max(dp[i], dp[j])
+				f[i] = max(f[i], f[j])
 			}
 		}
-		dp[i] += cuboids[i][2]
-		ans = max(ans, dp[i])
+		f[i] += cuboids[i][2]
+		ans = max(ans, f[i])
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -173,6 +160,37 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} cuboids
+ * @return {number}
+ */
+var maxHeight = function (cuboids) {
+    for (const c of cuboids) {
+        c.sort((a, b) => a - b);
+    }
+    cuboids.sort((a, b) => {
+        if (a[0] != b[0]) return a[0] - b[0];
+        if (a[1] != b[1]) return a[1] - b[1];
+        return a[2] - b[2];
+    });
+    const n = cuboids.length;
+    const f = new Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            const ok =
+                cuboids[j][1] <= cuboids[i][1] &&
+                cuboids[j][2] <= cuboids[i][2];
+            if (ok) f[i] = Math.max(f[i], f[j]);
+        }
+        f[i] += cuboids[i][2];
+    }
+    return Math.max(...f);
+};
 ```
 
 ### **...**
