@@ -135,16 +135,33 @@ func max(a, b int) int {
 }
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var canJump = function (nums) {
+    let mx = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (i > mx) {
+            return false;
+        }
+        mx = Math.max(mx, i + nums[i]);
+    }
+    return true;
+};
+```
+
 ### **C#**
 
 ```cs
 public class Solution {
     public bool CanJump(int[] nums) {
         int mx = 0;
-        for (int i = 0; i < nums.Length; ++i)
-        {
-            if (i > mx)
-            {
+        for (int i = 0; i < nums.Length; ++i) {
+            if (i > mx) {
                 return false;
             }
             mx = Math.Max(mx, i + nums[i]);

@@ -2542,4 +2542,4 @@
   - [2492.两个城市间路径的最小分数](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README.md)
   - [2493.将节点分成尽可能多的组](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md)
   - [2494.Merge Overlapping Events in the Same Hall](/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README.md)
-  - [2495.Number of Subarrays Having Even Product](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README.md)
+  - [2495.积是偶数的子数组的数目](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README.md)

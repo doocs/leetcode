@@ -50,6 +50,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：逆向遍历 + 双指针**
+
+从字符串 $s$ 末尾开始遍历，找到第一个不为空格的字符，即为最后一个单词的最后一个字符，下标记为 $i$。然后继续向前遍历，找到第一个为空格的字符，即为最后一个单词的第一个字符的前一个字符，记为 $j$。那么最后一个单词的长度即为 $i - j$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,16 +65,13 @@
 ```python
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        last_word_length = 0
-        meet_word = False
-        for i in range(len(s) - 1, -1, -1):
-            ch = ord(s[i])
-            if ch >= 65 and ch <= 122:
-                meet_word = True
-                last_word_length += 1
-            elif meet_word:
-                break
-        return last_word_length
+        i = len(s) - 1
+        while i >= 0 and s[i] == ' ':
+            i -= 1
+        j = i
+        while j >= 0 and s[j] != ' ':
+            j -= 1
+        return i - j
 ```
 
 ### **Java**
@@ -78,64 +81,67 @@ class Solution:
 ```java
 class Solution {
     public int lengthOfLastWord(String s) {
-        int n = s.length();
-        int lastWordLength = 0;
-        boolean meetWord = false;
-        for (int i = n - 1; i >= 0; --i) {
-            char ch = s.charAt(i);
-            if (ch >= 'A' && ch <= 'z') {
-                meetWord = true;
-                ++lastWordLength;
-            } else if (meetWord) {
-                break;
-            }
+        int i = s.length() - 1;
+        while (i >= 0 && s.charAt(i) == ' ') {
+            --i;
         }
-        return lastWordLength;
+        int j = i;
+        while (j >= 0 && s.charAt(j) != ' ') {
+            --j;
+        }
+        return i - j;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int i = s.length() - 1;
+        while (i >= 0 && s[i] == ' ') --i;
+        int j = i;
+        while (j >= 0 && s[j] != ' ') --j;
+        return i - j;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
 func lengthOfLastWord(s string) int {
-	if len(s) == 0 {
-		return 0
+	i := len(s) - 1
+	for i >= 0 && s[i] == ' ' {
+		i--
 	}
-	space := []byte(" ")[0]
-	for len(s) != 0 && s[len(s)-1] == space {
-		s = s[:len(s)-1]
+	j := i
+	for j >= 0 && s[j] != ' ' {
+		j--
 	}
-	ret := 0
-	for i := len(s) - 1; i >= 0; i-- {
-		if s[i] != space {
-			ret++
-		} else {
-			return ret
-		}
-	}
-	return ret
+	return i - j
 }
 ```
 
 ### **JavaScript**
 
 ```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
 var lengthOfLastWord = function (s) {
-    s = s.trim();
-    return s.length - s.lastIndexOf(' ') - 1;
-};
-
-var lengthOfLastWord2 = function (s) {
-    let res = 0;
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] !== ' ' && (i === 0 || s[i - 1] === ' ')) {
-            res = 1;
-        } else if (s[i] !== ' ') {
-            res++;
-        }
+    let i = s.length - 1;
+    while (i >= 0 && s[i] === ' ') {
+        --i;
     }
-    return res;
+    let j = i;
+    while (j >= 0 && s[j] !== ' ') {
+        --j;
+    }
+    return i - j;
 };
 ```
 

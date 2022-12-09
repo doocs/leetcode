@@ -44,13 +44,13 @@ numMatrix.sumRegion(2, 1, 4, 3); // return 10 (i.e. sum of the right red rectang
 	<li><code>m == matrix.length</code></li>
 	<li><code>n == matrix[i].length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 200</code></li>
-	<li><code>-10<sup>5</sup> &lt;= matrix[i][j] &lt;= 10<sup>5</sup></code></li>
+	<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
 	<li><code>0 &lt;= row &lt; m</code></li>
 	<li><code>0 &lt;= col &lt; n</code></li>
-	<li><code>-10<sup>5</sup> &lt;= val &lt;= 10<sup>5</sup></code></li>
+	<li><code>-1000 &lt;= val &lt;= 1000</code></li>
 	<li><code>0 &lt;= row1 &lt;= row2 &lt; m</code></li>
 	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
-	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRegion</code> and <code>update</code>.</li>
+	<li>At most <code>5000</code> calls will be made to <code>sumRegion</code> and <code>update</code>.</li>
 </ul>
 
 ## Solutions
