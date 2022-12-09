@@ -53,6 +53,25 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        m, n = len(matrix), len(matrix[0])
+        dirs = ((0, 1), (1, 0), (0, -1), (-1, 0))
+        i = j = k = 0
+        ans = []
+        vis = [[False] * n for _ in range(m)]
+        for _ in range(m * n):
+            ans.append(matrix[i][j])
+            vis[i][j] = True
+            x, y = i + dirs[k][0], j + dirs[k][1]
+            if x < 0 or y < 0 or x >= m or y >= n or vis[x][y]:
+                k = (k + 1) % 4
+                x, y = i + dirs[k][0], j + dirs[k][1]
+            i, j = x, y
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -86,36 +105,79 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} matrix
- * @return {number[]}
- */
-var spiralOrder = function (matrix) {
-    const m = matrix.length;
-    const n = matrix[0].length;
-    let [top, bottom, left, right] = [0, m - 1, 0, n - 1];
-    let ans = [];
-    while (top <= bottom && left <= right) {
-        for (let j = left; j <= right; ++j) {
-            ans.push(matrix[top][j]);
-        }
-        for (let i = top + 1; i <= bottom; ++i) {
-            ans.push(matrix[i][right]);
-        }
-        if (left < right && top < bottom) {
-            for (let j = right - 1; j >= left; --j) {
-                ans.push(matrix[bottom][j]);
+```java
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        int i = 0, j = 0, k = 0;
+        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        List<Integer> ans = new ArrayList<>();
+        boolean[][] vis = new boolean[m][n];
+        for (int h = 0; h < m * n; ++h) {
+            ans.add(matrix[i][j]);
+            vis[i][j] = true;
+            int x = i + dirs[k][0], y = j + dirs[k][1];
+            if (x < 0 || y < 0 || x >= m || y >= n || vis[x][y]) {
+                k = (k + 1) % 4;
+                x = i + dirs[k][0];
+                y = j + dirs[k][1];
             }
-            for (let i = bottom - 1; i > top; --i) {
-                ans.push(matrix[i][left]);
-            }
+            i = x;
+            j = y;
         }
-        [top, bottom, left, right] = [top + 1, bottom - 1, left + 1, right - 1];
+        return ans;
     }
-    return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        vector<int> ans;
+        while (top <= bottom && left <= right) {
+            for (int j = left; j <= right; ++j) ans.push_back(matrix[top][j]);
+            for (int i = top + 1; i <= bottom; ++i) ans.push_back(matrix[i][right]);
+            if (left < right && top < bottom) {
+                for (int j = right - 1; j >= left; --j) ans.push_back(matrix[bottom][j]);
+                for (int i = bottom - 1; i > top; --i) ans.push_back(matrix[i][left]);
+            }
+            ++top;
+            --bottom;
+            ++left;
+            --right;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    const int dirs[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        int i = 0, j = 0, k = 0;
+        vector<int> ans;
+        bool vis[11][11] = {0};
+        for (int h = 0; h < m * n; ++h) {
+            ans.push_back(matrix[i][j]);
+            vis[i][j] = 1;
+            int x = i + dirs[k][0], y = j + dirs[k][1];
+            if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+                k = (k + 1) % 4;
+                x = i + dirs[k][0], y = j + dirs[k][1];
+            }
+            i = x, j = y;
+        }
+        return ans;
+    }
 };
 ```
 
@@ -152,29 +214,56 @@ func spiralOrder(matrix [][]int) []int {
 }
 ```
 
-### **C++**
+```go
+func spiralOrder(matrix [][]int) (ans []int) {
+	m, n := len(matrix), len(matrix[0])
+	var i, j, k int
+	dirs := [4][2]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+	vis := [11][11]bool{}
+	for h := 0; h < m*n; h++ {
+		ans = append(ans, matrix[i][j])
+		vis[i][j] = true
+		x, y := i+dirs[k][0], j+dirs[k][1]
+		if x < 0 || x >= m || y < 0 || y >= n || vis[x][y] {
+			k = (k + 1) % 4
+			x, y = i+dirs[k][0], j+dirs[k][1]
+		}
+		i, j = x, y
+	}
+	return
+}
+```
 
-```cpp
-class Solution {
-public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
-        int top = 0, bottom = m - 1, left = 0, right = n - 1;
-        vector<int> ans;
-        while (top <= bottom && left <= right) {
-            for (int j = left; j <= right; ++j) ans.push_back(matrix[top][j]);
-            for (int i = top + 1; i <= bottom; ++i) ans.push_back(matrix[i][right]);
-            if (left < right && top < bottom) {
-                for (int j = right - 1; j >= left; --j) ans.push_back(matrix[bottom][j]);
-                for (int i = bottom - 1; i > top; --i) ans.push_back(matrix[i][left]);
-            }
-            ++top;
-            --bottom;
-            ++left;
-            --right;
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function (matrix) {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let [top, bottom, left, right] = [0, m - 1, 0, n - 1];
+    let ans = [];
+    while (top <= bottom && left <= right) {
+        for (let j = left; j <= right; ++j) {
+            ans.push(matrix[top][j]);
         }
-        return ans;
+        for (let i = top + 1; i <= bottom; ++i) {
+            ans.push(matrix[i][right]);
+        }
+        if (left < right && top < bottom) {
+            for (let j = right - 1; j >= left; --j) {
+                ans.push(matrix[bottom][j]);
+            }
+            for (let i = bottom - 1; i > top; --i) {
+                ans.push(matrix[i][left]);
+            }
+        }
+        [top, bottom, left, right] = [top + 1, bottom - 1, left + 1, right - 1];
     }
+    return ans;
 };
 ```
 
