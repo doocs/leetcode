@@ -75,6 +75,19 @@ class Solution:
         return left
 ```
 
+```python
+# The guess API is already defined for you.
+# @param num, your guess
+# @return -1 if num is higher than the picked number
+#          1 if num is lower than the picked number
+#          otherwise return 0
+# def guess(num: int) -> int:
+
+class Solution:
+    def guessNumber(self, n: int) -> int:
+        return bisect.bisect(range(1, n + 1), 0, key=lambda x: -guess(x))
+```
+
 ### **Java**
 
 ```java
@@ -158,14 +171,32 @@ func guessNumber(n int) int {
 }
 ```
 
-### **C#**
-
-```cs
+```go
 /**
  * Forward declaration of guess API.
  * @param  num   your guess
- * @return 	     -1 if num is lower than the guess number
- *			      1 if num is higher than the guess number
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * func guess(num int) int;
+ */
+
+func guessNumber(n int) int {
+	return sort.Search(n, func(i int) bool {
+		i++
+		return guess(i) <= 0
+	}) + 1
+}
+```
+
+### **C#**
+
+```cs
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
  *               otherwise return 0
  * int guess(int num);
  */
@@ -173,15 +204,11 @@ func guessNumber(n int) int {
 public class Solution : GuessGame {
     public int GuessNumber(int n) {
         int left = 1, right = n;
-        while (left < right)
-        {
+        while (left < right) {
             int mid = left + ((right - left) >> 1);
-            if (guess(mid) <= 0)
-            {
+            if (guess(mid) <= 0) {
                 right = mid;
-            }
-            else
-            {
+            } else {
                 left = mid + 1;
             }
         }
