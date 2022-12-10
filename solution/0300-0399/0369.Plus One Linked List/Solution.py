@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def plusOne(self, head: ListNode) -> ListNode:
-        dummy = ListNode(val=0, next=head)
+        dummy = ListNode(0, head)
         target = dummy
         while head:
             if head.val != 9:

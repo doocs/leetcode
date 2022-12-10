@@ -42,9 +42,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-找出链表最右一个 `val ≠ 9` 的节点 target，将 target 值加 1。然后将 target 之后的所有节点值置为 0。
+**方法一：链表遍历**
 
-若遇到如 `9 -> 9 -> 9` 的链表，就找不到 target 了，因此，我们可以定义一个虚拟头节点 dummy，初始值为 0。刚开始将 target 指向 dummy，这样就确保链表一定存在一个 `val ≠ 9` 的节点了。
+我们先设置一个虚拟头节点 `dummy`，初始值为 $0$，指向链表头节点 `head`。
+
+然后从链表头节点开始遍历，找出链表最后一个值不等于 $9$ 的节点 `target`，将 `target` 的值加 $1$。接着将 `target` 之后的所有节点值置为 $0$。
+
+需要注意的是，如果链表中所有节点值都为 $9$，那么遍历结束后，`target` 会指向空节点，这时我们需要将 `dummy` 的值加 $1$，然后返回 `dummy`，否则返回 `dummy` 的下一个节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
 
@@ -60,7 +66,7 @@
 #         self.next = next
 class Solution:
     def plusOne(self, head: ListNode) -> ListNode:
-        dummy = ListNode(val=0, next=head)
+        dummy = ListNode(0, head)
         target = dummy
         while head:
             if head.val != 9:
@@ -99,7 +105,7 @@ class Solution {
             }
             head = head.next;
         }
-        target.val += 1;
+        ++target.val;
         target = target.next;
         while (target != null) {
             target.val = 0;
@@ -107,6 +113,71 @@ class Solution {
         }
         return dummy.val == 1 ? dummy : dummy.next;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* plusOne(ListNode* head) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* target = dummy;
+        while (head) {
+            if (head->val != 9) target = head;
+            head = head->next;
+        }
+        ++target->val;
+        target = target->next;
+        while (target) {
+            target->val = 0;
+            target = target->next;
+        }
+        return dummy->val == 1 ? dummy : dummy->next;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func plusOne(head *ListNode) *ListNode {
+	dummy := &ListNode{0, head}
+	target := dummy
+	for head != nil {
+		if head.Val != 9 {
+			target = head
+		}
+		head = head.Next
+	}
+	target.Val++
+	target = target.Next
+	for target != nil {
+		target.Val = 0
+		target = target.Next
+	}
+	if dummy.Val == 1 {
+		return dummy
+	}
+	return dummy.Next
 }
 ```
 

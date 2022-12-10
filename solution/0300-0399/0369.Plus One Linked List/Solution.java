@@ -18,7 +18,7 @@ class Solution {
             }
             head = head.next;
         }
-        target.val += 1;
+        ++target.val;
         target = target.next;
         while (target != null) {
             target.val = 0;
