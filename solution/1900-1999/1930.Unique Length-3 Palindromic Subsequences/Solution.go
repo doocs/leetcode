@@ -1,12 +1,11 @@
-func countPalindromicSubsequence(s string) int {
-	res := 0
+func countPalindromicSubsequence(s string) (ans int) {
 	for c := 'a'; c <= 'z'; c++ {
 		l, r := strings.Index(s, string(c)), strings.LastIndex(s, string(c))
-		chars := make(map[byte]bool)
+		cs := map[byte]struct{}{}
 		for i := l + 1; i < r; i++ {
-			chars[s[i]] = true
+			cs[s[i]] = struct{}{}
 		}
-		res += len(chars)
+		ans += len(cs)
 	}
-	return res
+	return
 }

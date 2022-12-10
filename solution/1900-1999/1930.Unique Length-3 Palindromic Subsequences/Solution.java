@@ -1,14 +1,14 @@
 class Solution {
     public int countPalindromicSubsequence(String s) {
-        int res = 0;
+        int ans = 0;
         for (char c = 'a'; c <= 'z'; ++c) {
             int l = s.indexOf(c), r = s.lastIndexOf(c);
-            Set<Character> chars = new HashSet<>();
+            Set<Character> cs = new HashSet<>();
             for (int i = l + 1; i < r; ++i) {
-                chars.add(s.charAt(i));
+                cs.add(s.charAt(i));
             }
-            res += chars.size();
+            ans += cs.size();
         }
-        return res;
+        return ans;
     }
 }
