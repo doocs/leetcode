@@ -99,6 +99,14 @@ var numberOfMatches = function (n) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function numberOfMatches(n: number): number {
+    return n - 1;
+}
+```
+
 ### **...**
 
 ```

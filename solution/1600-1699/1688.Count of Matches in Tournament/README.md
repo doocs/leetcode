@@ -52,7 +52,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-n 个人比赛，最终淘汰 n - 1 个人，所以配对次数是 n - 1。
+**方法一：脑筋急转弯**
+
+根据题目描述我们知道，一共有 $n$ 支队伍，每一次的配对，都会淘汰一支队伍，所以配对次数就是淘汰的队伍数，即 $n - 1$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -107,6 +111,14 @@ func numberOfMatches(n int) int {
 var numberOfMatches = function (n) {
     return n - 1;
 };
+```
+
+### **TypeScript**
+
+```ts
+function numberOfMatches(n: number): number {
+    return n - 1;
+}
 ```
 
 ### **...**

@@ -48,7 +48,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
+
+由于 `nums` 数组已经有序，因此我们可以使用二分查找的方法找到目标值 `target` 的插入位置。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -67,6 +71,12 @@ class Solution:
             else:
                 left = mid + 1
         return left
+```
+
+```python
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        return bisect_left(nums, target)
 ```
 
 ### **Java**
@@ -109,6 +119,15 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -123,6 +142,12 @@ func searchInsert(nums []int, target int) int {
 		}
 	}
 	return left
+}
+```
+
+```go
+func searchInsert(nums []int, target int) int {
+	return sort.Search(len(nums), func(i int) bool { return nums[i] >= target })
 }
 ```
 

@@ -73,10 +73,10 @@
 
 接下来，我们可以使用动态规划的方法求解本题。
 
-我们定义 $f[i]$ 表示以长方体 $i$ 为最底部长方体时的最大高度。我们可以枚举每个长方体 $i$ 的上方的长方体 $j$，如果 $j$ 可以放在 $i$ 的上方，那么我们可以得到状态转移方程：
+我们定义 $f[i]$ 表示以长方体 $i$ 为最底部长方体时的最大高度。我们可以枚举每个长方体 $i$ 的上方的长方体 $j$，其中 $0 \leq j < i$。如果 $j$ 可以放在 $i$ 的上方，那么我们可以得到状态转移方程：
 
 $$
-f[i] = \max(f[i], f[j] + h[i])
+f[i] = \max_{0 \leq j < i} \{f[j] + h[i]\}
 $$
 
 其中 $h[i]$ 表示长方体 $i$ 的高度。
@@ -164,13 +164,8 @@ func maxHeight(cuboids [][]int) (ans int) {
 		sort.Ints(c)
 	}
 	sort.Slice(cuboids, func(i, j int) bool {
-		if cuboids[i][0] != cuboids[j][0] {
-			return cuboids[i][0] < cuboids[j][0]
-		}
-		if cuboids[i][1] != cuboids[j][1] {
-			return cuboids[i][1] < cuboids[j][1]
-		}
-		return cuboids[i][2] < cuboids[j][2]
+		a, b := cuboids[i], cuboids[j]
+		return a[0] < b[0] || a[0] == b[0] && (a[1] < b[1] || a[1] == b[1] && a[2] < b[2])
 	})
 	n := len(cuboids)
 	f := make([]int, n)

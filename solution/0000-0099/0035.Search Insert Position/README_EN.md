@@ -61,6 +61,12 @@ class Solution:
         return left
 ```
 
+```python
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        return bisect_left(nums, target)
+```
+
 ### **Java**
 
 ```java
@@ -99,6 +105,15 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -113,6 +128,12 @@ func searchInsert(nums []int, target int) int {
 		}
 	}
 	return left
+}
+```
+
+```go
+func searchInsert(nums []int, target int) int {
+	return sort.Search(len(nums), func(i int) bool { return nums[i] >= target })
 }
 ```
 
