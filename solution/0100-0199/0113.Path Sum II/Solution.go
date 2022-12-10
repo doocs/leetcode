@@ -6,17 +6,16 @@
  *     Right *TreeNode
  * }
  */
-func pathSum(root *TreeNode, targetSum int) [][]int {
-	ans := [][]int{}
+func pathSum(root *TreeNode, targetSum int) (ans [][]int) {
 	t := []int{}
-	var dfs func(root *TreeNode, s int)
+	var dfs func(*TreeNode, int)
 	dfs = func(root *TreeNode, s int) {
 		if root == nil {
 			return
 		}
+		s -= root.Val
 		t = append(t, root.Val)
-		s += root.Val
-		if root.Left == nil && root.Right == nil && s == targetSum {
+		if root.Left == nil && root.Right == nil && s == 0 {
 			cp := make([]int, len(t))
 			copy(cp, t)
 			ans = append(ans, cp)
@@ -25,6 +24,6 @@ func pathSum(root *TreeNode, targetSum int) [][]int {
 		dfs(root.Right, s)
 		t = t[:len(t)-1]
 	}
-	dfs(root, 0)
-	return ans
+	dfs(root, targetSum)
+	return
 }

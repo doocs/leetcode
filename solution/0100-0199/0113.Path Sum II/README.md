@@ -51,7 +51,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-深度优先搜索+路径记录。
+**方法一：DFS**
+
+我们从根节点开始，递归遍历所有从根节点到叶子节点的路径，并记录路径和。当遍历到叶子节点时，如果此时路径和等于 `targetSum`，则将此路径加入答案。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是二叉树的节点数。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -71,19 +75,16 @@ class Solution:
         def dfs(root, s):
             if root is None:
                 return
-            t.append(root.val)
             s += root.val
-            if root.left is None and root.right is None:
-                if s == targetSum:
-                    ans.append(t[:])
+            t.append(root.val)
+            if root.left is None and root.right is None and s == targetSum:
+                ans.append(t[:])
             dfs(root.left, s)
             dfs(root.right, s)
             t.pop()
 
         ans = []
         t = []
-        if root is None:
-            return ans
         dfs(root, 0)
         return ans
 ```
@@ -109,15 +110,11 @@ class Solution:
  * }
  */
 class Solution {
-    private List<List<Integer>> ans;
-    private List<Integer> t;
-    private int target;
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        ans = new ArrayList<>();
-        t = new ArrayList<>();
-        target = targetSum;
-        dfs(root, 0);
+        dfs(root, targetSum);
         return ans;
     }
 
@@ -125,12 +122,10 @@ class Solution {
         if (root == null) {
             return;
         }
+        s -= root.val;
         t.add(root.val);
-        s += root.val;
-        if (root.left == null && root.right == null) {
-            if (s == target) {
-                ans.add(new ArrayList<>(t));
-            }
+        if (root.left == null && root.right == null && s == 0) {
+            ans.add(new ArrayList<>(t));
         }
         dfs(root.left, s);
         dfs(root.right, s);
@@ -155,24 +150,20 @@ class Solution {
  */
 class Solution {
 public:
-    vector<vector<int>> ans;
-    vector<int> t;
-    int target;
-
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        target = targetSum;
-        dfs(root, 0);
+        vector<vector<int>> ans;
+        vector<int> t;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int s) {
+            if (!root) return;
+            s -= root->val;
+            t.emplace_back(root->val);
+            if (!root->left && !root->right && s == 0) ans.emplace_back(t);
+            dfs(root->left, s);
+            dfs(root->right, s);
+            t.pop_back();
+        };
+        dfs(root, targetSum);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int s) {
-        if (!root) return;
-        t.push_back(root->val);
-        s += root->val;
-        if (!root->left && !root->right && s == target) ans.push_back(t);
-        dfs(root->left, s);
-        dfs(root->right, s);
-        t.pop_back();
     }
 };
 ```
@@ -188,17 +179,16 @@ public:
  *     Right *TreeNode
  * }
  */
-func pathSum(root *TreeNode, targetSum int) [][]int {
-	ans := [][]int{}
+func pathSum(root *TreeNode, targetSum int) (ans [][]int) {
 	t := []int{}
-	var dfs func(root *TreeNode, s int)
+	var dfs func(*TreeNode, int)
 	dfs = func(root *TreeNode, s int) {
 		if root == nil {
 			return
 		}
+		s -= root.Val
 		t = append(t, root.Val)
-		s += root.Val
-		if root.Left == nil && root.Right == nil && s == targetSum {
+		if root.Left == nil && root.Right == nil && s == 0 {
 			cp := make([]int, len(t))
 			copy(cp, t)
 			ans = append(ans, cp)
@@ -207,8 +197,8 @@ func pathSum(root *TreeNode, targetSum int) [][]int {
 		dfs(root.Right, s)
 		t = t[:len(t)-1]
 	}
-	dfs(root, 0)
-	return ans
+	dfs(root, targetSum)
+	return
 }
 ```
 
@@ -269,6 +259,39 @@ impl Solution {
         res
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} targetSum
+ * @return {number[][]}
+ */
+var pathSum = function (root, targetSum) {
+    const ans = [];
+    const t = [];
+    function dfs(root, s) {
+        if (!root) return;
+        s -= root.val;
+        t.push(root.val);
+        if (!root.left && !root.right && s == 0) ans.push([...t]);
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.pop();
+    }
+    dfs(root, targetSum);
+    return ans;
+};
 ```
 
 ### **...**

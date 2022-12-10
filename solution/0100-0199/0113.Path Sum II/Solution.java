@@ -14,15 +14,11 @@
  * }
  */
 class Solution {
-    private List<List<Integer>> ans;
-    private List<Integer> t;
-    private int target;
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        ans = new ArrayList<>();
-        t = new ArrayList<>();
-        target = targetSum;
-        dfs(root, 0);
+        dfs(root, targetSum);
         return ans;
     }
 
@@ -30,12 +26,10 @@ class Solution {
         if (root == null) {
             return;
         }
+        s -= root.val;
         t.add(root.val);
-        s += root.val;
-        if (root.left == null && root.right == null) {
-            if (s == target) {
-                ans.add(new ArrayList<>(t));
-            }
+        if (root.left == null && root.right == null && s == 0) {
+            ans.add(new ArrayList<>(t));
         }
         dfs(root.left, s);
         dfs(root.right, s);
