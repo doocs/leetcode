@@ -53,7 +53,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历数组，维护最大值 mx。
+**方法一：一次遍历**
+
+我们用变量 $mx$ 记录当前严格递增数组的最大值，初始时 $mx = 0$。
+
+从左到右遍历数组 `nums`，对于当前遍历到的元素 $v$，如果 $v \lt mx + 1$，那么我们需要将其增加到 $mx + 1$，这样才能保证数组严格递增。因此，我们此次需要进行的操作次数为 $max(0, mx + 1 - v)$，累加到答案中，然后更新 $mx=max(mx + 1, v)$。继续遍历下一个元素，直到遍历完整个数组。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -64,7 +70,7 @@
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
-        mx = ans = 0
+        ans = mx = 0
         for v in nums:
             ans += max(0, mx + 1 - v)
             mx = max(mx + 1, v)
@@ -78,8 +84,7 @@ class Solution:
 ```java
 class Solution {
     public int minOperations(int[] nums) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int v : nums) {
             ans += Math.max(0, mx + 1 - v);
             mx = Math.max(mx + 1, v);
@@ -95,8 +100,7 @@ class Solution {
 class Solution {
 public:
     int minOperations(vector<int>& nums) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int& v : nums) {
             ans += max(0, mx + 1 - v);
             mx = max(mx + 1, v);
@@ -109,13 +113,13 @@ public:
 ### **Go**
 
 ```go
-func minOperations(nums []int) int {
-	ans, mx := 0, 0
+func minOperations(nums []int) (ans int) {
+	mx := 0
 	for _, v := range nums {
 		ans += max(0, mx+1-v)
 		mx = max(mx+1, v)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -123,6 +127,21 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MinOperations(int[] nums) {
+        int ans = 0, mx = 0;
+        foreach (int v in nums) {
+            ans += Math.Max(0, mx + 1 - v);
+            mx = Math.Max(mx + 1, v);
+        }
+        return ans;
+    }
 }
 ```
 

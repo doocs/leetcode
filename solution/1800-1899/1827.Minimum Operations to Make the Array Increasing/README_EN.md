@@ -61,11 +61,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 5000</code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-
 </ul>
 
 ## Solutions
@@ -77,7 +74,7 @@
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
-        mx = ans = 0
+        ans = mx = 0
         for v in nums:
             ans += max(0, mx + 1 - v)
             mx = max(mx + 1, v)
@@ -89,8 +86,7 @@ class Solution:
 ```java
 class Solution {
     public int minOperations(int[] nums) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int v : nums) {
             ans += Math.max(0, mx + 1 - v);
             mx = Math.max(mx + 1, v);
@@ -106,8 +102,7 @@ class Solution {
 class Solution {
 public:
     int minOperations(vector<int>& nums) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int& v : nums) {
             ans += max(0, mx + 1 - v);
             mx = max(mx + 1, v);
@@ -120,13 +115,13 @@ public:
 ### **Go**
 
 ```go
-func minOperations(nums []int) int {
-	ans, mx := 0, 0
+func minOperations(nums []int) (ans int) {
+	mx := 0
 	for _, v := range nums {
 		ans += max(0, mx+1-v)
 		mx = max(mx+1, v)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -134,6 +129,22 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MinOperations(int[] nums) {
+        int ans = 0, mx = 0;
+        foreach (int v in nums) {
+            ans += Math.Max(0, mx + 1 - v);
+            mx = Math.Max(mx + 1, v);
+        }
+        return ans;
+    }
 }
 ```
 

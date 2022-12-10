@@ -1,10 +1,10 @@
-func minOperations(nums []int) int {
-	ans, mx := 0, 0
+func minOperations(nums []int) (ans int) {
+	mx := 0
 	for _, v := range nums {
 		ans += max(0, mx+1-v)
 		mx = max(mx+1, v)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
