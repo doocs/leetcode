@@ -60,7 +60,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS。
+**方法一：DFS**
+
+我们可以设计一个函数 $dfs(root, s)$，表示从当前节点 $root$ 出发，且当前路径数字为 $s$，返回从当前节点到叶子节点的所有路径数字之和。那么答案就是 $dfs(root, 0)$。
+
+函数 $dfs(root, s)$ 的计算如下：
+
+-   如果当前节点 $root$ 为空，则返回 $0$。
+-   否则，将当前节点的值加到 $s$ 中，即 $s = s \times 10 + root.val$。
+-   如果当前节点是叶子节点，则返回 $s$。
+-   否则，返回 $dfs(root.left, s) + dfs(root.right, s)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -76,11 +87,11 @@ DFS。
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sumNumbers(self, root: TreeNode) -> int:
-        def dfs(root, presum):
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        def dfs(root, s):
             if root is None:
                 return 0
-            s = 10 * presum + root.val
+            s = s * 10 + root.val
             if root.left is None and root.right is None:
                 return s
             return dfs(root.left, s) + dfs(root.right, s)
@@ -113,11 +124,11 @@ class Solution {
         return dfs(root, 0);
     }
 
-    private int dfs(TreeNode root, int presum) {
+    private int dfs(TreeNode root, int s) {
         if (root == null) {
             return 0;
         }
-        int s = presum * 10 + root.val;
+        s = s * 10 + root.val;
         if (root.left == null && root.right == null) {
             return s;
         }
@@ -143,14 +154,13 @@ class Solution {
 class Solution {
 public:
     int sumNumbers(TreeNode* root) {
+        function<int(TreeNode*, int)> dfs = [&](TreeNode* root, int s) -> int {
+            if (!root) return 0;
+            s = s * 10 + root->val;
+            if (!root->left && !root->right) return s;
+            return dfs(root->left, s) + dfs(root->right, s);
+        };
         return dfs(root, 0);
-    }
-
-    int dfs(TreeNode* root, int presum) {
-        if (!root) return 0;
-        int s = presum * 10 + root->val;
-        if (!root->left && !root->right) return s;
-        return dfs(root->left, s) + dfs(root->right, s);
     }
 };
 ```
@@ -167,18 +177,18 @@ public:
  * }
  */
 func sumNumbers(root *TreeNode) int {
-    var dfs func(root *TreeNode, presum int) int
-    dfs = func(root *TreeNode, presum int) int {
-        if root == nil {
-            return 0
-        }
-        presum = presum * 10 + root.Val
-        if root.Left == nil && root.Right == nil {
-            return presum
-        }
-        return dfs(root.Left, presum) + dfs(root.Right, presum)
-    }
-    return dfs(root, 0)
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, s int) int {
+		if root == nil {
+			return 0
+		}
+		s = s*10 + root.Val
+		if root.Left == nil && root.Right == nil {
+			return s
+		}
+		return dfs(root.Left, s) + dfs(root.Right, s)
+	}
+	return dfs(root, 0)
 }
 ```
 
@@ -228,14 +238,13 @@ int sumNumbers(struct TreeNode *root) {
  */
 
 function sumNumbers(root: TreeNode | null): number {
-    return dfs(root);
-}
-
-function dfs(root: TreeNode | null, preSum: number = 0): number {
-    if (!root) return 0;
-    preSum = preSum * 10 + root.val;
-    if (!root.left && !root.right) return preSum;
-    return dfs(root.left, preSum) + dfs(root.right, preSum);
+    function dfs(root: TreeNode | null, s: number): number {
+        if (!root) return 0;
+        s = s * 10 + root.val;
+        if (!root.left && !root.right) return s;
+        return dfs(root.left, s) + dfs(root.right, s);
+    }
+    return dfs(root, 0);
 }
 ```
 
@@ -279,6 +288,32 @@ impl Solution {
         Self::dfs(&root, 0)
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var sumNumbers = function (root) {
+    function dfs(root, s) {
+        if (!root) return 0;
+        s = s * 10 + root.val;
+        if (!root.left && !root.right) return s;
+        return dfs(root.left, s) + dfs(root.right, s);
+    }
+    return dfs(root, 0);
+};
 ```
 
 ### **...**

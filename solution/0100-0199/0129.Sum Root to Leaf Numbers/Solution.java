@@ -18,11 +18,11 @@ class Solution {
         return dfs(root, 0);
     }
 
-    private int dfs(TreeNode root, int presum) {
+    private int dfs(TreeNode root, int s) {
         if (root == null) {
             return 0;
         }
-        int s = presum * 10 + root.val;
+        s = s * 10 + root.val;
         if (root.left == null && root.right == null) {
             return s;
         }
