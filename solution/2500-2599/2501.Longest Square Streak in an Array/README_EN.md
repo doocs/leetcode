@@ -65,6 +65,20 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def longestSquareStreak(self, nums: List[int]) -> int:
+        @cache
+        def dfs(x):
+            if x not in s:
+                return 0
+            return 1 + dfs(x * x)
+        
+        s = set(nums)
+        ans = max(dfs(x) for x in nums)
+        return -1 if ans < 2 else ans
+```
+
 ### **Java**
 
 ```java
@@ -85,6 +99,36 @@ class Solution {
                 ans = Math.max(ans, t);
             }
         }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    private Map<Integer, Integer> f = new HashMap<>();
+    private Set<Integer> s = new HashSet<>();
+
+    public int longestSquareStreak(int[] nums) {
+        for (int v : nums) {
+            s.add(v);
+        }
+        int ans = 0;
+        for (int v : nums) {
+            ans = Math.max(ans, dfs(v));
+        }
+        return ans < 2 ? -1 : ans;
+    }
+
+    private int dfs(int x) {
+        if (!s.contains(x)) {
+            return 0;
+        }
+        if (f.containsKey(x)) {
+            return f.get(x);
+        }
+        int ans = 1 + dfs(x * x);
+        f.put(x, ans);
         return ans;
     }
 }
@@ -112,6 +156,27 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int longestSquareStreak(vector<int>& nums) {
+        unordered_set<long long> s(nums.begin(), nums.end());
+        int ans = 0;
+        unordered_map<int, int> f;
+        function<int(int)> dfs = [&](int x) -> int {
+            if (!s.count(x)) return 0;
+            if (f.count(x)) return f[x];
+            long long t = 1ll * x * x;
+            if (t > INT_MAX) return 1;
+            f[x] = 1 + dfs(x * x);
+            return f[x];
+        };
+        for (int& v : nums) ans = max(ans, dfs(v));
+        return ans < 2 ? -1 : ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -130,6 +195,36 @@ func longestSquareStreak(nums []int) int {
 		if t > 1 && t > ans {
 			ans = t
 		}
+	}
+	return ans
+}
+```
+
+```go
+func longestSquareStreak(nums []int) (ans int) {
+	s := map[int]bool{}
+	for _, v := range nums {
+		s[v] = true
+	}
+	f := map[int]int{}
+	var dfs func(int) int
+	dfs = func(x int) int {
+		if !s[x] {
+			return 0
+		}
+		if v, ok := f[x]; ok {
+			return v
+		}
+		f[x] = 1 + dfs(x*x)
+		return f[x]
+	}
+	for _, v := range nums {
+		if t := dfs(v); ans < t {
+			ans = t
+		}
+	}
+	if ans < 2 {
+		return -1
 	}
 	return ans
 }

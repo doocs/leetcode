@@ -67,6 +67,39 @@ loc.free(7); // Free all memory units with mID 7. The memory array remains the s
 ### **Python3**
 
 ```python
+class Allocator:
+
+    def __init__(self, n: int):
+        self.m = [0] * n
+
+    def allocate(self, size: int, mID: int) -> int:
+        cnt = 0
+        for i, v in enumerate(self.m):
+            if v:
+                cnt = 0
+            else:
+                cnt += 1
+                if cnt == size:
+                    self.m[i - size + 1: i + 1] = [mID] * size
+                    return i - size + 1
+        return -1
+
+
+    def free(self, mID: int) -> int:
+        ans = 0
+        for i, v in enumerate(self.m):
+            if v == mID:
+                self.m[i] = 0
+                ans += 1
+        return ans
+
+# Your Allocator object will be instantiated and called as such:
+# obj = Allocator(n)
+# param_1 = obj.allocate(size,mID)
+# param_2 = obj.free(mID)
+```
+
+```python
 from sortedcontainers import SortedList
 
 
@@ -101,6 +134,47 @@ class Allocator:
 ```
 
 ### **Java**
+
+```java
+class Allocator {
+    private int[] m;
+
+    public Allocator(int n) {
+        m = new int[n];
+    }
+    
+    public int allocate(int size, int mID) {
+        int cnt = 0;
+        for (int i = 0; i < m.length; ++i) {
+            if (m[i] > 0) {
+                cnt = 0;
+            } else if (++cnt == size) {
+                Arrays.fill(m, i - size + 1, i + 1, mID);
+                return i - size + 1;
+            }
+        }
+        return -1;
+    }
+    
+    public int free(int mID) {
+        int ans = 0;
+        for (int i = 0; i < m.length; ++i) {
+            if (m[i] == mID) {
+                m[i] = 0;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your Allocator object will be instantiated and called as such:
+ * Allocator obj = new Allocator(n);
+ * int param_1 = obj.allocate(size,mID);
+ * int param_2 = obj.free(mID);
+ */
+```
 
 ```java
 class Allocator {
@@ -154,6 +228,55 @@ class Allocator {
 class Allocator {
 public:
     Allocator(int n) {
+        m = vector<int>(n);
+    }
+    
+    int allocate(int size, int mID) {
+        int cnt = 0;
+        for (int i = 0; i < m.size(); ++i) {
+            if (m[i]) {
+                cnt = 0;
+            } else if (++cnt == size) {
+                fill(i - size + 1, i + 1, mID);
+                return i - size + 1;
+            }
+        }
+        return -1;
+    }
+    
+    int free(int mID) {
+        int ans = 0;
+        for (int i = 0; i < m.size(); ++i) {
+            if (m[i] == mID) {
+                m[i] = 0;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+private:
+    vector<int> m;
+
+    void fill(int from, int to, int val) {
+        for (int i = from; i < to; ++i) {
+            m[i] = val;
+        }
+    }
+};
+
+/**
+ * Your Allocator object will be instantiated and called as such:
+ * Allocator* obj = new Allocator(n);
+ * int param_1 = obj->allocate(size,mID);
+ * int param_2 = obj->free(mID);
+ */
+```
+
+```cpp
+class Allocator {
+public:
+    Allocator(int n) {
         tm[-1] = -1;
         tm[n] = n;
     }
@@ -199,6 +322,51 @@ private:
 ```
 
 ### **Go**
+
+```go
+type Allocator struct {
+	m []int
+}
+
+func Constructor(n int) Allocator {
+	return Allocator{make([]int, n)}
+}
+
+func (this *Allocator) Allocate(size int, mID int) int {
+	cnt := 0
+	for i, v := range this.m {
+		if v > 0 {
+			cnt = 0
+		} else {
+			cnt++
+			if cnt == size {
+				for j := i - size + 1; j <= i; j++ {
+					this.m[j] = mID
+				}
+				return i - size + 1
+			}
+		}
+	}
+	return -1
+}
+
+func (this *Allocator) Free(mID int) (ans int) {
+	for i, v := range this.m {
+		if v == mID {
+			this.m[i] = 0
+			ans++
+		}
+	}
+	return
+}
+
+/**
+ * Your Allocator object will be instantiated and called as such:
+ * obj := Constructor(n);
+ * param_1 := obj.Allocate(size,mID);
+ * param_2 := obj.Free(mID);
+ */
+```
 
 ```go
 type Allocator struct {

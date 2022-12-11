@@ -50,6 +50,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 枚举**
+
+我们先用哈希表记录数组中的所有元素，然后枚举数组中的每个元素作为子序列的第一个元素，将该元素不断平方，并判断平方后的结果是否在哈希表中，如果在，则将平方后的结果作为下一个元素，继续判断，直到平方后的结果不在哈希表中，此时判断子序列的长度是否大于 $1$，如果是，则更新答案。
+
+时间复杂度 $O(n \times \log \log M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度，而 $M$ 为数组 `nums` 中的最大元素。
+
+**方法二：记忆化搜索**
+
+与方法一类似，我们先用哈希表记录数组中的所有元素。然后设计一个函数 $dfs(x)$，表示以 $x$ 为第一个元素的方波的长度。那么答案就是 $max(dfs(x))$，其中 $x$ 为数组 `nums` 中的元素。
+
+函数 $dfs(x)$ 的计算过程如下：
+
+- 如果 $x$ 不在哈希表中，则返回 $0$。
+- 否则，返回 $1 + dfs(x^2)$。
+
+过程中我们可以使用记忆化搜索，即使用哈希表记录函数 $dfs(x)$ 的值，避免重复计算。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,6 +88,20 @@ class Solution:
             if t > 1:
                 ans = max(ans, t)
         return ans
+```
+
+```python
+class Solution:
+    def longestSquareStreak(self, nums: List[int]) -> int:
+        @cache
+        def dfs(x):
+            if x not in s:
+                return 0
+            return 1 + dfs(x * x)
+        
+        s = set(nums)
+        ans = max(dfs(x) for x in nums)
+        return -1 if ans < 2 else ans
 ```
 
 ### **Java**
@@ -98,6 +131,36 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    private Map<Integer, Integer> f = new HashMap<>();
+    private Set<Integer> s = new HashSet<>();
+
+    public int longestSquareStreak(int[] nums) {
+        for (int v : nums) {
+            s.add(v);
+        }
+        int ans = 0;
+        for (int v : nums) {
+            ans = Math.max(ans, dfs(v));
+        }
+        return ans < 2 ? -1 : ans;
+    }
+
+    private int dfs(int x) {
+        if (!s.contains(x)) {
+            return 0;
+        }
+        if (f.containsKey(x)) {
+            return f.get(x);
+        }
+        int ans = 1 + dfs(x * x);
+        f.put(x, ans);
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -120,6 +183,27 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int longestSquareStreak(vector<int>& nums) {
+        unordered_set<long long> s(nums.begin(), nums.end());
+        int ans = 0;
+        unordered_map<int, int> f;
+        function<int(int)> dfs = [&](int x) -> int {
+            if (!s.count(x)) return 0;
+            if (f.count(x)) return f[x];
+            long long t = 1ll * x * x;
+            if (t > INT_MAX) return 1;
+            f[x] = 1 + dfs(x * x);
+            return f[x];
+        };
+        for (int& v : nums) ans = max(ans, dfs(v));
+        return ans < 2 ? -1 : ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -138,6 +222,36 @@ func longestSquareStreak(nums []int) int {
 		if t > 1 && t > ans {
 			ans = t
 		}
+	}
+	return ans
+}
+```
+
+```go
+func longestSquareStreak(nums []int) (ans int) {
+	s := map[int]bool{}
+	for _, v := range nums {
+		s[v] = true
+	}
+	f := map[int]int{}
+	var dfs func(int) int
+	dfs = func(x int) int {
+		if !s[x] {
+			return 0
+		}
+		if v, ok := f[x]; ok {
+			return v
+		}
+		f[x] = 1 + dfs(x*x)
+		return f[x]
+	}
+	for _, v := range nums {
+		if t := dfs(v); ans < t {
+			ans = t
+		}
+	}
+	if ans < 2 {
+		return -1
 	}
 	return ans
 }

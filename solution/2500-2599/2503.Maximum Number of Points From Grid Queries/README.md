@@ -52,6 +52,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：离线查询 + BFS + 优先队列（小根堆）**
+
+根据题目描述我们知道，每个查询相互独立，查询的顺序不影响结果，并且题目要我们每次从左上角开始，统计所有可以访问的、且值小于当前查询值的单元格的个数。
+
+因此，我们可以先对 `queries` 数组进行排序，然后从小到大依次处理每个查询。
+
+我们用优先队列（小根堆）维护当前访问到的最小单元格的值，用数组或哈希表 `vis` 记录当前单元格是否已经访问过。初始时，将左上角单元格的数据 $(grid[0][0], 0, 0)$ 作为三元组加入优先队列，并将 `vis[0][0]` 置为 `True`。
+
+对于每个查询 `queries[i]`，我们判断当前优先队列的最小值是否小于 `queries[i]`，如果是，则将当前最小值弹出，累加计数器 `cnt`，并将当前单元格的上下左右四个单元格加入优先队列，注意要判断是否已经访问过。重复上述操作，直到当前优先队列的最小值大于等于 `queries[i]`，此时 `cnt` 即为当前查询的答案。
+
+时间复杂度 $O(k \times \log k + m \times n \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数，而 $k$ 为查询的个数。我们需要对 `queries` 数组进行排序，时间复杂度为 $O(k \times \log k)$。矩阵中的每个单元格最多只会被访问一次，每一次入队和出队的时间复杂度为 $O(\log(m \times n))$。因此，总时间复杂度为 $O(k \times \log k + m \times n \log(m \times n))$。
+
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,20 +77,19 @@ class Solution:
         m, n = len(grid), len(grid[0])
         qs = sorted((v, i) for i, v in enumerate(queries))
         ans = [0] * len(qs)
+        q = [(grid[0][0], 0, 0)]
+        cnt = 0
         vis = [[False] * n for _ in range(m)]
         vis[0][0] = True
-        cnt = 0
-        q = [(grid[0][0], 0, 0)]
-        dirs = (-1, 0, 1, 0, -1)
         for v, k in qs:
             while q and q[0][0] < v:
-                cnt += 1
                 _, i, j = heappop(q)
-                for a, b in pairwise(dirs):
+                cnt += 1
+                for a, b in pairwise((-1, 0, 1, 0, -1)):
                     x, y = i + a, j + b
                     if 0 <= x < m and 0 <= y < n and not vis[x][y]:
-                        vis[x][y] = True
                         heappush(q, (grid[x][y], x, y))
+                        vis[x][y] = True
             ans[k] = cnt
         return ans
 ```
