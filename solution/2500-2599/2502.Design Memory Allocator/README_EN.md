@@ -142,7 +142,7 @@ class Allocator {
     public Allocator(int n) {
         m = new int[n];
     }
-    
+
     public int allocate(int size, int mID) {
         int cnt = 0;
         for (int i = 0; i < m.length; ++i) {
@@ -155,7 +155,7 @@ class Allocator {
         }
         return -1;
     }
-    
+
     public int free(int mID) {
         int ans = 0;
         for (int i = 0; i < m.length; ++i) {
@@ -230,7 +230,7 @@ public:
     Allocator(int n) {
         m = vector<int>(n);
     }
-    
+
     int allocate(int size, int mID) {
         int cnt = 0;
         for (int i = 0; i < m.size(); ++i) {
@@ -243,7 +243,7 @@ public:
         }
         return -1;
     }
-    
+
     int free(int mID) {
         int ans = 0;
         for (int i = 0; i < m.size(); ++i) {

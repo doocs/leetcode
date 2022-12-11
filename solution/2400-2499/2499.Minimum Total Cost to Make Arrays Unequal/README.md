@@ -66,6 +66,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们先同时遍历数组 `nums1` 和 `nums2`，统计相同位置上的值相同的个数 `same`，这些位置上的值必须交换，因此，将这些位置下标累加到答案中。另外，用数组或哈希表 `cnt` 统计这些相同值的出现次数。
+
+如果所有相同值的出现次数均不超过 `same` 的一半，那么意味着，我们可以在其内部，通过两两交换，使得对应位置上的值不同，而这些交换，已经在上面累加下标时计入了答案中了，无需额外的代价。否则，如果某个值的出现次数超过 `same` 的一半，那么对于这个值就是多出的个数，我们需要在数组的其他位置上找到合适的，进行交换。这里我们可以直接遍历一遍数组得出。
+
+如果最终还有剩余位置未能交换，说明无法达成目标，返回 $-1$ 即可，否则返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums1` 或 `nums2` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,7 +83,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumTotalCost(self, nums1: List[int], nums2: List[int]) -> int:
+        ans = same = 0
+        cnt = Counter()
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            if a == b:
+                same += 1
+                ans += i
+                cnt[a] += 1
 
+        m = lead = 0
+        for k, v in cnt.items():
+            if v * 2 > same:
+                m = v * 2 - same
+                lead = k
+                break
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            if m and a != b and a != lead and b != lead:
+                ans += i
+                m -= 1
+        return -1 if m else ans
 ```
 
 ### **Java**
@@ -81,19 +111,111 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long minimumTotalCost(int[] nums1, int[] nums2) {
+        long ans = 0;
+        int same = 0;
+        int n = nums1.length;
+        int[] cnt = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            if (nums1[i] == nums2[i]) {
+                ans += i;
+                ++same;
+                ++cnt[nums1[i]];
+            }
+        }
+        int m = 0, lead = 0;
+        for (int i = 0; i < cnt.length; ++i) {
+            int t = cnt[i] * 2 - same;
+            if (t > 0) {
+                m = t;
+                lead = i;
+                break;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (m > 0 && nums1[i] != nums2[i] && nums1[i] != lead && nums2[i] != lead) {
+                ans += i;
+                --m;
+            }
+        }
+        return m > 0 ? -1 : ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minimumTotalCost(vector<int>& nums1, vector<int>& nums2) {
+        long long ans = 0;
+        int same = 0;
+        int n = nums1.size();
+        int cnt[n + 1];
+        memset(cnt, 0, sizeof cnt);
+        for (int i = 0; i < n; ++i) {
+            if (nums1[i] == nums2[i]) {
+                ans += i;
+                ++same;
+                ++cnt[nums1[i]];
+            }
+        }
+        int m = 0, lead = 0;
+        for (int i = 0; i < n + 1; ++i) {
+            int t = cnt[i] * 2 - same;
+            if (t > 0) {
+                m = t;
+                lead = i;
+                break;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (m > 0 && nums1[i] != nums2[i] && nums1[i] != lead && nums2[i] != lead) {
+                ans += i;
+                --m;
+            }
+        }
+        return m > 0 ? -1 : ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
+	same, n := 0, len(nums1)
+	cnt := make([]int, n+1)
+	for i, a := range nums1 {
+		b := nums2[i]
+		if a == b {
+			same++
+			ans += int64(i)
+			cnt[a]++
+		}
+	}
+	var m, lead int
+	for i, v := range cnt {
+		if t := v*2 - same; t > 0 {
+			m = t
+			lead = i
+			break
+		}
+	}
+	for i, a := range nums1 {
+		b := nums2[i]
+		if m > 0 && a != b && a != lead && b != lead {
+			ans += int64(i)
+			m--
+		}
+	}
+	if m > 0 {
+		return -1
+	}
+	return ans
+}
 ```
 
 ### **...**

@@ -65,25 +65,137 @@ Hence, we return -1.
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumTotalCost(self, nums1: List[int], nums2: List[int]) -> int:
+        ans = same = 0
+        cnt = Counter()
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            if a == b:
+                same += 1
+                ans += i
+                cnt[a] += 1
 
+        m = lead = 0
+        for k, v in cnt.items():
+            if v * 2 > same:
+                m = v * 2 - same
+                lead = k
+                break
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            if m and a != b and a != lead and b != lead:
+                ans += i
+                m -= 1
+        return -1 if m else ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long minimumTotalCost(int[] nums1, int[] nums2) {
+        long ans = 0;
+        int same = 0;
+        int n = nums1.length;
+        int[] cnt = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            if (nums1[i] == nums2[i]) {
+                ans += i;
+                ++same;
+                ++cnt[nums1[i]];
+            }
+        }
+        int m = 0, lead = 0;
+        for (int i = 0; i < cnt.length; ++i) {
+            int t = cnt[i] * 2 - same;
+            if (t > 0) {
+                m = t;
+                lead = i;
+                break;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (m > 0 && nums1[i] != nums2[i] && nums1[i] != lead && nums2[i] != lead) {
+                ans += i;
+                --m;
+            }
+        }
+        return m > 0 ? -1 : ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minimumTotalCost(vector<int>& nums1, vector<int>& nums2) {
+        long long ans = 0;
+        int same = 0;
+        int n = nums1.size();
+        int cnt[n + 1];
+        memset(cnt, 0, sizeof cnt);
+        for (int i = 0; i < n; ++i) {
+            if (nums1[i] == nums2[i]) {
+                ans += i;
+                ++same;
+                ++cnt[nums1[i]];
+            }
+        }
+        int m = 0, lead = 0;
+        for (int i = 0; i < n + 1; ++i) {
+            int t = cnt[i] * 2 - same;
+            if (t > 0) {
+                m = t;
+                lead = i;
+                break;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (m > 0 && nums1[i] != nums2[i] && nums1[i] != lead && nums2[i] != lead) {
+                ans += i;
+                --m;
+            }
+        }
+        return m > 0 ? -1 : ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
+	same, n := 0, len(nums1)
+	cnt := make([]int, n+1)
+	for i, a := range nums1 {
+		b := nums2[i]
+		if a == b {
+			same++
+			ans += int64(i)
+			cnt[a]++
+		}
+	}
+	var m, lead int
+	for i, v := range cnt {
+		if t := v*2 - same; t > 0 {
+			m = t
+			lead = i
+			break
+		}
+	}
+	for i, a := range nums1 {
+		b := nums2[i]
+		if m > 0 && a != b && a != lead && b != lead {
+			ans += int64(i)
+			m--
+		}
+	}
+	if m > 0 {
+		return -1
+	}
+	return ans
+}
 ```
 
 ### **...**

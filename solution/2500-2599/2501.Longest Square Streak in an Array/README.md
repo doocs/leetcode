@@ -62,8 +62,8 @@
 
 函数 $dfs(x)$ 的计算过程如下：
 
-- 如果 $x$ 不在哈希表中，则返回 $0$。
-- 否则，返回 $1 + dfs(x^2)$。
+-   如果 $x$ 不在哈希表中，则返回 $0$。
+-   否则，返回 $1 + dfs(x^2)$。
 
 过程中我们可以使用记忆化搜索，即使用哈希表记录函数 $dfs(x)$ 的值，避免重复计算。
 
@@ -98,7 +98,7 @@ class Solution:
             if x not in s:
                 return 0
             return 1 + dfs(x * x)
-        
+
         s = set(nums)
         ans = max(dfs(x) for x in nums)
         return -1 if ans < 2 else ans
