@@ -145,6 +145,52 @@ public class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minOperations(nums: number[]): number {
+    let ans = 0;
+    let max = 0;
+    for (const v of nums) {
+        ans += Math.max(0, max + 1 - v);
+        max = Math.max(max + 1, v);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut max = 0;
+        for &v in nums.iter() {
+            ans += 0.max(max + 1 - v);
+            max = v.max(max + 1);
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int minOperations(int *nums, int numsSize) {
+    int ans = 0;
+    int mx = 0;
+    for (int i = 0; i < numsSize; i++) {
+        ans += max(0, mx + 1 - nums[i]);
+        mx = max(mx + 1, nums[i]);
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
