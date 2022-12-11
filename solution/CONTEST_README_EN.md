@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 323
+
+- [2500. Delete Greatest Value in Each Row](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README_EN.md)
+- [2501. Longest Square Streak in an Array](/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README_EN.md)
+- [2502. Design Memory Allocator](/solution/2500-2599/2502.Design%20Memory%20Allocator/README_EN.md)
+- [2503. Maximum Number of Points From Grid Queries](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README_EN.md)
+
+
+#### Biweekly Contest 93
+
+- [2496. Maximum Value of a String in an Array](/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README_EN.md)
+- [2497. Maximum Star Sum of a Graph](/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README_EN.md)
+- [2498. Frog Jump II](/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md)
+- [2499. Minimum Total Cost to Make Arrays Unequal](/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README_EN.md)
+
+
 #### Weekly Contest 322
 
 - [2490. Circular Sentence](/solution/2400-2499/2490.Circular%20Sentence/README_EN.md)

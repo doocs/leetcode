@@ -24,6 +24,22 @@
 
 ## 往期竞赛
 
+#### 第 323 场周赛(2022-12-11 10:30, 90 分钟) 参赛人数 4670
+
+- [2500. 删除每行中的最大值](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md)
+- [2501. 数组中最长的方波](/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README.md)
+- [2502. 设计内存分配器](/solution/2500-2599/2502.Design%20Memory%20Allocator/README.md)
+- [2503. 矩阵查询可获得的最大分数](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README.md)
+
+
+#### 第 93 场双周赛(2022-12-10 22:30, 90 分钟) 参赛人数 2929
+
+- [2496. 数组中字符串的最大值](/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README.md)
+- [2497. 图中最大星和](/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README.md)
+- [2498. 青蛙过河 II](/solution/2400-2499/2498.Frog%20Jump%20II/README.md)
+- [2499. 让数组不相等的最小总代价](/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README.md)
+
+
 #### 第 322 场周赛(2022-12-04 10:30, 90 分钟) 参赛人数 5085
 
 - [2490. 回环句](/solution/2400-2499/2490.Circular%20Sentence/README.md)

@@ -216,7 +216,7 @@ func guessNumber(n int) int {
 ### **C#**
 
 ```cs
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is higher than the picked number

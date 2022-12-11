@@ -2301,7 +2301,7 @@
 |  2288  |  [价格减免](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README.md)  |  `字符串`  |  中等  |  第 295 场周赛  |
 |  2289  |  [使数组按非递减顺序排列](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md)  |  `栈`,`数组`,`链表`,`单调栈`  |  中等  |  第 295 场周赛  |
 |  2290  |  [到达角落需要移除障碍物的最小数目](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README.md)  |  `广度优先搜索`,`图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  困难  |  第 295 场周赛  |
-|  2291  |  [Maximum Profit From Trading Stocks](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md)  |  `数组`,`动态规划`  |  中等  |  🔒  |
+|  2291  |  [最大股票收益](/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md)  |  `数组`,`动态规划`  |  中等  |  🔒  |
 |  2292  |  [Products With Three or More Orders in Two Consecutive Years](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2293  |  [极大极小游戏](/solution/2200-2299/2293.Min%20Max%20Game/README.md)  |  `数组`,`模拟`  |  简单  |  第 296 场周赛  |
 |  2294  |  [划分数组使最大差为 K](/solution/2200-2299/2294.Partition%20Array%20Such%20That%20Maximum%20Difference%20Is%20K/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 296 场周赛  |
@@ -2506,6 +2506,14 @@
 |  2493  |  [将节点分成尽可能多的组](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md)  |    |  困难  |  第 322 场周赛  |
 |  2494  |  [Merge Overlapping Events in the Same Hall](/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README.md)  |    |  困难  |  🔒  |
 |  2495  |  [积是偶数的子数组的数目](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README.md)  |    |  中等  |  🔒  |
+|  2496  |  [数组中字符串的最大值](/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README.md)  |    |  简单  |  第 93 场双周赛  |
+|  2497  |  [图中最大星和](/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README.md)  |    |  中等  |  第 93 场双周赛  |
+|  2498  |  [青蛙过河 II](/solution/2400-2499/2498.Frog%20Jump%20II/README.md)  |    |  中等  |  第 93 场双周赛  |
+|  2499  |  [让数组不相等的最小总代价](/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README.md)  |    |  困难  |  第 93 场双周赛  |
+|  2500  |  [删除每行中的最大值](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md)  |    |  简单  |  第 323 场周赛  |
+|  2501  |  [数组中最长的方波](/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README.md)  |    |  中等  |  第 323 场周赛  |
+|  2502  |  [设计内存分配器](/solution/2500-2599/2502.Design%20Memory%20Allocator/README.md)  |    |  中等  |  第 323 场周赛  |
+|  2503  |  [矩阵查询可获得的最大分数](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README.md)  |    |  困难  |  第 323 场周赛  |
 
 ## 版权
 
