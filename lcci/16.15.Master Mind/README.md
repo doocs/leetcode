@@ -23,6 +23,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 `cnt1` 和 `cnt2` 中。
+
+接着遍历两个哈希表，算出有多少共同出现的字符，累加到 $y$ 中。那么答案就是 $[x, y - x]$。
+
+时间复杂度 $O(C)$，空间复杂度 $O(C)$。本题中 $C=4$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -30,7 +38,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def masterMind(self, solution: str, guess: str) -> List[int]:
+        x = sum(a == b for a, b in zip(solution, guess))
+        y = sum((Counter(solution) & Counter(guess)).values())
+        return [x, y - x]
 ```
 
 ### **Java**
@@ -38,7 +50,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] masterMind(String solution, String guess) {
+        int x = 0, y = 0;
+        Map<Character, Integer> cnt1 = new HashMap<>();
+        Map<Character, Integer> cnt2 = new HashMap<>();
+        for (int i = 0; i < 4; ++i) {
+            char a = solution.charAt(i), b = guess.charAt(i);
+            x += a == b ? 1 : 0;
+            cnt1.put(a, cnt1.getOrDefault(a, 0) + 1);
+            cnt2.put(b, cnt2.getOrDefault(b, 0) + 1);
+        }
+        for (char c : "RYGB".toCharArray()) {
+            y += Math.min(cnt1.getOrDefault(c, 0), cnt2.getOrDefault(c, 0));
+        }
+        return new int[] {x, y - x};
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> masterMind(string solution, string guess) {
+        int x = 0, y = 0;
+        unordered_map<char, int> cnt1;
+        unordered_map<char, int> cnt2;
+        for (int i = 0; i < 4; ++i) {
+            x += solution[i] == guess[i];
+            cnt1[solution[i]]++;
+            cnt2[guess[i]]++;
+        }
+        for (char c : "RYGB") y += min(cnt1[c], cnt2[c]);
+        return vector<int>{x, y - x};
+    }
+};
+```
+
+### **Go**
+
+```go
+func masterMind(solution string, guess string) []int {
+	var x, y int
+	cnt1 := map[byte]int{}
+	cnt2 := map[byte]int{}
+	for i := range solution {
+		a, b := solution[i], guess[i]
+		if a == b {
+			x++
+		}
+		cnt1[a]++
+		cnt2[b]++
+	}
+	for _, c := range []byte("RYGB") {
+		y += min(cnt1[c], cnt2[c])
+	}
+	return []int{x, y - x}
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **JavaScript**
