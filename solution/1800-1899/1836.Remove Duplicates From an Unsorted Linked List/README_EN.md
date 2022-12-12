@@ -57,11 +57,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li>The number of nodes in the list is in the range&nbsp;<code>[1, 10<sup>5</sup>]</code></li>
-
     <li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
-
 </ul>
 
 ## Solutions
@@ -78,16 +75,15 @@
 #         self.next = next
 class Solution:
     def deleteDuplicatesUnsorted(self, head: ListNode) -> ListNode:
+        cnt = Counter()
         cur = head
-        counter = Counter()
         while cur:
-            counter[cur.val] += 1
+            cnt[cur.val] += 1
             cur = cur.next
-
         dummy = ListNode(0, head)
         pre, cur = dummy, head
         while cur:
-            if counter[cur.val] > 1:
+            if cnt[cur.val] > 1:
                 pre.next = cur.next
             else:
                 pre = cur
@@ -110,14 +106,13 @@ class Solution:
  */
 class Solution {
     public ListNode deleteDuplicatesUnsorted(ListNode head) {
-        Map<Integer, Integer> counter = new HashMap<>();
+        Map<Integer, Integer> cnt = new HashMap<>();
         for (ListNode cur = head; cur != null; cur = cur.next) {
-            counter.put(cur.val, counter.getOrDefault(cur.val, 0) + 1);
+            cnt.put(cur.val, cnt.getOrDefault(cur.val, 0) + 1);
         }
-
         ListNode dummy = new ListNode(0, head);
         for (ListNode pre = dummy, cur = head; cur != null; cur = cur.next) {
-            if (counter.get(cur.val) > 1) {
+            if (cnt.get(cur.val) > 1) {
                 pre.next = cur.next;
             } else {
                 pre = cur;
@@ -144,14 +139,13 @@ class Solution {
 class Solution {
 public:
     ListNode* deleteDuplicatesUnsorted(ListNode* head) {
-        unordered_map<int, int> counter;
-        for (ListNode* cur = head; cur != nullptr; cur = cur->next) {
-            ++counter[cur->val];
+        unordered_map<int, int> cnt;
+        for (ListNode* cur = head; cur; cur = cur->next) {
+            cnt[cur->val]++;
         }
-
         ListNode* dummy = new ListNode(0, head);
-        for (ListNode *pre = dummy, *cur = head; cur != nullptr; cur = cur->next) {
-            if (counter[cur->val] > 1) {
+        for (ListNode *pre = dummy, *cur = head; cur; cur = cur->next) {
+            if (cnt[cur->val] > 1) {
                 pre->next = cur->next;
             } else {
                 pre = cur;
@@ -160,6 +154,33 @@ public:
         return dummy->next;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteDuplicatesUnsorted(head *ListNode) *ListNode {
+	cnt := map[int]int{}
+	for cur := head; cur != nil; cur = cur.Next {
+		cnt[cur.Val]++
+	}
+	dummy := &ListNode{0, head}
+	for pre, cur := dummy, head; cur != nil; cur = cur.Next {
+		if cnt[cur.Val] > 1 {
+			pre.Next = cur.Next
+		} else {
+			pre = cur
+		}
+	}
+	return dummy.Next
+}
 ```
 
 ### **...**

@@ -11,14 +11,13 @@
 class Solution {
 public:
     ListNode* deleteDuplicatesUnsorted(ListNode* head) {
-        unordered_map<int, int> counter;
-        for (ListNode* cur = head; cur != nullptr; cur = cur->next) {
-            ++counter[cur->val];
+        unordered_map<int, int> cnt;
+        for (ListNode* cur = head; cur; cur = cur->next) {
+            cnt[cur->val]++;
         }
-
         ListNode* dummy = new ListNode(0, head);
-        for (ListNode *pre = dummy, *cur = head; cur != nullptr; cur = cur->next) {
-            if (counter[cur->val] > 1) {
+        for (ListNode *pre = dummy, *cur = head; cur; cur = cur->next) {
+            if (cnt[cur->val] > 1) {
                 pre->next = cur->next;
             } else {
                 pre = cur;

@@ -5,16 +5,15 @@
 #         self.next = next
 class Solution:
     def deleteDuplicatesUnsorted(self, head: ListNode) -> ListNode:
+        cnt = Counter()
         cur = head
-        counter = Counter()
         while cur:
-            counter[cur.val] += 1
+            cnt[cur.val] += 1
             cur = cur.next
-
         dummy = ListNode(0, head)
         pre, cur = dummy, head
         while cur:
-            if counter[cur.val] > 1:
+            if cnt[cur.val] > 1:
                 pre.next = cur.next
             else:
                 pre = cur
