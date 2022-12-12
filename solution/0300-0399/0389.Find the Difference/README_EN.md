@@ -44,12 +44,19 @@
 ```python
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        counter = Counter(s)
+        cnt = Counter(s)
         for c in t:
-            if counter[c] <= 0:
+            cnt[c] -= 1
+            if cnt[c] < 0:
                 return c
-            counter[c] -= 1
-        return None
+```
+
+```python
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        a = sum(ord(c) for c in s)
+        b = sum(ord(c) for c in t)
+        return chr(b - a)
 ```
 
 ### **Java**
@@ -57,21 +64,58 @@ class Solution:
 ```java
 class Solution {
     public char findTheDifference(String s, String t) {
-        int[] counter = new int[26];
+        int[] cnt = new int[26];
         for (int i = 0; i < s.length(); ++i) {
-            int index = s.charAt(i) - 'a';
-            ++counter[index];
+            ++cnt[s.charAt(i) - 'a'];
         }
-        for (int i = 0; i < t.length(); ++i) {
-            int index = t.charAt(i) - 'a';
-            if (counter[index] <= 0) {
+        for (int i = 0; ; ++i) {
+            if (--cnt[t.charAt(i) - 'a'] < 0) {
                 return t.charAt(i);
             }
-            --counter[index];
         }
-        return ' ';
     }
 }
+```
+
+```java
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int ss = 0;
+        for (int i = 0; i < t.length(); ++i) {
+            ss += t.charAt(i);
+        }
+        for (int i = 0; i < s.length(); ++i) {
+            ss -= s.charAt(i);
+        }
+        return (char) ss;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int cnt[26] = {0};
+        for (char& c : s) ++cnt[c - 'a'];
+        for (char& c : t) if (--cnt[c - 'a'] < 0) return c;
+        return ' ';
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int a = 0, b = 0;
+        for (char& c : s) a += c;
+        for (char& c : t) b += c;
+        return b - a;
+    }
+};
 ```
 
 ### **TypeScript**
@@ -183,6 +227,19 @@ func findTheDifference(s, t string) byte {
 			return ch
 		}
 	}
+}
+```
+
+```go
+func findTheDifference(s string, t string) byte {
+	ss := 0
+	for _, c := range s {
+		ss -= int(c)
+	}
+	for _, c := range t {
+		ss += int(c)
+	}
+	return byte(ss)
 }
 ```
 

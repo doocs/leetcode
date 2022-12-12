@@ -1,8 +1,7 @@
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        counter = Counter(s)
+        cnt = Counter(s)
         for c in t:
-            if counter[c] <= 0:
+            cnt[c] -= 1
+            if cnt[c] < 0:
                 return c
-            counter[c] -= 1
-        return None
