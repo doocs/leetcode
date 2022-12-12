@@ -49,13 +49,56 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getXORSum(self, arr1: List[int], arr2: List[int]) -> int:
+        a = reduce(xor, arr1)
+        b = reduce(xor, arr2)
+        return a & b
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int getXORSum(int[] arr1, int[] arr2) {
+        int a = 0, b = 0;
+        for (int v : arr1) {
+            a ^= v;
+        }
+        for (int v : arr2) {
+            b ^= v;
+        }
+        return a & b;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getXORSum(vector<int>& arr1, vector<int>& arr2) {
+        int a = accumulate(arr1.begin(), arr1.end(), 0, bit_xor<int>());
+        int b = accumulate(arr2.begin(), arr2.end(), 0, bit_xor<int>());
+        return a & b;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getXORSum(arr1 []int, arr2 []int) int {
+	var a, b int
+	for _, v := range arr1 {
+		a ^= v
+	}
+	for _, v := range arr2 {
+		b ^= v
+	}
+	return a & b
+}
 ```
 
 ### **...**
