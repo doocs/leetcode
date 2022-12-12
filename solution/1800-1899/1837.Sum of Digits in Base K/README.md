@@ -41,7 +41,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-将 n 除 k 取余，直至为 0，余数相加求得结果。
+**方法一：数学**
+
+我们将 $n$ 除 $k$ 取余，直至为 $0$，余数相加即可得到结果。
+
+时间复杂度 $O(\log_{k}n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -52,11 +56,11 @@
 ```python
 class Solution:
     def sumBase(self, n: int, k: int) -> int:
-        res = 0
-        while n != 0:
-            n, t = divmod(n, k)
-            res += t
-        return res
+        ans = 0
+        while n:
+            ans += n % k
+            n //= k
+        return ans
 ```
 
 ### **Java**
@@ -66,14 +70,60 @@ class Solution:
 ```java
 class Solution {
     public int sumBase(int n, int k) {
-        int res = 0;
+        int ans = 0;
         while (n != 0) {
-            res += (n % k);
+            ans += n % k;
             n /= k;
         }
-        return res;
+        return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int sumBase(int n, int k) {
+        int ans = 0;
+        while (n) {
+            ans += n % k;
+            n /= k;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumBase(n int, k int) (ans int) {
+	for n > 0 {
+		ans += n % k
+		n /= k
+	}
+	return
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var sumBase = function (n, k) {
+    let ans = 0;
+    while (n) {
+        ans += n % k;
+        n = Math.floor(n / k);
+    }
+    return ans;
+};
 ```
 
 ### **...**
