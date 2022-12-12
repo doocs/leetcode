@@ -42,7 +42,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-转为 Set，判断 Set 长度是否等于 26。若是，说明是全字母句。也可以使用位运算。
+**方法一：数组或哈希表**
+
+遍历字符串 `sentence`，用数组或哈希表记录出现过的字母，最后判断数组或哈希表中是否有 $26$ 个字母即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 `sentence` 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
+
+**方法二：位运算**
+
+我们也可以用一个整数 $mask$ 记录出现过的字母，其中 $mask$ 的第 $i$ 位表示第 $i$ 个字母是否出现过。
+
+最后判断 $mask$ 的二进制表示中是否有 $26$ 个 $1$，也即判断 $mask$ 是否等于 $2^{26} - 1$。若是，返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `sentence` 的长度。
 
 <!-- tabs:start -->
 
@@ -50,61 +62,50 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-集合去重并计数：
-
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
         return len(set(sentence)) == 26
 ```
 
-位运算：
-
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
-        res = 0
+        mask = 0
         for c in sentence:
-            res |= (1 << (ord(c) - ord('a')))
-            if res == 0x3ffffff:
-                return True
-        return False
+            mask |= 1 << (ord(c) - ord('a'))
+        return mask == (1 << 26) - 1
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-集合去重并计数：
-
 ```java
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        Set<Character> s = new HashSet<>();
-        for (char c : sentence.toCharArray()) {
-            s.add(c);
-            if (s.size() == 26) {
-                return true;
+        boolean[] vis = new boolean[26];
+        for (int i = 0; i < sentence.length(); ++i) {
+            vis[sentence.charAt(i) - 'a'] = true;
+        }
+        for (boolean v : vis) {
+            if (!v) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
 ```
 
-位运算：
-
 ```java
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        int res = 0;
-        for (char c : sentence.toCharArray()) {
-            res |= (1 << (c - 'a'));
-            if (res == 0x3ffffff) {
-                return true;
-            }
+        int mask = 0;
+        for (int i = 0; i < sentence.length(); ++i) {
+            mask |= 1 << (sentence.charAt(i) - 'a');
         }
-        return false;
+        return mask == (1 << 26) - 1;
     }
 }
 ```
@@ -115,12 +116,21 @@ class Solution {
 class Solution {
 public:
     bool checkIfPangram(string sentence) {
-        int res = 0;
-        for (char c : sentence) {
-            res |= (1 << (c - 'a'));
-            if (res == 0x3ffffff) return true;
-        }
-        return false;
+        int vis[26] = {0};
+        for (char& c : sentence) vis[c - 'a'] = 1;
+        for (int& v : vis) if (!v) return false;
+        return true;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        int mask = 0;
+        for (char& c : sentence) mask |= 1 << (c - 'a');
+        return mask == (1 << 26) - 1;
     }
 };
 ```
@@ -129,14 +139,26 @@ public:
 
 ```go
 func checkIfPangram(sentence string) bool {
-	res := 0
+	vis := [26]bool{}
 	for _, c := range sentence {
-		res |= (1 << (c - 'a'))
-		if res == 0x3ffffff {
-			return true
+		vis[c-'a'] = true
+	}
+	for _, v := range vis {
+		if !v {
+			return false
 		}
 	}
-	return false
+	return true
+}
+```
+
+```go
+func checkIfPangram(sentence string) bool {
+	mask := 0
+	for _, c := range sentence {
+		mask |= 1 << int(c-'a')
+	}
+	return mask == 1<<26-1
 }
 ```
 

@@ -1,12 +1,9 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        int res = 0;
-        for (char c : sentence.toCharArray()) {
-            res |= (1 << (c - 'a'));
-            if (res == 0x3ffffff) {
-                return true;
-            }
+        int mask = 0;
+        for (int i = 0; i < sentence.length(); ++i) {
+            mask |= 1 << (sentence.charAt(i) - 'a');
         }
-        return false;
+        return mask == (1 << 26) - 1;
     }
 }

@@ -38,59 +38,48 @@
 
 ### **Python3**
 
-Set:
-
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
         return len(set(sentence)) == 26
 ```
 
-Bit Manipulation:
-
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
-        res = 0
+        mask = 0
         for c in sentence:
-            res |= (1 << (ord(c) - ord('a')))
-            if res == 0x3ffffff:
-                return True
-        return False
+            mask |= 1 << (ord(c) - ord('a'))
+        return mask == (1 << 26) - 1
 ```
 
 ### **Java**
 
-HashSet:
-
 ```java
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        Set<Character> s = new HashSet<>();
-        for (char c : sentence.toCharArray()) {
-            s.add(c);
-            if (s.size() == 26) {
-                return true;
+        boolean[] vis = new boolean[26];
+        for (int i = 0; i < sentence.length(); ++i) {
+            vis[sentence.charAt(i) - 'a'] = true;
+        }
+        for (boolean v : vis) {
+            if (!v) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
 ```
 
-Bit Manipulation:
-
 ```java
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        int res = 0;
-        for (char c : sentence.toCharArray()) {
-            res |= (1 << (c - 'a'));
-            if (res == 0x3ffffff) {
-                return true;
-            }
+        int mask = 0;
+        for (int i = 0; i < sentence.length(); ++i) {
+            mask |= 1 << (sentence.charAt(i) - 'a');
         }
-        return false;
+        return mask == (1 << 26) - 1;
     }
 }
 ```
@@ -101,12 +90,21 @@ class Solution {
 class Solution {
 public:
     bool checkIfPangram(string sentence) {
-        int res = 0;
-        for (char c : sentence) {
-            res |= (1 << (c - 'a'));
-            if (res == 0x3ffffff) return true;
-        }
-        return false;
+        int vis[26] = {0};
+        for (char& c : sentence) vis[c - 'a'] = 1;
+        for (int& v : vis) if (!v) return false;
+        return true;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        int mask = 0;
+        for (char& c : sentence) mask |= 1 << (c - 'a');
+        return mask == (1 << 26) - 1;
     }
 };
 ```
@@ -115,14 +113,26 @@ public:
 
 ```go
 func checkIfPangram(sentence string) bool {
-	res := 0
+	vis := [26]bool{}
 	for _, c := range sentence {
-		res |= (1 << (c - 'a'))
-		if res == 0x3ffffff {
-			return true
+		vis[c-'a'] = true
+	}
+	for _, v := range vis {
+		if !v {
+			return false
 		}
 	}
-	return false
+	return true
+}
+```
+
+```go
+func checkIfPangram(sentence string) bool {
+	mask := 0
+	for _, c := range sentence {
+		mask |= 1 << int(c-'a')
+	}
+	return mask == 1<<26-1
 }
 ```
 

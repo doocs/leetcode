@@ -1,10 +1,7 @@
 func checkIfPangram(sentence string) bool {
-	res := 0
+	mask := 0
 	for _, c := range sentence {
-		res |= (1 << (c - 'a'))
-		if res == 0x3ffffff {
-			return true
-		}
+		mask |= 1 << int(c-'a')
 	}
-	return false
+	return mask == 1<<26-1
 }
