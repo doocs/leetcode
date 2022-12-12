@@ -52,7 +52,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-注意数据范围，题目很容易误导我们使用 01 背包（会超时），其实这题就是简单贪心，优先选择定价小的雪糕。
+**方法一：贪心 + 排序**
+
+要买尽可能多的雪糕，且可以按任意顺序购买，因此，我们应该优先选择定价小的雪糕。
+
+对数组 `costs` 进行排序，然后从定价最小的雪糕开始，依次购买，直到不能购买为止，返回能购买的雪糕数量。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `costs` 的长度。
 
 <!-- tabs:start -->
 
@@ -64,14 +70,11 @@
 class Solution:
     def maxIceCream(self, costs: List[int], coins: int) -> int:
         costs.sort()
-        ans = 0
-        for c in costs:
+        for i, c in enumerate(costs):
             if coins < c:
-                break
-            else:
-                ans += 1
-                coins -= c
-        return ans
+                return i
+            coins -= c
+        return len(costs)
 ```
 
 ### **Java**
@@ -82,12 +85,14 @@ class Solution:
 class Solution {
     public int maxIceCream(int[] costs, int coins) {
         Arrays.sort(costs);
-        int ans = 0, n = costs.length;
-        for (int i = 0; i < n && coins >= costs[i]; i++) {
-            ans++;
+        int n = costs.length;
+        for (int i = 0; i < n; ++i) {
+            if (coins < costs[i]) {
+                return i;
+            }
             coins -= costs[i];
         }
-        return ans;
+        return n;
     }
 }
 ```
@@ -99,12 +104,12 @@ class Solution {
 public:
     int maxIceCream(vector<int>& costs, int coins) {
         sort(costs.begin(), costs.end());
-        int ans = 0;
-        for (int i = 0; i < costs.size() && coins >= costs[i]; ++i) {
-            ++ans;
+        int n = costs.size();
+        for (int i = 0; i < n; ++i) {
+            if (coins < costs[i]) return i;
             coins -= costs[i];
         }
-        return ans;
+        return n;
     }
 };
 ```
@@ -114,14 +119,35 @@ public:
 ```go
 func maxIceCream(costs []int, coins int) int {
 	sort.Ints(costs)
-	n := len(costs)
-	ans := 0
-	for i := 0; i < n && coins >= costs[i]; i++ {
-		ans++
-		coins -= costs[i]
+	for i, c := range costs {
+		if coins < c {
+			return i
+		}
+		coins -= c
 	}
-	return ans
+	return len(costs)
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} costs
+ * @param {number} coins
+ * @return {number}
+ */
+var maxIceCream = function (costs, coins) {
+    costs.sort((a, b) => a - b);
+    const n = costs.length;
+    for (let i = 0; i < n; ++i) {
+        if (coins < costs[i]) {
+            return i;
+        }
+        coins -= costs[i];
+    }
+    return n;
+};
 ```
 
 ### **...**

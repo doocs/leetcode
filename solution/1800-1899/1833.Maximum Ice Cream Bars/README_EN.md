@@ -55,15 +55,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>costs.length == n</code></li>
-
     <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= costs[i] &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= coins &lt;= 10<sup>8</sup></code></li>
-
 </ul>
 
 ## Solutions
@@ -78,14 +73,11 @@ Pay attention to the data range. The question can easily mislead us to use the 0
 class Solution:
     def maxIceCream(self, costs: List[int], coins: int) -> int:
         costs.sort()
-        ans = 0
-        for c in costs:
+        for i, c in enumerate(costs):
             if coins < c:
-                break
-            else:
-                ans += 1
-                coins -= c
-        return ans
+                return i
+            coins -= c
+        return len(costs)
 ```
 
 ### **Java**
@@ -94,12 +86,14 @@ class Solution:
 class Solution {
     public int maxIceCream(int[] costs, int coins) {
         Arrays.sort(costs);
-        int ans = 0, n = costs.length;
-        for (int i = 0; i < n && coins >= costs[i]; i++) {
-            ans++;
+        int n = costs.length;
+        for (int i = 0; i < n; ++i) {
+            if (coins < costs[i]) {
+                return i;
+            }
             coins -= costs[i];
         }
-        return ans;
+        return n;
     }
 }
 ```
@@ -111,12 +105,12 @@ class Solution {
 public:
     int maxIceCream(vector<int>& costs, int coins) {
         sort(costs.begin(), costs.end());
-        int ans = 0;
-        for (int i = 0; i < costs.size() && coins >= costs[i]; ++i) {
-            ++ans;
+        int n = costs.size();
+        for (int i = 0; i < n; ++i) {
+            if (coins < costs[i]) return i;
             coins -= costs[i];
         }
-        return ans;
+        return n;
     }
 };
 ```
@@ -126,14 +120,35 @@ public:
 ```go
 func maxIceCream(costs []int, coins int) int {
 	sort.Ints(costs)
-	n := len(costs)
-	ans := 0
-	for i := 0; i < n && coins >= costs[i]; i++ {
-		ans++
-		coins -= costs[i]
+	for i, c := range costs {
+		if coins < c {
+			return i
+		}
+		coins -= c
 	}
-	return ans
+	return len(costs)
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} costs
+ * @param {number} coins
+ * @return {number}
+ */
+var maxIceCream = function (costs, coins) {
+    costs.sort((a, b) => a - b);
+    const n = costs.length;
+    for (let i = 0; i < n; ++i) {
+        if (coins < costs[i]) {
+            return i;
+        }
+        coins -= costs[i];
+    }
+    return n;
+};
 ```
 
 ### **...**
