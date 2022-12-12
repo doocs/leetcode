@@ -64,6 +64,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 优先队列（小根堆）**
+
+我们先将任务按照 `enqueueTime` 从小到大排序，接下来用一个优先队列（小根堆）维护当前可执行的任务，队列中的元素为 `(processingTime, index)`，即任务的执行时间和任务的编号。另外用一个变量 $t$ 表示当前时间，初始值为 $0$。
+
+接下来我们模拟任务的执行过程。
+
+如果当前队列为空，说明当前没有可执行的任务，我们将 $t$ 更新为下一个任务的 `enqueueTime` 与当前时间 $t$ 中的较大值。接下来将所有 `enqueueTime` 小于等于 $t$ 的任务加入队列。
+
+然后从队列中取出一个任务，将其编号加入答案数组，然后将 $t$ 更新为当前时间 $t$ 与当前任务的执行时间之和。
+
+循环上述过程，直到队列为空，且所有任务都已经加入过队列。
+
+时间复杂度 $O(n \times \log n)$，其中 $n$ 为任务的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +85,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getOrder(self, tasks: List[List[int]]) -> List[int]:
+        for i, task in enumerate(tasks):
+            task.append(i)
+        tasks.sort()
+        ans = []
+        q = []
+        n = len(tasks)
+        i = t = 0
+        while q or i < n:
+            if not q:
+                t = max(t, tasks[i][0])
+            while i < n and tasks[i][0] <= t:
+                heappush(q, (tasks[i][1], tasks[i][2]))
+                i += 1
+            pt, j = heappop(q)
+            ans.append(j)
+            t += pt
+        return ans
 ```
 
 ### **Java**
@@ -79,7 +111,104 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] getOrder(int[][] tasks) {
+        int n = tasks.length;
+        int[][] ts = new int[n][3];
+        for (int i = 0; i < n; ++i) {
+            ts[i] = new int[] {tasks[i][0], tasks[i][1], i};
+        }
+        Arrays.sort(ts, (a, b) -> a[0] - b[0]);
+        int[] ans = new int[n];
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        int i = 0, t = 0, k = 0;
+        while (!q.isEmpty() || i < n) {
+            if (q.isEmpty()) {
+                t = Math.max(t, ts[i][0]);
+            }
+            while (i < n && ts[i][0] <= t) {
+                q.offer(new int[] {ts[i][1], ts[i][2]});
+                ++i;
+            }
+            var p = q.poll();
+            ans[k++] = p[1];
+            t += p[0];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getOrder(vector<vector<int>>& tasks) {
+        int n = 0;
+        for (auto& task : tasks) task.push_back(n++);
+        sort(tasks.begin(), tasks.end());
+        using pii = pair<int, int>;
+        priority_queue<pii, vector<pii>, greater<pii>> q;
+        int i = 0;
+        long long t = 0;
+        vector<int> ans;
+        while (!q.empty() || i < n) {
+            if (q.empty()) t = max(t, (long long) tasks[i][0]);
+            while (i < n && tasks[i][0] <= t) {
+                q.push({tasks[i][1], tasks[i][2]});
+                ++i;
+            }
+            auto [pt, j] = q.top();
+            q.pop();
+            ans.push_back(j);
+            t += pt;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getOrder(tasks [][]int) (ans []int) {
+	for i := range tasks {
+		tasks[i] = append(tasks[i], i)
+	}
+	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0] < tasks[j][0] })
+	q := hp{}
+	i, t, n := 0, 0, len(tasks)
+	for len(q) > 0 || i < n {
+		if len(q) == 0 {
+			t = max(t, tasks[i][0])
+		}
+		for i < n && tasks[i][0] <= t {
+			heap.Push(&q, pair{tasks[i][1], tasks[i][2]})
+			i++
+		}
+		p := heap.Pop(&q).(pair)
+		ans = append(ans, p.i)
+		t += p.t
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+type pair struct{ t, i int }
+type hp []pair
+
+func (h hp) Len() int            { return len(h) }
+func (h hp) Less(i, j int) bool  { return h[i].t < h[j].t || (h[i].t == h[j].t && h[i].i < h[j].i) }
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**
