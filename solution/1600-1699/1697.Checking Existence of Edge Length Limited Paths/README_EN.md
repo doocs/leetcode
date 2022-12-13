@@ -54,9 +54,7 @@ Union find.
 
 ```python
 class Solution:
-    def distanceLimitedPathsExist(
-        self, n: int, edgeList: List[List[int]], queries: List[List[int]]
-    ) -> List[bool]:
+    def distanceLimitedPathsExist(self, n: int, edgeList: List[List[int]], queries: List[List[int]]) -> List[bool]:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -64,19 +62,14 @@ class Solution:
 
         p = list(range(n))
         edgeList.sort(key=lambda x: x[2])
-
-        m = len(queries)
-        indexes = list(range(m))
-        indexes.sort(key=lambda i: queries[i][2])
-        ans = [False] * m
-        i = 0
-        for j in indexes:
-            pj, qj, limit = queries[j]
-            while i < len(edgeList) and edgeList[i][2] < limit:
-                u, v, _ = edgeList[i]
+        j = 0
+        ans = [False] * len(queries)
+        for i, (a, b, limit) in sorted(enumerate(queries), key=lambda x: x[1][2]):
+            while j < len(edgeList) and edgeList[j][2] < limit:
+                u, v, _ = edgeList[j]
                 p[find(u)] = find(v)
-                i += 1
-            ans[j] = find(pj) == find(qj)
+                j += 1
+            ans[i] = find(a) == find(b)
         return ans
 ```
 
@@ -91,23 +84,23 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
+        Arrays.sort(edgeList, (a, b) -> a[2] - b[2]);
         int m = queries.length;
-        Integer[] indexes = new Integer[m];
-        for (int i = 0; i < m; ++i) {
-            indexes[i] = i;
-        }
-        Arrays.sort(indexes, Comparator.comparingInt(i -> queries[i][2]));
-        Arrays.sort(edgeList, Comparator.comparingInt(a -> a[2]));
         boolean[] ans = new boolean[m];
-        int i = 0;
-        for (int j : indexes) {
-            int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
-            while (i < edgeList.length && edgeList[i][2] < limit) {
-                int u = edgeList[i][0], v = edgeList[i][1];
+        Integer[] qid = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            qid[i] = i;
+        }
+        Arrays.sort(qid, (i, j) -> queries[i][2] - queries[j][2]);
+        int j = 0;
+        for (int i : qid) {
+            int a = queries[i][0], b = queries[i][1], limit = queries[i][2];
+            while (j < edgeList.length && edgeList[j][2] < limit) {
+                int u = edgeList[j][0], v = edgeList[j][1];
                 p[find(u)] = find(v);
-                ++i;
+                ++j;
             }
-            ans[j] = find(pj) == find(qj);
+            ans[i] = find(a) == find(b);
         }
         return ans;
     }
@@ -126,38 +119,30 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     vector<bool> distanceLimitedPathsExist(int n, vector<vector<int>>& edgeList, vector<vector<int>>& queries) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        sort(edgeList.begin(), edgeList.end(), [](const auto& e1, const auto& e2) {
-            return e1[2] < e2[2];
-        });
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        sort(edgeList.begin(), edgeList.end(), [](auto& a, auto& b) { return a[2] < b[2]; });
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) p[x] = find(p[x]);
+            return p[x];
+        };
         int m = queries.size();
-        vector<int> indexes(m);
-        for (int i = 0; i < m; ++i) indexes[i] = i;
-        sort(indexes.begin(), indexes.end(), [&](int i, int j) {
-            return queries[i][2] < queries[j][2];
-        });
-
-        vector<bool> ans(m, false);
-        int i = 0;
-        for (int j : indexes) {
-            int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
-            while (i < edgeList.size() && edgeList[i][2] < limit) {
-                int u = edgeList[i][0], v = edgeList[i][1];
+        vector<bool> ans(m);
+        vector<int> qid(m);
+        iota(qid.begin(), qid.end(), 0);
+        sort(qid.begin(), qid.end(), [&](int i, int j) { return queries[i][2] < queries[j][2]; });
+        int j = 0;
+        for (int i : qid) {
+            int a = queries[i][0], b = queries[i][1], limit = queries[i][2];
+            while (j < edgeList.size() && edgeList[j][2] < limit) {
+                int u = edgeList[j][0], v = edgeList[j][1];
                 p[find(u)] = find(v);
-                ++i;
+                ++j;
             }
-            ans[j] = find(pj) == find(qj);
+            ans[i] = find(a) == find(b);
         }
         return ans;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
@@ -167,37 +152,33 @@ public:
 ```go
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
 	p := make([]int, n)
-	for i := 0; i < n; i++ {
+	for i := range p {
 		p[i] = i
 	}
-	var find func(x int) int
+	sort.Slice(edgeList, func(i, j int) bool { return edgeList[i][2] < edgeList[j][2] })
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	sort.Slice(edgeList, func(i, j int) bool {
-		return edgeList[i][2] < edgeList[j][2]
-	})
 	m := len(queries)
-	indexes := make([]int, m)
-	for i := 0; i < m; i++ {
-		indexes[i] = i
-	}
-	sort.Slice(indexes, func(i, j int) bool {
-		return queries[indexes[i]][2] < queries[indexes[j]][2]
-	})
+	qid := make([]int, m)
 	ans := make([]bool, m)
-	i := 0
-	for _, j := range indexes {
-		pj, qj, limit := queries[j][0], queries[j][1], queries[j][2]
-		for i < len(edgeList) && edgeList[i][2] < limit {
-			u, v := edgeList[i][0], edgeList[i][1]
+	for i := range qid {
+		qid[i] = i
+	}
+	sort.Slice(qid, func(i, j int) bool { return queries[qid[i]][2] < queries[qid[j]][2] })
+	j := 0
+	for _, i := range qid {
+		a, b, limit := queries[i][0], queries[i][1], queries[i][2]
+		for j < len(edgeList) && edgeList[j][2] < limit {
+			u, v := edgeList[j][0], edgeList[j][1]
 			p[find(u)] = find(v)
-			i++
+			j++
 		}
-		ans[j] = find(pj) == find(qj)
+		ans[i] = find(a) == find(b)
 	}
 	return ans
 }

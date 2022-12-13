@@ -6,23 +6,23 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
+        Arrays.sort(edgeList, (a, b) -> a[2] - b[2]);
         int m = queries.length;
-        Integer[] indexes = new Integer[m];
-        for (int i = 0; i < m; ++i) {
-            indexes[i] = i;
-        }
-        Arrays.sort(indexes, Comparator.comparingInt(i -> queries[i][2]));
-        Arrays.sort(edgeList, Comparator.comparingInt(a -> a[2]));
         boolean[] ans = new boolean[m];
-        int i = 0;
-        for (int j : indexes) {
-            int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
-            while (i < edgeList.length && edgeList[i][2] < limit) {
-                int u = edgeList[i][0], v = edgeList[i][1];
+        Integer[] qid = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            qid[i] = i;
+        }
+        Arrays.sort(qid, (i, j) -> queries[i][2] - queries[j][2]);
+        int j = 0;
+        for (int i : qid) {
+            int a = queries[i][0], b = queries[i][1], limit = queries[i][2];
+            while (j < edgeList.length && edgeList[j][2] < limit) {
+                int u = edgeList[j][0], v = edgeList[j][1];
                 p[find(u)] = find(v);
-                ++i;
+                ++j;
             }
-            ans[j] = find(pj) == find(qj);
+            ans[i] = find(a) == find(b);
         }
         return ans;
     }

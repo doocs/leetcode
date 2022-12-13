@@ -52,70 +52,123 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-这是一道**离线思维**的题目。
+**方法一：离线查询 + 并查集**
 
-**离线**的意思是，一道题目会给出若干 query，而这些 query 会全部提前给出。也就是说，我们可以不必按照 query 的顺序依次对它们进行处理，而是可以按照另外某种顺序进行处理。与**离线**相对应的是**在线**，即所有 query 会依次给出，在返回第 k 个 query 的答案之前，不会获得第 k+1 个 query。
+根据题目要求，我们需要对每个查询 $queries[i]$ 进行判断，即判断当前查询的两个点 $a$ 和 $b$ 之间是否存在一条边权小于等于 $limit$ 的路径。
 
-对于本题，可以转换为：将小于 limit 的所有边加入图中，判断此时 pj, qj 是否连通。可以用并查集来实现。
+判断两点是否连通可以通过并查集来实现。另外，由于查询的顺序对结果没有影响，因此我们可以先将所有查询按照 $limit$ 从小到大排序，所有边也按照边权从小到大排序。
 
-以下是并查集的几个常用模板。
+然后对于每个查询，我们从边权最小的边开始，将边权严格小于 $limit$ 的所有边加入并查集，接着利用并查集的查询操作判断两点是否连通即可。
 
-模板 1——朴素并查集：
+时间复杂度 $O(m \times \log m + q \times \log q)$，其中 $m$ 和 $q$ 分别为边数和查询数。
 
-```python
-# 初始化，p存储每个点的父节点
-p = list(range(n))
+附并查集相关介绍以及常用模板：
 
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
+并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
 
+1. 查找（Find）：确定某个元素处于哪个子集，单次操作时间复杂度 $O(\alpha(n))$
+1. 合并（Union）：将两个子集合并成一个集合，单次操作时间复杂度 $O(\alpha(n))$
 
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-```
+其中 $\alpha$ 为阿克曼函数的反函数，其增长极其缓慢，也就是说其单次操作的平均运行时间可以认为是一个很小的常数。
 
-模板 2——维护 size 的并查集：
+以下是并查集的常用模板，需要熟练掌握。其中：
 
-```python
-# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+-   `n` 表示节点数
+-   `p` 存储每个点的父节点，初始时每个点的父节点都是自己
+-   `size` 只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+-   `find(x)` 函数用于查找 $x$ 所在集合的祖宗节点
+-   `union(a, b)` 函数用于合并 $a$ 和 $b$ 所在的集合
+
+```python [sol1-Python3 模板]
 p = list(range(n))
 size = [1] * n
 
-# 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
 
-# 合并a和b所在的两个集合
-if find(a) != find(b):
-    size[find(b)] += size[find(a)]
-    p[find(a)] = find(b)
+
+def union(a, b):
+    pa, pb = find(a), find(b)
+    if pa == pb:
+        return
+    p[pa] = pb
+    size[pb] += size[pa]
 ```
 
-模板 3——维护到祖宗节点距离的并查集：
+```java [sol1-Java 模板]
+int[] p = new int[n];
+int[] size = new int[n];
+for (int i = 0; i < n; ++i) {
+    p[i] = i;
+    size[i] = 1;
+}
 
-```python
-# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
-p = list(range(n))
-d = [0] * n
+int find(int x) {
+    if (p[x] != x) {
+        // 路径压缩
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
 
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        t = find(p[x])
-        d[x] += d[p[x]]
-        p[x] = t
+void union(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) {
+        return;
+    }
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```cpp [sol1-C++ 模板]
+vector<int> p(n);
+iota(p.begin(), p.end(), 0);
+vector<int> size(n, 1);
+
+int find(int x) {
+    if (p[x] != x) {
+        // 路径压缩
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+void unite(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) return;
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```go [sol1-Go 模板]
+p := make([]int, n)
+size := make([]int, n)
+for i := range p {
+    p[i] = i
+    size[i] = 1
+}
+
+func find(x int) int {
+    if p[x] != x {
+        // 路径压缩
+        p[x] = find(p[x])
+    }
     return p[x]
+}
 
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-d[find(a)] = distance
+func union(a, b int) {
+    pa, pb := find(a), find(b)
+    if pa == pb {
+        return
+    }
+    p[pa] = pb
+    size[pb] += size[pa]
+}
 ```
 
 <!-- tabs:start -->
@@ -134,19 +187,14 @@ class Solution:
 
         p = list(range(n))
         edgeList.sort(key=lambda x: x[2])
-
-        m = len(queries)
-        indexes = list(range(m))
-        indexes.sort(key=lambda i: queries[i][2])
-        ans = [False] * m
-        i = 0
-        for j in indexes:
-            pj, qj, limit = queries[j]
-            while i < len(edgeList) and edgeList[i][2] < limit:
-                u, v, _ = edgeList[i]
+        j = 0
+        ans = [False] * len(queries)
+        for i, (a, b, limit) in sorted(enumerate(queries), key=lambda x: x[1][2]):
+            while j < len(edgeList) and edgeList[j][2] < limit:
+                u, v, _ = edgeList[j]
                 p[find(u)] = find(v)
-                i += 1
-            ans[j] = find(pj) == find(qj)
+                j += 1
+            ans[i] = find(a) == find(b)
         return ans
 ```
 
@@ -163,23 +211,23 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
+        Arrays.sort(edgeList, (a, b) -> a[2] - b[2]);
         int m = queries.length;
-        Integer[] indexes = new Integer[m];
-        for (int i = 0; i < m; ++i) {
-            indexes[i] = i;
-        }
-        Arrays.sort(indexes, Comparator.comparingInt(i -> queries[i][2]));
-        Arrays.sort(edgeList, Comparator.comparingInt(a -> a[2]));
         boolean[] ans = new boolean[m];
-        int i = 0;
-        for (int j : indexes) {
-            int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
-            while (i < edgeList.length && edgeList[i][2] < limit) {
-                int u = edgeList[i][0], v = edgeList[i][1];
+        Integer[] qid = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            qid[i] = i;
+        }
+        Arrays.sort(qid, (i, j) -> queries[i][2] - queries[j][2]);
+        int j = 0;
+        for (int i : qid) {
+            int a = queries[i][0], b = queries[i][1], limit = queries[i][2];
+            while (j < edgeList.length && edgeList[j][2] < limit) {
+                int u = edgeList[j][0], v = edgeList[j][1];
                 p[find(u)] = find(v);
-                ++i;
+                ++j;
             }
-            ans[j] = find(pj) == find(qj);
+            ans[i] = find(a) == find(b);
         }
         return ans;
     }
@@ -198,38 +246,30 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     vector<bool> distanceLimitedPathsExist(int n, vector<vector<int>>& edgeList, vector<vector<int>>& queries) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        sort(edgeList.begin(), edgeList.end(), [](const auto& e1, const auto& e2) {
-            return e1[2] < e2[2];
-        });
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        sort(edgeList.begin(), edgeList.end(), [](auto& a, auto& b) { return a[2] < b[2]; });
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) p[x] = find(p[x]);
+            return p[x];
+        };
         int m = queries.size();
-        vector<int> indexes(m);
-        for (int i = 0; i < m; ++i) indexes[i] = i;
-        sort(indexes.begin(), indexes.end(), [&](int i, int j) {
-            return queries[i][2] < queries[j][2];
-        });
-
-        vector<bool> ans(m, false);
-        int i = 0;
-        for (int j : indexes) {
-            int pj = queries[j][0], qj = queries[j][1], limit = queries[j][2];
-            while (i < edgeList.size() && edgeList[i][2] < limit) {
-                int u = edgeList[i][0], v = edgeList[i][1];
+        vector<bool> ans(m);
+        vector<int> qid(m);
+        iota(qid.begin(), qid.end(), 0);
+        sort(qid.begin(), qid.end(), [&](int i, int j) { return queries[i][2] < queries[j][2]; });
+        int j = 0;
+        for (int i : qid) {
+            int a = queries[i][0], b = queries[i][1], limit = queries[i][2];
+            while (j < edgeList.size() && edgeList[j][2] < limit) {
+                int u = edgeList[j][0], v = edgeList[j][1];
                 p[find(u)] = find(v);
-                ++i;
+                ++j;
             }
-            ans[j] = find(pj) == find(qj);
+            ans[i] = find(a) == find(b);
         }
         return ans;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
@@ -239,37 +279,33 @@ public:
 ```go
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
 	p := make([]int, n)
-	for i := 0; i < n; i++ {
+	for i := range p {
 		p[i] = i
 	}
-	var find func(x int) int
+	sort.Slice(edgeList, func(i, j int) bool { return edgeList[i][2] < edgeList[j][2] })
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	sort.Slice(edgeList, func(i, j int) bool {
-		return edgeList[i][2] < edgeList[j][2]
-	})
 	m := len(queries)
-	indexes := make([]int, m)
-	for i := 0; i < m; i++ {
-		indexes[i] = i
-	}
-	sort.Slice(indexes, func(i, j int) bool {
-		return queries[indexes[i]][2] < queries[indexes[j]][2]
-	})
+	qid := make([]int, m)
 	ans := make([]bool, m)
-	i := 0
-	for _, j := range indexes {
-		pj, qj, limit := queries[j][0], queries[j][1], queries[j][2]
-		for i < len(edgeList) && edgeList[i][2] < limit {
-			u, v := edgeList[i][0], edgeList[i][1]
+	for i := range qid {
+		qid[i] = i
+	}
+	sort.Slice(qid, func(i, j int) bool { return queries[qid[i]][2] < queries[qid[j]][2] })
+	j := 0
+	for _, i := range qid {
+		a, b, limit := queries[i][0], queries[i][1], queries[i][2]
+		for j < len(edgeList) && edgeList[j][2] < limit {
+			u, v := edgeList[j][0], edgeList[j][1]
 			p[find(u)] = find(v)
-			i++
+			j++
 		}
-		ans[j] = find(pj) == find(qj)
+		ans[i] = find(a) == find(b)
 	}
 	return ans
 }

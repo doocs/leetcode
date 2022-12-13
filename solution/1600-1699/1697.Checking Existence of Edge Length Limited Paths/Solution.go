@@ -1,36 +1,32 @@
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
 	p := make([]int, n)
-	for i := 0; i < n; i++ {
+	for i := range p {
 		p[i] = i
 	}
-	var find func(x int) int
+	sort.Slice(edgeList, func(i, j int) bool { return edgeList[i][2] < edgeList[j][2] })
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	sort.Slice(edgeList, func(i, j int) bool {
-		return edgeList[i][2] < edgeList[j][2]
-	})
 	m := len(queries)
-	indexes := make([]int, m)
-	for i := 0; i < m; i++ {
-		indexes[i] = i
-	}
-	sort.Slice(indexes, func(i, j int) bool {
-		return queries[indexes[i]][2] < queries[indexes[j]][2]
-	})
+	qid := make([]int, m)
 	ans := make([]bool, m)
-	i := 0
-	for _, j := range indexes {
-		pj, qj, limit := queries[j][0], queries[j][1], queries[j][2]
-		for i < len(edgeList) && edgeList[i][2] < limit {
-			u, v := edgeList[i][0], edgeList[i][1]
+	for i := range qid {
+		qid[i] = i
+	}
+	sort.Slice(qid, func(i, j int) bool { return queries[qid[i]][2] < queries[qid[j]][2] })
+	j := 0
+	for _, i := range qid {
+		a, b, limit := queries[i][0], queries[i][1], queries[i][2]
+		for j < len(edgeList) && edgeList[j][2] < limit {
+			u, v := edgeList[j][0], edgeList[j][1]
 			p[find(u)] = find(v)
-			i++
+			j++
 		}
-		ans[j] = find(pj) == find(qj)
+		ans[i] = find(a) == find(b)
 	}
 	return ans
 }
