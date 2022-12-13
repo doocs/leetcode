@@ -136,6 +136,81 @@ func checkIfPangram(sentence string) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function checkIfPangram(sentence: string): boolean {
+    const vis = new Array(26).fill(false);
+    for (const c of sentence) {
+        vis[c.charCodeAt(0) - 'a'.charCodeAt(0)] = true;
+    }
+    return vis.every(v => v);
+}
+```
+
+```ts
+function checkIfPangram(sentence: string): boolean {
+    let mark = 0;
+    for (const c of sentence) {
+        mark |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+    }
+    return mark === (1 << 26) - 1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn check_if_pangram(sentence: String) -> bool {
+        let mut vis = [false; 26];
+        for c in sentence.as_bytes() {
+            vis[(*c - b'a') as usize] = true;
+        }
+        vis.iter().all(|v| *v)
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn check_if_pangram(sentence: String) -> bool {
+        let mut mark = 0;
+        for c in sentence.as_bytes() {
+            mark |= 1 << *c - b'a';
+        }
+        mark == (1 << 26) - 1
+    }
+}
+```
+
+### **C**
+
+```c
+bool checkIfPangram(char *sentence) {
+    int vis[26] = {0};
+    for (int i = 0; sentence[i]; i++) {
+        vis[sentence[i] - 'a'] = 1;
+    }
+    for (int i = 0; i < 26; i++) {
+        if (!vis[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+```
+
+```c
+bool checkIfPangram(char *sentence) {
+    int mark = 0;
+    for (int i = 0; sentence[i]; i++) {
+        mark |= 1 << (sentence[i] - 'a');
+    }
+    return mark == (1 << 26) - 1;
+}
+```
+
 ### **...**
 
 ```
