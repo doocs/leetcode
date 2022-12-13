@@ -65,13 +65,121 @@ We can build the buildings with heights [0,1,2,3,3,4,4,5,4,3], and the tallest b
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxBuilding(self, n: int, restrictions: List[List[int]]) -> int:
+        r = restrictions
+        r.append([1, 0])
+        r.sort()
+        if r[-1][0] != n:
+            r.append([n, n - 1])
+        m = len(r)
+        for i in range(1, m):
+            r[i][1] = min(r[i][1], r[i - 1][1] + r[i][0] - r[i - 1][0])
+        for i in range(m - 2, 0, -1):
+            r[i][1] = min(r[i][1], r[i + 1][1] + r[i + 1][0] - r[i][0])
+        ans = 0
+        for i in range(m - 1):
+            t = (r[i][1] + r[i + 1][1] + r[i + 1][0] - r[i][0]) // 2
+            ans = max(ans, t)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxBuilding(int n, int[][] restrictions) {
+        List<int[]> r = new ArrayList<>();
+        r.addAll(Arrays.asList(restrictions));
+        r.add(new int[] {1, 0});
+        Collections.sort(r, (a, b) -> a[0] - b[0]);
+        if (r.get(r.size() - 1)[0] != n) {
+            r.add(new int[] {n, n - 1});
+        }
+        int m = r.size();
+        for (int i = 1; i < m; ++i) {
+            int[] a = r.get(i - 1), b = r.get(i);
+            b[1] = Math.min(b[1], a[1] + b[0] - a[0]);
+        }
+        for (int i = m - 2; i > 0; --i) {
+            int[] a = r.get(i), b = r.get(i + 1);
+            a[1] = Math.min(a[1], b[1] + b[0] - a[0]);
+        }
+        int ans = 0;
+        for (int i = 0; i < m - 1; ++i) {
+            int[] a = r.get(i), b = r.get(i + 1);
+            int t = (a[1] + b[1] + b[0] - a[0]) / 2;
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxBuilding(int n, vector<vector<int>>& restrictions) {
+        auto&& r = restrictions;
+        r.push_back({1, 0});
+        sort(r.begin(), r.end());
+        if (r[r.size() - 1][0] != n) r.push_back({n, n - 1});
+        int m = r.size();
+        for (int i = 1; i < m; ++i) {
+            r[i][1] = min(r[i][1], r[i - 1][1] + r[i][0] - r[i - 1][0]);
+        }
+        for (int i = m - 2; i > 0; --i) {
+            r[i][1] = min(r[i][1], r[i + 1][1] + r[i + 1][0] - r[i][0]);
+        }
+        int ans = 0;
+        for (int i = 0; i < m - 1; ++i) {
+            int t = (r[i][1] + r[i + 1][1] + r[i + 1][0] - r[i][0]) / 2;
+            ans = max(ans, t);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxBuilding(n int, restrictions [][]int) (ans int) {
+	r := restrictions
+	r = append(r, []int{1, 0})
+	sort.Slice(r, func(i, j int) bool { return r[i][0] < r[j][0] })
+	if r[len(r)-1][0] != n {
+		r = append(r, []int{n, n - 1})
+	}
+	m := len(r)
+	for i := 1; i < m; i++ {
+		r[i][1] = min(r[i][1], r[i-1][1]+r[i][0]-r[i-1][0])
+	}
+	for i := m - 2; i > 0; i-- {
+		r[i][1] = min(r[i][1], r[i+1][1]+r[i+1][0]-r[i][0])
+	}
+	for i := 0; i < m-1; i++ {
+		t := (r[i][1] + r[i+1][1] + r[i+1][0] - r[i][0]) / 2
+		ans = max(ans, t)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
