@@ -55,6 +55,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：预处理 + 回溯**
+
+预处理出每个学生与每个导师的兼容性评分，然后使用回溯的方法枚举所有的配对方案，求出最大的兼容性评分和。
+
+时间复杂度 $O(m!)$，其中 $m$ 为学生或导师的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,48 +69,27 @@
 
 ```python
 class Solution:
-    def maxCompatibilitySum(
-        self, students: List[List[int]], mentors: List[List[int]]
-    ) -> int:
-        def score(s, m):
-            res = 0
-            for i in range(len(s)):
-                res += 1 if s[i] == m[i] else 0
-            return res
+    def maxCompatibilitySum(self, students: List[List[int]], mentors: List[List[int]]) -> int:
+        def dfs(i, t):
+            if i == m:
+                nonlocal ans
+                ans = max(ans, t)
+                return
+            for j in range(m):
+                if not vis[j]:
+                    vis[j] = True
+                    dfs(i + 1, t + g[i][j])
+                    vis[j] = False
 
-        m, n = len(students), len(students[0])
-        scores = [[0] * m for _ in range(m)]
+        m = len(students)
+        g = [[0] * m for _ in range(m)]
         for i in range(m):
             for j in range(m):
-                scores[i][j] = score(students[i], mentors[j])
-        p = self.permute(list(range(m)))
-        mx = 0
-        for item in p:
-            t = 0
-            sidx = 0
-            for midx in item:
-                t += scores[sidx][midx]
-                sidx += 1
-            mx = max(mx, t)
-        return mx
-
-    def permute(self, nums):
-        def dfs(nums, i, res, path, used):
-            if i == len(nums):
-                res.append(copy.deepcopy(path))
-                return
-            for j in range(len(nums)):
-                if not used[j]:
-                    path.append(nums[j])
-                    used[j] = True
-                    dfs(nums, i + 1, res, path, used)
-                    used[j] = False
-                    path.pop()
-
-        res, path = [], []
-        used = [False] * len(nums)
-        dfs(nums, 0, res, path, used)
-        return res
+                g[i][j] = sum(a == b for a, b in zip(students[i], mentors[j]))
+        vis = [False] * m
+        ans = 0
+        dfs(0, 0)
+        return ans
 ```
 
 ### **Java**
@@ -113,67 +98,121 @@ class Solution:
 
 ```java
 class Solution {
+    private int[][] g;
+    private boolean[] vis;
+    private int m;
+    private int ans;
+
     public int maxCompatibilitySum(int[][] students, int[][] mentors) {
-        int m = students.length, n = students[0].length;
-        int[][] scores = new int[m][m];
+        m = students.length;
+        g = new int[m][m];
+        vis = new boolean[m];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < m; ++j) {
-                scores[i][j] = score(students[i], mentors[j]);
+                for (int k = 0; k < students[i].length; ++k) {
+                    g[i][j] += students[i][k] == mentors[j][k] ? 1 : 0;
+                }
             }
         }
-        int[] idx = new int[m];
-        for (int i = 0; i < m; ++i) {
-            idx[i] = i;
-        }
-        int mx = 0;
-        List<List<Integer>> p = permute(idx);
-        for (List<Integer> item : p) {
-            int t = 0;
-            int sidx = 0;
-            for (int midx : item) {
-                t += scores[sidx][midx];
-                ++sidx;
-            }
-            mx = Math.max(mx, t);
-        }
-        return mx;
+        dfs(0, 0);
+        return ans;
     }
 
-    private int score(int[] s, int[] m) {
-        int res = 0;
-        for (int i = 0; i < s.length; ++i) {
-            res += s[i] == m[i] ? 1 : 0;
-        }
-        return res;
-    }
-
-    private List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        permute(res, nums, 0);
-        return res;
-    }
-
-    private void permute(List<List<Integer>> res, int[] nums, int start) {
-        if (start == nums.length) {
-            List<Integer> t = new ArrayList<>();
-            for (int e : nums) {
-                t.add(e);
-            }
-            res.add(t);
+    private void dfs(int i, int t) {
+        if (i == m) {
+            ans = Math.max(ans, t);
             return;
         }
-        for (int i = start; i < nums.length; ++i) {
-            swap(nums, i, start);
-            permute(res, nums, start + 1);
-            swap(nums, i, start);
+        for (int j = 0; j < m; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                dfs(i + 1, t + g[i][j]);
+                vis[j] = false;
+            }
         }
     }
+}
+```
 
-    private void swap(int[] nums, int i, int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxCompatibilitySum(vector<vector<int>>& students, vector<vector<int>>& mentors) {
+        int m = students.size();
+        int n = students[0].size();
+        int g[m][m];
+        memset(g, 0, sizeof g);
+        bool vis[m];
+        memset(vis, 0, sizeof vis);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < m; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    g[i][j] += students[i][k] == mentors[j][k];
+                }
+            }
+        }
+        int ans = 0;
+        function<void(int, int)> dfs = [&](int i, int t) {
+            if (i == m) {
+                ans = max(ans, t);
+                return;
+            }
+            for (int j = 0; j < m; ++j) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    dfs(i + 1, t + g[i][j]);
+                    vis[j] = false;
+                }
+            }
+        };
+        dfs(0, 0);
+        return ans;
     }
+};
+```
+
+### **Go**
+
+```go
+func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
+	m, n := len(students), len(students[0])
+	g := make([][]int, m)
+	vis := make([]bool, m)
+	for i := range g {
+		g[i] = make([]int, m)
+		for j := range g {
+			for k := 0; k < n; k++ {
+				if students[i][k] == mentors[j][k] {
+					g[i][j]++
+				}
+			}
+		}
+	}
+	var dfs func(int, int)
+	dfs = func(i, t int) {
+		if i == m {
+			ans = max(ans, t)
+			return
+		}
+		for j := 0; j < m; j++ {
+			if !vis[j] {
+				vis[j] = true
+				dfs(i+1, t+g[i][j])
+				vis[j] = false
+			}
+		}
+	}
+	dfs(0, 0)
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
