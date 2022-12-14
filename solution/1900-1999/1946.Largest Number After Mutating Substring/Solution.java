@@ -1,18 +1,14 @@
 class Solution {
     public String maximumNumber(String num, int[] change) {
-        boolean find = false;
-        char[] nums = num.toCharArray();
-        for (int i = 0; i < num.length(); ++i) {
-            int c = num.charAt(i) - '0';
-            if (c < change[c]) {
-                nums[i] = (char) ('0' + change[c]);
-                find = true;
-            } else if (find && c == change[c]) {
-                continue;
-            } else if (find) {
+        char[] s = num.toCharArray();
+        for (int i = 0; i < s.length; ++i) {
+            if (change[s[i] - '0'] > s[i] - '0') {
+                for (; i < s.length && s[i] - '0' <= change[s[i] - '0']; ++i) {
+                    s[i] = (char) (change[s[i] - '0'] + '0');
+                }
                 break;
             }
         }
-        return new String(nums);
+        return String.valueOf(s);
     }
 }

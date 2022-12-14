@@ -60,6 +60,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+从左到右遍历字符串 `num`，找到第一个比 `change` 中对应数字小的数字，然后将其替换为 `change` 中对应的数字，直到遇到比 `change` 中对应数字大的数字，停止替换。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `num` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,17 +75,14 @@
 ```python
 class Solution:
     def maximumNumber(self, num: str, change: List[int]) -> str:
-        find = False
-        nums = list(num)
-        for i, c in enumerate(num):
-            if int(c) < change[int(c)]:
-                nums[i] = str(change[int(c)])
-                find = True
-            elif find and int(c) == change[int(c)]:
-                continue
-            elif find:
+        s = list(num)
+        for i, c in enumerate(s):
+            if change[int(c)] > int(c):
+                while i < len(s) and int(s[i]) <= change[int(s[i])]:
+                    s[i] = str(change[int(s[i])])
+                    i += 1
                 break
-        return ''.join(nums)
+        return ''.join(s)
 ```
 
 ### **Java**
@@ -89,21 +92,54 @@ class Solution:
 ```java
 class Solution {
     public String maximumNumber(String num, int[] change) {
-        boolean find = false;
-        char[] nums = num.toCharArray();
-        for (int i = 0; i < num.length(); ++i) {
-            int c = num.charAt(i) - '0';
-            if (c < change[c]) {
-                nums[i] = (char) ('0' + change[c]);
-                find = true;
-            } else if (find && c == change[c]) {
-                continue;
-            } else if (find) {
+        char[] s = num.toCharArray();
+        for (int i = 0; i < s.length; ++i) {
+            if (change[s[i] - '0'] > s[i] - '0') {
+                for (; i < s.length && s[i] - '0' <= change[s[i] - '0']; ++i) {
+                    s[i] = (char) (change[s[i] - '0'] + '0');
+                }
                 break;
             }
         }
-        return new String(nums);
+        return String.valueOf(s);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string maximumNumber(string num, vector<int>& change) {
+        int n = num.size();
+        for (int i = 0; i < n; ++i) {
+            if (change[num[i] - '0'] > num[i] - '0') {
+                for (; i < n && change[num[i] - '0'] >= num[i] - '0'; ++i) {
+                    num[i] = change[num[i] - '0'] + '0';
+                }
+                break;
+            }
+        }
+        return num;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumNumber(num string, change []int) string {
+	s := []byte(num)
+	for i, c := range num {
+		if change[c-'0'] > int(c-'0') {
+			for ; i < len(s) && change[s[i]-'0'] >= int(s[i]-'0'); i++ {
+				s[i] = byte(change[s[i]-'0']) + '0'
+			}
+			break
+		}
+	}
+	return string(s)
 }
 ```
 
