@@ -59,6 +59,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+根据题目描述进行模拟即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,11 +74,9 @@
 ```python
 class Solution:
     def getLucky(self, s: str, k: int) -> int:
-        s = ''.join([str(ord(c) - ord('a') + 1) for c in s])
+        s = ''.join(str(ord(c) - ord('a') + 1) for c in s)
         for _ in range(k):
-            t = 0
-            for c in s:
-                t += ord(c) - ord('0')
+            t = sum(int(c) for c in s)
             s = str(t)
         return int(s)
 ```
@@ -91,13 +95,54 @@ class Solution {
         s = sb.toString();
         while (k-- > 0) {
             int t = 0;
-            for (int i = 0; i < s.length(); ++i) {
-                t += s.charAt(i) - '0';
+            for (char c : s.toCharArray()) {
+                t += c - '0';
             }
             s = String.valueOf(t);
         }
         return Integer.parseInt(s);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getLucky(string s, int k) {
+        string t;
+        for (char c : s) t += to_string(c - 'a' + 1);
+        s = t;
+        while (k--) {
+            int t = 0;
+            for (char c : s) t += c - '0';
+            s = to_string(t);
+        }
+        return stoi(s);
+    }
+};
+```
+
+### **Go**
+
+```go
+func getLucky(s string, k int) int {
+	var t strings.Builder
+	for _, c := range s {
+		t.WriteString(strconv.Itoa(int(c - 'a' + 1)))
+	}
+	s = t.String()
+	for k > 0 {
+		k--
+		t := 0
+		for _, c := range s {
+			t += int(c - '0')
+		}
+		s = strconv.Itoa(t)
+	}
+	ans, _ := strconv.Atoi(s)
+	return ans
 }
 ```
 

@@ -7,8 +7,8 @@ class Solution {
         s = sb.toString();
         while (k-- > 0) {
             int t = 0;
-            for (int i = 0; i < s.length(); ++i) {
-                t += s.charAt(i) - '0';
+            for (char c : s.toCharArray()) {
+                t += c - '0';
             }
             s = String.valueOf(t);
         }
