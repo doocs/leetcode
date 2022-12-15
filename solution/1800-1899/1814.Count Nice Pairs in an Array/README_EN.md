@@ -46,13 +46,106 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def countNicePairs(self, nums: List[int]) -> int:
+        def rev(x):
+            y = 0
+            while x:
+                y = y * 10 + x % 10
+                x //= 10
+            return y
 
+        cnt = Counter(x - rev(x) for x in nums)
+        ans = 0
+        mod = 10**9 + 7
+        for v in cnt.values():
+            ans = (ans + v * (v - 1) // 2) % mod
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int countNicePairs(int[] nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            int y = x - rev(x);
+            cnt.put(y, cnt.getOrDefault(y, 0) + 1);
+        }
+        long ans = 0;
+        for (int v : cnt.values()) {
+            ans = (ans + (long) v * (v - 1) / 2) % MOD;
+        }
+        return (int) ans;
+    }
+
+    private int rev(int x) {
+        int y = 0;
+        while (x > 0) {
+            y = y * 10 + x % 10;
+            x /= 10;
+        }
+        return y;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countNicePairs(vector<int>& nums) {
+        unordered_map<int, int> cnt;
+        for (int& x : nums) {
+            int y = x - rev(x);
+            cnt[y]++;
+        }
+        long long ans = 0;
+        for (auto& [_, v] : cnt) {
+            ans = (ans + 1ll * v * (v - 1) / 2) % mod;
+        }
+        return ans;
+    }
+
+    int rev(int x) {
+        int y = 0;
+        while (x) {
+            y = y * 10 + x % 10;
+            x /= 10;
+        }
+        return y;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countNicePairs(nums []int) (ans int) {
+	const mod int = 1e9 + 7
+	rev := func(x int) (y int) {
+		for x > 0 {
+			y = y*10 + x%10
+			x /= 10
+		}
+		return
+	}
+	cnt := map[int]int{}
+	for _, x := range nums {
+		y := x - rev(x)
+		cnt[y]++
+	}
+	for _, v := range cnt {
+		ans = (ans + v*(v-1)/2) % mod
+	}
+	return
+}
 ```
 
 ### **...**
