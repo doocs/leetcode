@@ -97,6 +97,46 @@ func abs(x int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minElements(nums: number[], limit: number, goal: number): number {
+    const sum = nums.reduce((r, v) => r + v, 0);
+    const diff = Math.abs(goal - sum);
+    return Math.floor((diff + limit - 1) / limit);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_elements(nums: Vec<i32>, limit: i32, goal: i32) -> i32 {
+        let limit = limit as i64;
+        let goal = goal as i64;
+        let mut sum = 0;
+        for &num in nums.iter() {
+            sum += num as i64;
+        }
+        let diff = (goal - sum).abs();
+        ((diff + limit - 1) / limit) as i32
+    }
+}
+```
+
+### **C**
+
+```c
+int minElements(int *nums, int numsSize, int limit, int goal) {
+    long long sum = 0;
+    for (int i = 0; i < numsSize; i++) {
+        sum += nums[i];
+    }
+    long long diff = labs(goal - sum);
+    return (diff + limit - 1) / limit;
+}
+```
+
 ### **...**
 
 ```
