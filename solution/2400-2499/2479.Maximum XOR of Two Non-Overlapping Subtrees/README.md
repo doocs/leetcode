@@ -1,4 +1,4 @@
-# [2479. Maximum XOR of Two Non-Overlapping Subtrees](https://leetcode.cn/problems/maximum-xor-of-two-non-overlapping-subtrees)
+# [2479. 两个不重叠子树的最大异或值](https://leetcode.cn/problems/maximum-xor-of-two-non-overlapping-subtrees)
 
 [English Version](/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/README_EN.md)
 
@@ -6,40 +6,42 @@
 
 <!-- 这里写题目描述 -->
 
-<p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given the integer <code>n</code> and a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree. The root of the tree is the node labeled <code>0</code>.</p>
+<p>有一个无向树，有 <code>n</code> 个节点，节点标记为从 <code>0</code> 到 <code>n - 1</code>。给定整数 <code>n</code> 和一个长度为 <code>n - 1</code> 的 2 维整数数组 <code>edges</code>，其中 <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> 表示在树中的节点 <code>a<sub>i</sub></code> 和 <code>b<sub>i</sub></code> 之间有一条边。树的根节点是标记为 <code>0</code> 的节点。</p>
 
-<p>Each node has an associated <strong>value</strong>. You are given an array <code>values</code> of length <code>n</code>, where <code>values[i]</code> is the <strong>value</strong> of the <code>i<sup>th</sup></code> node.</p>
+<p data-group="1-1">每个节点都有一个相关联的 <strong>值</strong>。给定一个长度为 n 的数组 <code>values</code>，其中 <code>values[i]</code> 是第 <code>i</code> 个节点的&nbsp;<strong>值</strong>。</p>
 
-<p>Select any two <strong>non-overlapping</strong> subtrees. Your <strong>score</strong> is the bitwise XOR of the sum of the values within those subtrees.</p>
+<p>选择任意两个&nbsp;<strong>不重叠&nbsp;</strong>的子树。你的&nbsp;<strong>分数&nbsp;</strong>是这些子树中值的和的逐位异或。</p>
 
-<p>Return <em>the</em> <em><strong>maximum</strong></em> <i>possible <strong>score</strong> you can achieve</i>. <em>If it is impossible to find two nonoverlapping subtrees</em>, return <code>0</code>.</p>
+<p>返回<em>你能达到的最大分数</em>。<em>如果不可能找到两个不重叠的子树</em>，则返回 <code>0</code>。</p>
 
-<p><strong>Note</strong> that:</p>
+<p><strong>注意</strong>：</p>
 
 <ul>
-	<li>The <strong>subtree</strong> of a node is the tree consisting of that node and all of its descendants.</li>
-	<li>Two subtrees are <strong>non-overlapping </strong>if they do not share <strong>any common</strong> node.</li>
+	<li>节点的&nbsp;<strong>子树&nbsp;</strong>是由该节点及其所有子节点组成的树。</li>
+	<li>如果两个子树不共享&nbsp;<strong>任何公共&nbsp;</strong>节点，则它们是&nbsp;<strong>不重叠&nbsp;</strong>的。</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/images/treemaxxor.png" style="width: 346px; height: 249px;" />
 <pre>
-<strong>Input:</strong> n = 6, edges = [[0,1],[0,2],[1,3],[1,4],[2,5]], values = [2,8,3,6,2,5]
-<strong>Output:</strong> 24
-<strong>Explanation:</strong> Node 1&#39;s subtree has sum of values 16, while node 2&#39;s subtree has sum of values 8, so choosing these nodes will yield a score of 16 XOR 8 = 24. It can be proved that is the maximum possible score we can obtain.
+<strong>输入:</strong> n = 6, edges = [[0,1],[0,2],[1,3],[1,4],[2,5]], values = [2,8,3,6,2,5]
+<strong>输出:</strong> 24
+<strong>解释:</strong> 节点 1 的子树的和值为 16，而节点 2 的子树的和值为 8，因此选择这些节点将得到 16 XOR 8 = 24 的分数。可以证明，这是我们能得到的最大可能分数。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2479.Maximum%20XOR%20of%20Two%20Non-Overlapping%20Subtrees/images/tree3drawio.png" style="width: 240px; height: 261px;" />
 <pre>
-<strong>Input:</strong> n = 3, edges = [[0,1],[1,2]], values = [4,6,1]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> There is no possible way to select two non-overlapping subtrees, so we just return 0.
+<strong>输入:</strong> n = 3, edges = [[0,1],[1,2]], values = [4,6,1]
+<strong>输出:</strong> 0
+<strong>解释:</strong> 不可能选择两个不重叠的子树，所以我们只返回 0。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
@@ -47,7 +49,7 @@
 	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; n</code></li>
 	<li><code>values.length == n</code></li>
 	<li><code>1 &lt;= values[i] &lt;= 10<sup>9</sup></code></li>
-	<li>It is guaranteed that <code>edges</code> represents a valid tree.</li>
+	<li>保证 <code>edges</code> 代表一个有效的树。</li>
 </ul>
 
 ## 解法

@@ -100,7 +100,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         def union(a, b):
             pa, pb = find(a), find(b)
             if pa == pb:

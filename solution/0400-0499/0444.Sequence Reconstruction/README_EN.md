@@ -83,7 +83,7 @@ class Solution:
             for a, b in pairwise(seq):
                 g[a - 1].append(b - 1)
                 indeg[b - 1] += 1
-        q = deque([i for i, v in enumerate(indeg) if v == 0])
+        q = deque(i for i, v in enumerate(indeg) if v == 0)
         while q:
             if len(q) > 1:
                 return False

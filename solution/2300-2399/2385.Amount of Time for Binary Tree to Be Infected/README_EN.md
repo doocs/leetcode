@@ -111,7 +111,7 @@ class Solution:
                 g[root.right.val].append(root.val)
             dfs(root.left)
             dfs(root.right)
-        
+
         def dfs2(i, fa):
             ans = 0
             for j in g[i]:
@@ -204,7 +204,7 @@ class Solution {
  */
 class Solution {
     private Map<Integer, List<Integer>> g = new HashMap<>();
-    
+
     public int amountOfTime(TreeNode root, int start) {
         dfs(root);
         return dfs(start, -1);

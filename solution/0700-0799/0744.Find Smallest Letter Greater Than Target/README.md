@@ -6,13 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个排序后的字符列表 <code>letters</code> ，列表中只包含小写英文字母。另给出一个目标字母&nbsp;<code>target</code>，请你寻找在这一有序列表里比目标字母大的最小字母。</p>
+<p>给你一个字符数组 <code>letters</code>，该数组按<strong>非递减顺序</strong>排序，以及一个字符 <code>target</code>。<code>letters</code>&nbsp;里<strong>至少有两个不同</strong>的字符。</p>
 
-<p>在比较时，字母是依序循环出现的。举个例子：</p>
-
-<ul>
-	<li>如果目标字母 <code>target = 'z'</code> 并且字符列表为&nbsp;<code>letters = ['a', 'b']</code>，则答案返回&nbsp;<code>'a'</code></li>
-</ul>
+<p>返回&nbsp;<code>letters</code>&nbsp;中大于 <code>target</code> 的最小的字符。如果不存在这样的字符，则返回&nbsp;<code>letters</code> 的第一个字符。</p>
 
 <p>&nbsp;</p>
 
@@ -21,21 +17,21 @@
 <pre>
 <strong>输入: </strong>letters = ["c", "f", "j"]，target = "a"
 <strong>输出:</strong> "c"
-</pre>
+<strong>解释：</strong>letters 中字典上比 'a' 大的最小字符是 'c'。</pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
 <strong>输入:</strong> letters = ["c","f","j"], target = "c"
 <strong>输出:</strong> "f"
-</pre>
+<strong>解释：</strong>letters 中字典顺序上大于 'c' 的最小字符是 'f'。</pre>
 
 <p><strong>示例 3:</strong></p>
 
 <pre>
-<strong>输入:</strong> letters = ["c","f","j"], target = "d"
-<strong>输出:</strong> "f"
-</pre>
+<strong>输入:</strong> letters = ["x","x","y","y"], target = "z"
+<strong>输出:</strong> "x"
+<strong>解释：</strong>letters 中没有一个字符在字典上大于 'z'，所以我们返回 letters[0]。</pre>
 
 <p>&nbsp;</p>
 
@@ -44,7 +40,7 @@
 <ul>
 	<li><code>2 &lt;= letters.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>letters[i]</code>&nbsp;是一个小写字母</li>
-	<li><code>letters</code> 按非递减顺序排序</li>
+	<li><code>letters</code> 按<strong>非递减顺序</strong>排序</li>
 	<li><code>letters</code> 最少包含两个不同的字母</li>
 	<li><code>target</code> 是一个小写字母</li>
 </ul>

@@ -44,7 +44,7 @@
 <ul>
 	<li><code>1 &lt;= n &lt;= 25</code></li>
 	<li><code>0 &lt;= k &lt;= 100</code></li>
-	<li><code>0 &lt;= row, column &lt;= n</code></li>
+	<li><code>0 &lt;= row, column &lt;= n - 1</code></li>
 </ul>
 
 ## 解法

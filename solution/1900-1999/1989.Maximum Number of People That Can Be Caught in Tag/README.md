@@ -1,4 +1,4 @@
-# [1989. Maximum Number of People That Can Be Caught in Tag](https://leetcode.cn/problems/maximum-number-of-people-that-can-be-caught-in-tag)
+# [1989. 捉迷藏中可捕获的最大人数](https://leetcode.cn/problems/maximum-number-of-people-that-can-be-caught-in-tag)
 
 [English Version](/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README_EN.md)
 
@@ -6,45 +6,47 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are playing a game of tag with your friends. In tag, people are divided into two teams: people who are &quot;it&quot;, and people who are not &quot;it&quot;. The people who are &quot;it&quot; want to catch as many people as possible who are not &quot;it&quot;.</p>
+<p>你正在和你的朋友玩捉迷藏游戏。在捉迷藏比赛中，人们被分成两组：是 “鬼” 的人，和不是 “鬼” 的人。是 “鬼” 的人想要抓住尽可能多的不是 “鬼” 的人。</p>
 
-<p>You are given a <strong>0-indexed</strong> integer array <code>team</code> containing only zeros (denoting people who are <strong>not</strong> &quot;it&quot;) and ones (denoting people who are &quot;it&quot;), and an integer <code>dist</code>. A person who is &quot;it&quot; at index <code>i</code> can catch any <strong>one</strong> person whose index is in the range <code>[i - dist, i + dist]</code> (<strong>inclusive</strong>) and is <strong>not</strong> &quot;it&quot;.</p>
+<p>给定一个 <strong>从 0 开始建立索引</strong> 的整数数组 <code>team</code>，其中只包含 0 (表示&nbsp;<strong>不是</strong> “鬼” 的人) 和 1 (表示是 “鬼” 的人)，以及一个整数 <code>dist</code>。索引 <code>i</code> 为 “鬼” 的人可以捕获索引在 <code>[i - dist, i + dist]</code>(<strong>包括</strong>) 范围内且 <strong>不是</strong> “鬼” 的任何<strong>一个</strong>人。</p>
 
-<p>Return <em>the <strong>maximum</strong> number of people that the people who are &quot;it&quot; can catch</em>.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> team = [0,1,0,1,0], dist = 3
-<strong>Output:</strong> 2
-<strong>Explanation:</strong>
-The person who is &quot;it&quot; at index 1 can catch people in the range [i-dist, i+dist] = [1-3, 1+3] = [-2, 4].
-They can catch the person who is not &quot;it&quot; at index 2.
-The person who is &quot;it&quot; at index 3 can catch people in the range [i-dist, i+dist] = [3-3, 3+3] = [0, 6].
-They can catch the person who is not &quot;it&quot; at index 0.
-The person who is not &quot;it&quot; at index 4 will not be caught because the people at indices 1 and 3 are already catching one person.</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> team = [1], dist = 1
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
-There are no people who are not &quot;it&quot; to catch.
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> team = [0], dist = 1
-<strong>Output:</strong> 0
-<strong>Explanation:
-</strong>There are no people who are &quot;it&quot; to catch people.
-</pre>
+<p>返回 <em>“鬼” 所能捕获的最大人数</em>。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> team = [0,1,0,1,0], dist = 3
+<strong>输出:</strong> 2
+<strong>解释:</strong>
+在索引 1 的 “鬼” 可以捕获范围 [i-dist, i+dist] = [1-3, 1+3] = [-2, 4] 内的人。
+他们可以抓住索引 2 中不是 “鬼” 的人。
+在索引 3 的 “鬼” 可以捕获范围 [i-dist, i+dist] = [3-3, 3+3] = [0, 6] 内的人。
+他们可以抓住索引 0 中不是 “鬼” 的人。
+在索引 4 上不是 “鬼” 的人不会被抓住，因为在索引 1 和 3 上的人已经抓住了一个人。</pre>
+
+<p><strong class="example">示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> team = [1], dist = 1
+<strong>输出:</strong> 0
+<strong>解释:</strong>
+没有 “鬼" 要抓的人。
+</pre>
+
+<p><strong class="example">示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> team = [0], dist = 1
+<strong>输出:</strong> 0
+<strong>解释:
+</strong>没有 “鬼” 来zh
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= team.length &lt;= 10<sup>5</sup></code></li>

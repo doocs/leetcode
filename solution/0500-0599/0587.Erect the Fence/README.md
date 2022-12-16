@@ -6,53 +6,40 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在一个二维的花园中，有一些用 (x, y) 坐标表示的树。由于安装费用十分昂贵，你的任务是先用<strong>最短</strong>的绳子围起所有的树。只有当所有的树都被绳子包围时，花园才能围好栅栏。你需要找到正好位于栅栏边界上的树的坐标。</p>
+<p>给定一个数组 <code>trees</code>，其中 <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示树在花园中的位置。</p>
 
-<p>&nbsp;</p>
+<p>你被要求用最短长度的绳子把整个花园围起来，因为绳子很贵。只有把&nbsp;<strong>所有的树都围起来</strong>，花园才围得很好。</p>
+
+<p>返回<em>恰好位于围栏周边的树木的坐标</em>。</p>
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect2-plane.jpg" style="width: 400px;" /></p>
 
-<strong>输出:</strong> [[1,1],[2,0],[4,2],[3,3],[2,4]]
-
-<strong>解释:</strong>
-
-<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_1.png" style="width: 100%; max-width: 320px">
-
-</pre>
+<pre>
+<strong>输入:</strong> points = [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
+<strong>输出:</strong> [[1,1],[2,0],[3,3],[2,4],[4,2]]</pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入:</strong> [[1,2],[2,2],[4,2]]
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect1-plane.jpg" style="height: 393px; width: 400px;" /></p>
 
-<strong>输出:</strong> [[1,2],[2,2],[4,2]]
-
-<strong>解释:</strong>
-
-<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_2.png" style="width: 100%; max-width: 320px">
-
-即使树都在一条直线上，你也需要先用绳子包围它们。
-
-</pre>
+<pre>
+<strong>输入:</strong> points = [[1,2],[2,2],[4,2]]
+<strong>输出:</strong> [[4,2],[2,2],[1,2]]</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>注意:</strong></p>
 
-<ol>
-
-    <li>所有的树应当被围在一起。你不能剪断绳子来包围树或者把树分成一组以上。</li>
-
-    <li>输入的整数在 0 到 100 之间。</li>
-
-    <li>花园至少有一棵树。</li>
-
-    <li>所有树的坐标都是不同的。</li>
-
-    <li>输入的点<strong>没有</strong>顺序。输出顺序也没有要求。</li>
-
-</ol>
+<ul>
+	<li><code>1 &lt;= points.length &lt;= 3000</code></li>
+	<li><code>points[i].length == 2</code></li>
+	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= 100</code></li>
+	<li>
+	<p data-group="1-1">所有给定的点都是&nbsp;<strong>唯一&nbsp;</strong>的。</p>
+	</li>
+</ul>
 
 ## 解法
 

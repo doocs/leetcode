@@ -1,4 +1,4 @@
-# [2495. 积是偶数的子数组的数目](https://leetcode.cn/problems/number-of-subarrays-having-even-product)
+# [2495. 乘积为偶数的子数组数](https://leetcode.cn/problems/number-of-subarrays-having-even-product)
 
 [English Version](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README_EN.md)
 
@@ -6,7 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个&nbsp;<strong>下标从 0 开始&nbsp;</strong>的整数数组&nbsp;<code>nums</code>, 请返回&nbsp;<code>nums</code>&nbsp;中乘积是偶数的子数组的数目.</p>
+<p>给定一个整数数组 <code>nums</code>，返回<em>具有偶数乘积的 </em><code>nums</code><em> 子数组的数目</em>。</p>
+
+<p><strong>子数组&nbsp;</strong>是数组中连续的非空元素序列。</p>
 
 <p>&nbsp;</p>
 

@@ -6,13 +6,12 @@
 
 <!-- 这里写题目描述 -->
 
-<p>&nbsp;</p>
-如果一个密码满足下述所有条件，则认为这个密码是强密码：
+<p>满足以下条件的密码被认为是强密码：</p>
 
 <ul>
 	<li>由至少 <code>6</code> 个，至多 <code>20</code> 个字符组成。</li>
-	<li>至少包含 <strong>一个小写 </strong>字母，<strong>一个大写</strong> 字母，和 <strong>一个数字</strong> 。</li>
-	<li>同一字符 <strong>不能 </strong>连续出现三次 (比如 <code>"...aaa..."</code> 是不允许的, 但是&nbsp;<code>"...aa...a..."</code> 如果满足其他条件也可以算是强密码)。</li>
+	<li>包含至少 <strong>一个小写 </strong>字母，至少&nbsp;<strong>一个大写</strong> 字母，和至少&nbsp;<strong>一个数字</strong> 。</li>
+	<li>不包含连续三个重复字符 (比如 <code>"<strong>...aaa...</strong>"</code> 是不允许的, 但是&nbsp;<code>"<strong>...aa...a...</strong>"</code> 如果满足其他条件也可以算是强密码)。</li>
 </ul>
 
 <p>给你一个字符串 <code>password</code> ，返回&nbsp;<em>将 <code>password</code> 修改到满足强密码条件需要的最少修改步数。如果 <code>password</code> 已经是强密码，则返回 <code>0</code> 。</em></p>

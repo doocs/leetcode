@@ -46,7 +46,7 @@ Note that the first and third boxes cannot be delivered together because the box
 <strong>Explanation:</strong> The optimal strategy is as follows: 
 - The ship takes the first box, goes to port 1, then returns to storage. 2 trips.
 - The ship takes the second, third and fourth boxes, goes to port 3, then returns to storage. 2 trips.
-- The ship takes the fifth box, goes to port 3, then returns to storage. 2 trips.
+- The ship takes the fifth box, goes to port 2, then returns to storage. 2 trips.
 So the total number of trips is 2 + 2 + 2 = 6.
 </pre>
 
