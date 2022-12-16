@@ -46,7 +46,7 @@
 
 **方法一：贪心**
 
-先计算数组元素总和 $s$，然后计算 $s$ 与 $goal$ 的差值 $d$。
+我们先计算数组元素总和 $s$，然后计算 $s$ 与 $goal$ 的差值 $d$。
 
 那么需要添加的元素数量为 $d$ 的绝对值除以 $limit$ 向上取整，即 $\lceil \frac{|d|}{limit} \rceil$。
 
@@ -74,6 +74,7 @@ class Solution:
 ```java
 class Solution {
     public int minElements(int[] nums, int limit, int goal) {
+        // long s = Arrays.stream(nums).asLongStream().sum();
         long s = 0;
         for (int v : nums) {
             s += v;

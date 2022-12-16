@@ -47,7 +47,7 @@
 
 **方法一：式子变换 + 哈希表**
 
-对于下标对 $(i, j)$，如果满足条件，那么有 $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$，即 $nums[i] - rev(nums[i]) = nums[j] - rev(nums[j])$。移项后，有 $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$。因此，我们可以将 $nums[i] - rev(nums[i])$ 作为哈希表的键，$nums[i] - nums[j]$ 作为哈希表的值，统计每个键出现的次数，然后计算每个键对应的值的组合数，最后将所有组合数相加即可。
+对于下标对 $(i, j)$，如果满足条件，那么有 $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$，即 $nums[i] - rev(nums[i]) = nums[j] - rev(nums[j])$。移项后，有 $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$。因此，我们可以将 $nums[i] - rev(nums[i])$ 作为哈希表的键，将 $nums[i] - nums[j]$ 作为哈希表的值，统计每个键出现的次数，然后计算每个键对应的值的组合数，最后将所有组合数相加即可。
 
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。空间复杂度 $O(n)$。
 
