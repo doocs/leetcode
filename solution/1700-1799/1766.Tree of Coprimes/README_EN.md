@@ -60,13 +60,194 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+        def dfs(i, fa, depth):
+            t = k = -1
+            for v in f[nums[i]]:
+                stk = stks[v]
+                if stk and stk[-1][1] > k:
+                    t, k = stk[-1]
+            ans[i] = t
+            for j in g[i]:
+                if j != fa:
+                    stks[nums[i]].append((i, depth))
+                    dfs(j, i, depth + 1)
+                    stks[nums[i]].pop()
 
+        g = defaultdict(list)
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        f = defaultdict(list)
+        for i in range(1, 51):
+            for j in range(1, 51):
+                if gcd(i, j) == 1:
+                    f[i].append(j)
+        stks = defaultdict(list)
+        ans = [-1] * len(nums)
+        dfs(0, -1, 0)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private List<Integer>[] f;
+    private Deque<int[]>[] stks;
+    private int[] nums;
+    private int[] ans;
 
+    public int[] getCoprimes(int[] nums, int[][] edges) {
+        int n = nums.length;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+        f = new List[51];
+        stks = new Deque[51];
+        Arrays.setAll(f, k -> new ArrayList<>());
+        Arrays.setAll(stks, k -> new ArrayDeque<>());
+        for (int i = 1; i < 51; ++i) {
+            for (int j = 1; j < 51; ++j) {
+                if (gcd(i, j) == 1) {
+                    f[i].add(j);
+                }
+            }
+        }
+        this.nums = nums;
+        ans = new int[n];
+        dfs(0, -1, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int fa, int depth) {
+        int t = -1, k = -1;
+        for (int v : f[nums[i]]) {
+            var stk = stks[v];
+            if (!stk.isEmpty() && stk.peek()[1] > k) {
+                t = stk.peek()[0];
+                k = stk.peek()[1];
+            }
+        }
+        ans[i] = t;
+        for (int j : g[i]) {
+            if (j != fa) {
+                stks[nums[i]].push(new int[] {i, depth});
+                dfs(j, i, depth + 1);
+                stks[nums[i]].pop();
+            }
+        }
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getCoprimes(vector<int>& nums, vector<vector<int>>& edges) {
+        int n = nums.size();
+        vector<vector<int>> g(n);
+        vector<vector<int>> f(51);
+        vector<stack<pair<int, int>>> stks(51);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].emplace_back(v);
+            g[v].emplace_back(u);
+        }
+        for (int i = 1; i < 51; ++i) {
+            for (int j = 1; j < 51; ++j) {
+                if (__gcd(i, j) == 1) {
+                    f[i].emplace_back(j);
+                }
+            }
+        }
+        vector<int> ans(n);
+        function<void(int, int, int)> dfs = [&](int i, int fa, int depth) {
+            int t = -1, k = -1;
+            for (int v : f[nums[i]]) {
+                auto& stk = stks[v];
+                if (!stk.empty() && stk.top().second > k) {
+                    t = stk.top().first;
+                    k = stk.top().second;
+                }
+            }
+            ans[i] = t;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    stks[nums[i]].push({i, depth});
+                    dfs(j, i, depth + 1);
+                    stks[nums[i]].pop();
+                }
+            }
+        };
+        dfs(0, -1, 0);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getCoprimes(nums []int, edges [][]int) []int {
+	n := len(nums)
+	g := make([][]int, n)
+	f := [51][]int{}
+	type pair struct{ first, second int }
+	stks := [51][]pair{}
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	for i := 1; i < 51; i++ {
+		for j := 1; j < 51; j++ {
+			if gcd(i, j) == 1 {
+				f[i] = append(f[i], j)
+			}
+		}
+	}
+	ans := make([]int, n)
+	var dfs func(i, fa, depth int)
+	dfs = func(i, fa, depth int) {
+		t, k := -1, -1
+		for _, v := range f[nums[i]] {
+			stk := stks[v]
+			if len(stk) > 0 && stk[len(stk)-1].second > k {
+				t, k = stk[len(stk)-1].first, stk[len(stk)-1].second
+			}
+		}
+		ans[i] = t
+		for _, j := range g[i] {
+			if j != fa {
+				stks[nums[i]] = append(stks[nums[i]], pair{i, depth})
+				dfs(j, i, depth+1)
+				stks[nums[i]] = stks[nums[i]][:len(stks[nums[i]])-1]
+			}
+		}
+	}
+	dfs(0, -1, 0)
+	return ans
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
 ```
 
 ### **...**
