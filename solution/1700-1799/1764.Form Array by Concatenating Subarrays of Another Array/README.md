@@ -65,7 +65,7 @@
 
 如果 $i$ 走到了 $groups.length$，说明所有的子数组都匹配上了，返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(n \times m)，空间复杂度 O(1)$。其中 $n$ 和 $m$ 分别为 `groups` 和 `nums` 的长度。
+时间复杂度 $O(n \times m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为 `groups` 和 `nums` 的长度。
 
 <!-- tabs:start -->
 
