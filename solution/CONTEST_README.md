@@ -24,7 +24,15 @@
 
 ## 往期竞赛
 
-#### 第 323 场周赛(2022-12-11 10:30, 90 分钟) 参赛人数 4670
+#### 第 324 场周赛(2022-12-18 10:30, 90 分钟) 参赛人数 4167
+
+- [2506. 统计相似字符串对的数目](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README.md)
+- [2507. 使用质因数之和替换后可以取到的最小值](/solution/2500-2599/2507.Smallest%20Value%20After%20Replacing%20With%20Sum%20of%20Prime%20Factors/README.md)
+- [2508. 添加边使所有节点度数都为偶数](/solution/2500-2599/2508.Add%20Edges%20to%20Make%20Degrees%20of%20All%20Nodes%20Even/README.md)
+- [2509. 查询树中环的长度](/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README.md)
+
+
+#### 第 323 场周赛(2022-12-11 10:30, 90 分钟) 参赛人数 4671
 
 - [2500. 删除每行中的最大值](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README.md)
 - [2501. 数组中最长的方波](/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README.md)
@@ -2496,7 +2504,7 @@
 - [932. 漂亮数组](/solution/0900-0999/0932.Beautiful%20Array/README.md)
 
 
-#### 第 107 场周赛(2018-10-21 09:30, 90 分钟) 参赛人数 503
+#### 第 107 场周赛(2018-10-21 09:30, 90 分钟) 参赛人数 504
 
 - [925. 长按键入](/solution/0900-0999/0925.Long%20Pressed%20Name/README.md)
 - [926. 将字符串翻转到单调递增](/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README.md)
