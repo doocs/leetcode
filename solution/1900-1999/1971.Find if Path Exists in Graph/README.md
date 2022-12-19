@@ -53,7 +53,130 @@
 
 **方法一：DFS**
 
+我们先将 `edges` 转换成邻接表 $g$，然后使用 DFS，判断是否存在从 `source` 到 `destination` 的路径。
+
+过程中，我们用数组 `vis` 记录已经访问过的顶点，避免重复访问。
+
+时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是节点数和边数。
+
 **方法二：并查集**
+
+判断图中两个节点是否连通，一种比较简单直接的方法是使用并查集。
+
+先构建并查集，然后将每条边的两个节点合并。
+
+最后查询 `source` 和 `destination` 的祖宗节点是否相同，相同则说明两个节点连通。
+
+时间复杂度 $O(n + m  \times \alpha(m))$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是节点数和边数。
+
+附并查集相关介绍以及常用模板：
+
+并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
+
+1. 查找（Find）：确定某个元素处于哪个子集，单次操作时间复杂度 $O(\alpha(n))$
+1. 合并（Union）：将两个子集合并成一个集合，单次操作时间复杂度 $O(\alpha(n))$
+
+其中 $\alpha$ 为阿克曼函数的反函数，其增长极其缓慢，也就是说其单次操作的平均运行时间可以认为是一个很小的常数。
+
+以下是并查集的常用模板，需要熟练掌握。其中：
+
+-   `n` 表示节点数
+-   `p` 存储每个点的父节点，初始时每个点的父节点都是自己
+-   `size` 只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+-   `find(x)` 函数用于查找 $x$ 所在集合的祖宗节点
+-   `union(a, b)` 函数用于合并 $a$ 和 $b$ 所在的集合
+
+```python [sol1-Python3 模板]
+p = list(range(n))
+size = [1] * n
+
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+
+def union(a, b):
+    pa, pb = find(a), find(b)
+    if pa == pb:
+        return
+    p[pa] = pb
+    size[pb] += size[pa]
+```
+
+```java [sol1-Java 模板]
+int[] p = new int[n];
+int[] size = new int[n];
+for (int i = 0; i < n; ++i) {
+    p[i] = i;
+    size[i] = 1;
+}
+
+int find(int x) {
+    if (p[x] != x) {
+        // 路径压缩
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+void union(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) {
+        return;
+    }
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```cpp [sol1-C++ 模板]
+vector<int> p(n);
+iota(p.begin(), p.end(), 0);
+vector<int> size(n, 1);
+
+int find(int x) {
+    if (p[x] != x) {
+        // 路径压缩
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+void unite(int a, int b) {
+    int pa = find(a), pb = find(b);
+    if (pa == pb) return;
+    p[pa] = pb;
+    size[pb] += size[pa];
+}
+```
+
+```go [sol1-Go 模板]
+p := make([]int, n)
+size := make([]int, n)
+for i := range p {
+    p[i] = i
+    size[i] = 1
+}
+
+func find(x int) int {
+    if p[x] != x {
+        // 路径压缩
+        p[x] = find(p[x])
+    }
+    return p[x]
+}
+
+func union(a, b int) {
+    pa, pb := find(a), find(b)
+    if pa == pb {
+        return
+    }
+    p[pa] = pb
+    size[pb] += size[pa]
+}
+```
 
 <!-- tabs:start -->
 
@@ -63,26 +186,22 @@
 
 ```python
 class Solution:
-    def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
-        def dfs(u):
-            nonlocal ans
-            if ans or u in vis:
-                return
-            vis.add(u)
-            if u == end:
-                ans = True
-                return
-            for v in g[u]:
-                dfs(v)
+    def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        def dfs(i):
+            if i == destination:
+                return True
+            vis.add(i)
+            for j in g[i]:
+                if j not in vis and dfs(j):
+                    return True
+            return False
 
         g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
         vis = set()
-        ans = False
-        for u, v in edges:
-            g[u].append(v)
-            g[v].append(u)
-        dfs(start)
-        return ans
+        return dfs(source)
 ```
 
 ```python
@@ -102,6 +221,38 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    private boolean[] vis;
+    private List<Integer>[] g;
+
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        vis = new boolean[n];
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        return dfs(source, destination);
+    }
+
+    private boolean dfs(int source, int destination) {
+        if (source == destination) {
+            return true;
+        }
+        vis[source] = true;
+        for (int nxt : g[source]) {
+            if (!vis[nxt] && dfs(nxt, destination)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -132,23 +283,72 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
+        vector<bool> vis(n);
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        function<bool(int)> dfs = [&](int i) -> bool {
+            if (i == destination) return true;
+            vis[i] = true;
+            for (int& j : g[i]) {
+                if (!vis[j] && dfs(j)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        return dfs(source);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) p[x] = find(p[x]);
+            return p[x];
+        };
         for (auto& e : edges) p[find(e[0])] = find(e[1]);
         return find(source) == find(destination);
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
 
 ### **Go**
+
+```go
+func validPath(n int, edges [][]int, source int, destination int) bool {
+	vis := make([]bool, n)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int) bool
+	dfs = func(i int) bool {
+		if i == destination {
+			return true
+		}
+		vis[i] = true
+		for _, j := range g[i] {
+			if !vis[j] && dfs(j) {
+				return true
+			}
+		}
+		return false
+	}
+	return dfs(source)
+}
+```
 
 ```go
 func validPath(n int, edges [][]int, source int, destination int) bool {
