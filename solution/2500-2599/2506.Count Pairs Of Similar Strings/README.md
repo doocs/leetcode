@@ -58,6 +58,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 位运算**
+
+对于每个字符串，我们可以将其转换为一个长度为 $26$ 的二进制数，其中第 $i$ 位为 $1$ 表示该字符串中包含第 $i$ 个字母。
+
+如果两个字符串包含相同的字母，则它们的二进制数是相同的，因此，对于每个字符串，我们用哈希表统计其二进制数出现的次数，每一次累加到答案中，再将其二进制数出现的次数加 $1$。
+
+时间复杂度 $O(L)$，空间复杂度 $O(n)$。其中 $L$ 是所有字符串的长度之和，而 $n$ 是字符串的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +73,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def similarPairs(self, words: List[str]) -> int:
+        ans = 0
+        cnt = Counter()
+        for w in words:
+            v = 0
+            for c in w:
+                v |= 1 << (ord(c) - ord("A"))
+            ans += cnt[v]
+            cnt[v] += 1
+        return ans
 ```
 
 ### **Java**
@@ -73,19 +91,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int similarPairs(String[] words) {
+        int ans = 0;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (var w : words) {
+            int v = 0;
+            for (int i = 0; i < w.length(); ++i) {
+                v |= 1 << (w.charAt(i) - 'a');
+            }
+            ans += cnt.getOrDefault(v, 0);
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int similarPairs(vector<string>& words) {
+        int ans = 0;
+        unordered_map<int, int> cnt;
+        for (auto& w : words) {
+            int v = 0;
+            for (auto& c : w) v |= 1 << c - 'a';
+            ans += cnt[v];
+            cnt[v]++;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func similarPairs(words []string) (ans int) {
+	cnt := map[int]int{}
+	for _, w := range words {
+		v := 0
+		for _, c := range w {
+			v |= 1 << (c - 'a')
+		}
+		ans += cnt[v]
+		cnt[v]++
+	}
+	return
+}
 ```
 
 ### **...**
