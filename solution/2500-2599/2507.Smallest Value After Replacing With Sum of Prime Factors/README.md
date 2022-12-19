@@ -48,6 +48,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力模拟**
+
+根据题意，我们可以得到一个质因数分解的过程，即将一个数不断地分解为质因数，分解不能分解。过程中将每次分解的质因数相加，递归或者迭代地进行即可。
+
+时间复杂度 $O(\sqrt{n})$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +61,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def smallestValue(self, n: int) -> int:
+        while 1:
+            t, s, i = n, 0, 2
+            while i <= n // i:
+                while n % i == 0:
+                    n //= i
+                    s += i
+                i += 1
+            if n > 1:
+                s += n
+            if s == t:
+                return t
+            n = s
 ```
 
 ### **Java**
@@ -63,19 +82,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int smallestValue(int n) {
+        while (true) {
+            int t = n, s = 0;
+            for (int i = 2; i <= n / i; ++i) {
+                while (n % i == 0) {
+                    s += i;
+                    n /= i;
+                }
+            }
+            if (n > 1) {
+                s += n;
+            }
+            if (s == t) {
+                return s;
+            }
+            n = s;
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int smallestValue(int n) {
+        while (1) {
+            int t = n, s = 0;
+            for (int i = 2; i <= n / i; ++i) {
+                while (n % i == 0) {
+                    s += i;
+                    n /= i;
+                }
+            }
+            if (n > 1) s += n;
+            if (s == t) return s;
+            n = s;
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func smallestValue(n int) int {
+	for {
+		t, s := n, 0
+		for i := 2; i <= n/i; i++ {
+			for n%i == 0 {
+				s += i
+				n /= i
+			}
+		}
+		if n > 1 {
+			s += n
+		}
+		if s == t {
+			return s
+		}
+		n = s
+	}
+}
 ```
 
 ### **...**
