@@ -114,6 +114,48 @@ func numIdenticalPairs(nums []int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function numIdenticalPairs(nums: number[]): number {
+    const count = new Array(101).fill(0);
+    let ans = 0;
+    for (const num of nums) {
+        ans += count[num]++;
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn num_identical_pairs(nums: Vec<i32>) -> i32 {
+        let mut count = [0; 101];
+        let mut ans = 0;
+        for &num in nums.iter() {
+            ans += count[num as usize];
+            count[num as usize] += 1;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int numIdenticalPairs(int *nums, int numsSize) {
+    int count[101] = {0};
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        ans += count[nums[i]]++;
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
