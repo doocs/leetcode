@@ -52,6 +52,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：暴力枚举**
+
+我们先将所有边存入邻接矩阵 $g$ 中，再将每个节点的度数存入数组 $deg$ 中。
+
+然后枚举所有的三元组 $(i, j, k)$，其中 $i \lt j \lt k$，如果 $g[i][j] = g[j][k] = g[i][k] = 1$，则说明这三个节点构成了一个连通三元组，此时更新答案为 $deg[i] + deg[j] + deg[k] - 6$。返回最小的符合条件的答案即可。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +67,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minTrioDegree(self, n: int, edges: List[List[int]]) -> int:
+        g = [[False] * n for _ in range(n)]
+        deg = [0] * n
+        for u, v in edges:
+            u, v = u - 1, v - 1
+            g[u][v] = g[v][u] = True
+            deg[u] += 1
+            deg[v] += 1
+        ans = inf
+        for i in range(n):
+            for j in range(i + 1, n):
+                if g[i][j]:
+                    for k in range(j + 1, n):
+                        if g[i][k] and g[j][k]:
+                            ans = min(ans, deg[i] + deg[j] + deg[k] - 6)
+        return -1 if ans == inf else ans
 ```
 
 ### **Java**
@@ -67,7 +91,105 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minTrioDegree(int n, int[][] edges) {
+        boolean[][] g = new boolean[n][n];
+        int[] deg = new int[n];
+        for (var e : edges) {
+            int u = e[0] - 1, v = e[1] - 1;
+            g[u][v] = true;
+            g[v][u] = true;
+            ++deg[u];
+            ++deg[v];
+        }
+        int ans = 1 << 30;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (g[i][j]) {
+                    for (int k = j + 1; k < n; ++k) {
+                        if (g[i][k] && g[j][k]) {
+                            ans = Math.min(ans, deg[i] + deg[j] + deg[k] - 6);
+                        }
+                    }
+                }
+            }
+        }
+        return ans == 1 << 30 ? -1 : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minTrioDegree(int n, vector<vector<int>>& edges) {
+        bool g[n][n];
+        memset(g, 0, sizeof g);
+        int deg[n];
+        memset(deg, 0, sizeof deg);
+        for (auto& e : edges) {
+            int u = e[0] - 1, v = e[1] - 1;
+            g[u][v] = g[v][u] = true;
+            deg[u]++, deg[v]++;
+        }
+        int ans = INT_MAX;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (g[i][j]) {
+                    for (int k = j + 1; k < n; ++k) {
+                        if (g[j][k] && g[i][k]) {
+                            ans = min(ans, deg[i] + deg[j] + deg[k] - 6);
+                        }
+                    }
+                }
+            }
+        }
+        return ans == INT_MAX ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minTrioDegree(n int, edges [][]int) int {
+	g := make([][]bool, n)
+	deg := make([]int, n)
+	for i := range g {
+		g[i] = make([]bool, n)
+	}
+	for _, e := range edges {
+		u, v := e[0]-1, e[1]-1
+		g[u][v], g[v][u] = true, true
+		deg[u]++
+		deg[v]++
+	}
+	ans := 1 << 30
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			if g[i][j] {
+				for k := j + 1; k < n; k++ {
+					if g[i][k] && g[j][k] {
+						ans = min(ans, deg[i]+deg[j]+deg[k]-6)
+					}
+				}
+			}
+		}
+	}
+	if ans == 1<<30 {
+		return -1
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
