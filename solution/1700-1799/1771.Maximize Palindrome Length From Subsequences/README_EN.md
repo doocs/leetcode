@@ -55,13 +55,115 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestPalindrome(self, word1: str, word2: str) -> int:
+        s = word1 + word2
+        n = len(s)
+        f = [[0] * n for _ in range(n)]
+        for i in range(n):
+            f[i][i] = 1
+        ans = 0
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1, n):
+                if s[i] == s[j]:
+                    f[i][j] = f[i + 1][j - 1] + 2
+                    if i < len(word1) and j >= len(word1):
+                        ans = max(ans, f[i][j])
+                else:
+                    f[i][j] = max(f[i + 1][j], f[i][j - 1])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int longestPalindrome(String word1, String word2) {
+        String s = word1 + word2;
+        int n = s.length();
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = 1;
+        }
+        int ans = 0;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                    if (i < word1.length() && j >= word1.length()) {
+                        ans = Math.max(ans, f[i][j]);
+                    }
+                } else {
+                    f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestPalindrome(string word1, string word2) {
+        string s = word1 + word2;
+        int n = s.size();
+        int f[n][n];
+        memset(f, 0, sizeof f);
+        for (int i = 0; i < n; ++i) f[i][i] = 1;
+        int ans = 0;
+        for (int i = n - 2; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                    if (i < word1.size() && j >= word1.size()) {
+                        ans = max(ans, f[i][j]);
+                    }
+                } else {
+                    f[i][j] = max(f[i + 1][j], f[i][j - 1]);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestPalindrome(word1 string, word2 string) (ans int) {
+	s := word1 + word2
+	n := len(s)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		f[i][i] = 1
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			if s[i] == s[j] {
+				f[i][j] = f[i+1][j-1] + 2
+				if i < len(word1) && j >= len(word1) && ans < f[i][j] {
+					ans = f[i][j]
+				}
+			} else {
+				f[i][j] = max(f[i+1][j], f[i][j-1])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
