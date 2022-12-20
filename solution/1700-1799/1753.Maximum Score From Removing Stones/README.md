@@ -65,11 +65,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：贪心 + 优先队列（大根堆）**
+**方法一：贪心 + 模拟**
 
-每次贪心地拿出最大的两堆，直到至少有两堆石子为空。
+每次贪心地从最大的两堆石子中取石头，直到至少有两堆石子为空。
 
-时间复杂度 $O(m\times \log n)$。其中 $m$, $n$ 分别为石子总数以及石子堆数。
+时间复杂度 $O(n)$，其中 $n$ 为石子总数。
+
+**方法二：贪心 + 数学**
+
+我们不妨设 $a \le b \le c$，那么：
+
+-   当 $a + b \le c$ 时，我们可以先从 $a$, $c$ 两堆中取石头，得到分数 $a$；再从 $b$, $c$ 两堆中取石头，得到分数 $b$，总分数为 $a + b$；
+-   当 $a + b \gt c$ 时，这时我们每次会从 $c$ 以及 $a$ 和 $b$ 中较大的那一堆中取石头，最终将 $c$ 取空。此时 $a$ 和 $b$ 的大小差最多为 $1$。我们再从 $a$, $b$ 两堆中取石头，直到不能取为止，总分数为 $\left \lfloor \frac{a + b + c}{2}  \right \rfloor$。
+
+时间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -80,17 +89,23 @@
 ```python
 class Solution:
     def maximumScore(self, a: int, b: int, c: int) -> int:
-        h = [-a, -b, -c]
-        heapify(h)
+        s = sorted([a, b, c])
         ans = 0
-        while 1:
-            a, b = heappop(h), heappop(h)
-            if b == 0:
-                break
-            heappush(h, a + 1)
-            heappush(h, b + 1)
+        while s[1]:
             ans += 1
+            s[1] -= 1
+            s[2] -= 1
+            s.sort()
         return ans
+```
+
+```python
+class Solution:
+    def maximumScore(self, a: int, b: int, c: int) -> int:
+        a, b, c = sorted([a, b, c])
+        if a + b < c:
+            return a + b
+        return (a + b + c) >> 1
 ```
 
 ### **Java**
@@ -100,21 +115,29 @@ class Solution:
 ```java
 class Solution {
     public int maximumScore(int a, int b, int c) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);
-        pq.offer(a);
-        pq.offer(b);
-        pq.offer(c);
+        int[] s = new int[] {a, b, c};
+        Arrays.sort(s);
         int ans = 0;
-        while (true) {
-            int x = pq.poll(), y = pq.poll();
-            if (y == 0) {
-                break;
-            }
-            pq.offer(x - 1);
-            pq.offer(y - 1);
+        while (s[1] > 0) {
             ++ans;
+            s[1]--;
+            s[2]--;
+            Arrays.sort(s);
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int maximumScore(int a, int b, int c) {
+        int[] s = new int[] {a, b, c};
+        Arrays.sort(s);
+        if (s[0] + s[1] < s[2]) {
+            return s[0] + s[1];
+        }
+        return (a + b + c) >> 1;
     }
 }
 ```
@@ -125,22 +148,28 @@ class Solution {
 class Solution {
 public:
     int maximumScore(int a, int b, int c) {
-        priority_queue<int> pq;
-        pq.push(a);
-        pq.push(b);
-        pq.push(c);
+        vector<int> s = {a, b, c};
+        sort(s.begin(), s.end());
         int ans = 0;
-        while (1) {
-            a = pq.top(), pq.pop();
-            b = pq.top(), pq.pop();
-            if (b == 0) {
-                break;
-            }
-            pq.push(a - 1);
-            pq.push(b - 1);
+        while (s[1]) {
             ++ans;
+            s[1]--;
+            s[2]--;
+            sort(s.begin(), s.end());
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maximumScore(int a, int b, int c) {
+        vector<int> s = {a, b, c};
+        sort(s.begin(), s.end());
+        if (s[0] + s[1] < s[2]) return s[0] + s[1];
+        return (a + b + c) >> 1;
     }
 };
 ```
@@ -148,34 +177,28 @@ public:
 ### **Go**
 
 ```go
-func maximumScore(a int, b int, c int) int {
-	q := hp{[]int{a, b, c}}
-	ans := 0
-	for {
-		a = q.IntSlice[0]
-		heap.Pop(&q)
-		b = q.IntSlice[0]
-		heap.Pop(&q)
-		if b == 0 {
-			break
-		}
-		heap.Push(&q, a-1)
-		heap.Push(&q, b-1)
+func maximumScore(a int, b int, c int) (ans int) {
+	s := []int{a, b, c}
+	sort.Ints(s)
+	for s[1] > 0 {
 		ans++
+		s[1]--
+		s[2]--
+		sort.Ints(s)
 	}
-	return ans
+	return
 }
+```
 
-type hp struct{ sort.IntSlice }
-
-func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
-func (h *hp) Pop() interface{} {
-	a := h.IntSlice
-	v := a[len(a)-1]
-	h.IntSlice = a[:len(a)-1]
-	return v
+```go
+func maximumScore(a int, b int, c int) int {
+	s := []int{a, b, c}
+	sort.Ints(s)
+	if s[0]+s[1] < s[2] {
+		return s[0] + s[1]
+	}
+	return (a + b + c) >> 1
 }
-func (h *hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 ```
 
 ### **...**

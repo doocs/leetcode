@@ -1,21 +1,9 @@
 class Solution {
 public:
     int maximumScore(int a, int b, int c) {
-        priority_queue<int> pq;
-        pq.push(a);
-        pq.push(b);
-        pq.push(c);
-        int ans = 0;
-        while (1) {
-            a = pq.top(), pq.pop();
-            b = pq.top(), pq.pop();
-            if (b == 0) {
-                break;
-            }
-            pq.push(a - 1);
-            pq.push(b - 1);
-            ++ans;
-        }
-        return ans;
+        vector<int> s = {a, b, c};
+        sort(s.begin(), s.end());
+        if (s[0] + s[1] < s[2]) return s[0] + s[1];
+        return (a + b + c) >> 1;
     }
 };

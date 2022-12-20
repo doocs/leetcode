@@ -65,17 +65,23 @@ After that, there are fewer than two non-empty piles, so the game ends.
 ```python
 class Solution:
     def maximumScore(self, a: int, b: int, c: int) -> int:
-        h = [-a, -b, -c]
-        heapify(h)
+        s = sorted([a, b, c])
         ans = 0
-        while 1:
-            a, b = heappop(h), heappop(h)
-            if b == 0:
-                break
-            heappush(h, a + 1)
-            heappush(h, b + 1)
+        while s[1]:
             ans += 1
+            s[1] -= 1
+            s[2] -= 1
+            s.sort()
         return ans
+```
+
+```python
+class Solution:
+    def maximumScore(self, a: int, b: int, c: int) -> int:
+        a, b, c = sorted([a, b, c])
+        if a + b < c:
+            return a + b
+        return (a + b + c) >> 1
 ```
 
 ### **Java**
@@ -83,21 +89,29 @@ class Solution:
 ```java
 class Solution {
     public int maximumScore(int a, int b, int c) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);
-        pq.offer(a);
-        pq.offer(b);
-        pq.offer(c);
+        int[] s = new int[] {a, b, c};
+        Arrays.sort(s);
         int ans = 0;
-        while (true) {
-            int x = pq.poll(), y = pq.poll();
-            if (y == 0) {
-                break;
-            }
-            pq.offer(x - 1);
-            pq.offer(y - 1);
+        while (s[1] > 0) {
             ++ans;
+            s[1]--;
+            s[2]--;
+            Arrays.sort(s);
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int maximumScore(int a, int b, int c) {
+        int[] s = new int[] {a, b, c};
+        Arrays.sort(s);
+        if (s[0] + s[1] < s[2]) {
+            return s[0] + s[1];
+        }
+        return (a + b + c) >> 1;
     }
 }
 ```
@@ -108,22 +122,28 @@ class Solution {
 class Solution {
 public:
     int maximumScore(int a, int b, int c) {
-        priority_queue<int> pq;
-        pq.push(a);
-        pq.push(b);
-        pq.push(c);
+        vector<int> s = {a, b, c};
+        sort(s.begin(), s.end());
         int ans = 0;
-        while (1) {
-            a = pq.top(), pq.pop();
-            b = pq.top(), pq.pop();
-            if (b == 0) {
-                break;
-            }
-            pq.push(a - 1);
-            pq.push(b - 1);
+        while (s[1]) {
             ++ans;
+            s[1]--;
+            s[2]--;
+            sort(s.begin(), s.end());
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maximumScore(int a, int b, int c) {
+        vector<int> s = {a, b, c};
+        sort(s.begin(), s.end());
+        if (s[0] + s[1] < s[2]) return s[0] + s[1];
+        return (a + b + c) >> 1;
     }
 };
 ```
@@ -131,34 +151,28 @@ public:
 ### **Go**
 
 ```go
-func maximumScore(a int, b int, c int) int {
-	q := hp{[]int{a, b, c}}
-	ans := 0
-	for {
-		a = q.IntSlice[0]
-		heap.Pop(&q)
-		b = q.IntSlice[0]
-		heap.Pop(&q)
-		if b == 0 {
-			break
-		}
-		heap.Push(&q, a-1)
-		heap.Push(&q, b-1)
+func maximumScore(a int, b int, c int) (ans int) {
+	s := []int{a, b, c}
+	sort.Ints(s)
+	for s[1] > 0 {
 		ans++
+		s[1]--
+		s[2]--
+		sort.Ints(s)
 	}
-	return ans
+	return
 }
+```
 
-type hp struct{ sort.IntSlice }
-
-func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
-func (h *hp) Pop() interface{} {
-	a := h.IntSlice
-	v := a[len(a)-1]
-	h.IntSlice = a[:len(a)-1]
-	return v
+```go
+func maximumScore(a int, b int, c int) int {
+	s := []int{a, b, c}
+	sort.Ints(s)
+	if s[0]+s[1] < s[2] {
+		return s[0] + s[1]
+	}
+	return (a + b + c) >> 1
 }
-func (h *hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
 ```
 
 ### **...**
