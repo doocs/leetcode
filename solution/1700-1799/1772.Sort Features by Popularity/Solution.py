@@ -1,10 +1,8 @@
 class Solution:
     def sortFeatures(self, features: List[str], responses: List[str]) -> List[str]:
-        feature_set = set(features)
-        counter = Counter()
-        for resp in responses:
-            for feat in set(resp.split(' ')):
-                if feat in feature_set:
-                    counter[feat] += 1
-        order = {feat: i for i, feat in enumerate(features)}
-        return sorted(features, key=lambda feat: (-counter[feat], order[feat]))
+        cnt = Counter()
+        for r in responses:
+            ws = set(r.split())
+            for s in ws:
+                cnt[s] += 1
+        return sorted(features, key=lambda x: -cnt[x])

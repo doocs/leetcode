@@ -50,14 +50,12 @@
 ```python
 class Solution:
     def sortFeatures(self, features: List[str], responses: List[str]) -> List[str]:
-        feature_set = set(features)
-        counter = Counter()
-        for resp in responses:
-            for feat in set(resp.split(' ')):
-                if feat in feature_set:
-                    counter[feat] += 1
-        order = {feat: i for i, feat in enumerate(features)}
-        return sorted(features, key=lambda feat: (-counter[feat], order[feat]))
+        cnt = Counter()
+        for r in responses:
+            ws = set(r.split())
+            for s in ws:
+                cnt[s] += 1
+        return sorted(features, key=lambda x: -cnt[x])
 ```
 
 ### **Java**
@@ -65,33 +63,96 @@ class Solution:
 ```java
 class Solution {
     public String[] sortFeatures(String[] features, String[] responses) {
-        Set<String> featureSet = new HashSet<>();
-        Map<String, Integer> order = new HashMap<>();
-        for (int i = 0; i < features.length; ++i) {
-            featureSet.add(features[i]);
-            order.put(features[i], i);
-        }
-
-        Map<String, Integer> counter = new HashMap<>();
-        for (String resp : responses) {
-            Set<String> s = new HashSet<>();
-            String[] words = resp.split(" ");
-            for (String word : words) {
-                s.add(word);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String r : responses) {
+            Set<String> ws = new HashSet<>();
+            for (String w : r.split(" ")) {
+                ws.add(w);
             }
-            for (String word : s) {
-                if (featureSet.contains(word)) {
-                    counter.put(word, counter.getOrDefault(word, 0) + 1);
-                }
+            for (String w : ws) {
+                cnt.put(w, cnt.getOrDefault(w, 0) + 1);
             }
         }
-        String[] copyFeatures = Arrays.copyOf(features, features.length);
-        Arrays.sort(copyFeatures, (a, b) -> {
-            int diff = counter.getOrDefault(b, 0) - counter.getOrDefault(a, 0);
-            return diff == 0 ? order.get(a) - order.get(b) : diff;
+        int n = features.length;
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> {
+            int d = cnt.getOrDefault(features[j], 0) - cnt.getOrDefault(features[i], 0);
+            return d == 0 ? i - j : d;
         });
-        return copyFeatures;
+        String[] ans = new String[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = features[idx[i]];
+        }
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> sortFeatures(vector<string>& features, vector<string>& responses) {
+        unordered_map<string, int> cnt;
+        for (auto& r : responses) {
+            stringstream ss(r);
+            string t;
+            unordered_set<string> ws;
+            while (ss >> t) {
+                ws.insert(t);
+            }
+            for (auto& w : ws) {
+                cnt[w]++;
+            }
+        }
+        int n = features.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) -> bool {
+            int d = cnt[features[i]] - cnt[features[j]];
+            return d > 0 || (d == 0 && i < j);
+        });
+        vector<string> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = features[idx[i]];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortFeatures(features []string, responses []string) []string {
+	cnt := map[string]int{}
+	for _, r := range responses {
+		ws := map[string]bool{}
+		for _, s := range strings.Split(r, " ") {
+			ws[s] = true
+		}
+		for w := range ws {
+			cnt[w]++
+		}
+	}
+	n := len(features)
+	idx := make([]int, n)
+	for i := range idx {
+		idx[i] = i
+	}
+	sort.Slice(idx, func(i, j int) bool {
+		d := cnt[features[idx[i]]] - cnt[features[idx[j]]]
+		return d > 0 || (d == 0 && idx[i] < idx[j])
+	})
+	ans := make([]string, n)
+	for i := range ans {
+		ans[i] = features[idx[i]]
+	}
+	return ans
 }
 ```
 
