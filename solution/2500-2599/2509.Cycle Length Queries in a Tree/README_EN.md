@@ -69,25 +69,91 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def cycleLengthQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+        ans = []
+        for a, b in queries:
+            t = 1
+            while a != b:
+                if a > b:
+                    a >>= 1
+                else:
+                    b >>= 1
+                t += 1
+            ans.append(t)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] cycleLengthQueries(int n, int[][] queries) {
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int a = queries[i][0], b = queries[i][1];
+            int t = 1;
+            while (a != b) {
+                if (a > b) {
+                    a >>= 1;
+                } else {
+                    b >>= 1;
+                }
+                ++t;
+            }
+            ans[i] = t;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> cycleLengthQueries(int n, vector<vector<int>>& queries) {
+        vector<int> ans;
+        for (auto& q : queries) {
+            int a = q[0], b = q[1];
+            int t = 1;
+            while (a != b) {
+                if (a > b) {
+                    a >>= 1;
+                } else {
+                    b >>= 1;
+                }
+                ++t;
+            }
+            ans.emplace_back(t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func cycleLengthQueries(n int, queries [][]int) []int {
+	ans := []int{}
+	for _, q := range queries {
+		a, b := q[0], q[1]
+		t := 1
+		for a != b {
+			if a > b {
+				a >>= 1
+			} else {
+				b >>= 1
+			}
+			t++
+		}
+		ans = append(ans, t)
+	}
+	return ans
+}
 ```
 
 ### **...**

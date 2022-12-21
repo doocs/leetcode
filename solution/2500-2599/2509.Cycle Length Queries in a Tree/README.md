@@ -74,6 +74,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：求最近公共祖先**
+
+对于每次查询，我们找出 $a$, $b$ 两个节点的最近公共祖先，并且记录向上走的步数，那么此次查询的答案就是步数加一。
+
+求最近公共祖先时，如果 $a \gt b$，那么我们将 $a$ 往父节点移动；如果 $a \lt b$，我们将 $b$ 往其父节点移动。过程中累计步数，直至 $a = b$。
+
+时间复杂度 $O(n \times m)$。其中 $m$ 为数组 `queries` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +89,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def cycleLengthQueries(self, n: int, queries: List[List[int]]) -> List[int]:
+        ans = []
+        for a, b in queries:
+            t = 1
+            while a != b:
+                if a > b:
+                    a >>= 1
+                else:
+                    b >>= 1
+                t += 1
+            ans.append(t)
+        return ans
 ```
 
 ### **Java**
@@ -89,19 +109,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] cycleLengthQueries(int n, int[][] queries) {
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int a = queries[i][0], b = queries[i][1];
+            int t = 1;
+            while (a != b) {
+                if (a > b) {
+                    a >>= 1;
+                } else {
+                    b >>= 1;
+                }
+                ++t;
+            }
+            ans[i] = t;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> cycleLengthQueries(int n, vector<vector<int>>& queries) {
+        vector<int> ans;
+        for (auto& q : queries) {
+            int a = q[0], b = q[1];
+            int t = 1;
+            while (a != b) {
+                if (a > b) {
+                    a >>= 1;
+                } else {
+                    b >>= 1;
+                }
+                ++t;
+            }
+            ans.emplace_back(t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func cycleLengthQueries(n int, queries [][]int) []int {
+	ans := []int{}
+	for _, q := range queries {
+		a, b := q[0], q[1]
+		t := 1
+		for a != b {
+			if a > b {
+				a >>= 1
+			} else {
+				b >>= 1
+			}
+			t++
+		}
+		ans = append(ans, t)
+	}
+	return ans
+}
 ```
 
 ### **...**
