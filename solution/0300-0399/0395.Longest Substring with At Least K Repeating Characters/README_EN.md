@@ -41,89 +41,171 @@
 ```python
 class Solution:
     def longestSubstring(self, s: str, k: int) -> int:
-        n = len(s)
-        maxLength = 0
-
-        for i in range(1, 27):
-            counter = dict()
-            left = 0
-            right = 0
-            unique = 0
-            kCount = 0
-
-            while right < n:
-                if unique <= i:
-                    r = s[right]
-                    counter[r] = counter.get(r, 0) + 1
-
-                    if counter[r] == 1:
-                        unique += 1
-                    if counter[r] == k:
-                        kCount += 1
-
-                    right += 1
-
-                else:
-                    l = s[left]
-                    counter[l] = counter.get(l, 0) - 1
-
-                    if counter[l] == 0:
-                        unique -= 1
-                    if counter[l] == k - 1:
-                        kCount -= 1
-
-                    left += 1
-
-                if unique == i and kCount == i:
-                    maxLength = max(maxLength, right - left)
-
-        return maxLength
+        def dfs(l, r):
+            cnt = Counter(s[l: r + 1])
+            split = next((c for c, v in cnt.items() if v < k), '')
+            if not split:
+                return r - l + 1
+            i = l
+            ans = 0
+            while i <= r:
+                while i <= r and s[i] == split:
+                    i += 1
+                if i >= r:
+                    break
+                j = i
+                while j <= r and s[j] != split:
+                    j += 1
+                t = dfs(i, j - 1)
+                ans = max(ans, t)
+                i = j
+            return ans
+        
+        return dfs(0, len(s) - 1)
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private String s;
+    private int k;
+
     public int longestSubstring(String s, int k) {
-        int maxLength = 0;
-        int n = s.length();
+        this.s = s;
+        this.k = k;
+        return dfs(0, s.length() - 1);
+    }
 
-        for (int i = 1; i < 27; i++) {
-            Map<Character, Integer> counter = new HashMap<>();
-            int left = 0;
-            int right = 0;
-            int unique = 0;
-            int kCount = 0;
-
-            while (right < n) {
-                if (unique <= i) {
-                    char r = s.charAt(right);
-                    counter.put(r, counter.getOrDefault(r, 0) + 1);
-                    if (counter.get(r) == 1) {
-                        unique += 1;
-                    }
-                    if (counter.get(r) == k) {
-                        kCount += 1;
-                    }
-                    right += 1;
-                } else {
-                    char l = s.charAt(left);
-                    counter.put(l, counter.getOrDefault(l, 2) - 1);
-                    if (counter.get(l) == 0) {
-                        unique -= 1;
-                    }
-                    if (counter.get(l) == k - 1) {
-                        kCount -= 1;
-                    }
-                    left += 1;
-                }
-                if (unique == i && kCount == i) {
-                    maxLength = Math.max(maxLength, right - left);
-                }
+    private int dfs(int l, int r) {
+        int[] cnt = new int[26];
+        for (int i = l; i <= r; ++i) {
+            ++cnt[s.charAt(i) - 'a'];
+        }
+        char split = 0;
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0 && cnt[i] < k) {
+                split = (char) (i + 'a');
+                break;
             }
         }
-        return maxLength;
+        if (split == 0) {
+            return r - l + 1;
+        }
+        int i = l;
+        int ans = 0;
+        while (i <= r) {
+            while (i <= r && s.charAt(i) == split) {
+                ++i;
+            }
+            if (i > r) {
+                break;
+            }
+            int j = i;
+            while (j <= r && s.charAt(j) != split) {
+                ++j;
+            }
+            int t = dfs(i, j - 1);
+            ans = Math.max(ans, t);
+            i = j;
+        }
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestSubstring(string s, int k) {
+        function<int(int, int)> dfs = [&](int l, int r) -> int {
+            int cnt[26] = {0};
+            for (int i = l; i <= r; ++i) {
+                cnt[s[i] - 'a']++;
+            }
+            char split = 0;
+            for (int i = 0; i < 26; ++i) {
+                if (cnt[i] > 0 && cnt[i] < k) {
+                    split = 'a' + i;
+                    break;
+                }
+            }
+            if (split == 0) {
+                return r - l + 1;
+            }
+            int i = l;
+            int ans = 0;
+            while (i <= r) {
+                while (i <= r && s[i] == split) {
+                    ++i;
+                }
+                if (i >= r) {
+                    break;
+                }
+                int j = i;
+                while (j <= r && s[j] != split) {
+                    ++j;
+                }
+                int t = dfs(i, j - 1);
+                ans = max(ans, t);
+                i = j;
+            }
+            return ans;
+        };
+        return dfs(0, s.size() - 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestSubstring(s string, k int) int {
+	var dfs func(l, r int) int
+	dfs = func(l, r int) int {
+		cnt := [26]int{}
+		for i := l; i <= r; i++ {
+			cnt[s[i]-'a']++
+		}
+		var split byte
+		for i, v := range cnt {
+			if v > 0 && v < k {
+				split = byte(i + 'a')
+				break
+			}
+		}
+		if split == 0 {
+			return r - l + 1
+		}
+		i := l
+		ans := 0
+		for i <= r {
+			for i <= r && s[i] == split {
+				i++
+			}
+			if i > r {
+				break
+			}
+			j := i
+			for j <= r && s[j] != split {
+				j++
+			}
+			t := dfs(i, j-1)
+			ans = max(ans, t)
+			i = j
+		}
+		return ans
+	}
+	return dfs(0, len(s)-1)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 

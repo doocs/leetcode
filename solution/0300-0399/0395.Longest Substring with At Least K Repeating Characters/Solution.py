@@ -1,39 +1,23 @@
 class Solution:
     def longestSubstring(self, s: str, k: int) -> int:
-        n = len(s)
-        maxLength = 0
-
-        for i in range(1, 27):
-            counter = dict()
-            left = 0
-            right = 0
-            unique = 0
-            kCount = 0
-
-            while right < n:
-                if unique <= i:
-                    r = s[right]
-                    counter[r] = counter.get(r, 0) + 1
-
-                    if counter[r] == 1:
-                        unique += 1
-                    if counter[r] == k:
-                        kCount += 1
-
-                    right += 1
-
-                else:
-                    l = s[left]
-                    counter[l] = counter.get(l, 0) - 1
-
-                    if counter[l] == 0:
-                        unique -= 1
-                    if counter[l] == k - 1:
-                        kCount -= 1
-
-                    left += 1
-
-                if unique == i and kCount == i:
-                    maxLength = max(maxLength, right - left)
-
-        return maxLength
+        def dfs(l, r):
+            cnt = Counter(s[l: r + 1])
+            split = next((c for c, v in cnt.items() if v < k), '')
+            if not split:
+                return r - l + 1
+            i = l
+            ans = 0
+            while i <= r:
+                while i <= r and s[i] == split:
+                    i += 1
+                if i >= r:
+                    break
+                j = i
+                while j <= r and s[j] != split:
+                    j += 1
+                t = dfs(i, j - 1)
+                ans = max(ans, t)
+                i = j
+            return ans
+        
+        return dfs(0, len(s) - 1)
