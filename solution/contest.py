@@ -127,8 +127,8 @@ def generate_contest_list():
 
 | 段位  | 比例   | 段位名   | 国服分数线    | 勋章                                                                    |
 | ----- | ------ | -------- | --------- | --------------------------------------------------------------------------- |
-| LV3 | 5%  | Guardian | &ge;2240.55 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2 | 20% | Knight   | &ge;1877.14 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3 | 5%  | Guardian | &ge;2241.57 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2 | 20% | Knight   | &ge;1876.81 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1 | 75% | -        | -         | -                                                                           |
 
 力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。

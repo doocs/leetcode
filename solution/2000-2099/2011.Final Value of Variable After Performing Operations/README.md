@@ -69,6 +69,12 @@ X--：X 减 1 ，X = 1 - 1 = 0
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+遍历数组 `operations`，对于每个操作 $operations[i]$，如果包含 `'+'`，那么答案加 $1$，否则答案减 $1$。
+
+时间复杂度为 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `operations` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -89,7 +95,7 @@ class Solution:
 class Solution {
     public int finalValueAfterOperations(String[] operations) {
         int ans = 0;
-        for (String s : operations) {
+        for (var s : operations) {
             ans += (s.charAt(1) == '+' ? 1 : -1);
         }
         return ans;
@@ -104,7 +110,7 @@ class Solution {
 public:
     int finalValueAfterOperations(vector<string>& operations) {
         int ans = 0;
-        for (auto s : operations) ans += (s[1] == '+' ? 1 : -1);
+        for (auto& s : operations) ans += (s[1] == '+' ? 1 : -1);
         return ans;
     }
 };
@@ -113,17 +119,32 @@ public:
 ### **Go**
 
 ```go
-func finalValueAfterOperations(operations []string) int {
-    ans := 0
-    for _, s := range operations {
-        if s[1] == '+' {
-            ans += 1
-        } else {
-            ans -= 1
-        }
-    }
-    return ans
+func finalValueAfterOperations(operations []string) (ans int) {
+	for _, s := range operations {
+		if s[1] == '+' {
+			ans += 1
+		} else {
+			ans -= 1
+		}
+	}
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string[]} operations
+ * @return {number}
+ */
+var finalValueAfterOperations = function (operations) {
+    let ans = 0;
+    for (const s of operations) {
+        ans += s[1] === '+' ? 1 : -1;
+    }
+    return ans;
+};
 ```
 
 ### **TypeScript**

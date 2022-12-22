@@ -79,7 +79,7 @@ class Solution:
 class Solution {
     public int finalValueAfterOperations(String[] operations) {
         int ans = 0;
-        for (String s : operations) {
+        for (var s : operations) {
             ans += (s.charAt(1) == '+' ? 1 : -1);
         }
         return ans;
@@ -94,7 +94,7 @@ class Solution {
 public:
     int finalValueAfterOperations(vector<string>& operations) {
         int ans = 0;
-        for (auto s : operations) ans += (s[1] == '+' ? 1 : -1);
+        for (auto& s : operations) ans += (s[1] == '+' ? 1 : -1);
         return ans;
     }
 };
@@ -103,17 +103,32 @@ public:
 ### **Go**
 
 ```go
-func finalValueAfterOperations(operations []string) int {
-    ans := 0
-    for _, s := range operations {
-        if s[1] == '+' {
-            ans += 1
-        } else {
-            ans -= 1
-        }
-    }
-    return ans
+func finalValueAfterOperations(operations []string) (ans int) {
+	for _, s := range operations {
+		if s[1] == '+' {
+			ans += 1
+		} else {
+			ans -= 1
+		}
+	}
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string[]} operations
+ * @return {number}
+ */
+var finalValueAfterOperations = function (operations) {
+    let ans = 0;
+    for (const s of operations) {
+        ans += s[1] === '+' ? 1 : -1;
+    }
+    return ans;
+};
 ```
 
 ### **TypeScript**
