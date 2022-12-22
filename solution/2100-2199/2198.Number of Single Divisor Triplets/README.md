@@ -1,4 +1,4 @@
-# [2198. Number of Single Divisor Triplets](https://leetcode.cn/problems/number-of-single-divisor-triplets)
+# [2198. 单因数三元组](https://leetcode.cn/problems/number-of-single-divisor-triplets)
 
 [English Version](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README_EN.md)
 
@@ -6,45 +6,48 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> array of positive integers <code>nums</code>. A triplet of three <strong>distinct</strong> indices <code>(i, j, k)</code> is called a <strong>single divisor triplet</strong> of <code>nums</code> if <code>nums[i] + nums[j] + nums[k]</code> is divisible by <strong>exactly one</strong> of <code>nums[i]</code>, <code>nums[j]</code>, or <code>nums[k]</code>.</p>
-Return <em>the number of <strong>single divisor triplets</strong> of </em><code>nums</code><em>.</em>
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p>给定一个下标从 <strong>0</strong> 开始的正整数数组 <code>nums</code>。由三个&nbsp;<strong>不同&nbsp;</strong>索引&nbsp;<code>(i, j, k)</code> 组成的三元组，如果 <code>nums[i] + nums[j] + nums[k]</code> 能被 <code>nums[i]</code>、<code>nums[j]</code>&nbsp;或 <code>nums[k]</code> 中的&nbsp;<strong>一个&nbsp;</strong>整除，则称为 <code>nums</code> 的&nbsp;<strong>单因数三元组</strong>。</p>
 
-<pre>
-<strong>Input:</strong> nums = [4,6,7,3,2]
-<strong>Output:</strong> 12
-<strong>Explanation:
-</strong>The triplets (0, 3, 4), (0, 4, 3), (3, 0, 4), (3, 4, 0), (4, 0, 3), and (4, 3, 0) have the values of [4, 3, 2] (or a permutation of [4, 3, 2]).
-4 + 3 + 2 = 9 which is only divisible by 3, so all such triplets are single divisor triplets.
-The triplets (0, 2, 3), (0, 3, 2), (2, 0, 3), (2, 3, 0), (3, 0, 2), and (3, 2, 0) have the values of [4, 7, 3] (or a permutation of [4, 7, 3]).
-4 + 7 + 3 = 14 which is only divisible by 7, so all such triplets are single divisor triplets.
-There are 12 single divisor triplets in total.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,2,2]
-<strong>Output:</strong> 6
-<strong>Explanation:</strong>
-The triplets (0, 1, 2), (0, 2, 1), (1, 0, 2), (1, 2, 0), (2, 0, 1), and (2, 1, 0) have the values of [1, 2, 2] (or a permutation of [1, 2, 2]).
-1 + 2 + 2 = 5 which is only divisible by 1, so all such triplets are single divisor triplets.
-There are 6 single divisor triplets in total.
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,1,1]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
-There are no single divisor triplets.
-Note that (0, 1, 2) is not a single divisor triplet because nums[0] + nums[1] + nums[2] = 3 and 3 is divisible by nums[0], nums[1], and nums[2].
-</pre>
+<p>返回 <em><code>nums</code> 的单因数三元组</em>。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> nums = [4,6,7,3,2]
+<strong>输出:</strong> 12
+<strong>解释:
+</strong>三元组索引 (0, 3, 4), (0, 4, 3), (3, 0, 4), (3, 4, 0), (4, 0, 3), 和 (4, 3, 0) 的值为 [4, 3, 2] (或者说排列为 [4, 3, 2]).
+4 + 3 + 2 = 9 只能被 3 整除，所以所有的三元组都是单因数三元组。
+三元组索引 (0, 2, 3), (0, 3, 2), (2, 0, 3), (2, 3, 0), (3, 0, 2), 和 (3, 2, 0) 的值为 [4, 7, 3]  (或者说排列为 [4, 7, 3]).
+4 + 7 + 3 = 14 只能被 7 整除，所以所有的三元组都是单因数三元组。
+一共有 12 个单因数三元组。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> nums = [1,2,2]
+<strong>输出:</strong> 6
+<strong>提示:</strong>
+三元组索引 (0, 1, 2), (0, 2, 1), (1, 0, 2), (1, 2, 0), (2, 0, 1), 和 (2, 1, 0) 的值为 [1, 2, 2] (或者说排列为 [1, 2, 2]).
+1 + 2 + 2 = 5 只能被 1 整除，所以所有的三元组都是单因数三元组。
+一共有6个单因数三元组。</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> nums = [1,1,1]
+<strong>输出:</strong> 0
+<strong>提示:</strong>
+没有单因数三元组。
+注意 (0, 1, 2) 不是单因数三元组。 因为 nums[0] + nums[1] + nums[2] = 3，3 可以被 nums[0], nums[1], nums[2] 整除。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>3 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

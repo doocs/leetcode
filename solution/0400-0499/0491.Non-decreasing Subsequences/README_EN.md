@@ -1,12 +1,10 @@
-# [491. Increasing Subsequences](https://leetcode.com/problems/increasing-subsequences)
+# [491. Non-decreasing Subsequences](https://leetcode.com/problems/non-decreasing-subsequences)
 
-[中文文档](/solution/0400-0499/0491.Increasing%20Subsequences/README.md)
+[中文文档](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README.md)
 
 ## Description
 
-<p>Given an integer array <code>nums</code>, return all the different possible increasing subsequences of the given array with <strong>at least two elements</strong>. You may return the answer in <strong>any order</strong>.</p>
-
-<p>The given array may contain duplicates, and two equal integers should also be considered a special case of increasing sequence.</p>
+<p>Given an integer array <code>nums</code>, return <em>all the different possible non-decreasing subsequences of the given array with at least two elements</em>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

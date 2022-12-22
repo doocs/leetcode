@@ -6,30 +6,33 @@
 
 <p>You are given an array of integers <code>distance</code>.</p>
 
-<p>You start at point <code>(0,0)</code> on an <strong>X-Y</strong> plane and you move <code>distance[0]</code> meters to the north, then <code>distance[1]</code> meters to the west, <code>distance[2]</code> meters to the south, <code>distance[3]</code> meters to the east, and so on. In other words, after each move, your direction changes counter-clockwise.</p>
+<p>You start at the point <code>(0, 0)</code> on an <strong>X-Y plane,</strong> and you move <code>distance[0]</code> meters to the north, then <code>distance[1]</code> meters to the west, <code>distance[2]</code> meters to the south, <code>distance[3]</code> meters to the east, and so on. In other words, after each move, your direction changes counter-clockwise.</p>
 
-<p>Return <code>true</code> if your path crosses itself, and <code>false</code> if it does not.</p>
+<p>Return <code>true</code> <em>if your path crosses itself or </em><code>false</code><em> if it does not</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross1-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/11.jpg" style="width: 400px; height: 413px;" />
 <pre>
 <strong>Input:</strong> distance = [2,1,1,2]
 <strong>Output:</strong> true
+<strong>Explanation:</strong> The path crosses itself at the point (0, 1).
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross2-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/22.jpg" style="width: 400px; height: 413px;" />
 <pre>
 <strong>Input:</strong> distance = [1,2,3,4]
 <strong>Output:</strong> false
+<strong>Explanation:</strong> The path does not cross itself at any point.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/selfcross3-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0335.Self%20Crossing/images/33.jpg" style="width: 400px; height: 413px;" />
 <pre>
-<strong>Input:</strong> distance = [1,1,1,1]
+<strong>Input:</strong> distance = [1,1,1,2,1]
 <strong>Output:</strong> true
+<strong>Explanation:</strong> The path crosses itself at the point (0, 0).
 </pre>
 
 <p>&nbsp;</p>

@@ -499,6 +499,7 @@
   - [0489.Robot Room Cleaner](/solution/0400-0499/0489.Robot%20Room%20Cleaner/README_EN.md)
   - [0490.The Maze](/solution/0400-0499/0490.The%20Maze/README_EN.md)
   - [0491.Increasing Subsequences](/solution/0400-0499/0491.Increasing%20Subsequences/README_EN.md)
+  - [0491.Non-decreasing Subsequences](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md)
   - [0492.Construct the Rectangle](/solution/0400-0499/0492.Construct%20the%20Rectangle/README_EN.md)
   - [0493.Reverse Pairs](/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md)
   - [0494.Target Sum](/solution/0400-0499/0494.Target%20Sum/README_EN.md)
@@ -2559,3 +2560,4 @@
   - [2507.Smallest Value After Replacing With Sum of Prime Factors](/solution/2500-2599/2507.Smallest%20Value%20After%20Replacing%20With%20Sum%20of%20Prime%20Factors/README_EN.md)
   - [2508.Add Edges to Make Degrees of All Nodes Even](/solution/2500-2599/2508.Add%20Edges%20to%20Make%20Degrees%20of%20All%20Nodes%20Even/README_EN.md)
   - [2509.Cycle Length Queries in a Tree](/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README_EN.md)
+  - [2510.Check if There is a Path With Equal Number of 0's And 1's](/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/README_EN.md)

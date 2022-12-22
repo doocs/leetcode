@@ -1,4 +1,4 @@
-# [2189. Number of Ways to Build House of Cards](https://leetcode.cn/problems/number-of-ways-to-build-house-of-cards)
+# [2189. 建造纸牌屋的方法数](https://leetcode.cn/problems/number-of-ways-to-build-house-of-cards)
 
 [English Version](/solution/2100-2199/2189.Number%20of%20Ways%20to%20Build%20House%20of%20Cards/README_EN.md)
 
@@ -6,49 +6,49 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given an integer <code>n</code> representing the number of playing cards you have. A <strong>house of cards</strong> meets the following conditions:</p>
+<p>给你一个整数 <code>n</code>，代表你拥有牌的数量。一个&nbsp;<strong>纸牌屋&nbsp;</strong>满足以下条件:</p>
 
 <ul>
-	<li>A <strong>house of cards</strong> consists of one or more rows of <strong>triangles</strong> and horizontal cards.</li>
-	<li><strong>Triangles</strong> are created by leaning two cards against each other.</li>
-	<li>One card must be placed horizontally between <strong>all adjacent</strong> triangles in a row.</li>
-	<li>Any triangle on a row higher than the first must be placed on a horizontal card from the previous row.</li>
-	<li>Each triangle is placed in the <strong>leftmost</strong> available spot in the row.</li>
+	<li>一个<strong> 纸牌屋&nbsp;</strong>由一行或多行&nbsp;<strong>三角形</strong> 和水平纸牌组成。</li>
+	<li><strong>三角形&nbsp;</strong>是由两张卡片相互靠在一起形成的。</li>
+	<li>一张卡片必须水平放置在一行中&nbsp;<strong>所有相邻&nbsp;</strong>的三角形之间。</li>
+	<li>比第一行高的任何三角形都必须放在前一行的水平牌上。</li>
+	<li>每个三角形都被放置在行中&nbsp;<strong>最左边&nbsp;</strong>的可用位置。</li>
 </ul>
 
-<p>Return <em>the number of <strong>distinct</strong> <strong>house of cards</strong> you can build using <strong>all</strong></em> <code>n</code><em> cards.</em> Two houses of cards are considered distinct if there exists a row where the two houses contain a different number of cards.</p>
+<p>返回<em>使用所有 <code>n</code> 张卡片可以构建的不同纸牌屋的数量</em>。如果存在一行两个纸牌屋包含不同数量的纸牌，那么两个纸牌屋被认为是不同的。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2189.Number%20of%20Ways%20to%20Build%20House%20of%20Cards/images/image-20220227213243-1.png" style="width: 726px; height: 150px;" />
 <pre>
-<strong>Input:</strong> n = 16
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The two valid houses of cards are shown.
-The third house of cards in the diagram is not valid because the rightmost triangle on the top row is not placed on top of a horizontal card.
+<strong>输入:</strong> n = 16
+<strong>输出:</strong> 2
+<strong>解释:</strong> 有两种有效的纸牌屋摆法。
+图中的第三个纸牌屋无效，因为第一行最右边的三角形没有放在水平纸牌的顶部。
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2189.Number%20of%20Ways%20to%20Build%20House%20of%20Cards/images/image-20220227213306-2.png" style="width: 96px; height: 80px;" />
 <pre>
-<strong>Input:</strong> n = 2
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> The one valid house of cards is shown.
-</pre>
+<strong>输入:</strong> n = 2
+<strong>输出:</strong> 1
+<strong>解释:</strong> 这是唯一可行的纸牌屋。</pre>
 
 <p><strong class="example">Example 3:</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2189.Number%20of%20Ways%20to%20Build%20House%20of%20Cards/images/image-20220227213331-3.png" style="width: 330px; height: 85px;" />
 <pre>
-<strong>Input:</strong> n = 4
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The three houses of cards in the diagram are not valid.
-The first house of cards needs a horizontal card placed between the two triangles.
-The second house of cards uses 5 cards.
-The third house of cards uses 2 cards.
-</pre>
+<strong>输入:</strong> n = 4
+<strong>输出:</strong> 0
+<strong>解释:</strong> 图中的三种纸牌都是无效的。
+第一个纸牌屋需要在两个三角形之间放置一张水平纸牌。
+第二个纸牌屋使用 5 张纸牌。
+第三个纸牌屋使用 2 张纸牌。</pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 500</code></li>

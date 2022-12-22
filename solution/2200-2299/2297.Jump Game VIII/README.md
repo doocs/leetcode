@@ -1,4 +1,4 @@
-# [2297. Jump Game VIII](https://leetcode.cn/problems/jump-game-viii)
+# [2297. 跳跃游戏 VIII](https://leetcode.cn/problems/jump-game-viii)
 
 [English Version](/solution/2200-2299/2297.Jump%20Game%20VIII/README_EN.md)
 
@@ -6,44 +6,44 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>. You are initially standing at index <code>0</code>. You can jump from index <code>i</code> to index <code>j</code> where <code>i &lt; j</code> if:</p>
+<p>给定一个长度为 n 的下标从 <strong>0</strong>&nbsp;开始的整数数组 <code>nums</code>。初始位置为下标 <code>0</code>。当 <code>i &lt; j</code> 时，你可以从下标 <code>i</code> 跳转到下标 <code>j</code>:</p>
 
 <ul>
-	<li><code>nums[i] &lt;= nums[j]</code> and <code>nums[k] &lt; nums[i]</code> for all indexes <code>k</code> in the range <code>i &lt; k &lt; j</code>, or</li>
-	<li><code>nums[i] &gt; nums[j]</code> and <code>nums[k] &gt;= nums[i]</code> for all indexes <code>k</code> in the range <code>i &lt; k &lt; j</code>.</li>
+	<li>对于在&nbsp;<code>i &lt; k &lt; j</code>&nbsp;范围内的所有下标 <code>k</code> 有&nbsp;<code>nums[i] &lt;= nums[j]</code> 和&nbsp;<code>nums[k] &lt; nums[i]</code> , 或者</li>
+	<li>对于在&nbsp;<code>i &lt; k &lt; j</code>&nbsp;范围内的所有下标 <code>k</code>&nbsp;有&nbsp;<code>nums[i] &gt; nums[j]</code> 和&nbsp;<code>nums[k] &gt;= nums[i]</code>&nbsp;。</li>
 </ul>
 
-<p>You are also given an integer array <code>costs</code> of length <code>n</code> where <code>costs[i]</code> denotes the cost of jumping <strong>to</strong> index <code>i</code>.</p>
+<p>你还得到了一个长度为 <code>n</code> 的整数数组 <code>costs</code>，其中 <code>costs[i]</code> 表示跳转<strong>到</strong>下标 <code>i</code> 的代价。</p>
 
-<p>Return <em>the <strong>minimum</strong> cost to jump to the index </em><code>n - 1</code>.</p>
+<p>返回<em>跳转到</em>下标 <em><code>n - 1</code> 的最小代价。</em></p>
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [3,2,4,4,1], costs = [3,7,6,4,2]
-<strong>Output:</strong> 8
-<strong>Explanation:</strong> You start at index 0.
-- Jump to index 2 with a cost of costs[2] = 6.
-- Jump to index 4 with a cost of costs[4] = 2.
-The total cost is 8. It can be proven that 8 is the minimum cost needed.
-Two other possible paths are from index 0 -&gt; 1 -&gt; 4 and index 0 -&gt; 2 -&gt; 3 -&gt; 4.
-These have a total cost of 9 and 12, respectively.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [0,1,2], costs = [1,1,1]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> Start at index 0.
-- Jump to index 1 with a cost of costs[1] = 1.
-- Jump to index 2 with a cost of costs[2] = 1.
-The total cost is 2. Note that you cannot jump directly from index 0 to index 2 because nums[0] &lt;= nums[1].
+<strong>输入:</strong> nums = [3,2,4,4,1], costs = [3,7,6,4,2]
+<strong>输出:</strong> 8
+<strong>解释:</strong> 从下标 0 开始。
+- 以 costs[2]= 6 的代价跳转到下标 2。
+- 以 costs[4]= 2 的代价跳转到下标 4。
+总代价是 8。可以证明，8 是所需的最小代价。
+另外两个可能的路径是:下标 0 -&gt; 1 -&gt; 4 和下标 0 -&gt; 2 -&gt; 3 -&gt; 4。
+它们的总代价分别为9和12。
+</pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre>
+<strong>输入:</strong> nums = [0,1,2], costs = [1,1,1]
+<strong>输出:</strong> 2
+<strong>解释:</strong> 从下标 0 开始。
+- 以 costs[1] = 1 的代价跳转到下标 1。
+- 以 costs[2] = 1 的代价跳转到下标 2。
+总代价是 2。注意您不能直接从下标 0 跳转到下标 2，因为 nums[0] &lt;= nums[1]。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>解释:</strong></p>
 
 <ul>
 	<li><code>n == nums.length == costs.length</code></li>

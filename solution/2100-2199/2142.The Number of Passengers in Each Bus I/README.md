@@ -1,4 +1,4 @@
-# [2142. The Number of Passengers in Each Bus I](https://leetcode.cn/problems/the-number-of-passengers-in-each-bus-i)
+# [2142. 每辆车的乘客人数 I](https://leetcode.cn/problems/the-number-of-passengers-in-each-bus-i)
 
 [English Version](/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Buses</code></p>
+<p>表: <code>Buses</code></p>
 
 <pre>
 +--------------+------+
@@ -15,14 +15,13 @@
 | bus_id       | int  |
 | arrival_time | int  |
 +--------------+------+
-bus_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a bus at the LeetCode station.
-No two buses will arrive at the same time.
-</pre>
+bus_id 是该表的主键。
+该表的每一行都包含关于 LeetCode 站点的公交车到达时间的信息。
+不会出现两辆公交车会同时到达。</pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Passengers</code></p>
+<p>表: <code>Passengers</code></p>
 
 <pre>
 +--------------+------+
@@ -31,26 +30,25 @@ No two buses will arrive at the same time.
 | passenger_id | int  |
 | arrival_time | int  |
 +--------------+------+
-passenger_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a passenger at the LeetCode station.
+passenger_id 是该表的主键。
+该表的每一行都包含乘客到达 LeetCode 站的时间信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Buses and passengers arrive at the LeetCode station. If a bus arrives at the station at time <code>t<sub>bus</sub></code> and a passenger arrived at time <code>t<sub>passenger</sub></code> where <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code> and the passenger did not catch any bus, the passenger will use that bus.</p>
+<p>公交车和乘客到达 LeetCode 站。如果一辆公交车在时间 <code>t<sub>bus</sub></code> 到站，乘客在时间 <code>t<sub>passenger</sub></code> 到站，其中 <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code>，该乘客之前没有赶上任何公交车，则该乘客将搭乘该公交车。</p>
 
-<p>Write an SQL query to report the number of users that used each bus.</p>
+<p>编写一个 SQL 来查询使用每条总线的用户数量。</p>
 
-<p>Return the result table ordered by <code>bus_id</code> in <strong>ascending order</strong>.</p>
+<p>返回按 <code>bus_id</code> <strong>升序排序&nbsp;</strong>的结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下所示。</p>
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Buses table:
+<strong>输入:</strong> 
+Buses 表:
 +--------+--------------+
 | bus_id | arrival_time |
 +--------+--------------+
@@ -58,7 +56,7 @@ Buses table:
 | 2      | 4            |
 | 3      | 7            |
 +--------+--------------+
-Passengers table:
+Passengers 表:
 +--------------+--------------+
 | passenger_id | arrival_time |
 +--------------+--------------+
@@ -67,7 +65,7 @@ Passengers table:
 | 13           | 6            |
 | 14           | 7            |
 +--------------+--------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +--------+----------------+
 | bus_id | passengers_cnt |
 +--------+----------------+
@@ -75,17 +73,16 @@ Passengers table:
 | 2      | 0              |
 | 3      | 3              |
 +--------+----------------+
-<strong>Explanation:</strong> 
-- Passenger 11 arrives at time 1.
-- Bus 1 arrives at time 2 and collects passenger 11.
+<strong>解释:</strong> 
+- 11 号乘客在时间 1 到达。
+- 1 号公交车到达时间为 2，搭载 11 号乘客。
 
-- Bus 2 arrives at time 4 and does not collect any passengers.
+- 2 号公交车车在时间 4 到达，没有乘客。
 
-- Passenger 12 arrives at time 5.
-- Passenger 13 arrives at time 6.
-- Passenger 14 arrives at time 7.
-- Bus 3 arrives at time 7 and collects passengers 12, 13, and 14.
-</pre>
+- 12 号乘客在时间 5 到达。
+- 13 号乘客在时间 6 到达。
+- 14 号乘客在时间 7 到达。
+- 3 号车在时间 7 到达，搭载 12、13、14 号乘客。</pre>
 
 ## 解法
 

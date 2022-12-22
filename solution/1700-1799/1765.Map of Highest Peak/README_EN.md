@@ -168,7 +168,7 @@ class Solution {
                     }
                 }
             }
-            
+
         }
         return ans;
     }
@@ -181,7 +181,7 @@ class Solution {
 class Solution {
 public:
     const int dirs[5] = {-1, 0, 1, 0, -1};
-    
+
     vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
         int m = isWater.size(), n = isWater[0].size();
         vector<vector<int>> ans(m, vector<int>(n));
@@ -214,7 +214,7 @@ public:
 class Solution {
 public:
     const int dirs[5] = {-1, 0, 1, 0, -1};
-    
+
     vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
         int m = isWater.size(), n = isWater[0].size();
         vector<vector<int>> ans(m, vector<int>(n));
@@ -239,7 +239,7 @@ public:
                     }
                 }
             }
-            
+
         }
         return ans;
     }

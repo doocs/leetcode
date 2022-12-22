@@ -1,4 +1,4 @@
-# [2112. The Airport With the Most Traffic](https://leetcode.cn/problems/the-airport-with-the-most-traffic)
+# [2112. 最繁忙的机场](https://leetcode.cn/problems/the-airport-with-the-most-traffic)
 
 [English Version](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Flights</code></p>
+<p>表: <code>Flights</code></p>
 
 <pre>
 +-------------------+------+
@@ -16,24 +16,25 @@
 | arrival_airport   | int  |
 | flights_count     | int  |
 +-------------------+------+
-(departure_airport, arrival_airport) is the primary key column for this table.
-Each row of this table indicates that there were flights_count flights that departed from departure_airport and arrived at arrival_airport.
+(departure_airport, arrival_airport) 是该表的主键列。
+该表的每一行都表示从 departure_airport 出发并到达 arrival_airport 的 flights_count 航班。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the ID of the airport with the <strong>most traffic</strong>. The airport with the most traffic is the airport that has the largest total number of flights that either departed from or arrived at the airport. If there is more than one airport with the most traffic, report them all.</p>
+<p>编写一个 SQL 来查询&nbsp;<strong>流量最大&nbsp;</strong>的机场的 ID。客流量最大的机场是指从该机场起飞或抵达该机场的航班总数最多的机场。如果有多个机场流量最大，请全部查询出来。</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p data-group="1-1">以&nbsp;<strong>任意顺序&nbsp;</strong>返回结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Flights table:
+<strong>输入:</strong> 
+Flights 表:
 +-------------------+-----------------+---------------+
 | departure_airport | arrival_airport | flights_count |
 +-------------------+-----------------+---------------+
@@ -41,24 +42,24 @@ Flights table:
 | 2                 | 1               | 5             |
 | 2                 | 4               | 5             |
 +-------------------+-----------------+---------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +------------+
 | airport_id |
 +------------+
 | 2          |
 +------------+
-<strong>Explanation:</strong> 
-Airport 1 was engaged with 9 flights (4 departures, 5 arrivals).
-Airport 2 was engaged with 14 flights (10 departures, 4 arrivals).
-Airport 4 was engaged with 5 flights (5 arrivals).
-The airport with the most traffic is airport 2.
+<strong>解释:</strong> 
+1 号机场有 9 个航班 (4 个出发, 5 个到达).
+2 号机场有 14 个航班 (10 个出发, 4 个到达).
+4 号机场有 5 个航班 (5 个到达).
+客流量最大的机场是 2 号机场。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例&nbsp;2:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Flights table:
+<strong>输入:</strong> 
+Flights 表:
 +-------------------+-----------------+---------------+
 | departure_airport | arrival_airport | flights_count |
 +-------------------+-----------------+---------------+
@@ -68,7 +69,7 @@ Flights table:
 | 4                 | 3               | 4             |
 | 5                 | 6               | 7             |
 +-------------------+-----------------+---------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +------------+
 | airport_id |
 +------------+
@@ -77,15 +78,14 @@ Flights table:
 | 3          |
 | 4          |
 +------------+
-<strong>Explanation:</strong> 
-Airport 1 was engaged with 9 flights (4 departures, 5 arrivals).
-Airport 2 was engaged with 9 flights (5 departures, 4 arrivals).
-Airport 3 was engaged with 9 flights (5 departures, 4 arrivals).
-Airport 4 was engaged with 9 flights (4 departures, 5 arrivals).
-Airport 5 was engaged with 7 flights (7 departures).
-Airport 6 was engaged with 7 flights (7 arrivals).
-The airports with the most traffic are airports 1, 2, 3, and 4.
-</pre>
+<strong>解释:</strong> 
+1 号机场有 9 个航班 (4 个出发, 5 个到达).
+2 号机场有 9 个航班 (5 个出发, 4 个到达).
+3 号机场有 9 个航班 (5 个出发, 4 个到达).
+4 号机场有 9 个航班 (5 个出发, 4 个到达).
+5 号机场有 7 个航班 (7 个出发).
+6 号机场有 7 个航班 (7 个到达).
+流量最大的机场是机场 1、2、3 和 4。</pre>
 
 ## 解法
 

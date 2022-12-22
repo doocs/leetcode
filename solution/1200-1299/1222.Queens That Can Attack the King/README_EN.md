@@ -4,69 +4,37 @@
 
 ## Description
 
-<p>On an <strong>8x8</strong> chessboard, there can be multiple Black Queens and one White King.</p>
+<p>On a <strong>0-indexed</strong> <code>8 x 8</code> chessboard, there can be multiple black queens ad one white king.</p>
 
-<p>Given an array of integer coordinates <code>queens</code> that represents the positions of the Black Queens, and a pair of coordinates <code>king</code> that represent the position of the White King, return the coordinates of all the queens (in any order) that can attack the King.</p>
+<p>You are given a 2D integer array <code>queens</code> where <code>queens[i] = [xQueen<sub>i</sub>, yQueen<sub>i</sub>]</code> represents the position of the <code>i<sup>th</sup></code> black queen on the chessboard. You are also given an integer array <code>king</code> of length <code>2</code> where <code>king = [xKing, yKing]</code> represents the position of the white king.</p>
+
+<p>Return <em>the coordinates of the black queens that can directly attack the king</em>. You may return the answer in <strong>any order</strong>.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram.jpg" style="width: 321px; height: 321px;" /></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/chess1.jpg" style="width: 400px; height: 400px;" />
 <pre>
-
 <strong>Input:</strong> queens = [[0,1],[1,0],[4,0],[0,4],[3,3],[2,4]], king = [0,0]
-
 <strong>Output:</strong> [[0,1],[1,0],[3,3]]
-
-<strong>Explanation:</strong>&nbsp; 
-
-The queen at [0,1] can attack the king cause they&#39;re in the same row. 
-
-The queen at [1,0] can attack the king cause they&#39;re in the same column. 
-
-The queen at [3,3] can attack the king cause they&#39;re in the same diagnal. 
-
-The queen at [0,4] can&#39;t attack the king cause it&#39;s blocked by the queen at [0,1]. 
-
-The queen at [4,0] can&#39;t attack the king cause it&#39;s blocked by the queen at [1,0]. 
-
-The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/column/diagnal as the king.
-
+<strong>Explanation:</strong> The diagram above shows the three queens that can directly attack the king and the three queens that cannot attack the king (i.e., marked with red dashes).
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram-1.jpg" style="width: 321px; height: 321px;" /></strong></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/chess2.jpg" style="width: 400px; height: 400px;" />
 <pre>
-
 <strong>Input:</strong> queens = [[0,0],[1,1],[2,2],[3,4],[3,5],[4,4],[4,5]], king = [3,3]
-
 <strong>Output:</strong> [[2,2],[3,4],[4,4]]
-
+<strong>Explanation:</strong> The diagram above shows the three queens that can directly attack the king and the three queens that cannot attack the king (i.e., marked with red dashes).
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
-
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/images/untitled-diagram-2.jpg" style="width: 321px; height: 321px;" /></strong></p>
-
-<pre>
-
-<strong>Input:</strong> queens = [[5,6],[7,7],[2,1],[0,7],[1,6],[5,1],[3,7],[0,3],[4,0],[1,2],[6,3],[5,0],[0,4],[2,2],[1,1],[6,4],[5,4],[0,0],[2,6],[4,5],[5,2],[1,4],[7,5],[2,3],[0,5],[4,2],[1,0],[2,7],[0,1],[4,6],[6,1],[0,6],[4,3],[1,7]], king = [3,4]
-
-<strong>Output:</strong> [[2,3],[1,4],[1,6],[3,7],[4,3],[5,4],[4,5]]
-
-</pre>
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= queens.length&nbsp;&lt;= 63</code></li>
-	<li><code>queens[i].length == 2</code></li>
-	<li><code>0 &lt;= queens[i][j] &lt;&nbsp;8</code></li>
-	<li><code>king.length == 2</code></li>
-	<li><code>0 &lt;= king[0], king[1] &lt; 8</code></li>
-	<li>At most one piece is allowed in a cell.</li>
+	<li><code>1 &lt;= queens.length &lt; 64</code></li>
+	<li><code>queens[i].length == king.length == 2</code></li>
+	<li><code>0 &lt;= xQueen<sub>i</sub>, yQueen<sub>i</sub>, xKing, yKing &lt; 8</code></li>
+	<li>All the given positions are <strong>unique</strong>.</li>
 </ul>
 
 ## Solutions
