@@ -49,6 +49,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 数组/哈希表**
+
+题目求子数组中恰好有 $k$ 个奇数的子数组个数，我们可以求出每个前缀数组中奇数的个数 $t$，记录在数组或哈希表 `cnt` 中。对于每个前缀数组，我们只需要求出前缀数组中奇数个数为 $t-k$ 的前缀数组个数，即为以当前前缀数组结尾的子数组个数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +62,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfSubarrays(self, nums: List[int], k: int) -> int:
+        cnt = Counter({0: 1})
+        ans = t = 0
+        for v in nums:
+            t += v & 1
+            ans += cnt[t - k]
+            cnt[t] += 1
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +78,63 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfSubarrays(int[] nums, int k) {
+        int n = nums.length;
+        int[] cnt = new int[n + 1];
+        cnt[0] = 1;
+        int ans = 0, t = 0;
+        for (int v : nums) {
+            t += v & 1;
+            if (t - k >= 0) {
+                ans += cnt[t - k];
+            }
+            cnt[t]++;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfSubarrays(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> cnt(n + 1);
+        cnt[0] = 1;
+        int ans = 0, t = 0;
+        for (int& v : nums) {
+            t += v & 1;
+            if (t - k >= 0) {
+                ans += cnt[t - k];
+            }
+            cnt[t]++;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfSubarrays(nums []int, k int) (ans int) {
+	n := len(nums)
+	cnt := make([]int, n+1)
+	cnt[0] = 1
+	t := 0
+	for _, v := range nums {
+		t += v & 1
+		if t >= k {
+			ans += cnt[t-k]
+		}
+		cnt[t]++
+	}
+	return
+}
 ```
 
 ### **...**
