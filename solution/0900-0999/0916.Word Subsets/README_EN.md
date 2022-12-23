@@ -48,13 +48,136 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
+        cnt = Counter()
+        for b in words2:
+            t = Counter(b)
+            for c, v in t.items():
+                cnt[c] = max(cnt[c], v)
+        ans = []
+        for a in words1:
+            t = Counter(a)
+            if all(v <= t[c] for c, v in cnt.items()):
+                ans.append(a)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> wordSubsets(String[] words1, String[] words2) {
+        int[] cnt = new int[26];
+        for (var b : words2) {
+            int[] t = new int[26];
+            for (int i = 0; i < b.length(); ++i) {
+                t[b.charAt(i) - 'a']++;
+            }
+            for (int i = 0; i < 26; ++i) {
+                cnt[i] = Math.max(cnt[i], t[i]);
+            }
+        }
+        List<String> ans = new ArrayList<>();
+        for (var a : words1) {
+            int[] t = new int[26];
+            for (int i = 0; i < a.length(); ++i) {
+                t[a.charAt(i) - 'a']++;
+            }
+            boolean ok = true;
+            for (int i = 0; i < 26; ++i) {
+                if (cnt[i] > t[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans.add(a);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
+        int cnt[26] = {0};
+        int t[26];
+        for (auto& b : words2) {
+            memset(t, 0, sizeof t);
+            for (auto& c : b) {
+                t[c - 'a']++;
+            }
+            for (int i = 0; i < 26; ++i) {
+                cnt[i] = max(cnt[i], t[i]);
+            }
+        }
+        vector<string> ans;
+        for (auto& a : words1) {
+            memset(t, 0, sizeof t);
+            for (auto& c : a) {
+                t[c - 'a']++;
+            }
+            bool ok = true;
+            for (int i = 0; i < 26; ++i) {
+                if (cnt[i] > t[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans.emplace_back(a);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func wordSubsets(words1 []string, words2 []string) (ans []string) {
+	cnt := [26]int{}
+	for _, b := range words2 {
+		t := [26]int{}
+		for _, c := range b {
+			t[c-'a']++
+		}
+		for i := range cnt {
+			cnt[i] = max(cnt[i], t[i])
+		}
+	}
+	for _, a := range words1 {
+		t := [26]int{}
+		for _, c := range a {
+			t[c-'a']++
+		}
+		ok := true
+		for i, v := range cnt {
+			if v > t[i] {
+				ok = false
+				break
+			}
+		}
+		if ok {
+			ans = append(ans, a)
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
