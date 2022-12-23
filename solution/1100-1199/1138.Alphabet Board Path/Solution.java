@@ -1,38 +1,28 @@
 class Solution {
     public String alphabetBoardPath(String target) {
-        StringBuilder sb = new StringBuilder();
-        int x = 0, y = 0;
-        for (char c : target.toCharArray()) {
-            int dx = (c - 'a') / 5;
-            int dy = (c - 'a') % 5;
-            if (dy < y) {
-                int n = y - dy;
-                while (n-- > 0) {
-                    sb.append('L');
-                }
+        StringBuilder ans = new StringBuilder();
+        int i = 0, j = 0;
+        for (int k = 0; k < target.length(); ++k) {
+            int v = target.charAt(k) - 'a';
+            int x = v / 5, y = v % 5;
+            while (j > y) {
+                --j;
+                ans.append('L');
             }
-            if (dx > x) {
-                int n = dx - x;
-                while (n-- > 0) {
-                    sb.append('D');
-                }
+            while (i > x) {
+                --i;
+                ans.append('U');
             }
-            if (dx < x) {
-                int n = x - dx;
-                while (n-- > 0) {
-                    sb.append('U');
-                }
+            while (j < y) {
+                ++j;
+                ans.append('R');
             }
-            if (dy > y) {
-                int n = dy - y;
-                while (n-- > 0) {
-                    sb.append('R');
-                }
+            while (i < x) {
+                ++i;
+                ans.append('D');
             }
-            sb.append('!');
-            x = dx;
-            y = dy;
+            ans.append("!");
         }
-        return sb.toString();
+        return ans.toString();
     }
 }
