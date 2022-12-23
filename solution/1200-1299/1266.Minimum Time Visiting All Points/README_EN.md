@@ -81,20 +81,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minTimeToVisitAllPoints(points: number[][]): number {
-    let ans = 0;
-    for (let i = 1; i < points.length; i++) {
-        let dx = Math.abs(points[i][0] - points[i - 1][0]),
-            dy = Math.abs(points[i][1] - points[i - 1][1]);
-        ans += Math.max(dx, dy);
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -137,6 +123,53 @@ func abs(a int) int {
 		return a
 	}
 	return -a
+}
+```
+
+### **TypeScript**
+
+```ts
+function minTimeToVisitAllPoints(points: number[][]): number {
+    let ans = 0;
+    for (let i = 1; i < points.length; i++) {
+        let dx = Math.abs(points[i][0] - points[i - 1][0]),
+            dy = Math.abs(points[i][1] - points[i - 1][1]);
+        ans += Math.max(dx, dy);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_time_to_visit_all_points(points: Vec<Vec<i32>>) -> i32 {
+        let n = points.len();
+        let mut ans = 0;
+        for i in 1..n {
+            let x = (points[i - 1][0] - points[i][0]).abs();
+            let y = (points[i - 1][1] - points[i][1]).abs();
+            ans += x.max(y);
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int minTimeToVisitAllPoints(int **points, int pointsSize, int *pointsColSize) {
+    int ans = 0;
+    for (int i = 1; i < pointsSize; i++) {
+        int x = abs(points[i - 1][0] - points[i][0]);
+        int y = abs(points[i - 1][1] - points[i][1]);
+        ans += max(x, y);
+    }
+    return ans;
 }
 ```
 

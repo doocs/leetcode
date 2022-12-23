@@ -72,21 +72,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function decompressRLElist(nums: number[]): number[] {
-    let n = nums.length >> 1;
-    let ans = [];
-    for (let i = 0; i < n; i++) {
-        let freq = nums[2 * i],
-            val = nums[2 * i + 1];
-        ans.push(...new Array(freq).fill(val));
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -115,6 +100,60 @@ func decompressRLElist(nums []int) []int {
 		}
 	}
 	return res
+}
+```
+
+### **TypeScript**
+
+```ts
+function decompressRLElist(nums: number[]): number[] {
+    let n = nums.length >> 1;
+    let ans = [];
+    for (let i = 0; i < n; i++) {
+        let freq = nums[2 * i],
+            val = nums[2 * i + 1];
+        ans.push(...new Array(freq).fill(val));
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn decompress_rl_elist(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len() >> 1;
+        let mut ans = Vec::new();
+        for i in 0..n {
+            for _ in 0..nums[2 * i] {
+                ans.push(nums[2 * i + 1]);
+            }
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *decompressRLElist(int *nums, int numsSize, int *returnSize) {
+    int size = 0;
+    for (int i = 0; i < numsSize; i += 2) {
+        size += nums[i];
+    }
+    int *ans = malloc(size * sizeof(int));
+    for (int i = 0, j = 0; j < numsSize; j += 2) {
+        for (int k = 0; k < nums[j]; k++) {
+            ans[i++] = nums[j + 1];
+        }
+    }
+    *returnSize = size;
+    return ans;
 }
 ```
 
