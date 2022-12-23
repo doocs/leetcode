@@ -59,6 +59,12 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：字符串比较**
+
+将日志的 `id` 和 `timestamp` 作为元组存入数组中，然后在 `retrieve()` 方法中，根据 `granularity` 截取 `start` 和 `end` 的相应部分，然后遍历数组，将符合条件的 `id` 加入结果数组中。
+
+时间复杂度方面，`put()` 方法的时间复杂度为 $O(1)$，`retrieve()` 方法的时间复杂度为 $O(n)$，其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +72,30 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class LogSystem:
+    def __init__(self):
+        self.logs = []
+        self.d = {
+            "Year": 4,
+            "Month": 7,
+            "Day": 10,
+            "Hour": 13,
+            "Minute": 16,
+            "Second": 19,
+        }
 
+    def put(self, id: int, timestamp: str) -> None:
+        self.logs.append((id, timestamp))
+
+    def retrieve(self, start: str, end: str, granularity: str) -> List[int]:
+        i = self.d[granularity]
+        return [id for id, ts in self.logs if start[:i] <= ts[:i] <= end[:i]]
+
+
+# Your LogSystem object will be instantiated and called as such:
+# obj = LogSystem()
+# obj.put(id,timestamp)
+# param_2 = obj.retrieve(start,end,granularity)
 ```
 
 ### **Java**
@@ -74,7 +103,148 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class LogSystem {
+    private List<Log> logs = new ArrayList<>();
+    private Map<String, Integer> d = new HashMap<>();
 
+    public LogSystem() {
+        d.put("Year", 4);
+        d.put("Month", 7);
+        d.put("Day", 10);
+        d.put("Hour", 13);
+        d.put("Minute", 16);
+        d.put("Second", 19);
+    }
+
+    public void put(int id, String timestamp) {
+        logs.add(new Log(id, timestamp));
+    }
+
+    public List<Integer> retrieve(String start, String end, String granularity) {
+        List<Integer> ans = new ArrayList<>();
+        int i = d.get(granularity);
+        String s = start.substring(0, i);
+        String e = end.substring(0, i);
+        for (var log : logs) {
+            String t = log.ts.substring(0, i);
+            if (s.compareTo(t) <= 0 && t.compareTo(e) <= 0) {
+                ans.add(log.id);
+            }
+        }
+        return ans;
+    }
+}
+
+class Log {
+    int id;
+    String ts;
+
+    Log(int id, String ts) {
+        this.id = id;
+        this.ts = ts;
+    }
+}
+
+/**
+ * Your LogSystem object will be instantiated and called as such:
+ * LogSystem obj = new LogSystem();
+ * obj.put(id,timestamp);
+ * List<Integer> param_2 = obj.retrieve(start,end,granularity);
+ */
+```
+
+### **C++**
+
+```cpp
+class LogSystem {
+public:
+    LogSystem() {
+        d["Year"] = 4;
+        d["Month"] = 7;
+        d["Day"] = 10;
+        d["Hour"] = 13;
+        d["Minute"] = 16;
+        d["Second"] = 19;
+    }
+
+    void put(int id, string timestamp) {
+        logs.push_back({id, timestamp});
+    }
+
+    vector<int> retrieve(string start, string end, string granularity) {
+        vector<int> ans;
+        int i = d[granularity];
+        auto s = start.substr(0, i);
+        auto e = end.substr(0, i);
+        for (auto& [id, ts] : logs) {
+            auto t = ts.substr(0, i);
+            if (s <= t && t <= e) {
+                ans.emplace_back(id);
+            }
+        }
+        return ans;
+    }
+
+private:
+    vector<pair<int, string>> logs;
+    unordered_map<string, int> d;
+};
+
+/**
+ * Your LogSystem object will be instantiated and called as such:
+ * LogSystem* obj = new LogSystem();
+ * obj->put(id,timestamp);
+ * vector<int> param_2 = obj->retrieve(start,end,granularity);
+ */
+```
+
+### **Go**
+
+```go
+type LogSystem struct {
+	logs []pair
+	d    map[string]int
+}
+
+func Constructor() LogSystem {
+	d := map[string]int{
+		"Year":   4,
+		"Month":  7,
+		"Day":    10,
+		"Hour":   13,
+		"Minute": 16,
+		"Second": 19,
+	}
+	return LogSystem{[]pair{}, d}
+}
+
+func (this *LogSystem) Put(id int, timestamp string) {
+	this.logs = append(this.logs, pair{id, timestamp})
+}
+
+func (this *LogSystem) Retrieve(start string, end string, granularity string) (ans []int) {
+	i := this.d[granularity]
+	s, e := start[:i], end[:i]
+	for _, log := range this.logs {
+		t := log.ts[:i]
+		if s <= t && t <= e {
+			ans = append(ans, log.id)
+		}
+	}
+	return
+}
+
+type pair struct {
+	id int
+	ts string
+}
+
+/**
+ * Your LogSystem object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Put(id,timestamp);
+ * param_2 := obj.Retrieve(start,end,granularity);
+ */
 ```
 
 ### **...**
