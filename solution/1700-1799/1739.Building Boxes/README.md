@@ -61,6 +61,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学规律**
+
+根据题目描述，层数最高的盒子需要放在墙角，并且盒子的摆放呈阶梯状，这样可以使得接触地面的盒子数量最少。
+
+假设盒子摆放 $k$ 层，从上到下，每一层如果摆满，那么个数分别是 $1, 1+2, 1+2+3, \cdots, 1+2+\cdots+k$。
+
+如果此时盒子还有剩余，那么可以从最低一层继续摆放，假设摆放 $i$ 个，那么累计可摆放的盒子个数为 $1+2+\cdots+i$。
+
+时间复杂度 $O(\sqrt{n})$，空间复杂度 $O(1)$。其中 $n$ 为题目给定的盒子数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +78,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumBoxes(self, n: int) -> int:
+        s, k = 0, 1
+        while s + k * (k + 1) // 2 <= n:
+            s += k * (k + 1) // 2
+            k += 1
+        k -= 1
+        ans = k * (k + 1) // 2
+        k = 1
+        while s < n:
+            ans += 1
+            s += k
+            k += 1
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +99,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumBoxes(int n) {
+        int s = 0, k = 1;
+        while (s + k * (k + 1) / 2 <= n) {
+            s += k * (k + 1) / 2;
+            ++k;
+        }
+        --k;
+        int ans = k * (k + 1) / 2;
+        k = 1;
+        while (s < n) {
+            ++ans;
+            s += k;
+            ++k;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumBoxes(int n) {
+        int s = 0, k = 1;
+        while (s + k * (k + 1) / 2 <= n) {
+            s += k * (k + 1) / 2;
+            ++k;
+        }
+        --k;
+        int ans = k * (k + 1) / 2;
+        k = 1;
+        while (s < n) {
+            ++ans;
+            s += k;
+            ++k;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumBoxes(n int) int {
+	s, k := 0, 1
+	for s+k*(k+1)/2 <= n {
+		s += k * (k + 1) / 2
+		k++
+	}
+	k--
+	ans := k * (k + 1) / 2
+	k = 1
+	for s < n {
+		ans++
+		s += k
+		k++
+	}
+	return ans
+}
 ```
 
 ### **...**

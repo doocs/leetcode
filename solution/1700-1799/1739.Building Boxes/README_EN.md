@@ -60,13 +60,88 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumBoxes(self, n: int) -> int:
+        s, k = 0, 1
+        while s + k * (k + 1) // 2 <= n:
+            s += k * (k + 1) // 2
+            k += 1
+        k -= 1
+        ans = k * (k + 1) // 2
+        k = 1
+        while s < n:
+            ans += 1
+            s += k
+            k += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumBoxes(int n) {
+        int s = 0, k = 1;
+        while (s + k * (k + 1) / 2 <= n) {
+            s += k * (k + 1) / 2;
+            ++k;
+        }
+        --k;
+        int ans = k * (k + 1) / 2;
+        k = 1;
+        while (s < n) {
+            ++ans;
+            s += k;
+            ++k;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumBoxes(int n) {
+        int s = 0, k = 1;
+        while (s + k * (k + 1) / 2 <= n) {
+            s += k * (k + 1) / 2;
+            ++k;
+        }
+        --k;
+        int ans = k * (k + 1) / 2;
+        k = 1;
+        while (s < n) {
+            ++ans;
+            s += k;
+            ++k;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumBoxes(n int) int {
+	s, k := 0, 1
+	for s+k*(k+1)/2 <= n {
+		s += k * (k + 1) / 2
+		k++
+	}
+	k--
+	ans := k * (k + 1) / 2
+	k = 1
+	for s < n {
+		ans++
+		s += k
+		k++
+	}
+	return ans
+}
 ```
 
 ### **...**
