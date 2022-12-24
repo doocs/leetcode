@@ -50,6 +50,16 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们先用一个长度为 $101$ 的数组 `cnt` 记录数组 `arr` 中每个元素出现的次数。
+
+然后枚举数组 `arr` 中的元素作为三元组的第二个元素 $b$，先让 `cnt` 减去其中一个 $b$。接着从数组 `arr` 的开头开始枚举第一个元素 $a$，那么第三个元素 $c$ 为 $target - a - b$。如果 $c$ 的值在数组 `cnt` 的范围内，那么答案加上 $cnt[c]$。
+
+注意答案的取模操作。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(C)$。其中 $n$ 为数组 `arr` 的长度，而 $C$ 为数组 `cnt` 的长度。本题中 $C = 101$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +67,18 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def threeSumMulti(self, arr: List[int], target: int) -> int:
+        cnt = Counter(arr)
+        ans = 0
+        mod = 10**9 + 7
+        for j, b in enumerate(arr):
+            cnt[b] -= 1
+            for i in range(j):
+                a = arr[i]
+                c = target - a - b
+                ans = (ans + cnt[c]) % mod
+        return ans
 ```
 
 ### **Java**
@@ -65,7 +86,29 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int threeSumMulti(int[] arr, int target) {
+        int[] cnt = new int[101];
+        for (int v : arr) {
+            ++cnt[v];
+        }
+        long ans = 0;
+        for (int j = 0; j < arr.length; ++j) {
+            int b = arr[j];
+            --cnt[b];
+            for (int i = 0; i < j; ++i) {
+                int a = arr[i];
+                int c = target - a - b;
+                if (c >= 0 && c <= 100) {
+                    ans = (ans + cnt[c]) % MOD;
+                }
+            }
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
@@ -73,24 +116,60 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 ```cpp
 class Solution {
 public:
+    const int mod = 1e9 + 7;
+
     int threeSumMulti(vector<int>& arr, int target) {
-        unordered_map<int, long> c;
-        for (int a : arr) c[a]++;
-        long res = 0;
-        for (auto it : c)
-            for (auto it2 : c) {
-                int i = it.first, j = it2.first, k = target - i - j;
-                if (!c.count(k)) continue;
-                if (i == j && j == k)
-                    res += c[i] * (c[i] - 1) * (c[i] - 2) / 6;
-                else if (i == j && j != k)
-                    res += c[i] * (c[i] - 1) / 2 * c[k];
-                else if (i < j && j < k)
-                    res += c[i] * c[j] * c[k];
+        int cnt[101] = {0};
+        for (int& v : arr) {
+            ++cnt[v];
+        }
+        long ans = 0;
+        for (int j = 0; j < arr.size(); ++j) {
+            int b = arr[j];
+            --cnt[b];
+            for (int i = 0; i < j; ++i) {
+                int a = arr[i];
+                int c = target - a - b;
+                if (c >= 0 && c <= 100) {
+                    ans += cnt[c];
+                    ans %= mod;
+                }
             }
-        return res % int(1e9 + 7);
+        }
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func threeSumMulti(arr []int, target int) int {
+	const mod int = 1e9 + 7
+	cnt := [101]int{}
+	for _, v := range arr {
+		cnt[v]++
+	}
+	ans := 0
+	for j, b := range arr {
+		cnt[b]--
+		for i := 0; i < j; i++ {
+			a := arr[i]
+			c := target - a - b
+			if c >= 0 && c <= 100 {
+				ans += cnt[c]
+				ans %= mod
+			}
+		}
+	}
+	return ans
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->
