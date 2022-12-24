@@ -3,23 +3,28 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode removeZeroSumSublists(ListNode head) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        Map<Integer, ListNode> preSumNode = new HashMap<>();
+        ListNode dummy = new ListNode(0, head);
+        Map<Integer, ListNode> last = new HashMap<>();
         int s = 0;
-        for (ListNode cur = dummy; cur != null; cur = cur.next) {
+        ListNode cur = dummy;
+        while (cur != null) {
             s += cur.val;
-            preSumNode.put(s, cur);
+            last.put(s, cur);
+            cur = cur.next;
         }
         s = 0;
-        for (ListNode cur = dummy; cur != null; cur = cur.next) {
+        cur = dummy;
+        while (cur != null) {
             s += cur.val;
-            cur.next = preSumNode.get(s).next;
+            cur.next = last.get(s).next;
+            cur = cur.next;
         }
         return dummy.next;
     }
