@@ -155,6 +155,87 @@ func largestMerge(word1 string, word2 string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function largestMerge(word1: string, word2: string): string {
+    const m = word1.length;
+    const n = word2.length;
+    let ans = '';
+    let i = 0;
+    let j = 0;
+    while (i < m && j < n) {
+        ans += word1.slice(i) > word2.slice(j) ? word1[i++] : word2[j++];
+    }
+    ans += word1.slice(i);
+    ans += word2.slice(j);
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn largest_merge(word1: String, word2: String) -> String {
+        let word1 = word1.as_bytes();
+        let word2 = word2.as_bytes();
+        let m = word1.len();
+        let n = word2.len();
+        let mut ans = String::new();
+        let mut i = 0;
+        let mut j = 0;
+        while i < m && j < n {
+            if word1[i..] > word2[j..] {
+                ans.push(word1[i] as char);
+                i += 1;
+            } else {
+                ans.push(word2[j] as char);
+                j += 1;
+            }
+        }
+        word1[i..].iter().for_each(|c| ans.push(*c as char));
+        word2[j..].iter().for_each(|c| ans.push(*c as char));
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+char *largestMerge(char *word1, char *word2) {
+    int m = strlen(word1);
+    int n = strlen(word2);
+    int i = 0;
+    int j = 0;
+    char *ans = malloc((m + n + 1) * sizeof(char));
+    while (i < m && j < n) {
+        int k = 0;
+        while (word1[i + k] && word2[j + k] && word1[i + k] == word2[j + k]) {
+            k++;
+        }
+        if (word1[i + k] > word2[j + k]) {
+            ans[i + j] = word1[i];
+            i++;
+        } else {
+            ans[i + j] = word2[j];
+            j++;
+        };
+    }
+    while (word1[i]) {
+        ans[i + j] = word1[i];
+        i++;
+    }
+    while (word2[j]) {
+        ans[i + j] = word2[j];
+        j++;
+    }
+    ans[m + n] = '\0';
+    return ans;
+}
+```
+
 ### **...**
 
 ```
