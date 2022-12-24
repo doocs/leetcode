@@ -1,27 +1,27 @@
 class Solution {
     public int findShortestSubArray(int[] nums) {
-        Map<Integer, int[]> mapper = new HashMap<>();
-        for (int i = 0, n = nums.length; i < n; ++i) {
-            if (mapper.containsKey(nums[i])) {
-                int[] arr = mapper.get(nums[i]);
-                ++arr[0];
-                arr[2] = i;
-            } else {
-                int[] arr = new int[] {1, i, i};
-                mapper.put(nums[i], arr);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        Map<Integer, Integer> left = new HashMap<>();
+        Map<Integer, Integer> right = new HashMap<>();
+        int degree = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            int v = nums[i];
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            degree = Math.max(degree, cnt.get(v));
+            if (!left.containsKey(v)) {
+                left.put(v, i);
+            }
+            right.put(v, i);
+        }
+        int ans = 1000000;
+        for (int v : nums) {
+            if (cnt.get(v) == degree) {
+                int t = right.get(v) - left.get(v) + 1;
+                if (ans > t) {
+                    ans = t;
+                }
             }
         }
-
-        int maxDegree = 0, minLen = 0;
-        for (Map.Entry<Integer, int[]> entry : mapper.entrySet()) {
-            int[] arr = entry.getValue();
-            if (maxDegree < arr[0]) {
-                maxDegree = arr[0];
-                minLen = arr[2] - arr[1] + 1;
-            } else if (maxDegree == arr[0]) {
-                minLen = Math.min(minLen, arr[2] - arr[1] + 1);
-            }
-        }
-        return minLen;
+        return ans;
     }
 }
