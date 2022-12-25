@@ -123,7 +123,54 @@ func countAsterisks(s string) int {
 ### **TypeScript**
 
 ```ts
+function countAsterisks(s: string): number {
+    let ans = 0;
+    let flag = true;
+    for (const c of s) {
+        if (c === '|') {
+            flag = !flag;
+        } else if (c === '*' && flag) {
+            ans++;
+        }
+    }
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_asterisks(s: String) -> i32 {
+        let mut ans = 0;
+        let mut flag = true;
+        for &c in s.as_bytes() {
+            if c == b'|' {
+                flag = !flag;
+            } else if c == b'*' && flag {
+                ans += 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int countAsterisks(char *s) {
+    int ans = 0;
+    int flag = 1;
+    for (int i = 0; s[i]; i++) {
+        if (s[i] == '|') {
+            flag = !flag;
+        } else if (s[i] == '*' && flag) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
