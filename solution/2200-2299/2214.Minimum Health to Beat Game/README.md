@@ -1,4 +1,4 @@
-# [2214. Minimum Health to Beat Game](https://leetcode.cn/problems/minimum-health-to-beat-game)
+# [2214. 通关游戏所需的最低生命值](https://leetcode.cn/problems/minimum-health-to-beat-game)
 
 [English Version](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README_EN.md)
 
@@ -6,55 +6,56 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are playing a game that has <code>n</code> levels numbered from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>damage</code> where <code>damage[i]</code> is the amount of health you will lose to complete the <code>i<sup>th</sup></code> level.</p>
+<p>你正在玩一个有 <code>n</code> 个关卡的游戏，从 <code>0</code> 到 <code>n - 1</code>。给你一个&nbsp;<strong>下标从 0&nbsp;开始&nbsp;</strong>的整数数组 <code>damage</code>，其中 <code>damage[i]</code> 是你完成第 <code>i</code> 个关卡所损失的生命值。</p>
 
-<p>You are also given an integer <code>armor</code>. You may use your armor ability <strong>at most once</strong> during the game on <strong>any</strong> level which will protect you from <strong>at most</strong> <code>armor</code> damage.</p>
+<p>你也会得到一个整数 <code>armor</code>。你最多只能在&nbsp;<strong>任何&nbsp;</strong>等级使用&nbsp;<strong>一次&nbsp;</strong>护甲技能，这将保护你免受 <strong>最多</strong>&nbsp;<code>armor</code> 伤害。</p>
 
-<p>You must complete the levels in order and your health must be <strong>greater than</strong> <code>0</code> at all times to beat the game.</p>
+<p>你必须按顺序完成关卡，并且你的生命值必须一直&nbsp;<strong>大于</strong> <code>0</code> 才能通关。</p>
 
-<p>Return <em>the <strong>minimum</strong> health you need to start with to beat the game.</em></p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> damage = [2,7,4,3], armor = 4
-<strong>Output:</strong> 13
-<strong>Explanation:</strong> One optimal way to beat the game starting at 13 health is:
-On round 1, take 2 damage. You have 13 - 2 = 11 health.
-On round 2, take 7 damage. You have 11 - 7 = 4 health.
-On round 3, use your armor to protect you from 4 damage. You have 4 - 0 = 4 health.
-On round 4, take 3 damage. You have 4 - 3 = 1 health.
-Note that 13 is the minimum health you need to start with to beat the game.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> damage = [2,5,3,4], armor = 7
-<strong>Output:</strong> 10
-<strong>Explanation:</strong> One optimal way to beat the game starting at 10 health is:
-On round 1, take 2 damage. You have 10 - 2 = 8 health.
-On round 2, use your armor to protect you from 5 damage. You have 8 - 0 = 8 health.
-On round 3, take 3 damage. You have 8 - 3 = 5 health.
-On round 4, take 4 damage. You have 5 - 4 = 1 health.
-Note that 10 is the minimum health you need to start with to beat the game.
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> damage = [3,3,3], armor = 0
-<strong>Output:</strong> 10
-<strong>Explanation:</strong> One optimal way to beat the game starting at 10 health is:
-On round 1, take 3 damage. You have 10 - 3 = 7 health.
-On round 2, take 3 damage. You have 7 - 3 = 4 health.
-On round 3, take 3 damage. You have 4 - 3 = 1 health.
-Note that you did not use your armor ability.
-</pre>
+<p>返回<em>你开始通关所需的最低生命值。</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> damage = [2,7,4,3], armor = 4
+<strong>输出:</strong> 13
+<strong>解释:</strong> 从 13 生命值开始通关游戏的最佳方法是:
+第 1 回合，受到 2 点伤害。你还有 13 - 2 = 11 生命值。
+第 2 回合，受到 7 点伤害。你还有 11 - 7 = 4 生命值。
+第 3 回合，使用你的护甲保护你免受 4 点伤害。你有 4 - 0 = 4 生命值。
+第 4 回合，受到 3 点伤害。你还有 4 - 3 = 1 生命值。
+注意，13 是你开始时通关游戏所需的最低生命值。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> damage = [2,5,3,4], armor = 7
+<strong>输出:</strong> 10
+<strong>解释:</strong> 从 10 生命值开始通关游戏的最佳方法是:
+第 1 回合，受到 2 点伤害。你还有 10 - 2 = 8 生命值。
+第 2 回合，使用护甲保护自己免受 5 点伤害。你还有 8 - 0 = 8 生命值。
+第 3 回合，受到 3 点伤害。你还有 8 - 3 = 5 生命值。
+第 4 回合，受到 4 点伤害。你还有 5 - 4 = 1 生命值。
+注意，10 是你开始通关所需的最低生命值。
+</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> damage = [3,3,3], armor = 0
+<strong>输出:</strong> 10
+<strong>解释:</strong> 从 10 生命值开始通关游戏的最佳方法是:
+第 1 回合，受到 2 点伤害。你还有 10 - 3 = 7 生命值。
+第 2 回合，受到 3 点伤害。你还有 7 - 3 = 4 生命值。
+第 3 回合， 受到 3 点伤害。你还有 4 - 3 = 1 生命值。
+注意你没有使用护甲技能。</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>n == damage.length</code></li>

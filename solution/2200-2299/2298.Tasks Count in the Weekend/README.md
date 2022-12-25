@@ -1,4 +1,4 @@
-# [2298. Tasks Count in the Weekend](https://leetcode.cn/problems/tasks-count-in-the-weekend)
+# [2298. 周末任务计数](https://leetcode.cn/problems/tasks-count-in-the-weekend)
 
 [English Version](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Tasks</code></p>
+<p>表: <code>Tasks</code></p>
 
 <pre>
 +-------------+------+
@@ -16,29 +16,29 @@
 | assignee_id | int  |
 | submit_date | date |
 +-------------+------+
-task_id is the primary key for this table.
-Each row in this table contains the ID of a task, the id of the assignee, and the submission date.
+task_id 是此表的主键。
+此表中的每一行都包含任务 ID、委托人 ID 和提交日期。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report:</p>
+<p>编写一个 SQL 来查询：</p>
 
 <ul>
-	<li>the number of the tasks that were submitted during the weekend (Saturday, Sunday) as <code>weekend_cnt</code>, and</li>
-	<li>the number of the tasks that were submitted during the working days as <code>working_cnt</code>.</li>
+	<li>在周末 (周六，周日) 提交的任务的数量&nbsp;<code>weekend_cnt</code>，以及</li>
+	<li>工作日内提交的任务数 <code>working_cnt</code>。</li>
 </ul>
 
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is shown in the following example.</p>
+<p>按 <strong>任意顺序</strong> 返回结果表。<br />
+查询结果格式如以下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Tasks table:
+<strong>输入:</strong> 
+Tasks 表:
 +---------+-------------+-------------+
 | task_id | assignee_id | submit_date |
 +---------+-------------+-------------+
@@ -49,21 +49,21 @@ Tasks table:
 | 5       | 5           | 2022-06-19  |
 | 6       | 7           | 2022-06-19  |
 +---------+-------------+-------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +-------------+-------------+
 | weekend_cnt | working_cnt |
 +-------------+-------------+
 | 3           | 3           |
 +-------------+-------------+
-<strong>Explanation:</strong> 
-Task 1 was submitted on Monday.
-Task 2 was submitted on Tuesday.
-Task 3 was submitted on Wednesday.
-Task 4 was submitted on Saturday.
-Task 5 was submitted on Sunday.
-Task 6 was submitted on Sunday.
-3 tasks were submitted during the weekend.
-3 tasks were submitted during the working days.
+<strong>解释:</strong> 
+Task 1 是在周一提交的。
+Task 2 是在周二提交的。
+Task 3 是在周三提交的。
+Task 4 是在周六提交的。
+Task 5 是在周日提交的。
+Task 6 是在周日提交的。
+3 个任务是在周末提交的。
+3 个任务是在工作日提交的。
 </pre>
 
 ## 解法

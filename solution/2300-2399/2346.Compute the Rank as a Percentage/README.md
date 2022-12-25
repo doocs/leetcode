@@ -1,4 +1,4 @@
-# [2346. Compute the Rank as a Percentage](https://leetcode.cn/problems/compute-the-rank-as-a-percentage)
+# [2346. 以百分比计算排名](https://leetcode.cn/problems/compute-the-rank-as-a-percentage)
 
 [English Version](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Students</code></p>
+<p>表: <code>Students</code></p>
 
 <pre>
 +---------------+------+
@@ -16,24 +16,31 @@
 | department_id | int  |
 | mark          | int  |
 +---------------+------+
-student_id is the primary key of this table.
-Each row of this table indicates a student&#39;s ID, the ID of the department in which the student enrolled, and their mark in the exam.
+student_id 是该表的主键。
+该表的每一行都表示一个学生的 ID，该学生就读的院系 ID，以及他们的考试分数。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the rank of each student in their department as a percentage, where the rank as a percentage is computed using the following formula: <code>(student_rank_in_the_department - 1) * 100 / (the_number_of_students_in_the_department - 1)</code>. The <code>percentage</code> should be <strong>rounded to 2 decimal places</strong>. <code>student_rank_in_the_department</code> is determined by <strong>descending</strong><b> </b><code>mark</code>, such that the student with the highest <code>mark</code> is <code>rank 1</code>. If two students get the same mark, they also get the same rank.</p>
+<p>编写一个 SQL 查询，以百分比的形式报告每个学生在其部门的排名，其中排名的百分比使用以下公式计算:</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p><code>(student_rank_in_the_department - 1) * 100 / (the_number_of_students_in_the_department - 1)</code>。&nbsp;<code>percentage</code> 应该&nbsp;<strong>四舍五入到小数点后两位</strong>。&nbsp;</p>
 
-<p>The query result format is in the following example.</p>
+<p><code>student_rank_in_the_department</code>&nbsp;由<b>&nbsp;</b><code>mark</code>&nbsp;的降序决定，<code>mark</code> 最高的学生是&nbsp; <code>rank 1</code>。如果两个学生得到相同的分数，他们也会得到相同的排名。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
+
+<p>查询结果格式如下所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Students table:
+<strong>输入:</strong> 
+Students 表:
 +------------+---------------+------+
 | student_id | department_id | mark |
 +------------+---------------+------+
@@ -43,7 +50,7 @@ Students table:
 | 1          | 1             | 610  |
 | 3          | 1             | 530  |
 +------------+---------------+------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +------------+---------------+------------+
 | student_id | department_id | percentage |
 +------------+---------------+------------+
@@ -53,14 +60,14 @@ Students table:
 | 2          | 2             | 0.0        |
 | 8          | 2             | 0.0        |
 +------------+---------------+------------+
-<strong>Explanation:</strong> 
-For Department 1:
- - Student 7: percentage = (1 - 1) * 100 / (3 - 1) = 0.0
- - Student 1: percentage = (2 - 1) * 100 / (3 - 1) = 50.0
- - Student 3: percentage = (3 - 1) * 100 / (3 - 1) = 100.0
-For Department 2:
- - Student 2: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
- - Student 8: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
+<strong>解释:</strong> 
+对于院系 1:
+ - 学生 7:percentage = (1 - 1)* 100 / (3 - 1) = 0.0
+ - 学生 1:percentage = (2 - 1)* 100 / (3 - 1) = 50.0
+ - 学生 3:percentage = (3 - 1)* 100 / (3 - 1) = 100.0
+对于院系 2:
+ - 学生 2: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
+ - 学生 8: percentage = (1 - 1) * 100 / (2 - 1) = 0.0
 </pre>
 
 ## 解法

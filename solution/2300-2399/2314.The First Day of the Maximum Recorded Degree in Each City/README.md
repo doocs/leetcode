@@ -1,4 +1,4 @@
-# [2314. The First Day of the Maximum Recorded Degree in Each City](https://leetcode.cn/problems/the-first-day-of-the-maximum-recorded-degree-in-each-city)
+# [2314. 每个城市最高气温的第一天](https://leetcode.cn/problems/the-first-day-of-the-maximum-recorded-degree-in-each-city)
 
 [English Version](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Weather</code></p>
+<p>表: <code>Weather</code></p>
 
 <pre>
 +-------------+------+
@@ -16,25 +16,26 @@
 | day         | date |
 | degree      | int  |
 +-------------+------+
-(city_id, day) is the primary key for this table.
-Each row in this table contains the degree of the weather of a city on a certain day.
-All the degrees are recorded in the year 2022.
+(city_id, day) 是该表的主键。
+该表中的每一行都包含某一天某个城市的天气程度。
+所有的学位都是在 2022 年获得的。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the day that has the maximum recorded degree in each city. If the maximum degree was recorded for the same city multiple times, return the earliest day among them.</p>
+<p>编写一个 SQL 来查询每个城市中有最高温度记录的日子。如果同一城市多次记录最高气温，则返回其中最早的一天。</p>
 
-<p>Return the result table ordered by <code>city_id</code> in <strong>ascending order</strong>.</p>
+<p>返回按 <code>city_id</code> <strong>升序排序&nbsp;</strong>的结果表。</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>查询结果格式示例如下。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Weather table:
+<strong>输入:</strong> 
+Weather 表:
 +---------+------------+--------+
 | city_id | day        | degree |
 +---------+------------+--------+
@@ -46,7 +47,7 @@ Weather table:
 | 3       | 2022-02-07 | -7     |
 | 3       | 2022-12-07 | -6     |
 +---------+------------+--------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +---------+------------+--------+
 | city_id | day        | degree |
 +---------+------------+--------+
@@ -54,10 +55,10 @@ Weather table:
 | 2       | 2022-08-07 | 37     |
 | 3       | 2022-12-07 | -6     |
 +---------+------------+--------+
-<strong>Explanation:</strong> 
-For city 1, the maximum degree was recorded on 2022-07-07 with 24 degrees.
-For city 1, the maximum degree was recorded on 2022-08-07 and 2022-08-17 with 37 degrees. We choose the earlier date (2022-08-07).
-For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
+<strong>解释:</strong> 
+城市 1 的最高气温出现在 2022-07-07，为24度。
+城市 2 的最高气温出现在 2022-08-07 和 2022-08-17，为37度。我们选择较早的日期 (2022-08-07)。
+城市 3 的最高气温记录在 2022-12-07 年，为-6 度。
 </pre>
 
 ## 解法

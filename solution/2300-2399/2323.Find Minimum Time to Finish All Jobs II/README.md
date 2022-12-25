@@ -1,4 +1,4 @@
-# [2323. Find Minimum Time to Finish All Jobs II](https://leetcode.cn/problems/find-minimum-time-to-finish-all-jobs-ii)
+# [2323. 完成所有工作的最短时间 II](https://leetcode.cn/problems/find-minimum-time-to-finish-all-jobs-ii)
 
 [English Version](/solution/2300-2399/2323.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs%20II/README_EN.md)
 
@@ -6,42 +6,44 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given two <strong>0-indexed</strong> integer arrays <code>jobs</code> and <code>workers</code> of <strong>equal</strong> length, where <code>jobs[i]</code> is the amount of time needed to complete the <code>i<sup>th</sup></code> job, and <code>workers[j]</code> is the amount of time the <code>j<sup>th</sup></code> worker can work each day.</p>
+<p>给你两个 <b>下标从 0 开始&nbsp;</b>的整数数组 <code>jobs</code> 和&nbsp;<strong>相等&nbsp;</strong>长度的 <code>workers</code> ，其中&nbsp;<code>jobs[i]</code>是完成第 <code>i</code> 个工作所需的时间，<code>workers[j]</code>&nbsp;是第 <code>j</code> 个工人每天可以工作的时间。</p>
 
-<p>Each job should be assigned to <strong>exactly</strong> one worker, such that each worker completes <strong>exactly</strong> one job.</p>
+<p>每项工作都应该 <strong>正好</strong> 分配给一个工人，这样每个工人就&nbsp;<strong>只能&nbsp;</strong>完成一项工作。</p>
 
-<p>Return <em>the <strong>minimum</strong> number of days needed to complete all the jobs after assignment.</em></p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> jobs = [5,2,4], workers = [1,7,5]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong>
-- Assign the 2<sup>nd</sup> worker to the 0<sup>th</sup> job. It takes them 1 day to finish the job.
-- Assign the 0<sup>th</sup> worker to the 1<sup>st</sup> job. It takes them 2 days to finish the job.
-- Assign the 1<sup>st</sup> worker to the 2<sup>nd</sup> job. It takes them 1 day to finish the job.
-It takes 2 days for all the jobs to be completed, so return 2.
-It can be proven that 2 days is the minimum number of days needed.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> jobs = [3,18,15,9], workers = [6,5,1,3]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong>
-- Assign the 2<sup>nd</sup> worker to the 0<sup>th</sup> job. It takes them 3 days to finish the job.
-- Assign the 0<sup>th</sup> worker to the 1<sup>st</sup> job. It takes them 3 days to finish the job.
-- Assign the 1<sup>st</sup> worker to the 2<sup>nd</sup> job. It takes them 3 days to finish the job.
-- Assign the 3<sup>rd</sup> worker to the 3<sup>rd</sup> job. It takes them 3 days to finish the job.
-It takes 3 days for all the jobs to be completed, so return 3.
-It can be proven that 3 days is the minimum number of days needed.
-</pre>
+<p>返回<em>分配后完成所有作业所需的最少天数。</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> jobs = [5,2,4], workers = [1,7,5]
+<strong>输出:</strong> 2
+<strong>解释:</strong>
+- 把第 2 个工人分配到第 0 个工作。他们花了 1 天时间完成这项工作。
+- 把第 0 个工人分配到第 1 个工作。他们花了 2 天时间完成这项工作。
+- 把第 1 个工人分配到第 2 个工作。他们花了 1 天时间完成这项工作。
+所有工作完成需要 2 天，因此返回 2。
+可以证明 2 天是最少需要的天数。
+</pre>
+
+<p><strong class="example">示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> jobs = [3,18,15,9], workers = [6,5,1,3]
+<strong>输出:</strong> 3
+<strong>解释:</strong>
+- 把第 2 个工人分配到第 0 个工作。他花了 3 天时间完成这项工作。
+- 把第 0 个工人分配到第 1 个工作。他花了 3 天时间完成这项工作。
+- 把第 1 个工人分配到第 2 个工作。他花了 3 天时间完成这项工作。
+- 把第 3 个工人分配到第 3 个工作。他花了 3 天时间完成这项工作。
+完成所有工作需要 3 天，因此返回 3。
+可以证明，3 天是最少需要的天数。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>n == jobs.length == workers.length</code></li>

@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 325
+
+- [2515. Shortest Distance to Target String in a Circular Array](/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README_EN.md)
+- [2516. Take K of Each Character From Left and Right](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md)
+- [2517. Maximum Tastiness of Candy Basket](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)
+- [2518. Number of Great Partitions](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)
+
+
+#### Biweekly Contest 94
+
+- [2511. Maximum Enemy Forts That Can Be Captured](/solution/2500-2599/2511.Maximum%20Enemy%20Forts%20That%20Can%20Be%20Captured/README_EN.md)
+- [2512. Reward Top K Students](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md)
+- [2513. Minimize the Maximum of Two Arrays](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README_EN.md)
+- [2514. Count Anagrams](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)
+
+
 #### Weekly Contest 324
 
 - [2506. Count Pairs Of Similar Strings](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md)

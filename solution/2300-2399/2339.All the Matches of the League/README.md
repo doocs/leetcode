@@ -1,4 +1,4 @@
-# [2339. All the Matches of the League](https://leetcode.cn/problems/all-the-matches-of-the-league)
+# [2339. 联赛的所有比赛](https://leetcode.cn/problems/all-the-matches-of-the-league)
 
 [English Version](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Teams</code></p>
+<p>表: <code>Teams</code></p>
 
 <pre>
 +-------------+---------+
@@ -14,24 +14,23 @@
 +-------------+---------+
 | team_name   | varchar |
 +-------------+---------+
-team_name is the primary key of this table.
-Each row of this table shows the name of a team.
+team_name 是此表的主键。
+此表的每一行都显示了团队的名称。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports all the possible matches of the league. Note that every two teams play two matches with each other, with one team being the <code>home_team</code> once and the other time being the <code>away_team</code>.</p>
-
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is in the following example.</p>
+<p>编写一个 SQL 查询，获取联赛中所有比赛。每两支球队进行两场比赛，其中一支球队是主队&nbsp;<code>home_team</code>&nbsp;，另一支是客场队&nbsp;<code>away_team</code>。<br />
+按 <strong>任意顺序</strong> 返回结果表。<br />
+查询结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Teams table:
+<strong>输入:</strong> 
+Teams 表:
 +-------------+
 | team_name   |
 +-------------+
@@ -39,7 +38,7 @@ Teams table:
 | Ahly SC     |
 | Real Madrid |
 +-------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +-------------+-------------+
 | home_team   | away_team   |
 +-------------+-------------+
@@ -50,7 +49,7 @@ Teams table:
 | Ahly SC     | Real Madrid |
 | Ahly SC     | Leetcode FC |
 +-------------+-------------+
-<strong>Explanation:</strong> All the matches of the league are shown in the table.
+<strong>解释:</strong> 该联赛的所有比赛都列在表格中。
 </pre>
 
 ## 解法

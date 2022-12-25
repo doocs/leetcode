@@ -1,4 +1,4 @@
-# [2313. Minimum Flips in Binary Tree to Get Result](https://leetcode.cn/problems/minimum-flips-in-binary-tree-to-get-result)
+# [2313. 二叉树中得到结果所需的最少翻转次数](https://leetcode.cn/problems/minimum-flips-in-binary-tree-to-get-result)
 
 [English Version](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md)
 
@@ -6,60 +6,61 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given the <code>root</code> of a <strong>binary tree</strong> with the following properties:</p>
+<p>给定<strong>二叉树</strong>的根 <code>root</code>，具有以下属性:</p>
 
 <ul>
-	<li><strong>Leaf nodes</strong> have either the value <code>0</code> or <code>1</code>, representing <code>false</code> and <code>true</code> respectively.</li>
-	<li><strong>Non-leaf nodes</strong> have either the value <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>, representing the boolean operations <code>OR</code>, <code>AND</code>, <code>XOR</code>, and <code>NOT</code>, respectively.</li>
+	<li><strong>叶节点&nbsp;</strong>的值为 <code>0</code> 或 <code>1</code>，分别表示 <code>false</code> 和 <code>true</code>。</li>
+	<li><strong>非叶节点</strong>的值为 <code>2</code>、<code>3</code>、<code>4</code>、<code>5</code>，分别表示布尔运算&nbsp;<code>OR</code>,&nbsp;<code>AND</code>,&nbsp;<code>XOR</code>,&nbsp;<code>NOT</code>。</li>
 </ul>
 
-<p>You are also given a boolean <code>result</code>, which is the desired result of the <strong>evaluation</strong> of the <code>root</code> node.</p>
+<p>您还将得到一个布尔型&nbsp;<code>result</code>，这是 <code>root</code>&nbsp;节点的期望&nbsp;<strong>评价</strong><strong>&nbsp;</strong>结果。</p>
 
-<p>The evaluation of a node is as follows:</p>
+<p data-group="1-1">对节点的评价计算如下:</p>
 
 <ul>
-	<li>If the node is a leaf node, the evaluation is the <strong>value</strong> of the node, i.e. <code>true</code> or <code>false</code>.</li>
-	<li>Otherwise, <strong>evaluate</strong> the node&#39;s children and <strong>apply</strong> the boolean operation of its value with the children&#39;s evaluations.</li>
+	<li>如果节点是叶节点，则评价是节点的&nbsp;<strong>值</strong>，即 <code>true</code> 或&nbsp;<code>false</code>.</li>
+	<li>否则, 将其值的布尔运算应用于子节点的&nbsp;<strong>评价</strong>，该节点的&nbsp;<strong>评价&nbsp;</strong>即为布尔运算后的结果。</li>
 </ul>
 
-<p>In one operation, you can <strong>flip</strong> a leaf node, which causes a <code>false</code> node to become <code>true</code>, and a <code>true</code> node to become <code>false</code>.</p>
+<p>在一个操作中，您可以&nbsp;<strong>翻转&nbsp;</strong>一个叶节点，这将导致一个 <code>false</code>&nbsp;节点变为 <code>true</code>&nbsp;节点，一个 <code>true</code>&nbsp;节点变为 <code>false</code>&nbsp;节点。</p>
 
-<p>Return<em> the minimum number of operations that need to be performed such that the evaluation of </em><code>root</code><em> yields </em><code>result</code>. It can be shown that there is always a way to achieve <code>result</code>.</p>
+<p>返回<em>需要执行的最小操作数，以使 </em><code>root</code><em>&nbsp;的</em><em>评价得到&nbsp;</em><code>result</code>。可以证明，总有办法达到 <code>result</code>。</p>
 
-<p>A <strong>leaf node</strong> is a node that has zero children.</p>
+<p data-group="1-1"><strong>叶节点&nbsp;</strong>是没有子节点的节点。</p>
 
-<p>Note: <code>NOT</code> nodes have either a left child or a right child, but other non-leaf nodes have both a left child and a right child.</p>
+<p>注意: <code>NOT</code> 节点只有左孩子或只有右孩子，但其他非叶节点同时拥有左孩子和右孩子。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/images/operationstree.png" style="width: 500px; height: 179px;" />
 <pre>
-<strong>Input:</strong> root = [3,5,4,2,null,1,1,1,0], result = true
-<strong>Output:</strong> 2
-<strong>Explanation:</strong>
-It can be shown that a minimum of 2 nodes have to be flipped to make the root of the tree
-evaluate to true. One way to achieve this is shown in the diagram above.
+<strong>输入:</strong> root = [3,5,4,2,null,1,1,1,0], result = true
+<strong>输出:</strong> 2
+<strong>解释:</strong>
+可以证明，至少需要翻转 2 个节点才能使树的 root 评价为 true。上面的图显示了实现这一目标的一种方法。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> root = [0], result = false
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
-The root of the tree already evaluates to false, so 0 nodes have to be flipped.
+<strong>输入:</strong> root = [0], result = false
+<strong>输出:</strong> 0
+<strong>解释:</strong>
+树的 root 的评价已经为 false，所以 0 个节点必须翻转。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+	<li>树中的节点数在 <code>[1, 10<sup>5</sup>]</code>&nbsp;范围内。</li>
 	<li><code>0 &lt;= Node.val &lt;= 5</code></li>
-	<li><code>OR</code>, <code>AND</code>, and <code>XOR</code> nodes have <code>2</code> children.</li>
-	<li><code>NOT</code> nodes have <code>1</code> child.</li>
-	<li>Leaf nodes have a value of <code>0</code> or <code>1</code>.</li>
-	<li>Non-leaf nodes have a value of <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>.</li>
+	<li><code>OR</code>, <code>AND</code>, <code>XOR</code>&nbsp;节点有&nbsp;<code>2</code> 个子节点。</li>
+	<li><code>NOT</code> 只有一个&nbsp;<code>1</code> 子节点。</li>
+	<li>叶节点的值为 <code>0</code> 或&nbsp;<code>1</code>.</li>
+	<li>非叶节点的值为<code>2</code>, <code>3</code>, <code>4</code>,&nbsp;<code>5</code>.</li>
 </ul>
 
 ## 解法

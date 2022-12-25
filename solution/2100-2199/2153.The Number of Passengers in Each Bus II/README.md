@@ -1,4 +1,4 @@
-# [2153. The Number of Passengers in Each Bus II](https://leetcode.cn/problems/the-number-of-passengers-in-each-bus-ii)
+# [2153. 每辆车的乘客人数 II](https://leetcode.cn/problems/the-number-of-passengers-in-each-bus-ii)
 
 [English Version](/solution/2100-2199/2153.The%20Number%20of%20Passengers%20in%20Each%20Bus%20II/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Buses</code></p>
+<p>表: <code>Buses</code></p>
 
 <pre>
 +--------------+------+
@@ -16,14 +16,14 @@
 | arrival_time | int  |
 | capacity     | int  |
 +--------------+------+
-bus_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a bus at the LeetCode station and its capacity (the number of empty seats it has).
-No two buses will arrive at the same time and all bus capacities will be positive integers.
+bus_id 是该表的主键。
+该表的每一行都包含关于公交车到达 LeetCode 站点的时间和它的容量 (空座位的数量) 的信息。
+不会出现两辆公交车同时到达，所有公交车的容量都是正整数。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Passengers</code></p>
+<p>表: <code>Passengers</code></p>
 
 <pre>
 +--------------+------+
@@ -32,26 +32,27 @@ No two buses will arrive at the same time and all bus capacities will be positiv
 | passenger_id | int  |
 | arrival_time | int  |
 +--------------+------+
-passenger_id is the primary key column for this table.
-Each row of this table contains information about the arrival time of a passenger at the LeetCode station.
+passenger_id 是该表的主键。
+该表的每一行都包含乘客到达 LeetCode 站的时间信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Buses and passengers arrive at the LeetCode station. If a bus arrives at the station at a time <code>t<sub>bus</sub></code> and a passenger arrived at a time <code>t<sub>passenger</sub></code> where <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code> and the passenger did not catch any bus, the passenger will use that bus. In addition, each bus has a capacity. If at the moment the bus arrives at the station there are more passengers waiting than its capacity <code>capacity</code>, only <code>capacity</code> passengers will use the bus.</p>
+<p>公交车和乘客到达 LeetCode 站。如果一辆公交车在 <code>t<sub>bus</sub></code> 时间点到达车站，乘客在 <code>t<sub>passenger</sub></code> 到达车站，其中&nbsp;<code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code>，而该乘客没有赶上任何公交车，则该乘客将搭乘该公交车。此外，每辆公交车都有一个容量。如果在公交车到站的那一刻，等待的乘客超过了它的载客量 <code>capacity</code>，只有&nbsp;<code>capacity</code> 个乘客才会搭乘该公交车。</p>
 
-<p>Write an SQL query to report the number of users that used each bus.</p>
+<p>编写一个 SQL 来查询使用每条总线的用户数量。</p>
 
-<p>Return the result table ordered by <code>bus_id</code> in <strong>ascending order</strong>.</p>
+<p>返回按 <code>bus_id</code> <strong>升序排序&nbsp;</strong>的结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Buses table:
+<strong>输入:</strong> 
+Buses 表:
 +--------+--------------+----------+
 | bus_id | arrival_time | capacity |
 +--------+--------------+----------+
@@ -59,7 +60,7 @@ Buses table:
 | 2      | 4            | 10       |
 | 3      | 7            | 2        |
 +--------+--------------+----------+
-Passengers table:
+Passengers 表:
 +--------------+--------------+
 | passenger_id | arrival_time |
 +--------------+--------------+
@@ -69,7 +70,7 @@ Passengers table:
 | 14           | 6            |
 | 15           | 7            |
 +--------------+--------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +--------+----------------+
 | bus_id | passengers_cnt |
 +--------+----------------+
@@ -77,18 +78,17 @@ Passengers table:
 | 2      | 1              |
 | 3      | 2              |
 +--------+----------------+
-<strong>Explanation:</strong> 
-- Passenger 11 arrives at time 1.
-- Passenger 12 arrives at time 1.
-- Bus 1 arrives at time 2 and collects passenger 11 as it has one empty seat.
+<strong>解释:</strong> 
+- 11 号乘客在时间 1 到达。
+- 12 号乘客在时间 1 到达。
+- 1 号公交车到达时间为 2，因为有一个空座位，所以搭载了 11 号乘客。
 
-- Bus 2 arrives at time 4 and collects passenger 12 as it has ten empty seats.
+- 2 号公交车在时间 4 到达，搭载了12 号乘客，因为它有 10 个空座位。
 
-- Passenger 12 arrives at time 5.
-- Passenger 13 arrives at time 6.
-- Passenger 14 arrives at time 7.
-- Bus 3 arrives at time 7 and collects passengers 12 and 13 as it has two empty seats.
-</pre>
+- 13 号乘客在时间 5 到达。
+- 14 号乘客在时间 6 到达。
+- 15 号乘客在时间 7 到达。
+- 3 号公交车在时间 7 到达，车上有两个空座位，搭载了 12 号和 13 号乘客。</pre>
 
 ## 解法
 
