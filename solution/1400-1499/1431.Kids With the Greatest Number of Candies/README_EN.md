@@ -120,6 +120,47 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function kidsWithCandies(candies: number[], extraCandies: number): boolean[] {
+    const max = candies.reduce((r, v) => Math.max(r, v));
+    return candies.map(v => v + extraCandies >= max);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn kids_with_candies(candies: Vec<i32>, extra_candies: i32) -> Vec<bool> {
+        let max = *candies.iter().max().unwrap();
+        candies.iter().map(|v| v + extra_candies >= max).collect()
+    }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+bool *kidsWithCandies(int *candies, int candiesSize, int extraCandies, int *returnSize) {
+    int mx = 0;
+    for (int i = 0; i < candiesSize; i++) {
+        mx = max(mx, candies[i]);
+    }
+    bool *ans = malloc(candiesSize * sizeof(bool));
+    for (int i = 0; i < candiesSize; i++) {
+        ans[i] = candies[i] + extraCandies >= mx;
+    }
+    *returnSize = candiesSize;
+    return ans;
+}
+```
+
 ### **...**
 
 ```
