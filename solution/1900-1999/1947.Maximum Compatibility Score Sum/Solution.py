@@ -1,5 +1,7 @@
 class Solution:
-    def maxCompatibilitySum(self, students: List[List[int]], mentors: List[List[int]]) -> int:
+    def maxCompatibilitySum(
+        self, students: List[List[int]], mentors: List[List[int]]
+    ) -> int:
         def dfs(i, t):
             if i == m:
                 nonlocal ans

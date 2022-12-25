@@ -55,25 +55,124 @@ It can be proven that 2 is the maximum tastiness that can be achieved.
 ### **Python3**
 
 ```python
+class Solution:
+    def maximumTastiness(self, price: List[int], k: int) -> int:
+        def check(x):
+            cnt = 1
+            s = price[0]
+            for p in price[1:]:
+                if p - s >= x:
+                    s = p
+                    cnt += 1
+            return cnt >= k
 
+        price.sort()
+        left, right = 0, 10**9
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if check(mid):
+                left = mid
+            else:
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] price;
+    private int k;
 
+    public int maximumTastiness(int[] price, int k) {
+        Arrays.sort(price);
+        this.price = price;
+        this.k = k;
+        int left = 0, right = 1000000000;
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean check(int x) {
+        int s = price[0];
+        int cnt = 1;
+        for (int i = 1; i < price.length; ++i) {
+            if (price[i] - s >= x) {
+                s = price[i];
+                ++cnt;
+            }
+        }
+        return cnt >= k;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maximumTastiness(vector<int>& price, int k) {
+        sort(price.begin(), price.end());
+        int left = 0, right = 1e9;
+        auto check = [&](int x) {
+            int s = price[0];
+            int cnt = 1;
+            for (int i = 1; i < price.size(); ++i) {
+                if (price[i] - s >= x) {
+                    s = price[i];
+                    ++cnt;
+                }
+            }
+            return cnt >= k;
+        };
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func maximumTastiness(price []int, k int) int {
+	sort.Ints(price)
+	check := func(x int) bool {
+		s := price[0]
+		cnt := 1
+		for _, p := range price[1:] {
+			if p-s >= x {
+				s = p
+				cnt++
+			}
+		}
+		return cnt >= k
+	}
+	left, right := 0, 1000000000
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if check(mid) {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
 ```
 
 ### **...**

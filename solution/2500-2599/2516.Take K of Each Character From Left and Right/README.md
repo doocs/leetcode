@@ -53,7 +53,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def takeCharacters(self, s: str, k: int) -> int:
+        cnt = Counter(s)
+        if any(cnt[c] < k for c in "abc"):
+            return -1
+        ans = j = 0
+        for i, c in enumerate(s):
+            cnt[c] -= 1
+            while cnt[c] < k:
+                cnt[s[j]] += 1
+                j += 1
+            ans = max(ans, i - j + 1)
+        return len(s) - ans
 ```
 
 ### **Java**
@@ -61,19 +73,84 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int takeCharacters(String s, int k) {
+        int[] cnt = new int[3];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            ++cnt[s.charAt(i) - 'a'];
+        }
+        if (cnt[0] < k || cnt[1] < k || cnt[2] < k) {
+            return -1;
+        }
+        int ans = 0, j = 0;
+        for (int i = 0; i < n; ++i) {
+            int c = s.charAt(i) - 'a';
+            --cnt[c];
+            while (cnt[c] < k) {
+                ++cnt[s.charAt(j++) - 'a'];
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return n - ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int takeCharacters(string s, int k) {
+        int cnt[3] = {0};
+        for (char& c : s) ++cnt[c - 'a'];
+        if (cnt[0] < k || cnt[1] < k || cnt[2] < k) return -1;
+        int ans = 0, j = 0;
+        int n = s.size();
+        for (int i = 0; i < n; ++i) {
+            int c = s[i] - 'a';
+            --cnt[c];
+            while (cnt[c] < k) {
+                ++cnt[s[j++] - 'a'];
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return n - ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func takeCharacters(s string, k int) int {
+	cnt := [3]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	if cnt[0] < k || cnt[1] < k || cnt[2] < k {
+		return -1
+	}
+	ans, j := 0, 0
+	for i, c := range s {
+		c -= 'a'
+		cnt[c]--
+		for cnt[c] < k {
+			cnt[s[j]-'a']++
+			j++
+		}
+		ans = max(ans, i-j+1)
+	}
+	return len(s) - ans
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

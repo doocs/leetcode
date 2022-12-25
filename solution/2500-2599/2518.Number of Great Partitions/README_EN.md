@@ -53,25 +53,127 @@ The great partitions will be ([6], [6]) and ([6], [6]).
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countPartitions(self, nums: List[int], k: int) -> int:
+        if sum(nums) < k * 2:
+            return 0
+        mod = 10**9 + 7
+        n = len(nums)
+        f = [[0] * k for _ in range(n + 1)]
+        f[0][0] = 1
+        ans = 1
+        for i in range(1, n + 1):
+            ans = ans * 2 % mod
+            for j in range(k):
+                f[i][j] = f[i - 1][j]
+                if j >= nums[i - 1]:
+                    f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod
+        return (ans - sum(f[-1]) * 2 + mod) % mod
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int countPartitions(int[] nums, int k) {
+        long s = 0;
+        for (int v : nums) {
+            s += v;
+        }
+        if (s < k * 2) {
+            return 0;
+        }
+        int n = nums.length;
+        long[][] f = new long[n + 1][k];
+        f[0][0] = 1;
+        long ans = 1;
+        for (int i = 1; i <= n; ++i) {
+            int v = nums[i - 1];
+            ans = ans * 2 % MOD;
+            for (int j = 0; j < k; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= v) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - v]) % MOD;
+                }
+            }
+        }
+        for (int j = 0; j < k; ++j) {
+            ans = (ans - f[n][j] * 2 % MOD + MOD) % MOD;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
 
+    int countPartitions(vector<int>& nums, int k) {
+        long s = accumulate(nums.begin(), nums.end(), 0l);
+        if (s < k * 2) return 0;
+        int n = nums.size();
+        long f[n + 1][k];
+        int ans = 1;
+        memset(f, 0, sizeof f);
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            int v = nums[i - 1];
+            ans = ans * 2 % mod;
+            for (int j = 0; j < k; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= v) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - v]) % mod;
+                }
+            }
+        }
+        for (int j = 0; j < k; ++j) {
+            ans = (ans - f[n][j] * 2 % mod + mod) % mod;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func countPartitions(nums []int, k int) int {
+	s := 0
+	for _, v := range nums {
+		s += v
+	}
+	if s < k*2 {
+		return 0
+	}
+	const mod int = 1e9 + 7
+	n := len(nums)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k)
+	}
+	f[0][0] = 1
+	ans := 1
+	for i := 1; i <= n; i++ {
+		v := nums[i-1]
+		ans = ans * 2 % mod
+		for j := 0; j < k; j++ {
+			f[i][j] = f[i-1][j]
+			if j >= v {
+				f[i][j] = (f[i][j] + f[i-1][j-v]) % mod
+			}
+		}
+	}
+	for j := 0; j < k; j++ {
+		ans = (ans - f[n][j]*2%mod + mod) % mod
+	}
+	return ans
+}
 ```
 
 ### **...**

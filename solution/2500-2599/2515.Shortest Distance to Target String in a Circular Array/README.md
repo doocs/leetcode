@@ -68,7 +68,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def closetTarget(self, words: List[str], target: str, startIndex: int) -> int:
+        n = len(words)
+        ans = n
+        for i, w in enumerate(words):
+            if w == target:
+                t = abs(i - startIndex)
+                ans = min(ans, t, n - t)
+        return -1 if ans == n else ans
 ```
 
 ### **Java**
@@ -76,19 +84,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int closetTarget(String[] words, String target, int startIndex) {
+        int n = words.length;
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            String w = words[i];
+            if (w.equals(target)) {
+                int t = Math.abs(i - startIndex);
+                ans = Math.min(ans, Math.min(t, n - t));
+            }
+        }
+        return ans == n ? -1 : ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int closetTarget(vector<string>& words, string target, int startIndex) {
+        int n = words.size();
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            auto w = words[i];
+            if (w == target) {
+                int t = abs(i - startIndex);
+                ans = min(ans, min(t, n - t));
+            }
+        }
+        return ans == n ? -1 : ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func closetTarget(words []string, target string, startIndex int) int {
+	n := len(words)
+	ans := n
+	for i, w := range words {
+		if w == target {
+			t := abs(i - startIndex)
+			ans = min(ans, min(t, n-t))
+		}
+	}
+	if ans == n {
+		return -1
+	}
+	return ans
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
