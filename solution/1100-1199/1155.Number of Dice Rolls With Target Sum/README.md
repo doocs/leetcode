@@ -52,6 +52,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示使用 $i$ 个骰子，和为 $j$ 的方案数。那么我们可以得到状态转移方程：
+
+$$
+f[i][j] = \sum_{h=1}^{\min(j, k)} f[i-1][j-h]
+$$
+
+其中 $h$ 表示第 $i$ 个骰子的点数。
+
+最终的答案即为 $f[n][target]$。
+
+时间复杂度 $O(n \times k \times target)$，空间复杂度 $O(n \times target)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +73,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numRollsToTarget(self, n: int, k: int, target: int) -> int:
+        f = [[0] * (target + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        mod = 10**9 + 7
+        for i in range(1, n + 1):
+            for j in range(1, min(i * k, target) + 1):
+                for h in range(1, min(j, k) + 1):
+                    f[i][j] = (f[i][j] + f[i - 1][j - h]) % mod
+        return f[n][target]
 ```
 
 ### **Java**
@@ -67,7 +90,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int numRollsToTarget(int n, int k, int target) {
+        int[][] f = new int[n + 1][target + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= Math.min(target, i * k); ++j) {
+                for (int h = 1; h <= Math.min(j, k); ++h) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - h]) % MOD;
+                }
+            }
+        }
+        return f[n][target];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numRollsToTarget(int n, int k, int target) {
+        const int mod = 1e9 + 7;
+        int f[n + 1][target + 1];
+        memset(f, 0, sizeof f);
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= min(target, i * k); ++j) {
+                for (int h = 1; h <= min(j, k); ++h) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - h]) % mod;
+                }
+            }
+        }
+        return f[n][target];
+    }
+};
+```
+
+### **Go**
+
+```go
+func numRollsToTarget(n int, k int, target int) int {
+	const mod int = 1e9 + 7
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, target+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= min(target, i*k); j++ {
+			for h := 1; h <= min(j, k); h++ {
+				f[i][j] = (f[i][j] + f[i-1][j-h]) % mod
+			}
+		}
+	}
+	return f[n][target]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

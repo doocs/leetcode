@@ -1,18 +1,16 @@
 class Solution {
-    public int numRollsToTarget(int d, int f, int target) {
-        int[][] dp = new int[d + 1][target + 1];
-        dp[0][0] = 1;
-        for (int i = 1; i <= d; ++i) {
-            for (int j = 1; j <= target; ++j) {
-                // j 大于当前所有骰子的最大和，不可能满足条件
-                if (j > i * f) {
-                    break;
-                }
-                for (int k = 1; k <= f && k <= j; ++k) {
-                    dp[i][j] = (dp[i][j] + dp[i - 1][j - k]) % 1000000007;
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int numRollsToTarget(int n, int k, int target) {
+        int[][] f = new int[n + 1][target + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= Math.min(target, i * k); ++j) {
+                for (int h = 1; h <= Math.min(j, k); ++h) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - h]) % MOD;
                 }
             }
         }
-        return dp[d][target];
+        return f[n][target];
     }
 }
