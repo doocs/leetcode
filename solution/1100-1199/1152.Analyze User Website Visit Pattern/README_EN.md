@@ -67,13 +67,179 @@ The pattern (&quot;home&quot;, &quot;home&quot;, &quot;home&quot;) has score 0 (
 ### **Python3**
 
 ```python
+class Solution:
+    def mostVisitedPattern(self, username: List[str], timestamp: List[int], website: List[str]) -> List[str]:
+        d = defaultdict(list)
+        for user, _, site in sorted(zip(username, timestamp, website), key=lambda x: x[1]):
+            d[user].append(site)
 
+        cnt = Counter()
+        for sites in d.values():
+            m = len(sites)
+            s = set()
+            if m > 2:
+                for i in range(m - 2):
+                    for j in range(i + 1, m - 1):
+                        for k in range(j + 1, m):
+                            s.add((sites[i], sites[j], sites[k]))
+            for t in s:
+                cnt[t] += 1
+        return sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[0][0]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> mostVisitedPattern(String[] username, int[] timestamp, String[] website) {
+        Map<String, List<Node>> d = new HashMap<>();
+        int n = username.length;
+        for (int i = 0; i < n; ++i) {
+            String user = username[i];
+            int ts = timestamp[i];
+            String site = website[i];
+            d.computeIfAbsent(user, k -> new ArrayList<>()).add(new Node(user, ts, site));
+        }
+        Map<String, Integer> cnt = new HashMap<>();
+        for (var sites : d.values()) {
+            int m = sites.size();
+            Set<String> s = new HashSet<>();
+            if (m > 2) {
+                Collections.sort(sites, (a, b) -> a.ts - b.ts);
+                for (int i = 0; i < m - 2; ++i) {
+                    for (int j = i + 1; j < m - 1; ++j) {
+                        for (int k = j + 1; k < m; ++k) {
+                            s.add(sites.get(i).site + "," + sites.get(j).site + "," + sites.get(k).site);
+                        }
+                    }
+                }
+            }
+            for (String t : s) {
+                cnt.put(t, cnt.getOrDefault(t, 0) + 1);
+            }
+        }
+        int mx = 0;
+        String t = "";
+        for (var e : cnt.entrySet()) {
+            if (mx < e.getValue() || (mx == e.getValue() && e.getKey().compareTo(t) < 0)) {
+                mx = e.getValue();
+                t = e.getKey();
+            }
+        }
+        return Arrays.asList(t.split(","));
+    }
+}
 
+class Node {
+    String user;
+    int ts;
+    String site;
+
+    Node(String user, int ts, String site) {
+        this.user = user;
+        this.ts = ts;
+        this.site = site;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> mostVisitedPattern(vector<string>& username, vector<int>& timestamp, vector<string>& website) {
+        unordered_map<string, vector<pair<int, string>>> d;
+        int n = username.size();
+        for (int i = 0; i < n; ++i) {
+            auto user = username[i];
+            int ts = timestamp[i];
+            auto site = website[i];
+            d[user].emplace_back(ts, site);
+        }
+        unordered_map<string, int> cnt;
+        for (auto& [_, sites] : d) {
+            int m = sites.size();
+            unordered_set<string> s;
+            if (m > 2) {
+                sort(sites.begin(), sites.end());
+                for (int i = 0; i < m - 2; ++i) {
+                    for (int j = i + 1; j < m - 1; ++j) {
+                        for (int k = j + 1; k < m; ++k) {
+                            s.insert(sites[i].second + "," + sites[j].second + "," + sites[k].second);
+                        }
+                    }
+                }
+            }
+            for (auto& t : s) {
+                cnt[t]++;
+            }
+        }
+        int mx = 0;
+        string t;
+        for (auto& [p, v] : cnt) {
+            if (mx < v || (mx == v && t > p)) {
+                mx = v;
+                t = p;
+            }
+        }
+        return split(t, ',');
+    }
+
+    vector<string> split(string& s, char c) {
+        vector<string> res;
+        stringstream ss(s);
+        string t;
+        while (getline(ss, t, c)) {
+            res.push_back(t);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostVisitedPattern(username []string, timestamp []int, website []string) []string {
+	d := map[string][]pair{}
+	for i, user := range username {
+		ts := timestamp[i]
+		site := website[i]
+		d[user] = append(d[user], pair{ts, site})
+	}
+	cnt := map[string]int{}
+	for _, sites := range d {
+		m := len(sites)
+		s := map[string]bool{}
+		if m > 2 {
+			sort.Slice(sites, func(i, j int) bool { return sites[i].ts < sites[j].ts })
+			for i := 0; i < m-2; i++ {
+				for j := i + 1; j < m-1; j++ {
+					for k := j + 1; k < m; k++ {
+						s[sites[i].site+","+sites[j].site+","+sites[k].site] = true
+					}
+				}
+			}
+		}
+		for t := range s {
+			cnt[t]++
+		}
+	}
+	mx, t := 0, ""
+	for p, v := range cnt {
+		if mx < v || (mx == v && p < t) {
+			mx = v
+			t = p
+		}
+	}
+	return strings.Split(t, ",")
+}
+
+type pair struct {
+	ts   int
+	site string
+}
 ```
 
 ### **...**
