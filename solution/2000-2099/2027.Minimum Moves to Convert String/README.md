@@ -55,7 +55,7 @@
 
 **方法一：贪心**
 
-遍历字符串 $s$，只要遇到 `X`，指针就直接往后移动三格，并且答案加 $1$；否则指针往后移动一格。
+遍历字符串 $s$，只要遇到 `'X'`，指针 $i$ 就直接往后移动三格，并且答案加 $1$；否则指针 $i$ 往后移动一格。
 
 时间复杂度 $O(n)$。其中 $n$ 表示字符串 $s$ 的长度。
 
@@ -118,15 +118,14 @@ public:
 ### **Go**
 
 ```go
-func minimumMoves(s string) int {
-	ans := 0
+func minimumMoves(s string) (ans int) {
 	for i := 0; i < len(s); i++ {
 		if s[i] == 'X' {
 			ans++
 			i += 2
 		}
 	}
-	return ans
+	return
 }
 ```
 

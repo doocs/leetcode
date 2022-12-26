@@ -100,11 +100,11 @@ class LogSystem {
         d.put("Minute", 16);
         d.put("Second", 19);
     }
-    
+
     public void put(int id, String timestamp) {
         logs.add(new Log(id, timestamp));
     }
-    
+
     public List<Integer> retrieve(String start, String end, String granularity) {
         List<Integer> ans = new ArrayList<>();
         int i = d.get(granularity);
@@ -151,11 +151,11 @@ public:
         d["Minute"] = 16;
         d["Second"] = 19;
     }
-    
+
     void put(int id, string timestamp) {
         logs.push_back({id, timestamp});
     }
-    
+
     vector<int> retrieve(string start, string end, string granularity) {
         vector<int> ans;
         int i = d[granularity];

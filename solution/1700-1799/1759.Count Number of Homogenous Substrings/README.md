@@ -258,7 +258,7 @@ int countHomogenous(char *s) {
     for (int i = 0, j = 0; s[j]; j++) {
         if (s[i] != s[j]) {
             i = j;
-        }        
+        }
         ans = (ans + j - i + 1) % MOD;
     }
     return ans;

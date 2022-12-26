@@ -60,7 +60,7 @@ class Solution:
                 ans = max(ans, t)
                 i = j
             return ans
-        
+
         return dfs(0, len(s) - 1)
 ```
 
