@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def mergeTrees(self, root1: TreeNode, root2: TreeNode) -> TreeNode:
+    def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
         if root1 is None:
             return root2
         if root2 is None:
