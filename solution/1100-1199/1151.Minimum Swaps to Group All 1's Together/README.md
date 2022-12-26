@@ -60,6 +60,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：滑动窗口**
+
+我们先统计数组中 $1$ 的个数，记为 $k$。然后我们使用滑动窗口，窗口大小为 $k$，窗口右边界从左向右移动，统计窗口内 $1$ 的个数，记为 $t$。每次移动窗口时，都更新 $t$ 的值，最后窗口右边界移动到数组末尾时，窗口内 $1$ 的个数最多，记为 $mx$。最后答案为 $k - mx$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +73,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSwaps(self, data: List[int]) -> int:
+        k = data.count(1)
+        t = sum(data[:k])
+        mx = t
+        for i in range(k, len(data)):
+            t += data[i]
+            t -= data[i - k]
+            mx = max(mx, t)
+        return k - mx
 ```
 
 ### **Java**
@@ -75,7 +90,79 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSwaps(int[] data) {
+        int k = 0;
+        for (int v : data) {
+            k += v;
+        }
+        int t = 0;
+        for (int i = 0; i < k; ++i) {
+            t += data[i];
+        }
+        int mx = t;
+        for (int i = k; i < data.length; ++i) {
+            t += data[i];
+            t -= data[i - k];
+            mx = Math.max(mx, t);
+        }
+        return k - mx;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSwaps(vector<int>& data) {
+        int k = 0;
+        for (int& v : data) {
+            k += v;
+        }
+        int t = 0;
+        for (int i = 0; i < k; ++i) {
+            t += data[i];
+        }
+        int mx = t;
+        for (int i = k; i < data.size(); ++i) {
+            t += data[i];
+            t -= data[i - k];
+            mx = max(mx, t);
+        }
+        return k - mx;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSwaps(data []int) int {
+	k := 0
+	for _, v := range data {
+		k += v
+	}
+	t := 0
+	for _, v := range data[:k] {
+		t += v
+	}
+	mx := t
+	for i := k; i < len(data); i++ {
+		t += data[i]
+		t -= data[i-k]
+		mx = max(mx, t)
+	}
+	return k - mx
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
