@@ -50,13 +50,103 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
+        n = len(s)
+        cnt = [[0] * 26]
+        for i, c in enumerate(s, 1):
+            j = ord(c) - ord('a')
+            t = cnt[-1][:]
+            t[j] += 1
+            cnt.append(t)
+        ans = []
+        for left, right, k in queries:
+            x = sum((b - a) & 1 for a, b in zip(cnt[right + 1], cnt[left]))
+            ans.append(x // 2 <= k)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Boolean> canMakePaliQueries(String s, int[][] queries) {
+        int n = s.length();
+        int[][] cnt = new int[n + 1][26];
+        for (int i = 1; i <= n; ++i) {
+            int j = s.charAt(i - 1) - 'a';
+            for (int k = 0; k < 26; ++k) {
+                cnt[i][k] = cnt[i - 1][k];
+            }
+            cnt[i][j]++;
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for (var q : queries) {
+            int left = q[0], right = q[1], k = q[2];
+            int x = 0;
+            for (int j = 0; j < 26; ++j) {
+                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+            }
+            ans.add(x / 2 <= k);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<bool> canMakePaliQueries(string s, vector<vector<int>>& queries) {
+        int n = s.size();
+        int cnt[n + 1][26];
+        memset(cnt, 0, sizeof cnt);
+        for (int i = 1; i <= n; ++i) {
+            int j = s[i - 1] - 'a';
+            for (int k = 0; k < 26; ++k) {
+                cnt[i][k] = cnt[i - 1][k];
+            }
+            cnt[i][j]++;
+        }
+        vector<bool> ans;
+        for (auto& q : queries) {
+            int left = q[0], right = q[1], k = q[2];
+            int x = 0;
+            for (int j = 0; j < 26; ++j) {
+                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+            }
+            ans.emplace_back(x / 2 <= k);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
+	n := len(s)
+	cnt := make([][26]int, n+1)
+	for i := 1; i <= n; i++ {
+		j := s[i-1] - 'a'
+		for k := 0; k < 26; k++ {
+			cnt[i][k] = cnt[i-1][k]
+		}
+		cnt[i][j]++
+	}
+	for _, q := range queries {
+		left, right, k := q[0], q[1], q[2]
+		x := 0
+		for j := 0; j < 26; j++ {
+			x += (cnt[right+1][j] - cnt[left][j]) & 1
+		}
+		ans = append(ans, x/2 <= k)
+	}
+	return
+}
 ```
 
 ### **...**

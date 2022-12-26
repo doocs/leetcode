@@ -45,6 +45,14 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和**
+
+我们可以使用前缀和的思想，预处理出字符串 $s$ 中每个位置的字符出现次数，即 $cnt[i][j]$ 表示字符串 $s$ 中前 $i$ 个字符中第 $j$ 个字母出现的次数。
+
+对于每个查询 $[left, right, k]$，我们可以利用前缀和计算出 $s[left..right]$ 中每个字母出现的次数，统计出现次数为奇数的字母个数 $x$，则需要替换的次数为 $\frac{x}{2}$，如果 $\frac{x}{2} \leq k$，则可以将 $s[left..right]$ 变成回文串。
+
+时间复杂度 $O((n + m) \times C)$，空间复杂度 $O(n \times C)$，其中 $n$ 和 $m$ 分别为字符串 $s$ 和查询数组 $queries$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,7 +60,20 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
+        n = len(s)
+        cnt = [[0] * 26]
+        for i, c in enumerate(s, 1):
+            j = ord(c) - ord('a')
+            t = cnt[-1][:]
+            t[j] += 1
+            cnt.append(t)
+        ans = []
+        for left, right, k in queries:
+            x = sum((b - a) & 1 for a, b in zip(cnt[right + 1], cnt[left]))
+            ans.append(x // 2 <= k)
+        return ans
 ```
 
 ### **Java**
@@ -60,7 +81,84 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Boolean> canMakePaliQueries(String s, int[][] queries) {
+        int n = s.length();
+        int[][] cnt = new int[n + 1][26];
+        for (int i = 1; i <= n; ++i) {
+            int j = s.charAt(i - 1) - 'a';
+            for (int k = 0; k < 26; ++k) {
+                cnt[i][k] = cnt[i - 1][k];
+            }
+            cnt[i][j]++;
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for (var q : queries) {
+            int left = q[0], right = q[1], k = q[2];
+            int x = 0;
+            for (int j = 0; j < 26; ++j) {
+                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+            }
+            ans.add(x / 2 <= k);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<bool> canMakePaliQueries(string s, vector<vector<int>>& queries) {
+        int n = s.size();
+        int cnt[n + 1][26];
+        memset(cnt, 0, sizeof cnt);
+        for (int i = 1; i <= n; ++i) {
+            int j = s[i - 1] - 'a';
+            for (int k = 0; k < 26; ++k) {
+                cnt[i][k] = cnt[i - 1][k];
+            }
+            cnt[i][j]++;
+        }
+        vector<bool> ans;
+        for (auto& q : queries) {
+            int left = q[0], right = q[1], k = q[2];
+            int x = 0;
+            for (int j = 0; j < 26; ++j) {
+                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+            }
+            ans.emplace_back(x / 2 <= k);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
+	n := len(s)
+	cnt := make([][26]int, n+1)
+	for i := 1; i <= n; i++ {
+		j := s[i-1] - 'a'
+		for k := 0; k < 26; k++ {
+			cnt[i][k] = cnt[i-1][k]
+		}
+		cnt[i][j]++
+	}
+	for _, q := range queries {
+		left, right, k := q[0], q[1], q[2]
+		x := 0
+		for j := 0; j < 26; j++ {
+			x += (cnt[right+1][j] - cnt[left][j]) & 1
+		}
+		ans = append(ans, x/2 <= k)
+	}
+	return
+}
 ```
 
 ### **...**
