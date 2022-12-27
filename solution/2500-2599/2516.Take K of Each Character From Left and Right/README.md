@@ -165,6 +165,61 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function takeCharacters(s: string, k: number): number {
+    const getIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const count = [0, 0, 0];
+    for (const c of s) {
+        count[getIndex(c)]++;
+    }
+    if (count.some(v => v < k)) {
+        return -1;
+    }
+    const n = s.length;
+    let ans = 0;
+    for (let i = 0, j = 0; j < n; j++) {
+        count[getIndex(s[j])]--;
+        while (count[getIndex(s[j])] < k) {
+            count[getIndex(s[i])]++;
+            i++;
+        }
+        ans = Math.max(ans, j - i + 1);
+    }
+    return n - ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn take_characters(s: String, k: i32) -> i32 {
+        let s = s.as_bytes();
+        let mut count = vec![0; 3];
+        for c in s.iter() {
+            count[(c - b'a') as usize] += 1;
+        }
+        if count.iter().any(|v| *v < k) {
+            return -1;
+        }
+        let n = s.len();
+        let mut ans = 0;
+        let mut i = 0;
+        for j in 0..n {
+            count[(s[j] - b'a') as usize] -= 1;
+            while count[(s[j] - b'a') as usize] < k {
+                count[(s[i] - b'a') as usize] += 1;
+                i += 1;
+            }
+            ans = ans.max(j - i + 1);
+        }
+        (n - ans) as i32
+    }
+}
+```
+
 ### **...**
 
 ```
