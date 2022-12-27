@@ -69,6 +69,20 @@ class Solution:
         )
 ```
 
+```python
+class Solution:
+    def numOfPairs(self, nums: List[str], target: str) -> int:
+        cnt = Counter(nums)
+        ans = 0
+        for i in range(1, len(target)):
+            a, b = target[:i], target[i:]
+            if a != b:
+                ans += cnt[a] * cnt[b]
+            else:
+                ans += cnt[a] * (cnt[a] - 1)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -81,6 +95,30 @@ class Solution {
                 if (i != j && target.equals(nums[i] + nums[j])) {
                     ++ans;
                 }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int numOfPairs(String[] nums, String target) {
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String x : nums) {
+            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+        }
+        int ans = 0;
+        for (int i = 1; i < target.length(); ++i) {
+            String a = target.substring(0, i);
+            String b = target.substring(i);
+            int x = cnt.getOrDefault(a, 0);
+            int y = cnt.getOrDefault(b, 0);
+            if (!a.equals(b)) {
+                ans += x * y;
+            } else {
+                ans += x * (y - 1);
             }
         }
         return ans;
@@ -106,11 +144,32 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int numOfPairs(vector<string>& nums, string target) {
+        unordered_map<string, int> cnt;
+        for (auto& x : nums) ++cnt[x];
+        int ans = 0;
+        for (int i = 1; i < target.size(); ++i) {
+            string a = target.substr(0, i);
+            string b = target.substr(i);
+            int x = cnt[a], y = cnt[b];
+            if (a != b) {
+                ans += x * y;
+            } else {
+                ans += x * (y - 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func numOfPairs(nums []string, target string) int {
-	ans := 0
+func numOfPairs(nums []string, target string) (ans int) {
 	for i, a := range nums {
 		for j, b := range nums {
 			if i != j && a+b == target {
@@ -119,6 +178,24 @@ func numOfPairs(nums []string, target string) int {
 		}
 	}
 	return ans
+}
+```
+
+```go
+func numOfPairs(nums []string, target string) (ans int) {
+	cnt := map[string]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	for i := 1; i < len(target); i++ {
+		a, b := target[:i], target[i:]
+		if a != b {
+			ans += cnt[a] * cnt[b]
+		} else {
+			ans += cnt[a] * (cnt[a] - 1)
+		}
+	}
+	return
 }
 ```
 
