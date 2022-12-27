@@ -113,6 +113,66 @@ func minimumMoves(s string) (ans int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minimumMoves(s: string): number {
+    const n = s.length;
+    let ans = 0;
+    let i = 0;
+    while (i < n) {
+        if (s[i] === 'X') {
+            ans++;
+            i += 3;
+        } else {
+            i++;
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn minimum_moves(s: String) -> i32 {
+        let s = s.as_bytes();
+        let n = s.len();
+        let mut ans = 0;
+        let mut i = 0;
+        while i < n {
+            if s[i] == b'X' {
+                ans += 1;
+                i += 3;
+            } else {
+                i += 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int minimumMoves(char *s) {
+    int n = strlen(s);
+    int ans = 0;
+    int i = 0;
+    while (i < n) {
+        if (s[i] == 'X') {
+            ans++;
+            i += 3;
+        } else {
+            i++;
+        }
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
