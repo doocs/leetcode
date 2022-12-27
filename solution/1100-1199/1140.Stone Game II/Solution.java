@@ -1,32 +1,30 @@
 class Solution {
+    private int[] s;
+    private Integer[][] f;
+    private int n;
+
     public int stoneGameII(int[] piles) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int total = Arrays.stream(piles).sum();
-        return (total + dfs(0, 1, piles, map)) >> 1;
+        n = piles.length;
+        s = new int[n + 1];
+        f = new Integer[n][n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + piles[i];
+        }
+        return dfs(0, 1);
     }
 
-    private int dfs(int s, int M, int[] piles, Map<Integer, Integer> map) {
-        if (s >= piles.length) {
-            return 0;
+    private int dfs(int i, int m) {
+        if (m * 2 >= n - i) {
+            return s[n] - s[i];
         }
-        int key = s << 8 | M;
-        if (map.containsKey(key)) {
-            return map.get(key);
+        if (f[i][m] != null) {
+            return f[i][m];
         }
-        if (s + 2 * M >= piles.length) {
-            int res = 0;
-            for (int i = s; i < piles.length; ++i) {
-                res += piles[i];
-            }
-            return res;
+        f[i][m] = 0;
+        for (int x = 1; x <= m * 2; ++x) {
+            int t = s[n] - s[i] - dfs(i + x, Math.max(m, x));
+            f[i][m] = Math.max(f[i][m], t);
         }
-        int best = Integer.MIN_VALUE;
-        int cur = 0;
-        for (int x = 1; x <= 2 * M && s + x - 1 < piles.length; ++x) {
-            cur += piles[s + x - 1];
-            best = Math.max(best, cur - dfs(s + x, Math.max(x, M), piles, map));
-        }
-        map.put(key, best);
-        return best;
+        return f[i][m];
     }
 }

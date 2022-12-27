@@ -45,13 +45,118 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def stoneGameII(self, piles: List[int]) -> int:
+        @cache
+        def dfs(i, m):
+            if m * 2 >= n - i:
+                return s[-1] - s[i]
+            res = 0
+            for x in range(1, m << 1 | 1):
+                t = s[-1] - s[i] - dfs(i + x, max(m, x))
+                res = max(res, t)
+            return res
 
+        s = list(accumulate(piles, initial=0))
+        n = len(piles)
+        return dfs(0, 1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] s;
+    private Integer[][] f;
+    private int n;
 
+    public int stoneGameII(int[] piles) {
+        n = piles.length;
+        s = new int[n + 1];
+        f = new Integer[n][n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + piles[i];
+        }
+        return dfs(0, 1);
+    }
+
+    private int dfs(int i, int m) {
+        if (m * 2 >= n - i) {
+            return s[n] - s[i];
+        }
+        if (f[i][m] != null) {
+            return f[i][m];
+        }
+        f[i][m] = 0;
+        for (int x = 1; x <= m * 2; ++x) {
+            int t = s[n] - s[i] - dfs(i + x, Math.max(m, x));
+            f[i][m] = Math.max(f[i][m], t);
+        }
+        return f[i][m];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int stoneGameII(vector<int>& piles) {
+        int n = piles.size();
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + piles[i];
+        int f[n][n + 1];
+        memset(f, 0, sizeof f);
+        function<int(int, int)> dfs = [&](int i, int m) -> int {
+            if (m * 2 >= n - i) return s[n] - s[i];
+            if (f[i][m]) return f[i][m];
+            for (int x = 1; x <= m << 1; ++x) {
+                int t = s[n] - s[i] - dfs(i + x, max(x, m));
+                f[i][m] = max(f[i][m], t);
+            }
+            return f[i][m];
+        };
+        return dfs(0, 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func stoneGameII(piles []int) int {
+	n := len(piles)
+	s := make([]int, n+1)
+	f := make([][]int, n+1)
+	for i, v := range piles {
+		s[i+1] = s[i] + v
+		f[i] = make([]int, n+1)
+	}
+	var dfs func(i, m int) int
+	dfs = func(i, m int) int {
+		if m*2 >= n-i {
+			return s[n] - s[i]
+		}
+		if f[i][m] > 0 {
+			return f[i][m]
+		}
+		for x := 1; x <= m<<1; x++ {
+			t := s[n] - s[i] - dfs(i+x, max(m, x))
+			f[i][m] = max(f[i][m], t)
+		}
+		return f[i][m]
+	}
+	return dfs(0, 1)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
