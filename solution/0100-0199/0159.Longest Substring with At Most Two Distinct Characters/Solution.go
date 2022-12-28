@@ -1,19 +1,18 @@
-func lengthOfLongestSubstringTwoDistinct(s string) int {
-	mp := make(map[byte]int)
-	i, j, ans := 0, 0, 0
-	for _, c := range s {
-		mp[byte(c)]++
-		for len(mp) > 2 {
-			mp[s[i]]--
-			if mp[s[i]] == 0 {
-				delete(mp, s[i])
+func lengthOfLongestSubstringTwoDistinct(s string) (ans int) {
+	cnt := map[byte]int{}
+	j := 0
+	for i := range s {
+		cnt[s[i]]++
+		for len(cnt) > 2 {
+			cnt[s[j]]--
+			if cnt[s[j]] == 0 {
+				delete(cnt, s[j])
 			}
-			i++
+			j++
 		}
-		ans = max(ans, j-i+1)
-		j++
+		ans = max(ans, i-j+1)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
