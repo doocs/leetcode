@@ -1,5 +1,4 @@
 class SnapshotArray:
-
     def __init__(self, length: int):
         self.idx = 0
         self.arr = defaultdict(list)

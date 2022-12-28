@@ -1,28 +1,15 @@
-func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) []int {
+func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
+	get := func(nums []int) (s [101]int) {
+		for _, v := range nums {
+			s[v] = 1
+		}
+		return
+	}
 	s1, s2, s3 := get(nums1), get(nums2), get(nums3)
-	var ans []int
 	for i := 1; i <= 100; i++ {
-		a, b, c := 0, 0, 0
-		if s1[i] {
-			a++
-		}
-		if s2[i] {
-			b++
-		}
-		if s3[i] {
-			c++
-		}
-		if a+b+c > 1 {
+		if s1[i]+s2[i]+s3[i] > 1 {
 			ans = append(ans, i)
 		}
 	}
-	return ans
-}
-
-func get(nums []int) map[int]bool {
-	s := make(map[int]bool, 101)
-	for _, num := range nums {
-		s[num] = true
-	}
-	return s
+	return
 }

@@ -52,16 +52,9 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 
 ```python
 class Solution:
-    def twoOutOfThree(
-        self, nums1: List[int], nums2: List[int], nums3: List[int]
-    ) -> List[int]:
+    def twoOutOfThree(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
         s1, s2, s3 = set(nums1), set(nums2), set(nums3)
-        ans = []
-        for i in range(1, 101):
-            a, b, c = i in s1, i in s2, i in s3
-            if a + b + c > 1:
-                ans.append(i)
-        return ans
+        return [i for i in range(1, 101) if (i in s1) + (i in s2) + (i in s3) > 1]
 ```
 
 ### **Java**
@@ -95,18 +88,19 @@ class Solution {
 class Solution {
 public:
     vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+        auto get = [](vector<int>& nums) {
+            vector<int> cnt(101);
+            for (int& v :nums) cnt[v] = 1;
+            return cnt;
+        };
         auto s1 = get(nums1), s2 = get(nums2), s3 = get(nums3);
         vector<int> ans;
-        for (int i = 1; i <= 100; ++i)
-            if (s1[i] + s2[i] + s3[i] > 1)
-                ans.push_back(i);
+        for (int i = 1; i <= 100; ++i) {
+            if (s1[i] + s2[i] + s3[i] > 1) {
+                ans.emplace_back(i);
+            }
+        }
         return ans;
-    }
-
-    vector<int> get(vector<int>& nums) {
-        vector<int> s(101);
-        for (int num : nums) s[num] = 1;
-        return s;
     }
 };
 ```
@@ -114,33 +108,20 @@ public:
 ### **Go**
 
 ```go
-func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) []int {
+func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
+	get := func(nums []int) (s [101]int) {
+		for _, v := range nums {
+			s[v] = 1
+		}
+		return
+	}
 	s1, s2, s3 := get(nums1), get(nums2), get(nums3)
-	var ans []int
 	for i := 1; i <= 100; i++ {
-		a, b, c := 0, 0, 0
-		if s1[i] {
-			a++
-		}
-		if s2[i] {
-			b++
-		}
-		if s3[i] {
-			c++
-		}
-		if a+b+c > 1 {
+		if s1[i]+s2[i]+s3[i] > 1 {
 			ans = append(ans, i)
 		}
 	}
-	return ans
-}
-
-func get(nums []int) map[int]bool {
-	s := make(map[int]bool, 101)
-	for _, num := range nums {
-		s[num] = true
-	}
-	return s
+	return
 }
 ```
 
