@@ -157,6 +157,75 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minimumLength(s: string): number {
+    const n = s.length;
+    let start = 0;
+    let end = n - 1;
+    while (start < end && s[start] === s[end]) {
+        while (start + 1 < end && s[start] === s[start + 1]) {
+            start++;
+        }
+        while (start < end - 1 && s[end] === s[end - 1]) {
+            end--;
+        }
+        start++;
+        end--;
+    }
+    return Math.max(0, end - start + 1);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn minimum_length(s: String) -> i32 {
+        let s = s.as_bytes();
+        let n = s.len();
+        let mut start = 0;
+        let mut end = n - 1;
+        while start < end && s[start] == s[end] {
+            while start + 1 < end && s[start] == s[start + 1] {
+                start += 1;
+            }
+            while start < end - 1 && s[end] == s[end - 1] {
+                end -= 1;
+            }
+            start += 1;
+            end -= 1;
+        }
+        0.max(end - start + 1) as i32
+    }
+}
+```
+
+### **C**
+
+```c
+int minimumLength(char *s) {
+    int n = strlen(s);
+    int start = 0;
+    int end = n - 1;
+    while (start < end && s[start] == s[end]) {
+        while (start + 1 < end && s[start] == s[start + 1]) {
+            start++;
+        }
+        while (start < end - 1 && s[end] == s[end - 1]) {
+            end--;
+        }
+        start++;
+        end--;
+    }
+    if (start > end) {
+        return 0;
+    }
+    return end - start + 1;
+}
+```
+
 ### **...**
 
 ```
