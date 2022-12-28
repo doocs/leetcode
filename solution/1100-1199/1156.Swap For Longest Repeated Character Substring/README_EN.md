@@ -48,13 +48,124 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxRepOpt1(self, text: str) -> int:
+        cnt = Counter(text)
+        n = len(text)
+        ans = i = 0
+        while i < n:
+            j = i
+            while j < n and text[j] == text[i]:
+                j += 1
+            l = j - i
+            k = j + 1
+            while k < n and text[k] == text[i]:
+                k += 1
+            r = k - j - 1
+            ans = max(ans, min(l + r + 1, cnt[text[i]]))
+            i = j
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxRepOpt1(String text) {
+        int[] cnt = new int[26];
+        int n = text.length();
+        for (int i = 0; i < n; ++i) {
+            ++cnt[text.charAt(i) - 'a'];
+        }
+        int ans = 0, i = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && text.charAt(j) == text.charAt(i)) {
+                ++j;
+            }
+            int l = j - i;
+            int k = j + 1;
+            while (k < n && text.charAt(k) == text.charAt(i)) {
+                ++k;
+            }
+            int r = k - j - 1;
+            ans = Math.max(ans, Math.min(l + r + 1, cnt[text.charAt(i) - 'a']));
+            i = j;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxRepOpt1(string text) {
+        int cnt[26] = {0};
+        for (char& c : text) {
+            ++cnt[c - 'a'];
+        }
+        int n = text.size();
+        int ans = 0, i = 0;
+        while (i < n) {
+            int j = i;
+            while (j < n && text[j] == text[i]) {
+                ++j;
+            }
+            int l = j - i;
+            int k = j + 1;
+            while (k < n && text[k] == text[i]) {
+                ++k;
+            }
+            int r = k - j - 1;
+            ans = max(ans, min(l + r + 1, cnt[text[i] - 'a']));
+            i = j;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxRepOpt1(text string) (ans int) {
+	cnt := [26]int{}
+	for _, c := range text {
+		cnt[c-'a']++
+	}
+	n := len(text)
+	for i, j := 0, 0; i < n; i = j {
+		j = i
+		for j < n && text[j] == text[i] {
+			j++
+		}
+		l := j - i
+		k := j + 1
+		for k < n && text[k] == text[i] {
+			k++
+		}
+		r := k - j - 1
+		ans = max(ans, min(l+r+1, cnt[text[i]-'a']))
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
