@@ -64,6 +64,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+首先，要使得网格化为单值网格，那么网格的所有元素与 $x$ 的余数必须相同。
+
+因此，我们可以先遍历网格，判断所有元素与 $x$ 的余数是否相同，若不同则返回 $-1$。否则，我们将所有元素放入数组中，对数组进行排序，取中位数，然后遍历数组，计算每个元素与中位数的差值，再除以 $x$，将所有的差值相加，即为答案。
+
+时间复杂度 $O((m \times n) \times \log (m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,19 +82,15 @@
 class Solution:
     def minOperations(self, grid: List[List[int]], x: int) -> int:
         nums = []
-        m, n = len(grid), len(grid[0])
-        base = grid[0][0]
-        for i in range(m):
-            for j in range(n):
-                if abs(grid[i][j] - base) % x != 0:
+        mod = grid[0][0] % x
+        for row in grid:
+            for v in row:
+                if v % x != mod:
                     return -1
-                nums.append(grid[i][j])
+                nums.append(v)
         nums.sort()
         mid = nums[len(nums) >> 1]
-        ans = 0
-        for num in nums:
-            ans += abs(num - mid) // x
-        return ans
+        return sum(abs(v - mid) // x for v in nums)
 ```
 
 ### **Java**
@@ -98,10 +102,10 @@ class Solution {
     public int minOperations(int[][] grid, int x) {
         int m = grid.length, n = grid[0].length;
         int[] nums = new int[m * n];
-        int base = grid[0][0];
+        int mod = grid[0][0] % x;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (Math.abs(base - grid[i][j]) % x != 0) {
+                if (grid[i][j] % x != mod) {
                     return -1;
                 }
                 nums[i * n + j] = grid[i][j];
@@ -110,8 +114,8 @@ class Solution {
         Arrays.sort(nums);
         int mid = nums[nums.length >> 1];
         int ans = 0;
-        for (int num : nums) {
-            ans += (Math.abs(num - mid) / x);
+        for (int v : nums) {
+            ans += Math.abs(v - mid) / x;
         }
         return ans;
     }
@@ -124,19 +128,23 @@ class Solution {
 class Solution {
 public:
     int minOperations(vector<vector<int>>& grid, int x) {
-        vector<int> nums;
         int m = grid.size(), n = grid[0].size();
-        int base = grid[0][0];
+        int mod = grid[0][0] % x;
+        int nums[m * n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (abs(grid[i][j] - base) % x != 0) return -1;
-                nums.push_back(grid[i][j]);
+                if (grid[i][j] % x != mod) {
+                    return -1;
+                }
+                nums[i * n + j] = grid[i][j];
             }
         }
-        sort(nums.begin(), nums.end());
-        int mid = nums[nums.size() >> 1];
+        sort(nums, nums + m * n);
+        int mid = nums[(m * n) >> 1];
         int ans = 0;
-        for (int num : nums) ans += abs(num - mid) / x;
+        for (int v : nums) {
+            ans += abs(v - mid) / x;
+        }
         return ans;
     }
 };
@@ -146,30 +154,30 @@ public:
 
 ```go
 func minOperations(grid [][]int, x int) int {
-	var nums []int
-	m, n, base := len(grid), len(grid[0]), grid[0][0]
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if abs(grid[i][j]-base)%x != 0 {
+	mod := grid[0][0] % x
+	nums := []int{}
+	for _, row := range grid {
+		for _, v := range row {
+			if v%x != mod {
 				return -1
 			}
-			nums = append(nums, grid[i][j])
+			nums = append(nums, v)
 		}
 	}
 	sort.Ints(nums)
 	mid := nums[len(nums)>>1]
 	ans := 0
-	for _, num := range nums {
-		ans += abs(num-mid) / x
+	for _, v := range nums {
+		ans += abs(v-mid) / x
 	}
 	return ans
 }
 
 func abs(x int) int {
-	if x > 0 {
-		return x
+	if x < 0 {
+		return -x
 	}
-	return -x
+	return x
 }
 ```
 
