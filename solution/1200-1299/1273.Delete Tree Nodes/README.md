@@ -64,9 +64,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先构建图。
+**方法一：DFS**
 
-然后对于树中的每一个节点 u，我们通过深度优先搜索的方法，递归地搜索它的所有子节点 v，计算出以 v 为根的子树的节点数目和权值之和。在这之后，我们将子节点的值分别进行累加，就可以得到以 u 为根的子树的节点数目和权值之和。如果权值之和为零，那么以 u 为根的子树需要被删除，我们将其节点数目也置为零，作为结果返回到上一层。最终根节点 0 对应的节点数目即为答案。
+我们先将树转换成图 $g$，其中 $g[i]$ 表示节点 $i$ 的所有子节点。
+
+然后我们设计一个函数 $dfs(i)$，表示以节点 $i$ 为根的子树的节点数目和权值之和。那么答案就是 $dfs(0)[1]$。
+
+在这个函数中，我们递归地计算出以每个子节点 $j$ 为根的子树的节点数目和权值之和，然后将这些值进行累加，如果累加后的值为零，那么我们就将这个子树的节点数目置为零。最后我们返回以节点 $i$ 为根的子树的节点数目和权值之和。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数目。
 
 <!-- tabs:start -->
 
@@ -77,21 +83,20 @@
 ```python
 class Solution:
     def deleteTreeNodes(self, nodes: int, parent: List[int], value: List[int]) -> int:
-        def dfs(u):
-            for v in g[u]:
-                dfs(v)
-                value[u] += value[v]
-                counter[u] += counter[v]
-            if value[u] == 0:
-                counter[u] = 0
+        def dfs(i):
+            s, m = value[i], 1
+            for j in g[i]:
+                t, n = dfs(j)
+                s += t
+                m += n
+            if s == 0:
+                m = 0
+            return (s, m)
 
         g = defaultdict(list)
-        for i, p in enumerate(parent):
-            if p != -1:
-                g[p].append(i)
-        counter = [1] * nodes
-        dfs(0)
-        return counter[0]
+        for i in range(1, nodes):
+            g[parent[i]].append(i)
+        return dfs(0)[1]
 ```
 
 ### **Java**
@@ -100,33 +105,30 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, List<Integer>> g;
-    private int[] counter;
+    private List<Integer>[] g;
     private int[] value;
 
     public int deleteTreeNodes(int nodes, int[] parent, int[] value) {
-        g = new HashMap<>();
-        for (int i = 0; i < nodes; ++i) {
-            if (parent[i] != -1) {
-                g.computeIfAbsent(parent[i], k -> new ArrayList<>()).add(i);
-            }
+        g = new List[nodes];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < nodes; ++i) {
+            g[parent[i]].add(i);
         }
         this.value = value;
-        counter = new int[nodes];
-        Arrays.fill(counter, 1);
-        dfs(0);
-        return counter[0];
+        return dfs(0)[1];
     }
 
-    private void dfs(int u) {
-        for (int v : g.getOrDefault(u, Collections.emptyList())) {
-            dfs(v);
-            value[u] += value[v];
-            counter[u] += counter[v];
+    private int[] dfs(int i) {
+        int[] res = new int[] {value[i], 1};
+        for (int j : g[i]) {
+            int[] t = dfs(j);
+            res[0] += t[0];
+            res[1] += t[1];
         }
-        if (value[u] == 0) {
-            counter[u] = 0;
+        if (res[0] == 0) {
+            res[1] = 0;
         }
+        return res;
     }
 }
 ```
@@ -136,27 +138,24 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_map<int, vector<int>> g;
-    vector<int> counter;
-    vector<int> value;
-
     int deleteTreeNodes(int nodes, vector<int>& parent, vector<int>& value) {
-        for (int i = 0; i < nodes; ++i)
-            if (parent[i] != -1)
-                g[parent[i]].push_back(i);
-        counter.resize(nodes, 1);
-        this->value = value;
-        dfs(0);
-        return counter[0];
-    }
-
-    void dfs(int u) {
-        for (int v : g[u]) {
-            dfs(v);
-            value[u] += value[v];
-            counter[u] += counter[v];
+        vector<vector<int>> g(nodes);
+        for (int i = 1; i < nodes; ++i) {
+            g[parent[i]].emplace_back(i);
         }
-        if (value[u] == 0) counter[u] = 0;
+        function<pair<int, int>(int)> dfs = [&](int i) -> pair<int, int> {
+            int s = value[i], m = 1;
+            for (int j : g[i]) {
+                auto [t, n] = dfs(j);
+                s += t;
+                m += n;
+            }
+            if (s == 0) {
+                m = 0;
+            }
+            return pair<int, int>{s, m};
+        };
+        return dfs(0).second;
     }
 };
 ```
@@ -165,31 +164,25 @@ public:
 
 ```go
 func deleteTreeNodes(nodes int, parent []int, value []int) int {
-	g := make(map[int][]int)
-	for i, p := range parent {
-		if p != -1 {
-			g[p] = append(g[p], i)
-		}
+	g := make([][]int, nodes)
+	for i := 1; i < nodes; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
 	}
-	counter := make([]int, nodes)
-	for i := range counter {
-		counter[i] = 1
-	}
-	var dfs func(u int)
-	dfs = func(u int) {
-		if vs, ok := g[u]; ok {
-			for _, v := range vs {
-				dfs(v)
-				value[u] += value[v]
-				counter[u] += counter[v]
-			}
+	type pair struct{ s, n int }
+	var dfs func(int) pair
+	dfs = func(i int) pair {
+		s, m := value[i], 1
+		for _, j := range g[i] {
+			t := dfs(j)
+			s += t.s
+			m += t.n
 		}
-		if value[u] == 0 {
-			counter[u] = 0
+		if s == 0 {
+			m = 0
 		}
+		return pair{s, m}
 	}
-	dfs(0)
-	return counter[0]
+	return dfs(0).n
 }
 ```
 

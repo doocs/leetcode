@@ -1,30 +1,27 @@
 class Solution {
-    private Map<Integer, List<Integer>> g;
-    private int[] counter;
+    private List<Integer>[] g;
     private int[] value;
 
     public int deleteTreeNodes(int nodes, int[] parent, int[] value) {
-        g = new HashMap<>();
-        for (int i = 0; i < nodes; ++i) {
-            if (parent[i] != -1) {
-                g.computeIfAbsent(parent[i], k -> new ArrayList<>()).add(i);
-            }
+        g = new List[nodes];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < nodes; ++i) {
+            g[parent[i]].add(i);
         }
         this.value = value;
-        counter = new int[nodes];
-        Arrays.fill(counter, 1);
-        dfs(0);
-        return counter[0];
+        return dfs(0)[1];
     }
 
-    private void dfs(int u) {
-        for (int v : g.getOrDefault(u, Collections.emptyList())) {
-            dfs(v);
-            value[u] += value[v];
-            counter[u] += counter[v];
+    private int[] dfs(int i) {
+        int[] res = new int[] {value[i], 1};
+        for (int j : g[i]) {
+            int[] t = dfs(j);
+            res[0] += t[0];
+            res[1] += t[1];
         }
-        if (value[u] == 0) {
-            counter[u] = 0;
+        if (res[0] == 0) {
+            res[1] = 0;
         }
+        return res;
     }
 }

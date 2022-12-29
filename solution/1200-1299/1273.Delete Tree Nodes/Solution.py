@@ -1,17 +1,16 @@
 class Solution:
     def deleteTreeNodes(self, nodes: int, parent: List[int], value: List[int]) -> int:
-        def dfs(u):
-            for v in g[u]:
-                dfs(v)
-                value[u] += value[v]
-                counter[u] += counter[v]
-            if value[u] == 0:
-                counter[u] = 0
+        def dfs(i):
+            s, m = value[i], 1
+            for j in g[i]:
+                t, n = dfs(j)
+                s += t
+                m += n
+            if s == 0:
+                m = 0
+            return (s, m)
 
         g = defaultdict(list)
-        for i, p in enumerate(parent):
-            if p != -1:
-                g[p].append(i)
-        counter = [1] * nodes
-        dfs(0)
-        return counter[0]
+        for i in range(1, nodes):
+            g[parent[i]].append(i)
+        return dfs(0)[1]

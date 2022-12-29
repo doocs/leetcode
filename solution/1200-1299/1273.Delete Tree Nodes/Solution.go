@@ -1,27 +1,21 @@
 func deleteTreeNodes(nodes int, parent []int, value []int) int {
-	g := make(map[int][]int)
-	for i, p := range parent {
-		if p != -1 {
-			g[p] = append(g[p], i)
-		}
+	g := make([][]int, nodes)
+	for i := 1; i < nodes; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
 	}
-	counter := make([]int, nodes)
-	for i := range counter {
-		counter[i] = 1
-	}
-	var dfs func(u int)
-	dfs = func(u int) {
-		if vs, ok := g[u]; ok {
-			for _, v := range vs {
-				dfs(v)
-				value[u] += value[v]
-				counter[u] += counter[v]
-			}
+	type pair struct{ s, n int }
+	var dfs func(int) pair
+	dfs = func(i int) pair {
+		s, m := value[i], 1
+		for _, j := range g[i] {
+			t := dfs(j)
+			s += t.s
+			m += t.n
 		}
-		if value[u] == 0 {
-			counter[u] = 0
+		if s == 0 {
+			m = 0
 		}
+		return pair{s, m}
 	}
-	dfs(0)
-	return counter[0]
+	return dfs(0).n
 }
