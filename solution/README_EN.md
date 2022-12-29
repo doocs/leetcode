@@ -863,7 +863,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0852  |  [Peak Index in a Mountain Array](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 89  |
 |  0853  |  [Car Fleet](/solution/0800-0899/0853.Car%20Fleet/README_EN.md)  |  `Stack`,`Array`,`Sorting`,`Monotonic Stack`  |  Medium  |  Weekly Contest 89  |
 |  0854  |  [K-Similar Strings](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)  |  `Breadth-First Search`,`String`  |  Hard  |  Weekly Contest 89  |
-|  0855  |  [Exam Room](/solution/0800-0899/0855.Exam%20Room/README_EN.md)  |  `Design`,`Ordered Set`  |  Medium  |  Weekly Contest 89  |
+|  0855  |  [Exam Room](/solution/0800-0899/0855.Exam%20Room/README_EN.md)  |  `Design`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 89  |
 |  0856  |  [Score of Parentheses](/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 90  |
 |  0857  |  [Minimum Cost to Hire K Workers](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 90  |
 |  0858  |  [Mirror Reflection](/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md)  |  `Geometry`,`Math`  |  Medium  |  Weekly Contest 90  |
@@ -2518,15 +2518,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2507  |  [Smallest Value After Replacing With Sum of Prime Factors](/solution/2500-2599/2507.Smallest%20Value%20After%20Replacing%20With%20Sum%20of%20Prime%20Factors/README_EN.md)  |  `Math`,`Number Theory`  |  Medium  |  Weekly Contest 324  |
 |  2508  |  [Add Edges to Make Degrees of All Nodes Even](/solution/2500-2599/2508.Add%20Edges%20to%20Make%20Degrees%20of%20All%20Nodes%20Even/README_EN.md)  |  `Graph`,`Hash Table`  |  Hard  |  Weekly Contest 324  |
 |  2509  |  [Cycle Length Queries in a Tree](/solution/2500-2599/2509.Cycle%20Length%20Queries%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Binary Tree`  |  Hard  |  Weekly Contest 324  |
-|  2510  |  [Check if There is a Path With Equal Number of 0's And 1's](/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/README_EN.md)  |    |  Medium  |  🔒  |
-|  2511  |  [Maximum Enemy Forts That Can Be Captured](/solution/2500-2599/2511.Maximum%20Enemy%20Forts%20That%20Can%20Be%20Captured/README_EN.md)  |    |  Easy  |  Biweekly Contest 94  |
-|  2512  |  [Reward Top K Students](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md)  |    |  Medium  |  Biweekly Contest 94  |
-|  2513  |  [Minimize the Maximum of Two Arrays](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README_EN.md)  |    |  Medium  |  Biweekly Contest 94  |
-|  2514  |  [Count Anagrams](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)  |    |  Hard  |  Biweekly Contest 94  |
-|  2515  |  [Shortest Distance to Target String in a Circular Array](/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README_EN.md)  |    |  Easy  |    |
-|  2516  |  [Take K of Each Character From Left and Right](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md)  |    |  Medium  |    |
-|  2517  |  [Maximum Tastiness of Candy Basket](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)  |    |  Medium  |    |
-|  2518  |  [Number of Great Partitions](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)  |    |  Hard  |    |
+|  2510  |  [Check if There is a Path With Equal Number of 0's And 1's](/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  🔒  |
+|  2511  |  [Maximum Enemy Forts That Can Be Captured](/solution/2500-2599/2511.Maximum%20Enemy%20Forts%20That%20Can%20Be%20Captured/README_EN.md)  |  `Array`,`Two Pointers`  |  Easy  |  Biweekly Contest 94  |
+|  2512  |  [Reward Top K Students](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 94  |
+|  2513  |  [Minimize the Maximum of Two Arrays](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README_EN.md)  |  `Math`,`Binary Search`,`Number Theory`  |  Medium  |  Biweekly Contest 94  |
+|  2514  |  [Count Anagrams](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Combinatorics`,`Counting`  |  Hard  |  Biweekly Contest 94  |
+|  2515  |  [Shortest Distance to Target String in a Circular Array](/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README_EN.md)  |  `Array`,`String`  |  Easy  |  Weekly Contest 325  |
+|  2516  |  [Take K of Each Character From Left and Right](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 325  |
+|  2517  |  [Maximum Tastiness of Candy Basket](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)  |  `Array`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 325  |
+|  2518  |  [Number of Great Partitions](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 325  |
+|  2519  |  [Count the Number of K-Big Indices](/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Divide and Conquer`,`Ordered Set`,`Merge Sort`  |  Hard  |  🔒  |
 
 ## Copyright
 

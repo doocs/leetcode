@@ -82,15 +82,15 @@ class SnapshotArray {
         arr = new List[length];
         Arrays.setAll(arr, k -> new ArrayList<>());
     }
-    
+
     public void set(int index, int val) {
         arr[index].add(new int[] {idx, val});
     }
-    
+
     public int snap() {
         return idx++;
     }
-    
+
     public int get(int index, int snap_id) {
         var vals = arr[index];
         int left = 0, right = vals.size();
@@ -124,15 +124,15 @@ public:
         idx = 0;
         arr = vector<vector<pair<int, int>>>(length);
     }
-    
+
     void set(int index, int val) {
         arr[index].push_back({idx, val});
     }
-    
+
     int snap() {
         return idx++;
     }
-    
+
     int get(int index, int snap_id) {
         auto& vals = arr[index];
         int left = 0, right = vals.size();

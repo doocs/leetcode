@@ -2568,3 +2568,4 @@
   - [2516.每种字符至少取 K 个](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README.md)
   - [2517.礼盒的最大甜蜜度](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md)
   - [2518.好分区的数目](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md)
+  - [2519.Count the Number of K-Big Indices](/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README.md)

@@ -6,13 +6,20 @@
 
 <!-- 这里写题目描述 -->
 
-<p>根据<a href="https://baike.baidu.com/item/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/128437" target="_blank"> 逆波兰表示法</a>，求表达式的值。</p>
+<p>给你一个字符串数组 <code>tokens</code> ，表示一个根据&nbsp;<a href="https://baike.baidu.com/item/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/128437" target="_blank">逆波兰表示法</a> 表示的算术表达式。</p>
 
-<p>有效的算符包括&nbsp;<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>&nbsp;。每个运算对象可以是整数，也可以是另一个逆波兰表达式。</p>
+<p>请你计算该表达式。返回一个表示表达式值的整数。</p>
 
-<p><b>注意&nbsp;</b>两个整数之间的除法只保留整数部分。</p>
+<p><strong>注意：</strong></p>
 
-<p>可以保证给定的逆波兰表达式总是有效的。换句话说，表达式总会得出有效数值且不存在除数为 0 的情况。</p>
+<ul>
+	<li>有效的算符为 <code>'+'</code>、<code>'-'</code>、<code>'*'</code> 和 <code>'/'</code> 。</li>
+	<li>每个操作数（运算对象）都可以是一个整数或者另一个表达式。</li>
+	<li>两个整数之间的乘法总是 <strong>向零截断</strong> 。</li>
+	<li>表达式中不含除零运算。</li>
+	<li>输入是一个根据逆波兰表示法表示的算术表达式。</li>
+	<li>答案及所有中间计算结果可以用 <strong>32 位</strong> 整数表示。</li>
+</ul>
 
 <p>&nbsp;</p>
 

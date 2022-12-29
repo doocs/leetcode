@@ -43,9 +43,8 @@ It can be proven that 2 is the maximum tastiness that can be achieved.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= price.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>2 &lt;= k &lt;= price.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= price[i] &lt;= 10<sup>9</sup></code></li>
-	<li><code>2 &lt;= k &lt;= price.length</code></li>
 </ul>
 
 ## Solutions

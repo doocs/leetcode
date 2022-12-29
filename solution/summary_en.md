@@ -2568,3 +2568,4 @@
   - [2516.Take K of Each Character From Left and Right](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md)
   - [2517.Maximum Tastiness of Candy Basket](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)
   - [2518.Number of Great Partitions](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)
+  - [2519.Count the Number of K-Big Indices](/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README_EN.md)

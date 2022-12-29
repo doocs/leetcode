@@ -1,5 +1,7 @@
 class Solution:
-    def removeInterval(self, intervals: List[List[int]], toBeRemoved: List[int]) -> List[List[int]]:
+    def removeInterval(
+        self, intervals: List[List[int]], toBeRemoved: List[int]
+    ) -> List[List[int]]:
         x, y = toBeRemoved
         ans = []
         for a, b in intervals:
