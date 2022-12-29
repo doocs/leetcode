@@ -49,25 +49,182 @@
 ### **Python3**
 
 ```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
 
+    def update(self, x, delta):
+        while x <= self.n:
+            self.c[x] += delta
+            x += x & -x
+
+    def query(self, x):
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class Solution:
+    def kBigIndices(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        tree1 = BinaryIndexedTree(n)
+        tree2 = BinaryIndexedTree(n)
+        for v in nums:
+            tree2.update(v, 1)
+        ans = 0
+        for v in nums:
+            tree2.update(v, -1)
+            ans += tree1.query(v - 1) >= k and tree2.query(v - 1) >= k
+            tree1.update(v, 1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
 
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class Solution {
+    public int kBigIndices(int[] nums, int k) {
+        int n = nums.length;
+        BinaryIndexedTree tree1 = new BinaryIndexedTree(n);
+        BinaryIndexedTree tree2 = new BinaryIndexedTree(n);
+        for (int v : nums) {
+            tree2.update(v, 1);
+        }
+        int ans = 0;
+        for (int v : nums) {
+            tree2.update(v, -1);
+            if (tree1.query(v - 1) >= k && tree2.query(v - 1) >= k) {
+                ++ans;
+            }
+            tree1.update(v, 1);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class BinaryIndexedTree {
+public:
+    BinaryIndexedTree(int _n) : n(_n), c(_n + 1) {}
 
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+
+private:
+    int n;
+    vector<int> c;
+};
+
+class Solution {
+public:
+    int kBigIndices(vector<int>& nums, int k) {
+        int n = nums.size();
+        BinaryIndexedTree* tree1 = new BinaryIndexedTree(n);
+        BinaryIndexedTree* tree2 = new BinaryIndexedTree(n);
+        for (int& v : nums) {
+            tree2->update(v, 1);
+        }
+        int ans = 0;
+        for (int& v : nums) {
+            tree2->update(v, -1);
+            ans += tree1->query(v - 1) >= k && tree2->query(v - 1) >= k;
+            tree1->update(v, 1);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
 
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += x & -x
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= x & -x
+	}
+	return s
+}
+
+func kBigIndices(nums []int, k int) (ans int) {
+	n := len(nums)
+	tree1 := newBinaryIndexedTree(n)
+	tree2 := newBinaryIndexedTree(n)
+	for _, v := range nums {
+		tree2.update(v, 1)
+	}
+	for _, v := range nums {
+		tree2.update(v, -1)
+		if tree1.query(v-1) >= k && tree2.query(v-1) >= k {
+			ans++
+		}
+		tree1.update(v, 1)
+	}
+	return
+}
 ```
 
 ### **...**
