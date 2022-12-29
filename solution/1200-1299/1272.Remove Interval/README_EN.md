@@ -47,13 +47,92 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeInterval(self, intervals: List[List[int]], toBeRemoved: List[int]) -> List[List[int]]:
+        x, y = toBeRemoved
+        ans = []
+        for a, b in intervals:
+            if a >= y or b <= x:
+                ans.append([a, b])
+            else:
+                if a < x:
+                    ans.append([a, x])
+                if b > y:
+                    ans.append([y, b])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Integer>> removeInterval(int[][] intervals, int[] toBeRemoved) {
+        int x = toBeRemoved[0], y = toBeRemoved[1];
+        List<List<Integer>> ans = new ArrayList<>();
+        for (var e : intervals) {
+            int a = e[0], b = e[1];
+            if (a >= y || b <= x) {
+                ans.add(Arrays.asList(a, b));
+            } else {
+                if (a < x) {
+                    ans.add(Arrays.asList(a, x));
+                }
+                if (b > y) {
+                    ans.add(Arrays.asList(y, b));
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> removeInterval(vector<vector<int>>& intervals, vector<int>& toBeRemoved) {
+        int x = toBeRemoved[0], y = toBeRemoved[1];
+        vector<vector<int>> ans;
+        for (auto& e : intervals) {
+            int a = e[0], b = e[1];
+            if (a >= y || b <= x) {
+                ans.push_back(e);
+            } else {
+                if (a < x) {
+                    ans.push_back({a, x});
+                }
+                if (b > y) {
+                    ans.push_back({y, b});
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeInterval(intervals [][]int, toBeRemoved []int) (ans [][]int) {
+	x, y := toBeRemoved[0], toBeRemoved[1]
+	for _, e := range intervals {
+		a, b := e[0], e[1]
+		if a >= y || b <= x {
+			ans = append(ans, e)
+		} else {
+			if a < x {
+				ans = append(ans, []int{a, x})
+			}
+			if b > y {
+				ans = append(ans, []int{y, b})
+			}
+		}
+	}
+	return
+}
 ```
 
 ### **...**
