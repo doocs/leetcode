@@ -67,6 +67,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学**
+
+设巨无霸汉堡数量为 $x$，小皇堡数量为 $y$，则有：
+
+$$
+\begin{aligned}
+4x + 2y &= tomatoSlices \\
+x + y &= cheeseSlices
+\end{aligned}
+$$
+
+将上述两式转换，可以得到：
+
+$$
+\begin{aligned}
+y = (4 \times cheeseSlices - tomatoSlices) / 2 \\
+x = cheeseSlices - y
+\end{aligned}
+$$
+
+其中 $x$ 和 $y$ 必须为非负整数。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +98,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numOfBurgers(self, tomatoSlices: int, cheeseSlices: int) -> List[int]:
+        k = 4 * cheeseSlices - tomatoSlices
+        y = k // 2
+        x = cheeseSlices - y
+        return [] if k % 2 or y < 0 or x < 0 else [x, y]
 ```
 
 ### **Java**
@@ -82,7 +111,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> numOfBurgers(int tomatoSlices, int cheeseSlices) {
+        int k = 4 * cheeseSlices - tomatoSlices;
+        int y = k / 2;
+        int x = cheeseSlices - y;
+        return k % 2 != 0 || y < 0 || x < 0 ? Collections.emptyList() : Arrays.asList(x, y);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> numOfBurgers(int tomatoSlices, int cheeseSlices) {
+        int k = 4 * cheeseSlices - tomatoSlices;
+        int y = k / 2;
+        int x = cheeseSlices - y;
+        return k % 2 || x < 0 || y < 0 ? vector<int>{} : vector<int>{x, y};
+    }
+};
+```
+
+### **Go**
+
+```go
+func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
+	k := 4*cheeseSlices - tomatoSlices
+	y := k / 2
+	x := cheeseSlices - y
+	if k%2 != 0 || x < 0 || y < 0 {
+		return []int{}
+	}
+	return []int{x, y}
+}
 ```
 
 ### **...**

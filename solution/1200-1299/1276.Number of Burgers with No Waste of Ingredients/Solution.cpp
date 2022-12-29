@@ -1,13 +1,9 @@
 class Solution {
 public:
     vector<int> numOfBurgers(int tomatoSlices, int cheeseSlices) {
-        int x = (tomatoSlices - 2 * cheeseSlices);
-        if (x < 0 || x % 2 == 1)
-            return {};
-        x /= 2;
-        int y = cheeseSlices - x;
-        if (y < 0)
-            return {};
-        return {x, y};
+        int k = 4 * cheeseSlices - tomatoSlices;
+        int y = k / 2;
+        int x = cheeseSlices - y;
+        return k % 2 || x < 0 || y < 0 ? vector<int>{} : vector<int>{x, y};
     }
 };
