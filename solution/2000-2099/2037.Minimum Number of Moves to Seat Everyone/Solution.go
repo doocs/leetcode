@@ -1,16 +1,16 @@
-func minMovesToSeat(seats []int, students []int) int {
+func minMovesToSeat(seats []int, students []int) (ans int) {
 	sort.Ints(seats)
 	sort.Ints(students)
-	ans := 0
-	for i := range students {
-		ans += abs(seats[i] - students[i])
+	for i, a := range seats {
+		b := students[i]
+		ans += abs(a - b)
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {
-	if x >= 0 {
-		return x
+	if x < 0 {
+		return -x
 	}
-	return -x
+	return x
 }

@@ -76,7 +76,7 @@ class Solution:
     def minMovesToSeat(self, seats: List[int], students: List[int]) -> int:
         seats.sort()
         students.sort()
-        return sum(abs(seats[i] - students[i]) for i in range(len(seats)))
+        return sum(abs(a - b) for a, b in zip(seats, students))
 ```
 
 ### **Java**
@@ -104,8 +104,9 @@ public:
         sort(seats.begin(), seats.end());
         sort(students.begin(), students.end());
         int ans = 0;
-        for (int i = 0; i < seats.size(); ++i)
+        for (int i = 0; i < seats.size(); ++i) {
             ans += abs(seats[i] - students[i]);
+        }
         return ans;
     }
 };
@@ -114,21 +115,21 @@ public:
 ### **Go**
 
 ```go
-func minMovesToSeat(seats []int, students []int) int {
+func minMovesToSeat(seats []int, students []int) (ans int) {
 	sort.Ints(seats)
 	sort.Ints(students)
-	ans := 0
-	for i := range students {
-		ans += abs(seats[i] - students[i])
+	for i, a := range seats {
+		b := students[i]
+		ans += abs(a - b)
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {
-	if x >= 0 {
-		return x
+	if x < 0 {
+		return -x
 	}
-	return -x
+	return x
 }
 ```
 
