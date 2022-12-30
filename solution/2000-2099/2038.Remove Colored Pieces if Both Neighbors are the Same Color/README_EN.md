@@ -80,19 +80,13 @@ Thus, Bob wins, so return false.
 class Solution:
     def winnerOfGame(self, colors: str) -> bool:
         a = b = 0
-        cnt1 = cnt2 = 0
-        for c in colors:
-            if c == 'A':
-                a += 1
-                if a > 2:
-                    cnt1 += 1
-                b = 0
-            else:
-                b += 1
-                if b > 2:
-                    cnt2 += 1
-                a = 0
-        return cnt1 > cnt2
+        for c, v in groupby(colors):
+            m = len(list(v)) - 2
+            if m > 0 and c == 'A':
+                a += m
+            elif m > 0 and c == 'B':
+                b += m
+        return a > b
 ```
 
 ### **Java**
@@ -100,24 +94,22 @@ class Solution:
 ```java
 class Solution {
     public boolean winnerOfGame(String colors) {
+        int n = colors.length();
         int a = 0, b = 0;
-        int cnt1 = 0, cnt2 = 0;
-        for (char c : colors.toCharArray()) {
-            if (c == 'A') {
-                ++a;
-                if (a > 2) {
-                    ++cnt1;
+        for (int i = 0, j = 0; i < n; i = j) {
+            while (j < n && colors.charAt(j) == colors.charAt(i)) {
+                ++j;
+            }
+            int m = j - i - 2;
+            if (m > 0) {
+                if (colors.charAt(i) == 'A') {
+                    a += m;
+                } else {
+                    b += m;
                 }
-                b = 0;
-            } else {
-                ++b;
-                if (b > 2) {
-                    ++cnt2;
-                }
-                a = 0;
             }
         }
-        return cnt1 > cnt2;
+        return a > b;
     }
 }
 ```
@@ -128,20 +120,22 @@ class Solution {
 class Solution {
 public:
     bool winnerOfGame(string colors) {
+        int n = colors.size();
         int a = 0, b = 0;
-        int cnt1 = 0, cnt2 = 0;
-        for (char& c : colors) {
-            if (c == 'A') {
-                ++a;
-                if (a > 2) ++cnt1;
-                b = 0;
-            } else {
-                ++b;
-                if (b > 2) ++cnt2;
-                a = 0;
+        for (int i = 0, j = 0; i < n; i = j) {
+            while (j < n && colors[j] == colors[i]) {
+                ++j;
+            }
+            int m = j - i - 2;
+            if (m > 0) {
+                if (colors[i] == 'A') {
+                    a += m;
+                } else {
+                    b += m;
+                }
             }
         }
-        return cnt1 > cnt2;
+        return a > b;
     }
 };
 ```
@@ -150,23 +144,22 @@ public:
 
 ```go
 func winnerOfGame(colors string) bool {
-	var a, b, cnt1, cnt2 int
-	for _, c := range colors {
-		if c == 'A' {
-			a++
-			if a > 2 {
-				cnt1++
+	n := len(colors)
+	a, b := 0, 0
+	for i, j := 0, 0; i < n; i = j {
+		for j < n && colors[j] == colors[i] {
+			j++
+		}
+		m := j - i - 2
+		if m > 0 {
+			if colors[i] == 'A' {
+				a += m
+			} else {
+				b += m
 			}
-			b = 0
-		} else {
-			b++
-			if b > 2 {
-				cnt2++
-			}
-			a = 0
 		}
 	}
-	return cnt1 > cnt2
+	return a > b
 }
 ```
 

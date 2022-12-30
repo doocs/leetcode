@@ -1,19 +1,18 @@
 func winnerOfGame(colors string) bool {
-	var a, b, cnt1, cnt2 int
-	for _, c := range colors {
-		if c == 'A' {
-			a++
-			if a > 2 {
-				cnt1++
+	n := len(colors)
+	a, b := 0, 0
+	for i, j := 0, 0; i < n; i = j {
+		for j < n && colors[j] == colors[i] {
+			j++
+		}
+		m := j - i - 2
+		if m > 0 {
+			if colors[i] == 'A' {
+				a += m
+			} else {
+				b += m
 			}
-			b = 0
-		} else {
-			b++
-			if b > 2 {
-				cnt2++
-			}
-			a = 0
 		}
 	}
-	return cnt1 > cnt2
+	return a > b
 }

@@ -1,19 +1,21 @@
 class Solution {
 public:
     bool winnerOfGame(string colors) {
+        int n = colors.size();
         int a = 0, b = 0;
-        int cnt1 = 0, cnt2 = 0;
-        for (char& c : colors) {
-            if (c == 'A') {
-                ++a;
-                if (a > 2) ++cnt1;
-                b = 0;
-            } else {
-                ++b;
-                if (b > 2) ++cnt2;
-                a = 0;
+        for (int i = 0, j = 0; i < n; i = j) {
+            while (j < n && colors[j] == colors[i]) {
+                ++j;
+            }
+            int m = j - i - 2;
+            if (m > 0) {
+                if (colors[i] == 'A') {
+                    a += m;
+                } else {
+                    b += m;
+                }
             }
         }
-        return cnt1 > cnt2;
+        return a > b;
     }
 };

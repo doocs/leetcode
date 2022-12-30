@@ -1,16 +1,10 @@
 class Solution:
     def winnerOfGame(self, colors: str) -> bool:
         a = b = 0
-        cnt1 = cnt2 = 0
-        for c in colors:
-            if c == 'A':
-                a += 1
-                if a > 2:
-                    cnt1 += 1
-                b = 0
-            else:
-                b += 1
-                if b > 2:
-                    cnt2 += 1
-                a = 0
-        return cnt1 > cnt2
+        for c, v in groupby(colors):
+            m = len(list(v)) - 2
+            if m > 0 and c == 'A':
+                a += m
+            elif m > 0 and c == 'B':
+                b += m
+        return a > b
