@@ -1,6 +1,5 @@
-func maxSlidingWindow(nums []int, k int) []int {
-	var q []int
-	var ans []int
+func maxSlidingWindow(nums []int, k int) (ans []int) {
+	q := []int{}
 	for i, v := range nums {
 		if len(q) > 0 && i-k+1 > q[0] {
 			q = q[1:]
