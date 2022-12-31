@@ -22,22 +22,17 @@ public class Solution {
     }
 
     private void dfs(TreeNode root) {
-        if (root != null)
-        {
-            dfs(root.left);
-            if (prev != null)
-            {
-                if (first == null && prev.val > root.val)
-                {
-                    first = prev;
-                }
-                if (first != null && prev.val > root.val)
-                {
-                    second = root;
-                }
-            }
-            prev = root;
-            dfs(root.right);
+        if (root == null) {
+            return;
         }
+        dfs(root.left);
+        if (prev != null && prev.val > root.val) {
+            if (first == null) {
+                first = prev;
+            }
+            second = root;
+        }
+        prev = root;
+        dfs(root.right);
     }
 }

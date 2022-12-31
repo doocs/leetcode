@@ -11,23 +11,21 @@
  */
 class Solution {
 public:
-    TreeNode* prev;
-    TreeNode* first;
-    TreeNode* second;
-
     void recoverTree(TreeNode* root) {
+        TreeNode* prev = nullptr;
+        TreeNode* first = nullptr;
+        TreeNode* second = nullptr;
+        function<void(TreeNode* root)> dfs = [&](TreeNode* root) {
+            if (!root) return;
+            dfs(root->left);
+            if (prev && prev->val > root->val) {
+                if (!first) first = prev;
+                second = root;
+            }
+            prev = root;
+            dfs(root->right);
+        };
         dfs(root);
         swap(first->val, second->val);
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        if (prev) {
-            if (!first && prev->val > root->val) first = prev;
-            if (first && prev->val > root->val) second = root;
-        }
-        prev = root;
-        dfs(root->right);
     }
 };

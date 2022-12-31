@@ -10,32 +10,26 @@
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
-const recoverTree = root => {
-    const data = {
-        prev: null,
-        first: null,
-        second: null,
-    };
-    let tmp = 0;
-
-    helper(root, data);
-
-    tmp = data.first.val;
-    data.first.val = data.second.val;
-    data.second.val = tmp;
-};
-
-const helper = (root, data) => {
-    if (!root) return;
-
-    helper(root.left, data);
-
-    if (data.prev && data.prev.val >= root.val) {
-        if (!data.first) data.first = data.prev;
-        data.second = root;
+var recoverTree = function (root) {
+    let prev = null;
+    let first = null;
+    let second = null;
+    function dfs(root) {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        if (prev && prev.val > root.val) {
+            if (!first) {
+                first = prev;
+            }
+            second = root;
+        }
+        prev = root;
+        dfs(root.right);
     }
-
-    data.prev = root;
-
-    helper(root.right, data);
+    dfs(root);
+    const t = first.val;
+    first.val = second.val;
+    second.val = t;
 };

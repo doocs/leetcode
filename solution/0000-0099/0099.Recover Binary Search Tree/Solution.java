@@ -30,13 +30,11 @@ class Solution {
             return;
         }
         dfs(root.left);
-        if (prev != null) {
-            if (first == null && prev.val > root.val) {
+        if (prev != null && prev.val > root.val) {
+            if (first == null) {
                 first = prev;
             }
-            if (first != null && prev.val > root.val) {
-                second = root;
-            }
+            second = root;
         }
         prev = root;
         dfs(root.right);
