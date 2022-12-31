@@ -54,7 +54,7 @@ DFS or BFS.
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if p == q:
             return True
         if p is None or q is None or p.val != q.val:

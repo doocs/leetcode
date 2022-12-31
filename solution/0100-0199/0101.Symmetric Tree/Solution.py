@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSymmetric(self, root: TreeNode) -> bool:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         def dfs(root1, root2):
             if root1 is None and root2 is None:
                 return True
