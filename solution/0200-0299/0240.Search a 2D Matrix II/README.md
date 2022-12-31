@@ -49,13 +49,15 @@
 
 **方法一：二分查找**
 
-由于每一行升序排列，因此可以对每一行执行二分查找。
+由于每一行的所有元素升序排列，因此，对于每一行，我们可以使用二分查找找到第一个大于等于 `target` 的元素，然后判断该元素是否等于 `target`。如果等于 `target`，说明找到了目标值，直接返回 `true`。如果不等于 `target`，说明这一行的所有元素都小于 `target`，应该继续搜索下一行。
 
-时间复杂度 $O(mlogn)$。
+如果所有行都搜索完了，都没有找到目标值，说明目标值不存在，返回 `false`。
+
+时间复杂度 $O(m \times \log n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 **方法二：从左下角或右上角搜索**
 
-这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 target 的大小关系：
+这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 `target` 的大小关系：
 
 -   若 `matrix[i][j] == target`，说明找到了目标值，直接返回 true。
 -   若 `matrix[i][j] > target`，说明这一行从当前位置开始往右的所有元素均大于 target，应该让 i 指针往上移动，即 `i--`。
@@ -63,7 +65,7 @@
 
 若搜索结束依然找不到 target，返回 false。
 
-时间复杂度 $O(m+n)$。
+时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -71,20 +73,15 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-二分查找：
-
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        n = len(matrix[0])
         for row in matrix:
-            idx = bisect_left(row, target)
-            if idx != n and row[idx] == target:
+            j = bisect_left(row, target)
+            if j < len(matrix[0]) and row[j] == target:
                 return True
         return False
 ```
-
-从左下角或右上角搜索：
 
 ```python
 class Solution:
@@ -105,14 +102,12 @@ class Solution:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-二分查找：
-
 ```java
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        for (int[] row : matrix) {
-            int idx = Arrays.binarySearch(row, target);
-            if (idx >= 0) {
+        for (var row : matrix) {
+            int j = Arrays.binarySearch(row, target);
+            if (j >= 0) {
                 return true;
             }
         }
@@ -120,8 +115,6 @@ class Solution {
     }
 }
 ```
-
-从左下角或右上角搜索：
 
 ```java
 class Solution {
@@ -143,9 +136,77 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+### **C++**
 
-二分查找：
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        for (auto& row : matrix) {
+            int j = lower_bound(row.begin(), row.end(), target) - row.begin();
+            if (j < matrix[0].size() && row[j] == target) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int i = m - 1, j = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            if (matrix[i][j] > target) {
+                --i;
+            } else {
+                ++j;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	for _, row := range matrix {
+		j := sort.SearchInts(row, target)
+		if j < len(matrix[0]) && row[j] == target {
+			return true
+		}
+	}
+	return false
+}
+```
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	m, n := len(matrix), len(matrix[0])
+	i, j := m-1, 0
+	for i >= 0 && j < n {
+		if matrix[i][j] == target {
+			return true
+		}
+		if matrix[i][j] > target {
+			i--
+		} else {
+			j++
+		}
+	}
+	return false
+}
+```
+
+### **TypeScript**
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
@@ -169,8 +230,6 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 }
 ```
 
-从左下角或右上角搜索：
-
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
     let m = matrix.length,
@@ -190,108 +249,34 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 }
 ```
 
-### **C++**
-
-二分查找：
-
-```cpp
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int n = matrix[0].size();
-        for (auto& row : matrix) {
-            int idx = lower_bound(row.begin(), row.end(), target) - row.begin();
-            if (idx != n && row[idx] == target) return true;
-        }
-        return false;
-    }
-};
-```
-
-从左下角或右上角搜索：
-
-```cpp
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int m = matrix.size(), n = matrix[0].size();
-        int i = m - 1, j = 0;
-        while (i >= 0 && j < n) {
-            if (matrix[i][j] == target) return true;
-            if (matrix[i][j] > target)
-                --i;
-            else
-                ++j;
-        }
-        return false;
-    }
-};
-```
-
-### **Go**
-
-二分查找：
-
-```go
-func searchMatrix(matrix [][]int, target int) bool {
-	n := len(matrix[0])
-	for _, row := range matrix {
-		left, right := 0, n
-		for left < right {
-			mid := (left + right) >> 1
-			if row[mid] >= target {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		if left != n && row[left] == target {
-			return true
-		}
-	}
-	return false
-}
-```
-
-从左下角或右上角搜索：
-
-```go
-func searchMatrix(matrix [][]int, target int) bool {
-	m, n := len(matrix), len(matrix[0])
-	i, j := m-1, 0
-	for i >= 0 && j < n {
-		if matrix[i][j] == target {
-			return true
-		}
-		if matrix[i][j] > target {
-			i--
-		} else {
-			j++
-		}
-	}
-	return false
-}
-```
-
 ### **C#**
+
+```cs
+public class Solution {
+    public bool SearchMatrix(int[][] matrix, int target) {
+        foreach (int[] row in matrix) {
+            int j = Array.BinarySearch(row, target);
+            if (j >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
 ```cs
 public class Solution {
     public bool SearchMatrix(int[][] matrix, int target) {
         int m = matrix.Length, n = matrix[0].Length;
         int i = m - 1, j = 0;
-        while (i >= 0 && j < n)
-        {
-            if (matrix[i][j] == target)
-            {
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] == target) {
                 return true;
             }
-            if (matrix[i][j] > target)
-            {
+            if (matrix[i][j] > target) {
                 --i;
-            }
-            else
-            {
+            } else {
                 ++j;
             }
         }

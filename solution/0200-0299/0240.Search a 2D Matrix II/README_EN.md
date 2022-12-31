@@ -48,10 +48,9 @@
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        n = len(matrix[0])
         for row in matrix:
-            idx = bisect_left(row, target)
-            if idx != n and row[idx] == target:
+            j = bisect_left(row, target)
+            if j < len(matrix[0]) and row[j] == target:
                 return True
         return False
 ```
@@ -76,9 +75,9 @@ class Solution:
 ```java
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        for (int[] row : matrix) {
-            int idx = Arrays.binarySearch(row, target);
-            if (idx >= 0) {
+        for (var row : matrix) {
+            int j = Arrays.binarySearch(row, target);
+            if (j >= 0) {
                 return true;
             }
         }
@@ -104,6 +103,76 @@ class Solution {
         }
         return false;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        for (auto& row : matrix) {
+            int j = lower_bound(row.begin(), row.end(), target) - row.begin();
+            if (j < matrix[0].size() && row[j] == target) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int i = m - 1, j = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            if (matrix[i][j] > target) {
+                --i;
+            } else {
+                ++j;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	for _, row := range matrix {
+		j := sort.SearchInts(row, target)
+		if j < len(matrix[0]) && row[j] == target {
+			return true
+		}
+	}
+	return false
+}
+```
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	m, n := len(matrix), len(matrix[0])
+	i, j := m-1, 0
+	for i >= 0 && j < n {
+		if matrix[i][j] == target {
+			return true
+		}
+		if matrix[i][j] > target {
+			i--
+		} else {
+			j++
+		}
+	}
+	return false
 }
 ```
 
@@ -150,100 +219,34 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int n = matrix[0].size();
-        for (auto& row : matrix) {
-            int idx = lower_bound(row.begin(), row.end(), target) - row.begin();
-            if (idx != n && row[idx] == target) return true;
-        }
-        return false;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int m = matrix.size(), n = matrix[0].size();
-        int i = m - 1, j = 0;
-        while (i >= 0 && j < n) {
-            if (matrix[i][j] == target) return true;
-            if (matrix[i][j] > target)
-                --i;
-            else
-                ++j;
-        }
-        return false;
-    }
-};
-```
-
-### **Go**
-
-```go
-func searchMatrix(matrix [][]int, target int) bool {
-	n := len(matrix[0])
-	for _, row := range matrix {
-		left, right := 0, n
-		for left < right {
-			mid := (left + right) >> 1
-			if row[mid] >= target {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		if left != n && row[left] == target {
-			return true
-		}
-	}
-	return false
-}
-```
-
-```go
-func searchMatrix(matrix [][]int, target int) bool {
-	m, n := len(matrix), len(matrix[0])
-	i, j := m-1, 0
-	for i >= 0 && j < n {
-		if matrix[i][j] == target {
-			return true
-		}
-		if matrix[i][j] > target {
-			i--
-		} else {
-			j++
-		}
-	}
-	return false
-}
-```
-
 ### **C#**
+
+```cs
+public class Solution {
+    public bool SearchMatrix(int[][] matrix, int target) {
+        foreach (int[] row in matrix) {
+            int j = Array.BinarySearch(row, target);
+            if (j >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
 ```cs
 public class Solution {
     public bool SearchMatrix(int[][] matrix, int target) {
         int m = matrix.Length, n = matrix[0].Length;
         int i = m - 1, j = 0;
-        while (i >= 0 && j < n)
-        {
-            if (matrix[i][j] == target)
-            {
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] == target) {
                 return true;
             }
-            if (matrix[i][j] > target)
-            {
+            if (matrix[i][j] > target) {
                 --i;
-            }
-            else
-            {
+            } else {
                 ++j;
             }
         }
