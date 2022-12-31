@@ -75,6 +75,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 二分查找**
+
+将任务按照完成时间从小到大排序，将工人按照能力从小到大排序。
+
+假设我们要安排的任务数为 $x$，那么我们可以贪心地将前 $x$ 个任务分配给力量值最大的 $x$ 个工人。假设能完成任务数为 $x$，那么也一定能完成任务数为 $x-1$，$x-2$，$x-3$，…，$1$，$0$ 的情况。因此，我们可以使用二分查找的方法，找到最大的 $x$，使得能够完成任务数为 $x$ 的情况。
+
+我们定义一个函数 $check(x)$，表示是否能够完成任务数为 $x$ 的情况。
+
+函数 $check(x)$ 的实现如下：
+
+从小到大遍历力量值最大的 $x$ 个工人，记当前遍历到的工人为 $j$，那么当前可选任务必须满足 $tasks[i] \leq workers[j] + strength$。
+
+如果当前可选任务中要求力量值最小的一个 $task[i]$ 小于等于 $workers[j]$，那么第 $j$ 个工人不用吃药就可以完成任务 $task[i]$。否则，当前工人必须吃药，如果还有药丸，那么吃药，并且在当前可选任务中选择要求力量值最大的一个任务完成。否则，返回 `false`。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为任务数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -82,7 +98,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxTaskAssign(self, tasks: List[int], workers: List[int], pills: int, strength: int) -> int:
+        def check(x):
+            i = 0
+            q = deque()
+            p = pills
+            for j in range(m - x, m):
+                while i < x and tasks[i] <= workers[j] + strength:
+                    q.append(tasks[i])
+                    i += 1
+                if not q:
+                    return False
+                if q[0] <= workers[j]:
+                    q.popleft()
+                elif p == 0:
+                    return False
+                else:
+                    p -= 1
+                    q.pop()
+            return True
 
+        n, m = len(tasks), len(workers)
+        tasks.sort()
+        workers.sort()
+        left, right = 0, min(n, m)
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if check(mid):
+                left = mid
+            else:
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
@@ -90,7 +137,153 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] tasks;
+    private int[] workers;
+    private int strength;
+    private int pills;
+    private int m;
+    private int n;
 
+    public int maxTaskAssign(int[] tasks, int[] workers, int pills, int strength) {
+        Arrays.sort(tasks);
+        Arrays.sort(workers);
+        this.tasks = tasks;
+        this.workers = workers;
+        this.strength = strength;
+        this.pills = pills;
+        n = tasks.length;
+        m = workers.length;
+        int left = 0, right = Math.min(m, n);
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean check(int x) {
+        int i = 0;
+        Deque<Integer> q = new ArrayDeque<>();
+        int p = pills;
+        for (int j = m - x; j < m; ++j) {
+            while (i < x && tasks[i] <= workers[j] + strength) {
+                q.offer(tasks[i++]);
+            }
+            if (q.isEmpty()) {
+                return false;
+            }
+            if (q.peekFirst() <= workers[j]) {
+                q.pollFirst();
+            } else if (p == 0) {
+                return false;
+            } else {
+                --p;
+                q.pollLast();
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxTaskAssign(vector<int>& tasks, vector<int>& workers, int pills, int strength) {
+        sort(tasks.begin(), tasks.end());
+        sort(workers.begin(), workers.end());
+        int n = tasks.size(), m = workers.size();
+        int left = 0, right = min(m, n);
+        auto check = [&](int x) {
+            int p = pills;
+            deque<int> q;
+            int i = 0;
+            for (int j = m - x; j < m; ++j) {
+                while (i < x && tasks[i] <= workers[j] + strength) {
+                    q.push_back(tasks[i++]);
+                }
+                if (q.empty()) {
+                    return false;
+                }
+                if (q.front() <= workers[j]) {
+                    q.pop_front();
+                } else if (p == 0) {
+                    return false;
+                } else {
+                    --p;
+                    q.pop_back();
+                }
+            }
+            return true;
+        };
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxTaskAssign(tasks []int, workers []int, pills int, strength int) int {
+	sort.Ints(tasks)
+	sort.Ints(workers)
+	n, m := len(tasks), len(workers)
+	left, right := 0, min(m, n)
+	check := func(x int) bool {
+		p := pills
+		q := []int{}
+		i := 0
+		for j := m - x; j < m; j++ {
+			for i < x && tasks[i] <= workers[j]+strength {
+				q = append(q, tasks[i])
+				i++
+			}
+			if len(q) == 0 {
+				return false
+			}
+			if q[0] <= workers[j] {
+				q = q[1:]
+			} else if p == 0 {
+				return false
+			} else {
+				p--
+				q = q[:len(q)-1]
+			}
+		}
+		return true
+	}
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if check(mid) {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

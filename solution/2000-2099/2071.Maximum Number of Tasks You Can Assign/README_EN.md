@@ -66,13 +66,190 @@ The last pill is not given because it will not make any worker strong enough for
 ### **Python3**
 
 ```python
+class Solution:
+    def maxTaskAssign(self, tasks: List[int], workers: List[int], pills: int, strength: int) -> int:
+        def check(x):
+            i = 0
+            q = deque()
+            p = pills
+            for j in range(m - x, m):
+                while i < x and tasks[i] <= workers[j] + strength:
+                    q.append(tasks[i])
+                    i += 1
+                if not q:
+                    return False
+                if q[0] <= workers[j]:
+                    q.popleft()
+                elif p == 0:
+                    return False
+                else:
+                    p -= 1
+                    q.pop()
+            return True
 
+        n, m = len(tasks), len(workers)
+        tasks.sort()
+        workers.sort()
+        left, right = 0, min(n, m)
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if check(mid):
+                left = mid
+            else:
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] tasks;
+    private int[] workers;
+    private int strength;
+    private int pills;
+    private int m;
+    private int n;
 
+    public int maxTaskAssign(int[] tasks, int[] workers, int pills, int strength) {
+        Arrays.sort(tasks);
+        Arrays.sort(workers);
+        this.tasks = tasks;
+        this.workers = workers;
+        this.strength = strength;
+        this.pills = pills;
+        n = tasks.length;
+        m = workers.length;
+        int left = 0, right = Math.min(m, n);
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean check(int x) {
+        int i = 0;
+        Deque<Integer> q = new ArrayDeque<>();
+        int p = pills;
+        for (int j = m - x; j < m; ++j) {
+            while (i < x && tasks[i] <= workers[j] + strength) {
+                q.offer(tasks[i++]);
+            }
+            if (q.isEmpty()) {
+                return false;
+            }
+            if (q.peekFirst() <= workers[j]) {
+                q.pollFirst();
+            } else if (p == 0) {
+                return false;
+            } else {
+                --p;
+                q.pollLast();
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxTaskAssign(vector<int>& tasks, vector<int>& workers, int pills, int strength) {
+        sort(tasks.begin(), tasks.end());
+        sort(workers.begin(), workers.end());
+        int n = tasks.size(), m = workers.size();
+        int left = 0, right = min(m, n);
+        auto check = [&](int x) {
+            int p = pills;
+            deque<int> q;
+            int i = 0;
+            for (int j = m - x; j < m; ++j) {
+                while (i < x && tasks[i] <= workers[j] + strength) {
+                    q.push_back(tasks[i++]);
+                }
+                if (q.empty()) {
+                    return false;
+                }
+                if (q.front() <= workers[j]) {
+                    q.pop_front();
+                } else if (p == 0) {
+                    return false;
+                } else {
+                    --p;
+                    q.pop_back();
+                }
+            }
+            return true;
+        };
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxTaskAssign(tasks []int, workers []int, pills int, strength int) int {
+	sort.Ints(tasks)
+	sort.Ints(workers)
+	n, m := len(tasks), len(workers)
+	left, right := 0, min(m, n)
+	check := func(x int) bool {
+		p := pills
+		q := []int{}
+		i := 0
+		for j := m - x; j < m; j++ {
+			for i < x && tasks[i] <= workers[j]+strength {
+				q = append(q, tasks[i])
+				i++
+			}
+			if len(q) == 0 {
+				return false
+			}
+			if q[0] <= workers[j] {
+				q = q[1:]
+			} else if p == 0 {
+				return false
+			} else {
+				p--
+				q = q[:len(q)-1]
+			}
+		}
+		return true
+	}
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if check(mid) {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
