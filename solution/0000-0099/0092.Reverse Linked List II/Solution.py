@@ -4,8 +4,8 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def reverseBetween(self, head: ListNode, left: int, right: int) -> ListNode:
-        if head is None or head.next is None or left == right:
+    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+        if head.next is None or left == right:
             return head
         dummy = ListNode(0, head)
         pre = dummy
