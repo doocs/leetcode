@@ -145,6 +145,56 @@ func abs(x int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minMovesToSeat(seats: number[], students: number[]): number {
+    seats.sort((a, b) => a - b);
+    students.sort((a, b) => a - b);
+    const n = seats.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        ans += Math.abs(seats[i] - students[i]);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_moves_to_seat(mut seats: Vec<i32>, mut students: Vec<i32>) -> i32 {
+        seats.sort();
+        students.sort();
+        let n = seats.len();
+        let mut ans = 0;
+        for i in 0..n {
+            ans += (seats[i] - students[i]).abs();
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int cmp(const void *a, const void *b) {
+    return *(int *) a - *(int *) b;
+}
+
+int minMovesToSeat(int *seats, int seatsSize, int *students, int studentsSize) {
+    qsort(seats, seatsSize, sizeof(int), cmp);
+    qsort(students, studentsSize, sizeof(int), cmp);
+    int ans = 0;
+    for (int i = 0; i < seatsSize; i++) {
+        ans += abs(seats[i] - students[i]);
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
