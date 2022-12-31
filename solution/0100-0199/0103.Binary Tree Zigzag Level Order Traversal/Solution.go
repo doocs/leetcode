@@ -6,17 +6,15 @@
  *     Right *TreeNode
  * }
  */
-func zigzagLevelOrder(root *TreeNode) [][]int {
+func zigzagLevelOrder(root *TreeNode) (ans [][]int) {
 	if root == nil {
-		return nil
+		return
 	}
-	var ans [][]int
-	var q = []*TreeNode{root}
-	left := false
+	q := []*TreeNode{root}
+	left := true
 	for len(q) > 0 {
-		var t []int
-		n := len(q)
-		for i := 0; i < n; i++ {
+		t := []int{}
+		for n := len(q); n > 0; n-- {
 			node := q[0]
 			q = q[1:]
 			t = append(t, node.Val)
@@ -27,16 +25,13 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 				q = append(q, node.Right)
 			}
 		}
-		if left {
-			i, j := 0, n-1
-			for i < j {
+		if !left {
+			for i, j := 0, len(t)-1; i < j; i, j = i+1, j-1 {
 				t[i], t[j] = t[j], t[i]
-				i++
-				j--
 			}
 		}
 		ans = append(ans, t)
 		left = !left
 	}
-	return ans
+	return
 }
