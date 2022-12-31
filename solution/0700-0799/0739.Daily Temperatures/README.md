@@ -55,6 +55,12 @@ for i in range(n):
     stk.append(i)
 ```
 
+对于本题，我们需要找出每个数右边**离它最近的**且**比它大的数**，因此我们可以从右往左遍历数组，且需要维护一个从栈底到栈顶单调递减的栈。
+
+对于当前遍历到的数 `temperatures[i]`，如果栈顶元素 `temperatures[stk[-1]]` 小于等于 `temperatures[i]`，则弹出栈顶元素，直到栈为空或者栈顶元素大于 `temperatures[i]`。如果此时栈不为空，那么栈顶元素就是 `temperatures[i]` 右边离它最近的且比它大的数，更新 `ans[i] = stk[-1] - i`。接着，我们将 $i$ 入栈，继续遍历下一个数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `temperatures` 数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -208,6 +214,33 @@ func dailyTemperatures(temperatures []int) []int {
 }
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} temperatures
+ * @return {number[]}
+ */
+var dailyTemperatures = function (temperatures) {
+    const n = temperatures.length;
+    const ans = new Array(n).fill(0);
+    const stk = [];
+    for (let i = n - 1; i >= 0; --i) {
+        while (
+            stk.length &&
+            temperatures[stk[stk.length - 1]] <= temperatures[i]
+        ) {
+            stk.pop();
+        }
+        if (stk.length) {
+            ans[i] = stk[stk.length - 1] - i;
+        }
+        stk.push(i);
+    }
+    return ans;
+};
+```
+
 ### **Rust**
 
 ```rust
@@ -225,6 +258,29 @@ impl Solution {
         }
         res
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function dailyTemperatures(temperatures: number[]): number[] {
+    const n = temperatures.length;
+    const ans = new Array(n).fill(0);
+    const stk: number[] = [];
+    for (let i = n - 1; i >= 0; --i) {
+        while (
+            stk.length &&
+            temperatures[stk[stk.length - 1]] <= temperatures[i]
+        ) {
+            stk.pop();
+        }
+        if (stk.length) {
+            ans[i] = stk[stk.length - 1] - i;
+        }
+        stk.push(i);
+    }
+    return ans;
 }
 ```
 
