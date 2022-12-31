@@ -52,10 +52,10 @@ BFS.
 #         self.left = left
 #         self.right = right
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        if root is None:
-            return []
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         ans = []
+        if root is None:
+            return ans
         q = deque([root])
         while q:
             t = []
@@ -162,14 +162,13 @@ public:
  *     Right *TreeNode
  * }
  */
-func levelOrder(root *TreeNode) [][]int {
-	var ans [][]int
+func levelOrder(root *TreeNode) (ans [][]int) {
 	if root == nil {
-		return ans
+		return
 	}
-	var q = []*TreeNode{root}
+	q := []*TreeNode{root}
 	for len(q) > 0 {
-		var t []int
+		t := []int{}
 		for n := len(q); n > 0; n-- {
 			node := q[0]
 			q = q[1:]
@@ -183,7 +182,7 @@ func levelOrder(root *TreeNode) [][]int {
 		}
 		ans = append(ans, t)
 	}
-	return ans
+	return
 }
 ```
 
