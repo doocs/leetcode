@@ -61,9 +61,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和统计每个位置各个字母出现的次数。然后根据 count 枚举子字符串左右端点，check 是否满足条件，是则 ans 加 1。
+**方法一：枚举 + 滑动窗口**
 
-最后返回 ans。
+我们可以在 $[1..26]$ 范围内枚举子串的字母种类数 $x$，那么子串长度就是 $count \times x$。
+
+接下来，我们将当前子串长度作为窗口的大小，统计窗口大小中有多少种字母的个数为 $count$，记录在 $y$ 中。如果此时 $x = y$，说明当前窗口中的字母个数都为 $count$，那么就可以将答案加一。
+
+时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字母的种类数，本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -74,34 +78,23 @@
 ```python
 class Solution:
     def equalCountSubstrings(self, s: str, count: int) -> int:
-        n = len(s)
-        if count > n:
-            return 0
-        counter = [[0] * 26 for _ in range(n + 1)]
-
-        def check(i, j):
-            c1 = counter[i]
-            c2 = counter[j + 1]
-            for k in range(26):
-                if c2[k] == 0 or c1[k] == c2[k]:
-                    continue
-                if c2[k] - c1[k] != count:
-                    return False
-            return True
-
         ans = 0
-        for i, c in enumerate(s):
-            idx = ord(c) - ord('a')
-            for j in range(26):
-                counter[i + 1][j] = counter[i][j]
-            counter[i + 1][idx] = counter[i][idx] + 1
-            l = 0
-            for _ in range(26):
-                l += count
-                j = i - l + 1
-                if j < 0:
-                    break
-                ans += check(j, i)
+        for x in range(1, 27):
+            m = count * x
+            if m > len(s):
+                break
+            cnt = Counter()
+            y = 0
+            for i, c in enumerate(s):
+                cnt[c] += 1
+                y += cnt[c] == count
+                y -= cnt[c] == count + 1
+                j = i - m
+                if j >= 0:
+                    cnt[s[j]] -= 1
+                    y += cnt[s[j]] == count
+                    y -= cnt[s[j]] == count - 1
+                ans += x == y
         return ans
 ```
 
@@ -112,43 +105,38 @@ class Solution:
 ```java
 class Solution {
     public int equalCountSubstrings(String s, int count) {
-        int n = s.length();
-        if (count > n) {
-            return 0;
-        }
-        int[][] counter = new int[n + 1][26];
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int idx = s.charAt(i) - 'a';
-            for (int j = 0; j < 26; ++j) {
-                counter[i + 1][j] = counter[i][j];
-            }
-            counter[i + 1][idx] = counter[i][idx] + 1;
-            int l = 0;
-            for (int k = 0; k < 26; ++k) {
-                l += count;
-                int j = i - l + 1;
-                if (j < 0) {
-                    break;
+        int n = s.length();
+        for (int x = 1; x < 27 && count * x <= n; ++x) {
+            int m = count * x;
+            int[] cnt = new int[26];
+            int y = 0;
+            for (int i = 0; i < n; ++i) {
+                int a = s.charAt(i) - 'a';
+                ++cnt[a];
+                if (cnt[a] == count) {
+                    ++y;
                 }
-                ans += check(j, i, count, counter) ? 1 : 0;
+                if (cnt[a] == count + 1) {
+                    --y;
+                }
+                int j = i - m;
+                if (j >= 0) {
+                    int b = s.charAt(j) - 'a';
+                    --cnt[b];
+                    if (cnt[b] == count) {
+                        ++y;
+                    }
+                    if (cnt[b] == count - 1) {
+                        --y;
+                    }
+                }
+                if (x == y) {
+                    ++ans;
+                }
             }
         }
         return ans;
-    }
-
-    private boolean check(int i, int j, int count, int[][] counter) {
-        int[] c1 = counter[i];
-        int[] c2 = counter[j + 1];
-        for (int k = 0; k < 26; ++k) {
-            if (c2[k] == 0 || c1[k] == c2[k]) {
-                continue;
-            }
-            if (c2[k] - c1[k] != count) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 ```
@@ -159,33 +147,29 @@ class Solution {
 class Solution {
 public:
     int equalCountSubstrings(string s, int count) {
-        int n = s.size();
-        if (count > n) return 0;
-        vector<vector<int>> counter(n + 1, vector<int>(26));
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int idx = s[i] - 'a';
-            for (int j = 0; j < 26; ++j) counter[i + 1][j] = counter[i][j];
-            counter[i + 1][idx] = counter[i][idx] + 1;
-            int l = 0;
-            for (int k = 0; k < 26; ++k) {
-                l += count;
-                int j = i - l + 1;
-                if (j < 0) break;
-                ans += check(j, i, count, counter);
+        int n = s.size();
+        int cnt[26];
+        for (int x = 1; x < 27 && count * x <= n; ++x) {
+            int m = count * x;
+            memset(cnt, 0, sizeof cnt);
+            int y = 0;
+            for (int i = 0; i < n; ++i) {
+                int a = s[i] - 'a';
+                ++cnt[a];
+                y += cnt[a] == count;
+                y -= cnt[a] == count + 1;
+                int j = i - m;
+                if (j >= 0) {
+                    int b = s[j] - 'a';
+                    --cnt[b];
+                    y += cnt[b] == count;
+                    y -= cnt[b] == count - 1;
+                }
+                ans += x == y;
             }
         }
         return ans;
-    }
-
-    bool check(int i, int j, int count, vector<vector<int>>& counter) {
-        auto& c1 = counter[i];
-        auto& c2 = counter[j + 1];
-        for (int k = 0; k < 26; ++k) {
-            if (c2[k] == 0 || c1[k] == c2[k]) continue;
-            if (c2[k] - c1[k] != count) return false;
-        }
-        return true;
     }
 };
 ```
@@ -193,48 +177,73 @@ public:
 ### **Go**
 
 ```go
-func equalCountSubstrings(s string, count int) int {
+func equalCountSubstrings(s string, count int) (ans int) {
 	n := len(s)
-	if count > n {
-		return 0
-	}
-	counter := make([][]int, n+1)
-	for i := range counter {
-		counter[i] = make([]int, 26)
-	}
-	ans := 0
-	check := func(i, j int) bool {
-		c1, c2 := counter[i], counter[j+1]
-		for k := 0; k < 26; k++ {
-			if c2[k] == 0 || c1[k] == c2[k] {
-				continue
+	for x := 1; x < 27 && x*count <= n; x++ {
+		m := x * count
+		y := 0
+		cnt := [26]int{}
+		for i, c := range s {
+			a := c - 'a'
+			cnt[a]++
+			if cnt[a] == count {
+				y++
 			}
-			if c2[k]-c1[k] != count {
-				return false
+			if cnt[a] == count+1 {
+				y--
 			}
-		}
-		return true
-	}
-	for i, c := range s {
-		idx := c - 'a'
-		for j := 0; j < 26; j++ {
-			counter[i+1][j] = counter[i][j]
-		}
-		counter[i+1][idx] = counter[i][idx] + 1
-		l := 0
-		for k := 0; k < 26; k++ {
-			l += count
-			j := i - l + 1
-			if j < 0 {
-				break
+			j := i - m
+			if j >= 0 {
+				b := s[j] - 'a'
+				cnt[b]--
+				if cnt[b] == count {
+					y++
+				}
+				if cnt[b] == count-1 {
+					y--
+				}
 			}
-			if check(j, i) {
+			if x == y {
 				ans++
 			}
 		}
 	}
-	return ans
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @param {number} count
+ * @return {number}
+ */
+var equalCountSubstrings = function (s, count) {
+    let ans = 0;
+    const n = s.length;
+    for (let x = 1; x <= 26 && x * count <= n; ++x) {
+        const m = x * count;
+        const cnt = new Array(26).fill(0);
+        let y = 0;
+        for (let i = 0; i < n; ++i) {
+            const a = s.charCodeAt(i) - 'a'.charCodeAt(0);
+            ++cnt[a];
+            y += cnt[a] == count;
+            y -= cnt[a] == count + 1;
+            const j = i - m;
+            if (j >= 0) {
+                const b = s.charCodeAt(j) - 'a'.charCodeAt(0);
+                --cnt[b];
+                y += cnt[b] == count;
+                y -= cnt[b] == count - 1;
+            }
+            ans += x == y;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**

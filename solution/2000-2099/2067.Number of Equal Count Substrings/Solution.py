@@ -1,31 +1,20 @@
 class Solution:
     def equalCountSubstrings(self, s: str, count: int) -> int:
-        n = len(s)
-        if count > n:
-            return 0
-        counter = [[0] * 26 for _ in range(n + 1)]
-
-        def check(i, j):
-            c1 = counter[i]
-            c2 = counter[j + 1]
-            for k in range(26):
-                if c2[k] == 0 or c1[k] == c2[k]:
-                    continue
-                if c2[k] - c1[k] != count:
-                    return False
-            return True
-
         ans = 0
-        for i, c in enumerate(s):
-            idx = ord(c) - ord('a')
-            for j in range(26):
-                counter[i + 1][j] = counter[i][j]
-            counter[i + 1][idx] = counter[i][idx] + 1
-            l = 0
-            for _ in range(26):
-                l += count
-                j = i - l + 1
-                if j < 0:
-                    break
-                ans += check(j, i)
+        for x in range(1, 27):
+            m = count * x
+            if m > len(s):
+                break
+            cnt = Counter()
+            y = 0
+            for i, c in enumerate(s):
+                cnt[c] += 1
+                y += cnt[c] == count
+                y -= cnt[c] == count + 1
+                j = i - m
+                if j >= 0:
+                    cnt[s[j]] -= 1
+                    y += cnt[s[j]] == count
+                    y -= cnt[s[j]] == count - 1
+                ans += x == y
         return ans
