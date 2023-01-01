@@ -1,4 +1,4 @@
-func getNumberOfBacklogOrders(orders [][]int) int {
+func getNumberOfBacklogOrders(orders [][]int) (ans int) {
 	sell := hp{}
 	buy := hp{}
 	for _, e := range orders {
@@ -33,17 +33,14 @@ func getNumberOfBacklogOrders(orders [][]int) int {
 			}
 		}
 	}
-	mod := int(1e9) + 7
-	ans := 0
+	const mod int = 1e9 + 7
 	for len(buy) > 0 {
 		ans += heap.Pop(&buy).(pair).a
-		ans %= mod
 	}
 	for len(sell) > 0 {
 		ans += heap.Pop(&sell).(pair).a
-		ans %= mod
 	}
-	return ans
+	return ans % mod
 }
 
 type pair struct{ p, a int }

@@ -22,9 +22,5 @@ class Solution:
                         a = 0
                 if a:
                     heappush(sell, (p, a))
-        ans, mod = 0, 10**9 + 7
-        for _, v in buy:
-            ans = (ans + v) % mod
-        for _, v in sell:
-            ans = (ans + v) % mod
-        return ans
+        mod = 10**9 + 7
+        return sum(v[1] for v in buy + sell) % mod

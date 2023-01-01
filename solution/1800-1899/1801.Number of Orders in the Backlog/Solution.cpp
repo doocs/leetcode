@@ -1,10 +1,9 @@
-using pii = pair<int, int>;
-
 class Solution {
 public:
     const int mod = 1e9 + 7;
 
     int getNumberOfBacklogOrders(vector<vector<int>>& orders) {
+        using pii = pair<int, int>;
         priority_queue<pii, vector<pii>, greater<pii>> sell;
         priority_queue<pii> buy;
         for (auto& e : orders) {

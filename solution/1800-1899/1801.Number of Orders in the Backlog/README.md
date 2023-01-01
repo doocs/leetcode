@@ -68,13 +68,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：优先队列 + 模拟**
+**方法一：优先队列（大小根堆） + 模拟**
 
-我们可以使用优先队列（大小根堆）维护当前的积压订单，优先队列中的元素为 `[price, amount]` ，表示价格为 `price` 的订单数量为 `amount` ，其中大根堆 `buy` 维护积压的采购订单，小根堆 `sell` 维护积压的销售订单。
+我们可以使用优先队列（大小根堆）维护当前的积压订单，其中大根堆 `buy` 维护积压的采购订单，小根堆 `sell` 维护积压的销售订单。堆中每个元素是一个二元组 $(price, amount)$，表示价格为 `price` 的订单数量为 `amount`。
 
-遍历订单数组 `orders` ，根据题意模拟即可。
+接下来，我们遍历订单数组 `orders` ，根据题意模拟即可。
 
-时间复杂度 $O(n\log n)$。
+遍历结束后，我们将 `buy` 和 `sell` 中的订单数量相加，即为最终的积压订单数量。注意答案可能很大，需要对 $10^9 + 7$ 取模。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是 `orders` 的长度。
 
 <!-- tabs:start -->
 
@@ -107,12 +109,8 @@ class Solution:
                         a = 0
                 if a:
                     heappush(sell, (p, a))
-        ans, mod = 0, 10**9 + 7
-        for _, v in buy:
-            ans = (ans + v) % mod
-        for _, v in sell:
-            ans = (ans + v) % mod
-        return ans
+        mod = 10**9 + 7
+        return sum(v[1] for v in buy + sell) % mod
 ```
 
 ### **Java**
@@ -175,13 +173,12 @@ class Solution {
 ### **C++**
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     const int mod = 1e9 + 7;
 
     int getNumberOfBacklogOrders(vector<vector<int>>& orders) {
+        using pii = pair<int, int>;
         priority_queue<pii, vector<pii>, greater<pii>> sell;
         priority_queue<pii> buy;
         for (auto& e : orders) {
@@ -235,7 +232,7 @@ public:
 ### **Go**
 
 ```go
-func getNumberOfBacklogOrders(orders [][]int) int {
+func getNumberOfBacklogOrders(orders [][]int) (ans int) {
 	sell := hp{}
 	buy := hp{}
 	for _, e := range orders {
@@ -270,17 +267,14 @@ func getNumberOfBacklogOrders(orders [][]int) int {
 			}
 		}
 	}
-	mod := int(1e9) + 7
-	ans := 0
+	const mod int = 1e9 + 7
 	for len(buy) > 0 {
 		ans += heap.Pop(&buy).(pair).a
-		ans %= mod
 	}
 	for len(sell) > 0 {
 		ans += heap.Pop(&sell).(pair).a
-		ans %= mod
 	}
-	return ans
+	return ans % mod
 }
 
 type pair struct{ p, a int }
