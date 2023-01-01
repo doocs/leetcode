@@ -1,9 +1,8 @@
-func findNumbers(nums []int) int {
-	s := 0
-	for _, num := range nums {
-		if (len(strconv.Itoa(num)) & 1) == 0 {
-			s++
+func findNumbers(nums []int) (ans int) {
+	for _, v := range nums {
+		if len(strconv.Itoa(v))%2 == 0 {
+			ans++
 		}
 	}
-	return s
+	return
 }

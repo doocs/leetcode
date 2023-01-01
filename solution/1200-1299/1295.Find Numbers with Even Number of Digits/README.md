@@ -44,7 +44,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-首先将数组元素转换为字符串,判断字符串长度是否为偶数即可。
+**方法一：枚举**
+
+枚举数组 `nums` 中的每个元素，将其转换为字符串，判断字符串长度是否为偶数，是则答案加一。
+
+时间复杂度 $O(n \times \log_{10} m)$，空间复杂度 $O(\log_{10} m)$，其中 $n$ 和 $m$ 分别为数组 `nums` 的长度以及数组 `nums` 中的最大元素。
 
 <!-- tabs:start -->
 
@@ -55,7 +59,7 @@
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        return sum(1 for num in nums if (len(str(num)) & 1) == 0)
+        return sum(len(str(v)) % 2 == 0 for v in nums)
 ```
 
 ### **Java**
@@ -65,13 +69,13 @@ class Solution:
 ```java
 class Solution {
     public int findNumbers(int[] nums) {
-        int s = 0;
-        for (int num : nums) {
-            if ((String.valueOf(num).length() & 1) == 0) {
-                ++s;
+        int ans = 0;
+        for (int v : nums) {
+            if (String.valueOf(v).length() % 2 == 0) {
+                ++ans;
             }
         }
-        return s;
+        return ans;
     }
 }
 ```
@@ -82,11 +86,11 @@ class Solution {
 class Solution {
 public:
     int findNumbers(vector<int>& nums) {
-        int s = 0;
-        for (int num : nums) {
-            s += (to_string(num).size() & 1) == 0;
+        int ans = 0;
+        for (int& v : nums) {
+            ans += to_string(v).size() % 2 == 0;
         }
-        return s;
+        return ans;
     }
 };
 ```
@@ -94,15 +98,30 @@ public:
 ### **Go**
 
 ```go
-func findNumbers(nums []int) int {
-	s := 0
-	for _, num := range nums {
-		if (len(strconv.Itoa(num)) & 1) == 0 {
-			s++
+func findNumbers(nums []int) (ans int) {
+	for _, v := range nums {
+		if len(strconv.Itoa(v))%2 == 0 {
+			ans++
 		}
 	}
-	return s
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findNumbers = function (nums) {
+    let ans = 0;
+    for (const v of nums) {
+        ans += String(v).length % 2 == 0;
+    }
+    return ans;
+};
 ```
 
 ### **...**

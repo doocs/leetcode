@@ -47,7 +47,7 @@ Only 1771 contains an even number of digits.
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        return sum(1 for num in nums if (len(str(num)) & 1) == 0)
+        return sum(len(str(v)) % 2 == 0 for v in nums)
 ```
 
 ### **Java**
@@ -55,13 +55,13 @@ class Solution:
 ```java
 class Solution {
     public int findNumbers(int[] nums) {
-        int s = 0;
-        for (int num : nums) {
-            if ((String.valueOf(num).length() & 1) == 0) {
-                ++s;
+        int ans = 0;
+        for (int v : nums) {
+            if (String.valueOf(v).length() % 2 == 0) {
+                ++ans;
             }
         }
-        return s;
+        return ans;
     }
 }
 ```
@@ -72,11 +72,11 @@ class Solution {
 class Solution {
 public:
     int findNumbers(vector<int>& nums) {
-        int s = 0;
-        for (int num : nums) {
-            s += (to_string(num).size() & 1) == 0;
+        int ans = 0;
+        for (int& v : nums) {
+            ans += to_string(v).size() % 2 == 0;
         }
-        return s;
+        return ans;
     }
 };
 ```
@@ -84,15 +84,30 @@ public:
 ### **Go**
 
 ```go
-func findNumbers(nums []int) int {
-	s := 0
-	for _, num := range nums {
-		if (len(strconv.Itoa(num)) & 1) == 0 {
-			s++
+func findNumbers(nums []int) (ans int) {
+	for _, v := range nums {
+		if len(strconv.Itoa(v))%2 == 0 {
+			ans++
 		}
 	}
-	return s
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findNumbers = function (nums) {
+    let ans = 0;
+    for (const v of nums) {
+        ans += String(v).length % 2 == 0;
+    }
+    return ans;
+};
 ```
 
 ### **...**
