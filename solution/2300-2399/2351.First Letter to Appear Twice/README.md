@@ -51,6 +51,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数组或哈希表**
+
+遍历字符串 $s$，用数组或哈希表 `cnt` 记录每个字母出现的次数，当某个字母出现两次时，返回该字母。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
+
+**方法二：位运算**
+
+我们也可以用一个整数 `mask` 记录每个字母是否出现过，其中 `mask` 的第 $i$ 位表示第 $i$ 个字母是否出现过。当某个字母出现两次时，返回该字母。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,10 +73,21 @@
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
         cnt = Counter()
-        for v in s:
-            cnt[v] += 1
-            if cnt[v] == 2:
-                return v
+        for c in s:
+            cnt[c] += 1
+            if cnt[c] == 2:
+                return c
+```
+
+```python
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+        mask = 0
+        for c in s:
+            i = ord(c) - ord('a')
+            if mask >> i & 1:
+                return c
+            mask |= 1 << i
 ```
 
 ### **Java**
@@ -75,12 +98,27 @@ class Solution:
 class Solution {
     public char repeatedCharacter(String s) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
+        for (int i = 0; ; ++i) {
+            char c = s.charAt(i);
             if (++cnt[c - 'a'] == 2) {
                 return c;
             }
         }
-        return '.';
+    }
+}
+```
+
+```java
+class Solution {
+    public char repeatedCharacter(String s) {
+        int mask = 0;
+        for (int i = 0; ; ++i) {
+            char c = s.charAt(i);
+            if ((mask >> (c - 'a') & 1) == 1) {
+                return c;
+            }
+            mask |= 1 << (c - 'a');
+        }
     }
 }
 ```
@@ -91,10 +129,27 @@ class Solution {
 class Solution {
 public:
     char repeatedCharacter(string s) {
-        vector<int> cnt(26);
-        for (char c : s)
-            if (++cnt[c - 'a'] == 2) return c;
-        return '.';
+        int cnt[26]{};
+        for (int i = 0; ; ++i) {
+            if (++cnt[s[i] - 'a'] == 2) {
+                return s[i];
+            }
+        }
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+        int mask = 0;
+        for (int i = 0; ; ++i) {
+            if (mask >> (s[i] - 'a') & 1) {
+                return s[i];
+            }
+            mask |= 1 << (s[i] - 'a');
+        }
     }
 };
 ```
@@ -103,14 +158,25 @@ public:
 
 ```go
 func repeatedCharacter(s string) byte {
-	cnt := make([]int, 26)
-	for _, c := range s {
-		cnt[c-'a']++
-		if cnt[c-'a'] == 2 {
-			return byte(c)
+	cnt := [26]int{}
+	for i := 0; ; i++ {
+		cnt[s[i]-'a']++
+		if cnt[s[i]-'a'] == 2 {
+			return s[i]
 		}
 	}
-	return '.'
+}
+```
+
+```go
+func repeatedCharacter(s string) byte {
+	mask := 0
+	for i := 0; ; i++ {
+		if mask>>(s[i]-'a')&1 == 1 {
+			return s[i]
+		}
+		mask |= 1 << (s[i] - 'a')
+	}
 }
 ```
 

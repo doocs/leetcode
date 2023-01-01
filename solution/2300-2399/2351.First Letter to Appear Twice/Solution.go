@@ -1,10 +1,9 @@
 func repeatedCharacter(s string) byte {
-	cnt := make([]int, 26)
-	for _, c := range s {
-		cnt[c-'a']++
-		if cnt[c-'a'] == 2 {
-			return byte(c)
+	mask := 0
+	for i := 0; ; i++ {
+		if mask>>(s[i]-'a')&1 == 1 {
+			return s[i]
 		}
+		mask |= 1 << (s[i] - 'a')
 	}
-	return '.'
 }

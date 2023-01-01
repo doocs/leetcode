@@ -55,10 +55,21 @@ The only letter that appears twice is &#39;d&#39; so we return &#39;d&#39;.
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
         cnt = Counter()
-        for v in s:
-            cnt[v] += 1
-            if cnt[v] == 2:
-                return v
+        for c in s:
+            cnt[c] += 1
+            if cnt[c] == 2:
+                return c
+```
+
+```python
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+        mask = 0
+        for c in s:
+            i = ord(c) - ord('a')
+            if mask >> i & 1:
+                return c
+            mask |= 1 << i
 ```
 
 ### **Java**
@@ -67,12 +78,27 @@ class Solution:
 class Solution {
     public char repeatedCharacter(String s) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
+        for (int i = 0; ; ++i) {
+            char c = s.charAt(i);
             if (++cnt[c - 'a'] == 2) {
                 return c;
             }
         }
-        return '.';
+    }
+}
+```
+
+```java
+class Solution {
+    public char repeatedCharacter(String s) {
+        int mask = 0;
+        for (int i = 0; ; ++i) {
+            char c = s.charAt(i);
+            if ((mask >> (c - 'a') & 1) == 1) {
+                return c;
+            }
+            mask |= 1 << (c - 'a');
+        }
     }
 }
 ```
@@ -83,10 +109,27 @@ class Solution {
 class Solution {
 public:
     char repeatedCharacter(string s) {
-        vector<int> cnt(26);
-        for (char c : s)
-            if (++cnt[c - 'a'] == 2) return c;
-        return '.';
+        int cnt[26]{};
+        for (int i = 0; ; ++i) {
+            if (++cnt[s[i] - 'a'] == 2) {
+                return s[i];
+            }
+        }
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+        int mask = 0;
+        for (int i = 0; ; ++i) {
+            if (mask >> (s[i] - 'a') & 1) {
+                return s[i];
+            }
+            mask |= 1 << (s[i] - 'a');
+        }
     }
 };
 ```
@@ -95,14 +138,25 @@ public:
 
 ```go
 func repeatedCharacter(s string) byte {
-	cnt := make([]int, 26)
-	for _, c := range s {
-		cnt[c-'a']++
-		if cnt[c-'a'] == 2 {
-			return byte(c)
+	cnt := [26]int{}
+	for i := 0; ; i++ {
+		cnt[s[i]-'a']++
+		if cnt[s[i]-'a'] == 2 {
+			return s[i]
 		}
 	}
-	return '.'
+}
+```
+
+```go
+func repeatedCharacter(s string) byte {
+	mask := 0
+	for i := 0; ; i++ {
+		if mask>>(s[i]-'a')&1 == 1 {
+			return s[i]
+		}
+		mask |= 1 << (s[i] - 'a')
+	}
 }
 ```
 
