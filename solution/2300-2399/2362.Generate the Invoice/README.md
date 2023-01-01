@@ -1,4 +1,4 @@
-# [2362. Generate the Invoice](https://leetcode.cn/problems/generate-the-invoice)
+# [2362. 生成发票](https://leetcode.cn/problems/generate-the-invoice)
 
 [English Version](/solution/2300-2399/2362.Generate%20the%20Invoice/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Products</code></p>
+<p>表: <code>Products</code></p>
 
 <pre>
 +-------------+------+
@@ -15,13 +15,13 @@
 | product_id  | int  |
 | price       | int  |
 +-------------+------+
-product_id is the primary key for this table.
-Each row in this table shows the ID of a product and the price of one unit.
+product_id 是该表的主键。
+该表中的每一行显示了一个产品的 ID 和一个单位的价格。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Purchases</code></p>
+<p>表: <code>Purchases</code></p>
 
 <pre>
 +-------------+------+
@@ -31,31 +31,32 @@ Each row in this table shows the ID of a product and the price of one unit.
 | product_id  | int  |
 | quantity    | int  |
 +-------------+------+
-(invoice_id, product_id) is the primary key for this table.
-Each row in this table shows the quantity ordered from one product in an invoice. 
+(invoice_id, product_id) 是该表的主键
+该表中的每一行都显示了从发票中的一种产品订购的数量。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to show the details of the invoice with the highest price. If two or more invoices have the same price, return the details of the one with the smallest <code>invoice_id</code>.</p>
+<p>编写一个 SQL 查询来显示价格最高的发票的详细信息。如果两个或多个发票具有相同的价格，则返回 <code>invoice_id</code> 最小的发票的详细信息。</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p data-group="1-1">以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>查询结果格式示例如下。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Products table:
+<strong>输入:</strong> 
+Products 表:
 +------------+-------+
 | product_id | price |
 +------------+-------+
 | 1          | 100   |
 | 2          | 200   |
 +------------+-------+
-Purchases table:
+Purchases 表:
 +------------+------------+----------+
 | invoice_id | product_id | quantity |
 +------------+------------+----------+
@@ -65,21 +66,20 @@ Purchases table:
 | 2          | 1          | 4        |
 | 4          | 1          | 10       |
 +------------+------------+----------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +------------+----------+-------+
 | product_id | quantity | price |
 +------------+----------+-------+
 | 2          | 3        | 600   |
 | 1          | 4        | 400   |
 +------------+----------+-------+
-<strong>Explanation:</strong> 
-Invoice 1: price = (2 * 100) = $200
-Invoice 2: price = (4 * 100) + (3 * 200) = $1000
-Invoice 3: price = (1 * 200) = $200
-Invoice 4: price = (10 * 100) = $1000
+<strong>解释:</strong> 
+发票 1: price = (2 * 100) = $200
+发票 2: price = (4 * 100) + (3 * 200) = $1000
+发票 3: price = (1 * 200) = $200
+发票 4: price = (10 * 100) = $1000
 
-The highest price is $1000, and the invoices with the highest prices are 2 and 4. We return the details of the one with the smallest ID, which is invoice 2.
-</pre>
+最高价格是 1000 美元，最高价格的发票是 2 和 4。我们返回 ID 最小的发票 2 的详细信息。</pre>
 
 ## 解法
 

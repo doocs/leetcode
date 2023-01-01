@@ -4,12 +4,16 @@
 
 ## Description
 
-<p>Write an efficient algorithm that searches for a value <code>target</code> in an <code>m x n</code> integer matrix <code>matrix</code>. This matrix has the following properties:</p>
+<p>You are given an <code>m x n</code> integer matrix <code>matrix</code> with the following two properties:</p>
 
 <ul>
-	<li>Integers in each row are sorted from left to right.</li>
+	<li>Each row is sorted in non-decreasing order.</li>
 	<li>The first integer of each row is greater than the last integer of the previous row.</li>
 </ul>
+
+<p>Given an integer <code>target</code>, return <code>true</code> <em>if</em> <code>target</code> <em>is in</em> <code>matrix</code> <em>or</em> <code>false</code> <em>otherwise</em>.</p>
+
+<p>You must write a solution in <code>O(log(m * n))</code> time complexity.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

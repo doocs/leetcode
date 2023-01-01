@@ -13,8 +13,8 @@ If you are in the top 25% of the contest rating, you’ll get the “Knight” b
 
 | Level | Proportion | Badge      | Rating |                                                                                                                         |
 | ----- | ---------- | ---------- | -------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3 | 5\%      | Guardian | &ge;2185.56   | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2 | 20\%     | Knight   | &ge;1853.59   | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3 | 5\%      | Guardian | &ge;2184.45   | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2 | 20\%     | Knight   | &ge;1860.91   | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1 | 75\%     | -          | -              | -                                                                                                                       |
 
 For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange on the ranking board. You'll also have the honor with you when you post/comment under discuss.
@@ -24,6 +24,14 @@ For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange
 Get your rating changes right after the completion of LeetCode contests, https://lcpredictor.herokuapp.com
 
 ## Past Contests
+
+#### Weekly Contest 326
+
+- [2520. Count the Digits That Divide a Number](/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README_EN.md)
+- [2521. Distinct Prime Factors of Product of Array](/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README_EN.md)
+- [2522. Partition String Into Substrings With Values at Most K](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README_EN.md)
+- [2523. Closest Prime Numbers in Range](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md)
+
 
 #### Weekly Contest 325
 

@@ -1,4 +1,4 @@
-# [2422. Merge Operations to Turn Array Into a Palindrome](https://leetcode.cn/problems/merge-operations-to-turn-array-into-a-palindrome)
+# [2422. 使用合并操作将数组转换为回文序列](https://leetcode.cn/problems/merge-operations-to-turn-array-into-a-palindrome)
 
 [English Version](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)
 
@@ -6,45 +6,47 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>
+<p>给定一个由&nbsp;<strong>正整数&nbsp;</strong>组成的数组 <code>nums</code>。</p>
 
-<p>You can perform the following operation on the array <strong>any</strong> number of times:</p>
+<p>可以对阵列执行如下操作，<strong>次数不限</strong>:</p>
 
 <ul>
-	<li>Choose any two <strong>adjacent</strong> elements and <strong>replace</strong> them with their <strong>sum</strong>.
+	<li>选择任意两个&nbsp;<strong>相邻&nbsp;</strong>的元素并用它们的&nbsp;<strong>和</strong>&nbsp;<strong>替换&nbsp;</strong>它们。
 
     <ul>
-    	<li>For example, if <code>nums = [1,<u>2,3</u>,1]</code>, you can apply one operation to make it <code>[1,5,1]</code>.</li>
+    	<li>例如，如果 <code>nums = [1,<u>2,3</u>,1]</code>，则可以应用一个操作使其变为 <code>[1,5,1]</code>。</li>
     </ul>
     </li>
 
 </ul>
 
-<p>Return <em>the <strong>minimum</strong> number of operations needed to turn the array into a <strong>palindrome</strong></em>.</p>
+<p>返回<em>将数组转换为&nbsp;<strong>回文序列&nbsp;</strong>所需的&nbsp;<strong>最小&nbsp;</strong>操作数。</em></p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [4,3,2,1,2,3,1]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> We can turn the array into a palindrome in 2 operations as follows:
-- Apply the operation on the fourth and fifth element of the array, nums becomes equal to [4,3,2,<strong><u>3</u></strong>,3,1].
-- Apply the operation on the fifth and sixth element of the array, nums becomes equal to [4,3,2,3,<strong><u>4</u></strong>].
-The array [4,3,2,3,4] is a palindrome.
-It can be shown that 2 is the minimum number of operations needed.
+<strong>输入:</strong> nums = [4,3,2,1,2,3,1]
+<strong>输出:</strong> 2
+<strong>解释:</strong> 我们可以通过以下 2 个操作将数组转换为回文:
+- 在数组的第 4 和第 5 个元素上应用该操作，nums 将等于 [4,3,2,<strong><u>3</u></strong>,3,1].
+- 在数组的第 5 和第 6 个元素上应用该操作，nums 将等于 [4,3,2,3,<strong><u>4</u></strong>].
+数组 [4,3,2,3,4] 是一个回文序列。
+可以证明，2 是所需的最小操作数。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例&nbsp;2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,2,3,4]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> We do the operation 3 times in any position, we obtain the array [10] at the end which is a palindrome.
+<strong>输入:</strong> nums = [1,2,3,4]
+<strong>输出:</strong> 3
+<strong>解释:</strong> 我们在任意位置进行 3 次运算，最后得到数组 [10]，它是一个回文序列。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

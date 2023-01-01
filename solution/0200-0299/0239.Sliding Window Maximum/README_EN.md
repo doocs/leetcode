@@ -221,7 +221,6 @@ func maxSlidingWindow(nums []int, k int) (ans []int) {
 }
 ```
 
-
 ### **JavaScript**
 
 ```js

@@ -1,4 +1,4 @@
-# [2489. Number of Substrings With Fixed Ratio](https://leetcode.cn/problems/number-of-substrings-with-fixed-ratio)
+# [2489. 固定比率的子字符串数](https://leetcode.cn/problems/number-of-substrings-with-fixed-ratio)
 
 [English Version](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README_EN.md)
 
@@ -6,52 +6,54 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a binary string <code>s</code>, and two integers <code>num1</code> and <code>num2</code>. <code>num1</code> and <code>num2</code> are coprime numbers.</p>
+<p>给定一个二进制字符串 <code>s</code>&nbsp;和两个整数 <code>num1</code> 和 <code>num2</code>。<code>num1</code> 和 <code>num2</code> 为互质。</p>
 
-<p>A <strong>ratio substring</strong> is a substring of s where the ratio between the number of <code>0</code>&#39;s and the number of <code>1</code>&#39;s in the substring is exactly <code>num1 : num2</code>.</p>
+<p><strong>比率子串&nbsp;</strong>是 s 的子串，其中子串中 <code>0</code> 的数量与 <code>1</code>&nbsp;的数量之比正好是&nbsp;<code>num1 : num2</code>。</p>
 
 <ul>
-	<li>For example, if <code>num1 = 2</code> and <code>num2 = 3</code>, then <code>&quot;01011&quot;</code> and <code>&quot;1110000111&quot;</code> are ratio substrings, while <code>&quot;11000&quot;</code> is not.</li>
+	<li>例如，如果 <code>num1 = 2</code>&nbsp;和 <code>num2 = 3</code>，那么 <code>"01011"</code>&nbsp;和 <code>"1110000111"</code>&nbsp;是比率子串，而 <code>"11000"</code>&nbsp;不是。</li>
 </ul>
 
-<p>Return <em>the number of <strong>non-empty</strong> ratio substrings of </em><code>s</code>.</p>
+<p>返回 <em><code>s</code> 的&nbsp;<strong>非空&nbsp;</strong>比率子串的个数。</em></p>
 
-<p><strong>Note</strong> that:</p>
+<p><b>注意</b>:</p>
 
 <ul>
-	<li>A <strong>substring</strong> is a contiguous sequence of characters within a string.</li>
-	<li>Two values <code>x</code> and <code>y</code> are <strong>coprime</strong> if <code>gcd(x, y) == 1</code> where <code>gcd(x, y)</code> is the greatest common divisor of <code>x</code> and <code>y</code>.</li>
+	<li><strong>子串&nbsp;</strong>是字符串中连续的字符序列。</li>
+	<li>如果 <code>gcd(x, y) == 1</code>，则 <code>x</code> 和 <code>y</code> 为&nbsp;<strong>互质</strong>，其中 <code>gcd(x, y)</code>&nbsp;为 <code>x</code>&nbsp;和 <code>y</code> 的最大公约数。</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;0110011&quot;, num1 = 1, num2 = 2
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> There exist 4 non-empty ratio substrings.
-- The substring s[0..2]: &quot;<u>011</u>0011&quot;. It contains one 0 and two 1&#39;s. The ratio is 1 : 2.
-- The substring s[1..4]: &quot;0<u>110</u>011&quot;. It contains one 0 and two 1&#39;s. The ratio is 1 : 2.
-- The substring s[4..6]: &quot;0110<u>011</u>&quot;. It contains one 0 and two 1&#39;s. The ratio is 1 : 2.
-- The substring s[1..6]: &quot;0<u>110011</u>&quot;. It contains two 0&#39;s and four 1&#39;s. The ratio is 2 : 4 == 1 : 2.
-It can be shown that there are no more ratio substrings.
+<strong>输入:</strong> s = "0110011", num1 = 1, num2 = 2
+<strong>输出:</strong> 4
+<strong>解释:</strong> 有 4 个非空的比率子串。
+- 子字符串 s[0..2]: "<u>011</u>0011"。它包含一个 0 和两个 1。比例是 1:2。
+- 子字符串 s[1..4]: "0<u>110</u>011"。它包含一个 0 和两个 1。比例是 1:2。
+- 子字符串 s[4..6]: "0110<u>011</u>"。它包含一个 0 和两个 1。比例是 1:2。
+- 子字符串 s[1..6]: "0<u>110011</u>"。它包含两个 0 和四个 1。比例是 2:4 == 1:2。
+它可以显示没有更多的比率子串。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;10101&quot;, num1 = 3, num2 = 1
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> There is no ratio substrings of s. We return 0.
+<strong>输入:</strong> s = "10101", num1 = 3, num2 = 1
+<strong>输出:</strong> 0
+<strong>解释:</strong> s 没有比率子串，返回 0。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= num1, num2 &lt;= s.length</code></li>
-	<li><code>num1</code> and <code>num2</code> are coprime integers.</li>
+	<li><code>num1</code> 和&nbsp;<code>num2</code> 互质。</li>
 </ul>
 
 ## 解法

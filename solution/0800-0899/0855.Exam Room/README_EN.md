@@ -122,7 +122,7 @@ class ExamRoom {
         this.n = n;
         add(new int[] {-1, n});
     }
-    
+
     public int seat() {
         int[] s = ts.first();
         int p = (s[0] + s[1]) >> 1;
@@ -136,7 +136,7 @@ class ExamRoom {
         add(new int[] {p, s[1]});
         return p;
     }
-    
+
     public void leave(int p) {
         int l = left.get(p), r = right.get(p);
         del(new int[] {l, p});
@@ -195,7 +195,7 @@ public:
         this->n = n;
         add({-1, n});
     }
-    
+
     int seat() {
         auto s = *ts.begin();
         int p = (s.first + s.second) >> 1;
@@ -209,7 +209,7 @@ public:
         add({p, s.second});
         return p;
     }
-    
+
     void leave(int p) {
         int l = left[p], r = right[p];
         del({l, p});

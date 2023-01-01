@@ -1,4 +1,4 @@
-# [2356. Number of Unique Subjects Taught by Each Teacher](https://leetcode.cn/problems/number-of-unique-subjects-taught-by-each-teacher)
+# [2356. 每位教师所教授的科目种类的数量](https://leetcode.cn/problems/number-of-unique-subjects-taught-by-each-teacher)
 
 [English Version](/solution/2300-2399/2356.Number%20of%20Unique%20Subjects%20Taught%20by%20Each%20Teacher/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Teacher</code></p>
+<p>表: <code>Teacher</code></p>
 
 <pre>
 +-------------+------+
@@ -16,24 +16,25 @@
 | subject_id  | int  |
 | dept_id     | int  |
 +-------------+------+
-(subject_id, dept_id) is the primary key for this table.
-Each row in this table indicates that the teacher with teacher_id teaches the subject subject_id in the department dept_id.
+(subject_id, dept_id) 是该表的主键。
+该表中的每一行都表示带有 teacher_id 的教师在系 dept_id 中教授科目 subject_id。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of unique subjects each teacher teaches in the university.</p>
+<p>写一个 SQL 来查询每位老师在大学里教授的科目种类的数量。</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p data-group="1-1">以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>查询结果格式示例如下。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Teacher table:
+<strong>输入:</strong> 
+Teacher 表:
 +------------+------------+---------+
 | teacher_id | subject_id | dept_id |
 +------------+------------+---------+
@@ -45,23 +46,22 @@ Teacher table:
 | 2          | 3          | 1       |
 | 2          | 4          | 1       |
 +------------+------------+---------+
-<strong>Output:</strong>  
+<strong>输出:</strong>  
 +------------+-----+
 | teacher_id | cnt |
 +------------+-----+
 | 1          | 2   |
 | 2          | 4   |
 +------------+-----+
-<strong>Explanation:</strong> 
-Teacher 1:
-  - They teach subject 2 in departments 3 and 4.
-  - They teach subject 3 in department 3.
-Teacher 2:
-  - They teach subject 1 in department 1.
-  - They teach subject 2 in department 1.
-  - They teach subject 3 in department 1.
-  - They teach subject 4 in department 1.
-</pre>
+<strong>解释:</strong> 
+教师 1:
+  - 他在 3、4 系教科目 2。
+  - 他在 3 系教科目 3。
+教师 2:
+  - 他在 1 系教科目 1。
+  - 他在 1 系教科目 2。
+  - 他在 1 系教科目 3。
+  - 他在 1 系教科目 4。</pre>
 
 ## 解法
 

@@ -11,8 +11,8 @@
 
 | 段位  | 比例   | 段位名   | 国服分数线    | 勋章                                                                    |
 | ----- | ------ | -------- | --------- | --------------------------------------------------------------------------- |
-| LV3 | 5%  | Guardian | &ge;2241.57 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2 | 20% | Knight   | &ge;1876.81 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3 | 5%  | Guardian | &ge;2244.70 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2 | 20% | Knight   | &ge;1878.03 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1 | 75% | -        | -         | -                                                                           |
 
 力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
@@ -23,6 +23,14 @@
 - https://lccn.lbao.site
 
 ## 往期竞赛
+
+#### 第 326 场周赛(2023-01-01 10:30, 90 分钟) 参赛人数 3873
+
+- [2520. 统计能整除数字的位数](/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README.md)
+- [2521. 数组乘积中的不同质因数数目](/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README.md)
+- [2522. 将字符串分割成值不超过 K 的子字符串](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README.md)
+- [2523. 范围内最接近的两个质数](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README.md)
+
 
 #### 第 325 场周赛(2022-12-25 10:30, 90 分钟) 参赛人数 3530
 
@@ -2488,7 +2496,7 @@
 - [948. 令牌放置](/solution/0900-0999/0948.Bag%20of%20Tokens/README.md)
 
 
-#### 第 111 场周赛(2018-11-18 10:30, 90 分钟) 参赛人数 352
+#### 第 111 场周赛(2018-11-18 10:30, 90 分钟) 参赛人数 353
 
 - [941. 有效的山脉数组](/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md)
 - [944. 删列造序](/solution/0900-0999/0944.Delete%20Columns%20to%20Make%20Sorted/README.md)

@@ -14,7 +14,7 @@
 <pre>
 <strong>Input:</strong> n = 4, dislikes = [[1,2],[1,3],[2,4]]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> group1 [1,4] and group2 [2,3].
+<strong>Explanation:</strong> The first group has [1,4], and the second group has [2,3].
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -22,13 +22,7 @@
 <pre>
 <strong>Input:</strong> n = 3, dislikes = [[1,2],[1,3],[2,3]]
 <strong>Output:</strong> false
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 5, dislikes = [[1,2],[2,3],[3,4],[4,5],[1,5]]
-<strong>Output:</strong> false
+<strong>Explanation:</strong> We need at least 3 groups to divide them. We cannot put them in two groups.
 </pre>
 
 <p>&nbsp;</p>
@@ -38,8 +32,7 @@
 	<li><code>1 &lt;= n &lt;= 2000</code></li>
 	<li><code>0 &lt;= dislikes.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>dislikes[i].length == 2</code></li>
-	<li><code>1 &lt;= dislikes[i][j] &lt;= n</code></li>
-	<li><code>a<sub>i</sub> &lt; b<sub>i</sub></code></li>
+	<li><code>1 &lt;= a<sub>i</sub> &lt; b<sub>i</sub> &lt;= n</code></li>
 	<li>All the pairs of <code>dislikes</code> are <strong>unique</strong>.</li>
 </ul>
 

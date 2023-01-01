@@ -1,4 +1,4 @@
-# [2377. Sort the Olympic Table](https://leetcode.cn/problems/sort-the-olympic-table)
+# [2377. 整理奥运表](https://leetcode.cn/problems/sort-the-olympic-table)
 
 [English Version](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Olympic</code></p>
+<p>表: <code>Olympic</code></p>
 
 <pre>
 +---------------+---------+
@@ -17,31 +17,32 @@
 | silver_medals | int     |
 | bronze_medals | int     |
 +---------------+---------+
-country is the primary key for this table.
-Each row in this table shows a country name and the number of gold, silver, and bronze medals it won in the Olympic games.
+country 是该表的主键。
+该表中的每一行都显示了一个国家的名称以及它在奥运会上获得的金、银、铜牌的数量。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>The Olympic table is sorted according to the following rules:</p>
+<p>奥运名次表的排序规则如下:</p>
 
 <ul>
-	<li>The country with more gold medals comes first.</li>
-	<li>If there is a tie in the gold medals, the country with more silver medals comes first.</li>
-	<li>If there is a tie in the silver medals, the country with more bronze medals comes first.</li>
-	<li>If there is a tie in the bronze medals, the countries with the tie are sorted in ascending order lexicographically.</li>
+	<li>金牌越多的国家排名第一。</li>
+	<li>如果金牌数持平，银牌多的国家排名第一。</li>
+	<li>如果银牌数量持平，铜牌数量最多的国家排名第一。</li>
+	<li>如果铜牌中出现并列，那么并列的国家将按照字典的升序进行排序。</li>
 </ul>
 
-<p>Write an SQL query to sort the Olympic table</p>
+<p>编写一个 SQL 查询对奥运表进行排序</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>查询结果格式示例如下。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Olympic table:
+<strong>输入:</strong> 
+Olympic 表:
 +-------------+-------------+---------------+---------------+
 | country     | gold_medals | silver_medals | bronze_medals |
 +-------------+-------------+---------------+---------------+
@@ -51,7 +52,7 @@ Olympic table:
 | Israel      | 2           | 2             | 3             |
 | Egypt       | 2           | 2             | 2             |
 +-------------+-------------+---------------+---------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +-------------+-------------+---------------+---------------+
 | country     | gold_medals | silver_medals | bronze_medals |
 +-------------+-------------+---------------+---------------+
@@ -61,10 +62,9 @@ Olympic table:
 | Egypt       | 2           | 2             | 2             |
 | South Sudan | 0           | 0             | 1             |
 +-------------+-------------+---------------+---------------+
-<strong>Explanation:</strong> 
-The tie between China and USA is broken by their lexicographical names. Since &quot;China&quot; is lexicographically smaller than &quot;USA&quot;, it comes first.
-Israel comes before Egypt because it has more bronze medals.
-</pre>
+<strong>解释:</strong> 
+中国和美国之间的联系被它们的字典名称打破了。因为 "China" 在字典上比 "USA" 小，所以它排在第一位。
+以色列排在埃及之前，因为它的铜牌更多。</pre>
 
 ## 解法
 

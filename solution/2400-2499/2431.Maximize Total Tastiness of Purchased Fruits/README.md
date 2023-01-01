@@ -1,4 +1,4 @@
-# [2431. Maximize Total Tastiness of Purchased Fruits](https://leetcode.cn/problems/maximize-total-tastiness-of-purchased-fruits)
+# [2431. 最大限度地提高购买水果的口味](https://leetcode.cn/problems/maximize-total-tastiness-of-purchased-fruits)
 
 [English Version](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md)
 
@@ -6,55 +6,59 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given two non-negative integer arrays <code>price</code> and <code>tastiness</code>, both arrays have the same length <code>n</code>. You are also given two non-negative integers <code>maxAmount</code> and <code>maxCoupons</code>.</p>
+<p>你有两个非负整数数组 <code>price</code> 和 <code>tastiness</code>，两个数组的长度都是 <code>n</code>。同时给你两个非负整数 <code>maxAmount</code> 和 <code>maxCoupons</code>。</p>
 
-<p>For every integer <code>i</code> in range <code>[0, n - 1]</code>:</p>
+<p data-group="1-1">对于范围 <code>[0, n - 1]</code>&nbsp;中的每一个整数 <code>i</code>:</p>
 
 <ul>
-	<li><code>price[i]</code> describes the price of <code>i<sup>th</sup></code> fruit.</li>
-	<li><code>tastiness[i]</code> describes the tastiness of <code>i<sup>th</sup></code> fruit.</li>
+	<li>
+	<p data-group="1-1"><code>price[i]</code>&nbsp;描述了第 <code>i</code> 个水果的价格。</p>
+	</li>
+	<li><code>tastiness[i]</code> 描述了第 <code>i</code> 个水果的味道。</li>
 </ul>
 
-<p>You want to purchase some fruits such that total tastiness is maximized and the total price does not exceed <code>maxAmount</code>.</p>
+<p>你想购买一些水果，这样总的味道是最大的，总价不超过 <code>maxAmount</code>。</p>
 
-<p>Additionally, you can use a coupon to purchase fruit for <strong>half of its price</strong> (rounded down to the closest integer). You can use at most <code>maxCoupons</code> of such coupons.</p>
+<p>此外，你还可以用优惠券以&nbsp;<strong>半价&nbsp;</strong>购买水果 (四舍五入到最接近的整数)。您最多可以使用 <code>maxCoupons</code>&nbsp;次该优惠券。</p>
 
-<p>Return <em>the maximum total tastiness that can be purchased</em>.</p>
+<p>返回可购买的最大总口味。</p>
 
-<p><strong>Note that:</strong></p>
+<p><strong>注意:</strong></p>
 
 <ul>
-	<li>You can purchase each fruit at most once.</li>
-	<li>You can use coupons on some fruit at most once.</li>
+	<li>每种水果最多只能购买一次。</li>
+	<li>一些水果你最多只能用一次折价券。</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> price = [10,20,20], tastiness = [5,8,8], maxAmount = 20, maxCoupons = 1
-<strong>Output:</strong> 13
-<strong>Explanation:</strong> It is possible to make total tastiness 13 in following way:
-- Buy first fruit without coupon, so that total price = 0 + 10 and total tastiness = 0 + 5.
-- Buy second fruit with coupon, so that total price = 10 + 10 and total tastiness = 5 + 8.
-- Do not buy third fruit, so that total price = 20 and total tastiness = 13.
-It can be proven that 13 is the maximum total tastiness that can be obtained.
+<strong>输入:</strong> price = [10,20,20], tastiness = [5,8,8], maxAmount = 20, maxCoupons = 1
+<strong>输出:</strong> 13
+<strong>解释:</strong> 可以用以下方法来达到总口味:
+- 无优惠券买第一个水果，总价= 0 + 10，总口味= 0 + 5。
+- 用优惠券买第二个水果，总价= 10 + 10，总口味= 5 + 8。
+- 不购买第三个水果，总价= 20，总口味= 13。
+可以证明 13 是所能得到的最大总口味。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> price = [10,15,7], tastiness = [5,8,20], maxAmount = 10, maxCoupons = 2
-<strong>Output:</strong> 28
-<strong>Explanation:</strong> It is possible to make total tastiness 20 in following way:
-- Do not buy first fruit, so that total price = 0 and total tastiness = 0.
-- Buy second fruit with coupon, so that total price = 0 + 7 and total tastiness = 0 + 8.
-- Buy third fruit with coupon, so that total price = 7 + 3 and total tastiness = 8 + 20.
-It can be proven that 28 is the maximum total tastiness that can be obtained.
+<strong>输入:</strong> price = [10,15,7], tastiness = [5,8,20], maxAmount = 10, maxCoupons = 2
+<strong>输出:</strong> 28
+<strong>解释:</strong> 可以用以下方法使总口味达到 20:
+- 不买第一个水果，这样总价= 0，总口味= 0。
+- 用优惠券买第二个水果，总价= 0 + 7，总口味= 0 + 8。
+- 用优惠券买第三个水果，总价= 7 + 3，总口味= 8 + 20。
+可以证明，28 是所能得到的最大总口味。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>n == price.length == tastiness.length</code></li>
