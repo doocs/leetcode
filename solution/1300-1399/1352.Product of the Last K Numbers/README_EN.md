@@ -59,20 +59,18 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 
 ```python
 class ProductOfNumbers:
+
     def __init__(self):
-        self.pre_product = []
+        self.s = [1]
 
     def add(self, num: int) -> None:
         if num == 0:
-            self.pre_product = []
+            self.s = [1]
             return
-        if not self.pre_product:
-            self.pre_product.append(1)
-        self.pre_product.append(num * self.pre_product[-1])
+        self.s.append(self.s[-1] * num)
 
     def getProduct(self, k: int) -> int:
-        n = len(self.pre_product)
-        return 0 if n <= k else self.pre_product[n - 1] // self.pre_product[n - k - 1]
+        return 0 if len(self.s) <= k else self.s[-1] // self.s[-k - 1]
 
 
 # Your ProductOfNumbers object will be instantiated and called as such:
@@ -85,27 +83,24 @@ class ProductOfNumbers:
 
 ```java
 class ProductOfNumbers {
-    private List<Integer> preProduct;
+    private List<Integer> s = new ArrayList<>();
 
     public ProductOfNumbers() {
-        preProduct = new ArrayList<>();
+        s.add(1);
     }
-
+    
     public void add(int num) {
         if (num == 0) {
-            preProduct.clear();
+            s.clear();
+            s.add(1);
             return;
         }
-        if (preProduct.isEmpty()) {
-            preProduct.add(1);
-        }
-        preProduct.add(num * preProduct.get(preProduct.size() - 1));
+        s.add(s.get(s.size() - 1) * num);
     }
-
+    
     public int getProduct(int k) {
-        return preProduct.size() <= k
-            ? 0
-            : preProduct.get(preProduct.size() - 1) / preProduct.get(preProduct.size() - 1 - k);
+        int n = s.size();
+        return n <= k ? 0 : s.get(n - 1) / s.get(n - k - 1);
     }
 }
 
@@ -114,6 +109,76 @@ class ProductOfNumbers {
  * ProductOfNumbers obj = new ProductOfNumbers();
  * obj.add(num);
  * int param_2 = obj.getProduct(k);
+ */
+```
+
+### **C++**
+
+```cpp
+class ProductOfNumbers {
+public:
+    ProductOfNumbers() {
+        s.push_back(1);
+    }
+    
+    void add(int num) {
+        if (num == 0) {
+            s.clear();
+            s.push_back(1);
+            return;
+        }
+        s.push_back(s.back() * num);
+    }
+    
+    int getProduct(int k) {
+        int n = s.size();
+        return n <= k ? 0 : s.back() / s[n - k - 1];
+    }
+
+private:
+    vector<int> s;
+};
+
+/**
+ * Your ProductOfNumbers object will be instantiated and called as such:
+ * ProductOfNumbers* obj = new ProductOfNumbers();
+ * obj->add(num);
+ * int param_2 = obj->getProduct(k);
+ */
+```
+
+### **Go**
+
+```go
+type ProductOfNumbers struct {
+	s []int
+}
+
+func Constructor() ProductOfNumbers {
+	return ProductOfNumbers{[]int{1}}
+}
+
+func (this *ProductOfNumbers) Add(num int) {
+	if num == 0 {
+		this.s = []int{1}
+		return
+	}
+	this.s = append(this.s, this.s[len(this.s)-1]*num)
+}
+
+func (this *ProductOfNumbers) GetProduct(k int) int {
+	n := len(this.s)
+	if n <= k {
+		return 0
+	}
+	return this.s[len(this.s)-1] / this.s[len(this.s)-k-1]
+}
+
+/**
+ * Your ProductOfNumbers object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Add(num);
+ * param_2 := obj.GetProduct(k);
  */
 ```
 

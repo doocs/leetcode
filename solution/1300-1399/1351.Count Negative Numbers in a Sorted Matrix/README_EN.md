@@ -59,18 +59,7 @@ class Solution:
 ```python
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
-        ans = 0
-        n = len(grid[0])
-        for row in grid:
-            left, right = 0, n
-            while left < right:
-                mid = (left + right) >> 1
-                if row[mid] < 0:
-                    right = mid
-                else:
-                    left = mid + 1
-            ans += n - left
-        return ans
+        return sum(bisect_left(row[::-1], 0) for row in grid)
 ```
 
 ### **Java**
@@ -115,46 +104,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countNegatives(grid: number[][]): number {
-    const m = grid.length,
-        n = grid[0].length;
-    let ans = 0;
-    for (let i = m - 1, j = 0; i >= 0 && j < n; ) {
-        if (grid[i][j] < 0) {
-            ans += n - j;
-            --i;
-        } else {
-            ++j;
-        }
-    }
-    return ans;
-}
-```
-
-```ts
-function countNegatives(grid: number[][]): number {
-    const n = grid[0].length;
-    let ans = 0;
-    for (let row of grid) {
-        let left = 0,
-            right = n;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (row[mid] < 0) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        ans += n - left;
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -180,17 +129,8 @@ class Solution {
 public:
     int countNegatives(vector<vector<int>>& grid) {
         int ans = 0;
-        int n = grid[0].size();
-        for (auto& row : grid)
-        {
-            int left = 0, right = n;
-            while (left < right)
-            {
-                int mid = (left + right) >> 1;
-                if (row[mid] < 0) right = mid;
-                else left = mid + 1;
-            }
-            ans += n - left;
+        for (auto& row : grid) {
+            ans += lower_bound(row.rbegin(), row.rend(), 0) - row.rbegin();
         }
         return ans;
     }
@@ -231,6 +171,46 @@ func countNegatives(grid [][]int) int {
 		ans += n - left
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function countNegatives(grid: number[][]): number {
+    const m = grid.length,
+        n = grid[0].length;
+    let ans = 0;
+    for (let i = m - 1, j = 0; i >= 0 && j < n; ) {
+        if (grid[i][j] < 0) {
+            ans += n - j;
+            --i;
+        } else {
+            ++j;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function countNegatives(grid: number[][]): number {
+    const n = grid[0].length;
+    let ans = 0;
+    for (let row of grid) {
+        let left = 0,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (row[mid] < 0) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        ans += n - left;
+    }
+    return ans;
 }
 ```
 
