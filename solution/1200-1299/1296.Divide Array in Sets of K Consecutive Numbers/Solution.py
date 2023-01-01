@@ -1,23 +1,12 @@
-from sortedcontainers import SortedDict
-
-
 class Solution:
     def isPossibleDivide(self, nums: List[int], k: int) -> bool:
-        if len(nums) % k != 0:
-            return False
-        sd = SortedDict()
-        for h in nums:
-            if h in sd:
-                sd[h] += 1
-            else:
-                sd[h] = 1
-        while sd:
-            v = sd.peekitem(0)[0]
-            for i in range(v, v + k):
-                if i not in sd:
-                    return False
-                if sd[i] == 1:
-                    sd.pop(i)
-                else:
-                    sd[i] -= 1
+        cnt = Counter(nums)
+        for v in sorted(nums):
+            if cnt[v]:
+                for x in range(v, v + k):
+                    if cnt[x] == 0:
+                        return False
+                    cnt[x] -= 1
+                    if cnt[x] == 0:
+                        cnt.pop(x)
         return True

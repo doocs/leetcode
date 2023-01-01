@@ -59,13 +59,42 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-TreeMap 实现。
+**方法一：哈希表 + 排序**
+
+我们先用哈希表 `cnt` 统计数组 `nums` 中每个数字出现的次数，然后对数组 `nums` 进行排序。
+
+接下来，我们遍历数组 `nums`，对于数组中的每个数字 $v$，如果 $v$ 在哈希表 `cnt` 中出现的次数不为 $0$，则我们枚举 $v$ 到 $v+k-1$ 的每个数字，如果这些数字在哈希表 `cnt` 中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果减 $1$ 后这些数字的出现次数为 $0$，则我们在哈希表 `cnt` 中删除这些数字。否则说明无法将数组划分成若干个长度为 $k$ 的子数组，返回 `false`。如果可以将数组划分成若干个长度为 $k$ 的子数组，则遍历结束后返回 `true`。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+
+**方法二：有序集合**
+
+我们也可以使用有序集合统计数组 `nums` 中每个数字出现的次数。
+
+接下来，循环取出有序集合中的最小值 $v$，然后枚举 $v$ 到 $v+k-1$ 的每个数字，如果这些数字在有序集合中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果出现次数减 $1$ 后为 $0$，则将该数字从有序集合中删除，否则说明无法将数组划分成若干个长度为 $k$ 的子数组，返回 `false`。如果可以将数组划分成若干个长度为 $k$ 的子数组，则遍历结束后返回 `true`。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
+        cnt = Counter(nums)
+        for v in sorted(nums):
+            if cnt[v]:
+                for x in range(v, v + k):
+                    if cnt[x] == 0:
+                        return False
+                    cnt[x] -= 1
+                    if cnt[x] == 0:
+                        cnt.pop(x)
+        return True
+```
 
 ```python
 from sortedcontainers import SortedDict
@@ -96,6 +125,32 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public boolean isPossibleDivide(int[] nums, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int v : nums) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        }
+        Arrays.sort(nums);
+        for (int v : nums) {
+            if (cnt.containsKey(v)) {
+                for (int x = v; x < v + k; ++x) {
+                    if (!cnt.containsKey(x)) {
+                        return false;
+                    }
+                    cnt.put(x, cnt.get(x) - 1);
+                    if (cnt.get(x) == 0) {
+                        cnt.remove(x);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -131,6 +186,30 @@ class Solution {
 class Solution {
 public:
     bool isPossibleDivide(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        for (int& v : nums) ++cnt[v];
+        sort(nums.begin(), nums.end());
+        for (int& v : nums) {
+            if (cnt.count(v)) {
+                for (int x = v; x < v + k; ++x) {
+                    if (!cnt.count(x)) {
+                        return false;
+                    }
+                    if (--cnt[x] == 0) {
+                        cnt.erase(x);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isPossibleDivide(vector<int>& nums, int k) {
         if (nums.size() % k != 0) return false;
         map<int, int> mp;
         for (int& h : nums) mp[h] += 1;
@@ -150,6 +229,30 @@ public:
 ```
 
 ### **Go**
+
+```go
+func isPossibleDivide(nums []int, k int) bool {
+	cnt := map[int]int{}
+	for _, v := range nums {
+		cnt[v]++
+	}
+	sort.Ints(nums)
+	for _, v := range nums {
+		if _, ok := cnt[v]; ok {
+			for x := v; x < v+k; x++ {
+				if _, ok := cnt[x]; !ok {
+					return false
+				}
+				cnt[x]--
+				if cnt[x] == 0 {
+					delete(cnt, x)
+				}
+			}
+		}
+	}
+	return true
+}
+```
 
 ```go
 func isPossibleDivide(nums []int, k int) bool {
