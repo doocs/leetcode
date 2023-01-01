@@ -46,8 +46,7 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 ```python
 class Solution:
     def sortByBits(self, arr: List[int]) -> List[int]:
-        arr.sort(key=lambda x: (x.bit_count(), x))
-        return arr
+        return sorted(arr, key=lambda x: (x.bit_count(), x))
 ```
 
 ### **Java**
@@ -56,15 +55,91 @@ class Solution:
 class Solution {
     public int[] sortByBits(int[] arr) {
         int n = arr.length;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; ++i) {
             arr[i] += Integer.bitCount(arr[i]) * 100000;
         }
         Arrays.sort(arr);
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; ++i) {
             arr[i] %= 100000;
         }
         return arr;
     }
+}
+```
+
+```java
+class Solution {
+    public int[] sortByBits(int[] arr) {
+        int n = arr.length;
+        Integer[] t = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            t[i] = arr[i];
+        }
+        Arrays.sort(t, (a, b) -> {
+            int x = Integer.bitCount(a), y = Integer.bitCount(b);
+            return x == y ? a - b : x - y;
+        });
+        for (int i = 0; i < n; ++i) {
+            arr[i] = t[i];
+        }
+        return arr;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sortByBits(vector<int>& arr) {
+        for (int& v : arr) {
+            v += __builtin_popcount(v) * 100000;
+        }
+        sort(arr.begin(), arr.end());
+        for (int& v : arr) {
+            v %= 100000;
+        }
+        return arr;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> sortByBits(vector<int>& arr) {
+        sort(arr.begin(), arr.end(), [&](auto& a, auto& b) -> bool {
+            int x = __builtin_popcount(a), y = __builtin_popcount(b);
+            return x < y || (x == y && a < b);
+        });
+        return arr;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortByBits(arr []int) []int {
+	for i, v := range arr {
+		arr[i] += bits.OnesCount(uint(v)) * 100000
+	}
+	sort.Ints(arr)
+	for i := range arr {
+		arr[i] %= 100000
+	}
+	return arr
+}
+```
+
+```go
+func sortByBits(arr []int) []int {
+	sort.Slice(arr, func(i, j int) bool {
+		a, b := bits.OnesCount(uint(arr[i])), bits.OnesCount(uint(arr[j]))
+		return a < b || (a == b && arr[i] < arr[j])
+	})
+	return arr
 }
 ```
 
