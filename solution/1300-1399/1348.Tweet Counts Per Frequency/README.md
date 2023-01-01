@@ -71,6 +71,16 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;返�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 有序列表**
+
+我们用哈希表 `data` 记录每个用户的推文时间，用有序列表记录每个用户的所有推文时间。
+
+对于 `recordTweet` 操作，我们将推文时间加入到用户的推文时间列表中。
+
+对于 `getTweetCountsPerFrequency` 操作，我们先计算出时间间隔 `f`，然后遍历用户的推文时间列表，统计每个时间间隔内的推文数量。
+
+时间复杂度，对于 `recordTweet` 操作，总的时间复杂度 $O(n \times \log n)$；对于 `getTweetCountsPerFrequency` 操作，总的时间复杂度 $O(q \times (t + \log n))$。其中 $n$, $q$ 和 $t$ 分别表示插入的推文数量，查询的次数和时间间隔的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -78,7 +88,35 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;返�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+from sortedcontainers import SortedList
 
+
+class TweetCounts:
+
+    def __init__(self):
+        self.d = {"minute": 60, "hour": 3600, "day": 86400}
+        self.data = defaultdict(SortedList)
+
+    def recordTweet(self, tweetName: str, time: int) -> None:
+        self.data[tweetName].add(time)
+
+    def getTweetCountsPerFrequency(self, freq: str, tweetName: str, startTime: int, endTime: int) -> List[int]:
+        f = self.d[freq]
+        tweets = self.data[tweetName]
+        t = startTime
+        ans = []
+        while t <= endTime:
+            l = tweets.bisect_left(t)
+            r = tweets.bisect_left(min(t + f, endTime + 1))
+            ans.append(r - l)
+            t += f
+        return ans
+
+
+# Your TweetCounts object will be instantiated and called as such:
+# obj = TweetCounts()
+# obj.recordTweet(tweetName,time)
+# param_2 = obj.getTweetCountsPerFrequency(freq,tweetName,startTime,endTime)
 ```
 
 ### **Java**
@@ -86,7 +124,85 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;返�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class TweetCounts {
+    private Map<String, TreeMap<Integer, Integer>> data = new HashMap<>();
 
+    public TweetCounts() {
+
+    }
+
+    public void recordTweet(String tweetName, int time) {
+        data.putIfAbsent(tweetName, new TreeMap<>());
+        var tm = data.get(tweetName);
+        tm.put(time, tm.getOrDefault(time, 0) + 1);
+    }
+
+    public List<Integer> getTweetCountsPerFrequency(String freq, String tweetName, int startTime, int endTime) {
+        int f = 60;
+        if ("hour".equals(freq)) {
+            f = 3600;
+        } else if ("day".equals(freq)) {
+            f = 86400;
+        }
+        var tm = data.get(tweetName);
+        List<Integer> ans = new ArrayList<>();
+        for (int i = startTime; i <= endTime; i += f) {
+            int s = 0;
+            int end = Math.min(i + f, endTime + 1);
+            for (int v : tm.subMap(i, end).values()) {
+                s += v;
+            }
+            ans.add(s);
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your TweetCounts object will be instantiated and called as such:
+ * TweetCounts obj = new TweetCounts();
+ * obj.recordTweet(tweetName,time);
+ * List<Integer> param_2 = obj.getTweetCountsPerFrequency(freq,tweetName,startTime,endTime);
+ */
+```
+
+### **C++**
+
+```cpp
+class TweetCounts {
+public:
+    TweetCounts() {
+    }
+
+    void recordTweet(string tweetName, int time) {
+        data[tweetName].insert(time);
+    }
+
+    vector<int> getTweetCountsPerFrequency(string freq, string tweetName, int startTime, int endTime) {
+        int f = 60;
+        if (freq == "hour")
+            f = 3600;
+        else if (freq == "day")
+            f = 86400;
+        vector<int> ans((endTime - startTime) / f + 1);
+        auto l = data[tweetName].lower_bound(startTime);
+        auto r = data[tweetName].upper_bound(endTime);
+        for (; l != r; ++l) {
+            ++ans[(*l - startTime) / f];
+        }
+        return ans;
+    }
+
+private:
+    unordered_map<string, multiset<int>> data;
+};
+
+/**
+ * Your TweetCounts object will be instantiated and called as such:
+ * TweetCounts* obj = new TweetCounts();
+ * obj->recordTweet(tweetName,time);
+ * vector<int> param_2 = obj->getTweetCountsPerFrequency(freq,tweetName,startTime,endTime);
+ */
 ```
 
 ### **...**
