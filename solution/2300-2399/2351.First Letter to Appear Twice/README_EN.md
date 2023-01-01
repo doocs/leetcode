@@ -163,7 +163,91 @@ func repeatedCharacter(s string) byte {
 ### **TypeScript**
 
 ```ts
+function repeatedCharacter(s: string): string {
+    const vis = new Array(26).fill(false);
+    for (const c of s) {
+        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
+        if (vis[i]) {
+            return c;
+        }
+        vis[i] = true;
+    }
+    return ' ';
+}
+```
 
+```ts
+function repeatedCharacter(s: string): string {
+    let mask = 0;
+    for (const c of s) {
+        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
+        if (mask & (1 << i)) {
+            return c;
+        }
+        mask |= 1 << i;
+    }
+    return ' ';
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn repeated_character(s: String) -> char {
+        let mut vis = [false; 26];
+        for &c in s.as_bytes() {
+            if vis[(c - b'a') as usize] {
+                return c as char;
+            }
+            vis[(c - b'a') as usize] = true;
+        }
+        ' '
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn repeated_character(s: String) -> char {
+        let mut mask = 0;
+        for &c in s.as_bytes() {
+            if mask & 1 << (c - b'a') as i32 != 0 {
+                return c as char;
+            }
+            mask |= 1 << (c - b'a') as i32;
+        }
+        ' '
+    }
+}
+```
+
+### **C**
+
+```c
+char repeatedCharacter(char *s) {
+    int vis[26] = {0};
+    for (int i = 0; s[i]; i++) {
+        if (vis[s[i] - 'a']) {
+            return s[i];
+        }
+        vis[s[i] - 'a']++;
+    }
+    return ' ';
+}
+```
+
+```c
+char repeatedCharacter(char *s) {
+    int mask = 0;
+    for (int i = 0; s[i]; i++) {
+        if (mask & (1 << s[i] - 'a')) {
+            return s[i];
+        }
+        mask |= 1 << s[i] - 'a';
+    }
+    return ' ';
+}
 ```
 
 ### **...**
