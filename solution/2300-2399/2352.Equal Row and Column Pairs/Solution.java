@@ -8,18 +8,16 @@ class Solution {
             }
         }
         int ans = 0;
-        for (int[] row : grid) {
-            for (int[] col : g) {
-                boolean ok = true;
+        for (var row : grid) {
+            for (var col : g) {
+                int ok = 1;
                 for (int i = 0; i < n; ++i) {
                     if (row[i] != col[i]) {
-                        ok = false;
+                        ok = 0;
                         break;
                     }
                 }
-                if (ok) {
-                    ++ans;
-                }
+                ans += ok;
             }
         }
         return ans;

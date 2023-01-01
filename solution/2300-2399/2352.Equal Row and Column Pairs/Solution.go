@@ -1,28 +1,23 @@
-func equalPairs(grid [][]int) int {
+func equalPairs(grid [][]int) (ans int) {
 	n := len(grid)
 	g := make([][]int, n)
 	for i := range g {
 		g[i] = make([]int, n)
-	}
-	for j := 0; j < n; j++ {
-		for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
 			g[i][j] = grid[j][i]
 		}
 	}
-	ans := 0
 	for _, row := range grid {
 		for _, col := range g {
-			ok := true
+			ok := 1
 			for i, v := range row {
 				if v != col[i] {
-					ok = false
+					ok = 0
 					break
 				}
 			}
-			if ok {
-				ans++
-			}
+			ans += ok
 		}
 	}
-	return ans
+	return
 }

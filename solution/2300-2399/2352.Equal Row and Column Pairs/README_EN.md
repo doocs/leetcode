@@ -47,14 +47,19 @@
 ```python
 class Solution:
     def equalPairs(self, grid: List[List[int]]) -> int:
-        n = len(grid)
-        g = []
-        for j in range(n):
-            t = []
-            for i in range(n):
-                t.append(grid[i][j])
-            g.append(t)
+        g = [list(col) for col in zip(*grid)]
         return sum(row == col for row in grid for col in g)
+```
+
+```python
+class Solution:
+    def equalPairs(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        ans = 0
+        for i in range(n):
+            for j in range(n):
+                ans += all(grid[i][k] == grid[k][j] for k in range(n))
+        return ans
 ```
 
 ### **Java**
@@ -70,18 +75,38 @@ class Solution {
             }
         }
         int ans = 0;
-        for (int[] row : grid) {
-            for (int[] col : g) {
-                boolean ok = true;
+        for (var row : grid) {
+            for (var col : g) {
+                int ok = 1;
                 for (int i = 0; i < n; ++i) {
                     if (row[i] != col[i]) {
-                        ok = false;
+                        ok = 0;
                         break;
                     }
                 }
-                if (ok) {
-                    ++ans;
+                ans += ok;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int equalPairs(int[][] grid) {
+        int n = grid.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int ok = 1;
+                for (int k = 0; k < n; ++k) {
+                    if (grid[i][k] != grid[k][j]) {
+                        ok = 0;
+                        break;
+                    }
                 }
+                ans += ok;
             }
         }
         return ans;
@@ -97,13 +122,40 @@ public:
     int equalPairs(vector<vector<int>>& grid) {
         int n = grid.size();
         vector<vector<int>> g(n, vector<int>(n));
-        for (int j = 0; j < n; ++j)
-            for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j) {
+            for (int i = 0; i < n; ++i) {
                 g[i][j] = grid[j][i];
+            }
+        }
         int ans = 0;
-        for (auto row : grid)
-            for (auto col : g)
+        for (auto& row : grid) {
+            for (auto& col : g) {
                 ans += row == col;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int equalPairs(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int ok = 1;
+                for (int k = 0; k < n; ++k) {
+                    if (grid[i][k] != grid[k][j]) {
+                        ok = 0;
+                        break;
+                    }
+                }
+                ans += ok;
+            }
+        }
         return ans;
     }
 };
@@ -112,33 +164,46 @@ public:
 ### **Go**
 
 ```go
-func equalPairs(grid [][]int) int {
+func equalPairs(grid [][]int) (ans int) {
 	n := len(grid)
 	g := make([][]int, n)
 	for i := range g {
 		g[i] = make([]int, n)
-	}
-	for j := 0; j < n; j++ {
-		for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
 			g[i][j] = grid[j][i]
 		}
 	}
-	ans := 0
 	for _, row := range grid {
 		for _, col := range g {
-			ok := true
+			ok := 1
 			for i, v := range row {
 				if v != col[i] {
-					ok = false
+					ok = 0
 					break
 				}
 			}
-			if ok {
-				ans++
-			}
+			ans += ok
 		}
 	}
-	return ans
+	return
+}
+```
+
+```go
+func equalPairs(grid [][]int) (ans int) {
+	for i := range grid {
+		for j := range grid {
+			ok := 1
+			for k := range grid {
+				if grid[i][k] != grid[k][j] {
+					ok = 0
+					break
+				}
+			}
+			ans += ok
+		}
+	}
+	return
 }
 ```
 
