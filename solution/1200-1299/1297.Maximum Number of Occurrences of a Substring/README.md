@@ -57,6 +57,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 枚举**
+
+根据题目描述，如果一个长串满足条件，那么这个长串的子串（长度至少为 `minSize`）也一定满足条件。因此，我们只需要枚举 $s$ 中所有长度为 `minSize` 的子串，然后利用哈希表记录所有子串的出现次数，找出最大的次数作为答案即可。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 的长度以及 `minSize` 的大小。本题中 $m$ 不超过 $26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +70,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxFreq(self, s: str, maxLetters: int, minSize: int, maxSize: int) -> int:
+        ans = 0
+        cnt = Counter()
+        for i in range(len(s) - minSize + 1):
+            t = s[i: i + minSize]
+            ss = set(t)
+            if len(ss) <= maxLetters:
+                cnt[t] += 1
+                ans = max(ans, cnt[t])
+        return ans
 ```
 
 ### **Java**
@@ -72,7 +88,66 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxFreq(String s, int maxLetters, int minSize, int maxSize) {
+        int ans = 0;
+        Map<String, Integer> cnt = new HashMap<>();
+        for (int i = 0; i < s.length() - minSize + 1; ++i) {
+            String t = s.substring(i, i + minSize);
+            Set<Character> ss = new HashSet<>();
+            for (int j = 0; j < minSize; ++j) {
+                ss.add(t.charAt(j));
+            }
+            if (ss.size() <= maxLetters) {
+                cnt.put(t, cnt.getOrDefault(t, 0) + 1);
+                ans = Math.max(ans, cnt.get(t));
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxFreq(string s, int maxLetters, int minSize, int maxSize) {
+        int ans = 0;
+        unordered_map<string, int> cnt;
+        for (int i = 0; i < s.size() - minSize + 1; ++i) {
+            string t = s.substr(i, minSize);
+            unordered_set<char> ss(t.begin(), t.end());
+            if (ss.size() <= maxLetters) {
+                ans = max(ans, ++cnt[t]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {
+	cnt := map[string]int{}
+	for i := 0; i < len(s)-minSize+1; i++ {
+		t := s[i : i+minSize]
+		ss := map[rune]bool{}
+		for _, c := range t {
+			ss[c] = true
+		}
+		if len(ss) <= maxLetters {
+			cnt[t]++
+			if ans < cnt[t] {
+				ans = cnt[t]
+			}
+		}
+	}
+	return
+}
 ```
 
 ### **...**
