@@ -85,6 +85,17 @@ class Solution:
 ```python
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
+        s = set()
+        for v in arr:
+            if v * 2 in s or (v % 2 == 0 and v // 2 in s):
+                return True
+            s.add(v)
+        return False
+```
+
+```python
+class Solution:
+    def checkIfExist(self, arr: List[int]) -> bool:
         if arr.count(0) > 1:
             return True
         arr.sort()
@@ -121,6 +132,21 @@ class Solution {
 ```java
 class Solution {
     public boolean checkIfExist(int[] arr) {
+        Set<Integer> s = new HashSet<>();
+        for (int v : arr) {
+            if (s.contains(v * 2) || (v % 2 == 0 && s.contains(v / 2))) {
+                return true;
+            }
+            s.add(v);
+        }
+        return false;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean checkIfExist(int[] arr) {
         int cnt = 0;
         for (int v : arr) {
             if (v == 0) {
@@ -141,6 +167,123 @@ class Solution {
         }
         return false;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        unordered_map<int, int> m;
+        int n = arr.size();
+        for (int i = 0; i < n; ++i) m[arr[i]] = i;
+        for (int i = 0; i < n; ++i)
+            if (m.count(arr[i] * 2) && m[arr[i] * 2] != i)
+                return true;
+        return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        unordered_set<int> s;
+        for (int& v : arr) {
+            if (s.count(v * 2) || (v % 2 == 0 && s.count(v / 2))) {
+                return true;
+            }
+            s.insert(v);
+        }
+        return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        int cnt = 0;
+        for (int& v : arr) if (v == 0) ++cnt;
+        if (cnt > 1) return true;
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        for (int& v : arr)
+        {
+            if (v == 0) continue;
+            int idx = lower_bound(arr.begin(), arr.end(), v * 2) - arr.begin();
+            if (idx != n && arr[idx] == v * 2) return true;
+        }
+        return false;
+    }
+};
+```
+
+
+### **Go**
+
+```go
+func checkIfExist(arr []int) bool {
+	m := make(map[int]int)
+	for i, v := range arr {
+		m[v] = i
+	}
+	for i, v := range arr {
+		if j, ok := m[v*2]; ok && j != i {
+			return true
+		}
+	}
+	return false
+}
+```
+
+```go
+func checkIfExist(arr []int) bool {
+	s := map[int]bool{}
+	for _, v := range arr {
+		if s[v*2] || (v%2 == 0 && s[v/2]) {
+			return true
+		}
+		s[v] = true
+	}
+	return false
+}
+```
+
+```go
+func checkIfExist(arr []int) bool {
+	cnt := 0
+	for _, v := range arr {
+		if v == 0 {
+			cnt++
+			if cnt > 1 {
+				return true
+			}
+		}
+	}
+	sort.Ints(arr)
+	n := len(arr)
+	for _, v := range arr {
+		if v != 0 {
+			left, right := 0, n
+			for left < right {
+				mid := (left + right) >> 1
+				if arr[mid] >= v*2 {
+					right = mid
+				} else {
+					left = mid + 1
+				}
+			}
+			if right != n && arr[left] == v*2 {
+				return true
+			}
+		}
+	}
+	return false
 }
 ```
 
@@ -191,43 +334,6 @@ function checkIfExist(arr: number[]): boolean {
     }
     return false;
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool checkIfExist(vector<int>& arr) {
-        unordered_map<int, int> m;
-        int n = arr.size();
-        for (int i = 0; i < n; ++i) m[arr[i]] = i;
-        for (int i = 0; i < n; ++i)
-            if (m.count(arr[i] * 2) && m[arr[i] * 2] != i)
-                return true;
-        return false;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    bool checkIfExist(vector<int>& arr) {
-        int cnt = 0;
-        for (int& v : arr) if (v == 0) ++cnt;
-        if (cnt > 1) return true;
-        sort(arr.begin(), arr.end());
-        int n = arr.size();
-        for (int& v : arr)
-        {
-            if (v == 0) continue;
-            int idx = lower_bound(arr.begin(), arr.end(), v * 2) - arr.begin();
-            if (idx != n && arr[idx] == v * 2) return true;
-        }
-        return false;
-    }
-};
 ```
 
 ### **JavaScript**
@@ -285,56 +391,6 @@ var checkIfExist = function (arr) {
     }
     return false;
 };
-```
-
-### **Go**
-
-```go
-func checkIfExist(arr []int) bool {
-	m := make(map[int]int)
-	for i, v := range arr {
-		m[v] = i
-	}
-	for i, v := range arr {
-		if j, ok := m[v*2]; ok && j != i {
-			return true
-		}
-	}
-	return false
-}
-```
-
-```go
-func checkIfExist(arr []int) bool {
-	cnt := 0
-	for _, v := range arr {
-		if v == 0 {
-			cnt++
-			if cnt > 1 {
-				return true
-			}
-		}
-	}
-	sort.Ints(arr)
-	n := len(arr)
-	for _, v := range arr {
-		if v != 0 {
-			left, right := 0, n
-			for left < right {
-				mid := (left + right) >> 1
-				if arr[mid] >= v*2 {
-					right = mid
-				} else {
-					left = mid + 1
-				}
-			}
-			if right != n && arr[left] == v*2 {
-				return true
-			}
-		}
-	}
-	return false
-}
 ```
 
 ### **Rust**

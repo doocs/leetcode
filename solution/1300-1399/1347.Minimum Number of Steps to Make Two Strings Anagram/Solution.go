@@ -1,15 +1,13 @@
-func minSteps(s string, t string) int {
-	counter := make([]int, 26)
+func minSteps(s string, t string) (ans int) {
+	cnt := [26]int{}
 	for _, c := range s {
-		counter[c-'a']++
+		cnt[c-'a']++
 	}
-	res := 0
 	for _, c := range t {
-		if counter[c-'a'] > 0 {
-			counter[c-'a']--
-		} else {
-			res++
+		cnt[c-'a']--
+		if cnt[c-'a'] < 0 {
+			ans++
 		}
 	}
-	return res
+	return
 }

@@ -53,14 +53,14 @@
 ```python
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
-        counter = Counter(s)
-        res = 0
+        cnt = Counter(s)
+        ans = 0
         for c in t:
-            if counter[c] > 0:
-                counter[c] -= 1
+            if cnt[c] > 0:
+                cnt[c] -= 1
             else:
-                res += 1
-        return res
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -68,19 +68,17 @@ class Solution:
 ```java
 class Solution {
     public int minSteps(String s, String t) {
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
-        int res = 0;
-        for (char c : t.toCharArray()) {
-            if (counter[c - 'a'] > 0) {
-                --counter[c - 'a'];
-            } else {
-                ++res;
+        int ans = 0;
+        for (int i = 0; i < t.length(); ++i) {
+            if (--cnt[t.charAt(i) - 'a'] < 0) {
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -91,16 +89,13 @@ class Solution {
 class Solution {
 public:
     int minSteps(string s, string t) {
-        vector<int> counter(26);
-        for (char c : s) ++counter[c - 'a'];
-        int res = 0;
-        for (char c : t) {
-            if (counter[c - 'a'] > 0)
-                --counter[c - 'a'];
-            else
-                ++res;
+        int cnt[26]{};
+        for (char& c : s) ++cnt[c - 'a'];
+        int ans = 0;
+        for (char& c : t) {
+            ans += --cnt[c - 'a'] < 0;
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -108,21 +103,42 @@ public:
 ### **Go**
 
 ```go
-func minSteps(s string, t string) int {
-	counter := make([]int, 26)
+func minSteps(s string, t string) (ans int) {
+	cnt := [26]int{}
 	for _, c := range s {
-		counter[c-'a']++
+		cnt[c-'a']++
 	}
-	res := 0
 	for _, c := range t {
-		if counter[c-'a'] > 0 {
-			counter[c-'a']--
-		} else {
-			res++
+		cnt[c-'a']--
+		if cnt[c-'a'] < 0 {
+			ans++
 		}
 	}
-	return res
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {number}
+ */
+var minSteps = function (s, t) {
+    const cnt = new Array(26).fill(0);
+    for (const c of s) {
+        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
+        ++cnt[i];
+    }
+    let ans = 0;
+    for (const c of t) {
+        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
+        ans += --cnt[i] < 0;
+    }
+    return ans;
+};
 ```
 
 ### **...**

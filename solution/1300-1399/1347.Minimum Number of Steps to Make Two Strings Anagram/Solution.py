@@ -1,10 +1,10 @@
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
-        counter = Counter(s)
-        res = 0
+        cnt = Counter(s)
+        ans = 0
         for c in t:
-            if counter[c] > 0:
-                counter[c] -= 1
+            if cnt[c] > 0:
+                cnt[c] -= 1
             else:
-                res += 1
-        return res
+                ans += 1
+        return ans
