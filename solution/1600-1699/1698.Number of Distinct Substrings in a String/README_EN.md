@@ -48,6 +48,25 @@ class Solution:
         return len({s[i:j] for i in range(n) for j in range(i + 1, n + 1)})
 ```
 
+```python
+class Solution:
+    def countDistinct(self, s: str) -> int:
+        base = 131
+        n = len(s)
+        p = [0] * (n + 10)
+        h = [0] * (n + 10)
+        p[0] = 1
+        for i, c in enumerate(s):
+            p[i + 1] = p[i] * base
+            h[i + 1] = h[i] * base + ord(c)
+        ss = set()
+        for i in range(1, n + 1):
+            for j in range(i, n + 1):
+                t = h[j] - h[i - 1] * p[j - i + 1]
+                ss.add(t)
+        return len(ss)
+```
+
 ### **Java**
 
 ```java
@@ -58,6 +77,30 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             for (int j = i + 1; j <= n; ++j) {
                 ss.add(s.substring(i, j));
+            }
+        }
+        return ss.size();
+    }
+}
+```
+
+```java
+class Solution {
+    public int countDistinct(String s) {
+        int base = 131;
+        int n = s.length();
+        long[] p = new long[n + 10];
+        long[] h = new long[n + 10];
+        p[0] = 1;
+        for (int i = 0; i < n; ++i) {
+            p[i + 1] = p[i] * base;
+            h[i + 1] = h[i] * base + s.charAt(i);
+        }
+        Set<Long> ss = new HashSet<>();
+        for (int i = 1; i <= n; ++i) {
+            for (int j = i; j <= n; ++j) {
+                long t = h[j] - h[i - 1] * p[j - i + 1];
+                ss.add(t);
             }
         }
         return ss.size();
@@ -85,14 +128,60 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int countDistinct(string s) {
+        using ull = unsigned long long;
+        int n = s.size();
+        ull p[n + 10];
+        ull h[n + 10];
+        int base = 131;
+        p[0] = 1;
+        for (int i = 0; i < n; ++i) {
+            p[i + 1] = p[i] * base;
+            h[i + 1] = h[i] * base + s[i];
+        }
+        unordered_set<ull> ss;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = i; j <= n; ++j) {
+                ss.insert(h[j] - h[i - 1] * p[j - i + 1]);
+            }
+        }
+        return ss.size();
+    }
+};
+```
+
 ### **Go**
 
 ```go
 func countDistinct(s string) int {
-	ss := map[string]bool{}
+	ss := map[string]struct{}{}
 	for i := range s {
 		for j := i + 1; j <= len(s); j++ {
-			ss[s[i:j]] = true
+			ss[s[i:j]] = struct{}{}
+		}
+	}
+	return len(ss)
+}
+```
+
+```go
+func countDistinct(s string) int {
+	n := len(s)
+	p := make([]int, n+10)
+	h := make([]int, n+10)
+	p[0] = 1
+	base := 131
+	for i, c := range s {
+		p[i+1] = p[i] * base
+		h[i+1] = h[i]*base + int(c)
+	}
+	ss := map[int]struct{}{}
+	for i := 1; i <= n; i++ {
+		for j := i; j <= n; j++ {
+			ss[h[j]-h[i-1]*p[j-i+1]] = struct{}{}
 		}
 	}
 	return len(ss)
