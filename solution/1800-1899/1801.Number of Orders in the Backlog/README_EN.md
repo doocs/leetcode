@@ -126,8 +126,6 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int getNumberOfBacklogOrders(int[][] orders) {
         PriorityQueue<int[]> buy = new PriorityQueue<>((a, b) -> b[0] - a[0]);
         PriorityQueue<int[]> sell = new PriorityQueue<>((a, b) -> a[0] - b[0]);
@@ -164,15 +162,14 @@ class Solution {
             }
         }
         long ans = 0;
+        final int mod = (int) 1e9 + 7;
         while (!buy.isEmpty()) {
             ans += buy.poll()[1];
-            ans %= MOD;
         }
         while (!sell.isEmpty()) {
             ans += sell.poll()[1];
-            ans %= MOD;
         }
-        return (int) ans;
+        return (int) (ans % mod);
     }
 }
 ```
@@ -182,8 +179,6 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int getNumberOfBacklogOrders(vector<vector<int>>& orders) {
         using pii = pair<int, int>;
         priority_queue<pii, vector<pii>, greater<pii>> sell;
@@ -223,15 +218,14 @@ public:
         long ans = 0;
         while (!buy.empty()) {
             ans += buy.top().second;
-            ans %= mod;
             buy.pop();
         }
         while (!sell.empty()) {
             ans += sell.top().second;
-            ans %= mod;
             sell.pop();
         }
-        return ans;
+        const int mod = 1e9 + 7;
+        return ans % mod;
     }
 };
 ```

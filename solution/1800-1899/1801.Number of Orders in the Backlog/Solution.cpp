@@ -1,7 +1,5 @@
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int getNumberOfBacklogOrders(vector<vector<int>>& orders) {
         using pii = pair<int, int>;
         priority_queue<pii, vector<pii>, greater<pii>> sell;
@@ -41,14 +39,13 @@ public:
         long ans = 0;
         while (!buy.empty()) {
             ans += buy.top().second;
-            ans %= mod;
             buy.pop();
         }
         while (!sell.empty()) {
             ans += sell.top().second;
-            ans %= mod;
             sell.pop();
         }
-        return ans;
+        const int mod = 1e9 + 7;
+        return ans % mod;
     }
 };
