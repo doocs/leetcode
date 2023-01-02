@@ -62,12 +62,31 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 ```python
 class Solution:
     def areNumbersAscending(self, s: str) -> bool:
-        curr = 0
-        for t in s.split(' '):
+        pre = 0
+        for t in s.split():
             if t[0].isdigit():
-                if curr >= int(t):
+                if (cur := int(t)) <= pre:
                     return False
-                curr = int(t)
+                pre = cur
+        return True
+```
+
+```python
+class Solution:
+    def areNumbersAscending(self, s: str) -> bool:
+        pre = i = 0
+        n = len(s)
+        while i < n:
+            if s[i].isdigit():
+                cur = 0
+                while i < n and s[i].isdigit():
+                    cur = cur * 10 + int(s[i])
+                    i += 1
+                if pre >= cur:
+                    return False
+                pre = cur
+            else:
+                i += 1
         return True
 ```
 
@@ -76,19 +95,59 @@ class Solution:
 ```java
 class Solution {
     public boolean areNumbersAscending(String s) {
-        int curr = 0;
-        for (String t : s.split(" ")) {
-            char c = t.charAt(0);
-            if (Character.isDigit(c)) {
-                int x = Integer.parseInt(t);
-                if (curr >= x) {
+        int pre = 0;
+        for (var t : s.split(" ")) {
+            if (t.charAt(0) <= '9') {
+                int cur = Integer.parseInt(t);
+                if (pre >= cur) {
                     return false;
                 }
-                curr = x;
+                pre = cur;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool areNumbersAscending(string s) {
+        int pre = 0;
+        istringstream is(s);
+        string t;
+        while (is >> t) {
+            if (isdigit(t[0])) {
+                int cur = stoi(t);
+                if (pre >= cur) {
+                    return false;
+                }
+                pre = cur;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func areNumbersAscending(s string) bool {
+	pre := 0
+	for _, t := range strings.Split(s, " ") {
+		if t[0] <= '9' {
+			cur, _ := strconv.Atoi(t)
+			if pre >= cur {
+				return false
+			}
+			pre = cur
+		}
+	}
+	return true
 }
 ```
 
@@ -106,45 +165,6 @@ function areNumbersAscending(s: string): boolean {
         }
     }
     return true;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool areNumbersAscending(string s) {
-        int curr = 0;
-        istringstream is(s);
-        string t;
-        while (is >> t) {
-            if (isdigit(t[0])) {
-                int x = stoi(t);
-                if (curr >= x) return false;
-                curr = x;
-            }
-        }
-        return true;
-    }
-};
-```
-
-### **Go**
-
-```go
-func areNumbersAscending(s string) bool {
-	curr := 0
-	for _, t := range strings.Split(s, " ") {
-		if unicode.IsDigit(rune(t[0])) {
-			x, _ := strconv.Atoi(t)
-			if curr >= x {
-				return false
-			}
-			curr = x
-		}
-	}
-	return true
 }
 ```
 

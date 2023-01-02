@@ -1,14 +1,13 @@
 class Solution {
     public boolean areNumbersAscending(String s) {
-        int curr = 0;
-        for (String t : s.split(" ")) {
-            char c = t.charAt(0);
-            if (Character.isDigit(c)) {
-                int x = Integer.parseInt(t);
-                if (curr >= x) {
+        int pre = 0;
+        for (var t : s.split(" ")) {
+            if (t.charAt(0) <= '9') {
+                int cur = Integer.parseInt(t);
+                if (pre >= cur) {
                     return false;
                 }
-                curr = x;
+                pre = cur;
             }
         }
         return true;

@@ -1,12 +1,12 @@
 func areNumbersAscending(s string) bool {
-	curr := 0
+	pre := 0
 	for _, t := range strings.Split(s, " ") {
-		if unicode.IsDigit(rune(t[0])) {
-			x, _ := strconv.Atoi(t)
-			if curr >= x {
+		if t[0] <= '9' {
+			cur, _ := strconv.Atoi(t)
+			if pre >= cur {
 				return false
 			}
-			curr = x
+			pre = cur
 		}
 	}
 	return true
