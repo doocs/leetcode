@@ -116,6 +116,56 @@ func countDigits(num int) (ans int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function countDigits(num: number): number {
+    let ans = 0;
+    let cur = num;
+    while (cur !== 0) {
+        if (num % (cur % 10) === 0) {
+            ans++;
+        }
+        cur = Math.floor(cur / 10);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_digits(num: i32) -> i32 {
+        let mut ans = 0;
+        let mut cur = num;
+        while cur != 0 {
+            if num % (cur % 10) == 0 {
+                ans += 1;
+            }
+            cur /= 10;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int countDigits(int num) {
+    int ans = 0;
+    int cur = num;
+    while (cur) {
+        if (num % (cur % 10) == 0) {
+            ans++;
+        }        
+        cur /= 10;
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
