@@ -51,6 +51,10 @@
 
 时间复杂度 $O(n^2 \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `points` 的长度和数组 `points` 所有横纵坐标差的最大值。
 
+相似题目：
+
+-   [面试题 16.14. 最佳直线](/lcci/16.14.Best%20Line/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
