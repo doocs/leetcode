@@ -52,7 +52,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表 + 排序。
+**方法一：数组 + 排序**
+
+我们先用一个长度为 $26$ 的数组 `cnt` 统计字符串 $s$ 中每个字母出现的次数。
+
+然后我们对数组 `cnt` 进行倒序排序。定义一个变量 `pre` 记录当前字母的出现次数。
+
+接下来，遍历数组 `cnt` 每个元素 $v$，如果当前 `pre` 等于 $0$，我们直接将答案加上 $v$；否则，如果 $v \geq pre$，我们将答案加上 $v-pre+1$，并且将 `pre` 减去 $1$，否则，我们直接将 `pre` 更新为 $v$。然后继续遍历下个元素。
+
+遍历结束，返回答案即可。
+
+时间复杂度 $O(n + C \times \log C)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度，而 $C$ 为字母集的大小。本题中 $C=26$。
 
 <!-- tabs:start -->
 
@@ -63,9 +73,24 @@
 ```python
 class Solution:
     def minDeletions(self, s: str) -> int:
-        counter = Counter(s)
-        vals = [v for v in counter.values()]
-        vals.sort(reverse=True)
+        cnt = Counter(s)
+        ans, pre = 0, inf
+        for v in sorted(cnt.values(), reverse=True):
+            if pre == 0:
+                ans += v
+            elif v >= pre:
+                ans += v - pre + 1
+                pre -= 1
+            else:
+                pre = v
+        return ans
+```
+
+```python
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        cnt = Counter(s)
+        vals = sorted(cnt.values(), reverse=True)
         ans = 0
         for i in range(1, len(vals)):
             while vals[i] >= vals[i - 1] and vals[i] > 0:
@@ -81,20 +106,130 @@ class Solution:
 ```java
 class Solution {
     public int minDeletions(String s) {
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
-        Arrays.sort(counter);
+        Arrays.sort(cnt);
         int ans = 0;
         for (int i = 24; i >= 0; --i) {
-            while (counter[i] >= counter[i + 1] && counter[i] > 0) {
-                --counter[i];
+            while (cnt[i] >= cnt[i + 1] && cnt[i] > 0) {
+                --cnt[i];
                 ++ans;
             }
         }
         return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public int minDeletions(String s) {
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
+        }
+        Arrays.sort(cnt);
+        int ans = 0, pre = 1 << 30;
+        for (int i = 25; i >= 0; --i) {
+            int v = cnt[i];
+            if (pre == 0) {
+                ans += v;
+            } else if (v >= pre) {
+                ans += v - pre + 1;
+                --pre;
+            } else {
+                pre = v;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDeletions(string s) {
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        sort(cnt.rbegin(), cnt.rend());
+        int ans = 0;
+        for (int i = 1; i < 26; ++i) {
+            while (cnt[i] >= cnt[i - 1] && cnt[i] > 0) {
+                --cnt[i];
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minDeletions(string s) {
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        sort(cnt.rbegin(), cnt.rend());
+        int ans = 0, pre = 1 << 30;
+        for (int& v : cnt) {
+            if (pre == 0) {
+                ans += v;
+            } else if (v >= pre) {
+                ans += v - pre + 1;
+                --pre;
+            } else {
+                pre = v;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDeletions(s string) (ans int) {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(cnt)))
+	for i := 1; i < 26; i++ {
+		for cnt[i] >= cnt[i-1] && cnt[i] > 0 {
+			cnt[i]--
+			ans++
+		}
+	}
+	return
+}
+```
+
+```go
+func minDeletions(s string) (ans int) {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(cnt)))
+	pre := 1 << 30
+	for _, v := range cnt {
+		if pre == 0 {
+			ans += v
+		} else if v >= pre {
+			ans += v - pre + 1
+			pre--
+		} else {
+			pre = v
+		}
+	}
+	return
 }
 ```
 
