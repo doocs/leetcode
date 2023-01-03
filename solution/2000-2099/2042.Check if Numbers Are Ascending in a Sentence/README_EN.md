@@ -155,16 +155,63 @@ func areNumbersAscending(s string) bool {
 
 ```ts
 function areNumbersAscending(s: string): boolean {
-    let strs = s.split(' ');
-    let prev = Number.MIN_SAFE_INTEGER;
-    for (let str of strs) {
-        let num = Number(str);
-        if (!isNaN(num)) {
-            if (num <= prev) return false;
-            prev = num;
+    let pre = -1;
+    for (const cur of s.split(' ')) {
+        if (cur[0] <= '9') {
+            const num = Number(cur);
+            if (num <= pre) {
+                return false;
+            }
+            pre = num;
         }
     }
     return true;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn are_numbers_ascending(s: String) -> bool {
+        let mut pre = -1;
+        for cur in s.split(' ') {
+            if cur.as_bytes()[0] <= b'9' {
+                let num = cur.parse::<i32>().unwrap();
+                if num <= pre {
+                    return false;
+                }
+                pre = num;
+            }
+        }
+        true
+    }
+}
+```
+
+### **C**
+
+```c
+bool areNumbersAscending(char *s) {
+    int pre = -1;
+    int cur = 0;
+    for (int i = 0; s[i]; i++) {
+        if (isdigit(s[i])) {
+            cur = cur * 10 + s[i] - '0';
+        } else {
+            if (cur != 0) {
+                if (cur <= pre) {
+                    return 0;
+                }
+                pre = cur;
+                cur = 0;
+            }
+        }
+    }
+    if (cur != 0 && cur <= pre) {
+        return 0;
+    }
+    return 1;
 }
 ```
 
