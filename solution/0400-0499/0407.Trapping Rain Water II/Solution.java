@@ -2,7 +2,7 @@ class Solution {
     public int trapRainWater(int[][] heightMap) {
         int m = heightMap.length, n = heightMap[0].length;
         boolean[][] vis = new boolean[m][n];
-        PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2) -> o1[0] - o2[0]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
@@ -12,17 +12,15 @@ class Solution {
             }
         }
         int ans = 0;
-        int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+        int[] dirs = {-1, 0, 1, 0, -1};
         while (!pq.isEmpty()) {
-            int[] e = pq.poll();
-            for (int[] d : dirs) {
-                int i = e[1] + d[0], j = e[2] + d[1];
-                if (i >= 0 && i < m && j >= 0 && j < n && !vis[i][j]) {
-                    if (heightMap[i][j] < e[0]) {
-                        ans += e[0] - heightMap[i][j];
-                    }
-                    vis[i][j] = true;
-                    pq.offer(new int[] {Math.max(heightMap[i][j], e[0]), i, j});
+            var p = pq.poll();
+            for (int k = 0; k < 4; ++k) {
+                int x = p[1] + dirs[k], y = p[2] + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y]) {
+                    ans += Math.max(0, p[0] - heightMap[x][y]);
+                    vis[x][y] = true;
+                    pq.offer(new int[] {Math.max(p[0], heightMap[x][y]), x, y});
                 }
             }
         }

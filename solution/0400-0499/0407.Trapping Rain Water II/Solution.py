@@ -8,15 +8,14 @@ class Solution:
                 if i == 0 or i == m - 1 or j == 0 or j == n - 1:
                     heappush(pq, (heightMap[i][j], i, j))
                     vis[i][j] = True
-
         ans = 0
+        dirs = (-1, 0, 1, 0, -1)
         while pq:
-            e = heappop(pq)
-            for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                i, j = e[1] + x, e[2] + y
-                if i >= 0 and i < m and j >= 0 and j < n and not vis[i][j]:
-                    if heightMap[i][j] < e[0]:
-                        ans += e[0] - heightMap[i][j]
-                    vis[i][j] = True
-                    heappush(pq, (max(heightMap[i][j], e[0]), i, j))
+            h, i, j = heappop(pq)
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if x >= 0 and x < m and y >= 0 and y < n and not vis[x][y]:
+                    ans += max(0, h - heightMap[x][y])
+                    vis[x][y] = True
+                    heappush(pq, (max(h, heightMap[x][y]), x, y))
         return ans
