@@ -60,12 +60,13 @@ class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         def dfs(i, j):
             grid[i][j] = '0'
-            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+            for a, b in pairwise(dirs):
                 x, y = i + a, j + b
                 if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
                     dfs(x, y)
 
         ans = 0
+        dirs = (-1, 0, 1, 0, -1)
         m, n = len(grid), len(grid[0])
         for i in range(m):
             for j in range(n):
@@ -85,14 +86,15 @@ class Solution:
             q = deque([(i, j)])
             while q:
                 i, j = q.popleft()
-                for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                for a, b in pairwise(dirs):
                     x, y = i + a, j + b
                     if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
                         q.append((x, y))
                         grid[x][y] = 0
 
-        m, n = len(grid), len(grid[0])
         ans = 0
+        dirs = (-1, 0, 1, 0, -1)
+        m, n = len(grid), len(grid[0])
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == '1':
@@ -111,12 +113,13 @@ class Solution:
                 p[x] = find(p[x])
             return p[x]
 
+        dirs = (0, 1, 0)
         m, n = len(grid), len(grid[0])
         p = list(range(m * n))
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == '1':
-                    for a, b in [[0, 1], [1, 0]]:
+                    for a, b in pairwise(dirs):
                         x, y = i + a, j + b
                         if x < m and y < n and grid[x][y] == '1':
                             p[find(i * n + j)] = find(x * n + y)
@@ -254,115 +257,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-DFS:
-
-```ts
-function numIslands(grid: string[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    let ans = 0;
-    function dfs(i, j) {
-        grid[i][j] = '0';
-        const dirs = [-1, 0, 1, 0, -1];
-        for (let k = 0; k < 4; ++k) {
-            const x = i + dirs[k];
-            const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                dfs(x, y);
-            }
-        }
-    }
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1') {
-                dfs(i, j);
-                ++ans;
-            }
-        }
-    }
-    return ans;
-}
-```
-
-BFS:
-
-```ts
-function numIslands(grid: string[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    let ans = 0;
-    function bfs(i, j) {
-        grid[i][j] = '0';
-        let q = [[i, j]];
-        const dirs = [-1, 0, 1, 0, -1];
-        while (q.length) {
-            [i, j] = q.shift();
-            for (let k = 0; k < 4; ++k) {
-                const x = i + dirs[k];
-                const y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                    q.push([x, y]);
-                    grid[x][y] = '0';
-                }
-            }
-        }
-    }
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1') {
-                bfs(i, j);
-                ++ans;
-            }
-        }
-    }
-    return ans;
-}
-```
-
-Union find:
-
-```ts
-function numIslands(grid: string[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    let p = [];
-    for (let i = 0; i < m * n; ++i) {
-        p.push(i);
-    }
-    function find(x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-    const dirs = [1, 0, 1];
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1') {
-                for (let k = 0; k < 2; ++k) {
-                    const x = i + dirs[k];
-                    const y = j + dirs[k + 1];
-                    if (x < m && y < n && grid[x][y] == '1') {
-                        p[find(i * n + j)] = find(x * n + y);
-                    }
-                }
-            }
-        }
-    }
-    let ans = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1' && i * n + j == find(i * n + j)) {
-                ++ans;
-            }
-        }
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 DFS:
@@ -374,25 +268,25 @@ public:
         int m = grid.size();
         int n = grid[0].size();
         int ans = 0;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<void(int, int)> dfs = [&](int i, int j) {
+            grid[i][j] = '0';
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1') {
+                    dfs(x, y);
+                }
+            }
+        };
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == '1') {
-                    dfs(i, j, grid);
+                    dfs(i, j);
                     ++ans;
                 }
             }
         }
         return ans;
-    }
-
-    void dfs(int i, int j, vector<vector<char>>& grid) {
-        grid[i][j] = '0';
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1')
-                dfs(x, y, grid);
-        }
     }
 };
 ```
@@ -406,39 +300,34 @@ public:
         int m = grid.size();
         int n = grid[0].size();
         int ans = 0;
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                if (grid[i][j] == '1')
-                {
-                    bfs(i, j, grid);
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<void(int, int)> bfs = [&](int i, int j) {
+            grid[i][j] = '0';
+            queue<pair<int, int>> q;
+            q.push({i, j});
+            vector<int> dirs = {-1, 0, 1, 0, -1};
+            while (!q.empty()) {
+                auto [a, b] = q.front();
+                q.pop();
+                for (int k = 0; k < 4; ++k) {
+                    int x = a + dirs[k];
+                    int y = b + dirs[k + 1];
+                    if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1') {
+                        q.push({x, y});
+                        grid[x][y] = '0';
+                    }
+                }
+            }
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    bfs(i, j);
                     ++ans;
                 }
             }
         }
         return ans;
-    }
-
-    void bfs(int i, int j, vector<vector<char>>& grid) {
-        grid[i][j] = '0';
-        queue<pair<int, int>> q;
-        q.push({i, j});
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty())
-        {
-            auto p = q.front();
-            q.pop();
-            for (int k = 0; k < 4; ++k)
-            {
-                int x = p.first + dirs[k];
-                int y = p.second + dirs[k + 1];
-                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1') {
-                    q.push({x, y});
-                    grid[x][y] = '0';
-                }
-            }
-        }
     }
 };
 ```
@@ -448,40 +337,38 @@ Union find:
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int numIslands(vector<vector<char>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
-        p.resize(m * n);
-        vector<int> dirs = {1, 0, 1};
-        for (int i = 0; i < p.size(); ++i) p[i] = i;
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                if (grid[i][j] == '1')
-                {
-                    for (int k = 0; k < 2; ++k)
-                    {
+        vector<int> p(m * n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        int dirs[3] = {1, 0, 1};
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    for (int k = 0; k < 2; ++k) {
                         int x = i + dirs[k];
                         int y = j + dirs[k + 1];
-                        if (x < m && y < n && grid[x][y] == '1')
+                        if (x < m && y < n && grid[x][y] == '1') {
                             p[find(x * n + y)] = find(i * n + j);
+                        }
                     }
                 }
             }
         }
         int ans = 0;
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 ans += grid[i][j] == '1' && i * n + j == find(i * n + j);
+            }
+        }
         return ans;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
@@ -589,6 +476,115 @@ func numIslands(grid [][]byte) int {
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+DFS:
+
+```ts
+function numIslands(grid: string[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let ans = 0;
+    function dfs(i, j) {
+        grid[i][j] = '0';
+        const dirs = [-1, 0, 1, 0, -1];
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                dfs(x, y);
+            }
+        }
+    }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] == '1') {
+                dfs(i, j);
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+BFS:
+
+```ts
+function numIslands(grid: string[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let ans = 0;
+    function bfs(i, j) {
+        grid[i][j] = '0';
+        let q = [[i, j]];
+        const dirs = [-1, 0, 1, 0, -1];
+        while (q.length) {
+            [i, j] = q.shift();
+            for (let k = 0; k < 4; ++k) {
+                const x = i + dirs[k];
+                const y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                    q.push([x, y]);
+                    grid[x][y] = '0';
+                }
+            }
+        }
+    }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] == '1') {
+                bfs(i, j);
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+Union find:
+
+```ts
+function numIslands(grid: string[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let p = [];
+    for (let i = 0; i < m * n; ++i) {
+        p.push(i);
+    }
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    const dirs = [1, 0, 1];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] == '1') {
+                for (let k = 0; k < 2; ++k) {
+                    const x = i + dirs[k];
+                    const y = j + dirs[k + 1];
+                    if (x < m && y < n && grid[x][y] == '1') {
+                        p[find(i * n + j)] = find(x * n + y);
+                    }
+                }
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] == '1' && i * n + j == find(i * n + j)) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

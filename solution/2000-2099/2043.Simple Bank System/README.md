@@ -63,6 +63,17 @@ bank.withdraw(10, 50);   // 返回 false ，交易无效，因为账户 10 并�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+根据题意，我们可以使用一个数组 `balance` 来模拟银行账户的余额，数组下标从 0 开始，数组的值表示账户的余额。
+
+-   初始化时，我们将 `balance` 数组赋给成员变量 `this.balance`，并将 `balance` 的长度赋给成员变量 `this.n`。
+-   `transfer` 函数中，如果 `account1` 或 `account2` 大于 `n` 或 `balance[account1 - 1]` 小于 `money`，则返回 `false`，否则，将 `balance[account1 - 1]` 减去 `money`，将 `balance[account2 - 1]` 加上 `money`，并返回 `true`。
+-   `deposit` 函数中，如果 `account` 大于 `n`，则返回 `false`，否则，将 `balance[account - 1]` 加上 `money`，并返回 `true`。
+-   `withdraw` 函数中，如果 `account` 大于 `n` 或 `balance[account - 1]` 小于 `money`，则返回 `false`，否则，将 `balance[account - 1]` 减去 `money`，并返回 `true`。
+
+以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(n)$。其中，$n$ 为 `balance` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
