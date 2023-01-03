@@ -1,15 +1,19 @@
 class Solution {
 public:
-    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
-        dfs(image, sr, sc, image[sr][sc], newColor);
+        int m = image.size(), n = image[0].size();
+        int oc = image[sr][sc];
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<void(int, int)> dfs = [&](int i, int j) {
+            if (i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == newColor) {
+                return;
+            }
+            image[i][j] = newColor;
+            for (int k = 0; k < 4; ++k) {
+                dfs(i + dirs[k], j + dirs[k + 1]);
+            }
+        };
+        dfs(sr, sc);
         return image;
-    }
-
-    void dfs(vector<vector<int>>& image, int i, int j, int oc, int nc) {
-        if (i < 0 || i >= image.size() || j < 0 || j >= image[0].size() || image[i][j] != oc || image[i][j] == nc) return;
-        image[i][j] = nc;
-        for (auto& dir : dirs) dfs(image, i + dir[0], j + dir[1], oc, nc);
     }
 };

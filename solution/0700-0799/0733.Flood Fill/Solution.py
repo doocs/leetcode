@@ -1,20 +1,21 @@
 class Solution:
     def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, newColor: int
+        self, image: List[List[int]], sr: int, sc: int, color: int
     ) -> List[List[int]]:
-        def dfs(i, j, oc, nc):
+        def dfs(i, j):
             if (
-                i < 0
-                or i >= len(image)
-                or j < 0
-                or j >= len(image[0])
+                not 0 <= i < m
+                or not 0 <= j < n
                 or image[i][j] != oc
-                or image[i][j] == nc
+                or image[i][j] == color
             ):
                 return
-            image[i][j] = nc
-            for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                dfs(i + x, j + y, oc, nc)
+            image[i][j] = color
+            for a, b in pairwise(dirs):
+                dfs(i + a, j + b)
 
-        dfs(sr, sc, image[sr][sc], newColor)
+        dirs = (-1, 0, 1, 0, -1)
+        m, n = len(image), len(image[0])
+        oc = image[sr][sc]
+        dfs(sr, sc)
         return image
