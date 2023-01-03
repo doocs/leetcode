@@ -10,7 +10,6 @@
 
 <ul>
 	<li>操作 1：交换任意两个 <strong>现有</strong> 字符。
-
     <ul>
     	<li>例如，<code>a<strong>b</strong>cd<strong>e</strong> -> a<strong>e</strong>cd<strong>b</strong></code></li>
     </ul>
@@ -20,7 +19,6 @@
     	<li>例如，<code><strong>aa</strong>c<strong>abb</strong> -> <strong>bb</strong>c<strong>baa</strong></code>（所有 <code>a</code> 转化为 <code>b</code> ，而所有的 <code>b</code> 转换为 <code>a</code> ）</li>
     </ul>
     </li>
-
 </ul>
 
 <p>你可以根据需要对任意一个字符串多次使用这两种操作。</p>
@@ -77,6 +75,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数组或哈希表 + 排序**
+
+根据题目描述，两个字符串接近，需要同时满足以下两个条件：
+
+1. 字符串 `word1` 和 `word2` 包含的字母种类必须相同；
+1. 将字符串 `word1` 和 `word2` 的所有字符出现次数排序，得到的两个数组必须相同。
+
+因此，我们可以先用数组或哈希表分别统计 `word1` 和 `word2` 中每种字母出现的次数，然后比较两者是否相同，不相同则提前返回 `false`。
+
+否则，我们将对应的次数排序，然后依次比较对应位置的两个次数是否相同，不同则返回 `false`。
+
+遍历结束，返回 `true`。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为字符串 `word1` 和 `word2` 的长度，而 $C$ 是字母种类。本题中 $C=26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -84,7 +97,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        cnt1, cnt2 = Counter(word1), Counter(word2)
+        return sorted(cnt1.values()) == sorted(cnt2.values()) and set(cnt1.keys()) == set(cnt2.keys())
 ```
 
 ### **Java**
@@ -92,7 +108,90 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean closeStrings(String word1, String word2) {
+        int[] cnt1 = new int[26];
+        int[] cnt2 = new int[26];
+        for (int i = 0; i < word1.length(); ++i) {
+            ++cnt1[word1.charAt(i) - 'a'];
+        }
+        for (int i = 0; i < word2.length(); ++i) {
+            ++cnt2[word2.charAt(i) - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if ((cnt1[i] > 0 && cnt2[i] == 0) || (cnt2[i] > 0 && cnt1[i] == 0)) {
+                return false;
+            }
+        }
+        Arrays.sort(cnt1);
+        Arrays.sort(cnt2);
+        for (int i = 0; i < 26; ++i) {
+            if (cnt1[i] != cnt2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool closeStrings(string word1, string word2) {
+        int cnt1[26]{};
+        int cnt2[26]{};
+        for (char& c : word1) {
+            ++cnt1[c - 'a'];
+        }
+        for (char& c : word2) {
+            ++cnt2[c - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if ((cnt1[i] > 0 && cnt2[i] == 0) || (cnt1[i] == 0 && cnt2[i] > 0)) {
+                return false;
+            }
+        }
+        sort(cnt1, cnt1 + 26);
+        sort(cnt2, cnt2 + 26);
+        for (int i = 0; i < 26; ++i) {
+            if (cnt1[i] != cnt2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func closeStrings(word1 string, word2 string) bool {
+	cnt1 := make([]int, 26)
+	cnt2 := make([]int, 26)
+	for _, c := range word1 {
+		cnt1[c-'a']++
+	}
+	for _, c := range word2 {
+		cnt2[c-'a']++
+	}
+	for i, v := range cnt1 {
+		if (v > 0 && cnt2[i] == 0) || (v == 0 && cnt2[i] > 0) {
+			return false
+		}
+	}
+	sort.Ints(cnt1)
+	sort.Ints(cnt2)
+	for i, v := range cnt1 {
+		if v != cnt2[i] {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
