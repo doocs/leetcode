@@ -57,6 +57,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们可以用双指针 $i$ 和 $j$ 找出每个区间的左右端点。
+
+遍历数组，当 $j + 1 < n$ 且 $nums[j + 1] = nums[j] + 1$ 时，$j$ 向右移动，否则区间 $[i, j]$ 已经找到，将其加入答案，然后将 $i$ 移动到 $j + 1$ 的位置，继续寻找下一个区间。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,19 +74,19 @@
 ```python
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
-        def make(nums, i, j):
+        def f(i, j):
             return str(nums[i]) if i == j else f'{nums[i]}->{nums[j]}'
 
-        i = j = 0
+        i = 0
         n = len(nums)
-        res = []
-        while j < n:
-            while j + 1 < n and nums[j] + 1 == nums[j + 1]:
-                j += 1
-            res.append(make(nums, i, j))
-            i = j + 1
+        ans = []
+        while i < n:
             j = i
-        return res
+            while j + 1 < n and nums[j + 1] == nums[j] + 1:
+                j += 1
+            ans.append(f(i, j))
+            i = j + 1
+        return ans
 ```
 
 ### **Java**
@@ -88,20 +96,19 @@ class Solution:
 ```java
 class Solution {
     public List<String> summaryRanges(int[] nums) {
-        List<String> res = new ArrayList<>();
-        for (int i = 0, j = 0, n = nums.length; j < n;) {
-            while (j + 1 < n && nums[j] + 1 == nums[j + 1]) {
+        List<String> ans = new ArrayList<>();
+        for (int i = 0, j, n = nums.length; i < n; i = j + 1) {
+            j = i;
+            while (j + 1 < n && nums[j + 1] == nums[j] + 1) {
                 ++j;
             }
-            res.add(make(nums, i, j));
-            i = j + 1;
-            j = i;
+            ans.add(f(nums, i, j));
         }
-        return res;
+        return ans;
     }
 
-    private String make(int[] nums, int i, int j) {
-        return i == j ? String.valueOf(nums[i]) : String.format("%d->%d", nums[i], nums[j]);
+    private String f(int[] nums, int i, int j) {
+        return i == j ? nums[i] + "" : String.format("%d->%d", nums[i], nums[j]);
     }
 }
 ```
@@ -112,18 +119,18 @@ class Solution {
 class Solution {
 public:
     vector<string> summaryRanges(vector<int>& nums) {
-        vector<string> res;
-        for (int i = 0, j = 0, n = nums.size(); j < n;) {
-            while (j + 1 < n && nums[j] + 1 == nums[j + 1]) ++j;
-            res.push_back(make(nums, i, j));
-            i = j + 1;
+        vector<string> ans;
+        auto f = [&](int i, int j) {
+            return i == j ? to_string(nums[i]) : to_string(nums[i]) + "->" + to_string(nums[j]);
+        };
+        for (int i = 0, j, n = nums.size(); i < n; i = j + 1) {
             j = i;
+            while (j + 1 < n && nums[j + 1] == nums[j] + 1) {
+                ++j;
+            }
+            ans.emplace_back(f(i, j));
         }
-        return res;
-    }
-
-    string make(vector<int>& nums, int i, int j) {
-        return i == j ? to_string(nums[i]) : to_string(nums[i]) + "->" + to_string(nums[j]);
+        return ans;
     }
 };
 ```
@@ -131,24 +138,21 @@ public:
 ### **Go**
 
 ```go
-func summaryRanges(nums []int) []string {
-	var res []string
-	for i, j, n := 0, 0, len(nums); j < n; {
-		for j+1 < n && nums[j]+1 == nums[j+1] {
+func summaryRanges(nums []int) (ans []string) {
+	f := func(i, j int) string {
+		if i == j {
+			return strconv.Itoa(nums[i])
+		}
+		return strconv.Itoa(nums[i]) + "->" + strconv.Itoa(nums[j])
+	}
+	for i, j, n := 0, 0, len(nums); i < n; i = j + 1 {
+		j = i
+		for j+1 < n && nums[j+1] == nums[j]+1 {
 			j++
 		}
-		res = append(res, make(nums, i, j))
-		i = j + 1
-		j = i
+		ans = append(ans, f(i, j))
 	}
-	return res
-}
-
-func make(nums []int, i, j int) string {
-	if i == j {
-		return strconv.Itoa(nums[i])
-	}
-	return strconv.Itoa(nums[i]) + "->" + strconv.Itoa(nums[j])
+	return
 }
 ```
 
@@ -157,21 +161,18 @@ func make(nums []int, i, j int) string {
 ```cs
 public class Solution {
     public IList<string> SummaryRanges(int[] nums) {
-        var res = new List<string>();
-        for (int i = 0, j = 0, n = nums.Length; j < n;)
-        {
-            while (j + 1 < n && nums[j] + 1 == nums[j + 1])
-            {
+        var ans = new List<string>();
+        for (int i = 0, j = 0, n = nums.Length; i < n; i = j + 1) {
+            j = i;
+            while (j + 1 < n && nums[j + 1] == nums[j] + 1) {
                 ++j;
             }
-            res.Add(make(nums, i, j));
-            i = j + 1;
-            j = i;
+            ans.Add(f(nums, i, j));
         }
-        return res;
+        return ans;
     }
 
-    public string make(int[] nums, int i, int j) {
+    public string f(int[] nums, int i, int j) {
         return i == j ? nums[i].ToString() : string.Format("{0}->{1}", nums[i], nums[j]);
     }
 }

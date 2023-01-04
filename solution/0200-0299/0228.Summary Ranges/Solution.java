@@ -1,18 +1,17 @@
 class Solution {
     public List<String> summaryRanges(int[] nums) {
-        List<String> res = new ArrayList<>();
-        for (int i = 0, j = 0, n = nums.length; j < n;) {
-            while (j + 1 < n && nums[j] + 1 == nums[j + 1]) {
+        List<String> ans = new ArrayList<>();
+        for (int i = 0, j, n = nums.length; i < n; i = j + 1) {
+            j = i;
+            while (j + 1 < n && nums[j + 1] == nums[j] + 1) {
                 ++j;
             }
-            res.add(make(nums, i, j));
-            i = j + 1;
-            j = i;
+            ans.add(f(nums, i, j));
         }
-        return res;
+        return ans;
     }
 
-    private String make(int[] nums, int i, int j) {
-        return i == j ? String.valueOf(nums[i]) : String.format("%d->%d", nums[i], nums[j]);
+    private String f(int[] nums, int i, int j) {
+        return i == j ? nums[i] + "" : String.format("%d->%d", nums[i], nums[j]);
     }
 }
