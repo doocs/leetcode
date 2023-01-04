@@ -6,9 +6,6 @@
  * }
  */
 func isPalindrome(head *ListNode) bool {
-	if head == nil || head.Next == nil {
-		return true
-	}
 	slow, fast := head, head.Next
 	for fast != nil && fast.Next != nil {
 		slow, fast = slow.Next, fast.Next.Next

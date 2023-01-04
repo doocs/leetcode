@@ -41,7 +41,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先用快慢指针找到链表的中点，接着反转右半部分的链表。然后同时遍历前后两段链表，若前后两段链表节点对应的值不等，说明不是回文链表，否则说明是回文链表。
+**方法一：快慢指针**
+
+我们可以先用快慢指针找到链表的中点，接着反转右半部分的链表。然后同时遍历前后两段链表，若前后两段链表节点对应的值不等，说明不是回文链表，否则说明是回文链表。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
 
@@ -91,9 +95,6 @@ class Solution:
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) {
-            return true;
-        }
         ListNode slow = head;
         ListNode fast = head.next;
         while (fast != null && fast.next != null) {
@@ -137,7 +138,6 @@ class Solution {
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        if (!head || !head->next) return true;
         ListNode* slow = head;
         ListNode* fast = head->next;
         while (fast && fast->next) {
@@ -173,9 +173,6 @@ public:
  * }
  */
 func isPalindrome(head *ListNode) bool {
-	if head == nil || head.Next == nil {
-		return true
-	}
 	slow, fast := head, head.Next
 	for fast != nil && fast.Next != nil {
 		slow, fast = slow.Next, fast.Next.Next
@@ -213,9 +210,6 @@ func isPalindrome(head *ListNode) bool {
  * @return {boolean}
  */
 var isPalindrome = function (head) {
-    if (!head || !head.next) {
-        return true;
-    }
     let slow = head;
     let fast = head.next;
     while (fast && fast.next) {
@@ -258,31 +252,23 @@ var isPalindrome = function (head) {
  */
 public class Solution {
     public bool IsPalindrome(ListNode head) {
-        if (head == null || head.next == null)
-        {
-            return true;
-        }
         ListNode slow = head;
         ListNode fast = head.next;
-        while (fast != null && fast.next != null)
-        {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         ListNode cur = slow.next;
         slow.next = null;
         ListNode pre = null;
-        while (cur != null)
-        {
+        while (cur != null) {
             ListNode t = cur.next;
             cur.next = pre;
             pre = cur;
             cur = t;
         }
-        while (pre != null)
-        {
-            if (pre.val != head.val)
-            {
+        while (pre != null) {
+            if (pre.val != head.val) {
                 return false;
             }
             pre = pre.next;
@@ -309,15 +295,12 @@ public class Solution {
  */
 
 function isPalindrome(head: ListNode | null): boolean {
-    if (head == null || head.next == null) return true;
-    // 快慢指针定位到中点
     let slow: ListNode = head,
         fast: ListNode = head.next;
     while (fast != null && fast.next != null) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    // 翻转链表
     let cur: ListNode = slow.next;
     slow.next = null;
     let prev: ListNode = null;
@@ -327,7 +310,6 @@ function isPalindrome(head: ListNode | null): boolean {
         prev = cur;
         cur = t;
     }
-    // 判断回文
     while (prev != null) {
         if (prev.val != head.val) return false;
         prev = prev.next;
