@@ -120,7 +120,45 @@ func minBitFlips(start int, goal int) int {
 ### **TypeScript**
 
 ```ts
+function minBitFlips(start: number, goal: number): number {
+    let tmp = start ^ goal;
+    let ans = 0;
+    while (tmp !== 0) {
+        ans += tmp & 1;
+        tmp >>= 1;
+    }
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_bit_flips(start: i32, goal: i32) -> i32 {
+        let mut tmp = start ^ goal;
+        let mut ans = 0;
+        while tmp != 0 {
+            ans += tmp & 1;
+            tmp >>= 1;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int minBitFlips(int start, int goal) {
+    int tmp = start ^ goal;
+    int ans = 0;
+    while (tmp) {
+        ans += tmp & 1;
+        tmp >>= 1;
+    }
+    return ans;
+}
 ```
 
 ### **...**
