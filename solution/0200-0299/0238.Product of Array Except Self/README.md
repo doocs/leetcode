@@ -46,62 +46,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**暴力：**
+**方法一：两次遍历**
 
-正常计算除自身之外的乘积。
+我们定义两个变量 `left` 和 `right`，分别表示当前元素左边所有元素的乘积和右边所有元素的乘积。对于数组中的第一个元素，左边没有元素，所以 `left = 1`；对于数组中的最后一个元素，右边没有元素，所以 `right = 1`。用一个长度为 $n$ 的数组 `ans` 来存储最终的答案。
 
-```txt
-PRODUCT_EXCEPT_SELF(A)
-    n = A.length
-    let r[0..n]be a new array
-    for i = 0 in n
-        s = 1
-        for j = 0 in n
-            if j == i
-                continue
-            s *= A[j]
-        r[i] = s
-    return r
-```
+我们先从左到右遍历数组，对于遍历到的第 $i$ 个元素，我们用 `left` 更新 `ans[i]` 的值，然后 `left` 乘以 `nums[i]`。
 
-**左右乘积：**
+接下来，我们从右到左遍历数组，对于遍历到的第 $i$ 个元素，我们将 `ans[i]` 乘以 `right`，然后 `right` 乘以 `nums[i]`。
 
-分别从左至右，从右至左累乘一次即可。
-
-```txt
-PRODUCT_EXCEPT_SELF(A)
-    n = A.length
-    let r[0..n]be a new array
-    p = 1
-    q = 1
-    for i = 0 in n
-        r[i] = p
-        p *= A[i]
-    for i = n - 1 in 0 downto
-        r[i] *= q
-        q *= A[i]
-    return r
-```
-
-可行性说明：
-
-以 `nums = [1, 2, 3, 4]` 为例。
-
-`r[i]` 的数值由 `nums[0..i - 1]` 的数值乘积所决定。在遍历结束后，最后一个元素得到了最终结果（因为累乘了前方所有数值）。
-
-```txt
-nums: [1, 2, 3, 4]
-   r: [1, 1, 2, 6]
-   p: [1, 2, 6, 24]
-```
-
-而其他位置的数值，距离结果还差什么呢，那就是相对自身，后方所有数值的乘积，于是就有了第二次，从后往前的过程。
-
-```txt
-nums: [1, 2, 3, 4]
-   r: [24, 12, 8, 6]
-   p: [24, 24, 12, 4]
-```
+时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -113,11 +66,11 @@ nums: [1, 2, 3, 4]
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        ans = [1] * n
+        ans = [0] * n
         left = right = 1
-        for i in range(n):
+        for i, v in enumerate(nums):
             ans[i] = left
-            left *= nums[i]
+            left *= v
         for i in range(n - 1, -1, -1):
             ans[i] *= right
             right *= nums[i]
@@ -143,6 +96,46 @@ class Solution {
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);
+        for (int i = 0, left = 1; i < n; ++i) {
+            ans[i] = left;
+            left *= nums[i];
+        }
+        for (int i = n - 1, right = 1; i >= 0; --i) {
+            ans[i] *= right;
+            right *= nums[i];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func productExceptSelf(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	left, right := 1, 1
+	for i, v := range nums {
+		ans[i] = left
+		left *= v
+	}
+	for i := n - 1; i >= 0; i-- {
+		ans[i] *= right
+		right *= nums[i]
+	}
+	return ans
 }
 ```
 
@@ -192,46 +185,6 @@ function productExceptSelf(nums: number[]): number[] {
         nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1),
     );
 }
-```
-
-### **Go**
-
-```go
-func productExceptSelf(nums []int) []int {
-	n := len(nums)
-	ans := make([]int, n)
-	left, right := 1, 1
-	for i := 0; i < n; i++ {
-		ans[i] = left
-		left *= nums[i]
-	}
-	for i := n - 1; i >= 0; i-- {
-		ans[i] *= right
-		right *= nums[i]
-	}
-	return ans
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> productExceptSelf(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> ans(n);
-        for (int i = 0, left = 1; i < n; ++i) {
-            ans[i] = left;
-            left *= nums[i];
-        }
-        for (int i = n - 1, right = 1; i >= 0; --i) {
-            ans[i] *= right;
-            right *= nums[i];
-        }
-        return ans;
-    }
-};
 ```
 
 ### **Rust**

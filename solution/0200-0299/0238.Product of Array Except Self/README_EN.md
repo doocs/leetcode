@@ -40,11 +40,11 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        ans = [1] * n
+        ans = [0] * n
         left = right = 1
-        for i in range(n):
+        for i, v in enumerate(nums):
             ans[i] = left
-            left *= nums[i]
+            left *= v
         for i in range(n - 1, -1, -1):
             ans[i] *= right
             right *= nums[i]
@@ -68,6 +68,46 @@ class Solution {
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);
+        for (int i = 0, left = 1; i < n; ++i) {
+            ans[i] = left;
+            left *= nums[i];
+        }
+        for (int i = n - 1, right = 1; i >= 0; --i) {
+            ans[i] *= right;
+            right *= nums[i];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func productExceptSelf(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	left, right := 1, 1
+	for i, v := range nums {
+		ans[i] = left
+		left *= v
+	}
+	for i := n - 1; i >= 0; i-- {
+		ans[i] *= right
+		right *= nums[i]
+	}
+	return ans
 }
 ```
 
@@ -117,46 +157,6 @@ function productExceptSelf(nums: number[]): number[] {
         nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1),
     );
 }
-```
-
-### **Go**
-
-```go
-func productExceptSelf(nums []int) []int {
-	n := len(nums)
-	ans := make([]int, n)
-	left, right := 1, 1
-	for i := 0; i < n; i++ {
-		ans[i] = left
-		left *= nums[i]
-	}
-	for i := n - 1; i >= 0; i-- {
-		ans[i] *= right
-		right *= nums[i]
-	}
-	return ans
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> productExceptSelf(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> ans(n);
-        for (int i = 0, left = 1; i < n; ++i) {
-            ans[i] = left;
-            left *= nums[i];
-        }
-        for (int i = n - 1, right = 1; i >= 0; --i) {
-            ans[i] *= right;
-            right *= nums[i];
-        }
-        return ans;
-    }
-};
 ```
 
 ### **Rust**
