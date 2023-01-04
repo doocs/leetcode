@@ -70,13 +70,138 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  6<sup>th
 ### **Python3**
 
 ```python
+class Cashier:
 
+    def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
+        self.i = 0
+        self.n = n
+        self.discount = discount
+        self.d = {product: price for product, price in zip(products, prices)}
+
+    def getBill(self, product: List[int], amount: List[int]) -> float:
+        self.i += 1
+        discount = self.discount if self.i % self.n == 0 else 0
+        ans = 0
+        for p, a in zip(product, amount):
+            x = self.d[p] * a
+            ans += x - (discount * x) / 100
+        return ans
+
+
+# Your Cashier object will be instantiated and called as such:
+# obj = Cashier(n, discount, products, prices)
+# param_1 = obj.getBill(product,amount)
 ```
 
 ### **Java**
 
 ```java
+class Cashier {
+    private int i;
+    private int n;
+    private int discount;
+    private Map<Integer, Integer> d = new HashMap<>();
 
+    public Cashier(int n, int discount, int[] products, int[] prices) {
+        this.n = n;
+        this.discount = discount;
+        for (int j = 0; j < products.length; ++j) {
+            d.put(products[j], prices[j]);
+        }
+    }
+    
+    public double getBill(int[] product, int[] amount) {
+        int dis = (++i) % n == 0 ? discount : 0;
+        double ans = 0;
+        for (int j = 0; j < product.length; ++j) {
+            int p = product[j], a = amount[j];
+            int x = d.get(p) * a;
+            ans += x - (dis * x) / 100.0;
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your Cashier object will be instantiated and called as such:
+ * Cashier obj = new Cashier(n, discount, products, prices);
+ * double param_1 = obj.getBill(product,amount);
+ */
+```
+
+### **C++**
+
+```cpp
+class Cashier {
+public:
+    Cashier(int n, int discount, vector<int>& products, vector<int>& prices) {
+        this->n = n;
+        this->discount = discount;
+        for (int j = 0; j < products.size(); ++j) {
+            d[products[j]] = prices[j];
+        }
+    }
+    
+    double getBill(vector<int> product, vector<int> amount) {
+        int dis = (++i) % n == 0 ? discount : 0;
+        double ans = 0;
+        for (int j = 0; j < product.size(); ++j) {
+            int x = d[product[j]] * amount[j];
+            ans += x - (dis * x) / 100.0;
+        }
+        return ans;
+    }
+
+private:
+    int i = 0;
+    int n;
+    int discount;
+    unordered_map<int, int> d;
+};
+
+/**
+ * Your Cashier object will be instantiated and called as such:
+ * Cashier* obj = new Cashier(n, discount, products, prices);
+ * double param_1 = obj->getBill(product,amount);
+ */
+```
+
+### **Go**
+
+```go
+type Cashier struct {
+	i        int
+	n        int
+	discount int
+	d        map[int]int
+}
+
+func Constructor(n int, discount int, products []int, prices []int) Cashier {
+	d := map[int]int{}
+	for i, product := range products {
+		d[product] = prices[i]
+	}
+	return Cashier{0, n, discount, d}
+}
+
+func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
+	this.i++
+	dis := 0
+	if this.i%this.n == 0 {
+		dis = this.discount
+	}
+	for j, p := range product {
+		x := float64(this.d[p] * amount[j])
+		ans += x - (float64(dis)*x)/100.0
+	}
+	return
+}
+
+/**
+ * Your Cashier object will be instantiated and called as such:
+ * obj := Constructor(n, discount, products, prices);
+ * param_1 := obj.GetBill(product,amount);
+ */
 ```
 
 ### **...**
