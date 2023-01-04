@@ -60,9 +60,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def isPalindrome(self, head: ListNode) -> bool:
-        if head is None or head.next is None:
-            return True
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
         slow, fast = head, head.next
         while fast and fast.next:
             slow, fast = slow.next, fast.next.next

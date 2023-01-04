@@ -1,5 +1,4 @@
 class Cashier:
-
     def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
         self.i = 0
         self.n = n
