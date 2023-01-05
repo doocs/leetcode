@@ -7,25 +7,18 @@
  * }
  */
 func pathSum(root *TreeNode, targetSum int) int {
-	preSum := make(map[int]int)
-	preSum[0] = 1
-
+	cnt := map[int]int{0: 1}
 	var dfs func(*TreeNode, int) int
-	dfs = func(node *TreeNode, cur int) int {
+	dfs = func(node *TreeNode, s int) int {
 		if node == nil {
 			return 0
 		}
-
-		cur += node.Val
-		ret := preSum[cur-targetSum]
-
-		preSum[cur]++
-		ret += dfs(node.Left, cur)
-		ret += dfs(node.Right, cur)
-		preSum[cur]--
-
-		return ret
+		s += node.Val
+		ans := cnt[s-targetSum]
+		cnt[s]++
+		ans += dfs(node.Left, s) + dfs(node.Right, s)
+		cnt[s]--
+		return ans
 	}
-
 	return dfs(root, 0)
 }
