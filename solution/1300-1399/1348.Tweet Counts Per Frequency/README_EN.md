@@ -108,13 +108,13 @@ class TweetCounts {
     public TweetCounts() {
 
     }
-    
+
     public void recordTweet(String tweetName, int time) {
         data.putIfAbsent(tweetName, new TreeMap<>());
         var tm = data.get(tweetName);
         tm.put(time, tm.getOrDefault(time, 0) + 1);
     }
-    
+
     public List<Integer> getTweetCountsPerFrequency(String freq, String tweetName, int startTime, int endTime) {
         int f = 60;
         if ("hour".equals(freq)) {

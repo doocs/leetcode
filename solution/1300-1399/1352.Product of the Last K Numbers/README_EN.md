@@ -88,7 +88,7 @@ class ProductOfNumbers {
     public ProductOfNumbers() {
         s.add(1);
     }
-    
+
     public void add(int num) {
         if (num == 0) {
             s.clear();
@@ -97,7 +97,7 @@ class ProductOfNumbers {
         }
         s.add(s.get(s.size() - 1) * num);
     }
-    
+
     public int getProduct(int k) {
         int n = s.size();
         return n <= k ? 0 : s.get(n - 1) / s.get(n - k - 1);
@@ -120,7 +120,7 @@ public:
     ProductOfNumbers() {
         s.push_back(1);
     }
-    
+
     void add(int num) {
         if (num == 0) {
             s.clear();
@@ -129,7 +129,7 @@ public:
         }
         s.push_back(s.back() * num);
     }
-    
+
     int getProduct(int k) {
         int n = s.size();
         return n <= k ? 0 : s.back() / s[n - k - 1];

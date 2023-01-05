@@ -2573,3 +2573,4 @@
   - [2521.Distinct Prime Factors of Product of Array](/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README_EN.md)
   - [2522.Partition String Into Substrings With Values at Most K](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README_EN.md)
   - [2523.Closest Prime Numbers in Range](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md)
+  - [2524.Maximum Frequency Score of a Subarray](/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README_EN.md)

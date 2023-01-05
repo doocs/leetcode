@@ -15,7 +15,7 @@
 <ul>
 	<li>有效的算符为 <code>'+'</code>、<code>'-'</code>、<code>'*'</code> 和 <code>'/'</code> 。</li>
 	<li>每个操作数（运算对象）都可以是一个整数或者另一个表达式。</li>
-	<li>两个整数之间的乘法总是 <strong>向零截断</strong> 。</li>
+	<li>两个整数之间的除法总是 <strong>向零截断</strong> 。</li>
 	<li>表达式中不含除零运算。</li>
 	<li>输入是一个根据逆波兰表示法表示的算术表达式。</li>
 	<li>答案及所有中间计算结果可以用 <strong>32 位</strong> 整数表示。</li>
