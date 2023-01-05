@@ -1,13 +1,9 @@
-func countEven(num int) int {
-	ans := 0
-	for i := 1; i <= num; i++ {
-		t := 0
-		for j := i; j > 0; j /= 10 {
-			t += j % 10
-		}
-		if t%2 == 0 {
-			ans++
-		}
+func countEven(num int) (ans int) {
+	ans = num/10*5 - 1
+	s := 0
+	for x := num / 10; x > 0; x /= 10 {
+		s += x % 10
 	}
-	return ans
+	ans += (num%10 + 2 - (s & 1)) >> 1
+	return
 }

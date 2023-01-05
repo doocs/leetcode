@@ -45,13 +45,24 @@ The 14 integers less than or equal to 30 whose digit sums are even are
 class Solution:
     def countEven(self, num: int) -> int:
         ans = 0
-        for i in range(1, num + 1):
-            t = 0
-            while i:
-                t += i % 10
-                i //= 10
-            if t % 2 == 0:
-                ans += 1
+        for x in range(1, num + 1):
+            s = 0
+            while x:
+                s += x % 10
+                x //= 10
+            ans += s % 2 == 0
+        return ans
+```
+
+```python
+class Solution:
+    def countEven(self, num: int) -> int:
+        ans = num // 10 * 5 - 1
+        x, s = num // 10, 0
+        while x:
+            s += x % 10
+            x //= 10
+        ans += (num % 10 + 2 - (s & 1)) >> 1
         return ans
 ```
 
@@ -62,12 +73,11 @@ class Solution {
     public int countEven(int num) {
         int ans = 0;
         for (int i = 1; i <= num; ++i) {
-            int j = i, t = 0;
-            while (j > 0) {
-                t += j % 10;
-                j /= 10;
+            int s = 0;
+            for (int x = i; x > 0; x /= 10) {
+                s += x % 10;
             }
-            if (t % 2 == 0) {
+            if (s % 2 == 0) {
                 ++ans;
             }
         }
@@ -76,17 +86,17 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countEven(num: number): number {
-    let ans = 0;
-    for (let i = 2; i <= num; i++) {
-        if ([...String(i)].reduce((a, c) => a + Number(c), 0) % 2 == 0) {
-            ans++;
+```java
+class Solution {
+    public int countEven(int num) {
+        int ans = num / 10 * 5 - 1;
+        int s = 0;
+        for (int x = num / 10; x > 0; x /= 10) {
+            s += x % 10;
         }
+        ans += (num % 10 + 2 - (s & 1)) >> 1;
+        return ans;
     }
-    return ans;
 }
 ```
 
@@ -98,10 +108,27 @@ public:
     int countEven(int num) {
         int ans = 0;
         for (int i = 1; i <= num; ++i) {
-            int t = 0;
-            for (int j = i; j; j /= 10) t += j % 10;
-            if (t % 2 == 0) ++ans;
+            int s = 0;
+            for (int x = i; x; x /= 10) {
+                s += x % 10;
+            }
+            ans += s % 2 == 0;
         }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countEven(int num) {
+        int ans = num / 10 * 5 - 1;
+        int s = 0;
+        for (int x = num / 10; x > 0; x /= 10) {
+            s += x % 10;
+        }
+        ans += (num % 10 + 2 - (s & 1)) >> 1;
         return ans;
     }
 };
@@ -110,18 +137,59 @@ public:
 ### **Go**
 
 ```go
-func countEven(num int) int {
-	ans := 0
+func countEven(num int) (ans int) {
 	for i := 1; i <= num; i++ {
-		t := 0
-		for j := i; j > 0; j /= 10 {
-			t += j % 10
+		s := 0
+		for x := i; x > 0; x /= 10 {
+			s += x % 10
 		}
-		if t%2 == 0 {
+		if s%2 == 0 {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+```go
+func countEven(num int) (ans int) {
+	ans = num/10*5 - 1
+	s := 0
+	for x := num / 10; x > 0; x /= 10 {
+		s += x % 10
+	}
+	ans += (num%10 + 2 - (s & 1)) >> 1
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countEven(num: number): number {
+    let ans = 0;
+    for (let i = 1; i <= num; ++i) {
+        let s = 0;
+        for (let x = i; x; x = Math.floor(x / 10)) {
+            s += x % 10;
+        }
+        if (s % 2 == 0) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function countEven(num: number): number {
+    let ans = Math.floor(num / 10) * 5 - 1;
+    let s = 0;
+    for (let x = Math.floor(num / 10); x; x = Math.floor(x / 10)) {
+        s += x % 10;
+    }
+    ans += ((num % 10) + 2 - (s & 1)) >> 1;
+    return ans;
 }
 ```
 

@@ -43,6 +43,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+一种最简单直接的方法是枚举 $[1,..num]$ 的所有整数 $x$，判断 $x$ 各位数字之和是否为偶数，是则答案加一。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(1)$。其中 $n$ 为 $num$ 的值。
+
+**方法二：数学**
+
+我们观察发现，在 $[0,..x]$ 的所有数中，每 $10$ 个数中，就有 $5$ 个数的各位数字之和为偶数。例如，$[0,..9]$ 中，每 $10$ 个数中，就有 $5$ 个数的各位数字之和为偶数，分别是 $0,2,4,6,8$。
+
+因此，我们可以先算出 $num$ 中有多少个 $10$ 的倍数，然后乘以 $5$ 再减去 $1$（排除 $0$ 这个偶数），可以得到初始答案 $ans=\left\lfloor \frac{num}{10} \right\rfloor \times 5 - 1$。
+
+接下来，我们还需要考虑剩下的 $num \% 10 + 1$ 个数字中，有多少个数的各位数字之和为偶数。这些数字是否是偶数，跟数字的前面数字之和有关，因此，我们可以算出 $num$ 的前面数字之和 $s$，那么剩余的数字中，还有 $\left\lfloor \frac{num \% 10 + 2 - (s \& 1)}{2} \right\rfloor$ 个数的各位数字之和为偶数。累加到答案 $ans$ 中即可。
+
+我们不妨举个例子，假设 $num$ 为 $123$，那么前面 $[0,..119]$ 中一共有 $12$ 个 $10$ 的倍数，每个 $10$ 的倍数中有 $5$ 个数的各位数字之和为偶数，因此，初始答案为 $ans=12 \times 5 - 1=59$。
+
+剩下的数字分别是 $120,121,122,123$，每个数字的前两位数字之和为 $s = 1+2=3$，是奇数，因此，剩下的数字中，只有 $2$ 个数的各位数字之和为偶数，累加到答案 $ans$ 中，最终答案为 $ans+2=61$。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为 $num$ 的值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,13 +73,24 @@
 class Solution:
     def countEven(self, num: int) -> int:
         ans = 0
-        for i in range(1, num + 1):
-            t = 0
-            while i:
-                t += i % 10
-                i //= 10
-            if t % 2 == 0:
-                ans += 1
+        for x in range(1, num + 1):
+            s = 0
+            while x:
+                s += x % 10
+                x //= 10
+            ans += s % 2 == 0
+        return ans
+```
+
+```python
+class Solution:
+    def countEven(self, num: int) -> int:
+        ans = num // 10 * 5 - 1
+        x, s = num // 10, 0
+        while x:
+            s += x % 10
+            x //= 10
+        ans += (num % 10 + 2 - (s & 1)) >> 1
         return ans
 ```
 
@@ -72,12 +103,11 @@ class Solution {
     public int countEven(int num) {
         int ans = 0;
         for (int i = 1; i <= num; ++i) {
-            int j = i, t = 0;
-            while (j > 0) {
-                t += j % 10;
-                j /= 10;
+            int s = 0;
+            for (int x = i; x > 0; x /= 10) {
+                s += x % 10;
             }
-            if (t % 2 == 0) {
+            if (s % 2 == 0) {
                 ++ans;
             }
         }
@@ -86,17 +116,17 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countEven(num: number): number {
-    let ans = 0;
-    for (let i = 2; i <= num; i++) {
-        if ([...String(i)].reduce((a, c) => a + Number(c), 0) % 2 == 0) {
-            ans++;
+```java
+class Solution {
+    public int countEven(int num) {
+        int ans = num / 10 * 5 - 1;
+        int s = 0;
+        for (int x = num / 10; x > 0; x /= 10) {
+            s += x % 10;
         }
+        ans += (num % 10 + 2 - (s & 1)) >> 1;
+        return ans;
     }
-    return ans;
 }
 ```
 
@@ -108,10 +138,27 @@ public:
     int countEven(int num) {
         int ans = 0;
         for (int i = 1; i <= num; ++i) {
-            int t = 0;
-            for (int j = i; j; j /= 10) t += j % 10;
-            if (t % 2 == 0) ++ans;
+            int s = 0;
+            for (int x = i; x; x /= 10) {
+                s += x % 10;
+            }
+            ans += s % 2 == 0;
         }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countEven(int num) {
+        int ans = num / 10 * 5 - 1;
+        int s = 0;
+        for (int x = num / 10; x > 0; x /= 10) {
+            s += x % 10;
+        }
+        ans += (num % 10 + 2 - (s & 1)) >> 1;
         return ans;
     }
 };
@@ -120,18 +167,59 @@ public:
 ### **Go**
 
 ```go
-func countEven(num int) int {
-	ans := 0
+func countEven(num int) (ans int) {
 	for i := 1; i <= num; i++ {
-		t := 0
-		for j := i; j > 0; j /= 10 {
-			t += j % 10
+		s := 0
+		for x := i; x > 0; x /= 10 {
+			s += x % 10
 		}
-		if t%2 == 0 {
+		if s%2 == 0 {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+```go
+func countEven(num int) (ans int) {
+	ans = num/10*5 - 1
+	s := 0
+	for x := num / 10; x > 0; x /= 10 {
+		s += x % 10
+	}
+	ans += (num%10 + 2 - (s & 1)) >> 1
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countEven(num: number): number {
+    let ans = 0;
+    for (let i = 1; i <= num; ++i) {
+        let s = 0;
+        for (let x = i; x; x = Math.floor(x / 10)) {
+            s += x % 10;
+        }
+        if (s % 2 == 0) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function countEven(num: number): number {
+    let ans = Math.floor(num / 10) * 5 - 1;
+    let s = 0;
+    for (let x = Math.floor(num / 10); x; x = Math.floor(x / 10)) {
+        s += x % 10;
+    }
+    ans += ((num % 10) + 2 - (s & 1)) >> 1;
+    return ans;
 }
 ```
 
