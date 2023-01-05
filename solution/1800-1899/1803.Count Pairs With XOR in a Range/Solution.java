@@ -17,20 +17,14 @@ class Trie {
     public int search(int x, int limit) {
         Trie node = this;
         int ans = 0;
-        for (int i = 15; i >= 0; --i) {
+        for (int i = 15; i >= 0 && node != null; --i) {
             int v = (x >> i) & 1;
             if (((limit >> i) & 1) == 1) {
                 if (node.children[v] != null) {
                     ans += node.children[v].cnt;
                 }
-                if (node.children[v ^ 1] == null) {
-                    return ans;
-                }
                 node = node.children[v ^ 1];
             } else {
-                if (node.children[v] == null) {
-                    return ans;
-                }
                 node = node.children[v];
             }
         }

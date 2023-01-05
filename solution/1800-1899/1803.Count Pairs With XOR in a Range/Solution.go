@@ -21,20 +21,14 @@ func (this *Trie) insert(x int) {
 
 func (this *Trie) search(x, limit int) (ans int) {
 	node := this
-	for i := 15; i >= 0; i-- {
+	for i := 15; i >= 0 && node != nil; i-- {
 		v := (x >> i) & 1
 		if (limit >> i & 1) == 1 {
 			if node.children[v] != nil {
 				ans += node.children[v].cnt
 			}
-			if node.children[v^1] == nil {
-				return
-			}
 			node = node.children[v^1]
 		} else {
-			if node.children[v] == nil {
-				return
-			}
 			node = node.children[v]
 		}
 	}

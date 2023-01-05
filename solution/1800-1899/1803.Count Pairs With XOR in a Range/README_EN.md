@@ -95,16 +95,14 @@ class Trie:
         node = self
         ans = 0
         for i in range(15, -1, -1):
+            if node is None:
+                return ans
             v = x >> i & 1
             if limit >> i & 1:
                 if node.children[v]:
                     ans += node.children[v].cnt
-                if node.children[v ^ 1] is None:
-                    return ans
                 node = node.children[v ^ 1]
             else:
-                if node.children[v] is None:
-                    return ans
                 node = node.children[v]
         return ans
 
@@ -141,20 +139,14 @@ class Trie {
     public int search(int x, int limit) {
         Trie node = this;
         int ans = 0;
-        for (int i = 15; i >= 0; --i) {
+        for (int i = 15; i >= 0 && node != null; --i) {
             int v = (x >> i) & 1;
             if (((limit >> i) & 1) == 1) {
                 if (node.children[v] != null) {
                     ans += node.children[v].cnt;
                 }
-                if (node.children[v ^ 1] == null) {
-                    return ans;
-                }
                 node = node.children[v ^ 1];
             } else {
-                if (node.children[v] == null) {
-                    return ans;
-                }
                 node = node.children[v];
             }
         }
@@ -197,20 +189,14 @@ public:
     int search(int x, int limit) {
         Trie* node = this;
         int ans = 0;
-        for (int i = 15; ~i; --i) {
+        for (int i = 15; ~i && node; --i) {
             int v = x >> i & 1;
             if (limit >> i & 1) {
                 if (node->children[v]) {
                     ans += node->children[v]->cnt;
                 }
-                if (!node->children[v ^ 1]) {
-                    return ans;
-                }
                 node = node->children[v ^ 1];
             } else {
-                if (!node->children[v]) {
-                    return ans;
-                }
                 node = node->children[v];
             }
         }
@@ -262,20 +248,14 @@ func (this *Trie) insert(x int) {
 
 func (this *Trie) search(x, limit int) (ans int) {
 	node := this
-	for i := 15; i >= 0; i-- {
+	for i := 15; i >= 0 && node != nil; i-- {
 		v := (x >> i) & 1
 		if (limit >> i & 1) == 1 {
 			if node.children[v] != nil {
 				ans += node.children[v].cnt
 			}
-			if node.children[v^1] == nil {
-				return
-			}
 			node = node.children[v^1]
 		} else {
-			if node.children[v] == nil {
-				return
-			}
 			node = node.children[v]
 		}
 	}

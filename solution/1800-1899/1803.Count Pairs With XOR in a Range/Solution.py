@@ -16,16 +16,14 @@ class Trie:
         node = self
         ans = 0
         for i in range(15, -1, -1):
+            if node is None:
+                return ans
             v = x >> i & 1
             if limit >> i & 1:
                 if node.children[v]:
                     ans += node.children[v].cnt
-                if node.children[v ^ 1] is None:
-                    return ans
                 node = node.children[v ^ 1]
             else:
-                if node.children[v] is None:
-                    return ans
                 node = node.children[v]
         return ans
 

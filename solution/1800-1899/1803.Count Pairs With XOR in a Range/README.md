@@ -61,20 +61,20 @@
 
 另外，对于数组异或计数问题，我们通常可以使用“0-1 字典树”来解决。
 
-在字典树中，我们定义两个函数，一个是 $insert(x)$，表示将数 $x$ 插入到字典树中；另一个是 $search(x, limit)$，表示在字典树中查找与 $x$ 异或值小于 $limit$ 的数对数量。
+字典树的节点定义如下：
 
-对于 $insert(x)$ 函数，我们将数字 $x$ 按照二进制位从高到低的顺序，插入到“0-1 字典树”中，其中字典树的每个节点表示一个二进制位，每个节点有两个子节点，表示 $0$ 和 $1$。如果当前二进制位为 $0$，则插入到左子节点，否则插入到右子节点。然后将当前节点的计数值 $cnt$ 加 $1$。
+-   `children[0]` 和 `children[1]` 分别表示当前节点的左右子节点；
+-   `cnt` 表示以当前节点为结尾的数的数量。
 
-对于 $search(x, limit)$ 函数，我们从字典树的根节点 `node` 开始，遍历 $x$ 的二进制位，从高到低，记当前 $x$ 的二进制位的数为 $v$。
+在字典树中，我们还定义了以下两个函数：
 
--   如果当前 $limit$ 的二进制位为 $1$，此时我们可以直接将答案加上与 $x$ 的当前二进制位 $v$ 相同的子节点的计数值 $cnt$，然后将当前节点移动到与 $x$ 的当前二进制位 $v$ 不同的子节点，即 `node = node.children[v ^ 1]`。继续遍历下一位。
--   如果当前 $limit$ 的二进制位为 $0$，此时我们只能将当前节点移动到与 $x$ 的当前二进制位 $v$ 相同的子节点，即 `node = node.children[v]`。继续遍历下一位。
+其中一个函数是 $insert(x)$，表示将数 $x$ 插入到字典树中。该函数将数字 $x$ 按照二进制位从高到低的顺序，插入到“0-1 字典树”中。如果当前二进制位为 $0$，则插入到左子节点，否则插入到右子节点。然后将节点的计数值 $cnt$ 加 $1$。
 
-遍历完 $x$ 的二进制位后，返回答案。
+另一个函数是 $search(x, limit)$，表示在字典树中查找与 $x$ 异或值小于 $limit$ 的数量。该函数从字典树的根节点 `node` 开始，遍历 $x$ 的二进制位，从高到低，记当前 $x$ 的二进制位的数为 $v$。如果当前 $limit$ 的二进制位为 $1$，此时我们可以直接将答案加上与 $x$ 的当前二进制位 $v$ 相同的子节点的计数值 $cnt$，然后将当前节点移动到与 $x$ 的当前二进制位 $v$ 不同的子节点，即 `node = node.children[v ^ 1]`。继续遍历下一位。如果当前 $limit$ 的二进制位为 $0$，此时我们只能将当前节点移动到与 $x$ 的当前二进制位 $v$ 相同的子节点，即 `node = node.children[v]`。继续遍历下一位。遍历完 $x$ 的二进制位后，返回答案。
 
 有了以上两个函数，我们就可以解决本题了。
 
-我们遍历数组 `nums`，对于每个数 $x$，我们先在字典树中查找与 $x$ 异或值小于 $high+1$ 的数对数量，然后在字典树中查找与 $x$ 异或值小于 $low$ 的数对数量，将两者的差值加到答案中。然后将 $x$ 插入到字典树中。继续遍历下一个数 $x$，直到遍历完数组 `nums`。最后返回答案即可。
+我们遍历数组 `nums`，对于每个数 $x$，我们先在字典树中查找与 $x$ 异或值小于 $high+1$ 的数量，然后在字典树中查找与 $x$ 异或值小于 $low$ 的数对数量，将两者的差值加到答案中。接着将 $x$ 插入到字典树中。继续遍历下一个数 $x$，直到遍历完数组 `nums`。最后返回答案即可。
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 为数组 `nums` 的长度，而 $M$ 为数组 `nums` 中的最大值。本题中我们直接取 $\log M = 16$。
 
@@ -103,16 +103,14 @@ class Trie:
         node = self
         ans = 0
         for i in range(15, -1, -1):
+            if node is None:
+                return ans
             v = x >> i & 1
             if limit >> i & 1:
                 if node.children[v]:
                     ans += node.children[v].cnt
-                if node.children[v ^ 1] is None:
-                    return ans
                 node = node.children[v ^ 1]
             else:
-                if node.children[v] is None:
-                    return ans
                 node = node.children[v]
         return ans
 
@@ -151,20 +149,14 @@ class Trie {
     public int search(int x, int limit) {
         Trie node = this;
         int ans = 0;
-        for (int i = 15; i >= 0; --i) {
+        for (int i = 15; i >= 0 && node != null; --i) {
             int v = (x >> i) & 1;
             if (((limit >> i) & 1) == 1) {
                 if (node.children[v] != null) {
                     ans += node.children[v].cnt;
                 }
-                if (node.children[v ^ 1] == null) {
-                    return ans;
-                }
                 node = node.children[v ^ 1];
             } else {
-                if (node.children[v] == null) {
-                    return ans;
-                }
                 node = node.children[v];
             }
         }
@@ -207,20 +199,14 @@ public:
     int search(int x, int limit) {
         Trie* node = this;
         int ans = 0;
-        for (int i = 15; ~i; --i) {
+        for (int i = 15; ~i && node; --i) {
             int v = x >> i & 1;
             if (limit >> i & 1) {
                 if (node->children[v]) {
                     ans += node->children[v]->cnt;
                 }
-                if (!node->children[v ^ 1]) {
-                    return ans;
-                }
                 node = node->children[v ^ 1];
             } else {
-                if (!node->children[v]) {
-                    return ans;
-                }
                 node = node->children[v];
             }
         }
@@ -272,20 +258,14 @@ func (this *Trie) insert(x int) {
 
 func (this *Trie) search(x, limit int) (ans int) {
 	node := this
-	for i := 15; i >= 0; i-- {
+	for i := 15; i >= 0 && node != nil; i-- {
 		v := (x >> i) & 1
 		if (limit >> i & 1) == 1 {
 			if node.children[v] != nil {
 				ans += node.children[v].cnt
 			}
-			if node.children[v^1] == nil {
-				return
-			}
 			node = node.children[v^1]
 		} else {
-			if node.children[v] == nil {
-				return
-			}
 			node = node.children[v]
 		}
 	}
