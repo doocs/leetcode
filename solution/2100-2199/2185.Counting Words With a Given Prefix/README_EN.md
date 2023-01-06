@@ -48,6 +48,39 @@ class Solution:
         return sum(w.startswith(pref) for w in words)
 ```
 
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.cnt = 0
+
+    def insert(self, w):
+        node = self
+        for c in w:
+            i = ord(c) - ord('a')
+            if node.children[i] is None:
+                node.children[i] = Trie()
+            node = node.children[i]
+            node.cnt += 1
+
+    def search(self, pref):
+        node = self
+        for c in pref:
+            i = ord(c) - ord('a')
+            if node.children[i] is None:
+                return 0
+            node = node.children[i]
+        return node.cnt
+
+
+class Solution:
+    def prefixCount(self, words: List[str], pref: str) -> int:
+        tree = Trie()
+        for w in words:
+            tree.insert(w)
+        return tree.search(pref)
+```
+
 ### **Java**
 
 ```java
@@ -64,18 +97,44 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```java
+class Trie {
+    private Trie[] children = new Trie[26];
+    private int cnt;
 
-```ts
-function prefixCount(words: string[], pref: string): number {
-    const n = pref.length;
-    let ans = 0;
-    for (let str of words) {
-        if (str.substring(0, n) == pref) {
-            ans++;
+    public void insert(String w) {
+        Trie node = this;
+        for (int i = 0; i < w.length(); ++i) {
+            int j = w.charAt(i) - 'a';
+            if (node.children[j] == null) {
+                node.children[j] = new Trie();
+            }
+            node = node.children[j];
+            ++node.cnt;
         }
     }
-    return ans;
+
+    public int search(String pref) {
+        Trie node = this;
+        for (int i = 0; i < pref.length(); ++i) {
+            int j = pref.charAt(i) - 'a';
+            if (node.children[j] == null) {
+                return 0;
+            }
+            node = node.children[j];
+        }
+        return node.cnt;
+    }
+}
+
+class Solution {
+    public int prefixCount(String[] words, String pref) {
+        Trie tree = new Trie();
+        for (String w : words) {
+            tree.insert(w);
+        }
+        return tree.search(pref);
+    }
 }
 ```
 
@@ -86,10 +145,54 @@ class Solution {
 public:
     int prefixCount(vector<string>& words, string pref) {
         int ans = 0;
-        for (auto& w : words)
-            if (w.find(pref) == 0)
-                ++ans;
+        for (auto& w : words) ans += w.find(pref) == 0;
         return ans;
+    }
+};
+```
+
+```cpp
+class Trie {
+public:
+    Trie(): children(26), cnt(0) {}
+
+    void insert(string w) {
+        Trie* node = this;
+        for (auto& c : w) {
+            int i = c - 'a';
+            if (!node->children[i]) {
+                node->children[i] = new Trie();
+            }
+            node = node->children[i];
+            ++node->cnt;
+        }
+    }
+
+    int search(string pref) {
+        Trie* node = this;
+        for (auto& c : pref) {
+            int i = c - 'a';
+            if (!node->children[i]) {
+                return 0;
+            }
+            node = node->children[i];
+        }
+        return node->cnt;
+    }
+
+private:
+    vector<Trie*> children;
+    int cnt;
+};
+
+class Solution {
+public:
+    int prefixCount(vector<string>& words, string pref) {
+        Trie* tree = new Trie();
+        for (auto& w : words) {
+            tree->insert(w);
+        }
+        return tree->search(pref);
     }
 };
 ```
@@ -97,14 +200,71 @@ public:
 ### **Go**
 
 ```go
-func prefixCount(words []string, pref string) int {
-	ans := 0
+func prefixCount(words []string, pref string) (ans int) {
 	for _, w := range words {
 		if strings.HasPrefix(w, pref) {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+```go
+type Trie struct {
+	children [26]*Trie
+	cnt      int
+}
+
+func newTrie() *Trie {
+	return &Trie{}
+}
+
+func (this *Trie) insert(w string) {
+	node := this
+	for _, c := range w {
+		c -= 'a'
+		if node.children[c] == nil {
+			node.children[c] = newTrie()
+		}
+		node = node.children[c]
+		node.cnt++
+	}
+}
+
+func (this *Trie) search(pref string) int {
+	node := this
+	for _, c := range pref {
+		c -= 'a'
+		if node.children[c] == nil {
+			return 0
+		}
+		node = node.children[c]
+	}
+	return node.cnt
+}
+
+func prefixCount(words []string, pref string) int {
+	tree := newTrie()
+	for _, w := range words {
+		tree.insert(w)
+	}
+	return tree.search(pref)
+}
+```
+
+### **TypeScript**
+
+```ts
+function prefixCount(words: string[], pref: string): number {
+    const m = pref.length;
+    let ans = 0;
+    for (const w of words) {
+        if (w.substring(0, m) === pref) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

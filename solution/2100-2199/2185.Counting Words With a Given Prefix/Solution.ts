@@ -1,9 +1,9 @@
 function prefixCount(words: string[], pref: string): number {
-    const n = pref.length;
+    const m = pref.length;
     let ans = 0;
-    for (let str of words) {
-        if (str.substring(0, n) == pref) {
-            ans++;
+    for (const w of words) {
+        if (w.substring(0, m) === pref) {
+            ++ans;
         }
     }
     return ans;
