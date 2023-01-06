@@ -1,16 +1,14 @@
 function nextGreaterElements(nums: number[]): number[] {
-    let stack: number[] = [],
+    const stack: number[] = [],
         len = nums.length;
-    let res: number[] = new Array(len).fill(-1);
+    const res: number[] = new Array(len).fill(-1);
     for (let i = 0; i < 2 * len - 1; i++) {
-        while (
-            stack.length !== 0 &&
-            nums[stack[stack.length - 1]] < nums[i % len]
-        ) {
-            res[stack[stack.length - 1]] = nums[i % len];
+        const j = i % len;
+        while (stack.length !== 0 && nums[stack[stack.length - 1]] < nums[j]) {
+            res[stack[stack.length - 1]] = nums[j];
             stack.pop();
         }
-        stack.push(i % len);
+        stack.push(j);
     }
     return res;
 }
