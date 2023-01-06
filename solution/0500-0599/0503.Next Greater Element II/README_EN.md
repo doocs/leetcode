@@ -240,6 +240,7 @@ func nextGreaterElements(nums []int) []int {
 ```
 
 ### **TypeScript**
+
 ```ts
 function nextGreaterElements(nums: number[]): number[] {
     let stack: number[] = [], len = nums.length;
