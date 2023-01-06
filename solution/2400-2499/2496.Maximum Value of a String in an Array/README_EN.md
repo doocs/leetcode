@@ -128,6 +128,61 @@ func maximumValue(strs []string) (ans int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maximumValue(strs: string[]): number {
+    let ans = 0;
+    for (const s of strs) {
+        const num = Number(s);
+        ans = Math.max(ans, Number.isNaN(num) ? s.length : num);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn maximum_value(strs: Vec<String>) -> i32 {
+        let mut ans = 0;
+        for s in strs.iter() {
+            let num = s.parse().unwrap_or(s.len());
+            ans = ans.max(num);
+        }
+        ans as i32
+    }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int parseInt(char *s) {
+    int n = strlen(s);
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+        if (!isdigit(s[i])) {
+            return n;
+        }
+        res = res * 10 + s[i] - '0';
+    }
+    return res;
+}
+
+int maximumValue(char **strs, int strsSize) {
+    int ans = 0;
+    for (int i = 0; i < strsSize; i++) {
+        int num = parseInt(strs[i]);
+        ans = max(ans, num);
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
