@@ -3,19 +3,20 @@ func minOperations(nums []int, x int) int {
 	for _, v := range nums {
 		x += v
 	}
+	ans := 1 << 30
 	s, n := 0, len(nums)
-	seen := map[int]int{0: -1}
-	ans := math.MaxInt32
+	j := 0
 	for i, v := range nums {
 		s += v
-		if _, ok := seen[s]; !ok {
-			seen[s] = i
+		for j <= i && s > x {
+			s -= nums[j]
+			j++
 		}
-		if j, ok := seen[s-x]; ok {
-			ans = min(ans, n-(i-j))
+		if s == x {
+			ans = min(ans, n-(i-j+1))
 		}
 	}
-	if ans == math.MaxInt32 {
+	if ans == 1<<30 {
 		return -1
 	}
 	return ans

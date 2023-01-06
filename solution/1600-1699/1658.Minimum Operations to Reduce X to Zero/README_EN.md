@@ -51,17 +51,33 @@
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
         x = sum(nums) - x
-        n = len(nums)
-        s = 0
-        seen = {0: -1}
+        vis = {0: -1}
         ans = inf
+        s, n = 0, len(nums)
         for i, v in enumerate(nums):
             s += v
-            if s not in seen:
-                seen[s] = i
-            if s - x in seen:
-                j = seen[s - x]
+            if s not in vis:
+                vis[s] = i
+            if s - x in vis:
+                j = vis[s - x]
                 ans = min(ans, n - (i - j))
+        return -1 if ans == inf else ans
+```
+
+```python
+class Solution:
+    def minOperations(self, nums: List[int], x: int) -> int:
+        x = sum(nums) - x
+        ans = inf
+        n = len(nums)
+        s = j = 0
+        for i, v in enumerate(nums):
+            s += v
+            while j <= i and s > x:
+                s -= nums[j]
+                j += 1
+            if s == x:
+                ans = min(ans, n - (i - j + 1))
         return -1 if ans == inf else ans
 ```
 
@@ -74,20 +90,42 @@ class Solution {
         for (int v : nums) {
             x += v;
         }
-        int s = 0;
+        Map<Integer, Integer> vis = new HashMap<>();
+        vis.put(0, -1);
         int n = nums.length;
-        Map<Integer, Integer> seen = new HashMap<>();
-        seen.put(0, -1);
-        int ans = Integer.MAX_VALUE;
-        for (int i = 0; i < n; ++i) {
+        int ans = 1 << 30;
+        for (int i = 0, s = 0; i < n; ++i) {
             s += nums[i];
-            seen.putIfAbsent(s, i);
-            if (seen.containsKey(s - x)) {
-                int j = seen.get(s - x);
+            vis.putIfAbsent(s, i);
+            if (vis.containsKey(s - x)) {
+                int j = vis.get(s - x);
                 ans = Math.min(ans, n - (i - j));
             }
         }
-        return ans == Integer.MAX_VALUE ? -1 : ans;
+        return ans == 1 << 30 ? -1 : ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minOperations(int[] nums, int x) {
+        x = -x;
+        for (int v : nums) {
+            x += v;
+        }
+        int n = nums.length;
+        int ans = 1 << 30;
+        for (int i = 0, j = 0, s = 0; i < n; ++i) {
+            s += nums[i];
+            while (j <= i && s > x) {
+                s -= nums[j++];
+            }
+            if (s == x) {
+                ans = Math.min(ans, n - (i - j + 1));
+            }
+        }
+        return ans == 1 << 30 ? -1 : ans;
     }
 }
 ```
@@ -98,21 +136,42 @@ class Solution {
 class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
-        x = -x;
-        for (int& v : nums) x += v;
-        int s = 0, n = nums.size();
-        unordered_map<int, int> seen;
-        seen[0] = -1;
-        int ans = INT_MAX;
-        for (int i = 0; i < n; ++i) {
+        x = accumulate(nums.begin(), nums.end(), 0) - x;
+        unordered_map<int, int> vis{{0, -1}};
+        int n = nums.size();
+        int ans = 1 << 30;
+        for (int i = 0, s = 0; i < n; ++i) {
             s += nums[i];
-            if (!seen.count(s)) seen[s] = i;
-            if (seen.count(s - x)) {
-                int j = seen[s - x];
+            if (!vis.count(s)) {
+                vis[s] = i;
+            }
+            if (vis.count(s - x)) {
+                int j = vis[s - x];
                 ans = min(ans, n - (i - j));
             }
         }
-        return ans == INT_MAX ? -1 : ans;
+        return ans == 1 << 30 ? -1 : ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int x) {
+        x = accumulate(nums.begin(), nums.end(), 0) - x;
+        int n = nums.size();
+        int ans = 1 << 30;
+        for (int i = 0, j = 0, s = 0; i < n; ++i) {
+            s += nums[i];
+            while (j <= i && s > x) {
+                s -= nums[j++];
+            }
+            if (s == x) {
+                ans = min(ans, n - (i - j + 1));
+            }
+        }
+        return ans == 1 << 30 ? -1 : ans;
     }
 };
 ```
@@ -125,19 +184,52 @@ func minOperations(nums []int, x int) int {
 	for _, v := range nums {
 		x += v
 	}
+	vis := map[int]int{0: -1}
+	ans := 1 << 30
 	s, n := 0, len(nums)
-	seen := map[int]int{0: -1}
-	ans := math.MaxInt32
 	for i, v := range nums {
 		s += v
-		if _, ok := seen[s]; !ok {
-			seen[s] = i
+		if _, ok := vis[s]; !ok {
+			vis[s] = i
 		}
-		if j, ok := seen[s-x]; ok {
+		if j, ok := vis[s-x]; ok {
 			ans = min(ans, n-(i-j))
 		}
 	}
-	if ans == math.MaxInt32 {
+	if ans == 1<<30 {
+		return -1
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minOperations(nums []int, x int) int {
+	x = -x
+	for _, v := range nums {
+		x += v
+	}
+	ans := 1 << 30
+	s, n := 0, len(nums)
+	j := 0
+	for i, v := range nums {
+		s += v
+		for j <= i && s > x {
+			s -= nums[j]
+			j++
+		}
+		if s == x {
+			ans = min(ans, n-(i-j+1))
+		}
+	}
+	if ans == 1<<30 {
 		return -1
 	}
 	return ans
@@ -155,25 +247,40 @@ func min(a, b int) int {
 
 ```ts
 function minOperations(nums: number[], x: number): number {
-    const total = nums.reduce((a, c) => a + c, 0);
-    if (total < x) return -1;
+    x = nums.reduce((a, b) => a + b, 0) - x;
+    const vis = new Map();
+    vis.set(0, -1);
     const n = nums.length;
-    const target = total - x;
-    let hashMap = new Map();
-    hashMap.set(0, -1);
-    let pre = 0;
-    let ans = -1;
-    for (let right = 0; right < n; right++) {
-        pre += nums[right];
-        if (!hashMap.has(pre)) {
-            hashMap.set(pre, right);
+    let ans = 1 << 30;
+    for (let i = 0, s = 0; i < n; ++i) {
+        s += nums[i];
+        if (!vis.has(s)) {
+            vis.set(s, i);
         }
-        if (hashMap.has(pre - target)) {
-            let left = hashMap.get(pre - target);
-            ans = Math.max(right - left, ans);
+        if (vis.has(s - x)) {
+            const j = vis.get(s - x);
+            ans = Math.min(ans, n - (i - j));
         }
     }
-    return ans == -1 ? -1 : n - ans;
+    return ans == 1 << 30 ? -1 : ans;
+}
+```
+
+```ts
+function minOperations(nums: number[], x: number): number {
+    x = nums.reduce((a, b) => a + b, 0) - x;
+    const n = nums.length;
+    let ans = 1 << 30;
+    for (let i = 0, j = 0, s = 0; i < n; ++i) {
+        s += nums[i];
+        while (j <= i && s > x) {
+            s -= nums[j++];
+        }
+        if (s == x) {
+            ans = Math.min(ans, n - (i - j + 1));
+        }
+    }
+    return ans == 1 << 30 ? -1 : ans;
 }
 ```
 
