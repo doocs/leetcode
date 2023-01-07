@@ -291,30 +291,59 @@ impl Solution {
     pub fn min_operations(nums: Vec<i32>, x: i32) -> i32 {
         let n = nums.len();
         let target = nums.iter().sum::<i32>() - x;
-
-
-        let (mut l, mut r) = (0, 0);
-        let (mut sum, mut max) = (0, -1);
-        while r < n {
-            sum += nums[r];
-            r += 1;
-            while sum > target && l < r {
-                sum -= nums[l];
-                l += 1;
+        if target < 0 {
+            return -1;
+        }
+        let mut ans = i32::MAX;
+        let mut sum = 0;
+        let mut i = 0;
+        for j in 0..n {
+            sum += nums[j];
+            while sum > target {
+                sum -= nums[i];
+                i += 1;
             }
-
-
             if sum == target {
-                max = max.max((r - l) as i32);
+                ans = ans.min((n - 1 - (j - i)) as i32)
             }
         }
-
-
-        if max == -1 {
-            return max;
+        if ans == i32::MAX {
+            return -1;
         }
-        return n as i32 - max;
+        ans
     }
+}
+```
+
+### **C**
+
+```c
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+
+int minOperations(int *nums, int numsSize, int x) {
+    int target = -x;
+    for (int i = 0; i < numsSize; i++) {
+        target += nums[i];
+    }
+    if (target < 0) {
+        return -1;
+    }
+    int ans = INT_MAX;
+    int sum = 0;
+    int i = 0;
+    for (int j = 0; j < numsSize; j++) {
+        sum += nums[j];
+        while (sum > target) {
+            sum -= nums[i++];
+        }
+        if (sum == target) {
+            ans = min(ans, numsSize - 1 - (j - i));
+        }
+    }
+    if (ans == INT_MAX) {
+        return -1;
+    }
+    return ans;
 }
 ```
 
