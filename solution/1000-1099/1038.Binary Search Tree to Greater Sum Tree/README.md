@@ -420,6 +420,191 @@ var bstToGst = function (root) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function bstToGst(root: TreeNode | null): TreeNode | null {
+    const dfs = (root: TreeNode | null, sum: number) => {
+        if (root == null) {
+            return sum;
+        }
+        const { val, left, right } = root;
+        sum = dfs(right, sum) + val;
+        root.val = sum;
+        sum = dfs(left, sum);
+        return sum;
+    };
+    dfs(root, 0);
+    return root;
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function bstToGst(root: TreeNode | null): TreeNode | null {
+    let cur = root;
+    let sum = 0;
+    while (cur != null) {
+        const { val, left, right } = cur;
+        if (right == null) {
+            sum += val;
+            cur.val = sum;
+            cur = left;
+        } else {
+            let next = right;
+            while (next.left != null && next.left != cur) {
+                next = next.left;
+            }
+            if (next.left == null) {
+                next.left = cur;
+                cur = right;
+            } else {
+                next.left = null;
+                sum += val;
+                cur.val = sum;
+                cur = left;
+            }
+        }
+    }
+    return root;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: &mut Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
+        if let Some(node) = root {
+            let mut node = node.as_ref().borrow_mut();
+            sum = Self::dfs(&mut node.right, sum) + node.val;
+            node.val = sum;
+            sum = Self::dfs(&mut node.left, sum);
+        }
+        sum
+    }
+
+    pub fn bst_to_gst(mut root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        Self::dfs(&mut root, 0);
+        root
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+
+int dfs(struct TreeNode *root, int sum) {
+    if (root) {
+        sum = dfs(root->right, sum) + root->val;
+        root->val = sum;
+        sum = dfs(root->left, sum);
+    }
+    return sum;
+}
+
+struct TreeNode *bstToGst(struct TreeNode *root) {
+    dfs(root, 0);
+    return root;
+}
+```
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+
+struct TreeNode *bstToGst(struct TreeNode *root) {
+    struct TreeNode *cur = root;
+    int sum = 0;
+    while (cur) {
+        if (!cur->right) {
+            sum += cur->val;
+            cur->val = sum;
+            cur = cur->left;
+        } else {
+            struct TreeNode *next = cur->right;
+            while (next->left && next->left != cur) {
+                next = next->left;
+            }
+            if (!next->left) {
+                next->left = cur;
+                cur = cur->right;
+            } else {
+                next->left = NULL;
+                sum += cur->val;
+                cur->val = sum;
+                cur = cur->left;
+            }
+        }
+    }
+    return root;
+}
+```
+
 ### **...**
 
 ```
