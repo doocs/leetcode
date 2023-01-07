@@ -69,7 +69,29 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和。
+**方法一：前缀和**
+
+我们可以先预处理得到数组 `nums` 的前缀和数组 $s$，其中 $s[i]$ 表示 $nums[i]$ 的前 $i$ 个元素之和。
+
+接下来，创建一个长度为 $n$ 的答案数组 $ans$，初始时每项元素均为 $-1$。
+
+然后我们枚举在 $[0,..n-1]$ 范围内枚举所有 $i$，若 $i$ 满足 $i - k \geq 0$ 并且 $i + k \lt n$，我们将 $ans[i]$ 更新为 $\frac{s[i + k + 1] - s[i - k]}{k \times 2 + 1}$。
+
+最后返回答案数组即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
+**方法二：滑动窗口**
+
+我们维护一个大小为 $k \times 2 + 1$ 的窗口，记窗口中的所有元素和为 $s$。
+
+与方法一一样，我们创建一个长度为 $n$ 的答案数组 $ans$，初始时每项元素均为 $-1$。
+
+接下来遍历数组 `nums`，将 $nums[i]$ 的值加到窗口的和 $s$ 中，如果此时 $i \geq k \times 2$，说明此时窗口大小为 $k \times 2 + 1$，那么 $ans[i-k] = \frac{s}{k \times 2 + 1}$，然后我们将 $nums[i - k \times 2]$ 的值从窗口和 $s$ 中移出。继续遍历下个元素。
+
+最后返回答案数组即可。
+
+时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -81,15 +103,25 @@
 class Solution:
     def getAverages(self, nums: List[int], k: int) -> List[int]:
         n = len(nums)
-        presum = [0] * (n + 1)
+        ans = [-1] * n
+        s = list(accumulate(nums, initial=0))
         for i in range(n):
-            presum[i + 1] = presum[i] + nums[i]
-        return [
-            -1
-            if i - k < 0 or i + k >= n
-            else (presum[i + k + 1] - presum[i - k]) // (k * 2 + 1)
-            for i in range(n)
-        ]
+            if i - k >= 0 and i + k < n:
+                ans[i] = (s[i + k + 1] - s[i - k]) // (k << 1 | 1)
+        return ans
+```
+
+```python
+class Solution:
+    def getAverages(self, nums: List[int], k: int) -> List[int]:
+        s = 0
+        ans = [-1] * len(nums)
+        for i, v in enumerate(nums):
+            s += v
+            if i >= k * 2:
+                ans[i - k] = s // (k * 2 + 1)
+                s -= nums[i - k * 2]
+        return ans
 ```
 
 ### **Java**
@@ -100,16 +132,15 @@ class Solution:
 class Solution {
     public int[] getAverages(int[] nums, int k) {
         int n = nums.length;
-        long[] presum = new long[n + 1];
+        long[] s = new long[n + 1];
         for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + nums[i];
+            s[i + 1] = s[i] + nums[i];
         }
         int[] ans = new int[n];
+        Arrays.fill(ans, -1);
         for (int i = 0; i < n; ++i) {
-            if (i - k < 0 || i + k >= n) {
-                ans[i] = -1;
-            } else {
-                ans[i] = (int) ((presum[i + k + 1] - presum[i - k]) / (k * 2 + 1));
+            if (i - k >= 0 && i + k < n) {
+                ans[i] = (int) ((s[i + k + 1] - s[i - k]) / (k << 1 | 1));
             }
         }
         return ans;
@@ -117,25 +148,22 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function getAverages(nums: number[], k: number): number[] {
-    const n = nums.length;
-    const l = 2 * k + 1;
-    let sum = 0;
-    let ans = new Array(n).fill(-1);
-    for (let i = 0; i < n; i++) {
-        sum += nums[i];
-        let shiftIndex = i - l;
-        if (shiftIndex > -1) {
-            sum -= nums[shiftIndex];
+```java
+class Solution {
+    public int[] getAverages(int[] nums, int k) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        long s = 0;
+        for (int i = 0; i < n; ++i) {
+            s += nums[i];
+            if (i >= k * 2) {
+                ans[i - k] = (int) (s / (k * 2 + 1));
+                s -= nums[i - k * 2];
+            }
         }
-        if (i + 1 >= l) {
-            ans[i - k] = Math.floor(sum / l);
-        }
+        return ans;
     }
-    return ans;
 }
 ```
 
@@ -146,12 +174,36 @@ class Solution {
 public:
     vector<int> getAverages(vector<int>& nums, int k) {
         int n = nums.size();
-        vector<long long> presum(n + 1);
-        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + nums[i];
+        long s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
         vector<int> ans(n, -1);
-        for (int i = 0; i < n; ++i)
-            if (i - k >= 0 && i + k < n)
-                ans[i] = (presum[i + k + 1] - presum[i - k]) * 1ll / (k * 2 + 1);
+        for (int i = 0; i < n; ++i) {
+            if (i - k >= 0 && i + k < n) {
+                ans[i] = (s[i + k + 1] - s[i - k]) / (k << 1 | 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> getAverages(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> ans(n, -1);
+        long s = 0;
+        for (int i = 0; i < n; ++i) {
+            s += nums[i];
+            if (i >= k * 2) {
+                ans[i - k] = s / (k * 2 + 1);
+                s -= nums[i - k * 2];
+            }
+        }
         return ans;
     }
 };
@@ -162,19 +214,69 @@ public:
 ```go
 func getAverages(nums []int, k int) []int {
 	n := len(nums)
-	presum := make([]int64, n+1)
-	for i, num := range nums {
-		presum[i+1] = presum[i] + int64(num)
+	s := make([]int, n+1)
+	for i, v := range nums {
+		s[i+1] = s[i] + v
 	}
-	var ans []int
+	ans := make([]int, n)
 	for i := 0; i < n; i++ {
-		if i-k < 0 || i+k >= n {
-			ans = append(ans, -1)
-		} else {
-			ans = append(ans, int((presum[i+k+1]-presum[i-k])/int64(k*2+1)))
+		ans[i] = -1
+		if i-k >= 0 && i+k < n {
+			ans[i] = (s[i+k+1] - s[i-k]) / (k<<1 | 1)
 		}
 	}
 	return ans
+}
+```
+
+```go
+func getAverages(nums []int, k int) []int {
+	ans := make([]int, len(nums))
+	s := 0
+	for i, v := range nums {
+		ans[i] = -1
+		s += v
+		if i >= k*2 {
+			ans[i-k] = s / (k*2 + 1)
+			s -= nums[i-k*2]
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function getAverages(nums: number[], k: number): number[] {
+    const n = nums.length;
+    const s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    const ans: number[] = new Array(n).fill(-1);
+    for (let i = 0; i < n; ++i) {
+        if (i - k >= 0 && i + k < n) {
+            ans[i] = Math.floor((s[i + k + 1] - s[i - k]) / ((k << 1) | 1));
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function getAverages(nums: number[], k: number): number[] {
+    const n = nums.length;
+    const ans: number[] = new Array(n).fill(-1);
+    let s = 0;
+    for (let i = 0; i < n; ++i) {
+        s += nums[i];
+        if (i >= k * 2) {
+            ans[i - k] = Math.floor(s / (k * 2 + 1));
+            s -= nums[i - k * 2];
+        }
+    }
+    return ans;
 }
 ```
 
