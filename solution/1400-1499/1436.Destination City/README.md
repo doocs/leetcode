@@ -154,6 +154,57 @@ var destCity = function (paths) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function destCity(paths: string[][]): string {
+    const set = new Set(paths.map(([a]) => a));
+    for (const [_, b] of paths) {
+        if (!set.has(b)) {
+            return b;
+        }
+    }
+    return '';
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn dest_city(paths: Vec<Vec<String>>) -> String {
+        let set = paths.iter().map(|v| &v[0]).collect::<HashSet<&String>>();
+        for path in paths.iter() {
+            if !set.contains(&path[1]) {
+                return path[1].clone();
+            }
+        }
+        String::new()
+    }
+}
+```
+
+### **C**
+
+```c
+char *destCity(char ***paths, int pathsSize, int *pathsColSize) {
+    for (int i = 0; i < pathsSize; i++) {
+        int flag = 1;
+        for (int j = 0; j < pathsSize; j++) {
+            if (strcmp(paths[i][1], paths[j][0]) == 0) {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag) {
+            return paths[i][1];
+        }
+    }
+    return NULL;
+}
+```
+
 ### **...**
 
 ```
