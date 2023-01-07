@@ -72,13 +72,149 @@ The total number of plots is 7 + 6 = 13.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countPyramids(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        f = [[0] * n for _ in range(m)]
+        ans = 0
+        for i in range(m - 1, -1, -1):
+            for j in range(n):
+                if grid[i][j] == 0:
+                    f[i][j] = -1
+                elif not (i == m - 1 or j == 0 or j == n - 1):
+                    f[i][j] = min(f[i + 1][j - 1], f[i + 1]
+                                  [j], f[i + 1][j + 1]) + 1
+                    ans += f[i][j]
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 0:
+                    f[i][j] = -1
+                elif i == 0 or j == 0 or j == n - 1:
+                    f[i][j] = 0
+                else:
+                    f[i][j] = min(f[i - 1][j - 1], f[i - 1]
+                                  [j], f[i - 1][j + 1]) + 1
+                    ans += f[i][j]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countPyramids(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[][] f = new int[m][n];
+        int ans = 0;
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == m - 1 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = Math.min(f[i + 1][j - 1], Math.min(f[i + 1][j], f[i + 1][j + 1])) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == 0 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = Math.min(f[i - 1][j - 1], Math.min(f[i - 1][j], f[i - 1][j + 1])) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countPyramids(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int f[m][n];
+        int ans = 0;
+        for (int i = m - 1; ~i; --i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == m - 1 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = min({f[i + 1][j - 1], f[i + 1][j], f[i + 1][j + 1]}) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == 0 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = min({f[i - 1][j - 1], f[i - 1][j], f[i - 1][j + 1]}) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPyramids(grid [][]int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	for i := m - 1; i >= 0; i-- {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 0 {
+				f[i][j] = -1
+			} else if i == m-1 || j == 0 || j == n-1 {
+				f[i][j] = 0
+			} else {
+				f[i][j] = min(f[i+1][j-1], min(f[i+1][j], f[i+1][j+1])) + 1
+				ans += f[i][j]
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 0 {
+				f[i][j] = -1
+			} else if i == 0 || j == 0 || j == n-1 {
+				f[i][j] = 0
+			} else {
+				f[i][j] = min(f[i-1][j-1], min(f[i-1][j], f[i-1][j+1])) + 1
+				ans += f[i][j]
+			}
+		}
+	}
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

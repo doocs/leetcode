@@ -91,6 +91,28 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示以 $(i, j)$ 为顶点的金字塔的最大高度，那么有如下状态转移方程：
+
+$$
+f[i][j] = \begin{cases} 0 & \text{grid}[i][j] = 0 \\ \min(f[i + 1][j - 1], f[i + 1][j], f[i + 1][j + 1]) + 1 & \text{grid}[i][j] = 1 \end{cases}
+$$
+
+因此，我们可以从下往上、从左往右遍历网格，计算出所有的 $f[i][j]$，并累加所有的 $f[i][j]$ 即可得到正金字塔的个数。
+
+接下来，我们考虑倒金字塔的个数。与金字塔类似，我们定义 $g[i][j]$ 表示以 $(i, j)$ 为顶点的倒金字塔的最大高度，那么有如下状态转移方程：
+
+$$
+g[i][j] = \begin{cases} 0 & \text{grid}[i][j] = 0 \\ \min(g[i - 1][j - 1], g[i - 1][j], g[i - 1][j + 1]) + 1 & \text{grid}[i][j] = 1 \end{cases}
+$$
+
+因此，我们可以从上往下、从左往右遍历网格，计算出所有的 $g[i][j]$，并累加所有的 $g[i][j]$ 即可得到倒金字塔的个数。
+
+最后，正金字塔的个数加上倒金字塔的个数即为答案。实际代码中，我们可以只用一个二维数组 $f[i][j]$ 即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -98,7 +120,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countPyramids(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        f = [[0] * n for _ in range(m)]
+        ans = 0
+        for i in range(m - 1, -1, -1):
+            for j in range(n):
+                if grid[i][j] == 0:
+                    f[i][j] = -1
+                elif not (i == m - 1 or j == 0 or j == n - 1):
+                    f[i][j] = min(f[i + 1][j - 1], f[i + 1]
+                                  [j], f[i + 1][j + 1]) + 1
+                    ans += f[i][j]
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 0:
+                    f[i][j] = -1
+                elif i == 0 or j == 0 or j == n - 1:
+                    f[i][j] = 0
+                else:
+                    f[i][j] = min(f[i - 1][j - 1], f[i - 1]
+                                  [j], f[i - 1][j + 1]) + 1
+                    ans += f[i][j]
+        return ans
 ```
 
 ### **Java**
@@ -106,7 +151,120 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countPyramids(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[][] f = new int[m][n];
+        int ans = 0;
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == m - 1 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = Math.min(f[i + 1][j - 1], Math.min(f[i + 1][j], f[i + 1][j + 1])) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == 0 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = Math.min(f[i - 1][j - 1], Math.min(f[i - 1][j], f[i - 1][j + 1])) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countPyramids(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int f[m][n];
+        int ans = 0;
+        for (int i = m - 1; ~i; --i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == m - 1 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = min({f[i + 1][j - 1], f[i + 1][j], f[i + 1][j + 1]}) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    f[i][j] = -1;
+                } else if (i == 0 || j == 0 || j == n - 1) {
+                    f[i][j] = 0;
+                } else {
+                    f[i][j] = min({f[i - 1][j - 1], f[i - 1][j], f[i - 1][j + 1]}) + 1;
+                    ans += f[i][j];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPyramids(grid [][]int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	for i := m - 1; i >= 0; i-- {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 0 {
+				f[i][j] = -1
+			} else if i == m-1 || j == 0 || j == n-1 {
+				f[i][j] = 0
+			} else {
+				f[i][j] = min(f[i+1][j-1], min(f[i+1][j], f[i+1][j+1])) + 1
+				ans += f[i][j]
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 0 {
+				f[i][j] = -1
+			} else if i == 0 || j == 0 || j == n-1 {
+				f[i][j] = 0
+			} else {
+				f[i][j] = min(f[i-1][j-1], min(f[i-1][j], f[i-1][j+1])) + 1
+				ans += f[i][j]
+			}
+		}
+	}
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
