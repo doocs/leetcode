@@ -1,9 +1,8 @@
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
-        counter = [0] * 26
+        cnt = Counter()
         ans = 0
         for c in s:
-            i = ord(c) - ord('a')
-            counter[i] += 1
-            ans += counter[i]
+            cnt[c] += 1
+            ans += cnt[c]
         return ans

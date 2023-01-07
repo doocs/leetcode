@@ -1,10 +1,9 @@
-func numberOfSubstrings(s string) int64 {
-	var ans int64
-	counter := make([]int64, 26)
+func numberOfSubstrings(s string) (ans int64) {
+	cnt := [26]int{}
 	for _, c := range s {
-		i := c - 'a'
-		counter[i]++
-		ans += counter[i]
+		c -= 'a'
+		cnt[c]++
+		ans += int64(cnt[c])
 	}
 	return ans
 }
