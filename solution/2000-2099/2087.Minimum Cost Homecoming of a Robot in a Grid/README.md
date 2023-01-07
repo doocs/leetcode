@@ -59,6 +59,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+设机器人当前位置为 $(i, j)$，目标位置为 $(x, y)$。
+
+-   如果 $i \lt x$，则机器人往下移动，代价为 $rowCosts[i + 1] + rowCosts[i + 2] + \cdots + rowCosts[x]$。
+-   如果 $i \gt x$，则机器人往上移动，代价为 $rowCosts[x] + rowCosts[x + 1] + \cdots + rowCosts[i - 1]$。
+-   如果 $j \lt y$，则机器人往右移动，代价为 $colCosts[j + 1] + colCosts[j + 2] + \cdots + colCosts[y]$。
+-   如果 $j \gt y$，则机器人往左移动，代价为 $colCosts[y] + colCosts[y + 1] + \cdots + colCosts[j - 1]$。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为 $rowCosts$ 和 $colCosts$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +77,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minCost(self, startPos: List[int], homePos: List[int], rowCosts: List[int], colCosts: List[int]) -> int:
+        i, j = startPos
+        x, y = homePos
+        ans = 0
+        if i < x:
+            ans += sum(rowCosts[i + 1: x + 1])
+        else:
+            ans += sum(rowCosts[x: i])
+        if j < y:
+            ans += sum(colCosts[j + 1: y + 1])
+        else:
+            ans += sum(colCosts[y: j])
+        return ans
 ```
 
 ### **Java**
@@ -74,7 +98,83 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minCost(int[] startPos, int[] homePos, int[] rowCosts, int[] colCosts) {
+        int i = startPos[0], j = startPos[1];
+        int x = homePos[0], y = homePos[1];
+        int ans = 0;
+        if (i < x) {
+            for (int k = i + 1; k <= x; ++k) {
+                ans += rowCosts[k];
+            }
+        } else {
+            for (int k = x; k < i; ++k) {
+                ans += rowCosts[k];
+            }
+        }
+        if (j < y) {
+            for (int k = j + 1; k <= y; ++k) {
+                ans += colCosts[k];
+            }
+        } else {
+            for (int k = y; k < j; ++k) {
+                ans += colCosts[k];
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCost(vector<int>& startPos, vector<int>& homePos, vector<int>& rowCosts, vector<int>& colCosts) {
+        int i = startPos[0], j = startPos[1];
+        int x = homePos[0], y = homePos[1];
+        int ans = 0;
+        if (i < x) {
+            ans += accumulate(rowCosts.begin() + i + 1, rowCosts.begin() + x + 1, 0);
+        } else {
+            ans += accumulate(rowCosts.begin() + x, rowCosts.begin() + i, 0);
+        }
+        if (j < y) {
+            ans += accumulate(colCosts.begin() + j + 1, colCosts.begin() + y + 1, 0);
+        } else {
+            ans += accumulate(colCosts.begin() + y, colCosts.begin() + j, 0);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCost(startPos []int, homePos []int, rowCosts []int, colCosts []int) (ans int) {
+	i, j := startPos[0], startPos[1]
+	x, y := homePos[0], homePos[1]
+	if i < x {
+		ans += sum(rowCosts, i+1, x+1)
+	} else {
+		ans += sum(rowCosts, x, i)
+	}
+	if j < y {
+		ans += sum(colCosts, j+1, y+1)
+	} else {
+		ans += sum(colCosts, y, j)
+	}
+	return
+}
+
+func sum(nums []int, i, j int) (s int) {
+	for k := i; k < j; k++ {
+		s += nums[k]
+	}
+	return
+}
 ```
 
 ### **...**
