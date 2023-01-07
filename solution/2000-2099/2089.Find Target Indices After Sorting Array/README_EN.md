@@ -56,7 +56,7 @@ The index where nums[i] == 5 is 4.
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         nums.sort()
-        return [i for i, num in enumerate(nums) if num == target]
+        return [i for i, v in enumerate(nums) if v == target]
 ```
 
 ### **Java**
@@ -76,22 +76,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function targetIndices(nums: number[], target: number): number[] {
-    nums.sort((a, b) => a - b);
-    let ans = [];
-    for (let i = 0; i < nums.length && nums[i] <= target; i++) {
-        let cur = nums[i];
-        if (cur == target) {
-            ans.push(i);
-        }
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -100,9 +84,11 @@ public:
     vector<int> targetIndices(vector<int>& nums, int target) {
         sort(nums.begin(), nums.end());
         vector<int> ans;
-        for (int i = 0; i < nums.size(); ++i)
-            if (nums[i] == target)
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == target) {
                 ans.push_back(i);
+            }
+        }
         return ans;
     }
 };
@@ -111,15 +97,29 @@ public:
 ### **Go**
 
 ```go
-func targetIndices(nums []int, target int) []int {
+func targetIndices(nums []int, target int) (ans []int) {
 	sort.Ints(nums)
-	var ans []int
-	for i, num := range nums {
-		if num == target {
+	for i, v := range nums {
+		if v == target {
 			ans = append(ans, i)
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function targetIndices(nums: number[], target: number): number[] {
+    nums.sort((a, b) => a - b);
+    let ans: number[] = [];
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] == target) {
+            ans.push(i);
+        }
+    }
+    return ans;
 }
 ```
 

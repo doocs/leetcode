@@ -58,6 +58,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+将数组 `nums` 排序后，遍历数组，找出所有等于 `target` 的元素的下标，将其加入结果数组中。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +74,7 @@
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         nums.sort()
-        return [i for i, num in enumerate(nums) if num == target]
+        return [i for i, v in enumerate(nums) if v == target]
 ```
 
 ### **Java**
@@ -90,22 +96,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function targetIndices(nums: number[], target: number): number[] {
-    nums.sort((a, b) => a - b);
-    let ans = [];
-    for (let i = 0; i < nums.length && nums[i] <= target; i++) {
-        let cur = nums[i];
-        if (cur == target) {
-            ans.push(i);
-        }
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -114,9 +104,11 @@ public:
     vector<int> targetIndices(vector<int>& nums, int target) {
         sort(nums.begin(), nums.end());
         vector<int> ans;
-        for (int i = 0; i < nums.size(); ++i)
-            if (nums[i] == target)
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] == target) {
                 ans.push_back(i);
+            }
+        }
         return ans;
     }
 };
@@ -125,15 +117,29 @@ public:
 ### **Go**
 
 ```go
-func targetIndices(nums []int, target int) []int {
+func targetIndices(nums []int, target int) (ans []int) {
 	sort.Ints(nums)
-	var ans []int
-	for i, num := range nums {
-		if num == target {
+	for i, v := range nums {
+		if v == target {
 			ans = append(ans, i)
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function targetIndices(nums: number[], target: number): number[] {
+    nums.sort((a, b) => a - b);
+    let ans: number[] = [];
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] == target) {
+            ans.push(i);
+        }
+    }
+    return ans;
 }
 ```
 

@@ -1,9 +1,8 @@
 function targetIndices(nums: number[], target: number): number[] {
     nums.sort((a, b) => a - b);
-    let ans = [];
-    for (let i = 0; i < nums.length && nums[i] <= target; i++) {
-        let cur = nums[i];
-        if (cur == target) {
+    let ans: number[] = [];
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] == target) {
             ans.push(i);
         }
     }

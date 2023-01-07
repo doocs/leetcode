@@ -1,10 +1,9 @@
-func targetIndices(nums []int, target int) []int {
+func targetIndices(nums []int, target int) (ans []int) {
 	sort.Ints(nums)
-	var ans []int
-	for i, num := range nums {
-		if num == target {
+	for i, v := range nums {
+		if v == target {
 			ans = append(ans, i)
 		}
 	}
-	return ans
+	return
 }
