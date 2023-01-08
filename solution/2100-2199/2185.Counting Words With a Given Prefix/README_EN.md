@@ -257,11 +257,29 @@ func prefixCount(words []string, pref string) int {
 
 ```ts
 function prefixCount(words: string[], pref: string): number {
-    const m = pref.length;
-    let ans = 0;
-    for (const w of words) {
-        if (w.substring(0, m) === pref) {
-            ++ans;
+    return words.reduce((r, s) => (r += s.startsWith(pref) ? 1 : 0), 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn prefix_count(words: Vec<String>, pref: String) -> i32 {
+        words.iter().filter(|s| s.starts_with(&pref)).count() as i32
+    }
+}
+```
+
+### **C**
+
+```c
+int prefixCount(char **words, int wordsSize, char *pref) {
+    int ans = 0;
+    int n = strlen(pref);
+    for (int i = 0; i < wordsSize; i++) {
+        if (strncmp(words[i], pref, n) == 0) {
+            ans++;
         }
     }
     return ans;
