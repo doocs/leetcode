@@ -60,6 +60,14 @@ class Solution:
         return max(a, b)
 ```
 
+```python
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+        a = len(nums) - bisect_left(nums, 1)
+        b = bisect_left(nums, 0)
+        return max(a, b)
+```
+
 ### **Java**
 
 ```java
@@ -75,6 +83,29 @@ class Solution {
             }
         }
         return Math.max(a, b);
+    }
+}
+```
+
+```java
+class Solution {
+    public int maximumCount(int[] nums) {
+        int a = nums.length - search(nums, 1);
+        int b = search(nums, 0);
+        return Math.max(a, b);
+    }
+
+    private int search(int[] nums, int x) {
+        int left = 0, right = nums.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
     }
 }
 ```
@@ -99,6 +130,17 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        int a = nums.end() - lower_bound(nums.begin(), nums.end(), 1);
+        int b = lower_bound(nums.begin(), nums.end(), 0) - nums.begin();
+        return max(a, b);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -112,6 +154,21 @@ func maximumCount(nums []int) int {
 			b++
 		}
 	}
+	return max(a, b)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maximumCount(nums []int) int {
+	a := len(nums) - sort.SearchInts(nums, 1)
+	b := sort.SearchInts(nums, 0)
 	return max(a, b)
 }
 

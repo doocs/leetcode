@@ -54,6 +54,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历**
+
+遍历数组，统计正整数和负整数的个数 $a$ 和 $b$，返回 $a$ 和 $b$ 中的较大值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
+**方法二：二分查找**
+
+由于数组是按非递减顺序排列的，因此可以使用二分查找找到第一个大于等于 $1$ 的元素的下标 $i$ 以及第一个大于等于 $0$ 的元素的下标 $j$，那么正整数的个数 $a = n - i$，负整数的个数 $b = j$，返回 $a$ 和 $b$ 中的较大值即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,6 +77,14 @@ class Solution:
     def maximumCount(self, nums: List[int]) -> int:
         a = sum(v > 0 for v in nums)
         b = sum(v < 0 for v in nums)
+        return max(a, b)
+```
+
+```python
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+        a = len(nums) - bisect_left(nums, 1)
+        b = bisect_left(nums, 0)
         return max(a, b)
 ```
 
@@ -89,6 +109,29 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int maximumCount(int[] nums) {
+        int a = nums.length - search(nums, 1);
+        int b = search(nums, 0);
+        return Math.max(a, b);
+    }
+
+    private int search(int[] nums, int x) {
+        int left = 0, right = nums.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -109,6 +152,17 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        int a = nums.end() - lower_bound(nums.begin(), nums.end(), 1);
+        int b = lower_bound(nums.begin(), nums.end(), 0) - nums.begin();
+        return max(a, b);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -122,6 +176,21 @@ func maximumCount(nums []int) int {
 			b++
 		}
 	}
+	return max(a, b)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maximumCount(nums []int) int {
+	a := len(nums) - sort.SearchInts(nums, 1)
+	b := sort.SearchInts(nums, 0)
 	return max(a, b)
 }
 

@@ -66,6 +66,18 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def maxKelements(self, nums: List[int], k: int) -> int:
+        for i, v in enumerate(nums):
+            nums[i] = -v
+        heapify(nums)
+        ans = 0
+        for _ in range(k):
+            ans -= heapreplace(nums, -ceil(-nums[0] / 3))
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -111,7 +123,7 @@ public:
 func maxKelements(nums []int, k int) (ans int64) {
 	h := &hp{nums}
 	heap.Init(h)
-	for i := 0; i < k; i++ {
+	for ; k > 0; k-- {
 		v := h.pop()
 		ans += int64(v)
 		h.push((v + 2) / 3)
@@ -131,6 +143,25 @@ func (h *hp) Pop() interface{} {
 }
 func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+```go
+func maxKelements(nums []int, k int) (ans int64) {
+	h := hp{nums}
+	heap.Init(&h)
+	for ; k > 0; k-- {
+		ans += int64(h.IntSlice[0])
+		h.IntSlice[0] = (h.IntSlice[0] + 2) / 3
+		heap.Fix(&h, 0)
+	}
+	return
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (hp) Push(interface{})     {}
+func (hp) Pop() (_ interface{}) { return }
 ```
 
 ### **...**

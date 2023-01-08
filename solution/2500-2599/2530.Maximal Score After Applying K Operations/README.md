@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：优先队列（大根堆）**
+
+要使得分数最大化，我们需要在每一步操作中，选择元素值最大的元素进行操作。因此，我们可以使用优先队列（大根堆）来维护当前元素值最大的元素。
+
+每次从优先队列中取出元素值最大的元素，将其分数加入答案，然后将其替换为 `ceil(nums[i] / 3)`，并将新的元素值加入优先队列。循环 $k$ 次后，将答案返回即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,6 +79,18 @@ class Solution:
             v = -heappop(h)
             ans += v
             heappush(h, -(ceil(v / 3)))
+        return ans
+```
+
+```python
+class Solution:
+    def maxKelements(self, nums: List[int], k: int) -> int:
+        for i, v in enumerate(nums):
+            nums[i] = -v
+        heapify(nums)
+        ans = 0
+        for _ in range(k):
+            ans -= heapreplace(nums, -ceil(-nums[0] / 3))
         return ans
 ```
 
@@ -121,7 +141,7 @@ public:
 func maxKelements(nums []int, k int) (ans int64) {
 	h := &hp{nums}
 	heap.Init(h)
-	for i := 0; i < k; i++ {
+	for ; k > 0; k-- {
 		v := h.pop()
 		ans += int64(v)
 		h.push((v + 2) / 3)
@@ -141,6 +161,25 @@ func (h *hp) Pop() interface{} {
 }
 func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+```go
+func maxKelements(nums []int, k int) (ans int64) {
+	h := hp{nums}
+	heap.Init(&h)
+	for ; k > 0; k-- {
+		ans += int64(h.IntSlice[0])
+		h.IntSlice[0] = (h.IntSlice[0] + 2) / 3
+		heap.Fix(&h, 0)
+	}
+	return
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (hp) Push(interface{})     {}
+func (hp) Pop() (_ interface{}) { return }
 ```
 
 ### **...**
