@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 327
+
+- [2529. Maximum Count of Positive Integer and Negative Integer](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README_EN.md)
+- [2530. Maximal Score After Applying K Operations](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md)
+- [2531. Make Number of Distinct Characters Equal](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README_EN.md)
+- [2532. Time to Cross a Bridge](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md)
+
+
+#### Biweekly Contest 95
+
+- [2525. Categorize Box According to Criteria](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md)
+- [2526. Find Consecutive Integers from a Data Stream](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README_EN.md)
+- [2527. Find Xor-Beauty of Array](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README_EN.md)
+- [2528. Maximize the Minimum Powered City](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md)
+
+
 #### Weekly Contest 326
 
 - [2520. Count the Digits That Divide a Number](/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README_EN.md)
@@ -39,14 +55,6 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 - [2516. Take K of Each Character From Left and Right](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README_EN.md)
 - [2517. Maximum Tastiness of Candy Basket](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README_EN.md)
 - [2518. Number of Great Partitions](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)
-
-
-#### Biweekly Contest 94
-
-- [2511. Maximum Enemy Forts That Can Be Captured](/solution/2500-2599/2511.Maximum%20Enemy%20Forts%20That%20Can%20Be%20Captured/README_EN.md)
-- [2512. Reward Top K Students](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md)
-- [2513. Minimize the Maximum of Two Arrays](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README_EN.md)
-- [2514. Count Anagrams](/solution/2500-2599/2514.Count%20Anagrams/README_EN.md)
 
 
 #### Weekly Contest 324

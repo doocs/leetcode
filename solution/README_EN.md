@@ -2533,6 +2533,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2522  |  [Partition String Into Substrings With Values at Most K](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 326  |
 |  2523  |  [Closest Prime Numbers in Range](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README_EN.md)  |  `Math`,`Number Theory`  |  Medium  |  Weekly Contest 326  |
 |  2524  |  [Maximum Frequency Score of a Subarray](/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README_EN.md)  |    |  Hard  |  🔒  |
+|  2525  |  [Categorize Box According to Criteria](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md)  |    |  Easy  |  Biweekly Contest 95  |
+|  2526  |  [Find Consecutive Integers from a Data Stream](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README_EN.md)  |    |  Medium  |  Biweekly Contest 95  |
+|  2527  |  [Find Xor-Beauty of Array](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 95  |
+|  2528  |  [Maximize the Minimum Powered City](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md)  |    |  Hard  |  Biweekly Contest 95  |
+|  2529  |  [Maximum Count of Positive Integer and Negative Integer](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README_EN.md)  |    |  Easy  |  Weekly Contest 327  |
+|  2530  |  [Maximal Score After Applying K Operations](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md)  |    |  Medium  |  Weekly Contest 327  |
+|  2531  |  [Make Number of Distinct Characters Equal](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 327  |
+|  2532  |  [Time to Cross a Bridge](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md)  |    |  Hard  |  Weekly Contest 327  |
 
 ## Copyright
 

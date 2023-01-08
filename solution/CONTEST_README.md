@@ -24,6 +24,22 @@
 
 ## 往期竞赛
 
+#### 第 327 场周赛(2023-01-08 10:30, 90 分钟) 参赛人数 4518
+
+- [2529. 正整数和负整数的最大计数](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README.md)
+- [2530. 执行 K 次操作后的最大分数](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md)
+- [2531. 使字符串总不同字符的数目相等](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)
+- [2532. 过桥的时间](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md)
+
+
+#### 第 95 场双周赛(2023-01-07 22:30, 90 分钟) 参赛人数 2880
+
+- [2525. 根据规则将箱子分类](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md)
+- [2526. 找到数据流中的连续整数](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)
+- [2527. 查询数组 Xor 美丽值](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md)
+- [2528. 最大化城市的最小供电站数目](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
+
+
 #### 第 326 场周赛(2023-01-01 10:30, 90 分钟) 参赛人数 3873
 
 - [2520. 统计能整除数字的位数](/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README.md)
@@ -38,14 +54,6 @@
 - [2516. 每种字符至少取 K 个](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README.md)
 - [2517. 礼盒的最大甜蜜度](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md)
 - [2518. 好分区的数目](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md)
-
-
-#### 第 94 场双周赛(2022-12-24 22:30, 90 分钟) 参赛人数 2298
-
-- [2511. 最多可以摧毁的敌人城堡数目](/solution/2500-2599/2511.Maximum%20Enemy%20Forts%20That%20Can%20Be%20Captured/README.md)
-- [2512. 奖励最顶尖的 K 名学生](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md)
-- [2513. 最小化两个数组中的最大值](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README.md)
-- [2514. 统计同位异构字符串数目](/solution/2500-2599/2514.Count%20Anagrams/README.md)
 
 
 #### 第 324 场周赛(2022-12-18 10:30, 90 分钟) 参赛人数 4167
@@ -1493,7 +1501,7 @@
 - [1566. 重复至少 K 次且长度为 M 的模式](/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README.md)
 - [1567. 乘积为正数的最长子数组长度](/solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README.md)
 - [1568. 使陆地分离的最少天数](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md)
-- [1569. 将子数组重新排序得到同一个二叉查找树的方案数](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README.md)
+- [1569. 将子数组重新排序得到同一个二叉搜索树的方案数](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README.md)
 
 
 #### 第 203 场周赛(2020-08-23 10:30, 90 分钟) 参赛人数 5285
@@ -1768,7 +1776,7 @@
 - [1392. 最长快乐前缀](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README.md)
 
 
-#### 第 22 场双周赛(2020-03-21 22:30, 90 分钟) 参赛人数 2041
+#### 第 22 场双周赛(2020-03-21 22:30, 90 分钟) 参赛人数 2042
 
 - [1385. 两个数组间的距离值](/solution/1300-1399/1385.Find%20the%20Distance%20Value%20Between%20Two%20Arrays/README.md)
 - [1386. 安排电影院座位](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README.md)

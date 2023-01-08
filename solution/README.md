@@ -2535,6 +2535,14 @@
 |  2522  |  [将字符串分割成值不超过 K 的子字符串](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README.md)  |  `贪心`,`字符串`,`动态规划`  |  中等  |  第 326 场周赛  |
 |  2523  |  [范围内最接近的两个质数](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README.md)  |  `数学`,`数论`  |  中等  |  第 326 场周赛  |
 |  2524  |  [Maximum Frequency Score of a Subarray](/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README.md)  |    |  困难  |  🔒  |
+|  2525  |  [根据规则将箱子分类](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md)  |    |  简单  |  第 95 场双周赛  |
+|  2526  |  [找到数据流中的连续整数](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)  |    |  中等  |  第 95 场双周赛  |
+|  2527  |  [查询数组 Xor 美丽值](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md)  |    |  中等  |  第 95 场双周赛  |
+|  2528  |  [最大化城市的最小供电站数目](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)  |    |  困难  |  第 95 场双周赛  |
+|  2529  |  [正整数和负整数的最大计数](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README.md)  |    |  简单  |  第 327 场周赛  |
+|  2530  |  [执行 K 次操作后的最大分数](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md)  |    |  中等  |  第 327 场周赛  |
+|  2531  |  [使字符串总不同字符的数目相等](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)  |    |  中等  |  第 327 场周赛  |
+|  2532  |  [过桥的时间](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md)  |    |  困难  |  第 327 场周赛  |
 
 ## 版权
 
