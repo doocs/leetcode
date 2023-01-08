@@ -151,7 +151,54 @@ func countPoints(rings string) int {
 ### **TypeScript**
 
 ```ts
+function countPoints(rings: string): number {
+    const helper = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
+    const n = rings.length;
+    const target = (1 << helper('R')) + (1 << helper('G')) + (1 << helper('B'));
+    const count = new Array(10).fill(0);
+    for (let i = 0; i < n; i += 2) {
+        count[rings[i + 1]] |= 1 << helper(rings[i]);
+    }
+    return count.reduce((r, v) => (r += v === target ? 1 : 0), 0);
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_points(rings: String) -> i32 {
+        let rings = rings.as_bytes();
+        let target = (1 << b'R' - b'A') + (1 << b'G' - b'A') + (1 << b'B' - b'A');
+        let n = rings.len();
+        let mut count = [0; 10];
+        let mut i = 0;
+        while i < n {
+            count[(rings[i + 1] - b'0') as usize] |= 1 << rings[i] - b'A';
+            i += 2;
+        }
+        count.iter().filter(|&v| *v == target).count() as i32
+    }
+}
+```
+
+### **C**
+
+```c
+int countPoints(char *rings) {
+    int target = (1 << ('R' - 'A')) + (1 << ('G' - 'A')) + (1 << ('B' - 'A'));
+    int count[10] = {0};
+    for (int i = 0; rings[i]; i += 2) {
+        count[rings[i + 1] - '0'] |= 1 << (rings[i] - 'A');
+    }
+    int ans = 0;
+    for (int i = 0; i < 10; i++) {
+        if (count[i] == target) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
