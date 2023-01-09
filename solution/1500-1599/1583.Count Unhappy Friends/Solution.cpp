@@ -1,13 +1,14 @@
 class Solution {
-    public int unhappyFriends(int n, int[][] preferences, int[][] pairs) {
-        int[][] d = new int[n][n];
+public:
+    int unhappyFriends(int n, vector<vector<int>>& preferences, vector<vector<int>>& pairs) {
+        int d[n][n];
+        int p[n];
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n - 1; ++j) {
                 d[i][preferences[i][j]] = j;
             }
         }
-        int[] p = new int[n];
-        for (var e : pairs) {
+        for (auto& e : pairs) {
             int x = e[0], y = e[1];
             p[x] = y;
             p[y] = x;
@@ -27,4 +28,4 @@ class Solution {
         }
         return ans;
     }
-}
+};
