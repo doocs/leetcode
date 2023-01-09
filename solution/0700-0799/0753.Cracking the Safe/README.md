@@ -48,6 +48,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：欧拉回路**
+
+我们可以对题目中所描述的内容构建有向图：将每个点看作一个长度为 $n-1$ 的 $k$ 字符串，每条边都带有一个从 $0$ 到 $k-1$ 的字符。如果点 $u$ 到点 $v$ 之间有一条有向边 $e$，假设 $e$ 携带的字符为 $c$，那么 $u+c$ 的末尾 $k-1$ 个字符形成的字符串等于 $v$，此时边 $u+c$ 就表示了一个长度为 $n$ 的密码。
+
+在这个有向图中，一共有 $k^{n-1}$ 个点，每个点都有 $k$ 条出边，也有 $k$ 条入边，因此，该有向图存在欧拉回路，欧拉回路所经过的路径拼接起来就是题目中的答案。
+
+时间复杂度 $O(k^n)$，空间复杂度 $O(k^n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +63,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def crackSafe(self, n: int, k: int) -> str:
+        def dfs(u):
+            for x in range(k):
+                e = u * 10 + x
+                if e not in vis:
+                    vis.add(e)
+                    v = e % mod
+                    dfs(v)
+                    ans.append(str(x))
 
+        mod = 10 ** (n - 1)
+        vis = set()
+        ans = []
+        dfs(0)
+        ans.append("0" * (n - 1))
+        return "".join(ans)
 ```
 
 ### **Java**
@@ -63,7 +87,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Set<Integer> vis = new HashSet<>();
+    private StringBuilder ans = new StringBuilder();
+    private int mod;
 
+    public String crackSafe(int n, int k) {
+        mod = (int) Math.pow(10, n - 1);
+        dfs(0, k);
+        ans.append("0".repeat(n - 1));
+        return ans.toString();
+    }
+
+    private void dfs(int u, int k) {
+        for (int x = 0; x < k; ++x) {
+            int e = u * 10 + x;
+            if (vis.add(e)) {
+                int v = e % mod;
+                dfs(v, k);
+                ans.append(x);
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string crackSafe(int n, int k) {
+        unordered_set<int> vis;
+        int mod = pow(10, n - 1);
+        string ans;
+        function<void(int)> dfs = [&](int u) {
+            for (int x = 0; x < k; ++x) {
+                int e = u * 10 + x;
+                if (!vis.count(e)) {
+                    vis.insert(e);
+                    dfs(e % mod);
+                    ans += (x + '0');
+                }
+            }
+        };
+        dfs(0);
+        ans += string(n - 1, '0');
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func crackSafe(n int, k int) string {
+	mod := int(math.Pow(10, float64(n-1)))
+	vis := map[int]bool{}
+	ans := &strings.Builder{}
+	var dfs func(int)
+	dfs = func(u int) {
+		for x := 0; x < k; x++ {
+			e := u*10 + x
+			if !vis[e] {
+				vis[e] = true
+				v := e % mod
+				dfs(v)
+				ans.WriteByte(byte('0' + x))
+			}
+		}
+	}
+	dfs(0)
+	ans.WriteString(strings.Repeat("0", n-1))
+	return ans.String()
+}
 ```
 
 ### **...**
