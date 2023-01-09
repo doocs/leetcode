@@ -60,7 +60,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：脑筋急转弯**
+**方法一：找规律 + 模拟**
 
 我们观察数字的变化规律，发现：
 
@@ -102,8 +102,8 @@ class Solution:
 ```java
 class Solution {
     public int reinitializePermutation(int n) {
-        int ans = 0, i = 1;
-        while (true) {
+        int ans = 0;
+        for (int i = 1; ; ) {
             ++ans;
             if (i < (n >> 1)) {
                 i <<= 1;
@@ -124,8 +124,8 @@ class Solution {
 class Solution {
 public:
     int reinitializePermutation(int n) {
-        int ans = 0, i = 1;
-        while (1) {
+        int ans = 0;
+        for (int i = 1; ; ) {
             ++ans;
             if (i < (n >> 1)) {
                 i <<= 1;
@@ -143,9 +143,8 @@ public:
 ### **Go**
 
 ```go
-func reinitializePermutation(n int) int {
-	ans, i := 0, 1
-	for {
+func reinitializePermutation(n int) (ans int) {
+	for i := 1; ; {
 		ans++
 		if i < (n >> 1) {
 			i <<= 1

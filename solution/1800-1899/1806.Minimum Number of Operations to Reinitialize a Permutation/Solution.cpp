@@ -1,8 +1,8 @@
 class Solution {
 public:
     int reinitializePermutation(int n) {
-        int ans = 0, i = 1;
-        while (1) {
+        int ans = 0;
+        for (int i = 1; ; ) {
             ++ans;
             if (i < (n >> 1)) {
                 i <<= 1;

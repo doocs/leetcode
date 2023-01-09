@@ -1,17 +1,12 @@
 func integerBreak(n int) int {
-	dp := make([]int, n+1)
-	dp[1] = 1
-	for i := 2; i <= n; i++ {
-		for j := 1; j < i; j++ {
-			dp[i] = max(max(dp[i], dp[i-j]*j), (i-j)*j)
-		}
+	if n < 4 {
+		return n - 1
 	}
-	return dp[n]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
+	if n%3 == 0 {
+		return int(math.Pow(3, float64(n/3)))
 	}
-	return b
+	if n%3 == 1 {
+		return int(math.Pow(3, float64(n/3-1))) * 4
+	}
+	return int(math.Pow(3, float64(n/3))) * 2
 }

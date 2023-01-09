@@ -48,6 +48,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：问题转换 + 快速幂**
+
+我们可以将 $n$ 进行质因数分解，即 $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$，其中 $a_i$ 为质因子，而 $k_i$ 为质因子 $a_i$ 的指数。由于 $n$ 的质因子个数不超过 $primeFactors$ 个，因此 $k_1 + k_2 + \cdots + k_m \leq primeFactors$。
+
+而根据题意描述，我们知道 $n$ 的好因子要满足能被所有的质因子整除，也即是说 $n$ 的好因子需要包含 $a_1 \times a_2 \times \cdots \times a_m$ 作为因数。那么好因子的个数 $k= k_1 \times k_2 \times \cdots \times k_m$，即 $k$ 为 $k_1, k_2, \cdots, k_m$ 的乘积。要最大化好因子的个数，也即是说我们要将 `primeFactors` 拆分成 $k_1, k_2, \cdots, k_m$，使得 $k_1 \times k_2 \times \cdots \times k_m$ 最大。因此问题转换为：将整数 `primeFactors` 拆分成若干个整数的乘积，使得乘积最大。
+
+接下来，我们只需要分情况讨论。
+
+-   如果 $primeFactors \lt 4$，那么直接返回 `primeFactors` 即可。
+-   如果 $primeFactors$ 为 $3$ 的倍数，那么我们将 `primeFactors` 拆分成 $3$ 的倍数个 $3$，即 $3^{\frac{primeFactors}{3}}$。
+-   如果 $primeFactors$ 除以 $3$ 余 $1$，那么我们将 `primeFactors` 拆分成 $\frac{primeFactors}{3} - 1$ 个 $3$，再乘以 $4$，即 $3^{\frac{primeFactors}{3} - 1} \times 4$。
+-   如果 $primeFactors$ 除以 $3$ 余 $2$，那么我们将 `primeFactors` 拆分成 $\frac{primeFactors}{3}$ 个 $3$，再乘以 $2$，即 $3^{\frac{primeFactors}{3}} \times 2$。
+
+以上过程中，我们利用快速幂取模求解。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +72,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxNiceDivisors(self, primeFactors: int) -> int:
+        mod = 10**9 + 7
+        if primeFactors < 4:
+            return primeFactors
+        if primeFactors % 3 == 0:
+            return pow(3, primeFactors // 3, mod) % mod
+        if primeFactors % 3 == 1:
+            return 4 * pow(3, primeFactors // 3 - 1, mod) % mod
+        return 2 * pow(3, primeFactors // 3, mod) % mod
 ```
 
 ### **Java**
@@ -63,7 +89,96 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxNiceDivisors(int primeFactors) {
+        if (primeFactors < 4) {
+            return primeFactors;
+        }
+        final int mod = (int) 1e9 + 7;
+        if (primeFactors % 3 == 0) {
+            return (int) qmi(3, primeFactors / 3, mod);
+        }
+        if (primeFactors % 3 == 1) {
+            return (int) (4 * qmi(3, primeFactors / 3 - 1, mod) % mod);
+        }
+        return (int) (2 * qmi(3, primeFactors / 3, mod)%  mod);
+    }
 
+    private long qmi(long a, long k, long p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxNiceDivisors(int primeFactors) {
+        if (primeFactors < 4) {
+            return primeFactors;
+        }
+        const int mod = 1e9 + 7;
+        if (primeFactors % 3 == 0) {
+            return qmi(3, primeFactors / 3, mod);
+        }
+        if (primeFactors % 3 == 1) {
+            return 4 * qmi(3, primeFactors / 3 - 1, mod) % mod;
+        }
+        return 2 * qmi(3, primeFactors / 3, mod) % mod;
+    }
+
+    long qmi(long a, long k, long p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxNiceDivisors(primeFactors int) int {
+	if primeFactors < 4 {
+		return primeFactors
+	}
+	const mod int = 1e9 + 7
+	if primeFactors%3 == 0 {
+		return qmi(3, primeFactors/3, mod)
+	}
+	if primeFactors%3 == 1 {
+		return 4 * qmi(3, primeFactors/3-1, mod) % mod
+	}
+	return 2 * qmi(3, primeFactors/3, mod) % mod
+}
+
+func qmi(a, k, p int) int {
+	res := 1
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % p
+		}
+		k >>= 1
+		a = a * a % p
+	}
+	return res
+}
 ```
 
 ### **...**
