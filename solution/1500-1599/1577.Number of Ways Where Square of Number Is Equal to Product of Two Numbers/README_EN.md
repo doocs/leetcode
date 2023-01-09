@@ -55,13 +55,104 @@ Type 2: (3,0,1).  nums2[3]<sup>2</sup> = nums1[0] * nums1[1].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
+        cnt1 = Counter(nums1)
+        cnt2 = Counter(nums2)
+        ans = 0
+        for a, x in cnt1.items():
+            for b, y in cnt2.items():
+                if a * a % b == 0:
+                    c = a * a // b
+                    if b == c:
+                        ans += x * y * (y - 1)
+                    else:
+                        ans += x * y * cnt2[c]
+                if b * b % a == 0:
+                    c = b * b // a
+                    if a == c:
+                        ans += x * (x - 1) * y
+                    else:
+                        ans += x * y * cnt1[c]
+        return ans >> 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numTriplets(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> cnt1 = new HashMap<>();
+        Map<Integer, Integer> cnt2 = new HashMap<>();
+        for (int v : nums1) {
+            cnt1.put(v, cnt1.getOrDefault(v, 0) + 1);
+        }
+        for (int v : nums2) {
+            cnt2.put(v, cnt2.getOrDefault(v, 0) + 1);
+        }
+        long ans = 0;
+        for (var e1 : cnt1.entrySet()) {
+            long a = e1.getKey(), x = e1.getValue();
+            for (var e2 : cnt2.entrySet()) {
+                long b = e2.getKey(), y = e2.getValue();
+                if ((a * a) % b == 0) {
+                    long c = a * a / b;
+                    if (b == c) {
+                        ans += x * y * (y - 1);
+                    } else {
+                        ans += x * y * cnt2.getOrDefault((int) c, 0);
+                    }
+                }
+                if ((b * b) % a == 0) {
+                    long c = b * b / a;
+                    if (a == c) {
+                        ans += x * (x - 1) * y;
+                    } else {
+                        ans += x * y * cnt1.getOrDefault((int) c, 0);
+                    }
+                }
+            }
+        }
+        return (int) (ans >> 1);
+    }
+}
+```
 
+### **Go**
+
+```go
+func numTriplets(nums1 []int, nums2 []int) (ans int) {
+	cnt1 := map[int]int{}
+	cnt2 := map[int]int{}
+	for _, v := range nums1 {
+		cnt1[v]++
+	}
+	for _, v := range nums2 {
+		cnt2[v]++
+	}
+	for a, x := range cnt1 {
+		for b, y := range cnt2 {
+			if a*a%b == 0 {
+				c := a * a / b
+				if b == c {
+					ans += x * y * (y - 1)
+				} else {
+					ans += x * y * cnt2[c]
+				}
+			}
+			if b*b%a == 0 {
+				c := b * b / a
+				if a == c {
+					ans += x * (x - 1) * y
+				} else {
+					ans += x * y * cnt1[c]
+				}
+			}
+		}
+	}
+	ans /= 2
+	return
+}
 ```
 
 ### **...**

@@ -59,6 +59,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们用哈希表 `cnt1` 统计 `nums1` 中每个数出现的次数，用哈希表 `cnt2` 统计 `nums2` 中每个数出现的次数。
+
+然后我们双重循环遍历两个哈希表，记当前 `cnt1` 遍历到的键值对为 $(a, x)$，当前 `cnt2` 遍历到的键值对为 $(b, y)$。接下来分情况讨论：
+
+-   如果 $a^2$ 能被 $b$ 整除，设 $c=\frac{a^2}{b}$，若 $b=c$，那么答案加上 $x \times y \times (y - 1)$，否则答案加上 $x \times y \times cnt2[c]$。
+-   如果 $b^2$ 能被 $a$ 整除，设 $c=\frac{b^2}{a}$，若 $a=c$，那么答案加上 $x \times (x - 1) \times y$，否则答案加上 $x \times cnt1[c] \times y$。
+
+最后将答案除以 $2$ 返回即可。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `nums2` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +79,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
+        cnt1 = Counter(nums1)
+        cnt2 = Counter(nums2)
+        ans = 0
+        for a, x in cnt1.items():
+            for b, y in cnt2.items():
+                if a * a % b == 0:
+                    c = a * a // b
+                    if b == c:
+                        ans += x * y * (y - 1)
+                    else:
+                        ans += x * y * cnt2[c]
+                if b * b % a == 0:
+                    c = b * b // a
+                    if a == c:
+                        ans += x * (x - 1) * y
+                    else:
+                        ans += x * y * cnt1[c]
+        return ans >> 1
 ```
 
 ### **Java**
@@ -74,7 +106,79 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numTriplets(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> cnt1 = new HashMap<>();
+        Map<Integer, Integer> cnt2 = new HashMap<>();
+        for (int v : nums1) {
+            cnt1.put(v, cnt1.getOrDefault(v, 0) + 1);
+        }
+        for (int v : nums2) {
+            cnt2.put(v, cnt2.getOrDefault(v, 0) + 1);
+        }
+        long ans = 0;
+        for (var e1 : cnt1.entrySet()) {
+            long a = e1.getKey(), x = e1.getValue();
+            for (var e2 : cnt2.entrySet()) {
+                long b = e2.getKey(), y = e2.getValue();
+                if ((a * a) % b == 0) {
+                    long c = a * a / b;
+                    if (b == c) {
+                        ans += x * y * (y - 1);
+                    } else {
+                        ans += x * y * cnt2.getOrDefault((int) c, 0);
+                    }
+                }
+                if ((b * b) % a == 0) {
+                    long c = b * b / a;
+                    if (a == c) {
+                        ans += x * (x - 1) * y;
+                    } else {
+                        ans += x * y * cnt1.getOrDefault((int) c, 0);
+                    }
+                }
+            }
+        }
+        return (int) (ans >> 1);
+    }
+}
+```
 
+### **Go**
+
+```go
+func numTriplets(nums1 []int, nums2 []int) (ans int) {
+	cnt1 := map[int]int{}
+	cnt2 := map[int]int{}
+	for _, v := range nums1 {
+		cnt1[v]++
+	}
+	for _, v := range nums2 {
+		cnt2[v]++
+	}
+	for a, x := range cnt1 {
+		for b, y := range cnt2 {
+			if a*a%b == 0 {
+				c := a * a / b
+				if b == c {
+					ans += x * y * (y - 1)
+				} else {
+					ans += x * y * cnt2[c]
+				}
+			}
+			if b*b%a == 0 {
+				c := b * b / a
+				if a == c {
+					ans += x * (x - 1) * y
+				} else {
+					ans += x * y * cnt1[c]
+				}
+			}
+		}
+	}
+	ans /= 2
+	return
+}
 ```
 
 ### **...**
