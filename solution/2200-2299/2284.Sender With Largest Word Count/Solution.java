@@ -3,14 +3,19 @@ class Solution {
         Map<String, Integer> cnt = new HashMap<>();
         int n = senders.length;
         for (int i = 0; i < n; ++i) {
-            cnt.put(senders[i], cnt.getOrDefault(senders[i], 0) + messages[i].split(" ").length);
+            int v = 1;
+            for (int j = 0; j < messages[i].length(); ++j) {
+                if (messages[i].charAt(j) == ' ') {
+                    ++v;
+                }
+            }
+            cnt.merge(senders[i], v, Integer::sum);
         }
         String ans = senders[0];
-        for (Map.Entry<String, Integer> e : cnt.entrySet()) {
-            String u = e.getKey();
-            int v = e.getValue();
-            if (v > cnt.get(ans) || (v == cnt.get(ans) && ans.compareTo(u) < 0)) {
-                ans = u;
+        for (var e : cnt.entrySet()) {
+            String sender = e.getKey();
+            if (cnt.get(ans) < cnt.get(sender) || (cnt.get(ans) == cnt.get(sender) && ans.compareTo(sender) < 0)) {
+                ans = sender;
             }
         }
         return ans;

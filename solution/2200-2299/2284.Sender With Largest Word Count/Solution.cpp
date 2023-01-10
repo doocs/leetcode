@@ -4,15 +4,14 @@ public:
         unordered_map<string, int> cnt;
         int n = senders.size();
         for (int i = 0; i < n; ++i) {
-            int v = 0;
-            for (char& c : messages[i]) {
-                if (c == ' ') ++v;
-            }
-            cnt[senders[i]] += v + 1;
+            int v = count(messages[i].begin(), messages[i].end(), ' ') + 1;
+            cnt[senders[i]] += v;
         }
         string ans = senders[0];
-        for (auto& [u, v] : cnt) {
-            if (v > cnt[ans] || (v == cnt[ans] && u > ans)) ans = u;
+        for (auto& [sender, v] : cnt) {
+            if (cnt[ans] < v || (cnt[ans] == v && ans < sender)) {
+                ans = sender;
+            }
         }
         return ans;
     }
