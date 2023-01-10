@@ -1,11 +1,10 @@
 func digitCount(num string) bool {
-	cnt := make([]int, 10)
+	cnt := [10]int{}
 	for _, c := range num {
 		cnt[c-'0']++
 	}
-	for i, c := range num {
-		v := int(c - '0')
-		if cnt[i] != v {
+	for i, v := range num {
+		if cnt[i] != int(v-'0') {
 			return false
 		}
 	}

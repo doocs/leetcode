@@ -53,7 +53,7 @@ The indices 0 and 1 both violate the condition, so return false.
 class Solution:
     def digitCount(self, num: str) -> bool:
         cnt = Counter(num)
-        return all(int(v) == cnt[str(i)] for i, v in enumerate(num))
+        return all(cnt[str(i)] == int(v) for i, v in enumerate(num))
 ```
 
 ### **Java**
@@ -62,12 +62,12 @@ class Solution:
 class Solution {
     public boolean digitCount(String num) {
         int[] cnt = new int[10];
-        for (char c : num.toCharArray()) {
-            ++cnt[c - '0'];
+        int n = num.length();
+        for (int i = 0; i < n; ++i) {
+            ++cnt[num.charAt(i) - '0'];
         }
-        for (int i = 0; i < num.length(); ++i) {
-            int v = num.charAt(i) - '0';
-            if (cnt[i] != v) {
+        for (int i = 0; i < n; ++i) {
+            if (cnt[i] != num.charAt(i) - '0') {
                 return false;
             }
         }
@@ -82,11 +82,14 @@ class Solution {
 class Solution {
 public:
     bool digitCount(string num) {
-        vector<int> cnt(10);
-        for (char& c : num) ++cnt[c - '0'];
+        int cnt[10]{};
+        for (char& c : num) {
+            ++cnt[c - '0'];
+        }
         for (int i = 0; i < num.size(); ++i) {
-            int v = num[i] - '0';
-            if (cnt[i] != v) return false;
+            if (cnt[i] != num[i] - '0') {
+                return false;
+            }
         }
         return true;
     }
@@ -97,13 +100,12 @@ public:
 
 ```go
 func digitCount(num string) bool {
-	cnt := make([]int, 10)
+	cnt := [10]int{}
 	for _, c := range num {
 		cnt[c-'0']++
 	}
-	for i, c := range num {
-		v := int(c - '0')
-		if cnt[i] != v {
+	for i, v := range num {
+		if cnt[i] != int(v-'0') {
 			return false
 		}
 	}
