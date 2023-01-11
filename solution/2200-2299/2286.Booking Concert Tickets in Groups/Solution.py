@@ -22,8 +22,7 @@ class SegmentTree:
 
     def modify(self, u, x, v):
         if self.tr[u].l == x and self.tr[u].r == x:
-            self.tr[u].s = v
-            self.tr[u].mx = v
+            self.tr[u].s = self.tr[u].mx = v
             return
         mid = (self.tr[u].l + self.tr[u].r) >> 1
         if x <= mid:

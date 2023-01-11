@@ -69,6 +69,40 @@ bms.scatter(5, 1); // 返回 False
 
 **方法一：线段树**
 
+分析题意我们得知：
+
+-   对于 `gather(k, maxRow)` 操作，要求 $k$ 个人坐在同一行并且座位连续，也就是说，我们要找到最小的行，满足该行的剩余座位大于等于 $k$。
+-   对于 `scatter(k, maxRow)` 操作，只需要找到 $k$ 个座位就行，但是要求这 $k$ 个座位的行数尽可能小，因此，我们要找到第一个满足剩余座位数大于 $0$ 的行，进行座位分配，然后继续往后查找。
+
+我们可以用线段树来实现。线段树每个节点的信息有：
+
+-   `l`：节点对应的区间左端点
+-   `r`：节点对应的区间右端点
+-   `s`：节点对应的区间总的剩余座位数
+-   `mx`：节点对应的区间最大剩余座位数
+
+注意，线段树节点区间的下标从 $1$ 开始。
+
+线段树的操作有：
+
+-   `build(u, l, r)`：建立节点 $u$，对应区间 $[l, r]$，并递归建立其左右子节点。
+-   `modify(u, x, v)`：从节点 $u$ 开始，找到对应区间 $[l, r]$ 中的第一个满足 $l = r = x$ 的节点，将该节点的 `s` 和 `mx` 修改为 $v$，并向上更新。
+-   `query_sum(u, l, r)`：从节点 $u$ 开始，统计对应区间 $[l, r]$ 中的 `s` 之和。
+-   `query_idx(u, l, r, k)`：从节点 $u$ 开始，找到对应区间 $[l, r]$ 中的第一个满足 `mx` 大于等于 $k$ 的节点，返回该节点的 `l`。查找时，我们从最大的区间 $[1, maxRow]$ 开始，由于我们要找最左边的满足 `mx` 大于等于 $k$ 的节点。因此，对于当前区间，我们判断前半部分区间的 `mx` 是否符合要求，是则说明答案就在前半部分区间，递归查找即可。否则说明答案在后半部分区间，递归查找后半部分区间。
+-   `pushup(u)`：利用 $u$ 的子节点信息更新当前 $u$ 的信息。
+
+对于 `gather(k, maxRow)` 操作，我们先用 `query_idx(1, 1, n, k)` 找到第一个满足剩余座位数大于等于 $k$ 的行，记为 $i$。然后我们用 `query_sum(1, i, i)` 得到该行的剩余座位数，记为 $s$。接下来，我们用 `modify(1, i, s - k)` 将该行的剩余座位数修改为 $s - k$，并向上更新。最后，我们返回 $[i - 1, m - s]$ 即可。
+
+对于 `scatter(k, maxRow)` 操作，我们先用 `query_sum(1, 1, maxRow)` 统计前 $maxRow$ 行的剩余座位数，记为 $s$。如果 $s \lt k$，说明没有足够的座位，返回 `false`；否则，我们用 `query_idx(1, 1, maxRow, 1)` 找到第一个满足剩余座位数大于等于 $1$ 的行，记为 $i$。从该行开始，每次用 `query_sum(1, i, i)` 得到该行的剩余座位数，记为 $s_i$。如果 $s_i \geq k$，我们直接用 `modify(1, i, s_i - k)` 将该行的剩余座位数修改为 $s_i - k$，并向上更新，然后返回 `true`。否则，我们更新 $k = k - s_i$，然后将该行的剩余座位数修改为 $0$，并向上更新。最后，我们返回 `true`。
+
+时间复杂度：
+
+-   初始化的时间复杂度为 $O(n)$。
+-   `gather(k, maxRow)` 的时间复杂度为 $O(\log n)$。
+-   `scatter(k, maxRow)` 的时间复杂度为 $O((n + q) \times \log n)$。
+
+整体时间复杂度为 $O(n + q \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别为行数和操作数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -100,8 +134,7 @@ class SegmentTree:
 
     def modify(self, u, x, v):
         if self.tr[u].l == x and self.tr[u].r == x:
-            self.tr[u].s = v
-            self.tr[u].mx = v
+            self.tr[u].s = self.tr[u].mx = v
             return
         mid = (self.tr[u].l + self.tr[u].r) >> 1
         if x <= mid:
@@ -274,7 +307,7 @@ class BookMyShow {
         this.m = m;
         tree = new SegmentTree(n, m);
     }
-    
+
     public int[] gather(int k, int maxRow) {
         ++maxRow;
         int i = tree.queryIdx(1, 1, maxRow, k);
@@ -285,7 +318,7 @@ class BookMyShow {
         tree.modify(1, i, s - k);
         return new int[] {i - 1, (int) (m - s)};
     }
-    
+
     public boolean scatter(int k, int maxRow) {
         ++maxRow;
         if (tree.querySum(1, 1, maxRow) < k) {
@@ -335,8 +368,7 @@ public:
 
     void modify(int u, int x, int v) {
         if (tr[u]->l == x && tr[u]->r == x) {
-            tr[u]->s = v;
-            tr[u]->mx = v;
+            tr[u]->s = tr[u]->mx = v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;
@@ -411,7 +443,7 @@ public:
         this->m = m;
         tree = new SegmentTree(n, m);
     }
-    
+
     vector<int> gather(int k, int maxRow) {
         ++maxRow;
         int i = tree->queryIdx(1, 1, maxRow, k);
@@ -422,7 +454,7 @@ public:
         tree->modify(1, i, s - k);
         return {i - 1, (int) (m - s)};
     }
-    
+
     bool scatter(int k, int maxRow) {
         ++maxRow;
         if (tree->querySum(1, 1, maxRow) < k) {

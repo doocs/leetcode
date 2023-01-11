@@ -90,8 +90,7 @@ class SegmentTree:
 
     def modify(self, u, x, v):
         if self.tr[u].l == x and self.tr[u].r == x:
-            self.tr[u].s = v
-            self.tr[u].mx = v
+            self.tr[u].s = self.tr[u].mx = v
             return
         mid = (self.tr[u].l + self.tr[u].r) >> 1
         if x <= mid:
@@ -323,8 +322,7 @@ public:
 
     void modify(int u, int x, int v) {
         if (tr[u]->l == x && tr[u]->r == x) {
-            tr[u]->s = v;
-            tr[u]->mx = v;
+            tr[u]->s = tr[u]->mx = v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;

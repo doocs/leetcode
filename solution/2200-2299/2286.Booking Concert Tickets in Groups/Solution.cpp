@@ -17,8 +17,7 @@ public:
 
     void modify(int u, int x, int v) {
         if (tr[u]->l == x && tr[u]->r == x) {
-            tr[u]->s = v;
-            tr[u]->mx = v;
+            tr[u]->s = tr[u]->mx = v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;
