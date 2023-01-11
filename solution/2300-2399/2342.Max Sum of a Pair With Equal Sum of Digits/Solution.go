@@ -1,20 +1,15 @@
 func maximumSum(nums []int) int {
-	d := map[int][]int{}
-	for i, v := range nums {
-		t := 0
-		for v > 0 {
-			t += v % 10
-			v /= 10
-		}
-		d[t] = append(d[t], nums[i])
-	}
 	ans := -1
-	for _, v := range d {
-		n := len(v)
-		if n > 1 {
-			sort.Ints(v)
-			ans = max(ans, v[n-1]+v[n-2])
+	d := [100]int{}
+	for _, v := range nums {
+		y := 0
+		for x := v; x > 0; x /= 10 {
+			y += x % 10
 		}
+		if d[y] > 0 {
+			ans = max(ans, d[y]+v)
+		}
+		d[y] = max(d[y], v)
 	}
 	return ans
 }

@@ -92,13 +92,14 @@ class Solution {
 public:
     vector<int> numberOfPairs(vector<int>& nums) {
         vector<int> cnt(101);
-        for (int v : nums) ++cnt[v];
+        for (int& v : nums) {
+            ++cnt[v];
+        }
         int s = 0;
-        for (int v : cnt) s += v / 2;
-        vector<int> ans(2);
-        ans[0] = s;
-        ans[1] = nums.size() - s * 2;
-        return ans;
+        for (int& v : cnt) {
+            s += v >> 1;
+        }
+        return {s, (int) nums.size() - s * 2};
     }
 };
 ```
@@ -131,7 +132,6 @@ function numberOfPairs(nums: number[]): number[] {
     const sum = count.reduce((r, v) => r + (v >> 1), 0);
     return [sum, n - sum * 2];
 }
-
 ```
 
 ### **Rust**
@@ -174,6 +174,23 @@ int *numberOfPairs(int *nums, int numsSize, int *returnSize) {
     *returnSize = 2;
     return ans;
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var numberOfPairs = function (nums) {
+    const cnt = new Array(101).fill(0);
+    for (const v of nums) {
+        ++cnt[v];
+    }
+    const s = cnt.reduce((a, b) => a + (b >> 1), 0);
+    return [s, nums.length - s * 2];
+};
 ```
 
 ### **...**

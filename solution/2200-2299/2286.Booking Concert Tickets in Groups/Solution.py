@@ -60,7 +60,6 @@ class SegmentTree:
 
 
 class BookMyShow:
-
     def __init__(self, n: int, m: int):
         self.n = n
         self.tree = SegmentTree(n, m)

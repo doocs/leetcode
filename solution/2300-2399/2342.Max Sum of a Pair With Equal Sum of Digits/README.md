@@ -43,6 +43,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 排序**
+
+对于数组中的每个元素，计算其数位和，将其存入哈希表 $d$ 中，哈希表的键为数位和，值为数组中所有数位和为该键的元素组成的数组。
+
+遍历哈希表 $d$，对于每个键值对，如果该键对应的数组长度大于 1，则对该数组进行降序排序，取前两个元素相加，更新答案。
+
+最终返回答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
+**方法二：哈希表（优化）**
+
+我们创建一个哈希表 $d$，其中哈希表的键为数位和，值为已遍历过的元素中数位和为该键的最大元素。
+
+我们直接对数组 `nums` 进行遍历，对于每个元素 $v$，计算其数位和 $y$，如果 $d[y]$ 存在，则更新答案为 $max(ans, v + d[y])$。然后我们更新 $d[y]=max(d[y], v)$。
+
+最终返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为数组 `nums` 的长度，而 $C$ 为数组 `nums` 中元素最大值的数位和。本题中 $C \leq 9 \times 10^8$，因此我们固定取 $C=100$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,17 +73,33 @@
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
         d = defaultdict(list)
-        for i, v in enumerate(nums):
-            t = 0
-            while v:
-                t += v % 10
-                v //= 10
-            d[t].append(nums[i])
+        for v in nums:
+            x, y = v, 0
+            while x:
+                y += x % 10
+                x //= 10
+            d[y].append(v)
         ans = -1
-        for v in d.values():
-            v.sort(reverse=True)
-            if len(v) > 1:
-                ans = max(ans, v[0] + v[1])
+        for vs in d.values():
+            if len(vs) > 1:
+                vs.sort(reverse=True)
+                ans = max(ans, vs[0] + vs[1])
+        return ans
+```
+
+```python
+class Solution:
+    def maximumSum(self, nums: List[int]) -> int:
+        ans = -1
+        d = defaultdict(int)
+        for v in nums:
+            x, y = v, 0
+            while x:
+                y += x % 10
+                x //= 10
+            if y in d:
+                ans = max(ans, d[y] + v)
+            d[y] = max(d[y], v)
         return ans
 ```
 
@@ -74,23 +110,42 @@ class Solution:
 ```java
 class Solution {
     public int maximumSum(int[] nums) {
-        Map<Integer, List<Integer>> d = new HashMap<>();
-        for (int i = 0; i < nums.length; ++i) {
-            int v = nums[i];
-            int t = 0;
-            while (v != 0) {
-                t += v % 10;
-                v /= 10;
+        List<Integer>[] d = new List[100];
+        Arrays.setAll(d, k -> new ArrayList<>());
+        for (int v : nums) {
+            int y = 0;
+            for (int x = v; x > 0; x /= 10) {
+                y += x % 10;
             }
-            d.computeIfAbsent(t, k -> new ArrayList<>()).add(nums[i]);
+            d[y].add(v);
         }
         int ans = -1;
-        for (List<Integer> v : d.values()) {
-            int n = v.size();
-            if (n > 1) {
-                Collections.sort(v);
-                ans = Math.max(ans, v.get(n - 1) + v.get(n - 2));
+        for (var vs : d) {
+            int m = vs.size();
+            if (m > 1) {
+                Collections.sort(vs);
+                ans = Math.max(ans, vs.get(m - 1) + vs.get(m - 2));
             }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int maximumSum(int[] nums) {
+        int ans = -1;
+        int[] d = new int[100];
+        for (int v : nums) {
+            int y = 0;
+            for (int x = v; x > 0; x /= 10) {
+                y += x % 10;
+            }
+            if (d[y] > 0) {
+                ans = Math.max(ans, d[y] + v);
+            }
+            d[y] = Math.max(d[y], v);
         }
         return ans;
     }
@@ -103,23 +158,41 @@ class Solution {
 class Solution {
 public:
     int maximumSum(vector<int>& nums) {
-        unordered_map<int, vector<int>> d;
-        for (int i = 0; i < nums.size(); ++i) {
-            int v = nums[i];
-            int t = 0;
-            while (v) {
-                t += v % 10;
-                v /= 10;
+        vector<vector<int>> d(100);
+        for (int& v : nums) {
+            int y = 0;
+            for (int x = v; x > 0; x /= 10) {
+                y += x % 10;
             }
-            d[t].push_back(nums[i]);
+            d[y].emplace_back(v);
         }
         int ans = -1;
-        for (auto& [_, v] : d) {
-            int n = v.size();
-            if (n > 1) {
-                sort(v.begin(), v.end());
-                ans = max(ans, v[n - 1] + v[n - 2]);
+        for (auto& vs : d) {
+            if (vs.size() > 1) {
+                sort(vs.rbegin(), vs.rend());
+                ans = max(ans, vs[0] + vs[1]);
             }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maximumSum(vector<int>& nums) {
+        int ans = -1;
+        int d[100]{};
+        for (int& v : nums) {
+            int y = 0;
+            for (int x = v; x; x /= 10) {
+                y += x % 10;
+            }
+            if (d[y]) {
+                ans = max(ans, d[y] + v);
+            }
+            d[y] = max(d[y], v);
         }
         return ans;
     }
@@ -130,22 +203,46 @@ public:
 
 ```go
 func maximumSum(nums []int) int {
-	d := map[int][]int{}
-	for i, v := range nums {
-		t := 0
-		for v > 0 {
-			t += v % 10
-			v /= 10
+	d := [100][]int{}
+	for _, v := range nums {
+		y := 0
+		for x := v; x > 0; x /= 10 {
+			y += x % 10
 		}
-		d[t] = append(d[t], nums[i])
+		d[y] = append(d[y], v)
 	}
 	ans := -1
-	for _, v := range d {
-		n := len(v)
-		if n > 1 {
-			sort.Ints(v)
-			ans = max(ans, v[n-1]+v[n-2])
+	for _, vs := range d {
+		m := len(vs)
+		if m > 1 {
+			sort.Ints(vs)
+			ans = max(ans, vs[m-1]+vs[m-2])
 		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maximumSum(nums []int) int {
+	ans := -1
+	d := [100]int{}
+	for _, v := range nums {
+		y := 0
+		for x := v; x > 0; x /= 10 {
+			y += x % 10
+		}
+		if d[y] > 0 {
+			ans = max(ans, d[y]+v)
+		}
+		d[y] = max(d[y], v)
 	}
 	return ans
 }

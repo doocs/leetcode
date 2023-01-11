@@ -1,15 +1,13 @@
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
-        d = defaultdict(list)
-        for i, v in enumerate(nums):
-            t = 0
-            while v:
-                t += v % 10
-                v //= 10
-            d[t].append(nums[i])
         ans = -1
-        for v in d.values():
-            v.sort(reverse=True)
-            if len(v) > 1:
-                ans = max(ans, v[0] + v[1])
+        d = defaultdict(int)
+        for v in nums:
+            x, y = v, 0
+            while x:
+                y += x % 10
+                x //= 10
+            if y in d:
+                ans = max(ans, d[y] + v)
+            d[y] = max(d[y], v)
         return ans
