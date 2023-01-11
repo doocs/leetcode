@@ -127,7 +127,58 @@ func numberOfPairs(nums []int) []int {
 ### **TypeScript**
 
 ```ts
+function numberOfPairs(nums: number[]): number[] {
+    const n = nums.length;
+    const count = new Array(101).fill(0);
+    for (const num of nums) {
+        count[num]++;
+    }
+    const sum = count.reduce((r, v) => r + (v >> 1), 0);
+    return [sum, n - sum * 2];
+}
 
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn number_of_pairs(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut count = [0; 101];
+        for &v in nums.iter() {
+            count[v as usize] += 1;
+        }
+        let mut sum = 0;
+        for v in count.iter() {
+            sum += v >> 1;
+        }
+        vec![sum as i32, (n - sum * 2) as i32]
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *numberOfPairs(int *nums, int numsSize, int *returnSize) {
+    int count[101] = {0};
+    for (int i = 0; i < numsSize; i++) {
+        count[nums[i]]++;
+    }
+    int sum = 0;
+    for (int i = 0; i < 101; i++) {
+        sum += count[i] >> 1;
+    }
+    int *ans = malloc(sizeof(int) * 2);
+    ans[0] = sum;
+    ans[1] = numsSize - sum * 2;
+    *returnSize = 2;
+    return ans;
+}
 ```
 
 ### **...**
