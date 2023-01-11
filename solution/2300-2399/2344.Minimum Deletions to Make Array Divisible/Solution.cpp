@@ -1,15 +1,23 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, vector<int>& numsDivide) {
-        int x = numsDivide[0];
-        for (int i = 1; i < numsDivide.size(); ++i) x = gcd(x, numsDivide[i]);
-        sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size(); ++i)
-            if (x % nums[i] == 0) return i;
-        return -1;
-    }
-
-    int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
+        int x = 0;
+        for (int& v : numsDivide) {
+            x = gcd(x, v);
+        }
+        int y = 1 << 30;
+        for (int& v : nums) {
+            if (x % v == 0) {
+                y = min(y, v);
+            }
+        }
+        if (y == 1 << 30) {
+            return -1;
+        }
+        int ans = 0;
+        for (int& v : nums) {
+            ans += v < y;
+        }
+        return ans;
     }
 };

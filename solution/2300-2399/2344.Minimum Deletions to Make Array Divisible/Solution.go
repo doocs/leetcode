@@ -1,15 +1,31 @@
 func minOperations(nums []int, numsDivide []int) int {
-	x := numsDivide[0]
-	for _, v := range numsDivide[1:] {
+	x := 0
+	for _, v := range numsDivide {
 		x = gcd(x, v)
 	}
-	sort.Ints(nums)
-	for i, v := range nums {
+	y := 1 << 30
+	for _, v := range nums {
 		if x%v == 0 {
-			return i
+			y = min(y, v)
 		}
 	}
-	return -1
+	if y == 1<<30 {
+		return -1
+	}
+	ans := 0
+	for _, v := range nums {
+		if v < y {
+			ans++
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func gcd(a, b int) int {

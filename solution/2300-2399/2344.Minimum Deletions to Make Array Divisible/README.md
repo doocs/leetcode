@@ -46,6 +46,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学 + 排序**
+
+如果一个元素能整除数组 `numsDivide` 所有元素，那么这个元素是所有 $numsDivide[i]$ 的最大公约数 $x$ 的因子。因此，我们可以先求出 `numsDivide` 的最大公约数 $x$。
+
+接下来，将数组 `nums` 排序，然后从头到尾遍历数组 `nums`，找到第一个是最大公约数 $x$ 的因子的元素，返回当前元素下标即可。
+
+时间复杂度 $O(m + \log M + n \times \log n)$，其中 $n$ 和 $m$ 分别是数组 `nums` 和 `numsDivide` 的长度，而 $M$ 是数组 `numsDivide` 中的最大值。
+
+实际上，我们也可以不用排序数组 `nums`，而是直接遍历数组 `nums`，找到最小的能整除 $x$ 的元素，然后我们再遍历一次数组 `nums`，统计小于等于这个元素的元素个数即可。
+
+时间复杂度 $O(m + \log M + n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,9 +80,17 @@ class Solution:
 ```python
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        x = reduce(gcd, numsDivide)
+        x = gcd(*numsDivide)
         nums.sort()
         return next((i for i, v in enumerate(nums) if x % v == 0), -1)
+```
+
+```python
+class Solution:
+    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
+        x = gcd(*numsDivide)
+        y = min((v for v in nums if x % v == 0), default=0)
+        return sum(v < y for v in nums) if y else -1
 ```
 
 ### **Java**
@@ -80,9 +100,9 @@ class Solution:
 ```java
 class Solution {
     public int minOperations(int[] nums, int[] numsDivide) {
-        int x = numsDivide[0];
-        for (int i = 1; i < numsDivide.length; ++i) {
-            x = gcd(x, numsDivide[i]);
+        int x = 0;
+        for (int v : numsDivide) {
+            x = gcd(x, v);
         }
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; ++i) {
@@ -99,22 +119,80 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minOperations(int[] nums, int[] numsDivide) {
+        int x = 0;
+        for (int v : numsDivide) {
+            x = gcd(x, v);
+        }
+        int y = 1 << 30;
+        for (int v : nums) {
+            if (x % v == 0) {
+                y = Math.min(y, v);
+            }
+        }
+        if (y == 1 << 30) {
+            return -1;
+        }
+        int ans = 0;
+        for (int v : nums) {
+            if (v < y) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     int minOperations(vector<int>& nums, vector<int>& numsDivide) {
-        int x = numsDivide[0];
-        for (int i = 1; i < numsDivide.size(); ++i) x = gcd(x, numsDivide[i]);
+        int x = 0;
+        for (int& v : numsDivide) {
+            x = gcd(x, v);
+        }
         sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size(); ++i)
-            if (x % nums[i] == 0) return i;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (x % nums[i] == 0) {
+                return i;
+            }
+        }
         return -1;
     }
+};
+```
 
-    int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums, vector<int>& numsDivide) {
+        int x = 0;
+        for (int& v : numsDivide) {
+            x = gcd(x, v);
+        }
+        int y = 1 << 30;
+        for (int& v : nums) {
+            if (x % v == 0) {
+                y = min(y, v);
+            }
+        }
+        if (y == 1 << 30) {
+            return -1;
+        }
+        int ans = 0;
+        for (int& v : nums) {
+            ans += v < y;
+        }
+        return ans;
     }
 };
 ```
@@ -123,8 +201,8 @@ public:
 
 ```go
 func minOperations(nums []int, numsDivide []int) int {
-	x := numsDivide[0]
-	for _, v := range numsDivide[1:] {
+	x := 0
+	for _, v := range numsDivide {
 		x = gcd(x, v)
 	}
 	sort.Ints(nums)
@@ -134,6 +212,45 @@ func minOperations(nums []int, numsDivide []int) int {
 		}
 	}
 	return -1
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+```go
+func minOperations(nums []int, numsDivide []int) int {
+	x := 0
+	for _, v := range numsDivide {
+		x = gcd(x, v)
+	}
+	y := 1 << 30
+	for _, v := range nums {
+		if x%v == 0 {
+			y = min(y, v)
+		}
+	}
+	if y == 1<<30 {
+		return -1
+	}
+	ans := 0
+	for _, v := range nums {
+		if v < y {
+			ans++
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func gcd(a, b int) int {
