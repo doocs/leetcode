@@ -1,16 +1,18 @@
 function rearrangeCharacters(s: string, target: string): number {
-    let cnt1 = new Array(128).fill(0),
-        cnt2 = new Array(128).fill(0);
-    for (let i of target) {
-        cnt1[i.charCodeAt(0)]++;
+    const idx = (s: string) => s.charCodeAt(0) - 97;
+    const cnt1 = new Array(26).fill(0);
+    const cnt2 = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt1[idx(c)];
     }
-    for (let i of s) {
-        cnt2[i.charCodeAt(0)]++;
+    for (const c of target) {
+        ++cnt2[idx(c)];
     }
-    let ans = Infinity;
-    for (let i = 0; i < 128; i++) {
-        if (cnt1[i] === 0) continue;
-        ans = Math.min(ans, Math.floor(cnt2[i] / cnt1[i]));
+    let ans = 100;
+    for (let i = 0; i < 26; ++i) {
+        if (cnt2[i]) {
+            ans = Math.min(ans, Math.floor(cnt1[i] / cnt2[i]));
+        }
     }
-    return ans === Infinity ? 0 : ans;
+    return ans;
 }

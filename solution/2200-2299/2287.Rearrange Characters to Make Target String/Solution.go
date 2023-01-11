@@ -1,6 +1,5 @@
 func rearrangeCharacters(s string, target string) int {
-	cnt1 := make([]int, 26)
-	cnt2 := make([]int, 26)
+	var cnt1, cnt2 [26]int
 	for _, c := range s {
 		cnt1[c-'a']++
 	}
@@ -9,13 +8,9 @@ func rearrangeCharacters(s string, target string) int {
 	}
 	ans := 100
 	for i, v := range cnt2 {
-		if v <= 0 {
-			continue
+		if v > 0 {
+			ans = min(ans, cnt1[i]/v)
 		}
-		if cnt1[i] < v {
-			return 0
-		}
-		ans = min(ans, cnt1[i]/v)
 	}
 	return ans
 }

@@ -1,10 +1,5 @@
 class Solution:
     def rearrangeCharacters(self, s: str, target: str) -> int:
-        cnt = Counter(s)
+        cnt1 = Counter(s)
         cnt2 = Counter(target)
-        ans = inf
-        for c, v in cnt2.items():
-            if cnt[c] < v:
-                return 0
-            ans = min(ans, cnt[c] // v)
-        return ans
+        return min(cnt1[c] // v for c, v in cnt2.items())

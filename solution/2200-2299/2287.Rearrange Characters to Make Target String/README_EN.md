@@ -60,14 +60,9 @@ We can make at most one copy of &quot;aaaaa&quot;, so we return 1.
 ```python
 class Solution:
     def rearrangeCharacters(self, s: str, target: str) -> int:
-        cnt = Counter(s)
+        cnt1 = Counter(s)
         cnt2 = Counter(target)
-        ans = inf
-        for c, v in cnt2.items():
-            if cnt[c] < v:
-                return 0
-            ans = min(ans, cnt[c] // v)
-        return ans
+        return min(cnt1[c] // v for c, v in cnt2.items())
 ```
 
 ### **Java**
@@ -77,18 +72,15 @@ class Solution {
     public int rearrangeCharacters(String s, String target) {
         int[] cnt1 = new int[26];
         int[] cnt2 = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt1[c - 'a'];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt1[s.charAt(i) - 'a'];
         }
-        for (char c : target.toCharArray()) {
-            ++cnt2[c - 'a'];
+        for (int i = 0; i < target.length(); ++i) {
+            ++cnt2[target.charAt(i) - 'a'];
         }
         int ans = 100;
         for (int i = 0; i < 26; ++i) {
             if (cnt2[i] > 0) {
-                if (cnt1[i] < cnt2[i]) {
-                    return 0;
-                }
                 ans = Math.min(ans, cnt1[i] / cnt2[i]);
             }
         }
@@ -103,15 +95,19 @@ class Solution {
 class Solution {
 public:
     int rearrangeCharacters(string s, string target) {
-        vector<int> cnt1(26);
-        vector<int> cnt2(26);
-        for (char& c : s) ++cnt1[c - 'a'];
-        for (char& c : target) ++cnt2[c - 'a'];
+        int cnt1[26]{};
+        int cnt2[26]{};
+        for (char& c : s) {
+            ++cnt1[c - 'a'];
+        }
+        for (char& c : target) {
+            ++cnt2[c - 'a'];
+        }
         int ans = 100;
         for (int i = 0; i < 26; ++i) {
-            if (cnt2[i] <= 0) continue;
-            if (cnt1[i] < cnt2[i]) return 0;
-            ans = min(ans, cnt1[i] / cnt2[i]);
+            if (cnt2[i]) {
+                ans = min(ans, cnt1[i] / cnt2[i]);
+            }
         }
         return ans;
     }
@@ -122,8 +118,7 @@ public:
 
 ```go
 func rearrangeCharacters(s string, target string) int {
-	cnt1 := make([]int, 26)
-	cnt2 := make([]int, 26)
+	var cnt1, cnt2 [26]int
 	for _, c := range s {
 		cnt1[c-'a']++
 	}
@@ -132,13 +127,9 @@ func rearrangeCharacters(s string, target string) int {
 	}
 	ans := 100
 	for i, v := range cnt2 {
-		if v <= 0 {
-			continue
+		if v > 0 {
+			ans = min(ans, cnt1[i]/v)
 		}
-		if cnt1[i] < v {
-			return 0
-		}
-		ans = min(ans, cnt1[i]/v)
 	}
 	return ans
 }
@@ -155,20 +146,22 @@ func min(a, b int) int {
 
 ```ts
 function rearrangeCharacters(s: string, target: string): number {
-    let cnt1 = new Array(128).fill(0),
-        cnt2 = new Array(128).fill(0);
-    for (let i of target) {
-        cnt1[i.charCodeAt(0)]++;
+    const idx = (s: string) => s.charCodeAt(0) - 97;
+    const cnt1 = new Array(26).fill(0);
+    const cnt2 = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt1[idx(c)];
     }
-    for (let i of s) {
-        cnt2[i.charCodeAt(0)]++;
+    for (const c of target) {
+        ++cnt2[idx(c)];
     }
-    let ans = Infinity;
-    for (let i = 0; i < 128; i++) {
-        if (cnt1[i] === 0) continue;
-        ans = Math.min(ans, Math.floor(cnt2[i] / cnt1[i]));
+    let ans = 100;
+    for (let i = 0; i < 26; ++i) {
+        if (cnt2[i]) {
+            ans = Math.min(ans, Math.floor(cnt1[i] / cnt2[i]));
+        }
     }
-    return ans === Infinity ? 0 : ans;
+    return ans;
 }
 ```
 
