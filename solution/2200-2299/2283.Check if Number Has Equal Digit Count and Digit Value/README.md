@@ -130,7 +130,56 @@ func digitCount(num string) bool {
 ### **TypeScript**
 
 ```ts
+function digitCount(num: string): boolean {
+    const n = num.length;
+    const count = new Array(10).fill(0);
+    for (let i = 0; i < n; i++) {
+        count[i] = Number(num[i]);
+    }
+    for (const c of num) {
+        count[c]--;
+    }
+    return count.every(v => v === 0);
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn digit_count(num: String) -> bool {
+        let s = num.as_bytes();
+        let n = num.len();
+        let mut count = [0; 10];
+        for i in 0..n {
+            count[i] = s[i] - b'0';
+        }
+        for c in s {
+            count[(c - b'0') as usize] -= 1;
+        }
+        count.iter().all(|v| *v == 0)
+    }
+}
+```
+
+### **C**
+
+```c
+bool digitCount(char *num) {
+    int count[10] = {0};
+    for (int i = 0; num[i]; i++) {
+        count[i] = num[i] - '0';
+    }
+    for (int i = 0; num[i]; i++) {
+        count[num[i] - '0']--;
+    }
+    for (int i = 0; i < 10; i++) {
+        if (count[i] != 0) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 ### **...**
