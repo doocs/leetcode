@@ -77,13 +77,9 @@ class Solution:
         self, nums: List[str], queries: List[List[int]]
     ) -> List[int]:
         ans = []
-        for k, t in queries:
-            x = nums[:]
-            for i, v in enumerate(x):
-                x[i] = v[-t:]
-            p = list(zip(x, range(len(x))))
-            p.sort(key=lambda v: (int(v[0]), v[1]))
-            ans.append(p[k - 1][1])
+        for k, trim in queries:
+            t = sorted((v[-trim:], i) for i, v in enumerate(nums))
+            ans.append(t[k - 1][1])
         return ans
 ```
 
@@ -92,24 +88,66 @@ class Solution:
 ```java
 class Solution {
     public int[] smallestTrimmedNumbers(String[] nums, int[][] queries) {
-        int n = queries.length;
-        int m = nums.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int k = queries[i][0], t = queries[i][1];
-            String[][] arr = new String[m][2];
-            for (int j = 0; j < m; ++j) {
-                arr[j][0] = nums[j].substring(nums[j].length() - t);
-                arr[j][1] = String.valueOf(j);
+        int n = nums.length;
+        int m = queries.length;
+        int[] ans = new int[m];
+        String[][] t = new String[n][2];
+        for (int i = 0; i < m; ++i) {
+            int k = queries[i][0], trim = queries[i][1];
+            for (int j = 0; j < n; ++j) {
+                t[j] = new String[] {nums[j].substring(nums[j].length() - trim), String.valueOf(j)};
             }
-            Arrays.sort(arr, (a, b) -> {
+            Arrays.sort(t, (a, b) -> {
                 int x = a[0].compareTo(b[0]);
                 return x == 0 ? Long.compare(Integer.valueOf(a[1]), Integer.valueOf(b[1])) : x;
             });
-            ans[i] = Integer.valueOf(arr[k - 1][1]);
+            ans[i] = Integer.valueOf(t[k - 1][1]);
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> smallestTrimmedNumbers(vector<string>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        vector<pair<string, int>> t(n);
+        vector<int> ans;
+        for (auto& q : queries) {
+            int k = q[0], trim = q[1];
+            for (int j = 0; j < n; ++j) {
+                t[j] = {nums[j].substr(nums[j].size() - trim), j};
+            }
+            sort(t.begin(), t.end());
+            ans.push_back(t[k - 1].second);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestTrimmedNumbers(nums []string, queries [][]int) []int {
+	type pair struct {
+		s string
+		i int
+	}
+	ans := make([]int, len(queries))
+	t := make([]pair, len(nums))
+	for i, q := range queries {
+		for j, s := range nums {
+			t[j] = pair{s[len(s)-q[1]:], j}
+		}
+		sort.Slice(t, func(i, j int) bool { a, b := t[i], t[j]; return a.s < b.s || a.s == b.s && a.i < b.i })
+		ans[i] = t[q[0]-1].i
+	}
+	return ans
 }
 ```
 
