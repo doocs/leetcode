@@ -55,7 +55,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-把句子分割成单词数组，然后通过公共前后缀进行判断
+**方法一：双指针**
+
+我们将两个句子分别用空格分割成单词数组 `words1` 和 `words2`，假设 `words1` 和 `words2` 的长度分别为 $m$ 和 $n$，不妨设 $m \geq n$。
+
+我们使用双指针 $i$ 和 $j$，初始时 $i = j = 0$。接下来，我们循环判断 `words1[i]` 是否等于 `words2[i]`，是则指针 $i$ 继续右移；然后我们循环判断 `words1[m - 1 - j]` 是否等于 `words2[n - 1 - j]`，是则指针 $j$ 继续右移。
+
+循环结束后，如果 $i + j \geq n$，说明两个句子相似，返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 为两个句子的长度之和。
 
 <!-- tabs:start -->
 
@@ -66,23 +74,17 @@
 ```python
 class Solution:
     def areSentencesSimilar(self, sentence1: str, sentence2: str) -> bool:
-        if sentence1 == sentence2:
-            return True
-        n1, n2 = len(sentence1), len(sentence2)
-        if n1 == n2:
-            return False
-        if n1 < n2:
-            sentence1, sentence2 = sentence2, sentence1
         words1, words2 = sentence1.split(), sentence2.split()
+        m, n = len(words1), len(words2)
+        if m < n:
+            words1, words2 = words2, words1
+            m, n = n, m
         i = j = 0
-        n1, n2 = len(words1), len(words2)
-        while i < n2 and words1[i] == words2[i]:
+        while i < n and words1[i] == words2[i]:
             i += 1
-        if i == n2:
-            return True
-        while j < n2 and words1[n1 - 1 - j] == words2[n2 - 1 - j]:
+        while j < n and words1[m - 1 - j] == words2[n - 1 - j]:
             j += 1
-        return j == n2 or i + j == n2
+        return i + j >= n
 ```
 
 ### **Java**
@@ -92,64 +94,23 @@ class Solution:
 ```java
 class Solution {
     public boolean areSentencesSimilar(String sentence1, String sentence2) {
-        if (sentence1.equals(sentence2)) {
-            return true;
-        }
-        int n1 = sentence1.length(), n2 = sentence2.length();
-        if (n1 == n2) {
-            return false;
-        }
-        if (n1 < n2) {
-            String t = sentence1;
-            sentence1 = sentence2;
-            sentence2 = t;
-        }
         String[] words1 = sentence1.split(" ");
         String[] words2 = sentence2.split(" ");
+        if (words1.length < words2.length) {
+            String[] t = words1;
+            words1 = words2;
+            words2 = t;
+        }
+        int m = words1.length, n = words2.length;
         int i = 0, j = 0;
-        n1 = words1.length;
-        n2 = words2.length;
-        while (i < n2 && words1[i].equals(words2[i])) {
+        while (i < n && words1[i].equals(words2[i])) {
             ++i;
         }
-        if (i == n2) {
-            return true;
-        }
-        while (j < n2 && words1[n1 - 1 - j].equals(words2[n2 - 1 - j])) {
+        while (j < n && words1[m - 1 - j].equals(words2[n - 1 - j])) {
             ++j;
         }
-        return j == n2 || i + j == n2;
+        return i == n || j == n || i + j >= n;
     }
-}
-```
-
-### **Go**
-
-```go
-func areSentencesSimilar(sentence1 string, sentence2 string) bool {
-	if sentence1 == sentence2 {
-		return true
-	}
-	l1, l2 := len(sentence1), len(sentence2)
-	if l1 == l2 {
-		return false
-	}
-	if l1 < l2 {
-		sentence1, sentence2 = sentence2, sentence1
-	}
-	i, j := 0, 0
-	w1, w2 := strings.Fields(sentence1), strings.Fields(sentence2)
-	l1, l2 = len(w1), len(w2)
-	for i < l2 && w1[i] == w2[i] {
-		i++
-	}
-	if i == l2 {
-		return true
-	}
-	for j < l2 && w1[l1-1-j] == w2[l2-1-j] {
-		j++
-	}
-	return j == l2 || i+j == l2
 }
 ```
 
@@ -159,36 +120,52 @@ func areSentencesSimilar(sentence1 string, sentence2 string) bool {
 class Solution {
 public:
     bool areSentencesSimilar(string sentence1, string sentence2) {
-        if (sentence1 == sentence2) return true;
-        int n1 = sentence1.size(), n2 = sentence2.size();
-        if (n1 == n2) return false;
-
-        if (n1 < n2) swap(sentence1, sentence2);
-        auto words1 = split(sentence1);
-        auto words2 = split(sentence2);
+        vector<string> words1 = split(sentence1, ' ');
+        vector<string> words2 = split(sentence2, ' ');
+        if (words1.size() < words2.size()) {
+            swap(words1, words2);
+        }
+        int m = words1.size(), n = words2.size();
         int i = 0, j = 0;
-        n1 = words1.size(), n2 = words2.size();
-
-        while (i < n2 && words1[i] == words2[i]) ++i;
-        if (i == n2) return true;
-
-        while (j < n2 && words1[n1 - 1 - j] == words2[n2 - 1 - j]) ++j;
-        return j == n2 || i + j == n2;
+        while (i < n && words1[i] == words2[i]) {
+            ++i;
+        }
+        while (j < n && words1[m - 1 - j] == words2[n - 1 - j]) {
+            ++j;
+        }
+        return i + j >= n;
     }
 
-    vector<string> split(const string& str) {
-        vector<string> words;
-        int i = str.find_first_not_of(' ');
-        int j = str.find_first_of(' ', i);
-        while (j != string::npos) {
-            words.emplace_back(str.substr(i, j - i));
-            i = str.find_first_not_of(' ', j);
-            j = str.find_first_of(' ', i);
+    vector<string> split(string& s, char delim) {
+        stringstream ss(s);
+        string item;
+        vector<string> res;
+        while (getline(ss, item, delim)) {
+            res.emplace_back(item);
         }
-        words.emplace_back(str.substr(i));
-        return words;
+        return res;
     }
 };
+```
+
+### **Go**
+
+```go
+func areSentencesSimilar(sentence1 string, sentence2 string) bool {
+	words1, words2 := strings.Fields(sentence1), strings.Fields(sentence2)
+	if len(words1) < len(words2) {
+		words1, words2 = words2, words1
+	}
+	m, n := len(words1), len(words2)
+	i, j := 0, 0
+	for i < n && words1[i] == words2[i] {
+		i++
+	}
+	for j < n && words1[m-1-j] == words2[n-1-j] {
+		j++
+	}
+	return i+j >= n
+}
 ```
 
 ### **...**
