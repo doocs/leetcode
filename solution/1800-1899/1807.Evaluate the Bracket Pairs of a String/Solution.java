@@ -5,8 +5,7 @@ class Solution {
             d.put(e.get(0), e.get(1));
         }
         StringBuilder ans = new StringBuilder();
-        int i = 0, n = s.length();
-        while (i < n) {
+        for (int i = 0; i < s.length(); ++i) {
             if (s.charAt(i) == '(') {
                 int j = s.indexOf(')', i + 1);
                 ans.append(d.getOrDefault(s.substring(i + 1, j), "?"));
@@ -14,7 +13,6 @@ class Solution {
             } else {
                 ans.append(s.charAt(i));
             }
-            ++i;
         }
         return ans.toString();
     }

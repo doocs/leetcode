@@ -78,11 +78,11 @@
 
 **方法一：哈希表 + 模拟**
 
-我们先用哈希表 `d` 记录 `knowledge` 中的键值对。
+我们先用哈希表 $d$ 记录 `knowledge` 中的键值对。
 
-然后遍历字符串 `s`，如果当前字符是左括号 `(`，则从当前位置开始向后遍历，直到遇到右括号 `)`，此时括号内的字符串即为键，我们在哈希表 `d` 中查找该键对应的值，如果找到了，则将该值替换到括号内，否则替换为 `?`。
+然后遍历字符串 $s$，如果当前字符是左括号 `'('`，则从当前位置开始向后遍历，直到遇到右括号 `')'`，此时括号内的字符串即为键，我们在哈希表 $d$ 中查找该键对应的值，如果找到了，则将该值替换到括号内，否则替换为 `'?'`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `s` 的长度。
+时间复杂度 $O(n + m)$，空间复杂度 $O(L)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 和列表 `knowledge` 的长度，而 $L$ 为 `knowledge` 中所有字符串的长度之和。
 
 <!-- tabs:start -->
 
@@ -119,8 +119,7 @@ class Solution {
             d.put(e.get(0), e.get(1));
         }
         StringBuilder ans = new StringBuilder();
-        int i = 0, n = s.length();
-        while (i < n) {
+        for (int i = 0; i < s.length(); ++i) {
             if (s.charAt(i) == '(') {
                 int j = s.indexOf(')', i + 1);
                 ans.append(d.getOrDefault(s.substring(i + 1, j), "?"));
@@ -128,7 +127,6 @@ class Solution {
             } else {
                 ans.append(s.charAt(i));
             }
-            ++i;
         }
         return ans.toString();
     }
@@ -146,8 +144,7 @@ public:
             d[e[0]] = e[1];
         }
         string ans;
-        int i = 0, n = s.size();
-        while (i < n) {
+        for (int i = 0; i < s.size(); ++i) {
             if (s[i] == '(') {
                 int j = s.find(")", i + 1);
                 auto t = s.substr(i + 1, j - i - 1);
@@ -156,7 +153,6 @@ public:
             } else {
                 ans += s[i];
             }
-            ++i;
         }
         return ans;
     }
@@ -172,8 +168,7 @@ func evaluate(s string, knowledge [][]string) string {
 		d[v[0]] = v[1]
 	}
 	var ans strings.Builder
-	i, n := 0, len(s)
-	for ; i < n; i++ {
+	for i := 0; i < len(s); i++ {
 		if s[i] == '(' {
 			j := i + 1
 			for s[j] != ')' {

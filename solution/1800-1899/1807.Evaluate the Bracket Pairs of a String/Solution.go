@@ -4,8 +4,7 @@ func evaluate(s string, knowledge [][]string) string {
 		d[v[0]] = v[1]
 	}
 	var ans strings.Builder
-	i, n := 0, len(s)
-	for ; i < n; i++ {
+	for i := 0; i < len(s); i++ {
 		if s[i] == '(' {
 			j := i + 1
 			for s[j] != ')' {

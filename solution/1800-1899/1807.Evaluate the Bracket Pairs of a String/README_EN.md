@@ -101,8 +101,7 @@ class Solution {
             d.put(e.get(0), e.get(1));
         }
         StringBuilder ans = new StringBuilder();
-        int i = 0, n = s.length();
-        while (i < n) {
+        for (int i = 0; i < s.length(); ++i) {
             if (s.charAt(i) == '(') {
                 int j = s.indexOf(')', i + 1);
                 ans.append(d.getOrDefault(s.substring(i + 1, j), "?"));
@@ -110,7 +109,6 @@ class Solution {
             } else {
                 ans.append(s.charAt(i));
             }
-            ++i;
         }
         return ans.toString();
     }
@@ -128,8 +126,7 @@ public:
             d[e[0]] = e[1];
         }
         string ans;
-        int i = 0, n = s.size();
-        while (i < n) {
+        for (int i = 0; i < s.size(); ++i) {
             if (s[i] == '(') {
                 int j = s.find(")", i + 1);
                 auto t = s.substr(i + 1, j - i - 1);
@@ -138,7 +135,6 @@ public:
             } else {
                 ans += s[i];
             }
-            ++i;
         }
         return ans;
     }
@@ -154,8 +150,7 @@ func evaluate(s string, knowledge [][]string) string {
 		d[v[0]] = v[1]
 	}
 	var ans strings.Builder
-	i, n := 0, len(s)
-	for ; i < n; i++ {
+	for i := 0; i < len(s); i++ {
 		if s[i] == '(' {
 			j := i + 1
 			for s[j] != ')' {

@@ -6,8 +6,7 @@ public:
             d[e[0]] = e[1];
         }
         string ans;
-        int i = 0, n = s.size();
-        while (i < n) {
+        for (int i = 0; i < s.size(); ++i) {
             if (s[i] == '(') {
                 int j = s.find(")", i + 1);
                 auto t = s.substr(i + 1, j - i - 1);
@@ -16,7 +15,6 @@ public:
             } else {
                 ans += s[i];
             }
-            ++i;
         }
         return ans;
     }
