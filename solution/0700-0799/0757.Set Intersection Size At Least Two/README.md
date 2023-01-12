@@ -6,36 +6,54 @@
 
 <!-- 这里写题目描述 -->
 
-<p>一个整数区间&nbsp;<code>[a, b]</code>&nbsp;&nbsp;(&nbsp;<code>a &lt; b</code>&nbsp;) 代表着从&nbsp;<code>a</code>&nbsp;到&nbsp;<code>b</code>&nbsp;的所有连续整数，包括&nbsp;<code>a</code>&nbsp;和&nbsp;<code>b</code>。</p>
+<p>给你一个二维整数数组 <code>intervals</code> ，其中 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> 表示从 <code>start<sub>i</sub></code> 到 <code>end<sub>i</sub></code> 的所有整数，包括 <code>start<sub>i</sub></code> 和 <code>end<sub>i</sub></code> 。</p>
 
-<p>给你一组整数区间<code>intervals</code>，请找到一个最小的集合 S，使得 S 里的元素与区间<code>intervals</code>中的每一个整数区间都至少有2个元素相交。</p>
+<p><strong>包含集合</strong> 是一个名为 <code>nums</code> 的数组，并满足 <code>intervals</code> 中的每个区间都 <strong>至少</strong> 有 <strong>两个</strong> 整数在 <code>nums</code> 中。</p>
 
-<p>输出这个最小集合S的大小。</p>
+<ul>
+	<li>例如，如果 <code>intervals = [[1,3], [3,7], [8,9]]</code> ，那么 <code>[1,2,4,7,8,9]</code> 和 <code>[2,3,4,8,9]</code> 都符合 <strong>包含集合</strong> 的定义。</li>
+</ul>
 
-<p><strong>示例 1:</strong></p>
+<p>返回包含集合可能的最小大小。</p>
 
-<pre><strong>输入:</strong> intervals = [[1, 3], [1, 4], [2, 5], [3, 5]]
-<strong>输出:</strong> 3
-<strong>解释:</strong>
-考虑集合 S = {2, 3, 4}. S与intervals中的四个区间都有至少2个相交的元素。
-且这是S最小的情况，故我们输出3。
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>intervals = [[1,3],[3,7],[8,9]]
+<strong>输出：</strong>5
+<strong>解释：</strong>nums = [2, 3, 4, 8, 9].
+可以证明不存在元素数量为 4 的包含集合。
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre><strong>输入:</strong> intervals = [[1, 2], [2, 3], [2, 4], [4, 5]]
-<strong>输出:</strong> 5
-<strong>解释:</strong>
-最小的集合S = {1, 2, 3, 4, 5}.
+<pre>
+<strong>输入：</strong>intervals = [[1,3],[1,4],[2,5],[3,5]]
+<strong>输出：</strong>3
+<strong>解释：</strong>nums = [2, 3, 4].
+可以证明不存在元素数量为 2 的包含集合。 
 </pre>
 
-<p><strong>注意:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<ol>
-	<li><code>intervals</code>&nbsp;的长度范围为<code>[1, 3000]</code>。</li>
-	<li><code>intervals[i]</code>&nbsp;长度为&nbsp;<code>2</code>，分别代表左、右边界。</li>
-	<li><code>intervals[i][j]</code> 的值是&nbsp;<code>[0, 10^8]</code>范围内的整数。</li>
-</ol>
+<pre>
+<strong>输入：</strong>intervals = [[1,2],[2,3],[2,4],[4,5]]
+<strong>输出：</strong>5
+<strong>解释：</strong>nums = [1, 2, 3, 4, 5].
+可以证明不存在元素数量为 4 的包含集合。 
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= intervals.length &lt;= 3000</code></li>
+	<li><code>intervals[i].length == 2</code></li>
+	<li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
+</ul>
 
 ## 解法
 

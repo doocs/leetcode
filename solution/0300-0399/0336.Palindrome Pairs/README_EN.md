@@ -9,7 +9,7 @@
 <p>A <strong>palindrome pair</strong> is a pair of integers <code>(i, j)</code> such that:</p>
 
 <ul>
-	<li><code>0 &lt;= i, j &lt; word.length</code>,</li>
+	<li><code>0 &lt;= i, j &lt; words.length</code>,</li>
 	<li><code>i != j</code>, and</li>
 	<li><code>words[i] + words[j]</code> (the concatenation of the two strings) is a <span data-keyword="palindrome-string">palindrome</span>.</li>
 </ul>

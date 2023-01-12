@@ -46,6 +46,9 @@
 	<li><code>nums</code> is sorted in a <strong>non-decreasing order</strong>.</li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Can you solve the problem in <code>O(log(n))</code> time complexity?</p>
+
 ## Solutions
 
 <!-- tabs:start -->

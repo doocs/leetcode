@@ -2582,3 +2582,4 @@
   - [2530.执行 K 次操作后的最大分数](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md)
   - [2531.使字符串总不同字符的数目相等](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)
   - [2532.过桥的时间](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md)
+  - [2533.Number of Good Binary Strings](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README.md)

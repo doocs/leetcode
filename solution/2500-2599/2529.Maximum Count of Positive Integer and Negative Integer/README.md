@@ -50,6 +50,10 @@
 	<li><code>nums</code> 按 <strong>非递减顺序</strong> 排列。</li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你可以设计并实现时间复杂度为 <code>O(log(n))</code> 的算法解决此问题吗？</p>
+
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

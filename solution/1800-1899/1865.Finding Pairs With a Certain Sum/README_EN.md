@@ -99,14 +99,14 @@ class FindSumPairs {
             cnt.put(v, cnt.getOrDefault(v, 0) + 1);
         }
     }
-    
+
     public void add(int index, int val) {
         int old = nums2[index];
         cnt.put(old, cnt.get(old) - 1);
         cnt.put(old + val, cnt.getOrDefault(old + val, 0) + 1);
         nums2[index] += val;
     }
-    
+
     public int count(int tot) {
         int ans = 0;
         for (int v : nums1) {
@@ -136,14 +136,14 @@ public:
             ++cnt[v];
         }
     }
-    
+
     void add(int index, int val) {
         int old = nums2[index];
         --cnt[old];
         ++cnt[old + val];
         nums2[index] += val;
     }
-    
+
     int count(int tot) {
         int ans = 0;
         for (int& v : nums1) {
