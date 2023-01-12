@@ -126,6 +126,47 @@ var sumBase = function (n, k) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function sumBase(n: number, k: number): number {
+    let ans = 0;
+    while (n) {
+        ans += n % k;
+        n = Math.floor(n / k);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sum_base(mut n: i32, k: i32) -> i32 {
+        let mut ans = 0;
+        while n != 0 {
+            ans += n % k;
+            n /= k;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int sumBase(int n, int k) {
+    int ans = 0;
+    while (n) {
+        ans += n % k;
+        n /= k;
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
