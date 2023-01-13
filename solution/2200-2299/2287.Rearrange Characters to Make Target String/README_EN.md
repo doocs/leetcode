@@ -165,6 +165,54 @@ function rearrangeCharacters(s: string, target: string): number {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn rearrange_characters(s: String, target: String) -> i32 {
+        let mut count1 = [0; 26];
+        let mut count2 = [0; 26];
+        for c in s.as_bytes() {
+            count1[(c - b'a') as usize] += 1;
+        }
+        for c in target.as_bytes() {
+            count2[(c - b'a') as usize] += 1;
+        }
+        let mut ans = i32::MAX;
+        for i in 0..26 {
+            if count2[i] != 0 {
+                ans = ans.min(count1[i] / count2[i]);
+            }
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+
+int rearrangeCharacters(char *s, char *target) {
+    int count1[26] = {0};
+    int count2[26] = {0};
+    for (int i = 0; s[i]; i++) {
+        count1[s[i] - 'a']++;
+    }
+    for (int i = 0; target[i]; i++) {
+        count2[target[i] - 'a']++;
+    }
+    int ans = INT_MAX;
+    for (int i = 0; i < 26; i++) {
+        if (count2[i]) {
+            ans = min(ans, count1[i] / count2[i]);
+        }
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
