@@ -206,6 +206,129 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maximumCount(nums: number[]): number {
+    const count = [0, 0];
+    for (const num of nums) {
+        if (num < 0) {
+            count[0]++;
+        } else if (num > 0) {
+            count[1]++;
+        }
+    }
+    return Math.max(...count);
+}
+```
+
+```ts
+function maximumCount(nums: number[]): number {
+    const search = (target: number) => {
+        let left = 0;
+        let right = n;
+        while (left < right) {
+            const mid = (left + right) >>> 1;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return left;
+    };
+    const n = nums.length;
+    const i = search(0);
+    const j = search(1);
+    return Math.max(i, n - j);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn maximum_count(nums: Vec<i32>) -> i32 {
+        let mut count = [0, 0];
+        for &num in nums.iter() {
+            if num < 0 {
+                count[0] += 1;
+            } else if num > 0 {
+                count[1] += 1;
+            }
+        }
+        *count.iter().max().unwrap()
+    }
+}
+```
+
+```rust
+impl Solution {
+    fn search(nums: &Vec<i32>, target: i32) -> usize {
+        let mut left = 0;
+        let mut right = nums.len();
+        while left < right {
+            let mid = (left + right) >> 1;
+            if nums[mid] < target {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        left
+    }
+
+    pub fn maximum_count(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let i = Self::search(&nums, 0);
+        let j = Self::search(&nums, 1);
+        i.max(n - j) as i32
+    }
+}
+```
+
+### **C**
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int maximumCount(int *nums, int numsSize) {
+    int count[2] = {0};
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] < 0) {
+            count[0]++;
+        } else if (nums[i] > 0) {
+            count[1]++;
+        }
+    }
+    return max(count[0], count[1]);
+}
+```
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int search(int *nums, int numsSize, int target) {
+    int left = 0;
+    int right = numsSize;
+    while (left < right) {
+        int mid = (left + right) >> 1;
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return left;
+}
+
+int maximumCount(int *nums, int numsSize) {
+    int i = search(nums, numsSize, 0);
+    int j = search(nums, numsSize, 1);
+    return max(i, numsSize - j);
+}
+```
+
 ### **...**
 
 ```
