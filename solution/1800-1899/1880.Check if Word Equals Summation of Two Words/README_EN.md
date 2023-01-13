@@ -114,6 +114,21 @@ public:
 };
 ```
 
+### **Go**
+
+```go
+func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
+	f := func(s string) int {
+		res := 0
+		for _, c := range s {
+			res = res*10 + int(c-'a')
+		}
+		return res
+	}
+	return f(firstWord)+f(secondWord) == f(targetWord)
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -135,18 +150,57 @@ var isSumEqual = function (firstWord, secondWord, targetWord) {
 };
 ```
 
-### **Go**
+### **TypeScript**
 
-```go
-func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
-	f := func(s string) int {
-		res := 0
-		for _, c := range s {
-			res = res*10 + int(c-'a')
-		}
-		return res
-	}
-	return f(firstWord)+f(secondWord) == f(targetWord)
+```ts
+function isSumEqual(
+    firstWord: string,
+    secondWord: string,
+    targetWord: string,
+): boolean {
+    const calc = (s: string) => {
+        let res = 0;
+        for (const c of s) {
+            res = res * 10 + c.charCodeAt(0) - 'a'.charCodeAt(0);
+        }
+        return res;
+    };
+    return calc(firstWord) + calc(secondWord) === calc(targetWord);
+}
+
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn calc(s: &String) -> i32 {
+        let mut res = 0;
+        for c in s.as_bytes() {
+            res = res * 10 + (c - b'a') as i32;
+        }
+        res
+    }
+
+    pub fn is_sum_equal(first_word: String, second_word: String, target_word: String) -> bool {
+        Self::calc(&first_word) + Self::calc(&second_word) == Self::calc(&target_word)
+    }
+}
+```
+
+### **C**
+
+```c
+int calc(char *s) {
+    int res = 0;
+    for (int i = 0; s[i]; i++) {
+        res = res * 10 + s[i] - 'a';
+    }
+    return res;
+}
+
+bool isSumEqual(char *firstWord, char *secondWord, char *targetWord) {
+    return calc(firstWord) + calc(secondWord) == calc(targetWord);
 }
 ```
 
