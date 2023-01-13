@@ -59,6 +59,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们可以将句子按空格分割成单词数组，然后遍历单词数组，对于每个单词，如果其表示价格，则将其更新为减免折扣后的价格。最后将更新后的单词数组拼接成以空格分隔的字符串即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `sentence` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,10 +77,8 @@ class Solution:
         ans = []
         for w in sentence.split():
             if w[0] == '$' and w[1:].isdigit():
-                t = int(w[1:]) * (1 - discount / 100)
-                ans.append('$' + '{:.2f}'.format(t))
-            else:
-                ans.append(w)
+                w = f'${int(w[1:]) * (1 - discount / 100):.2f}'
+            ans.append(w)
         return ' '.join(ans)
 ```
 
@@ -85,29 +89,80 @@ class Solution:
 ```java
 class Solution {
     public String discountPrices(String sentence, int discount) {
-        List<String> ans = new ArrayList<>();
-        for (String w : sentence.split(" ")) {
-            if (w.charAt(0) == '$' && isNumber(w.substring(1))) {
-                double t = Long.parseLong(w.substring(1)) * (1 - discount / 100.0);
-                ans.add("$" + String.format("%.2f", t));
-            } else {
-                ans.add(w);
+        String[] words = sentence.split(" ");
+        for (int i = 0; i < words.length; ++i) {
+            if (check(words[i])) {
+                double t = Long.parseLong(words[i].substring(1)) * (1 - discount / 100.0);
+                words[i] = String.format("$%.2f", t);
             }
         }
-        return String.join(" ", ans);
+        return String.join(" ", words);
     }
 
-    private boolean isNumber(String s) {
-        if (s == null || "".equals(s)) {
+    private boolean check(String s) {
+        if (s.charAt(0) != '$' || s.length() == 1) {
             return false;
         }
-        for (char c : s.toCharArray()) {
-            if (!Character.isDigit(c)) {
+        for (int i = 1; i < s.length(); ++i) {
+            if (!Character.isDigit(s.charAt(i))) {
                 return false;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string discountPrices(string sentence, int discount) {
+        istringstream is(sentence);
+        string w;
+        string ans;
+        auto check = [](string s) {
+            if (s[0] != '$' || s.size() == 1) {
+                return false;
+            }
+            for (int i = 1; i < s.size(); ++i) {
+                if (!isdigit(s[i])) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        while (is >> w) {
+            if (check(w)) {
+                long long v = stoll(w.substr(1)) * (100 - discount);
+                char t[20];
+                sprintf(t, "$%lld.%02lld", v / 100, v % 100);
+                ans += t;
+            } else {
+                ans += w;
+            }
+            ans += ' ';
+        }
+        ans.pop_back();
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func discountPrices(sentence string, discount int) string {
+	words := strings.Split(sentence, " ")
+	for i, w := range words {
+		if w[0] == '$' {
+			if v, err := strconv.Atoi(w[1:]); err == nil {
+				words[i] = fmt.Sprintf("$%.2f", float64(v*(100-discount))/100)
+			}
+		}
+	}
+	return strings.Join(words, " ")
 }
 ```
 

@@ -3,8 +3,6 @@ class Solution:
         ans = []
         for w in sentence.split():
             if w[0] == '$' and w[1:].isdigit():
-                t = int(w[1:]) * (1 - discount / 100)
-                ans.append('$' + '{:.2f}'.format(t))
-            else:
-                ans.append(w)
+                w = f'${int(w[1:]) * (1 - discount / 100):.2f}'
+            ans.append(w)
         return ' '.join(ans)
