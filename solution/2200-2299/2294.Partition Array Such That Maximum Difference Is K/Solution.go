@@ -1,12 +1,9 @@
 func partitionArray(nums []int, k int) int {
 	sort.Ints(nums)
-	d, ans := 0, 1
-	for i, v := range nums[1:] {
-		t := v - nums[i]
-		if d+t <= k {
-			d += t
-		} else {
-			d = 0
+	ans, a := 1, nums[0]
+	for _, b := range nums {
+		if b-a > k {
+			a = b
 			ans++
 		}
 	}

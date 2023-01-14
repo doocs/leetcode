@@ -67,12 +67,11 @@ Since three subsequences were created, we return 3. It can be shown that 3 is th
 class Solution:
     def partitionArray(self, nums: List[int], k: int) -> int:
         nums.sort()
-        d, ans = 0, 1
-        for a, b in pairwise(nums):
-            if (t := b - a) + d <= k:
-                d += t
-            else:
-                d, ans = 0, ans + 1
+        ans, a = 1, nums[0]
+        for b in nums:
+            if b - a > k:
+                a = b
+                ans += 1
         return ans
 ```
 
@@ -82,14 +81,10 @@ class Solution:
 class Solution {
     public int partitionArray(int[] nums, int k) {
         Arrays.sort(nums);
-        int d = 0, ans = 1;
-        for (int i = 1; i < nums.length; ++i) {
-            int a = nums[i - 1], b = nums[i];
-            int t = b - a;
-            if (d + t <= k) {
-                d += t;
-            } else {
-                d = 0;
+        int ans = 1, a = nums[0];
+        for (int b : nums) {
+            if (b - a > k) {
+                a = b;
                 ++ans;
             }
         }
@@ -105,14 +100,10 @@ class Solution {
 public:
     int partitionArray(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
-        int d = 0, ans = 1;
-        for (int i = 1; i < nums.size(); ++i) {
-            int a = nums[i - 1], b = nums[i];
-            int t = b - a;
-            if (d + t <= k)
-                d += t;
-            else {
-                d = 0;
+        int ans = 1, a = nums[0];
+        for (int& b : nums) {
+            if (b - a > k) {
+                a = b;
                 ++ans;
             }
         }
@@ -126,13 +117,10 @@ public:
 ```go
 func partitionArray(nums []int, k int) int {
 	sort.Ints(nums)
-	d, ans := 0, 1
-	for i, v := range nums[1:] {
-		t := v - nums[i]
-		if d+t <= k {
-			d += t
-		} else {
-			d = 0
+	ans, a := 1, nums[0]
+	for _, b := range nums {
+		if b-a > k {
+			a = b
 			ans++
 		}
 	}
@@ -146,11 +134,12 @@ func partitionArray(nums []int, k int) int {
 function partitionArray(nums: number[], k: number): number {
     nums.sort((a, b) => a - b);
     let ans = 1;
-    let prev = nums[0] + k;
-    for (let num of nums) {
-        if (num <= prev) continue;
-        prev = num + k;
-        ans++;
+    let a = nums[0];
+    for (const b of nums) {
+        if (b - a > k) {
+            a = b;
+            ++ans;
+        }
     }
     return ans;
 }
