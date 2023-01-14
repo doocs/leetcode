@@ -5,13 +5,8 @@ func arrayChange(nums []int, operations [][]int) []int {
 	}
 	for _, op := range operations {
 		a, b := op[0], op[1]
-		idx := d[a]
-		delete(d, a)
-		d[b] = idx
+		nums[d[a]] = b
+		d[b] = d[a]
 	}
-	ans := make([]int, len(nums))
-	for v, i := range d {
-		ans[i] = v
-	}
-	return ans
+	return nums
 }

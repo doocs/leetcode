@@ -62,6 +62,12 @@
 
 **方法一：哈希表**
 
+我们先用哈希表 $d$ 记录数组 `nums` 中每个数字的下标，然后遍历操作数组 `operations`，对于每个操作 $[a, b]$，我们将 $a$ 在 `nums` 中的下标 $d[a]$ 对应的数字替换为 $b$，并更新 $d$ 中 $b$ 的下标为 $d[a]$。
+
+最后返回 `nums` 即可。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `operations` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,13 +79,9 @@ class Solution:
     def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
         d = {v: i for i, v in enumerate(nums)}
         for a, b in operations:
-            idx = d[a]
-            d.pop(a)
-            d[b] = idx
-        ans = [0] * len(nums)
-        for v, i in d.items():
-            ans[i] = v
-        return ans
+            nums[d[a]] = b
+            d[b] = d[a]
+        return nums
 ```
 
 ### **Java**
@@ -89,20 +91,16 @@ class Solution:
 ```java
 class Solution {
     public int[] arrayChange(int[] nums, int[][] operations) {
-        int n = nums.length;
         Map<Integer, Integer> d = new HashMap<>();
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < nums.length; ++i) {
             d.put(nums[i], i);
         }
-        for (int[] op : operations) {
+        for (var op : operations) {
             int a = op[0], b = op[1];
-            int idx = d.get(a);
-            d.remove(a);
-            d.put(b, idx);
+            nums[d.get(a)] = b;
+            d.put(b, d.get(a));
         }
-        int[] ans = new int[n];
-        d.forEach((v, i) -> { ans[i] = v; });
-        return ans;
+        return nums;
     }
 }
 ```
@@ -113,18 +111,16 @@ class Solution {
 class Solution {
 public:
     vector<int> arrayChange(vector<int>& nums, vector<vector<int>>& operations) {
-        int n = nums.size();
         unordered_map<int, int> d;
-        for (int i = 0; i < n; ++i) d[nums[i]] = i;
+        for (int i = 0; i < nums.size(); ++i) {
+            d[nums[i]] = i;
+        }
         for (auto& op : operations) {
             int a = op[0], b = op[1];
-            int idx = d[a];
-            d.erase(a);
-            d[b] = idx;
+            nums[d[a]] = b;
+            d[b] = d[a];
         }
-        vector<int> ans(n);
-        for (auto& [v, i] : d) ans[i] = v;
-        return ans;
+        return nums;
     }
 };
 ```
@@ -139,15 +135,10 @@ func arrayChange(nums []int, operations [][]int) []int {
 	}
 	for _, op := range operations {
 		a, b := op[0], op[1]
-		idx := d[a]
-		delete(d, a)
-		d[b] = idx
+		nums[d[a]] = b
+		d[b] = d[a]
 	}
-	ans := make([]int, len(nums))
-	for v, i := range d {
-		ans[i] = v
-	}
-	return ans
+	return nums
 }
 ```
 
@@ -155,18 +146,12 @@ func arrayChange(nums []int, operations [][]int) []int {
 
 ```ts
 function arrayChange(nums: number[], operations: number[][]): number[] {
-    const n = nums.length;
-    let hashMap = new Map(nums.map((v, i) => [v, i]));
-    for (let [oldVal, newVal] of operations) {
-        let idx = hashMap.get(oldVal);
-        hashMap.delete(oldVal);
-        hashMap.set(newVal, idx);
+    const d = new Map(nums.map((v, i) => [v, i]));
+    for (const [a, b] of operations) {
+        nums[d.get(a)] = b;
+        d.set(b, d.get(a));
     }
-    let ans = new Array(n);
-    for (let [val, key] of hashMap.entries()) {
-        ans[key] = val;
-    }
-    return ans;
+    return nums;
 }
 ```
 

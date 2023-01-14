@@ -1,14 +1,8 @@
 function arrayChange(nums: number[], operations: number[][]): number[] {
-    const n = nums.length;
-    let hashMap = new Map(nums.map((v, i) => [v, i]));
-    for (let [oldVal, newVal] of operations) {
-        let idx = hashMap.get(oldVal);
-        hashMap.delete(oldVal);
-        hashMap.set(newVal, idx);
+    const d = new Map(nums.map((v, i) => [v, i]));
+    for (const [a, b] of operations) {
+        nums[d.get(a)] = b;
+        d.set(b, d.get(a));
     }
-    let ans = new Array(n);
-    for (let [val, key] of hashMap.entries()) {
-        ans[key] = val;
-    }
-    return ans;
+    return nums;
 }
