@@ -1,15 +1,11 @@
 function minMaxGame(nums: number[]): number {
-    while (nums.length > 1) {
-        let n = nums.length;
-        let tmp = [];
-        for (let i = 0; i < n; i += 2) {
-            if (i % 4 == 2) {
-                tmp.push(Math.max(nums[i], nums[i + 1]));
-            } else {
-                tmp.push(Math.min(nums[i], nums[i + 1]));
-            }
+    for (let n = nums.length; n > 1; ) {
+        n >>= 1;
+        for (let i = 0; i < n; ++i) {
+            const a = nums[i << 1];
+            const b = nums[(i << 1) | 1];
+            nums[i] = i % 2 == 0 ? Math.min(a, b) : Math.max(a, b);
         }
-        nums = tmp;
     }
     return nums[0];
 }

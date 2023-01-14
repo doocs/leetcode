@@ -1,29 +1,27 @@
 func minMaxGame(nums []int) int {
-	n := len(nums)
-	if n == 1 {
-		return nums[0]
-	}
-	var t []int
-	for i := 0; i < n>>1; i++ {
-		a, b := nums[i<<1], nums[i<<1|1]
-		if (i & 1) == 1 {
-			t = append(t, max(a, b))
-		} else {
-			t = append(t, min(a, b))
+	for n := len(nums); n > 1; {
+		n >>= 1
+		for i := 0; i < n; i++ {
+			a, b := nums[i<<1], nums[i<<1|1]
+			if i%2 == 0 {
+				nums[i] = min(a, b)
+			} else {
+				nums[i] = max(a, b)
+			}
 		}
 	}
-	return minMaxGame(t)
+	return nums[0]
 }
 
-func max(a, b int) int {
-	if a > b {
+func min(a, b int) int {
+	if a < b {
 		return a
 	}
 	return b
 }
 
-func min(a, b int) int {
-	if a < b {
+func max(a, b int) int {
+	if a > b {
 		return a
 	}
 	return b
