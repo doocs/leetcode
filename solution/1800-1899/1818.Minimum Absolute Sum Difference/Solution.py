@@ -4,7 +4,7 @@ class Solution:
         nums = sorted(nums1)
         s = sum(abs(a - b) for a, b in zip(nums1, nums2)) % mod
         mx = 0
-        for i, (a, b) in enumerate(zip(nums1, nums2)):
+        for a, b in zip(nums1, nums2):
             d1, d2 = abs(a - b), inf
             i = bisect_left(nums, b)
             if i < len(nums):

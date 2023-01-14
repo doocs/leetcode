@@ -173,7 +173,6 @@ function isSumEqual(
     };
     return calc(firstWord) + calc(secondWord) === calc(targetWord);
 }
-
 ```
 
 ### **Rust**

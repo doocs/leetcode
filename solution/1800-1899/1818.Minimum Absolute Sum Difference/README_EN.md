@@ -74,7 +74,7 @@ class Solution:
         nums = sorted(nums1)
         s = sum(abs(a - b) for a, b in zip(nums1, nums2)) % mod
         mx = 0
-        for i, (a, b) in enumerate(zip(nums1, nums2)):
+        for a, b in zip(nums1, nums2):
             d1, d2 = abs(a - b), inf
             i = bisect_left(nums, b)
             if i < len(nums):
@@ -218,7 +218,7 @@ func abs(x int) int {
  * @param {number[]} nums2
  * @return {number}
  */
-var minAbsoluteSumDiff = function(nums1, nums2) {
+var minAbsoluteSumDiff = function (nums1, nums2) {
     const mod = 10 ** 9 + 7;
     const nums = [...nums1];
     nums.sort((a, b) => a - b);
