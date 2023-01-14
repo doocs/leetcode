@@ -1,31 +1,37 @@
 class TextEditor {
-    private int idx = 0;
-    private StringBuilder s = new StringBuilder();
+    private StringBuilder left = new StringBuilder();
+    private StringBuilder right = new StringBuilder();
 
     public TextEditor() {
-    }
 
+    }
+    
     public void addText(String text) {
-        s.insert(idx, text);
-        idx += text.length();
+        left.append(text);
     }
-
+    
     public int deleteText(int k) {
-        k = Math.min(idx, k);
-        for (int i = 0; i < k; ++i) {
-            s.deleteCharAt(--idx);
-        }
+        k = Math.min(k, left.length());
+        left.setLength(left.length() - k);
         return k;
     }
-
+    
     public String cursorLeft(int k) {
-        idx = Math.max(0, idx - k);
-        return s.substring(Math.max(0, idx - 10), idx);
+        k = Math.min(k, left.length());
+        for (int i = 0; i < k; ++i) {
+            right.append(left.charAt(left.length() - 1));
+            left.deleteCharAt(left.length() - 1);
+        }
+        return left.substring(Math.max(left.length() - 10, 0));
     }
-
+    
     public String cursorRight(int k) {
-        idx = Math.min(s.length(), idx + k);
-        return s.substring(Math.max(0, idx - 10), idx);
+        k = Math.min(k, right.length());
+        for (int i = 0; i < k; ++i) {
+            left.append(right.charAt(right.length() - 1));
+            right.deleteCharAt(right.length() - 1);
+        }
+        return left.substring(Math.max(left.length() - 10, 0));
     }
 }
 

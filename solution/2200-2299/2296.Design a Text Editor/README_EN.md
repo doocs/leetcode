@@ -80,29 +80,31 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 
 ```python
 class TextEditor:
+
     def __init__(self):
-        self.idx = 0
-        self.s = []
+        self.left = []
+        self.right = []
 
     def addText(self, text: str) -> None:
-        t = list(text)
-        self.s[self.idx : self.idx] = t
-        self.idx += len(t)
+        self.left.extend(list(text))
 
     def deleteText(self, k: int) -> int:
-        k = min(self.idx, k)
-        self.s[self.idx - k : self.idx] = []
-        self.idx -= k
+        k = min(k, len(self.left))
+        for _ in range(k):
+            self.left.pop()
         return k
 
     def cursorLeft(self, k: int) -> str:
-        self.idx = max(0, self.idx - k)
-        return ''.join(self.s[max(0, self.idx - 10) : self.idx])
+        k = min(k, len(self.left))
+        for _ in range(k):
+            self.right.append(self.left.pop())
+        return ''.join(self.left[-10:])
 
     def cursorRight(self, k: int) -> str:
-        self.idx = min(len(self.s), self.idx + k)
-        return ''.join(self.s[max(0, self.idx - 10) : self.idx])
-
+        k = min(k, len(self.right))
+        for _ in range(k):
+            self.left.append(self.right.pop())
+        return ''.join(self.left[-10:])
 
 # Your TextEditor object will be instantiated and called as such:
 # obj = TextEditor()
@@ -116,33 +118,39 @@ class TextEditor:
 
 ```java
 class TextEditor {
-    private int idx = 0;
-    private StringBuilder s = new StringBuilder();
+    private StringBuilder left = new StringBuilder();
+    private StringBuilder right = new StringBuilder();
 
     public TextEditor() {
-    }
 
+    }
+    
     public void addText(String text) {
-        s.insert(idx, text);
-        idx += text.length();
+        left.append(text);
     }
-
+    
     public int deleteText(int k) {
-        k = Math.min(idx, k);
-        for (int i = 0; i < k; ++i) {
-            s.deleteCharAt(--idx);
-        }
+        k = Math.min(k, left.length());
+        left.setLength(left.length() - k);
         return k;
     }
-
+    
     public String cursorLeft(int k) {
-        idx = Math.max(0, idx - k);
-        return s.substring(Math.max(0, idx - 10), idx);
+        k = Math.min(k, left.length());
+        for (int i = 0; i < k; ++i) {
+            right.append(left.charAt(left.length() - 1));
+            left.deleteCharAt(left.length() - 1);
+        }
+        return left.substring(Math.max(left.length() - 10, 0));
     }
-
+    
     public String cursorRight(int k) {
-        idx = Math.min(s.length(), idx + k);
-        return s.substring(Math.max(0, idx - 10), idx);
+        k = Math.min(k, right.length());
+        for (int i = 0; i < k; ++i) {
+            left.append(right.charAt(right.length() - 1));
+            right.deleteCharAt(right.length() - 1);
+        }
+        return left.substring(Math.max(left.length() - 10, 0));
     }
 }
 
@@ -153,6 +161,123 @@ class TextEditor {
  * int param_2 = obj.deleteText(k);
  * String param_3 = obj.cursorLeft(k);
  * String param_4 = obj.cursorRight(k);
+ */
+```
+
+### **C++**
+
+```cpp
+class TextEditor {
+public:
+    TextEditor() {
+    }
+
+    void addText(string text) {
+        left += text;
+    }
+
+    int deleteText(int k) {
+        k = min(k, (int) left.size());
+        left.resize(left.size() - k);
+        return k;
+    }
+
+    string cursorLeft(int k) {
+        k = min(k, (int) left.size());
+        while (k--) {
+            right += left.back();
+            left.pop_back();
+        }
+        return left.substr(max(0, (int) left.size() - 10));
+    }
+
+    string cursorRight(int k) {
+        k = min(k, (int) right.size());
+        while (k--) {
+            left += right.back();
+            right.pop_back();
+        }
+        return left.substr(max(0, (int) left.size() - 10));
+    }
+
+private:
+    string left, right;
+};
+
+/**
+ * Your TextEditor object will be instantiated and called as such:
+ * TextEditor* obj = new TextEditor();
+ * obj->addText(text);
+ * int param_2 = obj->deleteText(k);
+ * string param_3 = obj->cursorLeft(k);
+ * string param_4 = obj->cursorRight(k);
+ */
+```
+
+### **Go**
+
+```go
+type TextEditor struct {
+	left, right []byte
+}
+
+func Constructor() TextEditor {
+	return TextEditor{}
+}
+
+func (this *TextEditor) AddText(text string) {
+	this.left = append(this.left, text...)
+}
+
+func (this *TextEditor) DeleteText(k int) int {
+	k = min(k, len(this.left))
+	if k < len(this.left) {
+		this.left = this.left[:len(this.left)-k]
+	} else {
+		this.left = []byte{}
+	}
+	return k
+}
+
+func (this *TextEditor) CursorLeft(k int) string {
+	k = min(k, len(this.left))
+	for ; k > 0; k-- {
+		this.right = append(this.right, this.left[len(this.left)-1])
+		this.left = this.left[:len(this.left)-1]
+	}
+	return string(this.left[max(len(this.left)-10, 0):])
+}
+
+func (this *TextEditor) CursorRight(k int) string {
+	k = min(k, len(this.right))
+	for ; k > 0; k-- {
+		this.left = append(this.left, this.right[len(this.right)-1])
+		this.right = this.right[:len(this.right)-1]
+	}
+	return string(this.left[max(len(this.left)-10, 0):])
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+/**
+ * Your TextEditor object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.AddText(text);
+ * param_2 := obj.DeleteText(k);
+ * param_3 := obj.CursorLeft(k);
+ * param_4 := obj.CursorRight(k);
  */
 ```
 
