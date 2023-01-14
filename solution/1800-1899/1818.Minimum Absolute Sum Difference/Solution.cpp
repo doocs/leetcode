@@ -2,26 +2,24 @@ class Solution {
 public:
     int minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2) {
         const int mod = 1e9 + 7;
-        int n = nums1.size();
-        vector<int> diff(n);
-        int s = 0;
+        vector<int> nums(nums1);
+        sort(nums.begin(), nums.end());
+        int s = 0, n = nums.size();
         for (int i = 0; i < n; ++i) {
-            diff[i] = abs(nums1[i] - nums2[i]);
-            s = (s + diff[i]) % mod;
+            s = (s + abs(nums1[i] - nums2[i])) % mod;
         }
-        if (s == 0) return 0;
-        sort(nums1.begin(), nums1.end());
         int mx = 0;
         for (int i = 0; i < n; ++i) {
-            int d = diff[i];
-            if (d == 0) continue;
-            int b = nums2[i];
-            int idx = lower_bound(nums1.begin(), nums1.end(), b) - nums1.begin();
-            int a1 = 1e6, a2 = 1e6;
-            if (idx != n) a1 = nums1[idx];
-            if (idx != 0) a2 = nums1[idx - 1];
-            int c = min(abs(b - a1), abs(b - a2));
-            mx = max(mx, d - c);
+            int d1 = abs(nums1[i] - nums2[i]);
+            int d2 = 1 << 30;
+            int j = lower_bound(nums.begin(), nums.end(), nums2[i]) - nums.begin();
+            if (j < n) {
+                d2 = min(d2, abs(nums[j] - nums2[i]));
+            }
+            if (j) {
+                d2 = min(d2, abs(nums[j - 1] - nums2[i]));
+            }
+            mx = max(mx, d1 - d2);
         }
         return (s - mx + mod) % mod;
     }

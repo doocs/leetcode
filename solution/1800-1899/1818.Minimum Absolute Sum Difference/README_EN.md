@@ -70,72 +70,53 @@ Binary search.
 ```python
 class Solution:
     def minAbsoluteSumDiff(self, nums1: List[int], nums2: List[int]) -> int:
-        diff = [abs(a - b) for a, b in zip(nums1, nums2)]
         mod = 10**9 + 7
-        s = sum(diff)
-        if s == 0:
-            return 0
-        nums1.sort()
-        n = len(nums1)
+        nums = sorted(nums1)
+        s = sum(abs(a - b) for a, b in zip(nums1, nums2)) % mod
         mx = 0
-        for i, b in enumerate(nums2):
-            d = diff[i]
-            if d == 0:
-                continue
-            idx = bisect_left(nums1, b)
-            a1 = a2 = 10**6
-            if idx != n:
-                a1 = nums1[idx]
-            if idx:
-                a2 = nums1[idx - 1]
-            c = min(abs(b - a1), abs(b - a2))
-            mx = max(mx, d - c)
-        return (s - mx) % mod
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            d1, d2 = abs(a - b), inf
+            i = bisect_left(nums, b)
+            if i < len(nums):
+                d2 = min(d2, abs(nums[i] - b))
+            if i:
+                d2 = min(d2, abs(nums[i - 1] - b))
+            mx = max(mx, d1 - d2)
+        return (s - mx + mod) % mod
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int minAbsoluteSumDiff(int[] nums1, int[] nums2) {
-        int n = nums1.length;
-        int[] diff = new int[n];
-        int s = 0;
+        final int mod = (int) 1e9 + 7;
+        int[] nums = nums1.clone();
+        Arrays.sort(nums);
+        int s = 0, n = nums.length;
         for (int i = 0; i < n; ++i) {
-            diff[i] = Math.abs(nums1[i] - nums2[i]);
-            s = (s + diff[i]) % MOD;
+            s = (s + Math.abs(nums1[i] - nums2[i])) % mod;
         }
-        if (s == 0) {
-            return 0;
-        }
-        Arrays.sort(nums1);
         int mx = 0;
         for (int i = 0; i < n; ++i) {
-            int d = diff[i];
-            if (d == 0) {
-                continue;
+            int d1 = Math.abs(nums1[i] - nums2[i]);
+            int d2 = 1 << 30;
+            int j = search(nums, nums2[i]);
+            if (j < n) {
+                d2 = Math.min(d2, Math.abs(nums[j] - nums2[i]));
             }
-            int b = nums2[i];
-            int idx = search(nums1, b);
-            int a1 = 1000000, a2 = 1000000;
-            if (idx != n) {
-                a1 = nums1[idx];
+            if (j > 0) {
+                d2 = Math.min(d2, Math.abs(nums[j - 1] - nums2[i]));
             }
-            if (idx != 0) {
-                a2 = nums1[idx - 1];
-            }
-            int c = Math.min(Math.abs(b - a1), Math.abs(b - a2));
-            mx = Math.max(mx, d - c);
+            mx = Math.max(mx, d1 - d2);
         }
-        return (s - mx + MOD) % MOD;
+        return (s - mx + mod) % mod;
     }
 
     private int search(int[] nums, int x) {
         int left = 0, right = nums.length;
         while (left < right) {
-            int mid = (left + right) >> 1;
+            int mid = (left + right) >>> 1;
             if (nums[mid] >= x) {
                 right = mid;
             } else {
@@ -154,26 +135,24 @@ class Solution {
 public:
     int minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2) {
         const int mod = 1e9 + 7;
-        int n = nums1.size();
-        vector<int> diff(n);
-        int s = 0;
+        vector<int> nums(nums1);
+        sort(nums.begin(), nums.end());
+        int s = 0, n = nums.size();
         for (int i = 0; i < n; ++i) {
-            diff[i] = abs(nums1[i] - nums2[i]);
-            s = (s + diff[i]) % mod;
+            s = (s + abs(nums1[i] - nums2[i])) % mod;
         }
-        if (s == 0) return 0;
-        sort(nums1.begin(), nums1.end());
         int mx = 0;
         for (int i = 0; i < n; ++i) {
-            int d = diff[i];
-            if (d == 0) continue;
-            int b = nums2[i];
-            int idx = lower_bound(nums1.begin(), nums1.end(), b) - nums1.begin();
-            int a1 = 1e6, a2 = 1e6;
-            if (idx != n) a1 = nums1[idx];
-            if (idx != 0) a2 = nums1[idx - 1];
-            int c = min(abs(b - a1), abs(b - a2));
-            mx = max(mx, d - c);
+            int d1 = abs(nums1[i] - nums2[i]);
+            int d2 = 1 << 30;
+            int j = lower_bound(nums.begin(), nums.end(), nums2[i]) - nums.begin();
+            if (j < n) {
+                d2 = min(d2, abs(nums[j] - nums2[i]));
+            }
+            if (j) {
+                d2 = min(d2, abs(nums[j - 1] - nums2[i]));
+            }
+            mx = max(mx, d1 - d2);
         }
         return (s - mx + mod) % mod;
     }
@@ -184,49 +163,29 @@ public:
 
 ```go
 func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
-	mod := int(1e9) + 7
 	n := len(nums1)
-	diff := make([]int, n)
-	s := 0
-	for i := 0; i < n; i++ {
-		diff[i] = abs(nums1[i] - nums2[i])
-		s = (s + diff[i]) % mod
+	nums := make([]int, n)
+	copy(nums, nums1)
+	sort.Ints(nums)
+	s, mx := 0, 0
+	const mod int = 1e9 + 7
+	for i, a := range nums1 {
+		b := nums2[i]
+		s = (s + abs(a-b)) % mod
 	}
-	if s == 0 {
-		return 0
-	}
-	sort.Ints(nums1)
-	mx := 0
-	for i, b := range nums2 {
-		d := diff[i]
-		if d == 0 {
-			continue
+	for i, a := range nums1 {
+		b := nums2[i]
+		d1, d2 := abs(a-b), 1<<30
+		j := sort.Search(n, func(k int) bool { return nums[k] >= b })
+		if j < n {
+			d2 = min(d2, abs(nums[j]-b))
 		}
-		idx := search(nums1, b)
-		a1, a2 := 1000000, 1000000
-		if idx != n {
-			a1 = nums1[idx]
+		if j > 0 {
+			d2 = min(d2, abs(nums[j-1]-b))
 		}
-		if idx != 0 {
-			a2 = nums1[idx-1]
-		}
-		c := min(abs(b-a1), abs(b-a2))
-		mx = max(mx, d-c)
+		mx = max(mx, d1-d2)
 	}
 	return (s - mx + mod) % mod
-}
-
-func search(nums []int, x int) int {
-	left, right := 0, len(nums)
-	for left < right {
-		mid := (left + right) >> 1
-		if nums[mid] >= x {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
 }
 
 func max(a, b int) int {
@@ -248,6 +207,97 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var minAbsoluteSumDiff = function(nums1, nums2) {
+    const mod = 10 ** 9 + 7;
+    const nums = [...nums1];
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let s = 0;
+    for (let i = 0; i < n; ++i) {
+        s = (s + Math.abs(nums1[i] - nums2[i])) % mod;
+    }
+    let mx = 0;
+    for (let i = 0; i < n; ++i) {
+        const d1 = Math.abs(nums1[i] - nums2[i]);
+        let d2 = 1 << 30;
+        let j = search(nums, nums2[i]);
+        if (j < n) {
+            d2 = Math.min(d2, Math.abs(nums[j] - nums2[i]));
+        }
+        if (j) {
+            d2 = Math.min(d2, Math.abs(nums[j - 1] - nums2[i]));
+        }
+        mx = Math.max(mx, d1 - d2);
+    }
+    return (s - mx + mod) % mod;
+};
+
+function search(nums, x) {
+    let left = 0;
+    let right = nums.length;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+### **TypeScript**
+
+```ts
+function minAbsoluteSumDiff(nums1: number[], nums2: number[]): number {
+    const mod = 10 ** 9 + 7;
+    const nums = [...nums1];
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let s = 0;
+    for (let i = 0; i < n; ++i) {
+        s = (s + Math.abs(nums1[i] - nums2[i])) % mod;
+    }
+    let mx = 0;
+    for (let i = 0; i < n; ++i) {
+        const d1 = Math.abs(nums1[i] - nums2[i]);
+        let d2 = 1 << 30;
+        let j = search(nums, nums2[i]);
+        if (j < n) {
+            d2 = Math.min(d2, Math.abs(nums[j] - nums2[i]));
+        }
+        if (j) {
+            d2 = Math.min(d2, Math.abs(nums[j - 1] - nums2[i]));
+        }
+        mx = Math.max(mx, d1 - d2);
+    }
+    return (s - mx + mod) % mod;
+}
+
+function search(nums: number[], x: number): number {
+    let left = 0;
+    let right = nums.length;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 }
 ```
 
