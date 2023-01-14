@@ -153,7 +153,76 @@ func mergeSimilarItems(items1 [][]int, items2 [][]int) [][]int {
 ### **TypeScript**
 
 ```ts
+function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
+    const count = new Array(1001).fill(0);
+    for (const [v, w] of items1) {
+        count[v] += w;
+    }
+    for (const [v, w] of items2) {
+        count[v] += w;
+    }
+    return [...count.entries()].filter(v => v[1] !== 0);
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn merge_similar_items(items1: Vec<Vec<i32>>, items2: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let mut count = [0; 1001];
+        for item in items1.iter() {
+            count[item[0] as usize] += item[1];
+        }
+        for item in items2.iter() {
+            count[item[0] as usize] += item[1];
+        }
+        count
+            .iter()
+            .enumerate()
+            .filter_map(|(i, &v)| {
+                if v == 0 {
+                    return None;
+                }
+                Some(vec![i as i32, v])
+            })
+            .collect()
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Return an array of arrays of size *returnSize.
+ * The sizes of the arrays are returned as *returnColumnSizes array.
+ * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
+ */
+int **mergeSimilarItems(int **items1, int items1Size, int *items1ColSize, int **items2, int items2Size,
+                        int *items2ColSize, int *returnSize, int **returnColumnSizes) {
+    int count[1001] = {0};
+    for (int i = 0; i < items1Size; i++) {
+        count[items1[i][0]] += items1[i][1];
+    }
+    for (int i = 0; i < items2Size; i++) {
+        count[items2[i][0]] += items2[i][1];
+    }
+    int **ans = malloc(sizeof(int *) * (items1Size + items2Size));
+    *returnColumnSizes = malloc(sizeof(int) * (items1Size + items2Size));
+    int size = 0;
+    for (int i = 0; i < 1001; i++) {
+        if (count[i]) {
+            ans[size] = malloc(sizeof(int) * 2);
+            ans[size][0] = i;
+            ans[size][1] = count[i];
+            (*returnColumnSizes)[size] = 2;
+            size++;
+        }
+    }
+    *returnSize = size;
+    return ans;
+}
 ```
 
 ### **...**
