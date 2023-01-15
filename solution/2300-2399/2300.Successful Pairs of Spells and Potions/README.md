@@ -52,7 +52,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：二分查找**
+**方法一：排序 + 二分查找**
+
+我们可以对药水数组进行排序，然后遍历咒语数组，对于每个咒语，利用二分查找找到第一个大于等于 `success / v` 的药水，下标记为 $i$，那么药水的长度减去 $i$ 即为能跟该咒语成功组合的药水数目。
+
+时间复杂度 $O((m + n) \times \log m)$，空间复杂度 $O(\log n)$。其中 $m$ 和 $n$ 分别为药水数组和咒语数组的长度。
 
 <!-- tabs:start -->
 
@@ -67,7 +71,7 @@ class Solution:
     ) -> List[int]:
         potions.sort()
         m = len(potions)
-        return [m - bisect_left(potions, success, key=lambda x: s * x) for s in spells]
+        return [m - bisect_left(potions, success / v) for v in spells]
 ```
 
 ### **Java**
@@ -78,7 +82,7 @@ class Solution:
 class Solution {
     public int[] successfulPairs(int[] spells, int[] potions, long success) {
         Arrays.sort(potions);
-        int m = potions.length, n = spells.length;
+        int n = spells.length, m = potions.length;
         int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
             int left = 0, right = m;
@@ -104,18 +108,11 @@ class Solution {
 public:
     vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {
         sort(potions.begin(), potions.end());
-        int m = potions.size();
         vector<int> ans;
-        for (int& s : spells) {
-            int left = 0, right = m;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (1ll * s * potions[mid] >= success)
-                    right = mid;
-                else
-                    left = mid + 1;
-            }
-            ans.push_back(m - left);
+        int m = potions.size();
+        for (int& v : spells) {
+            int i = lower_bound(potions.begin(), potions.end(), success * 1.0 / v) - potions.begin();
+            ans.push_back(m - i);
         }
         return ans;
     }
@@ -125,21 +122,12 @@ public:
 ### **Go**
 
 ```go
-func successfulPairs(spells []int, potions []int, success int64) []int {
+func successfulPairs(spells []int, potions []int, success int64) (ans []int) {
 	sort.Ints(potions)
 	m := len(potions)
-	var ans []int
-	for _, s := range spells {
-		left, right := 0, m
-		for left < right {
-			mid := (left + right) >> 1
-			if int64(s*potions[mid]) >= success {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		ans = append(ans, m-left)
+	for _, v := range spells {
+		i := sort.Search(m, func(i int) bool { return int64(potions[i]*v) >= success })
+		ans = append(ans, m-i)
 	}
 	return ans
 }
@@ -153,33 +141,23 @@ function successfulPairs(
     potions: number[],
     success: number,
 ): number[] {
-    const n = spells.length,
-        m = potions.length;
     potions.sort((a, b) => a - b);
-    let pairs = new Array(n);
-    let hashMap = new Map();
-    for (let i = 0; i < n; i++) {
-        const target = Math.ceil(success / spells[i]);
-        let idx = hashMap.get(target);
-        if (!idx) {
-            idx = searchLeft(potions, 0, m, target);
-            hashMap.set(target, idx);
+    const m = potions.length;
+    const ans: number[] = [];
+    for (const v of spells) {
+        let left = 0;
+        let right = m;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (v * potions[mid] >= success) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        pairs[i] = m - idx;
+        ans.push(m - left);
     }
-    return pairs;
-}
-
-function searchLeft(nums, left, right, target) {
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
+    return ans;
 }
 ```
 

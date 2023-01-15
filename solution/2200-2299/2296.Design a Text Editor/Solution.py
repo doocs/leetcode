@@ -1,5 +1,4 @@
 class TextEditor:
-
     def __init__(self):
         self.left = []
         self.right = []
@@ -24,6 +23,7 @@ class TextEditor:
         for _ in range(k):
             self.left.append(self.right.pop())
         return ''.join(self.left[-10:])
+
 
 # Your TextEditor object will be instantiated and called as such:
 # obj = TextEditor()
