@@ -57,7 +57,7 @@
 
 **方法一：双指针**
 
-我们将两个句子分别用空格分割成单词数组 `words1` 和 `words2`，假设 `words1` 和 `words2` 的长度分别为 $m$ 和 $n$，不妨设 $m \geq n$。
+我们将两个句子按照空格分割成两个单词数组 `words1` 和 `words2`，假设 `words1` 和 `words2` 的长度分别为 $m$ 和 $n$，不妨设 $m \geq n$。
 
 我们使用双指针 $i$ 和 $j$，初始时 $i = j = 0$。接下来，我们循环判断 `words1[i]` 是否等于 `words2[i]`，是则指针 $i$ 继续右移；然后我们循环判断 `words1[m - 1 - j]` 是否等于 `words2[n - 1 - j]`，是则指针 $j$ 继续右移。
 
@@ -109,7 +109,7 @@ class Solution {
         while (j < n && words1[m - 1 - j].equals(words2[n - 1 - j])) {
             ++j;
         }
-        return i == n || j == n || i + j >= n;
+        return i + j >= n;
     }
 }
 ```

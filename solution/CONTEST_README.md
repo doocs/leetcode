@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 328 场周赛(2023-01-15 10:30, 90 分钟) 参赛人数 4776
+
+- [2535. 数组元素和与数字和的绝对差](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README.md)
+- [2536. 子矩阵元素加 1](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README.md)
+- [2537. 统计好子数组的数目](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README.md)
+- [2538. 最大价值和与最小价值和的差值](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README.md)
+
+
 #### 第 327 场周赛(2023-01-08 10:30, 90 分钟) 参赛人数 4518
 
 - [2529. 正整数和负整数的最大计数](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README.md)
@@ -54,6 +62,14 @@
 - [2516. 每种字符至少取 K 个](/solution/2500-2599/2516.Take%20K%20of%20Each%20Character%20From%20Left%20and%20Right/README.md)
 - [2517. 礼盒的最大甜蜜度](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md)
 - [2518. 好分区的数目](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md)
+
+
+#### 第 94 场双周赛(2022-12-24 22:30, 90 分钟) 参赛人数 2298
+
+- [2511. 最多可以摧毁的敌人城堡数目](/solution/2500-2599/2511.Maximum%20Enemy%20Forts%20That%20Can%20Be%20Captured/README.md)
+- [2512. 奖励最顶尖的 K 名学生](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md)
+- [2513. 最小化两个数组中的最大值](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README.md)
+- [2514. 统计同位异构字符串数目](/solution/2500-2599/2514.Count%20Anagrams/README.md)
 
 
 #### 第 324 场周赛(2022-12-18 10:30, 90 分钟) 参赛人数 4167

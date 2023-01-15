@@ -2583,3 +2583,8 @@
   - [2531.使字符串总不同字符的数目相等](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)
   - [2532.过桥的时间](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md)
   - [2533.Number of Good Binary Strings](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README.md)
+  - [2534.通过门的时间](/solution/2500-2599/2534.Time%20Taken%20to%20Cross%20the%20Door/README.md)
+  - [2535.数组元素和与数字和的绝对差](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README.md)
+  - [2536.子矩阵元素加 1](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README.md)
+  - [2537.统计好子数组的数目](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README.md)
+  - [2538.最大价值和与最小价值和的差值](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README.md)

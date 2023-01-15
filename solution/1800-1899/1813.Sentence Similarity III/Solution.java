@@ -15,6 +15,6 @@ class Solution {
         while (j < n && words1[m - 1 - j].equals(words2[n - 1 - j])) {
             ++j;
         }
-        return i == n || j == n || i + j >= n;
+        return i + j >= n;
     }
 }
