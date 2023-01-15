@@ -145,6 +145,67 @@ func wateringPlants(plants []int, capacity int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function wateringPlants(plants: number[], capacity: number): number {
+    const n = plants.length;
+    let ans = 0;
+    let water = capacity;
+    for (let i = 0; i < n; i++) {
+        if (water < plants[i]) {
+            ans += i * 2 + 1;
+            water = capacity - plants[i];
+        } else {
+            ans++;
+            water -= plants[i];
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn watering_plants(plants: Vec<i32>, capacity: i32) -> i32 {
+        let n = plants.len();
+        let mut ans = 0;
+        let mut water = capacity;
+        for i in 0..n {
+            if water < plants[i] {
+                ans += 2 * i + 1;
+                water = capacity - plants[i];
+            } else {
+                ans += 1;
+                water -= plants[i];
+            }
+        }
+        ans as i32
+    }
+}
+```
+
+### **C**
+
+```c
+int wateringPlants(int *plants, int plantsSize, int capacity) {
+    int ans = 0;
+    int water = capacity;
+    for (int i = 0; i < plantsSize; i++) {
+        if (water < plants[i]) {
+            ans += i * 2 + 1;
+            water = capacity - plants[i];
+        } else {
+            ans++;
+            water -= plants[i];
+        }
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
