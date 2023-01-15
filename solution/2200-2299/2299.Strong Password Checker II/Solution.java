@@ -3,23 +3,22 @@ class Solution {
         if (password.length() < 8) {
             return false;
         }
-        int ans = 0;
-        char prev = '.';
-        for (char c : password.toCharArray()) {
-            if (prev == c) {
+        int mask = 0;
+        for (int i = 0; i < password.length(); ++i) {
+            char c = password.charAt(i);
+            if (i > 0 && c == password.charAt(i - 1)) {
                 return false;
             }
-            prev = c;
             if (Character.isLowerCase(c)) {
-                ans |= 1;
+                mask |= 1;
             } else if (Character.isUpperCase(c)) {
-                ans |= 2;
+                mask |= 2;
             } else if (Character.isDigit(c)) {
-                ans |= 4;
+                mask |= 4;
             } else {
-                ans |= 8;
+                mask |= 8;
             }
         }
-        return ans == 15;
+        return mask == 15;
     }
 }

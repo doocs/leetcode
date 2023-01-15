@@ -54,7 +54,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：直接遍历判断**
+**方法一：模拟 + 位运算**
+
+根据题目描述，我们可以模拟检查密码是否满足题目要求的过程。
+
+首先，我们检查密码的长度是否小于 $8$，如果是，则返回 `false`。
+
+接下来，我们用一个掩码 `mask` 来记录密码是否包含小写字母、大写字母、数字和特殊字符。我们遍历密码，每次遍历到一个字符，先判断它是否和前一个字符相同，如果是，则返回 `false`。然后，根据字符的类型更新掩码 `mask`。最后，我们检查掩码 `mask` 是否为 $15$，如果是，则返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为密码的长度。
 
 <!-- tabs:start -->
 
@@ -67,19 +75,19 @@ class Solution:
     def strongPasswordCheckerII(self, password: str) -> bool:
         if len(password) < 8:
             return False
-        ans = 0
+        mask = 0
         for i, c in enumerate(password):
-            if i and password[i - 1] == c:
+            if i and c == password[i - 1]:
                 return False
             if c.islower():
-                ans |= 1
+                mask |= 1
             elif c.isupper():
-                ans |= 2
+                mask |= 2
             elif c.isdigit():
-                ans |= 4
+                mask |= 4
             else:
-                ans |= 8
-        return ans == 15
+                mask |= 8
+        return mask == 15
 ```
 
 ### **Java**
@@ -92,24 +100,23 @@ class Solution {
         if (password.length() < 8) {
             return false;
         }
-        int ans = 0;
-        char prev = '.';
-        for (char c : password.toCharArray()) {
-            if (prev == c) {
+        int mask = 0;
+        for (int i = 0; i < password.length(); ++i) {
+            char c = password.charAt(i);
+            if (i > 0 && c == password.charAt(i - 1)) {
                 return false;
             }
-            prev = c;
             if (Character.isLowerCase(c)) {
-                ans |= 1;
+                mask |= 1;
             } else if (Character.isUpperCase(c)) {
-                ans |= 2;
+                mask |= 2;
             } else if (Character.isDigit(c)) {
-                ans |= 4;
+                mask |= 4;
             } else {
-                ans |= 8;
+                mask |= 8;
             }
         }
-        return ans == 15;
+        return mask == 15;
     }
 }
 ```
@@ -120,22 +127,26 @@ class Solution {
 class Solution {
 public:
     bool strongPasswordCheckerII(string password) {
-        if (password.size() < 8) return false;
-        int ans = 0;
-        char prev = '.';
-        for (char& c : password) {
-            if (c == prev) return false;
-            prev = c;
-            if (c >= 'a' && c <= 'z')
-                ans |= 1;
-            else if (c >= 'A' && c <= 'Z')
-                ans |= 2;
-            else if (c >= '0' && c <= '9')
-                ans |= 4;
-            else
-                ans |= 8;
+        if (password.size() < 8) {
+            return false;
         }
-        return ans == 15;
+        int mask = 0;
+        for (int i = 0; i < password.size(); ++i) {
+            char c = password[i];
+            if (i && c == password[i - 1]) {
+                return false;
+            }
+            if (c >= 'a' && c <= 'z') {
+                mask |= 1;
+            } else if (c >= 'A' && c <= 'Z') {
+                mask |= 2;
+            } else if (c >= '0' && c <= '9') {
+                mask |= 4;
+            } else {
+                mask |= 8;
+            }
+        }
+        return mask == 15;
     }
 };
 ```
@@ -147,22 +158,22 @@ func strongPasswordCheckerII(password string) bool {
 	if len(password) < 8 {
 		return false
 	}
-	ans := 0
+	mask := 0
 	for i, c := range password {
-		if i > 0 && password[i] == password[i-1] {
+		if i > 0 && byte(c) == password[i-1] {
 			return false
 		}
 		if unicode.IsLower(c) {
-			ans |= 1
+			mask |= 1
 		} else if unicode.IsUpper(c) {
-			ans |= 2
+			mask |= 2
 		} else if unicode.IsDigit(c) {
-			ans |= 4
+			mask |= 4
 		} else {
-			ans |= 8
+			mask |= 8
 		}
 	}
-	return ans == 15
+	return mask == 15
 }
 ```
 
@@ -170,16 +181,26 @@ func strongPasswordCheckerII(password string) bool {
 
 ```ts
 function strongPasswordCheckerII(password: string): boolean {
-    if (password.length < 8) return false;
-    if (!/[a-z]+/g.test(password)) return false;
-    if (!/[A-Z]+/g.test(password)) return false;
-    if (!/[0-9]+/g.test(password)) return false;
-    if (!/[\!\@\#\$\%\^\&\*\(\)\-\+]+/g.test(password)) return false;
-    const n = password.length;
-    for (let i = 1; i < n; i++) {
-        if (password.charAt(i) == password.charAt(i - 1)) return false;
+    if (password.length < 8) {
+        return false;
     }
-    return true;
+    let mask = 0;
+    for (let i = 0; i < password.length; ++i) {
+        const c = password[i];
+        if (i && c == password[i - 1]) {
+            return false;
+        }
+        if (c >= 'a' && c <= 'z') {
+            mask |= 1;
+        } else if (c >= 'A' && c <= 'Z') {
+            mask |= 2;
+        } else if (c >= '0' && c <= '9') {
+            mask |= 4;
+        } else {
+            mask |= 8;
+        }
+    }
+    return mask == 15;
 }
 ```
 

@@ -2,16 +2,16 @@ class Solution:
     def strongPasswordCheckerII(self, password: str) -> bool:
         if len(password) < 8:
             return False
-        ans = 0
+        mask = 0
         for i, c in enumerate(password):
-            if i and password[i - 1] == c:
+            if i and c == password[i - 1]:
                 return False
             if c.islower():
-                ans |= 1
+                mask |= 1
             elif c.isupper():
-                ans |= 2
+                mask |= 2
             elif c.isdigit():
-                ans |= 4
+                mask |= 4
             else:
-                ans |= 8
-        return ans == 15
+                mask |= 8
+        return mask == 15

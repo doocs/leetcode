@@ -2,20 +2,20 @@ func strongPasswordCheckerII(password string) bool {
 	if len(password) < 8 {
 		return false
 	}
-	ans := 0
+	mask := 0
 	for i, c := range password {
-		if i > 0 && password[i] == password[i-1] {
+		if i > 0 && byte(c) == password[i-1] {
 			return false
 		}
 		if unicode.IsLower(c) {
-			ans |= 1
+			mask |= 1
 		} else if unicode.IsUpper(c) {
-			ans |= 2
+			mask |= 2
 		} else if unicode.IsDigit(c) {
-			ans |= 4
+			mask |= 4
 		} else {
-			ans |= 8
+			mask |= 8
 		}
 	}
-	return ans == 15
+	return mask == 15
 }

@@ -1,21 +1,25 @@
 class Solution {
 public:
     bool strongPasswordCheckerII(string password) {
-        if (password.size() < 8) return false;
-        int ans = 0;
-        char prev = '.';
-        for (char& c : password) {
-            if (c == prev) return false;
-            prev = c;
-            if (c >= 'a' && c <= 'z')
-                ans |= 1;
-            else if (c >= 'A' && c <= 'Z')
-                ans |= 2;
-            else if (c >= '0' && c <= '9')
-                ans |= 4;
-            else
-                ans |= 8;
+        if (password.size() < 8) {
+            return false;
         }
-        return ans == 15;
+        int mask = 0;
+        for (int i = 0; i < password.size(); ++i) {
+            char c = password[i];
+            if (i && c == password[i - 1]) {
+                return false;
+            }
+            if (c >= 'a' && c <= 'z') {
+                mask |= 1;
+            } else if (c >= 'A' && c <= 'Z') {
+                mask |= 2;
+            } else if (c >= '0' && c <= '9') {
+                mask |= 4;
+            } else {
+                mask |= 8;
+            }
+        }
+        return mask == 15;
     }
 };
