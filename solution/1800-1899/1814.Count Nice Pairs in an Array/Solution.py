@@ -8,8 +8,5 @@ class Solution:
             return y
 
         cnt = Counter(x - rev(x) for x in nums)
-        ans = 0
         mod = 10**9 + 7
-        for v in cnt.values():
-            ans = (ans + v * (v - 1) // 2) % mod
-        return ans
+        return sum(v * (v - 1) // 2 for v in cnt.values()) % mod

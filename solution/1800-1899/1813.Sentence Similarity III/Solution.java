@@ -1,9 +1,9 @@
 class Solution {
     public boolean areSentencesSimilar(String sentence1, String sentence2) {
-        String[] words1 = sentence1.split(" ");
-        String[] words2 = sentence2.split(" ");
+        var words1 = sentence1.split(" ");
+        var words2 = sentence2.split(" ");
         if (words1.length < words2.length) {
-            String[] t = words1;
+            var t = words1;
             words1 = words2;
             words2 = t;
         }

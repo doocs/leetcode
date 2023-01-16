@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool areSentencesSimilar(string sentence1, string sentence2) {
-        vector<string> words1 = split(sentence1, ' ');
-        vector<string> words2 = split(sentence2, ' ');
+        auto words1 = split(sentence1, ' ');
+        auto words2 = split(sentence2, ' ');
         if (words1.size() < words2.size()) {
             swap(words1, words2);
         }
