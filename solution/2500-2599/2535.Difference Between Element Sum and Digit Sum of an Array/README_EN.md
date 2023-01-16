@@ -120,6 +120,56 @@ func abs(x int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function differenceOfSum(nums: number[]): number {
+    return nums.reduce((r, v) => {
+        r += v;
+        while (v !== 0) {
+            r -= v % 10;
+            v = Math.floor(v / 10);
+        }
+        return r;
+    }, 0);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn difference_of_sum(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        for &num in nums.iter() {
+            let mut num = num;
+            ans += num;
+            while num != 0 {
+                ans -= num % 10;
+                num /= 10;
+            }
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int differenceOfSum(int *nums, int numsSize) {
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        ans += nums[i];
+        while (nums[i]) {
+            ans -= nums[i] % 10;
+            nums[i] /= 10;
+        }
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
