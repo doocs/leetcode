@@ -43,11 +43,51 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 状态压缩 + 记忆化搜索**
+
+题目实际上要我们找到一种安排顺序，使得前缀和（这里指的是“人数”）与 $batchSize$ 取模后为 $0$ 的组数最多。因此，我们可以将所有顾客按组分成两类：
+
+-   人数为 $batchSize$ 的整数倍的顾客，这些顾客不会对下一组顾客的甜甜圈产生影响，我们可以贪心地优先安排这些组的顾客，那么这些组的顾客都会感到开心，“初始答案”为这些组的数量；
+-   人数不为 $batchSize$ 的整数倍的顾客，这些顾客的安排顺序会影响下一组顾客的甜甜圈。我们可以对这里每一组的人数 $v$ 模 $batchSize$，得到的这些余数构成一个集合，集合中的元素值范围是 $[1,2...,batchSize-1]$。数组 $groups$ 的长度最大为 $30$，因此，每个余数的数量最大不超过 $30$。我们可以用 $5$ 个二进制位来表示一个余数的数量，而 $batchSize$ 最大为 $9$，那么表示这些余数以及对应的数量总共需要的二进制位就是 $5\times (9-1)=40$。我们可以用一个 $64$ 位整数 $state$ 来表示。
+
+接下来，我们设计一个函数 $dfs(state, mod)$，表示安排状态为 $state$，且当前前缀余数为 $mod$ 时，能使得多少组感到开心。那么我们在“初始答案”加上 $dfs(state, 0)$，即为最终答案。
+
+函数 $dfs(state, mod)$ 的实现逻辑如下：
+
+我们枚举 $1$ 到 $batchSize-1$ 的每一个余数 $i$，如果余数 $i$ 的数量不为 $0$，那么我们可以将余数 $i$ 的数量减去 $1$，将当前前缀余数加上 $i$ 并且对 $batchSize$ 取模，然后递归调用函数 $dfs$，求出子状态的最优解，取最大值即可。最后判断 $mod$ 是否为 $0$，如果为 $0$，我们在最大值上加 $1$ 后返回，否则直接返回最大值。
+
+过程中，我们可以使用记忆化搜索来避免状态的重复计算。
+
+时间复杂度不超过 $O(10^7)$，空间复杂度不超过 $O(10^6)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+        @cache
+        def dfs(state, mod):
+            res = 0
+            x = int(mod == 0)
+            for i in range(1, batchSize):
+                if state >> (i * 5) & 31:
+                    t = dfs(state - (1 << (i * 5)), (mod + i) % batchSize)
+                    res = max(res, t + x)
+            return res
+
+        state = ans = 0
+        for v in groups:
+            i = v % batchSize
+            ans += i == 0
+            if i:
+                state += 1 << (i * 5)
+        ans += dfs(state, 0)
+        return ans
+```
 
 ```python
 class Solution:
@@ -75,7 +115,123 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Map<Long, Integer> f = new HashMap<>();
+    private int size;
 
+    public int maxHappyGroups(int batchSize, int[] groups) {
+        size = batchSize;
+        int ans = 0;
+        long state = 0;
+        for (int g : groups) {
+            int i = g % size;
+            if (i == 0) {
+                ++ans;
+            } else {
+                state += 1l << (i * 5);
+            }
+        }
+        ans += dfs(state, 0);
+        return ans;
+    }
+
+    private int dfs(long state, int mod) {
+        if (f.containsKey(state)) {
+            return f.get(state);
+        }
+        int res = 0;
+        for (int i = 1; i < size; ++i) {
+            if ((state >> (i * 5) & 31) != 0) {
+                int t = dfs(state - (1l << (i * 5)), (mod + i) % size);
+                res = Math.max(res, t + (mod == 0 ? 1 : 0));
+            }
+        }
+        f.put(state, res);
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxHappyGroups(int batchSize, vector<int>& groups) {
+        using ll = long long;
+        unordered_map<ll, int> f;
+        ll state = 0;
+        int ans = 0;
+        for (auto& v : groups) {
+            int i = v % batchSize;
+            ans += i == 0;
+            if (i) {
+                state += 1ll << (i * 5);
+            }
+        }
+        function<int(ll, int)> dfs = [&](ll state, int mod) {
+            if (f.count(state)) {
+                return f[state];
+            }
+            int res = 0;
+            int x = mod == 0;
+            for (int i = 1; i < batchSize; ++i) {
+                if (state >> (i * 5) & 31) {
+                    int t = dfs(state - (1ll << (i * 5)), (mod + i) % batchSize);
+                    res = max(res, t + x);
+                }
+            }
+            return f[state] = res;
+        };
+        ans += dfs(state, 0);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxHappyGroups(batchSize int, groups []int) (ans int) {
+	state := 0
+	for _, v := range groups {
+		i := v % batchSize
+		if i == 0 {
+			ans++
+		} else {
+			state += 1 << (i * 5)
+		}
+	}
+	f := map[int]int{}
+	var dfs func(int, int) int
+	dfs = func(state, mod int) int {
+		if v, ok := f[state]; ok {
+			return v
+		}
+		res := 0
+		x := 0
+		if mod == 0 {
+			x = 1
+		}
+		for i := 1; i < batchSize; i++ {
+			if state>>(i*5)&31 != 0 {
+				t := dfs(state-1<<(i*5), (mod+i)%batchSize)
+				res = max(res, t+x)
+			}
+		}
+		f[state] = res
+		return res
+	}
+	ans += dfs(state, 0)
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
