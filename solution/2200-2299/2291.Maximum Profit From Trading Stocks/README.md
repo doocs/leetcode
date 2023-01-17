@@ -53,7 +53,18 @@
 
 **方法一：动态规划**
 
-$0-1$ 背包问题。
+我们定义 $f[i][j]$ 表示前 $i$ 支股票，预算为 $j$ 时的最大收益。那么答案就是 $f[n][budget]$。
+
+对于第 $i$ 支股票，我们有两种选择：
+
+-   不购买，那么 $f[i][j] = f[i - 1][j]$；
+-   购买，那么 $f[i][j] = f[i - 1][j - present[i]] + future[i] - present[i]$。
+
+最后返回 $f[n][budget]$ 即可。
+
+时间复杂度 $O(n \times budget)$，空间复杂度 $O(n \times budget)$。其中 $n$ 为数组长度。
+
+我们可以发现，对于每一行，我们只需要用到上一行的值，因此可以将空间复杂度优化到 $O(budget)$。
 
 <!-- tabs:start -->
 
@@ -64,12 +75,23 @@ $0-1$ 背包问题。
 ```python
 class Solution:
     def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
-        arr = [(a, b - a) for a, b in zip(present, future) if b > a]
-        dp = [0] * (budget + 1)
-        for v, w in arr:
-            for j in range(budget, v - 1, -1):
-                dp[j] = max(dp[j], dp[j - v] + w)
-        return dp[-1]
+        f = [[0] * (budget + 1) for _ in range(len(present) + 1)]
+        for i, w in enumerate(present, 1):
+            for j in range(budget + 1):
+                f[i][j] = f[i - 1][j]
+                if j >= w and future[i - 1] > w:
+                    f[i][j] = max(f[i][j], f[i - 1][j - w] + future[i - 1] - w)
+        return f[-1][-1]
+```
+
+```python
+class Solution:
+    def maximumProfit(self, present: List[int], future: List[int], budget: int) -> int:
+        f = [0] * (budget + 1)
+        for a, b in zip(present, future):
+            for j in range(budget, a - 1, -1):
+                f[j] = max(f[j], f[j - a] + b - a)
+        return f[-1]
 ```
 
 ### **Java**
@@ -79,21 +101,121 @@ class Solution:
 ```java
 class Solution {
     public int maximumProfit(int[] present, int[] future, int budget) {
-        List<int[]> arr = new ArrayList<>();
-        for (int i = 0; i < present.length; ++i) {
-            if (future[i] > present[i]) {
-                arr.add(new int[] {present[i], future[i] - present[i]});
+        int n = present.length;
+        int[][] f = new int[n + 1][budget + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= budget; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= present[i - 1]) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j - present[i - 1]] + future[i - 1] - present[i - 1]);
+                }
             }
         }
-        int[] dp = new int[budget + 1];
-        for (int[] e : arr) {
-            int v = e[0], w = e[1];
-            for (int j = budget; j >= v; --j) {
-                dp[j] = Math.max(dp[j], dp[j - v] + w);
-            }
-        }
-        return dp[budget];
+        return f[n][budget];
     }
+}
+```
+
+```java
+class Solution {
+    public int maximumProfit(int[] present, int[] future, int budget) {
+        int n = present.length;
+        int[] f = new int[budget + 1];
+        for (int i = 0; i < n; ++i) {
+            int a = present[i], b = future[i];
+            for (int j = budget; j >= a; --j) {
+                f[j] = Math.max(f[j], f[j - a] + b - a);
+            }
+        }
+        return f[budget];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumProfit(vector<int>& present, vector<int>& future, int budget) {
+        int n = present.size();
+        int f[n + 1][budget + 1];
+        memset(f, 0, sizeof f);
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= budget; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= present[i - 1]) {
+                    f[i][j] = max(f[i][j], f[i - 1][j - present[i - 1]] + future[i - 1] - present[i - 1]);
+                }
+            }
+        }
+        return f[n][budget];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maximumProfit(vector<int>& present, vector<int>& future, int budget) {
+        int n = present.size();
+        int f[budget + 1];
+        memset(f, 0, sizeof f);
+        for (int i = 0; i < n; ++i) {
+            int a = present[i], b = future[i];
+            for (int j = budget; j >= a; --j) {
+                f[j] = max(f[j], f[j - a] + b - a);
+            }
+        }
+        return f[budget];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumProfit(present []int, future []int, budget int) int {
+	n := len(present)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, budget+1)
+	}
+	for i := 1; i <= n; i++ {
+		for j := 0; j <= budget; j++ {
+			f[i][j] = f[i-1][j]
+			if j >= present[i-1] {
+				f[i][j] = max(f[i][j], f[i-1][j-present[i-1]]+future[i-1]-present[i-1])
+			}
+		}
+	}
+	return f[n][budget]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maximumProfit(present []int, future []int, budget int) int {
+	f := make([]int, budget+1)
+	for i, a := range present {
+		for j := budget; j >= a; j-- {
+			f[j] = max(f[j], f[j-a]+future[i]-a)
+		}
+	}
+	return f[budget]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -105,60 +227,14 @@ function maximumProfit(
     future: number[],
     budget: number,
 ): number {
-    let packet = present.map((v, i) => [v, future[i] - v]);
-    let dp = new Array(budget + 1).fill(0);
-    for (let [v, w] of packet) {
-        for (let j = budget; j >= v; j--) {
-            dp[j] = Math.max(dp[j], dp[j - v] + w);
+    const f = new Array(budget + 1).fill(0);
+    for (let i = 0; i < present.length; ++i) {
+        const [a, b] = [present[i], future[i]];
+        for (let j = budget; j >= a; --j) {
+            f[j] = Math.max(f[j], f[j - a] + b - a);
         }
     }
-    return dp[budget];
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumProfit(vector<int>& present, vector<int>& future, int budget) {
-        int n = present.size();
-        vector<int> dp(budget + 1);
-        for (int i = 0; i < n; i++) {
-            for (int j = budget; j >= present[i]; j--) {
-                dp[j] = max(dp[j], dp[j - present[i]] + future[i] - present[i]);
-            }
-        }
-        return dp.back();
-    }
-};
-```
-
-### **Go**
-
-```go
-func maximumProfit(present []int, future []int, budget int) int {
-	arr := [][]int{}
-	for i, v := range present {
-		if future[i] > v {
-			arr = append(arr, []int{v, future[i] - v})
-		}
-	}
-	dp := make([]int, budget+1)
-	for _, e := range arr {
-		v, w := e[0], e[1]
-		for j := budget; j >= v; j-- {
-			dp[j] = max(dp[j], dp[j-v]+w)
-		}
-	}
-	return dp[budget]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+    return f[budget];
 }
 ```
 

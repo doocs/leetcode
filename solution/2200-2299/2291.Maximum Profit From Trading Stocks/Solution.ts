@@ -3,12 +3,12 @@ function maximumProfit(
     future: number[],
     budget: number,
 ): number {
-    let packet = present.map((v, i) => [v, future[i] - v]);
-    let dp = new Array(budget + 1).fill(0);
-    for (let [v, w] of packet) {
-        for (let j = budget; j >= v; j--) {
-            dp[j] = Math.max(dp[j], dp[j - v] + w);
+    const f = new Array(budget + 1).fill(0);
+    for (let i = 0; i < present.length; ++i) {
+        const [a, b] = [present[i], future[i]];
+        for (let j = budget; j >= a; --j) {
+            f[j] = Math.max(f[j], f[j - a] + b - a);
         }
     }
-    return dp[budget];
+    return f[budget];
 }
