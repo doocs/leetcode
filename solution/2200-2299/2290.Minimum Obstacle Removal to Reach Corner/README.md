@@ -62,11 +62,11 @@
 
 本题实际上也是最短路模型，只不过求解的是移除障碍物的最小数目。
 
-在一个边权只有 $0$、$1$ 的无向图中搜索最短路径可以使用双端队列进行 $BFS$。其原理是当前可以扩展到的点的权重为 $0$ 时，将其加入队首；权重为 $1$ 时，将其加入队尾。
+在一个边权只有 $0$, $1$ 的无向图中搜索最短路径可以使用双端队列进行 $BFS$。其原理是当前可以扩展到的点的权重为 $0$ 时，将其加入队首；权重为 $1$ 时，将其加入队尾。
 
 > 如果某条边权值为 $0$，那么新拓展出的节点权值就和当前队首节点权值相同，显然可以作为下一次拓展的起点。
 
-时间复杂度 $O(m*n)$，其中 $m$ 表示 $grid$ 行数，$n$ 表示 $grid$ 列数。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 相似题目：[1368. 使网格图至少有一条有效路径的最小代价](/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README.md)
 
@@ -79,24 +79,24 @@
 ```python
 class Solution:
     def minimumObstacles(self, grid: List[List[int]]) -> int:
-        q = deque([(0, 0, 0)])
         m, n = len(grid), len(grid[0])
+        q = deque([(0, 0, 0)])
         vis = set()
-        while q:
+        dirs = (-1, 0, 1, 0, -1)
+        while 1:
             i, j, k = q.popleft()
             if i == m - 1 and j == n - 1:
                 return k
             if (i, j) in vis:
                 continue
             vis.add((i, j))
-            for a, b in ((0, -1), (0, 1), (-1, 0), (1, 0)):
+            for a, b in pairwise(dirs):
                 x, y = i + a, j + b
                 if 0 <= x < m and 0 <= y < n:
                     if grid[x][y] == 0:
                         q.appendleft((x, y, k))
                     else:
                         q.append((x, y, k + 1))
-        return 0
 ```
 
 ### **Java**
@@ -106,14 +106,13 @@ class Solution:
 ```java
 class Solution {
     public int minimumObstacles(int[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
+        int m = grid.length, n = grid[0].length;
         Deque<int[]> q = new ArrayDeque<>();
         q.offer(new int[] {0, 0, 0});
         int[] dirs = {-1, 0, 1, 0, -1};
         boolean[][] vis = new boolean[m][n];
-        while (!q.isEmpty()) {
-            int[] p = q.poll();
+        while (true) {
+            var p = q.poll();
             int i = p[0], j = p[1], k = p[2];
             if (i == m - 1 && j == n - 1) {
                 return k;
@@ -122,19 +121,17 @@ class Solution {
                 continue;
             }
             vis[i][j] = true;
-            for (int o = 0; o < 4; ++o) {
-                int x = i + dirs[o], y = j + dirs[o + 1];
+            for (int h = 0; h < 4; ++h) {
+                int x = i + dirs[h], y = j + dirs[h + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n) {
                     if (grid[x][y] == 0) {
                         q.offerFirst(new int[] {x, y, k});
-                    }
-                    if (grid[x][y] == 1) {
+                    } else {
                         q.offerLast(new int[] {x, y, k + 1});
                     }
                 }
             }
         }
-        return 0;
     }
 }
 ```
@@ -146,26 +143,31 @@ class Solution {
 public:
     int minimumObstacles(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        deque<tuple<int, int, int>> q {{0, 0, 0}};
-        vector<vector<bool>> vis(m, vector<bool>(n));
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty()) {
+        deque<tuple<int, int, int>> q{{0, 0, 0}};
+        bool vis[m][n];
+        memset(vis, 0, sizeof vis);
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        while (1) {
             auto [i, j, k] = q.front();
             q.pop_front();
-            if (i == m - 1 && j == n - 1) return k;
-            if (vis[i][j]) continue;
+            if (i == m - 1 && j == n - 1) {
+                return k;
+            }
+            if (vis[i][j]) {
+                continue;
+            }
             vis[i][j] = true;
-            for (int o = 0; o < 4; ++o) {
-                int x = i + dirs[o], y = j + dirs[o + 1];
+            for (int h = 0; h < 4; ++h) {
+                int x = i + dirs[h], y = j + dirs[h + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n) {
-                    if (grid[x][y] == 0)
+                    if (grid[x][y] == 0) {
                         q.push_front({x, y, k});
-                    else
+                    } else {
                         q.push_back({x, y, k + 1});
+                    }
                 }
             }
         }
-        return 0;
     }
 };
 ```
@@ -176,17 +178,18 @@ public:
 func minimumObstacles(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
 	q := doublylinkedlist.New()
-	q.Add([]int{0, 0, 0})
+	type tuple struct{ i, j, k int }
+	q.Add(tuple{0, 0, 0})
 	vis := make([][]bool, m)
 	for i := range vis {
 		vis[i] = make([]bool, n)
 	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for !q.Empty() {
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	for {
 		v, _ := q.Get(0)
-		p := v.([]int)
+		p := v.(tuple)
 		q.Remove(0)
-		i, j, k := p[0], p[1], p[2]
+		i, j, k := p.i, p.j, p.k
 		if i == m-1 && j == n-1 {
 			return k
 		}
@@ -194,18 +197,17 @@ func minimumObstacles(grid [][]int) int {
 			continue
 		}
 		vis[i][j] = true
-		for o := 0; o < 4; o++ {
-			x, y := i+dirs[o], j+dirs[o+1]
+		for h := 0; h < 4; h++ {
+			x, y := i+dirs[h], j+dirs[h+1]
 			if x >= 0 && x < m && y >= 0 && y < n {
 				if grid[x][y] == 0 {
-					q.Insert(0, []int{x, y, k})
+					q.Insert(0, tuple{x, y, k})
 				} else {
-					q.Add([]int{x, y, k + 1})
+					q.Add(tuple{x, y, k + 1})
 				}
 			}
 		}
 	}
-	return 0
 }
 ```
 

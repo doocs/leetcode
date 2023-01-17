@@ -47,7 +47,7 @@
 
 **方法一：式子变换 + 哈希表**
 
-对于下标对 $(i, j)$，如果满足条件，那么有 $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$，即 $nums[i] - rev(nums[i]) = nums[j] - rev(nums[j])$。移项后，有 $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$。
+对于下标对 $(i, j)$，如果满足条件，那么有 $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$，即 $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$。
 
 因此，我们可以将 $nums[i] - rev(nums[i])$ 作为哈希表的键，统计每个键出现的次数。最后计算每个键对应的值的组合数，相加得到最终的答案。
 
@@ -194,8 +194,7 @@ public:
         const int mod = 1e9 + 7;
         for (int& x : nums) {
             int y = x - rev(x);
-            ans = (ans + cnt[y]) % mod;
-            cnt[y]++;
+            ans = (ans + cnt[y]++) % mod;
         }
         return ans;
     }

@@ -176,8 +176,7 @@ public:
         const int mod = 1e9 + 7;
         for (int& x : nums) {
             int y = x - rev(x);
-            ans = (ans + cnt[y]) % mod;
-            cnt[y]++;
+            ans = (ans + cnt[y]++) % mod;
         }
         return ans;
     }
