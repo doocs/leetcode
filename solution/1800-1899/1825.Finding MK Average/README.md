@@ -69,11 +69,11 @@ obj.calculateMKAverage(); // 最后 3 个元素为 [5,5,5]
 
 **方法一：有序集合 + 队列**
 
-在本题中，我们需要维护的数据结构或变量有：
+我们可以维护以下数据结构或变量：
 
--   一个长度为 $m$ 的队列 $q$，其中队首元素为最早加入的元素，队尾元素为最近加入的元素
+-   一个长度为 $m$ 的队列 $q$，其中队首元素为最早加入的元素，队尾元素为最近加入的元素；
 -   三个有序集合，分别为 $lo$, $mid$, $hi$，其中 $lo$ 和 $hi$ 分别存储最小的 $k$ 个元素和最大的 $k$ 个元素，而 $mid$ 存储剩余的元素；
--   一个变量 $s$，维护 $mid$ 中所有元素的和。
+-   一个变量 $s$，维护 $mid$ 中所有元素的和；
 -   部分编程语言（如 Java, Go）额外维护两个变量 $size1$ 和 $size3$，分别表示 $lo$ 和 $hi$ 中元素的个数。
 
 调用 $addElement(num)$ 函数时，顺序执行以下操作：
@@ -147,6 +147,54 @@ class MKAverage:
 
     def calculateMKAverage(self) -> int:
         return -1 if len(self.q) < self.m else self.s // (self.m - 2 * self.k)
+
+
+# Your MKAverage object will be instantiated and called as such:
+# obj = MKAverage(m, k)
+# obj.addElement(num)
+# param_2 = obj.calculateMKAverage()
+```
+
+```python
+from sortedcontainers import SortedList
+
+
+class MKAverage:
+
+    def __init__(self, m: int, k: int):
+        self.m = m
+        self.k = k
+        self.sl = SortedList()
+        self.q = deque()
+        self.s = 0
+
+    def addElement(self, num: int) -> None:
+        self.q.append(num)
+        if len(self.q) == self.m:
+            self.sl = SortedList(self.q)
+            self.s = sum(self.sl[self.k: -self.k])
+        elif len(self.q) > self.m:
+            i = self.sl.bisect_left(num)
+            if i < self.k:
+                self.s += self.sl[self.k - 1]
+            elif self.k <= i <= self.m - self.k:
+                self.s += num
+            else:
+                self.s += self.sl[self.m - self.k]
+            self.sl.add(num)
+
+            x = self.q.popleft()
+            i = self.sl.bisect_left(x)
+            if i < self.k:
+                self.s -= self.sl[self.k]
+            elif self.k <= i <= self.m - self.k:
+                self.s -= x
+            else:
+                self.s -= self.sl[self.m - self.k]
+            self.sl.remove(x)
+
+    def calculateMKAverage(self) -> int:
+        return -1 if len(self.sl) < self.m else self.s // (self.m - self.k * 2)
 
 
 # Your MKAverage object will be instantiated and called as such:
