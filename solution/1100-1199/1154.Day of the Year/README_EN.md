@@ -40,10 +40,10 @@
 ```python
 class Solution:
     def dayOfYear(self, date: str) -> int:
-        year, month, day = (int(e) for e in date.split('-'))
-        d = 29 if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0) else 28
-        days = [31, d, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        return sum(days[: month - 1]) + day
+        y, m, d = (int(s) for s in date.split('-'))
+        v = 29 if y % 400 == 0 or (y % 4 == 0 and y % 100) else 28
+        days = [31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        return sum(days[:m-1]) + d
 ```
 
 ### **Java**
@@ -51,13 +51,13 @@ class Solution:
 ```java
 class Solution {
     public int dayOfYear(String date) {
-        int year = Integer.parseInt(date.substring(0, 4));
-        int month = Integer.parseInt(date.substring(5, 7));
-        int day = Integer.parseInt(date.substring(8));
-        int d = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) ? 29 : 28;
-        int[] days = new int[] {31, d, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        int ans = day;
-        for (int i = 0; i < month - 1; ++i) {
+        int y = Integer.parseInt(date.substring(0, 4));
+        int m = Integer.parseInt(date.substring(5, 7));
+        int d = Integer.parseInt(date.substring(8));
+        int v = y % 400 == 0 || (y % 4 == 0 && y % 100 != 0) ? 29 : 28;
+        int[] days = {31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int ans = d;
+        for (int i = 0; i < m - 1; ++i) {
             ans += days[i];
         }
         return ans;
@@ -71,13 +71,15 @@ class Solution {
 class Solution {
 public:
     int dayOfYear(string date) {
-        int year = stoi(date.substr(0, 4));
-        int month = stoi(date.substr(5, 7));
-        int day = stoi(date.substr(8));
-        int d = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) ? 29 : 28;
-        int days[] = {31, d, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        int ans = day;
-        for (int i = 0; i < month - 1; ++i) ans += days[i];
+        int y = stoi(date.substr(0, 4));
+        int m = stoi(date.substr(5, 2));
+        int d = stoi(date.substr(8));
+        int v = y % 400 == 0 || (y % 4 == 0 && y % 100) ? 29 : 28;
+        int days[] = {31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int ans = d;
+        for (int i = 0; i < m - 1; ++i) {
+            ans += days[i];
+        }
         return ans;
     }
 };
@@ -86,19 +88,19 @@ public:
 ### **Go**
 
 ```go
-func dayOfYear(date string) int {
-	year, _ := strconv.Atoi(date[:4])
-	month, _ := strconv.Atoi(date[5:7])
-	day, _ := strconv.Atoi(date[8:])
+func dayOfYear(date string) (ans int) {
+	y, _ := strconv.Atoi(date[:4])
+	m, _ := strconv.Atoi(date[5:7])
+	d, _ := strconv.Atoi(date[8:])
 	days := []int{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
-	if year%400 == 0 || (year%4 == 0 && year%100 != 0) {
-		days[1]++
+	if y%400 == 0 || (y%4 == 0 && y%100 != 0) {
+		days[1] = 29
 	}
-	ans := day
-	for i := 0; i < month-1; i++ {
-		ans += days[i]
+	ans += d
+	for _, v := range days[:m-1] {
+		ans += v
 	}
-	return ans
+	return
 }
 ```
 
@@ -110,17 +112,12 @@ func dayOfYear(date string) int {
  * @return {number}
  */
 var dayOfYear = function (date) {
-    const year = +date.slice(0, 4);
-    const month = +date.slice(5, 7);
-    const day = +date.slice(8);
-    const d =
-        year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0) ? 29 : 28;
-    const days = [31, d, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    let ans = day;
-    for (let i = 0; i < month - 1; ++i) {
-        ans += days[i];
-    }
-    return ans;
+    const y = +date.slice(0, 4);
+    const m = +date.slice(5, 7);
+    const d = +date.slice(8);
+    const v = y % 400 == 0 || (y % 4 == 0 && y % 100) ? 29 : 28;
+    const days = [31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    return days.slice(0, m - 1).reduce((a, b) => a + b, d);
 };
 ```
 
