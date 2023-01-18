@@ -1,17 +1,16 @@
 class Solution {
     public int[] countPoints(int[][] points, int[][] queries) {
-        int[] ans = new int[queries.length];
-        int i = 0;
-        for (int[] query : queries) {
-            int x0 = query[0], y0 = query[1], r = query[2];
-            for (int[] point : points) {
-                int x = point[0], y = point[1];
-                int dx = x - x0, dy = y - y0;
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int k = 0; k < m; ++k) {
+            int x = queries[k][0], y = queries[k][1], r = queries[k][2];
+            for (var p : points) {
+                int i = p[0], j = p[1];
+                int dx = i - x, dy = j - y;
                 if (dx * dx + dy * dy <= r * r) {
-                    ++ans[i];
+                    ++ans[k];
                 }
             }
-            ++i;
         }
         return ans;
     }

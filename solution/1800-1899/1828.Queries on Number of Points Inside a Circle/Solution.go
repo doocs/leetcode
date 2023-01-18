@@ -1,14 +1,15 @@
-func countPoints(points [][]int, queries [][]int) []int {
-	ans := make([]int, len(queries))
-	for i, query := range queries {
-		x0, y0, r := query[0], query[1], query[2]
-		for _, point := range points {
-			x, y := point[0], point[1]
-			dx, dy := x-x0, y-y0
+func countPoints(points [][]int, queries [][]int) (ans []int) {
+	for _, q := range queries {
+		x, y, r := q[0], q[1], q[2]
+		cnt := 0
+		for _, p := range points {
+			i, j := p[0], p[1]
+			dx, dy := i-x, j-y
 			if dx*dx+dy*dy <= r*r {
-				ans[i]++
+				cnt++
 			}
 		}
+		ans = append(ans, cnt)
 	}
-	return ans
+	return
 }

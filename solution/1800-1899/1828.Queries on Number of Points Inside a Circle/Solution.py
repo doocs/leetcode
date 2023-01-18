@@ -3,11 +3,10 @@ class Solution:
         self, points: List[List[int]], queries: List[List[int]]
     ) -> List[int]:
         ans = []
-        for x0, y0, r in queries:
-            count = 0
-            for x, y in points:
-                dx, dy = x - x0, y - y0
-                if dx * dx + dy * dy <= r * r:
-                    count += 1
-            ans.append(count)
+        for x, y, r in queries:
+            cnt = 0
+            for i, j in points:
+                dx, dy = i - x, j - y
+                cnt += dx * dx + dy * dy <= r * r
+            ans.append(cnt)
         return ans

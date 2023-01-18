@@ -60,13 +60,12 @@ class Solution:
         self, points: List[List[int]], queries: List[List[int]]
     ) -> List[int]:
         ans = []
-        for x0, y0, r in queries:
-            count = 0
-            for x, y in points:
-                dx, dy = x - x0, y - y0
-                if dx * dx + dy * dy <= r * r:
-                    count += 1
-            ans.append(count)
+        for x, y, r in queries:
+            cnt = 0
+            for i, j in points:
+                dx, dy = i - x, j - y
+                cnt += dx * dx + dy * dy <= r * r
+            ans.append(cnt)
         return ans
 ```
 
@@ -75,18 +74,17 @@ class Solution:
 ```java
 class Solution {
     public int[] countPoints(int[][] points, int[][] queries) {
-        int[] ans = new int[queries.length];
-        int i = 0;
-        for (int[] query : queries) {
-            int x0 = query[0], y0 = query[1], r = query[2];
-            for (int[] point : points) {
-                int x = point[0], y = point[1];
-                int dx = x - x0, dy = y - y0;
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int k = 0; k < m; ++k) {
+            int x = queries[k][0], y = queries[k][1], r = queries[k][2];
+            for (var p : points) {
+                int i = p[0], j = p[1];
+                int dx = i - x, dy = j - y;
                 if (dx * dx + dy * dy <= r * r) {
-                    ++ans[i];
+                    ++ans[k];
                 }
             }
-            ++i;
         }
         return ans;
     }
@@ -100,17 +98,15 @@ class Solution {
 public:
     vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
         vector<int> ans;
-        for (auto& query : queries) {
-            int x0 = query[0], y0 = query[1], r = query[2];
-            int count = 0;
-            for (auto& point : points) {
-                int x = point[0], y = point[1];
-                int dx = x - x0, dy = y - y0;
-                if (dx * dx + dy * dy <= r * r) {
-                    ++count;
-                }
+        for (auto& q : queries) {
+            int x = q[0], y = q[1], r = q[2];
+            int cnt = 0;
+            for (auto& p : points) {
+                int i = p[0], j = p[1];
+                int dx = i - x, dy = j - y;
+                cnt += dx * dx + dy * dy <= r * r;   
             }
-            ans.push_back(count);
+            ans.emplace_back(cnt);
         }
         return ans;
     }
@@ -120,19 +116,20 @@ public:
 ### **Go**
 
 ```go
-func countPoints(points [][]int, queries [][]int) []int {
-	ans := make([]int, len(queries))
-	for i, query := range queries {
-		x0, y0, r := query[0], query[1], query[2]
-		for _, point := range points {
-			x, y := point[0], point[1]
-			dx, dy := x-x0, y-y0
+func countPoints(points [][]int, queries [][]int) (ans []int) {
+	for _, q := range queries {
+		x, y, r := q[0], q[1], q[2]
+		cnt := 0
+		for _, p := range points {
+			i, j := p[0], p[1]
+			dx, dy := i-x, j-y
 			if dx*dx+dy*dy <= r*r {
-				ans[i]++
+				cnt++
 			}
 		}
+		ans = append(ans, cnt)
 	}
-	return ans
+	return
 }
 ```
 

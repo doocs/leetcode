@@ -2,17 +2,15 @@ class Solution {
 public:
     vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
         vector<int> ans;
-        for (auto& query : queries) {
-            int x0 = query[0], y0 = query[1], r = query[2];
-            int count = 0;
-            for (auto& point : points) {
-                int x = point[0], y = point[1];
-                int dx = x - x0, dy = y - y0;
-                if (dx * dx + dy * dy <= r * r) {
-                    ++count;
-                }
+        for (auto& q : queries) {
+            int x = q[0], y = q[1], r = q[2];
+            int cnt = 0;
+            for (auto& p : points) {
+                int i = p[0], j = p[1];
+                int dx = i - x, dy = j - y;
+                cnt += dx * dx + dy * dy <= r * r;   
             }
-            ans.push_back(count);
+            ans.emplace_back(cnt);
         }
         return ans;
     }
