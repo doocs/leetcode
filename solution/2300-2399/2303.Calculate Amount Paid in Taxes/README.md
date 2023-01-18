@@ -70,6 +70,10 @@
 
 **方法一：模拟**
 
+遍历 `brackets`，对于每个税级，计算该税级的税额，然后累加即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `brackets` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,18 +83,11 @@
 ```python
 class Solution:
     def calculateTax(self, brackets: List[List[int]], income: int) -> float:
-        ans = idx = 0
-        prev = 0
-        while income:
-            a, b = brackets[idx]
-            d = a - prev
-            ans += min(d, income) * b / 100
-            if income <= d:
-                break
-            income -= d
-            idx += 1
-            prev = a
-        return ans
+        ans = prev = 0
+        for upper, percent in brackets:
+            ans += max(0, min(income, upper) - prev) * percent
+            prev = upper
+        return ans / 100
 ```
 
 ### **Java**
@@ -100,20 +97,13 @@ class Solution:
 ```java
 class Solution {
     public double calculateTax(int[][] brackets, int income) {
-        double ans = 0;
-        int idx = 0, prev = 0;
-        while (income > 0) {
-            int a = brackets[idx][0], b = brackets[idx][1];
-            int d = a - prev;
-            ans += Math.min(d, income) * b / 100.0;
-            if (income <= d) {
-                break;
-            }
-            income -= d;
-            ++idx;
-            prev = a;
+        int ans = 0, prev = 0;
+        for (var e : brackets) {
+            int upper = e[0], percent = e[1];
+            ans += Math.max(0, Math.min(income, upper) - prev) * percent;
+            prev = upper;
         }
-        return ans;
+        return ans / 100.0;
     }
 }
 ```
@@ -124,18 +114,13 @@ class Solution {
 class Solution {
 public:
     double calculateTax(vector<vector<int>>& brackets, int income) {
-        double ans = 0;
-        int idx = 0, prev = 0;
-        while (income) {
-            int a = brackets[idx][0], b = brackets[idx][1];
-            int d = a - prev;
-            ans += min(d, income) * b / 100.0;
-            if (income <= d) break;
-            income -= d;
-            ++idx;
-            prev = a;
+        int ans = 0, prev = 0;
+        for (auto& e : brackets) {
+            int upper = e[0], percent = e[1];
+            ans += max(0, min(income, upper) - prev) * percent;
+            prev = upper;
         }
-        return ans;
+        return ans / 100.0;
     }
 };
 ```
@@ -144,20 +129,20 @@ public:
 
 ```go
 func calculateTax(brackets [][]int, income int) float64 {
-	var ans float64
-	idx, prev := 0, 0
-	for income > 0 {
-		a, b := brackets[idx][0], brackets[idx][1]
-		d := a - prev
-		ans += float64(min(d, income)*b) / 100.0
-		if income <= d {
-			break
-		}
-		income -= d
-		idx++
-		prev = a
+	var ans, prev int
+	for _, e := range brackets {
+		upper, percent := e[0], e[1]
+		ans += max(0, min(income, upper)-prev) * percent
+		prev = upper
 	}
-	return ans
+	return float64(ans) / 100.0
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 
 func min(a, b int) int {
@@ -193,12 +178,11 @@ impl Solution {
 function calculateTax(brackets: number[][], income: number): number {
     let ans = 0;
     let prev = 0;
-    for (let [upper, percent] of brackets) {
-        if (prev > income) break;
-        ans += ((Math.min(upper, income) - prev) * percent) / 100;
+    for (const [upper, percent] of brackets) {
+        ans += Math.max(0, Math.min(income, upper) - prev) * percent;
         prev = upper;
     }
-    return ans;
+    return ans / 100;
 }
 ```
 
