@@ -68,17 +68,20 @@ class Solution:
         d = defaultdict(set)
         for a, b in mappings:
             d[a].add(b)
-        n, k = len(s), len(sub)
-        for i in range(n - k + 1):
-            flag = True
-            for j in range(k):
-                a, b = s[i + j], sub[j]
-                if a == b or a in d[b]:
-                    continue
-                else:
-                    flag = False
-                    break
-            if flag:
+        for i in range(len(s) - len(sub) + 1):
+            if all(a == b or a in d[b] for a, b in zip(s[i: i + len(sub)], sub)):
+                return True
+        return False
+```
+
+```python
+class Solution:
+    def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
+        d = [[False] * 128 for _ in range(128)]
+        for a, b in mappings:
+            d[ord(a)][ord(b)] = True
+        for i in range(len(s) - len(sub) + 1):
+            if all(a == b or d[ord(b)][ord(a)] for a, b in zip(s[i: i + len(sub)], sub)):
                 return True
         return False
 ```
@@ -89,21 +92,44 @@ class Solution:
 class Solution {
     public boolean matchReplacement(String s, String sub, char[][] mappings) {
         Map<Character, Set<Character>> d = new HashMap<>();
-        for (char[] m : mappings) {
-            d.computeIfAbsent(m[0], k -> new HashSet<>()).add(m[1]);
+        for (var e : mappings) {
+            d.computeIfAbsent(e[0], k -> new HashSet<>()).add(e[1]);
         }
-        int n = s.length(), k = sub.length();
-        for (int i = 0; i <= n - k; ++i) {
-            boolean flag = true;
-            for (int j = 0; j < k; ++j) {
+        int m = s.length(), n = sub.length();
+        for (int i = 0; i < m - n + 1; ++i) {
+            boolean ok = true;
+            for (int j = 0; j < n && ok; ++j) {
                 char a = s.charAt(i + j), b = sub.charAt(j);
-                if (a == b || d.getOrDefault(b, Collections.emptySet()).contains(a)) {
-                    continue;
+                if (a != b && !d.getOrDefault(b, Collections.emptySet()).contains(a)) {
+                    ok = false;
                 }
-                flag = false;
-                break;
             }
-            if (flag) {
+            if (ok) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean matchReplacement(String s, String sub, char[][] mappings) {
+        boolean[][] d = new boolean[128][128];
+        for (var e : mappings) {
+            d[e[0]][e[1]] = true;
+        }
+        int m = s.length(), n = sub.length();
+        for (int i = 0; i < m - n + 1; ++i) {
+            boolean ok = true;
+            for (int j = 0; j < n && ok; ++j) {
+                char a = s.charAt(i + j), b = sub.charAt(j);
+                if (a != b && !d[b][a]) {
+                    ok = false;
+                }
+            }
+            if (ok) {
                 return true;
             }
         }
@@ -119,21 +145,100 @@ class Solution {
 public:
     bool matchReplacement(string s, string sub, vector<vector<char>>& mappings) {
         unordered_map<char, unordered_set<char>> d;
-        for (auto& m : mappings) d[m[0]].insert(m[1]);
-        int n = s.size(), k = sub.size();
-        for (int i = 0; i <= n - k; ++i) {
-            bool flag = true;
-            for (int j = 0; j < k; ++j) {
+        for (auto& e : mappings) {
+            d[e[0]].insert(e[1]);
+        }
+        int m = s.size(), n = sub.size();
+        for (int i = 0; i < m - n + 1; ++i) {
+            bool ok = true;
+            for (int j = 0; j < n && ok; ++j) {
                 char a = s[i + j], b = sub[j];
-                if (a == b || d[b].count(a)) continue;
-                flag = false;
-                break;
+                if (a != b && !d[b].count(a)) {
+                    ok = false;
+                }
             }
-            if (flag) return true;
+            if (ok) {
+                return true;
+            }
         }
         return false;
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    bool matchReplacement(string s, string sub, vector<vector<char>>& mappings) {
+        bool d[128][128]{};
+        for (auto& e : mappings) {
+            d[e[0]][e[1]] = true;
+        }
+        int m = s.size(), n = sub.size();
+        for (int i = 0; i < m - n + 1; ++i) {
+            bool ok = true;
+            for (int j = 0; j < n && ok; ++j) {
+                char a = s[i + j], b = sub[j];
+                if (a != b && !d[b][a]) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func matchReplacement(s string, sub string, mappings [][]byte) bool {
+	d := map[byte]map[byte]bool{}
+	for _, e := range mappings {
+		if d[e[0]] == nil {
+			d[e[0]] = map[byte]bool{}
+		}
+		d[e[0]][e[1]] = true
+	}
+	for i := 0; i < len(s)-len(sub)+1; i++ {
+		ok := true
+		for j := 0; j < len(sub) && ok; j++ {
+			a, b := s[i+j], sub[j]
+			if a != b && !d[b][a] {
+				ok = false
+			}
+		}
+		if ok {
+			return true
+		}
+	}
+	return false
+}
+```
+
+```go
+func matchReplacement(s string, sub string, mappings [][]byte) bool {
+	d := [128][128]bool{}
+	for _, e := range mappings {
+		d[e[0]][e[1]] = true
+	}
+	for i := 0; i < len(s)-len(sub)+1; i++ {
+		ok := true
+		for j := 0; j < len(sub) && ok; j++ {
+			a, b := s[i+j], sub[j]
+			if a != b && !d[b][a] {
+				ok = false
+			}
+		}
+		if ok {
+			return true
+		}
+	}
+	return false
+}
 ```
 
 ### **TypeScript**

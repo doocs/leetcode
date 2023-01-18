@@ -29,20 +29,17 @@ class MKAverage {
         if (q.size() > m) {
             int x = q.poll();
             if (lo.containsKey(x)) {
-                lo.merge(x, -1, Integer::sum);
-                if (lo.get(x) == 0) {
+                if (lo.merge(x, -1, Integer::sum) == 0) {
                     lo.remove(x);
                 }
                 --size1;
             } else if (hi.containsKey(x)) {
-                hi.merge(x, -1, Integer::sum);
-                if (hi.get(x) == 0) {
+                if (hi.merge(x, -1, Integer::sum) == 0) {
                     hi.remove(x);
                 }
                 --size3;
             } else {
-                mid.merge(x, -1, Integer::sum);
-                if (mid.get(x) == 0) {
+                if (mid.merge(x, -1, Integer::sum) == 0) {
                     mid.remove(x);
                 }
                 s -= x;
@@ -50,8 +47,7 @@ class MKAverage {
         }
         for (; size1 > k; --size1) {
             int x = lo.lastKey();
-            lo.merge(x, -1, Integer::sum);
-            if (lo.get(x) == 0) {
+            if (lo.merge(x, -1, Integer::sum) == 0) {
                 lo.remove(x);
             }
             mid.merge(x, 1, Integer::sum);
@@ -59,8 +55,7 @@ class MKAverage {
         }
         for (; size3 > k; --size3) {
             int x = hi.firstKey();
-            hi.merge(x, -1, Integer::sum);
-            if (hi.get(x) == 0) {
+            if (hi.merge(x, -1, Integer::sum) == 0) {
                 hi.remove(x);
             }
             mid.merge(x, 1, Integer::sum);
@@ -68,8 +63,7 @@ class MKAverage {
         }
         for (; size1 < k && !mid.isEmpty(); ++size1) {
             int x = mid.firstKey();
-            mid.merge(x, -1, Integer::sum);
-            if (mid.get(x) == 0) {
+            if (mid.merge(x, -1, Integer::sum) == 0) {
                 mid.remove(x);
             }
             s -= x;
@@ -77,8 +71,7 @@ class MKAverage {
         }
         for (; size3 < k && !mid.isEmpty(); ++size3) {
             int x = mid.lastKey();
-            mid.merge(x, -1, Integer::sum);
-            if (mid.get(x) == 0) {
+            if (mid.merge(x, -1, Integer::sum) == 0) {
                 mid.remove(x);
             }
             s -= x;
