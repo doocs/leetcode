@@ -135,7 +135,70 @@ func firstPalindrome(words []string) string {
 ### **TypeScript**
 
 ```ts
+function firstPalindrome(words: string[]): string {
+    for (const word of words) {
+        let left = 0;
+        let right = word.length - 1;
+        while (left < right) {
+            if (word[left] !== word[right]) {
+                break;
+            }
+            left++;
+            right--;
+        }
+        if (left >= right) {
+            return word;
+        }
+    }
+    return '';
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn first_palindrome(words: Vec<String>) -> String {
+        for word in words.iter() {
+            let s = word.as_bytes();
+            let mut left = 0;
+            let mut right = s.len() - 1;
+            while (left < right) {
+                if (s[left] != s[right]) {
+                    break;
+                }
+                left += 1;
+                right -= 1;
+            }
+            if left >= right {
+                return word.clone();
+            }
+        }
+        String::new()
+    }
+}
+```
+
+### **C**
+
+```c
+char *firstPalindrome(char **words, int wordsSize) {
+    for (int i = 0; i < wordsSize; i++) {
+        int left = 0;
+        int right = strlen(words[i]) - 1;
+        while (left < right) {
+            if (words[i][left] != words[i][right]) {
+                break;
+            }
+            left++;
+            right--;
+        }
+        if (left >= right) {
+            return words[i];
+        }
+    }
+    return "";
+}
 ```
 
 ### **...**
