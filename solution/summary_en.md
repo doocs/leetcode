@@ -2588,3 +2588,4 @@
   - [2536.Increment Submatrices by One](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md)
   - [2537.Count the Number of Good Subarrays](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)
   - [2538.Difference Between Maximum and Minimum Price Sum](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README_EN.md)
+  - [2539.Count the Number of Good Subsequences](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)

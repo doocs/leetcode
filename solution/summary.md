@@ -2588,3 +2588,4 @@
   - [2536.子矩阵元素加 1](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README.md)
   - [2537.统计好子数组的数目](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README.md)
   - [2538.最大价值和与最小价值和的差值](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README.md)
+  - [2539.Count the Number of Good Subsequences](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README.md)

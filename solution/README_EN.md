@@ -505,7 +505,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0494  |  [Target Sum](/solution/0400-0499/0494.Target%20Sum/README_EN.md)  |  `Array`,`Dynamic Programming`,`Backtracking`  |  Medium  |    |
 |  0495  |  [Teemo Attacking](/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |    |
 |  0496  |  [Next Greater Element I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)  |  `Stack`,`Array`,`Hash Table`,`Monotonic Stack`  |  Easy  |    |
-|  0497  |  [Random Point in Non-overlapping Rectangles](/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README_EN.md)  |  `Reservoir Sampling`,`Math`,`Binary Search`,`Ordered Set`,`Prefix Sum`,`Randomized`  |  Medium  |    |
+|  0497  |  [Random Point in Non-overlapping Rectangles](/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README_EN.md)  |  `Reservoir Sampling`,`Array`,`Math`,`Binary Search`,`Ordered Set`,`Prefix Sum`,`Randomized`  |  Medium  |    |
 |  0498  |  [Diagonal Traverse](/solution/0400-0499/0498.Diagonal%20Traverse/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Medium  |    |
 |  0499  |  [The Maze III](/solution/0400-0499/0499.The%20Maze%20III/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
 |  0500  |  [Keyboard Row](/solution/0500-0599/0500.Keyboard%20Row/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |    |
@@ -536,7 +536,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0525  |  [Contiguous Array](/solution/0500-0599/0525.Contiguous%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |    |
 |  0526  |  [Beautiful Arrangement](/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Backtracking`,`Bitmask`  |  Medium  |    |
 |  0527  |  [Word Abbreviation](/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md)  |  `Greedy`,`Trie`,`Array`,`String`,`Sorting`  |  Hard  |  🔒  |
-|  0528  |  [Random Pick with Weight](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md)  |  `Math`,`Binary Search`,`Prefix Sum`,`Randomized`  |  Medium  |    |
+|  0528  |  [Random Pick with Weight](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md)  |  `Array`,`Math`,`Binary Search`,`Prefix Sum`,`Randomized`  |  Medium  |    |
 |  0529  |  [Minesweeper](/solution/0500-0599/0529.Minesweeper/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Array`,`Matrix`  |  Medium  |    |
 |  0530  |  [Minimum Absolute Difference in BST](/solution/0500-0599/0530.Minimum%20Absolute%20Difference%20in%20BST/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Search Tree`,`Binary Tree`  |  Easy  |    |
 |  0531  |  [Lonely Pixel I](/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md)  |  `Array`,`Hash Table`,`Matrix`  |  Medium  |  🔒  |
@@ -718,7 +718,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0707  |  [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)  |  `Design`,`Linked List`  |  Medium  |    |
 |  0708  |  [Insert into a Sorted Circular Linked List](/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/README_EN.md)  |  `Linked List`  |  Medium  |  🔒  |
 |  0709  |  [To Lower Case](/solution/0700-0799/0709.To%20Lower%20Case/README_EN.md)  |  `String`  |  Easy  |    |
-|  0710  |  [Random Pick with Blacklist](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md)  |  `Hash Table`,`Math`,`Binary Search`,`Sorting`,`Randomized`  |  Hard  |    |
+|  0710  |  [Random Pick with Blacklist](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Binary Search`,`Sorting`,`Randomized`  |  Hard  |    |
 |  0711  |  [Number of Distinct Islands II](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Hash Table`,`Hash Function`  |  Hard  |  🔒  |
 |  0712  |  [Minimum ASCII Delete Sum for Two Strings](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md)  |  `String`,`Dynamic Programming`  |  Medium  |    |
 |  0713  |  [Subarray Product Less Than K](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |    |
@@ -1063,7 +1063,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1052  |  [Grumpy Bookstore Owner](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |  Weekly Contest 138  |
 |  1053  |  [Previous Permutation With One Swap](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 138  |
 |  1054  |  [Distant Barcodes](/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Counting`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 138  |
-|  1055  |  [Shortest Way to Form String](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Medium  |  🔒  |
+|  1055  |  [Shortest Way to Form String](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`  |  Medium  |  🔒  |
 |  1056  |  [Confusing Number](/solution/1000-1099/1056.Confusing%20Number/README_EN.md)  |  `Math`  |  Easy  |  🔒  |
 |  1057  |  [Campus Bikes](/solution/1000-1099/1057.Campus%20Bikes/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  🔒  |
 |  1058  |  [Minimize Rounding Error to Meet Target](/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README_EN.md)  |  `Greedy`,`Array`,`Math`,`String`  |  Medium  |  🔒  |
@@ -2541,12 +2541,13 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2530  |  [Maximal Score After Applying K Operations](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md)  |  `Greedy`,`Array`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 327  |
 |  2531  |  [Make Number of Distinct Characters Equal](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Medium  |  Weekly Contest 327  |
 |  2532  |  [Time to Cross a Bridge](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md)  |  `Array`,`Simulation`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 327  |
-|  2533  |  [Number of Good Binary Strings](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README_EN.md)  |    |  Medium  |  🔒  |
-|  2534  |  [Time Taken to Cross the Door](/solution/2500-2599/2534.Time%20Taken%20to%20Cross%20the%20Door/README_EN.md)  |    |  Hard  |  🔒  |
-|  2535  |  [Difference Between Element Sum and Digit Sum of an Array](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 328  |
-|  2536  |  [Increment Submatrices by One](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md)  |    |  Medium  |  Weekly Contest 328  |
-|  2537  |  [Count the Number of Good Subarrays](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 328  |
-|  2538  |  [Difference Between Maximum and Minimum Price Sum](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README_EN.md)  |    |  Hard  |  Weekly Contest 328  |
+|  2533  |  [Number of Good Binary Strings](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  🔒  |
+|  2534  |  [Time Taken to Cross the Door](/solution/2500-2599/2534.Time%20Taken%20to%20Cross%20the%20Door/README_EN.md)  |  `Queue`,`Array`,`Simulation`  |  Hard  |  🔒  |
+|  2535  |  [Difference Between Element Sum and Digit Sum of an Array](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 328  |
+|  2536  |  [Increment Submatrices by One](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md)  |  `Array`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 328  |
+|  2537  |  [Count the Number of Good Subarrays](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 328  |
+|  2538  |  [Difference Between Maximum and Minimum Price Sum](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README_EN.md)  |  `Tree`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 328  |
+|  2539  |  [Count the Number of Good Subsequences](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

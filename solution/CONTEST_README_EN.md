@@ -13,7 +13,7 @@ If you are in the top 25% of the contest rating, you’ll get the “Knight” b
 
 | Level | Proportion | Badge      | Rating |                                                                                                                         |
 | ----- | ---------- | ---------- | -------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3 | 5\%      | Guardian | &ge;2389.82   | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV3 | 5\%      | Guardian | &ge;2228.90   | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
 | LV2 | 20\%     | Knight   | &ge;1842.73   | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1 | 75\%     | -          | -              | -                                                                                                                       |
 

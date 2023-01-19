@@ -35,7 +35,7 @@ This table contains information about the transactions made during the visit_id.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.</p>
+<p>Write a&nbsp;SQL query to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.</p>
 
 <p>Return the result table sorted in <strong>any order</strong>.</p>
 
