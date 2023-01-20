@@ -68,17 +68,13 @@
 
 **方法一：动态规划**
 
-我们用 $f[i][j]$ 表示从起点跳到第 $i$ 个点，且当前在第 $j$ 条跑道的最少侧跳次数。注意到每个位置 $i$ 只依赖于 $i - 1$ 位置，因此我们可以使用滚动数组优化空间复杂度。
+我们定义 $f[i][j]$ 表示青蛙到达第 $i$ 个点，且处于第 $j$ 条跑道（下标从 $0$ 开始）的最小侧跳次数。注意到青蛙起始位置处于第 $2$ 条跑道（题目这里下标从 $1$ 开始），因此 $f[0][1]$ 的值为 $0$，其余位置的值均为正无穷。答案为 $min(f[n][0], f[n][1], f[n][2])$
 
-定义 $f[j]$ 表示从起点跳到第 $i$ 个点，且当前在第 $j$ 条跑道的最少侧跳次数。答案即为 $min(f[0], f[1], f[2])$。
+对于 $i$ 从 $1$ 到 $n$ 的每个位置，我们可以枚举青蛙当前所处的跑道 $j$，如果 $obstacles[i] = j + 1$，说明第 $j$ 条跑道上有障碍，此时 $f[i][j]$ 的值为正无穷；否则，青蛙可以选择不跳跃，此时 $f[i][j]$ 的值为 $f[i - 1][j]$，或者青蛙可以从其它跑道侧跳过来，此时 $f[i][j] = min(f[i][j], min(f[i][0], f[i][1], f[i][2]) + 1)$。
 
-我们可以枚举当前点的三条跑道，如果当前跑道没有障碍，那么 $f[j]$ 不变，否则 $f[j]$ 为其它两条跑道中的最小值加 $1$。
+注意到第 $i$ 个点的侧跳次数只与第 $i - 1$ 个点有关，因此，我们可以将第一维空间优化掉，只用一个长度为 $3$ 的数组 $f$ 来维护。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `obstacles` 的长度。
-
-相似题目：
-
--   [221028 天池-03. 小鸡酷跑](https://leetcode.cn/problems/FJxjiD/solution/by-lcbin-rum4/)
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $obstacles$ 的长度。
 
 <!-- tabs:start -->
 
@@ -91,17 +87,14 @@ class Solution:
     def minSideJumps(self, obstacles: List[int]) -> int:
         f = [1, 0, 1]
         for v in obstacles[1:]:
-            g = [inf] * 3
+            for j in range(3):
+                if v == j + 1:
+                    f[j] = inf
+                    break
+            x = min(f) + 1
             for j in range(3):
                 if v != j + 1:
-                    g[j] = f[j]
-            if v != 1:
-                g[0] = min(g[0], min(g[1], g[2]) + 1)
-            if v != 2:
-                g[1] = min(g[1], min(g[0], g[2]) + 1)
-            if v != 3:
-                g[2] = min(g[2], min(g[0], g[1]) + 1)
-            f = g
+                    f[j] = min(f[j], x)
         return min(f)
 ```
 
@@ -111,28 +104,22 @@ class Solution:
 
 ```java
 class Solution {
-    private int inf = 0x3f3f3f3f;
-
     public int minSideJumps(int[] obstacles) {
-        int[] f = new int[] {1, 0, 1};
+        final int inf = 1 << 30;
+        int[] f = {1, 0, 1};
         for (int i = 1; i < obstacles.length; ++i) {
-            int v = obstacles[i];
-            int[] g = new int[] {inf, inf, inf};
             for (int j = 0; j < 3; ++j) {
-                if (v != j + 1) {
-                    g[j] = f[j];
+                if (obstacles[i] == j + 1) {
+                    f[j] = inf;
+                    break;
                 }
             }
-            if (v != 1) {
-                g[0] = Math.min(g[0], Math.min(g[1], g[2]) + 1);
+            int x = Math.min(f[0], Math.min(f[1], f[2])) + 1;
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] != j + 1) {
+                    f[j] = Math.min(f[j], x);
+                }
             }
-            if (v != 2) {
-                g[1] = Math.min(g[1], Math.min(g[0], g[2]) + 1);
-            }
-            if (v != 3) {
-                g[2] = Math.min(g[2], Math.min(g[0], g[1]) + 1);
-            }
-            f = g;
         }
         return Math.min(f[0], Math.min(f[1], f[2]));
     }
@@ -144,20 +131,24 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int inf = 0x3f3f3f3f;
-
     int minSideJumps(vector<int>& obstacles) {
-        vector<int> f = {1, 0, 1};
+        const int inf = 1 << 30;
+        int f[3] = {1, 0, 1};
         for (int i = 1; i < obstacles.size(); ++i) {
-            int v = obstacles[i];
-            vector<int> g(3, inf);
-            for (int j = 0; j < 3; ++j) if (v != j + 1) g[j] = f[j];
-            if (v != 1) g[0] = min(g[0], min(g[1], g[2]) + 1);
-            if (v != 2) g[1] = min(g[1], min(g[0], g[2]) + 1);
-            if (v != 3) g[2] = min(g[2], min(g[0], g[1]) + 1);
-            f = move(g);
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] == j + 1) {
+                    f[j] = inf;
+                    break;
+                }
+            }
+            int x = min({f[0], f[1], f[2]}) + 1;
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] != j + 1) {
+                    f[j] = min(f[j], x);
+                }
+            }
         }
-        return *min_element(f.begin(), f.end());
+        return min({f[0], f[1], f[2]});
     }
 };
 ```
@@ -166,25 +157,21 @@ public:
 
 ```go
 func minSideJumps(obstacles []int) int {
-	inf := 0x3f3f3f3f
 	f := [3]int{1, 0, 1}
+	const inf = 1 << 30
 	for _, v := range obstacles[1:] {
-		g := [3]int{inf, inf, inf}
 		for j := 0; j < 3; j++ {
-			if v != j+1 {
-				g[j] = f[j]
+			if v == j+1 {
+				f[j] = inf
+				break
 			}
 		}
-		if v != 1 {
-			g[0] = min(g[0], min(g[1], g[2])+1)
+		x := min(f[0], min(f[1], f[2])) + 1
+		for j := 0; j < 3; j++ {
+			if v != j+1 {
+				f[j] = min(f[j], x)
+			}
 		}
-		if v != 2 {
-			g[1] = min(g[1], min(g[0], g[2])+1)
-		}
-		if v != 3 {
-			g[2] = min(g[2], min(g[0], g[1])+1)
-		}
-		f = g
 	}
 	return min(f[0], min(f[1], f[2]))
 }
@@ -194,6 +181,30 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSideJumps(obstacles: number[]): number {
+    const inf = 1 << 30;
+    const f = [1, 0, 1];
+    for (let i = 1; i < obstacles.length; ++i) {
+        for (let j = 0; j < 3; ++j) {
+            if (obstacles[i] == j + 1) {
+                f[j] = inf;
+                break;
+            }
+        }
+        const x = Math.min(...f) + 1;
+        for (let j = 0; j < 3; ++j) {
+            if (obstacles[i] != j + 1) {
+                f[j] = Math.min(f[j], x);
+            }
+        }
+    }
+    return Math.min(...f);
 }
 ```
 

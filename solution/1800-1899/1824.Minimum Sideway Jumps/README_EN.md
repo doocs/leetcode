@@ -69,17 +69,14 @@ class Solution:
     def minSideJumps(self, obstacles: List[int]) -> int:
         f = [1, 0, 1]
         for v in obstacles[1:]:
-            g = [inf] * 3
+            for j in range(3):
+                if v == j + 1:
+                    f[j] = inf
+                    break
+            x = min(f) + 1
             for j in range(3):
                 if v != j + 1:
-                    g[j] = f[j]
-            if v != 1:
-                g[0] = min(g[0], min(g[1], g[2]) + 1)
-            if v != 2:
-                g[1] = min(g[1], min(g[0], g[2]) + 1)
-            if v != 3:
-                g[2] = min(g[2], min(g[0], g[1]) + 1)
-            f = g
+                    f[j] = min(f[j], x)
         return min(f)
 ```
 
@@ -87,28 +84,22 @@ class Solution:
 
 ```java
 class Solution {
-    private int inf = 0x3f3f3f3f;
-
     public int minSideJumps(int[] obstacles) {
-        int[] f = new int[] {1, 0, 1};
+        final int inf = 1 << 30;
+        int[] f = {1, 0, 1};
         for (int i = 1; i < obstacles.length; ++i) {
-            int v = obstacles[i];
-            int[] g = new int[] {inf, inf, inf};
             for (int j = 0; j < 3; ++j) {
-                if (v != j + 1) {
-                    g[j] = f[j];
+                if (obstacles[i] == j + 1) {
+                    f[j] = inf;
+                    break;
                 }
             }
-            if (v != 1) {
-                g[0] = Math.min(g[0], Math.min(g[1], g[2]) + 1);
+            int x = Math.min(f[0], Math.min(f[1], f[2])) + 1;
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] != j + 1) {
+                    f[j] = Math.min(f[j], x);
+                }
             }
-            if (v != 2) {
-                g[1] = Math.min(g[1], Math.min(g[0], g[2]) + 1);
-            }
-            if (v != 3) {
-                g[2] = Math.min(g[2], Math.min(g[0], g[1]) + 1);
-            }
-            f = g;
         }
         return Math.min(f[0], Math.min(f[1], f[2]));
     }
@@ -120,20 +111,24 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int inf = 0x3f3f3f3f;
-
     int minSideJumps(vector<int>& obstacles) {
-        vector<int> f = {1, 0, 1};
+        const int inf = 1 << 30;
+        int f[3] = {1, 0, 1};
         for (int i = 1; i < obstacles.size(); ++i) {
-            int v = obstacles[i];
-            vector<int> g(3, inf);
-            for (int j = 0; j < 3; ++j) if (v != j + 1) g[j] = f[j];
-            if (v != 1) g[0] = min(g[0], min(g[1], g[2]) + 1);
-            if (v != 2) g[1] = min(g[1], min(g[0], g[2]) + 1);
-            if (v != 3) g[2] = min(g[2], min(g[0], g[1]) + 1);
-            f = move(g);
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] == j + 1) {
+                    f[j] = inf;
+                    break;
+                }
+            }
+            int x = min({f[0], f[1], f[2]}) + 1;
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] != j + 1) {
+                    f[j] = min(f[j], x);
+                }
+            }
         }
-        return *min_element(f.begin(), f.end());
+        return min({f[0], f[1], f[2]});
     }
 };
 ```
@@ -142,25 +137,21 @@ public:
 
 ```go
 func minSideJumps(obstacles []int) int {
-	inf := 0x3f3f3f3f
 	f := [3]int{1, 0, 1}
+	const inf = 1 << 30
 	for _, v := range obstacles[1:] {
-		g := [3]int{inf, inf, inf}
 		for j := 0; j < 3; j++ {
-			if v != j+1 {
-				g[j] = f[j]
+			if v == j+1 {
+				f[j] = inf
+				break
 			}
 		}
-		if v != 1 {
-			g[0] = min(g[0], min(g[1], g[2])+1)
+		x := min(f[0], min(f[1], f[2])) + 1
+		for j := 0; j < 3; j++ {
+			if v != j+1 {
+				f[j] = min(f[j], x)
+			}
 		}
-		if v != 2 {
-			g[1] = min(g[1], min(g[0], g[2])+1)
-		}
-		if v != 3 {
-			g[2] = min(g[2], min(g[0], g[1])+1)
-		}
-		f = g
 	}
 	return min(f[0], min(f[1], f[2]))
 }
@@ -170,6 +161,30 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSideJumps(obstacles: number[]): number {
+    const inf = 1 << 30;
+    const f = [1, 0, 1];
+    for (let i = 1; i < obstacles.length; ++i) {
+        for (let j = 0; j < 3; ++j) {
+            if (obstacles[i] == j + 1) {
+                f[j] = inf;
+                break;
+            }
+        }
+        const x = Math.min(...f) + 1;
+        for (let j = 0; j < 3; ++j) {
+            if (obstacles[i] != j + 1) {
+                f[j] = Math.min(f[j], x);
+            }
+        }
+    }
+    return Math.min(...f);
 }
 ```
 

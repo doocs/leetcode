@@ -1,18 +1,22 @@
 class Solution {
 public:
-    const int inf = 0x3f3f3f3f;
-
     int minSideJumps(vector<int>& obstacles) {
-        vector<int> f = {1, 0, 1};
+        const int inf = 1 << 30;
+        int f[3] = {1, 0, 1};
         for (int i = 1; i < obstacles.size(); ++i) {
-            int v = obstacles[i];
-            vector<int> g(3, inf);
-            for (int j = 0; j < 3; ++j) if (v != j + 1) g[j] = f[j];
-            if (v != 1) g[0] = min(g[0], min(g[1], g[2]) + 1);
-            if (v != 2) g[1] = min(g[1], min(g[0], g[2]) + 1);
-            if (v != 3) g[2] = min(g[2], min(g[0], g[1]) + 1);
-            f = move(g);
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] == j + 1) {
+                    f[j] = inf;
+                    break;
+                }
+            }
+            int x = min({f[0], f[1], f[2]}) + 1;
+            for (int j = 0; j < 3; ++j) {
+                if (obstacles[i] != j + 1) {
+                    f[j] = min(f[j], x);
+                }
+            }
         }
-        return *min_element(f.begin(), f.end());
+        return min({f[0], f[1], f[2]});
     }
 };
