@@ -5,16 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxAncestorDiff(self, root: TreeNode) -> int:
-        def dfs(root, mx, mi):
+    def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
+        def dfs(root, mi, mx):
             if root is None:
                 return
             nonlocal ans
-            ans = max(ans, abs(root.val - mx), abs(root.val - mi))
-            mx = max(mx, root.val)
+            ans = max(ans, abs(mi - root.val), abs(mx - root.val))
             mi = min(mi, root.val)
-            dfs(root.left, mx, mi)
-            dfs(root.right, mx, mi)
+            mx = max(mx, root.val)
+            dfs(root.left, mi, mx)
+            dfs(root.right, mi, mx)
 
         ans = 0
         dfs(root, root.val, root.val)

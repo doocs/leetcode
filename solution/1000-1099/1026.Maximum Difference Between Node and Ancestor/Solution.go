@@ -6,29 +6,20 @@
  *     Right *TreeNode
  * }
  */
-func maxAncestorDiff(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode, mx, mi int)
-	dfs = func(root *TreeNode, mx, mi int) {
+func maxAncestorDiff(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode, int, int)
+	dfs = func(root *TreeNode, mi, mx int) {
 		if root == nil {
 			return
 		}
-		t := max(abs(root.Val-mx), abs(root.Val-mi))
-		ans = max(ans, t)
-		mx = max(mx, root.Val)
+		ans = max(ans, max(abs(mi-root.Val), abs(mx-root.Val)))
 		mi = min(mi, root.Val)
-		dfs(root.Left, mx, mi)
-		dfs(root.Right, mx, mi)
+		mx = max(mx, root.Val)
+		dfs(root.Left, mi, mx)
+		dfs(root.Right, mi, mx)
 	}
 	dfs(root, root.Val, root.Val)
-	return ans
-}
-
-func abs(x int) int {
-	if x > 0 {
-		return x
-	}
-	return -x
+	return
 }
 
 func max(a, b int) int {
@@ -43,4 +34,11 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }

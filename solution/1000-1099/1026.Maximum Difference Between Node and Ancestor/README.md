@@ -48,7 +48,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-将节点的最大值、最小值自上而下传递，此过程中迭代求最大差值。
+**方法一：DFS**
+
+对于每个节点，要求其与其祖先节点的最大差值，只需要求出该节点与祖先节点最大值和最小值的差值即可，取较大的差值即可。
+
+因此，我们设计一个函数 $dfs(root, mi, mx)$，表示当前搜索到的节点为 $root$，其祖先节点的最大值为 $mx$，最小值为 $mi$，函数内更新最大差值 $ans$。
+
+函数 $dfs(root, mi, mx)$ 的逻辑如下：
+
+-   若 $root$ 为空，则返回。
+-   更新 $ans = max(ans, abs(mi - root.val), abs(mx - root.val))$。
+-   更新 $mi = min(mi, root.val)$, $mx = max(mx, root.val)$。
+-   递归左右子树。
+
+最后返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
 
@@ -64,16 +79,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxAncestorDiff(self, root: TreeNode) -> int:
-        def dfs(root, mx, mi):
+    def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
+        def dfs(root, mi, mx):
             if root is None:
                 return
             nonlocal ans
-            ans = max(ans, abs(root.val - mx), abs(root.val - mi))
-            mx = max(mx, root.val)
+            ans = max(ans, abs(mi - root.val), abs(mx - root.val))
             mi = min(mi, root.val)
-            dfs(root.left, mx, mi)
-            dfs(root.right, mx, mi)
+            mx = max(mx, root.val)
+            dfs(root.left, mi, mx)
+            dfs(root.right, mi, mx)
 
         ans = 0
         dfs(root, root.val, root.val)
@@ -104,21 +119,20 @@ class Solution {
     private int ans;
 
     public int maxAncestorDiff(TreeNode root) {
-        ans = 0;
         dfs(root, root.val, root.val);
         return ans;
     }
 
-    private void dfs(TreeNode root, int mx, int mi) {
+    private void dfs(TreeNode root, int mi, int mx) {
         if (root == null) {
             return;
         }
-        int t = Math.max(Math.abs(root.val - mx), Math.abs(root.val - mi));
-        ans = Math.max(ans, t);
-        mx = Math.max(mx, root.val);
+        int x = Math.max(Math.abs(mi - root.val), Math.abs(mx - root.val));
+        ans = Math.max(ans, x);
         mi = Math.min(mi, root.val);
-        dfs(root.left, mx, mi);
-        dfs(root.right, mx, mi);
+        mx = Math.max(mx, root.val);
+        dfs(root.left, mi, mx);
+        dfs(root.right, mi, mx);
     }
 }
 ```
@@ -139,22 +153,20 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-
     int maxAncestorDiff(TreeNode* root) {
-        ans = 0;
+        int ans = 0;
+        function<void(TreeNode*, int, int)> dfs = [&](TreeNode* root, int mi, int mx) {
+            if (!root) {
+                return;
+            }
+            ans = max({ans, abs(mi - root->val), abs(mx - root->val)});
+            mi = min(mi, root->val);
+            mx = max(mx, root->val);
+            dfs(root->left, mi, mx);
+            dfs(root->right, mi, mx);
+        };
         dfs(root, root->val, root->val);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int mx, int mi) {
-        if (!root) return;
-        int t = max(abs(root->val - mx), abs(root->val - mi));
-        ans = max(ans, t);
-        mx = max(mx, root->val);
-        mi = min(mi, root->val);
-        dfs(root->left, mx, mi);
-        dfs(root->right, mx, mi);
     }
 };
 ```
@@ -170,29 +182,20 @@ public:
  *     Right *TreeNode
  * }
  */
-func maxAncestorDiff(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode, mx, mi int)
-	dfs = func(root *TreeNode, mx, mi int) {
+func maxAncestorDiff(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode, int, int)
+	dfs = func(root *TreeNode, mi, mx int) {
 		if root == nil {
 			return
 		}
-		t := max(abs(root.Val-mx), abs(root.Val-mi))
-		ans = max(ans, t)
-		mx = max(mx, root.Val)
+		ans = max(ans, max(abs(mi-root.Val), abs(mx-root.Val)))
 		mi = min(mi, root.Val)
-		dfs(root.Left, mx, mi)
-		dfs(root.Right, mx, mi)
+		mx = max(mx, root.Val)
+		dfs(root.Left, mi, mx)
+		dfs(root.Right, mi, mx)
 	}
 	dfs(root, root.Val, root.Val)
-	return ans
-}
-
-func abs(x int) int {
-	if x > 0 {
-		return x
-	}
-	return -x
+	return
 }
 
 func max(a, b int) int {
@@ -208,6 +211,47 @@ func min(a, b int) int {
 	}
 	return b
 }
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxAncestorDiff = function (root) {
+    let ans = 0;
+    const dfs = (root, mi, mx) => {
+        if (!root) {
+            return;
+        }
+        ans = Math.max(
+            ...[ans, Math.abs(mi - root.val), Math.abs(mx - root.val)],
+        );
+        mi = Math.min(mi, root.val);
+        mx = Math.max(mx, root.val);
+        dfs(root.left, mi, mx);
+        dfs(root.right, mi, mx);
+    };
+    dfs(root, root.val, root.val);
+    return ans;
+};
 ```
 
 ### **...**
