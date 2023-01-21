@@ -70,21 +70,54 @@ class Node:
 
 
 class Solution:
-    def connect(self, root: 'Node') -> 'Node':
-        if root is None or (root.left is None and root.right is None):
+    def connect(self, root: "Node") -> "Node":
+        if root is None:
             return root
         q = deque([root])
         while q:
-            size = len(q)
-            cur = None
-            for _ in range(size):
+            p = None
+            for _ in range(len(q)):
                 node = q.popleft()
-                if node.right:
-                    q.append(node.right)
+                if p:
+                    p.next = node
+                p = node
                 if node.left:
                     q.append(node.left)
-                node.next = cur
-                cur = node
+                if node.right:
+                    q.append(node.right)
+        return root
+```
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+"""
+
+class Solution:
+    def connect(self, root: 'Node') -> 'Node':
+        def modify(curr):
+            nonlocal prev, next
+            if curr is None:
+                return
+            next = next or curr
+            if prev:
+                prev.next = curr
+            prev = curr
+        
+        node = root
+        while node:
+            prev = next = None
+            while node:
+                modify(node.left)
+                modify(node.right)
+                node = node.next
+            node = next
         return root
 ```
 
@@ -100,7 +133,7 @@ class Node {
     public Node next;
 
     public Node() {}
-
+    
     public Node(int _val) {
         val = _val;
     }
@@ -116,26 +149,86 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-        if (root == null || (root.left == null && root.right == null)) {
+        if (root == null) {
             return root;
         }
         Deque<Node> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            Node cur = null;
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                Node node = q.pollFirst();
-                if (node.right != null) {
-                    q.offer(node.right);
+            Node p = null;
+            for (int n = q.size(); n > 0; --n) {
+                Node node = q.poll();
+                if (p != null) {
+                    p.next = node;
                 }
+                p = node;
                 if (node.left != null) {
                     q.offer(node.left);
                 }
-                node.next = cur;
-                cur = node;
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
             }
         }
         return root;
+    }
+}
+```
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+
+    public Node() {}
+    
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+};
+*/
+
+class Solution {
+    private Node prev, next;
+
+    public Node connect(Node root) {
+        Node node = root;
+        while (node != null) {
+            prev = null;
+            next = null;
+            while (node != null) {
+                modify(node.left);
+                modify(node.right);
+                node = node.next;
+            }
+            node = next;
+        }
+        return root;
+    }
+
+    private void modify(Node curr) {
+        if (curr == null) {
+            return;
+        }
+        if (next == null) {
+            next = curr;
+        }
+        if (prev != null) {
+            prev.next = curr;
+        }
+        prev = curr;
+
     }
 }
 ```
@@ -164,25 +257,77 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        if (!root || (!root->left && !root->right)) {
+        if (!root) {
             return root;
         }
-        queue<Node*> q;
-        q.push(root);
+        queue<Node*> q{{root}};
         while (!q.empty()) {
-            Node* cur = nullptr;
-            for (int i = 0, n = q.size(); i < n; ++i) {
+            Node* p = nullptr;
+            for (int n = q.size(); n; --n) {
                 Node* node = q.front();
                 q.pop();
-                if (node->right) {
-                    q.push(node->right);
+                if (p) {
+                    p->next = node;
                 }
+                p = node;
                 if (node->left) {
                     q.push(node->left);
                 }
-                node->next = cur;
-                cur = node;
+                if (node->right) {
+                    q.push(node->right);
+                }
             }
+        }
+        return root;
+    }
+};
+```
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* next;
+
+    Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val, Node* _left, Node* _right, Node* _next)
+        : val(_val), left(_left), right(_right), next(_next) {}
+};
+*/
+
+class Solution {
+public:
+    Node* connect(Node* root) {
+        Node* node = root;
+        Node* prev = nullptr;
+        Node* next = nullptr;
+        auto modify = [&](Node* curr) {
+            if (!curr) {
+                return;
+            }
+            if (!next) {
+                next = curr;
+            }
+            if (prev) {
+                prev->next = curr;
+            }
+            prev = curr;
+        };
+        while (node) {
+            prev = next = nullptr;
+            while (node) {
+                modify(node->left);
+                modify(node->right);
+                node = node->next;
+            }
+            node = next;
         }
         return root;
     }
@@ -203,35 +348,67 @@ public:
  */
 
 func connect(root *Node) *Node {
-    if root == nil {
-        return nil
-    }
-    if root.Left != nil && root.Right != nil {
-        root.Left.Next = root.Right
-    }
-    if root.Left != nil && root.Right == nil {
-        root.Left.Next = getNext(root.Next)
-    }
-    if root.Right != nil {
-        root.Right.Next = getNext(root.Next)
-    }
-
-    connect(root.Right)
-    connect(root.Left)
-    return root
+	if root == nil {
+		return root
+	}
+	q := []*Node{root}
+	for len(q) > 0 {
+		var p *Node
+		for n := len(q); n > 0; n-- {
+			node := q[0]
+			q = q[1:]
+			if p != nil {
+				p.Next = node
+			}
+			p = node
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+	}
+	return root
 }
+```
 
-func getNext(node *Node) *Node {
-    for node != nil {
-        if node.Left != nil {
-            return node.Left
-        }
-        if node.Right != nil {
-            return node.Right
-        }
-        node = node.Next
-    }
-    return nil
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Left *Node
+ *     Right *Node
+ *     Next *Node
+ * }
+ */
+
+func connect(root *Node) *Node {
+	node := root
+	var prev, next *Node
+	modify := func(curr *Node) {
+		if curr == nil {
+			return
+		}
+		if next == nil {
+			next = curr
+		}
+		if prev != nil {
+			prev.Next = curr
+		}
+		prev = curr
+	}
+	for node != nil {
+		prev, next = nil, nil
+		for node != nil {
+			modify(node.Left)
+			modify(node.Right)
+			node = node.Next
+		}
+		node = next
+	}
+	return root
 }
 ```
 

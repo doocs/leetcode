@@ -10,19 +10,22 @@ class Node:
 
 
 class Solution:
-    def connect(self, root: 'Node') -> 'Node':
-        if root is None or (root.left is None and root.right is None):
-            return root
-        q = deque([root])
-        while q:
-            size = len(q)
-            cur = None
-            for _ in range(size):
-                node = q.popleft()
-                if node.right:
-                    q.append(node.right)
-                if node.left:
-                    q.append(node.left)
-                node.next = cur
-                cur = node
+    def connect(self, root: "Node") -> "Node":
+        def modify(curr):
+            nonlocal prev, next
+            if curr is None:
+                return
+            next = next or curr
+            if prev:
+                prev.next = curr
+            prev = curr
+
+        node = root
+        while node:
+            prev = next = None
+            while node:
+                modify(node.left)
+                modify(node.right)
+                node = node.next
+            node = next
         return root

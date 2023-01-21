@@ -7,7 +7,7 @@ class Node {
     public Node next;
 
     public Node() {}
-
+    
     public Node(int _val) {
         val = _val;
     }
@@ -22,26 +22,34 @@ class Node {
 */
 
 class Solution {
+    private Node prev, next;
+
     public Node connect(Node root) {
-        if (root == null || (root.left == null && root.right == null)) {
-            return root;
-        }
-        Deque<Node> q = new ArrayDeque<>();
-        q.offer(root);
-        while (!q.isEmpty()) {
-            Node cur = null;
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                Node node = q.pollFirst();
-                if (node.right != null) {
-                    q.offer(node.right);
-                }
-                if (node.left != null) {
-                    q.offer(node.left);
-                }
-                node.next = cur;
-                cur = node;
+        Node node = root;
+        while (node != null) {
+            prev = null;
+            next = null;
+            while (node != null) {
+                modify(node.left);
+                modify(node.right);
+                node = node.next;
             }
+            node = next;
         }
         return root;
+    }
+
+    private void modify(Node curr) {
+        if (curr == null) {
+            return;
+        }
+        if (next == null) {
+            next = curr;
+        }
+        if (prev != null) {
+            prev.next = curr;
+        }
+        prev = curr;
+
     }
 }
