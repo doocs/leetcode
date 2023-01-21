@@ -11,12 +11,16 @@
  * @return {number}
  */
 var countNodes = function (root) {
-    if (!root) return 0;
-    let depth = function (root) {
-        let res = 0;
-        for (; root != null; ++res, root = root.left);
-        return res;
+    const depth = root => {
+        let d = 0;
+        for (; root; root = root.left) {
+            ++d;
+        }
+        return d;
     };
+    if (!root) {
+        return 0;
+    }
     const left = depth(root.left);
     const right = depth(root.right);
     if (left == right) {

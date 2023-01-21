@@ -27,9 +27,10 @@ class Solution {
     }
 
     private int depth(TreeNode root) {
-        int res = 0;
-        for (; root != null; root = root.left, ++res)
-            ;
-        return res;
+        int d = 0;
+        for (; root != null; root = root.left) {
+            ++d;
+        }
+        return d;
     }
 }

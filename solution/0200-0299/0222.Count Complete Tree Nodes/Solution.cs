@@ -13,22 +13,22 @@
  */
 public class Solution {
     public int CountNodes(TreeNode root) {
-        if (root == null)
-        {
+        if (root == null) {
             return 0;
         }
         int left = depth(root.left);
         int right = depth(root.right);
-        if (left == right)
-        {
+        if (left == right) {
             return (1 << left) + CountNodes(root.right);
         }
         return (1 << right) + CountNodes(root.left);
     }
 
     private int depth(TreeNode root) {
-        int res = 0;
-        for (; root != null; ++res, root = root.left);
-        return res;
+        int d = 0;
+        for (; root != null; root = root.left) {
+            ++d;
+        }
+        return d;
     }
 }

@@ -5,13 +5,13 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def countNodes(self, root: TreeNode) -> int:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
         def depth(root):
-            res = 0
+            d = 0
             while root:
-                res += 1
+                d += 1
                 root = root.left
-            return res
+            return d
 
         if root is None:
             return 0
