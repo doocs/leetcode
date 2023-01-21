@@ -63,6 +63,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 前缀和 + 动态规划**
+
+我们可以使用哈希表 $d$ 记录前缀和最近一次出现的位置，初始时 $d[0]=0$。
+
+定义 $f[i]$ 表示前 $i$ 个元素中，长度和为 $target$ 的最短子数组的长度。初始时 $f[0]=inf$。
+
+遍历数组 `arr`，对于当前位置 $i$，计算前缀和 $s$，如果 $s-target$ 在哈希表中，记 $j=d[s-target]$，则 $f[i]=min(f[i],i-j)$，答案为 $ans=min(ans,f[j]+i-j)$。继续遍历下个位置。
+
+最后，如果答案大于数组长度，则返回 $-1$，否则返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +82,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSumOfLengths(self, arr: List[int], target: int) -> int:
+        d = {0: 0}
+        s, n = 0, len(arr)
+        f = [inf] * (n + 1)
+        ans = inf
+        for i, v in enumerate(arr, 1):
+            s += v
+            f[i] = f[i - 1]
+            if s - target in d:
+                j = d[s - target]
+                f[i] = min(f[i], i - j)
+                ans = min(ans, f[j] + i - j)
+            d[s] = i
+        return -1 if ans > n else ans
 ```
 
 ### **Java**
@@ -78,7 +104,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSumOfLengths(int[] arr, int target) {
+        Map<Integer, Integer> d = new HashMap<>();
+        d.put(0, 0);
+        int n = arr.length;
+        int[] f = new int[n + 1];
+        final int inf = 1 << 30;
+        f[0] = inf;
+        int s = 0, ans = inf;
+        for (int i = 1; i <= n; ++i) {
+            int v = arr[i - 1];
+            s += v;
+            f[i] = f[i - 1];
+            if (d.containsKey(s - target)) {
+                int j = d.get(s - target);
+                f[i] = Math.min(f[i], i - j);
+                ans = Math.min(ans, f[j] + i - j);
+            }
+            d.put(s, i);
+        }
+        return ans > n ? -1 : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSumOfLengths(vector<int>& arr, int target) {
+        unordered_map<int, int> d;
+        d[0] = 0;
+        int s = 0, n = arr.size();
+        int f[n + 1];
+        const int inf = 1 << 30;
+        f[0] = inf;
+        int ans = inf;
+        for (int i = 1; i <= n; ++i) {
+            int v = arr[i - 1];
+            s += v;
+            f[i] = f[i - 1];
+            if (d.count(s - target)) {
+                int j = d[s - target];
+                f[i] = min(f[i], i - j);
+                ans = min(ans, f[j] + i - j);
+            }
+            d[s] = i;
+        }
+        return ans > n ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSumOfLengths(arr []int, target int) int {
+	d := map[int]int{0: 0}
+	const inf = 1 << 30
+	s, n := 0, len(arr)
+	f := make([]int, n+1)
+	f[0] = inf
+	ans := inf
+	for i, v := range arr {
+		i++
+		f[i] = f[i-1]
+		s += v
+		if j, ok := d[s-target]; ok {
+			f[i] = min(f[i], i-j)
+			ans = min(ans, f[j]+i-j)
+		}
+		d[s] = i
+	}
+	if ans > n {
+		return -1
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

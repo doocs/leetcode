@@ -51,13 +51,112 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minSumOfLengths(self, arr: List[int], target: int) -> int:
+        d = {0: 0}
+        s, n = 0, len(arr)
+        f = [inf] * (n + 1)
+        ans = inf
+        for i, v in enumerate(arr, 1):
+            s += v
+            f[i] = f[i - 1]
+            if s - target in d:
+                j = d[s - target]
+                f[i] = min(f[i], i - j)
+                ans = min(ans, f[j] + i - j)
+            d[s] = i
+        return -1 if ans > n else ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minSumOfLengths(int[] arr, int target) {
+        Map<Integer, Integer> d = new HashMap<>();
+        d.put(0, 0);
+        int n = arr.length;
+        int[] f = new int[n + 1];
+        final int inf = 1 << 30;
+        f[0] = inf;
+        int s = 0, ans = inf;
+        for (int i = 1; i <= n; ++i) {
+            int v = arr[i - 1];
+            s += v;
+            f[i] = f[i - 1];
+            if (d.containsKey(s - target)) {
+                int j = d.get(s - target);
+                f[i] = Math.min(f[i], i - j);
+                ans = Math.min(ans, f[j] + i - j);
+            }
+            d.put(s, i);
+        }
+        return ans > n ? -1 : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSumOfLengths(vector<int>& arr, int target) {
+        unordered_map<int, int> d;
+        d[0] = 0;
+        int s = 0, n = arr.size();
+        int f[n + 1];
+        const int inf = 1 << 30;
+        f[0] = inf;
+        int ans = inf;
+        for (int i = 1; i <= n; ++i) {
+            int v = arr[i - 1];
+            s += v;
+            f[i] = f[i - 1];
+            if (d.count(s - target)) {
+                int j = d[s - target];
+                f[i] = min(f[i], i - j);
+                ans = min(ans, f[j] + i - j);
+            }
+            d[s] = i;
+        }
+        return ans > n ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSumOfLengths(arr []int, target int) int {
+	d := map[int]int{0: 0}
+	const inf = 1 << 30
+	s, n := 0, len(arr)
+	f := make([]int, n+1)
+	f[0] = inf
+	ans := inf
+	for i, v := range arr {
+		i++
+		f[i] = f[i-1]
+		s += v
+		if j, ok := d[s-target]; ok {
+			f[i] = min(f[i], i-j)
+			ans = min(ans, f[j]+i-j)
+		}
+		d[s] = i
+	}
+	if ans > n {
+		return -1
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
