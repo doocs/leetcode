@@ -16,9 +16,7 @@ var maxAncestorDiff = function (root) {
         if (!root) {
             return;
         }
-        ans = Math.max(
-            ...[ans, Math.abs(mi - root.val), Math.abs(mx - root.val)],
-        );
+        ans = Math.max(ans, Math.abs(mi - root.val), Math.abs(mx - root.val));
         mi = Math.min(mi, root.val);
         mx = Math.max(mx, root.val);
         dfs(root.left, mi, mx);

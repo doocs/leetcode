@@ -12,16 +12,23 @@ func connect(root *Node) *Node {
 	if root == nil {
 		return root
 	}
-	traversal(root.Left, root.Right)
-	return root
-}
-
-func traversal(left, right *Node) {
-	if left == nil || right == nil {
-		return
+	q := []*Node{root}
+	for len(q) > 0 {
+		var p *Node
+		for n := len(q); n > 0; n-- {
+			node := q[0]
+			q = q[1:]
+			if p != nil {
+				p.Next = node
+			}
+			p = node
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
 	}
-	left.Next = right
-	traversal(left.Left, left.Right)
-	traversal(left.Right, right.Left)
-	traversal(right.Left, right.Right)
+	return root
 }
