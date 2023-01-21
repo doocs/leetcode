@@ -47,17 +47,39 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def minDepth(self, root: TreeNode) -> int:
-        def dfs(root):
-            if root is None:
-                return 0
-            if root.left is None:
-                return 1 + dfs(root.right)
-            if root.right is None:
-                return 1 + dfs(root.left)
-            return 1 + min(dfs(root.left), dfs(root.right))
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        if root.left is None:
+            return 1 + self.minDepth(root.right)
+        if root.right is None:
+            return 1 + self.minDepth(root.left)
+        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+```
 
-        return dfs(root)
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        q = deque([root])
+        ans = 0
+        while 1:
+            ans += 1
+            for _ in range(len(q)):
+                node = q.popleft()
+                if node.left is None and node.right is None:
+                    return ans
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
 ```
 
 ### **Java**
@@ -80,20 +102,59 @@ class Solution:
  */
 class Solution {
     public int minDepth(TreeNode root) {
-        return dfs(root);
-    }
-
-    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
         if (root.left == null) {
-            return 1 + dfs(root.right);
+            return 1 + minDepth(root.right);
         }
         if (root.right == null) {
-            return 1 + dfs(root.left);
+            return 1 + minDepth(root.left);
         }
-        return 1 + Math.min(dfs(root.left), dfs(root.right));
+        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int minDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        int ans = 0;
+        while (true) {
+            ++ans;
+            for (int n = q.size(); n > 0; n--) {
+                TreeNode node = q.poll();
+                if (node.left == null && node.right == null) {
+                    return ans;
+                }
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+            }
+        }
     }
 }
 ```
@@ -115,14 +176,56 @@ class Solution {
 class Solution {
 public:
     int minDepth(TreeNode* root) {
-        return dfs(root);
+        if (!root) {
+            return 0;
+        }
+        if (!root->left) {
+            return 1 + minDepth(root->right);
+        }
+        if (!root->right) {
+            return 1 + minDepth(root->left);
+        }
+        return 1 + min(minDepth(root->left), minDepth(root->right));
     }
+};
+```
 
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        if (!root->left) return 1 + dfs(root->right);
-        if (!root->right) return 1 + dfs(root->left);
-        return 1 + min(dfs(root->left), dfs(root->right));
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        queue<TreeNode*> q{{root}};
+        int ans = 0;
+        while (1) {
+            ++ans;
+            for (int n = q.size(); n; --n) {
+                auto node = q.front();
+                q.pop();
+                if (!node->left && !node->right) {
+                    return ans;
+                }
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
+            }
+        }
     }
 };
 ```
@@ -139,20 +242,16 @@ public:
  * }
  */
 func minDepth(root *TreeNode) int {
-	var dfs func(root *TreeNode) int
-	dfs = func(root *TreeNode) int {
-		if root == nil {
-			return 0
-		}
-		if root.Left == nil {
-			return 1 + dfs(root.Right)
-		}
-		if root.Right == nil {
-			return 1 + dfs(root.Left)
-		}
-		return 1 + min(dfs(root.Left), dfs(root.Right))
+	if root == nil {
+		return 0
 	}
-	return dfs(root)
+	if root.Left == nil {
+		return 1 + minDepth(root.Right)
+	}
+	if root.Right == nil {
+		return 1 + minDepth(root.Left)
+	}
+	return 1 + min(minDepth(root.Left), minDepth(root.Right))
 }
 
 func min(a, b int) int {
@@ -160,6 +259,39 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func minDepth(root *TreeNode) (ans int) {
+	if root == nil {
+		return 0
+	}
+	q := []*TreeNode{root}
+	for {
+		ans++
+		for n := len(q); n > 0; n-- {
+			node := q[0]
+			q = q[1:]
+			if node.Left == nil && node.Right == nil {
+				return
+			}
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+	}
 }
 ```
 
@@ -179,13 +311,53 @@ func min(a, b int) int {
  * @return {number}
  */
 var minDepth = function (root) {
-    function dfs(root) {
-        if (!root) return 0;
-        if (!root.left) return 1 + dfs(root.right);
-        if (!root.right) return 1 + dfs(root.left);
-        return 1 + Math.min(dfs(root.left), dfs(root.right));
+    if (!root) {
+        return 0;
     }
-    return dfs(root);
+    if (!root.left) {
+        return 1 + minDepth(root.right);
+    }
+    if (!root.right) {
+        return 1 + minDepth(root.left);
+    }
+    return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+};
+```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var minDepth = function (root) {
+    if (!root) {
+        return 0;
+    }
+    const q = [root];
+    let ans = 0;
+    while (1) {
+        ++ans;
+        for (let n = q.length; n; --n) {
+            const node = q.shift();
+            if (!node.left && !node.right) {
+                return ans;
+            }
+            if (node.left) {
+                q.push(node.left);
+            }
+            if (node.right) {
+                q.push(node.right);
+            }
+        }
+    }
 };
 ```
 
@@ -218,6 +390,45 @@ function minDepth(root: TreeNode | null): number {
         return 1 + minDepth(left);
     }
     return 1 + Math.min(minDepth(left), minDepth(right));
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function minDepth(root: TreeNode | null): number {
+    if (!root) {
+        return 0;
+    }
+    const q = [root];
+    let ans = 0;
+    while (1) {
+        ++ans;
+        for (let n = q.length; n; --n) {
+            const node = q.shift();
+            if (!node.left && !node.right) {
+                return ans;
+            }
+            if (node.left) {
+                q.push(node.left);
+            }
+            if (node.right) {
+                q.push(node.right);
+            }
+        }
+    }
 }
 ```
 

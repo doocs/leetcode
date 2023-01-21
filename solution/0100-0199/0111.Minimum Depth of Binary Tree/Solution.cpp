@@ -12,13 +12,15 @@
 class Solution {
 public:
     int minDepth(TreeNode* root) {
-        return dfs(root);
-    }
-
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        if (!root->left) return 1 + dfs(root->right);
-        if (!root->right) return 1 + dfs(root->left);
-        return 1 + min(dfs(root->left), dfs(root->right));
+        if (!root) {
+            return 0;
+        }
+        if (!root->left) {
+            return 1 + minDepth(root->right);
+        }
+        if (!root->right) {
+            return 1 + minDepth(root->left);
+        }
+        return 1 + min(minDepth(root->left), minDepth(root->right));
     }
 };
