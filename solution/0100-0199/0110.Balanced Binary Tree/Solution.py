@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
         def height(root):
             if root is None:
                 return 0

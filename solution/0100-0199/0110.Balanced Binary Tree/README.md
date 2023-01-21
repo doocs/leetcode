@@ -50,6 +50,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自底向上的递归**
+
+定义函数 $height(root)$ 计算二叉树的高度，处理逻辑如下：
+
+-   如果二叉树 $root$ 为空，返回 $0$。
+-   否则，递归计算左右子树的高度，分别为 $l$ 和 $r$。如果 $l$ 或 $r$ 为 $-1$，或者 $l$ 和 $r$ 的差的绝对值大于 $1$，则返回 $-1$，否则返回 $max(l, r) + 1$。
+
+那么，如果函数 $height(root)$ 返回的是 $-1$，则说明二叉树 $root$ 不是平衡二叉树，否则是平衡二叉树。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +75,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
         def height(root):
             if root is None:
                 return 0
@@ -131,8 +142,8 @@ class Solution {
  * @return {boolean}
  */
 var isBalanced = function (root) {
-    let height = function (root) {
-        if (root == null) {
+    const height = root => {
+        if (!root) {
             return 0;
         }
         const l = height(root.left);
@@ -142,7 +153,6 @@ var isBalanced = function (root) {
         }
         return 1 + Math.max(l, r);
     };
-
     return height(root) >= 0;
 };
 ```
@@ -164,14 +174,18 @@ var isBalanced = function (root) {
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
+        function<int(TreeNode*)> height = [&](TreeNode* root) {
+            if (!root) {
+                return 0;
+            }
+            int l = height(root->left);
+            int r = height(root->right);
+            if (l == -1 || r == -1 || abs(l - r) > 1) {
+                return -1;
+            }
+            return 1 + max(l, r);
+        };
         return height(root) >= 0;
-    }
-
-    int height(TreeNode* root) {
-        if (!root) return 0;
-        int l = height(root->left), r = height(root->right);
-        if (l == -1 || r == -1 || abs(l - r) > 1) return -1;
-        return 1 + max(l, r);
     }
 };
 ```
@@ -188,32 +202,28 @@ public:
  * }
  */
 func isBalanced(root *TreeNode) bool {
+	var height func(*TreeNode) int
+	height = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		l, r := height(root.Left), height(root.Right)
+		if l == -1 || r == -1 || abs(l-r) > 1 {
+			return -1
+		}
+		if l > r {
+			return 1 + l
+		}
+		return 1 + r
+	}
 	return height(root) >= 0
 }
 
-func height(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	l, r := height(root.Left), height(root.Right)
-	if l == -1 || r == -1 || abs(l-r) > 1 {
-		return -1
-	}
-	return 1 + max(l, r)
-}
-
 func abs(x int) int {
-	if x >= 0 {
-		return x
+	if x < 0 {
+		return -x
 	}
-	return -x
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return x
 }
 ```
 
