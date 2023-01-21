@@ -47,16 +47,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
-        def buildBST(nums, start, end):
-            if start > end:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        def dfs(l, r):
+            if l > r:
                 return None
-            mid = (start + end) >> 1
-            return TreeNode(
-                nums[mid], buildBST(nums, start, mid - 1), buildBST(nums, mid + 1, end)
-            )
+            mid = (l + r) >> 1
+            left = dfs(l, mid - 1)
+            right = dfs(mid + 1, r)
+            return TreeNode(nums[mid], left, right)
 
-        return buildBST(nums, 0, len(nums) - 1)
+        return dfs(0, len(nums) - 1)
 ```
 
 ### **Java**
@@ -78,19 +78,21 @@ class Solution:
  * }
  */
 class Solution {
+    private int[] nums;
+
     public TreeNode sortedArrayToBST(int[] nums) {
-        return buildBST(nums, 0, nums.length - 1);
+        this.nums = nums;
+        return dfs(0, nums.length - 1);
     }
 
-    private TreeNode buildBST(int[] nums, int start, int end) {
-        if (start > end) {
+    private TreeNode dfs(int l, int r) {
+        if (l > r) {
             return null;
         }
-        int mid = (start + end) >> 1;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left = buildBST(nums, start, mid - 1);
-        root.right = buildBST(nums, mid + 1, end);
-        return root;
+        int mid = (l + r) >> 1;
+        TreeNode left = dfs(l, mid - 1);
+        TreeNode right = dfs(mid + 1, r);
+        return new TreeNode(nums[mid], left, right);
     }
 }
 ```
@@ -112,18 +114,16 @@ class Solution {
 class Solution {
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        return buildBST(nums, 0, nums.size() - 1);
-    }
-
-private:
-    TreeNode* buildBST(vector<int>& nums, int start, int end) {
-        if (start > end)
-            return nullptr;
-        int mid = start + end >> 1;
-        TreeNode* root = new TreeNode(nums[mid]);
-        root->left = buildBST(nums, start, mid - 1);
-        root->right = buildBST(nums, mid + 1, end);
-        return root;
+        function<TreeNode*(int, int)> dfs = [&](int l, int r) -> TreeNode* {
+            if (l > r) {
+                return nullptr;
+            }
+            int mid = (l + r) >> 1;
+            auto left = dfs(l, mid - 1);
+            auto right = dfs(mid + 1, r);
+            return new TreeNode(nums[mid], left, right);
+        };
+        return dfs(0, nums.size() - 1);
     }
 };
 ```
@@ -144,18 +144,16 @@ private:
  * @return {TreeNode}
  */
 var sortedArrayToBST = function (nums) {
-    const buildBST = (nums, start, end) => {
-        if (start > end) {
+    const dfs = (l, r) => {
+        if (l > r) {
             return null;
         }
-        const mid = (start + end) >> 1;
-        const root = new TreeNode(nums[mid]);
-        root.left = buildBST(nums, start, mid - 1);
-        root.right = buildBST(nums, mid + 1, end);
-        return root;
+        const mid = (l + r) >> 1;
+        const left = dfs(l, mid - 1);
+        const right = dfs(mid + 1, r);
+        return new TreeNode(nums[mid], left, right);
     };
-
-    return buildBST(nums, 0, nums.length - 1);
+    return dfs(0, nums.length - 1);
 };
 ```
 
@@ -202,19 +200,16 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
  * }
  */
 func sortedArrayToBST(nums []int) *TreeNode {
-	return buildBST(nums, 0, len(nums)-1)
-}
-
-func buildBST(nums []int, start, end int) *TreeNode {
-	if start > end {
-		return nil
+	var dfs func(int, int) *TreeNode
+	dfs = func(l, r int) *TreeNode {
+		if l > r {
+			return nil
+		}
+		mid := (l + r) >> 1
+		left, right := dfs(l, mid-1), dfs(mid+1, r)
+		return &TreeNode{nums[mid], left, right}
 	}
-	mid := (start + end) >> 1
-	return &TreeNode{
-		Val:   nums[mid],
-		Left:  buildBST(nums, start, mid-1),
-		Right: buildBST(nums, mid+1, end),
-	}
+	return dfs(0, len(nums)-1)
 }
 ```
 
