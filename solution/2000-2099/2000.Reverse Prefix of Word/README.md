@@ -54,6 +54,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们先找到字符 $ch$ 第一次出现的下标 $i$，然后反转从下标 $0$ 开始、直到下标 $i$ 结束（含下标 $i$）的那段字符，最后将反转后的字符串与下标 $i + 1$ 开始的字符串拼接即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $word$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,14 +79,30 @@ class Solution:
 
 ```java
 class Solution {
-
     public String reversePrefix(String word, char ch) {
-        int i = word.indexOf(ch);
-        return i == -1 ? word
-                       : new StringBuilder(word.substring(0, i + 1))
-                             .reverse()
-                             .append(word.substring(i + 1))
-                             .toString();
+        int j = word.indexOf(ch);
+        if (j == -1) {
+            return word;
+        }
+        char[] cs = word.toCharArray();
+        for (int i = 0; i < j; ++i, --j) {
+            char t = cs[i];
+            cs[i] = cs[j];
+            cs[j] = t;
+        }
+        return String.valueOf(cs);
+    }
+}
+```
+
+```java
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        int j = word.indexOf(ch);
+        if (j == -1) {
+            return word;
+        }
+        return new StringBuilder(word.substring(0, j + 1)).reverse().append(word.substring(j + 1)).toString();
     }
 }
 ```
@@ -92,7 +114,9 @@ class Solution {
 public:
     string reversePrefix(string word, char ch) {
         int i = word.find(ch);
-        if (i != string::npos) reverse(word.begin(), word.begin() + i + 1);
+        if (i != string::npos) {
+            reverse(word.begin(), word.begin() + i + 1);
+        }
         return word;
     }
 };
@@ -119,9 +143,11 @@ func reversePrefix(word string, ch byte) string {
 
 ```ts
 function reversePrefix(word: string, ch: string): string {
-    let idx = word.indexOf(ch) + 1;
-    if (!idx) return word;
-    return [...word.substring(0, idx)].reverse().join('') + word.substring(idx);
+    const i = word.indexOf(ch) + 1;
+    if (!i) {
+        return word;
+    }
+    return [...word.slice(0, i)].reverse().join('') + word.slice(i);
 }
 ```
 
