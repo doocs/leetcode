@@ -6,25 +6,33 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定包含多个点的集合，从其中取三个点组成三角形，返回能组成的最大三角形的面积。</p>
+<p>给你一个由 <strong>X-Y</strong> 平面上的点组成的数组 <code>points</code> ，其中 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 。从其中取任意三个不同的点组成三角形，返回能组成的最大三角形的面积。与真实值误差在 <code>10<sup>-5</sup></code> 内的答案将会视为正确答案<strong>。</strong></p>
 
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0812.Largest%20Triangle%20Area/images/1027.png" style="height: 369px; width: 450px;" />
 <pre>
-<strong>示例:</strong>
-<strong>输入:</strong> points = [[0,0],[0,1],[1,0],[0,2],[2,0]]
-<strong>输出:</strong> 2
-<strong>解释:</strong> 
-这五个点如下图所示。组成的橙色三角形是最大的，面积为2。
+<strong>输入：</strong>points = [[0,0],[0,1],[1,0],[0,2],[2,0]]
+<strong>输出：</strong>2.00000
+<strong>解释：</strong>输入中的 5 个点如上图所示，红色的三角形面积最大。
 </pre>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0812.Largest%20Triangle%20Area/images/1027.png" style="height:328px; width:400px" /></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<p><strong>注意: </strong></p>
+<pre>
+<strong>输入：</strong>points = [[1,0],[0,0],[0,1]]
+<strong>输出：</strong>0.50000
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>3 &lt;= points.length &lt;= 50</code>.</li>
-	<li>不存在重复的点。</li>
-	<li>&nbsp;<code>-50 &lt;= points[i][j] &lt;= 50</code>.</li>
-	<li>结果误差值在&nbsp;<code>10^-6</code>&nbsp;以内都认为是正确答案。</li>
+	<li><code>3 &lt;= points.length &lt;= 50</code></li>
+	<li><code>-50 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 50</code></li>
+	<li>给出的所有点 <strong>互不相同</strong></li>
 </ul>
 
 ## 解法

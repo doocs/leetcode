@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 329
+
+- [2544. Alternating Digit Sum](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md)
+- [2545. Sort the Students by Their Kth Score](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md)
+- [2546. Apply Bitwise Operations to Make Strings Equal](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README_EN.md)
+- [2547. Minimum Cost to Split an Array](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)
+
+
+#### Biweekly Contest 96
+
+- [2540. Minimum Common Value](/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md)
+- [2541. Minimum Operations to Make Array Equal II](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README_EN.md)
+- [2542. Maximum Subsequence Score](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md)
+- [2543. Check if Point Is Reachable](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)
+
+
 #### Weekly Contest 328
 
 - [2535. Difference Between Element Sum and Digit Sum of an Array](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README_EN.md)

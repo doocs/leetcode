@@ -76,7 +76,7 @@ class Solution:
                 d += 1
                 root = root.left
             return d
-        
+
         if root is None:
             return 0
         left, right = depth(root.left), depth(root.right)

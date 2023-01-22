@@ -109,7 +109,7 @@ class Solution:
             if prev:
                 prev.next = curr
             prev = curr
-        
+
         node = root
         while node:
             prev = next = None
@@ -133,7 +133,7 @@ class Node {
     public Node next;
 
     public Node() {}
-    
+
     public Node(int _val) {
         val = _val;
     }
@@ -185,7 +185,7 @@ class Node {
     public Node next;
 
     public Node() {}
-    
+
     public Node(int _val) {
         val = _val;
     }

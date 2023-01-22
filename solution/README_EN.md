@@ -2548,6 +2548,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2537  |  [Count the Number of Good Subarrays](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 328  |
 |  2538  |  [Difference Between Maximum and Minimum Price Sum](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README_EN.md)  |  `Tree`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 328  |
 |  2539  |  [Count the Number of Good Subsequences](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)  |    |  Medium  |  🔒  |
+|  2540  |  [Minimum Common Value](/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md)  |    |  Easy  |  Biweekly Contest 96  |
+|  2541  |  [Minimum Operations to Make Array Equal II](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 96  |
+|  2542  |  [Maximum Subsequence Score](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md)  |    |  Medium  |  Biweekly Contest 96  |
+|  2543  |  [Check if Point Is Reachable](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)  |    |  Hard  |  Biweekly Contest 96  |
+|  2544  |  [Alternating Digit Sum](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md)  |    |  Easy  |  Weekly Contest 329  |
+|  2545  |  [Sort the Students by Their Kth Score](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md)  |    |  Medium  |  Weekly Contest 329  |
+|  2546  |  [Apply Bitwise Operations to Make Strings Equal](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 329  |
+|  2547  |  [Minimum Cost to Split an Array](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 329  |
 
 ## Copyright
 

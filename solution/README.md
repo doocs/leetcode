@@ -2550,6 +2550,14 @@
 |  2537  |  [统计好子数组的数目](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README.md)  |  `数组`,`哈希表`,`滑动窗口`  |  中等  |  第 328 场周赛  |
 |  2538  |  [最大价值和与最小价值和的差值](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README.md)  |  `树`,`数组`,`动态规划`  |  困难  |  第 328 场周赛  |
 |  2539  |  [Count the Number of Good Subsequences](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README.md)  |    |  中等  |  🔒  |
+|  2540  |  [最小公共值](/solution/2500-2599/2540.Minimum%20Common%20Value/README.md)  |    |  简单  |  第 96 场双周赛  |
+|  2541  |  [使数组中所有元素相等的最小操作数 II](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README.md)  |    |  中等  |  第 96 场双周赛  |
+|  2542  |  [最大子序列的分数](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README.md)  |    |  中等  |  第 96 场双周赛  |
+|  2543  |  [判断一个点是否可以到达](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README.md)  |    |  困难  |  第 96 场双周赛  |
+|  2544  |  [交替数字和](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md)  |    |  简单  |  第 329 场周赛  |
+|  2545  |  [根据第 K 场考试的分数排序](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README.md)  |    |  中等  |  第 329 场周赛  |
+|  2546  |  [执行逐位运算使字符串相等](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README.md)  |    |  中等  |  第 329 场周赛  |
+|  2547  |  [拆分数组的最小代价](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md)  |    |  困难  |  第 329 场周赛  |
 
 ## 版权
 

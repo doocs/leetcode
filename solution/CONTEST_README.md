@@ -24,6 +24,22 @@
 
 ## 往期竞赛
 
+#### 第 329 场周赛(2023-01-22 10:30, 90 分钟) 参赛人数 2591
+
+- [2544. 交替数字和](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md)
+- [2545. 根据第 K 场考试的分数排序](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README.md)
+- [2546. 执行逐位运算使字符串相等](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README.md)
+- [2547. 拆分数组的最小代价](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md)
+
+
+#### 第 96 场双周赛(2023-01-21 22:30, 90 分钟) 参赛人数 2103
+
+- [2540. 最小公共值](/solution/2500-2599/2540.Minimum%20Common%20Value/README.md)
+- [2541. 使数组中所有元素相等的最小操作数 II](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README.md)
+- [2542. 最大子序列的分数](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README.md)
+- [2543. 判断一个点是否可以到达](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README.md)
+
+
 #### 第 328 场周赛(2023-01-15 10:30, 90 分钟) 参赛人数 4776
 
 - [2535. 数组元素和与数字和的绝对差](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README.md)
@@ -2056,7 +2072,7 @@
 - [1235. 规划兼职工作](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md)
 
 
-#### 第 11 场双周赛(2019-10-19 22:30, 90 分钟) 参赛人数 912
+#### 第 11 场双周赛(2019-10-19 22:30, 90 分钟) 参赛人数 913
 
 - [1228. 等差数列中缺失的数字](/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README.md)
 - [1229. 安排会议日程](/solution/1200-1299/1229.Meeting%20Scheduler/README.md)
