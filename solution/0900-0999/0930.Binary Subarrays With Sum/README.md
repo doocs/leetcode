@@ -42,7 +42,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和 / 双指针。
+**方法一：数组或哈希表 + 前缀和**
+
+我们可以用数组或哈希表 $cnt$ 记录每个前缀和出现的次数，其中 $cnt[i]$ 表示前缀和为 $i$ 的子数组个数。初始时 $cnt[0] = 1$。
+
+接下来我们遍历数组 `nums`，用变量 $s$ 维护当前的前缀和，对于每个 $s$，我们可以计算出 $s - goal$ 出现的次数，即为以当前位置结尾的满足条件的子数组个数，累加到答案中。然后我们将 $s$ 的计数值加 $1$。
+
+最终的答案即为满足条件的子数组个数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
+**方法二：双指针**
 
 <!-- tabs:start -->
 
@@ -53,12 +63,12 @@
 ```python
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        counter = Counter({0: 1})
-        s = ans = 0
-        for num in nums:
-            s += num
-            ans += counter[s - goal]
-            counter[s] += 1
+        cnt = Counter({0: 1})
+        ans = s = 0
+        for v in nums:
+            s += v
+            ans += cnt[s - goal]
+            cnt[s] += 1
         return ans
 ```
 
@@ -88,15 +98,15 @@ class Solution:
 ```java
 class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
-        int[] counter = new int[nums.length + 1];
-        counter[0] = 1;
-        int s = 0, ans = 0;
-        for (int num : nums) {
-            s += num;
-            if (s >= goal) {
-                ans += counter[s - goal];
+        int[] cnt = new int[nums.length + 1];
+        cnt[0] = 1;
+        int ans = 0, s = 0;
+        for (int v : nums) {
+            s += v;
+            if (s - goal >= 0) {
+                ans += cnt[s - goal];
             }
-            ++counter[s];
+            ++cnt[s];
         }
         return ans;
     }
@@ -131,13 +141,16 @@ class Solution {
 class Solution {
 public:
     int numSubarraysWithSum(vector<int>& nums, int goal) {
-        vector<int> counter(nums.size() + 1);
-        counter[0] = 1;
-        int s = 0, ans = 0;
-        for (int& num : nums) {
-            s += num;
-            if (s >= goal) ans += counter[s - goal];
-            ++counter[s];
+        int cnt[nums.size() + 1];
+        memset(cnt, 0, sizeof cnt);
+        cnt[0] = 1;
+        int ans = 0, s = 0;
+        for (int& v : nums) {
+            s += v;
+            if (s - goal >= 0) {
+                ans += cnt[s - goal];
+            }
+            ++cnt[s];
         }
         return ans;
     }
@@ -167,18 +180,15 @@ public:
 ### **Go**
 
 ```go
-func numSubarraysWithSum(nums []int, goal int) int {
-	counter := make([]int, len(nums)+1)
-	counter[0] = 1
-	s, ans := 0, 0
-	for _, num := range nums {
-		s += num
-		if s >= goal {
-			ans += counter[s-goal]
-		}
-		counter[s]++
+func numSubarraysWithSum(nums []int, goal int) (ans int) {
+	cnt := map[int]int{0: 1}
+	s := 0
+	for _, v := range nums {
+		s += v
+		ans += cnt[s-goal]
+		cnt[s]++
 	}
-	return ans
+	return
 }
 ```
 
@@ -204,6 +214,28 @@ func numSubarraysWithSum(nums []int, goal int) int {
 ```
 
 ### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} goal
+ * @return {number}
+ */
+var numSubarraysWithSum = function (nums, goal) {
+    const cnt = new Array(nums.length + 1).fill(0);
+    cnt[0] = 1;
+    let ans = 0;
+    let s = 0;
+    for (const v of nums) {
+        s += v;
+        if (s >= goal) {
+            ans += cnt[s - goal];
+        }
+        ++cnt[s];
+    }
+    return ans;
+};
+```
 
 ```js
 /**
