@@ -1,19 +1,17 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        auto getNext = [](int n) {
-            int res = 0;
-            while (n) {
-                res += pow(n % 10, 2);
-                n /= 10;
+        auto next = [](int x) {
+            int y = 0;
+            for (; x; x /= 10) {
+                y += pow(x % 10, 2);
             }
-            return res;
+            return y;
         };
-        int slow = n;
-        int fast = getNext(n);
+        int slow = n, fast = next(n);
         while (slow != fast) {
-            slow = getNext(slow);
-            fast = getNext(getNext(fast));
+            slow = next(slow);
+            fast = next(next(fast));
         }
         return slow == 1;
     }

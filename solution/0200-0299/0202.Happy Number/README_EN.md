@@ -52,18 +52,31 @@
 ```python
 class Solution:
     def isHappy(self, n: int) -> bool:
-        def get_next(n):
-            s = 0
-            while n > 0:
-                n, digit = divmod(n, 10)
-                s += digit**2
-            return s
-
-        visited = set()
-        while n != 1 and n not in visited:
-            visited.add(n)
-            n = get_next(n)
+        vis = set()
+        while n != 1 and n not in vis:
+            vis.add(n)
+            x = 0
+            while n:
+                n, v = divmod(n, 10)
+                x += v * v
+            n = x
         return n == 1
+```
+
+```python
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def next(x):
+            y = 0
+            while x:
+                x, v = divmod(x, 10)
+                y += v * v
+            return y
+        
+        slow, fast = n, next(n)
+        while slow != fast:
+            slow, fast = next(slow), next(next(fast))
+        return slow == 1
 ```
 
 ### **Java**
@@ -71,22 +84,38 @@ class Solution:
 ```java
 class Solution {
     public boolean isHappy(int n) {
-        Set<Integer> visited = new HashSet<>();
-        while (n != 1 && !visited.contains(n)) {
-            visited.add(n);
-            n = getNext(n);
+        Set<Integer> vis = new HashSet<>();
+        while (n != 1 && !vis.contains(n)) {
+            vis.add(n);
+            int x = 0;
+            while (n != 0) {
+                x += (n % 10) * (n % 10);
+                n /= 10;
+            }
+            n = x;
         }
         return n == 1;
     }
+}
+```
 
-    private int getNext(int n) {
-        int s = 0;
-        while (n > 0) {
-            int digit = n % 10;
-            s += digit * digit;
-            n /= 10;
+```java
+class Solution {
+    public boolean isHappy(int n) {
+        int slow = n, fast = next(n);
+        while (slow != fast) {
+            slow = next(slow);
+            fast = next(next(fast));
         }
-        return s;
+        return slow == 1;
+    }
+
+    private int next(int x) {
+        int y = 0;
+        for (; x > 0; x /= 10) {
+            y += (x % 10) * (x % 10);
+        }
+        return y;
     }
 }
 ```
@@ -97,19 +126,35 @@ class Solution {
 class Solution {
 public:
     bool isHappy(int n) {
-        auto getNext = [](int n) {
-            int res = 0;
-            while (n) {
-                res += pow(n % 10, 2);
-                n /= 10;
+        unordered_set<int> vis;
+        while (n != 1 && !vis.count(n)) {
+            vis.insert(n);
+            int x = 0;
+            for (; n; n /= 10) {
+                x += (n % 10) * (n % 10);
             }
-            return res;
+            n = x;
+        }
+        return n == 1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isHappy(int n) {
+        auto next = [](int x) {
+            int y = 0;
+            for (; x; x /= 10) {
+                y += pow(x % 10, 2);
+            }
+            return y;
         };
-        int slow = n;
-        int fast = getNext(n);
+        int slow = n, fast = next(n);
         while (slow != fast) {
-            slow = getNext(slow);
-            fast = getNext(getNext(fast));
+            slow = next(slow);
+            fast = next(next(fast));
         }
         return slow == 1;
     }
@@ -120,19 +165,33 @@ public:
 
 ```go
 func isHappy(n int) bool {
-	m := make(map[int]bool)
-	for n != 1 && !m[n] {
-		n, m[n] = getSum(n), true
+	vis := map[int]bool{}
+	for n != 1 && !vis[n] {
+		vis[n] = true
+		x := 0
+		for ; n > 0; n /= 10 {
+			x += (n % 10) * (n % 10)
+		}
+		n = x
 	}
 	return n == 1
 }
+```
 
-func getSum(n int) (sum int) {
-	for n > 0 {
-		sum += (n % 10) * (n % 10)
-		n = n / 10
+```go
+func isHappy(n int) bool {
+	next := func(x int) (y int) {
+		for ; x > 0; x /= 10 {
+			y += (x % 10) * (x % 10)
+		}
+		return
 	}
-	return
+	slow, fast := n, next(n)
+	for slow != fast {
+		slow = next(slow)
+		fast = next(next(fast))
+	}
+	return slow == 1
 }
 ```
 

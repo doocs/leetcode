@@ -1,14 +1,13 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        def get_next(n):
-            s = 0
-            while n > 0:
-                n, digit = divmod(n, 10)
-                s += digit**2
-            return s
+        def next(x):
+            y = 0
+            while x:
+                x, v = divmod(x, 10)
+                y += v * v
+            return y
 
-        visited = set()
-        while n != 1 and n not in visited:
-            visited.add(n)
-            n = get_next(n)
-        return n == 1
+        slow, fast = n, next(n)
+        while slow != fast:
+            slow, fast = next(slow), next(next(fast))
+        return slow == 1

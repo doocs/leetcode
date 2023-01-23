@@ -51,11 +51,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-简单模拟，有可能进入死循环导致无法停止，有几种方式解决：
+**方法一：哈希表 + 模拟**
 
--   哈希表：转换过程不会重复出现同一个数字。
--   限制转换次数：在一定次数转换后还未成功变为 1，那么就断言此数不是快乐数。
--   快慢指针：与判断链表是否存在环原理一致。
+将每次转换后的数字存入哈希表，如果出现重复数字，说明进入了循环，不是快乐数。否则，如果转换后的数字为 $1$，说明是快乐数。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。
+
+**方法二：快慢指针**
+
+与判断链表是否存在环原理一致。如果 $n$ 是快乐数，那么快指针最终会与慢指针相遇，且相遇时的数字为 $1$；否则，快指针最终会与慢指针相遇，且相遇时的数字不为 $1$。
+
+因此，最后判断快慢指针相遇时的数字是否为 $1$ 即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -66,18 +74,31 @@
 ```python
 class Solution:
     def isHappy(self, n: int) -> bool:
-        def get_next(n):
-            s = 0
-            while n > 0:
-                n, digit = divmod(n, 10)
-                s += digit**2
-            return s
-
-        visited = set()
-        while n != 1 and n not in visited:
-            visited.add(n)
-            n = get_next(n)
+        vis = set()
+        while n != 1 and n not in vis:
+            vis.add(n)
+            x = 0
+            while n:
+                n, v = divmod(n, 10)
+                x += v * v
+            n = x
         return n == 1
+```
+
+```python
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def next(x):
+            y = 0
+            while x:
+                x, v = divmod(x, 10)
+                y += v * v
+            return y
+
+        slow, fast = n, next(n)
+        while slow != fast:
+            slow, fast = next(slow), next(next(fast))
+        return slow == 1
 ```
 
 ### **Java**
@@ -87,22 +108,38 @@ class Solution:
 ```java
 class Solution {
     public boolean isHappy(int n) {
-        Set<Integer> visited = new HashSet<>();
-        while (n != 1 && !visited.contains(n)) {
-            visited.add(n);
-            n = getNext(n);
+        Set<Integer> vis = new HashSet<>();
+        while (n != 1 && !vis.contains(n)) {
+            vis.add(n);
+            int x = 0;
+            while (n != 0) {
+                x += (n % 10) * (n % 10);
+                n /= 10;
+            }
+            n = x;
         }
         return n == 1;
     }
+}
+```
 
-    private int getNext(int n) {
-        int s = 0;
-        while (n > 0) {
-            int digit = n % 10;
-            s += digit * digit;
-            n /= 10;
+```java
+class Solution {
+    public boolean isHappy(int n) {
+        int slow = n, fast = next(n);
+        while (slow != fast) {
+            slow = next(slow);
+            fast = next(next(fast));
         }
-        return s;
+        return slow == 1;
+    }
+
+    private int next(int x) {
+        int y = 0;
+        for (; x > 0; x /= 10) {
+            y += (x % 10) * (x % 10);
+        }
+        return y;
     }
 }
 ```
@@ -113,19 +150,35 @@ class Solution {
 class Solution {
 public:
     bool isHappy(int n) {
-        auto getNext = [](int n) {
-            int res = 0;
-            while (n) {
-                res += pow(n % 10, 2);
-                n /= 10;
+        unordered_set<int> vis;
+        while (n != 1 && !vis.count(n)) {
+            vis.insert(n);
+            int x = 0;
+            for (; n; n /= 10) {
+                x += (n % 10) * (n % 10);
             }
-            return res;
+            n = x;
+        }
+        return n == 1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isHappy(int n) {
+        auto next = [](int x) {
+            int y = 0;
+            for (; x; x /= 10) {
+                y += pow(x % 10, 2);
+            }
+            return y;
         };
-        int slow = n;
-        int fast = getNext(n);
+        int slow = n, fast = next(n);
         while (slow != fast) {
-            slow = getNext(slow);
-            fast = getNext(getNext(fast));
+            slow = next(slow);
+            fast = next(next(fast));
         }
         return slow == 1;
     }
@@ -136,19 +189,33 @@ public:
 
 ```go
 func isHappy(n int) bool {
-	m := make(map[int]bool)
-	for n != 1 && !m[n] {
-		n, m[n] = getSum(n), true
+	vis := map[int]bool{}
+	for n != 1 && !vis[n] {
+		vis[n] = true
+		x := 0
+		for ; n > 0; n /= 10 {
+			x += (n % 10) * (n % 10)
+		}
+		n = x
 	}
 	return n == 1
 }
+```
 
-func getSum(n int) (sum int) {
-	for n > 0 {
-		sum += (n % 10) * (n % 10)
-		n = n / 10
+```go
+func isHappy(n int) bool {
+	next := func(x int) (y int) {
+		for ; x > 0; x /= 10 {
+			y += (x % 10) * (x % 10)
+		}
+		return
 	}
-	return
+	slow, fast := n, next(n)
+	for slow != fast {
+		slow = next(slow)
+		fast = next(next(fast))
+	}
+	return slow == 1
 }
 ```
 

@@ -1,15 +1,14 @@
 func isHappy(n int) bool {
-	m := make(map[int]bool)
-	for n != 1 && !m[n] {
-		n, m[n] = getSum(n), true
+	next := func(x int) (y int) {
+		for ; x > 0; x /= 10 {
+			y += (x % 10) * (x % 10)
+		}
+		return
 	}
-	return n == 1
-}
-
-func getSum(n int) (sum int) {
-	for n > 0 {
-		sum += (n % 10) * (n % 10)
-		n = n / 10
+	slow, fast := n, next(n)
+	for slow != fast {
+		slow = next(slow)
+		fast = next(next(fast))
 	}
-	return
+	return slow == 1
 }
