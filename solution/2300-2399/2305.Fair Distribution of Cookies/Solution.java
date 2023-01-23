@@ -1,33 +1,36 @@
 class Solution {
     private int[] cookies;
-    private int k;
     private int[] cnt;
-    private int ans;
+    private int k;
+    private int n;
+    private int ans = 1 << 30;
 
     public int distributeCookies(int[] cookies, int k) {
-        ans = 0x3f3f3f3f;
+        n = cookies.length;
+        cnt = new int[k];
+        Arrays.sort(cookies);
         this.cookies = cookies;
         this.k = k;
-        this.cnt = new int[k];
-        dfs(0);
+        dfs(n - 1);
         return ans;
     }
 
-    private void dfs(int u) {
-        if (u == cookies.length) {
-            int mx = cnt[0];
+    private void dfs(int i) {
+        if (i < 0) {
+            // ans = Arrays.stream(cnt).max().getAsInt();
+            ans = 0;
             for (int v : cnt) {
-                mx = Math.max(mx, v);
+                ans = Math.max(ans, v);
             }
-            ans = Math.min(ans, mx);
             return;
         }
-        for (int i = 0; i < k; ++i) {
-            if (cnt[i] + cookies[u] < ans) {
-                cnt[i] += cookies[u];
-                dfs(u + 1);
-                cnt[i] -= cookies[u];
+        for (int j = 0; j < k; ++j) {
+            if (cnt[j] + cookies[i] >= ans || (j > 0 && cnt[j] == cnt[j - 1])) {
+                continue;
             }
+            cnt[j] += cookies[i];
+            dfs(i - 1);
+            cnt[j] -= cookies[i];
         }
     }
 }

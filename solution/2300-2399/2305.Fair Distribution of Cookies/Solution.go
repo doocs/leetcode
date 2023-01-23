@@ -1,22 +1,23 @@
 func distributeCookies(cookies []int, k int) int {
+	sort.Sort(sort.Reverse(sort.IntSlice(cookies)))
 	cnt := make([]int, k)
-	ans := 0x3f3f3f3f
+	ans := 1 << 30
 	var dfs func(int)
-	dfs = func(u int) {
-		if u == len(cookies) {
-			mx := cnt[0]
+	dfs = func(i int) {
+		if i >= len(cookies) {
+			ans = 0
 			for _, v := range cnt {
-				mx = max(mx, v)
+				ans = max(ans, v)
 			}
-			ans = min(ans, mx)
 			return
 		}
-		for i := 0; i < k; i++ {
-			if cnt[i]+cookies[u] < ans {
-				cnt[i] += cookies[u]
-				dfs(u + 1)
-				cnt[i] -= cookies[u]
+		for j := 0; j < k; j++ {
+			if cnt[j]+cookies[i] >= ans || (j > 0 && cnt[j] == cnt[j-1]) {
+				continue
 			}
+			cnt[j] += cookies[i]
+			dfs(i + 1)
+			cnt[j] -= cookies[i]
 		}
 	}
 	dfs(0)
@@ -25,13 +26,6 @@ func distributeCookies(cookies []int, k int) int {
 
 func max(a, b int) int {
 	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
 		return a
 	}
 	return b

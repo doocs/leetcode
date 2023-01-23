@@ -54,19 +54,21 @@ It can be shown that there is no distribution with an unfairness less than 7.
 ```python
 class Solution:
     def distributeCookies(self, cookies: List[int], k: int) -> int:
-        def dfs(u):
-            nonlocal ans
-            if u == len(cookies):
-                ans = min(ans, max(cnt))
+        def dfs(i):
+            if i >= len(cookies):
+                nonlocal ans
+                ans = max(cnt)
                 return
-            for i in range(k):
-                if cnt[i] + cookies[u] < ans:
-                    cnt[i] += cookies[u]
-                    dfs(u + 1)
-                    cnt[i] -= cookies[u]
+            for j in range(k):
+                if cnt[j] + cookies[i] >= ans or (j and cnt[j] == cnt[j - 1]):
+                    continue
+                cnt[j] += cookies[i]
+                dfs(i + 1)
+                cnt[j] -= cookies[i]
 
         ans = inf
         cnt = [0] * k
+        cookies.sort(reverse=True)
         dfs(0)
         return ans
 ```
@@ -76,34 +78,37 @@ class Solution:
 ```java
 class Solution {
     private int[] cookies;
-    private int k;
     private int[] cnt;
-    private int ans;
+    private int k;
+    private int n;
+    private int ans = 1 << 30;
 
     public int distributeCookies(int[] cookies, int k) {
-        ans = 0x3f3f3f3f;
+        n = cookies.length;
+        cnt = new int[k];
+        Arrays.sort(cookies);
         this.cookies = cookies;
         this.k = k;
-        this.cnt = new int[k];
-        dfs(0);
+        dfs(n - 1);
         return ans;
     }
 
-    private void dfs(int u) {
-        if (u == cookies.length) {
-            int mx = cnt[0];
+    private void dfs(int i) {
+        if (i < 0) {
+            // ans = Arrays.stream(cnt).max().getAsInt();
+            ans = 0;
             for (int v : cnt) {
-                mx = Math.max(mx, v);
+                ans = Math.max(ans, v);
             }
-            ans = Math.min(ans, mx);
             return;
         }
-        for (int i = 0; i < k; ++i) {
-            if (cnt[i] + cookies[u] < ans) {
-                cnt[i] += cookies[u];
-                dfs(u + 1);
-                cnt[i] -= cookies[u];
+        for (int j = 0; j < k; ++j) {
+            if (cnt[j] + cookies[i] >= ans || (j > 0 && cnt[j] == cnt[j - 1])) {
+                continue;
             }
+            cnt[j] += cookies[i];
+            dfs(i - 1);
+            cnt[j] -= cookies[i];
         }
     }
 }
@@ -114,32 +119,28 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> cookies;
-    vector<int> cnt;
-    int k;
-    int ans;
-
     int distributeCookies(vector<int>& cookies, int k) {
-        ans = 0x3f3f3f3f;
-        this->cookies = cookies;
-        this->cnt = vector<int>(k);
-        this->k = k;
+        sort(cookies.rbegin(), cookies.rend());
+        int cnt[k];
+        memset(cnt, 0, sizeof cnt);
+        int n = cookies.size();
+        int ans = 1 << 30;
+        function<void(int)> dfs = [&](int i) {
+            if (i >= n) {
+                ans = *max_element(cnt, cnt + k);
+                return;
+            }
+            for (int j = 0; j < k; ++j) {
+                if (cnt[j] + cookies[i] >= ans || (j && cnt[j] == cnt[j - 1])) {
+                    continue;
+                }
+                cnt[j] += cookies[i];
+                dfs(i + 1);
+                cnt[j] -= cookies[i];
+            }
+        };
         dfs(0);
         return ans;
-    }
-
-    void dfs(int u) {
-        if (u == cookies.size()) {
-            ans = min(ans, *max_element(cnt.begin(), cnt.end()));
-            return;
-        }
-        for (int i = 0; i < k; ++i) {
-            if (cnt[i] + cookies[u] < ans) {
-                cnt[i] += cookies[u];
-                dfs(u + 1);
-                cnt[i] -= cookies[u];
-            }
-        }
     }
 };
 ```
@@ -148,24 +149,25 @@ public:
 
 ```go
 func distributeCookies(cookies []int, k int) int {
+	sort.Sort(sort.Reverse(sort.IntSlice(cookies)))
 	cnt := make([]int, k)
-	ans := 0x3f3f3f3f
+	ans := 1 << 30
 	var dfs func(int)
-	dfs = func(u int) {
-		if u == len(cookies) {
-			mx := cnt[0]
+	dfs = func(i int) {
+		if i >= len(cookies) {
+			ans = 0
 			for _, v := range cnt {
-				mx = max(mx, v)
+				ans = max(ans, v)
 			}
-			ans = min(ans, mx)
 			return
 		}
-		for i := 0; i < k; i++ {
-			if cnt[i]+cookies[u] < ans {
-				cnt[i] += cookies[u]
-				dfs(u + 1)
-				cnt[i] -= cookies[u]
+		for j := 0; j < k; j++ {
+			if cnt[j]+cookies[i] >= ans || (j > 0 && cnt[j] == cnt[j-1]) {
+				continue
 			}
+			cnt[j] += cookies[i]
+			dfs(i + 1)
+			cnt[j] -= cookies[i]
 		}
 	}
 	dfs(0)
@@ -178,19 +180,31 @@ func max(a, b int) int {
 	}
 	return b
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function distributeCookies(cookies: number[], k: number): number {
+    const cnt = new Array(k).fill(0);
+    let ans = 1 << 30;
+    const dfs = (i: number) => {
+        if (i >= cookies.length) {
+            ans = Math.max(...cnt);
+            return;
+        }
+        for (let j = 0; j < k; ++j) {
+            if (cnt[j] + cookies[i] >= ans || (j && cnt[j] == cnt[j - 1])) {
+                continue;
+            }
+            cnt[j] += cookies[i];
+            dfs(i + 1);
+            cnt[j] -= cookies[i];
+        }
+    };
+    dfs(0);
+    return ans;
+}
 ```
 
 ### **...**
