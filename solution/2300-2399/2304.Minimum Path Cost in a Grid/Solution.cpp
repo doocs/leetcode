@@ -2,21 +2,16 @@ class Solution {
 public:
     int minPathCost(vector<vector<int>>& grid, vector<vector<int>>& moveCost) {
         int m = grid.size(), n = grid[0].size();
-        int inf = INT_MAX;
-        vector<int> f(n);
-        for (int i = 0; i < m; ++i) {
-            vector<int> g(n);
+        const int inf = 1 << 30;
+        vector<int> f = grid[0];
+        for (int i = 1; i < m; ++i) {
+            vector<int> g(n, inf);
             for (int j = 0; j < n; ++j) {
-                g[j] = grid[i][j];
-                int t = inf;
-                if (i) {
-                    for (int k = 0; k < n; ++k) {
-                        t = min(t, f[k] + moveCost[grid[i - 1][k]][j]);
-                    }
+                for (int k = 0; k < n; ++k) {
+                    g[j] = min(g[j], f[k] + moveCost[grid[i - 1][k]][j] + grid[i][j]);
                 }
-                if (t != inf) g[j] += t;
             }
-            f = g;
+            f = move(g);
         }
         return *min_element(f.begin(), f.end());
     }
