@@ -1,4 +1,8 @@
-function greatestLetter(s: string): string {
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var greatestLetter = function (s) {
     const ss = new Array(128).fill(false);
     for (const c of s) {
         ss[c.charCodeAt(0)] = true;
@@ -9,4 +13,4 @@ function greatestLetter(s: string): string {
         }
     }
     return '';
-}
+};

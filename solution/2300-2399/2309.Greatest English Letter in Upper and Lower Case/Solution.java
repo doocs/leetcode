@@ -1,18 +1,15 @@
 class Solution {
     public String greatestLetter(String s) {
-        int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
+        int mask1 = 0, mask2 = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
             if (Character.isLowerCase(c)) {
-                cnt[c - 'a'] |= 1;
-            } else if (Character.isUpperCase(c)) {
-                cnt[c - 'A'] |= 2;
+                mask1 |= 1 << (c - 'a');
+            } else {
+                mask2 |= 1 << (c - 'A');
             }
         }
-        for (int i = 25; i >= 0; --i) {
-            if (cnt[i] == 3) {
-                return String.valueOf((char) ('A' + i));
-            }
-        }
-        return "";
+        int mask = mask1 & mask2;
+        return mask > 0 ? String.valueOf((char) (31 - Integer.numberOfLeadingZeros(mask) + 'A')) : "";
     }
 }

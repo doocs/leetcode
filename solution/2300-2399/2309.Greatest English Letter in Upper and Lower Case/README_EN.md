@@ -61,28 +61,20 @@ class Solution:
         return ''
 ```
 
-### **Java**
-
-```java
-class Solution {
-    public String greatestLetter(String s) {
-        int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            if (Character.isLowerCase(c)) {
-                cnt[c - 'a'] |= 1;
-            } else if (Character.isUpperCase(c)) {
-                cnt[c - 'A'] |= 2;
-            }
-        }
-        for (int i = 25; i >= 0; --i) {
-            if (cnt[i] == 3) {
-                return String.valueOf((char) ('A' + i));
-            }
-        }
-        return "";
-    }
-}
+```python
+class Solution:
+    def greatestLetter(self, s: str) -> str:
+        mask1 = mask2 = 0
+        for c in s:
+            if c.islower():
+                mask1 |= 1 << (ord(c) - ord("a"))
+            else:
+                mask2 |= 1 << (ord(c) - ord("A"))
+        mask = mask1 & mask2
+        return chr(mask.bit_length() - 1 + ord("A")) if mask else ""
 ```
+
+### **Java**
 
 ```java
 class Solution {
@@ -101,18 +93,55 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public String greatestLetter(String s) {
+        int mask1 = 0, mask2 = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (Character.isLowerCase(c)) {
+                mask1 |= 1 << (c - 'a');
+            } else {
+                mask2 |= 1 << (c - 'A');
+            }
+        }
+        int mask = mask1 & mask2;
+        return mask > 0 ? String.valueOf((char) (31 - Integer.numberOfLeadingZeros(mask) + 'A')) : "";
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     string greatestLetter(string s) {
-        unordered_set<char> ss;
-        for (char& c : s) ss.insert(c);
-        for (char c = 'Z'; c >= 'A'; --c)
-            if (ss.count(c) && ss.count(char(c + 32)))
+        unordered_set<char> ss(s.begin(), s.end());
+        for (char c = 'Z'; c >= 'A'; --c) {
+            if (ss.count(c) && ss.count(char(c + 32))) {
                 return string(1, c);
+            }
+        }
         return "";
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string greatestLetter(string s) {
+        int mask1 = 0, mask2 = 0;
+        for (char& c : s) {
+            if (islower(c)) {
+                mask1 |= 1 << (c - 'a');
+            } else {
+                mask2 |= 1 << (c - 'A');
+            }
+        }
+        int mask = mask1 & mask2;
+        return mask ? string(1, 31 - __builtin_clz(mask) + 'A') : "";
     }
 };
 ```
@@ -134,16 +163,36 @@ func greatestLetter(s string) string {
 }
 ```
 
+```go
+func greatestLetter(s string) string {
+	mask1, mask2 := 0, 0
+	for _, c := range s {
+		if unicode.IsLower(c) {
+			mask1 |= 1 << (c - 'a')
+		} else {
+			mask2 |= 1 << (c - 'A')
+		}
+	}
+	mask := mask1 & mask2
+	if mask == 0 {
+		return ""
+	}
+	return string(byte(bits.Len(uint(mask))-1) + 'A')
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function greatestLetter(s: string): string {
-    let couter = new Array(128).fill(false);
-    for (let char of s) {
-        couter[char.charCodeAt(0)] = true;
+    const ss = new Array(128).fill(false);
+    for (const c of s) {
+        ss[c.charCodeAt(0)] = true;
     }
-    for (let i = 90; i >= 65; i--) {
-        if (couter[i] && couter[i + 32]) return String.fromCharCode(i);
+    for (let i = 90; i >= 65; --i) {
+        if (ss[i] && ss[i + 32]) {
+            return String.fromCharCode(i);
+        }
     }
     return '';
 }
@@ -170,6 +219,27 @@ impl Solution {
         "".to_string()
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var greatestLetter = function (s) {
+    const ss = new Array(128).fill(false);
+    for (const c of s) {
+        ss[c.charCodeAt(0)] = true;
+    }
+    for (let i = 90; i >= 65; --i) {
+        if (ss[i] && ss[i + 32]) {
+            return String.fromCharCode(i);
+        }
+    }
+    return '';
+};
 ```
 
 ### **...**
