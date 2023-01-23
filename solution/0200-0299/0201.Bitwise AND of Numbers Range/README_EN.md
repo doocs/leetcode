@@ -68,7 +68,9 @@ class Solution {
 class Solution {
 public:
     int rangeBitwiseAnd(int left, int right) {
-        while (left < right) right &= (right - 1);
+        while (left < right) {
+            right &= (right - 1);
+        }
         return right;
     }
 };
@@ -90,13 +92,28 @@ func rangeBitwiseAnd(left int, right int) int {
 ```cs
 public class Solution {
     public int RangeBitwiseAnd(int left, int right) {
-        while (left < right)
-        {
+        while (left < right) {
             right &= (right - 1);
         }
         return right;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+var rangeBitwiseAnd = function (left, right) {
+    while (left < right) {
+        right &= right - 1;
+    }
+    return right;
+};
 ```
 
 ### **...**

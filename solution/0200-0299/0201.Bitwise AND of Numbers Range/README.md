@@ -47,6 +47,10 @@
 
 题目可以转换为求数字的公共二进制前缀。
 
+当 $left \lt right$ 时，我们循环将 $right$ 的最后一个二进制位 $1$ 变成 $0$，直到 $left = right$，此时 $right$ 即为数字的公共二进制前缀，返回 $right$ 即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -82,7 +86,9 @@ class Solution {
 class Solution {
 public:
     int rangeBitwiseAnd(int left, int right) {
-        while (left < right) right &= (right - 1);
+        while (left < right) {
+            right &= (right - 1);
+        }
         return right;
     }
 };
@@ -104,13 +110,28 @@ func rangeBitwiseAnd(left int, right int) int {
 ```cs
 public class Solution {
     public int RangeBitwiseAnd(int left, int right) {
-        while (left < right)
-        {
+        while (left < right) {
             right &= (right - 1);
         }
         return right;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+var rangeBitwiseAnd = function (left, right) {
+    while (left < right) {
+        right &= right - 1;
+    }
+    return right;
+};
 ```
 
 ### **...**

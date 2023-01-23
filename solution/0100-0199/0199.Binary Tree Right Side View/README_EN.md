@@ -50,19 +50,41 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rightSideView(self, root: TreeNode) -> List[int]:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         ans = []
         if root is None:
             return ans
         q = deque([root])
         while q:
-            ans.append(q[0].val)
-            for i in range(len(q), 0, -1):
+            ans.append(q[-1].val)
+            for _ in range(len(q)):
                 node = q.popleft()
-                if node.right:
-                    q.append(node.right)
                 if node.left:
                     q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs(node, depth):
+            if node is None:
+                return
+            if depth == len(ans):
+                ans.append(node.val)
+            dfs(node.right, depth + 1)
+            dfs(node.left, depth + 1)
+        
+        ans = []
+        dfs(root, 0)
         return ans
 ```
 
@@ -90,21 +112,58 @@ class Solution {
         if (root == null) {
             return ans;
         }
-        Deque<TreeNode> q = new LinkedList<>();
-        q.offerLast(root);
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
         while (!q.isEmpty()) {
-            ans.add(q.peekFirst().val);
-            for (int i = q.size(); i > 0; --i) {
-                TreeNode node = q.pollFirst();
-                if (node.right != null) {
-                    q.offerLast(node.right);
-                }
+            ans.add(q.peekLast().val);
+            for (int n = q.size(); n > 0; --n) {
+                TreeNode node = q.poll();
                 if (node.left != null) {
-                    q.offerLast(node.left);
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
                 }
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private List<Integer> ans = new ArrayList<>();
+
+    public List<Integer> rightSideView(TreeNode root) {
+        dfs(root, 0);
+        return ans;
+    }
+
+    private void dfs(TreeNode node, int depth) {
+        if (node == null) {
+            return;
+        }
+        if (depth == ans.size()) {
+            ans.add(node.val);
+        }
+        dfs(node.right, depth + 1);
+        dfs(node.left, depth + 1);
     }
 }
 ```
@@ -127,17 +186,55 @@ class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
         vector<int> ans;
-        if (!root) return ans;
-        queue<TreeNode*> q {{root}};
+        if (!root) {
+            return ans;
+        }
+        queue<TreeNode*> q{{root}};
         while (!q.empty()) {
-            ans.push_back(q.front()->val);
-            for (int i = q.size(); i > 0; --i) {
+            ans.emplace_back(q.back()->val);
+            for (int n = q.size(); n; --n) {
                 TreeNode* node = q.front();
                 q.pop();
-                if (node->right) q.push(node->right);
-                if (node->left) q.push(node->left);
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
             }
         }
+        return ans;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* node, int depth) {
+            if (!node) {
+                return;
+            }
+            if (depth == ans.size()) {
+                ans.emplace_back(node->val);
+            }
+            dfs(node->right, depth + 1);
+            dfs(node->left, depth + 1);
+        };
+        dfs(root, 0);
         return ans;
     }
 };
@@ -154,26 +251,51 @@ public:
  *     Right *TreeNode
  * }
  */
-func rightSideView(root *TreeNode) []int {
-	var ans []int
+func rightSideView(root *TreeNode) (ans []int) {
 	if root == nil {
-		return ans
+		return
 	}
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		ans = append(ans, q[0].Val)
-		for i := len(q); i > 0; i-- {
+		ans = append(ans, q[len(q)-1].Val)
+		for n := len(q); n > 0; n-- {
 			node := q[0]
 			q = q[1:]
-			if node.Right != nil {
-				q = append(q, node.Right)
-			}
 			if node.Left != nil {
 				q = append(q, node.Left)
 			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func rightSideView(root *TreeNode) (ans []int) {
+	var dfs func(*TreeNode, int)
+	dfs = func(node *TreeNode, depth int) {
+		if node == nil {
+			return
+		}
+		if depth == len(ans) {
+			ans = append(ans, node.Val)
+		}
+		dfs(node.Right, depth+1)
+		dfs(node.Left, depth+1)
+	}
+	dfs(root, 0)
+	return
 }
 ```
 
@@ -195,21 +317,53 @@ func rightSideView(root *TreeNode) []int {
  */
 
 function rightSideView(root: TreeNode | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans = [];
+    if (!root) {
+        return ans;
     }
-    const queue = [root];
-    while (queue.length !== 0) {
-        const n = queue.length;
-        res.push(queue[n - 1].val);
-        for (let i = 0; i < n; i++) {
-            const { left, right } = queue.shift();
-            left && queue.push(left);
-            right && queue.push(right);
+    const q = [root];
+    while (q.length) {
+        const n = q.length;
+        ans.push(q[n - 1].val);
+        for (let i = 0; i < n; ++i) {
+            const { left, right } = q.shift();
+            left && q.push(left);
+            right && q.push(right);
         }
     }
-    return res;
+    return ans;
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function rightSideView(root: TreeNode | null): number[] {
+    const ans = [];
+    const dfs = (node: TreeNode | null, depth: number) => {
+        if (!node) {
+            return;
+        }
+        if (depth == ans.length) {
+            ans.push(node.val);
+        }
+        dfs(node.right, depth + 1);
+        dfs(node.left, depth + 1);
+    };
+    dfs(root, 0);
+    return ans;
 }
 ```
 
