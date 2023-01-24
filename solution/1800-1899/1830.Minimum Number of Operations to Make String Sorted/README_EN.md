@@ -54,13 +54,190 @@ Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then rever
 ### **Python3**
 
 ```python
+n = 3010
+mod = 10**9 + 7
+f = [1] + [0] * n
+g = [1] + [0] * n
 
+for i in range(1, n):
+    f[i] = f[i - 1] * i % mod
+    g[i] = pow(f[i], mod - 2, mod)
+
+
+class Solution:
+    def makeStringSorted(self, s: str) -> int:
+        cnt = Counter(s)
+        ans, n = 0, len(s)
+        for i, c in enumerate(s):
+            m = sum(v for a, v in cnt.items() if a < c)
+            t = f[n - i - 1] * m
+            for v in cnt.values():
+                t = t * g[v] % mod
+            ans = (ans + t) % mod
+            cnt[c] -= 1
+            if cnt[c] == 0:
+                cnt.pop(c)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final int N = 3010;
+    private static final int MOD = (int) 1e9 + 7;
+    private static final long[] f = new long[N];
+    private static final long[] g = new long[N];
 
+    static {
+        f[0] = 1;
+        g[0] = 1;
+        for (int i = 1; i < N; ++i) {
+            f[i] = f[i - 1] * i % MOD;
+            g[i] = qmi(f[i], MOD - 2);
+        }
+    }
+
+    public static long qmi(long a, int k) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % MOD;
+            }
+            k >>= 1;
+            a = a * a % MOD;
+        }
+        return res;
+    }
+
+    public int makeStringSorted(String s) {
+        int[] cnt = new int[26];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            ++cnt[s.charAt(i) - 'a'];
+        }
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int m = 0;
+            for (int j = s.charAt(i) - 'a' - 1; j >= 0; --j) {
+                m += cnt[j];
+            }
+            long t = m * f[n - i - 1] % MOD;
+            for (int v : cnt) {
+                t = t * g[v] % MOD;
+            }
+            --cnt[s.charAt(i) - 'a'];
+            ans = (ans + t + MOD) % MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+const int N = 3010;
+const int MOD = 1e9 + 7;
+long f[N];
+long g[N];
+
+long qmi(long a, int k) {
+    long res = 1;
+    while (k != 0) {
+        if ((k & 1) == 1) {
+            res = res * a % MOD;
+        }
+        k >>= 1;
+        a = a * a % MOD;
+    }
+    return res;
+}
+
+int init = []() {
+    f[0] = g[0] = 1;
+    for (int i = 1; i < N; ++i) {
+        f[i] = f[i - 1] * i % MOD;
+        g[i] = qmi(f[i], MOD - 2);
+    }
+    return 0;
+}();
+
+
+class Solution {
+public:
+    int makeStringSorted(string s) {
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        int n = s.size();
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int m = 0;
+            for (int j = s[i] - 'a' - 1; ~j; --j) {
+                m += cnt[j];
+            }
+            long t = m * f[n - i - 1] % MOD;
+            for (int& v : cnt) {
+                t = t * g[v] % MOD;
+            }
+            ans = (ans + t + MOD) % MOD;
+            --cnt[s[i] - 'a'];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+const n = 3010
+const mod = 1e9 + 7
+
+var f = make([]int, n)
+var g = make([]int, n)
+
+func qmi(a, k int) int {
+	res := 1
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % mod
+		}
+		k >>= 1
+		a = a * a % mod
+	}
+	return res
+}
+
+func init() {
+	f[0], g[0] = 1, 1
+	for i := 1; i < n; i++ {
+		f[i] = f[i-1] * i % mod
+		g[i] = qmi(f[i], mod-2)
+	}
+}
+
+func makeStringSorted(s string) (ans int) {
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	for i, c := range s {
+		m := 0
+		for j := int(c-'a') - 1; j >= 0; j-- {
+			m += cnt[j]
+		}
+		t := m * f[len(s)-i-1] % mod
+		for _, v := range cnt {
+			t = t * g[v] % mod
+		}
+		ans = (ans + t + mod) % mod
+		cnt[c-'a']--
+	}
+	return
+}
 ```
 
 ### **...**
