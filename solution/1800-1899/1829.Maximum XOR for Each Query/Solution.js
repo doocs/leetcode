@@ -1,4 +1,9 @@
-function getMaximumXor(nums: number[], maximumBit: number): number[] {
+/**
+ * @param {number[]} nums
+ * @param {number} maximumBit
+ * @return {number[]}
+ */
+var getMaximumXor = function (nums, maximumBit) {
     let xs = 0;
     for (const x of nums) {
         xs ^= x;
@@ -13,4 +18,4 @@ function getMaximumXor(nums: number[], maximumBit: number): number[] {
         xs ^= x;
     }
     return ans;
-}
+};

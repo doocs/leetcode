@@ -74,6 +74,14 @@
 
 时间复杂度 $O(n \times m)$，其中 $n$ 和 $m$ 分别是数组 `nums` 和 `maximumBit` 的值。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
+**方法二：枚举优化**
+
+与方法一类似，我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$。
+
+接下来，我们算出 $2^{maximumBit} - 1$，即 $2^{maximumBit}$ 减去 $1$，记为 $mask$。然后，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，那么 $k=xs \oplus mask$ 就是每一次查询的答案。然后，我们将 $xs$ 更新为 $xs \oplus x$，继续枚举下一个元素。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 `nums` 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -90,6 +98,19 @@ class Solution:
             for i in range(maximumBit - 1, -1, -1):
                 if (xs >> i & 1) == 0:
                     k |= 1 << i
+            ans.append(k)
+            xs ^= x
+        return ans
+```
+
+```python
+class Solution:
+    def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+        ans = []
+        xs = reduce(xor, nums)
+        mask = (1 << maximumBit) - 1
+        for x in nums[::-1]:
+            k = xs ^ mask
             ans.append(k)
             xs ^= x
         return ans
@@ -116,6 +137,27 @@ class Solution {
                     k |= 1 << j;
                 }
             }
+            ans[i] = k;
+            xs ^= x;
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] getMaximumXor(int[] nums, int maximumBit) {
+        int xs = 0;
+        for (int x : nums) {
+            xs ^= x;
+        }
+        int mask = (1 << maximumBit) - 1;
+        int n = nums.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int x = nums[n - i - 1];
+            int k = xs ^ mask;
             ans[i] = k;
             xs ^= x;
         }
@@ -152,6 +194,28 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> getMaximumXor(vector<int>& nums, int maximumBit) {
+        int xs = 0;
+        for (int& x : nums) {
+            xs ^= x;
+        }
+        int mask = (1 << maximumBit) - 1;
+        int n = nums.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int x = nums[n - i - 1];
+            int k = xs ^ mask;
+            ans[i] = k;
+            xs ^= x;
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -168,6 +232,23 @@ func getMaximumXor(nums []int, maximumBit int) (ans []int) {
 				k |= 1 << j
 			}
 		}
+		ans = append(ans, k)
+		xs ^= x
+	}
+	return
+}
+```
+
+```go
+func getMaximumXor(nums []int, maximumBit int) (ans []int) {
+	xs := 0
+	for _, x := range nums {
+		xs ^= x
+	}
+	mask := (1 << maximumBit) - 1
+	for i := range nums {
+		x := nums[len(nums)-i-1]
+		k := xs ^ mask
 		ans = append(ans, k)
 		xs ^= x
 	}
@@ -198,6 +279,127 @@ function getMaximumXor(nums: number[], maximumBit: number): number[] {
     }
     return ans;
 }
+```
+
+```ts
+function getMaximumXor(nums: number[], maximumBit: number): number[] {
+    let xs = 0;
+    for (const x of nums) {
+        xs ^= x;
+    }
+    const mask = (1 << maximumBit) - 1;
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        const x = nums[n - i - 1];
+        let k = xs ^ mask;
+        ans[i] = k;
+        xs ^= x;
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] GetMaximumXor(int[] nums, int maximumBit) {
+        int xs = 0;
+        foreach (int x in nums) {
+            xs ^= x;
+        }
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int x = nums[n - i - 1];
+            int k = 0;
+            for (int j = maximumBit - 1; j >= 0; --j) {
+                if ((xs >> j & 1) == 0) {
+                    k |= 1 << j;
+                }
+            }
+            ans[i] = k;
+            xs ^= x;
+        }
+        return ans;
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int[] GetMaximumXor(int[] nums, int maximumBit) {
+        int xs = 0;
+        foreach (int x in nums) {
+            xs ^= x;
+        }
+        int mask = (1 << maximumBit) - 1;
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int x = nums[n - i - 1];
+            int k = xs ^ mask;
+            ans[i] = k;
+            xs ^= x;
+        }
+        return ans;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} maximumBit
+ * @return {number[]}
+ */
+var getMaximumXor = function (nums, maximumBit) {
+    let xs = 0;
+    for (const x of nums) {
+        xs ^= x;
+    }
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        const x = nums[n - i - 1];
+        let k = 0;
+        for (let j = maximumBit - 1; j >= 0; --j) {
+            if (((xs >> j) & 1) == 0) {
+                k |= 1 << j;
+            }
+        }
+        ans[i] = k;
+        xs ^= x;
+    }
+    return ans;
+};
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} maximumBit
+ * @return {number[]}
+ */
+var getMaximumXor = function (nums, maximumBit) {
+    let xs = 0;
+    for (const x of nums) {
+        xs ^= x;
+    }
+    const mask = (1 << maximumBit) - 1;
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        const x = nums[n - i - 1];
+        let k = xs ^ mask;
+        ans[i] = k;
+        xs ^= x;
+    }
+    return ans;
+};
 ```
 
 ### **...**
