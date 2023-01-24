@@ -65,17 +65,15 @@
 ```python
 class Solution:
     def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
-        n = len(nums)
-        s = [0] * (n + 1)
-        for i, x in enumerate(nums):
-            s[i + 1] = s[i] ^ x
         ans = []
-        for x in s[:0:-1]:
-            t = 0
-            for i in range(maximumBit):
-                if ((x >> i) & 1) == 0:
-                    t |= 1 << i
-            ans.append(t)
+        xs = reduce(xor, nums)
+        for x in nums[::-1]:
+            k = 0
+            for i in range(maximumBit - 1, -1, -1):
+                if (xs >> i & 1) == 0:
+                    k |= 1 << i
+            ans.append(k)
+            xs ^= x
         return ans
 ```
 
@@ -85,19 +83,21 @@ class Solution:
 class Solution {
     public int[] getMaximumXor(int[] nums, int maximumBit) {
         int n = nums.length;
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] ^ nums[i];
+        int xs = 0;
+        for (int x : nums) {
+            xs ^= x;
         }
         int[] ans = new int[n];
-        for (int i = n; i > 0; --i) {
-            int t = 0, x = s[i];
-            for (int j = 0; j < maximumBit; ++j) {
-                if (((x >> j) & 1) == 0) {
-                    t |= (1 << j);
+        for (int i = 0; i < n; ++i) {
+            int x = nums[n - i - 1];
+            int k = 0;
+            for (int j = maximumBit - 1; j >= 0; --j) {
+                if (((xs >> j) & 1) == 0) {
+                    k |= 1 << j;
                 }
             }
-            ans[n - i] = t;
+            ans[i] = k;
+            xs ^= x;
         }
         return ans;
     }
@@ -110,16 +110,22 @@ class Solution {
 class Solution {
 public:
     vector<int> getMaximumXor(vector<int>& nums, int maximumBit) {
+        int xs = 0;
+        for (int& x : nums) {
+            xs ^= x;
+        }
         int n = nums.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] ^ nums[i];
-        vector<int> ans;
-        for (int i = n; i > 0; --i) {
-            int t = 0, x = s[i];
-            for (int j = 0; j < maximumBit; ++j) {
-                if (((x >> j) & 1) == 0) t |= (1 << j);
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int x = nums[n - i - 1];
+            int k = 0;
+            for (int j = maximumBit - 1; ~j; --j) {
+                if ((xs >> j & 1) == 0) {
+                    k |= 1 << j;
+                }
             }
-            ans.push_back(t);
+            ans[i] = k;
+            xs ^= x;
         }
         return ans;
     }
@@ -129,23 +135,48 @@ public:
 ### **Go**
 
 ```go
-func getMaximumXor(nums []int, maximumBit int) []int {
-	n := len(nums)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] ^ v
+func getMaximumXor(nums []int, maximumBit int) (ans []int) {
+	xs := 0
+	for _, x := range nums {
+		xs ^= x
 	}
-	var ans []int
-	for i := n; i > 0; i-- {
-		t, x := 0, s[i]
-		for j := 0; j < maximumBit; j++ {
-			if ((x >> j) & 1) == 0 {
-				t |= (1 << j)
+	for i := range nums {
+		x := nums[len(nums)-i-1]
+		k := 0
+		for j := maximumBit - 1; j >= 0; j-- {
+			if xs>>j&1 == 0 {
+				k |= 1 << j
 			}
 		}
-		ans = append(ans, t)
+		ans = append(ans, k)
+		xs ^= x
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function getMaximumXor(nums: number[], maximumBit: number): number[] {
+    let xs = 0;
+    for (const x of nums) {
+        xs ^= x;
+    }
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        const x = nums[n - i - 1];
+        let k = 0;
+        for (let j = maximumBit - 1; j >= 0; --j) {
+            if (((xs >> j) & 1) == 0) {
+                k |= 1 << j;
+            }
+        }
+        ans[i] = k;
+        xs ^= x;
+    }
+    return ans;
 }
 ```
 

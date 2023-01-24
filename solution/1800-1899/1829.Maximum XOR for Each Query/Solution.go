@@ -1,18 +1,18 @@
-func getMaximumXor(nums []int, maximumBit int) []int {
-	n := len(nums)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] ^ v
+func getMaximumXor(nums []int, maximumBit int) (ans []int) {
+	xs := 0
+	for _, x := range nums {
+		xs ^= x
 	}
-	var ans []int
-	for i := n; i > 0; i-- {
-		t, x := 0, s[i]
-		for j := 0; j < maximumBit; j++ {
-			if ((x >> j) & 1) == 0 {
-				t |= (1 << j)
+	for i := range nums {
+		x := nums[len(nums)-i-1]
+		k := 0
+		for j := maximumBit - 1; j >= 0; j-- {
+			if xs>>j&1 == 0 {
+				k |= 1 << j
 			}
 		}
-		ans = append(ans, t)
+		ans = append(ans, k)
+		xs ^= x
 	}
-	return ans
+	return
 }
