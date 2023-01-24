@@ -1,7 +1,39 @@
-class Solution {
-    private Map<Integer, Integer> p = new HashMap<>();
-    private Map<Integer, Integer> rank = new HashMap<>();
+class UnionFind {
+    private int[] p;
+    private int[] size;
 
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public void union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa != pb) {
+            if (size[pa] > size[pb]) {
+                p[pb] = pa;
+                size[pa] += size[pb];
+            } else {
+                p[pa] = pb;
+                size[pb] += size[pa];
+            }
+        }
+    }
+}
+
+
+class Solution {
     public int[][] matrixRankTransform(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         TreeMap<Integer, List<int[]>> d = new TreeMap<>();
@@ -13,38 +45,23 @@ class Solution {
         int[] rowMax = new int[m];
         int[] colMax = new int[n];
         int[][] ans = new int[m][n];
-        for (var e : d.entrySet()) {
-            int v = e.getKey();
-            var g = e.getValue();
-            p.clear();
-            rank.clear();
-            for (int[] x : g) {
-                union(x[0], x[1] + 500);
+        for (var ps : d.values()) {
+            UnionFind uf = new UnionFind(m + n);
+            int[] rank = new int[m + n];
+            for (var p : ps) {
+                uf.union(p[0], p[1] + m);
             }
-            for (int[] x : g) {
-                int i = x[0], j = x[1];
-                rank.put(find(i),
-                    Math.max(rank.getOrDefault(find(i), 0), Math.max(rowMax[i], colMax[j])));
+            for (var p : ps) {
+                int i = p[0], j = p[1];
+                rank[uf.find(i)] = Math.max(rank[uf.find(i)], Math.max(rowMax[i], colMax[j]));
             }
-            for (int[] x : g) {
-                int i = x[0], j = x[1];
-                ans[i][j] = 1 + rank.getOrDefault(find(i), 0);
+            for (var p : ps) {
+                int i = p[0], j = p[1];
+                ans[i][j] = 1 + rank[uf.find(i)];
                 rowMax[i] = ans[i][j];
                 colMax[j] = ans[i][j];
             }
         }
         return ans;
-    }
-
-    private void union(int a, int b) {
-        p.put(find(a), find(b));
-    }
-
-    private int find(int x) {
-        p.putIfAbsent(x, x);
-        if (p.get(x) != x) {
-            p.put(x, find(p.get(x)));
-        }
-        return p.get(x);
     }
 }

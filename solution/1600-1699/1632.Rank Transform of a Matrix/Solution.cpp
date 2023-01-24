@@ -1,3 +1,35 @@
+class UnionFind {
+public:
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
+        iota(p.begin(), p.end(), 0);
+    }
+
+    void unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa != pb) {
+            if (size[pa] > size[pb]) {
+                p[pb] = pa;
+                size[pa] += size[pb];
+            } else {
+                p[pa] = pb;
+                size[pb] += size[pa];
+            }
+        }
+    }
+
+    int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+private:
+    vector<int> p, size;
+};
+
 class Solution {
 public:
     vector<vector<int>> matrixRankTransform(vector<vector<int>>& matrix) {
@@ -11,29 +43,19 @@ public:
         vector<int> rowMax(m);
         vector<int> colMax(n);
         vector<vector<int>> ans(m, vector<int>(n));
-        for (auto& [v, g] : d) {
-            unordered_map<int, int> p;
-            unordered_map<int, int> rank;
-            for (auto [i, j] : g) {
-                unite(i, j + 500, p);
+        for (auto& [_, ps] : d) {
+            UnionFind uf(m + n);
+            vector<int> rank(m + n);
+            for (auto& [i, j] : ps) {
+                uf.unite(i, j + m);
             }
-            for (auto [i, j] : g) {
-                rank[find(i, p)] = max(rank[find(i, p)], max(rowMax[i], colMax[j]));
+            for (auto& [i, j] : ps) {
+                rank[uf.find(i)] = max({rank[uf.find(i)], rowMax[i], colMax[j]});
             }
-            for (auto [i, j] : g) {
-                ans[i][j] = rowMax[i] = colMax[j] = 1 + rank[find(i, p)];
+            for (auto& [i, j] : ps) {
+                ans[i][j] = rowMax[i] = colMax[j] = 1 + rank[uf.find(i)];
             }
         }
         return ans;
-    }
-
-    void unite(int a, int b, unordered_map<int, int>& p) {
-        p[find(a, p)] = find(b, p);
-    }
-
-    int find(int x, unordered_map<int, int>& p) {
-        if (!p.count(x)) p[x] = x;
-        if (p[x] != x) p[x] = find(p[x], p);
-        return p[x];
     }
 };
