@@ -1,17 +1,19 @@
 /**
  * Definition for polynomial singly-linked list.
- * class PolyNode {
- *     int coefficient, power;
- *     PolyNode next = null;
- 
- *     PolyNode() {}
- *     PolyNode(int x, int y) { this.coefficient = x; this.power = y; }
- *     PolyNode(int x, int y, PolyNode next) { this.coefficient = x; this.power = y; this.next = next; }
+ * public class PolyNode {
+ *     public int coefficient, power;
+ *     public PolyNode next;
+ *
+ *     public PolyNode(int x=0, int y=0, PolyNode next=null) {
+ *         this.coefficient = x;
+ *         this.power = y;
+ *         this.next = next;
+ *     }
  * }
  */
 
- class Solution {
-    public PolyNode addPoly(PolyNode poly1, PolyNode poly2) {
+public class Solution {
+    public PolyNode AddPoly(PolyNode poly1, PolyNode poly2) {
         PolyNode dummy = new PolyNode();
         PolyNode curr = dummy;
         while (poly1 != null && poly2 != null) {
