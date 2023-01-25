@@ -57,15 +57,14 @@ The underlined portions are the substrings that are chosen from s and t.
 ```python
 class Solution:
     def countSubstrings(self, s: str, t: str) -> int:
-        m, n = len(s), len(t)
         ans = 0
-        for i in range(m):
-            for j in range(n):
-                if s[i] != t[j]:
+        for i, a in enumerate(s):
+            for j, b in enumerate(t):
+                if a != b:
                     l = r = 1
-                    while i - l >= 0 and j - l >= 0 and s[i - l] == t[j - l]:
+                    while i >= l and j >= l and s[i - l] == t[j - l]:
                         l += 1
-                    while i + r < m and j + r < n and s[i + r] == t[j + r]:
+                    while i + r < len(s) and j + r < len(t) and s[i + r] == t[j + r]:
                         r += 1
                     ans += l * r
         return ans
@@ -107,10 +106,16 @@ public:
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (s[i] == t[j]) continue;
+                if (s[i] == t[j]) {
+                    continue;
+                }
                 int l = 1, r = 1;
-                while (i - l >= 0 && j - l >= 0 && s[i - l] == t[j - l]) ++l;
-                while (i + r < m && j + r < n && s[i + r] == t[j + r]) ++r;
+                while (i - l >= 0 && j - l >= 0 && s[i - l] == t[j - l]) {
+                    ++l;
+                }
+                while (i + r < m && j + r < n && s[i + r] == t[j + r]) {
+                    ++r;
+                }
                 ans += l * r;
             }
         }
@@ -122,25 +127,22 @@ public:
 ### **Go**
 
 ```go
-func countSubstrings(s string, t string) int {
-	m, n := len(s), len(t)
-	ans := 0
-	for i := range s {
-		for j := range t {
-			if s[i] == t[j] {
-				continue
+func countSubstrings(s string, t string) (ans int) {
+	for i, a := range s {
+		for j, b := range t {
+			if a != b {
+				l, r := 1, 1
+				for i >= l && j >= l && s[i-l] == t[j-l] {
+					l++
+				}
+				for i+r < len(s) && j+r < len(t) && s[i+r] == t[j+r] {
+					r++
+				}
+				ans += l * r
 			}
-			l, r := 1, 1
-			for i-l >= 0 && j-l >= 0 && s[i-l] == t[j-l] {
-				l++
-			}
-			for i+r < m && j+r < n && s[i+r] == t[j+r] {
-				r++
-			}
-			ans += l * r
 		}
 	}
-	return ans
+	return
 }
 ```
 
