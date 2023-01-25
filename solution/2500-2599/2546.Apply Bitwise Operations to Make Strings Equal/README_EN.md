@@ -87,6 +87,45 @@ func makeStringsEqual(s string, target string) bool {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function makeStringsEqual(s: string, target: string): boolean {
+    return s.includes('1') === target.includes('1');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn make_strings_equal(s: String, target: String) -> bool {
+        s.contains('1') == target.contains('1')
+    }
+}
+```
+
+### **C**
+
+```c
+bool makeStringsEqual(char *s, char *target) {
+    int count = 0;
+    for (int i = 0; s[i]; i++) {
+        if (s[i] == '1') {
+            count++;
+            break;
+        }
+    }
+    for (int i = 0; target[i]; i++) {
+        if (target[i] == '1') {
+            count++;
+            break;
+        }
+    }
+    return !(count & 1);
+}
+```
+
 ### **...**
 
 ```
