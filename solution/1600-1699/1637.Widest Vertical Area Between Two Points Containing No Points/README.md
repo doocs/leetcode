@@ -46,9 +46,9 @@
 
 **方法一：排序**
 
-对 $points$ 按照 $x$ 升序排列，获取相邻点之间 $x$ 的差值的最大值。
+对 `points` 按照 $x$ 升序排列，获取相邻点之间 $x$ 的差值的最大值。
 
-时间复杂度 $O(nlogn)$，其中 $n$ 表示 $points$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为 `points` 的长度。
 
 <!-- tabs:start -->
 
@@ -88,7 +88,9 @@ public:
     int maxWidthOfVerticalArea(vector<vector<int>>& points) {
         sort(points.begin(), points.end());
         int ans = 0;
-        for (int i = 0; i < points.size() - 1; ++i) ans = max(ans, points[i + 1][0] - points[i][0]);
+        for (int i = 0; i < points.size() - 1; ++i) {
+            ans = max(ans, points[i + 1][0] - points[i][0]);
+        }
         return ans;
     }
 };
@@ -97,15 +99,12 @@ public:
 ### **Go**
 
 ```go
-func maxWidthOfVerticalArea(points [][]int) int {
-	sort.Slice(points, func(i, j int) bool {
-		return points[i][0] < points[j][0]
-	})
-	ans := 0
+func maxWidthOfVerticalArea(points [][]int) (ans int) {
+	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
 	for i, p := range points[1:] {
 		ans = max(ans, p[0]-points[i][0])
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -114,6 +113,25 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} points
+ * @return {number}
+ */
+var maxWidthOfVerticalArea = function (points) {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    let px = points[0][0];
+    for (const [x, _] of points) {
+        ans = Math.max(ans, x - px);
+        px = x;
+    }
+    return ans;
+};
 ```
 
 ### **...**
