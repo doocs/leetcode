@@ -1,16 +1,14 @@
-func countVowelStrings(n int) int {
-	cnt := make([]int, 5)
-	for i := range cnt {
-		cnt[i] = 1
-	}
-	for i := 2; i <= n; i++ {
-		for j := 3; j >= 0; j-- {
-			cnt[j] += cnt[j+1]
+func countVowelStrings(n int) (ans int) {
+	f := [5]int{1, 1, 1, 1, 1}
+	for i := 0; i < n-1; i++ {
+		s := 0
+		for j := 0; j < 5; j++ {
+			s += f[j]
+			f[j] = s
 		}
 	}
-	ans := 0
-	for _, v := range cnt {
+	for _, v := range f {
 		ans += v
 	}
-	return ans
+	return
 }

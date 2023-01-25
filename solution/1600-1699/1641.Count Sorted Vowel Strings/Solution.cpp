@@ -1,10 +1,14 @@
 class Solution {
 public:
     int countVowelStrings(int n) {
-        vector<int> cnt(5, 1);
-        for (int i = 2; i <= n; ++i)
-            for (int j = 3; j >= 0; --j)
-                cnt[j] += cnt[j + 1];
-        return accumulate(cnt.begin(), cnt.end(), 0);
+        int f[5] = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
+            }
+        }
+        return accumulate(f, f + 5, 0);
     }
 };

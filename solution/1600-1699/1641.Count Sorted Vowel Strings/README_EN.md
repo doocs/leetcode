@@ -43,14 +43,6 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 
 ## Solutions
 
-```bash
-a	e	i	o 	u
-1	1	1	1	1		n=1
-5	4	3	2	1		n=2
-15	10	6	3	1		n=3
-...						n=...
-```
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,26 +50,66 @@ a	e	i	o 	u
 ```python
 class Solution:
     def countVowelStrings(self, n: int) -> int:
-        cnt = [1] * 5
-        for i in range(2, n + 1):
-            for j in range(3, -1, -1):
-                cnt[j] += cnt[j + 1]
-        return sum(cnt)
+        @cache
+        def dfs(i, j):
+            return 1 if i >= n else sum(dfs(i + 1, k) for k in range(j, 5))
+
+        return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        f = [1] * 5
+        for _ in range(n - 1):
+            s = 0
+            for j in range(5):
+                s += f[j]
+                f[j] = s
+        return sum(f)
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private Integer[][] f;
+    private int n;
+
     public int countVowelStrings(int n) {
-        int[] cnt = new int[5];
-        Arrays.fill(cnt, 1);
-        for (int i = 2; i <= n; ++i) {
-            for (int j = 3; j >= 0; --j) {
-                cnt[j] += cnt[j + 1];
+        this.n = n;
+        f = new Integer[n][5];
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= n) {
+            return 1;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = 0;
+        for (int k = j; k < 5; ++k) {
+            ans += dfs(i + 1, k);
+        }
+        return f[i][j] = ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countVowelStrings(int n) {
+        int[] f = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
             }
         }
-        return Arrays.stream(cnt).sum();
+        return Arrays.stream(f).sum();
     }
 }
 ```
@@ -88,11 +120,39 @@ class Solution {
 class Solution {
 public:
     int countVowelStrings(int n) {
-        vector<int> cnt(5, 1);
-        for (int i = 2; i <= n; ++i)
-            for (int j = 3; j >= 0; --j)
-                cnt[j] += cnt[j + 1];
-        return accumulate(cnt.begin(), cnt.end(), 0);
+        int f[n][5];
+        memset(f, 0, sizeof f);
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i >= n) {
+                return 1;
+            }
+            if (f[i][j]) {
+                return f[i][j];
+            }
+            int ans = 0;
+            for (int k = j; k < 5; ++k) {
+                ans += dfs(i + 1, k);
+            }
+            return f[i][j] = ans;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countVowelStrings(int n) {
+        int f[5] = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
+            }
+        }
+        return accumulate(f, f + 5, 0);
     }
 };
 ```
@@ -101,20 +161,40 @@ public:
 
 ```go
 func countVowelStrings(n int) int {
-	cnt := make([]int, 5)
-	for i := range cnt {
-		cnt[i] = 1
+	f := make([][5]int, n)
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= n {
+			return 1
+		}
+		if f[i][j] != 0 {
+			return f[i][j]
+		}
+		ans := 0
+		for k := j; k < 5; k++ {
+			ans += dfs(i+1, k)
+		}
+		f[i][j] = ans
+		return ans
 	}
-	for i := 2; i <= n; i++ {
-		for j := 3; j >= 0; j-- {
-			cnt[j] += cnt[j+1]
+	return dfs(0, 0)
+}
+```
+
+```go
+func countVowelStrings(n int) (ans int) {
+	f := [5]int{1, 1, 1, 1, 1}
+	for i := 0; i < n-1; i++ {
+		s := 0
+		for j := 0; j < 5; j++ {
+			s += f[j]
+			f[j] = s
 		}
 	}
-	ans := 0
-	for _, v := range cnt {
+	for _, v := range f {
 		ans += v
 	}
-	return ans
+	return
 }
 ```
 

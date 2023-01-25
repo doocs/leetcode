@@ -49,13 +49,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-```bash
-a	e	i	o 	u
-1	1	1	1	1		n=1
-5	4	3	2	1		n=2
-15	10	6	3	1		n=3
-...						n=...
-```
+**方法一：记忆化搜索**
+
+我们设计一个函数 $dfs(i, j)$，表示当前已经选了 $i$ 个元音字母，且最后一个元音字母是 $j$ 的方案数。那么答案就是 $dfs(0, 0)$。
+
+函数 $dfs(i, j)$ 的计算过程如下：
+
+-   如果 $i \ge n$，说明已经选了 $n$ 个元音字母，返回 $1$。
+-   否则，枚举 $j$ 后面的元音字母，即 $k \in [j, 4]$，并将 $dfs(i + 1, k)$ 的结果累加，即 $dfs(i, j) = \sum_{k = j}^4 dfs(i + 1, k)$。
+
+过程中，我们可以使用记忆化搜索，将已经计算过的 $dfs(i, j)$ 的结果保存起来，避免重复计算。
+
+时间复杂度 $O(n \times C^2)$，空间复杂度 $O(n \times C)$。其中 $n$ 为题目给定的整数，而 $C$ 是元音字母的数量，本题中 $C = 5$。
+
+**方法二：动态规划 + 前缀和**
+
+定义 $f[i][j]$ 表示当前已经选了 $i$ 个元音字母，且最后一个元音字母是 $j$ 的方案数。初始时 $f[0][j]=1$。答案是 $\sum_{j = 0}^4 f[n - 1][j]$。
+
+我们可以发现，$f[i][j]$ 只与 $f[i - 1][j]$ 有关，因此我们可以使用滚动数组优化空间复杂度。
+
+时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 为题目给定的整数，而 $C$ 是元音字母的数量，本题中 $C = 5$。
 
 <!-- tabs:start -->
 
@@ -66,11 +79,23 @@ a	e	i	o 	u
 ```python
 class Solution:
     def countVowelStrings(self, n: int) -> int:
-        cnt = [1] * 5
-        for i in range(2, n + 1):
-            for j in range(3, -1, -1):
-                cnt[j] += cnt[j + 1]
-        return sum(cnt)
+        @cache
+        def dfs(i, j):
+            return 1 if i >= n else sum(dfs(i + 1, k) for k in range(j, 5))
+
+        return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        f = [1] * 5
+        for _ in range(n - 1):
+            s = 0
+            for j in range(5):
+                s += f[j]
+                f[j] = s
+        return sum(f)
 ```
 
 ### **Java**
@@ -79,15 +104,43 @@ class Solution:
 
 ```java
 class Solution {
+    private Integer[][] f;
+    private int n;
+
     public int countVowelStrings(int n) {
-        int[] cnt = new int[5];
-        Arrays.fill(cnt, 1);
-        for (int i = 2; i <= n; ++i) {
-            for (int j = 3; j >= 0; --j) {
-                cnt[j] += cnt[j + 1];
+        this.n = n;
+        f = new Integer[n][5];
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= n) {
+            return 1;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = 0;
+        for (int k = j; k < 5; ++k) {
+            ans += dfs(i + 1, k);
+        }
+        return f[i][j] = ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countVowelStrings(int n) {
+        int[] f = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
             }
         }
-        return Arrays.stream(cnt).sum();
+        return Arrays.stream(f).sum();
     }
 }
 ```
@@ -98,11 +151,39 @@ class Solution {
 class Solution {
 public:
     int countVowelStrings(int n) {
-        vector<int> cnt(5, 1);
-        for (int i = 2; i <= n; ++i)
-            for (int j = 3; j >= 0; --j)
-                cnt[j] += cnt[j + 1];
-        return accumulate(cnt.begin(), cnt.end(), 0);
+        int f[n][5];
+        memset(f, 0, sizeof f);
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i >= n) {
+                return 1;
+            }
+            if (f[i][j]) {
+                return f[i][j];
+            }
+            int ans = 0;
+            for (int k = j; k < 5; ++k) {
+                ans += dfs(i + 1, k);
+            }
+            return f[i][j] = ans;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countVowelStrings(int n) {
+        int f[5] = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
+            }
+        }
+        return accumulate(f, f + 5, 0);
     }
 };
 ```
@@ -111,20 +192,40 @@ public:
 
 ```go
 func countVowelStrings(n int) int {
-	cnt := make([]int, 5)
-	for i := range cnt {
-		cnt[i] = 1
+	f := make([][5]int, n)
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= n {
+			return 1
+		}
+		if f[i][j] != 0 {
+			return f[i][j]
+		}
+		ans := 0
+		for k := j; k < 5; k++ {
+			ans += dfs(i+1, k)
+		}
+		f[i][j] = ans
+		return ans
 	}
-	for i := 2; i <= n; i++ {
-		for j := 3; j >= 0; j-- {
-			cnt[j] += cnt[j+1]
+	return dfs(0, 0)
+}
+```
+
+```go
+func countVowelStrings(n int) (ans int) {
+	f := [5]int{1, 1, 1, 1, 1}
+	for i := 0; i < n-1; i++ {
+		s := 0
+		for j := 0; j < 5; j++ {
+			s += f[j]
+			f[j] = s
 		}
 	}
-	ans := 0
-	for _, v := range cnt {
+	for _, v := range f {
 		ans += v
 	}
-	return ans
+	return
 }
 ```
 
