@@ -18,6 +18,10 @@ class UnionFind:
                 self.p[pa] = pb
                 self.size[pb] += self.size[pa]
 
+    def reset(self, x):
+        self.p[x] = x
+        self.size[x] = 1
+
 
 class Solution:
     def matrixRankTransform(self, matrix: List[List[int]]) -> List[List[int]]:
@@ -29,8 +33,8 @@ class Solution:
         row_max = [0] * m
         col_max = [0] * n
         ans = [[0] * n for _ in range(m)]
+        uf = UnionFind(m + n)
         for v in sorted(d):
-            uf = UnionFind(m + n)
             rank = defaultdict(int)
             for i, j in d[v]:
                 uf.union(i, j + m)
@@ -38,4 +42,7 @@ class Solution:
                 rank[uf.find(i)] = max(rank[uf.find(i)], row_max[i], col_max[j])
             for i, j in d[v]:
                 ans[i][j] = row_max[i] = col_max[j] = 1 + rank[uf.find(i)]
+            for i, j in d[v]:
+                uf.reset(i)
+                uf.reset(j + m)
         return ans

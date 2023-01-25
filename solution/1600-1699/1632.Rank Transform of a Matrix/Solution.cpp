@@ -26,6 +26,11 @@ public:
         return p[x];
     }
 
+    void reset(int x) {
+        p[x] = x;
+        size[x] = 1;
+    }
+
 private:
     vector<int> p, size;
 };
@@ -43,9 +48,9 @@ public:
         vector<int> rowMax(m);
         vector<int> colMax(n);
         vector<vector<int>> ans(m, vector<int>(n));
+        UnionFind uf(m + n);
+        vector<int> rank(m + n);
         for (auto& [_, ps] : d) {
-            UnionFind uf(m + n);
-            vector<int> rank(m + n);
             for (auto& [i, j] : ps) {
                 uf.unite(i, j + m);
             }
@@ -54,6 +59,10 @@ public:
             }
             for (auto& [i, j] : ps) {
                 ans[i][j] = rowMax[i] = colMax[j] = 1 + rank[uf.find(i)];
+            }
+            for (auto& [i, j] : ps) {
+                uf.reset(i);
+                uf.reset(j + m);
             }
         }
         return ans;

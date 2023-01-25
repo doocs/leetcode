@@ -30,6 +30,11 @@ class UnionFind {
             }
         }
     }
+
+    public void reset(int x) {
+        p[x] = x;
+        size[x] = 1;
+    }
 }
 
 
@@ -45,9 +50,9 @@ class Solution {
         int[] rowMax = new int[m];
         int[] colMax = new int[n];
         int[][] ans = new int[m][n];
+        UnionFind uf = new UnionFind(m + n);
+        int[] rank = new int[m + n];
         for (var ps : d.values()) {
-            UnionFind uf = new UnionFind(m + n);
-            int[] rank = new int[m + n];
             for (var p : ps) {
                 uf.union(p[0], p[1] + m);
             }
@@ -60,6 +65,10 @@ class Solution {
                 ans[i][j] = 1 + rank[uf.find(i)];
                 rowMax[i] = ans[i][j];
                 colMax[j] = ans[i][j];
+            }
+            for (var p : ps) {
+                uf.reset(p[0]);
+                uf.reset(p[1] + m);
             }
         }
         return ans;

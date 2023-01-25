@@ -32,6 +32,11 @@ func (uf *unionFind) union(a, b int) {
 	}
 }
 
+func (uf *unionFind) reset(x int) {
+	uf.p[x] = x
+	uf.size[x] = 1
+}
+
 func matrixRankTransform(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
 	type pair struct{ i, j int }
@@ -52,10 +57,10 @@ func matrixRankTransform(matrix [][]int) [][]int {
 		vs = append(vs, v)
 	}
 	sort.Ints(vs)
+	uf := newUnionFind(m + n)
+	rank := make([]int, m+n)
 	for _, v := range vs {
 		ps := d[v]
-		uf := newUnionFind(m + n)
-		rank := make([]int, m+n)
 		for _, p := range ps {
 			uf.union(p.i, p.j+m)
 		}
@@ -67,6 +72,10 @@ func matrixRankTransform(matrix [][]int) [][]int {
 			i, j := p.i, p.j
 			ans[i][j] = 1 + rank[uf.find(i)]
 			rowMax[i], colMax[j] = ans[i][j], ans[i][j]
+		}
+		for _, p := range ps {
+			uf.reset(p.i)
+			uf.reset(p.j + m)
 		}
 	}
 	return ans

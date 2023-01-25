@@ -111,6 +111,10 @@ class UnionFind:
                 self.p[pa] = pb
                 self.size[pb] += self.size[pa]
 
+    def reset(self, x):
+        self.p[x] = x
+        self.size[x] = 1
+
 
 class Solution:
     def matrixRankTransform(self, matrix: List[List[int]]) -> List[List[int]]:
@@ -122,8 +126,8 @@ class Solution:
         row_max = [0] * m
         col_max = [0] * n
         ans = [[0] * n for _ in range(m)]
+        uf = UnionFind(m + n)
         for v in sorted(d):
-            uf = UnionFind(m + n)
             rank = defaultdict(int)
             for i, j in d[v]:
                 uf.union(i, j + m)
@@ -131,6 +135,9 @@ class Solution:
                 rank[uf.find(i)] = max(rank[uf.find(i)], row_max[i], col_max[j])
             for i, j in d[v]:
                 ans[i][j] = row_max[i] = col_max[j] = 1 + rank[uf.find(i)]
+            for i, j in d[v]:
+                uf.reset(i)
+                uf.reset(j + m)
         return ans
 ```
 
@@ -171,6 +178,11 @@ class UnionFind {
             }
         }
     }
+
+    public void reset(int x) {
+        p[x] = x;
+        size[x] = 1;
+    }
 }
 
 
@@ -186,9 +198,9 @@ class Solution {
         int[] rowMax = new int[m];
         int[] colMax = new int[n];
         int[][] ans = new int[m][n];
+        UnionFind uf = new UnionFind(m + n);
+        int[] rank = new int[m + n];
         for (var ps : d.values()) {
-            UnionFind uf = new UnionFind(m + n);
-            int[] rank = new int[m + n];
             for (var p : ps) {
                 uf.union(p[0], p[1] + m);
             }
@@ -201,6 +213,10 @@ class Solution {
                 ans[i][j] = 1 + rank[uf.find(i)];
                 rowMax[i] = ans[i][j];
                 colMax[j] = ans[i][j];
+            }
+            for (var p : ps) {
+                uf.reset(p[0]);
+                uf.reset(p[1] + m);
             }
         }
         return ans;
@@ -239,6 +255,11 @@ public:
         return p[x];
     }
 
+    void reset(int x) {
+        p[x] = x;
+        size[x] = 1;
+    }
+
 private:
     vector<int> p, size;
 };
@@ -256,9 +277,9 @@ public:
         vector<int> rowMax(m);
         vector<int> colMax(n);
         vector<vector<int>> ans(m, vector<int>(n));
+        UnionFind uf(m + n);
+        vector<int> rank(m + n);
         for (auto& [_, ps] : d) {
-            UnionFind uf(m + n);
-            vector<int> rank(m + n);
             for (auto& [i, j] : ps) {
                 uf.unite(i, j + m);
             }
@@ -267,6 +288,10 @@ public:
             }
             for (auto& [i, j] : ps) {
                 ans[i][j] = rowMax[i] = colMax[j] = 1 + rank[uf.find(i)];
+            }
+            for (auto& [i, j] : ps) {
+                uf.reset(i);
+                uf.reset(j + m);
             }
         }
         return ans;
@@ -311,6 +336,11 @@ func (uf *unionFind) union(a, b int) {
 	}
 }
 
+func (uf *unionFind) reset(x int) {
+	uf.p[x] = x
+	uf.size[x] = 1
+}
+
 func matrixRankTransform(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
 	type pair struct{ i, j int }
@@ -331,10 +361,10 @@ func matrixRankTransform(matrix [][]int) [][]int {
 		vs = append(vs, v)
 	}
 	sort.Ints(vs)
+	uf := newUnionFind(m + n)
+	rank := make([]int, m+n)
 	for _, v := range vs {
 		ps := d[v]
-		uf := newUnionFind(m + n)
-		rank := make([]int, m+n)
 		for _, p := range ps {
 			uf.union(p.i, p.j+m)
 		}
@@ -346,6 +376,10 @@ func matrixRankTransform(matrix [][]int) [][]int {
 			i, j := p.i, p.j
 			ans[i][j] = 1 + rank[uf.find(i)]
 			rowMax[i], colMax[j] = ans[i][j], ans[i][j]
+		}
+		for _, p := range ps {
+			uf.reset(p.i)
+			uf.reset(p.j + m)
 		}
 	}
 	return ans
