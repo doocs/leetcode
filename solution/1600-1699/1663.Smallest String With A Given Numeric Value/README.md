@@ -50,9 +50,11 @@
 
 **方法一：贪心**
 
-我们先将字符串的每个字符都初始化为 `'a'`，此时剩余的数值为 $k-n$。从后往前遍历字符串，每次贪心将当前位置的字符替换为能够使得剩余的数字最小的字符，直到剩余的数字不超过 $25$。最后将剩余的数字加到我们遍历到的位置上即可。
+我们先将字符串的每个字符都初始化为 `'a'`，此时剩余的数值为 $d=k-n$。
 
-时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为字符串的长度。
+接着从后往前遍历字符串，每次贪心地将当前位置的字符替换为能够使得剩余的数字最小的字符 `'z'`，直到剩余的数字不超过 $25$。最后将剩余的数字加到我们遍历到的位置上即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -82,11 +84,9 @@ class Solution {
     public String getSmallestString(int n, int k) {
         char[] ans = new char[n];
         Arrays.fill(ans, 'a');
-        int i = n - 1;
-        int d = k - n;
-        while (d > 25) {
+        int i = n - 1, d = k - n;
+        for (; d > 25; d -= 25) {
             ans[i--] = 'z';
-            d -= 25;
         }
         ans[i] = (char) ('a' + d);
         return String.valueOf(ans);
@@ -101,11 +101,9 @@ class Solution {
 public:
     string getSmallestString(int n, int k) {
         string ans(n, 'a');
-        int i = n - 1;
-        int d = k - n;
-        while (d > 25) {
-            ans[i--] += 25;
-            d -= 25;
+        int i = n - 1, d = k - n;
+        for (; d > 25; d -= 25) {
+            ans[i--] = 'z';
         }
         ans[i] += d;
         return ans;
@@ -121,12 +119,9 @@ func getSmallestString(n int, k int) string {
 	for i := range ans {
 		ans[i] = 'a'
 	}
-	i := n - 1
-	d := k - n
-	for d > 25 {
+	i, d := n-1, k-n
+	for ; d > 25; i, d = i-1, d-25 {
 		ans[i] = 'z'
-		i--
-		d -= 25
 	}
 	ans[i] += byte(d)
 	return string(ans)

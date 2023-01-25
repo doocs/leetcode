@@ -62,11 +62,9 @@ class Solution {
     public String getSmallestString(int n, int k) {
         char[] ans = new char[n];
         Arrays.fill(ans, 'a');
-        int i = n - 1;
-        int d = k - n;
-        while (d > 25) {
+        int i = n - 1, d = k - n;
+        for (; d > 25; d -= 25) {
             ans[i--] = 'z';
-            d -= 25;
         }
         ans[i] = (char) ('a' + d);
         return String.valueOf(ans);
@@ -81,11 +79,9 @@ class Solution {
 public:
     string getSmallestString(int n, int k) {
         string ans(n, 'a');
-        int i = n - 1;
-        int d = k - n;
-        while (d > 25) {
-            ans[i--] += 25;
-            d -= 25;
+        int i = n - 1, d = k - n;
+        for (; d > 25; d -= 25) {
+            ans[i--] = 'z';
         }
         ans[i] += d;
         return ans;
@@ -101,12 +97,9 @@ func getSmallestString(n int, k int) string {
 	for i := range ans {
 		ans[i] = 'a'
 	}
-	i := n - 1
-	d := k - n
-	for d > 25 {
+	i, d := n-1, k-n
+	for ; d > 25; i, d = i-1, d-25 {
 		ans[i] = 'z'
-		i--
-		d -= 25
 	}
 	ans[i] += byte(d)
 	return string(ans)

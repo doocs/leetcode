@@ -13,13 +13,16 @@
  */
 
 function findTarget(root: TreeNode | null, k: number): boolean {
-    let nodes: Set<number> = new Set();
-    return find(root, k, nodes);
-}
-
-function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
-    if (!root) return false;
-    if (nodes.has(k - root.val)) return true;
-    nodes.add(root.val);
-    return find(root.left, k, nodes) || find(root.right, k, nodes);
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return false;
+        }
+        if (vis.has(k - root.val)) {
+            return true;
+        }
+        vis.add(root.val);
+        return dfs(root.left) || dfs(root.right);
+    };
+    const vis = new Set<number>();
+    return dfs(root);
 }

@@ -7,18 +7,17 @@
  * }
  */
 func findTarget(root *TreeNode, k int) bool {
-	nodes := make(map[int]bool)
-
-	var find func(root *TreeNode, k int) bool
-	find = func(root *TreeNode, k int) bool {
+	vis := map[int]bool{}
+	var dfs func(*TreeNode) bool
+	dfs = func(root *TreeNode) bool {
 		if root == nil {
 			return false
 		}
-		if nodes[k-root.Val] {
+		if vis[k-root.Val] {
 			return true
 		}
-		nodes[root.Val] = true
-		return find(root.Left, k) || find(root.Right, k)
+		vis[root.Val] = true
+		return dfs(root.Left) || dfs(root.Right)
 	}
-	return find(root, k)
+	return dfs(root)
 }

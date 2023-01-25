@@ -14,21 +14,22 @@
  * }
  */
 class Solution {
-    private Set<Integer> nodes;
+    private Set<Integer> vis = new HashSet<>();
+    private int k;
 
     public boolean findTarget(TreeNode root, int k) {
-        nodes = new HashSet<>();
-        return find(root, k);
+        this.k = k;
+        return dfs(root);
     }
 
-    private boolean find(TreeNode root, int k) {
+    private boolean dfs(TreeNode root) {
         if (root == null) {
             return false;
         }
-        if (nodes.contains(k - root.val)) {
+        if (vis.contains(k - root.val)) {
             return true;
         }
-        nodes.add(root.val);
-        return find(root.left, k) || find(root.right, k);
+        vis.add(root.val);
+        return dfs(root.left) || dfs(root.right);
     }
 }
