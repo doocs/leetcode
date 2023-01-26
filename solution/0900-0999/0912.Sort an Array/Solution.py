@@ -1,23 +1,21 @@
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
-        def quick_sort(nums, left, right):
-            if left >= right:
+        def quick_sort(l, r):
+            if l >= r:
                 return
-            i, j = left - 1, right + 1
-            x = nums[(left + right) >> 1]
-            while i < j:
-                while 1:
-                    i += 1
-                    if nums[i] >= x:
-                        break
-                while 1:
+            x = nums[randint(l, r)]
+            i, j, k = l - 1, r + 1, l
+            while k < j:
+                if nums[k] < x:
+                    nums[i + 1], nums[k] = nums[k], nums[i + 1]
+                    i, k = i + 1, k + 1
+                elif nums[k] > x:
                     j -= 1
-                    if nums[j] <= x:
-                        break
-                if i < j:
-                    nums[i], nums[j] = nums[j], nums[i]
-            quick_sort(nums, left, j)
-            quick_sort(nums, j + 1, right)
+                    nums[j], nums[k] = nums[k], nums[j]
+                else:
+                    k = k + 1
+            quick_sort(l, i)
+            quick_sort(j, r)
 
-        quick_sort(nums, 0, len(nums) - 1)
+        quick_sort(0, len(nums) - 1)
         return nums

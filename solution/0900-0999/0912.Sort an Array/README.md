@@ -63,26 +63,24 @@
 ```python
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
-        def quick_sort(nums, left, right):
-            if left >= right:
+        def quick_sort(l, r):
+            if l >= r:
                 return
-            i, j = left - 1, right + 1
-            x = nums[(left + right) >> 1]
-            while i < j:
-                while 1:
-                    i += 1
-                    if nums[i] >= x:
-                        break
-                while 1:
+            x = nums[randint(l, r)]
+            i, j, k = l - 1, r + 1, l
+            while k < j:
+                if nums[k] < x:
+                    nums[i + 1], nums[k] = nums[k], nums[i + 1]
+                    i, k = i + 1, k + 1
+                elif nums[k] > x:
                     j -= 1
-                    if nums[j] <= x:
-                        break
-                if i < j:
-                    nums[i], nums[j] = nums[j], nums[i]
-            quick_sort(nums, left, j)
-            quick_sort(nums, j + 1, right)
+                    nums[j], nums[k] = nums[k], nums[j]
+                else:
+                    k = k + 1
+            quick_sort(l, i)
+            quick_sort(j, r)
 
-        quick_sort(nums, 0, len(nums) - 1)
+        quick_sort(0, len(nums) - 1)
         return nums
 ```
 
@@ -127,28 +125,70 @@ class Solution:
 
 ```java
 class Solution {
+    private int[] nums;
+
     public int[] sortArray(int[] nums) {
-        quickSort(nums, 0, nums.length - 1);
+        this.nums = nums;
+        quikcSort(0, nums.length - 1);
         return nums;
     }
 
-    private void quickSort(int[] nums, int left, int right) {
-        if (left >= right) {
+    private void quikcSort(int l, int r) {
+        if (l >= r) {
             return;
         }
-        int i = left - 1, j = right + 1;
-        int x = nums[(left + right) >> 1];
+        int x = nums[(l + r) >> 1];
+        int i = l - 1, j = r + 1;
         while (i < j) {
-            while (nums[++i] < x);
-            while (nums[--j] > x);
+            while (nums[++i] < x) {
+            }
+            while (nums[--j] > x) {
+            }
             if (i < j) {
                 int t = nums[i];
                 nums[i] = nums[j];
                 nums[j] = t;
             }
         }
-        quickSort(nums, left, j);
-        quickSort(nums, j + 1, right);
+        quikcSort(l, j);
+        quikcSort(j + 1, r);
+    }
+}
+```
+
+```java
+class Solution {
+    private int[] nums;
+
+    public int[] sortArray(int[] nums) {
+        this.nums = nums;
+        quickSort(0, nums.length - 1);
+        return nums;
+    }
+
+    private void quickSort(int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int i = l - 1, j = r + 1, k = l;
+        int x = nums[(l + r) >> 1];
+        while (k < j) {
+            if (nums[k] < x) {
+                swap(++i, k++);
+            } else if (nums[k] > x) {
+                swap(--j, k);
+            } else {
+                ++k;
+            }
+        }
+        quickSort(l, i);
+        quickSort(j, r);
+    }
+
+    private void swap(int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
 ```
@@ -199,23 +239,26 @@ class Solution {
 class Solution {
 public:
     vector<int> sortArray(vector<int>& nums) {
-        quick_sort(nums, 0, nums.size() - 1);
+        function<void(int, int)> quick_sort = [&](int l, int r) {
+            if (l >= r) {
+                return;
+            }
+            int i = l - 1, j = r + 1;
+            int x = nums[(l + r) >> 1];
+            while (i < j) {
+                while (nums[++i] < x) {
+                }
+                while (nums[--j] > x) {
+                }
+                if (i < j) {
+                    swap(nums[i], nums[j]);
+                }
+            }
+            quick_sort(l, j);
+            quick_sort(j + 1, r);
+        };
+        quick_sort(0, nums.size() - 1);
         return nums;
-    }
-
-    void quick_sort(vector<int>& nums, int left, int right) {
-        if (left >= right) return;
-        int i = left - 1, j = right + 1;
-        int x = nums[left + right >> 1];
-        while (i < j) {
-            while (nums[++i] < x)
-                ;
-            while (nums[--j] > x)
-                ;
-            if (i < j) swap(nums[i], nums[j]);
-        }
-        quick_sort(nums, left, j);
-        quick_sort(nums, j + 1, right);
     }
 };
 ```
