@@ -1,24 +1,23 @@
 func waysToMakeFair(nums []int) (ans int) {
-	x, y := 0, 0
+	var s1, s2, t1, t2 int
 	for i, v := range nums {
-		if i%2 == 1 {
-			x += v
+		if i%2 == 0 {
+			s1 += v
 		} else {
-			y += v
+			s2 += v
 		}
 	}
-	a, b := 0, 0
 	for i, v := range nums {
-		if i%2 == 1 && x-v-a+b == y-b+a {
+		if i%2 == 0 && t2+s1-t1-v == t1+s2-t2 {
 			ans++
 		}
-		if i%2 == 0 && y-v-b+a == x-a+b {
+		if i%2 == 1 && t2+s1-t1 == t1+s2-t2-v {
 			ans++
 		}
-		if i%2 == 1 {
-			a += v
+		if i%2 == 0 {
+			t1 += v
 		} else {
-			b += v
+			t2 += v
 		}
 	}
 	return

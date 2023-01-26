@@ -65,18 +65,13 @@ There is 1 index that you can remove to make nums fair.
 ```python
 class Solution:
     def waysToMakeFair(self, nums: List[int]) -> int:
-        x, y = sum(nums[1::2]), sum(nums[::2])
-        ans = 0
-        a = b = 0
+        s1, s2 = sum(nums[::2]), sum(nums[1::2])
+        ans = t1 = t2 = 0
         for i, v in enumerate(nums):
-            if (i & 1) and x - v - a + b == y - b + a:
-                ans += 1
-            elif (i & 1) == 0 and y - v - b + a == x - a + b:
-                ans += 1
-            if i & 1:
-                a += v
-            else:
-                b += v
+            ans += i % 2 == 0 and t2 + s1 - t1 - v == t1 + s2 - t2
+            ans += i % 2 == 1 and t2 + s1 - t1 == t1 + s2 - t2 - v
+            t1 += v if i % 2 == 0 else 0
+            t2 += v if i % 2 == 1 else 0
         return ans
 ```
 
@@ -85,29 +80,20 @@ class Solution:
 ```java
 class Solution {
     public int waysToMakeFair(int[] nums) {
+        int s1 = 0, s2 = 0;
         int n = nums.length;
-        int x = 0, y = 0;
         for (int i = 0; i < n; ++i) {
-            if (i % 2 == 1) {
-                x += nums[i];
-            } else {
-                y += nums[i];
-            }
+            s1 += i % 2 == 0 ? nums[i] : 0;
+            s2 += i % 2 == 1 ? nums[i] : 0;
         }
+        int t1 = 0, t2 = 0;
         int ans = 0;
-        int a = 0, b = 0;
         for (int i = 0; i < n; ++i) {
             int v = nums[i];
-            if (i % 2 == 1 && x - v - a + b == y - b + a) {
-                ++ans;
-            } else if (i % 2 == 0 && y - v - b + a == x - a + b) {
-                ++ans;
-            }
-            if (i % 2 == 1) {
-                a += v;
-            } else {
-                b += v;
-            }
+            ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2 ? 1 : 0;
+            ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v ? 1 : 0;
+            t1 += i % 2 == 0 ? v : 0;
+            t2 += i % 2 == 1 ? v : 0;
         }
         return ans;
     }
@@ -120,24 +106,20 @@ class Solution {
 class Solution {
 public:
     int waysToMakeFair(vector<int>& nums) {
+        int s1 = 0, s2 = 0;
         int n = nums.size();
-        int x = 0, y = 0;
         for (int i = 0; i < n; ++i) {
-            if (i & 1)
-                x += nums[i];
-            else
-                y += nums[i];
+            s1 += i % 2 == 0 ? nums[i] : 0;
+            s2 += i % 2 == 1 ? nums[i] : 0;
         }
+        int t1 = 0, t2 = 0;
         int ans = 0;
-        int a = 0, b = 0;
         for (int i = 0; i < n; ++i) {
             int v = nums[i];
-            if (i % 2 == 1 && x - v - a + b == y - b + a) ++ans;
-            if (i % 2 == 0 && y - v - b + a == x - a + b) ++ans;
-            if (i % 2 == 1)
-                a += v;
-            else
-                b += v;
+            ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2;
+            ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v;
+            t1 += i % 2 == 0 ? v : 0;
+            t2 += i % 2 == 1 ? v : 0;
         }
         return ans;
     }
@@ -148,30 +130,58 @@ public:
 
 ```go
 func waysToMakeFair(nums []int) (ans int) {
-	x, y := 0, 0
+	var s1, s2, t1, t2 int
 	for i, v := range nums {
-		if i%2 == 1 {
-			x += v
+		if i%2 == 0 {
+			s1 += v
 		} else {
-			y += v
+			s2 += v
 		}
 	}
-	a, b := 0, 0
 	for i, v := range nums {
-		if i%2 == 1 && x-v-a+b == y-b+a {
+		if i%2 == 0 && t2+s1-t1-v == t1+s2-t2 {
 			ans++
 		}
-		if i%2 == 0 && y-v-b+a == x-a+b {
+		if i%2 == 1 && t2+s1-t1 == t1+s2-t2-v {
 			ans++
 		}
-		if i%2 == 1 {
-			a += v
+		if i%2 == 0 {
+			t1 += v
 		} else {
-			b += v
+			t2 += v
 		}
 	}
 	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var waysToMakeFair = function (nums) {
+    let [s1, s2, t1, t2] = [0, 0, 0, 0];
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        if (i % 2 == 0) {
+            s1 += nums[i];
+        } else {
+            s2 += nums[i];
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const v = nums[i];
+        ans += i % 2 == 0 && t2 + s1 - t1 - v == t1 + s2 - t2;
+        ans += i % 2 == 1 && t2 + s1 - t1 == t1 + s2 - t2 - v;
+        t1 += i % 2 == 0 ? v : 0;
+        t2 += i % 2 == 1 ? v : 0;
+    }
+    return ans;
+};
 ```
 
 ### **...**

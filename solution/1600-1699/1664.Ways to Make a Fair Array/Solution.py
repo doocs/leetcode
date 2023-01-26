@@ -1,15 +1,10 @@
 class Solution:
     def waysToMakeFair(self, nums: List[int]) -> int:
-        x, y = sum(nums[1::2]), sum(nums[::2])
-        ans = 0
-        a = b = 0
+        s1, s2 = sum(nums[::2]), sum(nums[1::2])
+        ans = t1 = t2 = 0
         for i, v in enumerate(nums):
-            if (i & 1) and x - v - a + b == y - b + a:
-                ans += 1
-            elif (i & 1) == 0 and y - v - b + a == x - a + b:
-                ans += 1
-            if i & 1:
-                a += v
-            else:
-                b += v
+            ans += i % 2 == 0 and t2 + s1 - t1 - v == t1 + s2 - t2
+            ans += i % 2 == 1 and t2 + s1 - t1 == t1 + s2 - t2 - v
+            t1 += v if i % 2 == 0 else 0
+            t2 += v if i % 2 == 1 else 0
         return ans
