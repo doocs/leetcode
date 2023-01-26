@@ -1,13 +1,4 @@
 class Solution:
-    def escapeGhosts(self, ghosts, target):
-        """
-        :type ghosts: List[List[int]]
-        :type target: List[int]
-        :rtype: bool
-        """
-        flag = abs(target[0]) + abs(target[1])
-        for i in ghosts:
-            if abs(i[0] - target[0]) + abs(i[1] - target[1]) <= flag:
-                return False
-        else:
-            return True
+    def escapeGhosts(self, ghosts: List[List[int]], target: List[int]) -> bool:
+        tx, ty = target
+        return all(abs(tx - x) + abs(ty - y) > abs(tx) + abs(ty) for x, y in ghosts)
