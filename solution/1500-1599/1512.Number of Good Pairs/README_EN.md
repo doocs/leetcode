@@ -49,8 +49,19 @@
 ```python
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        counter = Counter(nums)
-        return sum([x * (x - 1) for x in counter.values()]) >> 1
+        ans = 0
+        cnt = Counter()
+        for x in nums:
+            ans += cnt[x]
+            cnt[x] += 1
+        return ans
+```
+
+```python
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        return sum(v * (v - 1) for v in cnt.values()) >> 1
 ```
 
 ### **Java**
@@ -58,15 +69,28 @@ class Solution:
 ```java
 class Solution {
     public int numIdenticalPairs(int[] nums) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        int ans = 0;
+        int[] cnt = new int[101];
+        for (int x : nums) {
+            ans += cnt[x]++;
         }
-        int res = 0;
-        for (int n : counter.values()) {
-            res += n * (n - 1);
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int[] cnt = new int[101];
+        for (int x : nums) {
+            ++cnt[x];
         }
-        return res >> 1;
+        int ans = 0;
+        for (int v : cnt) {
+            ans += v * (v - 1) / 2;
+        }
+        return ans;
     }
 }
 ```
@@ -77,15 +101,29 @@ class Solution {
 class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) {
-        unordered_map<int, int> counter;
-        for (int num : nums) {
-            ++counter[num];
+        int ans = 0;
+        int cnt[101]{};
+        for (int& x : nums) {
+            ans += cnt[x]++;
         }
-        int res = 0;
-        for (auto& [num, n] : counter) {
-            res += n * (n - 1);
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        int cnt[101]{};
+        for (int& x : nums) {
+            ++cnt[x];
         }
-        return res >> 1;
+        int ans = 0;
+        for (int v : cnt) {
+            ans += v * (v - 1) / 2;
+        }
+        return ans;
     }
 };
 ```
@@ -93,16 +131,26 @@ public:
 ### **Go**
 
 ```go
-func numIdenticalPairs(nums []int) int {
-	counter := make(map[int]int)
-	for _, num := range nums {
-		counter[num]++
+func numIdenticalPairs(nums []int) (ans int) {
+	cnt := [101]int{}
+	for _, x := range nums {
+		ans += cnt[x]
+		cnt[x]++
 	}
-	res := 0
-	for _, n := range counter {
-		res += n * (n - 1)
+	return
+}
+```
+
+```go
+func numIdenticalPairs(nums []int) (ans int) {
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	return res >> 1
+	for _, v := range cnt {
+		ans += v * (v - 1) / 2
+	}
+	return
 }
 ```
 
@@ -110,12 +158,26 @@ func numIdenticalPairs(nums []int) int {
 
 ```ts
 function numIdenticalPairs(nums: number[]): number {
-    const count = new Array(101).fill(0);
+    const cnt = new Array(101).fill(0);
     let ans = 0;
-    for (const num of nums) {
-        ans += count[num]++;
+    for (const x of nums) {
+        ans += cnt[x]++;
     }
     return ans;
+}
+```
+
+```ts
+function numIdenticalPairs(nums: number[]): number {
+    const cnt = new Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    let ans = 0;
+    for (const v of cnt) {
+        ans += v * (v - 1);
+    }
+    return ans >> 1;
 }
 ```
 
@@ -124,11 +186,27 @@ function numIdenticalPairs(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn num_identical_pairs(nums: Vec<i32>) -> i32 {
-        let mut count = [0; 101];
+        let mut cnt = [0; 101];
         let mut ans = 0;
         for &num in nums.iter() {
-            ans += count[num as usize];
-            count[num as usize] += 1;
+            ans += cnt[num as usize];
+            cnt[num as usize] += 1;
+        }
+        ans
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn num_identical_pairs(nums: Vec<i32>) -> i32 {
+        let mut cnt = [0; 101];
+        for &num in nums.iter() {
+            cnt[num as usize] += 1;
+        }
+        let mut ans = 0;
+        for &v in cnt.iter() {
+            ans += v * (v - 1) / 2
         }
         ans
     }
@@ -139,10 +217,24 @@ impl Solution {
 
 ```c
 int numIdenticalPairs(int *nums, int numsSize) {
-    int count[101] = {0};
+    int cnt[101] = {0};
     int ans = 0;
     for (int i = 0; i < numsSize; i++) {
-        ans += count[nums[i]]++;
+        ans += cnt[nums[i]]++;
+    }
+    return ans;
+}
+```
+
+```c
+int numIdenticalPairs(int *nums, int numsSize) {
+    int cnt[101] = {0};
+    for (int i = 0; i < numsSize; i++) {
+        cnt[nums[i]]++;
+    }
+    int ans = 0;
+    for (int i = 0; i < 101; ++i) {
+        ans += cnt[i] * (cnt[i] - 1) / 2;
     }
     return ans;
 }

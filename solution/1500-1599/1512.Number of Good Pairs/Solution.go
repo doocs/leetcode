@@ -1,11 +1,8 @@
-func numIdenticalPairs(nums []int) int {
-	counter := make(map[int]int)
-	for _, num := range nums {
-		counter[num]++
+func numIdenticalPairs(nums []int) (ans int) {
+	cnt := [101]int{}
+	for _, x := range nums {
+		ans += cnt[x]
+		cnt[x]++
 	}
-	res := 0
-	for _, n := range counter {
-		res += n * (n - 1)
-	}
-	return res >> 1
+	return
 }

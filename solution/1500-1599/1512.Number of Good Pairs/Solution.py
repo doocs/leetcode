@@ -1,4 +1,8 @@
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        counter = Counter(nums)
-        return sum([x * (x - 1) for x in counter.values()]) >> 1
+        ans = 0
+        cnt = Counter()
+        for x in nums:
+            ans += cnt[x]
+            cnt[x] += 1
+        return ans
