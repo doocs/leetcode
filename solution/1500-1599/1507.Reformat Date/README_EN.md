@@ -58,26 +58,12 @@
 ```python
 class Solution:
     def reformatDate(self, date: str) -> str:
-        months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-        ]
-        mapper = {v: str(k + 1) for k, v in enumerate(months)}
-        split = date.split(' ')
-        year = split[2]
-        month = mapper.get(split[1])
-        day = split[0][: len(split[0]) - 2]
-        return year + '-' + month.zfill(2) + '-' + day.zfill(2)
+        s = date.split()
+        s.reverse()
+        months = " JanFebMarAprMayJunJulAugSepOctNovDec"
+        s[1] = str(months.index(s[1]) // 3 + 1).zfill(2)
+        s[2] = s[2][:-2].zfill(2)
+        return "-".join(s)
 ```
 
 ### **Java**
@@ -85,18 +71,42 @@ class Solution:
 ```java
 class Solution {
     public String reformatDate(String date) {
-        Map<String, Integer> mapper = new HashMap<>();
-        String[] months
-            = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        for (int i = 0; i < months.length; ++i) {
-            mapper.put(months[i], i + 1);
-        }
-        String[] split = date.split(" ");
-        int year = Integer.parseInt(split[2]);
-        int month = mapper.get(split[1]);
-        int day = Integer.parseInt(split[0].substring(0, split[0].length() - 2));
-        return String.format("%d-%02d-%02d", year, month, day);
+        var s = date.split(" ");
+        String months = " JanFebMarAprMayJunJulAugSepOctNovDec";
+        int day = Integer.parseInt(s[0].substring(0, s[0].length() - 2));
+        int month = months.indexOf(s[1]) / 3 + 1;
+        return String.format("%s-%02d-%02d", s[2], month, day);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string reformatDate(string date) {
+        string months = " JanFebMarAprMayJunJulAugSepOctNovDec";
+        stringstream ss(date);
+        string year, month, t;
+        int day;
+        ss >> day >> t >> month >> year;
+        month = to_string(months.find(month) / 3 + 1);
+        return year + "-" + (month.size() == 1 ? "0" + month : month) + "-" + (day > 9 ? "" : "0") + to_string(day);
+    }
+};
+```
+
+### **Go**
+
+```go
+func reformatDate(date string) string {
+	s := strings.Split(date, " ")
+	day, _ := strconv.Atoi(s[0][:len(s[0])-2])
+	months := " JanFebMarAprMayJunJulAugSepOctNovDec"
+	month := strings.Index(months, s[1])/3 + 1
+	year, _ := strconv.Atoi(s[2])
+	return fmt.Sprintf("%d-%02d-%02d", year, month, day)
 }
 ```
 
