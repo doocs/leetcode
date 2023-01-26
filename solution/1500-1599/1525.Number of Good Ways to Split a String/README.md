@@ -56,6 +56,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们维护两个哈希表，分别记录左侧出现的字符、右侧的字符以及出现的次数。初始时，左侧的哈希表为空，右侧的哈希表为字符串 $s$ 中所有字符出现的次数。
+
+接下来，我们从左到右遍历字符串 $s$，对于遍历到的字符 $c$，我们将其加入左侧的哈希表，同时将其在右侧的哈希表中的出现次数减一。如果减一后，右侧哈希表中的出现次数为 0，则将其从右侧哈希表中移除。然后，我们判断左侧哈希表中的键值对数量是否与右侧哈希表中的键值对数量相等，如果相等，则将答案加一。
+
+最终，我们返回答案即可。
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +73,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numSplits(self, s: str) -> int:
+        cnt = Counter(s)
+        vis = set()
+        ans = 0
+        for c in s:
+            vis.add(c)
+            cnt[c] -= 1
+            if cnt[c] == 0:
+                cnt.pop(c)
+            ans += len(vis) == len(cnt)
+        return ans
 ```
 
 ### **Java**
@@ -71,7 +92,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numSplits(String s) {
+        Map<Character, Integer> cnt = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            cnt.merge(c, 1, Integer::sum);
+        }
+        Set<Character> vis = new HashSet<>();
+        int ans = 0;
+        for (char c : s.toCharArray()) {
+            vis.add(c);
+            if (cnt.merge(c, -1, Integer::sum) == 0) {
+                cnt.remove(c);
+            }
+            if (vis.size() == cnt.size()) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSplits(string s) {
+        unordered_map<char, int> cnt;
+        for (char& c : s) {
+            ++cnt[c];
+        }
+        unordered_set<char> vis;
+        int ans = 0;
+        for (char& c : s) {
+            vis.insert(c);
+            if (--cnt[c] == 0) {
+                cnt.erase(c);
+            }
+            ans += vis.size() == cnt.size();
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSplits(s string) (ans int) {
+	cnt := map[rune]int{}
+	for _, c := range s {
+		cnt[c]++
+	}
+	vis := map[rune]bool{}
+	for _, c := range s {
+		vis[c] = true
+		cnt[c]--
+		if cnt[c] == 0 {
+			delete(cnt, c)
+		}
+		if len(vis) == len(cnt) {
+			ans++
+		}
+	}
+	return
+}
 ```
 
 ### **...**
