@@ -58,6 +58,13 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+- 首先，一个指针从 `a` 的头开始，另一个指针从 `b` 的尾开始，如果字符相等，两个指针就往中间移动，遇到不同的字符或双指针交叉后停止
+  - 双指针交叉说明 `prefix` 和 `suffix` 已经可以得到回文串
+  - 否则还需要判断 `a[i:j+1]` 或 `b[i:j+1]` 是否是回文（通过 `prefix + palindrome + suffix` 得到回文串）
+- 如果还得不到回文串，尝试交换 `a`, `b` 重复同样的判断
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +72,22 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def checkPalindromeFormation(self, a: str, b: str) -> bool:
+        def check1(a: str, b: str) -> bool:
+            i, j = 0, len(b) - 1
+            while i < j and a[i] == b[j]:
+                i += 1
+                j -= 1
+            return i >= j or check2(a, i, j) or check2(b, i, j)
 
+        def check2(a: str, i: int, j: int) -> bool:
+            while i < j and a[i] == a[j]:
+                i += 1
+                j -= 1
+            return i >= j
+
+        return check1(a, b) or check1(b, a)
 ```
 
 ### **Java**
@@ -73,7 +95,115 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean checkPalindromeFormation(String a, String b) {
+        return check1(a, b) || check1(b, a);
+    }
 
+    private boolean check1(String a, String b) {
+        int i = 0;
+        int j = b.length() - 1;
+        while (i < j && a.charAt(i) == b.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j || check2(a, i, j) || check2(b, i, j);
+    }
+
+    private boolean check2(String a, int i, int j) {
+        while (i < j && a.charAt(i) == a.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkPalindromeFormation(string a, string b) {
+        return check1(a, b) || check1(b, a);
+    }
+
+private:
+    bool check1(string &a, string &b) {
+        int i = 0, j = b.size() - 1;
+        while (i < j && a[i] == b[j]) {
+            ++i;
+            --j;
+        }
+        return i >= j || check2(a, i, j) || check2(b, i, j);
+    }
+
+    bool check2(string &a, int i, int j) {
+        while (i <= j && a[i] == a[j]) {
+            ++i;
+            --j;
+        }
+        return i >= j;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkPalindromeFormation(a string, b string) bool {
+	return check1(a, b) || check1(b, a)
+}
+
+func check1(a, b string) bool {
+	i, j := 0, len(b)-1
+	for i < j && a[i] == b[j] {
+		i++
+		j--
+	}
+	return i >= j || check2(a, i, j) || check2(b, i, j)
+}
+
+func check2(a string, i, j int) bool {
+	for i < j && a[i] == a[j] {
+		i++
+		j--
+	}
+	return i >= j
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn check_palindrome_formation(a: String, b: String) -> bool {
+        fn check1(a: &[u8], b: &[u8]) -> bool {
+            let (mut i, mut j) = (0, b.len() - 1);
+            while i < j && a[i] == b[j] {
+                i += 1;
+                j -= 1;
+            }
+            if i >= j {
+                return true;
+            }
+            check2(a, i, j) || check2(b, i, j)
+        }
+
+        fn check2(a: &[u8], mut i: usize, mut j: usize) -> bool {
+            while i < j && a[i] == a[j] {
+                i += 1;
+                j -= 1;
+            }
+            i >= j
+        }
+
+        let a = a.as_bytes();
+        let b = b.as_bytes();
+        check1(a, b) || check1(b, a)
+    }
+}
 ```
 
 ### **...**
