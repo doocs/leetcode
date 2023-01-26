@@ -1,9 +1,7 @@
 class Solution {
     public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
         List<Pair<Integer, Double>>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < edges.length; ++i) {
             int a = edges[i][0], b = edges[i][1];
             double s = succProb[i];

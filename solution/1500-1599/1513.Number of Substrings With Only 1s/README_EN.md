@@ -48,13 +48,82 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numSub(self, s: str) -> int:
+        ans = cnt = 0
+        for c in s:
+            if c == "1":
+                cnt += 1
+            else:
+                cnt = 0
+            ans += cnt
+        return ans % (10**9 + 7)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numSub(String s) {
+        final int mod = (int) 1e9 + 7;
+        int ans = 0, cnt = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            cnt = s.charAt(i) == '1' ? cnt + 1 : 0;
+            ans = (ans + cnt) % mod;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSub(string s) {
+        int ans = 0, cnt = 0;
+        const int mod = 1e9 + 7;
+        for (char& c : s) {
+            cnt = c == '1' ? cnt + 1 : 0;
+            ans = (ans + cnt) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSub(s string) (ans int) {
+	const mod = 1e9 + 7
+	cnt := 0
+	for _, c := range s {
+		if c == '1' {
+			cnt++
+		} else {
+			cnt = 0
+		}
+		ans = (ans + cnt) % mod
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numSub(s: string): number {
+    const mod = 10 ** 9 + 7;
+    let ans = 0;
+    let cnt = 0;
+    for (const c of s) {
+        cnt = c == '1' ? cnt + 1 : 0;
+        ans = (ans + cnt) % mod;
+    }
+    return ans;
+}
 ```
 
 ### **...**

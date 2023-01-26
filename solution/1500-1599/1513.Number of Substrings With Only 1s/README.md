@@ -56,6 +56,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历计数**
+
+我们遍历字符串 $s$，用变量 $cnt$ 记录当前连续的 1 的个数，用变量 $ans$ 记录答案。当遍历到字符 $s[i]$ 时，如果 $s[i] = 1$，则 $cnt$ 自增 1，否则 $cnt$ 置 0。此时，$ans$ 自增 $cnt$。
+
+最后，返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +71,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numSub(self, s: str) -> int:
+        ans = cnt = 0
+        for c in s:
+            if c == "1":
+                cnt += 1
+            else:
+                cnt = 0
+            ans += cnt
+        return ans % (10**9 + 7)
 ```
 
 ### **Java**
@@ -71,7 +88,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numSub(String s) {
+        final int mod = (int) 1e9 + 7;
+        int ans = 0, cnt = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            cnt = s.charAt(i) == '1' ? cnt + 1 : 0;
+            ans = (ans + cnt) % mod;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSub(string s) {
+        int ans = 0, cnt = 0;
+        const int mod = 1e9 + 7;
+        for (char& c : s) {
+            cnt = c == '1' ? cnt + 1 : 0;
+            ans = (ans + cnt) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSub(s string) (ans int) {
+	const mod = 1e9 + 7
+	cnt := 0
+	for _, c := range s {
+		if c == '1' {
+			cnt++
+		} else {
+			cnt = 0
+		}
+		ans = (ans + cnt) % mod
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numSub(s: string): number {
+    const mod = 10 ** 9 + 7;
+    let ans = 0;
+    let cnt = 0;
+    for (const c of s) {
+        cnt = c == '1' ? cnt + 1 : 0;
+        ans = (ans + cnt) % mod;
+    }
+    return ans;
+}
 ```
 
 ### **...**
