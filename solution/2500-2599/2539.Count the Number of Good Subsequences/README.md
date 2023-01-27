@@ -1,4 +1,4 @@
-# [2539. Count the Number of Good Subsequences](https://leetcode.cn/problems/count-the-number-of-good-subsequences)
+# [2539. 好子序列的个数](https://leetcode.cn/problems/count-the-number-of-good-subsequences)
 
 [English Version](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)
 
@@ -6,42 +6,44 @@
 
 <!-- 这里写题目描述 -->
 
-<p>A <strong>subsequence</strong> of a string is&nbsp;good if it is not empty and the frequency of each one of its characters is the same.</p>
+<p>如果字符串的某个 <strong>子序列</strong> 不为空，且其中每一个字符出现的频率都相同，就认为该子序列是一个好子序列。</p>
 
-<p>Given a string <code>s</code>, return <em>the number of good subsequences of</em> <code>s</code>. Since the answer may be too large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
+<p>给你一个字符串&nbsp;<code>s</code> ，请你统计并返回它的好子序列的个数。由于答案的值可能非常大，请返回对 <code>10<sup>9</sup> + 7</code> 取余的结果作为答案。</p>
 
-<p>A <strong>subsequence</strong> is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;aabb&quot;
-<strong>Output:</strong> 11
-<strong>Explanation:</strong> The total number of subsequences is <code>2<sup>4</sup>. </code>There are five subsequences which are not good: &quot;<strong><u>aab</u></strong>b&quot;, &quot;a<u><strong>abb</strong></u>&quot;, &quot;<strong><u>a</u></strong>a<u><strong>bb</strong></u>&quot;, &quot;<u><strong>aa</strong></u>b<strong><u>b</u></strong>&quot;, and the empty subsequence. Hence, the number of good subsequences is <code>2<sup>4</sup>-5 = 11</code>.</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;leet&quot;
-<strong>Output:</strong> 12
-<strong>Explanation:</strong> There are four subsequences which are not good: &quot;<strong><u>l</u><em>ee</em></strong>t&quot;, &quot;l<u><strong>eet</strong></u>&quot;, &quot;<strong><u>leet</u></strong>&quot;, and the empty subsequence. Hence, the number of good subsequences is <code>2<sup>4</sup>-4 = 12</code>.
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;abcd&quot;
-<strong>Output:</strong> 15
-<strong>Explanation:</strong> All of the non-empty subsequences are good subsequences. Hence, the number of good subsequences is <code>2<sup>4</sup>-1 = 15</code>.
-</pre>
+<p>字符串的 <strong>子序列</strong> 是指，通过删除一些（也可以不删除）字符且不改变剩余字符相对位置所组成的新字符串。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "aabb"
+<strong>输出：</strong>11
+<strong>解释：</strong>s 的子序列的总数为 <code>2<sup>4 </sup>= 16 。其中，有 5 个子序列不是好子序列，分别是 </code>"<em><strong>aab</strong></em>b"，"a<em><strong>abb</strong></em>"，"<strong><em>a</em></strong>a<em><strong>bb</strong></em>"，"<em><strong>aa</strong></em>b<em><strong>b</strong></em>" 以及空字符串。因此，好子序列的个数为 16 <code>- 5 = 11</code> 。</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "leet"
+<strong>输出：</strong>12
+<strong>解释：</strong>s 的子序列的总数为 <code>2<sup>4 </sup>= 16 。</code>其中，<code>有 4 个子序列不是好子序列，分别是 </code>"<em><strong>lee</strong></em>t"，"l<em><strong>eet</strong></em>"，"<em><strong>leet</strong></em>" 以及空字符串。因此，好子序列的个数为 16 <code>- 4 = 12</code> 。
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "abcd"
+<strong>输出：</strong>15
+<strong>解释：</strong>s 所有非空子序列均为好子序列。因此，好子序列的个数为 16<code> - 1 = 15</code> 。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>s</code> consists of only lowercase English letters.</li>
+	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
 ## 解法

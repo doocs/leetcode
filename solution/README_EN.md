@@ -866,7 +866,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0855  |  [Exam Room](/solution/0800-0899/0855.Exam%20Room/README_EN.md)  |  `Design`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 89  |
 |  0856  |  [Score of Parentheses](/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 90  |
 |  0857  |  [Minimum Cost to Hire K Workers](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 90  |
-|  0858  |  [Mirror Reflection](/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md)  |  `Geometry`,`Math`  |  Medium  |  Weekly Contest 90  |
+|  0858  |  [Mirror Reflection](/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md)  |  `Geometry`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 90  |
 |  0859  |  [Buddy Strings](/solution/0800-0899/0859.Buddy%20Strings/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 90  |
 |  0860  |  [Lemonade Change](/solution/0800-0899/0860.Lemonade%20Change/README_EN.md)  |  `Greedy`,`Array`  |  Easy  |  Weekly Contest 91  |
 |  0861  |  [Score After Flipping Matrix](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`,`Matrix`  |  Medium  |  Weekly Contest 91  |
@@ -2547,15 +2547,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2536  |  [Increment Submatrices by One](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md)  |  `Array`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 328  |
 |  2537  |  [Count the Number of Good Subarrays](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 328  |
 |  2538  |  [Difference Between Maximum and Minimum Price Sum](/solution/2500-2599/2538.Difference%20Between%20Maximum%20and%20Minimum%20Price%20Sum/README_EN.md)  |  `Tree`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 328  |
-|  2539  |  [Count the Number of Good Subsequences](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)  |    |  Medium  |  🔒  |
-|  2540  |  [Minimum Common Value](/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md)  |    |  Easy  |  Biweekly Contest 96  |
-|  2541  |  [Minimum Operations to Make Array Equal II](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 96  |
-|  2542  |  [Maximum Subsequence Score](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md)  |    |  Medium  |  Biweekly Contest 96  |
-|  2543  |  [Check if Point Is Reachable](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)  |    |  Hard  |  Biweekly Contest 96  |
-|  2544  |  [Alternating Digit Sum](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md)  |    |  Easy  |  Weekly Contest 329  |
-|  2545  |  [Sort the Students by Their Kth Score](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md)  |    |  Medium  |  Weekly Contest 329  |
-|  2546  |  [Apply Bitwise Operations to Make Strings Equal](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 329  |
-|  2547  |  [Minimum Cost to Split an Array](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 329  |
+|  2539  |  [Count the Number of Good Subsequences](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Combinatorics`,`Counting`  |  Medium  |  🔒  |
+|  2540  |  [Minimum Common Value](/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md)  |  `Array`,`Hash Table`,`Two Pointers`,`Binary Search`  |  Easy  |  Biweekly Contest 96  |
+|  2541  |  [Minimum Operations to Make Array Equal II](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README_EN.md)  |  `Greedy`,`Array`,`Math`  |  Medium  |  Biweekly Contest 96  |
+|  2542  |  [Maximum Subsequence Score](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 96  |
+|  2543  |  [Check if Point Is Reachable](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)  |  `Math`,`Number Theory`  |  Hard  |  Biweekly Contest 96  |
+|  2544  |  [Alternating Digit Sum](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 329  |
+|  2545  |  [Sort the Students by Their Kth Score](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md)  |  `Array`,`Matrix`,`Sorting`  |  Medium  |  Weekly Contest 329  |
+|  2546  |  [Apply Bitwise Operations to Make Strings Equal](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README_EN.md)  |  `Bit Manipulation`,`String`  |  Medium  |  Weekly Contest 329  |
+|  2547  |  [Minimum Cost to Split an Array](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Dynamic Programming`,`Counting`  |  Hard  |  Weekly Contest 329  |
+|  2548  |  [Maximum Price to Fill a Bag](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

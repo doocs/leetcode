@@ -72,7 +72,7 @@ class Solution:
                 x, v = divmod(x, 10)
                 y += v * v
             return y
-        
+
         slow, fast = n, next(n)
         while slow != fast:
             slow, fast = next(slow), next(next(fast))
