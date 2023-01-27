@@ -1,26 +1,30 @@
 class Solution {
     public String rankTeams(String[] votes) {
-        Map<Character, int[]> counter = new HashMap<>();
         int n = votes[0].length();
-        for (String vote : votes) {
+        int[][] cnt = new int[26][n];
+        for (var vote : votes) {
             for (int i = 0; i < n; ++i) {
-                char v = vote.charAt(i);
-                counter.computeIfAbsent(v, k -> new int[26])[i]++;
+                cnt[vote.charAt(i) - 'A'][i]++;
             }
         }
-        List<Map.Entry<Character, int[]>> t = new ArrayList<>(counter.entrySet());
-        Collections.sort(t, (a, b) -> {
-            int[] v1 = a.getValue();
-            int[] v2 = b.getValue();
-            for (int i = 0; i < 26; ++i) {
-                if (v1[i] != v2[i]) {
-                    return v2[i] - v1[i];
+        Character[] cs = new Character[n];
+        for (int i = 0; i < n; ++i) {
+            cs[i] = votes[0].charAt(i);
+        }
+        Arrays.sort(cs, (a, b) -> {
+            int i = a - 'A', j = b - 'A';
+            for (int k = 0; k < n; ++k) {
+                int d = cnt[i][k] - cnt[j][k];
+                if (d != 0) {
+                    return d > 0 ? -1 : 1;
                 }
             }
-            return a.getKey() - b.getKey();
+            return a - b;
         });
         StringBuilder ans = new StringBuilder();
-        t.forEach(e -> ans.append(e.getKey()));
+        for (char c : cs) {
+            ans.append(c);
+        }
         return ans.toString();
     }
 }
