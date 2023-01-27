@@ -52,10 +52,9 @@ Thus, grid is not an X-Matrix.
 ```python
 class Solution:
     def checkXMatrix(self, grid: List[List[int]]) -> bool:
-        n = len(grid)
         for i, row in enumerate(grid):
             for j, v in enumerate(row):
-                if i == j or i == n - j - 1:
+                if i == j or i + j == len(grid) - 1:
                     if v == 0:
                         return False
                 elif v:
@@ -71,7 +70,7 @@ class Solution {
         int n = grid.length;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (i == j || i == n - j - 1) {
+                if (i == j || i + j == n - 1) {
                     if (grid[i][j] == 0) {
                         return false;
                     }
@@ -94,10 +93,13 @@ public:
         int n = grid.size();
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (i == j || i == n - j - 1) {
-                    if (grid[i][j] == 0) return false;
-                } else if (grid[i][j])
+                if (i == j || i + j == n - 1) {
+                    if (!grid[i][j]) {
+                        return false;
+                    }
+                } else if (grid[i][j]) {
                     return false;
+                }
             }
         }
         return true;
@@ -109,10 +111,9 @@ public:
 
 ```go
 func checkXMatrix(grid [][]int) bool {
-	n := len(grid)
 	for i, row := range grid {
 		for j, v := range row {
-			if i == j || i == n-j-1 {
+			if i == j || i+j == len(row)-1 {
 				if v == 0 {
 					return false
 				}
@@ -129,18 +130,41 @@ func checkXMatrix(grid [][]int) bool {
 
 ```ts
 function checkXMatrix(grid: number[][]): boolean {
-    const m = grid.length,
-        n = grid[0].length;
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (j == i || j == n - 1 - i) {
-                if (!grid[i][j]) return false;
-            } else {
-                if (grid[i][j]) return false;
+    const n = grid.length;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i == j || i + j == n - 1) {
+                if (!grid[i][j]) {
+                    return false;
+                }
+            } else if (grid[i][j]) {
+                return false;
             }
         }
     }
     return true;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool CheckXMatrix(int[][] grid) {
+        int n = grid.Length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i == j || i + j == n - 1) {
+                    if (grid[i][j] == 0) {
+                        return false;
+                    }
+                } else if (grid[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 ```
 

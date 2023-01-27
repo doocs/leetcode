@@ -1,6 +1,6 @@
-class Solution {
-    public boolean checkXMatrix(int[][] grid) {
-        int n = grid.length;
+public class Solution {
+    public bool CheckXMatrix(int[][] grid) {
+        int n = grid.Length;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (i == j || i + j == n - 1) {

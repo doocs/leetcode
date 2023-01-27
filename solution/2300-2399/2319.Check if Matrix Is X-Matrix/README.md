@@ -49,6 +49,12 @@ X 矩阵应该满足：绿色元素（对角线上）都不是 0 ，红色元素
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+遍历矩阵，对于每个元素，判断其是否满足 $X$ 矩阵的条件。若不满足，直接返回 `false`；若遍历完所有元素都满足，返回 `true`。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为矩阵的行数或列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,10 +64,9 @@ X 矩阵应该满足：绿色元素（对角线上）都不是 0 ，红色元素
 ```python
 class Solution:
     def checkXMatrix(self, grid: List[List[int]]) -> bool:
-        n = len(grid)
         for i, row in enumerate(grid):
             for j, v in enumerate(row):
-                if i == j or i == n - j - 1:
+                if i == j or i + j == len(grid) - 1:
                     if v == 0:
                         return False
                 elif v:
@@ -79,7 +84,7 @@ class Solution {
         int n = grid.length;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (i == j || i == n - j - 1) {
+                if (i == j || i + j == n - 1) {
                     if (grid[i][j] == 0) {
                         return false;
                     }
@@ -102,10 +107,13 @@ public:
         int n = grid.size();
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (i == j || i == n - j - 1) {
-                    if (grid[i][j] == 0) return false;
-                } else if (grid[i][j])
+                if (i == j || i + j == n - 1) {
+                    if (!grid[i][j]) {
+                        return false;
+                    }
+                } else if (grid[i][j]) {
                     return false;
+                }
             }
         }
         return true;
@@ -117,10 +125,9 @@ public:
 
 ```go
 func checkXMatrix(grid [][]int) bool {
-	n := len(grid)
 	for i, row := range grid {
 		for j, v := range row {
-			if i == j || i == n-j-1 {
+			if i == j || i+j == len(row)-1 {
 				if v == 0 {
 					return false
 				}
@@ -137,18 +144,41 @@ func checkXMatrix(grid [][]int) bool {
 
 ```ts
 function checkXMatrix(grid: number[][]): boolean {
-    const m = grid.length,
-        n = grid[0].length;
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (j == i || j == n - 1 - i) {
-                if (!grid[i][j]) return false;
-            } else {
-                if (grid[i][j]) return false;
+    const n = grid.length;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i == j || i + j == n - 1) {
+                if (!grid[i][j]) {
+                    return false;
+                }
+            } else if (grid[i][j]) {
+                return false;
             }
         }
     }
     return true;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool CheckXMatrix(int[][] grid) {
+        int n = grid.Length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i == j || i + j == n - 1) {
+                    if (grid[i][j] == 0) {
+                        return false;
+                    }
+                } else if (grid[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 ```
 
