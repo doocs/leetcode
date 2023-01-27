@@ -49,13 +49,13 @@ Possible arrangements:
 class Solution:
     def countHousePlacements(self, n: int) -> int:
         mod = 10**9 + 7
-        f = [[0] * 2 for _ in range(n)]
-        f[0] = [1, 1]
+        f = [1] * n
+        g = [1] * n
         for i in range(1, n):
-            f[i][0] = f[i - 1][0] + f[i - 1][1]
-            f[i][1] = f[i - 1][0]
-        s = sum(f[-1])
-        return (s * s) % mod
+            f[i] = g[i - 1]
+            g[i] = (f[i - 1] + g[i - 1]) % mod
+        v = f[-1] + g[-1]
+        return v * v % mod
 ```
 
 ### **Java**
@@ -63,15 +63,17 @@ class Solution:
 ```java
 class Solution {
     public int countHousePlacements(int n) {
-        int mod = (int) 1e9 + 7;
-        long[][] f = new long[n][2];
-        f[0] = new long[] {1, 1};
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[n];
+        int[] g = new int[n];
+        f[0] = 1;
+        g[0] = 1;
         for (int i = 1; i < n; ++i) {
-            f[i][0] = (f[i - 1][0] + f[i - 1][1]) % mod;
-            f[i][1] = f[i - 1][0];
+            f[i] = g[i - 1];
+            g[i] = (f[i - 1] + g[i - 1]) % mod;
         }
-        long s = f[n - 1][0] + f[n - 1][1];
-        return (int) ((s * s) % mod);
+        long v = (f[n - 1] + g[n - 1]) % mod;
+        return (int) (v * v % mod);
     }
 }
 ```
@@ -82,15 +84,15 @@ class Solution {
 class Solution {
 public:
     int countHousePlacements(int n) {
-        int mod = 1e9 + 7;
-        vector<vector<long>> f(n, vector<long>(2));
-        f[0] = {1, 1};
+        const int mod = 1e9 + 7;
+        int f[n], g[n];
+        f[0] = g[0] = 1;
         for (int i = 1; i < n; ++i) {
-            f[i][0] = (f[i - 1][0] + f[i - 1][1]) % mod;
-            f[i][1] = f[i - 1][0];
+            f[i] = g[i - 1];
+            g[i] = (f[i - 1] + g[i - 1]) % mod;
         }
-        long s = f[n - 1][0] + f[n - 1][1];
-        return (int)((s * s) % mod);
+        long v = f[n - 1] + g[n - 1];
+        return v * v % mod;
     }
 };
 ```
@@ -99,18 +101,16 @@ public:
 
 ```go
 func countHousePlacements(n int) int {
-	mod := int(1e9) + 7
-	f := make([][]int, n)
-	for i := range f {
-		f[i] = make([]int, 2)
-	}
-	f[0] = []int{1, 1}
+	const mod = 1e9 + 7
+	f := make([]int, n)
+	g := make([]int, n)
+	f[0], g[0] = 1, 1
 	for i := 1; i < n; i++ {
-		f[i][0] = (f[i-1][0] + f[i-1][1]) % mod
-		f[i][1] = f[i-1][0]
+		f[i] = g[i-1]
+		g[i] = (f[i-1] + g[i-1]) % mod
 	}
-	s := f[n-1][0] + f[n-1][1]
-	return (s * s) % mod
+	v := f[n-1] + g[n-1]
+	return v * v % mod
 }
 ```
 
@@ -118,13 +118,35 @@ func countHousePlacements(n int) int {
 
 ```ts
 function countHousePlacements(n: number): number {
+    const f = new Array(n);
+    const g = new Array(n);
+    f[0] = g[0] = 1n;
     const mod = BigInt(10 ** 9 + 7);
-    let pre = 1n,
-        count = 2n;
-    for (let i = 2; i <= n; i++) {
-        [count, pre] = [(count + pre) % mod, count];
+    for (let i = 1; i < n; ++i) {
+        f[i] = g[i - 1];
+        g[i] = (f[i - 1] + g[i - 1]) % mod;
     }
-    return Number(count ** 2n % mod);
+    const v = f[n - 1] + g[n - 1];
+    return Number(v ** 2n % mod);
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int CountHousePlacements(int n) {
+        const int mod = (int) 1e9 + 7;
+        int[] f = new int[n];
+        int[] g = new int[n];
+        f[0] = g[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            f[i] = g[i - 1];
+            g[i] = (f[i - 1] + g[i - 1]) % mod;
+        }
+        long v = (f[n - 1] + g[n - 1]) % mod;
+        return (int) (v * v % mod);
+    }
 }
 ```
 
