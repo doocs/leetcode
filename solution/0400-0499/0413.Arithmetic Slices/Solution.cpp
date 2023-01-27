@@ -1,17 +1,17 @@
 class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> dp(n, 0);
-        for (int i = 2; i < n; ++i) {
-            if (nums[i] + nums[i - 2] == (nums[i - 1] * 2)) {
-                dp[i] = 1 + dp[i - 1];
+        int ans = 0, cnt = 0;
+        int d = 3000;
+        for (int i = 0; i < nums.size() - 1; ++i) {
+            if (nums[i + 1] - nums[i] == d) {
+                ++cnt;
+            } else {
+                d = nums[i + 1] - nums[i];
+                cnt = 0;
             }
+            ans += cnt;
         }
-        int res = 0;
-        for (auto e : dp) {
-            res += e;
-        }
-        return res;
+        return ans;
     }
 };

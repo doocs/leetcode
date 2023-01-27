@@ -50,13 +50,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划法。
+**方法一：遍历计数**
 
-设 `dp[i]` 表示以 i 结尾的数组构成的等差数列的个数。
+我们用 $d$ 表示当前相邻两个元素的差值，用 $cnt$ 表示当前等差数列的长度，初始时 $d = 3000$, $cnt = 2$。
 
-如果 `nums[i] + nums[i - 2] ≠ nums[i - 1] * 2`，说明以 i 结尾的数组无法构成等差数列，`dp[i] = 0`；否则 `dp[i] = 1 + dp[i - 1]`。
+遍历数组 `nums`，对于相邻的两个元素 $a$ 和 $b$，如果 $b - a = d$，则说明当前元素 $b$ 也属于当前等差数列，此时 $cnt$ 自增 1；否则说明当前元素 $b$ 不属于当前等差数列，此时更新 $d = b - a$，$cnt = 2$。如果 $cnt \ge 3$，则说明当前等差数列的长度至少为 3，此时等差数列的个数为 $cnt - 2$，将其加到答案中。
 
-结果返回 dp 数组所有元素之和即可。
+遍历结束后，即可得到答案。
+
+在代码实现上，我们也可以将 $cnt$ 初始化为 $0$，重置 $cnt$ 时，直接将 $cnt$ 置为 $0$；累加答案时，直接累加 $cnt$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
+
+相似题目：
+
+-   [1513. 仅含 1 的子串数](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)
+-   [2348. 全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
 
 <!-- tabs:start -->
 
@@ -67,12 +76,31 @@
 ```python
 class Solution:
     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
-        n = len(nums)
-        dp = [0] * n
-        for i in range(2, n):
-            if nums[i] + nums[i - 2] == (nums[i - 1] << 1):
-                dp[i] = 1 + dp[i - 1]
-        return sum(dp)
+        ans, cnt = 0, 2
+        d = 3000
+        for a, b in pairwise(nums):
+            if b - a == d:
+                cnt += 1
+            else:
+                d = b - a
+                cnt = 2
+            ans += max(0, cnt - 2)
+        return ans
+```
+
+```python
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        ans = cnt = 0
+        d = 3000
+        for a, b in pairwise(nums):
+            if b - a == d:
+                cnt += 1
+            else:
+                d = b - a
+                cnt = 0
+            ans += cnt
+        return ans
 ```
 
 ### **Java**
@@ -82,18 +110,18 @@ class Solution:
 ```java
 class Solution {
     public int numberOfArithmeticSlices(int[] nums) {
-        int n = nums.length;
-        int[] dp = new int[n];
-        for (int i = 2; i < n; ++i) {
-            if (nums[i] + nums[i - 2] == (nums[i - 1] << 1)) {
-                dp[i] = 1 + dp[i - 1];
+        int ans = 0, cnt = 0;
+        int d = 3000;
+        for (int i = 0; i < nums.length - 1; ++i) {
+            if (nums[i + 1] - nums[i] == d) {
+                ++cnt;
+            } else {
+                d = nums[i + 1] - nums[i];
+                cnt = 0;
             }
+            ans += cnt;
         }
-        int res = 0;
-        for (int e : dp) {
-            res += e;
-        }
-        return res;
+        return ans;
     }
 }
 ```
@@ -104,18 +132,18 @@ class Solution {
 class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> dp(n, 0);
-        for (int i = 2; i < n; ++i) {
-            if (nums[i] + nums[i - 2] == (nums[i - 1] * 2)) {
-                dp[i] = 1 + dp[i - 1];
+        int ans = 0, cnt = 0;
+        int d = 3000;
+        for (int i = 0; i < nums.size() - 1; ++i) {
+            if (nums[i + 1] - nums[i] == d) {
+                ++cnt;
+            } else {
+                d = nums[i + 1] - nums[i];
+                cnt = 0;
             }
+            ans += cnt;
         }
-        int res = 0;
-        for (auto e : dp) {
-            res += e;
-        }
-        return res;
+        return ans;
     }
 };
 ```
@@ -123,19 +151,41 @@ public:
 ### **Go**
 
 ```go
-func numberOfArithmeticSlices(nums []int) int {
-	n := len(nums)
-	dp := make([]int, n)
-	for i := 2; i < n; i++ {
-		if nums[i]-nums[i-1] == nums[i-1]-nums[i-2] {
-			dp[i] = 1 + dp[i-1]
+func numberOfArithmeticSlices(nums []int) (ans int) {
+	cnt, d := 0, 3000
+	for i, b := range nums[1:] {
+		a := nums[i]
+		if b-a == d {
+			cnt++
+		} else {
+			d = b - a
+			cnt = 0
 		}
+		ans += cnt
 	}
-	res := 0
-	for _, e := range dp {
-		res += e
-	}
-	return res
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfArithmeticSlices(nums: number[]): number {
+    let ans = 0;
+    let cnt = 0;
+    let d = 3000;
+    for (let i = 0; i < nums.length - 1; ++i) {
+        const a = nums[i];
+        const b = nums[i + 1];
+        if (b - a == d) {
+            ++cnt;
+        } else {
+            d = b - a;
+            cnt = 0;
+        }
+        ans += cnt;
+    }
+    return ans;
 }
 ```
 

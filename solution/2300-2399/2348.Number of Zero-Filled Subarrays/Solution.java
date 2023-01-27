@@ -3,14 +3,9 @@ class Solution {
         long ans = 0;
         int cnt = 0;
         for (int v : nums) {
-            if (v == 0) {
-                ++cnt;
-            } else {
-                ans += (long) (1 + cnt) * cnt / 2;
-                cnt = 0;
-            }
+            cnt = v != 0 ? 0 : cnt + 1;
+            ans += cnt;
         }
-        ans += (long) (1 + cnt) * cnt / 2;
         return ans;
     }
 }

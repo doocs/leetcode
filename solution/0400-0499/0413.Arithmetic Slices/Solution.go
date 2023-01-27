@@ -1,14 +1,14 @@
-func numberOfArithmeticSlices(nums []int) int {
-	n := len(nums)
-	dp := make([]int, n)
-	for i := 2; i < n; i++ {
-		if nums[i]-nums[i-1] == nums[i-1]-nums[i-2] {
-			dp[i] = 1 + dp[i-1]
+func numberOfArithmeticSlices(nums []int) (ans int) {
+	cnt, d := 0, 3000
+	for i, b := range nums[1:] {
+		a := nums[i]
+		if b-a == d {
+			cnt++
+		} else {
+			d = b - a
+			cnt = 0
 		}
+		ans += cnt
 	}
-	res := 0
-	for _, e := range dp {
-		res += e
-	}
-	return res
+	return
 }

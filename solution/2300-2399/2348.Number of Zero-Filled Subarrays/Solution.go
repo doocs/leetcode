@@ -1,14 +1,12 @@
-func zeroFilledSubarray(nums []int) int64 {
-	ans := 0
+func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
 	for _, v := range nums {
-		if v == 0 {
-			cnt++
-		} else {
-			ans += (1 + cnt) * cnt / 2
+		if v != 0 {
 			cnt = 0
+		} else {
+			cnt++
 		}
+		ans += int64(cnt)
 	}
-	ans += (1 + cnt) * cnt / 2
-	return int64(ans)
+	return
 }

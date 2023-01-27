@@ -64,6 +64,11 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
+相似题目：
+
+-   [413. 等差数列划分](/solution/0400-0499/0413.Arithmetic%20Slices/README.md)
+-   [2348. 全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

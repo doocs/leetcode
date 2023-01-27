@@ -56,15 +56,10 @@ There is no occurrence of a subarray with a size more than 3 filled with 0. Ther
 ```python
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
-        ans = 0
-        cnt = 0
+        ans = cnt = 0
         for v in nums:
-            if v == 0:
-                cnt += 1
-            else:
-                ans += (1 + cnt) * cnt // 2
-                cnt = 0
-        ans += (1 + cnt) * cnt // 2
+            cnt = 0 if v else cnt + 1
+            ans += cnt
         return ans
 ```
 
@@ -76,14 +71,9 @@ class Solution {
         long ans = 0;
         int cnt = 0;
         for (int v : nums) {
-            if (v == 0) {
-                ++cnt;
-            } else {
-                ans += (long) (1 + cnt) * cnt / 2;
-                cnt = 0;
-            }
+            cnt = v != 0 ? 0 : cnt + 1;
+            ans += cnt;
         }
-        ans += (long) (1 + cnt) * cnt / 2;
         return ans;
     }
 }
@@ -97,15 +87,10 @@ public:
     long long zeroFilledSubarray(vector<int>& nums) {
         long long ans = 0;
         int cnt = 0;
-        for (int v : nums) {
-            if (v == 0)
-                ++cnt;
-            else {
-                ans += 1ll * (1 + cnt) * cnt / 2;
-                cnt = 0;
-            }
+        for (int& v : nums) {
+            cnt = v ? 0 : cnt + 1;
+            ans += cnt;
         }
-        ans += 1ll * (1 + cnt) * cnt / 2;
         return ans;
     }
 };
@@ -114,26 +99,32 @@ public:
 ### **Go**
 
 ```go
-func zeroFilledSubarray(nums []int) int64 {
-	ans := 0
+func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
 	for _, v := range nums {
-		if v == 0 {
-			cnt++
-		} else {
-			ans += (1 + cnt) * cnt / 2
+		if v != 0 {
 			cnt = 0
+		} else {
+			cnt++
 		}
+		ans += int64(cnt)
 	}
-	ans += (1 + cnt) * cnt / 2
-	return int64(ans)
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function zeroFilledSubarray(nums: number[]): number {
+    let ans = 0;
+    let cnt = 0;
+    for (const v of nums) {
+        cnt = v ? 0 : cnt + 1;
+        ans += cnt;
+    }
+    return ans;
+}
 ```
 
 ### **...**

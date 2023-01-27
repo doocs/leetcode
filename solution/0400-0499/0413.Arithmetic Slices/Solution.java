@@ -1,16 +1,16 @@
 class Solution {
     public int numberOfArithmeticSlices(int[] nums) {
-        int n = nums.length;
-        int[] dp = new int[n];
-        for (int i = 2; i < n; ++i) {
-            if (nums[i] + nums[i - 2] == (nums[i - 1] << 1)) {
-                dp[i] = 1 + dp[i - 1];
+        int ans = 0, cnt = 0;
+        int d = 3000;
+        for (int i = 0; i < nums.length - 1; ++i) {
+            if (nums[i + 1] - nums[i] == d) {
+                ++cnt;
+            } else {
+                d = nums[i + 1] - nums[i];
+                cnt = 0;
             }
+            ans += cnt;
         }
-        int res = 0;
-        for (int e : dp) {
-            res += e;
-        }
-        return res;
+        return ans;
     }
 }

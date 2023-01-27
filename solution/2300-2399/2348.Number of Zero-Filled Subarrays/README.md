@@ -52,6 +52,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历计数**
+
+我们可以遍历数组 `nums`，用变量 $cnt$ 记录当前连续的 `0` 的个数，用变量 $ans$ 记录答案。当遍历到 `nums[i]` 时，如果 `nums[i]` 为 `0`，则 $cnt$ 自增 $1$，否则 $cnt$ 置 $0$。然后将 $cnt$ 累加到答案 $ans$ 中。
+
+最后，返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
+
+相似题目：
+
+-   [413. 等差数列划分](/solution/0400-0499/0413.Arithmetic%20Slices/README.md)
+-   [1513. 仅含 1 的子串数](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,15 +74,10 @@
 ```python
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
-        ans = 0
-        cnt = 0
+        ans = cnt = 0
         for v in nums:
-            if v == 0:
-                cnt += 1
-            else:
-                ans += (1 + cnt) * cnt // 2
-                cnt = 0
-        ans += (1 + cnt) * cnt // 2
+            cnt = 0 if v else cnt + 1
+            ans += cnt
         return ans
 ```
 
@@ -83,14 +91,9 @@ class Solution {
         long ans = 0;
         int cnt = 0;
         for (int v : nums) {
-            if (v == 0) {
-                ++cnt;
-            } else {
-                ans += (long) (1 + cnt) * cnt / 2;
-                cnt = 0;
-            }
+            cnt = v != 0 ? 0 : cnt + 1;
+            ans += cnt;
         }
-        ans += (long) (1 + cnt) * cnt / 2;
         return ans;
     }
 }
@@ -104,15 +107,10 @@ public:
     long long zeroFilledSubarray(vector<int>& nums) {
         long long ans = 0;
         int cnt = 0;
-        for (int v : nums) {
-            if (v == 0)
-                ++cnt;
-            else {
-                ans += 1ll * (1 + cnt) * cnt / 2;
-                cnt = 0;
-            }
+        for (int& v : nums) {
+            cnt = v ? 0 : cnt + 1;
+            ans += cnt;
         }
-        ans += 1ll * (1 + cnt) * cnt / 2;
         return ans;
     }
 };
@@ -121,26 +119,32 @@ public:
 ### **Go**
 
 ```go
-func zeroFilledSubarray(nums []int) int64 {
-	ans := 0
+func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
 	for _, v := range nums {
-		if v == 0 {
-			cnt++
-		} else {
-			ans += (1 + cnt) * cnt / 2
+		if v != 0 {
 			cnt = 0
+		} else {
+			cnt++
 		}
+		ans += int64(cnt)
 	}
-	ans += (1 + cnt) * cnt / 2
-	return int64(ans)
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function zeroFilledSubarray(nums: number[]): number {
+    let ans = 0;
+    let cnt = 0;
+    for (const v of nums) {
+        cnt = v ? 0 : cnt + 1;
+        ans += cnt;
+    }
+    return ans;
+}
 ```
 
 ### **...**
