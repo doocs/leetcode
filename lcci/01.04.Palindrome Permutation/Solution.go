@@ -1,14 +1,14 @@
 func canPermutePalindrome(s string) bool {
-	m := make(map[rune]bool)
-	count := 0
-	for _, r := range s {
-		if m[r] {
-			m[r] = false
-			count--
+	vis := map[rune]bool{}
+	cnt := 0
+	for _, c := range s {
+		if vis[c] {
+			vis[c] = false
+			cnt--
 		} else {
-			m[r] = true
-			count++
+			vis[c] = true
+			cnt++
 		}
 	}
-	return count <= 1
+	return cnt < 2
 }

@@ -1,4 +1,4 @@
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        counter = Counter(s)
-        return sum(1 for v in counter.values() if v % 2 == 1) <= 1
+        cnt = Counter(s)
+        return sum(v & 1 for v in cnt.values()) < 2

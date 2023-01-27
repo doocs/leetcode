@@ -1,13 +1,13 @@
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        Map<Character, Integer> counter = new HashMap<>();
-        for (char c : s.toCharArray()) {
-            counter.put(c, counter.getOrDefault(c, 0) + 1);
+        Map<Character, Integer> cnt =  new HashMap<>();
+        for (int i = 0; i < s.length(); ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
         }
-        int cnt = 0;
-        for (int v : counter.values()) {
-            cnt += v % 2;
+        int sum = 0;
+        for (int v : cnt.values()) {
+            sum += v & 1;
         }
-        return cnt < 2;
+        return sum < 2;
     }
 }

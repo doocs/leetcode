@@ -25,7 +25,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-用哈希表存储每个字符出现的次数。若次数为奇数的字符超过 1 个，则不是回文排列。
+**方法一：哈希表**
+
+我们用哈希表 `cnt` 存储每个字符出现的次数。若次数为奇数的字符超过 $1$ 个，则不是回文排列。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
 
@@ -36,8 +40,20 @@
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        counter = Counter(s)
-        return sum(1 for v in counter.values() if v % 2 == 1) <= 1
+        cnt = Counter(s)
+        return sum(v & 1 for v in cnt.values()) < 2
+```
+
+```python
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        vis = set()
+        for c in s:
+            if c in vis:
+                vis.remove(c)
+            else:
+                vis.add(c)
+        return len(vis) < 2
 ```
 
 ### **Java**
@@ -47,35 +63,31 @@ class Solution:
 ```java
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        Map<Character, Integer> counter = new HashMap<>();
-        for (char c : s.toCharArray()) {
-            counter.put(c, counter.getOrDefault(c, 0) + 1);
+        Map<Character, Integer> cnt =  new HashMap<>();
+        for (int i = 0; i < s.length(); ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
         }
-        int cnt = 0;
-        for (int v : counter.values()) {
-            cnt += v % 2;
+        int sum = 0;
+        for (int v : cnt.values()) {
+            sum += v & 1;
         }
-        return cnt < 2;
+        return sum < 2;
     }
 }
 ```
 
-### **Go**
-
-```go
-func canPermutePalindrome(s string) bool {
-	m := make(map[rune]bool)
-	count := 0
-	for _, r := range s {
-		if m[r] {
-			m[r] = false
-			count--
-		} else {
-			m[r] = true
-			count++
-		}
-	}
-	return count <= 1
+```java
+class Solution {
+    public boolean canPermutePalindrome(String s) {
+        Set<Character> vis = new HashSet<>();
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (!vis.add(c)) {
+                vis.remove(c);
+            }
+        }
+        return vis.size() < 2;
+    }
 }
 ```
 
@@ -85,13 +97,53 @@ func canPermutePalindrome(s string) bool {
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
-        unordered_map<char, int> counter;
-        for (char c : s) ++counter[c];
-        int cnt = 0;
-        for (auto& [k, v] : counter) cnt += v % 2;
-        return cnt < 2;
+        unordered_map<char, int> cnt;
+        for (auto& c : s) {
+            ++cnt[c];
+        }
+        int sum = 0;
+        for (auto& [_, v] : cnt) {
+            sum += v & 1;
+        }
+        return sum < 2;
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    bool canPermutePalindrome(string s) {
+        unordered_set<char> vis;
+        for (auto& c : s) {
+            if (vis.count(c)) {
+                vis.erase(c);
+            } else {
+                vis.insert(c);
+            }
+        }
+        return vis.size() < 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canPermutePalindrome(s string) bool {
+	vis := map[rune]bool{}
+	cnt := 0
+	for _, c := range s {
+		if vis[c] {
+			vis[c] = false
+			cnt--
+		} else {
+			vis[c] = true
+			cnt++
+		}
+	}
+	return cnt < 2
+}
 ```
 
 ### **TypeScript**
