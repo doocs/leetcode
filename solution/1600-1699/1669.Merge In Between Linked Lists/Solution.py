@@ -10,11 +10,11 @@ class Solution:
         p = q = list1
         for _ in range(a - 1):
             p = p.next
-        for _ in range(b + 1):
+        for _ in range(b):
             q = q.next
-        t = list2
-        while t.next:
-            t = t.next
-        t.next = q
         p.next = list2
+        while p.next:
+            p = p.next
+        p.next = q.next
+        q.next = None
         return list1

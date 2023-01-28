@@ -12,18 +12,18 @@ class Solution {
 public:
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         auto p = list1, q = list1;
-        for (int i = 0; i < a - 1; ++i) {
+        while (--a) {
             p = p->next;
         }
-        for (int i = 0; i < b + 1; ++i) {
+        while (b--) {
             q = q->next;
         }
-        auto t = list2;
-        while (t->next) {
-            t = t->next;
-        }
-        t->next = q;
         p->next = list2;
+        while (p->next) {
+            p = p->next;
+        }
+        p->next = q->next;
+        q->next = nullptr;
         return list1;
     }
 };

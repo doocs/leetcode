@@ -7,17 +7,17 @@
  */
 func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
 	p, q := list1, list1
-	for i := 0; i < a-1; i++ {
+	for ; a > 1; a-- {
 		p = p.Next
 	}
-	for i := 0; i < b+1; i++ {
+	for ; b > 0; b-- {
 		q = q.Next
 	}
-	t := list2
-	for t.Next != nil {
-		t = t.Next
-	}
-	t.Next = q
 	p.Next = list2
+	for p.Next != nil {
+		p = p.Next
+	}
+	p.Next = q.Next
+	q.Next = nil
 	return list1
 }
