@@ -1,13 +1,14 @@
 class Solution {
     public int minimumEffort(int[][] tasks) {
-        Arrays.sort(tasks, (a, b) -> a[0] - b[0] - a[1] + b[1]);
-        int ans = 0, t = 0;
-        for (var e : tasks) {
-            if (t < e[1]) {
-                ans += e[1] - t;
-                t = e[1];
+        Arrays.sort(tasks, (a, b) -> a[0] - b[0] - (a[1] - b[1]));
+        int ans = 0, cur = 0;
+        for (var task : tasks) {
+            int a = task[0], m = task[1];
+            if (cur < m) {
+                ans += m - cur;
+                cur = m;
             }
-            t -= e[0];
+            cur -= a;
         }
         return ans;
     }

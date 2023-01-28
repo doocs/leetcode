@@ -1,9 +1,9 @@
 class Solution:
     def minimumEffort(self, tasks: List[List[int]]) -> int:
-        ans = t = 0
+        ans = cur = 0
         for a, m in sorted(tasks, key=lambda x: x[0] - x[1]):
-            if t < m:
-                ans += m - t
-                t = m
-            t -= a
+            if cur < m:
+                ans += m - cur
+                cur = m
+            cur -= a
         return ans

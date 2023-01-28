@@ -75,12 +75,12 @@ Starting with 27 energy, we finish the tasks in the following order:
 ```python
 class Solution:
     def minimumEffort(self, tasks: List[List[int]]) -> int:
-        ans = t = 0
+        ans = cur = 0
         for a, m in sorted(tasks, key=lambda x: x[0] - x[1]):
-            if t < m:
-                ans += m - t
-                t = m
-            t -= a
+            if cur < m:
+                ans += m - cur
+                cur = m
+            cur -= a
         return ans
 ```
 
@@ -89,14 +89,15 @@ class Solution:
 ```java
 class Solution {
     public int minimumEffort(int[][] tasks) {
-        Arrays.sort(tasks, (a, b) -> a[0] - b[0] - a[1] + b[1]);
-        int ans = 0, t = 0;
-        for (var e : tasks) {
-            if (t < e[1]) {
-                ans += e[1] - t;
-                t = e[1];
+        Arrays.sort(tasks, (a, b) -> a[0] - b[0] - (a[1] - b[1]));
+        int ans = 0, cur = 0;
+        for (var task : tasks) {
+            int a = task[0], m = task[1];
+            if (cur < m) {
+                ans += m - cur;
+                cur = m;
             }
-            t -= e[0];
+            cur -= a;
         }
         return ans;
     }
@@ -109,14 +110,15 @@ class Solution {
 class Solution {
 public:
     int minimumEffort(vector<vector<int>>& tasks) {
-        sort(tasks.begin(), tasks.end(), [&](auto& a, auto& b) -> bool { return a[0] - a[1] < b[0] - b[1]; });
-        int ans = 0, t = 0;
-        for (auto& e : tasks) {
-            if (t < e[1]) {
-                ans += e[1] - t;
-                t = e[1];
+        sort(tasks.begin(), tasks.end(), [&](const auto& a, const auto& b) { return a[0] - a[1] < b[0] - b[1]; });
+        int ans = 0, cur = 0;
+        for (auto& task : tasks) {
+            int a = task[0], m = task[1];
+            if (cur < m) {
+                ans += m - cur;
+                cur = m;
             }
-            t -= e[0];
+            cur -= a;
         }
         return ans;
     }
@@ -126,17 +128,36 @@ public:
 ### **Go**
 
 ```go
-func minimumEffort(tasks [][]int) int {
+func minimumEffort(tasks [][]int) (ans int) {
 	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0]-tasks[i][1] < tasks[j][0]-tasks[j][1] })
-	var ans, t int
-	for _, e := range tasks {
-		if t < e[1] {
-			ans += e[1] - t
-			t = e[1]
+	cur := 0
+	for _, task := range tasks {
+		a, m := task[0], task[1]
+		if cur < m {
+			ans += m - cur
+			cur = m
 		}
-		t -= e[0]
+		cur -= a
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumEffort(tasks: number[][]): number {
+    tasks.sort((a, b) => a[0] - a[1] - (b[0] - b[1]));
+    let ans = 0;
+    let cur = 0;
+    for (const [a, m] of tasks) {
+        if (cur < m) {
+            ans += m - cur;
+            cur = m;
+        }
+        cur -= a;
+    }
+    return ans;
 }
 ```
 
