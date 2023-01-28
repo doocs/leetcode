@@ -153,6 +153,92 @@ func abs(x int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minOperations(nums1: number[], nums2: number[], k: number): number {
+    const n = nums1.length;
+    if (k === 0) {
+        return nums1.every((v, i) => v === nums2[i]) ? 0 : -1;
+    }
+    let sum1 = 0;
+    let sum2 = 0;
+    for (let i = 0; i < n; i++) {
+        const diff = nums1[i] - nums2[i];
+        sum1 += diff;
+        if (diff % k !== 0) {
+            return -1;
+        }
+        sum2 += Math.abs(diff);
+    }
+    if (sum1 !== 0) {
+        return -1;
+    }
+    return sum2 / (k * 2);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_operations(nums1: Vec<i32>, nums2: Vec<i32>, k: i32) -> i64 {
+        let k = k as i64;
+        let n = nums1.len();
+        if k == 0 {
+            return if nums1.iter().enumerate().all(|(i, &v)| v == nums2[i]) {
+                0
+            } else {
+                -1
+            };
+        }
+        let mut sum1 = 0;
+        let mut sum2 = 0;
+        for i in 0..n {
+            let diff = (nums1[i] - nums2[i]) as i64;
+            sum1 += diff;
+            if diff % k != 0 {
+                return -1;
+            }
+            sum2 += diff.abs();
+        }
+        if sum1 != 0 {
+            return -1;
+        }
+        sum2 / (k * 2)
+    }
+}
+```
+
+### **C**
+
+```c
+long long minOperations(int *nums1, int nums1Size, int *nums2, int nums2Size, int k) {
+    if (k == 0) {
+        for (int i = 0; i < nums1Size; i++) {
+            if (nums1[i] != nums2[i]) {
+                return -1;
+            }
+        }
+        return 0;
+    }
+    long long sum1 = 0;
+    long long sum2 = 0;
+    for (int i = 0; i < nums1Size; i++) {
+        long long diff = nums1[i] - nums2[i];
+        sum1 += diff;
+        if (diff % k != 0) {
+            return -1;
+        }
+        sum2 += llabs(diff);
+    }
+    if (sum1 != 0) {
+        return -1;
+    }
+    return sum2 / (k * 2);
+}
+```
+
 ### **...**
 
 ```

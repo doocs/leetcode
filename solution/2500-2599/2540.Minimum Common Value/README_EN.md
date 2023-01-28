@@ -117,6 +117,72 @@ func getCommon(nums1 []int, nums2 []int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function getCommon(nums1: number[], nums2: number[]): number {
+    const m = nums1.length;
+    const n = nums2.length;
+    let i = 0;
+    let j = 0;
+    while (i < m && j < n) {
+        if (nums1[i] === nums2[j]) {
+            return nums1[i];
+        }
+        if (nums1[i] < nums2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return -1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn get_common(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
+        let m = nums1.len();
+        let n = nums2.len();
+        let mut i = 0;
+        let mut j = 0;
+        while i < m && j < n {
+            if nums1[i] == nums2[j] {
+                return nums1[i];
+            }
+            if nums1[i] < nums2[j] {
+                i += 1;
+            } else {
+                j += 1;
+            }
+        }
+        -1
+    }
+}
+```
+
+### **C**
+
+```c
+int getCommon(int *nums1, int nums1Size, int *nums2, int nums2Size) {
+    int i = 0;
+    int j = 0;
+    while (i < nums1Size && j < nums2Size) {
+        if (nums1[i] == nums2[j]) {
+            return nums1[i];
+        }
+        if (nums1[i] < nums2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return -1;
+}
+```
+
 ### **...**
 
 ```
