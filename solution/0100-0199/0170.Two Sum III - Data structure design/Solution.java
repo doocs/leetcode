@@ -1,25 +1,20 @@
 class TwoSum {
-    private Map<Integer, Integer> counter;
+    private Map<Integer, Integer> cnt =  new HashMap<>();
 
-    /** Initialize your data structure here. */
     public TwoSum() {
-        counter = new HashMap<>();
-    }
 
-    /** Add the number to an internal data structure.. */
+    }
+    
     public void add(int number) {
-        counter.put(number, counter.getOrDefault(number, 0) + 1);
+        cnt.merge(number, 1, Integer::sum);
     }
-
-    /** Find if there exists any pair of numbers which sum is equal to the value. */
+    
     public boolean find(int value) {
-        for (int num : counter.keySet()) {
-            int other = value - num;
-            if (counter.containsKey(other)) {
-                if (num != other) {
-                    return true;
-                }
-                if (num == other && counter.get(other) > 1) {
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            int y = value - x;
+            if (cnt.containsKey(y)) {
+                if (x != y || v > 1) {
                     return true;
                 }
             }

@@ -51,27 +51,16 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 ```python
 class TwoSum:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.counter = Counter()
+        self.cnt = Counter()
 
     def add(self, number: int) -> None:
-        """
-        Add the number to an internal data structure..
-        """
-        self.counter[number] += 1
+        self.cnt[number] += 1
 
     def find(self, value: int) -> bool:
-        """
-        Find if there exists any pair of numbers which sum is equal to the value.
-        """
-        for num in self.counter.keys():
-            other = value - num
-            if other in self.counter:
-                if other != num:
-                    return True
-                if other == num and self.counter[num] > 1:
+        for x, v in self.cnt.items():
+            y = value - x
+            if y in self.cnt:
+                if x != y or v > 1:
                     return True
         return False
 
@@ -86,27 +75,22 @@ class TwoSum:
 
 ```java
 class TwoSum {
-    private Map<Integer, Integer> counter;
+    private Map<Integer, Integer> cnt =  new HashMap<>();
 
-    /** Initialize your data structure here. */
     public TwoSum() {
-        counter = new HashMap<>();
-    }
 
-    /** Add the number to an internal data structure.. */
+    }
+    
     public void add(int number) {
-        counter.put(number, counter.getOrDefault(number, 0) + 1);
+        cnt.merge(number, 1, Integer::sum);
     }
-
-    /** Find if there exists any pair of numbers which sum is equal to the value. */
+    
     public boolean find(int value) {
-        for (int num : counter.keySet()) {
-            int other = value - num;
-            if (counter.containsKey(other)) {
-                if (num != other) {
-                    return true;
-                }
-                if (num == other && counter.get(other) > 1) {
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            int y = value - x;
+            if (cnt.containsKey(y)) {
+                if (x != y || v > 1) {
                     return true;
                 }
             }
@@ -120,6 +104,76 @@ class TwoSum {
  * TwoSum obj = new TwoSum();
  * obj.add(number);
  * boolean param_2 = obj.find(value);
+ */
+```
+
+### **C++**
+
+```cpp
+class TwoSum {
+public:
+    TwoSum() {
+
+    }
+    
+    void add(int number) {
+        ++cnt[number];
+    }
+    
+    bool find(int value) {
+        for (auto& [x, v] : cnt) {
+            long y = (long) value - x;
+            if (cnt.count(y)) {
+                if (x != y || v > 1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+private:
+    unordered_map<int, int> cnt;
+};
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * TwoSum* obj = new TwoSum();
+ * obj->add(number);
+ * bool param_2 = obj->find(value);
+ */
+```
+
+### **Go**
+
+```go
+type TwoSum struct {
+	cnt map[int]int
+}
+
+func Constructor() TwoSum {
+	return TwoSum{map[int]int{}}
+}
+
+func (this *TwoSum) Add(number int) {
+	this.cnt[number]++
+}
+
+func (this *TwoSum) Find(value int) bool {
+	for x, v := range this.cnt {
+		y := value - x
+		if _, ok := this.cnt[y]; ok && (x != y || v > 1) {
+			return true
+		}
+	}
+	return false
+}
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Add(number);
+ * param_2 := obj.Find(value);
  */
 ```
 

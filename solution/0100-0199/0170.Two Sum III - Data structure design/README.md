@@ -49,7 +49,20 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“计数器”实现。
+**方法一：哈希表**
+
+我们用哈希表 `cnt` 存储数字出现的次数。
+
+调用 `add` 方法时，将数字 `number` 的出现次数加一。
+
+调用 `find` 方法时，遍历哈希表 `cnt`，对于每个键 `x`，判断 `value - x` 是否也是哈希表 `cnt` 的键，如果是，判断 `x` 是否等于 `value - x`，如果不等，说明找到了一对和为 `value` 的数字，返回 `true`；如果等，判断 `x` 的出现次数是否大于 `1`，如果大于 `1`，说明找到了一对和为 `value` 的数字，返回 `true`；如果小于等于 `1`，说明没有找到一对和为 `value` 的数字，继续遍历哈希表 `cnt`，如果遍历结束都没有找到，返回 `false`。
+
+时间复杂度：
+
+-   `add` 方法的时间复杂度为 $O(1)$；
+-   `find` 方法的时间复杂度为 $O(n)$。
+
+空间复杂度 $O(n)$，其中 $n$ 为哈希表 `cnt` 的大小。
 
 <!-- tabs:start -->
 
@@ -60,27 +73,16 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 ```python
 class TwoSum:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.counter = Counter()
+        self.cnt = Counter()
 
     def add(self, number: int) -> None:
-        """
-        Add the number to an internal data structure..
-        """
-        self.counter[number] += 1
+        self.cnt[number] += 1
 
     def find(self, value: int) -> bool:
-        """
-        Find if there exists any pair of numbers which sum is equal to the value.
-        """
-        for num in self.counter.keys():
-            other = value - num
-            if other in self.counter:
-                if other != num:
-                    return True
-                if other == num and self.counter[num] > 1:
+        for x, v in self.cnt.items():
+            y = value - x
+            if y in self.cnt:
+                if x != y or v > 1:
                     return True
         return False
 
@@ -97,27 +99,22 @@ class TwoSum:
 
 ```java
 class TwoSum {
-    private Map<Integer, Integer> counter;
+    private Map<Integer, Integer> cnt =  new HashMap<>();
 
-    /** Initialize your data structure here. */
     public TwoSum() {
-        counter = new HashMap<>();
+
     }
 
-    /** Add the number to an internal data structure.. */
     public void add(int number) {
-        counter.put(number, counter.getOrDefault(number, 0) + 1);
+        cnt.merge(number, 1, Integer::sum);
     }
 
-    /** Find if there exists any pair of numbers which sum is equal to the value. */
     public boolean find(int value) {
-        for (int num : counter.keySet()) {
-            int other = value - num;
-            if (counter.containsKey(other)) {
-                if (num != other) {
-                    return true;
-                }
-                if (num == other && counter.get(other) > 1) {
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            int y = value - x;
+            if (cnt.containsKey(y)) {
+                if (x != y || v > 1) {
                     return true;
                 }
             }
@@ -131,6 +128,76 @@ class TwoSum {
  * TwoSum obj = new TwoSum();
  * obj.add(number);
  * boolean param_2 = obj.find(value);
+ */
+```
+
+### **C++**
+
+```cpp
+class TwoSum {
+public:
+    TwoSum() {
+
+    }
+
+    void add(int number) {
+        ++cnt[number];
+    }
+
+    bool find(int value) {
+        for (auto& [x, v] : cnt) {
+            long y = (long) value - x;
+            if (cnt.count(y)) {
+                if (x != y || v > 1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+private:
+    unordered_map<int, int> cnt;
+};
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * TwoSum* obj = new TwoSum();
+ * obj->add(number);
+ * bool param_2 = obj->find(value);
+ */
+```
+
+### **Go**
+
+```go
+type TwoSum struct {
+	cnt map[int]int
+}
+
+func Constructor() TwoSum {
+	return TwoSum{map[int]int{}}
+}
+
+func (this *TwoSum) Add(number int) {
+	this.cnt[number]++
+}
+
+func (this *TwoSum) Find(value int) bool {
+	for x, v := range this.cnt {
+		y := value - x
+		if _, ok := this.cnt[y]; ok && (x != y || v > 1) {
+			return true
+		}
+	}
+	return false
+}
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Add(number);
+ * param_2 := obj.Find(value);
  */
 ```
 
