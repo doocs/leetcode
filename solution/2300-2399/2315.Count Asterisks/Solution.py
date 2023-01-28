@@ -1,10 +1,9 @@
 class Solution:
     def countAsterisks(self, s: str) -> int:
-        ans = t = 0
+        ans, ok = 0, 1
         for c in s:
-            if c == '|':
-                t ^= 1
-            elif c == '*':
-                if t == 0:
-                    ans += 1
+            if c == "*":
+                ans += ok
+            elif c == "|":
+                ok ^= 1
         return ans

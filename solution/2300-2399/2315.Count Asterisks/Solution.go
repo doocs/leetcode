@@ -1,13 +1,11 @@
-func countAsterisks(s string) int {
-	ans, t := 0, 0
+func countAsterisks(s string) (ans int) {
+	ok := 1
 	for _, c := range s {
-		if c == '|' {
-			t ^= 1
-		} else if c == '*' {
-			if t == 0 {
-				ans++
-			}
+		if c == '*' {
+			ans += ok
+		} else if c == '|' {
+			ok ^= 1
 		}
 	}
-	return ans
+	return
 }

@@ -1,8 +1,7 @@
-class Solution {
-public:
-    int countAsterisks(string s) {
+public class Solution {
+    public int CountAsterisks(string s) {
         int ans = 0, ok = 1;
-        for (char& c : s) {
+        foreach (char c in s) {
             if (c == '*') {
                 ans += ok;
             } else if (c == '|') {
@@ -11,4 +10,4 @@ public:
         }
         return ans;
     }
-};
+}
