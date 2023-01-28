@@ -47,13 +47,11 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 
 **方法一：求和 + 枚举**
 
-我们记数组长度为 $n$，求出数组 `nums` 的所有元素之和，记为 $s$。
+我们先求出数组 `nums` 所有元素的和，记为 $s$，用变量 $t$ 记录当前已经枚举过的元素之和。
 
-然后枚举数组 `nums` 中的每个元素 `nums[i]`，用变量 $t$ 记录 `nums[i]` 前面的元素之和。
+接下来枚举 $nums[i]$，那么 $ans[i] = nums[i] \times i - t + s - t - nums[i] \times (n - i)$，然后我们更新 $t$，即 $t = t + nums[i]$。继续枚举下一个元素，直到枚举完所有元素。
 
-由于数组是非递减的，我们可以得到 $result[i]= s - t - (n - i) \times nums[i] + nums[i] \times i - t$。
-
-遍历结束后，返回答案数组即可。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -64,13 +62,12 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 ```python
 class Solution:
     def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
-        s = sum(nums)
-        t, n = 0, len(nums)
         ans = []
-        for i, v in enumerate(nums):
-            x = s - t - (n - i) * v + v * i - t
-            t += v
-            ans.append(x)
+        s, t = sum(nums), 0
+        for i, x in enumerate(nums):
+            v = x * i - t + s - t - x * (len(nums) - i)
+            ans.append(v)
+            t += x
         return ans
 ```
 
@@ -81,17 +78,17 @@ class Solution:
 ```java
 class Solution {
     public int[] getSumAbsoluteDifferences(int[] nums) {
-        int s = 0;
-        for (int v : nums) {
-            s += v;
+        // int s = Arrays.stream(nums).sum();
+        int s = 0, t = 0;
+        for (int x : nums) {
+            s += x;
         }
-        int t = 0, n = nums.length;
+        int n = nums.length;
         int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int x = s - t - (n - i) * v + v * i - t;
-            t += v;
-            ans[i] = x;
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
         }
         return ans;
     }
@@ -104,14 +101,13 @@ class Solution {
 class Solution {
 public:
     vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
-        int s = accumulate(nums.begin(), nums.end(), 0);
-        int t = 0, n = nums.size();
+        int s = accumulate(nums.begin(), nums.end(), 0), t = 0;
+        int n = nums.size();
         vector<int> ans(n);
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int x = s - t - (n - i) * v + v * i - t;
-            t += v;
-            ans[i] = x;
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
         }
         return ans;
     }
@@ -121,19 +117,55 @@ public:
 ### **Go**
 
 ```go
-func getSumAbsoluteDifferences(nums []int) []int {
-	s := 0
-	for _, v := range nums {
-		s += v
+func getSumAbsoluteDifferences(nums []int) (ans []int) {
+	var s, t int
+	for _, x := range nums {
+		s += x
 	}
-	t, n := 0, len(nums)
-	ans := make([]int, n)
-	for i, v := range nums {
-		x := s - t - (n-i)*v + v*i - t
-		t += v
-		ans[i] = x
+	for i, x := range nums {
+		v := x*i - t + s - t - x*(len(nums)-i)
+		ans = append(ans, v)
+		t += x
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function getSumAbsoluteDifferences(nums: number[]): number[] {
+    const s = nums.reduce((a, b) => a + b);
+    let t = 0;
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        const v = nums[i] * i - t + s - t - nums[i] * (n - i);
+        ans[i] = v;
+        t += nums[i];
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] GetSumAbsoluteDifferences(int[] nums) {
+        int s = 0, t = 0;
+        foreach (int x in nums) {
+            s += x;
+        }
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
+        }
+        return ans;
+    }
 }
 ```
 
@@ -145,18 +177,14 @@ func getSumAbsoluteDifferences(nums []int) []int {
  * @return {number[]}
  */
 var getSumAbsoluteDifferences = function (nums) {
-    let s = 0;
-    for (const v of nums) {
-        s += v;
-    }
+    const s = nums.reduce((a, b) => a + b);
     let t = 0;
     const n = nums.length;
-    const ans = [];
+    const ans = new Array(n);
     for (let i = 0; i < n; ++i) {
-        const v = nums[i];
-        const x = s - t - (n - i) * v + v * i - t;
-        t += v;
-        ans.push(x);
+        const v = nums[i] * i - t + s - t - nums[i] * (n - i);
+        ans[i] = v;
+        t += nums[i];
     }
     return ans;
 };

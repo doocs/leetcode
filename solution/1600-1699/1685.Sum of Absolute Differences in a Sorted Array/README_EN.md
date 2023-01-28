@@ -46,13 +46,12 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 ```python
 class Solution:
     def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
-        s = sum(nums)
-        t, n = 0, len(nums)
         ans = []
-        for i, v in enumerate(nums):
-            x = s - t - (n - i) * v + v * i - t
-            t += v
-            ans.append(x)
+        s, t = sum(nums), 0
+        for i, x in enumerate(nums):
+            v = x * i - t + s - t - x * (len(nums) - i)
+            ans.append(v)
+            t += x
         return ans
 ```
 
@@ -61,17 +60,17 @@ class Solution:
 ```java
 class Solution {
     public int[] getSumAbsoluteDifferences(int[] nums) {
-        int s = 0;
-        for (int v : nums) {
-            s += v;
+        // int s = Arrays.stream(nums).sum();
+        int s = 0, t = 0;
+        for (int x : nums) {
+            s += x;
         }
-        int t = 0, n = nums.length;
+        int n = nums.length;
         int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int x = s - t - (n - i) * v + v * i - t;
-            t += v;
-            ans[i] = x;
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
         }
         return ans;
     }
@@ -84,14 +83,13 @@ class Solution {
 class Solution {
 public:
     vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
-        int s = accumulate(nums.begin(), nums.end(), 0);
-        int t = 0, n = nums.size();
+        int s = accumulate(nums.begin(), nums.end(), 0), t = 0;
+        int n = nums.size();
         vector<int> ans(n);
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int x = s - t - (n - i) * v + v * i - t;
-            t += v;
-            ans[i] = x;
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
         }
         return ans;
     }
@@ -101,19 +99,55 @@ public:
 ### **Go**
 
 ```go
-func getSumAbsoluteDifferences(nums []int) []int {
-	s := 0
-	for _, v := range nums {
-		s += v
+func getSumAbsoluteDifferences(nums []int) (ans []int) {
+	var s, t int
+	for _, x := range nums {
+		s += x
 	}
-	t, n := 0, len(nums)
-	ans := make([]int, n)
-	for i, v := range nums {
-		x := s - t - (n-i)*v + v*i - t
-		t += v
-		ans[i] = x
+	for i, x := range nums {
+		v := x*i - t + s - t - x*(len(nums)-i)
+		ans = append(ans, v)
+		t += x
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function getSumAbsoluteDifferences(nums: number[]): number[] {
+    const s = nums.reduce((a, b) => a + b);
+    let t = 0;
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        const v = nums[i] * i - t + s - t - nums[i] * (n - i);
+        ans[i] = v;
+        t += nums[i];
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] GetSumAbsoluteDifferences(int[] nums) {
+        int s = 0, t = 0;
+        foreach (int x in nums) {
+            s += x;
+        }
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
+        }
+        return ans;
+    }
 }
 ```
 
@@ -125,18 +159,14 @@ func getSumAbsoluteDifferences(nums []int) []int {
  * @return {number[]}
  */
 var getSumAbsoluteDifferences = function (nums) {
-    let s = 0;
-    for (const v of nums) {
-        s += v;
-    }
+    const s = nums.reduce((a, b) => a + b);
     let t = 0;
     const n = nums.length;
-    const ans = [];
+    const ans = new Array(n);
     for (let i = 0; i < n; ++i) {
-        const v = nums[i];
-        const x = s - t - (n - i) * v + v * i - t;
-        t += v;
-        ans.push(x);
+        const v = nums[i] * i - t + s - t - nums[i] * (n - i);
+        ans[i] = v;
+        t += nums[i];
     }
     return ans;
 };

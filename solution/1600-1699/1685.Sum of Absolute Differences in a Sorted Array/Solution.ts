@@ -1,8 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var getSumAbsoluteDifferences = function (nums) {
+function getSumAbsoluteDifferences(nums: number[]): number[] {
     const s = nums.reduce((a, b) => a + b);
     let t = 0;
     const n = nums.length;
@@ -13,4 +9,4 @@ var getSumAbsoluteDifferences = function (nums) {
         t += nums[i];
     }
     return ans;
-};
+}
