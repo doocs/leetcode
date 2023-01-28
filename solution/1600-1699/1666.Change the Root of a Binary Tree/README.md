@@ -48,6 +48,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自底向上模拟**
+
+从叶节点 `leaf` 开始，向上模拟翻转操作。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为二叉树节点个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +61,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+        self.parent = None
+"""
 
+
+class Solution:
+    def flipBinaryTree(self, root: "Node", leaf: "Node") -> "Node":
+        cur = leaf
+        p = cur.parent
+        while cur != root:
+            gp = p.parent
+            if cur.left:
+                cur.right = cur.left
+            cur.left = p
+            p.parent = cur
+            if p.left == cur:
+                p.left = None
+            elif p.right == cur:
+                p.right = None
+            cur = p
+            p = gp
+        leaf.parent = None
+        return leaf
 ```
 
 ### **Java**
@@ -63,7 +97,157 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node parent;
+};
+*/
 
+class Solution {
+    public Node flipBinaryTree(Node root, Node leaf) {
+        Node cur = leaf;
+        Node p = cur.parent;
+        while (cur != root) {
+            Node gp = p.parent;
+            if (cur.left != null) {
+                cur.right = cur.left;
+            }
+            cur.left = p;
+            p.parent = cur;
+            if (p.left == cur) {
+                p.left = null;
+            } else if (p.right == cur) {
+                p.right = null;
+            }
+            cur = p;
+            p = gp;
+        }
+        leaf.parent = null;
+        return leaf;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node->
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* parent;
+};
+*/
+
+class Solution {
+public:
+    Node* flipBinaryTree(Node* root, Node * leaf) {
+        Node* cur = leaf;
+        Node* p = cur->parent;
+        while (cur != root) {
+            Node* gp = p->parent;
+            if (cur->left) {
+                cur->right = cur->left;
+            }
+            cur->left = p;
+            p->parent = cur;
+            if (p->left == cur) {
+                p->left = nullptr;
+            } else if (p->right == cur) {
+                p->right = nullptr;
+            }
+            cur = p;
+            p = gp;
+        }
+        leaf->parent = nullptr;
+        return leaf;
+    }
+};
+```
+
+### **C#**
+
+```cs
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node parent;
+}
+*/
+
+public class Solution {
+    public Node FlipBinaryTree(Node root, Node leaf) {
+        Node cur = leaf;
+        Node p = cur.parent;
+        while (cur != root) {
+            Node gp = p.parent;
+            if (cur.left != null) {
+                cur.right = cur.left;
+            }
+            cur.left = p;
+            p.parent = cur;
+            if (p.left == cur) {
+                p.left = null;
+            } else if (p.right == cur) {
+                p.right = null;
+            }
+            cur = p;
+            p = gp;
+        }
+        leaf.parent = null;
+        return leaf;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * // Definition for a Node.
+ * function Node(val) {
+ *    this.val = val;
+ *    this.left = null;
+ *    this.right = null;
+ *    this.parent = null;
+ * };
+ */
+
+/**
+ * @param {Node} node
+ * @return {Node}
+ */
+var flipBinaryTree = function (root, leaf) {
+    let cur = leaf;
+    let p = cur.parent;
+    while (cur != root) {
+        const gp = p.parent;
+        if (cur.left != null) {
+            cur.right = cur.left;
+        }
+        cur.left = p;
+        p.parent = cur;
+        if (p.left == cur) {
+            p.left = null;
+        } else if (p.right == cur) {
+            p.right = null;
+        }
+        cur = p;
+        p = gp;
+    }
+    leaf.parent = null;
+    return leaf;
+};
 ```
 
 ### **...**
