@@ -68,15 +68,15 @@ class Solution:
 class Solution {
     public int findGCD(int[] nums) {
         int a = 1, b = 1000;
-        for (int num : nums) {
-            a = Math.max(a, num);
-            b = Math.min(b, num);
+        for (int x : nums) {
+            a = Math.max(a, x);
+            b = Math.min(b, x);
         }
         return gcd(a, b);
     }
 
     private int gcd(int a, int b) {
-        return b > 0 ? gcd(b, a % b) : a;
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
 ```
@@ -87,11 +87,8 @@ class Solution {
 class Solution {
 public:
     int findGCD(vector<int>& nums) {
-        int a = 0, b = 1000;
-        for (int num : nums) {
-            a = max(a, num);
-            b = min(b, num);
-        }
+        int a = *max_element(nums.begin(), nums.end());
+        int b = *min_element(nums.begin(), nums.end());
         return gcd(a, b);
     }
 };
@@ -101,33 +98,44 @@ public:
 
 ```go
 func findGCD(nums []int) int {
-	a, b := 0, 1000
-	for _, num := range nums {
-		a = max(a, num)
-		b = min(b, num)
+	a, b := 1, 1000
+	for _, x := range nums {
+		if a < x {
+			a = x
+		}
+		if b > x {
+			b = x
+		}
 	}
 	return gcd(a, b)
 }
 
 func gcd(a, b int) int {
-	if b > 0 {
-		return gcd(b, a%b)
-	}
-	return a
-}
-
-func max(a, b int) int {
-	if a > b {
+	if b == 0 {
 		return a
 	}
-	return b
+	return gcd(b, a%b)
+}
+```
+
+### **TypeScript**
+
+```ts
+function findGCD(nums: number[]): number {
+    let a = 1;
+    let b = 1000;
+    for (const x of nums) {
+        a = Math.max(a, x);
+        b = Math.min(b, x);
+    }
+    return gcd(a, b);
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+function gcd(a: number, b: number): number {
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
 }
 ```
 

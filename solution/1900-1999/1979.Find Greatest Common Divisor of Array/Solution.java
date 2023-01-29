@@ -1,14 +1,14 @@
 class Solution {
     public int findGCD(int[] nums) {
         int a = 1, b = 1000;
-        for (int num : nums) {
-            a = Math.max(a, num);
-            b = Math.min(b, num);
+        for (int x : nums) {
+            a = Math.max(a, x);
+            b = Math.min(b, x);
         }
         return gcd(a, b);
     }
 
     private int gcd(int a, int b) {
-        return b > 0 ? gcd(b, a % b) : a;
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
