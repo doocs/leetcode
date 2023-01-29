@@ -1,33 +1,27 @@
 func multiply(num1 string, num2 string) string {
+	if num1 == "0" || num2 == "0" {
+		return "0"
+	}
 	m, n := len(num1), len(num2)
-	res := make([]int, m+n)
-	mul := func(b, i int) {
-		for j, t := m-1, 0; j >= 0 || t > 0; i, j = i+1, j-1 {
-			if j >= 0 {
-				a := int(num1[j] - '0')
-				t += a * b
-			}
-			res[i] += t % 10
-			if res[i] >= 10 {
-				res[i] %= 10
-				res[i+1]++
-			}
-			t /= 10
+	arr := make([]int, m+n)
+	for i := m - 1; i >= 0; i-- {
+		a := int(num1[i] - '0')
+		for j := n - 1; j >= 0; j-- {
+			b := int(num2[j] - '0')
+			arr[i+j+1] += a * b
 		}
 	}
-	for i := 0; i < n; i++ {
-		b := num2[n-1-i] - '0'
-		mul(int(b), i)
+	for i := len(arr) - 1; i > 0; i-- {
+		arr[i-1] += arr[i] / 10
+		arr[i] %= 10
 	}
-	var ans []byte
-	for _, v := range res {
-		ans = append(ans, byte(v+'0'))
+	i := 0
+	if arr[0] == 0 {
+		i = 1
 	}
-	for len(ans) > 1 && ans[len(ans)-1] == '0' {
-		ans = ans[:len(ans)-1]
-	}
-	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
-		ans[i], ans[j] = ans[j], ans[i]
+	ans := []byte{}
+	for ; i < len(arr); i++ {
+		ans = append(ans, byte('0'+arr[i]))
 	}
 	return string(ans)
 }

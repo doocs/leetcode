@@ -1,31 +1,27 @@
 class Solution {
 public:
     string multiply(string num1, string num2) {
+        if (num1 == "0" || num2 == "0") {
+            return "0";
+        }
         int m = num1.size(), n = num2.size();
-        vector<int> res(m + n);
-        for (int i = 0; i < n; ++i) {
-            int b = num2[n - 1 - i] - '0';
-            mul(num1, b, i, res);
+        vector<int> arr(m + n);
+        for (int i = m - 1; i >= 0; --i) {
+            int a = num1[i] - '0';
+            for (int j = n - 1; j >= 0; --j) {
+                int b = num2[j] - '0';
+                arr[i + j + 1] += a * b;
+            }
         }
-        string ans = "";
-        for (int v : res) ans.push_back(v + '0');
-        while (ans.size() > 1 && ans.back() == '0') ans.pop_back();
-        reverse(ans.begin(), ans.end());
+        for (int i = arr.size() - 1; i; --i) {
+            arr[i - 1] += arr[i] / 10;
+            arr[i] %= 10;
+        }
+        int i = arr[0] ? 0 : 1;
+        string ans;
+        for (; i < arr.size(); ++i) {
+            ans += '0' + arr[i];
+        }
         return ans;
-    }
-
-    void mul(string A, int b, int i, vector<int>& res) {
-        for (int j = A.size() - 1, t = 0; j >= 0 || t > 0; --j) {
-            if (j >= 0) {
-                int a = A[j] - '0';
-                t += a * b;
-            }
-            res[i++] += t % 10;
-            if (res[i - 1] >= 10) {
-                res[i - 1] %= 10;
-                ++res[i];
-            }
-            t /= 10;
-        }
     }
 };

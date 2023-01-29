@@ -38,6 +38,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学乘法模拟**
+
+假设 `num1` 和 `num2` 的长度分别为 $m$ 和 $n$，则它们的乘积的长度最多为 $m + n$。
+
+证明如下：
+
+-   如果 `num1` 和 `num2` 都取最小值，那么它们的乘积为 ${10}^{m - 1} \times {10}^{n - 1} = {10}^{m + n - 2}$，长度为 $m + n - 1$。
+-   如果 `num1` 和 `num2` 都取最大值，那么它们的乘积为 $({10}^m - 1) \times ({10}^n - 1) = {10}^{m + n} - {10}^m - {10}^n + 1$，长度为 $m + n$。
+
+因此，我们可以申请一个长度为 $m + n$ 的数组，用于存储乘积的每一位。
+
+从低位到高位，依次计算乘积的每一位，最后将数组转换为字符串即可。
+
+注意判断最高位是否为 $0$，如果是，则去掉。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为 `num1` 和 `num2` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,27 +64,20 @@
 ```python
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
-        def mul(b, i):
-            j, t = m - 1, 0
-            while j >= 0 or t:
-                if j >= 0:
-                    a = int(num1[j])
-                    t += a * b
-                res[i] += t % 10
-                if res[i] >= 10:
-                    res[i] %= 10
-                    res[i + 1] += 1
-                i, j = i + 1, j - 1
-                t //= 10
-
+        if num1 == "0" or num2 == "0":
+            return "0"
         m, n = len(num1), len(num2)
-        res = [0] * (m + n)
-        for i in range(n):
-            b = int(num2[n - 1 - i])
-            mul(b, i)
-        while len(res) > 1 and res[-1] == 0:
-            res.pop()
-        return ''.join([str(v) for v in res[::-1]])
+        arr = [0] * (m + n)
+        for i in range(m - 1, -1, -1):
+            a = int(num1[i])
+            for j in range(n - 1, -1, -1):
+                b = int(num2[j])
+                arr[i + j + 1] += a * b
+        for i in range(m + n - 1, 0, -1):
+            arr[i - 1] += arr[i] // 10
+            arr[i] %= 10
+        i = 0 if arr[0] else 1
+        return "".join(str(x) for x in arr[i:])
 ```
 
 ### **Java**
@@ -77,35 +87,28 @@ class Solution:
 ```java
 class Solution {
     public String multiply(String num1, String num2) {
+        if ("0".equals(num1) || "0".equals(num2)) {
+            return "0";
+        }
         int m = num1.length(), n = num2.length();
-        int[] res = new int[m + n];
-        for (int i = 0; i < n; ++i) {
-            int b = num2.charAt(n - 1 - i) - '0';
-            mul(num1, b, i, res);
-        }
-        StringBuilder ans = new StringBuilder();
-        for (int v : res) {
-            ans.append(v);
-        }
-        while (ans.length() > 1 && ans.charAt(ans.length() - 1) == '0') {
-            ans.deleteCharAt(ans.length() - 1);
-        }
-        return ans.reverse().toString();
-    }
-
-    private void mul(String A, int b, int i, int[] res) {
-        for (int j = A.length() - 1, t = 0; j >= 0 || t > 0; --j) {
-            if (j >= 0) {
-                int a = A.charAt(j) - '0';
-                t += a * b;
+        int[] arr = new int[m + n];
+        for (int i = m - 1; i >= 0; --i) {
+            int a = num1.charAt(i) - '0';
+            for (int j = n - 1; j >= 0; --j) {
+                int b = num2.charAt(j) - '0';
+                arr[i + j + 1] += a * b;
             }
-            res[i++] += t % 10;
-            if (res[i - 1] >= 10) {
-                res[i - 1] %= 10;
-                ++res[i];
-            }
-            t /= 10;
         }
+        for (int i = arr.length - 1; i > 0; --i) {
+            arr[i - 1] += arr[i] / 10;
+            arr[i] %= 10;
+        }
+        int i = arr[0] == 0 ? 1 : 0;
+        StringBuilder ans =  new StringBuilder();
+        for (; i < arr.length; ++i) {
+            ans.append(arr[i]);
+        }
+        return ans.toString();
     }
 }
 ```
@@ -116,32 +119,28 @@ class Solution {
 class Solution {
 public:
     string multiply(string num1, string num2) {
+        if (num1 == "0" || num2 == "0") {
+            return "0";
+        }
         int m = num1.size(), n = num2.size();
-        vector<int> res(m + n);
-        for (int i = 0; i < n; ++i) {
-            int b = num2[n - 1 - i] - '0';
-            mul(num1, b, i, res);
+        vector<int> arr(m + n);
+        for (int i = m - 1; i >= 0; --i) {
+            int a = num1[i] - '0';
+            for (int j = n - 1; j >= 0; --j) {
+                int b = num2[j] - '0';
+                arr[i + j + 1] += a * b;
+            }
         }
-        string ans = "";
-        for (int v : res) ans.push_back(v + '0');
-        while (ans.size() > 1 && ans.back() == '0') ans.pop_back();
-        reverse(ans.begin(), ans.end());
+        for (int i = arr.size() - 1; i; --i) {
+            arr[i - 1] += arr[i] / 10;
+            arr[i] %= 10;
+        }
+        int i = arr[0] ? 0 : 1;
+        string ans;
+        for (; i < arr.size(); ++i) {
+            ans += '0' + arr[i];
+        }
         return ans;
-    }
-
-    void mul(string A, int b, int i, vector<int>& res) {
-        for (int j = A.size() - 1, t = 0; j >= 0 || t > 0; --j) {
-            if (j >= 0) {
-                int a = A[j] - '0';
-                t += a * b;
-            }
-            res[i++] += t % 10;
-            if (res[i - 1] >= 10) {
-                res[i - 1] %= 10;
-                ++res[i];
-            }
-            t /= 10;
-        }
     }
 };
 ```
