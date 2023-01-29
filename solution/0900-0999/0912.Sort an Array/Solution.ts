@@ -1,9 +1,5 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var sortArray = function (nums) {
-    function quickSort(l, r) {
+function sortArray(nums: number[]): number[] {
+    function quickSort(l: number, r: number) {
         if (l >= r) {
             return;
         }
@@ -23,4 +19,4 @@ var sortArray = function (nums) {
     const n = nums.length;
     quickSort(0, n - 1);
     return nums;
-};
+}

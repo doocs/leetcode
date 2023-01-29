@@ -3,12 +3,12 @@ func sortArray(nums []int) []int {
 	return nums
 }
 
-func quickSort(nums []int, left, right int) {
-	if left >= right {
+func quickSort(nums []int, l, r int) {
+	if l >= r {
 		return
 	}
-	i, j := left-1, right+1
-	x := nums[(left+right)>>1]
+	i, j := l-1, r+1
+	x := nums[(l+r)>>1]
 	for i < j {
 		for {
 			i++
@@ -26,6 +26,6 @@ func quickSort(nums []int, left, right int) {
 			nums[i], nums[j] = nums[j], nums[i]
 		}
 	}
-	quickSort(nums, left, j)
-	quickSort(nums, j+1, right)
+	quickSort(nums, l, j)
+	quickSort(nums, j+1, r)
 }

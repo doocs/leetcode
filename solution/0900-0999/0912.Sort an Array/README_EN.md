@@ -70,31 +70,29 @@ Merge Sort:
 ```python
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
-        def merge_sort(nums, left, right):
-            if left >= right:
+        def merge_sort(l, r):
+            if l >= r:
                 return
-            mid = (left + right) >> 1
-            merge_sort(nums, left, mid)
-            merge_sort(nums, mid + 1, right)
-            i, j = left, mid + 1
+            mid = (l + r) >> 1
+            merge_sort(l, mid)
+            merge_sort(mid + 1, r)
+            i, j = l, mid + 1
             tmp = []
-            while i <= mid and j <= right:
+            while i <= mid and j <= r:
                 if nums[i] <= nums[j]:
                     tmp.append(nums[i])
                     i += 1
                 else:
                     tmp.append(nums[j])
                     j += 1
-            while i <= mid:
-                tmp.append(nums[i])
-                i += 1
-            while j <= right:
-                tmp.append(nums[j])
-                j += 1
-            for i in range(left, right + 1):
-                nums[i] = tmp[i - left]
-
-        merge_sort(nums, 0, len(nums) - 1)
+            if i <= mid:
+                tmp.extend(nums[i:mid + 1])
+            if j <= r:
+                tmp.extend(nums[j: r + 1])
+            for i in range(l, r + 1):
+                nums[i] = tmp[i - l]
+        
+        merge_sort(0, len(nums) - 1)
         return nums
 ```
 
@@ -176,21 +174,24 @@ Merge Sort:
 
 ```java
 class Solution {
+    private int[] nums;
+
     public int[] sortArray(int[] nums) {
-        mergeSort(nums, 0, nums.length - 1);
+        this.nums = nums;
+        mergeSort(0, nums.length - 1);
         return nums;
     }
 
-    private void mergeSort(int[] nums, int left, int right) {
-        if (left >= right) {
+    private void mergeSort(int l, int r) {
+        if (l >= r) {
             return;
         }
-        int mid = (left + right) >> 1;
-        mergeSort(nums, left, mid);
-        mergeSort(nums, mid + 1, right);
-        int i = left, j = mid + 1, k = 0;
-        int[] tmp = new int[right - left + 1];
-        while (i <= mid && j <= right) {
+        int mid = (l + r) >> 1;
+        mergeSort(l, mid);
+        mergeSort(mid + 1, r);
+        int i = l, j = mid + 1, k = 0;
+        int[] tmp = new int[r - l + 1];
+        while (i <= mid && j <= r) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
             } else {
@@ -200,11 +201,11 @@ class Solution {
         while (i <= mid) {
             tmp[k++] = nums[i++];
         }
-        while (j <= right) {
+        while (j <= r) {
             tmp[k++] = nums[j++];
         }
-        for (i = left; i <= right; ++i) {
-            nums[i] = tmp[i - left];
+        for (i = l; i <= r; ++i) {
+            nums[i] = tmp[i - l];
         }
     }
 }
@@ -248,25 +249,34 @@ Merge Sort:
 class Solution {
 public:
     vector<int> sortArray(vector<int>& nums) {
-        merge_sort(nums, 0, nums.size() - 1);
+        function<void(int, int)> merge_sort = [&](int l, int r) {
+            if (l >= r) {
+                return;
+            }
+            int mid = (l + r) >> 1;
+            merge_sort(l, mid);
+            merge_sort(mid + 1, r);
+            int i = l, j = mid + 1, k = 0;
+            int tmp[r - l + 1];
+            while (i <= mid && j <= r) {
+                if (nums[i] <= nums[j]) {
+                    tmp[k++] = nums[i++];
+                } else {
+                    tmp[k++] = nums[j++];
+                }
+            }
+            while (i <= mid) {
+                tmp[k++] = nums[i++];
+            }
+            while (j <= r) {
+                tmp[k++] = nums[j++];
+            }
+            for (i = l; i <= r; ++i) {
+                nums[i] = tmp[i - l];
+            }
+        };
+        merge_sort(0, nums.size() - 1);
         return nums;
-    }
-
-    void merge_sort(vector<int>& nums, int left, int right) {
-        if (left >= right) return;
-        int mid = left + right >> 1;
-        merge_sort(nums, left, mid);
-        merge_sort(nums, mid + 1, right);
-        int i = left, j = mid + 1, k = 0;
-        vector<int> tmp(right - left + 1);
-        while (i <= mid && j <= right)
-        {
-            if (nums[i] <= nums[j]) tmp[k++] = nums[i++];
-            else tmp[k++] = nums[j++];
-        }
-        while (i <= mid) tmp[k++] = nums[i++];
-        while (j <= right) tmp[k++] = nums[j++];
-        for (i = left; i <= right; ++i) nums[i] = tmp[i - left];
     }
 };
 ```
@@ -281,12 +291,12 @@ func sortArray(nums []int) []int {
 	return nums
 }
 
-func quickSort(nums []int, left, right int) {
-	if left >= right {
+func quickSort(nums []int, l, r int) {
+	if l >= r {
 		return
 	}
-	i, j := left-1, right+1
-	x := nums[(left+right)>>1]
+	i, j := l-1, r+1
+	x := nums[(l+r)>>1]
 	for i < j {
 		for {
 			i++
@@ -304,8 +314,8 @@ func quickSort(nums []int, left, right int) {
 			nums[i], nums[j] = nums[j], nums[i]
 		}
 	}
-	quickSort(nums, left, j)
-	quickSort(nums, j+1, right)
+	quickSort(nums, l, j)
+	quickSort(nums, j+1, r)
 }
 ```
 
@@ -317,16 +327,16 @@ func sortArray(nums []int) []int {
 	return nums
 }
 
-func mergeSort(nums []int, left, right int) {
-	if left >= right {
+func mergeSort(nums []int, l, r int) {
+	if l >= r {
 		return
 	}
-	mid := (left + right) >> 1
-	mergeSort(nums, left, mid)
-	mergeSort(nums, mid+1, right)
-	i, j, k := left, mid+1, 0
-	tmp := make([]int, right-left+1)
-	for i <= mid && j <= right {
+	mid := (l + r) >> 1
+	mergeSort(nums, l, mid)
+	mergeSort(nums, mid+1, r)
+	i, j, k := l, mid+1, 0
+	tmp := make([]int, r-l+1)
+	for i <= mid && j <= r {
 		if nums[i] <= nums[j] {
 			tmp[k] = nums[i]
 			i++
@@ -336,19 +346,82 @@ func mergeSort(nums []int, left, right int) {
 		}
 		k++
 	}
-	for i <= mid {
+	for ; i <= mid; i++ {
 		tmp[k] = nums[i]
-		i++
 		k++
 	}
-	for j <= right {
+	for ; j <= r; j++ {
 		tmp[k] = nums[j]
-		j++
 		k++
 	}
-	for i = left; i <= right; i++ {
-		nums[i] = tmp[i-left]
+	for i = l; i <= r; i++ {
+		nums[i] = tmp[i-l]
 	}
+}
+```
+
+### **TypeScript**
+
+Quick Sort:
+
+```ts
+function sortArray(nums: number[]): number[] {
+    function quickSort(l: number, r: number) {
+        if (l >= r) {
+            return;
+        }
+        let i = l - 1;
+        let j = r + 1;
+        const x = nums[(l + r) >> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
+            }
+        }
+        quickSort(l, j);
+        quickSort(j + 1, r);
+    }
+    const n = nums.length;
+    quickSort(0, n - 1);
+    return nums;
+}
+```
+
+Merge Sort:
+
+```ts
+function sortArray(nums: number[]): number[] {
+    function mergetSort(l: number, r: number) {
+        if (l >= r) {
+            return;
+        }
+        const mid = (l + r) >> 1;
+        mergetSort(l, mid);
+        mergetSort(mid + 1, r);
+        let [i, j, k] = [l, mid + 1, 0];
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
+            } else {
+                tmp[k++] = nums[j++];
+            }
+        }
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= r) {
+            tmp[k++] = nums[j++];
+        }
+        for (i = l, j = 0; i <= r; ++i, ++j) {
+            nums[i] = tmp[j];
+        }
+    }
+    const n = nums.length;
+    let tmp = new Array(n).fill(0);
+    mergetSort(0, n - 1);
+    return nums;
 }
 ```
 
@@ -362,13 +435,13 @@ Quick Sort:
  * @return {number[]}
  */
 var sortArray = function (nums) {
-    function quickSort(left, right) {
-        if (left >= right) {
+    function quickSort(l, r) {
+        if (l >= r) {
             return;
         }
-        let i = left - 1;
-        let j = right + 1;
-        const x = nums[(left + right) >> 1];
+        let i = l - 1;
+        let j = r + 1;
+        const x = nums[(l + r) >> 1];
         while (i < j) {
             while (nums[++i] < x);
             while (nums[--j] > x);
@@ -376,8 +449,8 @@ var sortArray = function (nums) {
                 [nums[i], nums[j]] = [nums[j], nums[i]];
             }
         }
-        quickSort(left, j);
-        quickSort(j + 1, right);
+        quickSort(l, j);
+        quickSort(j + 1, r);
     }
     const n = nums.length;
     quickSort(0, n - 1);
@@ -393,15 +466,15 @@ Merge Sort:
  * @return {number[]}
  */
 var sortArray = function (nums) {
-    function mergetSort(left, right) {
-        if (left >= right) {
+    function mergetSort(l, r) {
+        if (l >= r) {
             return;
         }
-        const mid = (left + right) >> 1;
-        mergetSort(left, mid);
-        mergetSort(mid + 1, right);
-        let [i, j, k] = [left, mid + 1, 0];
-        while (i <= mid && j <= right) {
+        const mid = (l + r) >> 1;
+        mergetSort(l, mid);
+        mergetSort(mid + 1, r);
+        let [i, j, k] = [l, mid + 1, 0];
+        while (i <= mid && j <= r) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
             } else {
@@ -411,10 +484,10 @@ var sortArray = function (nums) {
         while (i <= mid) {
             tmp[k++] = nums[i++];
         }
-        while (j <= right) {
+        while (j <= r) {
             tmp[k++] = nums[j++];
         }
-        for (i = left, j = 0; i <= right; ++i, ++j) {
+        for (i = l, j = 0; i <= r; ++i, ++j) {
             nums[i] = tmp[j];
         }
     }
