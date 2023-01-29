@@ -68,6 +68,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们可以贪心地选择在伤害值最大的回合中使用一次护甲技能，假设伤害值最大为 $mx$，那么我们可以免受 $min(mx, armor)$ 的伤害，因此我们需要的最小生命值为 $sum(damage) - min(mx, armor) + 1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `damage` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -146,7 +152,15 @@ func min(a, b int) int {
 ### **TypeScript**
 
 ```ts
-
+function minimumHealth(damage: number[], armor: number): number {
+    let s = 0;
+    let mx = 0;
+    for (const v of damage) {
+        mx = Math.max(mx, v);
+        s += v;
+    }
+    return s - Math.min(mx, armor) + 1;
+}
 ```
 
 ### **...**
