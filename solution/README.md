@@ -2559,6 +2559,10 @@
 |  2546  |  [执行逐位运算使字符串相等](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README.md)  |  `位运算`,`字符串`  |  中等  |  第 329 场周赛  |
 |  2547  |  [拆分数组的最小代价](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README.md)  |  `数组`,`哈希表`,`动态规划`,`计数`  |  困难  |  第 329 场周赛  |
 |  2548  |  [Maximum Price to Fill a Bag](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README.md)  |    |  中等  |  🔒  |
+|  2549  |  [统计桌面上的不同数字](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)  |    |  简单  |  第 330 场周赛  |
+|  2550  |  [猴子碰撞的方法数](/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/README.md)  |    |  中等  |  第 330 场周赛  |
+|  2551  |  [将珠子放入背包中](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md)  |    |  困难  |  第 330 场周赛  |
+|  2552  |  [统计上升四元组](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README.md)  |    |  困难  |  第 330 场周赛  |
 
 ## 版权
 

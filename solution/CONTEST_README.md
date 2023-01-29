@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 330 场周赛(2023-01-29 10:30, 90 分钟) 参赛人数 3399
+
+- [2549. 统计桌面上的不同数字](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)
+- [2550. 猴子碰撞的方法数](/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/README.md)
+- [2551. 将珠子放入背包中](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md)
+- [2552. 统计上升四元组](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README.md)
+
+
 #### 第 329 场周赛(2023-01-22 10:30, 90 分钟) 参赛人数 2591
 
 - [2544. 交替数字和](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md)

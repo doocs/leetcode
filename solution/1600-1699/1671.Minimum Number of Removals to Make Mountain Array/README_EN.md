@@ -203,7 +203,7 @@ function minimumMountainRemovals(nums: number[]): number {
         }
     }
     return n - ans;
-};
+}
 ```
 
 ### **...**

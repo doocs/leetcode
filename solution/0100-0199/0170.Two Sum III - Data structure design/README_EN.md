@@ -80,11 +80,11 @@ class TwoSum {
     public TwoSum() {
 
     }
-    
+
     public void add(int number) {
         cnt.merge(number, 1, Integer::sum);
     }
-    
+
     public boolean find(int value) {
         for (var e : cnt.entrySet()) {
             int x = e.getKey(), v = e.getValue();
@@ -115,11 +115,11 @@ public:
     TwoSum() {
 
     }
-    
+
     void add(int number) {
         ++cnt[number];
     }
-    
+
     bool find(int value) {
         for (auto& [x, v] : cnt) {
             long y = (long) value - x;

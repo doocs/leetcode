@@ -50,6 +50,7 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 	<li><code>list1[i]</code> and <code>list2[i]</code> consist of spaces <code>&#39; &#39;</code> and English letters.</li>
 	<li>All the strings of <code>list1</code> are <strong>unique</strong>.</li>
 	<li>All the strings of <code>list2</code> are <strong>unique</strong>.</li>
+	<li>There is at least a common string between <code>list1</code> and <code>list2</code>.</li>
 </ul>
 
 ## Solutions
