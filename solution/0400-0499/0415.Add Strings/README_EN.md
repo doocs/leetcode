@@ -48,14 +48,16 @@
 ```python
 class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
-        i, j, carry = len(num1) - 1, len(num2) - 1, 0
+        i, j = len(num1) - 1, len(num2) - 1
         ans = []
-        while i >= 0 or j >= 0 or carry:
-            carry += (0 if i < 0 else int(num1[i])) + (0 if j < 0 else int(num2[j]))
-            carry, v = divmod(carry, 10)
+        c = 0
+        while i >= 0 or j >= 0 or c:
+            a = 0 if i < 0 else int(num1[i])
+            b = 0 if j < 0 else int(num2[j])
+            c, v = divmod(a + b + c, 10)
             ans.append(str(v))
             i, j = i - 1, j - 1
-        return ''.join(ans[::-1])
+        return "".join(ans[::-1])
 ```
 
 ### **Java**
@@ -63,15 +65,61 @@ class Solution:
 ```java
 class Solution {
     public String addStrings(String num1, String num2) {
+        int i = num1.length() - 1, j = num2.length() - 1;
         StringBuilder ans = new StringBuilder();
-        int i = num1.length() - 1, j = num2.length() - 1, carry = 0;
-        for (; i >= 0 || j >= 0 || carry > 0; --i, --j) {
-            carry += (i < 0 ? 0 : num1.charAt(i) - '0') + (j < 0 ? 0 : num2.charAt(j) - '0');
-            ans.append(carry % 10);
-            carry /= 10;
+        for (int c = 0; i >= 0 || j >= 0 || c > 0; --i, --j) {
+            int a = i < 0 ? 0 : num1.charAt(i) - '0';
+            int b = j < 0 ? 0 : num2.charAt(j) - '0';
+            c += a + b;
+            ans.append(c % 10);
+            c /= 10;
         }
         return ans.reverse().toString();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        int i = num1.size() - 1, j = num2.size() - 1;
+        string ans;
+        for (int c = 0; i >= 0 || j >= 0 || c; --i, --j) {
+            int a = i < 0 ? 0 : num1[i] - '0';
+            int b = j < 0 ? 0 : num2[j] - '0';
+            c += a + b;
+            ans += to_string(c % 10);
+            c /= 10;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func addStrings(num1 string, num2 string) string {
+	i, j := len(num1)-1, len(num2)-1
+	ans := []byte{}
+	for c := 0; i >= 0 || j >= 0 || c > 0; i, j = i-1, j-1 {
+		if i >= 0 {
+			c += int(num1[i] - '0')
+		}
+		if j >= 0 {
+			c += int(num2[j] - '0')
+		}
+		ans = append(ans, byte(c%10+'0'))
+		c /= 10
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return string(ans)
 }
 ```
 
@@ -84,55 +132,17 @@ class Solution {
  * @return {string}
  */
 var addStrings = function (num1, num2) {
-    let ans = [];
-    let [i, j, carry] = [num1.length - 1, num2.length - 1, 0];
-    for (; i >= 0 || j >= 0 || carry; --i, --j) {
-        carry += i < 0 ? 0 : parseInt(num1.charAt(i), 10);
-        carry += j < 0 ? 0 : parseInt(num2.charAt(j), 10);
-        ans.push(carry % 10);
-        carry = Math.floor(carry / 10);
+    let i = num1.length - 1;
+    let j = num2.length - 1;
+    const ans = [];
+    for (let c = 0; i >= 0 || j >= 0 || c; --i, --j) {
+        c += i < 0 ? 0 : parseInt(num1.charAt(i), 10);
+        c += j < 0 ? 0 : parseInt(num2.charAt(j), 10);
+        ans.push(c % 10);
+        c = Math.floor(c / 10);
     }
     return ans.reverse().join('');
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string addStrings(string num1, string num2) {
-        string ans;
-        int i = num1.size() - 1, j = num2.size() - 1, carry = 0;
-        for (; i >= 0 || j >= 0 || carry; --i, --j) {
-            carry += (i < 0 ? 0 : num1[i] - '0') + (j < 0 ? 0 : num2[j] - '0');
-            ans += to_string(carry % 10);
-            carry /= 10;
-        }
-        reverse(ans.begin(), ans.end());
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func addStrings(num1 string, num2 string) string {
-	ans := ""
-	i, j, carry := len(num1)-1, len(num2)-1, 0
-	for ; i >= 0 || j >= 0 || carry != 0; i, j = i-1, j-1 {
-		if i >= 0 {
-			carry += int(num1[i] - '0')
-		}
-		if j >= 0 {
-			carry += int(num2[j] - '0')
-		}
-		ans = strconv.Itoa(carry%10) + ans
-		carry /= 10
-	}
-	return ans
-}
 ```
 
 ### **TypeScript**
