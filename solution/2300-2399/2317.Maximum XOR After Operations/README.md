@@ -44,6 +44,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算**
+
+在一次操作中，我们可以把 $nums[i]$ 更新为 $nums[i] \& (nums[i] \oplus x)$，其中 $\&$ 表示逐位与运算，$\oplus$ 表示逐位异或运算。由于 $x$ 是任意非负整数，因此 $nums[i] \oplus x$ 的结果是一个任意值，再与 $nums[i]$ 逐位与运算，可以把 $nums[i]$ 的二进制表示中的若干位 $1$ 变为 $0$。
+
+而题目中要获取的是 `nums` 所有元素的最大逐位异或和，对于一个二进制位，只要在 `nums` 中存在一个元素对应的二进制位为 $1$，那么这个二进制位对于最大逐位异或和的贡献就是 $1$。因此答案就是 `nums` 中所有元素的逐位或运算的结果。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,10 +61,7 @@
 ```python
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
-        ans = 0
-        for v in nums:
-            ans |= v
-        return ans
+        return reduce(or_, nums)
 ```
 
 ### **Java**
@@ -67,8 +72,8 @@ class Solution:
 class Solution {
     public int maximumXOR(int[] nums) {
         int ans = 0;
-        for (int v : nums) {
-            ans |= v;
+        for (int x : nums) {
+            ans |= x;
         }
         return ans;
     }
@@ -82,7 +87,9 @@ class Solution {
 public:
     int maximumXOR(vector<int>& nums) {
         int ans = 0;
-        for (int& v : nums) ans |= v;
+        for (int& x : nums) {
+            ans |= x;
+        }
         return ans;
     }
 };
@@ -91,19 +98,24 @@ public:
 ### **Go**
 
 ```go
-func maximumXOR(nums []int) int {
-	ans := 0
-	for _, v := range nums {
-		ans |= v
+func maximumXOR(nums []int) (ans int) {
+	for _, x := range nums {
+		ans |= x
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maximumXOR(nums: number[]): number {
+    let ans = 0;
+    for (const x of nums) {
+        ans |= x;
+    }
+    return ans;
+}
 ```
 
 ### **...**

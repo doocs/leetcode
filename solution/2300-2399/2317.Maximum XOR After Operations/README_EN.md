@@ -47,10 +47,7 @@ It can be shown that 11 is the maximum possible bitwise XOR.</pre>
 ```python
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
-        ans = 0
-        for v in nums:
-            ans |= v
-        return ans
+        return reduce(or_, nums)
 ```
 
 ### **Java**
@@ -59,8 +56,8 @@ class Solution:
 class Solution {
     public int maximumXOR(int[] nums) {
         int ans = 0;
-        for (int v : nums) {
-            ans |= v;
+        for (int x : nums) {
+            ans |= x;
         }
         return ans;
     }
@@ -74,7 +71,9 @@ class Solution {
 public:
     int maximumXOR(vector<int>& nums) {
         int ans = 0;
-        for (int& v : nums) ans |= v;
+        for (int& x : nums) {
+            ans |= x;
+        }
         return ans;
     }
 };
@@ -83,19 +82,24 @@ public:
 ### **Go**
 
 ```go
-func maximumXOR(nums []int) int {
-	ans := 0
-	for _, v := range nums {
-		ans |= v
+func maximumXOR(nums []int) (ans int) {
+	for _, x := range nums {
+		ans |= x
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maximumXOR(nums: number[]): number {
+    let ans = 0;
+    for (const x of nums) {
+        ans |= x;
+    }
+    return ans;
+}
 ```
 
 ### **...**

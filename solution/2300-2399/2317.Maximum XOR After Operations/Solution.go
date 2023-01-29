@@ -1,7 +1,6 @@
-func maximumXOR(nums []int) int {
-	ans := 0
-	for _, v := range nums {
-		ans |= v
+func maximumXOR(nums []int) (ans int) {
+	for _, x := range nums {
+		ans |= x
 	}
-	return ans
+	return
 }
