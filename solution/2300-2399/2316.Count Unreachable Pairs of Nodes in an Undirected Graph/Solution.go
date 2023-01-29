@@ -1,34 +1,29 @@
-func countPairs(n int, edges [][]int) int64 {
-	vis := make([]bool, n)
+func countPairs(n int, edges [][]int) (ans int64) {
 	g := make([][]int, n)
 	for _, e := range edges {
 		a, b := e[0], e[1]
 		g[a] = append(g[a], b)
 		g[b] = append(g[b], a)
 	}
-	var arr []int
+	vis := make([]bool, n)
 	var dfs func(int) int
 	dfs = func(i int) int {
-		res := 1
 		vis[i] = true
+		cnt := 1
 		for _, j := range g[i] {
 			if !vis[j] {
-				res += dfs(j)
+				cnt += dfs(j)
 			}
 		}
-		return res
+		return cnt
 	}
-
+	var s int64
 	for i := 0; i < n; i++ {
 		if !vis[i] {
-			arr = append(arr, dfs(i))
+			t := int64(dfs(i))
+			ans += s * t
+			s += t
 		}
 	}
-	ans := 0
-	t := 0
-	for _, v := range arr {
-		t += v
-		ans += v * (n - t)
-	}
-	return int64(ans)
+	return
 }

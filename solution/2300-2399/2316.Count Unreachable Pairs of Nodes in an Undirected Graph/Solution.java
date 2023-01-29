@@ -6,34 +6,30 @@ class Solution {
         vis = new boolean[n];
         g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] e : edges) {
+        for (var e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);
             g[b].add(a);
         }
-        List<Integer> arr = new ArrayList<>();
+        long ans = 0, s = 0;
         for (int i = 0; i < n; ++i) {
             if (!vis[i]) {
-                arr.add(dfs(i));
+                long t = dfs(i);
+                ans += s * t;
+                s += t;
             }
-        }
-        int t = 0;
-        long ans = 0;
-        for (int v : arr) {
-            t += v;
-            ans += (long) v * (n - t);
         }
         return ans;
     }
 
     private int dfs(int i) {
         vis[i] = true;
-        int res = 1;
+        int cnt = 1;
         for (int j : g[i]) {
             if (!vis[j]) {
-                res += dfs(j);
+                cnt += dfs(j);
             }
         }
-        return res;
+        return cnt;
     }
 }

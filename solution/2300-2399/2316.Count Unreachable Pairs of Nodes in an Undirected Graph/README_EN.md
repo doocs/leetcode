@@ -49,26 +49,24 @@ Therefore, we return 14.
 class Solution:
     def countPairs(self, n: int, edges: List[List[int]]) -> int:
         def dfs(i):
-            vis[i] = True
-            res = 1
+            vis.add(i)
+            cnt = 1
             for j in g[i]:
-                if not vis[j]:
-                    res += dfs(j)
-            return res
+                if j not in vis:
+                    cnt += dfs(j)
+            return cnt
 
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
-        vis = [False] * n
-        arr = []
+        vis = set()
+        ans = s = 0
         for i in range(n):
-            if not vis[i]:
-                arr.append(dfs(i))
-        ans = t = 0
-        for v in arr:
-            t += v
-            ans += v * (n - t)
+            if i not in vis:
+                t = dfs(i)
+                ans += s * t
+                s += t
         return ans
 ```
 
@@ -83,35 +81,31 @@ class Solution {
         vis = new boolean[n];
         g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] e : edges) {
+        for (var e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);
             g[b].add(a);
         }
-        List<Integer> arr = new ArrayList<>();
+        long ans = 0, s = 0;
         for (int i = 0; i < n; ++i) {
             if (!vis[i]) {
-                arr.add(dfs(i));
+                long t = dfs(i);
+                ans += s * t;
+                s += t;
             }
-        }
-        int t = 0;
-        long ans = 0;
-        for (int v : arr) {
-            t += v;
-            ans += (long) v * (n - t);
         }
         return ans;
     }
 
     private int dfs(int i) {
         vis[i] = true;
-        int res = 1;
+        int cnt = 1;
         for (int j : g[i]) {
             if (!vis[j]) {
-                res += dfs(j);
+                cnt += dfs(j);
             }
         }
-        return res;
+        return cnt;
     }
 }
 ```
@@ -121,35 +115,33 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> g;
-    vector<bool> vis;
-
     long long countPairs(int n, vector<vector<int>>& edges) {
-        vis.resize(n);
-        g.resize(n, vector<int>());
+        vector<vector<int>> g(n);
         for (auto& e : edges) {
             int a = e[0], b = e[1];
-            g[a].push_back(b);
-            g[b].push_back(a);
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
         }
-        vector<int> arr;
-        for (int i = 0; i < n; ++i)
-            if (!vis[i]) arr.push_back(dfs(i));
-        long long ans = 0;
-        int t = 0;
-        for (int& v : arr) {
-            t += v;
-            ans += 1ll * v * (n - t);
+        vector<bool> vis(n);
+        function<int(int)> dfs = [&](int i) -> int {
+            vis[i] = true;
+            int cnt = 1;
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    cnt += dfs(j);
+                }
+            }
+            return cnt;
+        };
+        long long ans = 0, s = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!vis[i]) {
+                long long t = dfs(i);
+                ans += s * t;
+                s += t;
+            }
         }
         return ans;
-    }
-
-    int dfs(int i) {
-        int res = 1;
-        vis[i] = true;
-        for (int j : g[i])
-            if (!vis[j]) res += dfs(j);
-        return res;
     }
 };
 ```
@@ -157,46 +149,68 @@ public:
 ### **Go**
 
 ```go
-func countPairs(n int, edges [][]int) int64 {
-	vis := make([]bool, n)
+func countPairs(n int, edges [][]int) (ans int64) {
 	g := make([][]int, n)
 	for _, e := range edges {
 		a, b := e[0], e[1]
 		g[a] = append(g[a], b)
 		g[b] = append(g[b], a)
 	}
-	var arr []int
+	vis := make([]bool, n)
 	var dfs func(int) int
 	dfs = func(i int) int {
-		res := 1
 		vis[i] = true
+		cnt := 1
 		for _, j := range g[i] {
 			if !vis[j] {
-				res += dfs(j)
+				cnt += dfs(j)
 			}
 		}
-		return res
+		return cnt
 	}
-
+	var s int64
 	for i := 0; i < n; i++ {
 		if !vis[i] {
-			arr = append(arr, dfs(i))
+			t := int64(dfs(i))
+			ans += s * t
+			s += t
 		}
 	}
-	ans := 0
-	t := 0
-	for _, v := range arr {
-		t += v
-		ans += v * (n - t)
-	}
-	return int64(ans)
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function countPairs(n: number, edges: number[][]): number {
+    const g = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const vis = new Array(n).fill(false);
+    const dfs = (i: number) => {
+        vis[i] = true;
+        let cnt = 1;
+        for (const j of g[i]) {
+            if (!vis[j]) {
+                cnt += dfs(j);
+            }
+        }
+        return cnt;
+    };
+    let ans = 0;
+    let s = 0;
+    for (let i = 0; i < n; ++i) {
+        if (!vis[i]) {
+            const t = dfs(i);
+            ans += s * t;
+            s += t;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
