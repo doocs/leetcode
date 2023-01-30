@@ -65,6 +65,32 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 枚举拐点**
+
+首先我们要明确，对于一个乘积，尾随零的个数取决于因子中 $2$ 和 $5$ 的个数的较小值。另外，每一条转角路径应该覆盖尽可能多的数，因此，它一定是从某个边界出发，到达某个拐点，再到达另一个边界。
+
+因此，我们可以创建四个二维数组 $r2$, $c2$, $r5$, $c5$ 来记录每一行和每一列中 $2$ 和 $5$ 的个数。其中：
+
+-   `r2[i][j]` 表示第 $i$ 行中从第 $1$ 列到第 $j$ 列的 $2$ 的个数；
+-   `c2[i][j]` 表示第 $j$ 列中从第 $1$ 行到第 $i$ 行的 $2$ 的个数；
+-   `r5[i][j]` 表示第 $i$ 行中从第 $1$ 列到第 $j$ 列的 $5$ 的个数；
+-   `c5[i][j]` 表示第 $j$ 列中从第 $1$ 行到第 $i$ 行的 $5$ 的个数。
+
+接下来，我们遍历二维数组 `grid`，对于每个数，我们计算它的 $2$ 和 $5$ 的个数，然后更新四个二维数组。
+
+然后，我们枚举拐点 $(i, j)$，对于每个拐点，我们计算四个值，其中：
+
+-   `a` 表示从 $(i, 1)$ 右移到 $(i, j)$，再从 $(i, j)$ 拐头向上移动到 $(1, j)$ 的路径中 $2$ 的个数和 $5$ 的个数的较小值；
+-   `b` 表示从 $(i, 1)$ 右移到 $(i, j)$，再从 $(i, j)$ 拐头向下移动到 $(m, j)$ 的路径中 $2$ 的个数和 $5$ 的个数的较小值；
+-   `c` 表示从 $(i, n)$ 左移到 $(i, j)$，再从 $(i, j)$ 拐头向上移动到 $(1, j)$ 的路径中 $2$ 的个数和 $5$ 的个数的较小值；
+-   `d` 表示从 $(i, n)$ 左移到 $(i, j)$，再从 $(i, j)$ 拐头向下移动到 $(m, j)$ 的路径中 $2$ 的个数和 $5$ 的个数的较小值。
+
+每一次枚举，我们取这四个值的最大值，然后更新答案。
+
+最后，我们返回答案即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组 `grid` 的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +98,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxTrailingZeros(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        r2 = [[0] * (n + 1) for _ in range(m + 1)]
+        c2 = [[0] * (n + 1) for _ in range(m + 1)]
+        r5 = [[0] * (n + 1) for _ in range(m + 1)]
+        c5 = [[0] * (n + 1) for _ in range(m + 1)]
+        for i, row in enumerate(grid, 1):
+            for j, x in enumerate(row, 1):
+                s2 = s5 = 0
+                while x % 2 == 0:
+                    x //= 2
+                    s2 += 1
+                while x % 5 == 0:
+                    x //= 5
+                    s5 += 1
+                r2[i][j] = r2[i][j - 1] + s2
+                c2[i][j] = c2[i - 1][j] + s2
+                r5[i][j] = r5[i][j - 1] + s5
+                c5[i][j] = c5[i - 1][j] + s5
+        ans = 0
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                a = min(r2[i][j] + c2[i - 1][j], r5[i][j] + c5[i - 1][j])
+                b = min(r2[i][j] + c2[m][j] - c2[i][j], r5[i][j] + c5[m][j] - c5[i][j])
+                c = min(r2[i][n] - r2[i][j] + c2[i][j], r5[i][n] - r5[i][j] + c5[i][j])
+                d = min(
+                    r2[i][n] - r2[i][j - 1] + c2[m][j] - c2[i][j],
+                    r5[i][n] - r5[i][j - 1] + c5[m][j] - c5[i][j],
+                )
+                ans = max(ans, a, b, c, d)
+        return ans
 ```
 
 ### **Java**
@@ -80,52 +137,193 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxTrailingZeros(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[][] r2 = new int[m + 1][n + 1];
+        int[][] c2 = new int[m + 1][n + 1];
+        int[][] r5 = new int[m + 1][n + 1];
+        int[][] c5 = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                int x = grid[i - 1][j - 1];
+                int s2 = 0, s5 = 0;
+                for (; x % 2 == 0; x /= 2) {
+                    ++s2;
+                }
+                for (; x % 5 == 0; x /= 5) {
+                    ++s5;
+                }
+                r2[i][j] = r2[i][j - 1] + s2;
+                c2[i][j] = c2[i - 1][j] + s2;
+                r5[i][j] = r5[i][j - 1] + s5;
+                c5[i][j] = c5[i - 1][j] + s5;
+            }
+        }
+        int ans = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                int a = Math.min(r2[i][j] + c2[i - 1][j], r5[i][j] + c5[i - 1][j]);
+                int b = Math.min(r2[i][j] + c2[m][j] - c2[i][j], r5[i][j] + c5[m][j] - c5[i][j]);
+                int c = Math.min(r2[i][n] - r2[i][j] + c2[i][j], r5[i][n] - r5[i][j] + c5[i][j]);
+                int d = Math.min(r2[i][n] - r2[i][j - 1] + c2[m][j] - c2[i][j], r5[i][n] - r5[i][j - 1] + c5[m][j] - c5[i][j]);
+                ans = Math.max(ans, Math.max(a, Math.max(b, Math.max(c, d))));
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxTrailingZeros(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<int>> r2(m + 1, vector<int>(n + 1));
+        vector<vector<int>> c2(m + 1, vector<int>(n + 1));
+        vector<vector<int>> r5(m + 1, vector<int>(n + 1));
+        vector<vector<int>> c5(m + 1, vector<int>(n + 1));
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                int x = grid[i - 1][j - 1];
+                int s2 = 0, s5 = 0;
+                for (; x % 2 == 0; x /= 2) {
+                    ++s2;
+                }
+                for (; x % 5 == 0; x /= 5) {
+                    ++s5;
+                }
+                r2[i][j] = r2[i][j - 1] + s2;
+                c2[i][j] = c2[i - 1][j] + s2;
+                r5[i][j] = r5[i][j - 1] + s5;
+                c5[i][j] = c5[i - 1][j] + s5;
+            }
+        }
+        int ans = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                int a = min(r2[i][j] + c2[i - 1][j], r5[i][j] + c5[i - 1][j]);
+                int b = min(r2[i][j] + c2[m][j] - c2[i][j], r5[i][j] + c5[m][j] - c5[i][j]);
+                int c = min(r2[i][n] - r2[i][j] + c2[i][j], r5[i][n] - r5[i][j] + c5[i][j]);
+                int d = min(r2[i][n] - r2[i][j - 1] + c2[m][j] - c2[i][j], r5[i][n] - r5[i][j - 1] + c5[m][j] - c5[i][j]);
+                ans = max({ans, a, b, c, d});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxTrailingZeros(grid [][]int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	r2 := get(m+1, n+1)
+	c2 := get(m+1, n+1)
+	r5 := get(m+1, n+1)
+	c5 := get(m+1, n+1)
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			x := grid[i-1][j-1]
+			s2, s5 := 0, 0
+			for ; x%2 == 0; x /= 2 {
+				s2++
+			}
+			for ; x%5 == 0; x /= 5 {
+				s5++
+			}
+			r2[i][j] = r2[i][j-1] + s2
+			c2[i][j] = c2[i-1][j] + s2
+			r5[i][j] = r5[i][j-1] + s5
+			c5[i][j] = c5[i-1][j] + s5
+		}
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			a := min(r2[i][j]+c2[i-1][j], r5[i][j]+c5[i-1][j])
+			b := min(r2[i][j]+c2[m][j]-c2[i][j], r5[i][j]+c5[m][j]-c5[i][j])
+			c := min(r2[i][n]-r2[i][j]+c2[i][j], r5[i][n]-r5[i][j]+c5[i][j])
+			d := min(r2[i][n]-r2[i][j-1]+c2[m][j]-c2[i][j], r5[i][n]-r5[i][j-1]+c5[m][j]-c5[i][j])
+			ans = max(ans, max(a, max(b, max(c, d))))
+		}
+	}
+	return
+}
+
+func get(m, n int) [][]int {
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	return f
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function maxTrailingZeros(grid: number[][]): number {
-    let m = grid.length,
-        n = grid[0].length;
-    let r2 = Array.from({ length: m + 1 }, v => new Array(n + 1).fill(0)),
-        c2 = Array.from({ length: m + 1 }, v => new Array(n + 1).fill(0)),
-        r5 = Array.from({ length: m + 1 }, v => new Array(n + 1).fill(0)),
-        c5 = Array.from({ length: m + 1 }, v => new Array(n + 1).fill(0));
-    for (let i = 1; i <= m; i++) {
-        for (let j = 1; j <= n; j++) {
-            let cur = grid[i - 1][j - 1];
-            let two = 0,
-                five = 0;
-            while (cur % 2 == 0) two++, (cur /= 2);
-            while (cur % 5 == 0) five++, (cur /= 5);
-            r2[i][j] = r2[i - 1][j] + two;
-            c2[i][j] = c2[i][j - 1] + two;
-            r5[i][j] = r5[i - 1][j] + five;
-            c5[i][j] = c5[i][j - 1] + five;
+    const m = grid.length;
+    const n = grid[0].length;
+    const r2 = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    const c2 = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    const r5 = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    const c5 = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            let x = grid[i - 1][j - 1];
+            let s2 = 0;
+            let s5 = 0;
+            for (; x % 2 == 0; x = Math.floor(x / 2)) {
+                ++s2;
+            }
+            for (; x % 5 == 0; x = Math.floor(x / 5)) {
+                ++s5;
+            }
+            r2[i][j] = r2[i][j - 1] + s2;
+            c2[i][j] = c2[i - 1][j] + s2;
+            r5[i][j] = r5[i][j - 1] + s5;
+            c5[i][j] = c5[i - 1][j] + s5;
         }
     }
     let ans = 0;
-    function getMin(i0, j0, i1, j1, i3, j3, i4, j4): number {
-        // 横向开始、结束，竖向开始、结束
-        const two = c2[i1][j1] - c2[i0][j0] + r2[i4][j4] - r2[i3][j3];
-        const five = c5[i1][j1] - c5[i0][j0] + r5[i4][j4] - r5[i3][j3];
-        return Math.min(two, five);
-    }
-    for (let i = 1; i <= m; i++) {
-        for (let j = 1; j <= n; j++) {
-            const leftToTop = getMin(i, 0, i, j, 0, j, i - 1, j),
-                leftToBotton = getMin(i, 0, i, j, i, j, m, j),
-                rightToTop = getMin(i, j, i, n, 0, j, i, j),
-                rightToBotton = getMin(i, j, i, n, i - 1, j, m, j);
-            ans = Math.max(
-                leftToTop,
-                leftToBotton,
-                rightToTop,
-                rightToBotton,
-                ans,
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            const a = Math.min(
+                r2[i][j] + c2[i - 1][j],
+                r5[i][j] + c5[i - 1][j],
             );
+            const b = Math.min(
+                r2[i][j] + c2[m][j] - c2[i][j],
+                r5[i][j] + c5[m][j] - c5[i][j],
+            );
+            const c = Math.min(
+                r2[i][n] - r2[i][j] + c2[i][j],
+                r5[i][n] - r5[i][j] + c5[i][j],
+            );
+            const d = Math.min(
+                r2[i][n] - r2[i][j - 1] + c2[m][j] - c2[i][j],
+                r5[i][n] - r5[i][j - 1] + c5[m][j] - c5[i][j],
+            );
+            ans = Math.max(ans, a, b, c, d);
         }
     }
     return ans;
