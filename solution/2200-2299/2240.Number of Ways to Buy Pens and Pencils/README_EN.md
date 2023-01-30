@@ -47,8 +47,8 @@ class Solution:
     def waysToBuyPensPencils(self, total: int, cost1: int, cost2: int) -> int:
         ans = 0
         for x in range(total // cost1 + 1):
-            v = total - x * cost1
-            ans += v // cost2 + 1
+            y = (total - (x * cost1)) // cost2 + 1
+            ans += y
         return ans
 ```
 
@@ -59,8 +59,8 @@ class Solution {
     public long waysToBuyPensPencils(int total, int cost1, int cost2) {
         long ans = 0;
         for (int x = 0; x <= total / cost1; ++x) {
-            int v = total - x * cost1;
-            ans += v / cost2 + 1;
+            int y = (total - x * cost1) / cost2 + 1;
+            ans += y;
         }
         return ans;
     }
@@ -75,8 +75,8 @@ public:
     long long waysToBuyPensPencils(int total, int cost1, int cost2) {
         long long ans = 0;
         for (int x = 0; x <= total / cost1; ++x) {
-            int v = total - x * cost1;
-            ans += v / cost2 + 1;
+            int y = (total - x * cost1) / cost2 + 1;
+            ans += y;
         }
         return ans;
     }
@@ -86,20 +86,30 @@ public:
 ### **Go**
 
 ```go
-func waysToBuyPensPencils(total int, cost1 int, cost2 int) int64 {
-	var ans int64
+func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 	for x := 0; x <= total/cost1; x++ {
-		v := total - x*cost1
-		ans += int64(v/cost2 + 1)
+		y := (total-x*cost1)/cost2 + 1
+		ans += int64(y)
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function waysToBuyPensPencils(
+    total: number,
+    cost1: number,
+    cost2: number,
+): number {
+    let ans = 0;
+    for (let x = 0; x <= Math.floor(total / cost1); ++x) {
+        const y = Math.floor((total - x * cost1) / cost2) + 1;
+        ans += y;
+    }
+    return ans;
+}
 ```
 
 ### **...**
