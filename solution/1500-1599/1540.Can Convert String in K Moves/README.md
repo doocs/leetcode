@@ -61,6 +61,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们首先判断字符串 $s$ 和字符串 $t$ 的长度是否相等，如果不相等，直接返回 `false`。
+
+如果相等，我们可以统计每个位置的字符需要操作的最小次数，即 $cnt[x]$ 表示最小操作次数为 $x$ 的字符的个数。
+
+如果有 $cnt[x]$ 个字符需要操作 $x$ 次，那么我们需要 $x + 26 \times (cnt[x] - 1)$ 次操作才能将这些字符转换为 $t$ 中对应的字符。因此，我们在 $[1,..25] 范围内枚举 $x$，如果 $x + 26 \times (cnt[x] - 1) \gt k$，说明我们无法将所有字符转换为 $t$ 中对应的字符，返回 `false`。
+
+否则，枚举结束后，说明我们可以将所有字符转换为 $t$ 中对应的字符，返回 `true`。
+
+时间复杂度 $O(n + C)$，空间复杂度 $O(C)$，其中 $n$ 为字符串 $s$ 和 $t$ 的长度；而 $C$ 为字符集大小，本题中 $C = 26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +80,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canConvertString(self, s: str, t: str, k: int) -> bool:
+        if len(s) != len(t):
+            return False
+        cnt = [0] * 26
+        for a, b in zip(s, t):
+            x = (ord(b) - ord(a) + 26) % 26
+            cnt[x] += 1
+        for i in range(1, 26):
+            if i + 26 * (cnt[i] - 1) > k:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -76,7 +99,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean canConvertString(String s, String t, int k) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            int x = (t.charAt(i) - s.charAt(i) + 26) % 26;
+            ++cnt[x];
+        }
+        for (int i = 1; i < 26; ++i) {
+            if (i + 26 * (cnt[i] - 1) > k) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canConvertString(string s, string t, int k) {
+        if (s.size() != t.size()) {
+            return false;
+        }
+        int cnt[26]{};
+        for (int i = 0; i < s.size(); ++i) {
+            int x = (t[i] - s[i] + 26) % 26;
+            ++cnt[x];
+        }
+        for (int i = 1; i < 26; ++i) {
+            if (i + 26 * (cnt[i] - 1) > k) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canConvertString(s string, t string, k int) bool {
+	if len(s) != len(t) {
+		return false
+	}
+	cnt := [26]int{}
+	for i := range s {
+		x := (t[i] - s[i] + 26) % 26
+		cnt[x]++
+	}
+	for i := 1; i < 26; i++ {
+		if i+26*(cnt[i]-1) > k {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
