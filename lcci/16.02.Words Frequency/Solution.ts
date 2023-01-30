@@ -1,16 +1,16 @@
 class WordsFrequency {
-    private map: Map<string, number>;
+    private cnt: Map<string, number>;
 
     constructor(book: string[]) {
-        const map = new Map<string, number>();
+        const cnt = new Map<string, number>();
         for (const word of book) {
-            map.set(word, (map.get(word) ?? 0) + 1);
+            cnt.set(word, (cnt.get(word) ?? 0) + 1);
         }
-        this.map = map;
+        this.cnt = cnt;
     }
 
     get(word: string): number {
-        return this.map.get(word) ?? 0;
+        return this.cnt.get(word) ?? 0;
     }
 }
 

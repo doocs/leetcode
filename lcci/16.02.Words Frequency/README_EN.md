@@ -49,10 +49,10 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 ```python
 class WordsFrequency:
     def __init__(self, book: List[str]):
-        self.counter = Counter(book)
+        self.cnt = Counter(book)
 
     def get(self, word: str) -> int:
-        return self.counter[word]
+        return self.cnt[word]
 
 
 # Your WordsFrequency object will be instantiated and called as such:
@@ -64,17 +64,16 @@ class WordsFrequency:
 
 ```java
 class WordsFrequency {
-
-    private Map<String, Integer> counter = new HashMap<>();
+    private Map<String, Integer> cnt = new HashMap<>();
 
     public WordsFrequency(String[] book) {
-        for (String word : book) {
-            counter.put(word, counter.getOrDefault(word, 0) + 1);
+        for (String x : book) {
+            cnt.merge(x, 1, Integer::sum);
         }
     }
-
+    
     public int get(String word) {
-        return counter.containsKey(word) ? counter.get(word) : 0;
+        return cnt.getOrDefault(word, 0);
     }
 }
 
@@ -85,6 +84,58 @@ class WordsFrequency {
  */
 ```
 
+### **C++**
+
+```cpp
+class WordsFrequency {
+public:
+    WordsFrequency(vector<string>& book) {
+        for (auto& x : book) {
+            ++cnt[x];
+        }
+    }
+    
+    int get(string word) {
+        return cnt[word];
+    }
+
+private:
+    unordered_map<string, int> cnt;
+};
+
+/**
+ * Your WordsFrequency object will be instantiated and called as such:
+ * WordsFrequency* obj = new WordsFrequency(book);
+ * int param_1 = obj->get(word);
+ */
+```
+
+### **Go**
+
+```go
+type WordsFrequency struct {
+	cnt map[string]int
+}
+
+func Constructor(book []string) WordsFrequency {
+	cnt := map[string]int{}
+	for _, x := range book {
+		cnt[x]++
+	}
+	return WordsFrequency{cnt}
+}
+
+func (this *WordsFrequency) Get(word string) int {
+	return this.cnt[word]
+}
+
+/**
+ * Your WordsFrequency object will be instantiated and called as such:
+ * obj := Constructor(book);
+ * param_1 := obj.Get(word);
+ */
+```
+
 ### **JavaScript**
 
 ```js
@@ -92,9 +143,9 @@ class WordsFrequency {
  * @param {string[]} book
  */
 var WordsFrequency = function (book) {
-    this.counter = {};
-    for (const word of book) {
-        this.counter[word] = (this.counter[word] || 0) + 1;
+    this.cnt = new Map();
+    for (const x of book) {
+        this.cnt.set(x, (this.cnt.get(x) || 0) + 1);
     }
 };
 
@@ -103,7 +154,7 @@ var WordsFrequency = function (book) {
  * @return {number}
  */
 WordsFrequency.prototype.get = function (word) {
-    return this.counter[word] || 0;
+    return this.cnt.get(word) || 0;
 };
 
 /**
@@ -117,18 +168,18 @@ WordsFrequency.prototype.get = function (word) {
 
 ```ts
 class WordsFrequency {
-    private map: Map<string, number>;
+    private cnt: Map<string, number>;
 
     constructor(book: string[]) {
-        const map = new Map<string, number>();
+        const cnt = new Map<string, number>();
         for (const word of book) {
-            map.set(word, (map.get(word) ?? 0) + 1);
+            cnt.set(word, (cnt.get(word) ?? 0) + 1);
         }
-        this.map = map;
+        this.cnt = cnt;
     }
 
     get(word: string): number {
-        return this.map.get(word) ?? 0;
+        return this.cnt.get(word) ?? 0;
     }
 }
 

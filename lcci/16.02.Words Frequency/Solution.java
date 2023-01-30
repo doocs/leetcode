@@ -1,15 +1,14 @@
 class WordsFrequency {
-
-    private Map<String, Integer> counter = new HashMap<>();
+    private Map<String, Integer> cnt = new HashMap<>();
 
     public WordsFrequency(String[] book) {
-        for (String word : book) {
-            counter.put(word, counter.getOrDefault(word, 0) + 1);
+        for (String x : book) {
+            cnt.merge(x, 1, Integer::sum);
         }
     }
-
+    
     public int get(String word) {
-        return counter.containsKey(word) ? counter.get(word) : 0;
+        return cnt.getOrDefault(word, 0);
     }
 }
 
