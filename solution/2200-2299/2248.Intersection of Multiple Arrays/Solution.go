@@ -1,15 +1,14 @@
-func intersection(nums [][]int) []int {
-	cnt := make([]int, 1001)
-	for _, num := range nums {
-		for _, v := range num {
-			cnt[v]++
+func intersection(nums [][]int) (ans []int) {
+	cnt := [1001]int{}
+	for _, arr := range nums {
+		for _, x := range arr {
+			cnt[x]++
 		}
 	}
-	var ans []int
-	for i, v := range cnt {
+	for x, v := range cnt {
 		if v == len(nums) {
-			ans = append(ans, i)
+			ans = append(ans, x)
 		}
 	}
-	return ans
+	return
 }

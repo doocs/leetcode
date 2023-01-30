@@ -1,12 +1,17 @@
 class Solution {
     public int countLatticePoints(int[][] circles) {
+        int mx = 0, my = 0;
+        for (var c : circles) {
+            mx = Math.max(mx, c[0] + c[2]);
+            my = Math.max(my, c[1] + c[2]);
+        }
         int ans = 0;
-        for (int i = 0; i <= 200; i++) {
-            for (int j = 0; j <= 200; j++) {
-                for (int[] circle : circles) {
-                    int x = circle[0], y = circle[1], r = circle[2];
-                    if ((i - x) * (i - x) + (j - y) * (j - y) <= r * r) {
-                        ans++;
+        for (int i = 0; i <= mx; ++i) {
+            for (int j = 0; j <= my; ++j) {
+                for (var c : circles) {
+                    int dx = i - c[0], dy = j - c[1];
+                    if (dx * dx + dy * dy <= c[2] * c[2]) {
+                        ++ans;
                         break;
                     }
                 }

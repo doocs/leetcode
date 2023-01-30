@@ -1,15 +1,18 @@
 class Solution {
 public:
     vector<int> intersection(vector<vector<int>>& nums) {
-        vector<int> cnt(1001);
-        for (auto& num : nums)
-            for (int v : num)
-                ++cnt[v];
-        int n = nums.size();
+        int cnt[1001]{};
+        for (auto& arr : nums) {
+            for (int& x : arr) {
+                ++cnt[x];
+            }
+        }
         vector<int> ans;
-        for (int i = 1; i < 1001; ++i)
-            if (cnt[i] == n)
-                ans.push_back(i);
+        for (int x = 0; x < 1001; ++x) {
+            if (cnt[x] == nums.size()) {
+                ans.push_back(x);
+            }
+        }
         return ans;
     }
 };

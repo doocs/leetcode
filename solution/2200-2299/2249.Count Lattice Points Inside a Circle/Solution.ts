@@ -1,24 +1,18 @@
 function countLatticePoints(circles: number[][]): number {
-    const n = circles.length;
-    let minX = Number.MAX_SAFE_INTEGER,
-        minY = minX,
-        maxX = Number.MIN_SAFE_INTEGER,
-        maxY = maxX;
-    let squares = [];
-    for (let [x, y, r] of circles) {
-        minX = Math.min(x - r, minX);
-        minY = Math.min(y - r, minY);
-        maxX = Math.max(x + r, maxX);
-        maxY = Math.max(y + r, maxY);
-        squares.push(r ** 2);
+    let mx = 0;
+    let my = 0;
+    for (const [x, y, r] of circles) {
+        mx = Math.max(mx, x + r);
+        my = Math.max(my, y + r);
     }
     let ans = 0;
-    for (let i = minX; i <= maxX; i++) {
-        for (let j = minY; j <= maxY; j++) {
-            for (let k = 0; k < n; k++) {
-                const [x, y] = circles[k];
-                if ((i - x) ** 2 + (j - y) ** 2 <= squares[k]) {
-                    ans++;
+    for (let i = 0; i <= mx; ++i) {
+        for (let j = 0; j <= my; ++j) {
+            for (const [x, y, r] of circles) {
+                const dx = i - x;
+                const dy = j - y;
+                if (dx * dx + dy * dy <= r * r) {
+                    ++ans;
                     break;
                 }
             }
