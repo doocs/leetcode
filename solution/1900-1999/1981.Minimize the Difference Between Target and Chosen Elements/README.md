@@ -71,6 +71,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划（分组背包）**
+
+设 $f[i][j]$ 表示前 $i$ 行是否能选出元素和为 $j$，则有状态转移方程：
+
+$$
+f[i][j] = \begin{cases} 1 & \text{如果存在 } x \in row[i] \text{ 使得 } f[i - 1][j - x] = 1 \\ 0 & \text{否则} \end{cases}
+$$
+
+其中 $row[i]$ 表示第 $i$ 行的元素集合。
+
+由于 $f[i][j]$ 只与 $f[i - 1][j]$ 有关，因此我们可以使用滚动数组优化空间复杂度。
+
+最后，遍历 $f$ 数组，找出最小的绝对差即可。
+
+时间复杂度 $O(m^2 \times n \times C)$，空间复杂度 $O(m \times C)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数；而 $C$ 为矩阵元素的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -78,7 +94,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimizeTheDifference(self, mat: List[List[int]], target: int) -> int:
+        f = {0}
+        for row in mat:
+            f = set(a + b for a in f for b in row)
+        return min(abs(v - target) for v in f)
 ```
 
 ### **Java**
@@ -86,7 +107,131 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimizeTheDifference(int[][] mat, int target) {
+        Set<Integer> f = new HashSet<>();
+        f.add(0);
+        for (var row : mat) {
+            Set<Integer> g = new HashSet<>();
+            for (int a : f) {
+                for (int b : row) {
+                    g.add(a + b);
+                }
+            }
+            f = g;
+        }
+        int ans = 1 << 30;
+        for (int v : f) {
+            ans = Math.min(ans, Math.abs(v - target));
+        }
+        return ans;
+    }
+}
+```
 
+```java
+class Solution {
+    public int minimizeTheDifference(int[][] mat, int target) {
+        boolean[] f = {true};
+        for (var row : mat) {
+            int mx = 0;
+            for (int x : row) {
+                mx = Math.max(mx, x);
+            }
+            boolean[] g = new boolean[f.length + mx];
+            for (int x : row) {
+                for (int j = x; j < f.length + x; ++j) {
+                    g[j] |= f[j - x];
+                }
+            }
+            f = g;
+        }
+        int ans = 1 << 30;
+        for (int j = 0; j < f.length; ++j) {
+            if (f[j]) {
+                ans = Math.min(ans, Math.abs(j - target));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimizeTheDifference(vector<vector<int>>& mat, int target) {
+        vector<int> f = {1};
+        for (auto& row : mat) {
+            int mx = *max_element(row.begin(), row.end());
+            vector<int> g(f.size() + mx);
+            for (int x : row) {
+                for (int j = x; j < f.size() + x; ++j) {
+                    g[j] |= f[j - x];
+                }
+            }
+            f = move(g);
+        }
+        int ans = 1 << 30;
+        for (int j = 0; j < f.size(); ++j) {
+            if (f[j]) {
+                ans = min(ans, abs(j - target));
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimizeTheDifference(mat [][]int, target int) int {
+	f := []int{1}
+	for _, row := range mat {
+		mx := 0
+		for _, x := range row {
+			mx = max(mx, x)
+		}
+		g := make([]int, len(f)+mx)
+		for _, x := range row {
+			for j := x; j < len(f)+x; j++ {
+				g[j] |= f[j-x]
+			}
+		}
+		f = g
+	}
+	ans := 1 << 30
+	for j, v := range f {
+		if v == 1 {
+			ans = min(ans, abs(j-target))
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**

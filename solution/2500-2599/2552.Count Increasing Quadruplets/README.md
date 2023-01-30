@@ -55,7 +55,7 @@
 -   统计有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$；
 -   统计有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
 
-我们可以使用两个二维数组 $f$ 和 $g$ 分别记录这两个信息。其中 $f[j][k]$ 表示有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$，$g[j][k]$ 表示有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
+我们可以使用两个二维数组 $f$ 和 $g$ 分别记录这两个信息。其中 $f[j][k]$ 表示有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$，而 $g[j][k]$ 表示有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
 
 那么答案就是所有的 $f[j][k] \times g[j][k]$ 的和。
 
