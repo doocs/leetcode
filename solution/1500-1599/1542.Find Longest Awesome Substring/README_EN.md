@@ -47,13 +47,110 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestAwesome(self, s: str) -> int:
+        st = 0
+        d = {0: -1}
+        ans = 1
+        for i, c in enumerate(s):
+            v = int(c)
+            st ^= 1 << v
+            if st in d:
+                ans = max(ans, i - d[st])
+            else:
+                d[st] = i
+            for v in range(10):
+                if st ^ (1 << v) in d:
+                    ans = max(ans, i - d[st ^ (1 << v)])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int longestAwesome(String s) {
+        int[] d = new int[1024];
+        int st = 0, ans = 1;
+        Arrays.fill(d, -1);
+        d[0] = 0;
+        for (int i = 1; i <= s.length(); ++i) {
+            int v = s.charAt(i - 1) - '0';
+            st ^= 1 << v;
+            if (d[st] >= 0) {
+                ans = Math.max(ans, i - d[st]);
+            } else {
+                d[st] = i;
+            }
+            for (v = 0; v < 10; ++v) {
+                if (d[st ^ (1 << v)] >= 0) {
+                    ans = Math.max(ans, i - d[st ^ (1 << v)]);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestAwesome(string s) {
+        vector<int> d(1024, -1);
+        d[0] = 0;
+        int st = 0, ans = 1;
+        for (int i = 1; i <= s.size(); ++i) {
+            int v = s[i - 1] - '0';
+            st ^= 1 << v;
+            if (~d[st]) {
+                ans = max(ans, i - d[st]);
+            } else {
+                d[st] = i;
+            }
+            for (v = 0; v < 10; ++v) {
+                if (~d[st ^ (1 << v)]) {
+                    ans = max(ans, i - d[st ^ (1 << v)]);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestAwesome(s string) int {
+	d := [1024]int{}
+	d[0] = 1
+	st, ans := 0, 1
+	for i, c := range s {
+		i += 2
+		st ^= 1 << (c - '0')
+		if d[st] > 0 {
+			ans = max(ans, i-d[st])
+		} else {
+			d[st] = i
+		}
+		for v := 0; v < 10; v++ {
+			if d[st^(1<<v)] > 0 {
+				ans = max(ans, i-d[st^(1<<v)])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
