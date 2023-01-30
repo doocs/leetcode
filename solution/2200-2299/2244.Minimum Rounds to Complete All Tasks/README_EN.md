@@ -48,10 +48,12 @@ It can be shown that all the tasks cannot be completed in fewer than 4 rounds, s
 class Solution:
     def minimumRounds(self, tasks: List[int]) -> int:
         cnt = Counter(tasks)
-        mi = min(cnt.values())
-        if mi == 1:
-            return -1
-        return sum(v // 3 + (0 if v % 3 == 0 else 1) for v in cnt.values())
+        ans = 0
+        for v in cnt.values():
+            if v == 1:
+                return -1
+            ans += v // 3 + (v % 3 != 0)
+        return ans
 ```
 
 ### **Java**
@@ -61,7 +63,7 @@ class Solution {
     public int minimumRounds(int[] tasks) {
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int t : tasks) {
-            cnt.put(t, cnt.getOrDefault(t, 0) + 1);
+            cnt.merge(t, 1, Integer::sum);
         }
         int ans = 0;
         for (int v : cnt.values()) {
@@ -75,25 +77,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minimumRounds(tasks: number[]): number {
-    let hashMap = new Map();
-    for (let key of tasks) {
-        hashMap.set(key, (hashMap.get(key) || 0) + 1);
-    }
-    let ans = 0;
-    for (let key of hashMap.keys()) {
-        let val = hashMap.get(key);
-        if (val < 2) return -1;
-        const ctn = Math.floor(val / 3) + (val % 3 == 0 ? 0 : 1);
-        ans += ctn;
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -101,11 +84,15 @@ class Solution {
 public:
     int minimumRounds(vector<int>& tasks) {
         unordered_map<int, int> cnt;
-        for (int& t : tasks) ++cnt[t];
+        for (auto& t : tasks) {
+            ++cnt[t];
+        }
         int ans = 0;
         for (auto& [_, v] : cnt) {
-            if (v == 1) return -1;
-            ans += v / 3 + (v % 3 == 0 ? 0 : 1);
+            if (v == 1) {
+                return -1;
+            }
+            ans += v / 3 + (v % 3 != 0);
         }
         return ans;
     }
@@ -131,6 +118,25 @@ func minimumRounds(tasks []int) int {
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumRounds(tasks: number[]): number {
+    const cnt = new Map();
+    for (const t of tasks) {
+        cnt.set(t, (cnt.get(t) || 0) + 1);
+    }
+    let ans = 0;
+    for (const v of cnt.values()) {
+        if (v == 1) {
+            return -1;
+        }
+        ans += Math.floor(v / 3) + (v % 3 === 0 ? 0 : 1);
+    }
+    return ans;
 }
 ```
 

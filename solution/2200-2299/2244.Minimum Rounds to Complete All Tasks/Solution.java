@@ -2,7 +2,7 @@ class Solution {
     public int minimumRounds(int[] tasks) {
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int t : tasks) {
-            cnt.put(t, cnt.getOrDefault(t, 0) + 1);
+            cnt.merge(t, 1, Integer::sum);
         }
         int ans = 0;
         for (int v : cnt.values()) {

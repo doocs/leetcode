@@ -61,6 +61,21 @@ s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose
 ```python
 class Solution:
     def digitSum(self, s: str, k: int) -> str:
+        while len(s) > k:
+            t = []
+            n = len(s)
+            for i in range(0, n, k):
+                x = 0
+                for j in range(i, min(i + k, n)):
+                    x += int(s[j])
+                t.append(str(x))
+            s = "".join(t)
+        return s
+```
+
+```python
+class Solution:
+    def digitSum(self, s: str, k: int) -> str:
         if len(s) <= k:
             return s
         t = []
@@ -77,18 +92,61 @@ class Solution {
     public String digitSum(String s, int k) {
         while (s.length() > k) {
             int n = s.length();
-            StringBuilder sb = new StringBuilder();
+            StringBuilder t = new StringBuilder();
             for (int i = 0; i < n; i += k) {
-                int v = 0;
+                int x = 0;
                 for (int j = i; j < Math.min(i + k, n); ++j) {
-                    v += s.charAt(j) - '0';
+                    x += s.charAt(j) - '0';
                 }
-                sb.append(v + "");
+                t.append(x);
             }
-            s = sb.toString();
+            s = t.toString();
         }
         return s;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string digitSum(string s, int k) {
+        while (s.size() > k) {
+            string t;
+            int n = s.size();
+            for (int i = 0; i < n; i += k) {
+                int x = 0;
+                for (int j = i; j < min(i + k, n); ++j) {
+                    x += s[j] - '0';
+                }
+                t += to_string(x);
+            }
+            s = t;
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func digitSum(s string, k int) string {
+	for len(s) > k {
+		t := &strings.Builder{}
+		n := len(s)
+		for i := 0; i < n; i += k {
+			x := 0
+			for j := i; j < i+k && j < n; j++ {
+				x += int(s[j] - '0')
+			}
+			t.WriteString(strconv.Itoa(x))
+		}
+		s = t.String()
+	}
+	return s
 }
 ```
 

@@ -1,9 +1,12 @@
 class Solution:
     def digitSum(self, s: str, k: int) -> str:
-        if len(s) <= k:
-            return s
-        t = []
-        while s:
-            t.append(str(sum(int(v) for v in s[:k])))
-            s = s[k:]
-        return self.digitSum(''.join(t), k)
+        while len(s) > k:
+            t = []
+            n = len(s)
+            for i in range(0, n, k):
+                x = 0
+                for j in range(i, min(i + k, n)):
+                    x += int(s[j])
+                t.append(str(x))
+            s = "".join(t)
+        return s
