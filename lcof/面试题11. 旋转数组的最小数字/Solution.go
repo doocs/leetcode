@@ -1,14 +1,14 @@
-func minArray(nums []int) int {
-	l, r := 0, len(nums)-1
+func minArray(numbers []int) int {
+	l, r := 0, len(numbers)-1
 	for l < r {
-		mid := l + (r-l)>>1
-		if nums[mid] > nums[r] {
+		mid := (l + r) >> 1
+		if numbers[mid] > numbers[r] {
 			l = mid + 1
-		} else if nums[mid] < nums[r] {
-			r = mid // r 本身不需要被排除
+		} else if numbers[mid] < numbers[r] {
+			r = mid
 		} else {
 			r--
 		}
 	}
-	return nums[l]
+	return numbers[l]
 }
