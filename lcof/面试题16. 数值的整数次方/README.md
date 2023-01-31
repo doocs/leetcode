@@ -42,34 +42,104 @@
 
 ## 解法
 
+<!-- 这里可写通用的实现逻辑 -->
+
+**方法一：数学（快速幂）**
+
+快速幂算法的核心思想是将幂指数 $n$ 拆分为若干个二进制位上的 $1$ 的和，然后将 $x$ 的 $n$ 次幂转化为 $x$ 的若干个幂的乘积。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为幂指数。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
 ```python
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        if n == 0:
-            return 1
-        if n == 1:
-            return x
-        if n == -1:
-            return 1 / x
-        half = self.myPow(x, n // 2)
-        return half * half * self.myPow(x, n % 2)
+        def qmi(a, k):
+            res = 1
+            while k:
+                if k & 1:
+                    res *= a
+                a *= a
+                k >>= 1
+            return res
+
+        return qmi(x, n) if n >= 0 else 1 / qmi(x, -n)
 ```
 
 ### **Java**
 
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
 ```java
 class Solution {
     public double myPow(double x, int n) {
-        if (n == 0) return 1;
-        if (n == 1) return x;
-        if (n == -1) return 1 / x;
-        double half = myPow(x, n / 2);
-        return half * half * myPow(x, n % 2);
+        long N = n;
+        return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
     }
+
+    private double qmi(double a, long k) {
+        double res = 1;
+        while (k != 0) {
+            if ((k & 1) != 0) {
+                res *= a;
+            }
+            a *= a;
+            k >>= 1;
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long long N = n;
+        return N >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
+    }
+
+    double qmi(double a, long long k) {
+        double res = 1;
+        while (k) {
+            if (k & 1) {
+                res *= a;
+            }
+            a *= a;
+            k >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func myPow(x float64, n int) float64 {
+	if n >= 0 {
+		return qmi(x, n)
+	}
+	return 1.0 / qmi(x, -n)
+}
+
+func qmi(a float64, k int) float64 {
+	var res float64 = 1
+	for k != 0 {
+		if k&1 == 1 {
+			res *= a
+		}
+		a *= a
+		k >>= 1
+	}
+	return res
 }
 ```
 
@@ -82,74 +152,40 @@ class Solution {
  * @return {number}
  */
 var myPow = function (x, n) {
-    let r = 1;
-    let tmp = x;
-    let tag = 0;
-    if (n < 0) {
-        tag = 1;
-        n = -n;
-    }
-    while (n) {
-        if (n & 1) {
-            r *= tmp;
-        }
-        tmp *= tmp;
-        n >>>= 1;
-    }
-    return tag ? 1 / r : r;
+    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
 };
+
+function qmi(a, k) {
+    let res = 1;
+    while (k) {
+        if (k & 1) {
+            res *= a;
+        }
+        a *= a;
+        k >>>= 1;
+    }
+    return res;
+}
 ```
 
-### **Go**
+### **TypeScript**
 
-```go
-func myPow(x float64, n int) float64 {
-    p := abs(n)
-    res := 1.0
-    for p != 0 {
-        if p&1 == 1 {
-            res *= x
-        }
-        x *= x
-        p = p >>1
-    }
-    if n < 0 {
-        return 1/res
-    }
-    return res
+```ts
+function myPow(x: number, n: number): number {
+    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
 }
 
-func abs(x int) int {
-    if x > 0 {
-        return x
+function qmi(a: number, k: number): number {
+    let res = 1;
+    while (k) {
+        if (k & 1) {
+            res *= a;
+        }
+        a *= a;
+        k >>>= 1;
     }
-    return -x
+    return res;
 }
-
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    double myPow(double x, int n) {
-        long m = n;
-        if (m < 0) {
-            x = 1 / x;
-            m = -m;
-        }
-        double ans = 1;
-        while (m) {
-            if (m & 1) {
-                ans *= x;
-            }
-            x *= x;
-            m >>= 1;
-        }
-        return ans;
-    }
-};
 ```
 
 ### **C#**
@@ -157,17 +193,20 @@ public:
 ```cs
 public class Solution {
     public double MyPow(double x, int n) {
-        if (n == 0) {
-            return 1;
+        long N = n;
+        return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
+    }
+
+    private double qmi(double a, long k) {
+        double res = 1;
+        while (k != 0) {
+            if ((k & 1) != 0) {
+                res *= a;
+            }
+            a *= a;
+            k >>= 1;
         }
-        if (n == 1) {
-            return x;
-        }
-        if (n == -1) {
-            return 1 / x;
-        }
-        double half = MyPow(x, n / 2);
-        return half * half * MyPow(x, n % 2);
+        return res;
     }
 }
 ```

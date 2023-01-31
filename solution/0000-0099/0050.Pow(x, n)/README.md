@@ -47,6 +47,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学（快速幂）**
+
+快速幂算法的核心思想是将幂指数 $n$ 拆分为若干个二进制位上的 $1$ 的和，然后将 $x$ 的 $n$ 次幂转化为 $x$ 的若干个幂的乘积。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为幂指数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,12 +62,16 @@
 ```python
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        if n == 0:
-            return 1
-        if n < 0:
-            return 1 / self.myPow(x, -n)
-        y = self.myPow(x, n >> 1)
-        return y * y if (n & 1) == 0 else y * y * x
+        def qmi(a, k):
+            res = 1
+            while k:
+                if k & 1:
+                    res *= a
+                a *= a
+                k >>= 1
+            return res
+
+        return qmi(x, n) if n >= 0 else 1 / qmi(x, -n)
 ```
 
 ### **Java**
@@ -72,16 +82,92 @@ class Solution:
 class Solution {
     public double myPow(double x, int n) {
         long N = n;
-        return N >= 0 ? pow(x, N) : 1.0 / pow(x, -N);
+        return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
     }
 
-    public double pow(double x, long N) {
-        if (N == 0) {
-            return 1.0;
+    private double qmi(double a, long k) {
+        double res = 1;
+        while (k != 0) {
+            if ((k & 1) != 0) {
+                res *= a;
+            }
+            a *= a;
+            k >>= 1;
         }
-        double y = pow(x, N >> 1);
-        return (N & 1) == 0 ? y * y : y * y * x;
+        return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long long N = n;
+        return N >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
+    }
+
+    double qmi(double a, long long k) {
+        double res = 1;
+        while (k) {
+            if (k & 1) {
+                res *= a;
+            }
+            a *= a;
+            k >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func myPow(x float64, n int) float64 {
+	if n >= 0 {
+		return qmi(x, n)
+	}
+	return 1.0 / qmi(x, -n)
+}
+
+func qmi(a float64, k int) float64 {
+	var res float64 = 1
+	for k != 0 {
+		if k&1 == 1 {
+			res *= a
+		}
+		a *= a
+		k >>= 1
+	}
+	return res
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} x
+ * @param {number} n
+ * @return {number}
+ */
+var myPow = function (x, n) {
+    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
+};
+
+function qmi(a, k) {
+    let res = 1;
+    while (k) {
+        if (k & 1) {
+            res *= a;
+        }
+        a *= a;
+        k >>>= 1;
+    }
+    return res;
 }
 ```
 
@@ -89,18 +175,42 @@ class Solution {
 
 ```ts
 function myPow(x: number, n: number): number {
+    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
+}
+
+function qmi(a: number, k: number): number {
     let res = 1;
-    if (n < 0) {
-        n = -n;
-        x = 1 / x;
-    }
-    for (let i = n; i != 0; i = Math.floor(i / 2)) {
-        if ((i & 1) == 1) {
-            res *= x;
+    while (k) {
+        if (k & 1) {
+            res *= a;
         }
-        x *= x;
+        a *= a;
+        k >>>= 1;
     }
     return res;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public double MyPow(double x, int n) {
+        long N = n;
+        return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
+    }
+
+    private double qmi(double a, long k) {
+        double res = 1;
+        while (k != 0) {
+            if ((k & 1) != 0) {
+                res *= a;
+            }
+            a *= a;
+            k >>= 1;
+        }
+        return res;
+    }
 }
 ```
 

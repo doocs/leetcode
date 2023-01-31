@@ -4,12 +4,17 @@
  * @return {number}
  */
 var myPow = function (x, n) {
-    if (n == 0) return 1;
-    if (n < 0) {
-        n = -n;
-        x = 1 / x;
-    }
-    return n % 2 == 0
-        ? Math.pow(x * x, parseInt(n / 2))
-        : x * Math.pow(x * x, parseInt(n / 2));
+    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
 };
+
+function qmi(a, k) {
+    let res = 1;
+    while (k) {
+        if (k & 1) {
+            res *= a;
+        }
+        a *= a;
+        k >>>= 1;
+    }
+    return res;
+}

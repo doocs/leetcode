@@ -1,15 +1,18 @@
 public class Solution {
     public double MyPow(double x, int n) {
-        if (n == 0) {
-            return 1;
+        long N = n;
+        return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
+    }
+
+    private double qmi(double a, long k) {
+        double res = 1;
+        while (k != 0) {
+            if ((k & 1) != 0) {
+                res *= a;
+            }
+            a *= a;
+            k >>= 1;
         }
-        if (n == 1) {
-            return x;
-        }
-        if (n == -1) {
-            return 1 / x;
-        }
-        double half = MyPow(x, n / 2);
-        return half * half * MyPow(x, n % 2);
+        return res;
     }
 }

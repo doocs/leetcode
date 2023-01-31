@@ -1,8 +1,12 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        if n == 0:
-            return 1
-        if n < 0:
-            return 1 / self.myPow(x, -n)
-        y = self.myPow(x, n >> 1)
-        return y * y if (n & 1) == 0 else y * y * x
+        def qmi(a, k):
+            res = 1
+            while k:
+                if k & 1:
+                    res *= a
+                a *= a
+                k >>= 1
+            return res
+
+        return qmi(x, n) if n >= 0 else 1 / qmi(x, -n)

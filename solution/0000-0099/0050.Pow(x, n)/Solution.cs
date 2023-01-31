@@ -1,5 +1,5 @@
-class Solution {
-    public double myPow(double x, int n) {
+public class Solution {
+    public double MyPow(double x, int n) {
         long N = n;
         return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
     }
