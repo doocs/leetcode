@@ -22,16 +22,23 @@
 
 ## 解法
 
-三种方式
+**方法一：排序**
 
--   排序
-    -   先排序，将相同的数字聚集到一起。
-    -   再遍历，当位于 `i` 与 `i + 1` 的数字相等时，返回该数字。
--   哈希表
-    -   记录数字在数组中的数量，当数量为 2 时，返回即可。
--   原地交换
-    -   0 ～ n-1 范围内的数，分别还原到对应的位置上，如：数字 2 交换到下标为 2 的位置。
-    -   若交换过程中发现重复，则直接返回。
+我们可以先对数组 `nums` 进行排序，然后遍历排序后的数组，判断相邻的两个元素是否相等，如果相等，即找到了一个重复的数字，返回该数字即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
+
+**方法二：哈希表**
+
+我们可以使用哈希表来解决这个问题，遍历数组 `nums`，对于遍历到的每个元素，判断哈希表中是否存在该元素，如果哈希表中存在该元素，即找到了一个重复的数字，返回该数字即可；如果哈希表中不存在该元素，将该元素加入哈希表中。继续遍历，直到找到一个重复的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+
+**方法三：原地交换**
+
+我们可以遍历数组 `nums`，对于遍历到的每个元素 `nums[i]`，判断 `nums[i]` 是否等于 `i`，如果是，则继续遍历下一个元素；如果不是，则将 `nums[i]` 与 `nums[nums[i]]` 进行交换，交换之后，`nums[i]` 的值和下标都发生了改变，如果 `nums[i]` 与 `nums[nums[i]]` 相等，即找到了一个重复的数字，返回该数字即可；如果 `nums[i]` 与 `nums[nums[i]]` 不相等，继续遍历，直到找到一个重复的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -40,13 +47,30 @@
 ```python
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
-        for i, num in enumerate(nums):
-            while i != num:
-                if num == nums[num]:
-                    return num
-                nums[i], nums[num] = nums[num], nums[i]
-                num = nums[i]
-        return -1
+        for a, b in pairwise(sorted(nums)):
+            if a == b:
+                return a
+```
+
+```python
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        vis = set()
+        for v in nums:
+            if v in vis:
+                return v
+            vis.add(v)
+```
+
+```python
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        for i, v in enumerate(nums):
+            while v != i:
+                if nums[v] == v:
+                    return v
+                nums[i], nums[v] = nums[v], nums[i]
+                v = nums[i]
 ```
 
 ### **Java**
@@ -54,44 +78,131 @@ class Solution:
 ```java
 class Solution {
     public int findRepeatNumber(int[] nums) {
-        for (int i = 0, n = nums.length; i < n; ++i) {
-            while (nums[i] != i) {
-                if (nums[i] == nums[nums[i]]) return nums[i];
-                swap(nums, i, nums[i]);
+        Arrays.sort(nums);
+        for (int i = 0; ; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                return nums[i];
             }
         }
-        return -1;
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
     }
 }
 ```
 
-### **Kotlin**
-
-```kotlin
+```java
 class Solution {
-    fun findRepeatNumber(nums: IntArray): Int {
-        for (i in nums.indices) {
-            while (i != nums[i]) {
-                if (nums[i] == nums[nums[i]]) {
-                    return nums[i];
-                }
-                swap(nums, i, nums[i]);
+    public int findRepeatNumber(int[] nums) {
+        Set<Integer> vis = new HashSet<>();
+        for (int i = 0; ; ++i) {
+            if (!vis.add(nums[i])) {
+                return nums[i];
             }
         }
-        return -1;
     }
+}
+```
 
-    fun swap(nums: IntArray, i: Int, j: Int) {
-        var t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
+```java
+class Solution {
+    public int findRepeatNumber(int[] nums) {
+        for (int i = 0; ; ++i) {
+            while (nums[i] != i) {
+                int j = nums[i];
+                if (nums[j] == j) {
+                    return j;
+                }
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
+            }
+        }
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findRepeatNumber(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        for (int i = 0; ; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                return nums[i];
+            }
+        }
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findRepeatNumber(vector<int>& nums) {
+        unordered_set<int> vis;
+        for (int i = 0; ; ++i) {
+            if (vis.count(nums[i])) {
+                return nums[i];
+            }
+            vis.insert(nums[i]);
+        }
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findRepeatNumber(vector<int>& nums) {
+        for (int i = 0; ; ++i) {
+            while (nums[i] != i) {
+                int j = nums[i];
+                if (nums[j] == j) {
+                    return j;
+                }
+                swap(nums[i], nums[j]);
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func findRepeatNumber(nums []int) int {
+	sort.Ints(nums)
+	for i := 0; ; i++ {
+		if nums[i] == nums[i+1] {
+			return nums[i]
+		}
+	}
+}
+```
+
+```go
+func findRepeatNumber(nums []int) int {
+	vis := map[int]bool{}
+	for i := 0; ; i++ {
+		if vis[nums[i]] {
+			return nums[i]
+		}
+		vis[nums[i]] = true
+	}
+}
+```
+
+```go
+func findRepeatNumber(nums []int) int {
+	for i := 0; ; i++ {
+		for nums[i] != i {
+			j := nums[i]
+			if nums[j] == j {
+				return j
+			}
+			nums[i], nums[j] = nums[j], nums[i]
+		}
+	}
 }
 ```
 
@@ -103,50 +214,14 @@ class Solution {
  * @return {number}
  */
 var findRepeatNumber = function (nums) {
-    let m = {};
-    for (let num of nums) {
-        if (m[num]) return num;
-        m[num] = 1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func findRepeatNumber(nums []int) int {
-    for i := 0; i < len(nums); i++ {
-        for nums[i] != i {
-            if nums[i] == nums[nums[i]] {
-                return nums[i]
+    for (let i = 0; ; ++i) {
+        while (nums[i] != i) {
+            const j = nums[i];
+            if (nums[j] == j) {
+                return j;
             }
-            nums[i], nums[nums[i]] = nums[nums[i]], nums[i]
+            [nums[i], nums[j]] = [nums[j], nums[i]];
         }
-    }
-    return -1
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findRepeatNumber(vector<int>& nums) {
-        int len = nums.size();
-        for (int i = 0; i < len; i++) {
-            while (i != nums[i]) {
-                // 这一位的值，不等于这一位的数字
-                if (nums[i] == nums[nums[i]]) {
-                    // 如果在交换的过程中，发现了相等的数字，直接返回
-                    return nums[i];
-                }
-
-                swap(nums[i], nums[nums[i]]);
-            }
-        }
-
-        return 0;
     }
 };
 ```
@@ -155,18 +230,15 @@ public:
 
 ```ts
 function findRepeatNumber(nums: number[]): number {
-    let n: number = nums.length;
-    for (let i: number = 0; i < n; i++) {
+    for (let i = 0; ; ++i) {
         while (nums[i] != i) {
-            if (nums[i] == nums[nums[i]]) return nums[i];
-            swap(nums, i, nums[i]);
+            const j = nums[i];
+            if (nums[j] == j) {
+                return j;
+            }
+            [nums[i], nums[j]] = [nums[j], nums[i]];
         }
     }
-    return -1;
-}
-
-function swap(nums: number[], i: number, j: number): void {
-    [nums[i], nums[j]] = [nums[j], nums[i]];
 }
 ```
 
@@ -194,18 +266,41 @@ impl Solution {
 ```cs
 public class Solution {
     public int FindRepeatNumber(int[] nums) {
-        int temp;
-        for (int i = 0; i < nums.Length; i++) {
+        for (int i = 0; ; ++i) {
+            while (nums[i] != i) {
+                int j = nums[i];
+                if (nums[j] == j) {
+                    return j;
+                }
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
+            }
+        }
+    }
+}
+```
+
+### **Kotlin**
+
+```kotlin
+class Solution {
+    fun findRepeatNumber(nums: IntArray): Int {
+        for (i in nums.indices) {
             while (i != nums[i]) {
                 if (nums[i] == nums[nums[i]]) {
                     return nums[i];
                 }
-                temp = nums[i];
-                nums[i] = nums[temp];
-                nums[temp] = temp;
+                swap(nums, i, nums[i]);
             }
         }
         return -1;
+    }
+
+    fun swap(nums: IntArray, i: Int, j: Int) {
+        var t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
 ```

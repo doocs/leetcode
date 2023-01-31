@@ -1,11 +1,11 @@
 func findRepeatNumber(nums []int) int {
-    for i := 0; i < len(nums); i++ {
-        for nums[i] != i {
-            if nums[i] == nums[nums[i]] {
-                return nums[i]
-            }
-            nums[i], nums[nums[i]] = nums[nums[i]], nums[i]
-        }
-    }
-    return -1
+	for i := 0; ; i++ {
+		for nums[i] != i {
+			j := nums[i]
+			if nums[j] == j {
+				return j
+			}
+			nums[i], nums[j] = nums[j], nums[i]
+		}
+	}
 }

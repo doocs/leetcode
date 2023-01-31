@@ -1,16 +1,15 @@
 public class Solution {
     public int FindRepeatNumber(int[] nums) {
-        int temp;
-        for (int i = 0; i < nums.Length; i++) {
-            while (i != nums[i]) {
-                if (nums[i] == nums[nums[i]]) {
-                    return nums[i];
+        for (int i = 0; ; ++i) {
+            while (nums[i] != i) {
+                int j = nums[i];
+                if (nums[j] == j) {
+                    return j;
                 }
-                temp = nums[i];
-                nums[i] = nums[temp];
-                nums[temp] = temp;
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
             }
         }
-        return -1;
     }
 }
