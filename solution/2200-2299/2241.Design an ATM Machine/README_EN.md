@@ -103,13 +103,13 @@ class ATM {
     public ATM() {
 
     }
-    
+
     public void deposit(int[] banknotesCount) {
         for (int i = 0; i < banknotesCount.length; ++i) {
             cnt[i] += banknotesCount[i];
         }
     }
-    
+
     public int[] withdraw(int amount) {
         int[] ans = new int[5];
         for (int i = 4; i >= 0; --i) {
@@ -142,13 +142,13 @@ public:
     ATM() {
 
     }
-    
+
     void deposit(vector<int> banknotesCount) {
         for (int i = 0; i < banknotesCount.size(); ++i) {
             cnt[i] += banknotesCount[i];
         }
     }
-    
+
     vector<int> withdraw(int amount) {
         vector<int> ans(5);
         for (int i = 4; ~i; --i) {

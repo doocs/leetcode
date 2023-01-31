@@ -1,26 +1,23 @@
 class CQueue {
-    private stack1: number[];
-    private stack2: number[];
+    private stk1: number[];
+    private stk2: number[];
+
     constructor() {
-        this.stack1 = [];
-        this.stack2 = [];
+        this.stk1 = [];
+        this.stk2 = [];
     }
 
     appendTail(value: number): void {
-        this.stack1.push(value);
-    }
-
-    move(): void {
-        while (this.stack1.length != 0) {
-            this.stack2.push(this.stack1.pop());
-        }
+        this.stk1.push(value);
     }
 
     deleteHead(): number {
-        if (this.stack2.length == 0) {
-            this.move();
+        if (this.stk2.length == 0) {
+            while (this.stk1.length) {
+                this.stk2.push(this.stk1.pop());
+            }
         }
-        return this.stack2.length == 0 ? -1 : this.stack2.pop();
+        return this.stk2.length == 0 ? -1 : this.stk2.pop();
     }
 }
 

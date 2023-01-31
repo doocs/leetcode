@@ -68,7 +68,7 @@ class Solution {
         final int mod = (int) 1e9 + 7;
         return (int) (qmi(2, n, mod) - 2 + mod) % mod;
     }
-    
+
     public long qmi(long a, long k, long p) {
         long res = 1;
         while (k != 0) {
@@ -92,7 +92,7 @@ public:
         const int mod = 1e9 + 7;
         return (qmi(2, n, mod) - 2 + mod) % mod;
     }
-    
+
     long qmi(long a, long k, long p) {
         long res = 1;
         while (k != 0) {

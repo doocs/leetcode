@@ -1,23 +1,22 @@
 public class CQueue {
-    private Stack<int> stack1;
-    private Stack<int> stack2;
+    private Stack<int> stk1 = new Stack<int>();
+    private Stack<int> stk2 = new Stack<int>();
 
     public CQueue() {
-        stack1 = new Stack<int>();
-        stack2 = new Stack<int>();
+
     }
     
     public void AppendTail(int value) {
-        stack1.Push(value);
+        stk1.Push(value);
     }
     
     public int DeleteHead() {
-        if (stack2.Count == 0) {
-            while (stack1.Count != 0) {
-                stack2.Push(stack1.Pop());
+        if (stk2.Count == 0) {
+            while (stk1.Count != 0) {
+                stk2.Push(stk1.Pop());
             }
         }
-        return stack2.Count == 0 ? -1 : stack2.Pop();
+        return stk2.Count == 0 ? -1 : stk2.Pop();
     }
 }
 

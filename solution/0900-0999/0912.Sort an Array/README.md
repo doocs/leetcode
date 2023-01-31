@@ -110,7 +110,7 @@ class Solution:
                 tmp.extend(nums[j: r + 1])
             for i in range(l, r + 1):
                 nums[i] = tmp[i - l]
-        
+
         merge_sort(0, len(nums) - 1)
         return nums
 ```

@@ -30,4 +30,4 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
         return root;
     };
     return dfs(0, 0, n);
-};
+}

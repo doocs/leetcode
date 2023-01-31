@@ -58,7 +58,7 @@ class Solution:
             ans.append(str(v))
             i, j = i - 1, j - 1
         return "".join(ans[::-1])
-    
+
     def subStrings(self, num1: str, num2: str) -> str:
         m, n = len(num1), len(num2)
         neg = m < n or (m == n and num1 < num2)

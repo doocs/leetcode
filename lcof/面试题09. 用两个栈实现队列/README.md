@@ -31,11 +31,15 @@
 
 ## 解法
 
--   两个栈，一个负责**输入**，一个负责**输出**；
--   执行输入时，只放入输入栈中；
--   执行输出时，将输入栈的所有元素依次出栈，放入输出栈中；
--   根据栈的特点，处于输入栈**栈底**的元素，在输出栈中便是**栈顶**；
--   只有输出栈中没有元素时才进行倒放，而非每一次。
+**方法一：双栈**
+
+我们可以使用两个栈来实现队列，其中一个栈 `stk1` 用来存储输入的元素，另一个栈 `stk2` 用来输出元素。
+
+当调用 `appendTail()` 方法时，我们将元素压入 `stk1` 中。
+
+当调用 `deleteHead()` 方法时，如果此时栈 `stk2` 为空，我们将栈 `stk1` 中的元素逐个弹出并压入栈 `stk2` 中，然后弹出栈 `stk2` 的栈顶元素即可。如果此时栈 `stk2` 不为空，我们直接弹出栈 `stk2` 的栈顶元素即可。如果两个栈都为空，说明队列中没有元素，返回 `-1`。
+
+时间复杂度上，对于 `appendTail()` 方法，时间复杂度为 $O(1)$；对于 `deleteHead()` 方法，时间复杂度为 $O(n)$；空间复杂度为 $O(n)$。其中 $n$ 为队列中的元素个数。
 
 <!-- tabs:start -->
 
@@ -95,6 +99,84 @@ class CQueue {
  */
 ```
 
+### **C++**
+
+```cpp
+class CQueue {
+public:
+    CQueue() {
+
+    }
+
+    void appendTail(int value) {
+        stk1.push(value);
+    }
+
+    int deleteHead() {
+        if (stk2.empty()) {
+            while (!stk1.empty()) {
+                stk2.push(stk1.top());
+                stk1.pop();
+            }
+        }
+        if (stk2.empty()) {
+            return -1;
+        }
+        int ans = stk2.top();
+        stk2.pop();
+        return ans;
+    }
+
+private:
+    stack<int> stk1, stk2;
+};
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * CQueue* obj = new CQueue();
+ * obj->appendTail(value);
+ * int param_2 = obj->deleteHead();
+ */
+```
+
+### **Go**
+
+```go
+type CQueue struct {
+	stk1, stk2 []int
+}
+
+func Constructor() CQueue {
+	return CQueue{[]int{}, []int{}}
+}
+
+func (this *CQueue) AppendTail(value int) {
+	this.stk1 = append(this.stk1, value)
+}
+
+func (this *CQueue) DeleteHead() int {
+	if len(this.stk2) == 0 {
+		for len(this.stk1) > 0 {
+			this.stk2 = append(this.stk2, this.stk1[len(this.stk1)-1])
+			this.stk1 = this.stk1[:len(this.stk1)-1]
+		}
+	}
+	if len(this.stk2) == 0 {
+		return -1
+	}
+	ans := this.stk2[len(this.stk2)-1]
+	this.stk2 = this.stk2[:len(this.stk2)-1]
+	return ans
+}
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.AppendTail(value);
+ * param_2 := obj.DeleteHead();
+ */
+```
+
 ### **JavaScript**
 
 ```js
@@ -131,103 +213,29 @@ CQueue.prototype.deleteHead = function () {
  */
 ```
 
-### **Go**
-
-```go
-type CQueue struct {
-	stk1 []int
-	stk2 []int
-}
-
-func Constructor() CQueue {
-	return CQueue{stk1: []int{}, stk2: []int{}}
-}
-
-func (this *CQueue) AppendTail(value int) {
-	this.stk1 = append(this.stk1, value)
-}
-
-func (this *CQueue) DeleteHead() int {
-	if len(this.stk2) == 0 {
-		for len(this.stk1) > 0 {
-			this.stk2 = append(this.stk2, this.stk1[len(this.stk1)-1])
-			this.stk1 = this.stk1[0 : len(this.stk1)-1]
-		}
-	}
-	if len(this.stk2) == 0 {
-		return -1
-	}
-	ans := this.stk2[len(this.stk2)-1]
-	this.stk2 = this.stk2[0 : len(this.stk2)-1]
-	return ans
-}
-
-/**
- * Your CQueue object will be instantiated and called as such:
- * obj := Constructor();
- * obj.AppendTail(value);
- * param_2 := obj.DeleteHead();
- */
-```
-
-### **C++**
-
-```cpp
-class CQueue {
-private:
-    stack<int> s1, s2;
-
-public:
-    CQueue() {
-    }
-
-    void appendTail(int value) {
-        s1.push(value);
-    }
-
-    int deleteHead() {
-        if (s2.empty()) {
-            while (!s1.empty()) {
-                s2.push(s1.top());
-                s1.pop();
-            }
-        }
-        if (s2.empty()) {
-            return -1;
-        }
-        int head = s2.top();
-        s2.pop();
-        return head;
-    }
-};
-```
-
 ### **TypeScript**
 
 ```ts
 class CQueue {
-    private stack1: number[];
-    private stack2: number[];
+    private stk1: number[];
+    private stk2: number[];
+
     constructor() {
-        this.stack1 = [];
-        this.stack2 = [];
+        this.stk1 = [];
+        this.stk2 = [];
     }
 
     appendTail(value: number): void {
-        this.stack1.push(value);
-    }
-
-    move(): void {
-        while (this.stack1.length != 0) {
-            this.stack2.push(this.stack1.pop());
-        }
+        this.stk1.push(value);
     }
 
     deleteHead(): number {
-        if (this.stack2.length == 0) {
-            this.move();
+        if (this.stk2.length == 0) {
+            while (this.stk1.length) {
+                this.stk2.push(this.stk1.pop());
+            }
         }
-        return this.stack2.length == 0 ? -1 : this.stack2.pop();
+        return this.stk2.length == 0 ? -1 : this.stk2.pop();
     }
 }
 
@@ -290,25 +298,24 @@ impl CQueue {
 
 ```cs
 public class CQueue {
-    private Stack<int> stack1;
-    private Stack<int> stack2;
+    private Stack<int> stk1 = new Stack<int>();
+    private Stack<int> stk2 = new Stack<int>();
 
     public CQueue() {
-        stack1 = new Stack<int>();
-        stack2 = new Stack<int>();
+
     }
 
     public void AppendTail(int value) {
-        stack1.Push(value);
+        stk1.Push(value);
     }
 
     public int DeleteHead() {
-        if (stack2.Count == 0) {
-            while (stack1.Count != 0) {
-                stack2.Push(stack1.Pop());
+        if (stk2.Count == 0) {
+            while (stk1.Count != 0) {
+                stk2.Push(stk1.Pop());
             }
         }
-        return stack2.Count == 0 ? -1 : stack2.Pop();
+        return stk2.Count == 0 ? -1 : stk2.Pop();
     }
 }
 
