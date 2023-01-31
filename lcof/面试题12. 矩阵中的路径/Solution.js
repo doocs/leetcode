@@ -6,7 +6,8 @@
 var exist = function (board, word) {
     const m = board.length;
     const n = board[0].length;
-    let dfs = function (i, j, k) {
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i, j, k) => {
         if (k == word.length) {
             return true;
         }
@@ -15,7 +16,6 @@ var exist = function (board, word) {
         }
         board[i][j] = ' ';
         let ans = false;
-        let dirs = [-1, 0, 1, 0, -1];
         for (let l = 0; l < 4; ++l) {
             ans = ans || dfs(i + dirs[l], j + dirs[l + 1], k + 1);
         }

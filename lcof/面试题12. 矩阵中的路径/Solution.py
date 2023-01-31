@@ -3,12 +3,11 @@ class Solution:
         def dfs(i, j, k):
             if k == len(word):
                 return True
-            if i < 0 or i >= m or j < 0 or j >= n or word[k] != board[i][j]:
+            if i < 0 or i >= m or j < 0 or j >= n or board[i][j] != word[k]:
                 return False
-            board[i][j] = ''
-            ans = any(
-                dfs(i + a, j + b, k + 1) for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]
-            )
+            board[i][j] = ""
+            dirs = (-1, 0, 1, 0, -1)
+            ans = any(dfs(i + a, j + b, k + 1) for a, b in pairwise(dirs))
             board[i][j] = word[k]
             return ans
 
