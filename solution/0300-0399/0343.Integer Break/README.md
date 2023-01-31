@@ -45,7 +45,7 @@
 状态转移方程为：
 
 $$
-dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j) \quad (j \in [0, i))
+dp[i] = max(dp[i], dp[i - j] \times j, (i - j) \times j) \quad (j \in [0, i))
 $$
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为正整数 $n$。

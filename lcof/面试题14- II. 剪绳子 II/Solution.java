@@ -3,17 +3,25 @@ class Solution {
         if (n < 4) {
             return n - 1;
         }
-        int s1 = n / 3;
-        int m = n % 3;
-        if (m == 1) {
-            s1 -= 1;
-            m = 4;
+        final int mod = (int) 1e9 + 7;
+        if (n % 3 == 0) {
+            return (int) qmi(3, n / 3, mod);
         }
+        if (n % 3 == 1) {
+            return (int) (qmi(3, n / 3 - 1, mod) * 4 % mod);
+        }
+        return (int) (qmi(3, n / 3, mod) * 2 % mod);
+    }
+
+    long qmi(long a, long k, long p) {
         long res = 1;
-        while (s1-- > 0) {
-            res *= 3;
-            res %= 1000000007;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
         }
-        return (int) ((res * (m == 0 ? 1 : m)) % 1000000007);
+        return res;
     }
 }

@@ -2,9 +2,8 @@ class Solution:
     def cuttingRope(self, n: int) -> int:
         if n < 4:
             return n - 1
-        ans = 1
-        while n > 4:
-            ans *= 3
-            n -= 3
-        ans *= n
-        return ans
+        if n % 3 == 0:
+            return pow(3, n // 3)
+        if n % 3 == 1:
+            return pow(3, n // 3 - 1) * 4
+        return pow(3, n // 3) * 2

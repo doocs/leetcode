@@ -32,6 +32,12 @@
 
 ## 解法
 
+**方法一：数学（快速幂）**
+
+当 $n \lt 4$ 时，$n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -39,15 +45,14 @@
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
+        mod = 10**9 + 7
         if n < 4:
             return n - 1
-        res = 1
-        while n > 4:
-            res *= 3
-            n -= 3
-        if n == 4:
-            return (res << 2) % 1000000007
-        return (res * n) % 1000000007
+        if n % 3 == 0:
+            return pow(3, n // 3, mod)
+        if n % 3 == 1:
+            return (pow(3, n // 3 - 1, mod) * 4) % mod
+        return pow(3, n // 3, mod) * 2 % mod
 ```
 
 ### **Java**
@@ -58,20 +63,61 @@ class Solution {
         if (n < 4) {
             return n - 1;
         }
-        int s1 = n / 3;
-        int m = n % 3;
-        if (m == 1) {
-            s1 -= 1;
-            m = 4;
+        final int mod = (int) 1e9 + 7;
+        if (n % 3 == 0) {
+            return (int) qmi(3, n / 3, mod);
         }
+        if (n % 3 == 1) {
+            return (int) (qmi(3, n / 3 - 1, mod) * 4 % mod);
+        }
+        return (int) (qmi(3, n / 3, mod) * 2 % mod);
+    }
+
+    long qmi(long a, long k, long p) {
         long res = 1;
-        while (s1-- > 0) {
-            res *= 3;
-            res %= 1000000007;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
         }
-        return (int) ((res * (m == 0 ? 1 : m)) % 1000000007);
+        return res;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int cuttingRope(int n) {
+        if (n < 4) {
+            return n - 1;
+        }
+        const int mod = 1e9 + 7;
+        if (n % 3 == 0) {
+            return qmi(3, n / 3, mod);
+        }
+        if (n % 3 == 1) {
+            return qmi(3, n / 3 - 1, mod) * 4 % mod;
+        }
+        return qmi(3, n / 3, mod) * 2 % mod;
+    }
+
+    long qmi(long a, long k, long p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+};
 ```
 
 ### **JavaScript**
@@ -105,35 +151,30 @@ var cuttingRope = function (n) {
 
 ```go
 func cuttingRope(n int) int {
-	if n <= 3 {
+	if n < 4 {
 		return n - 1
 	}
-	sum := 1
-	for n > 4 {
-		sum *= 3
-		sum = sum % 1000000007
-		n -= 3
+	const mod = 1e9 + 7
+	if n%3 == 0 {
+		return qmi(3, n/3, mod)
 	}
-	return sum * n % 1000000007
+	if n%3 == 1 {
+		return qmi(3, n/3-1, mod) * 4 % mod
+	}
+	return qmi(3, n/3, mod) * 2 % mod
 }
-```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int cuttingRope(int n) {
-        const int mod = 1000000007;
-        if (n < 4) return n - 1;
-        long long ans = 1;
-        while (n > 4) {
-            ans = ans * 3 % mod;
-            n -= 3;
-        }
-        return ans * n % mod;
-    }
-};
+func qmi(a, k, p int) int {
+	res := 1
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % p
+		}
+		k >>= 1
+		a = a * a % p
+	}
+	return res
+}
 ```
 
 ### **Rust**

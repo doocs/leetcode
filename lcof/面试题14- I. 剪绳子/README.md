@@ -26,7 +26,23 @@
 
 ## 解法
 
-尽可能将绳子以长度 3 等分剪为多段时，乘积最大。
+**方法一：动态规划**
+
+我们定义 $dp[i]$ 表示正整数 $n$ 能获得的最大乘积，初始化 $dp[1] = 1$。答案即为 $dp[n]$。
+
+状态转移方程为：
+
+$$
+dp[i] = max(dp[i], dp[i - j] \times j, (i - j) \times j) \quad (j \in [0, i))
+$$
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为正整数 $n$。
+
+**方法二：数学**
+
+当 $n \lt 4$ 时，$n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -35,14 +51,23 @@
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
+        dp = [1] * (n + 1)
+        for i in range(2, n + 1):
+            for j in range(1, i):
+                dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
+        return dp[n]
+```
+
+```python
+class Solution:
+    def cuttingRope(self, n: int) -> int:
         if n < 4:
             return n - 1
-        ans = 1
-        while n > 4:
-            ans *= 3
-            n -= 3
-        ans *= n
-        return ans
+        if n % 3 == 0:
+            return pow(3, n // 3)
+        if n % 3 == 1:
+            return pow(3, n // 3 - 1) * 4
+        return pow(3, n // 3) * 2
 ```
 
 ### **Java**
@@ -50,53 +75,32 @@ class Solution:
 ```java
 class Solution {
     public int cuttingRope(int n) {
-        if (n < 4) {
-            return n - 1;
+        int[] dp = new int[n + 1];
+        dp[1] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j < i; ++j) {
+                dp[i] = Math.max(Math.max(dp[i], dp[i - j] * j), (i - j) * j);
+            }
         }
-        int ans = 1;
-        while (n > 4) {
-            ans *= 3;
-            n -= 3;
-        }
-        ans *= n;
-        return ans;
+        return dp[n];
     }
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var cuttingRope = function (n) {
-    if (n < 4) return n - 1;
-    let ans = 1;
-    while (n > 4) {
-        ans *= 3;
-        n -= 3;
+```java
+class Solution {
+    public int cuttingRope(int n) {
+        if (n < 4) {
+            return n - 1;
+        }
+        if (n % 3 == 0) {
+            return (int) Math.pow(3, n / 3);
+        }
+        if (n % 3 == 1) {
+            return (int) Math.pow(3, n / 3 - 1) * 4;
+        }
+        return (int) Math.pow(3, n / 3) * 2;
     }
-    ans *= n;
-    return ans;
-};
-```
-
-### **Go**
-
-```go
-func cuttingRope(n int) int {
-	if n < 4 {
-		return n - 1
-	}
-	ans := 1
-	for n > 4 {
-		ans *= 3
-		n -= 3
-	}
-	ans *= n
-	return ans
 }
 ```
 
@@ -107,10 +111,10 @@ class Solution {
 public:
     int cuttingRope(int n) {
         vector<int> dp(n + 1);
-        dp[0] = 1;
-        for (int i = 1; i < n; ++i) {
-            for (int j = i; j <= n; ++j) {
-                dp[j] = max(dp[j], dp[j - i] * i);
+        dp[1] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j < i; ++j) {
+                dp[i] = max(max(dp[i], dp[i - j] * j), (i - j) * j);
             }
         }
         return dp[n];
@@ -122,33 +126,107 @@ public:
 class Solution {
 public:
     int cuttingRope(int n) {
-        if (n < 4) return n - 1;
-        int ans = 1;
-        while (n > 4)
-        {
-            ans *= 3;
-            n -= 3;
+        if (n < 4) {
+            return n - 1;
         }
-        ans *= n;
-        return ans;
+        if (n % 3 == 0) {
+            return pow(3, n / 3);
+        }
+        if (n % 3 == 1) {
+            return pow(3, n / 3 - 1) * 4;
+        }
+        return pow(3, n / 3) * 2;
     }
 };
+```
+
+### **Go**
+
+```go
+func cuttingRope(n int) int {
+    dp := make([]int, n+1)
+	dp[1] = 1
+	for i := 2; i <= n; i++ {
+		for j := 1; j < i; j++ {
+			dp[i] = max(max(dp[i], dp[i-j]*j), (i-j)*j)
+		}
+	}
+	return dp[n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func cuttingRope(n int) int {
+	if n < 4 {
+		return n - 1
+	}
+	if n%3 == 0 {
+		return int(math.Pow(3, float64(n/3)))
+	}
+	if n%3 == 1 {
+		return int(math.Pow(3, float64(n/3-1))) * 4
+	}
+	return int(math.Pow(3, float64(n/3))) * 2
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var cuttingRope = function (n) {
+    if (n < 4) {
+        return n - 1;
+    }
+    const m = Math.floor(n / 3);
+    if (n % 3 == 0) {
+        return 3 ** m;
+    }
+    if (n % 3 == 1) {
+        return 3 ** (m - 1) * 4;
+    }
+    return 3 ** m * 2;
+};
+```
+
+### **TypeScript**
+
+```ts
+function cuttingRope(n: number): number {
+    if (n < 4) {
+        return n - 1;
+    }
+    const m = Math.floor(n / 3);
+    if (n % 3 == 0) {
+        return 3 ** m;
+    }
+    if (n % 3 == 1) {
+        return 3 ** (m - 1) * 4;
+    }
+    return 3 ** m * 2;
+}
 ```
 
 ### **Rust**
 
 ```rust
 impl Solution {
-    pub fn cutting_rope(mut n: i32) -> i32 {
+    pub fn cutting_rope(n: i32) -> i32 {
         if n < 4 {
             return n - 1;
         }
-        let mut res = 1;
-        while n > 4 {
-            res *= 3;
-            n -= 3;
-        }
-        res * n
+        let count = (n - 2) / 3;
+        3i32.pow(count as u32) * (n - count * 3)
     }
 }
 ```
@@ -161,13 +239,13 @@ public class Solution {
         if (n < 4) {
             return n - 1;
         }
-        int ans = 1;
-        while (n > 4) {
-            ans *= 3;
-            n -= 3;
+        if (n % 3 == 0) {
+            return (int) Math.Pow(3, n / 3);
         }
-        ans *= n;
-        return ans;
+        if (n % 3 == 1) {
+            return (int) Math.Pow(3, n / 3 - 1) * 4;
+        }
+        return (int) Math.Pow(3, n / 3) * 2;
     }
 }
 ```

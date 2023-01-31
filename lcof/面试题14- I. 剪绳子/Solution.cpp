@@ -1,13 +1,15 @@
 class Solution {
 public:
     int cuttingRope(int n) {
-        vector<int> dp(n + 1);
-        dp[0] = 1;
-        for (int i = 1; i < n; ++i) {
-            for (int j = i; j <= n; ++j) {
-                dp[j] = max(dp[j], dp[j - i] * i);
-            }
+        if (n < 4) {
+            return n - 1;
         }
-        return dp[n];
+        if (n % 3 == 0) {
+            return pow(3, n / 3);
+        }
+        if (n % 3 == 1) {
+            return pow(3, n / 3 - 1) * 4;
+        }
+        return pow(3, n / 3) * 2;
     }
 };
