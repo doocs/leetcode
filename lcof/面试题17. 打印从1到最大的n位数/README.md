@@ -21,6 +21,14 @@
 
 ## 解法
 
+**方法一：模拟**
+
+直接根据题意模拟即可。
+
+时间复杂度 $O(10^n)$，空间复杂度 $O(1)$。
+
+如果 $n$ 的值比较大，那么直接使用整数会溢出，因此可以使用字符串来模拟，参考以下代码中的 `print()` 函数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -28,7 +36,25 @@
 ```python
 class Solution:
     def printNumbers(self, n: int) -> List[int]:
-        return [i for i in range(1, 10**n)]
+        return list(range(1, 10**n))
+
+    def print(self, n: int) -> List[str]:
+        def dfs(i, j):
+            if i == j:
+                ans.append("".join(s))
+                return
+            k = 0 if i else 1
+            while k < 10:
+                s.append(str(k))
+                dfs(i + 1, j)
+                s.pop()
+                k += 1
+
+        ans = []
+        s = []
+        for i in range(1, n + 1):
+            dfs(0, i)
+        return ans
 ```
 
 ### **Java**
@@ -36,13 +62,108 @@ class Solution:
 ```java
 class Solution {
     public int[] printNumbers(int n) {
-        n = (int) Math.pow(10, n) - 1;
-        int[] res = new int[n];
-        for (int i = 0; i < n; ++i) {
-            res[i] = i + 1;
+        int[] ans = new int[(int) Math.pow(10, n) - 1];
+        for (int i = 0; i < ans.length; ++i) {
+            ans[i] = i + 1;
         }
-        return res;
+        return ans;
     }
+
+    private StringBuilder s = new StringBuilder();
+    private List<String> ans = new ArrayList<>();
+
+    public List<String> print(int n) {
+        for (int i = 1; i <= n; ++i) {
+            dfs(0, i);
+        }
+        return ans;
+    }
+
+    private void dfs(int i, int j) {
+        if (i == j) {
+            ans.add(s.toString());
+            return;
+        }
+        int k = i > 0 ? 0 : 1;
+        for (; k < 10; ++k) {
+            s.append(k);
+            dfs(i + 1, j);
+            s.deleteCharAt(s.length() - 1);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> printNumbers(int n) {
+        vector<int> ans(pow(10, n) - 1);
+        iota(ans.begin(), ans.end(), 1);
+        return ans;
+    }
+
+    vector<string> print(int n) {
+        vector<string> ans;
+        string s;
+        function<void(int, int)> dfs = [&](int i, int j) {
+            if (i == j) {
+                ans.push_back(s);
+                return;
+            }
+            int k = i ? 0 : 1;
+            for (; k < 10; ++k) {
+                s.push_back(k + '0');
+                dfs(i + 1, j);
+                s.pop_back();
+            }
+        };
+        for (int i = 1; i <= n; ++i) {
+            dfs(0, i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func printNumbers(n int) []int {
+	n = int(math.Pow(10, float64(n))) - 1
+	ans := make([]int, n)
+	for i := range ans {
+		ans[i] = i + 1
+	}
+	return ans
+}
+
+func print(n int) []string {
+	var dfs func(i, j int)
+	s := []byte{}
+	ans := []string{}
+	dfs = func(i, j int) {
+		if i == j {
+			ans = append(ans, string(s))
+			return
+		}
+		k := 0
+		if i == 0 {
+			k++
+		}
+		for k < 10 {
+			s = append(s, byte('0'+k))
+			dfs(i+1, j)
+			s = s[:len(s)-1]
+			k++
+		}
+	}
+	for i := 1; i <= n; i++ {
+		dfs(0, i)
+	}
+	return ans
 }
 ```
 
@@ -59,51 +180,6 @@ var printNumbers = function (n) {
         res.push(i);
     }
     return res;
-};
-```
-
-### **Go**
-
-```go
-func printNumbers(n int) []int {
-    d := 10
-    for i := 1; i < n; i++ {
-        d *= 10
-    }
-    res := make([]int, d - 1)
-    for i := 1; i < d; i++ {
-        res[i - 1] = i
-    }
-    return res
-}
-```
-
-### **C++**
-
-假设 `n` 很大，则需要用 dfs 枚举，并且返回字符串
-
-```cpp
-class Solution {
-public:
-    vector<int> printNumbers(int n) {
-        vector<int> ans;
-        string s;
-        dfs(ans, s, 0, n);
-        return ans;
-    }
-
-    void dfs(vector<int>& ans, string& s, int k, int n) {
-        if (k == n) {
-            int num = atoi(s.c_str());
-            if (num) ans.push_back(num);
-            return;
-        }
-        for (int i = 0; i <= 9; ++i) {
-            s += i + '0';
-            dfs(ans, s, k + 1, n);
-            s.pop_back();
-        }
-    }
 };
 ```
 
