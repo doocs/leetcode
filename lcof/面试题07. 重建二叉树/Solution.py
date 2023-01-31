@@ -8,11 +8,15 @@
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        if not preorder:
-            return None
-        v = preorder[0]
-        root = TreeNode(val=v)
-        i = inorder.index(v)
-        root.left = self.buildTree(preorder[1 : 1 + i], inorder[:i])
-        root.right = self.buildTree(preorder[1 + i :], inorder[i + 1 :])
-        return root
+        def dfs(i, j, n):
+            if n < 1:
+                return None
+            root = TreeNode(preorder[i])
+            k = d[preorder[i]]
+            l = k - j
+            root.left = dfs(i + 1, j, l)
+            root.right = dfs(i + 1 + l, k + 1, n - l - 1)
+            return root
+
+        d = {v: i for i, v in enumerate(inorder)}
+        return dfs(0, 0, len(preorder))

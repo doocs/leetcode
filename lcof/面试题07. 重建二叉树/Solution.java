@@ -8,24 +8,29 @@
  * }
  */
 class Solution {
-    private Map<Integer, Integer> indexes = new HashMap<>();
+    private Map<Integer, Integer> d = new HashMap<>();
+    private int[] preorder;
+    private int[] inorder;
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        for (int i = 0; i < inorder.length; ++i) {
-            indexes.put(inorder[i], i);
+        int n = inorder.length;
+        for (int i = 0; i < n; ++i) {
+            d.put(inorder[i], i);
         }
-        return dfs(preorder, inorder, 0, 0, preorder.length);
+        this.preorder = preorder;
+        this.inorder = inorder;
+        return dfs(0, 0, n);
     }
 
-    private TreeNode dfs(int[] preorder, int[] inorder, int i, int j, int n) {
-        if (n <= 0) {
+    private TreeNode dfs(int i, int j, int n) {
+        if (n < 1) {
             return null;
         }
-        int v = preorder[i];
-        int k = indexes.get(v);
-        TreeNode root = new TreeNode(v);
-        root.left = dfs(preorder, inorder, i + 1, j, k - j);
-        root.right = dfs(preorder, inorder, i + 1 + k - j, k + 1, n - k + j - 1);
+        int k = d.get(preorder[i]);
+        int l = k - j;
+        TreeNode root = new TreeNode(preorder[i]);
+        root.left = dfs(i + 1, j, l);
+        root.right = dfs(i + 1 + l, k + 1, n - l - 1);
         return root;
     }
 }

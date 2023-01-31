@@ -11,11 +11,21 @@
  * @return {TreeNode}
  */
 var buildTree = function (preorder, inorder) {
-    if (preorder.length == 0) return null;
-    const v = preorder[0];
-    const root = new TreeNode(v);
-    const i = inorder.indexOf(v);
-    root.left = buildTree(preorder.slice(1, 1 + i), inorder.slice(0, i));
-    root.right = buildTree(preorder.slice(1 + i), inorder.slice(1 + i));
-    return root;
+    const d = new Map();
+    const n = inorder.length;
+    for (let i = 0; i < n; ++i) {
+        d.set(inorder[i], i);
+    }
+    const dfs = (i, j, n) => {
+        if (n < 1) {
+            return null;
+        }
+        const k = d.get(preorder[i]);
+        const l = k - j;
+        const root = new TreeNode(preorder[i]);
+        root.left = dfs(i + 1, j, l);
+        root.right = dfs(i + 1 + l, k + 1, n - l - 1);
+        return root;
+    };
+    return dfs(0, 0, n);
 };

@@ -34,15 +34,19 @@
 
 ## 解法
 
-前序序列的第一个结点 `preorder[0]` 为根节点，我们在中序序列中找到根节点的位置 `i`，可以将中序序列划分为左子树 `inorder[:i]` 和右子树 `inorder[i + 1:]`。
+**方法一：哈希表 + 递归**
 
-通过左右子树的区间，可以计算出左、右子树节点的个数，假设为 m、n。然后在前序节点中，从根节点往后的 m 个节点为左子树，再往后的 n 个节点为右子树。
+由于我们每一次都需要在中序序列中找到根节点的位置，因此我们可以使用哈希表 $d$ 来存储中序序列的值和索引，这样可以将查找的时间复杂度降低到 $O(1)$。
 
-递归求解即可。
+接下来，我们设计一个递归函数 $dfs(i, j, n)$，表示在前序序列中，从第 $i$ 个节点开始的 $n$ 个节点，对应的中序序列中，从第 $j$ 个节点开始的 $n$ 个节点，构造出的二叉树。
 
-> 前序遍历：先遍历根节点，再遍历左子树，最后遍历右子树；
->
-> 中序遍历：先遍历左子树，再遍历根节点，最后遍历右子树。
+函数 $dfs(i, j, n)$ 的执行过程如下：
+
+如果 $n = 0$，说明已经没有节点了，返回 $null$；
+
+否则，我们取前序序列的第 $i$ 个节点作为根节点，创建一个树节点，即 `root = new TreeNode(preorder[i])`，然后我们在中序序列中找到根节点的位置，记为 $k$，则根节点左边的 $k - j$ 个节点为左子树，右边的 $n - k + j - 1$ 个节点为右子树。递归地调用函数 $dfs(i + 1, j, k - j)$ 构造左子树，调用函数 $dfs(i + k - j + 1, k + 1, n - k + j - 1)$ 构造右子树。最后返回根节点 `root`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -59,14 +63,18 @@
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        if not preorder:
-            return None
-        v = preorder[0]
-        root = TreeNode(val=v)
-        i = inorder.index(v)
-        root.left = self.buildTree(preorder[1 : 1 + i], inorder[:i])
-        root.right = self.buildTree(preorder[1 + i :], inorder[i + 1 :])
-        return root
+        def dfs(i, j, n):
+            if n < 1:
+                return None
+            root = TreeNode(preorder[i])
+            k = d[preorder[i]]
+            l = k - j
+            root.left = dfs(i + 1, j, l)
+            root.right = dfs(i + 1 + l, k + 1, n - l - 1)
+            return root
+
+        d = {v: i for i, v in enumerate(inorder)}
+        return dfs(0, 0, len(preorder))
 ```
 
 ### **Java**
@@ -82,26 +90,99 @@ class Solution:
  * }
  */
 class Solution {
-    private Map<Integer, Integer> indexes = new HashMap<>();
+    private Map<Integer, Integer> d = new HashMap<>();
+    private int[] preorder;
+    private int[] inorder;
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        for (int i = 0; i < inorder.length; ++i) {
-            indexes.put(inorder[i], i);
+        int n = inorder.length;
+        for (int i = 0; i < n; ++i) {
+            d.put(inorder[i], i);
         }
-        return dfs(preorder, inorder, 0, 0, preorder.length);
+        this.preorder = preorder;
+        this.inorder = inorder;
+        return dfs(0, 0, n);
     }
 
-    private TreeNode dfs(int[] preorder, int[] inorder, int i, int j, int n) {
-        if (n <= 0) {
+    private TreeNode dfs(int i, int j, int n) {
+        if (n < 1) {
             return null;
         }
-        int v = preorder[i];
-        int k = indexes.get(v);
-        TreeNode root = new TreeNode(v);
-        root.left = dfs(preorder, inorder, i + 1, j, k - j);
-        root.right = dfs(preorder, inorder, i + 1 + k - j, k + 1, n - k + j - 1);
+        int k = d.get(preorder[i]);
+        int l = k - j;
+        TreeNode root = new TreeNode(preorder[i]);
+        root.left = dfs(i + 1, j, l);
+        root.right = dfs(i + 1 + l, k + 1, n - l - 1);
         return root;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        unordered_map<int, int> d;
+        int n = inorder.size();
+        for (int i = 0; i < n; ++i) {
+            d[inorder[i]] = i;
+        }
+        function<TreeNode*(int, int, int)> dfs = [&](int i, int j, int n) -> TreeNode* {
+            if (n < 1) {
+                return nullptr;
+            }
+            int k = d[preorder[i]];
+            int l = k - j;
+            TreeNode* root = new TreeNode(preorder[i]);
+            root->left = dfs(i + 1, j, l);
+            root->right = dfs(i + 1 + l, k + 1, n - l - 1);
+            return root;
+        };
+        return dfs(0, 0, n);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func buildTree(preorder []int, inorder []int) *TreeNode {
+	d := map[int]int{}
+	for i, v := range inorder {
+		d[v] = i
+	}
+	var dfs func(i, j, n int) *TreeNode
+	dfs = func(i, j, n int) *TreeNode {
+		if n < 1 {
+			return nil
+		}
+		k := d[preorder[i]]
+		l := k - j
+		root := &TreeNode{Val: preorder[i]}
+		root.Left = dfs(i+1, j, l)
+		root.Right = dfs(i+1+l, k+1, n-l-1)
+		return root
+	}
+	return dfs(0, 0, len(inorder))
 }
 ```
 
@@ -121,78 +202,23 @@ class Solution {
  * @return {TreeNode}
  */
 var buildTree = function (preorder, inorder) {
-    if (preorder.length == 0) return null;
-    const v = preorder[0];
-    const root = new TreeNode(v);
-    const i = inorder.indexOf(v);
-    root.left = buildTree(preorder.slice(1, 1 + i), inorder.slice(0, i));
-    root.right = buildTree(preorder.slice(1 + i), inorder.slice(1 + i));
-    return root;
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func buildTree(preorder []int, inorder []int) *TreeNode {
-	indexes := make(map[int]int)
-	for i, v := range inorder {
-		indexes[v] = i
-	}
-	var dfs func(i, j, n int) *TreeNode
-	dfs = func(i, j, n int) *TreeNode {
-		if n <= 0 {
-			return nil
-		}
-		v := preorder[i]
-		k := indexes[v]
-		root := &TreeNode{Val: v}
-		root.Left = dfs(i+1, j, k-j)
-		root.Right = dfs(i+1+k-j, k+1, n-k+j-1)
-		return root
-	}
-	return dfs(0, 0, len(inorder))
-}
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    unordered_map<int, int> indexes;
-
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        for (int i = 0; i < inorder.size(); ++i) indexes[inorder[i]] = i;
-        return dfs(preorder, inorder, 0, 0, inorder.size());
+    const d = new Map();
+    const n = inorder.length;
+    for (let i = 0; i < n; ++i) {
+        d.set(inorder[i], i);
     }
-
-    TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int i, int j, int n) {
-        if (n <= 0) return nullptr;
-        int v = preorder[i];
-        int k = indexes[v];
-        TreeNode* root = new TreeNode(v);
-        root->left = dfs(preorder, inorder, i + 1, j, k - j);
-        root->right = dfs(preorder, inorder, i + 1 + k - j, k + 1, n - k + j - 1);
+    const dfs = (i, j, n) => {
+        if (n < 1) {
+            return null;
+        }
+        const k = d.get(preorder[i]);
+        const l = k - j;
+        const root = new TreeNode(preorder[i]);
+        root.left = dfs(i + 1, j, l);
+        root.right = dfs(i + 1 + l, k + 1, n - l - 1);
         return root;
-    }
+    };
+    return dfs(0, 0, n);
 };
 ```
 
@@ -214,16 +240,23 @@ public:
  */
 
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
-    if (preorder.length == 0) return null;
-    let val: number = preorder[0];
-    let node: TreeNode = new TreeNode(val);
-    let index: number = inorder.indexOf(val);
-    node.left = buildTree(
-        preorder.slice(1, index + 1),
-        inorder.slice(0, index),
-    );
-    node.right = buildTree(preorder.slice(index + 1), inorder.slice(index + 1));
-    return node;
+    const d = new Map<number, number>();
+    const n = inorder.length;
+    for (let i = 0; i < n; ++i) {
+        d.set(inorder[i], i);
+    }
+    const dfs = (i: number, j: number, n: number): TreeNode | null => {
+        if (n < 1) {
+            return null;
+        }
+        const k = d.get(preorder[i]) ?? 0;
+        const l = k - j;
+        const root = new TreeNode(preorder[i]);
+        root.left = dfs(i + 1, j, l);
+        root.right = dfs(i + 1 + l, k + 1, n - l - 1);
+        return root;
+    };
+    return dfs(0, 0, n);
 }
 ```
 

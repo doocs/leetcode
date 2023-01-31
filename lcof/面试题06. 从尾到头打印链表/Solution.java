@@ -13,9 +13,8 @@ class Solution {
             stk.push(head.val);
         }
         int[] ans = new int[stk.size()];
-        int i = 0;
-        while (!stk.isEmpty()) {
-            ans[i++] = stk.pop();
+        for (int i = 0; !stk.isEmpty(); ++i) {
+            ans[i] = stk.pop();
         }
         return ans;
     }
