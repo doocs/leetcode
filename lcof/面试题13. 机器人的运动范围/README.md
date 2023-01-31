@@ -27,30 +27,13 @@
 
 ## 解法
 
-此题一大误区是：遍历所有单元格，按照公式计算是否可进入，并记录可进入的方格数量。
+**方法一：DFS + 哈希表**
 
-因为部分方格在公式上属于可进入，但不在机器人运动范围当中，进入一方格的前提条件是能够抵达相邻方格当中。
+由于部分单元格不可达，因此，我们不能直接枚举所有坐标点 $(i, j)$ 进行判断，而是应该从起点 $(0, 0)$ 出发，搜索所有可达的节点，记录答案。
 
-而后，条件限制只能从 `(0,0)` 起步，对此，只需要关注方格的下方与右方即可。
+过程中，为了避免重复搜索同一个单元格，我们可以使用数组或哈希表记录所有访问过的节点。
 
-**流程**：
-
-1. `(0,0)` 开始。
-
-2. 根据公式判断 `(i, j)` 是否可进入：
-
-    - 可进入，并继续往右 `(i, j + 1)` 往下 `(i + 1, j)` 重新执行流程 2。
-    - 不可进入，退出结算。
-
-3. 计算可进入区域的数量，返回即可。
-
-**剪枝**：
-
-对于已进入的方格，需要防止多次进入，否则会导致指数级耗时。
-
-在确定方格可进入后，给方格加上标记。判断一个方格可进入之前，先查看是否存在对应的标记，存在标记时及时退出。
-
-记录方式不限数组与哈希表。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为方格的行数和列数。
 
 <!-- tabs:start -->
 
@@ -59,22 +42,89 @@
 ```python
 class Solution:
     def movingCount(self, m: int, n: int, k: int) -> int:
+        def f(x):
+            s = 0
+            while x:
+                s += x % 10
+                x //= 10
+            return s
+
         def dfs(i, j):
-            if (
-                i >= m
-                or j >= n
-                or vis[i][j]
-                or (i % 10 + i // 10 + j % 10 + j // 10) > k
-            ):
+            vis.add((i, j))
+            nonlocal ans
+            ans += 1
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and f(x) + f(y) <= k and (x, y) not in vis:
+                    dfs(x, y)
+
+        vis = set()
+        ans = 0
+        dirs = (0, 1, 0)
+        dfs(0, 0)
+        return ans
+```
+
+```python
+class Solution:
+    def movingCount(self, m: int, n: int, k: int) -> int:
+        def f(x):
+            s = 0
+            while x:
+                s += x % 10
+                x //= 10
+            return s
+
+        def dfs(i, j):
+            if not (0 <= i < m) or not (0 <= j < n) or f(i) + f(j) > k or (i, j) in vis:
                 return 0
-            vis[i][j] = True
+            vis.add((i, j))
             return 1 + dfs(i + 1, j) + dfs(i, j + 1)
 
-        vis = [[False] * n for _ in range(m)]
+        vis = set()
         return dfs(0, 0)
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    private boolean[][] vis;
+    private int m;
+    private int n;
+    private int k;
+    private int ans;
+
+    public int movingCount(int m, int n, int k) {
+        this.m = m;
+        this.n = n;
+        this.k = k;
+        vis = new boolean[m][n];
+        dfs(0, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int j) {
+        vis[i][j] = true;
+        ++ans;
+        int[] dirs = {1, 0, 1};
+        for (int l = 0; l < 2; ++l) {
+            int x = i + dirs[l], y = j + dirs[l + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && f(x) + f(y) <= k && !vis[x][y]) {
+                dfs(x, y);
+            }
+        }
+    }
+
+    private int f(int x) {
+        int s = 0;
+        for (; x > 0; x /= 10) {
+            s += x % 10;
+        }
+        return s;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -98,6 +148,114 @@ class Solution {
         vis[i][j] = true;
         return 1 + dfs(i + 1, j) + dfs(i, j + 1);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int movingCount(int m, int n, int k) {
+        bool vis[m][n];
+        memset(vis, false, sizeof vis);
+        int ans = 0;
+        int dirs[3] = {1, 0, 1};
+        auto f = [](int x) {
+            int s = 0;
+            for (; x; x /= 10) {
+                s += x % 10;
+            }
+            return s;
+        };
+        function<void(int i, int j)> dfs = [&](int i, int j) {
+            vis[i][j] = true;
+            ++ans;
+            for (int l = 0; l < 2; ++l) {
+                int x = i + dirs[l], y = j + dirs[l + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && f(x) + f(y) <= k && !vis[x][y]) {
+                    dfs(x, y);
+                }
+            }
+        };
+        dfs(0, 0);
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int movingCount(int m, int n, int k) {
+        bool vis[m][n];
+        memset(vis, false, sizeof vis);
+        auto f = [](int x) {
+            int s = 0;
+            for (; x; x /= 10) {
+                s += x % 10;
+            }
+            return s;
+        };
+        function<int(int i, int j)> dfs = [&](int i, int j) -> int {
+            if (i < 0 || i >= m || j < 0 || j >= n || vis[i][j] || f(i) + f(j) > k) {
+                return false;
+            }
+            vis[i][j] = true;
+            return 1 + dfs(i + 1, j) + dfs(i, j + 1);
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func movingCount(m int, n int, k int) int {
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= m || j >= n || vis[i][j] || (i%10+i/10+j%10+j/10) > k {
+			return 0
+		}
+		vis[i][j] = true
+		return 1 + dfs(i+1, j) + dfs(i, j+1)
+	}
+	return dfs(0, 0)
+}
+```
+
+```go
+func movingCount(m int, n int, k int) (ans int) {
+	f := func(x int) (s int) {
+		for ; x > 0; x /= 10 {
+			s += x % 10
+		}
+		return
+	}
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
+	}
+
+	dirs := [3]int{1, 0, 1}
+	var dfs func(i, j int)
+	dfs = func(i, j int) {
+		vis[i][j] = true
+		ans++
+		for l := 0; l < 2; l++ {
+			x, y := i+dirs[l], j+dirs[l+1]
+			if x >= 0 && x < m && y >= 0 && y < n && f(x)+f(y) <= k && !vis[x][y] {
+				dfs(x, y)
+			}
+		}
+	}
+	dfs(0, 0)
+	return
 }
 ```
 
@@ -125,52 +283,6 @@ var movingCount = function (m, n, k) {
         return 1 + dfs(i + 1, j) + dfs(i, j + 1);
     };
     return dfs(0, 0);
-};
-```
-
-### **Go**
-
-```go
-func movingCount(m int, n int, k int) int {
-	vis := make([][]bool, m)
-	for i := range vis {
-		vis[i] = make([]bool, n)
-	}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) int {
-		if i >= m || j >= n || vis[i][j] || (i%10+i/10+j%10+j/10) > k {
-			return 0
-		}
-		vis[i][j] = true
-		return 1 + dfs(i+1, j) + dfs(i, j+1)
-	}
-	return dfs(0, 0)
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int m;
-    int n;
-    int k;
-    vector<vector<bool>> vis;
-
-    int movingCount(int m, int n, int k) {
-        this->m = m;
-        this->n = n;
-        this->k = k;
-        vis.resize(m, vector<bool>(n, false));
-        return dfs(0, 0);
-    }
-
-    int dfs(int i, int j) {
-        if (i >= m || j >= n || vis[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) return 0;
-        vis[i][j] = true;
-        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
-    }
 };
 ```
 
