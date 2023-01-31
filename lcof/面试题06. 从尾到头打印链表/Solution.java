@@ -8,15 +8,14 @@
  */
 class Solution {
     public int[] reversePrint(ListNode head) {
-        if (head == null) {
-            return new int[] {};
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (; head != null; head = head.next) {
+            stk.push(head.val);
         }
-        int n = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next, ++n)
-            ;
-        int[] ans = new int[n];
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            ans[--n] = cur.val;
+        int[] ans = new int[stk.size()];
+        int i = 0;
+        while (!stk.isEmpty()) {
+            ans[i++] = stk.pop();
         }
         return ans;
     }
