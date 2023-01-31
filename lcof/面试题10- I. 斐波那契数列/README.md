@@ -38,7 +38,11 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.</pre>
 
 ## 解法
 
-递推求解。
+**方法一：递推**
+
+我们定义初始项 $a=0$, $b=1$，接下来执行 $n$ 次循环，每次循环中，计算 $c=a+b$，并更新 $a=b$, $b=c$，循环 $n$ 次后，答案即为 $a$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为输入的整数。
 
 <!-- tabs:start -->
 
@@ -49,8 +53,8 @@ class Solution:
     def fib(self, n: int) -> int:
         a, b = 0, 1
         for _ in range(n):
-            a, b = b, a + b
-        return a % 1000000007
+            a, b = b, (a + b) % 1000000007
+        return a
 ```
 
 ### **Java**
@@ -59,7 +63,7 @@ class Solution:
 class Solution {
     public int fib(int n) {
         int a = 0, b = 1;
-        for (int i = 0; i < n; ++i) {
+        while (n-- > 0) {
             int c = (a + b) % 1000000007;
             a = b;
             b = c;
@@ -76,32 +80,13 @@ class Solution {
 public:
     int fib(int n) {
         int a = 0, b = 1;
-        for (int i = 0; i < n; ++i) {
+        while (n--) {
             int c = (a + b) % 1000000007;
             a = b;
             b = c;
         }
         return a;
     }
-};
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var fib = function (n) {
-    let a = 0,
-        b = 1;
-    for (let i = 0; i < n; ++i) {
-        const c = (a + b) % (1e9 + 7);
-        a = b;
-        b = c;
-    }
-    return a;
 };
 ```
 
@@ -115,6 +100,23 @@ func fib(n int) int {
 	}
 	return a
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var fib = function (n) {
+    let a = 0;
+    let b = 1;
+    while (n--) {
+        [a, b] = [b, (a + b) % (1e9 + 7)];
+    }
+    return a;
+};
 ```
 
 ### **TypeScript**

@@ -35,7 +35,13 @@
 
 ## 解法
 
-青蛙想上第 `n` 级台阶，可从第 `n-1` 级台阶跳一级上去，也可从第 `n-2` 级台阶跳两级上去，即：`f(n) = f(n-1) + f(n-2)`。递推求解即可。
+**方法一：递推**
+
+青蛙想上第 $n$ 级台阶，可从第 $n-1$ 级台阶跳一级上去，也可从第 $n-2$ 级台阶跳两级上去，即 $f(n) = f(n-1) + f(n-2)$。这实际上可以转换为斐波那契数列的问题。
+
+我们定义初始项 $a=1$, $b=1$，接下来执行 $n$ 次循环，每次循环中，计算 $c=a+b$，并更新 $a=b$, $b=c$，循环 $n$ 次后，答案即为 $a$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为输入的整数。
 
 <!-- tabs:start -->
 
@@ -44,10 +50,10 @@
 ```python
 class Solution:
     def numWays(self, n: int) -> int:
-        a, b = 0, 1
+        a = b = 1
         for _ in range(n):
-            a, b = b, a + b
-        return b % 1000000007
+            a, b = b, (a + b) % 1000000007
+        return a
 ```
 
 ### **Java**
@@ -55,13 +61,13 @@ class Solution:
 ```java
 class Solution {
     public int numWays(int n) {
-        int a = 0, b = 1;
-        for (int i = 0; i < n; ++i) {
+        int a = 1, b = 1;
+        while (n-- > 0) {
             int c = (a + b) % 1000000007;
             a = b;
             b = c;
         }
-        return b;
+        return a;
     }
 }
 ```
@@ -72,15 +78,27 @@ class Solution {
 class Solution {
 public:
     int numWays(int n) {
-        int a = 0, b = 1;
-        for (int i = 0; i < n; ++i) {
+        int a = 1, b = 1;
+        while (n--) {
             int c = (a + b) % 1000000007;
             a = b;
             b = c;
         }
-        return b;
+        return a;
     }
 };
+```
+
+### **Go**
+
+```go
+func numWays(n int) int {
+	a, b := 1, 1
+	for i := 0; i < n; i++ {
+		a, b = b, (a+b)%1000000007
+	}
+	return a
+}
 ```
 
 ### **JavaScript**
@@ -91,27 +109,12 @@ public:
  * @return {number}
  */
 var numWays = function (n) {
-    let a = 0,
-        b = 1;
-    for (let i = 0; i < n; ++i) {
-        const c = (a + b) % (1e9 + 7);
-        a = b;
-        b = c;
+    let a = (b = 1);
+    while (n--) {
+        [a, b] = [b, (a + b) % (1e9 + 7)];
     }
-    return b;
+    return a;
 };
-```
-
-### **Go**
-
-```go
-func numWays(n int) int {
-    a, b := 0, 1
-    for i := 0; i < n; i++ {
-        a, b = b, (a + b) % 1000000007
-    }
-    return b
-}
 ```
 
 ### **TypeScript**
