@@ -9,12 +9,12 @@
 public class Solution {
     public ListNode GetKthFromEnd(ListNode head, int k) {
         ListNode fast = head, slow = head;
-        while (fast != null) {
+        while (k-- > 0) {
             fast = fast.next;
-            k -= 1;
-            if (k < 0) {
-                slow = slow.next;
-            }
+        }
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
         return slow;
     }

@@ -17,9 +17,13 @@
 
 ## 解法
 
-定义快慢指针 `slow`、`fast`，初始指向 `head`。
+**方法一：快慢指针**
 
-`fast` 先向前走 `k` 步，接着 `slow`、`fast` 同时向前走，当 `fast` 指向 `null` 时，`slow` 指向的节点即为链表的倒数第 `k` 个节点。
+我们可以定义快慢指针 `fast` 和 `slow`，初始时均指向 `head`。
+
+然后快指针 `fast` 先向前走 $k$ 步，然后快慢指针同时向前走，直到快指针走到链表尾部，此时慢指针指向的节点就是倒数第 $k$ 个节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表长度。
 
 <!-- tabs:start -->
 
@@ -39,8 +43,7 @@ class Solution:
         for _ in range(k):
             fast = fast.next
         while fast:
-            slow = slow.next
-            fast = fast.next
+            slow, fast = slow.next, fast.next
         return slow
 ```
 
@@ -70,63 +73,17 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {ListNode} head
- * @param {number} k
- * @return {ListNode}
- */
-var getKthFromEnd = function (head, k) {
-    // 递归
-    // let cnt = 1
-    // function func(node) {
-    //     if(!node || !node.next) return node
-    //     let newNode = func(node.next)
-    //     if(cnt === k) return newNode
-    //     else cnt++
-    //     return node
-    // }
-    // return func(head)
-
-    // 快慢指针
-    let slow = head;
-    let fast = head;
-    while (k) {
-        fast = fast.next;
-        k--;
-    }
-    while (fast) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    return slow;
-};
-```
-
-### **Go**
-
-```go
-func getKthFromEnd(head *ListNode, k int) *ListNode {
-    tmp := head
-    for tmp != nil && k > 0{
-        tmp = tmp.Next
-        k--
-    }
-    slow := head
-    fast := tmp
-    for fast != nil {
-        fast = fast.Next
-        slow = slow.Next
-    }
-    return slow
-}
-```
-
 ### **C++**
 
 ```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
     ListNode* getKthFromEnd(ListNode* head, int k) {
@@ -140,6 +97,57 @@ public:
         }
         return slow;
     }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getKthFromEnd(head *ListNode, k int) *ListNode {
+	slow, fast := head, head
+	for ; k > 0; k-- {
+		fast = fast.Next
+	}
+	for fast != nil {
+		slow, fast = slow.Next, fast.Next
+	}
+	return slow
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+var getKthFromEnd = function (head, k) {
+    let fast = head;
+    while (k--) {
+        fast = fast.next;
+    }
+    let slow = head;
+    while (fast) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    return slow;
 };
 ```
 
@@ -192,12 +200,12 @@ impl Solution {
 public class Solution {
     public ListNode GetKthFromEnd(ListNode head, int k) {
         ListNode fast = head, slow = head;
-        while (fast != null) {
+        while (k-- > 0) {
             fast = fast.next;
-            k -= 1;
-            if (k < 0) {
-                slow = slow.next;
-            }
+        }
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
         return slow;
     }
