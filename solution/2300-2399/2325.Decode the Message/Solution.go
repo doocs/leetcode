@@ -1,18 +1,15 @@
 func decodeMessage(key string, message string) string {
-	d := map[rune]byte{}
+	d := [128]byte{}
 	d[' '] = ' '
-	i := 0
-	lowcase := "abcdefghijklmnopqrstuvwxyz"
-	for _, c := range key {
-		if _, ok := d[c]; ok {
-			continue
+	for i, j := 0, 0; i < len(key); i++ {
+		if d[key[i]] == 0 {
+			d[key[i]] = byte('a' + j)
+			j++
 		}
-		d[c] = lowcase[i]
-		i++
 	}
-	var ans []byte
-	for _, c := range message {
-		ans = append(ans, d[c])
+	ans := make([]byte, len(message))
+	for i, c := range message {
+		ans[i] = d[c]
 	}
 	return string(ans)
 }

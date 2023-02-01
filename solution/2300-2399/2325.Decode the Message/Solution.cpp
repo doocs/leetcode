@@ -1,16 +1,18 @@
 class Solution {
 public:
     string decodeMessage(string key, string message) {
-        unordered_map<char, char> d;
+        char d[128]{};
         d[' '] = ' ';
-        int i = 0;
-        string lowcase = "abcdefghijklmnopqrstuvwxyz";
-        for (char c : key) {
-            if (d.count(c)) continue;
-            d[c] = lowcase[i]++;
+        char i = 'a';
+        for (char& c : key) {
+            if (!d[c]) {
+                d[c] = i++;
+            }
         }
         string ans;
-        for (char c : message) ans.push_back(d[c]);
+        for (char& c : message) {
+            ans += d[c];
+        }
         return ans;
     }
 };

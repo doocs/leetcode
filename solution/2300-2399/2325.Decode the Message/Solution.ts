@@ -1,17 +1,16 @@
 function decodeMessage(key: string, message: string): string {
-    let decodeMap = new Map();
-    const m = key.length,
-        n = 26;
+    let d = new Map<string, string>();
+    d.set(' ', ' ');
+    const m = key.length;
     for (let i = 0, j = 0; i < m; i++) {
-        let char = key.charAt(i);
-        if (char != ' ' && !decodeMap.has(char)) {
-            decodeMap.set(char, String.fromCharCode(j + 97));
-            j++;
+        const c = key.charAt(i);
+        if (c != ' ' && !d.has(c)) {
+            d.set(c, String.fromCharCode(97 + j++));
         }
     }
-    let ans = [];
-    for (let char of message) {
-        ans.push(char == ' ' ? ' ' : decodeMap.get(char));
+    const ans: string[] = [];
+    for (const c of message) {
+        ans.push(d.get(c) ?? c);
     }
     return ans.join('');
 }

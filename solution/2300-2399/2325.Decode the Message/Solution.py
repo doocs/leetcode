@@ -3,8 +3,7 @@ class Solution:
         d = {" ": " "}
         i = 0
         for c in key:
-            if c in d:
-                continue
-            d[c] = ascii_lowercase[i]
-            i += 1
+            if c not in d:
+                d[c] = ascii_lowercase[i]
+                i += 1
         return "".join(d[c] for c in message)

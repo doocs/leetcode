@@ -61,10 +61,9 @@ class Solution:
         d = {" ": " "}
         i = 0
         for c in key:
-            if c in d:
-                continue
-            d[c] = ascii_lowercase[i]
-            i += 1
+            if c not in d:
+                d[c] = ascii_lowercase[i]
+                i += 1
         return "".join(d[c] for c in message)
 ```
 
@@ -73,19 +72,17 @@ class Solution:
 ```java
 class Solution {
     public String decodeMessage(String key, String message) {
-        Map<Character, Character> d = new HashMap<>();
-        String lowcase = "abcdefghijklmnopqrstuvwxyz";
-        d.put(' ', ' ');
-        int i = 0;
-        for (char c : key.toCharArray()) {
-            if (d.containsKey(c)) {
-                continue;
+        char[] d = new char[128];
+        d[' '] = ' ';
+        for (int i = 0, j = 0; i < key.length(); ++i) {
+            char c = key.charAt(i);
+            if (d[c] == 0) {
+                d[c] = (char) ('a' + j++);
             }
-            d.put(c, lowcase.charAt(i++));
         }
         StringBuilder ans = new StringBuilder();
-        for (char c : message.toCharArray()) {
-            ans.append(d.get(c));
+        for (int i = 0; i < message.length(); ++i) {
+            ans.append(d[message.charAt(i)]);
         }
         return ans.toString();
     }
@@ -98,16 +95,18 @@ class Solution {
 class Solution {
 public:
     string decodeMessage(string key, string message) {
-        unordered_map<char, char> d;
+        char d[128]{};
         d[' '] = ' ';
-        int i = 0;
-        string lowcase = "abcdefghijklmnopqrstuvwxyz";
-        for (char c : key) {
-            if (d.count(c)) continue;
-            d[c] = lowcase[i]++;
+        char i = 'a';
+        for (char& c : key) {
+            if (!d[c]) {
+                d[c] = i++;
+            }
         }
         string ans;
-        for (char c : message) ans.push_back(d[c]);
+        for (char& c : message) {
+            ans += d[c];
+        }
         return ans;
     }
 };
@@ -117,20 +116,17 @@ public:
 
 ```go
 func decodeMessage(key string, message string) string {
-	d := map[rune]byte{}
+	d := [128]byte{}
 	d[' '] = ' '
-	i := 0
-	lowcase := "abcdefghijklmnopqrstuvwxyz"
-	for _, c := range key {
-		if _, ok := d[c]; ok {
-			continue
+	for i, j := 0, 0; i < len(key); i++ {
+		if d[key[i]] == 0 {
+			d[key[i]] = byte('a' + j)
+			j++
 		}
-		d[c] = lowcase[i]
-		i++
 	}
-	var ans []byte
-	for _, c := range message {
-		ans = append(ans, d[c])
+	ans := make([]byte, len(message))
+	for i, c := range message {
+		ans[i] = d[c]
 	}
 	return string(ans)
 }
@@ -140,19 +136,18 @@ func decodeMessage(key string, message string) string {
 
 ```ts
 function decodeMessage(key: string, message: string): string {
-    let decodeMap = new Map();
-    const m = key.length,
-        n = 26;
+    let d = new Map<string, string>();
+    d.set(' ', ' ');
+    const m = key.length;
     for (let i = 0, j = 0; i < m; i++) {
-        let char = key.charAt(i);
-        if (char != ' ' && !decodeMap.has(char)) {
-            decodeMap.set(char, String.fromCharCode(j + 97));
-            j++;
+        const c = key.charAt(i);
+        if (c != ' ' && !d.has(c)) {
+            d.set(c, String.fromCharCode(97 + j++));
         }
     }
-    let ans = [];
-    for (let char of message) {
-        ans.push(char == ' ' ? ' ' : decodeMap.get(char));
+    const ans: string[] = [];
+    for (const c of message) {
+        ans.push(d.get(c) ?? c);
     }
     return ans.join('');
 }
