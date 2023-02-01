@@ -40,6 +40,22 @@
 
 <!-- tabs:start -->
 
+**方法一：DFS**
+
+我们先判断 `A` 或 `B` 是否为空，如果 `A` 或 `B` 为空，直接返回 `false`。
+
+然后我们定义一个 `dfs(A, B)` 函数，用于判断从 `A` 的根节点开始，是否存在一棵子树和 `B` 的结构相同，如果存在，返回 `true`，否则返回 `false`。
+
+在 `dfs` 函数中，我们首先判断 `B` 是否为空，如果 `B` 为空，说明 `A` 的子树和 `B` 的结构相同，返回 `true`。
+
+然后我们判断 `A` 是否为空，或者 `A` 和 `B` 的根节点值是否相同，如果 `A` 为空，或者 `A` 和 `B` 的根节点值不相同，说明 `A` 的子树和 `B` 的结构不同，返回 `false`。
+
+最后我们返回 `dfs(A.left, B.left) and dfs(A.right, B.right)`，即 `A` 的左子树和 `B` 的左子树是否相同，以及 `A` 的右子树和 `B` 的右子树是否相同。
+
+最后我们返回 `dfs(A, B) or isSubStructure(A.left, B) or isSubStructure(A.right, B)`，即 `A` 的子树和 `B` 的结构是否相同，或者 `A` 的左子树和 `B` 的结构是否相同，或者 `A` 的右子树和 `B` 的结构是否相同。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(\max(m, n))$。其中 $m$ 和 $n$ 分别为树 `A` 和 `B` 的节点数。
+
 ### **Python3**
 
 ```python
@@ -62,11 +78,9 @@ class Solution:
 
         if A is None or B is None:
             return False
-        return (
-            dfs(A, B)
-            or self.isSubStructure(A.left, B)
-            or self.isSubStructure(A.right, B)
-        )
+        if dfs(A, B):
+            return True
+        return self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
 ```
 
 ### **Java**
@@ -101,29 +115,30 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+### **C++**
 
-```js
+```cpp
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
  */
-/**
- * @param {TreeNode} A
- * @param {TreeNode} B
- * @return {boolean}
- */
-var isSubStructure = function (A, B) {
-    function dfs(A, B) {
-        if (!B) return true;
-        if (!A || A.val != B.val) return false;
-        return dfs(A.left, B.left) && dfs(A.right, B.right);
+class Solution {
+public:
+    bool isSubStructure(TreeNode* A, TreeNode* B) {
+        if (!A || !B) return 0;
+        return dfs(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
     }
-    if (!A || !B) return false;
-    return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+
+    bool dfs(TreeNode* A, TreeNode* B) {
+        if (!B) return 1;
+        if (!A || A->val != B->val) return 0;
+        return dfs(A->left, B->left) && dfs(A->right, B->right);
+    }
 };
 ```
 
@@ -156,30 +171,35 @@ func isSubStructure(A *TreeNode, B *TreeNode) bool {
 }
 ```
 
-### **C++**
+### **JavaScript**
 
-```cpp
+```js
 /**
  * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
  */
-class Solution {
-public:
-    bool isSubStructure(TreeNode* A, TreeNode* B) {
-        if (!A || !B) return 0;
-        return dfs(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
+/**
+ * @param {TreeNode} A
+ * @param {TreeNode} B
+ * @return {boolean}
+ */
+var isSubStructure = function (A, B) {
+    if (!A || !B) {
+        return false;
     }
-
-    bool dfs(TreeNode* A, TreeNode* B) {
-        if (!B) return 1;
-        if (!A || A->val != B->val) return 0;
-        return dfs(A->left, B->left) && dfs(A->right, B->right);
-    }
+    const dfs = (A, B) => {
+        if (!B) {
+            return true;
+        }
+        if (!A || A.val !== B.val) {
+            return false;
+        }
+        return dfs(A.left, B.left) && dfs(A.right, B.right);
+    };
+    return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
 };
 ```
 
@@ -201,20 +221,19 @@ public:
  */
 
 function isSubStructure(A: TreeNode | null, B: TreeNode | null): boolean {
-    if (A == null || B == null) {
+    if (!A || !B) {
         return false;
     }
+    const dfs = (A: TreeNode | null, B: TreeNode | null): boolean => {
+        if (!B) {
+            return true;
+        }
+        if (!A || A.val !== B.val) {
+            return false;
+        }
+        return dfs(A.left, B.left) && dfs(A.right, B.right);
+    };
     return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
-}
-
-function dfs(A: TreeNode | null, B: TreeNode | null) {
-    if (B == null) {
-        return true;
-    }
-    if (A == null) {
-        return false;
-    }
-    return A.val === B.val && dfs(A.left, B.left) && dfs(A.right, B.right);
 }
 ```
 
