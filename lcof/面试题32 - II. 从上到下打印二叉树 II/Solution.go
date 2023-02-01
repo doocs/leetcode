@@ -1,27 +1,30 @@
-func levelOrder(root *TreeNode) [][]int {
-    if root == nil {
-        return nil
-    }
-    res := [][]int{}
-    queue := []*TreeNode{}
-    queue = append(queue,root)
-    for len(queue) != 0 {
-        size := len(queue)
-        ans := []int{}
-        //利用一个变量记录每层大小
-        for size > 0 {
-            cur := queue[0]
-            ans = append(ans, cur.Val)
-            queue = queue[1:]
-            size--
-            if cur.Left != nil {
-                queue = append(queue, cur.Left)
-            }
-            if cur.Right != nil {
-                queue = append(queue, cur.Right)
-            }
-        }
-        res = append(res, ans)
-    }
-    return res
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func levelOrder(root *TreeNode) (ans [][]int) {
+	if root == nil {
+		return
+	}
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		t := []int{}
+		for n := len(q); n > 0; n-- {
+			node := q[0]
+			q = q[1:]
+			t = append(t, node.Val)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		ans = append(ans, t)
+	}
+	return
 }

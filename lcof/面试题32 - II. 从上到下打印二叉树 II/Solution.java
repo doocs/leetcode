@@ -9,21 +9,26 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) return Collections.emptyList();
+        List<List<Integer>> ans = new ArrayList<>();
+        if (root == null) {
+            return ans;
+        }
         Deque<TreeNode> q = new ArrayDeque<>();
-        List<List<Integer>> res = new ArrayList<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            while (size-- > 0) {
+            for (int n = q.size(); n > 0; --n) {
                 TreeNode node = q.poll();
                 t.add(node.val);
-                if (node.left != null) q.offer(node.left);
-                if (node.right != null) q.offer(node.right);
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
             }
-            res.add(t);
+            ans.add(t);
         }
-        return res;
+        return ans;
     }
 }

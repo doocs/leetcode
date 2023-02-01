@@ -210,14 +210,10 @@ var levelOrder = function (root) {
     while (q.length) {
         let t = [];
         for (let n = q.length; n; --n) {
-            const node = q.shift();
-            t.push(node.val);
-            if (node.left) {
-                q.push(node.left);
-            }
-            if (node.right) {
-                q.push(node.right);
-            }
+            const { val, left, right } = q.shift();
+            t.push(val);
+            left && q.push(left);
+            right && q.push(right);
         }
         ans.push(t);
     }

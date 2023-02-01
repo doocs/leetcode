@@ -50,30 +50,27 @@ minStack.min();   --&gt; 返回 -2.
 ```python
 class MinStack:
     def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.s = []
-        self.mins = [inf]
+        self.stk1 = []
+        self.stk2 = [inf]
 
-    def push(self, val: int) -> None:
-        self.s.append(val)
-        self.mins.append(min(self.mins[-1], val))
+    def push(self, x: int) -> None:
+        self.stk1.append(x)
+        self.stk2.append(min(x, self.stk2[-1]))
 
     def pop(self) -> None:
-        self.s.pop()
-        self.mins.pop()
+        self.stk1.pop()
+        self.stk2.pop()
 
     def top(self) -> int:
-        return self.s[-1]
+        return self.stk1[-1]
 
     def getMin(self) -> int:
-        return self.mins[-1]
+        return self.stk2[-1]
 
 
 # Your MinStack object will be instantiated and called as such:
 # obj = MinStack()
-# obj.push(val)
+# obj.push(x)
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
@@ -165,48 +162,6 @@ private:
  */
 ```
 
-### **TypeScript**
-
-```ts
-class MinStack {
-    stack: number[];
-    mins: number[];
-    constructor() {
-        this.stack = [];
-        this.mins = [];
-    }
-
-    push(x: number): void {
-        this.stack.push(x);
-        this.mins.push(Math.min(this.getMin(), x));
-    }
-
-    pop(): void {
-        this.stack.pop();
-        this.mins.pop();
-    }
-
-    top(): number {
-        return this.stack[this.stack.length - 1];
-    }
-
-    getMin(): number {
-        return this.mins.length == 0
-            ? Infinity
-            : this.mins[this.mins.length - 1];
-    }
-}
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * var obj = new MinStack()
- * obj.push(x)
- * obj.pop()
- * var param_3 = obj.top()
- * var param_4 = obj.getMin()
- */
-```
-
 ### **Go**
 
 ```go
@@ -252,6 +207,48 @@ func min(a, b int) int {
  * obj.Pop();
  * param_3 := obj.Top();
  * param_4 := obj.GetMin();
+ */
+```
+
+### **TypeScript**
+
+```ts
+class MinStack {
+    stack: number[];
+    mins: number[];
+    constructor() {
+        this.stack = [];
+        this.mins = [];
+    }
+
+    push(x: number): void {
+        this.stack.push(x);
+        this.mins.push(Math.min(this.getMin(), x));
+    }
+
+    pop(): void {
+        this.stack.pop();
+        this.mins.pop();
+    }
+
+    top(): number {
+        return this.stack[this.stack.length - 1];
+    }
+
+    getMin(): number {
+        return this.mins.length == 0
+            ? Infinity
+            : this.mins[this.mins.length - 1];
+    }
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(x)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
  */
 ```
 

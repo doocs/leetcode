@@ -1,21 +1,28 @@
-func levelOrder(root *TreeNode) []int {
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func levelOrder(root *TreeNode) (ans []int) {
 	if root == nil {
-		return []int{}
+		return
 	}
-	q := []*TreeNode{}
-	q = append(q, root)
-	// 层序遍历,用队列,遍历到谁,就把谁的左右结点加入队列
-	res := []int{}
-	for len(q) != 0 {
-		tmp := q[0]
-		q = q[1:]
-		res = append(res, tmp.Val)
-		if tmp.Left != nil {
-			q = append(q, tmp.Left)
-		}
-		if tmp.Right != nil {
-			q = append(q, tmp.Right)
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		for n := len(q); n > 0; n-- {
+			node := q[0]
+			q = q[1:]
+			ans = append(ans, node.Val)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
 		}
 	}
-	return res
+	return
 }
