@@ -16,26 +16,22 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
-    fn dfs(left: &Option<Rc<RefCell<TreeNode>>>, right: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if left.is_none() && right.is_none() {
+    fn dfs(a: &Option<Rc<RefCell<TreeNode>>>, b: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if a.is_none() && b.is_none() {
             return true;
         }
-        if left.is_none() || right.is_none() {
+        if a.is_none() || b.is_none() {
             return false;
         }
-        let l = left.as_ref().unwrap().borrow();
-        let r = right.as_ref().unwrap().borrow();
+        let l = a.as_ref().unwrap().borrow();
+        let r = b.as_ref().unwrap().borrow();
         l.val == r.val && Self::dfs(&l.left, &r.right) && Self::dfs(&l.right, &r.left)
     }
 
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if root.is_none() {
-            return true;
-        }
-        let node = root.as_ref().unwrap().borrow();
-        Self::dfs(&node.left, &node.right)
+        Self::dfs(&root, &root)
     }
 }

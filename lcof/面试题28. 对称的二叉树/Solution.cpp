@@ -9,22 +9,16 @@
  */
 class Solution {
 public:
-    bool isSymmetric(TreeNode* left, TreeNode* right) {
-        // 均为空，则直接返回 true。有且仅有一个不为空，则返回 false
-        if (left == nullptr && right == nullptr) {
-            return true;
-        }
-        if (left == nullptr || right == nullptr || left->val != right->val) {
-            return false;
-        }
-        return isSymmetric(left->left, right->right) && isSymmetric(left->right, right->left);
-    }
-
     bool isSymmetric(TreeNode* root) {
-        if (root == nullptr) {
-            return true;
-        }
-
-        return isSymmetric(root->left, root->right);
+        function<bool(TreeNode*, TreeNode*)> dfs = [&](TreeNode* a, TreeNode* b) -> bool {
+            if (!a && !b) {
+                return true;
+            }
+            if (!a || !b || a->val != b->val) {
+                return false;
+            }
+            return dfs(a->left, b->right) && dfs(a->right, b->left);
+        };
+        return dfs(root, root);
     }
 };

@@ -10,11 +10,14 @@
  * @return {boolean}
  */
 var isSymmetric = function (root) {
-    function dfs(left, right) {
-        if (!left && !right) return true;
-        if (!left || !right || left.val != right.val) return false;
-        return dfs(left.left, right.right) && dfs(left.right, right.left);
-    }
-    if (!root) return true;
-    return dfs(root.left, root.right);
+    const dfs = (a, b) => {
+        if (!a && !b) {
+            return true;
+        }
+        if (!a || !b || a.val != b.val) {
+            return false;
+        }
+        return dfs(a.left, b.right) && dfs(a.right, b.left);
+    };
+    return dfs(root, root);
 };

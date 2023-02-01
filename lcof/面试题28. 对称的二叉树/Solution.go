@@ -6,19 +6,16 @@
  *     Right *TreeNode
  * }
  */
- func isSymmetric(root *TreeNode) bool {
-    if root == nil {
-        return true
-    }
-    return isSymme(root.Left, root.Right)
-}
-
-func isSymme(left *TreeNode, right *TreeNode) bool {
-    if left == nil && right == nil {
-        return true
-    }
-    if left == nil || right == nil || left.Val != right.Val {
-        return false
-    }
-    return isSymme(left.Left, right.Right) && isSymme(left.Right, right.Left)
+func isSymmetric(root *TreeNode) bool {
+	var dfs func(a, b *TreeNode) bool
+	dfs = func(a, b *TreeNode) bool {
+		if a == nil && b == nil {
+			return true
+		}
+		if a == nil || b == nil || a.Val != b.Val {
+			return false
+		}
+		return dfs(a.Left, b.Right) && dfs(a.Right, b.Left)
+	}
+	return dfs(root, root)
 }

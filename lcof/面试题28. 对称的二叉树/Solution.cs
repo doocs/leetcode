@@ -9,19 +9,16 @@
  */
 public class Solution {
     public bool IsSymmetric(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        return dfs(root.left, root.right);
+        return dfs(root, root);
     }
 
-    public bool dfs(TreeNode left, TreeNode right) {
-        if (left == null && right == null) {
+    private bool dfs(TreeNode a, TreeNode b) {
+        if (a == null && b == null) {
             return true;
         }
-        if (left == null || right == null || left.val != right.val) {
+        if (a == null || b == null || a.val != b.val) {
             return false;
         }
-        return dfs(left.left, right.right) && dfs(left.right, right.left); 
+        return dfs(a.left, b.right) && dfs(a.right, b.left);
     }
 }

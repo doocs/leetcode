@@ -8,15 +8,11 @@
 
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        def is_symmetric(left, right):
-            if left is None and right is None:
+        def dfs(a, b):
+            if a is None and b is None:
                 return True
-            if left is None or right is None or left.val != right.val:
+            if a is None or b is None or a.val != b.val:
                 return False
-            return is_symmetric(left.left, right.right) and is_symmetric(
-                left.right, right.left
-            )
+            return dfs(a.left, b.right) and dfs(a.right, b.left)
 
-        if root is None:
-            return True
-        return is_symmetric(root.left, root.right)
+        return dfs(root, root)
