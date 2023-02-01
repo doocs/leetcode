@@ -6,20 +6,15 @@
  *     public ListNode(int x) { val = x; }
  * }
  */
-
- public class Solution {
-     public ListNode DeleteNode(ListNode head, int val) {
-         if (head == null) {
-             return null;
-         }
-         if (head.val == val) {
-             return head.next;
-         }
-         ListNode p = head;
-         while (p.next != null && p.next.val != val) {
-             p = p.next;
-         }
-         p.next = p.next == null ? null : p.next.next;
-         return head;
-     }
- }
+public class Solution {
+    public ListNode DeleteNode(ListNode head, int val) {
+        ListNode dummy = new ListNode(0, head);
+        for (ListNode cur = dummy; cur.next != null; cur = cur.next) {
+            if (cur.next.val == val) {
+                cur.next = cur.next.next;
+                break;
+            }
+        }
+        return dummy.next;
+    }
+}

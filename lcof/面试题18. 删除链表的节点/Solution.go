@@ -7,11 +7,11 @@
  */
 func deleteNode(head *ListNode, val int) *ListNode {
 	dummy := &ListNode{0, head}
-	pre := dummy
-	for ; pre.Next != nil && pre.Next.Val != val; pre = pre.Next {
-	}
-	if pre.Next != nil {
-		pre.Next = pre.Next.Next
+	for cur := dummy; cur.Next != nil; cur = cur.Next {
+		if cur.Next.Val == val {
+			cur.Next = cur.Next.Next
+			break
+		}
 	}
 	return dummy.Next
 }
