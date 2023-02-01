@@ -1,15 +1,11 @@
 class Solution {
 public:
     vector<int> exchange(vector<int>& nums) {
-        int i = 0, j = nums.size() - 1;
-        while (i < j) {
-            while (i < j && nums[i] % 2 == 1) {
-                ++i;
+        int j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] & 1) {
+                swap(nums[i], nums[j++]);
             }
-            while (i < j && nums[j] % 2 == 0) {
-                --j;
-            }
-            swap(nums[i], nums[j]);
         }
         return nums;
     }

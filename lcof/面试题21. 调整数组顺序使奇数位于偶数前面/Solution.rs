@@ -1,16 +1,10 @@
 impl Solution {
     pub fn exchange(mut nums: Vec<i32>) -> Vec<i32> {
-        if nums.len() == 0 {
-            return nums;
-        }
-        let mut l = 0;
-        let mut r = nums.len() - 1;
-        while l < r {
-            if nums[l] % 2 == 0 {
-                nums.swap(l, r);
-                r -= 1;
-            } else {
-                l += 1;
+        let mut j = 0;
+        for i in 0..nums.len() {
+            if nums[i] % 2 == 1 {
+                nums.swap(i, j);
+                j += 1;
             }
         }
         nums

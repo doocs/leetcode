@@ -26,9 +26,11 @@
 
 **方法一：双指针**
 
-定义指针 `i`, `j` 分别指向数组的头部和尾部，`i` 向右移动，`j` 向左移动，当 `i` 指向偶数，`j` 指向奇数时，交换两个指针指向的元素，直到 `i` 和 `j` 相遇。
+我们定义两个指针 $i$ 和 $j$，其中指针 $i$ 指向当前元素，指针 $j$ 指向当前最后一个奇数的下一个位置。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+接下来，我们从左到右遍历数组，当 $nums[i]$ 是奇数时，我们将其与 $nums[j]$ 交换，然后指针 $j$ 向右移动一位。指针 $i$ 每次向右移动一位，直到遍历完整个数组。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -37,13 +39,11 @@
 ```python
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
-        i, j = 0, len(nums) - 1
-        while i < j:
-            while i < j and nums[i] & 1:
-                i += 1
-            while i < j and (nums[j] & 1) == 0:
-                j -= 1
-            nums[i], nums[j] = nums[j], nums[i]
+        j = 0
+        for i, x in enumerate(nums):
+            if x & 1:
+                nums[i], nums[j] = nums[j], nums[i]
+                j += 1
         return nums
 ```
 
@@ -52,20 +52,48 @@ class Solution:
 ```java
 class Solution {
     public int[] exchange(int[] nums) {
-        int i = 0, j = nums.length - 1;
-        while (i < j) {
-            while (i < j && nums[i] % 2 == 1) {
-                ++i;
+        int j = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] % 2 == 1) {
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j++] = t;
             }
-            while (i < j && nums[j] % 2 == 0) {
-                --j;
-            }
-            int t = nums[i];
-            nums[i] = nums[j];
-            nums[j] = t;
         }
         return nums;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> exchange(vector<int>& nums) {
+        int j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] & 1) {
+                swap(nums[i], nums[j++]);
+            }
+        }
+        return nums;
+    }
+};
+```
+
+### **Go**
+
+```go
+func exchange(nums []int) []int {
+	j := 0
+	for i, x := range nums {
+		if x&1 == 1 {
+			nums[i], nums[j] = nums[j], nums[i]
+			j++
+		}
+	}
+	return nums
 }
 ```
 
@@ -77,78 +105,29 @@ class Solution {
  * @return {number[]}
  */
 var exchange = function (nums) {
-    let i = 0;
-    let j = nums.length - 1;
-    while (i < j) {
-        while (i < j && nums[i] % 2 == 1) {
-            i++;
+    let j = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] & 1) {
+            const t = nums[i];
+            nums[i] = nums[j];
+            nums[j++] = t;
         }
-        while (i < j && nums[j] % 2 == 0) {
-            --j;
-        }
-        const t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
     }
     return nums;
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> exchange(vector<int>& nums) {
-        int i = 0, j = nums.size() - 1;
-        while (i < j) {
-            while (i < j && nums[i] % 2 == 1) {
-                ++i;
-            }
-            while (i < j && nums[j] % 2 == 0) {
-                --j;
-            }
-            swap(nums[i], nums[j]);
-        }
-        return nums;
-    }
-};
-```
-
-### **Go**
-
-```go
-func exchange(nums []int) []int {
-	i, j := 0, len(nums)-1
-	for i < j {
-		for i < j && nums[i]%2 == 1 {
-			i++
-		}
-		for i < j && nums[j]%2 == 0 {
-			j--
-		}
-		nums[i], nums[j] = nums[j], nums[i]
-	}
-	return nums
-}
 ```
 
 ### **TypeScript**
 
 ```ts
 function exchange(nums: number[]): number[] {
-    let i = 0;
-    let j = nums.length - 1;
-    while (i < j) {
-        while (i < j && nums[i] % 2 == 1) {
-            i++;
+    let j = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] & 1) {
+            const t = nums[i];
+            nums[i] = nums[j];
+            nums[j++] = t;
         }
-        while (i < j && nums[j] % 2 == 0) {
-            --j;
-        }
-        const t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
     }
     return nums;
 }
@@ -159,17 +138,11 @@ function exchange(nums: number[]): number[] {
 ```rust
 impl Solution {
     pub fn exchange(mut nums: Vec<i32>) -> Vec<i32> {
-        if nums.len() == 0 {
-            return nums;
-        }
-        let mut l = 0;
-        let mut r = nums.len() - 1;
-        while l < r {
-            if nums[l] % 2 == 0 {
-                nums.swap(l, r);
-                r -= 1;
-            } else {
-                l += 1;
+        let mut j = 0;
+        for i in 0..nums.len() {
+            if nums[i] % 2 == 1 {
+                nums.swap(i, j);
+                j += 1;
             }
         }
         nums
@@ -182,17 +155,13 @@ impl Solution {
 ```cs
 public class Solution {
     public int[] Exchange(int[] nums) {
-        int i = 0, j = nums.Length - 1;
-        while (i < j) {
-            while (i < j && nums[i] % 2 == 1) {
-                ++i;
+        int j = 0;
+        for (int i = 0; i < nums.Length; ++i) {
+            if (nums[i] % 2 == 1) {
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j++] = t;
             }
-            while (i < j && nums[j] % 2 == 0) {
-                --j;
-            }
-            int t = nums[i];
-            nums[i] = nums[j];
-            nums[j] = t;
         }
         return nums;
     }
