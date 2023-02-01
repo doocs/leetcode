@@ -8,19 +8,19 @@
  */
 public class Solution {
     public ListNode MergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode p = new ListNode();
-        ListNode q = p;
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
         while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                p.next = l1;
+            if (l1.val <= l2.val) {
+                cur.next = l1;
                 l1 = l1.next;
             } else {
-                p.next = l2;
+                cur.next = l2;
                 l2 = l2.next;
             }
-            p = p.next;
+            cur = cur.next;
         }
-        p.next = l1 == null ? l2 : l1;
-        return q.next;
+        cur.next = l1 == null ? l2 : l1;
+        return dummy.next;
     }
 }
