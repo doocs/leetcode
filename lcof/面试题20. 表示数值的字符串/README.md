@@ -89,11 +89,27 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历字符串：
+**方法一：分类讨论**
 
--   出现 `+`/`-` 时，位置必须是在第 0 位，或者 `e`/`E` 的后面一位
--   出现 `.` 时，在此之前不能出现 `.` 或者 `e`/`E`
--   出现 `e`/`E` 时，前面不能出现 `e`/`E`，并且必须出现过数字
+我们先去除字符串 $s$ 首尾的空格，此时 $i$ 和 $j$ 分别指向字符串 $s$ 的第一个非空格字符和最后一个非空格字符。
+
+然后我们维护以下几个变量，其中：
+
+-   `digit`：表示是否出现过数字
+-   `dot`：表示是否出现过点
+-   `e`：表示是否出现过 `e` 或者 `E`
+
+遍历 $s[i,..j]$ 范围内的每个字符，根据字符的类型进行分类讨论：
+
+-   如果当前字符是 `+` 或者 `-`，那么该字符的前一个字符必须是 `e` 或者 `E`，或者空格，否则返回 `false`。
+-   如果当前字符是数字，那么我们将 `digit` 置为 `true`。
+-   如果当前字符是 `.`，那么该字符之前不能出现过 `.` 或者 `e`/`E`，否则返回 `false`，否则我们将 `dot` 置为 `true`。
+-   如果当前字符是 `e` 或者 `E`，那么该字符之前不能出现过 `e`/`E`，并且必须出现过数字，否则返回 `false`，否则我们将 `e` 置为 `true`，并且将 `digit` 置为 `false`，表示 `e` 之后必须出现数字。
+-   如果当前字符是其它字符，那么返回 `false`。
+
+遍历结束后，我们返回 `digit`，即是否出现过数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -104,28 +120,32 @@
 ```python
 class Solution:
     def isNumber(self, s: str) -> bool:
-        if not s or not s.strip():
+        i, j = 0, len(s) - 1
+        while i < j and s[i] == " ":
+            i += 1
+        while i <= j and s[j] == " ":
+            j -= 1
+        if i > j:
             return False
-        s = s.strip()
-        find_num = find_dot = find_e = False
-        for i in range(len(s)):
-            if s[i] == '+' or s[i] == '-':
-                if i != 0 and s[i - 1] != 'e' and s[i - 1] != 'E':
+        digit = dot = e = False
+        while i <= j:
+            if s[i] in "+-":
+                if i and s[i - 1] not in " eE":
                     return False
-            elif s[i] >= '0' and s[i] <= '9':
-                find_num = True
-            elif s[i] == '.':
-                if find_dot or find_e:
+            elif s[i].isdigit():
+                digit = True
+            elif s[i] == ".":
+                if dot or e:
                     return False
-                find_dot = True
-            elif s[i] == 'e' or s[i] == 'E':
-                if not find_num or find_e:
+                dot = True
+            elif s[i] in "eE":
+                if not digit or e:
                     return False
-                find_e = True
-                find_num = False
+                e, digit = True, False
             else:
                 return False
-        return find_num
+            i += 1
+        return digit
 ```
 
 ### **Java**
@@ -135,50 +155,128 @@ class Solution:
 ```java
 class Solution {
     public boolean isNumber(String s) {
-        if (s == null || s.trim().length() == 0) {
+        int i = 0, j = s.length() - 1;
+        while (i < j && s.charAt(i) == ' ') {
+            ++i;
+        }
+        while (i <= j && s.charAt(j) == ' ') {
+            --j;
+        }
+        if (i > j) {
             return false;
         }
-        char[] chars = s.trim().toCharArray();
-        boolean findNum = false;
-        boolean findE = false;
-        boolean findDot = false;
-        for (int i = 0, n = chars.length; i < n; ++i) {
-            if (chars[i] == '+' || chars[i] == '-') {
-                if (i != 0 && chars[i - 1] != 'e' && chars[i - 1] != 'E') {
+        boolean digit = false;
+        boolean dot = false;
+        boolean e = false;
+        for (; i <= j; ++i) {
+            if (s.charAt(i) == '+' || s.charAt(i) == '-') {
+                if (i > 0 && s.charAt(i - 1) != ' ' && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
                     return false;
                 }
-            } else if (chars[i] >= '0' && chars[i] <= '9') {
-                findNum = true;
-            } else if (chars[i] == '.') {
-                if (findDot || findE) {
+            } else if (Character.isDigit(s.charAt(i))) {
+                digit = true;
+            } else if (s.charAt(i) == '.') {
+                if (dot || e) {
                     return false;
                 }
-                findDot = true;
-            } else if (chars[i] == 'e' || chars[i] == 'E') {
-                if (findE || !findNum) {
+                dot = true;
+            } else if (s.charAt(i) == 'e' || s.charAt(i) == 'E') {
+                if (!digit || e) {
                     return false;
                 }
-                findE = true;
-                findNum = false; // 确保e之后也出现数
+                e = true;
+                digit = false;
             } else {
                 return false;
             }
         }
-        return findNum;
+        return digit;
     }
 }
 ```
 
-### **JavaScript**
+### **C++**
 
-```js
-/**
- * @param {string} s
- * @return {boolean}
- */
-var isNumber = function (s) {
-    return s !== ' ' && !isNaN(+s);
+```cpp
+class Solution {
+public:
+    bool isNumber(string s) {
+        int i = 0, j = s.size() - 1;
+        while (i < j && s[i] == ' ') {
+            ++i;
+        }
+        while (i <= j && s[j] == ' ') {
+            --j;
+        }
+        if (i > j) {
+            return false;
+        }
+        bool digit = false, dot = false, e = false;
+        for (; i <= j; ++i) {
+            if (s[i] == '+' || s[i] == '-') {
+                if (i && s[i - 1] != ' ' && s[i - 1] != 'e' && s[i - 1] != 'E') {
+                    return false;
+                }
+            } else if (isdigit(s[i])) {
+                digit = true;
+            } else if (s[i] == '.') {
+                if (dot || e) {
+                    return false;
+                }
+                dot = true;
+            } else if (s[i] == 'e' || s[i] == 'E') {
+                if (!digit || e) {
+                    return false;
+                }
+                e = true;
+                digit = false;
+            } else {
+                return false;
+            }
+        }
+        return digit;
+    }
 };
+```
+
+### **Go**
+
+```go
+func isNumber(s string) bool {
+	i, j := 0, len(s)-1
+	for i < j && s[i] == ' ' {
+		i++
+	}
+	for i <= j && s[j] == ' ' {
+		j--
+	}
+	if i > j {
+		return false
+	}
+	digit, dot, e := false, false, false
+	for ; i <= j; i++ {
+		if s[i] == '+' || s[i] == '-' {
+			if i > 0 && s[i-1] != ' ' && s[i-1] != 'e' && s[i-1] != 'E' {
+				return false
+			}
+		} else if s[i] >= '0' && s[i] <= '9' {
+			digit = true
+		} else if s[i] == '.' {
+			if dot || e {
+				return false
+			}
+			dot = true
+		} else if s[i] == 'e' || s[i] == 'E' {
+			if !digit || e {
+				return false
+			}
+			digit, e = false, true
+		} else {
+			return false
+		}
+	}
+	return digit
+}
 ```
 
 ### **C#**
@@ -186,34 +284,40 @@ var isNumber = function (s) {
 ```cs
 public class Solution {
     public bool IsNumber(string s) {
-        if (s == null || s.Trim() == null) {
+        int i = 0, j = s.Length - 1;
+        while (i < j && s[i] == ' ') {
+            ++i;
+        }
+        while (i <= j && s[j] == ' ') {
+            --j;
+        }
+        if (i > j) {
             return false;
         }
-        s = s.Trim();
-        bool findNum = false, findDot = false, findE = false;
-        for (int i = 0; i < s.Length; i++) {
+        bool digit = false, dot = false, e = false;
+        for (; i <= j; ++i) {
             if (s[i] == '+' || s[i] == '-') {
-                if (i != 0 && s[i-1] != 'e' && s[i-1] != 'E') {
+                if (i > 0 && s[i - 1] != ' ' && s[i - 1] != 'e' && s[i - 1] != 'E') {
                     return false;
                 }
             } else if (s[i] >= '0' && s[i] <= '9') {
-                findNum = true;
+                digit = true;
             } else if (s[i] == '.') {
-                if (findDot || findE) {
+                if (dot || e) {
                     return false;
                 }
-                findDot = true;
+                dot = true;
             } else if (s[i] == 'e' || s[i] == 'E') {
-                if (!findNum || findE) {
+                if (!digit || e) {
                     return false;
                 }
-                findE = true;
-                findNum = false;
+                e = true;
+                digit = false;
             } else {
                 return false;
             }
         }
-        return findNum;
+        return digit;
     }
 }
 ```

@@ -1,31 +1,30 @@
 class Solution {
-    public boolean isNumber(String s) {
-        int i = 0, j = s.length() - 1;
-        while (i < j && s.charAt(i) == ' ') {
+public:
+    bool isNumber(string s) {
+        int i = 0, j = s.size() - 1;
+        while (i < j && s[i] == ' ') {
             ++i;
         }
-        while (i <= j && s.charAt(j) == ' ') {
+        while (i <= j && s[j] == ' ') {
             --j;
         }
         if (i > j) {
             return false;
         }
-        boolean digit = false;
-        boolean dot = false;
-        boolean e = false;
+        bool digit = false, dot = false, e = false;
         for (; i <= j; ++i) {
-            if (s.charAt(i) == '+' || s.charAt(i) == '-') {
-                if (i > 0 && s.charAt(i - 1) != ' ' && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
+            if (s[i] == '+' || s[i] == '-') {
+                if (i && s[i - 1] != ' ' && s[i - 1] != 'e' && s[i - 1] != 'E') {
                     return false;
                 }
-            } else if (Character.isDigit(s.charAt(i))) {
+            } else if (isdigit(s[i])) {
                 digit = true;
-            } else if (s.charAt(i) == '.') {
+            } else if (s[i] == '.') {
                 if (dot || e) {
                     return false;
                 }
                 dot = true;
-            } else if (s.charAt(i) == 'e' || s.charAt(i) == 'E') {
+            } else if (s[i] == 'e' || s[i] == 'E') {
                 if (!digit || e) {
                     return false;
                 }
@@ -37,4 +36,4 @@ class Solution {
         }
         return digit;
     }
-}
+};

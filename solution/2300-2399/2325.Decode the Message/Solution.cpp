@@ -9,10 +9,9 @@ public:
                 d[c] = i++;
             }
         }
-        string ans;
         for (char& c : message) {
-            ans += d[c];
+            c = d[c];
         }
-        return ans;
+        return message;
     }
 };

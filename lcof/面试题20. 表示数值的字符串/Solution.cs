@@ -1,32 +1,38 @@
 public class Solution {
     public bool IsNumber(string s) {
-        if (s == null || s.Trim() == null) {
+        int i = 0, j = s.Length - 1;
+        while (i < j && s[i] == ' ') {
+            ++i;
+        }
+        while (i <= j && s[j] == ' ') {
+            --j;
+        }
+        if (i > j) {
             return false;
         }
-        s = s.Trim();
-        bool findNum = false, findDot = false, findE = false;
-        for (int i = 0; i < s.Length; i++) {
+        bool digit = false, dot = false, e = false;
+        for (; i <= j; ++i) {
             if (s[i] == '+' || s[i] == '-') {
-                if (i != 0 && s[i-1] != 'e' && s[i-1] != 'E') {
+                if (i > 0 && s[i - 1] != ' ' && s[i - 1] != 'e' && s[i - 1] != 'E') {
                     return false;
                 }
             } else if (s[i] >= '0' && s[i] <= '9') {
-                findNum = true;
+                digit = true;
             } else if (s[i] == '.') {
-                if (findDot || findE) {
+                if (dot || e) {
                     return false;
                 }
-                findDot = true;
+                dot = true;
             } else if (s[i] == 'e' || s[i] == 'E') {
-                if (!findNum || findE) {
+                if (!digit || e) {
                     return false;
                 }
-                findE = true;
-                findNum = false;
+                e = true;
+                digit = false;
             } else {
                 return false;
             }
         }
-        return findNum;
+        return digit;
     }
 }

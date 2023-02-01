@@ -8,10 +8,10 @@ class Solution {
                 d[c] = (char) ('a' + j++);
             }
         }
-        StringBuilder ans = new StringBuilder();
-        for (int i = 0; i < message.length(); ++i) {
-            ans.append(d[message.charAt(i)]);
+        char[] ans = message.toCharArray();
+        for (int i = 0; i < ans.length; ++i) {
+            ans[i] = d[ans[i]];
         }
-        return ans.toString();
+        return String.valueOf(ans);
     }
 }

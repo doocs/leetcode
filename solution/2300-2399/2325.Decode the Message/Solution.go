@@ -7,8 +7,8 @@ func decodeMessage(key string, message string) string {
 			j++
 		}
 	}
-	ans := make([]byte, len(message))
-	for i, c := range message {
+	ans := []byte(message)
+	for i, c := range ans {
 		ans[i] = d[c]
 	}
 	return string(ans)

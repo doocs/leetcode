@@ -80,11 +80,11 @@ class Solution {
                 d[c] = (char) ('a' + j++);
             }
         }
-        StringBuilder ans = new StringBuilder();
-        for (int i = 0; i < message.length(); ++i) {
-            ans.append(d[message.charAt(i)]);
+        char[] ans = message.toCharArray();
+        for (int i = 0; i < ans.length; ++i) {
+            ans[i] = d[ans[i]];
         }
-        return ans.toString();
+        return String.valueOf(ans);
     }
 }
 ```
@@ -103,11 +103,10 @@ public:
                 d[c] = i++;
             }
         }
-        string ans;
         for (char& c : message) {
-            ans += d[c];
+            c = d[c];
         }
-        return ans;
+        return message;
     }
 };
 ```
@@ -124,8 +123,8 @@ func decodeMessage(key string, message string) string {
 			j++
 		}
 	}
-	ans := make([]byte, len(message))
-	for i, c := range message {
+	ans := []byte(message)
+	for i, c := range ans {
 		ans[i] = d[c]
 	}
 	return string(ans)
