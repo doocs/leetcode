@@ -137,7 +137,69 @@ func numberOfBeams(bank []string) int {
 ### **TypeScript**
 
 ```ts
+function numberOfBeams(bank: string[]): number {
+    let last = 0;
+    let ans = 0;
+    for (const r of bank) {
+        let t = 0;
+        for (const v of r) {
+            if (v === '1') {
+                t++;
+            }
+        }
+        if (t !== 0) {
+            ans += last * t;
+            last = t;
+        }
+    }
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn number_of_beams(bank: Vec<String>) -> i32 {
+        let mut last = 0;
+        let mut ans = 0;
+        for r in bank.iter() {
+            let mut t = 0;
+            for &v in r.as_bytes() {
+                if v == b'1' {
+                    t += 1;
+                }
+            }
+            if t != 0 {
+                ans += last * t;
+                last = t;
+            }
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int numberOfBeams(char **bank, int bankSize) {
+    int last = 0;
+    int ans = 0;
+    for (int i = 0; i < bankSize; i++) {
+        int t = 0;
+        for (int j = 0; bank[i][j]; j++) {
+            if (bank[i][j] == '1') {
+                t++;
+            }
+        }
+        if (t != 0) {
+            ans += last * t;
+            last = t;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
