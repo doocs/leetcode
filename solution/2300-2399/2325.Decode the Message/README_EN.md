@@ -135,20 +135,60 @@ func decodeMessage(key string, message string) string {
 
 ```ts
 function decodeMessage(key: string, message: string): string {
-    let d = new Map<string, string>();
-    d.set(' ', ' ');
-    const m = key.length;
-    for (let i = 0, j = 0; i < m; i++) {
-        const c = key.charAt(i);
-        if (c != ' ' && !d.has(c)) {
-            d.set(c, String.fromCharCode(97 + j++));
+    const d = new Map<string, string>();
+    for (const c of key) {
+        if (c === ' ' || d.has(c)) {
+            continue;
         }
+        d.set(c, String.fromCharCode('a'.charCodeAt(0) + d.size));
     }
-    const ans: string[] = [];
-    for (const c of message) {
-        ans.push(d.get(c) ?? c);
+    d.set(' ', ' ');
+    return [...message].map(v => d.get(v)).join('');
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn decode_message(key: String, message: String) -> String {
+        let mut d = HashMap::new();
+        for c in key.as_bytes() {
+            if *c == b' ' || d.contains_key(c) {
+                continue;
+            }
+            d.insert(c, char::from((97 + d.len()) as u8));
+        }
+        message
+            .as_bytes()
+            .iter()
+            .map(|c| d.get(c).unwrap_or(&' '))
+            .collect()
     }
-    return ans.join('');
+}
+```
+
+### **C**
+
+```c
+char *decodeMessage(char *key, char *message) {
+    int m = strlen(key);
+    int n = strlen(message);
+    char d[26];
+    memset(d, ' ', 26);
+    for (int i = 0, j = 0; i < m; i++) {
+        if (key[i] == ' ' || d[key[i] - 'a'] != ' ') {
+            continue;
+        }
+        d[key[i] - 'a'] = 'a' + j++;
+    }
+    char *ans = malloc(n + 1);
+    for (int i = 0; i < n; i++) {
+        ans[i] = message[i] == ' ' ? ' ' : d[message[i] - 'a'];
+    }
+    ans[n] = '\0';
+    return ans;
 }
 ```
 
