@@ -37,6 +37,12 @@
 
 ## 解法
 
+**方法一：递归**
+
+我们先判断根节点是否为空，如果为空，直接返回空。如果不为空，我们交换根节点的左右子树，然后递归地交换左子树和右子树。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。最坏情况下，二叉树退化为链表，递归深度为 $n$，因此系统使用 $O(n)$ 大小的栈空间。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,6 +66,25 @@ class Solution:
         return root
 ```
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def mirrorTree(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return root
+        left = self.mirrorTree(root.left)
+        right = self.mirrorTree(root.right)
+        root.left = right
+        root.right = left
+        return root
+```
+
 ### **Java**
 
 ```java
@@ -74,7 +99,9 @@ class Solution:
  */
 class Solution {
     public TreeNode mirrorTree(TreeNode root) {
-        if (root == null) return null;
+        if (root == null) {
+            return null;
+        }
         TreeNode t = root.left;
         root.left = root.right;
         root.right = t;
@@ -82,6 +109,54 @@ class Solution {
         mirrorTree(root.right);
         return root;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* mirrorTree(TreeNode* root) {
+        if (!root) {
+            return root;
+        }
+        swap(root->left, root->right);
+        mirrorTree(root->left);
+        mirrorTree(root->right);
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func mirrorTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return root
+	}
+	root.Left, root.Right = root.Right, root.Left
+	mirrorTree(root.Left)
+	mirrorTree(root.Right)
+	return root
 }
 ```
 
@@ -100,63 +175,15 @@ class Solution {
  * @return {TreeNode}
  */
 var mirrorTree = function (root) {
-    if (!root) return null;
-    [root.left, root.right] = [root.right, root.left];
-    mirrorTree(root.left);
-    mirrorTree(root.right);
+    if (!root) {
+        return null;
+    }
+    const { left, right } = root;
+    root.left = right;
+    root.right = left;
+    mirrorTree(left);
+    mirrorTree(right);
     return root;
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func mirrorTree(root *TreeNode) *TreeNode {
-    if root == nil {
-        return root
-    }
-    root.Left, root.Right = root.Right, root.Left
-    mirrorTree(root.Left)
-    mirrorTree(root.Right)
-    return root
-}
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-
-class Solution {
-public:
-    TreeNode* mirrorTree(TreeNode* root) {
-        // 后序遍历
-        if (nullptr == root) {
-            return nullptr;
-        }
-
-        mirrorTree(root->left);
-        mirrorTree(root->right);
-        std::swap(root->left, root->right);
-
-        return root;
-    }
 };
 ```
 
@@ -247,11 +274,11 @@ impl Solution {
 public class Solution {
     public TreeNode MirrorTree(TreeNode root) {
         if (root == null) {
-            return null;
+            return root;
         }
-        TreeNode tmp = root.left;
+        TreeNode t = root.left;
         root.left = root.right;
-        root.right = tmp;
+        root.right = t;
         MirrorTree(root.left);
         MirrorTree(root.right);
         return root;

@@ -10,11 +10,11 @@
 public class Solution {
     public TreeNode MirrorTree(TreeNode root) {
         if (root == null) {
-            return null;
+            return root;
         }
-        TreeNode tmp = root.left;
+        TreeNode t = root.left;
         root.left = root.right;
-        root.right = tmp;
+        root.right = t;
         MirrorTree(root.left);
         MirrorTree(root.right);
         return root;
