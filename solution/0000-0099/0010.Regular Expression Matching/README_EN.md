@@ -58,56 +58,91 @@
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
+        @cache
+        def dfs(i, j):
+            if j >= n:
+                return i == m
+            if j + 1 < n and p[j + 1] == '*':
+                return dfs(i, j + 2) or (i < m and (s[i] == p[j] or p[j] == '.') and dfs(i + 1, j))
+            return i < m and (s[i] == p[j] or p[j] == '.') and dfs(i + 1, j + 1)
+
         m, n = len(s), len(p)
-        if n == 0:
-            return m == 0
-        dp = [[False] * (n + 1) for _ in range(m + 1)]
-        dp[0][0] = True
-        for j in range(2, n + 1):
-            if p[j - 1] == '*':
-                dp[0][j] = dp[0][j - 2]
-        for i in range(1, m + 1):
+        return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+        f = [[False] * (n + 1) for _ in range(m + 1)]
+        f[0][0] = True
+        for i in range(m + 1):
             for j in range(1, n + 1):
-                if s[i - 1] == p[j - 1] or p[j - 1] == '.':
-                    dp[i][j] = dp[i - 1][j - 1]
-                elif p[j - 1] == '*':
-                    if p[j - 2] == '.' or p[j - 2] == s[i - 1]:
-                        dp[i][j] = dp[i][j - 2] or dp[i - 1][j]
-                    else:
-                        dp[i][j] = dp[i][j - 2]
-        return dp[-1][-1]
+                if p[j - 1] == "*":
+                    f[i][j] = f[i][j - 2]
+                    if i > 0 and (p[j - 2] == "." or s[i - 1] == p[j - 2]):
+                        f[i][j] |= f[i - 1][j]
+                elif i > 0 and (p[j - 1] == "." or s[i - 1] == p[j - 1]):
+                    f[i][j] = f[i - 1][j - 1]
+        return f[m][n]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private Boolean[][] f;
+    private String s;
+    private String p;
+    private int m;
+    private int n;
+
+    public boolean isMatch(String s, String p) {
+        m = s.length();
+        n = p.length();
+        f = new Boolean[m + 1][n + 1];
+        this.s = s;
+        this.p = p;
+        return dfs(0, 0);
+    }
+
+    private boolean dfs(int i, int j) {
+        if (j >= n) {
+            return i == m;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        boolean res = false;
+        if (j + 1 < n && p.charAt(j + 1) == '*') {
+            res = dfs(i, j + 2) || (i < m && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') && dfs(i + 1, j));
+        } else {
+            res = i < m && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') && dfs(i + 1, j + 1);
+        }
+        return f[i][j] = res;
+    }
+}
+```
+
+```java
+class Solution {
     public boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();
-        if (n == 0) {
-            return m == 0;
-        }
-        boolean[][] dp = new boolean[m + 1][n + 1];
-        dp[0][0] = true;
-        for (int j = 1; j < n + 1; ++j) {
-            if (p.charAt(j - 1) == '*') {
-                dp[0][j] = dp[0][j - 2];
-            }
-        }
-        for (int i = 1; i < m + 1; ++i) {
-            for (int j = 1; j < n + 1; ++j) {
-                if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.') {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else if (p.charAt(j - 1) == '*') {
-                    if (s.charAt(i - 1) == p.charAt(j - 2) || p.charAt(j - 2) == '.') {
-                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j];
-                    } else {
-                        dp[i][j] = dp[i][j - 2];
+        boolean[][] f = new boolean[m + 1][n + 1];
+        f[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p.charAt(j - 1) == '*') {
+                    f[i][j] = f[i][j - 2];
+                    if (i > 0 && (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1))) {
+                        f[i][j] |= f[i - 1][j];
                     }
+                } else if (i > 0 && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1))) {
+                    f[i][j] = f[i - 1][j - 1];
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -119,28 +154,52 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
         int m = s.size(), n = p.size();
-        if (n == 0) return m == 0;
-        vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
-        dp[0][0] = true;
-        for (int j = 1; j < n + 1; ++j) {
-            if (p[j - 1] == '*') {
-                dp[0][j] = dp[0][j - 2];
+        int f[m + 1][n + 1];
+        memset(f, 0, sizeof f);
+        function<bool(int, int)> dfs = [&](int i, int j) -> bool {
+            if (j >= n) {
+                return i == m;
             }
-        }
-        for (int i = 1; i < m + 1; ++i) {
-            for (int j = 1; j < n + 1; ++j) {
-                if (s[i - 1] == p[j - 1] || p[j - 1] == '.') {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else if (p[j - 1] == '*') {
-                    if (s[i - 1] == p[j - 2] || p[j - 2] == '.') {
-                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j];
-                    } else {
-                        dp[i][j] = dp[i][j - 2];
+            if (f[i][j]) {
+                return f[i][j] == 1;
+            }
+            int res = -1;
+            if (j + 1 < n && p[j + 1] == '*') {
+                if (dfs(i, j + 2) or (i < m and (s[i] == p[j] or p[j] == '.') and dfs(i + 1, j))) {
+                    res = 1;
+                }
+            } else if (i < m and (s[i] == p[j] or p[j] == '.') and dfs(i + 1, j + 1)) {
+                res = 1;
+            }
+            f[i][j] = res;
+            return res == 1;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int m = s.size(), n = p.size();
+        bool f[m + 1][n + 1];
+        memset(f, false, sizeof f);
+        f[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p[j - 1] == '*') {
+                    f[i][j] = f[i][j - 2];
+                    if (i && (p[j - 2] == '.' || p[j - 2] == s[i - 1])) {
+                        f[i][j] |= f[i - 1][j];
                     }
+                } else if (i && (p[j - 1] == '.' || p[j - 1] == s[i - 1])) {
+                    f[i][j] = f[i - 1][j - 1];
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -149,59 +208,55 @@ public:
 
 ```go
 func isMatch(s string, p string) bool {
-    m, n := len(s), len(p)
-    if n == 0 {
-        return m == 0
-    }
-    dp := make([][]bool, m + 1)
-    for i := 0; i < m + 1; i++ {
-        dp[i] = make([]bool, n + 1)
-    }
-    dp[0][0] = true
-    for j := 1; j < n + 1; j++ {
-        if p[j - 1] == '*' {
-            dp[0][j] = dp[0][j - 2]
-        }
-    }
-    for i := 1; i < m + 1; i++ {
-        for j := 1; j < n + 1; j++ {
-            if s[i - 1] == p[j - 1] || p[j - 1] == '.' {
-                dp[i][j] = dp[i - 1][j - 1]
-            } else if p[j - 1] == '*' {
-                if s[i - 1] == p[j - 2] || p[j - 2] == '.' {
-                    dp[i][j] = dp[i][j - 2] || dp[i - 1][j]
-                } else {
-                    dp[i][j] = dp[i][j - 2]
-                }
-            }
-        }
-    }
-    return dp[m][n]
+	m, n := len(s), len(p)
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	var dfs func(i, j int) bool
+	dfs = func(i, j int) bool {
+		if j >= n {
+			return i == m
+		}
+		if f[i][j] != 0 {
+			return f[i][j] == 1
+		}
+		res := -1
+		if j+1 < n && p[j+1] == '*' {
+			if dfs(i, j+2) || (i < m && (s[i] == p[j] || p[j] == '.') && dfs(i+1, j)) {
+				res = 1
+			}
+		} else if i < m && (s[i] == p[j] || p[j] == '.') && dfs(i+1, j+1) {
+			res = 1
+		}
+		f[i][j] = res
+		return res == 1
+	}
+	return dfs(0, 0)
 }
 ```
 
 ```go
 func isMatch(s string, p string) bool {
-	var dp func(x, y int) bool
-	dp = func(x, y int) bool {
-		if y == len(p) {
-			return x == len(s)
-		}
-
-		if x < len(s) && (s[x] == p[y] || p[y] == '.') {
-			// 下一个为 '*'
-			if y+1 < len(p) && p[y+1] == '*' {
-				return dp(x, y+2) || dp(x+1, y)
-			}
-			return dp(x+1, y+1)
-		}
-
-		if y+1 < len(p) && p[y+1] == '*' {
-			return dp(x, y+2)
-		}
-		return false
+	m, n := len(s), len(p)
+	f := make([][]bool, m+1)
+	for i := range f {
+		f[i] = make([]bool, n+1)
 	}
-	return dp(0, 0)
+	f[0][0] = true
+	for i := 0; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if p[j-1] == '*' {
+				f[i][j] = f[i][j-2]
+				if i > 0 && (p[j-2] == '.' || p[j-2] == s[i-1]) {
+					f[i][j] = f[i][j] || f[i-1][j]
+				}
+			} else if i > 0 && (p[j-1] == '.' || p[j-1] == s[i-1]) {
+				f[i][j] = f[i-1][j-1]
+			}
+		}
+	}
+	return f[m][n]
 }
 ```
 
@@ -214,22 +269,126 @@ func isMatch(s string, p string) bool {
  * @return {boolean}
  */
 var isMatch = function (s, p) {
-    let memo = {};
-    function recursive(i, j) {
-        if (memo[[i, j]] !== undefined) return memo[[i, j]];
-        if (j === p.length) return i === s.length;
-        let tmp = i < s.length && (s[i] === p[j] || p[j] === '.');
-        let ans = false;
-        if (p[j + 1] === '*') {
-            ans = recursive(i, j + 2) || (tmp && recursive(i + 1, j));
-        } else {
-            ans = tmp && recursive(i + 1, j + 1);
+    const m = s.length;
+    const n = p.length;
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    const dfs = (i, j) => {
+        if (j >= n) {
+            return i == m;
         }
-        memo[[i, j]] = ans;
-        return ans;
-    }
-    return recursive(0, 0);
+        if (f[i][j]) {
+            return f[i][j] == 1;
+        }
+        let res = -1;
+        if (j + 1 < n && p[j + 1] === '*') {
+            if (
+                dfs(i, j + 2) ||
+                (i < m && (s[i] == p[j] || p[j] == '.') && dfs(i + 1, j))
+            ) {
+                res = 1;
+            }
+        } else if (
+            i < m &&
+            (s[i] == p[j] || p[j] == '.') &&
+            dfs(i + 1, j + 1)
+        ) {
+            res = 1;
+        }
+        f[i][j] = res;
+        return res == 1;
+    };
+    return dfs(0, 0);
 };
+```
+
+```js
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {boolean}
+ */
+var isMatch = function (s, p) {
+    const m = s.length;
+    const n = p.length;
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(false));
+    f[0][0] = true;
+    for (let i = 0; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (p[j - 1] === '*') {
+                f[i][j] = f[i][j - 2];
+                if (i && (p[j - 2] === '.' || p[j - 2] == s[i - 1])) {
+                    f[i][j] |= f[i - 1][j];
+                }
+            } else if (i && (p[j - 1] === '.' || p[j - 1] == s[i - 1])) {
+                f[i][j] = f[i - 1][j - 1];
+            }
+        }
+    }
+    return f[m][n];
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private string s;
+    private string p;
+    private int m;
+    private int n;
+    private int[,] f;
+
+    public bool IsMatch(string s, string p) {
+        m = s.Length;
+        n = p.Length;
+        f = new int[m + 1, n + 1];
+        this.s = s;
+        this.p = p;
+        return dfs(0, 0);
+    }
+
+    private bool dfs(int i, int j) {
+        if (j >= n) {
+            return i == m;
+        }
+        if (f[i, j] != 0) {
+            return f[i, j] == 1;
+        }
+        int res = -1;
+        if (j + 1 < n && p[j + 1] == '*') {
+            if (dfs(i, j + 2) || (i < m && (s[i] == p[j] || p[j] == '.') && dfs(i + 1, j))) {
+                res = 1;
+            }
+        } else if (i < m && (s[i] == p[j] || p[j] == '.') && dfs(i + 1, j + 1)) {
+            res = 1;
+        }
+        f[i, j] = res;
+        return res == 1;
+    }
+}
+```
+
+```cs
+public class Solution {
+    public bool IsMatch(string s, string p) {
+        int m = s.Length, n = p.Length;
+        bool[,] f = new bool[m + 1, n + 1];
+        f[0, 0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p[j - 1] == '*') {
+                    f[i, j] = f[i, j - 2];
+                    if (i > 0 && (p[j - 2] == '.' || p[j - 2] == s[i - 1])) {
+                        f[i, j] |= f[i - 1, j];
+                    }
+                } else if (i > 0 && (p[j - 1] == '.' || p[j - 1] == s[i - 1])) {
+                    f[i, j] = f[i - 1, j - 1];
+                }
+            }
+        }
+        return f[m, n];
+    }
+}
 ```
 
 ### **...**
