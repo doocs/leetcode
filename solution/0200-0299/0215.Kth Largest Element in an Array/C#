@@ -1,0 +1,55 @@
+public class Solution {
+    public int FindKthLargest(int[] nums, int k) {
+       // Find the kth largest element using quickselect
+        int[] sortedArray = QuickSorted(nums, 0, nums.Length - 1);
+        var Kth = sortedArray[^k];
+        return Kth;
+    }
+    
+   
+   private static int[] QuickSorted(int[] array, int lb, int ub)
+        {
+            if (lb < ub)
+            {
+               var loc = Partition(array, lb, ub);
+               QuickSorted(array, lb, loc -1);
+               QuickSorted(array, loc + 1, ub);
+            }
+
+            return array;
+        }
+
+        private static int Partition(int[] array, int lb, int ub)
+        {
+            var pivot = array[lb];
+            var i = lb;
+            var j = ub;
+            while (i < j)
+            {
+                while (array[i] <= pivot && i < ub)
+                {
+                    i++;
+                }
+
+                while (array[j] > pivot)
+                {
+                    j--;
+                }
+
+                if (i < j)
+                {
+                    Swap(array, i, j);
+                }
+            }
+
+            (array[lb], array[j]) = ( array[j], pivot);
+
+            return j;
+        }
+
+        private static void Swap(int[] array, int i, int j)
+        {
+            (array[i], array[j]) = (array[j], array[i]);
+        }
+    
+}
