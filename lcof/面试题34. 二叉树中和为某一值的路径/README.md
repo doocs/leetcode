@@ -51,7 +51,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先序遍历+路径记录。
+**方法一：递归**
+
+从根节点开始，递归遍历每个节点，每次递归时，将当前节点值加入到路径中，然后判断当前节点是否为叶子节点，如果是叶子节点并且路径和等于目标值，则将该路径加入到结果中。如果当前节点不是叶子节点，则递归遍历其左右子节点。递归遍历时，需要将当前节点从路径中移除，以确保返回父节点时路径刚好是从根节点到父节点。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -62,30 +66,27 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
-        def dfs(root, sum):
+    def pathSum(self, root: TreeNode, target: int) -> List[List[int]]:
+        def dfs(root, s):
             if root is None:
                 return
-            path.append(root.val)
-            if root.val == sum and root.left is None and root.right is None:
-                res.append(path.copy())
-            dfs(root.left, sum - root.val)
-            dfs(root.right, sum - root.val)
-            path.pop()
+            t.append(root.val)
+            s -= root.val
+            if root.left is None and root.right is None and s == 0:
+                ans.append(t[:])
+            dfs(root.left, s)
+            dfs(root.right, s)
+            t.pop()
 
-        if not root:
-            return []
-        res = []
-        path = []
-        dfs(root, sum)
-        return res
+        ans = []
+        t = []
+        dfs(root, target)
+        return ans
 ```
 
 ### **Java**
@@ -99,33 +100,109 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    private List<List<Integer>> res;
-    private List<Integer> path;
+    private List<Integer> t = new ArrayList<>();
+    private List<List<Integer>> ans = new ArrayList<>();
 
-    public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        if (root == null) return Collections.emptyList();
-        res = new ArrayList<>();
-        path = new ArrayList<>();
-        dfs(root, sum);
-        return res;
+    public List<List<Integer>> pathSum(TreeNode root, int target) {
+        dfs(root, target);
+        return ans;
     }
 
-    private void dfs(TreeNode root, int sum) {
+    private void dfs(TreeNode root, int s) {
         if (root == null) {
             return;
         }
-        path.add(root.val);
-        if (root.val == sum && root.left == null && root.right == null) {
-            res.add(new ArrayList<>(path));
+        t.add(root.val);
+        s -= root.val;
+        if (root.left == null && root.right == null && s == 0) {
+            ans.add(new ArrayList<>(t));
         }
-        dfs(root.left, sum - root.val);
-        dfs(root.right, sum - root.val);
-        path.remove(path.size() - 1);
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.remove(t.size() - 1);
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> pathSum(TreeNode* root, int target) {
+        vector<vector<int>> ans;
+        vector<int> t;
+        function<void(TreeNode* root, int s)> dfs = [&](TreeNode* root, int s) {
+            if (!root) {
+                return;
+            }
+            t.push_back(root->val);
+            s -= root->val;
+            if (!root->left && !root->right && !s) {
+                ans.push_back(t);
+            }
+            dfs(root->left, s);
+            dfs(root->right, s);
+            t.pop_back();
+        };
+        dfs(root, target);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pathSum(root *TreeNode, target int) (ans [][]int) {
+	t := []int{}
+	var dfs func(*TreeNode, int)
+	dfs = func(root *TreeNode, s int) {
+		if root == nil {
+			return
+		}
+		t = append(t, root.Val)
+		s -= root.Val
+		if root.Left == nil && root.Right == nil && s == 0 {
+			cp := make([]int, len(t))
+			copy(cp, t)
+			ans = append(ans, cp)
+		}
+		dfs(root.Left, s)
+		dfs(root.Right, s)
+		t = t[:len(t)-1]
+	}
+	dfs(root, target)
+	return
 }
 ```
 
@@ -134,91 +211,35 @@ class Solution {
 ```js
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
  * }
  */
 /**
  * @param {TreeNode} root
- * @param {number} sum
+ * @param {number} target
  * @return {number[][]}
  */
-var pathSum = function (root, sum) {
-    if (!root) return [];
-    let res = [];
-    function dfs(node, sum, arr) {
-        if (!node) return;
-        arr = [...arr, node.val];
-        if (node.val === sum && !node.left && !node.right) {
-            res.push(arr);
+var pathSum = function (root, target) {
+    const ans = [];
+    const t = [];
+    const dfs = (root, s) => {
+        if (!root) {
             return;
         }
-        dfs(node.left, sum - node.val, arr);
-        dfs(node.right, sum - node.val, arr);
-    }
-    dfs(root, sum, []);
-    return res;
-};
-```
-
-### **Go**
-
-```go
-var res [][]int
-func pathSum(root *TreeNode, sum int) [][]int {
-    res = [][]int{}
-    if root == nil {
-        return res
-    }
-    helper(root, sum, []int{})
-    return res
-}
-
-func helper(node *TreeNode, target int, ans []int) {
-    if node == nil {
-        return
-    }
-    ans = append(ans,node.Val)
-    target -= node.Val
-    if target == 0 && node.Left == nil && node.Right == nil {
-        tmp := make([]int,len(ans))
-        copy(tmp,ans)
-        res = append(res,tmp)
-    } else {
-        helper(node.Left, target, ans)
-        helper(node.Right, target, ans)
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> pathSum(TreeNode* root, int target) {
-        vector<vector<int>> ans;
-        vector<int> path;
-        dfs(root, ans, path, target);
-        return ans;
-    }
-
-    void dfs(TreeNode* root, vector<vector<int>>& ans, vector<int>& path, int target) {
-        if (root == NULL) {
-            return;
+        t.push(root.val);
+        s -= root.val;
+        if (!root.left && !root.right && !s) {
+            ans.push([...t]);
         }
-        target -= root->val;
-        path.push_back(root->val);
-        if (root->left == NULL && root->right == NULL) {
-            if (target == 0) {
-                ans.push_back(vector<int>(path));
-            }
-        }
-        dfs(root->left, ans, path, target);
-        dfs(root->right, ans, path, target);
-        path.pop_back();
-    }
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.pop();
+    };
+    dfs(root, target);
+    return ans;
 };
 ```
 
@@ -393,30 +414,26 @@ impl Solution {
  * }
  */
 public class Solution {
-    List<IList<int>> res;
-    List<int> path;
+    private List<IList<int>> ans = new List<IList<int>>();
+    private List<int> t = new List<int>();
 
     public IList<IList<int>> PathSum(TreeNode root, int target) {
-        res = new List<IList<int>>();
-        path = new List<int>();
-        if (root == null) {
-            return res;
-        }
         dfs(root, target);
-        return res;
+        return ans;
     }
 
-    public void dfs(TreeNode root, int target) {
+    private void dfs(TreeNode root, int s) {
         if (root == null) {
             return;
         }
-        path.Add(root.val);
-        if (root.val == target && root.left is null && root.right is null) {
-            res.Add(new List<int>(path));
+        t.Add(root.val);
+        s -= root.val;
+        if (root.left == null && root.right == null && s == 0) {
+            ans.Add(new List<int>(t));
         }
-        dfs(root.left, target - root.val);
-        dfs(root.right, target - root.val);
-        path.RemoveAt(path.Count - 1);
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.RemoveAt(t.Count - 1);
     }
 }
 ```

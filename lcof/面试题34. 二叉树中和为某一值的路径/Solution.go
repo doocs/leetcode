@@ -1,25 +1,29 @@
-var res [][]int 
-func pathSum(root *TreeNode, sum int) [][]int {
-    res = [][]int{}
-    if root == nil {
-        return res
-    }
-    helper(root, sum, []int{})
-    return res
-}
-
-func helper(node *TreeNode, target int, ans []int) {
-    if node == nil {
-        return
-    }
-    ans = append(ans,node.Val)
-    target -= node.Val
-    if target == 0 && node.Left == nil && node.Right == nil {
-        tmp := make([]int,len(ans))
-        copy(tmp,ans)
-        res = append(res,tmp)
-    } else {
-        helper(node.Left, target, ans)
-        helper(node.Right, target, ans)
-    }
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pathSum(root *TreeNode, target int) (ans [][]int) {
+	t := []int{}
+	var dfs func(*TreeNode, int)
+	dfs = func(root *TreeNode, s int) {
+		if root == nil {
+			return
+		}
+		t = append(t, root.Val)
+		s -= root.Val
+		if root.Left == nil && root.Right == nil && s == 0 {
+			cp := make([]int, len(t))
+			copy(cp, t)
+			ans = append(ans, cp)
+		}
+		dfs(root.Left, s)
+		dfs(root.Right, s)
+		t = t[:len(t)-1]
+	}
+	dfs(root, target)
+	return
 }

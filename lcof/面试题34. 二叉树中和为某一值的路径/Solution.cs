@@ -12,29 +12,25 @@
  * }
  */
 public class Solution {
-    List<IList<int>> res;
-    List<int> path;
+    private List<IList<int>> ans = new List<IList<int>>();
+    private List<int> t = new List<int>();
 
     public IList<IList<int>> PathSum(TreeNode root, int target) {
-        res = new List<IList<int>>();
-        path = new List<int>();
-        if (root == null) {
-            return res;
-        }
         dfs(root, target);
-        return res;
+        return ans;
     }
 
-    public void dfs(TreeNode root, int target) {
+    private void dfs(TreeNode root, int s) {
         if (root == null) {
             return;
         }
-        path.Add(root.val);
-        if (root.val == target && root.left is null && root.right is null) {
-            res.Add(new List<int>(path));
+        t.Add(root.val);
+        s -= root.val;
+        if (root.left == null && root.right == null && s == 0) {
+            ans.Add(new List<int>(t));
         }
-        dfs(root.left, target - root.val);
-        dfs(root.right, target - root.val);
-        path.RemoveAt(path.Count - 1);
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.RemoveAt(t.Count - 1);
     }
 }
