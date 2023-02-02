@@ -1,20 +1,19 @@
 function verifyPostorder(postorder: number[]): boolean {
-    const dfs = (start: number, end: number, maxVal: number) => {
-        if (start > end) {
+    const dfs = (l: number, r: number): boolean => {
+        if (l >= r) {
             return true;
         }
-        const rootVal = postorder[end];
-        for (let i = end; i >= start; i--) {
-            const val = postorder[i];
-            if (val > maxVal) {
+        const v = postorder[r];
+        let i = l;
+        while (i < r && postorder[i] < v) {
+            ++i;
+        }
+        for (let j = i; j < r; ++j) {
+            if (postorder[j] < v) {
                 return false;
             }
-            if (val < rootVal) {
-                return dfs(start, i, rootVal) && dfs(i + 1, end - 1, maxVal);
-            }
         }
-        return dfs(start, end - 1, maxVal);
+        return dfs(l, i - 1) && dfs(i, r - 1);
     };
-    const n = postorder.length;
-    return dfs(0, n - 1, Infinity);
+    return dfs(0, postorder.length - 1);
 }

@@ -38,7 +38,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二叉搜索树的后序遍历序列是 `[左子树, 右子树, 根结点]`，且左子树结点值均小于根结点，右子树结点值均大于根结点，递归判断即可。
+**方法一：递归**
+
+后序遍历的最后一个元素为根节点，根据二叉搜索树的性质，根节点左边的元素都小于根节点，根节点右边的元素都大于根节点。因此，我们找到第一个大于根节点的位置 $i$，那么 $i$ 右边的元素都应该大于根节点，否则返回 `false`。然后递归判断左右子树。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
+**方法二：单调栈**
+
+后序遍历的顺序为“左、右、根”，如果我们从右往左遍历数组，那么顺序就变成“根、右、左”，根据二叉搜索树的性质，右子树所有节点值均大于根节点值。
+
+因此，从右往左遍历数组，就是从根节点往右子树走，此时值逐渐变大，直到遇到一个递减的节点，此时的节点应该属于左子树节点。我们找到该节点的直接父节点，那么此后其它节点都应该小于该父节点，否则返回 `false`。然后继续遍历，直到遍历完整个数组。
+
+此过程，我们借助栈来实现，具体步骤如下：
+
+我们首先初始化一个无穷大的父节点值 $mx$，然后初始化一个空栈。
+
+接下来，我们从右往左遍历数组，对于每个遍历到的元素 $x$：
+
+-   如果 $x$ 大于 $mx$，说明当前节点不满足二叉搜索树的性质，返回 `false`。
+-   否则，如果当前栈不为空，且栈顶元素大于 $x$，说明当前节点为左子树节点，我们循环将栈顶元素出栈并赋值给 $mx$，直到栈为空或者栈顶元素小于等于 $x$，然后将 $x$ 入栈。
+
+遍历结束后，返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -49,18 +72,32 @@
 ```python
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
-        def dfs(postorder):
-            if not postorder:
+        def dfs(l, r):
+            if l >= r:
                 return True
-            v = postorder[-1]
-            i = 0
-            while i < len(postorder) and postorder[i] < v:
+            v = postorder[r]
+            i = l
+            while i < r and postorder[i] < v:
                 i += 1
-            if any(x < v for x in postorder[i:]):
+            if any(x < v for x in postorder[i:r]):
                 return False
-            return dfs(postorder[:i]) and dfs(postorder[i:-1])
+            return dfs(l, i - 1) and dfs(i, r - 1)
 
-        return dfs(postorder)
+        return dfs(0, len(postorder) - 1)
+```
+
+```python
+class Solution:
+    def verifyPostorder(self, postorder: List[int]) -> bool:
+        mx = inf
+        stk = []
+        for x in postorder[::-1]:
+            if x > mx:
+                return False
+            while stk and stk[-1] > x:
+                mx = stk.pop()
+            stk.append(x)
+        return True
 ```
 
 ### **Java**
@@ -69,29 +106,142 @@ class Solution:
 
 ```java
 class Solution {
+    private int[] postorder;
+
     public boolean verifyPostorder(int[] postorder) {
-        if (postorder == null || postorder.length < 2) {
-            return true;
-        }
-        return dfs(postorder, 0, postorder.length);
+        this.postorder = postorder;
+        return dfs(0, postorder.length - 1);
     }
 
-    private boolean dfs(int[] postorder, int i, int n) {
-        if (n <= 0) {
+    private boolean dfs(int l, int r) {
+        if (l >= r) {
             return true;
         }
-        int v = postorder[i + n - 1];
-        int j = i;
-        while (j < i + n && postorder[j] < v) {
-            ++j;
+        int v = postorder[r];
+        int i = l;
+        while (i < r && postorder[i] < v) {
+            ++i;
         }
-        for (int k = j; k < i + n; ++k) {
-            if (postorder[k] < v) {
+        for (int j = i; j < r; ++j) {
+            if (postorder[j] < v) {
                 return false;
             }
         }
-        return dfs(postorder, i, j - i) && dfs(postorder, j, n + i - j - 1);
+        return dfs(l, i - 1) && dfs(i, r - 1);
     }
+}
+```
+
+```java
+class Solution {
+    public boolean verifyPostorder(int[] postorder) {
+        int mx = 1 << 30;
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = postorder.length - 1; i >= 0; --i) {
+            int x = postorder[i];
+            if (x > mx) {
+                return false;
+            }
+            while (!stk.isEmpty() && stk.peek() > x) {
+                mx = stk.pop();
+            }
+            stk.push(x);
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool verifyPostorder(vector<int>& postorder) {
+        function<bool(int, int)> dfs = [&](int l, int r) -> bool {
+            if (l >= r) {
+                return true;
+            }
+            int v = postorder[r];
+            int i = l;
+            while (i < r && postorder[i] < v) {
+                ++i;
+            }
+            for (int j = i; j < r; ++j) {
+                if (postorder[j] < v) {
+                    return false;
+                }
+            }
+            return dfs(l, i - 1) && dfs(i, r - 1);
+        };
+        return dfs(0, postorder.size() - 1);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool verifyPostorder(vector<int>& postorder) {
+        stack<int> stk;
+        int mx = 1 << 30;
+        reverse(postorder.begin(), postorder.end());
+        for (int& x : postorder) {
+            if (x > mx) {
+                return false;
+            }
+            while (!stk.empty() && stk.top() > x) {
+                mx = stk.top();
+                stk.pop();
+            }
+            stk.push(x);
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func verifyPostorder(postorder []int) bool {
+	var dfs func(l, r int) bool
+	dfs = func(l, r int) bool {
+		if l >= r {
+			return true
+		}
+		v := postorder[r]
+		i := l
+		for i < r && postorder[i] < v {
+			i++
+		}
+		for j := i; j < r; j++ {
+			if postorder[j] < v {
+				return false
+			}
+		}
+		return dfs(l, i-1) && dfs(i, r-1)
+	}
+	return dfs(0, len(postorder)-1)
+}
+```
+
+```go
+func verifyPostorder(postorder []int) bool {
+	mx := 1 << 30
+	stk := []int{}
+	for i := len(postorder) - 1; i >= 0; i-- {
+		x := postorder[i]
+		if x > mx {
+			return false
+		}
+		for len(stk) > 0 && stk[len(stk)-1] > x {
+			mx = stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, x)
+	}
+	return true
 }
 ```
 
@@ -103,71 +253,45 @@ class Solution {
  * @return {boolean}
  */
 var verifyPostorder = function (postorder) {
-    if (postorder.length < 2) return true;
-    function dfs(i, n) {
-        if (n <= 0) return true;
-        const v = postorder[i + n - 1];
-        let j = i;
-        while (j < i + n && postorder[j] < v) ++j;
-        for (let k = j; k < i + n; ++k) {
-            if (postorder[k] < v) {
+    const dfs = (l, r) => {
+        if (l >= r) {
+            return true;
+        }
+        const v = postorder[r];
+        let i = l;
+        while (i < r && postorder[i] < v) {
+            ++i;
+        }
+        for (let j = i; j < r; ++j) {
+            if (postorder[j] < v) {
                 return false;
             }
         }
-        return dfs(i, j - i) && dfs(j, n + i - j - 1);
-    }
-    return dfs(0, postorder.length);
+        return dfs(l, i - 1) && dfs(i, r - 1);
+    };
+    return dfs(0, postorder.length - 1);
 };
 ```
 
-### **Go**
-
-```go
-func verifyPostorder(postorder []int) bool {
-	if len(postorder) < 2 {
-		return true
-	}
-	var dfs func(i, n int) bool
-	dfs = func(i, n int) bool {
-		if n <= 0 {
-			return true
-		}
-		v := postorder[i+n-1]
-		j := i
-		for j < i+n && postorder[j] < v {
-			j++
-		}
-		for k := j; k < i+n; k++ {
-			if postorder[k] < v {
-				return false
-			}
-		}
-		return dfs(i, j-i) && dfs(j, n+i-j-1)
-	}
-	return dfs(0, len(postorder))
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool verifyPostorder(vector<int>& postorder) {
-        if (postorder.size() < 2) return true;
-        return dfs(postorder, 0, postorder.size());
+```js
+/**
+ * @param {number[]} postorder
+ * @return {boolean}
+ */
+var verifyPostorder = function (postorder) {
+    let mx = 1 << 30;
+    const stk = [];
+    for (let i = postorder.length - 1; i >= 0; --i) {
+        const x = postorder[i];
+        if (x > mx) {
+            return false;
+        }
+        while (stk.length && stk[stk.length - 1] > x) {
+            mx = stk.pop();
+        }
+        stk.push(x);
     }
-
-    bool dfs(vector<int>& postorder, int i, int n) {
-        if (n <= 0) return 1;
-        int v = postorder[i + n - 1];
-        int j = i;
-        while (j < i + n && postorder[j] < v) ++j;
-        for (int k = j; k < i + n; ++k)
-            if (postorder[k] < v)
-                return 0;
-        return dfs(postorder, i, j - i) && dfs(postorder, j, n + i - j - 1);
-    }
+    return true;
 };
 ```
 
@@ -175,24 +299,41 @@ public:
 
 ```ts
 function verifyPostorder(postorder: number[]): boolean {
-    const dfs = (start: number, end: number, maxVal: number) => {
-        if (start > end) {
+    const dfs = (l: number, r: number): boolean => {
+        if (l >= r) {
             return true;
         }
-        const rootVal = postorder[end];
-        for (let i = end; i >= start; i--) {
-            const val = postorder[i];
-            if (val > maxVal) {
+        const v = postorder[r];
+        let i = l;
+        while (i < r && postorder[i] < v) {
+            ++i;
+        }
+        for (let j = i; j < r; ++j) {
+            if (postorder[j] < v) {
                 return false;
             }
-            if (val < rootVal) {
-                return dfs(start, i, rootVal) && dfs(i + 1, end - 1, maxVal);
-            }
         }
-        return dfs(start, end - 1, maxVal);
+        return dfs(l, i - 1) && dfs(i, r - 1);
     };
-    const n = postorder.length;
-    return dfs(0, n - 1, Infinity);
+    return dfs(0, postorder.length - 1);
+}
+```
+
+```ts
+function verifyPostorder(postorder: number[]): boolean {
+    let mx = 1 << 30;
+    const stk: number[] = [];
+    for (let i = postorder.length - 1; i >= 0; --i) {
+        const x = postorder[i];
+        if (x > mx) {
+            return false;
+        }
+        while (stk.length && stk[stk.length - 1] > x) {
+            mx = stk.pop();
+        }
+        stk.push(x);
+    }
+    return true;
 }
 ```
 
@@ -228,21 +369,28 @@ impl Solution {
 
 ```cs
 public class Solution {
+    private int[] postorder;
+
     public bool VerifyPostorder(int[] postorder) {
-        if (postorder.Length == 0) {
+        this.postorder = postorder;
+        return dfs(0, postorder.Length - 1);
+    }
+
+    private bool dfs(int l, int r) {
+        if (l >= r) {
             return true;
         }
-        var root = postorder[^1];
-        int n = postorder.Length, i = 0;
-        while (i < n && postorder[i] < root) {
-            i += 1;
+        int v = postorder[r];
+        int i = l;
+        while (i < r && postorder[i] < v) {
+            ++i;
         }
-        for (int j = i; j < n - 1; j++) {
-            if (postorder[j] < root) {
+        for (int j = i; j < r; ++j) {
+            if (postorder[j] < v) {
                 return false;
             }
         }
-        return VerifyPostorder(postorder[..i]) && VerifyPostorder(postorder[i..^1]);
+        return dfs(l, i - 1) && dfs(i, r - 1);
     }
 }
 ```

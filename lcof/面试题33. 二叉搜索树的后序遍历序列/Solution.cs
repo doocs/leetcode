@@ -1,18 +1,25 @@
 public class Solution {
+    private int[] postorder;
+
     public bool VerifyPostorder(int[] postorder) {
-        if (postorder.Length == 0) {
+        this.postorder = postorder;
+        return dfs(0, postorder.Length - 1);
+    }
+
+    private bool dfs(int l, int r) {
+        if (l >= r) {
             return true;
         }
-        var root = postorder[^1];
-        int n = postorder.Length, i = 0;
-        while (i < n && postorder[i] < root) {
-            i += 1;
+        int v = postorder[r];
+        int i = l;
+        while (i < r && postorder[i] < v) {
+            ++i;
         }
-        for (int j = i; j < n - 1; j++) {
-            if (postorder[j] < root) {
+        for (int j = i; j < r; ++j) {
+            if (postorder[j] < v) {
                 return false;
             }
         }
-        return VerifyPostorder(postorder[..i]) && VerifyPostorder(postorder[i..^1]);
+        return dfs(l, i - 1) && dfs(i, r - 1);
     }
 }

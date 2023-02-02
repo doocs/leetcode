@@ -1,23 +1,20 @@
 func verifyPostorder(postorder []int) bool {
-	if len(postorder) < 2 {
-		return true
-	}
-	var dfs func(i, n int) bool
-	dfs = func(i, n int) bool {
-		if n <= 0 {
+	var dfs func(l, r int) bool
+	dfs = func(l, r int) bool {
+		if l >= r {
 			return true
 		}
-		v := postorder[i+n-1]
-		j := i
-		for j < i+n && postorder[j] < v {
-			j++
+		v := postorder[r]
+		i := l
+		for i < r && postorder[i] < v {
+			i++
 		}
-		for k := j; k < i+n; k++ {
-			if postorder[k] < v {
+		for j := i; j < r; j++ {
+			if postorder[j] < v {
 				return false
 			}
 		}
-		return dfs(i, j-i) && dfs(j, n+i-j-1)
+		return dfs(l, i-1) && dfs(i, r-1)
 	}
-	return dfs(0, len(postorder))
+	return dfs(0, len(postorder)-1)
 }
