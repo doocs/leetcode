@@ -15,13 +15,11 @@ public class Solution {
         }
         var q = new Queue<TreeNode>();
         q.Enqueue(root);
-        int i = 0;
         while (q.Count > 0) {
-            var tmp = new List<int>();
-            int x = q.Count;
-            for (int j = 0; j < x; j++) {
+            var t = new List<int>();
+            for (int n = q.Count; n > 0; --n) {
                 var node = q.Dequeue();
-                tmp.Add(node.val);
+                t.Add(node.val);
                 if (node.left != null) {
                     q.Enqueue(node.left);
                 }
@@ -29,11 +27,10 @@ public class Solution {
                     q.Enqueue(node.right);
                 }
             }
-            if (i % 2 == 1) {
-                tmp.Reverse();
+            if (ans.Count % 2 == 1) {
+                t.Reverse();
             }
-            ans.Add(tmp);
-            i += 1;
+            ans.Add(t);
         }
         return ans;
     }
