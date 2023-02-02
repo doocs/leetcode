@@ -28,6 +28,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：回溯 + 哈希表**
+
+我们设计一个函数 $dfs(i)$，表示当前排列到了第 $i$ 个位置，我们需要在第 $i$ 个位置上填入一个字符，这个字符可以从 $s[i..n-1]$ 中任意选择。
+
+函数 $dfs(i)$ 的执行过程如下：
+
+-   如果 $i = n-1$，说明当前排列已经填满，将当前排列加入答案，返回。
+-   否则，我们需要在 $s[i..n-1]$ 中选择一个字符填入第 $i$ 个位置，我们可以使用哈希表记录哪些字符已经被填过，从而避免重复填入相同的字符。
+-   在 $s[i..n-1]$ 中选择一个字符填入第 $i$ 个位置，然后递归执行函数 $dfs(i+1)$，即填入第 $i+1$ 个位置。
+-   回溯，撤销选择，即将第 $i$ 个位置的字符填回原位。
+
+我们在主函数中调用函数 $dfs(0)$，即从第 0 个位置开始填入字符。最后返回答案数组即可。
+
+时间复杂度 $O(n! \times n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。需要进行 $n!$ 次排列，每次排列需要 $O(n)$ 的时间复制字符串。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -37,22 +52,22 @@
 ```python
 class Solution:
     def permutation(self, s: str) -> List[str]:
-        def dfs(x):
-            if x == len(s) - 1:
-                res.append("".join(chars))
+        def dfs(i):
+            if i == len(s) - 1:
+                ans.append(''.join(cs))
                 return
-            t = set()
-            for i in range(x, len(s)):
-                if chars[i] in t:
-                    continue
-                t.add(chars[i])
-                chars[i], chars[x] = chars[x], chars[i]
-                dfs(x + 1)
-                chars[i], chars[x] = chars[x], chars[i]
+            vis = set()
+            for j in range(i, len(s)):
+                if cs[j] not in vis:
+                    vis.add(cs[j])
+                    cs[i], cs[j] = cs[j], cs[i]
+                    dfs(i + 1)
+                    cs[i], cs[j] = cs[j], cs[i]
 
-        chars, res = list(s), []
+        ans = []
+        cs = list(s)
         dfs(0)
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -61,38 +76,89 @@ class Solution:
 
 ```java
 class Solution {
-    private char[] chars;
-    private List<String> res;
+    private List<String> ans = new ArrayList<>();
+    private char[] cs;
 
     public String[] permutation(String s) {
-        chars = s.toCharArray();
-        res = new ArrayList<>();
+        cs = s.toCharArray();
         dfs(0);
-        return res.toArray(new String[res.size()]);
+        return ans.toArray(new String[ans.size()]);
     }
 
-    private void dfs(int x) {
-        if (x == chars.length - 1) {
-            res.add(String.valueOf(chars));
+    private void dfs(int i) {
+        if (i == cs.length - 1) {
+            ans.add(String.valueOf(cs));
             return;
         }
-        Set<Character> set = new HashSet<>();
-        for (int i = x; i < chars.length; ++i) {
-            if (set.contains(chars[i])) {
-                continue;
+        Set<Character> vis = new HashSet<>();
+        for (int j = i; j < cs.length; ++j) {
+            if (vis.add(cs[j])) {
+                swap(i, j);
+                dfs(i + 1);
+                swap(i, j);
             }
-            set.add(chars[i]);
-            swap(i, x);
-            dfs(x + 1);
-            swap(i, x);
         }
     }
 
     private void swap(int i, int j) {
-        char t = chars[i];
-        chars[i] = chars[j];
-        chars[j] = t;
+        char t = cs[i];
+        cs[i] = cs[j];
+        cs[j] = t;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> permutation(string s) {
+        vector<string> ans;
+        function<void(int)> dfs = [&](int i) {
+            if (i == s.size() - 1) {
+                ans.push_back(s);
+                return;
+            }
+            unordered_set<char> vis;
+            for (int j = i; j < s.size(); ++j) {
+                if (!vis.count(s[j])) {
+                    vis.insert(s[j]);
+                    swap(s[i], s[j]);
+                    dfs(i + 1);
+                    swap(s[i], s[j]);
+                }
+            }
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func permutation(s string) (ans []string) {
+	cs := []byte(s)
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == len(s)-1 {
+			ans = append(ans, string(cs))
+			return
+		}
+		vis := map[byte]bool{}
+		for j := i; j < len(s); j++ {
+			if !vis[cs[j]] {
+				vis[cs[j]] = true
+				cs[i], cs[j] = cs[j], cs[i]
+				dfs(i + 1)
+				cs[i], cs[j] = cs[j], cs[i]
+			}
+		}
+	}
+	dfs(0)
+	return
 }
 ```
 
@@ -104,52 +170,26 @@ class Solution {
  * @return {string[]}
  */
 var permutation = function (s) {
-    let len = s.length;
-    let res = new Set();
-    function dfs(str, isRead) {
-        if (str.length === len) {
-            res.add(str);
+    const cs = s.split('');
+    const ans = [];
+    const n = s.length;
+    const dfs = i => {
+        if (i == n - 1) {
+            ans.push(cs.join(''));
             return;
         }
-        for (let i = 0; i < len; i++) {
-            if (isRead[i]) continue;
-            isRead[i] = 1;
-            dfs(str.concat(s[i]), isRead);
-            isRead[i] = 0;
-        }
-    }
-    dfs('', {});
-    return [...res];
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    void func(string str, int index, set<string>& mySet) {
-        if (index == str.size()) {
-            mySet.insert(str);
-        } else {
-            for (int i = index; i < str.size(); i++) {
-                swap(str[i], str[index]);
-                int temp = index + 1;
-                func(str, temp, mySet);
-                swap(str[i], str[index]);
+        const vis = new Set();
+        for (let j = i; j < n; ++j) {
+            if (!vis.has(cs[j])) {
+                vis.add(cs[j]);
+                [cs[i], cs[j]] = [cs[j], cs[i]];
+                dfs(i + 1);
+                [cs[i], cs[j]] = [cs[j], cs[i]];
             }
         }
-    }
-
-    vector<string> permutation(string s) {
-        set<string> mySet;
-        func(s, 0, mySet);
-        vector<string> ret;
-        for (string x : mySet) {
-            ret.push_back(x);
-        }
-        return ret;
-    }
+    };
+    dfs(0);
+    return ans;
 };
 ```
 
@@ -211,25 +251,26 @@ impl Solution {
 
 ```cs
 public class Solution {
+    private char[] cs;
+    private List<string> ans = new List<string>();
+
     public string[] Permutation(string s) {
-        int n = s.Length;
-        var data = s.ToCharArray();
-        var ans = new List<string>();
-        DFS(data, 0, ans);
+        cs = s.ToCharArray();
+        dfs(0);
         return ans.ToArray();
     }
 
-    void DFS(char[] s, int idx, List<string> ans) {
-        if (idx == s.Length) {
-            ans.Add(new string(s));
+    private void dfs(int i) {
+        if (i == cs.Length - 1) {
+            ans.Add(new string(cs));
             return;
         }
-        var set = new HashSet<char>();
-        for (int i = idx; i < s.Length; i++) {
-            if (set.Add(s[i])) {
-                (s[i], s[idx]) = (s[idx], s[i]);
-                DFS(s, idx+1, ans);
-                (s[i], s[idx]) = (s[idx], s[i]);
+        var vis = new HashSet<char>();
+        for (int j = i; j < cs.Length; ++j) {
+            if (vis.Add(cs[j])) {
+                (cs[i], cs[j]) = (cs[j], cs[i]);
+                dfs(i + 1);
+                (cs[i], cs[j]) = (cs[j], cs[i]);
             }
         }
     }

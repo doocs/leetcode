@@ -1,34 +1,31 @@
 class Solution {
-    private char[] chars;
-    private List<String> res;
+    private List<String> ans = new ArrayList<>();
+    private char[] cs;
 
     public String[] permutation(String s) {
-        chars = s.toCharArray();
-        res = new ArrayList<>();
+        cs = s.toCharArray();
         dfs(0);
-        return res.toArray(new String[res.size()]);
+        return ans.toArray(new String[ans.size()]);
     }
 
-    private void dfs(int x) {
-        if (x == chars.length - 1) {
-            res.add(String.valueOf(chars));
+    private void dfs(int i) {
+        if (i == cs.length - 1) {
+            ans.add(String.valueOf(cs));
             return;
         }
-        Set<Character> set = new HashSet<>();
-        for (int i = x; i < chars.length; ++i) {
-            if (set.contains(chars[i])) {
-                continue;
+        Set<Character> vis = new HashSet<>();
+        for (int j = i; j < cs.length; ++j) {
+            if (vis.add(cs[j])) {
+                swap(i, j);
+                dfs(i + 1);
+                swap(i, j);
             }
-            set.add(chars[i]);
-            swap(i, x);
-            dfs(x + 1);
-            swap(i, x);
         }
     }
 
     private void swap(int i, int j) {
-        char t = chars[i];
-        chars[i] = chars[j];
-        chars[j] = t;
+        char t = cs[i];
+        cs[i] = cs[j];
+        cs[j] = t;
     }
 }

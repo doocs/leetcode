@@ -3,20 +3,24 @@
  * @return {string[]}
  */
 var permutation = function (s) {
-    let len = s.length;
-    let res = new Set();
-    function dfs(str, isRead) {
-        if (str.length === len) {
-            res.add(str);
+    const cs = s.split('');
+    const ans = [];
+    const n = s.length;
+    const dfs = i => {
+        if (i == n - 1) {
+            ans.push(cs.join(''));
             return;
         }
-        for (let i = 0; i < len; i++) {
-            if (isRead[i]) continue;
-            isRead[i] = 1;
-            dfs(str.concat(s[i]), isRead);
-            isRead[i] = 0;
+        const vis = new Set();
+        for (let j = i; j < n; ++j) {
+            if (!vis.has(cs[j])) {
+                vis.add(cs[j]);
+                [cs[i], cs[j]] = [cs[j], cs[i]];
+                dfs(i + 1);
+                [cs[i], cs[j]] = [cs[j], cs[i]];
+            }
         }
-    }
-    dfs('', {});
-    return [...res];
+    };
+    dfs(0);
+    return ans;
 };
