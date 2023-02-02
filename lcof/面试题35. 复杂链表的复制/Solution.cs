@@ -4,7 +4,7 @@ public class Node {
     public int val;
     public Node next;
     public Node random;
-    
+
     public Node(int _val) {
         val = _val;
         next = null;
@@ -18,29 +18,24 @@ public class Solution {
         if (head == null) {
             return null;
         }
-        
-        Node cur = head;
-        while (cur != null) {
-            Node node = new Node(cur.val);
-            node.next = cur.next;
+        for (Node cur = head; cur != null; ) {
+            Node node = new Node(cur.val, cur.next);
             cur.next = node;
             cur = node.next;
         }
-
-        cur = head;
-        while (cur != null) {
-            cur.next.random = cur.random == null ? null : cur.random.next;
-            cur = cur.next.next;
+        for (Node cur = head; cur != null; cur = cur.next.next) {
+            if (cur.random != null) {
+                cur.next.random = cur.random.next;
+            }
         }
-
-        Node copy = head.next;
-        cur = head;
-        while (cur != null) {
-            Node next = cur.next;
-            cur.next = next.next;
-            next.next = next.next == null ? null : next.next.next;
-            cur = cur.next;
+        Node ans = head.next;
+        for (Node cur = head; cur != null; ) {
+            Node nxt = cur.next;
+            if (nxt != null) {
+                cur.next = nxt.next;
+            }
+            cur = nxt;
         }
-        return copy;
+        return ans;
     }
 }

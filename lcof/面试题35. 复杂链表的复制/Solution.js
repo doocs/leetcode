@@ -12,29 +12,26 @@
  * @return {Node}
  */
 var copyRandomList = function (head) {
-    if (head == null) {
+    if (!head) {
         return null;
     }
-    let cur = head;
-    while (cur != null) {
-        let node = new Node(cur.val, cur.next);
+    for (let cur = head; cur; ) {
+        const node = new Node(cur.val, cur.next, null);
         cur.next = node;
         cur = node.next;
     }
-
-    cur = head;
-    while (cur != null) {
-        cur.next.random = cur.random == null ? null : cur.random.next;
-        cur = cur.next.next;
+    for (let cur = head; cur; cur = cur.next.next) {
+        if (cur.random) {
+            cur.next.random = cur.random.next;
+        }
     }
-
-    let copy = head.next;
-    cur = head;
-    while (cur != null) {
-        let next = cur.next;
-        cur.next = next.next;
-        next.next = next.next == null ? null : next.next.next;
-        cur = cur.next;
+    const ans = head.next;
+    for (let cur = head; cur; ) {
+        const nxt = cur.next;
+        if (nxt) {
+            cur.next = nxt.next;
+        }
+        cur = nxt;
     }
-    return copy;
+    return ans;
 };

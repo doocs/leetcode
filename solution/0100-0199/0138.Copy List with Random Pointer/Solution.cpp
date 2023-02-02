@@ -5,7 +5,7 @@ public:
     int val;
     Node* next;
     Node* random;
-    
+
     Node(int _val) {
         val = _val;
         next = NULL;
@@ -13,35 +13,31 @@ public:
     }
 };
 */
-
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
         if (!head) {
             return nullptr;
         }
-        Node* cur = head;
-        while (cur) {
+        for (Node* cur = head; cur; ) {
             Node* node = new Node(cur->val);
             node->next = cur->next;
             cur->next = node;
             cur = node->next;
         }
-
-        cur = head;
-        while (cur) {
-            cur->next->random = cur->random ? cur->random->next : nullptr;
-            cur = cur->next->next;
+        for (Node* cur = head; cur; cur = cur->next->next) {
+            if (cur->random) {
+                cur->next->random = cur->random->next;
+            }
         }
-
-        Node* copy = head->next;
-        cur = head;
-        while (cur) {
-            Node* next = cur->next;
-            cur->next = next->next;
-            next->next = next->next ? next->next->next : nullptr;
-            cur = cur->next;
+        Node* ans = head->next;
+        for (Node* cur = head; cur; ) {
+            Node* nxt = cur->next;
+            if (nxt) {
+                cur->next = nxt->next;
+            }
+            cur = nxt;
         }
-        return copy;
+        return ans;
     }
 };
