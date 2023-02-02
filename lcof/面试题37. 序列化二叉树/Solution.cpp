@@ -9,62 +9,57 @@
  */
 class Codec {
 public:
-    string empty = "#";
-    string sep = ",";
+
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
-        if (!root) return "";
-        string res = "";
-        queue<TreeNode*> q;
-        q.push(root);
-        while (!q.empty()) {
-            TreeNode* node = q.front();
-            q.pop();
-            if (!node) {
-                res += empty + sep;
-                continue;
-            }
-            res += to_string(node->val) + sep;
-            q.push(node->left);
-            q.push(node->right);
+        if (!root) {
+            return "";
         }
-        return res;
+        queue<TreeNode*> q{{root}};
+        string ans;
+        while (!q.empty()) {
+            auto node = q.front();
+            q.pop();
+            if (node) {
+                ans += to_string(node->val) + " ";
+                q.push(node->left);
+                q.push(node->right);
+            } else {
+                ans += "# ";
+            }
+        }
+        ans.pop_back();
+        return ans;
     }
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
-        if (data.empty()) return nullptr;
-        vector<string> nodes;
-        size_t pos = 0;
-        string node;
-        while ((pos = data.find(sep)) != string::npos) {
-            node = data.substr(0, pos);
-            nodes.push_back(node);
-            data.erase(0, pos + sep.length());
+        if (data == "") {
+            return nullptr;
         }
-        queue<TreeNode*> q;
-        TreeNode* root = new TreeNode(stoi(nodes[0]));
-        q.push(root);
-
-        for (size_t i = 1; i < nodes.size();) {
-            TreeNode* front = q.front();
+        stringstream ss(data);
+        string t;
+        ss >> t;
+        TreeNode* root = new TreeNode(stoi(t));
+        queue<TreeNode*> q{{root}};
+        while (!q.empty()) {
+            auto node = q.front();
             q.pop();
-            // 左子树
-            node = nodes[i++];
-            if (node != empty) {
-                front->left = new TreeNode(stoi(node));
-                q.push(front->left);
+            ss >> t;
+            if (t != "#") {
+                node->left = new TreeNode(stoi(t));
+                q.push(node->left);
             }
-            // 右子树
-            node = nodes[i++];
-            if (node != empty) {
-                front->right = new TreeNode(stoi(node));
-                q.push(front->right);
+            ss >> t;
+            if (t != "#") {
+                node->right = new TreeNode(stoi(t));
+                q.push(node->right);
             }
         }
         return root;
     }
 };
+
 // Your Codec object will be instantiated and called as such:
 // Codec codec;
 // codec.deserialize(codec.serialize(root));

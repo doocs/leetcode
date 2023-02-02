@@ -13,20 +13,19 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        if not root:
-            return '[]'
-        queue = deque()
-        queue.append(root)
-        res = []
-        while queue:
-            node = queue.popleft()
+        if root is None:
+            return ""
+        q = deque([root])
+        ans = []
+        while q:
+            node = q.popleft()
             if node:
-                res.append(str(node.val))
-                queue.append(node.left)
-                queue.append(node.right)
+                ans.append(str(node.val))
+                q.append(node.left)
+                q.append(node.right)
             else:
-                res.append('null')
-        return f'[{",".join(res)}]'
+                ans.append("#")
+        return ",".join(ans)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -34,23 +33,22 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        if not data or data == '[]':
+        if not data:
             return None
-        queue = deque()
-        nodes = data[1:-1].split(',')
-        root = TreeNode(nodes[0])
-        queue.append(root)
-        idx = 1
-        while queue and idx < len(nodes):
-            node = queue.popleft()
-            if nodes[idx] != 'null':
-                node.left = TreeNode(nodes[idx])
-                queue.append(node.left)
-            idx += 1
-            if nodes[idx] != 'null':
-                node.right = TreeNode(nodes[idx])
-                queue.append(node.right)
-            idx += 1
+        vals = data.split(",")
+        root = TreeNode(int(vals[0]))
+        q = deque([root])
+        i = 1
+        while q:
+            node = q.popleft()
+            if vals[i] != "#":
+                node.left = TreeNode(int(vals[i]))
+                q.append(node.left)
+            i += 1
+            if vals[i] != "#":
+                node.right = TreeNode(int(vals[i]))
+                q.append(node.right)
+            i += 1
         return root
 
 
