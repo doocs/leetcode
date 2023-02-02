@@ -22,7 +22,9 @@ public class Node {
 */
 
 public class Solution {
-    Node head, pre;
+    private Node head;
+    private Node pre;
+
     public Node TreeToDoublyList(Node root) {
         if (root == null) {
             return null;
@@ -33,18 +35,18 @@ public class Solution {
         return head;
     }
 
-    public void dfs(Node cur) {
-        if (cur == null) {
+    private void dfs(Node root) {
+        if (root == null) {
             return;
         }
-        dfs(cur.left);
-        if (pre == null) {
-            head = cur;
+        dfs(root.left);
+        if (pre != null) {
+            pre.right = root;
         } else {
-            pre.right = cur;
+            head = root;
         }
-        cur.left = pre;
-        pre = cur;
-        dfs(cur.right);
+        root.left = pre;
+        pre = root;
+        dfs(root.right);
     }
 }

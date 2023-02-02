@@ -11,17 +11,25 @@
  * @return {Node}
  */
 var treeToDoublyList = function (root) {
-    function dfs(cur) {
-        if (!cur) return;
-        dfs(cur.left);
-        if (!pre) head = cur;
-        else pre.right = cur;
-        cur.left = pre;
-        pre = cur;
-        dfs(cur.right);
+    if (!root) {
+        return null;
     }
-    if (!root) return null;
-    let head, pre;
+    let head = null;
+    let pre = null;
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        if (pre) {
+            pre.right = root;
+        } else {
+            head = root;
+        }
+        root.left = pre;
+        pre = root;
+        dfs(root.right);
+    };
     dfs(root);
     head.left = pre;
     pre.right = head;

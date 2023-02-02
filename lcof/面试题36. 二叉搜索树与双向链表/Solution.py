@@ -9,23 +9,24 @@ class Node:
 
 
 class Solution:
-    def treeToDoublyList(self, root: 'Node') -> 'Node':
-        def dfs(cur):
-            if cur is None:
+    def treeToDoublyList(self, root: "Node") -> "Node":
+        def dfs(root):
+            if root is None:
                 return
-            dfs(cur.left)
-            if self.pre is None:
-                self.head = cur
+            dfs(root.left)
+            nonlocal head, pre
+            if pre:
+                pre.right = root
             else:
-                self.pre.right = cur
-            cur.left = self.pre
-            self.pre = cur
-            dfs(cur.right)
+                head = root
+            root.left = pre
+            pre = root
+            dfs(root.right)
 
         if root is None:
             return None
-        self.head = self.pre = None
+        head = pre = None
         dfs(root)
-        self.head.left = self.pre
-        self.pre.right = self.head
-        return self.head
+        head.left = pre
+        pre.right = head
+        return head

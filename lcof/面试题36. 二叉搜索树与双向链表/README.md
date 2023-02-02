@@ -38,9 +38,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
--   排序链表：二叉搜索树中序遍历得到有序序列
--   循环链表：头节点指向链表尾节点，尾节点指向链表头节点
--   双向链表：`pre.right = cur`、`cur.left = pre`、`pre = cur`
+**方法一：中序遍历**
+
+二叉搜索树的中序遍历是有序序列，因此可以通过中序遍历得到有序序列，过程中构建双向链表。
+
+遍历结束，将头节点和尾节点相连，返回头节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉搜索树的节点个数。
 
 <!-- tabs:start -->
 
@@ -60,26 +64,27 @@ class Node:
 
 
 class Solution:
-    def treeToDoublyList(self, root: 'Node') -> 'Node':
-        def dfs(cur):
-            if cur is None:
+    def treeToDoublyList(self, root: "Node") -> "Node":
+        def dfs(root):
+            if root is None:
                 return
-            dfs(cur.left)
-            if self.pre is None:
-                self.head = cur
+            dfs(root.left)
+            nonlocal head, pre
+            if pre:
+                pre.right = root
             else:
-                self.pre.right = cur
-            cur.left = self.pre
-            self.pre = cur
-            dfs(cur.right)
+                head = root
+            root.left = pre
+            pre = root
+            dfs(root.right)
 
         if root is None:
             return None
-        self.head = self.pre = None
+        head = pre = None
         dfs(root)
-        self.head.left = self.pre
-        self.pre.right = self.head
-        return self.head
+        head.left = pre
+        pre.right = head
+        return head
 ```
 
 ### **Java**
@@ -108,27 +113,129 @@ class Node {
 };
 */
 class Solution {
-    Node head;
-    Node pre;
+    private Node head;
+    private Node pre;
+
     public Node treeToDoublyList(Node root) {
-        if (root == null) return null;
+        if (root == null) {
+            return null;
+        }
         dfs(root);
         head.left = pre;
         pre.right = head;
         return head;
     }
 
-    private void dfs(Node cur) {
-        if (cur == null) return;
-        dfs(cur.left);
-        if (pre == null)
-            head = cur;
-        else
-            pre.right = cur;
-        cur.left = pre;
-        pre = cur;
-        dfs(cur.right);
+    private void dfs(Node root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        if (pre != null) {
+            pre.right = root;
+        } else {
+            head = root;
+        }
+        root.left = pre;
+        pre = root;
+        dfs(root.right);
     }
+}
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+        left = NULL;
+        right = NULL;
+    }
+
+    Node(int _val, Node* _left, Node* _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
+class Solution {
+public:
+    Node* treeToDoublyList(Node* root) {
+        if (!root) {
+            return nullptr;
+        }
+        Node* pre = nullptr;
+        Node* head = nullptr;
+        function<void(Node*)> dfs = [&](Node* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->left);
+            if (pre) {
+                pre->right = root;
+            } else {
+                head = root;
+            }
+            root->left = pre;
+            pre = root;
+            dfs(root->right);
+        };
+
+        dfs(root);
+        head->left = pre;
+        pre->right = head;
+        return head;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Left *Node
+ *     Right *Node
+ * }
+ */
+
+func treeToDoublyList(root *Node) *Node {
+	if root == nil {
+		return nil
+	}
+	var head, pre *Node
+	var dfs func(*Node)
+	dfs = func(root *Node) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		if pre != nil {
+			pre.Right = root
+		} else {
+			head = root
+		}
+		root.Left = pre
+		pre = root
+		dfs(root.Right)
+	}
+	dfs(root)
+	head.Left = pre
+	pre.Right = head
+	return head
 }
 ```
 
@@ -148,52 +255,29 @@ class Solution {
  * @return {Node}
  */
 var treeToDoublyList = function (root) {
-    function dfs(cur) {
-        if (!cur) return;
-        dfs(cur.left);
-        if (!pre) head = cur;
-        else pre.right = cur;
-        cur.left = pre;
-        pre = cur;
-        dfs(cur.right);
+    if (!root) {
+        return null;
     }
-    if (!root) return null;
-    let head, pre;
+    let head = null;
+    let pre = null;
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        if (pre) {
+            pre.right = root;
+        } else {
+            head = root;
+        }
+        root.left = pre;
+        pre = root;
+        dfs(root.right);
+    };
     dfs(root);
     head.left = pre;
     pre.right = head;
     return head;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    Node* treeToDoublyList(Node* root) {
-        if (root == NULL) return NULL;
-        inorder(root);
-        head->left = pre;
-        pre->right = head;
-        return head;
-    }
-
-private:
-    Node *pre, *head;
-
-    void inorder(Node* cur) {
-        if (cur) {
-            inorder(cur->left);
-            if (pre)
-                pre->right = cur;
-            else
-                head = cur;
-            cur->left = pre;
-            pre = cur;
-            inorder(cur->right);
-        }
-    }
 };
 ```
 
@@ -224,7 +308,9 @@ public class Node {
 */
 
 public class Solution {
-    Node head, pre;
+    private Node head;
+    private Node pre;
+
     public Node TreeToDoublyList(Node root) {
         if (root == null) {
             return null;
@@ -235,19 +321,19 @@ public class Solution {
         return head;
     }
 
-    public void dfs(Node cur) {
-        if (cur == null) {
+    private void dfs(Node root) {
+        if (root == null) {
             return;
         }
-        dfs(cur.left);
-        if (pre == null) {
-            head = cur;
+        dfs(root.left);
+        if (pre != null) {
+            pre.right = root;
         } else {
-            pre.right = cur;
+            head = root;
         }
-        cur.left = pre;
-        pre = cur;
-        dfs(cur.right);
+        root.left = pre;
+        pre = root;
+        dfs(root.right);
     }
 }
 ```
