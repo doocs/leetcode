@@ -28,6 +28,26 @@
 
 ## 解法
 
+**方法一：排序**
+
+我们可以直接对数组 `arr` 按从小到大排序，然后取前 $k$ 个数即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `arr` 的长度。
+
+**方法二：优先队列（大根堆）**
+
+我们可以用优先队列（大根堆）维护最小的 $k$ 个数。
+
+遍历数组 `arr`，对于当前遍历到的数 $x$，我们先将其加入优先队列中，然后判断优先队列的大小是否超过 $k$，如果超过了，就将堆顶元素弹出。最后将优先队列中的数存入数组并返回即可。
+
+时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 `arr` 的长度。
+
+**方法三：快排思想**
+
+我们可以利用快速排序的思想，每次划分后判断划分点的位置是否为 $k$，如果是，就直接返回划分点左边的数即可，否则根据划分点的位置决定下一步划分的区间。
+
+时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `arr` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -35,12 +55,41 @@
 ```python
 class Solution:
     def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
-        if k == 0:
-            return []
-        heap = []
-        for e in arr:
-            heappush(heap, e)
-        return nsmallest(k, heap)
+        arr.sort()
+        return arr[:k]
+```
+
+```python
+class Solution:
+    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+        h = []
+        for x in arr:
+            heappush(h, -x)
+            if len(h) > k:
+                heappop(h)
+        return [-x for x in h]
+```
+
+```python
+class Solution:
+    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+        def quick_sort(l, r):
+            i, j = l, r
+            while i < j:
+                while i < j and arr[j] >= arr[l]:
+                    j -= 1
+                while i < j and arr[i] <= arr[l]:
+                    i += 1
+                arr[i], arr[j] = arr[j], arr[i]
+            arr[i], arr[l] = arr[l], arr[i]
+            if k < i:
+                return quick_sort(l, i - 1)
+            if k > i:
+                return quick_sort(i + 1, r)
+            return arr[:k]
+
+        n = len(arr)
+        return arr if k == n else quick_sort(0, n - 1)
 ```
 
 ### **Java**
@@ -48,24 +97,205 @@ class Solution:
 ```java
 class Solution {
     public int[] getLeastNumbers(int[] arr, int k) {
-        if (k == 0) {
-            return new int[] {};
+        Arrays.sort(arr);
+        int[] ans = new int[k];
+        for (int i = 0; i < k; ++i) {
+            ans[i] = arr[i];
         }
-        PriorityQueue<Integer> bigRoot = new PriorityQueue<>(k, Collections.reverseOrder());
-        for (int e : arr) {
-            if (bigRoot.size() < k) {
-                bigRoot.offer(e);
-            } else if (e < bigRoot.peek()) {
-                bigRoot.poll();
-                bigRoot.offer(e);
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] getLeastNumbers(int[] arr, int k) {
+        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> b - a);
+        for (int x : arr) {
+            q.offer(x);
+            if (q.size() > k) {
+                q.poll();
             }
         }
-        int[] res = new int[k];
+        int[] ans = new int[k];
         for (int i = 0; i < k; ++i) {
-            res[i] = bigRoot.poll();
+            ans[i] = q.poll();
         }
-        return res;
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    private int[] arr;
+    private int k;
+
+    public int[] getLeastNumbers(int[] arr, int k) {
+        int n = arr.length;
+        this.arr = arr;
+        this.k = k;
+        return k == n ? arr : quickSort(0, n - 1);
+    }
+
+    private int[] quickSort(int l, int r) {
+        int i = l, j = r;
+        while (i < j) {
+            while (i < j && arr[j] >= arr[l]) {
+                --j;
+            }
+            while (i < j && arr[i] <= arr[l]) {
+                ++i;
+            }
+            swap(i, j);
+        }
+        swap(i, l);
+        if (k < i) {
+            return quickSort(l, i - 1);
+        }
+        if (k > i) {
+            return quickSort(i + 1, r);
+        }
+        return Arrays.copyOf(arr, k);
+    }
+
+    private void swap(int i, int j) {
+        int t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getLeastNumbers(vector<int>& arr, int k) {
+        sort(arr.begin(), arr.end());
+        return vector<int>(arr.begin(), arr.begin() + k);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> getLeastNumbers(vector<int>& arr, int k) {
+        priority_queue<int> q;
+        for (int& x : arr) {
+            q.push(x);
+            if (q.size() > k) {
+                q.pop();
+            }
+        }
+        vector<int> ans(k);
+        for (int i = 0; i < k; ++i) {
+            ans[i] = q.top();
+            q.pop();
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> getLeastNumbers(vector<int>& arr, int k) {
+        int n = arr.size();
+        function<vector<int>(int, int)> quickSort = [&](int l, int r) -> vector<int> {
+            int i = l, j = r;
+            while (i < j) {
+                while (i < j && arr[j] >= arr[l]) {
+                    --j;
+                }
+                while (i < j && arr[i] <= arr[l]) {
+                    ++i;
+                }
+                swap(arr[i], arr[j]);
+            }
+            swap(arr[i], arr[l]);
+            if (k < i) {
+                return quickSort(l, i - 1);
+            }
+            if (k > i) {
+                return quickSort(i + 1, r);
+            }
+            return vector<int>(arr.begin(), arr.begin() + k);
+        };
+        return k == n ? arr : quickSort(0, n - 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func getLeastNumbers(arr []int, k int) []int {
+	sort.Ints(arr)
+	return arr[:k]
+}
+```
+
+```go
+func getLeastNumbers(arr []int, k int) (ans []int) {
+	q := hp{}
+	for _, x := range arr {
+		heap.Push(&q, x)
+		if q.Len() > k {
+			heap.Pop(&q)
+		}
+	}
+	for i := 0; i < k; i++ {
+		ans = append(ans, heap.Pop(&q).(int))
+	}
+	return
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) push(v int) { heap.Push(h, v) }
+func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+```go
+func getLeastNumbers(arr []int, k int) []int {
+	n := len(arr)
+	if k == n {
+		return arr
+	}
+	var quickSort func(l, r int) []int
+	quickSort = func(l, r int) []int {
+		i, j := l, r
+		for i < j {
+			for i < j && arr[j] >= arr[l] {
+				j--
+			}
+			for i < j && arr[i] <= arr[l] {
+				i++
+			}
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+		arr[i], arr[l] = arr[l], arr[i]
+		if k < i {
+			return quickSort(l, i-1)
+		}
+		if k > i {
+			return quickSort(i+1, r)
+		}
+		return arr[:k]
+	}
+	return quickSort(0, n-1)
 }
 ```
 
@@ -109,54 +339,6 @@ var getLeastNumbers = function (arr, k) {
         return left;
     }
     return arr.slice(0, k);
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int partition(vector<int>& arr, int begin, int end) {
-        int l = begin;
-        int r = end;
-        int povit = arr[begin];
-
-        while (l < r) {
-            // 从右边开始，找到第一个小于povit的数字（用于交换）
-            while (l < r && arr[r] >= povit) { r--; }
-            while (l < r && arr[l] <= povit) { l++; }
-            if (l < r) { swap(arr[l], arr[r]); }
-        }
-
-        swap(arr[begin], arr[l]);
-        return l;
-    }
-
-    void partSort(vector<int>& arr, int begin, int end, int target) {
-        if (begin >= end) {
-            return;
-        }
-
-        // 思路类似快排，这样做比堆排序时间复杂度低
-        // C++中，stl提供partial_sort()方法，就是这种实现方式
-        int mid = partition(arr, begin, end);
-        if (mid == target) {
-            return;
-        } else if (target < mid) {
-            partSort(arr, begin, mid - 1, target);
-        } else {
-            partSort(arr, mid + 1, end, target);
-        }
-
-        return;
-    }
-
-    vector<int> getLeastNumbers(vector<int>& arr, int k) {
-        partSort(arr, 0, arr.size() - 1, k - 1);
-        vector<int> ret(arr.begin(), arr.begin() + k);
-        return ret;
-    }
 };
 ```
 
