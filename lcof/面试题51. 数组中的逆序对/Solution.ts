@@ -1,46 +1,31 @@
 function reversePairs(nums: number[]): number {
-    let count: number = 0;
-    const n: number = nums.length;
-    if (n < 2) return 0;
-
-    function merge(
-        nums: number[],
-        left: number,
-        mid: number,
-        right: number,
-    ): void {
-        let n: number = right - left + 1;
-        let t: number[] = new Array(n);
-        let i: number = left,
-            j: number = mid + 1,
-            idx: number = 0;
-        while (i <= mid && j <= right) {
-            if (nums[i] > nums[j]) {
-                count += mid - i + 1;
-                t[idx++] = nums[j++];
+    const mergeSort = (l: number, r: number): number => {
+        if (l >= r) {
+            return 0;
+        }
+        const mid = (l + r) >> 1;
+        let ans = mergeSort(l, mid) + mergeSort(mid + 1, r);
+        let i = l;
+        let j = mid + 1;
+        const t: number[] = [];
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j]) {
+                t.push(nums[i++]);
             } else {
-                t[idx++] = nums[i++];
+                ans += mid - i + 1;
+                t.push(nums[j++]);
             }
         }
         while (i <= mid) {
-            t[idx++] = nums[i++];
+            t.push(nums[i++]);
         }
-        while (j <= right) {
-            t[idx++] = nums[j++];
+        while (j <= r) {
+            t.push(nums[j++]);
         }
-        for (let k: number = 0; k < n; ++k) {
-            nums[left + k] = t[k];
+        for (i = l; i <= r; ++i) {
+            nums[i] = t[i - l];
         }
-    }
-
-    function mergeSort(nums: number[], left: number, right: number): void {
-        if (left == right) return;
-        let mid: number = (left + right) >> 1;
-        mergeSort(nums, left, mid);
-        mergeSort(nums, mid + 1, right);
-        merge(nums, left, mid, right);
-    }
-
-    mergeSort(nums, 0, n - 1);
-    return count;
+        return ans;
+    };
+    return mergeSort(0, nums.length - 1);
 }

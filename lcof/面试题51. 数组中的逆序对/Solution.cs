@@ -1,39 +1,38 @@
 public class Solution {
-    int[] nums, aux;
+    private int[] nums;
+    private int[] t;
+
     public int ReversePairs(int[] nums) {
-        int n = nums.Length;
-        if (n == 0) {
-            return 0;
-        }
         this.nums = nums;
-        aux = new int[n];
-        return Merge(0, n - 1);
+        int n = nums.Length;
+        this.t = new int[n];
+        return mergeSort(0, n - 1);
     }
 
-    int Merge(int l, int r)
-    {
-        if (l == r) {
+    private int mergeSort(int l, int r) {
+        if (l >= r) {
             return 0;
         }
-        var mid = (l + r) >> 1;
-        int ans = Merge(l, mid) + Merge(mid + 1, r);
-        for (int k = l; k <= r; k++) {
-            aux[k] = nums[k];
-        }
-        for (int i = l, j = mid + 1, k = l; k <= r; k++)
-        {
-            if (i == mid + 1) {
-                nums[k] = aux[j++];
-            } else if (j == r + 1) {
-                nums[k] = aux[i++];
-            } else if (aux[i] <= aux[j]) {
-                nums[k] = aux[i++];
+        int mid = (l + r) >> 1;
+        int ans = mergeSort(l, mid) + mergeSort(mid + 1, r);
+        int i = l, j = mid + 1, k = 0;
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j]) {
+                t[k++] = nums[i++];
             } else {
-                nums[k] = aux[j++];
-                ans += mid + 1 - i;
+                ans += mid - i + 1;
+                t[k++] = nums[j++];
             }
+        }
+        while (i <= mid) {
+            t[k++] = nums[i++];
+        }
+        while (j <= r) {
+            t[k++] = nums[j++];
+        }
+        for (i = l; i <= r; ++i) {
+            nums[i] = t[i - l];
         }
         return ans;
     }
-    
 }

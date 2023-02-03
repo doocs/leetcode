@@ -1,28 +1,23 @@
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
-        def merge_sort(nums, left, right):
-            if left >= right:
+        def merge_sort(l, r):
+            if l >= r:
                 return 0
-            mid = (left + right) >> 1
-            res = merge_sort(nums, left, mid) + merge_sort(nums, mid + 1, right)
-            i, j = left, mid + 1
-            tmp = []
-            while i <= mid and j <= right:
+            mid = (l + r) >> 1
+            ans = merge_sort(l, mid) + merge_sort(mid + 1, r)
+            t = []
+            i, j = l, mid + 1
+            while i <= mid and j <= r:
                 if nums[i] <= nums[j]:
-                    tmp.append(nums[i])
+                    t.append(nums[i])
                     i += 1
                 else:
-                    res += mid - i + 1
-                    tmp.append(nums[j])
+                    ans += mid - i + 1
+                    t.append(nums[j])
                     j += 1
-            while i <= mid:
-                tmp.append(nums[i])
-                i += 1
-            while j <= right:
-                tmp.append(nums[j])
-                j += 1
-            for i in range(left, right + 1):
-                nums[i] = tmp[i - left]
-            return res
+            t.extend(nums[i : mid + 1])
+            t.extend(nums[j : r + 1])
+            nums[l : r + 1] = t
+            return ans
 
-        return merge_sort(nums, 0, len(nums) - 1)
+        return merge_sort(0, len(nums) - 1)

@@ -56,38 +56,33 @@ Merge Sort:
 ```python
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
-        def merge_sort(nums, left, right):
-            if left >= right:
+        def merge_sort(l, r):
+            if l >= r:
                 return 0
-            mid = (left + right) >> 1
-            res = merge_sort(nums, left, mid) + merge_sort(nums, mid + 1, right)
-            i, j = left, mid + 1
-            while i <= mid and j <= right:
+            mid = (l + r) >> 1
+            ans = merge_sort(l, mid) + merge_sort(mid + 1, r)
+            t = []
+            i, j = l, mid + 1
+            while i <= mid and j <= r:
                 if nums[i] <= 2 * nums[j]:
                     i += 1
                 else:
-                    res += mid - i + 1
+                    ans += mid - i + 1
                     j += 1
-            tmp = []
-            i, j = left, mid + 1
-            while i <= mid and j <= right:
+            i, j = l, mid + 1
+            while i <= mid and j <= r:
                 if nums[i] <= nums[j]:
-                    tmp.append(nums[i])
+                    t.append(nums[i])
                     i += 1
                 else:
-                    tmp.append(nums[j])
+                    t.append(nums[j])
                     j += 1
-            while i <= mid:
-                tmp.append(nums[i])
-                i += 1
-            while j <= right:
-                tmp.append(nums[j])
-                j += 1
-            for i in range(left, right + 1):
-                nums[i] = tmp[i - left]
-            return res
+            t.extend(nums[i : mid + 1])
+            t.extend(nums[j : r + 1])
+            nums[l : r + 1] = t
+            return ans
 
-        return merge_sort(nums, 0, len(nums) - 1)
+        return merge_sort(0, len(nums) - 1)
 ```
 
 Binary Indexed Tree:
@@ -203,46 +198,50 @@ Merge Sort:
 
 ```java
 class Solution {
-    private static int[] tmp = new int[50010];
+    private int[] nums;
+    private int[] t;
 
     public int reversePairs(int[] nums) {
-        return mergeSort(nums, 0, nums.length - 1);
+        this.nums = nums;
+        int n = nums.length;
+        this.t = new int[n];
+        return mergeSort(0, n - 1);
     }
 
-    private int mergeSort(int[] nums, int left, int right) {
-        if (left >= right) {
+    private int mergeSort(int l, int r) {
+        if (l >= r) {
             return 0;
         }
-        int mid = (left + right) >> 1;
-        int res = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
-        int i = left, j = mid + 1, k = 0;
-        while (i <= mid && j <= right) {
-            if ((long) nums[i] <= (long) 2 * nums[j]) {
+        int mid = (l + r) >> 1;
+        int ans = mergeSort(l, mid) + mergeSort(mid + 1, r);
+        int i = l, j = mid + 1, k = 0;
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j] * 2L) {
                 ++i;
             } else {
-                res += (mid - i + 1);
+                ans += mid - i + 1;
                 ++j;
             }
         }
-        i = left;
+        i = l;
         j = mid + 1;
-        while (i <= mid && j <= right) {
+        while (i <= mid && j <= r) {
             if (nums[i] <= nums[j]) {
-                tmp[k++] = nums[i++];
+                t[k++] = nums[i++];
             } else {
-                tmp[k++] = nums[j++];
+                t[k++] = nums[j++];
             }
         }
         while (i <= mid) {
-            tmp[k++] = nums[i++];
+            t[k++] = nums[i++];
         }
-        while (j <= right) {
-            tmp[k++] = nums[j++];
+        while (j <= r) {
+            t[k++] = nums[j++];
         }
-        for (i = left; i <= right; ++i) {
-            nums[i] = tmp[i - left];
+        for (i = l; i <= r; ++i) {
+            nums[i] = t[i - l];
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -402,39 +401,43 @@ class Solution {
 public:
     int reversePairs(vector<int>& nums) {
         int n = nums.size();
-        vector<int> temp(n);
-        return mergeSort(nums, temp, 0, n - 1);
-    }
-
-private:
-    int mergeSort(vector<int>& nums, vector<int>& temp, int l, int r) {
-        if (l >= r) {
-            return 0;
-        }
-        int m = l + r >> 1;
-        int count = mergeSort(nums, temp, l, m) + mergeSort(nums, temp, m + 1, r);
-        int i = l, j = m + 1, k = l;
-        while (i <= m && j <= r) {
-            if ((long long)nums[i] <= (long long)2 * nums[j]) {
-                ++i;
-            } else {
-                count += (m - i + 1);
-                ++j;
+        int t[n];
+        function<int(int, int)> mergeSort = [&](int l, int r) -> int {
+            if (l >= r) {
+                return 0;
             }
-        }
-        i = l;
-        j = m + 1;
-        while (i <= m || j <= r) {
-            if (i > m) {
-                temp[k++] = nums[j++];
-            } else if (j > r || nums[i] <= nums[j]) {
-                temp[k++] = nums[i++];
-            } else {
-                temp[k++] = nums[j++];
+            int mid = (l + r) >> 1;
+            int ans = mergeSort(l, mid) + mergeSort(mid + 1, r);
+            int i = l, j = mid + 1, k = 0;
+            while (i <= mid && j <= r) {
+                if (nums[i] <= nums[j] * 2LL) {
+                    ++i;
+                } else {
+                    ans += mid - i + 1;
+                    ++j;
+                }
             }
-        }
-        copy(temp.begin() + l, temp.begin() + r + 1, nums.begin() + l);
-        return count;
+            i = l;
+            j = mid + 1;
+            while (i <= mid && j <= r) {
+                if (nums[i] <= nums[j]) {
+                    t[k++] = nums[i++];
+                } else {
+                    t[k++] = nums[j++];
+                }
+            }
+            while (i <= mid) {
+                t[k++] = nums[i++];
+            }
+            while (j <= r) {
+                t[k++] = nums[j++];
+            }
+            for (i = l; i <= r; ++i) {
+                nums[i] = t[i - l];
+            }
+            return ans;
+        };
+        return mergeSort(0, n - 1);
     }
 };
 ```
@@ -579,47 +582,46 @@ public:
 
 ```go
 func reversePairs(nums []int) int {
-	return mergeSort(nums, 0, len(nums)-1)
-}
-
-func mergeSort(nums []int, left, right int) int {
-	if left >= right {
-		return 0
-	}
-	mid := (left + right) >> 1
-	res := mergeSort(nums, left, mid) + mergeSort(nums, mid+1, right)
-	i, j := left, mid+1
-	for i <= mid && j <= right {
-		if nums[i] <= 2*nums[j] {
-			i++
-		} else {
-			res += (mid - i + 1)
-			j++
+	n := len(nums)
+	t := make([]int, n)
+	var mergeSort func(l, r int) int
+	mergeSort = func(l, r int) int {
+		if l >= r {
+			return 0
 		}
-	}
-	i, j = left, mid+1
-	var tmp []int
-	for i <= mid && j <= right {
-		if nums[i] <= nums[j] {
-			tmp = append(tmp, nums[i])
-			i++
-		} else {
-			tmp = append(tmp, nums[j])
-			j++
+		mid := (l + r) >> 1
+		ans := mergeSort(l, mid) + mergeSort(mid+1, r)
+		i, j, k := l, mid+1, 0
+		for i <= mid && j <= r {
+			if nums[i] <= nums[j]*2 {
+				i++
+			} else {
+				ans += mid - i + 1
+				j++
+			}
 		}
+		i, j = l, mid+1
+		for i <= mid && j <= r {
+			if nums[i] <= nums[j] {
+				t[k] = nums[i]
+				k, i = k+1, i+1
+			} else {
+				t[k] = nums[j]
+				k, j = k+1, j+1
+			}
+		}
+		for ; i <= mid; i, k = i+1, k+1 {
+			t[k] = nums[i]
+		}
+		for ; j <= r; j, k = j+1, k+1 {
+			t[k] = nums[j]
+		}
+		for i = l; i <= r; i++ {
+			nums[i] = t[i-l]
+		}
+		return ans
 	}
-	for i <= mid {
-		tmp = append(tmp, nums[i])
-		i++
-	}
-	for j <= right {
-		tmp = append(tmp, nums[j])
-		j++
-	}
-	for i = left; i <= right; i++ {
-		nums[i] = tmp[i-left]
-	}
-	return res
+	return mergeSort(0, n-1)
 }
 ```
 
