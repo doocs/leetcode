@@ -18,25 +18,21 @@ class Solution {
         TreeNode node = dfs(root, x);
         int l = count(node.left);
         int r = count(node.right);
-        int m = Math.max(Math.max(l, r), n - l - r - 1);
-        return m > n - m;
-    }
-
-    private int count(TreeNode node) {
-        if (node == null) {
-            return 0;
-        }
-        return 1 + count(node.left) + count(node.right);
+        return Math.max(Math.max(l, r), n - l - r - 1) > n / 2;
     }
 
     private TreeNode dfs(TreeNode root, int x) {
         if (root == null || root.val == x) {
             return root;
         }
-        TreeNode l = dfs(root.left, x);
-        if (l != null) {
-            return l;
+        TreeNode node = dfs(root.left, x);
+        return node == null ? dfs(root.right, x) : node;
+    }
+
+    private int count(TreeNode root) {
+        if (root == null) {
+            return 0;
         }
-        return dfs(root.right, x);
+        return 1 + count(root.left) + count(root.right);
     }
 }

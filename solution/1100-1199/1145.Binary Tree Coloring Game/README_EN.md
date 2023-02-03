@@ -68,9 +68,7 @@ class Solution:
 
         node = dfs(root)
         l, r = count(node.left), count(node.right)
-        t = n - l - r - 1
-        m = max(l, r, t)
-        return m > n - m
+        return max(l, r, n - l - r - 1) > n // 2
 ```
 
 ### **Java**
@@ -96,26 +94,22 @@ class Solution {
         TreeNode node = dfs(root, x);
         int l = count(node.left);
         int r = count(node.right);
-        int m = Math.max(Math.max(l, r), n - l - r - 1);
-        return m > n - m;
-    }
-
-    private int count(TreeNode node) {
-        if (node == null) {
-            return 0;
-        }
-        return 1 + count(node.left) + count(node.right);
+        return Math.max(Math.max(l, r), n - l - r - 1) > n / 2;
     }
 
     private TreeNode dfs(TreeNode root, int x) {
         if (root == null || root.val == x) {
             return root;
         }
-        TreeNode l = dfs(root.left, x);
-        if (l != null) {
-            return l;
+        TreeNode node = dfs(root.left, x);
+        return node == null ? dfs(root.right, x) : node;
+    }
+
+    private int count(TreeNode root) {
+        if (root == null) {
+            return 0;
         }
-        return dfs(root.right, x);
+        return 1 + count(root.left) + count(root.right);
     }
 }
 ```
@@ -137,22 +131,24 @@ class Solution {
 class Solution {
 public:
     bool btreeGameWinningMove(TreeNode* root, int n, int x) {
-        TreeNode* node = dfs(root, x);
-        int l = count(node->left);
-        int r = count(node->right);
-        int m = max(max(l, r), n - l - r - 1);
-        return m > n - m;
-    }
-
-    int count(TreeNode* root) {
-        if (!root) return 0;
-        return 1 + count(root->left) + count(root->right);
+        auto node = dfs(root, x);
+        int l = count(node->left), r = count(node->right);
+        return max({l, r, n - l - r - 1}) > n / 2;
     }
 
     TreeNode* dfs(TreeNode* root, int x) {
-        if (!root || root->val == x) return root;
-        auto l = dfs(root->left, x);
-        return l ? l : dfs(root->right, x);
+        if (!root || root->val == x) {
+            return root;
+        }
+        auto node = dfs(root->left, x);
+        return node ? node : dfs(root->right, x);
+    }
+
+    int count(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        return 1 + count(root->left) + count(root->right);
     }
 };
 ```
@@ -198,6 +194,88 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} n
+ * @param {number} x
+ * @return {boolean}
+ */
+var btreeGameWinningMove = function (root, n, x) {
+    const dfs = root => {
+        if (!root || root.val === x) {
+            return root;
+        }
+        return dfs(root.left) || dfs(root.right);
+    };
+
+    const count = root => {
+        if (!root) {
+            return 0;
+        }
+        return 1 + count(root.left) + count(root.right);
+    };
+
+    const node = dfs(root);
+    const l = count(node.left);
+    const r = count(node.right);
+    return Math.max(l, r, n - l - r - 1) > n / 2;
+};
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function btreeGameWinningMove(
+    root: TreeNode | null,
+    n: number,
+    x: number,
+): boolean {
+    const dfs = (root: TreeNode | null): TreeNode | null => {
+        if (!root || root.val === x) {
+            return root;
+        }
+        return dfs(root.left) || dfs(root.right);
+    };
+
+    const count = (root: TreeNode | null): number => {
+        if (!root) {
+            return 0;
+        }
+        return 1 + count(root.left) + count(root.right);
+    };
+
+    const node = dfs(root);
+    const l = count(node.left);
+    const r = count(node.right);
+    return Math.max(l, r, n - l - r - 1) > n / 2;
 }
 ```
 

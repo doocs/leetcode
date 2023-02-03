@@ -18,6 +18,4 @@ class Solution:
 
         node = dfs(root)
         l, r = count(node.left), count(node.right)
-        t = n - l - r - 1
-        m = max(l, r, t)
-        return m > n - m
+        return max(l, r, n - l - r - 1) > n // 2

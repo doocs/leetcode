@@ -12,21 +12,23 @@
 class Solution {
 public:
     bool btreeGameWinningMove(TreeNode* root, int n, int x) {
-        TreeNode* node = dfs(root, x);
-        int l = count(node->left);
-        int r = count(node->right);
-        int m = max(max(l, r), n - l - r - 1);
-        return m > n - m;
-    }
-
-    int count(TreeNode* root) {
-        if (!root) return 0;
-        return 1 + count(root->left) + count(root->right);
+        auto node = dfs(root, x);
+        int l = count(node->left), r = count(node->right);
+        return max({l, r, n - l - r - 1}) > n / 2;
     }
 
     TreeNode* dfs(TreeNode* root, int x) {
-        if (!root || root->val == x) return root;
-        auto l = dfs(root->left, x);
-        return l ? l : dfs(root->right, x);
+        if (!root || root->val == x) {
+            return root;
+        }
+        auto node = dfs(root->left, x);
+        return node ? node : dfs(root->right, x);
+    }
+
+    int count(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        return 1 + count(root->left) + count(root->right);
     }
 };
