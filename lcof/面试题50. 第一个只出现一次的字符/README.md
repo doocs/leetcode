@@ -26,11 +26,11 @@
 
 ## 解法
 
-对字符串进行两次遍历：
+**方法一：数组或哈希表**
 
-第一遍，使用 hash 表（或数组）统计字符串中每个字符出现的次数。
+我们可以使用哈希表或数组来统计每个字符出现的次数，然后再遍历一遍字符串，找到第一个出现次数为 $1$ 的字符。
 
-第二遍，只要遍历到一个只出现一次的字符，那么就返回该字符，否则在遍历结束后，返回 `' '`。
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度；而 $C$ 为字符集大小，本题中 $C=26$。
 
 <!-- tabs:start -->
 
@@ -39,11 +39,11 @@
 ```python
 class Solution:
     def firstUniqChar(self, s: str) -> str:
-        counter = Counter(s)
+        cnt = Counter(s)
         for c in s:
-            if counter[c] == 1:
+            if cnt[c] == 1:
                 return c
-        return ' '
+        return " "
 ```
 
 ### **Java**
@@ -51,19 +51,55 @@ class Solution:
 ```java
 class Solution {
     public char firstUniqChar(String s) {
-        int n;
-        if ((n = s.length()) == 0) return ' ';
-        int[] counter = new int[26];
-        for (int i = 0; i < n; ++i) {
-            int index = s.charAt(i) - 'a';
-            ++counter[index];
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
-        for (int i = 0; i < n; ++i) {
-            int index = s.charAt(i) - 'a';
-            if (counter[index] == 1) return s.charAt(i);
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (cnt[c - 'a'] == 1) {
+                return c;
+            }
         }
         return ' ';
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    char firstUniqChar(string s) {
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        for (char&c : s) {
+            if (cnt[c - 'a'] == 1) {
+                return c;
+            }
+        }
+        return ' ';
+    }
+};
+```
+
+### **Go**
+
+```go
+func firstUniqChar(s string) byte {
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	for _, c := range s {
+		if cnt[c-'a'] == 1 {
+			return byte(c)
+		}
+	}
+	return ' '
 }
 ```
 
@@ -75,37 +111,16 @@ class Solution {
  * @return {character}
  */
 var firstUniqChar = function (s) {
-    if (s.length == 0) return ' ';
-    let counter = new Array(26).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - 'a'.charCodeAt();
-        ++counter[index];
+    const cnt = new Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 97]++;
     }
-    for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - 'a'.charCodeAt();
-        if (counter[index] == 1) return s[i];
+    for (const c of s) {
+        if (cnt[c.charCodeAt(0) - 97] === 1) {
+            return c;
+        }
     }
     return ' ';
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    char firstUniqChar(string s) {
-        unordered_map<char, bool> um;
-        for (char c : s) {
-            um[c] = um.find(c) == um.end();
-        }
-        for (char c : s) {
-            if (um[c]) {
-                return c;
-            }
-        }
-        return ' ';
-    }
 };
 ```
 
@@ -151,18 +166,13 @@ impl Solution {
 ```cs
 public class Solution {
     public char FirstUniqChar(string s) {
-        Dictionary<char, bool> dic = new Dictionary<char, bool>();
-        foreach (var c in s) {
-            if (dic.ContainsKey(c)) {
-                dic[c] = false;
-            }
-            else {
-                dic.Add(c, true);
-            }
+        var cnt = new int[26];
+        foreach(var c in s) {
+            cnt[c - 'a'] ++;
         }
-        foreach (var d in dic) {
-            if (d.Value) {
-                return d.Key;
+        foreach(var c in s) {
+            if (cnt[c - 'a'] == 1) {
+                return c;
             }
         }
         return ' ';

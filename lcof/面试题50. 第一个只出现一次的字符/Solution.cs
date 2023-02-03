@@ -1,17 +1,12 @@
 public class Solution {
     public char FirstUniqChar(string s) {
-        Dictionary<char, bool> dic = new Dictionary<char, bool>();
-        foreach (var c in s) {
-            if (dic.ContainsKey(c)) {
-                dic[c] = false;
-            }
-            else {
-                dic.Add(c, true);
-            }
+        var cnt = new int[26];
+        foreach(var c in s) {
+            cnt[c - 'a'] ++;
         }
-        foreach (var d in dic) {
-            if (d.Value) {
-                return d.Key;
+        foreach(var c in s) {
+            if (cnt[c - 'a'] == 1) {
+                return c;
             }
         }
         return ' ';

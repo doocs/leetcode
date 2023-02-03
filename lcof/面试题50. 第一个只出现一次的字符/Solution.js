@@ -3,15 +3,14 @@
  * @return {character}
  */
 var firstUniqChar = function (s) {
-    if (s.length == 0) return ' ';
-    let counter = new Array(26).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - 'a'.charCodeAt();
-        ++counter[index];
+    const cnt = new Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 97]++;
     }
-    for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - 'a'.charCodeAt();
-        if (counter[index] == 1) return s[i];
+    for (const c of s) {
+        if (cnt[c.charCodeAt(0) - 97] === 1) {
+            return c;
+        }
     }
     return ' ';
 };

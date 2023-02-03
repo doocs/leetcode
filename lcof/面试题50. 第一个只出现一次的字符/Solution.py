@@ -1,7 +1,7 @@
 class Solution:
     def firstUniqChar(self, s: str) -> str:
-        counter = Counter(s)
+        cnt = Counter(s)
         for c in s:
-            if counter[c] == 1:
+            if cnt[c] == 1:
                 return c
-        return ' '
+        return " "
