@@ -1,6 +1,5 @@
 type MedianFinder struct {
-	q1 hp
-	q2 hp
+	q1, q2 hp
 }
 
 /** initialize your data structure here. */
@@ -9,26 +8,21 @@ func Constructor() MedianFinder {
 }
 
 func (this *MedianFinder) AddNum(num int) {
-	heap.Push(&this.q1, num)
-	heap.Push(&this.q2, -heap.Pop(&this.q1).(int))
-	if this.q2.Len()-this.q1.Len() > 1 {
+	if this.q1.Len() > this.q2.Len() {
+		heap.Push(&this.q1, num)
+		heap.Push(&this.q2, -heap.Pop(&this.q1).(int))
+	} else {
+		heap.Push(&this.q2, -num)
 		heap.Push(&this.q1, -heap.Pop(&this.q2).(int))
 	}
 }
 
 func (this *MedianFinder) FindMedian() float64 {
-	if this.q2.Len() > this.q1.Len() {
-		return -float64(this.q2.IntSlice[0])
+	if this.q1.Len() > this.q2.Len() {
+		return float64(this.q1.IntSlice[0])
 	}
 	return float64(this.q1.IntSlice[0]-this.q2.IntSlice[0]) / 2.0
 }
-
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * obj := Constructor();
- * obj.AddNum(num);
- * param_2 := obj.FindMedian();
- */
 
 type hp struct{ sort.IntSlice }
 
@@ -40,3 +34,10 @@ func (h *hp) Pop() interface{} {
 	h.IntSlice = a[:len(a)-1]
 	return v
 }
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.AddNum(num);
+ * param_2 := obj.FindMedian();
+ */

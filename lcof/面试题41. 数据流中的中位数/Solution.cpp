@@ -6,20 +6,22 @@ public:
     }
     
     void addNum(int num) {
-        q1.push(num);
-        q2.push(q1.top());
-        q1.pop();
-        if (q2.size() - q1.size() > 1) {
+        if (q1.size() > q2.size()) {
+            q1.push(num);
+            q2.push(q1.top());
+            q1.pop();
+        } else {
+            q2.push(num);
             q1.push(q2.top());
             q2.pop();
         }
     }
     
     double findMedian() {
-        if (q2.size() > q1.size()) {
-            return q2.top();
+        if (q1.size() > q2.size()) {
+            return q1.top();
         }
-        return (double) (q1.top() + q2.top()) / 2;
+        return (q1.top() + q2.top()) / 2.0;
     }
 
 private:

@@ -170,12 +170,13 @@ func btreeGameWinningMove(root *TreeNode, n int, x int) bool {
 		if root == nil || root.Val == x {
 			return root
 		}
-		l := dfs(root.Left)
-		if l != nil {
-			return l
+		node := dfs(root.Left)
+		if node != nil {
+			return node
 		}
 		return dfs(root.Right)
 	}
+
 	var count func(*TreeNode) int
 	count = func(root *TreeNode) int {
 		if root == nil {
@@ -183,10 +184,10 @@ func btreeGameWinningMove(root *TreeNode, n int, x int) bool {
 		}
 		return 1 + count(root.Left) + count(root.Right)
 	}
+
 	node := dfs(root)
 	l, r := count(node.Left), count(node.Right)
-	m := max(max(l, r), n-l-r-1)
-	return m > n-m
+	return max(max(l, r), n-l-r-1) > n/2
 }
 
 func max(a, b int) int {
