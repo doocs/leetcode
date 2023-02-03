@@ -45,7 +45,7 @@
 
 具体做法是，首先计算出 $n$ 对应的是当前位数的哪一个数字，然后计算出是该数字的第几位，从而得到该位上的数字。
 
-时间复杂度 $O(\log_{10} n)$。
+时间复杂度 $O(\log_{10} n)$，空间复杂度 $O(1)$。其中 $n$ 为给定的数字。
 
 <!-- tabs:start -->
 
@@ -66,6 +66,21 @@ class Solution:
         return int(str(num)[idx])
 ```
 
+```python
+class Solution:
+    def findNthDigit(self, n: int) -> int:
+        if n < 10:
+            return n
+        n -= 10
+        k, p = 2, 10
+        while n >= 9 * k * p:
+            n -= 9 * k * p
+            k += 1
+            p *= 10
+        x = p + n // k
+        return int(str(x)[n % k])
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -82,6 +97,25 @@ class Solution {
         int num = (int) Math.pow(10, k - 1) + (n - 1) / k;
         int idx = (n - 1) % k;
         return String.valueOf(num).charAt(idx) - '0';
+    }
+}
+```
+
+```java
+class Solution {
+    public int findNthDigit(int n) {
+        if (n < 10) {
+            return n;
+        }
+        n -= 10;
+        int k = 2, p = 10;
+        while (n >= (long) 9 * k * p) {
+            n -= 9 * k * p;
+            ++k;
+            p *= 10;
+        }
+        int x = p + n / k;
+        return String.valueOf(x).charAt(n % k) - '0';
     }
 }
 ```
@@ -105,6 +139,26 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int findNthDigit(int n) {
+        if (n < 10) {
+            return n;
+        }
+        n -= 10;
+        int k = 2, p = 10;
+        while (n >= 9ll * k * p) {
+            n -= 9 * k * p;
+            ++k;
+            p *= 10;
+        }
+        int x = p + n / k;
+        return to_string(x)[n % k] - '0';
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -118,6 +172,23 @@ func findNthDigit(n int) int {
 	num := int(math.Pow10(k-1)) + (n-1)/k
 	idx := (n - 1) % k
 	return int(strconv.Itoa(num)[idx] - '0')
+}
+```
+
+```go
+func findNthDigit(n int) int {
+	if n < 10 {
+		return n
+	}
+	n -= 10
+	k, p := 2, 10
+	for n >= 9*k*p {
+		n -= 9 * k * p
+		k++
+		p *= 10
+	}
+	x := p + n/k
+	return int(strconv.Itoa(x)[n%k] - '0')
 }
 ```
 
