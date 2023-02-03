@@ -1,16 +1,11 @@
 function maxValue(grid: number[][]): number {
-    let n = grid.length;
-    let m = grid[0].length;
-    for (let i = 1; i < n; i++) {
-        grid[i][0] += grid[i - 1][0];
-    }
-    for (let i = 1; i < m; i++) {
-        grid[0][i] += grid[0][i - 1];
-    }
-    for (let i = 1; i < n; i++) {
-        for (let j = 1; j < m; j++) {
-            grid[i][j] += Math.max(grid[i][j - 1], grid[i - 1][j]);
+    const m = grid.length;
+    const n = grid[0].length;
+    const f = Array.from({ length: m + 1 }, _ => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]) + grid[i - 1][j - 1];
         }
     }
-    return grid[n - 1][m - 1];
+    return f[m][n];
 }

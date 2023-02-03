@@ -28,9 +28,17 @@
 
 ## 解法
 
-动态规划法。
+**方法一：动态规划**
 
-我们假设 `dp[i][j]` 表示走到格子 `(i, j)` 的礼物最大累计价值，则 `dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1]`。
+我们定义 $f[i][j]$ 为从棋盘左上角走到 $(i-1, j-1)$ 的礼物最大累计价值，那么 $f[i][j]$ 的值由 $f[i-1][j]$ 和 $f[i][j-1]$ 决定，即从上方格子和左方格子走过来的两个方案中选择一个价值较大的方案。因此我们可以写出动态规划转移方程：
+
+$$
+f[i][j] = max(f[i-1][j], f[i][j-1]) + grid[i-1][j-1]
+$$
+
+答案为 $f[m][n]$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为棋盘的行数和列数。
 
 <!-- tabs:start -->
 
@@ -40,11 +48,11 @@
 class Solution:
     def maxValue(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1]
-        return dp[m][n]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for i, row in enumerate(grid, 1):
+            for j, v in enumerate(row, 1):
+                f[i][j] = max(f[i - 1][j], f[i][j - 1]) + v
+        return f[m][n]
 ```
 
 ### **Java**
@@ -53,13 +61,13 @@ class Solution:
 class Solution {
     public int maxValue(int[][] grid) {
         int m = grid.length, n = grid[0].length;
-        int[][] dp = new int[m + 1][n + 1];
+        int[][] f = new int[m + 1][n + 1];
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1];
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]) + grid[i - 1][j - 1];
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -71,15 +79,40 @@ class Solution {
 public:
     int maxValue(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
-        for (int i = 1; i < m + 1; ++i) {
-            for (int j = 1; j < n + 1; ++j) {
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1];
+        vector<vector<int>> f(m + 1, vector<int>(n + 1, 0));
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                f[i][j] = max(f[i - 1][j], f[i][j - 1]) + grid[i - 1][j - 1];
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
+```
+
+### **Go**
+
+```go
+func maxValue(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			f[i][j] = max(f[i-1][j], f[i][j-1]) + grid[i-1][j-1]
+		}
+	}
+	return f[m][n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **JavaScript**
@@ -106,49 +139,19 @@ var maxValue = function (grid) {
 };
 ```
 
-### **Go**
-
-```go
-func maxValue(grid [][]int) int {
-    m, n := len(grid), len(grid[0])
-    dp := make([][]int, m + 1)
-    for i := 0; i < m + 1; i++ {
-        dp[i] = make([]int, n + 1)
-    }
-    for i := 1; i < m + 1; i++ {
-        for j := 1; j < n + 1; j++ {
-            dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1]
-        }
-    }
-    return dp[m][n]
-}
-
-func max(a, b int) int {
-    if (a > b) {
-        return a
-    }
-    return b
-}
-```
-
 ### **TypeScript**
 
 ```ts
 function maxValue(grid: number[][]): number {
-    let n = grid.length;
-    let m = grid[0].length;
-    for (let i = 1; i < n; i++) {
-        grid[i][0] += grid[i - 1][0];
-    }
-    for (let i = 1; i < m; i++) {
-        grid[0][i] += grid[0][i - 1];
-    }
-    for (let i = 1; i < n; i++) {
-        for (let j = 1; j < m; j++) {
-            grid[i][j] += Math.max(grid[i][j - 1], grid[i - 1][j]);
+    const m = grid.length;
+    const n = grid[0].length;
+    const f = Array.from({ length: m + 1 }, _ => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]) + grid[i - 1][j - 1];
         }
     }
-    return grid[n - 1][m - 1];
+    return f[m][n];
 }
 ```
 
@@ -181,14 +184,13 @@ impl Solution {
 public class Solution {
     public int MaxValue(int[][] grid) {
         int m = grid.Length, n = grid[0].Length;
-        int[,] dp = new int[m+1,n+1];
+        int[, ] f = new int[m + 1, n + 1];
         for (int i = 1; i < m + 1; i++) {
             for (int j = 1; j < n + 1; j++) {
-                dp[i,j] = Math.Max(dp[i-1,j], dp[i,j-1]) + grid[i-1][j-1];
+                f[i, j] = Math.Max(f[i - 1, j], f[i, j - 1]) + grid[i - 1][j - 1];
             }
         }
-        return dp[m,n];
-
+        return f[m, n];
     }
 }
 ```
