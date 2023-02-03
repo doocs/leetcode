@@ -1,8 +1,8 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -10,10 +10,9 @@
  * @return {number}
  */
 var getDecimalValue = function (head) {
-    let res = 0;
-    while (head != null) {
-        res = (res << 1) + head.val;
-        head = head.next;
+    let ans = 0;
+    for (; head; head = head.next) {
+        ans = (ans << 1) | head.val;
     }
-    return res;
+    return ans;
 };

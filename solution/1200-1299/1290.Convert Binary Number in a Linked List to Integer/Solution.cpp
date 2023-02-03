@@ -3,17 +3,18 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
 class Solution {
 public:
     int getDecimalValue(ListNode* head) {
-        int res = 0;
-        while (head != NULL) {
-            res = (res << 1) + head->val;
-            head = head->next;
+        int ans = 0;
+        for (; head; head = head->next) {
+            ans = ans << 1 | head->val;
         }
-        return res;
+        return ans;
     }
 };

@@ -59,9 +59,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历链表。
+**方法一：遍历链表**
 
-当遍历到链表某个结点，先将已有结果 res 乘以 2（即左移 1 位：`<< 1`），再加上当前结点的值，得出已遍历过的结点的十进制值。最后返回 res 即可。
+我们用变量 `ans` 记录当前的十进制值，初始值为 $0$。
+
+遍历链表，对于每个结点，将 `ans` 左移一位，然后再或上当前结点的值。遍历结束后，`ans` 即为十进制值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
 
@@ -72,18 +76,16 @@
 ```python
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
-        res = 0
+        ans = 0
         while head:
-            res = (res << 1) + head.val
+            ans = ans << 1 | head.val
             head = head.next
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -96,17 +98,18 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public int getDecimalValue(ListNode head) {
-        int res = 0;
-        while (head != null) {
-            res = (res << 1) + head.val;
-            head = head.next;
+        int ans = 0;
+        for (; head != null; head = head.next) {
+            ans = ans << 1 | head.val;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -119,20 +122,39 @@ class Solution {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
 class Solution {
 public:
     int getDecimalValue(ListNode* head) {
-        int res = 0;
-        while (head != NULL) {
-            res = (res << 1) + head->val;
-            head = head->next;
+        int ans = 0;
+        for (; head; head = head->next) {
+            ans = ans << 1 | head->val;
         }
-        return res;
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getDecimalValue(head *ListNode) (ans int) {
+	for ; head != nil; head = head.Next {
+		ans = ans<<1 | head.Val
+	}
+	return
+}
 ```
 
 ### **JavaScript**
@@ -140,9 +162,9 @@ public:
 ```js
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -150,12 +172,11 @@ public:
  * @return {number}
  */
 var getDecimalValue = function (head) {
-    let res = 0;
-    while (head != null) {
-        res = (res << 1) + head.val;
-        head = head.next;
+    let ans = 0;
+    for (; head; head = head.next) {
+        ans = (ans << 1) | head.val;
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -176,10 +197,8 @@ var getDecimalValue = function (head) {
 
 function getDecimalValue(head: ListNode | null): number {
     let ans = 0;
-    let cur = head;
-    while (cur) {
-        ans = (ans << 1) | cur.val;
-        cur = cur.next;
+    for (; head; head = head.next) {
+        ans = (ans << 1) | head.val;
     }
     return ans;
 }
