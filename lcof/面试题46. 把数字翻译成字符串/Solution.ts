@@ -1,14 +1,15 @@
 function translateNum(num: number): number {
+    const s = num.toString();
+    const n = s.length;
     let a = 1;
     let b = 1;
-    const str = num + '';
-    for (let i = 1; i < str.length; i++) {
-        const val = Number(str[i - 1] + str[i]);
-        if (val >= 10 && val < 26) {
-            [a, b] = [b, a + b];
-        } else {
-            a = b;
+    for (let i = 1; i < n; ++i) {
+        let c = b;
+        if (s[i - 1] === '1' || (s[i - 1] === '2' && s[i] < '6')) {
+            c += a;
         }
+        a = b;
+        b = c;
     }
     return b;
 }

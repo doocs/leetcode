@@ -26,7 +26,32 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-递归求解。
+**方法一：记忆化搜索**
+
+我们先将数字 `num` 转为字符串 $s$，字符串 $s$ 的长度记为 $n$。
+
+然后我们设计一个函数 $dfs(i)$，表示从第 $i$ 个数字开始的不同翻译的数目。那么答案就是 $dfs(0)$。
+
+函数 $dfs(i)$ 的计算如下：
+
+-   如果 $i \ge n - 1$，说明已经翻译到最后一个数字，只有一种翻译方法，返回 $1$；
+-   否则，我们可以选择翻译第 $i$ 个数字，此时翻译方法数目为 $dfs(i + 1)$；如果第 $i$ 个数字和第 $i + 1$ 个数字可以组成一个有效的字符（即 $s[i] == 1$ 或者 $s[i] == 2$ 且 $s[i + 1] \lt 6$），那么我们还可以选择翻译第 $i$ 和第 $i + 1$ 个数字，此时翻译方法数目为 $dfs(i + 2)$。因此，$dfs(i)=dfs(i+1)+dfs(i+2)$。
+
+过程中我们可以使用记忆化搜索，将已经计算过的 $dfs(i)$ 的值存储起来，避免重复计算。
+
+时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定的数字。
+
+**方法二：动态规划**
+
+我们可以将方法一中的记忆化搜索改为动态规划。
+
+定义 $f[i]$ 表示前 $i$ 个数字的不同翻译的数目，那么答案就是 $f[n]$。初始化 $f[0] = 1$, $f[1] = 1$。
+
+我们可以从前往后计算 $f[i]$ 的值，对于每个 $i$，我们可以选择翻译第 $i$ 个数字，此时翻译方法数目为 $f[i - 1]$；如果第 $i-1$ 个数字和第 $i$ 个数字可以组成一个有效的字符（即 $s[i - 1] == 1$ 或者 $s[i - 1] == 2$ 且 $s[i] \lt 6$），那么我们还可以选择翻译第 $i - 1$ 和第 $i$ 个数字，此时翻译方法数目为 $f[i - 2]$。因此，$f[i]=f[i-1]+f[i-2]$。
+
+由于 $f[i]$ 只与 $f[i - 1]$ 和 $f[i - 2]$ 有关，因此我们可以只用两个变量来存储 $f[i - 1]$ 和 $f[i - 2]$ 的值，从而省去数组 $f$ 的空间。
+
+时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定的数字。
 
 <!-- tabs:start -->
 
@@ -37,13 +62,32 @@
 ```python
 class Solution:
     def translateNum(self, num: int) -> int:
-        def cal(s):
-            if len(s) < 2:
+        @cache
+        def dfs(i):
+            if i >= n - 1:
                 return 1
-            t = int(s[:2])
-            return cal(s[1:]) if t < 10 or t > 25 else cal(s[1:]) + cal(s[2:])
+            ans = dfs(i + 1)
+            if s[i] == "1" or (s[i] == "2" and s[i + 1] < "6"):
+                ans += dfs(i + 2)
+            return ans
 
-        return cal(str(num))
+        s = str(num)
+        n = len(s)
+        return dfs(0)
+```
+
+```python
+class Solution:
+    def translateNum(self, num: int) -> int:
+        s = str(num)
+        n = len(s)
+        a = b = 1
+        for i in range(1, n):
+            c = b
+            if s[i - 1] == '1' or (s[i - 1] == '2' and s[i] < '6'):
+                c += a
+            a, b = b, c
+        return b
 ```
 
 ### **Java**
@@ -52,18 +96,138 @@ class Solution:
 
 ```java
 class Solution {
+    private int n;
+    private char[] s;
+    private Integer[] f;
+
     public int translateNum(int num) {
-        return cal(String.valueOf(num));
+        s = String.valueOf(num).toCharArray();
+        n = s.length;
+        f = new Integer[n];
+        return dfs(0);
     }
 
-    private int cal(String s) {
-        int n = s.length();
-        if (n < 2) {
+    private int dfs(int i) {
+        if (i >= n - 1) {
             return 1;
         }
-        int t = Integer.parseInt(s.substring(0, 2));
-        return t < 10 || t > 25 ? cal(s.substring(1)) : cal(s.substring(1)) + cal(s.substring(2));
+        if (f[i] != null) {
+            return f[i];
+        }
+        int ans = dfs(i + 1);
+        if (s[i] == '1' || (s[i] == '2' && s[i + 1] < '6')) {
+            ans += dfs(i + 2);
+        }
+        return f[i] = ans;
     }
+}
+```
+
+```java
+class Solution {
+    public int translateNum(int num) {
+        char[] s = String.valueOf(num).toCharArray();
+        int n = s.length;
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int translateNum(int num) {
+        string s = to_string(num);
+        int n = s.size();
+        int f[12]{};
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i >= n - 1) {
+                return 1;
+            }
+            if (f[i]) {
+                return f[i];
+            }
+            int ans = dfs(i + 1);
+            if (s[i] == '1' || (s[i] == '2' && s[i + 1] < '6')) {
+                ans += dfs(i + 2);
+            }
+            return f[i] = ans;
+        };
+        return dfs(0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int translateNum(int num) {
+        string s = to_string(num);
+        int n = s.size();
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
+```
+
+### **Go**
+
+```go
+func translateNum(num int) int {
+	s := strconv.Itoa(num)
+	n := len(s)
+	f := [12]int{}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n-1 {
+			return 1
+		}
+		if f[i] != 0 {
+			return f[i]
+		}
+		ans := dfs(i + 1)
+		if s[i] == '1' || (s[i] == '2' && s[i+1] < '6') {
+			ans += dfs(i + 2)
+		}
+		f[i] = ans
+		return ans
+	}
+	return dfs(0)
+}
+```
+
+```go
+func translateNum(num int) int {
+	s := strconv.Itoa(num)
+	n := len(s)
+	a, b := 1, 1
+	for i := 1; i < n; i++ {
+		c := b
+		if s[i-1] == '1' || (s[i-1] == '2' && s[i] < '6') {
+			c += a
+		}
+		a, b = b, c
+	}
+	return b
 }
 ```
 
@@ -75,58 +239,46 @@ class Solution {
  * @return {number}
  */
 var translateNum = function (num) {
-    let res = 0;
-    num = num.toString();
-    function dfs(i) {
-        if (i >= num.length) {
-            res++;
-            return;
+    const s = num.toString();
+    const n = s.length;
+    const f = new Array(n).fill(0);
+    const dfs = i => {
+        if (i >= n - 1) {
+            return 1;
         }
-        dfs(i + 1);
-        let tmp = +(num[i] + num[i + 1]);
-        if (num[i] !== '0' && tmp >= 0 && tmp < 26) {
-            dfs(i + 2);
+        if (f[i]) {
+            return f[i];
         }
-    }
-    dfs(0);
-    return res;
+        let ans = dfs(i + 1);
+        if (s[i] === '1' || (s[i] === '2' && s[i + 1] < '6')) {
+            ans += dfs(i + 2);
+        }
+        f[i] = ans;
+        return ans;
+    };
+    return dfs(0);
 };
 ```
 
-### **C++**
-
-动态规划解法，定义 `dp[i]` 表示前 `i` 个数字有多少种不同的翻译方法。
-
-注释部分是常规的一维 dp ，因为 `dp[i]` 只依赖 `dp[i - 1]` 和 `dp[i - 2]` ，所以可以进一步压缩空间。
-
-```cpp
-class Solution {
-public:
-    int translateNum(int num) {
-        // string s = to_string(num);
-        // int n = s.size();
-        // vector<int> dp(n + 1);
-        // dp[0] = dp[1] = 1;
-        // for (int i = 2; i <= n; ++i) {
-        //     dp[i] = dp[i - 1];
-        //     if (s[i - 2] == '1' || s[i - 2] == '2' && s[i - 1] < '6') {
-        //         dp[i] += dp[i - 2];
-        //     }
-        // }
-        // return dp[n];
-        string s = to_string(num);
-        int n = s.size();
-        int dp_0 = 1, dp_1 = 1, dp_2 = 1;
-        for (int i = 2; i <= n; ++i) {
-            dp_2 = dp_1;
-            if (s[i - 2] == '1' || s[i - 2] == '2' && s[i - 1] < '6') {
-                dp_2 += dp_0;
-            }
-            dp_0 = dp_1;
-            dp_1 = dp_2;
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var translateNum = function (num) {
+    const s = num.toString();
+    const n = s.length;
+    let a = 1;
+    let b = 1;
+    for (let i = 1; i < n; ++i) {
+        let c = b;
+        if (s[i - 1] === '1' || (s[i - 1] === '2' && s[i] < '6')) {
+            c += a;
         }
-        return dp_2;
+        a = b;
+        b = c;
     }
+    return b;
 };
 ```
 
@@ -134,39 +286,42 @@ public:
 
 ```ts
 function translateNum(num: number): number {
-    let a = 1;
-    let b = 1;
-    const str = num + '';
-    for (let i = 1; i < str.length; i++) {
-        const val = Number(str[i - 1] + str[i]);
-        if (val >= 10 && val < 26) {
-            [a, b] = [b, a + b];
-        } else {
-            a = b;
+    const s = num.toString();
+    const n = s.length;
+    const f = new Array(n).fill(0);
+    const dfs = (i: number): number => {
+        if (i >= n - 1) {
+            return 1;
         }
-    }
-    return b;
+        if (f[i]) {
+            return f[i];
+        }
+        let ans = dfs(i + 1);
+        if (s[i] === '1' || (s[i] === '2' && s[i + 1] < '6')) {
+            ans += dfs(i + 2);
+        }
+        f[i] = ans;
+        return ans;
+    };
+    return dfs(0);
 }
 ```
 
 ```ts
 function translateNum(num: number): number {
-    const s = num + '';
+    const s = num.toString();
     const n = s.length;
-    let res = 1;
-    const dfs = (i: number) => {
-        if (i >= n) {
-            return;
+    let a = 1;
+    let b = 1;
+    for (let i = 1; i < n; ++i) {
+        let c = b;
+        if (s[i - 1] === '1' || (s[i - 1] === '2' && s[i] < '6')) {
+            c += a;
         }
-        const val = Number(s[i - 1] + s[i]);
-        if (val >= 10 && val <= 25) {
-            res++;
-            dfs(i + 2);
-        }
-        dfs(i + 1);
-    };
-    dfs(1);
-    return res;
+        a = b;
+        b = c;
+    }
+    return b;
 }
 ```
 
@@ -219,18 +374,20 @@ impl Solution {
 ```cs
 public class Solution {
     public int TranslateNum(int num) {
-        return TranslateString(num.ToString());
-    }
-
-    private int TranslateString(string s) {
-        if (s.Length < 2) {
-            return 1;
+        var s = num.ToString();
+        int n = s.Length;
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
         }
-        int t = int.Parse(s[..2]);
-        return t < 10 || t > 25 ? TranslateString(s[1..]) : TranslateString(s[1..]) + TranslateString(s[2..]);
+        return b;
     }
 }
-
 ```
 
 ### **...**

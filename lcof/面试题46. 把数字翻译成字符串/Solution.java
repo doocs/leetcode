@@ -1,14 +1,16 @@
 class Solution {
     public int translateNum(int num) {
-        return cal(String.valueOf(num));
-    }
-
-    private int cal(String s) {
-        int n = s.length();
-        if (n < 2) {
-            return 1;
+        char[] s = String.valueOf(num).toCharArray();
+        int n = s.length;
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
         }
-        int t = Integer.parseInt(s.substring(0, 2));
-        return t < 10 || t > 25 ? cal(s.substring(1)) : cal(s.substring(1)) + cal(s.substring(2));
+        return b;
     }
 }

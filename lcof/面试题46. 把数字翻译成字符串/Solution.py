@@ -1,9 +1,11 @@
 class Solution:
     def translateNum(self, num: int) -> int:
-        def cal(s):
-            if len(s) < 2:
-                return 1
-            t = int(s[:2])
-            return cal(s[1:]) if t < 10 or t > 25 else cal(s[1:]) + cal(s[2:])
-
-        return cal(str(num))
+        s = str(num)
+        n = len(s)
+        a = b = 1
+        for i in range(1, n):
+            c = b
+            if s[i - 1] == "1" or (s[i - 1] == "2" and s[i] < "6"):
+                c += a
+            a, b = b, c
+        return b

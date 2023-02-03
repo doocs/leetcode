@@ -1,13 +1,16 @@
 public class Solution {
     public int TranslateNum(int num) {
-        return TranslateString(num.ToString());
-    }
-
-    private int TranslateString(string s) {
-        if (s.Length < 2) {
-            return 1;
+        var s = num.ToString();
+        int n = s.Length;
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
         }
-        int t = int.Parse(s[..2]);
-        return t < 10 || t > 25 ? TranslateString(s[1..]) : TranslateString(s[1..]) + TranslateString(s[2..]);
+        return b;
     }
 }
