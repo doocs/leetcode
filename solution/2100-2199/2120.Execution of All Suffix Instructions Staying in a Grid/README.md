@@ -206,7 +206,100 @@ func executeInstructions(n int, startPos []int, s string) []int {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+function executeInstructions(
+    n: number,
+    startPos: number[],
+    s: string,
+): number[] {
+    const m = s.length;
+    const ans = new Array(m);
+    for (let i = 0; i < m; i++) {
+        let [y, x] = startPos;
+        let j: number;
+        for (j = i; j < m; j++) {
+            const c = s[j];
+            if (c === 'U') {
+                y--;
+            } else if (c === 'D') {
+                y++;
+            } else if (c === 'L') {
+                x--;
+            } else {
+                x++;
+            }
+            if (y === -1 || y === n || x === -1 || x === n) {
+                break;
+            }
+        }
+        ans[i] = j - i;
+    }
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn execute_instructions(n: i32, start_pos: Vec<i32>, s: String) -> Vec<i32> {
+        let s = s.as_bytes();
+        let m = s.len();
+        let mut ans = vec![0; m];
+        for i in 0..m {
+            let mut y = start_pos[0];
+            let mut x = start_pos[1];
+            let mut j = i;
+            while j < m {
+                match s[j] {
+                    b'U' => y -= 1,
+                    b'D' => y += 1,
+                    b'L' => x -= 1,
+                    _ => x += 1,
+                }
+                if y == -1 || y == n || x == -1 || x == n {
+                    break;
+                }
+                j += 1;
+            }
+            ans[i] = (j - i) as i32;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *executeInstructions(int n, int *startPos, int startPosSize, char *s, int *returnSize) {
+    int m = strlen(s);
+    int *ans = malloc(sizeof(int) * m);
+    for (int i = 0; i < m; i++) {
+        int y = startPos[0];
+        int x = startPos[1];
+        int j = i;
+        for (j = i; j < m; j++) {
+            if (s[j] == 'U') {
+                y--;
+            } else if (s[j] == 'D') {
+                y++;
+            } else if (s[j] == 'L') {
+                x--;
+            } else {
+                x++;
+            }
+            if (y == -1 || y == n || x == -1 || x == n) {
+                break;
+            }
+        }
+        ans[i] = j - i;
+    }
+    *returnSize = m;
+    return ans;
+}
 ```
 
 ### **...**
