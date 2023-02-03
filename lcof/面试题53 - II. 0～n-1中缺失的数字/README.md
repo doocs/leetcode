@@ -25,7 +25,15 @@
 
 ## 解法
 
-二分法。
+**方法一：二分查找**
+
+我们可以使用二分查找的方法找到这个缺失的数字。初始化左边界 $l=0$，右边界 $r=n$，其中 $n$ 是数组的长度。
+
+每次计算中间元素的下标 $mid$，如果 $nums[mid] \gt mid$，则缺失的数字一定在区间 $[l,..mid]$ 中，否则缺失的数字一定在区间 $[mid+1,..r]$ 中。
+
+最后返回左边界 $l$ 即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -34,18 +42,14 @@
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        l, r = 0, len(nums) - 1
-        if r == 0 or nums[0] == 1:
-            return nums[0] ^ 1
-        if nums[r] == r:
-            return r + 1
-        while r - l > 1:
-            m = (l + r) >> 1
-            if nums[m] == m:
-                l = m
+        l, r = 0, len(nums)
+        while l < r:
+            mid = (l + r) >> 1
+            if nums[mid] > mid:
+                r = mid
             else:
-                r = m
-        return nums[r] - 1
+                l = mid + 1
+        return l
 ```
 
 ### **Java**
@@ -53,23 +57,54 @@ class Solution:
 ```java
 class Solution {
     public int missingNumber(int[] nums) {
-        int l = 0, r = nums.length - 1;
-        if (r == 0 || nums[0] == 1) {
-            return nums[0] ^ 1;
-        }
-        if (nums[r] == r) {
-            return r + 1;
-        }
-        while (r - l > 1) {
-            int m = (l + r) >>> 1;
-            if (nums[m] == m) {
-                l = m;
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+            if (nums[mid] > mid) {
+                r = mid;
             } else {
-                r = m;
+                l = mid + 1;
             }
         }
-        return nums[r] - 1;
+        return l;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int l = 0, r = nums.size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > mid) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func missingNumber(nums []int) int {
+	l, r := 0, len(nums)
+	for l < r {
+		mid := (l + r) >> 1
+		if nums[mid] > mid {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return l
 }
 ```
 
@@ -81,42 +116,38 @@ class Solution {
  * @return {number}
  */
 var missingNumber = function (nums) {
-    if (!nums || !nums.length) return 0;
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (nums[mid] !== mid) {
-            right = mid;
+    let l = 0;
+    let r = nums.length;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] > mid) {
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return nums[left] === left ? nums.length : left;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        int left = 0, right = nums.size();
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == mid) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-        return left;
-    }
+    return l;
 };
 ```
 
 ### **Rust**
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let (mut l, mut r) = (0, nums.len() as i32);
+        while l < r {
+            let mut mid = (l + r) >> 1;
+            if nums[mid as usize] > mid {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
+}
+```
 
 ```rust
 impl Solution {
@@ -131,42 +162,21 @@ impl Solution {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn missing_number(nums: Vec<i32>) -> i32 {
-        let mut prev = 0;
-        for &num in nums.iter() {
-            if prev != num {
-                return prev;
-            }
-            prev += 1;
-        }
-        prev
-    }
-}
-```
-
 ### **C#**
 
 ```cs
 public class Solution {
     public int MissingNumber(int[] nums) {
-        int l = 0, r = nums.Length - 1;
-        if (r == 0 || nums[0] == 1) {
-            return nums[0] ^ 1;
-        }
-        if (nums[r] == r) {
-            return r + 1;
-        }
+        int l = 0, r = nums.Length;
         while (l < r) {
             int mid = (l + r) >> 1;
-            if (nums[mid] == mid) {
-                l = mid + 1;
-            } else {
+            if (nums[mid] > mid) {
                 r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        return r;
+        return l;
     }
 }
 ```

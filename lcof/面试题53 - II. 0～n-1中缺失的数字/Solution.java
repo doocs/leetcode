@@ -1,20 +1,14 @@
 class Solution {
     public int missingNumber(int[] nums) {
-        int l = 0, r = nums.length - 1;
-        if (r == 0 || nums[0] == 1) {
-            return nums[0] ^ 1;
-        }
-        if (nums[r] == r) {
-            return r + 1;
-        }
-        while (r - l > 1) {
-            int m = (l + r) >>> 1;
-            if (nums[m] == m) {
-                l = m;
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+            if (nums[mid] > mid) {
+                r = mid;
             } else {
-                r = m;
+                l = mid + 1;
             }
         }
-        return nums[r] - 1;
+        return l;
     }
 }

@@ -3,16 +3,15 @@
  * @return {number}
  */
 var missingNumber = function (nums) {
-    if (!nums || !nums.length) return 0;
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (nums[mid] !== mid) {
-            right = mid;
+    let l = 0;
+    let r = nums.length;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] > mid) {
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return nums[left] === left ? nums.length : left;
+    return l;
 };

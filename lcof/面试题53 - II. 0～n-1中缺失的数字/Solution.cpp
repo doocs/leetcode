@@ -1,15 +1,15 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        int left = 0, right = nums.size();
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == mid) {
-                left = mid + 1;
+        int l = 0, r = nums.size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > mid) {
+                r = mid;
             } else {
-                right = mid;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 };
