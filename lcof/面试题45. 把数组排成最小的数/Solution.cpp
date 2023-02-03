@@ -1,17 +1,16 @@
 class Solution {
 public:
     string minNumber(vector<int>& nums) {
-        int n = nums.size();
-        vector<string> strs(n);
-        for (int i = 0; i < n; ++i) {
-            strs[i] = to_string(nums[i]);
+        vector<string> arr;
+        for (int& x : nums) {
+            arr.emplace_back(to_string(x));
         }
-        sort(strs.begin(), strs.end(), [](const string& s1, const string& s2) {
-            return s1 + s2 < s2 + s1;
+        sort(arr.begin(), arr.end(), [](const auto& a, const auto& b) {
+            return a + b < b + a;
         });
         string ans;
-        for (int i = 0; i < n; ++i) {
-            ans += strs[i];
+        for (auto& x : arr) {
+            ans += x;
         }
         return ans;
     }

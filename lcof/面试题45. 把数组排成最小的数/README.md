@@ -37,7 +37,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-自定义排序比较器。
+**方法一：自定义排序**
+
+将数组中的数字转换为字符串，然后按照字符串拼接的大小进行排序。具体地，比较两个字符串 $a$ 和 $b$，如果 $a + b \lt b + a$，则 $a$ 小于 $b$，否则 $a$ 大于 $b$。
+
+时间复杂度 $O(n \times \log n + n \times m)$，空间复杂度 $O(n \times m)$。其中 $n $ 和 $m$ 分别为数组的长度和字符串的平均长度。
 
 <!-- tabs:start -->
 
@@ -46,24 +50,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-import functools
-
-
 class Solution:
     def minNumber(self, nums: List[int]) -> str:
-        if not nums:
-            return ''
+        def cmp(a, b):
+            x, y = a + b, b + a
+            return -1 if x < y else 1
 
-        def compare(s1, s2):
-            if s1 + s2 < s2 + s1:
-                return -1
-            if s1 + s2 > s2 + s1:
-                return 1
-            return 0
-
-        return ''.join(
-            sorted([str(x) for x in nums], key=functools.cmp_to_key(compare))
-        )
+        ans = [str(x) for x in nums]
+        ans.sort(key=cmp_to_key(cmp))
+        return "".join(ans)
 ```
 
 ### **Java**
@@ -73,15 +68,47 @@ class Solution:
 ```java
 class Solution {
     public String minNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return "";
-        }
         return Arrays.stream(nums)
-            .mapToObj(String::valueOf)
-            .sorted((s1, s2) -> (s1 + s2).compareTo(s2 + s1))
-            .reduce((s1, s2) -> s1 + s2)
-            .get();
+                .mapToObj(String::valueOf)
+                .sorted((a, b) -> (a + b).compareTo(b + a))
+                .reduce((a, b) -> a + b)
+                .orElse("");
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string minNumber(vector<int>& nums) {
+        vector<string> arr;
+        for (int& x : nums) {
+            arr.emplace_back(to_string(x));
+        }
+        sort(arr.begin(), arr.end(), [](const auto& a, const auto& b) {
+            return a + b < b + a;
+        });
+        string ans;
+        for (auto& x : arr) {
+            ans += x;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minNumber(nums []int) string {
+	arr := []string{}
+	for _, x := range nums {
+		arr = append(arr, strconv.Itoa(x))
+	}
+	sort.Slice(arr, func(i, j int) bool { return arr[i]+arr[j] < arr[j]+arr[i] })
+	return strings.Join(arr, "")
 }
 ```
 
@@ -94,36 +121,11 @@ class Solution {
  */
 var minNumber = function (nums) {
     nums.sort((a, b) => {
-        let s1 = a + '' + b;
-        let s2 = b + '' + a;
-        if (s1 < s2) {
-            return -1;
-        } else return 1;
+        const x = a + '' + b;
+        const y = b + '' + a;
+        return x < y ? -1 : 1;
     });
     return nums.join('');
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string minNumber(vector<int>& nums) {
-        int n = nums.size();
-        vector<string> strs(n);
-        for (int i = 0; i < n; ++i) {
-            strs[i] = to_string(nums[i]);
-        }
-        sort(strs.begin(), strs.end(), [](const string& s1, const string& s2) {
-            return s1 + s2 < s2 + s1;
-        });
-        string ans;
-        for (int i = 0; i < n; ++i) {
-            ans += strs[i];
-        }
-        return ans;
-    }
 };
 ```
 
@@ -154,8 +156,8 @@ impl Solution {
 public class Solution {
     public string MinNumber(int[] nums) {
         List<string> ans = new List<string>();
-        foreach (int temp in nums) {
-            ans.Add(temp.ToString());
+        foreach (int x in nums) {
+            ans.Add(x.ToString());
         }
         ans.Sort((a, b) => (a + b).CompareTo(b + a));
         return string.Join("", ans);

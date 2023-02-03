@@ -1,18 +1,9 @@
-import functools
-
-
 class Solution:
     def minNumber(self, nums: List[int]) -> str:
-        if not nums:
-            return ''
+        def cmp(a, b):
+            x, y = a + b, b + a
+            return -1 if x < y else 1
 
-        def compare(s1, s2):
-            if s1 + s2 < s2 + s1:
-                return -1
-            if s1 + s2 > s2 + s1:
-                return 1
-            return 0
-
-        return ''.join(
-            sorted([str(x) for x in nums], key=functools.cmp_to_key(compare))
-        )
+        ans = [str(x) for x in nums]
+        ans.sort(key=cmp_to_key(cmp))
+        return "".join(ans)
