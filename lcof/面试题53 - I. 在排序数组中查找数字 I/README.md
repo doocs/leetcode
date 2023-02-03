@@ -35,7 +35,11 @@
 
 ## 解法
 
-两遍二分，分别查找出左边界和右边界。
+**方法一：二分查找**
+
+由于数组 `nums` 已排好序，我们可以使用二分查找的方法找到数组中第一个大于等于 `target` 的元素的下标 $l$，以及第一个大于 `target` 的元素的下标 $r$，那么 `target` 的个数就是 $r - l$。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -44,25 +48,9 @@
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        if len(nums) == 0:
-            return 0
-        left, right = 0, len(nums) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            if nums[mid] >= target:
-                right = mid
-            else:
-                left = mid + 1
-        if nums[left] != target:
-            return 0
-        l, right = left, len(nums) - 1
-        while left < right:
-            mid = (left + right + 1) >> 1
-            if nums[mid] <= target:
-                left = mid
-            else:
-                right = mid - 1
-        return left - l + 1
+        l = bisect_left(nums, target)
+        r = bisect_right(nums, target)
+        return r - l
 ```
 
 ### **Java**
@@ -70,35 +58,22 @@ class Solution:
 ```java
 class Solution {
     public int search(int[] nums, int target) {
-        if (nums.length == 0) {
-            return 0;
-        }
-        // find first position
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (nums[mid] >= target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        if (nums[left] != target) {
-            return 0;
-        }
-        int l = left;
+        int l = lowerBound(nums, target);
+        int r = lowerBound(nums, target + 1);
+        return r - l;
+    }
 
-        // find last position
-        right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (nums[mid] <= target) {
-                left = mid;
+    private int lowerBound(int[] nums, int x) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+            if (nums[mid] >= x) {
+                r = mid;
             } else {
-                right = mid - 1;
+                l = mid + 1;
             }
         }
-        return left - l + 1;
+        return l;
     }
 }
 ```
@@ -109,32 +84,9 @@ class Solution {
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int n = nums.size();
-        int left = 0, right = n;
-        int first, last;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-        if (left == n || nums[left] != target) {
-            return 0;
-        }
-        first = left;
-        left = 0, right = n;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] > target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        last = left - 1;
-        return last - first + 1;
+        auto l = lower_bound(nums.begin(), nums.end(), target);
+        auto r = upper_bound(nums.begin(), nums.end(), target);
+        return r - l;
     }
 };
 ```
@@ -143,32 +95,9 @@ public:
 
 ```go
 func search(nums []int, target int) int {
-	if len(nums) == 0 {
-		return 0
-	}
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
-		if nums[mid] >= target {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	if nums[left] != target {
-		return 0
-	}
-	l := left
-	right = len(nums) - 1
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if nums[mid] <= target {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left - l + 1
+	l := sort.Search(len(nums), func(i int) bool { return nums[i] >= target })
+	r := sort.Search(len(nums), func(i int) bool { return nums[i] > target })
+	return r - l
 }
 ```
 
@@ -181,33 +110,22 @@ func search(nums []int, target int) int {
  * @return {number}
  */
 var search = function (nums, target) {
-    if (nums.length == 0) {
-        return 0;
-    }
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
+    const search = x => {
+        let l = 0;
+        let r = nums.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-    }
-    if (nums[left] != target) {
-        return 0;
-    }
-    let l = left;
-    right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (nums[mid] <= target) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left - l + 1;
+        return l;
+    };
+    const l = search(target);
+    const r = search(target + 1);
+    return r - l;
 };
 ```
 
@@ -216,21 +134,20 @@ var search = function (nums, target) {
 ```rust
 impl Solution {
     pub fn search(nums: Vec<i32>, target: i32) -> i32 {
-        let help = |target| {
-            let mut left = 0;
-            let mut right = nums.len();
-            while left < right  {
-                let mid = left + (right - left) / 2;
-                if nums[mid] <= target {
-                    left = mid + 1;
+        let search = |x| {
+            let mut l = 0;
+            let mut r = nums.len();
+            while l < r  {
+                let mid = l + (r - l) / 2;
+                if nums[mid] >= x {
+                    r = mid;
                 } else {
-                    right = mid;
+                    l = mid + 1
                 }
             }
-            left as i32
+            l as i32
         };
-
-        help(target) - help(target - 1)
+        search(target + 1) - search(target)
     }
 }
 ```
@@ -240,20 +157,22 @@ impl Solution {
 ```cs
 public class Solution {
     public int Search(int[] nums, int target) {
-        return helper(nums, target) - helper(nums, target - 1);
+        int l = search(nums, target);
+        int r = search(nums, target + 1);
+        return r - l;
     }
 
-    int helper(int[] nums, int target) {
-        int i = 0, j = nums.Length - 1;
-        while (i <= j) {
-            int mid = (i + j) >> 1;
-            if (nums[mid] <= target) {
-                i = mid + 1;
+    private int search(int[] nums, int x) {
+        int l = 0, r = nums.Length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
             } else {
-                j = mid - 1;
+                l = mid + 1;
             }
         }
-        return i;
+        return l;
     }
 }
 ```

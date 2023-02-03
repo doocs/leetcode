@@ -1,18 +1,20 @@
 public class Solution {
     public int Search(int[] nums, int target) {
-        return helper(nums, target) - helper(nums, target - 1);
+        int l = search(nums, target);
+        int r = search(nums, target + 1);
+        return r - l;
     }
 
-    int helper(int[] nums, int target) {
-        int i = 0, j = nums.Length - 1;
-        while (i <= j) {
-            int mid = (i + j) >> 1;
-            if (nums[mid] <= target) {
-                i = mid + 1;
+    private int search(int[] nums, int x) {
+        int l = 0, r = nums.Length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
             } else {
-                j = mid - 1;
+                l = mid + 1;
             }
         }
-        return i;
+        return l;
     }
 }
