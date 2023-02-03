@@ -1,13 +1,27 @@
 class Solution {
+    private int[] a = new int[12];
+    private Integer[][] f = new Integer[12][12];
+
     public int countDigitOne(int n) {
-        if (n < 1) {
-            return 0;
+        int i = -1;
+        for (; n > 0; n /= 10) {
+            a[++i] = n % 10;
         }
-        String s = String.valueOf(n);
-        int high = s.charAt(0) - '0'; // 最高位
-        int base = (int) Math.pow(10, s.length() - 1); // 基数
-        int lows = n % base; // 低位
-        return high == 1 ? countDigitOne(base - 1) + countDigitOne(lows) + lows + 1
-                         : high * countDigitOne(base - 1) + countDigitOne(lows) + base;
+        return dfs(i, 0, true);
+    }
+
+    private int dfs(int pos, int cnt, boolean limit) {
+        if (pos < 0) {
+            return cnt;
+        }
+        if (!limit && f[pos][cnt] != null) {
+            return f[pos][cnt];
+        }
+        int up = limit ? a[pos] : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            ans += dfs(pos - 1, cnt + (i == 1 ? 1 : 0), limit && i == up);
+        }
+        return f[pos][cnt] = ans;
     }
 }
