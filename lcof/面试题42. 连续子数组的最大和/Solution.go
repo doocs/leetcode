@@ -1,14 +1,15 @@
 func maxSubArray(nums []int) int {
-    f, res := nums[0], nums[0]
-    for i := 1; i < len(nums); i++ {
-        if f > 0 {
-            f += nums[i]
-        } else {
-            f = nums[i]
-        }
-        if f > res {
-            res = f
-        }
-    }
-    return res
+	ans, f := -1000000000, 0
+	for _, x := range nums {
+		f = max(f, 0) + x
+		ans = max(ans, f)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
