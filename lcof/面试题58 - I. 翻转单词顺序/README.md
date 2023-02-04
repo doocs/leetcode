@@ -42,7 +42,11 @@
 
 ## 解法
 
-按空格分割字符串后逆序。
+**方法一：字符串分割 + 反转拼接**
+
+我们先去除字符串首尾的空格，然后将字符串按照空格分割成数组，再将数组反转，最后将数组拼接成以空格分割的字符串即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
 
@@ -51,9 +55,7 @@
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
-        if s is None:
-            return s
-        return ' '.join(list(filter(lambda x: x != '', s.strip(' ').split(' ')))[::-1])
+        return " ".join(s.strip().split()[::-1])
 ```
 
 ### **Java**
@@ -61,20 +63,14 @@ class Solution:
 ```java
 class Solution {
     public String reverseWords(String s) {
-        if (s == null || s.length() == 0) {
-            return s;
+        s = s.trim();
+        var words = s.split("\\s+");
+        for (int i = 0, j = words.length - 1; i < j; ++i, --j) {
+            var t = words[i];
+            words[i] = words[j];
+            words[j] = t;
         }
-        String[] words = s.split("\\s+");
-        StringBuilder sb = new StringBuilder();
-        int len = words.length;
-        for (int i = len - 1; i >= 0; --i) {
-            if (!"".equals(words[i])) {
-                sb.append(words[i]).append(" ");
-            }
-        }
-        s = sb.toString();
-        len = s.length();
-        return len > 0 ? s.substring(0, len - 1) : "";
+        return String.join(" ", words);
     }
 }
 ```
@@ -104,22 +100,6 @@ public:
 };
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @return {string}
- */
-var reverseWords = function (s) {
-    return s
-        .split(' ')
-        .reduce((acc, cur) => (cur !== '' ? acc.concat(cur) : acc), [])
-        .reverse()
-        .join(' ');
-};
-```
-
 ### **Go**
 
 ```go
@@ -141,6 +121,22 @@ func reverseWords(s string) string {
 	}
 	return builder.String()
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function (s) {
+    return s
+        .split(' ')
+        .reduce((acc, cur) => (cur !== '' ? acc.concat(cur) : acc), [])
+        .reverse()
+        .join(' ');
+};
 ```
 
 ### **TypeScript**
