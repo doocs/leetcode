@@ -1,17 +1,16 @@
-func maxSlidingWindow(nums []int, k int) []int {
-	ans := make([]int, 0, len(nums)-k+1)
-	window := make([]int, 0)
-	for i, num := range nums {
-		for len(window) != 0 && nums[window[len(window)-1]] <= num {
-			window = window[:len(window)-1]
+func maxSlidingWindow(nums []int, k int) (ans []int) {
+	q := []int{}
+	for i, x := range nums {
+		for len(q) > 0 && i-q[0]+1 > k {
+			q = q[1:]
 		}
-		window = append(window, i)
-		if window[0] == i-k {
-			window = window[1:]
+		for len(q) > 0 && nums[q[len(q)-1]] <= x {
+			q = q[:len(q)-1]
 		}
+		q = append(q, i)
 		if i >= k-1 {
-			ans = append(ans, nums[window[0]])
+			ans = append(ans, nums[q[0]])
 		}
 	}
-	return ans
+	return
 }

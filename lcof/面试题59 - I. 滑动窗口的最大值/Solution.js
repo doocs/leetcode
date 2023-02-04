@@ -4,26 +4,20 @@
  * @return {number[]}
  */
 var maxSlidingWindow = function (nums, k) {
-    if (!nums.length || !k) return [];
-    if (k === 1) return nums;
-    let res = [];
-    let tmpMax = -Infinity;
-    let len = nums.length;
-    let window = [];
-    for (let i = 0; i < k; i++) {
-        tmpMax = Math.max(nums[i], tmpMax);
-        window.push(nums[i]);
-    }
-    res.push(tmpMax);
-    for (let i = k; i < len; i++) {
-        let a = window.shift();
-        window.push(nums[i]);
-        if (nums[i] > tmpMax) {
-            tmpMax = nums[i];
-        } else if (tmpMax === a) {
-            tmpMax = Math.max(...window);
+    const q = [];
+    const n = nums.length;
+    const ans = [];
+    for (let i = 0; i < n; ++i) {
+        while (q.length && i - q[0] + 1 > k) {
+            q.shift();
         }
-        res.push(tmpMax);
+        while (q.length && nums[q[q.length - 1]] <= nums[i]) {
+            q.pop();
+        }
+        q.push(i);
+        if (i >= k - 1) {
+            ans.push(nums[q[0]]);
+        }
     }
-    return res;
+    return ans;
 };

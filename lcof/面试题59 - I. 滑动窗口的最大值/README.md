@@ -33,7 +33,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-单调队列。
+**方法一：单调队列**
 
 单调队列常见模型：找出滑动窗口中的最大值/最小值。模板：
 
@@ -48,6 +48,8 @@ for i in range(n):
     q.append(i)
 ```
 
+时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,17 +59,17 @@ for i in range(n):
 ```python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        q, res = deque(), []
-        for i, num in enumerate(nums):
-            if q and i - k + 1 > q[0]:
+        q = deque()
+        ans = []
+        for i, x in enumerate(nums):
+            if q and i - q[0] + 1 > k:
                 q.popleft()
-            while q and nums[q[-1]] <= num:
+            while q and nums[q[-1]] <= x:
                 q.pop()
             q.append(i)
             if i >= k - 1:
-                res.append(nums[q[0]])
-        return res
-
+                ans.append(nums[q[0]])
+        return ans
 ```
 
 ### **Java**
@@ -77,26 +79,70 @@ class Solution:
 ```java
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        int index = 0, n = nums.length;
-        if (k == 0 || n == 0) {
-            return new int[0];
-        }
-        int[] res = new int[n - k + 1];
-        LinkedList<Integer> q = new LinkedList<>();
+        int n = nums.length;
+        int[] ans = new int[n - k + 1];
+        Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
+            if (!q.isEmpty() && i - q.peek() + 1 > k) {
+                q.poll();
+            }
             while (!q.isEmpty() && nums[q.peekLast()] <= nums[i]) {
                 q.pollLast();
             }
-            q.addLast(i);
-            if (q.peekFirst() == i - k) {
-                q.pollFirst();
-            }
+            q.offer(i);
             if (i >= k - 1) {
-                res[index++] = nums[q.peekFirst()];
+                ans[i - k + 1] = nums[q.peek()];
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> ans;
+        deque<int> q;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (!q.empty() && i - q.front() + 1 > k) {
+                q.pop_front();
+            }
+            while (!q.empty() && nums[q.back()] <= nums[i]) {
+                q.pop_back();
+            }
+            q.push_back(i);
+            if (i >= k - 1) {
+                ans.push_back(nums[q.front()]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSlidingWindow(nums []int, k int) (ans []int) {
+	q := []int{}
+	for i, x := range nums {
+		for len(q) > 0 && i-q[0]+1 > k {
+			q = q[1:]
+		}
+		for len(q) > 0 && nums[q[len(q)-1]] <= x {
+			q = q[:len(q)-1]
+		}
+		q = append(q, i)
+		if i >= k-1 {
+			ans = append(ans, nums[q[0]])
+		}
+	}
+	return
 }
 ```
 
@@ -109,107 +155,45 @@ class Solution {
  * @return {number[]}
  */
 var maxSlidingWindow = function (nums, k) {
-    if (!nums.length || !k) return [];
-    if (k === 1) return nums;
-    let res = [];
-    let tmpMax = -Infinity;
-    let len = nums.length;
-    let window = [];
-    for (let i = 0; i < k; i++) {
-        tmpMax = Math.max(nums[i], tmpMax);
-        window.push(nums[i]);
-    }
-    res.push(tmpMax);
-    for (let i = k; i < len; i++) {
-        let a = window.shift();
-        window.push(nums[i]);
-        if (nums[i] > tmpMax) {
-            tmpMax = nums[i];
-        } else if (tmpMax === a) {
-            tmpMax = Math.max(...window);
+    const q = [];
+    const n = nums.length;
+    const ans = [];
+    for (let i = 0; i < n; ++i) {
+        while (q.length && i - q[0] + 1 > k) {
+            q.shift();
         }
-        res.push(tmpMax);
-    }
-    return res;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
-        vector<int> ans;
-        deque<int> window;
-        int n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            while (!window.empty() && nums[window.back()] <= nums[i]) {
-                window.pop_back();
-            }
-            window.push_back(i);
-            if (window.front() == i - k) {
-                window.pop_front();
-            }
-            if (i >= k - 1) {
-                ans.push_back(nums[window.front()]);
-            }
+        while (q.length && nums[q[q.length - 1]] <= nums[i]) {
+            q.pop();
         }
-        return ans;
+        q.push(i);
+        if (i >= k - 1) {
+            ans.push(nums[q[0]]);
+        }
     }
+    return ans;
 };
-```
-
-### **Go**
-
-```go
-func maxSlidingWindow(nums []int, k int) []int {
-	ans := make([]int, 0, len(nums)-k+1)
-	window := make([]int, 0)
-	for i, num := range nums {
-		for len(window) != 0 && nums[window[len(window)-1]] <= num {
-			window = window[:len(window)-1]
-		}
-		window = append(window, i)
-		if window[0] == i-k {
-			window = window[1:]
-		}
-		if i >= k-1 {
-			ans = append(ans, nums[window[0]])
-		}
-	}
-	return ans
-}
 ```
 
 ### **TypeScript**
 
 ```ts
 function maxSlidingWindow(nums: number[], k: number): number[] {
+    const q: number[] = [];
     const n = nums.length;
-    const res = [];
-    if (n === 0 || k === 0) {
-        return res;
-    }
-    const queue = [];
-    for (let i = 0; i < k; i++) {
-        while (queue.length !== 0 && queue[queue.length - 1] < nums[i]) {
-            queue.pop();
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        while (q.length && i - q[0] + 1 > k) {
+            q.shift();
         }
-        queue.push(nums[i]);
-    }
-    res.push(queue[0]);
-    for (let i = k; i < n; i++) {
-        if (queue[0] === nums[i - k]) {
-            queue.shift();
+        while (q.length && nums[q[q.length - 1]] <= nums[i]) {
+            q.pop();
         }
-        while (queue.length !== 0 && queue[queue.length - 1] < nums[i]) {
-            queue.pop();
+        q.push(i);
+        if (i >= k - 1) {
+            ans.push(nums[q[0]]);
         }
-        queue.push(nums[i]);
-        res.push(queue[0]);
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -221,29 +205,21 @@ impl Solution {
     pub fn max_sliding_window(nums: Vec<i32>, k: i32) -> Vec<i32> {
         let k = k as usize;
         let n = nums.len();
-        if n == 0 || k == 0 {
-            return Vec::new();
-        }
-        let mut res = vec![0; n - k + 1];
-        let mut queue = VecDeque::new();
-        for i in 0..k {
-            while !queue.is_empty() && *queue.back().unwrap() < nums[i] {
-                queue.pop_back();
+        let mut ans = vec![0; n - k + 1];
+        let mut q = VecDeque::new();
+        for i in 0..n {
+            while !q.is_empty() && i - q[0] + 1 > k {
+                q.pop_front();
             }
-            queue.push_back(nums[i]);
-        }
-        res[0] = queue[0];
-        for i in k..n {
-            if nums[i - k] == queue[0] {
-                queue.pop_front();
+            while !q.is_empty() && nums[*q.back().unwrap()] <= nums[i] {
+                q.pop_back();
             }
-            while !queue.is_empty() && *queue.back().unwrap() < nums[i] {
-                queue.pop_back();
+            q.push_back(i);
+            if i >= k - 1 {
+                ans[i - k + 1] = nums[q[0]]
             }
-            queue.push_back(nums[i]);
-            res[i - k + 1] = queue[0];
         }
-        res
+        ans
     }
 }
 ```
