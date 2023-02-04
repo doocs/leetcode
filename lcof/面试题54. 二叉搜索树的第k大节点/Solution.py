@@ -8,16 +8,16 @@
 
 class Solution:
     def kthLargest(self, root: TreeNode, k: int) -> int:
-        def inorder(root):
-            if root is None:
+        def dfs(root):
+            nonlocal k, ans
+            if root is None or k == 0:
                 return
-            inorder(root.right)
-            self.cur -= 1
-            if self.cur == 0:
-                self.res = root.val
-                return
-            inorder(root.left)
+            dfs(root.right)
+            k -= 1
+            if k == 0:
+                ans = root.val
+            dfs(root.left)
 
-        self.cur = k
-        inorder(root)
-        return self.res
+        ans = 0
+        dfs(root)
+        return ans

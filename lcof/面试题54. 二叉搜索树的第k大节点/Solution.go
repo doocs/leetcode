@@ -6,25 +6,19 @@
  *     Right *TreeNode
  * }
  */
- func kthLargest(root *TreeNode, k int) int {
-	ch := make(chan int)
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	go inorder(ctx, root, ch)
-	for ; k > 1; k-- {
-		<-ch
-	}
-	return <-ch
-}
-
-func inorder(ctx context.Context, cur *TreeNode, ch chan<- int) {
-	if cur != nil {
-		inorder(ctx, cur.Right, ch)
-		select {
-		case ch <- cur.Val:
-		case <-ctx.Done():
+func kthLargest(root *TreeNode, k int) (ans int) {
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil || k == 0 {
 			return
 		}
-		inorder(ctx, cur.Left, ch)
+		dfs(root.Right)
+		k--
+		if k == 0 {
+			ans = root.Val
+		}
+		dfs(root.Left)
 	}
+	dfs(root)
+	return
 }

@@ -11,20 +11,17 @@
  * @return {number}
  */
 var kthLargest = function (root, k) {
-    const inorder = root => {
-        if (!root) {
+    let ans = 0;
+    const dfs = root => {
+        if (!root || !k) {
             return;
         }
-        inorder(root.right);
-        --cur;
-        if (cur == 0) {
-            res = root.val;
-            return;
+        dfs(root.right);
+        if (--k == 0) {
+            ans = root.val;
         }
-        inorder(root.left);
+        dfs(root.left);
     };
-    let res = 0;
-    let cur = k;
-    inorder(root);
-    return res;
+    dfs(root);
+    return ans;
 };

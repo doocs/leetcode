@@ -8,22 +8,23 @@
  * }
  */
 public class Solution {
+    private int ans;
+    private int k;
+
     public int KthLargest(TreeNode root, int k) {
-        List<int> list = new List<int>();
-        list = postorder(root, list);
-        return list[list.Count() - k];
+        this.k = k;
+        dfs(root);
+        return ans;
     }
 
-    public List<int> postorder(TreeNode root, List<int> list) {
-        if (root == null) {
-            return list;
-        } else {
-            postorder(root.left, list);
-            list.Add(root.val);
-            postorder(root.right, list);
+    private void dfs(TreeNode root) {
+        if (root == null || k == 0) {
+            return;
         }
-        return list;
+        dfs(root.right);
+        if (--k == 0) {
+            ans = root.val;
+        }
+        dfs(root.left);
     }
-
-    
 }

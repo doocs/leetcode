@@ -10,24 +10,18 @@
 class Solution {
 public:
     int kthLargest(TreeNode* root, int k) {
-        cur = k;
-        inorder(root);
-        return res;
-    }
-
-private:
-    int cur, res;
-
-    void inorder(TreeNode* root) {
-        if (!root) {
-            return;
-        }
-        inorder(root->right);
-        --cur;
-        if (cur == 0) {
-            res = root->val;
-            return;
-        }
-        inorder(root->left);
+        int ans = 0;
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root || !k) {
+                return;
+            }
+            dfs(root->right);
+            if (--k == 0) {
+                ans = root->val;
+            }
+            dfs(root->left);
+        };
+        dfs(root);
+        return ans;
     }
 };
