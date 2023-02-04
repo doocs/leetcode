@@ -10,17 +10,17 @@
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
-        if (!root) {
-            return true;
-        }
-        return abs(depth(root->left) - depth(root->right)) <= 1 && isBalanced(root->left) && isBalanced(root->right);
-    }
-
-private:
-    int depth(TreeNode* root) {
-        if (!root) {
-            return 0;
-        }
-        return 1 + max(depth(root->left), depth(root->right));
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left);
+            int r = dfs(root->right);
+            if (l == -1 || r == -1 || abs(l - r) > 1) {
+                return -1;
+            }
+            return 1 + max(l, r);
+        };
+        return dfs(root) != -1;
     }
 };

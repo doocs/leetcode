@@ -28,6 +28,12 @@
 
 ## 解法
 
+**方法一：递归**
+
+我们可以用递归的方法来解决这道题。递归的终止条件是当前节点为空，此时深度为 $0$；如果当前节点不为空，则当前的深度为其左右子树深度的最大值加 $1$，递归计算当前节点的左右子节点的深度，然后返回它们的最大值加 $1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。最坏情况下，二叉树退化为链表，递归深度达到 $n$，系统使用 $O(n)$ 大小的栈空间。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,6 +52,25 @@ class Solution:
         if root is None:
             return 0
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        def dfs(root):
+            if root is None:
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            return 1 + max(l, r)
+        
+        return dfs(root)
 ```
 
 ### **Java**
@@ -68,28 +93,6 @@ class Solution {
         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number}
- */
-var maxDepth = function (root) {
-    if (!root) {
-        return 0;
-    }
-    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
-};
 ```
 
 ### **C++**
@@ -127,15 +130,37 @@ public:
  * }
  */
 func maxDepth(root *TreeNode) int {
-    if (root == nil) {
-        return 0
-    }
-    left, right := maxDepth(root.Left), maxDepth(root.Right)
-    if left > right {
-        return 1 + left
-    }
-    return 1 + right
+	if root == nil {
+		return 0
+	}
+	l, r := maxDepth(root.Left), maxDepth(root.Right)
+	if l > r {
+		return 1 + l
+	}
+	return 1 + r
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function (root) {
+    if (!root) {
+        return 0;
+    }
+    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+};
 ```
 
 ### **Rust**

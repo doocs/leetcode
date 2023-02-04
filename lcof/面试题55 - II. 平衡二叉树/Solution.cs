@@ -9,16 +9,18 @@
  */
 public class Solution {
     public bool IsBalanced(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        return Math.Abs(Height(root.left) - Height(root.right)) <= 1 && IsBalanced(root.left) && IsBalanced(root.right);
+        return dfs(root) != -1;
     }
 
-    int Height(TreeNode root) {
+    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        return 1 + Math.Max(Height(root.left), Height(root.right));
+        int l = dfs(root.left);
+        int r = dfs(root.right);
+        if (l == -1 || r == -1 || Math.Abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.Max(l, r);
     }
 }

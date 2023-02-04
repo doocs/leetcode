@@ -10,19 +10,16 @@
  * @return {boolean}
  */
 var isBalanced = function (root) {
-    const depth = root => {
+    const dfs = root => {
         if (!root) {
             return 0;
         }
-        return 1 + Math.max(depth(root.left), depth(root.right));
+        const l = dfs(root.left);
+        const r = dfs(root.right);
+        if (l === -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
     };
-
-    if (!root) {
-        return true;
-    }
-    return (
-        Math.abs(depth(root.left) - depth(root.right)) <= 1 &&
-        isBalanced(root.left) &&
-        isBalanced(root.right)
-    );
+    return dfs(root) !== -1;
 };

@@ -8,15 +8,12 @@
 
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
-        def height(root):
+        def dfs(root):
             if root is None:
                 return 0
-            return 1 + max(height(root.left), height(root.right))
+            l, r = dfs(root.left), dfs(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return 1 + max(l, r)
 
-        if root is None:
-            return True
-        return (
-            abs(height(root.left) - height(root.right)) <= 1
-            and self.isBalanced(root.left)
-            and self.isBalanced(root.right)
-        )
+        return dfs(root) != -1
