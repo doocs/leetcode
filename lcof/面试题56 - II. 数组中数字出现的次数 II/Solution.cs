@@ -1,13 +1,19 @@
 public class Solution {
     public int SingleNumber(int[] nums) {
-        int res = 0;
-        for (int i = 0; i < 32; i++) {
-            int bit = 0;
-            foreach (var num in nums) {
-                bit += ((num >> i) & 1);
+        int[] cnt = new int[32];
+        foreach(int x in nums) {
+            int v = x;
+            for (int i = 0; i < 32; ++i) {
+                cnt[i] += v & 1;
+                v >>= 1;
             }
-            res += ((bit % 3) << i);
         }
-        return res;
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            if (cnt[i] % 3 == 1) {
+                ans |= 1 << i;
+            }
+        }
+        return ans;
     }
 }

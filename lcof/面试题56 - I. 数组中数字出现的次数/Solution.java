@@ -1,18 +1,17 @@
 class Solution {
     public int[] singleNumbers(int[] nums) {
-        int eor = 0;
-        for (int num : nums) {
-            eor ^= num;
+        int xs = 0;
+        for (int x : nums) {
+            xs ^= x;
         }
-        // # 找出最右边的 1
-        int diff = eor & (~eor + 1);
+        int lb = xs & - xs;
         int a = 0;
-        for (int num : nums) {
-            if ((num & diff) == 0) {
-                a ^= num;
+        for (int x : nums) {
+            if ((x & lb) != 0) {
+                a ^= x;
             }
         }
-        int b = eor ^ a;
+        int b = xs ^ a;
         return new int[] {a, b};
     }
 }

@@ -1,8 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var singleNumbers = function (nums) {
+function singleNumbers(nums: number[]): number[] {
     let xs = 0;
     for (const x of nums) {
         xs ^= x;
@@ -16,4 +12,4 @@ var singleNumbers = function (nums) {
     }
     const b = xs ^ a;
     return [a, b];
-};
+}

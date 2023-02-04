@@ -1,12 +1,8 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        bits = [0 for _ in range(32)]
-        for num in nums:
+        cnt = [0] * 32
+        for x in nums:
             for i in range(32):
-                bits[i] += num & 1
-                num >>= 1
-        res = 0
-        for i in range(32):
-            if bits[i] % 3 == 1:
-                res += 1 << i
-        return res
+                cnt[i] += x & 1
+                x >>= 1
+        return sum(1 << i for i in range(32) if cnt[i] % 3)

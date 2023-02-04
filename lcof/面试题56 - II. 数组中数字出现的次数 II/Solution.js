@@ -3,11 +3,18 @@
  * @return {number}
  */
 var singleNumber = function (nums) {
-    let a = 0;
-    let b = 0;
-    for (let num of nums) {
-        a = (a ^ num) & ~b;
-        b = (b ^ num) & ~a;
+    const cnt = new Array(32).fill(0);
+    for (let x of nums) {
+        for (let i = 0; i < 32; ++i) {
+            cnt[i] += x & 1;
+            x >>= 1;
+        }
     }
-    return a;
+    let ans = 0;
+    for (let i = 0; i < 32; ++i) {
+        if (cnt[i] % 3) {
+            ans |= 1 << i;
+        }
+    }
+    return ans;
 };

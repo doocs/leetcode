@@ -1,13 +1,10 @@
 class Solution:
     def singleNumbers(self, nums: List[int]) -> List[int]:
-        eor = 0
-        for num in nums:
-            eor ^= num
-        # 找出最右边的 1
-        diff = eor & (~eor + 1)
+        xs = reduce(xor, nums)
         a = 0
-        for num in nums:
-            if (num & diff) == 0:
-                a ^= num
-        b = eor ^ a
+        lb = xs & -xs
+        for x in nums:
+            if x & lb:
+                a ^= x
+        b = xs ^ a
         return [a, b]
