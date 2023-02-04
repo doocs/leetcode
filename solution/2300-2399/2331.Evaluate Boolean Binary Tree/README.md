@@ -62,7 +62,18 @@ OR 运算节点的值为 True OR False = True 。
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：DFS**
+**方法一：递归**
+
+我们可以使用递归的方式来求解本题。
+
+对于当前节点 `root`：
+
+-   如果其左右孩子都为空，说明是叶子节点，此时判断其值是否为 $1$，如果是，则返回 `true`，否则返回 `false`。
+-   否则，对其左右孩子分别递归求解，得到其左右孩子的值 $l$ 和 $r$。然后根据当前节点值的不同，分别进行如下操作：
+    -   如果当前节点值为 $2$，则返回 `l or r`。
+    -   如果当前节点值为 $3$，则返回 `l && r`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
 
@@ -86,6 +97,22 @@ class Solution:
             return (l or r) if root.val == 2 else (l and r)
 
         return dfs(root)
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def evaluateTree(self, root: Optional[TreeNode]) -> bool:
+        if root.left is None:
+            return bool(root.val)
+        l = self.evaluateTree(root.left)
+        r = self.evaluateTree(root.right)
+        return l or r if root.val == 2 else l and r
 ```
 
 ### **Java**
@@ -126,6 +153,34 @@ class Solution {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean evaluateTree(TreeNode root) {
+        if (root.left == null) {
+            return root.val == 1;
+        }
+        boolean l = evaluateTree(root.left);
+        boolean r = evaluateTree(root.right);
+        return root.val == 2 ? l || r : l && r;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -155,6 +210,31 @@ public:
 };
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool evaluateTree(TreeNode* root) {
+        if (!root->left) {
+            return root->val;
+        }
+        bool l = evaluateTree(root->left);
+        bool r = evaluateTree(root->right);
+        return root->val == 2 ? l or r : l and r;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -179,6 +259,27 @@ func evaluateTree(root *TreeNode) bool {
 		return l && r
 	}
 	return dfs(root)
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func evaluateTree(root *TreeNode) bool {
+	if root.Left == nil {
+		return root.Val == 1
+	}
+	l, r := evaluateTree(root.Left), evaluateTree(root.Right)
+	if root.Val == 2 {
+		return l || r
+	}
+	return l && r
 }
 ```
 
