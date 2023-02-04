@@ -70,15 +70,18 @@ BFS.
 ```python
 class Solution:
     def minimumMoves(self, grid: List[List[int]]) -> int:
-        def check(a, b):
-            if (a, b) not in vis:
-                vis.add((a, b))
-                q.append((a, b))
+        def move(i1, j1, i2, j2):
+            if 0 <= i1 < n and 0 <= j1 < n and 0 <= i2 < n and 0 <= j2 < n:
+                a, b = i1 * n + j1, i2 * n + j2
+                status = 0 if i1 == i2 else 1
+                if (a, status) not in vis and grid[i1][j1] == 0 and grid[i2][j2] == 0:
+                    q.append((a, b))
+                    vis.add((a, status))
 
         n = len(grid)
         target = (n * n - 2, n * n - 1)
         q = deque([(0, 1)])
-        vis = {(0, 1)}
+        vis = {(0, 0)}
         ans = 0
         while q:
             for _ in range(len(q)):
@@ -87,24 +90,12 @@ class Solution:
                     return ans
                 i1, j1 = a // n, a % n
                 i2, j2 = b // n, b % n
-                if (
-                    j1 + 1 < n
-                    and j2 + 1 < n
-                    and grid[i1][j1 + 1] == 0
-                    and grid[i2][j2 + 1] == 0
-                ):
-                    check(i1 * n + j1 + 1, i2 * n + j2 + 1)
-                    if j1 == j2:
-                        check(a, i1 * n + j2 + 1)
-                if (
-                    i1 + 1 < n
-                    and i2 + 1 < n
-                    and grid[i1 + 1][j1] == 0
-                    and grid[i2 + 1][j2] == 0
-                ):
-                    check((i1 + 1) * n + j1, (i2 + 1) * n + j2)
-                    if i1 == i2:
-                        check(a, (i2 + 1) * n + j1)
+                move(i1, j1 + 1, i2, j2 + 1)
+                move(i1 + 1, j1, i2 + 1, j2)
+                if i1 == i2 and i1 + 1 < n and grid[i1 + 1][j2] == 0:
+                    move(i1, j1, i1 + 1, j1)
+                if j1 == j2 and j1 + 1 < n and grid[i2][j1 + 1] == 0:
+                    move(i1, j1, i1, j1 + 1)
             ans += 1
         return -1
 ```
@@ -113,34 +104,34 @@ class Solution:
 
 ```java
 class Solution {
+    private int n;
+    private int[][] grid;
+    private boolean[][] vis;
+    private Deque<int[]> q = new ArrayDeque<>();
+
     public int minimumMoves(int[][] grid) {
-        int n = grid.length;
-        int[] target = new int[] {n * n - 2, n * n - 1};
-        Deque<int[]> q = new ArrayDeque<>();
+        this.grid = grid;
+        n = grid.length;
+        vis = new boolean[n * n][2];
+        int[] target = {n * n - 2, n * n - 1};
         q.offer(new int[] {0, 1});
-        boolean[][] vis = new boolean[n * n][n * n];
+        vis[0][0] = true;
         int ans = 0;
-        vis[0][1] = true;
         while (!q.isEmpty()) {
             for (int k = q.size(); k > 0; --k) {
-                int[] p = q.poll();
+                var p = q.poll();
                 if (p[0] == target[0] && p[1] == target[1]) {
                     return ans;
                 }
-                int a = p[0], b = p[1];
-                int i1 = a / n, j1 = a % n;
-                int i2 = b / n, j2 = b % n;
-                if (j1 + 1 < n && j2 + 1 < n && grid[i1][j1 + 1] == 0 && grid[i2][j2 + 1] == 0) {
-                    check(i1 * n + j1 + 1, i2 * n + j2 + 1, q, vis);
-                    if (j1 == j2) {
-                        check(a, i1 * n + j2 + 1, q, vis);
-                    }
+                int i1 = p[0] / n, j1 = p[0] % n;
+                int i2 = p[1] / n, j2 = p[1] % n;
+                move(i1, j1 + 1, i2, j2 + 1);
+                move(i1 + 1, j1, i2 + 1, j2);
+                if (i1 == i2 && i1 + 1 < n && grid[i1 + 1][j2] == 0) {
+                    move(i1, j1, i1 + 1, j1);
                 }
-                if (i1 + 1 < n && i2 + 1 < n && grid[i1 + 1][j1] == 0 && grid[i2 + 1][j2] == 0) {
-                    check((i1 + 1) * n + j1, (i2 + 1) * n + j2, q, vis);
-                    if (i1 == i2) {
-                        check(a, (i2 + 1) * n + j1, q, vis);
-                    }
+                if (j1 == j2 && j1 + 1 < n && grid[i2][j1 + 1] == 0) {
+                    move(i1, j1, i1, j1 + 1);
                 }
             }
             ++ans;
@@ -148,10 +139,14 @@ class Solution {
         return -1;
     }
 
-    private void check(int a, int b, Deque<int[]> q, boolean[][] vis) {
-        if (!vis[a][b]) {
-            vis[a][b] = true;
-            q.offer(new int[] {a, b});
+    private void move(int i1, int j1, int i2, int j2) {
+        if (i1 >= 0 && i1 < n && j1 >= 0 && j1 < n && i2 >= 0 && i2 < n && j2 >= 0 && j2 < n) {
+            int a = i1 * n + j1, b = i2 * n + j2;
+            int status = i1 == i2 ? 0 : 1;
+            if (!vis[a][status] && grid[i1][j1] == 0 && grid[i2][j2] == 0) {
+                q.offer(new int[] {a, b});
+                vis[a][status] = true;
+            }
         }
     }
 }
@@ -164,39 +159,47 @@ class Solution {
 public:
     int minimumMoves(vector<vector<int>>& grid) {
         int n = grid.size();
-        vector<int> target = {n * n - 2, n * n - 1};
-        queue<vector<int>> q;
-        q.push({0, 1});
-        vector<vector<bool>> vis(n * n, vector<bool>(n * n));
+        auto target = make_pair(n * n - 2, n * n - 1);
+        queue<pair<int, int>> q;
+        q.emplace(0, 1);
+        bool vis[n * n][2];
+        memset(vis, 0, sizeof vis);
+        vis[0][0] = true;
+        
+        auto move = [&](int i1, int j1, int i2, int j2) {
+            if (i1 >= 0 && i1 < n && j1 >= 0 && j1 < n && i2 >= 0 && i2 < n && j2 >= 0 && j2 < n) {
+                int a = i1 * n + j1, b = i2 * n + j2;
+                int status = i1 == i2 ? 0 : 1;
+                if (!vis[a][status] && grid[i1][j1] == 0 && grid[i2][j2] == 0) {
+                    q.emplace(a, b);
+                    vis[a][status] = true;
+                }
+            }
+        };
+
         int ans = 0;
-        vis[0][1] = true;
         while (!q.empty()) {
             for (int k = q.size(); k; --k) {
                 auto p = q.front();
-                if (p == target) return ans;
                 q.pop();
-                int a = p[0], b = p[1];
+                if (p == target) {
+                    return ans;
+                }
+                auto [a, b] = p;
                 int i1 = a / n, j1 = a % n;
                 int i2 = b / n, j2 = b % n;
-                if (j1 + 1 < n && j2 + 1 < n && grid[i1][j1 + 1] == 0 && grid[i2][j2 + 1] == 0) {
-                    check(i1 * n + j1 + 1, i2 * n + j2 + 1, q, vis);
-                    if (j1 == j2) check(a, i1 * n + j2 + 1, q, vis);
+                move(i1, j1 + 1, i2, j2 + 1);
+                move(i1 + 1, j1, i2 + 1, j2);
+                if (i1 == i2 && i1 + 1 < n && grid[i1 + 1][j2] == 0) {
+                    move(i1, j1, i1 + 1, j1);
                 }
-                if (i1 + 1 < n && i2 + 1 < n && grid[i1 + 1][j1] == 0 && grid[i2 + 1][j2] == 0) {
-                    check((i1 + 1) * n + j1, (i2 + 1) * n + j2, q, vis);
-                    if (i1 == i2) check(a, (i2 + 1) * n + j1, q, vis);
+                if (j1 == j2 && j1 + 1 < n && grid[i2][j1 + 1] == 0) {
+                    move(i1, j1, i1, j1 + 1);
                 }
             }
             ++ans;
         }
         return -1;
-    }
-
-    void check(int a, int b, queue<vector<int>>& q, vector<vector<bool>>& vis) {
-        if (!vis[a][b]) {
-            vis[a][b] = true;
-            q.push({a, b});
-        }
     }
 };
 ```
@@ -206,47 +209,164 @@ public:
 ```go
 func minimumMoves(grid [][]int) int {
 	n := len(grid)
-	target := []int{n*n - 2, n*n - 1}
-	q := [][]int{{0, 1}}
-	vis := make([][]bool, n*n)
-	for i := range vis {
-		vis[i] = make([]bool, n*n)
-	}
-	vis[0][1] = true
-	ans := 0
-	check := func(a, b int) {
-		if !vis[a][b] {
-			vis[a][b] = true
-			q = append(q, []int{a, b})
+	type pair struct{ a, b int }
+	target := pair{n*n - 2, n*n - 1}
+	q := []pair{pair{0, 1}}
+	vis := make([][2]bool, n*n)
+	vis[0][0] = true
+
+	move := func(i1, j1, i2, j2 int) {
+		if i1 >= 0 && i1 < n && j1 >= 0 && j1 < n && i2 >= 0 && i2 < n && j2 >= 0 && j2 < n {
+			a, b := i1*n+j1, i2*n+j2
+			status := 1
+			if i1 == i2 {
+				status = 0
+			}
+			if !vis[a][status] && grid[i1][j1] == 0 && grid[i2][j2] == 0 {
+				q = append(q, pair{a, b})
+				vis[a][status] = true
+			}
 		}
 	}
+
+	ans := 0
 	for len(q) > 0 {
 		for k := len(q); k > 0; k-- {
 			p := q[0]
 			q = q[1:]
-			if p[0] == target[0] && p[1] == target[1] {
+			if p == target {
 				return ans
 			}
-			a, b := p[0], p[1]
+			a, b := p.a, p.b
 			i1, j1 := a/n, a%n
 			i2, j2 := b/n, b%n
-			if j1+1 < n && j2+1 < n && grid[i1][j1+1] == 0 && grid[i2][j2+1] == 0 {
-				check(i1*n+j1+1, i2*n+j2+1)
-				if j1 == j2 {
-					check(a, i1*n+j2+1)
-				}
+			move(i1, j1+1, i2, j2+1)
+			move(i1+1, j1, i2+1, j2)
+			if i1 == i2 && i1+1 < n && grid[i1+1][j2] == 0 {
+				move(i1, j1, i1+1, j1)
 			}
-			if i1+1 < n && i2+1 < n && grid[i1+1][j1] == 0 && grid[i2+1][j2] == 0 {
-				check((i1+1)*n+j1, (i2+1)*n+j2)
-				if i1 == i2 {
-					check(a, (i2+1)*n+j1)
-				}
+			if j1 == j2 && j1+1 < n && grid[i2][j1+1] == 0 {
+				move(i1, j1, i1, j1+1)
 			}
 		}
 		ans++
 	}
 	return -1
 }
+```
+
+### **TypeScript**
+
+```ts
+function minimumMoves(grid: number[][]): number {
+    const n = grid.length;
+    const target: number[] = [n * n - 2, n * n - 1];
+    const q: number[][] = [[0, 1]];
+    const vis = Array.from({ length: n * n }, () => Array(2).fill(false));
+    vis[0][0] = true;
+
+    const move = (i1: number, j1: number, i2: number, j2: number) => {
+        if (
+            i1 >= 0 &&
+            i1 < n &&
+            j1 >= 0 &&
+            j1 < n &&
+            i2 >= 0 &&
+            i2 < n &&
+            j2 >= 0 &&
+            j2 < n
+        ) {
+            const a = i1 * n + j1;
+            const b = i2 * n + j2;
+            const status = i1 === i2 ? 0 : 1;
+            if (!vis[a][status] && grid[i1][j1] == 0 && grid[i2][j2] == 0) {
+                q.push([a, b]);
+                vis[a][status] = true;
+            }
+        }
+    };
+
+    let ans = 0;
+    while (q.length) {
+        for (let k = q.length; k; --k) {
+            const p: number[] = q.shift();
+            if (p[0] === target[0] && p[1] === target[1]) {
+                return ans;
+            }
+            const [i1, j1] = [~~(p[0] / n), p[0] % n];
+            const [i2, j2] = [~~(p[1] / n), p[1] % n];
+            move(i1, j1 + 1, i2, j2 + 1);
+            move(i1 + 1, j1, i2 + 1, j2);
+            if (i1 == i2 && i1 + 1 < n && grid[i1 + 1][j2] == 0) {
+                move(i1, j1, i1 + 1, j1);
+            }
+            if (j1 == j2 && j1 + 1 < n && grid[i2][j1 + 1] == 0) {
+                move(i1, j1, i1, j1 + 1);
+            }
+        }
+        ++ans;
+    }
+    return -1;
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var minimumMoves = function (grid) {
+    const n = grid.length;
+    const target = [n * n - 2, n * n - 1];
+    const q = [[0, 1]];
+    const vis = Array.from({ length: n * n }, () => Array(2).fill(false));
+    vis[0][0] = true;
+
+    const move = (i1, j1, i2, j2) => {
+        if (
+            i1 >= 0 &&
+            i1 < n &&
+            j1 >= 0 &&
+            j1 < n &&
+            i2 >= 0 &&
+            i2 < n &&
+            j2 >= 0 &&
+            j2 < n
+        ) {
+            const a = i1 * n + j1;
+            const b = i2 * n + j2;
+            const status = i1 === i2 ? 0 : 1;
+            if (!vis[a][status] && grid[i1][j1] == 0 && grid[i2][j2] == 0) {
+                q.push([a, b]);
+                vis[a][status] = true;
+            }
+        }
+    };
+
+    let ans = 0;
+    while (q.length) {
+        for (let k = q.length; k; --k) {
+            const p = q.shift();
+            if (p[0] === target[0] && p[1] === target[1]) {
+                return ans;
+            }
+            const [i1, j1] = [~~(p[0] / n), p[0] % n];
+            const [i2, j2] = [~~(p[1] / n), p[1] % n];
+            move(i1, j1 + 1, i2, j2 + 1);
+            move(i1 + 1, j1, i2 + 1, j2);
+            if (i1 == i2 && i1 + 1 < n && grid[i1 + 1][j2] == 0) {
+                move(i1, j1, i1 + 1, j1);
+            }
+            if (j1 == j2 && j1 + 1 < n && grid[i2][j1 + 1] == 0) {
+                move(i1, j1, i1, j1 + 1);
+            }
+        }
+        ++ans;
+    }
+    return -1;
+};
 ```
 
 ### **...**
