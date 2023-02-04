@@ -1,26 +1,22 @@
 class Solution {
     public int[][] findContinuousSequence(int target) {
-        List<int[]> list = new ArrayList<>();
-        int p = 1, q = 2;
-        while (p < q) {
-            int s = (p + q) * (q - p + 1) >> 1;
+        int l = 1, r = 2;
+        List<int[]> ans = new ArrayList<>();
+        while (l < r) {
+            int s = (l + r) * (r - l + 1) / 2;
             if (s == target) {
-                int[] t = new int[q - p + 1];
-                for (int i = 0; i < t.length; ++i) {
-                    t[i] = p + i;
+                int[] t = new int[r - l + 1];
+                for (int i = l; i <= r; ++i) {
+                    t[i - l] = i;
                 }
-                list.add(t);
-                ++p;
+                ans.add(t);
+                ++l;
             } else if (s < target) {
-                ++q;
+                ++r;
             } else {
-                ++p;
+                ++l;
             }
         }
-        int[][] res = new int[list.size()][];
-        for (int i = 0; i < res.length; ++i) {
-            res[i] = list.get(i);
-        }
-        return res;
+        return ans.toArray(new int[0][]);
     }
 }

@@ -1,16 +1,15 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        for (int p = 0, q = nums.length - 1; p < q;) {
-            int s = nums[p] + nums[q];
-            if (s == target) {
-                return new int[] {nums[p], nums[q]};
+        int l = 0, r = nums.length - 1;
+        while (true) {
+            if (nums[l] + nums[r] == target) {
+                return new int[] {nums[l], nums[r]};
             }
-            if (s < target) {
-                ++p;
+            if (nums[l] + nums[r] > target) {
+                --r;
             } else {
-                --q;
+                ++l;
             }
         }
-        return null;
     }
 }

@@ -3,26 +3,23 @@
  * @return {number[][]}
  */
 var findContinuousSequence = function (target) {
-    let res = [];
-    let window = [];
-    let i = 1;
-    let sum = 0;
-    while (1) {
-        if (sum < target) {
-            window.push(i);
-            sum += i;
-            i++;
-        } else if (sum > target) {
-            let a = window.shift();
-            if (window.length < 2) break;
-            sum -= a;
+    const ans = [];
+    let l = 1;
+    let r = 2;
+    while (l < r) {
+        const s = ((l + r) * (r - l + 1)) >> 1;
+        if (s == target) {
+            const t = [];
+            for (let i = l; i <= r; ++i) {
+                t.push(i);
+            }
+            ans.push(t);
+            ++l;
+        } else if (s < target) {
+            ++r;
         } else {
-            res.push([...window]);
-            window.push(i);
-            sum += i;
-            i++;
-            if (window.length === 2) break;
+            ++l;
         }
     }
-    return res;
+    return ans;
 };
