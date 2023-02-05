@@ -56,6 +56,28 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 枚举**
+
+我们用变量 $s$ 表示当前已经选择的整数的和，用变量 $ans$ 表示当前已经选择的整数的个数。将数组 `banned` 转换为哈希表，方便判断某个整数是否不可选。
+
+接下来，我们从 $1$ 开始枚举整数 $i$，如果 $s + i \leq maxSum$ 且 $i$ 不在 `banned` 中，那么我们就可以选择整数 $i$，并将 $s$ 和 $ans$ 分别加上 $i$ 和 $1$。
+
+最终，我们返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为给定的整数。
+
+**方法二：贪心 + 二分查找**
+
+如果 $n$ 很大，那么方法一中的枚举会超时。
+
+我们可以在数组 `banned` 中加入 $0$ 和 $n + 1$，并将数组 `banned` 去重且移除大于 $n+1$ 的元素，然后进行排序。
+
+接下来，我们枚举数组 `banned` 中的每两个相邻元素 $i$ 和 $j$，那么可选的整数范围就是 $[i + 1, j - 1]$。二分枚举我们在此区间内能够选择的元素个数，找到最大的可选元素个数，然后将其加到 $ans$ 中。同时在 `maxSum` 中减去这些元素的和。如果 `maxSum` 小于 $0$，那么我们跳出循环。返回答案即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `banned` 的长度。
+
+相似题目：[2557. 从一个范围内选择最多整数 II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +85,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+        ans = s = 0
+        ban = set(banned)
+        for i in range(1, n + 1):
+            if s + i > maxSum:
+                break
+            if i not in ban:
+                ans += 1
+                s += i
+        return ans
+```
 
+```python
+class Solution:
+    def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+        banned.extend([0, n + 1])
+        ban = sorted(x for x in set(banned) if x < n + 2)
+        ans = 0
+        for i, j in pairwise(ban):
+            left, right = 0, j - i - 1
+            while left < right:
+                mid = (left + right + 1) >> 1
+                if (i + 1 + i + mid) * mid // 2 <= maxSum:
+                    left = mid
+                else:
+                    right = mid - 1
+            ans += left
+            maxSum -= (i + 1 + i + left) * left // 2
+            if maxSum <= 0:
+                break
+        return ans
 ```
 
 ### **Java**
@@ -71,19 +124,160 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxCount(int[] banned, int n, int maxSum) {
+        Set<Integer> ban = new HashSet<>(banned.length);
+        for (int x : banned) {
+            ban.add(x);
+        }
+        int ans = 0, s = 0;
+        for (int i = 1; i <= n && s + i <= maxSum; ++i) {
+            if (!ban.contains(i)) {
+                ++ans;
+                s += i;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+```java
+class Solution {
+    public int maxCount(int[] banned, int n, int maxSum) {
+        Set<Integer> black = new HashSet<>();
+        black.add(0);
+        black.add(n + 1);
+        for (int x : banned) {
+            if (x < n + 2) {
+                black.add(x);
+            }
+        }
+        List<Integer> ban = new ArrayList<>(black);
+        Collections.sort(ban);
+        int ans = 0;
+        for (int k = 1; k < ban.size(); ++k) {
+            int i = ban.get(k - 1), j = ban.get(k);
+            int left = 0, right = j - i - 1;
+            while (left < right) {
+                int mid = (left + right + 1) >>> 1;
+                if ((i + 1 + i + mid) * 1L * mid / 2 <= maxSum) {
+                    left = mid;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            ans += left;
+            maxSum -= (i + 1 + i + left) * 1L * left / 2;
+            if (maxSum <= 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    int maxCount(vector<int>& banned, int n, int maxSum) {
+        unordered_set<int> ban(banned.begin(), banned.end());
+        int ans = 0, s = 0;
+        for (int i = 1; i <= n && s + i <= maxSum; ++i) {
+            if (!ban.count(i)) {
+                ++ans;
+                s += i;
+            }
+        }
+        return ans;
+    }
+};
+```
 
+```cpp
+class Solution {
+public:
+    int maxCount(vector<int>& banned, int n, int maxSum) {
+        banned.push_back(0);
+        banned.push_back(n + 1);
+        sort(banned.begin(), banned.end());
+        banned.erase(unique(banned.begin(), banned.end()), banned.end());
+        banned.erase(remove_if(banned.begin(), banned.end(), [&](int x) { return x > n + 1; }), banned.end());
+        int ans = 0;
+        for (int k = 1; k < banned.size(); ++k) {
+            int i = banned[k - 1], j = banned[k];
+            int left = 0, right = j - i - 1;
+            while (left < right) {
+                int mid = left + ((right - left + 1) / 2);
+                if ((i + 1 + i + mid) * 1LL * mid / 2 <= maxSum) {
+                    left = mid;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            ans += left;
+            maxSum -= (i + 1 + i + left) * 1LL * left / 2;
+            if (maxSum <= 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxCount(banned []int, n int, maxSum int) (ans int) {
+	ban := map[int]bool{}
+	for _, x := range banned {
+		ban[x] = true
+	}
+	s := 0
+	for i := 1; i <= n && s+i <= maxSum; i++ {
+		if !ban[i] {
+			ans++
+			s += i
+		}
+	}
+	return
+}
+```
 
+```go
+func maxCount(banned []int, n int, maxSum int) (ans int) {
+	banned = append(banned, []int{0, n + 1}...)
+	sort.Ints(banned)
+	ban := []int{}
+	for i, x := range banned {
+		if (i > 0 && x == banned[i-1]) || x > n+1 {
+			continue
+		}
+		ban = append(ban, x)
+	}
+	for k := 1; k < len(ban); k++ {
+		i, j := ban[k-1], ban[k]
+		left, right := 0, j-i-1
+		for left < right {
+			mid := (left + right + 1) >> 1
+			if (i+1+i+mid)*mid/2 <= maxSum {
+				left = mid
+			} else {
+				right = mid - 1
+			}
+		}
+		ans += left
+		maxSum -= (i + 1 + i + left) * left / 2
+		if maxSum <= 0 {
+			break
+		}
+	}
+	return
+}
 ```
 
 ### **...**

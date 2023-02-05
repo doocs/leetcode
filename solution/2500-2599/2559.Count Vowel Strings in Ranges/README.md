@@ -52,6 +52,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：预处理 + 二分查找**
+
+预处理出所有以元音开头和结尾的字符串的下标，然后对于每个查询，统计在预处理数组中的下标范围内的字符串的数目。
+
+时间复杂度 $O(n + m \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为 `words` 和 `queries` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +65,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
+        t = [i for i, w in enumerate(words) if w[0] in "aeiou" and w[-1] in "aeiou"]
+        return [bisect_left(t, r + 1) - bisect_left(t, l) for l, r in queries]
 ```
 
 ### **Java**
@@ -67,19 +76,79 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] vowelStrings(String[] words, int[][] queries) {
+        List<Integer> t = new ArrayList<>();
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
+        for (int i = 0; i < words.length; ++i) {
+            char a = words[i].charAt(0), b = words[i].charAt(words[i].length() - 1);
+            if (vowels.contains(a) && vowels.contains(b)) {
+                t.add(i);
+            }
+        }
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < ans.length; ++i) {
+            ans[i] = search(t, queries[i][1] + 1) - search(t, queries[i][0]);
+        }
+        return ans;
+    }
 
+    private int search(List<Integer> nums, int x) {
+        int left = 0, right = nums.size();
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums.get(mid) >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
+        vector<int> t;
+        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+        for (int i = 0; i < words.size(); ++i) {
+            if (vowels.count(words[i][0]) && vowels.count(words[i].back())) {
+                t.push_back(i);
+            }
+        }
+        vector<int> ans;
+        for (auto& q : queries) {
+            int x = lower_bound(t.begin(), t.end(), q[1] + 1) - lower_bound(t.begin(), t.end(), q[0]);
+            ans.push_back(x);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func vowelStrings(words []string, queries [][]int) (ans []int) {
+	vowels := "aeiou"
+	t := []int{}
+	for i, w := range words {
+		if strings.Contains(vowels, w[:1]) && strings.Contains(vowels, w[len(w)-1:]) {
+			t = append(t, i)
+		}
+	}
+	for _, q := range queries {
+		i := sort.Search(len(t), func(i int) bool { return t[i] >= q[0] })
+		j := sort.Search(len(t), func(i int) bool { return t[i] >= q[1]+1 })
+		ans = append(ans, j-i)
+	}
+	return
+}
 ```
 
 ### **...**

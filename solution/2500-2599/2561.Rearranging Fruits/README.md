@@ -51,6 +51,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 构造**
+
+我们可以先将两个数组中共有的元素去掉，对于剩下的每个数字，其出现的次数必须为偶数，否则无法构造出相同的数组。不妨记去除共有元素后，两数组分别为 $a$ 和 $b$。
+
+接下来，我们考虑如何进行交换。
+
+如果我们要交换 $a$ 中最小的数，那么我们要在 $b$ 中找到最大的数，与其进行交换；同理，如果我们要交换 $b$ 中最小的数，那么我们要在 $a$ 中找到最大的数，与其进行交换。可以通过排序来实现。
+
+不过，还有另一种交换的方案，我们可以借助一个最小的数 $mi$ 作为过渡元素，将 $a$ 中的数先与 $mi$ 进行交换，再将 $mi$ 与 $b$ 中的数进行交换。这样，交换的成本为 $2 \times mi$。
+
+在代码实现上，我们可以直接将数组 $a$ 和 $b$ 合并成数组 $nums$，然后对数组 $nums$ 进行排序。接下来枚举前一半的数，计算每次的最小成本，累加到答案中即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +72,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minCost(self, basket1: List[int], basket2: List[int]) -> int:
+        cnt = Counter()
+        for a, b in zip(basket1, basket2):
+            cnt[a] += 1
+            cnt[b] -= 1
+        mi = min(cnt)
+        nums = []
+        for x, v in cnt.items():
+            if v % 2:
+                return -1
+            nums.extend([x] * (abs(v) // 2))
+        nums.sort()
+        m = len(nums) // 2
+        return sum(min(x, mi * 2) for x in nums[:m])
 ```
 
 ### **Java**
@@ -66,19 +94,112 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long minCost(int[] basket1, int[] basket2) {
+        int n = basket1.length;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            cnt.merge(basket1[i], 1, Integer::sum);
+            cnt.merge(basket2[i], -1, Integer::sum);
+        }
+        int mi = 1 << 30;
+        List<Integer> nums = new ArrayList<>();
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            if (v % 2 != 0) {
+                return -1;
+            }
+            for (int i = Math.abs(v) / 2; i > 0; --i) {
+                nums.add(x);
+            }
+            mi = Math.min(mi, x);
+        }
+        Collections.sort(nums);
+        int m = nums.size();
+        long ans = 0;
+        for (int i = 0; i < m / 2; ++i) {
+            ans += Math.min(nums.get(i), mi * 2);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minCost(vector<int>& basket1, vector<int>& basket2) {
+        int n = basket1.size();
+        unordered_map<int, int> cnt;
+        for (int i = 0; i < n; ++i) {
+            cnt[basket1[i]]++;
+            cnt[basket2[i]]--;
+        }
+        int mi = 1 << 30;
+        vector<int> nums;
+        for (auto& [x, v] : cnt) {
+            if (v % 2) {
+                return -1;
+            }
+            for (int i = abs(v) / 2; i; --i) {
+                nums.push_back(x);
+            }
+            mi = min(mi, x);
+        }
+        sort(nums.begin(), nums.end());
+        int m = nums.size();
+        long long ans = 0;
+        for (int i = 0; i < m / 2; ++i) {
+            ans += min(nums[i], mi * 2);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minCost(basket1 []int, basket2 []int) (ans int64) {
+	cnt := map[int]int{}
+	for i, a := range basket1 {
+		cnt[a]++
+		cnt[basket2[i]]--
+	}
+	mi := 1 << 30
+	nums := []int{}
+	for x, v := range cnt {
+		if v%2 != 0 {
+			return -1
+		}
+		for i := abs(v) / 2; i > 0; i-- {
+			nums = append(nums, x)
+		}
+		mi = min(mi, x)
+	}
+	sort.Ints(nums)
+	m := len(nums)
+	for i := 0; i < m/2; i++ {
+		ans += int64(min(nums[i], mi*2))
+	}
+	return
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

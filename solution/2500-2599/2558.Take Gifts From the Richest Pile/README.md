@@ -57,6 +57,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：优先队列（大根堆）**
+
+我们将数组 `gifts` 转存到大根堆中，然后循环 $k$ 次，每次取出堆顶元素，将堆顶元素开根号的结果再放入堆中。
+
+最后累加堆中所有元素之和作为答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `gifts` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +72,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def pickGifts(self, gifts: List[int], k: int) -> int:
+        h = [-v for v in gifts]
+        heapify(h)
+        for _ in range(k):
+            heapreplace(h, -int(sqrt(-h[0])))
+        return -sum(h)
 ```
 
 ### **Java**
@@ -72,19 +86,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long pickGifts(int[] gifts, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        for (int v : gifts) {
+            pq.offer(v);
+        }
+        while (k-- > 0) {
+            pq.offer((int) Math.sqrt(pq.poll()));
+        }
+        long ans = 0;
+        for (int v : pq) {
+            ans += v;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long pickGifts(vector<int>& gifts, int k) {
+        make_heap(gifts.begin(), gifts.end());
+        while (k--) {
+            pop_heap(gifts.begin(), gifts.end());
+            gifts.back() = sqrt(gifts.back());
+            push_heap(gifts.begin(), gifts.end());
+        }
+        return accumulate(gifts.begin(), gifts.end(), 0LL);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func pickGifts(gifts []int, k int) (ans int64) {
+	h := &hp{gifts}
+	heap.Init(h)
+	for ; k > 0; k-- {
+		gifts[0] = int(math.Sqrt(float64(gifts[0])))
+		heap.Fix(h, 0)
+	}
+	for _, x := range gifts {
+		ans += int64(x)
+	}
+	return
+}
 
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (hp) Pop() (_ interface{}) { return }
+func (hp) Push(interface{})     {}
 ```
 
 ### **...**

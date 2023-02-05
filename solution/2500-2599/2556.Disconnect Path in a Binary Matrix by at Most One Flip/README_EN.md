@@ -48,25 +48,101 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+        def dfs(i, j):
+            if i >= m or j >= n or grid[i][j] == 0:
+                return False
+            grid[i][j] = 0
+            if i == m - 1 and j == n - 1:
+                return True
+            return dfs(i + 1, j) or dfs(i, j + 1)
 
+        m, n = len(grid), len(grid[0])
+        a = dfs(0, 0)
+        grid[0][0] = grid[-1][-1] = 1
+        b = dfs(0, 0)
+        return not (a and b)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[][] grid;
+    private int m;
+    private int n;
 
+    public boolean isPossibleToCutPath(int[][] grid) {
+        this.grid = grid;
+        m = grid.length;
+        n = grid[0].length;
+        boolean a = dfs(0, 0);
+        grid[0][0] = 1;
+        grid[m - 1][n - 1] = 1;
+        boolean b = dfs(0, 0);
+        return !(a && b);
+    }
+
+    private boolean dfs(int i, int j) {
+        if (i >= m || j >= n || grid[i][j] == 0) {
+            return false;
+        }
+        if (i == m - 1 && j == n - 1) {
+            return true;
+        }
+        grid[i][j] = 0;
+        return dfs(i + 1, j) || dfs(i, j + 1);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    bool isPossibleToCutPath(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        function<bool(int, int)> dfs = [&](int i, int j) -> bool {
+            if (i >= m || j >= n || grid[i][j] == 0) {
+                return false;
+            }
+            if (i == m - 1 && j == n - 1) {
+                return true;
+            }
+            grid[i][j] = 0;
+            return dfs(i + 1, j) || dfs(i, j + 1);
+        };
+        bool a = dfs(0, 0);
+        grid[0][0] = grid[m - 1][n - 1] = 1;
+        bool b = dfs(0, 0);
+        return !(a && b);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func isPossibleToCutPath(grid [][]int) bool {
+	m, n := len(grid), len(grid[0])
+	var dfs func(i, j int) bool
+	dfs = func(i, j int) bool {
+		if i >= m || j >= n || grid[i][j] == 0 {
+			return false
+		}
+		if i == m-1 && j == n-1 {
+			return true
+		}
+		grid[i][j] = 0
+		return dfs(i+1, j) || dfs(i, j+1)
+	}
+	a := dfs(0, 0)
+	grid[0][0], grid[m-1][n-1] = 1, 1
+	b := dfs(0, 0)
+	return !(a && b)
+}
 ```
 
 ### **...**

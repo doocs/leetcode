@@ -43,6 +43,7 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 	<li><code>1 &lt;= maxSum &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,25 +51,127 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+        banned.extend([0, n + 1])
+        ban = sorted(set(banned))
+        ans = 0
+        for i, j in pairwise(ban):
+            left, right = 0, j - i - 1
+            while left < right:
+                mid = (left + right + 1) >> 1
+                if (i + 1 + i + mid) * mid // 2 <= maxSum:
+                    left = mid
+                else:
+                    right = mid - 1
+            ans += left
+            maxSum -= (i + 1 + i + left) * left // 2
+            if maxSum <= 0:
+                break
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxCount(int[] banned, int n, long maxSum) {
+        Set<Integer> black = new HashSet<>();
+        black.add(0);
+        black.add(n + 1);
+        for (int x : banned) {
+            black.add(x);
+        }
+        List<Integer> ban = new ArrayList<>(black);
+        Collections.sort(ban);
+        int ans = 0;
+        for (int k = 1; k < ban.size(); ++k) {
+            int i = ban.get(k - 1), j = ban.get(k);
+            int left = 0, right = j - i - 1;
+            while (left < right) {
+                int mid = (left + right + 1) >>> 1;
+                if ((i + 1 + i + mid) * 1L * mid / 2 <= maxSum) {
+                    left = mid;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            ans += left;
+            maxSum -= (i + 1 + i + left) * 1L * left / 2;
+            if (maxSum <= 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxCount(vector<int>& banned, int n, long long maxSum) {
+        banned.push_back(0);
+        banned.push_back(n + 1);
+        sort(banned.begin(), banned.end());
+        banned.erase(unique(banned.begin(), banned.end()), banned.end());
+        int ans = 0;
+        for (int k = 1; k < banned.size(); ++k) {
+            int i = banned[k - 1], j = banned[k];
+            int left = 0, right = j - i - 1;
+            while (left < right) {
+                int mid = left + ((right - left + 1) / 2);
+                if ((i + 1 + i + mid) * 1LL * mid / 2 <= maxSum) {
+                    left = mid;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            ans += left;
+            maxSum -= (i + 1 + i + left) * 1LL * left / 2;
+            if (maxSum <= 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func maxCount(banned []int, n int, maxSum int64) (ans int) {
+	banned = append(banned, []int{0, n + 1}...)
+	sort.Ints(banned)
+	ban := []int{}
+	for i, x := range banned {
+		if i > 0 && x == banned[i-1] {
+			continue
+		}
+		ban = append(ban, x)
+	}
+	for k := 1; k < len(ban); k++ {
+		i, j := ban[k-1], ban[k]
+		left, right := 0, j-i-1
+		for left < right {
+			mid := (left + right + 1) >> 1
+			if int64((i+1+i+mid)*mid/2) <= maxSum {
+				left = mid
+			} else {
+				right = mid - 1
+			}
+		}
+		ans += left
+		maxSum -= int64((i + 1 + i + left) * left / 2)
+		if maxSum <= 0 {
+			break
+		}
+	}
+	return
+}
 ```
 
 ### **...**

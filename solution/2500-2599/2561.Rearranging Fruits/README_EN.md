@@ -48,25 +48,132 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minCost(self, basket1: List[int], basket2: List[int]) -> int:
+        cnt = Counter()
+        for a, b in zip(basket1, basket2):
+            cnt[a] += 1
+            cnt[b] -= 1
+        mi = min(cnt)
+        nums = []
+        for x, v in cnt.items():
+            if v % 2:
+                return -1
+            nums.extend([x] * (abs(v) // 2))
+        nums.sort()
+        m = len(nums) // 2
+        return sum(min(x, mi * 2) for x in nums[:m])
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long minCost(int[] basket1, int[] basket2) {
+        int n = basket1.length;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            cnt.merge(basket1[i], 1, Integer::sum);
+            cnt.merge(basket2[i], -1, Integer::sum);
+        }
+        int mi = 1 << 30;
+        List<Integer> nums = new ArrayList<>();
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            if (v % 2 != 0) {
+                return -1;
+            }
+            for (int i = Math.abs(v) / 2; i > 0; --i) {
+                nums.add(x);
+            }
+            mi = Math.min(mi, x);
+        }
+        Collections.sort(nums);
+        int m = nums.size();
+        long ans = 0;
+        for (int i = 0; i < m / 2; ++i) {
+            ans += Math.min(nums.get(i), mi * 2);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minCost(vector<int>& basket1, vector<int>& basket2) {
+        int n = basket1.size();
+        unordered_map<int, int> cnt;
+        for (int i = 0; i < n; ++i) {
+            cnt[basket1[i]]++;
+            cnt[basket2[i]]--;
+        }
+        int mi = 1 << 30;
+        vector<int> nums;
+        for (auto& [x, v] : cnt) {
+            if (v % 2) {
+                return -1;
+            }
+            for (int i = abs(v) / 2; i; --i) {
+                nums.push_back(x);
+            }
+            mi = min(mi, x);
+        }
+        sort(nums.begin(), nums.end());
+        int m = nums.size();
+        long long ans = 0;
+        for (int i = 0; i < m / 2; ++i) {
+            ans += min(nums[i], mi * 2);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minCost(basket1 []int, basket2 []int) (ans int64) {
+	cnt := map[int]int{}
+	for i, a := range basket1 {
+		cnt[a]++
+		cnt[basket2[i]]--
+	}
+	mi := 1 << 30
+	nums := []int{}
+	for x, v := range cnt {
+		if v%2 != 0 {
+			return -1
+		}
+		for i := abs(v) / 2; i > 0; i-- {
+			nums = append(nums, x)
+		}
+		mi = min(mi, x)
+	}
+	sort.Ints(nums)
+	m := len(nums)
+	for i := 0; i < m/2; i++ {
+		ans += int64(min(nums[i], mi*2))
+	}
+	return
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
