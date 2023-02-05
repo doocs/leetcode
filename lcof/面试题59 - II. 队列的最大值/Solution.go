@@ -1,38 +1,42 @@
 type MaxQueue struct {
-	queue []int
-	deque []int
+	q1, q2 []int
 }
 
 func Constructor() MaxQueue {
-	return MaxQueue{
-		queue: make([]int, 0),
-		deque: make([]int, 0),
-	}
+	return MaxQueue{[]int{}, []int{}}
 }
 
 func (this *MaxQueue) Max_value() int {
-	if len(this.deque) == 0 {
+	if len(this.q2) == 0 {
 		return -1
 	}
-	return this.deque[0]
+	return this.q2[0]
 }
 
 func (this *MaxQueue) Push_back(value int) {
-	for len(this.deque) != 0 && this.deque[len(this.deque)-1] < value {
-		this.deque = this.deque[:len(this.deque)-1]
+	for len(this.q2) > 0 && this.q2[len(this.q2)-1] < value {
+		this.q2 = this.q2[:len(this.q2)-1]
 	}
-	this.deque = append(this.deque, value)
-	this.queue = append(this.queue, value)
+	this.q1 = append(this.q1, value)
+	this.q2 = append(this.q2, value)
 }
 
 func (this *MaxQueue) Pop_front() int {
-	if len(this.deque) == 0 {
+	if len(this.q1) == 0 {
 		return -1
 	}
-	retVal := this.queue[0]
-	this.queue = this.queue[1:]
-	if this.deque[0] == retVal {
-		this.deque = this.deque[1:]
+	ans := this.q1[0]
+	this.q1 = this.q1[1:]
+	if this.q2[0] == ans {
+		this.q2 = this.q2[1:]
 	}
-	return retVal
+	return ans
 }
+
+/**
+ * Your MaxQueue object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Max_value();
+ * obj.Push_back(value);
+ * param_3 := obj.Pop_front();
+ */

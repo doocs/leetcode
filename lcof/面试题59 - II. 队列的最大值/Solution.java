@@ -1,29 +1,32 @@
 class MaxQueue {
-    private Deque<Integer> p;
-    private Deque<Integer> q;
+    private Deque<Integer> q1 = new ArrayDeque<>();
+    private Deque<Integer> q2 = new ArrayDeque<>();
 
     public MaxQueue() {
-        p = new ArrayDeque<>();
-        q = new ArrayDeque<>();
-    }
 
+    }
+    
     public int max_value() {
-        return q.isEmpty() ? -1 : q.peekFirst();
+        return q2.isEmpty() ? -1 : q2.peek();
     }
-
+    
     public void push_back(int value) {
-        while (!q.isEmpty() && q.peekLast() < value) {
-            q.pollLast();
+        while (!q2.isEmpty() && q2.peekLast() < value) {
+            q2.pollLast();
         }
-        p.offerLast(value);
-        q.offerLast(value);
+        q1.offer(value);
+        q2.offer(value);
     }
-
+    
     public int pop_front() {
-        if (p.isEmpty()) return -1;
-        int res = p.pollFirst();
-        if (q.peek() == res) q.pollFirst();
-        return res;
+        if (q1.isEmpty()) {
+            return -1;
+        }
+        int ans = q1.poll();
+        if (q2.peek() == ans) {
+            q2.poll();
+        }
+        return ans;
     }
 }
 

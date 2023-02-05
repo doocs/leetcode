@@ -1,24 +1,24 @@
 class MaxQueue:
     def __init__(self):
-        self.p = deque()
-        self.q = deque()
+        self.q1 = deque()
+        self.q2 = deque()
 
     def max_value(self) -> int:
-        return -1 if not self.q else self.q[0]
+        return -1 if not self.q2 else self.q2[0]
 
     def push_back(self, value: int) -> None:
-        while self.q and self.q[-1] < value:
-            self.q.pop()
-        self.p.append(value)
-        self.q.append(value)
+        while self.q2 and self.q2[-1] < value:
+            self.q2.pop()
+        self.q1.append(value)
+        self.q2.append(value)
 
     def pop_front(self) -> int:
-        if not self.p:
+        if not self.q1:
             return -1
-        res = self.p.popleft()
-        if self.q[0] == res:
-            self.q.popleft()
-        return res
+        ans = self.q1.popleft()
+        if self.q2[0] == ans:
+            self.q2.popleft()
+        return ans
 
 
 # Your MaxQueue object will be instantiated and called as such:
