@@ -165,7 +165,7 @@ public:
         bool vis[n * n][2];
         memset(vis, 0, sizeof vis);
         vis[0][0] = true;
-        
+
         auto move = [&](int i1, int j1, int i2, int j2) {
             if (i1 >= 0 && i1 < n && j1 >= 0 && j1 < n && i2 >= 0 && i2 < n && j2 >= 0 && j2 < n) {
                 int a = i1 * n + j1, b = i2 * n + j2;

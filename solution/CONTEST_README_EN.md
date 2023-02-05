@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 331
+
+- [2558. Take Gifts From the Richest Pile](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md)
+- [2559. Count Vowel Strings in Ranges](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)
+- [2560. House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)
+- [2561. Rearranging Fruits](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)
+
+
+#### Biweekly Contest 97
+
+- [2553. Separate the Digits in an Array](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README_EN.md)
+- [2554. Maximum Number of Integers to Choose From a Range I](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md)
+- [2555. Maximize Win From Two Segments](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md)
+- [2556. Disconnect Path in a Binary Matrix by at Most One Flip](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md)
+
+
 #### Weekly Contest 330
 
 - [2549. Count Distinct Numbers on Board](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md)

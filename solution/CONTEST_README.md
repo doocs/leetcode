@@ -24,6 +24,22 @@
 
 ## 往期竞赛
 
+#### 第 331 场周赛(2023-02-05 10:30, 90 分钟) 参赛人数 4256
+
+- [2558. 从数量最多的堆取走礼物](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README.md)
+- [2559. 统计范围内的元音字符串数](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md)
+- [2560. 打家劫舍 IV](/solution/2500-2599/2560.House%20Robber%20IV/README.md)
+- [2561. 重排水果](/solution/2500-2599/2561.Rearranging%20Fruits/README.md)
+
+
+#### 第 97 场双周赛(2023-02-04 22:30, 90 分钟) 参赛人数 2631
+
+- [2553. 分割数组中数字的数位](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README.md)
+- [2554. 从一个范围内选择最多整数 I](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README.md)
+- [2555. 两个线段获得的最多奖品](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README.md)
+- [2556. 二进制矩阵中翻转最多一次使路径不连通](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README.md)
+
+
 #### 第 330 场周赛(2023-01-29 10:30, 90 分钟) 参赛人数 3399
 
 - [2549. 统计桌面上的不同数字](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)

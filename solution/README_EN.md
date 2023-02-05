@@ -45,7 +45,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0034  |  [Find First and Last Position of Element in Sorted Array](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |    |
 |  0035  |  [Search Insert Position](/solution/0000-0099/0035.Search%20Insert%20Position/README_EN.md)  |  `Array`,`Binary Search`  |  Easy  |    |
 |  0036  |  [Valid Sudoku](/solution/0000-0099/0036.Valid%20Sudoku/README_EN.md)  |  `Array`,`Hash Table`,`Matrix`  |  Medium  |    |
-|  0037  |  [Sudoku Solver](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)  |  `Array`,`Backtracking`,`Matrix`  |  Hard  |    |
+|  0037  |  [Sudoku Solver](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)  |  `Array`,`Hash Table`,`Backtracking`,`Matrix`  |  Hard  |    |
 |  0038  |  [Count and Say](/solution/0000-0099/0038.Count%20and%20Say/README_EN.md)  |  `String`  |  Medium  |    |
 |  0039  |  [Combination Sum](/solution/0000-0099/0039.Combination%20Sum/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
 |  0040  |  [Combination Sum II](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
@@ -2343,7 +2343,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2332  |  [The Latest Time to Catch a Bus](/solution/2300-2399/2332.The%20Latest%20Time%20to%20Catch%20a%20Bus/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  Biweekly Contest 82  |
 |  2333  |  [Minimum Sum of Squared Difference](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README_EN.md)  |  `Array`,`Math`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 82  |
 |  2334  |  [Subarray With Elements Greater Than Varying Threshold](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README_EN.md)  |  `Stack`,`Union Find`,`Array`,`Monotonic Stack`  |  Hard  |  Biweekly Contest 82  |
-|  2335  |  [Minimum Amount of Time to Fill Cups](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README_EN.md)  |  `Greedy`,`Array`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 301  |
+|  2335  |  [Minimum Amount of Time to Fill Cups](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 301  |
 |  2336  |  [Smallest Number in Infinite Set](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README_EN.md)  |  `Design`,`Hash Table`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 301  |
 |  2337  |  [Move Pieces to Obtain a String](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README_EN.md)  |  `Two Pointers`,`String`  |  Medium  |  Weekly Contest 301  |
 |  2338  |  [Count the Number of Ideal Arrays](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md)  |  `Math`,`Dynamic Programming`,`Combinatorics`,`Number Theory`  |  Hard  |  Weekly Contest 301  |
@@ -2556,11 +2556,20 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2545  |  [Sort the Students by Their Kth Score](/solution/2500-2599/2545.Sort%20the%20Students%20by%20Their%20Kth%20Score/README_EN.md)  |  `Array`,`Matrix`,`Sorting`  |  Medium  |  Weekly Contest 329  |
 |  2546  |  [Apply Bitwise Operations to Make Strings Equal](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README_EN.md)  |  `Bit Manipulation`,`String`  |  Medium  |  Weekly Contest 329  |
 |  2547  |  [Minimum Cost to Split an Array](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Dynamic Programming`,`Counting`  |  Hard  |  Weekly Contest 329  |
-|  2548  |  [Maximum Price to Fill a Bag](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README_EN.md)  |    |  Medium  |  🔒  |
-|  2549  |  [Count Distinct Numbers on Board](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md)  |    |  Easy  |  Weekly Contest 330  |
-|  2550  |  [Count Collisions of Monkeys on a Polygon](/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/README_EN.md)  |    |  Medium  |  Weekly Contest 330  |
-|  2551  |  [Put Marbles in Bags](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README_EN.md)  |    |  Hard  |  Weekly Contest 330  |
-|  2552  |  [Count Increasing Quadruplets](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md)  |    |  Hard  |  Weekly Contest 330  |
+|  2548  |  [Maximum Price to Fill a Bag](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  🔒  |
+|  2549  |  [Count Distinct Numbers on Board](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Simulation`  |  Easy  |  Weekly Contest 330  |
+|  2550  |  [Count Collisions of Monkeys on a Polygon](/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |  Weekly Contest 330  |
+|  2551  |  [Put Marbles in Bags](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 330  |
+|  2552  |  [Count Increasing Quadruplets](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md)  |  `Binary Indexed Tree`,`Array`,`Dynamic Programming`,`Enumeration`,`Prefix Sum`  |  Hard  |  Weekly Contest 330  |
+|  2553  |  [Separate the Digits in an Array](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README_EN.md)  |    |  Easy  |  Biweekly Contest 97  |
+|  2554  |  [Maximum Number of Integers to Choose From a Range I](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 97  |
+|  2555  |  [Maximize Win From Two Segments](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md)  |    |  Medium  |  Biweekly Contest 97  |
+|  2556  |  [Disconnect Path in a Binary Matrix by at Most One Flip](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md)  |    |  Medium  |  Biweekly Contest 97  |
+|  2557  |  [Maximum Number of Integers to Choose From a Range II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  2558  |  [Take Gifts From the Richest Pile](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md)  |    |  Easy  |  Weekly Contest 331  |
+|  2559  |  [Count Vowel Strings in Ranges](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)  |    |  Medium  |  Weekly Contest 331  |
+|  2560  |  [House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)  |    |  Medium  |  Weekly Contest 331  |
+|  2561  |  [Rearranging Fruits](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)  |    |  Hard  |  Weekly Contest 331  |
 
 ## Copyright
 

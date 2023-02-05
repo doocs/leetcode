@@ -34,6 +34,7 @@
 	<li><code>1 &lt;= darts.length &lt;= 100</code></li>
 	<li><code>darts[i].length == 2</code></li>
 	<li><code>-10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
+	<li>All the <code>darts</code>&nbsp;are unique</li>
 	<li><code>1 &lt;= r &lt;= 5000</code></li>
 </ul>
 

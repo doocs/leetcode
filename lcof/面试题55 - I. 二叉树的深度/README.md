@@ -69,7 +69,7 @@ class Solution:
                 return 0
             l, r = dfs(root.left), dfs(root.right)
             return 1 + max(l, r)
-        
+
         return dfs(root)
 ```
 
