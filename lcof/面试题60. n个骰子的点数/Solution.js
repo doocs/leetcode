@@ -2,19 +2,24 @@
  * @param {number} n
  * @return {number[]}
  */
-var twoSum = function (n) {
-    function backtrack(sum, time) {
-        if (time === n) {
-            res[sum]++;
-            return;
-        }
-        for (let i = 1; i <= 6; i++) {
-            backtrack(sum + i, time + 1);
+var dicesProbability = function (n) {
+    const f = Array.from({ length: n + 1 }, () => Array(6 * n + 1).fill(0));
+    for (let j = 1; j <= 6; ++j) {
+        f[1][j] = 1;
+    }
+    for (let i = 2; i <= n; ++i) {
+        for (let j = i; j <= 6 * i; ++j) {
+            for (let k = 1; k <= 6; ++k) {
+                if (j >= k) {
+                    f[i][j] += f[i - 1][j - k];
+                }
+            }
         }
     }
-    let len = n * 6;
-    let t = 6 ** n;
-    let res = new Array(len + 1).fill(0);
-    backtrack(0, 0);
-    return res.slice(n).map(e => e / t);
+    const ans = [];
+    const m = Math.pow(6, n);
+    for (let j = n; j <= 6 * n; ++j) {
+        ans.push(f[n][j] / m);
+    }
+    return ans;
 };
