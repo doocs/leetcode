@@ -55,19 +55,28 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedList
+
+
 class Leaderboard:
     def __init__(self):
-        self.player_scores = {}
+        self.d = defaultdict(int)
+        self.rank = SortedList()
 
     def addScore(self, playerId: int, score: int) -> None:
-        self.player_scores[playerId] = self.player_scores.get(playerId, 0) + score
+        if playerId not in self.d:
+            self.d[playerId] = score
+            self.rank.add(score)
+        else:
+            self.rank.remove(self.d[playerId])
+            self.d[playerId] += score
+            self.rank.add(self.d[playerId])
 
     def top(self, K: int) -> int:
-        scores = sorted(list(self.player_scores.values()), reverse=True)
-        return sum(scores[:K])
+        return sum(self.rank[-K:])
 
     def reset(self, playerId: int) -> None:
-        self.player_scores[playerId] = 0
+        self.rank.remove(self.d.pop(playerId))
 
 
 # Your Leaderboard object will be instantiated and called as such:
@@ -81,28 +90,41 @@ class Leaderboard:
 
 ```java
 class Leaderboard {
-    private Map<Integer, Integer> playerScores;
+    private Map<Integer, Integer> d = new HashMap<>();
+    private TreeMap<Integer, Integer> rank = new TreeMap<>((a, b) -> b - a);
 
     public Leaderboard() {
-        playerScores = new HashMap<>();
-    }
 
+    }
+    
     public void addScore(int playerId, int score) {
-        playerScores.put(playerId, playerScores.getOrDefault(playerId, 0) + score);
-    }
-
-    public int top(int K) {
-        List<Integer> scores = new ArrayList<>(playerScores.values());
-        Collections.sort(scores, Collections.reverseOrder());
-        int res = 0;
-        for (int i = 0; i < K; ++i) {
-            res += scores.get(i);
+        d.merge(playerId, score, Integer::sum);
+        int newScore = d.get(playerId);
+        if (newScore != score) {
+            rank.merge(newScore - score, -1, Integer::sum);   
         }
-        return res;
+        rank.merge(newScore, 1, Integer::sum);
     }
-
+    
+    public int top(int K) {
+        int ans = 0;
+        for (var e : rank.entrySet()) {
+            int score = e.getKey(), cnt = e.getValue();
+            cnt = Math.min(cnt, K);
+            ans += score * cnt;
+            K -= cnt;
+            if (K == 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+    
     public void reset(int playerId) {
-        playerScores.put(playerId, 0);
+        int score = d.remove(playerId);
+        if (rank.merge(score, -1, Integer::sum) == 0) {
+            rank.remove(score);
+        }
     }
 }
 
@@ -112,6 +134,55 @@ class Leaderboard {
  * obj.addScore(playerId,score);
  * int param_2 = obj.top(K);
  * obj.reset(playerId);
+ */
+```
+
+### **C++**
+
+```cpp
+class Leaderboard {
+public:
+    Leaderboard() {
+
+    }
+    
+    void addScore(int playerId, int score) {
+        d[playerId] += score;
+        int newScore = d[playerId];
+        if (newScore != score) {
+            rank.erase(rank.find(newScore - score));
+        }
+        rank.insert(newScore);
+    }
+    
+    int top(int K) {
+        int ans = 0;
+        for (auto& x : rank) {
+            ans += x;
+            if (--K == 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+    
+    void reset(int playerId) {
+        int score = d[playerId];
+        d.erase(playerId);
+        rank.erase(rank.find(score));
+    }
+
+private:
+    unordered_map<int, int> d;
+    multiset<int, greater<int>> rank;
+};
+
+/**
+ * Your Leaderboard object will be instantiated and called as such:
+ * Leaderboard* obj = new Leaderboard();
+ * obj->addScore(playerId,score);
+ * int param_2 = obj->top(K);
+ * obj->reset(playerId);
  */
 ```
 

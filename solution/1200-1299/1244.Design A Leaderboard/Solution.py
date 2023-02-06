@@ -1,16 +1,25 @@
+from sortedcontainers import SortedList
+
+
 class Leaderboard:
     def __init__(self):
-        self.player_scores = {}
+        self.d = defaultdict(int)
+        self.rank = SortedList()
 
     def addScore(self, playerId: int, score: int) -> None:
-        self.player_scores[playerId] = self.player_scores.get(playerId, 0) + score
+        if playerId not in self.d:
+            self.d[playerId] = score
+            self.rank.add(score)
+        else:
+            self.rank.remove(self.d[playerId])
+            self.d[playerId] += score
+            self.rank.add(self.d[playerId])
 
     def top(self, K: int) -> int:
-        scores = sorted(list(self.player_scores.values()), reverse=True)
-        return sum(scores[:K])
+        return sum(self.rank[-K:])
 
     def reset(self, playerId: int) -> None:
-        self.player_scores[playerId] = 0
+        self.rank.remove(self.d.pop(playerId))
 
 
 # Your Leaderboard object will be instantiated and called as such:

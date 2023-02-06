@@ -1,26 +1,39 @@
 class Leaderboard {
-    private Map<Integer, Integer> playerScores;
+    private Map<Integer, Integer> d = new HashMap<>();
+    private TreeMap<Integer, Integer> rank = new TreeMap<>((a, b) -> b - a);
 
     public Leaderboard() {
-        playerScores = new HashMap<>();
-    }
 
+    }
+    
     public void addScore(int playerId, int score) {
-        playerScores.put(playerId, playerScores.getOrDefault(playerId, 0) + score);
-    }
-
-    public int top(int K) {
-        List<Integer> scores = new ArrayList<>(playerScores.values());
-        Collections.sort(scores, Collections.reverseOrder());
-        int res = 0;
-        for (int i = 0; i < K; ++i) {
-            res += scores.get(i);
+        d.merge(playerId, score, Integer::sum);
+        int newScore = d.get(playerId);
+        if (newScore != score) {
+            rank.merge(newScore - score, -1, Integer::sum);   
         }
-        return res;
+        rank.merge(newScore, 1, Integer::sum);
     }
-
+    
+    public int top(int K) {
+        int ans = 0;
+        for (var e : rank.entrySet()) {
+            int score = e.getKey(), cnt = e.getValue();
+            cnt = Math.min(cnt, K);
+            ans += score * cnt;
+            K -= cnt;
+            if (K == 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+    
     public void reset(int playerId) {
-        playerScores.put(playerId, 0);
+        int score = d.remove(playerId);
+        if (rank.merge(score, -1, Integer::sum) == 0) {
+            rank.remove(score);
+        }
     }
 }
 
