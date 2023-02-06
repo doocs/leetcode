@@ -10,9 +10,9 @@
 
 <p>You are given an integer array <code>nums</code> representing how much money is stashed in each house. More formally, the <code>i<sup>th</sup></code> house from the left has <code>nums[i]</code> dollars.</p>
 
-<p>You are also given an integer <code>k</code>, representing the <strong>minimum</strong> number of houses the robber will steal from.&nbsp;It is always possible to steal at least <code>k</code> houses.</p>
+<p>You are also given an integer <code>k</code>, representing the <strong>minimum</strong> number of houses the robber will steal from. It is always possible to steal at least <code>k</code> houses.</p>
 
-<p>Return <em>the <strong>minimum</strong> </em>capability of the robber out of all the possible ways to steal at least <code>k</code> houses.</p>
+<p>Return <em>the <strong>minimum</strong> capability of the robber out of all the possible ways to steal at least </em><code>k</code><em> houses</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

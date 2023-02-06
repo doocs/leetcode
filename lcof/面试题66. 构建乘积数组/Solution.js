@@ -4,14 +4,14 @@
  */
 var constructArr = function (a) {
     const n = a.length;
-    let output = new Array(n);
+    const ans = new Array(n);
     for (let i = 0, left = 1; i < n; ++i) {
-        output[i] = left;
+        ans[i] = left;
         left *= a[i];
     }
-    for (let i = n - 1, right = 1; i >= 0; --i) {
-        output[i] *= right;
+    for (let i = n - 1, right = 1; ~i; --i) {
+        ans[i] *= right;
         right *= a[i];
     }
-    return output;
+    return ans;
 };

@@ -43,7 +43,6 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 	<li><code>1 &lt;= maxSum &lt;= 10<sup>15</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
