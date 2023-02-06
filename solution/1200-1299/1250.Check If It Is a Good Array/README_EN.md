@@ -49,13 +49,61 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isGoodArray(self, nums: List[int]) -> bool:
+        return reduce(gcd, nums) == 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isGoodArray(int[] nums) {
+        int g = 0;
+        for (int x : nums) {
+            g = gcd(x, g);
+        }
+        return g == 1;
+    }
 
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isGoodArray(vector<int>& nums) {
+        int g = 0;
+        for (int x : nums) {
+            g = gcd(x, g);
+        }
+        return g == 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isGoodArray(nums []int) bool {
+	g := 0
+	for _, x := range nums {
+		g = gcd(x, g)
+	}
+	return g == 1
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
 ```
 
 ### **...**
