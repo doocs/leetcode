@@ -1,14 +1,14 @@
 func uniqueOccurrences(arr []int) bool {
-	counter := make(map[int]int)
-	for _, e := range arr {
-		counter[e]++
+	cnt := map[int]int{}
+	for _, x := range arr {
+		cnt[x]++
 	}
-	s := make(map[int]bool)
-	for _, num := range counter {
-		if s[num] {
+	vis := map[int]bool{}
+	for _, v := range cnt {
+		if vis[v] {
 			return false
 		}
-		s[num] = true
+		vis[v] = true
 	}
 	return true
 }

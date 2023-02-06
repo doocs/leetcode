@@ -43,7 +43,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“哈希表 - 计数器”实现。
+**方法一：哈希表**
+
+我们用哈希表 `cnt` 统计数组 `arr` 中每个数的出现次数，然后用哈希表 `vis` 统计出现次数的种类，最后判断 `cnt` 和 `vis` 的大小是否相等即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `arr` 的长度。
 
 <!-- tabs:start -->
 
@@ -54,13 +58,8 @@
 ```python
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
-        counter = Counter(arr)
-        s = set()
-        for num in counter.values():
-            if num in s:
-                return False
-            s.add(num)
-        return True
+        cnt = Counter(arr)
+        return len(set(cnt.values())) == len(cnt)
 ```
 
 ### **Java**
@@ -70,18 +69,11 @@ class Solution:
 ```java
 class Solution {
     public boolean uniqueOccurrences(int[] arr) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int e : arr) {
-            counter.put(e, counter.getOrDefault(e, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : arr) {
+            cnt.merge(x, 1, Integer::sum);
         }
-        Set<Integer> s = new HashSet<>();
-        for (int num : counter.values()) {
-            if (s.contains(num)) {
-                return false;
-            }
-            s.add(num);
-        }
-        return true;
+        return new HashSet<>(cnt.values()).size() == cnt.size();
     }
 }
 ```
@@ -92,15 +84,16 @@ class Solution {
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        unordered_map<int, int> counter;
-        for (auto e : arr) {
-            ++counter[e];
+        unordered_map<int, int> cnt;
+        for (int& x : arr) {
+            ++cnt[x];
         }
-        unordered_set<int> s;
-        for (auto e : counter) {
-            int num = e.second;
-            if (s.count(num)) return false;
-            s.insert(num);
+        unordered_set<int> vis;
+        for (auto& [_, v] : cnt) {
+            if (vis.count(v)) {
+                return false;
+            }
+            vis.insert(v);
         }
         return true;
     }
@@ -111,16 +104,16 @@ public:
 
 ```go
 func uniqueOccurrences(arr []int) bool {
-	counter := make(map[int]int)
-	for _, e := range arr {
-		counter[e]++
+	cnt := map[int]int{}
+	for _, x := range arr {
+		cnt[x]++
 	}
-	s := make(map[int]bool)
-	for _, num := range counter {
-		if s[num] {
+	vis := map[int]bool{}
+	for _, v := range cnt {
+		if vis[v] {
 			return false
 		}
-		s[num] = true
+		vis[v] = true
 	}
 	return true
 }
