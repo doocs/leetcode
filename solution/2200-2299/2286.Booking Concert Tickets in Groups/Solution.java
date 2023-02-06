@@ -93,18 +93,18 @@ class BookMyShow {
         this.m = m;
         tree = new SegmentTree(n, m);
     }
-    
+
     public int[] gather(int k, int maxRow) {
         ++maxRow;
         int i = tree.queryIdx(1, 1, maxRow, k);
         if (i == 0) {
-            return new int[]{};
+            return new int[] {};
         }
         long s = tree.querySum(1, i, i);
         tree.modify(1, i, s - k);
         return new int[] {i - 1, (int) (m - s)};
     }
-    
+
     public boolean scatter(int k, int maxRow) {
         ++maxRow;
         if (tree.querySum(1, 1, maxRow) < k) {

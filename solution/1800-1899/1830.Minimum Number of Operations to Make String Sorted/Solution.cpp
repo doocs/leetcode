@@ -24,7 +24,6 @@ int init = []() {
     return 0;
 }();
 
-
 class Solution {
 public:
     int makeStringSorted(string s) {

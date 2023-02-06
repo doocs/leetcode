@@ -1,4 +1,4 @@
-bool strongPasswordCheckerII(char *password) {
+bool strongPasswordCheckerII(char* password) {
     int n = strlen(password);
     if (n < 8) {
         return false;

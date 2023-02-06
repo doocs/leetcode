@@ -11,7 +11,7 @@ class Solution {
         grid[0][0] = 1;
         grid[m - 1][n - 1] = 1;
         boolean b = dfs(0, 0);
-        return !(a && b);    
+        return !(a && b);
     }
 
     private boolean dfs(int i, int j) {

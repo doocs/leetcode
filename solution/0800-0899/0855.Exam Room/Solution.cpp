@@ -20,7 +20,7 @@ public:
         this->n = n;
         add({-1, n});
     }
-    
+
     int seat() {
         auto s = *ts.begin();
         int p = (s.first + s.second) >> 1;
@@ -34,7 +34,7 @@ public:
         add({p, s.second});
         return p;
     }
-    
+
     void leave(int p) {
         int l = left[p], r = right[p];
         del({l, p});

@@ -3,7 +3,7 @@ class Solution {
     private int[][] g;
     private int[][][] res;
     private int[][][] degree;
-    
+
     private static final int HOLE = 0, MOUSE_START = 1, CAT_START = 2;
     private static final int MOUSE_TURN = 0, CAT_TURN = 1;
     private static final int MOUSE_WIN = 1, CAT_WIN = 2, TIE = 0;
@@ -44,7 +44,8 @@ class Solution {
             for (var prevState : prevStates) {
                 int pm = prevState[0], pc = prevState[1], pt = prevState[2];
                 if (res[pm][pc][pt] == TIE) {
-                    boolean win = (t == MOUSE_WIN && pt == MOUSE_TURN) || (t == CAT_WIN && pt == CAT_TURN);
+                    boolean win
+                        = (t == MOUSE_WIN && pt == MOUSE_TURN) || (t == CAT_WIN && pt == CAT_TURN);
                     if (win) {
                         res[pm][pc][pt] = t;
                         q.offer(prevState);

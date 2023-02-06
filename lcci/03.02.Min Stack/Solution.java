@@ -6,21 +6,21 @@ class MinStack {
     public MinStack() {
         stk2.push(Integer.MAX_VALUE);
     }
-    
+
     public void push(int x) {
         stk1.push(x);
         stk2.push(Math.min(x, stk2.peek()));
     }
-    
+
     public void pop() {
         stk1.pop();
         stk2.pop();
     }
-    
+
     public int top() {
         return stk1.peek();
     }
-    
+
     public int getMin() {
         return stk2.peek();
     }

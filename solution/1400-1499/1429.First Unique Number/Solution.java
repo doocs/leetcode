@@ -8,14 +8,14 @@ class FirstUnique {
             q.offer(v);
         }
     }
-    
+
     public int showFirstUnique() {
         while (!q.isEmpty() && cnt.get(q.peekFirst()) != 1) {
             q.poll();
         }
         return q.isEmpty() ? -1 : q.peekFirst();
     }
-    
+
     public void add(int value) {
         cnt.put(value, cnt.getOrDefault(value, 0) + 1);
         q.offer(value);

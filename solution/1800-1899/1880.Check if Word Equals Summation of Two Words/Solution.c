@@ -1,4 +1,4 @@
-int calc(char *s) {
+int calc(char* s) {
     int res = 0;
     for (int i = 0; s[i]; i++) {
         res = res * 10 + s[i] - 'a';
@@ -6,6 +6,6 @@ int calc(char *s) {
     return res;
 }
 
-bool isSumEqual(char *firstWord, char *secondWord, char *targetWord) {
+bool isSumEqual(char* firstWord, char* secondWord, char* targetWord) {
     return calc(firstWord) + calc(secondWord) == calc(targetWord);
 }

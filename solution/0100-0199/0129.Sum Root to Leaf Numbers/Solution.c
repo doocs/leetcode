@@ -7,7 +7,7 @@
  * };
  */
 
-int dfs(struct TreeNode *root, int num) {
+int dfs(struct TreeNode* root, int num) {
     if (!root) {
         return 0;
     }
@@ -18,6 +18,6 @@ int dfs(struct TreeNode *root, int num) {
     return dfs(root->left, num) + dfs(root->right, num);
 }
 
-int sumNumbers(struct TreeNode *root) {
+int sumNumbers(struct TreeNode* root) {
     return dfs(root, 0);
 }

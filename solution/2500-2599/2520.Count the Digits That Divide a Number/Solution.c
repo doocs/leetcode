@@ -4,7 +4,7 @@ int countDigits(int num) {
     while (cur) {
         if (num % (cur % 10) == 0) {
             ans++;
-        }        
+        }
         cur /= 10;
     }
     return ans;

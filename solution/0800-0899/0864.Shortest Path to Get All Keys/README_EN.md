@@ -132,7 +132,8 @@ class Solution {
                     int x = i + dirs[h], y = j + dirs[h + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x].charAt(y);
-                        if (c == '#' || (Character.isUpperCase(c) && ((state >> (c - 'A')) & 1) == 0)) {
+                        if (c == '#'
+                            || (Character.isUpperCase(c) && ((state >> (c - 'A')) & 1) == 0)) {
                             continue;
                         }
                         int nxt = state;

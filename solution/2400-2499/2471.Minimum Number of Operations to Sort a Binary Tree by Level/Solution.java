@@ -34,7 +34,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private int f(List<Integer> t) {
         int n = t.size();
         List<Integer> alls = new ArrayList<>(t);
@@ -56,7 +56,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private void swap(int[] arr, int i, int j) {
         int t = arr[i];
         arr[i] = arr[j];

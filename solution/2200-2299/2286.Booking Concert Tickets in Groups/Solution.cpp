@@ -92,7 +92,7 @@ public:
         this->m = m;
         tree = new SegmentTree(n, m);
     }
-    
+
     vector<int> gather(int k, int maxRow) {
         ++maxRow;
         int i = tree->queryIdx(1, 1, maxRow, k);
@@ -103,7 +103,7 @@ public:
         tree->modify(1, i, s - k);
         return {i - 1, (int) (m - s)};
     }
-    
+
     bool scatter(int k, int maxRow) {
         ++maxRow;
         if (tree->querySum(1, 1, maxRow) < k) {

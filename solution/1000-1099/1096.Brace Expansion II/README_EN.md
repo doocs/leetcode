@@ -112,7 +112,7 @@ class Solution {
             --i;
         }
         String a = exp.substring(0, i);
-        String c  = exp.substring(j + 1);
+        String c = exp.substring(j + 1);
         for (String b : exp.substring(i + 1, j).split(",")) {
             dfs(a + b + c);
         }

@@ -192,7 +192,8 @@ class Solution {
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x].charAt(y);
                         // 是墙，或者是锁，但此时没有对应的钥匙，无法通过
-                        if (c == '#' || (Character.isUpperCase(c) && ((state >> (c - 'A')) & 1) == 0)) {
+                        if (c == '#'
+                            || (Character.isUpperCase(c) && ((state >> (c - 'A')) & 1) == 0)) {
                             continue;
                         }
                         int nxt = state;

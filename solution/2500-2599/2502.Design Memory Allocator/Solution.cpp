@@ -4,7 +4,7 @@ public:
         tm[-1] = -1;
         tm[n] = n;
     }
-    
+
     int allocate(int size, int mID) {
         int s = -1;
         for (auto& [v, c] : tm) {
@@ -20,7 +20,7 @@ public:
         }
         return -1;
     }
-    
+
     int free(int mID) {
         int ans = 0;
         for (int& s : d[mID]) {

@@ -102,7 +102,10 @@ class Solution {
         if (j == -1) {
             return word;
         }
-        return new StringBuilder(word.substring(0, j + 1)).reverse().append(word.substring(j + 1)).toString();
+        return new StringBuilder(word.substring(0, j + 1))
+            .reverse()
+            .append(word.substring(j + 1))
+            .toString();
     }
 }
 ```

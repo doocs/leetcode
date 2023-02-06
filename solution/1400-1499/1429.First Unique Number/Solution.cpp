@@ -6,12 +6,12 @@ public:
             q.push_back(v);
         }
     }
-    
+
     int showFirstUnique() {
         while (q.size() && cnt[q.front()] != 1) q.pop_front();
         return q.size() ? q.front() : -1;
     }
-    
+
     void add(int value) {
         ++cnt[value];
         q.push_back(value);

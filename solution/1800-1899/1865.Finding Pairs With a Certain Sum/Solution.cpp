@@ -7,14 +7,14 @@ public:
             ++cnt[v];
         }
     }
-    
+
     void add(int index, int val) {
         int old = nums2[index];
         --cnt[old];
         ++cnt[old + val];
         nums2[index] += val;
     }
-    
+
     int count(int tot) {
         int ans = 0;
         for (int& v : nums1) {

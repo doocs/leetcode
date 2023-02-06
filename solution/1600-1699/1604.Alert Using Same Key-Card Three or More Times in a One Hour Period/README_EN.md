@@ -77,7 +77,8 @@ class Solution {
         for (int i = 0; i < keyName.length; ++i) {
             String name = keyName[i];
             String time = keyTime[i];
-            int t = Integer.parseInt(time.substring(0, 2)) * 60 + Integer.parseInt(time.substring(3));
+            int t
+                = Integer.parseInt(time.substring(0, 2)) * 60 + Integer.parseInt(time.substring(3));
             d.computeIfAbsent(name, k -> new ArrayList<>()).add(t);
         }
         List<String> ans = new ArrayList<>();

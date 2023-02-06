@@ -8,15 +8,15 @@ public:
     ThroneInheritance(string kingName) {
         king = kingName;
     }
-    
+
     void birth(string parentName, string childName) {
         g[parentName].push_back(childName);
     }
-    
+
     void death(string name) {
         dead.insert(name);
     }
-    
+
     vector<string> getInheritanceOrder() {
         ans.resize(0);
         dfs(king);

@@ -7,15 +7,15 @@ class ThroneInheritance {
     public ThroneInheritance(String kingName) {
         king = kingName;
     }
-    
+
     public void birth(String parentName, String childName) {
         g.computeIfAbsent(parentName, k -> new ArrayList<>()).add(childName);
     }
-    
+
     public void death(String name) {
         dead.add(name);
     }
-    
+
     public List<String> getInheritanceOrder() {
         ans = new ArrayList<>();
         dfs(king);

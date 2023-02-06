@@ -1,4 +1,4 @@
-int helper(char *s) {
+int helper(char* s) {
     int res = 0;
     int n = strlen(s);
     for (int i = 0; i < n; i++) {
@@ -7,7 +7,7 @@ int helper(char *s) {
     return res;
 }
 
-int countConsistentStrings(char *allowed, char **words, int wordsSize) {
+int countConsistentStrings(char* allowed, char** words, int wordsSize) {
     int mask = helper(allowed);
     int ans = 0;
     for (int i = 0; i < wordsSize; i++) {

@@ -5,7 +5,7 @@ class StackOfPlates {
     public StackOfPlates(int cap) {
         this.cap = cap;
     }
-    
+
     public void push(int val) {
         if (cap == 0) {
             return;
@@ -15,11 +15,11 @@ class StackOfPlates {
         }
         stk.get(stk.size() - 1).push(val);
     }
-    
+
     public int pop() {
         return popAt(stk.size() - 1);
     }
-    
+
     public int popAt(int index) {
         int ans = -1;
         if (index >= 0 && index < stk.size()) {

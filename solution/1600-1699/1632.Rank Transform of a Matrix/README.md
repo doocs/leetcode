@@ -185,7 +185,6 @@ class UnionFind {
     }
 }
 
-
 class Solution {
     public int[][] matrixRankTransform(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;

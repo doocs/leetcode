@@ -2,9 +2,8 @@ class MedianFinder {
 public:
     /** initialize your data structure here. */
     MedianFinder() {
-
     }
-    
+
     void addNum(int num) {
         q1.push(num);
         q2.push(q1.top());
@@ -14,7 +13,7 @@ public:
             q2.pop();
         }
     }
-    
+
     double findMedian() {
         if (q2.size() > q1.size()) {
             return q2.top();

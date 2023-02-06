@@ -1,15 +1,14 @@
 class FreqStack {
 public:
     FreqStack() {
-
     }
-    
+
     void push(int val) {
         ++cnt[val];
         d[cnt[val]].push(val);
         mx = max(mx, cnt[val]);
     }
-    
+
     int pop() {
         int val = d[mx].top();
         --cnt[val];

@@ -10,7 +10,7 @@ public:
      * @param n   Number of characters to read
      * @return    The number of actual characters read
      */
-    int read(char *buf, int n) {
+    int read(char* buf, int n) {
         char buf4[4];
         int i = 0, v = 5;
         while (v >= 4) {

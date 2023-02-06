@@ -18,7 +18,7 @@ public:
         if (k % 2 == 1) {
             int x = pow(10, k);
             int y = 0;
-            for (int i = 0; i < k >> 1; ++i) {
+            for (int i = 0; i<k> > 1; ++i) {
                 y = y * 10 + 1;
             }
             return x + y;

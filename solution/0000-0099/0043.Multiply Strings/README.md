@@ -104,7 +104,7 @@ class Solution {
             arr[i] %= 10;
         }
         int i = arr[0] == 0 ? 1 : 0;
-        StringBuilder ans =  new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         for (; i < arr.length; ++i) {
             ans.append(arr[i]);
         }

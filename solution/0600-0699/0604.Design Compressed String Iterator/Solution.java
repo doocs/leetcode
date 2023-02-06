@@ -14,7 +14,7 @@ class StringIterator {
             d.add(new Node(c, x));
         }
     }
-    
+
     public char next() {
         if (!hasNext()) {
             return ' ';
@@ -25,7 +25,7 @@ class StringIterator {
         }
         return ans;
     }
-    
+
     public boolean hasNext() {
         return p < d.size() && d.get(p).x > 0;
     }

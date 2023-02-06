@@ -15,7 +15,8 @@ class Solution {
         boolean e = false;
         for (; i <= j; ++i) {
             if (s.charAt(i) == '+' || s.charAt(i) == '-') {
-                if (i > 0 && s.charAt(i - 1) != ' ' && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
+                if (i > 0 && s.charAt(i - 1) != ' ' && s.charAt(i - 1) != 'e'
+                    && s.charAt(i - 1) != 'E') {
                     return false;
                 }
             } else if (Character.isDigit(s.charAt(i))) {

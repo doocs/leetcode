@@ -17,7 +17,7 @@ class Solution {
         arr.sort(Collections.reverseOrder());
         double ans = d;
         for (int i = 0; i < d; ++i) {
-            ans -= arr.get(i); 
+            ans -= arr.get(i);
         }
         for (int i = d; i < arr.size(); ++i) {
             ans += arr.get(i);

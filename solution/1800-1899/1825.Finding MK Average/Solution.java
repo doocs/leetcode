@@ -8,7 +8,6 @@ class MKAverage {
     private TreeMap<Integer, Integer> mid = new TreeMap<>();
     private TreeMap<Integer, Integer> hi = new TreeMap<>();
 
-
     public MKAverage(int m, int k) {
         this.m = m;
         this.k = k;

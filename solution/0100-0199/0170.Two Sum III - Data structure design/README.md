@@ -99,10 +99,9 @@ class TwoSum:
 
 ```java
 class TwoSum {
-    private Map<Integer, Integer> cnt =  new HashMap<>();
+    private Map<Integer, Integer> cnt = new HashMap<>();
 
     public TwoSum() {
-
     }
 
     public void add(int number) {

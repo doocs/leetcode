@@ -4,16 +4,15 @@ class FreqStack {
     private int mx;
 
     public FreqStack() {
-
     }
-    
+
     public void push(int val) {
         cnt.put(val, cnt.getOrDefault(val, 0) + 1);
         int t = cnt.get(val);
         d.computeIfAbsent(t, k -> new ArrayDeque<>()).push(val);
         mx = Math.max(mx, t);
     }
-    
+
     public int pop() {
         int val = d.get(mx).pop();
         cnt.put(val, cnt.get(val) - 1);

@@ -128,7 +128,6 @@ class TweetCounts {
     private Map<String, TreeMap<Integer, Integer>> data = new HashMap<>();
 
     public TweetCounts() {
-
     }
 
     public void recordTweet(String tweetName, int time) {
@@ -137,7 +136,8 @@ class TweetCounts {
         tm.put(time, tm.getOrDefault(time, 0) + 1);
     }
 
-    public List<Integer> getTweetCountsPerFrequency(String freq, String tweetName, int startTime, int endTime) {
+    public List<Integer> getTweetCountsPerFrequency(
+        String freq, String tweetName, int startTime, int endTime) {
         int f = 60;
         if ("hour".equals(freq)) {
             f = 3600;

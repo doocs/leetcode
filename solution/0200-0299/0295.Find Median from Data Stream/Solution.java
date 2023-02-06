@@ -4,9 +4,8 @@ class MedianFinder {
 
     /** initialize your data structure here. */
     public MedianFinder() {
-
     }
-    
+
     public void addNum(int num) {
         q1.offer(num);
         q2.offer(q1.poll());
@@ -14,7 +13,7 @@ class MedianFinder {
             q1.offer(q2.poll());
         }
     }
-    
+
     public double findMedian() {
         if (q2.size() > q1.size()) {
             return q2.peek();

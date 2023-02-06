@@ -24,14 +24,14 @@ class Solution {
             if (Integer.bitCount(nxt) <= k) {
                 if (vis.add(nxt | cur)) {
                     q.offer(new int[] {nxt | cur, t + 1});
-                }                
+                }
             } else {
                 int x = nxt;
                 while (nxt > 0) {
-                   if (Integer.bitCount(nxt) == k && vis.add(nxt | cur)) {
-                       q.offer(new int[] {nxt | cur, t + 1});
-                   }
-                   nxt = (nxt - 1) & x;
+                    if (Integer.bitCount(nxt) == k && vis.add(nxt | cur)) {
+                        q.offer(new int[] {nxt | cur, t + 1});
+                    }
+                    nxt = (nxt - 1) & x;
                 }
             }
         }

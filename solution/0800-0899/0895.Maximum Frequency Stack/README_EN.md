@@ -148,7 +148,6 @@ class FreqStack {
     private int mx;
 
     public FreqStack() {
-
     }
 
     public void push(int val) {

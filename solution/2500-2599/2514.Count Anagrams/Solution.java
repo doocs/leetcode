@@ -18,7 +18,8 @@ class Solution {
             }
             p = p * f[w.length()] % MOD;
             for (int v : cnt) {
-                p = p * BigInteger.valueOf(f[v]).modInverse(BigInteger.valueOf(MOD)).intValue() % MOD;
+                p = p * BigInteger.valueOf(f[v]).modInverse(BigInteger.valueOf(MOD)).intValue()
+                    % MOD;
             }
         }
         return (int) p;

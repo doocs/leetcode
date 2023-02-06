@@ -6,7 +6,7 @@ class Allocator {
         tm.put(-1, -1);
         tm.put(n, n);
     }
-    
+
     public int allocate(int size, int mID) {
         int s = -1;
         for (var entry : tm.entrySet()) {
@@ -23,7 +23,7 @@ class Allocator {
         }
         return -1;
     }
-    
+
     public int free(int mID) {
         int ans = 0;
         for (int s : d.getOrDefault(mID, Collections.emptyList())) {

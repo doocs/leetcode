@@ -85,7 +85,7 @@ class Solution {
         if (primeFactors % 3 == 1) {
             return (int) (4 * qmi(3, primeFactors / 3 - 1, mod) % mod);
         }
-        return (int) (2 * qmi(3, primeFactors / 3, mod)%  mod);
+        return (int) (2 * qmi(3, primeFactors / 3, mod) % mod);
     }
 
     private long qmi(long a, long k, long p) {

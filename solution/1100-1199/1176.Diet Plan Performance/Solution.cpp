@@ -7,8 +7,10 @@ public:
         int ans = 0;
         for (int i = 0; i < n - k + 1; ++i) {
             int t = s[i + k] - s[i];
-            if (t < lower) --ans;
-            else if (t > upper) ++ans;
+            if (t < lower)
+                --ans;
+            else if (t > upper)
+                ++ans;
         }
         return ans;
     }

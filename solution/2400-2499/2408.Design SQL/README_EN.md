@@ -103,7 +103,6 @@ class SQL {
     }
 
     public void deleteRow(String name, int rowId) {
-
     }
 
     public String selectCell(String name, int rowId, int columnId) {

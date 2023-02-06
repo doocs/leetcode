@@ -101,7 +101,6 @@ class ATM {
     private int[] d = {20, 50, 100, 200, 500};
 
     public ATM() {
-
     }
 
     public void deposit(int[] banknotesCount) {

@@ -142,7 +142,6 @@ class TextEditor {
     private StringBuilder right = new StringBuilder();
 
     public TextEditor() {
-
     }
 
     public void addText(String text) {

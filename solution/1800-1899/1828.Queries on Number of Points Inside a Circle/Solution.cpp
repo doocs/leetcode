@@ -8,7 +8,7 @@ public:
             for (auto& p : points) {
                 int i = p[0], j = p[1];
                 int dx = i - x, dy = j - y;
-                cnt += dx * dx + dy * dy <= r * r;   
+                cnt += dx * dx + dy * dy <= r * r;
             }
             ans.emplace_back(cnt);
         }

@@ -12,7 +12,8 @@ public:
             }
             return 1;
         };
-        for (auto& word : words) if (match(word, pattern)) ans.emplace_back(word);
+        for (auto& word : words)
+            if (match(word, pattern)) ans.emplace_back(word);
         return ans;
     }
 };

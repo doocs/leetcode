@@ -1,4 +1,4 @@
-int sumOddLengthSubarrays(int *arr, int arrSize) {
+int sumOddLengthSubarrays(int* arr, int arrSize) {
     int ans = 0;
     for (int i = 1; i <= arrSize; i += 2) {
         int sum = 0;

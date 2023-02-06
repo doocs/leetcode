@@ -1,14 +1,13 @@
 class TwoSum {
-    private Map<Integer, Integer> cnt =  new HashMap<>();
+    private Map<Integer, Integer> cnt = new HashMap<>();
 
     public TwoSum() {
-
     }
-    
+
     public void add(int number) {
         cnt.merge(number, 1, Integer::sum);
     }
-    
+
     public boolean find(int value) {
         for (var e : cnt.entrySet()) {
             int x = e.getKey(), v = e.getValue();

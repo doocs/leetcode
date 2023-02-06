@@ -103,7 +103,8 @@ class Solution {
                     if (((k >> i) & 1) == 1) {
                         for (int j = i + 1; j < m; ++j) {
                             if (((k >> j) & 1) == 1) {
-                                f[k] = Math.max(f[k], f[k ^ (1 << i) ^ (1 << j)] + cnt / 2 * g[i][j]);
+                                f[k] = Math.max(
+                                    f[k], f[k ^ (1 << i) ^ (1 << j)] + cnt / 2 * g[i][j]);
                             }
                         }
                     }

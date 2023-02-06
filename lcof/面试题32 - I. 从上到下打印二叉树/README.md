@@ -86,7 +86,7 @@ class Solution {
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<Integer> res =  new ArrayList<>();
+        List<Integer> res = new ArrayList<>();
         while (!q.isEmpty()) {
             for (int n = q.size(); n > 0; --n) {
                 TreeNode node = q.poll();

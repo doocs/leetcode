@@ -5,7 +5,7 @@ public:
             d[wordsDict[i]].push_back(i);
         }
     }
-    
+
     int shortest(string word1, string word2) {
         auto a = d[word1], b = d[word2];
         int i = 0, j = 0;
@@ -20,6 +20,7 @@ public:
         }
         return ans;
     }
+
 private:
     unordered_map<string, vector<int>> d;
 };

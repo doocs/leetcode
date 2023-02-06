@@ -10,11 +10,11 @@ class LogSystem {
         d.put("Minute", 16);
         d.put("Second", 19);
     }
-    
+
     public void put(int id, String timestamp) {
         logs.add(new Log(id, timestamp));
     }
-    
+
     public List<Integer> retrieve(String start, String end, String granularity) {
         List<Integer> ans = new ArrayList<>();
         int i = d.get(granularity);

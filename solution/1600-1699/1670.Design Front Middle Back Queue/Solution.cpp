@@ -1,24 +1,23 @@
 class FrontMiddleBackQueue {
 public:
     FrontMiddleBackQueue() {
-
     }
-    
+
     void pushFront(int val) {
         q1.push_front(val);
         rebalance();
     }
-    
+
     void pushMiddle(int val) {
         q1.push_back(val);
         rebalance();
     }
-    
+
     void pushBack(int val) {
         q2.push_back(val);
         rebalance();
     }
-    
+
     int popFront() {
         if (q1.empty() && q2.empty()) return -1;
         int val = 0;
@@ -32,7 +31,7 @@ public:
         rebalance();
         return val;
     }
-    
+
     int popMiddle() {
         if (q1.empty() && q2.empty()) return -1;
         int val = 0;
@@ -46,7 +45,7 @@ public:
         rebalance();
         return val;
     }
-    
+
     int popBack() {
         if (q2.empty()) return -1;
         int val = q2.back();

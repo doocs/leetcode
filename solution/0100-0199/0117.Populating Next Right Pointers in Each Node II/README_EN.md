@@ -228,7 +228,6 @@ class Solution {
             prev.next = curr;
         }
         prev = curr;
-
     }
 }
 ```

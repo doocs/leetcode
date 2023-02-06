@@ -7,7 +7,7 @@ public:
             d[products[j]] = prices[j];
         }
     }
-    
+
     double getBill(vector<int> product, vector<int> amount) {
         int dis = (++i) % n == 0 ? discount : 0;
         double ans = 0;

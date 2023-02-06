@@ -3,14 +3,15 @@
  * class PolyNode {
  *     int coefficient, power;
  *     PolyNode next = null;
- 
+
  *     PolyNode() {}
  *     PolyNode(int x, int y) { this.coefficient = x; this.power = y; }
- *     PolyNode(int x, int y, PolyNode next) { this.coefficient = x; this.power = y; this.next = next; }
+ *     PolyNode(int x, int y, PolyNode next) { this.coefficient = x; this.power = y; this.next =
+ next; }
  * }
  */
 
- class Solution {
+class Solution {
     public PolyNode addPoly(PolyNode poly1, PolyNode poly2) {
         PolyNode dummy = new PolyNode();
         PolyNode curr = dummy;

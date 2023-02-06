@@ -10,6 +10,7 @@ class Solution {
             }
         }
         int mask = mask1 & mask2;
-        return mask > 0 ? String.valueOf((char) (31 - Integer.numberOfLeadingZeros(mask) + 'A')) : "";
+        return mask > 0 ? String.valueOf((char) (31 - Integer.numberOfLeadingZeros(mask) + 'A'))
+                        : "";
     }
 }

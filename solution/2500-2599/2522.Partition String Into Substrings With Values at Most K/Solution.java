@@ -4,7 +4,7 @@ class Solution {
     private String s;
     private int k;
     private int inf = 1 << 30;
-    
+
     public int minimumPartition(String s, int k) {
         n = s.length();
         f = new Integer[n];
@@ -13,7 +13,7 @@ class Solution {
         int ans = dfs(0);
         return ans < inf ? ans : -1;
     }
-    
+
     private int dfs(int i) {
         if (i >= n) {
             return 0;

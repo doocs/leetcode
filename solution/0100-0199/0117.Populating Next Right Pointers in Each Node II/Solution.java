@@ -7,7 +7,7 @@ class Node {
     public Node next;
 
     public Node() {}
-    
+
     public Node(int _val) {
         val = _val;
     }
@@ -50,6 +50,5 @@ class Solution {
             prev.next = curr;
         }
         prev = curr;
-
     }
 }

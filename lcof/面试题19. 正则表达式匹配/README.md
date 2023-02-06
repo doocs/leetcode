@@ -169,7 +169,8 @@ class Solution {
                     if (i > 0 && (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1))) {
                         f[i][j] |= f[i - 1][j];
                     }
-                } else if (i > 0 && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1))) {
+                } else if (i > 0
+                    && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1))) {
                     f[i][j] = f[i - 1][j - 1];
                 }
             }

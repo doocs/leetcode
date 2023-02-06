@@ -1,6 +1,6 @@
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        Map<Character, Integer> cnt =  new HashMap<>();
+        Map<Character, Integer> cnt = new HashMap<>();
         for (int i = 0; i < s.length(); ++i) {
             cnt.merge(s.charAt(i), 1, Integer::sum);
         }

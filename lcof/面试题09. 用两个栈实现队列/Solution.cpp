@@ -1,13 +1,12 @@
 class CQueue {
 public:
     CQueue() {
-
     }
-    
+
     void appendTail(int value) {
         stk1.push(value);
     }
-    
+
     int deleteHead() {
         if (stk2.empty()) {
             while (!stk1.empty()) {

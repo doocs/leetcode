@@ -3,7 +3,7 @@ class Solution {
     private List<Integer> arr = new ArrayList<>();
     private boolean[] vis;
     private int n;
-    
+
     public int magnificentSets(int n, int[][] edges) {
         g = new List[n + 1];
         this.n = n;
@@ -13,7 +13,7 @@ class Solution {
             g[a].add(b);
             g[b].add(a);
         }
-        
+
         vis = new boolean[n + 1];
         int ans = 0;
         for (int i = 1; i <= n; ++i) {

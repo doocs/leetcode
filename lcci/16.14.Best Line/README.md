@@ -138,7 +138,11 @@ class Solution {
                 int g = gcd(dx, dy);
                 String key = (dx / g) + "." + (dy / g);
                 cnt.computeIfAbsent(key, k -> new ArrayList<>()).add(new int[] {i, j});
-                if (mx < cnt.get(key).size() || (mx == cnt.get(key).size() && (ans[0] > cnt.get(key).get(0)[0] || (ans[0] == cnt.get(key).get(0)[0] && ans[1] > cnt.get(key).get(0)[1])))) {
+                if (mx < cnt.get(key).size()
+                    || (mx == cnt.get(key).size()
+                        && (ans[0] > cnt.get(key).get(0)[0]
+                            || (ans[0] == cnt.get(key).get(0)[0]
+                                && ans[1] > cnt.get(key).get(0)[1])))) {
                     mx = cnt.get(key).size();
                     ans = cnt.get(key).get(0);
                 }

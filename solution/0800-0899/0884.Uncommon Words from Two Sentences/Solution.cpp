@@ -10,7 +10,8 @@ public:
         add(s1);
         add(s2);
         vector<string> ans;
-        for (auto& [s, v] : cnt) if (v == 1) ans.emplace_back(s);
+        for (auto& [s, v] : cnt)
+            if (v == 1) ans.emplace_back(s);
         return ans;
     }
 };

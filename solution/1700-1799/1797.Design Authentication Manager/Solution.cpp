@@ -3,16 +3,16 @@ public:
     AuthenticationManager(int timeToLive) {
         t = timeToLive;
     }
-    
+
     void generate(string tokenId, int currentTime) {
         d[tokenId] = currentTime + t;
     }
-    
+
     void renew(string tokenId, int currentTime) {
         if (d[tokenId] <= currentTime) return;
         generate(tokenId, currentTime);
     }
-    
+
     int countUnexpiredTokens(int currentTime) {
         int ans = 0;
         for (auto& [_, v] : d) ans += v > currentTime;

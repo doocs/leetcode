@@ -109,7 +109,8 @@ class Solution {
                 for (int i = 0; i < m - 2; ++i) {
                     for (int j = i + 1; j < m - 1; ++j) {
                         for (int k = j + 1; k < m; ++k) {
-                            s.add(sites.get(i).site + "," + sites.get(j).site + "," + sites.get(k).site);
+                            s.add(sites.get(i).site + "," + sites.get(j).site + ","
+                                + sites.get(k).site);
                         }
                     }
                 }

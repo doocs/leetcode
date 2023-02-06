@@ -23,7 +23,7 @@ class Solution {
 
     private TreeNode[] dfs(TreeNode root) {
         if (root == null) {
-            return new TreeNode[]{null, null};
+            return new TreeNode[] {null, null};
         }
         if (root.val <= t) {
             TreeNode[] ans = dfs(root.right);
@@ -35,6 +35,6 @@ class Solution {
             root.left = ans[1];
             ans[1] = root;
             return ans;
-        }        
+        }
     }
 }

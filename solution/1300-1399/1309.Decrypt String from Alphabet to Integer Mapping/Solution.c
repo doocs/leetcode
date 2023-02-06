@@ -1,8 +1,8 @@
-char *freqAlphabets(char *s) {
+char* freqAlphabets(char* s) {
     int n = strlen(s);
     int i = 0;
     int j = 0;
-    char *ans = malloc(sizeof(s) * n);
+    char* ans = malloc(sizeof(s) * n);
     while (i < n) {
         int t;
         if (i + 2 < n && s[i + 2] == '#') {

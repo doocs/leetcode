@@ -1,4 +1,4 @@
-void setZeroes(int **matrix, int matrixSize, int *matrixColSize) {
+void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     int m = matrixSize;
     int n = matrixColSize[0];
     int l0 = 0;

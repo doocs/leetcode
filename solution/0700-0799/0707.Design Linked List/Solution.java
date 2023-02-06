@@ -3,9 +3,8 @@ class MyLinkedList {
     private int cnt;
 
     public MyLinkedList() {
-
     }
-    
+
     public int get(int index) {
         if (index < 0 || index >= cnt) {
             return -1;
@@ -16,15 +15,15 @@ class MyLinkedList {
         }
         return cur.val;
     }
-    
+
     public void addAtHead(int val) {
         addAtIndex(0, val);
     }
-    
+
     public void addAtTail(int val) {
         addAtIndex(cnt, val);
     }
-    
+
     public void addAtIndex(int index, int val) {
         if (index > cnt) {
             return;
@@ -36,7 +35,7 @@ class MyLinkedList {
         pre.next = new ListNode(val, pre.next);
         ++cnt;
     }
-    
+
     public void deleteAtIndex(int index) {
         if (index < 0 || index >= cnt) {
             return;

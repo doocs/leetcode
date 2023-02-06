@@ -1,7 +1,7 @@
 class Solution {
     private int[][][] f;
     private int[] b;
-    
+
     public int removeBoxes(int[] boxes) {
         b = boxes;
         int n = b.length;

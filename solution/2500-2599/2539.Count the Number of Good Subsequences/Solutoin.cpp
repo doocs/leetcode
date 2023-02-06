@@ -28,7 +28,6 @@ int comb(int n, int k) {
     return (f[n] * g[k] % MOD) * g[n - k] % MOD;
 }
 
-
 class Solution {
 public:
     Solution() {

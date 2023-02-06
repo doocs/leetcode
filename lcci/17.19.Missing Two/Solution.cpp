@@ -8,8 +8,10 @@ public:
 
         int diff = eor & -eor;
         int a = 0;
-        for (int v : nums) if (v & diff) a ^= v;
-        for (int i = 1; i <= n; ++i) if (i & diff) a ^= i;
+        for (int v : nums)
+            if (v & diff) a ^= v;
+        for (int i = 1; i <= n; ++i)
+            if (i & diff) a ^= i;
         int b = eor ^ a;
         return {a, b};
     }

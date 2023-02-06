@@ -312,7 +312,7 @@ class BookMyShow {
         ++maxRow;
         int i = tree.queryIdx(1, 1, maxRow, k);
         if (i == 0) {
-            return new int[]{};
+            return new int[] {};
         }
         long s = tree.querySum(1, i, i);
         tree.modify(1, i, s - k);

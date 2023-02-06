@@ -104,7 +104,8 @@ class Solution {
         String ans = senders[0];
         for (var e : cnt.entrySet()) {
             String sender = e.getKey();
-            if (cnt.get(ans) < cnt.get(sender) || (cnt.get(ans) == cnt.get(sender) && ans.compareTo(sender) < 0)) {
+            if (cnt.get(ans) < cnt.get(sender)
+                || (cnt.get(ans) == cnt.get(sender) && ans.compareTo(sender) < 0)) {
                 ans = sender;
             }
         }

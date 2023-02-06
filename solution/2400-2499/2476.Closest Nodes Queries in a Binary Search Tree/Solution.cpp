@@ -13,7 +13,7 @@ class Solution {
 public:
     vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
         vector<int> nums;
-        function<void(TreeNode* root)> dfs = [&](TreeNode* root) {
+        function<void(TreeNode * root)> dfs = [&](TreeNode* root) {
             if (!root) return;
             dfs(root->left);
             nums.emplace_back(root->val);

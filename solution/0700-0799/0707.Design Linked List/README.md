@@ -279,7 +279,6 @@ class MyLinkedList {
     private int cnt;
 
     public MyLinkedList() {
-
     }
 
     public int get(int index) {

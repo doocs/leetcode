@@ -9,8 +9,10 @@ public:
             for (int t = q.size(); t; --t) {
                 auto [i, j] = q.front();
                 q.pop();
-                if (++j == words[i].size()) ++ans;
-                else d[words[i][j] - 'a'].emplace(i, j);
+                if (++j == words[i].size())
+                    ++ans;
+                else
+                    d[words[i][j] - 'a'].emplace(i, j);
             }
         }
         return ans;

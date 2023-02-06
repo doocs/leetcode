@@ -1,6 +1,6 @@
-char *interpret(char *command) {
+char* interpret(char* command) {
     int n = strlen(command);
-    char *ans = malloc(sizeof(char) * n + 1);
+    char* ans = malloc(sizeof(char) * n + 1);
     int i = 0;
     for (int j = 0; j < n; j++) {
         char c = command[j];

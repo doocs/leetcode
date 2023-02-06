@@ -9,17 +9,17 @@ class Solution {
             cnt += v;
         }
         if (cnt % 3 != 0) {
-            return new int[]{-1, -1};
+            return new int[] {-1, -1};
         }
         if (cnt == 0) {
-            return new int[]{0, n - 1};
+            return new int[] {0, n - 1};
         }
         cnt /= 3;
 
         int i = find(1), j = find(cnt + 1), k = find(cnt * 2 + 1);
         for (; k < n && arr[i] == arr[j] && arr[j] == arr[k]; ++i, ++j, ++k) {
         }
-        return k == n ? new int[]{i - 1, j} : new int[]{-1, -1};
+        return k == n ? new int[] {i - 1, j} : new int[] {-1, -1};
     }
 
     private int find(int x) {

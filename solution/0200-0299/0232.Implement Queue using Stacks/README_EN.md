@@ -101,7 +101,6 @@ class MyQueue {
     private Deque<Integer> stk2 = new ArrayDeque<>();
 
     public MyQueue() {
-
     }
 
     public void push(int x) {

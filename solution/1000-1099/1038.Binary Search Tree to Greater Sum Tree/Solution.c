@@ -7,9 +7,8 @@
  * };
  */
 
-
-struct TreeNode *bstToGst(struct TreeNode *root) {
-    struct TreeNode *cur = root;
+struct TreeNode* bstToGst(struct TreeNode* root) {
+    struct TreeNode* cur = root;
     int sum = 0;
     while (cur) {
         if (!cur->right) {
@@ -17,7 +16,7 @@ struct TreeNode *bstToGst(struct TreeNode *root) {
             cur->val = sum;
             cur = cur->left;
         } else {
-            struct TreeNode *next = cur->right;
+            struct TreeNode* next = cur->right;
             while (next->left && next->left != cur) {
                 next = next->left;
             }

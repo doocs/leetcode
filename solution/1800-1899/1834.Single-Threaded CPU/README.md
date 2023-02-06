@@ -120,7 +120,8 @@ class Solution {
         }
         Arrays.sort(ts, (a, b) -> a[0] - b[0]);
         int[] ans = new int[n];
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        PriorityQueue<int[]> q
+            = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
         int i = 0, t = 0, k = 0;
         while (!q.isEmpty() || i < n) {
             if (q.isEmpty()) {

@@ -4,15 +4,14 @@ class SQL {
     public SQL(List<String> names, List<Integer> columns) {
         tables = new HashMap<>(names.size());
     }
-    
+
     public void insertRow(String name, List<String> row) {
         tables.computeIfAbsent(name, k -> new ArrayList<>()).add(row);
     }
-    
-    public void deleteRow(String name, int rowId) {
 
+    public void deleteRow(String name, int rowId) {
     }
-    
+
     public String selectCell(String name, int rowId, int columnId) {
         return tables.get(name).get(rowId - 1).get(columnId - 1);
     }

@@ -14,7 +14,8 @@ class Solution {
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(0);
         for (int i = 1; i <= n; ++i) {
-            while (!q.isEmpty() && (i - q.peekFirst() > maxBoxes || ws[i] - ws[q.peekFirst()] > maxWeight)) {
+            while (!q.isEmpty()
+                && (i - q.peekFirst() > maxBoxes || ws[i] - ws[q.peekFirst()] > maxWeight)) {
                 q.pollFirst();
             }
             if (!q.isEmpty()) {

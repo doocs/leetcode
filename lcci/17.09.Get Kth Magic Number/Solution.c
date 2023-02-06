@@ -1,7 +1,7 @@
-#define min(a,b) (((a) < (b)) ? (a) : (b))
+#define min(a, b) (((a) < (b)) ? (a) : (b))
 
 int getKthMagicNumber(int k) {
-    int *dp = (int *) malloc(sizeof(int) * k);
+    int* dp = (int*) malloc(sizeof(int) * k);
     dp[0] = 1;
     int index[3] = {0, 0, 0};
     for (int i = 1; i < k; i++) {

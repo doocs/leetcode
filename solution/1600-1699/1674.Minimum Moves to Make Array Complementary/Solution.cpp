@@ -3,7 +3,7 @@ public:
     int minMoves(vector<int>& nums, int limit) {
         int n = nums.size();
         vector<int> d(limit * 2 + 2);
-        for (int i = 0; i < n >> 1; ++i) {
+        for (int i = 0; i<n> > 1; ++i) {
             int a = min(nums[i], nums[n - i - 1]);
             int b = max(nums[i], nums[n - i - 1]);
 

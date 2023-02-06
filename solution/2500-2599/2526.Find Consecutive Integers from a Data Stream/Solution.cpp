@@ -4,7 +4,7 @@ public:
         val = value;
         this->k = k;
     }
-    
+
     bool consec(int num) {
         cnt = num == val ? cnt + 1 : 0;
         return cnt >= k;

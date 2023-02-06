@@ -7,8 +7,10 @@ public:
             int lower = 0, upper = 0;
             for (int j = i; j < n; ++j) {
                 char c = s[j];
-                if (islower(c)) lower |= 1 << (c - 'a');
-                else upper |= 1 << (c - 'A');
+                if (islower(c))
+                    lower |= 1 << (c - 'a');
+                else
+                    upper |= 1 << (c - 'A');
                 if (lower == upper && mx < j - i + 1) {
                     mx = j - i + 1;
                     k = i;

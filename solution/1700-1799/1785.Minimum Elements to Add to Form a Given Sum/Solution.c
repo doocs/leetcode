@@ -1,4 +1,4 @@
-int minElements(int *nums, int numsSize, int limit, int goal) {
+int minElements(int* nums, int numsSize, int limit, int goal) {
     long long sum = 0;
     for (int i = 0; i < numsSize; i++) {
         sum += nums[i];

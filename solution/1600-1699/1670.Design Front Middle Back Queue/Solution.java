@@ -3,24 +3,23 @@ class FrontMiddleBackQueue {
     private Deque<Integer> q2 = new ArrayDeque<>();
 
     public FrontMiddleBackQueue() {
-
     }
-    
+
     public void pushFront(int val) {
         q1.offerFirst(val);
         rebalance();
     }
-    
+
     public void pushMiddle(int val) {
         q1.offerLast(val);
         rebalance();
     }
-    
+
     public void pushBack(int val) {
         q2.offerLast(val);
         rebalance();
     }
-    
+
     public int popFront() {
         if (q1.isEmpty() && q2.isEmpty()) {
             return -1;
@@ -29,7 +28,7 @@ class FrontMiddleBackQueue {
         rebalance();
         return val;
     }
-    
+
     public int popMiddle() {
         if (q1.isEmpty() && q2.isEmpty()) {
             return -1;
@@ -38,7 +37,7 @@ class FrontMiddleBackQueue {
         rebalance();
         return val;
     }
-    
+
     public int popBack() {
         if (q2.isEmpty()) {
             return -1;

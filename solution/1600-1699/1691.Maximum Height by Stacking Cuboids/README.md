@@ -117,7 +117,8 @@ class Solution {
         for (var c : cuboids) {
             Arrays.sort(c);
         }
-        Arrays.sort(cuboids, (a, b) -> a[0] == b[0] ? (a[1] == b[1] ? a[2] - b[2] : a[1] - b[1]) : a[0] - b[0]);
+        Arrays.sort(cuboids,
+            (a, b) -> a[0] == b[0] ? (a[1] == b[1] ? a[2] - b[2] : a[1] - b[1]) : a[0] - b[0]);
         int n = cuboids.length;
         int[] f = new int[n];
         for (int i = 0; i < n; ++i) {

@@ -3,13 +3,12 @@ class MaxQueue {
     private Deque<Integer> q2 = new ArrayDeque<>();
 
     public MaxQueue() {
-
     }
-    
+
     public int max_value() {
         return q2.isEmpty() ? -1 : q2.peek();
     }
-    
+
     public void push_back(int value) {
         while (!q2.isEmpty() && q2.peekLast() < value) {
             q2.pollLast();
@@ -17,7 +16,7 @@ class MaxQueue {
         q1.offer(value);
         q2.offer(value);
     }
-    
+
     public int pop_front() {
         if (q1.isEmpty()) {
             return -1;

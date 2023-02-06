@@ -5,7 +5,7 @@ class Solution {
         for (; i >= 0; --i) {
             if (nums[i] < nums[i + 1]) {
                 break;
-            } 
+            }
         }
         if (i >= 0) {
             for (int j = n - 1; j > i; --j) {
@@ -15,7 +15,7 @@ class Solution {
                 }
             }
         }
-        
+
         for (int j = i + 1, k = n - 1; j < k; ++j, --k) {
             swap(nums, j, k);
         }

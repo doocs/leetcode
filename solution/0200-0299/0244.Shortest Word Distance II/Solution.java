@@ -6,7 +6,7 @@ class WordDistance {
             d.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
         }
     }
-    
+
     public int shortest(String word1, String word2) {
         List<Integer> a = d.get(word1), b = d.get(word2);
         int ans = 0x3f3f3f3f;

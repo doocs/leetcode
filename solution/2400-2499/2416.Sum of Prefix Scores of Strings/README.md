@@ -143,7 +143,7 @@ class Trie {
             node = node.children[c];
             ans += node.cnt;
         }
-        return  ans;
+        return ans;
     }
 }
 

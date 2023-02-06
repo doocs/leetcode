@@ -1,5 +1,6 @@
 class Solution {
-    private static final Set<Character> VOWELS = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+    private static final Set<Character> VOWELS
+        = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
 
     public boolean halvesAreAlike(String s) {
         int cnt = 0, n = s.length() >> 1;

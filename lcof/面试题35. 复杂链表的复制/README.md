@@ -209,7 +209,7 @@ class Solution {
         if (head == null) {
             return null;
         }
-        for (Node cur = head; cur != null; ) {
+        for (Node cur = head; cur != null;) {
             Node node = new Node(cur.val, cur.next);
             cur.next = node;
             cur = node.next;
@@ -220,7 +220,7 @@ class Solution {
             }
         }
         Node ans = head.next;
-        for (Node cur = head; cur != null; ) {
+        for (Node cur = head; cur != null;) {
             Node nxt = cur.next;
             if (nxt != null) {
                 cur.next = nxt.next;

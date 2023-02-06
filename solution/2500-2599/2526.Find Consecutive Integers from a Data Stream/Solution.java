@@ -7,7 +7,7 @@ class DataStream {
         val = value;
         this.k = k;
     }
-    
+
     public boolean consec(int num) {
         cnt = num == val ? cnt + 1 : 0;
         return cnt >= k;

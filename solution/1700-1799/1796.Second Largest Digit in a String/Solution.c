@@ -1,4 +1,4 @@
-int secondHighest(char *s) {
+int secondHighest(char* s) {
     int first = -1;
     int second = -1;
     for (int i = 0; s[i]; i++) {

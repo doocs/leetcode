@@ -3,7 +3,7 @@ public:
     vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
         auto get = [](vector<int>& nums) {
             vector<int> cnt(101);
-            for (int& v :nums) cnt[v] = 1;
+            for (int& v : nums) cnt[v] = 1;
             return cnt;
         };
         auto s1 = get(nums1), s2 = get(nums2), s3 = get(nums3);

@@ -7,8 +7,7 @@
  * };
  */
 
-
-struct TreeNode *trimBST(struct TreeNode *root, int low, int high) {
+struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
     if (!root) {
         return root;
     }

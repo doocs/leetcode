@@ -146,7 +146,8 @@ class Solution {
         if (i == n) {
             return false;
         }
-        if (s.charAt(i) == '.' && (i + 1 == n || s.charAt(i + 1) == 'e' || s.charAt(i + 1) == 'E')) {
+        if (s.charAt(i) == '.'
+            && (i + 1 == n || s.charAt(i + 1) == 'e' || s.charAt(i + 1) == 'E')) {
             return false;
         }
         int dot = 0, e = 0;

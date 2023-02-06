@@ -3,16 +3,15 @@ class LUPrefix {
     private Set<Integer> s = new HashSet<>();
 
     public LUPrefix(int n) {
-
     }
-    
+
     public void upload(int video) {
         s.add(video);
         while (s.contains(r + 1)) {
             ++r;
         }
     }
-    
+
     public int longest() {
         return r;
     }

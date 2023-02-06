@@ -101,7 +101,8 @@ class Solution {
         int[][] arr = new int[m * n][3];
         for (int i = 0, k = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
-                int dist = Math.abs(workers[i][0] - bikes[j][0]) + Math.abs(workers[i][1] - bikes[j][1]);
+                int dist
+                    = Math.abs(workers[i][0] - bikes[j][0]) + Math.abs(workers[i][1] - bikes[j][1]);
                 arr[k++] = new int[] {dist, i, j};
             }
         }

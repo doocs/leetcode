@@ -156,7 +156,8 @@ class Solution {
                 if (pa != pb) {
                     ans += size.get(pa).getOrDefault(v, 0) * size.get(pb).getOrDefault(v, 0);
                     p[pa] = pb;
-                    size.get(pb).put(v, size.get(pb).getOrDefault(v, 0) + size.get(pa).getOrDefault(v, 0));
+                    size.get(pb).put(
+                        v, size.get(pb).getOrDefault(v, 0) + size.get(pa).getOrDefault(v, 0));
                 }
             }
         }

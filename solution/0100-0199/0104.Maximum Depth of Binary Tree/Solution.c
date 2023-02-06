@@ -9,7 +9,7 @@
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int maxDepth(struct TreeNode *root) {
+int maxDepth(struct TreeNode* root) {
     if (!root) {
         return 0;
     }

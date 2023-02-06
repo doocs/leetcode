@@ -8,11 +8,11 @@ public:
         d["Minute"] = 16;
         d["Second"] = 19;
     }
-    
+
     void put(int id, string timestamp) {
         logs.push_back({id, timestamp});
     }
-    
+
     vector<int> retrieve(string start, string end, string granularity) {
         vector<int> ans;
         int i = d[granularity];

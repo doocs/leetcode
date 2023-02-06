@@ -1,6 +1,6 @@
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int maximumWealth(int **accounts, int accountsSize, int *accountsColSize) {
+int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
     int ans = INT_MIN;
     for (int i = 0; i < accountsSize; i++) {
         int sum = 0;

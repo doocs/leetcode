@@ -5,7 +5,7 @@ public:
             ++cnt[x];
         }
     }
-    
+
     int get(string word) {
         return cnt[word];
     }

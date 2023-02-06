@@ -4,9 +4,8 @@ class Trie {
     private int pv;
 
     public Trie() {
-
     }
-    
+
     public void insert(String word) {
         Trie node = this;
         for (char c : word.toCharArray()) {
@@ -19,17 +18,17 @@ class Trie {
         }
         ++node.v;
     }
-    
+
     public int countWordsEqualTo(String word) {
         Trie node = search(word);
         return node == null ? 0 : node.v;
     }
-    
+
     public int countWordsStartingWith(String prefix) {
         Trie node = search(prefix);
         return node == null ? 0 : node.pv;
     }
-    
+
     public void erase(String word) {
         Trie node = this;
         for (char c : word.toCharArray()) {

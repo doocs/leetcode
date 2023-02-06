@@ -83,7 +83,6 @@ class LUPrefix {
     private Set<Integer> s = new HashSet<>();
 
     public LUPrefix(int n) {
-
     }
 
     public void upload(int video) {

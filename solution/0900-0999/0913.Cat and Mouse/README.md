@@ -204,7 +204,8 @@ class Solution {
             for (var prevState : prevStates) {
                 int pm = prevState[0], pc = prevState[1], pt = prevState[2];
                 if (res[pm][pc][pt] == TIE) {
-                    boolean win = (t == MOUSE_WIN && pt == MOUSE_TURN) || (t == CAT_WIN && pt == CAT_TURN);
+                    boolean win
+                        = (t == MOUSE_WIN && pt == MOUSE_TURN) || (t == CAT_WIN && pt == CAT_TURN);
                     if (win) {
                         res[pm][pc][pt] = t;
                         q.offer(prevState);

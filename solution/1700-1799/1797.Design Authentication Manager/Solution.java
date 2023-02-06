@@ -5,18 +5,18 @@ class AuthenticationManager {
     public AuthenticationManager(int timeToLive) {
         t = timeToLive;
     }
-    
+
     public void generate(String tokenId, int currentTime) {
         d.put(tokenId, currentTime + t);
     }
-    
+
     public void renew(String tokenId, int currentTime) {
         if (d.getOrDefault(tokenId, 0) <= currentTime) {
             return;
         }
         generate(tokenId, currentTime);
     }
-    
+
     public int countUnexpiredTokens(int currentTime) {
         int ans = 0;
         for (int exp : d.values()) {

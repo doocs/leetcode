@@ -113,7 +113,7 @@ class Solution {
 
     private TreeNode[] dfs(TreeNode root) {
         if (root == null) {
-            return new TreeNode[]{null, null};
+            return new TreeNode[] {null, null};
         }
         if (root.val <= t) {
             TreeNode[] ans = dfs(root.right);

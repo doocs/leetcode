@@ -79,7 +79,8 @@ class Solution:
 class Solution {
     private int[] days = new int[] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    public int countDaysTogether(String arriveAlice, String leaveAlice, String arriveBob, String leaveBob) {
+    public int countDaysTogether(
+        String arriveAlice, String leaveAlice, String arriveBob, String leaveBob) {
         String a = arriveAlice.compareTo(arriveBob) < 0 ? arriveBob : arriveAlice;
         String b = leaveAlice.compareTo(leaveBob) < 0 ? leaveAlice : leaveBob;
         int x = f(a), y = f(b);

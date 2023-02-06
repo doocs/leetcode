@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
         int[][] arr = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[]{nums[i], cost[i]};
+            arr[i] = new int[] {nums[i], cost[i]};
         }
         Arrays.sort(arr, (a, b) -> a[0] - b[0]);
         long[] f = new long[n + 1];

@@ -11,7 +11,7 @@ class Cashier {
             d.put(products[j], prices[j]);
         }
     }
-    
+
     public double getBill(int[] product, int[] amount) {
         int dis = (++i) % n == 0 ? discount : 0;
         double ans = 0;

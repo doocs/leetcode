@@ -148,7 +148,6 @@ class FrontMiddleBackQueue {
     private Deque<Integer> q2 = new ArrayDeque<>();
 
     public FrontMiddleBackQueue() {
-
     }
 
     public void pushFront(int val) {

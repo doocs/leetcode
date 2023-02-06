@@ -67,7 +67,7 @@ public:
                             q.emplace(pm, pc, pt);
                         }
                     }
-                } 
+                }
             }
         }
         return res[MOUSE_START][CAT_START][MOUSE_TURN];

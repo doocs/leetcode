@@ -11,7 +11,7 @@ public:
 
 class Solution {
 public:
-    Node* flipBinaryTree(Node* root, Node * leaf) {
+    Node* flipBinaryTree(Node* root, Node* leaf) {
         Node* cur = leaf;
         Node* p = cur->parent;
         while (cur != root) {

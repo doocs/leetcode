@@ -1,7 +1,7 @@
 class Trie {
     private Trie[] children = new Trie[26];
     private int cnt;
-    
+
     public void insert(String w) {
         Trie node = this;
         for (char c : w.toCharArray()) {
@@ -13,7 +13,7 @@ class Trie {
             ++node.cnt;
         }
     }
-    
+
     public int search(String w) {
         Trie node = this;
         int ans = 0;
@@ -25,7 +25,7 @@ class Trie {
             node = node.children[c];
             ans += node.cnt;
         }
-        return  ans;
+        return ans;
     }
 }
 

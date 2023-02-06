@@ -1,4 +1,4 @@
-bool isAnagram(char *s, char *t) {
+bool isAnagram(char* s, char* t) {
     int n = strlen(s);
     int m = strlen(t);
     if (n != m) {

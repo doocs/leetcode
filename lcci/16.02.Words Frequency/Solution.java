@@ -6,7 +6,7 @@ class WordsFrequency {
             cnt.merge(x, 1, Integer::sum);
         }
     }
-    
+
     public int get(String word) {
         return cnt.getOrDefault(word, 0);
     }

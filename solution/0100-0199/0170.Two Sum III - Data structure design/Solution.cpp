@@ -1,13 +1,12 @@
 class TwoSum {
 public:
     TwoSum() {
-
     }
-    
+
     void add(int number) {
         ++cnt[number];
     }
-    
+
     bool find(int value) {
         for (auto& [x, v] : cnt) {
             long y = (long) value - x;

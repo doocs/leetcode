@@ -156,7 +156,8 @@ class Solution {
 ```java
 class Solution {
     public int kSimilarity(String s1, String s2) {
-        PriorityQueue<Pair<Integer, String>> q = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        PriorityQueue<Pair<Integer, String>> q
+            = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
         q.offer(new Pair<>(f(s1, s2), s1));
         Map<String, Integer> dist = new HashMap<>();
         dist.put(s1, 0);

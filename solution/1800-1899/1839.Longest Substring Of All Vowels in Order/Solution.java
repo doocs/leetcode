@@ -12,7 +12,8 @@ class Solution {
         }
         int ans = 0;
         for (int i = 0; i < arr.size() - 4; ++i) {
-            Node a = arr.get(i), b = arr.get(i + 1), c = arr.get(i + 2), d = arr.get(i + 3), e = arr.get(i + 4);
+            Node a = arr.get(i), b = arr.get(i + 1), c = arr.get(i + 2), d = arr.get(i + 3),
+                 e = arr.get(i + 4);
             if (a.c == 'a' && b.c == 'e' && c.c == 'i' && d.c == 'o' && e.c == 'u') {
                 ans = Math.max(ans, a.v + b.v + c.v + d.v + e.v);
             }

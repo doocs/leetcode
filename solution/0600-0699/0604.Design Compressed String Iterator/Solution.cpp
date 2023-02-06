@@ -12,7 +12,7 @@ public:
             d.push_back({c, x});
         }
     }
-    
+
     char next() {
         if (!hasNext()) return ' ';
         char ans = d[p].first;
@@ -21,10 +21,11 @@ public:
         }
         return ans;
     }
-    
+
     bool hasNext() {
         return p < d.size() && d[p].second > 0;
     }
+
 private:
     vector<pair<char, int>> d;
     int p = 0;

@@ -1,6 +1,6 @@
 class Solution {
     private static final int MOD = (int) 1e9 + 7;
-    
+
     public int numberOfPaths(int[][] grid, int k) {
         int m = grid.length, n = grid[0].length;
         int[][][] dp = new int[m][n][k];

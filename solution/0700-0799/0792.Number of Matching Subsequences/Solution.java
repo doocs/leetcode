@@ -11,7 +11,7 @@ class Solution {
             for (int t = q.size(); t > 0; --t) {
                 var p = q.pollFirst();
                 int i = p[0], j = p[1] + 1;
-                if (j ==  words[i].length()) {
+                if (j == words[i].length()) {
                     ++ans;
                 } else {
                     d[words[i].charAt(j) - 'a'].offer(new int[] {i, j});

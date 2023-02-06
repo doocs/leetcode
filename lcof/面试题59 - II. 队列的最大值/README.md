@@ -96,7 +96,6 @@ class MaxQueue {
     private Deque<Integer> q2 = new ArrayDeque<>();
 
     public MaxQueue() {
-
     }
 
     public int max_value() {

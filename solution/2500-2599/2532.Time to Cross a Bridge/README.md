@@ -171,7 +171,7 @@ class Solution {
         int[][] t = new int[k][5];
         for (int i = 0; i < k; ++i) {
             int[] x = time[i];
-            t[i] = new int[]{x[0], x[1], x[2], x[3], i};
+            t[i] = new int[] {x[0], x[1], x[2], x[3], i};
         }
         Arrays.sort(t, (a, b) -> {
             int x = a[0] + a[2], y = b[0] + b[2];
