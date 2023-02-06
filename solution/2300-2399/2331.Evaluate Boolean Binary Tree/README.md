@@ -302,13 +302,76 @@ func evaluateTree(root *TreeNode) bool {
 
 function evaluateTree(root: TreeNode | null): boolean {
     const { val, left, right } = root;
-    if (left == null && right == null) {
-        return !!val;
+    if (left == null) {
+        return val === 1;
     }
     if (val === 2) {
         return evaluateTree(left) || evaluateTree(right);
     }
     return evaluateTree(left) && evaluateTree(right);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        let root = root.as_ref().unwrap().as_ref().borrow();
+        if root.left.is_none() {
+            return root.val == 1;
+        }
+        if root.val == 2 {
+            return Self::dfs(&root.left) || Self::dfs(&root.right);
+        }
+        Self::dfs(&root.left) && Self::dfs(&root.right)
+    }
+
+    pub fn evaluate_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        Self::dfs(&root)
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+bool evaluateTree(struct TreeNode *root) {
+    if (!root->left) {
+        return root->val == 1;
+    }
+    if (root->val == 2) {
+        return evaluateTree(root->left) || evaluateTree(root->right);
+    }
+    return evaluateTree(root->left) && evaluateTree(root->right);
 }
 ```
 

@@ -14,8 +14,8 @@
 
 function evaluateTree(root: TreeNode | null): boolean {
     const { val, left, right } = root;
-    if (left == null && right == null) {
-        return !!val;
+    if (left == null) {
+        return val === 1;
     }
     if (val === 2) {
         return evaluateTree(left) || evaluateTree(right);
