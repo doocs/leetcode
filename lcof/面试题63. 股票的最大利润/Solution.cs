@@ -1,14 +1,11 @@
 public class Solution {
     public int MaxProfit(int[] prices) {
-        if (prices.Length == 0) {
-            return 0;
+        int mi = 1 << 30;
+        int ans = 0;
+        foreach(int x in prices) {
+            ans = Math.Max(ans, x - mi);
+            mi = Math.Min(mi, x);
         }
-        int mi = prices[0];
-        int res = 0;
-        for(int i = 1; i < prices.Length; i++) {
-            res = Math.Max(res, prices[i] - mi);
-            mi = Math.Min(mi, prices[i]);
-        }
-        return res;
+        return ans;
     }
 }

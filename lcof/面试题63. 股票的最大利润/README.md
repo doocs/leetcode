@@ -32,25 +32,11 @@
 
 ## 解法
 
-纯粹的说，此题是在数组当中寻找最大值与最小值，但存在一个限制条件，最大值必须在最小值的后面（相对数组中的存储位置）。
+**方法一：动态规划**
 
--   暴力解法
-    -   双指针遍历，记录两数最大差值。
-        ```txt
-        for i = 0 in arr.length - 1
-            for j = i in arr.length
-                r = max(r, arr[j] - arr[i])
-        ```
--   动态规划
-    -   准备一变量记录最大差值，初始化为 0；一变量记录最小值，初始化为无限大。
-    -   遍历数组，计算当前遍历元素与最小值的差值，并更新最大差值；再更新最小值。
-        ```txt
-        r = 0
-        m = ∞
-        for i = 0 in arr.length
-            r = max(r, arr[i] - m)
-            m = min(m, arr[i])
-        ```
+我们可以枚举当前的股票价格作为卖出价格，那么买入价格就是在它之前的最低股票价格，此时的利润就是卖出价格减去买入价格。我们可以用一个变量 `mi` 记录之前的最低股票价格，用一个变量 `ans` 记录最大利润，找出最大利润即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `prices` 的长度。
 
 <!-- tabs:start -->
 
@@ -59,14 +45,11 @@
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if len(prices) == 0:
-            return 0
-        mi = prices[0]
-        res = 0
-        for val in prices[1:]:
-            res = max(res, val - mi)
-            mi = min(mi, val)
-        return res
+        mi, ans = inf, 0
+        for x in prices:
+            ans = max(ans, x - mi)
+            mi = min(mi, x)
+        return ans
 ```
 
 ### **Java**
@@ -74,18 +57,56 @@ class Solution:
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
-        int len = prices.length;
-        if (len == 0) {
-            return 0;
+        int mi = 1 << 30, ans = 0;
+        for (int x : prices) {
+            ans = Math.max(ans, x - mi);
+            mi = Math.min(mi, x);
         }
-        int min = prices[0];
-        int res = 0;
-        for (int i = 1; i < len; ++i) {
-            res = Math.max(res, prices[i] - min);
-            min = Math.min(min, prices[i]);
-        }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int mi = 1 << 30, ans = 0;
+        for (int& x : prices) {
+            ans = max(ans, x - mi);
+            mi = min(mi, x);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProfit(prices []int) (ans int) {
+	mi := 1 << 30
+	for _, x := range prices {
+		ans = max(ans, x-mi)
+		mi = min(mi, x)
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -97,70 +118,14 @@ class Solution {
  * @return {number}
  */
 var maxProfit = function (prices) {
-    let a = 0;
-    let b = Infinity;
-    for (let p of prices) {
-        a = Math.max(a, p - b);
-        b = Math.min(b, p);
+    let mi = 1 << 30;
+    let ans = 0;
+    for (const x of prices) {
+        ans = Math.max(ans, x - mi);
+        mi = Math.min(mi, x);
     }
-    return a;
+    return ans;
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        if (prices.size() < 2) {
-            return 0;
-        }
-
-        int curMin = prices[0];
-        int maxDiff = prices[1] - prices[0];
-
-        for (int i = 2; i < prices.size(); i++) {
-            if (curMin > prices[i - 1]) {
-                curMin = prices[i - 1];
-            }
-
-            int diff = prices[i] - curMin;
-            if (maxDiff < diff) {
-                maxDiff = diff;
-            }
-        }
-
-        return maxDiff > 0 ? maxDiff : 0;
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxProfit(prices []int) int {
-	mi, mx := math.MaxInt32, 0
-	for _, price := range prices {
-		mx = max(mx, price-mi)
-		mi = min(mi, price)
-	}
-    return mx
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
 ```
 
 ### **TypeScript**
@@ -198,16 +163,13 @@ impl Solution {
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
-        if (prices.Length == 0) {
-            return 0;
+        int mi = 1 << 30;
+        int ans = 0;
+        foreach(int x in prices) {
+            ans = Math.Max(ans, x - mi);
+            mi = Math.Min(mi, x);
         }
-        int mi = prices[0];
-        int res = 0;
-        for(int i = 1; i < prices.Length; i++) {
-            res = Math.Max(res, prices[i] - mi);
-            mi = Math.Min(mi, prices[i]);
-        }
-        return res;
+        return ans;
     }
 }
 ```

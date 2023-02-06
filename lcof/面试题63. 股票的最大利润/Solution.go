@@ -1,22 +1,22 @@
-func maxProfit(prices []int) int {
-	mi, mx := math.MaxInt32, 0
-	for _, price := range prices {
-		mx = max(mx, price-mi)
-		mi = min(mi, price)
+func maxProfit(prices []int) (ans int) {
+	mi := 1 << 30
+	for _, x := range prices {
+		ans = max(ans, x-mi)
+		mi = min(mi, x)
 	}
-	return mx
+	return
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return y
+	return b
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	return y
+	return b
 }
