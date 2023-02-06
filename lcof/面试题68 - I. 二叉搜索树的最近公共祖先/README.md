@@ -42,15 +42,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-从上到下搜索，找到第一个值位于 `[p, q]` 之间的结点即可。既可以用迭代实现，也可以用递归实现。
+**方法一：一次遍历**
+
+从上到下遍历二叉树，找到第一个值位于 $[p.val,.. q.val]$ 之间的结点即可。既可以用迭代实现，也可以用递归实现。
+
+时间复杂度 $O(n)$，其中 $n$ 是二叉树的结点数。空间复杂度方面，迭代实现的空间复杂度为 $O(1)$，递归实现的空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
-
-#### 迭代法
 
 ```python
 # Definition for a binary tree node.
@@ -65,9 +67,7 @@ class Solution:
     def lowestCommonAncestor(
         self, root: TreeNode, p: TreeNode, q: TreeNode
     ) -> TreeNode:
-        if p == q:
-            return p
-        while root:
+        while 1:
             if root.val < p.val and root.val < q.val:
                 root = root.right
             elif root.val > p.val and root.val > q.val:
@@ -75,8 +75,6 @@ class Solution:
             else:
                 return root
 ```
-
-#### 递归法
 
 ```python
 # Definition for a binary tree node.
@@ -111,10 +109,7 @@ class Solution:
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (p == q) {
-            return p;
-        }
-        while (root != null) {
+        while (true) {
             if (root.val < p.val && root.val < q.val) {
                 root = root.right;
             } else if (root.val > p.val && root.val > q.val) {
@@ -123,8 +118,128 @@ class Solution {
                 return root;
             }
         }
-        return null;
     }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root.val < p.val && root.val < q.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        if (root.val > p.val && root.val > q.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        }
+        return root;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root->val < p->val && root->val < q->val) {
+            return lowestCommonAncestor(root->right, p, q);
+        }
+        if (root->val > p->val && root->val > q->val) {
+            return lowestCommonAncestor(root->left, p, q);
+        }
+        return root;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        while (1) {
+            if (root->val < p->val && root->val < q->val) {
+                root = root->right;
+            } else if (root->val > p->val && root->val > q->val) {
+                root = root->left;
+            } else {
+                return root;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	if root.Val < p.Val && root.Val < q.Val {
+		return lowestCommonAncestor(root.Right, p, q)
+	}
+	if root.Val > p.Val && root.Val > q.Val {
+		return lowestCommonAncestor(root.Left, p, q)
+	}
+	return root
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	for {
+		if root.Val < p.Val && root.Val < q.Val {
+			root = root.Right
+		} else if root.Val > p.Val && root.Val > q.Val {
+			root = root.Left
+		} else {
+			return root
+		}
+	}
 }
 ```
 
@@ -145,8 +260,6 @@ class Solution {
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function (root, p, q) {
-    // 递归
-    if (!root) return null;
     if (root.val < p.val && root.val < q.val) {
         return lowestCommonAncestor(root.right, p, q);
     } else if (root.val > p.val && root.val > q.val) {
@@ -157,8 +270,6 @@ var lowestCommonAncestor = function (root, p, q) {
 ```
 
 ### **TypeScript**
-
-递归：
 
 ```ts
 /**
@@ -191,8 +302,6 @@ function lowestCommonAncestor(
     return root;
 }
 ```
-
-循环：
 
 ```ts
 /**
