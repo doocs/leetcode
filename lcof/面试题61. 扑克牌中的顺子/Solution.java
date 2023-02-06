@@ -1,18 +1,18 @@
 class Solution {
     public boolean isStraight(int[] nums) {
-        boolean[] t = new boolean[14];
-        int maxVal = Integer.MIN_VALUE, minVal = Integer.MAX_VALUE;
-        for (int num : nums) {
-            if (num == 0) {
+        boolean[] vis = new boolean[14];
+        int mi = 20, mx = -1;
+        for (int x : nums) {
+            if (x == 0) {
                 continue;
             }
-            if (t[num]) {
+            if (vis[x]) {
                 return false;
             }
-            t[num] = true;
-            maxVal = Math.max(maxVal, num);
-            minVal = Math.min(minVal, num);
+            vis[x] = true;
+            mi = Math.min(mi, x);
+            mx = Math.max(mx, x);
         }
-        return maxVal - minVal <= 4;
+        return mx - mi <= 4;
     }
 }

@@ -1,30 +1,30 @@
 func isStraight(nums []int) bool {
-	m := make(map[int]struct{})
-	mi, ma := 14, 0
-	for _, num := range nums {
-		if num == 0 {
+	vis := map[int]bool{}
+	mi, mx := 20, -1
+	for _, x := range nums {
+		if x == 0 {
 			continue
 		}
-		if _, exist := m[num]; exist {
+		if vis[x] {
 			return false
 		}
-		mi = min(mi, num)
-		ma = max(ma, num)
-		m[num] = struct{}{}
+		vis[x] = true
+		mi = min(mi, x)
+		mx = max(mx, x)
 	}
-	return ma-mi < 5
+	return mx-mi <= 4
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	return y
+	return b
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return y
+	return b
 }

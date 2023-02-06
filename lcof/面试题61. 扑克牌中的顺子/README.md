@@ -34,25 +34,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-顺子不成立的核心条件：
+**方法一：遍历**
 
--   存在重复。
--   最大值与最小值的差距超过 4（最大最小值比较不包括 0 在内）。
+我们首先明确顺子不成立的核心条件：
 
-解决方案：
+1. 存在非 $0$ 的重复。
+2. 最大值与最小值的差距超过 4（最大最小值比较不包括 $0$ 在内）。
 
--   数组计数
+因此，我们可以用一个哈希表或数组 `vis` 记录数字是否出现过，用 `mi` 和 `mx` 记录最大值和最小值。遍历数组，忽略大小王（$0$），求出数组的最大、最小值。若最后差值超过 $4$，则无法构成顺子。
 
-    -   用数组 `t` 记录是否存在重复的数，存在则直接返回 `false`。
-    -   遍历数组，忽略大小王(0)，求出数组的最大、最小值。若最后差值超过 4，则无法构成顺子，例如：`5,6,(0),8,10`。
-
--   排序
-    -   声明一个起始指针，初始化为 0。
-    -   对数组进行排序，并遍历数组：
-        -   若遍历元素为 0，将起始指针向右移。
-        -   若遍历元素与相邻元素相同（忽略 0），则绝对不成立，`return false`。
-    -   遍历结束，比较最大值（数组末尾元素）与起始指针所指向的元素，若是两者值相差大于 4，则顺子不成立。
-        > 起始指针所做的便是找到除 0 之外，数组当中的最小值。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -63,17 +54,17 @@
 ```python
 class Solution:
     def isStraight(self, nums: List[int]) -> bool:
-        t = [False for _ in range(14)]
-        max_val, min_val = 0, 14
-        for num in nums:
-            if num == 0:
+        vis = set()
+        mi, mx = inf, -inf
+        for x in nums:
+            if x == 0:
                 continue
-            if t[num]:
+            if x in vis:
                 return False
-            t[num] = True
-            max_val = max(max_val, num)
-            min_val = min(min_val, num)
-        return max_val - min_val <= 4
+            vis.add(x)
+            mi = min(mi, x)
+            mx = max(mx, x)
+        return mx - mi <= 4
 ```
 
 ### **Java**
@@ -83,21 +74,80 @@ class Solution:
 ```java
 class Solution {
     public boolean isStraight(int[] nums) {
-        boolean[] t = new boolean[14];
-        int maxVal = Integer.MIN_VALUE, minVal = Integer.MAX_VALUE;
-        for (int num : nums) {
-            if (num == 0) {
+        boolean[] vis = new boolean[14];
+        int mi = 20, mx = -1;
+        for (int x : nums) {
+            if (x == 0) {
                 continue;
             }
-            if (t[num]) {
+            if (vis[x]) {
                 return false;
             }
-            t[num] = true;
-            maxVal = Math.max(maxVal, num);
-            minVal = Math.min(minVal, num);
+            vis[x] = true;
+            mi = Math.min(mi, x);
+            mx = Math.max(mx, x);
         }
-        return maxVal - minVal <= 4;
+        return mx - mi <= 4;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isStraight(vector<int>& nums) {
+        bool vis[14]{};
+        int mi = 20, mx = -1;
+        for (int& x : nums) {
+            if (x == 0) {
+                continue;
+            }
+            if (vis[x]) {
+                return false;
+            }
+            vis[x] = true;
+            mi = min(mi, x);
+            mx = max(mx, x);
+        }
+        return mx - mi <= 4;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isStraight(nums []int) bool {
+	vis := map[int]bool{}
+	mi, mx := 20, -1
+	for _, x := range nums {
+		if x == 0 {
+			continue
+		}
+		if vis[x] {
+			return false
+		}
+		vis[x] = true
+		mi = min(mi, x)
+		mx = max(mx, x)
+	}
+	return mx-mi <= 4
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -109,90 +159,22 @@ class Solution {
  * @return {boolean}
  */
 var isStraight = function (nums) {
-    let zeroCnt = 0;
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] === 0) zeroCnt++;
-        else {
-            if (nums[i] === nums[i + 1]) return false;
-            else if (nums[i] === nums[i + 1] - 1) {
-                continue;
-            } else if (nums[i] >= nums[i + 1] - zeroCnt - 1) {
-                zeroCnt--;
-            } else {
-                return false;
-            }
+    const vis = new Array(14).fill(false);
+    let mi = 20;
+    let mx = -1;
+    for (const x of nums) {
+        if (x == 0) {
+            continue;
         }
-        if (zeroCnt < 0) return false;
-    }
-    return true;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isStraight(vector<int>& nums) {
-        if (nums.size() != 5) {
+        if (vis[x]) {
             return false;
         }
-
-        std::sort(nums.begin(), nums.end());
-        int zeroNum = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] != 0) {
-                // 这题的用例中，会出现超过两个0的情况
-                break;
-            }
-            zeroNum++;
-        }
-
-        for (int i = zeroNum; i < nums.size() - 1; i++) {
-            if (nums[i] == nums[i + 1]) {
-                return false;
-            }
-        }
-
-        return nums[4] - nums[zeroNum] <= 4;
+        vis[x] = true;
+        mi = Math.min(mi, x);
+        mx = Math.max(mx, x);
     }
+    return mx - mi <= 4;
 };
-```
-
-### **Go**
-
-```go
-func isStraight(nums []int) bool {
-	m := make(map[int]struct{})
-	mi, ma := 14, 0
-	for _, num := range nums {
-		if num == 0 {
-			continue
-		}
-		if _, exist := m[num]; exist {
-			return false
-		}
-		mi = min(mi, num)
-		ma = max(ma, num)
-		m[num] = struct{}{}
-	}
-	return ma-mi < 5
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
 ```
 
 ### **TypeScript**
@@ -236,20 +218,20 @@ impl Solution {
 ```cs
 public class Solution {
     public bool IsStraight(int[] nums) {
-        bool[] t = new bool[14];
-        int max_val = 0, min_val = 14;
-        foreach(var num in nums) {
-            if (num == 0) {
+        bool[] vis = new bool[14];
+        int mi = 20, mx = -1;
+        foreach(int x in nums) {
+            if (x == 0) {
                 continue;
             }
-            if (t[num]) {
+            if (vis[x]) {
                 return false;
             }
-            t[num] = true;
-            max_val = Math.Max(max_val, num);
-            min_val = Math.Min(min_val, num);
+            vis[x] = true;
+            mi = Math.Min(mi, x);
+            mx = Math.Max(mx, x);
         }
-        return max_val - min_val <= 4;
+        return mx - mi <= 4;
     }
 }
 ```

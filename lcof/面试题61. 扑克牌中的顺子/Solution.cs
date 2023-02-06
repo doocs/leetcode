@@ -1,18 +1,18 @@
 public class Solution {
     public bool IsStraight(int[] nums) {
-        bool[] t = new bool[14];
-        int max_val = 0, min_val = 14;
-        foreach(var num in nums) {
-            if (num == 0) {
+        bool[] vis = new bool[14];
+        int mi = 20, mx = -1;
+        foreach(int x in nums) {
+            if (x == 0) {
                 continue;
             }
-            if (t[num]) {
+            if (vis[x]) {
                 return false;
             }
-            t[num] = true;
-            max_val = Math.Max(max_val, num);
-            min_val = Math.Min(min_val, num);
+            vis[x] = true;
+            mi = Math.Min(mi, x);
+            mx = Math.Max(mx, x);
         }
-        return max_val - min_val <= 4;
+        return mx - mi <= 4;
     }
 }

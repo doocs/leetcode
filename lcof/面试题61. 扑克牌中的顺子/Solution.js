@@ -3,21 +3,19 @@
  * @return {boolean}
  */
 var isStraight = function (nums) {
-    let zeroCnt = 0;
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] === 0) zeroCnt++;
-        else {
-            if (nums[i] === nums[i + 1]) return false;
-            else if (nums[i] === nums[i + 1] - 1) {
-                continue;
-            } else if (nums[i] >= nums[i + 1] - zeroCnt - 1) {
-                zeroCnt--;
-            } else {
-                return false;
-            }
+    const vis = new Array(14).fill(false);
+    let mi = 20;
+    let mx = -1;
+    for (const x of nums) {
+        if (x == 0) {
+            continue;
         }
-        if (zeroCnt < 0) return false;
+        if (vis[x]) {
+            return false;
+        }
+        vis[x] = true;
+        mi = Math.min(mi, x);
+        mx = Math.max(mx, x);
     }
-    return true;
+    return mx - mi <= 4;
 };
