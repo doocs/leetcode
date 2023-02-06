@@ -4,10 +4,9 @@
  * @return {number}
  */
 var lastRemaining = function (n, m) {
-    // 约瑟夫环
-    let res = 0;
-    for (let i = 1; i <= n; i++) {
-        res = (res + m) % i;
+    let f = 0;
+    for (let i = 2; i <= n; ++i) {
+        f = (f + m) % i;
     }
-    return res;
+    return f;
 };

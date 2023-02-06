@@ -37,23 +37,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-设 `f(n, m)` 表示从 n 个数中每次删除第 m 个，最后剩下的数字。
+**方法一：数学 + 递归（迭代）**
 
-第一次删除第 m 个，剩下 `n-1` 个数，那么 `x = f(n - 1, m)` 就表示从 n-1 个数中每次删除第 m 个，最后剩下的数字。
+我们不妨设 $f(n, m)$ 表示从 $n$ 个数中每次删除第 $m$ 个，最后剩下的是第几个数字。
 
-我们求得 x 之后，便可以知道，`f(n, m)` 应该是从 `m % n` 开始数的第 x 个元素，即 `f(n, m) = ((m % n) + x) % n`。
+我们第一次删除了第 $m$ 个数字，剩下 $n-1$ 个数，那么 $x=f(n - 1, m)$ 就表示从剩下的 $n-1$ 个数中，每次删除第 $m$ 个，最后剩下的是第几个数字。
 
-当 n 为 1 时，最后留下的数字序号一定为 0。
+我们求得 $x$ 之后，便可以知道 $f(n, m)$ 应该是从 $m \% n$ 开始数的第 $x$ 个元素，即 $f(n, m) = (m \% n + x) \% n$。
+
+当 $n$ 为 $1$ 时，最后留下的数字序号一定为 $0$。
 
 递归求解即可，也可以改成迭代。
+
+时间复杂度 $O(n)$，递归的空间复杂度 $O(n)$，迭代的空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
-
-递归版本：
 
 ```python
 class Solution:
@@ -66,8 +68,6 @@ class Solution:
 
         return f(n, m)
 ```
-
-迭代版本：
 
 ```python
 class Solution:
@@ -85,12 +85,86 @@ class Solution:
 ```java
 class Solution {
     public int lastRemaining(int n, int m) {
+        return f(n, m);
+    }
+
+    private int f(int n, int m) {
+        if (n == 1) {
+            return 0;
+        }
+        int x = f(n - 1, m);
+        return (m + x) % n;
+    }
+}
+```
+
+```java
+class Solution {
+    public int lastRemaining(int n, int m) {
         int f = 0;
         for (int i = 2; i <= n; ++i) {
             f = (f + m) % i;
         }
         return f;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lastRemaining(int n, int m) {
+        return f(n, m);
+    }
+
+    int f(int n, int m) {
+        if (n == 1) {
+            return 0;
+        }
+        int x = f(n - 1, m);
+        return (m + x) % n;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int lastRemaining(int n, int m) {
+        int f = 0;
+        for (int i = 2; i <= n; ++i) {
+            f = (f + m) % i;
+        }
+        return f;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lastRemaining(n int, m int) int {
+	var f func(n, m int) int
+	f = func(n, m int) int {
+		if n == 1 {
+			return 0
+		}
+		x := f(n-1, m)
+		return (m + x) % n
+	}
+	return f(n, m)
+}
+```
+
+```go
+func lastRemaining(n int, m int) int {
+	f := 0
+	for i := 2; i <= n; i++ {
+		f = (f + m) % i
+	}
+	return f
 }
 ```
 
@@ -103,25 +177,12 @@ class Solution {
  * @return {number}
  */
 var lastRemaining = function (n, m) {
-    // 约瑟夫环
-    let res = 0;
-    for (let i = 1; i <= n; i++) {
-        res = (res + m) % i;
+    let f = 0;
+    for (let i = 2; i <= n; ++i) {
+        f = (f + m) % i;
     }
-    return res;
+    return f;
 };
-```
-
-### **Go**
-
-```go
-func lastRemaining(n int, m int) int {
-	f := 0
-	for i := 2; i <= n; i++ {
-		f = (f + m) % i
-	}
-	return f
-}
 ```
 
 ### **C#**
