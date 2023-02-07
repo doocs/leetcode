@@ -3,19 +3,21 @@ class Solution {
         int ans = 0;
         List<Integer> masks = new ArrayList<>();
         masks.add(0);
-
-    loop:
-        for (String s : arr) {
+        for (var s : arr) {
             int mask = 0;
-            for (char ch : s.toCharArray()) {
-                ch -= 'a';
-                if (((mask >> ch) & 1) == 1) {
-                    continue loop;
+            for (int i = 0; i < s.length(); ++i) {
+                int j = s.charAt(i) - 'a';
+                if (((mask >> j) & 1) == 1) {
+                    mask = 0;
+                    break;
                 }
-                mask |= 1 << ch;
+                mask |= 1 << j;
+            }
+            if (mask == 0) {
+                continue;
             }
             int n = masks.size();
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; ++i) {
                 int m = masks.get(i);
                 if ((m & mask) == 0) {
                     masks.add(m | mask);
@@ -23,7 +25,6 @@ class Solution {
                 }
             }
         }
-
         return ans;
     }
 }
