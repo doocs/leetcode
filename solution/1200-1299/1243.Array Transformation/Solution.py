@@ -1,15 +1,14 @@
 class Solution:
     def transformArray(self, arr: List[int]) -> List[int]:
-        copy = [e for e in arr]
-        has_change, n = True, len(arr)
-        while has_change:
-            has_change = False
-            for i in range(1, n - 1):
-                if arr[i] < copy[i - 1] and arr[i] < copy[i + 1]:
-                    arr[i] += 1
-                    has_change = True
-                elif arr[i] > copy[i - 1] and arr[i] > copy[i + 1]:
+        f = True
+        while f:
+            f = False
+            t = arr[:]
+            for i in range(1, len(t) - 1):
+                if t[i] > t[i - 1] and t[i] > t[i + 1]:
                     arr[i] -= 1
-                    has_change = True
-            copy = [e for e in arr]
+                    f = True
+                if t[i] < t[i - 1] and t[i] < t[i + 1]:
+                    arr[i] += 1
+                    f = True
         return arr
