@@ -56,90 +56,65 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def removeSubfolders(self, folder: List[str]) -> List[str]:
+        folder.sort()
+        ans = [folder[0]]
+        for f in folder[1:]:
+            m, n = len(ans[-1]), len(f)
+            if m >= n or not (ans[-1] == f[:m] and f[m] == '/'):
+                ans.append(f)
+        return ans
+```
+
+```python
 class Trie:
     def __init__(self):
         self.children = {}
-        self.is_end = False
+        self.fid = -1
 
-    def insert(self, w):
+    def insert(self, i, f):
         node = self
-        ps = w.split('/')
+        ps = f.split('/')
         for p in ps[1:]:
             if p not in node.children:
                 node.children[p] = Trie()
             node = node.children[p]
-        node.is_end = True
+        node.fid = i
 
-    def search(self, w):
-        node = self
-        ps = w.split('/')
-        for p in ps[1:]:
-            if p not in node.children:
-                return False
-            node = node.children[p]
-            if node.is_end:
-                return True
-        return False
+    def search(self):
+        def dfs(root):
+            if root.fid != -1:
+                ans.append(root.fid)
+                return
+            for child in root.children.values():
+                dfs(child)
 
+        ans = []
+        dfs(self)
+        return ans
 
 class Solution:
     def removeSubfolders(self, folder: List[str]) -> List[str]:
         trie = Trie()
-        folder.sort(key=lambda x: len(x.split('/')))
-        ans = []
-        for v in folder:
-            if not trie.search(v):
-                trie.insert(v)
-                ans.append(v)
-        return ans
+        for i, f in enumerate(folder):
+            trie.insert(i, f)
+        return [folder[i] for i in trie.search()]
 ```
 
 ### **Java**
 
 ```java
-class Trie {
-    Map<String, Trie> children = new HashMap<>();
-    boolean isEnd;
-
-    void insert(String w) {
-        Trie node = this;
-        String[] ps = w.split("/");
-        for (int i = 1; i < ps.length; ++i) {
-            String p = ps[i];
-            if (!node.children.containsKey(p)) {
-                node.children.put(p, new Trie());
-            }
-            node = node.children.get(p);
-        }
-        node.isEnd = true;
-    }
-
-    boolean search(String w) {
-        Trie node = this;
-        String[] ps = w.split("/");
-        for (int i = 1; i < ps.length; ++i) {
-            String p = ps[i];
-            if (!node.children.containsKey(p)) {
-                return false;
-            }
-            node = node.children.get(p);
-            if (node.isEnd) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-
 class Solution {
     public List<String> removeSubfolders(String[] folder) {
-        Arrays.sort(folder, (a, b) -> a.split("/").length - b.split("/").length);
-        Trie trie = new Trie();
+        Arrays.sort(folder);
         List<String> ans = new ArrayList<>();
-        for (String v : folder) {
-            if (!trie.search(v)) {
-                trie.insert(v);
-                ans.add(v);
+        ans.add(folder[0]);
+        for (int i = 1; i < folder.length; ++i) {
+            int m = ans.get(ans.size() - 1).length();
+            int n = folder[i].length();
+            if (m >= n || !(ans.get(ans.size() - 1).equals(folder[i].substring(0, m)) && folder[i].charAt(m) == '/')) {
+                ans.add(folder[i]);
             }
         }
         return ans;
@@ -147,57 +122,200 @@ class Solution {
 }
 ```
 
+```java
+class Trie {
+    private Map<String, Trie> children = new HashMap<>();
+    private int fid = -1;
+
+    public void insert(int fid, String f) {
+        Trie node = this;
+        String[] ps = f.split("/");
+        for (int i = 1; i < ps.length; ++i) {
+            String p = ps[i];
+            if (!node.children.containsKey(p)) {
+                node.children.put(p, new Trie());
+            }
+            node = node.children.get(p);
+        }
+        node.fid = fid;
+    }
+
+    public List<Integer> search() {
+        List<Integer> ans = new ArrayList<>();
+        dfs(this, ans);
+        return ans;
+    }
+
+    private void dfs(Trie root, List<Integer> ans) {
+        if (root.fid != -1) {
+            ans.add(root.fid);
+            return;
+        }
+        for (var child : root.children.values()) {
+            dfs(child, ans);
+        }
+    }
+}
+
+class Solution {
+    public List<String> removeSubfolders(String[] folder) {
+        Trie trie = new Trie();
+        for (int i = 0; i < folder.length; ++i) {
+            trie.insert(i, folder[i]);
+        }
+        List<String> ans = new ArrayList<>();
+        for (int i : trie.search()) {
+            ans.add(folder[i]);
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> removeSubfolders(vector<string>& folder) {
+        sort(folder.begin(), folder.end());
+        vector<string> ans = {folder[0]};
+        for (int i = 1; i < folder.size(); ++i) {
+            int m = ans.back().size();
+            int n = folder[i].size();
+            if (m >= n || !(ans.back() == folder[i].substr(0, m) && folder[i][m] == '/')) {
+                ans.emplace_back(folder[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Trie {
+public:
+    void insert(int fid, string& f) {
+        Trie* node = this;
+        vector<string> ps = split(f, '/');
+        for (int i = 1; i < ps.size(); ++i) {
+            auto& p = ps[i];
+            if (!node->children.count(p)) {
+                node->children[p] = new Trie();
+            }
+            node = node->children[p];
+        }
+        node->fid = fid;
+    }
+
+    vector<int> search() {
+        vector<int> ans;
+        function<void(Trie*)> dfs = [&](Trie* root) {
+            if (root->fid != -1) {
+                ans.push_back(root->fid);
+                return;
+            }
+            for (auto& [_, child] : root->children) {
+                dfs(child);
+            }
+        };
+        dfs(this);
+        return ans;
+    }
+
+    vector<string> split(string& s, char delim) {
+        stringstream ss(s);
+        string item;
+        vector<string> res;
+        while (getline(ss, item, delim)) {
+            res.emplace_back(item);
+        }
+        return res;
+    }
+
+private:
+    unordered_map<string, Trie*> children;
+    int fid = -1;
+};
+
+class Solution {
+public:
+    vector<string> removeSubfolders(vector<string>& folder) {
+        Trie* trie = new Trie();
+        for (int i = 0; i < folder.size(); ++i) {
+            trie->insert(i, folder[i]);
+        }
+        vector<string> ans;
+        for (int i : trie->search()) {
+            ans.emplace_back(folder[i]);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
+
+```go
+func removeSubfolders(folder []string) []string {
+	sort.Strings(folder)
+	ans := []string{folder[0]}
+	for _, f := range folder[1:] {
+		m, n := len(ans[len(ans)-1]), len(f)
+		if m >= n || !(ans[len(ans)-1] == f[:m] && f[m] == '/') {
+			ans = append(ans, f)
+		}
+	}
+	return ans
+}
+```
 
 ```go
 type Trie struct {
 	children map[string]*Trie
-	isEnd    bool
+	fid      int
 }
 
 func newTrie() *Trie {
-	m := map[string]*Trie{}
-	return &Trie{children: m}
+	return &Trie{map[string]*Trie{}, -1}
 }
 
-func (this *Trie) insert(w string) {
+func (this *Trie) insert(fid int, f string) {
 	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
+	ps := strings.Split(f, "/")
+	for _, p := range ps[1:] {
 		if _, ok := node.children[p]; !ok {
 			node.children[p] = newTrie()
 		}
-		node, _ = node.children[p]
+		node = node.children[p]
 	}
-	node.isEnd = true
+	node.fid = fid
 }
 
-func (this *Trie) search(w string) bool {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
-		if _, ok := node.children[p]; !ok {
-			return false
+func (this *Trie) search() (ans []int) {
+	var dfs func(*Trie)
+	dfs = func(root *Trie) {
+		if root.fid != -1 {
+			ans = append(ans, root.fid)
+			return
 		}
-		node, _ = node.children[p]
-		if node.isEnd {
-			return true
+		for _, child := range root.children {
+			dfs(child)
 		}
 	}
-	return false
+	dfs(this)
+	return
 }
 
-func removeSubfolders(folder []string) []string {
-	sort.Slice(folder, func(i, j int) bool {
-		return len(strings.Split(folder[i], "/")) < len(strings.Split(folder[j], "/"))
-	})
+func removeSubfolders(folder []string) (ans []string) {
 	trie := newTrie()
-	var ans []string
-	for _, v := range folder {
-		if !trie.search(v) {
-			trie.insert(v)
-			ans = append(ans, v)
-		}
+	for i, f := range folder {
+		trie.insert(i, f)
 	}
-	return ans
+	for _, i := range trie.search() {
+		ans = append(ans, folder[i])
+	}
+	return
 }
 ```
 
