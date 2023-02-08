@@ -54,51 +54,109 @@
 ```python
 class Solution:
     def balancedString(self, s: str) -> int:
-        # count the occurence of each char
-        count_chars = Counter(s)
-
-        required = len(s) // 4
-
-        # hold the number of excessive occurences
-        more_chars = defaultdict(int)
-        for char, count_char in count_chars.items():
-            more_chars[char] = max(0, count_char - required)
-
-        min_len = len(s)
-
-        # count the number of total replacements
-        need_replace = sum(more_chars.values())
-        if need_replace == 0:
+        cnt = Counter(s)
+        n = len(s)
+        if all(v <= n // 4 for v in cnt.values()):
             return 0
-
-        # Sliding windows
-        # First, move the second cursors until satisfy the conditions
-        # Second, move the first_cursor so that it still satisfy the requirement
-
-        first_cursor, second_cursor = 0, 0
-        while second_cursor < len(s):
-            # Move second_cursor
-            if more_chars[s[second_cursor]] > 0:
-                need_replace -= 1
-            more_chars[s[second_cursor]] -= 1
-            second_cursor += 1
-
-            # Move first_cursor
-            while first_cursor < second_cursor and need_replace == 0:
-                min_len = min(min_len, second_cursor - first_cursor)
-                if s[first_cursor] in more_chars:
-                    more_chars[s[first_cursor]] += 1
-                    if more_chars[s[first_cursor]] > 0:
-                        need_replace += 1
-                first_cursor += 1
-
-        return min_len
+        ans, j = n, 0
+        for i, c in enumerate(s):
+            cnt[c] -= 1
+            while j <= i and all(v <= n // 4 for v in cnt.values()):
+                ans = min(ans, i - j + 1)
+                cnt[s[j]] += 1
+                j += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int balancedString(String s) {
+        int[] cnt = new int[4];
+        String t = "QWER";
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            cnt[t.indexOf(s.charAt(i))]++;
+        }
+        int m = n / 4;
+        if (cnt[0] == m && cnt[1] == m && cnt[2] == m && cnt[3] == m) {
+            return 0;
+        }
+        int ans = n;
+        for (int i = 0, j = 0; i < n; ++i) {
+            cnt[t.indexOf(s.charAt(i))]--;
+            while (j <= i && cnt[0] <= m && cnt[1] <= m && cnt[2] <= m && cnt[3] <= m) {
+                ans = Math.min(ans, i - j + 1);
+                cnt[t.indexOf(s.charAt(j++))]++;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int balancedString(string s) {
+        int cnt[4]{};
+        string t = "QWER";
+        int n = s.size();
+        for (char& c : s) {
+            cnt[t.find(c)]++;
+        }
+        int m = n / 4;
+        if (cnt[0] == m && cnt[1] == m && cnt[2] == m && cnt[3] == m) {
+            return 0;
+        }
+        int ans = n;
+        for (int i = 0, j = 0; i < n; ++i) {
+            cnt[t.find(s[i])]--;
+            while (j <= i && cnt[0] <= m && cnt[1] <= m && cnt[2] <= m && cnt[3] <= m) {
+                ans = min(ans, i - j + 1);
+                cnt[t.find(s[j++])]++;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func balancedString(s string) int {
+	cnt := [4]int{}
+	t := "QWER"
+	n := len(s)
+	for i := range s {
+		cnt[strings.IndexByte(t, s[i])]++
+	}
+	m := n / 4
+	if cnt[0] == m && cnt[1] == m && cnt[2] == m && cnt[3] == m {
+		return 0
+	}
+	ans := n
+	for i, j := 0, 0; i < n; i++ {
+		cnt[strings.IndexByte(t, s[i])]--
+		for j <= i && cnt[0] <= m && cnt[1] <= m && cnt[2] <= m && cnt[3] <= m {
+			ans = min(ans, i-j+1)
+			cnt[strings.IndexByte(t, s[j])]++
+			j++
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

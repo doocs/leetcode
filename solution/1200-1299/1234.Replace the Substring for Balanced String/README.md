@@ -67,6 +67,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数 + 双指针**
+
+我们先用一个哈希表或数组 `cnt` 统计字符串 $s$ 中每个字符的数量，如果所有字符的数量都不超过 $n/4$，那么字符串 $s$ 就是平衡字符串，直接返回 $0$。
+
+否则，我们使用双指针 $j$ 和 $i$ 分别维护窗口的左右边界，初始时 $j = 0$。
+
+接下来，从左到右遍历字符串 $s$，每次遍历到一个字符，就将该字符的数量减 $1$，然后判断当前窗口是否满足条件，即窗口外的字符数量都不超过 $n/4$。如果满足条件，那么就更新答案，然后将窗口的左边界右移，直到不满足条件为止。
+
+最后，返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度；而 $C$ 是字符集的大小，本题中 $C = 4$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,45 +88,18 @@
 ```python
 class Solution:
     def balancedString(self, s: str) -> int:
-        # count the occurence of each char
-        count_chars = Counter(s)
-
-        required = len(s) // 4
-
-        # hold the number of excessive occurences
-        more_chars = defaultdict(int)
-        for char, count_char in count_chars.items():
-            more_chars[char] = max(0, count_char - required)
-
-        min_len = len(s)
-
-        # count the number of total replacements
-        need_replace = sum(more_chars.values())
-        if need_replace == 0:
+        cnt = Counter(s)
+        n = len(s)
+        if all(v <= n // 4 for v in cnt.values()):
             return 0
-
-        # Sliding windows
-        # First, move the second cursors until satisfy the conditions
-        # Second, move the first_cursor so that it still satisfy the requirement
-
-        first_cursor, second_cursor = 0, 0
-        while second_cursor < len(s):
-            # Move second_cursor
-            if more_chars[s[second_cursor]] > 0:
-                need_replace -= 1
-            more_chars[s[second_cursor]] -= 1
-            second_cursor += 1
-
-            # Move first_cursor
-            while first_cursor < second_cursor and need_replace == 0:
-                min_len = min(min_len, second_cursor - first_cursor)
-                if s[first_cursor] in more_chars:
-                    more_chars[s[first_cursor]] += 1
-                    if more_chars[s[first_cursor]] > 0:
-                        need_replace += 1
-                first_cursor += 1
-
-        return min_len
+        ans, j = n, 0
+        for i, c in enumerate(s):
+            cnt[c] -= 1
+            while j <= i and all(v <= n // 4 for v in cnt.values()):
+                ans = min(ans, i - j + 1)
+                cnt[s[j]] += 1
+                j += 1
+        return ans
 ```
 
 ### **Java**
@@ -122,7 +107,92 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int balancedString(String s) {
+        int[] cnt = new int[4];
+        String t = "QWER";
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            cnt[t.indexOf(s.charAt(i))]++;
+        }
+        int m = n / 4;
+        if (cnt[0] == m && cnt[1] == m && cnt[2] == m && cnt[3] == m) {
+            return 0;
+        }
+        int ans = n;
+        for (int i = 0, j = 0; i < n; ++i) {
+            cnt[t.indexOf(s.charAt(i))]--;
+            while (j <= i && cnt[0] <= m && cnt[1] <= m && cnt[2] <= m && cnt[3] <= m) {
+                ans = Math.min(ans, i - j + 1);
+                cnt[t.indexOf(s.charAt(j++))]++;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int balancedString(string s) {
+        int cnt[4]{};
+        string t = "QWER";
+        int n = s.size();
+        for (char& c : s) {
+            cnt[t.find(c)]++;
+        }
+        int m = n / 4;
+        if (cnt[0] == m && cnt[1] == m && cnt[2] == m && cnt[3] == m) {
+            return 0;
+        }
+        int ans = n;
+        for (int i = 0, j = 0; i < n; ++i) {
+            cnt[t.find(s[i])]--;
+            while (j <= i && cnt[0] <= m && cnt[1] <= m && cnt[2] <= m && cnt[3] <= m) {
+                ans = min(ans, i - j + 1);
+                cnt[t.find(s[j++])]++;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func balancedString(s string) int {
+	cnt := [4]int{}
+	t := "QWER"
+	n := len(s)
+	for i := range s {
+		cnt[strings.IndexByte(t, s[i])]++
+	}
+	m := n / 4
+	if cnt[0] == m && cnt[1] == m && cnt[2] == m && cnt[3] == m {
+		return 0
+	}
+	ans := n
+	for i, j := 0, 0; i < n; i++ {
+		cnt[strings.IndexByte(t, s[i])]--
+		for j <= i && cnt[0] <= m && cnt[1] <= m && cnt[2] <= m && cnt[3] <= m {
+			ans = min(ans, i-j+1)
+			cnt[strings.IndexByte(t, s[j])]++
+			j++
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
