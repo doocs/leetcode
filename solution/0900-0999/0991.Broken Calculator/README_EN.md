@@ -52,13 +52,75 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def brokenCalc(self, startValue: int, target: int) -> int:
+        ans = 0
+        while startValue < target:
+            if target & 1:
+                target += 1
+            else:
+                target >>= 1
+            ans += 1
+        ans += startValue - target
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int brokenCalc(int startValue, int target) {
+        int ans = 0;
+        while (startValue < target) {
+            if ((target & 1) == 1) {
+                target++;
+            } else {
+                target >>= 1;
+            }
+            ans += 1;
+        }
+        ans += startValue - target;
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int brokenCalc(int startValue, int target) {
+        int ans = 0;
+        while (startValue < target) {
+            if (target & 1) {
+                target++;
+            } else {
+                target >>= 1;
+            }
+            ++ans;
+        }
+        ans += startValue - target;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func brokenCalc(startValue int, target int) (ans int) {
+	for startValue < target {
+		if target&1 == 1 {
+			target++
+		} else {
+			target >>= 1
+		}
+		ans++
+	}
+	ans += startValue - target
+	return
+}
 ```
 
 ### **...**
