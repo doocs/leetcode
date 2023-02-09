@@ -1,5 +1,5 @@
 /**
- * Definition for a binary tree node->
+ * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -12,28 +12,24 @@
 class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
-        vector<int> p(110);
-        vector<int> d(110);
-        queue<TreeNode*> q;
-        q.push(root);
-        int i = 0;
-        while (!q.empty()) {
-            int n = q.size();
-            while (n--) {
-                auto node = q.front();
-                d[node->val] = i;
-                q.pop();
-                if (node->left) {
-                    q.push(node->left);
-                    p[node->left->val] = node->val;
-                }
-                if (node->right) {
-                    q.push(node->right);
-                    p[node->right->val] = node->val;
-                }
+        TreeNode* p1, *p2;
+        int d1, d2;
+        function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* root, TreeNode* fa, int d) {
+            if (!root) {
+                return;
             }
-            ++i;
-        }
-        return p[x] != p[y] && d[x] == d[y];
+            if (root->val == x) {
+                p1 = fa;
+                d1 = d;
+            }
+            if (root->val == y) {
+                p2 = fa;
+                d2 = d;
+            }
+            dfs(root->left, root, d + 1);
+            dfs(root->right, root, d + 1);
+        };
+        dfs(root, nullptr, 0);
+        return p1 != p2 && d1 == d2;
     }
 };

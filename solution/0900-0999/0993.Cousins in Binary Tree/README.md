@@ -55,11 +55,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**1. BFS 实现**
+**方法一：BFS**
 
-可以利用数组 p, d 记录每个节点对应的父节点以及深度。
+我们定义一个队列 $q$，队列中存储的是节点和其父节点。初始时，将根节点和空节点放入队列中。
 
-**2. DFS 实现**
+每次从队列中取出一个节点，如果该节点的值为 $x$ 或 $y$，则记录该节点的父节点和深度。如果该节点的左右子节点不为空，则将左右子节点和该节点放入队列中。
+
+当队列中所有节点都处理完毕后，如果 $x$ 和 $y$ 的深度相同且父节点不同，则返回 $true$，否则返回 $false$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
+
+**方法二：DFS**
+
+我们设计一个函数 $dfs(root, fa, d)$，表示从根节点 $root$ 出发，其父节点为 $fa$，深度为 $d$，进行深度优先搜索。
+
+在函数中，我们首先判断当前节点是否为空，如果为空，则直接返回。如果当前节点的值为 $x$ 或 $y$，则记录该节点的父节点和深度。然后对当前节点的左右子节点分别调用函数 $dfs$，其中父节点为当前节点，深度为当前深度加 $1$。即 $dfs(root.left, root, d + 1)$ 和 $dfs(root.right, root, d + 1)$。
+
+当整棵二叉树遍历完毕后，如果 $x$ 和 $y$ 的深度相同且父节点不同，则返回 $true$，否则返回 $false$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -77,24 +91,24 @@ BFS：
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
-        p = list(range(110))
-        d = list(range(110))
-        q = deque([root])
-        i = 0
+    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        q = deque([(root, None)])
+        d = 0
+        p1 = p2 = None
+        d1 = d2 = 0
         while q:
-            n = len(q)
-            for _ in range(n):
-                node = q.popleft()
-                d[node.val] = i
+            for _ in range(len(q)):
+                node, fa = q.popleft()
+                if node.val == x:
+                    p1, d1 = fa, d
+                if node.val == y:
+                    p2, d2 = fa, d
                 if node.left:
-                    p[node.left.val] = node.val
-                    q.append(node.left)
+                    q.append((node.left, node))
                 if node.right:
-                    q.append(node.right)
-                    p[node.right.val] = node.val
-            i += 1
-        return p[x] != p[y] and d[x] == d[y]
+                    q.append((node.right, node))
+            d += 1
+        return p1 != p2 and d1 == d2
 ```
 
 DFS：
@@ -107,22 +121,20 @@ DFS：
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
-        p1 = p2 = d1 = d2 = None
-
-        def dfs(root, p, d):
+    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        def dfs(root, fa, d):
             if root is None:
                 return
-            nonlocal p1, p2, d1, d2, x, y
             if root.val == x:
-                p1, d1 = p, d
+                t[0] = (fa, d)
             if root.val == y:
-                p2, d2 = p, d
+                t[1] = (fa, d)
             dfs(root.left, root, d + 1)
             dfs(root.right, root, d + 1)
 
+        t = [None, None]
         dfs(root, None, 0)
-        return p1 != p2 and d1 == d2
+        return t[0][0] != t[1][0] and t[0][1] == t[1][1]
 ```
 
 ### **Java**
@@ -149,28 +161,33 @@ BFS：
  */
 class Solution {
     public boolean isCousins(TreeNode root, int x, int y) {
-        int[] p = new int[110];
-        int[] d = new int[110];
-        Deque<TreeNode> q = new ArrayDeque<>();
-        q.offer(root);
-        int i = 0;
+        TreeNode p1 = null, p2 = null;
+        int d1 = 0, d2 = 0;
+        Deque<TreeNode[]> q = new ArrayDeque<>();
+        q.offer(new TreeNode[]{root, null});
+        int d = 0;
         while (!q.isEmpty()) {
-            int n = q.size();
-            while (n-- > 0) {
-                TreeNode node = q.poll();
-                d[node.val] = i;
+            for (int n = q.size(); n > 0; --n) {
+                var p = q.poll();
+                TreeNode node = p[0], fa = p[1];
+                if (node.val == x) {
+                    p1 = fa;
+                    d1 = d;
+                }
+                if (node.val == y) {
+                    p2 = fa;
+                    d2 = d;
+                }
                 if (node.left != null) {
-                    q.offer(node.left);
-                    p[node.left.val] = node.val;
+                    q.offer(new TreeNode[]{node.left, node});
                 }
                 if (node.right != null) {
-                    q.offer(node.right);
-                    p[node.right.val] = node.val;
+                    q.offer(new TreeNode[]{node.right, node});
                 }
             }
-            ++i;
+            ++d;
         }
-        return p[x] != p[y] && d[x] == d[y];
+        return p1 != p2 && d1 == d2;
     }
 }
 ```
@@ -229,7 +246,7 @@ BFS：
 
 ```cpp
 /**
- * Definition for a binary tree node->
+ * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -242,29 +259,34 @@ BFS：
 class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
-        vector<int> p(110);
-        vector<int> d(110);
-        queue<TreeNode*> q;
-        q.push(root);
-        int i = 0;
+        TreeNode* p1 = nullptr;
+        TreeNode* p2 = nullptr;
+        int d1 = 0, d2 = 0;
+        queue<pair<TreeNode*, TreeNode*>> q;
+        q.emplace(root, nullptr);
+        int d = 0;
         while (!q.empty()) {
-            int n = q.size();
-            while (n--) {
-                auto node = q.front();
-                d[node->val] = i;
+            for (int n = q.size(); n; --n) {
+                auto [node, fa] = q.front();
                 q.pop();
+                if (node->val == x) {
+                    p1 = fa;
+                    d1 = d;
+                }
+                if (node->val == y) {
+                    p2 = fa;
+                    d2 = d;
+                }
                 if (node->left) {
-                    q.push(node->left);
-                    p[node->left->val] = node->val;
+                    q.emplace(node->left, node);
                 }
                 if (node->right) {
-                    q.push(node->right);
-                    p[node->right->val] = node->val;
+                    q.emplace(node->right, node);
                 }
             }
-            ++i;
+            ++d;
         }
-        return p[x] != p[y] && d[x] == d[y];
+        return p1 != p2 && d1 == d2;
     }
 };
 ```
@@ -285,32 +307,26 @@ DFS：
  */
 class Solution {
 public:
-    TreeNode* p1;
-    TreeNode* p2;
-    int d1, d2;
-    int x, y;
-
     bool isCousins(TreeNode* root, int x, int y) {
-        this->x = x;
-        this->y = y;
+        TreeNode* p1, *p2;
+        int d1, d2;
+        function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* root, TreeNode* fa, int d) {
+            if (!root) {
+                return;
+            }
+            if (root->val == x) {
+                p1 = fa;
+                d1 = d;
+            }
+            if (root->val == y) {
+                p2 = fa;
+                d2 = d;
+            }
+            dfs(root->left, root, d + 1);
+            dfs(root->right, root, d + 1);
+        };
         dfs(root, nullptr, 0);
         return p1 != p2 && d1 == d2;
-    }
-
-    void dfs(TreeNode* root, TreeNode* p, int d) {
-        if (!root) return;
-        if (root->val == x)
-        {
-            p1 = p;
-            d1 = d;
-        }
-        if (root->val == y)
-        {
-            p2 = p;
-            d2 = d;
-        }
-        dfs(root->left, root, d + 1);
-        dfs(root->right, root, d + 1);
     }
 };
 ```
@@ -329,30 +345,31 @@ BFS：
  * }
  */
 func isCousins(root *TreeNode, x int, y int) bool {
-	p := make([]int, 110)
-	d := make([]int, 110)
-	var q []*TreeNode
-	q = append(q, root)
-	i := 0
+	type pair struct{ node, fa *TreeNode }
+	q := []pair{pair{root, nil}}
+	var p1, p2 *TreeNode
+	var d, d1, d2 int
 	for len(q) > 0 {
-		n := len(q)
-		for n > 0 {
-			node := q[0]
+		for n := len(q); n > 0; n-- {
+			p := q[0]
 			q = q[1:]
-			n--
-			d[node.Val] = i
+			node, fa := p.node, p.fa
+			if node.Val == x {
+				p1, d1 = fa, d
+			}
+			if node.Val == y {
+				p2, d2 = fa, d
+			}
 			if node.Left != nil {
-				q = append(q, node.Left)
-				p[node.Left.Val] = node.Val
+				q = append(q, pair{node.Left, node})
 			}
 			if node.Right != nil {
-				q = append(q, node.Right)
-				p[node.Right.Val] = node.Val
+				q = append(q, pair{node.Right, node})
 			}
 		}
-		i++
+		d++
 	}
-	return p[x] != p[y] && d[x] == d[y]
+	return p1 != p2 && d1 == d2
 }
 ```
 
@@ -367,30 +384,25 @@ DFS：
  *     Right *TreeNode
  * }
  */
-var p1 *TreeNode
-var p2 *TreeNode
-var d1 int
-var d2 int
-
 func isCousins(root *TreeNode, x int, y int) bool {
-	dfs(root, nil, x, y, 0)
+	var p1, p2 *TreeNode
+	var d1, d2 int
+	var dfs func(*TreeNode, *TreeNode, int)
+	dfs = func(root *TreeNode, fa *TreeNode, d int) {
+		if root == nil {
+			return
+		}
+		if root.Val == x {
+			p1, d1 = fa, d
+		}
+		if root.Val == y {
+			p2, d2 = fa, d
+		}
+		dfs(root.Left, root, d+1)
+		dfs(root.Right, root, d+1)
+	}
+	dfs(root, nil, 0)
 	return p1 != p2 && d1 == d2
-}
-
-func dfs(root, p *TreeNode, x, y, d int) {
-	if root == nil {
-		return
-	}
-	if root.Val == x {
-		p1 = p
-		d1 = d
-	}
-	if root.Val == y {
-		p2 = p
-		d2 = d
-	}
-	dfs(root.Left, root, x, y, d+1)
-	dfs(root.Right, root, x, y, d+1)
 }
 ```
 

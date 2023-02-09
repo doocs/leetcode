@@ -62,7 +62,11 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 
 **方法一：哈希表**
 
-维护一个哈希表 $d$，键为 `tokenId`，值为过期时间。
+我们可以简单维护一个哈希表 $d$，键为 `tokenId`，值为过期时间。
+
+-   `generate` 操作时，将 `tokenId` 作为键，`currentTime + timeToLive` 作为值存入哈希表 $d$ 中。
+-   `renew` 操作时，如果 `tokenId` 不在哈希表 $d$ 中，或者 `currentTime >= d[tokenId]`，则忽略该操作；否则，更新 `d[tokenId]` 为 `currentTime + timeToLive`。
+-   `countUnexpiredTokens` 操作时，遍历哈希表 $d$，统计未过期的 `tokenId` 个数。
 
 时间复杂度方面，`generate` 和 `renew` 操作的时间复杂度均为 $O(1)$，`countUnexpiredTokens` 操作的时间复杂度为 $O(n)$，其中 $n$ 为哈希表 $d$ 的键值对个数。
 
