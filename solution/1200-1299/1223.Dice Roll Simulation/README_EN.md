@@ -49,13 +49,233 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+        @cache
+        def dfs(i, j, x):
+            if i >= n:
+                return 1
+            ans = 0
+            for k in range(1, 7):
+                if k != j:
+                    ans += dfs(i + 1, k, 1)
+                elif x < rollMax[j - 1]:
+                    ans += dfs(i + 1, j, x + 1)
+            return ans % (10 ** 9 + 7)
 
+        return dfs(0, 0, 0)
+```
+
+```python
+class Solution:
+    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+        f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
+        for j in range(1, 7):
+            f[1][j][1] = 1
+        for i in range(2, n + 1):
+            for j in range(1, 7):
+                for x in range(1, rollMax[j - 1] + 1):
+                    for k in range(1, 7):
+                        if k != j:
+                            f[i][k][1] += f[i - 1][j][x]
+                        elif x + 1 <= rollMax[j - 1]:
+                            f[i][j][x + 1] += f[i - 1][j][x]
+        mod = 10**9 + 7
+        ans = 0
+        for j in range(1, 7):
+            for x in range(1, rollMax[j - 1] + 1):
+                ans = (ans + f[n][j][x]) % mod
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private Integer[][][] f;
+    private int[] rollMax;
 
+    public int dieSimulator(int n, int[] rollMax) {
+        f = new Integer[n][7][16];
+        this.rollMax = rollMax;
+        return dfs(0, 0, 0);
+    }
+
+    private int dfs(int i, int j, int x) {
+        if (i >= f.length) {
+            return 1;
+        }
+        if (f[i][j][x] != null) {
+            return f[i][j][x];
+        }
+        long ans = 0;
+        for (int k = 1; k <= 6; ++k) {
+            if (k != j) {
+                ans += dfs(i + 1, k, 1);
+            } else if (x < rollMax[j - 1]) {
+                ans += dfs(i + 1, j, x + 1);
+            }
+        }
+        ans %= 1000000007;
+        return f[i][j][x] = (int) ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int dieSimulator(int n, int[] rollMax) {
+        int[][][] f = new int[n + 1][7][16];
+        for (int j = 1; j <= 6; ++j) {
+            f[1][j][1] = 1;
+        }
+        final int mod = (int) 1e9 + 7;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j <= 6; ++j) {
+                for (int x = 1; x <= rollMax[j - 1]; ++x) {
+                    for (int k = 1; k <= 6; ++k) {
+                        if (k != j) {
+                            f[i][k][1] = (f[i][k][1] + f[i - 1][j][x]) % mod;
+                        } else if (x + 1 <= rollMax[j - 1]) {
+                            f[i][j][x + 1] = (f[i][j][x + 1] + f[i - 1][j][x]) % mod;
+                        }
+                    }
+                }
+            }
+        }
+        int ans = 0;
+        for (int j = 1; j <= 6; ++j) {
+            for (int x = 1; x <= rollMax[j - 1]; ++x) {
+                ans = (ans + f[n][j][x]) % mod;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int dieSimulator(int n, vector<int>& rollMax) {
+        int f[n][7][16];
+        memset(f, 0, sizeof f);
+        const int mod = 1e9 + 7;
+        function<int(int, int, int)> dfs = [&](int i, int j, int x) -> int {
+            if (i >= n) {
+                return 1;
+            }
+            if (f[i][j][x]) {
+                return f[i][j][x];
+            }
+            long ans = 0;
+            for (int k = 1; k <= 6; ++k) {
+                if (k != j) {
+                    ans += dfs(i + 1, k, 1);
+                } else if (x < rollMax[j - 1]) {
+                    ans += dfs(i + 1, j, x + 1);
+                }
+            }
+            ans %= mod;
+            return f[i][j][x] = ans;
+        };
+        return dfs(0, 0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int dieSimulator(int n, vector<int>& rollMax) {
+        int f[n + 1][7][16];
+        memset(f, 0, sizeof f);
+        for (int j = 1; j <= 6; ++j) {
+            f[1][j][1] = 1;
+        }
+        const int mod = 1e9 + 7;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j <= 6; ++j) {
+                for (int x = 1; x <= rollMax[j - 1]; ++x) {
+                    for (int k = 1; k <= 6; ++k) {
+                        if (k != j) {
+                            f[i][k][1] = (f[i][k][1] + f[i - 1][j][x]) % mod;
+                        } else if (x + 1 <= rollMax[j - 1]) {
+                            f[i][j][x + 1] = (f[i][j][x + 1] + f[i - 1][j][x]) % mod;
+                        }
+                    }
+                }
+            }
+        }
+        int ans = 0;
+        for (int j = 1; j <= 6; ++j) {
+            for (int x = 1; x <= rollMax[j - 1]; ++x) {
+                ans = (ans + f[n][j][x]) % mod;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func dieSimulator(n int, rollMax []int) int {
+	f := make([][7][16]int, n)
+	const mod = 1e9 + 7
+	var dfs func(i, j, x int) int
+	dfs = func(i, j, x int) int {
+		if i >= n {
+			return 1
+		}
+		if f[i][j][x] != 0 {
+			return f[i][j][x]
+		}
+		ans := 0
+		for k := 1; k <= 6; k++ {
+			if k != j {
+				ans += dfs(i+1, k, 1)
+			} else if x < rollMax[j-1] {
+				ans += dfs(i+1, j, x+1)
+			}
+		}
+		f[i][j][x] = ans % mod
+		return f[i][j][x]
+	}
+	return dfs(0, 0, 0)
+}
+```
+
+```go
+func dieSimulator(n int, rollMax []int) (ans int) {
+	f := make([][7][16]int, n+1)
+	for j := 1; j <= 6; j++ {
+		f[1][j][1] = 1
+	}
+	const mod = 1e9 + 7
+	for i := 2; i <= n; i++ {
+		for j := 1; j <= 6; j++ {
+			for x := 1; x <= rollMax[j-1]; x++ {
+				for k := 1; k <= 6; k++ {
+					if k != j {
+						f[i][k][1] = (f[i][k][1] + f[i-1][j][x]) % mod
+					} else if x+1 <= rollMax[j-1] {
+						f[i][j][x+1] = (f[i][j][x+1] + f[i-1][j][x]) % mod
+					}
+				}
+			}
+		}
+	}
+	for j := 1; j <= 6; j++ {
+		for x := 1; x <= rollMax[j-1]; x++ {
+			ans = (ans + f[n][j][x]) % mod
+		}
+	}
+	return
+}
 ```
 
 ### **...**
