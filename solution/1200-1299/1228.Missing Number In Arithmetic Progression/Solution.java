@@ -1,12 +1,8 @@
 class Solution {
     public int missingNumber(int[] arr) {
         int n = arr.length;
-        int d = (arr[n - 1] - arr[0]) / n;
-        for (int i = 1; i < n; ++i) {
-            if (arr[i] != arr[i - 1] + d) {
-                return arr[i - 1] + d;
-            }
-        }
-        return arr[0];
+        int x = (arr[0] + arr[n - 1]) * (n + 1) / 2;
+        int y = Arrays.stream(arr).sum();
+        return x - y;
     }
 }

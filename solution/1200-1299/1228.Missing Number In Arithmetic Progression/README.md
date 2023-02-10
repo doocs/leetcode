@@ -43,11 +43,27 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：等差数列求和公式**
+
+等差数列求和公式为 $\frac{n(a_1 + a_n)}{2}$，其中 $n$ 为等差数列的项数，$a_1$ 为等差数列的首项，$a_n$ 为等差数列的末项。
+
+因为题目中给出的数组是一个等差数列，且缺失了一个数，所以数组的项数为 $n + 1$，首项为 $a_1$，末项为 $a_n$，则数组的和为 $\frac{n + 1}{2}(a_1 + a_n)$。
+
+因此，缺失的数为 $\frac{n + 1}{2}(a_1 + a_n) - \sum_{i = 0}^n a_i$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def missingNumber(self, arr: List[int]) -> int:
+        return (arr[0] + arr[-1]) * (len(arr) + 1) // 2 - sum(arr)
+```
 
 ```python
 class Solution:
@@ -68,6 +84,17 @@ class Solution:
 class Solution {
     public int missingNumber(int[] arr) {
         int n = arr.length;
+        int x = (arr[0] + arr[n - 1]) * (n + 1) / 2;
+        int y = Arrays.stream(arr).sum();
+        return x - y;
+    }
+}
+```
+
+```java
+class Solution {
+    public int missingNumber(int[] arr) {
+        int n = arr.length;
         int d = (arr[n - 1] - arr[0]) / n;
         for (int i = 1; i < n; ++i) {
             if (arr[i] != arr[i - 1] + d) {
@@ -80,6 +107,18 @@ class Solution {
 ```
 
 ### **C++**
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& arr) {
+        int n = arr.size();
+        int x = (arr[0] + arr[n - 1]) * (n + 1) / 2;
+        int y = accumulate(arr.begin(), arr.end(), 0);
+        return x - y;
+    }
+};
+```
 
 ```cpp
 class Solution {
