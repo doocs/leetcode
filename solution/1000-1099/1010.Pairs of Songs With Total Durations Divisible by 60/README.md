@@ -44,6 +44,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数 + 枚举**
+
+我们可以用一个哈希表或数组 `cnt` 记录当前已经遍历过的歌曲的持续时间 `time[i]` 的数量。
+
+枚举当前遍历到的歌曲的持续时间 `time[i]`，假设其为 `t`，那么我们只需要枚举 `60` 的倍数 `s`，并统计 `cnt[s - t]` 即可。然后将 `cnt[t]` 的值加 `1`。
+
+时间复杂度 $O(n \times C)$，空间复杂度 $O(M)$。其中 $n$ 为数组 `time` 的长度，而 $C$ 和 $M$ 分别为数组 `time` 中的最大值以及 `60` 的倍数的个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +59,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numPairsDivisibleBy60(self, time: List[int]) -> int:
+        cnt = defaultdict(int)
+        ans = 0
+        for t in time:
+            s = 60
+            for _ in range(17):
+                ans += cnt[s - t]
+                s += 60
+            cnt[t] += 1
+        return ans
 ```
 
 ### **Java**
@@ -59,7 +77,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numPairsDivisibleBy60(int[] time) {
+        int[] cnt = new int[501];
+        int ans = 0;
+        for (int t : time) {
+            int s = 60;
+            for (int i = 0; i < 17; ++i) {
+                if (s - t >= 0 && s - t < cnt.length) {
+                    ans += cnt[s - t];
+                }
+                s += 60;
+            }
+            cnt[t]++;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numPairsDivisibleBy60(vector<int>& time) {
+        int cnt[501]{};
+        int ans = 0;
+        for (int& t : time) {
+            int s = 60;
+            for (int i = 0; i < 17; ++i) {
+                if (s - t >= 0 && s - t < 501) {
+                    ans += cnt[s - t];
+                }
+                s += 60;
+            }
+            cnt[t]++;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numPairsDivisibleBy60(time []int) (ans int) {
+	cnt := [501]int{}
+	for _, t := range time {
+		s := 60
+		for i := 0; i < 17; i++ {
+			if s-t >= 0 && s-t < 501 {
+				ans += cnt[s-t]
+			}
+			s += 60
+		}
+		cnt[t]++
+	}
+	return
+}
 ```
 
 ### **...**

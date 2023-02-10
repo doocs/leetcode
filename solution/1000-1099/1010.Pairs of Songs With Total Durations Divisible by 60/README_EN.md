@@ -43,13 +43,81 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numPairsDivisibleBy60(self, time: List[int]) -> int:
+        cnt = defaultdict(int)
+        ans = 0
+        for t in time:
+            s = 60
+            for _ in range(17):
+                ans += cnt[s - t]
+                s += 60
+            cnt[t] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numPairsDivisibleBy60(int[] time) {
+        int[] cnt = new int[501];
+        int ans = 0;
+        for (int t : time) {
+            int s = 60;
+            for (int i = 0; i < 17; ++i) {
+                if (s - t >= 0 && s - t < cnt.length) {
+                    ans += cnt[s - t];
+                }
+                s += 60;
+            }
+            cnt[t]++;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numPairsDivisibleBy60(vector<int>& time) {
+        int cnt[501]{};
+        int ans = 0;
+        for (int& t : time) {
+            int s = 60;
+            for (int i = 0; i < 17; ++i) {
+                if (s - t >= 0 && s - t < 501) {
+                    ans += cnt[s - t];
+                }
+                s += 60;
+            }
+            cnt[t]++;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numPairsDivisibleBy60(time []int) (ans int) {
+	cnt := [501]int{}
+	for _, t := range time {
+		s := 60
+		for i := 0; i < 17; i++ {
+			if s-t >= 0 && s-t < 501 {
+				ans += cnt[s-t]
+			}
+			s += 60
+		}
+		cnt[t]++
+	}
+	return
+}
 ```
 
 ### **...**
