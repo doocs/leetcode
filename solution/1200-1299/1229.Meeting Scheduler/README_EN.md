@@ -46,13 +46,112 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
+        slots1.sort()
+        slots2.sort()
+        m, n = len(slots1), len(slots2)
+        i = j = 0
+        while i < m and j < n:
+            start = max(slots1[i][0], slots2[j][0])
+            end = min(slots1[i][1], slots2[j][1])
+            if end - start >= duration:
+                return [start, start + duration]
+            if slots1[i][1] < slots2[j][1]:
+                i += 1
+            else:
+                j += 1
+        return []
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
+        Arrays.sort(slots1, (a, b) -> a[0] - b[0]);
+        Arrays.sort(slots2, (a, b) -> a[0] - b[0]);
+        int m = slots1.length, n = slots2.length;
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            int start = Math.max(slots1[i][0], slots2[j][0]);
+            int end = Math.min(slots1[i][1], slots2[j][1]);
+            if (end - start >= duration) {
+                return Arrays.asList(start, start + duration);
+            }
+            if (slots1[i][1] < slots2[j][1]) {
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return Collections.emptyList();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> minAvailableDuration(vector<vector<int>>& slots1, vector<vector<int>>& slots2, int duration) {
+        sort(slots1.begin(), slots1.end());
+        sort(slots2.begin(), slots2.end());
+        int m = slots1.size(), n = slots2.size();
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            int start = max(slots1[i][0], slots2[j][0]);
+            int end = min(slots1[i][1], slots2[j][1]);
+            if (end - start >= duration) {
+                return {start, start + duration};
+            }
+            if (slots1[i][1] < slots2[j][1]) {
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return {};
+    }
+};
+```
+
+### **Go**
+
+```go
+func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
+	sort.Slice(slots1, func(i, j int) bool { return slots1[i][0] < slots1[j][0] })
+	sort.Slice(slots2, func(i, j int) bool { return slots2[i][0] < slots2[j][0] })
+	i, j, m, n := 0, 0, len(slots1), len(slots2)
+	for i < m && j < n {
+		start := max(slots1[i][0], slots2[j][0])
+		end := min(slots1[i][1], slots2[j][1])
+		if end-start >= duration {
+			return []int{start, start + duration}
+		}
+		if slots1[i][1] < slots2[j][1] {
+			i++
+		} else {
+			j++
+		}
+	}
+	return []int{}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
