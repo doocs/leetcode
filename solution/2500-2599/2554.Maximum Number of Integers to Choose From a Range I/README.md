@@ -280,6 +280,79 @@ func maxCount(banned []int, n int, maxSum int) (ans int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maxCount(banned: number[], n: number, maxSum: number): number {
+    const set = new Set(banned);
+    let sum = 0;
+    let ans = 0;
+    for (let i = 1; i <= n; i++) {
+        if (i + sum > maxSum) {
+            break;
+        }
+        if (set.has(i)) {
+            continue;
+        }
+        sum += i;
+        ans++;
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn max_count(banned: Vec<i32>, n: i32, max_sum: i32) -> i32 {
+        let mut set = banned.into_iter().collect::<HashSet<i32>>();
+        let mut sum = 0;
+        let mut ans = 0;
+        for i in 1..=n {
+            if sum + i > max_sum {
+                break;
+            }
+            if set.contains(&i) {
+                continue;
+            }
+            sum += i;
+            ans += 1;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int cmp(const void *a, const void *b) {
+    return *(int *) a - *(int *) b;
+}
+
+int maxCount(int *banned, int bannedSize, int n, int maxSum) {
+    qsort(banned, bannedSize, sizeof(int), cmp);
+    int sum = 0;
+    int ans = 0;
+    for (int i = 1, j = 0; i <= n; i++) {
+        if (sum + i > maxSum) {
+            break;
+        }
+        if (j < bannedSize && i == banned[j]) {
+            while (j < bannedSize && i == banned[j]) {
+                j++;
+            }
+        } else {
+            sum += i;
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
