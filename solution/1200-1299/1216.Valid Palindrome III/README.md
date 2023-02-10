@@ -41,6 +41,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+题目要求删去最多 $k$ 个字符，使得剩余的字符串是回文串。可以转换为求最长回文子序列的问题。
+
+我们定义 $f[i][j]$ 表示字符串 $s$ 中下标范围 $[i, j]$ 内的最长回文子序列的长度。初始时 $f[i][i] = 1$，即每个单独的字符都是一个回文子序列。
+
+当 $s[i] = s[j]$ 时，有 $f[i][j] = f[i + 1][j - 1] + 2$，即去掉 $s[i]$ 和 $s[j]$ 后，剩余的字符串的最长回文子序列长度加 $2$。
+
+当 $s[i] \neq s[j]$ 时，有 $f[i][j] = \max(f[i + 1][j], f[i][j - 1])$，即去掉 $s[i]$ 或 $s[j]$ 后，剩余的字符串的最长回文子序列长度。
+
+然后是否存在 $f[i][j] + k \geq n$，如果存在，说明可以通过删去 $k$ 个字符，使得剩余的字符串是回文串。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +62,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isValidPalindrome(self, s: str, k: int) -> bool:
+        n = len(s)
+        f = [[0] * n for _ in range(n)]
+        for i in range(n):
+            f[i][i] = 1
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                if s[i] == s[j]:
+                    f[i][j] = f[i + 1][j - 1] + 2
+                else:
+                    f[i][j] = max(f[i + 1][j], f[i][j - 1])
+                if f[i][j] + k >= n:
+                    return True
+        return False
 ```
 
 ### **Java**
@@ -56,7 +84,90 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isValidPalindrome(String s, int k) {
+        int n = s.length();
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = 1;
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                } else {
+                    f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+                }
+                if (f[i][j] + k >= n) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isValidPalindrome(string s, int k) {
+        int n = s.length();
+        int f[n][n];
+        memset(f, 0, sizeof f);
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = 1;
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                } else {
+                    f[i][j] = max(f[i + 1][j], f[i][j - 1]);
+                }
+                if (f[i][j] + k >= n) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isValidPalindrome(s string, k int) bool {
+	n := len(s)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		f[i][i] = 1
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			if s[i] == s[j] {
+				f[i][j] = f[i+1][j-1] + 2
+			} else {
+				f[i][j] = max(f[i+1][j], f[i][j-1])
+			}
+			if f[i][j]+k >= n {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
