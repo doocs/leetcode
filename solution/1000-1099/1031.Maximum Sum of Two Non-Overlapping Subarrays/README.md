@@ -57,6 +57,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 枚举**
+
+我们先预处理得到数组 `nums` 的前缀和数组 $s$，其中 $s[i]$ 表示 $nums$ 中前 $i$ 个元素的和。
+
+接下来，我们分两种情况枚举：
+
+假设 $firstLen$ 个元素的子数组在 $secondLen$ 个元素的子数组的左边，那么我们可以枚举 $secondLen$ 个元素的子数组的左端点 $i$，用变量 $t$ 维护左边 $firstLen$ 个元素的子数组的最大和，那么答案就是 $t + s[i + secondLen] - s[i]$。枚举完所有的 $i$，就可以得到候选答案。
+
+假设 $secondLen$ 个元素的子数组在 $firstLen$ 个元素的子数组的左边，那么我们可以枚举 $firstLen$ 个元素的子数组的左端点 $i$，用变量 $t$ 维护左边 $secondLen$ 个元素的子数组的最大和，那么答案就是 $t + s[i + firstLen] - s[i]$。枚举完所有的 $i$，就可以得到候选答案。
+
+最后，我们取两种情况下的候选答案的最大值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,17 +81,20 @@
 class Solution:
     def maxSumTwoNoOverlap(self, nums: List[int], firstLen: int, secondLen: int) -> int:
         n = len(nums)
-        s = [0] * (n + 1)
-        for i in range(1, n + 1):
-            s[i] = s[i - 1] + nums[i - 1]
-        ans1, ans2, fm, sm = 0, 0, 0, 0
-        for i in range(n - firstLen - secondLen + 1):
-            fm = max(fm, s[i + firstLen] - s[i])
-            ans1 = max(fm + s[i + firstLen + secondLen] - s[i + firstLen], ans1)
-        for i in range(n - firstLen - secondLen + 1):
-            sm = max(sm, s[i + secondLen] - s[i])
-            ans2 = max(sm + s[i + firstLen + secondLen] - s[i + secondLen], ans2)
-        return max(ans1, ans2)
+        s = list(accumulate(nums, initial=0))
+        ans = t = 0
+        i = firstLen
+        while i + secondLen - 1 < n:
+            t = max(t, s[i] - s[i - firstLen])
+            ans = max(ans, t + s[i + secondLen] - s[i])
+            i += 1
+        t = 0
+        i = secondLen
+        while i + firstLen - 1 < n:
+            t = max(t, s[i] - s[i - secondLen])
+            ans = max(ans, t + s[i + firstLen] - s[i])
+            i += 1
+        return ans
 ```
 
 ### **Java**
@@ -89,20 +106,73 @@ class Solution {
     public int maxSumTwoNoOverlap(int[] nums, int firstLen, int secondLen) {
         int n = nums.length;
         int[] s = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            s[i] = s[i - 1] + nums[i - 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
         }
-        int ans1 = 0, ans2 = 0, fm = 0, sm = 0;
-        for (int i = 0; i < n - firstLen - secondLen + 1; i++) {
-            fm = Math.max(s[i + firstLen] - s[i], fm);
-            ans1 = Math.max(fm + s[i + firstLen + secondLen] - s[i + firstLen], ans1);
+        int ans = 0;
+        for (int i = firstLen, t = 0; i + secondLen - 1 < n; ++i) {
+            t = Math.max(t, s[i] - s[i - firstLen]);
+            ans = Math.max(ans, t + s[i + secondLen] - s[i]);
         }
-        for (int i = 0; i < n - firstLen - secondLen + 1; i++) {
-            sm = Math.max(s[i + secondLen] - s[i], sm);
-            ans2 = Math.max(sm + s[i + firstLen + secondLen] - s[i + secondLen], ans2);
+        for (int i = secondLen, t = 0; i + firstLen - 1 < n; ++i) {
+            t = Math.max(t, s[i] - s[i - secondLen]);
+            ans = Math.max(ans, t + s[i + firstLen] - s[i]);
         }
-        return Math.max(ans1, ans2);
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSumTwoNoOverlap(vector<int>& nums, int firstLen, int secondLen) {
+        int n = nums.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        int ans = 0;
+        for (int i = firstLen, t = 0; i + secondLen - 1 < n; ++i) {
+            t = max(t, s[i] - s[i - firstLen]);
+            ans = max(ans, t + s[i + secondLen] - s[i]);
+        }
+        for (int i = secondLen, t = 0; i + firstLen - 1 < n; ++i) {
+            t = max(t, s[i] - s[i - secondLen]);
+            ans = max(ans, t + s[i + firstLen] - s[i]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSumTwoNoOverlap(nums []int, firstLen int, secondLen int) (ans int) {
+	n := len(nums)
+	s := make([]int, n+1)
+	for i, x := range nums {
+		s[i+1] = s[i] + x
+	}
+	for i, t := firstLen, 0; i+secondLen-1 < n; i++ {
+		t = max(t, s[i]-s[i-firstLen])
+		ans = max(ans, t+s[i+secondLen]-s[i])
+	}
+	for i, t := secondLen, 0; i+firstLen-1 < n; i++ {
+		t = max(t, s[i]-s[i-secondLen])
+		ans = max(ans, t+s[i+firstLen]-s[i])
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
