@@ -71,6 +71,15 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def fillCups(self, amount: List[int]) -> int:
+        amount.sort()
+        if amount[0] + amount[1] <= amount[2]:
+            return amount[2]
+        return (sum(amount) + 1) // 2
+```
+
 ### **Java**
 
 ```java
@@ -84,6 +93,18 @@ class Solution {
             amount[1] = Math.max(0, amount[1] - 1);
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int fillCups(int[] amount) {
+        Arrays.sort(amount);
+        if (amount[0] + amount[1] <= amount[2]) {
+            return amount[2];
+        }
+        return (amount[0] + amount[1] + amount[2] + 1) / 2;
     }
 }
 ```
@@ -106,6 +127,19 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int fillCups(vector<int>& amount) {
+        sort(amount.begin(), amount.end());
+        if (amount[0] + amount[1] <= amount[2]) {
+            return amount[2];
+        }
+        return (amount[0] + amount[1] + amount[2] + 1) / 2;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -120,6 +154,16 @@ func fillCups(amount []int) int {
 		}
 	}
 	return ans
+}
+```
+
+```go
+func fillCups(amount []int) int {
+	sort.Ints(amount)
+	if amount[0]+amount[1] <= amount[2] {
+		return amount[2]
+	}
+	return (amount[0] + amount[1] + amount[2] + 1) / 2
 }
 ```
 
