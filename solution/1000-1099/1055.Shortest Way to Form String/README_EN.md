@@ -48,13 +48,102 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def shortestWay(self, source: str, target: str) -> int:
+        def f(i, j):
+            while i < m and j < n:
+                if source[i] == target[j]:
+                    j += 1
+                i += 1
+            return j
 
+        m, n = len(source), len(target)
+        ans = j = 0
+        while j < n:
+            k = f(0, j)
+            if k == j:
+                return -1
+            j = k
+            ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int shortestWay(String source, String target) {
+        int m = source.length(), n = target.length();
+        int ans = 0, j = 0;
+        while (j < n) {
+            int i = 0;
+            boolean ok = false;
+            while (i < m && j < n) {
+                if (source.charAt(i) == target.charAt(j)) {
+                    ok = true;
+                    ++j;
+                }
+                ++i;
+            }
+            if (!ok) {
+                return -1;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int shortestWay(string source, string target) {
+        int m = source.size(), n = target.size();
+        int ans = 0, j = 0;
+        while (j < n) {
+            int i = 0;
+            bool ok = false;
+            while (i < m && j < n) {
+                if (source[i] == target[j]) {
+                    ok = true;
+                    ++j;
+                }
+                ++i;
+            }
+            if (!ok) {
+                return -1;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shortestWay(source string, target string) int {
+	m, n := len(source), len(target)
+	ans, j := 0, 0
+	for j < n {
+		ok := false
+		for i := 0; i < m && j < n; i++ {
+			if source[i] == target[j] {
+				ok = true
+				j++
+			}
+		}
+		if !ok {
+			return -1
+		}
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**

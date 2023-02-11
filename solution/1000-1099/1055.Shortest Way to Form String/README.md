@@ -49,6 +49,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们可以使用双指针的方法，用指针 $j$ 指向目标字符串 `target`，然后遍历源字符串 `source`，用指针 $i$ 指向源字符串 `source`，如果 $source[i] = target[j]$，则 $i$ 和 $j$ 同时向后移动一位，否则只移动 $i$ 指针。当指针 $i$ 和 $j$ 都到达字符串末尾时，如果没有找到相等的字符，则返回 $-1$，否则子序列数量加一，然后将指针 $i$ 置为 $0$，继续遍历。
+
+遍历结束后，返回子序列数量即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为字符串 `source` 和 `target` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +64,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def shortestWay(self, source: str, target: str) -> int:
+        def f(i, j):
+            while i < m and j < n:
+                if source[i] == target[j]:
+                    j += 1
+                i += 1
+            return j
 
+        m, n = len(source), len(target)
+        ans = j = 0
+        while j < n:
+            k = f(0, j)
+            if k == j:
+                return -1
+            j = k
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +89,79 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int shortestWay(String source, String target) {
+        int m = source.length(), n = target.length();
+        int ans = 0, j = 0;
+        while (j < n) {
+            int i = 0;
+            boolean ok = false;
+            while (i < m && j < n) {
+                if (source.charAt(i) == target.charAt(j)) {
+                    ok = true;
+                    ++j;
+                }
+                ++i;
+            }
+            if (!ok) {
+                return -1;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int shortestWay(string source, string target) {
+        int m = source.size(), n = target.size();
+        int ans = 0, j = 0;
+        while (j < n) {
+            int i = 0;
+            bool ok = false;
+            while (i < m && j < n) {
+                if (source[i] == target[j]) {
+                    ok = true;
+                    ++j;
+                }
+                ++i;
+            }
+            if (!ok) {
+                return -1;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shortestWay(source string, target string) int {
+	m, n := len(source), len(target)
+	ans, j := 0, 0
+	for j < n {
+		ok := false
+		for i := 0; i < m && j < n; i++ {
+			if source[i] == target[j] {
+				ok = true
+				j++
+			}
+		}
+		if !ok {
+			return -1
+		}
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**
