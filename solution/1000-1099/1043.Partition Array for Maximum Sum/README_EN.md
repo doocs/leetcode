@@ -47,13 +47,84 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
+        n = len(arr)
+        f = [0] * (n + 1)
+        for i in range(n):
+            mx = 0
+            for j in range(i, max(-1, i - k), -1):
+                mx = max(mx, arr[j])
+                t = mx * (i - j + 1) + f[j]
+                f[i + 1] = max(f[i + 1], t)
+        return f[n]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxSumAfterPartitioning(int[] arr, int k) {
+        int n = arr.length;
+        int[] f = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            int mx = 0;
+            for (int j = i; j >= Math.max(0, i - k + 1); --j) {
+                mx = Math.max(mx, arr[j]);
+                int t = mx * (i - j + 1) + f[j];
+                f[i + 1] = Math.max(f[i + 1], t);
+            }
+        }
+        return f[n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSumAfterPartitioning(vector<int>& arr, int k) {
+        int n = arr.size();
+        int f[n + 1];
+        memset(f, 0, sizeof f);
+        for (int i = 0; i < n; ++i) {
+            int mx = 0;
+            for (int j = i; j >= max(0, i - k + 1); --j) {
+                mx = max(mx, arr[j]);
+                int t = mx * (i - j + 1) + f[j];
+                f[i + 1] = max(f[i + 1], t);
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSumAfterPartitioning(arr []int, k int) int {
+	n := len(arr)
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		mx := 0
+		for j := i; j >= max(0, i-k+1); j-- {
+			mx = max(mx, arr[j])
+			t := mx*(i-j+1) + f[j]
+			f[i+1] = max(f[i+1], t)
+		}
+	}
+	return f[n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

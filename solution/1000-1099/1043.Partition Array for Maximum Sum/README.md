@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示将数组的前 $i$ 个元素分隔成若干个子数组，最终的最大元素和。那么 $f[i + 1]$ 的值可以通过枚举 $j$ 的值得到，其中 $j$ 的取值范围为 $[i - k + 1, i]$，对于每个 $j$，我们都可以将 $[j, i]$ 这一段分隔出来，这一段的最大值为 $mx$，那么 $f[i + 1]$ 的值可以通过 $f[j] + mx * (i - j + 1)$ 得到。最后的答案即为 $f[n]$。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
+        n = len(arr)
+        f = [0] * (n + 1)
+        for i in range(n):
+            mx = 0
+            for j in range(i, max(-1, i - k), -1):
+                mx = max(mx, arr[j])
+                t = mx * (i - j + 1) + f[j]
+                f[i + 1] = max(f[i + 1], t)
+        return f[n]
 ```
 
 ### **Java**
@@ -68,7 +84,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxSumAfterPartitioning(int[] arr, int k) {
+        int n = arr.length;
+        int[] f = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            int mx = 0;
+            for (int j = i; j >= Math.max(0, i - k + 1); --j) {
+                mx = Math.max(mx, arr[j]);
+                int t = mx * (i - j + 1) + f[j];
+                f[i + 1] = Math.max(f[i + 1], t);
+            }
+        }
+        return f[n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSumAfterPartitioning(vector<int>& arr, int k) {
+        int n = arr.size();
+        int f[n + 1];
+        memset(f, 0, sizeof f);
+        for (int i = 0; i < n; ++i) {
+            int mx = 0;
+            for (int j = i; j >= max(0, i - k + 1); --j) {
+                mx = max(mx, arr[j]);
+                int t = mx * (i - j + 1) + f[j];
+                f[i + 1] = max(f[i + 1], t);
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSumAfterPartitioning(arr []int, k int) int {
+	n := len(arr)
+	f := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		mx := 0
+		for j := i; j >= max(0, i-k+1); j-- {
+			mx = max(mx, arr[j])
+			t := mx*(i-j+1) + f[j]
+			f[i+1] = max(f[i+1], t)
+		}
+	}
+	return f[n]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
