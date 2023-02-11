@@ -49,6 +49,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们先从右到左遍历数组，找到第一个满足 `arr[i - 1] > arr[i]` 的下标 `i`，此时 `arr[i - 1]` 就是我们要交换的数字，我们再从右到左遍历数组，找到第一个满足 `arr[j] < arr[i - 1]` 且 `arr[j] != arr[j - 1]` 的下标 `j`，此时我们交换 `arr[i - 1]` 和 `arr[j]` 后返回即可。
+
+如果遍历完数组都没有找到满足条件的下标 `i`，说明数组已经是最小排列，直接返回原数组即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +64,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def prevPermOpt1(self, arr: List[int]) -> List[int]:
+        n = len(arr)
+        for i in range(n - 1, 0, -1):
+            if arr[i - 1] > arr[i]:
+                for j in range(n - 1, i - 1, -1):
+                    if arr[j] < arr[i - 1] and arr[j] != arr[j - 1]:
+                        arr[i - 1], arr[j] = arr[j], arr[i - 1]
+                        return arr
+        return arr
 ```
 
 ### **Java**
@@ -64,7 +81,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] prevPermOpt1(int[] arr) {
+        int n = arr.length;
+        for (int i = n - 1; i > 0; --i) {
+            if (arr[i - 1] > arr[i]) {
+                for (int j = n - 1; j > i - 1; --j) {
+                    if (arr[j] < arr[i - 1] && arr[j] != arr[j - 1]) {
+                        int t = arr[i - 1];
+                        arr[i - 1] = arr[j];
+                        arr[j] = t;
+                        return arr;
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> prevPermOpt1(vector<int>& arr) {
+        int n = arr.size();
+        for (int i = n - 1; i > 0; --i) {
+            if (arr[i - 1] > arr[i]) {
+                for (int j = n - 1; j > i - 1; --j) {
+                    if (arr[j] < arr[i - 1] && arr[j] != arr[j - 1]) {
+                        swap(arr[i - 1], arr[j]);
+                        return arr;
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+};
+```
+
+### **Go**
+
+```go
+func prevPermOpt1(arr []int) []int {
+	n := len(arr)
+	for i := n - 1; i > 0; i-- {
+		if arr[i-1] > arr[i] {
+			for j := n - 1; j > i-1; j-- {
+				if arr[j] < arr[i-1] && arr[j] != arr[j-1] {
+					arr[i-1], arr[j] = arr[j], arr[i-1]
+					return arr
+				}
+			}
+		}
+	}
+	return arr
+}
 ```
 
 ### **...**
