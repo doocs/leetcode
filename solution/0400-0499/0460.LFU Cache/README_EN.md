@@ -56,7 +56,7 @@ lfu.get(4);      // return 4
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= capacity&nbsp;&lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= capacity&nbsp;&lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= key &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= value &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>2 * 10<sup>5</sup></code>&nbsp;calls will be made to <code>get</code> and <code>put</code>.</li>

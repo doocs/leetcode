@@ -2611,3 +2611,7 @@
   - [2559.Count Vowel Strings in Ranges](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)
   - [2560.House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)
   - [2561.Rearranging Fruits](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)
+  - [2562.Find the Array Concatenation Value](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)
+  - [2563.Count the Number of Fair Pairs](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)
+  - [2564.Substring XOR Queries](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)
+  - [2565.Subsequence With the Minimum Score](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)

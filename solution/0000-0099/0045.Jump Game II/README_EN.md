@@ -37,6 +37,7 @@
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+	<li>It&#39;s guaranteed that you can reach <code>nums[n - 1]</code>.</li>
 </ul>
 
 ## Solutions

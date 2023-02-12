@@ -21,8 +21,8 @@
 <pre>
 <strong>Input:</strong> banned = [1,4,6], n = 6, maxSum = 4
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> You can choose the integer 2 and 3.
-2 and 3 are are in the range [1, 6], both do not appear in banned, and their sum is 5, which does not exceed maxSum.
+<strong>Explanation:</strong> You can choose the integer 3.
+3 is in the range [1, 6], and do not appear in banned. The sum of the choosen integers is 3, which does not ecxeed maxSum.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -30,8 +30,8 @@
 <pre>
 <strong>Input:</strong> banned = [4,3,5,6], n = 7, maxSum = 18
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> You can choose the integers 1, 2, 3 and 7.
-All these integers are in the range [1, 7], all do not appear in banned, and their sum is 13, which does not exceed maxSum.
+<strong>Explanation:</strong> You can choose the integers 1, 2, and 7.
+All these integers are in the range [1, 7], all do not appear in banned, and their sum is 18, which does not exceed maxSum.
 </pre>
 
 <p>&nbsp;</p>

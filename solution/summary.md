@@ -2611,3 +2611,7 @@
   - [2559.统计范围内的元音字符串数](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md)
   - [2560.打家劫舍 IV](/solution/2500-2599/2560.House%20Robber%20IV/README.md)
   - [2561.重排水果](/solution/2500-2599/2561.Rearranging%20Fruits/README.md)
+  - [2562.找出数组的串联值](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)
+  - [2563.统计公平数对的数目](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md)
+  - [2564.子字符串异或查询](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)
+  - [2565.最少得分子序列](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)

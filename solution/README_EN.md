@@ -1649,7 +1649,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1638  |  [Count Substrings That Differ by One Character](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md)  |  `Hash Table`,`String`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 38  |
 |  1639  |  [Number of Ways to Form a Target String Given a Dictionary](/solution/1600-1699/1639.Number%20of%20Ways%20to%20Form%20a%20Target%20String%20Given%20a%20Dictionary/README_EN.md)  |  `Array`,`String`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 38  |
 |  1640  |  [Check Array Formation Through Concatenation](/solution/1600-1699/1640.Check%20Array%20Formation%20Through%20Concatenation/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  Weekly Contest 213  |
-|  1641  |  [Count Sorted Vowel Strings](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  Weekly Contest 213  |
+|  1641  |  [Count Sorted Vowel Strings](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md)  |  `Math`,`Dynamic Programming`,`Combinatorics`  |  Medium  |  Weekly Contest 213  |
 |  1642  |  [Furthest Building You Can Reach](/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README_EN.md)  |  `Greedy`,`Array`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 213  |
 |  1643  |  [Kth Smallest Instructions](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 213  |
 |  1644  |  [Lowest Common Ancestor of a Binary Tree II](/solution/1600-1699/1644.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
@@ -2561,15 +2561,19 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2550  |  [Count Collisions of Monkeys on a Polygon](/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |  Weekly Contest 330  |
 |  2551  |  [Put Marbles in Bags](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 330  |
 |  2552  |  [Count Increasing Quadruplets](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md)  |  `Binary Indexed Tree`,`Array`,`Dynamic Programming`,`Enumeration`,`Prefix Sum`  |  Hard  |  Weekly Contest 330  |
-|  2553  |  [Separate the Digits in an Array](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README_EN.md)  |    |  Easy  |  Biweekly Contest 97  |
-|  2554  |  [Maximum Number of Integers to Choose From a Range I](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 97  |
-|  2555  |  [Maximize Win From Two Segments](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md)  |    |  Medium  |  Biweekly Contest 97  |
-|  2556  |  [Disconnect Path in a Binary Matrix by at Most One Flip](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md)  |    |  Medium  |  Biweekly Contest 97  |
-|  2557  |  [Maximum Number of Integers to Choose From a Range II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README_EN.md)  |    |  Medium  |  🔒  |
-|  2558  |  [Take Gifts From the Richest Pile](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md)  |    |  Easy  |  Weekly Contest 331  |
-|  2559  |  [Count Vowel Strings in Ranges](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)  |    |  Medium  |  Weekly Contest 331  |
-|  2560  |  [House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)  |    |  Medium  |  Weekly Contest 331  |
-|  2561  |  [Rearranging Fruits](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)  |    |  Hard  |  Weekly Contest 331  |
+|  2553  |  [Separate the Digits in an Array](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Biweekly Contest 97  |
+|  2554  |  [Maximum Number of Integers to Choose From a Range I](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Binary Search`,`Sorting`  |  Medium  |  Biweekly Contest 97  |
+|  2555  |  [Maximize Win From Two Segments](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md)  |  `Array`,`Binary Search`,`Sliding Window`  |  Medium  |  Biweekly Contest 97  |
+|  2556  |  [Disconnect Path in a Binary Matrix by at Most One Flip](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Biweekly Contest 97  |
+|  2557  |  [Maximum Number of Integers to Choose From a Range II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Sorting`  |  Medium  |  🔒  |
+|  2558  |  [Take Gifts From the Richest Pile](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md)  |  `Array`,`Simulation`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 331  |
+|  2559  |  [Count Vowel Strings in Ranges](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)  |  `Array`,`String`,`Prefix Sum`  |  Medium  |  Weekly Contest 331  |
+|  2560  |  [House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 331  |
+|  2561  |  [Rearranging Fruits](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Hard  |  Weekly Contest 331  |
+|  2562  |  [Find the Array Concatenation Value](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)  |    |  Easy  |    |
+|  2563  |  [Count the Number of Fair Pairs](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)  |    |  Medium  |    |
+|  2564  |  [Substring XOR Queries](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)  |    |  Medium  |    |
+|  2565  |  [Subsequence With the Minimum Score](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

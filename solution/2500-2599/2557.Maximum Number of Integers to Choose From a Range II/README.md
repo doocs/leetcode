@@ -24,8 +24,8 @@
 <pre>
 <strong>输入：</strong>banned = [1,4,6], n = 6, maxSum = 4
 <strong>输出：</strong>1
-<strong>解释：</strong>你可以选择整数 2 或 3 。
-2 和 3 在范围 [1, 6] 内，且它们都不在 banned 中，它们中的任何一个都没有超过 maxSum 。
+<strong>解释：</strong>你可以选择整数 3 。
+3 在范围 [1, 6] 内，且不在 banned 中，所选整数的和为 3 ，也没有超过 maxSum 。
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -34,7 +34,7 @@
 <strong>输入：</strong>banned = [4,3,5,6], n = 7, maxSum = 18
 <strong>输出：</strong>3
 <strong>解释：</strong>你可以选择整数 1, 2&nbsp;和 7 。
-它们都在范围 [1, 7] 中，且都没出现在 banned 中，它们的和是 10 ，没有超过 maxSum 。
+它们都在范围 [1, 7] 中，且都没出现在 banned 中，所选整数的和为 10 ，没有超过 maxSum 。
 </pre>
 
 <p>&nbsp;</p>

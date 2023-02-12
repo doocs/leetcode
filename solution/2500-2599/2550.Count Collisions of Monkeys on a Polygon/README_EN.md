@@ -13,7 +13,7 @@
 	<li>the vertex <code>(i - 1 + n) % n</code> in the counter-clockwise direction.</li>
 </ul>
 
-<p>A <strong>collision</strong> happens if at least two monkeys reside on the same vertex after the movement.</p>
+<p>A <strong>collision</strong> happens if at least two monkeys reside on the same vertex after the movement or intersect&nbsp;on an edge.</p>
 
 <p>Return <em>the number of ways the monkeys can move so that at least <strong>one collision</strong></em> <em> happens</em>. Since the answer may be very large, return it modulo <code>10<sup>9 </sup>+ 7</code>.</p>
 

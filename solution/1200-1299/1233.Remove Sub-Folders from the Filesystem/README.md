@@ -23,7 +23,7 @@
 <pre>
 <strong>输入：</strong>folder = ["/a","/a/b","/c/d","/c/d/e","/c/f"]
 <strong>输出：</strong>["/a","/c/d","/c/f"]
-<strong>解释：</strong>"/a/b/" 是 "/a" 的子文件夹，而 "/c/d/e" 是 "/c/d" 的子文件夹。
+<strong>解释：</strong>"/a/b" 是 "/a" 的子文件夹，而 "/c/d/e" 是 "/c/d" 的子文件夹。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -31,7 +31,7 @@
 <pre>
 <strong>输入：</strong>folder = ["/a","/a/b/c","/a/b/d"]
 <strong>输出：</strong>["/a"]
-<strong>解释：</strong>文件夹 "/a/b/c" 和 "/a/b/d/" 都会被删除，因为它们都是 "/a" 的子文件夹。
+<strong>解释：</strong>文件夹 "/a/b/c" 和 "/a/b/d" 都会被删除，因为它们都是 "/a" 的子文件夹。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -49,7 +49,7 @@
 	<li><code>2 &lt;= folder[i].length &lt;= 100</code></li>
 	<li><code>folder[i]</code>&nbsp;只包含小写字母和 <code>'/'</code></li>
 	<li><code>folder[i]</code>&nbsp;总是以字符 <code>'/'</code>&nbsp;起始</li>
-	<li>每个文件夹名都是 <strong>唯一</strong> 的</li>
+	<li><code>folder</code>&nbsp;每个元素都是 <strong>唯一</strong> 的</li>
 </ul>
 
 ## 解法
