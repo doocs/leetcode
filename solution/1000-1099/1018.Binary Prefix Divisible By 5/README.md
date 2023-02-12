@@ -47,6 +47,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+遍历数组，每一次遍历都将当前数字加到前面的数字上，然后对 $5$ 取模，如果结果为 $0$，则当前数字可以被 $5$ 整除，答案设置为 `true`，否则为 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +60,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
+        ans = []
+        x = 0
+        for v in nums:
+            x = (x << 1 | v) % 5
+            ans.append(x == 0)
+        return ans
 ```
 
 ### **Java**
@@ -62,7 +75,47 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Boolean> prefixesDivBy5(int[] nums) {
+        List<Boolean> ans = new ArrayList<>();
+        int x = 0;
+        for (int v : nums) {
+            x = (x << 1 | v) % 5;
+            ans.add(x == 0);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<bool> prefixesDivBy5(vector<int>& nums) {
+        vector<bool> ans;
+        int x = 0;
+        for (int v : nums) {
+            x = (x << 1 | v) % 5;
+            ans.push_back(x == 0);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func prefixesDivBy5(nums []int) (ans []bool) {
+	x := 0
+	for _, v := range nums {
+		x = (x<<1 | v) % 5
+		ans = append(ans, x == 0)
+	}
+	return
+}
 ```
 
 ### **...**

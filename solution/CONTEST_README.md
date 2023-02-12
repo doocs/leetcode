@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 332 场周赛(2023-02-12 10:30, 90 分钟) 参赛人数 4547
+
+- [2562. 找出数组的串联值](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)
+- [2563. 统计公平数对的数目](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md)
+- [2564. 子字符串异或查询](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)
+- [2565. 最少得分子序列](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)
+
+
 #### 第 331 场周赛(2023-02-05 10:30, 90 分钟) 参赛人数 4256
 
 - [2558. 从数量最多的堆取走礼物](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README.md)
@@ -2584,7 +2592,7 @@
 - [936. 戳印序列](/solution/0900-0999/0936.Stamping%20The%20Sequence/README.md)
 
 
-#### 第 108 场周赛(2018-10-28 09:30, 90 分钟) 参赛人数 523
+#### 第 108 场周赛(2018-10-28 09:30, 90 分钟) 参赛人数 524
 
 - [929. 独特的电子邮件地址](/solution/0900-0999/0929.Unique%20Email%20Addresses/README.md)
 - [930. 和相同的二元子数组](/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README.md)

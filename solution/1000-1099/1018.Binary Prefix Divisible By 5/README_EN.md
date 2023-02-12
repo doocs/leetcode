@@ -46,13 +46,60 @@ Only the first number is divisible by 5, so answer[0] is true.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
+        ans = []
+        x = 0
+        for v in nums:
+            x = (x << 1 | v) % 5
+            ans.append(x == 0)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Boolean> prefixesDivBy5(int[] nums) {
+        List<Boolean> ans = new ArrayList<>();
+        int x = 0;
+        for (int v : nums) {
+            x = (x << 1 | v) % 5;
+            ans.add(x == 0);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<bool> prefixesDivBy5(vector<int>& nums) {
+        vector<bool> ans;
+        int x = 0;
+        for (int v : nums) {
+            x = (x << 1 | v) % 5;
+            ans.push_back(x == 0);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func prefixesDivBy5(nums []int) (ans []bool) {
+	x := 0
+	for _, v := range nums {
+		x = (x<<1 | v) % 5
+		ans = append(ans, x == 0)
+	}
+	return
+}
 ```
 
 ### **...**
