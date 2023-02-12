@@ -82,7 +82,16 @@ nums 只有一个元素，所以我们选中 13 并将其加到串联值上，�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findTheArrayConcVal(self, nums: List[int]) -> int:
+        ans = 0
+        i, j = 0, len(nums) - 1
+        while i < j:
+            ans += int(str(nums[i]) + str(nums[j]))
+            i, j = i + 1, j - 1
+        if i == j:
+            ans += nums[i]
+        return ans
 ```
 
 ### **Java**
@@ -137,6 +146,76 @@ func findTheArrayConcVal(nums []int) (ans int64) {
 		ans += int64(nums[i])
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function findTheArrayConcVal(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    let i = 0;
+    let j = n - 1;
+    while (i < j) {
+        ans += Number(`${nums[i]}${nums[j]}`);
+        i++;
+        j--;
+    }
+    if (i === j) {
+        ans += nums[i];
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_the_array_conc_val(nums: Vec<i32>) -> i64 {
+        let n = nums.len();
+        let mut ans = 0;
+        let mut i = 0;
+        let mut j = n - 1;
+        while i < j {
+            ans += format!("{}{}", nums[i], nums[j]).parse::<i64>().unwrap();
+            i += 1;
+            j -= 1;
+        }
+        if i == j {
+            ans += nums[i] as i64;
+        }
+        ans
+    }
+}
+```
+
+### **C**
+
+```c
+int getLen(int num) {
+    int res = 0;
+    while (num) {
+        num /= 10;
+        res++;
+    }
+    return res;
+}
+
+long long findTheArrayConcVal(int *nums, int numsSize) {
+    long long ans = 0;
+    int i = 0;
+    int j = numsSize - 1;
+    while (i < j) {
+        ans += nums[i] * pow(10, getLen(nums[j])) + nums[j];
+        i++;
+        j--;
+    }
+    if (i == j) {
+        ans += nums[i];
+    }
+    return ans;
 }
 ```
 
