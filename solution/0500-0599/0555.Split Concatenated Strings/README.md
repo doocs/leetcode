@@ -50,6 +50,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们先遍历字符串数组 `strs`，对于每个字符串 $s$，如果 $s$ 的反转字符串 $t$ 比 $s$ 大，那么我们就将 $s$ 替换为 $t$。
+
+然后我们再枚举字符串数组 `strs` 的每个位置 $i$ 作为分割点，将字符串数组 `strs` 拆成两部分，分别为 $strs[i + 1:]$ 和 $strs[:i]$，然后将这两部分拼接起来，得到一个新的字符串 $t$。接下来，我们枚举当前字符串 $strs[i]$ 的每个位置 $j$，其后缀部分为 $a=strs[i][j:]$，前缀部分为 $b=strs[i][:j]$，那么我们可以将 $a$、$t$ 和 $b$ 拼接起来，得到一个新的字符串 $cur$，如果 $cur$ 比当前答案大，那么我们就更新答案。这是将 $strs[i]$ 翻转后的情况，我们还需要考虑 $strs[i]$ 不翻转的情况，即将 $a$、$t$ 和 $b$ 的顺序反过来拼接，得到一个新的字符串 $cur$，如果 $cur$ 比当前答案大，那么我们就更新答案。
+
+最后，我们返回答案即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串数组 `strs` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +67,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def splitLoopedString(self, strs: List[str]) -> str:
+        strs = [s[::-1] if s[::-1] > s else s for s in strs]
+        ans = ''.join(strs)
+        for i, s in enumerate(strs):
+            t = ''.join(strs[i + 1:]) + ''.join(strs[: i])
+            for j in range(len(s)):
+                a = s[j:]
+                b = s[:j]
+                ans = max(ans, a + t + b)
+                ans = max(ans, b[::-1] + t + a[::-1])
+        return ans
 ```
 
 ### **Java**
@@ -65,7 +86,128 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String splitLoopedString(String[] strs) {
+        int n = strs.length;
+        for (int i = 0; i < n; ++i) {
+            String s = strs[i];
+            String t = new StringBuilder(s).reverse().toString();
+            if (s.compareTo(t) < 0) {
+                strs[i] = t;
+            }
+        }
+        String ans = "";
+        for (int i = 0; i < n; ++i) {
+            String s = strs[i];
+            StringBuilder sb = new StringBuilder();
+            for (int j = i + 1; j < n; ++j) {
+                sb.append(strs[j]);
+            }
+            for (int j = 0; j < i; ++j) {
+                sb.append(strs[j]);
+            }
+            String t = sb.toString();
+            for (int j = 0; j < s.length(); ++j) {
+                String a = s.substring(j);
+                String b = s.substring(0, j);
+                String cur = a + t + b;
+                if (ans.compareTo(cur) < 0) {
+                    ans = cur;
+                }
+                cur = new StringBuilder(b).reverse().append(t)
+                .append(new StringBuilder(a).reverse().toString()).toString();
+                if (ans.compareTo(cur) < 0) {
+                    ans = cur;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string splitLoopedString(vector<string>& strs) {
+        for (auto& s : strs) {
+            string t{s.rbegin(), s.rend()};
+            s = max(s, t);
+        }
+        int n = strs.size();
+        string ans = "";
+        for (int i = 0; i < strs.size(); ++i) {
+            auto& s = strs[i];
+            string t;
+            for (int j = i + 1; j < n; ++j) {
+                t += strs[j];
+            }
+            for (int j = 0; j < i; ++j) {
+                t += strs[j];
+            }
+            for (int j = 0; j < s.size(); ++j) {
+                auto a = s.substr(j);
+                auto b = s.substr(0, j);
+                auto cur = a + t + b;
+                if (ans < cur) {
+                    ans = cur;
+                }
+                reverse(a.begin(), a.end());
+                reverse(b.begin(), b.end());
+                cur = b + t + a;
+                if (ans < cur) {
+                    ans = cur;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func splitLoopedString(strs []string) (ans string) {
+	for i, s := range strs {
+		t := reverse(s)
+		if s < t {
+			strs[i] = t
+		}
+	}
+	for i, s := range strs {
+		sb := &strings.Builder{}
+		for _, w := range strs[i+1:] {
+			sb.WriteString(w)
+		}
+		for _, w := range strs[:i] {
+			sb.WriteString(w)
+		}
+		t := sb.String()
+		for j := 0; j < len(s); j++ {
+			a, b := s[j:], s[0:j]
+			cur := a + t + b
+			if ans < cur {
+				ans = cur
+			}
+			cur = reverse(b) + t + reverse(a)
+			if ans < cur {
+				ans = cur
+			}
+		}
+	}
+	return ans
+}
+
+func reverse(s string) string {
+	t := []byte(s)
+	for i, j := 0, len(t)-1; i < j; i, j = i+1, j-1 {
+		t[i], t[j] = t[j], t[i]
+	}
+	return string(t)
+}
 ```
 
 ### **...**
