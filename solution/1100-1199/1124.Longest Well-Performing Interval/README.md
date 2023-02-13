@@ -43,13 +43,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和 + 哈希表。前缀和 s 初始值为 0。遍历 hours 中每一项数据 h：
+**方法一：前缀和 + 哈希表**
 
--   若 h 大于 8，则 s 加 1，否则减 1。
--   若当前 s 大于 0，说明从下标 0 到当前下标的这一段，满足「表现良好的时间段」，`ans = i + 1`。
--   若出现了一个新的 s，我们记录到哈希表 seen 中，`seen[s]` 表示 s 第一次出现的位置。
+我们可以利用前缀和的思想，维护一个变量 $s$，表示从下标 $0$ 到当前下标的这一段，「劳累的天数」与「不劳累的天数」的差值。如果 $s$ 大于 $0$，说明从下标 $0$ 到当前下标的这一段，满足「表现良好的时间段」。另外，用哈希表 $pos$ 记录每个 $s$ 第一次出现的下标。
 
-我们想要 s 大于 0，因此要找到 `s - 1` 第一次出现的位置。虽然 `s - x` 同样满足条件，但是它会出现得比 `s - 1` 要晚。因此最大长度是 `i - seen[s - 1]`。
+接下来，我们遍历数组 `hours`，对于每个下标 $i$：
+
+-   如果 $hours[i] \gt 8$，我们就让 $s$ 加 $1$，否则减 $1$。
+-   如果 $s$ 大于 $0$，说明从下标 $0$ 到当前下标的这一段，满足「表现良好的时间段」，我们更新结果 $ans = i + 1$。否则，如果 $s - 1$ 在哈希表 $pos$ 中，记 $j = pos[s - 1]$，说明从下标 $j + 1$ 到当前下标 $i$ 的这一段，满足「表现良好的时间段」，我们更新结果 $ans = max(ans, i - j)$。
+-   然后，如果 $s$ 不在哈希表 $pos$ 中，我们就记录 $pos[s] = i$。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `hours` 的长度。
 
 <!-- tabs:start -->
 
@@ -61,16 +67,15 @@
 class Solution:
     def longestWPI(self, hours: List[int]) -> int:
         ans = s = 0
-        seen = {}
-        for i, h in enumerate(hours):
-            s += 1 if h > 8 else -1
+        pos = {}
+        for i, x in enumerate(hours):
+            s += 1 if x > 8 else -1
             if s > 0:
                 ans = i + 1
-            else:
-                if s not in seen:
-                    seen[s] = i
-                if s - 1 in seen:
-                    ans = max(ans, i - seen[s - 1])
+            elif s - 1 in pos:
+                ans = max(ans, i - pos[s - 1])
+            if s not in pos:
+                pos[s] = i
         return ans
 ```
 
@@ -81,18 +86,16 @@ class Solution:
 ```java
 class Solution {
     public int longestWPI(int[] hours) {
-        int s = 0, ans = 0;
-        Map<Integer, Integer> seen = new HashMap<>();
+        int ans = 0, s = 0;
+        Map<Integer, Integer> pos = new HashMap<>();
         for (int i = 0; i < hours.length; ++i) {
             s += hours[i] > 8 ? 1 : -1;
             if (s > 0) {
                 ans = i + 1;
-            } else {
-                seen.putIfAbsent(s, i);
-                if (seen.containsKey(s - 1)) {
-                    ans = Math.max(ans, i - seen.get(s - 1));
-                }
+            } else if (pos.containsKey(s - 1)) {
+                ans = Math.max(ans, i - pos.get(s - 1));
             }
+            pos.putIfAbsent(s, i);
         }
         return ans;
     }
@@ -105,15 +108,17 @@ class Solution {
 class Solution {
 public:
     int longestWPI(vector<int>& hours) {
-        int s = 0, ans = 0;
-        unordered_map<int, int> seen;
+        int ans = 0, s = 0;
+        unordered_map<int, int> pos;
         for (int i = 0; i < hours.size(); ++i) {
             s += hours[i] > 8 ? 1 : -1;
-            if (s > 0)
+            if (s > 0) {
                 ans = i + 1;
-            else {
-                if (!seen.count(s)) seen[s] = i;
-                if (seen.count(s - 1)) ans = max(ans, i - seen[s - 1]);
+            } else if (pos.count(s - 1)) {
+                ans = max(ans, i - pos[s - 1]);
+            }
+            if (!pos.count(s)) {
+                pos[s] = i;
             }
         }
         return ans;
@@ -124,27 +129,25 @@ public:
 ### **Go**
 
 ```go
-func longestWPI(hours []int) int {
-	s, ans := 0, 0
-	seen := make(map[int]int)
-	for i, h := range hours {
-		if h > 8 {
-			s += 1
+func longestWPI(hours []int) (ans int) {
+	s := 0
+	pos := map[int]int{}
+	for i, x := range hours {
+		if x > 8 {
+			s++
 		} else {
-			s -= 1
+			s--
 		}
 		if s > 0 {
 			ans = i + 1
-		} else {
-			if _, ok := seen[s]; !ok {
-				seen[s] = i
-			}
-			if j, ok := seen[s-1]; ok {
-				ans = max(ans, i-j)
-			}
+		} else if j, ok := pos[s-1]; ok {
+			ans = max(ans, i-j)
+		}
+		if _, ok := pos[s]; !ok {
+			pos[s] = i
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {

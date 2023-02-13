@@ -1,24 +1,22 @@
-func longestWPI(hours []int) int {
-	s, ans := 0, 0
-	seen := make(map[int]int)
-	for i, h := range hours {
-		if h > 8 {
-			s += 1
+func longestWPI(hours []int) (ans int) {
+	s := 0
+	pos := map[int]int{}
+	for i, x := range hours {
+		if x > 8 {
+			s++
 		} else {
-			s -= 1
+			s--
 		}
 		if s > 0 {
 			ans = i + 1
-		} else {
-			if _, ok := seen[s]; !ok {
-				seen[s] = i
-			}
-			if j, ok := seen[s-1]; ok {
-				ans = max(ans, i-j)
-			}
+		} else if j, ok := pos[s-1]; ok {
+			ans = max(ans, i-j)
+		}
+		if _, ok := pos[s]; !ok {
+			pos[s] = i
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
