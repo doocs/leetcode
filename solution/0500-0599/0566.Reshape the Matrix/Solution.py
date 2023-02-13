@@ -1,9 +1,9 @@
 class Solution:
-    def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
-        m, n = len(nums), len(nums[0])
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        m, n = len(mat), len(mat[0])
         if m * n != r * c:
-            return nums
-        res = [[0] * c for _ in range(r)]
-        for x in range(m * n):
-            res[x // c][x % c] = nums[x // n][x % n]
-        return res
+            return mat
+        ans = [[0] * c for _ in range(r)]
+        for i in range(m * n):
+            ans[i // c][i % c] = mat[i // n][i % n]
+        return ans

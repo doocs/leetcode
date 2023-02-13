@@ -46,29 +46,69 @@
 
 ```python
 class Solution:
-    def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
-        m, n = len(nums), len(nums[0])
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        m, n = len(mat), len(mat[0])
         if m * n != r * c:
-            return nums
-        res = [[0] * c for _ in range(r)]
-        for x in range(m * n):
-            res[x // c][x % c] = nums[x // n][x % n]
-        return res
+            return mat
+        ans = [[0] * c for _ in range(r)]
+        for i in range(m * n):
+            ans[i // c][i % c] = mat[i // n][i % n]
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public int[][] matrixReshape(int[][] nums, int r, int c) {
-        int m = nums.length, n = nums[0].length;
-        if (m * n != r * c) return nums;
-        int[][] res = new int[r][c];
-        for (int i = 0; i < m * n; ++i) {
-            res[i / c][i % c] = nums[i / n][i % n];
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+        int m = mat.length, n = mat[0].length;
+        if (m * n != r * c) {
+            return mat;
         }
-        return res;
+        int[][] ans = new int[r][c];
+        for (int i = 0; i < m * n; ++i) {
+            ans[i / c][i % c] = mat[i / n][i % n];
+        }
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+        int m = mat.size(), n = mat[0].size();
+        if (m * n != r * c) {
+            return mat;
+        }
+        vector<vector<int>> ans(r, vector<int>(c));
+        for (int i = 0; i < m * n; ++i) {
+            ans[i / c][i % c] = mat[i / n][i % n];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func matrixReshape(mat [][]int, r int, c int) [][]int {
+	m, n := len(mat), len(mat[0])
+	if m*n != r*c {
+		return mat
+	}
+	ans := make([][]int, r)
+	for i := range ans {
+		ans[i] = make([]int, c)
+	}
+	for i := 0; i < m*n; i++ {
+		ans[i/c][i%c] = mat[i/n][i%n]
+	}
+	return ans
 }
 ```
 
