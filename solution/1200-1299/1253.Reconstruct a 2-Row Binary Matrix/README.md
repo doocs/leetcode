@@ -56,6 +56,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们先创建一个答案数组 `ans`，其中 `ans[0]` 和 `ans[1]` 分别表示第 $0$ 行和第 $1$ 行的元素。
+
+对于 `colsum` 中的每个元素 $v$：
+
+-   如果 $v = 2$，那么我们将 `ans[0][j]` 和 `ans[1][j]` 都置为 $1$，其中 $j$ 是当前元素的下标。此时 `upper` 和 `lower` 都减去 $1$。
+-   如果 $v = 1$，那么我们将 `ans[0][j]` 或 `ans[1][j]` 置为 $1$，其中 $j$ 是当前元素的下标。如果 `upper` 大于 `lower`，那么我们优先将 `ans[0][j]` 置为 $1$，否则我们优先将 `ans[1][j]` 置为 $1$。此时 `upper` 或 `lower` 减去 $1$。
+-   如果 $v = 0$，那么我们将 `ans[0][j]` 和 `ans[1][j]` 都置为 $0$，其中 $j$ 是当前元素的下标。
+-   如果 `upper` 或 `lower` 小于 $0$，那么我们直接返回一个空数组。
+
+遍历完 `colsum` 后，如果 `upper` 和 `lower` 都为 $0$，那么我们返回 `ans`，否则我们返回一个空数组。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是 `colsum` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +78,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reconstructMatrix(self, upper: int, lower: int, colsum: List[int]) -> List[List[int]]:
+        n = len(colsum)
+        ans = [[0] * n for _ in range(2)]
+        for j, v in enumerate(colsum):
+            if v == 2:
+                ans[0][j] = ans[1][j] = 1
+                upper, lower = upper - 1, lower - 1
+            if v == 1:
+                if upper > lower:
+                    upper -= 1
+                    ans[0][j] = 1
+                else:
+                    lower -= 1
+                    ans[1][j] = 1
+            if upper < 0 or lower < 0:
+                return []
+        return ans if lower == upper == 0 else []
 ```
 
 ### **Java**
@@ -71,7 +103,111 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<List<Integer>> reconstructMatrix(int upper, int lower, int[] colsum) {
+        int n = colsum.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> first = new ArrayList<>();
+        List<Integer> second = new ArrayList<>();
+        for (int j = 0; j < n; ++j) {
+            if (colsum[j] == 2) {
+                first.add(1);
+                second.add(1);
+                upper--;
+                lower--;
+            } else if (colsum[j] == 1) {
+                if (upper > lower) {
+                    upper--;
+                    first.add(1);
+                    second.add(0);
+                } else {
+                    lower--;
+                    first.add(0);
+                    second.add(1);
+                }
+            } else {
+                first.add(0);
+                second.add(0);
+            }
+            if (upper < 0 || lower < 0) {
+                return ans;
+            }
+        }
+        if (upper != 0 || lower != 0) {
+            return ans;
+        }
+        ans.add(first);
+        ans.add(second);
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> reconstructMatrix(int upper, int lower, vector<int>& colsum) {
+        int n = colsum.size();
+        vector<vector<int>> ans(2, vector<int>(n));
+        for (int j = 0; j < n; ++j) {
+            if (colsum[j] == 2) {
+                ans[0][j] = ans[1][j] = 1;
+                upper--;
+                lower--;
+            }
+            if (colsum[j] == 1) {
+                if (upper > lower) {
+                    upper--;
+                    ans[0][j] = 1;
+                } else {
+                    lower--;
+                    ans[1][j] = 1;
+                }
+            }
+            if (upper < 0 || lower < 0) {
+                return {};
+            }
+        }
+        return upper != 0 || lower != 0 ? vector<vector<int>>{} : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
+	n := len(colsum)
+	ans := make([][]int, 2)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	for j, v := range colsum {
+		if v == 2 {
+			ans[0][j], ans[1][j] = 1, 1
+			upper--
+			lower--
+		}
+		if v == 1 {
+			if upper > lower {
+				upper--
+				ans[0][j] = 1
+			} else {
+				lower--
+				ans[1][j] = 1
+			}
+		}
+		if upper < 0 || lower < 0 {
+			return [][]int{}
+		}
+	}
+	if upper != 0 || lower != 0 {
+		return [][]int{}
+	}
+	return ans
+}
 ```
 
 ### **...**

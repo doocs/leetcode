@@ -60,13 +60,134 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reconstructMatrix(self, upper: int, lower: int, colsum: List[int]) -> List[List[int]]:
+        n = len(colsum)
+        ans = [[0] * n for _ in range(2)]
+        for j, v in enumerate(colsum):
+            if v == 2:
+                ans[0][j] = ans[1][j] = 1
+                upper, lower = upper - 1, lower - 1
+            if v == 1:
+                if upper > lower:
+                    upper -= 1
+                    ans[0][j] = 1
+                else:
+                    lower -= 1
+                    ans[1][j] = 1
+            if upper < 0 or lower < 0:
+                return []
+        return ans if lower == upper == 0 else []
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Integer>> reconstructMatrix(int upper, int lower, int[] colsum) {
+        int n = colsum.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> first = new ArrayList<>();
+        List<Integer> second = new ArrayList<>();
+        for (int j = 0; j < n; ++j) {
+            if (colsum[j] == 2) {
+                first.add(1);
+                second.add(1);
+                upper--;
+                lower--;
+            } else if (colsum[j] == 1) {
+                if (upper > lower) {
+                    upper--;
+                    first.add(1);
+                    second.add(0);
+                } else {
+                    lower--;
+                    first.add(0);
+                    second.add(1);
+                }
+            } else {
+                first.add(0);
+                second.add(0);
+            }
+            if (upper < 0 || lower < 0) {
+                return ans;
+            }
+        }
+        if (upper != 0 || lower != 0) {
+            return ans;
+        }
+        ans.add(first);
+        ans.add(second);
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> reconstructMatrix(int upper, int lower, vector<int>& colsum) {
+        int n = colsum.size();
+        vector<vector<int>> ans(2, vector<int>(n));
+        for (int j = 0; j < n; ++j) {
+            if (colsum[j] == 2) {
+                ans[0][j] = ans[1][j] = 1;
+                upper--;
+                lower--;
+            }
+            if (colsum[j] == 1) {
+                if (upper > lower) {
+                    upper--;
+                    ans[0][j] = 1;
+                } else {
+                    lower--;
+                    ans[1][j] = 1;
+                }
+            }
+            if (upper < 0 || lower < 0) {
+                return {};
+            }
+        }
+        return upper != 0 || lower != 0 ? vector<vector<int>>{} : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
+	n := len(colsum)
+	ans := make([][]int, 2)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	for j, v := range colsum {
+		if v == 2 {
+			ans[0][j], ans[1][j] = 1, 1
+			upper--
+			lower--
+		}
+		if v == 1 {
+			if upper > lower {
+				upper--
+				ans[0][j] = 1
+			} else {
+				lower--
+				ans[1][j] = 1
+			}
+		}
+		if upper < 0 || lower < 0 {
+			return [][]int{}
+		}
+	}
+	if upper != 0 || lower != 0 {
+		return [][]int{}
+	}
+	return ans
+}
 ```
 
 ### **...**
