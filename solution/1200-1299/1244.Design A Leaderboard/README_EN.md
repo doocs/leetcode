@@ -94,18 +94,17 @@ class Leaderboard {
     private TreeMap<Integer, Integer> rank = new TreeMap<>((a, b) -> b - a);
 
     public Leaderboard() {
-
     }
-    
+
     public void addScore(int playerId, int score) {
         d.merge(playerId, score, Integer::sum);
         int newScore = d.get(playerId);
         if (newScore != score) {
-            rank.merge(newScore - score, -1, Integer::sum);   
+            rank.merge(newScore - score, -1, Integer::sum);
         }
         rank.merge(newScore, 1, Integer::sum);
     }
-    
+
     public int top(int K) {
         int ans = 0;
         for (var e : rank.entrySet()) {
@@ -119,7 +118,7 @@ class Leaderboard {
         }
         return ans;
     }
-    
+
     public void reset(int playerId) {
         int score = d.remove(playerId);
         if (rank.merge(score, -1, Integer::sum) == 0) {
@@ -145,7 +144,7 @@ public:
     Leaderboard() {
 
     }
-    
+
     void addScore(int playerId, int score) {
         d[playerId] += score;
         int newScore = d[playerId];
@@ -154,7 +153,7 @@ public:
         }
         rank.insert(newScore);
     }
-    
+
     int top(int K) {
         int ans = 0;
         for (auto& x : rank) {
@@ -165,7 +164,7 @@ public:
         }
         return ans;
     }
-    
+
     void reset(int playerId) {
         int score = d[playerId];
         d.erase(playerId);

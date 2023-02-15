@@ -123,7 +123,6 @@ class Leaderboard {
     private TreeMap<Integer, Integer> rank = new TreeMap<>((a, b) -> b - a);
 
     public Leaderboard() {
-
     }
 
     public void addScore(int playerId, int score) {

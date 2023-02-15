@@ -6,7 +6,7 @@ public:
         for (; i < j; ++i, --j) {
             ans += stoi(to_string(nums[i]) + to_string(nums[j]));
         }
-        if (i ==j) {
+        if (i == j) {
             ans += nums[i];
         }
         return ans;

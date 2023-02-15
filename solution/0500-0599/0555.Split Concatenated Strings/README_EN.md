@@ -96,8 +96,11 @@ class Solution {
                 if (ans.compareTo(cur) < 0) {
                     ans = cur;
                 }
-                cur = new StringBuilder(b).reverse().append(t)
-                .append(new StringBuilder(a).reverse().toString()).toString();
+                cur = new StringBuilder(b)
+                          .reverse()
+                          .append(t)
+                          .append(new StringBuilder(a).reverse().toString())
+                          .toString();
                 if (ans.compareTo(cur) < 0) {
                     ans = cur;
                 }

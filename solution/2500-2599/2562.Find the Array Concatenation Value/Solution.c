@@ -7,7 +7,7 @@ int getLen(int num) {
     return res;
 }
 
-long long findTheArrayConcVal(int *nums, int numsSize) {
+long long findTheArrayConcVal(int* nums, int numsSize) {
     long long ans = 0;
     int i = 0;
     int j = numsSize - 1;

@@ -32,7 +32,7 @@ class FindElements {
             dfs(root.right);
         }
     }
-    
+
     public boolean find(int target) {
         return vis.contains(target);
     }

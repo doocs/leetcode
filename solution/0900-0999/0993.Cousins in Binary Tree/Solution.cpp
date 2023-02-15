@@ -12,7 +12,7 @@
 class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
-        TreeNode* p1, *p2;
+        TreeNode *p1, *p2;
         int d1, d2;
         function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* root, TreeNode* fa, int d) {
             if (!root) {

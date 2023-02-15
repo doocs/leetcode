@@ -1,9 +1,8 @@
 class Leaderboard {
 public:
     Leaderboard() {
-
     }
-    
+
     void addScore(int playerId, int score) {
         d[playerId] += score;
         int newScore = d[playerId];
@@ -12,7 +11,7 @@ public:
         }
         rank.insert(newScore);
     }
-    
+
     int top(int K) {
         int ans = 0;
         for (auto& x : rank) {
@@ -23,7 +22,7 @@ public:
         }
         return ans;
     }
-    
+
     void reset(int playerId) {
         int score = d[playerId];
         d.erase(playerId);

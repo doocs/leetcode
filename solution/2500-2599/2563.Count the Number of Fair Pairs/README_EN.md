@@ -73,7 +73,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private int search(int[] nums, int x, int left) {
         int right = nums.length;
         while (left < right) {

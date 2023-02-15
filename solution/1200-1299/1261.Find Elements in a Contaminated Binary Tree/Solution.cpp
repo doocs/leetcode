@@ -26,7 +26,7 @@ public:
         };
         dfs(root);
     }
-    
+
     bool find(int target) {
         return vis.count(target);
     }
