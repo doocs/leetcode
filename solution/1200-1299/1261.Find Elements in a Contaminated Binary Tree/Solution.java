@@ -14,33 +14,27 @@
  * }
  */
 class FindElements {
-    private Set<Integer> nodes;
+    private Set<Integer> vis = new HashSet<>();
 
     public FindElements(TreeNode root) {
-        nodes = new HashSet<>();
         root.val = 0;
-        nodes.add(0);
         dfs(root);
     }
 
-    public boolean find(int target) {
-        return nodes.contains(target);
-    }
-
     private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+        vis.add(root.val);
         if (root.left != null) {
             root.left.val = root.val * 2 + 1;
-            nodes.add(root.left.val);
+            dfs(root.left);
         }
         if (root.right != null) {
             root.right.val = root.val * 2 + 2;
-            nodes.add(root.right.val);
+            dfs(root.right);
         }
-        dfs(root.left);
-        dfs(root.right);
+    }
+    
+    public boolean find(int target) {
+        return vis.contains(target);
     }
 }
 

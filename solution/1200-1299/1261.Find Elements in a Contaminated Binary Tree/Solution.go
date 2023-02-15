@@ -7,35 +7,30 @@
  * }
  */
 type FindElements struct {
-	nodes map[int]bool
+	vis map[int]bool
 }
 
 func Constructor(root *TreeNode) FindElements {
 	root.Val = 0
-	nodes := make(map[int]bool)
-	nodes[0] = true
-	var dfs func(root *TreeNode)
+	vis := map[int]bool{}
+	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
+		vis[root.Val] = true
 		if root.Left != nil {
 			root.Left.Val = root.Val*2 + 1
-			nodes[root.Left.Val] = true
+			dfs(root.Left)
 		}
 		if root.Right != nil {
 			root.Right.Val = root.Val*2 + 2
-			nodes[root.Right.Val] = true
+			dfs(root.Right)
 		}
-		dfs(root.Left)
-		dfs(root.Right)
 	}
 	dfs(root)
-	return FindElements{nodes}
+	return FindElements{vis}
 }
 
 func (this *FindElements) Find(target int) bool {
-	return this.nodes[target]
+	return this.vis[target]
 }
 
 /**

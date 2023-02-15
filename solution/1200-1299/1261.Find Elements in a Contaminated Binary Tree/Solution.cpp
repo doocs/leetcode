@@ -11,32 +11,28 @@
  */
 class FindElements {
 public:
-    unordered_set<int> nodes;
-
     FindElements(TreeNode* root) {
         root->val = 0;
-        nodes.clear();
-        nodes.insert(0);
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            vis.insert(root->val);
+            if (root->left) {
+                root->left->val = root->val * 2 + 1;
+                dfs(root->left);
+            }
+            if (root->right) {
+                root->right->val = root->val * 2 + 2;
+                dfs(root->right);
+            }
+        };
         dfs(root);
     }
-
+    
     bool find(int target) {
-        return nodes.count(target);
+        return vis.count(target);
     }
 
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        if (root->left) {
-            root->left->val = root->val * 2 + 1;
-            nodes.insert(root->left->val);
-        }
-        if (root->right) {
-            root->right->val = root->val * 2 + 2;
-            nodes.insert(root->right->val);
-        }
-        dfs(root->left);
-        dfs(root->right);
-    }
+private:
+    unordered_set<int> vis;
 };
 
 /**

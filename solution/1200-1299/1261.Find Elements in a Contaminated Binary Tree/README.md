@@ -87,6 +87,12 @@ findElements.find(5); // return True
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS + 哈希表**
+
+我们先通过 DFS 遍历二叉树，将节点值恢复为原来的值，然后再通过哈希表存储所有节点值，这样在查找时就可以直接判断目标值是否存在于哈希表中。
+
+时间复杂度方面，初始化时需要遍历二叉树，时间复杂度为 $O(n)$，查找时只需要判断哈希表中是否存在目标值，时间复杂度为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -101,26 +107,23 @@ findElements.find(5); // return True
 #         self.left = left
 #         self.right = right
 class FindElements:
-    def __init__(self, root: TreeNode):
-        root.val = 0
-        self.nodes = {0}
 
+    def __init__(self, root: Optional[TreeNode]):
         def dfs(root):
-            if root is None:
-                return
+            self.vis.add(root.val)
             if root.left:
                 root.left.val = root.val * 2 + 1
-                self.nodes.add(root.left.val)
+                dfs(root.left)
             if root.right:
                 root.right.val = root.val * 2 + 2
-                self.nodes.add(root.right.val)
-            dfs(root.left)
-            dfs(root.right)
+                dfs(root.right)
 
+        root.val = 0
+        self.vis = set()
         dfs(root)
 
     def find(self, target: int) -> bool:
-        return target in self.nodes
+        return target in self.vis
 
 
 # Your FindElements object will be instantiated and called as such:
@@ -149,33 +152,27 @@ class FindElements:
  * }
  */
 class FindElements {
-    private Set<Integer> nodes;
+    private Set<Integer> vis = new HashSet<>();
 
     public FindElements(TreeNode root) {
-        nodes = new HashSet<>();
         root.val = 0;
-        nodes.add(0);
         dfs(root);
     }
 
-    public boolean find(int target) {
-        return nodes.contains(target);
-    }
-
     private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+        vis.add(root.val);
         if (root.left != null) {
             root.left.val = root.val * 2 + 1;
-            nodes.add(root.left.val);
+            dfs(root.left);
         }
         if (root.right != null) {
             root.right.val = root.val * 2 + 2;
-            nodes.add(root.right.val);
+            dfs(root.right);
         }
-        dfs(root.left);
-        dfs(root.right);
+    }
+
+    public boolean find(int target) {
+        return vis.contains(target);
     }
 }
 
@@ -202,32 +199,28 @@ class FindElements {
  */
 class FindElements {
 public:
-    unordered_set<int> nodes;
-
     FindElements(TreeNode* root) {
         root->val = 0;
-        nodes.clear();
-        nodes.insert(0);
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            vis.insert(root->val);
+            if (root->left) {
+                root->left->val = root->val * 2 + 1;
+                dfs(root->left);
+            }
+            if (root->right) {
+                root->right->val = root->val * 2 + 2;
+                dfs(root->right);
+            }
+        };
         dfs(root);
     }
 
     bool find(int target) {
-        return nodes.count(target);
+        return vis.count(target);
     }
 
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        if (root->left) {
-            root->left->val = root->val * 2 + 1;
-            nodes.insert(root->left->val);
-        }
-        if (root->right) {
-            root->right->val = root->val * 2 + 2;
-            nodes.insert(root->right->val);
-        }
-        dfs(root->left);
-        dfs(root->right);
-    }
+private:
+    unordered_set<int> vis;
 };
 
 /**
@@ -249,35 +242,30 @@ public:
  * }
  */
 type FindElements struct {
-	nodes map[int]bool
+	vis map[int]bool
 }
 
 func Constructor(root *TreeNode) FindElements {
 	root.Val = 0
-	nodes := make(map[int]bool)
-	nodes[0] = true
-	var dfs func(root *TreeNode)
+	vis := map[int]bool{}
+	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
+		vis[root.Val] = true
 		if root.Left != nil {
 			root.Left.Val = root.Val*2 + 1
-			nodes[root.Left.Val] = true
+			dfs(root.Left)
 		}
 		if root.Right != nil {
 			root.Right.Val = root.Val*2 + 2
-			nodes[root.Right.Val] = true
+			dfs(root.Right)
 		}
-		dfs(root.Left)
-		dfs(root.Right)
 	}
 	dfs(root)
-	return FindElements{nodes}
+	return FindElements{vis}
 }
 
 func (this *FindElements) Find(target int) bool {
-	return this.nodes[target]
+	return this.vis[target]
 }
 
 /**
