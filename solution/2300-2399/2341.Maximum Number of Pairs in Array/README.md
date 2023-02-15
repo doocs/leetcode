@@ -58,11 +58,15 @@ nums[0] 和 nums[1] 形成一个数对，并从 nums 中移除，nums = [2] 。
 
 **方法一：计数**
 
-我们可以统计数组 `nums` 中每个数字出现的次数，记录在数组 `cnt` 中。然后遍历数组 `cnt`，对于每个数字 $v$，如果 $v$ 出现的次数大于等于 $2$，则可以从数组中选出两个 $v$ 形成一个数对，此时我们将 $v$ 出现的次数除以 $2$，即可得到可以形成的数对数目，然后将这个数对数目加到答案中。
+我们可以统计数组 `nums` 中每个数字 $x$ 出现的次数，记录在哈希表或数组 `cnt` 中。
 
-最终剩余的数字个数为数组 `nums` 的长度减去可以形成的数对数目乘以 $2$。
+然后遍历 `cnt`，对于每个数字 $x$，如果 $x$ 出现的次数 $v$ 大于 $1$，则可以从数组中选出两个 $x$ 形成一个数对，我们将 $v$ 除以 $2$ 向下取整，即可得到当前数字 $x$ 可以形成的数对数目，然后我们累加这个数目到变量 $s$ 中。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为数组 `nums` 的长度，而 $C$ 为数组 `nums` 中数字的范围。本题中 $C = 101$。
+最后剩余的个数为数组 `nums` 的长度减去可以形成的数对数目乘以 $2$，即 $n - s \times 2$。
+
+答案为 $[s, n - s \times 2]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为数组 `nums` 的长度；而 $C$ 为数组 `nums` 中数字的范围，本题中 $C = 101$。
 
 <!-- tabs:start -->
 
@@ -86,8 +90,8 @@ class Solution:
 class Solution {
     public int[] numberOfPairs(int[] nums) {
         int[] cnt = new int[101];
-        for (int v : nums) {
-            ++cnt[v];
+        for (int x : nums) {
+            ++cnt[x];
         }
         int s = 0;
         for (int v : cnt) {
@@ -105,8 +109,8 @@ class Solution {
 public:
     vector<int> numberOfPairs(vector<int>& nums) {
         vector<int> cnt(101);
-        for (int& v : nums) {
-            ++cnt[v];
+        for (int& x : nums) {
+            ++cnt[x];
         }
         int s = 0;
         for (int& v : cnt) {
@@ -121,15 +125,15 @@ public:
 
 ```go
 func numberOfPairs(nums []int) []int {
-    cnt := make([]int, 101)
-    for _, v := range nums {
-        cnt[v]++
-    }
-    s := 0
-    for _, v := range cnt {
-        s += v / 2
-    }
-    return []int{s, len(nums) - s * 2}
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	s := 0
+	for _, v := range cnt {
+		s += v / 2
+	}
+	return []int{s, len(nums) - s*2}
 }
 ```
 
@@ -198,12 +202,30 @@ int *numberOfPairs(int *nums, int numsSize, int *returnSize) {
  */
 var numberOfPairs = function (nums) {
     const cnt = new Array(101).fill(0);
-    for (const v of nums) {
-        ++cnt[v];
+    for (const x of nums) {
+        ++cnt[x];
     }
     const s = cnt.reduce((a, b) => a + (b >> 1), 0);
     return [s, nums.length - s * 2];
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] NumberOfPairs(int[] nums) {
+        int[] cnt = new int[101];
+        foreach(int x in nums) {
+            ++cnt[x];
+        }
+        int s = 0;
+        foreach(int v in cnt) {
+            s += v / 2;
+        }
+        return new int[] {s, nums.Length - s * 2};
+    }
+}
 ```
 
 ### **...**

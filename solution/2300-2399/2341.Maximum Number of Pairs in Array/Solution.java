@@ -1,8 +1,8 @@
 class Solution {
     public int[] numberOfPairs(int[] nums) {
         int[] cnt = new int[101];
-        for (int v : nums) {
-            ++cnt[v];
+        for (int x : nums) {
+            ++cnt[x];
         }
         int s = 0;
         for (int v : cnt) {

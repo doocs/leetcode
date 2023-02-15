@@ -73,8 +73,8 @@ class Solution:
 class Solution {
     public int[] numberOfPairs(int[] nums) {
         int[] cnt = new int[101];
-        for (int v : nums) {
-            ++cnt[v];
+        for (int x : nums) {
+            ++cnt[x];
         }
         int s = 0;
         for (int v : cnt) {
@@ -92,8 +92,8 @@ class Solution {
 public:
     vector<int> numberOfPairs(vector<int>& nums) {
         vector<int> cnt(101);
-        for (int& v : nums) {
-            ++cnt[v];
+        for (int& x : nums) {
+            ++cnt[x];
         }
         int s = 0;
         for (int& v : cnt) {
@@ -108,15 +108,15 @@ public:
 
 ```go
 func numberOfPairs(nums []int) []int {
-    cnt := make([]int, 101)
-    for _, v := range nums {
-        cnt[v]++
-    }
-    s := 0
-    for _, v := range cnt {
-        s += v / 2
-    }
-    return []int{s, len(nums) - s * 2}
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	s := 0
+	for _, v := range cnt {
+		s += v / 2
+	}
+	return []int{s, len(nums) - s*2}
 }
 ```
 
@@ -185,12 +185,30 @@ int *numberOfPairs(int *nums, int numsSize, int *returnSize) {
  */
 var numberOfPairs = function (nums) {
     const cnt = new Array(101).fill(0);
-    for (const v of nums) {
-        ++cnt[v];
+    for (const x of nums) {
+        ++cnt[x];
     }
     const s = cnt.reduce((a, b) => a + (b >> 1), 0);
     return [s, nums.length - s * 2];
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] NumberOfPairs(int[] nums) {
+        int[] cnt = new int[101];
+        foreach(int x in nums) {
+            ++cnt[x];
+        }
+        int s = 0;
+        foreach(int v in cnt) {
+            s += v / 2;
+        }
+        return new int[] {s, nums.Length - s * 2};
+    }
+}
 ```
 
 ### **...**
