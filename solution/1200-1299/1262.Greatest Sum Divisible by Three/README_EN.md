@@ -47,13 +47,13 @@
 ```python
 class Solution:
     def maxSumDivThree(self, nums: List[int]) -> int:
-        dp = [0] * 3
-        for v in nums:
-            a, b, c = dp[0] + v, dp[1] + v, dp[2] + v
-            dp[a % 3] = max(dp[a % 3], a)
-            dp[b % 3] = max(dp[b % 3], b)
-            dp[c % 3] = max(dp[c % 3], c)
-        return dp[0]
+        f = [0] * 3
+        for x in nums:
+            a, b, c = f[0] + x, f[1] + x, f[2] + x
+            f[a % 3] = max(f[a % 3], a)
+            f[b % 3] = max(f[b % 3], b)
+            f[c % 3] = max(f[c % 3], c)
+        return f[0]
 ```
 
 ### **Java**
@@ -61,15 +61,55 @@ class Solution:
 ```java
 class Solution {
     public int maxSumDivThree(int[] nums) {
-        int[] dp = new int[3];
-        for (int v : nums) {
-            int a = dp[0] + v, b = dp[1] + v, c = dp[2] + v;
-            dp[a % 3] = Math.max(dp[a % 3], a);
-            dp[b % 3] = Math.max(dp[b % 3], b);
-            dp[c % 3] = Math.max(dp[c % 3], c);
+        int[] f = new int[3];
+        for (int x : nums) {
+            int a = f[0] + x, b = f[1] + x, c = f[2] + x;
+            f[a % 3] = Math.max(f[a % 3], a);
+            f[b % 3] = Math.max(f[b % 3], b);
+            f[c % 3] = Math.max(f[c % 3], c);
         }
-        return dp[0];
+        return f[0];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSumDivThree(vector<int>& nums) {
+        int f[3]{};
+        for (int x : nums) {
+            int a = f[0] + x, b = f[1] + x, c = f[2] + x;
+            f[a % 3] = max(f[a % 3], a);
+            f[b % 3] = max(f[b % 3], b);
+            f[c % 3] = max(f[c % 3], c);
+        }
+        return f[0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSumDivThree(nums []int) int {
+	f := [3]int{}
+	for _, x := range nums {
+		a, b, c := f[0]+x, f[1]+x, f[2]+x
+		f[a%3] = max(f[a%3], a)
+		f[b%3] = max(f[b%3], b)
+		f[c%3] = max(f[c%3], c)
+	}
+	return f[0]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
