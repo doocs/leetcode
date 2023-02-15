@@ -1,35 +1,18 @@
 class Solution {
     public int minimumSwaps(int[] nums) {
         int n = nums.length;
-        int mi = min(nums), mx = max(nums);
-        int i = -1, j = -1;
+        int i = 0, j = 0;
         for (int k = 0; k < n; ++k) {
-            if (nums[k] == mi && i == -1) {
+            if (nums[k] < nums[i] || (nums[k] == nums[i] && k < i)) {
                 i = k;
             }
-            if (nums[k] == mx) {
+            if (nums[k] > nums[j] || (nums[k] == nums[j] && k > j)) {
                 j = k;
             }
         }
         if (i == j) {
             return 0;
         }
-        return i < j ? i + n - 1 - j : i + n - 2 - j;
-    }
-
-    private int max(int[] nums) {
-        int v = 0;
-        for (int x : nums) {
-            v = Math.max(v, x);
-        }
-        return v;
-    }
-
-    private int min(int[] nums) {
-        int v = nums[0];
-        for (int x : nums) {
-            v = Math.min(v, x);
-        }
-        return v;
+        return i + n - 1 - j - (i > j ? 1 : 0);
     }
 }

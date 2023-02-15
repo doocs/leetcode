@@ -1,15 +1,9 @@
 class Solution:
     def minimumSwaps(self, nums: List[int]) -> int:
-        mi, mx = min(nums), max(nums)
-        i, j = -1, -1
+        i = j = 0
         for k, v in enumerate(nums):
-            if v == mi and i == -1:
+            if v < nums[i] or (v == nums[i] and k < i):
                 i = k
-            if v == mx:
+            if v >= nums[j] or (v == nums[j] and k > j):
                 j = k
-        if i == j:
-            return 0
-        n = len(nums)
-        if i < j:
-            return i + n - 1 - j
-        return i + n - 2 - j
+        return 0 if i == j else i + len(nums) - 1 - j - (i > j)
