@@ -65,6 +65,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二进制枚举**
+
+对于给定的单词集合，我们可以使用二进制枚举的方法，枚举出所有的单词组合，然后判断每个单词组合是否满足题目要求，如果满足则计算其得分，最后取得分最大的单词组合。
+
+具体地，我们可以使用二进制的每一位来表示单词集合中的每一个单词是否被选中，如果第 $i$ 位为 $1$，则表示第 $i$ 个单词被选中，否则表示第 $i$ 个单词没有被选中。对于每一个二进制数，我们可以使用位运算来判断其对应的单词是否被选中。
+
+时间复杂度 $(2^n \times n \times M)$，空间复杂度 $O(C)$。其中 $n$ 和 $M$ 分别为单词集合中单词的个数和单词的最大长度；而 $C$ 为字母表中字母的个数，本题中 $C=26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +80,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxScoreWords(self, words: List[str], letters: List[str], score: List[int]) -> int:
+        cnt = Counter(letters)
+        n = len(words)
+        ans = 0
+        for i in range(1 << n):
+            cur = Counter(''.join([words[j] for j in range(n) if i >> j & 1]))
+            if all(v <= cnt[c] for c, v in cur.items()):
+                t = sum(v * score[ord(c) - ord('a')] for c, v in cur.items())
+                ans = max(ans, t)
+        return ans
 ```
 
 ### **Java**
@@ -80,7 +98,113 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxScoreWords(String[] words, char[] letters, int[] score) {
+        int[] cnt = new int[26];
+        for (int i = 0; i < letters.length; ++i) {
+            cnt[letters[i] - 'a']++;
+        }
+        int n = words.length;
+        int ans = 0;
+        for (int i = 0; i < 1 << n; ++i) {
+            int[] cur = new int[26];
+            for (int j = 0; j < n; ++j) {
+                if (((i >> j) & 1) == 1) {
+                    for (int k = 0; k < words[j].length(); ++k) {
+                        cur[words[j].charAt(k) - 'a']++;
+                    }
+                }
+            }
+            boolean ok = true;
+            int t = 0;
+            for (int j = 0; j < 26; ++j) {
+                if (cur[j] > cnt[j]) {
+                    ok = false;
+                    break;
+                }
+                t += cur[j] * score[j];
+            }
+            if (ok && ans < t) {
+                ans = t;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxScoreWords(vector<string>& words, vector<char>& letters, vector<int>& score) {
+        int cnt[26]{};
+        for (char& c : letters) {
+            cnt[c - 'a']++;
+        }
+        int n = words.size();
+        int ans = 0;
+        for (int i = 0; i < 1 << n; ++i) {
+            int cur[26]{};
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    for (char& c : words[j]) {
+                        cur[c - 'a']++;
+                    }
+                }
+            }
+            bool ok = true;
+            int t = 0;
+            for (int j = 0; j < 26; ++j) {
+                if (cur[j] > cnt[j]) {
+                    ok = false;
+                    break;
+                }
+                t += cur[j] * score[j];
+            }
+            if (ok && ans < t) {
+                ans = t;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxScoreWords(words []string, letters []byte, score []int) (ans int) {
+	cnt := [26]int{}
+	for _, c := range letters {
+		cnt[c-'a']++
+	}
+	n := len(words)
+	for i := 0; i < 1<<n; i++ {
+		cur := [26]int{}
+		for j := 0; j < n; j++ {
+			if i>>j&1 == 1 {
+				for _, c := range words[j] {
+					cur[c-'a']++
+				}
+			}
+		}
+		ok := true
+		t := 0
+		for i, v := range cur {
+			if v > cnt[i] {
+				ok = false
+				break
+			}
+			t += v * score[i]
+		}
+		if ok && ans < t {
+			ans = t
+		}
+	}
+	return
+}
 ```
 
 ### **...**
