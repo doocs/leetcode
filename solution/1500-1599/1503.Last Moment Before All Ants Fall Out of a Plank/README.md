@@ -70,7 +70,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-题目关键点在于两只蚂蚁相遇，然后分别调转方向的情况，实际上相当于两只蚂蚁继续往原来的方向移动。
+**方法一：脑筋急转弯**
+
+题目关键点在于两只蚂蚁相遇，然后分别调转方向的情况，实际上相当于两只蚂蚁继续往原来的方向移动。因此，我们只需要求出所有蚂蚁中最远的那只蚂蚁的移动距离即可。
+
+注意 $left$ 和 $right$ 数组的长度可能为 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为木板的长度。
 
 <!-- tabs:start -->
 
@@ -82,10 +88,10 @@
 class Solution:
     def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
         ans = 0
-        for t in left:
-            ans = max(ans, t)
-        for t in right:
-            ans = max(ans, n - t)
+        for x in left:
+            ans = max(ans, x)
+        for x in right:
+            ans = max(ans, n - x)
         return ans
 ```
 
@@ -97,11 +103,11 @@ class Solution:
 class Solution {
     public int getLastMoment(int n, int[] left, int[] right) {
         int ans = 0;
-        for (int t : left) {
-            ans = Math.max(ans, t);
+        for (int x : left) {
+            ans = Math.max(ans, x);
         }
-        for (int t : right) {
-            ans = Math.max(ans, n - t);
+        for (int x : right) {
+            ans = Math.max(ans, n - x);
         }
         return ans;
     }
@@ -115,8 +121,12 @@ class Solution {
 public:
     int getLastMoment(int n, vector<int>& left, vector<int>& right) {
         int ans = 0;
-        for (int t : left) ans = max(ans, t);
-        for (int t : right) ans = max(ans, n - t);
+        for (int& x : left) {
+            ans = max(ans, x);
+        }
+        for (int& x : right) {
+            ans = max(ans, n - x);
+        }
         return ans;
     }
 };
@@ -125,15 +135,14 @@ public:
 ### **Go**
 
 ```go
-func getLastMoment(n int, left []int, right []int) int {
-	ans := 0
-	for _, t := range left {
-		ans = max(ans, t)
+func getLastMoment(n int, left []int, right []int) (ans int) {
+	for _, x := range left {
+		ans = max(ans, x)
 	}
-	for _, t := range right {
-		ans = max(ans, n-t)
+	for _, x := range right {
+		ans = max(ans, n-x)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -141,6 +150,21 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function getLastMoment(n: number, left: number[], right: number[]): number {
+    let ans = 0;
+    for (const x of left) {
+        ans = Math.max(ans, x);
+    }
+    for (const x of right) {
+        ans = Math.max(ans, n - x);
+    }
+    return ans;
 }
 ```
 

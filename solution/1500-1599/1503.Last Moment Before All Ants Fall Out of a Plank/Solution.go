@@ -1,12 +1,11 @@
-func getLastMoment(n int, left []int, right []int) int {
-	ans := 0
-	for _, t := range left {
-		ans = max(ans, t)
+func getLastMoment(n int, left []int, right []int) (ans int) {
+	for _, x := range left {
+		ans = max(ans, x)
 	}
-	for _, t := range right {
-		ans = max(ans, n-t)
+	for _, x := range right {
+		ans = max(ans, n-x)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
