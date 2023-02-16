@@ -43,10 +43,8 @@
 class Solution:
     def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
         arr.sort()
-        for i in range(1, len(arr) - 1):
-            if (arr[i] << 1) != arr[i - 1] + arr[i + 1]:
-                return False
-        return True
+        d = arr[1] - arr[0]
+        return all(b - a == d for a, b in pairwise(arr))
 ```
 
 ### **Java**
@@ -55,13 +53,47 @@ class Solution:
 class Solution {
     public boolean canMakeArithmeticProgression(int[] arr) {
         Arrays.sort(arr);
-        for (int i = 1; i < arr.length - 1; ++i) {
-            if ((arr[i] << 1) != arr[i - 1] + arr[i + 1]) {
+        int d = arr[1] - arr[0];
+        for (int i = 2; i < arr.length; ++i) {
+            if (arr[i] - arr[i - 1] != d) {
                 return false;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int d = arr[1] - arr[0];
+        for (int i = 2; i < arr.size(); i++) {
+            if (arr[i] - arr[i - 1] != d) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canMakeArithmeticProgression(arr []int) bool {
+	sort.Ints(arr)
+	d := arr[1] - arr[0]
+	for i := 2; i < len(arr); i++ {
+		if arr[i]-arr[i-1] != d {
+			return false
+		}
+	}
+	return true
 }
 ```
 
