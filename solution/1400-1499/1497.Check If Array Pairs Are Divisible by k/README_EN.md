@@ -55,10 +55,8 @@
 ```python
 class Solution:
     def canArrange(self, arr: List[int], k: int) -> bool:
-        mod = [0] * k
-        for v in arr:
-            mod[v % k] += 1
-        return all(mod[i] == mod[k - i] for i in range(1, k)) and mod[0] % 2 == 0
+        cnt = Counter(x % k for x in arr)
+        return cnt[0] % 2 == 0 and all(cnt[i] == cnt[k - i] for i in range(1, k))
 ```
 
 ### **Java**
@@ -66,16 +64,16 @@ class Solution:
 ```java
 class Solution {
     public boolean canArrange(int[] arr, int k) {
-        int[] mod = new int[k];
-        for (int v : arr) {
-            ++mod[(v % k + k) % k];
+        int[] cnt = new int[k];
+        for (int x : arr) {
+            ++cnt[(x % k + k) % k];
         }
         for (int i = 1; i < k; ++i) {
-            if (mod[i] != mod[k - i]) {
+            if (cnt[i] != cnt[k - i]) {
                 return false;
             }
         }
-        return mod[0] % 2 == 0;
+        return cnt[0] % 2 == 0;
     }
 }
 ```
@@ -86,12 +84,16 @@ class Solution {
 class Solution {
 public:
     bool canArrange(vector<int>& arr, int k) {
-        vector<int> mod(k);
-        for (int v : arr) ++mod[(v % k + k) % k];
-        for (int i = 1; i < k; ++i)
-            if (mod[i] != mod[k - i])
+        vector<int> cnt(k);
+        for (int& x : arr) {
+            ++cnt[((x % k) + k) % k];
+        }
+        for (int i = 1; i < k; ++i) {
+            if (cnt[i] != cnt[k - i]) {
                 return false;
-        return mod[0] % 2 == 0;
+            }
+        }
+        return cnt[0] % 2 == 0;
     }
 };
 ```
@@ -100,16 +102,16 @@ public:
 
 ```go
 func canArrange(arr []int, k int) bool {
-	mod := make([]int, k)
-	for _, v := range arr {
-		mod[(v%k+k)%k]++
+	cnt := make([]int, k)
+	for _, x := range arr {
+		cnt[(x%k+k)%k]++
 	}
 	for i := 1; i < k; i++ {
-		if mod[i] != mod[k-i] {
+		if cnt[i] != cnt[k-i] {
 			return false
 		}
 	}
-	return mod[0]%2 == 0
+	return cnt[0]%2 == 0
 }
 ```
 
