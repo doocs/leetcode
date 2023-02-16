@@ -1,21 +1,24 @@
 class Solution {
 public:
     bool isPathCrossing(string path) {
-        int x = 0, y = 0;
-        unordered_set<int> vis{{0}};
-        for (char c : path) {
-            if (c == 'N')
-                ++y;
-            else if (c == 'S')
-                --y;
-            else if (c == 'E')
-                ++x;
-            else
-                --x;
-            int t = x * 20000 + y;
-            if (vis.count(t)) return 1;
-            vis.insert(t);
+        int i = 0, j = 0;
+        unordered_set<int> s{{0}};
+        for (char& c : path) {
+            if (c == 'N') {
+                --i;
+            } else if (c == 'S') {
+                ++i;
+            } else if (c == 'E') {
+                ++j;
+            } else {
+                --j;
+            }
+            int t = i * 20000 + j;
+            if (s.count(t)) {
+                return true;
+            }
+            s.insert(t);
         }
-        return 0;
+        return false;
     }
 };

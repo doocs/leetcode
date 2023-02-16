@@ -45,6 +45,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们可以用一个哈希表 $vis$ 记录路径上的点。初始时，$vis$ 中只有原点 $(0, 0)$。
+
+遍历字符串 $path$，对于每个字符 $c$，根据 $c$ 的值更新当前位置 $(i, j)$，然后判断 $(i, j)$ 是否在 $vis$ 中，如果在，则返回 `true`，否则将 $(i, j)$ 加入 $vis$ 中。
+
+遍历结束后，返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $path$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,20 +64,21 @@
 ```python
 class Solution:
     def isPathCrossing(self, path: str) -> bool:
-        x = y = 0
-        vis = {(x, y)}
+        i = j = 0
+        vis = {(0, 0)}
         for c in path:
-            if c == 'N':
-                y += 1
-            elif c == 'S':
-                y -= 1
-            elif c == 'E':
-                x += 1
-            else:
-                x -= 1
-            if (x, y) in vis:
+            match c:
+                case 'N':
+                    i -= 1
+                case 'S':
+                    i += 1
+                case 'E':
+                    j += 1
+                case 'W':
+                    j -= 1
+            if (i, j) in vis:
                 return True
-            vis.add((x, y))
+            vis.add((i, j))
         return False
 ```
 
@@ -78,25 +89,20 @@ class Solution:
 ```java
 class Solution {
     public boolean isPathCrossing(String path) {
-        int x = 0;
-        int y = 0;
+        int i = 0, j = 0;
         Set<Integer> vis = new HashSet<>();
         vis.add(0);
-        for (char c : path.toCharArray()) {
-            if (c == 'N') {
-                ++y;
-            } else if (c == 'S') {
-                --y;
-            } else if (c == 'E') {
-                ++x;
-            } else {
-                --x;
+        for (int k = 0, n = path.length(); k < n; ++k) {
+            switch (path.charAt(k)) {
+                case 'N' -> --i;
+                case 'S' -> ++i;
+                case 'E' -> ++j;
+                case 'W' -> --j;
             }
-            int t = x * 20000 + y;
-            if (vis.contains(t)) {
+            int t = i * 20000 + j;
+            if (!vis.add(t)) {
                 return true;
             }
-            vis.add(t);
         }
         return false;
     }
@@ -109,22 +115,25 @@ class Solution {
 class Solution {
 public:
     bool isPathCrossing(string path) {
-        int x = 0, y = 0;
-        unordered_set<int> vis {{0}};
-        for (char c : path) {
-            if (c == 'N')
-                ++y;
-            else if (c == 'S')
-                --y;
-            else if (c == 'E')
-                ++x;
-            else
-                --x;
-            int t = x * 20000 + y;
-            if (vis.count(t)) return 1;
-            vis.insert(t);
+        int i = 0, j = 0;
+        unordered_set<int> s{{0}};
+        for (char& c : path) {
+            if (c == 'N') {
+                --i;
+            } else if (c == 'S') {
+                ++i;
+            } else if (c == 'E') {
+                ++j;
+            } else {
+                --j;
+            }
+            int t = i * 20000 + j;
+            if (s.count(t)) {
+                return true;
+            }
+            s.insert(t);
         }
-        return 0;
+        return false;
     }
 };
 ```
@@ -133,24 +142,23 @@ public:
 
 ```go
 func isPathCrossing(path string) bool {
-	x, y := 0, 0
-	vis := make(map[int]bool)
-	vis[0] = true
+	i, j := 0, 0
+	vis := map[int]bool{0: true}
 	for _, c := range path {
-		if c == 'N' {
-			y++
-		} else if c == 'S' {
-			y--
-		} else if c == 'E' {
-			x++
-		} else {
-			x--
+		switch c {
+		case 'N':
+			i--
+		case 'S':
+			i++
+		case 'E':
+			j++
+		case 'W':
+			j--
 		}
-		t := x*20000 + y
-		if vis[t] {
+		if vis[i*20000+j] {
 			return true
 		}
-		vis[t] = true
+		vis[i*20000+j] = true
 	}
 	return false
 }

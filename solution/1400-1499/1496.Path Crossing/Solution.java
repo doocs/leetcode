@@ -1,24 +1,19 @@
 class Solution {
     public boolean isPathCrossing(String path) {
-        int x = 0;
-        int y = 0;
+        int i = 0, j = 0;
         Set<Integer> vis = new HashSet<>();
         vis.add(0);
-        for (char c : path.toCharArray()) {
-            if (c == 'N') {
-                ++y;
-            } else if (c == 'S') {
-                --y;
-            } else if (c == 'E') {
-                ++x;
-            } else {
-                --x;
+        for (int k = 0, n = path.length(); k < n; ++k) {
+            switch (path.charAt(k)) {
+                case 'N' -> --i;
+                case 'S' -> ++i;
+                case 'E' -> ++j;
+                case 'W' -> --j;
             }
-            int t = x * 20000 + y;
-            if (vis.contains(t)) {
+            int t = i * 20000 + j;
+            if (!vis.add(t)) {
                 return true;
             }
-            vis.add(t);
         }
         return false;
     }

@@ -41,20 +41,21 @@
 ```python
 class Solution:
     def isPathCrossing(self, path: str) -> bool:
-        x = y = 0
-        vis = {(x, y)}
+        i = j = 0
+        vis = {(0, 0)}
         for c in path:
-            if c == 'N':
-                y += 1
-            elif c == 'S':
-                y -= 1
-            elif c == 'E':
-                x += 1
-            else:
-                x -= 1
-            if (x, y) in vis:
+            match c:
+                case 'N':
+                    i -= 1
+                case 'S':
+                    i += 1
+                case 'E':
+                    j += 1
+                case 'W':
+                    j -= 1
+            if (i, j) in vis:
                 return True
-            vis.add((x, y))
+            vis.add((i, j))
         return False
 ```
 
@@ -63,25 +64,20 @@ class Solution:
 ```java
 class Solution {
     public boolean isPathCrossing(String path) {
-        int x = 0;
-        int y = 0;
+        int i = 0, j = 0;
         Set<Integer> vis = new HashSet<>();
         vis.add(0);
-        for (char c : path.toCharArray()) {
-            if (c == 'N') {
-                ++y;
-            } else if (c == 'S') {
-                --y;
-            } else if (c == 'E') {
-                ++x;
-            } else {
-                --x;
+        for (int k = 0, n = path.length(); k < n; ++k) {
+            switch (path.charAt(k)) {
+                case 'N' -> --i;
+                case 'S' -> ++i;
+                case 'E' -> ++j;
+                case 'W' -> --j;
             }
-            int t = x * 20000 + y;
-            if (vis.contains(t)) {
+            int t = i * 20000 + j;
+            if (!vis.add(t)) {
                 return true;
             }
-            vis.add(t);
         }
         return false;
     }
@@ -94,22 +90,25 @@ class Solution {
 class Solution {
 public:
     bool isPathCrossing(string path) {
-        int x = 0, y = 0;
-        unordered_set<int> vis {{0}};
-        for (char c : path) {
-            if (c == 'N')
-                ++y;
-            else if (c == 'S')
-                --y;
-            else if (c == 'E')
-                ++x;
-            else
-                --x;
-            int t = x * 20000 + y;
-            if (vis.count(t)) return 1;
-            vis.insert(t);
+        int i = 0, j = 0;
+        unordered_set<int> s{{0}};
+        for (char& c : path) {
+            if (c == 'N') {
+                --i;
+            } else if (c == 'S') {
+                ++i;
+            } else if (c == 'E') {
+                ++j;
+            } else {
+                --j;
+            }
+            int t = i * 20000 + j;
+            if (s.count(t)) {
+                return true;
+            }
+            s.insert(t);
         }
-        return 0;
+        return false;
     }
 };
 ```
@@ -118,24 +117,23 @@ public:
 
 ```go
 func isPathCrossing(path string) bool {
-	x, y := 0, 0
-	vis := make(map[int]bool)
-	vis[0] = true
+	i, j := 0, 0
+	vis := map[int]bool{0: true}
 	for _, c := range path {
-		if c == 'N' {
-			y++
-		} else if c == 'S' {
-			y--
-		} else if c == 'E' {
-			x++
-		} else {
-			x--
+		switch c {
+		case 'N':
+			i--
+		case 'S':
+			i++
+		case 'E':
+			j++
+		case 'W':
+			j--
 		}
-		t := x*20000 + y
-		if vis[t] {
+		if vis[i*20000+j] {
 			return true
 		}
-		vis[t] = true
+		vis[i*20000+j] = true
 	}
 	return false
 }

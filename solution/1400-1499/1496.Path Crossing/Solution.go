@@ -1,22 +1,21 @@
 func isPathCrossing(path string) bool {
-	x, y := 0, 0
-	vis := make(map[int]bool)
-	vis[0] = true
+	i, j := 0, 0
+	vis := map[int]bool{0: true}
 	for _, c := range path {
-		if c == 'N' {
-			y++
-		} else if c == 'S' {
-			y--
-		} else if c == 'E' {
-			x++
-		} else {
-			x--
+		switch c {
+		case 'N':
+			i--
+		case 'S':
+			i++
+		case 'E':
+			j++
+		case 'W':
+			j--
 		}
-		t := x*20000 + y
-		if vis[t] {
+		if vis[i*20000+j] {
 			return true
 		}
-		vis[t] = true
+		vis[i*20000+j] = true
 	}
 	return false
 }
