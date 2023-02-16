@@ -82,15 +82,12 @@ class Node:
 
 class Solution:
     def findRoot(self, tree: List['Node']) -> 'Node':
-        xorsum = 0
+        x = 0
         for node in tree:
-            xorsum ^= node.val
+            x ^= node.val
             for child in node.children:
-                xorsum ^= child.val
-
-        for node in tree:
-            if node.val == xorsum:
-                return node
+                x ^= child.val
+        return next(node for node in tree if node.val == x)
 ```
 
 ### **Java**
@@ -121,19 +118,18 @@ class Node {
 
 class Solution {
     public Node findRoot(List<Node> tree) {
-        int xor = 0;
+        int x = 0;
         for (Node node : tree) {
-            xor ^= node.val;
+            x ^= node.val;
             for (Node child : node.children) {
-                xor ^= child.val;
+                x ^= child.val;
             }
         }
-        for (Node node : tree) {
-            if (node.val == xor) {
-                return node;
+        for (int i = 0;; ++i) {
+            if (tree.get(i).val == x) {
+                return tree.get(i);
             }
         }
-        return null;
     }
 }
 ```
@@ -164,19 +160,18 @@ public:
 class Solution {
 public:
     Node* findRoot(vector<Node*> tree) {
-        int xorsum = 0;
-        for (auto& node : tree) {
-            xorsum ^= node->val;
-            for (auto& child : node->children) {
-                xorsum ^= child->val;
+        int x = 0;
+        for (Node* node : tree) {
+            x ^= node->val;
+            for (Node* child : node->children) {
+                x ^= child->val;
             }
         }
-        for (auto& node : tree) {
-            if (node->val == xorsum) {
-                return node;
+        for (int i = 0;; ++i) {
+            if (tree[i]->val == x) {
+                return tree[i];
             }
         }
-        return nullptr;
     }
 };
 ```
@@ -193,19 +188,45 @@ public:
  */
 
 func findRoot(tree []*Node) *Node {
-	xorsum := 0
+	x := 0
 	for _, node := range tree {
-		xorsum ^= node.Val
+		x ^= node.Val
 		for _, child := range node.Children {
-			xorsum ^= child.Val
+			x ^= child.Val
 		}
 	}
-	for _, node := range tree {
-		if node.Val == xorsum {
-			return node
+	for i := 0; ; i++ {
+		if tree[i].Val == x {
+			return tree[i]
 		}
 	}
-	return nil
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for Node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number, children?: Node[]) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = (children===undefined ? [] : children)
+ *     }
+ * }
+ */
+
+function findRoot(tree: Node[]): Node | null {
+    let x = 0;
+    for (const node of tree) {
+        x ^= node.val;
+        for (const child of node.children) {
+            x ^= child.val;
+        }
+    }
+    return tree.find(node => node.val === x) || null;
 }
 ```
 

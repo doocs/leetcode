@@ -21,18 +21,17 @@ public:
 class Solution {
 public:
     Node* findRoot(vector<Node*> tree) {
-        int xorsum = 0;
-        for (auto& node : tree) {
-            xorsum ^= node->val;
-            for (auto& child : node->children) {
-                xorsum ^= child->val;
+        int x = 0;
+        for (Node* node : tree) {
+            x ^= node->val;
+            for (Node* child : node->children) {
+                x ^= child->val;
             }
         }
-        for (auto& node : tree) {
-            if (node->val == xorsum) {
-                return node;
+        for (int i = 0;; ++i) {
+            if (tree[i]->val == x) {
+                return tree[i];
             }
         }
-        return nullptr;
     }
 };

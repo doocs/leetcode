@@ -74,14 +74,15 @@ findRoot 函数应该返回根 Node(1) ，驱动程序代码将序列化它并�
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历 N 叉树 tree 的所有节点以及它们的子节点：
+**方法一：位运算**
 
--   对于非根节点，它会在 tree 列表中出现一次，并且在某个节点的 children 列表中出现一次，一共出现两次。
--   对于根节点，它只会在 tree 列表中出现一次。
+对于一棵 N 叉树的节点，如果该节点是根节点，那么该节点只会出现一次在数组 `tree` 中；而如果该节点不是根节点，那么该节点会出现两次，一次在数组 `tree` 中，一次在该节点的父节点的 `children` 数组中。
 
-我们对遍历到的节点及子节点进行按位异或运算，由于一个数异或两次等于没有进行任何运算，因此最后运算的结果就是根节点的值。
+因此，我们可以遍历数组 `tree`，计算每个节点的值以及其所有子节点的值的异或和，记录在变量 $x$ 中。遍历结束后，我们得到的 $x$ 就是根节点的值。
 
-由于树中节点值唯一，我们再遍历一遍 tree 列表找出该节点即可。
+接下来，我们再遍历数组 `tree`，找到值为 $x$ 的节点，即为根节点，返回即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `tree` 的长度。
 
 <!-- tabs:start -->
 
@@ -101,15 +102,12 @@ class Node:
 
 class Solution:
     def findRoot(self, tree: List['Node']) -> 'Node':
-        xorsum = 0
+        x = 0
         for node in tree:
-            xorsum ^= node.val
+            x ^= node.val
             for child in node.children:
-                xorsum ^= child.val
-
-        for node in tree:
-            if node.val == xorsum:
-                return node
+                x ^= child.val
+        return next(node for node in tree if node.val == x)
 ```
 
 ### **Java**
@@ -142,19 +140,18 @@ class Node {
 
 class Solution {
     public Node findRoot(List<Node> tree) {
-        int xor = 0;
+        int x = 0;
         for (Node node : tree) {
-            xor ^= node.val;
+            x ^= node.val;
             for (Node child : node.children) {
-                xor ^= child.val;
+                x ^= child.val;
             }
         }
-        for (Node node : tree) {
-            if (node.val == xor) {
-                return node;
+        for (int i = 0; ; ++i) {
+            if (tree.get(i).val == x) {
+                return tree.get(i);
             }
         }
-        return null;
     }
 }
 ```
@@ -185,19 +182,18 @@ public:
 class Solution {
 public:
     Node* findRoot(vector<Node*> tree) {
-        int xorsum = 0;
-        for (auto& node : tree) {
-            xorsum ^= node->val;
-            for (auto& child : node->children) {
-                xorsum ^= child->val;
+        int x = 0;
+        for (Node* node : tree) {
+            x ^= node->val;
+            for (Node* child : node->children) {
+                x ^= child->val;
             }
         }
-        for (auto& node : tree) {
-            if (node->val == xorsum) {
-                return node;
+        for (int i = 0;; ++i) {
+            if (tree[i]->val == x) {
+                return tree[i];
             }
         }
-        return nullptr;
     }
 };
 ```
@@ -214,19 +210,45 @@ public:
  */
 
 func findRoot(tree []*Node) *Node {
-	xorsum := 0
+	x := 0
 	for _, node := range tree {
-		xorsum ^= node.Val
+		x ^= node.Val
 		for _, child := range node.Children {
-			xorsum ^= child.Val
+			x ^= child.Val
 		}
 	}
-	for _, node := range tree {
-		if node.Val == xorsum {
-			return node
+	for i := 0; ; i++ {
+		if tree[i].Val == x {
+			return tree[i]
 		}
 	}
-	return nil
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for Node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number, children?: Node[]) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = (children===undefined ? [] : children)
+ *     }
+ * }
+ */
+
+function findRoot(tree: Node[]): Node | null {
+    let x = 0;
+    for (const node of tree) {
+        x ^= node.val;
+        for (const child of node.children) {
+            x ^= child.val;
+        }
+    }
+    return tree.find(node => node.val === x) || null;
 }
 ```
 

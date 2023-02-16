@@ -7,17 +7,16 @@
  */
 
 func findRoot(tree []*Node) *Node {
-	xorsum := 0
+	x := 0
 	for _, node := range tree {
-		xorsum ^= node.Val
+		x ^= node.Val
 		for _, child := range node.Children {
-			xorsum ^= child.Val
+			x ^= child.Val
 		}
 	}
-	for _, node := range tree {
-		if node.Val == xorsum {
-			return node
+	for i := 0; ; i++ {
+		if tree[i].Val == x {
+			return tree[i]
 		}
 	}
-	return nil
 }
