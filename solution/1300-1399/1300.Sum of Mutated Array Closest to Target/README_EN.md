@@ -48,13 +48,126 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findBestValue(self, arr: List[int], target: int) -> int:
+        arr.sort()
+        s = list(accumulate(arr, initial=0))
+        ans, diff = 0, inf
+        for value in range(max(arr) + 1):
+            i = bisect_right(arr, value)
+            d = abs(s[i] + (len(arr) - i) * value - target)
+            if diff > d:
+                diff = d
+                ans = value
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findBestValue(int[] arr, int target) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        int[] s = new int[n + 1];
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + arr[i];
+            mx = Math.max(mx, arr[i]);
+        }
+        int ans = 0, diff = 1 << 30;
+        for (int value = 0; value <= mx; ++value) {
+            int i = search(arr, value);
+            int d = Math.abs(s[i] + (n - i) * value - target);
+            if (diff > d) {
+                diff = d;
+                ans = value;
+            }
+        }
+        return ans;
+    }
 
+    private int search(int[] arr, int x) {
+        int left = 0, right = arr.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arr[mid] > x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findBestValue(vector<int>& arr, int target) {
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        int s[n + 1];
+        s[0] = 0;
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + arr[i];
+            mx = max(mx, arr[i]);
+        }
+        int ans = 0, diff = 1 << 30;
+        for (int value = 0; value <= mx; ++value) {
+            int i = upper_bound(arr.begin(), arr.end(), value) - arr.begin();
+            int d = abs(s[i] + (n - i) * value - target);
+            if (diff > d) {
+                diff = d;
+                ans = value;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findBestValue(arr []int, target int) (ans int) {
+	sort.Ints(arr)
+	n := len(arr)
+	s := make([]int, n+1)
+	mx := 0
+	for i, x := range arr {
+		s[i+1] = s[i] + x
+		mx = max(mx, x)
+	}
+	diff := 1 << 30
+	for value := 0; value <= mx; value++ {
+		i := sort.SearchInts(arr, value+1)
+		d := abs(s[i] + (n-i)*value - target)
+		if diff > d {
+			diff = d
+			ans = value
+		}
+	}
+	return
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
