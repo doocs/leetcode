@@ -64,6 +64,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：Dijkstra 算法**
+
+我们可以枚举每个城市 $i$ 作为起点，使用 Dijkstra 算法求出从 $i$ 到其他城市的最短距离，然后统计距离不超过阈值的城市个数，最后取最小的个数且编号最大的城市。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为城市个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +77,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findTheCity(self, n: int, edges: List[List[int]], distanceThreshold: int) -> int:
+        def dijkstra(u):
+            dist = [inf] * n
+            dist[u] = 0
+            vis = [False] * n
+            for _ in range(n):
+                k = -1
+                for j in range(n):
+                    if not vis[j] and (k == -1 or dist[k] > dist[j]):
+                        k = j
+                vis[k] = True
+                for j in range(n):
+                    dist[j] = min(dist[j], dist[k] + g[k][j])
+            return sum(d <= distanceThreshold for d in dist)
 
+        g = [[inf] * n for _ in range(n)]
+        for f, t, w in edges:
+            g[f][t] = g[t][f] = w
+
+        ans = n
+        t = inf
+        for i in range(n - 1, -1, -1):
+            if (cnt := dijkstra(i)) < t:
+                t = cnt
+                ans = i
+        return ans
 ```
 
 ### **Java**
@@ -79,7 +111,176 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int n;
+    private int[][] g;
+    private int[] dist;
+    private boolean[] vis;
+    private int inf = 1 << 30;
+    private int distanceThreshold;
 
+    public int findTheCity(int n, int[][] edges, int distanceThreshold) {
+        this.n = n;
+        this.distanceThreshold = distanceThreshold;
+        g = new int[n][n];
+        dist = new int[n];
+        vis = new boolean[n];
+        for (var e : g) {
+            Arrays.fill(e, inf);
+        }
+        for (var e : edges) {
+            int f = e[0], t = e[1], w = e[2];
+            g[f][t] = w;
+            g[t][f] = w;
+        }
+        int ans = n, t = inf;
+        for (int i = n - 1; i >= 0; --i) {
+            int cnt = dijkstra(i);
+            if (t > cnt) {
+                t = cnt;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+
+    private int dijkstra(int u) {
+        Arrays.fill(dist, inf);
+        Arrays.fill(vis, false);
+        dist[u] = 0;
+        for (int i = 0; i < n; ++i) {
+            int k = -1;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (k == -1 || dist[k] > dist[j])) {
+                    k = j;
+                }
+            }
+            vis[k] = true;
+            for (int j = 0; j < n; ++j) {
+                dist[j] = Math.min(dist[j], dist[k] + g[k][j]);
+            }
+        }
+        int cnt = 0;
+        for (int d : dist) {
+            if (d <= distanceThreshold) {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
+        const int inf = 1e7;
+        vector<vector<int>> g(n, vector<int>(n, inf));
+        vector<int> dist(n, inf);
+        vector<bool> vis(n);
+        for (auto& e : edges) {
+            int f = e[0], t = e[1], w = e[2];
+            g[f][t] = g[t][f] = w;
+        }
+        auto dijkstra = [&](int u) {
+            dist.assign(n, inf);
+            vis.assign(n, false);
+            dist[u] = 0;
+            for (int i = 0; i < n; ++i) {
+                int k = -1;
+                for (int j = 0; j < n; ++j) {
+                    if (!vis[j] && (k == -1 || dist[j] < dist[k])) {
+                        k = j;
+                    }
+                }
+                vis[k] = true;
+                for (int j = 0; j < n; ++j) {
+                    dist[j] = min(dist[j], dist[k] + g[k][j]);
+                }
+            }
+            int cnt = 0;
+            for (int& d : dist) {
+                cnt += d <= distanceThreshold;
+            }
+            return cnt;
+        };
+        int ans = n, t = inf;
+        for (int i = n - 1; ~i; --i) {
+            int cnt = dijkstra(i);
+            if (t > cnt) {
+                t = cnt;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findTheCity(n int, edges [][]int, distanceThreshold int) int {
+	g := make([][]int, n)
+	dist := make([]int, n)
+	vis := make([]bool, n)
+	const inf int = 1e7
+	for i := range g {
+		g[i] = make([]int, n)
+		for j := range g[i] {
+			g[i][j] = inf
+		}
+	}
+	for _, e := range edges {
+		f, t, w := e[0], e[1], e[2]
+		g[f][t], g[t][f] = w, w
+	}
+
+	ans, t := n, inf
+	dijkstra := func(u int) (cnt int) {
+		for i := range vis {
+			vis[i] = false
+			dist[i] = inf
+		}
+		dist[u] = 0
+		for i := 0; i < n; i++ {
+			k := -1
+			for j := 0; j < n; j++ {
+				if !vis[j] && (k == -1 || dist[j] < dist[k]) {
+					k = j
+				}
+			}
+			vis[k] = true
+			for j := 0; j < n; j++ {
+				dist[j] = min(dist[j], dist[k]+g[k][j])
+			}
+		}
+		for _, d := range dist {
+			if d <= distanceThreshold {
+				cnt++
+			}
+		}
+		return
+	}
+	for i := n - 1; i >= 0; i-- {
+		cnt := dijkstra(i)
+		if t > cnt {
+			t = cnt
+			ans = i
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
