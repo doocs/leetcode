@@ -4,10 +4,10 @@
  */
 var isThree = function (n) {
     let cnt = 0;
-    for (let i = 2; i < n; ++i) {
+    for (let i = 1; i <= n / i; ++i) {
         if (n % i == 0) {
-            ++cnt;
+            cnt += ~~(n / i) == i ? 1 : 2;
         }
     }
-    return cnt == 1;
+    return cnt == 3;
 };
