@@ -60,13 +60,132 @@ Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11
 ### **Python3**
 
 ```python
+class Solution:
+    def kthSmallestSubarraySum(self, nums: List[int], k: int) -> int:
+        def f(s):
+            t = j = 0
+            cnt = 0
+            for i, x in enumerate(nums):
+                t += x
+                while t > s:
+                    t -= nums[j]
+                    j += 1
+                cnt += i - j + 1
+            return cnt >= k
 
+        l, r = min(nums), sum(nums)
+        return l + bisect_left(range(l, r + 1), True, key=f)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int kthSmallestSubarraySum(int[] nums, int k) {
+        int l = 1 << 30, r = 0;
+        for (int x : nums) {
+            l = Math.min(l, x);
+            r += x;
+        }
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (f(nums, mid) >= k) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
 
+    private int f(int[] nums, int s) {
+        int t = 0, j = 0;
+        int cnt = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            t += nums[i];
+            while (t > s) {
+                t -= nums[j++];
+            }
+            cnt += i - j + 1;
+        }
+        return cnt;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kthSmallestSubarraySum(vector<int>& nums, int k) {
+        int l = 1 << 30, r = 0;
+        for (int& x : nums) {
+            l = min(l, x);
+            r += x;
+        }
+        auto f = [&](int s) {
+            int cnt = 0, t = 0;
+            for (int i = 0, j = 0; i < nums.size(); ++i) {
+                t += nums[i];
+                while (t > s) {
+                    t -= nums[j++];
+                }
+                cnt += i - j + 1;
+            }
+            return cnt;
+        };
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (f(mid) >= k) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthSmallestSubarraySum(nums []int, k int) int {
+	l, r := 1<<30, 0
+	for _, x := range nums {
+		l = min(l, x)
+		r += x
+	}
+	f := func(s int) (cnt int) {
+		t := 0
+		for i, j := 0, 0; i < len(nums); i++ {
+			t += nums[i]
+			for t > s {
+				t -= nums[j]
+				j++
+			}
+			cnt += i - j + 1
+		}
+		return
+	}
+	for l < r {
+		mid := (l + r) >> 1
+		if f(mid) >= k {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return l
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
