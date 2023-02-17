@@ -1,5 +1,3 @@
-
-``` swift
 class Solution {
   func singleNumber(_ nums: [Int]) -> Int {
     var a = nums.sorted()
@@ -20,4 +18,3 @@ class Solution {
     return 0
   }
 }
-```
