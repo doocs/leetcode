@@ -7,21 +7,17 @@
  */
 
 function findSolution(customfunction: CustomFunction, z: number): number[][] {
-    // 二分
-    let ans = [];
-    for (let i = 1; i <= 1000; i++) {
-        let left = 1,
-            right = 1000;
-        while (left < right) {
-            let mid = (left + right) >> 1;
-            if (customfunction.f(i, mid) >= z) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        if (customfunction.f(i, left) == z) {
-            ans.push([i, left]);
+    let x = 1;
+    let y = 1000;
+    const ans: number[][] = [];
+    while (x <= 1000 && y) {
+        const t = customfunction.f(x, y);
+        if (t < z) {
+            ++x;
+        } else if (t > z) {
+            --y;
+        } else {
+            ans.push([x--, y--]);
         }
     }
     return ans;
