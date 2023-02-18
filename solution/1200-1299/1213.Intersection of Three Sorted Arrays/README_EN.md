@@ -43,21 +43,20 @@ class Solution:
     def arraysIntersection(
         self, arr1: List[int], arr2: List[int], arr3: List[int]
     ) -> List[int]:
-        def find(arr, val):
-            left, right = 0, len(arr) - 1
-            while left < right:
-                mid = (left + right) >> 1
-                if arr[mid] >= val:
-                    right = mid
-                else:
-                    left = mid + 1
-            return arr[left] == val
+        cnt = Counter(arr1 + arr2 + arr3)
+        return [x for x in arr1 if cnt[x] == 3]
+```
 
-        res = []
-        for num in arr1:
-            if find(arr2, num) and find(arr3, num):
-                res.append(num)
-        return res
+```python
+class Solution:
+    def arraysIntersection(self, arr1: List[int], arr2: List[int], arr3: List[int]) -> List[int]:
+        ans = []
+        for x in arr1:
+            i = bisect_left(arr2, x)
+            j = bisect_left(arr3, x)
+            if i < len(arr2) and j < len(arr3) and arr2[i] == x and arr3[j] == x:
+                ans.append(x)
+        return ans
 ```
 
 ### **Java**
@@ -65,26 +64,36 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> arraysIntersection(int[] arr1, int[] arr2, int[] arr3) {
-        List<Integer> res = new ArrayList<>();
-        for (int num : arr1) {
-            if (find(arr2, num) && find(arr3, num)) {
-                res.add(num);
+        List<Integer> ans = new ArrayList<>();
+        int[] cnt = new int[2001];
+        for (int x : arr1) {
+            ++cnt[x];
+        }
+        for (int x : arr2) {
+            ++cnt[x];
+        }
+        for (int x : arr3) {
+            if (++cnt[x] == 3) {
+                ans.add(x);
             }
         }
-        return res;
+        return ans;
     }
+}
+```
 
-    private boolean find(int[] arr, int val) {
-        int left = 0, right = arr.length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (arr[mid] >= val) {
-                right = mid;
-            } else {
-                left = mid + 1;
+```java
+class Solution {
+    public List<Integer> arraysIntersection(int[] arr1, int[] arr2, int[] arr3) {
+        List<Integer> ans = new ArrayList<>();
+        for (int x : arr1) {
+            int i = Arrays.binarySearch(arr2, x);
+            int j = Arrays.binarySearch(arr3, x);
+            if (i >= 0 && j >= 0) {
+                ans.add(x);
             }
         }
-        return arr[left] == val;
+        return ans;
     }
 }
 ```
@@ -95,27 +104,37 @@ class Solution {
 class Solution {
 public:
     vector<int> arraysIntersection(vector<int>& arr1, vector<int>& arr2, vector<int>& arr3) {
-        vector<int> res;
-        for (int num : arr1) {
-            if (find(arr2, num) && find(arr3, num)) {
-                res.push_back(num);
+        vector<int> ans;
+        int cnt[2001]{};
+        for (int x : arr1) {
+            ++cnt[x];
+        }
+        for (int x : arr2) {
+            ++cnt[x];
+        }
+        for (int x : arr3) {
+            if (++cnt[x] == 3) {
+                ans.push_back(x);
             }
         }
-        return res;
+        return ans;
     }
+};
+```
 
-private:
-    bool find(vector<int>& arr, int val) {
-        int left = 0, right = arr.size() - 1;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (arr[mid] >= val) {
-                right = mid;
-            } else {
-                left = mid + 1;
+```cpp
+class Solution {
+public:
+    vector<int> arraysIntersection(vector<int>& arr1, vector<int>& arr2, vector<int>& arr3) {
+        vector<int> ans;
+        for (int x : arr1) {
+            auto i = lower_bound(arr2.begin(), arr2.end(), x);
+            auto j = lower_bound(arr3.begin(), arr3.end(), x);
+            if (*i == x && *j == x) {
+                ans.push_back(x);
             }
         }
-        return arr[left] == val;
+        return ans;
     }
 };
 ```
@@ -123,27 +142,34 @@ private:
 ### **Go**
 
 ```go
-func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) []int {
-	var res []int
-	for _, num := range arr1 {
-		if find(arr2, num) && find(arr3, num) {
-			res = append(res, num)
+func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
+	cnt := [2001]int{}
+	for _, x := range arr1 {
+		cnt[x]++
+	}
+	for _, x := range arr2 {
+		cnt[x]++
+	}
+	for _, x := range arr3 {
+		cnt[x]++
+		if cnt[x] == 3 {
+			ans = append(ans, x)
 		}
 	}
-	return res
+	return
 }
+```
 
-func find(arr []int, val int) bool {
-	left, right := 0, len(arr)-1
-	for left < right {
-		mid := (left + right) >> 1
-		if arr[mid] >= val {
-			right = mid
-		} else {
-			left = mid + 1
+```go
+func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
+	for _, x := range arr1 {
+		i := sort.SearchInts(arr2, x)
+		j := sort.SearchInts(arr3, x)
+		if i < len(arr2) && j < len(arr3) && arr2[i] == x && arr3[j] == x {
+			ans = append(ans, x)
 		}
 	}
-	return arr[left] == val
+	return
 }
 ```
 
