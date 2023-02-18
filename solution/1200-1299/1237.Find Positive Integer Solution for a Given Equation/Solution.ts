@@ -8,9 +8,9 @@
 
 function findSolution(customfunction: CustomFunction, z: number): number[][] {
     let x = 1;
-    let y = 1000;
+    let y = z;
     const ans: number[][] = [];
-    while (x <= 1000 && y) {
+    while (x <= z && y) {
         const t = customfunction.f(x, y);
         if (t < z) {
             ++x;

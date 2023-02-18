@@ -14,13 +14,13 @@ class Solution {
 public:
     vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
         vector<vector<int>> ans;
-        int x = 1, y = 1000;
-        while (x <= 1000 && y) {
+        int x = 1, y = z;
+        while (x <= z && y) {
             int t = customfunction.f(x, y);
             if (t < z) {
-                ++x;
+                x++;
             } else if (t > z) {
-                --y;
+                y--;
             } else {
                 ans.push_back({x++, y--});
             }

@@ -73,7 +73,23 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：枚举 + 二分查找**
+
+根据题目我们可以知道，函数 $f(x, y)$ 是单调递增函数，因此，我们可以枚举 $x$，然后在 $[1,...z]$ 中二分查找 $y$，使得 $f(x, y) = z$。如果找到了，就将 $(x, y)$ 加入答案中。
+
+时间复杂度 $(z \log z)$，空间复杂度 $O(1)$。本题中 $z \le 100$。
+
+**方法二：双指针**
+
+我们可以定义两个指针 $x$ 和 $y$，初始时 $x = 1$, $y = z$。
+
+-   如果 $f(x, y) = z$，我们将 $(x, y)$ 加入答案中，然后 $x \leftarrow x + 1$, $y \leftarrow y - 1$；
+-   如果 $f(x, y) \lt z$，此时对任意的 $y' \lt y$，都有 $f(x, y') \lt f(x, y) \lt z$，因此我们不能将 $y$ 减小，只能将 $x$ 增大，所以 $x \leftarrow x + 1$；
+-   如果 $f(x, y) \gt z$，此时对任意的 $x' \gt x$，都有 $f(x', y) \gt f(x, y) \gt z$，因此我们不能将 $x$ 增大，只能将 $y$ 减小，所以 $y \leftarrow y - 1$。
+
+循环结束后，返回答案。
+
+时间复杂度 $O(z)$，空间复杂度 $O(1)$。本题中 $z \le 100$。
 
 <!-- tabs:start -->
 
@@ -97,8 +113,8 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
 class Solution:
     def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
         ans = []
-        for x in range(1, 1001):
-            y = 1 + bisect_left(range(1, 1001), z, key=lambda y: customfunction.f(x, y))
+        for x in range(1, z + 1):
+            y = 1 + bisect_left(range(1, z + 1), z, key=lambda y: customfunction.f(x, y))
             if customfunction.f(x, y) == z:
                 ans.append([x, y])
         return ans
@@ -113,14 +129,15 @@ class Solution:
        # Note that f(x, y) is increasing with respect to both x and y.
        # i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
        def f(self, x, y):
-  
+
 """
 
+
 class Solution:
-    def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
+    def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
         ans = []
-        x, y = 1, 1000
-        while x <= 1000 and y:
+        x, y = 1, z
+        while x <= z and y:
             t = customfunction.f(x, y)
             if t < z:
                 x += 1
@@ -151,8 +168,8 @@ class Solution:
  class Solution {
     public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
         List<List<Integer>> ans = new ArrayList<>();
-        for (int x = 1; x <= 1000; ++x) {
-            int l = 1, r = 1000;
+        for (int x = 1; x <= z; ++x) {
+            int l = 1, r = z;
             while (l < r) {
                 int mid = (l + r) >> 1;
                 if (customfunction.f(x, mid) >= z) {
@@ -185,13 +202,13 @@ class Solution:
 class Solution {
     public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
         List<List<Integer>> ans = new ArrayList<>();
-        int x = 1, y = 1000;
-        while (x <= 1000 && y > 0) {
+        int x = 1, y = z;
+        while (x <= z && y > 0) {
             int t = customfunction.f(x, y);
             if (t < z) {
-                ++x;
+                x++;
             } else if (t > z) {
-                --y;
+                y--;
             } else {
                 ans.add(Arrays.asList(x++, y--));
             }
@@ -220,8 +237,8 @@ class Solution {
 public:
     vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
         vector<vector<int>> ans;
-        for (int x = 1; x <= 1000; ++x) {
-            int l = 1, r = 1000;
+        for (int x = 1; x <= z; ++x) {
+            int l = 1, r = z;
             while (l < r) {
                 int mid = (l + r) >> 1;
                 if (customfunction.f(x, mid) >= z) {
@@ -256,13 +273,13 @@ class Solution {
 public:
     vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
         vector<vector<int>> ans;
-        int x = 1, y = 1000;
-        while (x <= 1000 && y) {
+        int x = 1, y = z;
+        while (x <= z && y) {
             int t = customfunction.f(x, y);
             if (t < z) {
-                ++x;
+                x++;
             } else if (t > z) {
-                --y;
+                y--;
             } else {
                 ans.push_back({x++, y--});
             }
@@ -285,8 +302,8 @@ public:
  */
 
 func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
-	for x := 1; x <= 1000; x++ {
-		y := 1 + sort.Search(999, func(y int) bool { return customFunction(x, y+1) >= z })
+	for x := 1; x <= z; x++ {
+		y := 1 + sort.Search(z, func(y int) bool { return customFunction(x, y+1) >= z })
 		if customFunction(x, y) == z {
 			ans = append(ans, []int{x, y})
 		}
@@ -306,8 +323,8 @@ func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
  */
 
 func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
-	x, y := 1, 1000
-	for x <= 1000 && y > 0 {
+	x, y := 1, z
+	for x <= z && y > 0 {
 		t := customFunction(x, y)
 		if t < z {
 			x++
@@ -335,9 +352,9 @@ func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
 
 function findSolution(customfunction: CustomFunction, z: number): number[][] {
     const ans: number[][] = [];
-    for (let x = 1; x <= 1000; ++x) {
+    for (let x = 1; x <= z; ++x) {
         let l = 1;
-        let r = 1000;
+        let r = z;
         while (l < r) {
             const mid = (l + r) >> 1;
             if (customfunction.f(x, mid) >= z) {
@@ -365,9 +382,9 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 
 function findSolution(customfunction: CustomFunction, z: number): number[][] {
     let x = 1;
-    let y = 1000;
+    let y = z;
     const ans: number[][] = [];
-    while (x <= 1000 && y) {
+    while (x <= z && y) {
         const t = customfunction.f(x, y);
         if (t < z) {
             ++x;
