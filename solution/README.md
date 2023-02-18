@@ -62,7 +62,7 @@
 |  0049  |  [字母异位词分组](/solution/0000-0099/0049.Group%20Anagrams/README.md)  |  `数组`,`哈希表`,`字符串`,`排序`  |  中等  |    |
 |  0050  |  [Pow(x, n)](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README.md)  |  `递归`,`数学`  |  中等  |    |
 |  0051  |  [N 皇后](/solution/0000-0099/0051.N-Queens/README.md)  |  `数组`,`回溯`  |  困难  |    |
-|  0052  |  [N皇后 II](/solution/0000-0099/0052.N-Queens%20II/README.md)  |  `回溯`  |  困难  |    |
+|  0052  |  [N 皇后 II](/solution/0000-0099/0052.N-Queens%20II/README.md)  |  `回溯`  |  困难  |    |
 |  0053  |  [最大子数组和](/solution/0000-0099/0053.Maximum%20Subarray/README.md)  |  `数组`,`分治`,`动态规划`  |  中等  |    |
 |  0054  |  [螺旋矩阵](/solution/0000-0099/0054.Spiral%20Matrix/README.md)  |  `数组`,`矩阵`,`模拟`  |  中等  |    |
 |  0055  |  [跳跃游戏](/solution/0000-0099/0055.Jump%20Game/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |    |
@@ -149,8 +149,8 @@
 |  0136  |  [只出现一次的数字](/solution/0100-0199/0136.Single%20Number/README.md)  |  `位运算`,`数组`  |  简单  |    |
 |  0137  |  [只出现一次的数字 II](/solution/0100-0199/0137.Single%20Number%20II/README.md)  |  `位运算`,`数组`  |  中等  |    |
 |  0138  |  [复制带随机指针的链表](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README.md)  |  `哈希表`,`链表`  |  中等  |    |
-|  0139  |  [单词拆分](/solution/0100-0199/0139.Word%20Break/README.md)  |  `字典树`,`记忆化搜索`,`哈希表`,`字符串`,`动态规划`  |  中等  |    |
-|  0140  |  [单词拆分 II](/solution/0100-0199/0140.Word%20Break%20II/README.md)  |  `字典树`,`记忆化搜索`,`哈希表`,`字符串`,`动态规划`,`回溯`  |  困难  |    |
+|  0139  |  [单词拆分](/solution/0100-0199/0139.Word%20Break/README.md)  |  `字典树`,`记忆化搜索`,`数组`,`哈希表`,`字符串`,`动态规划`  |  中等  |    |
+|  0140  |  [单词拆分 II](/solution/0100-0199/0140.Word%20Break%20II/README.md)  |  `字典树`,`记忆化搜索`,`数组`,`哈希表`,`字符串`,`动态规划`,`回溯`  |  困难  |    |
 |  0141  |  [环形链表](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)  |  `哈希表`,`链表`,`双指针`  |  简单  |    |
 |  0142  |  [环形链表 II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)  |  `哈希表`,`链表`,`双指针`  |  中等  |    |
 |  0143  |  [重排链表](/solution/0100-0199/0143.Reorder%20List/README.md)  |  `栈`,`递归`,`链表`,`双指针`  |  中等  |    |
@@ -2572,10 +2572,10 @@
 |  2559  |  [统计范围内的元音字符串数](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md)  |  `数组`,`字符串`,`前缀和`  |  中等  |  第 331 场周赛  |
 |  2560  |  [打家劫舍 IV](/solution/2500-2599/2560.House%20Robber%20IV/README.md)  |  `数组`,`二分查找`  |  中等  |  第 331 场周赛  |
 |  2561  |  [重排水果](/solution/2500-2599/2561.Rearranging%20Fruits/README.md)  |  `贪心`,`数组`,`哈希表`  |  困难  |  第 331 场周赛  |
-|  2562  |  [找出数组的串联值](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)  |    |  简单  |  第 332 场周赛  |
-|  2563  |  [统计公平数对的数目](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md)  |    |  中等  |  第 332 场周赛  |
-|  2564  |  [子字符串异或查询](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)  |    |  中等  |  第 332 场周赛  |
-|  2565  |  [最少得分子序列](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)  |    |  困难  |  第 332 场周赛  |
+|  2562  |  [找出数组的串联值](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)  |  `数组`,`双指针`,`模拟`  |  简单  |  第 332 场周赛  |
+|  2563  |  [统计公平数对的数目](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md)  |  `数组`,`双指针`,`二分查找`,`排序`  |  中等  |  第 332 场周赛  |
+|  2564  |  [子字符串异或查询](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)  |  `位运算`,`数组`,`哈希表`,`字符串`  |  中等  |  第 332 场周赛  |
+|  2565  |  [最少得分子序列](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)  |  `双指针`,`字符串`,`二分查找`  |  困难  |  第 332 场周赛  |
 
 ## 版权
 

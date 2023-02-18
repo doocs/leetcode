@@ -51,7 +51,7 @@
   - [0049.字母异位词分组](/solution/0000-0099/0049.Group%20Anagrams/README.md)
   - [0050.Pow(x, n)](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README.md)
   - [0051.N 皇后](/solution/0000-0099/0051.N-Queens/README.md)
-  - [0052.N皇后 II](/solution/0000-0099/0052.N-Queens%20II/README.md)
+  - [0052.N 皇后 II](/solution/0000-0099/0052.N-Queens%20II/README.md)
   - [0053.最大子数组和](/solution/0000-0099/0053.Maximum%20Subarray/README.md)
   - [0054.螺旋矩阵](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
   - [0055.跳跃游戏](/solution/0000-0099/0055.Jump%20Game/README.md)

@@ -25,14 +25,16 @@
 
 <pre>
 <strong>输入:</strong>s = "a"
-<strong>输入:</strong>1
+<strong>输出:</strong>1
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
 <strong>输入:</strong>s = "aaaaaccc"
-<strong>输入:</strong>7</pre>
+<strong>输出:</strong>7</pre>
+
+<p>&nbsp;</p>
 
 <p><strong>提示:</strong></p>
 

@@ -107,7 +107,7 @@ class Solution:
        # Note that f(x, y) is increasing with respect to both x and y.
        # i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
        def f(self, x, y):
-  
+
 """
 
 
