@@ -1,9 +1,9 @@
 function bestHand(ranks: number[], suits: string[]): string {
-    const s = new Set<string>();
-    for (const c of suits) {
-        s.add(c);
+    let flush = true;
+    for (let i = 1; i < 5 && flush; ++i) {
+        flush = suits[i] == suits[i - 1];
     }
-    if (s.size == 1) {
+    if (flush) {
         return 'Flush';
     }
     const cnt = new Array(14).fill(0);

@@ -1,8 +1,11 @@
 class Solution {
 public:
     string bestHand(vector<int>& ranks, vector<char>& suits) {
-        unordered_set<char> s(suits.begin(), suits.end());
-        if (s.size() == 1) {
+        bool flush = true;
+        for (int i = 1; i < 5 && flush; ++i) {
+            flush = suits[i] == suits[i - 1];
+        }
+        if (flush) {
             return "Flush";
         }
         int cnt[14]{};

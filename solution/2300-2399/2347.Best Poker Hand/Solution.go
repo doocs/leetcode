@@ -1,9 +1,9 @@
 func bestHand(ranks []int, suits []byte) string {
-	s := map[byte]struct{}{}
-	for _, c := range suits {
-		s[c] = struct{}{}
+	flush := true
+	for i := 1; i < 5 && flush; i++ {
+		flush = suits[i] == suits[i-1]
 	}
-	if len(s) == 1 {
+	if flush {
 		return "Flush"
 	}
 	cnt := [14]int{}

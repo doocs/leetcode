@@ -1,10 +1,10 @@
 class Solution {
     public String bestHand(int[] ranks, char[] suits) {
-        Set<Character> s = new HashSet<>();
-        for (char c : suits) {
-            s.add(c);
+        boolean flush = true;
+        for (int i = 1; i < 5 && flush; ++i) {
+            flush = suits[i] == suits[i - 1];
         }
-        if (s.size() == 1) {
+        if (flush) {
             return "Flush";
         }
         int[] cnt = new int[14];

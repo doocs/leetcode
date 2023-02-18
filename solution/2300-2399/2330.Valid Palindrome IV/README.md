@@ -56,6 +56,10 @@
 
 **方法一：双指针**
 
+我们可以使用双指针 $i$ 和 $j$，分别指向字符串的头尾，然后向中间移动，统计不同字符的个数，如果不同字符的个数大于 $2$，则返回 `false`，否则返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,12 +70,11 @@
 class Solution:
     def makePalindrome(self, s: str) -> bool:
         i, j = 0, len(s) - 1
-        t = 0
+        cnt = 0
         while i < j:
-            if s[i] != s[j]:
-                t += 1
+            cnt += s[i] != s[j]
             i, j = i + 1, j - 1
-        return t <= 2
+        return cnt <= 2
 ```
 
 ### **Java**
@@ -81,13 +84,14 @@ class Solution:
 ```java
 class Solution {
     public boolean makePalindrome(String s) {
-        int t = 0;
-        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+        int cnt = 0;
+        int i = 0, j = s.length() - 1;
+        for (; i < j; ++i, --j) {
             if (s.charAt(i) != s.charAt(j)) {
-                ++t;
+                ++cnt;
             }
         }
-        return t <= 2;
+        return cnt <= 2;
     }
 }
 ```
@@ -98,9 +102,12 @@ class Solution {
 class Solution {
 public:
     bool makePalindrome(string s) {
-        int t = 0;
-        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) t += s[i] != s[j];
-        return t <= 2;
+        int cnt = 0;
+        int i = 0, j = s.size() - 1;
+        for (; i < j; ++i, --j) {
+            cnt += s[i] != s[j];
+        }
+        return cnt <= 2;
     }
 };
 ```
@@ -109,20 +116,31 @@ public:
 
 ```go
 func makePalindrome(s string) bool {
-	t := 0
-	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+	cnt := 0
+	i, j := 0, len(s)-1
+	for ; i < j; i, j = i+1, j-1 {
 		if s[i] != s[j] {
-			t++
+			cnt++
 		}
 	}
-	return t <= 2
+	return cnt <= 2
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function makePalindrome(s: string): boolean {
+    let cnt = 0;
+    let i = 0;
+    let j = s.length - 1;
+    for (; i < j; ++i, --j) {
+        if (s[i] != s[j]) {
+            ++cnt;
+        }
+    }
+    return cnt <= 2;
+}
 ```
 
 ### **...**

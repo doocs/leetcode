@@ -63,7 +63,7 @@
 
 **方法一：计数**
 
-我们可以用哈希表 $s$ 统计花色的种类，如果哈希表 $s$ 的大小为 $1$，说明五张牌的花色相同，返回 `"Flush"`。
+我们可以先遍历数组 $suits$，判断相邻两个元素是否均相等，如果是，则返回 `"Flush"`。
 
 接下来，我们用哈希表或数组 $cnt$ 统计每张牌的数量：
 
@@ -82,7 +82,7 @@
 ```python
 class Solution:
     def bestHand(self, ranks: List[int], suits: List[str]) -> str:
-        if len(set(suits)) == 1:
+        if all(a == b for a, b in pairwise(suits)):
             return 'Flush'
         cnt = Counter(ranks)
         if any(v >= 3 for v in cnt.values()):
@@ -99,11 +99,11 @@ class Solution:
 ```java
 class Solution {
     public String bestHand(int[] ranks, char[] suits) {
-        Set<Character> s = new HashSet<>();
-        for (char c : suits) {
-            s.add(c);
+        boolean flush = true;
+        for (int i = 1; i < 5 && flush; ++i) {
+            flush = suits[i] == suits[i - 1];
         }
-        if (s.size() == 1) {
+        if (flush) {
             return "Flush";
         }
         int[] cnt = new int[14];
@@ -125,8 +125,11 @@ class Solution {
 class Solution {
 public:
     string bestHand(vector<int>& ranks, vector<char>& suits) {
-        unordered_set<char> s(suits.begin(), suits.end());
-        if (s.size() == 1) {
+        bool flush = true;
+        for (int i = 1; i < 5 && flush; ++i) {
+            flush = suits[i] == suits[i - 1];
+        }
+        if (flush) {
             return "Flush";
         }
         int cnt[14]{};
@@ -146,11 +149,11 @@ public:
 
 ```go
 func bestHand(ranks []int, suits []byte) string {
-	s := map[byte]struct{}{}
-	for _, c := range suits {
-		s[c] = struct{}{}
+	flush := true
+	for i := 1; i < 5 && flush; i++ {
+		flush = suits[i] == suits[i-1]
 	}
-	if len(s) == 1 {
+	if flush {
 		return "Flush"
 	}
 	cnt := [14]int{}
@@ -173,11 +176,11 @@ func bestHand(ranks []int, suits []byte) string {
 
 ```ts
 function bestHand(ranks: number[], suits: string[]): string {
-    const s = new Set<string>();
-    for (const c of suits) {
-        s.add(c);
+    let flush = true;
+    for (let i = 1; i < 5 && flush; ++i) {
+        flush = suits[i] == suits[i - 1];
     }
-    if (s.size == 1) {
+    if (flush) {
         return 'Flush';
     }
     const cnt = new Array(14).fill(0);
