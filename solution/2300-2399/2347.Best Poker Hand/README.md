@@ -61,6 +61,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们可以用哈希表 $s$ 统计花色的种类，如果哈希表 $s$ 的大小为 $1$，说明五张牌的花色相同，返回 `"Flush"`。
+
+接下来，我们用哈希表或数组 $cnt$ 统计每张牌的数量：
+
+-   如果有任意一张牌的数量等于 $3$，返回 `"Three of a Kind"`；
+-   否则，如果有任意一张牌的数量等于 $2$，返回 `"Pair"`；
+-   否则，返回 `"High Card"`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $ranks$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -94,19 +106,15 @@ class Solution {
         if (s.size() == 1) {
             return "Flush";
         }
-        int[] cnt = new int[20];
-        for (int v : ranks) {
-            ++cnt[v];
-            if (cnt[v] >= 3) {
+        int[] cnt = new int[14];
+        boolean pair = false;
+        for (int x : ranks) {
+            if (++cnt[x] == 3) {
                 return "Three of a Kind";
             }
+            pair = pair || cnt[x] == 2;
         }
-        for (int v : cnt) {
-            if (v == 2) {
-                return "Pair";
-            }
-        }
-        return "High Card";
+        return pair ? "Pair" : "High Card";
     }
 }
 ```
@@ -118,13 +126,18 @@ class Solution {
 public:
     string bestHand(vector<int>& ranks, vector<char>& suits) {
         unordered_set<char> s(suits.begin(), suits.end());
-        if (s.size() == 1) return "Flush";
-        vector<int> cnt(20);
-        for (int v : ranks)
-            if (++cnt[v] >= 3) return "Three of a Kind";
-        for (int v : cnt)
-            if (v == 2) return "Pair";
-        return "High Card";
+        if (s.size() == 1) {
+            return "Flush";
+        }
+        int cnt[14]{};
+        bool pair = false;
+        for (int& x : ranks) {
+            if (++cnt[x] == 3) {
+                return "Three of a Kind";
+            }
+            pair |= cnt[x] == 2;
+        }
+        return pair ? "Pair" : "High Card";
     }
 };
 ```
@@ -133,24 +146,24 @@ public:
 
 ```go
 func bestHand(ranks []int, suits []byte) string {
-	s := map[byte]bool{}
-	for _, v := range suits {
-		s[v] = true
+	s := map[byte]struct{}{}
+	for _, c := range suits {
+		s[c] = struct{}{}
 	}
 	if len(s) == 1 {
 		return "Flush"
 	}
-	cnt := make([]int, 20)
-	for _, v := range ranks {
-		cnt[v]++
-		if cnt[v] >= 3 {
+	cnt := [14]int{}
+	pair := false
+	for _, x := range ranks {
+		cnt[x]++
+		if cnt[x] == 3 {
 			return "Three of a Kind"
 		}
+		pair = pair || cnt[x] == 2
 	}
-	for _, v := range cnt {
-		if v == 2 {
-			return "Pair"
-		}
+	if pair {
+		return "Pair"
 	}
 	return "High Card"
 }
@@ -159,7 +172,24 @@ func bestHand(ranks []int, suits []byte) string {
 ### **TypeScript**
 
 ```ts
-
+function bestHand(ranks: number[], suits: string[]): string {
+    const s = new Set<string>();
+    for (const c of suits) {
+        s.add(c);
+    }
+    if (s.size == 1) {
+        return 'Flush';
+    }
+    const cnt = new Array(14).fill(0);
+    let pair = false;
+    for (const x of ranks) {
+        if (++cnt[x] == 3) {
+            return 'Three of a Kind';
+        }
+        pair = pair || cnt[x] == 2;
+    }
+    return pair ? 'Pair' : 'High Card';
+}
 ```
 
 ### **...**

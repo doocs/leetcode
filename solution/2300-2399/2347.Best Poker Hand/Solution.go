@@ -1,22 +1,22 @@
 func bestHand(ranks []int, suits []byte) string {
-	s := map[byte]bool{}
-	for _, v := range suits {
-		s[v] = true
+	s := map[byte]struct{}{}
+	for _, c := range suits {
+		s[c] = struct{}{}
 	}
 	if len(s) == 1 {
 		return "Flush"
 	}
-	cnt := make([]int, 20)
-	for _, v := range ranks {
-		cnt[v]++
-		if cnt[v] >= 3 {
+	cnt := [14]int{}
+	pair := false
+	for _, x := range ranks {
+		cnt[x]++
+		if cnt[x] == 3 {
 			return "Three of a Kind"
 		}
+		pair = pair || cnt[x] == 2
 	}
-	for _, v := range cnt {
-		if v == 2 {
-			return "Pair"
-		}
+	if pair {
+		return "Pair"
 	}
 	return "High Card"
 }

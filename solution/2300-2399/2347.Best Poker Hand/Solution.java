@@ -7,18 +7,14 @@ class Solution {
         if (s.size() == 1) {
             return "Flush";
         }
-        int[] cnt = new int[20];
-        for (int v : ranks) {
-            ++cnt[v];
-            if (cnt[v] >= 3) {
+        int[] cnt = new int[14];
+        boolean pair = false;
+        for (int x : ranks) {
+            if (++cnt[x] == 3) {
                 return "Three of a Kind";
             }
+            pair = pair || cnt[x] == 2;
         }
-        for (int v : cnt) {
-            if (v == 2) {
-                return "Pair";
-            }
-        }
-        return "High Card";
+        return pair ? "Pair" : "High Card";
     }
 }
