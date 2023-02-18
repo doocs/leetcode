@@ -8,8 +8,8 @@
  */
 
 func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
-	x, y := 1, z
-	for x <= z && y > 0 {
+	x, y := 1, 1000
+	for x <= 1000 && y > 0 {
 		t := customFunction(x, y)
 		if t < z {
 			x++

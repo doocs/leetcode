@@ -12,8 +12,8 @@
 class Solution {
     public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
         List<List<Integer>> ans = new ArrayList<>();
-        int x = 1, y = z;
-        while (x <= z && y > 0) {
+        int x = 1, y = 1000;
+        while (x <= 1000 && y > 0) {
             int t = customfunction.f(x, y);
             if (t < z) {
                 x++;

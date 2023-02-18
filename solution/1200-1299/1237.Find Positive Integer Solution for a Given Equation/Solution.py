@@ -13,8 +13,8 @@
 class Solution:
     def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
         ans = []
-        x, y = 1, z
-        while x <= z and y:
+        x, y = 1, 1000
+        while x <= 1000 and y:
             t = customfunction.f(x, y)
             if t < z:
                 x += 1

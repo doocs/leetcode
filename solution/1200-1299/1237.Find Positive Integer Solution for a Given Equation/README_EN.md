@@ -91,8 +91,8 @@ Binary search.
 class Solution:
     def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
         ans = []
-        for x in range(1, z + 1):
-            y = 1 + bisect_left(range(1, z + 1), z, key=lambda y: customfunction.f(x, y))
+        for x in range(1, 1001):
+            y = 1 + bisect_left(range(1, 1001), z, key=lambda y: customfunction.f(x, y))
             if customfunction.f(x, y) == z:
                 ans.append([x, y])
         return ans
@@ -114,8 +114,8 @@ class Solution:
 class Solution:
     def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
         ans = []
-        x, y = 1, z
-        while x <= z and y:
+        x, y = 1, 1000
+        while x <= 1000 and y:
             t = customfunction.f(x, y)
             if t < z:
                 x += 1
@@ -144,8 +144,8 @@ class Solution:
  class Solution {
     public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
         List<List<Integer>> ans = new ArrayList<>();
-        for (int x = 1; x <= z; ++x) {
-            int l = 1, r = z;
+        for (int x = 1; x <= 1000; ++x) {
+            int l = 1, r = 1000;
             while (l < r) {
                 int mid = (l + r) >> 1;
                 if (customfunction.f(x, mid) >= z) {
@@ -178,8 +178,8 @@ class Solution:
 class Solution {
     public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
         List<List<Integer>> ans = new ArrayList<>();
-        int x = 1, y = z;
-        while (x <= z && y > 0) {
+        int x = 1, y = 1000;
+        while (x <= 1000 && y > 0) {
             int t = customfunction.f(x, y);
             if (t < z) {
                 x++;
@@ -213,8 +213,8 @@ class Solution {
 public:
     vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
         vector<vector<int>> ans;
-        for (int x = 1; x <= z; ++x) {
-            int l = 1, r = z;
+        for (int x = 1; x <= 1000; ++x) {
+            int l = 1, r = 1000;
             while (l < r) {
                 int mid = (l + r) >> 1;
                 if (customfunction.f(x, mid) >= z) {
@@ -249,8 +249,8 @@ class Solution {
 public:
     vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
         vector<vector<int>> ans;
-        int x = 1, y = z;
-        while (x <= z && y) {
+        int x = 1, y = 1000;
+        while (x <= 1000 && y) {
             int t = customfunction.f(x, y);
             if (t < z) {
                 x++;
@@ -278,8 +278,8 @@ public:
  */
 
 func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
-	for x := 1; x <= z; x++ {
-		y := 1 + sort.Search(z, func(y int) bool { return customFunction(x, y+1) >= z })
+	for x := 1; x <= 1000; x++ {
+		y := 1 + sort.Search(999, func(y int) bool { return customFunction(x, y+1) >= z })
 		if customFunction(x, y) == z {
 			ans = append(ans, []int{x, y})
 		}
@@ -299,8 +299,8 @@ func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
  */
 
 func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
-	x, y := 1, z
-	for x <= z && y > 0 {
+	x, y := 1, 1000
+	for x <= 1000 && y > 0 {
 		t := customFunction(x, y)
 		if t < z {
 			x++
@@ -328,9 +328,9 @@ func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
 
 function findSolution(customfunction: CustomFunction, z: number): number[][] {
     const ans: number[][] = [];
-    for (let x = 1; x <= z; ++x) {
+    for (let x = 1; x <= 1000; ++x) {
         let l = 1;
-        let r = z;
+        let r = 1000;
         while (l < r) {
             const mid = (l + r) >> 1;
             if (customfunction.f(x, mid) >= z) {
@@ -358,9 +358,9 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 
 function findSolution(customfunction: CustomFunction, z: number): number[][] {
     let x = 1;
-    let y = z;
+    let y = 1000;
     const ans: number[][] = [];
-    while (x <= z && y) {
+    while (x <= 1000 && y) {
         const t = customfunction.f(x, y);
         if (t < z) {
             ++x;

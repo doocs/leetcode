@@ -35,11 +35,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>-10<sup>4</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-
 </ul>
 
 ## Solutions
@@ -49,13 +46,78 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSumAfterOperation(self, nums: List[int]) -> int:
+        f = g = 0
+        ans = -inf
+        for x in nums:
+            ff = max(f, 0) + x
+            gg = max(max(f, 0) + x * x, g + x)
+            f, g = ff, gg
+            ans = max(ans, f, g)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxSumAfterOperation(int[] nums) {
+        int f = 0, g = 0;
+        int ans = Integer.MIN_VALUE;
+        for (int x : nums) {
+            int ff = Math.max(f, 0) + x;
+            int gg = Math.max(Math.max(f, 0) + x * x, g + x);
+            f = ff;
+            g = gg;
+            ans = Math.max(ans, Math.max(f, g));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSumAfterOperation(vector<int>& nums) {
+        int f = 0, g = 0;
+        int ans = INT_MIN;
+        for (int x : nums) {
+            int ff = max(f, 0) + x;
+            int gg = max(max(f, 0) + x * x, g + x);
+            f = ff;
+            g = gg;
+            ans = max({ans, f, g});
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSumAfterOperation(nums []int) int {
+	var f, g int
+	ans := -(1 << 30)
+	for _, x := range nums {
+		ff := max(f, 0) + x
+		gg := max(max(f, 0)+x*x, g+x)
+		f, g = ff, gg
+		ans = max(ans, max(f, g))
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
