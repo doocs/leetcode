@@ -79,6 +79,10 @@
 
 时间复杂度 $O(n + C \times M)$，空间复杂度 $O(M)$。其中 $n$ 为 $nums$ 的长度；而 $C$ 和 $M$ 分别为题目中 $nums[i]$ 的范围和状态的个数，本题中 $C=30$, $M=2^{10}$。
 
+相似题目：
+
+-   [2572. 无平方子集计数](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
