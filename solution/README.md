@@ -2576,10 +2576,14 @@
 |  2563  |  [统计公平数对的数目](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md)  |  `数组`,`双指针`,`二分查找`,`排序`  |  中等  |  第 332 场周赛  |
 |  2564  |  [子字符串异或查询](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)  |  `位运算`,`数组`,`哈希表`,`字符串`  |  中等  |  第 332 场周赛  |
 |  2565  |  [最少得分子序列](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)  |  `双指针`,`字符串`,`二分查找`  |  困难  |  第 332 场周赛  |
-|  2566  |  [替换一个数字后的最大差值](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README.md)  |    |  简单  |    |
-|  2567  |  [修改两个元素的最小分数](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md)  |    |  中等  |    |
-|  2568  |  [最小无法得到的或值](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md)  |    |  中等  |    |
-|  2569  |  [更新数组后处理求和查询](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md)  |    |  困难  |    |
+|  2566  |  [替换一个数字后的最大差值](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README.md)  |    |  简单  |  第 98 场双周赛  |
+|  2567  |  [修改两个元素的最小分数](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md)  |    |  中等  |  第 98 场双周赛  |
+|  2568  |  [最小无法得到的或值](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md)  |    |  中等  |  第 98 场双周赛  |
+|  2569  |  [更新数组后处理求和查询](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md)  |    |  困难  |  第 98 场双周赛  |
+|  2570  |  [合并两个二维数组 - 求和法](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README.md)  |    |  简单  |  第 333 场周赛  |
+|  2571  |  [将整数减少到零需要的最少操作数](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README.md)  |    |  简单  |  第 333 场周赛  |
+|  2572  |  [无平方子集计数](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)  |    |  中等  |  第 333 场周赛  |
+|  2573  |  [找出对应 LCP 矩阵的字符串](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md)  |    |  困难  |  第 333 场周赛  |
 
 ## 版权
 

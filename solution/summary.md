@@ -2619,3 +2619,7 @@
   - [2567.修改两个元素的最小分数](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md)
   - [2568.最小无法得到的或值](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md)
   - [2569.更新数组后处理求和查询](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md)
+  - [2570.合并两个二维数组 - 求和法](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README.md)
+  - [2571.将整数减少到零需要的最少操作数](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README.md)
+  - [2572.无平方子集计数](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
+  - [2573.找出对应 LCP 矩阵的字符串](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md)
