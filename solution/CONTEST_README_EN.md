@@ -25,6 +25,18 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 333
+
+
+
+#### Biweekly Contest 98
+
+- [2566. Maximum Difference by Remapping a Digit](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md)
+- [2567. Minimum Score by Changing Two Elements](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README_EN.md)
+- [2568. Minimum Impossible OR](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md)
+- [2569. Handling Sum Queries After Update](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)
+
+
 #### Weekly Contest 332
 
 - [2562. Find the Array Concatenation Value](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)

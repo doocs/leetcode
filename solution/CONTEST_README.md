@@ -24,6 +24,18 @@
 
 ## 往期竞赛
 
+#### 第 333 场周赛(2023-02-19 10:30, 90 分钟) 参赛人数 4928
+
+
+
+#### 第 98 场双周赛(2023-02-18 22:30, 90 分钟) 参赛人数 3250
+
+- [2566. 替换一个数字后的最大差值](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README.md)
+- [2567. 修改两个元素的最小分数](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md)
+- [2568. 最小无法得到的或值](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md)
+- [2569. 更新数组后处理求和查询](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md)
+
+
 #### 第 332 场周赛(2023-02-12 10:30, 90 分钟) 参赛人数 4547
 
 - [2562. 找出数组的串联值](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)

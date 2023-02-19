@@ -2615,3 +2615,7 @@
   - [2563.Count the Number of Fair Pairs](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)
   - [2564.Substring XOR Queries](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)
   - [2565.Subsequence With the Minimum Score](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)
+  - [2566.Maximum Difference by Remapping a Digit](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md)
+  - [2567.Minimum Score by Changing Two Elements](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README_EN.md)
+  - [2568.Minimum Impossible OR](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md)
+  - [2569.Handling Sum Queries After Update](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)
