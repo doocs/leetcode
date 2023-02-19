@@ -55,6 +55,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 构造**
+
+由于构造的字符串要求字典序最小，因此我们可以从字符 `'a'` 开始，填充到字符串 $s$ 中。
+
+如果当前位置 $i$ 还未填充字符，那么我们可以将字符 `'a'` 填充到 $i$ 位置，然后枚举所有 $j \gt i$ 的位置，如果 $lcp[i][j] \gt 0$，那么位置 $j$ 也应该填充字符 `'a'`。然后我们将字符 `'a'` 的 ASCII 码加一，继续填充剩余未填充的位置。
+
+填充结束后，如果字符串中存在未填充的位置，说明无法构造出对应的字符串，返回空字符串。
+
+接下来，我们可以从大到小枚举字符串中的每个位置 $i$ 和 $j$，然后判断 $s[i]$ 和 $s[j]$ 是否相等：
+
+-   如果 $s[i] = s[j]$，此时我们需要判断 $i$ 和 $j$ 是否为字符串的最后一个位置，如果是，那么 $lcp[i][j]$ 应该等于 $1$，否则 $lcp[i][j]$ 应该等于 $0$。如果不满足上述条件，说明无法构造出对应的字符串，返回空字符串。如果 $i$ 和 $j$ 不是字符串的最后一个位置，那么 $lcp[i][j]$ 应该等于 $lcp[i + 1][j + 1] + 1$，否则说明无法构造出对应的字符串，返回空字符串。
+-   否则，如果 $lcp[i][j] \gt 0$，说明无法构造出对应的字符串，返回空字符串。
+
+如果字符串中的每个位置都满足上述条件，那么我们就可以构造出对应的字符串，返回即可。
+
+时间复杂度为 $O(n^2)$，空间复杂度为 $O(n)$。其中 $n$ 为字符串的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +79,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findTheString(self, lcp: List[List[int]]) -> str:
+        n = len(lcp)
+        s = [""] * n
+        i = 0
+        for c in ascii_lowercase:
+            while i < n and s[i]:
+                i += 1
+            if i == n:
+                break
+            for j in range(i, n):
+                if lcp[i][j]:
+                    s[j] = c
+        if "" in s:
+            return ""
+        for i in range(n - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                if s[i] == s[j]:
+                    if i == n - 1 or j == n - 1:
+                        if lcp[i][j] != 1:
+                            return ""
+                    elif lcp[i][j] != lcp[i + 1][j + 1] + 1:
+                        return ""
+                elif lcp[i][j]:
+                    return ""
+        return "".join(s)
 ```
 
 ### **Java**
@@ -70,19 +112,132 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String findTheString(int[][] lcp) {
+        int n = lcp.length;
+        char[] s = new char[n];
+        int i = 0;
+        for (char c = 'a'; c <= 'z'; ++c) {
+            while (i < n && s[i] != '\0') {
+                ++i;
+            }
+            if (i == n) {
+                break;
+            }
+            for (int j = i; j < n; ++j) {
+                if (lcp[i][j] > 0) {
+                    s[j] = c;
+                }
+            }
+        }
+        for (i = 0; i < n; ++i) {
+            if (s[i] == '\0') {
+                return "";
+            }
+        }
+        for (i = n - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                if (s[i] == s[j]) {
+                    if (i == n - 1 || j == n - 1) {
+                        if (lcp[i][j] != 1) {
+                            return "";
+                        }
+                    } else if (lcp[i][j] != lcp[i + 1][j + 1] + 1) {
+                        return "";
+                    }
+                } else if (lcp[i][j] > 0) {
+                    return "";
+                }
+            }
+        }
+        return String.valueOf(s);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    string findTheString(vector<vector<int>>& lcp) {
+        int i = 0, n = lcp.size();
+        string s(n, '\0');
+        for (char c = 'a'; c <= 'z'; ++c) {
+            while (i < n && s[i]) {
+                ++i;
+            }
+            if (i == n) {
+                break;
+            }
+            for (int j = i; j < n; ++j) {
+                if (lcp[i][j]) {
+                    s[j] = c;
+                }
+            }
+        }
+        if (s.find('\0') != -1) {
+            return "";
+        }
+        for (i = n - 1; ~i; --i) {
+            for (int j = n - 1; ~j; --j) {
+                if (s[i] == s[j]) {
+                    if (i == n - 1 || j == n - 1) {
+                        if (lcp[i][j] != 1) {
+                            return "";
+                        }
+                    } else if (lcp[i][j] != lcp[i + 1][j + 1] + 1) {
+                        return "";
+                    }
+                } else if (lcp[i][j]) {
+                    return "";
+                }
+            }
+        }
+        return s;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func findTheString(lcp [][]int) string {
+	i, n := 0, len(lcp)
+	s := make([]byte, n)
+	for c := 'a'; c <= 'z'; c++ {
+		for i < n && s[i] != 0 {
+			i++
+		}
+		if i == n {
+			break
+		}
+		for j := i; j < n; j++ {
+			if lcp[i][j] > 0 {
+				s[j] = byte(c)
+			}
+		}
+	}
+	if bytes.IndexByte(s, 0) >= 0 {
+		return ""
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := n - 1; j >= 0; j-- {
+			if s[i] == s[j] {
+				if i == n-1 || j == n-1 {
+					if lcp[i][j] != 1 {
+						return ""
+					}
+				} else if lcp[i][j] != lcp[i+1][j+1]+1 {
+					return ""
+				}
+			} else if lcp[i][j] > 0 {
+				return ""
+			}
+		}
+	}
+	return string(s)
+}
 ```
 
 ### **...**
