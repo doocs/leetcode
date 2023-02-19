@@ -53,25 +53,90 @@ So the minimum number of operations is 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, n: int) -> int:
+        ans = cnt = 0
+        while n:
+            if n & 1:
+                cnt += 1
+            elif cnt:
+                ans += 1
+                cnt = 0 if cnt == 1 else 1
+            n >>= 1
+        if cnt == 1:
+            ans += 1
+        elif cnt > 1:
+            ans += 2
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minOperations(int n) {
+        int ans = 0, cnt = 0;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ++cnt;
+            } else if (cnt > 0) {
+                ++ans;
+                cnt = cnt == 1 ? 0 : 1;
+            }
+        }
+        ans += cnt == 1 ? 1 : 0;
+        ans += cnt > 1 ? 2 : 0;
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(int n) {
+        int ans = 0, cnt = 0;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ++cnt;
+            } else if (cnt > 0) {
+                ++ans;
+                cnt = cnt == 1 ? 0 : 1;
+            }
+        }
+        ans += cnt == 1 ? 1 : 0;
+        ans += cnt > 1 ? 2 : 0;
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func minOperations(n int) (ans int) {
+	cnt := 0
+	for ; n > 0; n >>= 1 {
+		if n&1 == 1 {
+			cnt++
+		} else if cnt > 0 {
+			ans++
+			if cnt == 1 {
+				cnt = 0
+			} else {
+				cnt = 1
+			}
+		}
+	}
+	if cnt == 1 {
+		ans++
+	} else if cnt > 1 {
+		ans += 2
+	}
+	return
+}
 ```
 
 ### **...**

@@ -67,7 +67,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def mergeArrays(
+        self, nums1: List[List[int]], nums2: List[List[int]]
+    ) -> List[List[int]]:
+        cnt = Counter()
+        for i, v in nums1 + nums2:
+            cnt[i] += v
+        return sorted(cnt.items())
 ```
 
 ### **Java**
@@ -75,19 +82,74 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
+        int[] cnt = new int[1001];
+        for (var x : nums1) {
+            cnt[x[0]] += x[1];
+        }
+        for (var x : nums2) {
+            cnt[x[0]] += x[1];
+        }
+        int n = 0;
+        for (int i = 0; i < 1001; ++i) {
+            if (cnt[i] > 0) {
+                ++n;
+            }
+        }
+        int[][] ans = new int[n][2];
+        for (int i = 0, j = 0; i < 1001; ++i) {
+            if (cnt[i] > 0) {
+                ans[j++] = new int[] {i, cnt[i]};
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> mergeArrays(vector<vector<int>>& nums1, vector<vector<int>>& nums2) {
+        int cnt[1001]{};
+        for (auto& x : nums1) {
+            cnt[x[0]] += x[1];
+        }
+        for (auto& x : nums2) {
+            cnt[x[0]] += x[1];
+        }
+        vector<vector<int>> ans;
+        for (int i = 0; i < 1001; ++i) {
+            if (cnt[i]) {
+                ans.push_back({i, cnt[i]});
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
+	cnt := [1001]int{}
+	for _, x := range nums1 {
+		cnt[x[0]] += x[1]
+	}
+	for _, x := range nums2 {
+		cnt[x[0]] += x[1]
+	}
+	for i, x := range cnt {
+		if x > 0 {
+			ans = append(ans, []int{i, x})
+		}
+	}
+	return
+}
 ```
 
 ### **...**
