@@ -1,5 +1,5 @@
-func countGoodTriplets(arr []int, a int, b int, c int) int {
-	n, ans := len(arr), 0
+func countGoodTriplets(arr []int, a int, b int, c int) (ans int) {
+	n := len(arr)
 	for i := 0; i < n; i++ {
 		for j := i + 1; j < n; j++ {
 			for k := j + 1; k < n; k++ {
@@ -9,7 +9,7 @@ func countGoodTriplets(arr []int, a int, b int, c int) int {
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {

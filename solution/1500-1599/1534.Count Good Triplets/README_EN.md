@@ -55,13 +55,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>3 &lt;= arr.length &lt;= 100</code></li>
-
     <li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
-
     <li><code>0 &lt;= a, b, c &lt;= 1000</code></li>
-
 </ul>
 
 ## Solutions
@@ -73,17 +69,12 @@
 ```python
 class Solution:
     def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
-        n = len(arr)
-        ans = 0
+        ans, n = 0, len(arr)
         for i in range(n):
             for j in range(i + 1, n):
                 for k in range(j + 1, n):
-                    if (
-                        abs(arr[i] - arr[j]) <= a
-                        and abs(arr[j] - arr[k]) <= b
-                        and abs(arr[i] - arr[k]) <= c
-                    ):
-                        ans += 1
+                    ans += abs(arr[i] - arr[j]) <= a \
+                        and abs(arr[j] - arr[k]) <= b and abs(arr[i] - arr[k]) <= c
         return ans
 ```
 
@@ -132,8 +123,8 @@ public:
 ### **Go**
 
 ```go
-func countGoodTriplets(arr []int, a int, b int, c int) int {
-	n, ans := len(arr), 0
+func countGoodTriplets(arr []int, a int, b int, c int) (ans int) {
+	n := len(arr)
 	for i := 0; i < n; i++ {
 		for j := i + 1; j < n; j++ {
 			for k := j + 1; k < n; k++ {
@@ -143,7 +134,7 @@ func countGoodTriplets(arr []int, a int, b int, c int) int {
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {

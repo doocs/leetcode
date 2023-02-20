@@ -51,6 +51,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举所有的 $i$, $j$ 和 $k$，其中 $i \lt j \lt k$，判断是否同时满足 $|arr[i] - arr[j]| \le a$，$|arr[j] - arr[k]| \le b$ 和 $|arr[i] - arr[k]| \le c$，如果满足则将答案加一。
+
+枚举结束后，即可得到答案。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,18 +68,14 @@
 ```python
 class Solution:
     def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
-        n = len(arr)
-        ans = 0
+        ans, n = 0, len(arr)
         for i in range(n):
             for j in range(i + 1, n):
                 for k in range(j + 1, n):
-                    if (
-                        abs(arr[i] - arr[j]) <= a
-                        and abs(arr[j] - arr[k]) <= b
-                        and abs(arr[i] - arr[k]) <= c
-                    ):
-                        ans += 1
+                    ans += abs(arr[i] - arr[j]) <= a \
+                        and abs(arr[j] - arr[k]) <= b and abs(arr[i] - arr[k]) <= c
         return ans
+
 ```
 
 ### **Java**
@@ -121,8 +125,8 @@ public:
 ### **Go**
 
 ```go
-func countGoodTriplets(arr []int, a int, b int, c int) int {
-	n, ans := len(arr), 0
+func countGoodTriplets(arr []int, a int, b int, c int) (ans int) {
+	n := len(arr)
 	for i := 0; i < n; i++ {
 		for j := i + 1; j < n; j++ {
 			for k := j + 1; k < n; k++ {
@@ -132,7 +136,7 @@ func countGoodTriplets(arr []int, a int, b int, c int) int {
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {
