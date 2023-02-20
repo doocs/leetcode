@@ -82,6 +82,7 @@
 ```python
 class Solution:
     def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+        # if len(set(suits)) == 1:
         if all(a == b for a, b in pairwise(suits)):
             return 'Flush'
         cnt = Counter(ranks)
