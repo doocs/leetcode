@@ -7,5 +7,5 @@ class Solution:
                 s += nums[j]
                 arr.append(s)
         arr.sort()
-        MOD = 10**9 + 7
-        return sum(arr[left - 1 : right]) % MOD
+        mod = 10**9 + 7
+        return sum(arr[left - 1: right]) % mod
