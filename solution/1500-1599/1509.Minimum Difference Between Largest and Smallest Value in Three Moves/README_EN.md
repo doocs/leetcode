@@ -62,13 +62,83 @@ After performing 3 moves, the difference between the minimum and maximum is 7 - 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minDifference(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 5:
+            return 0
+        nums.sort()
+        ans = inf
+        for l in range(4):
+            r = 3 - l
+            ans = min(ans, nums[n - 1 - r] - nums[l])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minDifference(int[] nums) {
+        int n = nums.length;
+        if (n < 5) {
+            return 0;
+        }
+        Arrays.sort(nums);
+        long ans = 1L << 60;
+        for (int l = 0; l <= 3; ++l) {
+            int r = 3 - l;
+            ans = Math.min(ans, (long) nums[n - 1 - r] - nums[l]);
+        }
+        return (int) ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDifference(vector<int>& nums) {
+        int n = nums.size();
+        if (n < 5) {
+            return 0;
+        }
+        sort(nums.begin(), nums.end());
+        long long ans = 1L << 60;
+        for (int l = 0; l <= 3; ++l) {
+            int r = 3 - l;
+            ans = min(ans, 1LL * nums[n - 1 - r] - nums[l]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDifference(nums []int) int {
+	n := len(nums)
+	if n < 5 {
+		return 0
+	}
+	sort.Ints(nums)
+	ans := 1 << 60
+	for l := 0; l <= 3; l++ {
+		r := 3 - l
+		ans = min(ans, nums[n-1-r]-nums[l])
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

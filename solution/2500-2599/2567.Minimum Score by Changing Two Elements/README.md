@@ -69,6 +69,10 @@
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
 
+相似题目：
+
+-   [1509. 三次操作后最大值与最小值的最小差](/solution/1500-1599/1509.Minimum%20Difference%20Between%20Largest%20and%20Smallest%20Value%20in%20Three%20Moves/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
