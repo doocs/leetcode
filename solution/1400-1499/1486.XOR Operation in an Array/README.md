@@ -54,6 +54,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们可以直接模拟算出数组中所有元素的异或结果。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,10 +69,10 @@
 ```python
 class Solution:
     def xorOperation(self, n: int, start: int) -> int:
-        res = 0
+        ans = 0
         for i in range(n):
-            res ^= start + (i << 1)
-        return res
+            ans ^= start + 2 * i
+        return ans
 ```
 
 ### **Java**
@@ -76,12 +82,38 @@ class Solution:
 ```java
 class Solution {
     public int xorOperation(int n, int start) {
-        int ret = start;
-        for (int i = 1; i < n; i++) {
-            ret = ret ^ (start + (i << 1));
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans ^= start + 2 * i;
         }
-        return ret;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int xorOperation(int n, int start) {
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans ^= start + 2 * i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func xorOperation(n int, start int) (ans int) {
+	for i := 0; i < n; i++ {
+		ans ^= start + 2*i
+	}
+	return
 }
 ```
 
