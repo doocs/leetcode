@@ -102,17 +102,33 @@ var singleNumber = function (nums) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function singleNumber(nums: number[]): number {
+    return nums.reduce((r, v) => r ^ v);
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn single_number(nums: Vec<i32>) -> i32 {
-        let mut result = 0;
-        for num in nums {
-            result ^= num;
-        }
-        result
+        nums.into_iter().reduce(|r, v| r ^ v).unwrap()
     }
+}
+```
+
+### **C**
+
+```c
+int singleNumber(int *nums, int numsSize) {
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        ans ^= nums[i];
+    }
+    return ans;
 }
 ```
 
