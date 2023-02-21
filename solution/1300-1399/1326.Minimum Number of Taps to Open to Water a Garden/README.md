@@ -57,17 +57,22 @@
 
 **方法一：贪心**
 
-注意到，对于所有能覆盖某个左端点的水龙头，选择能覆盖最远右端点的那个水龙头是最优的。
+我们注意到，对于所有能覆盖某个左端点的水龙头，选择能覆盖最远右端点的那个水龙头是最优的。
 
-因此，我们可以预处理 `ranges`，对于每一个位置 $i$，左右端点分别为 `l = max(0, i-ranges[i])` 和 `r = min(n, i+ranges[i])`，我们算出所有能覆盖左端点 $l$ 的水龙头中，右端点最大的那个位置，记录在数组 $last[i]$ 中。
+因此，我们可以先预处理数组 $ranges$，对于第 $i$ 个水龙头，它能覆盖的左端点 $l = max(0, i - ranges[i])$，右端点 $r = i + ranges[i]$，我们算出所有能覆盖左端点 $l$ 的水龙头中，右端点最大的那个位置，记录在数组 $last[i]$ 中。
 
-我们定义变量 `mx` 表示当前能够到达的最远位置，变量 `ans` 表示当前需要的最少子区间数，变量 `pre` 表示上一个被使用的子区间的右端点。
+然后我们定义以下三个变量，其中：
 
-接下来，我们从 $0$ 开始枚举所有位置 $i$，用 $last[i]$ 来更新 `mx`。如果更新后 $mx = i$，说明无法覆盖下一个位置，返回 $-1$。
+-   变量 $ans$ 表示最终答案，即最少水龙头数目；
+-   变量 $mx$ 表示当前能覆盖的最远右端点；
+-   变量 $pre$ 表示上一个水龙头覆盖的最远右端点。
 
-同时我们记录上一个被使用的子区间的右端点 `pre`，如果 $pre = i$，说明需要使用一个新的子区间，因此我们将 `ans` 加 $1$，并将 `pre` 更新为 `mx`。
+我们在 $[0,...n-1]$ 的范围内遍历所有位置，对于当前位置 $i$，我们用 $last[i]$ 更新 $mx$，即 $mx = max(mx, last[i])$。
 
-遍历结束后，返回 `ans` 即可。
+-   如果 $mx \leq i$，说明无法覆盖下一个位置，返回 $-1$。
+-   如果 $pre = i$，说明需要使用一个新的子区间，因此我们将 $ans$ 加 $1$，并且更新 $pre = mx$。
+
+遍历结束后，返回 $ans$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为花园的长度。
 
@@ -87,8 +92,8 @@
 class Solution:
     def minTaps(self, n: int, ranges: List[int]) -> int:
         last = [0] * (n + 1)
-        for i, v in enumerate(ranges):
-            l, r = max(0, i - v), min(n, i + v)
+        for i, x in enumerate(ranges):
+            l, r = max(0, i - x), i + x
             last[l] = max(last[l], r)
 
         ans = mx = pre = 0
@@ -111,8 +116,7 @@ class Solution {
     public int minTaps(int n, int[] ranges) {
         int[] last = new int[n + 1];
         for (int i = 0; i < n + 1; ++i) {
-            int v = ranges[i];
-            int l = Math.max(0, i - v), r = Math.min(n, i + v);
+            int l = Math.max(0, i - ranges[i]), r = i + ranges[i];
             last[l] = Math.max(last[l], r);
         }
         int ans = 0, mx = 0, pre = 0;
@@ -139,8 +143,7 @@ public:
     int minTaps(int n, vector<int>& ranges) {
         vector<int> last(n + 1);
         for (int i = 0; i < n + 1; ++i) {
-            int v = ranges[i];
-            int l = max(0, i - v), r = min(n, i + v);
+            int l = max(0, i - ranges[i]), r = i + ranges[i];
             last[l] = max(last[l], r);
         }
         int ans = 0, mx = 0, pre = 0;
@@ -162,15 +165,15 @@ public:
 ### **Go**
 
 ```go
-func minTaps(n int, ranges []int) int {
+func minTaps(n int, ranges []int) (ans int) {
 	last := make([]int, n+1)
-	for i, v := range ranges {
-		l, r := max(0, i-v), min(n, i+v)
+	for i, x := range ranges {
+		l, r := max(0, i-x), i+x
 		last[l] = max(last[l], r)
 	}
-	ans, mx, pre := 0, 0, 0
-	for i := 0; i < n; i++ {
-		mx = max(mx, last[i])
+	var pre, mx int
+	for i, j := range last[:n] {
+		mx = max(mx, j)
 		if mx <= i {
 			return -1
 		}
@@ -179,7 +182,7 @@ func minTaps(n int, ranges []int) int {
 			pre = mx
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -188,12 +191,32 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+### **TypeScript**
+
+```ts
+function minTaps(n: number, ranges: number[]): number {
+    const last = new Array(n + 1).fill(0);
+    for (let i = 0; i < n + 1; ++i) {
+        const l = Math.max(0, i - ranges[i]);
+        const r = i + ranges[i];
+        last[l] = Math.max(last[l], r);
+    }
+    let ans = 0;
+    let mx = 0;
+    let pre = 0;
+    for (let i = 0; i < n; ++i) {
+        mx = Math.max(mx, last[i]);
+        if (mx <= i) {
+            return -1;
+        }
+        if (pre == i) {
+            ++ans;
+            pre = mx;
+        }
+    }
+    return ans;
 }
 ```
 
