@@ -7,22 +7,13 @@
  * }
  */
 func removeLeafNodes(root *TreeNode, target int) *TreeNode {
-	p := &TreeNode{0, root, nil}
-	var dfs func(root, prev *TreeNode)
-	dfs = func(root, prev *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left, root)
-		dfs(root.Right, root)
-		if root.Left == nil && root.Right == nil && root.Val == target {
-			if prev.Left == root {
-				prev.Left = nil
-			} else {
-				prev.Right = nil
-			}
-		}
+	if root == nil {
+		return nil
 	}
-	dfs(root, p)
-	return p.Left
+	root.Left = removeLeafNodes(root.Left, target)
+	root.Right = removeLeafNodes(root.Right, target)
+	if root.Left == nil && root.Right == nil && root.Val == target {
+		return nil
+	}
+	return root
 }

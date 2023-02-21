@@ -64,20 +64,13 @@ class Solution:
     def removeLeafNodes(
         self, root: Optional[TreeNode], target: int
     ) -> Optional[TreeNode]:
-        def dfs(root, prev):
-            if root is None:
-                return
-            dfs(root.left, root)
-            dfs(root.right, root)
-            if root.left is None and root.right is None and root.val == target:
-                if prev.left == root:
-                    prev.left = None
-                else:
-                    prev.right = None
-
-        p = TreeNode(val=0, left=root)
-        dfs(root, p)
-        return p.left
+        if root is None:
+            return None
+        root.left = self.removeLeafNodes(root.left, target)
+        root.right = self.removeLeafNodes(root.right, target)
+        if root.left is None and root.right is None and root.val == target:
+            return None
+        return root
 ```
 
 ### **Java**
@@ -100,24 +93,15 @@ class Solution:
  */
 class Solution {
     public TreeNode removeLeafNodes(TreeNode root, int target) {
-        TreeNode p = new TreeNode(0, root, null);
-        dfs(root, p, target);
-        return p.left;
-    }
-
-    private void dfs(TreeNode root, TreeNode prev, int target) {
         if (root == null) {
-            return;
+            return null;
         }
-        dfs(root.left, root, target);
-        dfs(root.right, root, target);
+        root.left = removeLeafNodes(root.left, target);
+        root.right = removeLeafNodes(root.right, target);
         if (root.left == null && root.right == null && root.val == target) {
-            if (prev.left == root) {
-                prev.left = null;
-            } else {
-                prev.right = null;
-            }
+            return null;
         }
+        return root;
     }
 }
 ```
@@ -139,21 +123,15 @@ class Solution {
 class Solution {
 public:
     TreeNode* removeLeafNodes(TreeNode* root, int target) {
-        TreeNode* p = new TreeNode(0, root, nullptr);
-        dfs(root, p, target);
-        return p->left;
-    }
-
-    void dfs(TreeNode* root, TreeNode* prev, int target) {
-        if (!root) return;
-        dfs(root->left, root, target);
-        dfs(root->right, root, target);
-        if (!root->left && !root->right && root->val == target) {
-            if (prev->left == root)
-                prev->left = nullptr;
-            else
-                prev->right = nullptr;
+        if (!root) {
+            return nullptr;
         }
+        root->left = removeLeafNodes(root->left, target);
+        root->right = removeLeafNodes(root->right, target);
+        if (!root->left && !root->right && root->val == target) {
+            return nullptr;
+        }
+        return root;
     }
 };
 ```
@@ -170,24 +148,48 @@ public:
  * }
  */
 func removeLeafNodes(root *TreeNode, target int) *TreeNode {
-	p := &TreeNode{0, root, nil}
-	var dfs func(root, prev *TreeNode)
-	dfs = func(root, prev *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left, root)
-		dfs(root.Right, root)
-		if root.Left == nil && root.Right == nil && root.Val == target {
-			if prev.Left == root {
-				prev.Left = nil
-			} else {
-				prev.Right = nil
-			}
-		}
+	if root == nil {
+		return nil
 	}
-	dfs(root, p)
-	return p.Left
+	root.Left = removeLeafNodes(root.Left, target)
+	root.Right = removeLeafNodes(root.Right, target)
+	if root.Left == nil && root.Right == nil && root.Val == target {
+		return nil
+	}
+	return root
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function removeLeafNodes(
+    root: TreeNode | null,
+    target: number,
+): TreeNode | null {
+    if (!root) {
+        return null;
+    }
+    root.left = removeLeafNodes(root.left, target);
+    root.right = removeLeafNodes(root.right, target);
+    if (!root.left && !root.right && root.val == target) {
+        return null;
+    }
+    return root;
 }
 ```
 

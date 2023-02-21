@@ -15,23 +15,14 @@
  */
 class Solution {
     public TreeNode removeLeafNodes(TreeNode root, int target) {
-        TreeNode p = new TreeNode(0, root, null);
-        dfs(root, p, target);
-        return p.left;
-    }
-
-    private void dfs(TreeNode root, TreeNode prev, int target) {
         if (root == null) {
-            return;
+            return null;
         }
-        dfs(root.left, root, target);
-        dfs(root.right, root, target);
+        root.left = removeLeafNodes(root.left, target);
+        root.right = removeLeafNodes(root.right, target);
         if (root.left == null && root.right == null && root.val == target) {
-            if (prev.left == root) {
-                prev.left = null;
-            } else {
-                prev.right = null;
-            }
+            return null;
         }
+        return root;
     }
 }

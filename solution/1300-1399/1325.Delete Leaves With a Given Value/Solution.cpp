@@ -12,20 +12,14 @@
 class Solution {
 public:
     TreeNode* removeLeafNodes(TreeNode* root, int target) {
-        TreeNode* p = new TreeNode(0, root, nullptr);
-        dfs(root, p, target);
-        return p->left;
-    }
-
-    void dfs(TreeNode* root, TreeNode* prev, int target) {
-        if (!root) return;
-        dfs(root->left, root, target);
-        dfs(root->right, root, target);
-        if (!root->left && !root->right && root->val == target) {
-            if (prev->left == root)
-                prev->left = nullptr;
-            else
-                prev->right = nullptr;
+        if (!root) {
+            return nullptr;
         }
+        root->left = removeLeafNodes(root->left, target);
+        root->right = removeLeafNodes(root->right, target);
+        if (!root->left && !root->right && root->val == target) {
+            return nullptr;
+        }
+        return root;
     }
 };
