@@ -47,13 +47,9 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= a &lt;= 10^9</code></li>
-
     <li><code>1 &lt;= b&nbsp;&lt;= 10^9</code></li>
-
     <li><code>1 &lt;= c&nbsp;&lt;= 10^9</code></li>
-
 </ul>
 
 ## Solutions
@@ -66,14 +62,10 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 class Solution:
     def minFlips(self, a: int, b: int, c: int) -> int:
         ans = 0
-        for i in range(31):
-            x, y, z = (a >> i) & 1, (b >> i) & 1, (c >> i) & 1
-            if (x | y) == z:
-                continue
-            if x == 1 and y == 1 and z == 0:
-                ans += 2
-            else:
-                ans += 1
+        for i in range(30):
+            x, y, z = a >> i & 1, b >> i & 1, c >> i & 1
+            if x | y != z:
+                ans += 2 if x == 1 and y == 1 else 1
         return ans
 ```
 
@@ -83,15 +75,11 @@ class Solution:
 class Solution {
     public int minFlips(int a, int b, int c) {
         int ans = 0;
-        for (int i = 0; i < 31; ++i) {
-            int x = (a >> i) & 1, y = (b >> i) & 1, z = (c >> i) & 1;
-            if ((x | y) == z) {
-                continue;
+        for (int i = 0; i < 30; ++i) {
+            int x = a >> i & 1, y = b >> i & 1, z = c >> i & 1;
+            if ((x | y) != z) {
+                ans += x == 1 && y == 1 ? 2 : 1;
             }
-            if (x == 1 && y == 1 && z == 0) {
-                ++ans;
-            }
-            ++ans;
         }
         return ans;
     }
@@ -105,11 +93,11 @@ class Solution {
 public:
     int minFlips(int a, int b, int c) {
         int ans = 0;
-        for (int i = 0; i < 31; ++i) {
-            int x = (a >> i) & 1, y = (b >> i) & 1, z = (c >> i) & 1;
-            if ((x | y) == z) continue;
-            if (x == 1 && y == 1 && z == 0) ++ans;
-            ++ans;
+        for (int i = 0; i < 30; ++i) {
+            int x = a >> i & 1, y = b >> i & 1, z = c >> i & 1;
+            if ((x | y) != z) {
+                ans += x == 1 && y == 1 ? 2 : 1;
+            }
         }
         return ans;
     }
@@ -119,19 +107,18 @@ public:
 ### **Go**
 
 ```go
-func minFlips(a int, b int, c int) int {
-	ans := 0
-	for i := 0; i < 31; i++ {
-		x, y, z := (a>>i)&1, (b>>i)&1, (c>>i)&1
-		if (x | y) == z {
-			continue
+func minFlips(a int, b int, c int) (ans int) {
+	for i := 0; i < 30; i++ {
+		x, y, z := a>>i&1, b>>i&1, c>>i&1
+		if (x | y) != z {
+			if x == 1 && y == 1 {
+				ans += 2
+			} else {
+				ans++
+			}
 		}
-		if x == 1 && y == 1 && z == 0 {
-			ans++
-		}
-		ans++
 	}
-	return ans
+	return
 }
 ```
 
