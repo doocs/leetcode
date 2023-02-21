@@ -158,22 +158,73 @@ func bestHand(ranks []int, suits []byte) string {
 
 ```ts
 function bestHand(ranks: number[], suits: string[]): string {
-    let flush = true;
-    for (let i = 1; i < 5 && flush; ++i) {
-        flush = suits[i] == suits[i - 1];
-    }
-    if (flush) {
+    if (suits.every(v => v === suits[0])) {
         return 'Flush';
     }
-    const cnt = new Array(14).fill(0);
-    let pair = false;
-    for (const x of ranks) {
-        if (++cnt[x] == 3) {
+    const count = new Array(14).fill(0);
+    let isPair = false;
+    for (const v of ranks) {
+        if (++count[v] === 3) {
             return 'Three of a Kind';
         }
-        pair = pair || cnt[x] == 2;
+        isPair = isPair || count[v] === 2;
     }
-    return pair ? 'Pair' : 'High Card';
+    if (isPair) {
+        return 'Pair';
+    }
+    return 'High Card';
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn best_hand(ranks: Vec<i32>, suits: Vec<char>) -> String {
+        if suits.iter().all(|v| *v == suits[0]) {
+            return "Flush".to_string();
+        }
+        let mut count = [0; 14];
+        let mut is_pair = false;
+        for &v in ranks.iter() {
+            let i = v as usize;
+            count[i] += 1;
+            if count[i] == 3 {
+                return "Three of a Kind".to_string();
+            }
+            is_pair = is_pair || count[i] == 2;
+        }
+        (if is_pair { "Pair" } else { "High Card" }).to_string()
+    }
+}
+```
+
+### **C**
+
+```c
+char *bestHand(int *ranks, int ranksSize, char *suits, int suitsSize) {
+    bool isFlush = true;
+    for (int i = 1; i < suitsSize; i++) {
+        if (suits[0] != suits[i]) {
+            isFlush = false;
+            break;
+        }
+    }
+    if (isFlush) {
+        return "Flush";
+    }
+    int count[14] = {0};
+    bool isPair = false;
+    for (int i = 0; i < ranksSize; i++) {
+        if (++count[ranks[i]] == 3) {
+            return "Three of a Kind";
+        }
+        isPair = isPair || count[ranks[i]] == 2;
+    }
+    if (isPair) {
+        return "Pair";
+    }
+    return "High Card";
 }
 ```
 

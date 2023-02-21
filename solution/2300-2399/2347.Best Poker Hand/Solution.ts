@@ -1,18 +1,17 @@
 function bestHand(ranks: number[], suits: string[]): string {
-    let flush = true;
-    for (let i = 1; i < 5 && flush; ++i) {
-        flush = suits[i] == suits[i - 1];
-    }
-    if (flush) {
+    if (suits.every(v => v === suits[0])) {
         return 'Flush';
     }
-    const cnt = new Array(14).fill(0);
-    let pair = false;
-    for (const x of ranks) {
-        if (++cnt[x] == 3) {
+    const count = new Array(14).fill(0);
+    let isPair = false;
+    for (const v of ranks) {
+        if (++count[v] === 3) {
             return 'Three of a Kind';
         }
-        pair = pair || cnt[x] == 2;
+        isPair = isPair || count[v] === 2;
     }
-    return pair ? 'Pair' : 'High Card';
+    if (isPair) {
+        return 'Pair';
+    }
+    return 'High Card';
 }
