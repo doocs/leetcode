@@ -56,11 +56,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         m = {}
-        for i, v in enumerate(nums):
-            x = target - v
-            if x in m:
-                return [m[x], i]
-            m[v] = i
+        for i, x in enumerate(nums):
+            y = target - x
+            if y in m:
+                return [m[y], i]
+            m[x] = i
 ```
 
 ### **Java**
@@ -69,15 +69,14 @@ class Solution:
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> m = new HashMap<>();
-        for (int i = 0; i < nums.length; ++i) {
-            int v = nums[i];
-            int x = target - v;
-            if (m.containsKey(x)) {
-                return new int[] {m.get(x), i};
+        for (int i = 0; ; ++i) {
+            int x = nums[i];
+            int y = target - x;
+            if (m.containsKey(y)) {
+                return new int[] {m.get(y), i};
             }
-            m.put(v, i);
+            m.put(x, i);
         }
-        return null;
     }
 }
 ```
@@ -89,13 +88,14 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int, int> m;
-        for (int i = 0; i < nums.size(); ++i) {
-            int v = nums[i];
-            int x = target - v;
-            if (m.count(x)) return {m[x], i};
-            m[v] = i;
+        for (int i = 0; ; ++i) {
+            int x = nums[i];
+            int y = target - x;
+            if (m.count(y)) {
+                return {m[y], i};
+            }
+            m[x] = i;
         }
-        return {};
     }
 };
 ```
@@ -105,14 +105,14 @@ public:
 ```go
 func twoSum(nums []int, target int) []int {
 	m := map[int]int{}
-	for i, v := range nums {
-		x := target - v
-		if j, ok := m[x]; ok {
+	for i := 0; ; i++ {
+		x := nums[i]
+		y := target - x
+		if j, ok := m[y]; ok {
 			return []int{j, i}
 		}
-		m[v] = i
+		m[x] = i
 	}
-	return nil
 }
 ```
 
@@ -122,22 +122,16 @@ func twoSum(nums []int, target int) []int {
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         var m = new Dictionary<int, int>();
-        for (var i = 0; i < nums.Length; ++i)
-        {
-            int j;
-            int v = nums[i];
-            int x = target - v;
-            if (m.TryGetValue(x, out j))
-            {
+        for (int i = 0, j; ; ++i) {
+            int x = nums[i];
+            int y = target - x;
+            if (m.TryGetValue(y, out j)) {
                 return new [] {j, i};
             }
-            if (!m.ContainsKey(v))
-            {
-                m.Add(v, i);
+            if (!m.ContainsKey(x)) {
+                m.Add(x, i);
             }
-
         }
-        return null;
     }
 }
 ```
@@ -152,15 +146,14 @@ public class Solution {
  */
 var twoSum = function (nums, target) {
     const m = new Map();
-    for (let i = 0; i < nums.length; ++i) {
-        const v = nums[i];
-        const x = target - v;
-        if (m.has(x)) {
-            return [m.get(x), i];
+    for (let i = 0; ; ++i) {
+        const x = nums[i];
+        const y = target - x;
+        if (m.has(y)) {
+            return [m.get(y), i];
         }
-        m.set(v, i);
+        m.set(x, i);
     }
-    return [];
 };
 ```
 
@@ -169,40 +162,19 @@ var twoSum = function (nums, target) {
 ```swift
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var map = [Int: Int]()
+        var m = [Int: Int]()
         var i = 0
-        for num in nums {
-            map[num] = i
-            i = i + 1
-        }
-        i = 0
-        for num in nums {
-            if let otherIndex = map[target - num], otherIndex != i {
-                return [i, otherIndex]
+        while true {
+            let x = nums[i]
+            let y = target - nums[i]
+            if let j = m[target - nums[i]] {
+                return [j, i]
             }
-            i = i + 1
+            m[nums[i]] = i
+            i += 1
         }
-        return []
     }
 }
-```
-
-### **Nim**
-
-```nim
-import std/enumerate
-
-proc twoSum(nums: seq[int], target: int): seq[int] =
-    var
-        bal: int
-        tdx: int
-    for idx, val in enumerate(nums):
-        bal = target - val
-        if bal in nums:
-            tdx = nums.find(bal)
-            if idx != tdx:
-                return @[idx, tdx]
-
 ```
 
 ### **Rust**
@@ -222,6 +194,24 @@ pub fn soluation(nums: Vec<i32>, target: i32) -> Vec<i32> {
     }
     unreachable!()
 }
+```
+
+### **Nim**
+
+```nim
+import std/enumerate
+
+proc twoSum(nums: seq[int], target: int): seq[int] =
+    var
+        bal: int
+        tdx: int
+    for idx, val in enumerate(nums):
+        bal = target - val
+        if bal in nums:
+            tdx = nums.find(bal)
+            if idx != tdx:
+                return @[idx, tdx]
+
 ```
 
 ### **...**
