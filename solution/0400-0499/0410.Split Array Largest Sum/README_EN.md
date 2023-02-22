@@ -140,7 +140,7 @@ public:
 ### **Go**
 
 ```go
-func splitArray(nums []int, m int) int {
+func splitArray(nums []int, k int) int {
 	mx := -1
 	for _, num := range nums {
 		mx = max(mx, num)
@@ -148,7 +148,7 @@ func splitArray(nums []int, m int) int {
 	left, right := mx, int(1e9)
 	for left < right {
 		mid := (left + right) >> 1
-		if check(nums, m, mid) {
+		if check(nums, k, mid) {
 			right = mid
 		} else {
 			left = mid + 1
@@ -157,7 +157,7 @@ func splitArray(nums []int, m int) int {
 	return left
 }
 
-func check(nums []int, m, x int) bool {
+func check(nums []int, k, x int) bool {
 	s, cnt := 0, 1
 	for _, num := range nums {
 		if s+num > x {
@@ -167,7 +167,7 @@ func check(nums []int, m, x int) bool {
 			s += num
 		}
 	}
-	return cnt <= m
+	return cnt <= k
 }
 
 func max(a, b int) int {
