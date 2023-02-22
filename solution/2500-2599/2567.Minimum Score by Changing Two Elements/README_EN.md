@@ -104,6 +104,49 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minimizeSum(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    return Math.min(
+        nums[n - 3] - nums[0],
+        nums[n - 2] - nums[1],
+        nums[n - 1] - nums[2],
+    );
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn minimize_sum(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        (nums[n - 1] - nums[2])
+            .min(nums[n - 2] - nums[1])
+            .min(nums[n - 3] - nums[0])
+    }
+}
+```
+
+### **C**
+
+```c
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+
+int cmp(const void *a, const void *b) {
+    return *(int *) a - *(int *) b;
+}
+
+int minimizeSum(int *nums, int numsSize) {
+    qsort(nums, numsSize, sizeof(int), cmp);
+    return min(nums[numsSize - 1] - nums[2], min(nums[numsSize - 2] - nums[1], nums[numsSize - 3] - nums[0]));
+}
+```
+
 ### **...**
 
 ```
