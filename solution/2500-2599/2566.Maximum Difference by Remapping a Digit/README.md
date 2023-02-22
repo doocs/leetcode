@@ -162,6 +162,82 @@ func minMaxDifference(num int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minMaxDifference(num: number): number {
+    const s = num + '';
+    const min = Number(s.replace(new RegExp(s[0], 'g'), '0'));
+    for (const c of s) {
+        if (c !== '9') {
+            return Number(s.replace(new RegExp(c, 'g'), '9')) - min;
+        }
+    }
+    return num - min;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_max_difference(num: i32) -> i32 {
+        let s = num.to_string();
+        let min = s
+            .replace(char::from(s.as_bytes()[0]), "0")
+            .parse::<i32>()
+            .unwrap();
+        for &c in s.as_bytes() {
+            if c != b'9' {
+                return s.replace(c, "9").parse().unwrap() - min;
+            }
+        }
+        num - min
+    }
+}
+```
+
+### **C**
+
+```c
+int getLen(int num) {
+    int res = 0;
+    while (num) {
+        num /= 10;
+        res++;
+    }
+    return res;
+}
+
+int minMaxDifference(int num) {
+    int n = getLen(num);
+    int *nums = malloc(sizeof(int) * n);
+    int t = num;
+    for (int i = n - 1; i >= 0; i--) {
+        nums[i] = t % 10;
+        t /= 10;
+    }
+    int min = 0;
+    for (int i = 0; i < n; i++) {
+        min *= 10;
+        if (nums[i] != nums[0]) {
+            min += nums[i];
+        }
+    }
+    int max = 0;
+    int target = 10;
+    for (int i = 0; i < n; i++) {
+        max *= 10;
+        if (target == 10 && nums[i] != 9) {
+            target = nums[i];
+        }
+        max += nums[i] == target ? 9 : nums[i];
+    }
+    free(nums);
+    return max - min;
+}
+```
+
 ### **...**
 
 ```
