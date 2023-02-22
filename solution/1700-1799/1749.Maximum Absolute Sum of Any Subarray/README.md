@@ -48,6 +48,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示以 $nums[i]$ 结尾的子数组的和的最大值，定义 $g[i]$ 表示以 $nums[i]$ 结尾的子数组的和的最小值。那么 $f[i]$ 和 $g[i]$ 的状态转移方程如下：
+
+$$
+\begin{aligned}
+f[i] &= \max(f[i - 1], 0) + nums[i] \\
+g[i] &= \min(g[i - 1], 0) + nums[i]
+\end{aligned}
+$$
+
+最后答案为 $max(f[i], |g[i]|)$ 的最大值。
+
+由于 $f[i]$ 和 $g[i]$ 只与 $f[i - 1]$ 和 $g[i - 1]$ 有关，因此我们可以使用两个变量代替数组，将空间复杂度降低到 $O(1)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +72,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxAbsoluteSum(self, nums: List[int]) -> int:
+        f = g = 0
+        ans = 0
+        for x in nums:
+            f = max(f, 0) + x
+            g = min(g, 0) + x
+            ans = max(ans, f, abs(g))
+        return ans
 ```
 
 ### **Java**
@@ -63,7 +88,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxAbsoluteSum(int[] nums) {
+        int f = 0, g = 0;
+        int ans = 0;
+        for (int x : nums) {
+            f = Math.max(f, 0) + x;
+            g = Math.min(g, 0) + x;
+            ans = Math.max(ans, Math.max(f, Math.abs(g)));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxAbsoluteSum(vector<int>& nums) {
+        int f = 0, g = 0;
+        int ans = 0;
+        for (int& x : nums) {
+            f = max(f, 0) + x;
+            g = min(g, 0) + x;
+            ans = max({ans, f, abs(g)});
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxAbsoluteSum(nums []int) (ans int) {
+	var f, g int
+	for _, x := range nums {
+		f = max(f, 0) + x
+		g = min(g, 0) + x
+		ans = max(ans, max(f, abs(g)))
+	}
+	return
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

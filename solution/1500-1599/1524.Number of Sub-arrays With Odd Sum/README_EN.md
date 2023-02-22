@@ -53,36 +53,28 @@ All sub-arrays have even sum and the answer is 0.
 ```python
 class Solution:
     def numOfSubarrays(self, arr: List[int]) -> int:
-        MOD = int(1e9) + 7
-        counter = [0] * 2
-        s = ans = 0
-        for v in arr:
-            s += v
-            counter[s % 2] += 1
-            if s % 2 == 1:
-                ans += 1 + counter[0]
-            else:
-                ans += counter[1]
-        return ans % MOD
+        mod = 10**9 + 7
+        cnt = [1, 0]
+        ans = s = 0
+        for x in arr:
+            s += x
+            ans = (ans + cnt[s & 1 ^ 1]) % mod
+            cnt[s & 1] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numOfSubarrays(int[] arr) {
-        int[] counter = new int[2];
-        int s = 0, ans = 0;
-        for (int v : arr) {
-            s += v;
-            ++counter[s % 2];
-            if (s % 2 == 1) {
-                ans = (ans + 1 + counter[0]) % MOD;
-            } else {
-                ans = (ans + counter[1]) % MOD;
-            }
+        final int mod = (int) 1e9 + 7;
+        int[] cnt = {1, 0};
+        int ans = 0, s = 0;
+        for (int x : arr) {
+            s += x;
+            ans = (ans + cnt[s & 1 ^ 1]) % mod;
+            ++cnt[s & 1];
         }
         return ans;
     }
@@ -95,16 +87,13 @@ class Solution {
 class Solution {
 public:
     int numOfSubarrays(vector<int>& arr) {
-        const int MOD = 1e9 + 7;
-        vector<int> counter(2);
-        int s = 0, ans = 0;
-        for (int& v : arr) {
-            s += v;
-            ++counter[s % 2];
-            if (s % 2 == 1)
-                ans = (ans + 1 + counter[0]) % MOD;
-            else
-                ans = (ans + counter[1]) % MOD;
+        const int mod = 1e9 + 7;
+        int cnt[2] = {1, 0};
+        int ans = 0, s = 0;
+        for (int x : arr) {
+            s += x;
+            ans = (ans + cnt[s & 1 ^ 1]) % mod;
+            ++cnt[s & 1];
         }
         return ans;
     }
@@ -114,20 +103,33 @@ public:
 ### **Go**
 
 ```go
-func numOfSubarrays(arr []int) int {
-	const MOD = 1e9 + 7
-	counter := make([]int, 2)
-	s, ans := 0, 0
-	for _, v := range arr {
-		s += v
-		counter[s%2]++
-		if s%2 == 1 {
-			ans = (ans + 1 + counter[0]) % MOD
-		} else {
-			ans = (ans + counter[1]) % MOD
-		}
+func numOfSubarrays(arr []int) (ans int) {
+	const mod int = 1e9 + 7
+	cnt := [2]int{1, 0}
+	s := 0
+	for _, x := range arr {
+		s += x
+		ans = (ans + cnt[s&1^1]) % mod
+		cnt[s&1]++
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numOfSubarrays(arr: number[]): number {
+    let ans = 0;
+    let s = 0;
+    const cnt: number[] = [1, 0];
+    const mod = 1e9 + 7;
+    for (const x of arr) {
+        s += x;
+        ans = (ans + cnt[(s & 1) ^ 1]) % mod;
+        cnt[s & 1]++;
+    }
+    return ans;
 }
 ```
 

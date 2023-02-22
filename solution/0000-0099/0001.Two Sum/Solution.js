@@ -5,13 +5,12 @@
  */
 var twoSum = function (nums, target) {
     const m = new Map();
-    for (let i = 0; i < nums.length; ++i) {
-        const v = nums[i];
-        const x = target - v;
-        if (m.has(x)) {
-            return [m.get(x), i];
+    for (let i = 0; ; ++i) {
+        const x = nums[i];
+        const y = target - x;
+        if (m.has(y)) {
+            return [m.get(y), i];
         }
-        m.set(v, i);
+        m.set(x, i);
     }
-    return [];
 };

@@ -11,21 +11,18 @@
 
 class Solution {
     public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
-        List<List<Integer>> res = new ArrayList<>();
-        for (int i = 1; i <= 1000; ++i) {
-            int left = 1, right = 1000;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (customfunction.f(i, mid) >= z) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            if (customfunction.f(i, left) == z) {
-                res.add(Arrays.asList(i, left));
+        List<List<Integer>> ans = new ArrayList<>();
+        int x = 1, y = 1000;
+        while (x <= 1000 && y > 0) {
+            int t = customfunction.f(x, y);
+            if (t < z) {
+                x++;
+            } else if (t > z) {
+                y--;
+            } else {
+                ans.add(Arrays.asList(x++, y--));
             }
         }
-        return res;
+        return ans;
     }
 }

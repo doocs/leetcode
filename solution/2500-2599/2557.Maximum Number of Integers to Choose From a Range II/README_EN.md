@@ -22,7 +22,7 @@
 <strong>Input:</strong> banned = [1,4,6], n = 6, maxSum = 4
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> You can choose the integer 3.
-3 is in the range [1, 6], and do not appear in banned. The sum of the choosen integers is 3, which does not ecxeed maxSum.
+3 is in the range [1, 6], and do not appear in banned. The sum of the chosen integers is 3, which does not exceed maxSum.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

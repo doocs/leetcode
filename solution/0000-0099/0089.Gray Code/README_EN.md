@@ -84,7 +84,9 @@ class Solution {
 public:
     vector<int> grayCode(int n) {
         vector<int> ans;
-        for (int i = 0; i < 1 << n; ++i) ans.push_back(i ^ (i >> 1));
+        for (int i = 0; i < 1 << n; ++i) {
+            ans.push_back(i ^ (i >> 1));
+        }
         return ans;
     }
 };
@@ -93,12 +95,11 @@ public:
 ### **Go**
 
 ```go
-func grayCode(n int) []int {
-	var ans []int
+func grayCode(n int) (ans []int) {
 	for i := 0; i < 1<<n; i++ {
 		ans = append(ans, i^(i>>1))
 	}
-	return ans
+	return
 }
 ```
 
@@ -110,7 +111,7 @@ func grayCode(n int) []int {
  * @return {number[]}
  */
 var grayCode = function (n) {
-    let ans = [];
+    const ans = [];
     for (let i = 0; i < 1 << n; ++i) {
         ans.push(i ^ (i >> 1));
     }

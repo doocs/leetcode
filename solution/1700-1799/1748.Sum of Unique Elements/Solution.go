@@ -1,13 +1,12 @@
-func sumOfUnique(nums []int) int {
-	counter := make([]int, 101)
-	for _, num := range nums {
-		counter[num]++
+func sumOfUnique(nums []int) (ans int) {
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	ans := 0
-	for i := 0; i < 101; i++ {
-		if counter[i] == 1 {
-			ans += i
+	for x := 0; x < 101; x++ {
+		if cnt[x] == 1 {
+			ans += x
 		}
 	}
-	return ans
+	return
 }

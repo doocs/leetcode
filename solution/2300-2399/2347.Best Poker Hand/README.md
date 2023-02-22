@@ -61,6 +61,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们可以先遍历数组 $suits$，判断相邻两个元素是否均相等，如果是，则返回 `"Flush"`。
+
+接下来，我们用哈希表或数组 $cnt$ 统计每张牌的数量：
+
+-   如果有任意一张牌的数量等于 $3$，返回 `"Three of a Kind"`；
+-   否则，如果有任意一张牌的数量等于 $2$，返回 `"Pair"`；
+-   否则，返回 `"High Card"`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $ranks$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +82,8 @@
 ```python
 class Solution:
     def bestHand(self, ranks: List[int], suits: List[str]) -> str:
-        if len(set(suits)) == 1:
+        # if len(set(suits)) == 1:
+        if all(a == b for a, b in pairwise(suits)):
             return 'Flush'
         cnt = Counter(ranks)
         if any(v >= 3 for v in cnt.values()):
@@ -87,26 +100,22 @@ class Solution:
 ```java
 class Solution {
     public String bestHand(int[] ranks, char[] suits) {
-        Set<Character> s = new HashSet<>();
-        for (char c : suits) {
-            s.add(c);
+        boolean flush = true;
+        for (int i = 1; i < 5 && flush; ++i) {
+            flush = suits[i] == suits[i - 1];
         }
-        if (s.size() == 1) {
+        if (flush) {
             return "Flush";
         }
-        int[] cnt = new int[20];
-        for (int v : ranks) {
-            ++cnt[v];
-            if (cnt[v] >= 3) {
+        int[] cnt = new int[14];
+        boolean pair = false;
+        for (int x : ranks) {
+            if (++cnt[x] == 3) {
                 return "Three of a Kind";
             }
+            pair = pair || cnt[x] == 2;
         }
-        for (int v : cnt) {
-            if (v == 2) {
-                return "Pair";
-            }
-        }
-        return "High Card";
+        return pair ? "Pair" : "High Card";
     }
 }
 ```
@@ -117,14 +126,22 @@ class Solution {
 class Solution {
 public:
     string bestHand(vector<int>& ranks, vector<char>& suits) {
-        unordered_set<char> s(suits.begin(), suits.end());
-        if (s.size() == 1) return "Flush";
-        vector<int> cnt(20);
-        for (int v : ranks)
-            if (++cnt[v] >= 3) return "Three of a Kind";
-        for (int v : cnt)
-            if (v == 2) return "Pair";
-        return "High Card";
+        bool flush = true;
+        for (int i = 1; i < 5 && flush; ++i) {
+            flush = suits[i] == suits[i - 1];
+        }
+        if (flush) {
+            return "Flush";
+        }
+        int cnt[14]{};
+        bool pair = false;
+        for (int& x : ranks) {
+            if (++cnt[x] == 3) {
+                return "Three of a Kind";
+            }
+            pair |= cnt[x] == 2;
+        }
+        return pair ? "Pair" : "High Card";
     }
 };
 ```
@@ -133,24 +150,24 @@ public:
 
 ```go
 func bestHand(ranks []int, suits []byte) string {
-	s := map[byte]bool{}
-	for _, v := range suits {
-		s[v] = true
+	flush := true
+	for i := 1; i < 5 && flush; i++ {
+		flush = suits[i] == suits[i-1]
 	}
-	if len(s) == 1 {
+	if flush {
 		return "Flush"
 	}
-	cnt := make([]int, 20)
-	for _, v := range ranks {
-		cnt[v]++
-		if cnt[v] >= 3 {
+	cnt := [14]int{}
+	pair := false
+	for _, x := range ranks {
+		cnt[x]++
+		if cnt[x] == 3 {
 			return "Three of a Kind"
 		}
+		pair = pair || cnt[x] == 2
 	}
-	for _, v := range cnt {
-		if v == 2 {
-			return "Pair"
-		}
+	if pair {
+		return "Pair"
 	}
 	return "High Card"
 }
@@ -159,7 +176,75 @@ func bestHand(ranks []int, suits []byte) string {
 ### **TypeScript**
 
 ```ts
+function bestHand(ranks: number[], suits: string[]): string {
+    if (suits.every(v => v === suits[0])) {
+        return 'Flush';
+    }
+    const count = new Array(14).fill(0);
+    let isPair = false;
+    for (const v of ranks) {
+        if (++count[v] === 3) {
+            return 'Three of a Kind';
+        }
+        isPair = isPair || count[v] === 2;
+    }
+    if (isPair) {
+        return 'Pair';
+    }
+    return 'High Card';
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn best_hand(ranks: Vec<i32>, suits: Vec<char>) -> String {
+        if suits.iter().all(|v| *v == suits[0]) {
+            return "Flush".to_string();
+        }
+        let mut count = [0; 14];
+        let mut is_pair = false;
+        for &v in ranks.iter() {
+            let i = v as usize;
+            count[i] += 1;
+            if count[i] == 3 {
+                return "Three of a Kind".to_string();
+            }
+            is_pair = is_pair || count[i] == 2;
+        }
+        (if is_pair { "Pair" } else { "High Card" }).to_string()
+    }
+}
+```
+
+### **C**
+
+```c
+char *bestHand(int *ranks, int ranksSize, char *suits, int suitsSize) {
+    bool isFlush = true;
+    for (int i = 1; i < suitsSize; i++) {
+        if (suits[0] != suits[i]) {
+            isFlush = false;
+            break;
+        }
+    }
+    if (isFlush) {
+        return "Flush";
+    }
+    int count[14] = {0};
+    bool isPair = false;
+    for (int i = 0; i < ranksSize; i++) {
+        if (++count[ranks[i]] == 3) {
+            return "Three of a Kind";
+        }
+        isPair = isPair || count[ranks[i]] == 2;
+    }
+    if (isPair) {
+        return "Pair";
+    }
+    return "High Card";
+}
 ```
 
 ### **...**

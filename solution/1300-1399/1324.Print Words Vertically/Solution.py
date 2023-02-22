@@ -1,12 +1,11 @@
 class Solution:
     def printVertically(self, s: str) -> List[str]:
         words = s.split()
-        m, n = len(words), max(len(word) for word in words)
+        n = max(len(w) for w in words)
         ans = []
         for j in range(n):
-            t = []
-            for i in range(m):
-                word = words[i]
-                t.append(word[j] if j < len(word) else ' ')
-            ans.append(''.join(t).rstrip())
+            t = [w[j] if j < len(w) else ' ' for w in words]
+            while t[-1] == ' ':
+                t.pop()
+            ans.append(''.join(t))
         return ans

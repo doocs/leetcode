@@ -1,5 +1,7 @@
 class Solution:
-    def smallestSufficientTeam(self, req_skills: List[str], people: List[List[str]]) -> List[int]:
+    def smallestSufficientTeam(
+        self, req_skills: List[str], people: List[List[str]]
+    ) -> List[int]:
         @cache
         def dfs(i, state):
             if i == n:

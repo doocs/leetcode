@@ -73,15 +73,11 @@ class Solution:
             g[b].append(a)
             degree[a] += 1
             degree[b] += 1
-        q = deque()
-        for i in range(n):
-            if degree[i] == 1:
-                q.append(i)
+        q = deque(i for i in range(n) if degree[i] == 1)
         ans = []
         while q:
-            n = len(q)
             ans.clear()
-            for _ in range(n):
+            for _ in range(len(q)):
                 a = q.popleft()
                 ans.append(a)
                 for b in g[a]:

@@ -1,24 +1,18 @@
 class Solution {
     public List<Integer> arraysIntersection(int[] arr1, int[] arr2, int[] arr3) {
-        List<Integer> res = new ArrayList<>();
-        for (int num : arr1) {
-            if (find(arr2, num) && find(arr3, num)) {
-                res.add(num);
+        List<Integer> ans = new ArrayList<>();
+        int[] cnt = new int[2001];
+        for (int x : arr1) {
+            ++cnt[x];
+        }
+        for (int x : arr2) {
+            ++cnt[x];
+        }
+        for (int x : arr3) {
+            if (++cnt[x] == 3) {
+                ans.add(x);
             }
         }
-        return res;
-    }
-
-    private boolean find(int[] arr, int val) {
-        int left = 0, right = arr.length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (arr[mid] >= val) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return arr[left] == val;
+        return ans;
     }
 }

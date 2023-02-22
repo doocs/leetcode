@@ -1,12 +1,12 @@
-func minTaps(n int, ranges []int) int {
+func minTaps(n int, ranges []int) (ans int) {
 	last := make([]int, n+1)
-	for i, v := range ranges {
-		l, r := max(0, i-v), min(n, i+v)
+	for i, x := range ranges {
+		l, r := max(0, i-x), i+x
 		last[l] = max(last[l], r)
 	}
-	ans, mx, pre := 0, 0, 0
-	for i := 0; i < n; i++ {
-		mx = max(mx, last[i])
+	var pre, mx int
+	for i, j := range last[:n] {
+		mx = max(mx, j)
 		if mx <= i {
 			return -1
 		}
@@ -15,18 +15,11 @@ func minTaps(n int, ranges []int) int {
 			pre = mx
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
 	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
 		return a
 	}
 	return b

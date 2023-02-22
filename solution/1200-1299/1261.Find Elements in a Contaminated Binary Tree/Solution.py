@@ -5,7 +5,6 @@
 #         self.left = left
 #         self.right = right
 class FindElements:
-
     def __init__(self, root: Optional[TreeNode]):
         def dfs(root):
             self.vis.add(root.val)

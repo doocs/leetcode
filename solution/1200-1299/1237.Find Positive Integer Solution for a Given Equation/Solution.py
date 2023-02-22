@@ -11,16 +11,16 @@
 
 
 class Solution:
-    def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
-        res = []
-        for x in range(1, 1001):
-            left, right = 1, 1000
-            while left < right:
-                mid = (left + right) >> 1
-                if customfunction.f(x, mid) >= z:
-                    right = mid
-                else:
-                    left = mid + 1
-            if customfunction.f(x, left) == z:
-                res.append([x, left])
-        return res
+    def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
+        ans = []
+        x, y = 1, 1000
+        while x <= 1000 and y:
+            t = customfunction.f(x, y)
+            if t < z:
+                x += 1
+            elif t > z:
+                y -= 1
+            else:
+                ans.append([x, y])
+                x, y = x + 1, y - 1
+        return ans

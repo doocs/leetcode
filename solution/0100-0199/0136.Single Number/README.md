@@ -138,17 +138,33 @@ var singleNumber = function (nums) {
 };
 ```
 
+### **TypeScript**
+
+```ts
+function singleNumber(nums: number[]): number {
+    return nums.reduce((r, v) => r ^ v);
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn single_number(nums: Vec<i32>) -> i32 {
-        let mut result = 0;
-        for num in nums {
-            result ^= num;
-        }
-        result
+        nums.into_iter().reduce(|r, v| r ^ v).unwrap()
     }
+}
+```
+
+### **C**
+
+```c
+int singleNumber(int *nums, int numsSize) {
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        ans ^= nums[i];
+    }
+    return ans;
 }
 ```
 
@@ -156,19 +172,16 @@ impl Solution {
 
 ```swift
 class Solution {
-  func singleNumber(_ nums: [Int]) -> Int {
-    var a = nums.sorted()
-    var n = a.count
-    for i in stride(from: 0, through: n - 1, by: 2) {
-      if i == n - 1 {
-        return a[i]
-      }
-      else if a[i] != a[i + 1] {
-        return a[i]
-      }
+    func singleNumber(_ nums: [Int]) -> Int {
+        var a = nums.sorted()
+        var n = a.count
+        for i in stride(from: 0, through: n - 2, by: 2) {
+            if a[i] != a[i + 1] {
+                return a[i]
+            }
+        }
+        return a[n - 1]
     }
-    return 0
-  }
 }
 ```
 

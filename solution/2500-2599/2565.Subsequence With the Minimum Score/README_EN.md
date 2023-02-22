@@ -8,7 +8,7 @@
 
 <p>You are allowed to remove any number of characters from the string <code>t</code>.</p>
 
-<p>The score string is <code>0</code> if no characters are removed from the string <code>t</code>, otherwise:</p>
+<p>The score of the string is <code>0</code> if no characters are removed from the string <code>t</code>, otherwise:</p>
 
 <ul>
 	<li>Let <code>left</code> be the minimum index among all removed characters.</li>

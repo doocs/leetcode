@@ -42,7 +42,7 @@ Another possible matrix is: [[1,2],
 <ul>
 	<li><code>1 &lt;= rowSum.length, colSum.length &lt;= 500</code></li>
 	<li><code>0 &lt;= rowSum[i], colSum[i] &lt;= 10<sup>8</sup></code></li>
-	<li><code>sum(rows) == sum(columns)</code></li>
+	<li><code>sum(rowSum) == sum(colSum)</code></li>
 </ul>
 
 ## Solutions

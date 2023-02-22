@@ -147,8 +147,8 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0136  |  [Single Number](/solution/0100-0199/0136.Single%20Number/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Easy  |    |
 |  0137  |  [Single Number II](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |    |
 |  0138  |  [Copy List with Random Pointer](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README_EN.md)  |  `Hash Table`,`Linked List`  |  Medium  |    |
-|  0139  |  [Word Break](/solution/0100-0199/0139.Word%20Break/README_EN.md)  |  `Trie`,`Memoization`,`Hash Table`,`String`,`Dynamic Programming`  |  Medium  |    |
-|  0140  |  [Word Break II](/solution/0100-0199/0140.Word%20Break%20II/README_EN.md)  |  `Trie`,`Memoization`,`Hash Table`,`String`,`Dynamic Programming`,`Backtracking`  |  Hard  |    |
+|  0139  |  [Word Break](/solution/0100-0199/0139.Word%20Break/README_EN.md)  |  `Trie`,`Memoization`,`Array`,`Hash Table`,`String`,`Dynamic Programming`  |  Medium  |    |
+|  0140  |  [Word Break II](/solution/0100-0199/0140.Word%20Break%20II/README_EN.md)  |  `Trie`,`Memoization`,`Array`,`Hash Table`,`String`,`Dynamic Programming`,`Backtracking`  |  Hard  |    |
 |  0141  |  [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)  |  `Hash Table`,`Linked List`,`Two Pointers`  |  Easy  |    |
 |  0142  |  [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)  |  `Hash Table`,`Linked List`,`Two Pointers`  |  Medium  |    |
 |  0143  |  [Reorder List](/solution/0100-0199/0143.Reorder%20List/README_EN.md)  |  `Stack`,`Recursion`,`Linked List`,`Two Pointers`  |  Medium  |    |
@@ -2570,10 +2570,18 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2559  |  [Count Vowel Strings in Ranges](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)  |  `Array`,`String`,`Prefix Sum`  |  Medium  |  Weekly Contest 331  |
 |  2560  |  [House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 331  |
 |  2561  |  [Rearranging Fruits](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Hard  |  Weekly Contest 331  |
-|  2562  |  [Find the Array Concatenation Value](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)  |    |  Easy  |    |
-|  2563  |  [Count the Number of Fair Pairs](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)  |    |  Medium  |    |
-|  2564  |  [Substring XOR Queries](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)  |    |  Medium  |    |
-|  2565  |  [Subsequence With the Minimum Score](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)  |    |  Hard  |    |
+|  2562  |  [Find the Array Concatenation Value](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)  |  `Array`,`Two Pointers`,`Simulation`  |  Easy  |  Weekly Contest 332  |
+|  2563  |  [Count the Number of Fair Pairs](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 332  |
+|  2564  |  [Substring XOR Queries](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 332  |
+|  2565  |  [Subsequence With the Minimum Score](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)  |  `Two Pointers`,`String`,`Binary Search`  |  Hard  |  Weekly Contest 332  |
+|  2566  |  [Maximum Difference by Remapping a Digit](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md)  |    |  Easy  |  Biweekly Contest 98  |
+|  2567  |  [Minimum Score by Changing Two Elements](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README_EN.md)  |    |  Medium  |  Biweekly Contest 98  |
+|  2568  |  [Minimum Impossible OR](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md)  |    |  Medium  |  Biweekly Contest 98  |
+|  2569  |  [Handling Sum Queries After Update](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)  |    |  Hard  |  Biweekly Contest 98  |
+|  2570  |  [Merge Two 2D Arrays by Summing Values](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README_EN.md)  |    |  Easy  |  Weekly Contest 333  |
+|  2571  |  [Minimum Operations to Reduce an Integer to 0](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md)  |    |  Easy  |  Weekly Contest 333  |
+|  2572  |  [Count the Number of Square-Free Subsets](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README_EN.md)  |    |  Medium  |  Weekly Contest 333  |
+|  2573  |  [Find the String with LCP](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md)  |    |  Hard  |  Weekly Contest 333  |
 
 ## Copyright
 
