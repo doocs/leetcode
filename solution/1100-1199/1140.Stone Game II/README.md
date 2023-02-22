@@ -48,20 +48,20 @@
 
 **方法一：前缀和 + 记忆化搜索**
 
-我们先预处理出前缀和数组 $s$，其中 $s[i]$ 表示数组 `piles` 的前 $i$ 个元素的和。
+由于玩家每次可以拿走前 $X$ 堆的所有石子，也就是说能拿走一个区间的石子，因此，我们可以先预处理出一个长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 `piles` 的前 $i$ 个元素的和。
 
-然后我们设计一个函数 $dfs(i, m)$，表示当前轮到的人可以从数组 `piles` 的下标 $i$ 开始拿，且当前的 $M$ 为 $m$ 时，当前轮到的人能够拿到的最大石子数。那么答案就是 $dfs(0, 1)$。
+然后我们设计一个函数 $dfs(i, m)$，表示当前轮到的人可以从数组 `piles` 的下标 $i$ 开始拿，且当前的 $M$ 为 $m$ 时，当前轮到的人能够拿到的最大石子数。初始时爱丽丝从下标 $0$ 开始，且 $M=1$，所以我们需要求的答案为 $dfs(0, 1)$。
 
 函数 $dfs(i, m)$ 的计算过程如下：
 
--   如果当前轮到的人可以拿走剩下的所有石子，那么当前轮到的人就可以拿走剩下的所有石子，因此当前轮到的人能够拿到的最大石子数为 $s[n] - s[i]$，其中 $n$ 为数组 `piles` 的长度。
--   否则，当前轮到的人可以拿走剩下的前 $x$ 堆的所有石子，其中 $1 \leq x \leq 2m$，那么当前轮到的人能够拿到的最大石子数为 $s[n] - s[i] - dfs(i + x, max(m, x))$。我们需要遍历所有的 $x$，取其中的最大值。
-
-最后，我们返回 $dfs(0, 1)$ 即可。
+-   如果当前轮到的人可以拿走剩下的所有石子，能够拿到的最大石子数为 $s[n] - s[i]$；
+-   否则，当前轮到的人可以拿走剩下的前 $x$ 堆的所有石子，其中 $1 \leq x \leq 2m$，能够拿到的最大石子数为 $s[n] - s[i] - dfs(i + x, max(m, x))$。也即是说，当前轮的人能够拿到的石子数为当前剩下的所有石子数减去下一轮对手能够拿到的石子数。我们需要枚举所有的 $x$，取其中的最大值作为函数 $dfs(i, m)$ 的返回值。
 
 为了避免重复计算，我们可以使用记忆化搜索。
 
-时间复杂度为 $O(n^2)$，空间复杂度为 $O(n^2)$。其中 $n$ 为数组 `piles` 的长度。
+最后，我们返回将 $dfs(0, 1)$ 作为答案返回即可。
+
+时间复杂度为 $O(n^3)$，空间复杂度为 $O(n^2)$。其中 $n$ 为数组 `piles` 的长度。
 
 <!-- tabs:start -->
 
@@ -75,15 +75,13 @@ class Solution:
         @cache
         def dfs(i, m):
             if m * 2 >= n - i:
-                return s[-1] - s[i]
-            res = 0
-            for x in range(1, m << 1 | 1):
-                t = s[-1] - s[i] - dfs(i + x, max(m, x))
-                res = max(res, t)
-            return res
+                return s[n] - s[i]
+            return max(
+                s[n] - s[i] - dfs(i + x, max(m, x)) for x in range(1, m << 1 | 1)
+            )
 
-        s = list(accumulate(piles, initial=0))
         n = len(piles)
+        s = list(accumulate(piles, initial=0))
         return dfs(0, 1)
 ```
 
@@ -114,12 +112,11 @@ class Solution {
         if (f[i][m] != null) {
             return f[i][m];
         }
-        f[i][m] = 0;
+        int res = 0;
         for (int x = 1; x <= m * 2; ++x) {
-            int t = s[n] - s[i] - dfs(i + x, Math.max(m, x));
-            f[i][m] = Math.max(f[i][m], t);
+            res = Math.max(res, s[n] - s[i] - dfs(i + x, Math.max(m, x)));
         }
-        return f[i][m];
+        return f[i][m] = res;
     }
 }
 ```
@@ -133,17 +130,23 @@ public:
         int n = piles.size();
         int s[n + 1];
         s[0] = 0;
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + piles[i];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + piles[i];
+        }
         int f[n][n + 1];
         memset(f, 0, sizeof f);
         function<int(int, int)> dfs = [&](int i, int m) -> int {
-            if (m * 2 >= n - i) return s[n] - s[i];
-            if (f[i][m]) return f[i][m];
-            for (int x = 1; x <= m << 1; ++x) {
-                int t = s[n] - s[i] - dfs(i + x, max(x, m));
-                f[i][m] = max(f[i][m], t);
+            if (m * 2 >= n - i) {
+                return s[n] - s[i];
             }
-            return f[i][m];
+            if (f[i][m]) {
+                return f[i][m];
+            }
+            int res = 0;
+            for (int x = 1; x <= m << 1; ++x) {
+                res = max(res, s[n] - s[i] - dfs(i + x, max(x, m)));
+            }
+            return f[i][m] = res;
         };
         return dfs(0, 1);
     }
@@ -157,8 +160,8 @@ func stoneGameII(piles []int) int {
 	n := len(piles)
 	s := make([]int, n+1)
 	f := make([][]int, n+1)
-	for i, v := range piles {
-		s[i+1] = s[i] + v
+	for i, x := range piles {
+		s[i+1] = s[i] + x
 		f[i] = make([]int, n+1)
 	}
 	var dfs func(i, m int) int
@@ -169,9 +172,9 @@ func stoneGameII(piles []int) int {
 		if f[i][m] > 0 {
 			return f[i][m]
 		}
+		f[i][m] = 0
 		for x := 1; x <= m<<1; x++ {
-			t := s[n] - s[i] - dfs(i+x, max(m, x))
-			f[i][m] = max(f[i][m], t)
+			f[i][m] = max(f[i][m], s[n]-s[i]-dfs(i+x, max(m, x)))
 		}
 		return f[i][m]
 	}
@@ -183,6 +186,33 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function stoneGameII(piles: number[]): number {
+    const n = piles.length;
+    const f = Array.from({ length: n }, _ => new Array(n + 1).fill(0));
+    const s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + piles[i];
+    }
+    const dfs = (i: number, m: number) => {
+        if (m * 2 >= n - i) {
+            return s[n] - s[i];
+        }
+        if (f[i][m]) {
+            return f[i][m];
+        }
+        let res = 0;
+        for (let x = 1; x <= m * 2; ++x) {
+            res = Math.max(res, s[n] - s[i] - dfs(i + x, Math.max(m, x)));
+        }
+        return (f[i][m] = res);
+    };
+    return dfs(0, 1);
 }
 ```
 
