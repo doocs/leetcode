@@ -164,7 +164,7 @@ func splitArray(nums []int, m int) int {
 	left, right := mx, int(1e9)
 	for left < right {
 		mid := (left + right) >> 1
-		if check(nums, m, mid) {
+		if check(nums, k, mid) {
 			right = mid
 		} else {
 			left = mid + 1
