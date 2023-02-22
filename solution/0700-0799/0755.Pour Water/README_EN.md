@@ -68,13 +68,80 @@ Finally, the fourth droplet falls at index k = 3. Since moving left would not ev
 ### **Python3**
 
 ```python
-
+class Solution:
+    def pourWater(self, heights: List[int], volume: int, k: int) -> List[int]:
+        for _ in range(volume):
+            for d in (-1, 1):
+                i = j = k
+                while 0 <= i + d < len(heights) and heights[i + d] <= heights[i]:
+                    if heights[i + d] < heights[i]:
+                        j = i + d
+                    i += d
+                if j != k:
+                    heights[j] += 1
+                    break
+            else:
+                heights[k] += 1
+        return heights
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] pourWater(int[] heights, int volume, int k) {
+        while (volume-- > 0) {
+            boolean find = false;
+            for (int d = -1; d < 2 && !find; d += 2) {
+                int i = k, j = k;
+                while (i + d >= 0 && i + d < heights.length && heights[i + d] <= heights[i]) {
+                    if (heights[i + d] < heights[i]) {
+                        j = i + d;
+                    }
+                    i += d;
+                }
+                if (j != k) {
+                    find = true;
+                    ++heights[j];
+                }
+            }
+            if (!find) {
+                ++heights[k];
+            }
+        }
+        return heights;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> pourWater(vector<int>& heights, int volume, int k) {
+        while (volume--) {
+            bool find = false;
+            for (int d = -1; d < 2 && !find; d += 2) {
+                int i = k, j = k;
+                while (i + d >= 0 && i + d < heights.size() && heights[i + d] <= heights[i]) {
+                    if (heights[i + d] < heights[i]) {
+                        j = i + d;
+                    }
+                    i += d;
+                }
+                if (j != k) {
+                    find = true;
+                    ++heights[j];
+                }
+            }
+            if (!find) {
+                ++heights[k];
+            }
+        }
+        return heights;
+    }
+};
 ```
 
 ### **...**
