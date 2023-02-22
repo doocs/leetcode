@@ -47,18 +47,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-> 一个回文字符串，最多存在一个出现奇数次数的字符，
+**方法一：计数**
 
-先统计所有字符出现的次数，通用的方式是哈希表。题目已说明只存在大小写字母（52 种可能），也可以使用数组来存储。
+一个合法的回文字符串，最多存在一个出现奇数次数的字符，其余字符出现次数均为偶数。
 
-而后，可分两种方式：
+因此，我们可以先遍历字符串 $s$，统计每个字符出现的次数，记录在数组或哈希表 $cnt$ 中。
 
--   布尔变量
-    -   累加出现次数为偶数的数值。
-    -   对于奇数，第一次出现，完整累加；后续出现，则需要对次数 `-1` 去奇，再累加。
--   计数器
-    -   记录奇数出现的次数，最后的结果回文长度由 `s.length - count` 得知。
-    -   如果只存在一个奇数，那么可以直接返回 `s.length`.
+然后，我们遍历 $cnt$，对于每个字符 $c$，如果 $cnt[c]$ 为偶数，则直接将 $cnt[c]$ 累加到答案 $ans$ 中；如果 $cnt[c]$ 为奇数，则将 $cnt[c] - 1$ 累加到 $ans$ 中，如果 $ans$ 为偶数，则将 $ans$ 增加 $1$。
+
+最后，我们返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度；而 $C$ 为字符集的大小，本题中 $C = 128$。
 
 <!-- tabs:start -->
 
@@ -69,10 +68,12 @@
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        n = len(s)
-        counter = Counter(s)
-        odd_cnt = sum(e % 2 for e in counter.values())
-        return n if odd_cnt == 0 else n - odd_cnt + 1
+        cnt = Counter(s)
+        ans = 0
+        for v in cnt.values():
+            ans += v - (v & 1)
+            ans += (ans & 1 ^ 1) and (v & 1)
+        return ans
 ```
 
 ### **Java**
@@ -82,17 +83,59 @@ class Solution:
 ```java
 class Solution {
     public int longestPalindrome(String s) {
-        int[] counter = new int[128];
-        for (char c : s.toCharArray()) {
-            ++counter[c];
+        int[] cnt = new int[128];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i)];
         }
-        int oddCnt = 0;
-        for (int e : counter) {
-            oddCnt += (e % 2);
+        int ans = 0;
+        for (int v : cnt) {
+            ans += v - (v & 1);
+            if (ans % 2 == 0 && v % 2 == 1) {
+                ++ans;
+            }
         }
-        int n = s.length();
-        return oddCnt == 0 ? n : n - oddCnt + 1;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        int cnt[128]{};
+        for (char& c : s) {
+            ++cnt[c];
+        }
+        int ans = 0;
+        for (int v : cnt) {
+            ans += v - (v & 1);
+            if (ans % 2 == 0 && v % 2 == 1) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestPalindrome(s string) (ans int) {
+	cnt := [128]int{}
+	for _, c := range s {
+		cnt[c]++
+	}
+	for _, v := range cnt {
+		ans += v - (v & 1)
+		if ans&1 == 0 && v&1 == 1 {
+			ans++
+		}
+	}
+	return
 }
 ```
 
@@ -130,42 +173,6 @@ function longestPalindrome(s: string): number {
         }
     }
     return res + (hasOdd ? 1 : 0);
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int longestPalindrome(string s) {
-        vector<int> counter(128);
-        for (char c : s) ++counter[c];
-        int oddCnt = 0;
-        for (int e : counter) oddCnt += e % 2;
-        int n = s.size();
-        return oddCnt == 0 ? n : n - oddCnt + 1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func longestPalindrome(s string) int {
-	counter := make([]int, 128)
-	for _, c := range s {
-		counter[c]++
-	}
-	oddCnt := 0
-	for _, e := range counter {
-		oddCnt += e % 2
-	}
-	n := len(s)
-	if oddCnt == 0 {
-		return n
-	}
-	return n - oddCnt + 1
 }
 ```
 

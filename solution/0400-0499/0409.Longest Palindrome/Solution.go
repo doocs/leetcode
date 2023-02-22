@@ -1,15 +1,13 @@
-func longestPalindrome(s string) int {
-	counter := make([]int, 128)
+func longestPalindrome(s string) (ans int) {
+	cnt := [128]int{}
 	for _, c := range s {
-		counter[c]++
+		cnt[c]++
 	}
-	oddCnt := 0
-	for _, e := range counter {
-		oddCnt += e % 2
+	for _, v := range cnt {
+		ans += v - (v & 1)
+		if ans&1 == 0 && v&1 == 1 {
+			ans++
+		}
 	}
-	n := len(s)
-	if oddCnt == 0 {
-		return n
-	}
-	return n - oddCnt + 1
+	return
 }
