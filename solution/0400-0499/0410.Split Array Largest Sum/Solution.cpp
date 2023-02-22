@@ -1,27 +1,30 @@
 class Solution {
 public:
-    int splitArray(vector<int>& nums, int m) {
-        int left = *max_element(nums.begin(), nums.end()), right = (int) 1e9;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (check(nums, m, mid))
-                right = mid;
-            else
-                left = mid + 1;
+    int splitArray(vector<int>& nums, int k) {
+        int left = 0, right = 0;
+        for (int& x : nums) {
+            left = max(left, x);
+            right += x;
         }
-        return left;
-    }
-
-    bool check(vector<int>& nums, int m, int x) {
-        int s = 0, cnt = 1;
-        for (int num : nums) {
-            if (s + num > x) {
-                ++cnt;
-                s = num;
+        auto check = [&](int mx) {
+            int s = 1 << 30, cnt = 0;
+            for (int& x : nums) {
+                s += x;
+                if (s > mx) {
+                    s = x;
+                    ++cnt;
+                }
+            }
+            return cnt <= k;
+        };
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (check(mid)) {
+                right = mid;
             } else {
-                s += num;
+                left = mid + 1;
             }
         }
-        return cnt <= m;
+        return left;
     }
 };

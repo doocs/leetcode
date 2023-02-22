@@ -1,31 +1,21 @@
 func splitArray(nums []int, k int) int {
-	mx := -1
-	for _, num := range nums {
-		mx = max(mx, num)
+	left, right := 0, 0
+	for _, x := range nums {
+		left = max(left, x)
+		right += x
 	}
-	left, right := mx, int(1e9)
-	for left < right {
-		mid := (left + right) >> 1
-		if check(nums, k, mid) {
-			right = mid
-		} else {
-			left = mid + 1
+	return left + sort.Search(right-left, func(mx int) bool {
+		mx += left
+		s, cnt := 1<<30, 0
+		for _, x := range nums {
+			s += x
+			if s > mx {
+				s = x
+				cnt++
+			}
 		}
-	}
-	return left
-}
-
-func check(nums []int, k, x int) bool {
-	s, cnt := 0, 1
-	for _, num := range nums {
-		if s+num > x {
-			cnt++
-			s = num
-		} else {
-			s += num
-		}
-	}
-	return cnt <= k
+		return cnt <= k
+	})
 }
 
 func max(a, b int) int {
