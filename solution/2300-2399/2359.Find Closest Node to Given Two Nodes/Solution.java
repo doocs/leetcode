@@ -1,22 +1,23 @@
 class Solution {
-    private static final int INF = 0x3f3f3f3f;
+    private int n;
+    private List<Integer>[] g;
 
     public int closestMeetingNode(int[] edges, int node1, int node2) {
-        int n = edges.length;
-        List<Integer>[] g = new List[n];
+        n = edges.length;
+        g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
             if (edges[i] != -1) {
                 g[i].add(edges[i]);
             }
         }
-        int[] d1 = dijkstra(g, node1);
-        int[] d2 = dijkstra(g, node2);
-        int d = INF;
+        int[] d1 = dijkstra(node1);
+        int[] d2 = dijkstra(node2);
+        int d = 1 << 30;
         int ans = -1;
         for (int i = 0; i < n; ++i) {
             int t = Math.max(d1[i], d2[i]);
-            if (d > t) {
+            if (t < d) {
                 d = t;
                 ans = i;
             }
@@ -24,25 +25,19 @@ class Solution {
         return ans;
     }
 
-    private int[] dijkstra(List<Integer>[] g, int u) {
-        int n = g.length;
+    private int[] dijkstra(int i) {
         int[] dist = new int[n];
-        Arrays.fill(dist, INF);
-        dist[u] = 0;
-        PriorityQueue<Pair<Integer, Integer>> q
-            = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
-        q.offer(new Pair<>(0, u));
+        Arrays.fill(dist, 1 << 30);
+        dist[i] = 0;
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        q.offer(new int[] {0, i});
         while (!q.isEmpty()) {
-            Pair<Integer, Integer> p = q.poll();
-            int d = p.getKey();
-            u = p.getValue();
-            if (d > dist[u]) {
-                continue;
-            }
-            for (int v : g[u]) {
-                if (dist[v] > dist[u] + 1) {
-                    dist[v] = dist[u] + 1;
-                    q.offer(new Pair<>(dist[v], v));
+            var p = q.poll();
+            i = p[1];
+            for (int j : g[i]) {
+                if (dist[j] > dist[i] + 1) {
+                    dist[j] = dist[i] + 1;
+                    q.offer(new int[] {dist[j], j});
                 }
             }
         }

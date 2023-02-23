@@ -1,30 +1,27 @@
 class Solution:
     def closestMeetingNode(self, edges: List[int], node1: int, node2: int) -> int:
-        def dijkstra(g, u):
+        def dijkstra(i):
             dist = [inf] * n
-            dist[u] = 0
-            q = [(0, u)]
+            dist[i] = 0
+            q = [(0, i)]
             while q:
-                d, u = heappop(q)
-                if d > dist[u]:
-                    continue
-                for v in g[u]:
-                    if dist[v] > dist[u] + 1:
-                        dist[v] = dist[u] + 1
-                        heappush(q, (dist[v], v))
+                i = heappop(q)[1]
+                for j in g[i]:
+                    if dist[j] > dist[i] + 1:
+                        dist[j] = dist[i] + 1
+                        heappush(q, (dist[j], j))
             return dist
 
         g = defaultdict(list)
+        for i, j in enumerate(edges):
+            if j != -1:
+                g[i].append(j)
         n = len(edges)
-        for i, v in enumerate(edges):
-            if v != -1:
-                g[i].append(v)
-        d1 = dijkstra(g, node1)
-        d2 = dijkstra(g, node2)
-        d = inf
-        ans = -1
+        d1 = dijkstra(node1)
+        d2 = dijkstra(node2)
+        ans, d = -1, inf
         for i, (a, b) in enumerate(zip(d1, d2)):
-            if d > max(a, b):
-                d = max(a, b)
+            if (t := max(a, b)) < d:
+                d = t
                 ans = i
         return ans
