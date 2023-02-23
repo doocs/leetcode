@@ -50,8 +50,7 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        s = {v for v in nums if v}
-        return len(s)
+        return len({x for x in nums if x})
 ```
 
 ### **Java**
@@ -59,13 +58,16 @@ class Solution:
 ```java
 class Solution {
     public int minimumOperations(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            if (v > 0) {
-                s.add(v);
+        boolean[] s = new boolean[101];
+        s[0] = true;
+        int ans = 0;
+        for (int x : nums) {
+            if (!s[x]) {
+                ++ans;
+                s[x] = true;
             }
         }
-        return s.size();
+        return ans;
     }
 }
 ```
@@ -76,10 +78,16 @@ class Solution {
 class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int v : nums)
-            if (v) s.insert(v);
-        return s.size();
+        bool s[101]{};
+        s[0] = true;
+        int ans = 0;
+        for (int& x : nums) {
+            if (!s[x]) {
+                ++ans;
+                s[x] = true;
+            }
+        }
+        return ans;
     }
 };
 ```
@@ -87,14 +95,15 @@ public:
 ### **Go**
 
 ```go
-func minimumOperations(nums []int) int {
-	s := map[int]bool{}
-	for _, v := range nums {
-		if v > 0 {
-			s[v] = true
+func minimumOperations(nums []int) (ans int) {
+	s := [101]bool{true}
+	for _, x := range nums {
+		if !s[x] {
+			s[x] = true
+			ans++
 		}
 	}
-	return len(s)
+	return
 }
 ```
 

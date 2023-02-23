@@ -48,11 +48,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表去重**
+**方法一：哈希表或数组**
 
-求去重后的非零元素个数。
+我们观察到，每一次操作，都可以把数组 `nums` 中相同且非零的元素减少到 $0$，因此，我们只需要统计数组 `nums` 中有多少个不同的非零元素，即为最少操作数。统计不同的非零元素，可以使用哈希表或数组来实现。
 
-时间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -63,8 +63,7 @@
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        s = {v for v in nums if v}
-        return len(s)
+        return len({x for x in nums if x})
 ```
 
 ### **Java**
@@ -74,13 +73,16 @@ class Solution:
 ```java
 class Solution {
     public int minimumOperations(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            if (v > 0) {
-                s.add(v);
+        boolean[] s = new boolean[101];
+        s[0] = true;
+        int ans = 0;
+        for (int x : nums) {
+            if (!s[x]) {
+                ++ans;
+                s[x] = true;
             }
         }
-        return s.size();
+        return ans;
     }
 }
 ```
@@ -91,10 +93,16 @@ class Solution {
 class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int v : nums)
-            if (v) s.insert(v);
-        return s.size();
+        bool s[101]{};
+        s[0] = true;
+        int ans = 0;
+        for (int& x : nums) {
+            if (!s[x]) {
+                ++ans;
+                s[x] = true;
+            }
+        }
+        return ans;
     }
 };
 ```
@@ -102,14 +110,15 @@ public:
 ### **Go**
 
 ```go
-func minimumOperations(nums []int) int {
-	s := map[int]bool{}
-	for _, v := range nums {
-		if v > 0 {
-			s[v] = true
+func minimumOperations(nums []int) (ans int) {
+	s := [101]bool{true}
+	for _, x := range nums {
+		if !s[x] {
+			s[x] = true
+			ans++
 		}
 	}
-	return len(s)
+	return
 }
 ```
 

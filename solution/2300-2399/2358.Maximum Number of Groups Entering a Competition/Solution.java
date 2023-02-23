@@ -1,18 +1,15 @@
 class Solution {
     public int maximumGroups(int[] grades) {
-        Arrays.sort(grades);
-        int ans = 1;
-        int[] prev = new int[] {1, grades[0]};
-        int[] curr = new int[] {0, 0};
-        for (int i = 1; i < grades.length; ++i) {
-            curr[0]++;
-            curr[1] += grades[i];
-            if (prev[0] < curr[0] && prev[1] < curr[1]) {
-                prev = curr;
-                curr = new int[] {0, 0};
-                ++ans;
+        int n = grades.length;
+        int l = 0, r = n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (1L * mid * mid + mid > n * 2L) {
+                r = mid - 1;
+            } else {
+                l = mid;
             }
         }
-        return ans;
+        return l;
     }
 }

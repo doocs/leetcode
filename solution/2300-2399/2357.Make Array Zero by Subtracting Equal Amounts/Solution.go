@@ -1,9 +1,10 @@
-func minimumOperations(nums []int) int {
-	s := map[int]bool{}
-	for _, v := range nums {
-		if v > 0 {
-			s[v] = true
+func minimumOperations(nums []int) (ans int) {
+	s := [101]bool{true}
+	for _, x := range nums {
+		if !s[x] {
+			s[x] = true
+			ans++
 		}
 	}
-	return len(s)
+	return
 }

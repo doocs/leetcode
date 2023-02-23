@@ -51,18 +51,8 @@ It can be shown that it is not possible to form more than 3 groups.
 ```python
 class Solution:
     def maximumGroups(self, grades: List[int]) -> int:
-        grades.sort()
-        ans = 1
-        prev = [1, grades[0]]
-        curr = [0, 0]
-        for v in grades[1:]:
-            curr[0] += 1
-            curr[1] += v
-            if prev[0] < curr[0] and prev[1] < curr[1]:
-                prev = curr
-                curr = [0, 0]
-                ans += 1
-        return ans
+        n = len(grades)
+        return bisect_right(range(n + 1), n * 2, key=lambda x: x * x + x) - 1
 ```
 
 ### **Java**
@@ -70,20 +60,17 @@ class Solution:
 ```java
 class Solution {
     public int maximumGroups(int[] grades) {
-        Arrays.sort(grades);
-        int ans = 1;
-        int[] prev = new int[] {1, grades[0]};
-        int[] curr = new int[] {0, 0};
-        for (int i = 1; i < grades.length; ++i) {
-            curr[0]++;
-            curr[1] += grades[i];
-            if (prev[0] < curr[0] && prev[1] < curr[1]) {
-                prev = curr;
-                curr = new int[] {0, 0};
-                ++ans;
+        int n = grades.length;
+        int l = 0, r = n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (1L * mid * mid + mid > n * 2L) {
+                r = mid - 1;
+            } else {
+                l = mid;
             }
         }
-        return ans;
+        return l;
     }
 }
 ```
@@ -94,20 +81,17 @@ class Solution {
 class Solution {
 public:
     int maximumGroups(vector<int>& grades) {
-        sort(grades.begin(), grades.end());
-        int ans = 1;
-        vector<int> prev = {1, grades[0]};
-        vector<int> curr = {0, 0};
-        for (int i = 1; i < grades.size(); ++i) {
-            curr[0]++;
-            curr[1] += grades[i];
-            if (prev[0] < curr[0] && prev[1] < curr[1]) {
-                prev = curr;
-                curr = {0, 0};
-                ++ans;
+        int n = grades.size();
+        int l = 0, r = n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (1LL * mid * mid + mid > n * 2LL) {
+                r = mid - 1;
+            } else {
+                l = mid;
             }
         }
-        return ans;
+        return l;
     }
 };
 ```
@@ -116,27 +100,31 @@ public:
 
 ```go
 func maximumGroups(grades []int) int {
-	sort.Ints(grades)
-	ans := 1
-	prev := []int{1, grades[0]}
-	curr := []int{0, 0}
-	for _, v := range grades[1:] {
-		curr[0]++
-		curr[1] += v
-		if prev[0] < curr[0] && prev[1] < curr[1] {
-			prev = curr
-			curr = []int{0, 0}
-			ans++
-		}
-	}
-	return ans
+	n := len(grades)
+	return sort.Search(n, func(k int) bool {
+		k++
+		return k*k+k > n*2
+	})
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maximumGroups(grades: number[]): number {
+    const n = grades.length;
+    let l = 1;
+    let r = n;
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (mid * mid + mid > n * 2) {
+            r = mid - 1;
+        } else {
+            l = mid;
+        }
+    }
+    return l;
+}
 ```
 
 ### **...**
