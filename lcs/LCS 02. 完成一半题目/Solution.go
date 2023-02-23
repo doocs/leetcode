@@ -1,14 +1,13 @@
-func halfQuestions(questions []int) int {
-	counter := make([]int, 1010)
-	for _, q := range questions {
-		counter[q]++
+func halfQuestions(questions []int) (ans int) {
+	cnt := make([]int, 1010)
+	for _, x := range questions {
+		cnt[x]++
 	}
 	n := len(questions) >> 1
-	sort.Ints(counter)
-	ans := 0
-	for i := len(counter) - 1; n > 0; i-- {
+	sort.Ints(cnt)
+	for i := len(cnt) - 1; n > 0; i-- {
 		ans++
-		n -= counter[i]
+		n -= cnt[i]
 	}
-	return ans
+	return
 }

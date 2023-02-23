@@ -1,8 +1,4 @@
-/**
- * @param {number[]} questions
- * @return {number}
- */
-var halfQuestions = function (questions) {
+function halfQuestions(questions: number[]): number {
     const cnt = new Array(1010).fill(0);
     for (const x of questions) {
         ++cnt[x];
@@ -15,4 +11,4 @@ var halfQuestions = function (questions) {
         n -= cnt[i];
     }
     return ans;
-};
+}

@@ -36,9 +36,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-统计各个问题类型出现的次数，按照次数降序排列。
+**方法一：计数 + 排序**
 
-然后依次选择问题类型，直至满足条件。
+我们可以用哈希表或数组 `cnt` 统计每种知识点类型的题目数量，然后对 `cnt` 进行排序，从大到小遍历 `cnt`，直到遍历的题目数量之和大于等于 `n` 即可，此时遍历的次数即为所求。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 `questions` 的长度。
 
 <!-- tabs:start -->
 
@@ -49,14 +51,13 @@
 ```python
 class Solution:
     def halfQuestions(self, questions: List[int]) -> int:
-        counter = Counter(questions)
-        n = len(questions) >> 1
-        ans = 0
-        for i, v in counter.most_common():
+        cnt = Counter(questions)
+        ans, n = 0, len(questions) >> 1
+        for _, v in cnt.most_common():
             ans += 1
-            if v >= n:
-                return ans
             n -= v
+            if n <= 0:
+                break
         return ans
 ```
 
@@ -67,16 +68,16 @@ class Solution:
 ```java
 class Solution {
     public int halfQuestions(int[] questions) {
-        int[] counter = new int[1010];
-        for (int q : questions) {
-            ++counter[q];
+        int[] cnt = new int[1010];
+        for (int x : questions) {
+            ++cnt[x];
         }
-        Arrays.sort(counter);
+        Arrays.sort(cnt);
         int ans = 0;
         int n = questions.length >> 1;
-        for (int i = counter.length - 1; n > 0; --i) {
+        for (int i = cnt.length - 1; n > 0; --i) {
             ++ans;
-            n -= counter[i];
+            n -= cnt[i];
         }
         return ans;
     }
@@ -89,14 +90,15 @@ class Solution {
 class Solution {
 public:
     int halfQuestions(vector<int>& questions) {
-        vector<int> counter(1010);
-        for (int q : questions) ++counter[q];
-        int n = questions.size() >> 1;
-        sort(counter.begin(), counter.end());
-        int ans = 0;
-        for (int i = counter.size() - 1; n > 0; --i) {
+        int cnt[1001]{};
+        for (int& x : questions) {
+            ++cnt[x];
+        }
+        sort(cnt, cnt + 1001);
+        int ans = 0, n = questions.size() / 2;
+        for (int i = 1000; n > 0; --i) {
             ++ans;
-            n -= counter[i];
+            n -= cnt[i];
         }
         return ans;
     }
@@ -106,19 +108,18 @@ public:
 ### **Go**
 
 ```go
-func halfQuestions(questions []int) int {
-	counter := make([]int, 1010)
-	for _, q := range questions {
-		counter[q]++
+func halfQuestions(questions []int) (ans int) {
+	cnt := make([]int, 1010)
+	for _, x := range questions {
+		cnt[x]++
 	}
 	n := len(questions) >> 1
-	sort.Ints(counter)
-	ans := 0
-	for i := len(counter) - 1; n > 0; i-- {
+	sort.Ints(cnt)
+	for i := len(cnt) - 1; n > 0; i-- {
 		ans++
-		n -= counter[i]
+		n -= cnt[i]
 	}
-	return ans
+	return
 }
 ```
 
@@ -130,19 +131,38 @@ func halfQuestions(questions []int) int {
  * @return {number}
  */
 var halfQuestions = function (questions) {
-    let counter = new Array(1010).fill(0);
-    for (const q of questions) {
-        ++counter[q];
+    const cnt = new Array(1010).fill(0);
+    for (const x of questions) {
+        ++cnt[x];
     }
-    counter.sort((a, b) => b - a);
+    cnt.sort((a, b) => b - a);
     let ans = 0;
     let n = questions.length >> 1;
     for (let i = 0; n > 0; ++i) {
         ++ans;
-        n -= counter[i];
+        n -= cnt[i];
     }
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function halfQuestions(questions: number[]): number {
+    const cnt = new Array(1010).fill(0);
+    for (const x of questions) {
+        ++cnt[x];
+    }
+    cnt.sort((a, b) => b - a);
+    let ans = 0;
+    let n = questions.length >> 1;
+    for (let i = 0; n > 0; ++i) {
+        ++ans;
+        n -= cnt[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**
