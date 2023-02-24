@@ -111,14 +111,38 @@ func minimumOperations(nums []int) (ans int) {
 
 ```ts
 function minimumOperations(nums: number[]): number {
-    const s = new Array(101).fill(false);
-    s[0] = true;
-    let ans = 0;
-    for (const x of nums) {
-        if (!s[x]) {
-            s[x] = true;
-            ++ans;
+    const set = new Set(nums);
+    set.delete(0);
+    return set.size;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn minimum_operations(nums: Vec<i32>) -> i32 {
+        let mut set = nums.iter().collect::<HashSet<&i32>>();
+        set.remove(&0);
+        set.len() as i32
+    }
+}
+```
+
+### **C**
+
+```c
+int minimumOperations(int *nums, int numsSize) {
+    int vis[101] = {0};
+    vis[0] = 1;
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        if (vis[nums[i]]) {
+            continue;
         }
+        vis[nums[i]] = 1;
+        ans++;
     }
     return ans;
 }
