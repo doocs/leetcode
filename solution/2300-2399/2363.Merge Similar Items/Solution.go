@@ -1,16 +1,15 @@
-func mergeSimilarItems(items1 [][]int, items2 [][]int) [][]int {
-	cnt := make([]int, 1010)
-	for _, e := range items1 {
-		cnt[e[0]] += e[1]
+func mergeSimilarItems(items1 [][]int, items2 [][]int) (ans [][]int) {
+	cnt := [1010]int{}
+	for _, x := range items1 {
+		cnt[x[0]] += x[1]
 	}
-	for _, e := range items2 {
-		cnt[e[0]] += e[1]
+	for _, x := range items2 {
+		cnt[x[0]] += x[1]
 	}
-	ans := [][]int{}
-	for i, v := range cnt {
-		if v > 0 {
-			ans = append(ans, []int{i, v})
+	for i, x := range cnt {
+		if x > 0 {
+			ans = append(ans, []int{i, x})
 		}
 	}
-	return ans
+	return
 }

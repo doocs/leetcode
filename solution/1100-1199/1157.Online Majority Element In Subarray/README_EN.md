@@ -194,7 +194,7 @@ class SegmentTree {
         } else {
             tr[u].x = tr[u << 1 | 1].x;
             tr[u].cnt = tr[u << 1 | 1].cnt - tr[u << 1].cnt;
-        } 
+        }
     }
 }
 
@@ -208,7 +208,7 @@ class MajorityChecker {
             d.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
         }
     }
-    
+
     public int query(int left, int right, int threshold) {
         int x = tree.query(1, left + 1, right + 1)[0];
         int l = search(d.get(x), left);

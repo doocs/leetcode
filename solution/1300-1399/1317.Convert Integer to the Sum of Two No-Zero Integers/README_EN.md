@@ -66,7 +66,7 @@ class Solution:
                     return False
                 x //= 10
             return True
-        
+
         for a in range(1, n):
             b = n - a
             if f(a) and f(b):
