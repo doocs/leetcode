@@ -6,9 +6,9 @@ type Trie struct {
 func newTrie() *Trie {
 	return &Trie{}
 }
-func (this *Trie) insert(word string, i int) {
+func (this *Trie) insert(w string, i int) {
 	node := this
-	for _, c := range word {
+	for _, c := range w {
 		c -= 'a'
 		if node.children[c] == nil {
 			node.children[c] = newTrie()
@@ -20,35 +20,33 @@ func (this *Trie) insert(word string, i int) {
 	}
 }
 
-func (this *Trie) search(word string) [][]int {
+func (this *Trie) search(w string) [][]int {
 	node := this
-	n := len(word)
-	res := make([][]int, n)
-	for i, c := range word {
+	n := len(w)
+	ans := make([][]int, n)
+	for i, c := range w {
 		c -= 'a'
 		if node.children[c] == nil {
 			break
 		}
 		node = node.children[c]
-		res[i] = node.v
+		ans[i] = node.v
 	}
-	return res
+	return ans
 }
 
-func suggestedProducts(products []string, searchWord string) [][]string {
+func suggestedProducts(products []string, searchWord string) (ans [][]string) {
 	sort.Strings(products)
 	trie := newTrie()
 	for i, w := range products {
 		trie.insert(w, i)
 	}
-	res := trie.search(searchWord)
-	var ans [][]string
-	for _, v := range res {
+	for _, v := range trie.search(searchWord) {
 		t := []string{}
 		for _, i := range v {
 			t = append(t, products[i])
 		}
 		ans = append(ans, t)
 	}
-	return ans
+	return
 }

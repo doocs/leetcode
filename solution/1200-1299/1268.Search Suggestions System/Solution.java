@@ -2,37 +2,34 @@ class Trie {
     Trie[] children = new Trie[26];
     List<Integer> v = new ArrayList<>();
 
-    void insert(String word, int i) {
+    public void insert(String w, int i) {
         Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+        for (int j = 0; j < w.length(); ++j) {
+            int idx = w.charAt(j) - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[c];
+            node = node.children[idx];
             if (node.v.size() < 3) {
                 node.v.add(i);
             }
         }
     }
 
-    List<List<Integer>> search(String word) {
-        List<List<Integer>> res = new ArrayList<>();
-        int n = word.length();
-        for (int i = 0; i < n; ++i) {
-            res.add(new ArrayList<>());
-        }
+    public List<Integer>[] search(String w) {
         Trie node = this;
+        int n = w.length();
+        List<Integer>[] ans = new List[n];
+        Arrays.setAll(ans, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
-            char c = word.charAt(i);
-            c -= 'a';
-            if (node.children[c] == null) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
                 break;
             }
-            node = node.children[c];
-            res.set(i, node.v);
+            node = node.children[idx];
+            ans[i] = node.v;
         }
-        return res;
+        return ans;
     }
 }
 
@@ -43,9 +40,8 @@ class Solution {
         for (int i = 0; i < products.length; ++i) {
             trie.insert(products[i], i);
         }
-        List<List<Integer>> res = trie.search(searchWord);
         List<List<String>> ans = new ArrayList<>();
-        for (List<Integer> v : res) {
+        for (var v : trie.search(searchWord)) {
             List<String> t = new ArrayList<>();
             for (int i : v) {
                 t.add(products[i]);

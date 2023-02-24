@@ -51,28 +51,29 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 ```python
 class Trie:
     def __init__(self):
-        self.children = [None] * 26
-        self.v = []
+        self.children: List[Union[Trie, None]] = [None] * 26
+        self.v: List[int] = []
 
-    def insert(self, word, i):
+    def insert(self, w, i):
         node = self
-        for c in word:
+        for c in w:
             idx = ord(c) - ord('a')
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
-            node.v.append(i)
+            if len(node.v) < 3:
+                node.v.append(i)
 
-    def search(self, word):
-        res = [[] for _ in range(len(word))]
+    def search(self, w):
         node = self
-        for i, c in enumerate(word):
+        ans = [[] for _ in range(len(w))]
+        for i, c in enumerate(w):
             idx = ord(c) - ord('a')
             if node.children[idx] is None:
                 break
             node = node.children[idx]
-            res[i] = node.v[:3]
-        return res
+            ans[i] = node.v
+        return ans
 
 
 class Solution:
@@ -83,8 +84,7 @@ class Solution:
         trie = Trie()
         for i, w in enumerate(products):
             trie.insert(w, i)
-        res = trie.search(searchWord)
-        return [[products[j] for j in v] for v in res]
+        return [[products[i] for i in v] for v in trie.search(searchWord)]
 ```
 
 ### **Java**
@@ -94,37 +94,34 @@ class Trie {
     Trie[] children = new Trie[26];
     List<Integer> v = new ArrayList<>();
 
-    void insert(String word, int i) {
+    public void insert(String w, int i) {
         Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+        for (int j = 0; j < w.length(); ++j) {
+            int idx = w.charAt(j) - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[c];
+            node = node.children[idx];
             if (node.v.size() < 3) {
                 node.v.add(i);
             }
         }
     }
 
-    List<List<Integer>> search(String word) {
-        List<List<Integer>> res = new ArrayList<>();
-        int n = word.length();
-        for (int i = 0; i < n; ++i) {
-            res.add(new ArrayList<>());
-        }
+    public List<Integer>[] search(String w) {
         Trie node = this;
+        int n = w.length();
+        List<Integer>[] ans = new List[n];
+        Arrays.setAll(ans, k -> new ArrayList<>());
         for (int i = 0; i < n; ++i) {
-            char c = word.charAt(i);
-            c -= 'a';
-            if (node.children[c] == null) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
                 break;
             }
-            node = node.children[c];
-            res.set(i, node.v);
+            node = node.children[idx];
+            ans[i] = node.v;
         }
-        return res;
+        return ans;
     }
 }
 
@@ -135,9 +132,8 @@ class Solution {
         for (int i = 0; i < products.length; ++i) {
             trie.insert(products[i], i);
         }
-        List<List<Integer>> res = trie.search(searchWord);
         List<List<String>> ans = new ArrayList<>();
-        for (List<Integer> v : res) {
+        for (var v : trie.search(searchWord)) {
             List<String> t = new ArrayList<>();
             for (int i : v) {
                 t.add(products[i]);
@@ -147,6 +143,66 @@ class Solution {
         return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Trie {
+public:
+    void insert(string& w, int i) {
+        Trie* node = this;
+        for (int j = 0; j < w.size(); ++j) {
+            int idx = w[j] - 'a';
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
+            node = node->children[idx];
+            if (node->v.size() < 3) {
+                node->v.push_back(i);
+            }
+        }
+    }
+
+    vector<vector<int>> search(string& w) {
+        Trie* node = this;
+        int n = w.size();
+        vector<vector<int>> ans(n);
+        for (int i = 0; i < w.size(); ++i) {
+            int idx = w[i] - 'a';
+            if (!node->children[idx]) {
+                break;
+            }
+            node = node->children[idx];
+            ans[i] = move(node->v);
+        }
+        return ans;
+    }
+
+private:
+    vector<Trie*> children = vector<Trie*>(26);
+    vector<int> v;
+};
+
+class Solution {
+public:
+    vector<vector<string>> suggestedProducts(vector<string>& products, string searchWord) {
+        sort(products.begin(), products.end());
+        Trie* trie = new Trie();
+        for (int i = 0; i < products.size(); ++i) {
+            trie->insert(products[i], i);
+        }
+        vector<vector<string>> ans;
+        for (auto& v : trie->search(searchWord)) {
+            vector<string> t;
+            for (int i : v) {
+                t.push_back(products[i]);
+            }
+            ans.push_back(move(t));
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
@@ -160,9 +216,9 @@ type Trie struct {
 func newTrie() *Trie {
 	return &Trie{}
 }
-func (this *Trie) insert(word string, i int) {
+func (this *Trie) insert(w string, i int) {
 	node := this
-	for _, c := range word {
+	for _, c := range w {
 		c -= 'a'
 		if node.children[c] == nil {
 			node.children[c] = newTrie()
@@ -174,37 +230,35 @@ func (this *Trie) insert(word string, i int) {
 	}
 }
 
-func (this *Trie) search(word string) [][]int {
+func (this *Trie) search(w string) [][]int {
 	node := this
-	n := len(word)
-	res := make([][]int, n)
-	for i, c := range word {
+	n := len(w)
+	ans := make([][]int, n)
+	for i, c := range w {
 		c -= 'a'
 		if node.children[c] == nil {
 			break
 		}
 		node = node.children[c]
-		res[i] = node.v
+		ans[i] = node.v
 	}
-	return res
+	return ans
 }
 
-func suggestedProducts(products []string, searchWord string) [][]string {
+func suggestedProducts(products []string, searchWord string) (ans [][]string) {
 	sort.Strings(products)
 	trie := newTrie()
 	for i, w := range products {
 		trie.insert(w, i)
 	}
-	res := trie.search(searchWord)
-	var ans [][]string
-	for _, v := range res {
+	for _, v := range trie.search(searchWord) {
 		t := []string{}
 		for _, i := range v {
 			t = append(t, products[i])
 		}
 		ans = append(ans, t)
 	}
-	return ans
+	return
 }
 ```
 
