@@ -52,11 +52,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：DFS**
+**方法一：遍历出发点**
 
-从 $[0, n)$ 遍历出发点，记录途经的点，如果遇到已经访问过的点，说明找到了环的入口。减去起始点到出发点的距离，就是环的长度。求最大的环长度。
+我们可以遍历 $[0,..,n-1]$ 范围内的每个节点，如果该节点未被访问过，则从该节点出发，搜索邻边节点，直到遇到环或者遇到已经访问过的节点。如果遇到环，则更新答案。
 
-时间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 相似题目：[2127. 参加会议的最多员工数](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
 
@@ -75,18 +75,17 @@ class Solution:
         for i in range(n):
             if vis[i]:
                 continue
-            curr = i
+            j = i
             cycle = []
-            while curr != -1 and not vis[curr]:
-                vis[curr] = True
-                cycle.append(curr)
-                curr = edges[curr]
-            if curr == -1:
+            while j != -1 and not vis[j]:
+                vis[j] = True
+                cycle.append(j)
+                j = edges[j]
+            if j == -1:
                 continue
-            for j, v in enumerate(cycle):
-                if v == curr:
-                    ans = max(ans, len(cycle) - j)
-                    break
+            m = len(cycle)
+            k = next((k for k in range(m) if cycle[k] == j), inf)
+            ans = max(ans, m - k)
         return ans
 ```
 
@@ -104,19 +103,18 @@ class Solution {
             if (vis[i]) {
                 continue;
             }
-            int curr = i;
+            int j = i;
             List<Integer> cycle = new ArrayList<>();
-            while (curr != -1 && !vis[curr]) {
-                cycle.add(curr);
-                vis[curr] = true;
-                curr = edges[curr];
+            for (; j != -1 && !vis[j]; j = edges[j]) {
+                vis[j] = true;
+                cycle.add(j);
             }
-            if (curr == -1) {
+            if (j == -1) {
                 continue;
             }
-            for (int j = 0; j < cycle.size(); ++j) {
-                if (cycle.get(j) == curr) {
-                    ans = Math.max(ans, cycle.size() - j);
+            for (int k = 0; k < cycle.size(); ++k) {
+                if (cycle.get(k) == j) {
+                    ans = Math.max(ans, cycle.size() - k);
                     break;
                 }
             }
@@ -133,21 +131,24 @@ class Solution {
 public:
     int longestCycle(vector<int>& edges) {
         int n = edges.size();
-        vector<int> vis(n);
+        vector<bool> vis(n);
         int ans = -1;
         for (int i = 0; i < n; ++i) {
-            if (vis[i]) continue;
-            int curr = i;
-            vector<int> cycle;
-            while (curr != -1 && !vis[curr]) {
-                cycle.push_back(curr);
-                vis[curr] = true;
-                curr = edges[curr];
+            if (vis[i]) {
+                continue;
             }
-            if (curr == -1) continue;
-            for (int j = 0; j < cycle.size(); ++j) {
-                if (cycle[j] == curr) {
-                    ans = max(ans, (int)cycle.size() - j);
+            int j = i;
+            vector<int> cycle;
+            for (; j != -1 && !vis[j]; j = edges[j]) {
+                vis[j] = true;
+                cycle.push_back(j);
+            }
+            if (j == -1) {
+                continue;
+            }
+            for (int k = 0; k < cycle.size(); ++k) {
+                if (cycle[k] == j) {
+                    ans = max(ans, (int) cycle.size() - k);
                     break;
                 }
             }
@@ -161,26 +162,24 @@ public:
 
 ```go
 func longestCycle(edges []int) int {
-	n := len(edges)
-	vis := make([]bool, n)
+	vis := make([]bool, len(edges))
 	ans := -1
 	for i := range edges {
 		if vis[i] {
 			continue
 		}
-		curr := i
+		j := i
 		cycle := []int{}
-		for curr != -1 && !vis[curr] {
-			cycle = append(cycle, curr)
-			vis[curr] = true
-			curr = edges[curr]
+		for ; j != -1 && !vis[j]; j = edges[j] {
+			vis[j] = true
+			cycle = append(cycle, j)
 		}
-		if curr == -1 {
+		if j == -1 {
 			continue
 		}
-		for j, v := range cycle {
-			if v == curr {
-				ans = max(ans, len(cycle)-j)
+		for k := range cycle {
+			if cycle[k] == j {
+				ans = max(ans, len(cycle)-k)
 				break
 			}
 		}
@@ -199,7 +198,32 @@ func max(a, b int) int {
 ### **TypeScript**
 
 ```ts
-
+function longestCycle(edges: number[]): number {
+    const n = edges.length;
+    const vis = new Array(n).fill(false);
+    let ans = -1;
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
+        }
+        let j = i;
+        const cycle: number[] = [];
+        for (; j != -1 && !vis[j]; j = edges[j]) {
+            vis[j] = true;
+            cycle.push(j);
+        }
+        if (j == -1) {
+            continue;
+        }
+        for (let k = 0; k < cycle.length; ++k) {
+            if (cycle[k] == j) {
+                ans = Math.max(ans, cycle.length - k);
+                break;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

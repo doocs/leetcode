@@ -1,24 +1,22 @@
 func longestCycle(edges []int) int {
-	n := len(edges)
-	vis := make([]bool, n)
+	vis := make([]bool, len(edges))
 	ans := -1
 	for i := range edges {
 		if vis[i] {
 			continue
 		}
-		curr := i
+		j := i
 		cycle := []int{}
-		for curr != -1 && !vis[curr] {
-			cycle = append(cycle, curr)
-			vis[curr] = true
-			curr = edges[curr]
+		for ; j != -1 && !vis[j]; j = edges[j] {
+			vis[j] = true
+			cycle = append(cycle, j)
 		}
-		if curr == -1 {
+		if j == -1 {
 			continue
 		}
-		for j, v := range cycle {
-			if v == curr {
-				ans = max(ans, len(cycle)-j)
+		for k := range cycle {
+			if cycle[k] == j {
+				ans = max(ans, len(cycle)-k)
 				break
 			}
 		}
