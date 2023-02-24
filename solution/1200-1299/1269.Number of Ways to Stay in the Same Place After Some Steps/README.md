@@ -60,7 +60,7 @@
 
 **方法一：记忆化搜索**
 
-我们观察题目的数据范围，可以发现，`steps` 最大不超过 $500$，这意味着我们最远只能往右走 $500$ 步。
+我们观察题目的数据范围，可以发现 $steps$ 最大不超过 $500$，这意味着我们最远只能往右走 $500$ 步。
 
 我们可以设计一个函数 $dfs(i, j)$，表示当前在位置 $i$，并且剩余步数为 $j$ 的方案数。那么答案就是 $dfs(0, steps)$。
 
@@ -72,7 +72,7 @@
 
 过程中，我们可以使用记忆化搜索避免重复计算。
 
-时间复杂度 $O(steps \times steps)，空间复杂度 O(steps \times steps)$。其中 $steps$ 是题目给定的步数。
+时间复杂度 $O(steps \times steps)$，空间复杂度 $O(steps \times steps)$。其中 $steps$ 是题目给定的步数。
 
 <!-- tabs:start -->
 
@@ -195,6 +195,32 @@ func numWays(steps int, arrLen int) int {
 		return
 	}
 	return dfs(0, steps)
+}
+```
+
+### **TypeScript**
+
+```ts
+function numWays(steps: number, arrLen: number): number {
+    const f = Array.from({ length: steps }, () => Array(steps + 1).fill(-1));
+    const mod = 10 ** 9 + 7;
+    const dfs = (i: number, j: number) => {
+        if (i > j || i >= arrLen || i < 0 || j < 0) {
+            return 0;
+        }
+        if (i == 0 && j == 0) {
+            return 1;
+        }
+        if (f[i][j] != -1) {
+            return f[i][j];
+        }
+        let ans = 0;
+        for (let k = -1; k <= 1; ++k) {
+            ans = (ans + dfs(i + k, j - 1)) % mod;
+        }
+        return (f[i][j] = ans);
+    };
+    return dfs(0, steps);
 }
 ```
 
